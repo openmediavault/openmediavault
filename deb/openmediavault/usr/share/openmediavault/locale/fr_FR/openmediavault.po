@@ -3831,13 +3831,13 @@ msgid "Up delay"
 msgstr "Délai de reprise"
 
 msgid "Update Management"
-msgstr "Gestionaire de mises à jour"
+msgstr "Gestionnaire de mises à jour"
 
 msgid "Update Management - History"
-msgstr "Gestionaire de mises à jour - Historique"
+msgstr "Gestionnaire de mises à jour - Historique"
 
 msgid "Update Management - Terminal output"
-msgstr "Gestionaire de mises à jour - Sortie du terminal"
+msgstr "Gestionnaire de mises à jour - Sortie du terminal"
 
 msgid "Update now"
 msgstr "Mettre à jour"
