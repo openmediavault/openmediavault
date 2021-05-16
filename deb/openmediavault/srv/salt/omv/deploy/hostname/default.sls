@@ -21,9 +21,8 @@
 # http://www.debian.org/doc/manuals/debian-reference/ch03.en.html#_the_hostname
 
 {% set config = salt['omv_conf.get']('conf.system.network.dns') %}
-{% set fqdn = [config.hostname, config.domainname] | reject('equalto', '') | join('.') %}
 
 configure_hostname:
   cmd.run:
-    - name: hostnamectl set-hostname "{{ fqdn }}"
-    - unless: test "{{ fqdn }}" = "$(hostname)"
+    - name: hostnamectl set-hostname "{{ config.hostname }}"
+    - unless: test "{{ config.hostname }}" = "$(hostname)"
