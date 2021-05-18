@@ -3,12 +3,6 @@
 
 $mat-typography-config: mat-typography-config();
 
-mat-form-field mat-icon {
-  position: relative;
-  top: 5px;
-  margin-right: 5px;
-}
-
 .mat-list-base .mat-list-option {
   font-size: mat-font-size($mat-typography-config, body-1);
 }

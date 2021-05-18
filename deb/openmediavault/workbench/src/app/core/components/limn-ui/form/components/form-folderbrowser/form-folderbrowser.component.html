@@ -19,14 +19,13 @@
          [required]="config.validators?.required"
          [minlength]="config.validators?.minLength"
          [maxlength]="config.validators?.maxLength">
-  <mat-icon *ngIf="formGroup.controls[config.dirRefIdField].value"
-            class="omv-icon-color-default omv-cursor-pointer"
-            matSuffix
-            matRipple
-            svgIcon="mdi:file-tree"
-            matTooltip="{{ 'Browse directory' | translate }}"
-            (click)="open()">
-  </mat-icon>
+  <button *ngIf="formGroup.controls[config.dirRefIdField].value"
+          mat-icon-button
+          matSuffix
+          matTooltip="{{ 'Browse directory' | translate }}"
+          (click)="open()">
+    <mat-icon svgIcon="mdi:file-tree"></mat-icon>
+  </button>
   <mat-error *ngIf="formGroup.invalid">
     <span *ngIf="formGroup.hasError('required', config.name)"
           translate>

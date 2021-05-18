@@ -15,19 +15,20 @@
   </button>
   <div *ngIf="hasSearchField">
     <mat-form-field>
-      <mat-icon matPrefix
-                svgIcon="{{ icon.search }}">
-      </mat-icon>
+      <button mat-icon-button
+              matPrefix>
+        <mat-icon svgIcon="{{ icon.search }}"></mat-icon>
+      </button>
       <input matInput
              type="search"
              [(ngModel)]="searchFilter"
              (keyup)="applySearchFilter()">
-      <mat-icon matSuffix
-                class="omv-cursor-pointer"
-                svgIcon="{{ icon.clear }}"
-                matTooltip="{{ 'Clear' | translate }}"
-                (click)="clearSearchFilter()">
-      </mat-icon>
+      <button mat-icon-button
+              matSuffix
+              matTooltip="{{ 'Clear' | translate }}"
+              (click)="clearSearchFilter()">
+        <mat-icon svgIcon="{{ icon.clear }}"></mat-icon>
+      </button>
     </mat-form-field>
   </div>
   <button *ngIf="hasReloadButton"

@@ -16,14 +16,13 @@
          [required]="config.validators?.required"
          [minlength]="config.validators?.minLength"
          [maxlength]="config.validators?.maxLength">
-  <mat-icon *ngIf="config.hasCopyToClipboardButton"
-            class="omv-cursor-pointer"
-            matSuffix
-            matRipple
-            svgIcon="{{ icon.copy }}"
-            matTooltip="{{ 'Copy to clipboard' | translate }}"
-            (click)="onCopyToClipboard()">
-  </mat-icon>
+  <button *ngIf="config.hasCopyToClipboardButton"
+          mat-icon-button
+          matSuffix
+          matTooltip="{{ 'Copy to clipboard' | translate }}"
+          (click)="onCopyToClipboard()">
+    <mat-icon svgIcon="{{ icon.copy }}"></mat-icon>
+  </button>
   <mat-error *ngIf="formGroup.invalid">
     <span *ngIf="formGroup.hasError('required', config.name)"
           translate>
