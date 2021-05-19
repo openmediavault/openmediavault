@@ -81,8 +81,7 @@ export class FilesystemQuotaDatatablePageComponent {
         template: 'edit',
         execute: {
           type: 'url',
-          url:
-            '/storage/filesystems/quota/{{ _routeParams.uuid }}/edit/{{ _selected[0].type }}/{{ _selected[0].name }}'
+          url: '/storage/filesystems/quota/{{ _routeParams.uuid }}/edit/{{ _selected[0].type }}/{{ _selected[0].name }}'
         }
       }
     ],

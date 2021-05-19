@@ -1,7 +1,7 @@
-@import '~@angular/material/theming';
+@use '~@angular/material' as mat;
 @import 'src/defaults';
 
-$mat-typography-config: mat-typography-config();
+$mat-typography-config: mat.define-typography-config();
 
 .breadcrumb {
   float: left;
@@ -26,7 +26,7 @@ $mat-typography-config: mat-typography-config();
   }
 
   .mat-button {
-    @include mat-typography-level-to-styles($mat-typography-config, subheading-2);
+    @include mat.typography-level($mat-typography-config, subheading-2);
   }
 
   .mat-divider {

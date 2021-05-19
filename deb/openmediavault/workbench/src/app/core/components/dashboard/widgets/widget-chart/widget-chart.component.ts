@@ -37,7 +37,8 @@ Chart.register(ArcElement, DoughnutController, Tooltip);
 })
 export class WidgetChartComponent
   extends AbstractDashboardWidgetComponent<Record<string, any>>
-  implements OnInit {
+  implements OnInit
+{
   @ViewChild('chartCtx', { static: true })
   chartCtx: ElementRef;
 

@@ -43,7 +43,8 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 })
 export class SelectionListPageComponent
   extends AbstractPageComponent<SelectionListPageConfig>
-  implements OnInit {
+  implements OnInit
+{
   @ViewChild('list', { static: true })
   list: MatSelectionList;
 

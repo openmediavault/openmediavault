@@ -27,7 +27,6 @@
               "chart.js",
               "chartjs-plugin-datalabels"
             ],
-            "aot": true,
             "outputPath": "dist/openmediavault-workbench",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -53,7 +52,13 @@
             "stylePreprocessorOptions": {
               "includePaths": ["src"]
             },
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -67,7 +72,6 @@
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,

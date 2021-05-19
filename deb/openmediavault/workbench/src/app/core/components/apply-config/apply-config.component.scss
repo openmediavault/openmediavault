@@ -1,13 +1,13 @@
-@import '~@angular/material/theming';
+@use '~@angular/material' as mat;
 @import 'src/styles';
 
-$mat-typography-config: mat-typography-config();
+$mat-typography-config: mat.define-typography-config();
 
 .mat-toolbar {
   @extend .omv-background-color-theme-accent;
 
   .omv-apply-config-message {
-    font-size: mat-font-size($mat-typography-config, body-1);
+    font-size: mat.font-size($mat-typography-config, body-1);
     line-height: initial;
     margin-left: $omv-margin-icon-text;
     white-space: normal;

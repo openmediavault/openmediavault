@@ -1,13 +1,13 @@
-@import '~@angular/material/theming';
+@use '~@angular/material' as mat;
 
-$mat-typography-config: mat-typography-config();
+$mat-typography-config: mat.define-typography-config();
 
 .omv-form-paragraph-wrapper {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
 
   .omv-form-field-paragraph-text {
-    font-weight: mat-font-weight($mat-typography-config, title);
-    font-size: mat-font-size($mat-typography-config, title);
+    font-weight: mat.font-weight($mat-typography-config, title);
+    font-size: mat.font-size($mat-typography-config, title);
   }
 }

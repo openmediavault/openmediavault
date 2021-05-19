@@ -35,7 +35,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 })
 export class FormFolderbrowserComponent
   extends AbstractFormFieldComponent
-  implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy
+{
   @ViewChild('trigger')
   trigger: MatFormField;
 

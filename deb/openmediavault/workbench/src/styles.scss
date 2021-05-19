@@ -13,39 +13,43 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-@import '~@angular/material/theming';
+@use '~@angular/cdk' as cdk;
+@use '~@angular/material' as mat;
 @import 'defaults';
 
-@include mat-core();
+@include mat.core();
 
 /******************************************************************************/
 /* Initialize Material theme
 /******************************************************************************/
 
-$omv-light-theme-primary-palette: mat-palette($omv-color-corporate-palette);
+$omv-light-theme-primary-palette: mat.define-palette($omv-color-corporate-palette);
 $omv-light-theme-accent-palette: map-merge(
-  mat-palette($omv-color-yellow-palette),
+  mat.define-palette($omv-color-yellow-palette),
   (
     // https://paletton.com/#uid=11v0u0kw0v7jRCppdxByzopDWj8
     default-contrast: #988200
   )
 );
-$omv-light-theme-warn-palette: mat-palette($omv-color-red-palette);
+$omv-light-theme-warn-palette: mat.define-palette($omv-color-red-palette);
 
-$omv-light-theme: mat-light-theme(
+$omv-light-theme: mat.define-light-theme(
   $omv-light-theme-primary-palette,
   $omv-light-theme-accent-palette,
   $omv-light-theme-warn-palette
 );
 
-@include angular-material-theme($omv-light-theme);
+@include mat.all-component-themes($omv-light-theme);
 
-$mat-typography-config: mat-typography-config();
+$mat-typography-config: mat.define-typography-config();
 
-$omv-color-primary: mat-color(map-get($omv-light-theme, primary));
+$omv-color-primary: mat.get-color-from-palette(map-get($omv-light-theme, primary));
 $omv-color-primary-complementary: $omv-color-white;
-$omv-color-accent: mat-color(map-get($omv-light-theme, accent));
-$omv-color-accent-complementary: mat-color(map-get($omv-light-theme, accent), default-contrast);
+$omv-color-accent: mat.get-color-from-palette(map-get($omv-light-theme, accent));
+$omv-color-accent-complementary: mat.get-color-from-palette(
+  map-get($omv-light-theme, accent),
+  default-contrast
+);
 
 $omv-color-themes: (
   'primary': (
@@ -339,7 +343,7 @@ textarea {
 ////////////////////////////////////////////////////////////////////////////////
 // Dialog
 .mat-dialog-content {
-  font-family: mat-font-family($mat-typography-config);
+  font-family: mat.font-family($mat-typography-config);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -356,12 +360,12 @@ textarea {
 // Workaround for https://github.com/angular/material2/issues/4580.
 @mixin mat-form-field-multiline-workaround($typography-config: null) {
   @if $typography-config == null {
-    $typography-config: mat-typography-config();
+    $typography-config: mat.define-typography-config();
   }
 
   .mat-form-field {
     // Copy-paste from @mat-form-field-typography();
-    $line-height: mat-line-height($typography-config, input);
+    $line-height: mat.line-height($typography-config, input);
     $subscript-font-scale: 0.75;
 
     & & {
@@ -413,8 +417,8 @@ textarea {
 /* Customize Toastr
 /******************************************************************************/
 .toast-container {
-  font-family: mat-font-family($mat-typography-config);
-  font-size: mat-font-size($mat-typography-config, body-1);
+  font-family: mat.font-family($mat-typography-config);
+  font-size: mat.font-size($mat-typography-config, body-1);
 
   .ngx-toastr {
     box-shadow: unset;
@@ -440,7 +444,7 @@ textarea {
 /* Swimlane ngx-charts
 /******************************************************************************/
 ngx-charts-gauge {
-  font-size: mat-font-size($mat-typography-config, body-1);
+  font-size: mat.font-size($mat-typography-config, body-1);
 }
 ngx-charts-advanced-pie-chart {
   .advanced-pie-legend {
@@ -449,23 +453,23 @@ ngx-charts-advanced-pie-chart {
 
       .legend-item {
         .item-value {
-          font-size: mat-font-size($mat-typography-config, body-1);
+          font-size: mat.font-size($mat-typography-config, body-1);
         }
 
         .item-label {
-          font-size: mat-font-size($mat-typography-config, caption);
+          font-size: mat.font-size($mat-typography-config, caption);
         }
 
         .item-percent {
-          font-size: mat-font-size($mat-typography-config, body-1);
+          font-size: mat.font-size($mat-typography-config, body-1);
         }
       }
     }
     .total-value {
-      font-size: mat-font-size($mat-typography-config, subheading-2);
+      font-size: mat.font-size($mat-typography-config, subheading-2);
     }
     .total-label {
-      font-size: mat-font-size($mat-typography-config, body-1);
+      font-size: mat.font-size($mat-typography-config, body-1);
     }
   }
 }
@@ -477,11 +481,11 @@ ngx-charts-advanced-pie-chart {
 ////////////////////////////////////////////////////////////////////////////////
 // Datatable
 .omv-datatable-cell-title {
-  font-weight: mat-font-weight($mat-typography-config, title);
-  font-size: mat-font-size($mat-typography-config, title);
+  font-weight: mat.font-weight($mat-typography-config, title);
+  font-size: mat.font-size($mat-typography-config, title);
 }
 .omv-datatable-cell-subtitle {
-  font-size: mat-font-size($mat-typography-config, subheading-2);
+  font-size: mat.font-size($mat-typography-config, subheading-2);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -490,7 +494,7 @@ ngx-charts-advanced-pie-chart {
   position: sticky;
   top: 0px;
   overflow: hidden;
-  z-index: $cdk-z-index-overlay + 1;
+  z-index: cdk.$overlay-z-index + 1;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
     0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }

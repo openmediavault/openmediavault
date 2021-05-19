@@ -1,7 +1,7 @@
-@import '~@angular/material/theming';
+@use '~@angular/material' as mat;
 @import 'src/styles';
 
-$mat-typography-config: mat-typography-config();
+$mat-typography-config: mat.define-typography-config();
 
 .mat-toolbar {
   height: 64px;
@@ -26,8 +26,8 @@ $mat-typography-config: mat-typography-config();
 
   .omv-top-bar-hostname {
     color: $omv-color-primary-complementary;
-    font-size: mat-font-size($mat-typography-config, body-1);
-    font-weight: mat-font-weight($mat-typography-config, body-1);
+    font-size: mat.font-size($mat-typography-config, body-1);
+    font-weight: mat.font-weight($mat-typography-config, body-1);
     padding: $omv-padding;
   }
 }
