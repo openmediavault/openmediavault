@@ -50,7 +50,8 @@ let nextUniqueId = 0;
   ]
 })
 export class MatFormDatatableComponent
-  implements ControlValueAccessor, MatFormFieldControl<any[]>, OnInit, OnDestroy, OnChanges {
+  implements ControlValueAccessor, MatFormFieldControl<any[]>, OnInit, OnDestroy, OnChanges
+{
   // eslint-disable-next-line @typescript-eslint/naming-convention
   static ngAcceptInputType_disabled: BooleanInput;
   // eslint-disable-next-line @typescript-eslint/naming-convention

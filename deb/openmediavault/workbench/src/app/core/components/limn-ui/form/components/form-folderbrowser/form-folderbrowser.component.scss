@@ -1,13 +1,13 @@
-@import '~@angular/material/theming';
+@use '~@angular/material' as mat;
 @import 'src/defaults';
 
-$mat-typography-config: mat-typography-config();
+$mat-typography-config: mat.define-typography-config();
 
 .mat-list-base .mat-list-option {
-  font-size: mat-font-size($mat-typography-config, body-1);
+  font-size: mat.font-size($mat-typography-config, body-1);
 }
 
 .omv-selection-actions {
-  font-size: mat-font-size($mat-typography-config, body-1);
+  font-size: mat.font-size($mat-typography-config, body-1);
   padding: $omv-padding;
 }

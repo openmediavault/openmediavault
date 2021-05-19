@@ -1,6 +1,7 @@
+@use '~@angular/material' as mat;
 @import 'styles.scss';
 
-$mat-typography-config: mat-typography-config();
+$mat-typography-config: mat.define-typography-config();
 
 .omv-datatable-cell-package-info {
   .omv-datatable-cell-header {

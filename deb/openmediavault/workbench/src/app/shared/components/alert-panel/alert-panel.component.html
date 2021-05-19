@@ -1,4 +1,4 @@
-<mat-card [ngClass]="{'omv-background-color-theme-info': type == 'info', 'omv-background-color-theme-success': type == 'success', 'omv-background-color-theme-warning': type == 'warning', 'omv-background-color-theme-error': type == 'error', 'omv-background-color-theme-tip': type == 'tip'}">
+<mat-card [ngClass]="{'omv-background-color-theme-info': type === 'info', 'omv-background-color-theme-success': type === 'success', 'omv-background-color-theme-warning': type === 'warning', 'omv-background-color-theme-error': type === 'error', 'omv-background-color-theme-tip': type === 'tip'}">
   <div fxLayout="row">
     <mat-icon mat-card-avatar
               svgIcon="{{ icon }}"></mat-icon>

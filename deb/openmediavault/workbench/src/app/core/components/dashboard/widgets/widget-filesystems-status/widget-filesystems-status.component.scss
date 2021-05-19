@@ -1,6 +1,7 @@
+@use '~@angular/material' as mat;
 @import 'styles.scss';
 
-$mat-typography-config: mat-typography-config();
+$mat-typography-config: mat.define-typography-config();
 
 .omv-dashboard-widget-filesystems-status {
   padding: $omv-padding;
@@ -11,10 +12,10 @@ $mat-typography-config: mat-typography-config();
     padding-left: 8px;
 
     .item-text {
-      font-size: mat-font-size($mat-typography-config, body-1);
+      font-size: mat.font-size($mat-typography-config, body-1);
     }
     .item-subtext {
-      font-size: mat-font-size($mat-typography-config, caption);
+      font-size: mat.font-size($mat-typography-config, caption);
     }
 
     &.warning {

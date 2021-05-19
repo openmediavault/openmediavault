@@ -43,7 +43,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 })
 export class TextPageComponent
   extends AbstractPageComponent<TextPageConfig>
-  implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy
+{
   public error: HttpErrorResponse;
   public icon = Icon;
   public loading = false;

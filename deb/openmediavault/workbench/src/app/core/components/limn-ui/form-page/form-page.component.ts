@@ -61,7 +61,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 })
 export class FormPageComponent
   extends AbstractPageComponent<FormPageConfig>
-  implements AfterViewInit, OnInit, OnDestroy {
+  implements AfterViewInit, OnInit, OnDestroy
+{
   @BlockUI()
   blockUI: NgBlockUI;
 
