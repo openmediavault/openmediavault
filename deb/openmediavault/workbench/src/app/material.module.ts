@@ -1,3 +1,4 @@
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
@@ -54,7 +55,8 @@ import { DomSanitizer } from '@angular/platform-browser';
     MatTooltipModule,
     MatTabsModule,
     DragDropModule,
-    OverlayModule
+    OverlayModule,
+    ClipboardModule
   ],
   providers: [
     { provide: DateAdapter, useClass: NativeDateAdapter },

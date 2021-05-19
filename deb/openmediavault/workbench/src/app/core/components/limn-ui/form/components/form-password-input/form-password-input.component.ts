@@ -40,13 +40,4 @@ export class FormPasswordInputComponent extends AbstractFormFieldComponent {
   onToggleVisibility() {
     this.type = this.type === 'password' ? 'text' : 'password';
   }
-
-  protected sanitizeConfig() {
-    super.sanitizeConfig();
-    // Hide the 'Copy to clipboard' button if the browser does not
-    // support that feature.
-    if (!this.clipboardService.canCopy()) {
-      this.config.hasCopyToClipboardButton = false;
-    }
-  }
 }
