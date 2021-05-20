@@ -78,22 +78,6 @@ export class InterfaceBridgeFormPageComponent {
               prop: 'devicename'
             }
           ]
-        },
-        validators: {
-          required: true,
-          custom: [
-            {
-              constraint: {
-                operator: '>=',
-                arg0: {
-                  operator: 'length',
-                  arg0: { prop: 'slaves' }
-                },
-                arg1: 1
-              },
-              errorData: gettext('At least one network interface is required.')
-            }
-          ]
         }
       },
       {
