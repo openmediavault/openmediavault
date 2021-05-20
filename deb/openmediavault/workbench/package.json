@@ -34,6 +34,12 @@
     ],
     "testMatch": [
       "**/*.spec.ts"
+    ],
+    "transform": {
+      "\\.js$": "jest-esm-transformer"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!ansi-regex|strip-ansi)"
     ]
   },
   "dependencies": {
@@ -63,7 +69,7 @@
     "ngx-toastr": "^14.0.0",
     "nunjucks": "^3.2.3",
     "rxjs": "6.6.7",
-    "strip-ansi": "6.0.0",
+    "strip-ansi": "7.0.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
@@ -99,6 +105,7 @@
     "jasmine-spec-reporter": "^7.0.0",
     "jest": "^26.6.3",
     "jest-canvas-mock": "^2.3.1",
+    "jest-esm-transformer": "^1.0.0",
     "jest-preset-angular": "^8.4.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.0",

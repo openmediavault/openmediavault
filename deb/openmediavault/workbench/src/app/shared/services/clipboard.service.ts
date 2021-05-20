@@ -18,7 +18,6 @@
 import { Clipboard } from '@angular/cdk/clipboard';
 import { Injectable } from '@angular/core';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
-import * as _ from 'lodash';
 
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { NotificationService } from '~/app/shared/services/notification.service';
