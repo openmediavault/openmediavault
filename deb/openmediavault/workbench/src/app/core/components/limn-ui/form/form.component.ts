@@ -92,10 +92,10 @@ export class FormComponent implements OnInit {
         if (_.isNumber(field.validators.maxLength && field.validators.maxLength > 0)) {
           validators.push(Validators.maxLength(field.validators.maxLength));
         }
-        if (_.isNumber(field.validators.min) && field.validators.min > 0) {
+        if (_.isNumber(field.validators.min)) {
           validators.push(Validators.min(field.validators.min));
         }
-        if (_.isNumber(field.validators.max) && field.validators.max > 0) {
+        if (_.isNumber(field.validators.max)) {
           validators.push(Validators.max(field.validators.max));
         }
         if (_.isPlainObject(field.validators.pattern)) {
