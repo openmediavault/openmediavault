@@ -155,7 +155,7 @@ export class UserFormPageComponent {
               title: gettext('SSH public key'),
               fields: [
                 {
-                  type: 'textarea',
+                  type: 'fileInput',
                   name: 'sshpubkey',
                   value: '',
                   rows: 10,
