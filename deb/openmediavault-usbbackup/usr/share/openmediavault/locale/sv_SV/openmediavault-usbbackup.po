@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
+# Jonatan Nyberg <jonatan@autistici.org>, 2021
 # Jonatan Nyberg <jonatan@autistici.org>, 2019-2021
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017-2018
 msgid ""
@@ -10,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2021-05-06 17:41+0000\n"
+"PO-Revision-Date: 2021-05-16 09:43+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -104,7 +105,7 @@ msgid ""
 msgstr "Vänligen observera att webbgränssnittet är blockerat tills det manuellt startade säkerhetskopieringsjobbet har slutförts. Men säkerhetskopieringsjobbet utförs automatiskt i bakgrunden när lagringsenheten är ansluten till värden."
 
 msgid "Preserve ACLs"
-msgstr "Bevara ACL:er"
+msgstr "Bevara åtkomstlistor"
 
 msgid "Preserve extended attributes"
 msgstr "Bevara utökade attribut"
@@ -125,7 +126,7 @@ msgid "Quiet"
 msgstr "Tyst"
 
 msgid "Recurse into directories."
-msgstr "Rekursivt in i kataloger."
+msgstr "Rekursivt in i mappar."
 
 msgid "Recursive"
 msgstr "Rekursiv"
@@ -165,7 +166,7 @@ msgid "Suppress non-error messages."
 msgstr "Undertryck icke-felmeddelanden."
 
 msgid "Synchronise from/to directory on external storage device."
-msgstr "Synkronisera från/till katalog på extern lagringsenhet."
+msgstr "Synkronisera från/till mapp på extern lagringsenhet."
 
 msgid "The external storage device."
 msgstr "Den externa lagringsenheten."
@@ -174,7 +175,7 @@ msgid ""
 "The shared folder content is synchronised from/to the root of the external "
 "storage device if this option is not set. The name of the directory is taken"
 " from the shared folder."
-msgstr "Det delade mappinnehållet synkroniseras från/till roten på den externa lagringsenheten om det här alternativet inte är inställt. Namnet på katalogen tas från den delade mappen."
+msgstr "Det delade mappinnehållet synkroniseras från/till roten på den externa lagringsenheten om det här alternativet inte är inställt. Namnet på mappen tas från den delade mappen."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
@@ -190,7 +191,7 @@ msgid "USB Backup"
 msgstr "USB-säkerhetskopiering"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr "Uppdatera destinations-ACL:erna för att vara desamma som käll-ACL:erna."
+msgstr "Uppdatera destinationens åtkomstlistor för att vara desamma som källans åtkomstlistor."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
