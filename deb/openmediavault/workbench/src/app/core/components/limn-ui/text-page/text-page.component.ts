@@ -89,6 +89,34 @@ export class TextPageComponent
     }
   }
 
+  loadData() {
+    if (
+      _.isPlainObject(this.config.request) &&
+      _.isString(this.config.request.service) &&
+      _.isPlainObject(this.config.request.get)
+    ) {
+      this.loading = true;
+      // noinspection DuplicatedCode
+      this.rpcService[this.config.request.get.task ? 'requestTask' : 'request'](
+        this.config.request.service,
+        this.config.request.get.method,
+        this.config.request.get.params
+      )
+        .pipe(
+          catchError((error) => {
+            this.error = error;
+            return EMPTY;
+          }),
+          finalize(() => {
+            this.loading = false;
+          })
+        )
+        .subscribe((res: any) => {
+          this.text = res;
+        });
+    }
+  }
+
   protected sanitizeConfig() {
     _.defaultsDeep(this.config, {
       autoReload: false,
@@ -118,33 +146,5 @@ export class TextPageComponent
   protected onRouteParams() {
     // Format tokenized configuration properties.
     this.formatConfig(['title', 'subTitle', 'request.get.method', 'request.get.params']);
-  }
-
-  private loadData() {
-    if (
-      _.isPlainObject(this.config.request) &&
-      _.isString(this.config.request.service) &&
-      _.isPlainObject(this.config.request.get)
-    ) {
-      this.loading = true;
-      // noinspection DuplicatedCode
-      this.rpcService[this.config.request.get.task ? 'requestTask' : 'request'](
-        this.config.request.service,
-        this.config.request.get.method,
-        this.config.request.get.params
-      )
-        .pipe(
-          catchError((error) => {
-            this.error = error;
-            return EMPTY;
-          }),
-          finalize(() => {
-            this.loading = false;
-          })
-        )
-        .subscribe((res: any) => {
-          this.text = res;
-        });
-    }
   }
 }

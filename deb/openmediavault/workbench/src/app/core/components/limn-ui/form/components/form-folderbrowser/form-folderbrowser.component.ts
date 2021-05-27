@@ -59,7 +59,7 @@ export class FormFolderbrowserComponent
     }
   ];
 
-  protected currentPath: Array<string> = [];
+  protected currentPaths: Array<string> = [];
   // Emits whenever the component is destroyed.
   protected readonly destroy = new Subject<void>();
 
@@ -96,11 +96,11 @@ export class FormFolderbrowserComponent
 
     this.getTriggerRect();
     this.folders = [];
-    this.currentPath = [];
+    this.currentPaths = [];
 
     if (!paths.length) {
       // Display root.
-      this.loadData(this.currentPath).subscribe(() => {
+      this.loadData(this.currentPaths).subscribe(() => {
         this.isOpen = true;
       });
     } else {
@@ -109,10 +109,10 @@ export class FormFolderbrowserComponent
       from(paths)
         .pipe(
           concatMap((name) => {
-            const loadPath = this.buildPath([...this.currentPath, name]);
+            const loadPath = this.joinPaths([...this.currentPaths, name]);
             return this.requestData(loadPath).pipe(
               map(() => {
-                this.currentPath.push(name);
+                this.currentPaths.push(name);
                 return name;
               })
             );
@@ -126,7 +126,7 @@ export class FormFolderbrowserComponent
           toArray()
         )
         .subscribe(() => {
-          this.loadData(this.currentPath).subscribe(() => {
+          this.loadData(this.currentPaths).subscribe(() => {
             this.isOpen = true;
           });
         });
@@ -146,11 +146,15 @@ export class FormFolderbrowserComponent
     const name = event.options[0].value;
     event.source.deselectAll();
     if ('..' === name) {
-      this.currentPath.pop();
+      this.currentPaths.pop();
     } else {
-      this.currentPath.push(name);
+      this.currentPaths.push(name);
     }
-    this.loadData(this.currentPath).subscribe();
+    this.loadData(this.currentPaths).subscribe();
+  }
+
+  get currentPath(): string {
+    return this.joinPaths(this.currentPaths);
   }
 
   private requestData(path): Observable<any> {
@@ -163,7 +167,7 @@ export class FormFolderbrowserComponent
   }
 
   private loadData(paths: Array<string>): Observable<any> {
-    const path = this.buildPath(paths);
+    const path = this.joinPaths(paths);
     return this.requestData(path).pipe(
       map((res: Array<string>) => {
         if (paths.length) {
@@ -180,12 +184,8 @@ export class FormFolderbrowserComponent
   /**
    * Get the current selected path, e.g. 'foo/bar/'.
    */
-  private buildPath(paths: Array<string>): string {
+  private joinPaths(paths: Array<string>): string {
     return `${paths.join('/')}/`;
-  }
-
-  private buildCurrentPath(): string {
-    return this.buildPath(this.currentPath);
   }
 
   private getTriggerRect(): void {
@@ -194,6 +194,6 @@ export class FormFolderbrowserComponent
 
   private updateValue(): void {
     const control = this.formGroup.get(this.config.name);
-    control.setValue(this.buildCurrentPath());
+    control.setValue(this.currentPath);
   }
 }

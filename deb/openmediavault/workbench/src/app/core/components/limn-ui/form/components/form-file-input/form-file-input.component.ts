@@ -27,19 +27,21 @@ import { AbstractFormFieldComponent } from '~/app/core/components/limn-ui/form/c
   styleUrls: ['./form-file-input.component.scss']
 })
 export class FormFileInputComponent extends AbstractFormFieldComponent {
-  fileUpload(files: FileList, controlName: string) {
-    const file: File = files[0];
+  onChange(event: Event) {
+    const file: File = (event.target as HTMLInputElement).files[0];
     const reader = new FileReader();
-    reader.addEventListener('load', (event: ProgressEvent<FileReader>) => {
-      const control: AbstractControl = this.formGroup.get(controlName);
-      control.setValue(
-        this.config.rows > 1 ? event.target.result : event.target.result.toString().trim()
-      );
-      control.markAsTouched();
-      control.markAsDirty();
-      control.updateValueAndValidity();
-    });
+    reader.addEventListener('load', this.onFileReaderLoad.bind(this));
     reader.readAsText(file, 'utf8');
+  }
+
+  protected onFileReaderLoad(event: ProgressEvent<FileReader>) {
+    const control: AbstractControl = this.formGroup.get(this.config.name);
+    control.setValue(
+      this.config.rows > 1 ? event.target.result : event.target.result.toString().trim()
+    );
+    control.markAsTouched();
+    control.markAsDirty();
+    control.updateValueAndValidity();
   }
 
   protected sanitizeConfig() {

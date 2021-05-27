@@ -49,7 +49,7 @@ export class FormDialogComponent {
   blockUI: NgBlockUI;
 
   @ViewChild(FormComponent, { static: true })
-  private form: FormComponent;
+  form: FormComponent;
 
   // Internal
   public config: FormDialogConfig;

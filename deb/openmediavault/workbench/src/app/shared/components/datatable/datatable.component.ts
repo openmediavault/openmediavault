@@ -29,7 +29,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
-import { DatatableComponent as NgxDatatableComponent, SortPropDir } from '@swimlane/ngx-datatable';
+import { DatatableComponent as NgxDatatableComponent } from '@swimlane/ngx-datatable';
 import * as _ from 'lodash';
 import { Subscription, timer } from 'rxjs';
 
@@ -37,6 +37,7 @@ import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { DatatableColumn } from '~/app/shared/models/datatable-column.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
+import { Sorter } from '~/app/shared/models/sorter.type';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { UserStorageService } from '~/app/shared/services/user-storage.service';
 
@@ -109,7 +110,7 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
 
   // Show the linear loading bar.
   @Input()
-  loadingIndicator?: false;
+  loadingIndicator? = false;
 
   // An identifier, e.g. an UUID, which identifies this datatable
   // uniquely. This is used to store/restore the column state.
@@ -189,7 +190,7 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
 
   // Ordered array of objects used to determine sorting by column.
   @Input()
-  sorters?: SortPropDir[] = [];
+  sorters?: Sorter[] = [];
 
   // Event emitted when the data must be loaded.
   @Output()
@@ -210,11 +211,11 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
     totalMessage: string;
     selectedMessage: string;
   };
+  public searchFilter = '';
 
   private subscriptions = new Subscription();
   private cellTemplates: { [key: string]: TemplateRef<any> };
   private rawColumns: DatatableColumn[] = [];
-  private searchFilter = '';
 
   constructor(
     private clipboardService: ClipboardService,

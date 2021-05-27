@@ -32,7 +32,7 @@
          [maxlength]="config.validators?.maxLength">
   <input type="file"
          [accept]="config.accept"
-         (change)="fileUpload($event.target.files, config.name)">
+         (change)="onChange($event)">
   <mat-error *ngIf="formGroup.invalid">
     <span *ngIf="formGroup.hasError('required', config.name)"
           translate>

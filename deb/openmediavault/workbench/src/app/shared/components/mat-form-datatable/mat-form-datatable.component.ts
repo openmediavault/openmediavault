@@ -144,7 +144,7 @@ export class MatFormDatatableComponent
   sorters?: Sorter[] = [];
 
   @Input()
-  selectionType?: 'single' | 'multi' = 'multi';
+  selectionType?: 'none' | 'single' | 'multi' = 'multi';
 
   @Input()
   valueType?: 'string' | 'integer' | 'number' | 'object' = 'object';
