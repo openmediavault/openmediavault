@@ -68,7 +68,9 @@ network:
 {%- if interface.mtu > 0 %}
       mtu: {{ interface.mtu }}
 {%- endif %}
+{%- if interface.slaves | length > 0 %}
       interfaces:
 {%- for slave in interface.slaves.split(',') %}
       - {{ slave }}
 {%- endfor %}
+{%- endif %}
