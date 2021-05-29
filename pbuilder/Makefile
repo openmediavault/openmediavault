@@ -21,7 +21,7 @@
 # apt-get install pbuilder qemubuilder qemu-user-static
 
 DISTRIBUTION=bullseye
-OMV_DISTRIBUTION=usul
+OMV_DISTRIBUTION=shaitan
 ARCHITECTURE?=amd64
 NAME=$(DISTRIBUTION)-$(ARCHITECTURE)
 MIRROR="http://deb.debian.org/debian/"
