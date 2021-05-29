@@ -21,6 +21,18 @@
 
 set -e
 
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Apply some fixes to the Debian system. Hopefully the will fix that
+# upstream soonish.
+# https://lists.debian.org/debian-cloud/2021/05/msg00016.html
+#
+# Force predictable network device files.
+sed --in-place --expression='s/eth0/ens6/' --expression='s/eth2/ens8/' /etc/network/interfaces
+sed --in-place --expression='s/net.ifnames=0/net.ifnames=1/' --expression='s/biosdevname=0/biosdevname=1/' /etc/default/grub
+update-grub
+# Note, a reboot is required after the system has been provisioned.
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 # Append user 'vagrant' to group 'ssh', otherwise the user is not allowed
 # to log in via SSH.
 usermod --groups ssh --append vagrant
@@ -47,15 +59,15 @@ deb http://packages.openmediavault.org/public shaitan main
 # deb http://downloads.sourceforge.net/project/openmediavault/packages shaitan partner
 EOF
 apt-get update
-apt-get --yes --auto-remove --show-upgraded \
-	--allow-downgrades --allow-change-held-packages \
-	--no-install-recommends \
-	--option Dpkg::Options::="--force-confdef" \
-	--option DPkg::Options::="--force-confold" \
-	install openmediavault-keyring openmediavault
+# apt-get --yes --auto-remove --show-upgraded \
+# 	--allow-downgrades --allow-change-held-packages \
+# 	--no-install-recommends \
+# 	--option Dpkg::Options::="--force-confdef" \
+# 	--option DPkg::Options::="--force-confold" \
+# 	install openmediavault-keyring openmediavault
 
 # Populate the database.
-omv-confdbadm populate
+# omv-confdbadm populate
 
 # Display the login information.
 cat /etc/issue

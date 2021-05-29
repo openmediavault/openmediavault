@@ -9,7 +9,7 @@ Standards-Version: 3.9.1
 Package: php-pam
 Architecture: any
 Depends: ${php:Depends}, ${misc:Depends}
-Description: pam module for PHP 7
+Description: pam module for PHP 7.4
  PAM integration
  .
  This extension provides PAM (Pluggable Authentication Modules)

@@ -60,7 +60,7 @@ def load_yaml_files(schema: openmediavault.datamodel.Schema,
     result = []
     for name in glob.iglob(os.path.join(dir_path, '*.yaml')):
         with open(name, 'r') as fd:
-            content = strip_gettext(yaml.load(fd))
+            content = strip_gettext(yaml.safe_load(fd))
             openmediavault.log.info('Processing manifest "%s" ...',
                                     name, verbose=verbose)
         try:

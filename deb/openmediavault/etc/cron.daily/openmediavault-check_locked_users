@@ -27,10 +27,17 @@ set -e
 [ "$(omv_config_get "//system/email/enable")" != "1" ] && exit 0
 
 # Check if there are locked users.
-if [ $(pam_tally2 | grep -P "^\S+\s+\d+\s+.+$" | wc -l) -gt 0 ]; then
+# admin:
+# When                Type  Source                                           Valid
+# test:
+# When                Type  Source                                           Valid
+# 2021-05-11 22:06:57 SVC   openmediavault                                       V
+# 2021-05-11 22:07:00 SVC   openmediavault                                       V
+# 2021-05-11 22:07:04 SVC   openmediavault                                       V
+if [ $(faillock | sed -E -e '/^[^:]+:$/d' -e '/^When/d' | wc -l) -gt 0 ]; then
 	(
 	echo "The following users are locked/banned or are candidates for too many failed login attempts:\n";
-	pam_tally2;
+	faillock;
 	echo "\nYou can reset their counters and unlock them via the omv-firstaid command."
 	) | mail -E -s "Locked users overview" root
 fi

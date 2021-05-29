@@ -31,11 +31,11 @@ include:
 
 test_phpfpm_service_config:
   cmd.run:
-    - name: "php-fpm7.3 --test"
+    - name: "php-fpm7.4 --test"
 
 restart_phpfpm_service:
   service.running:
-    - name: php7.3-fpm
+    - name: php7.4-fpm
     - enable: True
     - require:
       - cmd: test_phpfpm_service_config

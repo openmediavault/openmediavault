@@ -439,7 +439,7 @@ omv_config_add_node() {
 
 	xpath=$1
 	name=$2
-	tmpfile=$(tempfile)
+	tmpfile=$(mktemp)
 
 	# Make sure the node does not exist.
 	targetxpath="$(omv_rtrim -c "/" ${xpath})/${name}"
@@ -478,7 +478,7 @@ omv_config_add_key() {
 	xpath=$1
 	name=$2
 	value=$3
-	tmpfile=$(tempfile)
+	tmpfile=$(mktemp)
 
 	# Make sure the key does not exist.
 	targetxpath="$(omv_rtrim -c "/" ${xpath})/${name}"
@@ -514,7 +514,7 @@ omv_config_add_node_data() {
 	xpath=$1
 	name=$2
 	data=$3
-	tmpfile=$(tempfile)
+	tmpfile=$(mktemp)
 
 	# Create a unique value that will be inserted instead. It will be
 	# replaced by the real value later.
@@ -546,7 +546,7 @@ omv_config_add_node_data() {
 omv_config_rename() {
 	local tmpfile xpath name
 
-	tmpfile=$(tempfile)
+	tmpfile=$(mktemp)
 	xpath=$1
 	name=$2
 
@@ -572,7 +572,7 @@ omv_config_rename() {
 omv_config_move() {
 	local tmpfile xpath1 xpath2
 
-	tmpfile=$(tempfile)
+	tmpfile=$(mktemp)
 	xpath1=$1
 	xpath2=$2
 
@@ -599,7 +599,7 @@ omv_config_move() {
 omv_config_update() {
 	local tmpfile xpath value xml
 
-	tmpfile=$(tempfile)
+	tmpfile=$(mktemp)
 	xpath=$1
 	value=$2
 	xml=$3
@@ -638,7 +638,7 @@ omv_config_update() {
 omv_config_delete() {
 	local tmpfile xpath
 
-	tmpfile=$(tempfile)
+	tmpfile=$(mktemp)
 	xpath=$1
 
 	# Note! It is necessary to redirect the modified XML data to another
@@ -743,7 +743,7 @@ omv_is_gateway4() {
 # @return 0 if valid, otherwise 1.
 omv_is_ipaddr6() {
 	local _valid
-	_valid=$(php7.3 -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
+	_valid=$(php7.4 -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
 	return ${_valid}
 }
 
@@ -762,7 +762,7 @@ omv_is_netmask6() {
 # @return 0 if valid, otherwise 1.
 omv_is_gateway6() {
 	local _valid
-	_valid=$(php7.3 -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
+	_valid=$(php7.4 -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
 	return ${_valid}
 }
 
@@ -928,7 +928,7 @@ omv_kill_children() {
 # Mark the given module as dirty.
 # @param name The name of the module.
 omv_module_set_dirty() {
-	php7.3 -c /etc/openmediavault <<EOF
+	php7.4 -c /etc/openmediavault <<EOF
 <?php
 require_once('openmediavault/autoloader.inc'); \
 \$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
@@ -941,7 +941,7 @@ EOF
 # Check if any modules are marked as dirty.
 omv_module_is_dirty() {
 	local _dirty
-	_dirty=$(php7.3 -c /etc/openmediavault -r \
+	_dirty=$(php7.4 -c /etc/openmediavault -r \
 	  "require_once('openmediavault/autoloader.inc'); \
 	  \$moduleMngr = \OMV\Engine\Module\Manager::getInstance(); \
 	  \$dirtyModules = \$moduleMngr->getDirtyModules(); \
@@ -995,7 +995,7 @@ omv_is_proc_running_pid() {
 omv_is_device_nonrotational() {
 	local _rc
 	[ -z "$1" ] && return 1
-	_rc=$(php7.3 -c /etc/openmediavault <<EOF
+	_rc=$(php7.4 -c /etc/openmediavault <<EOF
 <?php
 require_once('openmediavault/autoloader.inc'); \
 \$result = TRUE;
@@ -1055,7 +1055,7 @@ omv_md5() {
 omv_pwgen() {
 	local num tmpfile
 	num=$1
-	tmpfile=$(tempfile)
+	tmpfile=$(mktemp)
 	# Prevent "unable to write 'random state'" error messages in case of
 	# HOME and RANDFILE is not set.
 	RANDFILE="${tmpfile}" openssl rand -hex "${num}"
