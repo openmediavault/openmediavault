@@ -52,6 +52,7 @@ install_keyring:
 
 build:
 	sudo pbuilder build \
+		--configfile .pbuilderrc \
 		--basetgz $(BASETGZ) \
 		--buildresult $(BUILDRESULT) \
 		--aptcache $(APTCACHE) \
@@ -68,6 +69,7 @@ clean:
 
 create: $(BUILDPLACE) $(BUILDRESULT) $(APTCACHE) install_keyring
 	sudo pbuilder create \
+		--configfile .pbuilderrc \
 		--distribution $(DISTRIBUTION) \
 		--architecture $(ARCHITECTURE) \
 		--basetgz $(BASETGZ) \
