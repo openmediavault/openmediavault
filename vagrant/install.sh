@@ -21,18 +21,6 @@
 
 set -e
 
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Apply some fixes to the Debian system. Hopefully the will fix that
-# upstream soonish.
-# https://lists.debian.org/debian-cloud/2021/05/msg00016.html
-#
-# Force predictable network device files.
-sed --in-place --expression='s/eth0/ens6/' --expression='s/eth2/ens8/' /etc/network/interfaces
-sed --in-place --expression='s/net.ifnames=0/net.ifnames=1/' --expression='s/biosdevname=0/biosdevname=1/' /etc/default/grub
-update-grub
-# Note, a reboot is required after the system has been provisioned.
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
 # Append user 'vagrant' to group 'ssh', otherwise the user is not allowed
 # to log in via SSH.
 usermod --groups ssh --append vagrant
