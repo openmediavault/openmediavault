@@ -20,6 +20,9 @@
 # Install before usage:
 # apt-get install pbuilder qemubuilder qemu-user-static
 
+# This packages need to be installed to fix a pbuilder issue.
+FIX_DEBOOTSTRAP_PKG_INSTALL=perl-openssl-defaults
+
 DISTRIBUTION=bullseye
 OMV_DISTRIBUTION=shaitan
 ARCHITECTURE?=amd64
@@ -33,7 +36,7 @@ BUILDRESULT="$(BASEDIR)/$(NAME)/result/"
 APTCACHE="$(BASEDIR)/$(NAME)/aptcache/"
 COMPONENTS="main contrib non-free"
 DEBOOTSTRAPOPTS_KEYRING=/usr/share/keyrings/debian-archive-keyring.gpg
-DEBOOTSTRAPOPTS_INCLUDE=python3,devscripts,fakeroot,debhelper,php-dev,nano,quilt,equivs,gnupg
+DEBOOTSTRAPOPTS_INCLUDE=python3,devscripts,fakeroot,debhelper,php-dev,nano,quilt,equivs,gnupg,$(FIX_DEBOOTSTRAP_PKG_INSTALL)
 KEYRING=/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.gpg
 DSCFILE?=""
 
