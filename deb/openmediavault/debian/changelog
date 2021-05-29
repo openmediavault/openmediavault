@@ -1,4 +1,4 @@
-openmediavault (6.0-6) UNRELEASED; urgency=low
+openmediavault (6.0-7) UNRELEASED; urgency=low
 
   * Reimplement UI.
   * /dev/disk/by-label filesystem device files are not supported
