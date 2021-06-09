@@ -1,3 +1,9 @@
+php-pam (2.2.3-1+deb11u1) stable; urgency=low
+
+  * New upstream version 2.2.3.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 Jun 2021 07:02:51 +0000
+
 php-pam (1.0.3-1+deb11u1) stable; urgency=low
 
   * Rebuild for Debian 11 (Bullseye).
