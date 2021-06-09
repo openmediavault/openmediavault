@@ -2,8 +2,7 @@ Source: php-pam
 Section: web
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
-Build-Depends: debhelper (>= 9), po-debconf, xsltproc, php-dev, libpam-dev,
- quilt
+Build-Depends: debhelper (>= 9), po-debconf, xsltproc, php-dev, libpam-dev
 Standards-Version: 3.9.1
 
 Package: php-pam
@@ -17,3 +16,5 @@ Description: pam module for PHP 7.4
  authentication tasks of applications and services. The library
  provides a stable API for applications to defer to for authentication
  tasks.
+
+

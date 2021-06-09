@@ -1,1 +1,6 @@
-*.debhelper.log
+/files
+/*.debhelper.log
+/*.debhelper
+/php-pam
+/*.substvars
+/*-stamp
