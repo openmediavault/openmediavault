@@ -12,12 +12,12 @@
   <button *ngIf="permissions?.role.includes(roles.admin)"
           mat-icon-button
           matTooltip="{{ 'Notifications' | translate }}"
-          [matBadge]="numNotifications"
-          matBadgeColor="accent"
-          matBadgePosition="before"
-          matBadgeOverlap="true"
           (click)="onToggleNotificationsSidenav()">
-    <mat-icon svgIcon="{{ icon.bell }}">
+    <mat-icon svgIcon="{{ icon.bell }}"
+              [matBadge]="numNotifications"
+              matBadgeColor="accent"
+              matBadgeOverlap="true"
+              matBadgeSize="small">
     </mat-icon>
   </button>
   <button mat-icon-button
