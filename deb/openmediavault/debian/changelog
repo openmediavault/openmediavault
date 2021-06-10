@@ -10,8 +10,21 @@ openmediavault (6.0-7) UNRELEASED; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Dec 2020 20:28:37 +0100
 
+openmediavault (5.6.9-1) stable; urgency=low
+
+  * Issue #920: Add postfix throttling. The maximal number of parallel
+    deliveries to the same destination is limited to 2. A delay of 1s
+    between each message to the same receiving domain is set. Both
+    can be customized by the following environment variables:
+    - OMV_POSTFIX_MAIN_DEFAULT_DESTINATION_CONCURRENCY_LIMIT
+    - OMV_POSTFIX_MAIN_DEFAULT_DESTINATION_RATE_DELAY
+    Throttling can be disabled via OMV_POSTFIX_MAIN_THROTTLING_ENABLED.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 10 Jun 2021 07:39:23 +0200
+
 openmediavault (5.6.8-1) stable; urgency=low
 
+  * Update locales.
   * Fix hostname configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 May 2021 17:40:01 +0200
