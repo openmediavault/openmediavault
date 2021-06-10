@@ -17,6 +17,9 @@
 {%- set alias_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_ALIAS_MAPS', 'hash:/etc/aliases') -%}
 {%- set transport_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_TRANSPORT_MAPS', 'hash:/etc/postfix/transport') -%}
 {%- set message_size_limit = salt['pillar.get']('default:OMV_POSTFIX_MAIN_MESSAGE_SIZE_LIMIT', 10240000) -%}
+{%- set throttling_enabled = salt['pillar.get']('default:OMV_POSTFIX_MAIN_THROTTLING_ENABLED', 'yes') -%}
+{%- set default_destination_concurrency_limit = salt['pillar.get']('default:OMV_POSTFIX_MAIN_DEFAULT_DESTINATION_CONCURRENCY_LIMIT', 2) -%}
+{%- set default_destination_rate_delay = salt['pillar.get']('default:OMV_POSTFIX_MAIN_DEFAULT_DESTINATION_RATE_DELAY', '1s') -%}
 {{ pillar['headers']['multiline'] }}
 compatibility_level = {{ compatibility_level }}
 {%- if grains['domain'] | length > 0 %}
@@ -50,3 +53,7 @@ smtp_header_checks = regexp:{{ smtp_header_checks }}
 alias_maps = {{ alias_maps }}
 transport_maps = {{ transport_maps }}
 message_size_limit = {{ message_size_limit }}
+{%- if throttling_enabled | to_bool %}
+default_destination_concurrency_limit = {{ default_destination_concurrency_limit }}
+default_destination_rate_delay = {{ default_destination_rate_delay }}
+{%- endif %}
