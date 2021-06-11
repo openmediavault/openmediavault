@@ -26,7 +26,7 @@ import { ClipboardService } from '~/app/shared/services/clipboard.service';
   styleUrls: ['./form-password-input.component.scss']
 })
 export class FormPasswordInputComponent extends AbstractFormFieldComponent {
-  public type = 'password';
+  public hide = true;
 
   constructor(private clipboardService: ClipboardService) {
     super();
@@ -35,9 +35,5 @@ export class FormPasswordInputComponent extends AbstractFormFieldComponent {
   onCopyToClipboard() {
     const control = this.formGroup.get(this.config.name);
     this.clipboardService.copy(control.value);
-  }
-
-  onToggleVisibility() {
-    this.type = this.type === 'password' ? 'text' : 'password';
   }
 }
