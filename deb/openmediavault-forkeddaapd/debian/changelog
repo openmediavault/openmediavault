@@ -1,3 +1,9 @@
+openmediavault-forkeddaapd (5.0.5-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Jun 2021 17:26:59 +0200
+
 openmediavault-forkeddaapd (5.0.4-1) stable; urgency=low
 
   * Adapt SaltStack module.run calls to new syntax.

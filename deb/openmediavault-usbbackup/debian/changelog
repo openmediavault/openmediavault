@@ -1,3 +1,9 @@
+openmediavault-usbbackup (5.0.9-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Jun 2021 17:30:49 +0200
+
 openmediavault-usbbackup (5.0.8-1) stable; urgency=low
 
   * Adapt SaltStack module.run calls to new syntax.

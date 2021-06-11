@@ -1,5 +1,6 @@
 openmediavault (5.6.9-1) stable; urgency=low
 
+  * Update locales.
   * Issue #920: Add postfix throttling. The maximal number of parallel
     deliveries to the same destination is limited to 2. A delay of 1s
     between each message to the same receiving domain is set. Both

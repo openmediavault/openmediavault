@@ -1,3 +1,9 @@
+openmediavault-clamav (5.0.12-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Jun 2021 17:25:14 +0200
+
 openmediavault-clamav (5.0.11-1) stable; urgency=low
 
   * Issue #812: Cron script erroneously reports success though failed.
