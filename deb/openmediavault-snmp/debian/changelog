@@ -4,6 +4,12 @@ openmediavault-snmp (6.0-2) UNRELEASED; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 06 Dec 2020 21:12:36 +0100
 
+openmediavault-snmp (5.0.3-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Jun 2021 17:29:53 +0200
+
 openmediavault-snmp (5.0.2-1) stable; urgency=low
 
   * Update locales.
