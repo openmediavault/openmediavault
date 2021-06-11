@@ -70,7 +70,7 @@ export class SystemInformationService implements OnDestroy {
           return EMPTY;
         }),
         // Notify subscribers.
-        tap((res: { [key: string]: any }) => {
+        tap((res: SystemInformation) => {
           // We need to convert some properties to numbers because
           // they are strings due to the 32bit compatibility of the
           // PHP backend.
@@ -80,7 +80,7 @@ export class SystemInformationService implements OnDestroy {
           if (_.isString(res.memTotal)) {
             res.memTotal = _.parseInt(res.memTotal);
           }
-          this.systemInfoSource.next(res as SystemInformation);
+          this.systemInfoSource.next(res);
         }),
         // Delay 5 seconds before performing the next request.
         delay(5000),

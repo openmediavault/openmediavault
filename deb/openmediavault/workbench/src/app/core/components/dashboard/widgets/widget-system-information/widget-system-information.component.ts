@@ -17,6 +17,7 @@
  */
 import { Component } from '@angular/core';
 import dayjs from 'dayjs';
+import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -39,8 +40,9 @@ export class WidgetSystemInformationComponent extends AbstractDashboardWidgetCom
   protected loadData(): Observable<SystemInformation> {
     return this.systemInformationService.systemInfo$.pipe(
       map((data) => {
-        data.uptime = dayjs().unix() - data.uptime;
-        return data;
+        const result = _.cloneDeep(data);
+        result.uptime = dayjs().unix() - result.uptime;
+        return result;
       })
     );
   }
