@@ -66,7 +66,7 @@ export class FilesystemMountFormPageComponent {
       {
         type: 'numberInput',
         name: 'usagewarnthreshold',
-        label: gettext('Usage Warn Threshold'),
+        label: gettext('Usage Warning Threshold'),
         value: 85,
         validators: {
           required: true,
