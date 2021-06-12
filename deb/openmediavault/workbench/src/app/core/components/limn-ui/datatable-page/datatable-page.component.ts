@@ -281,7 +281,9 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
       const names = joinPipe.transform(
         _.values(_.mapValues(selection.selected, this.config.rowNameId))
       );
-      message = gettext(`Do you really want to delete the selected item(s) <strong>${names}</strong>?`);
+      message = gettext(
+        `Do you really want to delete the selected item(s) <strong>${names}</strong>?`
+      );
     }
     this.onActionClick(
       _.merge(_.omit(action, 'click'), {
