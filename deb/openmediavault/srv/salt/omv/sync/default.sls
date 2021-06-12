@@ -17,6 +17,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+clear_cache:
+  module.run:
+    - saltutil.clear_cache:
+
 # Sync execution modules from salt://_modules to the minion.
 sync_modules:
   module.run:
