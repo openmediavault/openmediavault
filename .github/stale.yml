@@ -11,6 +11,7 @@ daysUntilClose: 90
 exemptLabels:
   - pinned
   - security
+  - planned
   - "[Status] Maybe Later"
 
 # Set to true to ignore issues in a project (defaults to false)
