@@ -32,6 +32,9 @@ export type DatatablePageConfig = {
   stateId?: string;
   // The name of the property that identifies a row uniquely.
   rowId?: string;
+  // The name of the property that is human readable. This is used, for
+  // example, in the delete dialog to name a selected row.
+  rowNameId?: string;
   // The column configuration.
   columns: Array<DatatableColumn>;
   columnMode?: 'standard' | 'flex' | 'force';

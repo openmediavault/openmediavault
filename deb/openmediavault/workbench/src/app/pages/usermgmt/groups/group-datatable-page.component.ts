@@ -31,6 +31,7 @@ export class GroupDatatablePageComponent {
     remotePaging: true,
     hasSearchField: true,
     rowId: 'name',
+    rowNameId: 'name',
     columns: [
       { name: gettext('Name'), prop: 'name', flexGrow: 1, sortable: true },
       {

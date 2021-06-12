@@ -29,6 +29,7 @@ export class NfsShareDatatablePageComponent {
     autoReload: false,
     remoteSorting: true,
     remotePaging: true,
+    rowNameId: 'sharedfoldername',
     columns: [
       { name: gettext('Shared folder'), prop: 'sharedfoldername', flexGrow: 1, sortable: true },
       { name: gettext('Client'), prop: 'client', flexGrow: 1, sortable: true },

@@ -42,8 +42,10 @@ import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
+import { DatatableActionConfig } from '~/app/shared/models/datatable-action-config.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { RpcListResponse } from '~/app/shared/models/rpc.model';
+import { JoinPipe } from '~/app/shared/pipes/join.pipe';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
@@ -272,6 +274,33 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     }
   }
 
+  onDeleteActionClick(action: DatatableActionConfig, selection: DatatableSelection) {
+    let message: string = gettext('Do you really want to delete the selected item(s)?');
+    if (_.isString(this.config.rowNameId)) {
+      const joinPipe = new JoinPipe();
+      const names = joinPipe.transform(
+        _.values(_.mapValues(selection.selected, this.config.rowNameId))
+      );
+      message = gettext(`Do you really want to delete the selected item(s) <strong>${names}</strong>?`);
+    }
+    this.onActionClick(
+      _.merge(_.omit(action, 'click'), {
+        confirmationDialogConfig: {
+          template: 'confirmation',
+          title: gettext('Delete'),
+          message,
+          buttons: [{}, { class: 'omv-background-color-theme-red' }]
+        },
+        execute: {
+          request: {
+            progressMessage: gettext('Please wait, deleting selected item(s) ...')
+          }
+        }
+      } as any),
+      selection
+    );
+  }
+
   onButtonClick(buttonConfig: DatatablePageButtonConfig) {
     if (_.isFunction(buttonConfig.click)) {
       buttonConfig.click(buttonConfig, this.config.store);
@@ -370,18 +399,10 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
             icon: Icon.delete,
             enabledConstraints: {
               minSelected: 1
-            },
-            confirmationDialogConfig: {
-              template: 'confirmation',
-              title: gettext('Delete'),
-              message: gettext('Do you really want to delete the selected item(s)?'),
-              buttons: [{}, { class: 'omv-background-color-theme-red' }]
-            },
-            execute: {
-              request: {
-                progressMessage: gettext('Please wait, deleting selected item(s) ...')
-              }
             }
+          });
+          _.merge(action, {
+            click: this.onDeleteActionClick.bind(this)
           });
           break;
         default:

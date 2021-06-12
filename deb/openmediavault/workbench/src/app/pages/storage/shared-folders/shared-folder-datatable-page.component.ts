@@ -46,6 +46,7 @@ export class SharedFolderDatatablePageComponent {
         absdirpath: '/{{ [mntent.dir, reldirpath] | map("strip", "/")  | compact() | join("/") }}'
       }
     },
+    rowNameId: 'name',
     columns: [
       {
         name: gettext('Name'),

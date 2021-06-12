@@ -14,6 +14,7 @@ data:
         service: LogicalVolumeMgmt
         get:
           method: getLogicalVolumesList
+    rowNameId: devicefile
     columns:
       - name: _("Device")
         prop: devicefile

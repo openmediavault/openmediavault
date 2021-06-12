@@ -41,6 +41,7 @@ export class MdDatatablePageComponent {
         }
       }
     },
+    rowNameId: 'devicefile',
     columns: [
       {
         name: gettext('Name'),
