@@ -29,7 +29,7 @@ export class SmbShareDatatablePageComponent {
     autoReload: false,
     remoteSorting: true,
     remotePaging: true,
-    rowNameId: 'sharedfoldername',
+    rowEnumFmt: '{{ sharedfoldername }}',
     columns: [
       {
         name: gettext('Enabled'),

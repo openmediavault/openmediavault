@@ -31,7 +31,7 @@ export class UserDatatablePageComponent {
     remotePaging: true,
     hasSearchField: true,
     rowId: 'name',
-    rowNameId: 'name',
+    rowEnumFmt: '{{ name }}',
     columns: [
       { name: gettext('Name'), prop: 'name', flexGrow: 1, sortable: true },
       { name: gettext('Email'), prop: 'email', flexGrow: 1, sortable: true },

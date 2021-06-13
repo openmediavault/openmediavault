@@ -41,7 +41,7 @@ export class RsyncModuleDatatablePageComponent {
         }
       }
     },
-    rowNameId: 'sharedfoldername',
+    rowEnumFmt: '{{ sharedfoldername }}',
     columns: [
       {
         name: gettext('Enabled'),

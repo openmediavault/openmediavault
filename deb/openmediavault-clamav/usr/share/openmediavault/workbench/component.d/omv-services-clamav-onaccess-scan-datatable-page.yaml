@@ -14,7 +14,7 @@ data:
         service: ClamAV
         get:
           method: getOnAccessPathList
-    rowNameId: sharedfoldername
+    rowEnumFmt: "{{ sharedfoldername }}"
     columns:
       - name: _("Enabled")
         prop: enable

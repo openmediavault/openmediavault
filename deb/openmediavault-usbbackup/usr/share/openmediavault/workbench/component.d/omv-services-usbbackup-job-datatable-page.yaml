@@ -14,7 +14,7 @@ data:
         service: UsbBackup
         get:
           method: getList
-    rowNameId: sharedfoldername
+    rowEnumFmt: "{{ sharedfoldername }}"
     columns:
       - name: _("Enabled")
         prop: enable

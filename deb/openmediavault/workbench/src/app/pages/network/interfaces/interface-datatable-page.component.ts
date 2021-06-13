@@ -30,7 +30,7 @@ export class InterfaceDatatablePageComponent {
     remoteSorting: true,
     remotePaging: true,
     hasSearchField: true,
-    rowNameId: 'devicename',
+    rowEnumFmt: '{{ devicename }}',
     columns: [
       { name: gettext('Device'), prop: 'devicename', flexGrow: 1, sortable: true },
       {

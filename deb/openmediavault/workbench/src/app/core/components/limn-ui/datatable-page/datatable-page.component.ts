@@ -45,7 +45,6 @@ import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DatatableActionConfig } from '~/app/shared/models/datatable-action-config.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { RpcListResponse } from '~/app/shared/models/rpc.model';
-import { JoinPipe } from '~/app/shared/pipes/join.pipe';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
@@ -276,13 +275,15 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
 
   onDeleteActionClick(action: DatatableActionConfig, selection: DatatableSelection) {
     let message: string = gettext('Do you really want to delete the selected item(s)?');
-    if (_.isString(this.config.rowNameId)) {
-      const joinPipe = new JoinPipe();
-      const names = joinPipe.transform(
-        _.values(_.mapValues(selection.selected, this.config.rowNameId))
+    if (isFormatable(this.config.rowEnumFmt)) {
+      const names: Array<string> = _.map(selection.selected, (selected) =>
+        format(this.config.rowEnumFmt, selected)
       );
-      message = gettext(
-        `Do you really want to delete the selected item(s) <strong>${names}</strong>?`
+      message = format(
+        gettext(
+          'Do you really want to delete the selected item(s) <strong>{{ names | join(", ") }}</strong>?'
+        ),
+        { names }
       );
     }
     this.onActionClick(

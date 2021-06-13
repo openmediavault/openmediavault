@@ -41,7 +41,7 @@ export class MdDatatablePageComponent {
         }
       }
     },
-    rowNameId: 'devicefile',
+    rowEnumFmt: '{{ devicefile }}',
     columns: [
       {
         name: gettext('Name'),
