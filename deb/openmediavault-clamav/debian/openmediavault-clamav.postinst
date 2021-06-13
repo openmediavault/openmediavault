@@ -63,6 +63,16 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "5.0.11"; then
 		  omv_module_set_dirty clamav
 		fi
+
+		########################################################################
+		# Fix a regression introduced by Raspbian by mixing stable Debian 10
+		# and backported Debian 11 packages in their repository.
+		########################################################################
+		if [ -x "/usr/sbin/clamonacc" ]; then
+		  # The path of clamonacc has been changed in the package backported
+		  # from Debian 11.
+		  ln -s /usr/sbin/clamonacc /usr/bin/clamonacc
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

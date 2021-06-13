@@ -1,3 +1,9 @@
+openmediavault-clamav (5.0.13-1) stable; urgency=low
+
+  * Fix regression introduced by Raspbian.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 13 Jun 2021 13:06:55 +0200
+
 openmediavault-clamav (5.0.12-1) stable; urgency=low
 
   * Update locales.
