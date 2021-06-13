@@ -276,14 +276,14 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   onDeleteActionClick(action: DatatableActionConfig, selection: DatatableSelection) {
     let message: string = gettext('Do you really want to delete the selected item(s)?');
     if (isFormatable(this.config.rowEnumFmt)) {
-      const names: Array<string> = _.map(selection.selected, (selected) =>
+      const items: Array<string> = _.map(selection.selected, (selected) =>
         format(this.config.rowEnumFmt, selected)
       );
       message = format(
         gettext(
-          'Do you really want to delete the selected item(s) <strong>{{ names | join(", ") }}</strong>?'
+          'Do you really want to delete the selected item(s) <strong>{{ items | join(", ") }}</strong>?'
         ),
-        { names }
+        { items }
       );
     }
     this.onActionClick(
