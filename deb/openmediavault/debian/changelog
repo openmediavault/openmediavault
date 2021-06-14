@@ -1,3 +1,9 @@
+openmediavault (5.6.10-1) stable; urgency=low
+
+  * Include FQDN in local host entry.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Jun 2021 22:14:36 +0200
+
 openmediavault (5.6.9-1) stable; urgency=low
 
   * Update locales.
