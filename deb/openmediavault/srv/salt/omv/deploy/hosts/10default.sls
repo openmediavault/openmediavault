@@ -36,7 +36,7 @@ configure_hosts_default_ipv4:
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
         127.0.0.1 localhost.localdomain localhost
-        127.0.1.1 {{ dns_config.hostname }}
+        127.0.1.1 {{ fqdn }} {{ alias }}
     - user: root
     - group: root
     - mode: 644
