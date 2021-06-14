@@ -313,6 +313,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "5.6.9"; then
 		  omv_module_set_dirty postfix
 		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.10"; then
+			omv_module_set_dirty hosts
+		fi
 		if dpkg --compare-versions "$2" lt-nl "6.0"; then
 			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet nginx rsyslog || :
 		fi
