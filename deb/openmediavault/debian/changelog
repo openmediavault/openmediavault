@@ -13,6 +13,7 @@ openmediavault (6.0-9) UNRELEASED; urgency=low
 openmediavault (5.6.10-1) stable; urgency=low
 
   * Include FQDN in local host entry.
+  * Issue #1046: Fix issue in sshd_config.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Jun 2021 22:14:36 +0200
 

@@ -29,7 +29,6 @@ SyslogFacility {{ syslogFacility }}
 LogLevel {{ logLevel }}
 LoginGraceTime {{ loginGraceTime }}
 StrictModes {{ strictModes }}
-PubkeyAuthentication {{ pubkeyAuthentication }}
 IgnoreRhosts {{ ignoreRhosts }}
 HostbasedAuthentication {{ hostbasedAuthentication }}
 PermitEmptyPasswords {{ permitEmptyPasswords }}
@@ -45,31 +44,31 @@ UsePAM {{ usePAM }}
 AllowGroups {{ allowGroups }}
 AddressFamily {{ addressFamily }}
 Port {{ config.port }}
-{% if not config.permitrootlogin -%}
+{% if not config.permitrootlogin | to_bool -%}
 PermitRootLogin no
 {% endif -%}
-{% if config.permitrootlogin and not config.passwordauthentication -%}
+{% if config.permitrootlogin | to_bool and not config.passwordauthentication | to_bool -%}
 PermitRootLogin without-password
 {% endif -%}
-{% if config.permitrootlogin and config.passwordauthentication -%}
+{% if config.permitrootlogin | to_bool and config.passwordauthentication | to_bool -%}
 PermitRootLogin yes
 {% endif -%}
-{% if config.tcpforwarding -%}
+{% if config.tcpforwarding | to_bool -%}
 AllowTcpForwarding yes
 {% else -%}
 AllowTcpForwarding no
 {% endif -%}
-{% if config.compression -%}
+{% if config.compression | to_bool -%}
 Compression yes
 {% else -%}
 Compression no
 {% endif -%}
-{% if config.passwordauthentication -%}
+{% if config.passwordauthentication | to_bool -%}
 PasswordAuthentication yes
 {% else -%}
 PasswordAuthentication no
 {% endif -%}
-{% if config.pubkeyauthentication -%}
+{% if config.pubkeyauthentication | to_bool -%}
 AuthorizedKeysFile {{ authorizedKeysFile }}
 PubkeyAuthentication yes
 {% else -%}
