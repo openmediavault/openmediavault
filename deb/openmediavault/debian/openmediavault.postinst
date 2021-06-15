@@ -309,17 +309,18 @@ case "$1" in
 			omv_module_set_dirty nginx
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.6.7"; then
-		  omv_module_set_dirty apt
-		  omv_module_set_dirty cronapt
+			omv_module_set_dirty apt
+			omv_module_set_dirty cronapt
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.6.8"; then
-		  omv_module_set_dirty hostname
+			omv_module_set_dirty hostname
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.6.9"; then
-		  omv_module_set_dirty postfix
+			omv_module_set_dirty postfix
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.6.10"; then
-		  omv_module_set_dirty hosts
+			omv_module_set_dirty hosts
+			omv_module_set_dirty ssh
 		fi
 
 		########################################################################
