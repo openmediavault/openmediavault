@@ -36,6 +36,10 @@ configure_default_avahi_daemon:
     - group: root
     - mode: 644
 
+divert_default_avahi_daemon:
+  omv_dpkg.divert_add:
+    - name: "/etc/default/avahi-daemon"
+
 configure_avahi_daemon_conf:
   file.managed:
     - name: "/etc/avahi/avahi-daemon.conf"
@@ -45,3 +49,7 @@ configure_avahi_daemon_conf:
     - user: root
     - group: root
     - mode: 644
+
+divert_avahi_daemon_conf:
+  omv_dpkg.divert_add:
+    - name: "/etc/avahi/avahi-daemon.conf"

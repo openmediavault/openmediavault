@@ -32,6 +32,10 @@ include:
 {% endif %}
 {% endfor %}
 
+divert_samba_smb_config:
+  omv_dpkg.divert_add:
+    - name: "/etc/samba/smb.conf"
+
 {% if config.enable | to_bool %}
 
 test_samba_service_config:

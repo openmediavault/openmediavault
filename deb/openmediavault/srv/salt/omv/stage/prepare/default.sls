@@ -34,6 +34,11 @@ sync_modules:
   salt.runner:
     - name: saltutil.sync_modules
 
+# Sync state modules from salt://_states to the master.
+sync_states:
+  salt.runner:
+    - name: saltutil.sync_states
+
 # Create openmediavault pillar data.
 populate_pillar:
   salt.runner:

@@ -33,6 +33,10 @@ configure_shairport_sync:
     - group: root
     - mode: 644
 
+divert_shairport_sync:
+  omv_dpkg.divert_add:
+    - name: "/etc/shairport-sync.conf"
+
 start_shairport_sync_service:
   service.running:
     - name: shairport-sync

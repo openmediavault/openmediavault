@@ -36,6 +36,10 @@ configure_collectd_conf:
     - group: root
     - mode: 644
 
+divert_collectd_conf:
+  omv_dpkg.divert_add:
+    - name: "/etc/collectd/collectd.conf"
+
 include:
   - .plugins
 

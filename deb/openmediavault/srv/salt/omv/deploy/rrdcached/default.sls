@@ -71,6 +71,10 @@ configure_default_rrdcached:
     - group: root
     - mode: 644
 
+divert_default_rrdcached:
+  omv_dpkg.divert_add:
+    - name: "/etc/default/rrdcached"
+
 {% if config.enable | to_bool %}
 
 start_rrdcached_service:

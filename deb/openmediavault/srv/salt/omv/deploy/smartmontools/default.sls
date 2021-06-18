@@ -36,6 +36,10 @@ configure_default_smartmontools:
     - group: root
     - mode: 644
 
+divert_default_smartmontools:
+  omv_dpkg.divert_add:
+    - name: "/etc/default/smartmontools"
+
 configure_smartd_conf:
   file.managed:
     - name: "/etc/smartd.conf"
@@ -45,6 +49,10 @@ configure_smartd_conf:
     - user: root
     - group: root
     - mode: 644
+
+divert_smartd_conf:
+  omv_dpkg.divert_add:
+    - name: "/etc/smartd.conf"
 
 {% if config.enable | to_bool %}
 

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -16,21 +18,31 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import subprocess
 
-{% set options = salt['pillar.get']('default:OMV_WSDD_OPTIONS', '--shortlog') %}
-{% set config = salt['omv_conf.get']('conf.service.smb') %}
+import openmediavault.procutils
 
-configure_default_wsdd:
-  file.managed:
-    - name: "/etc/default/wsdd"
-    - contents: |
-        {{ pillar['headers']['auto_generated'] }}
-        {{ pillar['headers']['warning'] }}
-        WSDD_OPTIONS="{{ options }} --workgroup='{{ config.workgroup }}'"
-    - user: root
-    - group: root
-    - mode: 644
 
-divert_default_wsdd:
-  omv_dpkg.divert_add:
-    - name: "/etc/default/wsdd"
+def divert_add(name):
+    """
+    Override a package's version of a file.
+    :param name: The name of the file to process.
+    :type name: str
+    """
+    ret = {
+        'name': name,
+        'changes': {},
+        'result': False,
+        'comment': ''
+    }
+    try:
+        ret['comment'] = openmediavault.procutils.check_output(
+            [
+                'dpkg-divert', '--add', '--local', '--rename', name
+            ],
+            text=True
+        )
+        ret['result'] = True
+    except subprocess.CalledProcessError as e:
+        ret['comment'] = str(e)
+    return ret

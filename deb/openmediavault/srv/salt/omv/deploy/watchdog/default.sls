@@ -65,3 +65,7 @@ configure_watchdog_conf:
     - user: root
     - group: root
     - mode: 644
+
+divert_watchdog_conf:
+  omv_dpkg.divert_add:
+    - name: "/etc/watchdog.conf"

@@ -49,6 +49,10 @@ configure_nut_nut_conf:
     - group: nut
     - mode: 640
 
+divert_nut_nut_conf:
+  omv_dpkg.divert_add:
+    - name: "/etc/nut/nut.conf"
+
 configure_nut_ups_conf:
   file.managed:
     - name: "/etc/nut/ups.conf"
@@ -103,6 +107,10 @@ configure_nut_upsmon_conf:
     - group: nut
     - mode: 640
 
+divert_nut_upsmon_conf:
+  omv_dpkg.divert_add:
+    - name: "/etc/nut/upsmon.conf"
+
 configure_nut_upssched_conf:
   file.managed:
     - name: "/etc/nut/upssched.conf"
@@ -114,6 +122,10 @@ configure_nut_upssched_conf:
     - user: root
     - group: nut
     - mode: 640
+
+divert_nut_upssched_conf:
+  omv_dpkg.divert_add:
+    - name: "/etc/nut/upssched.conf"
 
 configure_nut_default_upssched_cmd:
   file.managed:
