@@ -4,6 +4,6 @@ deb {{ repo_url }} {{ grains['oscodename'] }}-security main restricted universe
 deb-src {{ repo_url }} {{ grains['oscodename'] }}-security main restricted universe
 {%- else -%}
 {%- set repo_url = salt['pillar.get']('default:OMV_APT_SECURITY_REPOSITORY_URL', 'http://security.debian.org/debian-security') -%}
-deb {{ repo_url }} {{ grains['oscodename'] }}/updates main contrib non-free
-deb-src {{ repo_url }} {{ grains['oscodename'] }}/updates main contrib non-free
+deb {{ repo_url }} {{ grains['oscodename'] }}-security main contrib non-free
+deb-src {{ repo_url }} {{ grains['oscodename'] }}-security main contrib non-free
 {%- endif %}
