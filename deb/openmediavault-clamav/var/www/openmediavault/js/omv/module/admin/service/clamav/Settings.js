@@ -150,7 +150,7 @@ Ext.define("OMV.module.admin.service.clamav.Settings", {
 				allowBlank: true,
 				plugins: [{
 					ptype: "fieldinfo",
-					text: _("Please check the <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more details."),
+					text: _("Please check the <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more details."),
 				}]
 			}]
 		}];
