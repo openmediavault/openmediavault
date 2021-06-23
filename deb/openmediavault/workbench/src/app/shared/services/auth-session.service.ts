@@ -30,7 +30,7 @@ export class AuthSessionService {
     localStorage.setItem('permissions', Permissions.toJSON(permissions));
   }
 
-  getUsername(): string {
+  getUsername(): string | null {
     return localStorage.getItem('username');
   }
 

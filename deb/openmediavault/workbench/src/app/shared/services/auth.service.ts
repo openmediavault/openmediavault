@@ -16,6 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Injectable } from '@angular/core';
+import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 import { finalize, tap } from 'rxjs/operators';
 
@@ -61,6 +62,6 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return this.authSessionService.getUsername() !== null;
+    return !_.isNull(this.authSessionService.getUsername());
   }
 }
