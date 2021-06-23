@@ -18,7 +18,7 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs';
-import { finalize, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
@@ -51,7 +51,7 @@ export class AuthService {
   logout(): Observable<void> {
     // Always logout in case of success AND failure.
     return this.rpcService.request('Session', 'logout').pipe(
-      finalize(() => {
+      tap(() => {
         // Revoke session and reload the page. The Angular router and
         // auth-guard service will redirect automatically to the login
         // page.
