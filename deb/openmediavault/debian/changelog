@@ -1,3 +1,10 @@
+openmediavault (5.6.11-1) stable; urgency=low
+
+  * Issue #1051: Add UDEV database entry for JMicron Mediasonic 2 bay
+    enclosure.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 24 Jun 2021 06:47:38 +0200
+
 openmediavault (5.6.10-1) stable; urgency=low
 
   * Include FQDN in local host entry.

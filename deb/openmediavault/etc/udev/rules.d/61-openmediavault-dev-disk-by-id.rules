@@ -138,7 +138,7 @@ ATTRS{idVendor}=="0080", \
 # ORICO 3.5-Inch Multi-Bay Hard Drive Enclosure (9548U3)
 # https://www.orico.cc/us/product/detail/6764/9528U3-BK.html
 #
-# Icy Dock Black Vortex MB174U3S-4SB Quad Bay usb 3.0 eSATA external 3.5" SATA HDD Enclosure 
+# Icy Dock Black Vortex MB174U3S-4SB Quad Bay usb 3.0 eSATA external 3.5" SATA HDD Enclosure
 # https://www.icydock.com/goods.php?id=191
 #
 # P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1.2/2-1.2:1.0/host1/target1:0:0/1:0:0:0/block/sdc
@@ -402,6 +402,56 @@ ENV{ID_VENDOR_ID}=="152d", \
 # TAGS=:systemd:
 ENV{ID_VENDOR}=="Elite", \
   ENV{ID_MODEL}=="Pro_Dual-R1", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# Mediasonic HUR3-SU3S3 2 Bay 3.5-inch SATA hard drive enclosure
+# https://www.amazon.com/Mediasonic-ProRaid-SATA-Drive-Enclosure/dp/B00KCEAXJW
+#
+# P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1:1.0/host0/target0:0:0/0:0:0:1/block/sdb
+# N: sdb
+# L: 0
+# S: disk/by-label/Terra
+# S: disk/by-uuid/19dc2f0f-acad-44e4-a0dd-687f6cd3b383
+# S: disk/by-id/usb-WDC_WD40_EFRX-68N32N0_00000000000000000000-0:1
+# S: disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1:1.0-scsi-0:0:0:1
+# E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1:1.0/host0/target0:0:0/0:0:0:1/block/sdb
+# E: DEVNAME=/dev/sdb
+# E: DEVTYPE=disk
+# E: MAJOR=8
+# E: MINOR=16
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=6717784
+# E: ID_VENDOR=WDC_WD40
+# E: ID_VENDOR_ENC=WDC\x20WD40
+# E: ID_VENDOR_ID=152d
+# E: ID_MODEL=EFRX-68N32N0
+# E: ID_MODEL_ENC=EFRX-68N32N0\x20\x20\x20\x20
+# E: ID_MODEL_ID=9561
+# E: ID_REVISION=0106
+# E: ID_SERIAL=WDC_WD40_EFRX-68N32N0_00000000000000000000-0:1
+# E: ID_SERIAL_SHORT=00000000000000000000
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:1
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:080662:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=uas
+# E: ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1:1.0-scsi-0:0:0:1
+# E: ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0-usb-0_1_1_0-scsi-0_0_0_1
+# E: ID_FS_VERSION=2
+# E: ID_FS_UUID=19dc2f0f-acad-44e4-a0dd-687f6cd3b383
+# E: ID_FS_UUID_ENC=19dc2f0f-acad-44e4-a0dd-687f6cd3b383
+# E: ID_FS_LABEL=Terra
+# E: ID_FS_LABEL_ENC=Terra
+# E: ID_FS_TYPE=crypto_LUKS
+# E: ID_FS_USAGE=crypto
+# E: DEVLINKS=/dev/disk/by-label/Terra /dev/disk/by-uuid/19dc2f0f-acad-44e4-a0dd-687f6cd3b383 /dev/disk/by-id/usb-WDC_WD40_EFRX-68N32N0_00000000000000000000-0:1 /dev/disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1:1.0-scsi-0:0:0:1
+# E: TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="152d", \
+  ENV{ID_MODEL_ID}=="9561", \
   IMPORT{program}="serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
