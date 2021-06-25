@@ -26,8 +26,6 @@ import { ClipboardService } from '~/app/shared/services/clipboard.service';
   styleUrls: ['./form-password-input.component.scss']
 })
 export class FormPasswordInputComponent extends AbstractFormFieldComponent {
-  public hide = true;
-
   constructor(private clipboardService: ClipboardService) {
     super();
   }
