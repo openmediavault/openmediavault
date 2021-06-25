@@ -16,13 +16,12 @@
          [required]="config.validators?.required"
          [min]="config.validators?.min"
          [max]="config.validators?.max">
-  <button *ngIf="config.hasCopyToClipboardButton"
-          mat-icon-button
-          matSuffix
-          matTooltip="{{ 'Copy to clipboard' | translate }}"
-          (click)="onCopyToClipboard()">
-    <mat-icon svgIcon="{{ icon.copy }}"></mat-icon>
-  </button>
+  <mat-icon *ngIf="config.hasCopyToClipboardButton"
+            matSuffix
+            matTooltip="{{ 'Copy to clipboard' | translate }}"
+            (click)="onCopyToClipboard()"
+            svgIcon="{{ icon.copy }}">
+  </mat-icon>
   <mat-error *ngIf="formGroup.invalid">
     <span *ngIf="formGroup.hasError('required', config.name)">
       This field is required.
