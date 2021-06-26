@@ -1,5 +1,7 @@
 openmediavault (5.6.11-1) stable; urgency=low
 
+  * Rsync logs submitted via email are filtered now, only the changed
+    files will be listed.
   * Issue #1051: Add UDEV database entry for JMicron Mediasonic 2 bay
     enclosure.
 

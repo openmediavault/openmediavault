@@ -16,6 +16,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 {%- if not job.sendemail | to_bool -%}
 {{ separator }}>/dev/null 2>&1
 {%- else -%}
-{{ separator }}2>&1 | mail -E -s "Cron{{ ' - ' ~ job.comment | replace('\n', ' ') if job.comment | length > 0 else '' }}" -a "From: Cron Daemon <{{ user }}>" {{ user }} >/dev/null 2>&1
+{{ separator }}2>&1 | grep -v '/$' | mail -E -s "Cron{{ ' - ' ~ job.comment | replace('\n', ' ') if job.comment | length > 0 else '' }}" -a "From: Cron Daemon <{{ user }}>" {{ user }} >/dev/null 2>&1
 {%- endif -%}
 {%- endfor -%}
