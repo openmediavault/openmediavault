@@ -138,6 +138,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 				$expire = time() + 60 * 60 * 24 * 60;
 				setcookie($key, $value, [
 					'expires' => $expire,
+					'httponly' => TRUE,
 					'samesite' => 'Strict'
 				]);
 			}
