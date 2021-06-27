@@ -6,7 +6,7 @@
   }
 }
 
-::ng-deep form {
+:host ::ng-deep form {
   .mat-form-field .mat-hint ul {
     padding-left: 12px;
   }

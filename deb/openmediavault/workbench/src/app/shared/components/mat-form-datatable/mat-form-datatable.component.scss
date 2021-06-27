@@ -1,5 +1,5 @@
 @import 'src/defaults';
 
-::ng-deep mat-form-datatable .mat-toolbar.mat-primary {
+:host ::ng-deep mat-form-datatable .mat-toolbar.mat-primary {
   background: map-get($omv-color-gray-palette, 100);
 }

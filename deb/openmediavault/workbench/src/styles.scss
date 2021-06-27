@@ -15,13 +15,14 @@
 // GNU General Public License for more details.
 @use '~@angular/cdk' as cdk;
 @use '~@angular/material' as mat;
+
 @import 'defaults';
 
 @include mat.core();
 
-/******************************************************************************/
-/* Initialize Material theme
-/******************************************************************************/
+////////////////////////////////////////////////////////////////////////////////
+// Initialize Material theme
+////////////////////////////////////////////////////////////////////////////////
 
 $omv-light-theme-primary-palette: mat.define-palette($omv-color-corporate-palette);
 $omv-light-theme-accent-palette: map-merge(
@@ -115,9 +116,9 @@ $omv-color-themes: (
   )
 );
 
-/******************************************************************************/
-/* Global
-/******************************************************************************/
+////////////////////////////////////////////////////////////////////////////////
+// Global
+////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 // Orientation
@@ -125,6 +126,7 @@ $omv-color-themes: (
   display: flex;
   align-items: center;
 }
+
 .omv-horizontal-align {
   display: flex;
   justify-content: center;
@@ -135,38 +137,48 @@ $omv-color-themes: (
 .omv-color-primary {
   color: $omv-color-primary;
 }
+
 .omv-color-accent {
   color: $omv-color-accent;
 }
+
 .omv-color-black {
   color: $omv-color-black;
 }
+
 .omv-color-gray {
   color: $omv-color-gray;
 }
+
 .omv-color-white {
   color: $omv-color-white;
 }
+
 .omv-color-green,
 .omv-color-success,
 .omv-color-enabled {
   color: $omv-color-success;
 }
+
 .omv-color-red,
 .omv-color-error {
   color: $omv-color-error;
 }
+
 .omv-color-yellow,
 .omv-color-warning {
   color: $omv-color-warning;
 }
+
 .omv-color-blue,
 .omv-color-info {
   color: $omv-color-info;
 }
+
 .omv-color-primary-complementary {
   color: $omv-color-primary-complementary;
 }
+
 .omv-color-white-complementary {
   color: $omv-color-transparent-black;
 }
@@ -177,9 +189,11 @@ $omv-color-themes: (
     background-color: map-get($map, background-color);
   }
 }
+
 .omv-background-color-theme-transparent {
   background-color: transparent;
 }
+
 .omv-background-color-theme-tip {
 }
 
@@ -208,18 +222,22 @@ $omv-color-themes: (
 .omv-text-center {
   text-align: center !important;
 }
+
 .omv-text-monospaced {
   font-family: monospace !important;
   white-space: pre;
 }
+
 .omv-text-no-wrap {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .omv-text-no-decoration {
   text-decoration: none;
 }
+
 .omv-text-bold {
   font-weight: bold;
 }
@@ -235,6 +253,7 @@ $omv-color-themes: (
   width: 0.875em !important;
   flex-shrink: 0;
 }
+
 .omv-icon-2x {
   height: 2em !important;
   width: 2em !important;
@@ -250,32 +269,37 @@ $omv-color-themes: (
 @mixin omv-scrollbar {
   scrollbar-color: $omv-color-primary transparent;
   scrollbar-width: thin;
-  --scrollbar-border-radius: 0px !important;
+
+  --scrollbar-border-radius: 0 !important;
   // Using variables does not work somehow.
   // --scrollbar-thumb-color: $omv-color-primary;
   --scrollbar-thumb-color: #5dacdf !important;
   --scrollbar-thumb-hover-color: var(--scrollbar-thumb-color) !important;
 }
+
 .omv-scrollable-xy,
 .omv-scrollable-y {
   @include omv-scrollbar;
 }
+
 .omv-scrollable-xy {
   overflow: auto;
 }
+
 .omv-scrollable-y {
   overflow-x: hidden;
   overflow-y: auto;
 }
 
-/******************************************************************************/
-/* Customize HTML elements
-/******************************************************************************/
+////////////////////////////////////////////////////////////////////////////////
+// Customize HTML elements
+////////////////////////////////////////////////////////////////////////////////
 
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   background-color: $omv-color-corporate-light;
@@ -293,9 +317,9 @@ textarea {
   @include omv-scrollbar;
 }
 
-/******************************************************************************/
-/* Customize Material
-/******************************************************************************/
+////////////////////////////////////////////////////////////////////////////////
+// Customize Material
+////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 // Select
@@ -315,12 +339,14 @@ textarea {
 .mat-menu-panel {
   @include omv-scrollbar;
 }
+
 .mat-menu-item {
   border-left: 3px solid transparent !important;
 
   &.active {
     border-left: 3px solid $omv-color-corporate-default !important;
   }
+
   &:hover {
     border-left: 3px solid $omv-color-yellow !important;
   }
@@ -332,6 +358,7 @@ textarea {
   height: 100%;
   background-color: map-get($omv-color-gray-palette, 50);
 }
+
 .mat-sidenav {
   background-color: map-get($omv-color-gray-palette, 500);
 
@@ -351,6 +378,7 @@ textarea {
 .mat-flat-button:not(:first-child) {
   margin-left: 8px !important;
 }
+
 .mat-button-toggle.mat-button-toggle-checked {
   @extend .omv-background-color-theme-accent;
 }
@@ -397,55 +425,62 @@ textarea {
     }
   }
 }
+
 @include mat-form-field-multiline-workaround($mat-typography-config);
 
-/******************************************************************************/
-/* Customize BlockUI
-/******************************************************************************/
+////////////////////////////////////////////////////////////////////////////////
+// Customize BlockUI
+////////////////////////////////////////////////////////////////////////////////
 .block-ui-wrapper {
   background: $omv-color-transparent-black !important;
 }
 
-/******************************************************************************/
-/* Customize ngx-scrollbar
-/******************************************************************************/
+////////////////////////////////////////////////////////////////////////////////
+// Customize ngx-scrollbar
+////////////////////////////////////////////////////////////////////////////////
 .ng-scrollbar {
   @include omv-scrollbar;
 }
 
-/******************************************************************************/
-/* Customize Toastr
-/******************************************************************************/
+////////////////////////////////////////////////////////////////////////////////
+// Customize Toastr
+////////////////////////////////////////////////////////////////////////////////
 .toast-container {
   font-family: mat.font-family($mat-typography-config);
   font-size: mat.font-size($mat-typography-config, body-1);
 
   .ngx-toastr {
     box-shadow: unset;
+
     &:hover {
       box-shadow: unset;
     }
   }
 }
+
 .toast-error {
   background-color: $omv-color-error;
 }
+
 .toast-success {
   background-color: $omv-color-success;
 }
+
 .toast-info {
   background-color: $omv-color-info;
 }
+
 .toast-warning {
   background-color: $omv-color-yellow;
 }
 
-/******************************************************************************/
-/* Swimlane ngx-charts
-/******************************************************************************/
+////////////////////////////////////////////////////////////////////////////////
+// Swimlane ngx-charts
+////////////////////////////////////////////////////////////////////////////////
 ngx-charts-gauge {
   font-size: mat.font-size($mat-typography-config, body-1);
 }
+
 ngx-charts-advanced-pie-chart {
   .advanced-pie-legend {
     .legend-items-container .legend-items {
@@ -465,18 +500,20 @@ ngx-charts-advanced-pie-chart {
         }
       }
     }
+
     .total-value {
       font-size: mat.font-size($mat-typography-config, subheading-2);
     }
+
     .total-label {
       font-size: mat.font-size($mat-typography-config, body-1);
     }
   }
 }
 
-/******************************************************************************/
-/* Customize openmediavault components & directives
-/******************************************************************************/
+////////////////////////////////////////////////////////////////////////////////
+// Customize openmediavault components & directives
+////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 // Datatable
@@ -484,6 +521,7 @@ ngx-charts-advanced-pie-chart {
   font-weight: mat.font-weight($mat-typography-config, title);
   font-size: mat.font-size($mat-typography-config, title);
 }
+
 .omv-datatable-cell-subtitle {
   font-size: mat.font-size($mat-typography-config, subheading-2);
 }
@@ -492,9 +530,11 @@ ngx-charts-advanced-pie-chart {
 // Customize 'sticky' directive
 .omv-sticky {
   position: sticky;
-  top: 0px;
+  top: 0;
   overflow: hidden;
   z-index: cdk.$overlay-z-index + 1;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
 }

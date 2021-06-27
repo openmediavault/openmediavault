@@ -9,7 +9,7 @@ $mat-typography-config: mat.define-typography-config();
   .mat-select {
     font-size: mat.font-size($mat-typography-config, button);
 
-    ::ng-deep .mat-select-placeholder {
+    :host ::ng-deep .mat-select-placeholder {
       color: inherit;
       -webkit-text-fill-color: inherit;
     }

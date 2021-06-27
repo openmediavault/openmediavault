@@ -1,4 +1,4 @@
-::ng-deep .mat-form-field .mat-form-field-underline {
+:host ::ng-deep .mat-form-field .mat-form-field-underline {
   visibility: hidden;
 }
 mat-slider {

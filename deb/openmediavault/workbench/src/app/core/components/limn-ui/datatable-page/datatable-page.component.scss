@@ -14,7 +14,7 @@
   .mat-card-content {
     margin-bottom: unset;
 
-    ::ng-deep omv-datatable:not(.has-card-header) {
+    :host ::ng-deep omv-datatable:not(.has-card-header) {
       .mat-toolbar {
         border-top-left-radius: $omv-radius;
         border-top-right-radius: $omv-radius;

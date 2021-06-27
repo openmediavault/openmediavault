@@ -1,6 +1,6 @@
 .mat-flat-button {
   color: #fff;
 }
-::ng-deep omv-form-button .mat-form-field-underline {
+:host ::ng-deep omv-form-button .mat-form-field-underline {
   display: none;
 }
