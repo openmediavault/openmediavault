@@ -4,6 +4,7 @@
 # 
 # Translators:
 # d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2012
+# Jonatan Nyberg <jonatan@autistici.org>, 2021
 # Jonatan Nyberg <jonatan@autistici.org>, 2018-2021
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017-2018
 msgid ""
@@ -11,7 +12,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2021-05-07 04:32+0000\n"
+"PO-Revision-Date: 2021-06-18 15:48+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -173,7 +174,7 @@ msgid "9 months"
 msgstr "9 månader"
 
 msgid "ACL"
-msgstr "ACL"
+msgstr "Åtkomstlista"
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -920,7 +921,7 @@ msgid ""
 msgstr "Vill du verkligen formatera den här enheten? Alla data på den tas bort. Vänligen observera att skapandet av filsystemet kan ta tid."
 
 msgid "Do you really want to install the selected plugin(s)?"
-msgstr "Vill du verkligen installera vald(a) insticksmodul(er)?"
+msgstr "Vill du verkligen installera valda insticksmoduler?"
 
 msgid "Do you really want to leave the page?"
 msgstr "Vill du verkligen lämna den här sidan?"
@@ -961,7 +962,7 @@ msgid "Do you really want to shutdown the system?"
 msgstr "Vill du verkligen stänga av systemet?"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr "Vill du verkligen avinstallera vald(a) insticksmodul(er)?"
+msgstr "Vill du verkligen avinstallera valda insticksmoduler?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Vill du verkligen rensa den valda enheten?"
@@ -1166,7 +1167,7 @@ msgid "Enable user authentication"
 msgstr "Aktivera autentisering för användare"
 
 msgid "Enable user home directories"
-msgstr "Aktivera hemkataloger för användare"
+msgstr "Aktivera användarens hemmappar"
 
 msgid "Enable write-cache."
 msgstr "Aktivera skriv-cache."
@@ -1481,7 +1482,7 @@ msgid "Hide dot files"
 msgstr "Dölj punkt-filer"
 
 msgid "Home directories"
-msgstr "Hemkataloger"
+msgstr "Hemmappar"
 
 msgid "Homepage"
 msgstr "Webbplats"
@@ -1493,7 +1494,7 @@ msgid "Hong Kong S.A.R., China"
 msgstr "Hong Kong S.A.R., Kina"
 
 msgid "Honor existing ACLs"
-msgstr "Hedra befintliga ACL:er"
+msgstr "Hedra befintliga åtkomstlistor"
 
 msgid "Host"
 msgstr "Värd"
@@ -1581,7 +1582,7 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr "Om den här parametern är inställd försöker Samba först läsa DOS-attribut (SYSTEM, HIDDEN, ARCHIVE eller READ-ONLY) från ett filsystems utvidgat attribut innan kartläggning av DOS-attribut till UNIX-behörighetsbitar. När den är inställd, sparas DOS-attribut på ett utökat attribut i UNIX-filsystemet, som är associerat med filen eller katalogen."
+msgstr "Om den här parametern är inställd försöker Samba först läsa DOS-attribut (SYSTEM, HIDDEN, ARCHIVE eller READ-ONLY) från ett filsystems utvidgat attribut innan kartläggning av DOS-attribut till UNIX-behörighetsbitar. När den är inställd, sparas DOS-attribut på ett utökat attribut i UNIX-filsystemet, som är associerat med filen eller mappen."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1655,7 +1656,7 @@ msgid "Information"
 msgstr "Information"
 
 msgid "Inherit ACLs"
-msgstr "Ärv ACL:er"
+msgstr "Ärv åtkomstlistor"
 
 msgid "Inherit permissions"
 msgstr "Ärv behörigheter"
@@ -2053,7 +2054,7 @@ msgid "Modify account"
 msgstr "Ändra konto"
 
 msgid "Modify shared folder ACL"
-msgstr "Ändra ACL för delad mapp"
+msgstr "Ändra åtkomstlista för delad mapp"
 
 msgid "Modules"
 msgstr "Moduler"
@@ -2486,7 +2487,7 @@ msgid "Prefix length"
 msgstr "Prefixlängd"
 
 msgid "Preserve ACLs"
-msgstr "Bevara ACL:er"
+msgstr "Bevara åtkomstlistor"
 
 msgid "Preserve extended attributes"
 msgstr "Bevara utökade attribut"
@@ -2643,7 +2644,7 @@ msgid "Recover"
 msgstr "Reparera"
 
 msgid "Recurse into directories"
-msgstr "Rekursiv i kataloger"
+msgstr "Rekursiv i mappar"
 
 msgid "Recursive"
 msgstr "Rekursiv"
@@ -2701,7 +2702,7 @@ msgid ""
 msgstr "Rapportera om temperaturen är större än eller lika med N grader Celsius. Ställ in 0 för att inaktivera denna rapport."
 
 msgid "Repository"
-msgstr "Förvaringsplats"
+msgstr "Förråd"
 
 msgid "Require valid shell"
 msgstr "Kräv giltigt skal"
@@ -2713,12 +2714,12 @@ msgid "Reset"
 msgstr "Återställ"
 
 msgid "Reset UI to defaults"
-msgstr "Återställ användargränssnittet till standardinställningar"
+msgstr "Återställ användargränssnittet till standardvärdena"
 
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
 "columns."
-msgstr "Återställ användarinställningarna till standardvärdena, t.ex. ordningen av rutnäts kolumner."
+msgstr "Återställ inställningarna för användargränssnittet till standardvärdena, t.ex. ordningen av rutnäts kolumner."
 
 msgid "Resize"
 msgstr "Ändra storlek"
@@ -3047,7 +3048,7 @@ msgid "Shared folder privileges"
 msgstr "Behörigheter för delad mapp"
 
 msgid "Shares"
-msgstr "Utdelningar"
+msgstr "Delningar"
 
 msgid "Shell"
 msgstr "Skal"
@@ -3377,7 +3378,7 @@ msgid ""
 msgstr "Platsen för filerna som ska delas. Den delade resursen kommer att vara tillgänglig i /export/<name>."
 
 msgid "The location of the user home directories."
-msgstr "Platsen för användarens hemkataloger."
+msgstr "Platsen för användarens hemmappar."
 
 msgid ""
 "The maximum transmission unit in bytes to set for the device. Set to 0 to "
@@ -3391,7 +3392,7 @@ msgid "The number of days the certificate is valid for."
 msgstr "Antalet dagar som certifikatet är giltigt för."
 
 msgid "The page will reload now to let the changes take effect."
-msgstr "Sidan laddas om nu för att låta ändringarna träda i kraft."
+msgstr "Sidan uppdateras nu för att låta ändringarna träda i kraft."
 
 msgid "The password contains invalid characters"
 msgstr "Lösenordet innehåller ogiltiga tecken"
@@ -3406,7 +3407,7 @@ msgid ""
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
-msgstr "Behörigheter för nya filer och kataloger styrs normalt av att skapa-mask och katalog-mask men ärva behörigheter-parametern åsidosätter detta. Detta kan vara särskilt användbart på system med många användare att tillåta att en enda utdelning används flexibelt av varje användare."
+msgstr "Behörigheter för nya filer och mappar styrs normalt av skapa-mask och mapp-mask men parametern för ärvsbehörigheter åsidosätter detta. Detta kan vara särskilt användbart på system med många användare för att tillåta att en enda delning används flexibelt av varje användare."
 
 msgid "The port on which SSH is running on the remote system."
 msgstr "Porten på vilken SSH körs på fjärrsystemet."
@@ -3426,7 +3427,7 @@ msgstr "Den relativa sökvägen till mappen som ska delas. Den angivna mappen sk
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "Centralkatalogen kommer att kontrolleras för nya, borttagna eller uppgraderade mjukvarupaket."
+msgstr "Förrådet kommer att kontrolleras för nya, borttagna eller uppgraderade mjukvarupaket."
 
 msgid "The requested page was not found."
 msgstr "Den begärda sidan hittades inte."
@@ -3657,7 +3658,7 @@ msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr "Denna parameter kan användas för att säkerställa att om standard ACL:er finns på överordnade kataloger, är de alltid hedrade när du skapar en ny fil eller underkatalog i dessa överordnade kataloger."
+msgstr "Denna parameter kan användas för att säkerställa att om standard åtkomstlistor finns i överordnade mappar, respekteras de alltid när en ny fil eller undermapp skapas i dessa överordnade mappar."
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
@@ -3676,7 +3677,7 @@ msgid "This specifies what to do if the packet matches."
 msgstr "Detta anger vad du ska göra om paketet matchar."
 
 msgid "This will create a recycle bin on the share."
-msgstr "Detta skapar en papperskorg på utdelningen."
+msgstr "Detta skapar en papperskorg på delningen."
 
 msgid "Threshold"
 msgstr "Tröskelvärde"
@@ -3837,7 +3838,7 @@ msgid "Update now"
 msgstr "Uppdatera nu"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
-msgstr "Uppdatera destinationens ACL för att vara samma som källans ACL"
+msgstr "Uppdatera destinationens åtkomstlistor så att de är desamma som källans åtkomstlistor"
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones"
@@ -3850,7 +3851,7 @@ msgid "Updates available"
 msgstr "Uppdateringar tillgängliga"
 
 msgid "Updating ACL settings"
-msgstr "Uppdaterar ACL-inställningar"
+msgstr "Uppdaterar åtkomstlistinställningar"
 
 msgid "Upload"
 msgstr "Ladda upp"
@@ -3909,7 +3910,7 @@ msgid "User accounts"
 msgstr "Användarkonton"
 
 msgid "User home directory"
-msgstr "Användarens hemkatalog"
+msgstr "Användarens hemmapp"
 
 msgid "User information"
 msgstr "Användarinformation"
