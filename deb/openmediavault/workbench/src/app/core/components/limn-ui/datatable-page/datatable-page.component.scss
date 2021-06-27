@@ -8,9 +8,11 @@
   .mat-card-title-group {
     padding: $omv-padding;
   }
+
   .mat-card-header {
     padding-bottom: unset;
   }
+
   .mat-card-content {
     margin-bottom: unset;
 
@@ -21,6 +23,7 @@
       }
     }
   }
+
   .mat-card-actions {
     margin: unset;
     padding-bottom: $omv-padding;

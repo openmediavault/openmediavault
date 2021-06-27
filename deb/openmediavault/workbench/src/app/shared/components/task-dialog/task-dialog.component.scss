@@ -12,6 +12,7 @@
 .mat-dialog-content {
   .omv-task-dialog-content {
     @extend .omv-background-color-theme-terminal;
+
     height: 300px;
     white-space: break-spaces;
   }

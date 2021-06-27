@@ -1,5 +1,6 @@
-@use '~@angular/material' as mat;
 @import 'styles.scss';
+
+@use '~@angular/material' as mat;
 
 $mat-typography-config: mat.define-typography-config();
 
@@ -25,10 +26,12 @@ $mat-typography-config: mat.define-typography-config();
       .total-value {
         font-size: mat.font-size($mat-typography-config, body-1);
       }
+
       .total-label {
         font-size: mat.font-size($mat-typography-config, caption);
       }
     }
+
     .items {
       .item {
         border-left: 3px solid;
@@ -37,9 +40,11 @@ $mat-typography-config: mat.define-typography-config();
         .item-value {
           font-size: mat.font-size($mat-typography-config, body-1);
         }
+
         .item-label {
           font-size: mat.font-size($mat-typography-config, caption);
         }
+
         .item-percent {
           font-size: mat.font-size($mat-typography-config, body-1);
         }

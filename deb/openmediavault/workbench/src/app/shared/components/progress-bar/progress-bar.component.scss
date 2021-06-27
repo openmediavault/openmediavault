@@ -11,6 +11,7 @@
 
   .omv-progress-bar-fill {
     @extend .omv-background-color-theme-green;
+
     overflow: hidden;
     position: absolute;
     height: 100%;

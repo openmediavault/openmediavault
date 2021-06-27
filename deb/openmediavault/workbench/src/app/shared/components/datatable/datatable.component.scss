@@ -1,5 +1,6 @@
-@use '~@angular/material' as mat;
 @import 'src/styles';
+
+@use '~@angular/material' as mat;
 
 $mat-typography-config: mat.define-typography-config();
 
@@ -37,6 +38,7 @@ $mat-typography-config: mat.define-typography-config();
 
 // Datatable
 ::ng-deep omv-datatable .ngx-datatable {
+  /* stylelint-disable no-descending-specificity */
   box-shadow: none;
 
   &.single-selection,
@@ -51,6 +53,7 @@ $mat-typography-config: mat.define-typography-config();
       &.active:hover,
       &.active:hover .datatable-row-group {
         @extend .omv-background-color-theme-accent;
+
         background-color: map-get($omv-color-yellow-palette, 800) !important;
         transition-property: background;
         transition-duration: 0.3s;
@@ -60,6 +63,7 @@ $mat-typography-config: mat.define-typography-config();
       &.active:focus,
       &.active:focus .datatable-row-group {
         @extend .omv-background-color-theme-accent;
+
         background-color: map-get($omv-color-yellow-palette, 700) !important;
       }
     }
@@ -70,6 +74,7 @@ $mat-typography-config: mat.define-typography-config();
       &:hover,
       &:hover .datatable-row-group {
         @extend .omv-background-color-theme-primary;
+
         transition-property: background;
         transition-duration: 0.3s;
         transition-timing-function: linear;
@@ -78,6 +83,7 @@ $mat-typography-config: mat.define-typography-config();
       &:focus,
       &:focus .datatable-row-group {
         @extend .omv-background-color-theme-primary;
+
         background-color: map-get($omv-color-corporate-palette, 700);
       }
     }
@@ -100,7 +106,7 @@ $mat-typography-config: mat.define-typography-config();
     }
 
     .resize-handle {
-      border-right: solid 1px #eee;
+      border-right: solid 1px #eeeeee;
     }
   }
 
@@ -136,6 +142,7 @@ $mat-typography-config: mat.define-typography-config();
         vertical-align: top;
         border-top: 0;
       }
+
       .datatable-body-group-cell {
         text-align: left;
         padding: 0.9rem 1.2rem;
@@ -180,7 +187,6 @@ $mat-typography-config: mat.define-typography-config();
         border-radius: 3px;
         margin: 6px 3px;
         text-align: center;
-        vertical-align: top;
         color: rgba(0, 0, 0, 0.54);
         text-decoration: none;
         vertical-align: bottom;
@@ -201,4 +207,5 @@ $mat-typography-config: mat.define-typography-config();
       }
     }
   }
+  /* stylelint-enable no-descending-specificity */
 }

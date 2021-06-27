@@ -1,5 +1,6 @@
-@use '~@angular/material' as mat;
 @import 'styles.scss';
+
+@use '~@angular/material' as mat;
 
 $mat-typography-config: mat.define-typography-config();
 
@@ -14,6 +15,7 @@ $mat-typography-config: mat.define-typography-config();
     .item-text {
       font-size: mat.font-size($mat-typography-config, body-1);
     }
+
     .item-subtext {
       font-size: mat.font-size($mat-typography-config, caption);
     }
@@ -21,6 +23,7 @@ $mat-typography-config: mat.define-typography-config();
     &.warning {
       border-left-color: $omv-color-warning;
     }
+
     &.error {
       border-left-color: $omv-color-error;
     }

@@ -12,10 +12,12 @@
     "lint:prettier": "prettier --list-different \"src/**/*.{ts,scss}\"",
     "lint:tsc": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.spec.json --noEmit",
     "lint:eslint": "ng lint",
-    "lint": "run-p -csl --aggregate-output lint:*",
+    "lint:scss": "stylelint \"**/*.scss\"",
+    "lint": "run-p -cl --aggregate-output lint:*",
     "fix:prettier": "prettier --write \"{src,e2e}/**/*.{ts,scss}\"",
     "fix:eslint": "npm run lint:eslint -- --fix",
-    "fix": "run-p -csl --aggregate-output fix:*",
+    "fix:scss": "stylelint \"**/*.scss\" --fix",
+    "fix": "run-s -cl fix:*",
     "e2e": "ng e2e",
     "i18n": "npm run i18n:extract",
     "i18n:extract": "ngx-translate-extract --input src --output src/assets/i18n/openmediavault-workbench.pot --clean --sort --format pot"
@@ -110,6 +112,9 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",
     "protractor": "^7.0.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-scss": "^3.19.0",
     "ts-node": "^10.0.0",
     "typescript": "~4.3.4"
   }

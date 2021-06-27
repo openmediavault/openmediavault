@@ -52,6 +52,7 @@
 
     mat-toolbar {
       @extend .omv-background-color-theme-transparent;
+
       position: absolute;
     }
 
@@ -69,23 +70,29 @@
           .mat-input-element {
             caret-color: $omv-color-primary;
           }
+
           .mat-form-field-label,
           .mat-hint {
             color: $omv-color-white;
           }
+
           .mat-form-field-underline {
             background-color: $omv-color-white;
           }
+
           .mat-form-field-ripple {
             background-color: $omv-color-primary;
           }
+
           &.mat-form-field-invalid {
             .mat-input-element {
               caret-color: $omv-color-error;
             }
+
             .mat-form-field-label {
               color: $omv-color-error;
             }
+
             .mat-form-field-ripple {
               background-color: $omv-color-error;
             }
@@ -100,18 +107,21 @@
   0% {
     opacity: 0;
   }
+
   5% {
     opacity: 1;
   }
+
   95% {
     animation-timing-function: ease-in-out;
     opacity: 1;
-    transform: scale3d(1.5, 1.5, 1) translate3d(-20px, -15px, 0px);
+    transform: scale3d(1.5, 1.5, 1) translate3d(-20px, -15px, 0);
     transform-origin: top left;
   }
+
   100% {
     opacity: 0;
-    transform: scale3d(2, 2, 1) translate3d(-20px, -15px, 0px);
+    transform: scale3d(2, 2, 1) translate3d(-20px, -15px, 0);
     transform-origin: top left;
   }
 }
