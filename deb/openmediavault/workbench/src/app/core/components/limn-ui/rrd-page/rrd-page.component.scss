@@ -9,6 +9,7 @@
     border-top-right-radius: $omv-radius;
     color: $omv-color-primary;
   }
+
   .mat-card-content {
     padding: $omv-padding;
 
@@ -18,6 +19,7 @@
       object-fit: contain;
       flex: min-content;
     }
+
     img:last-child {
       padding-bottom: unset;
     }

@@ -7,6 +7,7 @@
     &.running {
       @extend .omv-background-color-theme-success;
     }
+
     &.not-running {
       @extend .omv-background-color-theme-error;
     }

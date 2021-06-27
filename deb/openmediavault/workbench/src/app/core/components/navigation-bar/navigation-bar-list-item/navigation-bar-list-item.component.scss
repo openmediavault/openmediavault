@@ -6,6 +6,7 @@
   &.active {
     border-left: 3px solid $omv-color-primary;
   }
+
   &:hover {
     border-left: 3px solid $omv-color-accent;
   }
@@ -13,12 +14,15 @@
   .omv-list-item-indent-z1 {
     width: 32px;
   }
+
   .omv-list-item-indent-z2 {
     width: 64px;
   }
+
   .omv-list-item-indent-z3 {
     width: 96px;
   }
+
   .mat-icon {
     margin-right: $omv-margin-icon-text;
   }
