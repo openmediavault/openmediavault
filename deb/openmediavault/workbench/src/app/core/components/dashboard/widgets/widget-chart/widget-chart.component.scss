@@ -1,6 +1,6 @@
-@import 'styles.scss';
-
 @use '~@angular/material' as mat;
+
+@import 'styles.scss';
 
 $mat-typography-config: mat.define-typography-config();
 

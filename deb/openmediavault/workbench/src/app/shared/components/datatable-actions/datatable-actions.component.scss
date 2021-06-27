@@ -1,6 +1,6 @@
-@import 'src/defaults';
-
 @use '~@angular/material' as mat;
+
+@import 'src/defaults';
 
 $mat-typography-config: mat.define-typography-config();
 

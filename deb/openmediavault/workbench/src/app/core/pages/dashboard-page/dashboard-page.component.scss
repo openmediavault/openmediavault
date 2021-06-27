@@ -6,19 +6,19 @@
   .omv-dashboard-page-content {
     box-sizing: border-box;
     column-count: 1;
-    column-gap: $omv-margin / 2;
+    column-gap: $omv-margin * 0.5;
 
     .mat-card {
       box-sizing: inherit;
       display: inline-block;
-      margin-bottom: $omv-margin / 2;
+      margin-bottom: $omv-margin * 0.5;
       padding: unset;
       width: 100%;
 
       .mat-card-title-group {
         border-top-left-radius: $omv-radius;
         border-top-right-radius: $omv-radius;
-        padding: $omv-padding $omv-padding ($omv-padding / 2) $omv-padding;
+        padding: $omv-padding $omv-padding ($omv-padding * 0.5) $omv-padding;
       }
     }
   }

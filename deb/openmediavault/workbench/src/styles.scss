@@ -13,10 +13,11 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-@import 'defaults';
-
+@use 'sass:math';
 @use '~@angular/cdk' as cdk;
 @use '~@angular/material' as mat;
+
+@import 'defaults';
 
 @include mat.core();
 
@@ -402,7 +403,7 @@ textarea {
       }
 
       &-subscript-wrapper {
-        $subscript-margin-top: 0.5em / $subscript-font-scale;
+        $subscript-margin-top: math.div(0.5em, $subscript-font-scale);
         $subscript-min-height: $line-height * 1em;
         $subscript-margin-bottom: -#{$subscript-margin-top + $line-height};
 
@@ -414,8 +415,8 @@ textarea {
 
     &-appearance-legacy &-subscript-wrapper {
       // Copy-paste from @mat-form-field-legacy-typography();
-      $line-spacing: ($line-height - 1) / 2;
-      $subscript-margin-top: 0.5em / $subscript-font-scale - ($line-spacing * 2);
+      $line-spacing: ($line-height - 1) * 0.5;
+      $subscript-margin-top: math.div(0.5em, $subscript-font-scale) - ($line-spacing * 2);
 
       $subscript-min-height: $line-height * 1em;
       $subscript-margin-bottom: -#{$subscript-margin-top + $line-height};

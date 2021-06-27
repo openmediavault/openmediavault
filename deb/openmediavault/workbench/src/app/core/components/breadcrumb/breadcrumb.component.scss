@@ -1,6 +1,7 @@
-@import 'src/defaults';
-
+@use 'sass:math';
 @use '~@angular/material' as mat;
+
+@import 'src/defaults';
 
 $mat-typography-config: mat.define-typography-config();
 
@@ -33,7 +34,7 @@ $mat-typography-config: mat.define-typography-config();
   .mat-divider {
     border-color: inherit;
     display: unset;
-    margin-left: $omv-margin / 3;
-    margin-right: $omv-margin / 3;
+    margin-left: math.div($omv-margin, 3);
+    margin-right: math.div($omv-margin, 3);
   }
 }
