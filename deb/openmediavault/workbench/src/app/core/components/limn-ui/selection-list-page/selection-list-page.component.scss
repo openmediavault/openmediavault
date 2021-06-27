@@ -9,7 +9,7 @@
     padding-left: $omv-padding / 2;
   }
 
-  :host ::ng-deep .mat-selection-list {
+  ::ng-deep .mat-selection-list {
     padding-top: unset;
 
     .mat-list-item-content {

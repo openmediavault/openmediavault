@@ -4,7 +4,7 @@
 $mat-typography-config: mat.define-typography-config();
 
 // Toolbar
-:host ::ng-deep omv-datatable .mat-toolbar {
+::ng-deep omv-datatable .mat-toolbar {
   .mat-button,
   .mat-icon-button,
   .mat-form-field {
@@ -36,7 +36,7 @@ $mat-typography-config: mat.define-typography-config();
 }
 
 // Datatable
-:host ::ng-deep omv-datatable .ngx-datatable {
+::ng-deep omv-datatable .ngx-datatable {
   box-shadow: none;
 
   &.single-selection,

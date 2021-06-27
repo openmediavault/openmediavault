@@ -35,7 +35,7 @@
   box-sizing: border-box;
   cursor: move;
 
-  :host ::ng-deep .mat-list-item-content {
+  ::ng-deep .mat-list-item-content {
     width: 100%;
   }
 }
