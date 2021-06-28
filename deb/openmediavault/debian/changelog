@@ -10,6 +10,12 @@ openmediavault (6.0-12) UNRELEASED; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Dec 2020 20:28:37 +0100
 
+openmediavault (5.6.12-1) stable; urgency=low
+
+  * Issue #1054: The SMART device datatable is empty.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 28 Jun 2021 21:53:21 +0200
+
 openmediavault (5.6.11-1) stable; urgency=low
 
   * Update locales.
