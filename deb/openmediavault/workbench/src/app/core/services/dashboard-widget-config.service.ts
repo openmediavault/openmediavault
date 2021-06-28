@@ -77,6 +77,8 @@ export class DashboardWidgetConfigService {
 
   /**
    * Get the identifiers of all enabled widgets of the current user.
+   *
+   * @return Returns a list of widget identifiers (UUID).
    */
   public getEnabled(): Array<string> {
     const value = this.userStorageService.get('dashboard_widgets', '[]');

@@ -15,25 +15,56 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 
 import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/dashboard-widget-config.model';
+import { SelectionListPageConfig } from '~/app/core/components/limn-ui/models/selection-list-page-config.type';
 import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widget-config.service';
-import { Icon } from '~/app/shared/enum/icon.enum';
+
+type SelectionListItem = Pick<DashboardWidgetConfig, 'id' | 'title'> & {
+  enabled: boolean;
+};
 
 @Component({
-  templateUrl: './dashboard-settings-page.component.html',
-  styleUrls: ['./dashboard-settings-page.component.scss']
+  template: '<omv-limn-selection-list-page [config]="this.config"></omv-limn-selection-list-page>'
 })
 export class DashboardSettingsPageComponent implements OnInit {
-  public error: HttpErrorResponse;
-  public available: Array<DashboardWidgetConfig> = [];
-  public enabled: Array<DashboardWidgetConfig> = [];
-  public icon = Icon;
+  public config: SelectionListPageConfig = {
+    title: gettext('Enabled widgets'),
+    multiple: true,
+    textProp: 'title',
+    valueProp: 'id',
+    selectedProp: 'enabled',
+    updateStoreOnSelectionChange: true,
+    store: {
+      data: [],
+      sorters: [
+        {
+          dir: 'asc',
+          prop: 'title'
+        }
+      ]
+    },
+    buttons: [
+      {
+        template: 'submit',
+        execute: {
+          type: 'click',
+          click: this.onSubmit.bind(this)
+        }
+      },
+      {
+        template: 'cancel',
+        execute: {
+          type: 'url',
+          url: '/dashboard'
+        }
+      }
+    ]
+  };
 
   constructor(
     private dashboardWidgetConfigService: DashboardWidgetConfigService,
@@ -43,52 +74,22 @@ export class DashboardSettingsPageComponent implements OnInit {
   ngOnInit(): void {
     this.dashboardWidgetConfigService.configs$.subscribe(
       (widgets: Array<DashboardWidgetConfig>) => {
+        const data: Array<SelectionListItem> = [];
         const enabledWidgets: Array<string> = this.dashboardWidgetConfigService.getEnabled();
         _.forEach(widgets, (widget: DashboardWidgetConfig) => {
-          if (enabledWidgets.includes(widget.id)) {
-            this.enabled.push(widget);
-          } else {
-            this.available.push(widget);
-          }
+          data.push({
+            id: widget.id,
+            title: widget.title,
+            enabled: enabledWidgets.includes(widget.id)
+          });
         });
+        this.config.store.data = [...data];
       }
     );
   }
 
-  onDrop(event: CdkDragDrop<DashboardWidgetConfig[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
-    }
-  }
-
-  onEnabledPull(widget: DashboardWidgetConfig) {
-    transferArrayItem(
-      this.enabled,
-      this.available,
-      _.findIndex(this.enabled, ['id', widget.id]),
-      this.available.length + 1
-    );
-  }
-
-  onEnabledPush(widget: DashboardWidgetConfig) {
-    transferArrayItem(
-      this.available,
-      this.enabled,
-      _.findIndex(this.available, ['id', widget.id]),
-      this.enabled.length + 1
-    );
-  }
-
-  onSubmit() {
-    const enabledWidgets: Array<string> = _.map(this.enabled, 'id');
-    this.dashboardWidgetConfigService.setEnabled(enabledWidgets);
+  onSubmit(buttonConfig, store, value: Array<string>) {
+    this.dashboardWidgetConfigService.setEnabled(value);
     this.router.navigate(['/dashboard']);
   }
 }
