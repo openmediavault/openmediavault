@@ -11,9 +11,7 @@
                   [cdkDropListData]="enabled"
                   (cdkDropListDropped)="onDrop($event)">
           <mat-list-item *ngFor="let widget of enabled"
-                         class="dragdrop-list-item"
-                         matRipple
-                         cdkDrag>
+                         class="dragdrop-list-item">
             <div fxFlexFill
                  fxLayout="row"
                  fxLayoutAlign="start center">
@@ -22,7 +20,6 @@
                       (click)="onEnabledPull(widget)">
                 <mat-icon svgIcon="{{ icon.remove }}"></mat-icon>
               </button>
-              <mat-icon svgIcon="{{ icon.menu }}"></mat-icon>
             </div>
           </mat-list-item>
         </mat-list>
@@ -35,9 +32,7 @@
                   [cdkDropListData]="available"
                   (cdkDropListDropped)="onDrop($event)">
           <mat-list-item *ngFor="let widget of available"
-                         class="dragdrop-list-item"
-                         matRipple
-                         cdkDrag>
+                         class="dragdrop-list-item">
             <div fxFlexFill
                  fxLayout="row"
                  fxLayoutAlign="start center">
@@ -46,7 +41,6 @@
                       (click)="onEnabledPush(widget)">
                 <mat-icon svgIcon="{{ icon.add }}"></mat-icon>
               </button>
-              <mat-icon svgIcon="{{ icon.menu }}"></mat-icon>
             </div>
           </mat-list-item>
         </mat-list>
