@@ -108,7 +108,8 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Remove elements that are no associative arrays (these are devices
 		// without S.M.A.R.T. support).
-		return array_filter($this->waitAsyncProcs($procs), "is_assoc_array");
+		return array_values(array_filter($this->waitAsyncProcs($procs),
+			"is_assoc_array"));
 	}
 
 	/**
