@@ -17,7 +17,7 @@ import { CronTaskDatatablePageComponent } from '~/app/pages/system/cron/cron-tas
 import { CronTaskFormPageComponent } from '~/app/pages/system/cron/cron-task-form-page.component';
 import { DateTimeFormPageComponent } from '~/app/pages/system/date-time/date-time-form-page.component';
 import { MonitoringFormPageComponent } from '~/app/pages/system/monitoring/monitoring-form-page.component';
-import { NotificationDatatablePageComponent } from '~/app/pages/system/notification/notification-datatable-page.component';
+import { NotificationSelectionListPageComponent } from '~/app/pages/system/notification/notification-selection-list-page.component';
 import { NotificationSettingsFormPageComponent } from '~/app/pages/system/notification/notification-settings-form-page.component';
 import { PluginsDatatablePageComponent } from '~/app/pages/system/plugins/plugins-datatable-page.component';
 import { PowermgmtSettingsFormPageComponent } from '~/app/pages/system/powermgmt/powermgmt-settings-form-page.component';
@@ -43,7 +43,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     SshCertificateEditFormPageComponent,
     SshCertificateImportFormPageComponent,
     NotificationSettingsFormPageComponent,
-    NotificationDatatablePageComponent,
+    NotificationSelectionListPageComponent,
     UpdateDatatablePageComponent,
     PluginsDatatablePageComponent,
     UpdateSettingsFormPageComponent,

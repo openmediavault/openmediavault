@@ -22,7 +22,7 @@ import { SelectionListPageConfig } from '~/app/core/components/limn-ui/models/se
 @Component({
   template: '<omv-limn-selection-list-page [config]="this.config"></omv-limn-selection-list-page>'
 })
-export class NotificationDatatablePageComponent {
+export class NotificationSelectionListPageComponent {
   public config: SelectionListPageConfig = {
     multiple: true,
     textProp: 'title',
