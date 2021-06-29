@@ -59,10 +59,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   templateUrl: './form-page.component.html',
   styleUrls: ['./form-page.component.scss']
 })
-export class FormPageComponent
-  extends AbstractPageComponent<FormPageConfig>
-  implements AfterViewInit, OnInit, OnDestroy
-{
+export class FormPageComponent extends AbstractPageComponent<FormPageConfig>
+  implements AfterViewInit, OnInit, OnDestroy {
   @BlockUI()
   blockUI: NgBlockUI;
 
@@ -109,7 +107,7 @@ export class FormPageComponent
     const allFields = flattenFormFieldConfig(this.config.fields);
     // Process the 'disabled' attribute in all form field configurations.
     _.forEach(allFields, (fieldConfig: FormFieldConfig) => {
-      if (_.has(fieldConfig, 'disabled') && _.isString(fieldConfig.disabled)) {
+      if (_.has(fieldConfig, 'disabled') && isFormatable(fieldConfig.disabled)) {
         fieldConfig.disabled = toBoolean(format(String(fieldConfig.disabled), this.pageContext));
       }
     });
@@ -117,7 +115,7 @@ export class FormPageComponent
     _.forEach(allFields, (fieldConfig: FormFieldConfig) => {
       if (
         _.has(fieldConfig, 'validators.required') &&
-        _.isString(fieldConfig.validators.required)
+        isFormatable(fieldConfig.validators.required)
       ) {
         fieldConfig.validators.required = toBoolean(
           format(String(fieldConfig.validators.required), this.pageContext)
