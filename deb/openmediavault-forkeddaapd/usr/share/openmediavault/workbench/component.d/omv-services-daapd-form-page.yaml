@@ -37,6 +37,7 @@ data:
         label: _("Shared folder")
         hint: _("The location of the media files to share.")
         hasEmptyOption: true
+        value: ""
         validators:
           requiredIf:
             operator: truthy

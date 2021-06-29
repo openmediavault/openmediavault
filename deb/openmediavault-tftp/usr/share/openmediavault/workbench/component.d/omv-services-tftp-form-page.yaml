@@ -29,6 +29,7 @@ data:
         label: _("Shared folder")
         hint: _("The location of the files to share. Please make sure that the shared folder is publicly writable if new files are allowed.")
         hasEmptyOption: true
+        value: ""
         validators:
           requiredIf:
             operator: truthy
