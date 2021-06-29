@@ -84,7 +84,6 @@ export class RsyncTaskFormPageComponent {
         hasEmptyOption: true,
         value: '',
         label: gettext('Source shared folder'),
-        hint: gettext('The source shared folder.'),
         modifiers: [
           {
             type: 'hidden',
@@ -150,7 +149,6 @@ export class RsyncTaskFormPageComponent {
         hasEmptyOption: true,
         value: '',
         label: gettext('Destination shared folder'),
-        hint: gettext('The destination shared folder.'),
         modifiers: [
           {
             type: 'hidden',
