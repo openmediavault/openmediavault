@@ -49,6 +49,7 @@ export class FtpTlsSettingsFormPageComponent {
         label: gettext('Certificate'),
         hint: gettext('The SSL certificate.'),
         hasEmptyOption: true,
+        value: '',
         modifiers: [
           {
             type: 'disabled',

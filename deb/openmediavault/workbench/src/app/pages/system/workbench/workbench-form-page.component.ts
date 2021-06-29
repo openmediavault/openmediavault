@@ -116,6 +116,7 @@ export class WorkbenchFormPageComponent {
         name: 'sslcertificateref',
         label: gettext('Certificate'),
         hasEmptyOption: true,
+        value: '',
         modifiers: [
           {
             type: 'enabled',

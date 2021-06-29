@@ -82,6 +82,7 @@ export class RsyncTaskFormPageComponent {
         type: 'sharedFolderSelect',
         name: 'srcsharedfolderref',
         hasEmptyOption: true,
+        value: '',
         label: gettext('Source shared folder'),
         hint: gettext('The source shared folder.'),
         modifiers: [
@@ -147,6 +148,7 @@ export class RsyncTaskFormPageComponent {
         type: 'sharedFolderSelect',
         name: 'destsharedfolderref',
         hasEmptyOption: true,
+        value: '',
         label: gettext('Destination shared folder'),
         hint: gettext('The destination shared folder.'),
         modifiers: [
@@ -256,6 +258,7 @@ export class RsyncTaskFormPageComponent {
         type: 'sslCertSelect',
         name: 'sshcertificateref',
         hasEmptyOption: true,
+        value: '',
         label: gettext('SSH certificate'),
         hint: gettext('The SSH certificate used for authentication.'),
         modifiers: [
