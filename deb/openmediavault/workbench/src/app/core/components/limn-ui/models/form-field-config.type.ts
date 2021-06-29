@@ -85,8 +85,6 @@ export type FormFieldConfig = {
   // Modify the form field depending on a specified constraint. The
   // constraint must be truthy to apply.
   modifiers?: Array<{
-    // Note, the modifiers 'visible' and 'hidden' will not be applied
-    // on form field creation.
     type:
       | 'disabled'
       | 'enabled'

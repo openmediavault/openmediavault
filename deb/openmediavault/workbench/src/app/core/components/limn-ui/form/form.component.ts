@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 
@@ -29,6 +29,7 @@ import {
 } from '~/app/core/components/limn-ui/models/form-field-config.type';
 import { format } from '~/app/functions.helper';
 import { CustomValidators } from '~/app/shared/forms/custom-validators';
+import { ConstraintService } from '~/app/shared/services/constraint.service';
 
 let nextUniqueId = 0;
 
@@ -37,7 +38,7 @@ let nextUniqueId = 0;
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements AfterViewInit, OnInit {
   @Input()
   id: string;
 
@@ -56,6 +57,28 @@ export class FormComponent implements OnInit {
     this.createForm();
   }
 
+  ngAfterViewInit(): void {
+    // All form fields that are involved in a 'visible' or 'hidden' modifier
+    // must be updated. This will trigger the evaluation of the constraint
+    // which finally sets the correct (configured) state of the form field
+    // after form initialization.
+    const allFields: Array<FormFieldConfig> = flattenFormFieldConfig(this.config);
+    const fieldsToUpdate: Array<string> = [];
+    _.forEach(allFields, (field: FormFieldConfig) => {
+      _.forEach(field?.modifiers, (modifier) => {
+        if (['visible', 'hidden'].includes(modifier.type)) {
+          // Determine the fields involved in the constraint.
+          const fields = ConstraintService.getFields(modifier.constraint);
+          fieldsToUpdate.push(...fields);
+        }
+      });
+    });
+    _.forEach(_.uniq(fieldsToUpdate), (path) => {
+      const control = this.formGroup.get(path);
+      control.updateValueAndValidity({ onlySelf: true, emitEvent: true });
+    });
+  }
+
   protected sanitizeConfig() {
     // Create unique form identifier.
     this.id = _.defaultTo(this.id, `omv-limn-form-${++nextUniqueId}`);
@@ -65,7 +88,7 @@ export class FormComponent implements OnInit {
 
   private createForm() {
     const controlsConfig = {};
-    const allFields = flattenFormFieldConfig(this.config);
+    const allFields: Array<FormFieldConfig> = flattenFormFieldConfig(this.config);
     _.forEach(allFields, (field: FormFieldConfig) => {
       const validators: Array<ValidatorFn> = [];
       // Build the validator configuration.
