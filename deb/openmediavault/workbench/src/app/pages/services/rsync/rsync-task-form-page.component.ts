@@ -142,7 +142,6 @@ export class RsyncTaskFormPageComponent {
           }
         }
       },
-
       {
         type: 'sharedFolderSelect',
         name: 'destsharedfolderref',
@@ -311,7 +310,7 @@ export class RsyncTaskFormPageComponent {
             type: 'select',
             name: 'minute',
             label: gettext('Minute'),
-            value: '{{ moment("H:mm:ss") | split(":") | get(1) }}',
+            value: '{{ moment("mm") }}',
             store: {
               data: [
                 ['*', '*'],
@@ -393,7 +392,7 @@ export class RsyncTaskFormPageComponent {
             type: 'select',
             name: 'hour',
             label: gettext('Hour'),
-            value: '{{ moment("H:mm:ss") | split(":") | get(0) }}',
+            value: '{{ moment("H") }}',
             store: {
               data: [
                 ['*', '*'],

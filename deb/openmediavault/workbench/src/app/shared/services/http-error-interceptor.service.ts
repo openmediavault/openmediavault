@@ -49,7 +49,6 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
           let title = `${err.status} - ${err.statusText}`;
           let message: string;
           let traceback: string;
-          let notificationId: number;
 
           // Convert backend errors.
           if (_.isPlainObject(err.error) && _.isPlainObject(err.error.error)) {
@@ -77,20 +76,21 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
               this.router.navigate(['/login']);
               break;
             default:
-              notificationId = this.notificationService.show(
+              // Show the notification.
+              // The notification can be canceled within 5 milliseconds.
+              const notificationId: number = this.notificationService.show(
                 NotificationType.error,
                 title,
                 message,
                 traceback
               );
+              // Add a method to allow the subscriber to cancel the
+              // notification, so it will not be shown.
+              _.set(err, 'preventDefault', () => {
+                this.notificationService.cancel(notificationId);
+              });
               break;
           }
-
-          // Add a method to allow the subscriber to cancel the
-          // notification, so it will not be shown.
-          _.set(err, 'preventDefault', () => {
-            this.notificationService.cancel(notificationId);
-          });
         }
         return throwError(err);
       })
