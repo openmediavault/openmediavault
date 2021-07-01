@@ -1,3 +1,16 @@
+<mat-form-field *ngIf="config.dirVisible"
+                fxFlex="25"
+                [formGroup]="formGroup">
+  <mat-label translate>Base path</mat-label>
+  <input *ngIf="config.dirVisible"
+         matInput
+         type="text"
+         class="omv-text-no-wrap"
+         [ngClass]="{'omv-text-monospaced': config.monospaced}"
+         disabled="true"
+         [matTooltip]="dirPath"
+         [value]="dirPath">
+</mat-form-field>
 <mat-form-field #origin="cdkOverlayOrigin"
                 #trigger
                 cdkOverlayOrigin
@@ -8,8 +21,7 @@
     <mat-icon [svgIcon]="config.icon"></mat-icon>&nbsp;
   </div>
   <mat-label>{{ config.label | translate }}</mat-label>
-  <input
-         matInput
+  <input matInput
          type="text"
          [ngClass]="{'omv-text-monospaced': config.monospaced}"
          [formControlName]="config.name"

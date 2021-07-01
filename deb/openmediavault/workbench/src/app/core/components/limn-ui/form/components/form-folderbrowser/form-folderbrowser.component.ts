@@ -21,7 +21,7 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@ang
 import { MatFormField } from '@angular/material/form-field';
 import { MatSelectionListChange } from '@angular/material/list';
 import * as _ from 'lodash';
-import { EMPTY, from, Observable, Subject } from 'rxjs';
+import { EMPTY, from, Observable, Subject, Subscription } from 'rxjs';
 import { catchError, concatMap, map, takeUntil, tap, toArray } from 'rxjs/operators';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/limn-ui/form/components/abstract-form-field-component';
@@ -58,10 +58,13 @@ export class FormFolderbrowserComponent
       overlayY: 'bottom'
     }
   ];
+  dirPath = '';
 
   protected currentPaths: Array<string> = [];
   // Emits whenever the component is destroyed.
   protected readonly destroy = new Subject<void>();
+
+  private subscriptions = new Subscription();
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
@@ -82,11 +85,42 @@ export class FormFolderbrowserComponent
           this.changeDetectorRef.markForCheck();
         }
       });
+    // Subscribe to changes of the 'dirRefIdField' field.
+    if (this.config.dirVisible) {
+      const dirRefIdControl = this.formGroup.get(this.config.dirRefIdField);
+      if (dirRefIdControl) {
+        this.subscriptions.add(
+          dirRefIdControl.valueChanges.subscribe((value) => {
+            switch (this.config.dirType) {
+              case 'sharedfolder':
+                this.rpcService
+                  .request('ShareMgmt', 'getPath', {
+                    uuid: value
+                  })
+                  .subscribe((res: string) => {
+                    this.dirPath = _.trimEnd(res, '/') + '/';
+                  });
+                break;
+              case 'mntent':
+                this.rpcService
+                  .request('FsTab', 'get', {
+                    uuid: value
+                  })
+                  .subscribe((res: string) => {
+                    this.dirPath = _.trimEnd(_.get(res, 'dir'), '/') + '/';
+                  });
+                break;
+            }
+          })
+        );
+      }
+    }
   }
 
   ngOnDestroy(): void {
     this.destroy.next();
     this.destroy.complete();
+    this.subscriptions.unsubscribe();
   }
 
   open(): void {
@@ -155,6 +189,13 @@ export class FormFolderbrowserComponent
 
   get currentPath(): string {
     return this.joinPaths(this.currentPaths);
+  }
+
+  protected sanitizeConfig() {
+    super.sanitizeConfig();
+    _.defaultsDeep(this.config, {
+      dirVisible: false
+    });
   }
 
   private requestData(path): Observable<any> {

@@ -12,3 +12,7 @@ $mat-typography-config: mat.define-typography-config();
   font-size: mat.font-size($mat-typography-config, body-1);
   padding: $omv-padding;
 }
+
+.mat-form-field + .mat-form-field {
+  padding-left: 12px;
+}

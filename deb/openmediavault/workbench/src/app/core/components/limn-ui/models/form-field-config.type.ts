@@ -208,6 +208,9 @@ export type FormFieldConfig = {
   // The name of the field that contains the UUID of the
   // shared folder or mount point configuration object.
   dirRefIdField?: string;
+  // Set to `true` to show the path of the database object
+  // specified with `dirType` and `dirRefIdField`.
+  dirVisible?: boolean;
 
   // --- numberInput | slider ---
   step?: number;
