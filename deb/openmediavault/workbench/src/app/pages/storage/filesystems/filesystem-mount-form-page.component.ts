@@ -64,18 +64,26 @@ export class FilesystemMountFormPageComponent {
         }
       },
       {
-        type: 'numberInput',
+        type: 'select',
         name: 'usagewarnthreshold',
         label: gettext('Usage Warning Threshold'),
         value: 85,
+        store: {
+          data: [
+            [0, gettext('Disabled')],
+            [50, '50%'],
+            [75, '75%'],
+            [80, '80%'],
+            [85, '85%'],
+            [90, '90%'],
+            [95, '95%']
+          ]
+        },
         validators: {
-          required: true,
-          min: 0,
-          max: 100
+          required: true
         },
         hint: gettext(
-          // eslint-disable-next-line max-len
-          'Send a notification when the used file system capacity exceeds the specified threshold (in percent). Set to 0 to disable this notification.'
+          'Send a notification when the used file system capacity exceeds the specified threshold.'
         )
       },
       {

@@ -138,7 +138,8 @@ export class FilesystemDatatablePageComponent {
         prop: 'mountpoint',
         flexGrow: 1,
         sortable: true,
-        hidden: true
+        hidden: true,
+        cellTemplateName: 'copyToClipboard'
       },
       {
         name: gettext('Referenced'),
