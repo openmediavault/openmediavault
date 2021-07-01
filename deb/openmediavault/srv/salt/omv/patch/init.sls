@@ -17,31 +17,5 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-run_state_patch:
-  salt.state:
-    - tgt: '*'
-    - tgt_type: compound
-    - sls: omv.patch
-    - failhard: True
-
-# Sync runners from salt://_runners to the master.
-sync_runners:
-  salt.runner:
-    - name: saltutil.sync_runners
-
-# Sync execution modules from salt://_modules to the master.
-sync_modules:
-  salt.runner:
-    - name: saltutil.sync_modules
-
-# Create openmediavault pillar data.
-populate_pillar:
-  salt.runner:
-    - name: omv.populate_pillar
-
-run_state_sync:
-  salt.state:
-    - tgt: '*'
-    - tgt_type: compound
-    - sls: omv.sync
-    - failhard: True
+include:
+  - .{{ salt['pillar.get']('patch', 'default') }}
