@@ -27,7 +27,7 @@ import * as _ from 'lodash';
 export class SubmitButtonComponent {
   // Optional ID of the form this button is assigned to.
   @Input()
-  form: string;
+  form?: string;
 
   @Input()
   formGroup: FormGroup;
