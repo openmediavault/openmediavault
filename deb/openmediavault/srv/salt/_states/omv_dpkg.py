@@ -38,7 +38,7 @@ def divert_add(name):
     try:
         ret['comment'] = openmediavault.procutils.check_output(
             [
-                'dpkg-divert', '--add', '--local', '--rename', name
+                'dpkg-divert', '--add', '--local', '--no-rename', name
             ],
             text=True
         )
