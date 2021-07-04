@@ -49,6 +49,10 @@ configure_default_monit:
     - group: root
     - mode: 644
 
+divert_default_monit:
+  omv_dpkg.divert_add:
+    - name: "/etc/default/monit"
+
 configure_monit_monitrc:
   file.managed:
     - name: "/etc/monit/monitrc"
@@ -60,6 +64,10 @@ configure_monit_monitrc:
     - user: root
     - group: root
     - mode: 700
+
+divert_monit_monitrc:
+  omv_dpkg.divert_add:
+    - name: "/etc/monit/monitrc"
 
 # Build the service configurations.
 include:

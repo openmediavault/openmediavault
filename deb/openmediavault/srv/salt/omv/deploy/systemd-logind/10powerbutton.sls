@@ -47,6 +47,10 @@ configure_power_button:
         Login:
           HandlePowerKey: {{ action }}
 
+divert_power_button:
+  omv_dpkg.divert_add:
+    - name: "/etc/systemd/logind.conf"
+
 restart_systemd_logind:
   service.running:
     - name: systemd-logind

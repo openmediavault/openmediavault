@@ -22,3 +22,8 @@
 remove_cron_daily_mdadm:
   file.absent:
     - name: "/etc/cron.daily/mdadm"
+
+# Make sure it is not re-installed by a package update.
+divert_cron_daily_mdadm:
+  omv_dpkg.divert_add:
+    - name: "/etc/cron.daily/mdadm"

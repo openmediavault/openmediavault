@@ -35,6 +35,10 @@ configure_snmpd:
     - group: root
     - mode: 600
 
+divert_snmpd:
+  omv_dpkg.divert_add:
+    - name: "/etc/snmp/snmpd.conf"
+
 start_snmpd_service:
   service.running:
     - name: snmpd

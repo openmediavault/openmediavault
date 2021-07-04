@@ -33,6 +33,10 @@ configure_forked_daapd:
     - group: root
     - mode: 644
 
+divert_forked_daapd:
+  omv_dpkg.divert_add:
+    - name: "/etc/forked-daapd.conf"
+
 start_forked_daapd_service:
   service.running:
     - name: forked-daapd

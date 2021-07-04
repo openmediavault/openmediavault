@@ -30,3 +30,7 @@ configure_default_halt:
     - user: root
     - group: root
     - mode: 644
+
+divert_default_halt:
+  omv_dpkg.divert_add:
+    - name: "/etc/default/halt"

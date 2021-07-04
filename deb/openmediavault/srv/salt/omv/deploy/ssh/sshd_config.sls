@@ -34,3 +34,7 @@ configure_ssh_sshd_config:
     - user: root
     - group: root
     - mode: 644
+
+divert_ssh_sshd_config:
+  omv_dpkg.divert_add:
+    - name: "/etc/ssh/sshd_config"
