@@ -20,6 +20,7 @@
 {%- set throttling_enabled = salt['pillar.get']('default:OMV_POSTFIX_MAIN_THROTTLING_ENABLED', 'yes') -%}
 {%- set default_destination_concurrency_limit = salt['pillar.get']('default:OMV_POSTFIX_MAIN_DEFAULT_DESTINATION_CONCURRENCY_LIMIT', 2) -%}
 {%- set default_destination_rate_delay = salt['pillar.get']('default:OMV_POSTFIX_MAIN_DEFAULT_DESTINATION_RATE_DELAY', '1s') -%}
+{%- set smtputf8_enable = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTPUTF8_ENABLED', 'no') -%}
 {{ pillar['headers']['multiline'] }}
 compatibility_level = {{ compatibility_level }}
 {%- if grains['domain'] | length > 0 %}
@@ -57,3 +58,4 @@ message_size_limit = {{ message_size_limit }}
 default_destination_concurrency_limit = {{ default_destination_concurrency_limit }}
 default_destination_rate_delay = {{ default_destination_rate_delay }}
 {%- endif %}
+smtputf8_enable = {{ smtputf8_enable }}

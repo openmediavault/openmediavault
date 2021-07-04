@@ -10,6 +10,15 @@ openmediavault (6.0-13) UNRELEASED; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Dec 2020 20:28:37 +0100
 
+openmediavault (5.6.13-1) stable; urgency=low
+
+  * Issue #1058: Disable SMTPUTF8 support in Postfix. This extension
+    seems not supported by all email providers. Use the environment
+    variable OMV_POSTFIX_MAIN_SMTPUTF8_ENABLED to customize this
+    behavior.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Jul 2021 18:55:14 +0200
+
 openmediavault (5.6.12-1) stable; urgency=low
 
   * Issue #1054: The SMART device datatable is empty.
