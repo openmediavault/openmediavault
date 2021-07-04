@@ -22,3 +22,9 @@ sync_modules:
   module.run:
     - saltutil.sync_modules:
       - refresh: True
+
+# Sync state modules from salt://_states to the minion.
+sync_states:
+  module.run:
+    - saltutil.sync_states:
+      - refresh: True

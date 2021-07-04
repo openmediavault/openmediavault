@@ -30,3 +30,7 @@ configure_default_wsdd:
     - user: root
     - group: root
     - mode: 644
+
+divert_default_wsdd:
+  omv_dpkg.divert_add:
+    - name: "/etc/default/wsdd"

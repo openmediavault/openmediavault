@@ -1,3 +1,10 @@
+openmediavault-snmp (5.0.4-1) stable; urgency=low
+
+  * Issue #986: Divert files modified by openmediavault to prevent
+    problems when package updates want to override them.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Jul 2021 19:26:53 +0200
+
 openmediavault-snmp (5.0.3-1) stable; urgency=low
 
   * Update locales.

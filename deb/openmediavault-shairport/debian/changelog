@@ -1,3 +1,10 @@
+openmediavault-shairport (5.0.5-1) stable; urgency=low
+
+  * Issue #986: Divert files modified by openmediavault to prevent
+    problems when package updates want to override them.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Jul 2021 19:24:12 +0200
+
 openmediavault-shairport (5.0.4-1) stable; urgency=low
 
   * Update locales.

@@ -60,6 +60,10 @@ create_cron-apt_config:
     - group: root
     - mode: 644
 
+divert_cron-apt_config:
+  omv_dpkg.divert_add:
+    - name: "/etc/cron-apt/config"
+
 create_cron-apt_download_msg:
   file.managed:
     - name: "/etc/cron-apt/mailmsg.d/3-download"

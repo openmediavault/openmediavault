@@ -1,5 +1,7 @@
 openmediavault (5.6.13-1) stable; urgency=low
 
+  * Issue #986: Divert files modified by openmediavault to prevent
+    problems when package updates want to override them.
   * Issue #1058: Disable SMTPUTF8 support in Postfix. This extension
     seems not supported by all email providers. Use the environment
     variable OMV_POSTFIX_MAIN_SMTPUTF8_ENABLED to customize this

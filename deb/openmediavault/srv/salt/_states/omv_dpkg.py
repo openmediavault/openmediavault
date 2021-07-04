@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -16,30 +18,31 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import subprocess
 
-# Sync runners from salt://_runners to the master.
-sync_runners:
-  salt.runner:
-    - name: saltutil.sync_runners
+import openmediavault.procutils
 
-# Sync execution modules from salt://_modules to the master.
-sync_modules:
-  salt.runner:
-    - name: saltutil.sync_modules
 
-# Sync state modules from salt://_states to the master.
-sync_states:
-  salt.runner:
-    - name: saltutil.sync_states
-
-# Create openmediavault pillar data.
-populate_pillar:
-  salt.runner:
-    - name: omv.populate_pillar
-
-run_state_sync:
-  salt.state:
-    - tgt: '*'
-    - tgt_type: compound
-    - sls: omv.sync
-    - failhard: True
+def divert_add(name):
+    """
+    Override a package's version of a file.
+    :param name: The name of the file to process.
+    :type name: str
+    """
+    ret = {
+        'name': name,
+        'changes': {},
+        'result': False,
+        'comment': ''
+    }
+    try:
+        ret['comment'] = openmediavault.procutils.check_output(
+            [
+                'dpkg-divert', '--add', '--local', '--rename', name
+            ],
+            text=True
+        )
+        ret['result'] = True
+    except subprocess.CalledProcessError as e:
+        ret['comment'] = str(e)
+    return ret
