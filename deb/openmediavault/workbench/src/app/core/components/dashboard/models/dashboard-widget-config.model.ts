@@ -90,6 +90,13 @@ export type DashboardWidgetConfig = {
       service: string;
       method: string;
       params?: Record<string, any>;
+      // Transform the data. The given fields can be tokenized strings
+      // that will be formatted using the origin data. Finally these fields
+      // are merged with the origin data.
+      // Example:
+      // Response = [{ foo: 'bar', num: '3' }]
+      // transform = { foo: '{{ foo }} xxx', num: '{{ num | int }}', add: 'foo' }
+      // Result = [{ foo: 'bar xxx', num: 3, add: 'foo' }]
       transform?: Record<string, string>;
     };
 

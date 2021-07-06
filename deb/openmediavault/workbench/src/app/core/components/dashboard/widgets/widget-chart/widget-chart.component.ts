@@ -294,23 +294,18 @@ export class WidgetChartComponent
   }
 
   protected loadData(): Observable<Record<string, any>> {
-    if (!_.isPlainObject(this.config.chart.request)) {
+    const request = this.config.chart.request;
+    if (!_.isPlainObject(request)) {
       return EMPTY;
     }
-    return this.rpcService
-      .request(
-        this.config.chart.request.service,
-        this.config.chart.request.method,
-        this.config.chart.request.params
-      )
-      .pipe(
-        map((res) => {
-          if (_.isPlainObject(this.config.chart.request.transform)) {
-            const tmp = formatDeep(this.config.chart.request.transform, res);
-            _.merge(res, tmp);
-          }
-          return res;
-        })
-      );
+    return this.rpcService.request(request.service, request.method, request.params).pipe(
+      map((res) => {
+        if (_.isPlainObject(request.transform)) {
+          const tmp = formatDeep(request.transform, res);
+          _.merge(res, tmp);
+        }
+        return res;
+      })
+    );
   }
 }
