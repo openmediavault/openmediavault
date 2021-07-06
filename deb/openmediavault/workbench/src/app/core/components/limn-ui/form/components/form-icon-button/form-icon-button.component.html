@@ -8,6 +8,6 @@
     <mat-icon [svgIcon]="config.icon"></mat-icon>
   </mat-form-button>
   <mat-hint *ngIf="config.hint?.length > 0"
-            [innerHTML]="config.hint | translate">
+            [innerHTML]="config.hint | translate | sanitizeHtml">
   </mat-hint>
 </mat-form-field>

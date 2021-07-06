@@ -8,7 +8,7 @@
   <div>{{ config.title | translate }}</div>
 </div>
 <mat-dialog-content>
-  <span [innerHTML]="config.message | translate"></span>
+  <span [innerHTML]="config.message | translate | sanitizeHtml"></span>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button *ngFor="let button of config.buttons"

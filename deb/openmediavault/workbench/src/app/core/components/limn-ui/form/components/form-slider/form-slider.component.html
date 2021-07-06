@@ -29,6 +29,6 @@
     </span>
   </mat-error>
   <mat-hint *ngIf="config.hint?.length > 0"
-            [innerHTML]="config.hint">
+            [innerHTML]="config.hint | sanitizeHtml">
   </mat-hint>
 </mat-form-field>

@@ -14,6 +14,6 @@
     </span>
   </mat-error>
   <mat-hint *ngIf="config.hint?.length > 0"
-            [innerHTML]="config.hint | translate">
+            [innerHTML]="config.hint | translate | sanitizeHtml">
   </mat-hint>
 </div>

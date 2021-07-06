@@ -98,7 +98,7 @@
 <ng-template #joinTpl
              let-value="value"
              let-column="column">
-  <span [innerHTML]="value | join:column?.cellTemplateConfig"></span>
+  <span [innerHTML]="value | join:column?.cellTemplateConfig | sanitizeHtml"></span>
 </ng-template>
 
 <ng-template #truncateTpl
@@ -198,7 +198,7 @@
 <ng-template #templateTpl
              let-column="column"
              let-row="row">
-  <span [innerHTML]="column.cellTemplateConfig | template:row | trustHtml"></span>
+  <span [innerHTML]="column.cellTemplateConfig | template:row | sanitizeHtml"></span>
 </ng-template>
 
 <ng-template #shapeShifterTpl
