@@ -1,0 +1,10 @@
+--- network.py.orig	2021-07-08 21:25:44.892358000 +0200
++++ network.py	2021-07-08 21:27:31.661866209 +0200
+@@ -2124,6 +2124,7 @@
+         pool.join()
+     except Exception as exc:  # pylint: disable=broad-except
+         log.error("Exception while creating a ThreadPool for resolving FQDNs: %s", exc)
++        pool.close()
+
+     for item in results:
+         if item:

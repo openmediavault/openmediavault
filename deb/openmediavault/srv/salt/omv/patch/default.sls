@@ -19,10 +19,16 @@
 
 # Add processing for multicast entries in 'ip -6 route show table all'
 # https://github.com/saltstack/salt/pull/59829
-patch_network_module:
+patch_network_module_pr_59829:
   file.patch:
     - name: "/lib/python3/dist-packages/salt/modules/network.py"
     - source:
       - salt://{{ tpldir }}/files/salt-pr-59829.patch
-    - options: --silent
-    - hash: md5=185cbc229a5b7e95ce9083c4f4399169
+
+# Thread leak for salt-minion
+# https://github.com/saltstack/salt/issues/58141
+patch_network_module_issue_58141:
+  file.patch:
+    - name: "/lib/python3/dist-packages/salt/modules/network.py"
+    - source:
+      - salt://{{ tpldir }}/files/salt-issue-58141.patch
