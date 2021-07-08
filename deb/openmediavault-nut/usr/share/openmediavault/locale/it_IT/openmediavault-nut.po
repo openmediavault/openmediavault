@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2020-04-19 13:55+0000\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -45,11 +45,17 @@ msgstr "Abilita"
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Abilita monitoraggio remoto dell'UPS collegato localmente."
 
+msgid "Enabled"
+msgstr ""
+
 msgid "General settings"
 msgstr "Impostazioni generali"
 
 msgid "Identifier"
 msgstr "Identificativo"
+
+msgid "Invalid identifier"
+msgstr ""
 
 msgid "Load"
 msgstr "Carico"
@@ -133,6 +139,9 @@ msgstr "L'UPS lavora a batteria"
 
 msgid "UPS reaches low battery"
 msgstr "Batteria dell'UPS scarica"
+
+msgid "Updated UPS settings."
+msgstr ""
 
 msgid "Used for remote authentication."
 msgstr "Usato per autenticazione remota."

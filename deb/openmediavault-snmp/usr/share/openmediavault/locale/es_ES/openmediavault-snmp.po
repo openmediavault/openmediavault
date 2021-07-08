@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2017\n"
 "Language-Team: Spanish (Spain) (https://www.transifex.com/openmediavault/teams/14254/es_ES/)\n"
@@ -48,6 +48,9 @@ msgstr ""
 
 msgid "Enable"
 msgstr "Habilitar"
+
+msgid "Enabled"
+msgstr ""
 
 msgid "Extra options"
 msgstr "Opciones Extra"
@@ -93,6 +96,9 @@ msgstr "Opciones"
 
 msgid "Traps"
 msgstr "Excepción"
+
+msgid "Updated SNMP settings."
+msgstr ""
 
 msgid "Username"
 msgstr "Usuario"

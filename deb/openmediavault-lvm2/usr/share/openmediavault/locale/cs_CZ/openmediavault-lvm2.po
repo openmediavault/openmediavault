@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2017-09-21 16:50+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,11 +38,26 @@ msgstr "Kapacita"
 msgid "Confirmation"
 msgstr "Potvrzení"
 
+msgid "Create"
+msgstr ""
+
 msgid "Create logical volume"
 msgstr "Vytvořit logický svazek"
 
 msgid "Create volume group"
 msgstr "Vytvořit skupinu svazků"
+
+msgid "Created logical volume '{{ name }}'."
+msgstr ""
+
+msgid "Created physical volume {{ devicefile }}."
+msgstr ""
+
+msgid "Created snapshot of logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Created volume group '{{ name }}'."
+msgstr ""
 
 msgid "Description"
 msgstr "Popis"
@@ -52,6 +67,9 @@ msgstr "Zařízení"
 
 msgid "Devices"
 msgstr "Zařízení"
+
+msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
+msgstr ""
 
 msgid "Do you really want to create the logical volume?"
 msgstr "Opravdu chcete vytvořit logický svazek?"
@@ -64,6 +82,9 @@ msgstr "Opravdu chcete vytvořit skupinu svazků?"
 
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "Opravdu chcete změnit velikost označeného fyzického svazku?"
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit logical volume"
 msgstr "Upravit logický svazek"
@@ -80,6 +101,12 @@ msgstr "Zvětšit logický svazek"
 msgid "Extend volume group"
 msgstr "Zvětšit skupinu svazků"
 
+msgid "Extended logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Extended volume group '{{ devicefile }}'."
+msgstr ""
+
 msgid "Free"
 msgstr "Volné"
 
@@ -88,6 +115,9 @@ msgstr "Neplatný název"
 
 msgid "Logical Volume Management"
 msgstr "Správa logických svazků (LVM)"
+
+msgid "Logical Volumes"
+msgstr ""
 
 msgid "Logical volumes"
 msgstr "Logické svazky"
@@ -101,6 +131,9 @@ msgstr "Pro vytvoření logického svazku už nezbývá žádné volné místo."
 msgid "No free space available to extend the logical volume."
 msgstr "Pro zvětšení logického svazku už nezbývá žádné volné místo."
 
+msgid "Physical Volumes"
+msgstr ""
+
 msgid "Physical volumes"
 msgstr "Fyzické svazky"
 
@@ -110,8 +143,14 @@ msgstr "Zmenšit"
 msgid "Reduce volume group"
 msgstr "Zmenšit skupinu svazků"
 
+msgid "Reduced volume group '{{ devicefile }}'."
+msgstr ""
+
 msgid "Resize"
 msgstr "Změnit velikost"
+
+msgid "Select a device ..."
+msgstr ""
 
 msgid "Select a volume group ..."
 msgstr "Vybrat skupinu svazků (vg)…"
@@ -119,14 +158,45 @@ msgstr "Vybrat skupinu svazků (vg)…"
 msgid "Select an device ..."
 msgstr "Vyberte zařízení…"
 
+msgid "Select devices ..."
+msgstr ""
+
+msgid "Select the devices used to extend the volume group."
+msgstr ""
+
+msgid "Select the devices used to reduce from the volume group."
+msgstr ""
+
 msgid "Size"
 msgstr "Velikost"
 
 msgid "Snapshot"
 msgstr "Zachycený stav (snapshot)"
 
+msgid ""
+"The percentage of the total space in the volume group to allocate for the "
+"new logical volume."
+msgstr ""
+
+msgid ""
+"The percentage of the total space in the volume group to use by the logical "
+"volume."
+msgstr ""
+
+msgid "Updated logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Updated volume group '{{ devicefile }}'."
+msgstr ""
+
 msgid "Used"
 msgstr "Použito"
+
+msgid "Volume Group"
+msgstr ""
+
+msgid "Volume Groups"
+msgstr ""
 
 msgid "Volume group"
 msgstr "Skupina svazků"

@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2021-05-06 17:47+0000\n"
-"Last-Translator: Jonatan Nyberg <jonatan@autistici.org>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,11 +45,17 @@ msgstr "Aktivera"
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Aktivera fjärrövervakning för den lokalt anslutna UPS:en."
 
+msgid "Enabled"
+msgstr ""
+
 msgid "General settings"
 msgstr "Allmänna Inställningar"
 
 msgid "Identifier"
 msgstr "Identifierare"
+
+msgid "Invalid identifier"
+msgstr ""
 
 msgid "Load"
 msgstr "Belastning"
@@ -133,6 +139,9 @@ msgstr "UPS går på batteri"
 
 msgid "UPS reaches low battery"
 msgstr "UPS når låg batterinivå"
+
+msgid "Updated UPS settings."
+msgstr ""
 
 msgid "Used for remote authentication."
 msgstr "Används för fjärrautentisering."

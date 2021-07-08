@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2020-11-14 09:24+0000\n"
-"Last-Translator: Varkentjes\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,11 +38,26 @@ msgstr "Een e-mail met de uitvoer van het commando (als dit is geproduceerd), is
 msgid "Antivirus"
 msgstr "Antivirus"
 
+msgid "April"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
 msgid "Be verbose."
 msgstr "Uitgebreide informatie geven."
 
 msgid "Comment"
 msgstr "Opmerking"
+
+msgid "Create"
+msgstr ""
+
+msgid "Created on-access scan."
+msgstr ""
+
+msgid "Created scheduled scan."
+msgstr ""
 
 msgid "Database checks"
 msgstr "Databasecontroles"
@@ -56,6 +71,12 @@ msgstr "Dag van de maand"
 msgid "Day of week"
 msgstr "Dag van de week"
 
+msgid "December"
+msgstr ""
+
+msgid "Delete immediately"
+msgstr ""
+
 msgid "Detect PUA"
 msgstr "PUA waarnemen"
 
@@ -64,6 +85,9 @@ msgstr "Detecteer defecte uitvoerbare bestanden"
 
 msgid "Done ..."
 msgstr "Gedaan ..."
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit on-access scan"
 msgstr "On-access scan bewerken"
@@ -118,8 +142,14 @@ msgstr "Iedere N minuten"
 msgid "Execute scheduled job"
 msgstr "Voer geplande taak uit"
 
+msgid "Execute scheduled scan"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Extra opties"
+
+msgid "February"
+msgstr ""
 
 msgid "Follow directory symlinks"
 msgstr "Symbolische mapkoppelingen volgen"
@@ -133,6 +163,9 @@ msgstr "Symbolische bestandskoppelingen volgen"
 msgid "Follow regular file symlinks."
 msgstr "Symbolische bestandskoppelingen volgen."
 
+msgid "Friday"
+msgstr ""
+
 msgid "General settings"
 msgstr "Algemene instellingen"
 
@@ -142,11 +175,26 @@ msgstr "Uur"
 msgid "Infected files"
 msgstr "Besmette bestanden"
 
+msgid "January"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
 msgid "Log clean files"
 msgstr "Schone bestanden loggen"
 
 msgid "Log clean files. This drastically increases the log size."
 msgstr "Schone bestanden loggen. Hierdoor neemt de grootte van de logbestanden enorm toe."
+
+msgid "March"
+msgstr ""
+
+msgid "May"
+msgstr ""
 
 msgid "Message"
 msgstr "Bericht"
@@ -154,17 +202,29 @@ msgstr "Bericht"
 msgid "Minute"
 msgstr "Minuut"
 
+msgid "Monday"
+msgstr ""
+
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "De gedeelde map volgen en nieuwe of gewijzigde bestanden aftasten."
 
 msgid "Month"
 msgstr "Maand"
 
+msgid "Move to quarantine"
+msgstr ""
+
 msgid "Multiscan"
 msgstr "Meervoudig aftasten"
 
+msgid "November"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Aantal database updatecontroles per dag. Zet op 0 om te deactiveren."
+
+msgid "October"
+msgstr ""
 
 msgid "On Access Scans"
 msgstr "Scans bij toegang"
@@ -175,17 +235,29 @@ msgstr "On-access"
 msgid "Perform a deeper analysis of executable files."
 msgstr "Uitvoerbare bestanden grondiger analyseren."
 
+msgid "Perform nothing"
+msgstr ""
+
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
 "details."
 msgstr "Ga naar de <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>handleiding pagina</a> voor verdere details."
 
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
+"details."
+msgstr ""
+
 msgid "Quarantine"
 msgstr "Quarantaine"
 
 msgid "Run"
 msgstr "Uitvoeren"
+
+msgid "Saturday"
+msgstr ""
 
 msgid "Scan ELF"
 msgstr "ELF aftasten"
@@ -211,17 +283,29 @@ msgstr "De inhoud van de map parallel aftasten door meerdere ingangen te gebruik
 msgid "Scheduled Jobs"
 msgstr "Geplande taken"
 
+msgid "Scheduled Scans"
+msgstr ""
+
+msgid "Scheduling"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Verzend de uitvoer van de opdrachten via e-mail"
 
 msgid "Send email"
 msgstr "E-mail verzenden"
 
+msgid "September"
+msgstr ""
+
 msgid "Settings"
 msgstr "Instellingen"
 
 msgid "Shared folder"
 msgstr "Gedeelde map"
+
+msgid "Sunday"
+msgstr ""
 
 msgid "The location of the files to scan on-access."
 msgstr "De locatie van de bestanden die bij toegang moeten worden gescand."
@@ -235,8 +319,23 @@ msgstr "De locatie die als quarantaine wordt gebruikt."
 msgid "The option, how to handle infected files."
 msgstr "De optie, hoe om te gaan met besmette bestanden."
 
+msgid "Thursday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Updated on-access scan."
+msgstr ""
+
+msgid "Updated scheduled scan."
+msgstr ""
+
 msgid "Verbose"
 msgstr "Uitgebreide informatie"
+
+msgid "Wednesday"
+msgstr ""
 
 msgid "n/a"
 msgstr "n.v.t."

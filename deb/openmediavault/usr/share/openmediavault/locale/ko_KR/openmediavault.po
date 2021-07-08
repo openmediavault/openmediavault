@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2021-03-24 13:57+0000\n"
+"POT-Creation-Date: 2021-07-08 14:57+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -21,18 +21,36 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#, javascript-format
-msgid "% completed ..."
-msgstr "% 완료 ..."
+msgid ""
+"\"Set the group of the destination file to be the same as the source file."
+msgstr ""
 
-msgid "%s (%s available)"
-msgstr "%s (%s 사용 가능)"
+msgid "%d days"
+msgstr ""
 
-msgid "%s [%s (%d%%) used, %s available]"
-msgstr "%s [%s (%d%%) 사용 중, %s 사용 가능]"
+msgid "%d hours"
+msgstr ""
+
+msgid "%d minutes"
+msgstr ""
+
+msgid "%d months"
+msgstr ""
+
+msgid "%d years"
+msgstr ""
+
+msgid "%s [%s, %s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [on %s, %s]"
+
+msgid "%s ago"
+msgstr ""
+
+msgid "."
+msgstr ""
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s는 제한이 없음을 뜻합니다."
@@ -42,6 +60,9 @@ msgstr "1 - 대기와 최소 전력 사용량 (스핀다운)"
 
 msgid "1 day"
 msgstr "1일"
+
+msgid "1 min"
+msgstr ""
 
 msgid "1 minute"
 msgstr "1분"
@@ -61,10 +82,6 @@ msgstr "10분"
 msgid "10 years"
 msgstr "10년"
 
-#, javascript-format
-msgid "100% completed ..."
-msgstr "100% completed ..."
-
 msgid "120 minutes"
 msgstr "120분"
 
@@ -73,6 +90,9 @@ msgstr "127 - 대기와 보통의 전력 사용량"
 
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - 대기 없이 최소 전력 사용량 (스핀다운 없음)"
+
+msgid "15 min"
+msgstr ""
 
 msgid "15 minutes"
 msgstr "15분"
@@ -152,6 +172,9 @@ msgstr "4년"
 msgid "5 days"
 msgstr "5일"
 
+msgid "5 min"
+msgstr ""
+
 msgid "5 minutes"
 msgstr "5분"
 
@@ -173,11 +196,14 @@ msgstr "64 - 대기와 보통 전력 사용량"
 msgid "9 months"
 msgstr "9개월"
 
+msgid "A maximum of one device can be removed."
+msgstr ""
+
+msgid "A maximum of two device can be removed."
+msgstr ""
+
 msgid "ACL"
 msgstr "접근 제어 목록"
-
-msgid "ASCII"
-msgstr "아스키"
 
 msgid "About"
 msgstr "대하여"
@@ -188,11 +214,8 @@ msgstr "절대 경로"
 msgid "Abstract"
 msgstr "추상적인"
 
-msgid "Access Right Management"
-msgstr "접근 권한 관리"
-
-msgid "Access Rights Management"
-msgstr "접근 권한 관리"
+msgid "Access control list"
+msgstr ""
 
 msgid "Access mode"
 msgstr "접근 모드"
@@ -209,59 +232,8 @@ msgstr "S.M.A.R.T. 모니터링을 활성화"
 msgid "Add"
 msgstr "추가"
 
-msgid "Add VLAN connection"
-msgstr "VLAN 연결 추가"
-
-msgid "Add Wi-Fi connection"
-msgstr "Wi-Fi 연결 추가"
-
-msgid "Add bond connection"
-msgstr "본드 연결 추가"
-
-msgid "Add bridge connection"
-msgstr "브리지 연결 추가"
-
-msgid "Add devices to RAID device"
-msgstr "RAID 장치에 디바이스를 추가"
-
-msgid "Add ethernet connection"
-msgstr "이더넷 연결 추가"
-
-msgid "Add firewall rule"
-msgstr "방화벽 규칙 추가"
-
-msgid "Add group"
-msgstr "그룹 추가"
-
-msgid "Add hot spares / recover RAID device"
-msgstr "핫 스패어 추가 / RAID 장치 복구"
-
-msgid "Add module"
-msgstr "모듈 추가"
-
-msgid "Add public key"
-msgstr "공개 키 추가"
-
-msgid "Add rsync job"
-msgstr "rsync 작업 추가"
-
-msgid "Add rule"
-msgstr "규칙 추가"
-
-msgid "Add scheduled job"
-msgstr "예약된 작업 추가"
-
-msgid "Add scheduled test"
-msgstr "예약된 검사 추가"
-
-msgid "Add share"
-msgstr "공유 추가"
-
-msgid "Add shared folder"
-msgstr "공유 폴더 추가"
-
-msgid "Add user"
-msgstr "사용자 추가"
+msgid "Add hot spares / recover RAID device."
+msgstr ""
 
 msgid "Address"
 msgstr "주소"
@@ -281,6 +253,9 @@ msgstr "관리자: 읽기/쓰기, 사용자: 읽기/쓰기, 기타: 권한 없�
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "관리자: 읽기/쓰기, 사용자: 읽기/쓰기, 기타: 읽기 전용"
 
+msgid "Advanced Acoustic Management"
+msgstr ""
+
 msgid "Advanced Power Management"
 msgstr "고급 전원 관리"
 
@@ -289,10 +264,6 @@ msgstr "고급 설정"
 
 msgid "Afghanistan"
 msgstr "아프가니스탄"
-
-msgid ""
-"After the RAID has been grown you can resize the containing file system."
-msgstr "RAID가 확장된 후에 해당 RAID에 포함된 파일 시스템을 조절할 수 있습니다."
 
 msgid "Aland Islands"
 msgstr "올란드 제도"
@@ -307,11 +278,11 @@ msgid "All"
 msgstr "모두"
 
 msgid ""
-"Allow clients to attempt to store OS/2 style extended attributes on a share."
-msgstr "공유에 대해 OS/2 형식의 확장 속성(EA)을 클라이언트가 저장할 수 있도록 합니다."
+"Allow clients to attempt to store OS/2 state extended attributes on a share."
+msgstr ""
 
-msgid "Allow clients to resume interrupted uploads and downloads"
-msgstr "중단된 올려주기와 내려받기를 이어서 할 수 있게 합니다."
+msgid "Allow clients to resume interrupted uploads and downloads."
+msgstr ""
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
@@ -339,9 +310,6 @@ msgid ""
 "user who performs the job."
 msgstr "해당 작업을 수행하는 사용자에게 명령행 출력(있다면)을 전자 메일에 포함하여 전송합니다."
 
-msgid "An error has occurred"
-msgstr "오류가 발생했습니다"
-
 msgid "Andorra"
 msgstr "안도라"
 
@@ -351,14 +319,8 @@ msgstr "앙골라"
 msgid "Anguilla"
 msgstr "앙귈라"
 
-msgid "Anonymous"
-msgstr "익명"
-
 msgid "Anonymous FTP"
 msgstr "익명 FTP"
-
-msgid "Another user is already authenticated."
-msgstr "다른 사용자가 이미 인증했습니다."
 
 msgid "Antarctica"
 msgstr "남극"
@@ -366,20 +328,20 @@ msgstr "남극"
 msgid "Antigua and Barbuda"
 msgstr "앤티카 바부다"
 
+msgid "Applied the configuration changes."
+msgstr ""
+
 msgid "Apply"
 msgstr "적용"
 
-msgid "Apply configuration changes"
-msgstr "설정 변경 적용"
-
-msgid "Apply permissions to files and subfolders"
-msgstr "파일과 디렉터리에 권한을 적용"
+msgid "Apply permissions to files and subfolders."
+msgstr ""
 
 msgid "April"
 msgstr "4월"
 
-msgid "Archive"
-msgstr "아카이브"
+msgid "Archive mode"
+msgstr ""
 
 msgid "Argentina"
 msgstr "아르헨티나"
@@ -387,14 +349,23 @@ msgstr "아르헨티나"
 msgid "Armenia"
 msgstr "아르메니아"
 
-msgid "Array details"
-msgstr "배열 정보"
-
 msgid "Aruba"
 msgstr "아루바"
 
 msgid "Asynchronous I/O"
 msgstr "비동기 입출력"
+
+msgid "At least four devices are required."
+msgstr ""
+
+msgid "At least one network interface is required."
+msgstr ""
+
+msgid "At least three devices are required."
+msgstr ""
+
+msgid "At least two devices are required."
+msgstr ""
 
 msgid "At reboot"
 msgstr "재시작시"
@@ -402,11 +373,8 @@ msgstr "재시작시"
 msgid "Attributes"
 msgstr "속성"
 
-msgid "Audit"
-msgstr "감사"
-
-msgid "Audit file operations."
-msgstr "파일 연산 감사"
+msgid "Audit file operations"
+msgstr ""
 
 msgid "August"
 msgstr "8월"
@@ -438,17 +406,20 @@ msgstr "자동"
 msgid "Auto logout"
 msgstr "자동 로그아웃"
 
-msgid "Auto logout after the specified idle period."
-msgstr "지정된 유휴 기간이 지난 후에 자동으로 로그아웃"
-
-msgid "Automatic Acoustic Management"
-msgstr "자동 음향 관리(AAM)"
-
 msgid "Available"
 msgstr "사용 가능"
 
 msgid "Azerbaijan"
 msgstr "아제르바이잔"
+
+msgid "BTRFS"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Bad"
+msgstr ""
 
 msgid "Bahamas"
 msgstr "바하마"
@@ -456,8 +427,8 @@ msgstr "바하마"
 msgid "Bahrain"
 msgstr "바레인"
 
-msgid "Ban list"
-msgstr "차단 목록"
+msgid "Ban Rules"
+msgstr ""
 
 msgid "Ban statistics:"
 msgstr "차단 통계:"
@@ -488,9 +459,6 @@ msgstr "버뮤다"
 
 msgid "Bhutan"
 msgstr "부탄"
-
-msgid "Binary"
-msgstr "이진"
 
 msgid "Block layer cache [%s, %s]"
 msgstr "블록 계층 캐시 [%s, %s]"
@@ -528,6 +496,9 @@ msgstr "영국령 인도양 영토"
 msgid "British Virgin Islands"
 msgstr "영국령 버진아일랜드"
 
+msgid "Browse directory"
+msgstr ""
+
 msgid "Browseable"
 msgstr "검색 가능한"
 
@@ -542,6 +513,12 @@ msgstr "브루키나 파소"
 
 msgid "Burundi"
 msgstr "부룬디"
+
+msgid "CPU"
+msgstr ""
+
+msgid "CPU Usage"
+msgstr ""
 
 msgid "CPU usage"
 msgstr "CPU 사용량"
@@ -579,20 +556,23 @@ msgstr "유효 기간"
 msgid "Certificate"
 msgstr "인증"
 
-msgid "Certificate details"
-msgstr "인증 정보"
-
 msgid "Certificates"
 msgstr "인증"
 
 msgid "Chad"
 msgstr "차드"
 
+msgid "Change Password"
+msgstr ""
+
 msgid "Changelog"
 msgstr "변경 내역"
 
-msgid "Check"
-msgstr "검사"
+msgid "Check for new plugins"
+msgstr ""
+
+msgid "Check for new updates"
+msgstr ""
 
 msgid "Check interval"
 msgstr "검사 주기"
@@ -600,20 +580,23 @@ msgstr "검사 주기"
 msgid "Checking for new plugins ..."
 msgstr "새로운 플러그인을 확인하는 중입니다 ..."
 
-msgid "Checking for new updates ..."
-msgstr "새로운 업데이트를 확인하는 중입니다 ..."
-
 msgid "Chile"
 msgstr "칠레"
 
 msgid "China"
 msgstr "중국"
 
+msgid "Choose"
+msgstr ""
+
 msgid "Christmas Island"
 msgstr "크리스마스 섬"
 
 msgid "City"
 msgstr "도시"
+
+msgid "Cleaning up recycle bin on the share."
+msgstr ""
 
 msgid "Clear"
 msgstr "정리"
@@ -648,14 +631,11 @@ msgstr "설명"
 msgid "Common Name"
 msgstr "일반 이름"
 
-msgid "Community-maintained updates."
-msgstr "공동체-유지 업데이트"
+msgid "Community-maintained updates"
+msgstr ""
 
 msgid "Comoros"
 msgstr "코모로"
-
-msgid "Complete"
-msgstr "완료"
 
 msgid "Completion status"
 msgstr "완료 상태"
@@ -663,11 +643,8 @@ msgstr "완료 상태"
 msgid "Compress"
 msgstr "압축"
 
-msgid "Compress file data during the transfer"
-msgstr "전송 중 파일 데이터 압축"
-
-msgid "Compressed"
-msgstr "압축됨"
+msgid "Compress file data during the transfer."
+msgstr ""
 
 msgid "Compression"
 msgstr "압축"
@@ -699,8 +676,14 @@ msgstr "전송 자가 진단"
 msgid "Cook Islands"
 msgstr "쿡 제도"
 
+msgid "Copied SSH certificate to {{ hostname }}."
+msgstr ""
+
 msgid "Copy"
 msgstr "복사"
+
+msgid "Copy privileges"
+msgstr ""
 
 msgid "Copy public SSH key"
 msgstr "SSH 공개키 복사"
@@ -717,17 +700,65 @@ msgstr "국가"
 msgid "Create"
 msgstr "생성"
 
-msgid "Create RAID device"
-msgstr "RAID 장치 생성"
-
 msgid "Create file system"
 msgstr "파일 시스템 생성"
 
-msgid "Create self-signed SSL certificate"
-msgstr "자가 서명 SSL 인증 생성"
+msgid "Create | Import"
+msgstr ""
 
-msgid "Creating the file system, please wait ..."
-msgstr "파일 시스템을 만드는 중입니다. 잠시 기다려주십시오 ..."
+msgid "Create | Mount"
+msgstr ""
+
+msgid "Created FTP ban rule."
+msgstr ""
+
+msgid "Created FTP share."
+msgstr ""
+
+msgid "Created NFS share."
+msgstr ""
+
+msgid "Created Rsync server module \"{{ name }}\"."
+msgstr ""
+
+msgid "Created Rsync task."
+msgstr ""
+
+msgid "Created SMB/CIFS share."
+msgstr ""
+
+msgid "Created SSH certificate."
+msgstr ""
+
+msgid "Created SSL certificate."
+msgstr ""
+
+msgid "Created VLAN network connection."
+msgstr ""
+
+msgid "Created bond network connection."
+msgstr ""
+
+msgid "Created bridge network connection."
+msgstr ""
+
+msgid "Created firewall rule."
+msgstr ""
+
+msgid "Created group \"{{ name }}\"."
+msgstr ""
+
+msgid "Created scheduled task."
+msgstr ""
+
+msgid "Created user \"{{ name }}\"."
+msgstr ""
+
+msgid "Created wired network connection."
+msgstr ""
+
+msgid "Created wireless network connection."
+msgstr ""
 
 msgid "Critical"
 msgstr "치명적인"
@@ -737,9 +768,6 @@ msgstr "크로아티아"
 
 msgid "Cuba"
 msgstr "쿠바"
-
-msgid "Current time"
-msgstr "현재 시간"
 
 msgid "Currently logged in users"
 msgstr "현재 로그인 된 사용자"
@@ -768,9 +796,6 @@ msgstr "매일"
 msgid "Dashboard"
 msgstr "대시보드"
 
-msgid "Date"
-msgstr "날짜"
-
 msgid "Date & Time"
 msgstr "날짜 및 시간"
 
@@ -789,14 +814,8 @@ msgstr "12월"
 msgid "Delete"
 msgstr "삭제"
 
-msgid "Delete file system"
-msgstr "파일 시스템 삭제"
-
-msgid "Delete files on the receiving side that don't exist on sender"
-msgstr "수신 측에서 송신 측에 존재하지 않는 파일을 삭제합니다."
-
-msgid "Deleting selected item(s)"
-msgstr "선택된 파일(들) 삭제"
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr ""
 
 msgid "Denmark"
 msgstr "덴마크"
@@ -812,9 +831,9 @@ msgstr "대상"
 
 msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
-"range or a plain IP address. A '!' argument before the address specification"
-" inverts the sense of the address."
-msgstr "목적지 주소는 네트워크 IP 주소('/넷마스크'를 포함하는)나 일반 IP 주소 혹은 IP 범위가 될 수 있습니다. 주소 지정 앞에 '!' 인수는 주소의 의미를 반대로 적용합니다."
+"range or a plain IP address. A \"!\" argument before the address "
+"specification inverts the sense of the address."
+msgstr ""
 
 msgid "Destination port"
 msgstr "대상 포트"
@@ -825,11 +844,14 @@ msgstr "대상 서버"
 msgid "Destination shared folder"
 msgstr "대상 공유 폴더"
 
-msgid "Detail"
-msgstr "정보"
+msgid "Details"
+msgstr ""
 
 msgid "Device"
 msgstr "장치"
+
+msgid "Device Information"
+msgstr ""
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "장치 매퍼 %s [%s, %s]"
@@ -837,32 +859,20 @@ msgstr "장치 매퍼 %s [%s, %s]"
 msgid "Device Symlinks"
 msgstr "장치 심볼릭 링크"
 
-msgid "Device has a few bad sectors"
-msgstr "장치에 일부 베드 섹터가 있음"
+msgid "Device has a few bad sectors."
+msgstr ""
 
-msgid "Device has many bad sectors"
-msgstr "장치에 다수의 베드 섹터가 있음"
+msgid "Device has many bad sectors."
+msgstr ""
 
-msgid "Device information"
-msgstr "장치 정보"
+msgid "Device is being used outside design parameters."
+msgstr ""
 
-msgid "Device is being used outside design parameters"
-msgstr "장치가 설계 매개변수의 한계를 초과해서 사용하고 있습니다"
-
-msgid "Device model"
-msgstr "장치 모델"
-
-msgid "Device properties"
-msgstr "장치 속성"
-
-msgid "Device was used outside of design parameters in the past"
-msgstr "장치가 이전에 설계 매개변수의 한계를 넘어서 사용되었습니다."
+msgid "Device was used outside of design parameters in the past."
+msgstr ""
 
 msgid "Device(s)"
 msgstr "장치(들)"
-
-msgid "Device/Label"
-msgstr "장치/레이블"
 
 msgid "Devices"
 msgstr "장치"
@@ -876,26 +886,20 @@ msgstr "차이"
 msgid "Direction"
 msgstr "방향"
 
-msgid "Directory"
-msgstr "디렉터리"
-
 msgid "Disabled"
 msgstr "비활성화"
 
-msgid "Disallow the user to modify their account."
-msgstr "사용자가 자신의 계정을 수정할 수 없도록 합니다."
+msgid "Disallow account modification"
+msgstr ""
 
-msgid "Disk usage"
-msgstr "디스크 사용량"
+msgid "Disallow the user to modify his own account."
+msgstr ""
+
+msgid "Disk Usage"
+msgstr ""
 
 msgid "Disks"
 msgstr "디스크"
-
-msgid "Displaying items {0} - {1} of {2}"
-msgstr "{2} 중 {0} - {1} 항목 표시 중 "
-
-msgid "Displaying {0} - {1} of {2}"
-msgstr "{2} 중 {0} - {1} 표시 중"
 
 msgid "Djibouti"
 msgstr "지부티"
@@ -903,31 +907,22 @@ msgstr "지부티"
 msgid "Do you really want to apply the configuration changes?"
 msgstr "변경된 설정을 적용하시겠습니까?"
 
-msgid "Do you really want to clear the log file?"
-msgstr "기록 파일을 삭제하시겠습니까?"
-
-msgid "Do you really want to create the RAID device?"
-msgstr "RAID 장치를 만드시겠습니까?"
-
-msgid "Do you really want to delete the file system? All data will be lost."
-msgstr "파일 시스템을 정말 삭제하시겠습니까? 모든 데이터가 삭제됩니다."
+msgid ""
+"Do you really want to delete the selected item(s) <strong>{{ items | "
+"join(\", \") }}</strong>?"
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "선택된 항목(들)을 정말 삭제하시겠습니까?"
 
-msgid ""
-"Do you really want to format this device? All data on it will be deleted. "
-"Please note that the file system creation may take some time."
-msgstr "이 장치를 정말 포맷하시겠습니까? 장치의 모든 데이터가 삭제됩니다. 파일 시스템을 만드는데 몇 분이 걸릴 수 있습니다."
-
-msgid "Do you really want to install the selected plugin(s)?"
-msgstr "선택된 플러그인(들)을 정말 설치하시겠습니까?"
-
-msgid "Do you really want to leave the page?"
-msgstr "이 페이지를 벗어나시겠습니까?"
+msgid "Do you really want to install the plugin?"
+msgstr ""
 
 msgid "Do you really want to logout?"
 msgstr "정말 로그아웃 하시겠습니까?"
+
+msgid "Do you really want to mount the file system?"
+msgstr ""
 
 msgid "Do you really want to put the system into standby?"
 msgstr "시스템을 정말 대기 상태로 전환하시겠습니까?"
@@ -935,37 +930,39 @@ msgstr "시스템을 정말 대기 상태로 전환하시겠습니까?"
 msgid "Do you really want to reboot the system?"
 msgstr "시스템을 정말 재시작하시겠습니까?"
 
-msgid ""
-"Do you really want to relocate the shared folder? The content of the shared "
-"folder will not be moved automatically, you have to do this yourself."
-msgstr "공유 폴더를 정말 재배치하시겠습니까? 공유 폴더 안의 내용들은 자동적으로 이동되지 않을 것이며 사용자가 이동하여야 합니다."
+msgid "Do you really want to reset the UI settings to their default values?"
+msgstr ""
 
 msgid ""
-"Do you really want to remove the shared folder content? It will be "
-"permanently removed and cannot be recovered."
-msgstr "공유 폴더 내용을 정말 삭제하시겠습니까? 영구적으로 삭제되며 복구할 수 없습니다."
-
-msgid ""
-"Do you really want to reset the UI settings to their default values, e.g. "
-"the order of the grid columns?"
-msgstr "그리드 열 순서와 같은 UI 설정의 기본값을 재설정하시겠습니까?"
-
-msgid ""
-"Do you really want to resize the selected file system? You have to do that "
-"after a RAID has been grown for example."
-msgstr "선택된 파일 시스템의 크기를 변경하시겠습니까? RAID를 확장한 후에는 크기 조정이 필요합니다."
-
-msgid "Do you really want to revert the configuration changes?"
-msgstr "변경된 설정을 되돌리시겠습니까?"
+"Do you really want to resize the file system? You have to do that after a "
+"RAID has been grown for example."
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
 msgstr "시스템을 정말 종료하시겠습니까?"
 
-msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr "선택된 플러그인(들)을 정말 삭제하시겠습니까?"
+msgid "Do you really want to undo the configuration changes?"
+msgstr ""
 
-msgid "Do you really want to wipe the selected device?"
-msgstr "선택된 장치를 정말 지우시겠습니까?"
+msgid "Do you really want to uninstall the plugin?"
+msgstr ""
+
+msgid ""
+"Do you really want to unmount this file system? Please make sure that the "
+"file system is not used by any service before unmounting. Note, the file "
+"system will not be deleted by this action."
+msgstr ""
+
+msgid "Do you really want to upgrade the system?"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
+"will be lost."
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
 
 msgid "Domain name"
 msgstr "도메인 이름"
@@ -979,12 +976,6 @@ msgstr "도미니카"
 msgid "Dominican Republic"
 msgstr "도미니카 공화국"
 
-msgid "Donate"
-msgstr "기부"
-
-msgid "Done ..."
-msgstr "완료 ..."
-
 msgid "Down"
 msgstr "내리기"
 
@@ -994,19 +985,22 @@ msgstr "비활성화 지연"
 msgid "Download"
 msgstr "내려받기"
 
-msgid "Downloading package information"
-msgstr "패키지 정보 내려받는 중"
-
 msgid "Dronning Maud Land"
 msgstr "퀸 모드랜드"
 
-msgid "Each line represents one group."
-msgstr "각 줄은 하나의 그룹을 나타냅니다."
+msgid "EXT3"
+msgstr ""
+
+msgid "EXT4"
+msgstr ""
+
+msgid "Each line represents a group."
+msgstr ""
 
 msgid ""
-"Each line represents one user. Note, the password must be entered in plain "
+"Each line represents a user. Note, the password must be entered in plain "
 "text."
-msgstr "각 줄은 하나의 사용자를 의미합니다. 비밀번호는 평문으로 입력되어야 합니다."
+msgstr ""
 
 msgid "East Timor"
 msgstr "동티모르"
@@ -1016,60 +1010,6 @@ msgstr "에콰도르"
 
 msgid "Edit"
 msgstr "편집"
-
-msgid "Edit SSH certificate"
-msgstr "SSH 인증 편집"
-
-msgid "Edit SSL certificate"
-msgstr "SSL 인증 편집"
-
-msgid "Edit VLAN connection"
-msgstr "VLAN 연결 편집"
-
-msgid "Edit Wi-Fi connection"
-msgstr "Wi-Fi 연결 편집"
-
-msgid "Edit bond connection"
-msgstr "본드 연결 편집"
-
-msgid "Edit bridge connection"
-msgstr "브리지 연결 수정"
-
-msgid "Edit ethernet connection"
-msgstr "이더넷 연결 편집"
-
-msgid "Edit firewall rule"
-msgstr "방화벽 규칙 편집"
-
-msgid "Edit group"
-msgstr "그룹 편집"
-
-msgid "Edit module"
-msgstr "모듈 편집"
-
-msgid "Edit quota"
-msgstr "할당량 편집"
-
-msgid "Edit rsync job"
-msgstr "rsync 작업 편집"
-
-msgid "Edit rule"
-msgstr "규칙 편집"
-
-msgid "Edit scheduled job"
-msgstr "예약 작업 편집"
-
-msgid "Edit scheduled test"
-msgstr "예약 검사 편집"
-
-msgid "Edit share"
-msgstr "공유 편집"
-
-msgid "Edit shared folder"
-msgstr "공유 폴더 편집"
-
-msgid "Edit user"
-msgstr "사용자 편집"
 
 msgid "Egypt"
 msgstr "이집트"
@@ -1083,20 +1023,8 @@ msgstr "전자우편"
 msgid "Empty now"
 msgstr "지금 비우기"
 
-msgid "Empty recycle bin"
-msgstr "빈 휴지통"
-
-msgid "Enable"
-msgstr "활성화"
-
-msgid "Enable FXP protocol"
-msgstr "FXP 프로토콜 활성화"
-
-msgid "Enable SSL/TLS"
-msgstr "SSL/TLS 활성화"
-
-msgid "Enable SSL/TLS connections"
-msgstr "SSL/TLS 연결 활성화"
+msgid "Enable SSL/TLS connections."
+msgstr ""
 
 msgid "Enable Time Machine support for this share."
 msgstr "이 공유에 대해 타임머신을 활성화합니다."
@@ -1104,41 +1032,14 @@ msgstr "이 공유에 대해 타임머신을 활성화합니다."
 msgid "Enable WINS server"
 msgstr "WINS 서버 활성화"
 
-msgid "Enable anonymous FTP"
-msgstr "익명 FTP 활성화"
+msgid "Enable keyboard-interactive authentication."
+msgstr ""
 
-msgid "Enable archive mode"
-msgstr "아카이브 모드 활성화"
-
-msgid "Enable asynchronous I/O (AIO) support."
-msgstr "비동기식 I/O (AIO) 지원 활성화"
-
-msgid "Enable chroot."
-msgstr "chroot 활성화"
-
-msgid "Enable compression"
-msgstr "압축 활성화"
-
-msgid "Enable extended attribute support"
-msgstr "확장 속성 지원 활성화"
-
-msgid "Enable keyboard-interactive authentication"
-msgstr "키보드 대화형 인증 활성화"
-
-msgid "Enable module listing"
-msgstr "모듈 목록 활성화"
-
-msgid "Enable permission inheritance"
-msgstr "권한 상속 활성화"
-
-msgid "Enable public key authentication"
-msgstr "공개 키 인증 활성화"
+msgid "Enable public key authentication."
+msgstr ""
 
 msgid "Enable recycle bin"
 msgstr "휴지통 활성화"
-
-msgid "Enable reverse DNS lookup"
-msgstr "역방향 DNS 질의 활성화"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
@@ -1146,43 +1047,25 @@ msgid ""
 "connections."
 msgstr "들어오는 능동 모드 데이터 연결과 나가는 수동 모드 데이터 연결에 대하여 원격지 호스트 IP 주소의 역방향 DNS 질의를 수행하려면 활성화합니다."
 
-msgid "Enable secure connection."
-msgstr "보안 연결 활성화"
-
-msgid "Enable store DOS attributes support"
-msgstr "DOS 속성 저장 활성화"
-
-msgid "Enable the ident protocol (RFC1413)"
-msgstr "식별 프로토콜 (RFC1413) 활성화"
-
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
 msgstr "전송된 파일을 부분적으로 유지하려면 이 옵션을 활성화합니다. 비활성화 할 경우, 전송이 중단되면 파일이 삭제될 것입니다."
 
-msgid "Enable transfer log"
-msgstr "전송 기록 활성화"
-
-msgid "Enable user authentication"
-msgstr "사용자 인증 활성화"
-
 msgid "Enable user home directories"
 msgstr "사용자 홈 경로 활성화"
 
-msgid "Enable write-cache."
-msgstr "쓰기 캐시 활성화"
+msgid "Enable write-cache"
+msgstr ""
 
 msgid "Enabled"
 msgstr "활성화됨"
 
+msgid "Enabled widgets"
+msgstr ""
+
 msgid "Encryption mode"
 msgstr "암호화 모드"
-
-msgid "Enter your password"
-msgstr "암호를 입력하세요"
-
-msgid "Enter your username"
-msgstr "사용자 이름을 입력하세요"
 
 msgid "Equatorial Guinea"
 msgstr "적도기니"
@@ -1191,12 +1074,6 @@ msgid "Eritrea"
 msgstr "에리트레아"
 
 msgid "Error"
-msgstr "오류"
-
-msgid "Error #"
-msgstr "오류 #"
-
-msgid "Errors"
 msgstr "오류"
 
 msgid "Estonia"
@@ -1223,35 +1100,23 @@ msgstr "매 N분마다"
 msgid "Everyone: read/write"
 msgstr "모두: 읽기/쓰기"
 
-msgid "Exactly"
-msgstr "완전히 일치"
-
-msgid "Execute command"
-msgstr "명령 실행"
-
-msgid "Execute cron job"
-msgstr "cron 작업 실행"
-
 msgid "Execute only"
 msgstr "실행 전용"
-
-msgid "Execute rsync job"
-msgstr "rsync 작업 실행"
-
-msgid "Execute scheduled test"
-msgstr "예약된 검사 실행"
 
 msgid "Expire"
 msgstr "만료"
 
+msgid "Extended Information"
+msgstr ""
+
 msgid "Extended attributes"
 msgstr "확장 속성"
 
-msgid "Extended information"
-msgstr "확장 정보"
-
 msgid "Extra options"
 msgstr "추가 옵션"
+
+msgid "F2FS"
+msgstr ""
 
 msgid "FTP"
 msgstr "FTP"
@@ -1270,6 +1135,9 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP는 전송을 요청하는 클라이언트로 가는 어떤 파일 데이터 없이 두 원격 서버 간에 파일 데이터를 전송할 수 있습니다."
 
+msgid "Failed to copy data to the clipboard."
+msgstr ""
+
 msgid "Falkland Islands"
 msgstr "포클랜드 제도"
 
@@ -1285,17 +1153,14 @@ msgstr "치명적 오류"
 msgid "February"
 msgstr "2월"
 
-msgid "Fields must be exclusive"
-msgstr "이 항목은 반드시 베타적이어야 합니다."
-
 msgid "Fiji"
 msgstr "피지"
 
-msgid "File"
-msgstr "파일"
-
 msgid "File Systems"
 msgstr "파일 시스템"
+
+msgid "File Systems Status"
+msgstr ""
 
 msgid "File system"
 msgstr "파일 시스템"
@@ -1319,8 +1184,8 @@ msgstr "지정된 바이트 크기보다 큰 파일들은 휴지통으로 들어
 msgid "Filesize"
 msgstr "파일 크기"
 
-msgid "Filesystem Type"
-msgstr "파일시스템 유형"
+msgid "Filesystem"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "파일 시스템"
@@ -1334,9 +1199,6 @@ msgstr "방화벽"
 msgid "Firmware version"
 msgstr "펌웨어 버전"
 
-msgid "First Page"
-msgstr "첫 페이지"
-
 msgid "Flags"
 msgstr "플래그"
 
@@ -1345,6 +1207,9 @@ msgstr "강제 SSL/TLS"
 
 msgid "Force secure connection only."
 msgstr "보안 연결 강제"
+
+msgid "Forum"
+msgstr ""
 
 msgid "France"
 msgstr "프랑스"
@@ -1367,9 +1232,6 @@ msgstr "금요일"
 msgid "Full"
 msgstr "전체"
 
-msgid "GID"
-msgstr "GID"
-
 msgid "Gabon"
 msgstr "가봉"
 
@@ -1382,15 +1244,6 @@ msgstr "게이트웨이"
 msgid "General"
 msgstr "일반"
 
-msgid "General Settings"
-msgstr "일반 설정"
-
-msgid "General settings"
-msgstr "일반 설정"
-
-msgid "Generating graphs ..."
-msgstr "그래프 생성 중 ..."
-
 msgid "Georgia"
 msgstr "그루지야"
 
@@ -1399,9 +1252,6 @@ msgstr "독일"
 
 msgid "Ghana"
 msgstr "가나"
-
-msgid "GiB"
-msgstr "GiB"
 
 msgid "Gibraltar"
 msgstr "지브롤터"
@@ -1427,9 +1277,6 @@ msgstr "그룹"
 msgid "Grow"
 msgstr "확장"
 
-msgid "Grow RAID device"
-msgstr "RAID 장치 확장"
-
 msgid "Guadeloupe"
 msgstr "과들루프"
 
@@ -1439,14 +1286,11 @@ msgstr "괌"
 msgid "Guatemala"
 msgstr "과테말라"
 
-msgid "Guest"
-msgstr "게스트"
-
-msgid "Guest allowed"
-msgstr "게스트 허용됨"
-
 msgid "Guests allowed"
 msgstr "게스트 허용됨"
+
+msgid "Guests only"
+msgstr ""
 
 msgid "Guinea"
 msgstr "기니"
@@ -1457,9 +1301,6 @@ msgstr "기니비사우"
 msgid "Guyana"
 msgstr "가이아나"
 
-msgid "HTTP 404 error"
-msgstr "HTTP 404 오류"
-
 msgid "HTTP-Proxy"
 msgstr "HTTP-프록시"
 
@@ -1469,14 +1310,14 @@ msgstr "HTTPS-프록시"
 msgid "Haiti"
 msgstr "아이티"
 
-msgid "Hardware address"
-msgstr "하드웨어 주소"
-
 msgid "Heard Island and McDonald Islands"
 msgstr "허드 섬 및 맥도널드 제도"
 
-msgid "Hide details"
-msgstr "정보 숨기기"
+msgid "Help"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
 
 msgid "Hide dot files"
 msgstr "점(.) 파일 숨기기"
@@ -1492,9 +1333,6 @@ msgstr "온두라스"
 
 msgid "Hong Kong S.A.R., China"
 msgstr "홍콩"
-
-msgid "Honor existing ACLs"
-msgstr "기존 ACL을 존중합니다."
 
 msgid "Host"
 msgstr "호스트"
@@ -1546,15 +1384,15 @@ msgstr "식별"
 msgid "Identify As"
 msgstr "식별 대상"
 
-msgid "Identify network interface device"
-msgstr "네트워크 인터페이스 장치 식별"
+msgid "Identify network interface"
+msgstr ""
 
 msgid "Idle"
 msgstr "유휴"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
-"access as guest. Always access as guest when 'Only guests' is selected; in "
+"access as guest. Always access as guest when 'Guests only' is selecting; in "
 "this case no password is required to connect to the share."
 msgstr ""
 
@@ -1602,23 +1440,17 @@ msgstr "묵시적 SSL"
 msgid "Import"
 msgstr "불러오기"
 
-msgid "Import SSH certificate"
-msgstr "SSH 인증 불러오기"
+msgid "Imported SSH certificate."
+msgstr ""
 
-msgid "Import SSL certificate"
-msgstr "SSL 인증 불러오기"
+msgid "Imported SSL certificate."
+msgstr ""
 
-msgid "Import groups"
-msgstr "그룹 불러오기"
+msgid "Imported groups."
+msgstr ""
 
-msgid "Import users"
-msgstr "사용자 불러오기"
-
-msgid "Importing groups ..."
-msgstr "그룹 불러오는 중 ..."
-
-msgid "Importing users ..."
-msgstr "사용자 불러오는 중 ..."
+msgid "Imported users."
+msgstr ""
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1631,23 +1463,11 @@ msgid ""
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "일부 경우에 수동 포트 범위를 우회 방화벽 제한에 지정해야 합니다. 수동 포트는 클라이언트로부터 PASV 명령을 송신할 때 선택될 서버로부터 포트의 범위를 제한합니다. 이 서버는 열려있는 포트를 찾을 때까지 지정된 범위 내에서 임의로 포트를 선택할 것입니다. 이 포트 범위는 비-권한 범위(1024 이상의) 안에서 선택되야 합니다. 선택된 범위는 동시다발적인 수동 연결을 처리하기 위해서 충분히 크게 지정할 것을 강력히 권장합니다. (예를 들어, 49152-65534, IANA에 등록된 일시적으로 사용되는 포트 범위와 같은.)"
 
-msgid "Incoming"
-msgstr "들여오기"
-
-msgid "Incomplete"
-msgstr "미완료"
-
-msgid "Incorrect username or password."
-msgstr "일치하지 않는 사용자 이름 또는 암호"
-
 msgid "India"
 msgstr "인도"
 
 msgid "Indonesia"
 msgstr "인도네시아"
-
-msgid "Info"
-msgstr "정보"
 
 msgid "Informal"
 msgstr " 비공식적인"
@@ -1667,17 +1487,17 @@ msgstr "초기화 중"
 msgid "Install"
 msgstr "설치"
 
+msgid "Install plugin"
+msgstr ""
+
+msgid "Install updates"
+msgstr ""
+
 msgid "Install updates from"
 msgstr "업데이트를 설치"
 
 msgid "Installed"
 msgstr "설치됨"
-
-msgid "Installing plugins ..."
-msgstr "플러그인 설치 중 ..."
-
-msgid "Installing updates ..."
-msgstr "업데이트 설치 중 ..."
 
 msgid ""
 "Installs the public SSH key on a remote system as an authorized key. Make "
@@ -1690,29 +1510,29 @@ msgstr "인터페이스"
 msgid "Invalid IP address."
 msgstr "잘못된 IP 주소."
 
-msgid "Invalid SSH public key (RFC 4716 format)"
+msgid "Invalid SSH public key (OpenSSH format)."
+msgstr ""
+
+msgid "Invalid SSH public key (OpenSSH or RFC 4716 format)"
+msgstr ""
+
+msgid "Invalid SSH public key (RFC 4716 format)."
 msgstr ""
 
 msgid "Invalid User-Agent."
 msgstr "잘못된 User-Agent."
 
-msgid "Invalid domain name"
-msgstr "잘못된 도메인 이름"
+msgid "Invalid domain name."
+msgstr ""
 
-msgid "Invalid file system label"
-msgstr "잘못된 파일 시스템 레이블"
+msgid "Invalid group name."
+msgstr ""
 
-msgid "Invalid group name"
-msgstr "잘못된 그룹 이름"
+msgid "Invalid host name."
+msgstr ""
 
-msgid "Invalid host name"
-msgstr "잘못된 호스트 이름"
-
-msgid "Invalid name"
-msgstr "잘못된 이름"
-
-msgid "Invalid user name"
-msgstr "잘못된 사용자 이름"
+msgid "Invalid user name."
+msgstr ""
 
 msgid "Invalid user."
 msgstr "잘못된 사용자."
@@ -1729,11 +1549,19 @@ msgstr "아일랜드"
 msgid "Israel"
 msgstr "이스라엘"
 
+msgid ""
+"It may take a while to detect the new devices, thus it might be necessary to"
+" reload the table several times. Do you want to proceed?"
+msgstr ""
+
 msgid "Italy"
 msgstr "이탈리아"
 
 msgid "Ivory Coast"
 msgstr "상아 해안"
+
+msgid "JFS"
+msgstr ""
 
 msgid "Jamaica"
 msgstr "자메이카"
@@ -1743,9 +1571,6 @@ msgstr "1월"
 
 msgid "Japan"
 msgstr "일본"
-
-msgid "Jobs"
-msgstr "작업"
 
 msgid "Johnston Island"
 msgstr "존스턴 섬"
@@ -1774,9 +1599,6 @@ msgstr "커널"
 msgid "Key size"
 msgstr "키 크기"
 
-msgid "KiB"
-msgstr "KiB"
-
 msgid "Kiribati"
 msgstr "키리바시"
 
@@ -1800,9 +1622,6 @@ msgstr "언어"
 
 msgid "Laos"
 msgstr "라오스"
-
-msgid "Last Page"
-msgstr "마지막 페이지"
 
 msgid "Latvia"
 msgstr "라트비아"
@@ -1839,11 +1658,14 @@ msgstr "선형"
 msgid "Link"
 msgstr "연결"
 
-msgid "List"
-msgstr "목록"
+msgid "List module"
+msgstr ""
 
 msgid "Lithuania"
 msgstr "리투아니아"
+
+msgid "Load Average"
+msgstr ""
 
 msgid "Load average"
 msgstr "평균 부하량"
@@ -1851,29 +1673,20 @@ msgstr "평균 부하량"
 msgid "Loading ..."
 msgstr "로딩 중 ..."
 
-msgid "Loading, please wait ..."
-msgstr "로딩 중입니다, 잠시만 기다려주세요 ..."
-
 msgid "Local"
 msgstr "로컬"
 
 msgid "Location"
 msgstr "위치"
 
+msgid "Log in"
+msgstr ""
+
 msgid "Log level"
 msgstr "기록 수준"
 
-msgid "Logging out, please wait ..."
-msgstr "로그아웃하는 중입니다. 잠시만 기다려주세요 ..."
-
-msgid "Login"
-msgstr "로그인"
-
 msgid "Logout"
 msgstr "로그아웃"
-
-msgid "Logs"
-msgstr "기록"
 
 msgid "Long self-test"
 msgstr "정밀 자가진단"
@@ -1884,8 +1697,8 @@ msgstr "루프 장치 [%s, %s]"
 msgid "Luxembourg"
 msgstr "룩셈부르크"
 
-msgid "MAC address"
-msgstr "MAC 주소"
+msgid "MAC"
+msgstr ""
 
 msgid "MII monitoring frequency"
 msgstr "MII 감시 주파수"
@@ -1920,9 +1733,6 @@ msgstr "말리"
 msgid "Malta"
 msgstr "몰타"
 
-msgid "Manual"
-msgstr "수동"
-
 msgid "March"
 msgstr "3월"
 
@@ -1936,14 +1746,14 @@ msgid "Masquerade address"
 msgstr "위장 주소"
 
 msgid ""
-"Match if the destination port is one of the given ports. E.g. 21 or !443 or "
+"Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr "목적지 포트가 주어진 포트들 중에 하나인 경우에 일치. 예를 들어, 21 혹은 !443 혹은 1024-65535"
+msgstr ""
 
 msgid ""
-"Match if the source port is one of the given ports. E.g. 21 or !443 or "
+"Match if the source port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr "출발지 포트가 주어진 포트들 중에 하나인 경우에 일치. 예를 들어, 21 혹은 !443 혹은 1024-65535."
+msgstr ""
 
 msgid "Mauritania"
 msgstr "모리타니"
@@ -1963,8 +1773,14 @@ msgstr "호스트 당 최대 연결"
 msgid "Max. login attempts"
 msgstr "최대 로그인 시도 횟수"
 
+msgid "Max. passive port"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "최대 내려받기 속도 (KiB/s)"
+
+msgid "Maximum file size"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1987,9 +1803,6 @@ msgstr "최대 성능, 최대 음향 출력"
 msgid "Maximum upload rate (KiB/s)"
 msgstr "최대 올리기 속도 (KiB/s)"
 
-msgid "Maximum {0} selected item(s) allowed"
-msgstr "최대 {0} 항목(들) 선택 허용됨"
-
 msgid "May"
 msgstr "5월"
 
@@ -1998,6 +1811,9 @@ msgstr "마요트 섬"
 
 msgid "Members"
 msgstr "구성원"
+
+msgid "Memory Usage"
+msgstr ""
 
 msgid "Memory usage"
 msgstr "메모리 사용량"
@@ -2017,23 +1833,20 @@ msgstr "프랑스 본국"
 msgid "Mexico"
 msgstr "멕시코"
 
-msgid "MiB"
-msgstr "MiB"
-
 msgid "Micronesia"
 msgstr "미크로네시아"
 
 msgid "Midway Islands"
 msgstr "미드웨이 섬"
 
+msgid "Min. passive port"
+msgstr ""
+
 msgid "Minimum"
 msgstr "최소"
 
-msgid "Minimum performance, Minimum acoustic output"
-msgstr "최소 성능, 최소 음향 출력"
-
-msgid "Minimum {0} selected item(s) required"
-msgstr "최소 {0} 항목(들) 선택 요구됨"
+msgid "Minimum performance, minimum acoustic output"
+msgstr ""
 
 msgid "Minute"
 msgstr "분"
@@ -2050,12 +1863,6 @@ msgstr "모드"
 msgid "Model"
 msgstr "모델"
 
-msgid "Modify account"
-msgstr "계정 수정"
-
-msgid "Modify shared folder ACL"
-msgstr "공유 폴더 ACL 수정"
-
 msgid "Modules"
 msgstr "모듈"
 
@@ -2071,8 +1878,8 @@ msgstr "월요일"
 msgid "Mongolia"
 msgstr "몽골리아"
 
-msgid "Monitor"
-msgstr "감시"
+msgid "Monitored"
+msgstr ""
 
 msgid "Monitoring"
 msgstr "감시"
@@ -2134,9 +1941,6 @@ msgstr "네트워크"
 msgid "Network Interfaces"
 msgstr "네트워크 인터페이스"
 
-msgid "Network interfaces"
-msgstr "네트워크 인터페이스"
-
 msgid "Neutral Zone"
 msgstr "뉴트럴 존"
 
@@ -2151,9 +1955,6 @@ msgstr "뉴질랜드"
 
 msgid "New password"
 msgstr "새로운 암호"
-
-msgid "Next Page"
-msgstr "다음 페이지"
 
 msgid "Nicaragua"
 msgstr "니카라과"
@@ -2173,26 +1974,17 @@ msgstr "아니오"
 msgid "No access"
 msgstr "접근 금지"
 
-msgid "No action"
-msgstr "조치 안함"
-
 msgid "No connections"
 msgstr "연결 없음"
 
-msgid "No data to display"
-msgstr "표시할 데이터가 없음"
-
-msgid "No items to display"
-msgstr "표시할 항목 없음"
+msgid "No data to display."
+msgstr ""
 
 msgid "No session reuse required"
 msgstr "세션 재사용 불필요"
 
 msgid "No users connected"
 msgstr "연결된 사용자 없음"
-
-msgid "No users defined"
-msgstr "정의된 사용자 없음"
 
 msgid "None"
 msgstr "없음"
@@ -2227,6 +2019,12 @@ msgstr "TCP 제외"
 msgid "Not UDP"
 msgstr "UDP 제외"
 
+msgid "Not mounted"
+msgstr ""
+
+msgid "Not running"
+msgstr ""
+
 msgid "Nothing"
 msgstr "아무 것도 안 함"
 
@@ -2254,14 +2052,14 @@ msgstr "10월"
 msgid "Offline immediate test"
 msgstr "오프라인 즉각 검사"
 
+msgid "Old-age"
+msgstr ""
+
 msgid "Oman"
 msgstr "오만"
 
 msgid "Online"
 msgstr "온라인"
-
-msgid "Only guests"
-msgstr "게스트만 허용"
 
 msgid "Operation"
 msgstr "작업"
@@ -2272,14 +2070,11 @@ msgstr "옵션"
 msgid "Organization Name"
 msgstr "조직 이름"
 
-msgid "Organizational Unit"
-msgstr "조직 단위"
+msgid "Organization Unit"
+msgstr ""
 
 msgid "Others"
 msgstr "기타"
-
-msgid "Outgoing"
-msgstr "송신"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "송신 SMTP 메일 서버 주소. 예를 들어, smtp.mycorp.com."
@@ -2287,23 +2082,14 @@ msgstr "송신 SMTP 메일 서버 주소. 예를 들어, smtp.mycorp.com."
 msgid "Outlying Oceania"
 msgstr "오세아니아 외곽"
 
-msgid "Overview"
-msgstr "개요"
-
 msgid "Owner"
 msgstr "소유자"
 
 msgid "Pacific Islands Trust Territory"
 msgstr "태평양 제도 신탁통치령"
 
-msgid "Package information"
-msgstr "패키지 정보"
-
-msgid "Page"
-msgstr "페이지"
-
-msgid "Page not found"
-msgstr "페이지를 찾을 수 없음"
+msgid "Package Information"
+msgstr ""
 
 msgid "Pakistan"
 msgstr "파키스탄"
@@ -2341,8 +2127,11 @@ msgstr "암호"
 msgid "Password authentication"
 msgstr "암호 인증"
 
-msgid "Passwords don't match"
-msgstr "암호가 일치하지 않습니다."
+msgid "Password does not match."
+msgstr ""
+
+msgid "Password doesn't match."
+msgstr ""
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
 msgstr "X.509 PEM 포맷의 RSA 혹은 ECC 인증서를 여기에 붙여넣습니다."
@@ -2350,8 +2139,10 @@ msgstr "X.509 PEM 포맷의 RSA 혹은 ECC 인증서를 여기에 붙여넣습�
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr "X.509 PEM 포맷의 RSA 혹은 ECC 개인 키를 여기에 붙여넣습니다."
 
-msgid "Path"
-msgstr "경로"
+msgid ""
+"Pending configuration changes. You must apply these changes in order for "
+"them to take effect."
+msgstr ""
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "예멘 인민 민주 공화국"
@@ -2359,8 +2150,8 @@ msgstr "예멘 인민 민주 공화국"
 msgid "Perform a trial run with no changes made"
 msgstr "변경을 반영하지 않고 시험 동작을 수행합니다."
 
-msgid "Performance statistics"
-msgstr "성능 통계"
+msgid "Performance Statistics"
+msgstr ""
 
 msgid "Period of validity"
 msgstr "유효 기간"
@@ -2380,8 +2171,8 @@ msgstr "소유자 권한"
 msgid "Permit root login"
 msgstr "루트 로그인을 허용합니다."
 
-msgid "Permit to do SSH tunneling"
-msgstr "SSH 터널링을 허용합니다."
+msgid "Permit to do SSH tunneling."
+msgstr ""
 
 msgid "Peru"
 msgstr "페루"
@@ -2389,11 +2180,23 @@ msgstr "페루"
 msgid "Philippines"
 msgstr "필리핀"
 
-msgid "Physical disk properties"
-msgstr "물리 디스크 속성"
-
 msgid "Pitcairn"
 msgstr "핏케언 섬"
+
+msgid ""
+"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr ""
+
+msgid ""
+"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
+" target=\"_blank\">manual page</a> for more details."
+msgstr ""
+
+msgid ""
+"Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
@@ -2417,47 +2220,52 @@ msgid ""
 msgstr "자세한 내용은 <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
 
 msgid ""
-"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "자세한 내용은 <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
-
-msgid ""
-"Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "자세한 내용은 <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
-
-msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "자세한 내용은 <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
 
-msgid ""
-"Please check the <a href='https://man.openbsd.org/sshd_config.5' "
-"target='_blank'>manual page</a> for more details."
-msgstr "자세한 내용은 <a href='https://man.openbsd.org/sshd_config.5' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
-
-msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr "이 장치를 초기화할 방법을 선택하거나 취소를 눌러 중단해 주세요."
-
-msgid "Please first select a device."
-msgstr "먼저 장치를 선택하세요."
-
-msgid ""
-"Please note that no communication with the system is possible during this "
-"test."
-msgstr "이 테스트 중에는 시스템이 응답이 없을 수도 있음을 참고해 주세요."
-
-msgid "Please reload the page to let the changes take effect."
-msgstr "변경 사항을 적용하려면 페이지를 새로 고침 해주세요."
+msgid "Please choose the method to wipe the device."
+msgstr ""
 
 msgid "Please wait ..."
 msgstr "잠시 기다려주십시오 ..."
 
-msgid ""
-"Please wait until the RAID has been initialized before creating a file "
-"system."
-msgstr "파일 시스템을 만들기에 앞서 RAID가 초기화 될 때까지 기다려주세요"
+msgid "Please wait, deleting selected item(s) ..."
+msgstr ""
+
+msgid "Please wait, identifying network device ..."
+msgstr ""
+
+msgid "Please wait, installing public SSH key on remote system ..."
+msgstr ""
+
+msgid "Please wait, processing selected item(s) ..."
+msgstr ""
+
+msgid "Please wait, reverting configuration changes ..."
+msgstr ""
+
+msgid "Please wait, sending a test email ..."
+msgstr ""
+
+msgid "Please wait, the configuration changes are being applied ..."
+msgstr ""
+
+msgid "Please wait, the data is being loaded ..."
+msgstr ""
+
+msgid "Please wait, the file system is being mounted."
+msgstr ""
+
+msgid "Please wait, the statistic graphs will be regenerated ..."
+msgstr ""
+
+msgid "Please wait, unmounting the file system ..."
+msgstr ""
+
+msgid "Please wait, updating access control lists ..."
+msgstr ""
 
 msgid "Plugins"
 msgstr "플러그인"
@@ -2471,6 +2279,9 @@ msgstr "포트"
 msgid "Portugal"
 msgstr "포르투갈"
 
+msgid "Power"
+msgstr ""
+
 msgid "Power Management"
 msgstr "전원 관리"
 
@@ -2480,8 +2291,11 @@ msgstr "전원 버튼"
 msgid "Power mode"
 msgstr "전원모드"
 
-msgid "Pre-release updates."
-msgstr "선공개 업데이트"
+msgid "Pre-release updates"
+msgstr ""
+
+msgid "Prefail"
+msgstr ""
 
 msgid "Prefix length"
 msgstr "접두사 길이"
@@ -2506,8 +2320,8 @@ msgstr "권한 보존"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
-"polled.<br/><ul><li>Never - Poll (check) the device regardless of its power "
-"mode. This may cause a disk which is spun-down to be spun-up when it is "
+"polled.<ul><li>Never - Poll (check) the device regardless of its power mode."
+" This may cause a disk which is spun-down to be spun-up when it is "
 "checked.</li><li>Sleep - Check the device unless it is in SLEEP "
 "mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY "
 "mode. In these modes most disks are not spinning, so if you want to prevent "
@@ -2515,10 +2329,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr "디스크가 주기적으로 폴링될 때 스핀-업되는 것을 방지합니다.<br/><ul><li>절대 안함 - 전원 모드에 상관 없이 장치를 폴링(검사)합니다. 이는 검사 시점에서 스핀-다운된 디스크를 스핀-업 상태로 만들 수 있습니다. </li><li>휴면 - 장치가 휴면 상태가 아닌 한 검사를 수행합니다.</li><li>대기 - 장치가 휴면 혹은 대기 상태가 아닌 한 검사를 수행합니다. 이런 상태에 있는 대부분의 디스크들은 동작 중이지 않습니다. 따라서 매 폴링마다 스핀-업되는 것을 방지하기 위해서는 이 옵션이 원하는 선택이 될 수 있습니다.</li><li>유휴 - 장치가 휴면, 대기 혹은 유휴 상태가 아닌 한 검사를 수행합니다. 유휴 상태에서, 대부분의 디스크는 동작 중이기 때문에 이는 당신이 원하는 옵션이 아닐 것입니다.</li></ul>"
-
-msgid "Previous Page"
-msgstr "이전 페이지"
+msgstr ""
 
 msgid "Primary"
 msgstr "주"
@@ -2544,6 +2355,9 @@ msgstr "프로세스"
 msgid "Processor"
 msgstr "프로세서"
 
+msgid "Profile"
+msgstr ""
+
 msgid "Protocol"
 msgstr "프로토콜"
 
@@ -2559,9 +2373,6 @@ msgstr "공개 키"
 msgid "Public key authentication"
 msgstr "공개 키 인증"
 
-msgid "Public keys"
-msgstr "공개 키"
-
 msgid "Puerto Rico"
 msgstr "푸에르토리코"
 
@@ -2576,9 +2387,6 @@ msgstr "카타르"
 
 msgid "Quick"
 msgstr "빠르게"
-
-msgid "Quiet"
-msgstr "조용히"
 
 msgid "Quota"
 msgstr "할당량"
@@ -2604,14 +2412,8 @@ msgstr "RAID 6"
 msgid "RAID Management"
 msgstr "RAID 관리"
 
-msgid "RFC931"
-msgstr "RFC931"
-
 msgid "RSync server"
 msgstr "RSync 서버"
-
-msgid "Ranges of numbers are not allowed"
-msgstr "허용되지 않은 숫자 범위입니다."
 
 msgid "Raw value"
 msgstr "Raw 값"
@@ -2631,11 +2433,11 @@ msgstr "읽기/쓰기"
 msgid "Read/Write/Execute"
 msgstr "읽기/쓰기/실행"
 
-msgid "Real"
-msgstr "실제"
-
 msgid "Reboot"
 msgstr "재시작"
+
+msgid "Reboot required"
+msgstr ""
 
 msgid "Recipient"
 msgstr "수신자"
@@ -2649,17 +2451,17 @@ msgstr "디렉터리로 재귀"
 msgid "Recursive"
 msgstr "재귀적으로"
 
-msgid "Recycle bin"
-msgstr "휴지통"
-
 msgid "Referenced"
 msgstr "참조"
 
-msgid "Refresh"
-msgstr "새로 고침"
+msgid "Refresh time"
+msgstr ""
 
 msgid "Relative Path"
 msgstr "상대 경로"
+
+msgid "Relative path"
+msgstr ""
 
 msgid "Reload"
 msgstr "다시 불러오기"
@@ -2673,20 +2475,17 @@ msgstr "원격"
 msgid "Remote host"
 msgstr "원격 호스트"
 
-msgid "Remote syslog"
-msgstr "원격 syslog"
-
 msgid "Remove"
 msgstr "제거"
 
-msgid "Remove devices from RAID device"
-msgstr "RAID 장치로부터 장치들을 제거"
+msgid "Remove all"
+msgstr ""
 
 msgid "Replace"
 msgstr "대체"
 
-msgid "Replace all existing permissions"
-msgstr "기존의 모든 권한 대체"
+msgid "Replace all existing permissions."
+msgstr ""
 
 msgid "Report"
 msgstr "보고"
@@ -2710,16 +2509,8 @@ msgstr "유효한 쉘이 필요합니다."
 msgid "Required"
 msgstr "필수"
 
-msgid "Reset"
-msgstr "재설정"
-
 msgid "Reset UI to defaults"
 msgstr "UI를 기본값으로 재설정"
-
-msgid ""
-"Reset the UI settings to their default values, e.g. the order of the grid "
-"columns."
-msgstr "UI 설정을 기본값으로 재설정합니다. (그리드 열의 순서 등)"
 
 msgid "Resize"
 msgstr "크기 조정"
@@ -2730,17 +2521,17 @@ msgstr "결과"
 msgid "Resume"
 msgstr "다시 시작"
 
+msgid "Retention time"
+msgstr ""
+
 msgid "Reunion"
 msgstr "재결합"
 
 msgid "Reverse DNS lookup"
 msgstr "역방향 DNS 질의"
 
-msgid "Revert"
-msgstr "되돌리기"
-
-msgid "Revert configuration changes"
-msgstr "변경된 설정 되돌리기"
+msgid "Reverted the configuration changes."
+msgstr ""
 
 msgid "Romania"
 msgstr "루마니아"
@@ -2754,8 +2545,17 @@ msgstr "Rsync - 작업"
 msgid "Rsync - Server"
 msgstr "Rsync - 서버"
 
+msgid "Rules"
+msgstr ""
+
 msgid "Run"
 msgstr "실행"
+
+msgid "Run rsync task"
+msgstr ""
+
+msgid "Run scheduled task"
+msgstr ""
 
 msgid "Running"
 msgstr "동작 중"
@@ -2769,14 +2569,8 @@ msgstr "르완다"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T"
 
-msgid "S.M.A.R.T. information"
-msgstr "S.M.A.R.T. 정보"
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "선택된 장치에 대해 S.M.A.R.T 모니터링이 반드시 활성화되어야 합니다."
-
-msgid "S/N"
-msgstr "시리얼 번호"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2790,9 +2584,6 @@ msgstr "SMTP 포트"
 msgid "SMTP server"
 msgstr "SMTP 서버"
 
-msgid "SMTP settings"
-msgstr "SMTP 설정"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2802,6 +2593,12 @@ msgstr "SSH 인증"
 msgid "SSH port"
 msgstr "SSH 포트"
 
+msgid "SSH public key"
+msgstr ""
+
+msgid "SSH public keys"
+msgstr ""
+
 msgid "SSID"
 msgstr "SSID"
 
@@ -2810,6 +2607,12 @@ msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
+
+msgid "SSL/TLS Settings"
+msgstr ""
+
+msgid "SSL/TLS enabled"
+msgstr ""
 
 msgid "STARTTLS"
 msgstr "STARTTLS"
@@ -2847,20 +2650,14 @@ msgstr "사우디아라비아"
 msgid "Save"
 msgstr "저장"
 
-msgid "Saving ..."
-msgstr "저장 중 ..."
-
-msgid "Scan"
-msgstr "검색"
+msgid "Scan for new devices"
+msgstr ""
 
 msgid "Scanning for new devices ..."
 msgstr "새로운 장치 검색 중 ..."
 
-msgid "Scheduled Jobs"
-msgstr "예약된 작업"
-
-msgid "Scheduled tests"
-msgstr "예약된 검사"
+msgid "Scheduled Tasks"
+msgstr ""
 
 msgid "Scheduling"
 msgstr "일정"
@@ -2883,35 +2680,17 @@ msgstr "보안"
 msgid "Secure connection"
 msgstr "보안 연결"
 
-msgid "Select a SSH certificate ..."
-msgstr "SSL 인증을 선택하세요 ..."
-
-msgid "Select a SSL certificate ..."
-msgstr "SSL 인증을 선택하세요 ..."
-
 msgid "Select a country ..."
 msgstr "국가를 선택하세요 ..."
 
 msgid "Select a device ..."
 msgstr "장치를 선택하세요 ..."
 
-msgid "Select a directory"
-msgstr "디렉터리를 선택하세요 ..."
-
-msgid "Select a file permission ..."
-msgstr "파일 권한을 선택하세요 ..."
-
 msgid "Select a file system ..."
 msgstr "파일 시스템을 선택하세요 ..."
 
-msgid "Select a group name ..."
-msgstr "그룹 이름을 선택하세요 ..."
-
-msgid "Select a language ..."
-msgstr "언어를 선택하세요 ..."
-
-msgid "Select a protocol ..."
-msgstr "프로토콜을 선택하세요 ..."
+msgid "Select a group ..."
+msgstr ""
 
 msgid "Select a shared folder ..."
 msgstr "공유 폴더를 선택하세요 ..."
@@ -2919,43 +2698,63 @@ msgstr "공유 폴더를 선택하세요 ..."
 msgid "Select a shell ..."
 msgstr "쉘을 선택하세요 ..."
 
-msgid "Select a user name ..."
-msgstr "사용자 이름을 선택하세요 ..."
+msgid "Select a system log ..."
+msgstr ""
+
+msgid "Select a type ..."
+msgstr ""
 
 msgid "Select an authentication mode ..."
 msgstr "인증 방법을 선택하세요 ..."
 
-msgid "Select devices to be added to the RAID device"
-msgstr "RAID 장치에 추가될 장치를 선택하세요"
+msgid "Select an user ..."
+msgstr ""
+
+msgid "Select devices ..."
+msgstr ""
+
+msgid "Select devices to be added to the RAID device."
+msgstr ""
 
 msgid "Select devices to be removed from the RAID device."
 msgstr "RAID 장치로부터 제거될 장치들을 선택하세요."
 
-msgid "Select or enter a user name ..."
-msgstr "사용자 이름을 선택 또는 입력하세요 ..."
+msgid "Select groups ..."
+msgstr ""
+
+msgid "Select interface devices ..."
+msgstr ""
+
+msgid "Select members ..."
+msgstr ""
+
+msgid "Select permissions ..."
+msgstr ""
+
+msgid "Select slave devices ..."
+msgstr ""
+
+msgid "Select the device that will be used to create the file system."
+msgstr ""
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr "RAID 장치로 만들 장치들을 선택합니다. USB로 연결된 장치들은 신뢰할 수 없기에 목록에 나타나지 않습니다"
 
-msgid "Self-test logs"
-msgstr "자가진단 기록"
+msgid "Self-Test Logs"
+msgstr ""
 
-msgid "Send a test email"
-msgstr "시험용 전자우편 전송"
+msgid ""
+"Send a notification when the used file system capacity exceeds the specified"
+" threshold."
+msgstr ""
 
 msgid "Send command output via email"
 msgstr "전자우편으로 명령 결과 전송"
 
-msgid "Send email"
-msgstr "전자우편 전송"
-
 msgid "Sender email"
 msgstr "송신자 전자우편 주소"
-
-msgid "Sending test email ..."
-msgstr "시험용 전자우편을 전송 중입니다 ..."
 
 msgid "Senegal"
 msgstr "세네갈"
@@ -2981,11 +2780,11 @@ msgstr "서비스"
 msgid "Service disabled"
 msgstr "서비스 비활성화됨"
 
-msgid "Servicename"
-msgstr "서비스 이름"
-
 msgid "Services"
 msgstr "서비스"
+
+msgid "Services Status"
+msgstr ""
 
 msgid "Session expired."
 msgstr "세션 만료됨."
@@ -2993,27 +2792,14 @@ msgstr "세션 만료됨."
 msgid "Session not authenticated."
 msgstr "세션 인증되지 않음."
 
-msgid "Set browseable"
-msgstr "검색 가능하게 설정"
-
-msgid "Set read only"
-msgstr "읽기 전용으로 설정"
-
 msgid ""
-"Set the destination permissions to be the same as the source permissions"
-msgstr "원본 권한과 대상 권한이 똑같도록 설정합니다."
-
-msgid ""
-"Set the group of the destination file to be the same as the source file."
-msgstr "파일의 그룹을 동기화합니다."
+"Set the destination permissions to be the same as the source permissions."
+msgstr ""
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr "파일 소유자를 동기화하며, 목적지의 rsync가 슈퍼-유저로 동작할 경우에만 가능합니다."
-
-msgid "Set write only"
-msgstr "쓰기 전용으로 설정"
 
 msgid ""
 "Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
@@ -3032,17 +2818,14 @@ msgstr "공유 폴더"
 msgid "Shared folder"
 msgstr "공유 폴더"
 
-msgid "Shared folder + content"
-msgstr "공유 폴더 + 내용"
-
-msgid "Shared folder must not be equal"
-msgstr "공유 폴더는 같을 수 없습니다."
-
 msgid "Shared folder name"
 msgstr "공유 폴더 이름"
 
 msgid "Shared folder path"
 msgstr "공유 폴더 경로"
+
+msgid "Shared folder permissions have been transferred."
+msgstr ""
 
 msgid "Shared folder privileges"
 msgstr "공유 폴더 권한"
@@ -3056,26 +2839,26 @@ msgstr "셸"
 msgid "Short self-test"
 msgstr "단순 자가진단"
 
-msgid "Show certificate"
-msgstr "인증 보이기"
-
 msgid "Show changelog"
 msgstr "변경 내역 보기"
 
 msgid "Show details"
 msgstr "정보 보이기"
 
-msgid "Show password"
-msgstr "암호 보이기"
+msgid "Show/Hide columns"
+msgstr ""
 
-msgid "Show privileges"
-msgstr "권한 보이기"
+msgid "Show/Hide navigation"
+msgstr ""
 
 msgid "Shutdown"
 msgstr "종료"
 
 msgid "Sierra Leone"
 msgstr "시에라리온"
+
+msgid "Signed in as"
+msgstr ""
 
 msgid "Singapore"
 msgstr "싱가포르"
@@ -3095,6 +2878,9 @@ msgstr "슬로바키아"
 msgid "Slovenia"
 msgstr "슬로베니아"
 
+msgid "Software Failure.   Press left mouse button to continue."
+msgstr ""
+
 msgid "Software RAID"
 msgstr "소프트웨어 RAID"
 
@@ -3112,9 +2898,9 @@ msgstr "근원"
 
 msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
-"or a plain IP address. A '!' argument before the address specification "
+"or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
-msgstr "출발지 주소는 네트워크 IP 주소('/넷마스크'를 포함하는)나 일반 IP 주소 혹은 IP 범위가 될 수 있습니다. 주소 지정 앞에 '!' 인수는 주소의 의미를 반대로 적용합니다."
+msgstr ""
 
 msgid "Source port"
 msgstr "출발지 포트"
@@ -3140,9 +2926,6 @@ msgstr "스페인"
 msgid "Special action flag"
 msgstr "특수 행동 플래그"
 
-msgid "Specifies one of the bonding policies."
-msgstr "본딩 정책 중 하나를 지정합니다."
-
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "밀리 초 단위로 MII 링크 모니터링 주기를 지정합니다."
 
@@ -3151,6 +2934,12 @@ msgid ""
 "masquerade address by resolving the IP address. Set this value to 0 to "
 "disable this option."
 msgstr "IP 주소의 해석을 통해 마스커레이드 주소를 검사하고 갱신하는 사이의 시간 간격을 초 단위로 지정합니다. 0으로 설정하면 이 옵션은 비활성화됩니다."
+
+msgid "Specifies the interface devices."
+msgstr ""
+
+msgid "Specifies the slave devices."
+msgstr ""
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "차단이 만료될 시간을 시:분:초 형식으로 지정합니다."
@@ -3170,8 +2959,8 @@ msgid ""
 " link recovery has been detected."
 msgstr "링크 복구를 감지했을 때 보조 장치를 활성화하기 전 대기할 시간을 밀리초 단위로 지정합니다"
 
-msgid "Specifies whether it is allowed to login as superuser directly"
-msgstr "슈퍼유저로 로그인이 가능하게 할 것인지 지정합니다."
+msgid "Specifies whether it is allowed to login as superuser directly."
+msgstr ""
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "수퍼유저로 로그인이 가능하게 할 것인지 지정합니다."
@@ -3228,17 +3017,14 @@ msgstr "DOS 속성 저장"
 msgid "Stripe"
 msgstr "스트라이프"
 
-msgid "Success"
-msgstr "성공"
-
 msgid "Sudan"
 msgstr "수단"
 
+msgid "Summary"
+msgstr ""
+
 msgid "Sunday"
 msgstr "일요일"
-
-msgid "Support"
-msgstr "지원"
 
 msgid "Suppress non-error messages"
 msgstr "오류가 아닌 메시지를 숨깁니다."
@@ -3273,17 +3059,20 @@ msgstr "시스템 정보"
 msgid "System Logs"
 msgstr "시스템 로그"
 
-msgid "System accounts"
-msgstr "시스템 계정"
+msgid "System Time"
+msgstr ""
+
+msgid "System account"
+msgstr ""
 
 msgid "System time"
 msgstr "시스템 시간"
 
-msgid "TAR"
-msgstr "TAR"
-
 msgid "TCP forwarding"
 msgstr "TCP 포워드"
+
+msgid "TLS Settings"
+msgstr ""
 
 msgid "Taiwan"
 msgstr "대만"
@@ -3294,14 +3083,17 @@ msgstr "타지키스탄"
 msgid "Tanzania"
 msgstr "탄자니아"
 
+msgid "Tasks"
+msgstr ""
+
 msgid "Temperature"
 msgstr "온도"
 
 msgid "Temperature monitoring"
 msgstr "온도 감시"
 
-msgid "Test description"
-msgstr "검사 설명"
+msgid "Test"
+msgstr ""
 
 msgid "Thailand"
 msgstr "태국"
@@ -3327,16 +3119,13 @@ msgstr "SSL 인증"
 msgid "The action to be done when pressing the power button."
 msgstr "전원 버튼을 눌렀을 때 수행할 작업"
 
-msgid "The changes have been applied successfully."
-msgstr "변경이 성공적으로 적용되었습니다."
-
-msgid "The comment contains invalid characters"
-msgstr "주석에 허용되지 않는 문자들이 포함되어 있습니다."
-
 msgid ""
-"The configuration has been changed. You must apply the changes in order for "
-"them to take effect."
-msgstr "설정이 변경되었습니다. 적용 하기 전까지 이 설정은 반영되지 않습니다."
+"The dashboard has not yet been configured. To personalize it please go to "
+"the"
+msgstr ""
+
+msgid "The data has been copied to the clipboard."
+msgstr ""
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "기본 SMTP 메일 서버 포트, 예를 들어, 25 혹은 587."
@@ -3346,17 +3135,14 @@ msgid ""
 "rsync://[USER@]HOST[:PORT]/DEST."
 msgstr "목적지 원격 서버, 예를 들어, [사용자@]호스트:목적지, [사용자@]호스트::목적지 혹은 rsync://[사용자@]호스트[:포트]/목적지."
 
-msgid "The destination shared folder."
-msgstr "대상 공유 폴더"
-
-msgid "The device does not exist"
-msgstr "장치가 존재하지 않습니다."
-
 msgid "The file mode of the shared folder path."
 msgstr "공유 폴더 경로의 파일 모드"
 
-msgid "The file system creation has completed successfully."
-msgstr "파일 시스템이 성공적으로 생성되었습니다."
+msgid "The file system on which the shared folder is to be created."
+msgstr ""
+
+msgid "The file system to mount."
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "호스트 이름은 네트워크 상에서 시스템을 식별하는 이름표입니다."
@@ -3365,9 +3151,9 @@ msgid "The hostname of the remote system."
 msgstr "원격 시스템의 호스트 이름입니다."
 
 msgid ""
-"The information about available software is out-of-date. You need to reload "
-"the information about available software."
-msgstr "가용 소프트웨어에 대한 정보가 오래되었습니다. 해당 정보를 갱신해야만 합니다."
+"The information about available software is out-of-date. Do you want to "
+"reload this information?"
+msgstr ""
 
 msgid "The location of the files to share."
 msgstr "공유할 파일 위치"
@@ -3391,16 +3177,10 @@ msgstr "공유 이름"
 msgid "The number of days the certificate is valid for."
 msgstr "이 인증서가 유효한 일수"
 
-msgid "The page will reload now to let the changes take effect."
-msgstr "이 페이지는 변경을 적용하기 위해 새로 고쳐질 것입니다."
-
-msgid "The password contains invalid characters"
-msgstr "암호에 허용되지 않는 문자들이 포함되어 있습니다."
-
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
-"used for remote shell transport such as ssh."
-msgstr "암호는 rsync 데몬을 통하여 접근하는 데 사용됩니다. SSH와 같은 원격 셸 전송에는 사용되지 않습니다."
+"used for remote shell transport such as SSH."
+msgstr ""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create"
@@ -3416,13 +3196,13 @@ msgid "The private RSA key in X.509 PEM format."
 msgstr "X.509 PEM 포맷의 개인 RSA 키"
 
 msgid ""
-"The protocol is not supported in conjunction with a source/destination port"
-msgstr "이 프로토콜은 출발지/목적지 포트와 함께 지정하는 것을 지원하지 않습니다"
+"The protocol is not supported in conjunction with a source/destination port."
+msgstr ""
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
-"created if it does not already exist."
-msgstr "공유할 폴더의 상대 경로입니다. 지정된 폴더가 없다면 새로 만들어집니다."
+"created if it does not exist."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3437,25 +3217,36 @@ msgid ""
 "for data connections is not required."
 msgstr "컨트롤 연결에서 SSL 세션 데이터 연결에 재사용되는 경우 이 요구 사항은 필요하지 않습니다."
 
+msgid "The server is unavailable to handle this request right now."
+msgstr ""
+
+msgid "The shared folder from which the privileges are copied."
+msgstr ""
+
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
 msgstr "원본 원격 서버. 예를 들면, [USER@]HOST:SRC, [USER@]HOST::SRC 혹은 rsync://[USER@]HOST[:PORT]/SRC."
 
-msgid "The source shared folder."
-msgstr "원본 공유 폴더"
-
-msgid "The specified quota exceeds the max. possible value of 4TiB."
-msgstr "지정된 할당량이 최대값을 초과합니다. 가능한 값은 4TiB입니다."
-
-msgid "The system must be rebooted."
-msgstr "시스템이 재시작되어야 합니다."
-
 msgid "The system will reboot now. This may take some time ..."
 msgstr "시스템이 재시작됩니다. 몇 분이 소요될 수 있습니다 ..."
 
-msgid "The volume label for the file system."
-msgstr "파일 시스템 볼륨 레이블"
+msgid "The type of the file system to create."
+msgstr ""
+
+msgid "The users that are allowed to access this module."
+msgstr ""
+
+msgid "The value does not match the pattern /{{ pattern }}/."
+msgstr ""
+
+msgid ""
+"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"\") }}."
+msgstr ""
+
+msgid "The value must be on of the slave network interfaces."
+msgstr ""
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3465,120 +3256,90 @@ msgstr "이 환영 메시지는 사용자의 초기 로그인 시점에 나타�
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "클라이언트가 조회할 때 작업 그룹의 서버가 나타날 것입니다."
 
+msgid "There are no notifications."
+msgstr ""
+
 msgid ""
-"These settings are used by the services to configure the user access rights."
-" Please note that these settings have no effect on file system permissions."
-msgstr "이 설정들은 사용자 접근 권한을 구성하는 서비스에 의해 사용됩니다. 파일 시스템 권한에는 아무런 영향을 주지 않습니다."
+"These settings are used by the services to configure the access rights for "
+"the group \"{{ _routeParams.name }}\". Please note that these settings have "
+"no effect on file system permissions."
+msgstr ""
+
+msgid ""
+"These settings are used by the services to configure the access rights for "
+"the user \"{{ _routeParams.name }}\". Please note that these settings have "
+"no effect on file system permissions."
+msgstr ""
+
+msgid ""
+"These settings are used by the services to configure the user and group "
+"access rights. Please note that these settings have no effect on file system"
+" permissions."
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
 msgstr "넷뷰와 브라우즈 리스트의 사용 가능한 공유 목록에서 이 공유를 볼 수 있는지를 제어합니다."
 
-msgid "This field does not allow blanks"
-msgstr "이 영역은 공란을 허용하지 않습니다."
+msgid ""
+"This field contains invalid characters, e.g. a blank or \"/[]:+|<>=;,*? "
+"character."
+msgstr ""
 
-msgid "This field is required"
-msgstr "이 영역은 필수입니다."
+msgid "This field is required."
+msgstr ""
 
-msgid "This field must have the format hh:mm:ss"
-msgstr "이 영역은 시:분:초 형식을 가져야 합니다."
+msgid "This field must have the format <hh:mm:ss>."
+msgstr ""
 
-msgid "This field should be a IP network address in CIDR notation"
-msgstr "이 영역은 CIDR 표기법으로 표기된 IP 네트워크 주소여야 합니다."
+msgid "This field should be a IP network address in CIDR notation."
+msgstr ""
 
-msgid "This field should be a IPv4 network address"
-msgstr "이 영역은 IPv4 네트워크 주소여야 합니다."
+msgid "This field should be a domain name or an IP address."
+msgstr ""
 
-msgid "This field should be a IPv4 network address in CIDR notation"
-msgstr "이 영역은 CIDR 표기법으로 표기된 IPv4 네트워크 주소여야 합니다."
+msgid "This field should be a host name or an IP address in CIDR notation."
+msgstr ""
 
-msgid "This field should be a IPv6 network address in CIDR notation"
-msgstr "이 영역은 CIDR 표기법으로 표기된 IPv6 네트워크 주소여야 합니다."
-
-msgid "This field should be a domain name or an IP address"
-msgstr "이 항목은 도메인 이름이거나 IP 주소여야 합니다."
-
-msgid "This field should be a domain name or an IPv4 address"
-msgstr "이 항목은 도메인 이름이거나 IPv4 주소여야 합니다."
-
-msgid "This field should be a host name or an IP address"
-msgstr "이 항목은 호스트 이름이나 IP 주소여야 합니다."
-
-msgid "This field should be a host name or an IP address in CIDR notation"
-msgstr "이 항목은 CIDR 표기법을 따르는 IP 주소이거나 호스트 이름이어야 합니다"
-
-msgid "This field should be a host name or an IPv4 address"
-msgstr "이 항목은 호스트 이름이거나 IPv4 주소여야 합니다."
-
-msgid "This field should be a list of domain names or IP addresses"
-msgstr "이 항목은 도메인 이름들이나 IP 주소들의 목록이어야 합니다."
+msgid "This field should be a list of IP addresses separated by <,> or <;>."
+msgstr ""
 
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
-" or <;>"
-msgstr "이 항목은 <,> 또는 <;>으로 구분되는 도메인 이름의 목록이나 IP 주소여야 합니다."
+" or <;>."
+msgstr ""
+
+msgid "This field should be a list of domain names or IP addresses."
+msgstr ""
 
 msgid ""
 "This field should be a list of host names or IP addresses in CIDR notation "
-"separated by <,> or <;>"
-msgstr "이 항목은 <,> 혹은 <;>로 구분되는 CIDR 표기법을 따르는 IP 주소 혹은 호스트 이름의 목록이어야 합니다"
+"separated by <,> or <;>."
+msgstr ""
 
 msgid ""
-"This field should be a list of host names or IP addresses separated by <,> "
-"or <;>"
-msgstr "이 항목은 <,> 또는 <;>으로 구분되는 호스트 이름의 목록이나 IP 주소여야 합니다."
+"This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
+msgstr ""
+
+msgid "This field should be a port in the range of 1 to 65535."
+msgstr ""
 
 msgid ""
-"This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
-msgstr "이 영억은 128.0.0.0 - 255.255.255.252 범위에 속하는 넷마스크여야 합니다."
+"This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
+msgstr ""
 
-msgid "This field should be a port in the range of 1 - 65535"
-msgstr "이 영역은 1 - 65535 범위의 포트여야 합니다."
+msgid "This field should be an IP address."
+msgstr ""
 
-msgid ""
-"This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
-msgstr "이 영역은 포트 또는 포트 범위어야 합니다. (예를 들어, 21 혹은 !443 혹은 1024-65535)"
+msgid "This field should be an IPv4 address."
+msgstr ""
 
-msgid "This field should be an IP address"
-msgstr "이 영역은 IP주소여야 합니다."
+msgid "This field should be an IPv6 address."
+msgstr ""
 
-msgid "This field should be an IPv4 address"
-msgstr "이 영역은 IPv4주소여야 합니다."
-
-msgid "This field should be an IPv6 address"
-msgstr "이 영역은 IPv6주소여야 합니다."
-
-msgid ""
-"This field should be either a IPv4 network address (with /mask), a IPv4 "
-"range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
-"192.168.178.20-192.168.178.254)"
-msgstr "이 필드는 IPv4 네트워크 주소 (/넷마스크 형식), IPv4 범위이거나 IPv4 주소여야 합니다. (예를 들어, 172.16.76.4 혹은 !192.168.178.87/24 혹은 192.168.178.20-192.168.178.254)"
-
-msgid ""
-"This field should be either a IPv6 network address (with /mask), a IPv6 "
-"range or a plain IPv6 address (e.g. !2001:db8::/96 or "
-"2001:db8::10-2001:db8::20 or 2001:db8::15)"
-msgstr "이 필드는 IPv6 네트워크 주소 (/넷마스크 형식), IPv6 범위이거나 IPv6 주소여야 합니다. (예를 들어, !2001:db8::/96 혹은 2001:db8::10-2001:db8::20 혹은 2001:db8::15)"
-
-msgid "This field should only contain numbers"
-msgstr "이 영역은 숫자만을 포함할 수 있습니다."
-
-msgid "This field should only contain numbers separated by <,> or <;>"
-msgstr "이 영역은 <,> 또는 <;>으로 구분되는 숫자만을 포함할 수 있습니다."
-
-msgid "This field should only contain options separated by <,>"
-msgstr "이 항목은 <,> 기호로 구분될 수 있는 옵션들만을 포함해야 합니다."
-
-msgid ""
-"This field should only contain ports (0 - 65535) separated by <,> or <;>"
-msgstr "이 영역은 <,> 또는 <;>으로 구분되는 포트 (0 - 65535)만을 포함할 수 있습니다."
-
-msgid "This field should only contain strings separated by <,>"
-msgstr "이 항목은 <,> 기호로 구분될 수 있는 문자열만을 포함해야 합니다."
-
-msgid "This field should only contain strings separated by <,> or <;>"
-msgstr "이 영역은 <,> 또는 <;>으로 구분되는 문자열만을 포함할 수 있습니다."
+msgid "This field should be an email address."
+msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "이 기능은 하드 드라이브가 지원 할 때에만 유효합니다."
@@ -3587,12 +3348,6 @@ msgid ""
 "This is a text field that is seen next to a share when a client queries the "
 "server."
 msgstr "클라이언트가 서버를 조회할 때 보여질 공유를 나타내는 문자열 항목입니다.  "
-
-msgid ""
-"This may make more efficient use of the system CPU's and cause Samba to be "
-"faster. Samba automatically turns this off for clients that use protocol "
-"levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
-msgstr "시스템의 CPU를 더욱 효과적으로 사용할 수 있으며 Samba를 더욱 빠르게 할 수 있습니다. Samba는 NT LM 0.12보다 낮은 프로토콜 단계를 사용하는 클라이언트와 클라이언트가 Windows 9x로 감지되었을 때 이 옵션을 자동으로 해제합니다."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -3685,12 +3440,6 @@ msgstr "임계치"
 msgid "Thursday"
 msgstr "목요일"
 
-msgid "TiB"
-msgstr "TiB"
-
-msgid "Time"
-msgstr "시간"
-
 msgid "Time Machine support"
 msgstr "타임머신 지원"
 
@@ -3723,6 +3472,9 @@ msgstr "통가"
 
 msgid "Total"
 msgstr "전체"
+
+msgid "Transfer"
+msgstr ""
 
 msgid "Transfer log"
 msgstr "전송 기록"
@@ -3771,9 +3523,6 @@ msgstr "미국 기타 태평양 제도"
 msgid "U.S. Virgin Islands"
 msgstr "미국령 버진아일랜드"
 
-msgid "UID"
-msgstr "UID"
-
 msgid "UNKNOWN"
 msgstr "알 수 없는"
 
@@ -3783,14 +3532,14 @@ msgstr "우간다"
 msgid "Ukraine"
 msgstr "우크라이나"
 
-msgid "Uncompressed"
-msgstr "압축되지 않은"
+msgid "Undo"
+msgstr ""
 
 msgid "Uninstall"
 msgstr "제거"
 
-msgid "Uninstall plugins ..."
-msgstr "플러그인 제거 중 ..."
+msgid "Uninstall plugin"
+msgstr ""
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "소비에트 사회주의 공화국 연방"
@@ -3813,9 +3562,6 @@ msgstr "미국령 군소 제도"
 msgid "Unknown"
 msgstr "알 수 없음"
 
-msgid "Unknown network interface type."
-msgstr "알 수 없는 네트워크 인터페이스 형식"
-
 msgid "Unmount"
 msgstr "마운트 해제"
 
@@ -3828,21 +3574,129 @@ msgstr "활성화 지연"
 msgid "Update Management"
 msgstr "업데이트 관리"
 
-msgid "Update Management - History"
-msgstr "업데이트 관리 - 기록"
-
-msgid "Update Management - Terminal output"
-msgstr "업데이트 관리 - 터미널 출력"
-
-msgid "Update now"
-msgstr "지금 업데이트"
-
-msgid "Update the destination ACLs to be the same as the source ACLs"
-msgstr "대상 ACL을 원본 ACL과 같게 업데이트"
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr ""
 
 msgid ""
-"Update the destination extended attributes to be the same as the local ones"
-msgstr "확장 속성을 로컬과 같게 업데이트"
+"Update the destination extended attributes to be the same as the local ones."
+msgstr ""
+
+msgid "Updated FTP SSL/TLS settings."
+msgstr ""
+
+msgid "Updated FTP ban rule."
+msgstr ""
+
+msgid "Updated FTP settings."
+msgstr ""
+
+msgid "Updated FTP share."
+msgstr ""
+
+msgid "Updated NFS settings."
+msgstr ""
+
+msgid "Updated NFS share."
+msgstr ""
+
+msgid "Updated Rsync Server settings."
+msgstr ""
+
+msgid "Updated Rsync server module \"{{ name }}\"."
+msgstr ""
+
+msgid "Updated Rsync task."
+msgstr ""
+
+msgid "Updated SMB/CIFS settings."
+msgstr ""
+
+msgid "Updated SMB/CIFS share."
+msgstr ""
+
+msgid "Updated SSH certificate."
+msgstr ""
+
+msgid "Updated SSH settings."
+msgstr ""
+
+msgid "Updated VLAN network connection \"{{ devicename }}\"."
+msgstr ""
+
+msgid "Updated access control list of shared folder."
+msgstr ""
+
+msgid "Updated bond network connection \"{{ devicename }}\"."
+msgstr ""
+
+msgid "Updated bridge network connection \"{{ devicename }}\"."
+msgstr ""
+
+msgid "Updated dashboard settings."
+msgstr ""
+
+msgid "Updated date & time settings."
+msgstr ""
+
+msgid "Updated firewall rule."
+msgstr ""
+
+msgid "Updated firewall rules."
+msgstr ""
+
+msgid "Updated group \"{{ name }}\"."
+msgstr ""
+
+msgid "Updated monitoring settings."
+msgstr ""
+
+msgid "Updated network settings."
+msgstr ""
+
+msgid "Updated notification settings."
+msgstr ""
+
+msgid "Updated password."
+msgstr ""
+
+msgid "Updated power management settings."
+msgstr ""
+
+msgid "Updated privileges of group \"{{ name }}\"."
+msgstr ""
+
+msgid "Updated privileges of shared folder."
+msgstr ""
+
+msgid "Updated privileges of user \"{{ name }}\"."
+msgstr ""
+
+msgid "Updated proxy settings."
+msgstr ""
+
+msgid "Updated quota."
+msgstr ""
+
+msgid "Updated scheduled task."
+msgstr ""
+
+msgid "Updated update management settings."
+msgstr ""
+
+msgid "Updated user \"{{ name }}\"."
+msgstr ""
+
+msgid "Updated user profile."
+msgstr ""
+
+msgid "Updated wired network connection \"{{ devicename }}\"."
+msgstr ""
+
+msgid "Updated wireless network connection \"{{ devicename }}\"."
+msgstr ""
+
+msgid "Updated workbench settings."
+msgstr ""
 
 msgid "Updates"
 msgstr "업데이트"
@@ -3850,29 +3704,17 @@ msgstr "업데이트"
 msgid "Updates available"
 msgstr "업데이트가 가능합니다"
 
-msgid "Updating ACL settings"
-msgstr "ACL 설정 업데이트"
-
-msgid "Upload"
-msgstr "올리기"
-
-msgid "Upload file"
-msgstr "파일 올리기"
-
-msgid "Upload package"
-msgstr "패키지 올리기"
-
-msgid "Upload plugin"
-msgstr "플러그인 올리기"
-
-msgid "Uploading file ..."
-msgstr "파일 올리는 중 ..."
+msgid "Upgrade system"
+msgstr ""
 
 msgid "Uptime"
 msgstr "가동 시간"
 
 msgid "Uruguay"
 msgstr "우루과이"
+
+msgid "Usage Warning Threshold"
+msgstr ""
 
 msgid "Use NTP server"
 msgstr "NTP 서버 사용"
@@ -3883,16 +3725,16 @@ msgstr "chroot 사용"
 msgid "Use sendfile"
 msgstr "sendfile 사용"
 
-msgid "Use the following bandwidth restriction:"
-msgstr "다음 대역폭 제한을 사용합니다:"
-
-msgid "Use the following port range:"
-msgstr "다음 포트 범위를 사용합니다:"
+msgid "Use the following bandwidth restriction."
+msgstr ""
 
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
-"oplocked"
-msgstr "배타적으로 기회 잠금(oplock)이 걸린 파일들에 대해 더 효율적인 sendfile 시스템 호출을 사용합니다."
+"oplocked. This may make more efficient use of the system CPU's and cause "
+"Samba to be faster. Samba automatically turns this off for clients that use "
+"protocol levels lower than NT LM 0.12 and when it detects a client is "
+"Windows 9x."
+msgstr ""
 
 msgid "Use the specified WINS server."
 msgstr "명시된 WINS 서버 사용"
@@ -3906,14 +3748,11 @@ msgstr "사용량"
 msgid "User"
 msgstr "사용자"
 
-msgid "User accounts"
-msgstr "사용자 계정"
+msgid "User Management"
+msgstr ""
 
 msgid "User home directory"
 msgstr "사용자 홈 디렉터리"
-
-msgid "User information"
-msgstr "사용자 정보"
 
 msgid "User/Group permissions"
 msgstr "사용자/그룹 권한"
@@ -3966,9 +3805,6 @@ msgstr "WINS"
 msgid "WINS server"
 msgstr "WINS 서버"
 
-msgid "WINS support"
-msgstr "WINS 지원"
-
 msgid "WOL"
 msgstr "WOL"
 
@@ -3983,12 +3819,6 @@ msgstr "월리스푸투나제도"
 
 msgid "Warning"
 msgstr "경고"
-
-msgid "Web Administration"
-msgstr "웹 관리"
-
-msgid "Web Administrator Password"
-msgstr "웹 관리자 암호"
 
 msgid "Web control panel"
 msgstr "웹 제어 패널"
@@ -4019,8 +3849,11 @@ msgstr "Wi-Fi"
 msgid "Wipe"
 msgstr "지우기"
 
-msgid "Wiping device ..."
-msgstr "장치 지우는 중 ..."
+msgid "Wiping device"
+msgstr ""
+
+msgid "Workbench"
+msgstr ""
 
 msgid "Workgroup"
 msgstr "작업 그룹"
@@ -4028,14 +3861,17 @@ msgstr "작업 그룹"
 msgid "Worst"
 msgstr "최악"
 
-msgid "Write cache"
-msgstr "쓰기 캐시"
-
 msgid "Write only"
 msgstr "쓰기 전용"
 
+msgid "Write-only"
+msgstr ""
+
 msgid "Write/Execute"
 msgstr "쓰기/실행"
+
+msgid "XFS"
+msgstr ""
 
 msgid "Xen virtual disk device"
 msgstr "Xen 가상 디스크 장치"
@@ -4049,8 +3885,8 @@ msgstr "예맨"
 msgid "Yes"
 msgstr "예"
 
-msgid "You need to commit or cancel your changes"
-msgstr "변경을 커밋하거나 취소할 필요가 있습니다"
+msgid "Your profile"
+msgstr ""
 
 msgid "Zambia"
 msgstr "잠비아"
@@ -4058,35 +3894,32 @@ msgstr "잠비아"
 msgid "Zimbabwe"
 msgstr "짐바브웨"
 
-msgid "day"
-msgstr "일"
+msgid "a day"
+msgstr ""
 
-msgid "days"
-msgstr "일"
+msgid "a few seconds"
+msgstr ""
 
-msgid "hour"
-msgstr "시간"
+msgid "a minute"
+msgstr ""
 
-msgid "hours"
-msgstr "시간"
+msgid "a month"
+msgstr ""
 
-msgid "minute"
-msgstr "분"
+msgid "a year"
+msgstr ""
 
-msgid "minutes"
-msgstr "분"
+msgid "an hour"
+msgstr ""
+
+msgid "in %s"
+msgstr ""
 
 msgid "n/a"
 msgstr "해당 없음"
 
-msgid "of {0}"
-msgstr "{0}의"
+msgid "selected"
+msgstr ""
 
-msgid "old-age"
-msgstr "노화된"
-
-msgid "prefail"
-msgstr "사전 오류"
-
-msgid "seconds"
-msgstr "초"
+msgid "total"
+msgstr ""

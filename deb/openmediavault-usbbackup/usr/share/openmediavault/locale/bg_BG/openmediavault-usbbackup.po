@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -41,6 +41,12 @@ msgstr "Компресия"
 msgid "Compress file data during the transfer."
 msgstr "Компресиране на файловете по време на трансфер."
 
+msgid "Create"
+msgstr ""
+
+msgid "Created USB backup job."
+msgstr ""
+
 msgid "Delete"
 msgstr "Премахни"
 
@@ -51,6 +57,9 @@ msgid "Device"
 msgstr "Устройство"
 
 msgid "Done ..."
+msgstr ""
+
+msgid "Edit"
 msgstr ""
 
 msgid "Edit backup job"
@@ -72,6 +81,9 @@ msgstr "Разрешено"
 
 msgid "Execute backup job"
 msgstr "Изпълнете бекъп задача"
+
+msgid "External Storage Device"
+msgstr ""
 
 msgid "External storage device"
 msgstr "Външно устройство за съхранение"
@@ -132,6 +144,9 @@ msgstr "Рекурсивно"
 msgid "Run"
 msgstr "Изпълни"
 
+msgid "Run backup job"
+msgstr ""
+
 msgid "Scan"
 msgstr "Сканирай"
 
@@ -162,6 +177,9 @@ msgstr "Споделена папка"
 
 msgid "Suppress non-error messages."
 msgstr "Потискайте съобщенията без грешки."
+
+msgid "Synchronise from/to directory on external storage device"
+msgstr ""
 
 msgid "Synchronise from/to directory on external storage device."
 msgstr "Синхронизиране от/към директория на външно хранилище."
@@ -194,6 +212,9 @@ msgstr "Обновете ACL-те от дестинацията да са същ
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "Актуализирайте разширените атрибути на местоназначението, за да бъдат същите като местните."
+
+msgid "Updated USB backup job."
+msgstr ""
 
 msgid "n/a"
 msgstr "n/a"

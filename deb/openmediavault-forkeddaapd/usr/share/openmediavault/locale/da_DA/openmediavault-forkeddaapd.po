@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2017-09-19 12:25+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/openmediavault/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,6 +26,9 @@ msgstr "Godkendelse"
 
 msgid "Enable"
 msgstr "Aktiver"
+
+msgid "Enabled"
+msgstr ""
 
 msgid "General settings"
 msgstr "Generelle indstillinger"
@@ -53,6 +56,9 @@ msgstr "Placeringen af medie filerne, der skal deles."
 
 msgid "The name of the library as displayed by the clients."
 msgstr "Navn på biblioteket, som vises hos klienterne."
+
+msgid "Updated iTunes/DAAP settings."
+msgstr ""
 
 msgid "iTunes/DAAP"
 msgstr "iTunes/DAAP"

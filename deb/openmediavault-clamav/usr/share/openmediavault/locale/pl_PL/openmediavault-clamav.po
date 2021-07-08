@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2018-08-31 07:31+0000\n"
-"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,11 +37,26 @@ msgstr "Wiadomość e-mail z danymi wyjściowymi polecenia (jeśli jakieś są) 
 msgid "Antivirus"
 msgstr "Antywirus"
 
+msgid "April"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
 msgid "Be verbose."
 msgstr "Jest pełne."
 
 msgid "Comment"
 msgstr "Komentarz"
+
+msgid "Create"
+msgstr ""
+
+msgid "Created on-access scan."
+msgstr ""
+
+msgid "Created scheduled scan."
+msgstr ""
 
 msgid "Database checks"
 msgstr "Sprawdź bazę wirusów"
@@ -55,6 +70,12 @@ msgstr "Dzień miesiąca"
 msgid "Day of week"
 msgstr "Dzień tygodnia"
 
+msgid "December"
+msgstr ""
+
+msgid "Delete immediately"
+msgstr ""
+
 msgid "Detect PUA"
 msgstr "Wykrywanie PUA"
 
@@ -63,6 +84,9 @@ msgstr "Wykryj przerwane pliki wykonywalne"
 
 msgid "Done ..."
 msgstr "Zrobione ..."
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit on-access scan"
 msgstr ""
@@ -117,8 +141,14 @@ msgstr "Co N minut"
 msgid "Execute scheduled job"
 msgstr "Wykonaj zaplanowane zadanie"
 
+msgid "Execute scheduled scan"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Dodatkowe opcje"
+
+msgid "February"
+msgstr ""
 
 msgid "Follow directory symlinks"
 msgstr "Podążaj za linkami symbolicznymi katalogów"
@@ -132,6 +162,9 @@ msgstr "Podążaj za linkami symbolicznymi plików"
 msgid "Follow regular file symlinks."
 msgstr "Podążaj za linkami symbolicznymi plików."
 
+msgid "Friday"
+msgstr ""
+
 msgid "General settings"
 msgstr "Ustawienia główne"
 
@@ -141,11 +174,26 @@ msgstr "Godzina"
 msgid "Infected files"
 msgstr "Zainfekowane pliki"
 
+msgid "January"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
 msgid "Log clean files"
 msgstr "Czyść pliki logów. To znacznie zwiększa rozmiar dziennika."
 
 msgid "Log clean files. This drastically increases the log size."
 msgstr "Czyszczenie plików logów. "
+
+msgid "March"
+msgstr ""
+
+msgid "May"
+msgstr ""
 
 msgid "Message"
 msgstr "Wiadomość"
@@ -153,17 +201,29 @@ msgstr "Wiadomość"
 msgid "Minute"
 msgstr "Minut"
 
+msgid "Monday"
+msgstr ""
+
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "Monitorowanie folderów udostępnionych i skanowanie nowych lub zmodyfikowanych plików."
 
 msgid "Month"
 msgstr "Miesiąc"
 
+msgid "Move to quarantine"
+msgstr ""
+
 msgid "Multiscan"
 msgstr "Multiskan"
 
+msgid "November"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Liczba sprawdza aktualizacji bazy wirusów w ciągu dnia. Ustaw na 0, aby wyłączyć."
+
+msgid "October"
+msgstr ""
 
 msgid "On Access Scans"
 msgstr ""
@@ -174,17 +234,29 @@ msgstr "Przy dostępie"
 msgid "Perform a deeper analysis of executable files."
 msgstr "Wykonaj głębszą analizę plików wykonywalnych."
 
+msgid "Perform nothing"
+msgstr ""
+
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
 "details."
 msgstr "Proszę sprawdź <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>stronę podręcznika</a>  aby uzyskać więcej informacji."
 
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
+"details."
+msgstr ""
+
 msgid "Quarantine"
 msgstr "Kwarantanna"
 
 msgid "Run"
 msgstr "Uruchom"
+
+msgid "Saturday"
+msgstr ""
 
 msgid "Scan ELF"
 msgstr "Skanuj ELF"
@@ -210,17 +282,29 @@ msgstr "Skanowanie zawartości katalogu z użyciem dostępnych wątków."
 msgid "Scheduled Jobs"
 msgstr "Zaplanowane zadania"
 
+msgid "Scheduled Scans"
+msgstr ""
+
+msgid "Scheduling"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Wyślij wynik komendy na e-mail"
 
 msgid "Send email"
 msgstr "Wyślij e-maila"
 
+msgid "September"
+msgstr ""
+
 msgid "Settings"
 msgstr "Ustawienia"
 
 msgid "Shared folder"
 msgstr "Folder udostępniony"
+
+msgid "Sunday"
+msgstr ""
 
 msgid "The location of the files to scan on-access."
 msgstr ""
@@ -234,8 +318,23 @@ msgstr "Lokalizacja używana jako kwarantanna."
 msgid "The option, how to handle infected files."
 msgstr "Opcja, jak radzić sobie z zainfekowanymi plikami."
 
+msgid "Thursday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Updated on-access scan."
+msgstr ""
+
+msgid "Updated scheduled scan."
+msgstr ""
+
 msgid "Verbose"
 msgstr "Pełne"
+
+msgid "Wednesday"
+msgstr ""
 
 msgid "n/a"
 msgstr "n/a"

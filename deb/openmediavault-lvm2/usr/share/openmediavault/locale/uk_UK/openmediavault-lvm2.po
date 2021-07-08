@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2017-09-19 12:25+0000\n"
-"Last-Translator: zubr139\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,11 +38,26 @@ msgstr "Ємкість"
 msgid "Confirmation"
 msgstr "Підтвердження"
 
+msgid "Create"
+msgstr ""
+
 msgid "Create logical volume"
 msgstr "Створення логічного розділу"
 
 msgid "Create volume group"
 msgstr "Створити групу розділів"
+
+msgid "Created logical volume '{{ name }}'."
+msgstr ""
+
+msgid "Created physical volume {{ devicefile }}."
+msgstr ""
+
+msgid "Created snapshot of logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Created volume group '{{ name }}'."
+msgstr ""
 
 msgid "Description"
 msgstr "Опис"
@@ -52,6 +67,9 @@ msgstr "Пристрій"
 
 msgid "Devices"
 msgstr "Пристрої"
+
+msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
+msgstr ""
 
 msgid "Do you really want to create the logical volume?"
 msgstr "Справді бажаєте створити логічний розділ?"
@@ -64,6 +82,9 @@ msgstr "Справді бажаєте створити групу розділі
 
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "Бажаєте змінити розмір даного фізичного розділу?"
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit logical volume"
 msgstr "Редагувати логічний розділ"
@@ -80,6 +101,12 @@ msgstr "Збільшити логічний розділ"
 msgid "Extend volume group"
 msgstr "Збільшити групу розділів"
 
+msgid "Extended logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Extended volume group '{{ devicefile }}'."
+msgstr ""
+
 msgid "Free"
 msgstr "Вільно"
 
@@ -88,6 +115,9 @@ msgstr "Неправильна назва"
 
 msgid "Logical Volume Management"
 msgstr "Керування логічними розділами"
+
+msgid "Logical Volumes"
+msgstr ""
 
 msgid "Logical volumes"
 msgstr "Логічні розділи"
@@ -101,6 +131,9 @@ msgstr "Немає вільного місця для створення лог�
 msgid "No free space available to extend the logical volume."
 msgstr "Немає вільного місця для розширення логічного розділу."
 
+msgid "Physical Volumes"
+msgstr ""
+
 msgid "Physical volumes"
 msgstr "Фізичні розділи"
 
@@ -110,8 +143,14 @@ msgstr "Зменшити"
 msgid "Reduce volume group"
 msgstr "Зменшити групу розділів"
 
+msgid "Reduced volume group '{{ devicefile }}'."
+msgstr ""
+
 msgid "Resize"
 msgstr "Змінити розмір"
+
+msgid "Select a device ..."
+msgstr ""
 
 msgid "Select a volume group ..."
 msgstr "Оберіть групу розділів ..."
@@ -119,14 +158,45 @@ msgstr "Оберіть групу розділів ..."
 msgid "Select an device ..."
 msgstr "Обрати пристрій ..."
 
+msgid "Select devices ..."
+msgstr ""
+
+msgid "Select the devices used to extend the volume group."
+msgstr ""
+
+msgid "Select the devices used to reduce from the volume group."
+msgstr ""
+
 msgid "Size"
 msgstr "Розмір"
 
 msgid "Snapshot"
 msgstr "Знімок"
 
+msgid ""
+"The percentage of the total space in the volume group to allocate for the "
+"new logical volume."
+msgstr ""
+
+msgid ""
+"The percentage of the total space in the volume group to use by the logical "
+"volume."
+msgstr ""
+
+msgid "Updated logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Updated volume group '{{ devicefile }}'."
+msgstr ""
+
 msgid "Used"
 msgstr "Використано"
+
+msgid "Volume Group"
+msgstr ""
+
+msgid "Volume Groups"
+msgstr ""
 
 msgid "Volume group"
 msgstr "Група розділів"

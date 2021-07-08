@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2020-09-24 20:21+0000\n"
-"Last-Translator: kevin LECLERCQ <nuklearstriker@gmail.com>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,6 +44,12 @@ msgstr "Compresser"
 msgid "Compress file data during the transfer."
 msgstr "Compresser les données durant le transfert."
 
+msgid "Create"
+msgstr ""
+
+msgid "Created USB backup job."
+msgstr ""
+
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -55,6 +61,9 @@ msgstr "Périphérique"
 
 msgid "Done ..."
 msgstr "Terminé…"
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit backup job"
 msgstr "Modifier une tâche de sauvegarde"
@@ -75,6 +84,9 @@ msgstr "Activé"
 
 msgid "Execute backup job"
 msgstr "Exécuter une tâche de sauvegarde"
+
+msgid "External Storage Device"
+msgstr ""
 
 msgid "External storage device"
 msgstr "Périphérique de stockage externe"
@@ -135,6 +147,9 @@ msgstr "Récursif"
 msgid "Run"
 msgstr "Lancer"
 
+msgid "Run backup job"
+msgstr ""
+
 msgid "Scan"
 msgstr "Rechercher"
 
@@ -165,6 +180,9 @@ msgstr "Dossier partagé"
 
 msgid "Suppress non-error messages."
 msgstr "Conserver uniquement les messages d'erreurs."
+
+msgid "Synchronise from/to directory on external storage device"
+msgstr ""
 
 msgid "Synchronise from/to directory on external storage device."
 msgstr "Synchroniser depuis/vers un répertoire d'un périphérique externe."
@@ -197,6 +215,9 @@ msgstr "Mettre à jour les ACL de destination pour correspondre au ACL de la sou
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "Mettre à jour les attribus étendus de la destination pour correspondre à celles locales."
+
+msgid "Updated USB backup job."
+msgstr ""
 
 msgid "n/a"
 msgstr "n/a"

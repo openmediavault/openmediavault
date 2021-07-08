@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Language-Team: Arabic (Saudi Arabia) (https://www.transifex.com/openmediavault/teams/14254/ar_SA/)\n"
 "MIME-Version: 1.0\n"
@@ -35,6 +35,9 @@ msgid ""
 msgstr ""
 
 msgid "Enable"
+msgstr ""
+
+msgid "Enabled"
 msgstr ""
 
 msgid "Extra options"
@@ -69,4 +72,12 @@ msgid "TFTP"
 msgstr ""
 
 msgid "The location of the files to share."
+msgstr ""
+
+msgid ""
+"The location of the files to share. Please make sure that the shared folder "
+"is publicly writable if new files are allowed."
+msgstr ""
+
+msgid "Updated TFTP settings."
 msgstr ""

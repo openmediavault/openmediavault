@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>, 2017\n"
 "Language-Team: Korean (Korea) (https://www.transifex.com/openmediavault/teams/14254/ko_KR/)\n"
@@ -40,6 +40,9 @@ msgstr "첫 번째 패킷이 재전송되기 전에 마이크로초 단위의 �
 
 msgid "Enable"
 msgstr "활성화"
+
+msgid "Enabled"
+msgstr ""
 
 msgid "Extra options"
 msgstr "추가 옵션"
@@ -74,3 +77,11 @@ msgstr "TFTP"
 
 msgid "The location of the files to share."
 msgstr "공유할 파일 위치"
+
+msgid ""
+"The location of the files to share. Please make sure that the shared folder "
+"is publicly writable if new files are allowed."
+msgstr ""
+
+msgid "Updated TFTP settings."
+msgstr ""

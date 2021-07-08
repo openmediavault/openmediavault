@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2018-01-01 19:11+0000\n"
-"Last-Translator: Quim Farriol <qfarriol@valette.cat>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,11 +39,26 @@ msgstr "Capacitat"
 msgid "Confirmation"
 msgstr "Confirmació"
 
+msgid "Create"
+msgstr ""
+
 msgid "Create logical volume"
 msgstr "Crear volum lògic"
 
 msgid "Create volume group"
 msgstr "Crear grup de volums"
+
+msgid "Created logical volume '{{ name }}'."
+msgstr ""
+
+msgid "Created physical volume {{ devicefile }}."
+msgstr ""
+
+msgid "Created snapshot of logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Created volume group '{{ name }}'."
+msgstr ""
 
 msgid "Description"
 msgstr "Descripció"
@@ -53,6 +68,9 @@ msgstr "Dispositiu"
 
 msgid "Devices"
 msgstr "Dispositius"
+
+msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
+msgstr ""
 
 msgid "Do you really want to create the logical volume?"
 msgstr "Estas segur que vols crear el volum lògic?"
@@ -65,6 +83,9 @@ msgstr "Estas segur que vols crear el grup de volums?"
 
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "Realment desitges redimensionar el volum seleccionat?"
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit logical volume"
 msgstr "Editar volum lògic"
@@ -81,6 +102,12 @@ msgstr "Ampliar volum lògic"
 msgid "Extend volume group"
 msgstr "Ampliar grup de volums"
 
+msgid "Extended logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Extended volume group '{{ devicefile }}'."
+msgstr ""
+
 msgid "Free"
 msgstr "Lliure"
 
@@ -89,6 +116,9 @@ msgstr "Nom inválid"
 
 msgid "Logical Volume Management"
 msgstr "Gestió de volums lògics"
+
+msgid "Logical Volumes"
+msgstr ""
 
 msgid "Logical volumes"
 msgstr "Volums lògics"
@@ -102,6 +132,9 @@ msgstr "No hi ha prou espai lliure per a crear un volum lògic."
 msgid "No free space available to extend the logical volume."
 msgstr "No hi ha prou espai lliure per a estendre el volum lògic."
 
+msgid "Physical Volumes"
+msgstr ""
+
 msgid "Physical volumes"
 msgstr "Volums físics"
 
@@ -111,8 +144,14 @@ msgstr "Reduir"
 msgid "Reduce volume group"
 msgstr "Reduir grup de volums"
 
+msgid "Reduced volume group '{{ devicefile }}'."
+msgstr ""
+
 msgid "Resize"
 msgstr "Redimensionar"
+
+msgid "Select a device ..."
+msgstr ""
 
 msgid "Select a volume group ..."
 msgstr "Selecciona un grup de volums ..."
@@ -120,14 +159,45 @@ msgstr "Selecciona un grup de volums ..."
 msgid "Select an device ..."
 msgstr "Selecciona un dispositiu"
 
+msgid "Select devices ..."
+msgstr ""
+
+msgid "Select the devices used to extend the volume group."
+msgstr ""
+
+msgid "Select the devices used to reduce from the volume group."
+msgstr ""
+
 msgid "Size"
 msgstr "Mida"
 
 msgid "Snapshot"
 msgstr "Instantània"
 
+msgid ""
+"The percentage of the total space in the volume group to allocate for the "
+"new logical volume."
+msgstr ""
+
+msgid ""
+"The percentage of the total space in the volume group to use by the logical "
+"volume."
+msgstr ""
+
+msgid "Updated logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Updated volume group '{{ devicefile }}'."
+msgstr ""
+
 msgid "Used"
 msgstr "Utilitzat"
+
+msgid "Volume Group"
+msgstr ""
+
+msgid "Volume Groups"
+msgstr ""
 
 msgid "Volume group"
 msgstr "Grup de volums"

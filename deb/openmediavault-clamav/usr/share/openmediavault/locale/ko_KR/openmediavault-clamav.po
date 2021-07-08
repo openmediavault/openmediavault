@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2020-02-26 14:18+0000\n"
-"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,11 +37,26 @@ msgstr "명령의 출력이 있다면 관리자에게 이메일로 전송됩니�
 msgid "Antivirus"
 msgstr "안티바이러스"
 
+msgid "April"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
 msgid "Be verbose."
 msgstr "상세히"
 
 msgid "Comment"
 msgstr "설명"
+
+msgid "Create"
+msgstr ""
+
+msgid "Created on-access scan."
+msgstr ""
+
+msgid "Created scheduled scan."
+msgstr ""
 
 msgid "Database checks"
 msgstr "데이터베이스 검사"
@@ -55,6 +70,12 @@ msgstr "달의 요일"
 msgid "Day of week"
 msgstr "주의 요일"
 
+msgid "December"
+msgstr ""
+
+msgid "Delete immediately"
+msgstr ""
+
 msgid "Detect PUA"
 msgstr "PUA 검색"
 
@@ -63,6 +84,9 @@ msgstr "실행 파일의 손상을 검사"
 
 msgid "Done ..."
 msgstr "완료 ..."
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit on-access scan"
 msgstr "접근 기반 바이러스 탐지 편집"
@@ -117,8 +141,14 @@ msgstr "매 N분마다"
 msgid "Execute scheduled job"
 msgstr "예약 작업 실행"
 
+msgid "Execute scheduled scan"
+msgstr ""
+
 msgid "Extra options"
 msgstr "추가 옵션"
+
+msgid "February"
+msgstr ""
 
 msgid "Follow directory symlinks"
 msgstr "디렉터리에 대한 심볼릭 링크를 추적"
@@ -132,6 +162,9 @@ msgstr "파일에 대한 심볼릭 링크를 추적"
 msgid "Follow regular file symlinks."
 msgstr "일반 파일에 대한 심볼릭 링크를 추적"
 
+msgid "Friday"
+msgstr ""
+
 msgid "General settings"
 msgstr "일반 설정"
 
@@ -141,11 +174,26 @@ msgstr "시간"
 msgid "Infected files"
 msgstr "감염된 파일"
 
+msgid "January"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
 msgid "Log clean files"
 msgstr "정리된 파일들을 기록합니다."
 
 msgid "Log clean files. This drastically increases the log size."
 msgstr "정리된 파일들을 기록합니다. 이는 기록의 크기를 크게 증가시킬 수도 있습니다."
+
+msgid "March"
+msgstr ""
+
+msgid "May"
+msgstr ""
 
 msgid "Message"
 msgstr "메시지"
@@ -153,17 +201,29 @@ msgstr "메시지"
 msgid "Minute"
 msgstr "분"
 
+msgid "Monday"
+msgstr ""
+
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "공유된 폴더를 감시하고, 새로 생기거나 수정된 파일들을 검사합니다."
 
 msgid "Month"
 msgstr "달"
 
+msgid "Move to quarantine"
+msgstr ""
+
 msgid "Multiscan"
 msgstr "다중 검색"
 
+msgid "November"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "요일당 데이터베이스 갱신을 검사할 횟수. 0은 비활성화."
+
+msgid "October"
+msgstr ""
 
 msgid "On Access Scans"
 msgstr "접근 기반 바이러스 탐지"
@@ -174,17 +234,29 @@ msgstr "접근 기반"
 msgid "Perform a deeper analysis of executable files."
 msgstr "실행 파일들을 자세히 분석합니다."
 
+msgid "Perform nothing"
+msgstr ""
+
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
 "details."
 msgstr "자세한 내용은 <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>매뉴얼 페이지</a> 를 참고하세요.."
 
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
+"details."
+msgstr ""
+
 msgid "Quarantine"
 msgstr "격리"
 
 msgid "Run"
 msgstr "실행"
+
+msgid "Saturday"
+msgstr ""
 
 msgid "Scan ELF"
 msgstr "ELF 검색"
@@ -210,17 +282,29 @@ msgstr "가용 스레드를 사용하여 병렬적으로 디렉터리 내용들�
 msgid "Scheduled Jobs"
 msgstr "예약 작업"
 
+msgid "Scheduled Scans"
+msgstr ""
+
+msgid "Scheduling"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "이메일로 명령 결과 전송"
 
 msgid "Send email"
 msgstr "이메일 전송"
 
+msgid "September"
+msgstr ""
+
 msgid "Settings"
 msgstr "설정"
 
 msgid "Shared folder"
 msgstr "공유 폴더"
+
+msgid "Sunday"
+msgstr ""
 
 msgid "The location of the files to scan on-access."
 msgstr "접근 기반 탐지를 수행할 파일의 위치"
@@ -234,8 +318,23 @@ msgstr "격리될 위치"
 msgid "The option, how to handle infected files."
 msgstr "어떻게 감염된 파일들을 처리할 것인지를 선택하는 옵션입니다."
 
+msgid "Thursday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Updated on-access scan."
+msgstr ""
+
+msgid "Updated scheduled scan."
+msgstr ""
+
 msgid "Verbose"
 msgstr "상세히"
+
+msgid "Wednesday"
+msgstr ""
 
 msgid "n/a"
 msgstr "해당 없음"

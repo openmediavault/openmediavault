@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2017-11-18 12:58+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,11 +35,26 @@ msgstr "一封電子郵件內含指令的輸出(若有產生)將被發送給管�
 msgid "Antivirus"
 msgstr "防病毒軟體"
 
+msgid "April"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
 msgid "Be verbose."
 msgstr "要詳細報告。"
 
 msgid "Comment"
 msgstr "註釋"
+
+msgid "Create"
+msgstr ""
+
+msgid "Created on-access scan."
+msgstr ""
+
+msgid "Created scheduled scan."
+msgstr ""
 
 msgid "Database checks"
 msgstr "資料庫查驗"
@@ -53,6 +68,12 @@ msgstr "月內第幾日"
 msgid "Day of week"
 msgstr "週內第幾日"
 
+msgid "December"
+msgstr ""
+
+msgid "Delete immediately"
+msgstr ""
+
 msgid "Detect PUA"
 msgstr "偵測 PUA"
 
@@ -61,6 +82,9 @@ msgstr "偵測損壞的可執行檔"
 
 msgid "Done ..."
 msgstr "完成 ..."
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit on-access scan"
 msgstr "編輯取用時掃毒"
@@ -115,8 +139,14 @@ msgstr "每 N 分鐘"
 msgid "Execute scheduled job"
 msgstr "執行預定工作"
 
+msgid "Execute scheduled scan"
+msgstr ""
+
 msgid "Extra options"
 msgstr "額外選項"
+
+msgid "February"
+msgstr ""
 
 msgid "Follow directory symlinks"
 msgstr "跟循目錄符號連結"
@@ -130,6 +160,9 @@ msgstr "跟循檔案符號連結"
 msgid "Follow regular file symlinks."
 msgstr "跟循一般檔案符號連結。"
 
+msgid "Friday"
+msgstr ""
+
 msgid "General settings"
 msgstr "一般設定"
 
@@ -139,11 +172,26 @@ msgstr "時"
 msgid "Infected files"
 msgstr "受感染檔案"
 
+msgid "January"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
 msgid "Log clean files"
 msgstr "記錄乾淨檔案"
 
 msgid "Log clean files. This drastically increases the log size."
 msgstr "記錄乾淨的檔案。這將會大幅增加了日誌的大小。"
+
+msgid "March"
+msgstr ""
+
+msgid "May"
+msgstr ""
 
 msgid "Message"
 msgstr "訊息"
@@ -151,17 +199,29 @@ msgstr "訊息"
 msgid "Minute"
 msgstr "分"
 
+msgid "Monday"
+msgstr ""
+
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "監測共享檔案夾並對新的及變更過的檔案做掃毒。"
 
 msgid "Month"
 msgstr "月"
 
+msgid "Move to quarantine"
+msgstr ""
+
 msgid "Multiscan"
 msgstr "多緒掃毒"
 
+msgid "November"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "每天檢查資料庫更新的次數。設成 0 表示停用。"
+
+msgid "October"
+msgstr ""
 
 msgid "On Access Scans"
 msgstr "取用時掃毒"
@@ -172,17 +232,29 @@ msgstr "當存取時"
 msgid "Perform a deeper analysis of executable files."
 msgstr "對可執行檔做更深入的分析。"
 
+msgid "Perform nothing"
+msgstr ""
+
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
 "details."
 msgstr "請查閱 <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>手冊頁</a> 內之詳細資訊。"
 
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
+"details."
+msgstr ""
+
 msgid "Quarantine"
 msgstr "隔離"
 
 msgid "Run"
 msgstr "執行"
+
+msgid "Saturday"
+msgstr ""
 
 msgid "Scan ELF"
 msgstr "掃毒 ELF"
@@ -208,17 +280,29 @@ msgstr "利用可用的執行緒對目錄內容做並行掃毒。"
 msgid "Scheduled Jobs"
 msgstr "預定工作"
 
+msgid "Scheduled Scans"
+msgstr ""
+
+msgid "Scheduling"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "經由電子郵件發送指令執行結果輸出"
 
 msgid "Send email"
 msgstr "發送電子郵件"
 
+msgid "September"
+msgstr ""
+
 msgid "Settings"
 msgstr "設定"
 
 msgid "Shared folder"
 msgstr "共享檔案夾"
+
+msgid "Sunday"
+msgstr ""
 
 msgid "The location of the files to scan on-access."
 msgstr "要做取用時掃毒的檔案位置。"
@@ -232,8 +316,23 @@ msgstr "用來做為隔離區的位置。"
 msgid "The option, how to handle infected files."
 msgstr "選項，如何處置受感染的檔案的。"
 
+msgid "Thursday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Updated on-access scan."
+msgstr ""
+
+msgid "Updated scheduled scan."
+msgstr ""
+
 msgid "Verbose"
 msgstr "詳細"
+
+msgid "Wednesday"
+msgstr ""
 
 msgid "n/a"
 msgstr "n/a"

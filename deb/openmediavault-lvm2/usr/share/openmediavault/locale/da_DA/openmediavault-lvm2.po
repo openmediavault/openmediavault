@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2017-09-19 12:25+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/openmediavault/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,11 +38,26 @@ msgstr "Kapacitet"
 msgid "Confirmation"
 msgstr "Bekræftelse"
 
+msgid "Create"
+msgstr ""
+
 msgid "Create logical volume"
 msgstr "Opret logisk drev"
 
 msgid "Create volume group"
 msgstr "Opret drev gruppe"
+
+msgid "Created logical volume '{{ name }}'."
+msgstr ""
+
+msgid "Created physical volume {{ devicefile }}."
+msgstr ""
+
+msgid "Created snapshot of logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Created volume group '{{ name }}'."
+msgstr ""
 
 msgid "Description"
 msgstr "Beskrivelse"
@@ -52,6 +67,9 @@ msgstr "Enhed"
 
 msgid "Devices"
 msgstr "Enheder"
+
+msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
+msgstr ""
 
 msgid "Do you really want to create the logical volume?"
 msgstr "Er du sikker på, du vil oprette det logisk drev?"
@@ -64,6 +82,9 @@ msgstr "Er du sikker på, du vil oprette drev gruppen?"
 
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "Er du sikker på, at du vil tilpasse størrelsen på det valgte fysiske drev?"
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit logical volume"
 msgstr "Rediger logisk drev"
@@ -80,6 +101,12 @@ msgstr "Udvidet logisk drev"
 msgid "Extend volume group"
 msgstr "Udvidet drev gruppe"
 
+msgid "Extended logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Extended volume group '{{ devicefile }}'."
+msgstr ""
+
 msgid "Free"
 msgstr "Fri"
 
@@ -88,6 +115,9 @@ msgstr "Ugyldig navn"
 
 msgid "Logical Volume Management"
 msgstr "Logisk Drev Styring"
+
+msgid "Logical Volumes"
+msgstr ""
 
 msgid "Logical volumes"
 msgstr "Logiske drev"
@@ -101,6 +131,9 @@ msgstr "Der er ingen ledig plads tilgængelig for oprettelse af et logisk drev."
 msgid "No free space available to extend the logical volume."
 msgstr "Der er ingen ledig plads tilgængelig for udvidelse af det logiske drev."
 
+msgid "Physical Volumes"
+msgstr ""
+
 msgid "Physical volumes"
 msgstr "Fysiske drev"
 
@@ -110,8 +143,14 @@ msgstr "Reducer"
 msgid "Reduce volume group"
 msgstr "Reducer drev gruppe"
 
+msgid "Reduced volume group '{{ devicefile }}'."
+msgstr ""
+
 msgid "Resize"
 msgstr "Tilpas størrelsen"
+
+msgid "Select a device ..."
+msgstr ""
 
 msgid "Select a volume group ..."
 msgstr "Vælg en drev gruppe ..."
@@ -119,14 +158,45 @@ msgstr "Vælg en drev gruppe ..."
 msgid "Select an device ..."
 msgstr "Vælg en enhed ..."
 
+msgid "Select devices ..."
+msgstr ""
+
+msgid "Select the devices used to extend the volume group."
+msgstr ""
+
+msgid "Select the devices used to reduce from the volume group."
+msgstr ""
+
 msgid "Size"
 msgstr "Størrelse"
 
 msgid "Snapshot"
 msgstr "Snapshot"
 
+msgid ""
+"The percentage of the total space in the volume group to allocate for the "
+"new logical volume."
+msgstr ""
+
+msgid ""
+"The percentage of the total space in the volume group to use by the logical "
+"volume."
+msgstr ""
+
+msgid "Updated logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Updated volume group '{{ devicefile }}'."
+msgstr ""
+
 msgid "Used"
 msgstr "Brugt"
+
+msgid "Volume Group"
+msgstr ""
+
+msgid "Volume Groups"
+msgstr ""
 
 msgid "Volume group"
 msgstr "Drev gruppe"

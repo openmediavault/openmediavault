@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2020-02-01 01:03+0000\n"
-"Last-Translator: omv nas <myomv100@gmail.com>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,11 +35,26 @@ msgstr "يتم إرسال رسالة بريد إلكتروني مع مخرجات
 msgid "Antivirus"
 msgstr "مكافح الفيروسات"
 
+msgid "April"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
 msgid "Be verbose."
 msgstr "عرض تفصيلي"
 
 msgid "Comment"
 msgstr "التعليق"
+
+msgid "Create"
+msgstr ""
+
+msgid "Created on-access scan."
+msgstr ""
+
+msgid "Created scheduled scan."
+msgstr ""
 
 msgid "Database checks"
 msgstr "فحوصات قاعدة البيانات"
@@ -53,6 +68,12 @@ msgstr "يوم الشهر"
 msgid "Day of week"
 msgstr "يوم الأسبوع"
 
+msgid "December"
+msgstr ""
+
+msgid "Delete immediately"
+msgstr ""
+
 msgid "Detect PUA"
 msgstr "اكتشاف PUA"
 
@@ -61,6 +82,9 @@ msgstr "اكتشاف الملفات التنفيذية المعطوبة"
 
 msgid "Done ..."
 msgstr "تم ..."
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit on-access scan"
 msgstr "تحرير المسح وقت-الدخول"
@@ -115,8 +139,14 @@ msgstr "كل العدد المحدد من الدقائق"
 msgid "Execute scheduled job"
 msgstr "تنفيذ الوظيفة المجدولة"
 
+msgid "Execute scheduled scan"
+msgstr ""
+
 msgid "Extra options"
 msgstr "خيارات إضافية"
+
+msgid "February"
+msgstr ""
 
 msgid "Follow directory symlinks"
 msgstr "تتبع الروابط والاختصارات للمجلد"
@@ -130,6 +160,9 @@ msgstr "تتبع الروابط والاختصارات للملف"
 msgid "Follow regular file symlinks."
 msgstr "تتبع الروابط الاعتيادية للملف"
 
+msgid "Friday"
+msgstr ""
+
 msgid "General settings"
 msgstr "الإعدادات العامة"
 
@@ -139,11 +172,26 @@ msgstr "ساعة"
 msgid "Infected files"
 msgstr "ملفات مصابة"
 
+msgid "January"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
 msgid "Log clean files"
 msgstr "تسجيل الملفات النظيفة"
 
 msgid "Log clean files. This drastically increases the log size."
 msgstr "تسجيل الملفات النظيفة. هذا يزيد بشكل كبير من حجم السجل."
+
+msgid "March"
+msgstr ""
+
+msgid "May"
+msgstr ""
 
 msgid "Message"
 msgstr "رسالة"
@@ -151,17 +199,29 @@ msgstr "رسالة"
 msgid "Minute"
 msgstr "دقيقة"
 
+msgid "Monday"
+msgstr ""
+
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "مراقبة المجلد المشترك ومسح الملفات الجديدة أو المعدلة."
 
 msgid "Month"
 msgstr "شهر"
 
+msgid "Move to quarantine"
+msgstr ""
+
 msgid "Multiscan"
 msgstr "فحص متعدد"
 
+msgid "November"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "عدد عمليات تحديث قاعدة البيانات في اليوم الواحد. اضبط على 0 للتعطيل."
+
+msgid "October"
+msgstr ""
 
 msgid "On Access Scans"
 msgstr "مسح وتحفص وقت-الدخول"
@@ -172,17 +232,29 @@ msgstr "وقت-الدخول"
 msgid "Perform a deeper analysis of executable files."
 msgstr "إجراء تحليل أعمق للملفات القابلة للتنفيذ."
 
+msgid "Perform nothing"
+msgstr ""
+
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
 "details."
 msgstr "الرجاء التحقق من <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>صحفة الدليل</a> لمزيد من التفاصيل"
 
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
+"details."
+msgstr ""
+
 msgid "Quarantine"
 msgstr "الحجر "
 
 msgid "Run"
 msgstr "تشغيل"
+
+msgid "Saturday"
+msgstr ""
 
 msgid "Scan ELF"
 msgstr "فحص ELF"
@@ -208,17 +280,29 @@ msgstr "مسح محتويات الدليل بالتوازي باستخدام م�
 msgid "Scheduled Jobs"
 msgstr "وظائف مجدولة"
 
+msgid "Scheduled Scans"
+msgstr ""
+
+msgid "Scheduling"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "إرسال مخرجات الأمر عبر البريد الإلكتروني"
 
 msgid "Send email"
 msgstr "إرسال بريد إلكتروني"
 
+msgid "September"
+msgstr ""
+
 msgid "Settings"
 msgstr "الإعدادات"
 
 msgid "Shared folder"
 msgstr "مجلد مشترك"
+
+msgid "Sunday"
+msgstr ""
 
 msgid "The location of the files to scan on-access."
 msgstr "موقع الملفات المراد مسحها وتفحصها وقت-الدخول."
@@ -232,8 +316,23 @@ msgstr "الموقع الذي يستخدم كحجر للمفات المصابة.
 msgid "The option, how to handle infected files."
 msgstr "كيفية التعامل مع الملفات المصابة."
 
+msgid "Thursday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Updated on-access scan."
+msgstr ""
+
+msgid "Updated scheduled scan."
+msgstr ""
+
 msgid "Verbose"
 msgstr "مفصل"
+
+msgid "Wednesday"
+msgstr ""
 
 msgid "n/a"
 msgstr "لا ينطبق"

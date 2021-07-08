@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2020-11-12 16:56+0000\n"
-"Last-Translator: Varkentjes\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,6 +43,12 @@ msgstr "Comprimeren"
 msgid "Compress file data during the transfer."
 msgstr "Comprimeer bestandsgegevens tijdens de overdracht"
 
+msgid "Create"
+msgstr ""
+
+msgid "Created USB backup job."
+msgstr ""
+
 msgid "Delete"
 msgstr "Verwijderen"
 
@@ -54,6 +60,9 @@ msgstr "Apparaat"
 
 msgid "Done ..."
 msgstr "Gedaan ..."
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit backup job"
 msgstr "Geplande backup-taak aanpassen"
@@ -74,6 +83,9 @@ msgstr "Ingeschakeld"
 
 msgid "Execute backup job"
 msgstr "Backup-taak uitvoeren"
+
+msgid "External Storage Device"
+msgstr ""
 
 msgid "External storage device"
 msgstr "Extern opslagapparaat"
@@ -134,6 +146,9 @@ msgstr "Recursief"
 msgid "Run"
 msgstr "Uitvoeren"
 
+msgid "Run backup job"
+msgstr ""
+
 msgid "Scan"
 msgstr "Aftasten"
 
@@ -164,6 +179,9 @@ msgstr "Gedeelde map"
 
 msgid "Suppress non-error messages."
 msgstr "Non-foutmeldingen onderdrukken."
+
+msgid "Synchronise from/to directory on external storage device"
+msgstr ""
 
 msgid "Synchronise from/to directory on external storage device."
 msgstr "Synchroniseer van/naar de map op het externe opslagapparaat."
@@ -196,6 +214,9 @@ msgstr "De doel-ACL's bijwerken zodat ze overeenkomen met de bron-ACL's."
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "De uitgebreide attributen op de bestemming bijwerken zodat ze overeenkomen met de lokale attributen."
+
+msgid "Updated USB backup job."
+msgstr ""
 
 msgid "n/a"
 msgstr "n.v.t."

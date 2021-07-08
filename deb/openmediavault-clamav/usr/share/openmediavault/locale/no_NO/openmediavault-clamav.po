@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/openmediavault/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -36,11 +36,26 @@ msgstr "En e-postmelding med kommandoens produksjon (hvis noen ble produsert) er
 msgid "Antivirus"
 msgstr "Antivirus"
 
+msgid "April"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
 msgid "Be verbose."
 msgstr "Vær detaljert."
 
 msgid "Comment"
 msgstr "Kommentar"
+
+msgid "Create"
+msgstr ""
+
+msgid "Created on-access scan."
+msgstr ""
+
+msgid "Created scheduled scan."
+msgstr ""
 
 msgid "Database checks"
 msgstr "Databasekontroll"
@@ -54,6 +69,12 @@ msgstr "Dag i måneden"
 msgid "Day of week"
 msgstr "Dag i uken"
 
+msgid "December"
+msgstr ""
+
+msgid "Delete immediately"
+msgstr ""
+
 msgid "Detect PUA"
 msgstr "Oppdag PUAAlgorithmic detection"
 
@@ -61,6 +82,9 @@ msgid "Detect broken executables"
 msgstr "Oppdag ødelagte kjørbare filer"
 
 msgid "Done ..."
+msgstr ""
+
+msgid "Edit"
 msgstr ""
 
 msgid "Edit on-access scan"
@@ -116,8 +140,14 @@ msgstr "Hvert N minutt"
 msgid "Execute scheduled job"
 msgstr ""
 
+msgid "Execute scheduled scan"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Ekstra alternativer"
+
+msgid "February"
+msgstr ""
 
 msgid "Follow directory symlinks"
 msgstr "Følg katalog symbolske lenker"
@@ -131,6 +161,9 @@ msgstr "Følg filers symbolske lenker"
 msgid "Follow regular file symlinks."
 msgstr "Følg vanlige filers symbolske lenker."
 
+msgid "Friday"
+msgstr ""
+
 msgid "General settings"
 msgstr "Generelle instillinger"
 
@@ -140,11 +173,26 @@ msgstr "Time"
 msgid "Infected files"
 msgstr ""
 
+msgid "January"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
 msgid "Log clean files"
 msgstr "Logg rene filer"
 
 msgid "Log clean files. This drastically increases the log size."
 msgstr "Logg rene filer. Dette øker dramatisk logg størrelsen"
+
+msgid "March"
+msgstr ""
+
+msgid "May"
+msgstr ""
 
 msgid "Message"
 msgstr ""
@@ -152,17 +200,29 @@ msgstr ""
 msgid "Minute"
 msgstr "Minutt"
 
+msgid "Monday"
+msgstr ""
+
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "Overvåk delt mappe og skann nye eller endrede filer."
 
 msgid "Month"
 msgstr "Måned"
 
+msgid "Move to quarantine"
+msgstr ""
+
 msgid "Multiscan"
 msgstr "Multiskann"
 
+msgid "November"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Antall databaseoppdateringer pr. dag. Sett til 0 for å deaktivere."
+
+msgid "October"
+msgstr ""
 
 msgid "On Access Scans"
 msgstr ""
@@ -173,9 +233,18 @@ msgstr "Løpende"
 msgid "Perform a deeper analysis of executable files."
 msgstr "Utføre en dypere analyse av kjørbare filer."
 
+msgid "Perform nothing"
+msgstr ""
+
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
+"details."
+msgstr ""
+
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
 msgstr ""
 
@@ -184,6 +253,9 @@ msgstr ""
 
 msgid "Run"
 msgstr "Kjør"
+
+msgid "Saturday"
+msgstr ""
 
 msgid "Scan ELF"
 msgstr "Skann ELF"
@@ -209,17 +281,29 @@ msgstr "Skann mapper i paralell ved å bruke tilgjengelige tråder."
 msgid "Scheduled Jobs"
 msgstr ""
 
+msgid "Scheduled Scans"
+msgstr ""
+
+msgid "Scheduling"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Send kommandoproduksjon via epost"
 
 msgid "Send email"
 msgstr "Send epost"
 
+msgid "September"
+msgstr ""
+
 msgid "Settings"
 msgstr "Innstillinger"
 
 msgid "Shared folder"
 msgstr "Delt mappe"
+
+msgid "Sunday"
+msgstr ""
 
 msgid "The location of the files to scan on-access."
 msgstr ""
@@ -233,8 +317,23 @@ msgstr ""
 msgid "The option, how to handle infected files."
 msgstr ""
 
+msgid "Thursday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Updated on-access scan."
+msgstr ""
+
+msgid "Updated scheduled scan."
+msgstr ""
+
 msgid "Verbose"
 msgstr "Detaljert"
+
+msgid "Wednesday"
+msgstr ""
 
 msgid "n/a"
 msgstr "n/a"

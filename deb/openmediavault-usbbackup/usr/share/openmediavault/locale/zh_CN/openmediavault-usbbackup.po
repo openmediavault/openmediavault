@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2019-10-31 01:29+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,6 +43,12 @@ msgstr "压缩"
 msgid "Compress file data during the transfer."
 msgstr "传输时压缩数据。"
 
+msgid "Create"
+msgstr ""
+
+msgid "Created USB backup job."
+msgstr ""
+
 msgid "Delete"
 msgstr "删除"
 
@@ -54,6 +60,9 @@ msgstr "设备"
 
 msgid "Done ..."
 msgstr "完成中 ..."
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit backup job"
 msgstr "编辑备份任务"
@@ -74,6 +83,9 @@ msgstr "已启用"
 
 msgid "Execute backup job"
 msgstr "执行备份任务"
+
+msgid "External Storage Device"
+msgstr ""
 
 msgid "External storage device"
 msgstr "外部存储设备"
@@ -134,6 +146,9 @@ msgstr "递归"
 msgid "Run"
 msgstr "运行"
 
+msgid "Run backup job"
+msgstr ""
+
 msgid "Scan"
 msgstr "扫描"
 
@@ -164,6 +179,9 @@ msgstr "共享文件夹"
 
 msgid "Suppress non-error messages."
 msgstr "抑制非错误信息。"
+
+msgid "Synchronise from/to directory on external storage device"
+msgstr ""
 
 msgid "Synchronise from/to directory on external storage device."
 msgstr "外部存储设备上要同步到/被 的目录。"
@@ -196,6 +214,9 @@ msgstr "更新目标 ACLs 和源 ACLs 一致。"
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "更新目标扩展属性与本地的一致。"
+
+msgid "Updated USB backup job."
+msgstr ""
 
 msgid "n/a"
 msgstr "n/a"

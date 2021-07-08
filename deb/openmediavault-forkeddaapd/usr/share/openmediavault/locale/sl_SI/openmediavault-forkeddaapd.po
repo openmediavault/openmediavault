@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2017-11-16 21:39+0000\n"
-"Last-Translator: Miha Bezjak <miha@bezjak.info>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,6 +26,9 @@ msgstr "Avtentikacija"
 
 msgid "Enable"
 msgstr "Omogoči"
+
+msgid "Enabled"
+msgstr ""
 
 msgid "General settings"
 msgstr "Splošne nastavitve"
@@ -53,6 +56,9 @@ msgstr "Lokacija  medijskih datotek za deljenje."
 
 msgid "The name of the library as displayed by the clients."
 msgstr "Ime knjižnice, kot je prikazano s strani odjemalcev."
+
+msgid "Updated iTunes/DAAP settings."
+msgstr ""
 
 msgid "iTunes/DAAP"
 msgstr "iTunes/DAAP"

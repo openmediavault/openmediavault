@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2018-01-01 19:08+0000\n"
-"Last-Translator: Quim Farriol <qfarriol@valette.cat>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,11 +36,26 @@ msgstr "S'enviarà un e-mail amb la sortida de la comanda (si n'hi ha) a l'admin
 msgid "Antivirus"
 msgstr "Antivirus"
 
+msgid "April"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
 msgid "Be verbose."
 msgstr "Mostra els detalls"
 
 msgid "Comment"
 msgstr "Comentari"
+
+msgid "Create"
+msgstr ""
+
+msgid "Created on-access scan."
+msgstr ""
+
+msgid "Created scheduled scan."
+msgstr ""
 
 msgid "Database checks"
 msgstr "Comprovació de la BBDD"
@@ -54,6 +69,12 @@ msgstr "Dia del mes"
 msgid "Day of week"
 msgstr "Dia de la setmana"
 
+msgid "December"
+msgstr ""
+
+msgid "Delete immediately"
+msgstr ""
+
 msgid "Detect PUA"
 msgstr "Detectar PUA"
 
@@ -62,6 +83,9 @@ msgstr "Detectar executables trencats"
 
 msgid "Done ..."
 msgstr "Fet ..."
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit on-access scan"
 msgstr "Edita l'escaneix al accedir"
@@ -116,8 +140,14 @@ msgstr "Cada N minuts"
 msgid "Execute scheduled job"
 msgstr "Executa feina programada"
 
+msgid "Execute scheduled scan"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Opcions addicionals"
+
+msgid "February"
+msgstr ""
 
 msgid "Follow directory symlinks"
 msgstr "Seguir els enllaços de directoris simbòlics"
@@ -131,6 +161,9 @@ msgstr "Seguir els enllaços de fitxers simbòlics"
 msgid "Follow regular file symlinks."
 msgstr "Seguir els enllaços simbòlics de fitxers."
 
+msgid "Friday"
+msgstr ""
+
 msgid "General settings"
 msgstr "Opcions generals"
 
@@ -140,11 +173,26 @@ msgstr "Hora"
 msgid "Infected files"
 msgstr "Fitxers infectats"
 
+msgid "January"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
 msgid "Log clean files"
 msgstr "Log de fitxers nets"
 
 msgid "Log clean files. This drastically increases the log size."
 msgstr "Log de tots els fitxers. Això incrementa dràsticament la mida del log."
+
+msgid "March"
+msgstr ""
+
+msgid "May"
+msgstr ""
 
 msgid "Message"
 msgstr "Missatge"
@@ -152,17 +200,29 @@ msgstr "Missatge"
 msgid "Minute"
 msgstr "Minut"
 
+msgid "Monday"
+msgstr ""
+
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "Monitoritzar la carpeta compartida i escanejar si hi ha fitxers nous o modificats."
 
 msgid "Month"
 msgstr "Mes"
 
+msgid "Move to quarantine"
+msgstr ""
+
 msgid "Multiscan"
 msgstr "Multiscan"
 
+msgid "November"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Nombre de consultes d'actualització de la BBDD per dia. Poseu 0 per deshabilitar-ho."
+
+msgid "October"
+msgstr ""
 
 msgid "On Access Scans"
 msgstr "Escaneja al accedir"
@@ -173,17 +233,29 @@ msgstr "Quan s'accedeixi"
 msgid "Perform a deeper analysis of executable files."
 msgstr "Fer un anàlisis profund dels executables"
 
+msgid "Perform nothing"
+msgstr ""
+
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
 "details."
 msgstr "Si us plau, consulteu la <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>pàgina del manual</a> per obtenir més informació."
 
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
+"details."
+msgstr ""
+
 msgid "Quarantine"
 msgstr "Quarantena"
 
 msgid "Run"
 msgstr "Executar"
+
+msgid "Saturday"
+msgstr ""
 
 msgid "Scan ELF"
 msgstr "Escanejar ELF"
@@ -209,17 +281,29 @@ msgstr "Escanejar el contingut dels directoris en paral·lel usant tots els fils
 msgid "Scheduled Jobs"
 msgstr "Feines programades"
 
+msgid "Scheduled Scans"
+msgstr ""
+
+msgid "Scheduling"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Enviar el resultat de la comanda per e-mail"
 
 msgid "Send email"
 msgstr "Enviar e-mail"
 
+msgid "September"
+msgstr ""
+
 msgid "Settings"
 msgstr "Opcions"
 
 msgid "Shared folder"
 msgstr "Carpeta compartida"
+
+msgid "Sunday"
+msgstr ""
 
 msgid "The location of the files to scan on-access."
 msgstr "La ubicació dels fitxers per escanejar en l'accés."
@@ -233,8 +317,23 @@ msgstr "Ruta dels fitxers que estan en quarentena"
 msgid "The option, how to handle infected files."
 msgstr "Com tractar als fitxers infectats"
 
+msgid "Thursday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Updated on-access scan."
+msgstr ""
+
+msgid "Updated scheduled scan."
+msgstr ""
+
 msgid "Verbose"
 msgstr "Detallat"
+
+msgid "Wednesday"
+msgstr ""
 
 msgid "n/a"
 msgstr "n/a"

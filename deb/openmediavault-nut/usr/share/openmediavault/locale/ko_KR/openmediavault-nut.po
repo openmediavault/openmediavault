@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2020-04-19 13:55+0000\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -44,11 +44,17 @@ msgstr "활성화"
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "로컬 연결된 UPS의 원격 감시 활성화"
 
+msgid "Enabled"
+msgstr ""
+
 msgid "General settings"
 msgstr "일반 설정"
 
 msgid "Identifier"
 msgstr "식별자"
+
+msgid "Invalid identifier"
+msgstr ""
 
 msgid "Load"
 msgstr "부하"
@@ -132,6 +138,9 @@ msgstr "UPS 배터리가 동작 중입니다."
 
 msgid "UPS reaches low battery"
 msgstr "UPS의 배터리가 얼마남지 않았습니다."
+
+msgid "Updated UPS settings."
+msgstr ""
 
 msgid "Used for remote authentication."
 msgstr "원격 인증에 사용됨"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -34,10 +34,25 @@ msgstr ""
 msgid "Antivirus"
 msgstr ""
 
+msgid "April"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
 msgid "Be verbose."
 msgstr ""
 
 msgid "Comment"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "Created on-access scan."
+msgstr ""
+
+msgid "Created scheduled scan."
 msgstr ""
 
 msgid "Database checks"
@@ -52,6 +67,12 @@ msgstr ""
 msgid "Day of week"
 msgstr ""
 
+msgid "December"
+msgstr ""
+
+msgid "Delete immediately"
+msgstr ""
+
 msgid "Detect PUA"
 msgstr ""
 
@@ -59,6 +80,9 @@ msgid "Detect broken executables"
 msgstr ""
 
 msgid "Done ..."
+msgstr ""
+
+msgid "Edit"
 msgstr ""
 
 msgid "Edit on-access scan"
@@ -114,7 +138,13 @@ msgstr ""
 msgid "Execute scheduled job"
 msgstr ""
 
+msgid "Execute scheduled scan"
+msgstr ""
+
 msgid "Extra options"
+msgstr ""
+
+msgid "February"
 msgstr ""
 
 msgid "Follow directory symlinks"
@@ -129,6 +159,9 @@ msgstr ""
 msgid "Follow regular file symlinks."
 msgstr ""
 
+msgid "Friday"
+msgstr ""
+
 msgid "General settings"
 msgstr ""
 
@@ -138,10 +171,25 @@ msgstr ""
 msgid "Infected files"
 msgstr ""
 
+msgid "January"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
 msgid "Log clean files"
 msgstr ""
 
 msgid "Log clean files. This drastically increases the log size."
+msgstr ""
+
+msgid "March"
+msgstr ""
+
+msgid "May"
 msgstr ""
 
 msgid "Message"
@@ -150,16 +198,28 @@ msgstr ""
 msgid "Minute"
 msgstr ""
 
+msgid "Monday"
+msgstr ""
+
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr ""
 
 msgid "Month"
 msgstr ""
 
+msgid "Move to quarantine"
+msgstr ""
+
 msgid "Multiscan"
 msgstr ""
 
+msgid "November"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr ""
+
+msgid "October"
 msgstr ""
 
 msgid "On Access Scans"
@@ -171,9 +231,18 @@ msgstr ""
 msgid "Perform a deeper analysis of executable files."
 msgstr ""
 
+msgid "Perform nothing"
+msgstr ""
+
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
+"details."
+msgstr ""
+
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
 msgstr ""
 
@@ -181,6 +250,9 @@ msgid "Quarantine"
 msgstr ""
 
 msgid "Run"
+msgstr ""
+
+msgid "Saturday"
 msgstr ""
 
 msgid "Scan ELF"
@@ -207,16 +279,28 @@ msgstr ""
 msgid "Scheduled Jobs"
 msgstr ""
 
+msgid "Scheduled Scans"
+msgstr ""
+
+msgid "Scheduling"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr ""
 
 msgid "Send email"
 msgstr ""
 
+msgid "September"
+msgstr ""
+
 msgid "Settings"
 msgstr ""
 
 msgid "Shared folder"
+msgstr ""
+
+msgid "Sunday"
 msgstr ""
 
 msgid "The location of the files to scan on-access."
@@ -231,7 +315,22 @@ msgstr ""
 msgid "The option, how to handle infected files."
 msgstr ""
 
+msgid "Thursday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Updated on-access scan."
+msgstr ""
+
+msgid "Updated scheduled scan."
+msgstr ""
+
 msgid "Verbose"
+msgstr ""
+
+msgid "Wednesday"
 msgstr ""
 
 msgid "n/a"

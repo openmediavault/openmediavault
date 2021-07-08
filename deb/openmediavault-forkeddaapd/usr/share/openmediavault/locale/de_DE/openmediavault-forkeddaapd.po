@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2017-09-23 18:10+0000\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -28,6 +28,9 @@ msgstr "Authentifizierung"
 
 msgid "Enable"
 msgstr "Aktivieren"
+
+msgid "Enabled"
+msgstr ""
 
 msgid "General settings"
 msgstr "Allgemeine Einstellungen"
@@ -55,6 +58,9 @@ msgstr "Der Ort für die zu teilenden Mediendateien."
 
 msgid "The name of the library as displayed by the clients."
 msgstr "Name der Bibliothek die den Clients angezeigt werden soll."
+
+msgid "Updated iTunes/DAAP settings."
+msgstr ""
 
 msgid "iTunes/DAAP"
 msgstr "iTunes/DAAP"

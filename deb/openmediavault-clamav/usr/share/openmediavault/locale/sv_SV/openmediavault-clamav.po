@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2021-05-06 17:42+0000\n"
-"Last-Translator: Jonatan Nyberg <jonatan@autistici.org>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,11 +37,26 @@ msgstr "Ett e-postmeddelande med resultatet av kommandot (om något kördes) sä
 msgid "Antivirus"
 msgstr "Antivirus"
 
+msgid "April"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
 msgid "Be verbose."
 msgstr "Var pratig."
 
 msgid "Comment"
 msgstr "Kommentar"
+
+msgid "Create"
+msgstr ""
+
+msgid "Created on-access scan."
+msgstr ""
+
+msgid "Created scheduled scan."
+msgstr ""
 
 msgid "Database checks"
 msgstr "Databaskontroller"
@@ -55,6 +70,12 @@ msgstr "Dag för månad"
 msgid "Day of week"
 msgstr "Dag för vecka"
 
+msgid "December"
+msgstr ""
+
+msgid "Delete immediately"
+msgstr ""
+
 msgid "Detect PUA"
 msgstr "Upptäck PUA"
 
@@ -63,6 +84,9 @@ msgstr "Upptäck trasiga körbara filer"
 
 msgid "Done ..."
 msgstr "Klar ..."
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit on-access scan"
 msgstr "Redigera åtkomstsökning"
@@ -117,8 +141,14 @@ msgstr "Varje N minut"
 msgid "Execute scheduled job"
 msgstr "Utför schemalagt jobb"
 
+msgid "Execute scheduled scan"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Extra inställningar"
+
+msgid "February"
+msgstr ""
 
 msgid "Follow directory symlinks"
 msgstr "Följ symlänkar för mappar"
@@ -132,6 +162,9 @@ msgstr "Följ symlänkar för filer"
 msgid "Follow regular file symlinks."
 msgstr "Följ symlänkar för vanliga filer."
 
+msgid "Friday"
+msgstr ""
+
 msgid "General settings"
 msgstr "Allmänna inställningar"
 
@@ -141,11 +174,26 @@ msgstr "Timme"
 msgid "Infected files"
 msgstr "Infekterade filer"
 
+msgid "January"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
 msgid "Log clean files"
 msgstr "Logga rena filer"
 
 msgid "Log clean files. This drastically increases the log size."
 msgstr "Logga rena filer. Detta ökar loggstorleken kraftigt."
+
+msgid "March"
+msgstr ""
+
+msgid "May"
+msgstr ""
 
 msgid "Message"
 msgstr "Meddelande"
@@ -153,17 +201,29 @@ msgstr "Meddelande"
 msgid "Minute"
 msgstr "Minut"
 
+msgid "Monday"
+msgstr ""
+
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "Övervaka den delade mappen och sök efter nya eller ändrade filer."
 
 msgid "Month"
 msgstr "Månad"
 
+msgid "Move to quarantine"
+msgstr ""
+
 msgid "Multiscan"
 msgstr "Flerskanning"
 
+msgid "November"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Antal databasuppdateringar per dag. Ange 0 för att inaktivera."
+
+msgid "October"
+msgstr ""
 
 msgid "On Access Scans"
 msgstr "På åtkomstsökning"
@@ -174,17 +234,29 @@ msgstr "Vid åtkomst"
 msgid "Perform a deeper analysis of executable files."
 msgstr "Genomför en djupare analys av körbara filer."
 
+msgid "Perform nothing"
+msgstr ""
+
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
 "details."
 msgstr "Vänligen se <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>manualsidan</a> för mer detaljer."
 
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
+"details."
+msgstr ""
+
 msgid "Quarantine"
 msgstr "Karantän"
 
 msgid "Run"
 msgstr "Kör"
+
+msgid "Saturday"
+msgstr ""
 
 msgid "Scan ELF"
 msgstr "Skanna ELF"
@@ -210,17 +282,29 @@ msgstr "Skanna mappinnehåll med tillgängliga trådar i paralell."
 msgid "Scheduled Jobs"
 msgstr "Schemalagda jobb"
 
+msgid "Scheduled Scans"
+msgstr ""
+
+msgid "Scheduling"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Skicka resultatet av kommandot via e-post"
 
 msgid "Send email"
 msgstr "Skicka e-post"
 
+msgid "September"
+msgstr ""
+
 msgid "Settings"
 msgstr "Inställningar"
 
 msgid "Shared folder"
 msgstr "Delad mapp"
+
+msgid "Sunday"
+msgstr ""
 
 msgid "The location of the files to scan on-access."
 msgstr "Placeringen av filerna för att göra åtkomstsökning."
@@ -234,8 +318,23 @@ msgstr "Platsen som används som karantän."
 msgid "The option, how to handle infected files."
 msgstr "Alternativet, hur man hanterar infekterade filer."
 
+msgid "Thursday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Updated on-access scan."
+msgstr ""
+
+msgid "Updated scheduled scan."
+msgstr ""
+
 msgid "Verbose"
 msgstr "Pratig"
+
+msgid "Wednesday"
+msgstr ""
 
 msgid "n/a"
 msgstr "ingen uppgift"

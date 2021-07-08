@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -41,6 +41,12 @@ msgstr "Comprimir"
 msgid "Compress file data during the transfer."
 msgstr "Comprimir ficheiro durante transferência"
 
+msgid "Create"
+msgstr ""
+
+msgid "Created USB backup job."
+msgstr ""
+
 msgid "Delete"
 msgstr "Apagar"
 
@@ -51,6 +57,9 @@ msgid "Device"
 msgstr "Dispositivo"
 
 msgid "Done ..."
+msgstr ""
+
+msgid "Edit"
 msgstr ""
 
 msgid "Edit backup job"
@@ -72,6 +81,9 @@ msgstr "Ativar"
 
 msgid "Execute backup job"
 msgstr "Executar tarefa de backup"
+
+msgid "External Storage Device"
+msgstr ""
 
 msgid "External storage device"
 msgstr "Dispositivo de armazenamento externo"
@@ -132,6 +144,9 @@ msgstr "Recursivo"
 msgid "Run"
 msgstr "Executar"
 
+msgid "Run backup job"
+msgstr ""
+
 msgid "Scan"
 msgstr "Pesquisar"
 
@@ -162,6 +177,9 @@ msgstr "Pasta partilhada"
 
 msgid "Suppress non-error messages."
 msgstr "Suprimir mensagens de falsos erros"
+
+msgid "Synchronise from/to directory on external storage device"
+msgstr ""
 
 msgid "Synchronise from/to directory on external storage device."
 msgstr "Sincronizar de/para pasta no dispositivo de armazenamento externo."
@@ -194,6 +212,9 @@ msgstr "Atualizar os destinos ACLs para serem os mesmo que as origens ACLs"
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "Actualizar os atributos de destino avançados para serem os mesmos que os locais."
+
+msgid "Updated USB backup job."
+msgstr ""
 
 msgid "n/a"
 msgstr "n/a"

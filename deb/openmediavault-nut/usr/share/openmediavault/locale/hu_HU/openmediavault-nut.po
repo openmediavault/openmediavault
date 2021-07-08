@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2020-06-09 09:47+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,11 +47,17 @@ msgstr "Engedélyezés"
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "A helyileg csatlakoztatott UPS távfelügyeletének bekapcsolása"
 
+msgid "Enabled"
+msgstr ""
+
 msgid "General settings"
 msgstr "Általános beállítások"
 
 msgid "Identifier"
 msgstr "Azonosító"
+
+msgid "Invalid identifier"
+msgstr ""
 
 msgid "Load"
 msgstr "Terhelés"
@@ -135,6 +141,9 @@ msgstr "Akkumulátoros üzemmód"
 
 msgid "UPS reaches low battery"
 msgstr "Alacsony töltés"
+
+msgid "Updated UPS settings."
+msgstr ""
 
 msgid "Used for remote authentication."
 msgstr "Távoli hitelesítéshez."

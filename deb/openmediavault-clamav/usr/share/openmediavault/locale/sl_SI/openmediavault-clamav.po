@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
@@ -35,11 +35,26 @@ msgstr ""
 msgid "Antivirus"
 msgstr "Antivirus"
 
+msgid "April"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
 msgid "Be verbose."
 msgstr "Bodi gostobeseden."
 
 msgid "Comment"
 msgstr "Komentar"
+
+msgid "Create"
+msgstr ""
+
+msgid "Created on-access scan."
+msgstr ""
+
+msgid "Created scheduled scan."
+msgstr ""
 
 msgid "Database checks"
 msgstr "Pregled baze"
@@ -53,6 +68,12 @@ msgstr "Dan v mesecu"
 msgid "Day of week"
 msgstr "Dan v tednu"
 
+msgid "December"
+msgstr ""
+
+msgid "Delete immediately"
+msgstr ""
+
 msgid "Detect PUA"
 msgstr "Zaznaj PUA"
 
@@ -60,6 +81,9 @@ msgid "Detect broken executables"
 msgstr "Odkrij pokvarjene izvedljive datoteke"
 
 msgid "Done ..."
+msgstr ""
+
+msgid "Edit"
 msgstr ""
 
 msgid "Edit on-access scan"
@@ -115,8 +139,14 @@ msgstr "Vsako N minuto"
 msgid "Execute scheduled job"
 msgstr ""
 
+msgid "Execute scheduled scan"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Dodatne nastavitve"
+
+msgid "February"
+msgstr ""
 
 msgid "Follow directory symlinks"
 msgstr ""
@@ -130,6 +160,9 @@ msgstr ""
 msgid "Follow regular file symlinks."
 msgstr ""
 
+msgid "Friday"
+msgstr ""
+
 msgid "General settings"
 msgstr "Splošne nastavitve"
 
@@ -139,10 +172,25 @@ msgstr "Ura"
 msgid "Infected files"
 msgstr "Okužene datoteke"
 
+msgid "January"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
 msgid "Log clean files"
 msgstr ""
 
 msgid "Log clean files. This drastically increases the log size."
+msgstr ""
+
+msgid "March"
+msgstr ""
+
+msgid "May"
 msgstr ""
 
 msgid "Message"
@@ -151,16 +199,28 @@ msgstr "Sporočilo"
 msgid "Minute"
 msgstr "Minuta"
 
+msgid "Monday"
+msgstr ""
+
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr ""
 
 msgid "Month"
 msgstr "Mesec"
 
+msgid "Move to quarantine"
+msgstr ""
+
 msgid "Multiscan"
 msgstr ""
 
+msgid "November"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr ""
+
+msgid "October"
 msgstr ""
 
 msgid "On Access Scans"
@@ -172,9 +232,18 @@ msgstr ""
 msgid "Perform a deeper analysis of executable files."
 msgstr "Izvedi globjo analizo izvršljivih datotek,"
 
+msgid "Perform nothing"
+msgstr ""
+
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
+"details."
+msgstr ""
+
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
 msgstr ""
 
@@ -183,6 +252,9 @@ msgstr "Karantena"
 
 msgid "Run"
 msgstr "Zaženi"
+
+msgid "Saturday"
+msgstr ""
 
 msgid "Scan ELF"
 msgstr "Skeniraj ELF"
@@ -208,17 +280,29 @@ msgstr ""
 msgid "Scheduled Jobs"
 msgstr "Načrtovana Opravila"
 
+msgid "Scheduled Scans"
+msgstr ""
+
+msgid "Scheduling"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Pošlji rezultat ukaza preko elektronske pošte"
 
 msgid "Send email"
 msgstr "Pošlji elektronsko poročilo"
 
+msgid "September"
+msgstr ""
+
 msgid "Settings"
 msgstr "Nastavitve"
 
 msgid "Shared folder"
 msgstr "Deljena mapa"
+
+msgid "Sunday"
+msgstr ""
 
 msgid "The location of the files to scan on-access."
 msgstr ""
@@ -232,7 +316,22 @@ msgstr "Lokacija, ki je uporabljena za karanteno."
 msgid "The option, how to handle infected files."
 msgstr "Možnost, kako ravnati z okuženimi datotekami."
 
+msgid "Thursday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Updated on-access scan."
+msgstr ""
+
+msgid "Updated scheduled scan."
+msgstr ""
+
 msgid "Verbose"
+msgstr ""
+
+msgid "Wednesday"
 msgstr ""
 
 msgid "n/a"

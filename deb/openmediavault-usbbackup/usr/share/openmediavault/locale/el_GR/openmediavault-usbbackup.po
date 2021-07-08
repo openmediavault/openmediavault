@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2019-10-30 07:42+0000\n"
-"Last-Translator: Kostas Moho\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,6 +41,12 @@ msgstr "Συμπίεση"
 msgid "Compress file data during the transfer."
 msgstr "Συμπίεση δεδομένων κατά την μεταφορά"
 
+msgid "Create"
+msgstr ""
+
+msgid "Created USB backup job."
+msgstr ""
+
 msgid "Delete"
 msgstr "Διαγραφή"
 
@@ -52,6 +58,9 @@ msgstr "Συσκευή"
 
 msgid "Done ..."
 msgstr "Ολοκλήρωση ..."
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit backup job"
 msgstr "Επεξεργασία εργασίας αντιγράφων ασφαλείας"
@@ -72,6 +81,9 @@ msgstr "Ενεργοποιημένο"
 
 msgid "Execute backup job"
 msgstr "Εκτέλεση εργασίας αντιγράφων ασφαλείας"
+
+msgid "External Storage Device"
+msgstr ""
 
 msgid "External storage device"
 msgstr "Εξωτερική συσκευή αποθήκευσης"
@@ -132,6 +144,9 @@ msgstr "Αναδρομικά"
 msgid "Run"
 msgstr "Εκκίνηση"
 
+msgid "Run backup job"
+msgstr ""
+
 msgid "Scan"
 msgstr "Ανίχνευση"
 
@@ -162,6 +177,9 @@ msgstr "Κοινόχρηστος φάκελος"
 
 msgid "Suppress non-error messages."
 msgstr "Παράλειψη μηνυμάτων που δεν αφορούν σφάλματα."
+
+msgid "Synchronise from/to directory on external storage device"
+msgstr ""
 
 msgid "Synchronise from/to directory on external storage device."
 msgstr "Συγχρονισμός από/προς υποκατάλογο της εξωτερικής συσκευής αποθήκευσης."
@@ -194,6 +212,9 @@ msgstr "Ενημέρωση των ACL του προορισμού όπως εί�
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "Ενημέρωση των απομακρυσμένων εκτεταμένων ιδιοτήτων όπως τα τοπικά."
+
+msgid "Updated USB backup job."
+msgstr ""
 
 msgid "n/a"
 msgstr "n/a"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2020-04-19 13:55+0000\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -45,11 +45,17 @@ msgstr "Activar"
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Activar a supervisión remota do SAI local conectado."
 
+msgid "Enabled"
+msgstr ""
+
 msgid "General settings"
 msgstr "Axustes xerais"
 
 msgid "Identifier"
 msgstr "Identificador"
+
+msgid "Invalid identifier"
+msgstr ""
 
 msgid "Load"
 msgstr "Cargar"
@@ -133,6 +139,9 @@ msgstr "O SAI continúa coa batería"
 
 msgid "UPS reaches low battery"
 msgstr "O SAI ten a batería baixa"
+
+msgid "Updated UPS settings."
+msgstr ""
 
 msgid "Used for remote authentication."
 msgstr "Utilizase para a autenticación remota."

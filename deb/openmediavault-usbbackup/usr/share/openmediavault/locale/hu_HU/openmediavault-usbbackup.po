@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2019-10-31 22:01+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,6 +45,12 @@ msgstr "Tömörítés"
 msgid "Compress file data during the transfer."
 msgstr "Fájladatok tömörítése az átvitel során."
 
+msgid "Create"
+msgstr ""
+
+msgid "Created USB backup job."
+msgstr ""
+
 msgid "Delete"
 msgstr "Törlés"
 
@@ -56,6 +62,9 @@ msgstr "Meghajtó"
 
 msgid "Done ..."
 msgstr "Kész..."
+
+msgid "Edit"
+msgstr ""
 
 msgid "Edit backup job"
 msgstr "Mentési feladat módosítása"
@@ -76,6 +85,9 @@ msgstr "Engedélyezve"
 
 msgid "Execute backup job"
 msgstr "Mentési feladat végrehajtása"
+
+msgid "External Storage Device"
+msgstr ""
 
 msgid "External storage device"
 msgstr "Külső tárolóeszköz"
@@ -136,6 +148,9 @@ msgstr "Rekurziv"
 msgid "Run"
 msgstr "Futtatás"
 
+msgid "Run backup job"
+msgstr ""
+
 msgid "Scan"
 msgstr "Keresés"
 
@@ -166,6 +181,9 @@ msgstr "Megosztott mappa"
 
 msgid "Suppress non-error messages."
 msgstr "Nem hibaüzenetek kihagyása."
+
+msgid "Synchronise from/to directory on external storage device"
+msgstr ""
 
 msgid "Synchronise from/to directory on external storage device."
 msgstr "Megosztott mappa szinkronizálása a külső tárolóval."
@@ -198,6 +216,9 @@ msgstr "A célállomás ACL-ek frissítése, hogy megegyezzen a forrás ACL-ekke
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "A célállomás kiterjesztett attribútumainak frissítése, hogy megegyezzen a helyiekkel."
+
+msgid "Updated USB backup job."
+msgstr ""
 
 msgid "n/a"
 msgstr "n/a"
