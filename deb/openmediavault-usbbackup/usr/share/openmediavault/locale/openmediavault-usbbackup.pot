@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-usbbackup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 17:20+0200\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,6 +38,12 @@ msgstr ""
 msgid "Compress file data during the transfer."
 msgstr ""
 
+msgid "Create"
+msgstr ""
+
+msgid "Created USB backup job."
+msgstr ""
+
 msgid "Delete"
 msgstr ""
 
@@ -48,6 +54,9 @@ msgid "Device"
 msgstr ""
 
 msgid "Done ..."
+msgstr ""
+
+msgid "Edit"
 msgstr ""
 
 msgid "Edit backup job"
@@ -66,6 +75,9 @@ msgid "Enabled"
 msgstr ""
 
 msgid "Execute backup job"
+msgstr ""
+
+msgid "External Storage Device"
 msgstr ""
 
 msgid "External storage device"
@@ -122,6 +134,9 @@ msgstr ""
 msgid "Run"
 msgstr ""
 
+msgid "Run backup job"
+msgstr ""
+
 msgid "Scan"
 msgstr ""
 
@@ -149,6 +164,9 @@ msgstr ""
 msgid "Suppress non-error messages."
 msgstr ""
 
+msgid "Synchronise from/to directory on external storage device"
+msgstr ""
+
 msgid "Synchronise from/to directory on external storage device."
 msgstr ""
 
@@ -171,6 +189,9 @@ msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr ""
 
 msgid "Update the destination extended attributes to be the same as the local ones."
+msgstr ""
+
+msgid "Updated USB backup job."
 msgstr ""
 
 msgid "n/a"

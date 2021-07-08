@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 17:20+0200\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,6 +33,9 @@ msgid "Determine the default timeout, in microseconds, before the first packet i
 msgstr ""
 
 msgid "Enable"
+msgstr ""
+
+msgid "Enabled"
 msgstr ""
 
 msgid "Extra options"
@@ -63,4 +66,10 @@ msgid "TFTP"
 msgstr ""
 
 msgid "The location of the files to share."
+msgstr ""
+
+msgid "The location of the files to share. Please make sure that the shared folder is publicly writable if new files are allowed."
+msgstr ""
+
+msgid "Updated TFTP settings."
 msgstr ""

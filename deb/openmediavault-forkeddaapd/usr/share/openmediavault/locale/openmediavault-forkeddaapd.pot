@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-forkeddaapd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 17:20+0200\n"
+"POT-Creation-Date: 2021-07-08 14:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,6 +24,9 @@ msgid "Authentication"
 msgstr ""
 
 msgid "Enable"
+msgstr ""
+
+msgid "Enabled"
 msgstr ""
 
 msgid "General settings"
@@ -51,6 +54,9 @@ msgid "The location of the media files to share."
 msgstr ""
 
 msgid "The name of the library as displayed by the clients."
+msgstr ""
+
+msgid "Updated iTunes/DAAP settings."
 msgstr ""
 
 msgid "iTunes/DAAP"
