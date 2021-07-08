@@ -24,3 +24,5 @@ patch_network_module:
     - name: "/lib/python3/dist-packages/salt/modules/network.py"
     - source:
       - salt://{{ tpldir }}/files/salt-pr-59829.patch
+    - options: --silent
+    - hash: md5=185cbc229a5b7e95ce9083c4f4399169
