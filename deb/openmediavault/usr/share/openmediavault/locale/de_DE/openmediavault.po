@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-08 14:57+0200\n"
-"PO-Revision-Date: 2021-07-08 13:10+0000\n"
+"PO-Revision-Date: 2021-07-09 05:19+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -221,7 +221,7 @@ msgid "Abstract"
 msgstr "Abstrakt"
 
 msgid "Access control list"
-msgstr ""
+msgstr "Zugriffskontrollliste"
 
 msgid "Access mode"
 msgstr "Zugriffsmodus"
@@ -260,7 +260,7 @@ msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Administrator: lesen/schreiben, Benutzer: lesen/schreiben, Andere: nur lesen"
 
 msgid "Advanced Acoustic Management"
-msgstr ""
+msgstr "Erweitertes Akustikmanagement"
 
 msgid "Advanced Power Management"
 msgstr "Advanced Power Management"
@@ -347,7 +347,7 @@ msgid "April"
 msgstr "April"
 
 msgid "Archive mode"
-msgstr ""
+msgstr "Archivmodus"
 
 msgid "Argentina"
 msgstr "Zugriffskontrolle"
@@ -368,10 +368,10 @@ msgid "At least one network interface is required."
 msgstr ""
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "Es werden mindestens drei Geräte benötigt."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "Es werden mindestens zwei Geräte benötigt."
 
 msgid "At reboot"
 msgstr "Beim Neustart"
@@ -380,7 +380,7 @@ msgid "Attributes"
 msgstr "Attribute"
 
 msgid "Audit file operations"
-msgstr ""
+msgstr "Dateivorgänge prüfen"
 
 msgid "August"
 msgstr "August"
@@ -419,7 +419,7 @@ msgid "Azerbaijan"
 msgstr "Aserbaidschan"
 
 msgid "BTRFS"
-msgstr ""
+msgstr "BTRFS"
 
 msgid "Back"
 msgstr "Zurück"
@@ -521,7 +521,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 msgid "CPU Usage"
 msgstr "CPU Auslastung"
@@ -578,7 +578,7 @@ msgid "Check for new plugins"
 msgstr ""
 
 msgid "Check for new updates"
-msgstr ""
+msgstr "Nach neuen Updates suchen"
 
 msgid "Check interval"
 msgstr "Prüfintervall"
@@ -689,7 +689,7 @@ msgid "Copy"
 msgstr "Kopieren"
 
 msgid "Copy privileges"
-msgstr ""
+msgstr "Kopierrechte"
 
 msgid "Copy public SSH key"
 msgstr "Kopiere öffentlichen SSH Schlüssel"
@@ -719,10 +719,10 @@ msgid "Created FTP ban rule."
 msgstr ""
 
 msgid "Created FTP share."
-msgstr ""
+msgstr "FTP-Freigabe erstellt."
 
 msgid "Created NFS share."
-msgstr ""
+msgstr "NFS-Freigabe erstellt."
 
 msgid "Created Rsync server module \"{{ name }}\"."
 msgstr ""
