@@ -24,6 +24,7 @@
   },
   "private": true,
   "jest": {
+    "testTimeout": 10000,
     "moduleNameMapper": {
       "~/(.*)$": "<rootDir>/src/$1"
     },
