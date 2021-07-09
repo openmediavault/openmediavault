@@ -118,7 +118,11 @@ const routes: Routes = [
   {
     path: 'settings',
     component: UserSettingsFormPageComponent,
-    data: { title: gettext('Settings') }
+    data: {
+      title: gettext('Settings'),
+      editing: true,
+      notificationTitle: gettext('Updated settings.')
+    }
   }
 ];
 
