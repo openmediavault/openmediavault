@@ -9,10 +9,10 @@
       <omv-navigation-bar></omv-navigation-bar>
     </mat-sidenav>
     <mat-sidenav-content fxLayout="column">
+      <omv-apply-config *ngIf="pendingChanges"></omv-apply-config>
       <omv-top-bar [navigationSidenav]="navigationSidenav"
                    [notificationsSidenav]="notificationsSidenav">
       </omv-top-bar>
-      <omv-apply-config *ngIf="pendingChanges"></omv-apply-config>
       <omv-breadcrumb></omv-breadcrumb>
       <div id="omv-workbench-router-outlet"
            class="omv-scrollable-y">
