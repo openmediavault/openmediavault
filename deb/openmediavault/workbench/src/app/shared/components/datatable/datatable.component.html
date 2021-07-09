@@ -185,7 +185,7 @@
 
 <ng-template #copyToClipboardTpl
              let-value="value">
-  <span>
+  <span *ngIf="value">
     {{ value }}
     <mat-icon class="omv-icon-sm omv-cursor-pointer"
               svgIcon="{{ icon.copy }}"
