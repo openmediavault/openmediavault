@@ -68,7 +68,10 @@ export class SmartDeviceDetailsTabsPageComponent {
           buttons: [
             {
               template: 'back',
-              url: '/storage/smart/devices'
+              execute: {
+                type: 'url',
+                url: '/storage/smart/devices'
+              }
             }
           ]
         }
