@@ -336,6 +336,22 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     this.config.icon = _.get(Icon, this.config.icon, this.config.icon);
     // Pre-setup actions based on the specified template type.
     this.sanitizeActions(this.config.actions);
+    // Set the default values of the buttons.
+    _.forEach(this.config.buttons, (button) => {
+      const template = _.get(button, 'template');
+      switch (template) {
+        case 'back':
+          _.defaultsDeep(button, {
+            text: gettext('Back')
+          });
+          break;
+        case 'cancel':
+          _.defaultsDeep(button, {
+            text: gettext('Cancel')
+          });
+          break;
+      }
+    });
   }
 
   protected onRouteParams() {

@@ -62,6 +62,10 @@ export type DatatablePageConfig = {
 };
 
 export type DatatablePageButtonConfig = {
+  // Specifies a template that pre-configures the button:
+  // back   - A button with the text 'Back'.
+  // cancel - A button with the text 'Cancel'.
+  template?: 'back' | 'cancel';
   // The text displayed in the button.
   text: string;
   // Custom CSS class.
