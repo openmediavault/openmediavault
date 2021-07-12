@@ -59,17 +59,27 @@
       </button>
     </mat-toolbar>
     <mat-card-content fxLayout="column"
-                      fxLayoutAlign="center">
-      <img src="rrd.php?name={{ name }}-hour.png&time={{ time }}"
-           alt="RRD graph - by hour"/>
-      <img src="rrd.php?name={{ name }}-day.png&time={{ time }}"
-           alt="RRD graph - by day"/>
-      <img src="rrd.php?name={{ name }}-week.png&time={{ time }}"
-           alt="RRD graph - by week"/>
-      <img src="rrd.php?name={{ name }}-month.png&time={{ time }}"
-           alt="RRD graph - by month"/>
-      <img src="rrd.php?name={{ name }}-year.png&time={{ time }}"
-           alt="RRD graph - by year"/>
+                      fxLayoutAlign="start center">
+      <div>
+        <img src="rrd.php?name={{ name }}-hour.png&time={{ time }}"
+             alt="RRD graph - by hour"/>
+      </div>
+      <div>
+        <img src="rrd.php?name={{ name }}-day.png&time={{ time }}"
+             alt="RRD graph - by day"/>
+      </div>
+      <div>
+        <img src="rrd.php?name={{ name }}-week.png&time={{ time }}"
+             alt="RRD graph - by week"/>
+      </div>
+      <div>
+        <img src="rrd.php?name={{ name }}-month.png&time={{ time }}"
+             alt="RRD graph - by month"/>
+      </div>
+      <div>
+        <img src="rrd.php?name={{ name }}-year.png&time={{ time }}"
+             alt="RRD graph - by year"/>
+      </div>
     </mat-card-content>
   </mat-card>
 </ng-template>

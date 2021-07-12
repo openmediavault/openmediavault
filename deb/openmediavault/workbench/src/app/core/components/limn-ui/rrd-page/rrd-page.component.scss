@@ -12,16 +12,5 @@
 
   .mat-card-content {
     padding: $omv-padding;
-
-    img {
-      border: 0 none;
-      padding-bottom: $omv-padding;
-      object-fit: contain;
-      flex: min-content;
-    }
-
-    img:last-child {
-      padding-bottom: unset;
-    }
   }
 }
