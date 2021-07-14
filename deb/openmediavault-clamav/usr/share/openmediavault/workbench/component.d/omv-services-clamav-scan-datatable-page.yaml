@@ -39,6 +39,7 @@ data:
           {{ _minute }} {{ _hour }} {{ _dayofmonth }} {{ month }} {{ dayofweek }}
       - name: _("Comment")
         prop: comment
+        cellTemplateName: text
         flexGrow: 1
         sortable: true
     actions:

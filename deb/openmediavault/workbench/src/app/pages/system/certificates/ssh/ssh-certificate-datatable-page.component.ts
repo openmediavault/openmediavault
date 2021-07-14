@@ -26,7 +26,15 @@ import { DatatablePageConfig } from '~/app/core/components/limn-ui/models/datata
 export class SshCertificateDatatablePageComponent {
   public config: DatatablePageConfig = {
     stateId: '85efa226-1c32-11ea-8f7a-67b9a1e57494',
-    columns: [{ name: gettext('Comment'), prop: 'comment', flexGrow: 1, sortable: true }],
+    columns: [
+      {
+        name: gettext('Comment'),
+        prop: 'comment',
+        cellTemplateName: 'text',
+        flexGrow: 1,
+        sortable: true
+      }
+    ],
     sorters: [
       {
         dir: 'asc',

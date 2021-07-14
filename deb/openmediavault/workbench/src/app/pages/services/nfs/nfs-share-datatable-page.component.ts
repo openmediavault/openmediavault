@@ -42,7 +42,13 @@ export class NfsShareDatatablePageComponent {
         cellTemplateConfig:
           '{{ extraoptions | split(",") | union(options | split(",")) | uniq() | sort() | join(", ") }}'
       },
-      { name: gettext('Comment'), prop: 'comment', flexGrow: 1, sortable: true }
+      {
+        name: gettext('Comment'),
+        prop: 'comment',
+        cellTemplateName: 'text',
+        flexGrow: 1,
+        sortable: true
+      }
     ],
     sorters: [
       {

@@ -81,6 +81,7 @@ export class SmartTaskDatatablePageComponent {
       {
         name: gettext('Comment'),
         prop: 'comment',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       }

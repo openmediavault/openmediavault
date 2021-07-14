@@ -79,18 +79,21 @@ export class RsyncTaskDatatablePageComponent {
       {
         name: gettext('Source'),
         prop: 'srcname',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       },
       {
         name: gettext('Destination'),
         prop: 'destname',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       },
       {
         name: gettext('Comment'),
         prop: 'comment',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       }

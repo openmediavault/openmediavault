@@ -83,6 +83,7 @@ export class SharedFolderDatatablePageComponent {
       {
         name: gettext('Comment'),
         prop: 'comment',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       }

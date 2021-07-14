@@ -43,7 +43,13 @@ export class UserDatatablePageComponent {
         cellTemplateName: 'template',
         cellTemplateConfig: '{{ groups | sort() | join(", ") }}'
       },
-      { name: gettext('Comment'), prop: 'comment', flexGrow: 1, sortable: true }
+      {
+        name: gettext('Comment'),
+        prop: 'comment',
+        cellTemplateName: 'text',
+        flexGrow: 1,
+        sortable: true
+      }
     ],
     sorters: [
       {

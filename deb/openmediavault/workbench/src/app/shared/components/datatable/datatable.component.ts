@@ -56,6 +56,8 @@ export interface IDataTableLoadParams {
 export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
   @ViewChild('table', { static: true })
   table: NgxDatatableComponent;
+  @ViewChild('textTpl', { static: true })
+  textTpl: TemplateRef<any>;
   @ViewChild('checkIconTpl', { static: true })
   checkIconTpl: TemplateRef<any>;
   @ViewChild('checkBoxTpl', { static: true })
@@ -374,6 +376,7 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
 
   protected initTemplates(): void {
     this.cellTemplates = {
+      text: this.textTpl,
       checkIcon: this.checkIconTpl,
       checkBox: this.checkBoxTpl,
       join: this.joinTpl,

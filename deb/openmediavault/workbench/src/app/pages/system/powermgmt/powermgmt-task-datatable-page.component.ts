@@ -87,6 +87,7 @@ export class PowermgmtTaskDatatablePageComponent {
       {
         name: gettext('Comment'),
         prop: 'comment',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       }

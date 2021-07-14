@@ -59,12 +59,14 @@ export class RsyncModuleDatatablePageComponent {
       {
         name: gettext('Name'),
         prop: 'name',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       },
       {
         name: gettext('Comment'),
         prop: 'comment',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       }

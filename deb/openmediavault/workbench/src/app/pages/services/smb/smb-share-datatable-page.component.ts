@@ -39,7 +39,13 @@ export class SmbShareDatatablePageComponent {
         cellTemplateName: 'checkIcon'
       },
       { name: gettext('Shared folder'), prop: 'sharedfoldername', flexGrow: 1, sortable: true },
-      { name: gettext('Comment'), prop: 'comment', flexGrow: 1, sortable: true },
+      {
+        name: gettext('Comment'),
+        prop: 'comment',
+        cellTemplateName: 'text',
+        flexGrow: 1,
+        sortable: true
+      },
       {
         name: gettext('Public'),
         prop: 'guest',

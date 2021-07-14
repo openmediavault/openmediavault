@@ -77,8 +77,20 @@ export class FirewallRuleInet6DatatablePageComponent {
           }
         }
       },
-      { name: gettext('Extra options'), prop: 'extraoptions', flexGrow: 1, sortable: false },
-      { name: gettext('Comment'), prop: 'comment', flexGrow: 1, sortable: false }
+      {
+        name: gettext('Extra options'),
+        prop: 'extraoptions',
+        cellTemplateName: 'text',
+        flexGrow: 1,
+        sortable: false
+      },
+      {
+        name: gettext('Comment'),
+        prop: 'comment',
+        cellTemplateName: 'text',
+        flexGrow: 1,
+        sortable: false
+      }
     ],
     sorters: [
       {

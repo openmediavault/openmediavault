@@ -22,7 +22,7 @@ export type DatatableColumn = TableColumn & {
   hidden?: boolean;
   /**
    * The name of the template.
-   * bold - Render text using bold font.
+   * text - Renders plain text.
    * buttonToogle - Renders on/off toggles with the appearance of a button.
    *                {
    *                  ...
@@ -71,7 +71,7 @@ export type DatatableColumn = TableColumn & {
    *                   clipboard.
    * template - Render a Nunjucks/Jinja2 template.
    * shapeShifter - Render the column based on the specified type:
-   *                text - Plain text.
+   *                text - Render plain text.
    *                bold - Render text using bold font.
    *                placeholder - Display a '-' for empty values.
    *                notAvailable - Display a 'n/a' for empty values.
@@ -82,6 +82,7 @@ export type DatatableColumn = TableColumn & {
    *                relativeTime - Render relative date/time.
    */
   cellTemplateName?:
+    | 'text'
     | 'buttonToogle'
     | 'checkIcon'
     | 'placeholder'
