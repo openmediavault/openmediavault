@@ -23,7 +23,7 @@ data:
           required: true
           pattern:
             pattern: "^[a-zA-Z0-9+_\\.\\-]+$"
-            errorData?: _("Invalid name")
+            errorData: _("Invalid name")
     buttons:
       - template: submit
         execute:

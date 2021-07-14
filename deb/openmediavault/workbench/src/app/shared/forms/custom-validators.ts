@@ -64,7 +64,9 @@ const regExp = {
     /^---- BEGIN SSH2 PUBLIC KEY ----(\n|\r|\f)((.+)?((\n|\r|\f).+)*)(\n|\r|\f)---- END SSH2 PUBLIC KEY ----[\n\r\f]*$/,
   sshPubKeyOpenSsh: /^ssh-rsa AAAA[0-9A-Za-z+/]+[=]{0,3}\s*(.+)?$/,
   netmask:
-    /^(128|192|224|24[08]|25[245].0.0.0)|(255.(0|128|192|224|24[08]|25[245]).0.0)|(255.255.(0|128|192|224|24[08]|25[245]).0)|(255.255.255.(0|128|192|224|24[08]|252))$/
+    /^(128|192|224|24[08]|25[245].0.0.0)|(255.(0|128|192|224|24[08]|25[245]).0.0)|(255.255.(0|128|192|224|24[08]|25[245]).0)|(255.255.255.(0|128|192|224|24[08]|252))$/,
+  // See https://www.w3schools.com/Jsref/jsref_regexp_wordchar.asp
+  wordChars: /^[\w]+$/
 };
 
 const isEmptyInputValue = (value: any): boolean => _.isNull(value) || value.length === 0;
@@ -347,6 +349,13 @@ export class CustomValidators {
         return CustomValidators.pattern(
           regExp.netmask,
           gettext('This field should be a netmask within the range 128.0.0.0 - 255.255.255.252.')
+        );
+      case 'wordChars':
+        return CustomValidators.pattern(
+          regExp.wordChars,
+          gettext(
+            'This field contains invalid characters, only alphanumeric characters and underscore are allowed.'
+          )
         );
     }
     throw new Error(`Unknown pattern ${name}!`);

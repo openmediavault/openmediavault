@@ -155,7 +155,8 @@ export type FormFieldConfig = {
       | 'sshPubKey'
       | 'sshPubKeyRfc4716'
       | 'sshPubKeyOpenSsh'
-      | 'netmask';
+      | 'netmask'
+      | 'wordChars';
   };
 
   // --- container ---

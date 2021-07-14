@@ -36,7 +36,10 @@ export class MdFormPageComponent {
         type: 'textInput',
         name: 'name',
         label: gettext('Name'),
-        value: ''
+        value: '',
+        validators: {
+          patternType: 'wordChars'
+        }
       },
       {
         type: 'select',

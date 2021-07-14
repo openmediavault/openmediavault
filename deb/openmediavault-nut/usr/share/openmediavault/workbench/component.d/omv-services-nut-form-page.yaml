@@ -35,7 +35,7 @@ data:
           required: true
           pattern:
             pattern: "^[a-zA-Z0-9_-]+$"
-            errorData?: _("Invalid identifier")
+            errorData: _("Invalid identifier")
       - type: textInput
         name: comment
         label: _("Comment")

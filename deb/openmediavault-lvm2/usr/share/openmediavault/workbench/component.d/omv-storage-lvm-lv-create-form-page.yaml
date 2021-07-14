@@ -17,7 +17,7 @@ data:
           required: true
           pattern:
             pattern: "^[a-zA-Z0-9+_\\.\\-]+$"
-            errorData?: _("Invalid name")
+            errorData: _("Invalid name")
       - type: select
         name: vgname
         label: _("Volume group")
