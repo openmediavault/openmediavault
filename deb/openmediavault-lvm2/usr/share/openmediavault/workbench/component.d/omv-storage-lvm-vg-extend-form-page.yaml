@@ -31,6 +31,7 @@ data:
         placeholder: _("Select devices ...")
         hint: _("Select the devices used to extend the volume group.")
         multiple: true
+        value: ""
         valueField: devicefile
         textField: description
         store:

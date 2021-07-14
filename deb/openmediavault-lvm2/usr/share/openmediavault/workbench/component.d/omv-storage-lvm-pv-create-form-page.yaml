@@ -16,6 +16,7 @@ data:
         name: devicefile
         label: _("Device")
         placeholder: _("Select a device ...")
+        value: ""
         valueField: devicefile
         textField: description
         store:

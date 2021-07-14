@@ -22,6 +22,7 @@ data:
         name: vgname
         label: _("Volume group")
         placeholder: _("Select a volume group ...")
+        value: ""
         valueField: name
         textField: description
         store:

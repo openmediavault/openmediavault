@@ -23,6 +23,7 @@ data:
         label: _("Devices")
         placeholder: _("Select devices ...")
         multiple: true
+        value: ""
         valueField: devicefile
         textField: description
         store:

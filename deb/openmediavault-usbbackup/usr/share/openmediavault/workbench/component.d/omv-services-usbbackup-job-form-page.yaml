@@ -30,18 +30,17 @@ data:
               - _("From external storage to shared folder")
       - type: sharedFolderSelect
         name: sharedfolderref
+        value: ""
         label: _("Shared folder")
         hint: _("The shared folder to synchronise when the external storage device is connected.")
         validators:
-          requiredIf:
-            operator: truthy
-            arg0:
-              prop: enable
+          required: true
       - type: select
         name: devicefile
         label: _("Device")
         placeholder: _("Select a device ...")
         hint: _("The external storage device.")
+        value: ""
         valueField: devicefile
         textField: description
         store:
@@ -53,10 +52,7 @@ data:
             - dir: asc
               prop: devicefile
         validators:
-          requiredIf:
-            operator: truthy
-            arg0:
-              prop: enable
+          required: true
       - type: checkbox
         name: usesubdir
         label: _("Synchronise from/to directory on external storage device")
