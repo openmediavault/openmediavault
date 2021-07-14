@@ -21,6 +21,7 @@ import { FormPasswordInputComponent } from '~/app/core/components/limn-ui/form/c
 import { FormSelectComponent } from '~/app/core/components/limn-ui/form/components/form-select/form-select.component';
 import { FormSharedfolderSelectComponent } from '~/app/core/components/limn-ui/form/components/form-sharedfolder-select/form-sharedfolder-select.component';
 import { FormSliderComponent } from '~/app/core/components/limn-ui/form/components/form-slider/form-slider.component';
+import { FormSshcertSelectComponent } from '~/app/core/components/limn-ui/form/components/form-sshcert-select/form-sshcert-select.component';
 import { FormSslcertSelectComponent } from '~/app/core/components/limn-ui/form/components/form-sslcert-select/form-sslcert-select.component';
 import { FormTextInputComponent } from '~/app/core/components/limn-ui/form/components/form-text-input/form-text-input.component';
 import { FormTextareaComponent } from '~/app/core/components/limn-ui/form/components/form-textarea/form-textarea.component';
@@ -55,6 +56,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     FormParagraphComponent,
     FormSliderComponent,
     TextPageComponent,
+    FormSshcertSelectComponent,
     FormSslcertSelectComponent,
     TabsPageComponent,
     FormFolderbrowserComponent,

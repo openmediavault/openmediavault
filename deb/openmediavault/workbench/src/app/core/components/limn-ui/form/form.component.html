@@ -71,6 +71,12 @@
       </omv-form-sharedfolder-select>
     </ng-template>
 
+    <ng-template [ngSwitchCase]="'sshCertSelect'">
+      <omv-form-sshcert-select [config]="field"
+                               [formGroup]="formGroup">
+      </omv-form-sshcert-select>
+    </ng-template>
+
     <ng-template [ngSwitchCase]="'sslCertSelect'">
       <omv-form-sslcert-select [config]="field"
                                [formGroup]="formGroup">

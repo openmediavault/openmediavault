@@ -50,6 +50,7 @@ export type FormFieldConfig = {
     | 'fileInput'
     | 'select'
     | 'sharedFolderSelect'
+    | 'sshCertSelect'
     | 'sslCertSelect'
     | 'passwordInput'
     | 'datePicker'

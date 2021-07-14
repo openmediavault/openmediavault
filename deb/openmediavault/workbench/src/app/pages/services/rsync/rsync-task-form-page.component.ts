@@ -252,7 +252,7 @@ export class RsyncTaskFormPageComponent {
         }
       },
       {
-        type: 'sslCertSelect',
+        type: 'sshCertSelect',
         name: 'sshcertificateref',
         hasEmptyOption: true,
         value: '',
