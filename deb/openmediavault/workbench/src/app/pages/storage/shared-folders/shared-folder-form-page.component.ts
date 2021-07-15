@@ -126,6 +126,12 @@ export class SharedFolderFormPageComponent {
             ['777', gettext('Everyone: read/write')]
           ]
         },
+        modifiers: [
+          {
+            type: 'visible',
+            constraint: { operator: 'eq', arg0: { prop: 'uuid' }, arg1: '{{ newconfobjuuid }}' }
+          }
+        ],
         validators: {
           required: true
         }
