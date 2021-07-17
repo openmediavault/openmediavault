@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-08 14:57+0200\n"
-"PO-Revision-Date: 2021-07-09 05:19+0000\n"
+"PO-Revision-Date: 2021-07-17 07:45+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -203,10 +203,10 @@ msgid "9 months"
 msgstr "9 Monate"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "Es kann maximal ein Gerät entfernt werden."
 
 msgid "A maximum of two device can be removed."
-msgstr ""
+msgstr "Es können maximal zwei Geräte entfernt werden."
 
 msgid "ACL"
 msgstr "ACL"
@@ -335,13 +335,13 @@ msgid "Antigua and Barbuda"
 msgstr "Antigua und Barbuda"
 
 msgid "Applied the configuration changes."
-msgstr ""
+msgstr "Die Änderungen der Konfiguration wurden übernommen."
 
 msgid "Apply"
 msgstr "Anwenden"
 
 msgid "Apply permissions to files and subfolders."
-msgstr ""
+msgstr "Berechtigungen auf Dateien und Unterordner anwenden."
 
 msgid "April"
 msgstr "April"
@@ -362,10 +362,10 @@ msgid "Asynchronous I/O"
 msgstr "Asynchrones I/O"
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "Es werden mindestens vier Geräte benötigt."
 
 msgid "At least one network interface is required."
-msgstr ""
+msgstr "Mindestens eine Netzwerkschnittstelle ist erforderlich."
 
 msgid "At least three devices are required."
 msgstr "Es werden mindestens drei Geräte benötigt."
@@ -425,7 +425,7 @@ msgid "Back"
 msgstr "Zurück"
 
 msgid "Bad"
-msgstr ""
+msgstr "Schlecht"
 
 msgid "Bahamas"
 msgstr "Bahamas"
@@ -575,7 +575,7 @@ msgid "Changelog"
 msgstr "Änderungen"
 
 msgid "Check for new plugins"
-msgstr ""
+msgstr "Nach neuen Erweiterungen suchen"
 
 msgid "Check for new updates"
 msgstr "Nach neuen Updates suchen"
@@ -602,7 +602,7 @@ msgid "City"
 msgstr "Stadt"
 
 msgid "Cleaning up recycle bin on the share."
-msgstr ""
+msgstr "Aufräumen des Papierkorbs auf der Freigabe."
 
 msgid "Clear"
 msgstr "Lösche"
@@ -638,7 +638,7 @@ msgid "Common Name"
 msgstr "Trivialname"
 
 msgid "Community-maintained updates"
-msgstr ""
+msgstr "Von der Gemeinschaft betreute Aktualisierungen."
 
 msgid "Comoros"
 msgstr "Komoren"
@@ -650,7 +650,7 @@ msgid "Compress"
 msgstr "Komprimieren"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "Komprimiere Daten während der Übertragung."
 
 msgid "Compression"
 msgstr "Kompression"
@@ -710,10 +710,10 @@ msgid "Create file system"
 msgstr "Dateisystem erstellen"
 
 msgid "Create | Import"
-msgstr ""
+msgstr "Erstellen | Importieren"
 
 msgid "Create | Mount"
-msgstr ""
+msgstr "Erstellen | Einbinden"
 
 msgid "Created FTP ban rule."
 msgstr ""
@@ -728,37 +728,37 @@ msgid "Created Rsync server module \"{{ name }}\"."
 msgstr ""
 
 msgid "Created Rsync task."
-msgstr ""
+msgstr "Rsync-Aufgabe erstellt."
 
 msgid "Created SMB/CIFS share."
-msgstr ""
+msgstr "SMB/CIFS-Freigabe erstellt."
 
 msgid "Created SSH certificate."
-msgstr ""
+msgstr "SSH-Zertifikat erstellt."
 
 msgid "Created SSL certificate."
-msgstr ""
+msgstr "SSL-Zertifikat erstellt."
 
 msgid "Created VLAN network connection."
-msgstr ""
+msgstr "VLAN-Netzwerkverbindung erstellt."
 
 msgid "Created bond network connection."
-msgstr ""
+msgstr "Bond-Netzwerkverbindung erstellt."
 
 msgid "Created bridge network connection."
-msgstr ""
+msgstr "Bridge-Netzwerkverbindung erstellt."
 
 msgid "Created firewall rule."
-msgstr ""
+msgstr "Firewallregel erstellt."
 
 msgid "Created group \"{{ name }}\"."
-msgstr ""
+msgstr "Gruppe \"{{ name }}\" erstellt."
 
 msgid "Created scheduled task."
-msgstr ""
+msgstr "Geplante Aufgabe erstellt."
 
 msgid "Created user \"{{ name }}\"."
-msgstr ""
+msgstr "Benutzer \"{{ name }}\" erstellt."
 
 msgid "Created wired network connection."
 msgstr ""
@@ -857,7 +857,7 @@ msgid "Device"
 msgstr "Gerät"
 
 msgid "Device Information"
-msgstr ""
+msgstr "Geräteinformationen"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Device Mapper %s [%s, %s]"
@@ -902,7 +902,7 @@ msgid "Disallow the user to modify his own account."
 msgstr ""
 
 msgid "Disk Usage"
-msgstr ""
+msgstr "Festplattennutzung"
 
 msgid "Disks"
 msgstr "Laufwerke"
@@ -916,13 +916,13 @@ msgstr "Wollen Sie die Änderungen der Konfiguration wirklich anwenden?"
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
 "join(\", \") }}</strong>?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Elemente <strong>{{ items | join(\", \") }}</strong> wirklich löschen?"
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Wollen Sie die ausgewählten Einträge wirklich löschen?"
 
 msgid "Do you really want to install the plugin?"
-msgstr ""
+msgstr "Wollen Sie die Erweiterungen wirklich installieren?"
 
 msgid "Do you really want to logout?"
 msgstr "Wollen Sie sich wirklich abmelden?"
@@ -1523,22 +1523,22 @@ msgid "Invalid SSH public key (OpenSSH or RFC 4716 format)"
 msgstr ""
 
 msgid "Invalid SSH public key (RFC 4716 format)."
-msgstr ""
+msgstr "Ungültiger SSH Public-Key (RFC 4716 Format)."
 
 msgid "Invalid User-Agent."
 msgstr "User-Agent ungültig."
 
 msgid "Invalid domain name."
-msgstr ""
+msgstr "Ungültiger Domainname."
 
 msgid "Invalid group name."
-msgstr ""
+msgstr "Ungültiger Gruppenname."
 
 msgid "Invalid host name."
-msgstr ""
+msgstr "Ungültiger Hostname."
 
 msgid "Invalid user name."
-msgstr ""
+msgstr "Ungültiger Benutzername."
 
 msgid "Invalid user."
 msgstr "Benutzer ungültig."
@@ -1567,7 +1567,7 @@ msgid "Ivory Coast"
 msgstr "Elfenbeinküste"
 
 msgid "JFS"
-msgstr ""
+msgstr "JFS"
 
 msgid "Jamaica"
 msgstr "Jamaika"
@@ -1671,7 +1671,7 @@ msgid "Lithuania"
 msgstr "Litauen"
 
 msgid "Load Average"
-msgstr ""
+msgstr "Durchschnittliche Last"
 
 msgid "Load average"
 msgstr "Durchschnittliche Last"
@@ -1686,7 +1686,7 @@ msgid "Location"
 msgstr "Speicherort"
 
 msgid "Log in"
-msgstr ""
+msgstr "Einloggen"
 
 msgid "Log level"
 msgstr "Log Level"
@@ -1704,7 +1704,7 @@ msgid "Luxembourg"
 msgstr "Luxemburg"
 
 msgid "MAC"
-msgstr ""
+msgstr "MAC"
 
 msgid "MII monitoring frequency"
 msgstr "MII Überwachungs-häufigkeit"
@@ -1786,7 +1786,7 @@ msgid "Maximum download rate (KiB/s)"
 msgstr "Maximale Download-Rate (KiB/s)"
 
 msgid "Maximum file size"
-msgstr ""
+msgstr "Maximale Dateigröße"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1819,7 +1819,7 @@ msgid "Members"
 msgstr "Mitglieder"
 
 msgid "Memory Usage"
-msgstr ""
+msgstr "Speichernutzung"
 
 msgid "Memory usage"
 msgstr "Speicherverbrauch"
@@ -1885,7 +1885,7 @@ msgid "Mongolia"
 msgstr "Mongolei"
 
 msgid "Monitored"
-msgstr ""
+msgstr "Überwacht"
 
 msgid "Monitoring"
 msgstr "Überwachung"
@@ -1984,7 +1984,7 @@ msgid "No connections"
 msgstr "Keine Verbindungen"
 
 msgid "No data to display."
-msgstr ""
+msgstr "Keine Daten zum Anzeigen."
 
 msgid "No session reuse required"
 msgstr "Keine Session-Wiederverwendung benötigt"
@@ -2026,10 +2026,10 @@ msgid "Not UDP"
 msgstr "Nicht UDP"
 
 msgid "Not mounted"
-msgstr ""
+msgstr "Nicht eingebunden"
 
 msgid "Not running"
-msgstr ""
+msgstr "Läuft nicht"
 
 msgid "Nothing"
 msgstr "Nichts"
@@ -2077,7 +2077,7 @@ msgid "Organization Name"
 msgstr "Name der Organisation"
 
 msgid "Organization Unit"
-msgstr ""
+msgstr "Organisationseinheit"
 
 msgid "Others"
 msgstr "Andere"
@@ -2095,7 +2095,7 @@ msgid "Pacific Islands Trust Territory"
 msgstr "Treuhandgebiet Pazifische Inseln"
 
 msgid "Package Information"
-msgstr ""
+msgstr "Paketinformationen"
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2134,10 +2134,10 @@ msgid "Password authentication"
 msgstr "Authentifizierung mit Passwort"
 
 msgid "Password does not match."
-msgstr ""
+msgstr "Passwort stimmt nicht überein."
 
 msgid "Password doesn't match."
-msgstr ""
+msgstr "Passwort stimmt nicht überein."
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
 msgstr "Hier ein RSA oder ECC Zertifikat im X.509 PEM Format einfügen."
@@ -2157,7 +2157,7 @@ msgid "Perform a trial run with no changes made"
 msgstr "Führe eine Probelauf ohne Änderungen durch"
 
 msgid "Performance Statistics"
-msgstr ""
+msgstr "Leistungsstatistiken"
 
 msgid "Period of validity"
 msgstr "Gültigkeitsdauer"
