@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-08 14:57+0200\n"
-"PO-Revision-Date: 2021-07-17 07:45+0000\n"
+"PO-Revision-Date: 2021-07-18 14:28+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -434,7 +434,7 @@ msgid "Bahrain"
 msgstr "Bahrain"
 
 msgid "Ban Rules"
-msgstr ""
+msgstr "Verbotsregeln"
 
 msgid "Ban statistics:"
 msgstr "Ban Statistik:"
@@ -716,7 +716,7 @@ msgid "Create | Mount"
 msgstr "Erstellen | Einbinden"
 
 msgid "Created FTP ban rule."
-msgstr ""
+msgstr "FTP Verbotsregel erstellt."
 
 msgid "Created FTP share."
 msgstr "FTP-Freigabe erstellt."
@@ -725,7 +725,7 @@ msgid "Created NFS share."
 msgstr "NFS-Freigabe erstellt."
 
 msgid "Created Rsync server module \"{{ name }}\"."
-msgstr ""
+msgstr "Rsync Server Modul \"{{ name }}\" erstellt."
 
 msgid "Created Rsync task."
 msgstr "Rsync-Aufgabe erstellt."
@@ -761,10 +761,10 @@ msgid "Created user \"{{ name }}\"."
 msgstr "Benutzer \"{{ name }}\" erstellt."
 
 msgid "Created wired network connection."
-msgstr ""
+msgstr "Kabelgebundene Netzwerkverbindung erstellt."
 
 msgid "Created wireless network connection."
-msgstr ""
+msgstr "Drahtlose Netzwerkverbindung erstellt."
 
 msgid "Critical"
 msgstr "Kritisch"
@@ -851,7 +851,7 @@ msgid "Destination shared folder"
 msgstr "Ziel-Freigabe"
 
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 msgid "Device"
 msgstr "Gerät"
@@ -866,16 +866,16 @@ msgid "Device Symlinks"
 msgstr "Gerätesymlinks"
 
 msgid "Device has a few bad sectors."
-msgstr ""
+msgstr "Das Laufwerk enthält einige fehlerhafte Sektoren."
 
 msgid "Device has many bad sectors."
-msgstr ""
+msgstr "Das Laufwerk hat viele fehlerhafte Sektoren."
 
 msgid "Device is being used outside design parameters."
-msgstr ""
+msgstr "Das Laufwerk wird außerhalb der erlaubten Betriebsbedingungen betrieben."
 
 msgid "Device was used outside of design parameters in the past."
-msgstr ""
+msgstr "Das Laufwerk wurde in der Vergangenheit außerhalb der erlaubten Betriebsbedingungen betrieben."
 
 msgid "Device(s)"
 msgstr "Gerät(e)"
@@ -896,10 +896,10 @@ msgid "Disabled"
 msgstr "Deaktiviert"
 
 msgid "Disallow account modification"
-msgstr ""
+msgstr "Kontoänderung nicht zulassen"
 
 msgid "Disallow the user to modify his own account."
-msgstr ""
+msgstr "Der Benutzer darf sein Konto nicht ändern."
 
 msgid "Disk Usage"
 msgstr "Festplattennutzung"
@@ -928,7 +928,7 @@ msgid "Do you really want to logout?"
 msgstr "Wollen Sie sich wirklich abmelden?"
 
 msgid "Do you really want to mount the file system?"
-msgstr ""
+msgstr "Möchten Sie das Dateisystem wirklich einbinden?"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Wollen Sie das System wirklich in den Ruhestand versetzen?"
@@ -937,7 +937,7 @@ msgid "Do you really want to reboot the system?"
 msgstr "Wollen Sie wirklich das System neu starten?"
 
 msgid "Do you really want to reset the UI settings to their default values?"
-msgstr ""
+msgstr "Möchten Sie die UI-Einstellungen wirklich auf ihre Standardwerte zurücksetzen?"
 
 msgid ""
 "Do you really want to resize the file system? You have to do that after a "
@@ -948,10 +948,10 @@ msgid "Do you really want to shutdown the system?"
 msgstr "Wollen Sie wirklich das System herunterfahren?"
 
 msgid "Do you really want to undo the configuration changes?"
-msgstr ""
+msgstr "Möchten Sie die Konfigurationsänderungen wirklich rückgängig machen?"
 
 msgid "Do you really want to uninstall the plugin?"
-msgstr ""
+msgstr "Möchten Sie die Erweiterung wirklich deinstallieren?"
 
 msgid ""
 "Do you really want to unmount this file system? Please make sure that the "
@@ -968,7 +968,7 @@ msgid ""
 msgstr ""
 
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentation"
 
 msgid "Domain name"
 msgstr "Domainname"
@@ -995,10 +995,10 @@ msgid "Dronning Maud Land"
 msgstr "Königin-Maud-Land"
 
 msgid "EXT3"
-msgstr ""
+msgstr "EXT3"
 
 msgid "EXT4"
-msgstr ""
+msgstr "EXT4"
 
 msgid "Each line represents a group."
 msgstr ""
@@ -1030,7 +1030,7 @@ msgid "Empty now"
 msgstr "Jetzt leeren"
 
 msgid "Enable SSL/TLS connections."
-msgstr ""
+msgstr "Aktiviere SSL/TLS Verbindungen."
 
 msgid "Enable Time Machine support for this share."
 msgstr "Aktivieren der Time Machine-Unterstützung für diese Freigabe."
@@ -1039,10 +1039,10 @@ msgid "Enable WINS server"
 msgstr "WINS Server aktivieren"
 
 msgid "Enable keyboard-interactive authentication."
-msgstr ""
+msgstr "Aktiviere Passwort Authentifizierung."
 
 msgid "Enable public key authentication."
-msgstr ""
+msgstr "Aktiviere Authentifizierung mit öffentlichem Schlüssel."
 
 msgid "Enable recycle bin"
 msgstr "Aktiviere Papierkorb"
@@ -1062,13 +1062,13 @@ msgid "Enable user home directories"
 msgstr "Aktiviere Heimatverzeichnisse für Benutzer"
 
 msgid "Enable write-cache"
-msgstr ""
+msgstr "Aktiviere Schreibcache"
 
 msgid "Enabled"
 msgstr "Aktiviert"
 
 msgid "Enabled widgets"
-msgstr ""
+msgstr "Aktivierte Widgets"
 
 msgid "Encryption mode"
 msgstr "Verschlüsselungsmodus"
@@ -1113,7 +1113,7 @@ msgid "Expire"
 msgstr "Verfall"
 
 msgid "Extended Information"
-msgstr ""
+msgstr "Erweiterte Informationen"
 
 msgid "Extended attributes"
 msgstr "Erweiterte Attribute"
@@ -1122,7 +1122,7 @@ msgid "Extra options"
 msgstr "Erweiterte Optionen"
 
 msgid "F2FS"
-msgstr ""
+msgstr "F2FS"
 
 msgid "FTP"
 msgstr "FTP"
@@ -1142,7 +1142,7 @@ msgid ""
 msgstr "FXP erlaubt Übertragungen zwischen zwei entfernten Servern ohne das dabei Daten über den anfragenden Client fließen."
 
 msgid "Failed to copy data to the clipboard."
-msgstr ""
+msgstr "Fehler beim Kopieren der Daten in die Zwischenablage."
 
 msgid "Falkland Islands"
 msgstr "Falklandinseln"
@@ -1166,7 +1166,7 @@ msgid "File Systems"
 msgstr "Dateisysteme"
 
 msgid "File Systems Status"
-msgstr ""
+msgstr "Dateisystemstatus"
 
 msgid "File system"
 msgstr "Dateisystem"
@@ -1191,7 +1191,7 @@ msgid "Filesize"
 msgstr "Dateigröße"
 
 msgid "Filesystem"
-msgstr ""
+msgstr "Dateisystem"
 
 msgid "Filesystems"
 msgstr "Dateisysteme"
@@ -1215,7 +1215,7 @@ msgid "Force secure connection only."
 msgstr "Sichere Verbindung erzwingen."
 
 msgid "Forum"
-msgstr ""
+msgstr "Forum"
 
 msgid "France"
 msgstr "Frankreich"
@@ -1296,7 +1296,7 @@ msgid "Guests allowed"
 msgstr "Gäste sind zugelassen"
 
 msgid "Guests only"
-msgstr ""
+msgstr "Nur für Gäste"
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1320,10 +1320,10 @@ msgid "Heard Island and McDonald Islands"
 msgstr "Heard- und McDonaldinseln"
 
 msgid "Help"
-msgstr ""
+msgstr "Hilfe"
 
 msgid "Hide"
-msgstr ""
+msgstr "Ausblenden"
 
 msgid "Hide dot files"
 msgstr "Verstecke Dotfiles"
@@ -1391,7 +1391,7 @@ msgid "Identify As"
 msgstr "Identifizieren als"
 
 msgid "Identify network interface"
-msgstr ""
+msgstr "Netzwerkschnittstelle identifizieren"
 
 msgid "Idle"
 msgstr "Leerlauf"
@@ -1447,16 +1447,16 @@ msgid "Import"
 msgstr "Importieren"
 
 msgid "Imported SSH certificate."
-msgstr ""
+msgstr "SSH-Zertifikat importiert."
 
 msgid "Imported SSL certificate."
-msgstr ""
+msgstr "SSL-Zertifikat importiert."
 
 msgid "Imported groups."
-msgstr ""
+msgstr "Gruppe importiert."
 
 msgid "Imported users."
-msgstr ""
+msgstr "Benutzer importiert."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1494,10 +1494,10 @@ msgid "Install"
 msgstr "Installieren"
 
 msgid "Install plugin"
-msgstr ""
+msgstr "Erweiterung installieren"
 
 msgid "Install updates"
-msgstr ""
+msgstr "Aktualisierungen installieren"
 
 msgid "Install updates from"
 msgstr "Installiere Aktualisierungen von"

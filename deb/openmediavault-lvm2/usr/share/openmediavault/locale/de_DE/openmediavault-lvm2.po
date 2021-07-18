@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the openmediavault-lvm2 package.
 # 
 # Translators:
-# Volker <votdev@gmx.de>, 2014-2015,2017
+# Volker <votdev@gmx.de>, 2014-2015,2017,2021
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2012
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-08 14:53+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"PO-Revision-Date: 2021-07-17 07:55+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgid "Confirmation"
 msgstr "Bestätigung"
 
 msgid "Create"
-msgstr ""
+msgstr "Erstellen"
 
 msgid "Create logical volume"
 msgstr "Logical Volume erstellen"
@@ -86,7 +86,7 @@ msgid "Do you really want to resize the selected physical volume?"
 msgstr "Wollen Sie die Größe des Physical Volume wirklich ändern?"
 
 msgid "Edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 msgid "Edit logical volume"
 msgstr "Logical Volume ändern"
@@ -119,7 +119,7 @@ msgid "Logical Volume Management"
 msgstr "Logical Volume Management"
 
 msgid "Logical Volumes"
-msgstr ""
+msgstr "Logical Volumes"
 
 msgid "Logical volumes"
 msgstr "Logical Volumes"
@@ -134,7 +134,7 @@ msgid "No free space available to extend the logical volume."
 msgstr "Es steht kein freier Speicherplatz zur Verfügung um das Logical Volume zu erweitern."
 
 msgid "Physical Volumes"
-msgstr ""
+msgstr "Physical Volumes"
 
 msgid "Physical volumes"
 msgstr "Physical Volumes"
@@ -152,7 +152,7 @@ msgid "Resize"
 msgstr "Größe ändern"
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Wählen Sie ein Gerät aus ..."
 
 msgid "Select a volume group ..."
 msgstr "Volumegruppe auswählen ..."
@@ -161,7 +161,7 @@ msgid "Select an device ..."
 msgstr "Laufwerk auswählen ..."
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Geräte auswählen ..."
 
 msgid "Select the devices used to extend the volume group."
 msgstr ""
@@ -195,10 +195,10 @@ msgid "Used"
 msgstr "Benutzt"
 
 msgid "Volume Group"
-msgstr ""
+msgstr "Volumegruppe"
 
 msgid "Volume Groups"
-msgstr ""
+msgstr "Volumegruppen"
 
 msgid "Volume group"
 msgstr "Volumegruppe"
