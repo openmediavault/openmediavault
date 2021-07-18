@@ -60,10 +60,11 @@ describe('functions.helper', () => {
   });
 
   it('should format string [2]', () => {
-    const data = { foo: 4, bar: 4.1234, baz: -1 };
+    const data = { foo: 4, bar: 4.1234, baz: -1, qux: 'abc' };
     expect(format('{{ foo | tofixed(2) }}', data)).toBe('4.00');
     expect(format('{{ bar | tofixed(3) }}', data)).toBe('4.123');
     expect(format('{{ bar | tofixed(0) }}', data)).toBe('4');
+    expect(format('{{ qux | tofixed(1) }}', data)).toBe('NaN');
     expect(format('{{ baz | min(0) }}', data)).toBe('-1');
     expect(format('{{ foo | min(10) }}', data)).toBe('4');
     expect(format('{{ baz | max(0) }}', data)).toBe('0');

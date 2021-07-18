@@ -318,9 +318,11 @@ nunjucksEnv.addGlobal('newconfobjuuid', 'fa4b1c66-ef79-11e5-87a0-0002b3a176b4');
 nunjucksEnv.addFilter('translate', translate);
 nunjucksEnv.addFilter('binaryunit', binaryUnit);
 nunjucksEnv.addFilter('tobytes', toBytes);
-nunjucksEnv.addFilter('tofixed', (value: number, fractionDigits: number = 0) =>
-  value.toFixed(fractionDigits)
-);
+/**
+ * Formats a number using fixed-point notation. If the given value is not a number,
+ * then `NaN` is returned.
+ */
+nunjucksEnv.addFilter('tofixed', (value: number, fractionDigits: number = 0) => _.isNumber(value) ? value.toFixed(fractionDigits) : NaN);
 nunjucksEnv.addFilter('min', (value: number, minValue: number) => Math.min(value, minValue));
 nunjucksEnv.addFilter('max', (value: number, maxValue: number) => Math.max(value, maxValue));
 nunjucksEnv.addFilter('notavailable', notAvailable);
