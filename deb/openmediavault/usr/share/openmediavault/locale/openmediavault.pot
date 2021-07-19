@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:57+0200\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -426,6 +426,9 @@ msgid "Bangladesh"
 msgstr ""
 
 msgid "Barbados"
+msgstr ""
+
+msgid "Base path"
 msgstr ""
 
 msgid "Belarus"
@@ -1349,7 +1352,7 @@ msgstr ""
 msgid "If 'Guests allowed' is selected and no login credential is provided, then access as guest. Always access as guest when 'Guests only' is selecting; in this case no password is required to connect to the share."
 msgstr ""
 
-msgid "If set then the client will be challenged to supply a username and password to connect to the module."
+msgid "If set then the client will be challenged to supply a user name and password to connect to the module."
 msgstr ""
 
 msgid "If this option is set, the daemon will chroot to the shared folder path before starting the file transfer with the client. Then it is not possible to map users and groups by name and the daemon is not being able to follow symbolic links that are either absolute or outside of the new root path."
@@ -2150,7 +2153,7 @@ msgstr ""
 msgid "Please wait, the data is being loaded ..."
 msgstr ""
 
-msgid "Please wait, the file system is being mounted."
+msgid "Please wait, the file system is being mounted ..."
 msgstr ""
 
 msgid "Please wait, the statistic graphs will be regenerated ..."
@@ -3101,6 +3104,9 @@ msgstr ""
 msgid "This field contains invalid characters, e.g. a blank or \"/[]:+|<>=;,*? character."
 msgstr ""
 
+msgid "This field contains invalid characters, only alphanumeric characters and underscore are allowed."
+msgstr ""
+
 msgid "This field is required."
 msgstr ""
 
@@ -3446,6 +3452,9 @@ msgstr ""
 msgid "Updated scheduled task."
 msgstr ""
 
+msgid "Updated settings."
+msgstr ""
+
 msgid "Updated update management settings."
 msgstr ""
 
@@ -3515,10 +3524,10 @@ msgstr ""
 msgid "User home directory"
 msgstr ""
 
-msgid "User/Group permissions"
+msgid "User name"
 msgstr ""
 
-msgid "Username"
+msgid "User/Group permissions"
 msgstr ""
 
 msgid "Users"
@@ -3596,7 +3605,7 @@ msgstr ""
 msgid "Western Sahara"
 msgstr ""
 
-msgid "When a client initially connects to the server the ident protocol is used to attempt to identify the remote username."
+msgid "When a client initially connects to the server the ident protocol is used to attempt to identify the remote user name."
 msgstr ""
 
 msgid "When failed"

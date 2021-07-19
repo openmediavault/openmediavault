@@ -286,7 +286,7 @@ export class FtpSettingsFormPageComponent {
         name: 'identlookups',
         label: gettext('Ident protocol'),
         hint: gettext(
-          'When a client initially connects to the server the ident protocol is used to attempt to identify the remote username.'
+          'When a client initially connects to the server the ident protocol is used to attempt to identify the remote user name.'
         ),
         value: false
       },

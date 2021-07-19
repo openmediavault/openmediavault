@@ -28,7 +28,7 @@ data:
   - name: _("Access mode")
     sortable: true
     prop: accessmode
-  - name: _("Username")
+  - name: _("User name")
     sortable: true
     prop: username
   - name: _("Transfer type")

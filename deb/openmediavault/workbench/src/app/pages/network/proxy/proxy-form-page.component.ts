@@ -82,7 +82,7 @@ export class ProxyFormPageComponent {
       {
         type: 'textInput',
         name: 'httpusername',
-        label: gettext('Username'),
+        label: gettext('User name'),
         value: '',
         autocomplete: 'off',
         modifiers: [
@@ -155,7 +155,7 @@ export class ProxyFormPageComponent {
       {
         type: 'textInput',
         name: 'httpsusername',
-        label: gettext('Username'),
+        label: gettext('User name'),
         value: '',
         autocomplete: 'off',
         modifiers: [
@@ -228,7 +228,7 @@ export class ProxyFormPageComponent {
       {
         type: 'textInput',
         name: 'ftpusername',
-        label: gettext('Username'),
+        label: gettext('User name'),
         value: '',
         autocomplete: 'off',
         modifiers: [

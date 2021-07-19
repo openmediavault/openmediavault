@@ -59,7 +59,7 @@ data:
             arg1: "netclient"
       - type: textInput
         name: netclientusername
-        label: _("Netclient username")
+        label: _("Netclient user name")
         autocomplete: new-password
         value: ""
         modifiers:
@@ -183,7 +183,7 @@ data:
               arg1: "netclient"
       - type: passwordInput
         name: remoteuser
-        label: _("Username")
+        label: _("User name")
         hint: _("Used for remote authentication.")
         autocomplete: new-password
         modifiers:

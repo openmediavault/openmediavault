@@ -49,7 +49,7 @@ export class LoginPageComponent implements OnInit {
       {
         type: 'textInput',
         name: 'username',
-        label: gettext('Username'),
+        label: gettext('User name'),
         autofocus: true,
         autocomplete: 'username',
         icon: Icon.user,

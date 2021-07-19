@@ -194,7 +194,7 @@ export class RsyncModuleFormPageComponent {
         name: 'authusers',
         label: gettext('Authenticate users'),
         hint: gettext(
-          'If set then the client will be challenged to supply a username and password to connect to the module.'
+          'If set then the client will be challenged to supply a user name and password to connect to the module.'
         ),
         value: false
       },

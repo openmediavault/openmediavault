@@ -97,7 +97,7 @@ export class NotificationSettingsFormPageComponent {
       {
         type: 'textInput',
         name: 'username',
-        label: gettext('Username'),
+        label: gettext('User name'),
         value: '',
         autocomplete: 'off',
         modifiers: [

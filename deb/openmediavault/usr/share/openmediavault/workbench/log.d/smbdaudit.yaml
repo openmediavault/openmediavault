@@ -14,7 +14,7 @@ data:
     hidden: true
     prop: hostname
     flexGrow: 1
-  - name: _("Username")
+  - name: _("User name")
     sortable: true
     prop: username
     flexGrow: 1

@@ -50,7 +50,7 @@ data:
           required: true
       - type: textInput
         name: username
-        label: _("Username")
+        label: _("User name")
         value: ""
         modifiers:
           - type: visible
