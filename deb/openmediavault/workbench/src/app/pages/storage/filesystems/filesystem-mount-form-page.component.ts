@@ -33,7 +33,7 @@ export class FilesystemMountFormPageComponent {
           template: 'confirmation',
           message: gettext('Do you really want to mount the file system?')
         },
-        progressMessage: gettext('Please wait, the file system is being mounted.')
+        progressMessage: gettext('Please wait, the file system is being mounted ...')
       }
     },
     fields: [
