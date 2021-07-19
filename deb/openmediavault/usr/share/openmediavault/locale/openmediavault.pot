@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
+"POT-Creation-Date: 2021-07-19 22:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1130,6 +1130,9 @@ msgstr ""
 msgid "File system"
 msgstr ""
 
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr ""
 
@@ -1143,12 +1146,6 @@ msgid "Files that are larger than the specified number of bytes will not be put 
 msgstr ""
 
 msgid "Filesize"
-msgstr ""
-
-msgid "Filesystem"
-msgstr ""
-
-msgid "Filesystems"
 msgstr ""
 
 msgid "Finland"
@@ -1352,7 +1349,7 @@ msgstr ""
 msgid "If 'Guests allowed' is selected and no login credential is provided, then access as guest. Always access as guest when 'Guests only' is selecting; in this case no password is required to connect to the share."
 msgstr ""
 
-msgid "If set then the client will be challenged to supply a user name and password to connect to the module."
+msgid "If set then the client will be prompted to supply a user name and password to connect to the module."
 msgstr ""
 
 msgid "If this option is set, the daemon will chroot to the shared folder path before starting the file transfer with the client. Then it is not possible to map users and groups by name and the daemon is not being able to follow symbolic links that are either absolute or outside of the new root path."

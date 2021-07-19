@@ -30,7 +30,7 @@ class Xfs extends Filesystem {
 	final public function grow() {
 		if (!$this->isMounted()) {
 			throw new \OMV\Exception(
-				"Filesystem '%s' must be mounted to be grown.",
+				"File system '%s' must be mounted to be grown.",
 				$this->getDeviceFile());
 		}
 		$cmdArgs = [];

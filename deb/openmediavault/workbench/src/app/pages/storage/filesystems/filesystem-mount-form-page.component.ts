@@ -40,7 +40,7 @@ export class FilesystemMountFormPageComponent {
       {
         type: 'select',
         name: 'id',
-        label: gettext('Filesystem'),
+        label: gettext('File system'),
         placeholder: gettext('Select a file system ...'),
         hint: gettext('The file system to mount.'),
         validators: {

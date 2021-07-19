@@ -56,7 +56,7 @@ class Manager implements \IteratorAggregate {
 		$type = mb_strtolower($backend->getType());
 		// Check if the filesystem backend already exists.
 		if (NULL !== ($registeredBackend = $this->getBackendByType($type))) {
-			throw new \OMV\Exception("The filesystem backend (type=%s, ".
+			throw new \OMV\Exception("The file system backend (type=%s, ".
 			  "class=%s) is already registered (class=%s).", $type,
 			  get_class($backend), get_class($registeredBackend));
 		}
@@ -101,7 +101,7 @@ class Manager implements \IteratorAggregate {
 		$backend = $this->getBackendByType($type);
 		if (is_null($backend)) {
 			throw new \OMV\AssertException(
-			  "No filesystem backend exists for type '%s'.",
+			  "No file system backend exists for type '%s'.",
 			  $type);
 		}
 	}
@@ -175,7 +175,7 @@ class Manager implements \IteratorAggregate {
 		$backend = $this->getBackendById($id);
 		if (is_null($backend)) {
 			throw new \OMV\AssertException(
-			  "No filesystem backend exists for '%s'.",
+			  "No file system backend exists for '%s'.",
 			  $id);
 		}
 	}
@@ -298,7 +298,7 @@ class Manager implements \IteratorAggregate {
 	 * Dump all registered RPC services.
 	 */
 	final public function dump() {
-		print("Registered filesystem backends:\n");
+		print("Registered file system backends:\n");
 		foreach ($this->map as $backendk => $backendv)
 			printf("  %s\n", $backendv->getType());
 	}

@@ -60,7 +60,7 @@
   {% endif %}
 {% endfor %}
 
-# Append the root filesystem.
+# Append the root file system.
 {% set root_fs = salt['omv_utils.get_root_filesystem']() %}
 {% set disk = salt['omv_utils.get_fs_parent_device_file'](root_fs) %}
 {% set _ = disks.append(disk[5:]) %}

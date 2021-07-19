@@ -52,7 +52,7 @@ class Monit extends \OMV\Engine\Module\ServiceAbstract
 			],[
 				"id" => "monitfilesystems",
 				"type" => getText("Storage"),
-				"title" => gettext("Filesystems")
+				"title" => gettext("File systems")
 			]
 		];
 	}

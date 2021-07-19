@@ -213,7 +213,7 @@ class Filesystem extends \OMV\System\BlockDevice
 	public function assertUuid() {
 		if (FALSE === $this->hasUuid()) {
 			throw new \OMV\AssertException(
-			  "Filesystem '%s' does not have an UUID.",
+			  "File system '%s' does not have an UUID.",
 			  $this->getDeviceFile());
 		}
 	}
@@ -246,7 +246,7 @@ class Filesystem extends \OMV\System\BlockDevice
 	public function assertLabel() {
 		if (FALSE === $this->hasLabel()) {
 			throw new \OMV\AssertException(
-			  "Filesystem '%s' does not have a label.",
+			  "File system '%s' does not have a label.",
 			  $this->getDeviceFile());
 		}
 	}
@@ -321,7 +321,7 @@ class Filesystem extends \OMV\System\BlockDevice
 		$deviceFile = sprintf("/dev/disk/by-uuid/%s", $this->getUuid());
 		if (FALSE === is_block_device($deviceFile)) {
 			throw new \OMV\Exception(
-			  "Filesystem '%s' does not have a disk/by-uuid device file.",
+			  "File system '%s' does not have a disk/by-uuid device file.",
 			  $this->getDeviceFile());
 		}
 		return $deviceFile;
@@ -352,7 +352,7 @@ class Filesystem extends \OMV\System\BlockDevice
 		$deviceFile = parent::getDeviceFileById();
 		if (FALSE === is_block_device($deviceFile)) {
 			throw new \OMV\Exception(
-			  "Filesystem '%s' does not have a disk/by-id device file.",
+			  "File system '%s' does not have a disk/by-id device file.",
 			  $this->getDeviceFile());
 		}
 		return $deviceFile;
@@ -386,7 +386,7 @@ class Filesystem extends \OMV\System\BlockDevice
 			$this->getLabel()));
 		if (FALSE === is_block_device($deviceFile)) {
 			throw new \OMV\Exception(
-			  "Filesystem '%s' does not have a disk/by-label device file.",
+			  "File system '%s' does not have a disk/by-label device file.",
 			  $this->getDeviceFile());
 		}
 		return $deviceFile;
