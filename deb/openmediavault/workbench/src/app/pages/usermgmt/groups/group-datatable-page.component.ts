@@ -35,6 +35,13 @@ export class GroupDatatablePageComponent {
     columns: [
       { name: gettext('Name'), prop: 'name', flexGrow: 1, sortable: true },
       {
+        name: gettext('GID'),
+        prop: 'gid',
+        flexGrow: 1,
+        sortable: true,
+        hidden: true
+      },
+      {
         name: gettext('Members'),
         prop: 'members',
         flexGrow: 1,

@@ -34,6 +34,20 @@ export class UserDatatablePageComponent {
     rowEnumFmt: '{{ name }}',
     columns: [
       { name: gettext('Name'), prop: 'name', flexGrow: 1, sortable: true },
+      {
+        name: gettext('UID'),
+        prop: 'uid',
+        flexGrow: 1,
+        sortable: true,
+        hidden: true
+      },
+      {
+        name: gettext('GID'),
+        prop: 'gid',
+        flexGrow: 1,
+        sortable: true,
+        hidden: true
+      },
       { name: gettext('Email'), prop: 'email', flexGrow: 1, sortable: true },
       {
         name: gettext('Groups'),
