@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
-# Kostas Moho, 2012-2014,2017
+# Kostas Moho, 2012-2014,2017,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:53+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
+"PO-Revision-Date: 2021-07-22 08:50+0000\n"
+"Last-Translator: Kostas Moho\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,10 +36,10 @@ msgid "Antivirus"
 msgstr "Αντιβιωτικό"
 
 msgid "April"
-msgstr ""
+msgstr "Απρίλιος"
 
 msgid "August"
-msgstr ""
+msgstr "Αύγουστος"
 
 msgid "Be verbose."
 msgstr "Αναλυτική παράθεση."
@@ -48,13 +48,13 @@ msgid "Comment"
 msgstr "Σχόλιο"
 
 msgid "Create"
-msgstr ""
+msgstr "Δημιουργία"
 
 msgid "Created on-access scan."
-msgstr ""
+msgstr "Δημιουργία σάρωσης κατά την πρόσβαση"
 
 msgid "Created scheduled scan."
-msgstr ""
+msgstr "Δημιουργία προγραμματισμένης σάρωσης."
 
 msgid "Database checks"
 msgstr "Έλεγχος βάσης δεδομένων"
@@ -69,10 +69,10 @@ msgid "Day of week"
 msgstr "Ημέρα της εβδομάδας"
 
 msgid "December"
-msgstr ""
+msgstr "Δεκέμβριος"
 
 msgid "Delete immediately"
-msgstr ""
+msgstr "Άμεση διαγραφή"
 
 msgid "Detect PUA"
 msgstr "Ανίχνευση PUA"
@@ -84,7 +84,7 @@ msgid "Done ..."
 msgstr "Ολοκλήρωση ..."
 
 msgid "Edit"
-msgstr ""
+msgstr "Επεξεργασία"
 
 msgid "Edit on-access scan"
 msgstr "Επεξεργασία σάρωσης κατά την πρόσβαση"
@@ -140,13 +140,13 @@ msgid "Execute scheduled job"
 msgstr "Εκτέλεση προγραμματισμένης εργασίας"
 
 msgid "Execute scheduled scan"
-msgstr ""
+msgstr "Εκτέλεση προγραμματισμένης σάρωσης."
 
 msgid "Extra options"
 msgstr "Πρόσθετες επιλογές"
 
 msgid "February"
-msgstr ""
+msgstr "Φεβρουάριος"
 
 msgid "Follow directory symlinks"
 msgstr "Ακολούθηση συμβολικών συνδέσμων σε αρχεία"
@@ -161,7 +161,7 @@ msgid "Follow regular file symlinks."
 msgstr "Να ακολουθούνται οι συμβολικοί σύνδεσμοι των αρχείων."
 
 msgid "Friday"
-msgstr ""
+msgstr "Παρασκευή"
 
 msgid "General settings"
 msgstr "Γενικές ρυθμίσεις"
@@ -173,13 +173,13 @@ msgid "Infected files"
 msgstr "Μολυσμένα αρχεία"
 
 msgid "January"
-msgstr ""
+msgstr "Ιανουάριος"
 
 msgid "July"
-msgstr ""
+msgstr "Ιούλιος"
 
 msgid "June"
-msgstr ""
+msgstr "Ιούνιος"
 
 msgid "Log clean files"
 msgstr "Καταγραφή καθαρών αρχείων"
@@ -188,10 +188,10 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "Καταγραφή καθαρών αρχείων. Αυξάνει δραστικά το μέγεθος της καταγραφής."
 
 msgid "March"
-msgstr ""
+msgstr "Μάρτιος"
 
 msgid "May"
-msgstr ""
+msgstr "Μάιος"
 
 msgid "Message"
 msgstr "Μήνυμα"
@@ -200,7 +200,7 @@ msgid "Minute"
 msgstr "Λεπτό"
 
 msgid "Monday"
-msgstr ""
+msgstr "Δευτέρα"
 
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "Παρακολούθηση κοινόχρηστου φακέλου και έλεγχος νέων ή αλλαγμένων αρχείων."
@@ -209,19 +209,19 @@ msgid "Month"
 msgstr "Μήνας"
 
 msgid "Move to quarantine"
-msgstr ""
+msgstr "Μεταφορά στην καραντίνα"
 
 msgid "Multiscan"
 msgstr "Πολλαπλή ανίχνευση"
 
 msgid "November"
-msgstr ""
+msgstr "Νοέμβριος"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Αριθμός ελέγχου ενημερώσεων ημερησίως. 0 για καμία."
 
 msgid "October"
-msgstr ""
+msgstr "Οκτώβριος"
 
 msgid "On Access Scans"
 msgstr "Σάρωση κατά την πρόσβαση"
@@ -233,7 +233,7 @@ msgid "Perform a deeper analysis of executable files."
 msgstr "Να γίνεται ενδελεχής ανάλυση των εκτελέσιμων αρχείων."
 
 msgid "Perform nothing"
-msgstr ""
+msgstr "Καμία δράση"
 
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
@@ -245,7 +245,7 @@ msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
 "daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "Διαβάστε το <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>εγχειρίδιο</a> για περισσότερες πληροφορίες."
 
 msgid "Quarantine"
 msgstr "Απομόνωση"
@@ -254,7 +254,7 @@ msgid "Run"
 msgstr "Εκτέλεση"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Σάββατο"
 
 msgid "Scan ELF"
 msgstr "Ανίχνευση σε ELF"
@@ -281,10 +281,10 @@ msgid "Scheduled Jobs"
 msgstr "Προγραμματισμένες Εργασίες"
 
 msgid "Scheduled Scans"
-msgstr ""
+msgstr "Προγραμματισμένες Σαρώσεις"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Προγραμματισμός"
 
 msgid "Send command output via email"
 msgstr "Αποστολή αποτελέσματος εντολής με μήνυμα"
@@ -293,7 +293,7 @@ msgid "Send email"
 msgstr "Αποστολή μηνύματος"
 
 msgid "September"
-msgstr ""
+msgstr "Σεπτέμβριος"
 
 msgid "Settings"
 msgstr "Ρυθμίσεις"
@@ -302,7 +302,7 @@ msgid "Shared folder"
 msgstr "Κοινόχρηστος φάκελος"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Κυριακή"
 
 msgid "The location of the files to scan on-access."
 msgstr "Η τοποθεσία των αρχείων για σάρωση κατά την πρόσβαση"
@@ -317,22 +317,22 @@ msgid "The option, how to handle infected files."
 msgstr "Πώς να χειρίζονται τα μολυσμένα αρχεία."
 
 msgid "Thursday"
-msgstr ""
+msgstr "Πέμπτη"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Τρίτη"
 
 msgid "Updated on-access scan."
-msgstr ""
+msgstr "Ενημέρωση σάρωσης κατά την πρόσβαση"
 
 msgid "Updated scheduled scan."
-msgstr ""
+msgstr "Ενημέρωση προγραμματισμένης σάρωσης."
 
 msgid "Verbose"
 msgstr "Αναλυτικότητα"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Τετάρτη"
 
 msgid "n/a"
 msgstr "n/a"

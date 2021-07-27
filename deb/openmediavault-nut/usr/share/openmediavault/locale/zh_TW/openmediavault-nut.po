@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:53+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
+"PO-Revision-Date: 2021-07-19 16:35+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -73,6 +73,9 @@ msgstr "Netclient 主機名稱"
 
 msgid "Netclient password"
 msgstr "Netclient 密碼"
+
+msgid "Netclient user name"
+msgstr ""
 
 msgid "Netclient username"
 msgstr "Netclient 用戶名稱"
@@ -144,6 +147,9 @@ msgstr ""
 
 msgid "Used for remote authentication."
 msgstr "用於遠端驗證。"
+
+msgid "User name"
+msgstr ""
 
 msgid "Username"
 msgstr "用戶名稱"

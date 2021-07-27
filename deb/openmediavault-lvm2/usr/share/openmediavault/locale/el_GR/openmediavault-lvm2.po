@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-lvm2 package.
 # 
 # Translators:
-# Kostas Moho, 2012-2015,2017,2019
+# Kostas Moho, 2012-2015,2017,2019,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:53+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
+"PO-Revision-Date: 2021-07-22 08:31+0000\n"
+"Last-Translator: Kostas Moho\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +39,7 @@ msgid "Confirmation"
 msgstr "Επιβεβαίωση"
 
 msgid "Create"
-msgstr ""
+msgstr "Δημιουργία"
 
 msgid "Create logical volume"
 msgstr "Δημιουργία λογικού τόμου"
@@ -48,16 +48,16 @@ msgid "Create volume group"
 msgstr "Δημιουργία ομάδας τόμων"
 
 msgid "Created logical volume '{{ name }}'."
-msgstr ""
+msgstr "Δημιουργία λογικού τόμου '{{ name }}'."
 
 msgid "Created physical volume {{ devicefile }}."
-msgstr ""
+msgstr "Δημιουργία φυσικού τόμου '{{ devicefile }}'."
 
 msgid "Created snapshot of logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "Δημιουργία στιγμιότυπου του λογικού τόμου '{{ devicefile }}'."
 
 msgid "Created volume group '{{ name }}'."
-msgstr ""
+msgstr "Δημιουργία ομάδας τόμων '{{ name }}'."
 
 msgid "Description"
 msgstr "Περιγραφή"
@@ -69,7 +69,7 @@ msgid "Devices"
 msgstr "Συσκευές"
 
 msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
-msgstr ""
+msgstr "Δημιουργία φυσικού τόμου στο  '{{ devicefile }}' ?"
 
 msgid "Do you really want to create the logical volume?"
 msgstr "Δημιουργία του λογικού τόμου;"
@@ -84,7 +84,7 @@ msgid "Do you really want to resize the selected physical volume?"
 msgstr "Προσαρμογή του επιλεγμένου φυσικού τόμου;"
 
 msgid "Edit"
-msgstr ""
+msgstr "Επεξεργασία"
 
 msgid "Edit logical volume"
 msgstr "Μεταβολή λογικού τόμου"
@@ -102,10 +102,10 @@ msgid "Extend volume group"
 msgstr "Επέκταση ομάδας τόμων"
 
 msgid "Extended logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "Επέκταση λογικού τόμου '{{ devicefile }}'."
 
 msgid "Extended volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "Επέκταση ομάδας τόμων '{{ devicefile }}'."
 
 msgid "Free"
 msgstr "Διαθέσιμο"
@@ -117,7 +117,7 @@ msgid "Logical Volume Management"
 msgstr "Διαχείριση Λογικών Τόμων"
 
 msgid "Logical Volumes"
-msgstr ""
+msgstr "Λογικοί Τόμοι"
 
 msgid "Logical volumes"
 msgstr "Λογικοί τόμοι"
@@ -132,7 +132,7 @@ msgid "No free space available to extend the logical volume."
 msgstr "Δεν περισσεύει χώρος για την επέκταση του λογικού τόμου."
 
 msgid "Physical Volumes"
-msgstr ""
+msgstr "Φυσικοί Τόμοι"
 
 msgid "Physical volumes"
 msgstr "Φυσικοί τόμοι"
@@ -144,13 +144,13 @@ msgid "Reduce volume group"
 msgstr "Μείωση ομάδας τόμων"
 
 msgid "Reduced volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "Ελάττωση ομάδας τόμων '{{ devicefile }}'."
 
 msgid "Resize"
 msgstr "Προσαρμογή μεγέθους"
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Επιλογή συσκευής..."
 
 msgid "Select a volume group ..."
 msgstr "Επιλογή ομάδας τόμων ..."
@@ -159,13 +159,13 @@ msgid "Select an device ..."
 msgstr "Επιλογή συσκευής ..."
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Επιλογή συσκευών ..."
 
 msgid "Select the devices used to extend the volume group."
-msgstr ""
+msgstr "Επιλογή συσκευών για προσθήκη ως επέκταση της ομάδας τόμων."
 
 msgid "Select the devices used to reduce from the volume group."
-msgstr ""
+msgstr "Επιλογή συσκευών για αφαίρεση ως ελάττωση της ομάδας τόμων."
 
 msgid "Size"
 msgstr "Μέγεθος"
@@ -176,27 +176,27 @@ msgstr "Στιγμιότυπο"
 msgid ""
 "The percentage of the total space in the volume group to allocate for the "
 "new logical volume."
-msgstr ""
+msgstr "Το ποσοστό  του συνολικού χώρου της ομάδας τόμων που θα αποδοθεί στον νέο λογικό τόμο."
 
 msgid ""
 "The percentage of the total space in the volume group to use by the logical "
 "volume."
-msgstr ""
+msgstr "Το ποσοστό του συνολικού χώρου της ομάδας τόμων προς χρήση από τον λογικό τόμο."
 
 msgid "Updated logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "Ενημέρωση λογικού τόμου '{{ devicefile }}'."
 
 msgid "Updated volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "Ενημέρωση ομάδας τόμων '{{ devicefile }}'."
 
 msgid "Used"
 msgstr "Χρησιμοποιημένο"
 
 msgid "Volume Group"
-msgstr ""
+msgstr "Ομάδα Τόμων"
 
 msgid "Volume Groups"
-msgstr ""
+msgstr "Ομάδες Τόμων"
 
 msgid "Volume group"
 msgstr "Ομάδα τόμων"

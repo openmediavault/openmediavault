@@ -4,15 +4,15 @@
 # 
 # Translators:
 # maurorulli <mauro.rulli@gmail.com>, 2012
-# Paolo Velati <paolo.velati@gmail.com>, 2013-2015
+# Paolo Velati <paolo.velati@gmail.com>, 2013-2015,2021
 # Volker <votdev@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:53+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
+"PO-Revision-Date: 2021-07-22 07:45+0000\n"
+"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
-msgstr ""
+msgstr "'Standalone' per UPS locale, 'Netclient' per UPS remoto su un server NUT."
 
 msgid "Charge"
 msgstr "Carica"
@@ -46,7 +46,7 @@ msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Abilita monitoraggio remoto dell'UPS collegato localmente."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Abilitato"
 
 msgid "General settings"
 msgstr "Impostazioni generali"
@@ -55,7 +55,7 @@ msgid "Identifier"
 msgstr "Identificativo"
 
 msgid "Invalid identifier"
-msgstr ""
+msgstr "Identificatore non valido"
 
 msgid "Load"
 msgstr "Carico"
@@ -64,19 +64,22 @@ msgid "Message"
 msgstr "Messaggio"
 
 msgid "Mode"
-msgstr ""
+msgstr "Modalità"
 
 msgid "Netclient"
-msgstr ""
+msgstr "Netclient"
 
 msgid "Netclient hostname"
-msgstr ""
+msgstr "Nome host Netclient"
 
 msgid "Netclient password"
-msgstr ""
+msgstr "Password Netclient"
+
+msgid "Netclient user name"
+msgstr "Nome utente Netclient"
 
 msgid "Netclient username"
-msgstr ""
+msgstr "Username Netclient"
 
 msgid "PID"
 msgstr "PID"
@@ -85,7 +88,7 @@ msgid "Password"
 msgstr "Password"
 
 msgid "Powervalue"
-msgstr ""
+msgstr "Valore di potenza"
 
 msgid "Program"
 msgstr "Programma"
@@ -106,19 +109,19 @@ msgid "Shutdown timer"
 msgstr "Timer di spegnimento"
 
 msgid "Standalone"
-msgstr ""
+msgstr "Standalone"
 
 msgid "Temperature"
 msgstr "Temperatura"
 
 msgid "The name used to uniquely identify your UPS on local or remote system."
-msgstr ""
+msgstr "Il nome utilizzato per identificare in modo univoco l'UPS sul sistema locale o remoto."
 
 msgid ""
 "The number of power supplies that the UPS feeds on this system (usually 1), "
 "refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
 "target='_blank'>upsmon.conf(5)</a> for more information."
-msgstr ""
+msgstr "Il numero di alimentatori che l'UPS alimenta su questo sistema (di solito 1), fare riferimento a <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a> per maggiori informazioni."
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
@@ -141,10 +144,13 @@ msgid "UPS reaches low battery"
 msgstr "Batteria dell'UPS scarica"
 
 msgid "Updated UPS settings."
-msgstr ""
+msgstr "Impostazioni UPS aggiornate."
 
 msgid "Used for remote authentication."
 msgstr "Usato per autenticazione remota."
+
+msgid "User name"
+msgstr "Nome utente"
 
 msgid "Username"
 msgstr "Nome utente"

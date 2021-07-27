@@ -7,14 +7,14 @@
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2019
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2017
 # Sári Gábor <sari.gabor@gmail.com>, 2018
-# Grawens <szabolcs.szanyi@gmail.com>, 2014,2017
+# Grawens <szabolcs.szanyi@gmail.com>, 2014,2017,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:53+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
+"PO-Revision-Date: 2021-07-22 07:11+0000\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,10 +46,10 @@ msgid "Compress file data during the transfer."
 msgstr "Fájladatok tömörítése az átvitel során."
 
 msgid "Create"
-msgstr ""
+msgstr "Létrehozás"
 
 msgid "Created USB backup job."
-msgstr ""
+msgstr "USB-mentési feladat létrehozása."
 
 msgid "Delete"
 msgstr "Törlés"
@@ -64,7 +64,7 @@ msgid "Done ..."
 msgstr "Kész..."
 
 msgid "Edit"
-msgstr ""
+msgstr "Szerkesztés"
 
 msgid "Edit backup job"
 msgstr "Mentési feladat módosítása"
@@ -87,7 +87,7 @@ msgid "Execute backup job"
 msgstr "Mentési feladat végrehajtása"
 
 msgid "External Storage Device"
-msgstr ""
+msgstr "Külső tárolóeszköz"
 
 msgid "External storage device"
 msgstr "Külső tárolóeszköz"
@@ -149,7 +149,7 @@ msgid "Run"
 msgstr "Futtatás"
 
 msgid "Run backup job"
-msgstr ""
+msgstr "Mentési feladat futtatása"
 
 msgid "Scan"
 msgstr "Keresés"
@@ -183,7 +183,7 @@ msgid "Suppress non-error messages."
 msgstr "Nem hibaüzenetek kihagyása."
 
 msgid "Synchronise from/to directory on external storage device"
-msgstr ""
+msgstr "Megosztott mappa szinkronizálása a külső tárolóval."
 
 msgid "Synchronise from/to directory on external storage device."
 msgstr "Megosztott mappa szinkronizálása a külső tárolóval."
@@ -218,7 +218,7 @@ msgid ""
 msgstr "A célállomás kiterjesztett attribútumainak frissítése, hogy megegyezzen a helyiekkel."
 
 msgid "Updated USB backup job."
-msgstr ""
+msgstr "USB-mentési feladat frissítve."
 
 msgid "n/a"
 msgstr "n/a"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:57+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
+"PO-Revision-Date: 2021-07-19 16:36+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -440,6 +440,9 @@ msgstr "Bangla Desh"
 
 msgid "Barbados"
 msgstr "Barbados"
+
+msgid "Base path"
+msgstr ""
 
 msgid "Belarus"
 msgstr "Bielorússia"
@@ -1396,9 +1399,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If set then the client will be challenged to supply a username and password "
-"to connect to the module."
-msgstr "Si es marca, el client serà interrogat per a subministrar un nom d'usuari i contrasenya per a connectar-se a aquest mòdul."
+"If set then the client will be challenged to supply a user name and password"
+" to connect to the module."
+msgstr ""
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
@@ -2254,7 +2257,7 @@ msgstr ""
 msgid "Please wait, the data is being loaded ..."
 msgstr ""
 
-msgid "Please wait, the file system is being mounted."
+msgid "Please wait, the file system is being mounted ..."
 msgstr ""
 
 msgid "Please wait, the statistic graphs will be regenerated ..."
@@ -3286,6 +3289,11 @@ msgid ""
 "character."
 msgstr ""
 
+msgid ""
+"This field contains invalid characters, only alphanumeric characters and "
+"underscore are allowed."
+msgstr ""
+
 msgid "This field is required."
 msgstr ""
 
@@ -3679,6 +3687,9 @@ msgstr ""
 msgid "Updated scheduled task."
 msgstr ""
 
+msgid "Updated settings."
+msgstr ""
+
 msgid "Updated update management settings."
 msgstr ""
 
@@ -3753,11 +3764,11 @@ msgstr ""
 msgid "User home directory"
 msgstr "Directori Home d'usuari"
 
+msgid "User name"
+msgstr ""
+
 msgid "User/Group permissions"
 msgstr "Permisos d’Usuari o Grup"
-
-msgid "Username"
-msgstr "Usuari"
 
 msgid "Users"
 msgstr "Usuaris"
@@ -3836,8 +3847,8 @@ msgstr "Sàhara Occidental"
 
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
-" attempt to identify the remote username."
-msgstr "Quan un client intenta connectar amb el servidor, s’utilitza el protocol ident per a intentar indentificar el nom de l’usuari remot."
+" attempt to identify the remote user name."
+msgstr ""
 
 msgid "When failed"
 msgstr "Quan falli"

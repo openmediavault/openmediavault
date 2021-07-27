@@ -7,14 +7,14 @@
 # Sári Gábor <sari.gabor@gmail.com>, 2017
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2017
 # Sári Gábor <sari.gabor@gmail.com>, 2018
-# Grawens <szabolcs.szanyi@gmail.com>, 2014,2017
+# Grawens <szabolcs.szanyi@gmail.com>, 2014,2017,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:53+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
+"PO-Revision-Date: 2021-07-22 07:31+0000\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,10 +40,10 @@ msgid "Antivirus"
 msgstr "Antivírus"
 
 msgid "April"
-msgstr ""
+msgstr "Április"
 
 msgid "August"
-msgstr ""
+msgstr "Augusztus"
 
 msgid "Be verbose."
 msgstr "Legyen bőbeszédű."
@@ -52,13 +52,13 @@ msgid "Comment"
 msgstr "Megjegyzés"
 
 msgid "Create"
-msgstr ""
+msgstr "Létrehozás"
 
 msgid "Created on-access scan."
-msgstr ""
+msgstr "Hozzáférés közbeni átvizsgálás létrehozása."
 
 msgid "Created scheduled scan."
-msgstr ""
+msgstr "Ütemezett ellenőrzés létrehozása."
 
 msgid "Database checks"
 msgstr "Adatbázis ellenőrzés"
@@ -73,10 +73,10 @@ msgid "Day of week"
 msgstr "Hét napjain"
 
 msgid "December"
-msgstr ""
+msgstr "December"
 
 msgid "Delete immediately"
-msgstr ""
+msgstr "Azonnal törölje"
 
 msgid "Detect PUA"
 msgstr "PUA észlelése"
@@ -88,7 +88,7 @@ msgid "Done ..."
 msgstr "Kész..."
 
 msgid "Edit"
-msgstr ""
+msgstr "Szerkesztés"
 
 msgid "Edit on-access scan"
 msgstr "Hozzáférés közbeni átvizsgálás szerkesztése"
@@ -144,13 +144,13 @@ msgid "Execute scheduled job"
 msgstr "Ütemezett feladat végrehajtása"
 
 msgid "Execute scheduled scan"
-msgstr ""
+msgstr "Ütemezett vizsgálat végrehajtása"
 
 msgid "Extra options"
 msgstr "Extra beállítások"
 
 msgid "February"
-msgstr ""
+msgstr "Február"
 
 msgid "Follow directory symlinks"
 msgstr "Könyvtár szimbolikus linkjeinek követése"
@@ -165,7 +165,7 @@ msgid "Follow regular file symlinks."
 msgstr "Szokásos fájl szimbolikus linkjeinek követése."
 
 msgid "Friday"
-msgstr ""
+msgstr "Péntek"
 
 msgid "General settings"
 msgstr "Általános beállítások"
@@ -177,13 +177,13 @@ msgid "Infected files"
 msgstr "Fertőzött fájlok"
 
 msgid "January"
-msgstr ""
+msgstr "Január"
 
 msgid "July"
-msgstr ""
+msgstr "Július"
 
 msgid "June"
-msgstr ""
+msgstr "Június"
 
 msgid "Log clean files"
 msgstr "Fájlok tisztításának naplózása"
@@ -192,10 +192,10 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "Fájlok tisztításának naplózása. Ez drasztikusan megnöveli a napló méretét."
 
 msgid "March"
-msgstr ""
+msgstr "Március"
 
 msgid "May"
-msgstr ""
+msgstr "Május"
 
 msgid "Message"
 msgstr "Üzenet"
@@ -204,7 +204,7 @@ msgid "Minute"
 msgstr "Perc"
 
 msgid "Monday"
-msgstr ""
+msgstr "Hétfő"
 
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "Megosztott mappa ellenőrzése és az új vagy módosított fájlok átvizsgálása."
@@ -213,19 +213,19 @@ msgid "Month"
 msgstr "Hónap"
 
 msgid "Move to quarantine"
-msgstr ""
+msgstr "Áthelyezés karanténba"
 
 msgid "Multiscan"
 msgstr "Bővebb vizsgálat"
 
 msgid "November"
-msgstr ""
+msgstr "November"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Adatbázis frissítés ellenőrzések száma naponta. A 0 beállítás tiltja a funkciót."
 
 msgid "October"
-msgstr ""
+msgstr "Október"
 
 msgid "On Access Scans"
 msgstr "Hozzáférési átvizsgálás"
@@ -237,7 +237,7 @@ msgid "Perform a deeper analysis of executable files."
 msgstr "Mélyre ható elemzés elvégzése futtatható fájlok esetén."
 
 msgid "Perform nothing"
-msgstr ""
+msgstr "Semmi"
 
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
@@ -249,7 +249,7 @@ msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
 "daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "Tekintse meg a <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>kézikönyvet</a> további részletekért."
 
 msgid "Quarantine"
 msgstr "Karantén"
@@ -258,7 +258,7 @@ msgid "Run"
 msgstr "Futtatás"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Szombat"
 
 msgid "Scan ELF"
 msgstr "ELF fájl átvizsgálás"
@@ -285,10 +285,10 @@ msgid "Scheduled Jobs"
 msgstr "Ütemezett feladatok"
 
 msgid "Scheduled Scans"
-msgstr ""
+msgstr "Ütemezett vizsgálatok"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Ütemezés"
 
 msgid "Send command output via email"
 msgstr "Parancssori kimenet küldése emailben"
@@ -297,7 +297,7 @@ msgid "Send email"
 msgstr "Email küldése"
 
 msgid "September"
-msgstr ""
+msgstr "Szeptember"
 
 msgid "Settings"
 msgstr "Beállítások"
@@ -306,7 +306,7 @@ msgid "Shared folder"
 msgstr "Megosztott mappa"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Vasárnap"
 
 msgid "The location of the files to scan on-access."
 msgstr "A fájok helyének átvizsgálása hozzáféréskor"
@@ -321,22 +321,22 @@ msgid "The option, how to handle infected files."
 msgstr "Opció a fertőzött fájlok kezeléséhez."
 
 msgid "Thursday"
-msgstr ""
+msgstr "Csütörtök"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Kedd"
 
 msgid "Updated on-access scan."
-msgstr ""
+msgstr "Hozzáférés közbeni átvizsgálás frissítve."
 
 msgid "Updated scheduled scan."
-msgstr ""
+msgstr "Ütemezett vizsgálat frissítve."
 
 msgid "Verbose"
 msgstr "Beszédes"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Szerda"
 
 msgid "n/a"
 msgstr "n/a"

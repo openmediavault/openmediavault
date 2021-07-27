@@ -8,14 +8,14 @@
 # maurorulli <mauro.rulli@gmail.com>, 2012
 # maurorulli <mauro.rulli@gmail.com>, 2012
 # Mario Varelli <mvarelli@biologia.unipi.it>, 2012
-# Paolo Velati <paolo.velati@gmail.com>, 2013-2019
+# Paolo Velati <paolo.velati@gmail.com>, 2013-2019,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:57+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
+"PO-Revision-Date: 2021-07-22 07:35+0000\n"
+"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,19 +28,19 @@ msgid ""
 msgstr ""
 
 msgid "%d days"
-msgstr ""
+msgstr "%d giorni"
 
 msgid "%d hours"
-msgstr ""
+msgstr "%d ore"
 
 msgid "%d minutes"
-msgstr ""
+msgstr "%d minuti"
 
 msgid "%d months"
-msgstr ""
+msgstr "%d mesi"
 
 msgid "%d years"
-msgstr ""
+msgstr "%d anni"
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr ""
@@ -64,7 +64,7 @@ msgid "1 day"
 msgstr "1 giorno"
 
 msgid "1 min"
-msgstr ""
+msgstr "1 min"
 
 msgid "1 minute"
 msgstr "1 minuto"
@@ -94,7 +94,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Consumo di energia minimo senza standby (no spindown)"
 
 msgid "15 min"
-msgstr ""
+msgstr "15 min"
 
 msgid "15 minutes"
 msgstr "15 minuti"
@@ -175,7 +175,7 @@ msgid "5 days"
 msgstr "5 giorni"
 
 msgid "5 min"
-msgstr ""
+msgstr "5 min"
 
 msgid "5 minutes"
 msgstr "5 minuti"
@@ -415,10 +415,10 @@ msgid "Azerbaijan"
 msgstr "Azerbaijan"
 
 msgid "BTRFS"
-msgstr ""
+msgstr "BTRFS"
 
 msgid "Back"
-msgstr ""
+msgstr "Indietro"
 
 msgid "Bad"
 msgstr ""
@@ -443,6 +443,9 @@ msgstr "Bangladesh"
 
 msgid "Barbados"
 msgstr "Barbados"
+
+msgid "Base path"
+msgstr ""
 
 msgid "Belarus"
 msgstr "Bielorussia"
@@ -517,7 +520,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 msgid "CPU Usage"
 msgstr ""
@@ -565,7 +568,7 @@ msgid "Chad"
 msgstr "Repubblica del Ciad"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Cambia Password"
 
 msgid "Changelog"
 msgstr "Changelog"
@@ -589,7 +592,7 @@ msgid "China"
 msgstr "Cina"
 
 msgid "Choose"
-msgstr ""
+msgstr "Scegli"
 
 msgid "Christmas Island"
 msgstr "Isola di Natale"
@@ -685,7 +688,7 @@ msgid "Copy"
 msgstr "Copia"
 
 msgid "Copy privileges"
-msgstr ""
+msgstr "Copia privilegi"
 
 msgid "Copy public SSH key"
 msgstr "Copia chiave pubblica SSH"
@@ -706,10 +709,10 @@ msgid "Create file system"
 msgstr "Crea file system"
 
 msgid "Create | Import"
-msgstr ""
+msgstr "Crea | Importa"
 
 msgid "Create | Mount"
-msgstr ""
+msgstr "Crea | Monta"
 
 msgid "Created FTP ban rule."
 msgstr ""
@@ -847,13 +850,13 @@ msgid "Destination shared folder"
 msgstr "Cartella condivisa di destinazione"
 
 msgid "Details"
-msgstr ""
+msgstr "Dettagli"
 
 msgid "Device"
 msgstr "Dispositivo"
 
 msgid "Device Information"
-msgstr ""
+msgstr "Informazione dispositivo"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Dispositivo Mapper %s [%s, %s]"
@@ -862,10 +865,10 @@ msgid "Device Symlinks"
 msgstr "Link simbolici dispositivo"
 
 msgid "Device has a few bad sectors."
-msgstr ""
+msgstr "Il dispositivo ha pochi settori danneggiati"
 
 msgid "Device has many bad sectors."
-msgstr ""
+msgstr "Il dispositivo ha molti settori danneggiati"
 
 msgid "Device is being used outside design parameters."
 msgstr ""
@@ -898,7 +901,7 @@ msgid "Disallow the user to modify his own account."
 msgstr ""
 
 msgid "Disk Usage"
-msgstr ""
+msgstr "Utilizzo del disco"
 
 msgid "Disks"
 msgstr "Dischi"
@@ -991,10 +994,10 @@ msgid "Dronning Maud Land"
 msgstr "Terra della Regina Maud"
 
 msgid "EXT3"
-msgstr ""
+msgstr "EXT3"
 
 msgid "EXT4"
-msgstr ""
+msgstr "EXT4"
 
 msgid "Each line represents a group."
 msgstr ""
@@ -1058,7 +1061,7 @@ msgid "Enable user home directories"
 msgstr "Abilita la home directory per gli utenti"
 
 msgid "Enable write-cache"
-msgstr ""
+msgstr "Abilita la cache in scrittura"
 
 msgid "Enabled"
 msgstr "Abilitato"
@@ -1118,7 +1121,7 @@ msgid "Extra options"
 msgstr "Opzioni extra"
 
 msgid "F2FS"
-msgstr ""
+msgstr "F2FS"
 
 msgid "FTP"
 msgstr "FTP"
@@ -1187,7 +1190,7 @@ msgid "Filesize"
 msgstr "Dimensione file"
 
 msgid "Filesystem"
-msgstr ""
+msgstr "Filesystem"
 
 msgid "Filesystems"
 msgstr "Filesystems"
@@ -1211,7 +1214,7 @@ msgid "Force secure connection only."
 msgstr "Forza solo connessioni sicure."
 
 msgid "Forum"
-msgstr ""
+msgstr "Forum"
 
 msgid "France"
 msgstr "Francia"
@@ -1292,7 +1295,7 @@ msgid "Guests allowed"
 msgstr "Ospiti consentiti"
 
 msgid "Guests only"
-msgstr ""
+msgstr "Solo Ospiti"
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1316,10 +1319,10 @@ msgid "Heard Island and McDonald Islands"
 msgstr "Isole Heard e McDonald"
 
 msgid "Help"
-msgstr ""
+msgstr "Aiuto"
 
 msgid "Hide"
-msgstr ""
+msgstr "Nascondi"
 
 msgid "Hide dot files"
 msgstr "Nascondi file puntati"
@@ -1399,9 +1402,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If set then the client will be challenged to supply a username and password "
-"to connect to the module."
-msgstr "Se selezionato al client verrà richiesto di fornire un nome utente e una password per potersi connettere al modulo."
+"If set then the client will be challenged to supply a user name and password"
+" to connect to the module."
+msgstr ""
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
@@ -1490,10 +1493,10 @@ msgid "Install"
 msgstr "Installa"
 
 msgid "Install plugin"
-msgstr ""
+msgstr "Installa plugin"
 
 msgid "Install updates"
-msgstr ""
+msgstr "Installa aggiornamenti"
 
 msgid "Install updates from"
 msgstr "Installa aggiornamenti da"
@@ -1510,34 +1513,34 @@ msgid "Interfaces"
 msgstr "Interfacce"
 
 msgid "Invalid IP address."
-msgstr ""
+msgstr "Indirizzo IP non valido."
 
 msgid "Invalid SSH public key (OpenSSH format)."
-msgstr ""
+msgstr "Chiave pubblica SSH (formato OpenSSH) non valida."
 
 msgid "Invalid SSH public key (OpenSSH or RFC 4716 format)"
-msgstr ""
+msgstr "Chiave pubblica SSH (formato OpenSSH o RFC 4716) non valida."
 
 msgid "Invalid SSH public key (RFC 4716 format)."
-msgstr ""
+msgstr "Chiave pubblica SSH (formato RFC 4716) non valida."
 
 msgid "Invalid User-Agent."
-msgstr ""
+msgstr "User-Agent non valido."
 
 msgid "Invalid domain name."
-msgstr ""
+msgstr "Nome del dominio non valido."
 
 msgid "Invalid group name."
-msgstr ""
+msgstr "Nome del gruppo non valido."
 
 msgid "Invalid host name."
-msgstr ""
+msgstr "Nome dell'host non valido."
 
 msgid "Invalid user name."
-msgstr ""
+msgstr "Nome utente non valido."
 
 msgid "Invalid user."
-msgstr ""
+msgstr "Utente non valido."
 
 msgid "Iran"
 msgstr "Iran"
@@ -1563,7 +1566,7 @@ msgid "Ivory Coast"
 msgstr "Costa d'Avorio"
 
 msgid "JFS"
-msgstr ""
+msgstr "JFS"
 
 msgid "Jamaica"
 msgstr "Giamaica"
@@ -1700,7 +1703,7 @@ msgid "Luxembourg"
 msgstr "Lussemburgo"
 
 msgid "MAC"
-msgstr ""
+msgstr "MAC"
 
 msgid "MII monitoring frequency"
 msgstr "Frequenza di monitoraggio MII"
@@ -2257,7 +2260,7 @@ msgstr ""
 msgid "Please wait, the data is being loaded ..."
 msgstr ""
 
-msgid "Please wait, the file system is being mounted."
+msgid "Please wait, the file system is being mounted ..."
 msgstr ""
 
 msgid "Please wait, the statistic graphs will be regenerated ..."
@@ -2548,7 +2551,7 @@ msgid "Rsync - Server"
 msgstr "Rsync - Server"
 
 msgid "Rules"
-msgstr ""
+msgstr "Regole"
 
 msgid "Run"
 msgstr "Esegui"
@@ -2596,10 +2599,10 @@ msgid "SSH port"
 msgstr "Porta SSH"
 
 msgid "SSH public key"
-msgstr ""
+msgstr "Chiave pubblica SSH"
 
 msgid "SSH public keys"
-msgstr ""
+msgstr "Chiavi pubbliche SSH"
 
 msgid "SSID"
 msgstr "SSID"
@@ -2611,13 +2614,13 @@ msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
 msgid "SSL/TLS Settings"
-msgstr ""
+msgstr "Impostazioni SSL/TLS"
 
 msgid "SSL/TLS enabled"
 msgstr ""
 
 msgid "STARTTLS"
-msgstr ""
+msgstr "STARTTLS"
 
 msgid "Saint Helena"
 msgstr "Sant'Elena"
@@ -3289,6 +3292,11 @@ msgid ""
 "character."
 msgstr ""
 
+msgid ""
+"This field contains invalid characters, only alphanumeric characters and "
+"underscore are allowed."
+msgstr ""
+
 msgid "This field is required."
 msgstr ""
 
@@ -3682,6 +3690,9 @@ msgstr ""
 msgid "Updated scheduled task."
 msgstr ""
 
+msgid "Updated settings."
+msgstr ""
+
 msgid "Updated update management settings."
 msgstr ""
 
@@ -3756,11 +3767,11 @@ msgstr ""
 msgid "User home directory"
 msgstr "Home directory dell'utente"
 
+msgid "User name"
+msgstr ""
+
 msgid "User/Group permissions"
 msgstr "Permessi dell'Utente/del Gruppo"
-
-msgid "Username"
-msgstr "Username"
 
 msgid "Users"
 msgstr "Utente"
@@ -3839,8 +3850,8 @@ msgstr "Sahara Occidentale"
 
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
-" attempt to identify the remote username."
-msgstr "Quando un client si connette al server il protocollo di identificazione viene usato per tentare di identificare lo username remoto."
+" attempt to identify the remote user name."
+msgstr ""
 
 msgid "When failed"
 msgstr "Quando fallisce"
@@ -3873,7 +3884,7 @@ msgid "Write/Execute"
 msgstr "Scrittura/Esecuzione"
 
 msgid "XFS"
-msgstr ""
+msgstr "XFS"
 
 msgid "Xen virtual disk device"
 msgstr "Dispositivo disco virtuale Xen"
@@ -3924,4 +3935,4 @@ msgid "selected"
 msgstr ""
 
 msgid "total"
-msgstr ""
+msgstr "totale"

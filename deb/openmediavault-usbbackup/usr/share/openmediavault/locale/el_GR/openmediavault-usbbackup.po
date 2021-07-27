@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# Kostas Moho, 2013-2014,2017,2019
+# Kostas Moho, 2013-2014,2017,2019,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:53+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
+"PO-Revision-Date: 2021-07-21 06:53+0000\n"
+"Last-Translator: Kostas Moho\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,10 +42,10 @@ msgid "Compress file data during the transfer."
 msgstr "Συμπίεση δεδομένων κατά την μεταφορά"
 
 msgid "Create"
-msgstr ""
+msgstr "Δημιουργία"
 
 msgid "Created USB backup job."
-msgstr ""
+msgstr "Δημιουργία εργασίας."
 
 msgid "Delete"
 msgstr "Διαγραφή"
@@ -60,7 +60,7 @@ msgid "Done ..."
 msgstr "Ολοκλήρωση ..."
 
 msgid "Edit"
-msgstr ""
+msgstr "Επεξεργασία"
 
 msgid "Edit backup job"
 msgstr "Επεξεργασία εργασίας αντιγράφων ασφαλείας"
@@ -83,7 +83,7 @@ msgid "Execute backup job"
 msgstr "Εκτέλεση εργασίας αντιγράφων ασφαλείας"
 
 msgid "External Storage Device"
-msgstr ""
+msgstr "Εξωτερική Συσκευή Αποθήκευσης"
 
 msgid "External storage device"
 msgstr "Εξωτερική συσκευή αποθήκευσης"
@@ -145,7 +145,7 @@ msgid "Run"
 msgstr "Εκκίνηση"
 
 msgid "Run backup job"
-msgstr ""
+msgstr "Εκτέλεση εργασίας αντιγράφων ασφαλείας"
 
 msgid "Scan"
 msgstr "Ανίχνευση"
@@ -179,7 +179,7 @@ msgid "Suppress non-error messages."
 msgstr "Παράλειψη μηνυμάτων που δεν αφορούν σφάλματα."
 
 msgid "Synchronise from/to directory on external storage device"
-msgstr ""
+msgstr "Συγχρονισμός από/προς υποκατάλογο της εξωτερικής συσκευής αποθήκευσης."
 
 msgid "Synchronise from/to directory on external storage device."
 msgstr "Συγχρονισμός από/προς υποκατάλογο της εξωτερικής συσκευής αποθήκευσης."
@@ -214,7 +214,7 @@ msgid ""
 msgstr "Ενημέρωση των απομακρυσμένων εκτεταμένων ιδιοτήτων όπως τα τοπικά."
 
 msgid "Updated USB backup job."
-msgstr ""
+msgstr "Ενημέρωση εργασίας."
 
 msgid "n/a"
 msgstr "n/a"

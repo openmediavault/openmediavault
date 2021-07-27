@@ -7,14 +7,14 @@
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2020
 # mersaint <mersaint@gmail.com>, 2012
 # Sári Gábor <sari.gabor@gmail.com>, 2018
-# Grawens <szabolcs.szanyi@gmail.com>, 2014
+# Grawens <szabolcs.szanyi@gmail.com>, 2014,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:53+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
+"PO-Revision-Date: 2021-07-22 07:19+0000\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +48,7 @@ msgid "Enable remote monitoring of the local connected UPS."
 msgstr "A helyileg csatlakoztatott UPS távfelügyeletének bekapcsolása"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Engedélyezve"
 
 msgid "General settings"
 msgstr "Általános beállítások"
@@ -57,7 +57,7 @@ msgid "Identifier"
 msgstr "Azonosító"
 
 msgid "Invalid identifier"
-msgstr ""
+msgstr "Érvénytelen azonosító"
 
 msgid "Load"
 msgstr "Terhelés"
@@ -76,6 +76,9 @@ msgstr "Hálózati kliens gépneve"
 
 msgid "Netclient password"
 msgstr "Hálózati kliens jelszava"
+
+msgid "Netclient user name"
+msgstr "Netclient felhasználói név"
 
 msgid "Netclient username"
 msgstr "Hálózati kliens felhasználói neve"
@@ -143,10 +146,13 @@ msgid "UPS reaches low battery"
 msgstr "Alacsony töltés"
 
 msgid "Updated UPS settings."
-msgstr ""
+msgstr "UPS beállítási frissítve."
 
 msgid "Used for remote authentication."
 msgstr "Távoli hitelesítéshez."
+
+msgid "User name"
+msgstr "Felhasználói név"
 
 msgid "Username"
 msgstr "Felhasználónév"

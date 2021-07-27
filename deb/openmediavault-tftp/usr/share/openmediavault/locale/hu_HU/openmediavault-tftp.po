@@ -6,15 +6,16 @@
 # Translators:
 # Volker <votdev@gmx.de>, 2017
 # Sári Gábor <sari.gabor@gmail.com>, 2018
+# Grawens <szabolcs.szanyi@gmail.com>, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
-"Last-Translator: Sári Gábor <sari.gabor@gmail.com>, 2018\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2021\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,7 +48,7 @@ msgid "Enable"
 msgstr "Engedélyezés"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Engedélyezve"
 
 msgid "Extra options"
 msgstr "Extra opciók"
@@ -91,6 +92,8 @@ msgid ""
 "The location of the files to share. Please make sure that the shared folder "
 "is publicly writable if new files are allowed."
 msgstr ""
+"A megosztani kívánt fájlok helye . Győződjön meg róla, hogy a megosztott "
+"mappa nyilvánosan írható és az új fájlok engedélyezettek-e."
 
 msgid "Updated TFTP settings."
-msgstr ""
+msgstr "TFTP beállításai frissítve."

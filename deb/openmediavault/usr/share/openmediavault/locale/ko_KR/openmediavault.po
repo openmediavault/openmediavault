@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:57+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
+"PO-Revision-Date: 2021-07-19 16:36+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -441,6 +441,9 @@ msgstr "방글라데시"
 
 msgid "Barbados"
 msgstr "바베이도스"
+
+msgid "Base path"
+msgstr ""
 
 msgid "Belarus"
 msgstr "벨라루스"
@@ -1397,9 +1400,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If set then the client will be challenged to supply a username and password "
-"to connect to the module."
-msgstr "이 옵션이 설정되면 클라이언트가 모듈에 연결을 시도할 때 사용자 이름과 암호를 제공해야 합니다."
+"If set then the client will be challenged to supply a user name and password"
+" to connect to the module."
+msgstr ""
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
@@ -2255,7 +2258,7 @@ msgstr ""
 msgid "Please wait, the data is being loaded ..."
 msgstr ""
 
-msgid "Please wait, the file system is being mounted."
+msgid "Please wait, the file system is being mounted ..."
 msgstr ""
 
 msgid "Please wait, the statistic graphs will be regenerated ..."
@@ -3287,6 +3290,11 @@ msgid ""
 "character."
 msgstr ""
 
+msgid ""
+"This field contains invalid characters, only alphanumeric characters and "
+"underscore are allowed."
+msgstr ""
+
 msgid "This field is required."
 msgstr ""
 
@@ -3680,6 +3688,9 @@ msgstr ""
 msgid "Updated scheduled task."
 msgstr ""
 
+msgid "Updated settings."
+msgstr ""
+
 msgid "Updated update management settings."
 msgstr ""
 
@@ -3754,11 +3765,11 @@ msgstr ""
 msgid "User home directory"
 msgstr "사용자 홈 디렉터리"
 
+msgid "User name"
+msgstr ""
+
 msgid "User/Group permissions"
 msgstr "사용자/그룹 권한"
-
-msgid "Username"
-msgstr "사용자 이름"
 
 msgid "Users"
 msgstr "사용자"
@@ -3837,8 +3848,8 @@ msgstr "서 사하라"
 
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
-" attempt to identify the remote username."
-msgstr "클라이언트가 처음으로 서버에 접속할 때, 원격지 사용자이름을 식별하기 위해 IDENT 프로토콜이 사용됩니다."
+" attempt to identify the remote user name."
+msgstr ""
 
 msgid "When failed"
 msgstr "실패 시"

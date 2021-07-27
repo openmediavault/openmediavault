@@ -6,15 +6,16 @@
 # Translators:
 # Volker <votdev@gmx.de>, 2017
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2020
+# Jonatan Nyberg <jonatan@autistici.org>, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
-"Last-Translator: efef6ec5b435a041fce803c7f8af77d2_2341d43, 2020\n"
+"Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021\n"
 "Language-Team: Swedish (https://www.transifex.com/openmediavault/teams/14254/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgid "Blocksize"
 msgstr "Blockstorlek"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "Som standard visas bara filer som redan finns som får laddas upp."
+msgstr "Som standard får endast filer som redan finns laddas upp."
 
 msgid ""
 "Determine the default timeout, in microseconds, before the first packet is "
@@ -45,7 +46,7 @@ msgid "Enable"
 msgstr "Aktivera"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiverad"
 
 msgid "Extra options"
 msgstr "Extra alternativ"
@@ -54,8 +55,8 @@ msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
 "are allowed."
 msgstr ""
-"Vänligen se till att den delade mappen är publikt skrivbar om nya filer är "
-"tillåtna."
+"Vänligen se till att den delade mappen är offentligt skrivbar om nya filer "
+"är tillåtna."
 
 msgid "Port"
 msgstr "Port"
@@ -76,8 +77,8 @@ msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "
 "parameter is from 512 to 65464."
 msgstr ""
-"Anger högsta tillåtna blockstorleken. Det tillåtna området för denna "
-"parameter är 512 till 65464."
+"Anger den maximalt tillåtna blockstorleken. Det tillåtna intervallet för "
+"denna parameter är från 512 till 65464."
 
 msgid "TFTP"
 msgstr "TFTP"
@@ -89,6 +90,8 @@ msgid ""
 "The location of the files to share. Please make sure that the shared folder "
 "is publicly writable if new files are allowed."
 msgstr ""
+"Platsen för filerna som ska delas. Vänligen se till att den delade mappen är"
+" offentligt skrivbar om nya filer tillåts."
 
 msgid "Updated TFTP settings."
-msgstr ""
+msgstr "Uppdaterade TFTP-inställningarna."

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:53+0200\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
 "Last-Translator: Axel Cantenys, 2020\n"
 "Language-Team: French (France) (https://www.transifex.com/openmediavault/teams/14254/fr_FR/)\n"
@@ -100,6 +100,9 @@ msgid "Traps"
 msgstr "Trappes"
 
 msgid "Updated SNMP settings."
+msgstr ""
+
+msgid "User name"
 msgstr ""
 
 msgid "Username"

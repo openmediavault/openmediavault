@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-shairport package.
 # 
 # Translators:
-# Kostas Moho, 2014-2016
+# Kostas Moho, 2014-2016,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:53+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
+"PO-Revision-Date: 2021-07-21 06:55+0000\n"
+"Last-Translator: Kostas Moho\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgid "Enable"
 msgstr "Ενεργοποίηση"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Ενεργό"
 
 msgid "General settings"
 msgstr "Γενικές ρυθμίσεις"
@@ -51,4 +51,4 @@ msgid ""
 msgstr "Το όνομα που θα ανακοινώνει η υπηρεσία στους χρήστες. Αν μείνει κενό, θα χρησιμοποιείται το όνομα του υπολογιστή."
 
 msgid "Updated Shairport settings."
-msgstr ""
+msgstr "Ενημέρωση ρυθμίσεων Shairport."

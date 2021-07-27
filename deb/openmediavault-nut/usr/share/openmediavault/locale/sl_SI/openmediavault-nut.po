@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 14:53+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"POT-Creation-Date: 2021-07-19 18:34+0200\n"
+"PO-Revision-Date: 2021-07-19 16:35+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
@@ -71,6 +71,9 @@ msgid "Netclient hostname"
 msgstr ""
 
 msgid "Netclient password"
+msgstr ""
+
+msgid "Netclient user name"
 msgstr ""
 
 msgid "Netclient username"
@@ -143,6 +146,9 @@ msgstr ""
 
 msgid "Used for remote authentication."
 msgstr "Uporabljeno za oddaljeno avtentikacijo."
+
+msgid "User name"
+msgstr ""
 
 msgid "Username"
 msgstr "Uporabniško ime"
