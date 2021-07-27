@@ -18,6 +18,7 @@ openmediavault (5.6.13-1) stable; urgency=low
     seems not supported by all email providers. Use the environment
     variable OMV_POSTFIX_MAIN_SMTPUTF8_ENABLED to customize this
     behavior.
+  * Issue 1068: Display UID/GID in user/group data tables.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Jul 2021 18:55:14 +0200
 
