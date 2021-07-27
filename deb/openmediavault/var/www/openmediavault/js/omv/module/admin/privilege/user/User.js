@@ -611,6 +611,20 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 		stateId: "name"
 	},{
 		xtype: "textcolumn",
+		text: _("UID"),
+		sortable: true,
+		hidden: true,
+		dataIndex: "uid",
+		stateId: "uid"
+	},{
+		xtype: "textcolumn",
+		text: _("GID"),
+		sortable: true,
+		hidden: true,
+		dataIndex: "gid",
+		stateId: "gid"
+	},{
+		xtype: "textcolumn",
 		text: _("Email"),
 		sortable: true,
 		dataIndex: "email",

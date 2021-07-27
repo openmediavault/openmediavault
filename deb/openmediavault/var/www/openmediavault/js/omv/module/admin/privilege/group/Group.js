@@ -406,6 +406,13 @@ Ext.define("OMV.module.admin.privilege.group.Groups", {
 		stateId: "name"
 	},{
 		xtype: "textcolumn",
+		text: _("GID"),
+		sortable: true,
+		hidden: true,
+		dataIndex: "gid",
+		stateId: "gid"
+	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",
