@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 22:43+0200\n"
+"POT-Creation-Date: 2021-07-28 17:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1127,6 +1127,9 @@ msgstr ""
 msgid "File Systems Status"
 msgstr ""
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr ""
 
@@ -1134,9 +1137,6 @@ msgid "File systems"
 msgstr ""
 
 msgid "Filename"
-msgstr ""
-
-msgid "Filepath"
 msgstr ""
 
 msgid "Files in the recycle bin will be deleted automatically after the specified number of days. Set to 0 for manual deletion."
@@ -1188,6 +1188,9 @@ msgid "Friday"
 msgstr ""
 
 msgid "Full"
+msgstr ""
+
+msgid "GID"
 msgstr ""
 
 msgid "Gabon"
@@ -2975,7 +2978,7 @@ msgstr ""
 msgid "The action to be done when pressing the power button."
 msgstr ""
 
-msgid "The dashboard has not yet been configured. To personalize it please go to the"
+msgid "The dashboard has not yet been configured. To personalize it, please go to the"
 msgstr ""
 
 msgid "The data has been copied to the clipboard."
@@ -3291,6 +3294,9 @@ msgid "U.S. Miscellaneous Pacific Islands"
 msgstr ""
 
 msgid "U.S. Virgin Islands"
+msgstr ""
+
+msgid "UID"
 msgstr ""
 
 msgid "UNKNOWN"

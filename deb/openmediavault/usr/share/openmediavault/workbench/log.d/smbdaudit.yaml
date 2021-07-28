@@ -36,7 +36,7 @@ data:
     sortable: true
     prop: servicename
     flexGrow: 1
-  - name: _("Filepath")
+  - name: _("File path")
     sortable: true
     hidden: true
     prop: filepath
