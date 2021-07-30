@@ -29,6 +29,7 @@ import {
 import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { AuthService } from '~/app/shared/services/auth.service';
+import { DialogService } from '~/app/shared/services/dialog.service';
 import { LocaleService } from '~/app/shared/services/locale.service';
 
 @Component({
@@ -84,6 +85,7 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private authService: AuthService,
+    private dialogService: DialogService,
     private router: Router
   ) {
     this.currentLocale = LocaleService.getLocale();
@@ -92,6 +94,7 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.blockUI.resetGlobal();
+    this.dialogService.closeAll();
   }
 
   onLogin(buttonConfig: FormPageButtonConfig, values: Record<string, any>) {

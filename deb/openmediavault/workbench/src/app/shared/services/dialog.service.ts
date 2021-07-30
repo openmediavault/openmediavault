@@ -28,6 +28,13 @@ import * as _ from 'lodash';
 export class DialogService {
   constructor(private matDialog: MatDialog) {}
 
+  /**
+   * Close all currently open dialogs.
+   */
+  closeAll(): void {
+    this.matDialog.closeAll();
+  }
+
   open<T, D = any, R = any>(
     component: ComponentType<T>,
     config?: MatDialogConfig<D>
