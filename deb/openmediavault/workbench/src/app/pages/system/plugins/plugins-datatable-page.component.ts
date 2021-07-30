@@ -46,7 +46,10 @@ export class PluginsDatatablePageComponent implements OnInit {
         flexGrow: 1,
         sortable: true,
         hidden: true,
-        cellTemplateName: 'chip'
+        cellTemplateName: 'chip',
+        cellTemplateConfig: {
+          template: '{{ pluginsection | title }}'
+        }
       },
       {
         name: gettext('Repository'),
