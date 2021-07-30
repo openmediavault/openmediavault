@@ -1,7 +1,7 @@
 version: "1.0"
 type: log
 data:
-  id: smart
+  id: smartd
   text: _("S.M.A.R.T.")
   columns:
   - name: _("Date & Time")
@@ -17,4 +17,4 @@ data:
     service: LogFile
     method: getList
     params:
-      id: smart
+      id: smartd
