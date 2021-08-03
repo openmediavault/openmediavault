@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-27 10:43+0000\n"
+"PO-Revision-Date: 2021-07-30 09:58+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 msgid ""
 "\"Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "\"Haga que el grupo de destino sea el mismo que el de origen\""
 
 msgid "%d days"
 msgstr "%d días"
@@ -948,21 +948,21 @@ msgid "Do you really want to undo the configuration changes?"
 msgstr ""
 
 msgid "Do you really want to uninstall the plugin?"
-msgstr ""
+msgstr "¿desea realmente desinstalar el plugin?"
 
 msgid ""
 "Do you really want to unmount this file system? Please make sure that the "
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
-msgstr ""
+msgstr "¿desea realmente desmontar el sistema de archivos? Por favor asegúrese de que el sistema de archivos no está en uso por ningún servicio antes de desmontarlo. Nota: El sistema de archivos no será borrado, solo desmontado."
 
 msgid "Do you really want to upgrade the system?"
-msgstr ""
+msgstr "¿desea realmente actualizar el sistema?"
 
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
 "will be lost."
-msgstr ""
+msgstr "¿desea realmente borrar el disco?   {{ canonicaldevicefile }} Todos los datos serán borrados."
 
 msgid "Documentation"
 msgstr "Documentación"
@@ -1139,7 +1139,7 @@ msgid ""
 msgstr "FXP permite transferencias de archivos entre dos servidores remotos sin pasar por el cliente que ejecuta la transferencia."
 
 msgid "Failed to copy data to the clipboard."
-msgstr ""
+msgstr "Error al copiar datos al portapapeles"
 
 msgid "Falkland Islands"
 msgstr "Islas Malvinas"
@@ -1163,7 +1163,7 @@ msgid "File Systems"
 msgstr "Sistema de Archivos"
 
 msgid "File Systems Status"
-msgstr ""
+msgstr "Estado del sistema de archivos"
 
 msgid "File system"
 msgstr "Sistema de Archivos"
@@ -1188,7 +1188,7 @@ msgid "Filesize"
 msgstr "Tamaño del archivo"
 
 msgid "Filesystem"
-msgstr ""
+msgstr "Sistema de archivos"
 
 msgid "Filesystems"
 msgstr "Sistemas de archivos"
@@ -1444,16 +1444,16 @@ msgid "Import"
 msgstr "Importar"
 
 msgid "Imported SSH certificate."
-msgstr ""
+msgstr "Certificado SSH importado"
 
 msgid "Imported SSL certificate."
-msgstr ""
+msgstr "Certificado SSL importado."
 
 msgid "Imported groups."
-msgstr ""
+msgstr "Grupos importados."
 
 msgid "Imported users."
-msgstr ""
+msgstr "Usuarios importados."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1491,10 +1491,10 @@ msgid "Install"
 msgstr "Instalar"
 
 msgid "Install plugin"
-msgstr ""
+msgstr "Instalar plugin"
 
 msgid "Install updates"
-msgstr ""
+msgstr "Instalar actualizaciones"
 
 msgid "Install updates from"
 msgstr "Instalar actualizaciones de"
@@ -1514,28 +1514,28 @@ msgid "Invalid IP address."
 msgstr "IP no válida."
 
 msgid "Invalid SSH public key (OpenSSH format)."
-msgstr ""
+msgstr "Clave publica SSH inválida (Formato OpenSSH)"
 
 msgid "Invalid SSH public key (OpenSSH or RFC 4716 format)"
-msgstr ""
+msgstr "Clave publica SSH inválida (Formato OpenSSH o RFC 4716)"
 
 msgid "Invalid SSH public key (RFC 4716 format)."
-msgstr ""
+msgstr "Clave publica SSH inválida  (Formato RFC 4716)"
 
 msgid "Invalid User-Agent."
 msgstr "Agente de usuario No válido."
 
 msgid "Invalid domain name."
-msgstr ""
+msgstr "Nombre de dominio inválido."
 
 msgid "Invalid group name."
-msgstr ""
+msgstr "Nombre de grupo inválido."
 
 msgid "Invalid host name."
-msgstr ""
+msgstr "Nombre de host inválido."
 
 msgid "Invalid user name."
-msgstr ""
+msgstr "Nombre de usuario inválido."
 
 msgid "Invalid user."
 msgstr "Usuario No válido."
@@ -1564,7 +1564,7 @@ msgid "Ivory Coast"
 msgstr "Costa de Marfil"
 
 msgid "JFS"
-msgstr ""
+msgstr "JFS"
 
 msgid "Jamaica"
 msgstr "Jamaica"
@@ -1662,13 +1662,13 @@ msgid "Link"
 msgstr "Enlace"
 
 msgid "List module"
-msgstr ""
+msgstr "modulo de listas"
 
 msgid "Lithuania"
 msgstr "Lituania"
 
 msgid "Load Average"
-msgstr ""
+msgstr "Carga media"
 
 msgid "Load average"
 msgstr "Carga media"
@@ -1683,7 +1683,7 @@ msgid "Location"
 msgstr "Ubicación"
 
 msgid "Log in"
-msgstr ""
+msgstr "Log in"
 
 msgid "Log level"
 msgstr "Nivel de Log"
@@ -1701,7 +1701,7 @@ msgid "Luxembourg"
 msgstr "Luxemburgo"
 
 msgid "MAC"
-msgstr ""
+msgstr "MAC"
 
 msgid "MII monitoring frequency"
 msgstr "Frecuencia de monitorización (ethernet)"
@@ -1777,13 +1777,13 @@ msgid "Max. login attempts"
 msgstr "Nº Max. de login"
 
 msgid "Max. passive port"
-msgstr ""
+msgstr "Max. puerto pasivo"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Velocidad max. de descarga (KiB/s)"
 
 msgid "Maximum file size"
-msgstr ""
+msgstr "Tamaño Max. de archivo"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1816,7 +1816,7 @@ msgid "Members"
 msgstr "Miembros"
 
 msgid "Memory Usage"
-msgstr ""
+msgstr "Uso de Memoria"
 
 msgid "Memory usage"
 msgstr "Uso de memoria"
@@ -1843,7 +1843,7 @@ msgid "Midway Islands"
 msgstr "Islas Midway"
 
 msgid "Min. passive port"
-msgstr ""
+msgstr "Min. puerto pasivo"
 
 msgid "Minimum"
 msgstr "Mínimo"
@@ -1882,7 +1882,7 @@ msgid "Mongolia"
 msgstr "Mongolia"
 
 msgid "Monitored"
-msgstr ""
+msgstr "Monitorizado"
 
 msgid "Monitoring"
 msgstr "Monitorizar"
@@ -1981,7 +1981,7 @@ msgid "No connections"
 msgstr "Sin conexiones"
 
 msgid "No data to display."
-msgstr ""
+msgstr "No hay datos que mostrar."
 
 msgid "No session reuse required"
 msgstr "no se requiere reutilizar la sesión"
@@ -2023,10 +2023,10 @@ msgid "Not UDP"
 msgstr "No UDP"
 
 msgid "Not mounted"
-msgstr ""
+msgstr "No montado"
 
 msgid "Not running"
-msgstr ""
+msgstr "no en ejecución"
 
 msgid "Nothing"
 msgstr "Nada"
@@ -2092,7 +2092,7 @@ msgid "Pacific Islands Trust Territory"
 msgstr "Territorio en Fideicomiso de las Islas del Pacífico"
 
 msgid "Package Information"
-msgstr ""
+msgstr "Información del paquete"
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2131,10 +2131,10 @@ msgid "Password authentication"
 msgstr "Autentificación por contraseña"
 
 msgid "Password does not match."
-msgstr ""
+msgstr "La contraseña no coincide."
 
 msgid "Password doesn't match."
-msgstr ""
+msgstr "La contraseña no coincide."
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
 msgstr "Copiar un certificado RSA o ECC en formato X.509 PEM aqui."
@@ -2154,7 +2154,7 @@ msgid "Perform a trial run with no changes made"
 msgstr "Realizar una prueba sin realizar cambios"
 
 msgid "Performance Statistics"
-msgstr ""
+msgstr "Estadísticas de rendimiento"
 
 msgid "Period of validity"
 msgstr "Periodo de validez"

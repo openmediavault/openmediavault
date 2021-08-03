@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-20 07:44+0000\n"
+"PO-Revision-Date: 2021-08-03 16:16+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -2794,7 +2794,7 @@ msgid "Services"
 msgstr "Dienste"
 
 msgid "Services Status"
-msgstr ""
+msgstr "Dienstestatus"
 
 msgid "Session expired."
 msgstr "Sitzungszeit abgelaufen."
@@ -3548,7 +3548,7 @@ msgid "Ukraine"
 msgstr "Ukraine"
 
 msgid "Undo"
-msgstr ""
+msgstr "Rückgängig machen"
 
 msgid "Uninstall"
 msgstr "Entfernen"
@@ -3648,40 +3648,40 @@ msgid "Updated bridge network connection \"{{ devicename }}\"."
 msgstr ""
 
 msgid "Updated dashboard settings."
-msgstr ""
+msgstr "Dashboard-Einstellungen wurde aktualisiert."
 
 msgid "Updated date & time settings."
-msgstr ""
+msgstr "Datum-/Zeiteinstellungen wurde aktualisiert."
 
 msgid "Updated firewall rule."
-msgstr ""
+msgstr "Firewall-Regel wurde aktualisiert."
 
 msgid "Updated firewall rules."
-msgstr ""
+msgstr "Firewall-Regeln wurden aktualisiert."
 
 msgid "Updated group \"{{ name }}\"."
-msgstr ""
+msgstr "Gruppe \"{{ name }}\" wurde aktualisiert.."
 
 msgid "Updated monitoring settings."
-msgstr ""
+msgstr "Überwachungseinstellungen wurde aktualisiert."
 
 msgid "Updated network settings."
-msgstr ""
+msgstr "Netzwerkeinstellungen wurde aktualisiert."
 
 msgid "Updated notification settings."
-msgstr ""
+msgstr "Benachrichtigungseinstellungen wurde aktualisiert."
 
 msgid "Updated password."
-msgstr ""
+msgstr "Passwort wurde aktualisiert."
 
 msgid "Updated power management settings."
-msgstr ""
+msgstr "Einstellungen für die Energieverwaltung wurde aktualisiert."
 
 msgid "Updated privileges of group \"{{ name }}\"."
-msgstr ""
+msgstr "Privilegien der Gruppe \"{{ name }}\" wurde aktualisiert."
 
 msgid "Updated privileges of shared folder."
-msgstr ""
+msgstr "Privilegien eines freigegebenen Ordner wurden aktualisiert."
 
 msgid "Updated privileges of user \"{{ name }}\"."
 msgstr ""
@@ -3696,7 +3696,7 @@ msgid "Updated scheduled task."
 msgstr ""
 
 msgid "Updated settings."
-msgstr ""
+msgstr "Einstellungen wurden aktualisiert."
 
 msgid "Updated update management settings."
 msgstr ""
@@ -3705,7 +3705,7 @@ msgid "Updated user \"{{ name }}\"."
 msgstr ""
 
 msgid "Updated user profile."
-msgstr ""
+msgstr "Benutzerprofil wurde aktualisiert."
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr ""
@@ -3773,7 +3773,7 @@ msgid "User home directory"
 msgstr "Heimatverzeichnis des Benutzers"
 
 msgid "User name"
-msgstr ""
+msgstr "Benutzername"
 
 msgid "User/Group permissions"
 msgstr "Benutzer/Gruppe Berechtigungen"
