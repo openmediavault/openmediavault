@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
@@ -31,6 +31,7 @@ import { AppRoutingModule } from '~/app/app-routing.module';
 import { CoreModule } from '~/app/core/core.module';
 import { setTranslationService, translate, TranslateHttpLoader } from '~/app/i18n.helper';
 import { MaterialModule } from '~/app/material.module';
+import { GlobalErrorHandlerService } from '~/app/shared/services/global-error-handler.service';
 import { HttpErrorInterceptorService } from '~/app/shared/services/http-error-interceptor.service';
 import { LocaleService } from '~/app/shared/services/locale.service';
 import { SharedModule } from '~/app/shared/shared.module';
@@ -58,6 +59,10 @@ import { SharedModule } from '~/app/shared/shared.module';
     AppRoutingModule
   ],
   providers: [
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandlerService
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptorService,
