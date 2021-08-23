@@ -129,8 +129,8 @@ case "$1" in
 			deb-systemd-invoke stop rsync.service || :
 			deb-systemd-helper disable proftpd.service
 			deb-systemd-invoke stop proftpd.service || :
-			deb-systemd-helper disable nfs-kernel-server.service
-			deb-systemd-invoke stop nfs-kernel-server.service || :
+			deb-systemd-helper disable nfs-server.service
+			deb-systemd-invoke stop nfs-server.service || :
 			deb-systemd-helper disable smbd.service
 			deb-systemd-invoke stop smbd.service || :
 			deb-systemd-helper disable nmbd.service

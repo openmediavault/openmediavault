@@ -34,7 +34,7 @@ class Nfs extends \OMV\Engine\Module\ServiceAbstract implements
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.nfs");
-		$systemCtl = new \OMV\System\SystemCtl("nfs-kernel-server");
+		$systemCtl = new \OMV\System\SystemCtl("nfs-server");
 		return [
 			"name" => $this->getName(),
 			"title" => gettext("NFS"),
