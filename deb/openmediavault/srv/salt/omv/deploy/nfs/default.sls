@@ -59,7 +59,7 @@ start_rpc_statd_service:
     - name: rpc-statd
     - enable: True
 
-start_nfs_kernel_server_service:
+start_nfs_server_service:
   service.running:
     - name: nfs-server
     - enable: True
@@ -69,7 +69,7 @@ start_nfs_kernel_server_service:
 
 {% else %}
 
-stop_nfs_kernel_server_service:
+stop_nfs_server_service:
   service.dead:
     - name: nfs-server
     - enable: False
