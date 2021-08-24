@@ -14,30 +14,22 @@ describe('LocaleDatePipe', () => {
   });
 
   it('transform date into human readable time (1)', () => {
-    const date: Date = dayjs()
-      .subtract(130, 'seconds')
-      .toDate();
+    const date: Date = dayjs().subtract(130, 'seconds').toDate();
     expect(pipe.transform(date, 'relative')).toBe('2 minutes ago');
   });
 
   it('transform date into human readable time (2)', () => {
-    const date: string = dayjs()
-      .subtract(40, 'seconds')
-      .toISOString();
+    const date: string = dayjs().subtract(40, 'seconds').toISOString();
     expect(pipe.transform(date, 'relative')).toBe('a few seconds ago');
   });
 
   it('transform date into human readable time (3)', () => {
-    const date: Date = dayjs()
-      .subtract(70, 'minutes')
-      .toDate();
+    const date: Date = dayjs().subtract(70, 'minutes').toDate();
     expect(pipe.transform(date, 'relative')).toBe('an hour ago');
   });
 
   it('transform date into human readable time (4)', () => {
-    const date: number = dayjs()
-      .subtract(3, 'days')
-      .unix();
+    const date: number = dayjs().subtract(3, 'days').unix();
     expect(pipe.transform(date, 'relative')).toBe('3 days ago');
   });
 
@@ -57,9 +49,7 @@ describe('LocaleDatePipe', () => {
   });
 
   it('transform date into human readable time (8)', () => {
-    const date: Date = dayjs()
-      .subtract(70, 'minutes')
-      .toDate();
+    const date: Date = dayjs().subtract(70, 'minutes').toDate();
     expect(pipe.transform(date, 'relative', true)).toBe('an hour');
   });
 });
