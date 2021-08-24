@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-30 09:58+0000\n"
+"PO-Revision-Date: 2021-08-24 16:58+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -939,13 +939,13 @@ msgstr "¿Realmente desea devolver la configuración de la Interfaz de Usuario a
 msgid ""
 "Do you really want to resize the file system? You have to do that after a "
 "RAID has been grown for example."
-msgstr ""
+msgstr "¿Desea redimensionar el tamaño del sistema de archivos?. Solo puede hacerlo después de haber recrecido el RAID de discos por ejemplo."
 
 msgid "Do you really want to shutdown the system?"
 msgstr "¿Realmente desea apagar el equipo?"
 
 msgid "Do you really want to undo the configuration changes?"
-msgstr ""
+msgstr "¿Desea realmente deshacer los cambios en la configuración?"
 
 msgid "Do you really want to uninstall the plugin?"
 msgstr "¿desea realmente desinstalar el plugin?"
@@ -1402,7 +1402,7 @@ msgstr ""
 msgid ""
 "If set then the client will be challenged to supply a user name and password"
 " to connect to the module."
-msgstr ""
+msgstr "Si se marca, entonces los clientes serán interrogados para solicitarles usuario y contraseña para conectarse al modulo. "
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
@@ -1555,7 +1555,7 @@ msgstr "Israel"
 msgid ""
 "It may take a while to detect the new devices, thus it might be necessary to"
 " reload the table several times. Do you want to proceed?"
-msgstr ""
+msgstr "Puede tardar un poco en detectarse nuevos discos. Puede ser necesario recargar la tabla varias veces. ¿desea proceder?"
 
 msgid "Italy"
 msgstr "Italia"
@@ -1751,12 +1751,12 @@ msgstr "Dirección IP enmascarada"
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "Marcar si el puerto destino es unos de los siguientes puertos : Ej: 21 o 443 o del 1024-65535"
 
 msgid ""
 "Match if the source port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "Marcar si el puerto origen es unos de los siguientes puertos : Ej: 21 o 443 o del 1024-65535"
 
 msgid "Mauritania"
 msgstr "Mauritania"
@@ -1849,7 +1849,7 @@ msgid "Minimum"
 msgstr "Mínimo"
 
 msgid "Minimum performance, minimum acoustic output"
-msgstr ""
+msgstr "Mínimo rendimiento, mínimo ruido."
 
 msgid "Minute"
 msgstr "Minutos"
@@ -2056,7 +2056,7 @@ msgid "Offline immediate test"
 msgstr "Prueba inmediata sin conexión"
 
 msgid "Old-age"
-msgstr ""
+msgstr "Edad"
 
 msgid "Oman"
 msgstr "Omán"
@@ -2074,7 +2074,7 @@ msgid "Organization Name"
 msgstr "Nombre de la Organización"
 
 msgid "Organization Unit"
-msgstr ""
+msgstr "Organización"
 
 msgid "Others"
 msgstr "Otros"
@@ -2145,7 +2145,7 @@ msgstr "Copiar una clave privada RSA o ECC en formato X.509 PEM aqui."
 msgid ""
 "Pending configuration changes. You must apply these changes in order for "
 "them to take effect."
-msgstr ""
+msgstr "Cambios de configuración pendientes. Debe aplicar los cambios para que tengan efecto."
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "Republica Democratica del Yemen"
@@ -2175,7 +2175,7 @@ msgid "Permit root login"
 msgstr "Permitir acceso root"
 
 msgid "Permit to do SSH tunneling."
-msgstr ""
+msgstr "Permitir túneles SSH."
 
 msgid "Peru"
 msgstr "Peru"
@@ -2189,17 +2189,17 @@ msgstr "Isla Pitcairn"
 msgid ""
 "Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr ""
+msgstr "Por favor revise la pagina <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" target=\"_blank\"> del manual</a> para más detalles."
 
 msgid ""
 "Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
 " target=\"_blank\">manual page</a> for more details."
-msgstr ""
+msgstr "Por favor revise la página <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\" target=\"_blank\"> del manual</a> para más detalles."
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr ""
+msgstr "Por favor revise la página <a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\"> del manual</a> para más detalles."
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
@@ -2229,46 +2229,46 @@ msgid ""
 msgstr "Por favor vea: <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>página del manual</a> para más detalles."
 
 msgid "Please choose the method to wipe the device."
-msgstr ""
+msgstr "Por favor elija el método de borrado del disco."
 
 msgid "Please wait ..."
 msgstr "Por favor espere ..."
 
 msgid "Please wait, deleting selected item(s) ..."
-msgstr ""
+msgstr "Espere, borrando elemento(s) seleccionado(s) ..."
 
 msgid "Please wait, identifying network device ..."
-msgstr ""
+msgstr "Espere, identificando tarjeta de red ..."
 
 msgid "Please wait, installing public SSH key on remote system ..."
-msgstr ""
+msgstr "Espere, instalando clave pública SSH en el sistema remoto ..."
 
 msgid "Please wait, processing selected item(s) ..."
-msgstr ""
+msgstr "Espere, procesando elemento(s) seleccionado(s) ..."
 
 msgid "Please wait, reverting configuration changes ..."
-msgstr ""
+msgstr "Espere, revertiendo los cambios de la configuración ..."
 
 msgid "Please wait, sending a test email ..."
-msgstr ""
+msgstr "Espere, enviando e-mail de prueba ..."
 
 msgid "Please wait, the configuration changes are being applied ..."
-msgstr ""
+msgstr "Espere, los cambios en la configuración se están aplicando ..."
 
 msgid "Please wait, the data is being loaded ..."
-msgstr ""
+msgstr "Espere, los datos están siendo cargados ..."
 
 msgid "Please wait, the file system is being mounted ..."
-msgstr ""
+msgstr "Espere, El sistema de archivos , está siendo montado ..."
 
 msgid "Please wait, the statistic graphs will be regenerated ..."
-msgstr ""
+msgstr "Espere, las estadísticas se están regenerando ..."
 
 msgid "Please wait, unmounting the file system ..."
-msgstr ""
+msgstr "Espere, desmontando el sistema de archivos ..."
 
 msgid "Please wait, updating access control lists ..."
-msgstr ""
+msgstr "Espere, actualizando la lista de control de acceso ..."
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -2283,7 +2283,7 @@ msgid "Portugal"
 msgstr "Portugal"
 
 msgid "Power"
-msgstr ""
+msgstr "Energia"
 
 msgid "Power Management"
 msgstr "Manejo de energia."
@@ -2295,10 +2295,10 @@ msgid "Power mode"
 msgstr "Modo de energía"
 
 msgid "Pre-release updates"
-msgstr ""
+msgstr "Actualizaciones Pre-release"
 
 msgid "Prefail"
-msgstr ""
+msgstr "Pre-Fallo"
 
 msgid "Prefix length"
 msgstr "Longitud del prefijo"
@@ -2359,7 +2359,7 @@ msgid "Processor"
 msgstr "Procesador"
 
 msgid "Profile"
-msgstr ""
+msgstr "Perfil"
 
 msgid "Protocol"
 msgstr "Protocolo"
@@ -2440,7 +2440,7 @@ msgid "Reboot"
 msgstr "Reiniciar"
 
 msgid "Reboot required"
-msgstr ""
+msgstr "Se requiere reinicio"
 
 msgid "Recipient"
 msgstr "Destinatario"
@@ -2458,13 +2458,13 @@ msgid "Referenced"
 msgstr "Referenciado"
 
 msgid "Refresh time"
-msgstr ""
+msgstr "refresco"
 
 msgid "Relative Path"
 msgstr "Ruta relativa"
 
 msgid "Relative path"
-msgstr ""
+msgstr "ruta relativa"
 
 msgid "Reload"
 msgstr "Recargar"
@@ -2482,13 +2482,13 @@ msgid "Remove"
 msgstr "Eliminar"
 
 msgid "Remove all"
-msgstr ""
+msgstr "Eliminar todo"
 
 msgid "Replace"
 msgstr "Reemplazar"
 
 msgid "Replace all existing permissions."
-msgstr ""
+msgstr "Remplazar todos los permisos."
 
 msgid "Report"
 msgstr "Informe"
@@ -2525,7 +2525,7 @@ msgid "Resume"
 msgstr "Continuar"
 
 msgid "Retention time"
-msgstr ""
+msgstr "Tiempo de retención"
 
 msgid "Reunion"
 msgstr "Reunión"
@@ -2534,7 +2534,7 @@ msgid "Reverse DNS lookup"
 msgstr "Busqueda inversa DNS"
 
 msgid "Reverted the configuration changes."
-msgstr ""
+msgstr "Revertidos los cambios en la configuración."
 
 msgid "Romania"
 msgstr "Rumania"
@@ -2549,16 +2549,16 @@ msgid "Rsync - Server"
 msgstr "Servidor-Rsync"
 
 msgid "Rules"
-msgstr ""
+msgstr "Reglas"
 
 msgid "Run"
 msgstr "Ejecutar"
 
 msgid "Run rsync task"
-msgstr ""
+msgstr "Ejecutar la tarea de Rsync"
 
 msgid "Run scheduled task"
-msgstr ""
+msgstr "Ejecutar la tarea programada"
 
 msgid "Running"
 msgstr "Ejecutándose"
@@ -2597,10 +2597,10 @@ msgid "SSH port"
 msgstr "Puerto SSH"
 
 msgid "SSH public key"
-msgstr ""
+msgstr "Clave pública SSH"
 
 msgid "SSH public keys"
-msgstr ""
+msgstr "Claves públicas SSH"
 
 msgid "SSID"
 msgstr "SSID"
@@ -2612,10 +2612,10 @@ msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
 msgid "SSL/TLS Settings"
-msgstr ""
+msgstr "Opciones SSL/TLS"
 
 msgid "SSL/TLS enabled"
-msgstr ""
+msgstr "SSL/TLS habilitado"
 
 msgid "STARTTLS"
 msgstr "STARTTLS"
@@ -2654,13 +2654,13 @@ msgid "Save"
 msgstr "Salvar"
 
 msgid "Scan for new devices"
-msgstr ""
+msgstr "Buscar nuevos dispositivos"
 
 msgid "Scanning for new devices ..."
 msgstr "Buscando nuevos dispositivos ..."
 
 msgid "Scheduled Tasks"
-msgstr ""
+msgstr "Tareas programadas"
 
 msgid "Scheduling"
 msgstr "programación"
@@ -2693,7 +2693,7 @@ msgid "Select a file system ..."
 msgstr "Seleccionar un sistema de archivos ..."
 
 msgid "Select a group ..."
-msgstr ""
+msgstr "Seleccionar un grupo ..."
 
 msgid "Select a shared folder ..."
 msgstr "Seleccionar una carpeta compartida ..."
@@ -2702,43 +2702,43 @@ msgid "Select a shell ..."
 msgstr "Seleccionar una Shell ..."
 
 msgid "Select a system log ..."
-msgstr ""
+msgstr "Seleccionar un Log de sistema ..."
 
 msgid "Select a type ..."
-msgstr ""
+msgstr "Seleccionar un tipo ..."
 
 msgid "Select an authentication mode ..."
 msgstr "Seleccionar un modo de autentificación ..."
 
 msgid "Select an user ..."
-msgstr ""
+msgstr "Seleccionar un usuario ..."
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Seleccionar un disco ..."
 
 msgid "Select devices to be added to the RAID device."
-msgstr ""
+msgstr "Seleccionar discos para añadir al RAID."
 
 msgid "Select devices to be removed from the RAID device."
 msgstr "Seleecione dispositivos a eliminar del RAID."
 
 msgid "Select groups ..."
-msgstr ""
+msgstr "Seleccionar grupos ..."
 
 msgid "Select interface devices ..."
-msgstr ""
+msgstr "Seleccionar tarjetas de red ..."
 
 msgid "Select members ..."
-msgstr ""
+msgstr "Seleccionar miembros ..."
 
 msgid "Select permissions ..."
-msgstr ""
+msgstr "Seleccionar permisos ..."
 
 msgid "Select slave devices ..."
-msgstr ""
+msgstr "Seleccionar dispositivos esclavos ..."
 
 msgid "Select the device that will be used to create the file system."
-msgstr ""
+msgstr "Seleccionar el disco donde crear el sistema de archivos."
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
@@ -2746,12 +2746,12 @@ msgid ""
 msgstr "Seleccione los discos que serán usados para crear un RAID.\nLos Discos USB, NO serán listados (Muy inestables)"
 
 msgid "Self-Test Logs"
-msgstr ""
+msgstr "Logs de Auto-Test"
 
 msgid ""
 "Send a notification when the used file system capacity exceeds the specified"
 " threshold."
-msgstr ""
+msgstr "Mandar una notificación cuando el espacio en uso, sobrepase el limite establecido."
 
 msgid "Send command output via email"
 msgstr "Enviar la salida del comando por email"
@@ -2787,7 +2787,7 @@ msgid "Services"
 msgstr "Servicios"
 
 msgid "Services Status"
-msgstr ""
+msgstr "Estado"
 
 msgid "Session expired."
 msgstr "Sessión expirada"
@@ -2797,7 +2797,7 @@ msgstr "Sesión no autenticada"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "Hacer que los permisos en destino , sean idénticos a los de origen."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
@@ -2828,7 +2828,7 @@ msgid "Shared folder path"
 msgstr "Ruta de la carpeta compartida"
 
 msgid "Shared folder permissions have been transferred."
-msgstr ""
+msgstr "Los permisos de la carpeta compartida, han sido transferidos."
 
 msgid "Shared folder privileges"
 msgstr "Privilegios de la carpeta compartida"
@@ -2849,10 +2849,10 @@ msgid "Show details"
 msgstr "Mostrar detalles"
 
 msgid "Show/Hide columns"
-msgstr ""
+msgstr "Mostrar/ocultar columnas"
 
 msgid "Show/Hide navigation"
-msgstr ""
+msgstr "Mostra/ocultar navegación"
 
 msgid "Shutdown"
 msgstr "Apagar"
@@ -2861,7 +2861,7 @@ msgid "Sierra Leone"
 msgstr "Sierra Leona"
 
 msgid "Signed in as"
-msgstr ""
+msgstr "Registrado como"
 
 msgid "Singapore"
 msgstr "Singapur"
@@ -2882,7 +2882,7 @@ msgid "Slovenia"
 msgstr "Eslovenia"
 
 msgid "Software Failure.   Press left mouse button to continue."
-msgstr ""
+msgstr "Fallo de software.  pulse botón izquierdo del ratón para continuar."
 
 msgid "Software RAID"
 msgstr "Software RAID"
@@ -2939,10 +2939,10 @@ msgid ""
 msgstr "Especifica la cantidad de tiempo en segundos, entre la comprobación y la actualización de la mascara, para resolver una dirección IP.\nPoner este valor a cero \"0\" para deshabilitar la opción."
 
 msgid "Specifies the interface devices."
-msgstr ""
+msgstr "Especifica los dispositivos de red."
 
 msgid "Specifies the slave devices."
-msgstr ""
+msgstr "Especifica el dispositivo esclavo."
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Especifica el tiempo en hh:mm:ss para que expire el baneo"
@@ -2963,7 +2963,7 @@ msgid ""
 msgstr "Especifica el tiempo, en milisegundos, que espera antes de activar un esclavo después de que haya sido detectado un enlace recuperado."
 
 msgid "Specifies whether it is allowed to login as superuser directly."
-msgstr ""
+msgstr "Especifica si se le permite iniciar sesión como superusuario directamente."
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Especifica si está permitido el login como superusuario"
@@ -3024,7 +3024,7 @@ msgid "Sudan"
 msgstr "Sudan"
 
 msgid "Summary"
-msgstr ""
+msgstr "Sumario"
 
 msgid "Sunday"
 msgstr "Domingo"
@@ -3063,10 +3063,10 @@ msgid "System Logs"
 msgstr "Logs del sistema"
 
 msgid "System Time"
-msgstr ""
+msgstr "Hora del sistema"
 
 msgid "System account"
-msgstr ""
+msgstr "Cuenta del sistema"
 
 msgid "System time"
 msgstr "Hora del sistema"
@@ -3075,7 +3075,7 @@ msgid "TCP forwarding"
 msgstr "Reenvío TCP"
 
 msgid "TLS Settings"
-msgstr ""
+msgstr "Opciones TLS"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -3087,7 +3087,7 @@ msgid "Tanzania"
 msgstr "Tanzania"
 
 msgid "Tasks"
-msgstr ""
+msgstr "Tareas"
 
 msgid "Temperature"
 msgstr "Temperatura"
@@ -3096,7 +3096,7 @@ msgid "Temperature monitoring"
 msgstr "Monitorización de temperatura"
 
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 msgid "Thailand"
 msgstr "Tailandia"
@@ -3125,10 +3125,10 @@ msgstr "Acción a realizar cuando se presione el botón de \"power\""
 msgid ""
 "The dashboard has not yet been configured. To personalize it please go to "
 "the"
-msgstr ""
+msgstr "El tablero aún no se ha configurado. Para personalizarlo vaya a la"
 
 msgid "The data has been copied to the clipboard."
-msgstr ""
+msgstr "Los datos han sido copiados al prtapapeles."
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "El puerto del servidor de correo SMTP, Ej; 25 o 587"
@@ -3142,10 +3142,10 @@ msgid "The file mode of the shared folder path."
 msgstr "Modo de archivo de la ruta a las carpetas compartidas."
 
 msgid "The file system on which the shared folder is to be created."
-msgstr ""
+msgstr "El sistema de archivos en el que será creada la carpeta compartida."
 
 msgid "The file system to mount."
-msgstr ""
+msgstr "Sistema de archivos a montar"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "El nombre de host es una etiqueta que identifica al sistema en la red."
@@ -3200,7 +3200,7 @@ msgstr "La clave pública RSA en formato X.509 PEM."
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
-msgstr ""
+msgstr "El protocolo no se admite junto con un puerto de origen / destino."
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "

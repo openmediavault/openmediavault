@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2014,2017
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2014,2017,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-08-24 16:36+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,10 +36,10 @@ msgid "Antivirus"
 msgstr "Antivirus"
 
 msgid "April"
-msgstr ""
+msgstr "Abril"
 
 msgid "August"
-msgstr ""
+msgstr "Agosto"
 
 msgid "Be verbose."
 msgstr "Dar detalles"
@@ -48,13 +48,13 @@ msgid "Comment"
 msgstr "Comentario"
 
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 msgid "Created on-access scan."
-msgstr ""
+msgstr "Crear escaneo al acceder."
 
 msgid "Created scheduled scan."
-msgstr ""
+msgstr "Crear escaneo programado."
 
 msgid "Database checks"
 msgstr "Comprobación de la BBDD"
@@ -69,10 +69,10 @@ msgid "Day of week"
 msgstr "Día de la semana"
 
 msgid "December"
-msgstr ""
+msgstr "Diciembre"
 
 msgid "Delete immediately"
-msgstr ""
+msgstr "Borrar inmediatamente"
 
 msgid "Detect PUA"
 msgstr "Detectar PUA"
@@ -84,7 +84,7 @@ msgid "Done ..."
 msgstr "Hecho ..."
 
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 msgid "Edit on-access scan"
 msgstr "Editar escaneo al acceder"
@@ -140,13 +140,13 @@ msgid "Execute scheduled job"
 msgstr "Ejecutar trabajo programado"
 
 msgid "Execute scheduled scan"
-msgstr ""
+msgstr "Ejecutar escaneo programado"
 
 msgid "Extra options"
 msgstr "Opciones extras"
 
 msgid "February"
-msgstr ""
+msgstr "Febrero"
 
 msgid "Follow directory symlinks"
 msgstr "Seguir enlaces de directorios simbolicos"
@@ -161,7 +161,7 @@ msgid "Follow regular file symlinks."
 msgstr "Seguir los enlaces simbolicos de archivos."
 
 msgid "Friday"
-msgstr ""
+msgstr "Viernes"
 
 msgid "General settings"
 msgstr "Opción general"
@@ -173,13 +173,13 @@ msgid "Infected files"
 msgstr "Archivos infectados"
 
 msgid "January"
-msgstr ""
+msgstr "Enero"
 
 msgid "July"
-msgstr ""
+msgstr "Julio"
 
 msgid "June"
-msgstr ""
+msgstr "Junio"
 
 msgid "Log clean files"
 msgstr "Log de archivos limpios"
@@ -188,10 +188,10 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "Log de todos los archivos. Esto incrementa drasticamente el tamaño del log."
 
 msgid "March"
-msgstr ""
+msgstr "Marzo"
 
 msgid "May"
-msgstr ""
+msgstr "Mayo"
 
 msgid "Message"
 msgstr "Mensaje"
@@ -200,7 +200,7 @@ msgid "Minute"
 msgstr "Minuto"
 
 msgid "Monday"
-msgstr ""
+msgstr "Lunes"
 
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "Monitorizar la carpeta compartida y escanear en caso de archivos nuevos o modificados."
@@ -209,19 +209,19 @@ msgid "Month"
 msgstr "Mes"
 
 msgid "Move to quarantine"
-msgstr ""
+msgstr "Mover a cuarentena"
 
 msgid "Multiscan"
 msgstr "Multiscan"
 
 msgid "November"
-msgstr ""
+msgstr "Noviembre"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Numero de consultas de actualización de la BBDD por día. 0 para deshabilitarlo."
 
 msgid "October"
-msgstr ""
+msgstr "Octubre"
 
 msgid "On Access Scans"
 msgstr "Escaneos al acceder"
@@ -233,7 +233,7 @@ msgid "Perform a deeper analysis of executable files."
 msgstr "Ejecutar un analisis en profundidad de los ejecutables"
 
 msgid "Perform nothing"
-msgstr ""
+msgstr "No hacer nada"
 
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
@@ -245,7 +245,7 @@ msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
 "daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "Por favor, revise la pagina <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'> del manual</a> para más detalles."
 
 msgid "Quarantine"
 msgstr "Cuarentena"
@@ -254,7 +254,7 @@ msgid "Run"
 msgstr "Ejecutar"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Sábado"
 
 msgid "Scan ELF"
 msgstr "Escanear ELF"
@@ -269,7 +269,7 @@ msgid "Scan PDF"
 msgstr "Escanear PDF"
 
 msgid "Scan Portable Executable"
-msgstr "Escanera auto-ejecutables"
+msgstr "Escanear auto-ejecutables"
 
 msgid "Scan archives"
 msgstr "Escanear archivos"
@@ -281,10 +281,10 @@ msgid "Scheduled Jobs"
 msgstr "Trabajos programados"
 
 msgid "Scheduled Scans"
-msgstr ""
+msgstr "Escanear programados"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Programación"
 
 msgid "Send command output via email"
 msgstr "Enviar resultado del comando via e-mail"
@@ -293,7 +293,7 @@ msgid "Send email"
 msgstr "Enviar e-mail"
 
 msgid "September"
-msgstr ""
+msgstr "Septiembre"
 
 msgid "Settings"
 msgstr "Opciones"
@@ -302,7 +302,7 @@ msgid "Shared folder"
 msgstr "Carpeta compartida"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Domingo"
 
 msgid "The location of the files to scan on-access."
 msgstr "Ubicación de los archivos a escanear al acceder."
@@ -317,22 +317,22 @@ msgid "The option, how to handle infected files."
 msgstr "Como tratar a los archivos infectados"
 
 msgid "Thursday"
-msgstr ""
+msgstr "Jueves"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Martes"
 
 msgid "Updated on-access scan."
-msgstr ""
+msgstr "Actualizar al realizar el escaneo."
 
 msgid "Updated scheduled scan."
-msgstr ""
+msgstr "Escaneo programado, actualizado."
 
 msgid "Verbose"
 msgstr "Detallado"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Miercoles"
 
 msgid "n/a"
 msgstr "n/a"

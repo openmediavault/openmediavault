@@ -9,13 +9,14 @@
 # stokerh <stoker.pc@home.nl>, 2012
 # stokerh <stoker.pc@home.nl>, 2012
 # Tim <co_ti@hotmail.com>, 2013-2014,2016-2017
+# Wouter VE <vaneenoo.wouter@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-19 16:36+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-08-06 09:36+0000\n"
+"Last-Translator: Wouter VE <vaneenoo.wouter@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,31 +29,31 @@ msgid ""
 msgstr ""
 
 msgid "%d days"
-msgstr ""
+msgstr "%ddagen"
 
 msgid "%d hours"
-msgstr ""
+msgstr "%duren"
 
 msgid "%d minutes"
-msgstr ""
+msgstr "%dminuten"
 
 msgid "%d months"
-msgstr ""
+msgstr "%dmaanden"
 
 msgid "%d years"
-msgstr ""
+msgstr "%djaren"
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
-msgstr ""
+msgstr "%s [%s, %s (%d%%) in gebruik, %s beschikbaar]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [op %s, %s]"
 
 msgid "%s ago"
-msgstr ""
+msgstr "%sgeleden"
 
 msgid "."
-msgstr ""
+msgstr "."
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s betekent ongelimiteerd."
@@ -64,7 +65,7 @@ msgid "1 day"
 msgstr "1 dag"
 
 msgid "1 min"
-msgstr ""
+msgstr "1 min"
 
 msgid "1 minute"
 msgstr "1 minuut"
@@ -94,7 +95,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Minimaal stroomgebruik zonder stand-by (geen spindown)"
 
 msgid "15 min"
-msgstr ""
+msgstr "15 min"
 
 msgid "15 minutes"
 msgstr "15 minuten"
@@ -175,7 +176,7 @@ msgid "5 days"
 msgstr "5 dagen"
 
 msgid "5 min"
-msgstr ""
+msgstr "5 min"
 
 msgid "5 minutes"
 msgstr "5 minuten"
@@ -199,10 +200,10 @@ msgid "9 months"
 msgstr "9 maanden"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "Maximaal 1 toestel kan verwijderd worden."
 
 msgid "A maximum of two device can be removed."
-msgstr ""
+msgstr "Maximaal 2 toestellen kunnen verwijderd worden."
 
 msgid "ACL"
 msgstr "ACL"
@@ -217,7 +218,7 @@ msgid "Abstract"
 msgstr "Abstract"
 
 msgid "Access control list"
-msgstr ""
+msgstr "Toegangscontrole lijst"
 
 msgid "Access mode"
 msgstr "Toegangsmodus"
@@ -331,19 +332,19 @@ msgid "Antigua and Barbuda"
 msgstr "Antigua en Barbuda"
 
 msgid "Applied the configuration changes."
-msgstr ""
+msgstr "De wijzigingen in de configuratie zijn opgeslagen."
 
 msgid "Apply"
 msgstr "Toepassen"
 
 msgid "Apply permissions to files and subfolders."
-msgstr ""
+msgstr "Rechten toepassen op bestanden en submappen."
 
 msgid "April"
 msgstr "april"
 
 msgid "Archive mode"
-msgstr ""
+msgstr "Archief modus"
 
 msgid "Argentina"
 msgstr "Argentinië"
@@ -358,16 +359,16 @@ msgid "Asynchronous I/O"
 msgstr "Asynchrone I/O"
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "Ten minsten 4 apparaten nodig."
 
 msgid "At least one network interface is required."
-msgstr ""
+msgstr "Tenminste 1 netwerk interface is benodigd."
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "Ten minsten 3 apparaten nodig."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "Ten minsten 2 apparaten nodig."
 
 msgid "At reboot"
 msgstr "Bij herstart"
@@ -415,13 +416,13 @@ msgid "Azerbaijan"
 msgstr "Azerbeidzjan"
 
 msgid "BTRFS"
-msgstr ""
+msgstr "BTRFS"
 
 msgid "Back"
-msgstr ""
+msgstr "Terug"
 
 msgid "Bad"
-msgstr ""
+msgstr "Slecht"
 
 msgid "Bahamas"
 msgstr "Bahamas"
@@ -520,10 +521,10 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 msgid "CPU Usage"
-msgstr ""
+msgstr "CPU gebruik"
 
 msgid "CPU usage"
 msgstr "CPU-gebruik"
@@ -568,7 +569,7 @@ msgid "Chad"
 msgstr "Tsjaad"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Wijzig wachtwoord"
 
 msgid "Changelog"
 msgstr "Changelog"
@@ -592,7 +593,7 @@ msgid "China"
 msgstr "China"
 
 msgid "Choose"
-msgstr ""
+msgstr "Kies"
 
 msgid "Christmas Island"
 msgstr "Kersteiland"
@@ -601,7 +602,7 @@ msgid "City"
 msgstr "Stad"
 
 msgid "Cleaning up recycle bin on the share."
-msgstr ""
+msgstr "Prullenbak van de gedeelde map leegmaken"
 
 msgid "Clear"
 msgstr "Wissen"
@@ -637,7 +638,7 @@ msgid "Common Name"
 msgstr "Algemene naam"
 
 msgid "Community-maintained updates"
-msgstr ""
+msgstr "Updates bijgehouden door de gemeenschap"
 
 msgid "Comoros"
 msgstr "Comoren"

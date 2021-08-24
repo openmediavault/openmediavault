@@ -4,13 +4,14 @@
 # 
 # Translators:
 # songming <by@songming.me>, 2013-2015,2017
+# Yang Lee <150183966@qq.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-08-09 03:34+0000\n"
+"Last-Translator: Yang Lee <150183966@qq.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +40,7 @@ msgid "Confirmation"
 msgstr "确认"
 
 msgid "Create"
-msgstr ""
+msgstr "新建"
 
 msgid "Create logical volume"
 msgstr "创建逻辑卷"
@@ -48,16 +49,16 @@ msgid "Create volume group"
 msgstr "创建卷组"
 
 msgid "Created logical volume '{{ name }}'."
-msgstr ""
+msgstr "已建逻辑卷‘{{逻辑卷名}}’"
 
 msgid "Created physical volume {{ devicefile }}."
-msgstr ""
+msgstr "已建物理卷‘{{设备文件}}’"
 
 msgid "Created snapshot of logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "已建逻辑卷‘{{设备文件}}’的快照"
 
 msgid "Created volume group '{{ name }}'."
-msgstr ""
+msgstr "已建卷组‘{{卷组名}}’"
 
 msgid "Description"
 msgstr "描述"
@@ -69,7 +70,7 @@ msgid "Devices"
 msgstr "设备"
 
 msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
-msgstr ""
+msgstr "确认在‘{{设备文件}}’上创建物理卷？"
 
 msgid "Do you really want to create the logical volume?"
 msgstr "确认创建逻辑卷？"
@@ -84,7 +85,7 @@ msgid "Do you really want to resize the selected physical volume?"
 msgstr "确定要调整选中物理卷大小？"
 
 msgid "Edit"
-msgstr ""
+msgstr "编辑"
 
 msgid "Edit logical volume"
 msgstr "编辑逻辑卷"
@@ -102,10 +103,10 @@ msgid "Extend volume group"
 msgstr "扩展卷组"
 
 msgid "Extended logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "已扩容逻辑卷‘{{设备文件}}’"
 
 msgid "Extended volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "已扩容卷组‘{{设备文件}}’"
 
 msgid "Free"
 msgstr "空闲"
@@ -117,7 +118,7 @@ msgid "Logical Volume Management"
 msgstr "逻辑卷管理"
 
 msgid "Logical Volumes"
-msgstr ""
+msgstr "逻辑卷"
 
 msgid "Logical volumes"
 msgstr "逻辑卷"
@@ -132,25 +133,25 @@ msgid "No free space available to extend the logical volume."
 msgstr "没有可用空间来扩展逻辑卷。"
 
 msgid "Physical Volumes"
-msgstr ""
+msgstr "多个物理卷"
 
 msgid "Physical volumes"
-msgstr "物理卷"
+msgstr "多个物理卷"
 
 msgid "Reduce"
-msgstr "缩减"
+msgstr "缩容"
 
 msgid "Reduce volume group"
-msgstr "缩减卷组"
+msgstr "卷组缩容"
 
 msgid "Reduced volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "经缩容的卷组‘{{设备文件}}’"
 
 msgid "Resize"
 msgstr "调整大小"
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "选择设备 ..."
 
 msgid "Select a volume group ..."
 msgstr "选择卷组 ..."
@@ -159,13 +160,13 @@ msgid "Select an device ..."
 msgstr "选择设备 ..."
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "选择设备（可多选） ..."
 
 msgid "Select the devices used to extend the volume group."
-msgstr ""
+msgstr "选择用于扩容该卷组的设备（可多选）"
 
 msgid "Select the devices used to reduce from the volume group."
-msgstr ""
+msgstr "选择该卷组要缩减的设备（可多选）"
 
 msgid "Size"
 msgstr "大小"
@@ -176,27 +177,27 @@ msgstr "快照"
 msgid ""
 "The percentage of the total space in the volume group to allocate for the "
 "new logical volume."
-msgstr ""
+msgstr "卷组内可为新逻辑卷分配的空间（百分数）"
 
 msgid ""
 "The percentage of the total space in the volume group to use by the logical "
 "volume."
-msgstr ""
+msgstr "逻辑卷在卷组内的可用空间（百分数）"
 
 msgid "Updated logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "已更新的逻辑卷‘{{设备文件}}’"
 
 msgid "Updated volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "已更新的卷组‘{{设备文件}}’"
 
 msgid "Used"
 msgstr "已使用"
 
 msgid "Volume Group"
-msgstr ""
+msgstr "单个卷组"
 
 msgid "Volume Groups"
-msgstr ""
+msgstr "多个卷组"
 
 msgid "Volume group"
 msgstr "卷组"

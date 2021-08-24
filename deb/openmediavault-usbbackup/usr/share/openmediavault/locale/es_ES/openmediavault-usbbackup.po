@@ -4,14 +4,14 @@
 # 
 # Translators:
 # jmcainzos <jmcainzos@vodafone.es>, 2013
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2013-2014,2017,2019
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2013-2014,2017,2019,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-08-24 12:04+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,10 +43,10 @@ msgid "Compress file data during the transfer."
 msgstr "Comprimir los datos durante la transferencia"
 
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 msgid "Created USB backup job."
-msgstr ""
+msgstr "Crear una tarea de backup USB."
 
 msgid "Delete"
 msgstr "Borrar"
@@ -61,7 +61,7 @@ msgid "Done ..."
 msgstr "Hecho ..."
 
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 msgid "Edit backup job"
 msgstr "Editar tarea de Backup"
@@ -84,7 +84,7 @@ msgid "Execute backup job"
 msgstr "Ejecutar tarea de Backup"
 
 msgid "External Storage Device"
-msgstr ""
+msgstr "Disco duro externo"
 
 msgid "External storage device"
 msgstr "Dispositivo de almacenamiento externo"
@@ -146,7 +146,7 @@ msgid "Run"
 msgstr "Ejecutar"
 
 msgid "Run backup job"
-msgstr ""
+msgstr "Ejecutar tarea de backup"
 
 msgid "Scan"
 msgstr "Escanear"
@@ -180,7 +180,7 @@ msgid "Suppress non-error messages."
 msgstr "Suprime mensajes que no sean de error"
 
 msgid "Synchronise from/to directory on external storage device"
-msgstr ""
+msgstr "Sincronizar carpetas en el disco duro externo"
 
 msgid "Synchronise from/to directory on external storage device."
 msgstr "Sincronizar desde/hacia el directorio en el dispositivo externo."
@@ -215,7 +215,7 @@ msgid ""
 msgstr "Actualizar los atributos extendidos del destino con los locales."
 
 msgid "Updated USB backup job."
-msgstr ""
+msgstr "Actualizar tarea de backup USB."
 
 msgid "n/a"
 msgstr "n/a"
