@@ -17,7 +17,7 @@
 @use '~@angular/cdk' as cdk;
 @use '~@angular/material' as mat;
 
-@import 'defaults';
+@import 'src/scss/defaults';
 
 @include mat.core();
 
@@ -250,14 +250,14 @@ $omv-color-themes: (
 ////////////////////////////////////////////////////////////////////////////////
 // Icon
 .omv-icon-sm {
-  height: 0.875em !important;
-  width: 0.875em !important;
+  height: 0.875rem !important;
+  width: 0.875rem !important;
   flex-shrink: 0;
 }
 
 .omv-icon-2x {
-  height: 2em !important;
-  width: 2em !important;
+  height: 2rem !important;
+  width: 2rem !important;
   flex-shrink: 0;
 }
 // Use this when the background color is white.
@@ -342,14 +342,14 @@ textarea {
 }
 
 .mat-menu-item {
-  border-left: 3px solid transparent !important;
+  border-left: 0.25rem solid transparent !important;
 
   &.active {
-    border-left: 3px solid $omv-color-corporate-default !important;
+    border-left: 0.25rem solid $omv-color-corporate-default !important;
   }
 
   &:hover {
-    border-left: 3px solid $omv-color-yellow !important;
+    border-left: 0.25rem solid $omv-color-yellow !important;
   }
 }
 
@@ -377,7 +377,7 @@ textarea {
 ////////////////////////////////////////////////////////////////////////////////
 // Buttons
 .mat-flat-button:not(:first-child) {
-  margin-left: 8px !important;
+  margin-left: 0.5rem !important;
 }
 
 .mat-button-toggle.mat-button-toggle-checked {

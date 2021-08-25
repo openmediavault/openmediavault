@@ -1,7 +1,7 @@
 @use 'sass:math';
 @use '~@angular/material' as mat;
 
-@import 'src/defaults';
+@import 'src/scss/defaults';
 
 $mat-typography-config: mat.define-typography-config();
 
