@@ -19,15 +19,16 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 
-import { DatatablePageComponent } from '~/app/core/components/limn-ui/datatable-page/datatable-page.component';
-import { DatatablePageConfig } from '~/app/core/components/limn-ui/models/datatable-page-config.type';
+import { DatatablePageComponent } from '~/app/core/components/intuition/datatable-page/datatable-page.component';
+import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { ILogConfig, LogConfigService } from '~/app/core/services/log-config.service';
 import { translate } from '~/app/i18n.helper';
 import { DatatableActionConfig } from '~/app/shared/models/datatable-action-config.type';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  template: '<omv-limn-datatable-page #page [config]="this.config"></omv-limn-datatable-page>'
+  template:
+    '<omv-intuition-datatable-page #page [config]="this.config"></omv-intuition-datatable-page>'
 })
 export class SystemLogsListPageComponent implements OnInit {
   @ViewChild('page', { static: true })

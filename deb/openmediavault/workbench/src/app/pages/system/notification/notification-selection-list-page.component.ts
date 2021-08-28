@@ -17,10 +17,11 @@
  */
 import { Component } from '@angular/core';
 
-import { SelectionListPageConfig } from '~/app/core/components/limn-ui/models/selection-list-page-config.type';
+import { SelectionListPageConfig } from '~/app/core/components/intuition/models/selection-list-page-config.type';
 
 @Component({
-  template: '<omv-limn-selection-list-page [config]="this.config"></omv-limn-selection-list-page>'
+  template:
+    '<omv-intuition-selection-list-page [config]="this.config"></omv-intuition-selection-list-page>'
 })
 export class NotificationSelectionListPageComponent {
   public config: SelectionListPageConfig = {

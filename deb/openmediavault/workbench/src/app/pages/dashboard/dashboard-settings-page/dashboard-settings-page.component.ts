@@ -21,7 +21,7 @@ import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 
 import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/dashboard-widget-config.model';
-import { SelectionListPageConfig } from '~/app/core/components/limn-ui/models/selection-list-page-config.type';
+import { SelectionListPageConfig } from '~/app/core/components/intuition/models/selection-list-page-config.type';
 import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widget-config.service';
 
 type SelectionListItem = Pick<DashboardWidgetConfig, 'id' | 'title'> & {
@@ -29,7 +29,8 @@ type SelectionListItem = Pick<DashboardWidgetConfig, 'id' | 'title'> & {
 };
 
 @Component({
-  template: '<omv-limn-selection-list-page [config]="this.config"></omv-limn-selection-list-page>'
+  template:
+    '<omv-intuition-selection-list-page [config]="this.config"></omv-intuition-selection-list-page>'
 })
 export class DashboardSettingsPageComponent implements OnInit {
   public config: SelectionListPageConfig = {

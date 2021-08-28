@@ -22,17 +22,17 @@ import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EMPTY } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
 
-import { FormPageComponent } from '~/app/core/components/limn-ui/form-page/form-page.component';
+import { FormPageComponent } from '~/app/core/components/intuition/form-page/form-page.component';
 import {
   FormPageButtonConfig,
   FormPageConfig
-} from '~/app/core/components/limn-ui/models/form-page-config.type';
+} from '~/app/core/components/intuition/models/form-page-config.type';
 import { translate } from '~/app/i18n.helper';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  template: '<omv-limn-form-page [config]="this.config"></omv-limn-form-page>'
+  template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
 })
 export class SharedFolderAclFormPageComponent implements OnInit {
   @BlockUI()

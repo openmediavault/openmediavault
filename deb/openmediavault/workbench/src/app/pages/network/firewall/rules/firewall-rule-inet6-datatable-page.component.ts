@@ -19,8 +19,8 @@ import { Component } from '@angular/core';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 
-import { DatatablePageActionConfig } from '~/app/core/components/limn-ui/models/datatable-page-action-config.type';
-import { DatatablePageConfig } from '~/app/core/components/limn-ui/models/datatable-page-config.type';
+import { DatatablePageActionConfig } from '~/app/core/components/intuition/models/datatable-page-action-config.type';
+import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
@@ -28,7 +28,7 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  template: '<omv-limn-datatable-page [config]="this.config"></omv-limn-datatable-page>'
+  template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
 })
 export class FirewallRuleInet6DatatablePageComponent {
   public config: DatatablePageConfig = {

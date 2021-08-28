@@ -24,7 +24,7 @@ import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 import { Subject } from 'rxjs';
 
-import { FormDialogComponent } from '~/app/core/components/limn-ui/form-dialog/form-dialog.component';
+import { FormDialogComponent } from '~/app/core/components/intuition/form-dialog/form-dialog.component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { DatatableActionConfig } from '~/app/shared/models/datatable-action-config.type';

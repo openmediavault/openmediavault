@@ -18,7 +18,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 
-import { DatatablePageConfig } from '~/app/core/components/limn-ui/models/datatable-page-config.type';
+import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 
 @Component({
   templateUrl: './plugins-datatable-page.component.html',

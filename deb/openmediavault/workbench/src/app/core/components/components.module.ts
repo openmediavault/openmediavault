@@ -11,9 +11,9 @@ import { ApplyConfigComponent } from '~/app/core/components/apply-config/apply-c
 import { BreadcrumbComponent } from '~/app/core/components/breadcrumb/breadcrumb.component';
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
 import { GuruMeditationComponent } from '~/app/core/components/guru-meditation/guru-meditation.component';
+import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
 import { BlankLayoutComponent } from '~/app/core/components/layouts/blank-layout/blank-layout.component';
 import { WorkbenchLayoutComponent } from '~/app/core/components/layouts/workbench-layout/workbench-layout.component';
-import { LimnUiModule } from '~/app/core/components/limn-ui/limn-ui.module';
 import { NavigationBarComponent } from '~/app/core/components/navigation-bar/navigation-bar.component';
 import { NavigationBarListItemComponent } from '~/app/core/components/navigation-bar/navigation-bar-list-item/navigation-bar-list-item.component';
 import { NotificationsComponent } from '~/app/core/components/notifications/notifications.component';
@@ -33,7 +33,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     WorkbenchLayoutComponent,
     ApplyConfigComponent
   ],
-  exports: [GuruMeditationComponent, LimnUiModule, NotificationsComponent, DashboardModule],
+  exports: [GuruMeditationComponent, IntuitionModule, NotificationsComponent, DashboardModule],
   imports: [
     BlockUIModule.forRoot(),
     CommonModule,
@@ -41,7 +41,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     RouterModule,
     MaterialModule,
     FlexLayoutModule,
-    LimnUiModule,
+    IntuitionModule,
     TranslateModule.forChild(),
     NgScrollbarModule,
     DashboardModule
