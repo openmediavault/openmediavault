@@ -17,10 +17,10 @@
  */
 import { Component } from '@angular/core';
 
-import { RrdPageConfig } from '~/app/core/components/limn-ui/models/rrd-page-config.type';
+import { RrdPageConfig } from '~/app/core/components/intuition/models/rrd-page-config.type';
 
 @Component({
-  template: '<omv-limn-rrd-page [config]="this.config"></omv-limn-rrd-page>'
+  template: '<omv-intuition-rrd-page [config]="this.config"></omv-intuition-rrd-page>'
 })
 export class PerformanceStatisticDuRrdPageComponent {
   public config: RrdPageConfig = {

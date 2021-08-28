@@ -21,7 +21,7 @@ import dayjs from 'dayjs';
 import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
 
-import { DatatablePageConfig } from '~/app/core/components/limn-ui/models/datatable-page-config.type';
+import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { format } from '~/app/functions.helper';
 import { BinaryUnitPipe } from '~/app/shared/pipes/binary-unit.pipe';
 import {
@@ -30,7 +30,7 @@ import {
 } from '~/app/shared/services/system-information.service';
 
 @Component({
-  template: '<omv-limn-datatable-page [config]="this.config"></omv-limn-datatable-page>'
+  template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
 })
 export class SystemInformationDatatablePageComponent implements OnDestroy {
   public config: DatatablePageConfig = {

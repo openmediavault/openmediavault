@@ -20,15 +20,16 @@ import { Router } from '@angular/router';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 
-import { DatatablePageComponent } from '~/app/core/components/limn-ui/datatable-page/datatable-page.component';
-import { DatatablePageConfig } from '~/app/core/components/limn-ui/models/datatable-page-config.type';
+import { DatatablePageComponent } from '~/app/core/components/intuition/datatable-page/datatable-page.component';
+import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { format } from '~/app/functions.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  template: '<omv-limn-datatable-page #page [config]="this.config"></omv-limn-datatable-page>'
+  template:
+    '<omv-intuition-datatable-page #page [config]="this.config"></omv-intuition-datatable-page>'
 })
 export class GroupPrivilegesDatatablePageComponent {
   @ViewChild('page', { static: true })

@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { ConstraintRecord } from '~/app/shared/models/constraint.type';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
 
-describe('LimnConstraintService', () => {
+describe('ConstraintService', () => {
   let object: ConstraintRecord;
   let objects: Array<ConstraintRecord>;
 

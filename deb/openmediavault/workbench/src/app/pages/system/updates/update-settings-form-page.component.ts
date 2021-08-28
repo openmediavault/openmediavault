@@ -18,10 +18,10 @@
 import { Component } from '@angular/core';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 
-import { FormPageConfig } from '~/app/core/components/limn-ui/models/form-page-config.type';
+import { FormPageConfig } from '~/app/core/components/intuition/models/form-page-config.type';
 
 @Component({
-  template: '<omv-limn-form-page [config]="this.config"></omv-limn-form-page>'
+  template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
 })
 export class UpdateSettingsFormPageComponent {
   public config: FormPageConfig = {

@@ -22,12 +22,12 @@ import * as _ from 'lodash';
 import { Observable, of, ReplaySubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { DatatablePageComponent } from '~/app/core/components/limn-ui/datatable-page/datatable-page.component';
-import { FormPageComponent } from '~/app/core/components/limn-ui/form-page/form-page.component';
-import { RrdPageComponent } from '~/app/core/components/limn-ui/rrd-page/rrd-page.component';
-import { SelectionListPageComponent } from '~/app/core/components/limn-ui/selection-list-page/selection-list-page.component';
-import { TabsPageComponent } from '~/app/core/components/limn-ui/tabs-page/tabs-page.component';
-import { TextPageComponent } from '~/app/core/components/limn-ui/text-page/text-page.component';
+import { DatatablePageComponent } from '~/app/core/components/intuition/datatable-page/datatable-page.component';
+import { FormPageComponent } from '~/app/core/components/intuition/form-page/form-page.component';
+import { RrdPageComponent } from '~/app/core/components/intuition/rrd-page/rrd-page.component';
+import { SelectionListPageComponent } from '~/app/core/components/intuition/selection-list-page/selection-list-page.component';
+import { TabsPageComponent } from '~/app/core/components/intuition/tabs-page/tabs-page.component';
+import { TextPageComponent } from '~/app/core/components/intuition/text-page/text-page.component';
 import { NavigationPageComponent } from '~/app/core/pages/navigation-page/navigation-page.component';
 
 const componentMap: Record<string, Type<any>> = {

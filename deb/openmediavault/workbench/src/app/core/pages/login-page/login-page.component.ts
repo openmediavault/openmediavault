@@ -25,7 +25,7 @@ import { finalize } from 'rxjs/operators';
 import {
   FormPageButtonConfig,
   FormPageConfig
-} from '~/app/core/components/limn-ui/models/form-page-config.type';
+} from '~/app/core/components/intuition/models/form-page-config.type';
 import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { AuthService } from '~/app/shared/services/auth.service';
