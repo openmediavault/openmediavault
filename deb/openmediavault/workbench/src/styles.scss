@@ -429,6 +429,12 @@ textarea {
 
 @include mat-form-field-multiline-workaround($mat-typography-config);
 
+.mat-form-field-suffix .mat-icon,
+.mat-form-field-prefix .mat-icon {
+  // Suffix/Prefix icons are aligned too high by default.
+  vertical-align: middle;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Customize BlockUI
 ////////////////////////////////////////////////////////////////////////////////
