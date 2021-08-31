@@ -66,7 +66,7 @@ export type NavigationMenuItem = MenuItem & {
   providedIn: 'root'
 })
 export class NavigationConfigService {
-  public configs$: Observable<NavigationMenuItem[]>;
+  public readonly configs$: Observable<NavigationMenuItem[]>;
 
   private configsSource = new BehaviorSubject<NavigationMenuItem[]>([]);
 

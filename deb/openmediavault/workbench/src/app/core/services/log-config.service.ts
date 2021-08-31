@@ -45,13 +45,12 @@ export interface ILogConfig {
   providedIn: 'root'
 })
 export class LogConfigService {
-  public configs$: Observable<ILogConfig[]>;
-
   private configsSource = new ReplaySubject<ILogConfig[]>(1);
 
-  constructor(private http: HttpClient) {
-    this.configs$ = this.configsSource.asObservable();
-  }
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  public readonly configs$: Observable<ILogConfig[]> = this.configsSource.asObservable();
+
+  constructor(private http: HttpClient) {}
 
   public load(): Observable<ILogConfig[]> {
     return this.http.get('./assets/log-config.json').pipe(

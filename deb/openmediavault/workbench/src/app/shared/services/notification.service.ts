@@ -27,13 +27,12 @@ import { Notification } from '~/app/shared/models/notification.model';
   providedIn: 'root'
 })
 export class NotificationService {
-  public notifications$: Observable<Notification[]>;
-
   private notificationsSource = new BehaviorSubject<Notification[]>([]);
 
-  constructor(private toastrService: ToastrService) {
-    this.notifications$ = this.notificationsSource.asObservable();
-  }
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  public readonly notifications$: Observable<Notification[]> = this.notificationsSource.asObservable();
+
+  constructor(private toastrService: ToastrService) {}
 
   show(notification: Notification): number;
   show(type: NotificationType, title: string, message?: string, traceback?: string): number;

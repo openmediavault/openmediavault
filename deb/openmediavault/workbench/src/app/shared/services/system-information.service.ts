@@ -44,13 +44,13 @@ export type SystemInformation = {
   providedIn: 'root'
 })
 export class SystemInformationService implements OnDestroy {
-  public systemInfo$: Observable<SystemInformation>;
-
   private subscription: Subscription;
   private systemInfoSource = new ReplaySubject<SystemInformation>(1);
 
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  public readonly systemInfo$: Observable<SystemInformation> = this.systemInfoSource.asObservable();
+
   constructor(private router: Router, private rpcService: RpcService) {
-    this.systemInfo$ = this.systemInfoSource.asObservable();
     // Poll the system system-information every 5 seconds. Continue, even
     // if there is a connection problem AND do not display an error
     // notification.
