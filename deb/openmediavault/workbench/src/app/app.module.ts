@@ -34,7 +34,6 @@ import { MaterialModule } from '~/app/material.module';
 import { GlobalErrorHandlerService } from '~/app/shared/services/global-error-handler.service';
 import { HttpErrorInterceptorService } from '~/app/shared/services/http-error-interceptor.service';
 import { LocaleService } from '~/app/shared/services/locale.service';
-import { SystemInformationService } from '~/app/shared/services/system-information.service';
 import { SharedModule } from '~/app/shared/shared.module';
 
 @NgModule({
@@ -60,7 +59,6 @@ import { SharedModule } from '~/app/shared/shared.module';
     AppRoutingModule
   ],
   providers: [
-    SystemInformationService,
     {
       provide: ErrorHandler,
       useClass: GlobalErrorHandlerService
