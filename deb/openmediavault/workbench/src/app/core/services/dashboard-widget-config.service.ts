@@ -30,16 +30,17 @@ import { UserStorageService } from '~/app/shared/services/user-storage.service';
   providedIn: 'root'
 })
 export class DashboardWidgetConfigService {
-  private configsSource = new BehaviorSubject<DashboardWidgetConfig[]>([]);
+  public readonly configs$: Observable<DashboardWidgetConfig[]>;
 
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  public readonly configs$: Observable<DashboardWidgetConfig[]> = this.configsSource.asObservable();
+  private configsSource = new BehaviorSubject<DashboardWidgetConfig[]>([]);
 
   constructor(
     private authSessionService: AuthSessionService,
     private http: HttpClient,
     private userStorageService: UserStorageService
-  ) {}
+  ) {
+    this.configs$ = this.configsSource.asObservable();
+  }
 
   /**
    * Load the dashboard widget configuration. Widgets that require more

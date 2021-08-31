@@ -67,12 +67,13 @@ const getSegments = (path: string): Array<string> => {
   providedIn: 'root'
 })
 export class RouteConfigService {
+  public readonly configs$: Observable<Routes>;
+
   private configsSource = new ReplaySubject<Routes>(1);
 
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  public readonly configs$: Observable<Routes> = this.configsSource.asObservable();
-
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.configs$ = this.configsSource.asObservable();
+  }
 
   public load(): Observable<Routes> {
     return this.http.get('./assets/route-config.json').pipe(
