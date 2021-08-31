@@ -9,6 +9,11 @@
       {{option[config.textField]}}
     </mat-option>
   </mat-select>
+  <mat-icon matSuffix
+            matTooltip="{{ 'Create' | translate }}"
+            svgIcon="mdi:plus-circle-outline"
+            routerLink="/storage/shared-folders/create">
+  </mat-icon>
   <mat-error *ngIf="formGroup.invalid">
     <span *ngIf="formGroup.hasError('required', config.name)">
       This field is required.
