@@ -431,8 +431,9 @@ textarea {
 
 .mat-form-field-suffix .mat-icon,
 .mat-form-field-prefix .mat-icon {
+  color: $omv-color-transparent-black;
   // Suffix/Prefix icons are aligned too high by default.
-  vertical-align: middle;
+  vertical-align: bottom;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

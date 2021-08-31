@@ -97,6 +97,11 @@
               background-color: $omv-color-error;
             }
           }
+
+          .mat-form-field-suffix .mat-icon,
+          .mat-form-field-prefix .mat-icon {
+            color: $omv-color-white;
+          }
         }
       }
     }
