@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
+# Axel Cantenys, 2021
 # Benoit Maliar <maliarbenoit@msn.com>, 2015
 # Christophe Lherieau <skimpax@gmail.com>, 2012-2015
 # Axel Cantenys, 2020
@@ -18,8 +19,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-19 16:36+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-08-30 18:40+0000\n"
+"Last-Translator: Axel Cantenys\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -842,7 +843,7 @@ msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr ""
+msgstr "L'adresse de destination peut être soit une adresse IP du réseau (avec /masque), une plage d'adresses IP ou une adresse IP simple. Un « ! » avant la spécification d'adresse inverse le sens de celle-ci."
 
 msgid "Destination port"
 msgstr "Port destination"
@@ -899,10 +900,10 @@ msgid "Disabled"
 msgstr "Désactiver"
 
 msgid "Disallow account modification"
-msgstr ""
+msgstr "Interdire la modification du compte"
 
 msgid "Disallow the user to modify his own account."
-msgstr ""
+msgstr "Interdire à l'utilisateur de modifier son propre compte."
 
 msgid "Disk Usage"
 msgstr ""
@@ -951,7 +952,7 @@ msgid "Do you really want to shutdown the system?"
 msgstr "Voulez-vous vraiment arrêter le système ?"
 
 msgid "Do you really want to undo the configuration changes?"
-msgstr ""
+msgstr "Voulez-vous vraiment annuler les changements de la configuration ?"
 
 msgid "Do you really want to uninstall the plugin?"
 msgstr ""
@@ -1065,7 +1066,7 @@ msgid "Enable user home directories"
 msgstr "Activer le partage des répertoires personnels"
 
 msgid "Enable write-cache"
-msgstr ""
+msgstr "Activer le cache d'écriture"
 
 msgid "Enabled"
 msgstr "Activé"
@@ -1500,7 +1501,7 @@ msgid "Install plugin"
 msgstr ""
 
 msgid "Install updates"
-msgstr ""
+msgstr "Installer les mises à jour"
 
 msgid "Install updates from"
 msgstr "Sources de mises à jour"
@@ -1757,12 +1758,12 @@ msgstr "Adresse mascarade"
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "Le port destination doit être un port unique ou une plage de ports, exemples : 21, !443 ou 1024-65535."
 
 msgid ""
 "Match if the source port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "Le port source doit être un port ou une plage de ports, exemples : 21 , !443 ou 1024-65535."
 
 msgid "Mauritania"
 msgstr "Mauritanie"
@@ -1987,7 +1988,7 @@ msgid "No connections"
 msgstr "Aucune connexion"
 
 msgid "No data to display."
-msgstr ""
+msgstr "Aucune données à afficher."
 
 msgid "No session reuse required"
 msgstr "Aucune réutilisation de session"
@@ -2098,7 +2099,7 @@ msgid "Pacific Islands Trust Territory"
 msgstr "Territoire sous tutelle des îles du Pacifique"
 
 msgid "Package Information"
-msgstr ""
+msgstr "Informations sur le paquet"
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2151,7 +2152,7 @@ msgstr "Coller une clé privée RSA ou ECC au format X.509 PEM ici."
 msgid ""
 "Pending configuration changes. You must apply these changes in order for "
 "them to take effect."
-msgstr ""
+msgstr "Changements de configuration en attente. Vous devez appliquer ces changements pour qu'ils prennent effet."
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "Yémen"
@@ -2253,13 +2254,13 @@ msgid "Please wait, processing selected item(s) ..."
 msgstr ""
 
 msgid "Please wait, reverting configuration changes ..."
-msgstr ""
+msgstr "Veuillez patienter, annulation des changements de la configuration ..."
 
 msgid "Please wait, sending a test email ..."
-msgstr ""
+msgstr "Veuillez patienter, envoi d'un e-mail de test ..."
 
 msgid "Please wait, the configuration changes are being applied ..."
-msgstr ""
+msgstr "Veuillez patienter, les changements de configuration sont en cours d'application ..."
 
 msgid "Please wait, the data is being loaded ..."
 msgstr ""
@@ -2301,7 +2302,7 @@ msgid "Power mode"
 msgstr "Mode d'alimentation"
 
 msgid "Pre-release updates"
-msgstr ""
+msgstr "Mises à jour de pré-version"
 
 msgid "Prefail"
 msgstr ""
@@ -2555,7 +2556,7 @@ msgid "Rsync - Server"
 msgstr "Rsync - Serveur"
 
 msgid "Rules"
-msgstr ""
+msgstr "Règles"
 
 msgid "Run"
 msgstr "Exécuter"
@@ -2660,7 +2661,7 @@ msgid "Save"
 msgstr "Enregistrer"
 
 msgid "Scan for new devices"
-msgstr ""
+msgstr "Recherche de nouveaux appareils"
 
 msgid "Scanning for new devices ..."
 msgstr "Recherche de nouveaux périphériques..."
@@ -2855,10 +2856,10 @@ msgid "Show details"
 msgstr "Voir les détails"
 
 msgid "Show/Hide columns"
-msgstr ""
+msgstr "Afficher ou masquer les colonnes"
 
 msgid "Show/Hide navigation"
-msgstr ""
+msgstr "Afficher ou masquer la navigation"
 
 msgid "Shutdown"
 msgstr "Arrêter"
@@ -2909,7 +2910,7 @@ msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
 "or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
-msgstr ""
+msgstr "L'adresse source peut être soit une adresse IP du réseau (avec /masque), une plage d'adresses IP ou une adresse IP simple. Un « ! » avant la spécification d'adresse inverse le sens de l'adresse."
 
 msgid "Source port"
 msgstr "Port source"
@@ -3072,7 +3073,7 @@ msgid "System Time"
 msgstr ""
 
 msgid "System account"
-msgstr ""
+msgstr "Comptes système"
 
 msgid "System time"
 msgstr "Date système"
@@ -3131,7 +3132,7 @@ msgstr "L'action effectuée sur un appui sur le bouton d'alimentation."
 msgid ""
 "The dashboard has not yet been configured. To personalize it please go to "
 "the"
-msgstr ""
+msgstr "Le tableau de bord n'a pas encore été configuré. Pour le personnaliser, veuillez vous rendre dans la section"
 
 msgid "The data has been copied to the clipboard."
 msgstr ""
@@ -3547,7 +3548,7 @@ msgid "Ukraine"
 msgstr "Ukraine"
 
 msgid "Undo"
-msgstr ""
+msgstr "Annuler"
 
 msgid "Uninstall"
 msgstr "Désinstaller"
@@ -3766,13 +3767,13 @@ msgid "User"
 msgstr "Utilisateur"
 
 msgid "User Management"
-msgstr ""
+msgstr "Gestion des utilisateurs"
 
 msgid "User home directory"
 msgstr "Répertoires personnels des utilisateurs"
 
 msgid "User name"
-msgstr ""
+msgstr "Nom d'utilisateur"
 
 msgid "User/Group permissions"
 msgstr "Permissions des Utilisateur/Groupe"
@@ -3936,7 +3937,7 @@ msgid "n/a"
 msgstr "n/a"
 
 msgid "selected"
-msgstr ""
+msgstr "sélectionné"
 
 msgid "total"
 msgstr ""
