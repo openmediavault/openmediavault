@@ -1,0 +1,8 @@
+Format: http://dep.debian.net/deps/dep5
+Name: openmediavault
+Upstream-Contact: Volker Theile <volker.theile@openmediavault.org>
+Source: https://www.openmediavault.org
+
+Files: *
+Copyright: (c) 2009-2021 Volker Theile <volker.theile@openmediavault.org>
+License: GPL-3 (see LICENSE-GPL3), unless otherwise specified
