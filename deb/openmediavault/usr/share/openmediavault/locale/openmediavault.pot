@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-28 17:38+0200\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1281,6 +1281,9 @@ msgid "Hide"
 msgstr ""
 
 msgid "Hide dot files"
+msgstr ""
+
+msgid "Hide navigation"
 msgstr ""
 
 msgid "Home directories"
@@ -2720,10 +2723,10 @@ msgstr ""
 msgid "Show details"
 msgstr ""
 
-msgid "Show/Hide columns"
+msgid "Show navigation"
 msgstr ""
 
-msgid "Show/Hide navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
 msgid "Shutdown"

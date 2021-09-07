@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <button mat-icon-button
-          matTooltip="{{ 'Show/Hide navigation' | translate }}"
+          matTooltip="{{ (navigationSidenav.opened ? 'Hide navigation' : 'Show navigation') | translate }}"
           (click)="onToggleNavigationSidenav()">
     <mat-icon svgIcon="{{ icon.menu }}">
     </mat-icon>
