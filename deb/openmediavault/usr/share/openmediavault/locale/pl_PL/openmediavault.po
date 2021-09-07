@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-19 16:36+0000\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -1167,14 +1167,17 @@ msgstr "Systemy plików"
 msgid "File Systems Status"
 msgstr ""
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "System plików"
 
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "Nazwa pliku"
-
-msgid "Filepath"
-msgstr ""
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1188,12 +1191,6 @@ msgstr "Pliki, które są większe niż określona liczba bajtów nie zostanie p
 
 msgid "Filesize"
 msgstr "Rozmiar pliku"
-
-msgid "Filesystem"
-msgstr ""
-
-msgid "Filesystems"
-msgstr "Systemy plików"
 
 msgid "Finland"
 msgstr "Finland"
@@ -1236,6 +1233,9 @@ msgstr "Piątek"
 
 msgid "Full"
 msgstr "Pełny"
+
+msgid "GID"
+msgstr ""
 
 msgid "Gabon"
 msgstr "Gabon"
@@ -1327,6 +1327,9 @@ msgstr ""
 msgid "Hide dot files"
 msgstr "Ukrey pliki dot"
 
+msgid "Hide navigation"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Katalogi domowe"
 
@@ -1402,8 +1405,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
 msgstr ""
 
 msgid ""
@@ -2850,10 +2853,10 @@ msgstr "Pokaż logi zmian"
 msgid "Show details"
 msgstr "Pokaż szczegóły"
 
-msgid "Show/Hide columns"
+msgid "Show navigation"
 msgstr ""
 
-msgid "Show/Hide navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
 msgid "Shutdown"
@@ -3125,7 +3128,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "Akcja zostanie wykonana po naciśnięciu przycisku zasilania."
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
 msgstr ""
 
@@ -3532,6 +3535,9 @@ msgstr "U.S. Miscellaneous Pacific Islands"
 
 msgid "U.S. Virgin Islands"
 msgstr "U.S. Virgin Islands"
+
+msgid "UID"
+msgstr ""
 
 msgid "UNKNOWN"
 msgstr "NIEZNANY"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-19 16:36+0000\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -1162,14 +1162,17 @@ msgstr "ファイルシステム"
 msgid "File Systems Status"
 msgstr ""
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "ファイルシステム"
 
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "ファイル名"
-
-msgid "Filepath"
-msgstr "ファイルパス"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1183,12 +1186,6 @@ msgstr "指定したバイト数を超えるファイルはごみ箱に入れら
 
 msgid "Filesize"
 msgstr "ファイルサイズ"
-
-msgid "Filesystem"
-msgstr ""
-
-msgid "Filesystems"
-msgstr "ファイルシステム"
 
 msgid "Finland"
 msgstr "フィンランド"
@@ -1231,6 +1228,9 @@ msgstr "金曜"
 
 msgid "Full"
 msgstr "フル"
+
+msgid "GID"
+msgstr ""
 
 msgid "Gabon"
 msgstr "ガボン"
@@ -1322,6 +1322,9 @@ msgstr ""
 msgid "Hide dot files"
 msgstr "ドットで始まるファイルを隠す"
 
+msgid "Hide navigation"
+msgstr ""
+
 msgid "Home directories"
 msgstr "ホームディレクトリ"
 
@@ -1397,8 +1400,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
 msgstr ""
 
 msgid ""
@@ -2845,10 +2848,10 @@ msgstr "Changelogの表示"
 msgid "Show details"
 msgstr "詳細の表示"
 
-msgid "Show/Hide columns"
+msgid "Show navigation"
 msgstr ""
 
-msgid "Show/Hide navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
 msgid "Shutdown"
@@ -3120,7 +3123,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "電源ボタンを押したときに実行されるアクション。"
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
 msgstr ""
 
@@ -3527,6 +3530,9 @@ msgstr "米領太平洋諸島"
 
 msgid "U.S. Virgin Islands"
 msgstr "アメリカ領ヴァージン諸島"
+
+msgid "UID"
+msgstr ""
 
 msgid "UNKNOWN"
 msgstr "UNKNOWN"

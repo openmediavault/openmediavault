@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-08-06 09:36+0000\n"
-"Last-Translator: Wouter VE <vaneenoo.wouter@gmail.com>\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1168,14 +1168,17 @@ msgstr "Bestandssystemen"
 msgid "File Systems Status"
 msgstr ""
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "Bestandssysteem"
 
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "Bestandsnaam"
-
-msgid "Filepath"
-msgstr "Bestandspad"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1189,12 +1192,6 @@ msgstr "Bestanden groter dan het opgegeven aantal bytes zullen niet in de prulle
 
 msgid "Filesize"
 msgstr "Bestandsgrootte"
-
-msgid "Filesystem"
-msgstr ""
-
-msgid "Filesystems"
-msgstr "Bestandssystemen"
 
 msgid "Finland"
 msgstr "Finland"
@@ -1237,6 +1234,9 @@ msgstr "Vrijdag"
 
 msgid "Full"
 msgstr "Vol"
+
+msgid "GID"
+msgstr ""
 
 msgid "Gabon"
 msgstr "Gabon"
@@ -1328,6 +1328,9 @@ msgstr ""
 msgid "Hide dot files"
 msgstr "Verberg punt bestanden"
 
+msgid "Hide navigation"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Thuismappen"
 
@@ -1403,8 +1406,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
 msgstr ""
 
 msgid ""
@@ -2851,10 +2854,10 @@ msgstr "Toon changelog"
 msgid "Show details"
 msgstr "Details tonen"
 
-msgid "Show/Hide columns"
+msgid "Show navigation"
 msgstr ""
 
-msgid "Show/Hide navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
 msgid "Shutdown"
@@ -3126,7 +3129,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "De uit te voeren opdracht wanneer op de power-knop wordt gedrukt."
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
 msgstr ""
 
@@ -3533,6 +3536,9 @@ msgstr "Amerikaanse Diversen Pacifische Eilanden"
 
 msgid "U.S. Virgin Islands"
 msgstr "Amerikaanse Maagdeneilanden"
+
+msgid "UID"
+msgstr ""
 
 msgid "UNKNOWN"
 msgstr "ONBEKEND"

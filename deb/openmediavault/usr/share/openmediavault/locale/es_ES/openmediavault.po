@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-08-27 09:50+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1165,14 +1165,17 @@ msgstr "Sistema de Archivos"
 msgid "File Systems Status"
 msgstr "Estado del sistema de archivos"
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "Sistema de Archivos"
 
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "Nombre de archivo"
-
-msgid "Filepath"
-msgstr "Ruta"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1186,12 +1189,6 @@ msgstr "Archivos de un tamaño superior al nº especificado de bytes, no serán 
 
 msgid "Filesize"
 msgstr "Tamaño del archivo"
-
-msgid "Filesystem"
-msgstr "Sistema de archivos"
-
-msgid "Filesystems"
-msgstr "Sistemas de archivos"
 
 msgid "Finland"
 msgstr "Finlandia"
@@ -1234,6 +1231,9 @@ msgstr "Viernes"
 
 msgid "Full"
 msgstr "Lleno"
+
+msgid "GID"
+msgstr ""
 
 msgid "Gabon"
 msgstr "Gabón"
@@ -1325,6 +1325,9 @@ msgstr "Ocultar"
 msgid "Hide dot files"
 msgstr "Ocultar archivos dot\".\""
 
+msgid "Hide navigation"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Directorios Home"
 
@@ -1400,9 +1403,9 @@ msgid ""
 msgstr "Si se selecciona \"Invitados permitidos\" y no se proporciona ninguna credencial de inicio de sesión, accederá como invitado. Accederá siempre como invitado cuando se selecciona \"Solo invitados\"; en este caso, no se requiere contraseña para conectarse al recurso compartido."
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
-msgstr "Si se marca, entonces los clientes serán interrogados para solicitarles usuario y contraseña para conectarse al modulo. "
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
+msgstr ""
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
@@ -2848,11 +2851,11 @@ msgstr "Mostrar cambios"
 msgid "Show details"
 msgstr "Mostrar detalles"
 
+msgid "Show navigation"
+msgstr ""
+
 msgid "Show/Hide columns"
 msgstr "Mostrar/ocultar columnas"
-
-msgid "Show/Hide navigation"
-msgstr "Mostra/ocultar navegación"
 
 msgid "Shutdown"
 msgstr "Apagar"
@@ -3123,9 +3126,9 @@ msgid "The action to be done when pressing the power button."
 msgstr "Acción a realizar cuando se presione el botón de \"power\""
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
-msgstr "El tablero aún no se ha configurado. Para personalizarlo vaya a la"
+msgstr ""
 
 msgid "The data has been copied to the clipboard."
 msgstr "Los datos han sido copiados al prtapapeles."
@@ -3530,6 +3533,9 @@ msgstr "Islas Ultramarinas de Estados Unidos"
 
 msgid "U.S. Virgin Islands"
 msgstr "Islas Vírgenes (EEUU)"
+
+msgid "UID"
+msgstr ""
 
 msgid "UNKNOWN"
 msgstr "Desconocido"

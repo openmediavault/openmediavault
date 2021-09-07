@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-19 16:36+0000\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -1165,14 +1165,17 @@ msgstr "파일 시스템"
 msgid "File Systems Status"
 msgstr ""
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "파일 시스템"
 
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "파일 이름"
-
-msgid "Filepath"
-msgstr "파일 경로"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1186,12 +1189,6 @@ msgstr "지정된 바이트 크기보다 큰 파일들은 휴지통으로 들어
 
 msgid "Filesize"
 msgstr "파일 크기"
-
-msgid "Filesystem"
-msgstr ""
-
-msgid "Filesystems"
-msgstr "파일 시스템"
 
 msgid "Finland"
 msgstr "핀란드"
@@ -1234,6 +1231,9 @@ msgstr "금요일"
 
 msgid "Full"
 msgstr "전체"
+
+msgid "GID"
+msgstr ""
 
 msgid "Gabon"
 msgstr "가봉"
@@ -1325,6 +1325,9 @@ msgstr ""
 msgid "Hide dot files"
 msgstr "점(.) 파일 숨기기"
 
+msgid "Hide navigation"
+msgstr ""
+
 msgid "Home directories"
 msgstr "홈 경로"
 
@@ -1400,8 +1403,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
 msgstr ""
 
 msgid ""
@@ -2848,10 +2851,10 @@ msgstr "변경 내역 보기"
 msgid "Show details"
 msgstr "정보 보이기"
 
-msgid "Show/Hide columns"
+msgid "Show navigation"
 msgstr ""
 
-msgid "Show/Hide navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
 msgid "Shutdown"
@@ -3123,7 +3126,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "전원 버튼을 눌렀을 때 수행할 작업"
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
 msgstr ""
 
@@ -3530,6 +3533,9 @@ msgstr "미국 기타 태평양 제도"
 
 msgid "U.S. Virgin Islands"
 msgstr "미국령 버진아일랜드"
+
+msgid "UID"
+msgstr ""
 
 msgid "UNKNOWN"
 msgstr "알 수 없는"

@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-08-23 08:35+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1165,14 +1165,17 @@ msgstr "文件系统"
 msgid "File Systems Status"
 msgstr "文件系统状态"
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "文件系统"
 
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "文件名"
-
-msgid "Filepath"
-msgstr "文件路径"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1186,12 +1189,6 @@ msgstr "超过设定大小的文件将不会被移到回收站，该值设为 0 
 
 msgid "Filesize"
 msgstr "文件大小"
-
-msgid "Filesystem"
-msgstr "文件系统"
-
-msgid "Filesystems"
-msgstr "文件系统"
 
 msgid "Finland"
 msgstr "芬兰"
@@ -1234,6 +1231,9 @@ msgstr "星期五"
 
 msgid "Full"
 msgstr "全部"
+
+msgid "GID"
+msgstr ""
 
 msgid "Gabon"
 msgstr "加蓬"
@@ -1325,6 +1325,9 @@ msgstr "隐藏"
 msgid "Hide dot files"
 msgstr "隐藏点文件"
 
+msgid "Hide navigation"
+msgstr ""
+
 msgid "Home directories"
 msgstr "主目录"
 
@@ -1400,9 +1403,9 @@ msgid ""
 msgstr "如果选择“允许访客”，用户没有提供登录凭证，那么让其以访客权限读写。如果选择“仅访客”，则全部用户以访客读写，用户不需要密码便可以连接共享。"
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
-msgstr "如果设定，则客户端必须提供用户和密码才能连到该模块。"
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
+msgstr ""
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
@@ -2848,11 +2851,11 @@ msgstr "显示变更日志"
 msgid "Show details"
 msgstr "显示详情"
 
+msgid "Show navigation"
+msgstr ""
+
 msgid "Show/Hide columns"
 msgstr "显示/隐藏栏目"
-
-msgid "Show/Hide navigation"
-msgstr "显示/隐藏导航"
 
 msgid "Shutdown"
 msgstr "关机"
@@ -3123,9 +3126,9 @@ msgid "The action to be done when pressing the power button."
 msgstr "按下电源时要执行的动作。"
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
-msgstr "仪表盘尚未配置，如需个性化设置请访问"
+msgstr ""
 
 msgid "The data has been copied to the clipboard."
 msgstr "数据已复制到粘贴板"
@@ -3530,6 +3533,9 @@ msgstr "美国其他太平洋岛屿"
 
 msgid "U.S. Virgin Islands"
 msgstr "美属维尔京群岛"
+
+msgid "UID"
+msgstr ""
 
 msgid "UNKNOWN"
 msgstr "未知"

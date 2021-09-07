@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-23 18:02+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1168,14 +1168,17 @@ msgstr "Fájlrendszerek"
 msgid "File Systems Status"
 msgstr "Fájlrendszerek állapota "
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "Fájlrendszer"
 
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "Fájlnév"
-
-msgid "Filepath"
-msgstr "Fájlútvonal"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1189,12 +1192,6 @@ msgstr "A megadott méretnél nagyobb fájlok nem helyezhetőek át a lomtárba.
 
 msgid "Filesize"
 msgstr "Fájlméret"
-
-msgid "Filesystem"
-msgstr "Fájlrendszer"
-
-msgid "Filesystems"
-msgstr "Fájlrendszerek"
 
 msgid "Finland"
 msgstr "Finnország"
@@ -1237,6 +1234,9 @@ msgstr "Péntek"
 
 msgid "Full"
 msgstr "Teljes"
+
+msgid "GID"
+msgstr ""
 
 msgid "Gabon"
 msgstr "Gabon"
@@ -1328,6 +1328,9 @@ msgstr "Elrejt"
 msgid "Hide dot files"
 msgstr "Ponttal kezdődő fájlok elrejtése"
 
+msgid "Hide navigation"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Saját könyvtárak"
 
@@ -1403,9 +1406,9 @@ msgid ""
 msgstr "Ha az 'Engedélyezett vendégek' opció van kiválasztva és nem rendelkezik a bejelentkezéshez engedéllyel, akkor csak vendégként csatlakozhat. Vendégként mindig hozzáfér, ha a 'Csak vendég' opció van kiválasztva. Ebben az esetben nincs szükség jelszóra a megosztások eléréséhez."
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
-msgstr "Ha ez be van állítva, akkor a kliensnek meg kell adnia egy felhasználónevet és egy jelszót, hogy csatlakozni tudjon a modulhoz."
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
+msgstr ""
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
@@ -2851,11 +2854,11 @@ msgstr "Változások megtekintése"
 msgid "Show details"
 msgstr "Részletek megjelenítése"
 
+msgid "Show navigation"
+msgstr ""
+
 msgid "Show/Hide columns"
 msgstr "Oszlopok megjelenítése/elrejtése "
-
-msgid "Show/Hide navigation"
-msgstr "Navigáció megjelenítése/elrejtése"
 
 msgid "Shutdown"
 msgstr "Leállítás"
@@ -3126,9 +3129,9 @@ msgid "The action to be done when pressing the power button."
 msgstr "Feladatok végrehajtása a bekapcsoló gomb megnyomásakor."
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
-msgstr "A kezelőfelület még nincs konfigurálva. A személyre szabáshoz kérjük, menjen a"
+msgstr ""
 
 msgid "The data has been copied to the clipboard."
 msgstr "Az adatokat átmásolva a vágólapra."
@@ -3533,6 +3536,9 @@ msgstr "U.S. egyéb Csendes-óceáni szigetek"
 
 msgid "U.S. Virgin Islands"
 msgstr "U.S. Virgin-szigetek"
+
+msgid "UID"
+msgstr ""
 
 msgid "UNKNOWN"
 msgstr "ISMERETLEN"

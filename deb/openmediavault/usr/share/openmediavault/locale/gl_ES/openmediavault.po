@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-19 16:36+0000\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -1165,14 +1165,17 @@ msgstr "Sistemas de ficheiros"
 msgid "File Systems Status"
 msgstr ""
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "Sistema de ficheiros"
 
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "Nome do ficheiro"
-
-msgid "Filepath"
-msgstr ""
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1186,12 +1189,6 @@ msgstr "Os ficheiros exceden do número especificado de bytes para que se poidan
 
 msgid "Filesize"
 msgstr "Tamaño do ficheiro"
-
-msgid "Filesystem"
-msgstr ""
-
-msgid "Filesystems"
-msgstr "Sistemas de ficheiros"
 
 msgid "Finland"
 msgstr "Finlandia"
@@ -1234,6 +1231,9 @@ msgstr "Venres"
 
 msgid "Full"
 msgstr "Completa"
+
+msgid "GID"
+msgstr ""
 
 msgid "Gabon"
 msgstr "Gabón"
@@ -1325,6 +1325,9 @@ msgstr ""
 msgid "Hide dot files"
 msgstr "Agochar os ficheiros con punto"
 
+msgid "Hide navigation"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Directorios persoais"
 
@@ -1400,8 +1403,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
 msgstr ""
 
 msgid ""
@@ -2848,10 +2851,10 @@ msgstr "Amosar o rexistro de cambios"
 msgid "Show details"
 msgstr "Amosar os detalles"
 
-msgid "Show/Hide columns"
+msgid "Show navigation"
 msgstr ""
 
-msgid "Show/Hide navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
 msgid "Shutdown"
@@ -3123,7 +3126,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "Acción a realizar cando prema no botón de acendido."
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
 msgstr ""
 
@@ -3530,6 +3533,9 @@ msgstr "Varias Illas do Pacífico dos EEUU"
 
 msgid "U.S. Virgin Islands"
 msgstr "Illas Virxes Estadounidenses"
+
+msgid "UID"
+msgstr ""
 
 msgid "UNKNOWN"
 msgstr "DESCOÑECIDO"

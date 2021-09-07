@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-19 16:36+0000\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -1163,14 +1163,17 @@ msgstr "Souborové systémy"
 msgid "File Systems Status"
 msgstr ""
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "Souborový systém"
 
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "Název souboru"
-
-msgid "Filepath"
-msgstr "Popis umístění souboru"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1184,12 +1187,6 @@ msgstr "Soubory větší než zadané množství bajtů nebudou při mazání p�
 
 msgid "Filesize"
 msgstr "Velikost souboru"
-
-msgid "Filesystem"
-msgstr ""
-
-msgid "Filesystems"
-msgstr "Souborové systémy"
 
 msgid "Finland"
 msgstr "Finsko"
@@ -1232,6 +1229,9 @@ msgstr "pátek"
 
 msgid "Full"
 msgstr "Plný"
+
+msgid "GID"
+msgstr ""
 
 msgid "Gabon"
 msgstr "Gabon"
@@ -1323,6 +1323,9 @@ msgstr ""
 msgid "Hide dot files"
 msgstr "Skrýt soubory s názvy začínajícími tečkou"
 
+msgid "Hide navigation"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Domovské složky"
 
@@ -1398,8 +1401,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
 msgstr ""
 
 msgid ""
@@ -2846,10 +2849,10 @@ msgstr "Zobrazit soupis změn"
 msgid "Show details"
 msgstr "Zobrazit podobnosti"
 
-msgid "Show/Hide columns"
+msgid "Show navigation"
 msgstr ""
 
-msgid "Show/Hide navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
 msgid "Shutdown"
@@ -3121,7 +3124,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "Akce, která bude provedena při stisku tlačítka napájení."
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
 msgstr ""
 
@@ -3528,6 +3531,9 @@ msgstr "Menší odlehlé ostrovy Spojených států amerických"
 
 msgid "U.S. Virgin Islands"
 msgstr "Americké Panenské ostrovy"
+
+msgid "UID"
+msgstr ""
 
 msgid "UNKNOWN"
 msgstr "NEZNÁMÉ"

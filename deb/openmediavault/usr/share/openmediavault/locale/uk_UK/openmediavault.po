@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-19 16:36+0000\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -1164,14 +1164,17 @@ msgstr "Файлові системи"
 msgid "File Systems Status"
 msgstr ""
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "Файлова система"
 
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "Ім'я файлу"
-
-msgid "Filepath"
-msgstr "Шлях до файлу"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1185,12 +1188,6 @@ msgstr "Файли, розмір яких перевищує вказане чи
 
 msgid "Filesize"
 msgstr "Розмір файлу"
-
-msgid "Filesystem"
-msgstr ""
-
-msgid "Filesystems"
-msgstr "Файлові системи"
 
 msgid "Finland"
 msgstr "Фінляндія"
@@ -1233,6 +1230,9 @@ msgstr "П'ятниця"
 
 msgid "Full"
 msgstr "Повний"
+
+msgid "GID"
+msgstr ""
 
 msgid "Gabon"
 msgstr "Габон"
@@ -1324,6 +1324,9 @@ msgstr ""
 msgid "Hide dot files"
 msgstr "Приховати dot файли"
 
+msgid "Hide navigation"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Домашній каталог"
 
@@ -1399,8 +1402,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
 msgstr ""
 
 msgid ""
@@ -2847,10 +2850,10 @@ msgstr "Показати змін"
 msgid "Show details"
 msgstr "Показати деталі"
 
-msgid "Show/Hide columns"
+msgid "Show navigation"
 msgstr ""
 
-msgid "Show/Hide navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
 msgid "Shutdown"
@@ -3122,7 +3125,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "Що повинно бути зроблено при натисненні на кнопку живлення."
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
 msgstr ""
 
@@ -3529,6 +3532,9 @@ msgstr "США Різне острови Тихого океану"
 
 msgid "U.S. Virgin Islands"
 msgstr "Віргінські острови СШ"
+
+msgid "UID"
+msgstr ""
 
 msgid "UNKNOWN"
 msgstr "НЕВІДОМЕ"

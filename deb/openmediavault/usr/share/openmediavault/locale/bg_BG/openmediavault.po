@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-19 16:36+0000\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -1162,13 +1162,16 @@ msgstr "Файлови системи"
 msgid "File Systems Status"
 msgstr ""
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "Файлова система"
 
-msgid "Filename"
+msgid "File systems"
 msgstr ""
 
-msgid "Filepath"
+msgid "Filename"
 msgstr ""
 
 msgid ""
@@ -1183,12 +1186,6 @@ msgstr ""
 
 msgid "Filesize"
 msgstr ""
-
-msgid "Filesystem"
-msgstr ""
-
-msgid "Filesystems"
-msgstr "Файлови системи"
 
 msgid "Finland"
 msgstr ""
@@ -1230,6 +1227,9 @@ msgid "Friday"
 msgstr "Петък"
 
 msgid "Full"
+msgstr ""
+
+msgid "GID"
 msgstr ""
 
 msgid "Gabon"
@@ -1322,6 +1322,9 @@ msgstr ""
 msgid "Hide dot files"
 msgstr ""
 
+msgid "Hide navigation"
+msgstr ""
+
 msgid "Home directories"
 msgstr ""
 
@@ -1397,8 +1400,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
 msgstr ""
 
 msgid ""
@@ -2845,10 +2848,10 @@ msgstr ""
 msgid "Show details"
 msgstr ""
 
-msgid "Show/Hide columns"
+msgid "Show navigation"
 msgstr ""
 
-msgid "Show/Hide navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
 msgid "Shutdown"
@@ -3120,7 +3123,7 @@ msgid "The action to be done when pressing the power button."
 msgstr ""
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
 msgstr ""
 
@@ -3526,6 +3529,9 @@ msgid "U.S. Miscellaneous Pacific Islands"
 msgstr ""
 
 msgid "U.S. Virgin Islands"
+msgstr ""
+
+msgid "UID"
 msgstr ""
 
 msgid "UNKNOWN"

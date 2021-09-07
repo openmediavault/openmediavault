@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-08-03 16:16+0000\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 09:06+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1172,14 +1172,17 @@ msgstr "Dateisysteme"
 msgid "File Systems Status"
 msgstr "Dateisystemstatus"
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "Dateisystem"
 
+msgid "File systems"
+msgstr "Dateisysteme"
+
 msgid "Filename"
 msgstr "Dateiname"
-
-msgid "Filepath"
-msgstr "Dateipfad"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1193,12 +1196,6 @@ msgstr "Dateien, die größer als die angegebene Anzahl von Bytes sind, werden n
 
 msgid "Filesize"
 msgstr "Dateigröße"
-
-msgid "Filesystem"
-msgstr "Dateisystem"
-
-msgid "Filesystems"
-msgstr "Dateisysteme"
 
 msgid "Finland"
 msgstr "Finnland"
@@ -1241,6 +1238,9 @@ msgstr "Freitag"
 
 msgid "Full"
 msgstr "Voll"
+
+msgid "GID"
+msgstr ""
 
 msgid "Gabon"
 msgstr "Gabun"
@@ -1332,6 +1332,9 @@ msgstr "Ausblenden"
 msgid "Hide dot files"
 msgstr "Verstecke Dotfiles"
 
+msgid "Hide navigation"
+msgstr "Navigation ausblenden"
+
 msgid "Home directories"
 msgstr "Heimatverzeichnisse"
 
@@ -1407,8 +1410,8 @@ msgid ""
 msgstr "Wenn „Gäste erlaubt“ ausgewählt ist und keine Anmeldedaten bereitgestellt werden, dann als Gast zugreifen. Immer als Gast zugreifen, wenn „Nur Gäste“ ausgewählt ist; in diesem Fall ist kein Passwort erforderlich, um sich mit der Freigabe zu verbinden. "
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
 msgstr ""
 
 msgid ""
@@ -2266,7 +2269,7 @@ msgid "Please wait, the data is being loaded ..."
 msgstr "Bitte warten, die Daten werden geladen ..."
 
 msgid "Please wait, the file system is being mounted ..."
-msgstr ""
+msgstr "Bitte warten, das Dateisystem wird eingehängt ..."
 
 msgid "Please wait, the statistic graphs will be regenerated ..."
 msgstr "Bitte warten, die Statistikgrafiken werden neu generiert ..."
@@ -2302,7 +2305,7 @@ msgid "Power mode"
 msgstr "Powermodus"
 
 msgid "Pre-release updates"
-msgstr ""
+msgstr "Vorabveröffentlichte Aktualisierungen"
 
 msgid "Prefail"
 msgstr ""
@@ -2753,12 +2756,12 @@ msgid ""
 msgstr "Wählen Sie die Laufwerke aus, die zum Erstellen des RAID verwendet werden sollen. Geräte, die mittels USB angeschlossen sind, werden nicht aufgelistet (zu unzuverlässig)."
 
 msgid "Self-Test Logs"
-msgstr ""
+msgstr "Selbsttest Logs"
 
 msgid ""
 "Send a notification when the used file system capacity exceeds the specified"
 " threshold."
-msgstr ""
+msgstr "Sende eine Benachrichtigung, wenn die verwendete Dateisystemkapazität den angegebenen Schwellenwert überschreitet."
 
 msgid "Send command output via email"
 msgstr "Sende Kommandoausgabe per E-Mail"
@@ -2804,7 +2807,7 @@ msgstr "Sitzung nicht authentifiziert."
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "Setze die Ziel-Zugriffsrechte auf die selben wie die Quell-Zugriffsrechte."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
@@ -2835,7 +2838,7 @@ msgid "Shared folder path"
 msgstr "Pfad des freigegebenen Ordners"
 
 msgid "Shared folder permissions have been transferred."
-msgstr ""
+msgstr "Berechtigungen für freigegebene Ordner wurden übertragen."
 
 msgid "Shared folder privileges"
 msgstr "Privilegien der freigegebenen Ordner"
@@ -2855,11 +2858,11 @@ msgstr "Änderungen anzeigen"
 msgid "Show details"
 msgstr "Details zeigen"
 
+msgid "Show navigation"
+msgstr "Navigation anzeigen"
+
 msgid "Show/Hide columns"
 msgstr "Spalten ein-/ausblenden"
-
-msgid "Show/Hide navigation"
-msgstr "Navigation ein-/ausblenden"
 
 msgid "Shutdown"
 msgstr "Herunterfahren"
@@ -2970,7 +2973,7 @@ msgid ""
 msgstr "Legt die Zeit in Millisekunden fest die gewartet wird bis der Slave wieder aktiviert wird falls der Link wiederhergestellt wurde."
 
 msgid "Specifies whether it is allowed to login as superuser directly."
-msgstr ""
+msgstr "Legt fest ob ein Login als Superuser erlaubt ist."
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Legt fest ob ein Login als Superuser erlaubt ist."
@@ -3130,7 +3133,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "Die Aktion die beim Drücken der Power-Taste durchgeführt wird."
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
 msgstr ""
 
@@ -3149,7 +3152,7 @@ msgid "The file mode of the shared folder path."
 msgstr "Der Dateimodus des freigegebenen Ordner Pfades."
 
 msgid "The file system on which the shared folder is to be created."
-msgstr ""
+msgstr "Das Dateisystem, auf dem der freigegebene Ordner erstellt werden soll."
 
 msgid "The file system to mount."
 msgstr "Das einzuhängende Dateisystem."
@@ -3163,7 +3166,7 @@ msgstr "Der Hostname des Remote-Systems."
 msgid ""
 "The information about available software is out-of-date. Do you want to "
 "reload this information?"
-msgstr ""
+msgstr "Die Informationen über verfügbare Software sind veraltet. Möchten Sie diese Informationen neu laden?"
 
 msgid "The location of the files to share."
 msgstr "Speicherort der freizugebenden Dateien."
@@ -3190,7 +3193,7 @@ msgstr "Anzahl Tage die das Zertifikat gültig ist."
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
 "used for remote shell transport such as SSH."
-msgstr ""
+msgstr "Das Passwort, das für den Zugriff über den rsync-Daemon verwendet wird. Beachten Sie, dass dies nicht für den Remote-Shell-Transport wie SSH verwendet wird."
 
 msgid ""
 "The permissions on new files and directories are normally governed by create"
@@ -3207,12 +3210,12 @@ msgstr "Der private RSA Schlüssel im X.509 PEM Format."
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
-msgstr ""
+msgstr "Das Protokoll wird in Verbindung mit einem Quell-/Zielport nicht unterstützt."
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
 "created if it does not exist."
-msgstr ""
+msgstr "Der relative Pfad des freizugebenden Ordners. Falls der angegebene Ordner nicht existiert wird er angelegt."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3228,10 +3231,10 @@ msgid ""
 msgstr "Es ist keine Voraussetzung das die Kontrollverbindung einer SSL-Session für die Datenverbindung wiederverwendet wird."
 
 msgid "The server is unavailable to handle this request right now."
-msgstr ""
+msgstr "Der Server ist derzeit nicht verfügbar, um diese Anfrage zu bearbeiten."
 
 msgid "The shared folder from which the privileges are copied."
-msgstr ""
+msgstr "Der freigegebene Ordner, von welchem die Berechtigungen kopiert werden."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3312,49 +3315,49 @@ msgid "This field should be a IP network address in CIDR notation."
 msgstr "Dieses Feld sollte eine IP-Netzwerkadresse in CIDR-Notation sein."
 
 msgid "This field should be a domain name or an IP address."
-msgstr ""
+msgstr "Dieses Feld erwartet einen Domainnamen oder eine IP Adresse."
 
 msgid "This field should be a host name or an IP address in CIDR notation."
-msgstr ""
+msgstr "Dieses Feld sollte eine IP-Netzwerkadresse in CIDR-Notation sein."
 
 msgid "This field should be a list of IP addresses separated by <,> or <;>."
-msgstr ""
+msgstr "Dieses Feld erwartet eine Liste von IP-Adressen welche mit <,> oder <;> getrennt werden."
 
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>."
-msgstr ""
+msgstr "Dieses Feld erwartet einen Liste von Domainnamen oder IP-Adressen welche mit <,> oder <;> getrennt werden."
 
 msgid "This field should be a list of domain names or IP addresses."
-msgstr ""
+msgstr "Dieses Feld erwartet einen Liste von Domainnamen oder IP-Adressen."
 
 msgid ""
 "This field should be a list of host names or IP addresses in CIDR notation "
 "separated by <,> or <;>."
-msgstr ""
+msgstr "Dieses Feld erwartet eine Liste von Hostnamen oder IP-Adressen in CIDR Notation welche mit <,> oder <;> getrennt werden."
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
-msgstr ""
+msgstr "Dieses Feld sollte eine Netzmaske im Bereich 128.0.0.0 - 255.255.255.252 enthalten."
 
 msgid "This field should be a port in the range of 1 to 65535."
-msgstr ""
+msgstr "Dieses Feld sollte einen Port im Bereich 1 - 65535 enthalten."
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
-msgstr ""
+msgstr "Dieses Feld sollte einen Port oder einen Portbereich enthalten (z.B. 21 oder !443 oder 1024-65535)."
 
 msgid "This field should be an IP address."
-msgstr ""
+msgstr "Dieses Feld sollte eine IP Adresse enthalten."
 
 msgid "This field should be an IPv4 address."
-msgstr ""
+msgstr "Dieses Feld sollte eine IPv4 Adresse enthalten."
 
 msgid "This field should be an IPv6 address."
-msgstr ""
+msgstr "Dieses Feld sollte eine IPv6 Adresse enthalten."
 
 msgid "This field should be an email address."
-msgstr ""
+msgstr "Dieses Feld sollte eine E-Mail-Adresse sein."
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Diese Funktion wird nur aktiviert wenn sie von der Festplatte unterstützt wird."
@@ -3489,7 +3492,7 @@ msgid "Total"
 msgstr "Gesamt"
 
 msgid "Transfer"
-msgstr ""
+msgstr "Übertragen"
 
 msgid "Transfer log"
 msgstr "Übertragungsprotokoll"
@@ -3537,6 +3540,9 @@ msgstr "U.S. Miscellaneous Pacific Islands"
 
 msgid "U.S. Virgin Islands"
 msgstr "Amerikanische Jungferninseln"
+
+msgid "UID"
+msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "UNBEKANNT"
@@ -3590,29 +3596,29 @@ msgid "Update Management"
 msgstr "Aktualisierungsverwaltung"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "Aktualisiere die Ziel-ACLs so, dass sie mit den Quell-ACLs übereinstimmen."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "Aktualisiere die erweiterten Zielattribute so, dass sie mit den lokalen identisch sind."
 
 msgid "Updated FTP SSL/TLS settings."
-msgstr ""
+msgstr "FTP-SSL/TLS-Einstellungen wurden aktualisiert."
 
 msgid "Updated FTP ban rule."
-msgstr ""
+msgstr "FTP-Sperrregel wurde aktualisiert."
 
 msgid "Updated FTP settings."
-msgstr ""
+msgstr "FTP-Einstellungen wurden aktualisiert."
 
 msgid "Updated FTP share."
-msgstr ""
+msgstr "FTP-Freigabe wurde aktualisiert."
 
 msgid "Updated NFS settings."
-msgstr ""
+msgstr "NFS-Einstellungen wurden aktualisiert."
 
 msgid "Updated NFS share."
-msgstr ""
+msgstr "NFS-Freigabe wurde aktualisiert."
 
 msgid "Updated Rsync Server settings."
 msgstr ""
@@ -3630,7 +3636,7 @@ msgid "Updated SMB/CIFS share."
 msgstr ""
 
 msgid "Updated SSH certificate."
-msgstr ""
+msgstr "SSH-Zertifikat wurde aktualisiert."
 
 msgid "Updated SSH settings."
 msgstr ""

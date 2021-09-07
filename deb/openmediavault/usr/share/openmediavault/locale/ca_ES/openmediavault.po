@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-19 16:36+0000\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -1164,14 +1164,17 @@ msgstr "Sistemes d'arxius"
 msgid "File Systems Status"
 msgstr ""
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "Sistema d'arxius"
 
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "Nom d’arxiu"
-
-msgid "Filepath"
-msgstr "Ruta del fitxer"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1185,12 +1188,6 @@ msgstr "Arxius d’una mida superior al núm. especificat de bytes, no es copiar
 
 msgid "Filesize"
 msgstr "Mida de l’arxiu"
-
-msgid "Filesystem"
-msgstr ""
-
-msgid "Filesystems"
-msgstr "Sistemes d'arxius"
 
 msgid "Finland"
 msgstr "Finlàndia"
@@ -1233,6 +1230,9 @@ msgstr "Dimecres"
 
 msgid "Full"
 msgstr "Ple"
+
+msgid "GID"
+msgstr ""
 
 msgid "Gabon"
 msgstr "Gabon"
@@ -1324,6 +1324,9 @@ msgstr ""
 msgid "Hide dot files"
 msgstr "Amagar arxius dot\".\""
 
+msgid "Hide navigation"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Directoris Home"
 
@@ -1399,8 +1402,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
 msgstr ""
 
 msgid ""
@@ -2847,10 +2850,10 @@ msgstr "Mostrar canvis"
 msgid "Show details"
 msgstr "Mostrar detalls"
 
-msgid "Show/Hide columns"
+msgid "Show navigation"
 msgstr ""
 
-msgid "Show/Hide navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
 msgid "Shutdown"
@@ -3122,7 +3125,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "Acció a realitzar quant es premi el botó de \"power\""
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
 msgstr ""
 
@@ -3529,6 +3532,9 @@ msgstr "Illes Ultramarines d’EEUU"
 
 msgid "U.S. Virgin Islands"
 msgstr "Illes Verges (EEUU)"
+
+msgid "UID"
+msgstr ""
 
 msgid "UNKNOWN"
 msgstr "Desconegut"

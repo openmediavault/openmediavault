@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-19 16:36+0000\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -1163,14 +1163,17 @@ msgstr "檔案系統"
 msgid "File Systems Status"
 msgstr ""
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "檔案系統"
 
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "檔案名稱"
-
-msgid "Filepath"
-msgstr "檔案路徑"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1184,12 +1187,6 @@ msgstr "檔案若其大小超過所指定的位元組數，將不會被放進回
 
 msgid "Filesize"
 msgstr "檔案大小"
-
-msgid "Filesystem"
-msgstr ""
-
-msgid "Filesystems"
-msgstr "檔案系統"
 
 msgid "Finland"
 msgstr "芬蘭"
@@ -1232,6 +1229,9 @@ msgstr "星期五"
 
 msgid "Full"
 msgstr "完整"
+
+msgid "GID"
+msgstr ""
 
 msgid "Gabon"
 msgstr "加彭"
@@ -1323,6 +1323,9 @@ msgstr ""
 msgid "Hide dot files"
 msgstr "隱藏點檔案"
 
+msgid "Hide navigation"
+msgstr ""
+
 msgid "Home directories"
 msgstr "家目錄"
 
@@ -1398,8 +1401,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
 msgstr ""
 
 msgid ""
@@ -2846,10 +2849,10 @@ msgstr "顯示變更日誌"
 msgid "Show details"
 msgstr "顯示詳細資料"
 
-msgid "Show/Hide columns"
+msgid "Show navigation"
 msgstr ""
 
-msgid "Show/Hide navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
 msgid "Shutdown"
@@ -3121,7 +3124,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "當按下電源按鈕時，將執行的動作。"
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
 msgstr ""
 
@@ -3528,6 +3531,9 @@ msgstr "美屬其他太平洋島嶼"
 
 msgid "U.S. Virgin Islands"
 msgstr "美屬維爾京群島"
+
+msgid "UID"
+msgstr ""
 
 msgid "UNKNOWN"
 msgstr "未知"

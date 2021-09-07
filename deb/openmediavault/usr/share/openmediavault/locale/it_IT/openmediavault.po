@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 18:34+0200\n"
-"PO-Revision-Date: 2021-07-22 07:35+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
+"POT-Creation-Date: 2021-09-07 10:41+0200\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1167,14 +1167,17 @@ msgstr "File System"
 msgid "File Systems Status"
 msgstr ""
 
+msgid "File path"
+msgstr ""
+
 msgid "File system"
 msgstr "File system"
 
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "Nome file"
-
-msgid "Filepath"
-msgstr ""
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1188,12 +1191,6 @@ msgstr "I file che sono più grandi del numero specificato in byte non saranno m
 
 msgid "Filesize"
 msgstr "Dimensione file"
-
-msgid "Filesystem"
-msgstr "Filesystem"
-
-msgid "Filesystems"
-msgstr "Filesystems"
 
 msgid "Finland"
 msgstr "Finlandia"
@@ -1236,6 +1233,9 @@ msgstr "Venerdì"
 
 msgid "Full"
 msgstr "Pieno"
+
+msgid "GID"
+msgstr ""
 
 msgid "Gabon"
 msgstr "Gabon"
@@ -1327,6 +1327,9 @@ msgstr "Nascondi"
 msgid "Hide dot files"
 msgstr "Nascondi file puntati"
 
+msgid "Hide navigation"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Home directory"
 
@@ -1402,8 +1405,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If set then the client will be challenged to supply a user name and password"
-" to connect to the module."
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
 msgstr ""
 
 msgid ""
@@ -2850,10 +2853,10 @@ msgstr "Mostra changelog"
 msgid "Show details"
 msgstr "Mostra dettagli"
 
-msgid "Show/Hide columns"
+msgid "Show navigation"
 msgstr ""
 
-msgid "Show/Hide navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
 msgid "Shutdown"
@@ -3125,7 +3128,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "L'azione da effettuare quando viene premuto il tasto power."
 
 msgid ""
-"The dashboard has not yet been configured. To personalize it please go to "
+"The dashboard has not yet been configured. To personalize it, please go to "
 "the"
 msgstr ""
 
@@ -3532,6 +3535,9 @@ msgstr "Isole Minori Americane del Pacifico"
 
 msgid "U.S. Virgin Islands"
 msgstr "Isole Vergini Americane"
+
+msgid "UID"
+msgstr ""
 
 msgid "UNKNOWN"
 msgstr "SCONOSCIUTO"
