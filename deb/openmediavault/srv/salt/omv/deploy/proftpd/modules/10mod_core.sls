@@ -1,5 +1,6 @@
 {% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 {% set ftp_config = salt['omv_conf.get']('conf.service.ftp') %}
+{% set homedir_config = salt['omv_conf.get']('conf.system.usermngmnt.homedir') %}
 
 configure_proftpd_mod_core:
   file.managed:
@@ -10,6 +11,7 @@ configure_proftpd_mod_core:
     - context:
         dns_config: {{ dns_config | json }}
         ftp_config: {{ ftp_config | json }}
+        homedir_config: {{ homedir_config | json }}
     - user: root
     - group: root
     - mode: 644

@@ -112,6 +112,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"homesenable": {
+			"type": "boolean",
+			"default": false
+		},
 		"extraoptions": {
 			"type": "string",
 			"default": ""

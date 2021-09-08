@@ -10,6 +10,8 @@ openmediavault (6.0-23) UNRELEASED; urgency=low
   * Introduce environment variable OMV_POSTFIX_MAIN_DEFAULT_TRANSPORT.
     To deactivate the sending of emails without affecting the
     additional notification sinks set it to 'discard'.
+  * Add option to FTP settings to display the home directory of the
+    user in the browse list.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Dec 2020 20:28:37 +0100
 

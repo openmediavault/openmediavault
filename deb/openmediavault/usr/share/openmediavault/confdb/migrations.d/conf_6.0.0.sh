@@ -23,6 +23,7 @@ set -e
 
 . /usr/share/openmediavault/scripts/helper-functions
 
+omv_config_add_key "/config/services/ftp" "homesenable" "0"
 omv_config_add_key "/config/system/fstab/mntent" "comment" ""
 omv_config_add_key "/config/system/fstab/mntent" "usagewarnthreshold" "85"
 
