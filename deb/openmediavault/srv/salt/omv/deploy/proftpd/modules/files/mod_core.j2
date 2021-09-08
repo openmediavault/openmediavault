@@ -14,6 +14,7 @@
 {%- set umask = salt['pillar.get']('default:OMV_PROFTPD_UMASK', '000 000') -%}
 {%- set persistent_passwd = salt['pillar.get']('default:OMV_PROFTPD_PERSISTENTPASSWD', 'off') -%}
 {%- set times_gmt = salt['pillar.get']('default:OMV_PROFTPD_TIMESGMT', 'off') -%}
+{%- set setenv_tz = salt['pillar.get']('default:OMV_PROFTPD_SETENV_TZ', ':/etc/timezone') -%}
 {%- set allow_overwrite = salt['pillar.get']('default:OMV_PROFTPD_ALLOWOVERWRITE', 'on') -%}
 {%- set auth_order = salt['pillar.get']('default:OMV_PROFTPD_AUTHORDER', 'mod_auth_pam.c* mod_auth_unix.c') -%}
 {%- set default_transfer_mode = salt['pillar.get']('default:OMV_PROFTPD_DEFAULTTRANSFERMODE', 'ascii') -%}
@@ -42,6 +43,7 @@ User {{ user }}
 Group {{ group }}
 PersistentPasswd {{ persistent_passwd }}
 TimesGMT {{ times_gmt }}
+SetEnv TZ {{ setenv_tz }}
 AllowOverwrite {{ allow_overwrite }}
 AuthOrder {{ auth_order }}
 DefaultTransferMode {{ default_transfer_mode }}
