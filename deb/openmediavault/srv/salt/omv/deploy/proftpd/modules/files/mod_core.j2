@@ -154,3 +154,15 @@ DisplayLogin {{ display_login }}
 {%- endif %}
 </Directory>
 {% endfor -%}
+{%- if ftp_config.homesenable | to_bool and homedir_config.enable | to_bool -%}
+<Directory ~/%u>
+  <Limit ALL>
+    AllowUser OR %u
+    DenyAll
+  </Limit>
+  <Limit READ DIRS>
+    AllowUser OR %u
+    DenyAll
+  </Limit>
+</Directory>
+{%- endif %}

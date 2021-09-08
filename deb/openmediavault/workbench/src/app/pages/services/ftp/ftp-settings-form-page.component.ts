@@ -117,6 +117,17 @@ export class FtpSettingsFormPageComponent {
       },
       {
         type: 'paragraph',
+        text: gettext('Home directories')
+      },
+      {
+        type: 'checkbox',
+        name: 'homesenable',
+        label: gettext('Enabled'),
+        hint: gettext('Display the home directory of the user in the browse list.'),
+        value: false
+      },
+      {
+        type: 'paragraph',
         text: gettext('Advanced settings')
       },
       {
@@ -130,7 +141,7 @@ export class FtpSettingsFormPageComponent {
         type: 'checkbox',
         name: 'requirevalidshell',
         label: gettext('Require valid shell'),
-        hint: gettext('Deny logins which do not have a valid shell'),
+        hint: gettext('Deny logins which do not have a valid shell.'),
         value: true
       },
       {

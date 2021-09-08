@@ -411,6 +411,7 @@
 			<anonymous>0</anonymous>
 			<requirevalidshell>1</requirevalidshell>
 			<transferlog>0</transferlog>
+			<homesenable>0</homesenable>
 			<extraoptions></extraoptions>
 			<shares>
 				<!--

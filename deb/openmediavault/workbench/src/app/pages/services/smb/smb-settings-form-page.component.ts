@@ -66,7 +66,7 @@ export class SmbSettingsFormPageComponent {
         type: 'checkbox',
         name: 'timeserver',
         label: gettext('Time server'),
-        hint: gettext('Allow this server to advertise itself as a time server to Windows clients'),
+        hint: gettext('Allow this server to advertise itself as a time server to Windows clients.'),
         value: false
       },
       {
@@ -77,7 +77,7 @@ export class SmbSettingsFormPageComponent {
         type: 'checkbox',
         name: 'homesenable',
         label: gettext('Enabled'),
-        hint: gettext('Enable user home directories'),
+        hint: gettext('Enable user home directories.'),
         value: false
       },
       {

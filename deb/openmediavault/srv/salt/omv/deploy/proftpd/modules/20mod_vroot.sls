@@ -18,6 +18,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set config = salt['omv_conf.get']('conf.service.ftp') %}
+{% set homedir_config = salt['omv_conf.get']('conf.system.usermngmnt.homedir') %}
 
 configure_proftpd_mod_vroot:
   file.append:
@@ -27,5 +28,6 @@ configure_proftpd_mod_vroot:
     - template: jinja
     - context:
         config: {{ config | json }}
+        homedir_config: {{ homedir_config | json }}
     - watch_in:
       - service: start_proftpd_service
