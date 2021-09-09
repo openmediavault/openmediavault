@@ -5,7 +5,7 @@
 $mat-typography-config: mat.define-typography-config();
 
 .mat-toolbar {
-  height: 64px;
+  height: $omv-top-bar-height;
 
   button .mat-icon {
     color: $omv-color-primary-complementary;
