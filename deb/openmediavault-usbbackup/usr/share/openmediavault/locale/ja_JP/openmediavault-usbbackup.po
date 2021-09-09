@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2019
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2019,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-28 17:38+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-09-08 04:45+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,10 +42,10 @@ msgid "Compress file data during the transfer."
 msgstr "転送中にファイルデータを圧縮する。"
 
 msgid "Create"
-msgstr ""
+msgstr "作成"
 
 msgid "Created USB backup job."
-msgstr ""
+msgstr "USBへのバックアップジョブを作成しました。"
 
 msgid "Delete"
 msgstr "削除"
@@ -60,7 +60,7 @@ msgid "Done ..."
 msgstr "完了 ..."
 
 msgid "Edit"
-msgstr ""
+msgstr "編集"
 
 msgid "Edit backup job"
 msgstr "バックアップジョブの編集"
@@ -83,7 +83,7 @@ msgid "Execute backup job"
 msgstr "バックアップジョブの実行"
 
 msgid "External Storage Device"
-msgstr ""
+msgstr "外部ストレージデバイス"
 
 msgid "External storage device"
 msgstr "外部ストレージデバイス"
@@ -145,7 +145,7 @@ msgid "Run"
 msgstr "実行"
 
 msgid "Run backup job"
-msgstr ""
+msgstr "バックアップジョブの実行"
 
 msgid "Scan"
 msgstr "スキャン"
@@ -179,7 +179,7 @@ msgid "Suppress non-error messages."
 msgstr "エラー以外のメッセージを抑制します。"
 
 msgid "Synchronise from/to directory on external storage device"
-msgstr ""
+msgstr "外部ストレージデバイス上のディレクトリから（またはディレクトリへ）同期します。"
 
 msgid "Synchronise from/to directory on external storage device."
 msgstr "外部ストレージデバイス上のディレクトリから（またはディレクトリへ）同期します。"
@@ -214,7 +214,7 @@ msgid ""
 msgstr "元の拡張属性と同じになるように先の拡張属性を更新します。"
 
 msgid "Updated USB backup job."
-msgstr ""
+msgstr "USBへのバックアップを更新しました。"
 
 msgid "n/a"
 msgstr "n/a"

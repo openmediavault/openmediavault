@@ -11,6 +11,7 @@
 # Jonathan Tasseroul <jonathan.tasseroul@gmail.com>, 2021
 # kevin LECLERCQ <nuklearstriker@gmail.com>, 2020
 # Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2012-2013
+# Pierre Girard <pierre4012@hotmail.com>, 2021
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012-2013
 # Stéphane Bocquet <stephane_bocquet@hotmail.com>, 2012
 # Volker <votdev@gmx.de>, 2015-2016,2018,2021
@@ -19,8 +20,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-07 08:42+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-09-09 19:33+0000\n"
+"Last-Translator: Pierre Girard <pierre4012@hotmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -450,7 +451,7 @@ msgid "Barbados"
 msgstr "Barbades"
 
 msgid "Base path"
-msgstr ""
+msgstr "Répertoire d'origine"
 
 msgid "Belarus"
 msgstr "Biélorussie"
@@ -597,7 +598,7 @@ msgid "China"
 msgstr "Chine"
 
 msgid "Choose"
-msgstr ""
+msgstr "Choisir"
 
 msgid "Christmas Island"
 msgstr "Île Christmas"
@@ -747,10 +748,10 @@ msgid "Created VLAN network connection."
 msgstr "Connexion réseau locale virtuelle créée."
 
 msgid "Created bond network connection."
-msgstr ""
+msgstr "Agrégation de connexion réseau créée."
 
 msgid "Created bridge network connection."
-msgstr ""
+msgstr "Connexion de pont créée."
 
 msgid "Created firewall rule."
 msgstr "Règle de pare-feu créée."
@@ -825,7 +826,7 @@ msgid "Delete"
 msgstr "Supprimer"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "Supprimer les fichiers sur la destination qui n'existent pas sur la source."
 
 msgid "Denmark"
 msgstr "Danemark"
@@ -855,13 +856,13 @@ msgid "Destination shared folder"
 msgstr "Dossier partagé destination"
 
 msgid "Details"
-msgstr ""
+msgstr "Détails"
 
 msgid "Device"
 msgstr "Périphérique"
 
 msgid "Device Information"
-msgstr ""
+msgstr "Informations sur le périphérique"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Correspondance de périphériques (device mapper) %s [%s, %s]"
@@ -870,16 +871,16 @@ msgid "Device Symlinks"
 msgstr "Lien symbolique d'appareil"
 
 msgid "Device has a few bad sectors."
-msgstr ""
+msgstr "L'appareil a quelques mauvais secteurs"
 
 msgid "Device has many bad sectors."
-msgstr ""
+msgstr "L'appareil a beaucoup de mauvais secteurs"
 
 msgid "Device is being used outside design parameters."
-msgstr ""
+msgstr "Le périphérique est utilisé en dehors des paramètres prévus."
 
 msgid "Device was used outside of design parameters in the past."
-msgstr ""
+msgstr "Le périphérique a été utilisé en dehors des paramètres prévus par le passé."
 
 msgid "Device(s)"
 msgstr "Périphérique(s)"
@@ -906,7 +907,7 @@ msgid "Disallow the user to modify his own account."
 msgstr "Interdire à l'utilisateur de modifier son propre compte."
 
 msgid "Disk Usage"
-msgstr ""
+msgstr "Utilisation du disque"
 
 msgid "Disks"
 msgstr "Disques"
@@ -920,7 +921,7 @@ msgstr "Voulez-vous vraiment appliquer les modifications de configuration ?"
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
 "join(\", \") }}</strong>?"
-msgstr ""
+msgstr "Êtes-vous certain de vouloir supprimer le ou les objet(s) sélectionné(s)  <strong>{{ items | join(\", \") }}</strong> ?"
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Voulez-vous vraiment supprimer l(es) élément(s) sélectionné(s) ?"

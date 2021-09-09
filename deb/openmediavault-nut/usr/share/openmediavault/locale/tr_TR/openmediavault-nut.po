@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-nut package.
 # 
 # Translators:
-# Serhat SUT <serhat.sut@gmail.com>, 2012-2014,2020
+# Serhat SUT <serhat.sut@gmail.com>, 2012-2014,2020-2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-28 17:38+0200\n"
-"PO-Revision-Date: 2021-07-19 16:35+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-09-08 16:14+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +44,7 @@ msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Lokal bağlı KGK için uzaktan izlemeyi etkinleştir."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Etkin"
 
 msgid "General settings"
 msgstr "Genel ayarlar"
@@ -53,7 +53,7 @@ msgid "Identifier"
 msgstr "Tanımlayıcı"
 
 msgid "Invalid identifier"
-msgstr ""
+msgstr "Geçersiz tanımlayıcı"
 
 msgid "Load"
 msgstr "Yükle"
@@ -74,7 +74,7 @@ msgid "Netclient password"
 msgstr "Ağ kullanıcısı şifresi"
 
 msgid "Netclient user name"
-msgstr ""
+msgstr "Netclient kullanıcı adı"
 
 msgid "Netclient username"
 msgstr "Ağ kullanıcısı kullanıcı adı"
@@ -142,13 +142,13 @@ msgid "UPS reaches low battery"
 msgstr "KGK düşük batarya seviyesine ulaştı"
 
 msgid "Updated UPS settings."
-msgstr ""
+msgstr "Güncellenmiş UPS ayarları."
 
 msgid "Used for remote authentication."
 msgstr "uzaktan doğrulama için kullanıldı."
 
 msgid "User name"
-msgstr ""
+msgstr "Kullanıcı adı"
 
 msgid "Username"
 msgstr "Kullanıcı adı"

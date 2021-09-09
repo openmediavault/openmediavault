@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-07 08:42+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-09-08 16:35+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,34 +20,34 @@ msgstr ""
 
 msgid ""
 "\"Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "Hedef dosya gurubunu kaynak dosya ile aynı olacak şekilde ayarla."
 
 msgid "%d days"
-msgstr ""
+msgstr "%d gün"
 
 msgid "%d hours"
-msgstr ""
+msgstr "%d saat"
 
 msgid "%d minutes"
-msgstr ""
+msgstr "%d dakika"
 
 msgid "%d months"
-msgstr ""
+msgstr "%d ay"
 
 msgid "%d years"
-msgstr ""
+msgstr "%d yıl"
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
-msgstr ""
+msgstr "%s [%s, %s (%d%%) kullanıldı, %s mevcut]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [%s de, %s]"
 
 msgid "%s ago"
-msgstr ""
+msgstr "%s önce"
 
 msgid "."
-msgstr ""
+msgstr "."
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s limitsiz demektir."
@@ -59,7 +59,7 @@ msgid "1 day"
 msgstr "1 gün"
 
 msgid "1 min"
-msgstr ""
+msgstr "1 dakika"
 
 msgid "1 minute"
 msgstr "1 dakika"
@@ -89,7 +89,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - En az güç kullanımı - Bekleme (dönüş durması) olmaksızın"
 
 msgid "15 min"
-msgstr ""
+msgstr "15 dakika"
 
 msgid "15 minutes"
 msgstr "15 dakika"
@@ -170,7 +170,7 @@ msgid "5 days"
 msgstr "5 gün"
 
 msgid "5 min"
-msgstr ""
+msgstr "5 dakika"
 
 msgid "5 minutes"
 msgstr "5 dakika"
@@ -194,10 +194,10 @@ msgid "9 months"
 msgstr "9 ay"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "En fazla bir cihaz kaldırılabilir."
 
 msgid "A maximum of two device can be removed."
-msgstr ""
+msgstr "En fazla iki cihaz kaldırılabilir."
 
 msgid "ACL"
 msgstr "ACL"
@@ -212,7 +212,7 @@ msgid "Abstract"
 msgstr "Özet"
 
 msgid "Access control list"
-msgstr ""
+msgstr "Erişim kontol listesi"
 
 msgid "Access mode"
 msgstr "Erişim modu"
@@ -251,7 +251,7 @@ msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Yönetici:oku/yaz, Kullanıcılar:oku/yaz, Diğerleri:sadece okunabilir"
 
 msgid "Advanced Acoustic Management"
-msgstr ""
+msgstr "Gelişmiş Akustik Yönetim"
 
 msgid "Advanced Power Management"
 msgstr "Gelişmiş Güç Yönetimi"
@@ -356,13 +356,13 @@ msgid "At least four devices are required."
 msgstr ""
 
 msgid "At least one network interface is required."
-msgstr ""
+msgstr "En azından bir ağ arabirimi gereklidir."
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "En azından üç aygıt gereklidir."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "En azından iki aygıt gereklidir."
 
 msgid "At reboot"
 msgstr "Yeniden başlatma sırasında"
@@ -410,7 +410,7 @@ msgid "Azerbaijan"
 msgstr "Azerbaycan"
 
 msgid "BTRFS"
-msgstr ""
+msgstr "BTRFS"
 
 msgid "Back"
 msgstr ""
@@ -515,10 +515,10 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 msgid "CPU Usage"
-msgstr ""
+msgstr "CPU Kullanımı"
 
 msgid "CPU usage"
 msgstr "CPU kullanımı"
@@ -563,16 +563,16 @@ msgid "Chad"
 msgstr "Çad"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Şifre Değiştir"
 
 msgid "Changelog"
 msgstr "Değişiklik kaydı"
 
 msgid "Check for new plugins"
-msgstr ""
+msgstr "Yeni eklentileri kontrol et"
 
 msgid "Check for new updates"
-msgstr ""
+msgstr "Yeni güncelleştirmeleri kontrol et"
 
 msgid "Check interval"
 msgstr "Kontrol aralığı"
@@ -587,7 +587,7 @@ msgid "China"
 msgstr "Çin"
 
 msgid "Choose"
-msgstr ""
+msgstr "Seç"
 
 msgid "Christmas Island"
 msgstr "Christmas Adası"

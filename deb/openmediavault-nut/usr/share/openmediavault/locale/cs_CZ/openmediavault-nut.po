@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-nut package.
 # 
 # Translators:
-# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2016,2020
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2016,2020-2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-28 17:38+0200\n"
-"PO-Revision-Date: 2021-07-19 16:35+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-09-07 11:31+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +44,7 @@ msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Umožnit zjišťování stavu UPS (propojené přímo s tímto) i ostatním strojům (užitečné v případě, že je také napájí a mají nainstalovaného NUT klienta)."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Zapnuto"
 
 msgid "General settings"
 msgstr "Obecná nastavení"
@@ -53,7 +53,7 @@ msgid "Identifier"
 msgstr "Identifikátor"
 
 msgid "Invalid identifier"
-msgstr ""
+msgstr "Neplatný identifikátor"
 
 msgid "Load"
 msgstr "Zátěž"
@@ -142,7 +142,7 @@ msgid "UPS reaches low battery"
 msgstr "jsou akumulátory v UPS už téměř vybité"
 
 msgid "Updated UPS settings."
-msgstr ""
+msgstr "Aktualizována nastavení pro zdroj nepřerušovaného napájení."
 
 msgid "Used for remote authentication."
 msgstr "Slouží pro ověřování oprávněnosti přístupu z jiného stroje."
