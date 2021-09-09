@@ -5,11 +5,8 @@
 
 $mat-typography-config: mat.define-typography-config();
 
-.breadcrumb {
+.omv-breadcrumb {
   float: left;
-  height: 40px !important;
-  min-height: 40px !important;
-  padding: 0 $omv-padding;
 
   .breadcrumb-list {
     margin: 0;

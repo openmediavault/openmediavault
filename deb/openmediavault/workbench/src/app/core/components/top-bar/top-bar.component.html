@@ -1,13 +1,13 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="omv-top-bar"
+             color="primary">
   <button mat-icon-button
           matTooltip="{{ (navigationSidenav.opened ? 'Hide navigation' : 'Show navigation') | translate }}"
           (click)="onToggleNavigationSidenav()">
     <mat-icon svgIcon="{{ icon.menu }}">
     </mat-icon>
   </button>
-  <div class="omv-top-bar-brand-logo"></div>
   <span fxFlex></span>
-  <span class="omv-top-bar-hostname">{{ hostname }}</span>
+  <span class="hostname">{{ hostname }}</span>
   <mat-divider vertical="true"></mat-divider>
   <button *ngIf="permissions?.role.includes(roles.admin)"
           mat-icon-button
