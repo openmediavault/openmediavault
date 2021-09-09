@@ -5,7 +5,7 @@
     background-color: transparent;
     border-left: 3px solid transparent;
     height: $omv-top-bar-height;
-    padding: $omv-padding;
+    padding-left: $omv-padding;
 
     .logo {
       width: 100%;
@@ -13,6 +13,7 @@
       background-image: url('/assets/images/openmediavault_logo.svg');
       background-repeat: no-repeat;
       background-size: contain;
+      background-position-y: center;
     }
   }
 
