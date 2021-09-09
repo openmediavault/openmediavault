@@ -272,7 +272,7 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
     });
   }
 
-  reloadData() {
+  reloadData(): void {
     const params: IDataTableLoadParams = {};
     if (this.remotePaging) {
       _.merge(params, { offset: this.offset, limit: this.limit });
@@ -283,7 +283,7 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
     this.loadDataEvent.emit(params);
   }
 
-  updateSelection() {
+  updateSelection(): void {
     if (this.updateSelectionOnReload === 'never') {
       return;
     }
@@ -305,14 +305,14 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
     this.onSelect();
   }
 
-  onSelect() {
+  onSelect(): void {
     // Update the selection.
     this.selection.update();
     // Make a copy of the selection and emit it to the subscribers.
     this.selectionChangeEvent.emit(_.clone(this.selection));
   }
 
-  onSort({ sorts }) {
+  onSort({ sorts }): void {
     if (this.remotePaging) {
       this.offset = 0;
     }
@@ -322,36 +322,41 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-  onPage({ count, pageSize, limit, offset }) {
+  onPage({ count, pageSize, limit, offset }): void {
     if (this.remotePaging) {
       this.offset = offset;
       this.reloadData();
     }
   }
 
-  onToggleColumn(column: DatatableColumn) {
+  onToggleColumn(column: DatatableColumn): void {
     column.hidden = !column.hidden;
     this.saveColumnState();
     this.updateColumns();
   }
 
-  onCopyToClipboard(value: any) {
+  onCopyToClipboard(value: any): void {
     this.clipboardService.copy(value);
   }
 
-  updateColumns() {
+  updateColumns(): void {
     // Load the custom column configuration from the browser
     // local store and filter hidden columns.
     this.loadColumnState();
     this.filteredColumns = this.rawColumns.filter((column) => !column.hidden);
   }
 
-  clearSearchFilter() {
-    this.searchFilter = '';
+  updateRows(): void {
+    // This will force the table to redraw the content.
     this.rows = [...this.data];
   }
 
-  applySearchFilter() {
+  clearSearchFilter(): void {
+    this.searchFilter = '';
+    this.updateRows();
+  }
+
+  applySearchFilter(): void {
     this.rows = _.filter(this.data, (o) =>
       _.some(this.columns, (column) => {
         let value = _.get(o, column.prop);
@@ -410,7 +415,7 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
    * - convert cellTemplateName => cellTemplate
    * - translate the column headers
    */
-  protected sanitizeColumns(columns: DatatableColumn[]) {
+  protected sanitizeColumns(columns: DatatableColumn[]): void {
     if (!this.cellTemplates) {
       return;
     }
@@ -431,7 +436,7 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
     });
   }
 
-  private loadColumnState() {
+  private loadColumnState(): void {
     if (!this.stateId) {
       return;
     }
@@ -447,7 +452,7 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-  private saveColumnState() {
+  private saveColumnState(): void {
     if (!this.stateId) {
       return;
     }
