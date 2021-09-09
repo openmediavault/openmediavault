@@ -15,10 +15,11 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 
+import { DatatablePageComponent } from '~/app/core/components/intuition/datatable-page/datatable-page.component';
 import { DatatablePageActionConfig } from '~/app/core/components/intuition/models/datatable-page-action-config.type';
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
@@ -28,9 +29,13 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
+  template:
+    '<omv-intuition-datatable-page #page [config]="this.config"></omv-intuition-datatable-page>'
 })
 export class FirewallRuleInet6DatatablePageComponent {
+  @ViewChild('page', { static: true })
+  page: DatatablePageComponent;
+
   public config: DatatablePageConfig = {
     stateId: 'da278886-7c09-11ea-a477-a7d7e6d13d1d',
     autoReload: false,
@@ -116,7 +121,7 @@ export class FirewallRuleInet6DatatablePageComponent {
         tooltip: gettext('Save'),
         click: this.onSave.bind(this),
         enabledConstraints: {
-          callback: (selected, store: DataStore) => _.get(store, 'dirty', false)
+          callback: (selected, store: DataStore) => this.dirty
         }
       },
       {
@@ -172,49 +177,53 @@ export class FirewallRuleInet6DatatablePageComponent {
     ]
   };
 
+  private dirty = false;
+
   constructor(private rpcService: RpcService, private notificationService: NotificationService) {}
 
-  onSave(action: DatatablePageActionConfig, selection: DatatableSelection, store: DataStore) {
-    this.rpcService.request('Iptables', 'setRules6', store.data).subscribe(() => {
-      _.set(store, 'dirty', false);
+  onSave(action: DatatablePageActionConfig, selection: DatatableSelection, data: any[]) {
+    this.rpcService.request('Iptables', 'setRules6', data).subscribe(() => {
+      this.dirty = false;
       this.notificationService.show(NotificationType.success, gettext('Updated firewall rules.'));
     });
   }
 
-  onUp(action: DatatablePageActionConfig, selection: DatatableSelection, store: DataStore) {
+  onUp(action: DatatablePageActionConfig, selection: DatatableSelection, data: any[]) {
     const selected = selection.first();
-    const index = _.findIndex(store.data, selected);
+    const index = _.findIndex(data, selected);
     if (index <= 0) {
       return;
     }
     // Create a working copy.
-    const clone = _.cloneDeep(store.data);
+    const clone = _.cloneDeep(data);
     // Relocate rule.
     _.pullAt(clone, index);
     clone.splice(index - 1, 0, selected);
     this.updateRuleNumbers(clone);
-    // Update the store data. The datatable will be updated automatically.
-    store.data = clone;
+    // Update the table data and redraw table content.
+    data.splice(0, data.length, ...clone);
+    this.page.table.updateRows();
     // Mark the data as dirty.
-    _.set(store, 'dirty', true);
+    this.dirty = true;
   }
 
-  onDown(action: DatatablePageActionConfig, selection: DatatableSelection, store: DataStore) {
+  onDown(action: DatatablePageActionConfig, selection: DatatableSelection, data: any[]) {
     const selected = selection.first();
-    const index = _.findIndex(store.data, selected);
-    if (index + 1 >= store.data.length) {
+    const index = _.findIndex(data, selected);
+    if (index + 1 >= data.length) {
       return;
     }
     // Create a working copy.
-    const clone = _.cloneDeep(store.data);
+    const clone = _.cloneDeep(data);
     // Relocate rule.
     _.pullAt(clone, index);
     clone.splice(index + 1, 0, selected);
     this.updateRuleNumbers(clone);
-    // Update the store data. The datatable will be updated automatically.
-    store.data = clone;
+    // Update the table data and redraw table content.
+    data.splice(0, data.length, ...clone);
+    this.page.table.updateRows();
     // Mark the data as dirty.
-    _.set(store, 'dirty', true);
+    this.dirty = true;
   }
 
   private updateRuleNumbers(rules: Array<any>) {
