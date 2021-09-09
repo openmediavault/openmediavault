@@ -1,8 +1,18 @@
-<ng-scrollbar appearance="standard"
-              visibility="hover">
-  <mat-nav-list role="list">
-    <omv-navigation-bar-list-item *ngFor="let item of menuItems"
-                                  [item]="item">
-    </omv-navigation-bar-list-item>
-  </mat-nav-list>
-</ng-scrollbar>
+<div class="omv-navigation-bar"
+     fxFlexFill
+     fxLayout="column">
+  <mat-toolbar class="header">
+    <div class="logo"></div>
+  </mat-toolbar>
+  <div class="content"
+       fxFlex>
+    <ng-scrollbar appearance="standard"
+                  visibility="hover">
+      <mat-nav-list role="list">
+        <omv-navigation-bar-list-item *ngFor="let item of menuItems"
+                                      [item]="item">
+        </omv-navigation-bar-list-item>
+      </mat-nav-list>
+    </ng-scrollbar>
+  </div>
+</div>

@@ -1,10 +1,17 @@
 @import 'src/styles';
 
 #omv-workbench-navigation {
-  min-width: 18rem;
-  max-width: 18rem;
+  border-right: unset;
+  min-width: 20rem;
+  max-width: 20rem;
 }
 
 #omv-workbench-router-outlet {
   @include omv-scrollbar;
+}
+
+omv-breadcrumb {
+  max-height: 40px !important;
+  min-height: 40px !important;
+  padding: 0 $omv-padding;
 }
