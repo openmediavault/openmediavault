@@ -2,8 +2,8 @@
 
 .omv-navigation-bar {
   .header {
-    background-color: transparent;
-    border-left: 3px solid transparent;
+    background-color: $omv-color-transparent;
+    border-left: 3px solid $omv-color-transparent;
     height: $omv-top-bar-height;
     padding-left: $omv-padding;
 
