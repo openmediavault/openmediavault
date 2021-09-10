@@ -36,7 +36,7 @@ import { format, formatDeep, formatURI, isFormatable } from '~/app/functions.hel
 import { translate } from '~/app/i18n.helper';
 import {
   DatatableComponent,
-  IDataTableLoadParams
+  DataTableLoadParams
 } from '~/app/shared/components/datatable/datatable.component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
@@ -92,7 +92,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     return result;
   }
 
-  loadData(params: IDataTableLoadParams) {
+  loadData(params: DataTableLoadParams) {
     const store = this.config.store;
     if (_.isPlainObject(store.proxy)) {
       _.defaultsDeep(store.proxy.get, {

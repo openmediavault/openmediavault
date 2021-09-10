@@ -1,4 +1,5 @@
-<omv-datatable [data]="store.data"
+<omv-datatable #table
+               [data]="store.data"
                [autoReload]="false"
                [hasReloadButton]="false"
                [columns]="columns"
@@ -14,6 +15,6 @@
   <omv-datatable-actions fxFlex
                          [actions]="actions"
                          [selection]="selection"
-                         [data]="store.data">
+                         [owner]="table">
   </omv-datatable-actions>
 </omv-datatable>
