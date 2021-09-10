@@ -264,7 +264,7 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
           if (this.searchFilter !== '') {
             this.applySearchFilter();
           } else {
-            this.rows = [...this.data];
+            this.updateRows();
           }
           this.updateSelection();
         }
