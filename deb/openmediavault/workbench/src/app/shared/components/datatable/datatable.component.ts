@@ -35,13 +35,14 @@ import { Subscription, timer } from 'rxjs';
 
 import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
+import { Datatable } from '~/app/shared/models/datatable.interface';
 import { DatatableColumn } from '~/app/shared/models/datatable-column.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { Sorter } from '~/app/shared/models/sorter.type';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { UserStorageService } from '~/app/shared/services/user-storage.service';
 
-export interface IDataTableLoadParams {
+export interface DataTableLoadParams {
   dir?: 'asc' | 'desc';
   prop?: string;
   offset?: number;
@@ -53,7 +54,7 @@ export interface IDataTableLoadParams {
   templateUrl: './datatable.component.html',
   styleUrls: ['./datatable.component.scss']
 })
-export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
+export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChanges {
   @ViewChild('table', { static: true })
   table: NgxDatatableComponent;
   @ViewChild('textTpl', { static: true })
@@ -196,7 +197,7 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
 
   // Event emitted when the data must be loaded.
   @Output()
-  readonly loadDataEvent = new EventEmitter<IDataTableLoadParams>();
+  readonly loadDataEvent = new EventEmitter<DataTableLoadParams>();
 
   // Event emitted when the selection has been changed.
   @Output()
@@ -264,7 +265,7 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
           if (this.searchFilter !== '') {
             this.applySearchFilter();
           } else {
-            this.updateRows();
+            this.rows = [...this.data];
           }
           this.updateSelection();
         }
@@ -272,8 +273,11 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
     });
   }
 
+  /**
+   * Reload the data to be shown by emitting the 'loadDataEvent' event.
+   */
   reloadData(): void {
-    const params: IDataTableLoadParams = {};
+    const params: DataTableLoadParams = {};
     if (this.remotePaging) {
       _.merge(params, { offset: this.offset, limit: this.limit });
     }
@@ -281,6 +285,16 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
       _.merge(params, { dir: this.sorters[0].dir, prop: this.sorters[0].prop });
     }
     this.loadDataEvent.emit(params);
+  }
+
+  /**
+   * Update the data to be shown.
+   * The internal data structures are updated and the table will
+   * be redrawn.
+   */
+  updateData(data: any[]): void {
+    this.data.splice(0, this.data.length, ...data);
+    this.rows = [...this.data];
   }
 
   updateSelection(): void {
@@ -346,14 +360,9 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
     this.filteredColumns = this.rawColumns.filter((column) => !column.hidden);
   }
 
-  updateRows(): void {
-    // This will force the table to redraw the content.
-    this.rows = [...this.data];
-  }
-
   clearSearchFilter(): void {
     this.searchFilter = '';
-    this.updateRows();
+    this.rows = [...this.data];
   }
 
   applySearchFilter(): void {

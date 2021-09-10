@@ -21,6 +21,7 @@ import * as _ from 'lodash';
 
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { Constraint } from '~/app/shared/models/constraint.type';
+import { Datatable } from '~/app/shared/models/datatable.interface';
 import { DatatableActionConfig } from '~/app/shared/models/datatable-action-config.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
@@ -38,10 +39,8 @@ export class DatatableActionsComponent implements OnInit {
   @Input()
   actions: DatatableActionConfig[];
 
-  // Optional data that will be used as argument for the action
-  // `click` and `selectionChange` callback functions.
   @Input()
-  data: any[];
+  owner: Datatable;
 
   constructor(private dataStoreService: DataStoreService) {}
 
@@ -79,7 +78,7 @@ export class DatatableActionsComponent implements OnInit {
         validators.push(action.enabledConstraints.callback);
       }
       const enabled = _.every(validators, (validator) =>
-        validator(this.selection.selected, this.data)
+        validator(this.selection.selected, this.owner.data)
       );
       return !enabled;
     }
@@ -88,13 +87,13 @@ export class DatatableActionsComponent implements OnInit {
 
   onButtonClick(action: DatatableActionConfig) {
     if (_.isFunction(action.click)) {
-      action.click.call(this, action, this.selection, this.data);
+      action.click.call(this, action, this.selection, this.owner);
     }
   }
 
   onSelectionChange(event: MatSelectChange, action: DatatableActionConfig) {
     if (_.isFunction(action.selectionChange)) {
-      action.selectionChange(action, event.value, this.data);
+      action.selectionChange(action, event.value, this.owner);
     }
   }
 

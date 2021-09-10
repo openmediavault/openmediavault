@@ -24,6 +24,7 @@ import { DatatablePageActionConfig } from '~/app/core/components/intuition/model
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DataStore } from '~/app/shared/models/data-store.type';
+import { Datatable } from '~/app/shared/models/datatable.interface';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
@@ -188,40 +189,38 @@ export class FirewallRuleInetDatatablePageComponent {
     });
   }
 
-  onUp(action: DatatablePageActionConfig, selection: DatatableSelection, data: any[]) {
+  onUp(action: DatatablePageActionConfig, selection: DatatableSelection, table: Datatable) {
     const selected = selection.first();
-    const index = _.findIndex(data, selected);
+    const index = _.findIndex(table.data, selected);
     if (index <= 0) {
       return;
     }
     // Create a working copy.
-    const clone = _.cloneDeep(data);
+    const modifiedData = _.cloneDeep(table.data);
     // Relocate rule.
-    _.pullAt(clone, index);
-    clone.splice(index - 1, 0, selected);
-    this.updateRuleNumbers(clone);
+    _.pullAt(modifiedData, index);
+    modifiedData.splice(index - 1, 0, selected);
+    this.updateRuleNumbers(modifiedData);
     // Update the table data and redraw table content.
-    data.splice(0, data.length, ...clone);
-    this.page.table.updateRows();
+    table.updateData(modifiedData);
     // Mark the data as dirty.
     this.dirty = true;
   }
 
-  onDown(action: DatatablePageActionConfig, selection: DatatableSelection, data: any[]) {
+  onDown(action: DatatablePageActionConfig, selection: DatatableSelection, table: Datatable) {
     const selected = selection.first();
-    const index = _.findIndex(data, selected);
-    if (index + 1 >= data.length) {
+    const index = _.findIndex(table.data, selected);
+    if (index + 1 >= table.data.length) {
       return;
     }
     // Create a working copy.
-    const clone = _.cloneDeep(data);
+    const modifiedData = _.cloneDeep(table.data);
     // Relocate rule.
-    _.pullAt(clone, index);
-    clone.splice(index + 1, 0, selected);
-    this.updateRuleNumbers(clone);
+    _.pullAt(modifiedData, index);
+    modifiedData.splice(index + 1, 0, selected);
+    this.updateRuleNumbers(modifiedData);
     // Update the table data and redraw table content.
-    data.splice(0, data.length, ...clone);
-    this.page.table.updateRows();
+    table.updateData(modifiedData);
     // Mark the data as dirty.
     this.dirty = true;
   }

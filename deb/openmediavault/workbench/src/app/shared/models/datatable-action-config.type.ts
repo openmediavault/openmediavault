@@ -17,6 +17,7 @@
  */
 import { Constraint } from '~/app/shared/models/constraint.type';
 import { DataStore } from '~/app/shared/models/data-store.type';
+import { Datatable } from '~/app/shared/models/datatable.interface';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 
 // A datatable action is visually represented in the action toolbar
@@ -45,7 +46,7 @@ export type DatatableActionConfig = {
 
   // --- button | iconbutton | menu ---
   // A callback function. Internal only.
-  click?: (action: DatatableActionConfig, selection: DatatableSelection, data: any) => void;
+  click?: (action: DatatableActionConfig, selection: DatatableSelection, table: Datatable) => void;
 
   // --- select ---
   store?: DataStore;
@@ -54,7 +55,7 @@ export type DatatableActionConfig = {
   valueField?: string;
   // Defaults to 'text'.
   textField?: string;
-  selectionChange?: (action: DatatableActionConfig, value: any, data: any) => void;
+  selectionChange?: (action: DatatableActionConfig, value: any, table: Datatable) => void;
 
   // --- menu ---
   // The actions displayed in the menu dropdown.
