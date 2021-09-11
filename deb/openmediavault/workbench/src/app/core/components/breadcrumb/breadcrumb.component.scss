@@ -1,37 +1,36 @@
 @use 'sass:math';
 @use '~@angular/material' as mat;
 
-@import 'src/scss/defaults';
+@import 'src/styles';
 
 $mat-typography-config: mat.define-typography-config();
 
 .omv-breadcrumb {
-  float: left;
-
-  .breadcrumb-list {
-    margin: 0;
-    padding: 0;
-
-    li {
-      list-style: none;
-      float: left;
-      line-height: 40px;
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-    }
-  }
-
-  .mat-button {
+  a {
     @include mat.typography-level($mat-typography-config, subheading-2);
+
+    border-bottom: 3px solid $omv-color-transparent;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &.active {
+      border-bottom: 3px solid $omv-color-primary;
+    }
+
+    &:hover:not(.active) {
+      border-bottom: 3px solid $omv-color-accent;
+    }
+
+    .mat-icon {
+      vertical-align: middle;
+    }
   }
 
   .mat-divider {
     border-color: inherit;
     display: unset;
-    margin-left: math.div($omv-margin, 3);
-    margin-right: math.div($omv-margin, 3);
+    margin-left: math.div($omv-margin, 2);
+    margin-right: math.div($omv-margin, 2);
   }
 }

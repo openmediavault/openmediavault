@@ -7,7 +7,7 @@
     border-left: 3px solid $omv-color-primary;
   }
 
-  &:hover {
+  &:hover:not(.active) {
     border-left: 3px solid $omv-color-accent;
   }
 

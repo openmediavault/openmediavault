@@ -1,27 +1,17 @@
-<div class="omv-breadcrumb"
-     fxFlex>
-  <ul class="breadcrumb-list">
-    <li class="mat-list-item"
-        role="menuitem">
-      <a mat-icon-button
-         routerLink="/">
-        <mat-icon class="omv-icon-color-default"
-                  svgIcon="{{ icon.home }}"></mat-icon>
-      </a>
-      <mat-divider *ngIf="breadcrumbs.length"
-                   vertical="true">
-      </mat-divider>
-    </li>
-    <li *ngFor="let breadcrumb of breadcrumbs; let last = last"
-        class="mat-list-item"
-        role="menuitem">
-      <a mat-button
-         [routerLink]="[breadcrumb.url]">
-        <span class="omv-text-color-default">{{ breadcrumb.text | translate }}</span>
-      </a>
-      <mat-divider *ngIf="!last"
-                   vertical="true">
-      </mat-divider>
-    </li>
-  </ul>
-</div>
+<nav class="omv-breadcrumb"
+     fxLayout="row"
+     fxLayoutAlign="start center">
+  <a routerLink="/"
+     [ngClass]="{'active': !breadcrumbs.length}">
+    <mat-icon class="omv-icon-color-default"
+              svgIcon="{{ icon.home }}">
+    </mat-icon>
+  </a>
+  <div *ngFor="let breadcrumb of breadcrumbs; let last = last">
+    <mat-divider vertical="true"></mat-divider>
+    <a [routerLink]="[breadcrumb.url]"
+       [ngClass]="{'active': last}">
+      <span class="omv-text-color-default">{{ breadcrumb.text | translate }}</span>
+    </a>
+  </div>
+</nav>
