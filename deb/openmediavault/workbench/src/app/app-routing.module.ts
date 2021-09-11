@@ -34,7 +34,6 @@ import { RouteConfigService } from '~/app/core/services/route-config.service';
 import { AuthGuardService } from '~/app/shared/services/auth-guard.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
     path: '',
     component: WorkbenchLayoutComponent,

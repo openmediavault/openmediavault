@@ -107,7 +107,7 @@ export class LoginPageComponent implements OnInit {
         })
       )
       .subscribe(() => {
-        const url = _.get(this.activatedRoute.snapshot.queryParams, 'returnUrl', '/');
+        const url = _.get(this.activatedRoute.snapshot.queryParams, 'returnUrl', '/dashboard');
         this.router.navigate([url]);
       });
   }
