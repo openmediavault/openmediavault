@@ -2,7 +2,8 @@
      fxLayout="row"
      fxLayoutAlign="start center">
   <a routerLink="/"
-     [ngClass]="{'active': !breadcrumbs.length}">
+     [ngClass]="{'active': !breadcrumbs.length}"
+     title="{{ 'Home' | translate }}">
     <mat-icon class="omv-icon-color-default"
               svgIcon="{{ icon.home }}">
     </mat-icon>
