@@ -1,4 +1,5 @@
 <block-ui class="mat-typography">
+  <omv-apply-config *ngIf="pendingChanges"></omv-apply-config>
   <mat-sidenav-container *ngIf="!loading"
                          autosize>
     <mat-sidenav #navigationSidenav
@@ -9,7 +10,6 @@
       <omv-navigation-bar></omv-navigation-bar>
     </mat-sidenav>
     <mat-sidenav-content fxLayout="column">
-      <omv-apply-config *ngIf="pendingChanges"></omv-apply-config>
       <omv-top-bar [navigationSidenav]="navigationSidenav"
                    [notificationsSidenav]="notificationsSidenav">
       </omv-top-bar>
