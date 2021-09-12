@@ -14,8 +14,6 @@ $mat-typography-config: mat.define-typography-config();
 }
 
 .mat-dialog-content {
-  font-size: mat.font-size($mat-typography-config, body-1);
-
   .omv-task-dialog-content {
     @extend .omv-background-color-theme-terminal;
 

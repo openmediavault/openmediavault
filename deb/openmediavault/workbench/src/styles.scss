@@ -372,6 +372,7 @@ textarea {
 // Dialog
 .mat-dialog-content {
   font-family: mat.font-family($mat-typography-config);
+  font-size: mat.font-size($mat-typography-config, body-1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
