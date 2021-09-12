@@ -316,74 +316,94 @@ export class FormPageComponent extends AbstractPageComponent<FormPageConfig>
       }
     };
     // Submit the form values?
-    if (buttonConfig.template === 'submit') {
-      const request = this.config?.request;
-      if (
-        _.isPlainObject(request) &&
-        _.isString(request.service) &&
-        _.isPlainObject(request.post)
-      ) {
-        const doRpcRequestFn = () => {
-          // Process the RPC parameters.
-          if (_.isPlainObject(request.post.params)) {
-            const params = formatDeep(request.post.params, _.merge(this.pageContext, values));
-            let tmp = _.merge({}, values, params);
-            if (_.get(request.post, 'intersectParams', false)) {
-              const keys = _.intersection(_.keys(request.post.params), _.keys(values));
-              tmp = _.pick(tmp, keys);
-            }
-            values = tmp;
-          }
-          if (_.isString(request.post.progressMessage)) {
-            this.blockUI.start(translate(request.post.progressMessage));
-          }
-          this.rpcService[request.post.task ? 'requestTask' : 'request'](
-            request.service,
-            request.post.method,
-            values
-          )
-            .pipe(
-              finalize(() => {
-                if (_.isString(request.post.progressMessage)) {
-                  this.blockUI.stop();
-                }
-              })
-            )
-            .subscribe(() => {
-              const notificationTitle = _.get(this.routeConfig, 'data.notificationTitle');
-              if (!_.isEmpty(notificationTitle)) {
-                this.notificationService.show(
-                  NotificationType.success,
-                  format(notificationTitle, _.merge({}, this.pageContext, values))
-                );
+    switch (buttonConfig.template) {
+      case 'submit':
+        const request = this.config?.request;
+        if (
+          _.isPlainObject(request) &&
+          _.isString(request.service) &&
+          _.isPlainObject(request.post)
+        ) {
+          const doRpcRequestFn = () => {
+            // Process the RPC parameters.
+            if (_.isPlainObject(request.post.params)) {
+              const params = formatDeep(request.post.params, _.merge(this.pageContext, values));
+              let tmp = _.merge({}, values, params);
+              if (_.get(request.post, 'intersectParams', false)) {
+                const keys = _.intersection(_.keys(request.post.params), _.keys(values));
+                tmp = _.pick(tmp, keys);
               }
-              doPreButtonActionFn();
+              values = tmp;
+            }
+            if (_.isString(request.post.progressMessage)) {
+              this.blockUI.start(translate(request.post.progressMessage));
+            }
+            this.rpcService[request.post.task ? 'requestTask' : 'request'](
+              request.service,
+              request.post.method,
+              values
+            )
+              .pipe(
+                finalize(() => {
+                  if (_.isString(request.post.progressMessage)) {
+                    this.blockUI.stop();
+                  }
+                })
+              )
+              .subscribe(() => {
+                const notificationTitle = _.get(this.routeConfig, 'data.notificationTitle');
+                if (!_.isEmpty(notificationTitle)) {
+                  this.notificationService.show(
+                    NotificationType.success,
+                    format(notificationTitle, _.merge({}, this.pageContext, values))
+                  );
+                }
+                doPreButtonActionFn();
+              });
+          };
+          // Has the user to confirm the RPC request?
+          if (_.isPlainObject(request.post.confirmationDialogConfig)) {
+            const data = _.cloneDeep(request.post.confirmationDialogConfig);
+            if (_.isString(data.message)) {
+              data.message = format(data.message, values);
+            }
+            const dialogRef = this.dialogService.open(ModalDialogComponent, {
+              width: _.get(data, 'width', '50%'),
+              data: _.omit(data, ['width'])
             });
-        };
-        // Has the user to confirm the RPC request?
-        if (_.isPlainObject(request.post.confirmationDialogConfig)) {
-          const data = _.cloneDeep(request.post.confirmationDialogConfig);
-          if (_.isString(data.message)) {
-            data.message = format(data.message, values);
+            dialogRef.afterClosed().subscribe((res: any) => {
+              if (true === res) {
+                // Execute the RPC request.
+                doRpcRequestFn();
+              }
+            });
+          } else {
+            doRpcRequestFn();
           }
+        } else {
+          doPreButtonActionFn();
+        }
+        break;
+      case 'cancel':
+        if (this.form.formGroup.dirty) {
           const dialogRef = this.dialogService.open(ModalDialogComponent, {
-            width: _.get(data, 'width', '50%'),
-            data: _.omit(data, ['width'])
+            data: {
+              template: 'confirmation-danger',
+              message: gettext('Your changes will be lost. Do you want to continue?')
+            }
           });
           dialogRef.afterClosed().subscribe((res: any) => {
             if (true === res) {
-              // Execute the RPC request.
-              doRpcRequestFn();
+              doPreButtonActionFn();
             }
           });
         } else {
-          doRpcRequestFn();
+          doPreButtonActionFn();
         }
-      } else {
+        break;
+      default:
         doPreButtonActionFn();
-      }
-    } else {
-      doPreButtonActionFn();
+        break;
     }
   }
 
