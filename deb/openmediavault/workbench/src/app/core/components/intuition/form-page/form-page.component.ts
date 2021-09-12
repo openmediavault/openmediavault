@@ -59,8 +59,10 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   templateUrl: './form-page.component.html',
   styleUrls: ['./form-page.component.scss']
 })
-export class FormPageComponent extends AbstractPageComponent<FormPageConfig>
-  implements AfterViewInit, OnInit, OnDestroy {
+export class FormPageComponent
+  extends AbstractPageComponent<FormPageConfig>
+  implements AfterViewInit, OnInit, OnDestroy
+{
   @BlockUI()
   blockUI: NgBlockUI;
 

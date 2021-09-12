@@ -104,15 +104,12 @@
                [value]="currentPath">
         <span fxFlex></span>
         <button mat-flat-button
-                class="omv-background-color-theme-accent"
                 (click)="close()">
           {{ 'Cancel' | translate }}
         </button>
-        <button mat-flat-button
-                class="omv-background-color-theme-primary"
-                (click)="choose()">
+        <omv-submit-button (buttonClick)="choose()">
           {{ 'Choose' | translate }}
-        </button>
+        </omv-submit-button>
       </div>
     </div>
   </div>

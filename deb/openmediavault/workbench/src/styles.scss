@@ -375,11 +375,15 @@ textarea {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Buttons
-.mat-flat-button:not(:first-child) {
-  margin-left: 0.5rem !important;
+// Card
+.mat-card-actions {
+  .mat-button-base:not(:last-child) {
+    margin-right: 0.5rem;
+  }
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// Buttons
 .mat-button-toggle.mat-button-toggle-checked {
   @extend .omv-background-color-theme-accent;
 }

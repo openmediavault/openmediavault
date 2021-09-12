@@ -44,7 +44,7 @@
                     [fxLayoutAlign]="config.buttonAlign">
     <button *ngFor="let button of config.buttons"
             mat-flat-button
-            [class]="button.class ? button.class : 'omv-background-color-theme-accent'"
+            [class]="button.class"
             (click)="onButtonClick(button)">
       {{ button.text | translate }}
     </button>

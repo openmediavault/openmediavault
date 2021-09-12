@@ -1,6 +1,6 @@
 @use '~@angular/material' as mat;
 
-@import 'src/scss/defaults';
+@import 'src/styles';
 
 $mat-typography-config: mat.define-typography-config();
 
@@ -11,6 +11,10 @@ $mat-typography-config: mat.define-typography-config();
 .omv-selection-actions {
   font-size: mat.font-size($mat-typography-config, body-1);
   padding: $omv-padding;
+
+  .mat-button-base:not(:last-child) {
+    margin-right: 0.5rem;
+  }
 }
 
 .mat-form-field + .mat-form-field {

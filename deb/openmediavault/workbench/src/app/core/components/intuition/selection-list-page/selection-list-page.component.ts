@@ -30,10 +30,12 @@ import {
   SelectionListPageConfig
 } from '~/app/core/components/intuition/models/selection-list-page-config.type';
 import { format, toBoolean } from '~/app/functions.helper';
+import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
+import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 
 @Component({
@@ -57,6 +59,7 @@ export class SelectionListPageComponent
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
     private dataStoreService: DataStoreService,
+    private dialogService: DialogService,
     private notificationService: NotificationService,
     private router: Router
   ) {
@@ -83,21 +86,38 @@ export class SelectionListPageComponent
   }
 
   onButtonClick(buttonConfig: SelectionListPageButtonConfig): void {
-    switch (buttonConfig?.execute?.type) {
-      case 'click':
-        if (_.isFunction(buttonConfig.execute.click)) {
-          const values = [];
-          _.forEach(this.list.selectedOptions.selected, (selected) => {
-            values.push(selected.value);
-          });
-          buttonConfig.execute.click(buttonConfig, this.config.store, values);
+    const doButtonActionFn = () => {
+      switch (buttonConfig?.execute?.type) {
+        case 'click':
+          if (_.isFunction(buttonConfig.execute.click)) {
+            const values = [];
+            _.forEach(this.list.selectedOptions.selected, (selected) => {
+              values.push(selected.value);
+            });
+            buttonConfig.execute.click(buttonConfig, this.config.store, values);
+          }
+          break;
+        case 'url':
+          if (!_.isEmpty(buttonConfig.execute.url)) {
+            this.router.navigate([buttonConfig.execute.url]);
+          }
+          break;
+      }
+    };
+    if (!this.pristine && ['back', 'cancel'].includes(buttonConfig?.template)) {
+      const dialogRef = this.dialogService.open(ModalDialogComponent, {
+        data: {
+          template: 'confirmation-danger',
+          message: gettext('Your changes will be lost. Do you want to continue?')
         }
-        break;
-      case 'url':
-        if (!_.isEmpty(buttonConfig.execute.url)) {
-          this.router.navigate([buttonConfig.execute.url]);
+      });
+      dialogRef.afterClosed().subscribe((res: any) => {
+        if (true === res) {
+          doButtonActionFn();
         }
-        break;
+      });
+    } else {
+      doButtonActionFn();
     }
   }
 
@@ -162,6 +182,13 @@ export class SelectionListPageComponent
           break;
       }
     });
+    // Relocate the 'submit' button to the end of the list.
+    const index = _.findIndex(this.config.buttons, ['template', 'submit']);
+    if (index !== -1) {
+      const button = this.config.buttons[index];
+      this.config.buttons.splice(index, 1);
+      this.config.buttons.push(button);
+    }
   }
 
   private loadData() {

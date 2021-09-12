@@ -39,7 +39,7 @@
       </omv-submit-button>
       <button *ngIf="button.template !== 'submit'"
               mat-flat-button
-              [class]="button.class ? button.class : 'omv-background-color-theme-accent'"
+              [class]="button.class"
               (click)="onButtonClick(button)">
         {{ button.text | translate }}
       </button>
