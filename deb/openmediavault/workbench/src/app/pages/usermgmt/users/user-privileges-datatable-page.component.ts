@@ -89,12 +89,11 @@ export class UserPrivilegesDatatablePageComponent {
     },
     buttons: [
       {
-        text: gettext('Save'),
-        class: 'omv-background-color-theme-primary',
+        template: 'submit',
         click: this.onSave.bind(this)
       },
       {
-        text: gettext('Cancel'),
+        template: 'cancel',
         url: '/usermgmt/users'
       }
     ]

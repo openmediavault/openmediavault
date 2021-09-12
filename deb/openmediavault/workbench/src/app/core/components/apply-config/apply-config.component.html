@@ -7,13 +7,13 @@
   </span>
   <span fxFlex></span>
   <button mat-icon-button
-          matTooltip="{{ 'Apply' | translate }}"
-          (click)="onApplyPendingChanges()">
-    <mat-icon svgIcon="{{ icon.check }}"></mat-icon>
-  </button>
-  <button mat-icon-button
           matTooltip="{{ 'Undo' | translate }}"
           (click)="onUndoPendingChanges()">
     <mat-icon svgIcon="{{ icon.undo }}"></mat-icon>
+  </button>
+  <button mat-icon-button
+          matTooltip="{{ 'Apply' | translate }}"
+          (click)="onApplyPendingChanges()">
+    <mat-icon svgIcon="{{ icon.check }}"></mat-icon>
   </button>
 </mat-toolbar>

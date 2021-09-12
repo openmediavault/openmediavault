@@ -350,8 +350,20 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
             text: gettext('Cancel')
           });
           break;
+        case 'submit':
+          _.defaultsDeep(button, {
+            text: gettext('Save')
+          });
+          break;
       }
     });
+    // Relocate the 'submit' button to the end of the list.
+    const index = _.findIndex(this.config.buttons, ['template', 'submit']);
+    if (index !== -1) {
+      const button = this.config.buttons[index];
+      this.config.buttons.splice(index, 1);
+      this.config.buttons.push(button);
+    }
   }
 
   protected onRouteParams() {

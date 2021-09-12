@@ -35,12 +35,20 @@
   </mat-card-content>
   <mat-card-actions *ngIf="config.buttons.length"
                     [fxLayoutAlign]="config.buttonAlign">
-    <button *ngFor="let button of config.buttons"
-            mat-flat-button
-            [class]="button.class"
-            (click)="onButtonClick(button)">
-      {{ button.text | translate }}
-    </button>
+    <ng-container *ngFor="let button of config.buttons">
+      <omv-submit-button *ngIf="button.template === 'submit'"
+                         [disabled]="button.disabled"
+                         (buttonClick)="onButtonClick(button)">
+        {{ button.text | translate }}
+      </omv-submit-button>
+      <button *ngIf="button.template !== 'submit'"
+              mat-flat-button
+              [class]="button.class"
+              [disabled]="button.disabled"
+              (click)="onButtonClick(button)">
+        {{ button.text | translate }}
+      </button>
+    </ng-container>
   </mat-card-actions>
 </mat-card>
 

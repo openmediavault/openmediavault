@@ -65,11 +65,14 @@ export type DatatablePageButtonConfig = {
   // Specifies a template that pre-configures the button:
   // back   - A button with the text 'Back'.
   // cancel - A button with the text 'Cancel'.
-  template?: 'back' | 'cancel';
+  // submit - A button with the text 'Save'.
+  template?: 'back' | 'cancel' | 'submit';
   // The text displayed in the button.
-  text: string;
+  text?: string;
   // Custom CSS class.
   class?: string;
+  // Disable the button. Defaults to 'false'.
+  disabled?: boolean;
   // The URL of the route to navigate to when the button has been
   // clicked.
   // Both options are mutually exclusive.
