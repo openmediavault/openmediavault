@@ -59,10 +59,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   templateUrl: './form-page.component.html',
   styleUrls: ['./form-page.component.scss']
 })
-export class FormPageComponent
-  extends AbstractPageComponent<FormPageConfig>
-  implements AfterViewInit, OnInit, OnDestroy
-{
+export class FormPageComponent extends AbstractPageComponent<FormPageConfig>
+  implements AfterViewInit, OnInit, OnDestroy {
   @BlockUI()
   blockUI: NgBlockUI;
 
@@ -423,6 +421,13 @@ export class FormPageComponent
           break;
       }
     });
+    // Relocate the 'submit' button to the end of the list.
+    const index = _.findIndex(this.config.buttons, ['template', 'submit']);
+    if (index !== -1) {
+      const button = this.config.buttons[index];
+      this.config.buttons.splice(index, 1);
+      this.config.buttons.push(button);
+    }
     // Map icon from 'foo' to 'mdi:foo' if necessary.
     this.config.icon = _.get(Icon, this.config.icon, this.config.icon);
   }
