@@ -1,6 +1,7 @@
 openmediavault (5.6.15-1) stable; urgency=low
 
   * Set correct time zone in proftpd.
+  * Skip missing file systems when applying quotas.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 26 Aug 2021 18:39:49 +0200
 

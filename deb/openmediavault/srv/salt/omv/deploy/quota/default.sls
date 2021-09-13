@@ -42,6 +42,9 @@
   'conf.system.filesystem.quota',
   {'operator': 'stringEquals', 'arg0': 'fsuuid', 'arg1': fsuuid}) %}
 
+# Proceed only if the device exists.
+{% if device | is_block_device %}
+
 {% if quotas | length == 0 %}
 
 # No quotas are configured, so quota can be turned off for this device.
@@ -96,6 +99,8 @@ quota_set_group_{{ fsuuid }}_{{ grpquota.name }}:
   cmd.run:
     - name: setquota --group {{ grpquota.name }} {{ grpquota.bsoftlimit }} {{ grpquota.bhardlimit }} {{ grpquota.isoftlimit }} {{ grpquota.ihardlimit }} {{ device }}
 {% endfor %}
+
+{% endif %}
 
 {% endif %}
 
