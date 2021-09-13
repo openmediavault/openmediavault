@@ -15,6 +15,23 @@ openmediavault (6.0-25) UNRELEASED; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Dec 2020 20:28:37 +0100
 
+openmediavault (5.6.15-1) stable; urgency=low
+
+  * Set correct time zone in proftpd.
+  * Skip missing file systems when applying quotas.
+  * Do not show used devices, e.g. that of a BTRFS RAID, in the file
+    system creation dialog.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 26 Aug 2021 18:39:49 +0200
+
+openmediavault (5.6.14-1) stable; urgency=low
+
+  * Issue #1079: Clear out the local repository of retrieved package
+    files to fix the "... InRelease' changed its 'Suite' value from
+    'stable' to 'oldstable'" message.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 27 Jul 2021 18:17:05 +0200
+
 openmediavault (5.6.13-1) stable; urgency=low
 
   * Issue #986: Divert files modified by openmediavault to prevent
