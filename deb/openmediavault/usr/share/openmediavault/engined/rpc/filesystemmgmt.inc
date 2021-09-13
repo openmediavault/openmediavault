@@ -494,6 +494,12 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$usedDevs = [];
 		foreach ($filesystems as $filesystemk => $filesystemv) {
 			$usedDevs[] = $filesystemv->getParentDeviceFile();
+			// Check if the file system uses multiple devices, e.g.
+			// a BTRFS RAID, and add them.
+			if ($filesystemv->hasMultipleDevices()) {
+				$usedDevs = array_merge($filesystemv->getDeviceFiles(),
+					$usedDevs);
+			}
 		}
 		// Prepare the result list.
 		$result = [];
