@@ -1,4 +1,4 @@
-openmediavault-usbbackup (6.0-8) UNRELEASED; urgency=low
+openmediavault-usbbackup (6.0-7) UNRELEASED; urgency=low
 
   * Reimplement UI.
   * Issue #1086: After unmounting, put device into sleep mode.
