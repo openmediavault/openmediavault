@@ -1,4 +1,4 @@
-# Reporting a security issues
+# Reporting a security issue
 
 If you believe you have found a security issue in the openmediavault software, please contact us immediately.
 
