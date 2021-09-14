@@ -200,16 +200,19 @@ def path_prettify(path):
 def add_slashes(value):
     """
     Prefix certain characters of a string with '\'.
+    These characters are:
+    * backslash
+    * single quote
+    * double quote
+    * dollar sign
+    * backtick
     :param value: The string to be escaped.
     :type value: str
     :return: Returns a string with backslashes added before characters
-        that need to be escaped. These characters are:
-        * backslash (\\)
-        * single quote (')
-        * double quote (")
+        that need to be escaped.
     :rtype: str
     """
     assert isinstance(value, str)
-    for i in ['\\', '\'', '"']:
+    for i in ['\\', '\'', '"', '$', '`']:
         value = value.replace(i, '\\{}'.format(i))
     return value

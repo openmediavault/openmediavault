@@ -1,3 +1,10 @@
+openmediavault (5.6.16-1) stable; urgency=low
+
+  * Issue #1095: Fixed a bug when escaping the password in rsync
+    shell scripts.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 14 Sep 2021 23:38:57 +0200
+
 openmediavault (5.6.15-1) stable; urgency=low
 
   * Set correct time zone in proftpd.
