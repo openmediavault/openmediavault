@@ -163,6 +163,8 @@ class StringTestCase(unittest.TestCase):
         self.assertEqual(openmediavault.stringutils.add_slashes("'"), "\\'")
         self.assertEqual(openmediavault.stringutils.add_slashes('"'), '\\"')
         self.assertEqual(openmediavault.stringutils.add_slashes('\\'), '\\\\')
+        self.assertEqual(openmediavault.stringutils.add_slashes('$'), '\\$')
+        self.assertEqual(openmediavault.stringutils.add_slashes('`'), '\\`')
 
 
 if __name__ == "__main__":
