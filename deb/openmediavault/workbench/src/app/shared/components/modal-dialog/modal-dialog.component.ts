@@ -53,7 +53,7 @@ export class ModalDialogComponent {
             {
               text: gettext('No'),
               dialogResult: false,
-              focused: true
+              autofocus: true
             },
             {
               text: gettext('Yes'),
@@ -73,7 +73,7 @@ export class ModalDialogComponent {
           buttons: [
             {
               text: gettext('OK'),
-              focused: true,
+              autofocus: true,
               dialogResult: true
             }
           ]
