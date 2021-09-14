@@ -46,7 +46,7 @@ export class AutofocusDirective implements AfterViewInit {
       // it was checked.
       setTimeout(() => {
         el.focus();
-      });
+      }, 100);
     }
   }
 }
