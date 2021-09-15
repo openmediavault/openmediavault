@@ -34,6 +34,9 @@ class StorageDeviceNVM extends StorageDevice implements SmartInterface {
 	}
 
 	public function getSmartDeviceType() {
-		return "nvme";
+		// The broadcast namespace is specified if SMART/health and error
+		// information logs are requested.
+		// See https://www.smartmontools.org/ticket/1134
+		return "nvme,0xffffffff";
 	}
 }
