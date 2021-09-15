@@ -1,5 +1,6 @@
 openmediavault (5.6.16-1) stable; urgency=low
 
+  * Fix SMART issue when requesting information from a NVMe device.
   * Issue #1095: Fixed a bug when escaping the password in rsync
     shell scripts.
 
