@@ -122,7 +122,7 @@ export class TextPageComponent
       autoReload: false,
       hasReloadButton: false,
       hasCopyToClipboardButton: false,
-      buttonAlign: 'left',
+      buttonAlign: 'end',
       buttons: []
     });
     // Set the default values of the buttons.

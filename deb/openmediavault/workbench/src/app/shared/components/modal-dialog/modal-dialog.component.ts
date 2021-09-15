@@ -61,7 +61,7 @@ export class ModalDialogComponent {
               class:
                 this.config.template === 'confirmation-danger'
                   ? 'omv-background-color-theme-red'
-                  : undefined
+                  : 'omv-background-color-theme-primary'
             }
           ]
         });
@@ -74,7 +74,8 @@ export class ModalDialogComponent {
             {
               text: gettext('OK'),
               autofocus: true,
-              dialogResult: true
+              dialogResult: true,
+              class: 'omv-background-color-theme-primary'
             }
           ]
         });

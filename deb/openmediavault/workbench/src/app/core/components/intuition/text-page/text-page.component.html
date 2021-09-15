@@ -41,6 +41,7 @@
     <span class="omv-text-monospaced">{{ text }}</span>
   </mat-card-content>
   <mat-card-actions *ngIf="config.buttons.length"
+                    fxLayout="row"
                     [fxLayoutAlign]="config.buttonAlign">
     <button *ngFor="let button of config.buttons"
             mat-flat-button

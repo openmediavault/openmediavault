@@ -15,9 +15,7 @@
   }
 
   .mat-card-actions {
-    margin: unset;
-    padding-top: unset;
-    padding-bottom: $omv-padding;
-    padding-left: $omv-padding;
+    margin: 0;
+    padding: 0 $omv-padding $omv-padding;
   }
 }

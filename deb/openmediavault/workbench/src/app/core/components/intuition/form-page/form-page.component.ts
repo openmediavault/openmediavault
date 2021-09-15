@@ -411,7 +411,7 @@ export class FormPageComponent
 
   protected sanitizeConfig() {
     _.defaultsDeep(this.config, {
-      buttonAlign: 'left',
+      buttonAlign: 'end',
       buttons: []
     });
     // Populate the datamodel identifier field. This must be done here

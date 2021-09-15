@@ -30,6 +30,7 @@
     </mat-selection-list>
   </mat-card-content>
   <mat-card-actions *ngIf="config.buttons.length"
+                    fxLayout="row"
                     [fxLayoutAlign]="config.buttonAlign">
     <ng-container *ngFor="let button of config.buttons">
       <omv-submit-button *ngIf="button.template === 'submit'"

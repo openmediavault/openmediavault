@@ -329,7 +329,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
       columns: [],
       actions: [],
       sorters: [],
-      buttonAlign: 'left',
+      buttonAlign: 'end',
       buttons: []
     });
     // Map icon from 'foo' to 'mdi:foo' if necessary.

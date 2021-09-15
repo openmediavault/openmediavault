@@ -41,7 +41,7 @@ export type TextPageConfig = {
       task?: boolean;
     };
   };
-  buttonAlign?: 'left' | 'center' | 'right';
+  buttonAlign?: 'start' | 'center' | 'end';
   buttons?: Array<TextPageButtonConfig>;
 };
 

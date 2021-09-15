@@ -21,7 +21,7 @@ export type SelectionListPageConfig = {
   title?: string;
   subTitle?: string;
   store?: DataStore;
-  buttonAlign?: 'left' | 'center' | 'right';
+  buttonAlign?: 'start' | 'center' | 'end';
   buttons?: Array<SelectionListPageButtonConfig>;
   multiple?: boolean;
   valueProp?: string; // Defaults to 'value'.

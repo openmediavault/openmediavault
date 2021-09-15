@@ -95,7 +95,7 @@ export type FormPageConfig = {
   // The configuration of the form field controls.
   fields: Array<FormFieldConfig>;
   // Form pages can have buttons in their footer.
-  buttonAlign?: 'left' | 'center' | 'right';
+  buttonAlign?: 'start' | 'center' | 'end';
   buttons?: Array<FormPageButtonConfig>;
 };
 

@@ -1,4 +1,4 @@
-@import 'src/scss/defaults';
+@import 'src/styles';
 
 .mat-card {
   margin: $omv-margin;
@@ -26,7 +26,6 @@
 
   .mat-card-actions {
     margin: unset;
-    padding-bottom: $omv-padding;
-    padding-left: $omv-padding;
+    padding: $omv-padding;
   }
 }

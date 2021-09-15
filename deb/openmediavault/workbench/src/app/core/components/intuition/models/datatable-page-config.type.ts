@@ -57,7 +57,7 @@ export type DatatablePageConfig = {
   store?: DataStore;
   actions?: Array<DatatablePageActionConfig>;
   // The page footer buttons.
-  buttonAlign?: 'left' | 'center' | 'right';
+  buttonAlign?: 'start' | 'center' | 'end';
   buttons?: Array<DatatablePageButtonConfig>;
 };
 

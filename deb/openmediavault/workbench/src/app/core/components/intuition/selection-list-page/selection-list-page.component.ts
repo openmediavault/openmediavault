@@ -148,7 +148,7 @@ export class SelectionListPageComponent
 
   protected sanitizeConfig() {
     _.defaultsDeep(this.config, {
-      buttonAlign: 'left',
+      buttonAlign: 'end',
       buttons: [],
       multiple: false,
       valueField: 'value',
