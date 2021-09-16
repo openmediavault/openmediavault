@@ -41,7 +41,8 @@ server {
 {%- endif %}
     }
 {%- if ipv6_enabled | to_bool %}
-    listen [::]:{{ config.port }} default_server ipv6only=off;
+    listen *:{{ config.port }} default_server;
+    listen [::]:{{ config.port }} default_server;
 {%- else %}
     listen {{ config.port }} default_server;
 {%- endif %}
@@ -53,7 +54,8 @@ server {
 {%- endif %}
 {%- if config.enablessl | to_bool %}
 {%- if ipv6_enabled | to_bool %}
-    listen [::]:{{ config.sslport }} default_server ipv6only=off ssl deferred;
+    listen *:{{ config.sslport }} default_server ssl deferred;
+    listen [::]:{{ config.sslport }} default_server ssl deferred;
 {%- else %}
     listen {{ config.sslport }} default_server ssl deferred;
 {%- endif %}
