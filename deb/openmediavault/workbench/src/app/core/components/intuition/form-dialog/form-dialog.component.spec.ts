@@ -1,12 +1,11 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 
 import { FormDialogComponent } from '~/app/core/components/intuition/form-dialog/form-dialog.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { TestingModule } from '~/app/testing.module';
 
 describe('FormDialogComponent', () => {
   let component: FormDialogComponent;
@@ -17,8 +16,7 @@ describe('FormDialogComponent', () => {
       TestBed.configureTestingModule({
         imports: [
           IntuitionModule,
-          HttpClientTestingModule,
-          RouterTestingModule,
+          TestingModule,
           ToastrModule.forRoot(),
           TranslateModule.forRoot()
         ],

@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { FormFileInputComponent } from '~/app/core/components/intuition/form/components/form-file-input/form-file-input.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { TestingModule } from '~/app/testing.module';
 
 describe('FormFileInputComponent', () => {
   let component: FormFileInputComponent;
@@ -12,7 +12,7 @@ describe('FormFileInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [IntuitionModule, NoopAnimationsModule, TranslateModule.forRoot()]
+      imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
     }).compileComponents();
   });
 

@@ -1,12 +1,11 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
 
 // eslint-disable-next-line max-len
 import { FormFolderbrowserComponent } from '~/app/core/components/intuition/form/components/form-folderbrowser/form-folderbrowser.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { TestingModule } from '~/app/testing.module';
 
 describe('FormFolderbrowserComponent', () => {
   let component: FormFolderbrowserComponent;
@@ -15,12 +14,7 @@ describe('FormFolderbrowserComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [
-          HttpClientTestingModule,
-          IntuitionModule,
-          NoopAnimationsModule,
-          TranslateModule.forRoot()
-        ]
+        imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
       }).compileComponents();
     })
   );

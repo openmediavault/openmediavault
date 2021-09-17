@@ -1,10 +1,10 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 
 import { ComponentsModule } from '~/app/core/components/components.module';
 import { NotificationsComponent } from '~/app/core/components/notifications/notifications.component';
+import { TestingModule } from '~/app/testing.module';
 
 describe('NotificationsComponent', () => {
   let component: NotificationsComponent;
@@ -15,7 +15,7 @@ describe('NotificationsComponent', () => {
       TestBed.configureTestingModule({
         imports: [
           ComponentsModule,
-          HttpClientTestingModule,
+          TestingModule,
           ToastrModule.forRoot(),
           TranslateModule.forRoot()
         ]

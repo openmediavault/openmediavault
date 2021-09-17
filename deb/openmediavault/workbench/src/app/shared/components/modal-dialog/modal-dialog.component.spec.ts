@@ -4,6 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { ComponentsModule } from '~/app/shared/components/components.module';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
+import { TestingModule } from '~/app/testing.module';
 
 describe('ConfirmDialogComponent', () => {
   let component: ModalDialogComponent;
@@ -12,7 +13,7 @@ describe('ConfirmDialogComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [ComponentsModule, TranslateModule.forRoot()],
+        imports: [ComponentsModule, TestingModule, TranslateModule.forRoot()],
         providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }]
       }).compileComponents();
     })

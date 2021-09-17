@@ -38,9 +38,13 @@ $omv-light-theme-accent-palette: map-merge(
 $omv-light-theme-warn-palette: mat.define-palette($omv-color-red-palette);
 
 $omv-light-theme: mat.define-light-theme(
-  $omv-light-theme-primary-palette,
-  $omv-light-theme-accent-palette,
-  $omv-light-theme-warn-palette
+  (
+    color: (
+      primary: $omv-light-theme-primary-palette,
+      accent: $omv-light-theme-accent-palette,
+      warn: $omv-light-theme-warn-palette
+    )
+  )
 );
 
 @include mat.all-component-themes($omv-light-theme);

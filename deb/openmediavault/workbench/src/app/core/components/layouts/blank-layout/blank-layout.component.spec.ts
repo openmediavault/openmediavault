@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 
 import { ComponentsModule } from '~/app/core/components/components.module';
 import { BlankLayoutComponent } from '~/app/core/components/layouts/blank-layout/blank-layout.component';
+import { TestingModule } from '~/app/testing.module';
 
 describe('DefaultLayoutComponent', () => {
   let component: BlankLayoutComponent;
@@ -11,7 +11,7 @@ describe('DefaultLayoutComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [ComponentsModule, RouterTestingModule]
+        imports: [ComponentsModule, TestingModule]
       }).compileComponents();
     })
   );

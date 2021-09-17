@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmptyPageComponent } from '~/app/core/pages/empty-page/empty-page.component';
 import { PagesModule } from '~/app/core/pages/pages.module';
+import { TestingModule } from '~/app/testing.module';
 
 describe('EmptyPageComponent', () => {
   let component: EmptyPageComponent;
@@ -9,7 +10,7 @@ describe('EmptyPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PagesModule]
+      imports: [PagesModule, TestingModule]
     }).compileComponents();
   });
 

@@ -45,9 +45,11 @@
               }
             ],
             "styles": [
-              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/@fontsource/inter",
+              "node_modules/@fontsource/roboto-mono",
               "node_modules/@swimlane/ngx-datatable/index.scss",
               "node_modules/@swimlane/ngx-datatable/assets/icons.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.scss"
             ],
             "stylePreprocessorOptions": {
@@ -111,13 +113,8 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "",
             "styles": ["src/styles.scss"],
-            "stylePreprocessorOptions": {
-              "includePaths": ["src"]
-            },
             "scripts": [],
             "assets": [
               "src/favicon.ico",

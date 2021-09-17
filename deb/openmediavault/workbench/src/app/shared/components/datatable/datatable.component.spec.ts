@@ -1,10 +1,10 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 
 import { ComponentsModule } from '~/app/shared/components/components.module';
 import { DatatableComponent } from '~/app/shared/components/datatable/datatable.component';
+import { TestingModule } from '~/app/testing.module';
 
 describe('DatatableComponent', () => {
   let component: DatatableComponent;
@@ -15,7 +15,7 @@ describe('DatatableComponent', () => {
       TestBed.configureTestingModule({
         imports: [
           ComponentsModule,
-          HttpClientTestingModule,
+          TestingModule,
           ToastrModule.forRoot(),
           TranslateModule.forRoot()
         ]

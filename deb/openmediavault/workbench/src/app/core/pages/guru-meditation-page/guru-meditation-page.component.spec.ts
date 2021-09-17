@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { GuruMeditationPageComponent } from '~/app/core/pages/guru-meditation-page/guru-meditation-page.component';
 import { PagesModule } from '~/app/core/pages/pages.module';
+import { TestingModule } from '~/app/testing.module';
 
 describe('NotFoundPageComponent', () => {
   let component: GuruMeditationPageComponent;
@@ -12,7 +12,7 @@ describe('NotFoundPageComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [PagesModule, RouterTestingModule, TranslateModule.forRoot()]
+        imports: [PagesModule, TestingModule, TranslateModule.forRoot()]
       }).compileComponents();
     })
   );

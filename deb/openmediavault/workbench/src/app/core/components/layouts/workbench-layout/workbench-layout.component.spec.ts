@@ -1,10 +1,9 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ɵMockMatchMediaProvider } from '@angular/flex-layout';
-import { RouterTestingModule } from '@angular/router/testing';
 
 import { ComponentsModule } from '~/app/core/components/components.module';
 import { WorkbenchLayoutComponent } from '~/app/core/components/layouts/workbench-layout/workbench-layout.component';
+import { TestingModule } from '~/app/testing.module';
 
 describe('WorkbenchLayoutComponent', () => {
   let component: WorkbenchLayoutComponent;
@@ -14,7 +13,7 @@ describe('WorkbenchLayoutComponent', () => {
     waitForAsync(() => {
       TestBed.configureTestingModule({
         providers: [ɵMockMatchMediaProvider],
-        imports: [ComponentsModule, HttpClientTestingModule, RouterTestingModule]
+        imports: [ComponentsModule, TestingModule]
       }).compileComponents();
     })
   );

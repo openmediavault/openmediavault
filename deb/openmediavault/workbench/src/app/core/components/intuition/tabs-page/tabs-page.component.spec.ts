@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
 import { TabsPageComponent } from '~/app/core/components/intuition/tabs-page/tabs-page.component';
+import { TestingModule } from '~/app/testing.module';
 
 describe('TabsPageComponent', () => {
   let component: TabsPageComponent;
@@ -11,7 +11,7 @@ describe('TabsPageComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [IntuitionModule, RouterTestingModule]
+        imports: [IntuitionModule, TestingModule]
       }).compileComponents();
     })
   );

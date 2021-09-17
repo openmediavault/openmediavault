@@ -1,11 +1,10 @@
 /* eslint-disable max-len */
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormSslcertSelectComponent } from '~/app/core/components/intuition/form/components/form-sslcert-select/form-sslcert-select.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { TestingModule } from '~/app/testing.module';
 
 describe('FormSslcertSelectComponent', () => {
   let component: FormSslcertSelectComponent;
@@ -14,7 +13,7 @@ describe('FormSslcertSelectComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule, IntuitionModule, NoopAnimationsModule]
+        imports: [IntuitionModule, TestingModule]
       }).compileComponents();
     })
   );

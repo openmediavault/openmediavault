@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
 import { WidgetServicesStatusComponent } from '~/app/core/components/dashboard/widgets/widget-services-status/widget-services-status.component';
+import { TestingModule } from '~/app/testing.module';
 
 describe('WidgetServicesStatusComponent', () => {
   let component: WidgetServicesStatusComponent;
@@ -11,7 +11,7 @@ describe('WidgetServicesStatusComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DashboardModule, HttpClientTestingModule]
+      imports: [DashboardModule, TestingModule]
     }).compileComponents();
   });
 

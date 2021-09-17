@@ -1,8 +1,8 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { PagesModule } from '~/app/core/pages/pages.module';
 import { StandbyPageComponent } from '~/app/core/pages/standby-page/standby-page.component';
+import { TestingModule } from '~/app/testing.module';
 
 describe('StandbyPageComponent', () => {
   let component: StandbyPageComponent;
@@ -11,7 +11,7 @@ describe('StandbyPageComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [PagesModule, HttpClientTestingModule]
+        imports: [PagesModule, TestingModule]
       }).compileComponents();
     })
   );

@@ -13,8 +13,6 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-@import '~@fontsource/inter';
-@import '~@fontsource/roboto-mono';
-
-$omv-font-family-default: 'Inter', 'Roboto', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$omv-font-family-default: 'Inter', 'Roboto', 'HelveticaNeue', 'Helvetica Neue', helvetica, arial,
+  sans-serif;
 $omv-font-family-monospace: 'Roboto Mono', monospace;

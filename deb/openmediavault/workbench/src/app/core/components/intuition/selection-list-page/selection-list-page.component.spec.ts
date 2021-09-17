@@ -1,10 +1,9 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { ToastrModule } from 'ngx-toastr';
 
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
 import { SelectionListPageComponent } from '~/app/core/components/intuition/selection-list-page/selection-list-page.component';
+import { TestingModule } from '~/app/testing.module';
 
 describe('SelectionListPageComponent', () => {
   let component: SelectionListPageComponent;
@@ -13,12 +12,7 @@ describe('SelectionListPageComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [
-          HttpClientTestingModule,
-          IntuitionModule,
-          RouterTestingModule,
-          ToastrModule.forRoot()
-        ]
+        imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()]
       }).compileComponents();
     })
   );

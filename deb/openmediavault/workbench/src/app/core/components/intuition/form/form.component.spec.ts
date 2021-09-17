@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FormComponent } from '~/app/core/components/intuition/form/form.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { TestingModule } from '~/app/testing.module';
 
 describe('FormComponent', () => {
   let component: FormComponent;
@@ -10,7 +11,7 @@ describe('FormComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [IntuitionModule]
+        imports: [IntuitionModule, TestingModule]
       }).compileComponents();
     })
   );

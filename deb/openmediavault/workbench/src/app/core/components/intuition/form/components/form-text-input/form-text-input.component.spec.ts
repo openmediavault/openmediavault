@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 
 import { FormTextInputComponent } from '~/app/core/components/intuition/form/components/form-text-input/form-text-input.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { TestingModule } from '~/app/testing.module';
 
 describe('FormTextInputComponent', () => {
   let component: FormTextInputComponent;
@@ -14,12 +14,7 @@ describe('FormTextInputComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [
-          IntuitionModule,
-          NoopAnimationsModule,
-          ToastrModule.forRoot(),
-          TranslateModule.forRoot()
-        ]
+        imports: [IntuitionModule, TestingModule, ToastrModule.forRoot(), TranslateModule.forRoot()]
       }).compileComponents();
     })
   );

@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
 import { WidgetFilesystemsStatusComponent } from '~/app/core/components/dashboard/widgets/widget-filesystems-status/widget-filesystems-status.component';
+import { TestingModule } from '~/app/testing.module';
 
 describe('WidgetFilesystemsStatusComponent', () => {
   let component: WidgetFilesystemsStatusComponent;
@@ -11,7 +11,7 @@ describe('WidgetFilesystemsStatusComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DashboardModule, HttpClientTestingModule]
+      imports: [DashboardModule, TestingModule]
     }).compileComponents();
   });
 

@@ -1,10 +1,9 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormSliderComponent } from '~/app/core/components/intuition/form/components/form-slider/form-slider.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { TestingModule } from '~/app/testing.module';
 
 describe('FormSliderComponent', () => {
   let component: FormSliderComponent;
@@ -12,7 +11,7 @@ describe('FormSliderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, IntuitionModule, NoopAnimationsModule]
+      imports: [IntuitionModule, TestingModule]
     }).compileComponents();
   });
 

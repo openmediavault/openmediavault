@@ -1,10 +1,10 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 
 import { ApplyConfigComponent } from '~/app/core/components/apply-config/apply-config.component';
 import { ComponentsModule } from '~/app/core/components/components.module';
+import { TestingModule } from '~/app/testing.module';
 
 describe('ApplyConfigComponent', () => {
   let component: ApplyConfigComponent;
@@ -15,7 +15,7 @@ describe('ApplyConfigComponent', () => {
       TestBed.configureTestingModule({
         imports: [
           ComponentsModule,
-          HttpClientTestingModule,
+          TestingModule,
           ToastrModule.forRoot(),
           TranslateModule.forRoot()
         ]

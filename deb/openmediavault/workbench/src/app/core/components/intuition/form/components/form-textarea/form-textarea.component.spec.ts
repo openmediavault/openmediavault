@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { FormTextareaComponent } from '~/app/core/components/intuition/form/components/form-textarea/form-textarea.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { TestingModule } from '~/app/testing.module';
 
 describe('FormTextareaComponent', () => {
   let component: FormTextareaComponent;
@@ -13,7 +13,7 @@ describe('FormTextareaComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [IntuitionModule, NoopAnimationsModule, TranslateModule.forRoot()]
+        imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
       }).compileComponents();
     })
   );

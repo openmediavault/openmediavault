@@ -1,11 +1,10 @@
 /* eslint-disable max-len */
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
 import { WidgetSystemInformationComponent } from '~/app/core/components/dashboard/widgets/widget-system-information/widget-system-information.component';
+import { TestingModule } from '~/app/testing.module';
 
 describe('WidgetSystemInformationComponent', () => {
   let component: WidgetSystemInformationComponent;
@@ -14,12 +13,7 @@ describe('WidgetSystemInformationComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [
-          DashboardModule,
-          HttpClientTestingModule,
-          RouterTestingModule,
-          TranslateModule.forRoot()
-        ]
+        imports: [DashboardModule, TestingModule, TranslateModule.forRoot()]
       }).compileComponents();
     })
   );

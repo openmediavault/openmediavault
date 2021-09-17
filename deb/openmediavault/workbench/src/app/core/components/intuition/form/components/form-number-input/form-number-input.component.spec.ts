@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
 import { FormNumberInputComponent } from '~/app/core/components/intuition/form/components/form-number-input/form-number-input.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { TestingModule } from '~/app/testing.module';
 
 describe('FormNumberInputComponent', () => {
   let component: FormNumberInputComponent;
@@ -13,7 +13,7 @@ describe('FormNumberInputComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [IntuitionModule, NoopAnimationsModule, ToastrModule.forRoot()]
+        imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()]
       }).compileComponents();
     })
   );

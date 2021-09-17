@@ -1,8 +1,8 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { PagesModule } from '~/app/core/pages/pages.module';
 import { ShutdownPageComponent } from '~/app/core/pages/shutdown-page/shutdown-page.component';
+import { TestingModule } from '~/app/testing.module';
 
 describe('ShutdownPageComponent', () => {
   let component: ShutdownPageComponent;
@@ -11,7 +11,7 @@ describe('ShutdownPageComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [PagesModule, HttpClientTestingModule]
+        imports: [PagesModule, TestingModule]
       }).compileComponents();
     })
   );

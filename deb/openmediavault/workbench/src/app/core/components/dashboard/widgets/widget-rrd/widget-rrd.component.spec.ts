@@ -3,6 +3,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
 import { WidgetRrdComponent } from '~/app/core/components/dashboard/widgets/widget-rrd/widget-rrd.component';
+import { TestingModule } from '~/app/testing.module';
 
 describe('WidgetRrdComponent', () => {
   let component: WidgetRrdComponent;
@@ -11,7 +12,7 @@ describe('WidgetRrdComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [DashboardModule, TranslateModule.forRoot()]
+        imports: [DashboardModule, TestingModule, TranslateModule.forRoot()]
       }).compileComponents();
     })
   );
