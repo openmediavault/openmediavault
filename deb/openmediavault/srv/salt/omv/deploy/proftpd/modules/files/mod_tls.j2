@@ -4,6 +4,7 @@
 {%- set cert_prefix = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_PREFIX', 'openmediavault-') -%}
 {%- set tls_verify_client = salt['pillar.get']('default:OMV_PROFTPD_MODTLS_TLSVERIFYCLIENT', 'off') -%}
 {%- set tls_renegotiate = salt['pillar.get']('default:OMV_PROFTPD_MODTLS_TLSRENEGOTIATE', 'required off') -%}
+LoadModule mod_tls.c
 <IfModule mod_tls.c>
   TLSEngine {% if config.enable | to_bool %}on{% else %}off{% endif %}
   TLSLog {{ tls_log }}
