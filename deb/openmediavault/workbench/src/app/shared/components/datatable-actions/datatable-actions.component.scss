@@ -1,12 +1,12 @@
 @use '~@angular/material' as mat;
 
-$mat-typography-config: mat.define-typography-config();
+@import 'src/styles';
 
 .mat-form-field {
   vertical-align: middle;
 
   .mat-select {
-    font-size: mat.font-size($mat-typography-config, button);
+    font-size: mat.font-size($omv-typography-config, button);
 
     ::ng-deep .mat-select-placeholder {
       color: inherit;

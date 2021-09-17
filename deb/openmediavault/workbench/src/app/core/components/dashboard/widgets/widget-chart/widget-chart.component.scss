@@ -1,8 +1,6 @@
 @use '~@angular/material' as mat;
 
-@import 'styles.scss';
-
-$mat-typography-config: mat.define-typography-config();
+@import 'src/styles';
 
 .omv-dashboard-widget-chart {
   padding: $omv-padding;
@@ -12,8 +10,8 @@ $mat-typography-config: mat.define-typography-config();
 
     .gauge-label {
       position: absolute;
-      font-size: mat.font-size($mat-typography-config, body-1);
-      font-weight: mat.font-weight($mat-typography-config, body-1);
+      font-size: mat.font-size($omv-typography-config, body-1);
+      font-weight: mat.font-weight($omv-typography-config, body-1);
     }
   }
 
@@ -24,11 +22,11 @@ $mat-typography-config: mat.define-typography-config();
       margin-bottom: 8px;
 
       .total-value {
-        font-size: mat.font-size($mat-typography-config, body-1);
+        font-size: mat.font-size($omv-typography-config, body-1);
       }
 
       .total-label {
-        font-size: mat.font-size($mat-typography-config, caption);
+        font-size: mat.font-size($omv-typography-config, caption);
       }
     }
 
@@ -38,15 +36,15 @@ $mat-typography-config: mat.define-typography-config();
         padding-left: 8px;
 
         .item-value {
-          font-size: mat.font-size($mat-typography-config, body-1);
+          font-size: mat.font-size($omv-typography-config, body-1);
         }
 
         .item-label {
-          font-size: mat.font-size($mat-typography-config, caption);
+          font-size: mat.font-size($omv-typography-config, caption);
         }
 
         .item-percent {
-          font-size: mat.font-size($mat-typography-config, body-1);
+          font-size: mat.font-size($omv-typography-config, body-1);
         }
       }
     }

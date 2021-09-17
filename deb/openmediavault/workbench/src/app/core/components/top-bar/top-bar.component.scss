@@ -2,8 +2,6 @@
 
 @import 'src/styles';
 
-$mat-typography-config: mat.define-typography-config();
-
 .omv-top-bar {
   height: $omv-top-bar-height;
 
@@ -18,8 +16,8 @@ $mat-typography-config: mat.define-typography-config();
 
   .hostname {
     color: $omv-color-primary-complementary;
-    font-size: mat.font-size($mat-typography-config, body-1);
-    font-weight: mat.font-weight($mat-typography-config, body-1);
+    font-size: mat.font-size($omv-typography-config, body-1);
+    font-weight: mat.font-weight($omv-typography-config, body-1);
     padding: $omv-padding;
   }
 }

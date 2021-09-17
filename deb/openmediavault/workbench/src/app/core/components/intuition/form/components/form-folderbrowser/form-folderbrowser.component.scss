@@ -2,14 +2,12 @@
 
 @import 'src/styles';
 
-$mat-typography-config: mat.define-typography-config();
-
 .mat-list-base .mat-list-option {
-  font-size: mat.font-size($mat-typography-config, body-1);
+  font-size: mat.font-size($omv-typography-config, body-1);
 }
 
 .omv-selection-actions {
-  font-size: mat.font-size($mat-typography-config, body-1);
+  font-size: mat.font-size($omv-typography-config, body-1);
   padding: $omv-padding;
 
   .mat-button-base:not(:last-child) {

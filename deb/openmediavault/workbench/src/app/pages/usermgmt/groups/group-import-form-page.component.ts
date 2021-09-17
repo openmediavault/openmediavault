@@ -38,7 +38,7 @@ export class GroupImportFormPageComponent {
         name: 'csv',
         value: '# <groupname>;<gid>;<comment>',
         hint: gettext('Each line represents a group.'),
-        monospaced: true
+        monospace: true
       }
     ],
     buttons: [

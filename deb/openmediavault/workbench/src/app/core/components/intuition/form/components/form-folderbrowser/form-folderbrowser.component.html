@@ -6,7 +6,7 @@
          matInput
          type="text"
          class="omv-text-no-wrap"
-         [ngClass]="{'omv-text-monospaced': config.monospaced}"
+         [ngClass]="{'omv-text-monospace': config.monospace}"
          disabled="true"
          [matTooltip]="dirPath"
          [value]="dirPath">
@@ -23,7 +23,7 @@
   <mat-label>{{ config.label | translate }}</mat-label>
   <input matInput
          type="text"
-         [ngClass]="{'omv-text-monospaced': config.monospaced}"
+         [ngClass]="{'omv-text-monospace': config.monospace}"
          [formControlName]="config.name"
          [placeholder]="config.placeholder | translate"
          [readonly]="config.readonly"

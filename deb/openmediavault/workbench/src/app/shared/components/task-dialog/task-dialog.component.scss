@@ -1,8 +1,6 @@
 @use '~@angular/material' as mat;
 
-@import 'styles.scss';
-
-$mat-typography-config: mat.define-typography-config();
+@import 'src/styles';
 
 .mat-dialog-title {
   display: flex;

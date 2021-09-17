@@ -145,7 +145,7 @@ export class UserFormPageComponent {
           {
             prop: 'sshpubkey',
             flexGrow: 1,
-            cellClass: 'omv-text-monospaced'
+            cellClass: 'omv-text-monospace'
           }
         ],
         actions: [
@@ -159,7 +159,7 @@ export class UserFormPageComponent {
                   name: 'sshpubkey',
                   value: '',
                   rows: 10,
-                  monospaced: true,
+                  monospace: true,
                   label: gettext('Public key'),
                   hint: gettext('The SSH public key in OpenSSH or RFC 4716 format.'),
                   validators: {

@@ -10,7 +10,7 @@
     margin: $omv-margin;
 
     .logo {
-      @extend .omv-text-monospaced;
+      @extend .omv-text-monospace;
 
       .ascii-art {
         margin: unset;

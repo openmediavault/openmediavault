@@ -45,7 +45,7 @@ export class SshCertificateEditFormPageComponent {
         type: 'textInput',
         name: 'publickey',
         value: '',
-        monospaced: true,
+        monospace: true,
         hasCopyToClipboardButton: true,
         label: gettext('Public key'),
         hint: gettext('The RSA public key in OpenSSH format.'),

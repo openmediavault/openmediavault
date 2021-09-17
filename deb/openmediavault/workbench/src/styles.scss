@@ -19,11 +19,13 @@
 
 @import 'src/scss/defaults';
 
-@include mat.core();
+////////////////////////////////////////////////////////////////////////////////
+// Initialize Material
+////////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////
-// Initialize Material theme
-////////////////////////////////////////////////////////////////////////////////
+$omv-typography-config: mat.define-typography-config($omv-font-family-default);
+
+@include mat.core($omv-typography-config);
 
 $omv-light-theme-primary-palette: mat.define-palette($omv-color-corporate-palette);
 $omv-light-theme-accent-palette: map-merge(
@@ -43,7 +45,9 @@ $omv-light-theme: mat.define-light-theme(
 
 @include mat.all-component-themes($omv-light-theme);
 
-$mat-typography-config: mat.define-typography-config();
+////////////////////////////////////////////////////////////////////////////////
+// Variables
+////////////////////////////////////////////////////////////////////////////////
 
 $omv-color-primary: mat.get-color-from-palette(map-get($omv-light-theme, primary));
 $omv-color-primary-complementary: $omv-color-white;
@@ -224,8 +228,8 @@ $omv-color-themes: (
   text-align: center !important;
 }
 
-.omv-text-monospaced {
-  font-family: 'Roboto Mono', monospace !important;
+.omv-text-monospace {
+  font-family: $omv-font-family-monospace !important;
   white-space: pre;
 }
 
@@ -302,8 +306,9 @@ body {
 }
 
 body {
-  margin: 0;
   background-color: $omv-color-corporate-light;
+  font-family: mat.font-family($omv-typography-config);
+  margin: 0;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -371,8 +376,8 @@ textarea {
 ////////////////////////////////////////////////////////////////////////////////
 // Dialog
 .mat-dialog-content {
-  font-family: mat.font-family($mat-typography-config);
-  font-size: mat.font-size($mat-typography-config, body-1);
+  font-family: mat.font-family($omv-typography-config);
+  font-size: mat.font-size($omv-typography-config, body-1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -392,11 +397,7 @@ textarea {
 ////////////////////////////////////////////////////////////////////////////////
 // Forms
 // Workaround for https://github.com/angular/material2/issues/4580.
-@mixin mat-form-field-multiline-workaround($typography-config: null) {
-  @if $typography-config == null {
-    $typography-config: mat.define-typography-config();
-  }
-
+@mixin mat-form-field-multiline-workaround($typography-config) {
   .mat-form-field {
     // Copy-paste from @mat-form-field-typography();
     $line-height: mat.line-height($typography-config, input);
@@ -432,7 +433,7 @@ textarea {
   }
 }
 
-@include mat-form-field-multiline-workaround($mat-typography-config);
+@include mat-form-field-multiline-workaround($omv-typography-config);
 
 .mat-form-field-suffix .mat-icon,
 .mat-form-field-prefix .mat-icon {
@@ -462,8 +463,8 @@ textarea {
 // Customize Toastr
 ////////////////////////////////////////////////////////////////////////////////
 .toast-container {
-  font-family: mat.font-family($mat-typography-config);
-  font-size: mat.font-size($mat-typography-config, body-1);
+  font-family: mat.font-family($omv-typography-config);
+  font-size: mat.font-size($omv-typography-config, body-1);
 
   .ngx-toastr {
     box-shadow: unset;
@@ -494,7 +495,7 @@ textarea {
 // Swimlane ngx-charts
 ////////////////////////////////////////////////////////////////////////////////
 ngx-charts-gauge {
-  font-size: mat.font-size($mat-typography-config, body-1);
+  font-size: mat.font-size($omv-typography-config, body-1);
 }
 
 ngx-charts-advanced-pie-chart {
@@ -504,25 +505,25 @@ ngx-charts-advanced-pie-chart {
 
       .legend-item {
         .item-value {
-          font-size: mat.font-size($mat-typography-config, body-1);
+          font-size: mat.font-size($omv-typography-config, body-1);
         }
 
         .item-label {
-          font-size: mat.font-size($mat-typography-config, caption);
+          font-size: mat.font-size($omv-typography-config, caption);
         }
 
         .item-percent {
-          font-size: mat.font-size($mat-typography-config, body-1);
+          font-size: mat.font-size($omv-typography-config, body-1);
         }
       }
     }
 
     .total-value {
-      font-size: mat.font-size($mat-typography-config, subheading-2);
+      font-size: mat.font-size($omv-typography-config, subheading-2);
     }
 
     .total-label {
-      font-size: mat.font-size($mat-typography-config, body-1);
+      font-size: mat.font-size($omv-typography-config, body-1);
     }
   }
 }
@@ -534,12 +535,12 @@ ngx-charts-advanced-pie-chart {
 ////////////////////////////////////////////////////////////////////////////////
 // Datatable
 .omv-datatable-cell-title {
-  font-weight: mat.font-weight($mat-typography-config, title);
-  font-size: mat.font-size($mat-typography-config, title);
+  font-weight: mat.font-weight($omv-typography-config, title);
+  font-size: mat.font-size($omv-typography-config, title);
 }
 
 .omv-datatable-cell-subtitle {
-  font-size: mat.font-size($mat-typography-config, subheading-2);
+  font-size: mat.font-size($omv-typography-config, subheading-2);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

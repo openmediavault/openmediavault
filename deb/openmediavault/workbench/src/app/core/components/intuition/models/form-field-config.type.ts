@@ -228,8 +228,8 @@ export type FormFieldConfig = {
   cols?: number;
 
   // --- textarea | textInput | fileInput ---
-  // Use a monospaced font.
-  monospaced?: boolean;
+  // Use a monospace font.
+  monospace?: boolean;
 
   // --- fileInput ---
   accept?: string;

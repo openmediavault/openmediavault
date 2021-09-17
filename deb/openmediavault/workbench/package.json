@@ -58,6 +58,8 @@
     "@angular/platform-browser-dynamic": "^12.2.5",
     "@angular/router": "^12.2.5",
     "@biesbjerg/ngx-translate-extract-marker": "^1.0.0",
+    "@fontsource/inter": "^4.5.0",
+    "@fontsource/roboto-mono": "^4.5.0",
     "@mdi/angular-material": "^6.1.95",
     "@ngx-translate/core": "13.0.0",
     "@swimlane/ngx-datatable": "^19.0.0",

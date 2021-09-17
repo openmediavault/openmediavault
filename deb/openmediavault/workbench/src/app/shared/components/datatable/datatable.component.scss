@@ -2,8 +2,6 @@
 
 @import 'src/styles';
 
-$mat-typography-config: mat.define-typography-config();
-
 // Toolbar
 ::ng-deep omv-datatable .mat-toolbar {
   .mat-button,
@@ -13,7 +11,7 @@ $mat-typography-config: mat.define-typography-config();
   }
 
   .mat-form-field {
-    font-size: mat.font-size($mat-typography-config, body-1);
+    font-size: mat.font-size($omv-typography-config, body-1);
 
     .mat-form-field-infix {
       padding-bottom: unset;

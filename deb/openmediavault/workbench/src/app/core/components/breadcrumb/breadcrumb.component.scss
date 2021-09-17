@@ -3,11 +3,9 @@
 
 @import 'src/styles';
 
-$mat-typography-config: mat.define-typography-config();
-
 .omv-breadcrumb {
   a {
-    @include mat.typography-level($mat-typography-config, subheading-2);
+    @include mat.typography-level($omv-typography-config, subheading-2);
 
     border-bottom: 3px solid $omv-color-transparent;
     display: inline-block;

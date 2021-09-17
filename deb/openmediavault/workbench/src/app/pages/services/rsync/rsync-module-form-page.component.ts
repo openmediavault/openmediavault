@@ -154,7 +154,7 @@ export class RsyncModuleFormPageComponent {
                   type: 'textInput',
                   name: 'name',
                   value: '',
-                  monospaced: true,
+                  monospace: true,
                   label: gettext('Name'),
                   validators: {
                     required: true

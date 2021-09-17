@@ -6,7 +6,7 @@
   </div>
   <mat-label>{{ config.label | translate }}</mat-label>
   <textarea matInput
-            [ngClass]="{'omv-text-monospaced': config.monospaced}"
+            [ngClass]="{'omv-text-monospace': config.monospace}"
             [formControlName]="config.name"
             [placeholder]="config.placeholder | translate"
             [readonly]="config.readonly"

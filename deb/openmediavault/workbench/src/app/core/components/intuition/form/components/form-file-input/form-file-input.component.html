@@ -7,7 +7,7 @@
   <mat-label>{{ config.label | translate }}</mat-label>
   <textarea *ngIf="config.rows > 1"
             matInput
-            [ngClass]="{'omv-text-monospaced': config.monospaced}"
+            [ngClass]="{'omv-text-monospace': config.monospace}"
             [formControlName]="config.name"
             [placeholder]="config.placeholder | translate"
             [readonly]="config.readonly"
@@ -21,7 +21,7 @@
   <input *ngIf="config.rows === 1"
          matInput
          type="text"
-         [ngClass]="{'omv-text-monospaced': config.monospaced}"
+         [ngClass]="{'omv-text-monospace': config.monospace}"
          [formControlName]="config.name"
          [placeholder]="config.placeholder | translate"
          [readonly]="config.readonly"
