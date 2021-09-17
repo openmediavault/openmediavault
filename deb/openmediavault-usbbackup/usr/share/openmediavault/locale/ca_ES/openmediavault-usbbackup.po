@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
+# Quim Farriol <qfarriol@valette.cat>, 2021
 # Quim Farriol <qfarriol@valette.cat>, 2018,2020
 # Quim Farriol <qfarriol@valette.cat>, 2016
 msgid ""
@@ -10,8 +11,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-28 17:38+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-09-11 19:06+0000\n"
+"Last-Translator: Quim Farriol <qfarriol@valette.cat>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add backup job"
-msgstr "Afegir una tasca de Backup"
+msgstr "Afegir una tasca de  còpia de seguretat"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -31,7 +32,7 @@ msgid "Archive"
 msgstr "Fitxer"
 
 msgid "Backup jobs"
-msgstr "Tasques de Backup"
+msgstr "Tasques de  còpia de seguretat"
 
 msgid "Comment"
 msgstr "Comentari"
@@ -43,10 +44,10 @@ msgid "Compress file data during the transfer."
 msgstr "Comprimir les dades durant la transferència"
 
 msgid "Create"
-msgstr ""
+msgstr "Crea"
 
 msgid "Created USB backup job."
-msgstr ""
+msgstr "S'ha creat una tasca de còpia de seguretat USB."
 
 msgid "Delete"
 msgstr "Esborrar"
@@ -61,10 +62,10 @@ msgid "Done ..."
 msgstr "Fet ..."
 
 msgid "Edit"
-msgstr ""
+msgstr "Edita"
 
 msgid "Edit backup job"
-msgstr "Editar tasca de Backup"
+msgstr "Editar tasca de  còpia de seguretat"
 
 msgid "Enable"
 msgstr "Habilitar"
@@ -81,10 +82,10 @@ msgid "Enabled"
 msgstr "Habilitat"
 
 msgid "Execute backup job"
-msgstr "Executar tasca de Backup"
+msgstr "Executar tasca de  còpia de seguretat"
 
 msgid "External Storage Device"
-msgstr ""
+msgstr "Dispositiu d'emmagatzematge extern"
 
 msgid "External storage device"
 msgstr "Dispositiu d'emmagatzematge extern"
@@ -113,7 +114,7 @@ msgid ""
 "Please note that the web interface is blocked until the manually started "
 "backup job has been finished. However the backup job is automatically "
 "executed in the background when the storage device is connected to the host."
-msgstr "Recorda que la interfície web quedarà bloquejada fins que l'actual backup manual finalitzi. Recorda també que si el Backup s'inicia automàticament, serà executat en segon pla quan el dispositiu d'emmagatzematge estigui connectat al host."
+msgstr "Recorda que la interfície web quedarà bloquejada fins que l'actual  còpia de seguretat manual finalitzi. Recorda també que si la còpia de seguretat s'inicia automàticament, serà executat en segon pla quan el dispositiu d'emmagatzematge estigui connectat al host."
 
 msgid "Preserve ACLs"
 msgstr "Conservar ACLs"
@@ -146,7 +147,7 @@ msgid "Run"
 msgstr "Executar"
 
 msgid "Run backup job"
-msgstr ""
+msgstr "Executar tasca de còpia de seguretat"
 
 msgid "Scan"
 msgstr "Escanejar"
@@ -180,7 +181,7 @@ msgid "Suppress non-error messages."
 msgstr "Suprimeix missatges que no siguin d'error"
 
 msgid "Synchronise from/to directory on external storage device"
-msgstr ""
+msgstr "Sincronitzar des del/cap al directori del dispositiu extern."
 
 msgid "Synchronise from/to directory on external storage device."
 msgstr "Sincronitzar des del/cap al directori del dispositiu extern."
@@ -205,7 +206,7 @@ msgid ""
 msgstr "Transferiu els temps de modificació juntament amb els fitxers i actualitzeu-los al sistema remot."
 
 msgid "USB Backup"
-msgstr "USB Backup"
+msgstr "USB  còpia de seguretat"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Actualitzar les ACLs de destí amb les ACLs de l'origen"
@@ -215,7 +216,7 @@ msgid ""
 msgstr "Actualitzar els atributs estesos del destí amb els locals."
 
 msgid "Updated USB backup job."
-msgstr ""
+msgstr "Tasca de còpia de seguretat USB actualitzada."
 
 msgid "n/a"
 msgstr "n/a"

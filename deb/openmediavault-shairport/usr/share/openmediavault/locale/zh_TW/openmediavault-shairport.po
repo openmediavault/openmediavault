@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-shairport package.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2014-2016
+# kochin <kochinc@outlook.com>, 2014-2016,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-28 17:38+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-09-09 21:40+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgid "Enable"
 msgstr "啟用"
 
 msgid "Enabled"
-msgstr ""
+msgstr "已啟用"
 
 msgid "General settings"
 msgstr "一般設定"
@@ -51,4 +51,4 @@ msgid ""
 msgstr "此服務將會把該名稱通告給用户。將此欄位留空白則預設為使用主機名稱。"
 
 msgid "Updated Shairport settings."
-msgstr ""
+msgstr "已更新 Shairport 設定。"

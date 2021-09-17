@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2013-2014,2017
+# kochin <kochinc@outlook.com>, 2013-2014,2017,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-28 17:38+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-09-10 01:31+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,10 +36,10 @@ msgid "Antivirus"
 msgstr "防病毒軟體"
 
 msgid "April"
-msgstr ""
+msgstr "四月"
 
 msgid "August"
-msgstr ""
+msgstr "八月"
 
 msgid "Be verbose."
 msgstr "要詳細報告。"
@@ -48,13 +48,13 @@ msgid "Comment"
 msgstr "註釋"
 
 msgid "Create"
-msgstr ""
+msgstr "新建"
 
 msgid "Created on-access scan."
-msgstr ""
+msgstr "已建立取用時掃毒。"
 
 msgid "Created scheduled scan."
-msgstr ""
+msgstr "已建立預定掃毒。"
 
 msgid "Database checks"
 msgstr "資料庫查驗"
@@ -69,10 +69,10 @@ msgid "Day of week"
 msgstr "週內第幾日"
 
 msgid "December"
-msgstr ""
+msgstr "十二月"
 
 msgid "Delete immediately"
-msgstr ""
+msgstr "立即刪除"
 
 msgid "Detect PUA"
 msgstr "偵測 PUA"
@@ -84,7 +84,7 @@ msgid "Done ..."
 msgstr "完成 ..."
 
 msgid "Edit"
-msgstr ""
+msgstr "編輯"
 
 msgid "Edit on-access scan"
 msgstr "編輯取用時掃毒"
@@ -140,13 +140,13 @@ msgid "Execute scheduled job"
 msgstr "執行預定工作"
 
 msgid "Execute scheduled scan"
-msgstr ""
+msgstr "執行預定掃毒"
 
 msgid "Extra options"
 msgstr "額外選項"
 
 msgid "February"
-msgstr ""
+msgstr "二月"
 
 msgid "Follow directory symlinks"
 msgstr "跟循目錄符號連結"
@@ -161,7 +161,7 @@ msgid "Follow regular file symlinks."
 msgstr "跟循一般檔案符號連結。"
 
 msgid "Friday"
-msgstr ""
+msgstr "週五"
 
 msgid "General settings"
 msgstr "一般設定"
@@ -173,13 +173,13 @@ msgid "Infected files"
 msgstr "受感染檔案"
 
 msgid "January"
-msgstr ""
+msgstr "一月"
 
 msgid "July"
-msgstr ""
+msgstr "七月"
 
 msgid "June"
-msgstr ""
+msgstr "六月"
 
 msgid "Log clean files"
 msgstr "記錄乾淨檔案"
@@ -188,10 +188,10 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "記錄乾淨的檔案。這將會大幅增加了日誌的大小。"
 
 msgid "March"
-msgstr ""
+msgstr "三月"
 
 msgid "May"
-msgstr ""
+msgstr "五月"
 
 msgid "Message"
 msgstr "訊息"
@@ -200,7 +200,7 @@ msgid "Minute"
 msgstr "分"
 
 msgid "Monday"
-msgstr ""
+msgstr "週一"
 
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "監測共享檔案夾並對新的及變更過的檔案做掃毒。"
@@ -209,19 +209,19 @@ msgid "Month"
 msgstr "月"
 
 msgid "Move to quarantine"
-msgstr ""
+msgstr "移到隔離區"
 
 msgid "Multiscan"
 msgstr "多緒掃毒"
 
 msgid "November"
-msgstr ""
+msgstr "十一月"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "每天檢查資料庫更新的次數。設成 0 表示停用。"
 
 msgid "October"
-msgstr ""
+msgstr "十月"
 
 msgid "On Access Scans"
 msgstr "取用時掃毒"
@@ -233,7 +233,7 @@ msgid "Perform a deeper analysis of executable files."
 msgstr "對可執行檔做更深入的分析。"
 
 msgid "Perform nothing"
-msgstr ""
+msgstr "無操作"
 
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
@@ -245,7 +245,7 @@ msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
 "daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "詳情請查看 <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>手冊頁</a> 。"
 
 msgid "Quarantine"
 msgstr "隔離"
@@ -254,7 +254,7 @@ msgid "Run"
 msgstr "執行"
 
 msgid "Saturday"
-msgstr ""
+msgstr "週六"
 
 msgid "Scan ELF"
 msgstr "掃毒 ELF"
@@ -281,10 +281,10 @@ msgid "Scheduled Jobs"
 msgstr "預定工作"
 
 msgid "Scheduled Scans"
-msgstr ""
+msgstr "預定掃毒"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "工作排程"
 
 msgid "Send command output via email"
 msgstr "經由電子郵件發送指令執行結果輸出"
@@ -293,7 +293,7 @@ msgid "Send email"
 msgstr "發送電子郵件"
 
 msgid "September"
-msgstr ""
+msgstr "九月"
 
 msgid "Settings"
 msgstr "設定"
@@ -302,7 +302,7 @@ msgid "Shared folder"
 msgstr "共享檔案夾"
 
 msgid "Sunday"
-msgstr ""
+msgstr "週日"
 
 msgid "The location of the files to scan on-access."
 msgstr "要做取用時掃毒的檔案位置。"
@@ -317,22 +317,22 @@ msgid "The option, how to handle infected files."
 msgstr "選項，如何處置受感染的檔案的。"
 
 msgid "Thursday"
-msgstr ""
+msgstr "週四"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "週二"
 
 msgid "Updated on-access scan."
-msgstr ""
+msgstr "已更新取用時掃毒。"
 
 msgid "Updated scheduled scan."
-msgstr ""
+msgstr "已更新預定掃毒。"
 
 msgid "Verbose"
 msgstr "詳細"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "週三"
 
 msgid "n/a"
 msgstr "n/a"

@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault-nut package.
 # 
 # Translators:
+# Quim Farriol <qfarriol@valette.cat>, 2021
 # Quim Farriol <qfarriol@valette.cat>, 2020
 # Quim Farriol <qfarriol@valette.cat>, 2016
 msgid ""
@@ -10,8 +11,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-28 17:38+0200\n"
-"PO-Revision-Date: 2021-07-19 16:35+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-09-11 19:00+0000\n"
+"Last-Translator: Quim Farriol <qfarriol@valette.cat>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +46,7 @@ msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Activar el control remot del SAI local connectat."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Activat"
 
 msgid "General settings"
 msgstr "Ajustos generals"
@@ -54,7 +55,7 @@ msgid "Identifier"
 msgstr "Identificador"
 
 msgid "Invalid identifier"
-msgstr ""
+msgstr "Identificador no vàlid"
 
 msgid "Load"
 msgstr "Consum"
@@ -75,7 +76,7 @@ msgid "Netclient password"
 msgstr "Contrasenya del client remot"
 
 msgid "Netclient user name"
-msgstr ""
+msgstr "Nom d'usuari de Netclient"
 
 msgid "Netclient username"
 msgstr "Nom d'usuari del client remot"
@@ -143,13 +144,13 @@ msgid "UPS reaches low battery"
 msgstr "El SAI té la bateria baixa"
 
 msgid "Updated UPS settings."
-msgstr ""
+msgstr "Configuració actualitzada del SAI."
 
 msgid "Used for remote authentication."
 msgstr "Utilitzat per a autenticació remota."
 
 msgid "User name"
-msgstr ""
+msgstr "Nom d'usuari"
 
 msgid "Username"
 msgstr "Nom d'usuari"
