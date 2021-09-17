@@ -36,7 +36,7 @@ export enum Icon {
   reset = 'mdi:refresh',
   import = 'mdi:import',
   check = 'mdi:check',
-  checkBox = 'mdi:check-box-outline',
+  checkBoxMarked = 'mdi:checkbox-marked-outline',
   checkBoxBlank = 'mdi:checkbox-blank-outline',
   plus = 'mdi:plus',
   minus = 'mdi:minus',
