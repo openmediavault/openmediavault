@@ -1,14 +1,14 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widget-config.service';
+import { TestingModule } from '~/app/testing.module';
 
 describe('DashboardWidgetConfigService', () => {
   let service: DashboardWidgetConfigService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      imports: [TestingModule]
     });
     service = TestBed.inject(DashboardWidgetConfigService);
   });

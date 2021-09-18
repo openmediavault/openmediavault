@@ -1,16 +1,16 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import * as _ from 'lodash';
 
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
+import { TestingModule } from '~/app/testing.module';
 
 describe('DataStoreService', () => {
   let service: DataStoreService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      imports: [TestingModule]
     });
     service = TestBed.inject(DataStoreService);
   });

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 
 import { NavigationPageComponent } from '~/app/core/pages/navigation-page/navigation-page.component';
 import { PagesModule } from '~/app/core/pages/pages.module';
@@ -12,7 +11,7 @@ describe('NavigationPageComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [PagesModule, TestingModule, RouterTestingModule]
+        imports: [PagesModule, TestingModule]
       }).compileComponents();
     })
   );

@@ -1,12 +1,12 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { AuthService } from '~/app/shared/services/auth.service';
+import { TestingModule } from '~/app/testing.module';
 
 describe('AuthService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      imports: [TestingModule]
     })
   );
 

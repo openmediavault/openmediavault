@@ -6,6 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 @NgModule({
   imports: [HttpClientTestingModule, NoopAnimationsModule, RouterTestingModule],
+  exports: [RouterTestingModule],
   providers: [
     // Disable sanity checks to prevent warning messages in unit tests.
     // https://github.com/thymikee/jest-preset-angular/issues/83

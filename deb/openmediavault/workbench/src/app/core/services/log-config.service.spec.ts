@@ -1,12 +1,12 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { LogConfigService } from '~/app/core/services/log-config.service';
+import { TestingModule } from '~/app/testing.module';
 
 describe('LogConfigService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      imports: [TestingModule]
     })
   );
 

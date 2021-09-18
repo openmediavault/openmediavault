@@ -1,10 +1,10 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { from } from 'rxjs';
 import { TestScheduler } from 'rxjs/testing';
 
 import { retryDelayed, takeWhen } from '~/app/rxjs.helper';
 import { RpcService } from '~/app/shared/services/rpc.service';
+import { TestingModule } from '~/app/testing.module';
 
 describe('rxjs.helper', () => {
   const testScheduler = new TestScheduler((actual, expected) => {
@@ -13,7 +13,7 @@ describe('rxjs.helper', () => {
 
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      imports: [TestingModule]
     })
   );
 

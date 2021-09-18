@@ -1,12 +1,12 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { RpcService } from '~/app/shared/services/rpc.service';
+import { TestingModule } from '~/app/testing.module';
 
 describe('RpcService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      imports: [TestingModule]
     })
   );
 
