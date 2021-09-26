@@ -10,6 +10,8 @@
 {%- set ssl_cert_dir = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_DIR', '/etc/ssl') -%}
 {%- set ssl_cert_prefix = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_PREFIX', 'openmediavault') -%}
 {%- set include_dir = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR', '/etc/nginx/openmediavault-webgui.d') -%}
+{%- set listen_ipv4_addr = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_LISTEN_IPV4_ADDRESS', '*') -%}
+{%- set listen_ipv6_addr = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_LISTEN_IPV6_ADDRESS', '::') -%}
 {{ pillar['headers']['multiline'] }}
 server {
     server_name {{ server_name }};
@@ -41,8 +43,8 @@ server {
 {%- endif %}
     }
 {%- if ipv6_enabled | to_bool %}
-    listen *:{{ config.port }} default_server;
-    listen [::]:{{ config.port }} default_server;
+    listen {{ listen_ipv4_addr }}:{{ config.port }} default_server;
+    listen [{{ listen_ipv6_addr }}]:{{ config.port }} default_server;
 {%- else %}
     listen {{ config.port }} default_server;
 {%- endif %}
@@ -54,8 +56,8 @@ server {
 {%- endif %}
 {%- if config.enablessl | to_bool %}
 {%- if ipv6_enabled | to_bool %}
-    listen *:{{ config.sslport }} default_server ssl deferred;
-    listen [::]:{{ config.sslport }} default_server ssl deferred;
+    listen {{ listen_ipv4_addr }}:{{ config.sslport }} default_server ssl deferred;
+    listen [{{ listen_ipv6_addr }}]:{{ config.sslport }} default_server ssl deferred;
 {%- else %}
     listen {{ config.sslport }} default_server ssl deferred;
 {%- endif %}
