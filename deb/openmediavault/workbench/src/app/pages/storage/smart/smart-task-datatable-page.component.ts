@@ -102,6 +102,31 @@ export class SmartTaskDatatablePageComponent {
         }
       },
       {
+        type: 'iconButton',
+        icon: 'start',
+        tooltip: gettext('Run'),
+        enabledConstraints: {
+          minSelected: 1,
+          maxSelected: 1
+        },
+        execute: {
+          type: 'taskDialog',
+          taskDialog: {
+            config: {
+              title: gettext('Run scheduled task'),
+              width: '75%',
+              request: {
+                service: 'Smart',
+                method: 'executeScheduledTest',
+                params: {
+                  uuid: '{{ _selected[0].uuid }}'
+                }
+              }
+            }
+          }
+        }
+      },
+      {
         template: 'delete',
         execute: {
           type: 'request',

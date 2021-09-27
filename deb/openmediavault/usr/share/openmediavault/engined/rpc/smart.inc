@@ -463,7 +463,7 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 			]);
 			// Get the storage device object.
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-			  $objectv->get("devicefile"));
+				$objectv->get("devicefile"));
 			if (!is_null($sd) && $sd->exists()) {
 				// Update storage device information.
 				$objectAssoc = array_merge($objectAssoc, [
@@ -498,7 +498,7 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		return $db->getAssoc("conf.service.smartmontools.job",
-		  $params['uuid']);
+			$params['uuid']);
 	}
 
 	/**
@@ -570,14 +570,16 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.smartmontools.job", $params['uuid']);
-		// Check if the given device exists and supports S.M.A.R.T.
-		$sd = \OMV\System\Storage\StorageDevice::assertGetStorageDevice(
-			$object->get("devicefile"));
-		$sd->assertHasSmartSupport();
+		$jobObject = $db->get("conf.service.smartmontools.job", $params['uuid']);
+		// Get the associated device configuration object.
+		$deviceObject = $db->getByFilter("conf.service.smartmontools.device", [
+			"operator" => "stringEquals",
+			"arg0" => "devicefile",
+			"arg1" => $jobObject->get("devicefile")
+		], 1);
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
-		  use ($object, $sd) {
+		  use ($jobObject, $deviceObject) {
 			// Execute the S.M.A.R.T. self test.
 			$testMap = [
 				"s" => "short",
@@ -585,15 +587,16 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 				"c" => "conveyance",
 				"o" => "offline"
 			];
-			$test = mb_strtolower($object->get("type"));
+			$test = mb_strtolower($jobObject->get("type"));
 			if (TRUE === array_key_exists($test, $testMap))
 				$test = $testMap[$test];
 			$cmdArgs = [];
 			$cmdArgs[] = "--xall";
 			$cmdArgs[] = sprintf("--test=%s", $test);
-			if (!empty($sd->getSmartDeviceType()))
-				$cmdArgs[] = sprintf("--device=%s", $sd->getSmartDeviceType());
-			$cmdArgs[] = $sd->getDeviceFile();
+			$deviceType = $deviceObject->get("devicetype");
+			if (!empty($deviceType))
+				$cmdArgs[] = sprintf("--device=%s", $deviceType);
+			$cmdArgs[] = $jobObject->get("devicefile");
 			$cmd = new \OMV\System\Process("smartctl", $cmdArgs);
 			$cmd->setRedirect2to1();
 			// Execute the command.
