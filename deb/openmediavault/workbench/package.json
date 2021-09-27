@@ -70,7 +70,7 @@
     "dayjs": "^1.10.7",
     "lodash": "^4.17.21",
     "ng-block-ui": "^3.0.2",
-    "ngx-scrollbar": "~8.0.0",
+    "ngx-scrollbar": "~7.6.1",
     "ngx-toastr": "^14.1.3",
     "nunjucks": "^3.2.3",
     "rxjs": "~6.6.7",
