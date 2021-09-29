@@ -111,44 +111,8 @@ export class SmartSettingsFormPageComponent {
       },
       {
         type: 'select',
-        name: 'tempinfo',
-        label: gettext('Informal'),
-        hint: gettext('Report if the temperature is greater than or equal to N degrees Celsius.'),
-        value: 0,
-        store: {
-          data: [
-            [0, gettext('Disabled')],
-            [5, '5°C'],
-            [10, '10°C'],
-            [15, '15°C'],
-            [20, '20°C'],
-            [25, '25°C'],
-            [30, '30°C'],
-            [35, '35°C'],
-            [40, '40°C'],
-            [45, '45°C'],
-            [50, '50°C'],
-            [55, '55°C'],
-            [60, '60°C'],
-            [65, '65°C'],
-            [70, '70°C'],
-            [75, '75°C'],
-            [80, '80°C'],
-            [85, '85°C'],
-            [90, '90°C'],
-            [95, '95°C'],
-            [100, '100°C']
-          ]
-        },
-        validators: {
-          min: 0,
-          required: true
-        }
-      },
-      {
-        type: 'select',
-        name: 'tempcrit',
-        label: gettext('Critical'),
+        name: 'tempmax',
+        label: gettext('Maximum'),
         hint: gettext('Report if the temperature is greater than or equal to N degrees Celsius.'),
         value: 0,
         store: {

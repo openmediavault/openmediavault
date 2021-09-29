@@ -24,6 +24,18 @@
 		"devicetype": {
 			"type": "string",
 			"default": ""
+		},
+		"tempdiff":{
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 255,
+			"default": 0
+		},
+		"tempmax":{
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 255,
+			"default": 0
 		}
 	}
 }

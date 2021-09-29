@@ -767,8 +767,7 @@ iSrj/B/KRCZkkrDdYcDAvqRs6dA+ScRZ
       <interval>1800</interval>
       <powermode>never</powermode>
       <tempdiff>0</tempdiff>
-      <tempinfo>0</tempinfo>
-      <tempcrit>0</tempcrit>
+      <tempmax>0</tempmax>
       <monitor>
         <!--
 				<device>
@@ -776,6 +775,8 @@ iSrj/B/KRCZkkrDdYcDAvqRs6dA+ScRZ
 					<enable>0|1</enable>
 					<devicefile>/dev/xxx</devicefile>
 					<devicetype>|sat|cciss|xxx</devicetype>
+					<tempdiff>0</tempdiff>
+					<tempmax>0</tempmax>
 				</device>
 				-->
         <device>
