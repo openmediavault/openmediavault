@@ -8,12 +8,12 @@
   {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'smartmontools'})[0] -%}
 {%- set default_directives = salt['pillar.get']('default:OMV_SMARTMONTOOLS_DEFAULTDIRECTIVES', '-a -o on -S on -T permissive') -%}
 {{ pillar['headers']['multiline'] }}
-DEFAULT {{ default_directives }} -W {{ smart_config.tempdiff }},{{ smart_config.tempinfo }},{{ smart_config.tempcrit }}{% if smart_config.tempdiff == 0 and smart_config.tempinfo == 0 and smart_config.tempcrit == 0 %} -I 190 -I 194 -I 231{% endif %} -n {{ smart_config.powermode }},q
+DEFAULT {{ default_directives }} -W {{ smart_config.tempdiff }},{{ smart_config.tempinfo }},{{ smart_config.tempcrit }} -n {{ smart_config.powermode }},q
 {%- for device in smart_devices -%}
 {%- set smart_jobs = salt['omv_conf.get_by_filter'](
   'conf.service.smartmontools.job',
   {'operator': 'and', 'arg0': {'operator': 'stringEquals', 'arg0': 'devicefile', 'arg1': device.devicefile}, 'arg1': {'operator': 'equals', 'arg0': 'enable', 'arg1': '1'}}) %}
-{{ device.devicefile }}{% if device.devicetype | length > 0 %} -d {{ device.devicetype }}{% endif %}
+{{ device.devicefile }}{% if device.devicetype | length > 0 %} -d {{ device.devicetype }}{% endif %}{% if device.tempdiff > 0 or device.tempinfo > 0 or device.tempcrit > 0 %} -W {{ device.tempdiff }},{{ device.tempinfo }},{{ device.tempcrit }}{% endif %}
 {%- for job in smart_jobs -%}
 {% if loop.first %} \
   -s (

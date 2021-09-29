@@ -296,6 +296,12 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 	 *     \li /dev/sdb
 	 *     \li /dev/disk/by-id/ata-ST31000528AS_8VI5C2AZ
 	 *   \em enable Enable/disable S.M.A.R.T. monitoring.
+	 *   \em tempdiff Report if the temperature had changed by at
+	 *     least N degrees Celsius since last report.
+	 *   \em tempinfo Report if the temperature is greater than or
+	 *     equal to N degrees Celsius.
+	 *   \em tempcrit Report if the temperature is greater than or
+	 *     equal to N degrees Celsius.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
 	 */
@@ -318,7 +324,10 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 			"uuid" => $params['uuid'],
 			"enable" => $params['enable'],
 			"devicefile" => $sd->getPredictableDeviceFile(),
-			"devicetype" => $sd->getSmartDeviceType()
+			"devicetype" => $sd->getSmartDeviceType(),
+			"tempdiff" => $params['tempdiff'],
+			"tempinfo" => $params['tempinfo'],
+			"tempcrit" => $params['tempcrit']
 		]);
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();

@@ -26,5 +26,8 @@ set -e
 omv_config_add_key "/config/services/ftp" "homesenable" "0"
 omv_config_add_key "/config/system/fstab/mntent" "comment" ""
 omv_config_add_key "/config/system/fstab/mntent" "usagewarnthreshold" "85"
+omv_config_add_key "/config/services/smart/monitor/device" "tempdiff" "0"
+omv_config_add_key "/config/services/smart/monitor/device" "tempinfo" "0"
+omv_config_add_key "/config/services/smart/monitor/device" "tempcrit" "0"
 
 exit 0

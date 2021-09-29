@@ -462,6 +462,9 @@
 					<enable>0|1</enable>
 					<devicefile>/dev/xxx</devicefile>
 					<devicetype>|sat|cciss|xxx</devicetype>
+					<tempdiff>0</tempdiff>
+					<tempinfo>0</tempinfo>
+					<tempcrit>0</tempcrit>
 				</device>
 				-->
 			</monitor>
