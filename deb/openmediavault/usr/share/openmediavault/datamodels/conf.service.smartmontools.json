@@ -27,13 +27,7 @@
 			"maximum": 255,
 			"default": 0
 		},
-		"tempinfo":{
-			"type": "integer",
-			"minimum": 0,
-			"maximum": 255,
-			"default": 0
-		},
-		"tempcrit":{
+		"tempmax":{
 			"type": "integer",
 			"minimum": 0,
 			"maximum": 255,
@@ -70,13 +64,7 @@
 								"maximum": 255,
 								"default": 0
 							},
-							"tempinfo":{
-								"type": "integer",
-								"minimum": 0,
-								"maximum": 255,
-								"default": 0
-							},
-							"tempcrit":{
+							"tempmax":{
 								"type": "integer",
 								"minimum": 0,
 								"maximum": 255,
