@@ -442,7 +442,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 		stateId: "available"
 	},{
 		text: _("Used"),
-		sortable: true,
+		sortable: false,
 		dataIndex: "used",
 		stateId: "used",
 		align: "center",

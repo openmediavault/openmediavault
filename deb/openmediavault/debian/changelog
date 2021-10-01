@@ -1,3 +1,10 @@
+openmediavault (5.6.17-1) stable; urgency=low
+
+  * Issue #1107: Disable sorting of the 'Used' column in the
+    file system table.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 01 Oct 2021 16:50:25 +0200
+
 openmediavault (5.6.16-1) stable; urgency=low
 
   * Fix SMART issue when requesting information from a NVMe device.
