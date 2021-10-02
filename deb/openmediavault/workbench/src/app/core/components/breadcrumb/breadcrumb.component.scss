@@ -12,10 +12,6 @@
     text-decoration: none;
     white-space: nowrap;
 
-    &.active {
-      border-bottom: 3px solid $omv-color-primary;
-    }
-
     &:hover:not(.active) {
       border-bottom: 3px solid $omv-color-accent;
     }
