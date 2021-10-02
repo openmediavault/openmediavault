@@ -442,8 +442,8 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 		stateId: "available"
 	},{
 		text: _("Used"),
-		sortable: false,
-		dataIndex: "used",
+		sortable: true,
+		dataIndex: "percentage",
 		stateId: "used",
 		align: "center",
 		renderer: function(value, metaData, record) {
