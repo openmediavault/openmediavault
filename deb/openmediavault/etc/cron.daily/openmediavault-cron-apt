@@ -32,6 +32,6 @@ rm -rf /etc/cron.d/cron-apt
 test -x /usr/sbin/cron-apt && /usr/sbin/cron-apt
 
 # Send an email when a reboot is required.
-if [ -e "/var/run/reboot-required" ]; then
+if [ -e "/run/reboot-required" ]; then
     echo "A reboot of the system is required to complete a package upgrade." | mail -E -s "Reboot required" root
 fi
