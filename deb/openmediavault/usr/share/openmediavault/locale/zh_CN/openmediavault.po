@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-07 08:42+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -226,9 +226,6 @@ msgstr "作为一个 WINS 服务器"
 msgid "Action"
 msgstr "动作"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "激活 S.M.A.R.T. 监测。"
-
 msgid "Add"
 msgstr "添加"
 
@@ -285,8 +282,8 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr "允许客户端恢复中断的上传和下载"
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
-msgstr "允许此服务器作为 Windows 客户端的时间服务器"
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr ""
 
 msgid "Allowed clients"
 msgstr "允许的客户端"
@@ -763,9 +760,6 @@ msgstr "已建有线网络连接。"
 msgid "Created wireless network connection."
 msgstr "已建无线网络连接。"
 
-msgid "Critical"
-msgstr "严重"
-
 msgid "Croatia"
 msgstr "克罗地亚"
 
@@ -823,8 +817,8 @@ msgstr "删除接收端存在而发送端不存在的文件。"
 msgid "Denmark"
 msgstr "丹麦"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "拒绝无效的 shell 登录"
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
 
 msgid "Description"
 msgstr "描述"
@@ -903,6 +897,9 @@ msgstr "磁盘用量"
 
 msgid "Disks"
 msgstr "磁盘"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
 
 msgid "Djibouti"
 msgstr "吉布提"
@@ -1055,8 +1052,8 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "启用此选项来保留部分传输的文件，否则传输中断的文件将删除不予保存。"
 
-msgid "Enable user home directories"
-msgstr "启用用户主目录"
+msgid "Enable user home directories."
+msgstr ""
 
 msgid "Enable write-cache"
 msgstr "启用写缓存"
@@ -1328,6 +1325,9 @@ msgstr "隐藏点文件"
 msgid "Hide navigation"
 msgstr ""
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr "主目录"
 
@@ -1474,9 +1474,6 @@ msgstr "印度"
 
 msgid "Indonesia"
 msgstr "印度尼西亚"
-
-msgid "Informal"
-msgstr "非正式"
 
 msgid "Information"
 msgstr "信息"
@@ -1782,6 +1779,9 @@ msgstr "最多登录尝试次数"
 msgid "Max. passive port"
 msgstr "最大被动端口"
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "最大下载速度 (KB/s)"
 
@@ -1889,6 +1889,9 @@ msgstr "已监听"
 
 msgid "Monitoring"
 msgstr "监测"
+
+msgid "Monitoring enabled"
+msgstr ""
 
 msgid "Month"
 msgstr "月"
@@ -2498,13 +2501,12 @@ msgstr "报告"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
-msgstr "自上次报告以来温度变化至少 N 度，则需报告，设置为 0 则关闭报告。"
+"last report."
+msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
-msgstr "如果温度大于或等于 N 摄氏度则报告，设置为 0 则关闭报告。"
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr ""
 
 msgid "Repository"
 msgstr "软件源"
@@ -3739,6 +3741,9 @@ msgstr "使用 NTP 服务器"
 msgid "Use chroot"
 msgstr "使用 chroot"
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "使用 sendfile"
 
@@ -3901,6 +3906,9 @@ msgstr "也门"
 
 msgid "Yes"
 msgstr "是"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr "你的介绍"

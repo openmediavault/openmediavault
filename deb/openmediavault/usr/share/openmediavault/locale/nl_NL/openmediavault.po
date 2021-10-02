@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-07 08:42+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -229,9 +229,6 @@ msgstr "Gedragen als een WINS server."
 msgid "Action"
 msgstr "Handeling"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "S.M.A.R.T. controle activeren"
-
 msgid "Add"
 msgstr "Toevoegen"
 
@@ -288,8 +285,8 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
-msgstr "De server toestaan om zichzelf als tijdserver te identificeren bij Windows clients"
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr ""
 
 msgid "Allowed clients"
 msgstr "Toegestane clients"
@@ -766,9 +763,6 @@ msgstr ""
 msgid "Created wireless network connection."
 msgstr ""
 
-msgid "Critical"
-msgstr "Kritiek"
-
 msgid "Croatia"
 msgstr "Kroatië"
 
@@ -826,8 +820,8 @@ msgstr ""
 msgid "Denmark"
 msgstr "Denemarken"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "Aanmelden weigeren als er geen geldige shell is."
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
 
 msgid "Description"
 msgstr "Beschrijving"
@@ -906,6 +900,9 @@ msgstr ""
 
 msgid "Disks"
 msgstr "Schijven"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1058,8 +1055,8 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Schakel deze optie in om gedeeltelijk overgezette bestanden te bewaren, anders zullen zij worden verwijderd indien de overdracht wordt onderbroken."
 
-msgid "Enable user home directories"
-msgstr "Gebruikerthuismappen inschakelen"
+msgid "Enable user home directories."
+msgstr ""
 
 msgid "Enable write-cache"
 msgstr ""
@@ -1331,6 +1328,9 @@ msgstr "Verberg punt bestanden"
 msgid "Hide navigation"
 msgstr ""
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Thuismappen"
 
@@ -1477,9 +1477,6 @@ msgstr "India"
 
 msgid "Indonesia"
 msgstr "Indonesië"
-
-msgid "Informal"
-msgstr "Informeel"
 
 msgid "Information"
 msgstr "Informatie"
@@ -1785,6 +1782,9 @@ msgstr "Max. aanmeldpogingen"
 msgid "Max. passive port"
 msgstr ""
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maximum downloadsnelheid (KiB/s)"
 
@@ -1892,6 +1892,9 @@ msgstr ""
 
 msgid "Monitoring"
 msgstr "Monitoren"
+
+msgid "Monitoring enabled"
+msgstr ""
 
 msgid "Month"
 msgstr "Maand"
@@ -2501,13 +2504,12 @@ msgstr "Rapporteren"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
-msgstr "Stuur een bericht als de temperatuur is veranderd met ten minste N graden Celsius sinds het laatste bericht. Zet op 0 om berichtgeving uit te schakelen."
+"last report."
+msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
-msgstr "Stuur een bericht als de temperatuur hoger dan of gelijk is aan N graden Celsius. Stel in op 0 om berichtgeving uit te schakelen."
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr ""
 
 msgid "Repository"
 msgstr "Depot"
@@ -3742,6 +3744,9 @@ msgstr "Gebruik NTP-server"
 msgid "Use chroot"
 msgstr "Chroot gebruiken."
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "Gebruik sendfile"
 
@@ -3904,6 +3909,9 @@ msgstr "Yemen"
 
 msgid "Yes"
 msgstr "Ja"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr ""

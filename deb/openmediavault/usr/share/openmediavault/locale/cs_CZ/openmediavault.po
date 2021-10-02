@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-07 11:36+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -224,9 +224,6 @@ msgstr "Vystupovat jako jmenný server WINS."
 msgid "Action"
 msgstr "Akce"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "Zapnout sledování S.M.A.R.T."
-
 msgid "Add"
 msgstr "Přidat"
 
@@ -283,8 +280,8 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
-msgstr "Povolit tomuto serveru propagovat se Windows klientům jako časový server"
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr ""
 
 msgid "Allowed clients"
 msgstr "Klienti, kterým umožnit přístup"
@@ -761,9 +758,6 @@ msgstr ""
 msgid "Created wireless network connection."
 msgstr ""
 
-msgid "Critical"
-msgstr "Kritická"
-
 msgid "Croatia"
 msgstr "Chorvatsko"
 
@@ -821,8 +815,8 @@ msgstr ""
 msgid "Denmark"
 msgstr "Dánsko"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "Neumožnit přihlašování k účtům bez platného shellu"
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
 
 msgid "Description"
 msgstr "Popis"
@@ -901,6 +895,9 @@ msgstr ""
 
 msgid "Disks"
 msgstr "Jednotky datových úložišť"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
 
 msgid "Djibouti"
 msgstr "Džibutsko"
@@ -1053,8 +1050,8 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Zapnutím této volby budou zachovávány i jen částečně přenesené soubory, které by jinak byly v případě přerušení přenosu smazány."
 
-msgid "Enable user home directories"
-msgstr "Povolit domovské složky uživatelů"
+msgid "Enable user home directories."
+msgstr ""
 
 msgid "Enable write-cache"
 msgstr ""
@@ -1326,6 +1323,9 @@ msgstr "Skrýt soubory s názvy začínajícími tečkou"
 msgid "Hide navigation"
 msgstr ""
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Domovské složky"
 
@@ -1472,9 +1472,6 @@ msgstr "Indie"
 
 msgid "Indonesia"
 msgstr "Indonésie"
-
-msgid "Informal"
-msgstr "Pro informaci"
 
 msgid "Information"
 msgstr "Informace"
@@ -1780,6 +1777,9 @@ msgstr "Nejvýše pokusů o přihlášení"
 msgid "Max. passive port"
 msgstr ""
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "Nejvyšší umožněná rychlost stahování dat (KiB/s)"
 
@@ -1887,6 +1887,9 @@ msgstr ""
 
 msgid "Monitoring"
 msgstr "Pořizování statistik"
+
+msgid "Monitoring enabled"
+msgstr ""
 
 msgid "Month"
 msgstr "Měsíc"
@@ -2496,13 +2499,12 @@ msgstr "Zpráva"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
-msgstr "Hlásit, pokud se teplota od minulého hlášení změní přinejmenším o zadaný počet stupňů Celsia. Hlášení vypnete zadáním 0 (nula)."
+"last report."
+msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
-msgstr "Hlásit, pokud je teplota vyšší nebo rovna N stupňům Celsia. Toto hlášení vypnete nastavením na 0 (nula)."
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr ""
 
 msgid "Repository"
 msgstr "Repozitář"
@@ -3737,6 +3739,9 @@ msgstr "Používat NTP server"
 msgid "Use chroot"
 msgstr "Použít vyhrazené prostředí (chroot)"
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "Použít volání sendfile"
 
@@ -3899,6 +3904,9 @@ msgstr "Jemen"
 
 msgid "Yes"
 msgstr "Ano"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr ""

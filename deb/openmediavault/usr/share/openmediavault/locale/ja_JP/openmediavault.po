@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-08 04:42+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -223,9 +223,6 @@ msgstr "WINSサーバとして機能します。"
 msgid "Action"
 msgstr "アクション"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "S.M.A.R.T. モニタリングの有効化。"
-
 msgid "Add"
 msgstr "追加"
 
@@ -282,8 +279,8 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr "アップロードとダウンロードの中断時のレジュームをクライアントに許可します。"
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
-msgstr "このサーバがWindowsクライアントへのタイムサーバとして自身をアドバタイズすることを許可"
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr ""
 
 msgid "Allowed clients"
 msgstr "許可するクライアント"
@@ -760,9 +757,6 @@ msgstr ""
 msgid "Created wireless network connection."
 msgstr ""
 
-msgid "Critical"
-msgstr "クリティカル"
-
 msgid "Croatia"
 msgstr "クロアチア"
 
@@ -820,8 +814,8 @@ msgstr ""
 msgid "Denmark"
 msgstr "デンマーク"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "有効なシェルを持っていないログインを拒否する"
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
 
 msgid "Description"
 msgstr "説明"
@@ -851,7 +845,7 @@ msgid "Device"
 msgstr "デバイス"
 
 msgid "Device Information"
-msgstr ""
+msgstr "デバイス情報"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "デバイスマッパー %s [%s, %s]"
@@ -860,7 +854,7 @@ msgid "Device Symlinks"
 msgstr "デバイス シンボリックリンク"
 
 msgid "Device has a few bad sectors."
-msgstr ""
+msgstr "デバイスは、いくつかの不良セクタを持っています。"
 
 msgid "Device has many bad sectors."
 msgstr ""
@@ -900,6 +894,9 @@ msgstr ""
 
 msgid "Disks"
 msgstr "ディスク"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
 
 msgid "Djibouti"
 msgstr "ジブチ"
@@ -1052,8 +1049,8 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "部分的に転送されたファイルを保持する場合はこのオプションを有効にします。それ以外の場合は転送が中断された場合、ファイルは削除されます。"
 
-msgid "Enable user home directories"
-msgstr "ユーザーのホームディレクトリを有効化"
+msgid "Enable user home directories."
+msgstr ""
 
 msgid "Enable write-cache"
 msgstr ""
@@ -1325,6 +1322,9 @@ msgstr "ドットで始まるファイルを隠す"
 msgid "Hide navigation"
 msgstr ""
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr "ホームディレクトリ"
 
@@ -1471,9 +1471,6 @@ msgstr "インド"
 
 msgid "Indonesia"
 msgstr "インドネシア"
-
-msgid "Informal"
-msgstr "インフォーマル"
 
 msgid "Information"
 msgstr "情報"
@@ -1779,6 +1776,9 @@ msgstr "最大ログイン試行回数"
 msgid "Max. passive port"
 msgstr ""
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "最大ダウンロード速度(KiB/s)"
 
@@ -1886,6 +1886,9 @@ msgstr ""
 
 msgid "Monitoring"
 msgstr "モニタリング"
+
+msgid "Monitoring enabled"
+msgstr ""
 
 msgid "Month"
 msgstr "月"
@@ -2495,13 +2498,12 @@ msgstr "レポート"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
-msgstr "最後のレポートから温度が摂氏 N 度変化した場合にレポートします。0に設定するとレポートしません。"
+"last report."
+msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
-msgstr "温度が摂氏 N 度を超えるか、同じになった場合にレポートします。0に設定するとレポートしません。"
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr ""
 
 msgid "Repository"
 msgstr "リポジトリ"
@@ -3736,6 +3738,9 @@ msgstr "NTPサーバを使用する"
 msgid "Use chroot"
 msgstr "Chrootを利用する"
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "Sendfileを使用する"
 
@@ -3898,6 +3903,9 @@ msgstr "イエメン"
 
 msgid "Yes"
 msgstr "はい"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr "あなたのプロファイル"

@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-11 18:41+0000\n"
-"Last-Translator: Quim Farriol <qfarriol@valette.cat>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -225,9 +225,6 @@ msgstr "Funcionar com a servidor WINS."
 msgid "Action"
 msgstr "Acció"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "Activar monitoratge S.M.A.R.T."
-
 msgid "Add"
 msgstr "Afegir"
 
@@ -284,8 +281,8 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr "Permetre reprendre pujades / baixades interrompudes"
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
-msgstr "Permetre a aquest servidor anunciar-se a si mateix com un servidor d’hora de Windows"
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr ""
 
 msgid "Allowed clients"
 msgstr "Clients permesos"
@@ -762,9 +759,6 @@ msgstr "S'ha creat la connexió de xarxa per cable. "
 msgid "Created wireless network connection."
 msgstr "S'ha creat la connexió de xarxa sense fils. "
 
-msgid "Critical"
-msgstr "Crític"
-
 msgid "Croatia"
 msgstr "Croàcia"
 
@@ -822,8 +816,8 @@ msgstr "Eliminar arxius en la banda receptora, que no existeixen en el remitent.
 msgid "Denmark"
 msgstr "Dinamarca"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "Denegar inicis de sessió (logins) que no tinguin una shell vàlida"
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
 
 msgid "Description"
 msgstr "Descripció"
@@ -902,6 +896,9 @@ msgstr "Ús del disc "
 
 msgid "Disks"
 msgstr "Discs"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1054,8 +1051,8 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Habiliti aquesta opció per mantenir els arxius parcialment transferits, si no, seran esborrats en cas d'interrompre la transmissió."
 
-msgid "Enable user home directories"
-msgstr "Habilitar els directoris home d’usuari"
+msgid "Enable user home directories."
+msgstr ""
 
 msgid "Enable write-cache"
 msgstr "Habilitar l'escriptura a la memòria cau -cache-"
@@ -1327,6 +1324,9 @@ msgstr "Amagar arxius dot\".\""
 msgid "Hide navigation"
 msgstr "Amaga la navegació "
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Directoris Home"
 
@@ -1473,9 +1473,6 @@ msgstr "Índia"
 
 msgid "Indonesia"
 msgstr "Indonèsia"
-
-msgid "Informal"
-msgstr "Informal"
 
 msgid "Information"
 msgstr "Informació"
@@ -1781,6 +1778,9 @@ msgstr "Núm. màx. de login"
 msgid "Max. passive port"
 msgstr "Màx. port passiu "
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "Velocitat màx. de descarrega (KiB/s)"
 
@@ -1888,6 +1888,9 @@ msgstr "Monitoritzat "
 
 msgid "Monitoring"
 msgstr "Monitoratge"
+
+msgid "Monitoring enabled"
+msgstr ""
 
 msgid "Month"
 msgstr "Mes"
@@ -2497,13 +2500,12 @@ msgstr "Informe"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
-msgstr "Avisar si la temperatura ha canviat al menys N graus Celsius des de l’últim informe. 0 deshabilita l’informe"
+"last report."
+msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
-msgstr "Informeu si la temperatura és superior o igual a N graus centígrads. Definiu 0 per desactivar aquest informe."
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr ""
 
 msgid "Repository"
 msgstr "Repositori"
@@ -3738,6 +3740,9 @@ msgstr "Usar el servidor NTP"
 msgid "Use chroot"
 msgstr "Habilitar chroot."
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "Usar Sendfile"
 
@@ -3900,6 +3905,9 @@ msgstr "Iemen"
 
 msgid "Yes"
 msgstr "Si"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr "El teu perfil"

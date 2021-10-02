@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-08 16:35+0000\n"
-"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -223,9 +223,6 @@ msgstr "WINS sunucu gibi davran."
 msgid "Action"
 msgstr "Aksiyon"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "S.M.A.R.T. izlemeyi etkinleştir."
-
 msgid "Add"
 msgstr "Ekle"
 
@@ -282,8 +279,8 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
-msgstr "Sunucunun Windows kullanıcılarına kendisini bir zaman sunucusu olarak tanıtmasına izin ver"
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr ""
 
 msgid "Allowed clients"
 msgstr "İzin verilmiş kullanıcılar"
@@ -760,9 +757,6 @@ msgstr ""
 msgid "Created wireless network connection."
 msgstr ""
 
-msgid "Critical"
-msgstr "Kritik"
-
 msgid "Croatia"
 msgstr "Hırvatistan"
 
@@ -820,8 +814,8 @@ msgstr ""
 msgid "Denmark"
 msgstr "Danimarka"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "Geçerli bir kabuk içermeyen oturum açılışlarını engelle"
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
 
 msgid "Description"
 msgstr "Açıklama"
@@ -900,6 +894,9 @@ msgstr ""
 
 msgid "Disks"
 msgstr "Diskler"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
 
 msgid "Djibouti"
 msgstr "Cibuti"
@@ -1052,8 +1049,8 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Kısmen transfer edilmiş dosyaları saklamak için bu seçeneği işaretleyiniz, aksi taktirde transfer kesildiğinde bu dosyalar silinecektir."
 
-msgid "Enable user home directories"
-msgstr "Kullanıcı ana dizinlerine izin ver"
+msgid "Enable user home directories."
+msgstr ""
 
 msgid "Enable write-cache"
 msgstr ""
@@ -1325,6 +1322,9 @@ msgstr "Noktalı dosyaları gizle"
 msgid "Hide navigation"
 msgstr ""
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Ana dizinler"
 
@@ -1471,9 +1471,6 @@ msgstr "Hindistan"
 
 msgid "Indonesia"
 msgstr "Endonezya"
-
-msgid "Informal"
-msgstr "Resmi olmayan"
 
 msgid "Information"
 msgstr "Bilgi"
@@ -1779,6 +1776,9 @@ msgstr "Maksimum giriş denemesi"
 msgid "Max. passive port"
 msgstr ""
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maksimum indirme hızı (KiB/s)"
 
@@ -1886,6 +1886,9 @@ msgstr ""
 
 msgid "Monitoring"
 msgstr "İzleme"
+
+msgid "Monitoring enabled"
+msgstr ""
 
 msgid "Month"
 msgstr "Ay"
@@ -2495,13 +2498,12 @@ msgstr "Rapor"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
-msgstr "Son raporlamadan bu yana sıcaklık en azından N derece değişmiş ise ropor ver. Bu alana 0 değeri girilmesi raporlamayı kapatır."
+"last report."
+msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
-msgstr "Sıcaklık N derecesine eşit ya da büyük ise raporla. Bu raporu kapatmak için 0 giriniz."
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr ""
 
 msgid "Repository"
 msgstr "Depo"
@@ -3736,6 +3738,9 @@ msgstr "NTP sunucusu kullan"
 msgid "Use chroot"
 msgstr "Chroot kullan"
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "Sendfile kullan"
 
@@ -3898,6 +3903,9 @@ msgstr "Yemen"
 
 msgid "Yes"
 msgstr "Evet"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr ""

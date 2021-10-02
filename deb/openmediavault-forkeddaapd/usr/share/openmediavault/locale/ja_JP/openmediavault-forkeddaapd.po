@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the openmediavault-forkeddaapd package.
 # 
 # Translators:
+# Toshihiro Kan <kansuke4649@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-28 17:38+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-10-02 10:32+0200\n"
+"PO-Revision-Date: 2021-09-27 05:06+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +28,7 @@ msgid "Enable"
 msgstr "有効"
 
 msgid "Enabled"
-msgstr ""
+msgstr "有効"
 
 msgid "General settings"
 msgstr "一般設定"
@@ -57,7 +58,7 @@ msgid "The name of the library as displayed by the clients."
 msgstr "クライアントに表示されるライブラリ名。"
 
 msgid "Updated iTunes/DAAP settings."
-msgstr ""
+msgstr "iTunes/DAAPの設定をアップデートしました。"
 
 msgid "iTunes/DAAP"
 msgstr "iTunes/DAAP"

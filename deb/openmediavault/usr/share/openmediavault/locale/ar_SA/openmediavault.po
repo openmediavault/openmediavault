@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-07 08:42+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -224,9 +224,6 @@ msgstr "العمل كخادم WINS."
 msgid "Action"
 msgstr "إجراء"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "تفعيل مراقبة S.M.A.R.T"
-
 msgid "Add"
 msgstr "أضف"
 
@@ -283,8 +280,8 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
-msgstr "اسمح لهذا الخادم بالإعلان عن نفسه كخادم وقت لعملاء Windows"
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr ""
 
 msgid "Allowed clients"
 msgstr "العملاء المسموح لهم"
@@ -761,9 +758,6 @@ msgstr ""
 msgid "Created wireless network connection."
 msgstr ""
 
-msgid "Critical"
-msgstr "حرج"
-
 msgid "Croatia"
 msgstr "كرواتيا"
 
@@ -821,8 +815,8 @@ msgstr ""
 msgid "Denmark"
 msgstr "الدنمارك"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "رفض تسجيلات الدخول التي لا تحتوي على Shell صالح"
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
 
 msgid "Description"
 msgstr "الوصف"
@@ -901,6 +895,9 @@ msgstr ""
 
 msgid "Disks"
 msgstr "الأقراص"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
 
 msgid "Djibouti"
 msgstr "جيبوتي"
@@ -1053,8 +1050,8 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "تمكين هذا الخيار للاحتفاظ بالملفات المنقولة جزئيًا ، وإلا فسيتم حذفها إذا تمت مقاطعة النقل."
 
-msgid "Enable user home directories"
-msgstr "تمكين مجلدات المستخدم الرئيسية"
+msgid "Enable user home directories."
+msgstr ""
 
 msgid "Enable write-cache"
 msgstr ""
@@ -1326,6 +1323,9 @@ msgstr "إخفاء الملفات المسماه بحرف نقطة"
 msgid "Hide navigation"
 msgstr ""
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr "مجلدات المستخدمين الرئيسية"
 
@@ -1472,9 +1472,6 @@ msgstr "الهند"
 
 msgid "Indonesia"
 msgstr "اندونيسيا"
-
-msgid "Informal"
-msgstr "غير رسمي"
 
 msgid "Information"
 msgstr "المعلومات"
@@ -1780,6 +1777,9 @@ msgstr "محاولات تسجيل الدخول القصوى"
 msgid "Max. passive port"
 msgstr ""
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "الحد الأقصى لمعدل التنزيل (KiB / s)"
 
@@ -1887,6 +1887,9 @@ msgstr ""
 
 msgid "Monitoring"
 msgstr "مراقبة"
+
+msgid "Monitoring enabled"
+msgstr ""
 
 msgid "Month"
 msgstr "شهر"
@@ -2496,13 +2499,12 @@ msgstr "تقرير"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
-msgstr "تقرير ما إذا كانت درجة الحرارة قد تغيرت بمقدار N درجة مئوية على الأقل منذ التقرير الأخير. اضبط على 0 لتعطيل هذا التقرير."
+"last report."
+msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
-msgstr "تقرير إذا كانت درجة الحرارة أكبر من أو تساوي N درجة مئوية. اضبط على 0 لتعطيل هذا التقرير."
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr ""
 
 msgid "Repository"
 msgstr "المستودع"
@@ -3737,6 +3739,9 @@ msgstr "استخدام خادم NTP"
 msgid "Use chroot"
 msgstr "استخدام chroot"
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "استخدام sendfile"
 
@@ -3899,6 +3904,9 @@ msgstr "اليمن"
 
 msgid "Yes"
 msgstr "نعم"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr ""

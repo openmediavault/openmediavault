@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-08 19:36+0200\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -219,9 +219,6 @@ msgid "Act as a WINS server."
 msgstr ""
 
 msgid "Action"
-msgstr ""
-
-msgid "Activate S.M.A.R.T. monitoring."
 msgstr ""
 
 msgid "Add"
@@ -744,9 +741,6 @@ msgid "Created wired network connection."
 msgstr ""
 
 msgid "Created wireless network connection."
-msgstr ""
-
-msgid "Critical"
 msgstr ""
 
 msgid "Croatia"
@@ -1289,6 +1283,9 @@ msgstr ""
 msgid "Hide navigation"
 msgstr ""
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr ""
 
@@ -1404,9 +1401,6 @@ msgid "India"
 msgstr ""
 
 msgid "Indonesia"
-msgstr ""
-
-msgid "Informal"
 msgstr ""
 
 msgid "Information"
@@ -1703,6 +1697,9 @@ msgstr ""
 msgid "Max. passive port"
 msgstr ""
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr ""
 
@@ -1806,6 +1803,9 @@ msgid "Monitored"
 msgstr ""
 
 msgid "Monitoring"
+msgstr ""
+
+msgid "Monitoring enabled"
 msgstr ""
 
 msgid "Month"
@@ -2384,10 +2384,10 @@ msgstr ""
 msgid "Report"
 msgstr ""
 
-msgid "Report if the temperature had changed by at least N degrees Celsius since last report. Set to 0 to disable this report."
+msgid "Report if the temperature had changed by at least N degrees Celsius since last report."
 msgstr ""
 
-msgid "Report if the temperature is greater than or equal to N degrees Celsius. Set to 0 to disable this report."
+msgid "Report if the temperature is greater than or equal to N degrees Celsius."
 msgstr ""
 
 msgid "Repository"
@@ -3506,6 +3506,9 @@ msgstr ""
 msgid "Use chroot"
 msgstr ""
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr ""
 
@@ -3660,6 +3663,9 @@ msgid "Yemen"
 msgstr ""
 
 msgid "Yes"
+msgstr ""
+
+msgid "Your changes will be lost. Do you want to continue?"
 msgstr ""
 
 msgid "Your profile"

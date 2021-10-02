@@ -9,18 +9,19 @@
 # mattjes04 <mattjes04@googlemail.com>, 2012
 # Pascal Tippelt <pascal.tippelt@go-eight.de>, 2021
 # Stephan Steiner, 2014
-# Volker <votdev@gmx.de>, 2013-2021
-# Volker <votdev@gmx.de>, 2012
-# Volker <votdev@gmx.de>, 2012
+# Volker Theile <votdev@gmx.de>, 2021
+# Volker Theile <votdev@gmx.de>, 2013-2021
+# Volker Theile <votdev@gmx.de>, 2012
+# Volker Theile <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2013
 # warhog <warhog@gmx.de>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-07 09:06+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:40+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -233,9 +234,6 @@ msgstr "Arbeite als WINS Server."
 msgid "Action"
 msgstr "Aktion"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "Aktiviere S.M.A.R.T. Überwachung"
-
 msgid "Add"
 msgstr "Hinzufügen"
 
@@ -292,8 +290,8 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr "Erlaube den Cleints unterbrochende Uploads und Downloads wieder aufzunehmen."
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
-msgstr "Erlaube diesem Server sich selbst als Zeitserver für Windows Clients bekannt zu machen"
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr ""
 
 msgid "Allowed clients"
 msgstr "Zulässige Clienten"
@@ -770,9 +768,6 @@ msgstr "Kabelgebundene Netzwerkverbindung erstellt."
 msgid "Created wireless network connection."
 msgstr "Drahtlose Netzwerkverbindung erstellt."
 
-msgid "Critical"
-msgstr "Kritisch"
-
 msgid "Croatia"
 msgstr "Kroatien"
 
@@ -830,8 +825,8 @@ msgstr "Dateien beim Empfänger löschen, die beim Sender nicht existieren."
 msgid "Denmark"
 msgstr "Dänemark"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "Verweigere Zugang ohne gültige Shell"
+msgid "Deny logins which do not have a valid shell."
+msgstr "Verweigere Anmeldungen, die keine gültige Shell haben."
 
 msgid "Description"
 msgstr "Beschreibung"
@@ -910,6 +905,9 @@ msgstr "Festplattennutzung"
 
 msgid "Disks"
 msgstr "Laufwerke"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
 
 msgid "Djibouti"
 msgstr "Dschibuti"
@@ -1062,8 +1060,8 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Aktivieren, wenn nur teilweise übertragene Dateien behalten werden sollen, andernfalls werden diese gelöscht."
 
-msgid "Enable user home directories"
-msgstr "Aktiviere Heimatverzeichnisse für Benutzer"
+msgid "Enable user home directories."
+msgstr "Aktiviere Heimatverzeichnisse für Benutzer."
 
 msgid "Enable write-cache"
 msgstr "Aktiviere Schreibcache"
@@ -1173,7 +1171,7 @@ msgid "File Systems Status"
 msgstr "Dateisystemstatus"
 
 msgid "File path"
-msgstr ""
+msgstr "Dateipfad"
 
 msgid "File system"
 msgstr "Dateisystem"
@@ -1335,6 +1333,9 @@ msgstr "Verstecke Dotfiles"
 msgid "Hide navigation"
 msgstr "Navigation ausblenden"
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Heimatverzeichnisse"
 
@@ -1481,9 +1482,6 @@ msgstr "Indien"
 
 msgid "Indonesia"
 msgstr "Indonesien"
-
-msgid "Informal"
-msgstr "Informell"
 
 msgid "Information"
 msgstr "Information"
@@ -1789,6 +1787,9 @@ msgstr "Max. Loginversuche"
 msgid "Max. passive port"
 msgstr "Höchster passiver Port"
 
+msgid "Maximum"
+msgstr "Maximum"
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maximale Download-Rate (KiB/s)"
 
@@ -1896,6 +1897,9 @@ msgstr "Überwacht"
 
 msgid "Monitoring"
 msgstr "Überwachung"
+
+msgid "Monitoring enabled"
+msgstr "Überwachung aktiviert"
 
 msgid "Month"
 msgstr "Monat"
@@ -2505,13 +2509,12 @@ msgstr "Report"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
-msgstr "Berichte wenn sich die Temperatur um mindestens N Grad Celsius seit dem letzten Bericht geändert hat. Auf 0 setzen um diesen Bericht zu deaktivieren."
+"last report."
+msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
-msgstr "Berichte wenn die Temperatur größer oder gleich N Grad Celsius ist. Auf 0 setzen um diesen Bericht zu deaktivieren."
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr ""
 
 msgid "Repository"
 msgstr "Quelle"
@@ -3627,7 +3630,7 @@ msgid "Updated Rsync server module \"{{ name }}\"."
 msgstr ""
 
 msgid "Updated Rsync task."
-msgstr ""
+msgstr "Rsync-Aufgabe wurden aktualisiert."
 
 msgid "Updated SMB/CIFS settings."
 msgstr ""
@@ -3639,7 +3642,7 @@ msgid "Updated SSH certificate."
 msgstr "SSH-Zertifikat wurde aktualisiert."
 
 msgid "Updated SSH settings."
-msgstr ""
+msgstr "SSH-Einstellungen wurden aktualisiert."
 
 msgid "Updated VLAN network connection \"{{ devicename }}\"."
 msgstr ""
@@ -3708,7 +3711,7 @@ msgid "Updated update management settings."
 msgstr ""
 
 msgid "Updated user \"{{ name }}\"."
-msgstr ""
+msgstr "Benutzer \"{{ name }}\" aktualisiert."
 
 msgid "Updated user profile."
 msgstr "Benutzerprofil wurde aktualisiert."
@@ -3745,6 +3748,9 @@ msgstr "NTP Server benutzen"
 
 msgid "Use chroot"
 msgstr "chroot aktivieren."
+
+msgid "Use global settings"
+msgstr "Globale Einstellungen verwenden"
 
 msgid "Use sendfile"
 msgstr "Sendfile benutzen"
@@ -3908,6 +3914,9 @@ msgstr "Jemen"
 
 msgid "Yes"
 msgstr "Ja"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr "Dein Profil"

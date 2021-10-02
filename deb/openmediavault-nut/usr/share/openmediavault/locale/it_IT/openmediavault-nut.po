@@ -5,12 +5,12 @@
 # Translators:
 # maurorulli <mauro.rulli@gmail.com>, 2012
 # Paolo Velati <paolo.velati@gmail.com>, 2013-2015,2021
-# Volker <votdev@gmx.de>, 2012
+# Volker Theile <votdev@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-28 17:38+0200\n"
+"POT-Creation-Date: 2021-10-02 10:32+0200\n"
 "PO-Revision-Date: 2021-07-22 07:45+0000\n"
 "Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault/openmediavault/language/it/)\n"

@@ -6,14 +6,14 @@
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014-2016
 # Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020
 # Ji-Hyeon Gim <potatogim@potatogim.net>, 2020
-# Volker <votdev@gmx.de>, 2014
+# Volker Theile <votdev@gmx.de>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-07 08:42+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -226,9 +226,6 @@ msgstr "WINS 서버로 동작"
 msgid "Action"
 msgstr "행동"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "S.M.A.R.T. 모니터링을 활성화"
-
 msgid "Add"
 msgstr "추가"
 
@@ -285,8 +282,8 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
-msgstr "이 서버가 Windows 클라이언트에게 자신을 시간 서버로 알리는 것을 가능하게 합니다."
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr ""
 
 msgid "Allowed clients"
 msgstr "허용된 클라이언트"
@@ -763,9 +760,6 @@ msgstr ""
 msgid "Created wireless network connection."
 msgstr ""
 
-msgid "Critical"
-msgstr "치명적인"
-
 msgid "Croatia"
 msgstr "크로아티아"
 
@@ -823,8 +817,8 @@ msgstr ""
 msgid "Denmark"
 msgstr "덴마크"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "유효한 쉘이 아닌 경우에 대해 로그인을 거부합니다."
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
 
 msgid "Description"
 msgstr "설명"
@@ -903,6 +897,9 @@ msgstr ""
 
 msgid "Disks"
 msgstr "디스크"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
 
 msgid "Djibouti"
 msgstr "지부티"
@@ -1055,8 +1052,8 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "전송된 파일을 부분적으로 유지하려면 이 옵션을 활성화합니다. 비활성화 할 경우, 전송이 중단되면 파일이 삭제될 것입니다."
 
-msgid "Enable user home directories"
-msgstr "사용자 홈 경로 활성화"
+msgid "Enable user home directories."
+msgstr ""
 
 msgid "Enable write-cache"
 msgstr ""
@@ -1328,6 +1325,9 @@ msgstr "점(.) 파일 숨기기"
 msgid "Hide navigation"
 msgstr ""
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr "홈 경로"
 
@@ -1474,9 +1474,6 @@ msgstr "인도"
 
 msgid "Indonesia"
 msgstr "인도네시아"
-
-msgid "Informal"
-msgstr " 비공식적인"
 
 msgid "Information"
 msgstr "정보"
@@ -1782,6 +1779,9 @@ msgstr "최대 로그인 시도 횟수"
 msgid "Max. passive port"
 msgstr ""
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "최대 내려받기 속도 (KiB/s)"
 
@@ -1889,6 +1889,9 @@ msgstr ""
 
 msgid "Monitoring"
 msgstr "감시"
+
+msgid "Monitoring enabled"
+msgstr ""
 
 msgid "Month"
 msgstr "달"
@@ -2498,13 +2501,12 @@ msgstr "보고"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
-msgstr "마지막 보고 이후에 섭씨 온도가 최소 N도 이상 변화하면 보고합니다. 이 보고를 비활성화하려면 0으로 설정합니다."
+"last report."
+msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
-msgstr "섭씨 온도가 N도 이상이라면 보고합니다. 이 보고를 비활성화하려면 0으로 설정합니다."
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr ""
 
 msgid "Repository"
 msgstr "저장소"
@@ -3739,6 +3741,9 @@ msgstr "NTP 서버 사용"
 msgid "Use chroot"
 msgstr "chroot 사용"
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "sendfile 사용"
 
@@ -3901,6 +3906,9 @@ msgstr "예맨"
 
 msgid "Yes"
 msgstr "예"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr ""

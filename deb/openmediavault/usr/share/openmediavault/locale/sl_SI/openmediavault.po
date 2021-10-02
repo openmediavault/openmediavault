@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-07 08:42+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -223,9 +223,6 @@ msgstr "Obnašaj se kot WINS strežnik"
 msgid "Action"
 msgstr "Dejanje"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "Vklopi S.M.A.R.T. nadzor"
-
 msgid "Add"
 msgstr "Dodaj"
 
@@ -282,7 +279,7 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
+"Allow this server to advertise itself as a time server to Windows clients."
 msgstr ""
 
 msgid "Allowed clients"
@@ -760,9 +757,6 @@ msgstr ""
 msgid "Created wireless network connection."
 msgstr ""
 
-msgid "Critical"
-msgstr "Kritično"
-
 msgid "Croatia"
 msgstr "Hrvaška"
 
@@ -820,8 +814,8 @@ msgstr ""
 msgid "Denmark"
 msgstr "Danska"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "Zavrni prijave, ki nimajo veljavne lupine"
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
 
 msgid "Description"
 msgstr "Opis"
@@ -899,6 +893,9 @@ msgid "Disk Usage"
 msgstr ""
 
 msgid "Disks"
+msgstr ""
+
+msgid "Display the home directory of the user in the browse list."
 msgstr ""
 
 msgid "Djibouti"
@@ -1052,7 +1049,7 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr ""
 
-msgid "Enable user home directories"
+msgid "Enable user home directories."
 msgstr ""
 
 msgid "Enable write-cache"
@@ -1325,6 +1322,9 @@ msgstr "Skrij datoteke, ki se začnejo s piko"
 msgid "Hide navigation"
 msgstr ""
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Domače mape"
 
@@ -1471,9 +1471,6 @@ msgstr "Indija"
 
 msgid "Indonesia"
 msgstr "Indonezija"
-
-msgid "Informal"
-msgstr "Neuradno"
 
 msgid "Information"
 msgstr "Informacije"
@@ -1779,6 +1776,9 @@ msgstr "Maks. št. poskusov prijave"
 msgid "Max. passive port"
 msgstr ""
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "Najhitrejši prenos podatkov (KiB/s)"
 
@@ -1886,6 +1886,9 @@ msgstr ""
 
 msgid "Monitoring"
 msgstr "Monitoring"
+
+msgid "Monitoring enabled"
+msgstr ""
 
 msgid "Month"
 msgstr "Mesec"
@@ -2495,12 +2498,11 @@ msgstr "ijavi"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
+"last report."
 msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
+"Report if the temperature is greater than or equal to N degrees Celsius."
 msgstr ""
 
 msgid "Repository"
@@ -3736,6 +3738,9 @@ msgstr "Uporabi NTP strežnik"
 msgid "Use chroot"
 msgstr "Uporabi chroot"
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr ""
 
@@ -3898,6 +3903,9 @@ msgstr "Jemen"
 
 msgid "Yes"
 msgstr "Da"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr ""

@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-07 08:42+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -225,9 +225,6 @@ msgstr "Виступати в якості WINS сервера."
 msgid "Action"
 msgstr "Дія"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "Активація S.M.A.R.T. моніторингу"
-
 msgid "Add"
 msgstr "Додати"
 
@@ -284,8 +281,8 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
-msgstr "Дозволити цьому серверу видавати себе в якості сервера часу для Windows клієнтів"
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr ""
 
 msgid "Allowed clients"
 msgstr "Дозволені клієнти"
@@ -762,9 +759,6 @@ msgstr ""
 msgid "Created wireless network connection."
 msgstr ""
 
-msgid "Critical"
-msgstr "Критична"
-
 msgid "Croatia"
 msgstr "Хорватія"
 
@@ -822,8 +816,8 @@ msgstr ""
 msgid "Denmark"
 msgstr "Данія"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "Заборонити логіни, які не мають дійсну оболонку"
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
 
 msgid "Description"
 msgstr "Опис"
@@ -902,6 +896,9 @@ msgstr ""
 
 msgid "Disks"
 msgstr "Диски"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
 
 msgid "Djibouti"
 msgstr "Джібуті"
@@ -1054,8 +1051,8 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Увімкніть цей параметр, щоб зберегти частково завантажені файли, в іншому випадку вони будуть вилучені, якщо передача перерветься."
 
-msgid "Enable user home directories"
-msgstr "Увімкнути домашній каталог користувача"
+msgid "Enable user home directories."
+msgstr ""
 
 msgid "Enable write-cache"
 msgstr ""
@@ -1327,6 +1324,9 @@ msgstr "Приховати dot файли"
 msgid "Hide navigation"
 msgstr ""
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Домашній каталог"
 
@@ -1473,9 +1473,6 @@ msgstr "Індія"
 
 msgid "Indonesia"
 msgstr "Індонезія"
-
-msgid "Informal"
-msgstr "Неформальна"
 
 msgid "Information"
 msgstr "Інформація"
@@ -1781,6 +1778,9 @@ msgstr "Максимум спроб для входу"
 msgid "Max. passive port"
 msgstr ""
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "Максимальна швидкість завантаження (КіБ/с)"
 
@@ -1888,6 +1888,9 @@ msgstr ""
 
 msgid "Monitoring"
 msgstr "Моніторинг"
+
+msgid "Monitoring enabled"
+msgstr ""
 
 msgid "Month"
 msgstr "Місяць"
@@ -2497,13 +2500,12 @@ msgstr "Рапорт"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
-msgstr "Повідомити, якщо температура змінилася, принаймні на N градусів за Цельсієм з часу останньої доповіді. Встановіть 0 щоб вимкнути цей звіт."
+"last report."
+msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
-msgstr "Повідомте, якщо температура вища або рівна N градусам Цельсія. Встановіть значення 0, щоб вимкнути цей звіт."
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr ""
 
 msgid "Repository"
 msgstr "Репозиторій"
@@ -3738,6 +3740,9 @@ msgstr "Використовувати NTP сервер"
 msgid "Use chroot"
 msgstr "Використовувати chroot"
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "Використовувати надсилання файлу"
 
@@ -3900,6 +3905,9 @@ msgstr "Ємен"
 
 msgid "Yes"
 msgstr "Так"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr ""

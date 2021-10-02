@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-07 08:42+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -229,9 +229,6 @@ msgstr "WINS szerverként való viselkedés"
 msgid "Action"
 msgstr "Művelet"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "S.M.A.R.T. figyelés aktiválása."
-
 msgid "Add"
 msgstr "Hozzáadás"
 
@@ -288,8 +285,8 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr "Megszakadt feltöltések és letöltések folytatásának engedélyezése a kliensek számára."
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
-msgstr "Szerver közzétételének engedélyezése mint idő szerver, Windows klienseken"
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr ""
 
 msgid "Allowed clients"
 msgstr "Engedélyezett kliensek"
@@ -766,9 +763,6 @@ msgstr "vezetékes hálózati kapcsolat létrehozva."
 msgid "Created wireless network connection."
 msgstr "Vezeték nélküli hálózati kapcsolat létrehozva."
 
-msgid "Critical"
-msgstr "Kritikus"
-
 msgid "Croatia"
 msgstr "Horvátország"
 
@@ -826,8 +820,8 @@ msgstr "Fájlok törlése a fogadó oldalon, ha a feladó nem létezik."
 msgid "Denmark"
 msgstr "Dánia"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "Bejelentkezések tiltása, ha nincs érvényes parancsértelmező"
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
 
 msgid "Description"
 msgstr "Leírás"
@@ -906,6 +900,9 @@ msgstr "Lemez használat"
 
 msgid "Disks"
 msgstr "Lemezek"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
 
 msgid "Djibouti"
 msgstr "Dzsibuti"
@@ -1058,8 +1055,8 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Engedélyezze ezt az opciót, hogy megtartsa a részben átküldött fájlokat, ellenkező esetben törlésre kerülnek, ha az átvitel megszakad."
 
-msgid "Enable user home directories"
-msgstr "Felhasználó saját könyvtárak engedélyezése"
+msgid "Enable user home directories."
+msgstr ""
 
 msgid "Enable write-cache"
 msgstr "Gyorsítótár engedélyezése."
@@ -1169,13 +1166,13 @@ msgid "File Systems Status"
 msgstr "Fájlrendszerek állapota "
 
 msgid "File path"
-msgstr ""
+msgstr "Fájl elérési út"
 
 msgid "File system"
 msgstr "Fájlrendszer"
 
 msgid "File systems"
-msgstr ""
+msgstr "Fájlrendszerek"
 
 msgid "Filename"
 msgstr "Fájlnév"
@@ -1236,7 +1233,7 @@ msgid "Full"
 msgstr "Teljes"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Gabon"
 msgstr "Gabon"
@@ -1329,6 +1326,9 @@ msgid "Hide dot files"
 msgstr "Ponttal kezdődő fájlok elrejtése"
 
 msgid "Hide navigation"
+msgstr "Navigáció elrejtése"
+
+msgid "Home"
 msgstr ""
 
 msgid "Home directories"
@@ -1408,7 +1408,7 @@ msgstr "Ha az 'Engedélyezett vendégek' opció van kiválasztva és nem rendelk
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
 "to connect to the module."
-msgstr ""
+msgstr "Ha ez be van állítva, akkor az kliensnek meg kell adnia egy felhasználónevet és jelszót, hogy csatlakozni tudjon a modulhoz."
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
@@ -1477,9 +1477,6 @@ msgstr "India"
 
 msgid "Indonesia"
 msgstr "Indonézia"
-
-msgid "Informal"
-msgstr "Megfelelő"
 
 msgid "Information"
 msgstr "Információ"
@@ -1785,6 +1782,9 @@ msgstr "Max. bejelentkezési kísérlet"
 msgid "Max. passive port"
 msgstr "Max. passzív port"
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maximális letöltési sebesség (KB/s)"
 
@@ -1892,6 +1892,9 @@ msgstr "Monitorozva"
 
 msgid "Monitoring"
 msgstr "Monitorozás"
+
+msgid "Monitoring enabled"
+msgstr ""
 
 msgid "Month"
 msgstr "Hónap"
@@ -2501,13 +2504,12 @@ msgstr "Jelentés"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
-msgstr "Jelzés, ha a hőmérséklet legalább N Celsius fokkal megváltozott az utolsó jelzés óta. A 0 beállítás letiltja a jelzést."
+"last report."
+msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
-msgstr "Jelzés, ha a hőmérséklet nagyobb vagy egyenlő N Celsius fokkal. A 0 beállítás letiltja a jelzést."
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr ""
 
 msgid "Repository"
 msgstr "Gyűjtemény"
@@ -2855,7 +2857,7 @@ msgid "Show details"
 msgstr "Részletek megjelenítése"
 
 msgid "Show navigation"
-msgstr ""
+msgstr "Navigáció megjelenítése"
 
 msgid "Show/Hide columns"
 msgstr "Oszlopok megjelenítése/elrejtése "
@@ -3131,7 +3133,7 @@ msgstr "Feladatok végrehajtása a bekapcsoló gomb megnyomásakor."
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
 "the"
-msgstr ""
+msgstr "A kezelőfelület még nincs konfigurálva. A személyre szabáshoz kérjük, menjen a"
 
 msgid "The data has been copied to the clipboard."
 msgstr "Az adatokat átmásolva a vágólapra."
@@ -3538,7 +3540,7 @@ msgid "U.S. Virgin Islands"
 msgstr "U.S. Virgin-szigetek"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "ISMERETLEN"
@@ -3742,6 +3744,9 @@ msgstr "NTP szerver használata"
 msgid "Use chroot"
 msgstr "Chroot használata"
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "Sendfile használata"
 
@@ -3904,6 +3909,9 @@ msgstr "Jemen"
 
 msgid "Yes"
 msgstr "Igen"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr "Az ön profilja"

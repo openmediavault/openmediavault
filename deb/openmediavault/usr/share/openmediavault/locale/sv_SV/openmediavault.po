@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-08 15:39+0000\n"
-"Last-Translator: Jonatan Nyberg <jonatan@autistici.org>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -226,9 +226,6 @@ msgstr "Fungera som en WINS-server."
 msgid "Action"
 msgstr "Åtgärd"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "Aktivera S.M.A.R.T-övervakning."
-
 msgid "Add"
 msgstr "Lägg till"
 
@@ -285,8 +282,8 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr "Tillåt klienter att återuppta avbrutna uppladdningar och hämtningar."
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
-msgstr "Tillåt denna server att annonsera sig som en tidsserver till Windows-klienter"
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr ""
 
 msgid "Allowed clients"
 msgstr "Tillåtna klienter"
@@ -763,9 +760,6 @@ msgstr "Skapade trådbunden nätverksanslutning."
 msgid "Created wireless network connection."
 msgstr "Skapade trådlös nätverksanslutning."
 
-msgid "Critical"
-msgstr "Kritisk"
-
 msgid "Croatia"
 msgstr "Kroatien"
 
@@ -823,8 +817,8 @@ msgstr "Ta bort filer på mottagarsidan som inte finns på avsändarsidan."
 msgid "Denmark"
 msgstr "Danmark"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "Neka inloggningar som inte har ett giltigt skal"
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
 
 msgid "Description"
 msgstr "Beskrivning"
@@ -903,6 +897,9 @@ msgstr "Diskanvändning"
 
 msgid "Disks"
 msgstr "Diskar"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1055,8 +1052,8 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Aktivera det här alternativet för att behålla delvis överförda filer, annars tas de bort om överföringen avbryts."
 
-msgid "Enable user home directories"
-msgstr "Aktivera användarens hemmappar"
+msgid "Enable user home directories."
+msgstr ""
 
 msgid "Enable write-cache"
 msgstr "Aktivera skriv-cache"
@@ -1328,6 +1325,9 @@ msgstr "Dölj punkt-filer"
 msgid "Hide navigation"
 msgstr "Dölj navigering"
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Hemmappar"
 
@@ -1474,9 +1474,6 @@ msgstr "Indien"
 
 msgid "Indonesia"
 msgstr "Indonesien"
-
-msgid "Informal"
-msgstr "Informell"
 
 msgid "Information"
 msgstr "Information"
@@ -1782,6 +1779,9 @@ msgstr "Max. inloggningsförsök"
 msgid "Max. passive port"
 msgstr "Max. passiv port"
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maximal hämtningshastighet (KiB/s)"
 
@@ -1889,6 +1889,9 @@ msgstr "Övervakad"
 
 msgid "Monitoring"
 msgstr "Övervakning"
+
+msgid "Monitoring enabled"
+msgstr ""
 
 msgid "Month"
 msgstr "Månad"
@@ -2498,13 +2501,12 @@ msgstr "Rapportera"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
-msgstr "Rapportera om temperaturen har förändrats med minst N grader Celsius sedan den senaste rapporten. Ställ in 0 för att inaktivera denna rapport."
+"last report."
+msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
-msgstr "Rapportera om temperaturen är större än eller lika med N grader Celsius. Ställ in 0 för att inaktivera denna rapport."
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr ""
 
 msgid "Repository"
 msgstr "Förråd"
@@ -3739,6 +3741,9 @@ msgstr "Använd NTP-server"
 msgid "Use chroot"
 msgstr "Använd chroot"
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "Använd sendfile"
 
@@ -3901,6 +3906,9 @@ msgstr "Yemen"
 
 msgid "Yes"
 msgstr "Ja"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr "Din profil"

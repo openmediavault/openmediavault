@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-28 17:38+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-10-02 10:32+0200\n"
+"PO-Revision-Date: 2021-09-27 05:12+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,10 +36,10 @@ msgid "Antivirus"
 msgstr "アンチウィルス"
 
 msgid "April"
-msgstr ""
+msgstr "4月"
 
 msgid "August"
-msgstr ""
+msgstr "8月"
 
 msgid "Be verbose."
 msgstr "詳細に。"
@@ -48,13 +48,13 @@ msgid "Comment"
 msgstr "コメント"
 
 msgid "Create"
-msgstr ""
+msgstr "作成"
 
 msgid "Created on-access scan."
-msgstr ""
+msgstr "アクセス時のスキャンを作成しました。"
 
 msgid "Created scheduled scan."
-msgstr ""
+msgstr "スケジュールされたスキャンを作成しました。"
 
 msgid "Database checks"
 msgstr "データベースチェック"
@@ -69,10 +69,10 @@ msgid "Day of week"
 msgstr "曜日"
 
 msgid "December"
-msgstr ""
+msgstr "12月"
 
 msgid "Delete immediately"
-msgstr ""
+msgstr "すぐに削除"
 
 msgid "Detect PUA"
 msgstr "PUAの検出"
@@ -84,7 +84,7 @@ msgid "Done ..."
 msgstr "完了 ..."
 
 msgid "Edit"
-msgstr ""
+msgstr "編集"
 
 msgid "Edit on-access scan"
 msgstr "アクセス時のスキャンを編集"
@@ -140,13 +140,13 @@ msgid "Execute scheduled job"
 msgstr "スケジュールされたJobを実行"
 
 msgid "Execute scheduled scan"
-msgstr ""
+msgstr "スケジュールされたスキャンを実行"
 
 msgid "Extra options"
 msgstr "その他のオプション"
 
 msgid "February"
-msgstr ""
+msgstr "2月"
 
 msgid "Follow directory symlinks"
 msgstr "ディレクトリのシンボリックリンクをたどる"
@@ -161,7 +161,7 @@ msgid "Follow regular file symlinks."
 msgstr "通常ファイルのシンボリックリンクをたどります。"
 
 msgid "Friday"
-msgstr ""
+msgstr "金曜"
 
 msgid "General settings"
 msgstr "一般設定"
@@ -173,13 +173,13 @@ msgid "Infected files"
 msgstr "感染したファイル"
 
 msgid "January"
-msgstr ""
+msgstr "1月"
 
 msgid "July"
-msgstr ""
+msgstr "7月"
 
 msgid "June"
-msgstr ""
+msgstr "6月"
 
 msgid "Log clean files"
 msgstr "ログファイルの整形"
@@ -188,10 +188,10 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "ログファイルを整形します。ログファイルのサイズが劇的に大きくなります。"
 
 msgid "March"
-msgstr ""
+msgstr "3月"
 
 msgid "May"
-msgstr ""
+msgstr "5月"
 
 msgid "Message"
 msgstr "メッセージ"
@@ -200,7 +200,7 @@ msgid "Minute"
 msgstr "分"
 
 msgid "Monday"
-msgstr ""
+msgstr "月曜"
 
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "共有フォルダを監視し、新規または変更されたファイルをスキャンします。"
@@ -209,19 +209,19 @@ msgid "Month"
 msgstr "月"
 
 msgid "Move to quarantine"
-msgstr ""
+msgstr "検疫に移動"
 
 msgid "Multiscan"
 msgstr "マルチスキャン"
 
 msgid "November"
-msgstr ""
+msgstr "11月"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "データベースの更新を1日に何回確認するかを設定します。0に設定すると確認しません。"
 
 msgid "October"
-msgstr ""
+msgstr "10月"
 
 msgid "On Access Scans"
 msgstr "アクセス時のスキャン"
@@ -233,7 +233,7 @@ msgid "Perform a deeper analysis of executable files."
 msgstr "実行可能ファイルのより詳細な分析を行う。"
 
 msgid "Perform nothing"
-msgstr ""
+msgstr "何もしない"
 
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
@@ -245,7 +245,7 @@ msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
 "daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "詳細については <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>マニュアルページ</a> を確認してください。"
 
 msgid "Quarantine"
 msgstr "検疫"
@@ -254,7 +254,7 @@ msgid "Run"
 msgstr "実行"
 
 msgid "Saturday"
-msgstr ""
+msgstr "土曜"
 
 msgid "Scan ELF"
 msgstr "ELFのスキャン"
@@ -281,10 +281,10 @@ msgid "Scheduled Jobs"
 msgstr "スケジュールされたジョブ"
 
 msgid "Scheduled Scans"
-msgstr ""
+msgstr "スケジュールされたスキャン"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "スケジューリング"
 
 msgid "Send command output via email"
 msgstr "コマンドの出力を電子メールで送信"
@@ -293,7 +293,7 @@ msgid "Send email"
 msgstr "電子メールの送信"
 
 msgid "September"
-msgstr ""
+msgstr "9月"
 
 msgid "Settings"
 msgstr "設定"
@@ -302,7 +302,7 @@ msgid "Shared folder"
 msgstr "共有フォルダ"
 
 msgid "Sunday"
-msgstr ""
+msgstr "日曜"
 
 msgid "The location of the files to scan on-access."
 msgstr "アクセス時のスキャンを行うファイルの場所。"
@@ -317,22 +317,22 @@ msgid "The option, how to handle infected files."
 msgstr "感染したファイルをどのように処理するかのオプション。"
 
 msgid "Thursday"
-msgstr ""
+msgstr "木曜"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "火曜"
 
 msgid "Updated on-access scan."
-msgstr ""
+msgstr "アクセス時のスキャンを更新しました。"
 
 msgid "Updated scheduled scan."
-msgstr ""
+msgstr "スケジュールされたスキャンを更新しました。"
 
 msgid "Verbose"
 msgstr "詳細"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "水曜"
 
 msgid "n/a"
 msgstr "n/a"

@@ -14,14 +14,14 @@
 # Pierre Girard <pierre4012@hotmail.com>, 2021
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012-2013
 # Stéphane Bocquet <stephane_bocquet@hotmail.com>, 2012
-# Volker <votdev@gmx.de>, 2015-2016,2018,2021
+# Volker Theile <votdev@gmx.de>, 2015-2016,2018,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-09 22:40+0000\n"
-"Last-Translator: Pierre Girard <pierre4012@hotmail.com>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -234,9 +234,6 @@ msgstr "Agir en tant que serveur WINS."
 msgid "Action"
 msgstr "Action"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "Activer la surveillance S.M.A.R.T."
-
 msgid "Add"
 msgstr "Ajouter"
 
@@ -293,8 +290,8 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr "Permettre aux clients de redémarrer les téléchargements interrompus."
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
-msgstr "Autoriser ce serveur à se faire connaître comme un serveur de temps pour les clients Windows"
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr ""
 
 msgid "Allowed clients"
 msgstr "Clients autorisés"
@@ -771,9 +768,6 @@ msgstr "Connexion réseau filaire créée."
 msgid "Created wireless network connection."
 msgstr "Connexion réseau sans fil créée."
 
-msgid "Critical"
-msgstr "Critique"
-
 msgid "Croatia"
 msgstr "Croatie"
 
@@ -831,8 +825,8 @@ msgstr "Supprimer les fichiers sur la destination qui n'existent pas sur la sour
 msgid "Denmark"
 msgstr "Danemark"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "Refuser les logins qui n'ont pas de shell valide"
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
 
 msgid "Description"
 msgstr "Description"
@@ -911,6 +905,9 @@ msgstr "Utilisation du disque"
 
 msgid "Disks"
 msgstr "Disques"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1063,8 +1060,8 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Activer cette option pour conserver les fichiers partiellement transférés, sinon ils seront supprimés si le transfert est interrompu."
 
-msgid "Enable user home directories"
-msgstr "Activer le partage des répertoires personnels"
+msgid "Enable user home directories."
+msgstr ""
 
 msgid "Enable write-cache"
 msgstr "Activer le cache d'écriture"
@@ -1336,6 +1333,9 @@ msgstr "Cacher les fichiers systèmes"
 msgid "Hide navigation"
 msgstr "Masquer la navigation"
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Répertoires personnels"
 
@@ -1482,9 +1482,6 @@ msgstr "Inde"
 
 msgid "Indonesia"
 msgstr "Indonésie"
-
-msgid "Informal"
-msgstr "Informel"
 
 msgid "Information"
 msgstr "Information"
@@ -1790,6 +1787,9 @@ msgstr "Max. tentatives de connexion"
 msgid "Max. passive port"
 msgstr "Port passif max."
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "Vitesse réception max. (Ko/s)"
 
@@ -1897,6 +1897,9 @@ msgstr "Surveillé"
 
 msgid "Monitoring"
 msgstr "Surveillance"
+
+msgid "Monitoring enabled"
+msgstr ""
 
 msgid "Month"
 msgstr "Mois"
@@ -2506,13 +2509,12 @@ msgstr "Rapport"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
-msgstr "Averti si la température a changé d'au moins N degrés Celsius depuis le dernier rapport. Mettre à 0 pour désactiver cet avertissement."
+"last report."
+msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
-msgstr "Prévenir si la température dépasse ou est égale a N degrés Celsius. positionner à 0 pour désactiver."
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr ""
 
 msgid "Repository"
 msgstr "Dépôt"
@@ -3747,6 +3749,9 @@ msgstr "Utiliser NTP"
 msgid "Use chroot"
 msgstr "Utiliser le chroot"
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "Utiliser sendfile"
 
@@ -3909,6 +3914,9 @@ msgstr "Yémen"
 
 msgid "Yes"
 msgstr "Oui"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr "Votre profil"

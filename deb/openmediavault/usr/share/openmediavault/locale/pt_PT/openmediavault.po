@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 10:41+0200\n"
-"PO-Revision-Date: 2021-09-07 08:42+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2021-10-02 10:35+0200\n"
+"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -224,9 +224,6 @@ msgstr "Atuar como um servidor WINS"
 msgid "Action"
 msgstr "Ação"
 
-msgid "Activate S.M.A.R.T. monitoring."
-msgstr "Ativar monitorização S.M.A.R.T."
-
 msgid "Add"
 msgstr "Adicionar"
 
@@ -283,8 +280,8 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
 
 msgid ""
-"Allow this server to advertise itself as a time server to Windows clients"
-msgstr "Permitir que este servidor o alerte de si mesmo como um servidor de horário para clientes Windows"
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr ""
 
 msgid "Allowed clients"
 msgstr ""
@@ -761,9 +758,6 @@ msgstr ""
 msgid "Created wireless network connection."
 msgstr ""
 
-msgid "Critical"
-msgstr "Critico"
-
 msgid "Croatia"
 msgstr "Croácia"
 
@@ -821,8 +815,8 @@ msgstr ""
 msgid "Denmark"
 msgstr "Dinamarca"
 
-msgid "Deny logins which do not have a valid shell"
-msgstr "Negar logins que não tenham um shell válido"
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
 
 msgid "Description"
 msgstr "Descrição"
@@ -900,6 +894,9 @@ msgid "Disk Usage"
 msgstr ""
 
 msgid "Disks"
+msgstr ""
+
+msgid "Display the home directory of the user in the browse list."
 msgstr ""
 
 msgid "Djibouti"
@@ -1053,8 +1050,8 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Active essa opção para manter os arquivos parcialmente transferidos, caso contrário, eles serão excluídos se a transferência for interrompida."
 
-msgid "Enable user home directories"
-msgstr "Ativar diretoria de raiz dos utilizadores"
+msgid "Enable user home directories."
+msgstr ""
 
 msgid "Enable write-cache"
 msgstr ""
@@ -1326,6 +1323,9 @@ msgstr "Esconder ficheiros dot"
 msgid "Hide navigation"
 msgstr ""
 
+msgid "Home"
+msgstr ""
+
 msgid "Home directories"
 msgstr "Diretórios"
 
@@ -1472,9 +1472,6 @@ msgstr "India"
 
 msgid "Indonesia"
 msgstr "Indonésia"
-
-msgid "Informal"
-msgstr "Informal"
 
 msgid "Information"
 msgstr "Informação"
@@ -1780,6 +1777,9 @@ msgstr "Max. tentativas de entrar"
 msgid "Max. passive port"
 msgstr ""
 
+msgid "Maximum"
+msgstr ""
+
 msgid "Maximum download rate (KiB/s)"
 msgstr "Taxa máxima de descarga (KiB/s)"
 
@@ -1887,6 +1887,9 @@ msgstr ""
 
 msgid "Monitoring"
 msgstr "Monitorizar"
+
+msgid "Monitoring enabled"
+msgstr ""
 
 msgid "Month"
 msgstr "Mês"
@@ -2496,12 +2499,11 @@ msgstr "Relatório"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
-"last report. Set to 0 to disable this report."
-msgstr "Reportar se a temperatura mudou pelo menos N graus Celsius desde o ultimo relatório. Definir 0 para desativar este relatório."
+"last report."
+msgstr ""
 
 msgid ""
-"Report if the temperature is greater than or equal to N degrees Celsius. Set"
-" to 0 to disable this report."
+"Report if the temperature is greater than or equal to N degrees Celsius."
 msgstr ""
 
 msgid "Repository"
@@ -3737,6 +3739,9 @@ msgstr "Usar servidor NTP"
 msgid "Use chroot"
 msgstr "Usar chroot"
 
+msgid "Use global settings"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "Usar envio de ficheiro"
 
@@ -3899,6 +3904,9 @@ msgstr "Iêmen"
 
 msgid "Yes"
 msgstr "Sim"
+
+msgid "Your changes will be lost. Do you want to continue?"
+msgstr ""
 
 msgid "Your profile"
 msgstr ""
