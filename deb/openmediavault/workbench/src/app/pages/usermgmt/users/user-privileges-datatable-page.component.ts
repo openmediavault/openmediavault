@@ -106,17 +106,10 @@ export class UserPrivilegesDatatablePageComponent {
   ) {}
 
   onSave() {
-    const privileges = [];
-    _.forEach(this.page.table.data, (row) => {
-      const privilege = {
-        uuid: _.get(row, 'uuid'),
-        perms: _.toInteger(_.get(row, 'perms'))
-      };
-      if (_.isNull(privilege.perms)) {
-        privilege.perms = -1;
-      }
-      privileges.push(privilege);
-    });
+    const privileges = _.map(_.reject(this.page.table.data, ['perms', null]), (obj) => ({
+      uuid: obj.uuid,
+      perms: _.toInteger(obj.perms)
+    }));
     this.rpcService
       .request('ShareMgmt', 'setPrivilegesByRole', {
         role: 'user',

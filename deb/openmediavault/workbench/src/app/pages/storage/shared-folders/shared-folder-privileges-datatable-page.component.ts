@@ -172,18 +172,11 @@ export class SharedFolderPrivilegesDatatablePageComponent {
   ) {}
 
   onSave() {
-    const privileges = [];
-    _.forEach(this.page.table.data, (row) => {
-      const privilege = {
-        type: _.get(row, 'type'),
-        name: _.get(row, 'name'),
-        perms: _.toInteger(_.get(row, 'perms'))
-      };
-      if (_.isNull(privilege.perms)) {
-        privilege.perms = -1;
-      }
-      privileges.push(privilege);
-    });
+    const privileges = _.map(_.reject(this.page.table.data, ['perms', null]), (obj) => ({
+      name: obj.name,
+      type: obj.type,
+      perms: _.toInteger(obj.perms)
+    }));
     this.rpcService
       .request('ShareMgmt', 'setPrivileges', {
         uuid: _.get(this.page.routeParams, 'uuid'),

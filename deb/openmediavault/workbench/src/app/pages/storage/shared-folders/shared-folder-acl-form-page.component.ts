@@ -278,13 +278,10 @@ export class SharedFolderAclFormPageComponent implements OnInit {
   onSubmit(buttonConfig: FormPageButtonConfig, values: Record<string, any>) {
     this.blockUI.start(translate(gettext('Please wait, updating access control lists ...')));
     // Process RPC parameters.
-    const perms = _.map(
-      _.filter(values.perms, (o) => !_.isNull(o.perms)),
-      (o) => {
-        o.perms = _.parseInt(o.perms);
-        return o;
-      }
-    );
+    const perms = _.map(_.reject(values.perms, ['perms', null]), (obj) => {
+      obj.perms = _.toInteger(obj.perms);
+      return obj;
+    });
     const users = _.filter(perms, ['type', 'user']);
     const groups = _.filter(perms, ['type', 'group']);
     const rpcParams = _.merge({ users, groups }, _.omit(values, 'perms'));
