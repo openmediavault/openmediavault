@@ -558,14 +558,16 @@ class Filesystem extends \OMV\System\BlockDevice
 
 	/**
 	 * Get the mount point of the given filesystem.
-	 * @return The mountpoint of the filesystem or FALSE.
+	 * @return The mount point of the filesystem or FALSE.
 	 * @throw \OMV\ExecException
 	 */
 	public function getMountPoint() {
 		$this->getData();
 		$cmdArgs = [];
-		$cmdArgs[] = "-cnrv";
-		$cmdArgs[] = "-o SOURCE,TARGET,UUID";
+		$cmdArgs[] = "--noheadings";
+		$cmdArgs[] = "--raw";
+		$cmdArgs[] = "--nofsroot";
+		$cmdArgs[] = "--output SOURCE,TARGET,UUID";
 		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
@@ -668,45 +670,7 @@ class Filesystem extends \OMV\System\BlockDevice
 	 * @throw \OMV\ExecException
 	 */
 	public function isMounted() {
-		$this->getData();
-		$cmdArgs = [];
-		$cmdArgs[] = "-cnrv";
-		$cmdArgs[] = "-o SOURCE,UUID";
-		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		// Parse command output:
-		// sysfs
-		// proc
-		// udev
-		// devpts
-		// tmpfs
-		// /dev/sda1 90ee6298-385f-4841-bfdc-8b1e0e0ae5c1
-		// /dev/sdc1 e248be58-2e8c-4abf-9473-7dca10d0ad32
-		// /dev/md0 6ec83dab-5aaa-4e42-88ba-eee5011c4318
-		// /dev/mapper/vg01-lv01 60566672-8aad-4c1c-85c4-ca4196b7bbc5
-		$result = FALSE;
-		foreach ($output as $outputk => $outputv) {
-			// Split the line into parts.
-			$parts = preg_split("/[\s]+/", $outputv);
-			// Is it a device file (/dev/xxx)?
-			if (is_devicefile($parts[0])) {
-				if (realpath($parts[0]) == $this->getCanonicalDeviceFile()) {
-					$result = TRUE;
-					break;
-				}
-			}
-			// Is it a UUID?
-			if ((2 == count($parts)) && is_fs_uuid($parts[1])) {
-				if ($this->hasUuid()) {
-					if ($parts[1] == $this->getUuid()) {
-						$result = TRUE;
-						break;
-					}
-				}
-			}
-		}
-		return $result;
+		return (FALSE === $this->getMountPoint()) ? FALSE : TRUE;
 	}
 
 	/**

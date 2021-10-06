@@ -177,7 +177,7 @@ class MountPoint {
 	}
 
 	/**
-	 * Unmount the this mountpoint.
+	 * Unmount this mount point.
 	 * @param force Set to TRUE to force unmount. Defaults to FALSE.
 	 * @param lazy Set to TRUE to lazy unmount. Defaults to FALSE.
 	 * @return void
