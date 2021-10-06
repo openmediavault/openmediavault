@@ -176,13 +176,12 @@
              let-value="value"
              let-column="column"
              let-row="row">
-  <mat-button-toggle-group #group="matButtonToggleGroup"
-                           fxLayout="row"
-                           value="{{ value }}"
-                           (change)="row[column.prop] = group.value">
-    <mat-button-toggle *ngFor="let item of column.cellTemplateConfig"
+  <mat-button-toggle-group fxLayout="row"
+                           value="{{ value }}">
+    <mat-button-toggle *ngFor="let item of column.cellTemplateConfig.buttons"
                        fxFlex
-                       [value]="item.value">
+                       [value]="item.value"
+                       (change)="onButtonToggleChange($event, row, column)">
       <span>{{ item.text }}</span>
     </mat-button-toggle>
   </mat-button-toggle-group>

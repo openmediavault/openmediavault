@@ -27,11 +27,17 @@ export type DatatableColumn = TableColumn & {
    *                {
    *                  ...
    *                  cellTemplateName: 'buttonToogle',
-   *                  cellTemplateConfig: Array<{
-   *                    value: string;
-   *                    text: string;
-   *                  }>
+   *                  cellTemplateConfig: {
+   *                    allowNone: boolean;
+   *                    buttons: {
+   *                      value: any;
+   *                      text: string;
+   *                    }[]
+   *                  }
    *                }
+   *                If `allowNone` is set to `true`, then a button
+   *                can be unselected. The specified property will
+   *                be set to `null` in that case. Defaults to `false`.
    * checkIcon - Render a checkbox if value is true.
    * placeholder - Display a '-' for empty values.
    * progressBar - Render a progress bar.

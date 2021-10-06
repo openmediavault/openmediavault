@@ -53,20 +53,22 @@ export class UserPrivilegesDatatablePageComponent {
         flexGrow: 1,
         sortable: true,
         cellTemplateName: 'buttonToogle',
-        cellTemplateConfig: [
-          {
-            value: '7',
-            text: gettext('Read/Write')
-          },
-          {
-            value: '5',
-            text: gettext('Read-only')
-          },
-          {
-            value: '0',
-            text: gettext('No access')
-          }
-        ]
+        cellTemplateConfig: {
+          buttons: [
+            {
+              value: '7',
+              text: gettext('Read/Write')
+            },
+            {
+              value: '5',
+              text: gettext('Read-only')
+            },
+            {
+              value: '0',
+              text: gettext('No access')
+            }
+          ]
+        }
       }
     ],
     sorters: [
