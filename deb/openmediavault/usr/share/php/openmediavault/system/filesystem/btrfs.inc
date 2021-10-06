@@ -309,4 +309,63 @@ class Btrfs extends Filesystem {
 			parent::remove();
 		}
 	}
+
+	/**
+	 * Unmount the filesystem.
+	 * @param force Set to TRUE to force unmount. Defaults to FALSE.
+	 * @param lazy Set to TRUE to lazy unmount. Defaults to FALSE.
+	 * @return void
+	 * @throw \OMV\ExecException
+	 */
+	public function umount($force = FALSE, $lazy = FALSE) {
+		// Sometimes the canonical device file of a BTRFS file system
+		// is not the same as the one that is listed in the kernel table
+		// of mounted file systems.
+		//
+		// Example:
+		// # blkid
+		// ...
+		// /dev/sdb: UUID="bc3fd444-4d06-48ef-8bdf-a86a35b0b491" UUID_SUB="ebbcd1e6-be6d-42cd-9511-5b7ae5ba46b1" BLOCK_SIZE="4096" TYPE="btrfs"
+		// /dev/sda: UUID="bc3fd444-4d06-48ef-8bdf-a86a35b0b491" UUID_SUB="acf73633-7c1a-4962-abf0-5749013dadbd" BLOCK_SIZE="4096" TYPE="btrfs"
+		// /dev/sdc: UUID="bc3fd444-4d06-48ef-8bdf-a86a35b0b491" UUID_SUB="9c95f736-93db-4b96-8be3-6058c46a5493" BLOCK_SIZE="4096" TYPE="btrfs"
+		// # ls -alh /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1
+		// lrwxrwxrwx 1 root root 9 Oct  6 20:26 /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1 -> ../../sdc
+		// # readlink --canonicalize /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1
+		// /dev/sdc
+		// # findfs UUID=bc3fd444-4d06-48ef-8bdf-a86a35b0b491
+		// /dev/sdc
+		// # udevadm info --query=property --name=/dev/sdc
+		// ...
+		// ID_PATH=pci-0000:00:03.0-scsi-0:0:1:0
+		// ID_PATH_TAG=pci-0000_00_03_0-scsi-0_0_1_0
+		// ID_FS_UUID=bc3fd444-4d06-48ef-8bdf-a86a35b0b491
+		// ID_FS_UUID_ENC=bc3fd444-4d06-48ef-8bdf-a86a35b0b491
+		// ID_FS_UUID_SUB=9c95f736-93db-4b96-8be3-6058c46a5493
+		// ID_FS_UUID_SUB_ENC=9c95f736-93db-4b96-8be3-6058c46a5493
+		// ID_FS_TYPE=btrfs
+		// ID_FS_USAGE=filesystem
+		// ID_BTRFS_READY=1
+		// DEVLINKS=/dev/disk/by-path/pci-0000:00:03.0-scsi-0:0:1:0 /dev/disk/by-uuid/bc3fd444-4d06-48ef-8bdf-a86a35b0b491 /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1
+		// # mount
+		// ...
+		// /dev/sda on /srv/dev-disk-by-id-scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1 type btrfs (rw,relatime,space_cache,subvolid=5,subvol=/)
+		// # umount /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1
+		// umount: /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1: not mounted.
+		// # cat /etc/fstab
+		// ...
+		// /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1		/srv/dev-disk-by-id-scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1	btrfs	defaults,nofail	0 2
+		//
+		// To workaround this problem we use the mount point to unmount
+		// the file system.
+		$cmdArgs = [];
+		$cmdArgs[] = "-v";
+		if (TRUE === $force)
+			$cmdArgs[] = "-f";
+		if (TRUE === $lazy)
+			$cmdArgs[] = "-l";
+		$cmdArgs[] = escapeshellarg($this->getMountPoint());
+		$cmd = new \OMV\System\Process("umount", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
+	}
 }
