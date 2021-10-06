@@ -287,19 +287,22 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
       );
     }
     this.onActionClick(
-      _.merge(_.omit(action, 'click'), {
-        confirmationDialogConfig: {
-          template: 'confirmation',
-          title: gettext('Delete'),
-          message,
-          buttons: [{}, { class: 'omv-background-color-theme-red' }]
-        },
-        execute: {
-          request: {
-            progressMessage: gettext('Please wait, deleting selected item(s) ...')
+      _.merge(
+        {
+          confirmationDialogConfig: {
+            template: 'confirmation',
+            title: gettext('Delete'),
+            message,
+            buttons: [{}, { class: 'omv-background-color-theme-red' }]
+          },
+          execute: {
+            request: {
+              progressMessage: gettext('Please wait, deleting selected item(s) ...')
+            }
           }
-        }
-      } as any),
+        } as any,
+        _.omit(action, 'click')
+      ),
       selection
     );
   }
