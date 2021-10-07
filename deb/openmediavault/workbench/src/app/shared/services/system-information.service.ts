@@ -19,7 +19,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import * as _ from 'lodash';
 import { EMPTY, Observable, of, ReplaySubject, Subscription } from 'rxjs';
-import { catchError, delay, filter, mergeMap, repeat, tap } from 'rxjs/operators';
+import { catchError, delay, filter, repeat, switchMap, tap } from 'rxjs/operators';
 
 import { RpcService } from '~/app/shared/services/rpc.service';
 
@@ -59,16 +59,19 @@ export class SystemInformationService implements OnDestroy {
         // Do not request system information if we are at the log-in page.
         filter(() => this.router.url !== '/login'),
         // Request the system information via HTTP.
-        mergeMap(() =>
-          this.rpcService.request('System', 'getInformation', null, { updatelastaccess: false })
+        switchMap(() =>
+          this.rpcService
+            .request('System', 'getInformation', null, { updatelastaccess: false })
+            .pipe(
+              catchError((error) => {
+                // Do not show an error notification.
+                if (_.isFunction(error.preventDefault)) {
+                  error.preventDefault();
+                }
+                return EMPTY;
+              })
+            )
         ),
-        catchError((error) => {
-          // Do not show an error notification.
-          if (_.isFunction(error.preventDefault)) {
-            error.preventDefault();
-          }
-          return EMPTY;
-        }),
         // Notify subscribers.
         tap((res: SystemInformation) => {
           // We need to convert some properties to numbers because
