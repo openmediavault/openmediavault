@@ -235,13 +235,16 @@ interface FilesystemInterface {
 	public function mount($options);
 
 	/**
-	 * Unmount the filesystem.
-	 * @param force Set to TRUE to force unmount.
-	 * @param lazy Set to TRUE to lazy unmount.
+	 * Unmount the file system.
+	 * @param force Set to TRUE to force unmount. Defaults to FALSE.
+	 * @param lazy Set to TRUE to lazy unmount. Defaults to FALSE.
+	 * @param directory Set to TRUE to unmount the file system using
+	 * the directory where it has been mounted, otherwise the device
+	 * file is used. Defaults to FALSE.
 	 * @return void
-	 * @throw \OMV\Exception
+	 * @throw \OMV\ExecException
 	 */
-	public function umount($force, $lazy);
+	public function umount($force, $lazy, $directory);
 
 	/**
 	 * Grow the filesystem.

@@ -83,25 +83,6 @@ class Btrfs extends Filesystem {
 	}
 
 	/**
-	 * Get the device file in the following order:
-	 * <ul>
-	 * \li /dev/disk/by-id/xxx
-	 * \li /dev/disk/by-path/xxx
-	 * \li /dev/xxx
-	 * </ul>
-	 * Note, /dev/disk/by-uuid is not supported by this filesystem
-	 * because of reasons.
-	 * @return Returns a device file.
-	 */
-	public function getPredictableDeviceFile() {
-		if (TRUE === $this->hasDeviceFileById())
-			return $this->getDeviceFileById();
-		else if (TRUE === $this->hasDeviceFileByPath())
-			return $this->getDeviceFileByPath();
-		return $this->getCanonicalDeviceFile();
-	}
-
-	/**
 	 * See parent class definition.
 	 */
 	public function getDeviceFiles() {
@@ -311,13 +292,16 @@ class Btrfs extends Filesystem {
 	}
 
 	/**
-	 * Unmount the filesystem.
+	 * Unmount the file system.
 	 * @param force Set to TRUE to force unmount. Defaults to FALSE.
 	 * @param lazy Set to TRUE to lazy unmount. Defaults to FALSE.
+	 * @param directory Set to TRUE to unmount the file system using
+	 * the directory where it has been mounted, otherwise the device
+	 * file is used. Defaults to FALSE.
 	 * @return void
-	 * @throw \OMV\ExecException
+	 * @throw \OMV\Exception
 	 */
-	public function umount($force = FALSE, $lazy = FALSE) {
+	public function umount($force = FALSE, $lazy = FALSE, $directory = FALSE) {
 		// Sometimes the canonical device file of a BTRFS file system
 		// is not the same as the one that is listed in the kernel table
 		// of mounted file systems.
@@ -357,15 +341,6 @@ class Btrfs extends Filesystem {
 		//
 		// To workaround this problem we use the mount point to unmount
 		// the file system.
-		$cmdArgs = [];
-		$cmdArgs[] = "-v";
-		if (TRUE === $force)
-			$cmdArgs[] = "-f";
-		if (TRUE === $lazy)
-			$cmdArgs[] = "-l";
-		$cmdArgs[] = escapeshellarg($this->getMountPoint());
-		$cmd = new \OMV\System\Process("umount", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
+		parent::umount($force, $lazy, TRUE);
 	}
 }

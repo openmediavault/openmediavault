@@ -704,20 +704,24 @@ class Filesystem extends \OMV\System\BlockDevice
 	}
 
 	/**
-	 * Unmount the filesystem.
+	 * Unmount the file system.
 	 * @param force Set to TRUE to force unmount. Defaults to FALSE.
 	 * @param lazy Set to TRUE to lazy unmount. Defaults to FALSE.
+	 * @param directory Set to TRUE to unmount the file system using
+	 * the directory where it has been mounted, otherwise the device
+	 * file is used. Defaults to FALSE.
 	 * @return void
 	 * @throw \OMV\ExecException
 	 */
-	public function umount($force = FALSE, $lazy = FALSE) {
+	public function umount($force = FALSE, $lazy = FALSE, $directory = FALSE) {
 		$cmdArgs = [];
 		$cmdArgs[] = "-v";
 		if (TRUE === $force)
 			$cmdArgs[] = "-f";
 		if (TRUE === $lazy)
 			$cmdArgs[] = "-l";
-		$cmdArgs[] = escapeshellarg($this->getPredictableDeviceFile());
+		$cmdArgs[] = escapeshellarg((TRUE === $directory) ?
+			$this->getMountPoint() : $this->getPredictableDeviceFile());
 		$cmd = new \OMV\System\Process("umount", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
