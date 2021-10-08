@@ -273,7 +273,7 @@ export class SharedFolderAclFormPageComponent implements OnInit {
     self.loadData = () => this.loadData('/');
     self.afterViewInitEvent.subscribe(() => {
       const control = self.form.formGroup.get('file');
-      control.valueChanges.subscribe((value) => this.loadData(value));
+      control.valueChanges.subscribe((value) => this.loadData.bind(this, [value]));
     });
   }
 
@@ -298,9 +298,8 @@ export class SharedFolderAclFormPageComponent implements OnInit {
   }
 
   protected loadData(file) {
-    const self = this.formPage;
-    const uuid = _.get(self.routeParams, 'uuid');
-    self.loading = true;
+    const uuid = _.get(this.formPage.routeParams, 'uuid');
+    this.formPage.loading = true;
     this.rpcService
       .request('ShareMgmt', 'getFileACL', {
         uuid,
@@ -308,17 +307,17 @@ export class SharedFolderAclFormPageComponent implements OnInit {
       })
       .pipe(
         catchError((error) => {
-          self.error = error;
+          this.formPage.error = error;
           return EMPTY;
         }),
         finalize(() => {
-          self.loading = false;
+          this.formPage.loading = false;
         })
       )
       .subscribe((res: RpcObjectResponse) => {
         _.map(res.acl.users, (user: Record<string, any>) => _.set(user, 'type', 'user'));
         _.map(res.acl.groups, (group: Record<string, any>) => _.set(group, 'type', 'group'));
-        self.onLoadData({
+        this.formPage.onLoadData({
           owner: res.owner,
           group: res.group,
           userperms: res.acl.user,
