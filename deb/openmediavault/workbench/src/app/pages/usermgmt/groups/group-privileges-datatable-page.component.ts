@@ -90,13 +90,13 @@ export class GroupPrivilegesDatatablePageComponent {
     },
     buttons: [
       {
+        text: gettext('Cancel'),
+        url: '/usermgmt/groups'
+      },
+      {
         text: gettext('Save'),
         class: 'omv-background-color-theme-primary',
         click: this.onSave.bind(this)
-      },
-      {
-        text: gettext('Cancel'),
-        url: '/usermgmt/groups'
       }
     ]
   };
