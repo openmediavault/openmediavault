@@ -25,6 +25,7 @@ import * as _ from 'lodash';
 import { Subject } from 'rxjs';
 
 import { FormDialogComponent } from '~/app/core/components/intuition/form-dialog/form-dialog.component';
+import { DataTableCellChanged } from '~/app/shared/components/datatable/datatable.component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { DatatableActionConfig } from '~/app/shared/models/datatable-action-config.type';
@@ -219,6 +220,13 @@ export class MatFormDatatableComponent
 
   onSelectionChange(selection: DatatableSelection) {
     this.selection = selection;
+  }
+
+  onCellDataChanged(data: DataTableCellChanged) {
+    // The data is already in sync, so we can use the 'value' property
+    // to notify the control that it has been modified.
+    this.onChange(this.value);
+    this.stateChanges.next();
   }
 
   onActionClick(action: DatatableActionConfig, selection: DatatableSelection) {

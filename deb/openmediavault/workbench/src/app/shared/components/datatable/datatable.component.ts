@@ -43,12 +43,19 @@ import { Sorter } from '~/app/shared/models/sorter.type';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { UserStorageService } from '~/app/shared/services/user-storage.service';
 
-export interface DataTableLoadParams {
+export type DataTableLoadParams = {
   dir?: 'asc' | 'desc';
   prop?: string;
   offset?: number;
   limit?: number;
-}
+};
+
+export type DataTableCellChanged = {
+  value: any;
+  prop: string | number;
+  row: Record<string, any>;
+  column: DatatableColumn;
+};
 
 @Component({
   selector: 'omv-datatable',
@@ -203,6 +210,11 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   // Event emitted when the selection has been changed.
   @Output()
   readonly selectionChangeEvent = new EventEmitter<DatatableSelection>();
+
+  // Event emitted when the cell data has been changed.
+  // This applies only to columns of type 'buttonToogle'.
+  @Output()
+  readonly cellDataChangedEvent = new EventEmitter<DataTableCellChanged>();
 
   // Internal
   public icon = Icon;
@@ -401,6 +413,12 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     } else {
       row[column.prop] = event.value;
     }
+    this.cellDataChangedEvent.emit({
+      value: row[column.prop],
+      prop: column.prop,
+      row,
+      column
+    });
   }
 
   protected initTemplates(): void {

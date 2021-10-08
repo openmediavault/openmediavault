@@ -11,7 +11,8 @@
                [selectionType]="selectionType"
                (selectionChangeEvent)="onSelectionChange($event)"
                [limit]="limit"
-               [sorters]="sorters">
+               [sorters]="sorters"
+               (cellDataChangedEvent)="onCellDataChanged($event)">
   <omv-datatable-actions fxFlex
                          [actions]="actions"
                          [selection]="selection"
