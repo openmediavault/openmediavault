@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-02 10:35+0200\n"
-"PO-Revision-Date: 2021-10-02 08:35+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-10-03 07:00+0000\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -286,7 +286,7 @@ msgstr "Megszakadt feltöltések és letöltések folytatásának engedélyezés
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
-msgstr ""
+msgstr "Szerver közzétételének engedélyezése mint idő szerver, Windows klienseken"
 
 msgid "Allowed clients"
 msgstr "Engedélyezett kliensek"
@@ -821,7 +821,7 @@ msgid "Denmark"
 msgstr "Dánia"
 
 msgid "Deny logins which do not have a valid shell."
-msgstr ""
+msgstr "Bejelentkezések tiltása, ha nincs érvényes parancsértelmező"
 
 msgid "Description"
 msgstr "Leírás"
@@ -902,7 +902,7 @@ msgid "Disks"
 msgstr "Lemezek"
 
 msgid "Display the home directory of the user in the browse list."
-msgstr ""
+msgstr "Felhasználó saját könyvtárának megjelenítése a böngészési listában."
 
 msgid "Djibouti"
 msgstr "Dzsibuti"
@@ -1056,7 +1056,7 @@ msgid ""
 msgstr "Engedélyezze ezt az opciót, hogy megtartsa a részben átküldött fájlokat, ellenkező esetben törlésre kerülnek, ha az átvitel megszakad."
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "Felhasználói saját könyvtárak engedélyezése."
 
 msgid "Enable write-cache"
 msgstr "Gyorsítótár engedélyezése."
@@ -1329,7 +1329,7 @@ msgid "Hide navigation"
 msgstr "Navigáció elrejtése"
 
 msgid "Home"
-msgstr ""
+msgstr "Saját"
 
 msgid "Home directories"
 msgstr "Saját könyvtárak"
@@ -1783,7 +1783,7 @@ msgid "Max. passive port"
 msgstr "Max. passzív port"
 
 msgid "Maximum"
-msgstr ""
+msgstr "Maximum"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maximális letöltési sebesség (KB/s)"
@@ -1894,7 +1894,7 @@ msgid "Monitoring"
 msgstr "Monitorozás"
 
 msgid "Monitoring enabled"
-msgstr ""
+msgstr "Megfigyelés engedélyezve"
 
 msgid "Month"
 msgstr "Hónap"
@@ -2505,11 +2505,11 @@ msgstr "Jelentés"
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report."
-msgstr ""
+msgstr "Jelzés, ha a hőmérséklet legalább N Celsius fokkal megváltozott az utolsó jelzés óta."
 
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius."
-msgstr ""
+msgstr "Jelzés, ha a hőmérséklet nagyobb vagy egyenlő N Celsius fokkal."
 
 msgid "Repository"
 msgstr "Gyűjtemény"
@@ -3745,7 +3745,7 @@ msgid "Use chroot"
 msgstr "Chroot használata"
 
 msgid "Use global settings"
-msgstr ""
+msgstr "Globális beállítások használata"
 
 msgid "Use sendfile"
 msgstr "Sendfile használata"
@@ -3911,7 +3911,7 @@ msgid "Yes"
 msgstr "Igen"
 
 msgid "Your changes will be lost. Do you want to continue?"
-msgstr ""
+msgstr "A módosítások elvesznek. Szeretné folytatni?"
 
 msgid "Your profile"
 msgstr "Az ön profilja"

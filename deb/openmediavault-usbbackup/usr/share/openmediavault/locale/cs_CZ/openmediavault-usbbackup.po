@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2017,2019
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2017,2019,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-02 10:32+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-10-02 16:25+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,10 +42,10 @@ msgid "Compress file data during the transfer."
 msgstr "Komprimovat data během přenosu."
 
 msgid "Create"
-msgstr ""
+msgstr "Vytvořit"
 
 msgid "Created USB backup job."
-msgstr ""
+msgstr "Vytvořena úloha zálohování na USB zařízení."
 
 msgid "Delete"
 msgstr "Smazat"
@@ -60,7 +60,7 @@ msgid "Done ..."
 msgstr "Hotovo…"
 
 msgid "Edit"
-msgstr ""
+msgstr "Upravit"
 
 msgid "Edit backup job"
 msgstr "Upravit zálohovací úlohu"
@@ -83,7 +83,7 @@ msgid "Execute backup job"
 msgstr "Spustit zálohovací úlohu"
 
 msgid "External Storage Device"
-msgstr ""
+msgstr "Vnější úložné zařízení"
 
 msgid "External storage device"
 msgstr "Vnější úložné zařízení"
@@ -145,7 +145,7 @@ msgid "Run"
 msgstr "Spustit"
 
 msgid "Run backup job"
-msgstr ""
+msgstr "Spustit zálohovací úlohu"
 
 msgid "Scan"
 msgstr "Skenovat"
@@ -179,7 +179,7 @@ msgid "Suppress non-error messages."
 msgstr "Hlásit pouze chyby, ostatní potlačit."
 
 msgid "Synchronise from/to directory on external storage device"
-msgstr ""
+msgstr "Synchronizovat z/do vyhrazené složky na vnějším úložném zařízení"
 
 msgid "Synchronise from/to directory on external storage device."
 msgstr "Synchronizovat z/do vyhrazené složky na vnějším úložném zařízení."
@@ -214,7 +214,7 @@ msgid ""
 msgstr "Aktualizovat rozšířené atributy v cíli tak, aby byly stejné jako ty místní."
 
 msgid "Updated USB backup job."
-msgstr ""
+msgstr "Aktualizována úloha zálohování na USB médium"
 
 msgid "n/a"
 msgstr "n/a"
