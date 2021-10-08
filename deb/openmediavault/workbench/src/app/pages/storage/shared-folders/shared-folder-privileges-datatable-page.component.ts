@@ -156,13 +156,13 @@ export class SharedFolderPrivilegesDatatablePageComponent {
     ],
     buttons: [
       {
+        text: gettext('Cancel'),
+        url: '/storage/shared-folders'
+      },
+      {
         text: gettext('Save'),
         class: 'omv-background-color-theme-primary',
         click: this.onSave.bind(this)
-      },
-      {
-        text: gettext('Cancel'),
-        url: '/storage/shared-folders'
       }
     ]
   };
