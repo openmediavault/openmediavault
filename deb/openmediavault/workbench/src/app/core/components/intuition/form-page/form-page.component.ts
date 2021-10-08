@@ -190,6 +190,7 @@ export class FormPageComponent
    */
   setFormValues(values: Record<string, any>): void {
     this.form.formGroup.patchValue(values);
+    this.form.formGroup.markAsPristine();
   }
 
   /**
@@ -385,6 +386,10 @@ export class FormPageComponent
         } else {
           doPreButtonActionFn();
         }
+        // At this point we can assume the form values have been
+        // submitted and stored, so we can safely mark the form as
+        // pristine again.
+        this.form.formGroup.markAsPristine();
         break;
       case 'cancel':
         if (this.form.formGroup.dirty) {
