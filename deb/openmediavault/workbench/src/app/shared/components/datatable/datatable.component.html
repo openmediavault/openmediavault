@@ -178,11 +178,11 @@
              let-row="row">
   <mat-button-toggle-group fxLayout="row"
                            value="{{ value }}">
-    <mat-button-toggle *ngFor="let item of column.cellTemplateConfig.buttons"
+    <mat-button-toggle *ngFor="let button of column.cellTemplateConfig.buttons"
                        fxFlex
-                       [value]="item.value"
+                       [value]="button.value"
                        (change)="onButtonToggleChange($event, row, column)">
-      <span>{{ item.text }}</span>
+      <span>{{ button.text }}</span>
     </mat-button-toggle>
   </mat-button-toggle-group>
 </ng-template>
