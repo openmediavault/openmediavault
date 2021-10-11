@@ -68,8 +68,8 @@ export class FormComponent implements AfterViewInit, OnInit {
       _.forEach(field?.modifiers, (modifier) => {
         if (['visible', 'hidden'].includes(modifier.type)) {
           // Determine the fields involved in the constraint.
-          const fields = ConstraintService.getFields(modifier.constraint);
-          fieldsToUpdate.push(...fields);
+          const props = ConstraintService.getProps(modifier.constraint);
+          fieldsToUpdate.push(...props);
         }
       });
     });

@@ -27,13 +27,13 @@ import {
 
 export class ConstraintService {
   /**
-   * Returns the fields used in the constraint.
+   * Determine the properties involved in the given constraint.
    *
    * @param constraint The constraint to process.
-   * @return Returns a list of field names.
+   * @return Returns a list of properties.
    */
-  static getFields(constraint: Constraint): Array<string> {
-    const innerGetFields = (node: any): Array<string> => {
+  static getProps(constraint: Constraint): Array<string> {
+    const innerGetProps = (node: any): Array<string> => {
       let result = [];
       if (_.isPlainObject(node)) {
         if (_.has(node, 'prop')) {
@@ -64,7 +64,7 @@ export class ConstraintService {
             case 'startsWith':
             case 'endsWith':
             case 'regex':
-              result = _.concat(innerGetFields(node.arg0), innerGetFields(node.arg1));
+              result = _.concat(innerGetProps(node.arg0), innerGetProps(node.arg1));
               break;
             case '!':
             case 'not':
@@ -78,22 +78,23 @@ export class ConstraintService {
             case 'truthy':
             case 'falsy':
             case 'has':
-              result = innerGetFields(node.arg0);
+              result = innerGetProps(node.arg0);
               break;
           }
         }
       }
       return result;
     };
-    return _.uniq(innerGetFields(constraint));
+    return _.uniq(innerGetProps(constraint));
   }
 
   /**
-   * Test the constraint.
+   * Evaluate the constraint.
    *
    * @param constraint The constraint to process.
    * @param object The object containing the data to test.
-   * @return Returns true if all constrains are fulfilled, otherwise false.
+   * @return Returns `true` or 'any' if the constraint is fulfilled,
+   *   otherwise `false`.
    */
   static test(constraint: Constraint, object: ConstraintRecord): any {
     const innerTest = (data: ConstraintRecord, node: any) => {

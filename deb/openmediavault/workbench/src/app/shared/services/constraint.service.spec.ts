@@ -402,8 +402,8 @@ describe('ConstraintService', () => {
     expect(result).toBeTruthy();
   });
 
-  it('should get fields (1)', () => {
-    const result = ConstraintService.getFields({
+  it('should get properties (1)', () => {
+    const result = ConstraintService.getProps({
       operator: 'and',
       arg0: { operator: 'eq', arg0: { prop: 'field1' }, arg1: 'foo' },
       arg1: {
@@ -415,8 +415,8 @@ describe('ConstraintService', () => {
     expect(result).toEqual(['field1', 'field2', 'field3']);
   });
 
-  it('should get fields (2)', () => {
-    const result = ConstraintService.getFields({
+  it('should get properties (2)', () => {
+    const result = ConstraintService.getProps({
       operator: 'ne',
       arg0: { prop: 'password0' },
       arg1: { prop: 'passwordconf' }
@@ -424,8 +424,8 @@ describe('ConstraintService', () => {
     expect(result).toEqual(['password0', 'passwordconf']);
   });
 
-  it('should get fields (3)', () => {
-    const result = ConstraintService.getFields({
+  it('should get properties (3)', () => {
+    const result = ConstraintService.getProps({
       operator: 'not',
       arg0: {
         operator: 'in',
@@ -436,8 +436,8 @@ describe('ConstraintService', () => {
     expect(result).toEqual(['password0']);
   });
 
-  it('should get fields (4)', () => {
-    const result = ConstraintService.getFields({
+  it('should get properties (4)', () => {
+    const result = ConstraintService.getProps({
       operator: 'if',
       arg0: {
         operator: 'truthy',
@@ -452,8 +452,8 @@ describe('ConstraintService', () => {
     expect(result).toEqual(['disabled', 'password1']);
   });
 
-  it('should get fields (5)', () => {
-    const result = ConstraintService.getFields({
+  it('should get properties (5)', () => {
+    const result = ConstraintService.getProps({
       operator: '>=',
       arg0: {
         operator: 'length',

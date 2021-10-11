@@ -78,15 +78,21 @@ const getControlName = (control: AbstractControl): string | null => {
   return _.keys(control.parent.controls).find((key) => control === control.parent.controls[key]);
 };
 
+/**
+ * Get the data on the top form.
+ *
+ * @param control The control to start searching for the top most form.
+ * @return The raw values of the top form.
+ */
 const getFormValues = (control: AbstractControl): Array<any> => {
   if (!control) {
     return [];
   }
-  let parent: FormGroup | FormArray = control.parent;
-  while (parent.parent) {
+  let parent: FormGroup | FormArray | null = control.parent;
+  while (parent?.parent) {
     parent = parent.parent;
   }
-  return parent.getRawValue();
+  return parent ? parent.getRawValue() : [];
 };
 
 export class CustomValidators {
@@ -101,17 +107,17 @@ export class CustomValidators {
    */
   static requiredIf(constraint: Constraint): ValidatorFn {
     let hasSubscribed = false;
-    // Determine the fields involved in the constraint.
-    const fields = ConstraintService.getFields(constraint);
+    // Determine the properties involved in the constraint.
+    const props = ConstraintService.getProps(constraint);
     return (control: AbstractControl): ValidationErrors | null => {
       if (!control.parent) {
         return null;
       }
       // Ensure to not subscribe to changes of the own control.
-      _.pull(fields, getControlName(control));
+      _.pull(props, getControlName(control));
       // Subscribe to value changes for all fields involved.
       if (!hasSubscribed) {
-        fields.forEach((path) => {
+        props.forEach((path) => {
           control.parent.get(path).valueChanges.subscribe(() => {
             control.updateValueAndValidity({ emitEvent: false });
           });
@@ -152,17 +158,17 @@ export class CustomValidators {
     errorData?: any
   ): ValidatorFn {
     let hasSubscribed = false;
-    // Determine the fields involved in the constraint.
-    const fields = ConstraintService.getFields(constraint);
+    // Determine the properties involved in the constraint.
+    const props = ConstraintService.getProps(constraint);
     return (control: AbstractControl): ValidationErrors | null => {
       if (!control.parent) {
         return null;
       }
       // Ensure to not subscribe to changes of the own control.
-      _.pull(fields, getControlName(control));
+      _.pull(props, getControlName(control));
       // Subscribe to value changes for all fields involved.
       if (!hasSubscribed) {
-        fields.forEach((path) => {
+        props.forEach((path) => {
           control.parent.get(path).valueChanges.subscribe(() => {
             control.updateValueAndValidity({ emitEvent: false });
           });
@@ -384,19 +390,19 @@ export class CustomValidators {
   ): ValidatorFn {
     let hasSubscribed = false;
     opposite = _.defaultTo(opposite, true);
-    // Determine the fields involved in the constraint.
-    const fields = ConstraintService.getFields(constraint);
+    // Determine the properties involved in the constraint.
+    const props = ConstraintService.getProps(constraint);
     return (control: AbstractControl): ValidationErrors | null => {
       if (!control.parent) {
         return null;
       }
       // Ensure to not subscribe to changes of the own control.
-      _.pull(fields, getControlName(control));
+      _.pull(props, getControlName(control));
       // Subscribe to value changes for all fields involved.
       if (!hasSubscribed) {
         // If the value changes, then the constraint will be evaluated
         // and the state of the form field will be updated.
-        fields.forEach((path) => {
+        props.forEach((path) => {
           const pathControl = control.parent.get(path);
           pathControl.valueChanges.subscribe(() => {
             const element: HTMLElement = _.get(control, 'nativeElement');
@@ -479,7 +485,7 @@ export class CustomValidators {
         // Note, this MUST be done after the subscription has been done
         // and the `hasSubscribed` has been updated, otherwise a deadly
         // recursion will happen.
-        fields.forEach((path) => {
+        props.forEach((path) => {
           const pathControl = control.parent.get(path);
           pathControl.updateValueAndValidity({ onlySelf: true, emitEvent: true });
         });
