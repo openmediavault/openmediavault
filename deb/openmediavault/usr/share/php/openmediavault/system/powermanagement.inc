@@ -96,7 +96,8 @@ class PowerManagement {
 	 * @return void
 	 */
 	public function reboot() {
-		$this->exec("reboot");
+		$this->exec(\OMV\Environment::get("OMV_POWERMGMT_REBOOT",
+			"reboot"));
 	}
 
 	/**
@@ -104,7 +105,8 @@ class PowerManagement {
 	 * @return void
 	 */
 	public function shutdown() {
-		$this->exec("poweroff");
+		$this->exec(\OMV\Environment::get("OMV_POWERMGMT_POWEROFF",
+			"poweroff"));
 	}
 
 	/**
@@ -138,7 +140,8 @@ class PowerManagement {
 	public function suspend() {
 		if (FALSE === $this->isStateSupported(self::STATE_SUSPEND))
 			$this->shutdown();
-		$this->exec("suspend");
+		$this->exec(\OMV\Environment::get("OMV_POWERMGMT_SUSPEND",
+			"suspend"));
 	}
 
 	/**
@@ -149,7 +152,8 @@ class PowerManagement {
 	public function hibernate() {
 		if (FALSE === $this->isStateSupported(self::STATE_HIBERNATE))
 			$this->shutdown();
-		$this->exec("hibernate");
+		$this->exec(\OMV\Environment::get("OMV_POWERMGMT_HIBERNATE",
+			"hibernate"));
 	}
 
 	/**
@@ -160,6 +164,7 @@ class PowerManagement {
 	public function suspendHybrid() {
 		if (FALSE === $this->isStateSupported(self::STATE_SUSPENDHYBRID))
 			$this->shutdown();
-		$this->exec("hybrid-sleep");
+		$this->exec(\OMV\Environment::get("OMV_POWERMGMT_HYBRIDSLEEP",
+			"hybrid-sleep"));
 	}
 }
