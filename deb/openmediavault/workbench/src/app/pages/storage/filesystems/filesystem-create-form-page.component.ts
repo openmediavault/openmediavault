@@ -89,6 +89,7 @@ export class FilesystemCreateFormPageComponent {
           taskDialog: {
             config: {
               title: gettext('Create file system'),
+              width: '75%',
               startOnInit: true,
               request: {
                 service: 'FileSystemMgmt',

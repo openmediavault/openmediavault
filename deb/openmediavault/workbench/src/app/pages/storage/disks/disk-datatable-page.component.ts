@@ -185,6 +185,7 @@ export class DiskDatatablePageComponent {
             .subscribe((mode: boolean | string) => {
               if (mode) {
                 this.dialogService.open(TaskDialogComponent, {
+                  width: '75%',
                   data: {
                     title: gettext('Wiping device'),
                     startOnInit: true,
