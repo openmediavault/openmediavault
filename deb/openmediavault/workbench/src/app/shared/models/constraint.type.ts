@@ -133,6 +133,7 @@ export type Constraint = {
 };
 
 export type ConstraintProperty = {
+  // The path of the property, e.g. 'x' or 'x.y.z'.
   prop: string;
 };
 
