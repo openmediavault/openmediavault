@@ -25,7 +25,8 @@ import {
 } from '~/app/core/components/intuition/functions.helper';
 import {
   FormFieldConfig,
-  FormFieldConstraintValidator
+  FormFieldConstraintValidator,
+  FormFieldModifier
 } from '~/app/core/components/intuition/models/form-field-config.type';
 import { format } from '~/app/functions.helper';
 import { CustomValidators } from '~/app/shared/forms/custom-validators';
@@ -93,7 +94,7 @@ export class FormComponent implements AfterViewInit, OnInit {
       const validators: Array<ValidatorFn> = [];
       // Build the validator configuration.
       if (_.isArray(field.modifiers)) {
-        _.forEach(field.modifiers, (modifier) => {
+        _.forEach(field.modifiers, (modifier: FormFieldModifier) => {
           validators.push(
             CustomValidators.modifyIf(
               modifier.type,

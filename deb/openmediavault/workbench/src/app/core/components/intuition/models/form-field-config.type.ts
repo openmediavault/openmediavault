@@ -85,27 +85,7 @@ export type FormFieldConfig = {
   disabled?: boolean | string;
   // Modify the form field depending on a specified constraint. The
   // constraint must be truthy to apply.
-  modifiers?: Array<{
-    type:
-      | 'disabled'
-      | 'enabled'
-      | 'checked'
-      | 'unchecked'
-      | 'focused'
-      | 'visible'
-      | 'hidden'
-      | 'value';
-    // Optional configuration used by modifiers. This is required by
-    // the 'value' modifier, e.g. '{{ <NAME> }}' to set the value
-    // of the given field.
-    typeConfig?: any;
-    // Apply the opposite type, e.g. `disabled` for `enabled`, if the
-    // constraint is falsy. Defaults to `true`.
-    opposite?: boolean;
-    // The constraint can access the current form field
-    // values, e.g. '{ field: '<NAME>' }'
-    constraint: Constraint;
-  }>;
+  modifiers?: Array<FormFieldModifier>;
   autofocus?: boolean;
   icon?: string;
   submitValue?: boolean;
@@ -301,4 +281,26 @@ export type FormFieldConstraintValidator = {
   // The error data, e.g. a boolean `true` or the message displayed
   // below the form field.
   errorData?: any;
+};
+
+export type FormFieldModifier = {
+  type:
+    | 'disabled'
+    | 'enabled'
+    | 'checked'
+    | 'unchecked'
+    | 'focused'
+    | 'visible'
+    | 'hidden'
+    | 'value';
+  // Optional configuration used by modifiers. This is required by
+  // the 'value' modifier, e.g. '{{ <NAME> }}' to set the value
+  // of the given field.
+  typeConfig?: any;
+  // Apply the opposite type, e.g. `disabled` for `enabled`, if the
+  // constraint is falsy. Defaults to `true`.
+  opposite?: boolean;
+  // The constraint can access the current form field
+  // values, e.g. '{ field: '<NAME>' }'
+  constraint: Constraint;
 };
