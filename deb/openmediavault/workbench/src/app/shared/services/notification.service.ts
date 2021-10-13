@@ -54,7 +54,7 @@ export class NotificationService {
       this.add(notification);
       // Show the notification as toasty.
       const fn = _.bind(this.toastrService[notification.type], this.toastrService);
-      fn(notification.message, notification.title);
+      fn(_.truncate(notification.message, { length: 1500, omission: '...' }), notification.title);
     }, 5);
   }
 
