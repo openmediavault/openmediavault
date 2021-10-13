@@ -1155,12 +1155,7 @@ finish:
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermgmt.setpasswordbycontext");
-		$cmdArgs = [];
-		$cmdArgs[] = sprintf("--password %s", escapeshellarg(
-			crypt($params['password'])));
-		$cmdArgs[] = $context['username'];
-		$cmd = new \OMV\System\Process("usermod", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
+		$user = new \OMV\System\User($context['username']);
+		$user->changePassword($params['password']);
 	}
 }

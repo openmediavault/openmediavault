@@ -321,19 +321,18 @@ class User {
 	 * Authenticate user via PAM. Account expiration and access hours are
 	 * checked, too. Note, the calling process must have the privilege to
 	 * read the user shadow file.
-	 * @param password The password.
-	 * @return TRUE if the authentication was successful, otherwise FALSE.
+	 * @param string $password The password.
+	 * @return bool TRUE if the authentication was successful, otherwise FALSE.
 	 */
-	public function authenticate($password) {
+	public function authenticate($password): bool {
 		// Use the PAM module to authenticate the user if possible,
 		// otherwise use a fallback.
 		if (TRUE === extension_loaded("pam")) {
 			return pam_auth($this->getName(), $password);
 		} else {
 			// Use the following python code to authenticate the user
-			// via PAM. We need to go this way because there is no PAM
-			// plugin available for PHP7.
-			// The code requires the python3-pampy Debian package.
+			// via PAM.
+			// The code requires the python3-pam Debian package.
 			$cmd = new \OMV\System\Process("python3", sprintf("<<END\n".
 			  "import pam\n".
 			  "import sys\n".
@@ -362,6 +361,21 @@ class User {
 		$max = intval(array_value($ld, "UID_MAX", 60000));
 		// Check if the given account ID is within the sequence.
 		return !in_range($uid, $min, $max);
+	}
+
+	/**
+	 * Change the user password.
+	 * @param string $newPassword The new password.
+	 * @throw \OMV\ExecException
+	 */
+	public function changePassword($newPassword) {
+		$cmdArgs = [];
+		$cmdArgs[] = sprintf("--password %s", escapeshellarg(
+			crypt($newPassword)));
+		$cmdArgs[] = escapeshellarg($this->getName());
+		$cmd = new \OMV\System\Process("usermod", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
 	}
 
 	/**
