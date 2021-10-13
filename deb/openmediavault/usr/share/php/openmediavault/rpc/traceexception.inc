@@ -37,7 +37,10 @@ class TraceException extends Exception {
 	 */
 	public function __construct($message, int $code = 0, string $trace = "") {
 		$this->trace = $trace;
-		parent::__construct($message, $code);
+		// Note, we need to escape the percent signs here because
+		// we do not want them to be interpreted as directives by
+		// the vsprintf method in \OMV\Exception.
+		parent::__construct(escape_percent($message), $code);
 	}
 
 	/**
