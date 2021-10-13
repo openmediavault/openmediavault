@@ -10,7 +10,8 @@
 <mat-list role="list">
   <mat-list-item *ngIf="!notifications.length"
                  role="listitem">
-    <mat-icon mat-list-icon
+    <mat-icon mat-line
+              mat-list-icon
               class="omv-color-info"
               svgIcon="{{ icon.information }}">
     </mat-icon>
@@ -22,23 +23,26 @@
   </mat-list-item>
   <mat-list-item *ngFor="let notification of notifications"
                  role="listitem">
-    <!-- Templates won't work here, the icons will be rendered incorrect. -->
     <mat-icon *ngIf="notification.type === 'success'"
+              mat-line
               mat-list-icon
               class="omv-color-success"
               svgIcon="{{ icon.success }}">
     </mat-icon>
     <mat-icon *ngIf="notification.type === 'error'"
+              mat-line
               mat-list-icon
               class="omv-color-error"
               svgIcon="{{ icon.error }}">
     </mat-icon>
     <mat-icon *ngIf="notification.type === 'warning'"
+              mat-line
               mat-list-icon
               class="omv-color-warning"
               svgIcon="{{ icon.warning }}">
     </mat-icon>
     <mat-icon *ngIf="notification.type === 'info'"
+              mat-line
               mat-list-icon
               class="omv-color-info"
               svgIcon="{{ icon.information }}">

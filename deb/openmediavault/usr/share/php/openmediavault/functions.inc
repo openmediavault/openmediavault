@@ -899,11 +899,10 @@ function posix_kill_ex($pid, $sig): bool {
  * @param string $var The variable that will be escaped.
  * @param boolean $octal If TRUE, convert octal values, otherwise hexadecimal.
  *   Defaults to FALSE.
- * @return The escaped string.
+ * @return string|array The escaped string.
  */
-function escape_blank($var, $octal = FALSE): string {
-	$var = str_replace(" ", $octal ? "\\040" : "\\x20", $var);
-	return $var;
+function escape_blank($var, $octal = FALSE) {
+	return str_replace(" ", $octal ? "\\040" : "\\x20", $var);
 }
 
 /**
@@ -916,10 +915,21 @@ function escape_blank($var, $octal = FALSE): string {
  * @param string $var The variable that will be escaped.
  * @param boolean $octal If TRUE, convert octal values, otherwise hexadecimal.
  *   Defaults to FALSE.
- * @return The escaped string.
+ * @return string|array The escaped string.
  */
-function escape_path($var, $octal = FALSE): string {
+function escape_path($var, $octal = FALSE) {
 	return escape_blank($var, $octal);
+}
+
+/**
+ * Escape all percent characters in the given string. This is useful
+ * to ensure that the printf, sprintf or vsprintf functions will not
+ * interpret this as format directive.
+ * @param string $var The variable that will be escaped.
+ * @return string|array The escaped string.
+ */
+function escape_percent($var) {
+	return str_replace("%", "%%", $var);
 }
 
 /**
@@ -932,11 +942,10 @@ function escape_path($var, $octal = FALSE): string {
  * @param string $var The variable that will be unescaped.
  * @param boolean $octal If TRUE, convert octal values, otherwise hexadecimal.
  *   Defaults to FALSE.
- * @return The unescaped string.
+ * @return string|array The unescaped string.
  */
-function unescape_blank($var, $octal = FALSE): string {
-	$var = str_replace($octal ? "\\040" : "\\x20", " ", $var);
-	return $var;
+function unescape_blank($var, $octal = FALSE) {
+	return str_replace($octal ? "\\040" : "\\x20", " ", $var);
 }
 
 /**
@@ -949,9 +958,9 @@ function unescape_blank($var, $octal = FALSE): string {
  * @param string $var The variable that will be unescaped.
  * @param boolean $octal If TRUE, convert octal values, otherwise hexadecimal.
  *   Defaults to FALSE.
- * @return The unescaped string.
+ * @return string|array The unescaped string.
  */
-function unescape_path($var, $octal = FALSE): string {
+function unescape_path($var, $octal = FALSE) {
 	return unescape_blank($var, $octal);
 }
 
