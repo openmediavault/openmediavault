@@ -47,7 +47,7 @@ data:
       - template: edit
         execute:
           type: url
-          url: "/storage/lvm/lvs/edit/{{ devicefile }}"
+          url: "/storage/lvm/lvs/edit/{{ _selected[0].devicefile }}"
       - type: iconButton
         icon: "mdi:camera"
         tooltip: _("Snapshot")
@@ -91,4 +91,4 @@ data:
             service: LogicalVolumeMgmt
             method: deleteLogicalVolume
             params:
-              devicefile: "{{ _selected[0].devicefile }}"
+              devicefile: "{{ devicefile }}"
