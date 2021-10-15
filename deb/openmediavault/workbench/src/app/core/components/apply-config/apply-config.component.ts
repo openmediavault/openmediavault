@@ -46,72 +46,77 @@ export class ApplyConfigComponent {
   ) {}
 
   onApplyPendingChanges(): void {
-    this.showDialog(
-      gettext('Apply'),
-      gettext('Do you really want to apply the configuration changes?'),
-      () => {
-        this.blockUI.start(
-          translate(gettext('Please wait, the configuration changes are being applied ...'))
-        );
-        this.rpcService
-          .requestTask(
-            'Config',
-            'applyChangesBg',
-            {
-              modules: [],
-              force: false
-            },
-            undefined,
-            1000
-          )
-          .pipe(
-            finalize(() => {
-              this.blockUI.stop();
-            })
-          )
-          .subscribe(() => {
-            this.notificationService.show(
-              NotificationType.success,
-              gettext('Applied the configuration changes.')
-            );
-          });
-      }
-    );
+    this.dialogService
+      .open(ModalDialogComponent, {
+        data: {
+          template: 'confirmation',
+          title: gettext('Apply'),
+          message: gettext('Do you really want to apply the configuration changes?')
+        }
+      })
+      .afterClosed()
+      .subscribe((res) => {
+        if (res) {
+          this.blockUI.start(
+            translate(gettext('Please wait, the configuration changes are being applied ...'))
+          );
+          this.rpcService
+            .requestTask(
+              'Config',
+              'applyChangesBg',
+              {
+                modules: [],
+                force: false
+              },
+              undefined,
+              1000
+            )
+            .pipe(
+              finalize(() => {
+                this.blockUI.stop();
+              })
+            )
+            .subscribe(() => {
+              this.notificationService.show(
+                NotificationType.success,
+                gettext('Applied the configuration changes.')
+              );
+            });
+        }
+      });
   }
 
   onUndoPendingChanges(): void {
-    this.showDialog(
-      gettext('Undo'),
-      gettext('Do you really want to undo the configuration changes?'),
-      () => {
-        this.blockUI.start(translate(gettext('Please wait, reverting configuration changes ...')));
-        this.rpcService
-          .requestTask('Config', 'revertChangesBg', {
-            filename: ''
-          })
-          .pipe(
-            finalize(() => {
-              this.blockUI.stop();
+    this.dialogService
+      .open(ModalDialogComponent, {
+        data: {
+          template: 'confirmation-danger',
+          title: gettext('Undo'),
+          message: gettext('Do you really want to undo the configuration changes?')
+        }
+      })
+      .afterClosed()
+      .subscribe((res) => {
+        if (res) {
+          this.blockUI.start(
+            translate(gettext('Please wait, reverting configuration changes ...'))
+          );
+          this.rpcService
+            .requestTask('Config', 'revertChangesBg', {
+              filename: ''
             })
-          )
-          .subscribe(() => {
-            this.notificationService.show(
-              NotificationType.success,
-              gettext('Reverted the configuration changes.')
-            );
-          });
-      }
-    );
-  }
-
-  private showDialog(title: string, message: string, callback: () => void): void {
-    const dialogRef = this.dialogService.open(ModalDialogComponent, {
-      data: { template: 'confirmation', title, message }
-    });
-    dialogRef.afterClosed().subscribe((res) => {
-      if (res) {
-        callback();
-      }
-    });
+            .pipe(
+              finalize(() => {
+                this.blockUI.stop();
+              })
+            )
+            .subscribe(() => {
+              this.notificationService.show(
+                NotificationType.success,
+                gettext('Reverted the configuration changes.')
+              );
+            });
+        }
+      });
   }
 }
