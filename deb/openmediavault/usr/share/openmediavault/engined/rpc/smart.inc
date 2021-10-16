@@ -70,8 +70,9 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Get all existing hard disks devices.
 		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
-		  OMV_STORAGE_DEVICE_TYPE_ALL & ~(OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE |
-		  OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID)))) {
+				OMV_STORAGE_DEVICE_TYPE_ALL & ~(OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE |
+				OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID |
+				OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER)))) {
 			throw new \OMV\Exception("Failed to get list of storage devices");
 		}
 		// Prepare result.
