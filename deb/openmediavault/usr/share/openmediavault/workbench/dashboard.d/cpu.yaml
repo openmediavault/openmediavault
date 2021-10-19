@@ -5,7 +5,7 @@ data:
   permissions:
     role:
       - admin
-  title: _("CPU Usage")
+  title: _("CPU Utilization")
   type: chart
   chart:
     type: gauge
