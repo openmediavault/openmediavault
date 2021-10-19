@@ -33,7 +33,7 @@ export class MdFormPageComponent {
     },
     fields: [
       {
-        type: 'textInput',
+        type: 'hidden',
         name: 'name',
         label: gettext('Name'),
         value: '',

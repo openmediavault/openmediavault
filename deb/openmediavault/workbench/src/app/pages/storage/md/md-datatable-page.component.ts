@@ -47,6 +47,7 @@ export class MdDatatablePageComponent {
         name: gettext('Name'),
         prop: 'name',
         flexGrow: 1,
+        hidden: true,
         sortable: true
       },
       {
