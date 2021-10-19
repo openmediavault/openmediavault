@@ -22,6 +22,7 @@ data:
       - type: textInput
         name: name
         label: _("Name")
+        hint: _("The name of the volume group.")
         value: ""
         disabled: true
         submitValue: false

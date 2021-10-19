@@ -13,6 +13,7 @@ data:
         name: name
         label: _("Name")
         value: ""
+        hint: _("The name of the volume group.")
         validators:
           required: true
           pattern:
