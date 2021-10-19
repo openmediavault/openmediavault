@@ -87,7 +87,7 @@ export class DatatableActionsComponent implements OnInit {
 
   onButtonClick(action: DatatableActionConfig) {
     if (_.isFunction(action.click)) {
-      action.click.call(this, action, this.selection, this.owner);
+      action.click(action, this.selection, this.owner);
     }
   }
 
