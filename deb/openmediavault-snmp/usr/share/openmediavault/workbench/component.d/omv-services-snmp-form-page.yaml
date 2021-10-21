@@ -203,7 +203,8 @@ data:
         label: _("Extra options")
         value: ""
       - type: paragraph
-        text: _("Traps")
+        title: _("Traps")
+        hasDivider: true
       - type: checkbox
         name: trapenable
         label: _("Enabled")

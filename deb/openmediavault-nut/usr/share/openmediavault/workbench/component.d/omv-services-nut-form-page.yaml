@@ -162,7 +162,8 @@ data:
               prop: shutdownmode
             arg1: "onbatt"
       - type: paragraph
-        text: _("Remote monitoring")
+        title: _("Remote monitoring")
+        hasDivider: true
       - type: checkbox
         name: remotemonitor
         label: _("Enabled")

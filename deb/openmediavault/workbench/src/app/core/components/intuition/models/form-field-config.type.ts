@@ -229,6 +229,7 @@ export type FormFieldConfig = {
   selectionChange?: (value: any) => void;
 
   // --- paragraph ---
+  title?: string;
   hasDivider?: boolean;
 
   // --- datatable ---

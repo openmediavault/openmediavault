@@ -71,7 +71,8 @@ export class SmbSettingsFormPageComponent {
       },
       {
         type: 'paragraph',
-        text: gettext('Home directories')
+        title: gettext('Home directories'),
+        hasDivider: true
       },
       {
         type: 'checkbox',
@@ -91,7 +92,8 @@ export class SmbSettingsFormPageComponent {
       },
       {
         type: 'paragraph',
-        text: gettext('WINS')
+        title: gettext('WINS'),
+        hasDivider: true
       },
       {
         type: 'checkbox',
@@ -109,7 +111,8 @@ export class SmbSettingsFormPageComponent {
       },
       {
         type: 'paragraph',
-        text: gettext('Advanced settings')
+        title: gettext('Advanced settings'),
+        hasDivider: true
       },
       {
         type: 'select',

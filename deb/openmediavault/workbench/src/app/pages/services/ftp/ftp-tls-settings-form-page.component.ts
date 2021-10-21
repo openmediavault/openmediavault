@@ -62,7 +62,8 @@ export class FtpTlsSettingsFormPageComponent {
       },
       {
         type: 'paragraph',
-        text: gettext('Advanced settings')
+        title: gettext('Advanced settings'),
+        hasDivider: true
       },
       {
         type: 'checkbox',

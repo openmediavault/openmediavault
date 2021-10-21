@@ -37,7 +37,8 @@ export class ProxyFormPageComponent {
     fields: [
       {
         type: 'paragraph',
-        text: gettext('HTTP-Proxy')
+        title: gettext('HTTP-Proxy'),
+        hasDivider: true
       },
       {
         type: 'checkbox',
@@ -110,7 +111,8 @@ export class ProxyFormPageComponent {
       },
       {
         type: 'paragraph',
-        text: gettext('HTTPS-Proxy')
+        title: gettext('HTTPS-Proxy'),
+        hasDivider: true
       },
       {
         type: 'checkbox',
@@ -183,7 +185,8 @@ export class ProxyFormPageComponent {
       },
       {
         type: 'paragraph',
-        text: gettext('FTP-Proxy')
+        title: gettext('FTP-Proxy'),
+        hasDivider: true
       },
       {
         type: 'checkbox',

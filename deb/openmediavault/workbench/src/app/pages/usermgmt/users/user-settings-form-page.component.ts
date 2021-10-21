@@ -37,7 +37,8 @@ export class UserSettingsFormPageComponent {
     fields: [
       {
         type: 'paragraph',
-        text: gettext('User home directory')
+        title: gettext('User home directory'),
+        hasDivider: true
       },
       {
         type: 'checkbox',

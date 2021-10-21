@@ -37,7 +37,8 @@ export class UpdateSettingsFormPageComponent {
     fields: [
       {
         type: 'paragraph',
-        text: gettext('Install updates from')
+        title: gettext('Install updates from'),
+        hasDivider: true
       },
       {
         type: 'checkbox',

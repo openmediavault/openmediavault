@@ -3,11 +3,18 @@
 @import 'src/styles';
 
 .omv-form-paragraph-wrapper {
-  margin-top: 0.75em;
-  margin-bottom: 0.75em;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
 
-  .omv-form-field-paragraph-text {
+  .title {
     font-weight: mat.font-weight($omv-typography-config, title);
     font-size: mat.font-size($omv-typography-config, title);
+    margin-bottom: 0.5rem;
+  }
+
+  .text {
+    color: $omv-color-transparent-black;
+    font-size: mat.font-size($omv-typography-config, body-2);
+    margin-top: 0.5rem;
   }
 }

@@ -29,7 +29,7 @@ export class FormParagraphComponent extends AbstractFormFieldComponent {
   protected sanitizeConfig() {
     super.sanitizeConfig();
     _.defaultsDeep(this.config, {
-      hasDivider: true
+      hasDivider: false
     });
   }
 }

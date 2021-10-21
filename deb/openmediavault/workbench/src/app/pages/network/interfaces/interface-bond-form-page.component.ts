@@ -214,7 +214,8 @@ export class InterfaceBondFormPageComponent {
       },
       {
         type: 'paragraph',
-        text: gettext('IPv4')
+        title: gettext('IPv4'),
+        hasDivider: true
       },
       {
         type: 'select',
@@ -281,7 +282,8 @@ export class InterfaceBondFormPageComponent {
       },
       {
         type: 'paragraph',
-        text: gettext('IPv6')
+        title: gettext('IPv6'),
+        hasDivider: true
       },
       {
         type: 'select',
@@ -350,7 +352,8 @@ export class InterfaceBondFormPageComponent {
       },
       {
         type: 'paragraph',
-        text: gettext('Advanced settings')
+        title: gettext('Advanced settings'),
+        hasDivider: true
       },
       {
         type: 'textInput',
