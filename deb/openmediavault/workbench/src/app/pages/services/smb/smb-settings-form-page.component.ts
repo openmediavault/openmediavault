@@ -70,9 +70,8 @@ export class SmbSettingsFormPageComponent {
         value: false
       },
       {
-        type: 'paragraph',
-        title: gettext('Home directories'),
-        hasDivider: true
+        type: 'divider',
+        title: gettext('Home directories')
       },
       {
         type: 'checkbox',
@@ -91,9 +90,8 @@ export class SmbSettingsFormPageComponent {
         value: false
       },
       {
-        type: 'paragraph',
-        title: gettext('WINS'),
-        hasDivider: true
+        type: 'divider',
+        title: gettext('WINS')
       },
       {
         type: 'checkbox',
@@ -110,9 +108,8 @@ export class SmbSettingsFormPageComponent {
         hint: gettext('Use the specified WINS server.')
       },
       {
-        type: 'paragraph',
-        title: gettext('Advanced settings'),
-        hasDivider: true
+        type: 'divider',
+        title: gettext('Advanced settings')
       },
       {
         type: 'select',

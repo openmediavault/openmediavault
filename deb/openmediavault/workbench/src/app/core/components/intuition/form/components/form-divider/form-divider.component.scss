@@ -1,3 +1,14 @@
-mat-divider {
-  padding-bottom: 1.25em;
+@use '~@angular/material' as mat;
+
+@import 'src/styles';
+
+.omv-form-divider {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+
+  .title {
+    font-weight: mat.font-weight($omv-typography-config, title);
+    font-size: mat.font-size($omv-typography-config, title);
+    margin-bottom: 0.5rem;
+  }
 }

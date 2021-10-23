@@ -146,7 +146,7 @@ export type FormFieldConfig = {
   // Specifies the size of the field in percent.
   flex?: number;
 
-  // --- button | paragraph ---
+  // --- button | divider ---
   text?: string;
 
   // --- button | iconButton ---
@@ -228,9 +228,8 @@ export type FormFieldConfig = {
   emptyOptionText?: string;
   selectionChange?: (value: any) => void;
 
-  // --- paragraph ---
+  // --- divider ---
   title?: string;
-  hasDivider?: boolean;
 
   // --- datatable ---
   columns?: Array<DatatableColumn>;

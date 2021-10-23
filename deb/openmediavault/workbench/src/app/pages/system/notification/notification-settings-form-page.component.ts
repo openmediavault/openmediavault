@@ -127,9 +127,8 @@ export class NotificationSettingsFormPageComponent {
         }
       },
       {
-        type: 'paragraph',
-        title: gettext('Recipient'),
-        hasDivider: true
+        type: 'divider',
+        title: gettext('Recipient')
       },
       {
         type: 'textInput',

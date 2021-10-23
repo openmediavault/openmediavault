@@ -102,9 +102,8 @@ export class WorkbenchFormPageComponent {
         }
       },
       {
-        type: 'paragraph',
-        title: gettext('Secure connection'),
-        hasDivider: true
+        type: 'divider',
+        title: gettext('Secure connection')
       },
       {
         type: 'checkbox',

@@ -73,9 +73,8 @@ export class SmartSettingsFormPageComponent {
         }
       },
       {
-        type: 'paragraph',
-        title: gettext('Temperature monitoring'),
-        hasDivider: true
+        type: 'divider',
+        title: gettext('Temperature monitoring')
       },
       {
         type: 'select',

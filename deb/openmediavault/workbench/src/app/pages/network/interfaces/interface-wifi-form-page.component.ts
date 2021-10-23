@@ -98,9 +98,8 @@ export class InterfaceWifiFormPageComponent {
         }
       },
       {
-        type: 'paragraph',
-        title: gettext('IPv4'),
-        hasDivider: true
+        type: 'divider',
+        title: gettext('IPv4')
       },
       {
         type: 'select',
@@ -166,9 +165,8 @@ export class InterfaceWifiFormPageComponent {
         ]
       },
       {
-        type: 'paragraph',
-        title: gettext('IPv6'),
-        hasDivider: true
+        type: 'divider',
+        title: gettext('IPv6')
       },
       {
         type: 'select',
@@ -236,9 +234,8 @@ export class InterfaceWifiFormPageComponent {
         ]
       },
       {
-        type: 'paragraph',
-        title: gettext('Advanced settings'),
-        hasDivider: true
+        type: 'divider',
+        title: gettext('Advanced settings')
       },
       {
         type: 'textInput',

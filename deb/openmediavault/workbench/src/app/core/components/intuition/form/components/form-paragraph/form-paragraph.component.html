@@ -1,13 +1,3 @@
-<div class="omv-form-paragraph-wrapper">
-  <div *ngIf="config.title"
-       class="title">
-    {{ config.title | translate }}
-  </div>
-  <mat-divider *ngIf="config.hasDivider"
-               inset>
-  </mat-divider>
-  <div *ngIf="config.text"
-       class="text">
-    {{ config.text | translate }}
-  </div>
+<div class="omv-form-paragraph">
+  {{ config.text | translate }}
 </div>

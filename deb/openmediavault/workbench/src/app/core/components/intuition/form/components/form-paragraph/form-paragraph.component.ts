@@ -16,7 +16,6 @@
  * GNU General Public License for more details.
  */
 import { Component } from '@angular/core';
-import * as _ from 'lodash';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 
@@ -25,11 +24,4 @@ import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form
   templateUrl: './form-paragraph.component.html',
   styleUrls: ['./form-paragraph.component.scss']
 })
-export class FormParagraphComponent extends AbstractFormFieldComponent {
-  protected sanitizeConfig() {
-    super.sanitizeConfig();
-    _.defaultsDeep(this.config, {
-      hasDivider: false
-    });
-  }
-}
+export class FormParagraphComponent extends AbstractFormFieldComponent {}

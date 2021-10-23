@@ -116,9 +116,8 @@ export class FtpSettingsFormPageComponent {
         )
       },
       {
-        type: 'paragraph',
-        title: gettext('Home directories'),
-        hasDivider: true
+        type: 'divider',
+        title: gettext('Home directories')
       },
       {
         type: 'checkbox',
@@ -128,9 +127,8 @@ export class FtpSettingsFormPageComponent {
         value: false
       },
       {
-        type: 'paragraph',
-        title: gettext('Advanced settings'),
-        hasDivider: true
+        type: 'divider',
+        title: gettext('Advanced settings')
       },
       {
         type: 'checkbox',
