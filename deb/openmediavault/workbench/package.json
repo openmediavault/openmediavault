@@ -64,7 +64,7 @@
     "@ngx-translate/core": "13.0.0",
     "@swimlane/ngx-datatable": "^20.0.0",
     "@types/chart.js": "^2.9.34",
-    "chart.js": "^3.5.1",
+    "chart.js": "^3.6.0",
     "chartjs-plugin-datalabels": "^2.0.0",
     "core-js": "3.18.3",
     "dayjs": "^1.10.7",
