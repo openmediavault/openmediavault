@@ -3,7 +3,9 @@ openmediavault (6.0-28) UNRELEASED; urgency=low
   * Reimplement UI.
   * /dev/disk/by-label filesystem device files are not supported
     anymore because they are not unique and predictable.
-  * Change file system handling in UI.
+  * The file system page will only show file systems configured
+    by OMV from now on. This is the standard behavior of the user
+    interface that all other pages use.
   * Adapt 'FileSystemMgmt' RPCs to new workflow.
   * Upgrade to Debian 11.
     - Replace pam_tally2 by pam_faillock
