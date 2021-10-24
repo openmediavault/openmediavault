@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-02 10:35+0200\n"
-"PO-Revision-Date: 2021-10-02 08:35+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-10-22 11:22+0000\n"
+"Last-Translator: Kostas Moho\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -280,7 +280,7 @@ msgstr "Να επιτρέπεται στους πελάτες να συνεχί�
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
-msgstr ""
+msgstr "Επιτρέπεται να διαφημίζεται ως ρυθμιστής ώρας σε πελάτες Windows"
 
 msgid "Allowed clients"
 msgstr "Επιτρεπόμενοι πελάτες"
@@ -815,7 +815,7 @@ msgid "Denmark"
 msgstr "Denmark"
 
 msgid "Deny logins which do not have a valid shell."
-msgstr ""
+msgstr "Απόρριψη συνδέσεων χωρίς έγκυρο κέλυφος."
 
 msgid "Description"
 msgstr "Περιγραφή"
@@ -896,7 +896,7 @@ msgid "Disks"
 msgstr "Δίσκοι"
 
 msgid "Display the home directory of the user in the browse list."
-msgstr ""
+msgstr "Εμφάνιση του οικείου φακέλου στην λίστα αναζήτησης."
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1050,7 +1050,7 @@ msgid ""
 msgstr "Αν ενεργοποιηθεί, τα ημιτελή αρχεία θα διατηρούνται, αλλιώς θα διαγράφονται εφόσον διακοπεί η μεταφορά τους."
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "Ενεργοποίηση φακέλων χρηστών."
 
 msgid "Enable write-cache"
 msgstr "Ενεργοποίηση επιτάχυνσης εγγραφών"
@@ -1323,7 +1323,7 @@ msgid "Hide navigation"
 msgstr "Απόκρυψη πλοήγησης"
 
 msgid "Home"
-msgstr ""
+msgstr "Αρχική"
 
 msgid "Home directories"
 msgstr "Φάκελοι χρηστών"
@@ -1777,7 +1777,7 @@ msgid "Max. passive port"
 msgstr "Μέγιστη παθητική θύρα"
 
 msgid "Maximum"
-msgstr ""
+msgstr "Μέγιστο"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Μέγιστη ταχύτητα κατεβάσματος (KiB/s)"
@@ -1888,7 +1888,7 @@ msgid "Monitoring"
 msgstr "Παρακολούθηση"
 
 msgid "Monitoring enabled"
-msgstr ""
+msgstr "Επίβλεψη ενεργοποιημένη"
 
 msgid "Month"
 msgstr "Μήνας"
@@ -2499,11 +2499,11 @@ msgstr "Αναφορά"
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report."
-msgstr ""
+msgstr "Αναφορά αν η θερμοκρασία έχει αλλάξει περισσότερο από Ν βαθμούς Κελσίου από την τελευταία αναφορά."
 
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius."
-msgstr ""
+msgstr "Αναφορά αν η θερμοκρασία είναι ίση ή μεγαλύτερη από Ν βαθμούς Κελσίου."
 
 msgid "Repository"
 msgstr "Εναποθετήριο"
@@ -3739,7 +3739,7 @@ msgid "Use chroot"
 msgstr "Χρήση chroot"
 
 msgid "Use global settings"
-msgstr ""
+msgstr "Χρήση γενικευμένων ρυθμίσεων"
 
 msgid "Use sendfile"
 msgstr "Χρήση πρωτοκόλου sendfile"
@@ -3905,7 +3905,7 @@ msgid "Yes"
 msgstr "Ναι"
 
 msgid "Your changes will be lost. Do you want to continue?"
-msgstr ""
+msgstr "Οι αλλαγές θα χαθούν. Θέλετε να συνεχίσετε;"
 
 msgid "Your profile"
 msgstr "Προφίλ"
