@@ -128,6 +128,7 @@ export class UpdateDatatablePageComponent {
           taskDialog: {
             config: {
               title: gettext('Upgrade system'),
+              width: '75%',
               startOnInit: true,
               buttons: {
                 start: {

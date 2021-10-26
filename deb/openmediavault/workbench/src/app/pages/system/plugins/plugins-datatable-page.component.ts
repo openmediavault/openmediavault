@@ -144,6 +144,7 @@ export class PluginsDatatablePageComponent implements OnInit {
           taskDialog: {
             config: {
               title: gettext('Install plugin'),
+              width: '75%',
               startOnInit: true,
               buttons: {
                 start: {
@@ -183,6 +184,7 @@ export class PluginsDatatablePageComponent implements OnInit {
           taskDialog: {
             config: {
               title: gettext('Uninstall plugin'),
+              width: '75%',
               startOnInit: true,
               buttons: {
                 start: {
