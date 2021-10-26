@@ -24,3 +24,10 @@ patch_network_module_pr_59829:
     - name: "/lib/python3/dist-packages/salt/modules/network.py"
     - source:
       - salt://{{ tpldir }}/files/salt-pr-59829.patch
+
+# https://github.com/saltstack/salt/pull/60536
+patch_fileserver_root_pr_60536:
+  file.patch:
+    - name: "/lib/python3/dist-packages/salt/fileserver/roots.py"
+    - source:
+      - salt://{{ tpldir }}/files/salt-pr-60536.patch
