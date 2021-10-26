@@ -149,6 +149,11 @@ class Environment:
         Environment._env_vars[key] = EnvironmentVariable(key, value)
         return env_var.value if env_var else None
 
+    @staticmethod
+    def unset(key: str) -> EnvironmentVariableValue:
+        env_var = Environment._env_vars.pop(key, None)
+        return env_var.value if env_var else None
+
 
 # Auto-import environment variables from '/etc/default/openmediavault'.
 Environment.load()
