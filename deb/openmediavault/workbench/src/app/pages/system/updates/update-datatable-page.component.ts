@@ -37,12 +37,12 @@ export class UpdateDatatablePageComponent {
           '    <div class="omv-datatable-cell-title">{{ name }} {{ version }}</div>' +
           '    <div class="omv-datatable-cell-subtitle">{{ summary }}</div>' +
           '  </div>' +
-          '  <br/>' +
-          '{% if extendeddescription %}  <span>{{ extendeddescription }}</span><br/><br/>{% endif %}' +
-          '{% if maintainer %}  <span>{{ \'Maintainer\' | translate }}: {{ maintainer }}</span><br/>{% endif %}' +
-          '{% if homepage %}  <span>{{ \'Homepage\' | translate }}: {{ homepage }}</span><br/>{% endif %}' +
-          '{% if repository %}  <span>{{ \'Repository\' | translate }}: {{ repository }}</span><br/>{% endif %}' +
-          '{% if size %}  <span>{{ \'Size\' | translate }}: {{ size | binaryunit }}</span><br/>{% endif %}' +
+          '  <br>' +
+          '{% if extendeddescription %}  <span>{{ extendeddescription }}</span><br><br>{% endif %}' +
+          '{% if maintainer %}  <span>{{ "Maintainer" | translate }}: {{ maintainer }}</span><br>{% endif %}' +
+          '{% if homepage %}  <span>{{ "Homepage" | translate }}: {{ homepage }}</span><br>{% endif %}' +
+          '{% if repository %}  <span>{{ "Repository" | translate }}: {{ repository }}</span><br>{% endif %}' +
+          '{% if size %}  <span>{{ "Size" | translate }}: {{ size | binaryunit }}</span><br>{% endif %}' +
           '</div>'
       },
       { name: gettext('Name'), prop: 'name', flexGrow: 1, sortable: true, hidden: true },
