@@ -1,6 +1,6 @@
 openmediavault (6.3.11-1) stable; urgency=low
 
-  *
+  * Upgrade Salt to version 3005.1.
 
  -- Volker Theile <volker.theile@openmediavault.org> Tue, 25 Apr 2023 19:09:12 +0200
 
