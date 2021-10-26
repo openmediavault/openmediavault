@@ -26,11 +26,3 @@ index 54dda2d9ee5dc..f0fefc9fe2919 100644
          pass
 
      # compare the maps, set changed to the return value
-@@ -266,6 +266,7 @@ def file_hash(load, fnd):
-         except (
-             os.error,
-             OSError,
-+            UnicodeDecodeError,
-         ):  # Can't use Python select() because we need Windows support
-             log.debug("Fileserver encountered lock when reading cache file. Retrying.")
-             # Delete the file since its incomplete (either corrupted or incomplete)
