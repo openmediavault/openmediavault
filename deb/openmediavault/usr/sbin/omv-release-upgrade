@@ -1,0 +1,76 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2021 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+
+OMV_UPGRADE_SCRIPTS_DIR=${OMV_UPGRADE_SCRIPTS_DIR:-"/usr/share/openmediavault/release-upgrade"}
+OMV_UPGRADE_RELEASEVERSION=${OMV_UPGRADE_RELEASEVERSION:-"6.0"}
+OMV_UPGRADE_RELEASENAME=${OMV_UPGRADE_RELEASENAME:-"Shaitan"}
+
+export LANG=C
+export DEBIAN_FRONTEND=noninteractive
+export APT_LISTCHANGES_FRONTEND=none
+
+export OMV_UPGRADE_RELEASEVERSION
+export OMV_UPGRADE_RELEASENAME
+
+# Get some product information.
+prodname=$(xmlstarlet sel -t -v "//name" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+prodcopyright=$(xmlstarlet sel -t -v "//copyright" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+
+whiptail --clear --backtitle "${prodname} - ${prodcopyright}" \
+  --title "Release upgrade" \
+  --yesno "Do you really want to upgrade your system to release version ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME})? Please ensure that all your installed plugins are available for this release." \
+  9 56 6
+[ $? -ne 0 ] && exit 0
+echo "Upgrading system to ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME}) ..."
+
+# Backup the release upgrade scripts to a temporary directory. This is
+# necessary because the scripts directory is removed when the package
+# openmediavault x.y.z is installed (which does not contain these files).
+tmpdir=$(mktemp --tmpdir=/var/tmp --directory)
+cp -r ${OMV_UPGRADE_SCRIPTS_DIR}/* ${tmpdir}
+
+# Execute scripts before upgrade.
+run-parts --exit-on-error ${tmpdir}/pre.d
+
+# Update package database and upgrade distribution.
+apt-get update
+apt-get --yes --force-yes --fix-missing --auto-remove --allow-unauthenticated \
+  --show-upgraded --option Dpkg::Options::="--force-confdef" \
+  --option DPkg::Options::="--force-confold" --no-install-recommends \
+  dist-upgrade
+
+# Execute scripts after upgrade.
+run-parts ${tmpdir}/post.d
+
+# Cleanup
+rm -rf ${tmpdir}
+
+# Display final message.
+whiptail --clear --backtitle "${prodname} - ${prodcopyright}" \
+  --title "Release upgrade" \
+  --msgbox "The upgrade has completed successfully. Please reboot the system." \
+  8 43
+
+exit 0
