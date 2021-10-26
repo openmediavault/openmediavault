@@ -1,4 +1,4 @@
-openmediavault (6.0-28) UNRELEASED; urgency=low
+openmediavault (6.0-29) UNRELEASED; urgency=low
 
   * Reimplement UI.
   * /dev/disk/by-label filesystem device files are not supported
@@ -18,6 +18,12 @@ openmediavault (6.0-28) UNRELEASED; urgency=low
     OMV_POWERMGMT_SUSPEND, OMV_POWERMGMT_HIBERNATE and
     OMV_POWERMGMT_HYBRIDSLEEP to customize the reboot, power-off, ...
     power management commands.
+  * Announcing services via Zeroconf is an essential feature of
+    openmediavault, nevertheless there is sometimes the need to disable
+    this feature completely instead of just individual services via the
+    already existing environment variables. To completely disable the
+    feature set the environment variable OMV_ZEROCONF_ENABLED to 'no'.
+    Please note that this can have unexpected side effects.
   * Enhance the SMART temperature monitoring configuration.
     Global settings can be overwritten per device. Please check
     your settings whether the migration was correct or reconfigure

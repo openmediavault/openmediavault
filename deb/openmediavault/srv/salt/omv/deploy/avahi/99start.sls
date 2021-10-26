@@ -17,9 +17,13 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+{% set zeroconf_enabled = salt['pillar.get']('default:OMV_ZEROCONF_ENABLED', 'yes') -%}
+
 unmask_avahi_service:
   service.unmasked:
     - name: avahi-daemon
+
+{% if zeroconf_enabled | to_bool %}
 
 start_avahi_socket:
   service.running:
@@ -30,3 +34,5 @@ start_avahi_service:
   service.running:
     - name: avahi-daemon.service
     - enable: True
+
+{% endif %}
