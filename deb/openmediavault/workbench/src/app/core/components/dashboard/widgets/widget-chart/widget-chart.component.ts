@@ -16,7 +16,15 @@
  * GNU General Public License for more details.
  */
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ArcElement, Chart, ChartDataset, Color, DoughnutController, Tooltip } from 'chart.js';
+import {
+  ArcElement,
+  Chart,
+  ChartDataset,
+  ChartType,
+  Color,
+  DoughnutController,
+  Tooltip
+} from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import * as _ from 'lodash';
 import { EMPTY, Observable } from 'rxjs';
@@ -35,10 +43,8 @@ Chart.register(ArcElement, DoughnutController, Tooltip);
   templateUrl: './widget-chart.component.html',
   styleUrls: ['./widget-chart.component.scss']
 })
-export class WidgetChartComponent
-  extends AbstractDashboardWidgetComponent<Record<string, any>>
-  implements OnInit
-{
+export class WidgetChartComponent extends AbstractDashboardWidgetComponent<Record<string, any>>
+  implements OnInit {
   @ViewChild('chartCtx', { static: true })
   chartCtx: ElementRef;
 
@@ -200,7 +206,7 @@ export class WidgetChartComponent
   }
 
   protected createChart(): Chart {
-    const type = 'doughnut';
+    const type: ChartType = 'doughnut';
     let cutout: string;
     let displayLegend: boolean;
     let displayDataLabels: boolean;
