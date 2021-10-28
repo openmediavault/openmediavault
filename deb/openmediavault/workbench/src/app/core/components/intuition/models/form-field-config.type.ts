@@ -111,7 +111,9 @@ export type FormFieldConfig = {
     email?: boolean;
     custom?: Array<FormFieldConstraintValidator>;
     pattern?: {
+      // The regular expression, e.g. '^\s+$'.
       pattern: string;
+      // The error data; normally the error message.
       errorData?: any;
     };
     patternType?:
