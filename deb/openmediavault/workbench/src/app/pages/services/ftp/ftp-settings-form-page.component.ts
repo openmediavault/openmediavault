@@ -62,7 +62,8 @@ export class FtpSettingsFormPageComponent {
         value: 5,
         validators: {
           required: true,
-          min: 0
+          min: 0,
+          patternType: 'integer'
         }
       },
       {
@@ -73,7 +74,8 @@ export class FtpSettingsFormPageComponent {
         value: 2,
         validators: {
           required: true,
-          min: 0
+          min: 0,
+          patternType: 'integer'
         }
       },
       {
@@ -84,7 +86,8 @@ export class FtpSettingsFormPageComponent {
         value: 1,
         validators: {
           required: true,
-          min: 0
+          min: 0,
+          patternType: 'integer'
         }
       },
       {
@@ -97,7 +100,8 @@ export class FtpSettingsFormPageComponent {
         value: 1200,
         validators: {
           required: true,
-          min: 0
+          min: 0,
+          patternType: 'integer'
         }
       },
       {
@@ -168,6 +172,7 @@ export class FtpSettingsFormPageComponent {
             ],
             validators: {
               min: 0,
+              patternType: 'integer',
               required: true
             }
           },
@@ -185,6 +190,7 @@ export class FtpSettingsFormPageComponent {
             ],
             validators: {
               min: 0,
+              patternType: 'integer',
               required: true
             }
           }
@@ -271,6 +277,7 @@ export class FtpSettingsFormPageComponent {
             ],
             validators: {
               min: 0,
+              patternType: 'integer',
               required: true
             }
           }

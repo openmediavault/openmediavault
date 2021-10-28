@@ -176,7 +176,8 @@ export class InterfaceBondFormPageComponent {
         hint: gettext('Specifies the MII link monitoring frequency in milliseconds.'),
         value: 100,
         validators: {
-          min: 0
+          min: 0,
+          patternType: 'integer'
         }
       },
       {
@@ -188,7 +189,8 @@ export class InterfaceBondFormPageComponent {
         ),
         value: 200,
         validators: {
-          min: 0
+          min: 0,
+          patternType: 'integer'
         }
       },
       {
@@ -200,7 +202,8 @@ export class InterfaceBondFormPageComponent {
         ),
         value: 200,
         validators: {
-          min: 0
+          min: 0,
+          patternType: 'integer'
         }
       },
       {
@@ -324,6 +327,7 @@ export class InterfaceBondFormPageComponent {
         validators: {
           min: 0,
           max: 128,
+          patternType: 'integer',
           requiredIf: { operator: 'eq', arg0: { prop: 'method6' }, arg1: 'static' }
         },
         modifiers: [
@@ -382,7 +386,8 @@ export class InterfaceBondFormPageComponent {
         value: 0,
         validators: {
           min: 0,
-          max: 65535
+          max: 65535,
+          patternType: 'integer'
         }
       }
     ],

@@ -151,6 +151,7 @@ export class SmbShareFormPageComponent {
             ],
             validators: {
               min: 0,
+              patternType: 'integer',
               required: true
             },
             flex: 45
@@ -171,6 +172,7 @@ export class SmbShareFormPageComponent {
             ],
             validators: {
               min: 0,
+              patternType: 'integer',
               required: true
             },
             flex: 45

@@ -141,7 +141,8 @@ export class WorkbenchFormPageComponent {
         validators: {
           requiredIf: { operator: 'truthy', arg0: { prop: 'enablessl' } },
           min: 0,
-          max: 65535
+          max: 65535,
+          patternType: 'port'
         }
       },
       {

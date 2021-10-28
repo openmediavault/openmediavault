@@ -197,7 +197,8 @@ export class InterfaceDatatablePageComponent {
                 validators: {
                   required: true,
                   min: 1,
-                  max: 30
+                  max: 30,
+                  patternType: 'integer'
                 },
                 value: 10
               }

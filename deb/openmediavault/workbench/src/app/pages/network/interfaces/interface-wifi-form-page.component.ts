@@ -209,6 +209,7 @@ export class InterfaceWifiFormPageComponent {
         validators: {
           min: 0,
           max: 128,
+          patternType: 'integer',
           requiredIf: { operator: 'eq', arg0: { prop: 'method6' }, arg1: 'static' }
         },
         modifiers: [
@@ -267,7 +268,8 @@ export class InterfaceWifiFormPageComponent {
         value: 0,
         validators: {
           min: 0,
-          max: 65535
+          max: 65535,
+          patternType: 'integer'
         }
       },
       {

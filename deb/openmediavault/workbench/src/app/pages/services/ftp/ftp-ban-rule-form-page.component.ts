@@ -72,7 +72,8 @@ export class FtpBanRuleFormPageComponent {
         value: 2,
         validators: {
           required: true,
-          min: 1
+          min: 1,
+          patternType: 'integer'
         }
       },
       {

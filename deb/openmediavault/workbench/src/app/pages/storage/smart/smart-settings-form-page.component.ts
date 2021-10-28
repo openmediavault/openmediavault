@@ -52,6 +52,7 @@ export class SmartSettingsFormPageComponent {
         value: 1800,
         validators: {
           min: 10,
+          patternType: 'integer',
           required: true
         }
       },

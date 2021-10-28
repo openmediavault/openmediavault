@@ -68,6 +68,7 @@ export class FilesystemQuotaFormPageComponent {
         value: 0,
         validators: {
           min: 0,
+          patternType: 'integer',
           required: true
         }
       },
