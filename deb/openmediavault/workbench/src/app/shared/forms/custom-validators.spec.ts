@@ -296,5 +296,72 @@ describe('CustomValidators', () => {
         });
       });
     });
+
+    describe('integer', () => {
+      let validator: ValidatorFn;
+
+      beforeEach(() => {
+        validator = CustomValidators.patternType('integer');
+      });
+
+      it('should validate integer [1]', () => {
+        formControl.setValue(10);
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate integer [2]', () => {
+        formControl.setValue(-5);
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should not validate integer [1]', () => {
+        formControl.setValue(1.2);
+        expect(validator(formControl)).toEqual({
+          pattern: 'This field should contain an integer value.'
+        });
+      });
+
+      it('should not validate integer [2]', () => {
+        formControl.setValue('a');
+        expect(validator(formControl)).toEqual({
+          pattern: 'This field should contain an integer value.'
+        });
+      });
+    });
+
+    describe('float', () => {
+      let validator: ValidatorFn;
+
+      beforeEach(() => {
+        validator = CustomValidators.patternType('float');
+      });
+
+      it('should validate float [1]', () => {
+        formControl.setValue(10.1245);
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate float [2]', () => {
+        formControl.setValue(-5.5);
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate float [3]', () => {
+        formControl.setValue(10);
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate float [4]', () => {
+        formControl.setValue(10.0);
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should not validate float', () => {
+        formControl.setValue('a');
+        expect(validator(formControl)).toEqual({
+          pattern: 'This field should contain a floating point value.'
+        });
+      });
+    });
   });
 });

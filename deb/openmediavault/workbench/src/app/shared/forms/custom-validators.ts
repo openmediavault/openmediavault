@@ -58,6 +58,8 @@ const regExp = {
   domainName:
     /^[a-zA-Z0-9]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?([.][a-zA-Z0-9]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?)*$/,
   port: /^([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$/,
+  integer: /^[-]?\d+$/,
+  float: /^[-]?\d+(.\d+)?$/,
   time: /^\d{2}:\d{2}:\d{2}$/,
   // See https://tools.ietf.org/html/rfc4716#section-3.4
   sshPubKeyRfc4716:
@@ -329,7 +331,17 @@ export class CustomValidators {
       case 'port':
         return CustomValidators.pattern(
           regExp.port,
-          gettext('This field should be a port in the range of 1 to 65535.')
+          gettext('This field should be a network port in the range of 1 to 65535.')
+        );
+      case 'integer':
+        return CustomValidators.pattern(
+          regExp.integer,
+          gettext('This field should contain an integer value.')
+        );
+      case 'float':
+        return CustomValidators.pattern(
+          regExp.float,
+          gettext('This field should contain a floating point value.')
         );
       case 'time':
         return CustomValidators.pattern(

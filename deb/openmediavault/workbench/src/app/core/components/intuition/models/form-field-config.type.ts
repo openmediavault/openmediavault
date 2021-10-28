@@ -133,6 +133,8 @@ export type FormFieldConfig = {
       | 'domainNameIpList'
       | 'port'
       | 'time'
+      | 'integer'
+      | 'float'
       | 'sshPubKey'
       | 'sshPubKeyRfc4716'
       | 'sshPubKeyOpenSsh'
