@@ -54,7 +54,7 @@ data:
         autocomplete: new-password
         value: ""
         modifiers:
-          - type: readonly
+          - type: enabled
             constraint:
               operator: truthy
               arg0:
