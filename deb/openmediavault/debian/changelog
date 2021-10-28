@@ -1,3 +1,10 @@
+openmediavault (5.6.18-1) stable; urgency=low
+
+  * Issue #1119: Fix regression in 'Used' column of the file
+    system table.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 28 Oct 2021 21:10:24 +0200
+
 openmediavault (5.6.17-1) stable; urgency=low
 
   * Ignore device mapper devices when scanning for SMART
