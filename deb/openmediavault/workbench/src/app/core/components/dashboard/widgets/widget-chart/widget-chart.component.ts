@@ -43,8 +43,10 @@ Chart.register(ArcElement, DoughnutController, Tooltip);
   templateUrl: './widget-chart.component.html',
   styleUrls: ['./widget-chart.component.scss']
 })
-export class WidgetChartComponent extends AbstractDashboardWidgetComponent<Record<string, any>>
-  implements OnInit {
+export class WidgetChartComponent
+  extends AbstractDashboardWidgetComponent<Record<string, any>>
+  implements OnInit
+{
   @ViewChild('chartCtx', { static: true })
   chartCtx: ElementRef;
 
