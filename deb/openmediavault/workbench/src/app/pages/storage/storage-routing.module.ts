@@ -9,6 +9,7 @@ import { DiskDatatablePageComponent } from '~/app/pages/storage/disks/disk-datat
 import { DiskFormPageComponent } from '~/app/pages/storage/disks/disk-form-page.component';
 import { FilesystemCreateFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-create-form-page.component';
 import { FilesystemDatatablePageComponent } from '~/app/pages/storage/filesystems/filesystem-datatable-page.component';
+import { FilesystemEditFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-edit-form-page.component';
 import { FilesystemMountFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-mount-form-page.component';
 import { FilesystemQuotaDatatablePageComponent } from '~/app/pages/storage/filesystems/filesystem-quota-datatable-page.component';
 import { FilesystemQuotaFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-quota-form-page.component';
@@ -181,6 +182,15 @@ const routes: Routes = [
         path: 'mount',
         component: FilesystemMountFormPageComponent,
         data: { title: gettext('Mount'), editing: false }
+      },
+      {
+        path: 'edit/:fsname',
+        component: FilesystemEditFormPageComponent,
+        data: {
+          title: gettext('Edit'),
+          editing: true,
+          notificationTitle: gettext('Updated file system settings.')
+        }
       },
       {
         path: 'quota/:uuid',
