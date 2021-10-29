@@ -107,6 +107,20 @@ def set_cmd(ctx, key: str, value: str):  # noqa
     sys.exit(0)
 
 
+@cli.command(name='unset', help='Unset an environment variable.')
+@click.argument('key', required=True)
+@pass_context
+def unset_cmd(ctx, key: str):  # noqa
+    if not key.startswith('OMV_'):
+        sys.stderr.write('Key must be prefixed with OMV_\n')
+        sys.exit(1)
+    environment = openmediavault.settings.Environment
+    environment.load()
+    environment.unset(key)
+    environment.save()
+    sys.exit(0)
+
+
 def main():
     cli()
 
