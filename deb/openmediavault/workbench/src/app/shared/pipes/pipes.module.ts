@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { ArrayPipe } from '~/app/shared/pipes/array.pipe';
 import { BinaryUnitPipe } from '~/app/shared/pipes/binary-unit.pipe';
 import { DefaultToPipe } from '~/app/shared/pipes/default-to.pipe';
+import { EncodeUriComponentPipe } from '~/app/shared/pipes/encode-uri-component.pipe';
 import { HttpErrorResponsePipe } from '~/app/shared/pipes/http-error-response.pipe';
 import { JoinPipe } from '~/app/shared/pipes/join.pipe';
 import { LocaleDatePipe } from '~/app/shared/pipes/locale-date.pipe';
@@ -33,7 +34,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     TrustHtmlPipe,
     UpperFirstPipe,
     MaxPipe,
-    SanitizeHtmlPipe
+    SanitizeHtmlPipe,
+    EncodeUriComponentPipe
   ],
   imports: [CommonModule],
   exports: [
@@ -51,7 +53,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     TrustHtmlPipe,
     UpperFirstPipe,
     MaxPipe,
-    SanitizeHtmlPipe
+    SanitizeHtmlPipe,
+    EncodeUriComponentPipe
   ],
   providers: [
     ToBooleanPipe,
@@ -68,7 +71,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     TrustHtmlPipe,
     UpperFirstPipe,
     MaxPipe,
-    SanitizeHtmlPipe
+    SanitizeHtmlPipe,
+    EncodeUriComponentPipe
   ]
 })
 export class PipesModule {}

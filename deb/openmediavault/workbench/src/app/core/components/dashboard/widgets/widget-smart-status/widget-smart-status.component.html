@@ -1,0 +1,16 @@
+<mat-progress-bar *ngIf="loading && firstLoad"
+                  mode="indeterminate">
+</mat-progress-bar>
+<div *ngIf="data"
+     class="omv-dashboard-widget-smart-status"
+     gdGap="8px"
+     gdColumns="repeat(auto-fit, minmax(100px, 1fr))">
+  <mat-card *ngFor="let device of data.data"
+            [ngClass]="{'omv-background-color-theme-error': ['BAD_ATTRIBUTE_NOW', 'BAD_ATTRIBUTE_IN_THE_PAST', 'BAD_SECTOR', 'BAD_SECTOR_MANY'].includes(device.overallstatus), 'omv-background-color-theme-gray': 'BAD_STATUS' === device.overallstatus, 'omv-background-color-theme-success': 'GOOD' === device.overallstatus}"
+            [matTooltip]="tooltipText[device.overallstatus] | translate">
+    <mat-card-content class="omv-text-center"
+                      routerLink="/storage/smart/devices/details/{{ device.devicefile | encodeUriComponent }}">
+      <span>{{ device.canonicaldevicefile }}</span>
+    </mat-card-content>
+  </mat-card>
+</div>

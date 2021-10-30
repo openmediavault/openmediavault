@@ -1,0 +1,10 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 2f06f7e5-b34f-47f7-a953-5eba2f386139
+  permissions:
+    role:
+    - admin
+  title: _("S.M.A.R.T. Status")
+  type: smart-status
+  reloadPeriod: 10000

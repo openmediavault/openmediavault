@@ -1,0 +1,9 @@
+@import 'src/styles';
+
+.omv-dashboard-widget-smart-status {
+  padding: $omv-padding;
+
+  .mat-card {
+    cursor: pointer;
+  }
+}

@@ -51,6 +51,11 @@
         <omv-dashboard-widget-filesystems-status [config]="widget">
         </omv-dashboard-widget-filesystems-status>
       </ng-template>
+
+      <ng-template [ngSwitchCase]="'smart-status'">
+        <omv-dashboard-widget-smart-status [config]="widget">
+        </omv-dashboard-widget-smart-status>
+      </ng-template>
     </mat-card-content>
   </mat-card>
 </ng-template>

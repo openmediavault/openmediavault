@@ -38,9 +38,10 @@ export type DashboardWidgetConfig = {
     | 'datatable'
     | 'rrd'
     | 'chart'
-    | 'system-information'
-    | 'services-status'
-    | 'filesystems-status';
+    | 'system-information' // internal
+    | 'services-status' // internal
+    | 'filesystems-status' // internal
+    | 'smart-status'; // internal
   title: string;
   permissions?: Permissions;
   // The frequency in milliseconds with which the data
