@@ -1,4 +1,4 @@
-openmediavault (5.6.18-1) stable; urgency=low
+openmediavault (5.6.18-2) stable; urgency=low
 
   * Issue #1119: Fix regression in 'Used' column of the file
     system table.
