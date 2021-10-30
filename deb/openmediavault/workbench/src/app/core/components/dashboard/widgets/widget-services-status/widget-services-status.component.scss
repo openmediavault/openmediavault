@@ -4,6 +4,8 @@
   padding: $omv-padding;
 
   .mat-card {
+    cursor: default;
+
     &.running {
       @extend .omv-background-color-theme-success;
     }
