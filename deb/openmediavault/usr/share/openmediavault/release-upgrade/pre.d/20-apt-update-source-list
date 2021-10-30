@@ -1,0 +1,62 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2021 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+
+OMV_UPGRADE_RELEASENAME=${OMV_UPGRADE_RELEASENAME:-"Shaitan"}
+OMV_UPGRADE_APTSOURCESLIST=${OMV_UPGRADE_APTSOURCESLIST:-"/etc/apt/sources.list.d/openmediavault.list"}
+OMV_UPGRADE_DEBIAN_RELEASENAME_CURRENT=${OMV_UPGRADE_DEBIAN_RELEASENAME_CURRENT:-"buster"}
+OMV_UPGRADE_DEBIAN_RELEASENAME_NEXT=${OMV_UPGRADE_DEBIAN_RELEASENAME_NEXT:-"bullseye"}
+
+# Upgrade OpenMediaVault source list file.
+relname=$(echo ${OMV_UPGRADE_RELEASENAME} | tr "[:upper:]" "[:lower:]" | tr -d "[:space:]")
+cat <<EOF > ${OMV_UPGRADE_APTSOURCESLIST}
+deb http://packages.openmediavault.org/public ${relname} main
+deb http://openmediavault.github.io/packages/ ${relname} main
+
+## Uncomment the following line to add software from the proposed repository.
+# deb http://packages.openmediavault.org/public ${relname}-proposed main
+# deb http://openmediavault.github.io/packages/ ${relname}-proposed main
+
+## This software is not part of OpenMediaVault, but is offered by third-party
+## developers as a service to OpenMediaVault users.
+# deb http://packages.openmediavault.org/public ${relname} partner
+# deb http://openmediavault.github.io/packages/ ${relname} partner
+EOF
+
+# Remove and uncomment the OS security repository.
+rm -f /etc/apt/sources.list.d/openmediavault-debian-security.list
+rm -f /etc/apt/sources.list.d/openmediavault-os-security.list
+sed -i -e '/debian-security/s/^/#/' /etc/apt/sources.list
+
+# Upgrade Debian source list file.
+if [ -e "/etc/apt/sources.list" ]; then
+	sed -i -r "s/${OMV_UPGRADE_DEBIAN_RELEASENAME_CURRENT}(-lts)?/${OMV_UPGRADE_DEBIAN_RELEASENAME_NEXT}/g" /etc/apt/sources.list
+fi
+
+# Modify default release.
+if [ -e "/etc/apt/apt.conf" ]; then
+	sed -i -r "s/${OMV_UPGRADE_DEBIAN_RELEASENAME_CURRENT}(-lts)?/${OMV_UPGRADE_DEBIAN_RELEASENAME_NEXT}/g" /etc/apt/apt.conf
+fi
+
+exit 0
