@@ -42,10 +42,8 @@ export class FilesystemEditFormPageComponent {
         type: 'confObjUuid'
       },
       {
-        type: 'textInput',
-        name: 'fsname',
-        label: gettext('Name'),
-        disabled: true
+        type: 'hidden',
+        name: 'fsname'
       },
       {
         type: 'hidden',
@@ -70,6 +68,14 @@ export class FilesystemEditFormPageComponent {
       {
         type: 'hidden',
         name: 'hidden'
+      },
+      {
+        type: 'textInput',
+        name: 'devicefile',
+        value: '{{ _routeParams.fsname }}',
+        label: gettext('File System'),
+        disabled: true,
+        submitValue: false
       },
       {
         type: 'select',

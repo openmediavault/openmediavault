@@ -192,7 +192,7 @@ export class FilesystemDatatablePageComponent {
         template: 'edit',
         execute: {
           type: 'url',
-          url: '/storage/filesystems/edit/{{ _selected[0].predictabledevicefile }}'
+          url: '/storage/filesystems/edit/{{ _selected[0].canonicaldevicefile }}'
         }
       },
       {
