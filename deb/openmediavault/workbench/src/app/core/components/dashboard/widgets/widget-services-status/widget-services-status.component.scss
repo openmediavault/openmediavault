@@ -3,10 +3,9 @@
 .omv-dashboard-widget-services-status {
   padding: $omv-padding;
 
-  .mat-card {
-    border-radius: unset;
-    box-shadow: unset;
+  .item {
     cursor: default;
+    padding: $omv-padding * 0.5;
 
     &.running {
       @extend .omv-background-color-theme-success;

@@ -5,11 +5,10 @@
      class="omv-dashboard-widget-services-status"
      gdGap="1px"
      gdColumns="repeat(auto-fit, minmax(100px, 1fr))">
-  <mat-card *ngFor="let item of data.data"
-            [ngClass]="{'running': item.running, 'not-running': !item.running}"
-            [matTooltip]="tooltipText[item.running] | translate">
-    <mat-card-content class="omv-text-center">
-      <span>{{ item.title }}</span>
-    </mat-card-content>
-  </mat-card>
+  <div *ngFor="let item of data.data"
+       class="item omv-text-center"
+       [ngClass]="{'running': item.running, 'not-running': !item.running}"
+       [matTooltip]="tooltipText[item.running] | translate">
+    {{ item.title }}
+  </div>
 </div>

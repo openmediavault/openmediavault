@@ -3,9 +3,8 @@
 .omv-dashboard-widget-smart-status {
   padding: $omv-padding;
 
-  .mat-card {
-    border-radius: unset;
-    box-shadow: unset;
+  .item {
     cursor: pointer;
+    padding: $omv-padding * 0.5;
   }
 }
