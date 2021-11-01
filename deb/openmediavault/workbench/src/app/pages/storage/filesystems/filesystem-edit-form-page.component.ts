@@ -73,7 +73,7 @@ export class FilesystemEditFormPageComponent {
         type: 'textInput',
         name: 'devicefile',
         value: '{{ _routeParams.fsname }}',
-        label: gettext('File System'),
+        label: gettext('Device'),
         disabled: true,
         submitValue: false
       },
