@@ -29,7 +29,7 @@ import { DataStoreResponse, DataStoreService } from '~/app/shared/services/data-
   styleUrls: ['./widget-smart-status.component.scss']
 })
 export class WidgetSmartStatusComponent extends AbstractDashboardWidgetComponent<DataStoreResponse> {
-  tooltipText = {
+  public readonly overallStatusDescription = {
     GOOD: gettext('Good'),
     BAD_STATUS: gettext('Unknown'),
     BAD_ATTRIBUTE_NOW: gettext('Device is being used outside design parameters.'),
