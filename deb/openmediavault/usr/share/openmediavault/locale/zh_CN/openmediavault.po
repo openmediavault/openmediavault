@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-02 10:35+0200\n"
-"PO-Revision-Date: 2021-10-02 08:35+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-11-01 01:02+0000\n"
+"Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -283,7 +283,7 @@ msgstr "允许客户端恢复中断的上传和下载"
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
-msgstr ""
+msgstr "允许此服务器作为 Windows 客户端的时间服务器."
 
 msgid "Allowed clients"
 msgstr "允许的客户端"
@@ -818,7 +818,7 @@ msgid "Denmark"
 msgstr "丹麦"
 
 msgid "Deny logins which do not have a valid shell."
-msgstr ""
+msgstr "拒绝无效的 shell 登录."
 
 msgid "Description"
 msgstr "描述"
@@ -899,7 +899,7 @@ msgid "Disks"
 msgstr "磁盘"
 
 msgid "Display the home directory of the user in the browse list."
-msgstr ""
+msgstr "在用浏览时显示用户 Home 目录."
 
 msgid "Djibouti"
 msgstr "吉布提"
@@ -1053,7 +1053,7 @@ msgid ""
 msgstr "启用此选项来保留部分传输的文件，否则传输中断的文件将删除不予保存。"
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "启用用户 Home 目录."
 
 msgid "Enable write-cache"
 msgstr "启用写缓存"
@@ -1163,13 +1163,13 @@ msgid "File Systems Status"
 msgstr "文件系统状态"
 
 msgid "File path"
-msgstr ""
+msgstr "文件路径"
 
 msgid "File system"
 msgstr "文件系统"
 
 msgid "File systems"
-msgstr ""
+msgstr "文件系统"
 
 msgid "Filename"
 msgstr "文件名"
@@ -1230,7 +1230,7 @@ msgid "Full"
 msgstr "全部"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Gabon"
 msgstr "加蓬"
@@ -1323,10 +1323,10 @@ msgid "Hide dot files"
 msgstr "隐藏点文件"
 
 msgid "Hide navigation"
-msgstr ""
+msgstr "隐藏导航"
 
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 msgid "Home directories"
 msgstr "主目录"
@@ -1405,7 +1405,7 @@ msgstr "如果选择“允许访客”，用户没有提供登录凭证，那么
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
 "to connect to the module."
-msgstr ""
+msgstr "如果设置，则客户端需提供用户名和密码才能访问该模块."
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
@@ -1780,7 +1780,7 @@ msgid "Max. passive port"
 msgstr "最大被动端口"
 
 msgid "Maximum"
-msgstr ""
+msgstr "最大"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "最大下载速度 (KB/s)"
@@ -1891,7 +1891,7 @@ msgid "Monitoring"
 msgstr "监测"
 
 msgid "Monitoring enabled"
-msgstr ""
+msgstr "监控已启用"
 
 msgid "Month"
 msgstr "月"
@@ -2502,11 +2502,11 @@ msgstr "报告"
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report."
-msgstr ""
+msgstr "自上次报告以来温度变化至少 N 度，则需报告."
 
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius."
-msgstr ""
+msgstr "如果温度大于或等于 N 摄氏度则报告."
 
 msgid "Repository"
 msgstr "软件源"
@@ -2854,7 +2854,7 @@ msgid "Show details"
 msgstr "显示详情"
 
 msgid "Show navigation"
-msgstr ""
+msgstr "显示导航"
 
 msgid "Show/Hide columns"
 msgstr "显示/隐藏栏目"
@@ -3130,7 +3130,7 @@ msgstr "按下电源时要执行的动作。"
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
 "the"
-msgstr ""
+msgstr "仪表盘尚未配置，如需个性化设置请访问"
 
 msgid "The data has been copied to the clipboard."
 msgstr "数据已复制到粘贴板"
@@ -3537,7 +3537,7 @@ msgid "U.S. Virgin Islands"
 msgstr "美属维尔京群岛"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "未知"
@@ -3742,7 +3742,7 @@ msgid "Use chroot"
 msgstr "使用 chroot"
 
 msgid "Use global settings"
-msgstr ""
+msgstr "使用全局设置"
 
 msgid "Use sendfile"
 msgstr "使用 sendfile"
@@ -3908,7 +3908,7 @@ msgid "Yes"
 msgstr "是"
 
 msgid "Your changes will be lost. Do you want to continue?"
-msgstr ""
+msgstr "您的设置尚未生效将会被遗弃，确定要继续吗？"
 
 msgid "Your profile"
 msgstr "你的介绍"

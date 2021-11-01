@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the openmediavault-shairport package.
 # 
 # Translators:
+# Volker Theile <votdev@gmx.de>, 2021
 # Volker Theile <votdev@gmx.de>, 2014-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-02 10:32+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"PO-Revision-Date: 2021-10-30 17:50+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +29,7 @@ msgid "Enable"
 msgstr "Aktivieren"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiviert"
 
 msgid "General settings"
 msgstr "Allgemeine Einstellungen"
@@ -51,4 +52,4 @@ msgid ""
 msgstr "Der Name welchen der Dienst an Clients annonciert. Lassen Sie dieses Feld leer um denn Hostnamen zu verwenden."
 
 msgid "Updated Shairport settings."
-msgstr ""
+msgstr "Shairport-Einstellungen wurden aktualisiert."
