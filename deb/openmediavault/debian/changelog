@@ -28,6 +28,7 @@ openmediavault (6.0-32) UNRELEASED; urgency=low
     Global settings can be overwritten per device. Please check
     your settings whether the migration was correct or reconfigure
     them if necessary.
+  * Added SMART status dashboard widget.
   * Issue #1099: Add environment variables OMV_NGINX_SITE_WEBGUI_LISTEN_IPV4_ADDRESS
     and OMV_NGINX_SITE_WEBGUI_LISTEN_IPV6_ADDRESS to configure the
     WebUI to listen on a specific IP address only instead of all.
