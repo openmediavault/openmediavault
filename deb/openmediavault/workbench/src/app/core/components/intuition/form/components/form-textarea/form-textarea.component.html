@@ -14,8 +14,10 @@
             [required]="config.validators?.required"
             [minlength]="config.validators?.minLength"
             [maxlength]="config.validators?.maxLength"
+            [wrap]="config.wrap"
             [rows]="config.rows"
-            [cols]="config.cols">
+            [cols]="config.cols"
+            spellcheck="false">
   </textarea>
   <mat-error *ngIf="formGroup.invalid">
     <span *ngIf="formGroup.hasError('required', config.name)"

@@ -29,7 +29,8 @@ export class FormTextareaComponent extends AbstractFormFieldComponent {
   protected sanitizeConfig() {
     super.sanitizeConfig();
     _.defaultsDeep(this.config, {
-      rows: 4
+      rows: 4,
+      wrap: 'soft'
     });
   }
 }

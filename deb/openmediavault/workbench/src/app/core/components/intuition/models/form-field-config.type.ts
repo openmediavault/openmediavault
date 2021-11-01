@@ -208,10 +208,13 @@ export type FormFieldConfig = {
   hasCopyToClipboardButton?: boolean;
 
   // --- textarea | fileInput ---
-  rows?: number;
   cols?: number;
+  // Defaults to 4.
+  rows?: number;
+  // Defaults to 'soft'.
+  wrap?: 'hard' | 'soft' | 'off';
 
-  // --- textarea | textInput | fileInput ---
+  // --- textarea | textInput | fileInput | folderBrowser ---
   // Use a monospace font.
   monospace?: boolean;
 

@@ -234,17 +234,26 @@ $omv-color-themes: (
 
 .omv-text-monospace {
   font-family: $omv-font-family-monospace !important;
-  white-space: pre;
 }
 
-.omv-text-no-wrap {
+.omv-text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.omv-text-no-decoration {
-  text-decoration: none;
+.omv-text-wrap {
+  white-space: pre;
+}
+
+.omv-text-nowrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.omv-text-decoration-none {
+  text-decoration: none !important;
 }
 
 .omv-text-bold {

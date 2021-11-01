@@ -15,8 +15,10 @@
             [required]="config.validators?.required"
             [minlength]="config.validators?.minLength"
             [maxlength]="config.validators?.maxLength"
+            [wrap]="config.wrap"
             [rows]="config.rows"
-            [cols]="config.cols">
+            [cols]="config.cols"
+            spellcheck="false">
   </textarea>
   <input *ngIf="config.rows === 1"
          matInput

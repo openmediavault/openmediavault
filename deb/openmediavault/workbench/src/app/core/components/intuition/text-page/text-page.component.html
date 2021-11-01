@@ -17,16 +17,14 @@
             mat-icon-button
             matTooltip="{{ 'Copy to clipboard' | translate }}"
             (click)="onCopyToClipboard()">
-      <mat-icon svgIcon="{{ icon.copy }}">
-      </mat-icon>
+      <mat-icon svgIcon="{{ icon.copy }}"></mat-icon>
     </button>
-    <span fxFlex></span>
+    <div fxFlex></div>
     <button *ngIf="config.hasReloadButton && !config.autoReload"
             mat-icon-button
             matTooltip="{{ 'Reload' | translate }}"
             (click)="loadData()">
-      <mat-icon svgIcon="{{ icon.reload }}">
-      </mat-icon>
+      <mat-icon svgIcon="{{ icon.reload }}"></mat-icon>
     </button>
   </mat-toolbar>
   <mat-card-title-group *ngIf="config.title || config.subTitle">
@@ -38,7 +36,7 @@
     </mat-card-subtitle>
   </mat-card-title-group>
   <mat-card-content class="omv-scrollable-xy">
-    <span class="omv-text-monospace">{{ text }}</span>
+    <div class="omv-text-wrap omv-text-monospace">{{ text }}</div>
   </mat-card-content>
   <mat-card-actions *ngIf="config.buttons.length"
                     fxLayout="row"

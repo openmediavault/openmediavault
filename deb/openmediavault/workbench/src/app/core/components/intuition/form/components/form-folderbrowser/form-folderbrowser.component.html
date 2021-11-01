@@ -5,7 +5,7 @@
   <input *ngIf="config.dirVisible"
          matInput
          type="text"
-         class="omv-text-no-wrap"
+         class="omv-text-nowrap"
          [ngClass]="{'omv-text-monospace': config.monospace}"
          disabled="true"
          [matTooltip]="dirPath"
@@ -98,11 +98,11 @@
       </div>
       <div class="omv-selection-actions"
            fxLayout="row"
-           fxLayoutAlign="center">
-        <input type="text"
-               readonly
-               [value]="currentPath">
-        <span fxFlex></span>
+           fxLayoutAlign="start center">
+        <div class="omv-text-muted">
+          {{ currentPath }}
+        </div>
+        <div fxFlex></div>
         <button mat-flat-button
                 (click)="close()">
           {{ 'Cancel' | translate }}

@@ -13,11 +13,11 @@
        [ngClass]="{'error': item.status === 3, 'warning': (item.status === 1) && !item.mounted}"
        fxLayout="column"
        fxLayoutAlign="start stretch">
-    <div class="item-text omv-text-no-wrap">
+    <div class="item-text omv-text-nowrap">
       {{ item.canonicaldevicefile }}
     </div>
     <div *ngIf="item.mounted"
-         class="item-subtext omv-text-no-wrap">
+         class="item-subtext omv-text-nowrap">
       {{ item.size | binaryUnit }}
     </div>
     <omv-progress-bar *ngIf="item.mounted"
@@ -26,12 +26,12 @@
                       [warningThreshold]="item.usagewarnthreshold | defaultTo:0">
     </omv-progress-bar>
     <div *ngIf="(item.status === 1) && !item.mounted"
-         class="item-subtext omv-text-no-wrap"
+         class="item-subtext omv-text-nowrap"
          translate>
       Not mounted
     </div>
     <div *ngIf="item.status === 3"
-         class="item-subtext omv-text-no-wrap"
+         class="item-subtext omv-text-nowrap"
          translate>
       Missing
     </div>
