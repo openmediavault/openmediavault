@@ -6,7 +6,7 @@
      gdGap="1px"
      gdColumns="repeat(auto-fit, minmax(100px, 1fr))">
   <div *ngFor="let item of data.data"
-       class="item omv-text-center"
+       class="item omv-text-center omv-text-nowrap"
        [ngClass]="{'running': item.running, 'not-running': !item.running}"
        [matTooltip]="tooltipText[item.running] | translate">
     {{ item.title }}

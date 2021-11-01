@@ -29,8 +29,8 @@
            fxLayout="column"
            fxLayoutAlign="end start">
         <div class="total">
-          <div class="total-value omv-text-nowrap">{{ labelFormatter(getTotal(), chartCtx) }}</div>
-          <div class="total-label omv-text-nowrap"
+          <div class="total-value omv-text-truncate">{{ labelFormatter(getTotal(), chartCtx) }}</div>
+          <div class="total-label omv-text-truncate"
                translate>Total</div>
         </div>
         <div class="items"
@@ -41,9 +41,9 @@
                class="item"
                fxLayout="column"
                fxLayoutAlign="start start">
-            <div class="item-value omv-text-nowrap">{{ labelFormatterByProp(data, item.prop, chartCtx) }}</div>
+            <div class="item-value omv-text-truncate">{{ labelFormatterByProp(data, item.prop, chartCtx) }}</div>
             <div class="item-percent">{{ calcPercent(item, chartCtx) }}%</div>
-            <div class="item-label omv-text-nowrap">{{ item.label }}</div>
+            <div class="item-label omv-text-truncate">{{ item.label }}</div>
           </div>
         </div>
       </div>
@@ -63,8 +63,8 @@
                class="item"
                fxLayout="column"
                fxLayoutAlign="start start">
-            <div class="item-value omv-text-nowrap">{{ labelFormatterByProp(data, item.prop, chartCtx) }}</div>
-            <div class="item-label omv-text-nowrap">{{ item.label }}</div>
+            <div class="item-value omv-text-truncate">{{ labelFormatterByProp(data, item.prop, chartCtx) }}</div>
+            <div class="item-label omv-text-truncate">{{ item.label }}</div>
           </div>
         </div>
       </div>

@@ -158,7 +158,7 @@
               [disableRipple]="true"
               [ngClass]="(column?.cellTemplateConfig?.map && column?.cellTemplateConfig?.map[item]?.class) ? column.cellTemplateConfig.map[item].class : (column?.cellTemplateConfig?.class ? column.cellTemplateConfig.class : 'omv-chip-theme-gray')"
               [matTooltip]="(column?.cellTemplateConfig?.map && column?.cellTemplateConfig?.map[item]?.tooltip) ? column?.cellTemplateConfig?.map[item]?.tooltip : undefined">
-      <span class="omv-text-nowrap">{{ (column?.cellTemplateConfig?.map && column?.cellTemplateConfig?.map[item]?.value) ? (column.cellTemplateConfig.map[item].value | template:row) : (column?.cellTemplateConfig?.template ? (column.cellTemplateConfig.template | template:row) : item) }}</span>
+      <span class="omv-text-truncate">{{ (column?.cellTemplateConfig?.map && column?.cellTemplateConfig?.map[item]?.value) ? (column.cellTemplateConfig.map[item].value | template:row) : (column?.cellTemplateConfig?.template ? (column.cellTemplateConfig.template | template:row) : item) }}</span>
     </mat-chip>
   </mat-chip-list>
 </ng-template>
