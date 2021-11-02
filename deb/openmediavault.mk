@@ -26,6 +26,9 @@ OMV_POT_DIR := $(CURDIR)/usr/share/openmediavault/locale
 OMV_POT_FILE := $(OMV_PACKAGE).pot
 OMV_TRANSIFEX_PROJECT_SLUG := openmediavault
 
+override_dh_builddeb:
+	dh_builddeb -- -Zxz
+
 omv_tx_status:
 	tx --root="$(CURDIR)/../" status \
 	  --resource=$(OMV_TRANSIFEX_PROJECT_SLUG).$(OMV_PACKAGE)
