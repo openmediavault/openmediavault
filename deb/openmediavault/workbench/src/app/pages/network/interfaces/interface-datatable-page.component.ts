@@ -168,6 +168,19 @@ export class InterfaceDatatablePageComponent {
       },
       {
         type: 'iconButton',
+        icon: 'details',
+        tooltip: gettext('Show details'),
+        enabledConstraints: {
+          minSelected: 1,
+          maxSelected: 1
+        },
+        execute: {
+          type: 'url',
+          url: '/network/interfaces/details/{{ _selected[0].devicename }}'
+        }
+      },
+      {
+        type: 'iconButton',
         icon: 'search',
         tooltip: gettext('Identify'),
         enabledConstraints: {

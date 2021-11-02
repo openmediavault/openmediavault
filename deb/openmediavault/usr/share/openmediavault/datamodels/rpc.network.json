@@ -592,4 +592,16 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.network.getInformation",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicename": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
 }]

@@ -41,6 +41,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("enumerateDevicesList");
 		$this->registerMethod("enumerateConfiguredDevices");
 		$this->registerMethod("identify");
+		$this->registerMethod("getInformation");
 		$this->registerMethod("getInterfaceList");
 		$this->registerMethod("getInterface");
 		$this->registerMethod("deleteInterface");
@@ -392,6 +393,23 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 			}
 			return $output;
 		});
+	}
+
+	/**
+	 * Get runtime information about the given network interface.
+	 * @param params An array containing the following fields:
+	 *   \em devicename The name of the network interface device, e.g. ens6.
+	 * @param context The context of the caller.
+	 * @return An array containing the network interface information.
+	 */
+	function getInformation($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.network.getInformation");
+		return $this->getIfaceInfo($params['devicename']);
 	}
 
 	/**

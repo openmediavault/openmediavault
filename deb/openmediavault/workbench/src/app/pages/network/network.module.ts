@@ -13,6 +13,7 @@ import { GeneralNetworkFormPageComponent } from '~/app/pages/network/general/gen
 import { InterfaceBondFormPageComponent } from '~/app/pages/network/interfaces/interface-bond-form-page.component';
 import { InterfaceBridgeFormPageComponent } from '~/app/pages/network/interfaces/interface-bridge-form-page.component';
 import { InterfaceDatatablePageComponent } from '~/app/pages/network/interfaces/interface-datatable-page.component';
+import { InterfaceDetailsFormPageComponent } from '~/app/pages/network/interfaces/interface-details-form-page.component';
 import { InterfaceEthernetFormPageComponent } from '~/app/pages/network/interfaces/interface-ethernet-form-page.component';
 import { InterfaceVlanFormPageComponent } from '~/app/pages/network/interfaces/interface-vlan-form-page.component';
 import { InterfaceWifiFormPageComponent } from '~/app/pages/network/interfaces/interface-wifi-form-page.component';
@@ -33,7 +34,8 @@ import { SharedModule } from '~/app/shared/shared.module';
     FirewallRuleTabsPageComponent,
     FirewallRuleInetDatatablePageComponent,
     FirewallRuleInet6DatatablePageComponent,
-    InterfaceBridgeFormPageComponent
+    InterfaceBridgeFormPageComponent,
+    InterfaceDetailsFormPageComponent
   ],
   imports: [
     CommonModule,
