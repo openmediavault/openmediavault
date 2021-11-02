@@ -199,6 +199,13 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 		stateId: "serialnumber"
 	},{
 		xtype: "emptycolumn",
+		text: _("WWN"),
+		sortable: true,
+		hidden: true,
+		dataIndex: "wwn",
+		stateId: "wwn"
+	},{
+		xtype: "emptycolumn",
 		text: _("Vendor"),
 		sortable: true,
 		dataIndex: "vendor",

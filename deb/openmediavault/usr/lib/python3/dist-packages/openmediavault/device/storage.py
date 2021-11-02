@@ -108,6 +108,15 @@ class StorageDevice(BlockDevice):
         return serial.replace('_', ' ')
 
     @property
+    def wwn(self) -> str:
+        """
+        Get the World Wide Name (WWN) identifier.
+        :return: The WWN identifier, otherwise an empty string.
+        :rtype: str
+        """
+        return self.udev_property('ID_WWN', '')
+
+    @property
     def is_rotational(self) -> bool:
         """
         Check if the device is of rotational or non-rotational type.

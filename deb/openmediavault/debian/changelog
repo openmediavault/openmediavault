@@ -1,6 +1,7 @@
 openmediavault (5.6.19-1) stable; urgency=low
 
-  *
+  * Add 'WWN' column in disk and SMART devices pages. The column
+    is hidden by default.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 02 Nov 2021 13:58:59 +0100
 

@@ -496,6 +496,13 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 		dataIndex: "serialnumber",
 		stateId: "serialnumber"
 	},{
+		xtype: "emptycolumn",
+		text: _("WWN"),
+		sortable: true,
+		hidden: true,
+		dataIndex: "wwn",
+		stateId: "wwn"
+	},{
 		xtype: "binaryunitcolumn",
 		text: _("Capacity"),
 		sortable: true,

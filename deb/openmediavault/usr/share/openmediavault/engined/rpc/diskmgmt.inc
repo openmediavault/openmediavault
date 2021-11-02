@@ -88,6 +88,7 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				"description" => $sd->getDescription(),
 				"vendor" => $sd->getVendor(),
 				"serialnumber" => $sd->getSerialNumber(),
+				"wwn" => $sd->getWorldWideName(),
 				"israid" => $sd->isRaid(),
 				"isroot" => \OMV\System\System::isRootDeviceFile(
 					$sd->getCanonicalDeviceFile(), FALSE)

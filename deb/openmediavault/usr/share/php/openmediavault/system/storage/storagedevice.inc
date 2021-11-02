@@ -72,12 +72,22 @@ class StorageDevice extends \OMV\System\BlockDevice
 	}
 
 	/**
+	 * Get the World Wide Name (WWN) identifier.
+	 * @return string The WWN identifier, otherwise an empty string.
+	 */
+	public function getWorldWideName() {
+		if (FALSE === $this->hasUdevProperty("ID_WWN"))
+			return "";
+		return $this->getUdevProperty("ID_WWN");
+	}
+
+	/**
 	 * See interface definition.
 	 */
 	public function getDescription() {
 		$model = $this->getModel();
 		return sprintf("%s [%s, %s]", !empty($model) ? $model : gettext("n/a"),
-		  $this->getPreferredDeviceFile(), binary_format($this->getSize()));
+			$this->getPreferredDeviceFile(), binary_format($this->getSize()));
 	}
 
 	/**
