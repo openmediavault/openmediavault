@@ -115,7 +115,7 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
           }
           nativeEl.innerHTML += stripAnsi(value.output);
           if (this.config.autoScroll) {
-            nativeEl.scrollIntoView(false);
+            nativeEl.scroll({ behavior: 'auto', top: nativeEl.scrollHeight });
           }
         },
         complete: () => {
