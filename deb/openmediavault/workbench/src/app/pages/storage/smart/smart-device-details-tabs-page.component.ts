@@ -60,6 +60,12 @@ export class SmartDeviceDetailsTabsPageComponent {
             },
             {
               type: 'textInput',
+              name: 'wwn',
+              label: gettext('WWN'),
+              disabled: true
+            },
+            {
+              type: 'textInput',
               name: 'firmwareversion',
               label: gettext('Firmware version'),
               disabled: true

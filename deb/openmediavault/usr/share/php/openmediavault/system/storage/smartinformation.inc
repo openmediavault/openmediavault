@@ -297,6 +297,7 @@ class SmartInformation {
 			"devicefile" => $this->sd->getDeviceFile(),
 			"devicemodel" => "",
 			"serialnumber" => "",
+			"wwn" => $this->sd->getWorldWideName(),
 			"firmwareversion" => "",
 			"usercapacity" => ""
 		];

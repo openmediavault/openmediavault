@@ -78,7 +78,7 @@ class StorageDevice extends \OMV\System\BlockDevice
 	public function getWorldWideName() {
 		if (FALSE === $this->hasUdevProperty("ID_WWN"))
 			return "";
-		$property = $this->getUdevProperty("ID_WWN");
+		return $this->getUdevProperty("ID_WWN");
 	}
 
 	/**
@@ -87,7 +87,7 @@ class StorageDevice extends \OMV\System\BlockDevice
 	public function getDescription() {
 		$model = $this->getModel();
 		return sprintf("%s [%s, %s]", !empty($model) ? $model : gettext("n/a"),
-		  $this->getPreferredDeviceFile(), binary_format($this->getSize()));
+			$this->getPreferredDeviceFile(), binary_format($this->getSize()));
 	}
 
 	/**

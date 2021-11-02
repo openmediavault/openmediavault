@@ -35,6 +35,37 @@ openmediavault (6.0-33) UNRELEASED; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Dec 2020 20:28:37 +0100
 
+openmediavault (5.6.19-1) stable; urgency=low
+
+  * Add 'WWN' column in disk and SMART devices pages. The column
+    is hidden by default.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 02 Nov 2021 13:58:59 +0100
+
+openmediavault (5.6.18-2) stable; urgency=low
+
+  * Issue #1119: Fix regression in 'Used' column of the file
+    system table.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 28 Oct 2021 21:10:24 +0200
+
+openmediavault (5.6.17-1) stable; urgency=low
+
+  * Ignore device mapper devices when scanning for SMART
+    capable devices.
+  * Issue #1107: Fix bug when sorting the 'Used' column in the
+    file system table.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 01 Oct 2021 16:50:25 +0200
+
+openmediavault (5.6.16-1) stable; urgency=low
+
+  * Fix SMART issue when requesting information from a NVMe device.
+  * Issue #1095: Fixed a bug when escaping the password in rsync
+    shell scripts.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 14 Sep 2021 23:38:57 +0200
+
 openmediavault (5.6.15-1) stable; urgency=low
 
   * Set correct time zone in proftpd.
