@@ -34,16 +34,7 @@
     animation-name: ken-burns-top-left;
     animation-duration: 20s;
     animation-iteration-count: infinite;
-  }
-
-  .logo {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-image: url('/assets/images/openmediavault_logo.svg');
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-    background-position: center bottom $omv-margin;
+    z-index: -1;
   }
 
   .toolbar {
@@ -53,6 +44,25 @@
 
     mat-toolbar {
       @extend .omv-background-color-theme-transparent;
+
+      display: flex;
+      justify-content: end;
+    }
+  }
+
+  .sidebar {
+    background-color: $omv-color-transparent-black;
+    width: 6rem;
+    height: 100%;
+    position: absolute;
+
+    .logo {
+      content: url('/assets/images/openmediavault_logo.svg');
+      margin: $omv-margin;
+      width: auto;
+      height: auto;
+      transform-origin: top right;
+      transform: translateX(-100%) rotate(-90deg);
     }
   }
 

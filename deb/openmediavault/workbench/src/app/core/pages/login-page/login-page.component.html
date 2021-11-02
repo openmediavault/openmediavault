@@ -1,9 +1,7 @@
 <div class="omv-login-page">
   <div class="background"></div>
-  <div class="logo"></div>
   <div class="toolbar">
-    <mat-toolbar fxLayout="row"
-                 fxLayoutAlign="end center">
+    <mat-toolbar>
       <button mat-icon-button
               matTooltip="{{ 'Language' | translate }}"
               [matMenuTriggerFor]="localeMenu">
@@ -12,6 +10,9 @@
         </mat-icon>
       </button>
     </mat-toolbar>
+  </div>
+  <div class="sidebar">
+    <div class="logo"></div>
   </div>
   <div class="content">
     <omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>
