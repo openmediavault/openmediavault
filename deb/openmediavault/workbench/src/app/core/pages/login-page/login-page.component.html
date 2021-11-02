@@ -1,8 +1,7 @@
 <div class="omv-login-page">
-  <div class="omv-login-page-background"></div>
-  <div class="omv-login-page-logo"></div>
-  <div class="omv-login-page-content"
-       fxLayout="column">
+  <div class="background"></div>
+  <div class="logo"></div>
+  <div class="toolbar">
     <mat-toolbar fxLayout="row"
                  fxLayoutAlign="end center">
       <button mat-icon-button
@@ -13,6 +12,8 @@
         </mat-icon>
       </button>
     </mat-toolbar>
+  </div>
+  <div class="content">
     <omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>
   </div>
 </div>

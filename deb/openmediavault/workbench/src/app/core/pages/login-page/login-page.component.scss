@@ -21,7 +21,7 @@
   position: relative;
   overflow: hidden;
 
-  .omv-login-page-background {
+  .background {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -36,7 +36,7 @@
     animation-iteration-count: infinite;
   }
 
-  .omv-login-page-logo {
+  .logo {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -46,15 +46,19 @@
     background-position: center bottom $omv-margin;
   }
 
-  .omv-login-page-content {
+  .toolbar {
     width: 100%;
     height: 100%;
+    position: absolute;
 
     mat-toolbar {
       @extend .omv-background-color-theme-transparent;
-
-      position: absolute;
     }
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
 
     omv-intuition-form-page {
       height: 100%;
