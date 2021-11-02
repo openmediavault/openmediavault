@@ -99,10 +99,11 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 					"model" => $sd->getModel(),
 					"size" => $sd->getSize(),
 					"temperature" => (FALSE === $temperature) ?
-					  "" : sprintf("%d°C", $temperature),
+						"" : sprintf("%d°C", $temperature),
 					"description" => $sd->getDescription(),
 					"vendor" => $sd->getVendor(),
 					"serialnumber" => $sd->getSerialNumber(),
+					"wwn" => $sd->getWorldWideName(),
 					"overallstatus" => $smartInfo->getOverallStatus()
 				];
 			});

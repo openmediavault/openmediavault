@@ -66,6 +66,13 @@ export class DiskDatatablePageComponent {
         sortable: true
       },
       {
+        name: gettext('WWN'),
+        prop: 'wwn',
+        flexGrow: 1,
+        sortable: true,
+        hidden: true
+      },
+      {
         name: gettext('Vendor'),
         prop: 'vendor',
         flexGrow: 1,

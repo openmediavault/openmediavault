@@ -83,6 +83,13 @@ export class SmartDeviceDatatablePageComponent {
         sortable: true
       },
       {
+        name: gettext('WWN'),
+        prop: 'wwn',
+        flexGrow: 1,
+        sortable: true,
+        hidden: true
+      },
+      {
         name: gettext('Capacity'),
         prop: 'size',
         flexGrow: 1,

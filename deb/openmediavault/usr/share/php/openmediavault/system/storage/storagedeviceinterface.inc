@@ -133,6 +133,12 @@ interface StorageDeviceInterface {
 	public function getSerialNumber();
 
 	/**
+	 * Get the World Wide Name (WWN) identifier.
+	 * @return string The WWN identifier, otherwise an empty string.
+	 */
+	public function getWorldWideName();
+
+	/**
 	 * Get the description of the device.
 	 * @return The device description.
 	 */
