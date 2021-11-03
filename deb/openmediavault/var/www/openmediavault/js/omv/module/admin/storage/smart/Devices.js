@@ -224,17 +224,15 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 		width: 80,
 		getFontIconCls: function(value, metaData, record) {
 			var colorCls = Ext.baseCSSPrefix + "color-gray";
-			if (true === record.get("prefailure")) {
-				switch (value) {
-				case "GOOD":
-					colorCls = Ext.baseCSSPrefix + "color-good";
-					break;
-				case "BAD_SECTOR":
-				case "BAD_ATTRIBUTE_NOW":
-				case "BAD_ATTRIBUTE_IN_THE_PAST":
-					colorCls = Ext.baseCSSPrefix + "color-error";
-					break;
-				}
+			switch (value) {
+			case "GOOD":
+				colorCls = Ext.baseCSSPrefix + "color-good";
+				break;
+			case "BAD_SECTOR":
+			case "BAD_ATTRIBUTE_NOW":
+			case "BAD_ATTRIBUTE_IN_THE_PAST":
+				colorCls = Ext.baseCSSPrefix + "color-error";
+				break;
 			}
 			return ["mdi mdi-checkbox-blank-circle", colorCls];
 		}
