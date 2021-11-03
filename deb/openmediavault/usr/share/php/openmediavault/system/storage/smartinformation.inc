@@ -179,6 +179,7 @@ class SmartInformation {
 			//   4 Start_Stop_Count        -O--CK   100   100   000    -    795
 			//   5 Reallocated_Sector_Ct   PO--CK   252   252   010    -    0
 			//   7 Seek_Error_Rate         -OSR-K   252   252   051    -    0
+			// 187 Reported_Uncorrect      -O--CK   100   100   ---    -    0
 			$regex = '/^\s*(\d+)\s+(\S+)\s+([POSRCK-]+)\s+(\d+)\s+(\d+)\s+'.
 				'(\d+|---)\s+(\S+)\s+(.+)$/i';
 			if (1 == preg_match($regex, $cmdOutputv, $matches)) {
@@ -199,40 +200,49 @@ class SmartInformation {
 					"prefailure" => (FALSE !== stripos($matches[3], "P")),
 					"assessment" => self::SMART_ASSESSMENT_BAD_STATUS
 				);
-				// Assess prefailure attributes.
-				if (TRUE === $attrData['prefailure'])
-					$this->assessPrefailureAttribute($attrData);
+				$this->assessAttribute($attrData);
 				$result[] = $attrData;
 			}
 		}
 		return $result;
 	}
 
-	private function assessPrefailureAttribute(&$attrData) {
-		if (FALSE === $attrData['prefailure'])
-			return;
-		// Set the default assessment.
-		$attrData['assessment'] = self::SMART_ASSESSMENT_GOOD;
-		// Always-Fail and Always-Passing thresholds are not relevant
-		// for our assessment.
-		if (!(1 <= $attrData['threshold']) && (0xFD >= $attrData['threshold'])) {
-			$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_STATUS;
-			return;
-		}
-		// See https://wiki.ubuntuusers.de/Festplattenstatus
-		if ($attrData['value'] <= $attrData['threshold']) {
-			$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_ATTRIBUTE_NOW;
-			return;
-		}
-		if ($attrData['worst'] <= $attrData['threshold']) {
-			$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_ATTRIBUTE_IN_THE_PAST;
-			return;
-		}
-		// Check for bad sectors (Reallocated_Sector_Ct and Current_Pending_Sector).
-		if ($attrData['id'] == 5 || $attrData['id'] == 197) {
-			if (1 <= $attrData['rawvalue']) {
-				$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_SECTOR;
+	private function assessAttribute(&$attrData) {
+		if (TRUE === $attrData['prefailure']) {
+			// Set the default assessment.
+			$attrData['assessment'] = self::SMART_ASSESSMENT_GOOD;
+			// Always-Fail and Always-Passing thresholds are not relevant
+			// for our assessment.
+			if (!(1 <= $attrData['threshold']) && (0xFD >= $attrData['threshold'])) {
+				$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_STATUS;
 				return;
+			}
+			// See https://wiki.ubuntuusers.de/Festplattenstatus
+			if ($attrData['value'] <= $attrData['threshold']) {
+				$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_ATTRIBUTE_NOW;
+				return;
+			}
+			if ($attrData['worst'] <= $attrData['threshold']) {
+				$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_ATTRIBUTE_IN_THE_PAST;
+				return;
+			}
+			// Check for bad sectors (Reallocated_Sector_Ct and Current_Pending_Sector).
+			if ($attrData['id'] == 5 || $attrData['id'] == 197) {
+				if (1 <= $attrData['rawvalue']) {
+					$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_SECTOR;
+					return;
+				}
+			}
+		} else {
+			switch ($attrData['id']) {
+			case 187: // Reported_Uncorrect
+				// https://www.backblaze.com/blog/hard-drive-smart-stats/
+				// Check number of reads that could not be corrected using
+				// hardware ECC.
+				if (0 < $attrData['rawvalue']) {
+					$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_ATTRIBUTE_NOW;
+				}
+				break;
 			}
 		}
 	}
@@ -526,9 +536,6 @@ class SmartInformation {
 		}
 		// Check if any of the SMART attributes is bad.
 		foreach ($attributes as $attrk => $attrv) {
-			// Skip non-prefailure attributes.
-			if (FALSE === $attrv['prefailure'])
-				continue;
 			// Skip attributes that do not have a valid assessment.
 			if (self::SMART_ASSESSMENT_BAD_STATUS == $attrv['assessment'])
 				continue;
