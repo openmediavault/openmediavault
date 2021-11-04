@@ -26,15 +26,20 @@ $omv-color-corporate-darker: #1b7bba;
 ////////////////////////////////////////////////////////////////////////////////
 // Various
 ////////////////////////////////////////////////////////////////////////////////
+$omv-color-black: #000000;
 $omv-color-transparent: transparent;
-$omv-color-transparent-black: rgba(0, 0, 0, 0.54);
+$omv-color-transparent-black: hsla(
+  hue($omv-color-black),
+  saturation($omv-color-black),
+  lightness($omv-color-black),
+  0.54
+);
 $omv-color-green: #4cd964;
 $omv-color-blue: $omv-color-corporate-dark;
 $omv-color-red: #ff3b30;
 $omv-color-yellow: #f8d400;
 $omv-color-white: white;
 $omv-color-whitesmoke: whitesmoke;
-$omv-color-black: #000000;
 $omv-color-gray: #656c72;
 
 // Status colors
@@ -44,7 +49,12 @@ $omv-color-warning: $omv-color-yellow;
 $omv-color-info: $omv-color-corporate-dark;
 
 // Components
-$omv-color-component-border: rgba(0, 0, 0, 0.2);
+$omv-color-component-border: hsla(
+  hue($omv-color-black),
+  saturation($omv-color-black),
+  lightness($omv-color-black),
+  0.2
+);
 $omv-color-list-item-hover: $omv-color-whitesmoke;
 
 ////////////////////////////////////////////////////////////////////////////////
