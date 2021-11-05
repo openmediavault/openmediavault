@@ -58,14 +58,14 @@
     </button>
     <mat-divider></mat-divider>
     <button mat-menu-item
-            routerLink="/dashboard/settings">
-      <mat-icon svgIcon="{{ icon.apps }}"></mat-icon>
-      <span translate>Dashboard</span>
-    </button>
-    <button mat-menu-item
             [matMenuTriggerFor]="localeMenu">
       <mat-icon svgIcon="mdi:earth"></mat-icon>
       <span translate>Language</span>
+    </button>
+    <button mat-menu-item
+            routerLink="/dashboard/settings">
+      <mat-icon svgIcon="{{ icon.apps }}"></mat-icon>
+      <span translate>Dashboard</span>
     </button>
     <mat-divider></mat-divider>
     <button mat-menu-item
