@@ -32,4 +32,10 @@ configure_issue:
     - mode: 644
     - onlyif: udevadm settle
 
+reload_issue:
+  cmd.run:
+    - name: "agetty --reload"
+    - onchanges:
+      - file: configure_issue
+
 {% endif %}
