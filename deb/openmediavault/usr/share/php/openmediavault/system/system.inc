@@ -263,21 +263,32 @@ class System {
 					"shared" => $matches[4],
 					"buffers" => $matches[5],
 					"cache" => $matches[6],
-					"available" => $matches[7]
+					"available" => $matches[7],
+					// The utilization is calculated based on
+					// https://github.com/giampaolo/psutil/blob/master/psutil/_pslinux.py#L523
+					"utilization" => bcdiv(
+						bcsub($matches[1], $matches[7]),
+						$matches[1], 5)
 				];
 			} else if (preg_match('/^Swap:\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
 				$result['swap'] = [
 					"total" => $matches[1],
 					"used" => $matches[2],
-					"free" => $matches[3]
+					"free" => $matches[3],
+					"utilization" => bcdiv(
+						bcsub($matches[1], $matches[2]),
+						$matches[1], 5)
 				];
 			} else if (preg_match('/^Total:\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
 				$result['total'] = [
 					"total" => $matches[1],
 					"used" => $matches[2],
-					"free" => $matches[3]
+					"free" => $matches[3],
+					"utilization" => bcdiv(
+						bcsub($matches[1], $matches[2]),
+						$matches[1], 5)
 				];
 			}
 		}

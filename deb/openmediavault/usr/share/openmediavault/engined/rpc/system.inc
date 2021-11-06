@@ -337,6 +337,8 @@ class System extends \OMV\Rpc\ServiceAbstract {
 
 	/**
 	 * Get various system information.
+	 * Note, all numbers that might be > 4GiB are returned as strings
+	 * to keep the 32bit compatibility.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An object containing the system information.
@@ -368,6 +370,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 				"memFree" => $memStats['mem']['free'],
 				"memUsed" => $memStats['mem']['used'],
 				"memAvailable" => $memStats['mem']['available'],
+				"memUtilization" => $memStats['mem']['utilization'],
 				"kernel" => sprintf("%s %s", $uname['sysname'],
 					$uname['release']),
 				"uptime" => \OMV\System\System::uptime(),

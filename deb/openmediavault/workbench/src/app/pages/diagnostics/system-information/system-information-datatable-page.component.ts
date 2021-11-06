@@ -133,10 +133,10 @@ export class SystemInformationDatatablePageComponent implements OnDestroy {
             name: gettext('Memory Usage'),
             value: {
               type: 'progressBar',
-              text: `${((res.memTotal - res.memAvailable) / res.memTotal).toFixed(
-                1
-              )}% of ${this.binaryUnitPipe.transform(res.memTotal)}`,
-              value: ((res.memTotal - res.memAvailable) / res.memTotal).toFixed(1)
+              text: `${(res.memUtilization * 100).toFixed(1)}% of ${this.binaryUnitPipe.transform(
+                res.memTotal
+              )}`,
+              value: (res.memUtilization * 100).toFixed(1)
             }
           }
         };
