@@ -15,7 +15,7 @@ data:
       service: System
       method: getInformation
       transform:
-        memUsed: '{{ memTotal - memFree }}'
+        memUsed: '{{ memTotal - memAvailable }}'
     label:
       display: true
       formatter: template
@@ -25,5 +25,5 @@ data:
       prop: memUsed
       backgroundColor: "#ff3b30"
     - label: Free
-      prop: memFree
+      prop: memAvailable
       backgroundColor: "#4cd964"

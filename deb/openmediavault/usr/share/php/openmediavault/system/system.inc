@@ -236,6 +236,23 @@ class System {
 		// Mem:     2101825536    98390016  1823117312    12967936    16809984   163508224  1844318208
 		// Swap:             0           0           0
 		// Total:   2101825536    98390016  1823117312
+		//
+		// Some information about the 'Mem' metrics.
+		// See https://psutil.readthedocs.io/en/latest/#psutil.virtual_memory)
+		//
+		// total     - Total physical memory (exclusive swap).
+		// available - The memory that can be given instantly to processes
+		//             without the system going into swap.
+		// used      - Memory used. 'total - free' does not necessarily
+		//             match used.
+		// free      - Memory not being used at all (zeroed) that is
+		//             readily available; note that this doesn’t reflect
+		//             the actual memory available (use available
+		//             instead). 'total - used' does not necessarily match
+		//             free.
+		// shared    - Memory that may be simultaneously accessed by
+		//             multiple processes.
+		// cache     - Cache for various things.
 		foreach ($output as $outputk => $outputv) {
 			if (preg_match('/^Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {

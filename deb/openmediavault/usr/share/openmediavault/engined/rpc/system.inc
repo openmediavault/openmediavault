@@ -367,6 +367,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 				"memTotal" => $memStats['mem']['total'],
 				"memFree" => $memStats['mem']['free'],
 				"memUsed" => $memStats['mem']['used'],
+				"memAvailable" => $memStats['mem']['available'],
 				"kernel" => sprintf("%s %s", $uname['sysname'],
 					$uname['release']),
 				"uptime" => \OMV\System\System::uptime(),
