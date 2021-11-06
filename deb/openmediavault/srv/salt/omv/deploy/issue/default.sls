@@ -17,6 +17,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+{% set apply_issue = salt['pillar.get']('default:OMV_ISSUE_APPLY_PRELOGIN_MESSAGE', 'yes') -%}
+
+{% if apply_issue | to_bool %}
+
 configure_issue:
   file.managed:
     - name: "/etc/issue"
@@ -27,3 +31,11 @@ configure_issue:
     - group: root
     - mode: 644
     - onlyif: udevadm settle
+
+reload_issue:
+  cmd.run:
+    - name: "agetty --reload"
+    - onchanges:
+      - file: configure_issue
+
+{% endif %}
