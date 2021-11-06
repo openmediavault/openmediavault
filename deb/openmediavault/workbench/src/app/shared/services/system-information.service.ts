@@ -32,6 +32,7 @@ export type SystemInformation = {
   cpuUsage?: number;
   memTotal?: number;
   memUsed?: number;
+  memAvailable?: number;
   kernel?: string;
   uptime?: number;
   loadAverage?: string;
@@ -82,6 +83,9 @@ export class SystemInformationService implements OnDestroy {
           }
           if (_.isString(res.memTotal)) {
             res.memTotal = _.parseInt(res.memTotal);
+          }
+          if (_.isString(res.memAvailable)) {
+            res.memAvailable = _.parseInt(res.memAvailable);
           }
           this.systemInfoSource.next(res);
         }),
