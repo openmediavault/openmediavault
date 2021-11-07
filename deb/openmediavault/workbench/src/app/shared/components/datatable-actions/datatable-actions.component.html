@@ -26,6 +26,7 @@
         <button *ngFor="let action of action.actions"
                 mat-menu-item
                 [disabled]="isDisabled(action)"
+                matTooltip="{{ action.tooltip | translate }}"
                 (click)="onButtonClick(action)">
           <mat-icon svgIcon="{{ action.icon }}"></mat-icon>
           <span>{{ action.text | translate }}</span>
