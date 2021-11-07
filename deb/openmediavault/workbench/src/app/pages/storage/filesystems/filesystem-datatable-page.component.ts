@@ -172,6 +172,7 @@ export class FilesystemDatatablePageComponent {
         actions: [
           {
             template: 'create',
+            tooltip: gettext('Create a new file system.'),
             execute: {
               type: 'url',
               url: '/storage/filesystems/create'
@@ -181,6 +182,7 @@ export class FilesystemDatatablePageComponent {
             type: 'iconButton',
             text: gettext('Mount'),
             icon: 'start',
+            tooltip: gettext('Mount an existing file system.'),
             execute: {
               type: 'url',
               url: '/storage/filesystems/mount'
