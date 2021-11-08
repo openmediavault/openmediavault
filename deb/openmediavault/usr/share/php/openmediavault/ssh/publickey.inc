@@ -35,6 +35,7 @@ class PublicKey {
 		$this->data = $data;
 	}
 
+	// https://datatracker.ietf.org/doc/html/rfc4716
 	public static function isRfc4716(string $data): bool {
 		if (!preg_match(
 				'/^---- BEGIN SSH2 PUBLIC KEY ----(\n|\r|\f)(.+)'.
@@ -45,9 +46,11 @@ class PublicKey {
 		return TRUE;
 	}
 
+	// http://tools.ietf.org/html/rfc4253#section-6.6
 	public static function isOpenSSH(string $data): bool {
+		// Format: <algorithm> <key> <comment>
 		if (!preg_match(
-				'/^ssh-rsa AAAA[0-9A-Za-z+\/]+[=]{0,3}\s*(.+)*$/',
+				'/^ssh-(rsa|dss|ed25519) AAAA[0-9A-Za-z+\/]+[=]{0,3}\s*(.+)*$/',
 				$data)) {
 			return FALSE;
 		}
@@ -62,6 +65,7 @@ class PublicKey {
 		$keyFile->write($this->data);
 		$cmdArgs = [];
 		$cmdArgs[] = "-e";
+		$cmdArgs[] = "-m RFC4716";
 		$cmdArgs[] = sprintf("-f %s", escapeshellarg(
 			$keyFile->getFileName()));
 		$cmd = new \OMV\System\Process("ssh-keygen", $cmdArgs);
