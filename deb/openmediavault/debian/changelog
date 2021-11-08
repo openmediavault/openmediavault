@@ -1,4 +1,10 @@
-openmediavault (6.0-34) UNRELEASED; urgency=low
+openmediavault (6.0.1-1) unstable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 09 Nov 2021 00:17:47 +0100
+
+openmediavault (6.0-34) unstable; urgency=low
 
   * Reimplement UI.
   * /dev/disk/by-label filesystem device files are not supported
