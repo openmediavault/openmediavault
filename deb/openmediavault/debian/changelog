@@ -1,6 +1,7 @@
 openmediavault (6.0.1-1) unstable; urgency=low
 
-  *
+  * Issue #1127: Support ed25519 SSH public keys in the user
+    settings dialog.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 09 Nov 2021 00:17:47 +0100
 
