@@ -1,3 +1,9 @@
+openmediavault (5.6.20-1) stable; urgency=low
+
+  * Fix various issues in omv-release-upgrade.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 10 Nov 2021 00:26:23 +0100
+
 openmediavault (5.6.19-1) stable; urgency=low
 
   * Add 'WWN' column in disk and SMART devices pages. The column

@@ -47,7 +47,7 @@ EOF
 # Remove and uncomment the OS security repository.
 rm -f /etc/apt/sources.list.d/openmediavault-debian-security.list
 rm -f /etc/apt/sources.list.d/openmediavault-os-security.list
-sed -i -e '/debian-security/s/^/#/' /etc/apt/sources.list
+sed -i -e '/security.debian.org/s/^/#/' /etc/apt/sources.list
 
 # Upgrade Debian source list file.
 if [ -e "/etc/apt/sources.list" ]; then
