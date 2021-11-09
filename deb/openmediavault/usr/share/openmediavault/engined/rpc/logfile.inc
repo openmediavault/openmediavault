@@ -136,7 +136,7 @@ class LogFile extends \OMV\Rpc\ServiceAbstract {
 		// Check if the given log file type if registered.
 		$spec = new \OMV\System\LogFileSpec($params['id']);
 		// Get the file path. If no permanent file is available (e.g. when
-		// the log is retrieved via journalctl), then exit immediatelly
+		// the log is retrieved via journalctl), then exit immediately
 		// and notify the user.
 		$filePath = $spec->getFilePath();
 		if (TRUE === empty($filePath)) {

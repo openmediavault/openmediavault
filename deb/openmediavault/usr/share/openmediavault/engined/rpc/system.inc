@@ -127,7 +127,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		if (0 < $params['delay']) {
 			$pid = $this->fork();
 			if (0 < $pid) { // Parent process.
-				// Exit immediatelly to do not block the caller (e.g. WebGUI).
+				// Exit immediately to do not block the caller (e.g. WebGUI).
 				return;
 			}
 			// Child process.
@@ -155,7 +155,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		if (0 < $params['delay']) {
 			$pid = $this->fork();
 			if (0 < $pid) { // Parent process.
-				// Exit immediatelly to do not block the caller (e.g. WebGUI).
+				// Exit immediately to do not block the caller (e.g. WebGUI).
 				return;
 			}
 			// Child process.
@@ -190,7 +190,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		if (0 < $params['delay']) {
 			$pid = $this->fork();
 			if (0 < $pid) { // Parent process.
-				// Exit immediatelly to do not block the caller (e.g. WebGUI).
+				// Exit immediately to do not block the caller (e.g. WebGUI).
 				return;
 			}
 			// Child process.

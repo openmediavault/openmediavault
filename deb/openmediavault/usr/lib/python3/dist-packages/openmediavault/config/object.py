@@ -114,7 +114,7 @@ class Object:
         def callback(
             model, name, path, schema, user_data
         ):  # pylint: disable=unused-argument
-            # Abort immediatelly if the path is empty.
+            # Abort immediately if the path is empty.
             if not path:
                 return None
             # Get the default value.

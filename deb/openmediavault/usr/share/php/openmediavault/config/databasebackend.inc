@@ -209,7 +209,7 @@ class DatabaseBackend {
 
 	/**
 	 * Replace the data at the given XPath expression. If the given XPath
-	 * expression does not exist, then the method will exit immediatelly.
+	 * expression does not exist, then the method will exit immediately.
 	 * This function is protected by mutual exclusion, thus the function
 	 * will be blocked until it can acces the protected section.
 	 * @param xpath The XPath expression to execute.
@@ -235,7 +235,7 @@ class DatabaseBackend {
 	 * Update the existing configuration for the given XPath expression.
 	 * The given data will override the existing configuration. If the
 	 * given XPath expression does not exist, then the method will exit
-	 * immediatelly.
+	 * immediately.
 	 * This function is protected by mutual exclusion, thus the function
 	 * will be blocked until it can acces the protected section.
 	 * @param xpath The XPath expression to execute.
@@ -442,7 +442,7 @@ class DatabaseBackend {
 			$revision += 1;
 			// Build the new filename, e.g. '<filename>.0815'.
 			$filename = sprintf("%s.%04d", $this->filename, $revision);
-			// Create a copy of the existing document. Exit immediatelly
+			// Create a copy of the existing document. Exit immediately
 			// on failure to do not corrupt the original file. Note, the
 			// current changes can get lost.
 			if (!copy($this->filename, $filename)) {

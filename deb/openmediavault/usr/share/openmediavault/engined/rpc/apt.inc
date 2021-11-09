@@ -80,7 +80,7 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 		// Update the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
-		// Apply the changes immediatelly (no user interaction is wanted).
+		// Apply the changes immediately (no user interaction is wanted).
 		\OMV\Rpc\Rpc::call("Config", "applyChanges", [
 			"modules" => [ "apt" ],
 			"force" => TRUE

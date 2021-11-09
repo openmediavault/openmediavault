@@ -459,7 +459,7 @@ abstract class ServiceAbstract {
 		$process = proc_open($command, $descriptors, $pipes);
 		if ((FALSE === $process) || !is_resource($process))
 			return -1;
-		// Immediatelly close STDIN.
+		// immediately close STDIN.
 		fclose($pipes[0]);
 		$pipes[0] = NULL;
 		// Read from the pipes. Make STDIN/STDOUT/STDERR non-blocking.

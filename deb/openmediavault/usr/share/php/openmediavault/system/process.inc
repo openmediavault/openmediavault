@@ -123,7 +123,7 @@ class Process {
 	}
 
 	/**
-	 * Execute the command in background. The method \em execute immediatelly
+	 * Execute the command in background. The method \em execute immediately
 	 * returns in this case.
 	 * @param background Set to TRUE to do execute the command in background.
 	 *   Defaults to TRUE.
