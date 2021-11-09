@@ -19,10 +19,10 @@ import { Component, Input, OnDestroy } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
+import * as _ from 'lodash';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
-import { EMPTY, of, Subscription } from 'rxjs';
-import { catchError, delay, repeat } from 'rxjs/operators';
-import { concatMap } from 'rxjs/operators';
+import { EMPTY, interval, Subscription } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
 
 import { translate } from '~/app/i18n.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
@@ -126,22 +126,27 @@ export class TopBarComponent implements OnDestroy {
           this.blockUI.start(
             translate(gettext('The system will reboot now. This may take some time ...'))
           );
-          const subscription = of(true)
-            .pipe(delay(5000))
+          const subscription = interval(5000)
             .pipe(
-              concatMap(() => this.rpcService.request('System', 'noop')),
-              catchError((error) => {
-                // Do not show an error notification.
-                error.preventDefault();
-                // If we get a HTTP 401 Unauthorized status, then unblock UI.
-                if (error.status === 401) {
-                  subscription.unsubscribe();
-                  this.blockUI.stop();
-                }
-                return EMPTY;
-              }),
-              delay(500),
-              repeat()
+              switchMap(() =>
+                this.rpcService.request('System', 'noop').pipe(
+                  catchError((error) => {
+                    // Do not show an error notification.
+                    if (_.isFunction(error.preventDefault)) {
+                      error.preventDefault();
+                    }
+                    // Check if we got a 'HTTP 401 Unauthorized status'.
+                    // In that case the request was successful, but
+                    // authentication failed => this means the system is
+                    // up again.
+                    if (error.status === 401) {
+                      subscription.unsubscribe();
+                      this.blockUI.stop();
+                    }
+                    return EMPTY;
+                  })
+                )
+              )
             )
             .subscribe();
         });
