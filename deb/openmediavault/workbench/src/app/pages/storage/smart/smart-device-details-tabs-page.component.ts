@@ -138,7 +138,7 @@ export class SmartDeviceDetailsTabsPageComponent {
               flexGrow: 1
             },
             {
-              name: gettext('When failed'),
+              name: gettext('Failed'),
               prop: 'whenfailed',
               flexGrow: 1
             },
