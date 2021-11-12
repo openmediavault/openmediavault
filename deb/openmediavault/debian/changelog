@@ -1,6 +1,7 @@
 openmediavault (6.0.1-1) unstable; urgency=low
 
   * Fix issue when editing a power management task.
+  * PR #1135: Fix fsid issue in NFS configuration.
   * Issue #1127: Support ed25519 SSH public keys in the user
     settings dialog.
 
