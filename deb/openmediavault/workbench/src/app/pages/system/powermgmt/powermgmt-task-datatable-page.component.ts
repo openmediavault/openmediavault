@@ -104,7 +104,7 @@ export class PowermgmtTaskDatatablePageComponent {
         template: 'edit',
         execute: {
           type: 'url',
-          url: '/system/powermgmt/tasks/edit/{{ uuid }}'
+          url: '/system/powermgmt/tasks/edit/{{ _selected[0].uuid }}'
         }
       },
       {
