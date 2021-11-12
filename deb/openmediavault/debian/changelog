@@ -1,5 +1,6 @@
 openmediavault (6.0.1-1) unstable; urgency=low
 
+  * Fix issue when editing a power management task.
   * Issue #1127: Support ed25519 SSH public keys in the user
     settings dialog.
 
