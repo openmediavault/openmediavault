@@ -18,7 +18,7 @@
 {%- for share in shares %}
 {%- set sharedfolder = salt['omv_conf.get']('conf.system.sharedfolder', share.sharedfolderref) %}
 {%- if loop.first %}{{ export_dir | path_join(sharedfolder.name) }}{% endif -%}
-{{ separator }}{{ share.client | trim }}(fsid={{ v3_loop.index }},{{ share.options }}{% if share.extraoptions | length > 0 %},{{ share.extraoptions }}{% endif %})
+{{ separator }}{{ share.client | trim }}(fsid={{ share.uuid }},{{ share.options }}{% if share.extraoptions | length > 0 %},{{ share.extraoptions }}{% endif %})
 {%- endfor %}
 {%- endfor %}
 

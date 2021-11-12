@@ -327,6 +327,9 @@ case "$1" in
 		  # changed its 'Suite' value from 'stable' to 'oldstable'" message.
 		  apt-get clean || :
 		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.20"; then
+			omv_module_set_dirty nfs
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the

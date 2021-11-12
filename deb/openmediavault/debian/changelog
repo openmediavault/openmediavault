@@ -1,6 +1,7 @@
 openmediavault (5.6.20-1) stable; urgency=low
 
   * Fix various issues in omv-release-upgrade.
+  * PR #1135: Fix fsid issue in NFS configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 10 Nov 2021 00:26:23 +0100
 
