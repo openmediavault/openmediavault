@@ -335,8 +335,8 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   onSelect(): void {
     // Update the selection.
     this.selection.update();
-    // Make a copy of the selection and emit it to the subscribers.
-    this.selectionChangeEvent.emit(_.clone(this.selection));
+    // Make a deep copy of the selection and emit it to the subscribers.
+    this.selectionChangeEvent.emit(_.cloneDeep(this.selection));
   }
 
   onSort({ sorts }): void {
