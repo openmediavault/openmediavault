@@ -95,10 +95,19 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (FALSE === ($fs instanceof
 				\OMV\System\Filesystem\SharedFolderCandidateInterface))
 				continue;
+			// Populate the description property. Use the 'comment' property
+			// of the mount point database configuration object, otherwise
+			// the description delivered by the file system object.
+			$description = $fs->getDescription();
+			if (!empty($objectv->get("comment"))) {
+				$description = sprintf("%s [%s]",
+					$fs->getCanonicalDeviceFile(),
+					$objectv->get("comment"));
+			}
 			// Append the shared folder candidate.
 			$result[] = [
 				"uuid" => $objectv->get("uuid"),
-				"description" => $fs->getDescription()
+				"description" => $description
 			];
 		}
 		return $result;
