@@ -40,7 +40,7 @@ export class DatatableActionsComponent implements OnInit {
   actions: DatatableActionConfig[];
 
   @Input()
-  owner: Datatable;
+  table: Datatable;
 
   constructor(private dataStoreService: DataStoreService) {}
 
@@ -78,7 +78,7 @@ export class DatatableActionsComponent implements OnInit {
         validators.push(action.enabledConstraints.callback);
       }
       const enabled = _.every(validators, (validator) =>
-        validator(this.selection.selected, this.owner.data)
+        validator(this.selection.selected, this.table.data)
       );
       return !enabled;
     }
@@ -87,13 +87,13 @@ export class DatatableActionsComponent implements OnInit {
 
   onButtonClick(action: DatatableActionConfig) {
     if (_.isFunction(action.click)) {
-      action.click(action, this.selection, this.owner);
+      action.click(action, this.selection, this.table);
     }
   }
 
   onSelectionChange(event: MatSelectChange, action: DatatableActionConfig) {
     if (_.isFunction(action.selectionChange)) {
-      action.selectionChange(action, event.value, this.owner);
+      action.selectionChange(action, event.value, this.table);
     }
   }
 
