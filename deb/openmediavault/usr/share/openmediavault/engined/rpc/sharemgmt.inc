@@ -142,7 +142,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				"arg1" => $objectDict->get("mntentref")
 			])) {
 				$meObject = $db->get("conf.system.filesystem.mountpoint",
-				  $objectDict->get("mntentref"));
+					$objectDict->get("mntentref"));
 				$objectDict->set("device", $meObject->get("fsname"));
 				// Get the file system backend to get various information
 				// about the file system features, e.g. if it supports
@@ -157,7 +157,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				// Try to get additional information from the file system if
 				// it is mounted right at the moment.
 				$fs = \OMV\System\Filesystem\Filesystem::getImplByMountPoint(
-				  $meObject->get("dir"));
+					$meObject->get("dir"));
 				if ((FALSE === is_null($fs)) && $fs->exists()) {
 					// Get the device file of the file system.
 					$deviceFile = $fs->getDeviceFile();
@@ -169,11 +169,18 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 						$objectDict->set("device", $fs->getLabel());
 				}
 				// Modify the description field.
-				$objectDict->set("description", sprintf(
-				  gettext("%s [on %s, %s]"),
-				  $objectDict->get("name"),
-				  $objectDict->get("device"),
-				  $objectDict->get("reldirpath")));
+				if (!empty($objectDict->get("comment"))) {
+					$objectDict->set("description", sprintf(
+						gettext("%s [%s]"),
+						$objectDict->get("name"),
+						$objectDict->get("comment")));
+				} else {
+					$objectDict->set("description", sprintf(
+						gettext("%s [on %s, %s]"),
+						$objectDict->get("name"),
+						$objectDict->get("device"),
+						$objectDict->get("reldirpath")));
+				}
 			}
 			// Is the shared folder referenced by any object? Shared folder
 			// references are named 'sharedfolderref'.
