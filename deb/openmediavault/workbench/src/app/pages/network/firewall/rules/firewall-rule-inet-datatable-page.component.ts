@@ -25,7 +25,6 @@ import { DatatablePageConfig } from '~/app/core/components/intuition/models/data
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { Datatable } from '~/app/shared/models/datatable.interface';
-import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
@@ -182,15 +181,15 @@ export class FirewallRuleInetDatatablePageComponent {
 
   constructor(private rpcService: RpcService, private notificationService: NotificationService) {}
 
-  onSave(action: DatatablePageActionConfig, selection: DatatableSelection, data: any[]) {
-    this.rpcService.request('Iptables', 'setRules', data).subscribe(() => {
+  onSave(action: DatatablePageActionConfig, table: Datatable) {
+    this.rpcService.request('Iptables', 'setRules', table.data).subscribe(() => {
       this.dirty = false;
       this.notificationService.show(NotificationType.success, gettext('Updated firewall rules.'));
     });
   }
 
-  onUp(action: DatatablePageActionConfig, selection: DatatableSelection, table: Datatable) {
-    const selected = selection.first();
+  onUp(action: DatatablePageActionConfig, table: Datatable) {
+    const selected = table.selection.first();
     const index = _.findIndex(table.data, selected);
     if (index <= 0) {
       return;
@@ -207,8 +206,8 @@ export class FirewallRuleInetDatatablePageComponent {
     this.dirty = true;
   }
 
-  onDown(action: DatatablePageActionConfig, selection: DatatableSelection, table: Datatable) {
-    const selected = selection.first();
+  onDown(action: DatatablePageActionConfig, table: Datatable) {
+    const selected = table.selection.first();
     const index = _.findIndex(table.data, selected);
     if (index + 1 >= table.data.length) {
       return;

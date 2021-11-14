@@ -16,11 +16,17 @@
  * GNU General Public License for more details.
  */
 
+import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
+
 /**
  * A simple interface to interact with the data table.
  */
 export interface Datatable {
+  // The data shown in the table.
   data: any[];
+
+  // The current selection.
+  selection: DatatableSelection;
 
   /**
    * Reload the data to be shown.

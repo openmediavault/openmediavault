@@ -149,7 +149,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     this.selection = selection;
   }
 
-  onActionClick(action: DatatablePageActionConfig, selection: DatatableSelection): void {
+  onActionClick(action: DatatablePageActionConfig): void {
     const postConfirmFn = () => {
       switch (action?.execute?.type) {
         case 'url':
@@ -158,8 +158,8 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
         case 'request':
           const observables = [];
           const request = action.execute.request;
-          if (selection.hasSelection) {
-            selection.selected.forEach((selected) => {
+          if (this.selection.hasSelection) {
+            this.selection.selected.forEach((selected) => {
               const params = formatDeep(request.params, _.merge({}, this.pageContext, selected));
               observables.push(
                 this.rpcService[request.task ? 'requestTask' : 'request'](
@@ -200,7 +200,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
                   _.merge(
                     {},
                     this.pageContext,
-                    selection.hasSingleSelection ? selection.first() : {}
+                    this.selection.hasSingleSelection ? this.selection.first() : {}
                   )
                 );
                 this.notificationService.show(NotificationType.success, message);
@@ -273,10 +273,10 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     }
   }
 
-  onDeleteActionClick(action: DatatableActionConfig, selection: DatatableSelection) {
+  onDeleteActionClick(action: DatatableActionConfig) {
     let message: string = gettext('Do you really want to delete the selected item(s)?');
     if (isFormatable(this.config.rowEnumFmt)) {
-      const items: Array<string> = _.map(selection.selected, (selected) =>
+      const items: Array<string> = _.map(this.selection.selected, (selected) =>
         format(this.config.rowEnumFmt, selected)
       );
       message = format(
@@ -302,8 +302,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           }
         } as any,
         _.omit(action, 'click')
-      ),
-      selection
+      )
     );
   }
 
