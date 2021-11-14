@@ -130,7 +130,7 @@ export class InterfaceDatatablePageComponent {
             icon: 'mdi:wifi',
             execute: {
               type: 'url',
-              url: '/network/interfaces/wireless/create'
+              url: '/network/interfaces/wifi/create'
             }
           },
           {

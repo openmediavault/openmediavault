@@ -4,6 +4,7 @@ openmediavault (6.0.1-1) unstable; urgency=low
   * Issue #1127: Support ed25519 SSH public keys in the user
     settings dialog.
   * Issue #1137: Display escaped HTML characters correctly.
+  * Issue #1138: Fix wireless network interface UI routing issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 09 Nov 2021 00:17:47 +0100
 

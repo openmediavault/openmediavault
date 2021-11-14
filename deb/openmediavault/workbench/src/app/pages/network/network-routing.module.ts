@@ -61,7 +61,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'wireless/create',
+        path: 'wifi/create',
         component: InterfaceWifiFormPageComponent,
         data: {
           title: gettext('Create'),
@@ -70,7 +70,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'wireless/edit/:uuid',
+        path: 'wifi/edit/:uuid',
         component: InterfaceWifiFormPageComponent,
         data: {
           title: gettext('Edit'),
