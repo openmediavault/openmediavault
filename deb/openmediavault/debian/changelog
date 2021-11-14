@@ -1,3 +1,9 @@
+openmediavault (6.0.2-1) unstable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 14 Nov 2021 20:11:25 +0100
+
 openmediavault (6.0.1-1) unstable; urgency=low
 
   * Fix issue when editing a power management task.
