@@ -1,6 +1,6 @@
 openmediavault (6.0.2-1) unstable; urgency=low
 
-  *
+  * Replace CLI tool omv-update by omv-upgrade.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 14 Nov 2021 20:11:25 +0100
 
