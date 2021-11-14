@@ -60,20 +60,16 @@ export class RpcService {
     rpcOptions?: any,
     maxRetries?: number
   ): Observable<any> {
-    return this.http
-      .post(
-        this.url,
-        JSON.stringify({
-          service: rpcService,
-          method: rpcMethod,
-          params: _.defaultTo(rpcParams, null),
-          options: _.defaultTo(rpcOptions, null)
-        })
-      )
-      .pipe(
-        retryDelayed(maxRetries),
-        map((res: RpcResponse) => res.response)
-      );
+    const body = JSON.stringify({
+      service: rpcService,
+      method: rpcMethod,
+      params: _.defaultTo(rpcParams, null),
+      options: _.defaultTo(rpcOptions, null)
+    });
+    return this.http.post(this.url, body).pipe(
+      retryDelayed(maxRetries),
+      map((res: RpcResponse) => res.response)
+    );
   }
 
   /**
