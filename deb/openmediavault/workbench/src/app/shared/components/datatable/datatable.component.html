@@ -81,7 +81,7 @@
 
 <ng-template #textTpl
              let-value="value">
-  {{ value | sanitizeHtml }}
+  <span [innerHTML]="value | sanitizeHtml"></span>
 </ng-template>
 
 <ng-template #checkIconTpl
