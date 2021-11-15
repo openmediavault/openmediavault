@@ -28,7 +28,7 @@ import {
   FormDialogButtonConfig,
   FormDialogConfig
 } from '~/app/core/components/intuition/models/form-dialog-config.type';
-import { format, formatDeep, formatURI } from '~/app/functions.helper';
+import { format, formatDeep } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { NotificationService } from '~/app/shared/services/notification.service';
@@ -169,7 +169,7 @@ export class FormDialogComponent {
             }
             // Navigate to a specified URL?
             if (_.isString(request.successUrl)) {
-              const url = formatURI(request.successUrl, values);
+              const url = format(request.successUrl, values);
               this.router.navigate([url]);
             }
           });

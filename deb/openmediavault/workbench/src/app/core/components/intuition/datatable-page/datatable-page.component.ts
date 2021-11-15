@@ -32,7 +32,7 @@ import { DatatablePageActionConfig } from '~/app/core/components/intuition/model
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { DatatablePageButtonConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
-import { format, formatDeep, formatURI, isFormatable } from '~/app/functions.helper';
+import { format, formatDeep, isFormatable } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import {
   DatatableComponent,
@@ -452,7 +452,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   }
 
   private navigate(url: string) {
-    const formattedUrl = formatURI(url, this.pageContext);
+    const formattedUrl = format(url, this.pageContext);
     this.router.navigate([formattedUrl]);
   }
 }
