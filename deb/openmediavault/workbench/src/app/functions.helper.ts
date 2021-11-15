@@ -361,3 +361,10 @@ nunjucksEnv.addFilter('map', (value: Array<any>, filter: string, ...filterArgs: 
  * 0, "", undefined, and NaN are falsey.
  */
 nunjucksEnv.addFilter('compact', (value: Array<any>) => _.compact(value));
+/**
+ * Encodes a text string as a valid component of a Uniform Resource
+ * Identifier (URI).
+ */
+nunjucksEnv.addFilter('encodeuricomponent', (value: string | number | boolean): string =>
+  encodeURIComponent(value)
+);

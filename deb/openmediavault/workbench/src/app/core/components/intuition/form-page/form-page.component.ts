@@ -35,7 +35,7 @@ import {
   FormPageButtonConfig,
   FormPageConfig
 } from '~/app/core/components/intuition/models/form-page-config.type';
-import { format, formatDeep, formatURI, isFormatable, toBoolean } from '~/app/functions.helper';
+import { format, formatDeep, isFormatable, toBoolean } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
@@ -225,7 +225,7 @@ export class FormPageComponent
         case 'url':
           if (_.isString(buttonConfig.execute.url)) {
             // Navigate to the specified URL.
-            const url = formatURI(buttonConfig.execute.url, _.merge({}, values, this.pageContext));
+            const url = format(buttonConfig.execute.url, _.merge({}, values, this.pageContext));
             this.router.navigate([url]);
           }
           break;
@@ -261,7 +261,7 @@ export class FormPageComponent
                 }
                 // Navigate to a specified URL?
                 if (_.isString(request.successUrl)) {
-                  const url = formatURI(
+                  const url = format(
                     request.successUrl,
                     _.merge({ _response: res }, this.pageContext, values)
                   );
@@ -290,7 +290,7 @@ export class FormPageComponent
           // Navigate to the specified URL if pressed button returns `true`.
           dialog.afterClosed().subscribe((res) => {
             if (res && taskDialog.successUrl) {
-              const url = formatURI(taskDialog.successUrl, _.merge({}, values, this.pageContext));
+              const url = format(taskDialog.successUrl, _.merge({}, values, this.pageContext));
               this.router.navigate([url]);
             }
           });

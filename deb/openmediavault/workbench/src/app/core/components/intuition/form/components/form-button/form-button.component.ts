@@ -22,7 +22,7 @@ import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { finalize } from 'rxjs/operators';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
-import { format, formatDeep, formatURI } from '~/app/functions.helper';
+import { format, formatDeep } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { NotificationService } from '~/app/shared/services/notification.service';
@@ -52,7 +52,7 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
       this.config.click();
     } else if (_.isString(this.config.url)) {
       // Navigate to the specified URL.
-      const url = formatURI(this.config.url, formValues);
+      const url = format(this.config.url, formValues);
       this.router.navigate([url]);
     } else if (_.isPlainObject(this.config.request)) {
       // Execute the specified request.
@@ -83,7 +83,7 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
           }
           // Navigate to a specified URL?
           if (_.isString(request.successUrl)) {
-            const url = formatURI(
+            const url = format(
               request.successUrl,
               _.merge(
                 {

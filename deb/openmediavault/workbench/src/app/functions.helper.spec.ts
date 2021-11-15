@@ -76,6 +76,9 @@ describe('functions.helper', () => {
     expect(format('{{ "17:29:59" | split(":") }}', {})).toBe('17,29,59');
     expect(format('{{ items | get(0) }}', { items: ['17', '29', '59'] })).toBe('17');
     expect(format('{{ items | get(2) }}', { items: ['17', '29', '59'] })).toBe('59');
+    expect(format('{{ devicefile | encodeuricomponent }}', { devicefile: '/dev/sda' })).toBe(
+      '%2Fdev%2Fsda'
+    );
   });
 
   it('should format deep [1]', () => {

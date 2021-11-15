@@ -22,7 +22,7 @@ import * as _ from 'lodash';
 
 import { DatatablePageActionConfig } from '~/app/core/components/intuition/models/datatable-page-action-config.type';
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
-import { format, formatURI, isUUIDv4 } from '~/app/functions.helper';
+import { format, isUUIDv4 } from '~/app/functions.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
@@ -142,9 +142,9 @@ export class DiskDatatablePageComponent {
     if (isUUIDv4(_.get(selected, 'hdparm.uuid'))) {
       url = '/storage/disks/hdparm/edit/{{ hdparm.uuid }}';
     } else {
-      url = '/storage/disks/hdparm/create/{{ devicefile }}';
+      url = '/storage/disks/hdparm/create/{{ devicefile | encodeuricomponent }}';
     }
-    this.router.navigate([formatURI(url, selected)]);
+    this.router.navigate([format(url, selected)]);
   }
 
   onWipe(action: DatatablePageActionConfig, selection: DatatableSelection) {
