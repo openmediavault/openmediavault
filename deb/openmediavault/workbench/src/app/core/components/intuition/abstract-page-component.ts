@@ -54,7 +54,7 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
     this.routeConfig = this.activatedRoute.routeConfig;
     // Is the component configured via route data?
     if (_.has(this.routeConfig, 'data.config')) {
-      this.config = _.get(this.routeConfig, 'data.config');
+      this.config = _.cloneDeep(_.get(this.routeConfig, 'data.config'));
     }
   }
 
