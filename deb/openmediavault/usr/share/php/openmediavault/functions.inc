@@ -792,7 +792,7 @@ function mkdtemp($prefix = "", $mode = 0700): ?string {
  * @return The netmask as string.
  */
 function inet_getnetmask($bits, $forceipv6 = FALSE) {
-	$af = (32 < $bits) ? AF_INET6 : (TRUE === $forceipv6) ? AF_INET6 : AF_INET;
+	$af = (32 < $bits) ? AF_INET6 : ((TRUE === $forceipv6) ? AF_INET6 : AF_INET);
 	$binNetmask = str_pad(str_repeat("1", $bits), ($af == AF_INET6) ?
 	  128 : 32, "0", STR_PAD_RIGHT);
 	$inaddr = pack("H*", base_convert($binNetmask, 2, 16));
