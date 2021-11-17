@@ -1,6 +1,8 @@
 openmediavault (6.0.3-1) unstable; urgency=low
 
   * Various improvements.
+  * Fix a bug in 'Storage | Disks' page when clicking an action
+    button.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 16 Nov 2021 21:15:30 +0100
 

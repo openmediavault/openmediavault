@@ -25,7 +25,7 @@ import { DatatablePageConfig } from '~/app/core/components/intuition/models/data
 import { format, isUUIDv4 } from '~/app/functions.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
-import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
+import { Datatable } from '~/app/shared/models/datatable.interface';
 import { DialogService } from '~/app/shared/services/dialog.service';
 
 @Component({
@@ -136,8 +136,8 @@ export class DiskDatatablePageComponent {
 
   constructor(private dialogService: DialogService, private router: Router) {}
 
-  onEdit(action: DatatablePageActionConfig, selection: DatatableSelection) {
-    const selected = selection.first();
+  onEdit(action: DatatablePageActionConfig, table: Datatable) {
+    const selected = table.selection.first();
     let url: string;
     if (isUUIDv4(_.get(selected, 'hdparm.uuid'))) {
       url = '/storage/disks/hdparm/edit/{{ hdparm.uuid }}';
@@ -147,8 +147,8 @@ export class DiskDatatablePageComponent {
     this.router.navigate([format(url, selected)]);
   }
 
-  onWipe(action: DatatablePageActionConfig, selection: DatatableSelection) {
-    const selected = selection.first();
+  onWipe(action: DatatablePageActionConfig, table: Datatable) {
+    const selected = table.selection.first();
     this.dialogService
       .open(ModalDialogComponent, {
         data: {
