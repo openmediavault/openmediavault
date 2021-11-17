@@ -978,3 +978,20 @@ function explode_safe($delimiter, $string): array {
 	}
 	return explode($delimiter, $string);
 }
+
+/**
+ * Tells whether the filename has a file lock.
+ * @param string filename Path to the file.
+ * @return Returns TRUE if the file is locked, otherwise FALSE.
+ */
+function is_locked($filename): bool {
+	$locked = FALSE;
+	if (file_exists($filename)) {
+		$fh = fopen($filename, "w+");
+		if (!flock($fh, LOCK_SH | LOCK_NB)) {
+			$locked = TRUE;
+		}
+		fclose($fp);
+	}
+	return $locked;
+}

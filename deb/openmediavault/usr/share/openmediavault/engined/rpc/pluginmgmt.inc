@@ -135,6 +135,10 @@ class PluginMgmt extends \OMV\Rpc\ServiceAbstract {
 				  $packagev);
 			}
 		}
+		// Check if the package database is locked.
+		if (is_locked("/var/lib/dpkg/lock")) {
+			throw new \OMV\System\Dpkg\LockException();
+		}
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($params) {
@@ -220,6 +224,10 @@ class PluginMgmt extends \OMV\Rpc\ServiceAbstract {
 				  "does not match the plugin naming convention.",
 				  $packagev);
 			}
+		}
+		// Check if the package database is locked.
+		if (is_locked("/var/lib/dpkg/lock")) {
+			throw new \OMV\System\Dpkg\LockException();
 		}
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)

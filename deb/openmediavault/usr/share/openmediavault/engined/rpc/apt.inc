@@ -155,6 +155,10 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.apt.install");
+		// Check if the package database is locked.
+		if (is_locked("/var/lib/dpkg/lock")) {
+			throw new \OMV\System\Dpkg\LockException();
+		}
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($params) {
@@ -195,6 +199,10 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
+		// Check if the package database is locked.
+		if (is_locked("/var/lib/dpkg/lock")) {
+			throw new \OMV\System\Dpkg\LockException();
+		}
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($params) {
@@ -234,6 +242,10 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
+		// Check if the package database is locked.
+		if (is_locked("/var/lib/dpkg/lock")) {
+			throw new \OMV\System\Dpkg\LockException();
+		}
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($params) {
@@ -396,5 +408,13 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 			}
 			return $output;
 		});
+	}
+
+	private function isPkgDbLocked(): bool {
+		$locked = FALSE;
+		if (!flock($f, LOCK_SH | LOCK_NB)) {
+			throw new \OMV\Exception();
+		}
+		return $locked;
 	}
 }
