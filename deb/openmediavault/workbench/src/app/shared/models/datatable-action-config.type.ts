@@ -73,6 +73,7 @@ export type DatatableActionConfig = {
     // rows, then the action will be enabled.
     constraint?: Array<Constraint>;
     // A callback function. Return `true` to let the check succeed.
+    // Internal only.
     callback?: (selected: any[], data: any) => boolean;
   };
 };
