@@ -409,12 +409,4 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 			return $output;
 		});
 	}
-
-	private function isPkgDbLocked(): bool {
-		$locked = FALSE;
-		if (!flock($f, LOCK_SH | LOCK_NB)) {
-			throw new \OMV\Exception();
-		}
-		return $locked;
-	}
 }
