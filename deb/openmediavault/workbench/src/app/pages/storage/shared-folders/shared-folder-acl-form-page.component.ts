@@ -28,7 +28,9 @@ import {
   FormPageConfig
 } from '~/app/core/components/intuition/models/form-page-config.type';
 import { translate } from '~/app/i18n.helper';
+import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
+import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
@@ -39,7 +41,7 @@ export class SharedFolderAclFormPageComponent implements OnInit {
   blockUI: NgBlockUI;
 
   @ViewChild(FormPageComponent, { static: true })
-  private formPage: FormPageComponent;
+  private page: FormPageComponent;
 
   public config: FormPageConfig = {
     fields: [
@@ -265,10 +267,10 @@ export class SharedFolderAclFormPageComponent implements OnInit {
     ]
   };
 
-  constructor(private rpcService: RpcService) {}
+  constructor(private notificationService: NotificationService, private rpcService: RpcService) {}
 
   ngOnInit(): void {
-    const self = this.formPage;
+    const self = this.page;
     self.editing = true;
     self.loadData = () => this.loadData('/');
     self.afterViewInitEvent.subscribe(() => {
@@ -292,14 +294,18 @@ export class SharedFolderAclFormPageComponent implements OnInit {
       .pipe(
         finalize(() => {
           this.blockUI.stop();
+          this.notificationService.show(
+            NotificationType.success,
+            _.get(this.page.routeConfig, 'data.notificationTitle')
+          );
         })
       )
       .subscribe();
   }
 
   protected loadData(file) {
-    const uuid = _.get(this.formPage.routeParams, 'uuid');
-    this.formPage.loading = true;
+    const uuid = _.get(this.page.routeParams, 'uuid');
+    this.page.loading = true;
     this.rpcService
       .request('ShareMgmt', 'getFileACL', {
         uuid,
@@ -307,17 +313,17 @@ export class SharedFolderAclFormPageComponent implements OnInit {
       })
       .pipe(
         catchError((error) => {
-          this.formPage.error = error;
+          this.page.error = error;
           return EMPTY;
         }),
         finalize(() => {
-          this.formPage.loading = false;
+          this.page.loading = false;
         })
       )
       .subscribe((res: RpcObjectResponse) => {
         _.map(res.acl.users, (user: Record<string, any>) => _.set(user, 'type', 'user'));
         _.map(res.acl.groups, (group: Record<string, any>) => _.set(group, 'type', 'group'));
-        this.formPage.onLoadData({
+        this.page.onLoadData({
           owner: res.owner,
           group: res.group,
           userperms: res.acl.user,

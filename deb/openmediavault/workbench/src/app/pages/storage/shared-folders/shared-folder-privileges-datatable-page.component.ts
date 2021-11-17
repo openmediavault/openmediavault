@@ -28,12 +28,11 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  template:
-    '<omv-intuition-datatable-page #page [config]="this.config"></omv-intuition-datatable-page>'
+  template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
 })
 export class SharedFolderPrivilegesDatatablePageComponent {
-  @ViewChild('page', { static: true })
-  page: DatatablePageComponent;
+  @ViewChild(DatatablePageComponent, { static: true })
+  private page: DatatablePageComponent;
 
   public config: DatatablePageConfig = {
     stateId: '99f40468-8309-11ea-834f-cbe87c99180b',

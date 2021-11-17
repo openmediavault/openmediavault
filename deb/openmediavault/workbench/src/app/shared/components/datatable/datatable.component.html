@@ -189,14 +189,14 @@
 
 <ng-template #copyToClipboardTpl
              let-value="value">
-  <span *ngIf="value">
-    {{ value }}
+  <ng-container *ngIf="value">
+    <span [matTooltip]="value">{{ value }}</span>
     <mat-icon class="omv-icon-sm omv-cursor-pointer"
               svgIcon="{{ icon.copy }}"
               matTooltip="{{ 'Copy to clipboard' | translate }}"
               (click)="onCopyToClipboard(value)">
     </mat-icon>
-  </span>
+  </ng-container>
 </ng-template>
 
 <ng-template #templateTpl
