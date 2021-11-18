@@ -25,14 +25,26 @@ import * as _ from 'lodash';
   styleUrls: ['./guru-meditation-page.component.scss']
 })
 export class GuruMeditationPageComponent implements OnInit, OnDestroy {
-  message: string;
+  // https://web.archive.org/web/20120628060356/http://www.scotek.demon.co.uk/guru.html
+  // https://www.amigalove.com/viewtopic.php?t=500
+  // https://github.com/deplinenoise/amiga-sdk/blob/master/sdkinclude/exec/alerts.i
+  message = 'Guru Meditation #31000000.48454C50';
+  url = '/';
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private elementRef: ElementRef,
     private router: Router
   ) {
-    this.message = _.get(this.activatedRoute, 'routeConfig.data.message');
+    _.forEach(['message', 'url'], (queryParam: string) => {
+      _.forEach(['routeConfig.data', 'snapshot.queryParams'], (path: string) => {
+        if (_.hasIn(this.activatedRoute, `${path}.${queryParam}`)) {
+          _.set(this, queryParam, _.get(this.activatedRoute, `${path}.${queryParam}`));
+          return false; // Abort loop.
+        }
+        return true;
+      });
+    });
   }
 
   ngOnInit(): void {
@@ -44,6 +56,6 @@ export class GuruMeditationPageComponent implements OnInit, OnDestroy {
   }
 
   private onClick() {
-    this.router.navigate(['/']);
+    this.router.navigate([this.url]);
   }
 }

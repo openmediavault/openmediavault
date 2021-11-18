@@ -123,6 +123,10 @@ const routes: Routes = [
         component: EmptyPageComponent
       },
       {
+        path: 'guruMeditation',
+        component: GuruMeditationPageComponent
+      },
+      {
         path: '404',
         component: GuruMeditationPageComponent,
         data: { message: gettext('The requested page was not found.') }
