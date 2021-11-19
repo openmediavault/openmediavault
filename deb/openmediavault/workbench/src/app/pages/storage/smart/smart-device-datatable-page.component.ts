@@ -144,7 +144,7 @@ export class SmartDeviceDatatablePageComponent {
           type: 'url',
           url:
             // eslint-disable-next-line max-len
-            '/storage/smart/devices/{{ "create" if _selected[0].uuid == newconfobjuuid else "edit" }}/{{ _selected[0].uuid }}/{{ _selected[0].devicefile }}'
+            '/storage/smart/devices/{{ "create" if _selected[0].uuid == newconfobjuuid else "edit" }}/{{ _selected[0].uuid }}/{{ _selected[0].devicefile | encodeuricomponent }}'
         }
       },
       {
@@ -157,7 +157,7 @@ export class SmartDeviceDatatablePageComponent {
         },
         execute: {
           type: 'url',
-          url: '/storage/smart/devices/details/{{ _selected[0].devicefile }}'
+          url: '/storage/smart/devices/details/{{ _selected[0].devicefile | encodeuricomponent }}'
         }
       }
     ]

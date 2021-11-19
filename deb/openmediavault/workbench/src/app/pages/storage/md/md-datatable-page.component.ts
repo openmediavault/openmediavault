@@ -130,7 +130,7 @@ export class MdDatatablePageComponent {
         },
         execute: {
           type: 'url',
-          url: '/storage/md/grow/{{ _selected[0].devicefile }}'
+          url: '/storage/md/grow/{{ _selected[0].devicefile | encodeuricomponent }}'
         }
       },
       {
@@ -158,7 +158,7 @@ export class MdDatatablePageComponent {
         },
         execute: {
           type: 'url',
-          url: '/storage/md/remove/{{ _selected[0].devicefile }}'
+          url: '/storage/md/remove/{{ _selected[0].devicefile | encodeuricomponent }}'
         }
       },
       {
@@ -171,7 +171,7 @@ export class MdDatatablePageComponent {
         },
         execute: {
           type: 'url',
-          url: '/storage/md/recover/{{ _selected[0].devicefile }}'
+          url: '/storage/md/recover/{{ _selected[0].devicefile | encodeuricomponent }}'
         }
       },
       {
@@ -184,7 +184,7 @@ export class MdDatatablePageComponent {
         },
         execute: {
           type: 'url',
-          url: '/storage/md/details/{{ _selected[0].devicefile }}'
+          url: '/storage/md/details/{{ _selected[0].devicefile | encodeuricomponent }}'
         }
       },
       {

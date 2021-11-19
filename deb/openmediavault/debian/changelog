@@ -1,6 +1,8 @@
 openmediavault (6.0.4-1) unstable; urgency=low
 
   * Fix lock file issue in SMB recycle dir script.
+  * Fixed a routing problem in the 'S.M.A.R.T.' and 'RAID Management'
+    pages.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 18 Nov 2021 01:10:46 +0100
 
