@@ -48,6 +48,7 @@ export type DataTableLoadParams = {
   prop?: string;
   offset?: number;
   limit?: number;
+  search?: any;
 };
 
 export type DataTableCellChanged = {
@@ -199,6 +200,10 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   @Input()
   remoteSorting = false;
 
+  // Use remote searching instead of client-side.
+  @Input()
+  remoteSearching = false;
+
   // Ordered array of objects used to determine sorting by column.
   @Input()
   sorters?: Sorter[] = [];
@@ -275,7 +280,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
           if (!this.data) {
             return;
           }
-          if (this.searchFilter !== '') {
+          if (!this.remoteSearching && this.searchFilter !== '') {
             this.applySearchFilter();
           } else {
             this.rows = [...this.data];
@@ -296,6 +301,9 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     }
     if (this.remoteSorting && !_.isEmpty(this.sorters)) {
       _.merge(params, { dir: this.sorters[0].dir, prop: this.sorters[0].prop });
+    }
+    if (this.remoteSearching) {
+      _.merge(params, { search: this.searchFilter });
     }
     this.loadDataEvent.emit(params);
   }
@@ -373,9 +381,21 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     this.filteredColumns = this.rawColumns.filter((column) => !column.hidden);
   }
 
+  onSearchFilterChange(): void {
+    if (!this.remoteSearching) {
+      this.applySearchFilter();
+    } else {
+      this.reloadData();
+    }
+  }
+
   clearSearchFilter(): void {
     this.searchFilter = '';
-    this.rows = [...this.data];
+    if (!this.remoteSearching) {
+      this.rows = [...this.data];
+    } else {
+      this.reloadData();
+    }
   }
 
   applySearchFilter(): void {

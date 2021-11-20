@@ -114,6 +114,11 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           sortfield: params.prop
         });
       }
+      if (!_.isUndefined(params.search)) {
+        _.merge(store.proxy.get.params, {
+          search: params.search
+        });
+      }
     }
     this.loading = true;
     this.dataStoreService
@@ -326,6 +331,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
       limit: 25,
       remotePaging: false,
       remoteSorting: false,
+      remoteSearching: false,
       autoLoad: true,
       autoReload: false,
       columns: [],

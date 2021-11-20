@@ -725,22 +725,41 @@ abstract class ServiceAbstract {
 	 * @param limit The number of elements to process.
 	 * @param sortField The name of the column used to sort.
 	 * @param sortDir The sort direction, ASC or DESC.
+	 * @param search The value to search for.
 	 * @return An array containing the elements matching the given
 	 *   restrictions. The field \em total contains the total number of
 	 *   elements, \em data contains the elements as array. An exception
 	 *   will be thrown in case of an error.
 	 */
 	final protected function applyFilter($array, $start, $limit,
-	  $sortField = NULL, $sortDir = NULL) {
+	  $sortField = NULL, $sortDir = NULL, $search = NULL) {
 //		$this->debug(var_export(func_get_args(), TRUE));
+		if (!is_null($search) && !empty($search)) {
+			$array = array_values(
+				array_filter($array, function($v) use($search) {
+					if (is_null($v) || empty($v)) {
+						return FALSE;
+					}
+					if (is_array($v)) {
+						$v = implode(" ", $v);
+					}
+					if (!is_string($v)) {
+						$v = strval($v);
+					}
+					return (FALSE !== stripos($v, $search));
+				}));
+		}
 		$total = count($array);
 		if ($total > 0) {
-			if (!is_null($sortField))
+			if (!is_null($sortField)) {
 				array_sort_key($array, $sortField);
-			if (!is_null($sortDir) && strtolower($sortDir) === "desc")
+			}
+			if (!is_null($sortDir) && strtolower($sortDir) === "desc") {
 				$array = array_reverse($array);
-			if (($start >= 0) && ($limit >= 0))
+			}
+			if (($start >= 0) && ($limit >= 0)) {
 				$array = array_slice($array, $start, $limit);
+			}
 		}
 		return [
 			"total" => $total,

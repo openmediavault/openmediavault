@@ -46,6 +46,9 @@
 			"sortdir": {
 				"type": [ "string", "null" ],
 				"enum": [ "asc", "ASC", "desc", "DESC" ]
+			},
+			"search": {
+				"type": [ "string", "integer", "null" ]
 			}
 		}
 	}

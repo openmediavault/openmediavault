@@ -49,6 +49,7 @@ export type DatatablePageConfig = {
   limit?: number;
   remotePaging?: boolean;
   remoteSorting?: boolean;
+  remoteSearching?: boolean;
   // Automatically load the data after datatable has been initialized.
   autoLoad?: boolean;
   // The frequency in milliseconds with which the data should be reloaded.
