@@ -725,7 +725,8 @@ abstract class ServiceAbstract {
 	 * @param limit The number of elements to process.
 	 * @param sortField The name of the column used to sort.
 	 * @param sortDir The sort direction, ASC or DESC.
-	 * @param search The value to search for.
+	 * @param search The value to search for. If an array value contains
+	 *   the specified value, then it is returned into the result array.
 	 * @return An array containing the elements matching the given
 	 *   restrictions. The field \em total contains the total number of
 	 *   elements, \em data contains the elements as array. An exception
@@ -734,20 +735,26 @@ abstract class ServiceAbstract {
 	final protected function applyFilter($array, $start, $limit,
 	  $sortField = NULL, $sortDir = NULL, $search = NULL) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		if (!is_null($search) && !empty($search)) {
-			$array = array_values(
-				array_filter($array, function($v) use($search) {
-					if (is_null($v) || empty($v)) {
-						return FALSE;
+		if (!is_null($search) && !empty(strval($search))) {
+			// Note, this implementation doesn't make it unnecessarily
+			// complicated. There are surely better ways to do it, but
+			// this is not the requirement here.
+			$testFn = function($value) use($search, &$testFn): bool {
+				if (is_array($value)) {
+					$found = FALSE;
+					$iter = new \ArrayIterator($value);
+					while ($found === FALSE && $iter->valid()) {
+						$found = $testFn($iter->current());
+						$iter->next();
 					}
-					if (is_array($v)) {
-						$v = implode(" ", $v);
-					}
-					if (!is_string($v)) {
-						$v = strval($v);
-					}
-					return (FALSE !== stripos($v, $search));
-				}));
+					return $found;
+				}
+				if (!is_string($value)) {
+					$value = strval($value);
+				}
+				return (FALSE !== stripos($value, strval($search)));
+			};
+			$array = array_values(array_filter($array, $testFn));
 		}
 		$total = count($array);
 		if ($total > 0) {

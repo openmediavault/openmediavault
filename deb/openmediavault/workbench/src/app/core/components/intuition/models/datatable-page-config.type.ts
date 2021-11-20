@@ -47,8 +47,15 @@ export type DatatablePageConfig = {
   updateSelectionOnReload?: 'always' | 'onChange' | 'never';
   // Page size to show. To disable paging, set the limit to 0.
   limit?: number;
+  // If set to `true`, the parameters `start` and `limit` from the data
+  // table paging component are added to the RPC request parameters.
   remotePaging?: boolean;
+  // If set to `true`, the sorting order and property name of the current
+  // active column of the data table are added as parameters `sortdir` and
+  // `sortfield` to the RPC request parameters.
   remoteSorting?: boolean;
+  // If set to `true`, the content of the search field of the data table
+  // is added as parameter `search` to the RPC request parameters.
   remoteSearching?: boolean;
   // Automatically load the data after datatable has been initialized.
   autoLoad?: boolean;

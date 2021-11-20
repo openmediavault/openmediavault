@@ -90,6 +90,7 @@ export class PluginsDatatablePageComponent implements OnInit {
       },
       { name: gettext('Homepage'), prop: 'homepage', flexGrow: 1, sortable: true, hidden: true }
     ],
+    remoteSearching: true,
     hasSearchField: true,
     limit: 0,
     sorters: [
@@ -106,7 +107,7 @@ export class PluginsDatatablePageComponent implements OnInit {
       proxy: {
         service: 'Plugin',
         get: {
-          method: 'enumeratePlugins'
+          method: 'getList'
         }
       }
     },

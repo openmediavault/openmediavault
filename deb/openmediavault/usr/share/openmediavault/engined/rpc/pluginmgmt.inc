@@ -106,7 +106,8 @@ class PluginMgmt extends \OMV\Rpc\ServiceAbstract {
 		$objects = $this->callMethod("enumeratePlugins", NULL, $context);
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
-		  $params['limit'], $params['sortfield'], $params['sortdir']);
+			$params['limit'], $params['sortfield'], $params['sortdir'],
+			$params['search']);
 	}
 
 	/**
