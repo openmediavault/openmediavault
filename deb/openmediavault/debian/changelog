@@ -1,3 +1,9 @@
+openmediavault (6.0.5-1) unstable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 22 Nov 2021 20:33:12 +0100
+
 openmediavault (6.0.4-2) unstable; urgency=low
 
   * Fix lock file issue in SMB recycle dir script.
