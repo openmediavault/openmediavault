@@ -16,6 +16,7 @@
 <mat-dialog-actions align="end">
   <button *ngIf="!config.buttons.close.hidden"
           mat-flat-button
+          [ngClass]="config.buttons.close.class"
           [mat-dialog-close]="config.buttons.close.dialogResult"
           [disabled]="config.buttons.close.disabled"
           [autofocus]="config.buttons.close.autofocus">
@@ -23,6 +24,7 @@
   </button>
   <button *ngIf="!config.buttons.stop.hidden"
           mat-flat-button
+          [ngClass]="config.buttons.stop.class"
           [disabled]="config.buttons.stop.disabled"
           [autofocus]="config.buttons.stop.autofocus"
           (click)="onStop()">
@@ -30,6 +32,7 @@
   </button>
   <button *ngIf="!config.buttons.start.hidden"
           mat-flat-button
+          [ngClass]="config.buttons.start.class"
           [disabled]="config.buttons.start.disabled"
           [autofocus]="config.buttons.start.autofocus"
           (click)="onStart()">

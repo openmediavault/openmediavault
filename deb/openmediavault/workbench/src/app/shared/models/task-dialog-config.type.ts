@@ -69,6 +69,8 @@ export type TaskDialogConfig = {
 export type TaskDialogButtonConfig = {
   // The text displayed in the button.
   text?: string;
+  // Custom CSS class.
+  class?: string;
   // Is the button hidden?
   hidden?: boolean;
   // Is the button disabled?
