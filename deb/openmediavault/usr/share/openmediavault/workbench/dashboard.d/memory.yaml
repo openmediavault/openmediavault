@@ -2,7 +2,7 @@ version: "1.0"
 type: dashboard-widget
 data:
   id: 20ac67db-b6b5-429c-a304-9a1a4fbb9ea9
-  title: Memory
+  title: _("Memory")
   type: chart
   permissions:
     role:
@@ -21,9 +21,9 @@ data:
       formatter: template
       formatterConfig: "{{ value | binaryunit }}"
     dataConfig:
-    - label: Used
+    - label: _("Used")
       prop: memUsed
       backgroundColor: "#ff3b30"
-    - label: Free
+    - label: _("Free")
       prop: memAvailable
       backgroundColor: "#4cd964"

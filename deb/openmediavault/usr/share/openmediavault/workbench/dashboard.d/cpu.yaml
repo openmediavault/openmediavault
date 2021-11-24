@@ -20,6 +20,6 @@ data:
       formatter: template
       formatterConfig: "{{ value | tofixed(1) }}%"
     dataConfig:
-      - label: Usage
+      - label: _("Usage")
         prop: cpuUsage
         backgroundColor: "#4cd964"
