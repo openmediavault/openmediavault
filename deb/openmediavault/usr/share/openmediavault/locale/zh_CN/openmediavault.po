@@ -6,7 +6,7 @@
 # Herald Yu <yuhr123@gmail.com>, 2018-2019
 # songming <by@songming.me>, 2013-2021
 # Wei Ding <dyw.net@gmail.com>, 2014-2015
-# Yang Lee <150183966@qq.com>, 2021
+# LeeYang <150183966@qq.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
