@@ -1,6 +1,7 @@
 openmediavault (6.0.5-1) unstable; urgency=low
 
-  *
+  * Improved IPv6 detection. This will fix various issues, e.g.
+    DNS issues and undeliverable emails with Postfix.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 26 Nov 2021 13:15:00 +0100
 

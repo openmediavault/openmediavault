@@ -326,6 +326,11 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "6.0.1"; then
 			omv_module_set_dirty nfs
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.5"; then
+			omv_module_set_dirty hosts
+			omv_module_set_dirty nginx
+			omv_module_set_dirty postfix
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
