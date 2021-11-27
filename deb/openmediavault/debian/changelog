@@ -77,6 +77,13 @@ openmediavault (6.0-34) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Dec 2020 20:28:37 +0100
 
+openmediavault (5.6.21-1) stable; urgency=low
+
+  * Improved IPv6 detection. This will fix various issues, e.g.
+    DNS issues and undeliverable emails with Postfix.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 14 Nov 2021 20:12:19 +0100
+
 openmediavault (5.6.20-1) stable; urgency=low
 
   * Fix various issues in omv-release-upgrade.
@@ -89,6 +96,9 @@ openmediavault (5.6.19-1) stable; urgency=low
   * Add 'WWN' column in disk and SMART devices pages. The column
     is hidden by default.
   * Improve SMART assessment. Take attribute 187 into account.
+  * Issue #1125: Custom /etc/issue is being overwritten.
+    Re-introduce environment variable OMV_ISSUE_APPLY_PRELOGIN_MESSAGE
+    to prevent overwriting custom /etc/issue files.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 02 Nov 2021 13:58:59 +0100
 
