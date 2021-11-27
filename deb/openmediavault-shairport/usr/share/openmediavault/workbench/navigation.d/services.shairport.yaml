@@ -3,5 +3,5 @@ type: navigation-item
 data:
   path: "services.shairport"
   text: _("Shairport")
-  icon: "mdi:apple-airplay"
+  icon: "mdi:cast-variant"
   url: "/services/shairport"
