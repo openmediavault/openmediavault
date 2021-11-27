@@ -767,7 +767,9 @@ omv_is_gateway6() {
 }
 
 # omv_is_ipv6_enabled
-# Check if IPv6 is enabled.
+# Check whether IPv6 is enabled. IPv6 is considered activated if there
+# is more than one interface (except 'lo') that has configured an IPv6
+# address.
 # @return 0 if enabled, otherwise 1.
 omv_is_ipv6_enabled() {
 	[ -e /proc/net/if_inet6 ] && [ $(grep --count --invert-match 'lo$' /proc/net/if_inet6) -gt 0 ] && return 0
