@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
+import re
 import socket
 
 import openmediavault.config
@@ -46,22 +47,21 @@ def register_jinja_filters():
 
 def is_ipv6_enabled():
     """
-    Check whether IPv6 is enabled.
+    Check whether IPv6 is enabled. IPv6 is considered activated if there
+    is more than one interface (except 'lo') that has configured an IPv6
+    address.
     :return: Return True if IPv6 is enabled, otherwise False.
     :rtype: bool
     """
-    result = False
-    s = None
-    try:
-        s = socket.socket(socket.AF_INET6)
-        s.bind(('::1', 0))
-        result = True
-    except Exception:
-        pass
-    finally:
-        if s:
-            s.close()
-    return result
+    if not os.path.exists('/proc/net/if_inet6'):
+        return False
+    with open('/proc/net/if_inet6') as f:
+        lines = f.readlines()
+    # Remove blank and new line characters.
+    lines = [line.rstrip() for line in lines]
+    # Get all interfaces except 'lo'.
+    lines = [line for line in lines if not re.search(r'lo$', line)]
+    return len(lines) > 0
 
 
 @jinja_filter('network_prefix_len')
