@@ -389,4 +389,15 @@ class User {
 		}
 		return $list;
 	}
+
+	/**
+	 * Encrypt the given password using the system crypt(3) settings.
+	 */
+	public static function mkPassword($password): string {
+		$cmdArgs = [];
+		$cmdArgs[] = "--method=sha512crypt";
+		$cmdArgs[] = escapeshellarg($password);
+		$cmd = new \OMV\System\Process("mkpasswd", $cmdArgs);
+		return $cmd->execute();
+	}
 }

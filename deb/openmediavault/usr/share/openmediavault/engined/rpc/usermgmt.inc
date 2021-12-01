@@ -563,7 +563,8 @@ finish:
 			$hdsobject = $db->get("conf.system.usermngmnt.homedir");
 			// Append additional arguments.
 			$cmdArgs[] = "--password";
-			$cmdArgs[] = escapeshellarg(crypt($params['password']));
+			$cmdArgs[] = escapeshellarg(\OMV\System\User::mkPassword(
+				$params['password']));
 			if (array_key_exists("uid", $params)) {
 				$cmdArgs[] = "--uid";
 				$cmdArgs[] = $params['uid'];
@@ -588,7 +589,8 @@ finish:
 			if (array_key_exists("password", $params) &&
 					!empty($params['password'])) {
 				$cmdArgs[] = "--password";
-				$cmdArgs[] = escapeshellarg(crypt($params['password']));
+				$cmdArgs[] = escapeshellarg(\OMV\System\User::mkPassword(
+					$params['password']));
 			}
 			$cmdArgs[] = escapeshellarg($params['name']);
 			// Modify the existing user.

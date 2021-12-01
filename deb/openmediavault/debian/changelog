@@ -2,6 +2,7 @@ openmediavault (5.6.21-1) stable; urgency=low
 
   * Improved IPv6 detection. This will fix various issues, e.g.
     DNS issues and undeliverable emails with Postfix.
+  * Issue #1151: Increase user password strength.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 14 Nov 2021 20:12:19 +0100
 
