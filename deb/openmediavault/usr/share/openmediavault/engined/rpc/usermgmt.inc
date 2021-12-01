@@ -562,9 +562,6 @@ finish:
 			// Get user management settings.
 			$hdsobject = $db->get("conf.system.usermngmnt.homedir");
 			// Append additional arguments.
-			$cmdArgs[] = "--password";
-			$cmdArgs[] = escapeshellarg(\OMV\System\User::mkPassword(
-				$params['password']));
 			if (array_key_exists("uid", $params)) {
 				$cmdArgs[] = "--uid";
 				$cmdArgs[] = $params['uid'];
@@ -584,19 +581,26 @@ finish:
 			$cmd = new \OMV\System\Process("useradd", $cmdArgs);
 			$cmd->setRedirect2to1();
 			$cmd->execute();
+			// Set the password.
+			$cmd = new \OMV\System\Process("chpasswd");
+			$cmd->setInputFromHereString(sprintf("%s:%s",
+				$params['name'], $params['password']));
+			$cmd->execute();
 		} else {
 			// Append additional arguments.
-			if (array_key_exists("password", $params) &&
-					!empty($params['password'])) {
-				$cmdArgs[] = "--password";
-				$cmdArgs[] = escapeshellarg(\OMV\System\User::mkPassword(
-					$params['password']));
-			}
 			$cmdArgs[] = escapeshellarg($params['name']);
 			// Modify the existing user.
 			$cmd = new \OMV\System\Process("usermod", $cmdArgs);
 			$cmd->setRedirect2to1();
 			$cmd->execute();
+			// Modify the password.
+			if (array_key_exists("password", $params) &&
+					!empty($params['password'])) {
+				$cmd = new \OMV\System\Process("chpasswd");
+				$cmd->setInputFromHereString(sprintf("%s:%s",
+					$params['name'], $params['password']));
+				$cmd->execute();
+			}
 		}
 		// Append some more information to the notification object.
 		$objectAssoc = array_merge($object->getAssoc(), $params);

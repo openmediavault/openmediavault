@@ -168,8 +168,9 @@ class Process {
 			$cmdArgs[] = sprintf("2>%s", $this->redirect2toFile);
 		if (FALSE === empty($this->inputFromFile))
 			$cmdArgs[] = sprintf("<%s", $this->inputFromFile);
+		// https://wiki.ubuntu.com/DashAsBinSh#A.3C.3C.3C
 		if (FALSE === empty($this->inputFromHereString))
-			$cmdArgs[] = sprintf("<<<\"%s\"", $this->inputFromHereString);
+			$cmdArgs[] = sprintf("<<EOF\n%s\nEOF", $this->inputFromHereString);
 		if (TRUE === $this->background)
 			$cmdArgs[] = "&";
 		return implode(" ", $cmdArgs);

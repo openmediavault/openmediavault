@@ -368,13 +368,10 @@ class User {
 	 * @param string $newPassword The new password.
 	 * @throw \OMV\ExecException
 	 */
-	public function changePassword($newPassword) {
-		$cmdArgs = [];
-		$cmdArgs[] = sprintf("--password %s", escapeshellarg(
-			$this->mkPassword($newPassword)));
-		$cmdArgs[] = escapeshellarg($this->getName());
-		$cmd = new \OMV\System\Process("usermod", $cmdArgs);
-		$cmd->setRedirect2to1();
+	public function changePassword($password) {
+		$cmd = new \OMV\System\Process("chpasswd");
+		$cmd->setInputFromHereString(sprintf("%s:%s", $this->getName(),
+			$password));
 		$cmd->execute();
 	}
 
@@ -402,15 +399,5 @@ class User {
 			$list[] = $data[0]; // User name
 		}
 		return $list;
-	}
-
-	/**
-	 * Encrypt the given password using the system crypt(3) settings.
-	 */
-	public static function mkPassword($password): string {
-		$cmdArgs = [];
-		$cmdArgs[] = escapeshellarg($password);
-		$cmd = new \OMV\System\Process("mkpasswd", $cmdArgs);
-		return $cmd->execute();
 	}
 }
