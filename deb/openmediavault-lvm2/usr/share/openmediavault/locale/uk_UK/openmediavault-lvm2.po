@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-lvm2 package.
 # 
 # Translators:
-# zubr139, 2013,2016-2017
+# zubr139, 2013,2016-2017,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-02 10:32+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-11-29 16:55+0000\n"
+"Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +39,7 @@ msgid "Confirmation"
 msgstr "Підтвердження"
 
 msgid "Create"
-msgstr ""
+msgstr "Створити"
 
 msgid "Create logical volume"
 msgstr "Створення логічного розділу"
@@ -48,16 +48,16 @@ msgid "Create volume group"
 msgstr "Створити групу розділів"
 
 msgid "Created logical volume '{{ name }}'."
-msgstr ""
+msgstr "Створено логічний том '{{ name }}'."
 
 msgid "Created physical volume {{ devicefile }}."
-msgstr ""
+msgstr "Створено фізичний том {{ devicefile }}."
 
 msgid "Created snapshot of logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "Створено знімок логічного тому \"{{ devicefile }}\"."
 
 msgid "Created volume group '{{ name }}'."
-msgstr ""
+msgstr "Створено групу томів \"{{ name }}\"."
 
 msgid "Description"
 msgstr "Опис"
@@ -69,7 +69,7 @@ msgid "Devices"
 msgstr "Пристрої"
 
 msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
-msgstr ""
+msgstr "Бажаєте створити фізичний том на '{{ devicefile }}'?"
 
 msgid "Do you really want to create the logical volume?"
 msgstr "Справді бажаєте створити логічний розділ?"
@@ -84,7 +84,7 @@ msgid "Do you really want to resize the selected physical volume?"
 msgstr "Бажаєте змінити розмір даного фізичного розділу?"
 
 msgid "Edit"
-msgstr ""
+msgstr "Редагувати"
 
 msgid "Edit logical volume"
 msgstr "Редагувати логічний розділ"
@@ -102,10 +102,10 @@ msgid "Extend volume group"
 msgstr "Збільшити групу розділів"
 
 msgid "Extended logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "Розширений логічний том '{{ devicefile }}'."
 
 msgid "Extended volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "Розширена група томів \"{{ devicefile }}\"."
 
 msgid "Free"
 msgstr "Вільно"
@@ -117,7 +117,7 @@ msgid "Logical Volume Management"
 msgstr "Керування логічними розділами"
 
 msgid "Logical Volumes"
-msgstr ""
+msgstr "Логічні томи"
 
 msgid "Logical volumes"
 msgstr "Логічні розділи"
@@ -132,7 +132,7 @@ msgid "No free space available to extend the logical volume."
 msgstr "Немає вільного місця для розширення логічного розділу."
 
 msgid "Physical Volumes"
-msgstr ""
+msgstr "Фізичні томи"
 
 msgid "Physical volumes"
 msgstr "Фізичні розділи"
@@ -144,13 +144,13 @@ msgid "Reduce volume group"
 msgstr "Зменшити групу розділів"
 
 msgid "Reduced volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "Зменшена група томів \"{{ devicefile }}\"."
 
 msgid "Resize"
 msgstr "Змінити розмір"
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Оберіть пристрій ..."
 
 msgid "Select a volume group ..."
 msgstr "Оберіть групу розділів ..."
@@ -159,13 +159,13 @@ msgid "Select an device ..."
 msgstr "Обрати пристрій ..."
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Оберіть пристрої ..."
 
 msgid "Select the devices used to extend the volume group."
-msgstr ""
+msgstr "Виберіть пристрої, які використовуються для розширення групи томів."
 
 msgid "Select the devices used to reduce from the volume group."
-msgstr ""
+msgstr "Виберіть пристрої, які використовуються для зменшеної групи томів."
 
 msgid "Size"
 msgstr "Розмір"
@@ -176,27 +176,27 @@ msgstr "Знімок"
 msgid ""
 "The percentage of the total space in the volume group to allocate for the "
 "new logical volume."
-msgstr ""
+msgstr "Відсоток загального простору в групі томів, який потрібно виділити для нового логічного тому."
 
 msgid ""
 "The percentage of the total space in the volume group to use by the logical "
 "volume."
-msgstr ""
+msgstr "Відсоток загального простору в групі томів для використання логічним томом."
 
 msgid "Updated logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "Оновлено логічний том \"{{ devicefile }}\"."
 
 msgid "Updated volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "Оновлена група томів \"{{ devicefile }}\"."
 
 msgid "Used"
 msgstr "Використано"
 
 msgid "Volume Group"
-msgstr ""
+msgstr "Група Розділів"
 
 msgid "Volume Groups"
-msgstr ""
+msgstr "Групи Розділів"
 
 msgid "Volume group"
 msgstr "Група розділів"

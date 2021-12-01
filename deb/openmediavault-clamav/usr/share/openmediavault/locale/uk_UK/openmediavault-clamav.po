@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
-# zubr139, 2013-2014,2016-2017
+# zubr139, 2013-2014,2016-2017,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-02 10:32+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-11-29 14:07+0000\n"
+"Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,10 +36,10 @@ msgid "Antivirus"
 msgstr "Антивірус"
 
 msgid "April"
-msgstr ""
+msgstr "Квітень"
 
 msgid "August"
-msgstr ""
+msgstr "Серпень"
 
 msgid "Be verbose."
 msgstr "Детальний вивід."
@@ -48,13 +48,13 @@ msgid "Comment"
 msgstr "Коментар"
 
 msgid "Create"
-msgstr ""
+msgstr "Створити"
 
 msgid "Created on-access scan."
-msgstr ""
+msgstr "Створено сканування під час доступу."
 
 msgid "Created scheduled scan."
-msgstr ""
+msgstr "Створено планове сканування."
 
 msgid "Database checks"
 msgstr "Перевірка бази даних"
@@ -69,10 +69,10 @@ msgid "Day of week"
 msgstr "День тижня"
 
 msgid "December"
-msgstr ""
+msgstr "Грудень"
 
 msgid "Delete immediately"
-msgstr ""
+msgstr "Негайно видалити"
 
 msgid "Detect PUA"
 msgstr "Виявлення PUA"
@@ -84,7 +84,7 @@ msgid "Done ..."
 msgstr "Виконано ..."
 
 msgid "Edit"
-msgstr ""
+msgstr "Редагувати"
 
 msgid "Edit on-access scan"
 msgstr "Редагувати сканування доступу до системи"
@@ -140,13 +140,13 @@ msgid "Execute scheduled job"
 msgstr "Виконати заплановану роботу"
 
 msgid "Execute scheduled scan"
-msgstr ""
+msgstr "Виконати сканування за розкладом"
 
 msgid "Extra options"
 msgstr "Додаткові опції"
 
 msgid "February"
-msgstr ""
+msgstr "Лютий"
 
 msgid "Follow directory symlinks"
 msgstr "Прямувати за символьними посиланнями каталогу"
@@ -161,7 +161,7 @@ msgid "Follow regular file symlinks."
 msgstr "Прямувати за регулярними символьними посиланнями файлу."
 
 msgid "Friday"
-msgstr ""
+msgstr "П'ятниця"
 
 msgid "General settings"
 msgstr "Загальні налаштування"
@@ -173,13 +173,13 @@ msgid "Infected files"
 msgstr "Заражені файли"
 
 msgid "January"
-msgstr ""
+msgstr "Січень"
 
 msgid "July"
-msgstr ""
+msgstr "Липень"
 
 msgid "June"
-msgstr ""
+msgstr "Червень"
 
 msgid "Log clean files"
 msgstr "Записувати у лоґ чисті файли"
@@ -188,10 +188,10 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "Записувати в лоґ чисті файли. Це значно збільшує розмір журналу."
 
 msgid "March"
-msgstr ""
+msgstr "Березень"
 
 msgid "May"
-msgstr ""
+msgstr "Травень"
 
 msgid "Message"
 msgstr "Повідомлення"
@@ -200,7 +200,7 @@ msgid "Minute"
 msgstr "Хвилина"
 
 msgid "Monday"
-msgstr ""
+msgstr "Понеділок"
 
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "Моніторити загальну теку і сканувати нові або змінені файли."
@@ -209,19 +209,19 @@ msgid "Month"
 msgstr "Місяць"
 
 msgid "Move to quarantine"
-msgstr ""
+msgstr "Перейти на карантин"
 
 msgid "Multiscan"
 msgstr "Мульти сканування"
 
 msgid "November"
-msgstr ""
+msgstr "Листопад"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Кількість перевірок оновлень бази даних в день. Встановіть 0, щоб відключити."
 
 msgid "October"
-msgstr ""
+msgstr "Жовтень"
 
 msgid "On Access Scans"
 msgstr "На сканування доступу"
@@ -233,7 +233,7 @@ msgid "Perform a deeper analysis of executable files."
 msgstr "Провести глибокий аналіз виконуваних файлів."
 
 msgid "Perform nothing"
-msgstr ""
+msgstr "Нічого не виконувати"
 
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
@@ -245,7 +245,7 @@ msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
 "daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "Будь ласка, <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>перегляньте сторінку посібника</a> для отримання додаткової інформації."
 
 msgid "Quarantine"
 msgstr "Карантин"
@@ -254,7 +254,7 @@ msgid "Run"
 msgstr "Запустити"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Субота"
 
 msgid "Scan ELF"
 msgstr "Сканувати ELF"
@@ -281,10 +281,10 @@ msgid "Scheduled Jobs"
 msgstr "Заплановані завдання"
 
 msgid "Scheduled Scans"
-msgstr ""
+msgstr "Заплановані сканування"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Планування"
 
 msgid "Send command output via email"
 msgstr "Відправити висновок команди по електронній пошті"
@@ -293,7 +293,7 @@ msgid "Send email"
 msgstr "Відправити лист"
 
 msgid "September"
-msgstr ""
+msgstr "Вересень"
 
 msgid "Settings"
 msgstr "Налаштування"
@@ -302,7 +302,7 @@ msgid "Shared folder"
 msgstr "Спільна тека"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Неділя"
 
 msgid "The location of the files to scan on-access."
 msgstr "Розташування файлів для сканування доступу."
@@ -317,22 +317,22 @@ msgid "The option, how to handle infected files."
 msgstr "Опція, як опрацьовувати заражені файли."
 
 msgid "Thursday"
-msgstr ""
+msgstr "Четвер"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Вівторок"
 
 msgid "Updated on-access scan."
-msgstr ""
+msgstr "Оновлено сканування під час доступу."
 
 msgid "Updated scheduled scan."
-msgstr ""
+msgstr "Оновлено сканування за розкладом."
 
 msgid "Verbose"
 msgstr "Відлагодження"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Середа"
 
 msgid "n/a"
 msgstr "н/д"

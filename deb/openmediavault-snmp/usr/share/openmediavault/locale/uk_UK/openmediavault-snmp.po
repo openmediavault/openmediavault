@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# zubr139, 2017
+# zubr139, 2021
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-02 10:32+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
-"Last-Translator: zubr139, 2017\n"
+"Last-Translator: zubr139, 2021\n"
 "Language-Team: Ukrainian (https://www.transifex.com/openmediavault/teams/14254/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +50,7 @@ msgid "Enable"
 msgstr "Увімкнути"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Увімкнено"
 
 msgid "Extra options"
 msgstr "Додаткові опції"
@@ -99,10 +99,10 @@ msgid "Traps"
 msgstr "Пастки"
 
 msgid "Updated SNMP settings."
-msgstr ""
+msgstr "Оновлені налаштування SNMP."
 
 msgid "User name"
-msgstr ""
+msgstr "Ім'я користувача"
 
 msgid "Username"
 msgstr "Ім'я користувача"
