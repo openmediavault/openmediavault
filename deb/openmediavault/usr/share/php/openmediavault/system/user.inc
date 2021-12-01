@@ -371,7 +371,7 @@ class User {
 	public function changePassword($newPassword) {
 		$cmdArgs = [];
 		$cmdArgs[] = sprintf("--password %s", escapeshellarg(
-			crypt($newPassword)));
+			$this->mkPassword($newPassword)));
 		$cmdArgs[] = escapeshellarg($this->getName());
 		$cmd = new \OMV\System\Process("usermod", $cmdArgs);
 		$cmd->setRedirect2to1();
@@ -402,5 +402,15 @@ class User {
 			$list[] = $data[0]; // User name
 		}
 		return $list;
+	}
+
+	/**
+	 * Encrypt the given password using the system crypt(3) settings.
+	 */
+	public static function mkPassword($password): string {
+		$cmdArgs = [];
+		$cmdArgs[] = escapeshellarg($password);
+		$cmd = new \OMV\System\Process("mkpasswd", $cmdArgs);
+		return $cmd->execute();
 	}
 }
