@@ -32,7 +32,7 @@ class Postfix extends \OMV\Engine\Module\ServiceAbstract
 	}
 
 	public function deployAfter(): array {
-		return ["hostname", "hosts"];
+		return ["systemd-networkd", "hostname", "hosts"];
 	}
 
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {

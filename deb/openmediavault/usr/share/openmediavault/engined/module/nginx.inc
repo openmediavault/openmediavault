@@ -32,7 +32,7 @@ class Nginx extends \OMV\Engine\Module\ServiceAbstract
 	}
 
 	public function deployAfter(): array {
-		return ["certificates", "monit"];
+		return ["systemd-networkd", "certificates", "monit"];
 	}
 
 	/**

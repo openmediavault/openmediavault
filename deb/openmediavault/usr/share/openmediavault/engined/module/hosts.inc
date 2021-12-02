@@ -27,6 +27,10 @@ class Hosts extends \OMV\Engine\Module\ServiceAbstract
 		return "hosts";
 	}
 
+	public function deployAfter(): array {
+		return ["systemd-networkd"];
+	}
+
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 			OMV_NOTIFY_MODIFY,
