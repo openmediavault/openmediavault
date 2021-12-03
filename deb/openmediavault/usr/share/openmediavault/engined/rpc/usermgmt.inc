@@ -582,10 +582,9 @@ finish:
 			$cmd->setRedirect2to1();
 			$cmd->execute();
 			// Set the password.
-			$cmd = new \OMV\System\Process("chpasswd");
-			$cmd->setInputFromHereString(sprintf("%s:%s",
-				$params['name'], $params['password']));
-			$cmd->execute();
+			$user = new \OMV\System\User($params['name']);
+			$user->assertExists();
+			$user->changePassword($params['password']);
 		} else {
 			// Append additional arguments.
 			$cmdArgs[] = escapeshellarg($params['name']);
@@ -596,10 +595,9 @@ finish:
 			// Modify the password.
 			if (array_key_exists("password", $params) &&
 					!empty($params['password'])) {
-				$cmd = new \OMV\System\Process("chpasswd");
-				$cmd->setInputFromHereString(sprintf("%s:%s",
-					$params['name'], $params['password']));
-				$cmd->execute();
+				$user = new \OMV\System\User($params['name']);
+				$user->assertExists();
+				$user->changePassword($params['password']);
 			}
 		}
 		// Append some more information to the notification object.

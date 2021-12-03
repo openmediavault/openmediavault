@@ -365,13 +365,14 @@ class User {
 
 	/**
 	 * Change the user password.
-	 * @param string $newPassword The new password.
+	 * @param string $password The new password in plain text.
 	 * @throw \OMV\ExecException
 	 */
 	public function changePassword($password) {
+		$tmpFile = new \OMV\System\TmpFile();
+		$tmpFile->write(sprintf("%s:%s", $this->getName(), $password));
 		$cmd = new \OMV\System\Process("chpasswd");
-		$cmd->setInputFromHereString(sprintf("%s:%s", $this->getName(),
-			$password));
+		$cmd->setInputFromFile($tmpFile->getFilename());
 		$cmd->execute();
 	}
 
