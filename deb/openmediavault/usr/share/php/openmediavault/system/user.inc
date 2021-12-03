@@ -365,6 +365,19 @@ class User {
 	}
 
 	/**
+	 * Change the user password.
+	 * @param string $password The new password in plain text.
+	 * @throw \OMV\ExecException
+	 */
+	public function changePassword($password) {
+		$tmpFile = new \OMV\System\TmpFile();
+		$tmpFile->write(sprintf("%s:%s", $this->getName(), $password));
+		$cmd = new \OMV\System\Process("chpasswd");
+		$cmd->setInputFromFile($tmpFile->getFilename());
+		$cmd->execute();
+	}
+
+	/**
 	 * Enumerate user names.
 	 * @return An array of user names.
 	 * @throw \OMV\ExecException
