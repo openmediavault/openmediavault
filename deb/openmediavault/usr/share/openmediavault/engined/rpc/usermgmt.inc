@@ -1160,6 +1160,7 @@ finish:
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermgmt.setpasswordbycontext");
 		$user = new \OMV\System\User($context['username']);
+		$user->assertExists();
 		$user->changePassword($params['password']);
 	}
 }
