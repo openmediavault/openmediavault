@@ -10,6 +10,10 @@
     color: $omv-color-primary;
   }
 
+  .mat-card-title-group {
+    padding: $omv-padding $omv-padding 0;
+  }
+
   .mat-card-content {
     padding: $omv-padding;
   }
