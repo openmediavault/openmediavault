@@ -1,10 +1,4 @@
-openmediavault (6.0.6-1) unstable; urgency=low
-
-  * Various improvements.
-
- -- Volker Theile <volker.theile@openmediavault.org>  Thu, 02 Dec 2021 17:22:43 +0100
-
-openmediavault (6.0.5-2) unstable; urgency=low
+openmediavault (6.0.5-3) unstable; urgency=low
 
   * Update locale files.
   * Improved IPv6 detection. This will fix various issues, e.g.
