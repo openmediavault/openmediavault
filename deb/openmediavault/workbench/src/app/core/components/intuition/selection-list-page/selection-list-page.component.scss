@@ -4,7 +4,8 @@
   margin: $omv-margin;
 
   .mat-card-actions {
-    padding: unset $omv-padding * 0.5 $omv-padding * 0.5;
+    margin: 0;
+    padding: 0;
   }
 
   ::ng-deep .mat-selection-list {
