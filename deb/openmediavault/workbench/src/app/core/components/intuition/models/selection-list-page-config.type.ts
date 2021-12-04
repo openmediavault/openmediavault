@@ -23,6 +23,7 @@ export type SelectionListPageConfig = {
   store?: DataStore;
   buttonAlign?: 'start' | 'center' | 'end';
   buttons?: Array<SelectionListPageButtonConfig>;
+  // Allow multiple selection. Defaults to 'false'.
   multiple?: boolean;
   valueProp?: string; // Defaults to 'value'.
   textProp?: string; // Defaults to 'text'.
