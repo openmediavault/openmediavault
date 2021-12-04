@@ -21,6 +21,10 @@ export type SelectionListPageConfig = {
   title?: string;
   subTitle?: string;
   store?: DataStore;
+  // Display a button in the toolbar to select all list items.
+  // Requires 'multiple' and 'updateStoreOnSelectionChange' to
+  // be 'true'.
+  hasSelectAllButton?: boolean;
   buttonAlign?: 'start' | 'center' | 'end';
   buttons?: Array<SelectionListPageButtonConfig>;
   // Allow multiple selection. Defaults to 'false'.

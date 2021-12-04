@@ -9,6 +9,17 @@
   {{ error | httpErrorResponse:'message' }}
 </omv-alert-panel>
 <mat-card [ngClass]="{'omv-display-none': loading || error}">
+  <mat-toolbar *ngIf="config.multiple && config.hasSelectAllButton"
+               sticky
+               [scrollContainer]="'#omv-workbench-router-outlet'"
+               fxLayout="row">
+    <div fxFlex></div>
+    <button mat-icon-button
+            matTooltip="{{ 'Select all' | translate }}"
+            (click)="onSelectAll()">
+      <mat-icon svgIcon="mdi:check-all"></mat-icon>
+    </button>
+  </mat-toolbar>
   <mat-card-title-group *ngIf="config.title || config.subTitle">
     <mat-card-title *ngIf="config.title">
       {{ config.title | translate }}

@@ -35,6 +35,7 @@ type SelectionListItem = Pick<DashboardWidgetConfig, 'id' | 'title'> & {
 export class DashboardSettingsPageComponent implements OnInit {
   public config: SelectionListPageConfig = {
     title: gettext('Enabled widgets'),
+    hasSelectAllButton: true,
     multiple: true,
     textProp: 'title',
     valueProp: 'id',

@@ -2,10 +2,25 @@
 
 .mat-card {
   margin: $omv-margin;
+  padding: unset;
+
+  .mat-toolbar {
+    border-top-left-radius: $omv-radius;
+    border-top-right-radius: $omv-radius;
+    color: $omv-color-primary;
+  }
+
+  .mat-card-title-group {
+    padding: $omv-padding $omv-padding 0;
+  }
+
+  .mat-card-content {
+    padding: $omv-padding $omv-padding 0;
+  }
 
   .mat-card-actions {
     margin: 0;
-    padding: 0;
+    padding: 0 $omv-padding $omv-padding;
   }
 
   ::ng-deep .mat-selection-list {

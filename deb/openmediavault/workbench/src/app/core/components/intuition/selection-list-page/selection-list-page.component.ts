@@ -71,6 +71,21 @@ export class SelectionListPageComponent
     this.loadData();
   }
 
+  onSelectAll(): void {
+    if (!_.isEmpty(this.config.selectedProp) && this.config.updateStoreOnSelectionChange) {
+      const allSelected = _.every(this.config.store.data, [this.config.selectedProp, true]);
+      if (!allSelected) {
+        this.list.selectAll();
+      } else {
+        this.list.deselectAll();
+      }
+      _.forEach(this.config.store.data, (item: Record<string, any>) => {
+        _.set(item, this.config.selectedProp, !allSelected);
+      });
+      this.pristine = false;
+    }
+  }
+
   onSelectionChange(event: MatSelectionListChange) {
     if (!_.isEmpty(this.config.selectedProp) && this.config.updateStoreOnSelectionChange) {
       const index = _.findIndex(this.config.store.data, [
@@ -148,6 +163,7 @@ export class SelectionListPageComponent
 
   protected sanitizeConfig() {
     _.defaultsDeep(this.config, {
+      hasSelectAllButton: false,
       buttonAlign: 'end',
       buttons: [],
       multiple: false,
