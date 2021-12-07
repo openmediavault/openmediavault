@@ -72,6 +72,9 @@ recycle:exclude = {{ recycle_exclude }}
 recycle:exclude_dir = {{ recycle_exclude_dir }}
 recycle:maxsize = {{ share.recyclemaxsize }}
 {%- endif %}
+{%- if share.sharedfolderref | omv_conf_get_by_identifier('conf.system.sharedfolder') | attr('mntentref') | omv_conf_get_by_identifier('conf.system.filesystem.mountpoint') | attr('type') == 'btrfs' %}
+{%- set _ = vfs_objects.append('btrfs') %}
+{%- endif %}
 vfs objects = {{ vfs_objects | unique | join(' ') }}
 printable = {{ printable }}
 create mask = {{ create_mask }}

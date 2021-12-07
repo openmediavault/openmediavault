@@ -1,6 +1,8 @@
 openmediavault (6.0.6-1) unstable; urgency=low
 
   * Various improvements.
+  * Issue #1159: Add enhanced server-side copy offload for SMB
+    shares residing on BTRFS file systems.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 04 Dec 2021 11:04:56 +0100
 

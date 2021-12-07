@@ -24,7 +24,10 @@ import openmediavault.config
 import openmediavault.device
 import openmediavault.stringutils
 
+from salt.utils.decorators.jinja import jinja_filter
 
+
+@jinja_filter('omv_conf_get')
 def get(id_, identifier=None):
     """
     Get the specified configuration object.
@@ -40,6 +43,25 @@ def get(id_, identifier=None):
     if isinstance(objs, list):
         return [obj.get_dict() for obj in objs]
     return objs.get_dict()
+
+
+@jinja_filter('omv_conf_get_by_identifier')
+def get_by_identifier(identifier, id_):
+    """
+    Get the specified configuration object.
+
+    Jinja example:
+    Get the UUID of the mount point configuration object that is
+    associated with the given shared folder.
+
+    'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' | omv_conf_get_by_identifier('conf.system.sharedfolder') | attr('mntentref')
+
+    :param identifier: The identifier of the configuration object, e.g.
+        the UUID.
+    :param id_: The data model identifier, e.g. 'conf.service.ftp'.
+    :returns: A single configuration object is returned.
+    """
+    return get(id_, identifier)
 
 
 def get_by_filter(id_, filter_, **kwargs):
@@ -89,11 +111,11 @@ def get_by_filter(id_, filter_, **kwargs):
 
 def get_sharedfolder_path(uuid):
     """
-    Get the path of the given shared folder.
+    Get the prettified absolute path of the given shared folder.
     :param uuid: The UUID of the shared folder configuration object.
     :type uuid: str
-    :return: Returns the path of the shared folder. A '/' is automatically
-        appended to the end.
+    :return: Returns the prettified absolute path of the shared folder.
+        A '/' is automatically appended to the end.
     :rtype: str
     """
     sf_obj = get('conf.system.sharedfolder', uuid)
@@ -120,11 +142,11 @@ def get_sharedfolder_name(uuid):
 
 def get_sharedfolder_mount_path(uuid):
     """
-    Get the mount path of the given shared folder.
+    Get the prettified mount path of the given shared folder.
     :param uuid: The UUID of the shared folder configuration object.
     :type uuid: str
-    :return: Returns the mount path of the shared folder. A '/' is
-        automatically appended to the end.
+    :return: Returns the prettified mount path of the shared folder.
+        A '/' is automatically appended to the end.
     :rtype: str
     """
     sf_obj = get('conf.system.sharedfolder', uuid)
