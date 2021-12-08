@@ -1,6 +1,7 @@
 openmediavault (6.0.6-1) unstable; urgency=low
 
   * Various improvements.
+  * Fix PAM faillock issue related to missing directory.
   * Issue #618: Remove backslash in Monit notification email.
   * Issue #1159: Add enhanced server-side copy offload for SMB
     shares residing on BTRFS file systems.
