@@ -1,6 +1,7 @@
 openmediavault (6.0.6-1) unstable; urgency=low
 
   * Various improvements.
+  * Issue #618: Remove backslash in Monit notification email.
   * Issue #1159: Add enhanced server-side copy offload for SMB
     shares residing on BTRFS file systems.
 
@@ -86,6 +87,12 @@ openmediavault (6.0-34) unstable; urgency=low
     WebUI to listen on a specific IP address only instead of all.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Dec 2020 20:28:37 +0100
+
+openmediavault (5.6.22-1) stable; urgency=low
+
+  * Issue #618: Remove backslash in Monit notification email.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 08 Dec 2021 08:04:55 +0100
 
 openmediavault (5.6.21-2) stable; urgency=low
 

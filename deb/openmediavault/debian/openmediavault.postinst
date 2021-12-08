@@ -325,6 +325,9 @@ case "$1" in
 			omv_module_set_dirty nginx
 			omv_module_set_dirty postfix
 		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.22"; then
+			omv_module_set_dirty monit
+		fi
 		if dpkg --compare-versions "$2" lt-nl "6.0"; then
 			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet nginx rsyslog phpfpm || :
 		fi
@@ -337,6 +340,7 @@ case "$1" in
 			omv_module_set_dirty postfix
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.0.6"; then
+			omv_module_set_dirty monit
 			omv_module_set_dirty samba
 		fi
 
