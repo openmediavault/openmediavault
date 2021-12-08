@@ -27,7 +27,7 @@ set -e
 [ "$(omv_config_get "//system/email/enable")" != "1" ] && exit 0
 
 # Make sure the directory exists. Note, after a reboot this directory does not
-# exists until the PAM faillock module has been executed.
+# exist until the PAM faillock module has been executed.
 [ ! -d "/var/run/faillock/" ] && exit 0
 
 # Check if there are locked users.
