@@ -501,7 +501,13 @@ class SmartInformation {
 			//
 			// Current Drive Temperature:     39 C
 			// ...
-			$regex = '/^SMART Health Status:\s+OK$/i';
+			//
+			// smartctl 6.6 2017-11-05 r4594 [x86_64-linux-5.10.0-0.bpo.9-amd64] (local build)
+			// ...
+			// === START OF READ SMART DATA SECTION ===
+			// SMART overall-health self-assessment test result: PASSED
+			// ...
+			$regex = '/^SMART (Health Status:\s+OK|overall-health self-assessment test result:\s+PASSED)$/i';
 			foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
 				if (1 == preg_match($regex, $cmdOutputv)) {
 					return self::SMART_ASSESSMENT_GOOD;

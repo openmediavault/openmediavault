@@ -1,6 +1,7 @@
 openmediavault (5.6.22-1) stable; urgency=low
 
   * Issue #618: Remove backslash in Monit notification email.
+  * Issue #1160: Improve S.M.A.R.T. overall status assessment.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 08 Dec 2021 08:04:55 +0100
 
