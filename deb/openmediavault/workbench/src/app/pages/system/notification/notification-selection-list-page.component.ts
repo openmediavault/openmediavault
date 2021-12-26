@@ -25,6 +25,7 @@ import { SelectionListPageConfig } from '~/app/core/components/intuition/models/
 })
 export class NotificationSelectionListPageComponent {
   public config: SelectionListPageConfig = {
+    hasSelectAllButton: true,
     multiple: true,
     textProp: 'title',
     valueProp: 'uuid',
