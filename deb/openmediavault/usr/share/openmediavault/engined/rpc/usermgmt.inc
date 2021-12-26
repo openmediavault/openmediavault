@@ -1158,9 +1158,29 @@ finish:
 			"role" => OMV_ROLE_EVERYONE
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.usermgmt.setpasswordbycontext");
+		$this->validateMethodParams($params,
+			"rpc.usermgmt.setpasswordbycontext");
 		$user = new \OMV\System\User($context['username']);
 		$user->assertExists();
 		$user->changePassword($params['password']);
+		// Notify configuration changes if the given user exists in the
+		// database. System users like 'admin' are ignored.
+		$db = \OMV\Config\Database::getInstance();
+		$filter = [
+			"operator" => "stringEquals",
+			"arg0" => "name",
+			"arg1" => $user->getName()
+		];
+		if (TRUE === $db->exists("conf.system.usermngmnt.user", $filter)) {
+			$object = $db->getByFilter("conf.system.usermngmnt.user",
+				$filter, 1);
+			$modifiedObject = clone $object;
+			$modifiedObject->set("password", $params['password']);
+			// Notify configuration changes.
+			$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
+			$dispatcher->notify(OMV_NOTIFY_MODIFY,
+				"org.openmediavault.conf.system.usermngmnt.user",
+				$modifiedObject->getAssoc(), $object->getAssoc());
+		}
 	}
 }
