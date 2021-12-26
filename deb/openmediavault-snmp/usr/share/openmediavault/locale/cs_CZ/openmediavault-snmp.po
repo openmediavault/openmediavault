@@ -101,7 +101,7 @@ msgid "Updated SNMP settings."
 msgstr "Aktualizována nastavení pro SNMP."
 
 msgid "User name"
-msgstr ""
+msgstr "Uživatelské jméno"
 
 msgid "Username"
 msgstr "Uživatelské jméno"

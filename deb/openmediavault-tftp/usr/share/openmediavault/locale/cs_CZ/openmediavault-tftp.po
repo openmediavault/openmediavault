@@ -91,6 +91,8 @@ msgid ""
 "The location of the files to share. Please make sure that the shared folder "
 "is publicly writable if new files are allowed."
 msgstr ""
+"Umístění souborů, které sdílet. Pokud má být možné vytvářet nové soubory, "
+"zajistěte, aby do sdílené složky mohl zapisovat kdokoli."
 
 msgid "Updated TFTP settings."
 msgstr "Aktualizována nastavení pro TFTP."

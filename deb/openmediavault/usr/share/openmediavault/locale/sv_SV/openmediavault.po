@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-02 10:35+0200\n"
-"PO-Revision-Date: 2021-10-05 04:00+0000\n"
-"Last-Translator: Jonatan Nyberg <jonatan@autistici.org>\n"
+"POT-Creation-Date: 2021-12-26 17:38+0100\n"
+"PO-Revision-Date: 2021-12-26 16:41+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,6 +42,9 @@ msgstr "%d år"
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) använt, %s tillgängligt]"
+
+msgid "%s [%s]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [på %s, %s]"
@@ -520,6 +523,9 @@ msgstr "CPU"
 msgid "CPU Usage"
 msgstr "CPU-användning"
 
+msgid "CPU Utilization"
+msgstr ""
+
 msgid "CPU usage"
 msgstr "CPU-användning"
 
@@ -699,6 +705,9 @@ msgstr "Land"
 
 msgid "Create"
 msgstr "Skapa"
+
+msgid "Create a new file system."
+msgstr ""
 
 msgid "Create file system"
 msgstr "Skapa filsystem"
@@ -1135,6 +1144,9 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP tillåter överföringar mellan två fjärrservrar utan att någon fildata går till klienten som begär överföringen."
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to copy data to the clipboard."
 msgstr "Det gick inte att kopiera data till urklipp."
 
@@ -1210,6 +1222,9 @@ msgstr "Forum"
 
 msgid "France"
 msgstr "Frankrike"
+
+msgid "Free"
+msgstr ""
 
 msgid "French Guiana"
 msgstr "Franska Guyana"
@@ -1309,6 +1324,9 @@ msgstr "HTTPS-proxy"
 
 msgid "Haiti"
 msgstr "Haiti"
+
+msgid "Hardware Address"
+msgstr ""
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Heardön och McDonaldöarna"
@@ -1818,6 +1836,9 @@ msgstr "Mayotte"
 msgid "Members"
 msgstr "Medlemmar"
 
+msgid "Memory"
+msgstr ""
+
 msgid "Memory Usage"
 msgstr "Minnesanvändning"
 
@@ -1910,6 +1931,9 @@ msgstr "Montera"
 
 msgid "Mount Point"
 msgstr "Monteringspunkt"
+
+msgid "Mount an existing file system."
+msgstr ""
 
 msgid "Mounted"
 msgstr "Monterad"
@@ -2051,6 +2075,9 @@ msgstr "Num"
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Obsolete cached data found. Page will be reloaded."
+msgstr ""
 
 msgid "Occurrence"
 msgstr "Händelse"
@@ -2577,6 +2604,9 @@ msgstr "Rwanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
+msgid "S.M.A.R.T. Status"
+msgstr ""
+
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.-övervakning måste vara aktiverad för den valda enheten."
 
@@ -2711,6 +2741,9 @@ msgstr "Välj en systemlogg ..."
 
 msgid "Select a type ..."
 msgstr "Välj en typ ..."
+
+msgid "Select all"
+msgstr ""
 
 msgid "Select an authentication mode ..."
 msgstr "Välj ett autentiseringsläge ..."
@@ -3335,8 +3368,8 @@ msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
 msgstr "Det här fältet ska vara en nätmask inom intervallet 128.0.0.0 - 255.255.255.252."
 
-msgid "This field should be a port in the range of 1 to 65535."
-msgstr "Det här fältet ska vara en port i intervallet 1 till 65535."
+msgid "This field should be a network port in the range of 1 to 65535."
+msgstr ""
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
@@ -3353,6 +3386,12 @@ msgstr "Det här fältet ska vara en IPv6-adress."
 
 msgid "This field should be an email address."
 msgstr "Det här fältet ska vara en e-postadress."
+
+msgid "This field should contain a floating point value."
+msgstr ""
+
+msgid "This field should contain an integer value."
+msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Denna funktion är effektiv bara om hårddisken stöder den."
@@ -3654,6 +3693,9 @@ msgstr "Uppdaterade instrumentpanelinställningarna."
 msgid "Updated date & time settings."
 msgstr "Uppdaterade inställningarna för datum & tid."
 
+msgid "Updated file system settings."
+msgstr ""
+
 msgid "Updated firewall rule."
 msgstr "Uppdaterade brandväggsregeln."
 
@@ -3731,6 +3773,9 @@ msgstr "Drifttid"
 
 msgid "Uruguay"
 msgstr "Uruguay"
+
+msgid "Usage"
+msgstr ""
 
 msgid "Usage Warning Threshold"
 msgstr "Varningsgräns för användning"
@@ -3830,6 +3875,9 @@ msgstr "WINS-server"
 msgid "WOL"
 msgstr "WOL (Wake on LAN)"
 
+msgid "WWN"
+msgstr ""
+
 msgid "Wake Island"
 msgstr "Wake Island"
 
@@ -3861,9 +3909,6 @@ msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote user name."
 msgstr "När en klient initialt ansluter till servern används identprotokollet för att försöka identifiera fjärranvändarnamnet."
-
-msgid "When failed"
-msgstr "Vid misslyckande"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

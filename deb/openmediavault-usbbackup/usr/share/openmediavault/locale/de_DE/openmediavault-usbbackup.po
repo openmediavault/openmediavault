@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Stephan Steiner, 2014
+# Volker Theile <votdev@gmx.de>, 2021
 # Volker Theile <votdev@gmx.de>, 2013-2014,2017,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-02 10:32+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"POT-Creation-Date: 2021-12-26 17:38+0100\n"
+"PO-Revision-Date: 2021-12-26 16:49+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -146,7 +147,7 @@ msgid "Run"
 msgstr "Ausführen"
 
 msgid "Run backup job"
-msgstr ""
+msgstr "Backup Auftrag ausführen"
 
 msgid "Scan"
 msgstr "Suchen"
@@ -166,7 +167,7 @@ msgstr "Setze die Ziel-Zugriffsrechte auf die selben wie die Quell-Zugriffsrecht
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "Setze die Gruppe der Zieldatei auf die selben wie die der Quelldatei."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
@@ -180,13 +181,18 @@ msgid "Suppress non-error messages."
 msgstr "Unterdrücke Nicht-Fehlermeldungen."
 
 msgid "Synchronise from/to directory on external storage device"
-msgstr ""
+msgstr "Synchronisiere von/in das Verzeichnis auf dem externen Speichergerät."
 
 msgid "Synchronise from/to directory on external storage device."
 msgstr "Synchronisiere von/in das Verzeichnis auf dem externen Speichergerät."
 
 msgid "The external storage device."
 msgstr "Das externe Speichergerät."
+
+msgid ""
+"The external storage device. Please make sure that the device has only one "
+"file system."
+msgstr "Das externe Speichergerät. Bitte stellen Sie sicher, dass das Gerät nur ein Dateisystem hat."
 
 msgid ""
 "The shared folder content is synchronised from/to the root of the external "

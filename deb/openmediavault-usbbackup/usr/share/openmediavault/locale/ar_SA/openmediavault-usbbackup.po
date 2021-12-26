@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-02 10:32+0200\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"POT-Creation-Date: 2021-12-26 17:38+0100\n"
+"PO-Revision-Date: 2021-12-26 16:41+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
@@ -186,6 +186,11 @@ msgstr "مزامنة من وإلى المجلد الموجود في جهاز ا�
 
 msgid "The external storage device."
 msgstr "جهاز التخزين الخارجي"
+
+msgid ""
+"The external storage device. Please make sure that the device has only one "
+"file system."
+msgstr ""
 
 msgid ""
 "The shared folder content is synchronised from/to the root of the external "

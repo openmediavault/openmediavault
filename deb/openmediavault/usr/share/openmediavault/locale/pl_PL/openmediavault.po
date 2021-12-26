@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-02 10:35+0200\n"
-"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"POT-Creation-Date: 2021-12-26 17:38+0100\n"
+"PO-Revision-Date: 2021-12-26 16:41+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -43,6 +43,9 @@ msgid "%d years"
 msgstr ""
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
+msgstr ""
+
+msgid "%s [%s]"
 msgstr ""
 
 msgid "%s [on %s, %s]"
@@ -522,6 +525,9 @@ msgstr ""
 msgid "CPU Usage"
 msgstr ""
 
+msgid "CPU Utilization"
+msgstr ""
+
 msgid "CPU usage"
 msgstr "użycie CPU"
 
@@ -701,6 +707,9 @@ msgstr "Państwo"
 
 msgid "Create"
 msgstr "Utwórz"
+
+msgid "Create a new file system."
+msgstr ""
 
 msgid "Create file system"
 msgstr "Utwórz system plików"
@@ -1137,6 +1146,9 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP pozwala na transfery między dwoma zdalnymi serwerami bez danych pliku do klienta z prośbą o przeniesienie."
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to copy data to the clipboard."
 msgstr ""
 
@@ -1212,6 +1224,9 @@ msgstr ""
 
 msgid "France"
 msgstr "France"
+
+msgid "Free"
+msgstr ""
 
 msgid "French Guiana"
 msgstr "French Guiana"
@@ -1311,6 +1326,9 @@ msgstr "HTTPS-Proxy"
 
 msgid "Haiti"
 msgstr "Haiti"
+
+msgid "Hardware Address"
+msgstr ""
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard Island and McDonald Islands"
@@ -1820,6 +1838,9 @@ msgstr "Mayotte"
 msgid "Members"
 msgstr "Użytkownicy"
 
+msgid "Memory"
+msgstr ""
+
 msgid "Memory Usage"
 msgstr ""
 
@@ -1912,6 +1933,9 @@ msgstr "Zamontuj"
 
 msgid "Mount Point"
 msgstr "Punkt montowania"
+
+msgid "Mount an existing file system."
+msgstr ""
 
 msgid "Mounted"
 msgstr "Zamontowane"
@@ -2053,6 +2077,9 @@ msgstr "Num"
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Obsolete cached data found. Page will be reloaded."
+msgstr ""
 
 msgid "Occurrence"
 msgstr "Występowanie"
@@ -2579,6 +2606,9 @@ msgstr "Rwanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
+msgid "S.M.A.R.T. Status"
+msgstr ""
+
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Monitoring S.M.A.R.T. musi być aktywny dla wybranego urządzenia"
 
@@ -2712,6 +2742,9 @@ msgid "Select a system log ..."
 msgstr ""
 
 msgid "Select a type ..."
+msgstr ""
+
+msgid "Select all"
 msgstr ""
 
 msgid "Select an authentication mode ..."
@@ -3337,7 +3370,7 @@ msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
 msgstr ""
 
-msgid "This field should be a port in the range of 1 to 65535."
+msgid "This field should be a network port in the range of 1 to 65535."
 msgstr ""
 
 msgid ""
@@ -3354,6 +3387,12 @@ msgid "This field should be an IPv6 address."
 msgstr ""
 
 msgid "This field should be an email address."
+msgstr ""
+
+msgid "This field should contain a floating point value."
+msgstr ""
+
+msgid "This field should contain an integer value."
 msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."
@@ -3656,6 +3695,9 @@ msgstr ""
 msgid "Updated date & time settings."
 msgstr ""
 
+msgid "Updated file system settings."
+msgstr ""
+
 msgid "Updated firewall rule."
 msgstr ""
 
@@ -3733,6 +3775,9 @@ msgstr "Czas działania"
 
 msgid "Uruguay"
 msgstr "Uruguay"
+
+msgid "Usage"
+msgstr ""
 
 msgid "Usage Warning Threshold"
 msgstr ""
@@ -3832,6 +3877,9 @@ msgstr "Serwer WINS"
 msgid "WOL"
 msgstr "WOL"
 
+msgid "WWN"
+msgstr ""
+
 msgid "Wake Island"
 msgstr "Wake Island"
 
@@ -3863,9 +3911,6 @@ msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote user name."
 msgstr ""
-
-msgid "When failed"
-msgstr "Gdy niepowodzenie"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

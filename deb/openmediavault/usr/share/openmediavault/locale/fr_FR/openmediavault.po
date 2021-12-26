@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-02 10:35+0200\n"
-"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"POT-Creation-Date: 2021-12-26 17:38+0100\n"
+"PO-Revision-Date: 2021-12-26 16:41+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -50,6 +50,9 @@ msgstr "%d années"
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s[%s, %s (%d %%) utilisé, %s disponible]"
+
+msgid "%s [%s]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [le %s, %s]"
@@ -528,6 +531,9 @@ msgstr "Processeur"
 msgid "CPU Usage"
 msgstr "Utilisation du processeur"
 
+msgid "CPU Utilization"
+msgstr ""
+
 msgid "CPU usage"
 msgstr "Processeur"
 
@@ -707,6 +713,9 @@ msgstr "Pays"
 
 msgid "Create"
 msgstr "Créer"
+
+msgid "Create a new file system."
+msgstr ""
 
 msgid "Create file system"
 msgstr "Créer un système de fichiers"
@@ -1143,6 +1152,9 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP permet les transferts entre deux serveurs distants sans qu'aucun fichier ne passe par le client qui demande le transfert."
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to copy data to the clipboard."
 msgstr "Erreur de la copie des données dans le presse-papiers."
 
@@ -1218,6 +1230,9 @@ msgstr "Forum"
 
 msgid "France"
 msgstr "France"
+
+msgid "Free"
+msgstr ""
 
 msgid "French Guiana"
 msgstr "Guyane française"
@@ -1317,6 +1332,9 @@ msgstr "Proxy HTTPS"
 
 msgid "Haiti"
 msgstr "Haitï"
+
+msgid "Hardware Address"
+msgstr ""
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Île Heard et Îles McDonald"
@@ -1826,6 +1844,9 @@ msgstr "Mayotte"
 msgid "Members"
 msgstr "Membres"
 
+msgid "Memory"
+msgstr ""
+
 msgid "Memory Usage"
 msgstr "Utilisation de la mémoire"
 
@@ -1918,6 +1939,9 @@ msgstr "Monter"
 
 msgid "Mount Point"
 msgstr "Point de montage"
+
+msgid "Mount an existing file system."
+msgstr ""
 
 msgid "Mounted"
 msgstr "Monté"
@@ -2059,6 +2083,9 @@ msgstr "Num"
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Obsolete cached data found. Page will be reloaded."
+msgstr ""
 
 msgid "Occurrence"
 msgstr "Occurence"
@@ -2585,6 +2612,9 @@ msgstr "Rwanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
+msgid "S.M.A.R.T. Status"
+msgstr ""
+
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "La surveillance S.M.A.R.T. doit-être activée pour le périphérique sélectionné."
 
@@ -2719,6 +2749,9 @@ msgstr "Sélectionner un journal système ..."
 
 msgid "Select a type ..."
 msgstr "Sélectionner un type ..."
+
+msgid "Select all"
+msgstr ""
 
 msgid "Select an authentication mode ..."
 msgstr "Sélectionnez un mode d'authentification..."
@@ -3343,8 +3376,8 @@ msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
 msgstr "Ce champ doit contenir un masque de réseau compris dans la plage allant de 128.0.0.0 à 255.255.255.252."
 
-msgid "This field should be a port in the range of 1 to 65535."
-msgstr "Ce champ doit contenir un port dans la plage allant de 1 à 65535."
+msgid "This field should be a network port in the range of 1 to 65535."
+msgstr ""
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
@@ -3361,6 +3394,12 @@ msgstr "Ce champ doit contenir une adresse IPv6."
 
 msgid "This field should be an email address."
 msgstr "Ce champ doit contenir une adresse de courriel."
+
+msgid "This field should contain a floating point value."
+msgstr ""
+
+msgid "This field should contain an integer value."
+msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Cette fonction n'est effective que si le disque dur la supporte."
@@ -3662,6 +3701,9 @@ msgstr "Paramètres du tableau de bord mis à jour."
 msgid "Updated date & time settings."
 msgstr "Paramètres de date et d'heure mis à jour."
 
+msgid "Updated file system settings."
+msgstr ""
+
 msgid "Updated firewall rule."
 msgstr "Règle de pare-feu mise à jour."
 
@@ -3739,6 +3781,9 @@ msgstr "Durée de fonctionnement"
 
 msgid "Uruguay"
 msgstr "Uruguay"
+
+msgid "Usage"
+msgstr ""
 
 msgid "Usage Warning Threshold"
 msgstr "Seuil d'avertissement d'utilisation"
@@ -3838,6 +3883,9 @@ msgstr "Serveur WINS"
 msgid "WOL"
 msgstr "WOL"
 
+msgid "WWN"
+msgstr ""
+
 msgid "Wake Island"
 msgstr "Île Wake"
 
@@ -3869,9 +3917,6 @@ msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote user name."
 msgstr "Quand un client se connecte au serveur, le protocole d'identification Ident est utilisé pour tenter d'identifier le nom de l'utilisateur distant."
-
-msgid "When failed"
-msgstr "Quand"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

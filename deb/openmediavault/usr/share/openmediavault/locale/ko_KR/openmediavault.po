@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-02 10:35+0200\n"
-"PO-Revision-Date: 2021-10-02 08:35+0000\n"
+"POT-Creation-Date: 2021-12-26 17:38+0100\n"
+"PO-Revision-Date: 2021-12-26 16:41+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -41,6 +41,9 @@ msgid "%d years"
 msgstr ""
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
+msgstr ""
+
+msgid "%s [%s]"
 msgstr ""
 
 msgid "%s [on %s, %s]"
@@ -520,6 +523,9 @@ msgstr ""
 msgid "CPU Usage"
 msgstr ""
 
+msgid "CPU Utilization"
+msgstr ""
+
 msgid "CPU usage"
 msgstr "CPU 사용량"
 
@@ -699,6 +705,9 @@ msgstr "국가"
 
 msgid "Create"
 msgstr "생성"
+
+msgid "Create a new file system."
+msgstr ""
 
 msgid "Create file system"
 msgstr "파일 시스템 생성"
@@ -1135,6 +1144,9 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP는 전송을 요청하는 클라이언트로 가는 어떤 파일 데이터 없이 두 원격 서버 간에 파일 데이터를 전송할 수 있습니다."
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to copy data to the clipboard."
 msgstr ""
 
@@ -1210,6 +1222,9 @@ msgstr ""
 
 msgid "France"
 msgstr "프랑스"
+
+msgid "Free"
+msgstr ""
 
 msgid "French Guiana"
 msgstr "프랑스령 기아나"
@@ -1309,6 +1324,9 @@ msgstr "HTTPS-프록시"
 
 msgid "Haiti"
 msgstr "아이티"
+
+msgid "Hardware Address"
+msgstr ""
 
 msgid "Heard Island and McDonald Islands"
 msgstr "허드 섬 및 맥도널드 제도"
@@ -1818,6 +1836,9 @@ msgstr "마요트 섬"
 msgid "Members"
 msgstr "구성원"
 
+msgid "Memory"
+msgstr ""
+
 msgid "Memory Usage"
 msgstr ""
 
@@ -1910,6 +1931,9 @@ msgstr "마운트"
 
 msgid "Mount Point"
 msgstr "마운트 지점"
+
+msgid "Mount an existing file system."
+msgstr ""
 
 msgid "Mounted"
 msgstr "마운트됨"
@@ -2051,6 +2075,9 @@ msgstr "숫자"
 
 msgid "OK"
 msgstr "확인"
+
+msgid "Obsolete cached data found. Page will be reloaded."
+msgstr ""
 
 msgid "Occurrence"
 msgstr "발생"
@@ -2577,6 +2604,9 @@ msgstr "르완다"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T"
 
+msgid "S.M.A.R.T. Status"
+msgstr ""
+
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "선택된 장치에 대해 S.M.A.R.T 모니터링이 반드시 활성화되어야 합니다."
 
@@ -2710,6 +2740,9 @@ msgid "Select a system log ..."
 msgstr ""
 
 msgid "Select a type ..."
+msgstr ""
+
+msgid "Select all"
 msgstr ""
 
 msgid "Select an authentication mode ..."
@@ -3335,7 +3368,7 @@ msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
 msgstr ""
 
-msgid "This field should be a port in the range of 1 to 65535."
+msgid "This field should be a network port in the range of 1 to 65535."
 msgstr ""
 
 msgid ""
@@ -3352,6 +3385,12 @@ msgid "This field should be an IPv6 address."
 msgstr ""
 
 msgid "This field should be an email address."
+msgstr ""
+
+msgid "This field should contain a floating point value."
+msgstr ""
+
+msgid "This field should contain an integer value."
 msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."
@@ -3654,6 +3693,9 @@ msgstr ""
 msgid "Updated date & time settings."
 msgstr ""
 
+msgid "Updated file system settings."
+msgstr ""
+
 msgid "Updated firewall rule."
 msgstr ""
 
@@ -3731,6 +3773,9 @@ msgstr "가동 시간"
 
 msgid "Uruguay"
 msgstr "우루과이"
+
+msgid "Usage"
+msgstr ""
 
 msgid "Usage Warning Threshold"
 msgstr ""
@@ -3830,6 +3875,9 @@ msgstr "WINS 서버"
 msgid "WOL"
 msgstr "WOL"
 
+msgid "WWN"
+msgstr ""
+
 msgid "Wake Island"
 msgstr "웨이크 섬"
 
@@ -3861,9 +3909,6 @@ msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote user name."
 msgstr ""
-
-msgid "When failed"
-msgstr "실패 시"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

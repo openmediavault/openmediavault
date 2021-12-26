@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-02 10:35+0200\n"
-"PO-Revision-Date: 2021-10-03 07:00+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
+"POT-Creation-Date: 2021-12-26 17:38+0100\n"
+"PO-Revision-Date: 2021-12-26 16:41+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,6 +45,9 @@ msgstr "%d év"
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) foglalt, %s elérhető]"
+
+msgid "%s [%s]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [-n %s, %s]"
@@ -523,6 +526,9 @@ msgstr "CPU"
 msgid "CPU Usage"
 msgstr "CPU használat"
 
+msgid "CPU Utilization"
+msgstr ""
+
 msgid "CPU usage"
 msgstr "CPU használat"
 
@@ -703,6 +709,9 @@ msgstr "Ország"
 msgid "Create"
 msgstr "Létrehozás"
 
+msgid "Create a new file system."
+msgstr ""
+
 msgid "Create file system"
 msgstr "Fájlrendszer létrehozása"
 
@@ -794,7 +803,7 @@ msgid "Daily"
 msgstr "Naponta"
 
 msgid "Dashboard"
-msgstr "Kezelőfelület"
+msgstr "Vezérlőpult"
 
 msgid "Date & Time"
 msgstr "Dátum és idő"
@@ -1138,6 +1147,9 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP lehetővé teszi az átvitelt két távoli szerver között anélkül, hogy az adatfájl átvitelét a kliensnek is kérnie kellene."
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to copy data to the clipboard."
 msgstr "Nem sikerült átmásolni az adatokat a vágólapra."
 
@@ -1213,6 +1225,9 @@ msgstr "Fórum"
 
 msgid "France"
 msgstr "Franciaország"
+
+msgid "Free"
+msgstr ""
 
 msgid "French Guiana"
 msgstr "Francia Guayana"
@@ -1313,11 +1328,14 @@ msgstr "HTTPS-Proxy"
 msgid "Haiti"
 msgstr "Haiti"
 
+msgid "Hardware Address"
+msgstr ""
+
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard-sziget és McDonald-szigetek"
 
 msgid "Help"
-msgstr "Segítség "
+msgstr "Súgó "
 
 msgid "Hide"
 msgstr "Elrejt"
@@ -1821,6 +1839,9 @@ msgstr "Mayotte"
 msgid "Members"
 msgstr "Tagok"
 
+msgid "Memory"
+msgstr ""
+
 msgid "Memory Usage"
 msgstr "Memória használat"
 
@@ -1913,6 +1934,9 @@ msgstr "Csatolás"
 
 msgid "Mount Point"
 msgstr "Csatolási pont"
+
+msgid "Mount an existing file system."
+msgstr ""
 
 msgid "Mounted"
 msgstr "Csatolva"
@@ -2055,6 +2079,9 @@ msgstr "Szám"
 msgid "OK"
 msgstr "OK"
 
+msgid "Obsolete cached data found. Page will be reloaded."
+msgstr ""
+
 msgid "Occurrence"
 msgstr "Előfordulás"
 
@@ -2163,7 +2190,7 @@ msgid "Perform a trial run with no changes made"
 msgstr "Kipróbálás a változtatások mentése nélkül"
 
 msgid "Performance Statistics"
-msgstr "Teljesítmény statisztikák."
+msgstr "Teljesítménystatisztikák"
 
 msgid "Period of validity"
 msgstr "Érvényesség ideje"
@@ -2292,7 +2319,7 @@ msgid "Portugal"
 msgstr "Portugália"
 
 msgid "Power"
-msgstr "Energia"
+msgstr "Be- és kikapcsolás"
 
 msgid "Power Management"
 msgstr "Energiagazdálkodás"
@@ -2580,6 +2607,9 @@ msgstr "Ruanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
+msgid "S.M.A.R.T. Status"
+msgstr ""
+
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "A S.M.A.R.T. ellenőrzésnek aktívnak kell lennie a kiválasztott meghajtón."
 
@@ -2714,6 +2744,9 @@ msgstr "Válasszon ki egy rendszernaplót ..."
 
 msgid "Select a type ..."
 msgstr "Válasszon ki egy típust ..."
+
+msgid "Select all"
+msgstr ""
 
 msgid "Select an authentication mode ..."
 msgstr "Válasszon ki egy hitelesítési módot ..."
@@ -3133,7 +3166,7 @@ msgstr "Feladatok végrehajtása a bekapcsoló gomb megnyomásakor."
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
 "the"
-msgstr "A kezelőfelület még nincs konfigurálva. A személyre szabáshoz kérjük, menjen a"
+msgstr "A vezérlőpult még nincs konfigurálva. A személyre szabáshoz kérjük, menjen a"
 
 msgid "The data has been copied to the clipboard."
 msgstr "Az adatokat átmásolva a vágólapra."
@@ -3338,8 +3371,8 @@ msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
 msgstr "E mezőnek a 128.0.0.0 - 255.255.255.252 tartományon belüli hálózati maszknak kell lennie."
 
-msgid "This field should be a port in the range of 1 to 65535."
-msgstr "E mezőnek az 1 - 65535 közötti tartományon belüli portnak kell lennie."
+msgid "This field should be a network port in the range of 1 to 65535."
+msgstr ""
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
@@ -3356,6 +3389,12 @@ msgstr "E mezőnek IPv6 címnek kell lennie."
 
 msgid "This field should be an email address."
 msgstr "E mezőnek email címnek kell lennie."
+
+msgid "This field should contain a floating point value."
+msgstr ""
+
+msgid "This field should contain an integer value."
+msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Ez a funkció csak akkor hatékony, ha a merevlemez támogatja."
@@ -3652,10 +3691,13 @@ msgid "Updated bridge network connection \"{{ devicename }}\"."
 msgstr "\"{{ devicename }}\" hálózati híd kapcsolata frissítve."
 
 msgid "Updated dashboard settings."
-msgstr "Kezelőfelület beállításai frissítve."
+msgstr "Vezérlőpult beállításai frissítve."
 
 msgid "Updated date & time settings."
 msgstr "Dátum és idő beállítások frissítve."
+
+msgid "Updated file system settings."
+msgstr ""
 
 msgid "Updated firewall rule."
 msgstr "Tűzfalszabály frissítve. "
@@ -3735,6 +3777,9 @@ msgstr "Üzemidő"
 msgid "Uruguay"
 msgstr "Uruguay"
 
+msgid "Usage"
+msgstr ""
+
 msgid "Usage Warning Threshold"
 msgstr "Figyelmeztetési küszöbérték használata"
 
@@ -3774,7 +3819,7 @@ msgid "User"
 msgstr "Felhasználó"
 
 msgid "User Management"
-msgstr "Felhasználói kezelés "
+msgstr "Felhasználókezelés "
 
 msgid "User home directory"
 msgstr "Felhasználó saját könyvtára"
@@ -3833,6 +3878,9 @@ msgstr "WINS szerver"
 msgid "WOL"
 msgstr "WOL"
 
+msgid "WWN"
+msgstr ""
+
 msgid "Wake Island"
 msgstr "Wake-sziget"
 
@@ -3864,9 +3912,6 @@ msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote user name."
 msgstr "Amikor egy kliens először csatlakozik a szerverhez, akkor az azonosító protokollt használja, hogy megpróbálja azonosítani a távoli felhasználót."
-
-msgid "When failed"
-msgstr "Ha nem sikerült"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
