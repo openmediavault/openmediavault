@@ -1,7 +1,8 @@
-openmediavault-usbbackup (6.0-9) UNRELEASED; urgency=low
+openmediavault-usbbackup (6.0-10) unstable; urgency=low
 
   * Reimplement UI.
   * Issue #1086: After unmounting, put device into sleep mode.
+  * Issue #1161: Ignore devices containing multiple partitions.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 06 Dec 2020 21:12:07 +0100
 

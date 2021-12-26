@@ -249,6 +249,20 @@ class StorageDevice extends \OMV\System\BlockDevice
 	}
 
 	/**
+	 * Get the device names of the partitions of this device.
+	 * @return array Returns an array of device names.
+	 */
+	public function getPartitionDeviceNames() {
+		$result = [];
+		$pattern = sprintf("/sys/block/%s/*/partition",
+			$this->getDeviceName());
+		foreach (glob($pattern) as $path) {
+			$result[] = basename(substr($path, 0, -10));
+		}
+		return $result;
+	}
+
+	/**
 	 * Enumerate devices matching the given storage device type.
 	 * @param integer type Defines the storage device type, e.g. hard disk,
 	 *   hard or Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.

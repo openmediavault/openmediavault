@@ -39,7 +39,7 @@ data:
         name: devicefile
         label: _("Device")
         placeholder: _("Select a device ...")
-        hint: _("The external storage device.")
+        hint: _("The external storage device. Please make sure that the device has only one file system.")
         value: ""
         valueField: devicefile
         textField: description
