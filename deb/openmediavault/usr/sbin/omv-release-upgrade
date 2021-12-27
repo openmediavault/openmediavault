@@ -51,11 +51,13 @@ echo "Upgrading system to ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENA
 tmpdir=$(mktemp --tmpdir=/var/tmp --directory)
 cp -r ${OMV_UPGRADE_SCRIPTS_DIR}/* ${tmpdir}
 
+# Update the package database.
+apt-get update
+
 # Execute scripts before upgrade.
 run-parts --exit-on-error ${tmpdir}/pre.d
 
-# Update package database and upgrade distribution.
-apt-get update
+# Upgrade to latest distribution.
 apt-get --yes --force-yes --fix-missing --auto-remove --allow-unauthenticated \
   --show-upgraded --option Dpkg::Options::="--force-confdef" \
   --option DPkg::Options::="--force-confold" --no-install-recommends \

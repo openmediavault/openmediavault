@@ -1,6 +1,7 @@
 openmediavault (5.6.23-1) stable; urgency=low
 
-  *
+  * omv-release-upgrade will take care that the /usr merge has
+    been applied to the system.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Dec 2021 00:12:32 +0100
 
