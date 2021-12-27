@@ -180,17 +180,21 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 			$objectv['uuid'] = \OMV\Environment::get(
 				"OMV_CONFIGOBJECT_NEW_UUID");
 			$objectv['monitor'] = FALSE;
+			// Prepare the filter that is used to find the device settings
+			// configuration object and to check if there are scheduled
+			// jobs for this device.
+			$filter = [
+				"operator" => "stringEnum",
+				"arg0" => "devicefile",
+				"arg1" => array_merge([ $objectv['devicefile'] ],
+					$objectv['devicelinks'])
+			];
 			// Check if there exists a device configuration object for the
 			// given device. Note, we have to check for 'dev/xxx' and
 			// 'dev/disk/by-id/xxx' entries.
 			$db = \OMV\Config\Database::getInstance();
 			$confObjects = $db->getByFilter(
-				"conf.service.smartmontools.device", [
-					"operator" => "stringEnum",
-					"arg0" => "devicefile",
-					"arg1" => array_merge([ $objectv['devicefile'] ],
-  						$objectv['devicelinks'])
-				]);
+				"conf.service.smartmontools.device", $filter);
 			// If found, then finally get the S.M.A.R.T. device settings
 			// configuration object.
 			if (0 < count($confObjects)) {
@@ -199,10 +203,13 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 				$objectv['uuid'] = $confObject->get("uuid");
 				$objectv['monitor'] = $confObject->get("enable");
 			}
+			// Are there any scheduled task associated to this device?
+			$objectv['_used'] = $db->exists(
+				"conf.service.smartmontools.job", $filter);
 		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
-		  $params['limit'], $params['sortfield'], $params['sortdir']);
+			$params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
 	/**
@@ -272,21 +279,28 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Set the default filter argument.
-		$arg1 = [ $params['devicefile'] ];
-		// Try to get the storage device object.
+		$filter = [
+			"operator" => "stringEnum",
+			"arg0" => "devicefile",
+			"arg1" => [ $params['devicefile'] ]
+		];
+		// If the given device file exists, then extend the filter by
+		// adding the all device files retrieved via UDEV. This will
+		// increase the probability that we will have a hit on the
+		// database query.
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 			$params['devicefile']);
 		if (!is_null($sd) && $sd->exists()) {
-			$arg1 = array_merge([ $sd->getDeviceFile() ],
-				$sd->getDeviceFileSymlinks());
+			array_push($filter["arg1"], ...$sd->getDeviceFileSymlinks());
 		}
 		// Get the configuration object. Assert one object exists.
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->getByFilter("conf.service.smartmontools.device", [
-			"operator" => "stringEnum",
-			"arg0" => "devicefile",
-			"arg1" => $arg1
-		], 1);
+		$object = $db->getByFilter("conf.service.smartmontools.device",
+			$filter, 1);
+		// Are there any scheduled task associated to this device?
+		$object->add("_used", "boolean", FALSE);
+		$object->set("_used", $db->exists(
+			"conf.service.smartmontools.job", $filter));
 		return $object->getAssoc();
 	}
 

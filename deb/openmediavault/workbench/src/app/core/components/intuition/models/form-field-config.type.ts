@@ -66,9 +66,10 @@ export type FormFieldConfig = {
   readonly?: boolean;
   // Disable the field.
   // Use a tokenized string to be able to mark the field as disabled
-  // dynamically based on its evaluation result. The special token
-  // `_routeConfig` can be to access the components route configuration.
-  // Make sure the token will be evaluated to a boolean value.
+  // dynamically based on its evaluation result on form initialization.
+  // The special token `_routeConfig` can be to access the components
+  // route configuration. Make sure the token will be evaluated to a
+  // boolean value.
   //
   // Example:
   // { disabled: '{{ _routeConfig.data.editing | toboolean }}' }

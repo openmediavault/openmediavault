@@ -42,6 +42,10 @@ export class SmartDeviceFormPageComponent {
         type: 'confObjUuid'
       },
       {
+        type: 'hidden',
+        name: '_used'
+      },
+      {
         type: 'select',
         name: 'devicefile',
         label: gettext('Device'),
@@ -62,7 +66,13 @@ export class SmartDeviceFormPageComponent {
         type: 'checkbox',
         name: 'enable',
         label: gettext('Monitoring enabled'),
-        value: false
+        value: false,
+        modifiers: [
+          {
+            type: 'disabled',
+            constraint: { operator: 'truthy', arg0: { prop: '_used' } }
+          }
+        ]
       },
       {
         type: 'divider',
