@@ -1,3 +1,9 @@
+openmediavault (6.0.7-1) unstable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 27 Dec 2021 21:37:01 +0100
+
 openmediavault (6.0.6-1) unstable; urgency=low
 
   * Various improvements.
@@ -5,6 +11,8 @@ openmediavault (6.0.6-1) unstable; urgency=low
   * Issue #618: Remove backslash in Monit notification email.
   * Issue #1159: Add enhanced server-side copy offload for SMB
     shares residing on BTRFS file systems.
+  * Issue #1160: Improve S.M.A.R.T. overall status assessment.
+  * Issue #1166: SMB user password is not updated.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 04 Dec 2021 11:04:56 +0100
 
