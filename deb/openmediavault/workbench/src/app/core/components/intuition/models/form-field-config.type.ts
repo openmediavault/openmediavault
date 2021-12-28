@@ -279,6 +279,7 @@ export type FormFieldConfig = {
   // The text displayed in the option with the empty value.
   // Defaults to `None`.
   emptyOptionText?: string;
+  // Internal only.
   selectionChange?: (value: any) => void;
 
   // --- sharedFolderSelect | sshCertSelect | sslCertSelect ---
