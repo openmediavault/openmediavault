@@ -180,7 +180,7 @@ export class SmbShareFormPageComponent {
           {
             type: 'iconButton',
             name: 'recyclenow',
-            label: gettext('Empty now'),
+            tooltip: gettext('Empty now'),
             icon: 'eraser',
             submitValue: false,
             request: {
