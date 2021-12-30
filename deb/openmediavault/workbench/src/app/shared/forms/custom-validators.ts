@@ -486,6 +486,7 @@ export class CustomValidators {
                   const value = formatDeep(typeConfig, values);
                   control.setValue(value);
                 }
+                break;
             }
           });
         });
