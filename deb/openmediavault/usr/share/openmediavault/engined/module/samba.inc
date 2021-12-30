@@ -185,6 +185,10 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
 			[$this, "setDirty"]);
 		$dispatcher->addListener(
 			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.usermanagement.homedirectory",
+			[$this, "setDirty"]);
+		$dispatcher->addListener(
+			OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.system.sharedfolder",
 			[$this, "onSharedFolder"]);
 		$dispatcher->addListener(
