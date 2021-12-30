@@ -2,6 +2,7 @@ openmediavault (6.0.7-1) unstable; urgency=low
 
   * Prevent the deactivation of SMART monitoring for devices
     that are connected to a scheduled job.
+  * Issue #1165: Add recycle bin support for SMB home directories.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 27 Dec 2021 21:37:01 +0100
 

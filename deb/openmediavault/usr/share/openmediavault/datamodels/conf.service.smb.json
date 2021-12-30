@@ -49,6 +49,10 @@
 		},
 		"homesbrowseable": {
 			"type": "boolean",
+			"default": true
+		},
+		"homesrecyclebin": {
+			"type": "boolean",
 			"default": false
 		},
 		"extraoptions": {

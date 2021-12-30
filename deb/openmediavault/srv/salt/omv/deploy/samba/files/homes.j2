@@ -8,6 +8,15 @@
 {%- set hide_special_files = salt['pillar.get']('default:OMV_SAMBA_HOMES_HIDESPECIALFILES', 'yes') -%}
 {%- set follow_symlinks = salt['pillar.get']('default:OMV_SAMBA_HOMES_FOLLOWSYMLINKS', 'yes') -%}
 {%- set vfs_objects = salt['pillar.get']('default:OMV_SAMBA_HOMES_VFSOBJECTS', '') -%}
+{%- set recycle_repository = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_REPOSITORY', '.recycle/%U') -%}
+{%- set recycle_keeptree = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_KEEPTREE', 'yes') -%}
+{%- set recycle_versions = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_VERSIONS', 'yes') -%}
+{%- set recycle_touch = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_TOUCH', 'yes') -%}
+{%- set recycle_touch_mtime = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_TOUCH_MTIME', 'no') -%}
+{%- set recycle_directory_mode = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_DIRECTORYMODE', '0777') -%}
+{%- set recycle_subdir_mode = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_SUBDIRMODE', '0700') -%}
+{%- set recycle_exclude = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_EXCLUDE', '') -%}
+{%- set recycle_exclude_dir = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_EXCLUDEDIR', '.recycle') -%}
 #======================= Home Directories =======================
 [homes]
 comment = {{ comment }}
@@ -20,4 +29,17 @@ force directory mode = {{ force_directory_mode }}
 valid users = {{ valid_users }}
 hide special files = {{ hide_special_files }}
 follow symlinks = {{ follow_symlinks }}
-vfs objects = {{ vfs_objects }}
+{%- set vfs_objects = vfs_objects.split(' ') %}
+{%- if config.homesrecyclebin | to_bool %}
+{%- set _ = vfs_objects.append('recycle') %}
+recycle:repository = {{ recycle_repository }}
+recycle:keeptree = {{ recycle_keeptree }}
+recycle:versions = {{ recycle_versions }}
+recycle:touch = {{ recycle_touch }}
+recycle:touch_mtime = {{ recycle_touch_mtime }}
+recycle:directory_mode = {{ recycle_directory_mode }}
+recycle:subdir_mode = {{ recycle_subdir_mode }}
+recycle:exclude = {{ recycle_exclude }}
+recycle:exclude_dir = {{ recycle_exclude_dir }}
+{%- endif %}
+vfs objects = {{ vfs_objects | unique | join(' ') }}
