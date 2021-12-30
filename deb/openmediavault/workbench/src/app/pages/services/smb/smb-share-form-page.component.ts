@@ -129,7 +129,7 @@ export class SmbShareFormPageComponent {
         type: 'checkbox',
         name: 'recyclebin',
         label: gettext('Enable recycle bin'),
-        hint: gettext('This will create a recycle bin on the share.'),
+        hint: gettext('This will create a recycle bin for the share.'),
         value: false
       },
       {

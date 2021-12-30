@@ -87,6 +87,13 @@ export class SmbSettingsFormPageComponent {
         hint: gettext(
           'This controls whether this share is seen in the list of available shares in a net view and in the browse list.'
         ),
+        value: true
+      },
+      {
+        type: 'checkbox',
+        name: 'homesrecyclebin',
+        label: gettext('Enable recycle bin'),
+        hint: gettext('This will create a recycle bin for each user home directory.'),
         value: false
       },
       {
