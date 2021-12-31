@@ -136,13 +136,32 @@ export class SmbShareFormPageComponent {
         type: 'container',
         fields: [
           {
-            type: 'numberInput',
+            type: 'select',
             name: 'recyclemaxsize',
             label: gettext('Maximum file size'),
             hint: gettext(
-              'Files that are larger than the specified number of bytes will not be put into the recycle bin. Set to 0 for unrestricted file size.'
+              'Files that are larger than the specified number will not be put into the recycle bin.'
             ),
             value: 0,
+            store: {
+              data: [
+                [0, gettext('Unrestricted')],
+                [1048576, gettext('1 MiB')],
+                [2097152, gettext('2 MiB')],
+                [5242880, gettext('5 MiB')],
+                [10485760, gettext('10 MiB')],
+                [26214400, gettext('25 MiB')],
+                [52428800, gettext('50 MiB')],
+                [78643200, gettext('75 MiB')],
+                [104857600, gettext('100 MiB')],
+                [262144000, gettext('250 MiB')],
+                [524288000, gettext('500 MiB')],
+                [786432000, gettext('750 MiB')],
+                [1073741824, gettext('1 GiB')],
+                [2147483648, gettext('2 GiB')],
+                [4294967296, gettext('4 GiB')]
+              ]
+            },
             modifiers: [
               {
                 type: 'disabled',
