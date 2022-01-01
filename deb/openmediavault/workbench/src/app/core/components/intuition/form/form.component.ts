@@ -88,6 +88,15 @@ export class FormComponent implements AfterViewInit, OnInit {
     const allFields: Array<FormFieldConfig> = flattenFormFieldConfig(this.config);
     _.forEach(allFields, (field: FormFieldConfig) => {
       switch (field.type) {
+        case 'binaryUnitInput':
+          _.defaultsDeep(field, {
+            defaultUnit: 'B',
+            fractionDigits: 0,
+            validators: {
+              patternType: 'binaryUnit'
+            }
+          });
+          break;
         case 'datatable':
           _.defaultsDeep(field, {
             columnMode: 'flex',
@@ -170,10 +179,18 @@ export class FormComponent implements AfterViewInit, OnInit {
           validators.push(Validators.maxLength(field.validators.maxLength));
         }
         if (_.isNumber(field.validators.min)) {
-          validators.push(Validators.min(field.validators.min));
+          if ('binaryUnitInput' === field.type) {
+            validators.push(CustomValidators.minBinaryUnit(field.validators.min));
+          } else {
+            validators.push(Validators.min(field.validators.min));
+          }
         }
         if (_.isNumber(field.validators.max)) {
-          validators.push(Validators.max(field.validators.max));
+          if ('binaryUnitInput' === field.type) {
+            validators.push(CustomValidators.maxBinaryUnit(field.validators.max));
+          } else {
+            validators.push(Validators.max(field.validators.max));
+          }
         }
         if (_.isPlainObject(field.validators.pattern)) {
           validators.push(

@@ -1,0 +1,41 @@
+<mat-form-field fxFlex
+                [formGroup]="formGroup">
+  <div *ngIf="config.icon"
+       matPrefix>
+    <mat-icon [svgIcon]="config.icon"></mat-icon>&nbsp;
+  </div>
+  <mat-label>{{ config.label }}</mat-label>
+  <input matInput
+         type="text"
+         [formControlName]="config.name"
+         [placeholder]="config.placeholder"
+         [readonly]="config.readonly"
+         [autofocus]="config.autofocus"
+         [autocomplete]="config.autocomplete"
+         [required]="config.validators?.required"
+         binaryUnit
+         [defaultUnit]="config.defaultUnit">
+  <mat-icon *ngIf="config.hasCopyToClipboardButton"
+            matSuffix
+            matTooltip="{{ 'Copy to clipboard' | translate }}"
+            (click)="onCopyToClipboard()"
+            svgIcon="{{ icon.copy }}">
+  </mat-icon>
+  <mat-error *ngIf="formGroup.invalid">
+    <span *ngIf="formGroup.hasError('required', config.name)">
+      This field is required.
+    </span>
+    <span *ngIf="formGroup.hasError('min', config.name)">
+      The value must be at least {{ config.validators.min | binaryUnit }}.
+    </span>
+    <span *ngIf="formGroup.hasError('max', config.name)">
+      The value cannot exceed {{ config.validators.max | binaryUnit }}.
+    </span>
+    <span *ngIf="formGroup.hasError('pattern', config.name)">
+      {{ formGroup.getError('pattern', config.name) | translate }}
+    </span>
+  </mat-error>
+  <mat-hint *ngIf="config.hint?.length > 0"
+            [innerHTML]="config.hint | sanitizeHtml">
+  </mat-hint>
+</mat-form-field>

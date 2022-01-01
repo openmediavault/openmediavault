@@ -45,6 +45,7 @@ export type FormFieldConfig = {
     | 'textInput'
     | 'folderBrowser'
     | 'numberInput'
+    | 'binaryUnitInput'
     | 'checkbox'
     | 'textarea'
     | 'fileInput'
@@ -142,7 +143,8 @@ export type FormFieldConfig = {
       | 'sshPubKeyRfc4716'
       | 'sshPubKeyOpenSsh'
       | 'netmask'
-      | 'wordChars';
+      | 'wordChars'
+      | 'binaryUnit';
   };
 
   // --- container ---
@@ -201,13 +203,21 @@ export type FormFieldConfig = {
   // --- numberInput | slider ---
   step?: number;
 
-  // --- numberInput | password | textInput ---
+  // --- numberInput | password | textInput | binaryUnitInput ---
   autocomplete?: string;
   // Note, this button is only visible if the browser supports
   // that. The following requirements must be met:
   // - The HTTPS protocol is used. localhost is also supported.
   // - The site is not embedded in an iFrame.
   hasCopyToClipboardButton?: boolean;
+
+  // --- binaryUnitInput ---
+  // The default unit used when the value does not contain a unit.
+  // Defaults to bytes (`B`).
+  defaultUnit?: 'B' | 'KiB' | 'MiB' | 'GiB' | 'TiB' | 'PiB' | 'EiB' | 'ZiB' | 'YiB';
+  // The number of digits after the decimal point.
+  // Defaults to `0`.
+  fractionDigits?: number;
 
   // --- textarea | fileInput ---
   cols?: number;

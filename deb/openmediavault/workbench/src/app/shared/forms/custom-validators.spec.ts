@@ -363,5 +363,80 @@ describe('CustomValidators', () => {
         });
       });
     });
+
+    describe('binaryUnit', () => {
+      let validator: ValidatorFn;
+
+      beforeEach(() => {
+        validator = CustomValidators.patternType('binaryUnit');
+      });
+
+      it('should validate binaryUnit [1]', () => {
+        formControl.setValue('5B');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate binaryUnit [2]', () => {
+        formControl.setValue('2 tib');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate binaryUnit [3]', () => {
+        formControl.setValue(10);
+        expect(validator(formControl)).toEqual({
+          pattern: 'This field should contain a number with a binary prefix.'
+        });
+      });
+
+      it('should validate binaryUnit [4]', () => {
+        formControl.setValue('2  GiB');
+        expect(validator(formControl)).toEqual({
+          pattern: 'This field should contain a number with a binary prefix.'
+        });
+      });
+
+      it('should validate binaryUnit [5]', () => {
+        formControl.setValue('abc KiB');
+        expect(validator(formControl)).toEqual({
+          pattern: 'This field should contain a number with a binary prefix.'
+        });
+      });
+    });
+
+    describe('minBinaryUnit', () => {
+      let validator: ValidatorFn;
+
+      beforeEach(() => {
+        validator = CustomValidators.minBinaryUnit(1048576); // 1 MiB
+      });
+
+      it('should validate minBinaryUnit [1]', () => {
+        formControl.setValue('5 B');
+        expect(validator(formControl)).toEqual({ min: { actual: 5, min: 1048576 } });
+      });
+
+      it('should validate minBinaryUnit [2]', () => {
+        formControl.setValue('2 TiB');
+        expect(validator(formControl)).toBeNull();
+      });
+    });
+
+    describe('maxBinaryUnit', () => {
+      let validator: ValidatorFn;
+
+      beforeEach(() => {
+        validator = CustomValidators.maxBinaryUnit(1048576); // 1 MiB
+      });
+
+      it('should validate maxBinaryUnit [1]', () => {
+        formControl.setValue('5 KiB');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate maxBinaryUnit [2]', () => {
+        formControl.setValue('2 TiB');
+        expect(validator(formControl)).toEqual({ max: { actual: 2199023255552, max: 1048576 } });
+      });
+    });
   });
 });

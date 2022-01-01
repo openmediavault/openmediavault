@@ -214,7 +214,7 @@ export const isNewConfObjUuid = (value: any): boolean => {
 export const toBytes = (value: string | number): number | string => {
   const base = 1024;
   const units = ['b', 'k', 'm', 'g', 't', 'p', 'e', 'z', 'y'];
-  const matches = RegExp('^(\\d+(.\\d+)?) ?([' + units.join('') + ']?(b|ib|B/s)?)?$', 'i').exec(
+  const matches = RegExp('^(\\d+(.\\d+)?)\\s?([' + units.join('') + ']?(b|ib|B/s)?)?$', 'i').exec(
     String(value)
   );
   if (_.isNull(matches)) {
