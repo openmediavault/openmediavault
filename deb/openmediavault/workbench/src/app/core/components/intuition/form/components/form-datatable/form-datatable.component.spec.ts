@@ -24,7 +24,16 @@ describe('FormDatatableComponent', () => {
     component = fixture.componentInstance;
     component.config = {
       type: 'datatable',
-      name: 'foo'
+      name: 'foo',
+      columnMode: 'flex',
+      hasHeader: true,
+      hasFooter: true,
+      selectionType: 'multi',
+      limit: 25,
+      columns: [],
+      actions: [],
+      sorters: [],
+      valueType: 'object'
     };
     const formBuilder = TestBed.inject(FormBuilder);
     component.formGroup = formBuilder.group({ foo: [[]] });

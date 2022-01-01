@@ -195,6 +195,7 @@ export type FormFieldConfig = {
   dirRefIdField?: string;
   // Set to `true` to show the path of the database object
   // specified with `dirType` and `dirRefIdField`.
+  // Defaults to `false`.
   dirVisible?: boolean;
 
   // --- numberInput | slider ---
@@ -224,15 +225,16 @@ export type FormFieldConfig = {
 
   // --- select ---
   multiple?: boolean;
-  // Defaults to 'value'.
+  // Defaults to `value`.
   valueField?: string;
-  // Defaults to 'text'.
+  // Defaults to `text`.
   textField?: string;
   store?: DataStore;
   // Add an empty option to be able to clear the selection.
+  // Defaults to `false`.
   hasEmptyOption?: boolean;
   // The text displayed in the option with the empty value.
-  // Defaults to 'None'.
+  // Defaults to `None`.
   emptyOptionText?: string;
   selectionChange?: (value: any) => void;
 

@@ -17,7 +17,6 @@
  */
 import { Component } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
-import * as _ from 'lodash';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 
@@ -42,13 +41,5 @@ export class FormFileInputComponent extends AbstractFormFieldComponent {
     control.markAsTouched();
     control.markAsDirty();
     control.updateValueAndValidity();
-  }
-
-  protected sanitizeConfig(): void {
-    super.sanitizeConfig();
-    _.defaultsDeep(this.config, {
-      rows: 4,
-      wrap: 'soft'
-    });
   }
 }

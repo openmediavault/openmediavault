@@ -20,7 +20,13 @@ describe('FormSliderComponent', () => {
     component = fixture.componentInstance;
     component.config = {
       type: 'slider',
-      name: 'foo'
+      name: 'foo',
+      valueField: 'value',
+      textField: 'text',
+      hasEmptyOption: false,
+      store: {
+        data: []
+      }
     };
     const formBuilder = TestBed.inject(FormBuilder);
     component.formGroup = formBuilder.group({ foo: [8] });

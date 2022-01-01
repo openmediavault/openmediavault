@@ -30,18 +30,7 @@ import { Icon } from '~/app/shared/enum/icon.enum';
 export class FormDatatableComponent extends AbstractFormFieldComponent {
   protected sanitizeConfig(): void {
     super.sanitizeConfig();
-    _.defaultsDeep(this.config, {
-      columnMode: 'flex',
-      hasHeader: true,
-      hasFooter: true,
-      selectionType: 'multi',
-      limit: 25,
-      columns: [],
-      actions: [],
-      sorters: [],
-      valueType: 'object'
-    });
-    this.config.actions.forEach((action) => {
+    _.forEach(this.config.actions, (action) => {
       switch (action.template) {
         case 'add':
           _.defaultsDeep(action, {

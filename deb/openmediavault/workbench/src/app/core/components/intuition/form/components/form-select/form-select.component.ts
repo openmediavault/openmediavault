@@ -17,7 +17,6 @@
  */
 import { Component, OnInit } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
-import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
@@ -54,24 +53,6 @@ export class FormSelectComponent extends AbstractFormFieldComponent implements O
     if (_.isFunction(this.config.selectionChange)) {
       const value = _.clone(event.value);
       this.config.selectionChange(value);
-    }
-  }
-
-  protected sanitizeConfig(): void {
-    super.sanitizeConfig();
-    _.defaultsDeep(this.config, {
-      valueField: 'value',
-      textField: 'text',
-      hasEmptyOption: false,
-      emptyOptionText: gettext('None'),
-      store: {
-        data: []
-      }
-    });
-    if (_.isArray(this.config.store.data) && _.isUndefined(this.config.store.fields)) {
-      _.merge(this.config.store, {
-        fields: _.uniq([this.config.valueField, this.config.textField])
-      });
     }
   }
 }

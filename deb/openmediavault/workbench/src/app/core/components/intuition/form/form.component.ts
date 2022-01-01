@@ -17,6 +17,7 @@
  */
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 
 import {
@@ -83,6 +84,58 @@ export class FormComponent implements AfterViewInit, OnInit {
   protected sanitizeConfig() {
     // Create unique form identifier.
     this.id = _.defaultTo(this.id, `omv-intuition-form-${++nextUniqueId}`);
+    // Sanitize the configuration of individual form fields.
+    const allFields: Array<FormFieldConfig> = flattenFormFieldConfig(this.config);
+    _.forEach(allFields, (field: FormFieldConfig) => {
+      switch (field.type) {
+        case 'datatable':
+          _.defaultsDeep(field, {
+            columnMode: 'flex',
+            hasHeader: true,
+            hasFooter: true,
+            selectionType: 'multi',
+            limit: 25,
+            columns: [],
+            actions: [],
+            sorters: [],
+            valueType: 'object'
+          });
+          break;
+        case 'fileInput':
+          _.defaultsDeep(field, {
+            rows: 4,
+            wrap: 'soft'
+          });
+          break;
+        case 'folderBrowser':
+          _.defaultsDeep(field, {
+            dirVisible: false
+          });
+          break;
+        case 'select':
+          _.defaultsDeep(field, {
+            valueField: 'value',
+            textField: 'text',
+            hasEmptyOption: false,
+            emptyOptionText: gettext('None'),
+            store: {
+              data: []
+            }
+          });
+          if (_.isArray(field.store.data) && _.isUndefined(field.store.fields)) {
+            _.merge(field.store, {
+              fields: _.uniq([field.valueField, field.textField])
+            });
+          }
+          break;
+        case 'textarea':
+          _.defaultsDeep(field, {
+            rows: 4,
+            wrap: 'soft'
+          });
+          break;
+      }
+    });
     // Populate the data model identifier field.
     setupConfObjUuidFields(this.config);
   }

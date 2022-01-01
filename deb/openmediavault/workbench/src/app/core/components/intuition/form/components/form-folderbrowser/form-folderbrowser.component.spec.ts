@@ -25,7 +25,8 @@ describe('FormFolderbrowserComponent', () => {
     component.config = {
       type: 'folderBrowser',
       name: 'foo',
-      dirRefIdField: 'bar'
+      dirRefIdField: 'bar',
+      dirVisible: false
     };
     const formBuilder = TestBed.inject(FormBuilder);
     component.formGroup = formBuilder.group({ foo: [''], bar: [''] });

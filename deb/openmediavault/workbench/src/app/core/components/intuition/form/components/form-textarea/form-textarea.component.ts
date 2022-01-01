@@ -16,7 +16,6 @@
  * GNU General Public License for more details.
  */
 import { Component } from '@angular/core';
-import * as _ from 'lodash';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 
@@ -25,12 +24,4 @@ import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form
   templateUrl: './form-textarea.component.html',
   styleUrls: ['./form-textarea.component.scss']
 })
-export class FormTextareaComponent extends AbstractFormFieldComponent {
-  protected sanitizeConfig(): void {
-    super.sanitizeConfig();
-    _.defaultsDeep(this.config, {
-      rows: 4,
-      wrap: 'soft'
-    });
-  }
-}
+export class FormTextareaComponent extends AbstractFormFieldComponent {}

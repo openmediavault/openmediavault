@@ -191,13 +191,6 @@ export class FormFolderbrowserComponent
     return this.joinPaths(this.currentPaths);
   }
 
-  protected sanitizeConfig(): void {
-    super.sanitizeConfig();
-    _.defaultsDeep(this.config, {
-      dirVisible: false
-    });
-  }
-
   private requestData(path): Observable<any> {
     const dirRefIdControl = this.formGroup.get(this.config.dirRefIdField);
     return this.rpcService.request('FolderBrowser', 'get', {

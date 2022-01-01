@@ -22,7 +22,9 @@ describe('FormFileInputComponent', () => {
     component.config = {
       type: 'fileInput',
       name: 'foo',
-      cols: 20
+      cols: 20,
+      rows: 4,
+      wrap: 'soft'
     };
     const formBuilder = TestBed.inject(FormBuilder);
     component.formGroup = formBuilder.group({ foo: ['abc xyz'] });
