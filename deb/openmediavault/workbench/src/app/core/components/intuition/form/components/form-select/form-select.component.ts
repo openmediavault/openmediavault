@@ -57,7 +57,7 @@ export class FormSelectComponent extends AbstractFormFieldComponent implements O
     }
   }
 
-  protected sanitizeConfig() {
+  protected sanitizeConfig(): void {
     super.sanitizeConfig();
     _.defaultsDeep(this.config, {
       valueField: 'value',

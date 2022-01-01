@@ -26,7 +26,7 @@ import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form
   styleUrls: ['./form-textarea.component.scss']
 })
 export class FormTextareaComponent extends AbstractFormFieldComponent {
-  protected sanitizeConfig() {
+  protected sanitizeConfig(): void {
     super.sanitizeConfig();
     _.defaultsDeep(this.config, {
       rows: 4,

@@ -191,7 +191,7 @@ export class FormFolderbrowserComponent
     return this.joinPaths(this.currentPaths);
   }
 
-  protected sanitizeConfig() {
+  protected sanitizeConfig(): void {
     super.sanitizeConfig();
     _.defaultsDeep(this.config, {
       dirVisible: false

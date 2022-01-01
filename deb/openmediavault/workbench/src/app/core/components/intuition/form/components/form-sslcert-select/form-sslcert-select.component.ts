@@ -26,7 +26,7 @@ import { FormSelectComponent } from '~/app/core/components/intuition/form/compon
   styleUrls: ['./form-sslcert-select.component.scss']
 })
 export class FormSslcertSelectComponent extends FormSelectComponent {
-  protected sanitizeConfig() {
+  protected sanitizeConfig(): void {
     super.sanitizeConfig();
     _.merge(this.config, {
       valueField: 'uuid',

@@ -41,7 +41,7 @@ export abstract class AbstractFormFieldComponent implements OnInit {
    * Sanitize the configuration, e.g. set default values or convert
    * properties.
    */
-  protected sanitizeConfig() {
+  protected sanitizeConfig(): void {
     // Map icon from 'foo' to 'mdi:foo' if necessary.
     this.config.icon = _.get(Icon, this.config.icon, this.config.icon);
   }

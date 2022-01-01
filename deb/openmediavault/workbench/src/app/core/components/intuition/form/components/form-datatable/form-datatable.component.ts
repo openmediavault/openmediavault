@@ -28,7 +28,7 @@ import { Icon } from '~/app/shared/enum/icon.enum';
   styleUrls: ['./form-datatable.component.scss']
 })
 export class FormDatatableComponent extends AbstractFormFieldComponent {
-  protected sanitizeConfig() {
+  protected sanitizeConfig(): void {
     super.sanitizeConfig();
     _.defaultsDeep(this.config, {
       columnMode: 'flex',

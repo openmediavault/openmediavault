@@ -44,7 +44,7 @@ export class FormFileInputComponent extends AbstractFormFieldComponent {
     control.updateValueAndValidity();
   }
 
-  protected sanitizeConfig() {
+  protected sanitizeConfig(): void {
     super.sanitizeConfig();
     _.defaultsDeep(this.config, {
       rows: 4,

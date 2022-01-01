@@ -27,7 +27,7 @@ import { FormSelectComponent } from '~/app/core/components/intuition/form/compon
   styleUrls: ['./form-sharedfolder-select.component.scss']
 })
 export class FormSharedfolderSelectComponent extends FormSelectComponent {
-  protected sanitizeConfig() {
+  protected sanitizeConfig(): void {
     super.sanitizeConfig();
     _.merge(this.config, {
       valueField: 'uuid',

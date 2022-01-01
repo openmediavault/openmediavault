@@ -30,7 +30,7 @@ export class FormPasswordInputComponent extends AbstractFormFieldComponent {
     super();
   }
 
-  onCopyToClipboard() {
+  onCopyToClipboard(): void {
     const control = this.formGroup.get(this.config.name);
     this.clipboardService.copy(control.value);
   }
