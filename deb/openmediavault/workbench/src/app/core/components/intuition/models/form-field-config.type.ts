@@ -204,6 +204,7 @@ export type FormFieldConfig = {
   step?: number;
 
   // --- numberInput | password | textInput | binaryUnitInput ---
+  // See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete.
   autocomplete?: string;
   // Note, this button is only visible if the browser supports
   // that. The following requirements must be met:
