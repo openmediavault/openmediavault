@@ -26,7 +26,7 @@ import {
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 
-import { format, formatDeep } from '~/app/functions.helper';
+import { format, formatDeep, toBytes } from '~/app/functions.helper';
 import { Constraint } from '~/app/shared/models/constraint.type';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
 
@@ -68,7 +68,8 @@ const regExp = {
   netmask:
     /^(128|192|224|24[08]|25[245].0.0.0)|(255.(0|128|192|224|24[08]|25[245]).0.0)|(255.255.(0|128|192|224|24[08]|25[245]).0)|(255.255.255.(0|128|192|224|24[08]|252))$/,
   // See https://www.w3schools.com/Jsref/jsref_regexp_wordchar.asp
-  wordChars: /^[\w]+$/
+  wordChars: /^[\w]+$/,
+  binaryUnit: /^\d+(.\d+)?\s?(b|[kmgtpezy]ib)$/i
 };
 
 const isEmptyInputValue = (value: any): boolean => _.isNull(value) || value.length === 0;
@@ -375,6 +376,11 @@ export class CustomValidators {
             'This field contains invalid characters, only alphanumeric characters and underscore are allowed.'
           )
         );
+      case 'binaryUnit':
+        return CustomValidators.pattern(
+          regExp.binaryUnit,
+          gettext('This field should contain a number with a binary prefix.')
+        );
     }
     throw new Error(`Unknown pattern ${name}!`);
     // return Validators.nullValidator;
@@ -504,6 +510,32 @@ export class CustomValidators {
         });
       }
       return null;
+    };
+  }
+
+  static minBinaryUnit(min: number): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (isEmptyInputValue(control.value) || isEmptyInputValue(min)) {
+        return null;
+      }
+      const value = toBytes(control.value);
+      if (_.isString(value) || isEmptyInputValue(value)) {
+        return null;
+      }
+      return !isNaN(value) && value < min ? { min: { min, actual: value } } : null;
+    };
+  }
+
+  static maxBinaryUnit(max: number): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (isEmptyInputValue(control.value) || isEmptyInputValue(max)) {
+        return null;
+      }
+      const value = toBytes(control.value);
+      if (_.isString(value) || isEmptyInputValue(value)) {
+        return null;
+      }
+      return !isNaN(value) && value > max ? { max: { max, actual: value } } : null;
     };
   }
 }

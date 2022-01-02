@@ -34,6 +34,12 @@
       </omv-form-number-input>
     </ng-template>
 
+    <ng-template [ngSwitchCase]="'binaryUnitInput'">
+      <omv-form-binary-unit-input [config]="field"
+                                  [formGroup]="formGroup">
+      </omv-form-binary-unit-input>
+    </ng-template>
+
     <ng-template [ngSwitchCase]="'folderBrowser'">
       <omv-form-folderbrowser [config]="field"
                               [formGroup]="formGroup">

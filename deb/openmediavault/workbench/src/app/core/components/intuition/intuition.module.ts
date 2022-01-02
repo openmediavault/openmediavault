@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { DatatablePageComponent } from '~/app/core/components/intuition/datatable-page/datatable-page.component';
+import { FormBinaryUnitInputComponent } from '~/app/core/components/intuition/form/components/form-binary-unit-input/form-binary-unit-input.component';
 import { FormButtonComponent } from '~/app/core/components/intuition/form/components/form-button/form-button.component';
 import { FormCheckboxComponent } from '~/app/core/components/intuition/form/components/form-checkbox/form-checkbox.component';
 import { FormDatatableComponent } from '~/app/core/components/intuition/form/components/form-datatable/form-datatable.component';
@@ -46,6 +47,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     FormButtonComponent,
     FormIconButtonComponent,
     FormPasswordInputComponent,
+    FormBinaryUnitInputComponent,
     FormTextareaComponent,
     FormSelectComponent,
     FormSharedfolderSelectComponent,
