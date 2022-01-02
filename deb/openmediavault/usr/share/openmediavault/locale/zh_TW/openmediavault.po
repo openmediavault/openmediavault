@@ -5,13 +5,14 @@
 # Translators:
 # kochin <kochinc@outlook.com>, 2013-2021
 # kochin <kochinc@outlook.com>, 2012-2013
+# 黃柏諺 <s8321414@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-26 17:38+0100\n"
-"PO-Revision-Date: 2021-12-26 16:41+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-12-27 02:08+0000\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,7 +43,7 @@ msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) 已用，%s 可用]"
 
 msgid "%s [%s]"
-msgstr ""
+msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [位於 %s, %s]"
@@ -522,7 +523,7 @@ msgid "CPU Usage"
 msgstr "CPU 使用率"
 
 msgid "CPU Utilization"
-msgstr ""
+msgstr "CPU 使用率"
 
 msgid "CPU usage"
 msgstr "處理器使用量"
@@ -705,7 +706,7 @@ msgid "Create"
 msgstr "新建"
 
 msgid "Create a new file system."
-msgstr ""
+msgstr "建立新檔案系統。"
 
 msgid "Create file system"
 msgstr "新建檔案系統"
@@ -1143,7 +1144,7 @@ msgid ""
 msgstr "FXP 允許兩個遠端伺服器之間的傳輸，而沒有任何檔案資料送到要求傳送的客戶端。"
 
 msgid "Failed"
-msgstr ""
+msgstr "失敗"
 
 msgid "Failed to copy data to the clipboard."
 msgstr "複製資料到剪貼簿失敗。"
@@ -1222,7 +1223,7 @@ msgid "France"
 msgstr "法國"
 
 msgid "Free"
-msgstr ""
+msgstr "剩餘"
 
 msgid "French Guiana"
 msgstr "法屬圭亞那"
@@ -1324,7 +1325,7 @@ msgid "Haiti"
 msgstr "海地"
 
 msgid "Hardware Address"
-msgstr ""
+msgstr "硬體地址"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "赫德島與麥當勞群島"
@@ -1835,7 +1836,7 @@ msgid "Members"
 msgstr "成員"
 
 msgid "Memory"
-msgstr ""
+msgstr "記憶體"
 
 msgid "Memory Usage"
 msgstr "記憶體使用量"
@@ -1931,7 +1932,7 @@ msgid "Mount Point"
 msgstr "掛載點"
 
 msgid "Mount an existing file system."
-msgstr ""
+msgstr "掛載現有的檔案系統。"
 
 msgid "Mounted"
 msgstr "已掛載"
@@ -2075,7 +2076,7 @@ msgid "OK"
 msgstr "OK"
 
 msgid "Obsolete cached data found. Page will be reloaded."
-msgstr ""
+msgstr "發現過時的快取資料。將會重新整理頁面。"
 
 msgid "Occurrence"
 msgstr "發生次數"
@@ -2603,7 +2604,7 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. Status"
-msgstr ""
+msgstr "S.M.A.R.T. 狀態"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "必須先啟動所選裝置的 S.M.A.R.T. 監測。"
@@ -2741,7 +2742,7 @@ msgid "Select a type ..."
 msgstr "選擇一個型式 ..."
 
 msgid "Select all"
-msgstr ""
+msgstr "選取全部"
 
 msgid "Select an authentication mode ..."
 msgstr "選擇一個鑑別模式"
@@ -3367,7 +3368,7 @@ msgid ""
 msgstr "此欄位應該是一個在 128.0.0.0 - 255.255.255.252 範圍內的網路遮罩。"
 
 msgid "This field should be a network port in the range of 1 to 65535."
-msgstr ""
+msgstr "此欄位應為範圍在 1 至 65535 間的網路通訊埠。"
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
@@ -3386,10 +3387,10 @@ msgid "This field should be an email address."
 msgstr "此欄位應該是一個電子郵件地址。"
 
 msgid "This field should contain a floating point value."
-msgstr ""
+msgstr "此欄位應包含浮點值。"
 
 msgid "This field should contain an integer value."
-msgstr ""
+msgstr "此欄位應包含整數值。"
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "此功能只有當硬碟提供支援才有效。"
@@ -3692,7 +3693,7 @@ msgid "Updated date & time settings."
 msgstr "已更新時間與日期設定。"
 
 msgid "Updated file system settings."
-msgstr ""
+msgstr "已更新檔案系統設定。"
 
 msgid "Updated firewall rule."
 msgstr "已更新防火牆規則。"
@@ -3773,7 +3774,7 @@ msgid "Uruguay"
 msgstr "烏拉圭"
 
 msgid "Usage"
-msgstr ""
+msgstr "使用"
 
 msgid "Usage Warning Threshold"
 msgstr "用量警告定限"
@@ -3874,7 +3875,7 @@ msgid "WOL"
 msgstr "WOL"
 
 msgid "WWN"
-msgstr ""
+msgstr "WWN"
 
 msgid "Wake Island"
 msgstr "維克島"

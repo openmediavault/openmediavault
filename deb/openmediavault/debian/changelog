@@ -1,5 +1,6 @@
 openmediavault (6.0.7-1) unstable; urgency=low
 
+  * Update locale files.
   * Prevent the deactivation of SMART monitoring for devices
     that are connected to a scheduled job.
   * Replace the form input field 'Maximum file size' of the

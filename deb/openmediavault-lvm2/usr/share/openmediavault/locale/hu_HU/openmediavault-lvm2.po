@@ -5,6 +5,7 @@
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
 # Sári Gábor <sari.gabor@gmail.com>, 2017
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021
 # mersaint <mersaint@gmail.com>, 2012
 # Sári Gábor <sari.gabor@gmail.com>, 2018
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2015,2017,2021
@@ -13,8 +14,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-26 17:38+0100\n"
-"PO-Revision-Date: 2021-12-26 16:41+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-12-27 19:40+0000\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -178,10 +179,10 @@ msgid "Snapshot"
 msgstr "Pillanatkép"
 
 msgid "The name of the logical volume."
-msgstr ""
+msgstr "A logikai kötet neve."
 
 msgid "The name of the volume group."
-msgstr ""
+msgstr "A kötetcsoport neve."
 
 msgid ""
 "The percentage of the total space in the volume group to allocate for the "

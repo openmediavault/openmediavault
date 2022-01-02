@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the openmediavault-lvm2 package.
 # 
 # Translators:
-# songming <by@songming.me>, 2013-2015,2017
+# songming <by@songming.me>, 2013-2015,2017,2021
 # LeeYang <150183966@qq.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-26 17:38+0100\n"
-"PO-Revision-Date: 2021-12-26 16:41+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-12-28 02:37+0000\n"
+"Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -175,10 +175,10 @@ msgid "Snapshot"
 msgstr "快照"
 
 msgid "The name of the logical volume."
-msgstr ""
+msgstr "逻辑卷名称"
 
 msgid "The name of the volume group."
-msgstr ""
+msgstr "卷组名称"
 
 msgid ""
 "The percentage of the total space in the volume group to allocate for the "

@@ -5,13 +5,14 @@
 # Translators:
 # kochin <kochinc@outlook.com>, 2013-2015,2017,2021
 # kochin <kochinc@outlook.com>, 2012
+# 黃柏諺 <s8321414@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-26 17:38+0100\n"
-"PO-Revision-Date: 2021-12-26 16:41+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-12-27 02:11+0000\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -175,10 +176,10 @@ msgid "Snapshot"
 msgstr "快照"
 
 msgid "The name of the logical volume."
-msgstr ""
+msgstr "邏輯磁碟的名稱。"
 
 msgid "The name of the volume group."
-msgstr ""
+msgstr "邏輯群組的名稱。"
 
 msgid ""
 "The percentage of the total space in the volume group to allocate for the "
