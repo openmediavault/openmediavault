@@ -1,5 +1,3 @@
-@use 'sass:math';
-
 @import 'src/styles';
 
 #omv-workbench-navigation {
@@ -12,5 +10,8 @@
 }
 
 omv-breadcrumb {
-  margin: math.div($omv-margin, 4) $omv-margin;
+  @extend .omv-mt-q;
+  @extend .omv-mb-q;
+  @extend .omv-mr;
+  @extend .omv-ml;
 }

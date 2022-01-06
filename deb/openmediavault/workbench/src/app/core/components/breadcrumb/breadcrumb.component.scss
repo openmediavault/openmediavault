@@ -1,4 +1,3 @@
-@use 'sass:math';
 @use '~@angular/material' as mat;
 
 @import 'src/styles';
@@ -23,9 +22,10 @@
   }
 
   .mat-divider {
+    @extend .omv-ml-h;
+    @extend .omv-mr-h;
+
     border-color: inherit;
     display: unset;
-    margin-left: math.div($omv-margin, 2);
-    margin-right: math.div($omv-margin, 2);
   }
 }

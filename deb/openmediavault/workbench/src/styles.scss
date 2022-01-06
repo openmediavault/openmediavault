@@ -142,6 +142,88 @@ $omv-color-themes: (
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+// Spacing
+.omv-m {
+  margin: $omv-margin;
+}
+
+.omv-m-z {
+  margin: 0;
+}
+
+.omv-m-h {
+  margin: $omv-margin * 0.5;
+}
+
+.omv-m-q {
+  margin: $omv-margin * 0.25;
+}
+
+.omv-mr {
+  margin-right: $omv-margin;
+}
+
+.omv-mr-z {
+  margin-right: 0;
+}
+
+.omv-mr-h {
+  margin-right: $omv-margin * 0.5;
+}
+
+.omv-mr-q {
+  margin-right: $omv-margin * 0.25;
+}
+
+.omv-ml {
+  margin-left: $omv-margin;
+}
+
+.omv-ml-z {
+  margin-left: 0;
+}
+
+.omv-ml-h {
+  margin-left: $omv-margin * 0.5;
+}
+
+.omv-ml-q {
+  margin-left: $omv-margin * 0.25;
+}
+
+.omv-mt {
+  margin-top: $omv-margin;
+}
+
+.omv-mt-z {
+  margin-top: 0;
+}
+
+.omv-mt-h {
+  margin-top: $omv-margin * 0.5;
+}
+
+.omv-mt-q {
+  margin-top: $omv-margin * 0.25;
+}
+
+.omv-mb {
+  margin-bottom: $omv-margin;
+}
+
+.omv-mb-z {
+  margin-bottom: 0;
+}
+
+.omv-mb-h {
+  margin-bottom: $omv-margin * 0.5;
+}
+
+.omv-mb-q {
+  margin-bottom: $omv-margin * 0.25;
+}
+
+////////////////////////////////////////////////////////////////////////////////
 // Colors
 .omv-color-primary {
   color: $omv-color-primary;
