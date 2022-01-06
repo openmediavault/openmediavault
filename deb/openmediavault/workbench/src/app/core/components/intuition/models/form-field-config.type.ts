@@ -275,7 +275,7 @@ export type FormFieldConfig = {
     // delete - The action button is only enabled when one row is
     //          selected. If pressed, the current selected row will
     //          be removed from the datatable.
-    template: 'add' | 'edit' | 'delete';
+    template?: 'add' | 'edit' | 'delete';
     dialogConfig?: {
       // The dialog title.
       title?: string;
@@ -287,6 +287,10 @@ export type FormFieldConfig = {
       // or 'Edit' button is pressed.
       fields?: Array<FormFieldConfig>;
     };
+    // Internal
+    icon?: string;
+    tooltip?: string;
+    click?: () => void;
   }>;
   // Specifies the type of the array items. Defaults to `object`.
   valueType?: 'string' | 'integer' | 'number' | 'object';
