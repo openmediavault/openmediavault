@@ -22,8 +22,7 @@
   }
 
   .mat-divider {
-    @extend .omv-ml-h;
-    @extend .omv-mr-h;
+    @extend .omv-mx-h;
 
     border-color: inherit;
     display: unset;

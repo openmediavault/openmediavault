@@ -10,8 +10,6 @@
 }
 
 omv-breadcrumb {
-  @extend .omv-mt-q;
-  @extend .omv-mb-q;
-  @extend .omv-mr;
-  @extend .omv-ml;
+  @extend .omv-my-q;
+  @extend .omv-mx;
 }

@@ -143,6 +143,24 @@ $omv-color-themes: (
 
 ////////////////////////////////////////////////////////////////////////////////
 // Spacing
+//
+// Where property is one of:
+// m - For classes that set margin
+//
+// Where sides is one of:
+// t - For classes that set margin-top
+// b - For classes that set margin-bottom
+// l - For classes that set margin-left
+// r - For classes that set margin-right
+// x - For classes that set both *-left and *-right
+// y - For classes that set both *-top and *-bottom
+// blank - For classes that set a margin on all 4 sides of the element
+//
+// Where size is one of:
+// z - For classes that eliminate the margin by setting it to 0
+// h - For classes that set the margin to $omv-margin * 0.5
+// q - For classes that set the margin to $omv-margin * 0.25
+// blank - For classes that set the margin to $omv-margin * 1
 .omv-m {
   margin: $omv-margin;
 }
@@ -221,6 +239,46 @@ $omv-color-themes: (
 
 .omv-mb-q {
   margin-bottom: $omv-margin * 0.25;
+}
+
+.omv-mx {
+  @extend .omv-ml;
+  @extend .omv-mr;
+}
+
+.omv-mx-z {
+  @extend .omv-ml-z;
+  @extend .omv-mr-z;
+}
+
+.omv-mx-h {
+  @extend .omv-ml-h;
+  @extend .omv-mr-h;
+}
+
+.omv-mx-q {
+  @extend .omv-ml-q;
+  @extend .omv-mr-q;
+}
+
+.omv-my {
+  @extend .omv-mt;
+  @extend .omv-mb;
+}
+
+.omv-my-z {
+  @extend .omv-mt-z;
+  @extend .omv-mb-z;
+}
+
+.omv-my-h {
+  @extend .omv-mt-h;
+  @extend .omv-mb-h;
+}
+
+.omv-my-q {
+  @extend .omv-mt-q;
+  @extend .omv-mb-q;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
