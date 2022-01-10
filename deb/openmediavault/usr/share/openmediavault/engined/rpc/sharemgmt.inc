@@ -788,6 +788,11 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$privileges = $this->callMethod("getPrivileges", [
 			"uuid" => $params['src']
 		], $context);
+		$privileges = array_values(
+			array_filter($privileges, function($v) {
+	   			return !is_null($v['perms']);
+			})
+		);
 		return $this->callMethod("setPrivileges", [
 			"uuid" => $params['dst'],
 			"privileges" => $privileges

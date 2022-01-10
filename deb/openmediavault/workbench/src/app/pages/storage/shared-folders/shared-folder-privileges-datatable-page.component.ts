@@ -138,7 +138,7 @@ export class SharedFolderPrivilegesDatatablePageComponent {
             ],
             buttons: {
               submit: {
-                text: gettext('Transfer'),
+                text: gettext('Copy'),
                 execute: {
                   type: 'request',
                   request: {
