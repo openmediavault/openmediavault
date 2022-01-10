@@ -23,28 +23,6 @@
     "i18n:extract": "ngx-translate-extract --input src --output src/assets/i18n/openmediavault-workbench.pot --clean --sort --format pot"
   },
   "private": true,
-  "jest": {
-    "testTimeout": 10000,
-    "moduleNameMapper": {
-      "~/(.*)$": "<rootDir>/src/$1"
-    },
-    "preset": "jest-preset-angular",
-    "setupFiles": [
-      "jest-canvas-mock"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/setupJest.ts"
-    ],
-    "testMatch": [
-      "**/*.spec.ts"
-    ],
-    "transform": {
-      "\\.js$": "jest-esm-transformer"
-    },
-    "transformIgnorePatterns": [
-      "/node_modules/(?!ansi-regex|strip-ansi)"
-    ]
-  },
   "dependencies": {
     "@angular/animations": "^12.2.15",
     "@angular/cdk": "^12.2.13",
