@@ -7,6 +7,8 @@ openmediavault (6.0.7-1) unstable; urgency=low
     configuration of the recycle bin on the SMB shares page
     with a drop-down field for the sake of simplicity.
     Please check your settings because they are not migrated.
+  * Add the ability to copy and apply the permissions of a shared
+    folder to its ACL page.
   * Issue #1165: Add recycle bin support for SMB home directories.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 27 Dec 2021 21:37:01 +0100

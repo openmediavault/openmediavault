@@ -28,8 +28,10 @@ import {
   FormPageConfig
 } from '~/app/core/components/intuition/models/form-page-config.type';
 import { translate } from '~/app/i18n.helper';
+import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
+import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
@@ -109,6 +111,13 @@ export class SharedFolderAclFormPageComponent implements OnInit {
                 }
               ]
             }
+          }
+        ],
+        actions: [
+          {
+            icon: 'mdi:transfer',
+            tooltip: gettext('Copy privileges'),
+            click: this.onCopyPrivileges.bind(this)
           }
         ],
         sorters: [
@@ -267,7 +276,11 @@ export class SharedFolderAclFormPageComponent implements OnInit {
     ]
   };
 
-  constructor(private notificationService: NotificationService, private rpcService: RpcService) {}
+  constructor(
+    private dialogService: DialogService,
+    private notificationService: NotificationService,
+    private rpcService: RpcService
+  ) {}
 
   ngOnInit(): void {
     const self = this.page;
@@ -277,6 +290,47 @@ export class SharedFolderAclFormPageComponent implements OnInit {
       const control = self.form.formGroup.get('file');
       control.valueChanges.subscribe((value) => this.loadData(value));
     });
+  }
+
+  onCopyPrivileges() {
+    const uuid = _.get(this.page.routeParams, 'uuid');
+    const values = this.page.getFormValues();
+    this.dialogService
+      .open(ModalDialogComponent, {
+        data: {
+          template: 'confirmation',
+          title: gettext('Copy privileges'),
+          message: gettext('Do you really want to copy the privileges from the shared folder?')
+        }
+      })
+      .afterClosed()
+      .subscribe((choice: boolean) => {
+        if (choice) {
+          this.blockUI.start(translate(gettext('Please wait, updating the permissions ...')));
+          this.rpcService
+            .request('ShareMgmt', 'getPrivileges', { uuid })
+            .pipe(
+              finalize(() => {
+                this.blockUI.stop();
+              })
+            )
+            .subscribe((privs: Record<string, any>) => {
+              const perms = _.cloneDeep(values.perms);
+              // Reset all permission by default.
+              _.forEach(perms, (item) => {
+                item.perms = null;
+              });
+              // Apply the permissions from the shared folder.
+              _.forEach(privs, (priv) => {
+                const a = _.find(perms, { name: priv.name, type: priv.type });
+                if (!_.isUndefined(a)) {
+                  a.perms = priv.perms;
+                }
+              });
+              this.page.setFormValues({ perms }, false);
+            });
+        }
+      });
   }
 
   onSubmit(buttonConfig: FormPageButtonConfig, values: Record<string, any>) {
@@ -294,16 +348,17 @@ export class SharedFolderAclFormPageComponent implements OnInit {
       .pipe(
         finalize(() => {
           this.blockUI.stop();
-          this.notificationService.show(
-            NotificationType.success,
-            _.get(this.page.routeConfig, 'data.notificationTitle')
-          );
         })
       )
-      .subscribe();
+      .subscribe(() => {
+        this.notificationService.show(
+          NotificationType.success,
+          _.get(this.page.routeConfig, 'data.notificationTitle')
+        );
+      });
   }
 
-  protected loadData(file) {
+  protected loadData(file: string) {
     const uuid = _.get(this.page.routeParams, 'uuid');
     this.page.loading = true;
     this.rpcService
@@ -323,7 +378,7 @@ export class SharedFolderAclFormPageComponent implements OnInit {
       .subscribe((res: RpcObjectResponse) => {
         _.map(res.acl.users, (user: Record<string, any>) => _.set(user, 'type', 'user'));
         _.map(res.acl.groups, (group: Record<string, any>) => _.set(group, 'type', 'group'));
-        this.page.onLoadData({
+        this.page.setFormValues({
           owner: res.owner,
           group: res.group,
           userperms: res.acl.user,

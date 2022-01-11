@@ -63,6 +63,12 @@ export class FormDatatableComponent extends AbstractFormFieldComponent {
             }
           });
           break;
+        default:
+          _.defaultsDeep(action, {
+            id: 'custom',
+            type: 'iconButton'
+          });
+          break;
       }
     });
   }
