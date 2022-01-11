@@ -189,9 +189,11 @@ export class FormPageComponent
   /**
    * Sets the form values.
    */
-  setFormValues(values: Record<string, any>): void {
+  setFormValues(values: Record<string, any>, markAsPristine = true): void {
     this.form.formGroup.patchValue(values);
-    this.form.formGroup.markAsPristine();
+    if (markAsPristine) {
+      this.form.formGroup.markAsPristine();
+    }
   }
 
   /**
