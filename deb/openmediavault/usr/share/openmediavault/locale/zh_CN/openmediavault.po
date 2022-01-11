@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-26 17:38+0100\n"
-"PO-Revision-Date: 2021-12-28 02:35+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2022-01-11 21:19+0100\n"
+"PO-Revision-Date: 2022-01-11 20:20+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,6 +61,12 @@ msgstr "0KB/s 表示不限制。"
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - 待机状态时最低功耗(磁头停转)"
 
+msgid "1 GiB"
+msgstr ""
+
+msgid "1 MiB"
+msgstr ""
+
 msgid "1 day"
 msgstr "1 天"
 
@@ -79,11 +85,17 @@ msgstr "1 周"
 msgid "1 year"
 msgstr "1 年"
 
+msgid "10 MiB"
+msgstr ""
+
 msgid "10 minutes"
 msgstr "10 分钟"
 
 msgid "10 years"
 msgstr "10 年"
+
+msgid "100 MiB"
+msgstr ""
 
 msgid "120 minutes"
 msgstr "120 分钟"
@@ -109,6 +121,12 @@ msgstr "180 分钟"
 msgid "192 - Intermediate power usage without standby"
 msgstr "192 - 非待机状态时中等功耗"
 
+msgid "2 GiB"
+msgstr ""
+
+msgid "2 MiB"
+msgstr ""
+
 msgid "2 days"
 msgstr "2 天"
 
@@ -130,8 +148,14 @@ msgstr "20 年"
 msgid "240 minutes"
 msgstr "240 分钟"
 
+msgid "25 MiB"
+msgstr ""
+
 msgid "25 years"
 msgstr "25 年"
+
+msgid "250 MiB"
+msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - 最高性能，最大功耗"
@@ -163,6 +187,9 @@ msgstr "300 分钟"
 msgid "330 minutes"
 msgstr "330 分钟"
 
+msgid "4 GiB"
+msgstr ""
+
 msgid "4 days"
 msgstr "4 天"
 
@@ -171,6 +198,9 @@ msgstr "4 分钟"
 
 msgid "4 years"
 msgstr "4 年"
+
+msgid "5 MiB"
+msgstr ""
 
 msgid "5 days"
 msgstr "5 天"
@@ -184,6 +214,12 @@ msgstr "5 分钟"
 msgid "5 years"
 msgstr "5 年"
 
+msgid "50 MiB"
+msgstr ""
+
+msgid "500 MiB"
+msgstr ""
+
 msgid "6 days"
 msgstr "6 天"
 
@@ -195,6 +231,12 @@ msgstr "60 分钟"
 
 msgid "64 - Intermediate power usage with standby"
 msgstr "64 - 待机状态时中等功耗"
+
+msgid "75 MiB"
+msgstr ""
+
+msgid "750 MiB"
+msgstr ""
 
 msgid "9 months"
 msgstr "9 月"
@@ -1192,9 +1234,9 @@ msgid ""
 msgstr "在回收站的文件过了指定天后将自动删除，该项设为 0 则为手动删除。"
 
 msgid ""
-"Files that are larger than the specified number of bytes will not be put "
-"into the recycle bin. Set to 0 for unrestricted file size."
-msgstr "超过设定大小的文件将不会被移到回收站，该值设为 0 则不限制文件大小。"
+"Files that are larger than the specified number will not be put into the "
+"recycle bin."
+msgstr ""
 
 msgid "Filesize"
 msgstr "文件大小"
@@ -3390,6 +3432,9 @@ msgstr "此处应该是电子邮箱地址。"
 msgid "This field should contain a floating point value."
 msgstr "此处应包含小数点。"
 
+msgid "This field should contain a number with a binary prefix."
+msgstr ""
+
 msgid "This field should contain an integer value."
 msgstr "此处应包含整数值。"
 
@@ -3483,8 +3528,11 @@ msgstr "当选择的事件发生时这项规则会被触发。"
 msgid "This specifies what to do if the packet matches."
 msgstr "该规则是如果数据包匹配则做什么。"
 
-msgid "This will create a recycle bin on the share."
-msgstr "在共享上创建回收站。"
+msgid "This will create a recycle bin for each user home directory."
+msgstr ""
+
+msgid "This will create a recycle bin for the share."
+msgstr ""
 
 msgid "Threshold"
 msgstr "阈值"
@@ -3524,9 +3572,6 @@ msgstr "汤加"
 
 msgid "Total"
 msgstr "总计"
-
-msgid "Transfer"
-msgstr "传输"
 
 msgid "Transfer log"
 msgstr "传输日志"
@@ -3619,6 +3664,9 @@ msgstr "未知"
 
 msgid "Unmount"
 msgstr "卸载"
+
+msgid "Unrestricted"
+msgstr ""
 
 msgid "Up"
 msgstr "上移"

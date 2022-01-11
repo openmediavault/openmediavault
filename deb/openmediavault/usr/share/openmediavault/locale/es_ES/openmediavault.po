@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-26 17:38+0100\n"
-"PO-Revision-Date: 2021-12-26 19:08+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"POT-Creation-Date: 2022-01-11 21:19+0100\n"
+"PO-Revision-Date: 2022-01-11 20:20+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,6 +61,12 @@ msgstr "0 KiB/s significa ilimitado."
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Consumo mínimo en reposo (spindown)"
 
+msgid "1 GiB"
+msgstr ""
+
+msgid "1 MiB"
+msgstr ""
+
 msgid "1 day"
 msgstr "1 día"
 
@@ -79,11 +85,17 @@ msgstr "1 semana"
 msgid "1 year"
 msgstr "1 año"
 
+msgid "10 MiB"
+msgstr ""
+
 msgid "10 minutes"
 msgstr "10 minutos"
 
 msgid "10 years"
 msgstr "10 años"
+
+msgid "100 MiB"
+msgstr ""
 
 msgid "120 minutes"
 msgstr "120 minutos"
@@ -109,6 +121,12 @@ msgstr "180 minutos"
 msgid "192 - Intermediate power usage without standby"
 msgstr "192 - Consumo medio sin reposo"
 
+msgid "2 GiB"
+msgstr ""
+
+msgid "2 MiB"
+msgstr ""
+
 msgid "2 days"
 msgstr "2 días"
 
@@ -130,8 +148,14 @@ msgstr "20 años"
 msgid "240 minutes"
 msgstr "240 minutos"
 
+msgid "25 MiB"
+msgstr ""
+
 msgid "25 years"
 msgstr "25 años"
+
+msgid "250 MiB"
+msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Máximo rendimiento, máximo consumo"
@@ -163,6 +187,9 @@ msgstr "300 minutos"
 msgid "330 minutes"
 msgstr "330 minutos"
 
+msgid "4 GiB"
+msgstr ""
+
 msgid "4 days"
 msgstr "4 días"
 
@@ -171,6 +198,9 @@ msgstr "4 minotos"
 
 msgid "4 years"
 msgstr "4 años"
+
+msgid "5 MiB"
+msgstr ""
 
 msgid "5 days"
 msgstr "5 días"
@@ -184,6 +214,12 @@ msgstr "5 minutos"
 msgid "5 years"
 msgstr "5 años"
 
+msgid "50 MiB"
+msgstr ""
+
+msgid "500 MiB"
+msgstr ""
+
 msgid "6 days"
 msgstr "6 días"
 
@@ -195,6 +231,12 @@ msgstr "60 minutos"
 
 msgid "64 - Intermediate power usage with standby"
 msgstr "64 - Consumo medio con reposo"
+
+msgid "75 MiB"
+msgstr ""
+
+msgid "750 MiB"
+msgstr ""
 
 msgid "9 months"
 msgstr "9 meses"
@@ -1192,9 +1234,9 @@ msgid ""
 msgstr "Los archivos de la papelera serán borrados automáticamente despues de un nº determinado de dias. 0 para borrado manual."
 
 msgid ""
-"Files that are larger than the specified number of bytes will not be put "
-"into the recycle bin. Set to 0 for unrestricted file size."
-msgstr "Archivos de un tamaño superior al nº especificado de bytes, no serán copiados en la papelera de reciclaje. 0 para eliminar la restricción."
+"Files that are larger than the specified number will not be put into the "
+"recycle bin."
+msgstr ""
 
 msgid "Filesize"
 msgstr "Tamaño del archivo"
@@ -3390,6 +3432,9 @@ msgstr "El campo debe ser una dirección de correo email."
 msgid "This field should contain a floating point value."
 msgstr "Este campo debe contener un valor en coma flotante."
 
+msgid "This field should contain a number with a binary prefix."
+msgstr ""
+
 msgid "This field should contain an integer value."
 msgstr "Este campo debe contener un entero."
 
@@ -3483,8 +3528,11 @@ msgstr "Esta regla se disparará en cuanto ocurra el evento seleccionado."
 msgid "This specifies what to do if the packet matches."
 msgstr "Que se debe hacer si el paquete coincide."
 
-msgid "This will create a recycle bin on the share."
-msgstr "Creará una papelera de reciclaje en la compartición."
+msgid "This will create a recycle bin for each user home directory."
+msgstr ""
+
+msgid "This will create a recycle bin for the share."
+msgstr ""
 
 msgid "Threshold"
 msgstr "Margen"
@@ -3524,9 +3572,6 @@ msgstr "Tonga"
 
 msgid "Total"
 msgstr "Total"
-
-msgid "Transfer"
-msgstr "Transferencia"
 
 msgid "Transfer log"
 msgstr "Log de transferencia"
@@ -3619,6 +3664,9 @@ msgstr "Desconocido"
 
 msgid "Unmount"
 msgstr "Desmontar"
+
+msgid "Unrestricted"
+msgstr ""
 
 msgid "Up"
 msgstr "Subida"

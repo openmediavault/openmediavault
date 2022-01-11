@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-26 17:38+0100\n"
-"PO-Revision-Date: 2021-12-26 16:41+0000\n"
+"POT-Creation-Date: 2022-01-11 21:19+0100\n"
+"PO-Revision-Date: 2022-01-11 20:20+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -64,6 +64,12 @@ msgstr "0 KiB/s betekent ongelimiteerd."
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Minimaal stroomgebruik met stand-by (spindown)"
 
+msgid "1 GiB"
+msgstr ""
+
+msgid "1 MiB"
+msgstr ""
+
 msgid "1 day"
 msgstr "1 dag"
 
@@ -82,11 +88,17 @@ msgstr "1 week"
 msgid "1 year"
 msgstr "1 jaar"
 
+msgid "10 MiB"
+msgstr ""
+
 msgid "10 minutes"
 msgstr "10 minuten"
 
 msgid "10 years"
 msgstr "10 jaren"
+
+msgid "100 MiB"
+msgstr ""
 
 msgid "120 minutes"
 msgstr "120 minuten"
@@ -112,6 +124,12 @@ msgstr "180 minuten"
 msgid "192 - Intermediate power usage without standby"
 msgstr "192 - Gemiddeld stroomverbruik zonder stand-by"
 
+msgid "2 GiB"
+msgstr ""
+
+msgid "2 MiB"
+msgstr ""
+
 msgid "2 days"
 msgstr "2 dagen"
 
@@ -133,8 +151,14 @@ msgstr "20 jaren"
 msgid "240 minutes"
 msgstr "240 minuten"
 
+msgid "25 MiB"
+msgstr ""
+
 msgid "25 years"
 msgstr "25 jaren"
+
+msgid "250 MiB"
+msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maximale prestaties, maximaal stroomverbruik"
@@ -166,6 +190,9 @@ msgstr "300 minuten"
 msgid "330 minutes"
 msgstr "330 minuten"
 
+msgid "4 GiB"
+msgstr ""
+
 msgid "4 days"
 msgstr "4 dagen"
 
@@ -174,6 +201,9 @@ msgstr "4 minuten"
 
 msgid "4 years"
 msgstr "4 jaren"
+
+msgid "5 MiB"
+msgstr ""
 
 msgid "5 days"
 msgstr "5 dagen"
@@ -187,6 +217,12 @@ msgstr "5 minuten"
 msgid "5 years"
 msgstr "5 jaren"
 
+msgid "50 MiB"
+msgstr ""
+
+msgid "500 MiB"
+msgstr ""
+
 msgid "6 days"
 msgstr "6 dagen"
 
@@ -198,6 +234,12 @@ msgstr "60 minuten"
 
 msgid "64 - Intermediate power usage with standby"
 msgstr "64 - Gemiddeld stroomgebruik met stand-by"
+
+msgid "75 MiB"
+msgstr ""
+
+msgid "750 MiB"
+msgstr ""
 
 msgid "9 months"
 msgstr "9 maanden"
@@ -1195,9 +1237,9 @@ msgid ""
 msgstr "Bestanden in de prullenbak zullen automatisch worden gewist na het opgegeven aantal dagen. Stel in op 0 voor handmatig verwijdering."
 
 msgid ""
-"Files that are larger than the specified number of bytes will not be put "
-"into the recycle bin. Set to 0 for unrestricted file size."
-msgstr "Bestanden groter dan het opgegeven aantal bytes zullen niet in de prullenbak worden geplaatst. Stel in op 0 voor onbeperkte bestandsgrootte."
+"Files that are larger than the specified number will not be put into the "
+"recycle bin."
+msgstr ""
 
 msgid "Filesize"
 msgstr "Bestandsgrootte"
@@ -3393,6 +3435,9 @@ msgstr ""
 msgid "This field should contain a floating point value."
 msgstr ""
 
+msgid "This field should contain a number with a binary prefix."
+msgstr ""
+
 msgid "This field should contain an integer value."
 msgstr ""
 
@@ -3486,8 +3531,11 @@ msgstr "Deze regel wordt geactiveerd wanneer de geselecteerde gebeurtenis zich v
 msgid "This specifies what to do if the packet matches."
 msgstr "Dit geeft aan wat er gedaan wordt wanneer het pakket overeenstemt."
 
-msgid "This will create a recycle bin on the share."
-msgstr "Deze instelling maakt een prullenbak op de gedeelde bron aan."
+msgid "This will create a recycle bin for each user home directory."
+msgstr ""
+
+msgid "This will create a recycle bin for the share."
+msgstr ""
 
 msgid "Threshold"
 msgstr "Drempel"
@@ -3527,9 +3575,6 @@ msgstr "Tonga"
 
 msgid "Total"
 msgstr "Totaal"
-
-msgid "Transfer"
-msgstr ""
 
 msgid "Transfer log"
 msgstr "Overdrachtslogbestand"
@@ -3622,6 +3667,9 @@ msgstr "Onbekend"
 
 msgid "Unmount"
 msgstr "Ontkoppelen"
+
+msgid "Unrestricted"
+msgstr ""
 
 msgid "Up"
 msgstr "Verhogen"

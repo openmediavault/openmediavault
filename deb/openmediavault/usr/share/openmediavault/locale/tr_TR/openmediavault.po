@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-26 17:38+0100\n"
-"PO-Revision-Date: 2021-12-26 16:41+0000\n"
+"POT-Creation-Date: 2022-01-11 21:19+0100\n"
+"PO-Revision-Date: 2022-01-11 20:20+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -58,6 +58,12 @@ msgstr "0 KiB/s limitsiz demektir."
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Minimum güç kullanımı - Bekleme (dönüş durması) ile"
 
+msgid "1 GiB"
+msgstr ""
+
+msgid "1 MiB"
+msgstr ""
+
 msgid "1 day"
 msgstr "1 gün"
 
@@ -76,11 +82,17 @@ msgstr "1 hafta"
 msgid "1 year"
 msgstr "1 yıl"
 
+msgid "10 MiB"
+msgstr ""
+
 msgid "10 minutes"
 msgstr "10 dakika"
 
 msgid "10 years"
 msgstr "10 yıl"
+
+msgid "100 MiB"
+msgstr ""
 
 msgid "120 minutes"
 msgstr "120 dakika"
@@ -106,6 +118,12 @@ msgstr "180 dakika"
 msgid "192 - Intermediate power usage without standby"
 msgstr "192 - Orta düzey güç kullanımı - bekleme olmaksızın"
 
+msgid "2 GiB"
+msgstr ""
+
+msgid "2 MiB"
+msgstr ""
+
 msgid "2 days"
 msgstr "2 gün"
 
@@ -127,8 +145,14 @@ msgstr "20 yıl"
 msgid "240 minutes"
 msgstr "240 dakika"
 
+msgid "25 MiB"
+msgstr ""
+
 msgid "25 years"
 msgstr "25 yıl"
+
+msgid "250 MiB"
+msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - En yüksek performans, en yüksek güç kullanımı"
@@ -160,6 +184,9 @@ msgstr "300 dakika"
 msgid "330 minutes"
 msgstr "330 dakika"
 
+msgid "4 GiB"
+msgstr ""
+
 msgid "4 days"
 msgstr "4 gün"
 
@@ -168,6 +195,9 @@ msgstr "4 dakika"
 
 msgid "4 years"
 msgstr "4 yıl"
+
+msgid "5 MiB"
+msgstr ""
 
 msgid "5 days"
 msgstr "5 gün"
@@ -181,6 +211,12 @@ msgstr "5 dakika"
 msgid "5 years"
 msgstr "5 yıl"
 
+msgid "50 MiB"
+msgstr ""
+
+msgid "500 MiB"
+msgstr ""
+
 msgid "6 days"
 msgstr "6 gün"
 
@@ -192,6 +228,12 @@ msgstr "60 dakika"
 
 msgid "64 - Intermediate power usage with standby"
 msgstr "64 - Orta düzey güç kullanımı - Bekleme ile"
+
+msgid "75 MiB"
+msgstr ""
+
+msgid "750 MiB"
+msgstr ""
 
 msgid "9 months"
 msgstr "9 ay"
@@ -1189,9 +1231,9 @@ msgid ""
 msgstr "Geri dönüşüm kutusundaki dosyalar belirtilen sayıda günden sonra otomatik oalrak silinecektir. Manuel silmek için 0 a ayarlayınız."
 
 msgid ""
-"Files that are larger than the specified number of bytes will not be put "
-"into the recycle bin. Set to 0 for unrestricted file size."
-msgstr "Byte olarak belirlenenden daha büyük dosyalar geri dönüşüm kutusuna konulmayacaktır. Dosya büyüklük sınırını kaldırmak için 0 a ayarlayınız."
+"Files that are larger than the specified number will not be put into the "
+"recycle bin."
+msgstr ""
 
 msgid "Filesize"
 msgstr "Dosya büyüklüğü"
@@ -3387,6 +3429,9 @@ msgstr ""
 msgid "This field should contain a floating point value."
 msgstr ""
 
+msgid "This field should contain a number with a binary prefix."
+msgstr ""
+
 msgid "This field should contain an integer value."
 msgstr ""
 
@@ -3480,8 +3525,11 @@ msgstr "Bu kural, seçili olay talimatları gerçekleştiğinde tetiklenir."
 msgid "This specifies what to do if the packet matches."
 msgstr "Paketler eşleştiğinde ne yapılacağını belirler."
 
-msgid "This will create a recycle bin on the share."
-msgstr "Bu seçenek paylaşımda bir geri dönüşüm kutusu yaratır."
+msgid "This will create a recycle bin for each user home directory."
+msgstr ""
+
+msgid "This will create a recycle bin for the share."
+msgstr ""
 
 msgid "Threshold"
 msgstr "Sınır"
@@ -3521,9 +3569,6 @@ msgstr "Tonga"
 
 msgid "Total"
 msgstr "Toplam"
-
-msgid "Transfer"
-msgstr ""
 
 msgid "Transfer log"
 msgstr "Altarım kaydı"
@@ -3616,6 +3661,9 @@ msgstr "Bilinmiyor"
 
 msgid "Unmount"
 msgstr "Çıkart"
+
+msgid "Unrestricted"
+msgstr ""
 
 msgid "Up"
 msgstr "Çalışıyor"

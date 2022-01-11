@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-26 17:38+0100\n"
-"PO-Revision-Date: 2021-12-26 16:41+0000\n"
+"POT-Creation-Date: 2022-01-11 21:19+0100\n"
+"PO-Revision-Date: 2022-01-11 20:20+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -61,6 +61,12 @@ msgstr "0 KiB/s는 제한이 없음을 뜻합니다."
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - 대기와 최소 전력 사용량 (스핀다운)"
 
+msgid "1 GiB"
+msgstr ""
+
+msgid "1 MiB"
+msgstr ""
+
 msgid "1 day"
 msgstr "1일"
 
@@ -79,11 +85,17 @@ msgstr "1주"
 msgid "1 year"
 msgstr "1년"
 
+msgid "10 MiB"
+msgstr ""
+
 msgid "10 minutes"
 msgstr "10분"
 
 msgid "10 years"
 msgstr "10년"
+
+msgid "100 MiB"
+msgstr ""
 
 msgid "120 minutes"
 msgstr "120분"
@@ -109,6 +121,12 @@ msgstr "180분"
 msgid "192 - Intermediate power usage without standby"
 msgstr "192 - 대기 없이 보통 전력 사용량"
 
+msgid "2 GiB"
+msgstr ""
+
+msgid "2 MiB"
+msgstr ""
+
 msgid "2 days"
 msgstr "2일"
 
@@ -130,8 +148,14 @@ msgstr "20년"
 msgid "240 minutes"
 msgstr "240분"
 
+msgid "25 MiB"
+msgstr ""
+
 msgid "25 years"
 msgstr "25년"
+
+msgid "250 MiB"
+msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - 최대 성능 및 최대 전력 사용량"
@@ -163,6 +187,9 @@ msgstr "300분"
 msgid "330 minutes"
 msgstr "330분"
 
+msgid "4 GiB"
+msgstr ""
+
 msgid "4 days"
 msgstr "4일"
 
@@ -171,6 +198,9 @@ msgstr "4분"
 
 msgid "4 years"
 msgstr "4년"
+
+msgid "5 MiB"
+msgstr ""
 
 msgid "5 days"
 msgstr "5일"
@@ -184,6 +214,12 @@ msgstr "5분"
 msgid "5 years"
 msgstr "5년"
 
+msgid "50 MiB"
+msgstr ""
+
+msgid "500 MiB"
+msgstr ""
+
 msgid "6 days"
 msgstr "6일"
 
@@ -195,6 +231,12 @@ msgstr "60분"
 
 msgid "64 - Intermediate power usage with standby"
 msgstr "64 - 대기와 보통 전력 사용량"
+
+msgid "75 MiB"
+msgstr ""
+
+msgid "750 MiB"
+msgstr ""
 
 msgid "9 months"
 msgstr "9개월"
@@ -1192,9 +1234,9 @@ msgid ""
 msgstr "휴지통에 있는 파일들은 지정된 일수 이후에 자동으로 지워질 것입니다. 수동으로 제거하려면 0으로 설정합니다."
 
 msgid ""
-"Files that are larger than the specified number of bytes will not be put "
-"into the recycle bin. Set to 0 for unrestricted file size."
-msgstr "지정된 바이트 크기보다 큰 파일들은 휴지통으로 들어가지 않을 것입니다. 파일 크기 제한을 두지 않으려면 0으로 설정합니다."
+"Files that are larger than the specified number will not be put into the "
+"recycle bin."
+msgstr ""
 
 msgid "Filesize"
 msgstr "파일 크기"
@@ -3390,6 +3432,9 @@ msgstr ""
 msgid "This field should contain a floating point value."
 msgstr ""
 
+msgid "This field should contain a number with a binary prefix."
+msgstr ""
+
 msgid "This field should contain an integer value."
 msgstr ""
 
@@ -3483,8 +3528,11 @@ msgstr "이 규칙은 선택된 이벤트 지시자가 발생할 때마다 발�
 msgid "This specifies what to do if the packet matches."
 msgstr "패킷이 일치하는 경우 어떻게 할 것인지를 지정합니다"
 
-msgid "This will create a recycle bin on the share."
-msgstr "공유에 휴지통을 생성할 것입니다."
+msgid "This will create a recycle bin for each user home directory."
+msgstr ""
+
+msgid "This will create a recycle bin for the share."
+msgstr ""
 
 msgid "Threshold"
 msgstr "임계치"
@@ -3524,9 +3572,6 @@ msgstr "통가"
 
 msgid "Total"
 msgstr "전체"
-
-msgid "Transfer"
-msgstr ""
 
 msgid "Transfer log"
 msgstr "전송 기록"
@@ -3619,6 +3664,9 @@ msgstr "알 수 없음"
 
 msgid "Unmount"
 msgstr "마운트 해제"
+
+msgid "Unrestricted"
+msgstr ""
 
 msgid "Up"
 msgstr "올리기"

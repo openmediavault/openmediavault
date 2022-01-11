@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2021
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2022
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-26 17:38+0100\n"
-"PO-Revision-Date: 2021-12-26 16:41+0000\n"
+"POT-Creation-Date: 2022-01-11 21:19+0100\n"
+"PO-Revision-Date: 2022-01-11 20:20+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) 使用中, %s 利用可能]"
 
 msgid "%s [%s]"
-msgstr ""
+msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [%s 上, %s]"
@@ -57,6 +57,12 @@ msgstr "0 KiB/s は無制限となります。"
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - スタンバイ（スピンダウン）を使った最小の消費電力"
+
+msgid "1 GiB"
+msgstr ""
+
+msgid "1 MiB"
+msgstr ""
 
 msgid "1 day"
 msgstr "1 日"
@@ -76,11 +82,17 @@ msgstr "1 週間"
 msgid "1 year"
 msgstr "1 年"
 
+msgid "10 MiB"
+msgstr ""
+
 msgid "10 minutes"
 msgstr "10 分"
 
 msgid "10 years"
 msgstr "10 年"
+
+msgid "100 MiB"
+msgstr ""
 
 msgid "120 minutes"
 msgstr "120 分"
@@ -106,6 +118,12 @@ msgstr "180 分"
 msgid "192 - Intermediate power usage without standby"
 msgstr "192 - スタンバイを使わない中間的な電力消費"
 
+msgid "2 GiB"
+msgstr ""
+
+msgid "2 MiB"
+msgstr ""
+
 msgid "2 days"
 msgstr "2 日"
 
@@ -127,8 +145,14 @@ msgstr "20 年"
 msgid "240 minutes"
 msgstr "240 分"
 
+msgid "25 MiB"
+msgstr ""
+
 msgid "25 years"
 msgstr "25 年"
+
+msgid "250 MiB"
+msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - 最大のパフォーマンス、最大の消費電力"
@@ -160,6 +184,9 @@ msgstr "300 分"
 msgid "330 minutes"
 msgstr "330 分"
 
+msgid "4 GiB"
+msgstr ""
+
 msgid "4 days"
 msgstr "4 日"
 
@@ -168,6 +195,9 @@ msgstr "4分"
 
 msgid "4 years"
 msgstr "4 年"
+
+msgid "5 MiB"
+msgstr ""
 
 msgid "5 days"
 msgstr "5 日"
@@ -181,6 +211,12 @@ msgstr "5 分"
 msgid "5 years"
 msgstr "5 年"
 
+msgid "50 MiB"
+msgstr ""
+
+msgid "500 MiB"
+msgstr ""
+
 msgid "6 days"
 msgstr "6 日"
 
@@ -192,6 +228,12 @@ msgstr "60 分"
 
 msgid "64 - Intermediate power usage with standby"
 msgstr "64 - スタンバイを使った中間的な電力消費レベル"
+
+msgid "75 MiB"
+msgstr ""
+
+msgid "750 MiB"
+msgstr ""
 
 msgid "9 months"
 msgstr "9 か月"
@@ -283,7 +325,7 @@ msgstr "アップロードとダウンロードの中断時のレジュームを
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
-msgstr ""
+msgstr "このサーバがWindowsクライアントへのタイムサーバとして自身を通知することを許可"
 
 msgid "Allowed clients"
 msgstr "許可するクライアント"
@@ -521,7 +563,7 @@ msgid "CPU Usage"
 msgstr "CPU使用率"
 
 msgid "CPU Utilization"
-msgstr ""
+msgstr "CPU 使用率"
 
 msgid "CPU usage"
 msgstr "CPU使用率"
@@ -704,7 +746,7 @@ msgid "Create"
 msgstr "作成"
 
 msgid "Create a new file system."
-msgstr ""
+msgstr "新規ファイルシステムの作成。"
 
 msgid "Create file system"
 msgstr "ファイルシステムの作成"
@@ -758,13 +800,13 @@ msgid "Created scheduled task."
 msgstr "スケジュールされたタスクを作成しました。"
 
 msgid "Created user \"{{ name }}\"."
-msgstr ""
+msgstr "ユーザー \"{{ name }}\" を作成しました。"
 
 msgid "Created wired network connection."
-msgstr ""
+msgstr "有線ネットワーク接続を作成しました。"
 
 msgid "Created wireless network connection."
-msgstr ""
+msgstr "無線ネットワーク接続を作成しました。"
 
 msgid "Croatia"
 msgstr "クロアチア"
@@ -818,13 +860,13 @@ msgid "Delete"
 msgstr "削除"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "送信側に存在しないファイルは受信側で削除されます。"
 
 msgid "Denmark"
 msgstr "デンマーク"
 
 msgid "Deny logins which do not have a valid shell."
-msgstr ""
+msgstr "有効なシェルを持っていないログインを拒否します。"
 
 msgid "Description"
 msgstr "説明"
@@ -836,7 +878,7 @@ msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr ""
+msgstr "送信先アドレスは、ネットワークIPアドレス（/mask をつける）、IP範囲またはプレーンIPアドレスのいずれかになります。 '！'をアドレス指定の前に置くと、そのアドレスの意味を反転させることができます。"
 
 msgid "Destination port"
 msgstr "送信先ポート"
@@ -866,13 +908,13 @@ msgid "Device has a few bad sectors."
 msgstr "デバイスは、いくつかの不良セクタを持っています。"
 
 msgid "Device has many bad sectors."
-msgstr ""
+msgstr "デバイスは、たくさんの不良セクタを持っています。"
 
 msgid "Device is being used outside design parameters."
-msgstr ""
+msgstr "デバイスは、設計パラメータ外で使用されています。"
 
 msgid "Device was used outside of design parameters in the past."
-msgstr ""
+msgstr "デバイスは、過去に設計パラメータの外で使用しました。"
 
 msgid "Device(s)"
 msgstr "デバイス"
@@ -893,19 +935,19 @@ msgid "Disabled"
 msgstr "無効"
 
 msgid "Disallow account modification"
-msgstr ""
+msgstr "アカウントの変更を禁止する"
 
 msgid "Disallow the user to modify his own account."
-msgstr ""
+msgstr "ユーザーが自分のアカウントを変更することを禁止します。"
 
 msgid "Disk Usage"
-msgstr ""
+msgstr "ディスク使用量"
 
 msgid "Disks"
 msgstr "ディスク"
 
 msgid "Display the home directory of the user in the browse list."
-msgstr ""
+msgstr "参照リストにユーザーのホームディレクトリを表示します。"
 
 msgid "Djibouti"
 msgstr "ジブチ"
@@ -916,19 +958,19 @@ msgstr "設定の変更を適用してよろしいですか？"
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
 "join(\", \") }}</strong>?"
-msgstr ""
+msgstr "選択したアイテムを本当に削除しますか<strong>{{ items | join(\", \") }}</strong>？"
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "選択されたアイテムを削除してもよろしいですか？"
 
 msgid "Do you really want to install the plugin?"
-msgstr ""
+msgstr "プラグインをインストールしてもよろしいですか？"
 
 msgid "Do you really want to logout?"
 msgstr "ログアウトしますか？"
 
 msgid "Do you really want to mount the file system?"
-msgstr ""
+msgstr "ファイルシステムをマウントしてもよろしいですか？"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "システムをスタンバイ状態にしてもよろしいですか？"
@@ -937,38 +979,38 @@ msgid "Do you really want to reboot the system?"
 msgstr "システムを再起動してよろしいですか？"
 
 msgid "Do you really want to reset the UI settings to their default values?"
-msgstr ""
+msgstr "UI設定をデフォルト値にリセットしてもよろしいですか？"
 
 msgid ""
 "Do you really want to resize the file system? You have to do that after a "
 "RAID has been grown for example."
-msgstr ""
+msgstr "ファイルシステムをリサイズしてもよろしいですか？ RAIDの領域を拡張した後にこれを行う必要があります。"
 
 msgid "Do you really want to shutdown the system?"
 msgstr "システムをシャットダウンしてもよろしいですか？"
 
 msgid "Do you really want to undo the configuration changes?"
-msgstr ""
+msgstr "設定の変更を元に戻してもよろしいですか？"
 
 msgid "Do you really want to uninstall the plugin?"
-msgstr ""
+msgstr "プラグインをアンインストールしてもよろしいですか？"
 
 msgid ""
 "Do you really want to unmount this file system? Please make sure that the "
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
-msgstr ""
+msgstr "このファイルシステムをアンマウントしますか？ アンマウントする前に、ファイルシステムがどのサービスでも使用されていないことを確認してください。 このアクションによってファイルシステムが削除されることはありません。"
 
 msgid "Do you really want to upgrade the system?"
-msgstr ""
+msgstr "システムをアップグレードしてもよろしいですか？"
 
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
 "will be lost."
-msgstr ""
+msgstr "本当にデバイスをワイプしますか{{canonicaldevicefile}}？ すべてのデータが失われます。"
 
 msgid "Documentation"
-msgstr ""
+msgstr "ドキュメンテーション"
 
 msgid "Domain name"
 msgstr "ドメイン名"
@@ -1001,12 +1043,12 @@ msgid "EXT4"
 msgstr "EXT4"
 
 msgid "Each line represents a group."
-msgstr ""
+msgstr "各行は1つのグループを表します。"
 
 msgid ""
 "Each line represents a user. Note, the password must be entered in plain "
 "text."
-msgstr ""
+msgstr "各行は1ユーザーを表します。 注意:パスワードはプレーンテキストで入力する必要があります。"
 
 msgid "East Timor"
 msgstr "東ティモール"
@@ -1030,7 +1072,7 @@ msgid "Empty now"
 msgstr "今すぐ空にする"
 
 msgid "Enable SSL/TLS connections."
-msgstr ""
+msgstr "SSL/TLS接続を有効化します。"
 
 msgid "Enable Time Machine support for this share."
 msgstr "この共有でTime Machineサポートを有効にします。"
@@ -1039,10 +1081,10 @@ msgid "Enable WINS server"
 msgstr "WINSサーバーを有効化"
 
 msgid "Enable keyboard-interactive authentication."
-msgstr ""
+msgstr "キーボードインタラクティブ認証を有効化します。"
 
 msgid "Enable public key authentication."
-msgstr ""
+msgstr "公開鍵認証を有効化します。"
 
 msgid "Enable recycle bin"
 msgstr "ごみ箱を有効化"
@@ -1059,16 +1101,16 @@ msgid ""
 msgstr "部分的に転送されたファイルを保持する場合はこのオプションを有効にします。それ以外の場合は転送が中断された場合、ファイルは削除されます。"
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "ユーザーホームディレクトリを有効にします。"
 
 msgid "Enable write-cache"
-msgstr ""
+msgstr "ライトキャッシュを有効化"
 
 msgid "Enabled"
 msgstr "有効"
 
 msgid "Enabled widgets"
-msgstr ""
+msgstr "ウィジェットを有効化"
 
 msgid "Encryption mode"
 msgstr "暗号化モード"
@@ -1113,7 +1155,7 @@ msgid "Expire"
 msgstr "有効期限"
 
 msgid "Extended Information"
-msgstr ""
+msgstr "拡張情報"
 
 msgid "Extended attributes"
 msgstr "拡張属性"
@@ -1142,10 +1184,10 @@ msgid ""
 msgstr "FXPはクライアントを経由しなくても２つのリモートサーバ間でデータ転送を行えます。"
 
 msgid "Failed"
-msgstr ""
+msgstr "失敗"
 
 msgid "Failed to copy data to the clipboard."
-msgstr ""
+msgstr "データをクリップボードにコピーできませんでした。"
 
 msgid "Falkland Islands"
 msgstr "フォークランド諸島"
@@ -1169,16 +1211,16 @@ msgid "File Systems"
 msgstr "ファイルシステム"
 
 msgid "File Systems Status"
-msgstr ""
+msgstr "ファイルシステムのステータス"
 
 msgid "File path"
-msgstr ""
+msgstr "ファイルのパス"
 
 msgid "File system"
 msgstr "ファイルシステム"
 
 msgid "File systems"
-msgstr ""
+msgstr "ファイルシステム"
 
 msgid "Filename"
 msgstr "ファイル名"
@@ -1189,9 +1231,9 @@ msgid ""
 msgstr "ごみ箱内のファイルは、指定した日数後に自動的に削除されます。手動で削除する場合は0に設定します。"
 
 msgid ""
-"Files that are larger than the specified number of bytes will not be put "
-"into the recycle bin. Set to 0 for unrestricted file size."
-msgstr "指定したバイト数を超えるファイルはごみ箱に入れられません。ファイルサイズを無制限にするには0を設定してください。"
+"Files that are larger than the specified number will not be put into the "
+"recycle bin."
+msgstr ""
 
 msgid "Filesize"
 msgstr "ファイルサイズ"
@@ -1215,13 +1257,13 @@ msgid "Force secure connection only."
 msgstr "セキュアコネクションを強制します。"
 
 msgid "Forum"
-msgstr ""
+msgstr "フォーラム"
 
 msgid "France"
 msgstr "フランス"
 
 msgid "Free"
-msgstr ""
+msgstr "空き"
 
 msgid "French Guiana"
 msgstr "フランス領ギアナ"
@@ -1302,7 +1344,7 @@ msgid "Guests allowed"
 msgstr "ゲストに許可"
 
 msgid "Guests only"
-msgstr ""
+msgstr "ゲストオンリー"
 
 msgid "Guinea"
 msgstr "ギニア"
@@ -1323,25 +1365,25 @@ msgid "Haiti"
 msgstr "ハイチ"
 
 msgid "Hardware Address"
-msgstr ""
+msgstr "ハードウェアのアドレス"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "ハード島とマクドナルド諸島"
 
 msgid "Help"
-msgstr ""
+msgstr "ヘルプ"
 
 msgid "Hide"
-msgstr ""
+msgstr "隠す"
 
 msgid "Hide dot files"
 msgstr "ドットで始まるファイルを隠す"
 
 msgid "Hide navigation"
-msgstr ""
+msgstr "ナビゲーションを隠す"
 
 msgid "Home"
-msgstr ""
+msgstr "ホーム"
 
 msgid "Home directories"
 msgstr "ホームディレクトリ"
@@ -1406,7 +1448,7 @@ msgid "Identify As"
 msgstr "証明"
 
 msgid "Identify network interface"
-msgstr ""
+msgstr "ネットワークインターフェイスを特定する"
 
 msgid "Idle"
 msgstr "Idle"
@@ -1415,12 +1457,12 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Guests only' is selecting; in "
 "this case no password is required to connect to the share."
-msgstr ""
+msgstr "'ゲスト許可'が選択されていて、ログイン資格情報が提供されていない場合は、ゲストとしてアクセスします。 'ゲストのみ'が選択されている場合は、常にゲストとしてアクセスします。 この場合、共有に接続するためにパスワードは必要ありません。"
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
 "to connect to the module."
-msgstr ""
+msgstr "設定されている場合、クライアントはモジュールに接続するためのユーザー名とパスワードを入力するように求められます。"
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
@@ -1462,16 +1504,16 @@ msgid "Import"
 msgstr "インポート"
 
 msgid "Imported SSH certificate."
-msgstr ""
+msgstr "SSH証明書のインポート。"
 
 msgid "Imported SSL certificate."
-msgstr ""
+msgstr "SSL証明書のインポート。"
 
 msgid "Imported groups."
-msgstr ""
+msgstr "グループのインポート。"
 
 msgid "Imported users."
-msgstr ""
+msgstr "ユーザーのインポート。"
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1506,10 +1548,10 @@ msgid "Install"
 msgstr "インストール"
 
 msgid "Install plugin"
-msgstr ""
+msgstr "プラグインのインストール"
 
 msgid "Install updates"
-msgstr ""
+msgstr "アップデートのインストール"
 
 msgid "Install updates from"
 msgstr "アップデートのインストール方法"
@@ -1529,28 +1571,28 @@ msgid "Invalid IP address."
 msgstr "不正なIPアドレスです。"
 
 msgid "Invalid SSH public key (OpenSSH format)."
-msgstr ""
+msgstr "無効なSSH公開鍵 (OpenSSH形式)"
 
 msgid "Invalid SSH public key (OpenSSH or RFC 4716 format)"
-msgstr ""
+msgstr "無効なSSH公開鍵 (OpenSSHまたはRFC 4716形式)"
 
 msgid "Invalid SSH public key (RFC 4716 format)."
-msgstr ""
+msgstr "無効なSSH公開鍵 (RFC 4716形式)"
 
 msgid "Invalid User-Agent."
 msgstr "不正なUser-Agentです。"
 
 msgid "Invalid domain name."
-msgstr ""
+msgstr "ドメイン名が不正です。"
 
 msgid "Invalid group name."
-msgstr ""
+msgstr "グループ名が不正です。"
 
 msgid "Invalid host name."
-msgstr ""
+msgstr "ホスト名が不正です。"
 
 msgid "Invalid user name."
-msgstr ""
+msgstr "ユーザー名が不正です。"
 
 msgid "Invalid user."
 msgstr "不正なユーザーです。"
@@ -1570,7 +1612,7 @@ msgstr "イスラエル"
 msgid ""
 "It may take a while to detect the new devices, thus it might be necessary to"
 " reload the table several times. Do you want to proceed?"
-msgstr ""
+msgstr "新しいデバイスの検出には時間がかかる場合があるため、テーブルを数回リロードする必要がある場合があります。 続行しますか？"
 
 msgid "Italy"
 msgstr "イタリア"
@@ -1677,13 +1719,13 @@ msgid "Link"
 msgstr "リンク"
 
 msgid "List module"
-msgstr ""
+msgstr "モジュールのリスト"
 
 msgid "Lithuania"
 msgstr "リトアニア"
 
 msgid "Load Average"
-msgstr ""
+msgstr "ロードアベレージ"
 
 msgid "Load average"
 msgstr "ロードアベレージ"
@@ -1698,7 +1740,7 @@ msgid "Location"
 msgstr "ロケーション"
 
 msgid "Log in"
-msgstr ""
+msgstr "ログイン"
 
 msgid "Log level"
 msgstr "ログレベル"
@@ -1766,12 +1808,12 @@ msgstr "アドレスマスカレード"
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "宛先ポートが指定されたポートのうちのいずれかであれば一致しています。 例：21 または !443 または 1024-65535"
 
 msgid ""
 "Match if the source port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "送信先ポートが指定されたポートのうちのいずれかであれば一致しています。 例：21 または !443 または 1024-65535"
 
 msgid "Mauritania"
 msgstr "モーリタニア"
@@ -1792,16 +1834,16 @@ msgid "Max. login attempts"
 msgstr "最大ログイン試行回数"
 
 msgid "Max. passive port"
-msgstr ""
+msgstr "最大パッシブポート"
 
 msgid "Maximum"
-msgstr ""
+msgstr "最大"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "最大ダウンロード速度(KiB/s)"
 
 msgid "Maximum file size"
-msgstr ""
+msgstr "最大ファイルサイズ"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1834,10 +1876,10 @@ msgid "Members"
 msgstr "メンバー"
 
 msgid "Memory"
-msgstr ""
+msgstr "メモリ"
 
 msgid "Memory Usage"
-msgstr ""
+msgstr "メモリ使用量"
 
 msgid "Memory usage"
 msgstr "メモリ使用率"
@@ -1864,13 +1906,13 @@ msgid "Midway Islands"
 msgstr "ミッドウェー諸島"
 
 msgid "Min. passive port"
-msgstr ""
+msgstr "最小パッシブポート"
 
 msgid "Minimum"
 msgstr "最小"
 
 msgid "Minimum performance, minimum acoustic output"
-msgstr ""
+msgstr "最低限の性能、最小の音響出力"
 
 msgid "Minute"
 msgstr "分"
@@ -1903,13 +1945,13 @@ msgid "Mongolia"
 msgstr "モンゴル"
 
 msgid "Monitored"
-msgstr ""
+msgstr "モニタ中"
 
 msgid "Monitoring"
 msgstr "モニタリング"
 
 msgid "Monitoring enabled"
-msgstr ""
+msgstr "モリタリング有効"
 
 msgid "Month"
 msgstr "月"
@@ -1930,7 +1972,7 @@ msgid "Mount Point"
 msgstr "マウントポイント"
 
 msgid "Mount an existing file system."
-msgstr ""
+msgstr "既存のファイルシステムをマウントします。"
 
 msgid "Mounted"
 msgstr "マウント済み"
@@ -2008,7 +2050,7 @@ msgid "No connections"
 msgstr "接続はありません"
 
 msgid "No data to display."
-msgstr ""
+msgstr "表示するデータがありません。"
 
 msgid "No session reuse required"
 msgstr "セッション再利用はありません"
@@ -2050,10 +2092,10 @@ msgid "Not UDP"
 msgstr "Not UDP"
 
 msgid "Not mounted"
-msgstr ""
+msgstr "マウントされていません"
 
 msgid "Not running"
-msgstr ""
+msgstr "実行されていません"
 
 msgid "Nothing"
 msgstr "何もしない"
@@ -3387,6 +3429,9 @@ msgstr ""
 msgid "This field should contain a floating point value."
 msgstr ""
 
+msgid "This field should contain a number with a binary prefix."
+msgstr ""
+
 msgid "This field should contain an integer value."
 msgstr ""
 
@@ -3480,8 +3525,11 @@ msgstr "選択したイベントディレクティブが発生するたびに、
 msgid "This specifies what to do if the packet matches."
 msgstr "パケットが一致した場合にどうするかを指定します。"
 
-msgid "This will create a recycle bin on the share."
-msgstr "これは共有上にごみ箱が作成されます。"
+msgid "This will create a recycle bin for each user home directory."
+msgstr ""
+
+msgid "This will create a recycle bin for the share."
+msgstr ""
 
 msgid "Threshold"
 msgstr "閾値"
@@ -3521,9 +3569,6 @@ msgstr "トンガ"
 
 msgid "Total"
 msgstr "トータル"
-
-msgid "Transfer"
-msgstr ""
 
 msgid "Transfer log"
 msgstr "転送ログ"
@@ -3616,6 +3661,9 @@ msgstr "不明"
 
 msgid "Unmount"
 msgstr "アンマウント"
+
+msgid "Unrestricted"
+msgstr ""
 
 msgid "Up"
 msgstr "上"
@@ -3772,7 +3820,7 @@ msgid "Uruguay"
 msgstr "ウルグアイ"
 
 msgid "Usage"
-msgstr ""
+msgstr "使用率"
 
 msgid "Usage Warning Threshold"
 msgstr "使用量警告のしきい値"
@@ -3873,7 +3921,7 @@ msgid "WOL"
 msgstr "WOL"
 
 msgid "WWN"
-msgstr ""
+msgstr "WWN"
 
 msgid "Wake Island"
 msgstr "ウェーク島"

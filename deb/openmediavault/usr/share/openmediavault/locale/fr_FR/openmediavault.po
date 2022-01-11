@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-26 17:38+0100\n"
-"PO-Revision-Date: 2021-12-26 16:41+0000\n"
+"POT-Creation-Date: 2022-01-11 21:19+0100\n"
+"PO-Revision-Date: 2022-01-11 20:20+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -69,6 +69,12 @@ msgstr "0 KiB/s correspond à illimité."
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Consommation minimale avec mise en veille (spindown)"
 
+msgid "1 GiB"
+msgstr ""
+
+msgid "1 MiB"
+msgstr ""
+
 msgid "1 day"
 msgstr "1 jour"
 
@@ -87,11 +93,17 @@ msgstr "1 semaine"
 msgid "1 year"
 msgstr "1 an"
 
+msgid "10 MiB"
+msgstr ""
+
 msgid "10 minutes"
 msgstr "10 minutes"
 
 msgid "10 years"
 msgstr "10 ans"
+
+msgid "100 MiB"
+msgstr ""
 
 msgid "120 minutes"
 msgstr "120 minutes"
@@ -117,6 +129,12 @@ msgstr "180 minutes"
 msgid "192 - Intermediate power usage without standby"
 msgstr "192 - Consommation intermédiaire sans mise en veille"
 
+msgid "2 GiB"
+msgstr ""
+
+msgid "2 MiB"
+msgstr ""
+
 msgid "2 days"
 msgstr "2 jours"
 
@@ -138,8 +156,14 @@ msgstr "20 ans"
 msgid "240 minutes"
 msgstr "240 minutes"
 
+msgid "25 MiB"
+msgstr ""
+
 msgid "25 years"
 msgstr "25 ans"
+
+msgid "250 MiB"
+msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Performance maximale, consommation maximale"
@@ -171,6 +195,9 @@ msgstr "300 minutes"
 msgid "330 minutes"
 msgstr "330 minutes"
 
+msgid "4 GiB"
+msgstr ""
+
 msgid "4 days"
 msgstr "4 jours"
 
@@ -179,6 +206,9 @@ msgstr "4 minutes"
 
 msgid "4 years"
 msgstr "4 ans"
+
+msgid "5 MiB"
+msgstr ""
 
 msgid "5 days"
 msgstr "5 jours"
@@ -192,6 +222,12 @@ msgstr "5 minutes"
 msgid "5 years"
 msgstr "5 ans"
 
+msgid "50 MiB"
+msgstr ""
+
+msgid "500 MiB"
+msgstr ""
+
 msgid "6 days"
 msgstr "6 jours"
 
@@ -203,6 +239,12 @@ msgstr "60 minutes"
 
 msgid "64 - Intermediate power usage with standby"
 msgstr "64 - Consommation intermédiaire avec mise en veille"
+
+msgid "75 MiB"
+msgstr ""
+
+msgid "750 MiB"
+msgstr ""
 
 msgid "9 months"
 msgstr "9 mois"
@@ -1200,9 +1242,9 @@ msgid ""
 msgstr "Les fichiers dans la poubelle seront automatiquement supprimés après le nombre de jours spécifié. Mettre 0 pour une suppression manuelle."
 
 msgid ""
-"Files that are larger than the specified number of bytes will not be put "
-"into the recycle bin. Set to 0 for unrestricted file size."
-msgstr "Les fichiers ayant une taille en octets supérieure à la valeur spécifiée ne seront pas mis dans la poubelle. Mettre 0 pour une taille de fichier illimitée."
+"Files that are larger than the specified number will not be put into the "
+"recycle bin."
+msgstr ""
 
 msgid "Filesize"
 msgstr "Taille de fichier"
@@ -3398,6 +3440,9 @@ msgstr "Ce champ doit contenir une adresse de courriel."
 msgid "This field should contain a floating point value."
 msgstr ""
 
+msgid "This field should contain a number with a binary prefix."
+msgstr ""
+
 msgid "This field should contain an integer value."
 msgstr ""
 
@@ -3491,8 +3536,11 @@ msgstr "Cette règle est déclenchée chaque fois que la directive événement s
 msgid "This specifies what to do if the packet matches."
 msgstr "Cela spécifie que qui doit être fait lorsque le paquet correspond."
 
-msgid "This will create a recycle bin on the share."
-msgstr "Cela créera une poubelle dans le partage."
+msgid "This will create a recycle bin for each user home directory."
+msgstr ""
+
+msgid "This will create a recycle bin for the share."
+msgstr ""
 
 msgid "Threshold"
 msgstr "Seuil"
@@ -3532,9 +3580,6 @@ msgstr "Tonga"
 
 msgid "Total"
 msgstr "Total"
-
-msgid "Transfer"
-msgstr "Transfère"
 
 msgid "Transfer log"
 msgstr "Log de transfert"
@@ -3627,6 +3672,9 @@ msgstr "Inconnu"
 
 msgid "Unmount"
 msgstr "Démonter"
+
+msgid "Unrestricted"
+msgstr ""
 
 msgid "Up"
 msgstr "Haut"

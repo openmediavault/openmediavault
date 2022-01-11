@@ -4,15 +4,15 @@
 # 
 # Translators:
 # d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2012
-# Jonatan Nyberg <jonatan@autistici.org>, 2021
+# Jonatan Nyberg <jonatan@autistici.org>, 2021-2022
 # Jonatan Nyberg <jonatan@autistici.org>, 2018-2021
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-26 17:38+0100\n"
-"PO-Revision-Date: 2021-12-26 16:41+0000\n"
+"POT-Creation-Date: 2022-01-11 21:19+0100\n"
+"PO-Revision-Date: 2022-01-11 20:20+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) använt, %s tillgängligt]"
 
 msgid "%s [%s]"
-msgstr ""
+msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [på %s, %s]"
@@ -60,6 +60,12 @@ msgstr "0 KiB/s betyder obegränsat."
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Minimum strömförbrukning med vänteläge (nerspinning)"
+
+msgid "1 GiB"
+msgstr ""
+
+msgid "1 MiB"
+msgstr ""
 
 msgid "1 day"
 msgstr "1 dag"
@@ -79,11 +85,17 @@ msgstr "1 vecka"
 msgid "1 year"
 msgstr "1 år"
 
+msgid "10 MiB"
+msgstr ""
+
 msgid "10 minutes"
 msgstr "10 minuter"
 
 msgid "10 years"
 msgstr "10 år"
+
+msgid "100 MiB"
+msgstr ""
 
 msgid "120 minutes"
 msgstr "120 minuter"
@@ -109,6 +121,12 @@ msgstr "180 minuter"
 msgid "192 - Intermediate power usage without standby"
 msgstr "192 - Måttlig strömförbrukning utan vänteläge"
 
+msgid "2 GiB"
+msgstr ""
+
+msgid "2 MiB"
+msgstr ""
+
 msgid "2 days"
 msgstr "2 dagar"
 
@@ -130,8 +148,14 @@ msgstr "20 år"
 msgid "240 minutes"
 msgstr "240 minuter"
 
+msgid "25 MiB"
+msgstr ""
+
 msgid "25 years"
 msgstr "25 år"
+
+msgid "250 MiB"
+msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maximal prestanda, maximal strömförbrukning"
@@ -163,6 +187,9 @@ msgstr "300 minuter"
 msgid "330 minutes"
 msgstr "330 minuter"
 
+msgid "4 GiB"
+msgstr ""
+
 msgid "4 days"
 msgstr "4 dagar"
 
@@ -171,6 +198,9 @@ msgstr "4 minuter"
 
 msgid "4 years"
 msgstr "4 år"
+
+msgid "5 MiB"
+msgstr ""
 
 msgid "5 days"
 msgstr "5 dagar"
@@ -184,6 +214,12 @@ msgstr "5 minuter"
 msgid "5 years"
 msgstr "5 år"
 
+msgid "50 MiB"
+msgstr ""
+
+msgid "500 MiB"
+msgstr ""
+
 msgid "6 days"
 msgstr "6 dagar"
 
@@ -195,6 +231,12 @@ msgstr "60 minuter"
 
 msgid "64 - Intermediate power usage with standby"
 msgstr "64 - Måttlig strömförbrukning med vänteläge"
+
+msgid "75 MiB"
+msgstr ""
+
+msgid "750 MiB"
+msgstr ""
 
 msgid "9 months"
 msgstr "9 månader"
@@ -248,7 +290,7 @@ msgid "Administrator: read/write, Users: read-only, Others: read-only"
 msgstr "Administratör: läsa/skriva, Användare: skrivskydd, Övriga: skrivskydd"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
-msgstr "Administratör: läsa/skriva, Användare: läsa/skriva, Övriga: ingen tillgång"
+msgstr "Administratör: läsa/skriva, Användare: läsa/skriva, Övriga: ingen åtkomst"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Administratör: läsa/skriva, Användare: läsa/skriva, Övriga: skrivskydd"
@@ -524,7 +566,7 @@ msgid "CPU Usage"
 msgstr "CPU-användning"
 
 msgid "CPU Utilization"
-msgstr ""
+msgstr "CPU-utnyttjande"
 
 msgid "CPU usage"
 msgstr "CPU-användning"
@@ -707,7 +749,7 @@ msgid "Create"
 msgstr "Skapa"
 
 msgid "Create a new file system."
-msgstr ""
+msgstr "Skapa ett nytt filsystem."
 
 msgid "Create file system"
 msgstr "Skapa filsystem"
@@ -1145,7 +1187,7 @@ msgid ""
 msgstr "FXP tillåter överföringar mellan två fjärrservrar utan att någon fildata går till klienten som begär överföringen."
 
 msgid "Failed"
-msgstr ""
+msgstr "Misslyckades"
 
 msgid "Failed to copy data to the clipboard."
 msgstr "Det gick inte att kopiera data till urklipp."
@@ -1192,9 +1234,9 @@ msgid ""
 msgstr "Filer i papperskorgen kommer att tas bort automatiskt efter det angivna antalet dagar. Sätt till 0 för manuell borttagning."
 
 msgid ""
-"Files that are larger than the specified number of bytes will not be put "
-"into the recycle bin. Set to 0 for unrestricted file size."
-msgstr "Filer som är större än det angivna antalet bytes kommer inte att läggas i papperskorgen. Sätt till 0 för obegränsad filstorlek."
+"Files that are larger than the specified number will not be put into the "
+"recycle bin."
+msgstr ""
 
 msgid "Filesize"
 msgstr "Filstorlek"
@@ -1224,7 +1266,7 @@ msgid "France"
 msgstr "Frankrike"
 
 msgid "Free"
-msgstr ""
+msgstr "Ledigt"
 
 msgid "French Guiana"
 msgstr "Franska Guyana"
@@ -1326,7 +1368,7 @@ msgid "Haiti"
 msgstr "Haiti"
 
 msgid "Hardware Address"
-msgstr ""
+msgstr "Hårdvaruadress"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Heardön och McDonaldöarna"
@@ -1837,7 +1879,7 @@ msgid "Members"
 msgstr "Medlemmar"
 
 msgid "Memory"
-msgstr ""
+msgstr "Minne"
 
 msgid "Memory Usage"
 msgstr "Minnesanvändning"
@@ -1933,7 +1975,7 @@ msgid "Mount Point"
 msgstr "Monteringspunkt"
 
 msgid "Mount an existing file system."
-msgstr ""
+msgstr "Montera ett befintligt filsystem."
 
 msgid "Mounted"
 msgstr "Monterad"
@@ -2077,7 +2119,7 @@ msgid "OK"
 msgstr "OK"
 
 msgid "Obsolete cached data found. Page will be reloaded."
-msgstr ""
+msgstr "Föråldrade cachade data hittades. Sidan kommer att läsas om."
 
 msgid "Occurrence"
 msgstr "Händelse"
@@ -2605,7 +2647,7 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. Status"
-msgstr ""
+msgstr "S.M.A.R.T.-status"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.-övervakning måste vara aktiverad för den valda enheten."
@@ -2743,7 +2785,7 @@ msgid "Select a type ..."
 msgstr "Välj en typ ..."
 
 msgid "Select all"
-msgstr ""
+msgstr "Välj alla"
 
 msgid "Select an authentication mode ..."
 msgstr "Välj ett autentiseringsläge ..."
@@ -3369,7 +3411,7 @@ msgid ""
 msgstr "Det här fältet ska vara en nätmask inom intervallet 128.0.0.0 - 255.255.255.252."
 
 msgid "This field should be a network port in the range of 1 to 65535."
-msgstr ""
+msgstr "Det här fältet ska vara en nätverksport i intervallet 1 till 65535."
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
@@ -3388,10 +3430,13 @@ msgid "This field should be an email address."
 msgstr "Det här fältet ska vara en e-postadress."
 
 msgid "This field should contain a floating point value."
+msgstr "Det här fältet ska innehålla ett flyttalsvärde."
+
+msgid "This field should contain a number with a binary prefix."
 msgstr ""
 
 msgid "This field should contain an integer value."
-msgstr ""
+msgstr "Det här fältet bör innehålla ett heltalsvärde."
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Denna funktion är effektiv bara om hårddisken stöder den."
@@ -3413,7 +3458,7 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "Det här alternativet är ett kommatecken, mellanslag eller tabb-avgränsad uppsättning värden som INTE är tillåtna att komma åt denna modul. Om konflikt uppstår i listorna får tillåt-listan företräde. I händelse av att det är nödvändigt att förneka alla som standard, använd sökordet ALL (eller nätmasken 0.0.0.0/0) och ange sedan de värdar i parametern som bör tillåtas tillträde. Lämna det här fältet tomt för att använda standardinställningarna."
+msgstr "Det här alternativet är en komma-, blankstegs- eller tabbseparerad uppsättning av värdar som INTE är tillåtna att komma åt den här modulen. Om listorna står i konflikt har tillåtelselistan företräde. I händelse av att det är nödvändigt att neka alla som standard, använd nyckelordet ALL (eller nätmasken 0.0.0.0/0) och specificera sedan uttryckligen för värdarnas tillåtelseparameter vilka värdar som ska tillåtas åtkomst. Lämna det här fältet tomt för att använda standardinställningarna."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3422,19 +3467,19 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "Det här alternativet är ett kommatecken-, mellanslag- eller tabb-avgränsad uppsättning värdar som INTE får åtkomst till den här delade resursen. Om konflikt uppstår i listorna får tillåtelselistan företräde. I händelse av att det är nödvändigt att neka alla som standard, använd nyckelordet ALL (eller nätmasken 0.0.0.0/0) och ange sedan de värdar i parametern som ska får åtkomst. Lämna det här fältet tomt för att använda standardinställningarna."
+msgstr "Det här alternativet är en komma-, blankstegs- eller tabbseparerad uppsättning av värdar som INTE har åtkomst till den här delade resursen. Om listorna står i konflikt har tillåtelselistan företräde. I händelse av att det är nödvändigt att neka alla som standard, använd nyckelordet ALL (eller nätmasken 0.0.0.0/0) och specificera sedan uttryckligen för värdarnas tillåtelseparameter för vilka värdar som ska tillåtas åtkomst. Lämna det här fältet tomt för att använda standardinställningarna."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this module. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr "Det här alternativet är ett kommatecken, mellanslag eller tabb-avgränsad uppsättning värden som INTE är tillåtna att komma åt denna modul. Du kan ange de värdar med namn eller IP-nummer. Lämna det här fältet tomt för att använda standardinställningarna."
+msgstr "Det här alternativet är en komma-, blankstegs- eller tabbseparerad uppsättning värdar som har åtkomst till den här modulen. Du kan ange värdarna med namn eller IP-nummer. Lämna det här fältet tomt för att använda standardinställningarna."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this share. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr "Det här alternativet är ett kommatecken-, mellanslag- eller tabb-avgränsad uppsättning värdar som INTE får åtkomst till den här delade resursen. Du kan ange värdarna med namn eller IP-nummer. Lämna det här fältet tomt för att använda standardinställningarna."
+msgstr "Det här alternativet är en komma-, blankstegs- eller tabbseparerad uppsättning värdar som har åtkomst till den här delade resursen. Du kan ange värdarna med namn eller IP-nummer. Lämna det här fältet tomt för att använda standardinställningarna."
 
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
@@ -3444,7 +3489,7 @@ msgstr "Det här alternativet kräver klienter att använda FTP över TLS när m
 msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
-msgstr "Det här alternativet anger gruppnamnet som filen överförs till och från den modulen som det ska ske."
+msgstr "Det här alternativet anger gruppnamnet som filöverföringar till och från den modulen ska använda."
 
 msgid ""
 "This option specifies the maximum number of simultaneous connections. 0 "
@@ -3454,7 +3499,7 @@ msgstr "Det här alternativet anger det maximala antalet samtidiga anslutningar.
 msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
-msgstr "Det här alternativet anger användarnamnet som filen överförs till och från den modulen som det ska ske."
+msgstr "Det här alternativet anger användarnamnet som filöverföringar till och från den modulen ska använda."
 
 msgid ""
 "This option will handle all connections as if they are SSL connections "
@@ -3483,8 +3528,11 @@ msgstr "Denna regel utlöses när det valda händelse-direktivet inträffar."
 msgid "This specifies what to do if the packet matches."
 msgstr "Det här anger vad du ska göra om paketet matchar."
 
-msgid "This will create a recycle bin on the share."
-msgstr "Det här skapar en papperskorg på den delade resursen."
+msgid "This will create a recycle bin for each user home directory."
+msgstr ""
+
+msgid "This will create a recycle bin for the share."
+msgstr ""
 
 msgid "Threshold"
 msgstr "Tröskelvärde"
@@ -3524,9 +3572,6 @@ msgstr "Tonga"
 
 msgid "Total"
 msgstr "Totalt"
-
-msgid "Transfer"
-msgstr "Överför"
 
 msgid "Transfer log"
 msgstr "Överföringslogg"
@@ -3620,6 +3665,9 @@ msgstr "Okänd"
 msgid "Unmount"
 msgstr "Avmontera"
 
+msgid "Unrestricted"
+msgstr ""
+
 msgid "Up"
 msgstr "Upp"
 
@@ -3694,7 +3742,7 @@ msgid "Updated date & time settings."
 msgstr "Uppdaterade inställningarna för datum & tid."
 
 msgid "Updated file system settings."
-msgstr ""
+msgstr "Uppdaterade filsysteminställningar."
 
 msgid "Updated firewall rule."
 msgstr "Uppdaterade brandväggsregeln."
@@ -3775,7 +3823,7 @@ msgid "Uruguay"
 msgstr "Uruguay"
 
 msgid "Usage"
-msgstr ""
+msgstr "Användning"
 
 msgid "Usage Warning Threshold"
 msgstr "Varningsgräns för användning"
@@ -3876,7 +3924,7 @@ msgid "WOL"
 msgstr "WOL (Wake on LAN)"
 
 msgid "WWN"
-msgstr ""
+msgstr "WWN"
 
 msgid "Wake Island"
 msgstr "Wake Island"

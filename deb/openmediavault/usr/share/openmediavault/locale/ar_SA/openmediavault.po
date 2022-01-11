@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-26 17:38+0100\n"
-"PO-Revision-Date: 2021-12-26 16:41+0000\n"
+"POT-Creation-Date: 2022-01-11 21:19+0100\n"
+"PO-Revision-Date: 2022-01-11 20:20+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
@@ -59,6 +59,12 @@ msgstr "0 KiB/s يعني غير محدود."
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - الحد الأدنى من استخدام الطاقة مع وضع الاستعداد (إبطاء سرعة دوران القرص spindown)"
 
+msgid "1 GiB"
+msgstr ""
+
+msgid "1 MiB"
+msgstr ""
+
 msgid "1 day"
 msgstr "1 يوم"
 
@@ -77,11 +83,17 @@ msgstr "1 أسبوع"
 msgid "1 year"
 msgstr "1 سنة"
 
+msgid "10 MiB"
+msgstr ""
+
 msgid "10 minutes"
 msgstr "10 دقيقة"
 
 msgid "10 years"
 msgstr "10 سنوات"
+
+msgid "100 MiB"
+msgstr ""
 
 msgid "120 minutes"
 msgstr "120 دقيقة"
@@ -107,6 +119,12 @@ msgstr "180 دقيقة"
 msgid "192 - Intermediate power usage without standby"
 msgstr "192 - استخدام الطاقة المتوسط بدون وضع الاستعداد"
 
+msgid "2 GiB"
+msgstr ""
+
+msgid "2 MiB"
+msgstr ""
+
 msgid "2 days"
 msgstr "يومان"
 
@@ -128,8 +146,14 @@ msgstr "20 سنة"
 msgid "240 minutes"
 msgstr "240 دقيقة"
 
+msgid "25 MiB"
+msgstr ""
+
 msgid "25 years"
 msgstr "25 سنة"
+
+msgid "250 MiB"
+msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - أقصى أداء ، أقصى استهلاك للطاقة"
@@ -161,6 +185,9 @@ msgstr "300 دقيقة"
 msgid "330 minutes"
 msgstr "330 دقيقة"
 
+msgid "4 GiB"
+msgstr ""
+
 msgid "4 days"
 msgstr "4 أيام"
 
@@ -169,6 +196,9 @@ msgstr "4 دقائق"
 
 msgid "4 years"
 msgstr "4 سنوات"
+
+msgid "5 MiB"
+msgstr ""
 
 msgid "5 days"
 msgstr "5 أيام"
@@ -182,6 +212,12 @@ msgstr "5 دقائق"
 msgid "5 years"
 msgstr "5 سنوات"
 
+msgid "50 MiB"
+msgstr ""
+
+msgid "500 MiB"
+msgstr ""
+
 msgid "6 days"
 msgstr "6 أيام"
 
@@ -193,6 +229,12 @@ msgstr "60 دقيقة"
 
 msgid "64 - Intermediate power usage with standby"
 msgstr "64 - استخدام الطاقة المتوسط ​​مع وضع الاستعداد"
+
+msgid "75 MiB"
+msgstr ""
+
+msgid "750 MiB"
+msgstr ""
 
 msgid "9 months"
 msgstr "9 أشهر"
@@ -1190,9 +1232,9 @@ msgid ""
 msgstr "سيتم حذف الملفات الموجودة في سلة المحذوفات تلقائيًا بعد عدد الأيام المحدد. حدد على 0 للحذف اليدوي."
 
 msgid ""
-"Files that are larger than the specified number of bytes will not be put "
-"into the recycle bin. Set to 0 for unrestricted file size."
-msgstr "الملفات التي تكون أكبر من العدد المحدد للبايت لن يتم وضعها في سلة المحذوفات. قم بتعيينها على 0 لحجم الملف غير المقيد."
+"Files that are larger than the specified number will not be put into the "
+"recycle bin."
+msgstr ""
 
 msgid "Filesize"
 msgstr "حجم الملف"
@@ -3388,6 +3430,9 @@ msgstr ""
 msgid "This field should contain a floating point value."
 msgstr ""
 
+msgid "This field should contain a number with a binary prefix."
+msgstr ""
+
 msgid "This field should contain an integer value."
 msgstr ""
 
@@ -3481,8 +3526,11 @@ msgstr "يتم تشغيل هذه القاعدة كلما حدث توجيه ال�
 msgid "This specifies what to do if the packet matches."
 msgstr "يحدد هذا ما يجب القيام به إذا كانت الحزمة مطابقة."
 
-msgid "This will create a recycle bin on the share."
-msgstr "سيؤدي هذا إلى إنشاء سلة محذوفات على المشاركة."
+msgid "This will create a recycle bin for each user home directory."
+msgstr ""
+
+msgid "This will create a recycle bin for the share."
+msgstr ""
 
 msgid "Threshold"
 msgstr "الحد الفاصل"
@@ -3522,9 +3570,6 @@ msgstr "تونغا"
 
 msgid "Total"
 msgstr "المجموع"
-
-msgid "Transfer"
-msgstr ""
 
 msgid "Transfer log"
 msgstr "سجل النقل"
@@ -3617,6 +3662,9 @@ msgstr "غير معروف"
 
 msgid "Unmount"
 msgstr "تعطيل "
+
+msgid "Unrestricted"
+msgstr ""
 
 msgid "Up"
 msgstr "أعلى"
