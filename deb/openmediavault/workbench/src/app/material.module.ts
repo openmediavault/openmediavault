@@ -61,7 +61,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   providers: [
     { provide: DateAdapter, useClass: NativeDateAdapter },
     // https://joshuawinn.com/ux-input-placeholders-are-not-labels/
-    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { float: 'always' } }
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { floatLabel: 'always' } }
   ]
 })
 export class MaterialModule {
