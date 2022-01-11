@@ -275,7 +275,7 @@ export class SharedFolderAclFormPageComponent implements OnInit {
     self.loadData = () => this.loadData('/');
     self.afterViewInitEvent.subscribe(() => {
       const control = self.form.formGroup.get('file');
-      control.valueChanges.subscribe((value) => this.loadData.bind(this, [value]));
+      control.valueChanges.subscribe((value) => this.loadData(value));
     });
   }
 
