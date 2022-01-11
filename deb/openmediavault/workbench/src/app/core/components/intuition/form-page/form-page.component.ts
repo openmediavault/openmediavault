@@ -131,6 +131,7 @@ export class FormPageComponent
   }
 
   ngAfterViewInit(): void {
+    super.ngAfterViewInit();
     // Process all specified constraints per button.
     if (_.some(this.config.buttons, (button) => _.isPlainObject(button.enabledConstraint))) {
       this.subscriptions.add(
