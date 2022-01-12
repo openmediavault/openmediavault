@@ -5,14 +5,14 @@
 # Translators:
 # kochin <kochinc@outlook.com>, 2013-2021
 # kochin <kochinc@outlook.com>, 2012-2013
-# 黃柏諺 <s8321414@gmail.com>, 2021
+# 黃柏諺 <s8321414@gmail.com>, 2021-2022
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2022-01-11 20:20+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"PO-Revision-Date: 2022-01-12 01:44+0000\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,10 +61,10 @@ msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - 最低用電量、待機狀態 (停止轉動)"
 
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 msgid "1 day"
 msgstr "1 天"
@@ -85,7 +85,7 @@ msgid "1 year"
 msgstr "1 年"
 
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 msgid "10 minutes"
 msgstr "10 分鐘"
@@ -94,7 +94,7 @@ msgid "10 years"
 msgstr "10 年"
 
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 msgid "120 minutes"
 msgstr "120 分鐘"
@@ -121,10 +121,10 @@ msgid "192 - Intermediate power usage without standby"
 msgstr "192 - 中等用電量、非待機狀態"
 
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 msgid "2 MiB"
-msgstr ""
+msgstr "2 MiB"
 
 msgid "2 days"
 msgstr "2 天"
@@ -148,13 +148,13 @@ msgid "240 minutes"
 msgstr "240 分鐘"
 
 msgid "25 MiB"
-msgstr ""
+msgstr "25 MiB"
 
 msgid "25 years"
 msgstr "25 年"
 
 msgid "250 MiB"
-msgstr ""
+msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - 最高性能、最大用電量"
@@ -187,7 +187,7 @@ msgid "330 minutes"
 msgstr "330 分鐘"
 
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 msgid "4 days"
 msgstr "4 天"
@@ -199,7 +199,7 @@ msgid "4 years"
 msgstr "4 年"
 
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 msgid "5 days"
 msgstr "5 天"
@@ -214,10 +214,10 @@ msgid "5 years"
 msgstr "5 年"
 
 msgid "50 MiB"
-msgstr ""
+msgstr "50 MiB"
 
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 msgid "6 days"
 msgstr "6 天"
@@ -232,10 +232,10 @@ msgid "64 - Intermediate power usage with standby"
 msgstr "64 - 中等用電量、待機狀態"
 
 msgid "75 MiB"
-msgstr ""
+msgstr "75 MiB"
 
 msgid "750 MiB"
-msgstr ""
+msgstr "750 MiB"
 
 msgid "9 months"
 msgstr "9 月"
@@ -1235,7 +1235,7 @@ msgstr "在回收桶內的檔案將會於所指定的天數後自動被刪除。
 msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
-msgstr ""
+msgstr "大於指定數量的檔案不會被放入回收桶。"
 
 msgid "Filesize"
 msgstr "檔案大小"
@@ -3432,7 +3432,7 @@ msgid "This field should contain a floating point value."
 msgstr "此欄位應包含浮點值。"
 
 msgid "This field should contain a number with a binary prefix."
-msgstr ""
+msgstr "此欄位應該要包含一個有二進位前綴的數字。"
 
 msgid "This field should contain an integer value."
 msgstr "此欄位應包含整數值。"
@@ -3528,10 +3528,10 @@ msgid "This specifies what to do if the packet matches."
 msgstr "這指明如果數據包符合時要做什麼。"
 
 msgid "This will create a recycle bin for each user home directory."
-msgstr ""
+msgstr "這將為每個使用者家目錄建立一個回收桶。"
 
 msgid "This will create a recycle bin for the share."
-msgstr ""
+msgstr "這將會為分享建立一個回收桶。"
 
 msgid "Threshold"
 msgstr "定限"
@@ -3665,7 +3665,7 @@ msgid "Unmount"
 msgstr "卸載"
 
 msgid "Unrestricted"
-msgstr ""
+msgstr "不受限制"
 
 msgid "Up"
 msgstr "上移"

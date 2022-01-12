@@ -9,7 +9,7 @@
 # mattjes04 <mattjes04@googlemail.com>, 2012
 # Pascal Tippelt <pascal.tippelt@go-eight.de>, 2021
 # Stephan Steiner, 2014
-# Volker Theile <votdev@gmx.de>, 2021
+# Volker Theile <votdev@gmx.de>, 2021-2022
 # Volker Theile <votdev@gmx.de>, 2013-2021
 # Volker Theile <votdev@gmx.de>, 2012
 # Volker Theile <votdev@gmx.de>, 2012
@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2022-01-11 20:20+0000\n"
+"PO-Revision-Date: 2022-01-12 18:10+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -70,10 +70,10 @@ msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Minimaler Energieverbrauch mit Bereitschaft (Spindown)"
 
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 msgid "1 day"
 msgstr "1 Tag"
@@ -94,7 +94,7 @@ msgid "1 year"
 msgstr "1 Jahr"
 
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 msgid "10 minutes"
 msgstr "10 Minuten"
@@ -103,7 +103,7 @@ msgid "10 years"
 msgstr "10 jahre"
 
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 msgid "120 minutes"
 msgstr "120 Minuten"
@@ -130,10 +130,10 @@ msgid "192 - Intermediate power usage without standby"
 msgstr "192 - Durchschnittlicher Energieverbrauch ohne Bereitschaft"
 
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 msgid "2 MiB"
-msgstr ""
+msgstr "2 MiB"
 
 msgid "2 days"
 msgstr "2 Tage"
@@ -157,13 +157,13 @@ msgid "240 minutes"
 msgstr "240 Minuten"
 
 msgid "25 MiB"
-msgstr ""
+msgstr "25 MiB"
 
 msgid "25 years"
 msgstr "25 Jahre"
 
 msgid "250 MiB"
-msgstr ""
+msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maximale Leistung, maximaler Energieverbrauch"
@@ -196,7 +196,7 @@ msgid "330 minutes"
 msgstr "330 Minuten"
 
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 msgid "4 days"
 msgstr "4 Tage"
@@ -208,7 +208,7 @@ msgid "4 years"
 msgstr "4 Jahre"
 
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 msgid "5 days"
 msgstr "5 Tage"
@@ -223,10 +223,10 @@ msgid "5 years"
 msgstr "5 Jahre"
 
 msgid "50 MiB"
-msgstr ""
+msgstr "50 MiB"
 
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 msgid "6 days"
 msgstr "6 Tage"
@@ -241,10 +241,10 @@ msgid "64 - Intermediate power usage with standby"
 msgstr "64 - Durchschnittlicher Energieverbrauch mit Bereitschaft"
 
 msgid "75 MiB"
-msgstr ""
+msgstr "75 MiB"
 
 msgid "750 MiB"
-msgstr ""
+msgstr "750 MiB"
 
 msgid "9 months"
 msgstr "9 Monate"
@@ -336,7 +336,7 @@ msgstr "Erlaube den Cleints unterbrochende Uploads und Downloads wieder aufzuneh
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
-msgstr ""
+msgstr "Erlaube diesem Server sich selbst als Zeitserver für Windows Clients bekannt zu machen."
 
 msgid "Allowed clients"
 msgstr "Zulässige Clienten"
@@ -958,7 +958,7 @@ msgid "Disks"
 msgstr "Laufwerke"
 
 msgid "Display the home directory of the user in the browse list."
-msgstr ""
+msgstr "Zeigt das Heimatverzeichnis des Benutzers in der Suchliste an."
 
 msgid "Djibouti"
 msgstr "Dschibuti"
@@ -1195,7 +1195,7 @@ msgid ""
 msgstr "FXP erlaubt Übertragungen zwischen zwei entfernten Servern ohne das dabei Daten über den anfragenden Client fließen."
 
 msgid "Failed"
-msgstr ""
+msgstr "Fehlgeschlagen"
 
 msgid "Failed to copy data to the clipboard."
 msgstr "Fehler beim Kopieren der Daten in die Zwischenablage."
@@ -1244,7 +1244,7 @@ msgstr "Dateien im Papierkorb werden automatisch nach der angegebenen Anzahl von
 msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
-msgstr ""
+msgstr "Dateien, die größer als die angegebene Anzahl von Bytes sind, werden nicht in den Papierkorb verschoben."
 
 msgid "Filesize"
 msgstr "Dateigröße"
@@ -1274,7 +1274,7 @@ msgid "France"
 msgstr "Frankreich"
 
 msgid "Free"
-msgstr ""
+msgstr "Frei"
 
 msgid "French Guiana"
 msgstr "Französisch-Guayana"
@@ -1887,7 +1887,7 @@ msgid "Members"
 msgstr "Mitglieder"
 
 msgid "Memory"
-msgstr ""
+msgstr "Speicher"
 
 msgid "Memory Usage"
 msgstr "Speichernutzung"
@@ -2127,7 +2127,7 @@ msgid "OK"
 msgstr "OK"
 
 msgid "Obsolete cached data found. Page will be reloaded."
-msgstr ""
+msgstr "Veraltete Daten im Cache gefunden. Die Seite wird neu geladen."
 
 msgid "Occurrence"
 msgstr "Vorkommen"
@@ -2579,11 +2579,11 @@ msgstr "Report"
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report."
-msgstr ""
+msgstr "Berichte wenn sich die Temperatur um mindestens N Grad Celsius seit dem letzten Bericht geändert hat."
 
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius."
-msgstr ""
+msgstr "Berichte wenn die Temperatur größer oder gleich N Grad Celsius ist."
 
 msgid "Repository"
 msgstr "Quelle"
@@ -2826,7 +2826,7 @@ msgid "Select slave devices ..."
 msgstr ""
 
 msgid "Select the device that will be used to create the file system."
-msgstr ""
+msgstr "Wählen Sie das Gerät aus, das zur Erstellung des Dateisystems verwendet werden soll."
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
@@ -3419,7 +3419,7 @@ msgid ""
 msgstr "Dieses Feld sollte eine Netzmaske im Bereich 128.0.0.0 - 255.255.255.252 enthalten."
 
 msgid "This field should be a network port in the range of 1 to 65535."
-msgstr ""
+msgstr "Dieses Feld sollte ein Netzwerkport im Bereich von 1 bis 65535 sein."
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
@@ -3438,13 +3438,13 @@ msgid "This field should be an email address."
 msgstr "Dieses Feld sollte eine E-Mail-Adresse sein."
 
 msgid "This field should contain a floating point value."
-msgstr ""
+msgstr "Dieses Feld sollte einen Gleitkommawert enthalten."
 
 msgid "This field should contain a number with a binary prefix."
-msgstr ""
+msgstr "Dieses Feld sollte eine Zahl mit einem binären Präfix enthalten."
 
 msgid "This field should contain an integer value."
-msgstr ""
+msgstr "Dieses Feld sollte einen ganzzahligen Wert enthalten."
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Diese Funktion wird nur aktiviert wenn sie von der Festplatte unterstützt wird."
@@ -3537,7 +3537,7 @@ msgid "This specifies what to do if the packet matches."
 msgstr "Dies legt fest, was zu tun ist, wenn das Paket passt."
 
 msgid "This will create a recycle bin for each user home directory."
-msgstr ""
+msgstr "Dadurch wird für jedes Benutzerverzeichnis ein Papierkorb erstellt."
 
 msgid "This will create a recycle bin for the share."
 msgstr ""
