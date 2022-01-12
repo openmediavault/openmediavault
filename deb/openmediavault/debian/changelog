@@ -1,5 +1,6 @@
 openmediavault (6.0.9-1) unstable; urgency=low
 
+  * Use systemd watchdog instead of separate daemon.
   * Issue #1181: Use 'Warning' color for SMART assessment status
     'BAD_SECTOR'.
 
