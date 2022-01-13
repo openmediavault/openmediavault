@@ -124,8 +124,8 @@ export class SmartDeviceDatatablePageComponent {
               tooltip: gettext('Device was used outside of design parameters in the past.')
             },
             BAD_SECTOR: {
-              value: gettext('Bad'),
-              class: 'omv-chip-theme-error',
+              value: gettext('Warning'),
+              class: 'omv-chip-theme-warning',
               tooltip: gettext('Device has a few bad sectors.')
             },
             BAD_SECTOR_MANY: {
