@@ -18,54 +18,89 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://www.kernel.org/doc/Documentation/watchdog/
-# http://www.gentoo-wiki.info/Watchdog
-# http://www.pc-freak.net/blog/how-to-automatically-reboot-restart-debian-gnu-lenny-linux-on-kernel-panic-some-general-cpu-overload-or-system-crash-2
+# http://0pointer.de/blog/projects/watchdog.html
+# https://wiki.archlinux.org/title/Kernel_module
+# https://www.kernel.org/doc/html/latest/watchdog/watchdog-parameters.html
+# https://www.freedesktop.org/software/systemd/man/systemd-system.conf.html
+# https://www.freedesktop.org/software/systemd/man/modules-load.d.html
+# https://www.thomas-krenn.com/de/wiki/Watchdog
 
-{% set watchdog_default_options = salt['pillar.get']('default:OMV_WATCHDOG_DEFAULT_OPTIONS', '') %}
-{% set watchdog_default_module = salt['pillar.get']('default:OMV_WATCHDOG_DEFAULT_MODULE', 'softdog') %}
-{% set watchdog_conf_device = salt['pillar.get']('default:OMV_WATCHDOG_CONF_DEVICE', '/dev/watchdog') %}
-{% set watchdog_conf_realtime = salt['pillar.get']('default:OMV_WATCHDOG_CONF_REALTIME', 'yes') %}
-{% set watchdog_conf_priority = salt['pillar.get']('default:OMV_WATCHDOG_CONF_PRIORITY', '1') %}
-{% set watchdog_conf_watchdog_timeout = salt['pillar.get']('default:OMV_WATCHDOG_CONF_WATCHDOG_TIMEOUT', '') %}
+# Testing
+# systemctl show --property=RuntimeWatchdogUSec
+# wdctl
+# lsmod | grep softdog
+# echo c >/proc/sysrq-trigger
 
-configure_default_watchdog:
+{% set watchdog_enabled = salt['pillar.get']('default:OMV_WATCHDOG_ENABLED', 'yes') %}
+{% set watchdog_kernel_module_name = salt['pillar.get']('default:OMV_WATCHDOG_MODULE_NAME', 'softdog') %}
+{% set watchdog_kernel_module_options = salt['pillar.get']('default:OMV_WATCHDOG_MODULE_OPTIONS', '') %}
+{% set watchdog_systemd_runtimewatchdogsec = salt['pillar.get']('default:OMV_WATCHDOG_SYSTEMD_RUNTIMEWATCHDOGSEC', '5min') %}
+
+{% if watchdog_enabled | to_bool %}
+
+configure_watchdog_systemd:
   file.managed:
-    - name: "/etc/default/watchdog"
+    - name: "/etc/systemd/system.conf.d/openmediavault-watchdog.conf"
     - contents: |
-        {{ pillar['headers']['multiline'] | indent(8) }}
-
-        # Set run_watchdog to 1 to start watchdog or 0 to disable it.
-        # Not used with systemd for the time being.
-        run_watchdog=1
-        # Specify additional watchdog options here (see manpage).
-        watchdog_options="{{ watchdog_default_options }}"
-        # Load module before starting watchdog
-        watchdog_module="{{ watchdog_default_module }}"
-        # Set run_wd_keepalive to 1 to start wd_keepalive after stopping watchdog or 0
-        # to disable it. Running it is the default.
-        run_wd_keepalive=0
-    - user: root
-    - group: root
+        {{ pillar['headers']['auto_generated'] }}
+        {{ pillar['headers']['warning'] }}
+        [Manager]
+        RuntimeWatchdogSec={{ watchdog_systemd_runtimewatchdogsec }}
+    - makedirs: True
     - mode: 644
 
-configure_watchdog_conf:
+configure_watchdog_module:
   file.managed:
-    - name: "/etc/watchdog.conf"
+    - name: "/etc/modules-load.d/openmediavault-watchdog.conf"
     - contents: |
-        {{ pillar['headers']['multiline'] | indent(8) }}
-        watchdog-device = {{ watchdog_conf_device }}
-        # This greatly decreases the chance that watchdog won't be scheduled before
-        # your machine is really loaded
-        realtime = {{ watchdog_conf_realtime }}
-        priority = {{ watchdog_conf_priority }}
-        {%- if watchdog_conf_watchdog_timeout %}
-        watchdog-timeout = {{ watchdog_conf_watchdog_timeout }}
-        {% endif %}
-    - user: root
-    - group: root
+        {{ pillar['headers']['auto_generated'] }}
+        {{ pillar['headers']['warning'] }}
+        {{ watchdog_kernel_module_name }}
     - mode: 644
 
-divert_watchdog_conf:
-  omv_dpkg.divert_add:
-    - name: "/etc/watchdog.conf"
+{% if watchdog_kernel_module_options | length > 0 %}
+
+configure_watchdog_module_options:
+  file.managed:
+    - name: "/etc/modprobe.d/openmediavault-watchdog.conf"
+    - contents: |
+        {{ pillar['headers']['auto_generated'] }}
+        {{ pillar['headers']['warning'] }}
+        options {{ watchdog_kernel_module_name }} {{ watchdog_kernel_module_options }}
+    - mode: 644
+
+{% endif %}
+
+restart_systemd_modules_load_service:
+  service.running:
+    - name: systemd-modules-load
+    - enable: True
+    - watch:
+      - file: configure_watchdog_module
+
+{% else %}
+
+disable_watchdog_systemd:
+  file.managed:
+    - name: "/etc/systemd/system.conf.d/openmediavault-watchdog.conf"
+    - contents: |
+        {{ pillar['headers']['auto_generated'] }}
+        {{ pillar['headers']['warning'] }}
+        [Manager]
+        RuntimeWatchdogSec=off
+    - makedirs: True
+    - mode: 644
+
+remove_watchdog_module:
+  file.absent:
+    - name: "/etc/modules-load.d/openmediavault-watchdog.conf"
+
+remove_watchdog_module_options:
+  file.absent:
+    - name: "/etc/modprobe.d/openmediavault-watchdog.conf"
+
+{% endif %}
+
+watchdog_systemctl_daemon_reload:
+  module.run:
+    - service.systemctl_reload:

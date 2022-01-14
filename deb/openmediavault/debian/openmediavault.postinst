@@ -343,6 +343,11 @@ case "$1" in
 			omv_module_set_dirty monit
 			omv_module_set_dirty samba
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.9"; then
+			deb-systemd-helper disable watchdog.service
+			deb-systemd-invoke stop watchdog.service || :
+			omv_module_set_dirty watchdog
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
