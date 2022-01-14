@@ -87,6 +87,9 @@ omv_lint_py:
 source: clean
 	dpkg-buildpackage -S -us -uc
 
+override_dh_builddeb:
+	dh_builddeb -- -Zxz
+
 .PHONY: omv_tx_status omv_tx_pull_po omv_tx_push_pot
 .PHONY: omv_build_pot omv_build_doc omv_clean_scm
 .PHONY: omv_beautify_py omv_lint_py source
