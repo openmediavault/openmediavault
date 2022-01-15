@@ -45,6 +45,13 @@ whiptail --clear --backtitle "${prodname} - ${prodcopyright}" \
 [ $? -ne 0 ] && exit 0
 echo "Upgrading system to ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME}) ..."
 
+# Immediately abort the upgrade process if there is a side-by-side installation
+# with a desktop environment.
+if dpkg -l | grep -Eqw "gdm3|sddm|lxdm|xdm|lightdm|slim|wdm"; then
+  echo "This system is running a desktop environment! This setup is not supported anymore."
+  exit 1
+fi
+
 # Backup the release upgrade scripts to a temporary directory. This is
 # necessary because the scripts directory is removed when the package
 # openmediavault x.y.z is installed (which does not contain these files).
