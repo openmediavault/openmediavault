@@ -13,6 +13,9 @@ openmediavault (6.0.8-1) unstable; urgency=low
   * Update locale files.
   * Add the ability to copy and apply the permissions of a shared
     folder to its ACL page.
+  * Add 'Conflicts' section in package control; openmediavault
+    can't be installed side-by-side with graphical environments
+    anymore.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Jan 2022 19:15:24 +0100
 
