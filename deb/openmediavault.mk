@@ -30,6 +30,9 @@ OMV_XGETTEXT_ARGS := --keyword=_ --output-dir=$(OMV_POT_DIR) \
 	--sort-output --package-name=$(OMV_PACKAGE) --from-code=UTF-8 \
 	--join-existing
 
+override_dh_builddeb:
+	dh_builddeb -- -Zxz
+
 omv_tx_status:
 	tx --root="$(CURDIR)/../" status \
 		--resource=$(OMV_TRANSIFEX_PROJECT_SLUG).$(OMV_PACKAGE)
@@ -86,9 +89,6 @@ omv_lint_py:
 
 source: clean
 	dpkg-buildpackage -S -us -uc
-
-override_dh_builddeb:
-	dh_builddeb -- -Zxz
 
 .PHONY: omv_tx_status omv_tx_pull_po omv_tx_push_pot
 .PHONY: omv_build_pot omv_build_doc omv_clean_scm
