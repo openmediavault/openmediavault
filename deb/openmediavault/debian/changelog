@@ -1,3 +1,9 @@
+openmediavault (5.6.25-1) stable; urgency=low
+
+  * 
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 17 Jan 2022 20:54:12 +0100
+
 openmediavault (5.6.24-1) stable; urgency=low
 
   * Notify users that an upgrade to OMV6 is not possible on side-by-side
