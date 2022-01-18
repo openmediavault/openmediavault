@@ -122,6 +122,9 @@ export class FormComponent implements AfterViewInit, OnInit {
           });
           break;
         case 'select':
+        case 'sharedFolderSelect':
+        case 'sshCertSelect':
+        case 'sslCertSelect':
           _.defaultsDeep(field, {
             valueField: 'value',
             textField: 'text',
