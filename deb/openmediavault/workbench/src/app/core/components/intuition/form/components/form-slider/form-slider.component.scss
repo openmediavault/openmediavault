@@ -1,7 +1,11 @@
-::ng-deep .mat-form-field .mat-form-field-underline {
-  visibility: hidden;
+::ng-deep omv-form-slider .mat-form-field-underline {
+  display: none;
 }
 
 mat-slider {
   width: 100%;
+}
+
+mat-hint {
+  margin-bottom: 5px;
 }

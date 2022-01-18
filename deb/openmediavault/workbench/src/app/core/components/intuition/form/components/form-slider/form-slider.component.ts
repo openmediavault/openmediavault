@@ -18,14 +18,14 @@
 import { Component } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
 
-import { FormSelectComponent } from '~/app/core/components/intuition/form/components/form-select/form-select.component';
+import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 
 @Component({
   selector: 'omv-form-slider',
   templateUrl: './form-slider.component.html',
   styleUrls: ['./form-slider.component.scss']
 })
-export class FormSliderComponent extends FormSelectComponent {
+export class FormSliderComponent extends AbstractFormFieldComponent {
   onChange(event: MatSliderChange) {
     const control = this.formGroup.get(this.config.name);
     control.setValue(event.value);
