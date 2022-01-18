@@ -28,6 +28,7 @@ import { FormDialogComponent } from '~/app/core/components/intuition/form-dialog
 import { DataTableCellChanged } from '~/app/shared/components/datatable/datatable.component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { DataStore } from '~/app/shared/models/data-store.type';
+import { Datatable } from '~/app/shared/models/datatable.interface';
 import { DatatableActionConfig } from '~/app/shared/models/datatable-action-config.type';
 import { DatatableColumn } from '~/app/shared/models/datatable-column.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
@@ -211,7 +212,7 @@ export class MatFormDatatableComponent
   }
 
   private sanitizeConfig() {
-    this.actions.forEach((action) => {
+    this.actions.forEach((action: DatatableActionConfig) => {
       _.defaultsDeep(action, {
         click: this.onActionClick.bind(this)
       });
@@ -229,7 +230,7 @@ export class MatFormDatatableComponent
     this.stateChanges.next();
   }
 
-  onActionClick(action: DatatableActionConfig, selection: DatatableSelection) {
+  onActionClick(action: DatatableActionConfig, table: Datatable) {
     const actionConfig = _.find(this.actions, { id: action.id });
     switch (action.id) {
       case 'add':
@@ -256,7 +257,7 @@ export class MatFormDatatableComponent
         if ('edit' === action.id) {
           // Update form field values.
           formDialogRef.afterOpened().subscribe(() => {
-            formDialogRef.componentInstance.setFormValues(selection.first());
+            formDialogRef.componentInstance.setFormValues(table.selection.first());
           });
         }
         formDialogRef.afterClosed().subscribe((res) => {
@@ -277,7 +278,7 @@ export class MatFormDatatableComponent
         });
         modalDialogRef.afterClosed().subscribe((res) => {
           if (res) {
-            this.store.data = _.pullAllWith(this.store.data, selection.selected, _.isEqual);
+            this.store.data = _.pullAllWith(this.store.data, table.selection.selected, _.isEqual);
             this.syncValue();
           }
         });
