@@ -38,6 +38,12 @@
 
 {% if watchdog_enabled | to_bool %}
 
+# Need to set the watchdog timeout manually to prevent an endless
+# reboot loop on RPi devices.
+{%- if grains['raspberrypi'] | to_bool %}
+{% set watchdog_systemd_runtimewatchdogsec = 15 %}
+{% endif %}
+
 configure_watchdog_systemd:
   file.managed:
     - name: "/etc/systemd/system.conf.d/openmediavault-watchdog.conf"
@@ -104,3 +110,13 @@ remove_watchdog_module_options:
 watchdog_systemctl_daemon_reload:
   module.run:
     - service.systemctl_reload:
+
+{% if not watchdog_enabled | to_bool %}
+
+unload_watchdog_module:
+  kmod.absent:
+    - name: {{ watchdog_kernel_module_name }}
+    - persist: False
+    - comment: False
+
+{% endif %}

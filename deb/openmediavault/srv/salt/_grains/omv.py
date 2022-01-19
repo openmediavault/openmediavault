@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -17,24 +19,14 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-clear_cache:
-  module.run:
-    - saltutil.clear_cache:
-
-# Sync grains from salt://_grains to the minion.
-sync_grains:
-  module.run:
-    - saltutil.sync_grains:
-      - refresh: True
-
-# Sync execution modules from salt://_modules to the minion.
-sync_modules:
-  module.run:
-    - saltutil.sync_modules:
-      - refresh: True
-
-# Sync state modules from salt://_states to the minion.
-sync_states:
-  module.run:
-    - saltutil.sync_states:
-      - refresh: True
+def populate_grains():
+    grains = {'raspberrypi': False}
+    # Check if the system is a RPi device.
+    try:
+        with open('/proc/device-tree/model', 'r') as f:
+            # https://gist.github.com/jperkin/c37a574379ef71e339361954be96be12
+            if f.readline().strip().startswith('Raspberry'):
+                grains['raspberrypi'] = True
+    except (IOError, FileNotFoundError):
+        pass
+    return grains
