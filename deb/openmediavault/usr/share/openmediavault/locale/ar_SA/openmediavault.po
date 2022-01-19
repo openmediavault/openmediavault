@@ -4,14 +4,14 @@
 # 
 # Translators:
 # omv nas <myomv100@gmail.com>, 2020
-# omv nas <myomv100@gmail.com>, 2020-2021
+# omv nas <myomv100@gmail.com>, 2020-2022
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2022-01-11 20:20+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"PO-Revision-Date: 2022-01-17 22:21+0000\n"
+"Last-Translator: omv nas <myomv100@gmail.com>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,34 +21,34 @@ msgstr ""
 
 msgid ""
 "\"Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "اضبط مجموعة الملف الوجهة لتكون هي نفسها الملف المصدر."
 
 msgid "%d days"
-msgstr ""
+msgstr "%d يوم"
 
 msgid "%d hours"
-msgstr ""
+msgstr "%d ساعة"
 
 msgid "%d minutes"
-msgstr ""
+msgstr "%d دقيقة"
 
 msgid "%d months"
-msgstr ""
+msgstr "%d شهر "
 
 msgid "%d years"
-msgstr ""
+msgstr "%d سنة "
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
-msgstr ""
+msgstr "%s [%s, %s (%d%%) مستخدم, %s متاح]"
 
 msgid "%s [%s]"
-msgstr ""
+msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "٪s [على ٪s ، ٪s]"
 
 msgid "%s ago"
-msgstr ""
+msgstr "منذ %s "
 
 msgid "."
 msgstr ""
@@ -60,16 +60,16 @@ msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - الحد الأدنى من استخدام الطاقة مع وضع الاستعداد (إبطاء سرعة دوران القرص spindown)"
 
 msgid "1 GiB"
-msgstr ""
+msgstr "1 جيجابايت"
 
 msgid "1 MiB"
-msgstr ""
+msgstr "1 ميجابايت"
 
 msgid "1 day"
 msgstr "1 يوم"
 
 msgid "1 min"
-msgstr ""
+msgstr "1 دقيقة"
 
 msgid "1 minute"
 msgstr "1 دقيقة"
@@ -84,7 +84,7 @@ msgid "1 year"
 msgstr "1 سنة"
 
 msgid "10 MiB"
-msgstr ""
+msgstr "10 ميجابايت"
 
 msgid "10 minutes"
 msgstr "10 دقيقة"
@@ -93,7 +93,7 @@ msgid "10 years"
 msgstr "10 سنوات"
 
 msgid "100 MiB"
-msgstr ""
+msgstr "100 ميجابايت"
 
 msgid "120 minutes"
 msgstr "120 دقيقة"
@@ -105,7 +105,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - الحد الأدنى لاستخدام الطاقة بدون وضع الاستعداد ( بدون إبطاء سرعة دوران القرص)"
 
 msgid "15 min"
-msgstr ""
+msgstr "15 دقيقة"
 
 msgid "15 minutes"
 msgstr "15 دقيقة"
@@ -120,10 +120,10 @@ msgid "192 - Intermediate power usage without standby"
 msgstr "192 - استخدام الطاقة المتوسط بدون وضع الاستعداد"
 
 msgid "2 GiB"
-msgstr ""
+msgstr "2 جيجابايت"
 
 msgid "2 MiB"
-msgstr ""
+msgstr "2 ميجابايت"
 
 msgid "2 days"
 msgstr "يومان"
@@ -147,13 +147,13 @@ msgid "240 minutes"
 msgstr "240 دقيقة"
 
 msgid "25 MiB"
-msgstr ""
+msgstr "25 ميجابايت"
 
 msgid "25 years"
 msgstr "25 سنة"
 
 msgid "250 MiB"
-msgstr ""
+msgstr "250 ميجابايت"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - أقصى أداء ، أقصى استهلاك للطاقة"
@@ -186,7 +186,7 @@ msgid "330 minutes"
 msgstr "330 دقيقة"
 
 msgid "4 GiB"
-msgstr ""
+msgstr "4 جيجابايت"
 
 msgid "4 days"
 msgstr "4 أيام"
@@ -198,13 +198,13 @@ msgid "4 years"
 msgstr "4 سنوات"
 
 msgid "5 MiB"
-msgstr ""
+msgstr "5 ميجابايت"
 
 msgid "5 days"
 msgstr "5 أيام"
 
 msgid "5 min"
-msgstr ""
+msgstr "5 دقائق"
 
 msgid "5 minutes"
 msgstr "5 دقائق"
@@ -213,10 +213,10 @@ msgid "5 years"
 msgstr "5 سنوات"
 
 msgid "50 MiB"
-msgstr ""
+msgstr "50 ميجابايت"
 
 msgid "500 MiB"
-msgstr ""
+msgstr "500 ميجابايت"
 
 msgid "6 days"
 msgstr "6 أيام"
@@ -231,19 +231,19 @@ msgid "64 - Intermediate power usage with standby"
 msgstr "64 - استخدام الطاقة المتوسط ​​مع وضع الاستعداد"
 
 msgid "75 MiB"
-msgstr ""
+msgstr "75 ميجابايت"
 
 msgid "750 MiB"
-msgstr ""
+msgstr "750 ميجابايت"
 
 msgid "9 months"
 msgstr "9 أشهر"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "يمكن إزالة جهاز واحد كحد أقصى."
 
 msgid "A maximum of two device can be removed."
-msgstr ""
+msgstr "يمكن إزالة جهازين كحد أقصى."
 
 msgid "ACL"
 msgstr "قائمة التحكم بالدخول ACL"
@@ -258,7 +258,7 @@ msgid "Abstract"
 msgstr "الملخص"
 
 msgid "Access control list"
-msgstr ""
+msgstr "قائمة التحكم بالدخول"
 
 msgid "Access mode"
 msgstr "وضع الوصول"
@@ -273,7 +273,7 @@ msgid "Add"
 msgstr "أضف"
 
 msgid "Add hot spares / recover RAID device."
-msgstr ""
+msgstr "أضف قطع غيار جديد / استرجع جهاز RAID."
 
 msgid "Address"
 msgstr "العنوان"
@@ -294,7 +294,7 @@ msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "المسؤول: القراءة / الكتابة ، المستخدمون: القراءة / الكتابة ، آخرون: القراءة فقط"
 
 msgid "Advanced Acoustic Management"
-msgstr ""
+msgstr "الإدارة الصوتية المتقدمة"
 
 msgid "Advanced Power Management"
 msgstr "إدارة الطاقة المتقدمة"
@@ -319,14 +319,14 @@ msgstr "الكل"
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
-msgstr ""
+msgstr "اسمح للمستخدمين بمحاولة تخزين سمات نظام OS/2 الموسعة على مجلد الذي تتم مشاركته."
 
 msgid "Allow clients to resume interrupted uploads and downloads."
-msgstr ""
+msgstr "السماح للمستخدمين باستئناف عمليات التحميل والتنزيلات التي تمت مقاطعتها"
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
-msgstr ""
+msgstr "اسمح لهذا الخادم بالإعلان عن نفسه كخادم وقت لعملاء Windows"
 
 msgid "Allowed clients"
 msgstr "العملاء المسموح لهم"
@@ -369,19 +369,19 @@ msgid "Antigua and Barbuda"
 msgstr "أنتيغوا وبربودا"
 
 msgid "Applied the configuration changes."
-msgstr ""
+msgstr "تطبيق تغييرات التكوين"
 
 msgid "Apply"
 msgstr "تطبيق"
 
 msgid "Apply permissions to files and subfolders."
-msgstr ""
+msgstr "تطبيق الأذونات على الملفات والمجلدات الفرعية"
 
 msgid "April"
 msgstr "إبريل"
 
 msgid "Archive mode"
-msgstr ""
+msgstr "وضع الأرشيف"
 
 msgid "Argentina"
 msgstr "الأرجنتين"
@@ -396,16 +396,16 @@ msgid "Asynchronous I/O"
 msgstr "Async I/O الدخل والخرج غير المتزامن"
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "مطلوب أربعة أجهزة على الأقل."
 
 msgid "At least one network interface is required."
-msgstr ""
+msgstr "مطلوب واجهة شبكة واحدة على الأقل."
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "مطلوب ثلاثة أجهزة على الأقل."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "مطلوب جهازين على الأقل."
 
 msgid "At reboot"
 msgstr "عند إعادة التشغيل"
@@ -414,7 +414,7 @@ msgid "Attributes"
 msgstr "السمات"
 
 msgid "Audit file operations"
-msgstr ""
+msgstr "تدقيق عمليات الملفات."
 
 msgid "August"
 msgstr "أغسطس"
@@ -453,13 +453,13 @@ msgid "Azerbaijan"
 msgstr "أذربيجان"
 
 msgid "BTRFS"
-msgstr ""
+msgstr "BTRFS"
 
 msgid "Back"
-msgstr ""
+msgstr "للحلف"
 
 msgid "Bad"
-msgstr ""
+msgstr "سيء"
 
 msgid "Bahamas"
 msgstr "جزر البهاما"
@@ -468,7 +468,7 @@ msgid "Bahrain"
 msgstr "البحرين"
 
 msgid "Ban Rules"
-msgstr ""
+msgstr "قواعد الحظر"
 
 msgid "Ban statistics:"
 msgstr "إحصائيات الحظر:"
@@ -483,7 +483,7 @@ msgid "Barbados"
 msgstr "بربادوس"
 
 msgid "Base path"
-msgstr ""
+msgstr "المسار الأساسي"
 
 msgid "Belarus"
 msgstr "بيلاروسيا"
@@ -540,7 +540,7 @@ msgid "British Virgin Islands"
 msgstr "جزر فيرجن البريطانية"
 
 msgid "Browse directory"
-msgstr ""
+msgstr "تصفح المجلد"
 
 msgid "Browseable"
 msgstr "قابل للتصفح"
@@ -558,13 +558,13 @@ msgid "Burundi"
 msgstr "بوروندي"
 
 msgid "CPU"
-msgstr ""
+msgstr "وحدة المعالجة المركزية"
 
 msgid "CPU Usage"
-msgstr ""
+msgstr "استهلاك المعالج"
 
 msgid "CPU Utilization"
-msgstr ""
+msgstr "استهلاك المعالج"
 
 msgid "CPU usage"
 msgstr "استهلاك المعالج"
@@ -609,16 +609,16 @@ msgid "Chad"
 msgstr "تشاد"
 
 msgid "Change Password"
-msgstr ""
+msgstr "تغيير كلمة المرور"
 
 msgid "Changelog"
 msgstr "سجل التغيير"
 
 msgid "Check for new plugins"
-msgstr ""
+msgstr "التحقق من وجود الإضافات الجديدة"
 
 msgid "Check for new updates"
-msgstr ""
+msgstr "التحقق من وجود تحديثات جديدة"
 
 msgid "Check interval"
 msgstr "التحقق من الفاصل الزمني"
@@ -633,7 +633,7 @@ msgid "China"
 msgstr "الصين"
 
 msgid "Choose"
-msgstr ""
+msgstr "اختر"
 
 msgid "Christmas Island"
 msgstr "جزيرة الكريسماس"
@@ -642,7 +642,7 @@ msgid "City"
 msgstr "المدينة"
 
 msgid "Cleaning up recycle bin on the share."
-msgstr ""
+msgstr "تنظيف سلة المحذوفات الموجودة على مجلد المشاركة"
 
 msgid "Clear"
 msgstr "مسح"
@@ -678,7 +678,7 @@ msgid "Common Name"
 msgstr "الاسم الشائع"
 
 msgid "Community-maintained updates"
-msgstr ""
+msgstr "التحديثات التي تتم رعايتها من قبل المجتمع."
 
 msgid "Comoros"
 msgstr "جزر القمر"
@@ -690,7 +690,7 @@ msgid "Compress"
 msgstr "ضغط"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "ضغط بيانات الملف أثناء النقل."
 
 msgid "Compression"
 msgstr "ضغط"
@@ -723,13 +723,13 @@ msgid "Cook Islands"
 msgstr "جزر كوك"
 
 msgid "Copied SSH certificate to {{ hostname }}."
-msgstr ""
+msgstr "تم نسخ شهادة SSH إلى {{ hostname }}."
 
 msgid "Copy"
 msgstr "نسخ"
 
 msgid "Copy privileges"
-msgstr ""
+msgstr "نسخ الامتيازات"
 
 msgid "Copy public SSH key"
 msgstr "نسخ مفتاح SSH العمومي"
@@ -747,16 +747,16 @@ msgid "Create"
 msgstr "إنشاء"
 
 msgid "Create a new file system."
-msgstr ""
+msgstr "إنشاء نظام ملفات جديد"
 
 msgid "Create file system"
 msgstr "إنشاء نظام ملفات"
 
 msgid "Create | Import"
-msgstr ""
+msgstr "إنشاء | استيراد"
 
 msgid "Create | Mount"
-msgstr ""
+msgstr "إنشاء | تفعيل"
 
 msgid "Created FTP ban rule."
 msgstr ""
@@ -3862,13 +3862,13 @@ msgid "User"
 msgstr "المستخدم"
 
 msgid "User Management"
-msgstr ""
+msgstr "إدارة المستخدمين"
 
 msgid "User home directory"
 msgstr "مجلد المستخدم الرئيسي"
 
 msgid "User name"
-msgstr ""
+msgstr "اسم المستخم"
 
 msgid "User/Group permissions"
 msgstr "أذونات المستخدم / المجموعة"
