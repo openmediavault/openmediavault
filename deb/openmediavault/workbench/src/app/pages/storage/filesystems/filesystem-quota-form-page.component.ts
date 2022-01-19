@@ -61,33 +61,41 @@ export class FilesystemQuotaFormPageComponent {
         label: gettext('Name'),
         disabled: true
       },
+
       {
-        type: 'numberInput',
-        name: 'bhardlimit',
-        label: gettext('Quota'),
-        value: 0,
-        validators: {
-          min: 0,
-          patternType: 'integer',
-          required: true
-        }
-      },
-      {
-        type: 'select',
-        name: 'bunit',
-        label: gettext('Unit'),
-        value: 'KiB',
-        store: {
-          data: [
-            ['KiB', 'KiB'],
-            ['MiB', 'MiB'],
-            ['GiB', 'GiB'],
-            ['TiB', 'TiB']
-          ]
-        },
-        validators: {
-          required: true
-        }
+        type: 'container',
+        fields: [
+          {
+            type: 'numberInput',
+            name: 'bhardlimit',
+            label: gettext('Quota'),
+            value: 0,
+            validators: {
+              min: 0,
+              patternType: 'integer',
+              required: true
+            },
+            flex: 75
+          },
+          {
+            type: 'select',
+            name: 'bunit',
+            label: gettext('Unit'),
+            value: 'GiB',
+            store: {
+              data: [
+                ['KiB', 'KiB'],
+                ['MiB', 'MiB'],
+                ['GiB', 'GiB'],
+                ['TiB', 'TiB']
+              ]
+            },
+            validators: {
+              required: true
+            },
+            flex: 25
+          }
+        ]
       }
     ],
     buttons: [

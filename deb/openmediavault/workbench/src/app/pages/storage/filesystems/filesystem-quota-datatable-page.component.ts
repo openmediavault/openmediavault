@@ -47,6 +47,7 @@ export class FilesystemQuotaDatatablePageComponent {
       }
     },
     columns: [
+      { name: gettext('Name'), prop: 'name', flexGrow: 1, sortable: true },
       {
         name: gettext('Type'),
         prop: 'type',
@@ -60,7 +61,6 @@ export class FilesystemQuotaDatatablePageComponent {
           }
         }
       },
-      { name: gettext('Name'), prop: 'name', flexGrow: 1, sortable: true },
       {
         name: gettext('Used capacity'),
         prop: 'bused',
