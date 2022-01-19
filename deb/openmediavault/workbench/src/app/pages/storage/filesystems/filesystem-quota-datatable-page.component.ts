@@ -29,6 +29,7 @@ export class FilesystemQuotaDatatablePageComponent {
     autoReload: false,
     remoteSorting: false,
     remotePaging: false,
+    hasSearchField: true,
     sorters: [
       {
         dir: 'asc',
