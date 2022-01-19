@@ -137,8 +137,10 @@ export type FormFieldConfig = {
       | 'domainNameIpList'
       | 'port'
       | 'time'
-      | 'integer'
-      | 'float'
+      | 'numeric'
+      | 'decimal'
+      | 'integer' // deprecated
+      | 'float' // deprecated
       | 'sshPubKey'
       | 'sshPubKeyRfc4716'
       | 'sshPubKeyOpenSsh'
