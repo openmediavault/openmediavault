@@ -110,16 +110,6 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   @Input()
   data: any[];
 
-  // The column configuration.
-  @Input()
-  get columns(): DatatableColumn[] {
-    return this.rawColumns;
-  }
-  set columns(columns: DatatableColumn[]) {
-    this.sanitizeColumns(columns);
-    this.rawColumns = [...columns];
-  }
-
   // Show the linear loading bar.
   @Input()
   loadingIndicator? = false;
@@ -247,6 +237,16 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
       totalMessage: translate(gettext('total')),
       selectedMessage: translate(gettext('selected'))
     };
+  }
+
+  // The column configuration.
+  @Input()
+  get columns(): DatatableColumn[] {
+    return this.rawColumns;
+  }
+  set columns(columns: DatatableColumn[]) {
+    this.sanitizeColumns(columns);
+    this.rawColumns = [...columns];
   }
 
   ngOnInit(): void {

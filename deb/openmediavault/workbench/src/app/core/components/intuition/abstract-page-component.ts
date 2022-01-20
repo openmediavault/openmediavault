@@ -58,6 +58,23 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
     }
   }
 
+  /**
+   * Helper method to get the page related configuration that can be
+   * used in tokenized strings. It contains the route configuration and
+   * parameters. Note, to do not collide with form field values, the
+   * property names start with underscores.
+   */
+  get pageContext(): PageContext {
+    return {
+      _session: {
+        username: this.authSessionService.getUsername(),
+        permissions: this.authSessionService.getPermissions()
+      },
+      _routeConfig: this.routeConfig,
+      _routeParams: this.routeParams
+    };
+  }
+
   ngOnInit(): void {
     this.sanitizeConfig();
     this.activatedRouteSubscription = this.activatedRoute.params.subscribe((params: ParamMap) => {
@@ -85,23 +102,6 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
    * of the matrix parameters scoped to this route have been resolved.
    */
   protected onRouteParams() {}
-
-  /**
-   * Helper method to get the page related configuration that can be
-   * used in tokenized strings. It contains the route configuration and
-   * parameters. Note, to do not collide with form field values, the
-   * property names start with underscores.
-   */
-  get pageContext(): PageContext {
-    return {
-      _session: {
-        username: this.authSessionService.getUsername(),
-        permissions: this.authSessionService.getPermissions()
-      },
-      _routeConfig: this.routeConfig,
-      _routeParams: this.routeParams
-    };
-  }
 
   /**
    * Format the given configuration properties.

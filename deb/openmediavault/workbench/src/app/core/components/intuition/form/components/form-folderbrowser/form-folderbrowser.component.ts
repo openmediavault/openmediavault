@@ -74,6 +74,10 @@ export class FormFolderbrowserComponent
     super();
   }
 
+  get currentPath(): string {
+    return this.joinPaths(this.currentPaths);
+  }
+
   ngOnInit(): void {
     super.ngOnInit();
     this.viewportRuler
@@ -185,10 +189,6 @@ export class FormFolderbrowserComponent
       this.currentPaths.push(name);
     }
     this.loadData(this.currentPaths).subscribe();
-  }
-
-  get currentPath(): string {
-    return this.joinPaths(this.currentPaths);
   }
 
   private requestData(path): Observable<any> {
