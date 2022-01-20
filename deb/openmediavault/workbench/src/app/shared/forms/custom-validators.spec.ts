@@ -297,69 +297,69 @@ describe('CustomValidators', () => {
       });
     });
 
-    describe('integer', () => {
+    describe('numeric', () => {
       let validator: ValidatorFn;
 
       beforeEach(() => {
-        validator = CustomValidators.patternType('integer');
+        validator = CustomValidators.patternType('numeric');
       });
 
-      it('should validate integer [1]', () => {
+      it('should validate numeric [1]', () => {
         formControl.setValue(10);
         expect(validator(formControl)).toBeNull();
       });
 
-      it('should validate integer [2]', () => {
+      it('should validate numeric [2]', () => {
         formControl.setValue(-5);
         expect(validator(formControl)).toBeNull();
       });
 
-      it('should not validate integer [1]', () => {
+      it('should not validate numeric [1]', () => {
         formControl.setValue(1.2);
         expect(validator(formControl)).toEqual({
-          pattern: 'This field should contain an integer value.'
+          pattern: 'This field should contain a numeric value.'
         });
       });
 
-      it('should not validate integer [2]', () => {
+      it('should not validate numeric [2]', () => {
         formControl.setValue('a');
         expect(validator(formControl)).toEqual({
-          pattern: 'This field should contain an integer value.'
+          pattern: 'This field should contain a numeric value.'
         });
       });
     });
 
-    describe('float', () => {
+    describe('decimal', () => {
       let validator: ValidatorFn;
 
       beforeEach(() => {
-        validator = CustomValidators.patternType('float');
+        validator = CustomValidators.patternType('decimal');
       });
 
-      it('should validate float [1]', () => {
+      it('should validate decimal [1]', () => {
         formControl.setValue(10.1245);
         expect(validator(formControl)).toBeNull();
       });
 
-      it('should validate float [2]', () => {
+      it('should validate decimal [2]', () => {
         formControl.setValue(-5.5);
         expect(validator(formControl)).toBeNull();
       });
 
-      it('should validate float [3]', () => {
+      it('should validate decimal [3]', () => {
         formControl.setValue(10);
         expect(validator(formControl)).toBeNull();
       });
 
-      it('should validate float [4]', () => {
+      it('should validate decimal [4]', () => {
         formControl.setValue(10.0);
         expect(validator(formControl)).toBeNull();
       });
 
-      it('should not validate float', () => {
+      it('should not validate decimal', () => {
         formControl.setValue('a');
         expect(validator(formControl)).toEqual({
-          pattern: 'This field should contain a floating point value.'
+          pattern: 'This field should contain a decimal value.'
         });
       });
     });

@@ -335,13 +335,13 @@ export class CustomValidators {
           gettext('This field should be a network port in the range of 1 to 65535.')
         );
       case 'numeric':
-      case 'integer':
+      case 'integer': // deprecated
         return CustomValidators.pattern(
           regExp.numeric,
-          gettext('This field should contain an numeric value.')
+          gettext('This field should contain a numeric value.')
         );
       case 'decimal':
-      case 'float':
+      case 'float': // deprecated
         return CustomValidators.pattern(
           regExp.decimal,
           gettext('This field should contain a decimal value.')
