@@ -31,11 +31,11 @@ class TraceException extends Exception {
 
 	/**
 	 * Constructor
-	 * @param message The exception message to throw.
-	 * @param code The exception code.
-	 * @param trace The exception stack trace.
+	 * @param string message The exception message to throw.
+	 * @param int code The exception code.
+	 * @param string trace The exception stack trace.
 	 */
-	public function __construct($message, int $code = 0, string $trace = "") {
+	public function __construct($message, $code = 0, $trace = "") {
 		$this->trace = $trace;
 		// Note, we need to escape the percent signs here because
 		// we do not want them to be interpreted as directives by
