@@ -4,6 +4,8 @@ openmediavault (6.0.9-3) unstable; urgency=low
   * Use systemd watchdog instead of separate daemon.
   * Issue #1181: Use 'Warning' color for SMART assessment status
     'BAD_SECTOR'.
+  * Issue #1189: Add environment variable OMV_NGINX_SITE_WEBGUI_LISTEN_PARAMS
+    to be able to customize the nginx listen directive.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Jan 2022 19:53:08 +0100
 
