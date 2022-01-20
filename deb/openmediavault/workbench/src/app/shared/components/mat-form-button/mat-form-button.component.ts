@@ -15,6 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
+/* eslint-disable @typescript-eslint/member-ordering */
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Component, Input, Optional, Self } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
@@ -41,18 +42,6 @@ export class MatFormButtonComponent implements ControlValueAccessor, MatFormFiel
   /**
    * Implemented as part of MatFormFieldControl.
    */
-  @Input()
-  get disabled(): boolean {
-    return this._disabled;
-  }
-  set disabled(value: boolean) {
-    this._disabled = coerceBooleanProperty(value);
-    this.stateChanges.next();
-  }
-
-  /**
-   * Implemented as part of MatFormFieldControl.
-   */
   public value: any; // Useless for a button.
   public required: boolean; // Useless for a button.
   public placeholder: string; // Useless for a button.
@@ -70,6 +59,18 @@ export class MatFormButtonComponent implements ControlValueAccessor, MatFormFiel
     if (!_.isNull(this.ngControl)) {
       this.ngControl.valueAccessor = this;
     }
+  }
+
+  /**
+   * Implemented as part of MatFormFieldControl.
+   */
+  @Input()
+  get disabled(): boolean {
+    return this._disabled;
+  }
+  set disabled(value: boolean) {
+    this._disabled = coerceBooleanProperty(value);
+    this.stateChanges.next();
   }
 
   /**
