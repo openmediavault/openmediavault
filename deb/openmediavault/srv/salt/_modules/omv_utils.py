@@ -403,3 +403,29 @@ def match_netif_type(name, type_):
     elif type_ == 'vlan':
         result = openmediavault.net.is_vlan(name)
     return result
+
+
+@jinja_filter('to_sec')
+def to_sec(value):
+    """
+    Converts a string to seconds.
+    :return: Returns the seconds as integer, or the string unchanged
+        otherwise.
+    """
+    matches = re.match(r'^(\d+)\s*(ms|s|min|h|d|w)?$', str(value))
+    if matches is not None:
+        num = int(matches.group(1))
+        unit = matches.group(2)
+        if unit == 'ms':
+            value = num * 0.001
+        elif unit == 's':
+            value = num
+        elif unit == 'min':
+            value = num * 60
+        elif unit == 'h':
+            value = num * 60 * 60
+        elif unit == 'd':
+            value = num * 60 * 60 * 24
+        elif unit == 'w':
+            value = num * 60 * 60 * 24 * 7
+    return value
