@@ -41,7 +41,7 @@
 # Make sure the watchdog timeout is correct. E.g. there are problems
 # on ARM, e.g. RPi, devices.
 # https://forums.raspberrypi.com/viewtopic.php?f=29&t=147501
-{% if (grains['osarch'] in [' armhf', 'arm64']) and (watchdog_kernel_module_name in ['softdog', 'bcm2835_wdt']) and (watchdog_systemd_runtimewatchdogsec | to_sec > 15) %}
+{% if (grains['osarch'] in ['armhf', 'arm64']) and (watchdog_kernel_module_name in ['softdog', 'bcm2835_wdt']) and (watchdog_systemd_runtimewatchdogsec | to_sec > 15) %}
 {% set watchdog_systemd_runtimewatchdogsec = 15 %}
 {% endif %}
 
