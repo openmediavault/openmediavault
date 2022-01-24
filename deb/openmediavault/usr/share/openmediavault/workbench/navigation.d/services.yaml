@@ -2,7 +2,7 @@ version: "1.0"
 type: navigation-item
 data:
   path: "services"
-  position: 60
+  position: 50
   text: _("Services")
   icon: share
   url: "/services"
