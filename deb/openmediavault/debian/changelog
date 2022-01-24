@@ -2,6 +2,7 @@ openmediavault (6.0.9-4) unstable; urgency=low
 
   * Update locale files.
   * Use systemd watchdog instead of separate daemon.
+  * Relocate the user management navigation menu.
   * Issue #1181: Use 'Warning' color for SMART assessment status
     'BAD_SECTOR'.
   * Issue #1189: Add environment variable OMV_NGINX_SITE_WEBGUI_LISTEN_PARAMS
