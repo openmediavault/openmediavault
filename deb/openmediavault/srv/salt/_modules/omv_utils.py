@@ -418,7 +418,7 @@ def to_sec(value):
         unit = matches.group(2)
         if unit == 'ms':
             value = num * 0.001
-        elif unit == 's':
+        elif unit in [None, 's']:
             value = num
         elif unit == 'min':
             value = num * 60
