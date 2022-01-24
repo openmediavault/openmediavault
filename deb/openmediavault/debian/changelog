@@ -1,4 +1,4 @@
-openmediavault (6.0.9-3) unstable; urgency=low
+openmediavault (6.0.9-4) unstable; urgency=low
 
   * Update locale files.
   * Use systemd watchdog instead of separate daemon.
