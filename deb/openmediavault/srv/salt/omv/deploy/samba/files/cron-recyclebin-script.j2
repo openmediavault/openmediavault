@@ -10,18 +10,20 @@
 set -e
 
 amin={{ share.recyclemaxage * 24 * 60 }}
+force=0
 lockfile="{{ lock_file }}"
 recycle_repository="{{ sf_recycle_repository }}"
 while getopts 'f' option
 do
 	case ${option} in
 	f)
-		amin=1 # Force deletion
+		amin=0
+		force=1
 		;;
 	esac
 done
 # Exit if 'recyclemaxage' is zero.
-[ "${amin}" -eq "0" ] && exit 0
+[ "${amin}" -eq 0 -a "${force}" -eq 0 ] && exit 0
 # Exit if another job is running.
 if ! mkdir "${lockfile}"; then
 	omv_error "Locking failed, another job is running"

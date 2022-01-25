@@ -1,3 +1,10 @@
+openmediavault (6.0.10-1) unstable; urgency=low
+
+  * Make sure SMB recycle bin is cleared immediately when the
+    button is pressed in the UI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 25 Jan 2022 23:29:54 +0100
+
 openmediavault (6.0.9-5) unstable; urgency=low
 
   * Update locale files.
