@@ -2,7 +2,7 @@ Source: openmediavault
 Section: admin
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
-Build-Depends: debhelper (>= 12), dh-systemd, gettext, doxygen, make, npm
+Build-Depends: debhelper (>= 12), gettext, doxygen, make, npm
 Standards-Version: 3.9.6
 Homepage: http://www.openmediavault.org
 
