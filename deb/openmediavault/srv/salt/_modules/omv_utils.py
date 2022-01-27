@@ -127,10 +127,23 @@ def is_block_device(path):
     return openmediavault.device.is_block_device(path)
 
 
+@jinja_test('is_block_device')
+def _test_is_block_device(path):
+    """
+    Check if path is a block device.
+    :param path: The path to check.
+    :type path: str
+    :return: Return True if path is a block device, otherwise False.
+    :rtype: bool
+    """
+    return is_block_device(path)
+
+
 @jinja_filter('is_device_file')
 def is_device_file(path):
     """
     Check if path describes a device file, e.g. /dev/sda1.
+    Note, only the specified string is evaluated.
     :param path: The path to check.
     :type path: str
     :return: Return True if path describes a device file,

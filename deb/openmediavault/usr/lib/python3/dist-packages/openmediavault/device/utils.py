@@ -61,7 +61,15 @@ def is_char_device(path) -> bool:
 
 def is_device_file(path) -> bool:
     """
-    Check if path describes a device file, e.g. /dev/sda1.
+    Check if path describes a device file, e.g.
+
+    * /dev/sda1
+    * /dev/disk/by-label/data
+    * /dev/mapper/sda-crypt
+    * /dev/dm-2
+
+    Note, only the specified string is evaluated.
+
     :param path: The path to check.
     :type path: str
     :return: Return ``True`` if path describes a device file,
@@ -81,6 +89,8 @@ def is_device_file_by(path) -> bool:
     * /dev/disk/by-id/usb-Kingston_DataTraveler_G2_001CC0EC21ADF011C6A20E35-0:0-part1
     * /dev/disk/by-label/data
 
+    Note, only the specified string is evaluated.
+
     :param path: The path to check.
     :type path: str
     :return: Return ``True`` if path describes a device file,
@@ -98,6 +108,8 @@ def is_device_file_by_uuid(path) -> bool:
 
     * /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
     * /dev/disk/by-uuid/2ED43920D438EC29 (NTFS)
+
+    Note, only the specified string is evaluated.
 
     :param path: The path to check.
     :type path: str
@@ -117,6 +129,8 @@ def is_device_file_by_id(path) -> bool:
     * /dev/disk/by-id/usb-Kingston_DataTraveler_G2_001CC0EC21ADF011C6A20E35-0:0-part1
     * /dev/disk/by-id/wwn-0x4002c554a4d79cb9-part2
 
+    Note, only the specified string is evaluated.
+
     :param path: The path to check.
     :type path: str
     :return: Return ``True`` if path describes a device file,
@@ -130,7 +144,12 @@ def is_device_file_by_id(path) -> bool:
 
 def is_device_file_by_label(path) -> bool:
     """
-    Check if path describes a device file, e.g. /dev/disk/by-label/data
+    Check if path describes a device file, e.g.
+
+    * /dev/disk/by-label/data
+
+    Note, only the specified string is evaluated.
+
     :param path: The path to check.
     :type path: str
     :return: Return ``True`` if path describes a device file,
@@ -148,6 +167,8 @@ def is_device_file_by_path(path) -> bool:
 
     * /dev/disk/by-path/pci-0000:00:17.0-ata-3
     * /dev/disk/by-path/pci-0000:00:17.0-ata-3-part2
+
+    Note, only the specified string is evaluated.
 
     :param path: The path to check.
     :type path: str

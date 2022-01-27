@@ -10,7 +10,7 @@
 {%- set temp_crit_diff = salt['pillar.get']('default:OMV_SMARTMONTOOLS_TEMP_CRIT_DIFF', 5) -%}
 {{ pillar['headers']['multiline'] }}
 DEFAULT {{ default_directives }} -W {{ smart_config.tempdiff }},{{ smart_config.tempmax }},{{ smart_config.tempmax + temp_crit_diff if smart_config.tempmax else 0 }} -n {{ smart_config.powermode }},q
-{%- for device in smart_devices -%}
+{%- for device in smart_devices | selectattr('devicefile', 'is_block_device') -%}
 {%- set smart_jobs = salt['omv_conf.get_by_filter'](
   'conf.service.smartmontools.job',
   {'operator': 'and', 'arg0': {'operator': 'stringEquals', 'arg0': 'devicefile', 'arg1': device.devicefile}, 'arg1': {'operator': 'equals', 'arg0': 'enable', 'arg1': '1'}}) %}

@@ -46,8 +46,7 @@ divert_hdparm_conf:
 # force UDEV to do the same thing again to reload the settings, e.g.
 # by running 'udevadm trigger'. For this reason, we simply run the script
 # ourselves.
-{% for device in config %}
-{% if salt['omv_utils.is_block_device'](device.devicefile) %}
+{% for device in config | selectattr('devicefile', 'is_block_device') %}
 reload_hdparm_{{ device.devicefile }}:
   cmd.run:
     - name: "/lib/udev/hdparm"
@@ -55,5 +54,4 @@ reload_hdparm_{{ device.devicefile }}:
       - DEVNAME: "{{ device.devicefile | path_realpath }}"
     - onchanges:
       - file: configure_hdparm_conf
-{% endif %}
 {% endfor %}
