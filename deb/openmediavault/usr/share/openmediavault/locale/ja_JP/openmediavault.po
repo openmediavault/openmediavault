@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2022-01-12 04:26+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2022-01-26 18:35+0000\n"
+"PO-Revision-Date: 2022-01-26 18:37+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -954,6 +954,9 @@ msgstr "ジブチ"
 
 msgid "Do you really want to apply the configuration changes?"
 msgstr "設定の変更を適用してよろしいですか？"
+
+msgid "Do you really want to copy the privileges from the shared folder?"
+msgstr ""
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -2342,6 +2345,9 @@ msgstr ""
 msgid "Please wait, updating access control lists ..."
 msgstr ""
 
+msgid "Please wait, updating the permissions ..."
+msgstr ""
+
 msgid "Plugins"
 msgstr "プラグイン"
 
@@ -3426,13 +3432,13 @@ msgstr ""
 msgid "This field should be an email address."
 msgstr ""
 
-msgid "This field should contain a floating point value."
+msgid "This field should contain a decimal value."
 msgstr ""
 
 msgid "This field should contain a number with a binary prefix."
 msgstr ""
 
-msgid "This field should contain an integer value."
+msgid "This field should contain a numeric value."
 msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."

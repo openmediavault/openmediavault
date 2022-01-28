@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2022-01-15 07:41+0000\n"
-"Last-Translator: Jonatan Nyberg <jonatan@autistici.org>\n"
+"POT-Creation-Date: 2022-01-26 18:35+0000\n"
+"PO-Revision-Date: 2022-01-26 18:37+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -957,6 +957,9 @@ msgstr "Djibouti"
 
 msgid "Do you really want to apply the configuration changes?"
 msgstr "Vill du verkligen verkställa konfigurationsändringarna?"
+
+msgid "Do you really want to copy the privileges from the shared folder?"
+msgstr ""
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -2345,6 +2348,9 @@ msgstr "Vänligen vänta, avmonterar filsystemet ..."
 msgid "Please wait, updating access control lists ..."
 msgstr "Vänligen vänta, uppdatera åtkomstkontrollistor ..."
 
+msgid "Please wait, updating the permissions ..."
+msgstr ""
+
 msgid "Plugins"
 msgstr "Insticksmoduler"
 
@@ -3429,14 +3435,14 @@ msgstr "Det här fältet ska vara en IPv6-adress."
 msgid "This field should be an email address."
 msgstr "Det här fältet ska vara en e-postadress."
 
-msgid "This field should contain a floating point value."
-msgstr "Det här fältet ska innehålla ett flyttalsvärde."
+msgid "This field should contain a decimal value."
+msgstr ""
 
 msgid "This field should contain a number with a binary prefix."
 msgstr "Det här fältet ska innehålla ett tal med ett binärt prefix."
 
-msgid "This field should contain an integer value."
-msgstr "Det här fältet bör innehålla ett heltalsvärde."
+msgid "This field should contain a numeric value."
+msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Denna funktion är effektiv bara om hårddisken stöder den."

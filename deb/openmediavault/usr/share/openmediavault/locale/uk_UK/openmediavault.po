@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Андрей Чапалда <ansilent@gmail.com>, 2012
-# zubr139, 2013-2019,2021
+# zubr139, 2013-2019,2021-2022
 # Андрей Чапалда <ansilent@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2022-01-11 20:20+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-01-26 18:35+0000\n"
+"PO-Revision-Date: 2022-01-27 18:28+0000\n"
+"Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +61,7 @@ msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Мінімальне енергоспоживання в режимі очікування (spindown)"
 
 msgid "1 GiB"
-msgstr ""
+msgstr "1 ҐіБ"
 
 msgid "1 MiB"
 msgstr ""
@@ -956,6 +956,9 @@ msgstr "Джібуті"
 
 msgid "Do you really want to apply the configuration changes?"
 msgstr "Бажаєте застосувати зміни в конфігурації?"
+
+msgid "Do you really want to copy the privileges from the shared folder?"
+msgstr "Бажаєте скопіювати привілеї зі спільної теки?"
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -2344,6 +2347,9 @@ msgstr "Будь ласка, зачекайте, розмонтовується 
 msgid "Please wait, updating access control lists ..."
 msgstr "Зачекайте, оновлюються списки контролю доступу ..."
 
+msgid "Please wait, updating the permissions ..."
+msgstr ""
+
 msgid "Plugins"
 msgstr "Модулі"
 
@@ -3428,14 +3434,14 @@ msgstr "Це поле повинно містити IPv6 адресу."
 msgid "This field should be an email address."
 msgstr "Це поле має містити адресу електронної пошти."
 
-msgid "This field should contain a floating point value."
-msgstr "Це поле має містити значення з плаваючою комою."
+msgid "This field should contain a decimal value."
+msgstr ""
 
 msgid "This field should contain a number with a binary prefix."
 msgstr ""
 
-msgid "This field should contain an integer value."
-msgstr "Це поле має містити ціле значення."
+msgid "This field should contain a numeric value."
+msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Ця функція ефективна лише якщо жорсткий диск підтримує її."

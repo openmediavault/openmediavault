@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2022-01-21 01:20+0000\n"
+"POT-Creation-Date: 2022-01-26 18:35+0000\n"
+"PO-Revision-Date: 2022-01-27 05:42+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -957,6 +957,9 @@ msgstr "吉布提"
 
 msgid "Do you really want to apply the configuration changes?"
 msgstr "确定要应用变更配置？"
+
+msgid "Do you really want to copy the privileges from the shared folder?"
+msgstr "您确定要从共享文件夹中复制权限吗？"
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -2345,6 +2348,9 @@ msgstr "请稍等，正在卸载文件系统……"
 msgid "Please wait, updating access control lists ..."
 msgstr "请稍等，正在更新访问控制列表……"
 
+msgid "Please wait, updating the permissions ..."
+msgstr "请稍等，更新权限中 ..."
+
 msgid "Plugins"
 msgstr "插件"
 
@@ -3429,14 +3435,14 @@ msgstr "此处应该是 IPv6 地址"
 msgid "This field should be an email address."
 msgstr "此处应该是电子邮箱地址。"
 
-msgid "This field should contain a floating point value."
-msgstr "此处应包含小数点。"
+msgid "This field should contain a decimal value."
+msgstr "此处应包含一个十进制值。"
 
 msgid "This field should contain a number with a binary prefix."
 msgstr "此字段应该包含二进制前缀的数字。"
 
-msgid "This field should contain an integer value."
-msgstr "此处应包含整数值。"
+msgid "This field should contain a numeric value."
+msgstr "此处应包含一个数值。"
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "如果磁盘支持此功能才有效。"

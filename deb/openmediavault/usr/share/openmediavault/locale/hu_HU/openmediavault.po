@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2022-01-15 22:42+0000\n"
+"POT-Creation-Date: 2022-01-26 18:35+0000\n"
+"PO-Revision-Date: 2022-01-27 19:27+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -629,7 +629,7 @@ msgid "Check interval"
 msgstr "Intervallum ellenőrzése"
 
 msgid "Checking for new plugins ..."
-msgstr "Új bővítmények keresése ..."
+msgstr "Új bővítmények keresése…"
 
 msgid "Chile"
 msgstr "Chile"
@@ -960,6 +960,9 @@ msgstr "Dzsibuti"
 
 msgid "Do you really want to apply the configuration changes?"
 msgstr "Valóban alkalmazni szeretné a konfigurációs változásokat?"
+
+msgid "Do you really want to copy the privileges from the shared folder?"
+msgstr "Valóban lemásolhatóak a megosztott mappa jogosultságai?"
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -1737,7 +1740,7 @@ msgid "Load average"
 msgstr "Terhelési átlag"
 
 msgid "Loading ..."
-msgstr "Betöltés..."
+msgstr "Betöltés…"
 
 msgid "Local"
 msgstr "Helyi"
@@ -2310,43 +2313,46 @@ msgid "Please choose the method to wipe the device."
 msgstr "Kérjük, válassza ki az eszköz törlésének módját. "
 
 msgid "Please wait ..."
-msgstr "Kis türelmet ..."
+msgstr "Kis türelmet…"
 
 msgid "Please wait, deleting selected item(s) ..."
-msgstr "Kijelölt elem(ek) törlése, kérjük várjon ..."
+msgstr "Kijelölt elem(ek) törlése, kérjük várjon…"
 
 msgid "Please wait, identifying network device ..."
-msgstr "Hálózati eszköz azonosítása, kérjük várjon ... "
+msgstr "Hálózati eszköz azonosítása, kérjük várjon…"
 
 msgid "Please wait, installing public SSH key on remote system ..."
-msgstr "Nyilvános SSH kulcs telepítése a távoli rendszerre, kérjük várjon ... "
+msgstr "Nyilvános SSH kulcs telepítése a távoli rendszerre, kérjük várjon…"
 
 msgid "Please wait, processing selected item(s) ..."
-msgstr "Kiválasztott elem(ek) feldolgozása, kérjük várjon ... "
+msgstr "Kiválasztott elem(ek) feldolgozása, kérjük várjon…"
 
 msgid "Please wait, reverting configuration changes ..."
-msgstr "Konfigurációs változtatások visszaállítása, kérjük várjon ... "
+msgstr "Konfigurációs változtatások visszaállítása, kérjük várjon…"
 
 msgid "Please wait, sending a test email ..."
-msgstr "Teszt email küldése, kérjük várjon ... "
+msgstr "Teszt email küldése, kérjük várjon…"
 
 msgid "Please wait, the configuration changes are being applied ..."
-msgstr "Kérjük várjon, a konfigurációs változások érvénybe lépéséig ..."
+msgstr "Kérjük várjon, a konfigurációs változások érvénybe lépéséig…"
 
 msgid "Please wait, the data is being loaded ..."
-msgstr "Kérjük várjon, az adatok betöltése folyamatban van ..."
+msgstr "Kérjük várjon, az adatok betöltése folyamatban van…"
 
 msgid "Please wait, the file system is being mounted ..."
-msgstr "Kérjük várjon, a fájlrendszer telepítése folyamatban van ... "
+msgstr "Kérjük várjon, a fájlrendszer telepítése folyamatban van…"
 
 msgid "Please wait, the statistic graphs will be regenerated ..."
-msgstr "Kérjük várjon, amíg a statisztikai grafikonok újból elkészülnek ..."
+msgstr "Kérjük várjon, amíg a statisztikai grafikonok újból elkészülnek…"
 
 msgid "Please wait, unmounting the file system ..."
-msgstr "Fájlrendszer leválasztása, kérjük várjon ... "
+msgstr "Fájlrendszer leválasztása, kérjük várjon…"
 
 msgid "Please wait, updating access control lists ..."
-msgstr "Hozzáférés ellenőrzési listák frissítése, kérjük várjon ... "
+msgstr "Hozzáférés ellenőrzési listák frissítése, kérjük várjon…"
+
+msgid "Please wait, updating the permissions ..."
+msgstr "Jogosultságok frissítése, kérjük várjon…"
 
 msgid "Plugins"
 msgstr "Bővítmények"
@@ -2737,7 +2743,7 @@ msgid "Scan for new devices"
 msgstr "Új eszközök keresése"
 
 msgid "Scanning for new devices ..."
-msgstr "Új eszközök keresése ..."
+msgstr "Új eszközök keresése…"
 
 msgid "Scheduled Tasks"
 msgstr "Ütemezett feladatok"
@@ -2764,40 +2770,40 @@ msgid "Secure connection"
 msgstr "Biztonságos kapcsolat"
 
 msgid "Select a country ..."
-msgstr "Válasszon ki egy országot ..."
+msgstr "Válasszon ki egy országot…"
 
 msgid "Select a device ..."
-msgstr "Válasszon ki egy meghajtót ..."
+msgstr "Válasszon ki egy meghajtót…"
 
 msgid "Select a file system ..."
-msgstr "Válasszon ki egy fájlrendszert ..."
+msgstr "Válasszon ki egy fájlrendszert…"
 
 msgid "Select a group ..."
-msgstr "Válasszon egy csoportot ..."
+msgstr "Válasszon egy csoportot…"
 
 msgid "Select a shared folder ..."
-msgstr "Válasszon ki egy megosztott mappát ..."
+msgstr "Válasszon ki egy megosztott mappát…"
 
 msgid "Select a shell ..."
-msgstr "Válasszon ki egy parancsértelmezőt ..."
+msgstr "Válasszon ki egy parancsértelmezőt…"
 
 msgid "Select a system log ..."
-msgstr "Válasszon ki egy rendszernaplót ..."
+msgstr "Válasszon ki egy rendszernaplót…"
 
 msgid "Select a type ..."
-msgstr "Válasszon ki egy típust ..."
+msgstr "Válasszon ki egy típust…"
 
 msgid "Select all"
 msgstr "Összes kijelölése"
 
 msgid "Select an authentication mode ..."
-msgstr "Válasszon ki egy hitelesítési módot ..."
+msgstr "Válasszon ki egy hitelesítési módot…"
 
 msgid "Select an user ..."
-msgstr "Válasszon ki egy felhasználót ..."
+msgstr "Válasszon ki egy felhasználót…"
 
 msgid "Select devices ..."
-msgstr "Eszközök kiválasztása ..."
+msgstr "Eszközök kiválasztása…"
 
 msgid "Select devices to be added to the RAID device."
 msgstr "Kiválasztott meghajtók hozzáadása a RAID tömbhöz."
@@ -2806,19 +2812,19 @@ msgid "Select devices to be removed from the RAID device."
 msgstr "Kiválasztott meghajtók eltávolítása a RAID tömbből."
 
 msgid "Select groups ..."
-msgstr "Csoportok kiválasztása ..."
+msgstr "Csoportok kiválasztása…"
 
 msgid "Select interface devices ..."
-msgstr "Interfész eszközök kiválasztása ..."
+msgstr "Interfész eszközök kiválasztása…"
 
 msgid "Select members ..."
-msgstr "Tagok kiválasztása ..."
+msgstr "Tagok kiválasztása…"
 
 msgid "Select permissions ..."
-msgstr "Engedélyek kiválasztása ..."
+msgstr "Engedélyek kiválasztása…"
 
 msgid "Select slave devices ..."
-msgstr "Másodlagos eszközök kiválasztása ..."
+msgstr "Másodlagos eszközök kiválasztása…"
 
 msgid "Select the device that will be used to create the file system."
 msgstr "Jelölje ki a fájllendszer létrehozásához használt eszközt. "
@@ -3315,7 +3321,7 @@ msgid ""
 msgstr "A távoli forrás szerver, pl. [FELHASZNÁLÓ@]HOSZT:FORRÁS, [FELHASZNÁLÓ@]HOSZT::FORRÁS vagy rsync://[FELHASZNÁLÓ@]HOSZT[:PORT]/FORRÁS."
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr "A rendszer most újraindul. Ez eltarthat egy ideig ..."
+msgstr "A rendszer most újraindul. Ez eltarthat egy ideig…"
 
 msgid "The type of the file system to create."
 msgstr "A létrehozandó fájlrendszer típusa."
@@ -3432,14 +3438,14 @@ msgstr "E mezőnek IPv6 címnek kell lennie."
 msgid "This field should be an email address."
 msgstr "E mezőnek email címnek kell lennie."
 
-msgid "This field should contain a floating point value."
-msgstr "Ennek a mezőnek lebegőpontos értéket kell tartalmaznia."
+msgid "This field should contain a decimal value."
+msgstr "Ennek a mezőnek tizedes értéket kell tartalmaznia."
 
 msgid "This field should contain a number with a binary prefix."
 msgstr "Ennek a mezőnek egy számot kell tartalmaznia bináris előtaggal."
 
-msgid "This field should contain an integer value."
-msgstr "Ennek a mezőnek egész számértéket kell tartalmaznia."
+msgid "This field should contain a numeric value."
+msgstr "Ennek a mezőnek numerikus értéket kell tartalmaznia."
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Ez a funkció csak akkor hatékony, ha a merevlemez támogatja."

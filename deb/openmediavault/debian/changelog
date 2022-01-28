@@ -1,5 +1,6 @@
 openmediavault (6.0.10-1) unstable; urgency=low
 
+  * Update locale files.
   * Make sure SMB recycle bin is cleared immediately when the
     button is pressed in the UI.
 

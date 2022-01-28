@@ -5,15 +5,15 @@
 # Translators:
 # jmcainzos <jmcainzos@vodafone.es>, 2013
 # jmcainzos <jmcainzos@vodafone.es>, 2012
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2021
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2022
 # Volker Theile <votdev@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2022-01-11 20:20+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-01-26 18:35+0000\n"
+"PO-Revision-Date: 2022-01-27 19:39+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,10 +62,10 @@ msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Consumo mínimo en reposo (spindown)"
 
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 msgid "1 day"
 msgstr "1 día"
@@ -86,7 +86,7 @@ msgid "1 year"
 msgstr "1 año"
 
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 msgid "10 minutes"
 msgstr "10 minutos"
@@ -95,7 +95,7 @@ msgid "10 years"
 msgstr "10 años"
 
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 msgid "120 minutes"
 msgstr "120 minutos"
@@ -122,10 +122,10 @@ msgid "192 - Intermediate power usage without standby"
 msgstr "192 - Consumo medio sin reposo"
 
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 msgid "2 MiB"
-msgstr ""
+msgstr "2 MiB"
 
 msgid "2 days"
 msgstr "2 días"
@@ -149,13 +149,13 @@ msgid "240 minutes"
 msgstr "240 minutos"
 
 msgid "25 MiB"
-msgstr ""
+msgstr "25 MiB"
 
 msgid "25 years"
 msgstr "25 años"
 
 msgid "250 MiB"
-msgstr ""
+msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Máximo rendimiento, máximo consumo"
@@ -188,7 +188,7 @@ msgid "330 minutes"
 msgstr "330 minutos"
 
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 msgid "4 days"
 msgstr "4 días"
@@ -200,7 +200,7 @@ msgid "4 years"
 msgstr "4 años"
 
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 msgid "5 days"
 msgstr "5 días"
@@ -215,10 +215,10 @@ msgid "5 years"
 msgstr "5 años"
 
 msgid "50 MiB"
-msgstr ""
+msgstr "50 MiB"
 
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 msgid "6 days"
 msgstr "6 días"
@@ -233,10 +233,10 @@ msgid "64 - Intermediate power usage with standby"
 msgstr "64 - Consumo medio con reposo"
 
 msgid "75 MiB"
-msgstr ""
+msgstr "75 MiB"
 
 msgid "750 MiB"
-msgstr ""
+msgstr "750 MiB"
 
 msgid "9 months"
 msgstr "9 meses"
@@ -958,6 +958,9 @@ msgstr "Djibouti"
 msgid "Do you really want to apply the configuration changes?"
 msgstr "¿Seguro que quiere aplicar los cambios en la configuración?"
 
+msgid "Do you really want to copy the privileges from the shared folder?"
+msgstr "¿Desea realmente copiar los privilegios de la carpeta compartida?"
+
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
 "join(\", \") }}</strong>?"
@@ -1236,7 +1239,7 @@ msgstr "Los archivos de la papelera serán borrados automáticamente despues de 
 msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
-msgstr ""
+msgstr "Archivos de mayor tamaño que el numero especificado no serán mandados a la papelera de reciclaje."
 
 msgid "Filesize"
 msgstr "Tamaño del archivo"
@@ -2345,6 +2348,9 @@ msgstr "Espere, desmontando el sistema de archivos ..."
 msgid "Please wait, updating access control lists ..."
 msgstr "Espere, actualizando la lista de control de acceso ..."
 
+msgid "Please wait, updating the permissions ..."
+msgstr "Espero, Actualizando permisos ..."
+
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -3429,14 +3435,14 @@ msgstr "El campo debe ser una dirección IPv6."
 msgid "This field should be an email address."
 msgstr "El campo debe ser una dirección de correo email."
 
-msgid "This field should contain a floating point value."
-msgstr "Este campo debe contener un valor en coma flotante."
+msgid "This field should contain a decimal value."
+msgstr "Este campo debe contener un valor decimal."
 
 msgid "This field should contain a number with a binary prefix."
-msgstr ""
+msgstr "Este campo debe contener un numero con prefijo binario."
 
-msgid "This field should contain an integer value."
-msgstr "Este campo debe contener un entero."
+msgid "This field should contain a numeric value."
+msgstr "Este campo debe contener un número."
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Esta opción es efectiva solo si la soporta el dispositivo."
@@ -3529,10 +3535,10 @@ msgid "This specifies what to do if the packet matches."
 msgstr "Que se debe hacer si el paquete coincide."
 
 msgid "This will create a recycle bin for each user home directory."
-msgstr ""
+msgstr "Esto creará una papelera de reciclaje para cada usuario en home."
 
 msgid "This will create a recycle bin for the share."
-msgstr ""
+msgstr "Esto creará una papelera de reciclaje para el compartido."
 
 msgid "Threshold"
 msgstr "Margen"
@@ -3666,7 +3672,7 @@ msgid "Unmount"
 msgstr "Desmontar"
 
 msgid "Unrestricted"
-msgstr ""
+msgstr "Sin restricciones"
 
 msgid "Up"
 msgstr "Subida"

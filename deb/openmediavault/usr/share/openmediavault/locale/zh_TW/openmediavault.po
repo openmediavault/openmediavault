@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2022-01-12 01:44+0000\n"
+"POT-Creation-Date: 2022-01-26 18:35+0000\n"
+"PO-Revision-Date: 2022-01-27 01:57+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 msgid ""
 "\"Set the group of the destination file to be the same as the source file."
-msgstr "\"將目的檔案的群組設定為與來源檔案相同。"
+msgstr "「將目的檔案的群組設定為與來源檔案相同。"
 
 msgid "%d days"
 msgstr "%d 天"
@@ -956,6 +956,9 @@ msgstr "吉布提"
 
 msgid "Do you really want to apply the configuration changes?"
 msgstr "你真的要套用此配置變更？"
+
+msgid "Do you really want to copy the privileges from the shared folder?"
+msgstr "您真的要從分享資料夾中複製權限嗎？"
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -2344,6 +2347,9 @@ msgstr "請稍待，正在卸載檔案系統中 ..."
 msgid "Please wait, updating access control lists ..."
 msgstr "請稍待，正在更新存取控制列表中 ..."
 
+msgid "Please wait, updating the permissions ..."
+msgstr "請稍候，正在更新權限……"
+
 msgid "Plugins"
 msgstr "插件"
 
@@ -3428,14 +3434,14 @@ msgstr "此欄位應該是一個 IPv6 位址。"
 msgid "This field should be an email address."
 msgstr "此欄位應該是一個電子郵件地址。"
 
-msgid "This field should contain a floating point value."
-msgstr "此欄位應包含浮點值。"
+msgid "This field should contain a decimal value."
+msgstr "此欄位應包含十進位值。"
 
 msgid "This field should contain a number with a binary prefix."
 msgstr "此欄位應該要包含一個有二進位前綴的數字。"
 
-msgid "This field should contain an integer value."
-msgstr "此欄位應包含整數值。"
+msgid "This field should contain a numeric value."
+msgstr "此欄位應包含數值。"
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "此功能只有當硬碟提供支援才有效。"

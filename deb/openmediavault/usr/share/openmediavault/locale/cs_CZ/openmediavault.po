@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2022-01-11 20:20+0000\n"
+"POT-Creation-Date: 2022-01-26 18:35+0000\n"
+"PO-Revision-Date: 2022-01-26 18:37+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -955,6 +955,9 @@ msgstr "Džibutsko"
 
 msgid "Do you really want to apply the configuration changes?"
 msgstr "Opravdu chcete změny v nastavení potvrdit?"
+
+msgid "Do you really want to copy the privileges from the shared folder?"
+msgstr ""
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -2343,6 +2346,9 @@ msgstr "Vyčkejte, odpojuje se souborový systém"
 msgid "Please wait, updating access control lists ..."
 msgstr "Vyčkejte, aktualizují se seznamy řízení přístupu"
 
+msgid "Please wait, updating the permissions ..."
+msgstr ""
+
 msgid "Plugins"
 msgstr "Zásuvné moduly"
 
@@ -3427,13 +3433,13 @@ msgstr "Tato kolonka by měla obsahovat IPv6 adresu."
 msgid "This field should be an email address."
 msgstr "Tato kolonka by měla obsahovat e-mailovou adresu."
 
-msgid "This field should contain a floating point value."
+msgid "This field should contain a decimal value."
 msgstr ""
 
 msgid "This field should contain a number with a binary prefix."
 msgstr ""
 
-msgid "This field should contain an integer value."
+msgid "This field should contain a numeric value."
 msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."
