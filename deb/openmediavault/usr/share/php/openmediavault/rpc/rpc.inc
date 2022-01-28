@@ -199,7 +199,9 @@ class Rpc {
 				$error = $response['error'];
 				$e = new TraceException($error['message'], $error['code'],
 					$error['trace']);
-				$e->setHttpStatusCode($error['http_status_code']);
+				if (is_int($error['http_status_code'])) {
+					$e->setHttpStatusCode($error['http_status_code']);
+				}
 				throw $e;
 			}
 			return $response['response'];
