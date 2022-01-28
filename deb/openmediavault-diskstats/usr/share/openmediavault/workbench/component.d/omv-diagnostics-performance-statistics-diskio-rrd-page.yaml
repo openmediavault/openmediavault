@@ -22,3 +22,8 @@ data:
       sorters:
         - prop: parentdevicefile
           dir: asc
+      filters:
+        - operator: "startsWith"
+          arg0:
+            prop: "parentdevicefile"
+          arg1: "/dev/"
