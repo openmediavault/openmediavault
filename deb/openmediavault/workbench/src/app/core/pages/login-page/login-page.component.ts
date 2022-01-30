@@ -53,6 +53,7 @@ export class LoginPageComponent implements OnInit {
         label: gettext('User name'),
         autofocus: true,
         autocomplete: 'username',
+        autocapitalize: 'none',
         icon: Icon.user,
         validators: {
           required: true
