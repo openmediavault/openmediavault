@@ -344,7 +344,7 @@ export class SharedFolderAclFormPageComponent implements OnInit {
     const groups = _.filter(perms, ['type', 'group']);
     const rpcParams = _.merge({ users, groups }, _.omit(values, 'perms'));
     this.rpcService
-      .request('ShareMgmt', 'setFileACL', rpcParams)
+      .requestTask('ShareMgmt', 'setFileACL', rpcParams)
       .pipe(
         finalize(() => {
           this.blockUI.stop();
