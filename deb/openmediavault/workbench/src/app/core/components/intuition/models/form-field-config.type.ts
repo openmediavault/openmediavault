@@ -149,6 +149,11 @@ export type FormFieldConfig = {
       | 'binaryUnit';
   };
 
+  // --- textarea | textInput | fileInput | folderBrowser | password ---
+  // Defaults to 'off'.
+  // See https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize
+  autocapitalize?: 'off' | 'on' | 'words' | 'characters';
+
   // --- container ---
   fields?: Array<FormFieldConfig>;
   // Fields in a container will respect the 'flex' configuration.
