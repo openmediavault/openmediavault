@@ -143,6 +143,26 @@ openmediavault (6.0-34) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Dec 2020 20:28:37 +0100
 
+openmediavault (5.6.25-1) stable; urgency=low
+
+  * Fix issue in SMB recycle cron job.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 17 Jan 2022 20:54:12 +0100
+
+openmediavault (5.6.24-1) stable; urgency=low
+
+  * Notify users that an upgrade to OMV6 is not possible on side-by-side
+    installations with a desktop environment.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 15 Jan 2022 21:18:33 +0100
+
+openmediavault (5.6.23-1) stable; urgency=low
+
+  * omv-release-upgrade will take care that the /usr merge has
+    been applied to the system.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Dec 2021 00:12:32 +0100
+
 openmediavault (5.6.22-1) stable; urgency=low
 
   * Issue #618: Remove backslash in Monit notification email.
