@@ -191,7 +191,7 @@
              let-value="value">
   <ng-container *ngIf="value">
     <span [matTooltip]="value">{{ value }}</span>
-    <mat-icon class="omv-icon-sm omv-cursor-pointer"
+    <mat-icon class="omv-icon-sm omv-cursor-pointer omv-ml-q"
               svgIcon="{{ icon.copy }}"
               matTooltip="{{ 'Copy to clipboard' | translate }}"
               (click)="onCopyToClipboard(value)">
