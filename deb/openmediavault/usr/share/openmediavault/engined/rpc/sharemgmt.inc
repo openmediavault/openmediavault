@@ -991,9 +991,8 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "two-dot symbols");
 		}
 		// Create the background process.
-		$aclSpecFile = tempnam(sys_get_temp_dir(), "setfacl");
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
-		  use ($params, $context, $aclSpecFile) {
+		  use ($params, $context) {
 			// Get the absolute shared folder path.
 			$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", [
 				"uuid" => $params['uuid']
@@ -1030,30 +1029,31 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// 2. Update the directory/file access control lists
 			////////////////////////////////////////////////////////////////////
 			// Build the ACL specifications.
-			$aclspec = [];
+			$aclSpec = [];
+			$aclSpecFile = new \OMV\System\TmpFile();
 			// Set permissions of a named users and groups.
 			foreach ([ "user", "group" ] as $typek => $typev) {
 				foreach ($params["{$typev}s"] as $entryk => $entryv) {
-					$aclspec[] = sprintf("default:%s:%s:%d", $typev,
-					  $entryv['name'], $entryv['perms']);
-					$aclspec[] = sprintf("%s:%s:%d", $typev,
-					  $entryv['name'], $entryv['perms']);
+					$aclSpec[] = sprintf("default:%s:%s:%d", $typev,
+						$entryv['name'], $entryv['perms']);
+					$aclSpec[] = sprintf("%s:%s:%d", $typev,
+						$entryv['name'], $entryv['perms']);
 				}
 			}
 			// Set default owner permissions.
 			if (array_key_exists("userperms", $params)) {
-				$aclspec[] = sprintf("default:user::%d", $params['userperms']);
-				$aclspec[] = sprintf("user::%d", $params['userperms']);
+				$aclSpec[] = sprintf("default:user::%d", $params['userperms']);
+				$aclSpec[] = sprintf("user::%d", $params['userperms']);
 			}
 			// Set default owning group permissions.
 			if (array_key_exists("groupperms", $params)) {
-				$aclspec[] = sprintf("default:group::%d", $params['groupperms']);
-				$aclspec[] = sprintf("group::%d", $params['groupperms']);
+				$aclSpec[] = sprintf("default:group::%d", $params['groupperms']);
+				$aclSpec[] = sprintf("group::%d", $params['groupperms']);
 			}
 			// Set default permissions of others.
 			if (array_key_exists("otherperms", $params)) {
-				$aclspec[] = sprintf("default:other::%d", $params['otherperms']);
-				$aclspec[] = sprintf("other::%d", $params['otherperms']);
+				$aclSpec[] = sprintf("default:other::%d", $params['otherperms']);
+				$aclSpec[] = sprintf("other::%d", $params['otherperms']);
 			}
 			// Build the command arguments list.
 			$cmdArgs = [];
@@ -1061,32 +1061,29 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = "--remove-all";
 			if (TRUE === boolvalEx($params['recursive']))
 				$cmdArgs[] = "--recursive";
-			if (!empty($aclspec)) {
-				if (FALSE === file_put_contents($aclSpecFile, implode("\n",
-				  $aclspec))) {
+			if (!empty($aclSpec)) {
+				if (FALSE === $aclSpecFile->write(implode("\n", $aclSpec))) {
 					throw new \OMV\Exception(
-					  "Failed to write ACL entries to file.");
+						"Failed to write ACL entries to file.");
 				}
 				// Read the ACL entries from file. The CLI argument list
 				// is limited which will cause an error if the user/group
 				// list is too large.
-				$cmdArgs[] = sprintf("-M %s", escapeshellarg($aclSpecFile));
+				$cmdArgs[] = sprintf("-M %s", escapeshellarg(
+					$aclSpecFile->getFileName()));
 			}
 			$cmdArgs[] = "--";
-			$cmdArgs[] =  escapeshellarg(build_path(DIRECTORY_SEPARATOR,
-			  $sfpath, $params['file']));
+			$cmdArgs[] = escapeshellarg(build_path(DIRECTORY_SEPARATOR,
+				$sfpath, $params['file']));
 			// Execute command to set the file access control lists.
 			$cmd = new \OMV\System\Process("setfacl", $cmdArgs);
 			$cmd->setRedirect2to1();
 			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
-				$output, $bgOutputFilename))) {
+					$output, $bgOutputFilename))) {
 				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
 					$exitStatus);
 			}
 			return $output;
-		}, NULL, function() use ($aclSpecFile) {
-			// Cleanup ACL entries file.
-			unlink($aclSpecFile);
 		});
 	}
 
