@@ -122,7 +122,12 @@ export class SharedFolderDatatablePageComponent {
         tooltip: gettext('Access control list'),
         enabledConstraints: {
           minSelected: 1,
-          maxSelected: 1
+          maxSelected: 1,
+          constraint: [
+            // Enable button if the selected shared folder is located on
+            // a POSIX compliant file system.
+            { operator: 'truthy', arg0: { prop: 'mntent.posixacl' } }
+          ]
         },
         execute: {
           type: 'url',
