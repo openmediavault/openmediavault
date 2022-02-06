@@ -128,7 +128,7 @@
 			            },
 			            "perms": {
 			                "type": "integer",
-			                "enum": [ -1, 0, 5, 7 ],
+			                "enum": [ 0, 5, 7 ],
 							"required": true
 			            }
 			        }

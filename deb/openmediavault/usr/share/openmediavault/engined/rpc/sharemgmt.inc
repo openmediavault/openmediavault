@@ -722,7 +722,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em name The name of the user or group.
 	 *   \em privileges An array of privileges with the fields:
 	 *     \em uuid The shared folder UUID.
-	 *     \em perms The privileges: -1 (undef), 0 (none), 5 (r) or 7 (r/w).
+	 *     \em perms The privileges: 0 (none), 5 (r) or 7 (r/w).
 	 * @return An array of the stored configuration objects.
 	 */
 	public function setPrivilegesByRole($params, $context) {
@@ -732,34 +732,39 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.sharemgmt.setprivilegesbyrole");
+		// Get all configured shared folder configuration objects and
+		// iterate over them.
+		$db = \OMV\Config\Database::getInstance();
+		$sfObjects = $db->get("conf.system.sharedfolder");
 		$result = [];
-		foreach ($params['privileges'] as $privk => $privv) {
-			// Get the privilege configuration for the given shared folder.
-			$oldPrivileges = $this->callMethod("getPrivileges", [
-				"uuid" => $privv['uuid']
+		foreach ($sfObjects as $sfObjectk => $sfObjectv) {
+			// Get the privilege configuration of the current processed
+			// shared folder.
+			$privObjects = $this->callMethod("getPrivileges", [
+				"uuid" => $sfObjectv->getIdentifier()
 			], $context);
-			// Rebuild the shared folder privileges using the given
-			// configuration.
-			$newPrivileges = [];
-			foreach ($oldPrivileges as $oldPrivilegek => $oldPrivilegev) {
-				// Do we have to update or delete the processing privilege?
-				if (($oldPrivilegev['type'] == $params['role']) &&
-				  ($oldPrivilegev['name'] == $params['name'])) {
-					if (-1 == $privv['perms']) // Delete the privilege.
+			$privilege = current(array_filter_ex($params['privileges'],
+				"uuid", $sfObjectv->getIdentifier()));
+			$newPrivObjects = [];
+			foreach ($privObjects as $privObjectk => $privObjectv) {
+				if (($privObjectv['type'] === $params['role']) &&
+						($privObjectv['name'] === $params['name'])) {
+				  	// Remove or update the privilege?
+					if (FALSE === $privilege) {
 						continue;
-					// Update the privilege.
-					$oldPrivilegev['perms'] = $privv['perms'];
+					}
+					$privObjectv['perms'] = $privilege['perms'];
 				}
-				// Finally skip entries with perms = NULL if they are
-				// not updated.
-				if (FALSE === is_int($oldPrivilegev['perms']))
+				// Purge entries with invalid perms.
+				if (FALSE === is_int($privObjectv['perms'])) {
 					continue;
-				$newPrivileges[] = $oldPrivilegev;
+				}
+				$newPrivObjects[] = $privObjectv;
 			}
 			// Update the shared folder privileges.
 			$result[] = $this->callMethod("setPrivileges", [
-				"uuid" => $privv['uuid'],
-				"privileges" => $newPrivileges
+				"uuid" => $sfObjectv->getIdentifier(),
+				"privileges" => $newPrivObjects
 			], $context);
 		}
 		return $result;
