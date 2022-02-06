@@ -157,7 +157,7 @@ class System {
 
 	/**
 	 * Get memory statistics.
-	 * @return The memory statistics as array or FALSE on failure.
+	 * @return The memory statistics as array.
 	 * array(
 	 *   mem (
 	 *     total => xxx, (bytes)
@@ -166,20 +166,19 @@ class System {
 	 *     shared => xxx, (bytes)
 	 *     buffers => xxx, (bytes)
 	 *     cached => xxx, (bytes)
-	 *   )
-	 *   wobufferscache (
-	 *     used => xxx, (bytes)
-	 *     free => xxx, (bytes)
+	 *     utilization => xxx, (float)
 	 *   )
 	 *   swap (
 	 *     total => xxx, (bytes)
 	 *     used => xxx, (bytes)
 	 *     free => xxx, (bytes)
+	 *     utilization => xxx, (float)
 	 *   )
 	 *   total (
 	 *     total => xxx, (bytes)
 	 *     used => xxx, (bytes)
 	 *     free => xxx, (bytes)
+	 *     utilization => xxx, (float)
 	 *   )
 	 * )
 	 */
@@ -218,19 +217,27 @@ class System {
 				"shared" => 0,
 				"buffers" => 0,
 				"cache" => 0,
-				"available" => 0
+				"available" => 0,
+				"utilization" => 0
 			],
 			"swap" => [
 				"total" => 0,
 				"used" => 0,
-				"free" => 0
+				"free" => 0,
+				"utilization" => 0
 			],
 			"total" => [
 				"total" => 0,
 				"used" => 0,
-				"free" => 0
+				"free" => 0,
+				"utilization" => 0
 			]
 		];
+		// The utilization is calculated based on
+		// https://github.com/giampaolo/psutil/blob/release-5.9.0/psutil/_pslinux.py#L523
+		$calcUtilization = function($total, $avail, $scale = 5) {
+			return bcdiv(bcsub($total, $avail), $total, $scale);
+		};
 		// Parse command output:
 		//               total        used        free      shared     buffers       cache   available
 		// Mem:     2101825536    98390016  1823117312    12967936    16809984   163508224  1844318208
@@ -255,7 +262,7 @@ class System {
 		// cache     - Cache for various things.
 		foreach ($output as $outputk => $outputv) {
 			if (preg_match('/^Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/',
-			  $outputv, $matches)) {
+					$outputv, $matches)) {
 				$result['mem'] = [
 					"total" => $matches[1],
 					"used" => $matches[2],
@@ -264,31 +271,26 @@ class System {
 					"buffers" => $matches[5],
 					"cache" => $matches[6],
 					"available" => $matches[7],
-					// The utilization is calculated based on
-					// https://github.com/giampaolo/psutil/blob/master/psutil/_pslinux.py#L523
-					"utilization" => bcdiv(
-						bcsub($matches[1], $matches[7]),
-						$matches[1], 5)
+					"utilization" => $calcUtilization($matches[1],
+						$matches[7])
 				];
 			} else if (preg_match('/^Swap:\s+(\d+)\s+(\d+)\s+(\d+)$/',
-			  $outputv, $matches)) {
+					$outputv, $matches)) {
 				$result['swap'] = [
 					"total" => $matches[1],
 					"used" => $matches[2],
 					"free" => $matches[3],
-					"utilization" => bcdiv(
-						bcsub($matches[1], $matches[2]),
-						$matches[1], 5)
+					"utilization" => $calcUtilization($matches[1],
+						$matches[2])
 				];
 			} else if (preg_match('/^Total:\s+(\d+)\s+(\d+)\s+(\d+)$/',
-			  $outputv, $matches)) {
+					$outputv, $matches)) {
 				$result['total'] = [
 					"total" => $matches[1],
 					"used" => $matches[2],
 					"free" => $matches[3],
-					"utilization" => bcdiv(
-						bcsub($matches[1], $matches[2]),
-						$matches[1], 5)
+					"utilization" => $calcUtilization($matches[1],
+						$matches[2])
 				];
 			}
 		}
