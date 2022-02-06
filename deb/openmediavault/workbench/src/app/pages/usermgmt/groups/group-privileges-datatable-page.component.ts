@@ -44,6 +44,7 @@ export class GroupPrivilegesDatatablePageComponent {
       // eslint-disable-next-line max-len
       'These settings are used by the services to configure the access rights for the group "{{ _routeParams.name }}". Please note that these settings have no effect on file system permissions.'
     ),
+    selectionType: 'none',
     columns: [
       { name: gettext('Shared folder'), prop: 'name', flexGrow: 1, sortable: true },
       {
