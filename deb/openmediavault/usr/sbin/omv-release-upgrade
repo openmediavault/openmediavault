@@ -58,22 +58,28 @@ fi
 tmpdir=$(mktemp --tmpdir=/var/tmp --directory)
 cp -r ${OMV_UPGRADE_SCRIPTS_DIR}/* ${tmpdir}
 
-# Update the package database.
-apt-get update
+# Ensure the latest packages of the current release are installed.
+echo "Ensure the system is up-to-date before doing the release upgrade ..."
+omv-upgrade
 
 # Execute scripts before upgrade.
+echo "Running pre-upgrade scripts ..."
 run-parts --exit-on-error ${tmpdir}/pre.d
 
 # Upgrade to latest distribution.
+echo "Starting release upgrade ..."
+apt-get update
 apt-get --yes --force-yes --fix-missing --auto-remove --allow-unauthenticated \
   --show-upgraded --option Dpkg::Options::="--force-confdef" \
   --option DPkg::Options::="--force-confold" --no-install-recommends \
   dist-upgrade
 
 # Execute scripts after upgrade.
+echo "Running post-upgrade scripts ..."
 run-parts ${tmpdir}/post.d
 
 # Cleanup
+echo "Cleanup ..."
 rm -rf ${tmpdir}
 
 # Display final message.

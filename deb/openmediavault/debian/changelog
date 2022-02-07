@@ -1,6 +1,7 @@
 openmediavault (5.6.25-1) stable; urgency=low
 
   * Fix issue in SMB recycle cron job.
+  * Fix bug in omv-release-upgrade.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 17 Jan 2022 20:54:12 +0100
 
