@@ -20,6 +20,7 @@ import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import * as _ from 'lodash';
 import * as nunjucks from 'nunjucks';
+import validator from 'validator';
 
 import { translate } from '~/app/i18n.helper';
 
@@ -179,14 +180,24 @@ export const decodeURIComponentDeep = (o: Record<any, any> | undefined): Record<
 /**
  * Check whether a variable is an UUIDv4.
  *
+ * @deprecated
  * @param value The variable being evaluated.
  * @return `true` if the variable is an UUIDv4, otherwise `false`.
  */
-export const isUUIDv4 = (value: any): boolean => {
+export const isUUIDv4 = (value: any): boolean => isUUID(value);
+
+/**
+ * Check whether a variable is a UUID.
+ *
+ * @param value The variable being evaluated.
+ * @param version The UUID version.
+ * @return `true` if the variable is a UUID, otherwise `false`.
+ */
+export const isUUID = (value: any, version?: validator.UUIDVersion): boolean => {
   if (!_.isString(value) || _.isEmpty(value)) {
     return false;
   }
-  return /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value);
+  return validator.isUUID(value, version);
 };
 
 /**
@@ -198,7 +209,7 @@ export const isUUIDv4 = (value: any): boolean => {
  *   new database configuration object, otherwise `false`.
  */
 export const isNewConfObjUuid = (value: any): boolean => {
-  if (!isUUIDv4(value)) {
+  if (!isUUID(value)) {
     return false;
   }
   return value === format('{{ newconfobjuuid }}', {});

@@ -22,7 +22,7 @@ import * as _ from 'lodash';
 
 import { DatatablePageActionConfig } from '~/app/core/components/intuition/models/datatable-page-action-config.type';
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
-import { format, isUUIDv4 } from '~/app/functions.helper';
+import { format, isUUID } from '~/app/functions.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
 import { Datatable } from '~/app/shared/models/datatable.interface';
@@ -139,7 +139,7 @@ export class DiskDatatablePageComponent {
   onEdit(action: DatatablePageActionConfig, table: Datatable) {
     const selected = table.selection.first();
     let url: string;
-    if (isUUIDv4(_.get(selected, 'hdparm.uuid'))) {
+    if (isUUID(_.get(selected, 'hdparm.uuid'))) {
       url = '/storage/disks/hdparm/edit/{{ hdparm.uuid }}';
     } else {
       url = '/storage/disks/hdparm/create/{{ devicefile | encodeuricomponent }}';

@@ -17,7 +17,7 @@
  */
 import * as _ from 'lodash';
 
-import { format, isUUIDv4 } from '~/app/functions.helper';
+import { format, isUUID } from '~/app/functions.helper';
 import {
   Constraint,
   ConstraintProperty,
@@ -185,8 +185,8 @@ export class ConstraintService {
               arg0 = innerTest(data, node.arg0);
               result = _.get(arg0, 'length', 0);
               break;
-            case 'UUIDv4':
-              result = isUUIDv4(innerTest(data, node.arg0));
+            case 'UUID':
+              result = isUUID(innerTest(data, node.arg0));
               break;
             case 'truthy':
               result = _.includes([1, 'true', true, 'yes', 'y'], innerTest(data, node.arg0));

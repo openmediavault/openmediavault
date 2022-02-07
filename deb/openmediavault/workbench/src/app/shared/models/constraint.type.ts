@@ -38,7 +38,7 @@
  * | endsWith      | constraint || prop | value                       |
  * | regex         | constraint || prop | value                       |
  * | length        | prop || value      |                             |
- * | UUIDv4        | prop || value      |                             |
+ * | UUID          | prop || value      |                             |
  * | truthy        | prop || value      |                             |
  * | falsy         | prop || value      |                             |
  * | has           | prop               |                             |
@@ -117,7 +117,7 @@ export type Constraint = {
     | 'endsWith'
     | 'regex'
     | 'length'
-    | 'UUIDv4'
+    | 'UUID'
     | 'truthy'
     | 'falsy'
     | 'has';

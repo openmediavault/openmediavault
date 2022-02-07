@@ -7,7 +7,7 @@ import {
   format,
   formatDeep,
   isFormatable,
-  isUUIDv4,
+  isUUID,
   notAvailable,
   toBoolean,
   toBytes
@@ -96,23 +96,23 @@ describe('functions.helper', () => {
   });
 
   it('should be UUIDv4', () => {
-    expect(isUUIDv4('b3d2d83e-1aa7-11ea-a5e4-4b0fbf15b696')).toBeTruthy();
+    expect(isUUID('b3d2d83e-1aa7-11ea-a5e4-4b0fbf15b696')).toBeTruthy();
   });
 
   it('should be no UUIDv4 [1]', () => {
-    expect(isUUIDv4('')).toBeFalsy();
+    expect(isUUID('')).toBeFalsy();
   });
 
   it('should be no UUIDv4 [2]', () => {
-    expect(isUUIDv4('foo')).toBeFalsy();
+    expect(isUUID('foo')).toBeFalsy();
   });
 
   it('should be no UUIDv4 [3]', () => {
-    expect(isUUIDv4(2)).toBeFalsy();
+    expect(isUUID(2)).toBeFalsy();
   });
 
   it('should be no UUIDv4 [4]', () => {
-    expect(isUUIDv4(undefined)).toBeFalsy();
+    expect(isUUID(undefined)).toBeFalsy();
   });
 
   it('should be true [1]', () => {

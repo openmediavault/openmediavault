@@ -118,7 +118,7 @@ describe('ConstraintService', () => {
   it('should test (8)', () => {
     const result = ConstraintService.test(
       {
-        operator: 'UUIDv4',
+        operator: 'UUID',
         arg0: { prop: 'uuid' }
       },
       object
@@ -129,7 +129,7 @@ describe('ConstraintService', () => {
   it('should test (9)', () => {
     const result = ConstraintService.test(
       {
-        operator: 'UUIDv4',
+        operator: 'UUID',
         arg0: { prop: 'language' }
       },
       object

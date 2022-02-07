@@ -46,9 +46,6 @@ const regExp = {
   // http://tools.ietf.org/html/draft-leach-cifs-v1-spec-01
   // http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx
   shareName: /^[^.]([^"/\\\[\]:+|<>=;,*?. ]+){0,1}([.][^"/\\\[\]:+|<>=;,*?. ]+){0,}$/,
-  // http://de.wikipedia.org/wiki/Top-Level-Domain#Spezialf.C3.A4lle
-  email:
-    /^(")?(?:[^\."])(?:(?:[\.])?(?:[\w\-!#$%&'*+/=?^_`{|}~]))*\1@(\w[\-\w]*\.){1,5}([A-Za-z]){2,}$/,
   ipv4NetCidr:
     /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(3[0-2]|[0-2]?[0-9])$/,
   ipv6NetCidr: /^(?:[a-f0-9]{1,4}:){7}[a-f0-9]{1,4}\/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$/i,
@@ -251,7 +248,7 @@ export class CustomValidators {
         );
       case 'email':
         return CustomValidators.pattern(
-          regExp.email,
+          (value) => validator.isEmail(value),
           gettext('This field should be an email address.')
         );
       case 'ipv4':
