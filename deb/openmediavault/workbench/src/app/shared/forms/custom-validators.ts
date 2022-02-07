@@ -25,6 +25,7 @@ import {
 } from '@angular/forms';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
+import validator from 'validator';
 
 import { format, formatDeep, toBytes } from '~/app/functions.helper';
 import { Constraint } from '~/app/shared/models/constraint.type';
@@ -48,8 +49,6 @@ const regExp = {
   // http://de.wikipedia.org/wiki/Top-Level-Domain#Spezialf.C3.A4lle
   email:
     /^(")?(?:[^\."])(?:(?:[\.])?(?:[\w\-!#$%&'*+/=?^_`{|}~]))*\1@(\w[\-\w]*\.){1,5}([A-Za-z]){2,}$/,
-  ipv4: /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/,
-  ipv6: /^(?:[a-f0-9]{1,4}:){7}[a-f0-9]{1,4}$/i,
   ipv4NetCidr:
     /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(3[0-2]|[0-2]?[0-9])$/,
   ipv6NetCidr: /^(?:[a-f0-9]{1,4}:){7}[a-f0-9]{1,4}\/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$/i,
@@ -257,17 +256,17 @@ export class CustomValidators {
         );
       case 'ipv4':
         return CustomValidators.pattern(
-          regExp.ipv4,
+          (value) => validator.isIP(value, 4),
           gettext('This field should be an IPv4 address.')
         );
       case 'ipv6':
         return CustomValidators.pattern(
-          regExp.ipv6,
+          (value) => validator.isIP(value, 6),
           gettext('This field should be an IPv6 address.')
         );
       case 'ip':
         return CustomValidators.pattern(
-          (value) => regExp.ipv4.test(value) || regExp.ipv6.test(value),
+          (value) => validator.isIP(value),
           gettext('This field should be an IP address.')
         );
       case 'ipList':
@@ -275,7 +274,7 @@ export class CustomValidators {
           const parts = _.split(value, /[,;]/);
           return parts.every((part) => {
             part = _.trim(part);
-            return regExp.ipv4.test(part) || regExp.ipv6.test(part);
+            return validator.isIP(part);
           });
         }, gettext('This field should be a list of IP addresses separated by <,> or <;>.'));
       case 'ipNetCidr':
@@ -317,8 +316,7 @@ export class CustomValidators {
         }, gettext('This field should be a list of domain names or IP addresses separated by <,> or <;>.'));
       case 'domainNameIp':
         return CustomValidators.pattern(
-          (value) =>
-            regExp.domainName.test(value) || regExp.ipv4.test(value) || regExp.ipv6.test(value),
+          (value) => regExp.domainName.test(value) || validator.isIP(value),
           gettext('This field should be a domain name or an IP address.')
         );
       case 'domainNameIpList':
@@ -326,7 +324,7 @@ export class CustomValidators {
           const parts = _.split(value, /[,;]/);
           return parts.every((part) => {
             part = _.trim(part);
-            return regExp.domainName.test(part) || regExp.ipv4.test(part) || regExp.ipv6.test(part);
+            return regExp.domainName.test(part) || validator.isIP(part);
           });
         }, gettext('This field should be a list of domain names or IP addresses.'));
       case 'port':

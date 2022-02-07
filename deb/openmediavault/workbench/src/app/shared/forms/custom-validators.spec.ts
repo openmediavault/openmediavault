@@ -176,8 +176,18 @@ describe('CustomValidators', () => {
         validator = CustomValidators.patternType('ipv6');
       });
 
-      it('should validate IPv6', () => {
+      it('should validate IPv6 (1)', () => {
         formControl.setValue('2001:0db8:85a3:0000:0000:8a2e:0370:7334');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate IPv6 (2)', () => {
+        formControl.setValue('fe80::');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate IPv6 (3)', () => {
+        formControl.setValue('1:2:3:4::1');
         expect(validator(formControl)).toBeNull();
       });
 

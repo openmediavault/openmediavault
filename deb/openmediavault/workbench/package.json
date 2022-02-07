@@ -54,6 +54,7 @@
     "rxjs": "~6.6.7",
     "strip-ansi": "7.0.1",
     "tslib": "^2.3.1",
+    "validator": "^13.7.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -74,6 +75,7 @@
     "@types/lodash": "^4.14.178",
     "@types/node": "^16.11.22",
     "@types/nunjucks": "^3.2.1",
+    "@types/validator": "^13.7.1",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "codelyzer": "^6.0.2",

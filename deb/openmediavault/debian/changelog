@@ -5,6 +5,7 @@ openmediavault (6.0.11-1) unstable; urgency=low
   * Disable the 'Access control list' button on the shared folder
     page if the selected entry is located on a non-POSIX compliant
     file system.
+  * Issue #1204: Improve IPv6 validation in UI.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 05 Feb 2022 09:00:47 +0100
 
