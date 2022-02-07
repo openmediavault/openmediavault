@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/bash -l
 #
 # This file is part of OpenMediaVault.
 #
@@ -21,6 +21,7 @@
 
 # Documentation/Howto:
 # https://www.thomas-krenn.com/de/wiki/Smartmontools_Drive_Database_aktualisieren
+# https://www.endpointdev.com/blog/2013/05/login-shells-in-scripts-called-from-cron/
 
 set -e
 
