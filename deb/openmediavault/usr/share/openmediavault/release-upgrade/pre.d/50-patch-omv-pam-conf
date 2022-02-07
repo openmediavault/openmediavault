@@ -23,10 +23,11 @@ set -e
 
 # The tally2 PAM module has been replaced by faillock.
 # To prevent errors during the distribution upgrade we need to ensure
-# the files do not exist. Additionally we need to ensure that the new
+# the files are empty. Additionally we need to ensure that the new
 # files shipped by the 'openmediavault' package are installed properly.
-dpkg-divert --rename --divert /etc/pam.d/openmediavault.real /etc/pam.d/openmediavault
-dpkg-divert --rename --divert /etc/pam.d/openmediavault-common-auth.real /etc/pam.d/openmediavault-common-auth
-dpkg-divert --rename --divert /etc/pam.d/openmediavault-webgui.real /etc/pam.d/openmediavault-webgui
+for filename in "openmediavault" "openmediavault-common-auth" "openmediavault-webgui"; do
+  dpkg-divert --rename --divert "/etc/pam.d/${filename}.real" "/etc/pam.d/${filename}"
+  echo > "/etc/pam.d/${filename}"
+done
 
 exit 0

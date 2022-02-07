@@ -23,8 +23,9 @@ set -e
 
 # Undo the previous diversion, so the new files installed by the
 # 'openmediavault' package can now be used correctly.
-dpkg-divert --remove --rename /etc/pam.d/openmediavault
-dpkg-divert --remove --rename /etc/pam.d/openmediavault-common-auth
-dpkg-divert --remove --rename /etc/pam.d/openmediavault-webgui
+for filename in "openmediavault" "openmediavault-common-auth" "openmediavault-webgui"; do
+  rm -rf "/etc/pam.d/${filename}"
+  dpkg-divert --remove --rename "/etc/pam.d/${filename}"
+done
 
 exit 0
