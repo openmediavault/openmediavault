@@ -112,14 +112,14 @@ export class FormComponent implements AfterViewInit, OnInit {
           break;
         case 'fileInput':
           _.defaultsDeep(field, {
-            autocapitalize: 'off',
+            autocapitalize: 'none',
             rows: 4,
             wrap: 'soft'
           });
           break;
         case 'folderBrowser':
           _.defaultsDeep(field, {
-            autocapitalize: 'off',
+            autocapitalize: 'none',
             dirVisible: false
           });
           break;
@@ -144,17 +144,17 @@ export class FormComponent implements AfterViewInit, OnInit {
           break;
         case 'passwordInput':
           _.defaultsDeep(field, {
-            autocapitalize: 'off'
+            autocapitalize: 'none'
           });
           break;
         case 'textInput':
           _.defaultsDeep(field, {
-            autocapitalize: 'off'
+            autocapitalize: 'none'
           });
           break;
         case 'textarea':
           _.defaultsDeep(field, {
-            autocapitalize: 'off',
+            autocapitalize: 'none',
             rows: 4,
             wrap: 'soft'
           });

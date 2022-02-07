@@ -152,7 +152,7 @@ export type FormFieldConfig = {
   // --- textarea | textInput | fileInput | folderBrowser | password ---
   // Defaults to 'off'.
   // See https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize
-  autocapitalize?: 'off' | 'on' | 'words' | 'characters';
+  autocapitalize?: 'none' | 'sentences' | 'words' | 'characters';
 
   // --- container ---
   fields?: Array<FormFieldConfig>;
