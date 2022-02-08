@@ -142,7 +142,8 @@ export class UpdateDatatablePageComponent {
                 service: 'Apt',
                 method: 'upgrade'
               }
-            }
+            },
+            successUrl: '/reload'
           }
         }
       },
