@@ -470,6 +470,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 					$result[] = array_merge($fsObjectv, [
 						"comment" => $mntentv->get("comment"),
 						"usagewarnthreshold" => $mntentv->get("usagewarnthreshold"),
+						"mountopts" => $mntentv->get("opts"),
 						"status" => 1 // Online
 					]);
 					continue 2;
@@ -489,6 +490,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				"mountpoint" => $mntentv->get("dir"),
 				"comment" => $mntentv->get("comment"),
 				"usagewarnthreshold" => $mntentv->get("usagewarnthreshold"),
+				"mountopts" => $mntentv->get("opts"),
 				"status" => 3, // Missing
 				"_used" => $db->isReferenced($mntentv)
 			]);

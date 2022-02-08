@@ -57,6 +57,7 @@ export class FilesystemDatatablePageComponent {
         prop: 'comment',
         cellTemplateName: 'text',
         flexGrow: 1,
+        hidden: true,
         sortable: true
       },
       {
@@ -141,6 +142,15 @@ export class FilesystemDatatablePageComponent {
         sortable: true,
         hidden: true,
         cellTemplateName: 'copyToClipboard'
+      },
+      {
+        name: gettext('Mount Options'),
+        prop: 'mountopts',
+        flexGrow: 1,
+        sortable: false,
+        hidden: true,
+        cellTemplateName: 'template',
+        cellTemplateConfig: '{{ mountopts | split(",") | map("strip") | join(", ") }}'
       },
       {
         name: gettext('Referenced'),
