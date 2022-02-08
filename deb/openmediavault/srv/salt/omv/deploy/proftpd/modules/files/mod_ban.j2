@@ -3,7 +3,7 @@
 {%- set ban_message = salt['pillar.get']('default:OMV_PROFTPD_MODBAN_BANMESSAGE', 'Host %a has been banned') -%}
 {%- set ban_table = salt['pillar.get']('default:OMV_PROFTPD_MODBAN_BANTABLE', '/run/proftpd/ban.tab') -%}
 <IfModule mod_ban.c>
-  BanEngine {% if config.rule | length > 0 %}on{% else %}off{% endif %}
+  BanEngine {{ (config.rule | length > 0) | yesno('on,off') }}
   BanControlsACLs {{ ban_controls_acls }}
   BanLog {{ ban_log }}
   BanMessage {{ ban_message }}

@@ -6,7 +6,7 @@
 {%- if config.maxloginattempts > 0 %}
   MaxLoginAttempts {{ config.maxloginattempts }}
 {%- endif %}
-  RequireValidShell {% if config.requirevalidshell | to_bool %}on{% else %}off{% endif %}
+  RequireValidShell {{ config.requirevalidshell | to_bool | yesno('on,off') }}
 {%- if config.rootlogin | to_bool %}
   RootLogin on
 {%- endif %}

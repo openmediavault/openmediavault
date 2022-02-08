@@ -6,7 +6,7 @@
 {%- set tls_renegotiate = salt['pillar.get']('default:OMV_PROFTPD_MODTLS_TLSRENEGOTIATE', 'required off') -%}
 LoadModule mod_tls.c
 <IfModule mod_tls.c>
-  TLSEngine {% if config.enable | to_bool %}on{% else %}off{% endif %}
+  TLSEngine {{ config.enable | to_bool | yesno('on,off') }}
   TLSLog {{ tls_log }}
   TLSProtocol {{ tls_protocol }}
 {%- if config.nosessionreuserequired | to_bool or config.useimplicitssl | to_bool %}
@@ -18,7 +18,7 @@ LoadModule mod_tls.c
   TLSRSACertificateKeyFile {{ cert_dir | path_join('private', cert_prefix ~ config.sslcertificateref ~ '.key') }}
   TLSVerifyClient {{ tls_verify_client }}
   TLSRenegotiate {{ tls_renegotiate }}
-  TLSRequired {% if config.required | to_bool %}on{% else %}off{% endif %}
+  TLSRequired {{ config.required | to_bool | yesno('on,off') }}
 {%- if config.extraoptions | length > 0 %}
 {{ config.extraoptions | indent(2, True) }}
 {%- endif %}

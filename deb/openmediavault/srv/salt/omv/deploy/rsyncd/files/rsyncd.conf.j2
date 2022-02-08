@@ -16,10 +16,10 @@ port = {{ config.port }}
 path = {{ path | join('/') }}
 uid = {{ module.uid }}
 gid = {{ module.gid }}
-list = {% if module.list | to_bool %}yes{% else %}no{% endif %}
-read only = {% if module.readonly | to_bool %}yes{% else %}no{% endif %}
-write only = {% if module.writeonly | to_bool %}yes{% else %}no{% endif %}
-use chroot = {% if module.usechroot | to_bool %}yes{% else %}no{% endif %}
+list = {{ module.list | to_bool | yesno }}
+read only = {{ module.readonly | to_bool | yesno }}
+write only = {{ module.writeonly | to_bool | yesno }}
+use chroot = {{ module.usechroot | to_bool | yesno }}
 {%- if module.maxconnections > 0 %}
 max connections = {{ module.maxconnections }}
 {%- endif %}

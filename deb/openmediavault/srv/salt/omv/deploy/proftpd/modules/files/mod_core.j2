@@ -49,7 +49,7 @@ AuthOrder {{ auth_order }}
 DefaultTransferMode {{ default_transfer_mode }}
 Port {{ ftp_config.port }}
 TransferLog {% if ftp_config.transferlog | to_bool %}{{ transfer_log }}{% else %}NONE{% endif %}
-UseReverseDNS {% if ftp_config.usereversedns | to_bool %}on{% else %}off{% endif %}
+UseReverseDNS {{ ftp_config.usereversedns | to_bool | yesno('on,off') }}
 TimeoutIdle {{ ftp_config.timeoutidle }}
 TimeoutNoTransfer {{ timeout_no_transfer }}
 TimeoutStalled {{ timeout_stalled }}

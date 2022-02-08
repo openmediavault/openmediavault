@@ -31,14 +31,14 @@
 comment = {{ share.comment }}
 {%- endif %}
 path = {{ salt['omv_conf.get_sharedfolder_path'](share.sharedfolderref) }}
-guest ok = {% if share.guest != 'no' %}yes{% else %}no{% endif %}
-guest only = {% if share.guest == 'only' %}yes{% else %}no{% endif %}
-read only = {% if share.readonly | to_bool %}yes{% else %}no{% endif %}
-browseable = {% if share.browseable | to_bool %}yes{% else %}no{% endif %}
-inherit acls = {% if share.inheritacls | to_bool %}yes{% else %}no{% endif %}
-inherit permissions = {% if share.inheritpermissions | to_bool %}yes{% else %}no{% endif %}
-ea support = {% if share.easupport | to_bool %}yes{% else %}no{% endif %}
-store dos attributes = {% if share.storedosattributes | to_bool %}yes{% else %}no{% endif %}
+guest ok = {{ (share.guest != 'no') | yesno }}
+guest only = {{ (share.guest == 'only') | yesno }}
+read only = {{ share.readonly | to_bool | yesno }}
+browseable = {{ share.browseable | to_bool | yesno }}
+inherit acls = {{ share.inheritacls | to_bool | yesno }}
+inherit permissions = {{ share.inheritpermissions | to_bool | yesno }}
+ea support = {{ share.easupport | to_bool | yesno }}
+store dos attributes = {{ share.storedosattributes | to_bool | yesno }}
 {%- set vfs_objects = vfs_objects.split(' ') %}
 {%- if share.audit | to_bool %}
 {%- set _ = vfs_objects.append('full_audit') %}
@@ -89,7 +89,7 @@ hosts allow = {{ share.hostsallow }}
 {%- if share.hostsdeny | length > 0 %}
 hosts deny = {{ share.hostsdeny }}
 {%- endif %}
-hide dot files = {% if share.hidedotfiles | to_bool %}yes{% else %}no{% endif %}
+hide dot files = {{ share.hidedotfiles | to_bool | yesno }}
 {%- set sf_config = salt['omv_conf.get']('conf.system.sharedfolder', share.sharedfolderref) -%}
 {%- set validusers = [] -%}
 {%- set invalidusers = [] -%}

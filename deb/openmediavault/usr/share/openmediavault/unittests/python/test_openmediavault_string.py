@@ -166,6 +166,15 @@ class StringTestCase(unittest.TestCase):
         self.assertEqual(openmediavault.stringutils.add_slashes('$'), '\\$')
         self.assertEqual(openmediavault.stringutils.add_slashes('`'), '\\`')
 
+    def test_yesno_1(self):
+        self.assertEqual(openmediavault.stringutils.yesno(True), 'yes')
+
+    def test_yesno_2(self):
+        self.assertEqual(openmediavault.stringutils.yesno(False), 'no')
+
+    def test_yesno_3(self):
+        self.assertEqual(openmediavault.stringutils.yesno(True, 'foo,bar,baz'), 'foo')
+
 
 if __name__ == "__main__":
     unittest.main()

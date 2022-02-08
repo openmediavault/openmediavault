@@ -55,13 +55,13 @@ directory mask = {{ directory_mask }}
 {%- if config.shares.share | rejectattr('guest', 'equalto', 'no') | list | length > 0 %}
 map to guest = {{ map_to_guest }}
 {%- endif %}
-use sendfile = {% if config.usesendfile | to_bool %}yes{% else %}no{% endif %}
+use sendfile = {{ config.usesendfile | to_bool | yesno }}
 {%- if config.aio | to_bool %}
 aio read size = {{ aio_read_size }}
 aio write size = {{ aio_write_size }}
 {%- endif %}
-time server = {% if config.timeserver | to_bool %}yes{% else %}no{% endif %}
-wins support = {% if config.winssupport | to_bool %}yes{% else %}no{% endif %}
+time server = {{ config.timeserver | to_bool | yesno }}
+wins support = {{ config.winssupport | to_bool | yesno }}
 {%- if config.winsserver | length > 0 %}
 wins server = {{ config.winsserver }}
 {%- endif %}

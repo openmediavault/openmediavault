@@ -216,3 +216,14 @@ def add_slashes(value):
     for i in ['\\', '\'', '"', '$', '`']:
         value = value.replace(i, '\\{}'.format(i))
     return value
+
+
+def yesno(value: bool, answers='yes,no') -> str:
+    """
+    Convert a boolean value to 'yes' or 'no'.
+    :return: Returns 'yes' if the value is true, otherwise 'no'.
+    """
+    assert isinstance(value, bool)
+    assert isinstance(answers, str)
+    parts = answers.split(',')
+    return parts[0] if value else parts[1]

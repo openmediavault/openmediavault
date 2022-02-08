@@ -20,7 +20,7 @@
 #======================= Home Directories =======================
 [homes]
 comment = {{ comment }}
-browseable = {% if config.homesbrowseable | to_bool %}yes{% else %}no{% endif %}
+browseable = {{ config.homesbrowseable | to_bool | yesno }}
 writable = {{ writable }}
 create mask = {{ create_mask }}
 force create mode = {{ force_create_mode }}

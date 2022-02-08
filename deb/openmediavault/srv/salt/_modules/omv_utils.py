@@ -442,3 +442,12 @@ def to_sec(value):
         elif unit == 'w':
             value = num * 60 * 60 * 24 * 7
     return value
+
+
+@jinja_filter('yesno')
+def yesno(value, answers='yes,no'):
+    """
+    Convert a boolean value to 'yes' or 'no'.
+    :return: Returns 'yes' if the value is true, otherwise 'no'.
+    """
+    return openmediavault.stringutils.yesno(value, answers)
