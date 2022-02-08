@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-27 18:28+0000\n"
+"PO-Revision-Date: 2022-01-30 15:29+0000\n"
 "Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -64,7 +64,7 @@ msgid "1 GiB"
 msgstr "1 ҐіБ"
 
 msgid "1 MiB"
-msgstr ""
+msgstr "1 МБ"
 
 msgid "1 day"
 msgstr "1 день"
@@ -85,7 +85,7 @@ msgid "1 year"
 msgstr "1 рік"
 
 msgid "10 MiB"
-msgstr ""
+msgstr "10 МБ"
 
 msgid "10 minutes"
 msgstr "10 хвилин"
@@ -94,7 +94,7 @@ msgid "10 years"
 msgstr "10 років"
 
 msgid "100 MiB"
-msgstr ""
+msgstr "100 МБ"
 
 msgid "120 minutes"
 msgstr "120 хвилин"
@@ -121,10 +121,10 @@ msgid "192 - Intermediate power usage without standby"
 msgstr "192 - проміжне споживання енергії без очікування"
 
 msgid "2 GiB"
-msgstr ""
+msgstr "2 ГіБ"
 
 msgid "2 MiB"
-msgstr ""
+msgstr "2 МБ"
 
 msgid "2 days"
 msgstr "2 дні"
@@ -148,13 +148,13 @@ msgid "240 minutes"
 msgstr "240 хвилин"
 
 msgid "25 MiB"
-msgstr ""
+msgstr "25 МБ"
 
 msgid "25 years"
 msgstr "25 років"
 
 msgid "250 MiB"
-msgstr ""
+msgstr "250 МБ"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Максимальна продуктивність, максимальне енергоспоживання"
@@ -187,7 +187,7 @@ msgid "330 minutes"
 msgstr "330 хвилин"
 
 msgid "4 GiB"
-msgstr ""
+msgstr "4 ГіБ"
 
 msgid "4 days"
 msgstr "4 дні"
@@ -199,7 +199,7 @@ msgid "4 years"
 msgstr "4 роки"
 
 msgid "5 MiB"
-msgstr ""
+msgstr "5 МБ"
 
 msgid "5 days"
 msgstr "5 днів"
@@ -214,10 +214,10 @@ msgid "5 years"
 msgstr "5 років"
 
 msgid "50 MiB"
-msgstr ""
+msgstr "50 МБ"
 
 msgid "500 MiB"
-msgstr ""
+msgstr "500 МБ"
 
 msgid "6 days"
 msgstr "6 днів"
@@ -232,10 +232,10 @@ msgid "64 - Intermediate power usage with standby"
 msgstr "64 - проміжне споживання енергії з очікування"
 
 msgid "75 MiB"
-msgstr ""
+msgstr "75 МБ"
 
 msgid "750 MiB"
-msgstr ""
+msgstr "750 МБ"
 
 msgid "9 months"
 msgstr "9 місяців"
@@ -1238,7 +1238,7 @@ msgstr "Файли в кошику будуть видалені автомат�
 msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
-msgstr ""
+msgstr "Файли, які перевищують вказане число, не будуть поміщені до смітника."
 
 msgid "Filesize"
 msgstr "Розмір файлу"
@@ -2348,7 +2348,7 @@ msgid "Please wait, updating access control lists ..."
 msgstr "Зачекайте, оновлюються списки контролю доступу ..."
 
 msgid "Please wait, updating the permissions ..."
-msgstr ""
+msgstr "Зачекайте, оновлюються дозволи ..."
 
 msgid "Plugins"
 msgstr "Модулі"
@@ -3435,13 +3435,13 @@ msgid "This field should be an email address."
 msgstr "Це поле має містити адресу електронної пошти."
 
 msgid "This field should contain a decimal value."
-msgstr ""
+msgstr "Це поле має містити десяткове значення."
 
 msgid "This field should contain a number with a binary prefix."
-msgstr ""
+msgstr "Це поле має містити число з двійковим префіксом."
 
 msgid "This field should contain a numeric value."
-msgstr ""
+msgstr "Це поле має містити числове значення."
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Ця функція ефективна лише якщо жорсткий диск підтримує її."
@@ -3534,10 +3534,10 @@ msgid "This specifies what to do if the packet matches."
 msgstr "Вказує, що робити, якщо пакет відповідає."
 
 msgid "This will create a recycle bin for each user home directory."
-msgstr ""
+msgstr "Це створить смітник для кожного домашнього каталогу користувача."
 
 msgid "This will create a recycle bin for the share."
-msgstr ""
+msgstr "Це створить смітник для спільного використання."
 
 msgid "Threshold"
 msgstr "Поріг"
@@ -3671,7 +3671,7 @@ msgid "Unmount"
 msgstr "Розмонтувати"
 
 msgid "Unrestricted"
-msgstr ""
+msgstr "Без обмежень"
 
 msgid "Up"
 msgstr "Вгору"

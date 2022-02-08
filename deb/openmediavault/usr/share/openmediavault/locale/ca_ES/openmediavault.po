@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Quim Farriol <qfarriol@valette.cat>, 2020-2021
+# Quim Farriol <qfarriol@valette.cat>, 2020-2022
 # Quim Farriol <qfarriol@valette.cat>, 2017-2018,2020
 # Quim Farriol <qfarriol@valette.cat>, 2016
 msgid ""
@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-26 18:37+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"PO-Revision-Date: 2022-02-04 18:11+0000\n"
+"Last-Translator: Quim Farriol <qfarriol@valette.cat>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +43,7 @@ msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s (%d%%) usat, %s disponible]"
 
 msgid "%s [%s]"
-msgstr ""
+msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [en %s, %s]"
@@ -61,10 +61,10 @@ msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Consum mínim en repos (spindown)"
 
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 msgid "1 day"
 msgstr "1 dia"
@@ -85,7 +85,7 @@ msgid "1 year"
 msgstr "1 any"
 
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 msgid "10 minutes"
 msgstr "10 minuts"
@@ -94,7 +94,7 @@ msgid "10 years"
 msgstr "10 anys"
 
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 msgid "120 minutes"
 msgstr "120 minuts"
@@ -121,10 +121,10 @@ msgid "192 - Intermediate power usage without standby"
 msgstr "192 - Consum mig sense repòs"
 
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 msgid "2 MiB"
-msgstr ""
+msgstr "2 MiB"
 
 msgid "2 days"
 msgstr "2 dies"
@@ -148,13 +148,13 @@ msgid "240 minutes"
 msgstr "240 minuts"
 
 msgid "25 MiB"
-msgstr ""
+msgstr "25 MiB"
 
 msgid "25 years"
 msgstr "25 anys"
 
 msgid "250 MiB"
-msgstr ""
+msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Màxim rendiment, màxim consum"
@@ -187,7 +187,7 @@ msgid "330 minutes"
 msgstr "330 minuts"
 
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 msgid "4 days"
 msgstr "4 dies"
@@ -199,7 +199,7 @@ msgid "4 years"
 msgstr "4 anys"
 
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 msgid "5 days"
 msgstr "5 dies"
@@ -214,10 +214,10 @@ msgid "5 years"
 msgstr "5 anys"
 
 msgid "50 MiB"
-msgstr ""
+msgstr "50 MiB"
 
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 msgid "6 days"
 msgstr "6 dies"
@@ -232,10 +232,10 @@ msgid "64 - Intermediate power usage with standby"
 msgstr "64 - Consum mig en repòs"
 
 msgid "75 MiB"
-msgstr ""
+msgstr "75 MiB"
 
 msgid "750 MiB"
-msgstr ""
+msgstr "750 MiB"
 
 msgid "9 months"
 msgstr "9 mesos"
@@ -327,7 +327,7 @@ msgstr "Permetre reprendre pujades / baixades interrompudes"
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
-msgstr ""
+msgstr "Permet que aquest servidor s'anunciï com a servidor de temps als clients de Windows. "
 
 msgid "Allowed clients"
 msgstr "Clients permesos"
@@ -565,7 +565,7 @@ msgid "CPU Usage"
 msgstr "Ús de la CPU"
 
 msgid "CPU Utilization"
-msgstr ""
+msgstr "Ús de la CPU"
 
 msgid "CPU usage"
 msgstr "Ús de la CPU"
@@ -748,7 +748,7 @@ msgid "Create"
 msgstr "Crear"
 
 msgid "Create a new file system."
-msgstr ""
+msgstr "Creeu un nou sistema de fitxers."
 
 msgid "Create file system"
 msgstr "Crear un sistema d'arxius"
@@ -868,7 +868,7 @@ msgid "Denmark"
 msgstr "Dinamarca"
 
 msgid "Deny logins which do not have a valid shell."
-msgstr ""
+msgstr "Denegueu els inicis de sessió que no tinguin un shell vàlid."
 
 msgid "Description"
 msgstr "Descripció"
@@ -949,7 +949,7 @@ msgid "Disks"
 msgstr "Discs"
 
 msgid "Display the home directory of the user in the browse list."
-msgstr ""
+msgstr "Mostra el directori inicial de l'usuari a la llista de navegació."
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -958,7 +958,7 @@ msgid "Do you really want to apply the configuration changes?"
 msgstr "Segur que vol aplicar els canvis a la configuració?"
 
 msgid "Do you really want to copy the privileges from the shared folder?"
-msgstr ""
+msgstr "Realment voleu copiar els privilegis de la carpeta compartida?"
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -1106,7 +1106,7 @@ msgid ""
 msgstr "Habiliti aquesta opció per mantenir els arxius parcialment transferits, si no, seran esborrats en cas d'interrompre la transmissió."
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "Habilita els directoris d'inici dels usuaris."
 
 msgid "Enable write-cache"
 msgstr "Habilitar l'escriptura a la memòria cau -cache-"
@@ -1189,7 +1189,7 @@ msgid ""
 msgstr "FXP permet transferències d'arxius entre dos servidors remots sense passar pel client que executa la transferència."
 
 msgid "Failed"
-msgstr ""
+msgstr "Ha fallat"
 
 msgid "Failed to copy data to the clipboard."
 msgstr "No s'han pogut copiar les dades al porta-retalls. "
@@ -1238,7 +1238,7 @@ msgstr "Els arxius de la paperera s’esborraran automàticament desprès d’un
 msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
-msgstr ""
+msgstr "Els fitxers que siguin més grans que el nombre especificat no es posaran a la paperera de reciclatge."
 
 msgid "Filesize"
 msgstr "Mida de l’arxiu"
@@ -1268,7 +1268,7 @@ msgid "France"
 msgstr "França"
 
 msgid "Free"
-msgstr ""
+msgstr "Lliure"
 
 msgid "French Guiana"
 msgstr "Guinea Francesa"
@@ -1370,7 +1370,7 @@ msgid "Haiti"
 msgstr "Haití"
 
 msgid "Hardware Address"
-msgstr ""
+msgstr "Adreça de maquinari "
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Illes Heard i McDonald (Austràlia)"
@@ -1388,7 +1388,7 @@ msgid "Hide navigation"
 msgstr "Amaga la navegació "
 
 msgid "Home"
-msgstr ""
+msgstr "Inici"
 
 msgid "Home directories"
 msgstr "Directoris Home"
@@ -1842,7 +1842,7 @@ msgid "Max. passive port"
 msgstr "Màx. port passiu "
 
 msgid "Maximum"
-msgstr ""
+msgstr "Màxim"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Velocitat màx. de descarrega (KiB/s)"
@@ -1881,7 +1881,7 @@ msgid "Members"
 msgstr "Membres"
 
 msgid "Memory"
-msgstr ""
+msgstr "Memòria"
 
 msgid "Memory Usage"
 msgstr "Ús de la memòria "
@@ -1956,7 +1956,7 @@ msgid "Monitoring"
 msgstr "Monitoratge"
 
 msgid "Monitoring enabled"
-msgstr ""
+msgstr "Monitorització activada"
 
 msgid "Month"
 msgstr "Mes"
@@ -1977,7 +1977,7 @@ msgid "Mount Point"
 msgstr "Punt de muntatge"
 
 msgid "Mount an existing file system."
-msgstr ""
+msgstr "Munta un sistema de fitxers existent."
 
 msgid "Mounted"
 msgstr "Muntats"
@@ -2121,7 +2121,7 @@ msgid "OK"
 msgstr "OK"
 
 msgid "Obsolete cached data found. Page will be reloaded."
-msgstr ""
+msgstr "S'han trobat dades obsoletes a la memòria cau. La pàgina es tornarà a carregar."
 
 msgid "Occurrence"
 msgstr "Instància"
@@ -2348,7 +2348,7 @@ msgid "Please wait, updating access control lists ..."
 msgstr "Espereu, actualitzant les llistes de control d’accés ... "
 
 msgid "Please wait, updating the permissions ..."
-msgstr ""
+msgstr "Si us plau, espereu, actualitzant els permisos..."
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -2576,11 +2576,11 @@ msgstr "Informe"
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report."
-msgstr ""
+msgstr "Informeu si la temperatura ha canviat almenys N graus centígrads des de l'últim informe."
 
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius."
-msgstr ""
+msgstr "Informeu si la temperatura és superior o igual a N graus centígrads."
 
 msgid "Repository"
 msgstr "Repositori"
@@ -2652,7 +2652,7 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. Status"
-msgstr ""
+msgstr "S.M.A.R.T. Estat"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "La monitoratge S.M.A.R.T. ha de ser activada per al dispositiu seleccionat."
@@ -2790,7 +2790,7 @@ msgid "Select a type ..."
 msgstr "Selecciona un tipus ... "
 
 msgid "Select all"
-msgstr ""
+msgstr "Seleccionar tot"
 
 msgid "Select an authentication mode ..."
 msgstr "Seleccionar un mode d’autentificació ..."
@@ -3416,7 +3416,7 @@ msgid ""
 msgstr "Aquest camp hauria de ser una màscara de xarxa dins del rang 128.0.0.0 - 255.255.255.252. "
 
 msgid "This field should be a network port in the range of 1 to 65535."
-msgstr ""
+msgstr "Aquest camp hauria de ser un port de xarxa en el rang d'1 a 65535."
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
@@ -3435,13 +3435,13 @@ msgid "This field should be an email address."
 msgstr "Aquest camp hauria de ser una adreça de correu electrònic. "
 
 msgid "This field should contain a decimal value."
-msgstr ""
+msgstr "Aquest camp ha de contenir un valor decimal."
 
 msgid "This field should contain a number with a binary prefix."
-msgstr ""
+msgstr "Aquest camp ha de contenir un número amb un prefix binari."
 
 msgid "This field should contain a numeric value."
-msgstr ""
+msgstr "Aquest camp ha de contenir un valor numèric."
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Aquesta opció és efectiva només si la suporta el dispositiu."
@@ -3534,10 +3534,10 @@ msgid "This specifies what to do if the packet matches."
 msgstr "Que s’ha de fer si el paquet coincideix."
 
 msgid "This will create a recycle bin for each user home directory."
-msgstr ""
+msgstr "Això crearà una paperera de reciclatge per al directori d'inici de cada usuari."
 
 msgid "This will create a recycle bin for the share."
-msgstr ""
+msgstr "Això crearà una paperera de reciclatge per compartir."
 
 msgid "Threshold"
 msgstr "Llindar"
@@ -3671,7 +3671,7 @@ msgid "Unmount"
 msgstr "Desmuntar"
 
 msgid "Unrestricted"
-msgstr ""
+msgstr "Sense restriccions"
 
 msgid "Up"
 msgstr "Pujada"
@@ -3747,7 +3747,7 @@ msgid "Updated date & time settings."
 msgstr "Configuració de data i hora actualitzada. "
 
 msgid "Updated file system settings."
-msgstr ""
+msgstr "Configuració del sistema de fitxers actualitzada."
 
 msgid "Updated firewall rule."
 msgstr "S'ha actualitzat la regla del tallafoc. "
@@ -3828,7 +3828,7 @@ msgid "Uruguay"
 msgstr "Uruguai"
 
 msgid "Usage"
-msgstr ""
+msgstr "Ús"
 
 msgid "Usage Warning Threshold"
 msgstr "Llindar d'advertència d'ús"
@@ -3840,7 +3840,7 @@ msgid "Use chroot"
 msgstr "Habilitar chroot."
 
 msgid "Use global settings"
-msgstr ""
+msgstr "Utilitzeu la configuració global"
 
 msgid "Use sendfile"
 msgstr "Usar Sendfile"
@@ -3929,7 +3929,7 @@ msgid "WOL"
 msgstr "WOL"
 
 msgid "WWN"
-msgstr ""
+msgstr "WWN"
 
 msgid "Wake Island"
 msgstr "Illa Wake"
@@ -4006,7 +4006,7 @@ msgid "Yes"
 msgstr "Si"
 
 msgid "Your changes will be lost. Do you want to continue?"
-msgstr ""
+msgstr "Els canvis es perdran. Vols continuar?"
 
 msgid "Your profile"
 msgstr "El teu perfil"
