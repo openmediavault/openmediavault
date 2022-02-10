@@ -67,8 +67,8 @@ export class MatFormDatatableComponent
     if (!_.isEqual(value, this._value)) {
       this.store.data = value;
       this.dataStoreService.load(this.store).subscribe(() => {
-        this._value = value;
-        this.onChange(value);
+        this._value = _.cloneDeep(value);
+        this.onChange(this.value);
         this.stateChanges.next();
       });
     }
@@ -255,14 +255,25 @@ export class MatFormDatatableComponent
           height: _.get(dialogConfig, 'height')
         });
         if ('edit' === action.id) {
-          // Update form field values.
+          // Update the form field values.
           formDialogRef.afterOpened().subscribe(() => {
             formDialogRef.componentInstance.setFormValues(table.selection.first());
           });
         }
         formDialogRef.afterClosed().subscribe((res) => {
           if (res) {
-            this.store.data.push(res);
+            switch (action.id) {
+              case 'add':
+                this.store.data.push(res);
+                break;
+              case 'edit':
+                // We can process the `table.selection.selected` here
+                // because the objects are referencing the objects in
+                // `this.store.data`.
+                const selection = table.selection.first();
+                _.assign(selection, res);
+                break;
+            }
             this.syncValue();
           }
         });
