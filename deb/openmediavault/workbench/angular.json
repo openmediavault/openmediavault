@@ -25,7 +25,8 @@
               "lodash",
               "strip-ansi",
               "chart.js",
-              "chartjs-plugin-datalabels"
+              "chartjs-plugin-datalabels",
+              "validator"
             ],
             "outputPath": "dist/openmediavault-workbench",
             "index": "src/index.html",
