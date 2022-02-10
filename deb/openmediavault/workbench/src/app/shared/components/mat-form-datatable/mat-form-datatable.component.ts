@@ -29,7 +29,7 @@ import { DataTableCellChanged } from '~/app/shared/components/datatable/datatabl
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { Datatable } from '~/app/shared/models/datatable.interface';
-import { DatatableActionConfig } from '~/app/shared/models/datatable-action-config.type';
+import { DatatableAction } from '~/app/shared/models/datatable-action.type';
 import { DatatableColumn } from '~/app/shared/models/datatable-column.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { Sorter } from '~/app/shared/models/sorter.type';
@@ -125,7 +125,7 @@ export class MatFormDatatableComponent
   columnMode?: 'standard' | 'flex' | 'force' = 'flex';
 
   @Input()
-  actions: DatatableActionConfig[] = [];
+  actions: DatatableAction[] = [];
 
   @Input()
   hasActionBar? = true;
@@ -212,7 +212,7 @@ export class MatFormDatatableComponent
   }
 
   private sanitizeConfig() {
-    this.actions.forEach((action: DatatableActionConfig) => {
+    this.actions.forEach((action: DatatableAction) => {
       _.defaultsDeep(action, {
         click: this.onActionClick.bind(this)
       });
@@ -230,7 +230,7 @@ export class MatFormDatatableComponent
     this.stateChanges.next();
   }
 
-  onActionClick(action: DatatableActionConfig, table: Datatable) {
+  onActionClick(action: DatatableAction, table: Datatable) {
     const actionConfig = _.find(this.actions, { id: action.id });
     switch (action.id) {
       case 'add':

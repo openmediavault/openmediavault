@@ -42,7 +42,7 @@ import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
-import { DatatableActionConfig } from '~/app/shared/models/datatable-action-config.type';
+import { DatatableAction } from '~/app/shared/models/datatable-action.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { RpcListResponse } from '~/app/shared/models/rpc.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
@@ -278,7 +278,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     }
   }
 
-  onDeleteActionClick(action: DatatableActionConfig) {
+  onDeleteActionClick(action: DatatableAction) {
     let message: string = gettext('Do you really want to delete the selected item(s)?');
     if (isFormatable(this.config.rowEnumFmt)) {
       const items: Array<string> = _.map(this.selection.selected, (selected) =>

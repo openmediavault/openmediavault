@@ -23,7 +23,7 @@ import { Icon } from '~/app/shared/enum/icon.enum';
 import { Constraint } from '~/app/shared/models/constraint.type';
 import { Datatable } from '~/app/shared/models/datatable.interface';
 import {
-  DatatableActionConfig,
+  DatatableAction,
   DatatableActionEnabledConstraintsFn
 } from '~/app/shared/models/datatable-action.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
@@ -40,7 +40,7 @@ export class DatatableActionsComponent implements OnInit {
   selection: DatatableSelection;
 
   @Input()
-  actions: DatatableActionConfig[];
+  actions: DatatableAction[];
 
   @Input()
   table: Datatable;
@@ -56,7 +56,7 @@ export class DatatableActionsComponent implements OnInit {
     });
   }
 
-  isDisabled(action: DatatableActionConfig) {
+  isDisabled(action: DatatableAction) {
     if (_.isPlainObject(action.enabledConstraints)) {
       const validators: Array<DatatableActionEnabledConstraintsFn> = [];
       if (_.isBoolean(action.enabledConstraints.hasData)) {
@@ -87,13 +87,13 @@ export class DatatableActionsComponent implements OnInit {
     return false;
   }
 
-  onButtonClick(action: DatatableActionConfig) {
+  onButtonClick(action: DatatableAction) {
     if (_.isFunction(action.click)) {
       action.click(action, this.table);
     }
   }
 
-  onSelectionChange(event: MatSelectChange, action: DatatableActionConfig) {
+  onSelectionChange(event: MatSelectChange, action: DatatableAction) {
     if (_.isFunction(action.selectionChange)) {
       action.selectionChange(action, event.value, this.table);
     }

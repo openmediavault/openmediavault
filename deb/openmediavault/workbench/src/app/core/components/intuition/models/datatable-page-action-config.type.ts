@@ -16,11 +16,11 @@
  * GNU General Public License for more details.
  */
 import { FormDialogConfig } from '~/app/core/components/intuition/models/form-dialog-config.type';
-import { DatatableActionConfig } from '~/app/shared/models/datatable-action.type';
+import { DatatableAction } from '~/app/shared/models/datatable-action.type';
 import { ModalDialogConfig } from '~/app/shared/models/modal-dialog-config.type';
 import { TaskDialogConfig } from '~/app/shared/models/task-dialog-config.type';
 
-export type DatatablePageActionConfig = DatatableActionConfig & {
+export type DatatablePageActionConfig = DatatableAction & {
   // Specifies a template that pre-configures the datatable action:
   // add    - A button with an icon and the tooltip 'Add'.
   //          The button is always enabled.

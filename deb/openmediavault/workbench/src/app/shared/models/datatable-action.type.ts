@@ -20,10 +20,10 @@ import { DataStore } from '~/app/shared/models/data-store.type';
 import { Datatable } from '~/app/shared/models/datatable.interface';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 
-export type DatatableActionClickFn = (action: DatatableActionConfig, table: Datatable) => void;
+export type DatatableActionClickFn = (action: DatatableAction, table: Datatable) => void;
 
 export type DatatableActionSelectionChangeFn = (
-  action: DatatableActionConfig,
+  action: DatatableAction,
   value: any,
   table: Datatable
 ) => void;
@@ -35,7 +35,7 @@ export type DatatableActionEnabledConstraintsFn = (
 
 // A datatable action is visually represented in the action toolbar
 // which is located on the left side above the datatable.
-export type DatatableActionConfig = {
+export type DatatableAction = {
   // The following actions that are displayed in the datatable toolbar
   // are available:
   // button     - Displays a button with text.
@@ -72,7 +72,7 @@ export type DatatableActionConfig = {
 
   // --- menu ---
   // The actions displayed in the menu dropdown.
-  actions?: Array<DatatableActionConfig>;
+  actions?: Array<DatatableAction>;
 
   // The constraints that must be fulfilled to enable the action.
   enabledConstraints?: {

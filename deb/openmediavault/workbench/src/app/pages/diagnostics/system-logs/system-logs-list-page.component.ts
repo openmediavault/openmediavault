@@ -23,7 +23,7 @@ import { DatatablePageComponent } from '~/app/core/components/intuition/datatabl
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { ILogConfig, LogConfigService } from '~/app/core/services/log-config.service';
 import { translate } from '~/app/i18n.helper';
-import { DatatableActionConfig } from '~/app/shared/models/datatable-action-config.type';
+import { DatatableAction } from '~/app/shared/models/datatable-action.type';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
@@ -88,7 +88,7 @@ export class SystemLogsListPageComponent implements OnInit {
     });
   }
 
-  onSelectionChange(action: DatatableActionConfig, value: string) {
+  onSelectionChange(action: DatatableAction, value: string) {
     this.logConfigService.configs$.subscribe((logs: Array<ILogConfig>) => {
       const logConfig = logs.find((lc: ILogConfig) => lc.id === value);
       if (!_.isUndefined(logConfig)) {
