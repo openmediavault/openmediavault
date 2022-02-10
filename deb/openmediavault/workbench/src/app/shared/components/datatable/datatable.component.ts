@@ -114,7 +114,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   @Input()
   loadingIndicator? = false;
 
-  // An identifier, e.g. an UUID, which identifies this datatable
+  // An identifier, e.g. a UUID, which identifies this datatable
   // uniquely. This is used to store/restore the column state.
   @Input()
   stateId?: string;
@@ -159,7 +159,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   @Input()
   selectionType?: 'none' | 'single' | 'multi' = 'multi';
 
-  // By default selected items will be updated on reload.
+  // By default, selected items will be updated on reload.
   @Input()
   updateSelectionOnReload: 'always' | 'onChange' | 'never' = 'always';
 
@@ -203,6 +203,9 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   readonly loadDataEvent = new EventEmitter<DataTableLoadParams>();
 
   // Event emitted when the selection has been changed.
+  // Note, the `DatatableSelection` event object is a deep copy of
+  // the internal object, so manipulations of the object will not
+  // affect the data displayed in the table.
   @Output()
   readonly selectionChangeEvent = new EventEmitter<DatatableSelection>();
 
