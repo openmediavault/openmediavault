@@ -38,6 +38,7 @@ import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { Datatable } from '~/app/shared/models/datatable.interface';
 import { DatatableColumn } from '~/app/shared/models/datatable-column.type';
+import { DatatableData } from '~/app/shared/models/datatable-data.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { Sorter } from '~/app/shared/models/sorter.type';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
@@ -54,7 +55,7 @@ export type DataTableLoadParams = {
 export type DataTableCellChanged = {
   value: any;
   prop: string | number;
-  row: Record<string, any>;
+  row: Record<string, DatatableData | null>;
   column: DatatableColumn;
 };
 
@@ -108,7 +109,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
 
   // The data to be shown.
   @Input()
-  data: any[];
+  data: DatatableData[];
 
   // Show the linear loading bar.
   @Input()

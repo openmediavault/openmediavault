@@ -15,8 +15,10 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
+import { DatatableData } from '~/app/shared/models/datatable-data.type';
+
 export class DatatableSelection {
-  selected: Array<any> = [];
+  selected: Array<DatatableData> = [];
   hasSelection: boolean;
   hasSingleSelection: boolean;
   hasMultiSelection: boolean;
@@ -25,7 +27,7 @@ export class DatatableSelection {
     this.update();
   }
 
-  set(selected: any[]) {
+  set(selected: any[]): void {
     this.selected = selected;
     this.update();
   }
@@ -33,7 +35,7 @@ export class DatatableSelection {
   /**
    * Clear the selection.
    */
-  clear() {
+  clear(): void {
     this.selected = [];
     this.update();
   }
@@ -41,7 +43,7 @@ export class DatatableSelection {
   /**
    * Update the internal data structure.
    */
-  update() {
+  update(): void {
     this.hasSelection = this.selected.length > 0;
     this.hasSingleSelection = this.selected.length === 1;
     this.hasMultiSelection = this.selected.length > 1;
@@ -50,7 +52,7 @@ export class DatatableSelection {
   /**
    * Get the first selection.
    */
-  first() {
+  first(): DatatableData | null {
     if (this.hasSelection) {
       return this.selected[0];
     }
