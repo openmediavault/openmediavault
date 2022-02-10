@@ -16,6 +16,7 @@
  * GNU General Public License for more details.
  */
 
+import { DatatableData } from '~/app/shared/models/datatable-data.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 
 /**
@@ -23,7 +24,7 @@ import { DatatableSelection } from '~/app/shared/models/datatable-selection.mode
  */
 export interface Datatable {
   // The data shown in the table.
-  data: any[];
+  data: DatatableData[];
 
   // The current selection.
   selection: DatatableSelection;
@@ -36,5 +37,5 @@ export interface Datatable {
   /**
    * Update the data to be shown.
    */
-  updateData(data: any[]): void;
+  updateData(data: DatatableData[]): void;
 }

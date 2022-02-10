@@ -317,7 +317,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
    * The internal data structures are updated and the table will
    * be redrawn.
    */
-  updateData(data: any[]): void {
+  updateData(data: DatatableData[]): void {
     this.data.splice(0, this.data.length, ...data);
     this.rows = [...this.data];
   }
@@ -345,8 +345,6 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   }
 
   onSelect(): void {
-    // Update the selection.
-    this.selection.update();
     // Make a deep copy of the selection and emit it to the subscribers.
     this.selectionChangeEvent.emit(_.cloneDeep(this.selection));
   }

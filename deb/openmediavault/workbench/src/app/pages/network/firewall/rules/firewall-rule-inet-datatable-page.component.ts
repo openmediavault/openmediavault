@@ -23,7 +23,6 @@ import { DatatablePageComponent } from '~/app/core/components/intuition/datatabl
 import { DatatablePageActionConfig } from '~/app/core/components/intuition/models/datatable-page-action-config.type';
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
-import { DataStore } from '~/app/shared/models/data-store.type';
 import { Datatable } from '~/app/shared/models/datatable.interface';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
@@ -121,7 +120,7 @@ export class FirewallRuleInetDatatablePageComponent {
         tooltip: gettext('Save'),
         click: this.onSave.bind(this),
         enabledConstraints: {
-          callback: (selected, store: DataStore) => this.dirty
+          callback: () => this.dirty
         }
       },
       {

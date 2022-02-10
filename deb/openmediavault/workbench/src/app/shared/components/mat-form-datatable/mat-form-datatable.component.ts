@@ -270,8 +270,8 @@ export class MatFormDatatableComponent
                 // We can process the `table.selection.selected` here
                 // because the objects are referencing the objects in
                 // `this.store.data`.
-                const selection = table.selection.first();
-                _.assign(selection, res);
+                const selected = table.selection.first();
+                _.assign(selected, res);
                 break;
             }
             this.syncValue();

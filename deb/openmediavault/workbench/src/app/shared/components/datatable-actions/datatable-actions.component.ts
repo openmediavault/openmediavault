@@ -22,7 +22,10 @@ import * as _ from 'lodash';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { Constraint } from '~/app/shared/models/constraint.type';
 import { Datatable } from '~/app/shared/models/datatable.interface';
-import { DatatableActionConfig } from '~/app/shared/models/datatable-action-config.type';
+import {
+  DatatableActionConfig,
+  DatatableActionEnabledConstraintsFn
+} from '~/app/shared/models/datatable-action-config.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
@@ -55,31 +58,30 @@ export class DatatableActionsComponent implements OnInit {
 
   isDisabled(action: DatatableActionConfig) {
     if (_.isPlainObject(action.enabledConstraints)) {
-      const validators = [];
+      const validators: Array<DatatableActionEnabledConstraintsFn> = [];
       if (_.isBoolean(action.enabledConstraints.hasData)) {
-        validators.push((selected, data) =>
-          action.enabledConstraints.hasData ? data?.length : !data?.length
+        validators.push((selection, table) =>
+          action.enabledConstraints.hasData ? table.data?.length > 0 : !table.data?.length
         );
       }
       if (_.isNumber(action.enabledConstraints.minSelected)) {
-        validators.push((selected) => selected.length >= action.enabledConstraints.minSelected);
+        validators.push((selection) => selection.length >= action.enabledConstraints.minSelected);
       }
       if (_.isNumber(action.enabledConstraints.maxSelected)) {
-        validators.push((selected) => selected.length <= action.enabledConstraints.maxSelected);
+        validators.push((selection) => selection.length <= action.enabledConstraints.maxSelected);
       }
       if (_.isArray(action.enabledConstraints.constraint)) {
-        _.forEach(action.enabledConstraints.constraint, (custom: Constraint) => {
+        _.forEach(action.enabledConstraints.constraint, (constraint: Constraint) => {
           validators.push(
-            (selected) => ConstraintService.filter(selected, custom).length === selected.length
+            (selection) =>
+              ConstraintService.filter(selection.selected, constraint).length === selection.length
           );
         });
       }
       if (_.isFunction(action.enabledConstraints.callback)) {
         validators.push(action.enabledConstraints.callback);
       }
-      const enabled = _.every(validators, (validator) =>
-        validator(this.selection.selected, this.table.data)
-      );
+      const enabled = _.every(validators, (validator) => validator(this.selection, this.table));
       return !enabled;
     }
     return false;

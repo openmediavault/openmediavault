@@ -18,18 +18,28 @@
 import { DatatableData } from '~/app/shared/models/datatable-data.type';
 
 export class DatatableSelection {
-  selected: Array<DatatableData> = [];
-  hasSelection: boolean;
-  hasSingleSelection: boolean;
-  hasMultiSelection: boolean;
+  selected: DatatableData[] = [];
 
-  constructor() {
-    this.update();
+  constructor() {}
+
+  get length(): number {
+    return this.selected.length;
   }
 
-  set(selected: any[]): void {
+  get hasSelection(): boolean {
+    return this.length > 0;
+  }
+
+  get hasSingleSelection(): boolean {
+    return this.length === 1;
+  }
+
+  get hasMultiSelection(): boolean {
+    return this.length > 1;
+  }
+
+  set(selected: DatatableData[]): void {
     this.selected = selected;
-    this.update();
   }
 
   /**
@@ -37,16 +47,6 @@ export class DatatableSelection {
    */
   clear(): void {
     this.selected = [];
-    this.update();
-  }
-
-  /**
-   * Update the internal data structure.
-   */
-  update(): void {
-    this.hasSelection = this.selected.length > 0;
-    this.hasSingleSelection = this.selected.length === 1;
-    this.hasMultiSelection = this.selected.length > 1;
   }
 
   /**

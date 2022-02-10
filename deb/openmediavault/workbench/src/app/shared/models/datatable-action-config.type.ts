@@ -18,6 +18,20 @@
 import { Constraint } from '~/app/shared/models/constraint.type';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { Datatable } from '~/app/shared/models/datatable.interface';
+import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
+
+export type DatatableActionClickFn = (action: DatatableActionConfig, table: Datatable) => void;
+
+export type DatatableActionSelectionChangeFn = (
+  action: DatatableActionConfig,
+  value: any,
+  table: Datatable
+) => void;
+
+export type DatatableActionEnabledConstraintsFn = (
+  selection: DatatableSelection,
+  table: Datatable
+) => boolean;
 
 // A datatable action is visually represented in the action toolbar
 // which is located on the left side above the datatable.
@@ -45,7 +59,7 @@ export type DatatableActionConfig = {
 
   // --- button | iconbutton | menu ---
   // A callback function. Internal only.
-  click?: (action: DatatableActionConfig, table: Datatable) => void;
+  click?: DatatableActionClickFn;
 
   // --- select ---
   store?: DataStore;
@@ -54,7 +68,7 @@ export type DatatableActionConfig = {
   valueField?: string;
   // Defaults to 'text'.
   textField?: string;
-  selectionChange?: (action: DatatableActionConfig, value: any, table: Datatable) => void;
+  selectionChange?: DatatableActionSelectionChangeFn;
 
   // --- menu ---
   // The actions displayed in the menu dropdown.
@@ -74,6 +88,6 @@ export type DatatableActionConfig = {
     constraint?: Array<Constraint>;
     // A callback function. Return `true` to let the check succeed.
     // Internal only.
-    callback?: (selected: any[], data: any) => boolean;
+    callback?: DatatableActionEnabledConstraintsFn;
   };
 };
