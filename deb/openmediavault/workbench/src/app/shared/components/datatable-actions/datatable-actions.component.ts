@@ -25,7 +25,7 @@ import { Datatable } from '~/app/shared/models/datatable.interface';
 import {
   DatatableActionConfig,
   DatatableActionEnabledConstraintsFn
-} from '~/app/shared/models/datatable-action-config.type';
+} from '~/app/shared/models/datatable-action.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';

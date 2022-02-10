@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { FormDialogConfig } from '~/app/core/components/intuition/models/form-dialog-config.type';
-import { DatatableActionConfig } from '~/app/shared/models/datatable-action-config.type';
+import { DatatableActionConfig } from '~/app/shared/models/datatable-action.type';
 import { ModalDialogConfig } from '~/app/shared/models/modal-dialog-config.type';
 import { TaskDialogConfig } from '~/app/shared/models/task-dialog-config.type';
 
