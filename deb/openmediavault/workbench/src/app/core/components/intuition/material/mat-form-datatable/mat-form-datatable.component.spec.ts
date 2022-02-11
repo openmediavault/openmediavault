@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ToastrModule } from 'ngx-toastr';
 
+import { MatFormDatatableComponent } from '~/app/core/components/intuition/material/mat-form-datatable/mat-form-datatable.component';
 import { ComponentsModule } from '~/app/shared/components/components.module';
-import { MatFormDatatableComponent } from '~/app/shared/components/mat-form-datatable/mat-form-datatable.component';
 import { TestingModule } from '~/app/testing.module';
 
 describe('MatFormDatatableComponent', () => {

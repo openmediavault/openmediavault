@@ -29,6 +29,8 @@ import { FormTextareaComponent } from '~/app/core/components/intuition/form/comp
 import { FormComponent } from '~/app/core/components/intuition/form/form.component';
 import { FormDialogComponent } from '~/app/core/components/intuition/form-dialog/form-dialog.component';
 import { FormPageComponent } from '~/app/core/components/intuition/form-page/form-page.component';
+import { MatFormButtonComponent } from '~/app/core/components/intuition/material/mat-form-button/mat-form-button.component';
+import { MatFormDatatableComponent } from '~/app/core/components/intuition/material/mat-form-datatable/mat-form-datatable.component';
 import { RrdPageComponent } from '~/app/core/components/intuition/rrd-page/rrd-page.component';
 import { SelectionListPageComponent } from '~/app/core/components/intuition/selection-list-page/selection-list-page.component';
 import { TabsPageComponent } from '~/app/core/components/intuition/tabs-page/tabs-page.component';
@@ -38,6 +40,8 @@ import { SharedModule } from '~/app/shared/shared.module';
 
 @NgModule({
   declarations: [
+    MatFormDatatableComponent,
+    MatFormButtonComponent,
     FormComponent,
     FormDialogComponent,
     FormPageComponent,

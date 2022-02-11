@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { MatFormButtonComponent } from '~/app/shared/components/mat-form-button/mat-form-button.component';
+import { MatFormButtonComponent } from '~/app/core/components/intuition/material/mat-form-button/mat-form-button.component';
 
 describe('MatFormButtonComponent', () => {
   let component: MatFormButtonComponent;
