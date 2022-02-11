@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { ArrayPipe } from '~/app/shared/pipes/array.pipe';
 import { BinaryUnitPipe } from '~/app/shared/pipes/binary-unit.pipe';
+import { Br2nlPipe } from '~/app/shared/pipes/br2nl.pipe';
 import { DefaultToPipe } from '~/app/shared/pipes/default-to.pipe';
 import { EncodeUriComponentPipe } from '~/app/shared/pipes/encode-uri-component.pipe';
 import { HttpErrorResponsePipe } from '~/app/shared/pipes/http-error-response.pipe';
@@ -37,7 +38,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     MaxPipe,
     SanitizeHtmlPipe,
     EncodeUriComponentPipe,
-    ReplacePipe
+    ReplacePipe,
+    Br2nlPipe
   ],
   imports: [CommonModule],
   exports: [
@@ -57,7 +59,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     MaxPipe,
     SanitizeHtmlPipe,
     EncodeUriComponentPipe,
-    ReplacePipe
+    ReplacePipe,
+    Br2nlPipe
   ],
   providers: [
     ToBooleanPipe,
@@ -76,7 +79,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     MaxPipe,
     SanitizeHtmlPipe,
     EncodeUriComponentPipe,
-    ReplacePipe
+    ReplacePipe,
+    Br2nlPipe
   ]
 })
 export class PipesModule {}

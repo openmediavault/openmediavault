@@ -202,8 +202,8 @@
 <ng-template #templateTpl
              let-column="column"
              let-row="row">
-  <span matTooltipClass="omv-text-wrap"
-        [matTooltip]="column.cellTemplateConfig | template:row | replace:'<br>':'\n'"
+  <span matTooltipClass="omv-text-wrap-line"
+        [matTooltip]="column.cellTemplateConfig | template:row | br2nl"
         [innerHTML]="column.cellTemplateConfig | template:row | sanitizeHtml">
   </span>
 </ng-template>
