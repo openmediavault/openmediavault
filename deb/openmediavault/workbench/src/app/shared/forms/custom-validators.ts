@@ -494,7 +494,7 @@ export class CustomValidators {
           });
         });
         hasSubscribed = true;
-        // Finally force all form fields that are used in the constraint
+        // Finally, force all form fields that are used in the constraint
         // to notify their 'valueChanges' subscribers, thus the constraint
         // will be evaluated and the state of the form field will be set
         // correct on initialization.

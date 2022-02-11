@@ -151,7 +151,7 @@ export class UserFormPageComponent {
         actions: [
           {
             template: 'add',
-            dialogConfig: {
+            formDialogConfig: {
               title: gettext('SSH public key'),
               fields: [
                 {

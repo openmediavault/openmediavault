@@ -3,6 +3,7 @@
     <ng-template [ngSwitchCase]="'button'">
       <button mat-button
               [disabled]="isDisabled(action)"
+              matTooltip="{{ action.tooltip | translate }}"
               (click)="onButtonClick(action)">
         {{ action.text | translate }}
       </button>

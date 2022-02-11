@@ -106,7 +106,7 @@ export class SystemLogsListPageComponent implements OnInit {
             params: logConfig.request.params
           }
         };
-        // Finally reload the datatable content. Note, we need to wait
+        // Finally, reload the datatable content. Note, we need to wait
         // until the datatable has updated the configuration (e.g. sorters)
         // thanks to Angular's change-detection.
         setTimeout(() => {

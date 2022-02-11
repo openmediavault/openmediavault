@@ -147,7 +147,7 @@ export class RsyncModuleFormPageComponent {
         actions: [
           {
             template: 'add',
-            dialogConfig: {
+            formDialogConfig: {
               title: gettext('User'),
               fields: [
                 {

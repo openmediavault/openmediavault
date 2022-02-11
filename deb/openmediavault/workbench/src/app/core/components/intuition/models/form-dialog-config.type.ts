@@ -26,7 +26,7 @@ export type FormDialogConfig = {
   subTitle?: string;
   // An image displayed within the header.
   icon?: string;
-  // Width of the dialog. Defaults to '50%'.
+  // Width of the dialog in 'px' or '%'. Defaults to '50%'.
   width?: string;
   // The configuration of the form field controls.
   fields: Array<FormFieldConfig>;
@@ -67,7 +67,7 @@ export type FormDialogButtonExecute = {
     // Additional parameters can be defined here. The given values can
     // be tokenized strings that will be formatted using the values
     // from the form fields.
-    // Finally the form field values are overwritten and merged with
+    // Finally, the form field values are overwritten and merged with
     // this given parameters. This way it is possible to modify the
     // values dynamically before they are submitted.
     params?: Record<string, any>;

@@ -15,6 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
+import { MatFormDatatableAction } from '~/app/core/components/intuition/material/mat-form-datatable/mat-form-datatable.component';
 import { Constraint } from '~/app/shared/models/constraint.type';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { DatatableColumn } from '~/app/shared/models/datatable-column.type';
@@ -278,36 +279,7 @@ export type FormFieldConfig = {
   selectionType?: 'none' | 'single' | 'multi';
   limit?: number;
   sorters?: Array<Sorter>;
-  actions?: Array<{
-    // Specifies a template which pre-configures the action button.
-    // add -    Shows a form dialog. When the dialog is successfully
-    //          closed, then the form values will be used to add a new
-    //          row to the datatable.
-    // edit -   Shows a form dialog which displays the data of the
-    //          current selected row. The action button is only enabled
-    //          when one row is selected. When the dialog is
-    //          successfully closed, then the form values are used
-    //          to update the current selected row.
-    // delete - The action button is only enabled when one row is
-    //          selected. If pressed, the current selected row will
-    //          be removed from the datatable.
-    template?: 'add' | 'edit' | 'delete';
-    dialogConfig?: {
-      // The dialog title.
-      title?: string;
-      // Width of the dialog.
-      width?: string;
-      // Height of the dialog.
-      height?: string;
-      // The form fields of the dialog that is displayed when the 'Add'
-      // or 'Edit' button is pressed.
-      fields?: Array<FormFieldConfig>;
-    };
-    // Internal
-    icon?: string;
-    tooltip?: string;
-    click?: () => void;
-  }>;
+  actions?: Array<MatFormDatatableAction>;
   // Specifies the type of the array items. Defaults to `object`.
   valueType?: 'string' | 'integer' | 'number' | 'object';
 };

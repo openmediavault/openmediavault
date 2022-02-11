@@ -48,7 +48,7 @@ export type FormPageConfig = {
       task?: boolean;
       // Transform the given parameters in the request response.
       // The given parameters can be tokenized strings that will be
-      // formatted using the request response. Finally these parameters
+      // formatted using the request response. Finally, these parameters
       // are merged with the request response.
       // Example:
       // Response = { foo: 'bar', num: '3' }
@@ -73,7 +73,7 @@ export type FormPageConfig = {
       // Additional parameters can be defined here. The given values can
       // be tokenized strings that will be formatted using the values
       // from the form fields.
-      // Finally the form field values are overwritten and merged with
+      // Finally, the form field values are overwritten and merged with
       // this given parameters. This way it is possible to modify the
       // values dynamically before they are submitted.
       params?: Record<string, any>;
@@ -81,7 +81,7 @@ export type FormPageConfig = {
       // in the given RPC parameters and the form field values is used
       // by the RPC request. Defaults to `false`.
       intersectParams?: boolean;
-      // Set `true` if the RPC is a long running background task.
+      // Set `true` if the RPC is a long-running background task.
       task?: boolean;
       // If set, a dialog is shown that must be confirmed before the
       // RPC is executed. The RPC is only executed when the dialog

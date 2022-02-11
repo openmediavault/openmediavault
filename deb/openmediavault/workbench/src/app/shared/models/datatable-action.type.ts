@@ -55,6 +55,8 @@ export type DatatableAction = {
 
   // --- iconbutton | menu ---
   icon?: string;
+
+  // --- button | iconbutton | menu ---
   tooltip?: string;
 
   // --- button | iconbutton | menu ---
@@ -86,8 +88,8 @@ export type DatatableAction = {
     // (and their data). If the constraint succeeds for all selected
     // rows, then the action will be enabled.
     constraint?: Array<Constraint>;
+    // Internal
     // A callback function. Return `true` to let the check succeed.
-    // Internal only.
     callback?: DatatableActionEnabledConstraintsFn;
   };
 };

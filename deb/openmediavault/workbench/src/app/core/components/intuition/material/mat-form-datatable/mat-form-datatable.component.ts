@@ -25,6 +25,8 @@ import * as _ from 'lodash';
 import { Subject } from 'rxjs';
 
 import { FormDialogComponent } from '~/app/core/components/intuition/form-dialog/form-dialog.component';
+import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
+import { formatDeep } from '~/app/functions.helper';
 import { DataTableCellChanged } from '~/app/shared/components/datatable/datatable.component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { DataStore } from '~/app/shared/models/data-store.type';
@@ -37,6 +39,48 @@ import { DataStoreService } from '~/app/shared/services/data-store.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 
 let nextUniqueId = 0;
+
+export type MatFormDatatableAction = {
+  // Specifies a template which pre-configures the action button.
+  // add -    Shows a form dialog. When the dialog is successfully
+  //          closed, then the form values will be used to add a new
+  //          row to the datatable.
+  // edit -   Shows a form dialog which displays the data of the
+  //          current selected row. The action button is only enabled
+  //          when one row is selected. When the dialog is
+  //          successfully closed, then the form values are used
+  //          to update the current selected row.
+  // delete - The action button is only enabled when one row is
+  //          selected. If pressed, the current selected row will
+  //          be removed from the datatable.
+  template?: 'add' | 'edit' | 'delete';
+  formDialogConfig?: {
+    // The dialog title.
+    title?: string;
+    // Width of the dialog in 'px' or '%'. Defaults to '50%'.
+    width?: string;
+    // The form fields that is displayed in the dialog when the
+    // 'Add' or 'Edit' button is pressed.
+    fields?: Array<FormFieldConfig>;
+  };
+  // Transform the given keys in the form values after the dialog
+  // has been closed and before the datatable row will be added or
+  // updated.
+  // Example:
+  // Values = { foo: 'bar', num: '3', str: 'xyzzzz' }
+  // transform = {
+  //   foo: 'baz-{{ foo }}',
+  //   num: '{{ num | int }}',
+  //   str: '{{ str | strip("z") }}',
+  //   add: 'aaa'
+  // }
+  // Result = { foo: 'baz-bar', num: 3, str: 'xy', add: 'aaa' }
+  transform?: { [key: string]: string };
+  // Internal
+  icon?: string;
+  tooltip?: string;
+  click?: () => void;
+};
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -125,7 +169,7 @@ export class MatFormDatatableComponent
   columnMode?: 'standard' | 'flex' | 'force' = 'flex';
 
   @Input()
-  actions: DatatableAction[] = [];
+  actions: MatFormDatatableAction[] = [];
 
   @Input()
   hasActionBar? = true;
@@ -235,10 +279,10 @@ export class MatFormDatatableComponent
     switch (action.id) {
       case 'add':
       case 'edit':
-        const dialogConfig = _.get(actionConfig, 'dialogConfig');
+        const formDialogConfig = _.get(actionConfig, 'formDialogConfig');
         const data = {
-          title: _.get(dialogConfig, 'title'),
-          fields: _.get(dialogConfig, 'fields')
+          title: _.get(formDialogConfig, 'title'),
+          fields: _.get(formDialogConfig, 'fields')
         };
         if ('add' === action.id) {
           _.defaultsDeep(data, {
@@ -251,8 +295,7 @@ export class MatFormDatatableComponent
         }
         const formDialogRef = this.dialogService.open(FormDialogComponent, {
           data,
-          width: _.get(dialogConfig, 'width', '50%'),
-          height: _.get(dialogConfig, 'height')
+          width: _.get(formDialogConfig, 'width', '50%')
         });
         if ('edit' === action.id) {
           // Update the form field values.
@@ -262,6 +305,11 @@ export class MatFormDatatableComponent
         }
         formDialogRef.afterClosed().subscribe((res) => {
           if (res) {
+            // Apply value transformation.
+            if (_.isPlainObject(formDialogConfig.transform)) {
+              const tmp = formatDeep(formDialogConfig.transform, res);
+              _.merge(res, tmp);
+            }
             switch (action.id) {
               case 'add':
                 this.store.data.push(res);

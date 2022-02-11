@@ -62,7 +62,7 @@ export type DataStore = {
   // Load a file via HTTP.
   url?: string;
   // Transform the data. The given fields can be tokenized strings
-  // that will be formatted using the origin data. Finally these fields
+  // that will be formatted using the origin data. Finally, these fields
   // are merged with the origin data.
   // Example:
   // Response = [{ foo: 'bar', num: '3' }]
