@@ -239,7 +239,16 @@ export type FormFieldConfig = {
   monospace?: boolean;
 
   // --- fileInput ---
+  // Takes a comma-separated list of one or more file types, or
+  // unique file type specifiers, describing which file types to
+  // allow.
   accept?: string;
+  // Remove whitespace from both ends of the file content after
+  // loading, this includes space, tab, no-break space and all the
+  // line terminator characters (e.g. LF, CR).
+  // Defaults to `true` if the `rows` property is set to 1,
+  // otherwise `false`.
+  trim?: boolean;
 
   // --- select ---
   multiple?: boolean;

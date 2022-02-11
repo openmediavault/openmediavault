@@ -114,7 +114,8 @@ export class FormComponent implements AfterViewInit, OnInit {
           _.defaultsDeep(field, {
             autocapitalize: 'none',
             rows: 4,
-            wrap: 'soft'
+            wrap: 'soft',
+            trim: false
           });
           break;
         case 'folderBrowser':

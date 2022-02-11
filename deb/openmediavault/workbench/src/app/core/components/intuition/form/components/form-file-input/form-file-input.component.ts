@@ -17,6 +17,7 @@
  */
 import { Component } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
+import * as _ from 'lodash';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 
@@ -35,9 +36,8 @@ export class FormFileInputComponent extends AbstractFormFieldComponent {
 
   protected onFileReaderLoad(event: ProgressEvent<FileReader>) {
     const control: AbstractControl = this.formGroup.get(this.config.name);
-    control.setValue(
-      this.config.rows > 1 ? event.target.result : event.target.result.toString().trim()
-    );
+    const trim = _.defaultTo(this.config.trim, this.config.rows === 1);
+    control.setValue(trim ? event.target.result.toString().trim() : event.target.result);
     control.markAsTouched();
     control.markAsDirty();
     control.updateValueAndValidity();

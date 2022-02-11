@@ -161,6 +161,7 @@ export class UserFormPageComponent {
                   rows: 10,
                   wrap: 'off',
                   monospace: true,
+                  trim: true,
                   label: gettext('Public key'),
                   hint: gettext('The SSH public key in OpenSSH or RFC 4716 format.'),
                   validators: {
