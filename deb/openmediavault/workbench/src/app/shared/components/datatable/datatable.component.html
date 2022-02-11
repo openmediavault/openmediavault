@@ -202,7 +202,10 @@
 <ng-template #templateTpl
              let-column="column"
              let-row="row">
-  <span [innerHTML]="column.cellTemplateConfig | template:row | sanitizeHtml"></span>
+  <span matTooltipClass="omv-text-wrap"
+        [matTooltip]="column.cellTemplateConfig | template:row | replace:'<br>':'\n'"
+        [innerHTML]="column.cellTemplateConfig | template:row | sanitizeHtml">
+  </span>
 </ng-template>
 
 <ng-template #shapeShifterTpl
