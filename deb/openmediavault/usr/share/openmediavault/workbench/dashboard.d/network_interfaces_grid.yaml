@@ -25,6 +25,11 @@ data:
           params:
             start: 0
             limit: -1
+      filters:
+        - operator: ne
+          arg0:
+            prop: devicename
+          arg1: lo
       sorters:
         - prop: devicefile
           dir: asc
