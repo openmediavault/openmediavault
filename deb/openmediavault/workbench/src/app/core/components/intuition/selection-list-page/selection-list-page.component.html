@@ -36,6 +36,9 @@
                        [value]="option[config.valueProp]"
                        [selected]="config.value.includes(option[config.valueProp])">
         {{ option[config.textProp] | translate }}
+        <mat-hint *ngIf="config.hintProp">
+          {{ option[config.hintProp] | translate }}
+        </mat-hint>
       </mat-list-option>
     </mat-selection-list>
   </mat-card-content>

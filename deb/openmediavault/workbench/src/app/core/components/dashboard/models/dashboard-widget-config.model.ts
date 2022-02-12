@@ -23,38 +23,61 @@ import { Sorter } from '~/app/shared/models/sorter.type';
 export type ChartDataConfig = {
   label: string;
   prop: string;
-  labelColor?: string;
-  backgroundColor: string;
+  labelColor?: string; // In hexadecimal format.
+  backgroundColor: string; // In hexadecimal format.
 };
 
 export type DashboardWidgetConfig = {
-  id: string; // An UUID.
+  id: string; // A unique UUID.
   // The following widgets are general purpose and customizable:
-  // - datatable
-  // - rrd
   // - chart
+  // - datatable
+  // - grid
+  // - rrd
   // All other widget types are internal only.
   type:
-    | 'datatable'
-    | 'rrd'
     | 'chart'
+    | 'datatable'
+    | 'grid'
+    | 'rrd'
     | 'system-information' // internal
-    | 'services-status' // internal
-    | 'filesystems-status' // internal
-    | 'smart-status'; // internal
+    | 'filesystems-status'; // internal
+  // The widget title.
   title: string;
+  // The description of the widget.
+  description?: string;
   permissions?: Permissions;
   // The frequency in milliseconds with which the data
   // should be reloaded. Defaults are:
-  // - datatable: 10000
-  // - rrd: 60000
   // - chart: 10000
+  // - datatable: 10000
+  // - grid: 10000
+  // - rrd: 60000
   reloadPeriod?: number;
+
+  grid?: {
+    // The template that generates the grid item title.
+    title?: string;
+    // The template that generates the grid item content.
+    content?: string;
+    // The template to generate the grid item tooltip text.
+    tooltip?: string;
+    // Custom CSS class. This can be a template, too.
+    class?: string;
+    titleClass?: string;
+    contentClass?: string;
+    // The data to be displayed.
+    store: DataStore;
+    // The template to generate the URL to navigate to when
+    // a grid item is clicked.
+    url?: string;
+  };
 
   datatable?: {
     columns: Array<DatatableColumn>;
     columnMode?: 'standard' | 'flex' | 'force';
     sorters?: Array<Sorter>;
+    // The data to be displayed.
     store: DataStore;
     hasHeader?: boolean; // Defaults to `true`.
     hasFooter?: boolean; // Defaults to `false`.
@@ -70,7 +93,7 @@ export type DashboardWidgetConfig = {
       display?: boolean;
       formatter: 'none' | 'label' | 'template';
       formatterConfig?: any;
-      color: string;
+      color: string; // In hexadecimal format.
       align?: 'bottom' | 'center' | 'end' | 'left' | 'right' | 'start' | 'top' | number;
       anchor?: 'center' | 'end' | 'start';
     };

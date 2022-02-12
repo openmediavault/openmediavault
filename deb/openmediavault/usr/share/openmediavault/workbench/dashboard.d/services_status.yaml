@@ -1,0 +1,35 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 1788ba1e-8bbe-11eb-8e2b-a3943d9b5d3e
+  type: grid
+  reloadPeriod: 10000
+  permissions:
+    role:
+      - admin
+  title: _("Services")
+  description: _("Displays information about the services in a grid.")
+  # Text used in templates and therefore cannot be automatically extracted
+  # by i18n tools.
+  gettext:
+    - _("Running")
+    - _("Not running")
+  grid:
+    content: '{{ title }}'
+    tooltip: '{% if running %}{{ "Running" | translate }}{% else %}{{ "Not running" | translate }}{% endif %}'
+    class: 'omv-text-center omv-text-nowrap {% if running %}omv-background-color-theme-success{% else %}omv-background-color-theme-error{% endif %}'
+    store:
+      proxy:
+        service: Services
+        get:
+          method: getStatus
+          params:
+            start: 0
+            limit: -1
+      filters:
+        - operator: truthy
+          arg0:
+            prop: enabled
+      sorters:
+        - prop: title
+          dir: asc

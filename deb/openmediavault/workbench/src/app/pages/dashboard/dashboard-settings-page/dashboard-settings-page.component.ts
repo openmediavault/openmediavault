@@ -24,7 +24,7 @@ import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/da
 import { SelectionListPageConfig } from '~/app/core/components/intuition/models/selection-list-page-config.type';
 import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widget-config.service';
 
-type SelectionListItem = Pick<DashboardWidgetConfig, 'id' | 'title'> & {
+type SelectionListItem = Pick<DashboardWidgetConfig, 'id' | 'title' | 'description'> & {
   enabled: boolean;
 };
 
@@ -39,6 +39,7 @@ export class DashboardSettingsPageComponent implements OnInit {
     multiple: true,
     textProp: 'title',
     valueProp: 'id',
+    hintProp: 'description',
     selectedProp: 'enabled',
     updateStoreOnSelectionChange: true,
     store: {
@@ -82,6 +83,7 @@ export class DashboardSettingsPageComponent implements OnInit {
           data.push({
             id: widget.id,
             title: widget.title,
+            description: widget.description,
             enabled: enabledWidgets.includes(widget.id)
           });
         });

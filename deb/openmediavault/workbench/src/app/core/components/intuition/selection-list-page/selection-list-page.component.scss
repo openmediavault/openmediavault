@@ -23,7 +23,11 @@
     padding: 0 $omv-padding $omv-padding;
   }
 
-  ::ng-deep .mat-selection-list {
+  .mat-selection-list {
     padding-top: unset;
+
+    .mat-hint {
+      font-size: 75%;
+    }
   }
 }

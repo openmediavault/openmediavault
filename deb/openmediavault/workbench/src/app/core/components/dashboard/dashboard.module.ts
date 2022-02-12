@@ -25,9 +25,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { WidgetChartComponent } from '~/app/core/components/dashboard/widgets/widget-chart/widget-chart.component';
 import { WidgetDatatableComponent } from '~/app/core/components/dashboard/widgets/widget-datatable/widget-datatable.component';
 import { WidgetFilesystemsStatusComponent } from '~/app/core/components/dashboard/widgets/widget-filesystems-status/widget-filesystems-status.component';
+import { WidgetGridComponent } from '~/app/core/components/dashboard/widgets/widget-grid/widget-grid.component';
 import { WidgetRrdComponent } from '~/app/core/components/dashboard/widgets/widget-rrd/widget-rrd.component';
-import { WidgetServicesStatusComponent } from '~/app/core/components/dashboard/widgets/widget-services-status/widget-services-status.component';
-import { WidgetSmartStatusComponent } from '~/app/core/components/dashboard/widgets/widget-smart-status/widget-smart-status.component';
 import { WidgetSystemInformationComponent } from '~/app/core/components/dashboard/widgets/widget-system-information/widget-system-information.component';
 import { MaterialModule } from '~/app/material.module';
 import { SharedModule } from '~/app/shared/shared.module';
@@ -38,18 +37,16 @@ import { SharedModule } from '~/app/shared/shared.module';
     WidgetRrdComponent,
     WidgetSystemInformationComponent,
     WidgetChartComponent,
-    WidgetServicesStatusComponent,
     WidgetFilesystemsStatusComponent,
-    WidgetSmartStatusComponent
+    WidgetGridComponent
   ],
   exports: [
     WidgetDatatableComponent,
     WidgetRrdComponent,
     WidgetSystemInformationComponent,
     WidgetChartComponent,
-    WidgetServicesStatusComponent,
     WidgetFilesystemsStatusComponent,
-    WidgetSmartStatusComponent
+    WidgetGridComponent
   ],
   imports: [
     CommonModule,
