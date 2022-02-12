@@ -261,6 +261,7 @@ class System {
 		//             multiple processes.
 		// cache     - Cache for various things.
 		foreach ($output as $outputk => $outputv) {
+			$outputv = trim($outputv);
 			if (preg_match('/^Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/',
 					$outputv, $matches)) {
 				$result['mem'] = [
