@@ -10,11 +10,13 @@ data:
   title: _("Network Interfaces")
   description: _("Displays information about the network interfaces in a grid.")
   grid:
-    title: '{{ devicename }}'
-    content: '{{ address | default("-", true) }}<br>{{ address6 | default("-", true) }}'
-    class: 'omv-background-color-theme-whitesmoke'
-    titleClass: 'omv-text-truncate'
-    contentClass: 'omv-text-nowrap omv-text-small'
+    item:
+      class: 'omv-background-color-theme-whitesmoke'
+      title: '{{ devicename }}'
+      titleClass: 'omv-text-truncate'
+      content: '{{ address | default("-", true) }}<br>{{ address6 | default("-", true) }}'
+      contentClass: 'omv-text-nowrap omv-text-small'
+      tooltip: 'IPv4: {{ address | default("-", true) }}<br>IPv6: {{ address6 | default("-", true) }}'
     store:
       proxy:
         service: Network

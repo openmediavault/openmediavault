@@ -56,21 +56,23 @@ export type DashboardWidgetConfig = {
   reloadPeriod?: number;
 
   grid?: {
-    // The template that generates the grid item title.
-    title?: string;
-    // The template that generates the grid item content.
-    content?: string;
-    // The template to generate the grid item tooltip text.
-    tooltip?: string;
-    // Custom CSS class. This can be a template, too.
-    class?: string;
-    titleClass?: string;
-    contentClass?: string;
+    item: {
+      // Custom CSS class. This can be a template, too.
+      class?: string;
+      // The template that generates the grid item title.
+      title?: string;
+      titleClass?: string;
+      // The template that generates the grid item content.
+      content?: string;
+      contentClass?: string;
+      // The template to generate the grid item tooltip text.
+      tooltip?: string;
+      // The template to generate the URL to navigate to when
+      // a grid item is clicked.
+      url?: string;
+    };
     // The data to be displayed.
     store: DataStore;
-    // The template to generate the URL to navigate to when
-    // a grid item is clicked.
-    url?: string;
   };
 
   datatable?: {

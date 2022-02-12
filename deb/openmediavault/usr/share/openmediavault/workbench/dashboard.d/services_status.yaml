@@ -15,9 +15,10 @@ data:
     - _("Running")
     - _("Not running")
   grid:
-    content: '{{ title }}'
-    tooltip: '{% if running %}{{ "Running" | translate }}{% else %}{{ "Not running" | translate }}{% endif %}'
-    class: 'omv-text-center omv-text-nowrap {% if running %}omv-background-color-theme-success{% else %}omv-background-color-theme-error{% endif %}'
+    item:
+      content: '{{ title }}'
+      tooltip: '{% if running %}{{ "Running" | translate }}{% else %}{{ "Not running" | translate }}{% endif %}'
+      class: 'omv-text-center omv-text-nowrap {% if running %}omv-background-color-theme-success{% else %}omv-background-color-theme-error{% endif %}'
     store:
       proxy:
         service: Services
