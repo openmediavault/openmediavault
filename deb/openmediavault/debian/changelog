@@ -1,6 +1,8 @@
 openmediavault (6.0.12-1) unstable; urgency=low
 
   * Add new 'grid' Dashboard widget type.
+  * Issue #1210: Remove 'Clear web control panel cache' from
+    omv-firstaid. The new UI does not need that anymore.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 Feb 2022 21:09:04 +0100
 
