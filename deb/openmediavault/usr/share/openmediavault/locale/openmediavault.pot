@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -932,6 +932,27 @@ msgstr ""
 msgid "Display the home directory of the user in the browse list."
 msgstr ""
 
+msgid "Displays information about the file systems in a grid."
+msgstr ""
+
+msgid "Displays information about the file systems in a table."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a table."
+msgstr ""
+
+msgid "Displays information about the services in a grid."
+msgstr ""
+
+msgid "Displays information about the services in a table."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
+msgstr ""
+
 msgid "Djibouti"
 msgstr ""
 
@@ -1176,9 +1197,6 @@ msgid "Fiji"
 msgstr ""
 
 msgid "File Systems"
-msgstr ""
-
-msgid "File Systems Status"
 msgstr ""
 
 msgid "File path"
@@ -1889,6 +1907,9 @@ msgstr ""
 msgid "Mount"
 msgstr ""
 
+msgid "Mount Options"
+msgstr ""
+
 msgid "Mount Point"
 msgstr ""
 
@@ -2534,9 +2555,6 @@ msgstr ""
 msgid "S.M.A.R.T."
 msgstr ""
 
-msgid "S.M.A.R.T. Status"
-msgstr ""
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr ""
 
@@ -2748,9 +2766,6 @@ msgid "Service disabled"
 msgstr ""
 
 msgid "Services"
-msgstr ""
-
-msgid "Services Status"
 msgstr ""
 
 msgid "Session expired."
