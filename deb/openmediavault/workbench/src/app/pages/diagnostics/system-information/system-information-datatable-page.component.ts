@@ -44,7 +44,7 @@ export class SystemInformationDatatablePageComponent implements OnDestroy {
       {
         prop: 'name',
         flexGrow: 1,
-        cellClass: 'omv-text-bold',
+        cellClass: 'omv-font-weight-bold',
         cellTemplateName: 'template',
         cellTemplateConfig: '{{ name | translate }}'
       },

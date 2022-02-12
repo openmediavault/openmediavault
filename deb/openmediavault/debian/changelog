@@ -1,6 +1,6 @@
 openmediavault (6.0.12-1) unstable; urgency=low
 
-  * 
+  * Add new 'grid' Dashboard widget type.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 Feb 2022 21:09:04 +0100
 

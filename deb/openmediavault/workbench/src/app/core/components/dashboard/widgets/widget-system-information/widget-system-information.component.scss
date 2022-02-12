@@ -5,7 +5,7 @@
 
   .omv-grid-cell {
     .omv-grid-cell-title {
-      @extend .omv-text-bold;
+      @extend .omv-font-weight-bold;
     }
   }
 }

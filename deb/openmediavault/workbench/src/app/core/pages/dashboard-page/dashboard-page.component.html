@@ -22,6 +22,11 @@
     </mat-card-title-group>
     <mat-card-content class="omv-scrollable-xy"
                       [ngSwitch]="widget.type">
+      <ng-template [ngSwitchCase]="'grid'">
+        <omv-dashboard-widget-grid [config]="widget">
+        </omv-dashboard-widget-grid>
+      </ng-template>
+
       <ng-template [ngSwitchCase]="'datatable'">
         <omv-dashboard-widget-datatable [config]="widget">
         </omv-dashboard-widget-datatable>
@@ -42,19 +47,9 @@
         </omv-dashboard-widget-system-information>
       </ng-template>
 
-      <ng-template [ngSwitchCase]="'services-status'">
-        <omv-dashboard-widget-services-status [config]="widget">
-        </omv-dashboard-widget-services-status>
-      </ng-template>
-
       <ng-template [ngSwitchCase]="'filesystems-status'">
         <omv-dashboard-widget-filesystems-status [config]="widget">
         </omv-dashboard-widget-filesystems-status>
-      </ng-template>
-
-      <ng-template [ngSwitchCase]="'smart-status'">
-        <omv-dashboard-widget-smart-status [config]="widget">
-        </omv-dashboard-widget-smart-status>
       </ng-template>
     </mat-card-content>
   </mat-card>

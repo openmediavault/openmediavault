@@ -81,6 +81,16 @@ describe('functions.helper', () => {
     );
   });
 
+  it('should format string [4]', () => {
+    const data = { status: 'BAD_STATUS' };
+    expect(
+      format(
+        '{% set desc = { "GOOD": "Good", "BAD_STATUS": "Unknown" } %}{{ desc[status] | translate }}',
+        data
+      )
+    ).toBe('Unknown');
+  });
+
   it('should format deep [1]', () => {
     const data = { foo: { bar: 'xyz' } };
     expect(formatDeep('My name is {{ foo.bar }}', data)).toEqual('My name is xyz');

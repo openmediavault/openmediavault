@@ -1,0 +1,23 @@
+<mat-progress-bar *ngIf="loading && firstLoad"
+                  mode="indeterminate">
+</mat-progress-bar>
+<div *ngIf="data"
+     class="omv-dashboard-widget-grid"
+     gdGap="1px"
+     gdColumns="repeat(auto-fit, minmax(100px, 1fr))">
+  <div *ngFor="let item of data.data"
+       class="item"
+       [ngClass]="config.grid.class | template:item"
+       [matTooltip]="config.grid.tooltip | template:item | br2nl"
+       [routerLink]="config.grid.url | template:item">
+    <div *ngIf="config.grid.title"
+         class="title"
+         [ngClass]="config.grid.titleClass | template:item"
+         [innerHTML]="config.grid.title | template:item | sanitizeHtml">
+    </div>
+    <div class="content"
+         [ngClass]="config.grid.contentClass | template:item"
+         [innerHTML]="config.grid.content | template:item | sanitizeHtml">
+    </div>
+  </div>
+</div>

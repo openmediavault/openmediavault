@@ -356,14 +356,60 @@ $omv-color-themes: (
 
 ////////////////////////////////////////////////////////////////////////////////
 // Cursors
+.omv-cursor-default {
+  cursor: default !important;
+}
+
 .omv-cursor-pointer {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // Display
 .omv-display-none {
   display: none !important;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Font
+.omv-font-weight-lighter {
+  font-weight: lighter !important;
+}
+
+.omv-font-weight-normal {
+  font-weight: normal !important;
+}
+
+.omv-font-weight-bold {
+  font-weight: bold !important;
+}
+
+.omv-font-weight-bolder {
+  font-weight: bolder !important;
+}
+
+.omv-font-italic {
+  font-style: italic !important;
+}
+
+.omv-font-size-small {
+  font-size: small !important;
+}
+
+.omv-font-size-smaller {
+  font-size: smaller !important;
+}
+
+.omv-font-size-medium {
+  font-size: medium !important;
+}
+
+.omv-font-size-large {
+  font-size: large !important;
+}
+
+.omv-font-size-larger {
+  font-size: larger !important;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -398,12 +444,20 @@ $omv-color-themes: (
   text-decoration: none !important;
 }
 
-.omv-text-bold {
-  font-weight: bold;
-}
-
 .omv-text-muted {
   color: $omv-color-transparent-black;
+}
+
+.omv-text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.omv-text-lowercase {
+  text-transform: lowercase !important;
+}
+
+.omv-text-uppercase {
+  text-transform: uppercase !important;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

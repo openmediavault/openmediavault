@@ -1,0 +1,14 @@
+@import 'src/styles';
+
+.omv-dashboard-widget-grid {
+  padding: $omv-padding;
+
+  .item {
+    cursor: default;
+    padding: $omv-padding * 0.5;
+
+    .title {
+      @extend .omv-font-weight-bold;
+    }
+  }
+}

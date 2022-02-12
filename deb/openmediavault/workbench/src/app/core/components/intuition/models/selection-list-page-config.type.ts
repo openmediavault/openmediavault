@@ -29,8 +29,14 @@ export type SelectionListPageConfig = {
   buttons?: Array<SelectionListPageButtonConfig>;
   // Allow multiple selection. Defaults to 'false'.
   multiple?: boolean;
-  valueProp?: string; // Defaults to 'value'.
-  textProp?: string; // Defaults to 'text'.
+  // The name of the property used for the value.
+  // Defaults to 'value'.
+  valueProp?: string;
+  // The name of the property used for the text.
+  // Defaults to 'text'.
+  textProp?: string;
+  // The name of the property used for the hint text.
+  hintProp?: string;
   // The selected values.
   value?: Array<any>;
   // If this property is set, the 'value' property will be

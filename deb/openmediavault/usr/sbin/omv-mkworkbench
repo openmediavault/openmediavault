@@ -193,11 +193,18 @@ def dashboard(ctx):
             'type': {'type': 'string', 'enum': ['dashboard-widget'], 'required': True},
             'data': {'type': 'object', 'properties': {
                 'id': {'type': 'string', 'format': 'uuidv4', 'required': True},
-                'type': {'type': 'string', 'enum': ['datatable', 'rrd', 'chart', 'system-information', 'services-status', 'filesystems-status', 'smart-status'], 'required': True},
+                'type': {'type': 'string', 'enum': [
+                    'grid', 'datatable', 'rrd', 'chart',
+                    'system-information', 'filesystems-status'
+                ], 'required': True},
                 'title': {'type': 'string', 'required': True},
+                'description': {'type': 'string', 'required': False},
+                'gettext': {'type': 'array', 'items': {'type': 'string'}, 'required': False},
                 'permissions': {'type': 'object', 'properties': {
                     'role': {'type': 'array', 'items': {'type': 'string', 'enum': ['admin', 'user']}}
                 }},
+                'chart': {'type': 'object', 'properties': {}},
+                'grid': {'type': 'object', 'properties': {}},
                 'datatable': {'type': 'object', 'properties': {}},
                 'rrd': {'type': 'object', 'properties': {}}
             }}
@@ -207,6 +214,10 @@ def dashboard(ctx):
         'Creating dashboard configuration file ...', verbose=ctx.verbose)
     widget_configs = load_yaml_files(widget_schema, widget_dir,
                                      ctx.skip_invalid, ctx.verbose)
+    for widget in widget_configs:
+        # The 'gettext' property is not needed anymore. It is only
+        # used by external i18n tools.
+        widget.pop('gettext', None)
     write_json_file(widget_file, widget_configs, ctx.verbose)
 
 

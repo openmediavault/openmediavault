@@ -3,6 +3,7 @@ type: dashboard-widget
 data:
   id: c93898cc-df13-11ea-8f71-0b7e6b4aeb13
   title: _("Services")
+  description: _("Displays information about the services in a table.")
   type: datatable
   permissions:
     role:

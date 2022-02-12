@@ -5,6 +5,7 @@ data:
   permissions:
     role:
       - admin
-  title: _("File Systems Status")
+  title: _("File Systems")
+  description: _("Displays information about the file systems in a grid.")
   type: filesystems-status
   reloadPeriod: 10000

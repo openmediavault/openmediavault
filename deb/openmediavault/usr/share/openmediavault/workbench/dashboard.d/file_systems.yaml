@@ -3,6 +3,7 @@ type: dashboard-widget
 data:
   id: 1dc0ac9a-df14-11ea-8342-6fcac5f2e571
   title: _("File Systems")
+  description: _("Displays information about the file systems in a table.")
   type: datatable
   permissions:
     role:

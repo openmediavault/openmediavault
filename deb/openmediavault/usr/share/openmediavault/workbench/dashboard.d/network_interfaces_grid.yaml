@@ -1,0 +1,28 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 860b55ef-a4fd-4fc8-8153-b79bdf0bbc2a
+  type: grid
+  reloadPeriod: 10000
+  permissions:
+    role:
+      - admin
+  title: _("Network Interfaces")
+  description: _("Displays information about the network interfaces in a grid.")
+  grid:
+    title: '{{ devicename }}'
+    content: '{{ address | default("-", true) }}<br>{{ address6 | default("-", true) }}'
+    class: 'omv-background-color-theme-whitesmoke'
+    titleClass: 'omv-text-truncate'
+    contentClass: 'omv-text-nowrap omv-text-small'
+    store:
+      proxy:
+        service: Network
+        get:
+          method: enumerateDevicesList
+          params:
+            start: 0
+            limit: -1
+      sorters:
+        - prop: devicefile
+          dir: asc

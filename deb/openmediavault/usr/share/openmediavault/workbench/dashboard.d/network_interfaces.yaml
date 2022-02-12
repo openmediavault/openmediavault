@@ -3,6 +3,7 @@ type: dashboard-widget
 data:
   id: 85bc79a2-f7f5-11e4-a5ad-0002b3a176b4
   title: _("Network Interfaces")
+  description: _("Displays information about the network interfaces in a table.")
   type: datatable
   permissions:
     role:
