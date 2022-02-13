@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-13 14:28+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/openmediavault/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -21,25 +21,25 @@ msgid "A password is required to stream audio."
 msgstr ""
 
 msgid "Authentication"
-msgstr ""
+msgstr "Autentisering"
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktiver"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Aktivert"
 
 msgid "General settings"
-msgstr ""
+msgstr "Generelle innstilling"
 
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 msgid "Password"
-msgstr ""
+msgstr "Passord"
 
 msgid "Settings"
-msgstr ""
+msgstr "Instillinger"
 
 msgid "Shairport"
 msgstr ""

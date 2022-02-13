@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-26 18:37+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-13 14:27+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -458,7 +458,7 @@ msgid "Back"
 msgstr ""
 
 msgid "Bad"
-msgstr ""
+msgstr "Kötü"
 
 msgid "Bahamas"
 msgstr "Bahamalar"
@@ -689,7 +689,7 @@ msgid "Compress"
 msgstr "Sıkıştır"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "Transfer sırasında dosya datasını sıkıştır"
 
 msgid "Compression"
 msgstr "Sıkıştırma"
@@ -860,7 +860,7 @@ msgid "Delete"
 msgstr "Sil"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "Göndericide bulunmayan dosyaları kaydedilen taraftan sil"
 
 msgid "Denmark"
 msgstr "Danimarka"
@@ -947,6 +947,27 @@ msgid "Disks"
 msgstr "Diskler"
 
 msgid "Display the home directory of the user in the browse list."
+msgstr ""
+
+msgid "Displays information about the file systems in a grid."
+msgstr ""
+
+msgid "Displays information about the file systems in a table."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a table."
+msgstr ""
+
+msgid "Displays information about the services in a grid."
+msgstr ""
+
+msgid "Displays information about the services in a table."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr ""
 
 msgid "Djibouti"
@@ -1104,7 +1125,7 @@ msgid ""
 msgstr "Kısmen transfer edilmiş dosyaları saklamak için bu seçeneği işaretleyiniz, aksi taktirde transfer kesildiğinde bu dosyalar silinecektir."
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "Kullanıcı ana klasörlerine izin ver."
 
 msgid "Enable write-cache"
 msgstr ""
@@ -1213,9 +1234,6 @@ msgstr "Fiji"
 msgid "File Systems"
 msgstr "Dosya sistemleri"
 
-msgid "File Systems Status"
-msgstr ""
-
 msgid "File path"
 msgstr ""
 
@@ -1223,7 +1241,7 @@ msgid "File system"
 msgstr "Dosya sistemi"
 
 msgid "File systems"
-msgstr ""
+msgstr "Dosya sistemleri"
 
 msgid "Filename"
 msgstr "Dosya adı"
@@ -1266,7 +1284,7 @@ msgid "France"
 msgstr "Fransa"
 
 msgid "Free"
-msgstr ""
+msgstr "Boş"
 
 msgid "French Guiana"
 msgstr "Fransız Guyanası"
@@ -1287,7 +1305,7 @@ msgid "Full"
 msgstr "Dolu"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Gabon"
 msgstr "Gabon"
@@ -1846,7 +1864,7 @@ msgid "Maximum download rate (KiB/s)"
 msgstr "Maksimum indirme hızı (KiB/s)"
 
 msgid "Maximum file size"
-msgstr ""
+msgstr "Maksimum dosya büyüklüğü"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1970,6 +1988,9 @@ msgstr "Fas"
 
 msgid "Mount"
 msgstr "Bağla"
+
+msgid "Mount Options"
+msgstr ""
 
 msgid "Mount Point"
 msgstr "Bağlantı Noktası"
@@ -2649,9 +2670,6 @@ msgstr "Ruanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. Status"
-msgstr ""
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Seçili aygıt için S.M.A.R.T. izlemesi aktive edilmelidir."
 
@@ -2677,7 +2695,7 @@ msgid "SSH port"
 msgstr "SSH portu"
 
 msgid "SSH public key"
-msgstr ""
+msgstr "SSH açık anahtarı"
 
 msgid "SSH public keys"
 msgstr ""
@@ -2773,7 +2791,7 @@ msgid "Select a file system ..."
 msgstr "Dosya sistemi seçiniz ..."
 
 msgid "Select a group ..."
-msgstr ""
+msgstr "Grup seçiniz ..."
 
 msgid "Select a shared folder ..."
 msgstr "Paylaşılmış bir klasör seçin ..."
@@ -2797,7 +2815,7 @@ msgid "Select an user ..."
 msgstr ""
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Aygıtları seçiniz ..."
 
 msgid "Select devices to be added to the RAID device."
 msgstr ""
@@ -2869,9 +2887,6 @@ msgstr "Hizmet kapatıldı"
 msgid "Services"
 msgstr "Servisler"
 
-msgid "Services Status"
-msgstr ""
-
 msgid "Session expired."
 msgstr "Oturum zaman aşımına uğradı"
 
@@ -2880,7 +2895,7 @@ msgstr "Oturum onaylanmadı"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "Hedef yetkilerini kaynak yetkileri ile aynı olacak şekilde ayarla"
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
@@ -3624,7 +3639,7 @@ msgid "U.S. Virgin Islands"
 msgstr "Virgin Adaları"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "BİLİNMİYOR"
@@ -3681,11 +3696,11 @@ msgid "Update Management"
 msgstr "Yönetimi Güncelle"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "Hedef ACL lerini kaynak ACL leri ile aynı olacak biçimde güncelleştir."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "Hedefteki genişletilmiş öznitelikleri yerel olanlarla aynı olacak şekilde güncelleştir."
 
 msgid "Updated FTP SSL/TLS settings."
 msgstr ""
@@ -3873,7 +3888,7 @@ msgid "User home directory"
 msgstr "Kullanıcı ana dizini"
 
 msgid "User name"
-msgstr ""
+msgstr "Kullanıcı adı"
 
 msgid "User/Group permissions"
 msgstr "Kullanıcı/Grup yetkileri"

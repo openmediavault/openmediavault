@@ -19,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-26 18:37+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-13 14:27+0000\n"
+"Last-Translator: Stéphane BOCQUET <sbocquet4772@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -960,6 +960,27 @@ msgstr "Disques"
 msgid "Display the home directory of the user in the browse list."
 msgstr ""
 
+msgid "Displays information about the file systems in a grid."
+msgstr ""
+
+msgid "Displays information about the file systems in a table."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a table."
+msgstr ""
+
+msgid "Displays information about the services in a grid."
+msgstr ""
+
+msgid "Displays information about the services in a table."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Djibouti"
 
@@ -1115,7 +1136,7 @@ msgid ""
 msgstr "Activer cette option pour conserver les fichiers partiellement transférés, sinon ils seront supprimés si le transfert est interrompu."
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "Active les répertoires personnels."
 
 msgid "Enable write-cache"
 msgstr "Activer le cache d'écriture"
@@ -1224,9 +1245,6 @@ msgstr "Fidji"
 msgid "File Systems"
 msgstr "Systèmes de fichiers"
 
-msgid "File Systems Status"
-msgstr "Statut du système de fichiers"
-
 msgid "File path"
 msgstr "Chemin du fichier"
 
@@ -1277,7 +1295,7 @@ msgid "France"
 msgstr "France"
 
 msgid "Free"
-msgstr ""
+msgstr "Libérer"
 
 msgid "French Guiana"
 msgstr "Guyane française"
@@ -1982,6 +2000,9 @@ msgstr "Maroc"
 msgid "Mount"
 msgstr "Monter"
 
+msgid "Mount Options"
+msgstr ""
+
 msgid "Mount Point"
 msgstr "Point de montage"
 
@@ -2660,9 +2681,6 @@ msgstr "Rwanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. Status"
-msgstr ""
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "La surveillance S.M.A.R.T. doit-être activée pour le périphérique sélectionné."
 
@@ -2879,9 +2897,6 @@ msgstr "Service désactivé"
 
 msgid "Services"
 msgstr "Services"
-
-msgid "Services Status"
-msgstr "Statut des services"
 
 msgid "Session expired."
 msgstr "La session a expiré."

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-26 18:37+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-13 14:27+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -950,6 +950,27 @@ msgstr "Jednotky datových úložišť"
 msgid "Display the home directory of the user in the browse list."
 msgstr "Zobrazit domovskou složku uživatele v seznamu procházení."
 
+msgid "Displays information about the file systems in a grid."
+msgstr ""
+
+msgid "Displays information about the file systems in a table."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a table."
+msgstr ""
+
+msgid "Displays information about the services in a grid."
+msgstr ""
+
+msgid "Displays information about the services in a table."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Džibutsko"
 
@@ -1214,9 +1235,6 @@ msgstr "Fidži"
 msgid "File Systems"
 msgstr "Souborové systémy"
 
-msgid "File Systems Status"
-msgstr "Stavu souborových systémů"
-
 msgid "File path"
 msgstr "Popis umístění souboru"
 
@@ -1267,7 +1285,7 @@ msgid "France"
 msgstr "Francie"
 
 msgid "Free"
-msgstr ""
+msgstr "Volné"
 
 msgid "French Guiana"
 msgstr "Francouzská Guyana"
@@ -1972,6 +1990,9 @@ msgstr "Maroko"
 msgid "Mount"
 msgstr "Připojit (mount)"
 
+msgid "Mount Options"
+msgstr ""
+
 msgid "Mount Point"
 msgstr "Přípojný bod"
 
@@ -2650,9 +2671,6 @@ msgstr "Rwanda"
 msgid "S.M.A.R.T."
 msgstr "Diagnostika (S.M.A.R.T.)"
 
-msgid "S.M.A.R.T. Status"
-msgstr ""
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Je třeba, aby zvolené zařízení mělo zapnuté S.M.A.R.T. dohledování."
 
@@ -2869,9 +2887,6 @@ msgstr "Poskytování služby je vypnuto"
 
 msgid "Services"
 msgstr "Služby"
-
-msgid "Services Status"
-msgstr "Stav služeb"
 
 msgid "Session expired."
 msgstr "Platnost relace skončila."

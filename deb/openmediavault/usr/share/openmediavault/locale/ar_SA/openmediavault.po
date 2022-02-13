@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-26 18:37+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-13 14:27+0000\n"
+"Last-Translator: omv nas <myomv100@gmail.com>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -861,7 +861,7 @@ msgid "Delete"
 msgstr "حذف"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "حذف الملفات على الجانب المتلقي والتي لا وجود لها على المرسل"
 
 msgid "Denmark"
 msgstr "الدنمارك"
@@ -948,6 +948,27 @@ msgid "Disks"
 msgstr "الأقراص"
 
 msgid "Display the home directory of the user in the browse list."
+msgstr ""
+
+msgid "Displays information about the file systems in a grid."
+msgstr ""
+
+msgid "Displays information about the file systems in a table."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a table."
+msgstr ""
+
+msgid "Displays information about the services in a grid."
+msgstr ""
+
+msgid "Displays information about the services in a table."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr ""
 
 msgid "Djibouti"
@@ -1105,7 +1126,7 @@ msgid ""
 msgstr "تمكين هذا الخيار للاحتفاظ بالملفات المنقولة جزئيًا ، وإلا فسيتم حذفها إذا تمت مقاطعة النقل."
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "تمكين مجلدات المستخدم الرئيسية"
 
 msgid "Enable write-cache"
 msgstr ""
@@ -1214,9 +1235,6 @@ msgstr "فيجي"
 msgid "File Systems"
 msgstr "أنظمة الملفات"
 
-msgid "File Systems Status"
-msgstr ""
-
 msgid "File path"
 msgstr ""
 
@@ -1267,7 +1285,7 @@ msgid "France"
 msgstr "فرنسا"
 
 msgid "Free"
-msgstr ""
+msgstr "إفراغ"
 
 msgid "French Guiana"
 msgstr "غيانا الفرنسية"
@@ -1288,7 +1306,7 @@ msgid "Full"
 msgstr "ممتلئ"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Gabon"
 msgstr "الغابون"
@@ -1972,6 +1990,9 @@ msgstr "المغرب"
 msgid "Mount"
 msgstr "تفعيل"
 
+msgid "Mount Options"
+msgstr ""
+
 msgid "Mount Point"
 msgstr "مجلد التفعيل"
 
@@ -2650,9 +2671,6 @@ msgstr "رواندا"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. Status"
-msgstr ""
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "يجب تنشيط مراقبة S.M.A.R.T. للجهاز المحدد."
 
@@ -2870,9 +2888,6 @@ msgstr "تم تعطيل الخدمة"
 msgid "Services"
 msgstr "الخدمات"
 
-msgid "Services Status"
-msgstr ""
-
 msgid "Session expired."
 msgstr "انتهاء الوقت الخاص بحلسة الويب"
 
@@ -2881,7 +2896,7 @@ msgstr "خطأ في التحقق من جلسة الويب"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "اضبط أذونات الوجهة لتكون هي نفس أذونات المصدر"
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
@@ -3625,7 +3640,7 @@ msgid "U.S. Virgin Islands"
 msgstr "جزر فيرجن الأمريكية"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "غير معروف"
@@ -3682,11 +3697,11 @@ msgid "Update Management"
 msgstr "إدارة التحديث"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "قم بتحديث قوائم ACL الوجهة لتكون هي نفس قوائم ACL المصدر."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "قم بتحديث السمات الموسعة للوجهة لتكون هي نفس السمات المحلية."
 
 msgid "Updated FTP SSL/TLS settings."
 msgstr ""

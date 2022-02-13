@@ -3,13 +3,18 @@
 # This file is distributed under the same license as the openmediavault-snmp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2022
+# runesudden <runesudden@gmail.com>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
+"Last-Translator: runesudden <runesudden@gmail.com>, 2022\n"
 "Language-Team: Norwegian (https://www.transifex.com/openmediavault/teams/14254/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,78 +23,81 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Autentisering og ingen kryptering"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Autentisering og kryptering"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "Godkjenningspassord"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "Autentiseringstype"
 
 msgid "Community"
-msgstr ""
+msgstr "Community"
 
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
 msgstr ""
+"Kontaktinformasjon, f.eks. navn eller epostadresse til personen ansvarlig "
+"for dette systemet."
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktiver"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Aktivert"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Avanserte alternativer"
 
 msgid "General settings"
-msgstr ""
+msgstr "Generelle innstilling"
 
 msgid "Host"
-msgstr ""
+msgstr "Vert"
 
 msgid "Location"
-msgstr ""
+msgstr "Plassering"
 
 msgid "Location information, e.g. physical location of this system."
 msgstr ""
+"Plasseringsinformasjon, f.eks. den fysiske plasseringen av dette systemet."
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Ingen autentisering og ingen kryptering"
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Passord for kryptering"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "Krypteringstype"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr ""
+msgstr "SNMP versjon 1/2c"
 
 msgid "SNMP version 3"
-msgstr ""
+msgstr "SNMP versjon 3"
 
 msgid "Security level"
-msgstr ""
+msgstr "Sikkerhetsnivå"
 
 msgid "Settings"
-msgstr ""
+msgstr "Instillinger"
 
 msgid "Traps"
-msgstr ""
+msgstr "Traps"
 
 msgid "Updated SNMP settings."
 msgstr ""
@@ -98,7 +106,7 @@ msgid "User name"
 msgstr ""
 
 msgid "Username"
-msgstr ""
+msgstr "Brukernavn"
 
 msgid "Version"
-msgstr ""
+msgstr "Versjon"

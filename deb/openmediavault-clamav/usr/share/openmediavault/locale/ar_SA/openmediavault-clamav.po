@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
+"POT-Creation-Date: 2022-02-12 22:08+0100\n"
+"PO-Revision-Date: 2022-02-13 14:28+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
@@ -36,10 +36,10 @@ msgid "Antivirus"
 msgstr "مكافح الفيروسات"
 
 msgid "April"
-msgstr ""
+msgstr "إبريل"
 
 msgid "August"
-msgstr ""
+msgstr "أغسطس"
 
 msgid "Be verbose."
 msgstr "عرض تفصيلي"
@@ -48,7 +48,7 @@ msgid "Comment"
 msgstr "التعليق"
 
 msgid "Create"
-msgstr ""
+msgstr "إنشاء"
 
 msgid "Created on-access scan."
 msgstr ""
@@ -69,7 +69,7 @@ msgid "Day of week"
 msgstr "يوم الأسبوع"
 
 msgid "December"
-msgstr ""
+msgstr "ديسمبر"
 
 msgid "Delete immediately"
 msgstr ""
@@ -84,7 +84,7 @@ msgid "Done ..."
 msgstr "تم ..."
 
 msgid "Edit"
-msgstr ""
+msgstr "تحرير"
 
 msgid "Edit on-access scan"
 msgstr "تحرير المسح وقت-الدخول"
@@ -146,7 +146,7 @@ msgid "Extra options"
 msgstr "خيارات إضافية"
 
 msgid "February"
-msgstr ""
+msgstr "فبراير"
 
 msgid "Follow directory symlinks"
 msgstr "تتبع الروابط والاختصارات للمجلد"
@@ -161,7 +161,7 @@ msgid "Follow regular file symlinks."
 msgstr "تتبع الروابط الاعتيادية للملف"
 
 msgid "Friday"
-msgstr ""
+msgstr "الجمعة"
 
 msgid "General settings"
 msgstr "الإعدادات العامة"
@@ -173,13 +173,13 @@ msgid "Infected files"
 msgstr "ملفات مصابة"
 
 msgid "January"
-msgstr ""
+msgstr "يناير"
 
 msgid "July"
-msgstr ""
+msgstr "يوليو"
 
 msgid "June"
-msgstr ""
+msgstr "يونيو"
 
 msgid "Log clean files"
 msgstr "تسجيل الملفات النظيفة"
@@ -188,10 +188,10 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "تسجيل الملفات النظيفة. هذا يزيد بشكل كبير من حجم السجل."
 
 msgid "March"
-msgstr ""
+msgstr "مارس"
 
 msgid "May"
-msgstr ""
+msgstr "مايو"
 
 msgid "Message"
 msgstr "رسالة"
@@ -200,7 +200,7 @@ msgid "Minute"
 msgstr "دقيقة"
 
 msgid "Monday"
-msgstr ""
+msgstr "الاثنين"
 
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "مراقبة المجلد المشترك ومسح الملفات الجديدة أو المعدلة."
@@ -215,13 +215,13 @@ msgid "Multiscan"
 msgstr "فحص متعدد"
 
 msgid "November"
-msgstr ""
+msgstr "نوفمبر"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "عدد عمليات تحديث قاعدة البيانات في اليوم الواحد. اضبط على 0 للتعطيل."
 
 msgid "October"
-msgstr ""
+msgstr "أكتوبر"
 
 msgid "On Access Scans"
 msgstr "مسح وتحفص وقت-الدخول"
@@ -254,7 +254,7 @@ msgid "Run"
 msgstr "تشغيل"
 
 msgid "Saturday"
-msgstr ""
+msgstr "السبت"
 
 msgid "Scan ELF"
 msgstr "فحص ELF"
@@ -284,7 +284,7 @@ msgid "Scheduled Scans"
 msgstr ""
 
 msgid "Scheduling"
-msgstr ""
+msgstr "الجدولة"
 
 msgid "Send command output via email"
 msgstr "إرسال مخرجات الأمر عبر البريد الإلكتروني"
@@ -293,7 +293,7 @@ msgid "Send email"
 msgstr "إرسال بريد إلكتروني"
 
 msgid "September"
-msgstr ""
+msgstr "سبتمر"
 
 msgid "Settings"
 msgstr "الإعدادات"
@@ -302,7 +302,7 @@ msgid "Shared folder"
 msgstr "مجلد مشترك"
 
 msgid "Sunday"
-msgstr ""
+msgstr "الأحد"
 
 msgid "The location of the files to scan on-access."
 msgstr "موقع الملفات المراد مسحها وتفحصها وقت-الدخول."
@@ -317,10 +317,10 @@ msgid "The option, how to handle infected files."
 msgstr "كيفية التعامل مع الملفات المصابة."
 
 msgid "Thursday"
-msgstr ""
+msgstr "الخميس"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "الثلاثاء"
 
 msgid "Updated on-access scan."
 msgstr ""
@@ -332,7 +332,7 @@ msgid "Verbose"
 msgstr "مفصل"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "الأربعاء"
 
 msgid "n/a"
 msgstr "لا ينطبق"

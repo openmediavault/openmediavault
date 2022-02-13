@@ -3,13 +3,18 @@
 # This file is distributed under the same license as the openmediavault-snmp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2022
+# Nelson Rosado <nelsontrosado@gmail.com>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
+"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2022\n"
 "Language-Team: Portuguese (Portugal) (https://www.transifex.com/openmediavault/teams/14254/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,78 +23,80 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Autenticação e sem privacidade"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Autenticação e privacidade"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "Autenticação de senha"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "Tipo de autenticação"
 
 msgid "Community"
-msgstr ""
+msgstr "Comunidade"
 
 msgid "Contact"
-msgstr ""
+msgstr "Contato"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
 msgstr ""
+"Informação de contato, ex. nome ou Email da pessoa responsável pelo sistema"
 
 msgid "Enable"
-msgstr ""
+msgstr "Ativo"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Ativar"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Opções extra"
 
 msgid "General settings"
-msgstr ""
+msgstr "Definições gerais"
 
 msgid "Host"
-msgstr ""
+msgstr "Host"
 
 msgid "Location"
-msgstr ""
+msgstr "Localização"
 
 msgid "Location information, e.g. physical location of this system."
 msgstr ""
+"Informações de localização, por exemplo, localização física deste sistema."
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Sem autenticação e sem privacidade"
 
 msgid "Port"
-msgstr ""
+msgstr "Porta"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Senha privada"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "Tipo de privacidade"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr ""
+msgstr "SNMP versão 1/2c"
 
 msgid "SNMP version 3"
-msgstr ""
+msgstr "SNMP versão 3"
 
 msgid "Security level"
-msgstr ""
+msgstr "Nível de segurança"
 
 msgid "Settings"
-msgstr ""
+msgstr "Definições"
 
 msgid "Traps"
-msgstr ""
+msgstr "Armadilhas"
 
 msgid "Updated SNMP settings."
 msgstr ""
@@ -98,7 +105,7 @@ msgid "User name"
 msgstr ""
 
 msgid "Username"
-msgstr ""
+msgstr "Utilizador"
 
 msgid "Version"
-msgstr ""
+msgstr "Versão"

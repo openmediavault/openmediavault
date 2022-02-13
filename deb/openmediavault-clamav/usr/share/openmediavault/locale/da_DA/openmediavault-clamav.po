@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:08+0100\n"
+"PO-Revision-Date: 2022-02-13 14:28+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/openmediavault/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,10 +36,10 @@ msgid "Antivirus"
 msgstr "Antivirus"
 
 msgid "April"
-msgstr ""
+msgstr "April"
 
 msgid "August"
-msgstr ""
+msgstr "August"
 
 msgid "Be verbose."
 msgstr "Vær detaljeret."
@@ -48,7 +48,7 @@ msgid "Comment"
 msgstr "Kommentar"
 
 msgid "Create"
-msgstr ""
+msgstr "Opret"
 
 msgid "Created on-access scan."
 msgstr ""
@@ -69,7 +69,7 @@ msgid "Day of week"
 msgstr "Ugedag"
 
 msgid "December"
-msgstr ""
+msgstr "December"
 
 msgid "Delete immediately"
 msgstr ""
@@ -84,7 +84,7 @@ msgid "Done ..."
 msgstr "Færdig ..."
 
 msgid "Edit"
-msgstr ""
+msgstr "Rediger"
 
 msgid "Edit on-access scan"
 msgstr "Rediger ved tilgang scanning"
@@ -146,7 +146,7 @@ msgid "Extra options"
 msgstr "Ekstra valgmuligheder"
 
 msgid "February"
-msgstr ""
+msgstr "Februar"
 
 msgid "Follow directory symlinks"
 msgstr "Følg bibliotek symlinks"
@@ -161,7 +161,7 @@ msgid "Follow regular file symlinks."
 msgstr "Følg regulær fil symlinks."
 
 msgid "Friday"
-msgstr ""
+msgstr "Fredag"
 
 msgid "General settings"
 msgstr "Generelle indstillinger"
@@ -173,13 +173,13 @@ msgid "Infected files"
 msgstr "Inficeret filer"
 
 msgid "January"
-msgstr ""
+msgstr "Januar"
 
 msgid "July"
-msgstr ""
+msgstr "Juli"
 
 msgid "June"
-msgstr ""
+msgstr "Juni"
 
 msgid "Log clean files"
 msgstr "Log rene filer"
@@ -188,10 +188,10 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "Log rene filer. Dette vil øge log størrelsen dramatisk."
 
 msgid "March"
-msgstr ""
+msgstr "Marts"
 
 msgid "May"
-msgstr ""
+msgstr "Maj"
 
 msgid "Message"
 msgstr "Besked"
@@ -200,7 +200,7 @@ msgid "Minute"
 msgstr "Minut"
 
 msgid "Monday"
-msgstr ""
+msgstr "Mandag"
 
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "Overvåg den delte mappe og scan nye eller ændrede filer."
@@ -215,13 +215,13 @@ msgid "Multiscan"
 msgstr "Multiscan"
 
 msgid "November"
-msgstr ""
+msgstr "November"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Antal af database kontrol pr. dag. Sæt til 0 for at deaktivere."
 
 msgid "October"
-msgstr ""
+msgstr "Oktober"
 
 msgid "On Access Scans"
 msgstr "Ved Tilgang Scanninger"
@@ -254,7 +254,7 @@ msgid "Run"
 msgstr "Kør"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Lørdag"
 
 msgid "Scan ELF"
 msgstr "Scan ELF"
@@ -284,7 +284,7 @@ msgid "Scheduled Scans"
 msgstr ""
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Planlægning"
 
 msgid "Send command output via email"
 msgstr "Send kommando output via email"
@@ -293,7 +293,7 @@ msgid "Send email"
 msgstr "Send email"
 
 msgid "September"
-msgstr ""
+msgstr "September"
 
 msgid "Settings"
 msgstr "Indstillinger"
@@ -302,7 +302,7 @@ msgid "Shared folder"
 msgstr "Delt mappe"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Søndag"
 
 msgid "The location of the files to scan on-access."
 msgstr "Placeringen af de filer der skal skannes ved tilgang."
@@ -317,10 +317,10 @@ msgid "The option, how to handle infected files."
 msgstr "Valgmuligheden om hvordan inficeret filer skal håndteres."
 
 msgid "Thursday"
-msgstr ""
+msgstr "Torsdag"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Tirsdag"
 
 msgid "Updated on-access scan."
 msgstr ""
@@ -332,7 +332,7 @@ msgid "Verbose"
 msgstr "Detaljeret"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Onsdag"
 
 msgid "n/a"
 msgstr "n/a"

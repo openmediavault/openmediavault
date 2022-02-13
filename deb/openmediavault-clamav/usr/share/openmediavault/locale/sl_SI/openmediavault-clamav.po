@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:08+0100\n"
+"PO-Revision-Date: 2022-02-13 14:28+0000\n"
+"Last-Translator: Miha Bezjak <miha@bezjak.info>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgid "Add on-access scan"
 msgstr ""
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Dodaj načrtovano opravilo"
 
 msgid "Algorithmic detection"
 msgstr "Algoritemska detekcija"
@@ -30,16 +30,16 @@ msgstr "Algoritemska detekcija"
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Elektronsko sporočilo z rezultatom ukaza (v kolikor obstaja) je poslan administratorju."
 
 msgid "Antivirus"
 msgstr "Antivirus"
 
 msgid "April"
-msgstr ""
+msgstr "April"
 
 msgid "August"
-msgstr ""
+msgstr "Avgust"
 
 msgid "Be verbose."
 msgstr "Bodi gostobeseden."
@@ -48,7 +48,7 @@ msgid "Comment"
 msgstr "Komentar"
 
 msgid "Create"
-msgstr ""
+msgstr "Ustvari"
 
 msgid "Created on-access scan."
 msgstr ""
@@ -69,7 +69,7 @@ msgid "Day of week"
 msgstr "Dan v tednu"
 
 msgid "December"
-msgstr ""
+msgstr "December"
 
 msgid "Delete immediately"
 msgstr ""
@@ -81,16 +81,16 @@ msgid "Detect broken executables"
 msgstr "Odkrij pokvarjene izvedljive datoteke"
 
 msgid "Done ..."
-msgstr ""
+msgstr "Končano..."
 
 msgid "Edit"
-msgstr ""
+msgstr "Uredi"
 
 msgid "Edit on-access scan"
 msgstr ""
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Uredi načrtovano opravilo"
 
 msgid "Enable"
 msgstr "Omogoči"
@@ -146,7 +146,7 @@ msgid "Extra options"
 msgstr "Dodatne nastavitve"
 
 msgid "February"
-msgstr ""
+msgstr "Februar"
 
 msgid "Follow directory symlinks"
 msgstr ""
@@ -161,7 +161,7 @@ msgid "Follow regular file symlinks."
 msgstr ""
 
 msgid "Friday"
-msgstr ""
+msgstr "Petek"
 
 msgid "General settings"
 msgstr "Splošne nastavitve"
@@ -173,13 +173,13 @@ msgid "Infected files"
 msgstr "Okužene datoteke"
 
 msgid "January"
-msgstr ""
+msgstr "Januar"
 
 msgid "July"
-msgstr ""
+msgstr "Julij"
 
 msgid "June"
-msgstr ""
+msgstr "Junij"
 
 msgid "Log clean files"
 msgstr ""
@@ -188,10 +188,10 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr ""
 
 msgid "March"
-msgstr ""
+msgstr "Marec"
 
 msgid "May"
-msgstr ""
+msgstr "Maj"
 
 msgid "Message"
 msgstr "Sporočilo"
@@ -200,7 +200,7 @@ msgid "Minute"
 msgstr "Minuta"
 
 msgid "Monday"
-msgstr ""
+msgstr "Ponedeljek"
 
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr ""
@@ -215,13 +215,13 @@ msgid "Multiscan"
 msgstr ""
 
 msgid "November"
-msgstr ""
+msgstr "November"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr ""
 
 msgid "October"
-msgstr ""
+msgstr "Oktober"
 
 msgid "On Access Scans"
 msgstr ""
@@ -254,7 +254,7 @@ msgid "Run"
 msgstr "Zaženi"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Sobota"
 
 msgid "Scan ELF"
 msgstr "Skeniraj ELF"
@@ -284,7 +284,7 @@ msgid "Scheduled Scans"
 msgstr ""
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Načrtovanje opravil"
 
 msgid "Send command output via email"
 msgstr "Pošlji rezultat ukaza preko elektronske pošte"
@@ -293,7 +293,7 @@ msgid "Send email"
 msgstr "Pošlji elektronsko poročilo"
 
 msgid "September"
-msgstr ""
+msgstr "September"
 
 msgid "Settings"
 msgstr "Nastavitve"
@@ -302,7 +302,7 @@ msgid "Shared folder"
 msgstr "Deljena mapa"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Nedelja"
 
 msgid "The location of the files to scan on-access."
 msgstr ""
@@ -317,10 +317,10 @@ msgid "The option, how to handle infected files."
 msgstr "Možnost, kako ravnati z okuženimi datotekami."
 
 msgid "Thursday"
-msgstr ""
+msgstr "Četrtek"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Torek"
 
 msgid "Updated on-access scan."
 msgstr ""
@@ -332,7 +332,7 @@ msgid "Verbose"
 msgstr ""
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Sreda"
 
 msgid "n/a"
 msgstr "n/a"

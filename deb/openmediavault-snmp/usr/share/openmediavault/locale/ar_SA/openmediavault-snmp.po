@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# omv nas <myomv100@gmail.com>, 2021
+# omv nas <myomv100@gmail.com>, 2022
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
-"Last-Translator: omv nas <myomv100@gmail.com>, 2021\n"
+"Last-Translator: omv nas <myomv100@gmail.com>, 2022\n"
 "Language-Team: Arabic (Saudi Arabia) (https://www.transifex.com/openmediavault/teams/14254/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +50,7 @@ msgid "Enable"
 msgstr "تفعيل"
 
 msgid "Enabled"
-msgstr ""
+msgstr "ممكن"
 
 msgid "Extra options"
 msgstr "خيارات إضافية"
@@ -101,7 +101,7 @@ msgid "Updated SNMP settings."
 msgstr ""
 
 msgid "User name"
-msgstr ""
+msgstr "اسم المستخم"
 
 msgid "Username"
 msgstr "اسم المستخدم"

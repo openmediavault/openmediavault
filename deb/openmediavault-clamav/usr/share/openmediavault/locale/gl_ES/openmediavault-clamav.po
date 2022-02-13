@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:08+0100\n"
+"PO-Revision-Date: 2022-02-13 14:28+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgid "Add on-access scan"
 msgstr ""
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Engadir unha traballo planificada"
 
 msgid "Algorithmic detection"
 msgstr "Detección algorítmica"
@@ -38,10 +38,10 @@ msgid "Antivirus"
 msgstr "Antivirus"
 
 msgid "April"
-msgstr ""
+msgstr "abril"
 
 msgid "August"
-msgstr ""
+msgstr "agosto"
 
 msgid "Be verbose."
 msgstr "Saída detallada."
@@ -50,7 +50,7 @@ msgid "Comment"
 msgstr "Comentario"
 
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 msgid "Created on-access scan."
 msgstr ""
@@ -71,7 +71,7 @@ msgid "Day of week"
 msgstr "Día da semana"
 
 msgid "December"
-msgstr ""
+msgstr "decembro"
 
 msgid "Delete immediately"
 msgstr ""
@@ -83,16 +83,16 @@ msgid "Detect broken executables"
 msgstr "Detectar executábeis quebrados"
 
 msgid "Done ..."
-msgstr ""
+msgstr "Feito ..."
 
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 msgid "Edit on-access scan"
 msgstr ""
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Editar o traballo planificado"
 
 msgid "Enable"
 msgstr "Activar"
@@ -148,7 +148,7 @@ msgid "Extra options"
 msgstr "Opcións adicionais"
 
 msgid "February"
-msgstr ""
+msgstr "febreiro"
 
 msgid "Follow directory symlinks"
 msgstr "Seguir as ligazóns simbólicas a directorios"
@@ -163,7 +163,7 @@ msgid "Follow regular file symlinks."
 msgstr "Seguir as ligazóns simbólicas normais a ficheiros"
 
 msgid "Friday"
-msgstr ""
+msgstr "Venres"
 
 msgid "General settings"
 msgstr "Axustes xerais"
@@ -175,13 +175,13 @@ msgid "Infected files"
 msgstr "Ficheiros infectados"
 
 msgid "January"
-msgstr ""
+msgstr "xaneiro"
 
 msgid "July"
-msgstr ""
+msgstr "xullo"
 
 msgid "June"
-msgstr ""
+msgstr "xuño"
 
 msgid "Log clean files"
 msgstr "Rexistrar os ficheiros limpos"
@@ -190,10 +190,10 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "Rexistrar os ficheiros limpos. Isto aumenta drasticamente o tamaño do rexistro."
 
 msgid "March"
-msgstr ""
+msgstr "marzo"
 
 msgid "May"
-msgstr ""
+msgstr "maio"
 
 msgid "Message"
 msgstr "Mensaxe"
@@ -202,7 +202,7 @@ msgid "Minute"
 msgstr "Minuto"
 
 msgid "Monday"
-msgstr ""
+msgstr "Luns"
 
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "Supervisar o cartafol compartido e analizar os ficheiros novos ou modificados."
@@ -217,13 +217,13 @@ msgid "Multiscan"
 msgstr "Múltiplas análises"
 
 msgid "November"
-msgstr ""
+msgstr "novembro"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Número de actualizacións da bases de datos que comprobar por día. Estabelecer a 0 para desactivar."
 
 msgid "October"
-msgstr ""
+msgstr "outubro"
 
 msgid "On Access Scans"
 msgstr ""
@@ -256,7 +256,7 @@ msgid "Run"
 msgstr "Executar"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Sábado"
 
 msgid "Scan ELF"
 msgstr "Analizar ELF"
@@ -280,13 +280,13 @@ msgid "Scan the directory contents in parallel using available threads."
 msgstr "Analizar os contidos dos directorios usando os fíos dispoñíbeis."
 
 msgid "Scheduled Jobs"
-msgstr ""
+msgstr "Traballos planificados"
 
 msgid "Scheduled Scans"
 msgstr ""
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Segundo o programado"
 
 msgid "Send command output via email"
 msgstr "Enviar a saída da orde por correo"
@@ -295,7 +295,7 @@ msgid "Send email"
 msgstr "Enviar por correo"
 
 msgid "September"
-msgstr ""
+msgstr "setembro"
 
 msgid "Settings"
 msgstr "Axustes"
@@ -304,7 +304,7 @@ msgid "Shared folder"
 msgstr "Cartafol compartido"
 
 msgid "Sunday"
-msgstr ""
+msgstr "domingo"
 
 msgid "The location of the files to scan on-access."
 msgstr ""
@@ -319,10 +319,10 @@ msgid "The option, how to handle infected files."
 msgstr "A opción para como manexar os ficheiros infectados."
 
 msgid "Thursday"
-msgstr ""
+msgstr "Xoves"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Martes"
 
 msgid "Updated on-access scan."
 msgstr ""
@@ -334,7 +334,7 @@ msgid "Verbose"
 msgstr "Detallado"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Mércores"
 
 msgid "n/a"
 msgstr "n/d"

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2021-07-19 16:35+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:08+0100\n"
+"PO-Revision-Date: 2022-02-13 14:27+0000\n"
+"Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,10 +25,10 @@ msgid "Charge"
 msgstr ""
 
 msgid "Comment"
-msgstr ""
+msgstr "Коментар"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Дата и час"
 
 msgid "Defines when the shutdown is initiated."
 msgstr ""
@@ -37,16 +37,16 @@ msgid "Driver configuration directives"
 msgstr ""
 
 msgid "Enable"
-msgstr ""
+msgstr "Разреши"
 
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr ""
 
 msgid "Enabled"
-msgstr ""
+msgstr "Разрешено"
 
 msgid "General settings"
-msgstr ""
+msgstr "Основни настройки"
 
 msgid "Identifier"
 msgstr ""
@@ -61,7 +61,7 @@ msgid "Message"
 msgstr ""
 
 msgid "Mode"
-msgstr ""
+msgstr "Режим"
 
 msgid "Netclient"
 msgstr ""
@@ -82,7 +82,7 @@ msgid "PID"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "Парола"
 
 msgid "Powervalue"
 msgstr ""
@@ -97,7 +97,7 @@ msgid "Service disabled"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 msgid "Shutdown mode"
 msgstr ""
@@ -150,7 +150,7 @@ msgid "User name"
 msgstr ""
 
 msgid "Username"
-msgstr ""
+msgstr "Потребителско име"
 
 msgid "Variables"
 msgstr ""

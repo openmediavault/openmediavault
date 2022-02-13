@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-26 18:37+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-13 14:27+0000\n"
+"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -461,7 +461,7 @@ msgid "Back"
 msgstr ""
 
 msgid "Bad"
-msgstr ""
+msgstr "나쁨"
 
 msgid "Bahamas"
 msgstr "바하마"
@@ -692,7 +692,7 @@ msgid "Compress"
 msgstr "압축"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "전송 중 파일 데이터 압축"
 
 msgid "Compression"
 msgstr "압축"
@@ -863,7 +863,7 @@ msgid "Delete"
 msgstr "삭제"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "수신 측에서 송신 측에 존재하지 않는 파일을 삭제합니다."
 
 msgid "Denmark"
 msgstr "덴마크"
@@ -950,6 +950,27 @@ msgid "Disks"
 msgstr "디스크"
 
 msgid "Display the home directory of the user in the browse list."
+msgstr ""
+
+msgid "Displays information about the file systems in a grid."
+msgstr ""
+
+msgid "Displays information about the file systems in a table."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a table."
+msgstr ""
+
+msgid "Displays information about the services in a grid."
+msgstr ""
+
+msgid "Displays information about the services in a table."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr ""
 
 msgid "Djibouti"
@@ -1107,7 +1128,7 @@ msgid ""
 msgstr "전송된 파일을 부분적으로 유지하려면 이 옵션을 활성화합니다. 비활성화 할 경우, 전송이 중단되면 파일이 삭제될 것입니다."
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "사용자 홈 경로 활성화"
 
 msgid "Enable write-cache"
 msgstr ""
@@ -1216,9 +1237,6 @@ msgstr "피지"
 msgid "File Systems"
 msgstr "파일 시스템"
 
-msgid "File Systems Status"
-msgstr ""
-
 msgid "File path"
 msgstr ""
 
@@ -1269,7 +1287,7 @@ msgid "France"
 msgstr "프랑스"
 
 msgid "Free"
-msgstr ""
+msgstr "여유"
 
 msgid "French Guiana"
 msgstr "프랑스령 기아나"
@@ -1290,7 +1308,7 @@ msgid "Full"
 msgstr "전체"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Gabon"
 msgstr "가봉"
@@ -1974,6 +1992,9 @@ msgstr "모로코"
 msgid "Mount"
 msgstr "마운트"
 
+msgid "Mount Options"
+msgstr ""
+
 msgid "Mount Point"
 msgstr "마운트 지점"
 
@@ -2652,9 +2673,6 @@ msgstr "르완다"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T"
 
-msgid "S.M.A.R.T. Status"
-msgstr ""
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "선택된 장치에 대해 S.M.A.R.T 모니터링이 반드시 활성화되어야 합니다."
 
@@ -2680,7 +2698,7 @@ msgid "SSH port"
 msgstr "SSH 포트"
 
 msgid "SSH public key"
-msgstr ""
+msgstr "SSH 공개 키"
 
 msgid "SSH public keys"
 msgstr ""
@@ -2872,9 +2890,6 @@ msgstr "서비스 비활성화됨"
 msgid "Services"
 msgstr "서비스"
 
-msgid "Services Status"
-msgstr ""
-
 msgid "Session expired."
 msgstr "세션 만료됨."
 
@@ -2883,7 +2898,7 @@ msgstr "세션 인증되지 않음."
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "목적 권한을 원본 권한과 같게 설정"
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
@@ -3627,7 +3642,7 @@ msgid "U.S. Virgin Islands"
 msgstr "미국령 버진아일랜드"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "알 수 없는"
@@ -3684,11 +3699,11 @@ msgid "Update Management"
 msgstr "업데이트 관리"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "대상 ACL을 원본 ACL과 같게 업데이트"
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "확장 속성을 로컬과 같게 업데이트"
 
 msgid "Updated FTP SSL/TLS settings."
 msgstr ""

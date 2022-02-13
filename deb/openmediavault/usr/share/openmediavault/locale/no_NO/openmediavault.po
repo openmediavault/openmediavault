@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-26 18:37+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-13 14:27+0000\n"
+"Last-Translator: runesudden <runesudden@gmail.com>\n"
 "Language-Team: Norwegian (http://www.transifex.com/openmediavault/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -690,7 +690,7 @@ msgid "Compress"
 msgstr "Komprimer"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "Komprimer filen når den overføres."
 
 msgid "Compression"
 msgstr "Komprimering"
@@ -861,7 +861,7 @@ msgid "Delete"
 msgstr "Fjern"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "Slett filer som ikke lenger eksisterer hos avsender."
 
 msgid "Denmark"
 msgstr "Danmark"
@@ -948,6 +948,27 @@ msgid "Disks"
 msgstr ""
 
 msgid "Display the home directory of the user in the browse list."
+msgstr ""
+
+msgid "Displays information about the file systems in a grid."
+msgstr ""
+
+msgid "Displays information about the file systems in a table."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a table."
+msgstr ""
+
+msgid "Displays information about the services in a grid."
+msgstr ""
+
+msgid "Displays information about the services in a table."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr ""
 
 msgid "Djibouti"
@@ -1079,7 +1100,7 @@ msgid "Enable SSL/TLS connections."
 msgstr ""
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "Aktiver Time Machine støtte for dette delte området."
 
 msgid "Enable WINS server"
 msgstr "Aktiver WINS server"
@@ -1105,7 +1126,7 @@ msgid ""
 msgstr "Aktiver dette alternativet for å beholde delvis overførte filer, ellers vil de bli slettet hvis overføringen blir avbrutt."
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "Aktiver hjemmemapper for brukere"
 
 msgid "Enable write-cache"
 msgstr ""
@@ -1214,9 +1235,6 @@ msgstr "Fiji"
 msgid "File Systems"
 msgstr ""
 
-msgid "File Systems Status"
-msgstr ""
-
 msgid "File path"
 msgstr ""
 
@@ -1267,7 +1285,7 @@ msgid "France"
 msgstr "Frankrike"
 
 msgid "Free"
-msgstr ""
+msgstr "Ledig"
 
 msgid "French Guiana"
 msgstr "Fransk Guyana"
@@ -1847,7 +1865,7 @@ msgid "Maximum download rate (KiB/s)"
 msgstr "Maximal nedlastningshastighet (KiB/s)"
 
 msgid "Maximum file size"
-msgstr ""
+msgstr "Maksimal filstørrelse"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1971,6 +1989,9 @@ msgstr "Marokko"
 
 msgid "Mount"
 msgstr "Montere"
+
+msgid "Mount Options"
+msgstr ""
 
 msgid "Mount Point"
 msgstr ""
@@ -2558,7 +2579,7 @@ msgid "Remote host"
 msgstr "Fjærnvært"
 
 msgid "Remove"
-msgstr ""
+msgstr "Fjern"
 
 msgid "Remove all"
 msgstr ""
@@ -2649,9 +2670,6 @@ msgstr "Rwanda"
 
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
-
-msgid "S.M.A.R.T. Status"
-msgstr ""
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. overvåkning må aktiveres for den gjeldende enheten."
@@ -2774,7 +2792,7 @@ msgid "Select a file system ..."
 msgstr ""
 
 msgid "Select a group ..."
-msgstr ""
+msgstr "Velg en gruppe ..."
 
 msgid "Select a shared folder ..."
 msgstr "Velg en delt mappe ..."
@@ -2870,9 +2888,6 @@ msgstr "Tjeneste deaktivert"
 msgid "Services"
 msgstr "Tjenester"
 
-msgid "Services Status"
-msgstr ""
-
 msgid "Session expired."
 msgstr "Sesjon utgått."
 
@@ -2881,7 +2896,7 @@ msgstr "Sesjon ikke autentisert."
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "Sett målrettighetene til å være de samme som kilderettighetene."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
@@ -3545,7 +3560,7 @@ msgid "Thursday"
 msgstr "Torsdag"
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Tidsmaskin støtte."
 
 msgid "Time interval"
 msgstr "TIdsintervall"
@@ -3682,11 +3697,11 @@ msgid "Update Management"
 msgstr ""
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "Oppdater målets ACL til de samme som kildens ACL."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "Oppdatere destinasjon utvidede attributter for å være den samme som de lokale."
 
 msgid "Updated FTP SSL/TLS settings."
 msgstr ""

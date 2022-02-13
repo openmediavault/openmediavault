@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-31 12:20+0000\n"
-"Last-Translator: Kostas Moho\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-12 21:13+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -949,6 +949,27 @@ msgstr "Δίσκοι"
 msgid "Display the home directory of the user in the browse list."
 msgstr "Εμφάνιση του οικείου φακέλου στην λίστα αναζήτησης."
 
+msgid "Displays information about the file systems in a grid."
+msgstr ""
+
+msgid "Displays information about the file systems in a table."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a table."
+msgstr ""
+
+msgid "Displays information about the services in a grid."
+msgstr ""
+
+msgid "Displays information about the services in a table."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Djibouti"
 
@@ -1212,9 +1233,6 @@ msgstr "Fiji"
 
 msgid "File Systems"
 msgstr "Συστήματα Αρχείων"
-
-msgid "File Systems Status"
-msgstr "Κατάσταση Συστημάτων Αρχείων"
 
 msgid "File path"
 msgstr "Διαδρομή αρχείου"
@@ -1971,6 +1989,9 @@ msgstr "Morocco"
 msgid "Mount"
 msgstr "Προσάρτηση"
 
+msgid "Mount Options"
+msgstr ""
+
 msgid "Mount Point"
 msgstr "Σημείο Προσάρτησης"
 
@@ -2649,9 +2670,6 @@ msgstr "Rwanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. Status"
-msgstr "Κατάσταση S.M.A.R.T."
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Η παρακολούθηση S.M.A.R.T. πρέπει να είναι ενεργοποιημένη για την επιλεγμένη συσκευή."
 
@@ -2868,9 +2886,6 @@ msgstr "Ανενεργή υπηρεσία"
 
 msgid "Services"
 msgstr "Υπηρεσίες"
-
-msgid "Services Status"
-msgstr "Κατάσταση Υπηρεσιών"
 
 msgid "Session expired."
 msgstr "Η σύνδεση έληξε."

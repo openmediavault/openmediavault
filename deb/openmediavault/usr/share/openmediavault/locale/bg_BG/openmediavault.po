@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-26 18:37+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-13 14:28+0000\n"
+"Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -342,7 +342,7 @@ msgstr ""
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Имейл съобщение с изход от командата (ако има такъв) се изпраща на администратора."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -431,7 +431,7 @@ msgid "Authenticated user ID"
 msgstr ""
 
 msgid "Authentication"
-msgstr ""
+msgstr "Идентификация"
 
 msgid "Authentication method"
 msgstr ""
@@ -599,7 +599,7 @@ msgid "Certain date"
 msgstr ""
 
 msgid "Certificate"
-msgstr ""
+msgstr "Сертификат"
 
 msgid "Certificates"
 msgstr "Сертификати"
@@ -671,7 +671,7 @@ msgid "Command"
 msgstr ""
 
 msgid "Comment"
-msgstr ""
+msgstr "Коментар"
 
 msgid "Common Name"
 msgstr ""
@@ -686,10 +686,10 @@ msgid "Completion status"
 msgstr ""
 
 msgid "Compress"
-msgstr ""
+msgstr "Компресия"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "Компресиране на файловете по време на трансфер."
 
 msgid "Compression"
 msgstr ""
@@ -857,10 +857,10 @@ msgid "December"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "Премахни"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "Изтриване на файловете на приемащата страна, ако не съществуват при изпращащата."
 
 msgid "Denmark"
 msgstr ""
@@ -893,7 +893,7 @@ msgid "Details"
 msgstr ""
 
 msgid "Device"
-msgstr ""
+msgstr "Устройство"
 
 msgid "Device Information"
 msgstr ""
@@ -947,6 +947,27 @@ msgid "Disks"
 msgstr ""
 
 msgid "Display the home directory of the user in the browse list."
+msgstr ""
+
+msgid "Displays information about the file systems in a grid."
+msgstr ""
+
+msgid "Displays information about the file systems in a table."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a table."
+msgstr ""
+
+msgid "Displays information about the services in a grid."
+msgstr ""
+
+msgid "Displays information about the services in a table."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr ""
 
 msgid "Djibouti"
@@ -1101,7 +1122,7 @@ msgstr ""
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Разрешете тази опция, за да запазите частично прехвърлените файлове, в противен случай те ще бъдат изтрити, ако прехвърлянето бъде прекъснато."
 
 msgid "Enable user home directories."
 msgstr ""
@@ -1110,7 +1131,7 @@ msgid "Enable write-cache"
 msgstr ""
 
 msgid "Enabled"
-msgstr ""
+msgstr "Разрешено"
 
 msgid "Enabled widgets"
 msgstr ""
@@ -1164,7 +1185,7 @@ msgid "Extended attributes"
 msgstr ""
 
 msgid "Extra options"
-msgstr ""
+msgstr "Допълнителни опции"
 
 msgid "F2FS"
 msgstr ""
@@ -1212,9 +1233,6 @@ msgstr ""
 
 msgid "File Systems"
 msgstr "Файлови системи"
-
-msgid "File Systems Status"
-msgstr ""
 
 msgid "File path"
 msgstr ""
@@ -1296,7 +1314,7 @@ msgid "Gambia"
 msgstr ""
 
 msgid "Gateway"
-msgstr ""
+msgstr "Gateway"
 
 msgid "General"
 msgstr ""
@@ -1651,7 +1669,7 @@ msgid "Kazakhstan"
 msgstr ""
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Съхранявайте частично прехвърлените файлове"
 
 msgid "Kenya"
 msgstr ""
@@ -1927,7 +1945,7 @@ msgid "Missing"
 msgstr ""
 
 msgid "Mode"
-msgstr ""
+msgstr "Режим"
 
 msgid "Model"
 msgstr ""
@@ -1971,6 +1989,9 @@ msgstr ""
 msgid "Mount"
 msgstr ""
 
+msgid "Mount Options"
+msgstr ""
+
 msgid "Mount Point"
 msgstr ""
 
@@ -1990,7 +2011,7 @@ msgid "NFS"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 msgid "Namibia"
 msgstr ""
@@ -2355,7 +2376,7 @@ msgid "Poland"
 msgstr ""
 
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 msgid "Portugal"
 msgstr ""
@@ -2382,10 +2403,10 @@ msgid "Prefix length"
 msgstr ""
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "Запазване на ACL"
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "Запазете разширените атрибути"
 
 msgid "Preserve group"
 msgstr ""
@@ -2397,7 +2418,7 @@ msgid "Preserve owner"
 msgstr ""
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Запазете разрешенията"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
@@ -2530,7 +2551,7 @@ msgid "Recurse into directories"
 msgstr ""
 
 msgid "Recursive"
-msgstr ""
+msgstr "Рекурсивно"
 
 msgid "Referenced"
 msgstr ""
@@ -2629,7 +2650,7 @@ msgid "Rules"
 msgstr ""
 
 msgid "Run"
-msgstr ""
+msgstr "Изпълни"
 
 msgid "Run rsync task"
 msgstr ""
@@ -2647,9 +2668,6 @@ msgid "Rwanda"
 msgstr ""
 
 msgid "S.M.A.R.T."
-msgstr ""
-
-msgid "S.M.A.R.T. Status"
 msgstr ""
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
@@ -2767,7 +2785,7 @@ msgid "Select a country ..."
 msgstr ""
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Избери устройство ..."
 
 msgid "Select a file system ..."
 msgstr ""
@@ -2869,9 +2887,6 @@ msgstr ""
 msgid "Services"
 msgstr "Услуги"
 
-msgid "Services Status"
-msgstr ""
-
 msgid "Session expired."
 msgstr ""
 
@@ -2880,7 +2895,7 @@ msgstr ""
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "Задайте разрешенията за дестинацията да бъдат същите като разрешенията на източника."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
@@ -2893,7 +2908,7 @@ msgid ""
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 msgid "Seychelles"
 msgstr ""
@@ -2917,7 +2932,7 @@ msgid "Shared folder privileges"
 msgstr ""
 
 msgid "Shares"
-msgstr ""
+msgstr "Споделяния"
 
 msgid "Shell"
 msgstr ""
@@ -3200,7 +3215,7 @@ msgid "The SSH public key in OpenSSH or RFC 4716 format."
 msgstr ""
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "SSL сертификатът."
 
 msgid "The action to be done when pressing the power button."
 msgstr ""
@@ -3242,7 +3257,7 @@ msgid ""
 msgstr ""
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "Местоположението на файловете за споделяне."
 
 msgid ""
 "The location of the files to share. The share will be accessible at "
@@ -3258,7 +3273,7 @@ msgid ""
 msgstr ""
 
 msgid "The name of the share."
-msgstr ""
+msgstr "Името на папка за споделяне"
 
 msgid "The number of days the certificate is valid for."
 msgstr "Броят на дните, за които да е валиден сертификата."
@@ -3681,11 +3696,11 @@ msgid "Update Management"
 msgstr "Управление на ъпдейти"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "Обновете ACL-те от дестинацията да са същите като ACL-те на източника."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "Актуализирайте разширените атрибути на местоназначението, за да бъдат същите като местните."
 
 msgid "Updated FTP SSL/TLS settings."
 msgstr ""
@@ -4037,7 +4052,7 @@ msgid "in %s"
 msgstr ""
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 msgid "selected"
 msgstr ""

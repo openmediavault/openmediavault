@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:08+0100\n"
+"PO-Revision-Date: 2022-02-13 14:28+0000\n"
+"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,10 +39,10 @@ msgid "Antivirus"
 msgstr "Antivirus"
 
 msgid "April"
-msgstr ""
+msgstr "april"
 
 msgid "August"
-msgstr ""
+msgstr "augustus"
 
 msgid "Be verbose."
 msgstr "Uitgebreide informatie geven."
@@ -51,7 +51,7 @@ msgid "Comment"
 msgstr "Opmerking"
 
 msgid "Create"
-msgstr ""
+msgstr "Aanmaken"
 
 msgid "Created on-access scan."
 msgstr ""
@@ -72,7 +72,7 @@ msgid "Day of week"
 msgstr "Dag van de week"
 
 msgid "December"
-msgstr ""
+msgstr "december"
 
 msgid "Delete immediately"
 msgstr ""
@@ -87,7 +87,7 @@ msgid "Done ..."
 msgstr "Gedaan ..."
 
 msgid "Edit"
-msgstr ""
+msgstr "Aanpassen"
 
 msgid "Edit on-access scan"
 msgstr "On-access scan bewerken"
@@ -149,7 +149,7 @@ msgid "Extra options"
 msgstr "Extra opties"
 
 msgid "February"
-msgstr ""
+msgstr "februari"
 
 msgid "Follow directory symlinks"
 msgstr "Symbolische mapkoppelingen volgen"
@@ -164,7 +164,7 @@ msgid "Follow regular file symlinks."
 msgstr "Symbolische bestandskoppelingen volgen."
 
 msgid "Friday"
-msgstr ""
+msgstr "Vrijdag"
 
 msgid "General settings"
 msgstr "Algemene instellingen"
@@ -176,13 +176,13 @@ msgid "Infected files"
 msgstr "Besmette bestanden"
 
 msgid "January"
-msgstr ""
+msgstr "januari"
 
 msgid "July"
-msgstr ""
+msgstr "juli"
 
 msgid "June"
-msgstr ""
+msgstr "juni"
 
 msgid "Log clean files"
 msgstr "Schone bestanden loggen"
@@ -191,10 +191,10 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "Schone bestanden loggen. Hierdoor neemt de grootte van de logbestanden enorm toe."
 
 msgid "March"
-msgstr ""
+msgstr "maart"
 
 msgid "May"
-msgstr ""
+msgstr "mei"
 
 msgid "Message"
 msgstr "Bericht"
@@ -203,7 +203,7 @@ msgid "Minute"
 msgstr "Minuut"
 
 msgid "Monday"
-msgstr ""
+msgstr "Maandag"
 
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr "De gedeelde map volgen en nieuwe of gewijzigde bestanden aftasten."
@@ -218,13 +218,13 @@ msgid "Multiscan"
 msgstr "Meervoudig aftasten"
 
 msgid "November"
-msgstr ""
+msgstr "november"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Aantal database updatecontroles per dag. Zet op 0 om te deactiveren."
 
 msgid "October"
-msgstr ""
+msgstr "oktober"
 
 msgid "On Access Scans"
 msgstr "Scans bij toegang"
@@ -257,7 +257,7 @@ msgid "Run"
 msgstr "Uitvoeren"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Zaterdag"
 
 msgid "Scan ELF"
 msgstr "ELF aftasten"
@@ -287,7 +287,7 @@ msgid "Scheduled Scans"
 msgstr ""
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Inplannen"
 
 msgid "Send command output via email"
 msgstr "Verzend de uitvoer van de opdrachten via e-mail"
@@ -296,7 +296,7 @@ msgid "Send email"
 msgstr "E-mail verzenden"
 
 msgid "September"
-msgstr ""
+msgstr "september"
 
 msgid "Settings"
 msgstr "Instellingen"
@@ -305,7 +305,7 @@ msgid "Shared folder"
 msgstr "Gedeelde map"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Zondag"
 
 msgid "The location of the files to scan on-access."
 msgstr "De locatie van de bestanden die bij toegang moeten worden gescand."
@@ -320,10 +320,10 @@ msgid "The option, how to handle infected files."
 msgstr "De optie, hoe om te gaan met besmette bestanden."
 
 msgid "Thursday"
-msgstr ""
+msgstr "Donderdag"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Dinsdag"
 
 msgid "Updated on-access scan."
 msgstr ""
@@ -335,7 +335,7 @@ msgid "Verbose"
 msgstr "Uitgebreide informatie"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Woensdag"
 
 msgid "n/a"
 msgstr "n.v.t."

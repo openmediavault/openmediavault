@@ -4,17 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Milan Toet <milantoet@gmail.com>, 2020
 # Varkentjes, 2020
+# Milan Toet <milantoet@gmail.com>, 2022
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
-"Last-Translator: Varkentjes, 2020\n"
+"Last-Translator: Milan Toet <milantoet@gmail.com>, 2022\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgid "Enable"
 msgstr "Inschakelen"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Ingeschakeld"
 
 msgid "Extra options"
 msgstr "Extra opties"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-02-08 10:13+0000\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-13 14:27+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -949,6 +949,27 @@ msgstr "ディスク"
 msgid "Display the home directory of the user in the browse list."
 msgstr "参照リストにユーザーのホームディレクトリを表示します。"
 
+msgid "Displays information about the file systems in a grid."
+msgstr ""
+
+msgid "Displays information about the file systems in a table."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a table."
+msgstr ""
+
+msgid "Displays information about the services in a grid."
+msgstr ""
+
+msgid "Displays information about the services in a table."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
+msgstr ""
+
 msgid "Djibouti"
 msgstr "ジブチ"
 
@@ -1212,9 +1233,6 @@ msgstr "フィジー"
 
 msgid "File Systems"
 msgstr "ファイルシステム"
-
-msgid "File Systems Status"
-msgstr "ファイルシステムのステータス"
 
 msgid "File path"
 msgstr "ファイルのパス"
@@ -1971,6 +1989,9 @@ msgstr "モロッコ"
 msgid "Mount"
 msgstr "マウント"
 
+msgid "Mount Options"
+msgstr ""
+
 msgid "Mount Point"
 msgstr "マウントポイント"
 
@@ -2649,9 +2670,6 @@ msgstr "ルワンダ"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. Status"
-msgstr "S.M.A.R.T. ステータス"
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.モニタリングは、選択したデバイスのために活性化されなければならない。"
 
@@ -2797,7 +2815,7 @@ msgid "Select an user ..."
 msgstr ""
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "デバイスを選択 ..."
 
 msgid "Select devices to be added to the RAID device."
 msgstr ""
@@ -2869,9 +2887,6 @@ msgstr "サービス無効化"
 msgid "Services"
 msgstr "サービス"
 
-msgid "Services Status"
-msgstr ""
-
 msgid "Session expired."
 msgstr "セッションの期限が切れました。"
 
@@ -2880,7 +2895,7 @@ msgstr "セッションは認証されていません。"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "元のアクセス権と同じになるように先のアクセス権を設定します。"
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
@@ -3681,11 +3696,11 @@ msgid "Update Management"
 msgstr "アップデート管理"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "元のACLと同じになるように先のACLを更新します。"
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "元の拡張属性と同じになるように先の拡張属性を更新します。"
 
 msgid "Updated FTP SSL/TLS settings."
 msgstr ""

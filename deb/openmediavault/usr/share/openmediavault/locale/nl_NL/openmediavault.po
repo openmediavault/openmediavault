@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-26 18:37+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-13 14:27+0000\n"
+"Last-Translator: Tim <co_ti@hotmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -695,7 +695,7 @@ msgid "Compress"
 msgstr "Comprimeren"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "Comprimeer bestandsgegevens tijdens de overdracht"
 
 msgid "Compression"
 msgstr "Compressie"
@@ -866,7 +866,7 @@ msgid "Delete"
 msgstr "Verwijderen"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "Verwijder bestanden aan de ontvangende kant die niet bestaan bij de verzender"
 
 msgid "Denmark"
 msgstr "Denemarken"
@@ -953,6 +953,27 @@ msgid "Disks"
 msgstr "Schijven"
 
 msgid "Display the home directory of the user in the browse list."
+msgstr ""
+
+msgid "Displays information about the file systems in a grid."
+msgstr ""
+
+msgid "Displays information about the file systems in a table."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a table."
+msgstr ""
+
+msgid "Displays information about the services in a grid."
+msgstr ""
+
+msgid "Displays information about the services in a table."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr ""
 
 msgid "Djibouti"
@@ -1110,7 +1131,7 @@ msgid ""
 msgstr "Schakel deze optie in om gedeeltelijk overgezette bestanden te bewaren, anders zullen zij worden verwijderd indien de overdracht wordt onderbroken."
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "Gebruikersthuismappen inschakelen"
 
 msgid "Enable write-cache"
 msgstr ""
@@ -1219,9 +1240,6 @@ msgstr "Fiji"
 msgid "File Systems"
 msgstr "Bestandssystemen"
 
-msgid "File Systems Status"
-msgstr ""
-
 msgid "File path"
 msgstr ""
 
@@ -1229,7 +1247,7 @@ msgid "File system"
 msgstr "Bestandssysteem"
 
 msgid "File systems"
-msgstr ""
+msgstr "Bestandssystemen"
 
 msgid "Filename"
 msgstr "Bestandsnaam"
@@ -1272,7 +1290,7 @@ msgid "France"
 msgstr "Frankrijk"
 
 msgid "Free"
-msgstr ""
+msgstr "Vrij"
 
 msgid "French Guiana"
 msgstr "Frans-Guyana"
@@ -1293,7 +1311,7 @@ msgid "Full"
 msgstr "Vol"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Gabon"
 msgstr "Gabon"
@@ -1977,6 +1995,9 @@ msgstr "Marokko"
 msgid "Mount"
 msgstr "Koppelen"
 
+msgid "Mount Options"
+msgstr ""
+
 msgid "Mount Point"
 msgstr "Koppelpunt"
 
@@ -2655,9 +2676,6 @@ msgstr "Rwanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. Status"
-msgstr ""
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.-controle moet worden geactiveerd op het geselecteerde apparaat."
 
@@ -2683,7 +2701,7 @@ msgid "SSH port"
 msgstr "SSH-poort"
 
 msgid "SSH public key"
-msgstr ""
+msgstr "SSH public key"
 
 msgid "SSH public keys"
 msgstr ""
@@ -2779,7 +2797,7 @@ msgid "Select a file system ..."
 msgstr "Selecteer een bestandssysteem ..."
 
 msgid "Select a group ..."
-msgstr ""
+msgstr "Selecteer een groep ..."
 
 msgid "Select a shared folder ..."
 msgstr "Selecteer een gedeelde map ..."
@@ -2875,9 +2893,6 @@ msgstr "Service uitgeschakeld"
 msgid "Services"
 msgstr "Diensten"
 
-msgid "Services Status"
-msgstr ""
-
 msgid "Session expired."
 msgstr "Sessie verlopen"
 
@@ -2886,7 +2901,7 @@ msgstr "Sessie niet toegestaan"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "Stel de rechten van het doel hetzelfde in als de rechten van de bron"
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
@@ -3630,7 +3645,7 @@ msgid "U.S. Virgin Islands"
 msgstr "Amerikaanse Maagdeneilanden"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "ONBEKEND"
@@ -3687,11 +3702,11 @@ msgid "Update Management"
 msgstr "Update Management"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "De doel-ACL's bijwerken zodat ze overeenkomen met de bron-ACL's."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "De uitgebreide attributen op de bestemming bijwerken zodat ze overeenkomen met de lokale attributen."
 
 msgid "Updated FTP SSL/TLS settings."
 msgstr ""

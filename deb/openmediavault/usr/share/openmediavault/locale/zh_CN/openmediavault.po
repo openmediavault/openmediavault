@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-27 05:42+0000\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-13 07:41+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -952,6 +952,27 @@ msgstr "磁盘"
 msgid "Display the home directory of the user in the browse list."
 msgstr "在用浏览时显示用户 Home 目录."
 
+msgid "Displays information about the file systems in a grid."
+msgstr "在网格中显示文件系统信息。"
+
+msgid "Displays information about the file systems in a table."
+msgstr "在标签中显示文件系统信息。"
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr "在网格中显示网络接口信息。"
+
+msgid "Displays information about the network interfaces in a table."
+msgstr "在标签中显示网络接口信息。"
+
+msgid "Displays information about the services in a grid."
+msgstr "在网格中显示服务信息。"
+
+msgid "Displays information about the services in a table."
+msgstr "在标签中显示服务信息。"
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
+msgstr "显示所有监控磁盘  S.M.A.R.T. 信息。"
+
 msgid "Djibouti"
 msgstr "吉布提"
 
@@ -1215,9 +1236,6 @@ msgstr "斐济"
 
 msgid "File Systems"
 msgstr "文件系统"
-
-msgid "File Systems Status"
-msgstr "文件系统状态"
 
 msgid "File path"
 msgstr "文件路径"
@@ -1974,6 +1992,9 @@ msgstr "摩洛哥"
 msgid "Mount"
 msgstr "挂载"
 
+msgid "Mount Options"
+msgstr "挂载选项"
+
 msgid "Mount Point"
 msgstr "挂载点"
 
@@ -2652,9 +2673,6 @@ msgstr "卢旺达"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. Status"
-msgstr "S.M.A.R.T. 状态"
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. 监控必须激活所选设备。"
 
@@ -2871,9 +2889,6 @@ msgstr "服务被禁用"
 
 msgid "Services"
 msgstr "服务"
-
-msgid "Services Status"
-msgstr "服务的状态"
 
 msgid "Session expired."
 msgstr "会话过期。"

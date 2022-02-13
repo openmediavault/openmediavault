@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-27 19:27+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-12 21:13+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -955,6 +955,27 @@ msgstr "Lemezek"
 msgid "Display the home directory of the user in the browse list."
 msgstr "Felhasználó saját könyvtárának megjelenítése a böngészési listában."
 
+msgid "Displays information about the file systems in a grid."
+msgstr ""
+
+msgid "Displays information about the file systems in a table."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a table."
+msgstr ""
+
+msgid "Displays information about the services in a grid."
+msgstr ""
+
+msgid "Displays information about the services in a table."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Dzsibuti"
 
@@ -1218,9 +1239,6 @@ msgstr "Fidzsi"
 
 msgid "File Systems"
 msgstr "Fájlrendszerek"
-
-msgid "File Systems Status"
-msgstr "Fájlrendszerek állapota "
 
 msgid "File path"
 msgstr "Fájl elérési út"
@@ -1977,6 +1995,9 @@ msgstr "Marokkó"
 msgid "Mount"
 msgstr "Csatolás"
 
+msgid "Mount Options"
+msgstr ""
+
 msgid "Mount Point"
 msgstr "Csatolási pont"
 
@@ -2655,9 +2676,6 @@ msgstr "Ruanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. Status"
-msgstr "S.M.A.R.T. állapot"
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "A S.M.A.R.T. ellenőrzésnek aktívnak kell lennie a kiválasztott meghajtón."
 
@@ -2874,9 +2892,6 @@ msgstr "Szolgáltatás letiltva"
 
 msgid "Services"
 msgstr "Szolgáltatások"
-
-msgid "Services Status"
-msgstr "Szolgáltatások állapota "
 
 msgid "Session expired."
 msgstr "A munkamenet lejárt."

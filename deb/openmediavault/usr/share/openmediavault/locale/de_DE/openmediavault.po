@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-26 18:37+0000\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-13 14:36+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) belegt, %s verfügbar]"
 
 msgid "%s [%s]"
-msgstr ""
+msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [auf %s, %s]"
@@ -960,6 +960,27 @@ msgstr "Laufwerke"
 msgid "Display the home directory of the user in the browse list."
 msgstr "Zeigt das Heimatverzeichnis des Benutzers in der Suchliste an."
 
+msgid "Displays information about the file systems in a grid."
+msgstr "Zeigt Informationen zu den Dateisystemen in einem Raster an."
+
+msgid "Displays information about the file systems in a table."
+msgstr "Zeigt Informationen über die Dateisysteme in einer Tabelle an."
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr "Zeigt Informationen über die Netzwerkschnittstellen in einem Raster an."
+
+msgid "Displays information about the network interfaces in a table."
+msgstr "Zeigt Informationen über die Netzwerkschnittstellen in einer Tabelle an."
+
+msgid "Displays information about the services in a grid."
+msgstr "Zeigt Informationen über die Dienste in einem Raster an."
+
+msgid "Displays information about the services in a table."
+msgstr "Zeigt Informationen über die Dienste in einer Tabelle an."
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
+msgstr "Zeigt die S.M.A.R.T.-Informationen aller überwachten Festplattengeräte an."
+
 msgid "Djibouti"
 msgstr "Dschibuti"
 
@@ -967,7 +988,7 @@ msgid "Do you really want to apply the configuration changes?"
 msgstr "Wollen Sie die Änderungen der Konfiguration wirklich anwenden?"
 
 msgid "Do you really want to copy the privileges from the shared folder?"
-msgstr ""
+msgstr "Wollen Sie wirklich die Berechtigungen des freigegebenen Ordners kopieren?"
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -1223,9 +1244,6 @@ msgstr "Fidschi"
 
 msgid "File Systems"
 msgstr "Dateisysteme"
-
-msgid "File Systems Status"
-msgstr "Dateisystemstatus"
 
 msgid "File path"
 msgstr "Dateipfad"
@@ -1982,6 +2000,9 @@ msgstr "Marokko"
 msgid "Mount"
 msgstr "Einhängen"
 
+msgid "Mount Options"
+msgstr "Einhängeoptionen"
+
 msgid "Mount Point"
 msgstr "Einhängepunkt"
 
@@ -2357,7 +2378,7 @@ msgid "Please wait, updating access control lists ..."
 msgstr "Bitte warten, die Zugriffskontrolllisten werden aktualisiert ..."
 
 msgid "Please wait, updating the permissions ..."
-msgstr ""
+msgstr "Bitte warten, die Berechtigungen werden aktualisiert ..."
 
 msgid "Plugins"
 msgstr "Erweiterungen"
@@ -2660,9 +2681,6 @@ msgstr "Ruanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. Status"
-msgstr "S.M.A.R.T. Status"
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. Überwachung muss für das ausgewählte Laufwerk aktiviert werden."
 
@@ -2879,9 +2897,6 @@ msgstr "Service deaktiviert"
 
 msgid "Services"
 msgstr "Dienste"
-
-msgid "Services Status"
-msgstr "Dienstestatus"
 
 msgid "Session expired."
 msgstr "Sitzungszeit abgelaufen."
@@ -3444,13 +3459,13 @@ msgid "This field should be an email address."
 msgstr "Dieses Feld sollte eine E-Mail-Adresse sein."
 
 msgid "This field should contain a decimal value."
-msgstr ""
+msgstr "Dieses Feld sollte einen Dezimalwert enthalten."
 
 msgid "This field should contain a number with a binary prefix."
 msgstr "Dieses Feld sollte eine Zahl mit einem binären Präfix enthalten."
 
 msgid "This field should contain a numeric value."
-msgstr ""
+msgstr "Dieses Feld sollte einen numerischen Wert enthalten."
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Diese Funktion wird nur aktiviert wenn sie von der Festplatte unterstützt wird."
@@ -3546,7 +3561,7 @@ msgid "This will create a recycle bin for each user home directory."
 msgstr "Dadurch wird für jedes Benutzerverzeichnis ein Papierkorb erstellt."
 
 msgid "This will create a recycle bin for the share."
-msgstr ""
+msgstr "Diese Option erzeugt einen Papierkorb für die Freigabe."
 
 msgid "Threshold"
 msgstr "Schwelle"
@@ -3680,7 +3695,7 @@ msgid "Unmount"
 msgstr "Aushängen"
 
 msgid "Unrestricted"
-msgstr ""
+msgstr "Uneingeschränkt"
 
 msgid "Up"
 msgstr "Hoch"
@@ -3741,7 +3756,7 @@ msgid "Updated VLAN network connection \"{{ devicename }}\"."
 msgstr ""
 
 msgid "Updated access control list of shared folder."
-msgstr ""
+msgstr "Zugriffskontrollliste des freigegebenen Ordners wurde aktualisiert."
 
 msgid "Updated bond network connection \"{{ devicename }}\"."
 msgstr ""
@@ -3756,7 +3771,7 @@ msgid "Updated date & time settings."
 msgstr "Datum-/Zeiteinstellungen wurde aktualisiert."
 
 msgid "Updated file system settings."
-msgstr ""
+msgstr "Dateisystemeinstellungen wurden aktualisiert."
 
 msgid "Updated firewall rule."
 msgstr "Firewall-Regel wurde aktualisiert."

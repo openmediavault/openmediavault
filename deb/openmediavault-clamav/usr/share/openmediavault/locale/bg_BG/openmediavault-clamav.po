@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 21:19+0100\n"
-"PO-Revision-Date: 2021-07-08 13:03+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:08+0100\n"
+"PO-Revision-Date: 2022-02-13 14:27+0000\n"
+"Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgid "Add on-access scan"
 msgstr ""
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Добави планирана задача"
 
 msgid "Algorithmic detection"
 msgstr ""
@@ -29,7 +29,7 @@ msgstr ""
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Имейл съобщение с изход от командата (ако има такъв) се изпраща на администратора."
 
 msgid "Antivirus"
 msgstr ""
@@ -44,7 +44,7 @@ msgid "Be verbose."
 msgstr ""
 
 msgid "Comment"
-msgstr ""
+msgstr "Коментар"
 
 msgid "Create"
 msgstr ""
@@ -59,13 +59,13 @@ msgid "Database checks"
 msgstr ""
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Дата и час"
 
 msgid "Day of month"
-msgstr ""
+msgstr "Ден от месеца"
 
 msgid "Day of week"
-msgstr ""
+msgstr "Ден от седмицата"
 
 msgid "December"
 msgstr ""
@@ -92,7 +92,7 @@ msgid "Edit scheduled job"
 msgstr ""
 
 msgid "Enable"
-msgstr ""
+msgstr "Разреши"
 
 msgid "Enable HTML detection and normalisation."
 msgstr ""
@@ -124,16 +124,16 @@ msgid "Enable the detection of possibly unwanted applications."
 msgstr ""
 
 msgid "Enabled"
-msgstr ""
+msgstr "Разрешено"
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "Всеки X ден от месеца"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "Всеки X час"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "Всеки X минута"
 
 msgid "Execute scheduled job"
 msgstr ""
@@ -142,7 +142,7 @@ msgid "Execute scheduled scan"
 msgstr ""
 
 msgid "Extra options"
-msgstr ""
+msgstr "Допълнителни опции"
 
 msgid "February"
 msgstr ""
@@ -160,13 +160,13 @@ msgid "Follow regular file symlinks."
 msgstr ""
 
 msgid "Friday"
-msgstr ""
+msgstr "Петък"
 
 msgid "General settings"
-msgstr ""
+msgstr "Основни настройки"
 
 msgid "Hour"
-msgstr ""
+msgstr "Час"
 
 msgid "Infected files"
 msgstr ""
@@ -196,10 +196,10 @@ msgid "Message"
 msgstr ""
 
 msgid "Minute"
-msgstr ""
+msgstr "Минута"
 
 msgid "Monday"
-msgstr ""
+msgstr "Понеделник"
 
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr ""
@@ -250,10 +250,10 @@ msgid "Quarantine"
 msgstr ""
 
 msgid "Run"
-msgstr ""
+msgstr "Изпълни"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Събота"
 
 msgid "Scan ELF"
 msgstr ""
@@ -277,7 +277,7 @@ msgid "Scan the directory contents in parallel using available threads."
 msgstr ""
 
 msgid "Scheduled Jobs"
-msgstr ""
+msgstr "Планирани задачи"
 
 msgid "Scheduled Scans"
 msgstr ""
@@ -289,19 +289,19 @@ msgid "Send command output via email"
 msgstr ""
 
 msgid "Send email"
-msgstr ""
+msgstr "Изпрати имейл"
 
 msgid "September"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Споделена папка"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Неделя"
 
 msgid "The location of the files to scan on-access."
 msgstr ""
@@ -316,10 +316,10 @@ msgid "The option, how to handle infected files."
 msgstr ""
 
 msgid "Thursday"
-msgstr ""
+msgstr "Четвъртък"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Вторник"
 
 msgid "Updated on-access scan."
 msgstr ""
@@ -331,7 +331,7 @@ msgid "Verbose"
 msgstr ""
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Сряда"
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"

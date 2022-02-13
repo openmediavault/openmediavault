@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-27 19:39+0000\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-13 09:08+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -952,6 +952,27 @@ msgstr "Discos"
 msgid "Display the home directory of the user in the browse list."
 msgstr "Mostrar el directorio home del usuario en la lista de navegación."
 
+msgid "Displays information about the file systems in a grid."
+msgstr "Muestra la información del sistema en una parrilla."
+
+msgid "Displays information about the file systems in a table."
+msgstr "Muestra la información del sistema en una tabla."
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr "Muestra la información de los interfaces de red en una parrilla."
+
+msgid "Displays information about the network interfaces in a table."
+msgstr "Muestra la información de los interfaces de red en una tabla."
+
+msgid "Displays information about the services in a grid."
+msgstr "Muestra la información de los servicios en una parrilla."
+
+msgid "Displays information about the services in a table."
+msgstr "Muestra la información de los servicios en una tabla."
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
+msgstr "Muestra la información  S.M.A.R.T. de todos los discos monitorizados."
+
 msgid "Djibouti"
 msgstr "Djibouti"
 
@@ -1215,9 +1236,6 @@ msgstr "Fidji"
 
 msgid "File Systems"
 msgstr "Sistema de Archivos"
-
-msgid "File Systems Status"
-msgstr "Estado del sistema de archivos"
 
 msgid "File path"
 msgstr "Ruta archivo"
@@ -1974,6 +1992,9 @@ msgstr "Marruecos"
 msgid "Mount"
 msgstr "Montar"
 
+msgid "Mount Options"
+msgstr "Opciones de montaje"
+
 msgid "Mount Point"
 msgstr "Punto de montaje"
 
@@ -2652,9 +2673,6 @@ msgstr "Ruanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. Status"
-msgstr "Estado S.M.A.R.T."
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "La monitorización S.M.A.R.T. debe ser activada para el dispositivo seleccionado."
 
@@ -2871,9 +2889,6 @@ msgstr "Servicio desactivado"
 
 msgid "Services"
 msgstr "Servicios"
-
-msgid "Services Status"
-msgstr "Estado"
 
 msgid "Session expired."
 msgstr "Sessión expirada"

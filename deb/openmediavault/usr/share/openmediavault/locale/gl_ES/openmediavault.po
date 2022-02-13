@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 18:35+0000\n"
-"PO-Revision-Date: 2022-01-26 18:37+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-12 22:09+0100\n"
+"PO-Revision-Date: 2022-02-13 14:27+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -692,7 +692,7 @@ msgid "Compress"
 msgstr "Comprimir"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "Comprimir os datos durante a transferencia."
 
 msgid "Compression"
 msgstr "Compresión"
@@ -863,7 +863,7 @@ msgid "Delete"
 msgstr "Eliminar"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "Eliminar no lado receptor os ficheiros que non existen no remitente."
 
 msgid "Denmark"
 msgstr "Dinamarca"
@@ -950,6 +950,27 @@ msgid "Disks"
 msgstr ""
 
 msgid "Display the home directory of the user in the browse list."
+msgstr ""
+
+msgid "Displays information about the file systems in a grid."
+msgstr ""
+
+msgid "Displays information about the file systems in a table."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr ""
+
+msgid "Displays information about the network interfaces in a table."
+msgstr ""
+
+msgid "Displays information about the services in a grid."
+msgstr ""
+
+msgid "Displays information about the services in a table."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr ""
 
 msgid "Djibouti"
@@ -1081,7 +1102,7 @@ msgid "Enable SSL/TLS connections."
 msgstr ""
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "Activar a compatibilidade deste recurso compartido co «Time Machine»"
 
 msgid "Enable WINS server"
 msgstr "Activar o servidor WINS"
@@ -1107,7 +1128,7 @@ msgid ""
 msgstr "Active esta opción para manter os ficheiros transferidos parcialmente, pola contra eliminaranse se se interrompe a transferencia."
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "Activar os directorios persoais dos usuarios."
 
 msgid "Enable write-cache"
 msgstr ""
@@ -1216,9 +1237,6 @@ msgstr "Fidxi"
 msgid "File Systems"
 msgstr "Sistemas de ficheiros"
 
-msgid "File Systems Status"
-msgstr ""
-
 msgid "File path"
 msgstr ""
 
@@ -1226,7 +1244,7 @@ msgid "File system"
 msgstr "Sistema de ficheiros"
 
 msgid "File systems"
-msgstr ""
+msgstr "Sistemas de ficheiros"
 
 msgid "Filename"
 msgstr "Nome do ficheiro"
@@ -1269,7 +1287,7 @@ msgid "France"
 msgstr "Francia"
 
 msgid "Free"
-msgstr ""
+msgstr "Libre"
 
 msgid "French Guiana"
 msgstr "Guiana Francesa"
@@ -1849,7 +1867,7 @@ msgid "Maximum download rate (KiB/s)"
 msgstr "Taxa máxima de descarga (KiB/s)"
 
 msgid "Maximum file size"
-msgstr ""
+msgstr "Tamaño máximo do ficheiro"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1973,6 +1991,9 @@ msgstr "Marrocos"
 
 msgid "Mount"
 msgstr "Montar"
+
+msgid "Mount Options"
+msgstr ""
 
 msgid "Mount Point"
 msgstr ""
@@ -2652,9 +2673,6 @@ msgstr "Ruanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. Status"
-msgstr ""
-
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. a supervisión debe estar activada para o dispositivo seleccionado."
 
@@ -2680,7 +2698,7 @@ msgid "SSH port"
 msgstr ""
 
 msgid "SSH public key"
-msgstr ""
+msgstr "Chave SSH pública"
 
 msgid "SSH public keys"
 msgstr ""
@@ -2872,9 +2890,6 @@ msgstr "Servizo desactivado"
 msgid "Services"
 msgstr "Servizos"
 
-msgid "Services Status"
-msgstr ""
-
 msgid "Session expired."
 msgstr "Caducou a sesión."
 
@@ -2883,7 +2898,7 @@ msgstr "Sesión sen autenticar."
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "Configurar os permisos de destino para sexan os mesmos que os permisos de orixe."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
@@ -3547,7 +3562,7 @@ msgid "Thursday"
 msgstr "Xoves"
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Compatibilidade con «Time Machine»"
 
 msgid "Time interval"
 msgstr "Intervalo de tempo"
@@ -3684,11 +3699,11 @@ msgid "Update Management"
 msgstr ""
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "Actualizar os ACL de destino para que sexan os mesmos que os ACL de orixe."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "Actualizar os atributos estendidos do destino para que sexan os mesmos que os locais."
 
 msgid "Updated FTP SSL/TLS settings."
 msgstr ""
