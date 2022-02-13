@@ -136,6 +136,9 @@ export class UpdateDatatablePageComponent {
                 },
                 stop: {
                   hidden: true
+                },
+                close: {
+                  dialogResult: true
                 }
               },
               request: {
