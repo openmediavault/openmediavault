@@ -158,84 +158,168 @@ class System {
 	/**
 	 * Get memory statistics.
 	 * @return The memory statistics as array.
+	 *   Note, all values that will break the 32bit compatibility are
+	 *   returned as strings.
 	 * array(
 	 *   mem (
-	 *     total => xxx, (bytes)
-	 *     used => xxx, (bytes)
-	 *     free => xxx, (bytes)
-	 *     shared => xxx, (bytes)
-	 *     buffers => xxx, (bytes)
-	 *     cached => xxx, (bytes)
+	 *     total => xxx, (bytes as string)
+	 *     used => xxx, (bytes as string)
+	 *     free => xxx, (bytes as string)
+	 *     shared => xxx, (bytes as string)
+	 *     buffers => xxx, (bytes as string)
+	 *     cached => xxx, (bytes as string)
 	 *     utilization => xxx, (float)
 	 *   )
 	 *   swap (
-	 *     total => xxx, (bytes)
-	 *     used => xxx, (bytes)
-	 *     free => xxx, (bytes)
+	 *     total => xxx, (bytes as string)
+	 *     used => xxx, (bytes as string)
+	 *     free => xxx, (bytes as string)
 	 *     utilization => xxx, (float)
 	 *   )
 	 *   total (
-	 *     total => xxx, (bytes)
-	 *     used => xxx, (bytes)
-	 *     free => xxx, (bytes)
+	 *     total => xxx, (bytes as string)
+	 *     used => xxx, (bytes as string)
+	 *     free => xxx, (bytes as string)
 	 *     utilization => xxx, (float)
 	 *   )
 	 * )
 	 */
 	public static function getMemoryStats() {
 /*
-		@OMVUtil::exec("cat /proc/meminfo", $output, $result);
-		if($result !== 0) {
-			return FALSE;
+		$result = [
+			"mem" => [
+				"total" => "0",
+				"used" => "0",
+				"free" => "0",
+				"shared" => "0",
+				"buffers" => "0",
+				"cache" => "0",
+				"available" => "0",
+				"utilization" => 0
+			],
+			"swap" => [
+				"total" => "0",
+				"used" => "0",
+				"free" => "0",
+				"utilization" => 0
+			],
+			"total" => [
+				"total" => "0",
+				"used" => "0",
+				"free" => "0",
+				"utilization" => 0
+			]
+		];
+
+		// The utilization is calculated based on
+		// https://github.com/giampaolo/psutil/blob/release-5.9.0/psutil/_pslinux.py#L523
+		$calcUtilization = function($total, $avail, $scale = 5) {
+			if (0 == bccomp($total, "0")) {
+				return "0";
+			}
+			return bcdiv(bcsub($total, $avail), $total, $scale);
+		};
+
+		// Get well explained information about extracting the values
+		// from the /procfs in the Python psutils code.
+		// https://github.com/giampaolo/psutil/blob/release-5.9.0/psutil/_pslinux.py#L415
+		$output = file("/proc/meminfo", FILE_IGNORE_NEW_LINES |
+			FILE_SKIP_EMPTY_LINES);
+		if (FALSE === $output) {
+			return $result;
 		}
-		$result = array(
-		  "total" => 0,
-		  "free" => 0,
-		  "used" => 0,
-		  "percent" => 0
-		);
-		foreach($output as $outputk => $outputv) {
-			if(preg_match('/^MemTotal:\s+(\d+)\s+kB$/i', $outputv,
-			  $matches)) {
-				$result['total'] = $matches[1] * 1024;
-			} else if(preg_match('/^MemFree:\s+(\d+)\s+kB$/i', $outputv,
-			  $matches)) {
-				$result['free'] = $matches[1] * 1024;
+
+		// Parse command output:
+		// MemTotal:        3787296 kB
+		// MemFree:         2118144 kB
+		// MemAvailable:    3275732 kB
+		// Buffers:          172764 kB
+		// Cached:           959772 kB
+		// SwapCached:            0 kB
+		// Active:           241084 kB
+		// Inactive:        1037316 kB
+		// Active(anon):       4264 kB
+		// ...
+		$memInfo = [];
+		foreach ($output as $outputk => $outputv) {
+			$regex = "/^(\w+):\s+(\d+)( kb)?$/i";
+			if (1 !== preg_match($regex, $outputv, $matches)) {
+				continue;
+			}
+			if ("kb" == strtolower(trim($matches[3]))) {
+				$memInfo[$matches[1]] = bcmul($matches[2], "1024");
+			} else {
+				$memInfo[$matches[1]] = $matches[2];
 			}
 		}
-		$result['used'] = $result['total'] - $result['free'];
-		$result['percent'] = round(($result['used'] * 100) / $result['total']);
+
+		$result['mem']['total'] = $memInfo['MemTotal'];
+		$result['mem']['free'] = $memInfo['MemFree'];
+		$result['mem']['shared'] = $memInfo['Shmem'];
+		$result['mem']['buffers'] = $memInfo['Buffers'];
+		$result['mem']['cache'] = $memInfo['Cached'];
+		$result['mem']['available'] = $memInfo['MemAvailable'];
+		$result['mem']['used'] = bcsub($result['mem']['total'],
+			bcadd($result['mem']['free'],
+			bcadd($result['mem']['cache'], $result['mem']['buffers'])));
+		if (-1 == bccomp($result['mem']['used'], "0")) {
+			$result['mem']['used'] = bcsub($result['mem']['total'],
+				$result['mem']['free']);
+		}
+		$result['mem']['utilization'] = $calcUtilization(
+			$result['mem']['total'], $result['mem']['available']);
+
+		$result['swap']['total'] = $memInfo['SwapTotal'];
+		$result['swap']['free'] = $memInfo['SwapFree'];
+		$result['swap']['used'] = bcsub($result['swap']['total'],
+			$result['swap']['free']);
+		$result['swap']['utilization'] = $calcUtilization(
+			$result['swap']['total'], $result['swap']['used']);
+
+		$result['total']['total'] = bcadd($result['mem']['total'],
+			$result['swap']['total']);
+		$result['total']['used'] = bcadd($result['mem']['used'],
+			$result['swap']['used']);
+		$result['total']['free'] = bcadd($result['mem']['free'],
+			$result['swap']['free']);
+		$result['total']['utilization'] = $calcUtilization(
+			$result['total']['total'], $result['total']['used']);
+
+		return $result;
 */
 		$cmd = new \OMV\System\Process("free", "-b", "-t", "-w");
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		$result = [
 			"mem" => [
-				"total" => 0,
-				"used" => 0,
-				"free" => 0,
-				"shared" => 0,
-				"buffers" => 0,
-				"cache" => 0,
-				"available" => 0,
+				"total" => "0",
+				"used" => "0",
+				"free" => "0",
+				"shared" => "0",
+				"buffers" => "0",
+				"cache" => "0",
+				"available" => "0",
 				"utilization" => 0
 			],
 			"swap" => [
-				"total" => 0,
-				"used" => 0,
-				"free" => 0,
+				"total" => "0",
+				"used" => "0",
+				"free" => "0",
 				"utilization" => 0
 			],
 			"total" => [
-				"total" => 0,
-				"used" => 0,
-				"free" => 0,
+				"total" => "0",
+				"used" => "0",
+				"free" => "0",
 				"utilization" => 0
 			]
 		];
 		// The utilization is calculated based on
 		// https://github.com/giampaolo/psutil/blob/release-5.9.0/psutil/_pslinux.py#L523
 		$calcUtilization = function($total, $avail, $scale = 5) {
+			if (0 == bccomp($total, "0")) {
+				return "0";
+			}
 			return bcdiv(bcsub($total, $avail), $total, $scale);
 		};
 		// Parse command output:
@@ -262,7 +346,7 @@ class System {
 		// cache     - Cache for various things.
 		foreach ($output as $outputk => $outputv) {
 			$outputv = trim($outputv);
-			if (preg_match('/^Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/',
+			if (preg_match('/^Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/i',
 					$outputv, $matches)) {
 				$result['mem'] = [
 					"total" => $matches[1],
@@ -275,7 +359,7 @@ class System {
 					"utilization" => $calcUtilization($matches[1],
 						$matches[7])
 				];
-			} else if (preg_match('/^Swap:\s+(\d+)\s+(\d+)\s+(\d+)$/',
+			} else if (preg_match('/^Swap:\s+(\d+)\s+(\d+)\s+(\d+)$/i',
 					$outputv, $matches)) {
 				$result['swap'] = [
 					"total" => $matches[1],
@@ -284,7 +368,7 @@ class System {
 					"utilization" => $calcUtilization($matches[1],
 						$matches[2])
 				];
-			} else if (preg_match('/^Total:\s+(\d+)\s+(\d+)\s+(\d+)$/',
+			} else if (preg_match('/^Total:\s+(\d+)\s+(\d+)\s+(\d+)$/i',
 					$outputv, $matches)) {
 				$result['total'] = [
 					"total" => $matches[1],
