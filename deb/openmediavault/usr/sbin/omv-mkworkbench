@@ -199,7 +199,7 @@ def dashboard(ctx):
                 ], 'required': True},
                 'title': {'type': 'string', 'required': True},
                 'description': {'type': 'string', 'required': False},
-                'gettext': {'type': 'array', 'items': {'type': 'string'}, 'required': False},
+                'i18n': {'type': 'array', 'items': {'type': 'string'}, 'required': False},
                 'permissions': {'type': 'object', 'properties': {
                     'role': {'type': 'array', 'items': {'type': 'string', 'enum': ['admin', 'user']}}
                 }},
@@ -215,9 +215,9 @@ def dashboard(ctx):
     widget_configs = load_yaml_files(widget_schema, widget_dir,
                                      ctx.skip_invalid, ctx.verbose)
     for widget in widget_configs:
-        # The 'gettext' property is not needed anymore. It is only
+        # The 'i18n' property is not needed anymore. It is only
         # used by external i18n tools.
-        widget.pop('gettext', None)
+        widget.pop('i18n', None)
     write_json_file(widget_file, widget_configs, ctx.verbose)
 
 

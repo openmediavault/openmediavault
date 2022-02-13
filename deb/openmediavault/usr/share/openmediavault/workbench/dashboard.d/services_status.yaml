@@ -11,7 +11,7 @@ data:
   description: _("Displays information about the services in a grid.")
   # Text used in templates and therefore cannot be automatically extracted
   # by i18n tools.
-  gettext:
+  i18n:
     - _("Running")
     - _("Not running")
   grid:
