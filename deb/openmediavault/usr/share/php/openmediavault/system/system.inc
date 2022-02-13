@@ -185,7 +185,6 @@ class System {
 	 * )
 	 */
 	public static function getMemoryStats() {
-/*
 		$result = [
 			"mem" => [
 				"total" => "0",
@@ -210,7 +209,7 @@ class System {
 				"utilization" => 0
 			]
 		];
-
+/*
 		// The utilization is calculated based on
 		// https://github.com/giampaolo/psutil/blob/release-5.9.0/psutil/_pslinux.py#L523
 		$calcUtilization = function($total, $avail, $scale = 5) {
@@ -263,8 +262,18 @@ class System {
 			bcadd($result['mem']['free'],
 			bcadd($result['mem']['cache'], $result['mem']['buffers'])));
 		if (-1 == bccomp($result['mem']['used'], "0")) {
+			// See https://github.com/giampaolo/psutil/blob/release-5.9.0/psutil/_pslinux.py#L498
 			$result['mem']['used'] = bcsub($result['mem']['total'],
 				$result['mem']['free']);
+		}
+		if (-1 == bccomp($result['mem']['available'], "0")) {
+			// See https://github.com/giampaolo/psutil/blob/release-5.9.0/psutil/_pslinux.py#L512
+			$result['mem']['available'] = "0";
+		}
+		if (1 == bccomp($result['mem']['available'],
+				$result['mem']['total'])) {
+			// See https://github.com/giampaolo/psutil/blob/release-5.9.0/psutil/_pslinux.py#L521
+			$result['mem']['available'] = $result['mem']['free'];
 		}
 		$result['mem']['utilization'] = $calcUtilization(
 			$result['mem']['total'], $result['mem']['available']);
@@ -290,30 +299,6 @@ class System {
 		$cmd = new \OMV\System\Process("free", "-b", "-t", "-w");
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
-		$result = [
-			"mem" => [
-				"total" => "0",
-				"used" => "0",
-				"free" => "0",
-				"shared" => "0",
-				"buffers" => "0",
-				"cache" => "0",
-				"available" => "0",
-				"utilization" => 0
-			],
-			"swap" => [
-				"total" => "0",
-				"used" => "0",
-				"free" => "0",
-				"utilization" => 0
-			],
-			"total" => [
-				"total" => "0",
-				"used" => "0",
-				"free" => "0",
-				"utilization" => 0
-			]
-		];
 		// The utilization is calculated based on
 		// https://github.com/giampaolo/psutil/blob/release-5.9.0/psutil/_pslinux.py#L523
 		$calcUtilization = function($total, $avail, $scale = 5) {
