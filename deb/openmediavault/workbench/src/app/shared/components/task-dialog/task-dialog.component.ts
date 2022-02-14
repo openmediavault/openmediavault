@@ -28,12 +28,14 @@ import {
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
-import { Subscription } from 'rxjs';
-import { finalize, tap } from 'rxjs/operators';
+import { from, of, Subscription } from 'rxjs';
+import { concatMap, delay, finalize, tap } from 'rxjs/operators';
 import stripAnsi from 'strip-ansi';
 
+import { format } from '~/app/functions.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { TaskDialogConfig } from '~/app/shared/models/task-dialog-config.type';
+import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { RpcBgResponse, RpcService } from '~/app/shared/services/rpc.service';
 
 /**
@@ -58,7 +60,11 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   private filename: string;
 
-  constructor(private rpcService: RpcService, @Inject(MAT_DIALOG_DATA) data: TaskDialogConfig) {
+  constructor(
+    private authSessionService: AuthSessionService,
+    private rpcService: RpcService,
+    @Inject(MAT_DIALOG_DATA) data: TaskDialogConfig
+  ) {
     this.config = data;
     this.sanitizeConfig();
   }
@@ -66,6 +72,17 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     if (this.config.startOnInit) {
       this.onStart();
+    } else {
+      this.print(
+        format(
+          'REQUEST ACCESS TO MASTER CONTROL PROGRAM.<br>' +
+            'USER CODE 00-{{ username | upper }}.<br>' +
+            'PASSWORD:MASTER.',
+          {
+            username: this.authSessionService.getUsername()
+          }
+        )
+      );
     }
   }
 
@@ -97,26 +114,7 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
       )
       .subscribe({
         next: (value: RpcBgResponse) => {
-          const nativeEl = this.content.nativeElement;
-          // Make sure we do not exceed a max. size of displayed
-          // content to keep the memory consumption low.
-          // Allow displaying up to 100.000 lines (80 char per line) of
-          // content, then reduce to 75.000 lines in one step (smaller
-          // steps may be repeated to often which is too costly).
-          // Note, if your task is crossing this border, please keep in
-          // mind that this dialog is not meant to be used for such
-          // excessive tasks.
-          if (nativeEl.innerHTML.length > 100000 * 80) {
-            // Search for the first line break after the specified
-            // position and cut it there if found.
-            const startSearch = nativeEl.innerHTML.length - 75000 * 80;
-            const pos = nativeEl.innerHTML.indexOf('\n', startSearch);
-            nativeEl.innerHTML = nativeEl.innerHTML.slice(pos > 0 ? pos : startSearch);
-          }
-          nativeEl.innerHTML += stripAnsi(value.output);
-          if (this.config.autoScroll) {
-            nativeEl.scroll({ behavior: 'auto', top: nativeEl.scrollHeight });
-          }
+          this.print(value.output);
         },
         complete: () => {
           // Set the result value to `true` because the request finished
@@ -124,11 +122,17 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
           this.config.buttons.close.dialogResult = true;
           // Notify all subscribers.
           this.finishEvent.emit(this.content.nativeElement.innerHTML);
+          // Append EOL message.
+          from(['<br>', 'E', 'N', 'D', ' ', 'O', 'F', ' ', 'L', 'I', 'N', 'E'])
+            .pipe(concatMap((ch) => of(ch).pipe(delay(25))))
+            .subscribe((ch) => {
+              this.print(ch);
+            });
         }
       });
   }
 
-  onStop() {
+  onStop(): void {
     this.subscription?.unsubscribe();
     this.rpcService
       .stopTask(this.filename)
@@ -141,7 +145,7 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
       .subscribe();
   }
 
-  protected sanitizeConfig() {
+  protected sanitizeConfig(): void {
     this.config.icon = _.get(Icon, this.config.icon, this.config.icon);
     _.defaultsDeep(this.config, {
       autoScroll: true,
@@ -172,6 +176,29 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
     });
     if (this.config.startOnInit) {
       this.config.buttons.start.hidden = true;
+    }
+  }
+
+  private print(text: string): void {
+    const nativeEl = this.content.nativeElement;
+    // Make sure we do not exceed a max. size of displayed
+    // content to keep the memory consumption low.
+    // Allow displaying up to 100.000 lines (80 char per line) of
+    // content, then reduce to 75.000 lines in one step (smaller
+    // steps may be repeated to often which is too costly).
+    // Note, if your task is crossing this border, please keep in
+    // mind that this dialog is not meant to be used for such
+    // excessive tasks.
+    if (nativeEl.innerHTML.length > 100000 * 80) {
+      // Search for the first line break after the specified
+      // position and cut it there if found.
+      const startSearch = nativeEl.innerHTML.length - 75000 * 80;
+      const pos = nativeEl.innerHTML.indexOf('\n', startSearch);
+      nativeEl.innerHTML = nativeEl.innerHTML.slice(pos > 0 ? pos : startSearch);
+    }
+    nativeEl.innerHTML += stripAnsi(text);
+    if (this.config.autoScroll && _.isFunction(nativeEl.scroll)) {
+      nativeEl.scroll({ behavior: 'auto', top: nativeEl.scrollHeight });
     }
   }
 }
