@@ -460,6 +460,16 @@ $omv-color-themes: (
   text-transform: uppercase !important;
 }
 
+.omv-text-blink {
+  animation: toggle-opacity 1s step-start infinite;
+}
+
+@keyframes toggle-opacity {
+  50% {
+    opacity: 0;
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Icon
 .omv-icon-sm {

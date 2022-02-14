@@ -7,13 +7,10 @@
   font-weight: bold;
   font-size: large;
   text-align: center;
-  -webkit-animation: omv-guru-meditation-flash 2s infinite;
-  -moz-animation: omv-guru-meditation-flash 2s infinite;
-  -o-animation: omv-guru-meditation-flash 2s infinite;
-  animation: omv-guru-meditation-flash 2s infinite;
+  animation: guru-meditation-flash 2s infinite;
 }
 
-@keyframes omv-guru-meditation-flash {
+@keyframes guru-meditation-flash {
   0% {
     border-color: #ff0000;
   }

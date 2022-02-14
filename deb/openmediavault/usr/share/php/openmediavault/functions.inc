@@ -967,8 +967,8 @@ function unescape_path($var, $octal = FALSE) {
 /**
  * Split a string by a string. If the string is empty, then an empty
  * array is returned.
- * @param string delimiter The boundary string.
- * @param string string The input string.
+ * @param string $delimiter The boundary string.
+ * @param string $string The input string.
  * @return Returns an array of strings created by splitting the string
  *   parameter on boundaries formed by the delimiter.
  */
@@ -981,17 +981,26 @@ function explode_safe($delimiter, $string): array {
 
 /**
  * Tells whether the filename has a file lock.
- * @param string filename Path to the file.
+ * @param string $filename Path to the file.
  * @return Returns TRUE if the file is locked, otherwise FALSE.
  */
 function is_locked($filename): bool {
 	$locked = FALSE;
 	if (file_exists($filename)) {
-		$fh = fopen($filename, "w+");
-		if (!flock($fh, LOCK_SH | LOCK_NB)) {
-			$locked = TRUE;
+		$stat = stat($filename);
+		// https://github.com/torvalds/linux/blob/v5.16/include/linux/kdev_t.h
+		$major_dev = ($stat['dev'] & 0xfff00) >> 8;
+		$minor_dev = ($stat['dev'] & 0xff) | (($stat['dev'] >> 12) & 0xfff00);
+		// https://www.baeldung.com/linux/file-locking#2-proclocks
+		$search = sprintf("%02x:%02x:%d", $major_dev, $minor_dev,
+			$stat['ino']);
+		$locks = file("/proc/locks");
+		foreach ($locks as $linek => $linev) {
+			if (FALSE !== mb_strpos($linev, $search)) {
+				$locked = TRUE;
+				break;
+			}
 		}
-		fclose($fp);
 	}
 	return $locked;
 }

@@ -14,6 +14,7 @@
 
       .ascii-art {
         margin: unset;
+        overflow: hidden;
       }
 
       .side-scroller {
@@ -22,14 +23,14 @@
 
         .text {
           padding-left: 100%;
-          animation: scrollText 30s infinite linear;
+          animation: scroll-left 30s infinite linear;
         }
       }
     }
   }
 }
 
-@keyframes scrollText {
+@keyframes scroll-left {
   to {
     transform: translateX(-100%);
   }

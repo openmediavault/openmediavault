@@ -77,7 +77,8 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
         format(
           'REQUEST ACCESS TO MASTER CONTROL PROGRAM.<br>' +
             'USER CODE 00-{{ username | upper }}.<br>' +
-            'PASSWORD:MASTER.',
+            'PASSWORD:MASTER. <br>' +
+            '<span class="omv-text-blink">█</span>',
           {
             username: this.authSessionService.getUsername()
           }
@@ -117,16 +118,34 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
           this.print(value.output);
         },
         complete: () => {
-          // Set the result value to `true` because the request finished
-          // successfully.
-          this.config.buttons.close.dialogResult = true;
-          // Notify all subscribers.
-          this.finishEvent.emit(this.content.nativeElement.innerHTML);
           // Append EOL message.
-          from(['<br>', 'E', 'N', 'D', ' ', 'O', 'F', ' ', 'L', 'I', 'N', 'E'])
-            .pipe(concatMap((ch) => of(ch).pipe(delay(25))))
-            .subscribe((ch) => {
-              this.print(ch);
+          from([
+            '<br>',
+            'E',
+            'N',
+            'D',
+            ' ',
+            'O',
+            'F',
+            ' ',
+            'L',
+            'I',
+            'N',
+            'E',
+            '<br><span class="omv-text-blink">█</span>'
+          ])
+            .pipe(concatMap((text) => of(text).pipe(delay(25))))
+            .subscribe({
+              next: (text) => {
+                this.print(text);
+              },
+              complete: () => {
+                // Set the result value to `true` because the request finished
+                // successfully.
+                this.config.buttons.close.dialogResult = true;
+                // Notify all subscribers.
+                this.finishEvent.emit(this.content.nativeElement.innerHTML);
+              }
             });
         }
       });
