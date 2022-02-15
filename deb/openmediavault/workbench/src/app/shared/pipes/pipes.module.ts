@@ -12,6 +12,7 @@ import { LocaleDatePipe } from '~/app/shared/pipes/locale-date.pipe';
 import { MapPipe } from '~/app/shared/pipes/map.pipe';
 import { MaxPipe } from '~/app/shared/pipes/max.pipe';
 import { NotAvailablePipe } from '~/app/shared/pipes/not-available.pipe';
+import { PreventHtmlPipe } from '~/app/shared/pipes/prevent-html.pipe';
 import { ReplacePipe } from '~/app/shared/pipes/replace.pipe';
 import { SanitizeHtmlPipe } from '~/app/shared/pipes/sanitize-html.pipe';
 import { TemplatePipe } from '~/app/shared/pipes/template.pipe';
@@ -39,7 +40,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     SanitizeHtmlPipe,
     EncodeUriComponentPipe,
     ReplacePipe,
-    Br2nlPipe
+    Br2nlPipe,
+    PreventHtmlPipe
   ],
   imports: [CommonModule],
   exports: [
@@ -60,7 +62,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     SanitizeHtmlPipe,
     EncodeUriComponentPipe,
     ReplacePipe,
-    Br2nlPipe
+    Br2nlPipe,
+    PreventHtmlPipe
   ],
   providers: [
     ToBooleanPipe,
@@ -80,7 +83,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     SanitizeHtmlPipe,
     EncodeUriComponentPipe,
     ReplacePipe,
-    Br2nlPipe
+    Br2nlPipe,
+    PreventHtmlPipe
   ]
 })
 export class PipesModule {}

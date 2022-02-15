@@ -190,7 +190,7 @@
 <ng-template #copyToClipboardTpl
              let-value="value">
   <ng-container *ngIf="value">
-    <span [matTooltip]="value">{{ value }}</span>
+    <span [matTooltip]="value">{{ value | preventHtml }}</span>
     <mat-icon class="omv-icon-sm omv-cursor-pointer omv-ml-q"
               svgIcon="{{ icon.copy }}"
               matTooltip="{{ 'Copy to clipboard' | translate }}"
@@ -203,7 +203,7 @@
              let-column="column"
              let-row="row">
   <span matTooltipClass="omv-text-wrap-line"
-        [matTooltip]="column.cellTemplateConfig | template:row | br2nl"
+        [matTooltip]="column.cellTemplateConfig | template:row | br2nl | preventHtml"
         [innerHTML]="column.cellTemplateConfig | template:row | sanitizeHtml">
   </span>
 </ng-template>

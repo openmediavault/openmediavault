@@ -9,7 +9,7 @@
        class="item"
        [ngClass]="config.grid.item.class | template:item"
        matTooltipClass="omv-text-wrap-line"
-       [matTooltip]="config.grid.item.tooltip | template:item | br2nl"
+       [matTooltip]="config.grid.item.tooltip | template:item | br2nl | preventHtml"
        [routerLink]="config.grid.item.url | template:item">
     <div *ngIf="config.grid.item.title"
          class="title"
