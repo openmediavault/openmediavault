@@ -249,9 +249,21 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				"arg1" => "bind"
 			]
 		]);
-		// Append '/dev/root'?
-		if (!is_null($params) && (TRUE === array_boolval($params,
-				"includeroot", FALSE))) {
+		// Append root file system (/dev/root)?
+		// Make sure the configuration object is not already in the list
+		// of mount points. This happens if the 'sharerootfs' plugin is
+		// installed.
+		if (
+			array_boolval($params, "includeroot", FALSE) &&
+			$db->getByFilter("conf.system.filesystem.mountpoint", [
+				"operator" => "not",
+				"arg0" => [
+					"operator" => "stringEquals",
+					"arg0" => "dir",
+					"arg1" => "/"
+				]
+			])
+		) {
 			$rootObject = new \OMV\Config\ConfigObject(
 				"conf.system.filesystem.mountpoint");
 			$rootObject->set("fsname", \OMV\System\System::getRootDeviceFile());
