@@ -28,6 +28,9 @@ export type TaskDialogConfig = {
   // Start the action on dialog initialization. If set to `true`,
   // then the 'Start' button gets hidden. Defaults to `false`.
   startOnInit?: boolean;
+  // Display a message when the request has been completed?
+  // Defaults to `true`.
+  showCompletion?: boolean;
   // The custom button configurations. They are merged with the
   // default settings.
   // The defaults are:

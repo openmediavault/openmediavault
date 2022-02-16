@@ -118,35 +118,33 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
           this.print(value.output);
         },
         complete: () => {
+          // Set the result value to `true` because the request finished
+          // successfully.
+          this.config.buttons.close.dialogResult = true;
+          // Notify all subscribers.
+          this.finishEvent.emit(this.content.nativeElement.innerHTML);
           // Append EOL message.
-          from([
-            '<br>',
-            'E',
-            'N',
-            'D',
-            ' ',
-            'O',
-            'F',
-            ' ',
-            'L',
-            'I',
-            'N',
-            'E',
-            '<br><span class="omv-text-blink">█</span>'
-          ])
-            .pipe(concatMap((text) => of(text).pipe(delay(25))))
-            .subscribe({
-              next: (text) => {
+          if (this.config.showCompletion) {
+            from([
+              '<br>',
+              'E',
+              'N',
+              'D',
+              ' ',
+              'O',
+              'F',
+              ' ',
+              'L',
+              'I',
+              'N',
+              'E',
+              '<br><span class="omv-text-blink">█</span>'
+            ])
+              .pipe(concatMap((text) => of(text).pipe(delay(25))))
+              .subscribe((text) => {
                 this.print(text);
-              },
-              complete: () => {
-                // Set the result value to `true` because the request finished
-                // successfully.
-                this.config.buttons.close.dialogResult = true;
-                // Notify all subscribers.
-                this.finishEvent.emit(this.content.nativeElement.innerHTML);
-              }
-            });
+              });
+          }
         }
       });
   }
@@ -169,6 +167,7 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
     _.defaultsDeep(this.config, {
       autoScroll: true,
       startOnInit: false,
+      showCompletion: true,
       buttons: {
         start: {
           text: gettext('Start'),

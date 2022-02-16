@@ -166,6 +166,7 @@ export class UpdateDatatablePageComponent {
               width: '75%',
               autoScroll: false,
               startOnInit: true,
+              showCompletion: false,
               buttons: {
                 start: {
                   hidden: true
