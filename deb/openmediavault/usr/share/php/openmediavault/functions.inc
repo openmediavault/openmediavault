@@ -980,6 +980,26 @@ function explode_safe($delimiter, $string): array {
 }
 
 /**
+ * Get the major number of the device number.
+ * @param int dev The device number.
+ * @return Returns the major number of the device number.
+ */
+function major_dev($dev): int {
+	// https://github.com/torvalds/linux/blob/v5.16/include/linux/kdev_t.h
+	return ($dev & 0xfff00) >> 8;
+}
+
+/**
+ * Get the minor number of the device number.
+ * @param int dev The device number.
+ * @return Returns the minor number of the device number.
+ */
+function minor_dev($dev): int {
+	// https://github.com/torvalds/linux/blob/v5.16/include/linux/kdev_t.h
+	return ($dev & 0xff) | (($dev >> 12) & 0xfff00);
+}
+
+/**
  * Tells whether the filename has a file lock.
  * @param string $filename Path to the file.
  * @return Returns TRUE if the file is locked, otherwise FALSE.
@@ -988,12 +1008,9 @@ function is_locked($filename): bool {
 	$locked = FALSE;
 	if (file_exists($filename)) {
 		$stat = stat($filename);
-		// https://github.com/torvalds/linux/blob/v5.16/include/linux/kdev_t.h
-		$major_dev = ($stat['dev'] & 0xfff00) >> 8;
-		$minor_dev = ($stat['dev'] & 0xff) | (($stat['dev'] >> 12) & 0xfff00);
 		// https://www.baeldung.com/linux/file-locking#2-proclocks
-		$search = sprintf("%02x:%02x:%d", $major_dev, $minor_dev,
-			$stat['ino']);
+		$search = sprintf("%02x:%02x:%d", major_dev($stat['dev']),
+			minor_dev($stat['dev']), $stat['ino']);
 		$locks = file("/proc/locks");
 		foreach ($locks as $linek => $linev) {
 			if (FALSE !== mb_strpos($linev, $search)) {
