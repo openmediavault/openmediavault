@@ -19,7 +19,7 @@ import { Constraint } from '~/app/shared/models/constraint.type';
 import { Sorter } from '~/app/shared/models/sorter.type';
 
 export type DataStore = {
-  // An array of data to load inline. If the data is an dict/object,
+  // An array of data to load inline. If the data is a dict/object,
   // then it will be auto-converted into an array with the specified
   // fields (defaults to 'key' and 'value').
   data?: any;
@@ -40,7 +40,7 @@ export type DataStore = {
       method: string;
       // The RPC parameters.
       params?: Record<string, any>;
-      // Set `true` if the RPC is a long running background task.
+      // Set `true` if the RPC is a long-running background task.
       task?: boolean;
     };
     // The name of the RPC to update the data.
@@ -49,7 +49,7 @@ export type DataStore = {
       method: string;
       // The RPC parameters.
       params?: any;
-      // Set `true` if the RPC is a long running background task.
+      // Set `true` if the RPC is a long-running background task.
       task?: boolean;
       // Filter the specified properties for every object in the
       // data store before the request is executed.

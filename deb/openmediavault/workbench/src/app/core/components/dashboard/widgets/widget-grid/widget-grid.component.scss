@@ -1,7 +1,7 @@
 @import 'src/styles';
 
 .omv-dashboard-widget-grid {
-  padding: $omv-padding;
+  margin: 0 $omv-padding $omv-padding;
 
   .item {
     cursor: default;

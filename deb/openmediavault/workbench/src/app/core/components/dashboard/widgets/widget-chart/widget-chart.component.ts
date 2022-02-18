@@ -302,11 +302,15 @@ export class WidgetChartComponent
   }
 
   protected loadData(): Observable<Record<string, any>> {
-    const request = this.config.chart.request;
+    const request = this.config.chart?.request;
     if (!_.isPlainObject(request)) {
       return EMPTY;
     }
-    return this.rpcService.request(request.service, request.method, request.params).pipe(
+    return this.rpcService[request.task ? 'requestTask' : 'request'](
+      request.service,
+      request.method,
+      request.params
+    ).pipe(
       map((res) => {
         if (_.isPlainObject(request.transform)) {
           const tmp = formatDeep(request.transform, res);

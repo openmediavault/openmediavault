@@ -28,6 +28,7 @@ import { WidgetFilesystemsStatusComponent } from '~/app/core/components/dashboar
 import { WidgetGridComponent } from '~/app/core/components/dashboard/widgets/widget-grid/widget-grid.component';
 import { WidgetRrdComponent } from '~/app/core/components/dashboard/widgets/widget-rrd/widget-rrd.component';
 import { WidgetSystemInformationComponent } from '~/app/core/components/dashboard/widgets/widget-system-information/widget-system-information.component';
+import { WidgetTextComponent } from '~/app/core/components/dashboard/widgets/widget-text/widget-text.component';
 import { MaterialModule } from '~/app/material.module';
 import { SharedModule } from '~/app/shared/shared.module';
 
@@ -38,7 +39,8 @@ import { SharedModule } from '~/app/shared/shared.module';
     WidgetSystemInformationComponent,
     WidgetChartComponent,
     WidgetFilesystemsStatusComponent,
-    WidgetGridComponent
+    WidgetGridComponent,
+    WidgetTextComponent
   ],
   exports: [
     WidgetDatatableComponent,
@@ -46,7 +48,8 @@ import { SharedModule } from '~/app/shared/shared.module';
     WidgetSystemInformationComponent,
     WidgetChartComponent,
     WidgetFilesystemsStatusComponent,
-    WidgetGridComponent
+    WidgetGridComponent,
+    WidgetTextComponent
   ],
   imports: [
     CommonModule,

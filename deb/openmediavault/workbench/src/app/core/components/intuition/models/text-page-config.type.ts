@@ -37,7 +37,7 @@ export type TextPageConfig = {
       // URL = '/system/certificate/ssl/detail/abc'
       // params = { bar: '{{ foo }}' } => { bar: 'abc' }
       params?: Record<string, any>;
-      // Set `true` if the RPC is a long running background task.
+      // Set `true` if the RPC is a long-running background task.
       task?: boolean;
     };
   };

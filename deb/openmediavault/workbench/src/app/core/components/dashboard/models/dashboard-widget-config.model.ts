@@ -34,12 +34,14 @@ export type DashboardWidgetConfig = {
   // - datatable
   // - grid
   // - rrd
+  // - text
   // All other widget types are internal only.
   type:
     | 'chart'
     | 'datatable'
     | 'grid'
     | 'rrd'
+    | 'text'
     | 'system-information' // internal
     | 'filesystems-status'; // internal
   // The widget title.
@@ -116,6 +118,8 @@ export type DashboardWidgetConfig = {
       service: string;
       method: string;
       params?: Record<string, any>;
+      // Set `true` if the RPC is a long-running background task.
+      task?: boolean;
       // Transform the data. The given fields can be tokenized strings
       // that will be formatted using the origin data. Finally, these fields
       // are merged with the origin data.
@@ -130,5 +134,17 @@ export type DashboardWidgetConfig = {
     min?: number;
     max?: number;
     displayValue?: boolean;
+  };
+
+  text?: {
+    // Custom CSS class.
+    class?: string;
+    request?: {
+      service: string;
+      method: string;
+      params?: Record<string, any>;
+      // Set `true` if the RPC is a long-running background task.
+      task?: boolean;
+    };
   };
 };
