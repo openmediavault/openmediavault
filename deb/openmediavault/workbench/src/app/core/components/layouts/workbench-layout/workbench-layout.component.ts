@@ -44,8 +44,11 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
   @BlockUI()
   blockUI: NgBlockUI;
 
-  @ViewChild('navigationSidenav', { static: true })
+  @ViewChild('navigationSidenav', { static: false })
   private navigationSidenav: MatSidenav;
+
+  @ViewChild('notificationsSidenav', { static: false })
+  private notificationsSidenav: MatSidenav;
 
   public loading = true;
   public sideNavMode: MatDrawerMode;
@@ -111,6 +114,18 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
+  }
+
+  onToggleNavigationSidenav() {
+    if (this.navigationSidenav) {
+      this.navigationSidenav.toggle();
+    }
+  }
+
+  onToggleNotificationsSidenav() {
+    if (this.notificationsSidenav) {
+      this.notificationsSidenav.toggle();
+    }
   }
 
   private updateState() {

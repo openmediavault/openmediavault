@@ -15,8 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component, Input, OnDestroy } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
@@ -44,13 +43,11 @@ import { UserStorageService } from '~/app/shared/services/user-storage.service';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnDestroy {
-  // eslint-disable-next-line @angular-eslint/no-input-rename
-  @Input('navigationSidenav')
-  navigationSidenav: MatSidenav;
+  @Output()
+  readonly toggleNavigationSidenavEvent = new EventEmitter();
 
-  // eslint-disable-next-line @angular-eslint/no-input-rename
-  @Input('notificationsSidenav')
-  notificationsSidenav: MatSidenav;
+  @Output()
+  readonly toggleNotificationSidenavEvent = new EventEmitter();
 
   @BlockUI()
   blockUI: NgBlockUI;
@@ -97,11 +94,11 @@ export class TopBarComponent implements OnDestroy {
   }
 
   onToggleNavigationSidenav() {
-    this.navigationSidenav.toggle();
+    this.toggleNavigationSidenavEvent.emit();
   }
 
   onToggleNotificationsSidenav() {
-    this.notificationsSidenav.toggle();
+    this.toggleNotificationSidenavEvent.emit();
   }
 
   onLogout() {
