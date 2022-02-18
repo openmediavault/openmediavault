@@ -1,11 +1,18 @@
-.mat-list-item {
-  .omv-notification-list-item-title {
-    font-weight: bold;
-    white-space: normal;
-  }
+@import 'src/styles';
 
-  .omv-notification-list-item-message {
-    max-width: 300px;
-    white-space: normal;
+.mat-list {
+  .mat-list-item {
+    @extend .omv-color-white;
+
+    .omv-notification-list-item-title {
+      @extend .omv-font-weight-bold;
+
+      white-space: normal;
+    }
+
+    .omv-notification-list-item-message {
+      max-width: 300px;
+      white-space: normal;
+    }
   }
 }

@@ -1,6 +1,8 @@
 @import 'src/styles';
 
 .mat-list-item {
+  @extend .omv-color-white;
+
   border-left: 3px solid transparent;
 
   &.active {

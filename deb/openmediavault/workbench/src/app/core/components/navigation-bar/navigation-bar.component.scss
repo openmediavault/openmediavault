@@ -1,6 +1,10 @@
 @import 'src/styles';
 
 .omv-navigation-bar {
+  min-width: 18rem;
+  max-width: 18rem;
+  height: 100%;
+
   .header {
     background-color: $omv-color-transparent;
     border-left: 3px solid $omv-color-transparent;
