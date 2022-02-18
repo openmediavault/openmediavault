@@ -55,6 +55,7 @@ export type DashboardWidgetConfig = {
   // - datatable: 10000
   // - grid: 10000
   // - rrd: 60000
+  // - text: 10000
   reloadPeriod?: number;
 
   grid?: {

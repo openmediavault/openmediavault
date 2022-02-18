@@ -15,6 +15,13 @@ export class WidgetTextComponent extends AbstractDashboardWidgetComponent<string
     super();
   }
 
+  protected sanitizeConfig() {
+    super.sanitizeConfig();
+    _.defaultsDeep(this.config, {
+      reloadPeriod: 10000
+    });
+  }
+
   protected loadData(): Observable<string> {
     const request = this.config.text?.request;
     if (!_.isPlainObject(request)) {
