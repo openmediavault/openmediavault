@@ -42,6 +42,11 @@
         </omv-dashboard-widget-chart>
       </ng-template>
 
+      <ng-template [ngSwitchCase]="'text'">
+        <omv-dashboard-widget-text [config]="widget">
+        </omv-dashboard-widget-text>
+      </ng-template>
+
       <ng-template [ngSwitchCase]="'system-information'">
         <omv-dashboard-widget-system-information [config]="widget">
         </omv-dashboard-widget-system-information>

@@ -1,7 +1,7 @@
 @import 'src/styles';
 
 .omv-dashboard-widget-rrd {
-  padding: $omv-padding;
+  margin: 0 $omv-padding $omv-padding;
 
   img {
     max-width: 100%;

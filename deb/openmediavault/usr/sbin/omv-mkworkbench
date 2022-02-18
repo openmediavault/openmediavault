@@ -194,7 +194,7 @@ def dashboard(ctx):
             'data': {'type': 'object', 'properties': {
                 'id': {'type': 'string', 'format': 'uuidv4', 'required': True},
                 'type': {'type': 'string', 'enum': [
-                    'grid', 'datatable', 'rrd', 'chart',
+                    'grid', 'datatable', 'rrd', 'chart', 'text',
                     'system-information', 'filesystems-status'
                 ], 'required': True},
                 'title': {'type': 'string', 'required': True},

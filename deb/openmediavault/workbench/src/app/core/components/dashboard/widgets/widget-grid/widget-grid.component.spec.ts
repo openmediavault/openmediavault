@@ -21,7 +21,15 @@ describe('WidgetGridComponent', () => {
     component.config = {
       id: '2f06f7e5-b34f-47f7-a953-5eba2f386139',
       type: 'grid',
-      title: 'bar'
+      title: 'bar',
+      grid: {
+        item: {
+          title: 'baz'
+        },
+        store: {
+          data: []
+        }
+      }
     };
     fixture.detectChanges();
   });

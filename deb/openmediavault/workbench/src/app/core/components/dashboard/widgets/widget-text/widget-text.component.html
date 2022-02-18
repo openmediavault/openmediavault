@@ -1,0 +1,10 @@
+<mat-progress-bar *ngIf="loading && firstLoad"
+                  mode="indeterminate">
+</mat-progress-bar>
+<div *ngIf="data"
+     class="omv-dashboard-widget-text omv-scrollable-xy">
+  <div class="content"
+       [ngClass]="config.text.class | template"
+       [innerHTML]="data | sanitizeHtml">
+  </div>
+</div>
