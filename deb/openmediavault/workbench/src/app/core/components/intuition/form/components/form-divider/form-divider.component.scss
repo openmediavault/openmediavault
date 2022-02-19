@@ -7,8 +7,9 @@
   margin-bottom: 0.5rem;
 
   .title {
-    font-weight: mat.font-weight($omv-typography-config, title);
-    font-size: mat.font-size($omv-typography-config, title);
-    margin-bottom: 0.5rem;
+    font-weight: mat.font-weight($omv-typography-config, headline);
+    font-size: mat.font-size($omv-typography-config, headline);
+    padding-bottom: 1rem;
+    padding-top: 1rem;
   }
 }
