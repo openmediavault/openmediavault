@@ -24,6 +24,15 @@ include:
 
 {% if config.enable | to_bool %}
 
+# Make sure the directory '/run/proftpd' exists to prevent a config
+# test failure. Note, the config test is executed BEFORE proftpd
+# is started, so the directory isn't auto-created by the daemon at
+# this time.
+# mod_ban/0.8: unable to open BanTable '/run/proftpd/ban.tab': No such file or directory
+create_run_proftpd_dir:
+  file.directory:
+    - name: "/run/proftpd"
+
 test_proftpd_service_config:
   cmd.run:
     - name: "proftpd --configtest"
