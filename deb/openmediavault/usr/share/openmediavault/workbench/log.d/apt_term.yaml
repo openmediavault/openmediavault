@@ -4,13 +4,18 @@ data:
   id: apt_term
   text: _("Update Management")
   columns:
+  - name: _("Row No.")
+    sortable: true
+    hidden: true
+    prop: rownum
+    flexGrow: 1
   - name: _("Message")
     sortable: true
     prop: message
     flexGrow: 1
   sorters:
   - dir: desc
-    prop: ts
+    prop: rownum
   request:
     service: LogFile
     method: getList

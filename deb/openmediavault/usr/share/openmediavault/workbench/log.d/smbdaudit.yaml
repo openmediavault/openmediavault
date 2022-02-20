@@ -53,6 +53,9 @@ data:
     prop: result
     flexGrow: 1
     cellTemplateName: checkIcon
+  sorters:
+  - dir: desc
+    prop: ts
   request:
     service: LogFile
     method: getList

@@ -22,6 +22,9 @@ data:
     sortable: true
     prop: message
     flexGrow: 2
+  sorters:
+  - dir: desc
+    prop: ts
   request:
     service: LogFile
     method: getList
