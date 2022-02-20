@@ -25,6 +25,8 @@ export type ModalDialogConfig = {
   title?: string;
   message: string;
   icon?: string;
+  // The button configurations. Will be populated automatically
+  // if `template` is set.
   buttons?: Array<ModalDialogButtonConfig>;
 };
 
