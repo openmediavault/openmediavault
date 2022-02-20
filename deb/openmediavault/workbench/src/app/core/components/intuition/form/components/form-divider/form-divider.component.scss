@@ -3,13 +3,13 @@
 @import 'src/styles';
 
 .omv-form-divider {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 
   .title {
     font-weight: mat.font-weight($omv-typography-config, headline);
     font-size: mat.font-size($omv-typography-config, headline);
-    padding-bottom: 1rem;
     padding-top: 1rem;
+    padding-bottom: 0.5rem;
   }
 }
