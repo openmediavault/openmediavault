@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-12 22:09+0100\n"
-"PO-Revision-Date: 2022-02-12 21:13+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-20 09:20+0100\n"
+"PO-Revision-Date: 2022-02-20 08:20+0000\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -952,29 +952,35 @@ msgstr "Lemez használat"
 msgid "Disks"
 msgstr "Lemezek"
 
+msgid "Dismiss"
+msgstr ""
+
+msgid "Dismiss all"
+msgstr ""
+
 msgid "Display the home directory of the user in the browse list."
 msgstr "Felhasználó saját könyvtárának megjelenítése a böngészési listában."
 
 msgid "Displays information about the file systems in a grid."
-msgstr ""
+msgstr "Rácsos formában jeleníti meg a fájlrendszerek információt."
 
 msgid "Displays information about the file systems in a table."
-msgstr ""
+msgstr "Táblázatos formában jeleníti meg a fájlrendszerek információt."
 
 msgid "Displays information about the network interfaces in a grid."
-msgstr ""
+msgstr "Rácsos formában jeleníti meg a hálózati interfészek információt."
 
 msgid "Displays information about the network interfaces in a table."
-msgstr ""
+msgstr "Táblázatos formában jeleníti meg a hálózati interfészek információt."
 
 msgid "Displays information about the services in a grid."
-msgstr ""
+msgstr "Rácsos formában jeleníti meg a szolgáltatások információt."
 
 msgid "Displays information about the services in a table."
-msgstr ""
+msgstr "Táblázatos formában jeleníti meg a szolgáltatások információt."
 
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
-msgstr ""
+msgstr "Megjeleníti az összes megfigyelt lemez S.M.A.R.T. információit."
 
 msgid "Djibouti"
 msgstr "Dzsibuti"
@@ -1405,9 +1411,6 @@ msgstr "Elrejt"
 
 msgid "Hide dot files"
 msgstr "Ponttal kezdődő fájlok elrejtése"
-
-msgid "Hide navigation"
-msgstr "Navigáció elrejtése"
 
 msgid "Home"
 msgstr "Saját"
@@ -1996,7 +1999,7 @@ msgid "Mount"
 msgstr "Csatolás"
 
 msgid "Mount Options"
-msgstr ""
+msgstr "Csatolási beállítások"
 
 msgid "Mount Point"
 msgstr "Csatolási pont"
@@ -2586,9 +2589,6 @@ msgstr "Távoli állomás"
 msgid "Remove"
 msgstr "Eltávolítás"
 
-msgid "Remove all"
-msgstr "Összes eltávolítása"
-
 msgid "Replace"
 msgstr "Csere"
 
@@ -2952,11 +2952,11 @@ msgstr "Változások megtekintése"
 msgid "Show details"
 msgstr "Részletek megjelenítése"
 
-msgid "Show navigation"
-msgstr "Navigáció megjelenítése"
-
 msgid "Show/Hide columns"
 msgstr "Oszlopok megjelenítése/elrejtése "
+
+msgid "Show/Hide navigation"
+msgstr "Navigáció megjelenítése/elrejtése"
 
 msgid "Shutdown"
 msgstr "Leállítás"

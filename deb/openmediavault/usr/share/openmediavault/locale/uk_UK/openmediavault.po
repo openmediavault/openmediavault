@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-12 22:09+0100\n"
-"PO-Revision-Date: 2022-02-12 21:13+0000\n"
+"POT-Creation-Date: 2022-02-20 09:20+0100\n"
+"PO-Revision-Date: 2022-02-20 08:20+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -948,6 +948,12 @@ msgstr "Використання диска"
 msgid "Disks"
 msgstr "Диски"
 
+msgid "Dismiss"
+msgstr ""
+
+msgid "Dismiss all"
+msgstr ""
+
 msgid "Display the home directory of the user in the browse list."
 msgstr "Відобразити домашній каталог користувача у списку перегляду."
 
@@ -1401,9 +1407,6 @@ msgstr "Приховати"
 
 msgid "Hide dot files"
 msgstr "Приховати dot файли"
-
-msgid "Hide navigation"
-msgstr "Приховати навігацію"
 
 msgid "Home"
 msgstr "Додому"
@@ -2582,9 +2585,6 @@ msgstr "Віддалений хост"
 msgid "Remove"
 msgstr "Вилучити"
 
-msgid "Remove all"
-msgstr "Видалити всі"
-
 msgid "Replace"
 msgstr "Замінити"
 
@@ -2948,11 +2948,11 @@ msgstr "Показати змін"
 msgid "Show details"
 msgstr "Показати деталі"
 
-msgid "Show navigation"
-msgstr "Показати навігацію"
-
 msgid "Show/Hide columns"
 msgstr "Показати/сховати стовпці"
+
+msgid "Show/Hide navigation"
+msgstr ""
 
 msgid "Shutdown"
 msgstr "Вимкнути"

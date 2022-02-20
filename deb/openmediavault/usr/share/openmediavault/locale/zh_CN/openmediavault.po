@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-12 22:09+0100\n"
-"PO-Revision-Date: 2022-02-13 07:41+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2022-02-20 09:20+0100\n"
+"PO-Revision-Date: 2022-02-20 08:20+0000\n"
+"Last-Translator: LeeYang <150183966@qq.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -949,6 +949,12 @@ msgstr "磁盘用量"
 msgid "Disks"
 msgstr "磁盘"
 
+msgid "Dismiss"
+msgstr ""
+
+msgid "Dismiss all"
+msgstr ""
+
 msgid "Display the home directory of the user in the browse list."
 msgstr "在用浏览时显示用户 Home 目录."
 
@@ -1402,9 +1408,6 @@ msgstr "隐藏"
 
 msgid "Hide dot files"
 msgstr "隐藏点文件"
-
-msgid "Hide navigation"
-msgstr "隐藏导航"
 
 msgid "Home"
 msgstr "Home"
@@ -2583,9 +2586,6 @@ msgstr "远程主机"
 msgid "Remove"
 msgstr "移除"
 
-msgid "Remove all"
-msgstr "全部移除"
-
 msgid "Replace"
 msgstr "取代"
 
@@ -2949,11 +2949,11 @@ msgstr "显示变更日志"
 msgid "Show details"
 msgstr "显示详情"
 
-msgid "Show navigation"
-msgstr "显示导航"
-
 msgid "Show/Hide columns"
 msgstr "显示/隐藏栏目"
+
+msgid "Show/Hide navigation"
+msgstr "显示/隐藏导航"
 
 msgid "Shutdown"
 msgstr "关机"

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-12 22:09+0100\n"
-"PO-Revision-Date: 2022-02-13 14:27+0000\n"
-"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>\n"
+"POT-Creation-Date: 2022-02-20 09:20+0100\n"
+"PO-Revision-Date: 2022-02-20 08:20+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -947,6 +947,12 @@ msgstr ""
 msgid "Disks"
 msgstr ""
 
+msgid "Dismiss"
+msgstr ""
+
+msgid "Dismiss all"
+msgstr ""
+
 msgid "Display the home directory of the user in the browse list."
 msgstr ""
 
@@ -1400,9 +1406,6 @@ msgstr ""
 
 msgid "Hide dot files"
 msgstr "Esconder ficheiros dot"
-
-msgid "Hide navigation"
-msgstr ""
 
 msgid "Home"
 msgstr ""
@@ -2581,9 +2584,6 @@ msgstr "Host de destino"
 msgid "Remove"
 msgstr "Remover"
 
-msgid "Remove all"
-msgstr ""
-
 msgid "Replace"
 msgstr "Substituir"
 
@@ -2947,10 +2947,10 @@ msgstr "Mostrar log de alterações."
 msgid "Show details"
 msgstr "Mostrar detalhes"
 
-msgid "Show navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
-msgid "Show/Hide columns"
+msgid "Show/Hide navigation"
 msgstr ""
 
 msgid "Shutdown"

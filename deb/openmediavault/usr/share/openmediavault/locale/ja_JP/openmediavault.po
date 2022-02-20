@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-12 22:09+0100\n"
-"PO-Revision-Date: 2022-02-13 14:27+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2022-02-20 09:20+0100\n"
+"PO-Revision-Date: 2022-02-20 08:20+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -946,6 +946,12 @@ msgstr "ディスク使用量"
 msgid "Disks"
 msgstr "ディスク"
 
+msgid "Dismiss"
+msgstr ""
+
+msgid "Dismiss all"
+msgstr ""
+
 msgid "Display the home directory of the user in the browse list."
 msgstr "参照リストにユーザーのホームディレクトリを表示します。"
 
@@ -1399,9 +1405,6 @@ msgstr "隠す"
 
 msgid "Hide dot files"
 msgstr "ドットで始まるファイルを隠す"
-
-msgid "Hide navigation"
-msgstr "ナビゲーションを隠す"
 
 msgid "Home"
 msgstr "ホーム"
@@ -2580,9 +2583,6 @@ msgstr "リモートホスト"
 msgid "Remove"
 msgstr "削除"
 
-msgid "Remove all"
-msgstr ""
-
 msgid "Replace"
 msgstr "置換"
 
@@ -2946,10 +2946,10 @@ msgstr "Changelogの表示"
 msgid "Show details"
 msgstr "詳細の表示"
 
-msgid "Show navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
-msgid "Show/Hide columns"
+msgid "Show/Hide navigation"
 msgstr ""
 
 msgid "Shutdown"

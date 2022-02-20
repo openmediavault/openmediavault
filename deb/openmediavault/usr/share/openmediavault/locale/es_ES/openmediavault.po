@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-12 22:09+0100\n"
-"PO-Revision-Date: 2022-02-13 09:08+0000\n"
+"POT-Creation-Date: 2022-02-20 09:20+0100\n"
+"PO-Revision-Date: 2022-02-20 08:20+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -949,6 +949,12 @@ msgstr "Uso de Disco"
 msgid "Disks"
 msgstr "Discos"
 
+msgid "Dismiss"
+msgstr ""
+
+msgid "Dismiss all"
+msgstr ""
+
 msgid "Display the home directory of the user in the browse list."
 msgstr "Mostrar el directorio home del usuario en la lista de navegación."
 
@@ -1402,9 +1408,6 @@ msgstr "Ocultar"
 
 msgid "Hide dot files"
 msgstr "Ocultar archivos dot\".\""
-
-msgid "Hide navigation"
-msgstr "Ocultar navegación"
 
 msgid "Home"
 msgstr "Home"
@@ -2583,9 +2586,6 @@ msgstr "Host remoto"
 msgid "Remove"
 msgstr "Eliminar"
 
-msgid "Remove all"
-msgstr "Eliminar todo"
-
 msgid "Replace"
 msgstr "Reemplazar"
 
@@ -2949,11 +2949,11 @@ msgstr "Mostrar cambios"
 msgid "Show details"
 msgstr "Mostrar detalles"
 
-msgid "Show navigation"
-msgstr "Mostrar navegación"
-
 msgid "Show/Hide columns"
 msgstr "Mostrar/ocultar columnas"
+
+msgid "Show/Hide navigation"
+msgstr "Mostra/ocultar navegación"
 
 msgid "Shutdown"
 msgstr "Apagar"

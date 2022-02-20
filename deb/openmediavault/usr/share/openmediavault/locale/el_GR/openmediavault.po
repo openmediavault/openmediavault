@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-12 22:09+0100\n"
-"PO-Revision-Date: 2022-02-12 21:13+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>\n"
+"POT-Creation-Date: 2022-02-20 09:20+0100\n"
+"PO-Revision-Date: 2022-02-20 08:20+0000\n"
+"Last-Translator: Kostas Moho\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -946,29 +946,35 @@ msgstr "Χρήση Δίσκου"
 msgid "Disks"
 msgstr "Δίσκοι"
 
+msgid "Dismiss"
+msgstr ""
+
+msgid "Dismiss all"
+msgstr ""
+
 msgid "Display the home directory of the user in the browse list."
 msgstr "Εμφάνιση του οικείου φακέλου στην λίστα αναζήτησης."
 
 msgid "Displays information about the file systems in a grid."
-msgstr ""
+msgstr "Εμφάνιση πληροφοριών για τα συστήματα αρχείων σε πλέγμα."
 
 msgid "Displays information about the file systems in a table."
-msgstr ""
+msgstr "Εμφάνιση πληροφοριών για τα συστήματα αρχείων σε πίνακα."
 
 msgid "Displays information about the network interfaces in a grid."
-msgstr ""
+msgstr "Εμφάνιση πληροφοριών για τις διεπαφές δικτύου σε πλέγμα."
 
 msgid "Displays information about the network interfaces in a table."
-msgstr ""
+msgstr "Εμφάνιση πληροφοριών για τις διεπαφές δικτύου σε πίνακα."
 
 msgid "Displays information about the services in a grid."
-msgstr ""
+msgstr "Εμφάνιση πληροφοριών για τις υπηρεσίες σε πλέγμα."
 
 msgid "Displays information about the services in a table."
-msgstr ""
+msgstr "Εμφάνιση πληροφοριών για τις υπηρεσίες σε πίνακα."
 
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
-msgstr ""
+msgstr "Εμφάνιση πληροφοριών S.M.A.R.T. για όλες τις παρακολουθούμενες συσκευές δίσκων."
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1399,9 +1405,6 @@ msgstr "Απόκρυψη"
 
 msgid "Hide dot files"
 msgstr "Απόκρυψη αρχείων που αρχίζουν με τελεία"
-
-msgid "Hide navigation"
-msgstr "Απόκρυψη πλοήγησης"
 
 msgid "Home"
 msgstr "Αρχική"
@@ -1990,7 +1993,7 @@ msgid "Mount"
 msgstr "Προσάρτηση"
 
 msgid "Mount Options"
-msgstr ""
+msgstr "Επιλογές Προσάρτησης"
 
 msgid "Mount Point"
 msgstr "Σημείο Προσάρτησης"
@@ -2580,9 +2583,6 @@ msgstr "Απομακρυσμένος υπολογιστής"
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-msgid "Remove all"
-msgstr "Αφαίρεση όλων"
-
 msgid "Replace"
 msgstr "Αντικατάσταση"
 
@@ -2946,11 +2946,11 @@ msgstr "Εμφάνιση αρχείου καταγραφής αλλαγών"
 msgid "Show details"
 msgstr "Προβολή λεπτομερειών"
 
-msgid "Show navigation"
-msgstr "Εμφάνιση πλοήγησης"
-
 msgid "Show/Hide columns"
 msgstr "Εμφάνιση/Απόκρυψη στηλών"
+
+msgid "Show/Hide navigation"
+msgstr "Εμφάνιση/Απόκρυψη πλοήγησης"
 
 msgid "Shutdown"
 msgstr "Τερματισμός"

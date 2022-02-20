@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-12 22:09+0100\n"
-"PO-Revision-Date: 2022-02-13 14:27+0000\n"
-"Last-Translator: omv nas <myomv100@gmail.com>\n"
+"POT-Creation-Date: 2022-02-20 09:20+0100\n"
+"PO-Revision-Date: 2022-02-20 08:20+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -947,6 +947,12 @@ msgstr ""
 msgid "Disks"
 msgstr "الأقراص"
 
+msgid "Dismiss"
+msgstr ""
+
+msgid "Dismiss all"
+msgstr ""
+
 msgid "Display the home directory of the user in the browse list."
 msgstr ""
 
@@ -1400,9 +1406,6 @@ msgstr ""
 
 msgid "Hide dot files"
 msgstr "إخفاء الملفات المسماه بحرف نقطة"
-
-msgid "Hide navigation"
-msgstr ""
 
 msgid "Home"
 msgstr ""
@@ -2581,9 +2584,6 @@ msgstr "المضيف البعيد"
 msgid "Remove"
 msgstr "إزالة"
 
-msgid "Remove all"
-msgstr ""
-
 msgid "Replace"
 msgstr "استبدال"
 
@@ -2947,10 +2947,10 @@ msgstr "عرض سجل التغيير"
 msgid "Show details"
 msgstr "إظهار التفاصيل"
 
-msgid "Show navigation"
+msgid "Show/Hide columns"
 msgstr ""
 
-msgid "Show/Hide columns"
+msgid "Show/Hide navigation"
 msgstr ""
 
 msgid "Shutdown"

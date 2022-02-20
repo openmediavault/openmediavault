@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-12 22:09+0100\n"
-"PO-Revision-Date: 2022-02-13 14:36+0000\n"
+"POT-Creation-Date: 2022-02-20 09:20+0100\n"
+"PO-Revision-Date: 2022-02-20 08:27+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -957,6 +957,12 @@ msgstr "Festplattennutzung"
 msgid "Disks"
 msgstr "Laufwerke"
 
+msgid "Dismiss"
+msgstr "Verwerfen"
+
+msgid "Dismiss all"
+msgstr "Alle verwerfen"
+
 msgid "Display the home directory of the user in the browse list."
 msgstr "Zeigt das Heimatverzeichnis des Benutzers in der Suchliste an."
 
@@ -1410,9 +1416,6 @@ msgstr "Ausblenden"
 
 msgid "Hide dot files"
 msgstr "Verstecke Dotfiles"
-
-msgid "Hide navigation"
-msgstr "Navigation ausblenden"
 
 msgid "Home"
 msgstr ""
@@ -2591,9 +2594,6 @@ msgstr "Entfernter Host"
 msgid "Remove"
 msgstr "Entfernen"
 
-msgid "Remove all"
-msgstr "Alles entfernen"
-
 msgid "Replace"
 msgstr "Ersetzen"
 
@@ -2957,11 +2957,11 @@ msgstr "Änderungen anzeigen"
 msgid "Show details"
 msgstr "Details zeigen"
 
-msgid "Show navigation"
-msgstr "Navigation anzeigen"
-
 msgid "Show/Hide columns"
 msgstr "Spalten ein-/ausblenden"
+
+msgid "Show/Hide navigation"
+msgstr "Navigation ein-/ausblenden"
 
 msgid "Shutdown"
 msgstr "Herunterfahren"
@@ -3735,7 +3735,7 @@ msgid "Updated Rsync Server settings."
 msgstr "RSync-Server-Einstellungen wurden aktualisiert."
 
 msgid "Updated Rsync server module \"{{ name }}\"."
-msgstr ""
+msgstr "Rsync Server-Module \"{{ name }}\" wurde aktualisiert."
 
 msgid "Updated Rsync task."
 msgstr "Rsync-Aufgabe wurden aktualisiert."
@@ -3753,16 +3753,16 @@ msgid "Updated SSH settings."
 msgstr "SSH-Einstellungen wurden aktualisiert."
 
 msgid "Updated VLAN network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "VLAN-Netzwerkverbindung \"{{ devicename }}\" wurde aktualisiert."
 
 msgid "Updated access control list of shared folder."
 msgstr "Zugriffskontrollliste des freigegebenen Ordners wurde aktualisiert."
 
 msgid "Updated bond network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "Bond-Netzwerkverbindung \"{{ devicename }}\" wurde aktualisiert."
 
 msgid "Updated bridge network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "Netzwerkbrücke \"{{ devicename }}\" wurde aktualisiert."
 
 msgid "Updated dashboard settings."
 msgstr "Dashboard-Einstellungen wurde aktualisiert."
@@ -3804,13 +3804,13 @@ msgid "Updated privileges of shared folder."
 msgstr "Privilegien eines freigegebenen Ordner wurden aktualisiert."
 
 msgid "Updated privileges of user \"{{ name }}\"."
-msgstr ""
+msgstr "Privilegien des Benutzers \"{{ name }}\" wurden aktualisisert."
 
 msgid "Updated proxy settings."
-msgstr ""
+msgstr "Proxy-Einstellungen wurden aktualisisert."
 
 msgid "Updated quota."
-msgstr ""
+msgstr "Quota wurden aktualisiert."
 
 msgid "Updated scheduled task."
 msgstr "Geplante Aufgabe aktualisiert."
@@ -3828,10 +3828,10 @@ msgid "Updated user profile."
 msgstr "Benutzerprofil wurde aktualisiert."
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "Kabelgebundene Netzwerkverbindung \"{{ devicename }}\" wurde aktualisiert."
 
 msgid "Updated wireless network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "Drahtlose Netzwerkverbindung \"{{ devicename }}\" wurde aktualisiert."
 
 msgid "Updated workbench settings."
 msgstr "Die Einstellungen der Workbench wurden aktualisiert."

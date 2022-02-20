@@ -1,5 +1,6 @@
 openmediavault (6.0.13-1) unstable; urgency=low
 
+  * Update locale files.
   * Add new 'text' Dashboard widget type.
   * Issue #1214: Prevent rendering HTML in datatable column
     tooltips because Angular does not support that.
