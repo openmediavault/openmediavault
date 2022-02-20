@@ -1,5 +1,6 @@
-openmediavault (6.0.13-1) unstable; urgency=low
+openmediavault (6.0.13-2) unstable; urgency=low
 
+  * Various improvements.
   * Update locale files.
   * Add new 'text' Dashboard widget type.
   * Issue #1214: Prevent rendering HTML in datatable column
