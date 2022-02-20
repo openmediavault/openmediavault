@@ -11,6 +11,11 @@
   <span [innerHTML]="config.message | translate | sanitizeHtml"></span>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
+  <mat-checkbox *ngIf="showConfirmCheckbox"
+                (change)="onConfirmCheckboxChange()"
+                translate>
+    Confirm
+  </mat-checkbox>
   <button *ngFor="let button of config.buttons"
           mat-flat-button
           [ngClass]="button.class"

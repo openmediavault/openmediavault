@@ -35,10 +35,16 @@ import { ModalDialogConfig } from '~/app/shared/models/modal-dialog-config.type'
 export class ModalDialogComponent {
   // Internal
   public config: ModalDialogConfig = {} as ModalDialogConfig;
+  public showConfirmCheckbox = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) data: ModalDialogConfig) {
     this.config = data;
     this.sanitizeConfig();
+  }
+
+  onConfirmCheckboxChange(): void {
+    const button = this.config.buttons[1];
+    button.disabled = !button.disabled;
   }
 
   protected sanitizeConfig() {
@@ -46,6 +52,7 @@ export class ModalDialogComponent {
     switch (this.config.template) {
       case 'confirmation':
       case 'confirmation-danger':
+      case 'confirmation-critical':
         _.defaultsDeep(this.config, {
           title: gettext('Confirmation'),
           icon: Icon.question,
@@ -59,12 +66,16 @@ export class ModalDialogComponent {
               text: gettext('Yes'),
               dialogResult: true,
               class:
-                this.config.template === 'confirmation-danger'
-                  ? 'omv-background-color-theme-red'
-                  : 'omv-background-color-theme-primary'
+                'confirmation' === this.config.template
+                  ? 'omv-background-color-theme-primary'
+                  : 'omv-background-color-theme-red'
             }
           ]
         });
+        if ('confirmation-critical' === this.config.template) {
+          this.showConfirmCheckbox = true;
+          this.config.buttons[1].disabled = true;
+        }
         break;
       case 'information':
         _.defaultsDeep(this.config, {

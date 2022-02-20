@@ -117,7 +117,7 @@ export class TopBarComponent implements OnDestroy {
     this.showDialog(
       gettext('Reboot'),
       gettext('Do you really want to reboot the system?'),
-      'confirmation-danger',
+      'confirmation-critical',
       () => {
         this.rpcService.request('System', 'reboot', { delay: 0 }).subscribe(() => {
           this.blockUI.start(
@@ -155,7 +155,7 @@ export class TopBarComponent implements OnDestroy {
     this.showDialog(
       gettext('Standby'),
       gettext('Do you really want to put the system into standby?'),
-      'confirmation-danger',
+      'confirmation-critical',
       () => {
         this.rpcService.request('System', 'standby', { delay: 0 }).subscribe(() => {
           this.router.navigate(['/standby']);
@@ -168,7 +168,7 @@ export class TopBarComponent implements OnDestroy {
     this.showDialog(
       gettext('Shutdown'),
       gettext('Do you really want to shutdown the system?'),
-      'confirmation-danger',
+      'confirmation-critical',
       () => {
         this.rpcService.request('System', 'shutdown', { delay: 0 }).subscribe(() => {
           this.router.navigate(['/shutdown']);

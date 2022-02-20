@@ -295,10 +295,9 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
       _.merge(
         {
           confirmationDialogConfig: {
-            template: 'confirmation',
+            template: 'confirmation-danger',
             title: gettext('Delete'),
-            message,
-            buttons: [{}, { class: 'omv-background-color-theme-red' }]
+            message
           },
           execute: {
             request: {

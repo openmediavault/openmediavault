@@ -152,7 +152,8 @@ export class DiskDatatablePageComponent {
     this.dialogService
       .open(ModalDialogComponent, {
         data: {
-          template: 'confirmation-danger',
+          template: 'confirmation-critical',
+          title: gettext('Wipe'),
           message: format(
             gettext(
               'Do you really want to wipe the device {{ canonicaldevicefile }}? All data will be lost.'
@@ -168,6 +169,7 @@ export class DiskDatatablePageComponent {
             .open(ModalDialogComponent, {
               data: {
                 template: 'confirmation',
+                title: gettext('Wipe'),
                 message: gettext('Please choose the method to wipe the device.'),
                 buttons: [
                   {

@@ -17,11 +17,23 @@
  */
 export type ModalDialogConfig = {
   // Specifies a template which pre-configures the dialog.
-  // confirmation        - Displays 'Yes' and 'No' buttons.
-  // confirmation-danger - Displays 'Yes' and 'No' buttons.
-  //                       The 'Yes' button is marked in red.
-  // information         - Displays a 'OK' button.
-  template?: 'confirmation' | 'confirmation-danger' | 'information';
+  // - information
+  //   * Title is set to 'Information'.
+  //   * Displays a 'OK' button.
+  // - confirmation
+  //   * Title is set to 'Confirmation'.
+  //   * Displays 'Yes' and 'No' buttons.
+  // - confirmation-danger
+  //   * Title is set to 'Confirmation'.
+  //   * Displays 'Yes' and 'No' buttons.
+  //   * The 'Yes' button is marked in red.
+  // - confirmation-critical
+  //   * Title is set to 'Confirmation'.
+  //   * Displays 'Yes' and 'No' buttons.
+  //   * The 'Yes' button is marked in red.
+  //   * The 'Yes' button can only be selected after a checkbox
+  //     has been checked.
+  template?: 'confirmation' | 'confirmation-danger' | 'confirmation-critical' | 'information';
   title?: string;
   message: string;
   icon?: string;
