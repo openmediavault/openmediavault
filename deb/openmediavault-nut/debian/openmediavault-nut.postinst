@@ -52,7 +52,6 @@ case "$1" in
 			if deb-systemd-helper is-enabled collectd.service; then
 				deb-systemd-invoke restart collectd.service || :
 			fi
-			deb-systemd-invoke force-reload rsyslog || :
 		fi
 
 		########################################################################

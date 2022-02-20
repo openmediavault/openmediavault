@@ -21,15 +21,18 @@
  */
 require_once("openmediavault/functions.inc");
 
-// /var/log/nut.log:
+// Retrieved via journalctl.
 // Feb 20 10:53:49 omv6box upsd[14278]: upsd disabled, please adjust the configuration to your needs
 // Feb 20 10:53:49 omv6box upsd[14278]: Then set MODE to a suitable value in /etc/nut/nut.conf to enable it
 // Feb 20 10:53:51 omv6box upsd[14398]: listening on ::1 port 3493
 // Feb 20 10:53:51 omv6box upsd[14398]: listening on 127.0.0.1 port 3493
 // Feb 20 10:53:51 omv6box upsd[14398]: fopen /run/nut/upsd.pid: No such file or directory
 \OMV\System\LogFileSpec::registerSpecification("nut", [
+  "command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
+  	"SYSLOG_IDENTIFIER='upsd' + SYSLOG_IDENTIFIER='upsmon' + ".
+  	"SYSLOG_IDENTIFIER='upssched' + SYSLOG_IDENTIFIER='upssched-cmd' ".
+  	"--output=short",
   "filename" => "nut.log",
-  "filepath" => "/var/log/nut.log",
   "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\s([a-zA-Z-]+)(\[(\d+)\])?:\s+(.*)$/",
   "columns" => [
 	  "ts" => [
