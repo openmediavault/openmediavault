@@ -21,6 +21,12 @@
  */
 require_once("openmediavault/functions.inc");
 
+// /var/log/nut.log:
+// Feb 20 10:53:49 omv6box upsd[14278]: upsd disabled, please adjust the configuration to your needs
+// Feb 20 10:53:49 omv6box upsd[14278]: Then set MODE to a suitable value in /etc/nut/nut.conf to enable it
+// Feb 20 10:53:51 omv6box upsd[14398]: listening on ::1 port 3493
+// Feb 20 10:53:51 omv6box upsd[14398]: listening on 127.0.0.1 port 3493
+// Feb 20 10:53:51 omv6box upsd[14398]: fopen /run/nut/upsd.pid: No such file or directory
 \OMV\System\LogFileSpec::registerSpecification("nut", [
   "filename" => "nut.log",
   "filepath" => "/var/log/nut.log",

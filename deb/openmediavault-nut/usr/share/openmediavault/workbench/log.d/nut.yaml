@@ -12,16 +12,16 @@ data:
   - name: _("Program")
     sortable: true
     prop: program
-    flex: 1
+    flexGrow: 1
   - name: _("PID")
     sortable: true
     hidden: true
     prop: pid
-    flex: 1
+    flexGrow: 1
   - name: _("Message")
     sortable: true
     prop: message
-    flex: 2
+    flexGrow: 2
   request:
     service: LogFile
     method: getList
