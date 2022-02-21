@@ -12,7 +12,7 @@ data:
   - name: _("Message")
     sortable: true
     prop: message
-    flexGrow: 1
+    flexGrow: 2
   sorters:
   - dir: desc
     prop: rownum
