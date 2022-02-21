@@ -666,7 +666,7 @@ export class RsyncTaskFormPageComponent {
         value: false
       },
       {
-        type: 'textarea',
+        type: 'textInput',
         name: 'extraoptions',
         label: gettext('Extra options'),
         hint: gettext(
