@@ -255,14 +255,11 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// installed.
 		if (
 			array_boolval($params, "includeroot", FALSE) &&
-			$db->getByFilter("conf.system.filesystem.mountpoint", [
-				"operator" => "not",
-				"arg0" => [
-					"operator" => "stringEquals",
-					"arg0" => "dir",
-					"arg1" => "/"
-				]
-			])
+			(FALSE === $db->exists("conf.system.filesystem.mountpoint", [
+				"operator" => "stringEquals",
+				"arg0" => "dir",
+				"arg1" => "/"
+			]))
 		) {
 			$rootObject = new \OMV\Config\ConfigObject(
 				"conf.system.filesystem.mountpoint");
