@@ -1,6 +1,7 @@
 openmediavault (6.0.14-1) unstable; urgency=low
 
-  * Fix a bug in the shared folder ACL page regarding to setting
+  * Update locale files.
+  * Fix a regression in the shared folder ACL page regarding to setting
     privileges.
   * Issue #1223: Fix 'Extra Options' field in Rsync task form.
 

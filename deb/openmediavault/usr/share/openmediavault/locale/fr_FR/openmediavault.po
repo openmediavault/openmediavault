@@ -14,14 +14,15 @@
 # Pierre Girard <pierre4012@hotmail.com>, 2021
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012-2013
 # Stéphane Bocquet <stephane_bocquet@hotmail.com>, 2012
+# Volker Theile <votdev@gmx.de>, 2022
 # Volker Theile <votdev@gmx.de>, 2015-2016,2018,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-20 09:20+0100\n"
-"PO-Revision-Date: 2022-02-20 08:20+0000\n"
-"Last-Translator: Axel Cantenys\n"
+"PO-Revision-Date: 2022-02-22 08:59+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3319,7 +3320,7 @@ msgstr "Chemin relatif du répertoire à partager. Le répertoire indiqué sera 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "Le dépôt sera consulté pour identifier des nouveaux paquets, des paquet supprimés ou mis à niveau."
+msgstr "Le dépôt sera consulté pour identifier des nouveaux paquets, des paquets supprimés ou mis à niveau."
 
 msgid "The requested page was not found."
 msgstr "La page demandé n'a pas été trouvée."
