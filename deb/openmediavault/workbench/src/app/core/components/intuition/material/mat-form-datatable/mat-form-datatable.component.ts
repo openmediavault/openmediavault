@@ -268,10 +268,9 @@ export class MatFormDatatableComponent
   }
 
   onCellDataChanged(data: DataTableCellChanged) {
-    // The data is already in sync, so we can use the 'value' property
-    // to notify the control that it has been modified.
-    this.onChange(this.value);
-    this.stateChanges.next();
+    // The data store (`this.store.data`) contains the latest values.
+    // The internal representation needs to be updated.
+    this.syncValue();
   }
 
   onActionClick(action: DatatableAction, table: Datatable) {
