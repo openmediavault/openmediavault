@@ -96,6 +96,28 @@ describe('CustomValidators', () => {
     });
   });
 
+  describe('pattern', () => {
+    it('should validate patter [1]', () => {
+      const validator = CustomValidators.pattern('^(\\d+,s*)?\\d+$', 'foo');
+      formControl.setValue('*');
+      expect(validator(formControl)).toEqual({
+        pattern: 'foo'
+      });
+    });
+
+    it('should validate patter [2]', () => {
+      const validator = CustomValidators.pattern('^(\\d+,)*\\d+$', 'bar');
+      formControl.setValue([1, 2, 3]);
+      expect(validator(formControl)).toBeNull();
+    });
+
+    it('should validate patter [3]', () => {
+      const validator = CustomValidators.pattern('^(\\d+,)*\\d+$', 'baz');
+      formControl.setValue(['1', '2', '3']);
+      expect(validator(formControl)).toBeNull();
+    });
+  });
+
   describe('patternType', () => {
     describe('email', () => {
       let validator: ValidatorFn;

@@ -208,11 +208,17 @@ export class CustomValidators {
       return Validators.nullValidator;
     }
     return (control: AbstractControl): ValidationErrors | null => {
+      let value = control.value;
       // Don't validate empty values to allow optional controls.
-      if (isEmptyInputValue(control.value)) {
+      if (isEmptyInputValue(value)) {
         return null;
       }
-      return test(control.value)
+      // Ensure that the value is a string unless the pattern is a
+      // function, in which case it can take care of it itself.
+      if (!_.isFunction(pattern) && !_.isString(value)) {
+        value = _.toString(value);
+      }
+      return test(value)
         ? null
         : {
             pattern: _.defaultTo(
