@@ -98,7 +98,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   @ViewChild('templateTpl', { static: true })
   templateTpl: TemplateRef<any>;
   @ViewChild('buttonToggleTpl', { static: true })
-  buttonToogleTpl: TemplateRef<any>;
+  buttonToggleTpl: TemplateRef<any>;
   @ViewChild('copyToClipboardTpl', { static: true })
   copyToClipboardTpl: TemplateRef<any>;
 
@@ -211,7 +211,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   readonly selectionChangeEvent = new EventEmitter<DatatableSelection>();
 
   // Event emitted when the cell data has been changed.
-  // This applies only to columns of type 'buttonToogle'.
+  // This applies only to columns of type 'buttonToggle'.
   @Output()
   readonly cellDataChangedEvent = new EventEmitter<DataTableCellChanged>();
 
@@ -460,7 +460,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
       binaryUnit: this.binaryUnitTpl,
       unsortedList: this.unsortedListTpl,
       template: this.templateTpl,
-      buttonToogle: this.buttonToogleTpl,
+      buttonToggle: this.buttonToggleTpl,
       copyToClipboard: this.copyToClipboardTpl
     };
   }

@@ -52,7 +52,7 @@ export class UserPrivilegesDatatablePageComponent {
         prop: 'perms',
         flexGrow: 1,
         sortable: true,
-        cellTemplateName: 'buttonToogle',
+        cellTemplateName: 'buttonToggle',
         cellTemplateConfig: {
           buttons: [
             {

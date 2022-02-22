@@ -66,7 +66,7 @@ export class SharedFolderPrivilegesDatatablePageComponent {
         prop: 'perms',
         flexGrow: 3,
         sortable: true,
-        cellTemplateName: 'buttonToogle',
+        cellTemplateName: 'buttonToggle',
         cellTemplateConfig: {
           buttons: [
             {

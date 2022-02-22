@@ -23,10 +23,10 @@ export type DatatableColumn = TableColumn & {
   /**
    * The name of the template.
    * text - Renders plain text.
-   * buttonToogle - Renders on/off toggles with the appearance of a button.
+   * buttonToggle - Renders on/off toggles with the appearance of a button.
    *                {
    *                  ...
-   *                  cellTemplateName: 'buttonToogle',
+   *                  cellTemplateName: 'buttonToggle',
    *                  cellTemplateConfig: {
    *                    allowNone: boolean;
    *                    buttons: {
@@ -89,7 +89,7 @@ export type DatatableColumn = TableColumn & {
    */
   cellTemplateName?:
     | 'text'
-    | 'buttonToogle'
+    | 'buttonToggle'
     | 'checkIcon'
     | 'placeholder'
     | 'progressBar'
