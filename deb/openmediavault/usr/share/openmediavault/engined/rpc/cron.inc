@@ -92,7 +92,14 @@ class Cron extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		return $db->getAssoc("conf.system.cron.job", $params['uuid']);
+		$result = $db->getAssoc("conf.system.cron.job", $params['uuid']);
+		// Convert comma separated list into an array.
+		$result['minute'] = explode(",", $result['minute']);
+		$result['hour'] = explode(",", $result['hour']);
+		$result['dayofmonth'] = explode(",", $result['dayofmonth']);
+		$result['month'] = explode(",", $result['month']);
+		$result['dayofweek'] = explode(",", $result['dayofweek']);
+		return $result;
 	}
 
 	/**
@@ -108,6 +115,12 @@ class Cron extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.cron.set");
+		// Convert array into a comma separated list.
+		$params['minute'] = implode(",", $params['minute']);
+		$params['hour'] = implode(",", $params['hour']);
+		$params['dayofmonth'] = implode(",", $params['dayofmonth']);
+		$params['month'] = implode(",", $params['month']);
+		$params['dayofweek'] = implode(",", $params['dayofweek']);
 		// Prepare the configuration object.
 		$object = new \OMV\Config\ConfigObject("conf.system.cron.job");
 		$object->setAssoc($params);

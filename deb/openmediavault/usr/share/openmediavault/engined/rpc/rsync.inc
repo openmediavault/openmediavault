@@ -148,7 +148,14 @@ class Rsync extends \OMV\Rpc\ServiceAbstract {
 			}
 			break;
 		}
-		return $object->getAssoc();
+		$result = $object->getAssoc();
+		// Convert comma separated list into an array.
+		$result['minute'] = explode(",", $result['minute']);
+		$result['hour'] = explode(",", $result['hour']);
+		$result['dayofmonth'] = explode(",", $result['dayofmonth']);
+		$result['month'] = explode(",", $result['month']);
+		$result['dayofweek'] = explode(",", $result['dayofweek']);
+		return $result;
 	}
 
 	/**
@@ -164,6 +171,12 @@ class Rsync extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.rsync.set");
+		// Convert array into a comma separated list.
+		$params['minute'] = implode(",", $params['minute']);
+		$params['hour'] = implode(",", $params['hour']);
+		$params['dayofmonth'] = implode(",", $params['dayofmonth']);
+		$params['month'] = implode(",", $params['month']);
+		$params['dayofweek'] = implode(",", $params['dayofweek']);
 		// Prepare the configuration data.
 		$object = new \OMV\Config\ConfigObject("conf.service.rsync.job");
 		$object->setAssoc($params, TRUE, TRUE);

@@ -115,6 +115,8 @@ export type FormFieldConfig = {
     custom?: Array<FormFieldConstraintValidator>;
     pattern?: {
       // The regular expression, e.g. '^\s+$'.
+      // Note, if the value to be compared is an array, then it will
+      // be converted automatically into a comma separated string.
       pattern: string;
       // The error data; normally the error message.
       errorData?: any;

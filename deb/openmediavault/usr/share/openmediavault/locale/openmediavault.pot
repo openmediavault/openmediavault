@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-26 09:18+0100\n"
+"POT-Creation-Date: 2022-02-26 09:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3096,6 +3096,9 @@ msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr ""
 
 msgid "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST."
+msgstr ""
+
+msgid "The field should only contain * or a comma separated list of values."
 msgstr ""
 
 msgid "The file mode of the shared folder path."

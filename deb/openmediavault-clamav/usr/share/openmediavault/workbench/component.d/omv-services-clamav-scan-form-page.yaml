@@ -30,7 +30,14 @@ data:
           - type: select
             name: minute
             label: _("Minute")
-            value: "{{ moment('H:mm:ss') | split(':') | get(1) }}"
+            value:
+              - "{{ moment('H:m:ss') | split(':') | get(1) }}"
+            multiple: true
+            validators:
+              required: true
+              pattern:
+                pattern: "^(\\*|(([0-9]|[1-5][0-9]),)*([0-9]|[1-5][0-9]))$"
+                errorData: _("The field should only contain * or a comma separated list of values.")
             store:
               data:
                 - - "*"
@@ -159,12 +166,37 @@ data:
             name: everynminute
             label: _("Every N minute")
             value: false
+            modifiers:
+              - type: unchecked
+                opposite: false
+                constraint:
+                  operator: ">"
+                  arg0:
+                    operator: length
+                    arg0:
+                      prop: minute
+                  arg1: 1
+              - type: disabled
+                constraint:
+                  operator: ">"
+                  arg0:
+                    operator: length
+                    arg0:
+                      prop: minute
+                  arg1: 1
       - type: container
         fields:
           - type: select
             name: hour
             label: _("Hour")
-            value: "{{ moment('H:mm:ss') | split(':') | get(0) }}"
+            value:
+              - "{{ moment('H:m:ss') | split(':') | get(0) }}"
+            multiple: true
+            validators:
+              required: true
+              pattern:
+                pattern: "^(\\*|(([0-9]|1[0-9]|2[0-3]),)*([0-9]|1[0-9]|2[0-3]))$"
+                errorData: _("The field should only contain * or a comma separated list of values.")
             store:
               data:
                 - - "*"
@@ -221,18 +253,41 @@ data:
             name: everynhour
             label: _("Every N hour")
             value: false
+            modifiers:
+              - type: unchecked
+                opposite: false
+                constraint:
+                  operator: ">"
+                  arg0:
+                    operator: length
+                    arg0:
+                      prop: hour
+                  arg1: 1
+              - type: disabled
+                constraint:
+                  operator: ">"
+                  arg0:
+                    operator: length
+                    arg0:
+                      prop: hour
+                  arg1: 1
       - type: container
         fields:
           - type: select
             name: dayofmonth
             label: _("Day of month")
-            value: "*"
+            value:
+              - "*"
+            multiple: true
+            validators:
+              required: true
+              pattern:
+                pattern: "^(\\*|(([1-9]|[12][0-9]|3[01]),)*([1-9]|[12][0-9]|3[01]))$"
+                errorData: _("The field should only contain * or a comma separated list of values.")
             store:
               data:
                 - - "*"
                   - "*"
-                - - "0"
-                  - "0"
                 - - "1"
                   - "1"
                 - - "2"
@@ -299,10 +354,35 @@ data:
             name: everyndayofmonth
             label: _("Every N day of month")
             value: false
+            modifiers:
+              - type: unchecked
+                opposite: false
+                constraint:
+                  operator: ">"
+                  arg0:
+                    operator: length
+                    arg0:
+                      prop: dayofmonth
+                  arg1: 1
+              - type: disabled
+                constraint:
+                  operator: ">"
+                  arg0:
+                    operator: length
+                    arg0:
+                      prop: dayofmonth
+                  arg1: 1
       - type: select
         name: month
         label: _("Month")
-        value: "*"
+        value:
+          - "*"
+        multiple: true
+        validators:
+          required: true
+          pattern:
+            pattern: "^(\\*|(([1-9]|1[0-2]),)*([1-9]|1[0-2]))$"
+            errorData: _("The field should only contain * or a comma separated list of values.")
         store:
           data:
             - - "*"
@@ -334,7 +414,14 @@ data:
       - type: select
         name: dayofweek
         label: _("Day of week")
-        value: "*"
+        value:
+          - "*"
+        multiple: true
+        validators:
+          required: true
+          pattern:
+            pattern: "^(\\*|([1-7],)*[1-7])$"
+            errorData: _("The field should only contain * or a comma separated list of values.")
         store:
           data:
             - - "*"

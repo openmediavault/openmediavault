@@ -310,7 +310,7 @@ export class RsyncTaskFormPageComponent {
             type: 'select',
             name: 'minute',
             label: gettext('Minute'),
-            value: '{{ moment("mm") }}',
+            value: ['{{ moment("mm") }}'],
             store: {
               data: [
                 ['*', '*'],
@@ -375,13 +375,48 @@ export class RsyncTaskFormPageComponent {
                 ['58', '58'],
                 ['59', '59']
               ]
+            },
+            multiple: true,
+            validators: {
+              required: true,
+              pattern: {
+                pattern: '^(\\*|(([0-9]|[1-5][0-9]),)*([0-9]|[1-5][0-9]))$',
+                errorData: gettext(
+                  'The field should only contain * or a comma separated list of values.'
+                )
+              }
             }
           },
           {
             type: 'checkbox',
             name: 'everynminute',
             label: gettext('Every N minute'),
-            value: false
+            value: false,
+            modifiers: [
+              {
+                type: 'unchecked',
+                opposite: false,
+                constraint: {
+                  operator: '>',
+                  arg0: {
+                    operator: 'length',
+                    arg0: { prop: 'minute' }
+                  },
+                  arg1: 1
+                }
+              },
+              {
+                type: 'disabled',
+                constraint: {
+                  operator: '>',
+                  arg0: {
+                    operator: 'length',
+                    arg0: { prop: 'minute' }
+                  },
+                  arg1: 1
+                }
+              }
+            ]
           }
         ]
       },
@@ -392,7 +427,7 @@ export class RsyncTaskFormPageComponent {
             type: 'select',
             name: 'hour',
             label: gettext('Hour'),
-            value: '{{ moment("H") }}',
+            value: ['{{ moment("H") }}'],
             store: {
               data: [
                 ['*', '*'],
@@ -421,13 +456,48 @@ export class RsyncTaskFormPageComponent {
                 ['22', '22'],
                 ['23', '23']
               ]
+            },
+            multiple: true,
+            validators: {
+              required: true,
+              pattern: {
+                pattern: '^(\\*|(([0-9]|1[0-9]|2[0-3]),)*([0-9]|1[0-9]|2[0-3]))$',
+                errorData: gettext(
+                  'The field should only contain * or a comma separated list of values.'
+                )
+              }
             }
           },
           {
             type: 'checkbox',
             name: 'everynhour',
             label: gettext('Every N hour'),
-            value: false
+            value: false,
+            modifiers: [
+              {
+                type: 'unchecked',
+                opposite: false,
+                constraint: {
+                  operator: '>',
+                  arg0: {
+                    operator: 'length',
+                    arg0: { prop: 'hour' }
+                  },
+                  arg1: 1
+                }
+              },
+              {
+                type: 'disabled',
+                constraint: {
+                  operator: '>',
+                  arg0: {
+                    operator: 'length',
+                    arg0: { prop: 'hour' }
+                  },
+                  arg1: 1
+                }
+              }
+            ]
           }
         ]
       },
@@ -438,7 +508,7 @@ export class RsyncTaskFormPageComponent {
             type: 'select',
             name: 'dayofmonth',
             label: gettext('Day of month'),
-            value: '*',
+            value: ['*'],
             store: {
               data: [
                 ['*', '*'],
@@ -474,13 +544,48 @@ export class RsyncTaskFormPageComponent {
                 ['30', '30'],
                 ['31', '31']
               ]
+            },
+            multiple: true,
+            validators: {
+              required: true,
+              pattern: {
+                pattern: '^(\\*|(([1-9]|[12][0-9]|3[01]),)*([1-9]|[12][0-9]|3[01]))$',
+                errorData: gettext(
+                  'The field should only contain * or a comma separated list of values.'
+                )
+              }
             }
           },
           {
             type: 'checkbox',
             name: 'everyndayofmonth',
             label: gettext('Every N day of month'),
-            value: false
+            value: false,
+            modifiers: [
+              {
+                type: 'unchecked',
+                opposite: false,
+                constraint: {
+                  operator: '>',
+                  arg0: {
+                    operator: 'length',
+                    arg0: { prop: 'dayofmonth' }
+                  },
+                  arg1: 1
+                }
+              },
+              {
+                type: 'disabled',
+                constraint: {
+                  operator: '>',
+                  arg0: {
+                    operator: 'length',
+                    arg0: { prop: 'dayofmonth' }
+                  },
+                  arg1: 1
+                }
+              }
+            ]
           }
         ]
       },
@@ -488,7 +593,7 @@ export class RsyncTaskFormPageComponent {
         type: 'select',
         name: 'month',
         label: gettext('Month'),
-        value: '*',
+        value: ['*'],
         store: {
           data: [
             ['*', '*'],
@@ -505,13 +610,23 @@ export class RsyncTaskFormPageComponent {
             ['11', gettext('November')],
             ['12', gettext('December')]
           ]
+        },
+        multiple: true,
+        validators: {
+          required: true,
+          pattern: {
+            pattern: '^(\\*|(([1-9]|1[0-2]),)*([1-9]|1[0-2]))$',
+            errorData: gettext(
+              'The field should only contain * or a comma separated list of values.'
+            )
+          }
         }
       },
       {
         type: 'select',
         name: 'dayofweek',
         label: gettext('Day of week'),
-        value: '*',
+        value: ['*'],
         store: {
           data: [
             ['*', '*'],
@@ -523,6 +638,16 @@ export class RsyncTaskFormPageComponent {
             ['6', gettext('Saturday')],
             ['7', gettext('Sunday')]
           ]
+        },
+        multiple: true,
+        validators: {
+          required: true,
+          pattern: {
+            pattern: '^(\\*|([1-7],)*[1-7])$',
+            errorData: gettext(
+              'The field should only contain * or a comma separated list of values.'
+            )
+          }
         }
       },
       {
