@@ -19,6 +19,9 @@
     <span *ngIf="formGroup.hasError('constraint', config.name)">
       {{ formGroup.getError('constraint', config.name) | translate }}
     </span>
+    <span *ngIf="formGroup.hasError('pattern', config.name)">
+      {{ formGroup.getError('pattern', config.name) | translate }}
+    </span>
   </mat-error>
   <mat-hint *ngIf="config.hint?.length > 0"
             [innerHTML]="config.hint | translate | sanitizeHtml">
