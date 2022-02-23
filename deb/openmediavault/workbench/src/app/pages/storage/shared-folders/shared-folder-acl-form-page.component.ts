@@ -244,6 +244,9 @@ export class SharedFolderAclFormPageComponent implements OnInit {
         value: 0
       },
       {
+        type: 'divider'
+      },
+      {
         type: 'checkbox',
         name: 'replace',
         label: gettext('Replace'),
