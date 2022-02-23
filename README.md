@@ -7,7 +7,7 @@ A detailed instruction about how to install openmediavault can be found [here](h
 ## Resources
 - [Documentation](https://docs.openmediavault.org)
 - [Forum](https://forum.openmediavault.org)
-- [Blog](https://blog.openmediavault.org)
+- [Blog](https://www.openmediavault.org/blog.html)
 
 ## Donation
 
