@@ -57,6 +57,7 @@ describe('functions.helper', () => {
     expect(format('{{ foo.bar | substr(1) }}', data)).toBe('yz');
     expect(format('{{ foo.bar | substr(1,1) }}', data)).toBe('y');
     expect(format('{{ xyz[1].x }}', data)).toBe('2');
+    expect(format('{{ qux | string }}', data)).toBe('a,b');
   });
 
   it('should format string [2]', () => {
