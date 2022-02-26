@@ -326,75 +326,78 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$objectv['status'] = 1; // Online
 		}
 		// Try to detect filesystems that are being initialized.
-		foreach (new \DirectoryIterator("/tmp") as $file) {
-			if ($file->isDot())
-				continue;
-			if (!$file->isFile())
-				continue;
-			// Check if it is a file we are interested in. The filename
-			// must look like omv-initfs@<device>.build, e.g.
-			// omv-initfs@_dev_sdb.build
-			$regex = '/^omv-initfs@.+\.build$/i';
-			if (1 !== preg_match($regex, $file->getFilename()))
-				continue;
-			$fileName = sprintf("/tmp/%s", $file->getFilename());
-			// Read the file content and decode JSON data into an
-			// associative array.
-			$jsonFile = new \OMV\Json\File($fileName);
-			$jsonFile->open("r");
-			$fsInfo = $jsonFile->read();
-			$jsonFile->close();
-			// Check whether the filesystem initialization process has
-			// been finished already. If yes, then unlink the file. The
-			// filesystem has then been already detected by blkid, thus
-			// it is already in the list of detected filesystems.
-			$initialized = FALSE;
-			foreach ($objects as $objectk => &$objectv) {
-				if ($objectv['devicefile'] === $fsInfo['devicefile']) {
-					$initialized = TRUE;
-					break;
+		if (file_exists("/tmp")) {
+			foreach (new \DirectoryIterator("/tmp") as $file) {
+				if ($file->isDot())
+					continue;
+				if (!$file->isFile())
+					continue;
+				// Check if it is a file we are interested in. The filename
+				// must look like omv-initfs@<device>.build, e.g.
+				// omv-initfs@_dev_sdb.build
+				$regex = '/^omv-initfs@.+\.build$/i';
+				if (1 !== preg_match($regex, $file->getFilename()))
+					continue;
+				$fileName = sprintf("/tmp/%s", $file->getFilename());
+				// Read the file content and decode JSON data into an
+				// associative array.
+				$jsonFile = new \OMV\Json\File($fileName);
+				$jsonFile->open("r");
+				$fsInfo = $jsonFile->read();
+				$jsonFile->close();
+				// Check whether the filesystem initialization process has
+				// been finished already. If yes, then unlink the file. The
+				// filesystem has then been already detected by blkid, thus
+				// it is already in the list of detected filesystems.
+				$initialized = FALSE;
+				foreach ($objects as $objectk => &$objectv) {
+					if ($objectv['devicefile'] === $fsInfo['devicefile']) {
+						$initialized = TRUE;
+						break;
+					}
 				}
+				if (TRUE === $initialized) {
+					if (TRUE === $jsonFile->exists()) {
+						$jsonFile->unlink();
+					}
+					continue;
+				}
+				// Get the filesystem backend.
+				$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
+				$fsb = $fsbMngr->getBackendByType($fsInfo['type']);
+				if (is_null($fsb)) {
+					throw new \OMV\Exception(
+						"No filesystem backend exists for '%s'.",
+						$fsInfo['type']);
+				}
+				// Add the filesystem to the result list.
+				$objects[] = [
+					"devicefile" => $fsInfo['devicefile'],
+					"parentdevicefile" => $fsInfo['parentdevicefile'],
+					"devicefiles" => [ $fsInfo['devicefile'] ],
+					"uuid" => "", // Not available
+					"label" => $fsInfo['label'],
+					"type" => $fsInfo['type'],
+					"blocks" => "-1", // as string
+					"mounted" => FALSE,
+					"mountable" => FALSE,
+					"mountpoint" => "",
+					"used" => "-1", // as string
+					"available" => "-1", // as string
+					"size" => "-1", // as string
+					"percentage" => -1,
+					"description" => "",
+					"propposixacl" => $fsb->hasPosixAclSupport(),
+					"propquota" => $fsb->hasQuotaSupport(),
+					"propresize" => $fsb->hasResizeSupport(),
+					"propfstab" => $fsb->hasFstabSupport(),
+					"propcompress" => $fsb->hasCompressSupport(),
+					"propautodefrag" => $fsb->hasAutoDefragSupport(),
+					"hasmultipledevices" => false,
+					"status" => 2, // Initializing
+					"_used" => FALSE
+				];
 			}
-			if (TRUE === $initialized) {
-				if (TRUE === $jsonFile->exists())
-					$jsonFile->unlink();
-				continue;
-			}
-			// Get the filesystem backend.
-			$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
-			$fsb = $fsbMngr->getBackendByType($fsInfo['type']);
-			if (is_null($fsb)) {
-				throw new \OMV\Exception(
-				  "No filesystem backend exists for '%s'.",
-				  $fsInfo['type']);
-			}
-			// Add the filesystem to the result list.
-			$objects[] = [
-				"devicefile" => $fsInfo['devicefile'],
-				"parentdevicefile" => $fsInfo['parentdevicefile'],
-				"devicefiles" => [ $fsInfo['devicefile'] ],
-				"uuid" => "", // Not available
-				"label" => $fsInfo['label'],
-				"type" => $fsInfo['type'],
-				"blocks" => "-1", // as string
-				"mounted" => FALSE,
-				"mountable" => FALSE,
-				"mountpoint" => "",
-				"used" => "-1", // as string
-				"available" => "-1", // as string
-				"size" => "-1", // as string
-				"percentage" => -1,
-				"description" => "",
-				"propposixacl" => $fsb->hasPosixAclSupport(),
-				"propquota" => $fsb->hasQuotaSupport(),
-				"propresize" => $fsb->hasResizeSupport(),
-				"propfstab" => $fsb->hasFstabSupport(),
-				"propcompress" => $fsb->hasCompressSupport(),
-				"propautodefrag" => $fsb->hasAutoDefragSupport(),
-				"hasmultipledevices" => false,
-				"status" => 2, // Initializing
-				"_used" => FALSE
-			];
 		}
 		// Add filesystems configured to be mounted but device does not
 		// exist anymore. This is necessary to be able remove invalid mount
