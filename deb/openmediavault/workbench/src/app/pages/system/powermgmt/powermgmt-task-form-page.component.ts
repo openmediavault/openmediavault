@@ -83,7 +83,7 @@ export class PowermgmtTaskFormPageComponent {
             type: 'select',
             name: 'minute',
             label: gettext('Minute'),
-            value: '{{ moment("H:mm:ss") | split(":") | get(1) }}',
+            value: ['{{ moment("H:m:ss") | split(":") | get(1) }}'],
             modifiers: [
               {
                 type: 'disabled',
@@ -91,8 +91,15 @@ export class PowermgmtTaskFormPageComponent {
               }
             ],
             validators: {
-              requiredIf: { operator: 'eq', arg0: { prop: 'execution' }, arg1: 'exactly' }
+              requiredIf: { operator: 'eq', arg0: { prop: 'execution' }, arg1: 'exactly' },
+              pattern: {
+                pattern: '^(\\*|(([0-9]|[1-5][0-9]),)*([0-9]|[1-5][0-9]))$',
+                errorData: gettext(
+                  'The field should only contain * or a comma separated list of values.'
+                )
+              }
             },
+            multiple: true,
             store: {
               data: [
                 ['*', '*'],
@@ -167,7 +174,30 @@ export class PowermgmtTaskFormPageComponent {
             modifiers: [
               {
                 type: 'disabled',
-                constraint: { operator: 'ne', arg0: { prop: 'execution' }, arg1: 'exactly' }
+                constraint: {
+                  operator: 'or',
+                  arg0: { operator: 'ne', arg0: { prop: 'execution' }, arg1: 'exactly' },
+                  arg1: {
+                    operator: '>',
+                    arg0: {
+                      operator: 'length',
+                      arg0: { prop: 'minute' }
+                    },
+                    arg1: 1
+                  }
+                }
+              },
+              {
+                type: 'unchecked',
+                opposite: false,
+                constraint: {
+                  operator: '>',
+                  arg0: {
+                    operator: 'length',
+                    arg0: { prop: 'minute' }
+                  },
+                  arg1: 1
+                }
               }
             ]
           }
@@ -180,7 +210,7 @@ export class PowermgmtTaskFormPageComponent {
             type: 'select',
             name: 'hour',
             label: gettext('Hour'),
-            value: '{{ moment("H:mm:ss") | split(":") | get(0) }}',
+            value: ['{{ moment("H:m:ss") | split(":") | get(0) }}'],
             modifiers: [
               {
                 type: 'disabled',
@@ -188,8 +218,15 @@ export class PowermgmtTaskFormPageComponent {
               }
             ],
             validators: {
-              requiredIf: { operator: 'eq', arg0: { prop: 'execution' }, arg1: 'exactly' }
+              requiredIf: { operator: 'eq', arg0: { prop: 'execution' }, arg1: 'exactly' },
+              pattern: {
+                pattern: '^(\\*|(([0-9]|1[0-9]|2[0-3]),)*([0-9]|1[0-9]|2[0-3]))$',
+                errorData: gettext(
+                  'The field should only contain * or a comma separated list of values.'
+                )
+              }
             },
+            multiple: true,
             store: {
               data: [
                 ['*', '*'],
@@ -228,7 +265,30 @@ export class PowermgmtTaskFormPageComponent {
             modifiers: [
               {
                 type: 'disabled',
-                constraint: { operator: 'ne', arg0: { prop: 'execution' }, arg1: 'exactly' }
+                constraint: {
+                  operator: 'or',
+                  arg0: { operator: 'ne', arg0: { prop: 'execution' }, arg1: 'exactly' },
+                  arg1: {
+                    operator: '>',
+                    arg0: {
+                      operator: 'length',
+                      arg0: { prop: 'hour' }
+                    },
+                    arg1: 1
+                  }
+                }
+              },
+              {
+                type: 'unchecked',
+                opposite: false,
+                constraint: {
+                  operator: '>',
+                  arg0: {
+                    operator: 'length',
+                    arg0: { prop: 'hour' }
+                  },
+                  arg1: 1
+                }
               }
             ]
           }
@@ -241,7 +301,7 @@ export class PowermgmtTaskFormPageComponent {
             type: 'select',
             name: 'dayofmonth',
             label: gettext('Day of month'),
-            value: '*',
+            value: ['*'],
             modifiers: [
               {
                 type: 'disabled',
@@ -249,8 +309,15 @@ export class PowermgmtTaskFormPageComponent {
               }
             ],
             validators: {
-              requiredIf: { operator: 'eq', arg0: { prop: 'execution' }, arg1: 'exactly' }
+              requiredIf: { operator: 'eq', arg0: { prop: 'execution' }, arg1: 'exactly' },
+              pattern: {
+                pattern: '^(\\*|(([1-9]|[12][0-9]|3[01]),)*([1-9]|[12][0-9]|3[01]))$',
+                errorData: gettext(
+                  'The field should only contain * or a comma separated list of values.'
+                )
+              }
             },
+            multiple: true,
             store: {
               data: [
                 ['*', '*'],
@@ -296,7 +363,30 @@ export class PowermgmtTaskFormPageComponent {
             modifiers: [
               {
                 type: 'disabled',
-                constraint: { operator: 'ne', arg0: { prop: 'execution' }, arg1: 'exactly' }
+                constraint: {
+                  operator: 'or',
+                  arg0: { operator: 'ne', arg0: { prop: 'execution' }, arg1: 'exactly' },
+                  arg1: {
+                    operator: '>',
+                    arg0: {
+                      operator: 'length',
+                      arg0: { prop: 'dayofmonth' }
+                    },
+                    arg1: 1
+                  }
+                }
+              },
+              {
+                type: 'unchecked',
+                opposite: false,
+                constraint: {
+                  operator: '>',
+                  arg0: {
+                    operator: 'length',
+                    arg0: { prop: 'dayofmonth' }
+                  },
+                  arg1: 1
+                }
               }
             ]
           }
@@ -306,7 +396,7 @@ export class PowermgmtTaskFormPageComponent {
         type: 'select',
         name: 'month',
         label: gettext('Month'),
-        value: '*',
+        value: ['*'],
         modifiers: [
           {
             type: 'disabled',
@@ -314,8 +404,15 @@ export class PowermgmtTaskFormPageComponent {
           }
         ],
         validators: {
-          requiredIf: { operator: 'eq', arg0: { prop: 'execution' }, arg1: 'exactly' }
+          requiredIf: { operator: 'eq', arg0: { prop: 'execution' }, arg1: 'exactly' },
+          pattern: {
+            pattern: '^(\\*|(([1-9]|1[0-2]),)*([1-9]|1[0-2]))$',
+            errorData: gettext(
+              'The field should only contain * or a comma separated list of values.'
+            )
+          }
         },
+        multiple: true,
         store: {
           data: [
             ['*', '*'],
@@ -338,7 +435,7 @@ export class PowermgmtTaskFormPageComponent {
         type: 'select',
         name: 'dayofweek',
         label: gettext('Day of week'),
-        value: '*',
+        value: ['*'],
         modifiers: [
           {
             type: 'disabled',
@@ -346,8 +443,15 @@ export class PowermgmtTaskFormPageComponent {
           }
         ],
         validators: {
-          requiredIf: { operator: 'eq', arg0: { prop: 'execution' }, arg1: 'exactly' }
+          requiredIf: { operator: 'eq', arg0: { prop: 'execution' }, arg1: 'exactly' },
+          pattern: {
+            pattern: '^(\\*|([1-7],)*[1-7])$',
+            errorData: gettext(
+              'The field should only contain * or a comma separated list of values.'
+            )
+          }
         },
+        multiple: true,
         store: {
           data: [
             ['*', '*'],

@@ -1,6 +1,8 @@
 openmediavault (6.0.15-1) unstable; urgency=low
 
   * Update locale files.
+  * Issue #1220: Enhance the configuration of times of scheduled
+    jobs.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 22 Feb 2022 22:22:07 +0100
 
