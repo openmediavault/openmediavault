@@ -397,7 +397,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs = [];
 				$cmdArgs[] = '--modify';
 				$cmdArgs[] = sprintf("group:%s:--x", $defaultGroup);
-				$cmdArgs[] = $absPath;
+				$cmdArgs[] = escapeshellarg($absPath);
 				$cmd = new \OMV\System\Process("setfacl", $cmdArgs);
 				$cmd->setRedirect2to1();
 				$cmd->execute();

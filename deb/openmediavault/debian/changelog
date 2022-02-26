@@ -184,9 +184,17 @@ openmediavault (6.0-34) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Dec 2020 20:28:37 +0100
 
+openmediavault (5.6.26-1) stable; urgency=low
+
+  * Fixed an error when configuring a shared folder where the
+    path contains spaces.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 Feb 2022 21:09:42 +0100
+
 openmediavault (5.6.25-1) stable; urgency=low
 
   * Fix issue in SMB recycle cron job.
+  * Fix bugs in omv-release-upgrade.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 17 Jan 2022 20:54:12 +0100
 
