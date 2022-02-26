@@ -82,12 +82,14 @@ class FolderBrowser extends \OMV\Rpc\ServiceAbstract {
 		// List the directory contents.
 		$result = [];
 		$path = build_path(DIRECTORY_SEPARATOR, $rootPath, $params['path']);
-		foreach (new \DirectoryIterator($path) as $item) {
-			if ($item->isDot())
-				continue;
-			if (!$item->isDir())
-				continue;
-			$result[] = $item->getFilename();
+		if (file_exists($path)) {
+			foreach (new \DirectoryIterator($path) as $item) {
+				if ($item->isDot())
+					continue;
+				if (!$item->isDir())
+					continue;
+				$result[] = $item->getFilename();
+			}
 		}
 		return $result;
 	}
