@@ -32,8 +32,12 @@ class SG extends BackendAbstract {
 	}
 
 	function enumerate() {
+		$path = "/sys/class/scsi_generic";
+		if (!file_exists($path)) {
+			return FALSE;
+		}
 		$result = [];
-		foreach (new \DirectoryIterator("/sys/class/scsi_generic") as $item) {
+		foreach (new \DirectoryIterator($path) as $item) {
 			if ($item->isDot() || !$item->isLink())
 				continue;
 			if (1 !== preg_match("/^sg[0-9]+$/", $item->getFilename()))

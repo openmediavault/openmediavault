@@ -751,17 +751,19 @@ function build_path($separator, ...$parts) {
  */
 function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL): array {
 	$files = [];
-	foreach (new \DirectoryIterator($directory) as $item) {
-		if ($item->isDot())
-			continue;
-		if (!$item->isFile())
-			continue;
-		if (!empty($extension) && ($extension !== mb_strtolower(
-				$item->getExtension())))
-			continue;
-		$files[] = $item->getPathname();
+	if (file_exists($directory)) {
+		foreach (new \DirectoryIterator($directory) as $item) {
+			if ($item->isDot())
+				continue;
+			if (!$item->isFile())
+				continue;
+			if (!empty($extension) && ($extension !== mb_strtolower(
+					$item->getExtension())))
+				continue;
+			$files[] = $item->getPathname();
+		}
+		sort($files, $sortFlags);
 	}
-	sort($files, $sortFlags);
 	return $files;
 }
 

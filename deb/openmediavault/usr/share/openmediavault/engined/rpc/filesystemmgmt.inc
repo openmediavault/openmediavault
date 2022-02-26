@@ -381,62 +381,65 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			NULL, $context);
 		// Try to detect file systems that are being initialized.
 		$result = [];
-		foreach (new \DirectoryIterator("/tmp") as $file) {
-			if ($file->isDot())
-				continue;
-			if (!$file->isFile())
-				continue;
-			// Check if it is a file we are interested in. The filename
-			// must look like omv-initfs@<device>.build, e.g.
-			// omv-initfs@_dev_sdb.build
-			$regex = '/^omv-initfs@.+\.build$/i';
-			if (1 !== preg_match($regex, $file->getFilename()))
-				continue;
-			$fileName = sprintf("/tmp/%s", $file->getFilename());
-			// Read the file content and decode JSON data into an
-			// associative array.
-			$jsonFile = new \OMV\Json\File($fileName);
-			$jsonFile->open("r");
-			$fsInfo = $jsonFile->read();
-			$jsonFile->close();
-			// Check whether the file system initialization process has
-			// been finished already. This is done by simply checking if
-			// the device file is already in the list of detected file
-			// systems. If this is the case, then unlink the file system
-			// build file.
-			$found = FALSE;
-			foreach ($detectedFsObjects as $fsObjectk => $fsObjectv) {
-				$fsNames = $fsObjectv['devlinks'];
-				$fsNames[] = $fsObjectv['devicefile'];
-				$fsNames[] = $fsObjectv['canonicaldevicefile'];
-				if (in_array($fsInfo['devicefile'], $fsNames)) {
-					$found = TRUE;
-					break;
+		if (file_exists("/tmp")) {
+			foreach (new \DirectoryIterator("/tmp") as $file) {
+				if ($file->isDot())
+					continue;
+				if (!$file->isFile())
+					continue;
+				// Check if it is a file we are interested in. The filename
+				// must look like omv-initfs@<device>.build, e.g.
+				// omv-initfs@_dev_sdb.build
+				$regex = '/^omv-initfs@.+\.build$/i';
+				if (1 !== preg_match($regex, $file->getFilename()))
+					continue;
+				$fileName = sprintf("/tmp/%s", $file->getFilename());
+				// Read the file content and decode JSON data into an
+				// associative array.
+				$jsonFile = new \OMV\Json\File($fileName);
+				$jsonFile->open("r");
+				$fsInfo = $jsonFile->read();
+				$jsonFile->close();
+				// Check whether the file system initialization process has
+				// been finished already. This is done by simply checking if
+				// the device file is already in the list of detected file
+				// systems. If this is the case, then unlink the file system
+				// build file.
+				$found = FALSE;
+				foreach ($detectedFsObjects as $fsObjectk => $fsObjectv) {
+					$fsNames = $fsObjectv['devlinks'];
+					$fsNames[] = $fsObjectv['devicefile'];
+					$fsNames[] = $fsObjectv['canonicaldevicefile'];
+					if (in_array($fsInfo['devicefile'], $fsNames)) {
+						$found = TRUE;
+						break;
+					}
 				}
+				if (TRUE === $found) {
+					if (TRUE === $jsonFile->exists()) {
+						$jsonFile->unlink();
+					}
+					continue;
+				}
+				// The file system creation is still in progress. Get as much
+				// as possible information about the file system and append
+				// them to the result list.
+				$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
+				$fsb = $fsbMngr->getBackendByType($fsInfo['type']);
+				if (is_null($fsb)) {
+					throw new \OMV\Exception(
+						"No file system backend exists for '%s'.",
+						$fsInfo['type']);
+				}
+				$result[] = array_merge($this->getFsInfo(NULL, $fsb), [
+					"devicefile" => $fsInfo['devicefile'],
+					"parentdevicefile" => $fsInfo['parentdevicefile'],
+					"devicefiles" => [ $fsInfo['devicefile'] ],
+					"label" => $fsInfo['label'],
+					"type" => $fsInfo['type'],
+					"status" => 2, // Initializing
+				]);
 			}
-			if (TRUE === $found) {
-				if (TRUE === $jsonFile->exists())
-					$jsonFile->unlink();
-				continue;
-			}
-			// The file system creation is still in progress. Get as much
-			// as possible information about the file system and append
-			// them to the result list.
-			$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
-			$fsb = $fsbMngr->getBackendByType($fsInfo['type']);
-			if (is_null($fsb)) {
-				throw new \OMV\Exception(
-				  "No file system backend exists for '%s'.",
-				  $fsInfo['type']);
-			}
-			$result[] = array_merge($this->getFsInfo(NULL, $fsb), [
-				"devicefile" => $fsInfo['devicefile'],
-				"parentdevicefile" => $fsInfo['parentdevicefile'],
-				"devicefiles" => [ $fsInfo['devicefile'] ],
-				"label" => $fsInfo['label'],
-				"type" => $fsInfo['type'],
-				"status" => 2, // Initializing
-			]);
 		}
 		// Get the configured file systems except 'bind' and 'loop' devices.
 		$db = \OMV\Config\Database::getInstance();
