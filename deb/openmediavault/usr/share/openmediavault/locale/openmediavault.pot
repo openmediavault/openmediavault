@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-20 09:20+0100\n"
+"POT-Creation-Date: 2022-02-26 09:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -684,6 +684,9 @@ msgid "Compression"
 msgstr ""
 
 msgid "Compression is worth using if your connection is slow. The efficiency of the compression depends on the type of the file, and varies widely. Useful for internet transfer only."
+msgstr ""
+
+msgid "Confirm"
 msgstr ""
 
 msgid "Confirm password"
@@ -2520,6 +2523,9 @@ msgid "Reverted the configuration changes."
 msgstr ""
 
 msgid "Romania"
+msgstr ""
+
+msgid "Row No."
 msgstr ""
 
 msgid "Rsync"
