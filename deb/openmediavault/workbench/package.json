@@ -45,7 +45,7 @@
     "chart.js": "^3.7.1",
     "chartjs-plugin-datalabels": "^2.0.0",
     "core-js": "3.21.1",
-    "dayjs": "^1.10.7",
+    "dayjs": "^1.10.8",
     "lodash": "^4.17.21",
     "ng-block-ui": "^3.0.2",
     "ngx-scrollbar": "~7.6.1",
@@ -98,7 +98,7 @@
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-scss": "^3.21.0",
-    "ts-node": "^10.5.0",
+    "ts-node": "^10.6.0",
     "typescript": "~4.3.5"
   }
 }
