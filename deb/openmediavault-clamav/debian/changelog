@@ -1,4 +1,4 @@
-openmediavault-clamav (6.0-7) UNRELEASED; urgency=low
+openmediavault-clamav (6.0-8) unstable; urgency=low
 
   * Reimplement UI.
 
