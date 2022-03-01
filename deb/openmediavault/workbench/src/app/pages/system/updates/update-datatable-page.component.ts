@@ -120,7 +120,7 @@ export class UpdateDatatablePageComponent {
           hasData: true
         },
         confirmationDialogConfig: {
-          template: 'confirmation',
+          template: 'confirmation-critical',
           message: gettext('Do you really want to upgrade the system?')
         },
         execute: {

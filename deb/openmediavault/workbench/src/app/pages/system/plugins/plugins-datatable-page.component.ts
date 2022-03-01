@@ -137,7 +137,7 @@ export class PluginsDatatablePageComponent implements OnInit {
           constraint: [{ operator: 'falsy', arg0: { prop: 'installed' } }]
         },
         confirmationDialogConfig: {
-          template: 'confirmation',
+          template: 'confirmation-critical',
           message: gettext('Do you really want to install the plugin?')
         },
         execute: {
@@ -177,7 +177,7 @@ export class PluginsDatatablePageComponent implements OnInit {
           constraint: [{ operator: 'truthy', arg0: { prop: 'installed' } }]
         },
         confirmationDialogConfig: {
-          template: 'confirmation',
+          template: 'confirmation-critical',
           message: gettext('Do you really want to uninstall the plugin?')
         },
         execute: {
