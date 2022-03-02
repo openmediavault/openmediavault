@@ -40,4 +40,4 @@ generate_{{ lang }}_locale:
 # Update /etc/default/locale
 set_system_locale:
   cmd.run:
-    - name: "update-locale LANG={{ lang }} LC_ALL={{ lang }}"
+    - name: "update-locale LANG={{ lang }} LANGUAGE= LC_ALL={{ lang }}"

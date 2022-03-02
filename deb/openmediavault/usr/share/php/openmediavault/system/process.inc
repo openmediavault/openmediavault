@@ -36,7 +36,8 @@ class Process {
 	private $background = FALSE;
 	private $env = [
 		"PATH" => "/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin",
-		"LANG" => "C.UTF-8"
+		"LANG" => "C.UTF-8",
+		"LANGUAGE" => ""
 	];
 
 	/**

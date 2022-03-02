@@ -43,9 +43,9 @@ def _modify_kwargs(kwargs):
     """
     # Append the env keyword if it does not exist.
     if "env" not in kwargs:
-        kwargs["env"] = dict(os.environ, LANG="C.UTF-8")
+        kwargs["env"] = dict(os.environ, LANG="C.UTF-8", LANGUAGE="")
     else:
-        kwargs["env"].update({"LANG": "C.UTF-8"})
+        kwargs["env"].update({"LANG": "C.UTF-8", "LANGUAGE": ""})
 
 
 def call(*popenargs, **kwargs):
