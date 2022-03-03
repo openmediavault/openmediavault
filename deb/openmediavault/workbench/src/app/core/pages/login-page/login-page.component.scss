@@ -55,6 +55,9 @@
     width: 6rem;
     height: 100%;
     position: absolute;
+    animation-name: fade-color;
+    animation-duration: 20s;
+    animation-iteration-count: 5;
 
     .logo {
       content: url('/assets/images/openmediavault_logo.svg');
@@ -142,5 +145,24 @@
     opacity: 0;
     transform: scale3d(2, 2, 1) translate3d(-20px, -15px, 0);
     transform-origin: top left;
+  }
+}
+
+@keyframes fade-color {
+  0% {
+    background-color: $omv-color-transparent-black;
+  }
+
+  95% {
+    background-color: hsla(
+      hue($omv-color-accent),
+      saturation($omv-color-accent),
+      lightness($omv-color-accent),
+      0.54
+    );
+  }
+
+  100% {
+    background-color: $omv-color-transparent-black;
   }
 }
