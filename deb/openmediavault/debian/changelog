@@ -1,5 +1,6 @@
 openmediavault (6.0.16-1) unstable; urgency=low
 
+  * Monitor bridge network interfaces and generate diagnostic graphs.
   * Issue #1207: Fix global localization issue. When LANGUAGE env
     variable is set, the output of various tools can't be parsed
     because the output is translated even if LANG=C is set.

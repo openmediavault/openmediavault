@@ -30,7 +30,7 @@
 {% endfor %}
 {% set interfaces = interfaces + salt['omv_conf.get_by_filter'](
   'conf.system.network.interface',
-  {'operator': 'or', 'arg0': {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'bond'}, 'arg1': {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'vlan'}}) %}
+  {'operator': 'stringEnum', 'arg0': 'type', 'arg1': ['bond', 'bridge', 'vlan']}) %}
 
 configure_collectd_conf_interface_plugin:
   file.managed:
