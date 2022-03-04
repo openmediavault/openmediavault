@@ -3,6 +3,7 @@
 {%- set general_interpolation = salt['pillar.get']('default:OMV_SHAIRPORT_GENERAL_INTERPOLATION', 'basic') -%}
 {%- set general_log_verbosity = salt['pillar.get']('default:OMV_SHAIRPORT_GENERAL_LOGVERBOSITY', '0') -%}
 {%- set general_ignore_volume_control = salt['pillar.get']('default:OMV_SHAIRPORT_GENERAL_IGNOREVOLUMECONTROL', 'no') -%}
+{%- set volume_range_db = salt['pillar.get']('default:OMV_SHAIRPORT_GENERAL_VOLUMERANGEDB', '') -%}
 {%- set metadata_enabled = salt['pillar.get']('default:OMV_SHAIRPORT_METADATA_ENABLED', 'yes') -%}
 {%- set metadata_include_cover_art = salt['pillar.get']('default:OMV_SHAIRPORT_METADATA_INCLUDECOVERART', 'yes') -%}
 {{ pillar['headers']['multiline'] -}}
@@ -18,6 +19,9 @@ general =
     ignore_volume_control = "{{ general_ignore_volume_control }}";
 {%- if config.passwordrequired | to_bool %}
     password = "{{ config.password }}";
+{%- endif %}
+{%- if volume_range_db | length > 0 %}
+    volume_range_db = {{ volume_range_db }};
 {%- endif %}
 };
 

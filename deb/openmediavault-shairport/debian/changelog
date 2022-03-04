@@ -1,6 +1,7 @@
-openmediavault-shairport (6.0-6) unstable; urgency=low
+openmediavault-shairport (6.0-7) unstable; urgency=low
 
   * Reimplement UI.
+  * Added OMV_SHAIRPORT_GENERAL_VOLUMERANGEDB environment variable.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 06 Dec 2020 21:13:01 +0100
 
