@@ -4,6 +4,10 @@ openmediavault (6.0.16-1) unstable; urgency=low
   * Issue #1207: Fix global localization issue. When LANGUAGE env
     variable is set, the output of various tools can't be parsed
     because the output is translated even if LANG=C is set.
+  * Issue #1229: Add UDEV rule for Genesys USB2.0/SATA adapter to
+    fix the unique serial ID issue. Note that this may affect your
+    current configuration. See changelog entry of 5.5.21 how fix
+    that.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 01 Mar 2022 19:52:26 +0100
 

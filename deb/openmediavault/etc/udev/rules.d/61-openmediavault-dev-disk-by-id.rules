@@ -492,7 +492,6 @@ ENV{ID_VENDOR_ID}=="152d", \
 # E: ID_PART_TABLE_TYPE=gpt
 # E: DEVLINKS=/dev/disk/by-path/platform-3f980000.usb-usb-0:1.2:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-TOSHIBA_M$
 # E: TAGS=:systemd:
-
 ENV{ID_VENDOR_ID}=="05e3", \
   ENV{ID_MODEL_ID}=="0718", \
   IMPORT{program}="serial_id %N", \
