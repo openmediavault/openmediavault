@@ -154,12 +154,13 @@
   }
 
   95% {
-    background-color: hsla(
-      hue($omv-color-accent),
-      saturation($omv-color-accent),
-      lightness($omv-color-accent),
-      0.54
-    );
+    background-color:
+      hsla(
+        hue($omv-color-accent),
+        saturation($omv-color-accent),
+        lightness($omv-color-accent),
+        0.54
+      );
   }
 
   100% {
