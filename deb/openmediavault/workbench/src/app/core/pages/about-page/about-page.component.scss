@@ -13,7 +13,8 @@
       @extend .omv-text-monospace;
 
       .ascii-art {
-        margin: unset;
+        line-height: normal;
+        margin: 0;
         overflow: hidden;
       }
 
