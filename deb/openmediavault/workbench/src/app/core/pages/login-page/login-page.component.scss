@@ -30,7 +30,7 @@
     mix-blend-mode: multiply;
     animation-name: ken-burns-top-left;
     animation-duration: 20s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 3;
     filter: hue-rotate(175deg);
     object-fit: cover;
   }
@@ -76,7 +76,12 @@
 
       ::ng-deep .mat-card {
         color: $omv-color-white;
-        background-color: rgba(92, 172, 223, 0.4);
+        background-color: hsla(
+          hue($omv-color-corporate-default),
+          saturation($omv-color-corporate-default),
+          lightness($omv-color-corporate-default),
+          0.4
+        );
 
         .mat-form-field {
           .mat-input-element {
