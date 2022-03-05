@@ -26,15 +26,13 @@
     height: 100%;
     position: absolute;
     background-color: $omv-color-corporate-light;
-    background-image: url('/assets/images/benjamin-lehman-GNyjCePVRs8-unsplash.jpg');
-    background-blend-mode: multiply;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    content: url('/assets/images/benjamin-lehman-GNyjCePVRs8-unsplash.jpg');
+    mix-blend-mode: multiply;
     animation-name: ken-burns-top-left;
     animation-duration: 20s;
-    animation-iteration-count: 1;
-    z-index: -1;
+    animation-iteration-count: infinite;
+    filter: hue-rotate(175deg) brightness(94%) contrast(96%);
+    object-fit: cover;
   }
 
   .toolbar {
