@@ -31,8 +31,8 @@ export type FormFieldConfig = {
   // |             | that it should handle the the data to create a new   |
   // |             | database configuration object.                       |
   // | hidden      | A hidden form field.                                 |
-  // | divider     | Draws a horizontal line.                             |
-  // | paragraph   | Displays a title and draws a horizontal line.        |
+  // | paragraph   | Displays a title.                                    |
+  // | divider     | Displays a horizontal line and an optional title.    |
   // | ...         | ...                                                  |
   // | container   | Align child fields in horizontal order.              |
   // '--------------------------------------------------------------------'
@@ -163,7 +163,7 @@ export type FormFieldConfig = {
   // Specifies the size of the field in percent.
   flex?: number;
 
-  // --- button | divider ---
+  // --- button ---
   text?: string;
 
   // --- button | iconButton ---
@@ -268,7 +268,7 @@ export type FormFieldConfig = {
   emptyOptionText?: string;
   selectionChange?: (value: any) => void;
 
-  // --- divider ---
+  // --- divider | paragraph ---
   title?: string;
 
   // --- datatable ---

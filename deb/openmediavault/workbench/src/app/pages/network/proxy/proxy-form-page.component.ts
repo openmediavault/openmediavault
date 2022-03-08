@@ -36,7 +36,7 @@ export class ProxyFormPageComponent {
     },
     fields: [
       {
-        type: 'divider',
+        type: 'paragraph',
         title: gettext('HTTP-Proxy')
       },
       {

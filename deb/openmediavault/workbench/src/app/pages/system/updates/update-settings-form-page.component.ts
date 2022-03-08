@@ -36,7 +36,7 @@ export class UpdateSettingsFormPageComponent {
     },
     fields: [
       {
-        type: 'divider',
+        type: 'paragraph',
         title: gettext('Install updates from')
       },
       {

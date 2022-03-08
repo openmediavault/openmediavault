@@ -1,8 +1,10 @@
+@use '~@angular/material' as mat;
+
 @import 'src/styles';
 
 .omv-form-paragraph {
-  @extend .omv-text-muted;
-
-  line-height: initial;
-  margin-bottom: 0.5rem;
+  font-weight: mat.font-weight($omv-typography-config, headline);
+  font-size: mat.font-size($omv-typography-config, headline);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }

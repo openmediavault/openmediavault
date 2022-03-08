@@ -36,7 +36,7 @@ export class UserSettingsFormPageComponent {
     },
     fields: [
       {
-        type: 'divider',
+        type: 'paragraph',
         title: gettext('User home directory')
       },
       {
