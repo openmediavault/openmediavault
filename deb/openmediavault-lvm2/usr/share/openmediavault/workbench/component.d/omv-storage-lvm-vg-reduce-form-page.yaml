@@ -13,6 +13,7 @@ data:
         filter:
           mode: pick
           props:
+            - devicefile
             - name
       post:
         method: reduceVolumeGroup
