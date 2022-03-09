@@ -29,5 +29,8 @@ export class FormSliderComponent extends AbstractFormFieldComponent {
   onChange(event: MatSliderChange) {
     const control = this.formGroup.get(this.config.name);
     control.setValue(event.value);
+    control.markAsTouched();
+    control.markAsDirty();
+    control.updateValueAndValidity();
   }
 }
