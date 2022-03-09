@@ -1,10 +1,17 @@
-<ng-container *ngIf="!config.store">
+<omv-alert-panel *ngIf="!monitoringEnabled"
+                 type="info">
+  <span translate>
+    System monitoring is disabled. To enable it, please go to the <a routerLink="/system/monitoring">settings page</a>.
+  </span>
+</omv-alert-panel>
+
+<ng-container *ngIf="monitoringEnabled && !config.store">
   <ng-container [ngTemplateOutlet]="renderRrdGraphs"
                 [ngTemplateOutletContext]="{ $implicit: config.graphs }">
   </ng-container>
 </ng-container>
 
-<ng-container *ngIf="config.store">
+<ng-container *ngIf="monitoringEnabled && config.store">
   <ng-container *ngIf="loading">
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     <omv-alert-panel type="info">
