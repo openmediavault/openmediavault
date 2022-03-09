@@ -76,12 +76,13 @@
 
       ::ng-deep .mat-card {
         color: $omv-color-white;
-        background-color: hsla(
-          hue($omv-color-corporate-default),
-          saturation($omv-color-corporate-default),
-          lightness($omv-color-corporate-default),
-          0.4
-        );
+        background-color:
+          hsla(
+            hue($omv-color-corporate-default),
+            saturation($omv-color-corporate-default),
+            lightness($omv-color-corporate-default),
+            0.4
+          );
 
         .mat-form-field {
           .mat-input-element {
