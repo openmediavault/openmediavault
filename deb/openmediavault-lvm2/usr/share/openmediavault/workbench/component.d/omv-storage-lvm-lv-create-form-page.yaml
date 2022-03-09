@@ -40,7 +40,7 @@ data:
         name: size
         label: _("Size")
         hint: _("The percentage of the total space in the volume group to allocate for the new logical volume.")
-        value: 50,
+        value: 50
         validators:
           min: 1
           max: 100
