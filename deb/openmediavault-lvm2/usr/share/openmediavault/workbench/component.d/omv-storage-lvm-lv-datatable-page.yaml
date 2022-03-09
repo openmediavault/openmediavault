@@ -67,15 +67,6 @@ data:
               devicefile: "{{ devicefile }}"
             successNotification: _("Created snapshot of logical volume '{{ devicefile }}'.")
       - type: iconButton
-        icon: expand
-        tooltip: _("Extend")
-        enabledConstraints:
-          minSelected: 1
-          maxSelected: 1
-        execute:
-          type: url
-          url: "/storage/lvm/lvs/extend/{{ _selected[0].devicefile | encodeuricomponent }}"
-      - type: iconButton
         icon: collapse
         tooltip: _("Reduce")
         enabledConstraints:
@@ -84,6 +75,15 @@ data:
         execute:
           type: url
           url: "/storage/lvm/lvs/reduce/{{ _selected[0].devicefile | encodeuricomponent }}"
+      - type: iconButton
+        icon: expand
+        tooltip: _("Extend")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/storage/lvm/lvs/extend/{{ _selected[0].devicefile | encodeuricomponent }}"
       - template: delete
         execute:
           type: request
