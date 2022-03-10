@@ -544,28 +544,35 @@ textarea {
 
 ////////////////////////////////////////////////////////////////////////////////
 // Image
+img.loading,
+img.loading::after {
+  background-color: $omv-color-transparent;
+  border-radius: 50%;
+  width: 10em !important;
+  height: 10em !important;
+}
+
 img.loading {
   content: url('data:image/x-icon;base64,');
   color: rgba(0, 0, 0, 0) !important; // Hide 'alt' text.
-  width: 200px !important;
-  height: 100px !important;
-  animation-duration: 1.25s;
-  animation-fill-mode: forwards;
+  font-size: 5px;
+  border-top: 1.1em solid $omv-color-whitesmoke;
+  border-right: 1.1em solid $omv-color-whitesmoke;
+  border-bottom: 1.1em solid $omv-color-whitesmoke;
+  border-left: 1.1em solid $omv-color-corporate-default;
+  animation-duration: 1.1s;
   animation-iteration-count: infinite;
-  animation-name: gradient-animation;
+  animation-name: loading-spinner;
   animation-timing-function: linear;
-  background: linear-gradient(to right, #dfdfdf 8%, #f0f0f0 18%, #dfdfdf 33%);
-  background-size: 800px 100%;
-  filter: blur(1px);
 }
 
-@keyframes gradient-animation {
+@keyframes loading-spinner {
   0% {
-    background-position: -500px 0;
+    transform: rotate(0deg);
   }
 
   100% {
-    background-position: 500px 0;
+    transform: rotate(360deg);
   }
 }
 
