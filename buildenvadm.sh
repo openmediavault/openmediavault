@@ -31,11 +31,12 @@ Usage:
   $(basename $0) [options] [command]
 
 Available Commands:
-  create	Create but do not start the build environment
-  start		Start the build environment
+  create      Create but do not start the build environment
+  start       Start the build environment
+  install     Install all dependencies
 
 Options:
-  -h, --help	Show this message.
+  -h, --help  Show this message.
 
 EOF
 }
@@ -75,6 +76,24 @@ start() {
 		/bin/zsh
 }
 
+install() {
+	. /etc/os-release
+
+	case ${ID} in
+	debian)
+		dirname=Debian_${VERSION_ID}
+		;;
+	ubuntu)
+		dirname=xUbuntu_${VERSION_ID}
+		;;
+	esac
+
+	sudo echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/${dirname}/ /" | sudo tee /etc/apt/sources.list.d/opensuse_devel_kubic_libcontainers_stable.list
+	sudo curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/${dirname}/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/opensuse_devel_kubic_libcontainers_stable.gpg > /dev/null
+	sudo apt-get -y update
+	sudo apt-get -y install buildah podman
+}
+
 while getopts ":?h" option
 do
 	case ${option} in
@@ -95,6 +114,9 @@ create)
 start)
 	check_deps
 	start
+	;;
+install)
+	install
 	;;
 *)
 	usage >&2
