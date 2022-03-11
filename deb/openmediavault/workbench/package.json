@@ -36,7 +36,7 @@
     "@angular/platform-browser-dynamic": "^12.2.16",
     "@angular/router": "^12.2.16",
     "@biesbjerg/ngx-translate-extract-marker": "^1.0.0",
-    "@fontsource/inter": "^4.5.4",
+    "@fontsource/inter": "^4.5.5",
     "@fontsource/roboto-mono": "^4.5.3",
     "@mdi/angular-material": "^6.5.95",
     "@ngx-translate/core": "13.0.0",
@@ -98,7 +98,7 @@
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-scss": "^3.21.0",
-    "ts-node": "^10.6.0",
+    "ts-node": "^10.7.0",
     "typescript": "~4.3.5"
   }
 }
