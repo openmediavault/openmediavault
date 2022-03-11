@@ -2,6 +2,9 @@ openmediavault (6.0.17-1) unstable; urgency=low
 
   * Display a hint on the performance statistic pages when the
     system monitoring is disabled.
+  * Disable MX lookup by default when sending emails.
+    This can be enabled by setting the environment variable
+    OMV_POSTFIX_MAIN_RELAYHOST_MXLOOKUP_ENABLE to 'yes'.
   * Issue #1236: Reduce CPU utilization on login page.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 05 Mar 2022 23:43:56 +0100

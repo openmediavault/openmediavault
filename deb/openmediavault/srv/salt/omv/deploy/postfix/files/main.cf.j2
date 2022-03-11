@@ -17,11 +17,12 @@
 {%- set alias_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_ALIAS_MAPS', 'hash:/etc/aliases') -%}
 {%- set transport_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_TRANSPORT_MAPS', 'hash:/etc/postfix/transport') -%}
 {%- set message_size_limit = salt['pillar.get']('default:OMV_POSTFIX_MAIN_MESSAGE_SIZE_LIMIT', 10240000) -%}
-{%- set throttling_enabled = salt['pillar.get']('default:OMV_POSTFIX_MAIN_THROTTLING_ENABLED', 'yes') -%}
+{%- set throttling_enable = salt['pillar.get']('default:OMV_POSTFIX_MAIN_THROTTLING_ENABLE', 'yes') -%}
 {%- set default_destination_concurrency_limit = salt['pillar.get']('default:OMV_POSTFIX_MAIN_DEFAULT_DESTINATION_CONCURRENCY_LIMIT', 2) -%}
 {%- set default_destination_rate_delay = salt['pillar.get']('default:OMV_POSTFIX_MAIN_DEFAULT_DESTINATION_RATE_DELAY', '1s') -%}
-{%- set smtputf8_enable = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTPUTF8_ENABLED', 'no') -%}
+{%- set smtputf8_enable = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTPUTF8_ENABLE', 'no') -%}
 {%- set default_transport = salt['pillar.get']('default:OMV_POSTFIX_MAIN_DEFAULT_TRANSPORT', 'smtp') -%}
+{%- set relayhost_mxlookup_enable = salt['pillar.get']('default:OMV_POSTFIX_MAIN_RELAYHOST_MXLOOKUP_ENABLE', 'no') -%}
 {{ pillar['headers']['multiline'] }}
 compatibility_level = {{ compatibility_level }}
 {%- if grains['domain'] | length > 0 %}
@@ -32,7 +33,7 @@ inet_interfaces = {{ inet_interfaces }}
 {%- if not salt['omv_utils.is_ipv6_enabled']() %}
 inet_protocols = ipv4
 {%- endif %}
-relayhost = {{ config.server }}:{{ config.port }}
+relayhost = {% if not relayhost_mxlookup_enable | to_bool %}[{% endif %}{{ config.server }}{% if not relayhost_mxlookup_enable | to_bool %}]{% endif %}:{{ config.port }}
 sender_canonical_maps = regexp:{{ sender_canonical_maps }}
 sender_bcc_maps = hash:{{ sender_bcc_maps }}
 recipient_canonical_maps = hash:{{ recipient_canonical_maps }}
@@ -55,7 +56,7 @@ smtp_header_checks = regexp:{{ smtp_header_checks }}
 alias_maps = {{ alias_maps }}
 transport_maps = {{ transport_maps }}
 message_size_limit = {{ message_size_limit }}
-{%- if throttling_enabled | to_bool %}
+{%- if throttling_enable | to_bool %}
 default_destination_concurrency_limit = {{ default_destination_concurrency_limit }}
 default_destination_rate_delay = {{ default_destination_rate_delay }}
 {%- endif %}
