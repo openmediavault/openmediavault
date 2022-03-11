@@ -223,7 +223,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
             }
           });
           const dialog = this.dialogService.open(TaskDialogComponent, {
-            width: _.get(taskDialog.config, 'width', '50%'),
+            width: _.get(taskDialog.config, 'width', '75%'),
             data: _.omit(taskDialog.config, ['width'])
           });
           dialog.afterClosed().subscribe((res) => {

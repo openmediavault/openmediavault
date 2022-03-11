@@ -287,7 +287,7 @@ export class FormPageComponent
             }
           });
           const dialog = this.dialogService.open(TaskDialogComponent, {
-            width: _.get(taskDialog.config, 'width', '50%'),
+            width: _.get(taskDialog.config, 'width', '75%'),
             data: _.omit(taskDialog.config, ['width'])
           });
           // Navigate to the specified URL if pressed button returns `true`.
