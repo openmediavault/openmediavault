@@ -99,10 +99,10 @@ msgid "Traps"
 msgstr "Pułapki"
 
 msgid "Updated SNMP settings."
-msgstr ""
+msgstr "Zaktualizowane ustawienia SNMP"
 
 msgid "User name"
-msgstr ""
+msgstr "Nazwa użytkownika"
 
 msgid "Username"
 msgstr "Nazwa użytkownika"
