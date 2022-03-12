@@ -32,8 +32,9 @@ Usage:
 
 Available Commands:
   create      Create but do not start the build environment
+  remove      Remove the build environment
   start       Start the build environment
-  install     Install all dependencies
+  install     Install all dependencies to create the build environment
 
 Options:
   -h, --help  Show this message.
@@ -55,7 +56,7 @@ check_deps() {
 create() {
 	ctr=$(buildah from docker.io/library/debian:bullseye)
 	buildah run ${ctr} /bin/sh -c 'apt -y update'
-	buildah run ${ctr} /bin/sh -c 'apt -y install zsh bash-completion fakeroot debhelper gettext doxygen make npm'
+	buildah run ${ctr} /bin/sh -c 'apt -y install zsh bash-completion fakeroot debhelper gettext doxygen make npm nano debian-keyring devscripts'
 	buildah run ${ctr} /bin/sh -c '
 cat <<EOF >> ~/.inputrc
 "\C-[OA": history-search-backward
@@ -67,6 +68,10 @@ EOF
 	# buildah config --entrypoint '/bin/zsh' ${ctr}
 	buildah config --workingdir '/srv/openmediavault' ${ctr}
 	buildah commit ${ctr} ${imgname}
+}
+
+remove() {
+	podman rmi --force ${imgname}
 }
 
 start() {
@@ -110,6 +115,10 @@ case $@ in
 create)
 	check_deps
 	create
+	;;
+remove)
+	check_deps
+	remove
 	;;
 start)
 	check_deps
