@@ -48,7 +48,8 @@ export class InterfaceDetailsFormPageComponent {
         type: 'textInput',
         name: 'ether',
         label: gettext('Hardware Address'),
-        disabled: true
+        disabled: true,
+        hasCopyToClipboardButton: true
       },
       {
         type: 'textInput',
@@ -70,7 +71,8 @@ export class InterfaceDetailsFormPageComponent {
         type: 'textInput',
         name: 'address',
         label: gettext('Address'),
-        disabled: true
+        disabled: true,
+        hasCopyToClipboardButton: true
       },
       {
         type: 'textInput',
@@ -92,7 +94,8 @@ export class InterfaceDetailsFormPageComponent {
         type: 'textInput',
         name: 'address6',
         label: gettext('Address'),
-        disabled: true
+        disabled: true,
+        hasCopyToClipboardButton: true
       },
       {
         type: 'textInput',
