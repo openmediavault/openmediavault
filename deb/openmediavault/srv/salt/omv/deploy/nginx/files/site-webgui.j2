@@ -4,7 +4,6 @@
 {%- set client_max_body_size = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_CLIENT_MAX_BODY_SIZE', '25M') -%}
 {%- set log_dir = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_LOG_DIR', '/var/log/nginx') -%}
 {%- set error_log_level = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_LOGLEVEL', 'error') -%}
-{%- set expires = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_CONTENT_EXPIRES', '2d') -%}
 {%- set fastcgi_read_timeout = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_FASTCGI_READ_TIMEOUT', '60s') -%}
 {%- set fastcgi_param_script_filename = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_FASTCGI_PARAM_SCRIPT_FILENAME', '$document_root$fastcgi_script_name') -%}
 {%- set ssl_cert_dir = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_DIR', '/etc/ssl') -%}
