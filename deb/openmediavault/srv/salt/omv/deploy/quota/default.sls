@@ -91,13 +91,13 @@ quota_on_{{ fsuuid }}:
 {% for usrquota in quota.usrquota %}
 quota_set_user_{{ fsuuid }}_{{ usrquota.name }}:
   cmd.run:
-    - name: setquota --user {{ usrquota.name }} {{ usrquota.bsoftlimit }} {{ usrquota.bhardlimit }} {{ usrquota.isoftlimit }} {{ usrquota.ihardlimit }} {{ device }}
+    - name: setquota --user '{{ usrquota.name }}' {{ usrquota.bsoftlimit }} {{ usrquota.bhardlimit }} {{ usrquota.isoftlimit }} {{ usrquota.ihardlimit }} {{ device }}
 {% endfor %}
 
 {% for grpquota in quota.grpquota %}
 quota_set_group_{{ fsuuid }}_{{ grpquota.name }}:
   cmd.run:
-    - name: setquota --group {{ grpquota.name }} {{ grpquota.bsoftlimit }} {{ grpquota.bhardlimit }} {{ grpquota.isoftlimit }} {{ grpquota.ihardlimit }} {{ device }}
+    - name: setquota --group '{{ grpquota.name }}' {{ grpquota.bsoftlimit }} {{ grpquota.bhardlimit }} {{ grpquota.isoftlimit }} {{ grpquota.ihardlimit }} {{ device }}
 {% endfor %}
 
 {% endif %}

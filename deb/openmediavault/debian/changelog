@@ -1,6 +1,6 @@
 openmediavault (6.0.18-1) unstable; urgency=low
 
-  *
+  * Quote names in quota SLS to support blanks in user/group names.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 14 Mar 2022 21:02:13 +0100
 
