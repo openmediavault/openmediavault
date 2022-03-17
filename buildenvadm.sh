@@ -21,7 +21,7 @@
 
 set -e
 
-imgname=omv-pkgbuildenv
+name=omv-pkgbuildenv
 
 usage() {
 	cat <<EOF
@@ -67,17 +67,19 @@ EOF
 '
 	# buildah config --entrypoint '/bin/zsh' ${ctr}
 	buildah config --workingdir '/srv/openmediavault' ${ctr}
-	buildah commit ${ctr} ${imgname}
+	buildah commit ${ctr} ${name}
 }
 
 remove() {
-	podman rmi --force ${imgname}
+	podman rm --ignore ${name}
+	podman image rm ${name}
 }
 
 start() {
 	podman run --interactive --tty \
 		--volume ./deb:/srv/openmediavault \
-		${imgname} \
+		--name ${name} \
+		${name} \
 		/bin/zsh
 }
 
