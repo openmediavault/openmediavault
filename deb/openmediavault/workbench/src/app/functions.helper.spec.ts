@@ -92,6 +92,22 @@ describe('functions.helper', () => {
     ).toBe('Unknown');
   });
 
+  it('should format string [5]', () => {
+    const data = {
+      port: 1234,
+      location: {
+        protocol: 'http:',
+        hostname: 'foo'
+      }
+    };
+    expect(
+      format(
+        '/externalRedirect/{{ [location | get("protocol"), "//", location | get("hostname"), ":", port] | join | encodeuricomponent }}',
+        data
+      )
+    ).toBe('/externalRedirect/http%3A%2F%2Ffoo%3A1234');
+  });
+
   it('should format deep [1]', () => {
     const data = { foo: { bar: 'xyz' } };
     expect(formatDeep('My name is {{ foo.bar }}', data)).toEqual('My name is xyz');

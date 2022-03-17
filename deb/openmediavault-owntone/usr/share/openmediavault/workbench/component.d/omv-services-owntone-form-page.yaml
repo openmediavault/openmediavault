@@ -1,0 +1,78 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-owntone-form-page
+  type: formPage
+  config:
+    request:
+      service: OwnTone
+      get:
+        method: get
+      post:
+        method: set
+    fields:
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: numberInput
+        name: port
+        label: _("Port")
+        hint: _("Port to listen on.")
+        value: 3689
+        validators:
+          min: 1
+          max: 65535
+          patternType: port
+          required: true
+      - type: textInput
+        name: libraryname
+        label: _("Library name")
+        hint: _("The name of the library as displayed by the clients.")
+        value: ""
+        validators:
+          required: true
+      - type: passwordInput
+        name: password
+        label: _("Password")
+        hint: _("The password to access the library.")
+        autocomplete: new-password
+        value: ""
+      - type: divider
+        title: _("Web interface")
+      - type: passwordInput
+        name: adminpassword
+        label: _("Password")
+        hint: _("The 'admin' password to access the web interface.")
+        autocomplete: new-password
+        value: ""
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+      - type: sharedFolderSelect
+        name: sharedfolderref
+        label: _("Shared folder")
+        hint: _("The location of the media files to share. Make sure the user <em>owntone</em> or group <em>users</em> can access the files.")
+        hasEmptyOption: true
+        value: ""
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+    buttons:
+      - text: _("Open UI")
+        enabledConstraint:
+          operator: "truthy"
+          arg0:
+            prop: "enable"
+        execute:
+          type: url
+          url: "/externalRedirect/{{ ['http://', location() | get('hostname'), ':', port] | join | encodeuricomponent }}"
+      - template: cancel
+        execute:
+          type: url
+          url: "/services"
+      - template: submit

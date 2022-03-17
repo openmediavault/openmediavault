@@ -1,0 +1,79 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2022 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+	configure)
+		####################################################################
+		# Create the user 'owntone' which is used to run the container.
+		# Use a 'system' user because of the following reasons:
+		# - These users are not managed in the UI, thus it can't be deleted
+		#   by accident.
+		# - The user is nevertheless listed in the ACL dialog.
+		####################################################################
+		if ! omv_user_id_exists owntone; then
+			echo "Adding 'owntone' user ..."
+			useradd --system --no-user-group --no-create-home \
+				--shell '/usr/sbin/nologin' --groups 'users' \
+				owntone
+		fi
+
+		########################################################################
+		# Activate trigger to rebuild workbench configuration files.
+		########################################################################
+		dpkg-trigger update-workbench
+
+		########################################################################
+		# Initialize and migrate configuration database.
+		########################################################################
+		echo "Updating configuration database ..."
+		omv-confdbadm create "conf.service.owntone"
+		if [ -n "$2" ]; then
+			omv-confdbadm migrate "conf.service.owntone" "${2}"
+		fi
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		echo "Updating configuration ..."
+
+		########################################################################
+		# Restart service if necessary.
+		########################################################################
+		if [ -n "$2" ]; then
+		  deb-systemd-invoke restart container-owntone.service || true
+		fi
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0
