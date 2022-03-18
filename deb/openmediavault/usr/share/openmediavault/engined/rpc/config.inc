@@ -38,6 +38,9 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("applyChangesBg");
 		$this->registerMethod("revertChanges");
 		$this->registerMethod("revertChangesBg");
+		$this->registerMethod("get");
+		$this->registerMethod("set");
+		$this->registerMethod("delete");
 	}
 
 	/**
@@ -227,5 +230,66 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function revertChangesBg($params, $context) {
 		return $this->callMethodBg("revertChanges", $params, $context);
+	}
+
+	/**
+	 * Get a configuration object.
+	 * @param params An array containing the following fields:
+	 *   \em id The data model identifier, e.g. 'conf.service.ftp'.
+	 *   \em uuid The UUID of an configuration object. Defaults to NULL.
+	 * @param context The context of the caller.
+	 * @return Depending on the configuration object and whether \em uuid
+	 *   is set, an array of configuration objects or a single object is
+	 *   returned.
+	 */
+	function get($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$this->validateMethodParams($params, "rpc.config.get");
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc(array_value($params, "id"),
+			array_value($params, "uuid"));
+	}
+
+	/**
+	 * Set a configuration object.
+	 * @param params An array containing the following fields:
+	 *   \em id The data model identifier, e.g. 'conf.service.ftp'.
+	 *   \em data The associative array of key/value pairs.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 */
+	function set($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$this->validateMethodParams($params, "rpc.config.set");
+		$db = \OMV\Config\Database::getInstance();
+		$uuid = array_value($params['data'], "uuid");
+		$object = $db->get(array_value($params, "id"), $uuid);
+		$object->setAssoc(array_value($params, "data"));
+		$db->set($object);
+		return $object->getAssoc();
+	}
+
+	/**
+	 * Delete a configuration object.
+	 * @param params An array containing the following fields:
+	 *   \em id The data model identifier, e.g. 'conf.service.ftp'.
+	 *   \em uuid The UUID of an configuration object. Defaults to NULL.
+	 * @param context The context of the caller.
+	 * @return The deleted configuration object.
+	 */
+	public function delete($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$this->validateMethodParams($params, "rpc.config.delete");
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get(array_value($params, "id"),
+			array_value($params, "uuid"));
+		$db->delete($object);
+		return $object->getAssoc();
 	}
 }

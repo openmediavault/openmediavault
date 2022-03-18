@@ -29,4 +29,55 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.config.get",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"required": true
+			},
+			"uuid": {
+			    "type": "string",
+			    "format": "uuidv4",
+			    "required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.config.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"required": true
+			},
+			"data": {
+			    "type": "object",
+				"properties": {},
+			    "required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.config.delete",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"required": true
+			},
+			"uuid": {
+			    "type": "string",
+			    "format": "uuidv4",
+			    "required": false
+			}
+		}
+	}
 }]
