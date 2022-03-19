@@ -1,0 +1,88 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-photoprism-form-page
+  type: formPage
+  config:
+    request:
+      service: PhotoPrism
+      get:
+        method: get
+      post:
+        method: set
+    fields:
+      - type: hint
+        text: _("Use the <em>admin:admin</em> credentials when logging in for the first time. Please do not forget to change the password immediately.")
+        dismissible: true
+        stateId: 76f127fb-092d-43af-8479-c035da5e0ba3
+      - type: hint
+        text: _("Please note that the first deployment of the application can take a long time because the container images have to be downloaded first.")
+        dismissible: true
+        stateId: 54b4d4ce-1fe0-44d9-9c6e-33a40a7e31c2
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: numberInput
+        name: port
+        label: _("Port")
+        hint: _("Port to listen on.")
+        value: 2342
+        validators:
+          min: 1
+          max: 65535
+          patternType: port
+          required: true
+      - type: checkbox
+        name: readonly
+        label: _("Read-only")
+        value: false
+        hint: _("If enabled, all features that require write permission to the images folder are disabled, in particular import, upload, and delete.")
+      - type: sharedFolderSelect
+        name: originals_sharedfolderref
+        label: _("Images")
+        hint: _("The location of the media files. Make sure the user <em>photoprism</em> or group <em>users</em> can access the files.")
+        hasEmptyOption: true
+        value: ""
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+      - type: sharedFolderSelect
+        name: appdata_sharedfolderref
+        label: _("Application data")
+        hint: _("The location where to store the application data.")
+        hasEmptyOption: true
+        value: ""
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+      - type: sharedFolderSelect
+        name: import_sharedfolderref
+        label: _("Import")
+        hint: _("You may optionally mount an import folder from which files can be transferred to the originals folder in a structured way that avoids duplicates. Make sure the user <em>photoprism</em> or group <em>users</em> can access the files.")
+        hasEmptyOption: true
+        value: ""
+        modifiers:
+          - type: disabled
+            constraint:
+              operator: truthy
+              arg0:
+                prop: readonly
+    buttons:
+      - text: _("Open UI")
+        enabledConstraint:
+          operator: "truthy"
+          arg0:
+            prop: "enable"
+        execute:
+          type: url
+          url: "/externalRedirect/{{ ['http://', location() | get('hostname'), ':', port] | join | encodeuricomponent }}"
+      - template: cancel
+        execute:
+          type: url
+          url: "/services"
+      - template: submit

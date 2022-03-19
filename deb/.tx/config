@@ -82,3 +82,8 @@ source_lang = en
 file_filter = openmediavault-wetty/usr/share/openmediavault/locale/<lang>/openmediavault-wetty.po
 source_file = openmediavault-wetty/usr/share/openmediavault/locale/openmediavault-wetty.pot
 source_lang = en
+
+[openmediavault.openmediavault-photoprism]
+file_filter = openmediavault-photoprism/usr/share/openmediavault/locale/<lang>/openmediavault-photoprism.po
+source_file = openmediavault-photoprism/usr/share/openmediavault/locale/openmediavault-photoprism.pot
+source_lang = en
