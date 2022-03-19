@@ -33,6 +33,7 @@ export type FormFieldConfig = {
   // | hidden      | A hidden form field.                                 |
   // | paragraph   | Displays a title.                                    |
   // | divider     | Displays a horizontal line and an optional title.    |
+  // | hint        | Displays a text and an icon.                         |
   // | ...         | ...                                                  |
   // | container   | Align child fields in horizontal order.              |
   // '--------------------------------------------------------------------'
@@ -58,7 +59,8 @@ export type FormFieldConfig = {
     | 'datePicker'
     | 'datatable'
     | 'slider'
-    | 'container';
+    | 'container'
+    | 'hint';
   name?: string;
   label?: string;
   placeholder?: string;
@@ -163,7 +165,7 @@ export type FormFieldConfig = {
   // Specifies the size of the field in percent.
   flex?: number;
 
-  // --- button ---
+  // --- button | hint ---
   text?: string;
 
   // --- button | iconButton ---
@@ -284,6 +286,9 @@ export type FormFieldConfig = {
   actions?: Array<MatFormDatatableAction>;
   // Specifies the type of the array items. Defaults to `object`.
   valueType?: 'string' | 'integer' | 'number' | 'object';
+
+  // --- hint ---
+  hintType?: 'info' | 'warning';
 };
 
 export type FormFieldConstraintValidator = {

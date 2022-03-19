@@ -1,0 +1,5 @@
+<omv-alert-panel class="omv-form-hint"
+                 [type]="config.hintType"
+                 [hasTitle]="false">
+  <span [innerHtml]="config.text | translate | nl2br | sanitizeHtml"></span>
+</omv-alert-panel>

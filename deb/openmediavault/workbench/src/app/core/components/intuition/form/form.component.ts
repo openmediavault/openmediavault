@@ -160,6 +160,11 @@ export class FormComponent implements AfterViewInit, OnInit {
             wrap: 'soft'
           });
           break;
+        case 'hint':
+          _.defaultsDeep(field, {
+            hintType: 'info'
+          });
+          break;
       }
     });
     // Populate the data model identifier field.
