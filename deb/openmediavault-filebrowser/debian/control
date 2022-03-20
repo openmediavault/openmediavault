@@ -1,0 +1,17 @@
+Source: openmediavault-filebrowser
+Section: net
+XB-Plugin-Section: utilities
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gettext
+Standards-Version: 3.9.6
+Homepage: http://www.openmediavault.org
+
+Package: openmediavault-filebrowser
+Architecture: all
+Depends: openmediavault (>= 6.0.18), podman
+Priority: optional
+Description: openmediavault File Browser plugin
+ File Browser provides a file managing interface within a specified
+ directory and it can be used to upload, delete, preview, rename and
+ edit your files.

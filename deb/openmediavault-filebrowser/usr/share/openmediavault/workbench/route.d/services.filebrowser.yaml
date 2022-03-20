@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/filebrowser"
+  title: _("File Browser")
+  editing: true
+  notificationTitle: _("Updated File Browser settings.")
+  component: omv-services-filebrowser-form-page

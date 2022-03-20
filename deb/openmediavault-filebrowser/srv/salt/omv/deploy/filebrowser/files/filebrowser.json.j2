@@ -1,0 +1,13 @@
+{%- set webadmin_config = salt['omv_conf.get']('conf.webadmin') -%}
+{
+  "port": {{ config.port }},
+  "baseURL": "",
+  "address": "",
+{%- if webadmin_config.enablessl | to_bool %}
+  "cert": "/ssl.crt",
+  "key": "/ssl.key",
+{%- endif %}
+  "log": "stdout",
+  "database": "/database.db",
+  "root": "/srv"
+}
