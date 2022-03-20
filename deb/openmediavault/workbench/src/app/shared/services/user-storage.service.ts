@@ -40,11 +40,13 @@ export class UserStorageService {
   clear() {
     const username = this.authSessionService.getUsername();
     const numKeys = localStorage.length;
+    const keys = [];
     for (let i = 0; i < numKeys; i++) {
       const key = localStorage.key(i);
       if (_.startsWith(key, `${username}@`)) {
-        localStorage.removeItem(key);
+        keys.push(key);
       }
     }
+    _.forEach(keys, (key) => localStorage.removeItem(key));
   }
 }
