@@ -289,6 +289,8 @@ export type FormFieldConfig = {
 
   // --- hint ---
   hintType?: 'info' | 'warning';
+  dismissible?: boolean;
+  stateId?: string;
 };
 
 export type FormFieldConstraintValidator = {

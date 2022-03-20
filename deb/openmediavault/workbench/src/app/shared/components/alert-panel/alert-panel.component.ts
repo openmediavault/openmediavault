@@ -20,6 +20,7 @@ import * as _ from 'lodash';
 
 import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
+import { UserStorageService } from '~/app/shared/services/user-storage.service';
 
 @Component({
   selector: 'omv-alert-panel',
@@ -33,14 +34,34 @@ export class AlertPanelComponent implements OnInit {
   @Input()
   hasTitle = true;
 
+  @Input()
+  dismissible = false;
+
+  // An identifier, e.g. a UUID, which identifies this alert panel
+  // uniquely. This is used to store/restore the dismissed state.
+  @Input()
+  stateId: string;
+
   // Internal
   public icon: string;
   public title: string;
+  public dismissed = false;
 
-  constructor() {}
+  constructor(private userStorageService: UserStorageService) {}
 
   ngOnInit(): void {
+    if (this.dismissible && this.stateId) {
+      this.dismissed =
+        'dismiss' === this.userStorageService.get(`alertpanel_state_${this.stateId}`, '');
+    }
     this.sanitizeConfig();
+  }
+
+  close(): void {
+    this.dismissed = true;
+    if (this.stateId) {
+      this.userStorageService.set(`alertpanel_state_${this.stateId}`, 'dismiss');
+    }
   }
 
   protected sanitizeConfig() {

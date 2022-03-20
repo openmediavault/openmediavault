@@ -162,7 +162,8 @@ export class FormComponent implements AfterViewInit, OnInit {
           break;
         case 'hint':
           _.defaultsDeep(field, {
-            hintType: 'info'
+            hintType: 'info',
+            dismissible: false
           });
           break;
       }

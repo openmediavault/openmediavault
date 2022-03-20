@@ -1,4 +1,6 @@
 <omv-alert-panel [type]="config.hintType"
-                 [hasTitle]="false">
+                 [hasTitle]="false"
+                 [dismissible]="config.dismissible"
+                 [stateId]="config.stateId">
   <span [innerHtml]="config.text | translate | nl2br | sanitizeHtml"></span>
 </omv-alert-panel>
