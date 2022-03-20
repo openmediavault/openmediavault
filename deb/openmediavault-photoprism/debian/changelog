@@ -1,4 +1,10 @@
-openmediavault-photoprism (6.0-4) unstable; urgency=low
+openmediavault-photoprism (6.0.1-1) unstable; urgency=low
+
+  * Add SSL support.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 28 Mar 2022 19:04:45 +0200
+
+openmediavault-photoprism (6.0-3) unstable; urgency=low
 
   * Internal release
 

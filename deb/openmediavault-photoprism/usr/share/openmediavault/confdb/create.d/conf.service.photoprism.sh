@@ -30,6 +30,7 @@ set -e
 #     <photoprism>
 #       <enable>0|1</enable>
 #       <port>2342</port>
+#       <sslcertificateref></sslcertificateref>
 #       <readonly>0|1</readonly>
 #       <originals_sharedfolderref></originals_sharedfolderref>
 #       <appdata_sharedfolderref></appdata_sharedfolderref>
@@ -42,6 +43,7 @@ if ! omv_config_exists "/config/services/photoprism"; then
 	omv_config_add_node "/config/services" "photoprism"
 	omv_config_add_key "/config/services/photoprism" "enable" "0"
 	omv_config_add_key "/config/services/photoprism" "port" "2342"
+	omv_config_add_key "/config/services/photoprism" "sslcertificateref" ""
 	omv_config_add_key "/config/services/photoprism" "readonly" "0"
 	omv_config_add_key "/config/services/photoprism" "originals_sharedfolderref" ""
 	omv_config_add_key "/config/services/photoprism" "appdata_sharedfolderref" ""

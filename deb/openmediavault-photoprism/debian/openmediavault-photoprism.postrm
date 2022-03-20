@@ -29,6 +29,7 @@ remove_action() {
   echo "Removing systemd unit files ..."
   rm -rf /etc/systemd/system/container-photoprism-app.service
   rm -rf /etc/systemd/system/container-photoprism-db.service
+  rm -rf /etc/systemd/system/container-photoprism-proxy.service
   rm -rf /etc/systemd/system/pod-photoprism.service
   systemctl --system daemon-reload || true
 	# Activate trigger to rebuild workbench configuration files.

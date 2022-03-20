@@ -26,6 +26,7 @@
 # cat /config/log/nginx/error.log
 # podman logs -f photoprism-app
 # podman logs -f photoprism-db
+# podman logs -f photoprism-proxy
 
 {% set config = salt['omv_conf.get']('conf.service.photoprism') %}
 {% set appdata_sf_path = salt['omv_conf.get_sharedfolder_path'](config.appdata_sharedfolderref) %}
@@ -37,6 +38,10 @@ create_photoprism_appdata_storage_dir:
 create_photoprism_appdata_db_dir:
   file.directory:
     - name: "{{ appdata_sf_path }}/db/"
+
+create_photoprism_appdata_proxy_dir:
+  file.directory:
+    - name: "{{ appdata_sf_path }}/proxy/"
 
 create_photoprism_app_container_systemd_unit_file:
   file.managed:
@@ -62,6 +67,18 @@ create_photoprism_db_container_systemd_unit_file:
     - group: root
     - mode: 644
 
+create_photoprism_proxy_container_systemd_unit_file:
+  file.managed:
+    - name: "/etc/systemd/system/container-photoprism-proxy.service"
+    - source:
+      - salt://{{ tpldir }}/files/container-photoprism-proxy.service.j2
+    - template: jinja
+    - context:
+        config: {{ config | json }}
+    - user: root
+    - group: root
+    - mode: 644
+
 create_photoprism_pod_systemd_unit_file:
   file.managed:
     - name: "/etc/systemd/system/pod-photoprism.service"
@@ -69,7 +86,7 @@ create_photoprism_pod_systemd_unit_file:
       - salt://{{ tpldir }}/files/pod-photoprism.service.j2
     - template: jinja
     - context:
-        port: {{ config.port }}
+        config: {{ config | json }}
     - user: root
     - group: root
     - mode: 644
@@ -82,6 +99,7 @@ photoprism_systemctl_daemon_reload:
 
 {% set app_image = salt['pillar.get']('default:OMV_PHOTOPRISM_APP_CONTAINER_IMAGE', 'docker.io/photoprism/photoprism:latest') %}
 {% set db_image = salt['pillar.get']('default:OMV_PHOTOPRISM_DB_CONTAINER_IMAGE', 'docker.io/mariadb:latest') %}
+{% set proxy_image = salt['pillar.get']('default:OMV_PHOTOPRISM_PROXY_CONTAINER_IMAGE', 'docker.io/library/traefik:latest') %}
 
 photoprism_pull_app_image:
   cmd.run:
@@ -95,6 +113,34 @@ photoprism_pull_db_image:
     - unless: podman image exists {{ db_image }}
     - failhard: True
 
+photoprism_pull_proxy_image:
+  cmd.run:
+    - name: podman pull {{ proxy_image }}
+    - unless: podman image exists {{ proxy_image }}
+    - failhard: True
+
+configure_traefik:
+  file.managed:
+    - name: "{{ appdata_sf_path }}/proxy/traefik.yml"
+    - source:
+      - salt://{{ tpldir }}/files/traefik.yml.j2
+    - template: jinja
+    - user: root
+    - group: root
+    - mode: 644
+
+configure_dynamic_conf:
+  file.managed:
+    - name: "{{ appdata_sf_path }}/proxy/dynamic-conf.yml"
+    - source:
+      - salt://{{ tpldir }}/files/dynamic-conf.yml.j2
+    - template: jinja
+    - context:
+        config: {{ config | json }}
+    - user: root
+    - group: root
+    - mode: 644
+
 start_photoprism_service:
   service.running:
     - name: pod-photoprism
@@ -103,6 +149,9 @@ start_photoprism_service:
       - file: create_photoprism_pod_systemd_unit_file
       - file: create_photoprism_app_container_systemd_unit_file
       - file: create_photoprism_db_container_systemd_unit_file
+      - file: create_photoprism_proxy_container_systemd_unit_file
+      - file: configure_traefik
+      - file: configure_dynamic_conf
 
 {% else %}
 

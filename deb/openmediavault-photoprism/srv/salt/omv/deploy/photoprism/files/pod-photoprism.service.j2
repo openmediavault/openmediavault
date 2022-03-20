@@ -3,15 +3,15 @@
 Description=Podman pod-photoprism.service
 Wants=network.target
 After=network-online.target
-Requires=container-photoprism-db.service container-photoprism-app.service
-Before=container-photoprism-db.service container-photoprism-app.service
+Requires=container-photoprism-db.service container-photoprism-app.service container-photoprism-proxy.service
+Before=container-photoprism-db.service container-photoprism-app.service container-photoprism-proxy.service
 
 [Service]
 Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/pod-photoprism.pid %t/pod-photoprism.pod-id
-ExecStartPre=/usr/bin/podman pod create --infra-conmon-pidfile %t/pod-photoprism.pid --pod-id-file %t/pod-photoprism.pod-id --name=photoprism -p {{ port }}:2342 --replace
+ExecStartPre=/usr/bin/podman pod create --infra-conmon-pidfile %t/pod-photoprism.pid --pod-id-file %t/pod-photoprism.pod-id --name=photoprism -p {{ config.port }}:2342 --replace
 ExecStart=/usr/bin/podman pod start --pod-id-file %t/pod-photoprism.pod-id
 ExecStop=/usr/bin/podman pod stop --ignore --pod-id-file %t/pod-photoprism.pod-id
 ExecStopPost=/usr/bin/podman pod rm --ignore -f --pod-id-file %t/pod-photoprism.pod-id

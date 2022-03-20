@@ -33,6 +33,12 @@ data:
           max: 65535
           patternType: port
           required: true
+      - type: sslCertSelect
+        name: sslcertificateref
+        label: _("Certificate")
+        hint: _("The SSL certificate.")
+        hasEmptyOption: true
+        value: ""
       - type: checkbox
         name: readonly
         label: _("Read-only")
@@ -80,7 +86,7 @@ data:
             prop: "enable"
         execute:
           type: url
-          url: "/externalRedirect/{{ ['http://', location() | get('hostname'), ':', port] | join | encodeuricomponent }}"
+          url: "/externalRedirect/{% if sslcertificateref %}https{% else %}http{% endif %}{{ ['://', location() | get('hostname'), ':', port] | join | encodeuricomponent }}"
       - template: cancel
         execute:
           type: url

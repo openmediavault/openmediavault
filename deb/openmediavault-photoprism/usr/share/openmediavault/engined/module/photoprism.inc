@@ -25,6 +25,10 @@ class PhotoPrism extends \OMV\Engine\Module\ServiceAbstract
 		return "photoprism";
 	}
 
+	public function deployAfter(): array {
+		return ["certificates"];
+	}
+
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.photoprism");
@@ -37,20 +41,28 @@ class PhotoPrism extends \OMV\Engine\Module\ServiceAbstract
 		];
 	}
 
-	/**
-	 * Helper function to find out whether the given shared folder
-	 * configuration object is used. If it is used, then mark the
-	 * module as dirty.
-	 * @param type The event message type.
-	 * @param path The event message path.
-	 * @param object The configuration object.
-	 */
 	final public function onModifySharedFolder($type, $path, $object) {
 		$db = \OMV\Config\Database::getInstance();
 		if (TRUE === $db->exists("conf.service.photoprism", [
-			"operator" => "stringEquals",
-			"arg0" => "sharedfolderref",
-			"arg1" => $object['uuid']
+			"operator" => "or",
+			"arg0" => [
+				"operator" => "stringEquals",
+				"arg0" => "originals_sharedfolderref",
+				"arg1" => $object['uuid']
+			],
+			"arg1" => [
+				"operator" => "or",
+				"arg0" => [
+					"operator" => "stringEquals",
+					"arg0" => "appdata_sharedfolderref",
+					"arg1" => $object['uuid']
+				],
+				"arg1" => [
+					"operator" => "stringEquals",
+					"arg0" => "import_sharedfolderref",
+					"arg1" => $object['uuid']
+				]
+			]
 		])) {
 			$this->setDirty();
 		}
