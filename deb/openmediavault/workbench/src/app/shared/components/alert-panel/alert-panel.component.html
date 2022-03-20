@@ -13,6 +13,7 @@
     <div *ngIf="dismissible"
          mat-ripple
          class="dismiss-button"
+         matTooltip="{{ 'Dismiss' | translate }}"
          (click)="close()">
       <mat-icon svgIcon="mdi:window-close"></mat-icon>
     </div>
