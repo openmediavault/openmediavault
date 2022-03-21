@@ -1,0 +1,31 @@
+{
+	"type": "config",
+	"id": "conf.service.wetty",
+	"title": "WeTTY (Web + TTY)",
+	"queryinfo": {
+		"xpath": "//services/wetty",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"port": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 2222
+		},
+		"sslcertificateref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		}
+	}
+}

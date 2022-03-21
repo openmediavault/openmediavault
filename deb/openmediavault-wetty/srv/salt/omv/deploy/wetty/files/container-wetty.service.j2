@@ -1,0 +1,26 @@
+{%- set image = salt['pillar.get']('default:OMV_WETTY_CONTAINER_IMAGE', 'docker.io/wettyoss/wetty:latest') -%}
+{%- if wetty_config.sslcertificateref | length > 0 -%}
+{%- set ssl_cert_dir = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_DIR', '/etc/ssl') -%}
+{%- set ssl_cert_prefix = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_PREFIX', 'openmediavault') -%}
+{%- set ssl_cert = ssl_cert_dir | path_join('certs', ssl_cert_prefix ~ wetty_config.sslcertificateref ~ '.crt') -%}
+{%- set ssl_key = ssl_cert_dir | path_join('private', ssl_cert_prefix ~ wetty_config.sslcertificateref ~ '.key') -%}
+{%- endif -%}
+{{ pillar['headers']['multiline'] -}}
+[Unit]
+Description=WeTTY (Web + TTY) container
+Wants=network.target
+After=network-online.target
+
+[Service]
+Environment=PODMAN_SYSTEMD_UNIT=%n
+Restart=on-failure
+TimeoutStopSec=70
+ExecStartPre=/bin/rm -f %t/container-wetty.pid %t/container-wetty.ctr-id
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-wetty.pid --cidfile %t/container-wetty.ctr-id --cgroups=no-conmon -d --replace --name=wetty -p {{ wetty_config.port }}:3000 {% if wetty_config.sslcertificateref | length > 0 %}-v {{ ssl_cert }}:/cert.crt:ro -v {{ ssl_key }}:/cert.key:ro{% endif %} {{ image }} --force-ssh --ssh-port {{ ssh_config.port }} --ssh-host {{ dns_config.hostname }} --base "" {% if wetty_config.sslcertificateref | length > 0 %}--ssl-cert /cert.crt --ssl-key /cert.key{% endif %}
+ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-wetty.ctr-id
+ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-wetty.ctr-id
+PIDFile=%t/container-wetty.pid
+Type=forking
+
+[Install]
+WantedBy=multi-user.target default.target

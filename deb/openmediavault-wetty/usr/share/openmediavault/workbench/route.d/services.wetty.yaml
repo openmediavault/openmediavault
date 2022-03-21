@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/wetty"
+  title: _("WeTTY")
+  editing: true
+  notificationTitle: _("Updated WeTTY settings.")
+  component: omv-services-wetty-form-page

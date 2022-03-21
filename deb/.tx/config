@@ -77,3 +77,8 @@ source_lang = en
 file_filter = openmediavault-diskstats/usr/share/openmediavault/locale/<lang>/openmediavault-diskstats.po
 source_file = openmediavault-diskstats/usr/share/openmediavault/locale/openmediavault-diskstats.pot
 source_lang = en
+
+[openmediavault.openmediavault-wetty]
+file_filter = openmediavault-wetty/usr/share/openmediavault/locale/<lang>/openmediavault-wetty.po
+source_file = openmediavault-wetty/usr/share/openmediavault/locale/openmediavault-wetty.pot
+source_lang = en
