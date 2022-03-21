@@ -1,0 +1,14 @@
+:2342 {
+{% if config.sslcertificateref | length > 0 %}
+  tls /data/cert.crt /data/cert.key
+{% endif %}
+  header -Server
+  reverse_proxy http://photoprism-app:2384 {
+{% if config.sslcertificateref | length > 0 %}
+    header_down Strict-Transport-Security max-age=15768000
+{% endif %}
+    header_down X-Frame-Options "SAMEORIGIN"
+    header_down X-Content-Type-Options "nosniff"
+    header_down X-XSS-Protection "1; mode=block"
+  }
+}

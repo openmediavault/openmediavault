@@ -1,4 +1,4 @@
-{%- set image = salt['pillar.get']('default:OMV_PHOTOPRISM_PROXY_CONTAINER_IMAGE', 'docker.io/library/traefik:latest') -%}
+{%- set image = salt['pillar.get']('default:OMV_PHOTOPRISM_PROXY_CONTAINER_IMAGE', 'docker.io/library/caddy:latest') -%}
 {%- if config.sslcertificateref | length > 0 -%}
 {%- set ssl_cert_dir = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_DIR', '/etc/ssl') -%}
 {%- set ssl_cert_prefix = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_PREFIX', 'openmediavault') -%}
@@ -19,7 +19,7 @@ Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/container-photoprism-proxy.pid %t/container-photoprism-proxy.ctr-id
-ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-photoprism-proxy.pid --cidfile %t/container-photoprism-proxy.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-photoprism.pod-id -d --replace --pull=never --name=photoprism-proxy -v {{ appdata_path }}/proxy/:/etc/traefik/ -v {{ appdata_path }}/proxy/dynamic-conf.yml:/etc/traefik/dynamic-conf.yml {% if config.sslcertificateref | length > 0 %}-v {{ ssl_cert }}:/etc/traefik/cert.crt:ro -v {{ ssl_key }}:/etc/traefik/cert.key:ro{% endif %} {{ image }}
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-photoprism-proxy.pid --cidfile %t/container-photoprism-proxy.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-photoprism.pod-id -d --replace --pull=never --name=photoprism-proxy -v "{{ appdata_path }}/proxy/Caddyfile":/etc/caddy/Caddyfile:Z -v "{{ appdata_path }}/proxy/data/":/data/ {% if config.sslcertificateref | length > 0 %}-v "{{ ssl_cert }}":/data/cert.crt:ro -v "{{ ssl_key }}":/data/cert.key:ro{% endif %} {{ image }}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-photoprism-proxy.ctr-id
 ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-photoprism-proxy.ctr-id
 PIDFile=%t/container-photoprism-proxy.pid
