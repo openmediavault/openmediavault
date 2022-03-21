@@ -5,12 +5,6 @@
 {%- set uid = salt['user.info'](uname).uid -%}
 {%- set gid = salt['group.info'](gname).gid -%}
 {%- set sf_path = salt['omv_conf.get_sharedfolder_path'](config.sharedfolderref) -%}
-{%- if webadmin_config.enablessl | to_bool -%}
-{%- set ssl_cert_dir = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_DIR', '/etc/ssl') -%}
-{%- set ssl_cert_prefix = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_PREFIX', 'openmediavault') -%}
-{%- set ssl_cert = ssl_cert_dir | path_join('certs', ssl_cert_prefix ~ webadmin_config.sslcertificateref ~ '.crt') -%}
-{%- set ssl_key = ssl_cert_dir | path_join('private', ssl_cert_prefix ~ webadmin_config.sslcertificateref ~ '.key') -%}
-{%- endif -%}
 {{ pillar['headers']['multiline'] -}}
 [Unit]
 Description=File Browser container
@@ -22,7 +16,7 @@ Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/container-filebrowser.pid %t/container-filebrowser.ctr-id
-ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-filebrowser.pid --cidfile %t/container-filebrowser.ctr-id --cgroups=no-conmon -d --replace --name=filebrowser -p {{ config.port }}:{{ config.port }} -u {{ uid }}:{{ gid }} -v /var/cache/filebrowser/database.db:/database.db -v /var/cache/filebrowser/filebrowser.json:/.filebrowser.json -v "{{ sf_path }}":/srv/ {% if webadmin_config.enablessl | to_bool %}-v {{ ssl_cert }}:/ssl.crt:ro -v {{ ssl_key }}:/ssl.key:ro{% endif %} {{ image }}
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-filebrowser.pid --cidfile %t/container-filebrowser.ctr-id --cgroups=no-conmon -d --replace --name=filebrowser -p {{ config.port }}:{{ config.port }} -u {{ uid }}:{{ gid }} -v /var/cache/filebrowser/database.db:/database.db -v /var/cache/filebrowser/filebrowser.json:/.filebrowser.json -v "{{ sf_path }}":/srv/ {{ image }}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-filebrowser.ctr-id
 ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-filebrowser.ctr-id
 PIDFile=%t/container-filebrowser.pid

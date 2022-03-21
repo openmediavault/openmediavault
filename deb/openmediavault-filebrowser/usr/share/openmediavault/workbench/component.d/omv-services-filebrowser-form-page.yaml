@@ -48,7 +48,7 @@ data:
             prop: "enable"
         execute:
           type: url
-          url: "/externalRedirect/{{ [location() | get('protocol'), '//', location() | get('hostname'), ':', port] | join | encodeuricomponent }}"
+          url: "/externalRedirect/{{ ['http://', location() | get('hostname'), ':', port] | join | encodeuricomponent }}"
       - template: cancel
         execute:
           type: url
