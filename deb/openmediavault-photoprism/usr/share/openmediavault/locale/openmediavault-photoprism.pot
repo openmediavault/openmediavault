@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-photoprism\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-21 21:23+0000\n"
+"POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -99,6 +99,9 @@ msgid "Updated iTunes/DAAP settings."
 msgstr ""
 
 msgid "Use the <<strong>admin:photoprism</strong>> credentials when logging in for the first time. Please do not forget to change the password immediately."
+msgstr ""
+
+msgid "Use the <em>admin:admin</em> credentials when logging in for the first time. Please do not forget to change the password immediately."
 msgstr ""
 
 msgid "Use the <em>admin:photoprism</em> credentials when logging in for the first time. Please do not forget to change the password immediately."
