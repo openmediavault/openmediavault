@@ -1,0 +1,47 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-wetty-form-page
+  type: formPage
+  config:
+    request:
+      service: WeTTY
+      get:
+        method: get
+      post:
+        method: set
+    fields:
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: numberInput
+        name: port
+        label: _("Port")
+        hint: _("Port to listen on.")
+        value: 2222
+        validators:
+          min: 1
+          max: 65535
+          patternType: port
+          required: true
+      - type: sslCertSelect
+        name: sslcertificateref
+        label: _("Certificate")
+        hint: _("The SSL certificate.")
+        hasEmptyOption: true
+        value: ""
+    buttons:
+      - text: _("Open UI")
+        enabledConstraint:
+          operator: "truthy"
+          arg0:
+            prop: "enable"
+        execute:
+          type: url
+          url: "/externalRedirect/{% if sslcertificateref %}https{% else %}http{% endif %}{{ ['://', location() | get('hostname'), ':', port] | join | encodeuricomponent }}"
+      - template: cancel
+        execute:
+          type: url
+          url: "/services"
+      - template: submit
