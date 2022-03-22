@@ -1,0 +1,16 @@
+Source: openmediavault-photoprism
+Section: graphics
+XB-Plugin-Section: multimedia
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gettext
+Standards-Version: 3.9.6
+Homepage: http://www.openmediavault.org
+
+Package: openmediavault-photoprism
+Architecture: all
+Depends: openmediavault (>= 6.0.18), podman
+Priority: optional
+Description: openmediavault PhotoPrism plugin
+ PhotoPrism® is an AI-powered app for browsing, organizing & sharing your
+ photo collection.
