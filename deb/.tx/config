@@ -13,9 +13,9 @@ file_filter = openmediavault-forkeddaapd/usr/share/openmediavault/locale/<lang>/
 source_file = openmediavault-forkeddaapd/usr/share/openmediavault/locale/openmediavault-forkeddaapd.pot
 source_lang = en
 
-[openmediavault.openmediavault-iscsitarget]
-file_filter = openmediavault-iscsitarget/usr/share/openmediavault/locale/<lang>/openmediavault-iscsitarget.po
-source_file = openmediavault-iscsitarget/usr/share/openmediavault/locale/openmediavault-iscsitarget.pot
+[openmediavault.openmediavault-owntone]
+file_filter = openmediavault-owntone/usr/share/openmediavault/locale/<lang>/openmediavault-owntone.po
+source_file = openmediavault-owntone/usr/share/openmediavault/locale/openmediavault-owntone.pot
 source_lang = en
 
 [openmediavault.openmediavault-lvm2]

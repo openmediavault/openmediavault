@@ -1,0 +1,41 @@
+{
+	"type": "config",
+	"id": "conf.service.owntone",
+	"title": "OwnTone DAAP media server",
+	"queryinfo": {
+		"xpath": "//services/owntone",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"libraryname": {
+			"type": "string",
+			"default": "%h - OwnTone"
+		},
+		"port": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 3689
+		},
+		"sharedfolderref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		},
+		"password": {
+			"type": "string"
+		},
+		"adminpassword": {
+			"type": "string"
+		}
+	}
+}

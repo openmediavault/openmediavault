@@ -1,0 +1,24 @@
+{%- set image = salt['pillar.get']('default:OMV_OWNTONE_CONTAINER_IMAGE', 'lscr.io/linuxserver/daapd:latest') -%}
+{%- set uname = salt['pillar.get']('default:OMV_OWNTONE_CONTAINER_UNAME', 'owntone') -%}
+{%- set gname = salt['pillar.get']('default:OMV_OWNTONE_CONTAINER_GNAME', 'users') -%}
+{%- set uid = salt['user.info'](uname).uid -%}
+{%- set gid = salt['group.info'](gname).gid -%}
+{{ pillar['headers']['multiline'] -}}
+[Unit]
+Description=OwnTone container
+Wants=network.target
+After=network-online.target
+
+[Service]
+Environment=PODMAN_SYSTEMD_UNIT=%n
+Restart=on-failure
+TimeoutStopSec=70
+ExecStartPre=/bin/rm -f %t/container-owntone.pid %t/container-owntone.ctr-id
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-owntone.pid --cidfile %t/container-owntone.ctr-id --cgroups=no-conmon -d --replace --name=owntone --net=host -e PUID={{ uid }} -e PGID={{ gid }} -e TZ={{ timezone }} -v /var/cache/owntone/:/config/ -v "{{ sf_path }}":/music/ {{ image }}
+ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-owntone.ctr-id
+ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-owntone.ctr-id
+PIDFile=%t/container-owntone.pid
+Type=forking
+
+[Install]
+WantedBy=multi-user.target default.target
