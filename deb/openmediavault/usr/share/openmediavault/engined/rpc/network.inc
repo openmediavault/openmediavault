@@ -88,7 +88,8 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 			"vlan" => FALSE,
 			"vlanid" => -1,
 			"speed" => -1,
-			"description" => ""
+			"description" => "",
+			"stats" => []
 		];
 		// Get the network interface object.
 		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
@@ -103,8 +104,10 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 			$ether = $iface->getMAC();
 			$state = $iface->getState();
 			$speed = $iface->getSpeed();
+			$stats = $iface->getStatistics();
 			$obj['type'] = $iface->getType();
 			$obj['description'] = $iface->getDescription();
+			$obj['stats'] = !$stats ? [] : $stats;
 			$obj['gateway'] = !$gateway ? "" : $gateway;
 			$obj['gateway6'] = !$gateway6 ? "" : $gateway6;
 			$obj['address'] = !$address ? "" : $address;
