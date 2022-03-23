@@ -505,15 +505,21 @@ class Database {
 	 * property is unique.
 	 * @param object The configuration object to use.
 	 * @param property The name of the data model property.
+	 * @param message The exception message. If NULL, a default message
+	 *   is generated. Defaults to NULL.
 	 * @return void
 	 * @throw \OMV\AssertException
 	 */
-	public function assertIsUnique(ConfigObject $object, $property) {
+	public function assertIsUnique(ConfigObject $object, $property, $message = NULL) {
 		if (FALSE === $this->isUnique($object, $property)) {
-			throw new \OMV\AssertException("The configuration object '%s' is ".
-			  "not unique. An object with the property '%s' and value '%s' ".
-			  "already exists.", $object->getModelId(), $property,
-			  $object->get($property));
+			if (is_null($message)) {
+				$message = sprintf("The configuration object '%s' is ".
+					"not unique. An object with the property '%s' and ".
+					"value '%s' already exists.",
+					$object->getModelId(), $property,
+					$object->get($property));
+			}
+			throw new \OMV\AssertException($message);
 		}
 	}
 
@@ -523,14 +529,19 @@ class Database {
 	 * @param object The configuration object to use.
 	 * @param filter A filter specifying constraints on the objects
 	 *   to check.
+	 * @param message The exception message. If NULL, a default message
+	 *   is generated. Defaults to NULL.
 	 * @return void
 	 * @throw \OMV\AssertException
 	 */
-	public function assertIsUniqueByFilter(ConfigObject $object, $filter) {
+	public function assertIsUniqueByFilter(ConfigObject $object, $filter, $message = NULL) {
 		if (FALSE === $this->isUniqueByFilter($object, $filter)) {
-			throw new \OMV\AssertException("The configuration object '%s' ".
-			  "with the filter '%s' is not unique.", $object->getModelId(),
-			  json_encode($filter));
+			if (is_null($message)) {
+				$message = sprintf("The configuration object '%s' with the ".
+					"filter '%s' is not unique.", $object->getModelId(),
+			  		json_encode($filter));
+			}
+			throw new \OMV\AssertException($message);
 		}
 	}
 
