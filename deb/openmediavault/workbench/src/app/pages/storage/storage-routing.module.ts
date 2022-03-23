@@ -148,7 +148,11 @@ const routes: Routes = [
       {
         path: 'edit/:uuid',
         component: SharedFolderFormPageComponent,
-        data: { title: gettext('Edit'), editing: true }
+        data: {
+          title: gettext('Edit'),
+          editing: true,
+          notificationTitle: gettext('Updated shared folder.')
+        }
       },
       {
         path: 'privileges/:uuid',
