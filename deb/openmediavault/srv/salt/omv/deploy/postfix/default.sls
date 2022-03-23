@@ -58,6 +58,10 @@ include:
 {% endif %}
 {% endfor %}
 
+postfix_set_permissions:
+  cmd.run:
+    - name: postfix set-permissions
+
 {% if config.enable | to_bool %}
 
 start_postfix_service:

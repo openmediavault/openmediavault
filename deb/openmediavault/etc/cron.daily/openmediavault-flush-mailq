@@ -31,5 +31,6 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 if [ "$(omv_config_get "//system/email/enable")" = "0" ]; then
-	postsuper -d ALL
+    postfix set-permissions || true
+    postsuper -d ALL
 fi
