@@ -296,21 +296,29 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// - The share name must be global unique because the name
 		//   is also used when exporting a shared folder via NFS
 		//   for example.
-		$db->assertIsUnique($object, "name");
+		$db->assertIsUnique($object, "name", sprintf(
+			"A shared folder with the name '%s' already exists.",
+			$object->get("name")));
 		// - The mount directory must be unique on the same volume, too.
-		$db->assertIsUniqueByFilter($object, [
-			"operator" => "and",
-			"arg0" => [
-				"operator" => "stringEquals",
-				"arg0" => "mntentref",
-				"arg1" => $object->get("mntentref")
+		$db->assertIsUniqueByFilter(
+			$object,
+			[
+				"operator" => "and",
+				"arg0" => [
+					"operator" => "stringEquals",
+					"arg0" => "mntentref",
+					"arg1" => $object->get("mntentref")
+				],
+				"arg1" => [
+					"operator" => "stringEquals",
+					"arg0" => "reldirpath",
+					"arg1" => $object->get("reldirpath")
+				]
 			],
-			"arg1" => [
-				"operator" => "stringEquals",
-				"arg0" => "reldirpath",
-				"arg1" => $object->get("reldirpath")
-			]
-		]);
+			sprintf("A shared folder with the path '%s' already exists ".
+				"for the specified file system.",
+				$object->get("reldirpath"))
+		);
 		if (FALSE === $object->isNew()) {
 			// Get the existing configuration object.
 			$oldObject = $db->get("conf.system.sharedfolder",
