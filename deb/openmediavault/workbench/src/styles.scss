@@ -721,6 +721,10 @@ img.loading {
     &:hover {
       box-shadow: unset;
     }
+
+    min-width: 300px;
+    width: 50% !important;
+    max-width: 500px;
   }
 }
 
