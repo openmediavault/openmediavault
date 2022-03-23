@@ -105,14 +105,48 @@ export class SmbSettingsFormPageComponent {
         name: 'winssupport',
         label: gettext('Enable WINS server'),
         hint: gettext('Act as a WINS server.'),
-        value: false
+        value: false,
+        validators: {
+          custom: [
+            {
+              constraint: {
+                operator: 'or',
+                arg0: { operator: 'empty', arg0: { prop: 'winsserver' } },
+                arg1: { operator: 'falsy', arg0: { prop: 'winssupport' } }
+              },
+              errorData: gettext(
+                'Acting as a WINS server and using a WINS server are mutually exclusive.'
+              )
+            }
+          ]
+        }
       },
       {
         type: 'textInput',
         name: 'winsserver',
         label: gettext('WINS server'),
         value: '',
-        hint: gettext('Use the specified WINS server.')
+        hint: gettext('Use the specified WINS server.'),
+        modifiers: [
+          {
+            type: 'disabled',
+            constraint: { operator: 'truthy', arg0: { prop: 'winssupport' } }
+          }
+        ],
+        validators: {
+          custom: [
+            {
+              constraint: {
+                operator: 'or',
+                arg0: { operator: 'empty', arg0: { prop: 'winsserver' } },
+                arg1: { operator: 'falsy', arg0: { prop: 'winssupport' } }
+              },
+              errorData: gettext(
+                'Acting as a WINS server and using a WINS server are mutually exclusive.'
+              )
+            }
+          ]
+        }
       },
       {
         type: 'divider',

@@ -12,8 +12,11 @@
           translate>
       This field is required.
     </span>
+    <span *ngIf="formGroup.hasError('constraint', config.name)">
+      {{ formGroup.getError('constraint', config.name) | translate }}
+    </span>
   </mat-error>
-  <mat-hint *ngIf="config.hint?.length > 0"
+  <mat-hint *ngIf="config.hint?.length > 0 && !formGroup.get(config.name)?.errors"
             [innerHTML]="config.hint | translate | sanitizeHtml">
   </mat-hint>
 </div>
