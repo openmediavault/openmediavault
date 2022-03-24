@@ -451,3 +451,13 @@ def yesno(value, answers='yes,no'):
     :return: Returns 'yes' if the value is true, otherwise 'no'.
     """
     return openmediavault.stringutils.yesno(value, answers)
+
+
+@jinja_filter('not')
+def _not(value):
+    """
+    Convert a boolean value to 'yes' or 'no'.
+    :return: Returns 'yes' if the value is true, otherwise 'no'.
+    """
+    assert isinstance(value, bool)
+    return not value

@@ -66,7 +66,7 @@ wins support = {{ config.winssupport | to_bool | yesno }}
 {%- if config.winsserver | length > 0 %}
 wins server = {{ config.winsserver }}
 {%- endif %}
-disable netbios = {{ nmbd_enable | to_bool | yesno('no,yes') }}
+disable netbios = {{ nmbd_enable | to_bool | not | yesno }}
 multicast dns register = no
 # Special configuration for Apple's Time Machine
 fruit:aapl = {{ fruit_aapl }}
