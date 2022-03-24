@@ -1,6 +1,7 @@
 Source: openmediavault-wetty
 Section: net
 XB-Plugin-Section: network
+XB-Plugin-Architecture: amd64
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>= 12), gettext
@@ -9,7 +10,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-wetty
 Architecture: all
-Depends: openmediavault (>= 6.0.18), podman
+Depends: openmediavault (>= 6.0.19), podman
 Priority: optional
 Description: openmediavault WeTTY (Web + TTY) plugin
  Terminal access in browser over HTTP/HTTPS.

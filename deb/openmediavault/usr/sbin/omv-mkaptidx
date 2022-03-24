@@ -75,6 +75,13 @@ def get_extended_description(raw_description):
     return "\n".join(lines)
 
 
+def explode_csv(value):
+    """
+    Split a comma separated string into parts.
+    """
+    return [part.strip() for part in value.split(",") if part.strip()]
+
+
 def get_value(f, default=None):
     """
     :param f: The function to be executed.
@@ -173,6 +180,7 @@ for pkg in filtered:
         "predepends": pkg.candidate.record.get("Pre-Depends", ""),
         "section": pkg.candidate.section,
         "pluginsection": pkg.candidate.record.get("Plugin-Section", ""),
+        "pluginarchitecture": explode_csv(pkg.candidate.record.get("Plugin-Architecture", "")),
         "priority": pkg.candidate.priority,
         "filename": pkg.candidate.filename,
         "size": pkg.candidate.size,

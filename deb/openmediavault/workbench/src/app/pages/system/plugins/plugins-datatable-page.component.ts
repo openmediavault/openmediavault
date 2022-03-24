@@ -52,6 +52,14 @@ export class PluginsDatatablePageComponent implements OnInit {
         }
       },
       {
+        name: gettext('Architecture'),
+        prop: 'pluginarchitecture',
+        flexGrow: 1,
+        sortable: false,
+        hidden: true,
+        cellTemplateName: 'chip'
+      },
+      {
         name: gettext('Repository'),
         prop: 'repository',
         flexGrow: 1,
