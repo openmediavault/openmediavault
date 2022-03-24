@@ -1,6 +1,6 @@
-{%- set image = salt['pillar.get']('default:OMV_OWNTONE_CONTAINER_IMAGE', 'lscr.io/linuxserver/daapd:latest') -%}
-{%- set uname = salt['pillar.get']('default:OMV_OWNTONE_CONTAINER_UNAME', 'owntone') -%}
-{%- set gname = salt['pillar.get']('default:OMV_OWNTONE_CONTAINER_GNAME', 'users') -%}
+{%- set image = salt['pillar.get']('default:OMV_OWNTONE_APP_CONTAINER_IMAGE', 'lscr.io/linuxserver/daapd:latest') -%}
+{%- set uname = salt['pillar.get']('default:OMV_OWNTONE_APP_CONTAINER_UNAME', 'owntone') -%}
+{%- set gname = salt['pillar.get']('default:OMV_OWNTONE_APP_CONTAINER_GNAME', 'users') -%}
 {%- set uid = salt['user.info'](uname).uid -%}
 {%- set gid = salt['group.info'](gname).gid -%}
 {{ pillar['headers']['multiline'] -}}

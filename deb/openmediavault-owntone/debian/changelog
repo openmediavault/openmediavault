@@ -1,10 +1,4 @@
-openmediavault-owntone (6.0.1) unstable; urgency=low
-
-  * Reorder form fields.
-
- -- Volker Theile <volker.theile@openmediavault.org>  Tue, 22 Mar 2022 23:06:12 +0100
-
-openmediavault-owntone (6.0) unstable; urgency=low
+openmediavault-owntone (6.0-2) unstable; urgency=low
 
   * Internal release
 

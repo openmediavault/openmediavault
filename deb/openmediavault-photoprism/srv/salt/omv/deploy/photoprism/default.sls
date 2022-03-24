@@ -80,6 +80,17 @@ photoprism_systemctl_daemon_reload:
 
 {% if config.enable | to_bool %}
 
+{% set app_image = salt['pillar.get']('default:OMV_PHOTOPRISM_APP_CONTAINER_IMAGE', 'docker.io/photoprism/photoprism:latest') %}
+{% set db_image = salt['pillar.get']('default:OMV_PHOTOPRISM_DB_CONTAINER_IMAGE', 'docker.io/mariadb:latest') %}
+
+photoprism_pull_app_image:
+  cmd.run:
+    - name: podman pull {{ app_image }}
+
+photoprism_pull_db_image:
+  cmd.run:
+    - name: podman pull {{ db_image }}
+
 start_photoprism_service:
   service.running:
     - name: pod-photoprism

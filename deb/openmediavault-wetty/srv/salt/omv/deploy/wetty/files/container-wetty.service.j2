@@ -1,4 +1,4 @@
-{%- set image = salt['pillar.get']('default:OMV_WETTY_CONTAINER_IMAGE', 'docker.io/wettyoss/wetty:latest') -%}
+{%- set image = salt['pillar.get']('default:OMV_WETTY_APP_CONTAINER_IMAGE', 'docker.io/wettyoss/wetty:latest') -%}
 {%- if wetty_config.sslcertificateref | length > 0 -%}
 {%- set ssl_cert_dir = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_DIR', '/etc/ssl') -%}
 {%- set ssl_cert_prefix = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_PREFIX', 'openmediavault') -%}

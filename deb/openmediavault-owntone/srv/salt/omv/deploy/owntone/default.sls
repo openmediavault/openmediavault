@@ -47,6 +47,12 @@ owntone_systemctl_daemon_reload:
 
 {% if config.enable | to_bool %}
 
+{% set image = salt['pillar.get']('default:OMV_OWNTONE_APP_CONTAINER_IMAGE', 'lscr.io/linuxserver/daapd:latest') %}
+
+owntone_pull_app_image:
+  cmd.run:
+    - name: podman pull {{ image }}
+
 configure_owntone:
   file.managed:
     - name: "/var/cache/owntone/owntone.conf"

@@ -49,6 +49,12 @@ wetty_systemctl_daemon_reload:
 
 {% if wetty_config.enable | to_bool %}
 
+{% set image = salt['pillar.get']('default:OMV_WETTY_APP_CONTAINER_IMAGE', 'docker.io/wettyoss/wetty:latest') %}
+
+wetty_pull_app_image:
+  cmd.run:
+    - name: podman pull {{ image }}
+
 start_wetty_service:
   service.running:
     - name: container-wetty

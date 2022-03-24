@@ -45,8 +45,13 @@ filebrowser_systemctl_daemon_reload:
 
 {% if config.enable | to_bool %}
 
-{% set uname = salt['pillar.get']('default:OMV_FILEBROWSER_CONTAINER_UNAME', 'filebrowser') %}
-{% set gname = salt['pillar.get']('default:OMV_FILEBROWSER_CONTAINER_GNAME', 'users') %}
+{% set image = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_IMAGE', 'docker.io/filebrowser/filebrowser:latest') %}
+{% set uname = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_UNAME', 'filebrowser') %}
+{% set gname = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_GNAME', 'users') %}
+
+filebrowser_pull_app_image:
+  cmd.run:
+    - name: podman pull {{ image }}
 
 # Make sure the file exists. Do not use file.touch state.
 create_filebrowser_database:
