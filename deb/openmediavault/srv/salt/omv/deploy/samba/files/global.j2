@@ -24,6 +24,7 @@
 {%- set aio_read_size = salt['pillar.get']('default:OMV_SAMBA_AIOREADSIZE', '16384') -%}
 {%- set aio_write_size = salt['pillar.get']('default:OMV_SAMBA_AIOWRITESIZE', '16384') -%}
 {%- set fruit_aapl = salt['pillar.get']('default:OMV_SAMBA_FRUIT_AAPL', 'yes') -%}
+{%- set nmbd_enable = salt['pillar.get']('default:OMV_SAMBA_NMBD_ENABLE', 'no') -%}
 {{ pillar['headers']['multiline'] -}}
 #======================= Global Settings =======================
 [global]
@@ -65,6 +66,7 @@ wins support = {{ config.winssupport | to_bool | yesno }}
 {%- if config.winsserver | length > 0 %}
 wins server = {{ config.winsserver }}
 {%- endif %}
+disable netbios = {{ nmbd_enable | to_bool | yesno('no,yes') }}
 multicast dns register = no
 # Special configuration for Apple's Time Machine
 fruit:aapl = {{ fruit_aapl }}

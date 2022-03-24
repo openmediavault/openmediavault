@@ -2,6 +2,8 @@ openmediavault (6.0.19-1) unstable; urgency=low
 
   * Harden openmediavault-flush-mailq cron job to prevent postfix
     error messages.
+  * Disable SMB NetBIOS support by default. You can enable it via the
+    OMV_SAMBA_NMBD_ENABLE environment variable.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 23 Mar 2022 07:15:22 +0100
 
