@@ -1,0 +1,25 @@
+{%- set image = salt['pillar.get']('default:OMV_S3_APP_CONTAINER_IMAGE', 'docker.io/minio/minio:latest') -%}
+{%- set uname = salt['pillar.get']('default:OMV_S3_APP_CONTAINER_UNAME', 's3') -%}
+{%- set gname = salt['pillar.get']('default:OMV_S3_APP_CONTAINER_GNAME', 'users') -%}
+{%- set uid = salt['user.info'](uname).uid -%}
+{%- set gid = salt['group.info'](gname).gid -%}
+{%- set sf_path = salt['omv_conf.get_sharedfolder_path'](config.sharedfolderref) -%}
+{{ pillar['headers']['multiline'] -}}
+[Unit]
+Description=Minio container
+Wants=network.target
+After=network-online.target
+
+[Service]
+Environment=PODMAN_SYSTEMD_UNIT=%n
+Restart=on-failure
+TimeoutStopSec=70
+ExecStartPre=/bin/rm -f %t/container-minio.pid %t/container-minio.ctr-id
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-minio.pid --cidfile %t/container-minio.ctr-id --cgroups=no-conmon -d --replace --pull=never --name=minio -u {{ uid }}:{{ gid }} -p {{ config.port }}:{{ config.port }} -p {{ config.consoleport }}:{{ config.consoleport }} -e MINIO_ROOT_USER="{{ config.rootname }}" -e MINIO_ROOT_PASSWORD="{{ config.rootpassword }}" -v "{{ sf_path }}":/data/ {{ image }} server /data/ --address ":{{ config.port }}" --console-address ":{{ config.consoleport }}"
+ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-minio.ctr-id
+ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-minio.ctr-id
+PIDFile=%t/container-minio.pid
+Type=forking
+
+[Install]
+WantedBy=multi-user.target default.target
