@@ -76,7 +76,7 @@ remove() {
 }
 
 start() {
-	podman run --interactive --tty \
+	podman run --interactive --tty --replace \
 		--volume ./deb:/srv/openmediavault \
 		--name ${name} \
 		${name} \
