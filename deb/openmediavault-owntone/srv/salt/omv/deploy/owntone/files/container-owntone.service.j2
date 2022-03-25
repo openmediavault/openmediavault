@@ -14,7 +14,7 @@ Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/container-owntone.pid %t/container-owntone.ctr-id
-ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-owntone.pid --cidfile %t/container-owntone.ctr-id --cgroups=no-conmon -d --replace --name=owntone --net=host -e PUID={{ uid }} -e PGID={{ gid }} -e TZ={{ timezone }} -v /var/cache/owntone/:/config/ -v "{{ sf_path }}":/music/ {{ image }}
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-owntone.pid --cidfile %t/container-owntone.ctr-id --cgroups=no-conmon -d --replace --pull=never --name=owntone --net=host -e PUID={{ uid }} -e PGID={{ gid }} -e TZ={{ timezone }} -v /var/cache/owntone/:/config/ -v "{{ sf_path }}":/music/ {{ image }}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-owntone.ctr-id
 ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-owntone.ctr-id
 PIDFile=%t/container-owntone.pid

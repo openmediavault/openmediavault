@@ -14,7 +14,7 @@ Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/container-photoprism-db.pid %t/container-photoprism-db.ctr-id
-ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-photoprism-db.pid --cidfile %t/container-photoprism-db.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-photoprism.pod-id -d --replace --name=photoprism-db -e MYSQL_DATABASE=photoprism -e MYSQL_USER=photoprism -e MYSQL_PASSWORD=photoprism -e MYSQL_ROOT_PASSWORD=photoprism -v {{ appdata_path }}/db/:/var/lib/mysql/ {{ options }} {{ image }}
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-photoprism-db.pid --cidfile %t/container-photoprism-db.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-photoprism.pod-id -d --replace --pull=never --name=photoprism-db -e MYSQL_DATABASE=photoprism -e MYSQL_USER=photoprism -e MYSQL_PASSWORD=photoprism -e MYSQL_ROOT_PASSWORD=photoprism -v {{ appdata_path }}/db/:/var/lib/mysql/ {{ options }} {{ image }}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-photoprism-db.ctr-id
 ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-photoprism-db.ctr-id
 PIDFile=%t/container-photoprism-db.pid

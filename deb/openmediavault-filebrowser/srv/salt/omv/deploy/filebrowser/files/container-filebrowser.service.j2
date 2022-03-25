@@ -16,7 +16,7 @@ Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/container-filebrowser.pid %t/container-filebrowser.ctr-id
-ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-filebrowser.pid --cidfile %t/container-filebrowser.ctr-id --cgroups=no-conmon -d --replace --name=filebrowser -p {{ config.port }}:{{ config.port }} -u {{ uid }}:{{ gid }} -v /var/cache/filebrowser/database.db:/database.db -v /var/cache/filebrowser/filebrowser.json:/.filebrowser.json -v "{{ sf_path }}":/srv/ {{ image }}
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-filebrowser.pid --cidfile %t/container-filebrowser.ctr-id --cgroups=no-conmon -d --replace --pull=never --name=filebrowser -p {{ config.port }}:{{ config.port }} -u {{ uid }}:{{ gid }} -v /var/cache/filebrowser/database.db:/database.db -v /var/cache/filebrowser/filebrowser.json:/.filebrowser.json -v "{{ sf_path }}":/srv/ {{ image }}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-filebrowser.ctr-id
 ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-filebrowser.ctr-id
 PIDFile=%t/container-filebrowser.pid
