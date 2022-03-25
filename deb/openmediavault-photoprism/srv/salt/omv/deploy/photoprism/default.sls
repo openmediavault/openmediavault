@@ -86,10 +86,12 @@ photoprism_systemctl_daemon_reload:
 photoprism_pull_app_image:
   cmd.run:
     - name: podman pull {{ app_image }}
+    - unless: podman image exists {{ image }}
 
 photoprism_pull_db_image:
   cmd.run:
     - name: podman pull {{ db_image }}
+    - unless: podman image exists {{ image }}
 
 start_photoprism_service:
   service.running:

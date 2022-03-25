@@ -52,6 +52,7 @@ owntone_systemctl_daemon_reload:
 owntone_pull_app_image:
   cmd.run:
     - name: podman pull {{ image }}
+    - unless: podman image exists {{ image }}
 
 configure_owntone:
   file.managed:
