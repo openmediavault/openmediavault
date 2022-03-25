@@ -1,5 +1,6 @@
 openmediavault (6.0.19-1) unstable; urgency=low
 
+  * Many improvements.
   * Harden openmediavault-flush-mailq cron job to prevent postfix
     error messages.
   * Disable SMB NetBIOS support by default. You can enable it via the
