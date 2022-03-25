@@ -704,7 +704,7 @@ msgid ""
 msgstr "La compresión merece la pena si su conexión es lenta. La eficiencia de la compresión depende del tipo de archivo y varía ampliamente. Útil solo para transferencias por Internet."
 
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 msgid "Confirm password"
 msgstr "Confirmar contraseña"
@@ -953,10 +953,10 @@ msgid "Disks"
 msgstr "Discos"
 
 msgid "Dismiss"
-msgstr ""
+msgstr "Descartar"
 
 msgid "Dismiss all"
-msgstr ""
+msgstr "Descartar todo"
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "Mostrar el directorio home del usuario en la lista de navegación."
@@ -2644,7 +2644,7 @@ msgid "Romania"
 msgstr "Rumania"
 
 msgid "Row No."
-msgstr ""
+msgstr "Fila nº."
 
 msgid "Rsync"
 msgstr "Rsync"
@@ -3176,7 +3176,7 @@ msgid "System account"
 msgstr "Cuenta del sistema"
 
 msgid "System monitoring is disabled. To enable it, please go to the"
-msgstr ""
+msgstr "La supervisión del sistema está deshabilitada. Para habilitarlo, vaya a la"
 
 msgid "System time"
 msgstr "Hora del sistema"
@@ -3249,7 +3249,7 @@ msgid ""
 msgstr "El servidor remoto de destino, p.ej. [USER@]HOST:DEST, [USER@]HOST::DEST o rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "El campo solo debe contener * o una lista de valores separados por comas."
 
 msgid "The file mode of the shared folder path."
 msgstr "Modo de archivo de la ruta a las carpetas compartidas."

@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-owntone package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# omv nas <myomv100@gmail.com>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: omv nas <myomv100@gmail.com>, 2022\n"
 "Language-Team: Arabic (Saudi Arabia) (https://www.transifex.com/openmediavault/teams/14254/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,10 +22,10 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
 msgid "Enabled"
-msgstr ""
+msgstr "ممكن"
 
 msgid "Library name"
-msgstr ""
+msgstr "اسم المكتبة"
 
 msgid "Open UI"
 msgstr ""
@@ -30,22 +34,22 @@ msgid "OwnTone"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "كلمة المرور"
 
 msgid "Port"
-msgstr ""
+msgstr "المنفذ"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "المنفذ المراد مراقبته"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "مجلد مشترك"
 
 msgid "The 'admin' password to access the web interface."
 msgstr ""
 
 msgid "The location of the media files to share."
-msgstr ""
+msgstr "موقع ملفات الوسائط المراد مشاركتها."
 
 msgid ""
 "The location of the media files to share. Make sure the user "
@@ -53,7 +57,7 @@ msgid ""
 msgstr ""
 
 msgid "The name of the library as displayed by the clients."
-msgstr ""
+msgstr "اسم المكتبة كما يظهر لدى العميل"
 
 msgid "The password to access the library."
 msgstr ""

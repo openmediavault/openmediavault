@@ -3,6 +3,11 @@
 # This file is distributed under the same license as the openmediavault-photoprism package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2022
+# Pavel Borecki <pavel.borecki@gmail.com>, 2022
+# Jan Štourač <wormsik666@gmail.com>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: Jan Štourač <wormsik666@gmail.com>, 2022\n"
 "Language-Team: Czech (Czech Republic) (https://www.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,22 +24,22 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "A password is required to access the library."
-msgstr ""
+msgstr "Pro přístup do této knihovny je vyžadováno heslo."
 
 msgid "Application data"
 msgstr ""
 
 msgid "Authentication"
-msgstr ""
+msgstr "Ověřování"
 
 msgid "Enable"
-msgstr ""
+msgstr "Zapnout"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Zapnuto"
 
 msgid "General settings"
-msgstr ""
+msgstr "Obecná nastavení"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -44,10 +50,10 @@ msgid "Images"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "Importovat"
 
 msgid "Library name"
-msgstr ""
+msgstr "Název knihovny"
 
 msgid "Note, this application does not support HTTPS."
 msgstr ""
@@ -56,7 +62,7 @@ msgid "Open UI"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 msgid "PhotoPrism"
 msgstr ""
@@ -67,22 +73,22 @@ msgid ""
 msgstr ""
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "Port, na kterém očekávat spojení."
 
 msgid "Read-only"
-msgstr ""
+msgstr "Pouze pro čtení"
 
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Sdílená složka"
 
 msgid "The location of the media files to share."
-msgstr ""
+msgstr "Umístění souborů s médii ke sdílení."
 
 msgid "The location of the media files."
 msgstr ""
@@ -96,13 +102,13 @@ msgid "The location where to store the application data."
 msgstr ""
 
 msgid "The name of the library as displayed by the clients."
-msgstr ""
+msgstr "Název knihovny, jak bude zobrazován klienty."
 
 msgid "Updated PhotoPrism settings."
 msgstr ""
 
 msgid "Updated iTunes/DAAP settings."
-msgstr ""
+msgstr "Aktualizována nastavení pro iTunes/DAAP."
 
 msgid ""
 "Use the <<strong>admin:photoprism</strong>> credentials when logging in for "
@@ -133,4 +139,4 @@ msgid ""
 msgstr ""
 
 msgid "iTunes/DAAP"
-msgstr ""
+msgstr "iTunes/DAAP"

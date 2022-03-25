@@ -3175,7 +3175,7 @@ msgid "System account"
 msgstr "系統帳户"
 
 msgid "System monitoring is disabled. To enable it, please go to the"
-msgstr ""
+msgstr "系统监测已停用，启用请点击。"
 
 msgid "System time"
 msgstr "系統時間"

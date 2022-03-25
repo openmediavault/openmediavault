@@ -3,6 +3,11 @@
 # This file is distributed under the same license as the openmediavault-owntone package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2022
+# LeeYang <150183966@qq.com>, 2022
+# songming <by@songming.me>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: songming <by@songming.me>, 2022\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,48 +24,48 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Enabled"
-msgstr ""
+msgstr "已启用"
 
 msgid "Library name"
-msgstr ""
+msgstr "媒体库名称"
 
 msgid "Open UI"
-msgstr ""
+msgstr "打开 UI"
 
 msgid "OwnTone"
-msgstr ""
+msgstr "OwnTone"
 
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 msgid "Port"
-msgstr ""
+msgstr "端口"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "监听端口。"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "共享文件夹"
 
 msgid "The 'admin' password to access the web interface."
-msgstr ""
+msgstr "'admin' 账户密码是用来登录 web 页面。"
 
 msgid "The location of the media files to share."
-msgstr ""
+msgstr "共享媒体文件位置。"
 
 msgid ""
 "The location of the media files to share. Make sure the user "
 "<em>owntone</em> or group <em>users</em> can access the files."
-msgstr ""
+msgstr "请确保用户 <em>owntone</em>或用户组<em>users</em>有本地共享媒体文件的对应权限。"
 
 msgid "The name of the library as displayed by the clients."
-msgstr ""
+msgstr "客户端显示的媒体库名称。"
 
 msgid "The password to access the library."
-msgstr ""
+msgstr "库的访问密码。"
 
 msgid "Updated OwnTone settings."
-msgstr ""
+msgstr "更新 OwnTone 设置。"
 
 msgid "Web interface"
-msgstr ""
+msgstr "Web 页面"

@@ -3,6 +3,11 @@
 # This file is distributed under the same license as the openmediavault-photoprism package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2022
+# Antonio Pelaez Redondo <antorayman@gmail.com>, 2022
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2022\n"
 "Language-Team: Spanish (Spain) (https://www.transifex.com/openmediavault/teams/14254/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,112 +24,130 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "A password is required to access the library."
-msgstr ""
+msgstr "Es necesaria una contraseña para acceder a la librería."
 
 msgid "Application data"
-msgstr ""
+msgstr "Datos de la aplicación"
 
 msgid "Authentication"
-msgstr ""
+msgstr "Autentificación"
 
 msgid "Enable"
-msgstr ""
+msgstr "Habilitar"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Habilitado"
 
 msgid "General settings"
-msgstr ""
+msgstr "Opciones"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
 "are disabled, in particular import, upload, and delete."
 msgstr ""
+"Si está habilitado, todas las funciones que requieren permiso de escritura "
+"en la carpeta de imágenes están deshabilitadas, en particular, importar, "
+"cargar y eliminar."
 
 msgid "Images"
-msgstr ""
+msgstr "Imagenes"
 
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 msgid "Library name"
-msgstr ""
+msgstr "Nombre de la librería"
 
 msgid "Note, this application does not support HTTPS."
-msgstr ""
+msgstr "Nota: está aplicación NO soporta HTTPS."
 
 msgid "Open UI"
-msgstr ""
+msgstr "Abrir UI"
 
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 msgid "PhotoPrism"
-msgstr ""
+msgstr "PhotoPrism"
 
 msgid ""
 "Please note that the first deployment of the application can take a long "
 "time because the container images have to be downloaded first."
 msgstr ""
+"Tenga en cuenta que la primera implementación de la aplicación puede llevar "
+"mucho tiempo porque primero se deben descargar las imágenes del contenedor."
 
 msgid "Port"
-msgstr ""
+msgstr "Puerto"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "Puerto de escucha."
 
 msgid "Read-only"
-msgstr ""
+msgstr "Solo lectura"
 
 msgid "Settings"
-msgstr ""
+msgstr "Opciones"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Carpeta Compartida"
 
 msgid "The location of the media files to share."
-msgstr ""
+msgstr "Localización de los archivos multimedia a compartir."
 
 msgid "The location of the media files."
-msgstr ""
+msgstr "Ubicación de los archivos multimedia."
 
 msgid ""
 "The location of the media files. Make sure the user <em>photoprism</em> or "
 "group <em>users</em> can access the files."
 msgstr ""
+"Ubicación de los archivos multimedia. Asegúrese de que el usuario "
+"<em>photoprism</em> o los usuarios del <em>grupo</em> puedan acceder a los "
+"archivos."
 
 msgid "The location where to store the application data."
-msgstr ""
+msgstr "Ubicación donde guardar los datos d ela aplicación."
 
 msgid "The name of the library as displayed by the clients."
-msgstr ""
+msgstr "El nombre de la librería que se mostrará a los clientes"
 
 msgid "Updated PhotoPrism settings."
-msgstr ""
+msgstr "Opciones de PhotoPrism actualizadas."
 
 msgid "Updated iTunes/DAAP settings."
-msgstr ""
+msgstr "Actualizar opciones iTunes/DAAP."
 
 msgid ""
 "Use the <<strong>admin:photoprism</strong>> credentials when logging in for "
 "the first time. Please do not forget to change the password immediately."
 msgstr ""
+"Utilice las credenciales de <<strong>admin:photoprism</strong>> cuando "
+"inicie sesión por primera vez. Por favor, no olvide cambiar la contraseña "
+"inmediatamente."
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
 " Please do not forget to change the password immediately."
 msgstr ""
+"Utilice las credenciales de <<em>admin:admin</em>> cuando inicie sesión por "
+"primera vez. Por favor, no olvide cambiar la contraseña inmediatamente."
 
 msgid ""
 "Use the <em>admin:photoprism</em> credentials when logging in for the first "
 "time. Please do not forget to change the password immediately."
 msgstr ""
+"Utilice las credenciales de <em>admin:photoprism</em> cuando inicie sesión "
+"por primera vez. Por favor, no olvide cambiar la contraseña inmediatamente."
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
 "transferred to the originals folder in a structured way that avoids "
 "duplicates."
 msgstr ""
+"Opcionalmente, puede montar una carpeta de importación desde la cual los "
+"archivos se pueden transferir a la carpeta original de una manera "
+"estructurada que evita duplicados."
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
@@ -131,6 +155,11 @@ msgid ""
 "duplicates. Make sure the user <em>photoprism</em> or group <em>users</em> "
 "can access the files."
 msgstr ""
+"Opcionalmente, puede montar una carpeta de importación desde la cual los "
+"archivos se pueden transferir a la carpeta original de una manera "
+"estructurada que evita duplicados. Asegúrese de que el usuario "
+"<em>photoprism</em> o los usuarios del <em>grupo</em> puedan acceder a los "
+"archivos."
 
 msgid "iTunes/DAAP"
-msgstr ""
+msgstr "iTunes/DAAP"

@@ -3,6 +3,11 @@
 # This file is distributed under the same license as the openmediavault-photoprism package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2022
+# kochin <kochinc@outlook.com>, 2022
+# songming <by@songming.me>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: songming <by@songming.me>, 2022\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,112 +24,112 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "A password is required to access the library."
-msgstr ""
+msgstr "需要密碼才能存取該媒體庫。"
 
 msgid "Application data"
-msgstr ""
+msgstr "应用数据"
 
 msgid "Authentication"
-msgstr ""
+msgstr "驗證"
 
 msgid "Enable"
-msgstr ""
+msgstr "啟用"
 
 msgid "Enabled"
-msgstr ""
+msgstr "已啟用"
 
 msgid "General settings"
-msgstr ""
+msgstr "一般設定"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
 "are disabled, in particular import, upload, and delete."
-msgstr ""
+msgstr "如果启用，所有图片文件夹的写权限将被禁用，如导入、上传、删除。"
 
 msgid "Images"
-msgstr ""
+msgstr "图片"
 
 msgid "Import"
-msgstr ""
+msgstr "匯入"
 
 msgid "Library name"
-msgstr ""
+msgstr "媒體庫名稱"
 
 msgid "Note, this application does not support HTTPS."
-msgstr ""
+msgstr "注意，这个应用不支持 HTTPS。"
 
 msgid "Open UI"
-msgstr ""
+msgstr "打开 UI"
 
 msgid "Password"
-msgstr ""
+msgstr "密碼"
 
 msgid "PhotoPrism"
-msgstr ""
+msgstr "PhotoPrism"
 
 msgid ""
 "Please note that the first deployment of the application can take a long "
 "time because the container images have to be downloaded first."
-msgstr ""
+msgstr "请注意应用首次部署可能需要较长的时间，因为第一次要下载容器镜像文件。"
 
 msgid "Port"
-msgstr ""
+msgstr "通訊埠"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "要監聽的通訊埠。"
 
 msgid "Read-only"
-msgstr ""
+msgstr "唯讀"
 
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "共享檔案夾"
 
 msgid "The location of the media files to share."
-msgstr ""
+msgstr "共享媒體檔案的位置。"
 
 msgid "The location of the media files."
-msgstr ""
+msgstr "本体媒体文件。"
 
 msgid ""
 "The location of the media files. Make sure the user <em>photoprism</em> or "
 "group <em>users</em> can access the files."
-msgstr ""
+msgstr "本地媒体文件，请确保用户<em>photoprism</em>或用户组<em>users</em>有对应权限。"
 
 msgid "The location where to store the application data."
-msgstr ""
+msgstr "存储应用数据的本地路径。"
 
 msgid "The name of the library as displayed by the clients."
-msgstr ""
+msgstr "顯示在客戶端之媒體庫的名稱"
 
 msgid "Updated PhotoPrism settings."
-msgstr ""
+msgstr "更新 PhotoPrism 设置。"
 
 msgid "Updated iTunes/DAAP settings."
-msgstr ""
+msgstr "已更新 iTunes/DAAP 設定。"
 
 msgid ""
 "Use the <<strong>admin:photoprism</strong>> credentials when logging in for "
 "the first time. Please do not forget to change the password immediately."
-msgstr ""
+msgstr "首次使用<<strong>admin:photoprism</strong>>帐号密码登录，登录后请立即修改密码。"
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
 " Please do not forget to change the password immediately."
-msgstr ""
+msgstr "首次使用<em>admin:admin</em>帐号密码登录，登录后请立即修改密码。"
 
 msgid ""
 "Use the <em>admin:photoprism</em> credentials when logging in for the first "
 "time. Please do not forget to change the password immediately."
-msgstr ""
+msgstr "首次使用<em>admin:photoprism</em>帐号密码登录，登录后请立即修改密码。"
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
 "transferred to the originals folder in a structured way that avoids "
 "duplicates."
-msgstr ""
+msgstr "你可以直接挂载导入已有媒体文件夹，从而避免重复导入或复制。"
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
@@ -131,6 +137,7 @@ msgid ""
 "duplicates. Make sure the user <em>photoprism</em> or group <em>users</em> "
 "can access the files."
 msgstr ""
+"你可以直接挂载导入已有媒体文件夹，从而避免重复导入文件到应用。请确保用户<em>photoprism</em>或用户组<em>users</em>有对应目录的对应权限。"
 
 msgid "iTunes/DAAP"
-msgstr ""
+msgstr "iTunes/DAAP"

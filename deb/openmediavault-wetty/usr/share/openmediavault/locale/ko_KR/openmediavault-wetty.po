@@ -3,6 +3,11 @@
 # This file is distributed under the same license as the openmediavault-wetty package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Chang-Eon Byeon <ksna0827@gmail.com>, 2022
+# Volker Theile <votdev@gmx.de>, 2022
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2022\n"
 "Language-Team: Korean (Korea) (https://www.transifex.com/openmediavault/teams/14254/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +24,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Certificate"
-msgstr ""
+msgstr "인증"
 
 msgid "Enabled"
-msgstr ""
+msgstr "활성화됨"
 
 msgid "Library name"
-msgstr ""
+msgstr "라이브러리 이름"
 
 msgid "Open UI"
 msgstr ""
@@ -33,25 +39,25 @@ msgid "OwnTone"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "암호"
 
 msgid "Port"
-msgstr ""
+msgstr "포트"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "청취를 위한 포트"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "공유 폴더"
 
 msgid "The 'admin' password to access the web interface."
 msgstr ""
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "SSL 인증"
 
 msgid "The location of the media files to share."
-msgstr ""
+msgstr "공유할 미디어 파일 위치"
 
 msgid ""
 "The location of the media files to share. Make sure the user "
@@ -59,7 +65,7 @@ msgid ""
 msgstr ""
 
 msgid "The name of the library as displayed by the clients."
-msgstr ""
+msgstr "클라이언트에 보여질 라이브러리 이름"
 
 msgid "The password to access the library."
 msgstr ""

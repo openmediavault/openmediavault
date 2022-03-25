@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-wetty package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Miha Bezjak <miha@bezjak.info>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: Miha Bezjak <miha@bezjak.info>, 2022\n"
 "Language-Team: Slovenian (Slovenia) (https://www.transifex.com/openmediavault/teams/14254/sl_SI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +22,13 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Potrdilo"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Omogočeno"
 
 msgid "Library name"
-msgstr ""
+msgstr "Ime knjižnice"
 
 msgid "Open UI"
 msgstr ""
@@ -33,25 +37,25 @@ msgid "OwnTone"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "Geslo"
 
 msgid "Port"
-msgstr ""
+msgstr "Vrata"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "Vrata na katerih servis posluša."
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Deljena mapa"
 
 msgid "The 'admin' password to access the web interface."
 msgstr ""
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "SSL potrdilo"
 
 msgid "The location of the media files to share."
-msgstr ""
+msgstr "Lokacija  medijskih datotek za deljenje."
 
 msgid ""
 "The location of the media files to share. Make sure the user "
@@ -59,7 +63,7 @@ msgid ""
 msgstr ""
 
 msgid "The name of the library as displayed by the clients."
-msgstr ""
+msgstr "Ime knjižnice, kot je prikazano s strani odjemalcev."
 
 msgid "The password to access the library."
 msgstr ""

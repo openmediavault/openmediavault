@@ -307,7 +307,7 @@ msgid "Sunday"
 msgstr "Niedziela"
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "Pole powinno zawierać * lub listę wartości oddzieloną przecinkami ."
 
 msgid "The location of the files to scan on-access."
 msgstr ""

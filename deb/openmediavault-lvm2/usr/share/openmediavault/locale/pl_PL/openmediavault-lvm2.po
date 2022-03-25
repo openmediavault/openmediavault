@@ -162,7 +162,7 @@ msgid "Select an device ..."
 msgstr "Wybierz urządzenie..."
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Wybierz urządzenia..."
 
 msgid "Select the devices used to extend the volume group."
 msgstr ""

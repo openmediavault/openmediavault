@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-wetty package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Plamen Vasilev <p.vasileff@gmail.com>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2022\n"
 "Language-Team: Bulgarian (Bulgaria) (https://www.transifex.com/openmediavault/teams/14254/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +22,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Сертификат"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Разрешено"
 
 msgid "Library name"
-msgstr ""
+msgstr "Име на библиотеката."
 
 msgid "Open UI"
 msgstr ""
@@ -33,25 +37,25 @@ msgid "OwnTone"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "Парола"
 
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "Порт за слушане."
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Споделена папка"
 
 msgid "The 'admin' password to access the web interface."
 msgstr ""
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "SSL сертификатът."
 
 msgid "The location of the media files to share."
-msgstr ""
+msgstr "Местоположението на мултимедийните файлове за споделяне."
 
 msgid ""
 "The location of the media files to share. Make sure the user "
@@ -59,7 +63,7 @@ msgid ""
 msgstr ""
 
 msgid "The name of the library as displayed by the clients."
-msgstr ""
+msgstr "Името на библиотеката, както е показано от клиентите."
 
 msgid "The password to access the library."
 msgstr ""

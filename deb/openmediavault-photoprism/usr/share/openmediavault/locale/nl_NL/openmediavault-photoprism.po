@@ -3,6 +3,13 @@
 # This file is distributed under the same license as the openmediavault-photoprism package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# sebak <seba.kerckhof@gmail.com>, 2022
+# Varkentjes, 2022
+# Volker Theile <votdev@gmx.de>, 2022
+# Tim <co_ti@hotmail.com>, 2022
+# Milan Toet <milantoet@gmail.com>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: Milan Toet <milantoet@gmail.com>, 2022\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,22 +26,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "A password is required to access the library."
-msgstr ""
+msgstr "Een wachtwoord is vereist om toegang te krijgen tot de bibliotheek."
 
 msgid "Application data"
 msgstr ""
 
 msgid "Authentication"
-msgstr ""
+msgstr "Aanmelden"
 
 msgid "Enable"
-msgstr ""
+msgstr "Inschakelen"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Ingeschakeld"
 
 msgid "General settings"
-msgstr ""
+msgstr "Algemene instellingen"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -44,10 +52,10 @@ msgid "Images"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "Importeren"
 
 msgid "Library name"
-msgstr ""
+msgstr "Bibliotheek naam"
 
 msgid "Note, this application does not support HTTPS."
 msgstr ""
@@ -56,7 +64,7 @@ msgid "Open UI"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "Wachtwoord"
 
 msgid "PhotoPrism"
 msgstr ""
@@ -67,22 +75,22 @@ msgid ""
 msgstr ""
 
 msgid "Port"
-msgstr ""
+msgstr "Poort"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "Poort om te beluisteren."
 
 msgid "Read-only"
-msgstr ""
+msgstr "Alleen lezen"
 
 msgid "Settings"
-msgstr ""
+msgstr "Instellingen"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Gedeelde map"
 
 msgid "The location of the media files to share."
-msgstr ""
+msgstr "De locatie van de mediabestanden om te delen."
 
 msgid "The location of the media files."
 msgstr ""
@@ -96,7 +104,7 @@ msgid "The location where to store the application data."
 msgstr ""
 
 msgid "The name of the library as displayed by the clients."
-msgstr ""
+msgstr "De naam van de bibliotheek zoals deze aan gebruikers wordt getoond."
 
 msgid "Updated PhotoPrism settings."
 msgstr ""
@@ -133,4 +141,4 @@ msgid ""
 msgstr ""
 
 msgid "iTunes/DAAP"
-msgstr ""
+msgstr "iTunes/DAAP"

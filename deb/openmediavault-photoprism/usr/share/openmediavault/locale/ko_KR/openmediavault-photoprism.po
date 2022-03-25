@@ -3,6 +3,11 @@
 # This file is distributed under the same license as the openmediavault-photoprism package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2022
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2022
+# Chang-Eon Byeon <ksna0827@gmail.com>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>, 2022\n"
 "Language-Team: Korean (Korea) (https://www.transifex.com/openmediavault/teams/14254/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,22 +24,22 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "A password is required to access the library."
-msgstr ""
+msgstr "라이브러리에 접근하려면 암호가 필요합니다."
 
 msgid "Application data"
 msgstr ""
 
 msgid "Authentication"
-msgstr ""
+msgstr "인증"
 
 msgid "Enable"
-msgstr ""
+msgstr "활성화"
 
 msgid "Enabled"
-msgstr ""
+msgstr "활성화됨"
 
 msgid "General settings"
-msgstr ""
+msgstr "일반 설정"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -44,10 +50,10 @@ msgid "Images"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "불러오기"
 
 msgid "Library name"
-msgstr ""
+msgstr "라이브러리 이름"
 
 msgid "Note, this application does not support HTTPS."
 msgstr ""
@@ -56,7 +62,7 @@ msgid "Open UI"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "암호"
 
 msgid "PhotoPrism"
 msgstr ""
@@ -67,22 +73,22 @@ msgid ""
 msgstr ""
 
 msgid "Port"
-msgstr ""
+msgstr "포트"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "청취를 위한 포트"
 
 msgid "Read-only"
-msgstr ""
+msgstr "읽기 전용"
 
 msgid "Settings"
-msgstr ""
+msgstr "설정"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "공유 폴더"
 
 msgid "The location of the media files to share."
-msgstr ""
+msgstr "공유할 미디어 파일 위치"
 
 msgid "The location of the media files."
 msgstr ""
@@ -96,7 +102,7 @@ msgid "The location where to store the application data."
 msgstr ""
 
 msgid "The name of the library as displayed by the clients."
-msgstr ""
+msgstr "클라이언트에 보여질 라이브러리 이름"
 
 msgid "Updated PhotoPrism settings."
 msgstr ""
@@ -133,4 +139,4 @@ msgid ""
 msgstr ""
 
 msgid "iTunes/DAAP"
-msgstr ""
+msgstr "iTunes/DAAP"

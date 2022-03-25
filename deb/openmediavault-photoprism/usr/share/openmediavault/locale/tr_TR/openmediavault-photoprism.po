@@ -3,6 +3,10 @@
 # This file is distributed under the same license as the openmediavault-photoprism package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2022
+# Serhat SUT <serhat.sut@gmail.com>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2022\n"
 "Language-Team: Turkish (Turkey) (https://www.transifex.com/openmediavault/teams/14254/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,22 +23,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "A password is required to access the library."
-msgstr ""
+msgstr "Kitaplığa erişim için şifre gereklidir."
 
 msgid "Application data"
 msgstr ""
 
 msgid "Authentication"
-msgstr ""
+msgstr "Doğrulama"
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktif"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Etkin"
 
 msgid "General settings"
-msgstr ""
+msgstr "Genel ayarlar"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -44,10 +49,10 @@ msgid "Images"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "İçeri aktarmak"
 
 msgid "Library name"
-msgstr ""
+msgstr "Kitaplık adı"
 
 msgid "Note, this application does not support HTTPS."
 msgstr ""
@@ -56,7 +61,7 @@ msgid "Open UI"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "Şifre"
 
 msgid "PhotoPrism"
 msgstr ""
@@ -67,22 +72,22 @@ msgid ""
 msgstr ""
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "Dinlenen port"
 
 msgid "Read-only"
-msgstr ""
+msgstr "Sadece okunabilir"
 
 msgid "Settings"
-msgstr ""
+msgstr "Ayarlar"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Paylaşılmış klasör"
 
 msgid "The location of the media files to share."
-msgstr ""
+msgstr "Paylaşılan medya dosyalarının yeri"
 
 msgid "The location of the media files."
 msgstr ""
@@ -96,13 +101,13 @@ msgid "The location where to store the application data."
 msgstr ""
 
 msgid "The name of the library as displayed by the clients."
-msgstr ""
+msgstr "Kullanıcılar tarfından görüntülenen kitaplığın adı."
 
 msgid "Updated PhotoPrism settings."
 msgstr ""
 
 msgid "Updated iTunes/DAAP settings."
-msgstr ""
+msgstr "Güncellenmiş iTunes/DAAP ayarları."
 
 msgid ""
 "Use the <<strong>admin:photoprism</strong>> credentials when logging in for "
@@ -133,4 +138,4 @@ msgid ""
 msgstr ""
 
 msgid "iTunes/DAAP"
-msgstr ""
+msgstr "iTunes/DAAP"

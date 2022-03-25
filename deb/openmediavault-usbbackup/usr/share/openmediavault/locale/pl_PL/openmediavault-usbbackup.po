@@ -121,13 +121,13 @@ msgid "Preserve extended attributes"
 msgstr "Chroń rozszerzone atrybuty"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "Zabezpiecz grupę"
 
 msgid "Preserve modification times"
 msgstr "Chroń czasy modyfikacji"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "Zabezpiecz właściciela"
 
 msgid "Preserve permissions"
 msgstr "Chroń uprawnienia"
