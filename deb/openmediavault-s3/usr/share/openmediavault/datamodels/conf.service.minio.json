@@ -1,0 +1,45 @@
+{
+	"type": "config",
+	"id": "conf.service.minio",
+	"title": "MinIO - high-performance, S3 compatible object storage",
+	"queryinfo": {
+		"xpath": "//services/minio",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"port": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 9000
+		},
+		"consoleport": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 9001
+		},
+		"rootname": {
+			"type": "string",
+			"minLength": 3
+		},
+		"rootpassword": {
+			"type": "string",
+			"minLength": 8
+		},
+		"sharedfolderref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		}
+	}
+}

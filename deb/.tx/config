@@ -87,3 +87,8 @@ source_lang = en
 file_filter = openmediavault-photoprism/usr/share/openmediavault/locale/<lang>/openmediavault-photoprism.po
 source_file = openmediavault-photoprism/usr/share/openmediavault/locale/openmediavault-photoprism.pot
 source_lang = en
+
+[openmediavault.openmediavault-s3]
+file_filter = openmediavault-s3/usr/share/openmediavault/locale/<lang>/openmediavault-s3.po
+source_file = openmediavault-s3/usr/share/openmediavault/locale/openmediavault-s3.pot
+source_lang = en
