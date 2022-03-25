@@ -98,6 +98,7 @@ export class PluginsDatatablePageComponent implements OnInit {
       },
       { name: gettext('Homepage'), prop: 'homepage', flexGrow: 1, sortable: true, hidden: true }
     ],
+    selectionType: 'single',
     remoteSearching: true,
     hasSearchField: true,
     limit: 0,

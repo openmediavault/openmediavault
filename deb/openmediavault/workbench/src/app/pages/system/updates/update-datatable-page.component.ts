@@ -79,6 +79,7 @@ export class UpdateDatatablePageComponent {
       },
       { name: gettext('Homepage'), prop: 'homepage', flexGrow: 1, sortable: true, hidden: true }
     ],
+    selectionType: 'single',
     limit: 0,
     sorters: [
       {
