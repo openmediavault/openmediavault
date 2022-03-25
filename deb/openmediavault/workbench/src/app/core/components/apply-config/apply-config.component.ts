@@ -16,6 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { finalize } from 'rxjs/operators';
@@ -42,6 +43,7 @@ export class ApplyConfigComponent {
   constructor(
     private dialogService: DialogService,
     private notificationService: NotificationService,
+    private router: Router,
     private rpcService: RpcService
   ) {}
 
@@ -115,6 +117,7 @@ export class ApplyConfigComponent {
                 NotificationType.success,
                 gettext('Reverted the configuration changes.')
               );
+              this.router.navigate(['/reload']);
             });
         }
       });
