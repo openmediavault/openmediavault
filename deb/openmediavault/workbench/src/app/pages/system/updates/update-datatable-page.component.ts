@@ -122,7 +122,7 @@ export class UpdateDatatablePageComponent {
         },
         confirmationDialogConfig: {
           template: 'confirmation-critical',
-          message: gettext('Do you really want to upgrade the system?')
+          message: gettext('All packages will be upgraded. Do you want to proceed?')
         },
         execute: {
           type: 'taskDialog',
