@@ -1,7 +1,7 @@
 Source: openmediavault-owntone
 Section: sound
 XB-Plugin-Section: multimedia
-XB-Plugin-Architecture: amd64, arm/v7, arm64
+XB-Plugin-Architecture: amd64, armhf, arm64
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>= 12), gettext

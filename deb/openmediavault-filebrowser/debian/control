@@ -1,7 +1,7 @@
 Source: openmediavault-filebrowser
 Section: net
 XB-Plugin-Section: utilities
-XB-Plugin-Architecture: amd64, arm/v6, arm/v7, arm64
+XB-Plugin-Architecture: amd64, armel, armhf, arm64
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>= 12), gettext

@@ -9,7 +9,8 @@
         <div class="omv-datatable-cell-title">{{ row.name }} {{ row.version }}</div>
         <div class="omv-datatable-cell-subtitle">{{ row.summary }}</div>
       </div>
-      <mat-chip-list *ngIf="row.installed">
+      <mat-chip-list *ngIf="row.installed"
+                     class="installed">
         <mat-chip class="omv-chip-theme-green"
                   [selectable]="false"
                   [disableRipple]="true">
@@ -17,10 +18,19 @@
         </mat-chip>
       </mat-chip-list>
     </div>
+    <div *ngIf="row.pluginarchitecture.length"
+         class="architecture">
+      <mat-chip-list>
+        <mat-chip *ngFor="let item of row.pluginarchitecture"
+                  [selectable]="false"
+                  [disableRipple]="true">
+          {{ item }}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
     <br>
     <ng-container *ngIf="row.extendeddescription"><span>{{ row.extendeddescription }}</span><br><br></ng-container>
     <ng-container *ngIf="row.pluginsection"><span>{{ 'Section' | translate }}: {{ row.pluginsection | titlecase }}</span><br></ng-container>
-    <ng-container *ngIf="row.pluginarchitecture.length"><span>{{ 'Architecture' | translate }}: {{ row.pluginarchitecture | join:', ' }}</span><br></ng-container>
     <ng-container *ngIf="row.maintainer"><span>{{ 'Maintainer' | translate }}: {{ row.maintainer }}</span><br></ng-container>
     <ng-container *ngIf="row.homepage"><span>{{ 'Homepage' | translate }}: {{ row.homepage }}</span><br></ng-container>
     <ng-container *ngIf="row.repository"><span>{{ 'Repository' | translate }}: {{ row.repository }}</span><br></ng-container>

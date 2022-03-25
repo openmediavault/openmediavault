@@ -4,8 +4,12 @@
   .omv-datatable-cell-header {
     align-items: center;
 
-    .mat-chip-list {
-      margin-left: 24px;
+    .installed {
+      margin-left: $omv-margin;
     }
+  }
+
+  .architecture {
+    margin-top: 0.5rem;
   }
 }
