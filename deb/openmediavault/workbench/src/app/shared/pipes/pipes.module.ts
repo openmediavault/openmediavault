@@ -16,6 +16,7 @@ import { NotAvailablePipe } from '~/app/shared/pipes/not-available.pipe';
 import { PreventHtmlPipe } from '~/app/shared/pipes/prevent-html.pipe';
 import { ReplacePipe } from '~/app/shared/pipes/replace.pipe';
 import { SanitizeHtmlPipe } from '~/app/shared/pipes/sanitize-html.pipe';
+import { SortPipe } from '~/app/shared/pipes/sort.pipe';
 import { TemplatePipe } from '~/app/shared/pipes/template.pipe';
 import { ToBooleanPipe } from '~/app/shared/pipes/to-boolean.pipe';
 import { TruncatePipe } from '~/app/shared/pipes/truncate.pipe';
@@ -43,7 +44,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     ReplacePipe,
     Br2nlPipe,
     Nl2brPipe,
-    PreventHtmlPipe
+    PreventHtmlPipe,
+    SortPipe
   ],
   imports: [CommonModule],
   exports: [
@@ -66,7 +68,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     ReplacePipe,
     Br2nlPipe,
     Nl2brPipe,
-    PreventHtmlPipe
+    PreventHtmlPipe,
+    SortPipe
   ],
   providers: [
     ToBooleanPipe,
@@ -88,7 +91,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     ReplacePipe,
     Br2nlPipe,
     Nl2brPipe,
-    PreventHtmlPipe
+    PreventHtmlPipe,
+    SortPipe
   ]
 })
 export class PipesModule {}

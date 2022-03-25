@@ -21,7 +21,7 @@
     <div *ngIf="row.pluginarchitecture.length"
          class="architecture">
       <mat-chip-list>
-        <mat-chip *ngFor="let item of row.pluginarchitecture"
+        <mat-chip *ngFor="let item of row.pluginarchitecture | sort"
                   [selectable]="false"
                   [disableRipple]="true">
           {{ item }}
