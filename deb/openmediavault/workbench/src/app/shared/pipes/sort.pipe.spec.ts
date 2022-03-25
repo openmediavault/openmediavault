@@ -8,10 +8,10 @@ describe('SortPipe', () => {
   });
 
   it('transform value (1)', () => {
-    expect(pipe.transform([3, 2, 1])).toStrictEqual([1, 2, 3]);
+    expect(pipe.transform([3, 2, 1])).toEqual([1, 2, 3]);
   });
 
   it('transform value (2)', () => {
-    expect(pipe.transform(['y', 'a', 'm'])).toStrictEqual(['a', 'm', 'y']);
+    expect(pipe.transform(['y', 'a', 'm'])).toEqual(['a', 'm', 'y']);
   });
 });
