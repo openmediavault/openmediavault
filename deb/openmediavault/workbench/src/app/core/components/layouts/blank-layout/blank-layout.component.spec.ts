@@ -8,13 +8,11 @@ describe('DefaultLayoutComponent', () => {
   let component: BlankLayoutComponent;
   let fixture: ComponentFixture<BlankLayoutComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [ComponentsModule, TestingModule]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ComponentsModule, TestingModule]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BlankLayoutComponent);

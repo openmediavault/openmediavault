@@ -6,13 +6,11 @@ describe('MatFormButtonComponent', () => {
   let component: MatFormButtonComponent;
   let fixture: ComponentFixture<MatFormButtonComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [MatFormButtonComponent]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [MatFormButtonComponent]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MatFormButtonComponent);

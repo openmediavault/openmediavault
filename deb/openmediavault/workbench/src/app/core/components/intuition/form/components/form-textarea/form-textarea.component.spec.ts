@@ -10,13 +10,11 @@ describe('FormTextareaComponent', () => {
   let component: FormTextareaComponent;
   let fixture: ComponentFixture<FormTextareaComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FormTextareaComponent);

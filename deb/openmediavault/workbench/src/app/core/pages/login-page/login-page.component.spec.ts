@@ -11,19 +11,17 @@ describe('LoginPageComponent', () => {
   let component: LoginPageComponent;
   let fixture: ComponentFixture<LoginPageComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          BrowserAnimationsModule,
-          PagesModule,
-          TestingModule,
-          ToastrModule.forRoot(),
-          TranslateModule.forRoot()
-        ]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        BrowserAnimationsModule,
+        PagesModule,
+        TestingModule,
+        ToastrModule.forRoot(),
+        TranslateModule.forRoot()
+      ]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginPageComponent);

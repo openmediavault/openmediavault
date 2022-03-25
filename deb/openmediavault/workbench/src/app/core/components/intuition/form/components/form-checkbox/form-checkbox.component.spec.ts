@@ -10,13 +10,11 @@ describe('FormCheckboxComponent', () => {
   let component: FormCheckboxComponent;
   let fixture: ComponentFixture<FormCheckboxComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FormCheckboxComponent);

@@ -9,13 +9,11 @@ describe('FormDividerComponent', () => {
   let component: FormDividerComponent;
   let fixture: ComponentFixture<FormDividerComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FormDividerComponent);

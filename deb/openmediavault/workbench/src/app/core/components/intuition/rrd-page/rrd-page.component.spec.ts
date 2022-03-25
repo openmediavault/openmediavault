@@ -8,13 +8,11 @@ describe('RrdPageComponent', () => {
   let component: RrdPageComponent;
   let fixture: ComponentFixture<RrdPageComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [IntuitionModule, TestingModule]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [IntuitionModule, TestingModule]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(RrdPageComponent);

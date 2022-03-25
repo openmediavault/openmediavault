@@ -10,13 +10,11 @@ describe('WidgetDatatableComponent', () => {
   let component: WidgetDatatableComponent;
   let fixture: ComponentFixture<WidgetDatatableComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [DashboardModule, TestingModule, ToastrModule.forRoot(), TranslateModule.forRoot()]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [DashboardModule, TestingModule, ToastrModule.forRoot(), TranslateModule.forRoot()]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(WidgetDatatableComponent);

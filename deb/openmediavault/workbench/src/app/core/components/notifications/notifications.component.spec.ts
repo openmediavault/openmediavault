@@ -10,18 +10,11 @@ describe('NotificationsComponent', () => {
   let component: NotificationsComponent;
   let fixture: ComponentFixture<NotificationsComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          ComponentsModule,
-          TestingModule,
-          ToastrModule.forRoot(),
-          TranslateModule.forRoot()
-        ]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ComponentsModule, TestingModule, ToastrModule.forRoot(), TranslateModule.forRoot()]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NotificationsComponent);

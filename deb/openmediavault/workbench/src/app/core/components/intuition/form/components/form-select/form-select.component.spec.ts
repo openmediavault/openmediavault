@@ -10,13 +10,11 @@ describe('FormSelectComponent', () => {
   let component: FormSelectComponent;
   let fixture: ComponentFixture<FormSelectComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FormSelectComponent);

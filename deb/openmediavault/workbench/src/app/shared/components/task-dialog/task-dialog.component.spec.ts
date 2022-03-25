@@ -10,14 +10,12 @@ describe('TaskDialogComponent', () => {
   let component: TaskDialogComponent;
   let fixture: ComponentFixture<TaskDialogComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [ComponentsModule, TestingModule, TranslateModule.forRoot()],
-        providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ComponentsModule, TestingModule, TranslateModule.forRoot()],
+      providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TaskDialogComponent);

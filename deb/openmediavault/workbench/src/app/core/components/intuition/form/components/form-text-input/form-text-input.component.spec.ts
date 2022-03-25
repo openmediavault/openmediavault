@@ -11,13 +11,11 @@ describe('FormTextInputComponent', () => {
   let component: FormTextInputComponent;
   let fixture: ComponentFixture<FormTextInputComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [IntuitionModule, TestingModule, ToastrModule.forRoot(), TranslateModule.forRoot()]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot(), TranslateModule.forRoot()]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FormTextInputComponent);

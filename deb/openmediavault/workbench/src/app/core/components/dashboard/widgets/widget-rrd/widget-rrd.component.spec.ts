@@ -9,13 +9,11 @@ describe('WidgetRrdComponent', () => {
   let component: WidgetRrdComponent;
   let fixture: ComponentFixture<WidgetRrdComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [DashboardModule, TestingModule, TranslateModule.forRoot()]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [DashboardModule, TestingModule, TranslateModule.forRoot()]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(WidgetRrdComponent);

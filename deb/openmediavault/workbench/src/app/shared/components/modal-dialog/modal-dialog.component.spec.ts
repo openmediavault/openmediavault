@@ -10,14 +10,12 @@ describe('ConfirmDialogComponent', () => {
   let component: ModalDialogComponent;
   let fixture: ComponentFixture<ModalDialogComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [ComponentsModule, TestingModule, TranslateModule.forRoot()],
-        providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ComponentsModule, TestingModule, TranslateModule.forRoot()],
+      providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ModalDialogComponent);

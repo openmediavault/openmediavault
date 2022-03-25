@@ -8,13 +8,11 @@ describe('AlertPanelComponent', () => {
   let component: AlertPanelComponent;
   let fixture: ComponentFixture<AlertPanelComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [ComponentsModule, TestingModule]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ComponentsModule, TestingModule]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AlertPanelComponent);

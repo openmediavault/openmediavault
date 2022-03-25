@@ -9,13 +9,11 @@ describe('MatFormDatatableComponent', () => {
   let component: MatFormDatatableComponent;
   let fixture: ComponentFixture<MatFormDatatableComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [ComponentsModule, TestingModule, ToastrModule.forRoot()]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ComponentsModule, TestingModule, ToastrModule.forRoot()]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MatFormDatatableComponent);

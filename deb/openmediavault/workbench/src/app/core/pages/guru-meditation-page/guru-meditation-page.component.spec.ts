@@ -9,13 +9,11 @@ describe('NotFoundPageComponent', () => {
   let component: GuruMeditationPageComponent;
   let fixture: ComponentFixture<GuruMeditationPageComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [PagesModule, TestingModule, TranslateModule.forRoot()]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [PagesModule, TestingModule, TranslateModule.forRoot()]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(GuruMeditationPageComponent);

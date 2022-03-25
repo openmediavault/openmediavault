@@ -10,18 +10,11 @@ describe('ApplyConfigComponent', () => {
   let component: ApplyConfigComponent;
   let fixture: ComponentFixture<ApplyConfigComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          ComponentsModule,
-          TestingModule,
-          ToastrModule.forRoot(),
-          TranslateModule.forRoot()
-        ]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ComponentsModule, TestingModule, ToastrModule.forRoot(), TranslateModule.forRoot()]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ApplyConfigComponent);

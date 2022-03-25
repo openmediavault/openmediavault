@@ -8,13 +8,11 @@ describe('ShutdownPageComponent', () => {
   let component: ShutdownPageComponent;
   let fixture: ComponentFixture<ShutdownPageComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [PagesModule, TestingModule]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [PagesModule, TestingModule]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ShutdownPageComponent);

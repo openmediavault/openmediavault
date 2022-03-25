@@ -9,14 +9,12 @@ describe('WorkbenchLayoutComponent', () => {
   let component: WorkbenchLayoutComponent;
   let fixture: ComponentFixture<WorkbenchLayoutComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        providers: [ɵMockMatchMediaProvider],
-        imports: [ComponentsModule, TestingModule]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      providers: [ɵMockMatchMediaProvider],
+      imports: [ComponentsModule, TestingModule]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(WorkbenchLayoutComponent);

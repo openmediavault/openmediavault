@@ -11,13 +11,11 @@ describe('FormSharedfolderSelectComponent', () => {
   let component: FormSharedfolderSelectComponent;
   let fixture: ComponentFixture<FormSharedfolderSelectComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FormSharedfolderSelectComponent);

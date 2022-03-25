@@ -9,13 +9,11 @@ describe('FormDatepickerComponent', () => {
   let component: FormDatepickerComponent;
   let fixture: ComponentFixture<FormDatepickerComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [IntuitionModule, TestingModule]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [IntuitionModule, TestingModule]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FormDatepickerComponent);

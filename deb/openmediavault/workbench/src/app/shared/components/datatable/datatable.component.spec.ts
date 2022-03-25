@@ -10,18 +10,11 @@ describe('DatatableComponent', () => {
   let component: DatatableComponent;
   let fixture: ComponentFixture<DatatableComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          ComponentsModule,
-          TestingModule,
-          ToastrModule.forRoot(),
-          TranslateModule.forRoot()
-        ]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ComponentsModule, TestingModule, ToastrModule.forRoot(), TranslateModule.forRoot()]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DatatableComponent);

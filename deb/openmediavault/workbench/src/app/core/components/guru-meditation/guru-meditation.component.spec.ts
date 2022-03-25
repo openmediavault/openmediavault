@@ -6,13 +6,11 @@ describe('GuruMeditationComponent', () => {
   let component: GuruMeditationComponent;
   let fixture: ComponentFixture<GuruMeditationComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [GuruMeditationComponent]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [GuruMeditationComponent]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(GuruMeditationComponent);

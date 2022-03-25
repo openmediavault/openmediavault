@@ -10,13 +10,11 @@ describe('WidgetSystemInformationComponent', () => {
   let component: WidgetSystemInformationComponent;
   let fixture: ComponentFixture<WidgetSystemInformationComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [DashboardModule, TestingModule, TranslateModule.forRoot()]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [DashboardModule, TestingModule, TranslateModule.forRoot()]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(WidgetSystemInformationComponent);

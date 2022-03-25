@@ -9,13 +9,11 @@ describe('DatatableActionsComponent', () => {
   let component: DatatableActionsComponent;
   let fixture: ComponentFixture<DatatableActionsComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [ComponentsModule, TestingModule]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ComponentsModule, TestingModule]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DatatableActionsComponent);

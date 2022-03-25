@@ -11,25 +11,18 @@ describe('FormDialogComponent', () => {
   let component: FormDialogComponent;
   let fixture: ComponentFixture<FormDialogComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          IntuitionModule,
-          TestingModule,
-          ToastrModule.forRoot(),
-          TranslateModule.forRoot()
-        ],
-        providers: [
-          { provide: MAT_DIALOG_DATA, useValue: {} },
-          {
-            provide: MatDialogRef,
-            useValue: {}
-          }
-        ]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot(), TranslateModule.forRoot()],
+      providers: [
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+        {
+          provide: MatDialogRef,
+          useValue: {}
+        }
+      ]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FormDialogComponent);

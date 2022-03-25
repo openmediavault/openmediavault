@@ -8,13 +8,11 @@ describe('StandbyPageComponent', () => {
   let component: StandbyPageComponent;
   let fixture: ComponentFixture<StandbyPageComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [PagesModule, TestingModule]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [PagesModule, TestingModule]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StandbyPageComponent);
