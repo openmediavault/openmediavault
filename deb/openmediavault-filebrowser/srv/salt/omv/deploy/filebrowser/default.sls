@@ -53,6 +53,7 @@ filebrowser_pull_app_image:
   cmd.run:
     - name: podman pull {{ image }}
     - unless: podman image exists {{ image }}
+    - failhard: True
 
 # Make sure the file exists. Do not use file.touch state.
 create_filebrowser_database:

@@ -87,11 +87,13 @@ photoprism_pull_app_image:
   cmd.run:
     - name: podman pull {{ app_image }}
     - unless: podman image exists {{ app_image }}
+    - failhard: True
 
 photoprism_pull_db_image:
   cmd.run:
     - name: podman pull {{ db_image }}
     - unless: podman image exists {{ db_image }}
+    - failhard: True
 
 start_photoprism_service:
   service.running:

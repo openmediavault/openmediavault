@@ -50,6 +50,7 @@ minio_pull_app_image:
   cmd.run:
     - name: podman pull {{ image }}
     - unless: podman image exists {{ image }}
+    - failhard: True
 
 start_minio_service:
   service.running:
