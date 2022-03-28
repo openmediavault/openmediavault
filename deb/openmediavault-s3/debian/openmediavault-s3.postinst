@@ -33,7 +33,7 @@ case "$1" in
 		#   by accident.
 		# - The user is nevertheless listed in the ACL dialog.
 		####################################################################
-		if ! omv_user_id_exists filebrowser; then
+		if ! omv_user_id_exists s3; then
 			echo "Adding 's3' user ..."
 			useradd --system --no-user-group --no-create-home \
 				--shell '/usr/sbin/nologin' --groups 'users' \
