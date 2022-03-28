@@ -17,6 +17,16 @@
 			"maximum": 65535,
 			"default": 8080
 		},
+		"sslcertificateref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		},
 		"readonly": {
 			"type": "boolean",
 			"default": false
