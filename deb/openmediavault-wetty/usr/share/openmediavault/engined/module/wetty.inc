@@ -41,17 +41,6 @@ class WeTTY extends \OMV\Engine\Module\ServiceAbstract
 		];
 	}
 
-	final public function onModifySslCertificate($type, $path, $object) {
-		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $db->exists("conf.service.wetty", [
-			"operator" => "stringEquals",
-			"arg0" => "sslcertificateref",
-			"arg1" => $object['uuid']
-		])) {
-			$this->setDirty();
-		}
-	}
-
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 			OMV_NOTIFY_MODIFY,
@@ -65,10 +54,6 @@ class WeTTY extends \OMV\Engine\Module\ServiceAbstract
 			OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.service.ssh",
 			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.certificate.ssl",
-			[$this, "onModifySslCertificate"]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 			OMV_NOTIFY_MODIFY,
