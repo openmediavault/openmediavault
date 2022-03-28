@@ -16,7 +16,7 @@ data:
         dismissible: true
         stateId: 76f127fb-092d-43af-8479-c035da5e0ba3
       - type: hint
-        text: _("Please note that the first deployment of the application can take a long time because the container images have to be downloaded first. You can manually download them via <em>podman pull docker.io/photoprism/photoprism:latest; podman pull docker.io/mariadb:latest</em>.")
+        text: _("Please note that the first deployment of the application can take a long time because the container images have to be downloaded first.")
         dismissible: true
         stateId: 54b4d4ce-1fe0-44d9-9c6e-33a40a7e31c2
       - type: checkbox
