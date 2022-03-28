@@ -88,6 +88,12 @@ export class SslCertificateDatatablePageComponent {
       },
       {
         template: 'delete',
+        enabledConstraints: {
+          constraint: [
+            // Disable button if a selected SSL certificate is in use.
+            { operator: 'falsy', arg0: { prop: '_used' } }
+          ]
+        },
         execute: {
           type: 'request',
           request: {
