@@ -1,5 +1,6 @@
 openmediavault (6.0.19-2) unstable; urgency=low
 
+  * Update locale files.
   * Many improvements.
   * Harden openmediavault-flush-mailq cron job to prevent postfix
     error messages.

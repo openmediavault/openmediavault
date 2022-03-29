@@ -7,9 +7,9 @@
 # Ádám Balajti <balajtiadam@gmail.com>, 2022
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2022
 # Volker Theile <votdev@gmx.de>, 2022
-# Grawens <szabolcs.szanyi@gmail.com>, 2022
 # mersaint <mersaint@gmail.com>, 2022
 # Sári Gábor <sari.gabor@gmail.com>, 2022
+# Grawens <szabolcs.szanyi@gmail.com>, 2022
 # 
 #, fuzzy
 msgid ""
@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: Sári Gábor <sari.gabor@gmail.com>, 2022\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2022\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,6 +48,9 @@ msgid ""
 "If enabled, all features that require write permission to the images folder "
 "are disabled, in particular import, upload, and delete."
 msgstr ""
+"Ha engedélyezve van, akkor minden olyan funkció le van tiltva, amely írási "
+"engedélyt igényel a képek mappájába, különösen az importálás, feltöltés és "
+"törlés."
 
 msgid "Images"
 msgstr "Képek"
@@ -59,7 +62,7 @@ msgid "Library name"
 msgstr "Könyvtár név"
 
 msgid "Note, this application does not support HTTPS."
-msgstr ""
+msgstr "Megjegyzés: ez az alkalmazás nem támogatja a HTTPS-t."
 
 msgid "Open UI"
 msgstr "UI megnyitása"
@@ -74,6 +77,8 @@ msgid ""
 "Please note that the first deployment of the application can take a long "
 "time because the container images have to be downloaded first."
 msgstr ""
+"Kérjük, vegye figyelembe, hogy az alkalmazás első üzembe helyezése sokáig  "
+"eltarthat, mivel először a konténerfájlokat kell letölteni."
 
 msgid "Port"
 msgstr "Port"
@@ -100,9 +105,12 @@ msgid ""
 "The location of the media files. Make sure the user <em>photoprism</em> or "
 "group <em>users</em> can access the files."
 msgstr ""
+"A médiafájlok helye. Győződjön meg arról, hogy a <em>photoprism</em> "
+"felhasználó, vagy a <em>users</em> csoport felhasználói hozzáférhetnek a "
+"fájlokhoz."
 
 msgid "The location where to store the application data."
-msgstr ""
+msgstr "Az alkalmazásadatok tárolásának helye."
 
 msgid "The name of the library as displayed by the clients."
 msgstr "A klienseken megjelenő könyvtár neve."
@@ -117,22 +125,31 @@ msgid ""
 "Use the <<strong>admin:photoprism</strong>> credentials when logging in for "
 "the first time. Please do not forget to change the password immediately."
 msgstr ""
+"Az első bejelentkezéskor használja az <<strong>admin:photoprism</strong>> "
+"hitelesítő adatokat. Kérjük, ne felejtse el azonnal megváltoztatni a "
+"jelszót."
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
 " Please do not forget to change the password immediately."
 msgstr ""
+"Az első bejelentkezéskor használja az <em>admin:admin</em> hitelesítő "
+"adatokat. Kérjük, ne felejtse el azonnal megváltoztatni a jelszót."
 
 msgid ""
 "Use the <em>admin:photoprism</em> credentials when logging in for the first "
 "time. Please do not forget to change the password immediately."
 msgstr ""
+"Az első bejelentkezéskor használja az <em>admin:photoprism</em> hitelesítő "
+"adatokat. Kérjük, ne felejtse el azonnal megváltoztatni a jelszót."
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
 "transferred to the originals folder in a structured way that avoids "
 "duplicates."
 msgstr ""
+"Opcionálisan beilleszthet egy importmappát, amelyből a fájlokat "
+"strukturáltan átviheti az eredeti mappába, elkerülve az ismétlődéseket."
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
@@ -140,6 +157,10 @@ msgid ""
 "duplicates. Make sure the user <em>photoprism</em> or group <em>users</em> "
 "can access the files."
 msgstr ""
+"Opcionálisan beilleszthet egy importmappát, amelyből a fájlokat "
+"strukturáltan átviheti az eredeti mappába, elkerülve az ismétlődéseket. "
+"Győződjön meg arról, hogy a <em>photoprism</em> felhasználó, vagy a "
+"<em>users</em> csoport felhasználói hozzáférhetnek a fájlokhoz."
 
 msgid "iTunes/DAAP"
 msgstr "iTunes/DAAP"

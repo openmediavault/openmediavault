@@ -5,8 +5,8 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
-# kochin <kochinc@outlook.com>, 2022
 # songming <by@songming.me>, 2022
+# kochin <kochinc@outlook.com>, 2022
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: songming <by@songming.me>, 2022\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2022\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgid "A password is required to access the library."
 msgstr "需要密碼才能存取該媒體庫。"
 
 msgid "Application data"
-msgstr "应用数据"
+msgstr "應用資料"
 
 msgid "Authentication"
 msgstr "驗證"
@@ -44,10 +44,10 @@ msgstr "一般設定"
 msgid ""
 "If enabled, all features that require write permission to the images folder "
 "are disabled, in particular import, upload, and delete."
-msgstr "如果启用，所有图片文件夹的写权限将被禁用，如导入、上传、删除。"
+msgstr "如果啟用，所有需要對圖片檔案夾有寫入權限的功能會被停用，尤其是匯入、上傳及刪除。"
 
 msgid "Images"
-msgstr "图片"
+msgstr "圖片"
 
 msgid "Import"
 msgstr "匯入"
@@ -56,10 +56,10 @@ msgid "Library name"
 msgstr "媒體庫名稱"
 
 msgid "Note, this application does not support HTTPS."
-msgstr "注意，这个应用不支持 HTTPS。"
+msgstr "注意：此應用不支援 HTTPS。"
 
 msgid "Open UI"
-msgstr "打开 UI"
+msgstr "打開 UI"
 
 msgid "Password"
 msgstr "密碼"
@@ -70,7 +70,7 @@ msgstr "PhotoPrism"
 msgid ""
 "Please note that the first deployment of the application can take a long "
 "time because the container images have to be downloaded first."
-msgstr "请注意应用首次部署可能需要较长的时间，因为第一次要下载容器镜像文件。"
+msgstr "請注意：在初次佈署此應用時，可能會花較長時間，這是因為容器影像必須先被下載。"
 
 msgid "Port"
 msgstr "通訊埠"
@@ -91,21 +91,21 @@ msgid "The location of the media files to share."
 msgstr "共享媒體檔案的位置。"
 
 msgid "The location of the media files."
-msgstr "本体媒体文件。"
+msgstr "媒體檔案的位置。"
 
 msgid ""
 "The location of the media files. Make sure the user <em>photoprism</em> or "
 "group <em>users</em> can access the files."
-msgstr "本地媒体文件，请确保用户<em>photoprism</em>或用户组<em>users</em>有对应权限。"
+msgstr "媒體檔案的位置。請確認使用者 <em>photoprism</em> 或群組 <em>users</em> 能夠存取那些檔案。"
 
 msgid "The location where to store the application data."
-msgstr "存储应用数据的本地路径。"
+msgstr "應用資料儲存的位置。"
 
 msgid "The name of the library as displayed by the clients."
-msgstr "顯示在客戶端之媒體庫的名稱"
+msgstr "顯示在客戶端之媒體庫的名稱。"
 
 msgid "Updated PhotoPrism settings."
-msgstr "更新 PhotoPrism 设置。"
+msgstr "已更新 PhotoPrism 設定。"
 
 msgid "Updated iTunes/DAAP settings."
 msgstr "已更新 iTunes/DAAP 設定。"
@@ -113,23 +113,23 @@ msgstr "已更新 iTunes/DAAP 設定。"
 msgid ""
 "Use the <<strong>admin:photoprism</strong>> credentials when logging in for "
 "the first time. Please do not forget to change the password immediately."
-msgstr "首次使用<<strong>admin:photoprism</strong>>帐号密码登录，登录后请立即修改密码。"
+msgstr "當首次使用 <<strong>admin:photoprism</strong>> 帳號資料登入時，請不要忘記立即更改密碼。"
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
 " Please do not forget to change the password immediately."
-msgstr "首次使用<em>admin:admin</em>帐号密码登录，登录后请立即修改密码。"
+msgstr "當首次使用 <em>admin:admin</em> 帳號資料登入時，請不要忘記立即更改密碼。"
 
 msgid ""
 "Use the <em>admin:photoprism</em> credentials when logging in for the first "
 "time. Please do not forget to change the password immediately."
-msgstr "首次使用<em>admin:photoprism</em>帐号密码登录，登录后请立即修改密码。"
+msgstr "當首次使用 <em>admin:photoprism</em> 帳號資料登入時，請不要忘記立即更改密碼。"
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
 "transferred to the originals folder in a structured way that avoids "
 "duplicates."
-msgstr "你可以直接挂载导入已有媒体文件夹，从而避免重复导入或复制。"
+msgstr "您可以選擇性地掛載一個匯入檔案夾，其內的檔案能以結構性的方式被傳送到原始檔案夾裡，避免重複。"
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
@@ -137,7 +137,8 @@ msgid ""
 "duplicates. Make sure the user <em>photoprism</em> or group <em>users</em> "
 "can access the files."
 msgstr ""
-"你可以直接挂载导入已有媒体文件夹，从而避免重复导入文件到应用。请确保用户<em>photoprism</em>或用户组<em>users</em>有对应目录的对应权限。"
+"您可以選擇性地掛載一個匯入檔案夾，其內的檔案能以結構性的方式被傳送到原始檔案夾裡，避免重複。請確認使用者 <em>photoprism</em> 或群組"
+" <em>users</em> 能夠存取那些檔案。"
 
 msgid "iTunes/DAAP"
 msgstr "iTunes/DAAP"

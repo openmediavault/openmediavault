@@ -44,7 +44,7 @@ msgid "Port to listen on."
 msgstr "Puerto de escucha."
 
 msgid "S3"
-msgstr ""
+msgstr "S3"
 
 msgid "Shared folder"
 msgstr "Carpeta Compartida"
@@ -53,15 +53,17 @@ msgid ""
 "The location of the media files. Make sure the user <em>s3</em> or group "
 "<em>users</em> can access the files."
 msgstr ""
+"La ubicación de los archivos multimedia. Asegúrese de que el usuario "
+"<em>s3</em> o los <em>usuarios del grupo</em> puedan acceder a los archivos."
 
 msgid "The name of the root user."
-msgstr ""
+msgstr "Nombre del usuario root."
 
 msgid "The password of the root user."
-msgstr ""
+msgstr "Contraseña del usuario root."
 
 msgid "Updated S3 settings."
-msgstr ""
+msgstr "Opciones S3 actualizadas."
 
 msgid "Web interface"
-msgstr "Interfaz web (UI)"
+msgstr "Interfaz web"

@@ -46,7 +46,7 @@ msgid "Port to listen on."
 msgstr "Beállítás erre a portra."
 
 msgid "S3"
-msgstr ""
+msgstr "S3"
 
 msgid "Shared folder"
 msgstr "Megosztott mappa"
@@ -55,15 +55,17 @@ msgid ""
 "The location of the media files. Make sure the user <em>s3</em> or group "
 "<em>users</em> can access the files."
 msgstr ""
+"A médiafájlok helye. Győződjön meg arról, hogy az <em>s3</em> felhasználó "
+"vagy a <em>users</em> csoport felhasználói hozzáférhetnek a fájlokhoz."
 
 msgid "The name of the root user."
-msgstr ""
+msgstr "A root felhasználó neve."
 
 msgid "The password of the root user."
-msgstr ""
+msgstr "A root felhasználó jelszava."
 
 msgid "Updated S3 settings."
-msgstr ""
+msgstr "S3 beállítások frissítve."
 
 msgid "Web interface"
 msgstr "Web interfész"

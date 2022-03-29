@@ -5,8 +5,8 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
-# Ji-Hyeon Gim <potatogim@potatogim.net>, 2022
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2022
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2022
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-22 22:33+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>, 2022\n"
+"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2022\n"
 "Language-Team: Korean (Korea) (https://www.transifex.com/openmediavault/teams/14254/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,7 +59,7 @@ msgid "Note, this application does not support HTTPS."
 msgstr ""
 
 msgid "Open UI"
-msgstr ""
+msgstr "UI 열기"
 
 msgid "Password"
 msgstr "암호"

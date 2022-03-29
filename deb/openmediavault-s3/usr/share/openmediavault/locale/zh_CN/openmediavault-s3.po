@@ -6,6 +6,7 @@
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
 # LeeYang <150183966@qq.com>, 2022
+# 黃柏諺 <s8321414@gmail.com>, 2022
 # songming <by@songming.me>, 2022
 # 
 #, fuzzy
@@ -45,7 +46,7 @@ msgid "Port to listen on."
 msgstr "监听端口。"
 
 msgid "S3"
-msgstr ""
+msgstr "S3"
 
 msgid "Shared folder"
 msgstr "共享文件夹"
@@ -53,16 +54,16 @@ msgstr "共享文件夹"
 msgid ""
 "The location of the media files. Make sure the user <em>s3</em> or group "
 "<em>users</em> can access the files."
-msgstr ""
+msgstr "请确认用户 <em>s3</em> 或用户组<em>users</em> 有本地媒体文件的对应权限。"
 
 msgid "The name of the root user."
-msgstr ""
+msgstr "root 用户名称。"
 
 msgid "The password of the root user."
-msgstr ""
+msgstr "root 用户密码。"
 
 msgid "Updated S3 settings."
-msgstr ""
+msgstr "已更新 S3 设定。"
 
 msgid "Web interface"
 msgstr "Web 页面"

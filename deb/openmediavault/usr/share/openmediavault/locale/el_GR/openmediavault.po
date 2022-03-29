@@ -965,10 +965,10 @@ msgid "Displays information about the file systems in a table."
 msgstr "Εμφάνιση πληροφοριών για τα συστήματα αρχείων σε πίνακα."
 
 msgid "Displays information about the network interfaces in a grid."
-msgstr "Εμφάνιση πληροφοριών για τις διεπαφές δικτύου σε πλέγμα."
+msgstr "Εμφάνιση πληροφοριών για τις διασυνδέσεις δικτύου σε πλέγμα."
 
 msgid "Displays information about the network interfaces in a table."
-msgstr "Εμφάνιση πληροφοριών για τις διεπαφές δικτύου σε πίνακα."
+msgstr "Εμφάνιση πληροφοριών για τις διασυνδέσεις δικτύου σε πίνακα."
 
 msgid "Displays information about the services in a grid."
 msgstr "Εμφάνιση πληροφοριών για τις υπηρεσίες σε πλέγμα."
@@ -1475,7 +1475,7 @@ msgid "Identify As"
 msgstr "Αναγνώριση ως"
 
 msgid "Identify network interface"
-msgstr "Αναγνώριση σύνδεσης δικτύου"
+msgstr "Αναγνώριση διασύνδεσης δικτύου"
 
 msgid "Idle"
 msgstr "Αδρανές"
@@ -1592,7 +1592,7 @@ msgid ""
 msgstr "Εγκαθιστά το δημόσιο κλειδί SSH σε κάποιο απομακρυσμένο σύστημα ως πιστοποιημένο κλειδί. Η πιστοποίηση μέσω κωδικού πρέπει να είναι ενεργοποιημένη στο απομακρυσμένο σύστημα."
 
 msgid "Interfaces"
-msgstr "Διεπαφές"
+msgstr "Διασυνδέσεις"
 
 msgid "Invalid IP address."
 msgstr "Άκυρη διεύθυνση ΙΡ."
@@ -2041,7 +2041,7 @@ msgid "Network"
 msgstr "Δίκτυο"
 
 msgid "Network Interfaces"
-msgstr "Επαφές δικτύου"
+msgstr "Διασυνδέσεις δικτύου"
 
 msgid "Neutral Zone"
 msgstr "Ουδέτερη ζώνη"
@@ -2974,7 +2974,7 @@ msgid "Size"
 msgstr "Μέγεθος"
 
 msgid "Slaves"
-msgstr "Συστατατικά"
+msgstr "Υποτελείς"
 
 msgid "Sleep"
 msgstr "Ύπνος"
@@ -3043,10 +3043,10 @@ msgid ""
 msgstr "Ο χρόνος σε δευτερόλεπτα ανάμεσα στον έλεγχο και την ενημέρωση της μασκαρεμένης διεύθυνσης με επίλυση ΙΡ. Με 0 απενεργοποιείται."
 
 msgid "Specifies the interface devices."
-msgstr "Ορισμός συσκευών διασύνδεσης."
+msgstr "Ορισμός των συσκευών διασύνδεσης."
 
 msgid "Specifies the slave devices."
-msgstr "Ορισμός υποτελών συσκευών."
+msgstr "Ορισμός των υποτελών συσκευών."
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Ορίζει τον χρόνο διάρκειας (ωω:λλ:δδ) του αποκλεισμού."
@@ -3083,7 +3083,7 @@ msgid ""
 msgstr "Ορίζει το αν θα παρακολουθείται η κατάσταση του συστήματος για να επιλέγεται το πιο κατάλληλο επίπεδο του επεξεργαστή."
 
 msgid "Specifies which slave is the primary device."
-msgstr "Καθορίζει ποιό συστατικό είναι η πρωτεύουσα συσκευή."
+msgstr "Καθορίζει ποια υποτελής συσκευή είναι η πρωτεύουσα."
 
 msgid "Speed"
 msgstr "Ταχύτητα"
@@ -3173,7 +3173,7 @@ msgid "System account"
 msgstr "Λογαριασμός συστήματος"
 
 msgid "System monitoring is disabled. To enable it, please go to the"
-msgstr ""
+msgstr "Η επίβλεψη συστήματος είναι ανενεργή. Για ενεργοποίηση, πάμε στο"
 
 msgid "System time"
 msgstr "Ώρα συστήματος"
@@ -3356,10 +3356,10 @@ msgstr "Η τιμή δεν ταιριάζει με το πρότυπο /{{ patte
 msgid ""
 "The value must be on of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "Η τιμή πρέπει να είναι μία από τις υποτελείς επαφές δικτύου {{ slaves | join(\", \") }}."
+msgstr "Πρέπει να οριστεί μία από τις υποτελείς διασυνδέσεις δικτύου {{ slaves | join(\", \") }}."
 
 msgid "The value must be on of the slave network interfaces."
-msgstr "Η τιμή πρέπει να είναι μία από τις υποτελείς επαφές δικτύου."
+msgstr "Πρέπει να οριστεί μία από τις υποτελείς διασυνδέσεις δικτύου."
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "

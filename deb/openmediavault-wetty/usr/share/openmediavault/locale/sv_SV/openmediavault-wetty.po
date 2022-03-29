@@ -34,10 +34,10 @@ msgid "Library name"
 msgstr "Biblioteksnamn"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Öppna användargränssnittet"
 
 msgid "OwnTone"
-msgstr ""
+msgstr "OwnTone"
 
 msgid "Password"
 msgstr "Lösenord"
@@ -52,7 +52,7 @@ msgid "Shared folder"
 msgstr "Delad mapp"
 
 msgid "The 'admin' password to access the web interface."
-msgstr ""
+msgstr "\"Administratör\"-lösenordet för att komma åt webbgränssnittet."
 
 msgid "The SSL certificate."
 msgstr "SSL-certifikatet."
@@ -64,21 +64,23 @@ msgid ""
 "The location of the media files to share. Make sure the user "
 "<em>owntone</em> or group <em>users</em> can access the files."
 msgstr ""
+"Platsen för de mediefiler som ska delas. Se till att användarens "
+"<em>owntone</em> eller grupp<em>användare</em> kan komma åt filerna."
 
 msgid "The name of the library as displayed by the clients."
 msgstr "Namnet på biblioteket visas av klienterna."
 
 msgid "The password to access the library."
-msgstr ""
+msgstr "Lösenordet för att komma åt biblioteket."
 
 msgid "Updated OwnTone settings."
-msgstr ""
+msgstr "Uppdaterade OwnTone-inställningar."
 
 msgid "Updated WeTTY settings."
-msgstr ""
+msgstr "Uppdaterade WeTTY-inställningar."
 
 msgid "WeTTY"
-msgstr ""
+msgstr "WeTTY"
 
 msgid "Web interface"
-msgstr ""
+msgstr "Webbgränssnitt"
