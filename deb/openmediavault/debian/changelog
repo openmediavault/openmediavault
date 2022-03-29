@@ -1,10 +1,4 @@
-openmediavault (6.0.20-1) unstable; urgency=low
-
-  *
-
- -- Volker Theile <volker.theile@openmediavault.org>  Mon, 28 Mar 2022 07:51:50 +0200
-
-openmediavault (6.0.19-1) unstable; urgency=low
+openmediavault (6.0.19-2) unstable; urgency=low
 
   * Many improvements.
   * Harden openmediavault-flush-mailq cron job to prevent postfix
