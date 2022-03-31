@@ -44,6 +44,9 @@ case "$1" in
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "6.0.1"; then
+			omv_module_set_dirty wetty
+		fi
 
 		########################################################################
 		# Restart service if necessary.
