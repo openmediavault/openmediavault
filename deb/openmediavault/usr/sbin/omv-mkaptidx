@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 import json
+import platform
 import re
 # The following error might happen from time to time.
 #
@@ -56,6 +57,25 @@ class OpenMediaVaultPluginsFilter(apt.cache.Filter):
             return False
         if m.group(1) == "keyring":
             return False
+        # The 'Plugin-Architecture' is mostly used by plugins that are
+        # using container images. The architectures that are supported
+        # by those images are listed as comma separated values. Note,
+        # the list contains the architecture labels used by Debian.
+        arch = explode_csv(pkg.candidate.record.get("Plugin-Architecture"))
+        if arch:
+            # Map the platform architecture to the Debian
+            # architecture string used in 'debian/control'.
+            machine_2_debian = {
+                "i386": "i386",
+                "x86_64": "amd64",
+                "armv6l": "armel",
+                "armv7l": "armhf",
+                "aarch64": "arm64"
+            }
+            # Skip this package if the host architecture is
+            # not in the list of the supported architectures.
+            if machine_2_debian.get(platform.machine()) not in arch:
+                return False
         return True
 
 
@@ -79,6 +99,8 @@ def explode_csv(value):
     """
     Split a comma separated string into parts.
     """
+    if not isinstance(value, str):
+        return []
     return [part.strip() for part in value.split(",") if part.strip()]
 
 
@@ -180,7 +202,7 @@ for pkg in filtered:
         "predepends": pkg.candidate.record.get("Pre-Depends", ""),
         "section": pkg.candidate.section,
         "pluginsection": pkg.candidate.record.get("Plugin-Section", ""),
-        "pluginarchitecture": explode_csv(pkg.candidate.record.get("Plugin-Architecture", "")),
+        "pluginarchitecture": explode_csv(pkg.candidate.record.get("Plugin-Architecture")),
         "priority": pkg.candidate.priority,
         "filename": pkg.candidate.filename,
         "size": pkg.candidate.size,
