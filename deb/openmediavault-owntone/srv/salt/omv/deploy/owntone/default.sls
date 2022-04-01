@@ -55,6 +55,11 @@ owntone_pull_app_image:
     - unless: podman image exists {{ image }}
     - failhard: True
 
+owntone_app_image_exists:
+  cmd.run:
+    - name: podman image exists {{ image }}
+    - failhard: True
+
 configure_owntone:
   file.managed:
     - name: "/var/cache/owntone/owntone.conf"

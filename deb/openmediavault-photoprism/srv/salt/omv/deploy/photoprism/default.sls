@@ -107,16 +107,31 @@ photoprism_pull_app_image:
     - unless: podman image exists {{ app_image }}
     - failhard: True
 
+photoprism_app_image_exists:
+  cmd.run:
+    - name: podman image exists {{ app_image }}
+    - failhard: True
+
 photoprism_pull_db_image:
   cmd.run:
     - name: podman pull {{ db_image }}
     - unless: podman image exists {{ db_image }}
     - failhard: True
 
+photoprism_db_image_exists:
+  cmd.run:
+    - name: podman image exists {{ db_image }}
+    - failhard: True
+
 photoprism_pull_proxy_image:
   cmd.run:
     - name: podman pull {{ proxy_image }}
     - unless: podman image exists {{ proxy_image }}
+    - failhard: True
+
+photoprism_proxy_image_exists:
+  cmd.run:
+    - name: podman image exists {{ proxy_image }}
     - failhard: True
 
 configure_caddyfile:

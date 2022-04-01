@@ -52,6 +52,11 @@ minio_pull_app_image:
     - unless: podman image exists {{ image }}
     - failhard: True
 
+minio_app_image_exists:
+  cmd.run:
+    - name: podman image exists {{ image }}
+    - failhard: True
+
 start_minio_service:
   service.running:
     - name: container-minio
