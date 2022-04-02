@@ -3239,8 +3239,8 @@ msgstr "El tauler encara no s'ha configurat. Per personalitzar-lo, aneu a "
 msgid "The data has been copied to the clipboard."
 msgstr "Les dades s’han copiat al porta-retalls."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "El port del servidor de correu SMTP, Ex; 25 o 578"
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "El port del servidor de correu SMTP, Ex; 25, 465 o 578"
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "

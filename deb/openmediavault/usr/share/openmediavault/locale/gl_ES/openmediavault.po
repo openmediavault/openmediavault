@@ -3240,8 +3240,8 @@ msgstr ""
 msgid "The data has been copied to the clipboard."
 msgstr ""
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "O porto predeterminado do servidor de correo SMTP, p.ex. 25 ou 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "O porto predeterminado do servidor de correo SMTP, p.ex. 25, 465 ou 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "

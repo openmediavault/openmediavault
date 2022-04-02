@@ -3237,8 +3237,8 @@ msgstr "Το ταμπλό δεν έχει ρυθμιστεί ακόμα. Για 
 msgid "The data has been copied to the clipboard."
 msgstr "Τα δεδομένα μεταφέρθηκαν στο πρόχειρο."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "Η εξ'ορισμού θύρα του ταχυδρομικου διακομιστή SMTP, π.χ. 25 ή 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "Η εξ'ορισμού θύρα του ταχυδρομικου διακομιστή SMTP, π.χ. 25, 465 ή 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "

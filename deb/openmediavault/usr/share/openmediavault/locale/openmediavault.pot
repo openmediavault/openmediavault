@@ -3095,7 +3095,7 @@ msgstr ""
 msgid "The data has been copied to the clipboard."
 msgstr ""
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
 msgstr ""
 
 msgid "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST."

@@ -3243,8 +3243,8 @@ msgstr "A műszerfal még nincs konfigurálva. A személyre szabáshoz kérjük,
 msgid "The data has been copied to the clipboard."
 msgstr "Az adatokat átmásolva a vágólapra."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "Az alapértelmezett SMTP levélküldő szerver portja, pl. 25 vagy 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "Az alapértelmezett SMTP levélküldő szerver portja, pl. 25, 465 vagy 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "

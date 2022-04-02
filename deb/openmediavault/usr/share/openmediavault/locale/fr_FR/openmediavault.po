@@ -3249,8 +3249,8 @@ msgstr "Le tableau de bord n'a pas encore été configuré. Pour le personnalise
 msgid "The data has been copied to the clipboard."
 msgstr "Les données ont été copiées dans le presse-papiers."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "Port par défaut du serveur de messagerie SMTP (ex: 25 ou 587)."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "Port par défaut du serveur de messagerie SMTP (ex: 25, 465 ou 587)."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "

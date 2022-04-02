@@ -3248,8 +3248,8 @@ msgstr "Das Dashboard ist noch nicht konfiguriert worden. Um es zu personalisier
 msgid "The data has been copied to the clipboard."
 msgstr "Die Daten wurden in die Zwischenablage kopiert."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "Der Standardport des SMTP Mail Servers, z.B. 25 oder 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "Der Standardport des SMTP Mail Servers, z.B. 25, 465 oder 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "

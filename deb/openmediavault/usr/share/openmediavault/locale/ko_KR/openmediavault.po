@@ -3240,8 +3240,8 @@ msgstr ""
 msgid "The data has been copied to the clipboard."
 msgstr ""
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "기본 SMTP 메일 서버 포트, 예를 들어, 25 혹은 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "기본 SMTP 메일 서버 포트, 예를 들어, 25, 465 혹은 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "

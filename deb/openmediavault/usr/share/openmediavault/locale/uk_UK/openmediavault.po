@@ -3239,8 +3239,8 @@ msgstr "Панель приладів ще не налаштована. Щоб �
 msgid "The data has been copied to the clipboard."
 msgstr "Дані скопійовано до буферу обміну."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "SMTP типовий порт поштового сервера, наприклад, 25 або 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "SMTP типовий порт поштового сервера, наприклад, 25, 465 або 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "

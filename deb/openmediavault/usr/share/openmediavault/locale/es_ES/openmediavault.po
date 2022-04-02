@@ -3240,8 +3240,8 @@ msgstr "El panel no ha sido aún configurado , por favor personalícelo a su gus
 msgid "The data has been copied to the clipboard."
 msgstr "Los datos han sido copiados al prtapapeles."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "El puerto del servidor de correo SMTP, Ej; 25 o 587"
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "El puerto del servidor de correo SMTP, Ej; 25, 465 o 587"
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "

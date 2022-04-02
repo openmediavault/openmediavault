@@ -3239,8 +3239,8 @@ msgstr "儀表板尚未被設置。如要個性化，請前往"
 msgid "The data has been copied to the clipboard."
 msgstr "資料已經被複製到剪貼簿。"
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "預設的 SMTP 郵件伺服器通訊埠，例如 25 或 587。"
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "預設的 SMTP 郵件伺服器通訊埠，例如 25, 465 或 587。"
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "

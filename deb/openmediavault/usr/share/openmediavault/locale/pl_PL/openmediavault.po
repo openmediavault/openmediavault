@@ -3242,8 +3242,8 @@ msgstr ""
 msgid "The data has been copied to the clipboard."
 msgstr "Dane zostały skopiowane do schowka."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "Domyślne porty SMTP poczty serwera, np. 25 lub 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "Domyślne porty SMTP poczty serwera, np. 25, 465 lub 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "

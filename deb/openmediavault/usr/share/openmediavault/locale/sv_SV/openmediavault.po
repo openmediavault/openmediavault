@@ -3240,8 +3240,8 @@ msgstr "Instrumentpanelen har ännu inte konfigurerats. För att anpassa det, g�
 msgid "The data has been copied to the clipboard."
 msgstr "Data har kopierats till urklipp."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "Standardport för SMTP-servern, t.ex. 25 eller 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "Standardport för SMTP-servern, t.ex. 25, 465 eller 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "

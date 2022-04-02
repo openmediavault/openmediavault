@@ -3240,8 +3240,8 @@ msgstr "仪表盘尚未配置，如需个性化设置请访问"
 msgid "The data has been copied to the clipboard."
 msgstr "数据已复制到粘贴板"
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "SMTP 服务器默认端口，例如：25 或者 587。"
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "SMTP 服务器默认端口，例如：25，465 或者 587。"
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "

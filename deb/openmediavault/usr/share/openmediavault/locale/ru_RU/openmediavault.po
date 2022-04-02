@@ -3330,8 +3330,8 @@ msgid ""
 "them to take effect."
 msgstr "Конфигурация была изменена. Вы должны применить изменения для того, чтобы они вступили в силу."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "SMTP порт сервера по умолчанию, например 25 или 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "SMTP порт сервера по умолчанию, например 25, 465 или 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
