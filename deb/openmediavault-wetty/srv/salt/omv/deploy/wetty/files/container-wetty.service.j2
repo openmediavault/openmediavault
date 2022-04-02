@@ -19,7 +19,7 @@ Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/container-wetty.pid %t/container-wetty.ctr-id
-ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-wetty.pid --cidfile %t/container-wetty.ctr-id --cgroups=no-conmon -d --replace --pull=never --name=wetty --net=host -u {{ uname }}:{{ gname }} {% if ssl_enabled %}-v {{ ssl_cert_file }}:/cert.crt:ro -v {{ ssl_key_file }}:/cert.key:ro{% endif %} {{ image }} --force-ssh --ssh-port {{ ssh_config.port }} --ssh-host {{ dns_config.hostname }} --base "" --port {{ wetty_config.port }} {% if ssl_enabled %}--ssl-cert /cert.crt --ssl-key /cert.key{% endif %}
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-wetty.pid --cidfile %t/container-wetty.ctr-id --cgroups=no-conmon -d --replace --pull=never --name=wetty --net=host {% if not ssl_enabled %}-u {{ uname }}:{{ gname }}{% endif %} {% if ssl_enabled %}-v {{ ssl_cert_file }}:/cert.crt:ro -v {{ ssl_key_file }}:/cert.key:ro{% endif %} {{ image }} --force-ssh --ssh-port {{ ssh_config.port }} --ssh-host {{ dns_config.hostname }} --base "" --port {{ wetty_config.port }} {% if ssl_enabled %}--ssl-cert /cert.crt --ssl-key /cert.key{% endif %}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-wetty.ctr-id
 ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-wetty.ctr-id
 PIDFile=%t/container-wetty.pid
