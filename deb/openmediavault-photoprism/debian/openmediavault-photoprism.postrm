@@ -24,6 +24,11 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_PHOTOPRISM_APP_CONTAINER_IMAGE=${OMV_PHOTOPRISM_APP_CONTAINER_IMAGE:-"docker.io/photoprism/photoprism:latest"}
+# Do NOT remove images that could be used by other plugins.
+# OMV_PHOTOPRISM_DB_CONTAINER_IMAGE=${OMV_PHOTOPRISM_DB_CONTAINER_IMAGE:-"docker.io/mariadb:latest"}
+# OMV_PHOTOPRISM_PROXY_CONTAINER_IMAGE=${OMV_PHOTOPRISM_PROXY_CONTAINER_IMAGE:-"docker.io/library/caddy:latest"}
+
 remove_action() {
   # Remove systemd unit files.
   echo "Removing systemd unit files ..."
@@ -32,6 +37,8 @@ remove_action() {
   rm -rf /etc/systemd/system/container-photoprism-proxy.service
   rm -rf /etc/systemd/system/pod-photoprism.service
   systemctl --system daemon-reload || true
+  # Remove container image.
+  podman rmi "${OMV_PHOTOPRISM_APP_CONTAINER_IMAGE}" || true
 	# Activate trigger to rebuild workbench configuration files.
 	dpkg-trigger update-workbench
 }

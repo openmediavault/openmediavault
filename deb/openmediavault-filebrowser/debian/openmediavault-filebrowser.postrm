@@ -24,11 +24,15 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_FILEBROWSER_APP_CONTAINER_IMAGE=${OMV_FILEBROWSER_APP_CONTAINER_IMAGE:-"docker.io/filebrowser/filebrowser:latest"}
+
 remove_action() {
   # Remove systemd unit file.
   echo "Removing systemd unit files ..."
   rm -rf /etc/systemd/system/container-filebrowser.service
   systemctl --system daemon-reload || true
+  # Remove container image.
+  podman rmi "${OMV_FILEBROWSER_APP_CONTAINER_IMAGE}" || true
 	# Activate trigger to rebuild workbench configuration files.
 	dpkg-trigger update-workbench
 }
