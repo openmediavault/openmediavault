@@ -27,6 +27,12 @@
 
 {% set config = salt['omv_conf.get']('conf.service.filebrowser') %}
 
+{% if config.enable | to_bool %}
+
+{% set image = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_IMAGE', 'docker.io/filebrowser/filebrowser:latest') %}
+{% set uname = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_UNAME', 'filebrowser') %}
+{% set gname = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_GNAME', 'users') %}
+
 create_filebrowser_container_systemd_unit_file:
   file.managed:
     - name: "/etc/systemd/system/container-filebrowser.service"
@@ -42,12 +48,6 @@ create_filebrowser_container_systemd_unit_file:
 filebrowser_systemctl_daemon_reload:
   module.run:
     - service.systemctl_reload:
-
-{% if config.enable | to_bool %}
-
-{% set image = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_IMAGE', 'docker.io/filebrowser/filebrowser:latest') %}
-{% set uname = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_UNAME', 'filebrowser') %}
-{% set gname = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_GNAME', 'users') %}
 
 filebrowser_pull_app_image:
   cmd.run:
@@ -95,5 +95,13 @@ stop_filebrowser_service:
   service.dead:
     - name: container-filebrowser
     - enable: False
+
+remove_filebrowser_container_systemd_unit_file:
+  file.absent:
+    - name: "/etc/systemd/system/container-filebrowser.service"
+
+filebrowser_systemctl_daemon_reload:
+  module.run:
+    - service.systemctl_reload:
 
 {% endif %}

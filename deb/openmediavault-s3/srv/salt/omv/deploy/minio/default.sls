@@ -26,6 +26,10 @@
 
 {% set config = salt['omv_conf.get']('conf.service.minio') %}
 
+{% if config.enable | to_bool %}
+
+{% set image = salt['pillar.get']('default:OMV_S3_APP_CONTAINER_IMAGE', 'docker.io/minio/minio:latest') %}
+
 create_minio_container_systemd_unit_file:
   file.managed:
     - name: "/etc/systemd/system/container-minio.service"
@@ -41,10 +45,6 @@ create_minio_container_systemd_unit_file:
 minio_systemctl_daemon_reload:
   module.run:
     - service.systemctl_reload:
-
-{% if config.enable | to_bool %}
-
-{% set image = salt['pillar.get']('default:OMV_S3_APP_CONTAINER_IMAGE', 'docker.io/minio/minio:latest') %}
 
 minio_pull_app_image:
   cmd.run:
@@ -70,5 +70,13 @@ stop_minio_service:
   service.dead:
     - name: container-minio
     - enable: False
+
+remove_minio_container_systemd_unit_file:
+  file.absent:
+    - name: "/etc/systemd/system/container-minio.service"
+
+minio_systemctl_daemon_reload:
+  module.run:
+    - service.systemctl_reload:
 
 {% endif %}

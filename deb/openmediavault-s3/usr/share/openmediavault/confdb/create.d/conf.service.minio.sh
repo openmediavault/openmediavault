@@ -32,7 +32,7 @@ set -e
 #       <port>9000</port>
 #       <consoleport>9001</consoleport>
 #       <rootname>admin</rootname>
-#       <rootpassword>admin</rootpassword>
+#       <rootpassword>openmediavault</rootpassword>
 #       <sharedfolderref></sharedfolderref>
 #     </minio>
 #   </services>
@@ -44,7 +44,7 @@ if ! omv_config_exists "/config/services/minio"; then
 	omv_config_add_key "/config/services/minio" "port" "9000"
 	omv_config_add_key "/config/services/minio" "consoleport" "9001"
 	omv_config_add_key "/config/services/minio" "rootname" "admin"
-	omv_config_add_key "/config/services/minio" "rootpassword" "admin"
+	omv_config_add_key "/config/services/minio" "rootpassword" "openmediavault"
 	omv_config_add_key "/config/services/minio" "sharedfolderref" ""
 fi
 

@@ -29,6 +29,12 @@
 # podman logs -f photoprism-proxy
 
 {% set config = salt['omv_conf.get']('conf.service.photoprism') %}
+
+{% if config.enable | to_bool %}
+
+{% set app_image = salt['pillar.get']('default:OMV_PHOTOPRISM_APP_CONTAINER_IMAGE', 'docker.io/photoprism/photoprism:latest') %}
+{% set db_image = salt['pillar.get']('default:OMV_PHOTOPRISM_DB_CONTAINER_IMAGE', 'docker.io/mariadb:latest') %}
+{% set proxy_image = salt['pillar.get']('default:OMV_PHOTOPRISM_PROXY_CONTAINER_IMAGE', 'docker.io/library/caddy:latest') %}
 {% set appdata_sf_path = salt['omv_conf.get_sharedfolder_path'](config.appdata_sharedfolderref) %}
 
 create_photoprism_appdata_storage_dir:
@@ -95,12 +101,6 @@ photoprism_systemctl_daemon_reload:
   module.run:
     - service.systemctl_reload:
 
-{% if config.enable | to_bool %}
-
-{% set app_image = salt['pillar.get']('default:OMV_PHOTOPRISM_APP_CONTAINER_IMAGE', 'docker.io/photoprism/photoprism:latest') %}
-{% set db_image = salt['pillar.get']('default:OMV_PHOTOPRISM_DB_CONTAINER_IMAGE', 'docker.io/mariadb:latest') %}
-{% set proxy_image = salt['pillar.get']('default:OMV_PHOTOPRISM_PROXY_CONTAINER_IMAGE', 'docker.io/library/caddy:latest') %}
-
 photoprism_pull_app_image:
   cmd.run:
     - name: podman pull {{ app_image }}
@@ -163,5 +163,25 @@ stop_photoprism_service:
   service.dead:
     - name: pod-photoprism
     - enable: False
+
+remove_photoprism_app_container_systemd_unit_file:
+  file.absent:
+    - name: "/etc/systemd/system/container-photoprism-app.service"
+
+remove_photoprism_db_container_systemd_unit_file:
+  file.absent:
+    - name: "/etc/systemd/system/container-photoprism-db.service"
+
+remove_photoprism_proxy_container_systemd_unit_file:
+  file.absent:
+    - name: "/etc/systemd/system/container-photoprism-proxy.service"
+
+remove_photoprism_pod_systemd_unit_file:
+  file.absent:
+    - name: "/etc/systemd/system/pod-photoprism.service"
+
+photoprism_systemctl_daemon_reload:
+  module.run:
+    - service.systemctl_reload:
 
 {% endif %}

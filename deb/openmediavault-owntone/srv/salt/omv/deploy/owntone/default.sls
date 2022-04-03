@@ -28,6 +28,10 @@
 {% set time_config = salt['omv_conf.get']('conf.system.time') %}
 {% set sf_path = salt['omv_conf.get_sharedfolder_path'](config.sharedfolderref) %}
 
+{% if config.enable | to_bool %}
+
+{% set image = salt['pillar.get']('default:OMV_OWNTONE_APP_CONTAINER_IMAGE', 'lscr.io/linuxserver/daapd:latest') %}
+
 create_owntone_container_systemd_unit_file:
   file.managed:
     - name: "/etc/systemd/system/container-owntone.service"
@@ -44,10 +48,6 @@ create_owntone_container_systemd_unit_file:
 owntone_systemctl_daemon_reload:
   module.run:
     - service.systemctl_reload:
-
-{% if config.enable | to_bool %}
-
-{% set image = salt['pillar.get']('default:OMV_OWNTONE_APP_CONTAINER_IMAGE', 'lscr.io/linuxserver/daapd:latest') %}
 
 owntone_pull_app_image:
   cmd.run:
@@ -86,5 +86,13 @@ stop_owntone_service:
   service.dead:
     - name: container-owntone
     - enable: False
+
+remove_owntone_container_systemd_unit_file:
+  file.absent:
+    - name: "/etc/systemd/system/container-owntone.service"
+
+owntone_systemctl_daemon_reload:
+  module.run:
+    - service.systemctl_reload:
 
 {% endif %}

@@ -7,6 +7,9 @@
 {%- set ssl_cert_prefix = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_PREFIX', 'openmediavault') -%}
 {%- set ssl_cert_file = ssl_cert_dir | path_join('certs', ssl_cert_prefix ~ wetty_config.sslcertificateref ~ '.crt') -%}
 {%- set ssl_key_file = ssl_cert_dir | path_join('private', ssl_cert_prefix ~ wetty_config.sslcertificateref ~ '.key') -%}
+{%- else -%}
+{%- set uid = salt['user.info'](uname).uid -%}
+{%- set gid = salt['group.info'](gname).gid -%}
 {%- endif -%}
 {{ pillar['headers']['multiline'] -}}
 [Unit]
@@ -19,7 +22,7 @@ Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/container-wetty.pid %t/container-wetty.ctr-id
-ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-wetty.pid --cidfile %t/container-wetty.ctr-id --cgroups=no-conmon -d --replace --pull=never --name=wetty --net=host {% if not ssl_enabled %}-u {{ uname }}:{{ gname }}{% endif %} {% if ssl_enabled %}-v {{ ssl_cert_file }}:/cert.crt:ro -v {{ ssl_key_file }}:/cert.key:ro{% endif %} {{ image }} --force-ssh --ssh-port {{ ssh_config.port }} --ssh-host {{ dns_config.hostname }} --base "" --port {{ wetty_config.port }} {% if ssl_enabled %}--ssl-cert /cert.crt --ssl-key /cert.key{% endif %}
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-wetty.pid --cidfile %t/container-wetty.ctr-id --cgroups=no-conmon -d --replace --pull=never --name=wetty --net=host {% if not ssl_enabled %}-u {{ uid }}:{{ gid }}{% endif %} {% if ssl_enabled %}-v {{ ssl_cert_file }}:/cert.crt:ro -v {{ ssl_key_file }}:/cert.key:ro{% endif %} {{ image }} --force-ssh --ssh-port {{ ssh_config.port }} --ssh-host {{ dns_config.hostname }} --base "" --port {{ wetty_config.port }} {% if ssl_enabled %}--ssl-cert /cert.crt --ssl-key /cert.key{% endif %}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-wetty.ctr-id
 ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-wetty.ctr-id
 PIDFile=%t/container-wetty.pid

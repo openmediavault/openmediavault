@@ -26,6 +26,10 @@
 # podman logs -f wetty
 
 {% set wetty_config = salt['omv_conf.get']('conf.service.wetty') %}
+
+{% if wetty_config.enable | to_bool %}
+
+{% set image = salt['pillar.get']('default:OMV_WETTY_APP_CONTAINER_IMAGE', 'docker.io/wettyoss/wetty:latest') %}
 {% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 {% set ssh_config = salt['omv_conf.get']('conf.service.ssh') %}
 
@@ -46,10 +50,6 @@ create_wetty_container_systemd_unit_file:
 wetty_systemctl_daemon_reload:
   module.run:
     - service.systemctl_reload:
-
-{% if wetty_config.enable | to_bool %}
-
-{% set image = salt['pillar.get']('default:OMV_WETTY_APP_CONTAINER_IMAGE', 'docker.io/wettyoss/wetty:latest') %}
 
 wetty_pull_app_image:
   cmd.run:
@@ -75,5 +75,13 @@ stop_wetty_service:
   service.dead:
     - name: container-wetty
     - enable: False
+
+remove_wetty_container_systemd_unit_file:
+  file.absent:
+    - name: "/etc/systemd/system/container-wetty.service"
+
+wetty_systemctl_daemon_reload:
+  module.run:
+    - service.systemctl_reload:
 
 {% endif %}
