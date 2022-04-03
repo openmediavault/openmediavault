@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-03 23:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2022\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -267,6 +267,10 @@ msgstr "存取模式"
 msgid "Act as a WINS server."
 msgstr "作為一個 WINS 伺服器。"
 
+msgid ""
+"Acting as a WINS server and using a WINS server are mutually exclusive."
+msgstr ""
+
 msgid "Action"
 msgstr "動作"
 
@@ -317,6 +321,9 @@ msgstr "阿爾及利亞"
 
 msgid "All"
 msgstr "全部"
+
+msgid "All packages will be upgraded. Do you want to proceed?"
+msgstr ""
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -380,6 +387,9 @@ msgstr "將權限套用到檔案與子檔案夾"
 
 msgid "April"
 msgstr "四月"
+
+msgid "Architecture"
+msgstr ""
 
 msgid "Archive mode"
 msgstr "歸檔模式"
@@ -1035,9 +1045,6 @@ msgid ""
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
 msgstr "您真的要卸載此檔案系統嗎？請於卸載之前，先確定該檔案系統沒有被任何服務使用到。注意：此操作並不會把該檔案系統刪除掉。"
-
-msgid "Do you really want to upgrade the system?"
-msgstr "您真的要將系統升級嗎？"
 
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
@@ -3239,8 +3246,8 @@ msgstr "儀表板尚未被設置。如要個性化，請前往"
 msgid "The data has been copied to the clipboard."
 msgstr "資料已經被複製到剪貼簿。"
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "預設的 SMTP 郵件伺服器通訊埠，例如 25 或 587。"
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr ""
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3820,6 +3827,9 @@ msgstr "已更新預定工作。"
 
 msgid "Updated settings."
 msgstr "已更新設定。"
+
+msgid "Updated shared folder."
+msgstr ""
 
 msgid "Updated update management settings."
 msgstr "已更新更新管理設定。"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-03 23:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2013-2019,2021\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -270,6 +270,10 @@ msgstr "Modalità di accesso"
 msgid "Act as a WINS server."
 msgstr "Si comporta come un server WINS."
 
+msgid ""
+"Acting as a WINS server and using a WINS server are mutually exclusive."
+msgstr ""
+
 msgid "Action"
 msgstr "Azione"
 
@@ -320,6 +324,9 @@ msgstr "Algeria"
 
 msgid "All"
 msgstr "Tutti"
+
+msgid "All packages will be upgraded. Do you want to proceed?"
+msgstr ""
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -383,6 +390,9 @@ msgstr ""
 
 msgid "April"
 msgstr "Aprile"
+
+msgid "Architecture"
+msgstr ""
 
 msgid "Archive mode"
 msgstr ""
@@ -1037,9 +1047,6 @@ msgid ""
 "Do you really want to unmount this file system? Please make sure that the "
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
-msgstr ""
-
-msgid "Do you really want to upgrade the system?"
 msgstr ""
 
 msgid ""
@@ -3242,8 +3249,8 @@ msgstr ""
 msgid "The data has been copied to the clipboard."
 msgstr ""
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "La porta predefinita per il server di posta SMTP, es. 25 o 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr ""
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3822,6 +3829,9 @@ msgid "Updated scheduled task."
 msgstr ""
 
 msgid "Updated settings."
+msgstr ""
+
+msgid "Updated shared folder."
 msgstr ""
 
 msgid "Updated update management settings."

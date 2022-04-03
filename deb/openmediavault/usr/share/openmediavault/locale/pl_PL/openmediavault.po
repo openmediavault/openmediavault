@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-03 23:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: jacekniedziolka71 <lucas71@interia.pl>, 2017,2022\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -270,6 +270,10 @@ msgstr "Opcje dostępu"
 msgid "Act as a WINS server."
 msgstr "Zachowuj się jak serwer WINS."
 
+msgid ""
+"Acting as a WINS server and using a WINS server are mutually exclusive."
+msgstr ""
+
 msgid "Action"
 msgstr "Akcja"
 
@@ -320,6 +324,9 @@ msgstr "Algeria"
 
 msgid "All"
 msgstr "Wszystkie"
+
+msgid "All packages will be upgraded. Do you want to proceed?"
+msgstr ""
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -383,6 +390,9 @@ msgstr "Zastosuj zmiany dla plików i podfolderów."
 
 msgid "April"
 msgstr "Kwiecień"
+
+msgid "Architecture"
+msgstr ""
 
 msgid "Archive mode"
 msgstr "Tryb archiwizacji"
@@ -1038,9 +1048,6 @@ msgid ""
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
 msgstr ""
-
-msgid "Do you really want to upgrade the system?"
-msgstr "Czy na pewno chcesz zaktualizować system?"
 
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
@@ -3242,8 +3249,8 @@ msgstr ""
 msgid "The data has been copied to the clipboard."
 msgstr "Dane zostały skopiowane do schowka."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "Domyślne porty SMTP poczty serwera, np. 25 lub 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr ""
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3823,6 +3830,9 @@ msgstr "Zaplanowane zadania zaktualizowane."
 
 msgid "Updated settings."
 msgstr "Ustawienia zaktualizowane."
+
+msgid "Updated shared folder."
+msgstr ""
 
 msgid "Updated update management settings."
 msgstr "Ustawienia zarządzania aktualizacją zaktualizowane."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-03 23:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -263,6 +263,9 @@ msgstr ""
 msgid "Act as a WINS server."
 msgstr ""
 
+msgid "Acting as a WINS server and using a WINS server are mutually exclusive."
+msgstr ""
+
 msgid "Action"
 msgstr ""
 
@@ -312,6 +315,9 @@ msgid "Algeria"
 msgstr ""
 
 msgid "All"
+msgstr ""
+
+msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr ""
 
 msgid "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -366,6 +372,9 @@ msgid "Apply permissions to files and subfolders."
 msgstr ""
 
 msgid "April"
+msgstr ""
+
+msgid "Architecture"
 msgstr ""
 
 msgid "Archive mode"
@@ -1008,9 +1017,6 @@ msgid "Do you really want to uninstall the plugin?"
 msgstr ""
 
 msgid "Do you really want to unmount this file system? Please make sure that the file system is not used by any service before unmounting. Note, the file system will not be deleted by this action."
-msgstr ""
-
-msgid "Do you really want to upgrade the system?"
 msgstr ""
 
 msgid "Do you really want to wipe the device {{ canonicaldevicefile }}? All data will be lost."
@@ -3095,7 +3101,7 @@ msgstr ""
 msgid "The data has been copied to the clipboard."
 msgstr ""
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
 msgstr ""
 
 msgid "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST."
@@ -3585,6 +3591,9 @@ msgid "Updated scheduled task."
 msgstr ""
 
 msgid "Updated settings."
+msgstr ""
+
+msgid "Updated shared folder."
 msgstr ""
 
 msgid "Updated update management settings."

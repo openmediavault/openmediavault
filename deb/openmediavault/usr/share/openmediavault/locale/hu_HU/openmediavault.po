@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-03 23:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Sári Gábor <sari.gabor@gmail.com>, 2018,2022\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -271,6 +271,10 @@ msgstr "Hozzáférési mód"
 msgid "Act as a WINS server."
 msgstr "WINS szerverként való viselkedés"
 
+msgid ""
+"Acting as a WINS server and using a WINS server are mutually exclusive."
+msgstr ""
+
 msgid "Action"
 msgstr "Művelet"
 
@@ -321,6 +325,9 @@ msgstr "Algéria"
 
 msgid "All"
 msgstr "Összes"
+
+msgid "All packages will be upgraded. Do you want to proceed?"
+msgstr ""
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -384,6 +391,9 @@ msgstr "Jogosultságok alkalmazása fájlokra és almappákra."
 
 msgid "April"
 msgstr "Április"
+
+msgid "Architecture"
+msgstr ""
 
 msgid "Archive mode"
 msgstr "Archív mód "
@@ -1039,9 +1049,6 @@ msgid ""
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
 msgstr "Valóban le szeretné választani ezt a fájlrendszert? A leválasztás előtt ellenőrizze, hogy egyetlen fájlszolgáltatás sem használja a fájlrendszert. Megjegyzés: ez a művelet nem törli a fájlrendszert. "
-
-msgid "Do you really want to upgrade the system?"
-msgstr "Valóban frissíteni szeretné a rendszert? "
 
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
@@ -3243,8 +3250,8 @@ msgstr "A műszerfal még nincs konfigurálva. A személyre szabáshoz kérjük,
 msgid "The data has been copied to the clipboard."
 msgstr "Az adatokat átmásolva a vágólapra."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "Az alapértelmezett SMTP levélküldő szerver portja, pl. 25 vagy 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr ""
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3824,6 +3831,9 @@ msgstr "Ütemezett ellenőrzés frissítve."
 
 msgid "Updated settings."
 msgstr "Beállítások frissítve."
+
+msgid "Updated shared folder."
+msgstr ""
 
 msgid "Updated update management settings."
 msgstr "Frissítéskezelési beállítások frissítve."

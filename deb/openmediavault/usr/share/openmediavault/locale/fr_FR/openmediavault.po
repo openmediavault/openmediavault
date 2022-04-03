@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-03 23:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -277,6 +277,10 @@ msgstr "Mode d'accès"
 msgid "Act as a WINS server."
 msgstr "Agir en tant que serveur WINS."
 
+msgid ""
+"Acting as a WINS server and using a WINS server are mutually exclusive."
+msgstr ""
+
 msgid "Action"
 msgstr "Action"
 
@@ -327,6 +331,9 @@ msgstr "Algérie"
 
 msgid "All"
 msgstr "Tous"
+
+msgid "All packages will be upgraded. Do you want to proceed?"
+msgstr ""
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -390,6 +397,9 @@ msgstr "Appliquer les droits aux fichiers et sous-dossiers."
 
 msgid "April"
 msgstr "Avril"
+
+msgid "Architecture"
+msgstr ""
 
 msgid "Archive mode"
 msgstr "Mode Archive"
@@ -1045,9 +1055,6 @@ msgid ""
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
 msgstr "Voulez-vous vraiment démonter le système de fichier ? S'il vous plait, assurez-vous que le système de fichier n'est utilisé par aucun service avant le démontage. Note : le système de fichier ne sera pas supprimé par cette action."
-
-msgid "Do you really want to upgrade the system?"
-msgstr "Voulez-vous vraiment mettre à niveau le système ?"
 
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
@@ -3249,8 +3256,8 @@ msgstr "Le tableau de bord n'a pas encore été configuré. Pour le personnalise
 msgid "The data has been copied to the clipboard."
 msgstr "Les données ont été copiées dans le presse-papiers."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "Port par défaut du serveur de messagerie SMTP (ex: 25 ou 587)."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr ""
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3830,6 +3837,9 @@ msgstr "Tâche planifiée mise à jour."
 
 msgid "Updated settings."
 msgstr "Paramètres mis à jour."
+
+msgid "Updated shared folder."
+msgstr ""
 
 msgid "Updated update management settings."
 msgstr "Paramètres de gestion des mises à jour mis à jour."

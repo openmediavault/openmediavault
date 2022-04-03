@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-03 23:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2022\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -265,6 +265,10 @@ msgstr "アクセスモード"
 msgid "Act as a WINS server."
 msgstr "WINSサーバとして機能します。"
 
+msgid ""
+"Acting as a WINS server and using a WINS server are mutually exclusive."
+msgstr ""
+
 msgid "Action"
 msgstr "アクション"
 
@@ -315,6 +319,9 @@ msgstr "アルジェリア"
 
 msgid "All"
 msgstr "すべて"
+
+msgid "All packages will be upgraded. Do you want to proceed?"
+msgstr ""
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -378,6 +385,9 @@ msgstr "ファイルやサブフォルダにパーミッションを適用しま
 
 msgid "April"
 msgstr "4月"
+
+msgid "Architecture"
+msgstr ""
 
 msgid "Archive mode"
 msgstr "アーカイブモード"
@@ -1033,9 +1043,6 @@ msgid ""
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
 msgstr "このファイルシステムをアンマウントしますか？ アンマウントする前に、ファイルシステムがどのサービスでも使用されていないことを確認してください。 このアクションによってファイルシステムが削除されることはありません。"
-
-msgid "Do you really want to upgrade the system?"
-msgstr "システムをアップグレードしてもよろしいですか？"
 
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
@@ -3237,8 +3244,8 @@ msgstr ""
 msgid "The data has been copied to the clipboard."
 msgstr ""
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "デフォルトのSMTPサーバのポート。例)25 または 587"
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr ""
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3817,6 +3824,9 @@ msgid "Updated scheduled task."
 msgstr ""
 
 msgid "Updated settings."
+msgstr ""
+
+msgid "Updated shared folder."
 msgstr ""
 
 msgid "Updated update management settings."

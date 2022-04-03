@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-03 23:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -266,6 +266,10 @@ msgstr "Přístupový režim"
 msgid "Act as a WINS server."
 msgstr "Vystupovat jako jmenný server WINS."
 
+msgid ""
+"Acting as a WINS server and using a WINS server are mutually exclusive."
+msgstr ""
+
 msgid "Action"
 msgstr "Akce"
 
@@ -316,6 +320,9 @@ msgstr "Alžírsko"
 
 msgid "All"
 msgstr "Vše"
+
+msgid "All packages will be upgraded. Do you want to proceed?"
+msgstr ""
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -379,6 +386,9 @@ msgstr "Použít přístupová oprávnění na soubory a podsložky."
 
 msgid "April"
 msgstr "duben"
+
+msgid "Architecture"
+msgstr ""
 
 msgid "Archive mode"
 msgstr "Archivní režim"
@@ -1034,9 +1044,6 @@ msgid ""
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
 msgstr "Opravdu chcete tento souborový systém odpojit? Ještě před tím ověřte, že není používán žádnou službou. Poznamenejme, že souborový systém touto akcí nebude smazán."
-
-msgid "Do you really want to upgrade the system?"
-msgstr "Opravdu chcete přejít na novější verzi systému?"
 
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
@@ -3238,8 +3245,8 @@ msgstr "Stránka přehledu ještě není nastavená. Pokud si jí chcete přizp�
 msgid "The data has been copied to the clipboard."
 msgstr "Data byla zkopírována do schránky."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "Výchozí port SMTP serveru, např. 25 nebo 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr ""
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3819,6 +3826,9 @@ msgstr "Zaktualizována naplánovaná úloha."
 
 msgid "Updated settings."
 msgstr "Zaktualizována nastavení."
+
+msgid "Updated shared folder."
+msgstr ""
 
 msgid "Updated update management settings."
 msgstr "Aktualizována nastavení správ aktualizací."

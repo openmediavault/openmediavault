@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-03 23:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -267,6 +267,10 @@ msgstr "Режим доступу"
 msgid "Act as a WINS server."
 msgstr "Виступати в якості WINS сервера."
 
+msgid ""
+"Acting as a WINS server and using a WINS server are mutually exclusive."
+msgstr ""
+
 msgid "Action"
 msgstr "Дія"
 
@@ -317,6 +321,9 @@ msgstr "Алжир"
 
 msgid "All"
 msgstr "Всі"
+
+msgid "All packages will be upgraded. Do you want to proceed?"
+msgstr ""
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -380,6 +387,9 @@ msgstr "Застосувати права до файлів і підкатал�
 
 msgid "April"
 msgstr "Квітень"
+
+msgid "Architecture"
+msgstr ""
 
 msgid "Archive mode"
 msgstr "Режим архіву"
@@ -1035,9 +1045,6 @@ msgid ""
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
 msgstr "Бажаєте відключити цю файлову систему? Перш ніж демонтувати, переконайтеся, що файлова система не використовується жодною службою. Зауважте, що ця дія не видалить файлову систему. "
-
-msgid "Do you really want to upgrade the system?"
-msgstr "Бажаєте оновити систему? "
 
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
@@ -3239,8 +3246,8 @@ msgstr "Панель приладів ще не налаштована. Щоб �
 msgid "The data has been copied to the clipboard."
 msgstr "Дані скопійовано до буферу обміну."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "SMTP типовий порт поштового сервера, наприклад, 25 або 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr ""
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3820,6 +3827,9 @@ msgstr "Оновлено планове завдання."
 
 msgid "Updated settings."
 msgstr "Налаштування оновлено."
+
+msgid "Updated shared folder."
+msgstr ""
 
 msgid "Updated update management settings."
 msgstr "Оновлено налаштування керування оновленнями."

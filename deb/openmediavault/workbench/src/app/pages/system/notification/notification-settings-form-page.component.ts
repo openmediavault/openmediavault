@@ -55,7 +55,7 @@ export class NotificationSettingsFormPageComponent {
         type: 'numberInput',
         name: 'port',
         label: gettext('SMTP port'),
-        hint: gettext('The default SMTP mail server port, e.g. 25 or 587.'),
+        hint: gettext('The default SMTP mail server port, e.g. 25, 465 or 587.'),
         value: 25,
         validators: {
           min: 1,

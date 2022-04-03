@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-03 23:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2022\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -268,6 +268,10 @@ msgstr "Åtkomstläge"
 msgid "Act as a WINS server."
 msgstr "Fungera som en WINS-server."
 
+msgid ""
+"Acting as a WINS server and using a WINS server are mutually exclusive."
+msgstr ""
+
 msgid "Action"
 msgstr "Åtgärd"
 
@@ -318,6 +322,9 @@ msgstr "Algeriet"
 
 msgid "All"
 msgstr "Alla"
+
+msgid "All packages will be upgraded. Do you want to proceed?"
+msgstr ""
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -381,6 +388,9 @@ msgstr "Verkställ behörigheter på filer och undermappar."
 
 msgid "April"
 msgstr "April"
+
+msgid "Architecture"
+msgstr ""
 
 msgid "Archive mode"
 msgstr "Arkivläge"
@@ -1036,9 +1046,6 @@ msgid ""
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
 msgstr "Vill du verkligen avmontera det här filsystemet? Se till att filsystemet inte används av någon tjänst innan du avmonterar. Observera att filsystemet inte tas bort av den här åtgärden."
-
-msgid "Do you really want to upgrade the system?"
-msgstr "Vill du verkligen uppgradera systemet?"
 
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
@@ -3240,8 +3247,8 @@ msgstr "Instrumentpanelen har ännu inte konfigurerats. För att anpassa det, g�
 msgid "The data has been copied to the clipboard."
 msgstr "Data har kopierats till urklipp."
 
-msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "Standardport för SMTP-servern, t.ex. 25 eller 587."
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr ""
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3821,6 +3828,9 @@ msgstr "Uppdaterade schemalagd uppgift."
 
 msgid "Updated settings."
 msgstr "Uppdaterade inställningarna."
+
+msgid "Updated shared folder."
+msgstr ""
 
 msgid "Updated update management settings."
 msgstr "Uppdaterade inställningar för uppdateringshantering."
