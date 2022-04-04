@@ -48,6 +48,7 @@ create_photoprism_appdata_db_dir:
 create_photoprism_appdata_proxy_data_dir:
   file.directory:
     - name: "{{ appdata_sf_path }}/proxy/data/"
+    - makedirs: True
 
 create_photoprism_app_container_systemd_unit_file:
   file.managed:
