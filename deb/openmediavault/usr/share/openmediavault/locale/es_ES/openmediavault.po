@@ -270,7 +270,7 @@ msgstr "Funcionar como servidor WINS."
 
 msgid ""
 "Acting as a WINS server and using a WINS server are mutually exclusive."
-msgstr ""
+msgstr "Actuar como un servidor WINS y usar un servidor WINS son mutuamente excluyentes."
 
 msgid "Action"
 msgstr "Acción"
@@ -324,7 +324,7 @@ msgid "All"
 msgstr "Todos"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
-msgstr ""
+msgstr "Todos los paquetes serán actualizados. Quieres proceder?"
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -390,7 +390,7 @@ msgid "April"
 msgstr "Abril"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Arquitectura"
 
 msgid "Archive mode"
 msgstr "Modo Archivo"
@@ -3248,7 +3248,7 @@ msgid "The data has been copied to the clipboard."
 msgstr "Los datos han sido copiados al prtapapeles."
 
 msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
-msgstr ""
+msgstr "El puerto del servidor de correo SMTP predeterminado, p. 25, 465 o 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3830,7 +3830,7 @@ msgid "Updated settings."
 msgstr "Opciones actualizadas"
 
 msgid "Updated shared folder."
-msgstr ""
+msgstr "Carpeta compartida actualizada."
 
 msgid "Updated update management settings."
 msgstr "Configuración de administración de actualizaciones actualizada."

@@ -270,7 +270,7 @@ msgstr "作为一个 WINS 服务器"
 
 msgid ""
 "Acting as a WINS server and using a WINS server are mutually exclusive."
-msgstr ""
+msgstr "启用 WINS 服务器和使用 WINS 服务器只能二选一。"
 
 msgid "Action"
 msgstr "动作"
@@ -324,7 +324,7 @@ msgid "All"
 msgstr "全部"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
-msgstr ""
+msgstr "所有软件包将升级，您确定要继续？"
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -390,7 +390,7 @@ msgid "April"
 msgstr "四月"
 
 msgid "Architecture"
-msgstr ""
+msgstr "结构"
 
 msgid "Archive mode"
 msgstr "打包模式"
@@ -3248,7 +3248,7 @@ msgid "The data has been copied to the clipboard."
 msgstr "数据已复制到粘贴板"
 
 msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
-msgstr ""
+msgstr "SMTP 服务器默认端口，例如：25、465 或者 587。"
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3830,7 +3830,7 @@ msgid "Updated settings."
 msgstr "已更新的设置。"
 
 msgid "Updated shared folder."
-msgstr ""
+msgstr "更新共享文件夹。"
 
 msgid "Updated update management settings."
 msgstr "已更新更新管理设置"
