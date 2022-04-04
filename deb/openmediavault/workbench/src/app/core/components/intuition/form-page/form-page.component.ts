@@ -357,6 +357,11 @@ export class FormPageComponent
                 })
               )
               .subscribe(() => {
+                // At this point we can assume the form values have been
+                // submitted and stored, so we can safely mark the form as
+                // pristine again.
+                this.form.formGroup.markAsPristine();
+                // Display a success notification?
                 const notificationTitle = _.get(this.routeConfig, 'data.notificationTitle');
                 if (!_.isEmpty(notificationTitle)) {
                   this.notificationService.show(
@@ -389,10 +394,6 @@ export class FormPageComponent
         } else {
           doPreButtonActionFn();
         }
-        // At this point we can assume the form values have been
-        // submitted and stored, so we can safely mark the form as
-        // pristine again.
-        this.form.formGroup.markAsPristine();
         break;
       case 'cancel':
         if (this.form.formGroup.dirty) {
