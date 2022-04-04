@@ -21,6 +21,8 @@
  */
 namespace Engined\Rpc;
 
+require_once("openmediavault/functions.inc");
+
 class OMVRpcServiceWeTTY extends \OMV\Rpc\ServiceAbstract {
 	public function getName() {
 		return "WeTTY";
@@ -38,6 +40,21 @@ class OMVRpcServiceWeTTY extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	function set($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Do some validations.
+		if (boolvalEx($params['enable'])) {
+			$db = \OMV\Config\Database::getInstance();
+			$object = $db->get("conf.service.ssh");
+			if (FALSE === $object->get("enable")) {
+				throw new \OMV\Config\Exception("SSH must be enabled.");
+			}
+			if (FALSE === $object->get("passwordauthentication")) {
+				throw new \OMV\Config\Exception(
+					"SSH password authentication must be enabled.");
+			}
+		}
 		return \OMV\Rpc\Rpc::call("Config", "set", [
 			"id" => "conf.service.wetty",
 			"data" => $params
