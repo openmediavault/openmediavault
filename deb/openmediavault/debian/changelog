@@ -1,4 +1,4 @@
-openmediavault (6.0.20-2) unstable; urgency=low
+openmediavault (6.0.20-3) unstable; urgency=low
 
   * Filter plugins whose container image do not support the host
     architecture.
