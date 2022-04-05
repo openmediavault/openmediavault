@@ -30,7 +30,15 @@ network:
       addresses: []
 {%- endif %}
       dhcp4: {{ "true" if interface.method == "dhcp" else "false" }}
+{%- if not interface.dnsnameservers == "" and interface.method == "dhcp" %}
+      dhcp4-overrides:
+        use-dns: no
+{%- endif %}
       dhcp6: {{ "true" if interface.method6 == "dhcp" else "false" }}
+{%- if not interface.dnsnameservers == "" and interface.method6 == "dhcp" %}
+      dhcp6-overrides:
+        use-dns: no
+{%- endif %}
 {%- if interface.method6 == "manual" %}
       link-local: []
 {%- endif %}

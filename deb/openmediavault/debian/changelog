@@ -2,6 +2,8 @@ openmediavault (6.0.20-3) unstable; urgency=low
 
   * Filter plugins whose container image do not support the host
     architecture.
+  * Issue #1269: Statically DNS servers will take precedence over
+    the DNS servers received from the DHCP server.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 31 Mar 2022 17:41:00 +0200
 
