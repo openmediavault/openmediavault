@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-clamav\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,12 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-msgid "Add on-access scan"
-msgstr ""
-
-msgid "Add scheduled job"
-msgstr ""
 
 msgid "Algorithmic detection"
 msgstr ""
@@ -77,28 +71,13 @@ msgstr ""
 msgid "Detect broken executables"
 msgstr ""
 
-msgid "Done ..."
-msgstr ""
-
 msgid "Edit"
-msgstr ""
-
-msgid "Edit on-access scan"
-msgstr ""
-
-msgid "Edit scheduled job"
-msgstr ""
-
-msgid "Enable"
 msgstr ""
 
 msgid "Enable HTML detection and normalisation."
 msgstr ""
 
 msgid "Enable archive scanning."
-msgstr ""
-
-msgid "Enable on-access virus scanning"
 msgstr ""
 
 msgid "Enable scanning of ELF files."
@@ -131,9 +110,6 @@ msgstr ""
 msgid "Every N minute"
 msgstr ""
 
-msgid "Execute scheduled job"
-msgstr ""
-
 msgid "Execute scheduled scan"
 msgstr ""
 
@@ -156,9 +132,6 @@ msgid "Follow regular file symlinks."
 msgstr ""
 
 msgid "Friday"
-msgstr ""
-
-msgid "General settings"
 msgstr ""
 
 msgid "Hour"
@@ -197,9 +170,6 @@ msgstr ""
 msgid "Monday"
 msgstr ""
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr ""
-
 msgid "Month"
 msgstr ""
 
@@ -221,16 +191,10 @@ msgstr ""
 msgid "On Access Scans"
 msgstr ""
 
-msgid "On-access"
-msgstr ""
-
 msgid "Perform a deeper analysis of executable files."
 msgstr ""
 
 msgid "Perform nothing"
-msgstr ""
-
-msgid "Please check the <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more details."
 msgstr ""
 
 msgid "Please check the <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more details."
@@ -266,16 +230,10 @@ msgstr ""
 msgid "Scan the directory contents in parallel using available threads."
 msgstr ""
 
-msgid "Scheduled Jobs"
-msgstr ""
-
 msgid "Scheduled Scans"
 msgstr ""
 
 msgid "Scheduling"
-msgstr ""
-
-msgid "Send command output via email"
 msgstr ""
 
 msgid "Send email"
