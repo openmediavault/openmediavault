@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -17,12 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl_SI\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
-
-msgid "Add on-access scan"
-msgstr ""
-
-msgid "Add scheduled job"
-msgstr "Dodaj načrtovano opravilo"
 
 msgid "Algorithmic detection"
 msgstr "Algoritemska detekcija"
@@ -80,29 +74,14 @@ msgstr "Zaznaj PUA"
 msgid "Detect broken executables"
 msgstr "Odkrij pokvarjene izvedljive datoteke"
 
-msgid "Done ..."
-msgstr "Končano..."
-
 msgid "Edit"
 msgstr "Uredi"
-
-msgid "Edit on-access scan"
-msgstr ""
-
-msgid "Edit scheduled job"
-msgstr "Uredi načrtovano opravilo"
-
-msgid "Enable"
-msgstr "Omogoči"
 
 msgid "Enable HTML detection and normalisation."
 msgstr "Omogoči odkrivanje in normaliziranje HTML."
 
 msgid "Enable archive scanning."
 msgstr "Omogoči skeniranje arhivov."
-
-msgid "Enable on-access virus scanning"
-msgstr ""
 
 msgid "Enable scanning of ELF files."
 msgstr "Omogoči skeniranje ELF datotek."
@@ -136,9 +115,6 @@ msgstr "Vsako N uro"
 msgid "Every N minute"
 msgstr "Vsako N minuto"
 
-msgid "Execute scheduled job"
-msgstr ""
-
 msgid "Execute scheduled scan"
 msgstr ""
 
@@ -162,9 +138,6 @@ msgstr ""
 
 msgid "Friday"
 msgstr "Petek"
-
-msgid "General settings"
-msgstr "Splošne nastavitve"
 
 msgid "Hour"
 msgstr "Ura"
@@ -202,9 +175,6 @@ msgstr "Minuta"
 msgid "Monday"
 msgstr "Ponedeljek"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr ""
-
 msgid "Month"
 msgstr "Mesec"
 
@@ -226,19 +196,10 @@ msgstr "Oktober"
 msgid "On Access Scans"
 msgstr ""
 
-msgid "On-access"
-msgstr ""
-
 msgid "Perform a deeper analysis of executable files."
 msgstr "Izvedi globjo analizo izvršljivih datotek,"
 
 msgid "Perform nothing"
-msgstr ""
-
-msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
-"details."
 msgstr ""
 
 msgid ""
@@ -277,17 +238,11 @@ msgstr "Skeniraj arhive"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr ""
 
-msgid "Scheduled Jobs"
-msgstr "Načrtovana Opravila"
-
 msgid "Scheduled Scans"
 msgstr ""
 
 msgid "Scheduling"
 msgstr "Načrtovanje opravil"
-
-msgid "Send command output via email"
-msgstr "Pošlji rezultat ukaza preko elektronske pošte"
 
 msgid "Send email"
 msgstr "Pošlji elektronsko poročilo"

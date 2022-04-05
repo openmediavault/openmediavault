@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2017,2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -18,12 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
-
-msgid "Add on-access scan"
-msgstr "Přidat kontrolu spouštěnou přístupem"
-
-msgid "Add scheduled job"
-msgstr "Přidat naplánovanou úlohu"
 
 msgid "Algorithmic detection"
 msgstr "Rozpoznávat dle algoritmu"
@@ -81,29 +75,14 @@ msgstr "Zjišťovat potenciálně nežádoucí aplikace"
 msgid "Detect broken executables"
 msgstr "Zjišťovat poškozené spustitelné"
 
-msgid "Done ..."
-msgstr "Hotovo…"
-
 msgid "Edit"
 msgstr "Upravit"
-
-msgid "Edit on-access scan"
-msgstr "Upravit kontrolu spouštěnou přístupem"
-
-msgid "Edit scheduled job"
-msgstr "Upravit naplánovanou úlohu"
-
-msgid "Enable"
-msgstr "Zapnout"
 
 msgid "Enable HTML detection and normalisation."
 msgstr "Zapnout zjišťování a normalizaci HTML značek."
 
 msgid "Enable archive scanning."
 msgstr "Zapnout kontrolu uvnitř archivů."
-
-msgid "Enable on-access virus scanning"
-msgstr "Kontrolu spouštět přístupem k"
 
 msgid "Enable scanning of ELF files."
 msgstr "Zapnout kontrolu souborů ve formátu ELF."
@@ -137,9 +116,6 @@ msgstr "Každých N hodin"
 msgid "Every N minute"
 msgstr "Každých N minut"
 
-msgid "Execute scheduled job"
-msgstr "Spustit naplánovanou úlohu"
-
 msgid "Execute scheduled scan"
 msgstr "Vykonat naplánované skenování"
 
@@ -163,9 +139,6 @@ msgstr "Když při skenování přijde na symbolické odkazy (symlink), pokračo
 
 msgid "Friday"
 msgstr "pátek"
-
-msgid "General settings"
-msgstr "Obecná nastavení"
 
 msgid "Hour"
 msgstr "Hodina"
@@ -203,9 +176,6 @@ msgstr "Minuta"
 msgid "Monday"
 msgstr "pondělí"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr "Sledovat sdílenou složku a kontrolovat nové nebo změněné soubory."
-
 msgid "Month"
 msgstr "Měsíc"
 
@@ -227,20 +197,11 @@ msgstr "říjen"
 msgid "On Access Scans"
 msgstr "Skenování spouštěné přístupem"
 
-msgid "On-access"
-msgstr "Kontrolovat při otevírání"
-
 msgid "Perform a deeper analysis of executable files."
 msgstr "Provádět hloubkovou analýzu souborů ve formátu PE, včetně rozbalování jejich vnitřku."
 
 msgid "Perform nothing"
 msgstr "Nic nedělat"
-
-msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
-"details."
-msgstr "Další podrobnosti naleznete v <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>manuálové stránce</a>."
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
@@ -278,17 +239,11 @@ msgstr "Kontrolovat archivy"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "Kontrolovat vícero položek obsahu složky naráz, využitím dostupných výpočetních vláken."
 
-msgid "Scheduled Jobs"
-msgstr "Naplánované úlohy"
-
 msgid "Scheduled Scans"
 msgstr "Naplánovaná skenování"
 
 msgid "Scheduling"
 msgstr "Naplánování"
-
-msgid "Send command output via email"
-msgstr "Odeslat výstup příkazu e-mailem"
 
 msgid "Send email"
 msgstr "Poslat e-mail"

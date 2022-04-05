@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2021\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -19,12 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Add on-access scan"
-msgstr "Afegiu escanejar al accedir"
-
-msgid "Add scheduled job"
-msgstr "Afegeix feina programada"
 
 msgid "Algorithmic detection"
 msgstr "Detecció Algorítmica"
@@ -82,29 +76,14 @@ msgstr "Detectar PUA"
 msgid "Detect broken executables"
 msgstr "Detectar executables trencats"
 
-msgid "Done ..."
-msgstr "Fet ..."
-
 msgid "Edit"
 msgstr "Edita"
-
-msgid "Edit on-access scan"
-msgstr "Edita l'escaneix al accedir"
-
-msgid "Edit scheduled job"
-msgstr "Edita feina programada"
-
-msgid "Enable"
-msgstr "Habilitar"
 
 msgid "Enable HTML detection and normalisation."
 msgstr "Habilitar detecció HTML i normalització."
 
 msgid "Enable archive scanning."
 msgstr "Habilitar l'escanejat de fitxers"
-
-msgid "Enable on-access virus scanning"
-msgstr "Habilitar l'escanejat de virus al accedir"
 
 msgid "Enable scanning of ELF files."
 msgstr "Habilita l'escanejat de fitxers ELF."
@@ -138,9 +117,6 @@ msgstr "Cada N hores"
 msgid "Every N minute"
 msgstr "Cada N minuts"
 
-msgid "Execute scheduled job"
-msgstr "Executa feina programada"
-
 msgid "Execute scheduled scan"
 msgstr "Executeu l'exploració programada"
 
@@ -164,9 +140,6 @@ msgstr "Seguir els enllaços simbòlics de fitxers."
 
 msgid "Friday"
 msgstr "Divendres"
-
-msgid "General settings"
-msgstr "Opcions generals"
 
 msgid "Hour"
 msgstr "Hora"
@@ -204,9 +177,6 @@ msgstr "Minut"
 msgid "Monday"
 msgstr "Dilluns"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr "Monitoritzar la carpeta compartida i escanejar si hi ha fitxers nous o modificats."
-
 msgid "Month"
 msgstr "Mes"
 
@@ -228,20 +198,11 @@ msgstr "Octubre"
 msgid "On Access Scans"
 msgstr "Escaneja al accedir"
 
-msgid "On-access"
-msgstr "Quan s'accedeixi"
-
 msgid "Perform a deeper analysis of executable files."
 msgstr "Fer un anàlisis profund dels executables"
 
 msgid "Perform nothing"
 msgstr "No esteu fent res"
-
-msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
-"details."
-msgstr "Si us plau, consulteu la <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>pàgina del manual</a> per obtenir més informació."
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
@@ -279,17 +240,11 @@ msgstr "Escanejar fitxers"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "Escanejar el contingut dels directoris en paral·lel usant tots els fils disponibles."
 
-msgid "Scheduled Jobs"
-msgstr "Feines programades"
-
 msgid "Scheduled Scans"
 msgstr "Escanejos programats"
 
 msgid "Scheduling"
 msgstr "Programació "
-
-msgid "Send command output via email"
-msgstr "Enviar el resultat de la comanda per e-mail"
 
 msgid "Send email"
 msgstr "Enviar e-mail"

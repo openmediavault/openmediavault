@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
 "Language-Team: Norwegian (http://www.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -18,12 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: no\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Add on-access scan"
-msgstr ""
-
-msgid "Add scheduled job"
-msgstr "Legg til planlagt oppgave"
 
 msgid "Algorithmic detection"
 msgstr "Algorytmisk oppdaging"
@@ -81,29 +75,14 @@ msgstr "Oppdag PUAAlgorithmic detection"
 msgid "Detect broken executables"
 msgstr "Oppdag ødelagte kjørbare filer"
 
-msgid "Done ..."
-msgstr "Ferdig ..."
-
 msgid "Edit"
 msgstr "Endre"
-
-msgid "Edit on-access scan"
-msgstr ""
-
-msgid "Edit scheduled job"
-msgstr "Rediger planlagt oppgave"
-
-msgid "Enable"
-msgstr "Aktiver"
 
 msgid "Enable HTML detection and normalisation."
 msgstr "Aktiver HTML deteksjon og normalisering."
 
 msgid "Enable archive scanning."
 msgstr "Aktiver arikv skanning."
-
-msgid "Enable on-access virus scanning"
-msgstr "Aktiver løpende virus scanning"
 
 msgid "Enable scanning of ELF files."
 msgstr "Aktiver skanning av ELF filer."
@@ -137,9 +116,6 @@ msgstr "Hver N time"
 msgid "Every N minute"
 msgstr "Hvert N minutt"
 
-msgid "Execute scheduled job"
-msgstr ""
-
 msgid "Execute scheduled scan"
 msgstr ""
 
@@ -163,9 +139,6 @@ msgstr "Følg vanlige filers symbolske lenker."
 
 msgid "Friday"
 msgstr "Fredag"
-
-msgid "General settings"
-msgstr "Generelle instillinger"
 
 msgid "Hour"
 msgstr "Time"
@@ -203,9 +176,6 @@ msgstr "Minutt"
 msgid "Monday"
 msgstr "Mandag"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr "Overvåk delt mappe og skann nye eller endrede filer."
-
 msgid "Month"
 msgstr "Måned"
 
@@ -227,19 +197,10 @@ msgstr "Oktober"
 msgid "On Access Scans"
 msgstr ""
 
-msgid "On-access"
-msgstr "Løpende"
-
 msgid "Perform a deeper analysis of executable files."
 msgstr "Utføre en dypere analyse av kjørbare filer."
 
 msgid "Perform nothing"
-msgstr ""
-
-msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
-"details."
 msgstr ""
 
 msgid ""
@@ -278,17 +239,11 @@ msgstr "Skann arkiver"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "Skann mapper i paralell ved å bruke tilgjengelige tråder."
 
-msgid "Scheduled Jobs"
-msgstr ""
-
 msgid "Scheduled Scans"
 msgstr ""
 
 msgid "Scheduling"
 msgstr ""
-
-msgid "Send command output via email"
-msgstr "Send kommandoproduksjon via epost"
 
 msgid "Send email"
 msgstr "Send epost"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Varkentjes, 2020\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -20,12 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Add on-access scan"
-msgstr "On-access scan toevoegen"
-
-msgid "Add scheduled job"
-msgstr "Een geplande taak toevoegen"
 
 msgid "Algorithmic detection"
 msgstr "Algoritmische detectie"
@@ -83,29 +77,14 @@ msgstr "PUA waarnemen"
 msgid "Detect broken executables"
 msgstr "Detecteer defecte uitvoerbare bestanden"
 
-msgid "Done ..."
-msgstr "Gedaan ..."
-
 msgid "Edit"
 msgstr "Aanpassen"
-
-msgid "Edit on-access scan"
-msgstr "On-access scan bewerken"
-
-msgid "Edit scheduled job"
-msgstr "Geplande taak aanpassen"
-
-msgid "Enable"
-msgstr "Inschakelen"
 
 msgid "Enable HTML detection and normalisation."
 msgstr "HTML-detectie en normalisatie inschakelen"
 
 msgid "Enable archive scanning."
 msgstr "Schakel archief scannen in."
-
-msgid "Enable on-access virus scanning"
-msgstr "On-access viruscontrole inschakelen"
 
 msgid "Enable scanning of ELF files."
 msgstr "Aftasten van ELF-bestanden inschakelen."
@@ -139,9 +118,6 @@ msgstr "Iedere N uren"
 msgid "Every N minute"
 msgstr "Iedere N minuten"
 
-msgid "Execute scheduled job"
-msgstr "Voer geplande taak uit"
-
 msgid "Execute scheduled scan"
 msgstr ""
 
@@ -165,9 +141,6 @@ msgstr "Symbolische bestandskoppelingen volgen."
 
 msgid "Friday"
 msgstr "Vrijdag"
-
-msgid "General settings"
-msgstr "Algemene instellingen"
 
 msgid "Hour"
 msgstr "Uur"
@@ -205,9 +178,6 @@ msgstr "Minuut"
 msgid "Monday"
 msgstr "Maandag"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr "De gedeelde map volgen en nieuwe of gewijzigde bestanden aftasten."
-
 msgid "Month"
 msgstr "Maand"
 
@@ -229,20 +199,11 @@ msgstr "oktober"
 msgid "On Access Scans"
 msgstr "Scans bij toegang"
 
-msgid "On-access"
-msgstr "On-access"
-
 msgid "Perform a deeper analysis of executable files."
 msgstr "Uitvoerbare bestanden grondiger analyseren."
 
 msgid "Perform nothing"
 msgstr ""
-
-msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
-"details."
-msgstr "Ga naar de <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>handleiding pagina</a> voor verdere details."
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
@@ -280,17 +241,11 @@ msgstr "Archieven aftasten"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "De inhoud van de map parallel aftasten door meerdere ingangen te gebruiken."
 
-msgid "Scheduled Jobs"
-msgstr "Geplande taken"
-
 msgid "Scheduled Scans"
 msgstr ""
 
 msgid "Scheduling"
 msgstr "Inplannen"
-
-msgid "Send command output via email"
-msgstr "Verzend de uitvoer van de opdrachten via e-mail"
 
 msgid "Send email"
 msgstr "E-mail verzenden"

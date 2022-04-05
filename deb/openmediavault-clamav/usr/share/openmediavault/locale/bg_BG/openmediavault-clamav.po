@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
@@ -16,12 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Add on-access scan"
-msgstr ""
-
-msgid "Add scheduled job"
-msgstr "Добави планирана задача"
 
 msgid "Algorithmic detection"
 msgstr ""
@@ -79,28 +73,13 @@ msgstr ""
 msgid "Detect broken executables"
 msgstr ""
 
-msgid "Done ..."
-msgstr ""
-
 msgid "Edit"
 msgstr ""
-
-msgid "Edit on-access scan"
-msgstr ""
-
-msgid "Edit scheduled job"
-msgstr ""
-
-msgid "Enable"
-msgstr "Разреши"
 
 msgid "Enable HTML detection and normalisation."
 msgstr ""
 
 msgid "Enable archive scanning."
-msgstr ""
-
-msgid "Enable on-access virus scanning"
 msgstr ""
 
 msgid "Enable scanning of ELF files."
@@ -135,9 +114,6 @@ msgstr "Всеки X час"
 msgid "Every N minute"
 msgstr "Всеки X минута"
 
-msgid "Execute scheduled job"
-msgstr ""
-
 msgid "Execute scheduled scan"
 msgstr ""
 
@@ -161,9 +137,6 @@ msgstr ""
 
 msgid "Friday"
 msgstr "Петък"
-
-msgid "General settings"
-msgstr "Основни настройки"
 
 msgid "Hour"
 msgstr "Час"
@@ -201,9 +174,6 @@ msgstr "Минута"
 msgid "Monday"
 msgstr "Понеделник"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr ""
-
 msgid "Month"
 msgstr ""
 
@@ -225,19 +195,10 @@ msgstr ""
 msgid "On Access Scans"
 msgstr ""
 
-msgid "On-access"
-msgstr ""
-
 msgid "Perform a deeper analysis of executable files."
 msgstr ""
 
 msgid "Perform nothing"
-msgstr ""
-
-msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
-"details."
 msgstr ""
 
 msgid ""
@@ -276,16 +237,10 @@ msgstr ""
 msgid "Scan the directory contents in parallel using available threads."
 msgstr ""
 
-msgid "Scheduled Jobs"
-msgstr "Планирани задачи"
-
 msgid "Scheduled Scans"
 msgstr ""
 
 msgid "Scheduling"
-msgstr ""
-
-msgid "Send command output via email"
 msgstr ""
 
 msgid "Send email"

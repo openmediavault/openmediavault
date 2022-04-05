@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: zubr139, 2013-2014,2016-2017,2021\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -17,12 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
-
-msgid "Add on-access scan"
-msgstr "Додати сканування в режимі он-лайн"
-
-msgid "Add scheduled job"
-msgstr "Додати заплановане завдання"
 
 msgid "Algorithmic detection"
 msgstr "Алгоритмічне виявлення"
@@ -80,29 +74,14 @@ msgstr "Виявлення PUA"
 msgid "Detect broken executables"
 msgstr "Виявлення пошкоджених виконуваних файлів"
 
-msgid "Done ..."
-msgstr "Виконано ..."
-
 msgid "Edit"
 msgstr "Редагувати"
-
-msgid "Edit on-access scan"
-msgstr "Редагувати сканування доступу до системи"
-
-msgid "Edit scheduled job"
-msgstr "Редагувати заплановане завдання"
-
-msgid "Enable"
-msgstr "Увімкнути"
 
 msgid "Enable HTML detection and normalisation."
 msgstr "Увімкнути виявлення HTML і нормалізації."
 
 msgid "Enable archive scanning."
 msgstr "Увімкнути сканування архівів."
-
-msgid "Enable on-access virus scanning"
-msgstr "Увімкнути антивірусне сканування при доступі"
 
 msgid "Enable scanning of ELF files."
 msgstr "Увімкнути сканування ELF файлів."
@@ -136,9 +115,6 @@ msgstr "Кожну N годину"
 msgid "Every N minute"
 msgstr "Кожну N хвилину"
 
-msgid "Execute scheduled job"
-msgstr "Виконати заплановану роботу"
-
 msgid "Execute scheduled scan"
 msgstr "Виконати сканування за розкладом"
 
@@ -162,9 +138,6 @@ msgstr "Прямувати за регулярними символьними п
 
 msgid "Friday"
 msgstr "П'ятниця"
-
-msgid "General settings"
-msgstr "Загальні налаштування"
 
 msgid "Hour"
 msgstr "Година"
@@ -202,9 +175,6 @@ msgstr "Хвилина"
 msgid "Monday"
 msgstr "Понеділок"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr "Моніторити загальну теку і сканувати нові або змінені файли."
-
 msgid "Month"
 msgstr "Місяць"
 
@@ -226,20 +196,11 @@ msgstr "Жовтень"
 msgid "On Access Scans"
 msgstr "На сканування доступу"
 
-msgid "On-access"
-msgstr "При доступі"
-
 msgid "Perform a deeper analysis of executable files."
 msgstr "Провести глибокий аналіз виконуваних файлів."
 
 msgid "Perform nothing"
 msgstr "Нічого не виконувати"
-
-msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
-"details."
-msgstr "Будь ласка, перевірте <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>сторінку керівництва</a> для більш докладної інформації."
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
@@ -277,17 +238,11 @@ msgstr "Сканувати архіви"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "Сканування вмісту каталогу паралельно, використовуючи доступні потоки."
 
-msgid "Scheduled Jobs"
-msgstr "Заплановані завдання"
-
 msgid "Scheduled Scans"
 msgstr "Заплановані сканування"
 
 msgid "Scheduling"
 msgstr "Планування"
-
-msgid "Send command output via email"
-msgstr "Відправити висновок команди по електронній пошті"
 
 msgid "Send email"
 msgstr "Відправити лист"

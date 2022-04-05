@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013-2014,2017-2018\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -19,12 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
-
-msgid "Add on-access scan"
-msgstr ""
-
-msgid "Add scheduled job"
-msgstr "Dodaj zaplanowane zadanie"
 
 msgid "Algorithmic detection"
 msgstr "Wykrywanie algorytmiczne"
@@ -82,29 +76,14 @@ msgstr "Wykrywanie PUA"
 msgid "Detect broken executables"
 msgstr "Wykryj przerwane pliki wykonywalne"
 
-msgid "Done ..."
-msgstr "Zrobione ..."
-
 msgid "Edit"
 msgstr "Edytuj"
-
-msgid "Edit on-access scan"
-msgstr ""
-
-msgid "Edit scheduled job"
-msgstr "Edytuj zaplanowane zadanie"
-
-msgid "Enable"
-msgstr "Włącz"
 
 msgid "Enable HTML detection and normalisation."
 msgstr "Włącz wykrywanie HTML i normalizacji."
 
 msgid "Enable archive scanning."
 msgstr "Włącz skanowanie archiwów."
-
-msgid "Enable on-access virus scanning"
-msgstr "Włącz skanowanie antywirusowe przy dostępie"
 
 msgid "Enable scanning of ELF files."
 msgstr "Włącz skanowanie plików ELF."
@@ -138,9 +117,6 @@ msgstr "Co N godzin"
 msgid "Every N minute"
 msgstr "Co N minut"
 
-msgid "Execute scheduled job"
-msgstr "Wykonaj zaplanowane zadanie"
-
 msgid "Execute scheduled scan"
 msgstr ""
 
@@ -164,9 +140,6 @@ msgstr "Podążaj za linkami symbolicznymi plików."
 
 msgid "Friday"
 msgstr "Piątek"
-
-msgid "General settings"
-msgstr "Ustawienia główne"
 
 msgid "Hour"
 msgstr "Godzina"
@@ -204,9 +177,6 @@ msgstr "Minut"
 msgid "Monday"
 msgstr "Poniedziałek"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr "Monitorowanie folderów udostępnionych i skanowanie nowych lub zmodyfikowanych plików."
-
 msgid "Month"
 msgstr "Miesiąc"
 
@@ -228,20 +198,11 @@ msgstr "Październik"
 msgid "On Access Scans"
 msgstr ""
 
-msgid "On-access"
-msgstr "Przy dostępie"
-
 msgid "Perform a deeper analysis of executable files."
 msgstr "Wykonaj głębszą analizę plików wykonywalnych."
 
 msgid "Perform nothing"
 msgstr ""
-
-msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
-"details."
-msgstr "Proszę sprawdź <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>stronę podręcznika</a>  aby uzyskać więcej informacji."
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
@@ -279,17 +240,11 @@ msgstr "Skanuj archiwa"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "Skanowanie zawartości katalogu z użyciem dostępnych wątków."
 
-msgid "Scheduled Jobs"
-msgstr "Zaplanowane zadania"
-
 msgid "Scheduled Scans"
 msgstr ""
 
 msgid "Scheduling"
 msgstr "Planowanie"
-
-msgid "Send command output via email"
-msgstr "Wyślij wynik komendy na e-mail"
 
 msgid "Send email"
 msgstr "Wyślij e-maila"

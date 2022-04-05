@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2020\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -19,12 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "Add on-access scan"
-msgstr "접근 기반 바이러스 탐지 추가"
-
-msgid "Add scheduled job"
-msgstr "예약된 작업 추가"
 
 msgid "Algorithmic detection"
 msgstr "알고리즘을 통한 감지"
@@ -82,29 +76,14 @@ msgstr "PUA 검색"
 msgid "Detect broken executables"
 msgstr "실행 파일의 손상을 검사"
 
-msgid "Done ..."
-msgstr "완료 ..."
-
 msgid "Edit"
 msgstr "편집"
-
-msgid "Edit on-access scan"
-msgstr "접근 기반 바이러스 탐지 편집"
-
-msgid "Edit scheduled job"
-msgstr "예약 작업 편집"
-
-msgid "Enable"
-msgstr "활성화"
 
 msgid "Enable HTML detection and normalisation."
 msgstr "HTML 탐지 및 정상화 활성화"
 
 msgid "Enable archive scanning."
 msgstr "아카이브 검색 활성화"
-
-msgid "Enable on-access virus scanning"
-msgstr "접근 기반 바이러스 탐지 활성화"
 
 msgid "Enable scanning of ELF files."
 msgstr "ELF파일 검색 활성화"
@@ -138,9 +117,6 @@ msgstr "매 N시간마다"
 msgid "Every N minute"
 msgstr "매 N분마다"
 
-msgid "Execute scheduled job"
-msgstr "예약 작업 실행"
-
 msgid "Execute scheduled scan"
 msgstr ""
 
@@ -164,9 +140,6 @@ msgstr "일반 파일에 대한 심볼릭 링크를 추적"
 
 msgid "Friday"
 msgstr "금요일"
-
-msgid "General settings"
-msgstr "일반 설정"
 
 msgid "Hour"
 msgstr "시간"
@@ -204,9 +177,6 @@ msgstr "분"
 msgid "Monday"
 msgstr "월요일"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr "공유된 폴더를 감시하고, 새로 생기거나 수정된 파일들을 검사합니다."
-
 msgid "Month"
 msgstr "달"
 
@@ -228,20 +198,11 @@ msgstr "10월"
 msgid "On Access Scans"
 msgstr "접근 기반 바이러스 탐지"
 
-msgid "On-access"
-msgstr "접근 기반"
-
 msgid "Perform a deeper analysis of executable files."
 msgstr "실행 파일들을 자세히 분석합니다."
 
 msgid "Perform nothing"
 msgstr ""
-
-msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
-"details."
-msgstr "자세한 내용은 <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>매뉴얼 페이지</a> 를 참고하세요.."
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
@@ -279,17 +240,11 @@ msgstr "아카이브 검색"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "가용 스레드를 사용하여 병렬적으로 디렉터리 내용들을 검사합니다."
 
-msgid "Scheduled Jobs"
-msgstr "예약 작업"
-
 msgid "Scheduled Scans"
 msgstr ""
 
 msgid "Scheduling"
 msgstr "일정"
-
-msgid "Send command output via email"
-msgstr "이메일로 명령 결과 전송"
 
 msgid "Send email"
 msgstr "이메일 전송"

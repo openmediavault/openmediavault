@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2021\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -17,12 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "Add on-access scan"
-msgstr "アクセス時のスキャンを追加"
-
-msgid "Add scheduled job"
-msgstr "スケジュールされたJobを追加"
 
 msgid "Algorithmic detection"
 msgstr "アルゴリズム的検出"
@@ -80,29 +74,14 @@ msgstr "PUAの検出"
 msgid "Detect broken executables"
 msgstr "壊れた実行ファイルを検出"
 
-msgid "Done ..."
-msgstr "完了 ..."
-
 msgid "Edit"
 msgstr "編集"
-
-msgid "Edit on-access scan"
-msgstr "アクセス時のスキャンを編集"
-
-msgid "Edit scheduled job"
-msgstr "スケジュールされたJobを編集"
-
-msgid "Enable"
-msgstr "有効"
 
 msgid "Enable HTML detection and normalisation."
 msgstr "HTMLの検出および正規化を有効にします。"
 
 msgid "Enable archive scanning."
 msgstr "圧縮ファイルのスキャンを有効にします。"
-
-msgid "Enable on-access virus scanning"
-msgstr "オン-アクセスのウィルススキャンを有効にします。"
 
 msgid "Enable scanning of ELF files."
 msgstr "ELFファイルのスキャンを有効にします。"
@@ -136,9 +115,6 @@ msgstr "N時間ごと"
 msgid "Every N minute"
 msgstr "N分ごと"
 
-msgid "Execute scheduled job"
-msgstr "スケジュールされたJobを実行"
-
 msgid "Execute scheduled scan"
 msgstr "スケジュールされたスキャンを実行"
 
@@ -162,9 +138,6 @@ msgstr "通常ファイルのシンボリックリンクをたどります。"
 
 msgid "Friday"
 msgstr "金曜"
-
-msgid "General settings"
-msgstr "一般設定"
 
 msgid "Hour"
 msgstr "時"
@@ -202,9 +175,6 @@ msgstr "分"
 msgid "Monday"
 msgstr "月曜"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr "共有フォルダを監視し、新規または変更されたファイルをスキャンします。"
-
 msgid "Month"
 msgstr "月"
 
@@ -226,20 +196,11 @@ msgstr "10月"
 msgid "On Access Scans"
 msgstr "アクセス時のスキャン"
 
-msgid "On-access"
-msgstr "オン-アクセス"
-
 msgid "Perform a deeper analysis of executable files."
 msgstr "実行可能ファイルのより詳細な分析を行う。"
 
 msgid "Perform nothing"
 msgstr "何もしない"
-
-msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
-"details."
-msgstr "より詳しいことは <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>マニュアルページ</a> を参照してください"
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
@@ -277,17 +238,11 @@ msgstr "圧縮ファイルのスキャン"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "利用可能なスレッドを使用しディレクトリを並行でスキャンします。"
 
-msgid "Scheduled Jobs"
-msgstr "スケジュールされたジョブ"
-
 msgid "Scheduled Scans"
 msgstr "スケジュールされたスキャン"
 
 msgid "Scheduling"
 msgstr "スケジューリング"
-
-msgid "Send command output via email"
-msgstr "コマンドの出力を電子メールで送信"
 
 msgid "Send email"
 msgstr "電子メールの送信"

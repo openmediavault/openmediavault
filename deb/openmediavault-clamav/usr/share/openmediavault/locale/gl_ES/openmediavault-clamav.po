@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2014\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
@@ -19,12 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: gl_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Add on-access scan"
-msgstr ""
-
-msgid "Add scheduled job"
-msgstr "Engadir unha traballo planificada"
 
 msgid "Algorithmic detection"
 msgstr "Detección algorítmica"
@@ -82,29 +76,14 @@ msgstr "Detectar PUA"
 msgid "Detect broken executables"
 msgstr "Detectar executábeis quebrados"
 
-msgid "Done ..."
-msgstr "Feito ..."
-
 msgid "Edit"
 msgstr "Editar"
-
-msgid "Edit on-access scan"
-msgstr ""
-
-msgid "Edit scheduled job"
-msgstr "Editar o traballo planificado"
-
-msgid "Enable"
-msgstr "Activar"
 
 msgid "Enable HTML detection and normalisation."
 msgstr "Activa a detección e a normalización HTML"
 
 msgid "Enable archive scanning."
 msgstr "Activa a análise de arquivos."
-
-msgid "Enable on-access virus scanning"
-msgstr "Activa a análise de virus no acceso"
 
 msgid "Enable scanning of ELF files."
 msgstr "Activa a análise de ficheiros ELF."
@@ -138,9 +117,6 @@ msgstr "Cada N horas"
 msgid "Every N minute"
 msgstr "Cada N minutos"
 
-msgid "Execute scheduled job"
-msgstr ""
-
 msgid "Execute scheduled scan"
 msgstr ""
 
@@ -164,9 +140,6 @@ msgstr "Seguir as ligazóns simbólicas normais a ficheiros"
 
 msgid "Friday"
 msgstr "Venres"
-
-msgid "General settings"
-msgstr "Axustes xerais"
 
 msgid "Hour"
 msgstr "Hora"
@@ -204,9 +177,6 @@ msgstr "Minuto"
 msgid "Monday"
 msgstr "Luns"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr "Supervisar o cartafol compartido e analizar os ficheiros novos ou modificados."
-
 msgid "Month"
 msgstr "Mes"
 
@@ -228,19 +198,10 @@ msgstr "outubro"
 msgid "On Access Scans"
 msgstr ""
 
-msgid "On-access"
-msgstr "No acceso"
-
 msgid "Perform a deeper analysis of executable files."
 msgstr "Realizar unha análise máis profunda dos ficheiros executábeis."
 
 msgid "Perform nothing"
-msgstr ""
-
-msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
-"details."
 msgstr ""
 
 msgid ""
@@ -279,17 +240,11 @@ msgstr "Analizar os arquivos"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "Analizar os contidos dos directorios usando os fíos dispoñíbeis."
 
-msgid "Scheduled Jobs"
-msgstr "Traballos planificados"
-
 msgid "Scheduled Scans"
 msgstr ""
 
 msgid "Scheduling"
 msgstr "Segundo o programado"
-
-msgid "Send command output via email"
-msgstr "Enviar a saída da orde por correo"
 
 msgid "Send email"
 msgstr "Enviar por correo"

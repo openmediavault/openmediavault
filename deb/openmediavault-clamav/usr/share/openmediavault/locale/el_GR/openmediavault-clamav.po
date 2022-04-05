@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Kostas Moho, 2012-2014,2017,2021-2022\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -17,12 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: el_GR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Add on-access scan"
-msgstr "Προσθήκη σάρωσης κατά την πρόσβαση"
-
-msgid "Add scheduled job"
-msgstr "Προσθήκη προγραμματισμένης εργασίας"
 
 msgid "Algorithmic detection"
 msgstr "Αλγοριθμική ανίχνευση"
@@ -80,29 +74,14 @@ msgstr "Ανίχνευση PUA"
 msgid "Detect broken executables"
 msgstr "Ανίχνευση χαμασμένων εκτελέσιμων"
 
-msgid "Done ..."
-msgstr "Ολοκλήρωση ..."
-
 msgid "Edit"
 msgstr "Επεξεργασία"
-
-msgid "Edit on-access scan"
-msgstr "Επεξεργασία σάρωσης κατά την πρόσβαση"
-
-msgid "Edit scheduled job"
-msgstr "Επεξεργασία προγραμματισμένης εργασίας"
-
-msgid "Enable"
-msgstr "Ενεργοποίηση"
 
 msgid "Enable HTML detection and normalisation."
 msgstr "Ανίχνευση και ρύθμιση HTML."
 
 msgid "Enable archive scanning."
 msgstr "Ανίχνευση συμπιεσμένων αρχείων ενεργή."
-
-msgid "Enable on-access virus scanning"
-msgstr "Ενεργοποίηση ελέγχου κατά την πρόσβαση"
 
 msgid "Enable scanning of ELF files."
 msgstr "Ενεργοποίηση ελέγχου σε αρχεία ELF."
@@ -136,9 +115,6 @@ msgstr "Κάθε Ν ώρα"
 msgid "Every N minute"
 msgstr "Κάθε Ν λεπτό"
 
-msgid "Execute scheduled job"
-msgstr "Εκτέλεση προγραμματισμένης εργασίας"
-
 msgid "Execute scheduled scan"
 msgstr "Εκτέλεση προγραμματισμένης σάρωσης."
 
@@ -162,9 +138,6 @@ msgstr "Να ακολουθούνται οι συμβολικοί σύνδεσμ
 
 msgid "Friday"
 msgstr "Παρασκευή"
-
-msgid "General settings"
-msgstr "Γενικές ρυθμίσεις"
 
 msgid "Hour"
 msgstr "Ώρα"
@@ -202,9 +175,6 @@ msgstr "Λεπτό"
 msgid "Monday"
 msgstr "Δευτέρα"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr "Παρακολούθηση κοινόχρηστου φακέλου και έλεγχος νέων ή αλλαγμένων αρχείων."
-
 msgid "Month"
 msgstr "Μήνας"
 
@@ -226,20 +196,11 @@ msgstr "Οκτώβριος"
 msgid "On Access Scans"
 msgstr "Σάρωση κατά την πρόσβαση"
 
-msgid "On-access"
-msgstr "Έλεγχος κατά την πρόσβαση"
-
 msgid "Perform a deeper analysis of executable files."
 msgstr "Να γίνεται ενδελεχής ανάλυση των εκτελέσιμων αρχείων."
 
 msgid "Perform nothing"
 msgstr "Καμία δράση"
-
-msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
-"details."
-msgstr "Διαβάστε το <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>εγχειρίδιο</a> για περισσότερες πληροφορίες."
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
@@ -277,17 +238,11 @@ msgstr "Έλεγχος συμπιεσμένων αρχείων"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "Ανίχνευση των περιεχομένων των φακέλων με χρήση παράλληλων διαθέσιμων νημάτων διεργασίας."
 
-msgid "Scheduled Jobs"
-msgstr "Προγραμματισμένες Εργασίες"
-
 msgid "Scheduled Scans"
 msgstr "Προγραμματισμένες Σαρώσεις"
 
 msgid "Scheduling"
 msgstr "Προγραμματισμός"
-
-msgid "Send command output via email"
-msgstr "Αποστολή αποτελέσματος εντολής με μήνυμα"
 
 msgid "Send email"
 msgstr "Αποστολή μηνύματος"

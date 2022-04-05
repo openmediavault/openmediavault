@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2014,2017,2021\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -21,12 +21,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Add on-access scan"
-msgstr "Hozzáférés közbeni átvizsgálás hozzáadása"
-
-msgid "Add scheduled job"
-msgstr "Ütemezett feladat hozzáadása"
 
 msgid "Algorithmic detection"
 msgstr "Algoritmikus észlelés"
@@ -84,29 +78,14 @@ msgstr "PUA észlelése"
 msgid "Detect broken executables"
 msgstr "Hibás futtatható fájlok észlelése"
 
-msgid "Done ..."
-msgstr "Kész..."
-
 msgid "Edit"
 msgstr "Szerkesztés"
-
-msgid "Edit on-access scan"
-msgstr "Hozzáférés közbeni átvizsgálás szerkesztése"
-
-msgid "Edit scheduled job"
-msgstr "Ütemezett feladat szerkesztése"
-
-msgid "Enable"
-msgstr "Engedélyezés"
 
 msgid "Enable HTML detection and normalisation."
 msgstr "HTML felismerés és normalizálás engedélyezése."
 
 msgid "Enable archive scanning."
 msgstr "Archívum átvizsgálás engedélyezése."
-
-msgid "Enable on-access virus scanning"
-msgstr "Hozzáférés közbeni víruskeresés engedélyezése"
 
 msgid "Enable scanning of ELF files."
 msgstr "ELF fájlok átvizsgálásának engedélyezése."
@@ -140,9 +119,6 @@ msgstr "Minden N órában"
 msgid "Every N minute"
 msgstr "Minden N percben"
 
-msgid "Execute scheduled job"
-msgstr "Ütemezett feladat végrehajtása"
-
 msgid "Execute scheduled scan"
 msgstr "Ütemezett vizsgálat végrehajtása"
 
@@ -166,9 +142,6 @@ msgstr "Szokásos fájl szimbolikus linkjeinek követése."
 
 msgid "Friday"
 msgstr "Péntek"
-
-msgid "General settings"
-msgstr "Általános beállítások"
 
 msgid "Hour"
 msgstr "Óra"
@@ -206,9 +179,6 @@ msgstr "Perc"
 msgid "Monday"
 msgstr "Hétfő"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr "Megosztott mappa ellenőrzése és az új vagy módosított fájlok átvizsgálása."
-
 msgid "Month"
 msgstr "Hónap"
 
@@ -230,20 +200,11 @@ msgstr "Október"
 msgid "On Access Scans"
 msgstr "Hozzáférési átvizsgálás"
 
-msgid "On-access"
-msgstr "Hozzáférés"
-
 msgid "Perform a deeper analysis of executable files."
 msgstr "Mélyre ható elemzés elvégzése futtatható fájlok esetén."
 
 msgid "Perform nothing"
 msgstr "Semmi"
-
-msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
-"details."
-msgstr "Tekintse meg a <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>kézikönyvet</a> további részletekért."
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
@@ -281,17 +242,11 @@ msgstr "Archívumok átvizsgálása"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "Könyvtár tartalmának vizsgálata az elérhető szálak párhuzamos használatával."
 
-msgid "Scheduled Jobs"
-msgstr "Ütemezett feladatok"
-
 msgid "Scheduled Scans"
 msgstr "Ütemezett vizsgálatok"
 
 msgid "Scheduling"
 msgstr "Ütemezés"
-
-msgid "Send command output via email"
-msgstr "Parancssori kimenet küldése emailben"
 
 msgid "Send email"
 msgstr "Email küldése"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-05 18:24+0200\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -17,12 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar_SA\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
-
-msgid "Add on-access scan"
-msgstr "إضافة المسح وقت-الدخول"
-
-msgid "Add scheduled job"
-msgstr "إضافة وظيفة مجدولة"
 
 msgid "Algorithmic detection"
 msgstr "كشف باستخدام الخوارزميات"
@@ -80,29 +74,14 @@ msgstr "اكتشاف PUA"
 msgid "Detect broken executables"
 msgstr "اكتشاف الملفات التنفيذية المعطوبة"
 
-msgid "Done ..."
-msgstr "تم ..."
-
 msgid "Edit"
 msgstr "تحرير"
-
-msgid "Edit on-access scan"
-msgstr "تحرير المسح وقت-الدخول"
-
-msgid "Edit scheduled job"
-msgstr "تحرير الوظيفة المجدولة"
-
-msgid "Enable"
-msgstr "تمكين"
 
 msgid "Enable HTML detection and normalisation."
 msgstr "تمكين الكشف عن HTML."
 
 msgid "Enable archive scanning."
 msgstr "تمكين تفحص ومسح الأرشيف"
-
-msgid "Enable on-access virus scanning"
-msgstr "تمكين مسح وتفحص الفيروسات وقت-الدخول"
 
 msgid "Enable scanning of ELF files."
 msgstr "تفعيل مسح وتفحص ملفات ELF"
@@ -136,9 +115,6 @@ msgstr "كل العدد المحدد من الساعات"
 msgid "Every N minute"
 msgstr "كل العدد المحدد من الدقائق"
 
-msgid "Execute scheduled job"
-msgstr "تنفيذ الوظيفة المجدولة"
-
 msgid "Execute scheduled scan"
 msgstr ""
 
@@ -162,9 +138,6 @@ msgstr "تتبع الروابط الاعتيادية للملف"
 
 msgid "Friday"
 msgstr "الجمعة"
-
-msgid "General settings"
-msgstr "الإعدادات العامة"
 
 msgid "Hour"
 msgstr "ساعة"
@@ -202,9 +175,6 @@ msgstr "دقيقة"
 msgid "Monday"
 msgstr "الاثنين"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr "مراقبة المجلد المشترك ومسح الملفات الجديدة أو المعدلة."
-
 msgid "Month"
 msgstr "شهر"
 
@@ -226,20 +196,11 @@ msgstr "أكتوبر"
 msgid "On Access Scans"
 msgstr "مسح وتحفص وقت-الدخول"
 
-msgid "On-access"
-msgstr "وقت-الدخول"
-
 msgid "Perform a deeper analysis of executable files."
 msgstr "إجراء تحليل أعمق للملفات القابلة للتنفيذ."
 
 msgid "Perform nothing"
 msgstr ""
-
-msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
-"details."
-msgstr "الرجاء التحقق من <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>صحفة الدليل</a> لمزيد من التفاصيل"
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
@@ -277,17 +238,11 @@ msgstr "فحص الملفات المضغوطة"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "مسح محتويات الدليل بالتوازي باستخدام مؤشرات الترابط المتوفرة."
 
-msgid "Scheduled Jobs"
-msgstr "وظائف مجدولة"
-
 msgid "Scheduled Scans"
 msgstr ""
 
 msgid "Scheduling"
 msgstr "الجدولة"
-
-msgid "Send command output via email"
-msgstr "إرسال مخرجات الأمر عبر البريد الإلكتروني"
 
 msgid "Send email"
 msgstr "إرسال بريد إلكتروني"
