@@ -1,9 +1,16 @@
-openmediavault (6.0.20-3) unstable; urgency=low
+openmediavault (6.0.21-1) unstable; urgency=low
+
+  * Fix issue in omv-mkaptidx which might cause an empty list in
+    the updates and plugins page.
+  * Issue #1269: Statically DNS servers will take precedence over
+    the DNS servers received from the DHCP server.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 05 Apr 2022 19:26:48 +0200
+
+openmediavault (6.0.20-2) unstable; urgency=low
 
   * Filter plugins whose container image do not support the host
     architecture.
-  * Issue #1269: Statically DNS servers will take precedence over
-    the DNS servers received from the DHCP server.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 31 Mar 2022 17:41:00 +0200
 
