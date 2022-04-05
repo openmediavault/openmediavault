@@ -173,7 +173,8 @@ class StringTestCase(unittest.TestCase):
         self.assertEqual(openmediavault.stringutils.yesno(False), 'no')
 
     def test_yesno_3(self):
-        self.assertEqual(openmediavault.stringutils.yesno(True, 'foo,bar,baz'), 'foo')
+        self.assertEqual(openmediavault.stringutils.yesno(
+            True, 'foo,bar,baz'), 'foo')
 
 
 if __name__ == "__main__":
