@@ -30,7 +30,7 @@ hosts allow = {{ module.hostsallow }}
 hosts deny = {{ module.hostsdeny }}
 {%- endif %}
 {%- if module.authusers | to_bool %}
-auth users = {{ module.users.user | join(',', attribute='name') }}
+auth users = {{ module | get('users.user', []) | join(',', attribute='name') }}
 secrets file = {{ secrets_dir | path_join('rsyncd-' ~ module.name ~ '.secrets') }}
 {%- endif %}
 lock file = {{ lockfile_dir | path_join('rsyncd-' ~ module.name) }}

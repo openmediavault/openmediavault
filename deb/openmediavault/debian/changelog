@@ -1,6 +1,7 @@
 openmediavault (6.0.22-1) unstable; urgency=low
 
-  *
+  * Issue #1272: Fix bug when building rsyncd configuration and
+    'Authenticate users' is enabled but no users are configured.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 06 Apr 2022 19:56:59 +0200
 

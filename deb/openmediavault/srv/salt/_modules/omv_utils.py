@@ -21,6 +21,7 @@
 import os
 import re
 
+import openmediavault.collectiontools
 import openmediavault.config
 import openmediavault.device
 import openmediavault.fs
@@ -461,3 +462,15 @@ def _not(value):
     """
     assert isinstance(value, bool)
     return not value
+
+
+@jinja_filter('get')
+def _get(obj, path, default=None):
+    """
+    Gets the value at path of object. If path doesn't exist, `default`
+    is returned.
+    :return: Returns the resolved value.
+    """
+    assert isinstance(obj, dict)
+    dd = openmediavault.collectiontools.DotDict(obj)
+    return dd.get(path, default)
