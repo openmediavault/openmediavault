@@ -21,7 +21,8 @@
 
 set -e
 
-name=omv-pkgbuildenv
+BASE_IMAGE=${BASE_IMAGE:-"docker.io/library/debian:bullseye"}
+IMAGE_NAME=${IMAGE_NAME:-"omv-pkgbuildenv"}
 
 usage() {
 	cat <<EOF
@@ -54,7 +55,7 @@ check_deps() {
 }
 
 create() {
-	ctr=$(buildah from docker.io/library/debian:bullseye)
+	ctr=$(buildah from ${BASE_IMAGE})
 	buildah run ${ctr} /bin/sh -c 'apt -y update'
 	buildah run ${ctr} /bin/sh -c 'apt -y install zsh bash-completion fakeroot debhelper gettext doxygen make npm nano debian-keyring devscripts'
 	buildah run ${ctr} /bin/sh -c '
@@ -67,19 +68,20 @@ EOF
 '
 	# buildah config --entrypoint '/bin/zsh' ${ctr}
 	buildah config --workingdir '/srv/openmediavault' ${ctr}
-	buildah commit ${ctr} ${name}
+	buildah commit --rm ${ctr} ${IMAGE_NAME}
 }
 
 remove() {
-	podman rm --ignore ${name}
-	podman image rm ${name}
+	podman rm --ignore ${IMAGE_NAME}
+	podman image rm ${IMAGE_NAME}
 }
 
 start() {
 	podman run --interactive --tty --replace \
-		--volume ./deb:/srv/openmediavault \
-		--name ${name} \
-		${name} \
+		--hostname ${IMAGE_NAME} \
+		--volume ./deb/:/srv/openmediavault/ \
+		--name ${IMAGE_NAME} \
+		${IMAGE_NAME} \
 		/bin/zsh
 }
 
