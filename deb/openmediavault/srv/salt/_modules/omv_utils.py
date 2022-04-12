@@ -232,7 +232,7 @@ def get_root_filesystem():
     :rtype: str
     """
     fs = openmediavault.fs.Filesystem.from_mount_point('/')
-    return fs.device_file
+    return fs.predictable_device_file
 
 
 @jinja_filter('make_mount_path')
