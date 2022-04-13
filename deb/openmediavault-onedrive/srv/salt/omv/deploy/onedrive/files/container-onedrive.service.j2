@@ -15,7 +15,7 @@ Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/container-onedrive.pid %t/container-onedrive.ctr-id
-ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-onedrive.pid --cidfile %t/container-onedrive.ctr-id --cgroups=no-conmon -d --replace --pull=never --name=onedrive -e ONEDRIVE_UID={{ uid }} -e ONEDRIVE_GID={{ gid }} -e ONEDRIVE_VERBOSE=1 -v /var/cache/onedrive/:/onedrive/conf/ -v "{{ sf_path }}":/onedrive/data/ {{ image }}
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-onedrive.pid --cidfile %t/container-onedrive.ctr-id --cgroups=no-conmon -d --replace --pull=never --name=onedrive -e ONEDRIVE_UID={{ uid }} -e ONEDRIVE_GID={{ gid }} -v /var/cache/onedrive/:/onedrive/conf/ -v "{{ sf_path }}":/onedrive/data/ {{ image }}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-onedrive.ctr-id
 ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-onedrive.ctr-id
 PIDFile=%t/container-onedrive.pid

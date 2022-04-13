@@ -30,6 +30,9 @@ set -e
 #     <onedrive>
 #       <enable>0|1</enable>
 #       <sharedfolderref></sharedfolderref>
+#       <replicationmode>down|up|updown</replicationmode>
+#       <localfirst>0|1</localfirst>
+#       <skipdotfiles>0|1</skipdotfiles>
 #     </onedrive>
 #   </services>
 # </config>
@@ -38,6 +41,9 @@ if ! omv_config_exists "/config/services/onedrive"; then
 	omv_config_add_node "/config/services" "onedrive"
 	omv_config_add_key "/config/services/onedrive" "enable" "0"
 	omv_config_add_key "/config/services/onedrive" "sharedfolderref" ""
+	omv_config_add_key "/config/services/onedrive" "replicationmode" "updown"
+	omv_config_add_key "/config/services/onedrive" "localfirst" "0"
+	omv_config_add_key "/config/services/onedrive" "skipdotfiles" "0"
 fi
 
 exit 0

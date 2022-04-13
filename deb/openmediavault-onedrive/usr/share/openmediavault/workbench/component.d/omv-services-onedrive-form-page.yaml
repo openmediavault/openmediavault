@@ -30,6 +30,35 @@ data:
             operator: truthy
             arg0:
               prop: enable
+      - type: select
+        name: replicationmode
+        label: _("Replication mode")
+        hint: _("<ul><li>Full - Replicate changes from and to OneDrive.</li><li>Download only - Replicate the OneDrive online state locally, by only downloading changes from OneDrive. Do not upload local changes to OneDrive.</li><li>Upload only - Replicate the local state to OneDrive, by only uploading local changes to OneDrive. Do not download changes from OneDrive.</li></ul>")
+        value: "updown"
+        store:
+          data:
+            - - "updown"
+              - _("Full")
+            - - "down"
+              - _("Download only")
+            - - "up"
+              - _("Upload only")
+      - type: checkbox
+        name: localfirst
+        label: _("Local first")
+        hint: _("Replicate local state first, before downloading changes from OneDrive.")
+        value: false
+        modifiers: [
+          {
+            type: 'disabled',
+            constraint: { operator: 'ne', arg0: { prop: 'replicationmode' }, arg1: 'updown' }
+          }
+        ]
+      - type: checkbox
+        name: skipdotfiles
+        label: _("Skip dotfiles")
+        hint: _("Skip dot files and folders from syncing.")
+        value: false
     buttons:
       - template: cancel
         execute:

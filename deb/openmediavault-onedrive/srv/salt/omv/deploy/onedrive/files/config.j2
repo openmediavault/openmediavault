@@ -1,0 +1,5 @@
+disable_notifications = "true"
+local_first = "{{ ((config.replicationmode == 'updown') and config.localfirst) | to_bool | yesno('true,false') }}"
+download_only = "{{ (config.replicationmode == 'down') | to_bool | yesno('true,false') }}"
+upload_only = "{{ (config.replicationmode == 'up') | to_bool | yesno('true,false') }}"
+skip_dotfiles = "{{ config.skipdotfiles | to_bool | yesno('true,false') }}"
