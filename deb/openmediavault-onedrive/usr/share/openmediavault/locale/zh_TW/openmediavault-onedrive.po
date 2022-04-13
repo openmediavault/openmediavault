@@ -4,7 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Volker Theile <votdev@gmx.de>, 2022
 # kochin <kochinc@outlook.com>, 2022
 # 
 #, fuzzy
@@ -12,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-04-13 18:17+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2022\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
@@ -34,20 +33,13 @@ msgstr "已啟用"
 msgid "OneDrive"
 msgstr ""
 
-msgid "Select an user ..."
-msgstr "選擇一個用戶 ..."
-
 msgid "Shared folder"
 msgstr "共享資料夾"
 
-msgid "The location of the media files."
-msgstr "媒體檔案的位置。"
-
-msgid "The user that is used to read/write the files."
+msgid ""
+"The location of the media files. Make sure the user <em>onedrive</em> or "
+"group <em>users</em> can access the files."
 msgstr ""
 
 msgid "Updated OneDrive settings."
 msgstr ""
-
-msgid "User"
-msgstr "用戶"

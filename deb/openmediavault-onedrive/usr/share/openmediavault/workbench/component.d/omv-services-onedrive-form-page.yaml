@@ -19,31 +19,10 @@ data:
         name: enable
         label: _("Enabled")
         value: false
-      - type: select
-        name: username
-        label: _("User")
-        placeholder: _("Select an user ...")
-        hint: _("The user that is used to read/write the files.")
-        value: ""
-        valueField: name
-        textField: name
-        store:
-          proxy:
-            service: UserMgmt
-            get:
-              method: enumerateUsers
-          sorters:
-            - dir: asc
-              prop: name
-        validators:
-          requiredIf:
-            operator: truthy
-            arg0:
-              prop: enable
       - type: sharedFolderSelect
         name: sharedfolderref
         label: _("Shared folder")
-        hint: _("The location of the media files.")
+        hint: _("The location of the media files. Make sure the user <em>onedrive</em> or group <em>users</em> can access the files.")
         hasEmptyOption: true
         value: ""
         validators:

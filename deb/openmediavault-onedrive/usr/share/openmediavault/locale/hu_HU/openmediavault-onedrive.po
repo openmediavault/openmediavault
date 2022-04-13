@@ -4,9 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2022
-# Sári Gábor <sari.gabor@gmail.com>, 2022
-# Ádám Balajti <balajtiadam@gmail.com>, 2022
 # Volker Theile <votdev@gmx.de>, 2022
 # Grawens <szabolcs.szanyi@gmail.com>, 2022
 # 
@@ -15,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-04-13 18:17+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2022\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
@@ -37,20 +34,13 @@ msgstr "Engedélyezve"
 msgid "OneDrive"
 msgstr ""
 
-msgid "Select an user ..."
-msgstr "Válasszon ki egy felhasználót…"
-
 msgid "Shared folder"
 msgstr "Megosztott mappa"
 
-msgid "The location of the media files."
-msgstr "A médiafájlok helye."
-
-msgid "The user that is used to read/write the files."
+msgid ""
+"The location of the media files. Make sure the user <em>onedrive</em> or "
+"group <em>users</em> can access the files."
 msgstr ""
 
 msgid "Updated OneDrive settings."
 msgstr ""
-
-msgid "User"
-msgstr "Felhasználó"

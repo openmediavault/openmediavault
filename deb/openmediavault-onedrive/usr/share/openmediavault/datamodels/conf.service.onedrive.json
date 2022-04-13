@@ -11,9 +11,6 @@
 			"type": "boolean",
 			"default": false
 		},
-		"username": {
-			"type": "string"
-		},
 		"sharedfolderref": {
 			"type": "string",
 			"oneOf": [{

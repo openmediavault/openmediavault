@@ -29,7 +29,6 @@ set -e
 #   <services>
 #     <onedrive>
 #       <enable>0|1</enable>
-#       <username></username>
 #       <sharedfolderref></sharedfolderref>
 #     </onedrive>
 #   </services>
@@ -38,7 +37,6 @@ set -e
 if ! omv_config_exists "/config/services/onedrive"; then
 	omv_config_add_node "/config/services" "onedrive"
 	omv_config_add_key "/config/services/onedrive" "enable" "0"
-	omv_config_add_key "/config/services/onedrive" "username" ""
 	omv_config_add_key "/config/services/onedrive" "sharedfolderref" ""
 fi
 

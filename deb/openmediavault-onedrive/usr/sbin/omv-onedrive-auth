@@ -29,14 +29,14 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_ONEDRIVE_APP_CONTAINER_IMAGE=${OMV_ONEDRIVE_APP_CONTAINER_IMAGE:-"docker.io/driveone/onedrive:latest"}
+OMV_ONEDRIVE_APP_CONTAINER_UNAME=${OMV_ONEDRIVE_APP_CONTAINER_UNAME:-"onedrive"}
 OMV_ONEDRIVE_APP_CONTAINER_GNAME=${OMV_ONEDRIVE_APP_CONTAINER_GNAME:-"users"}
 
 echo "Please wait, stopping service ..."
 systemctl stop container-onedrive.service || true
 rm -f /var/cache/onedrive/refresh_token
 
-username=$(omv_config_get "/config/services/onedrive/username")
-uid=$(id --user ${username})
+uid=$(id --user ${OMV_ONEDRIVE_APP_CONTAINER_UNAME})
 gid=$(getent group ${OMV_ONEDRIVE_APP_CONTAINER_GNAME} | cut -d: -f3)
 podman run -d --rm --replace --pull=never \
   --name=onedrive-auth --net=host \

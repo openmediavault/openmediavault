@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-04-13 18:17+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2022\n"
 "Language-Team: Spanish (Spain) (https://www.transifex.com/openmediavault/teams/14254/es_ES/)\n"
@@ -34,20 +34,13 @@ msgstr "Habilitado"
 msgid "OneDrive"
 msgstr ""
 
-msgid "Select an user ..."
-msgstr "Seleccionar un usuario ..."
-
 msgid "Shared folder"
 msgstr "Carpeta Compartida"
 
-msgid "The location of the media files."
-msgstr "Ubicación de los archivos multimedia."
-
-msgid "The user that is used to read/write the files."
+msgid ""
+"The location of the media files. Make sure the user <em>onedrive</em> or "
+"group <em>users</em> can access the files."
 msgstr ""
 
 msgid "Updated OneDrive settings."
 msgstr ""
-
-msgid "User"
-msgstr "Usuario"

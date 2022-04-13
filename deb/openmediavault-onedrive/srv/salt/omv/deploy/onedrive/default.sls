@@ -29,6 +29,7 @@
 {% if config.enable | to_bool %}
 
 {% set image = salt['pillar.get']('default:OMV_ONEDRIVE_APP_CONTAINER_IMAGE', 'docker.io/driveone/onedrive:latest') %}
+{% set uname = salt['pillar.get']('default:OMV_ONEDRIVE_APP_CONTAINER_UNAME', 'onedrive') %}
 {% set gname = salt['pillar.get']('default:OMV_ONEDRIVE_APP_CONTAINER_GNAME', 'users') %}
 
 create_onedrive_container_systemd_unit_file:
@@ -47,7 +48,7 @@ setup_onedrive_conf_dir:
   module.run:
     - file.chown:
       - path: "/var/cache/onedrive/"
-      - user: {{ config.username }}
+      - user: {{ uname }}
       - group: {{ gname }}
 
 onedrive_systemctl_daemon_reload:
