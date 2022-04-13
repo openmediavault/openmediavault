@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2022\n"
 "Language-Team: Arabic (Saudi Arabia) (https://www.transifex.com/openmediavault/teams/14254/ar_SA/)\n"
@@ -20,9 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar_SA\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
-
-msgid "Allow new files"
-msgstr ""
 
 msgid "Allow new files to be created."
 msgstr ""
@@ -38,31 +35,17 @@ msgid ""
 "retransmitted."
 msgstr ""
 
-msgid "Enable"
-msgstr "تفعيل"
-
 msgid "Enabled"
 msgstr "ممكن"
 
 msgid "Extra options"
 msgstr "خيارات إضافية"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-
 msgid "Port"
 msgstr "المنفذ"
 
-msgid "Port to listen on."
-msgstr "المنفذ المراد مراقبته"
-
 msgid "Retry timeout"
 msgstr ""
-
-msgid "Settings"
-msgstr "إعدادات"
 
 msgid "Shared folder"
 msgstr "مجلد مشترك"
@@ -74,9 +57,6 @@ msgstr ""
 
 msgid "TFTP"
 msgstr ""
-
-msgid "The location of the files to share."
-msgstr "موقع الملفات المراد مشاركتها."
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

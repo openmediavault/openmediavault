@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2021\n"
 "Language-Team: Czech (Czech Republic) (https://www.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
@@ -46,17 +46,11 @@ msgstr ""
 "Kontaktní informace, např. jméno nebo e-mailová adresa osoby odpovědné za "
 "tento systém."
 
-msgid "Enable"
-msgstr "Zapnout"
-
 msgid "Enabled"
 msgstr "Zapnuto"
 
 msgid "Extra options"
 msgstr "Rozšířené předvolby"
-
-msgid "General settings"
-msgstr "Obecná nastavení"
 
 msgid "Host"
 msgstr "Stroj"
@@ -91,9 +85,6 @@ msgstr "SNMP verze 3"
 msgid "Security level"
 msgstr "Úroveň zabezpečení"
 
-msgid "Settings"
-msgstr "Nastavení"
-
 msgid "Traps"
 msgstr "Hlášení událostí (SNMP trap)"
 
@@ -101,9 +92,6 @@ msgid "Updated SNMP settings."
 msgstr "Aktualizována nastavení pro SNMP."
 
 msgid "User name"
-msgstr "Uživatelské jméno"
-
-msgid "Username"
 msgstr "Uživatelské jméno"
 
 msgid "Version"

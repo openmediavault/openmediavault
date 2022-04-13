@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
@@ -36,17 +36,11 @@ msgstr ""
 msgid "Driver configuration directives"
 msgstr ""
 
-msgid "Enable"
-msgstr "Разреши"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr ""
 
 msgid "Enabled"
 msgstr "Разрешено"
-
-msgid "General settings"
-msgstr "Основни настройки"
 
 msgid "Identifier"
 msgstr ""
@@ -75,9 +69,6 @@ msgstr ""
 msgid "Netclient user name"
 msgstr ""
 
-msgid "Netclient username"
-msgstr ""
-
 msgid "PID"
 msgstr ""
 
@@ -95,9 +86,6 @@ msgstr ""
 
 msgid "Service disabled"
 msgstr ""
-
-msgid "Settings"
-msgstr "Настройки"
 
 msgid "Shutdown mode"
 msgstr ""
@@ -147,12 +135,6 @@ msgid "Used for remote authentication."
 msgstr ""
 
 msgid "User name"
-msgstr ""
-
-msgid "Username"
-msgstr "Потребителско име"
-
-msgid "Variables"
 msgstr ""
 
 msgid "Voltage"

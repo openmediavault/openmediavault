@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wetty\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2022\n"
 "Language-Team: Norwegian (https://www.transifex.com/openmediavault/teams/14254/no/)\n"
@@ -28,17 +28,8 @@ msgstr "Sertifikat"
 msgid "Enabled"
 msgstr "Aktivert"
 
-msgid "Library name"
-msgstr "Biblioteksnavn"
-
 msgid "Open UI"
 msgstr ""
-
-msgid "OwnTone"
-msgstr ""
-
-msgid "Password"
-msgstr "Passord"
 
 msgid "Port"
 msgstr "Port"
@@ -46,37 +37,11 @@ msgstr "Port"
 msgid "Port to listen on."
 msgstr "Port å lytte på."
 
-msgid "Shared folder"
-msgstr "Delt mappe"
-
-msgid "The 'admin' password to access the web interface."
-msgstr ""
-
 msgid "The SSL certificate."
 msgstr "SSL Sertifikatet som skal benyttes"
-
-msgid "The location of the media files to share."
-msgstr "Plasseringern av filene som skal deles"
-
-msgid ""
-"The location of the media files to share. Make sure the user "
-"<em>owntone</em> or group <em>users</em> can access the files."
-msgstr ""
-
-msgid "The name of the library as displayed by the clients."
-msgstr "Navnet på biblioteket som vist av klientene."
-
-msgid "The password to access the library."
-msgstr ""
-
-msgid "Updated OwnTone settings."
-msgstr ""
 
 msgid "Updated WeTTY settings."
 msgstr ""
 
 msgid "WeTTY"
-msgstr ""
-
-msgid "Web interface"
 msgstr ""

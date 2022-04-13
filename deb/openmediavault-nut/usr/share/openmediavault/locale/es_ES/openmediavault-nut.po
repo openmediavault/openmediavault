@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2013-2014,2020-2021\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -39,17 +39,11 @@ msgstr "Define cuándo se inicia el apagado."
 msgid "Driver configuration directives"
 msgstr "Directivas de configuración del driver"
 
-msgid "Enable"
-msgstr "Activar"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Activar el control remoto del SAI local conectado."
 
 msgid "Enabled"
 msgstr "Habilitado"
-
-msgid "General settings"
-msgstr "Ajustes generales"
 
 msgid "Identifier"
 msgstr "Identificador"
@@ -78,9 +72,6 @@ msgstr "Netclient password"
 msgid "Netclient user name"
 msgstr "Nombre de usuario de red."
 
-msgid "Netclient username"
-msgstr "Netclient username"
-
 msgid "PID"
 msgstr "PID"
 
@@ -98,9 +89,6 @@ msgstr "Control remoto"
 
 msgid "Service disabled"
 msgstr "Servicio deshabilitado"
-
-msgid "Settings"
-msgstr "Opciones"
 
 msgid "Shutdown mode"
 msgstr "Modo de apagado"
@@ -151,12 +139,6 @@ msgstr "Utilizado para autenticación remota."
 
 msgid "User name"
 msgstr "Usuario"
-
-msgid "Username"
-msgstr "Usuario"
-
-msgid "Variables"
-msgstr "Variables"
 
 msgid "Voltage"
 msgstr "Tensión"

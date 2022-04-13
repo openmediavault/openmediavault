@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
 "Last-Translator: LeeYang <150183966@qq.com>, 2021\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
@@ -45,17 +45,11 @@ msgid ""
 "for this system."
 msgstr "联系信息，例如此系统的联系人姓名和电邮地址。"
 
-msgid "Enable"
-msgstr "启用"
-
 msgid "Enabled"
 msgstr "已启用"
 
 msgid "Extra options"
 msgstr "扩展选项"
-
-msgid "General settings"
-msgstr "常规设置"
 
 msgid "Host"
 msgstr "主机"
@@ -90,9 +84,6 @@ msgstr "SNMP 版本 3"
 msgid "Security level"
 msgstr "安全级别"
 
-msgid "Settings"
-msgstr "设置"
-
 msgid "Traps"
 msgstr "Traps"
 
@@ -100,9 +91,6 @@ msgid "Updated SNMP settings."
 msgstr "已更新的SNMP设置"
 
 msgid "User name"
-msgstr "用户名"
-
-msgid "Username"
 msgstr "用户名"
 
 msgid "Version"

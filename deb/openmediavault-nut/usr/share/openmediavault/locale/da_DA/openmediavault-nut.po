@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2012-2015,2020\n"
 "Language-Team: Danish (http://www.transifex.com/openmediavault/openmediavault/language/da/)\n"
@@ -38,17 +38,11 @@ msgstr "Definerer hvornår nedlukning påbegyndes."
 msgid "Driver configuration directives"
 msgstr "Driver konfiguration direktiver"
 
-msgid "Enable"
-msgstr "Aktiver"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Aktiver fjernovervågning af den lokal forbundet UPS."
 
 msgid "Enabled"
 msgstr "Aktiveret"
-
-msgid "General settings"
-msgstr "Generelle indstillinger"
 
 msgid "Identifier"
 msgstr "Identifier"
@@ -77,9 +71,6 @@ msgstr "Netklient adgangskode"
 msgid "Netclient user name"
 msgstr ""
 
-msgid "Netclient username"
-msgstr "Netklient brugernavn"
-
 msgid "PID"
 msgstr "PID"
 
@@ -97,9 +88,6 @@ msgstr "Fjernovervågning"
 
 msgid "Service disabled"
 msgstr "Service deaktiveret"
-
-msgid "Settings"
-msgstr "Indstillinger"
 
 msgid "Shutdown mode"
 msgstr "Nedluknings tilstand"
@@ -150,12 +138,6 @@ msgstr "Bruges til fjerngodkendelse"
 
 msgid "User name"
 msgstr ""
-
-msgid "Username"
-msgstr "Brugernavn"
-
-msgid "Variables"
-msgstr "Variabler"
 
 msgid "Voltage"
 msgstr "Spænding"

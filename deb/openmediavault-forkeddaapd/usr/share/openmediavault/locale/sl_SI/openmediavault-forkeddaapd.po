@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -24,14 +24,8 @@ msgstr "Geslo je zahtevano za dostop do knjižnice."
 msgid "Authentication"
 msgstr "Avtentikacija"
 
-msgid "Enable"
-msgstr "Omogoči"
-
 msgid "Enabled"
 msgstr "Omogočeno"
-
-msgid "General settings"
-msgstr "Splošne nastavitve"
 
 msgid "Library name"
 msgstr "Ime knjižnice"
@@ -44,9 +38,6 @@ msgstr "Vrata"
 
 msgid "Port to listen on."
 msgstr "Vrata na katerih servis posluša."
-
-msgid "Settings"
-msgstr "Nastavitve"
 
 msgid "Shared folder"
 msgstr "Deljena mapa"

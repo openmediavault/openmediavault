@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
 "Language-Team: German (https://www.transifex.com/openmediavault/teams/14254/de/)\n"
@@ -20,9 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Allow new files"
-msgstr "Neue Dateien zulassen"
 
 msgid "Allow new files to be created."
 msgstr "Erlaube es neue Dateien anzulegen."
@@ -41,33 +38,17 @@ msgstr ""
 "Legt die Standard-Zeitüberschreitung fest bevor das erste Paket erneut "
 "gesendet wird."
 
-msgid "Enable"
-msgstr "Aktivieren"
-
 msgid "Enabled"
 msgstr "Aktiviert"
 
 msgid "Extra options"
 msgstr "Erweiterte Optionen"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-"Bitte stellen Sie sicher dass der freigegebene Ordner öffentlich "
-"beschreibbar ist wenn neue Dateien erlaubt sind."
-
 msgid "Port"
 msgstr "Port"
 
-msgid "Port to listen on."
-msgstr "Port auf dem gelauscht wird."
-
 msgid "Retry timeout"
 msgstr "Zeitspanne bis Neuversuch"
-
-msgid "Settings"
-msgstr "Einstellungen"
 
 msgid "Shared folder"
 msgstr "Freigegebene Ordner"
@@ -81,9 +62,6 @@ msgstr ""
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "Speicherort der freizugebenden Dateien."
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2022\n"
 "Language-Team: Danish (https://www.transifex.com/openmediavault/teams/14254/da/)\n"
@@ -46,17 +46,11 @@ msgstr ""
 "Kontakt oplysninger, f.eks. navn eller email adresse på den person der er "
 "ansvarlig for systemet."
 
-msgid "Enable"
-msgstr "Aktiver"
-
 msgid "Enabled"
 msgstr "Aktiveret"
 
 msgid "Extra options"
 msgstr "Ekstra valgmuligheder"
-
-msgid "General settings"
-msgstr "Generelle indstillinger"
 
 msgid "Host"
 msgstr "Vært"
@@ -91,9 +85,6 @@ msgstr "SNMP version 3"
 msgid "Security level"
 msgstr "Sikkerhedsniveau"
 
-msgid "Settings"
-msgstr "Indstillinger"
-
 msgid "Traps"
 msgstr "Fælder"
 
@@ -102,9 +93,6 @@ msgstr ""
 
 msgid "User name"
 msgstr ""
-
-msgid "Username"
-msgstr "Brugernavn"
 
 msgid "Version"
 msgstr "Version"

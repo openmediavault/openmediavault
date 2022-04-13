@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021\n"
 "Language-Team: Swedish (https://www.transifex.com/openmediavault/teams/14254/sv/)\n"
@@ -47,17 +47,11 @@ msgstr ""
 "Kontaktinformation, t.ex. namn eller e-postadress till den person som "
 "ansvarar för det här systemet."
 
-msgid "Enable"
-msgstr "Aktivera"
-
 msgid "Enabled"
 msgstr "Aktiverad"
 
 msgid "Extra options"
 msgstr "Tillval"
-
-msgid "General settings"
-msgstr "Allmänna Inställningar"
 
 msgid "Host"
 msgstr "Värd"
@@ -92,9 +86,6 @@ msgstr "SNMP version 3"
 msgid "Security level"
 msgstr "Säkerhetsnivå"
 
-msgid "Settings"
-msgstr "Inställningar"
-
 msgid "Traps"
 msgstr "Fällor"
 
@@ -102,9 +93,6 @@ msgid "Updated SNMP settings."
 msgstr "Uppdaterade SNMP-inställningarna."
 
 msgid "User name"
-msgstr "Användarnamn"
-
-msgid "Username"
 msgstr "Användarnamn"
 
 msgid "Version"

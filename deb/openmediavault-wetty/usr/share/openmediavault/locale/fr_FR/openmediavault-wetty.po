@@ -5,9 +5,8 @@
 # 
 # Translators:
 # Axel Cantenys, 2022
-# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2022
-# Christophe Lherieau <skimpax@gmail.com>, 2022
 # Volker Theile <votdev@gmx.de>, 2022
+# Christophe Lherieau <skimpax@gmail.com>, 2022
 # Pierre Girard <pierre4012@hotmail.com>, 2022
 # 
 #, fuzzy
@@ -15,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wetty\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Pierre Girard <pierre4012@hotmail.com>, 2022\n"
 "Language-Team: French (France) (https://www.transifex.com/openmediavault/teams/14254/fr_FR/)\n"
@@ -23,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_FR\n"
-"Plural-Forms: nplurals=3; plural=(n==0 || n==1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Certificate"
 msgstr "Certificat"
@@ -31,17 +30,8 @@ msgstr "Certificat"
 msgid "Enabled"
 msgstr "Activé"
 
-msgid "Library name"
-msgstr "Nom de la bibliothèque"
-
 msgid "Open UI"
 msgstr ""
-
-msgid "OwnTone"
-msgstr ""
-
-msgid "Password"
-msgstr "Mot de passe"
 
 msgid "Port"
 msgstr "Port"
@@ -49,37 +39,11 @@ msgstr "Port"
 msgid "Port to listen on."
 msgstr "Port à écouter."
 
-msgid "Shared folder"
-msgstr "Dossier partagé"
-
-msgid "The 'admin' password to access the web interface."
-msgstr ""
-
 msgid "The SSL certificate."
 msgstr "Le certificat SSL à utiliser."
-
-msgid "The location of the media files to share."
-msgstr "La localisation des fichiers à partager."
-
-msgid ""
-"The location of the media files to share. Make sure the user "
-"<em>owntone</em> or group <em>users</em> can access the files."
-msgstr ""
-
-msgid "The name of the library as displayed by the clients."
-msgstr "Le nom de la bibliothèque a afficher."
-
-msgid "The password to access the library."
-msgstr ""
-
-msgid "Updated OwnTone settings."
-msgstr ""
 
 msgid "Updated WeTTY settings."
 msgstr ""
 
 msgid "WeTTY"
-msgstr ""
-
-msgid "Web interface"
 msgstr ""

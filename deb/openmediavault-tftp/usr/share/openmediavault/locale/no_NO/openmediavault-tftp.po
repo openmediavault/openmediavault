@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2022\n"
 "Language-Team: Norwegian (https://www.transifex.com/openmediavault/teams/14254/no/)\n"
@@ -21,9 +21,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: no\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Allow new files"
-msgstr "Tillat nye filer"
 
 msgid "Allow new files to be created."
 msgstr "Tillat at nye filer blir opprettet."
@@ -41,31 +38,17 @@ msgstr ""
 "Sett standard timeout i millisekunder, før den første pakken er sendt på "
 "nytt."
 
-msgid "Enable"
-msgstr "Aktiver"
-
 msgid "Enabled"
 msgstr "Aktivert"
 
 msgid "Extra options"
 msgstr "Avanserte alternativer"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-
 msgid "Port"
 msgstr "Port"
 
-msgid "Port to listen on."
-msgstr "Port å lytte på."
-
 msgid "Retry timeout"
 msgstr "Forsøk tidsavbrudd på nytt"
-
-msgid "Settings"
-msgstr "Instillinger"
 
 msgid "Shared folder"
 msgstr "Delt mappe"
@@ -79,9 +62,6 @@ msgstr ""
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "Plassering av de delte filene."
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

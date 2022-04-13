@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2017,2019,2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -18,9 +18,6 @@ msgstr ""
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-msgid "Add backup job"
-msgstr "Přidat zálohovací úlohu"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -28,9 +25,6 @@ msgstr "Výstup z příkazu (pokud nějaký vznikne) bude e-mailem odeslán spr�
 
 msgid "Archive"
 msgstr "Archivní režim"
-
-msgid "Backup jobs"
-msgstr "Zálohovací úlohy"
 
 msgid "Comment"
 msgstr "Komentář"
@@ -56,17 +50,8 @@ msgstr "V cíli smazat ty soubory, které neexistují na straně zdroje."
 msgid "Device"
 msgstr "Zařízení"
 
-msgid "Done ..."
-msgstr "Hotovo…"
-
 msgid "Edit"
 msgstr "Upravit"
-
-msgid "Edit backup job"
-msgstr "Upravit zálohovací úlohu"
-
-msgid "Enable"
-msgstr "Zapnout"
 
 msgid "Enable archive mode."
 msgstr "Zajistit zachování vlastnictví, oprávnění a atributů, dále symbolických odkazů, atd."
@@ -79,13 +64,7 @@ msgstr "Tuto volbu zapněte, pokud si přejete zachovávat i ty přijaté soubor
 msgid "Enabled"
 msgstr "Zapnuto"
 
-msgid "Execute backup job"
-msgstr "Spustit zálohovací úlohu"
-
 msgid "External Storage Device"
-msgstr "Vnější úložné zařízení"
-
-msgid "External storage device"
 msgstr "Vnější úložné zařízení"
 
 msgid "Extra options"
@@ -107,12 +86,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Podrobnosti naleznete v <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manuálové stránce</a>."
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "Nezapomeňte, že do doby než bude dokončeno, ručně spuštěné zálohování znepřístupní webové rozhraní. Oproti tomu automaticky spouštěné zálohování (připojením vnějšího úložného zařízení) bude spuštěno na pozadí a webové rozhraní tak blokovat nebude."
 
 msgid "Preserve ACLs"
 msgstr "Zachovat ACL seznamy"
@@ -147,14 +120,8 @@ msgstr "Spustit"
 msgid "Run backup job"
 msgstr "Spustit zálohovací úlohu"
 
-msgid "Scan"
-msgstr "Skenovat"
-
 msgid "Select a device ..."
 msgstr "Vyberte zařízení…"
-
-msgid "Send command output via email."
-msgstr "Zaslat výstup příkazu e-mailem."
 
 msgid "Send email"
 msgstr "Zaslat e-mail"
@@ -180,12 +147,6 @@ msgstr "Hlásit pouze chyby, ostatní potlačit."
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "Synchronizovat z/do vyhrazené složky na vnějším úložném zařízení"
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "Synchronizovat z/do vyhrazené složky na vnějším úložném zařízení."
-
-msgid "The external storage device."
-msgstr "Vnější úložné zařízení."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

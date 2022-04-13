@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Pierre Girard <pierre4012@hotmail.com>, 2021\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -20,10 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_FR\n"
-"Plural-Forms: nplurals=3; plural=(n==0 || n==1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
-
-msgid "Add backup job"
-msgstr "Ajouter une tâche de sauvegarde"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -32,9 +29,6 @@ msgstr "Un email avec la sortie de la commande (si  il y a) est envoyé à l'adm
 
 msgid "Archive"
 msgstr "Archiver"
-
-msgid "Backup jobs"
-msgstr "Tâches de sauvegarde"
 
 msgid "Comment"
 msgstr "Commentaire"
@@ -60,17 +54,8 @@ msgstr "Supprimer les fichiers de destination qui n'existe pas dans les fichiers
 msgid "Device"
 msgstr "Périphérique"
 
-msgid "Done ..."
-msgstr "Terminé…"
-
 msgid "Edit"
 msgstr "Éditer"
-
-msgid "Edit backup job"
-msgstr "Modifier une tâche de sauvegarde"
-
-msgid "Enable"
-msgstr "Activer"
 
 msgid "Enable archive mode."
 msgstr "Activer le mode archive"
@@ -83,14 +68,8 @@ msgstr "Activer cette option pour conserver les fichiers partiellement transfer�
 msgid "Enabled"
 msgstr "Activé"
 
-msgid "Execute backup job"
-msgstr "Exécuter une tâche de sauvegarde"
-
 msgid "External Storage Device"
 msgstr "Périphérique de Stockage Externe"
-
-msgid "External storage device"
-msgstr "Périphérique de stockage externe"
 
 msgid "Extra options"
 msgstr "Options supplémentaires"
@@ -111,12 +90,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Veuillez vous référer aux <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>pages du manuel</a> pour plus de détails."
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "Veuillez prendre en compte que l'interface Web est bloquée tant que la sauvegarde manuelle n'est pas terminée. Cependant la sauvegarde est executée automatiquement en arrière-plan à la connexion du volume de sauvegarde "
 
 msgid "Preserve ACLs"
 msgstr "Preserver les ACL"
@@ -151,14 +124,8 @@ msgstr "Lancer"
 msgid "Run backup job"
 msgstr "Lancer la tâche de sauvegarde"
 
-msgid "Scan"
-msgstr "Rechercher"
-
 msgid "Select a device ..."
 msgstr "Sélectionner un périphérique..."
-
-msgid "Send command output via email."
-msgstr "Envoyer la sortie de la commande par mail."
 
 msgid "Send email"
 msgstr "Envoyer un email"
@@ -184,12 +151,6 @@ msgstr "Conserver uniquement les messages d'erreurs."
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "Synchroniser depuis/vers le répertoire sur le périphérique de stockage externe"
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "Synchroniser depuis/vers un répertoire d'un périphérique externe."
-
-msgid "The external storage device."
-msgstr "Le périphérique de stockage externe"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

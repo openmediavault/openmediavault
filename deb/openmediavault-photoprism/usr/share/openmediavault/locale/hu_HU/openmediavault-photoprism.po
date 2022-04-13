@@ -4,10 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Ádám Balajti <balajtiadam@gmail.com>, 2022
-# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2022
 # Volker Theile <votdev@gmx.de>, 2022
-# mersaint <mersaint@gmail.com>, 2022
+# Ádám Balajti <balajtiadam@gmail.com>, 2022
 # Sári Gábor <sari.gabor@gmail.com>, 2022
 # Grawens <szabolcs.szanyi@gmail.com>, 2022
 # 
@@ -16,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-photoprism\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2022\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
@@ -26,23 +24,14 @@ msgstr ""
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "A password is required to access the library."
-msgstr "Jelszó szükséges a könyvtár hozzáféréséhez."
-
 msgid "Application data"
 msgstr "Alkalmazás adatok"
 
-msgid "Authentication"
-msgstr "Azonosítás"
-
-msgid "Enable"
-msgstr "Engedélyezés"
+msgid "Certificate"
+msgstr "Tanúsítvány"
 
 msgid "Enabled"
 msgstr "Engedélyezve"
-
-msgid "General settings"
-msgstr "Általános beállítások"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -58,17 +47,8 @@ msgstr "Képek"
 msgid "Import"
 msgstr "Importálás"
 
-msgid "Library name"
-msgstr "Könyvtár név"
-
-msgid "Note, this application does not support HTTPS."
-msgstr "Megjegyzés: ez az alkalmazás nem támogatja a HTTPS-t."
-
 msgid "Open UI"
 msgstr "UI megnyitása"
-
-msgid "Password"
-msgstr "Jelszó "
 
 msgid "PhotoPrism"
 msgstr "PhotoPrism"
@@ -89,17 +69,8 @@ msgstr "Beállítás erre a portra."
 msgid "Read-only"
 msgstr "Csak olvasható"
 
-msgid "Settings"
-msgstr "Beállítások"
-
-msgid "Shared folder"
-msgstr "Megosztott mappa"
-
-msgid "The location of the media files to share."
-msgstr "A megosztani kívánt médiafájlok helye."
-
-msgid "The location of the media files."
-msgstr "A médiafájlok helye."
+msgid "The SSL certificate."
+msgstr "Az SSL tanúsítvány."
 
 msgid ""
 "The location of the media files. Make sure the user <em>photoprism</em> or "
@@ -112,22 +83,8 @@ msgstr ""
 msgid "The location where to store the application data."
 msgstr "Az alkalmazásadatok tárolásának helye."
 
-msgid "The name of the library as displayed by the clients."
-msgstr "A klienseken megjelenő könyvtár neve."
-
 msgid "Updated PhotoPrism settings."
 msgstr "PhotoPrism beállítások frissítve."
-
-msgid "Updated iTunes/DAAP settings."
-msgstr "iTunes/DAAP beállításai frissítve."
-
-msgid ""
-"Use the <<strong>admin:photoprism</strong>> credentials when logging in for "
-"the first time. Please do not forget to change the password immediately."
-msgstr ""
-"Az első bejelentkezéskor használja az <<strong>admin:photoprism</strong>> "
-"hitelesítő adatokat. Kérjük, ne felejtse el azonnal megváltoztatni a "
-"jelszót."
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
@@ -135,21 +92,6 @@ msgid ""
 msgstr ""
 "Az első bejelentkezéskor használja az <em>admin:admin</em> hitelesítő "
 "adatokat. Kérjük, ne felejtse el azonnal megváltoztatni a jelszót."
-
-msgid ""
-"Use the <em>admin:photoprism</em> credentials when logging in for the first "
-"time. Please do not forget to change the password immediately."
-msgstr ""
-"Az első bejelentkezéskor használja az <em>admin:photoprism</em> hitelesítő "
-"adatokat. Kérjük, ne felejtse el azonnal megváltoztatni a jelszót."
-
-msgid ""
-"You may optionally mount an import folder from which files can be "
-"transferred to the originals folder in a structured way that avoids "
-"duplicates."
-msgstr ""
-"Opcionálisan beilleszthet egy importmappát, amelyből a fájlokat "
-"strukturáltan átviheti az eredeti mappába, elkerülve az ismétlődéseket."
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
@@ -161,6 +103,3 @@ msgstr ""
 "strukturáltan átviheti az eredeti mappába, elkerülve az ismétlődéseket. "
 "Győződjön meg arról, hogy a <em>photoprism</em> felhasználó, vagy a "
 "<em>users</em> csoport felhasználói hozzáférhetnek a fájlokhoz."
-
-msgid "iTunes/DAAP"
-msgstr "iTunes/DAAP"

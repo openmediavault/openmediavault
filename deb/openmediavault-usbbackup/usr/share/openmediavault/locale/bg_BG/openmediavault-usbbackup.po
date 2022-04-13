@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2017\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
@@ -18,9 +18,6 @@ msgstr ""
 "Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add backup job"
-msgstr "Добави бекъп задача"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -28,9 +25,6 @@ msgstr "Имейл съобщение с изход от командата (а�
 
 msgid "Archive"
 msgstr "Архив"
-
-msgid "Backup jobs"
-msgstr "Бекъп задачи"
 
 msgid "Comment"
 msgstr "Коментар"
@@ -56,17 +50,8 @@ msgstr "Изтриване на файловете на приемащата с�
 msgid "Device"
 msgstr "Устройство"
 
-msgid "Done ..."
-msgstr ""
-
 msgid "Edit"
 msgstr ""
-
-msgid "Edit backup job"
-msgstr "Редактирай бекъп задача"
-
-msgid "Enable"
-msgstr "Разреши"
 
 msgid "Enable archive mode."
 msgstr "Разреши режим на архивиране."
@@ -79,14 +64,8 @@ msgstr "Разрешете тази опция, за да запазите ча�
 msgid "Enabled"
 msgstr "Разрешено"
 
-msgid "Execute backup job"
-msgstr "Изпълнете бекъп задача"
-
 msgid "External Storage Device"
 msgstr ""
-
-msgid "External storage device"
-msgstr "Външно устройство за съхранение"
 
 msgid "Extra options"
 msgstr "Допълнителни опции"
@@ -107,12 +86,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Моля, посетете <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>помощната страница</a> за повече информация."
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "Моля, имайте предвид, че уеб интерфейсът е блокиран, докато не приключи ръчно стартираната бекъп задача. Въпреки това бекъп задачата се изпълнява автоматично във фонов режим, когато устройството за съхранение е свързано към хоста."
 
 msgid "Preserve ACLs"
 msgstr "Запазване на ACL"
@@ -147,14 +120,8 @@ msgstr "Изпълни"
 msgid "Run backup job"
 msgstr ""
 
-msgid "Scan"
-msgstr "Сканирай"
-
 msgid "Select a device ..."
 msgstr "Избери устройство ..."
-
-msgid "Send command output via email."
-msgstr "Изпрати изхода от командата на имейл."
 
 msgid "Send email"
 msgstr "Изпрати имейл"
@@ -180,12 +147,6 @@ msgstr "Потискайте съобщенията без грешки."
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr ""
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "Синхронизиране от/към директория на външно хранилище."
-
-msgid "The external storage device."
-msgstr "Външното устройство за съхранение."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

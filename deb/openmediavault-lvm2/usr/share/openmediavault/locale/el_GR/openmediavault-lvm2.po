@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Kostas Moho, 2012-2015,2017,2019,2021\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -21,31 +21,14 @@ msgstr ""
 msgid "Active"
 msgstr "Ενεργό"
 
-msgid "Add physical volume"
-msgstr "Προσθήκη φυσικού τόμου"
-
-msgid ""
-"After the logical volume has been extended you can resize the containing "
-"filesystem."
-msgstr "Μετά την επέκταση του λογικού τόμου, μπορεί να προσαρμοστεί το σύστημα αρχείων που περιέχεται."
-
 msgid "Available"
 msgstr "Διαθέσιμο"
 
 msgid "Capacity"
 msgstr "Χωρητικότητα"
 
-msgid "Confirmation"
-msgstr "Επιβεβαίωση"
-
 msgid "Create"
 msgstr "Δημιουργία"
-
-msgid "Create logical volume"
-msgstr "Δημιουργία λογικού τόμου"
-
-msgid "Create volume group"
-msgstr "Δημιουργία ομάδας τόμων"
 
 msgid "Created logical volume '{{ name }}'."
 msgstr "Δημιουργία λογικού τόμου '{{ name }}'."
@@ -59,9 +42,6 @@ msgstr "Δημιουργία στιγμιότυπου του λογικού τό
 msgid "Created volume group '{{ name }}'."
 msgstr "Δημιουργία ομάδας τόμων '{{ name }}'."
 
-msgid "Description"
-msgstr "Περιγραφή"
-
 msgid "Device"
 msgstr "Συσκευή"
 
@@ -71,35 +51,14 @@ msgstr "Συσκευές"
 msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
 msgstr "Δημιουργία φυσικού τόμου στο  '{{ devicefile }}' ?"
 
-msgid "Do you really want to create the logical volume?"
-msgstr "Δημιουργία του λογικού τόμου;"
-
-msgid "Do you really want to create the physical volume?"
-msgstr "Δημιουργία του φυσικού τόμου;"
-
-msgid "Do you really want to create the volume group?"
-msgstr "Δημιουργία ομάδας τόμων;"
-
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "Προσαρμογή του επιλεγμένου φυσικού τόμου;"
 
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-msgid "Edit logical volume"
-msgstr "Μεταβολή λογικού τόμου"
-
-msgid "Edit volume group"
-msgstr "Μεταβολή ομάδας τόμων"
-
 msgid "Extend"
 msgstr "Επέκταση"
-
-msgid "Extend logical volume"
-msgstr "Επέκταση λογικού τόμου"
-
-msgid "Extend volume group"
-msgstr "Επέκταση ομάδας τόμων"
 
 msgid "Extended logical volume '{{ devicefile }}'."
 msgstr "Επέκταση λογικού τόμου '{{ devicefile }}'."
@@ -119,29 +78,14 @@ msgstr "Διαχείριση Λογικών Τόμων"
 msgid "Logical Volumes"
 msgstr "Λογικοί Τόμοι"
 
-msgid "Logical volumes"
-msgstr "Λογικοί τόμοι"
-
 msgid "Name"
 msgstr "Όνομα"
-
-msgid "No free space available to create a logical volume."
-msgstr "Δεν περισσεύει χώρος για την δημιουργία του λογικού τόμου."
-
-msgid "No free space available to extend the logical volume."
-msgstr "Δεν περισσεύει χώρος για την επέκταση του λογικού τόμου."
 
 msgid "Physical Volumes"
 msgstr "Φυσικοί Τόμοι"
 
-msgid "Physical volumes"
-msgstr "Φυσικοί τόμοι"
-
 msgid "Reduce"
 msgstr "Μείωση"
-
-msgid "Reduce volume group"
-msgstr "Μείωση ομάδας τόμων"
 
 msgid "Reduced volume group '{{ devicefile }}'."
 msgstr "Ελάττωση ομάδας τόμων '{{ devicefile }}'."
@@ -154,9 +98,6 @@ msgstr "Επιλογή συσκευής..."
 
 msgid "Select a volume group ..."
 msgstr "Επιλογή ομάδας τόμων ..."
-
-msgid "Select an device ..."
-msgstr "Επιλογή συσκευής ..."
 
 msgid "Select devices ..."
 msgstr "Επιλογή συσκευών ..."
@@ -206,6 +147,3 @@ msgstr "Ομάδες Τόμων"
 
 msgid "Volume group"
 msgstr "Ομάδα τόμων"
-
-msgid "Volume groups"
-msgstr "Ομάδες τόμων"

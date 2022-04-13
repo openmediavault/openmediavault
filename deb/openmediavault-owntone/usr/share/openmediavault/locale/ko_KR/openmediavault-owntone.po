@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-owntone\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2022\n"
 "Language-Team: Korean (Korea) (https://www.transifex.com/openmediavault/teams/14254/ko_KR/)\n"
@@ -49,9 +49,6 @@ msgstr "공유 폴더"
 
 msgid "The 'admin' password to access the web interface."
 msgstr "웹 인터페이스에 접근하기 위한 '관리자' 암호입니다. "
-
-msgid "The location of the media files to share."
-msgstr "공유할 미디어 파일 위치"
 
 msgid ""
 "The location of the media files to share. Make sure the user "

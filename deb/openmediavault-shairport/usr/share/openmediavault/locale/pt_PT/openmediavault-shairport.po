@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2014-06-23 16:18+0000\n"
 "Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2014\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
@@ -24,23 +24,14 @@ msgstr "É necessário uma senha para fazer streaming de audio."
 msgid "Authentication"
 msgstr "Autenticação"
 
-msgid "Enable"
-msgstr "Ativo"
-
 msgid "Enabled"
 msgstr "Ativar"
-
-msgid "General settings"
-msgstr "Definições gerais"
 
 msgid "Name"
 msgstr "Nome"
 
 msgid "Password"
 msgstr "Senha de acesso"
-
-msgid "Settings"
-msgstr "Definições"
 
 msgid "Shairport"
 msgstr "Shairport"

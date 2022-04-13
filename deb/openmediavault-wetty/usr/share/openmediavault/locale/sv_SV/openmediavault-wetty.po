@@ -4,7 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2022
 # Volker Theile <votdev@gmx.de>, 2022
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2022
 # Jonatan Nyberg <jonatan@autistici.org>, 2022
@@ -14,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wetty\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2022\n"
 "Language-Team: Swedish (https://www.transifex.com/openmediavault/teams/14254/sv/)\n"
@@ -30,17 +29,8 @@ msgstr "Certifikat"
 msgid "Enabled"
 msgstr "Aktiverad"
 
-msgid "Library name"
-msgstr "Biblioteksnamn"
-
 msgid "Open UI"
 msgstr "Öppna användargränssnittet"
-
-msgid "OwnTone"
-msgstr "OwnTone"
-
-msgid "Password"
-msgstr "Lösenord"
 
 msgid "Port"
 msgstr "Port"
@@ -48,39 +38,11 @@ msgstr "Port"
 msgid "Port to listen on."
 msgstr "Port att lyssna på."
 
-msgid "Shared folder"
-msgstr "Delad mapp"
-
-msgid "The 'admin' password to access the web interface."
-msgstr "\"Administratör\"-lösenordet för att komma åt webbgränssnittet."
-
 msgid "The SSL certificate."
 msgstr "SSL-certifikatet."
-
-msgid "The location of the media files to share."
-msgstr "Platsen för mediefilerna som ska delas."
-
-msgid ""
-"The location of the media files to share. Make sure the user "
-"<em>owntone</em> or group <em>users</em> can access the files."
-msgstr ""
-"Platsen för de mediefiler som ska delas. Se till att användarens "
-"<em>owntone</em> eller grupp<em>användare</em> kan komma åt filerna."
-
-msgid "The name of the library as displayed by the clients."
-msgstr "Namnet på biblioteket visas av klienterna."
-
-msgid "The password to access the library."
-msgstr "Lösenordet för att komma åt biblioteket."
-
-msgid "Updated OwnTone settings."
-msgstr "Uppdaterade OwnTone-inställningar."
 
 msgid "Updated WeTTY settings."
 msgstr "Uppdaterade WeTTY-inställningar."
 
 msgid "WeTTY"
 msgstr "WeTTY"
-
-msgid "Web interface"
-msgstr "Webbgränssnitt"

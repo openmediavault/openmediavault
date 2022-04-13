@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2014,2016-2017,2020-2021\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -38,17 +38,11 @@ msgstr "定義何時開始關機的動作。"
 msgid "Driver configuration directives"
 msgstr "驅動程式配置指令"
 
-msgid "Enable"
-msgstr "啟用"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "啟用本地連接之UPS的遠端監控。"
 
 msgid "Enabled"
 msgstr "已啟用"
-
-msgid "General settings"
-msgstr "一般設定"
 
 msgid "Identifier"
 msgstr "識別名稱"
@@ -77,9 +71,6 @@ msgstr "Netclient 密碼"
 msgid "Netclient user name"
 msgstr "網路客戶用戶名稱"
 
-msgid "Netclient username"
-msgstr "Netclient 用戶名稱"
-
 msgid "PID"
 msgstr "PID"
 
@@ -97,9 +88,6 @@ msgstr "遠端監控"
 
 msgid "Service disabled"
 msgstr "服務已停用"
-
-msgid "Settings"
-msgstr "設定"
 
 msgid "Shutdown mode"
 msgstr "關機模式"
@@ -150,12 +138,6 @@ msgstr "用於遠端驗證。"
 
 msgid "User name"
 msgstr "用戶名稱"
-
-msgid "Username"
-msgstr "用戶名稱"
-
-msgid "Variables"
-msgstr "變數"
 
 msgid "Voltage"
 msgstr "電壓"

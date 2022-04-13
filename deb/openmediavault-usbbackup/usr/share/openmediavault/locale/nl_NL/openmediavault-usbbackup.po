@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Varkentjes, 2020\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -20,9 +20,6 @@ msgstr ""
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add backup job"
-msgstr "Backup-taak toevoegen"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -30,9 +27,6 @@ msgstr "Een e-mail met de uitvoer van de opdracht (indien geproduceerd) is naar 
 
 msgid "Archive"
 msgstr "Archiveren"
-
-msgid "Backup jobs"
-msgstr "Backup-taak"
 
 msgid "Comment"
 msgstr "Geef commentaar"
@@ -58,17 +52,8 @@ msgstr "Verwijder bestanden aan de ontvangende kant die niet bestaan bij de verz
 msgid "Device"
 msgstr "Apparaat"
 
-msgid "Done ..."
-msgstr "Gedaan ..."
-
 msgid "Edit"
 msgstr "Aanpassen"
-
-msgid "Edit backup job"
-msgstr "Geplande backup-taak aanpassen"
-
-msgid "Enable"
-msgstr "Inschakelen"
 
 msgid "Enable archive mode."
 msgstr "Archief modus inschakelen"
@@ -81,14 +66,8 @@ msgstr "Schakel deze optie in om gedeeltelijk overgedragen bestanden te behouden
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
-msgid "Execute backup job"
-msgstr "Backup-taak uitvoeren"
-
 msgid "External Storage Device"
 msgstr ""
-
-msgid "External storage device"
-msgstr "Extern opslagapparaat"
 
 msgid "Extra options"
 msgstr "Extra opties"
@@ -109,12 +88,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Raadpleeg de <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>handleidingspagina</a> voor meer details."
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "Let op: de webapplicatie is geblokkkeerd totdat de handmatig gestarte taak is beeindigd. Echter zal de backuptaak automatisch op de achtergrond worden uitgevoerd wanneer het opslagapparaat aangekoppeld wordt"
 
 msgid "Preserve ACLs"
 msgstr "ACL's behouden"
@@ -149,14 +122,8 @@ msgstr "Uitvoeren"
 msgid "Run backup job"
 msgstr ""
 
-msgid "Scan"
-msgstr "Aftasten"
-
 msgid "Select a device ..."
 msgstr "Selecteer een apparaat ..."
-
-msgid "Send command output via email."
-msgstr "De resultaten van een opdracht per e-mail verzenden."
 
 msgid "Send email"
 msgstr "E-mail versturen"
@@ -182,12 +149,6 @@ msgstr "Non-foutmeldingen onderdrukken."
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr ""
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "Synchroniseer van/naar de map op het externe opslagapparaat."
-
-msgid "The external storage device."
-msgstr "Het externe opslagapparaat."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

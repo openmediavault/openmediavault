@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -25,14 +25,8 @@ msgstr "Hasło jest niezbędne do korzystania z biblioteki."
 msgid "Authentication"
 msgstr "Uwierzytelnianie"
 
-msgid "Enable"
-msgstr "Włączony"
-
 msgid "Enabled"
 msgstr "Właczony"
-
-msgid "General settings"
-msgstr "Ustawienia"
 
 msgid "Library name"
 msgstr "Nazwa biblioteki"
@@ -45,9 +39,6 @@ msgstr "Port"
 
 msgid "Port to listen on."
 msgstr "Port do nasłuchiwania."
-
-msgid "Settings"
-msgstr "Ustawienia"
 
 msgid "Shared folder"
 msgstr "Udostępniony folder"

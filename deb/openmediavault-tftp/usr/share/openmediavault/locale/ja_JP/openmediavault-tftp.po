@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2021\n"
 "Language-Team: Japanese (Japan) (https://www.transifex.com/openmediavault/teams/14254/ja_JP/)\n"
@@ -21,9 +21,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "Allow new files"
-msgstr "新しいファイルを許可"
 
 msgid "Allow new files to be created."
 msgstr "新しいファイルの作成を許可"
@@ -39,31 +36,17 @@ msgid ""
 "retransmitted."
 msgstr "最初のパケットが再送信される前に、マイクロ秒単位でデフォルトのタイムアウトを決定します。"
 
-msgid "Enable"
-msgstr "有効"
-
 msgid "Enabled"
 msgstr "有効"
 
 msgid "Extra options"
 msgstr "追加オプション"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "新規ファイルの作成が許可されている場合、共有フォルダが公に書き込み可能かを確認してください。"
-
 msgid "Port"
 msgstr "ポート"
 
-msgid "Port to listen on."
-msgstr "待ちうけポート"
-
 msgid "Retry timeout"
 msgstr "リトライタイムアウト"
-
-msgid "Settings"
-msgstr "設定"
 
 msgid "Shared folder"
 msgstr "共有フォルダ"
@@ -75,9 +58,6 @@ msgstr "許可するブロックサイズの最大値を指定します。この
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "共有するファイルの場所。"
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

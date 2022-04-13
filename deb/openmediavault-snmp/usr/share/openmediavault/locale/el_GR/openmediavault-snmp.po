@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
 "Last-Translator: Kostas Moho, 2021\n"
 "Language-Team: Greek (Greece) (https://www.transifex.com/openmediavault/teams/14254/el_GR/)\n"
@@ -46,17 +46,11 @@ msgstr ""
 "Στοιχεία επικοινωνίας, π.χ. όνομα ή διεύθυνση ηλεκτρονικού ταχυδρομείου για "
 "τον διαχειριστή αυτού του συστήματος."
 
-msgid "Enable"
-msgstr "Ενεργοποίηση"
-
 msgid "Enabled"
 msgstr "Ενεργό"
 
 msgid "Extra options"
 msgstr "Επιπλέον επιλογές"
-
-msgid "General settings"
-msgstr "Γενικές ρυθμίσεις"
 
 msgid "Host"
 msgstr "Σύστημα"
@@ -91,9 +85,6 @@ msgstr "SNMP έκδοση 3"
 msgid "Security level"
 msgstr "Επίπεδο ασφάλειας"
 
-msgid "Settings"
-msgstr "Ρυθμίσεις"
-
 msgid "Traps"
 msgstr "Διεγέρσεις"
 
@@ -101,9 +92,6 @@ msgid "Updated SNMP settings."
 msgstr "Ενημέρωση ρυθμίσεων SNMP."
 
 msgid "User name"
-msgstr "Όνομα χρήστη"
-
-msgid "Username"
 msgstr "Όνομα χρήστη"
 
 msgid "Version"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2022\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -20,9 +20,6 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add backup job"
-msgstr "Lägg till säkerhetskopieringsjobb"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -30,9 +27,6 @@ msgstr "Ett e-postmeddelande med kommandoutmatningen (om någon produceras) skic
 
 msgid "Archive"
 msgstr "Arkiv"
-
-msgid "Backup jobs"
-msgstr "Säkerhetskopieringsjobb"
 
 msgid "Comment"
 msgstr "Kommentar"
@@ -58,17 +52,8 @@ msgstr "Ta bort filer på mottagningssidan som inte finns på avsändarsidan."
 msgid "Device"
 msgstr "Enhet"
 
-msgid "Done ..."
-msgstr "Klar ..."
-
 msgid "Edit"
 msgstr "Redigera"
-
-msgid "Edit backup job"
-msgstr "Redigera säkerhetskopieringsjobb"
-
-msgid "Enable"
-msgstr "Aktivera"
 
 msgid "Enable archive mode."
 msgstr "Aktivera arkivläge."
@@ -81,13 +66,7 @@ msgstr "Aktivera det här alternativet för att behålla delvis överförda file
 msgid "Enabled"
 msgstr "Aktiverad"
 
-msgid "Execute backup job"
-msgstr "Utför säkerhetskopieringsjobb"
-
 msgid "External Storage Device"
-msgstr "Extern lagringsenhet"
-
-msgid "External storage device"
 msgstr "Extern lagringsenhet"
 
 msgid "Extra options"
@@ -109,12 +88,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Se <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manualsidan</a> för mer detaljer."
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "Observera att webbgränssnittet är blockerat tills det manuellt startade säkerhetskopieringsjobbet har slutförts. Men säkerhetskopieringsjobbet utförs automatiskt i bakgrunden när lagringsenheten är ansluten till värden."
 
 msgid "Preserve ACLs"
 msgstr "Bevara åtkomstkontrollistor"
@@ -149,14 +122,8 @@ msgstr "Kör"
 msgid "Run backup job"
 msgstr "Kör säkerhetskopieringsjobb"
 
-msgid "Scan"
-msgstr "Skanna"
-
 msgid "Select a device ..."
 msgstr "Välj en enhet ..."
-
-msgid "Send command output via email."
-msgstr "Skicka kommandoutmatning via e-post."
 
 msgid "Send email"
 msgstr "Skicka e-post"
@@ -182,12 +149,6 @@ msgstr "Undertryck icke-felmeddelanden."
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "Synkronisera från/till mapp på extern lagringsenhet"
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "Synkronisera från/till mapp på extern lagringsenhet."
-
-msgid "The external storage device."
-msgstr "Den externa lagringsenheten."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

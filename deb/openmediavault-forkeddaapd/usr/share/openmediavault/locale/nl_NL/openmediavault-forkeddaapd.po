@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Tim <co_ti@hotmail.com>, 2013,2016\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -25,14 +25,8 @@ msgstr "Een wachtwoord is vereist om toegang te krijgen tot de bibliotheek."
 msgid "Authentication"
 msgstr "Aanmelden"
 
-msgid "Enable"
-msgstr "Inschakelen"
-
 msgid "Enabled"
 msgstr "Ingeschakeld"
-
-msgid "General settings"
-msgstr "Algemene instellingen"
 
 msgid "Library name"
 msgstr "Bibliotheek naam"
@@ -45,9 +39,6 @@ msgstr "Poort"
 
 msgid "Port to listen on."
 msgstr "Poort om te beluisteren."
-
-msgid "Settings"
-msgstr "Instellingen"
 
 msgid "Shared folder"
 msgstr "Gedeelde map"

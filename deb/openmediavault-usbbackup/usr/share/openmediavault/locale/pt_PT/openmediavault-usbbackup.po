@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2014\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
@@ -18,9 +18,6 @@ msgstr ""
 "Language: pt_PT\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add backup job"
-msgstr "Adicionar tarefa de backup"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -28,9 +25,6 @@ msgstr "Uma mensagem de e-mail com o comando de saída (se foi criado) é enviad
 
 msgid "Archive"
 msgstr "Arquivo"
-
-msgid "Backup jobs"
-msgstr "Tarefa de backup"
 
 msgid "Comment"
 msgstr "Comente"
@@ -56,17 +50,8 @@ msgstr "Excluir arquivos no lado do receptor que não existem no remetente"
 msgid "Device"
 msgstr "Dispositivo"
 
-msgid "Done ..."
-msgstr "Feito..."
-
 msgid "Edit"
 msgstr "Editar"
-
-msgid "Edit backup job"
-msgstr "Editar tarefa de backup"
-
-msgid "Enable"
-msgstr "Ativo"
 
 msgid "Enable archive mode."
 msgstr "Ativar modo de arquivo"
@@ -79,14 +64,8 @@ msgstr "Active essa opção para manter os arquivos parcialmente transferidos, c
 msgid "Enabled"
 msgstr "Ativar"
 
-msgid "Execute backup job"
-msgstr "Executar tarefa de backup"
-
 msgid "External Storage Device"
 msgstr ""
-
-msgid "External storage device"
-msgstr "Dispositivo de armazenamento externo"
 
 msgid "Extra options"
 msgstr "Opções extra"
@@ -107,12 +86,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Verifique a <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>página do manual</a> para mais detalhes."
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "Por favor, note que a interface web é bloqueado até que a tarefa de backup manualmente iniciada for concluída. No entanto, a tarefa de backup é executado automaticamente em segundo plano quando o dispositivo de armazenamento está ligado ao host."
 
 msgid "Preserve ACLs"
 msgstr "Preservar ACLs"
@@ -147,14 +120,8 @@ msgstr "Executar"
 msgid "Run backup job"
 msgstr ""
 
-msgid "Scan"
-msgstr "Pesquisar"
-
 msgid "Select a device ..."
 msgstr "Selecionar dispositivo..."
-
-msgid "Send command output via email."
-msgstr "Enviar o comando de saída por email"
 
 msgid "Send email"
 msgstr "Enviar email"
@@ -180,12 +147,6 @@ msgstr "Suprimir mensagens de falsos erros"
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr ""
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "Sincronizar de/para pasta no dispositivo de armazenamento externo."
-
-msgid "The external storage device."
-msgstr "Dispositivo de armazenamento externo"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

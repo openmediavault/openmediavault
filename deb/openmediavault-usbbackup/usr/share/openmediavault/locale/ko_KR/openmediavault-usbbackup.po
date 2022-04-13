@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2020\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -19,9 +19,6 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Add backup job"
-msgstr "백업 작업 추가"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -29,9 +26,6 @@ msgstr "관리자에게 명령행 출력(있다면)을 전자 메일에 포함�
 
 msgid "Archive"
 msgstr "아카이브"
-
-msgid "Backup jobs"
-msgstr "백업 작업"
 
 msgid "Comment"
 msgstr "설명"
@@ -57,17 +51,8 @@ msgstr "수신 측에서 송신 측에 존재하지 않는 파일을 삭제합�
 msgid "Device"
 msgstr "장치"
 
-msgid "Done ..."
-msgstr "완료 ..."
-
 msgid "Edit"
 msgstr "편집"
-
-msgid "Edit backup job"
-msgstr "백업 작업 편집"
-
-msgid "Enable"
-msgstr "활성화"
 
 msgid "Enable archive mode."
 msgstr "아카이브 모드 활성화"
@@ -80,14 +65,8 @@ msgstr "전송된 파일을 부분적으로 유지하려면 이 옵션을 활성
 msgid "Enabled"
 msgstr "활성화됨"
 
-msgid "Execute backup job"
-msgstr "백업 작업 실행"
-
 msgid "External Storage Device"
 msgstr ""
-
-msgid "External storage device"
-msgstr "외부 저장 장치"
 
 msgid "Extra options"
 msgstr "추가 옵션"
@@ -108,12 +87,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "자세한 내용은 <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "시작된 백업 작업이 완료될 때까지 직접 웹 인터페이스를 확인해주세요.  호스트에 저장 장치가 연결되면 자동으로 백업 작업이 시작됩니다."
 
 msgid "Preserve ACLs"
 msgstr "ACL 보존"
@@ -148,14 +121,8 @@ msgstr "실행"
 msgid "Run backup job"
 msgstr ""
 
-msgid "Scan"
-msgstr "검색"
-
 msgid "Select a device ..."
 msgstr "장치를 선택하세요 ..."
-
-msgid "Send command output via email."
-msgstr "이메일로 명령 결과 전송"
 
 msgid "Send email"
 msgstr "이메일 전송"
@@ -181,12 +148,6 @@ msgstr "오류가 아닌 메시지를 숨깁니다."
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr ""
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "외부 저장 장치에서/로 디렉터리 동기화"
-
-msgid "The external storage device."
-msgstr "외부 저장 장치"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

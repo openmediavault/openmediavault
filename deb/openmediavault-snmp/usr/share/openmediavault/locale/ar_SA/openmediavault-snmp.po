@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2022\n"
 "Language-Team: Arabic (Saudi Arabia) (https://www.transifex.com/openmediavault/teams/14254/ar_SA/)\n"
@@ -46,17 +46,11 @@ msgstr ""
 "معلومات الاتصال ، على سبيل المثال اسم أو عنوان البريد الإلكتروني للشخص "
 "المسؤول عن هذا النظام."
 
-msgid "Enable"
-msgstr "تفعيل"
-
 msgid "Enabled"
 msgstr "ممكن"
 
 msgid "Extra options"
 msgstr "خيارات إضافية"
-
-msgid "General settings"
-msgstr "الاعدادات العامة"
 
 msgid "Host"
 msgstr "المضيف \"Host\""
@@ -91,9 +85,6 @@ msgstr "SNMP نسخة 3"
 msgid "Security level"
 msgstr "مستوى الأمان"
 
-msgid "Settings"
-msgstr "إعدادات"
-
 msgid "Traps"
 msgstr "الفخاخ"
 
@@ -102,9 +93,6 @@ msgstr ""
 
 msgid "User name"
 msgstr "اسم المستخم"
-
-msgid "Username"
-msgstr "اسم المستخدم"
 
 msgid "Version"
 msgstr "النسخة"

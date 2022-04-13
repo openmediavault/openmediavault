@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2016,2020-2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -37,17 +37,11 @@ msgstr "Určuje za jakých okolností zahájit vypínání serveru."
 msgid "Driver configuration directives"
 msgstr "Pokyny nastavení ovladače"
 
-msgid "Enable"
-msgstr "Zapnout"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Umožnit zjišťování stavu UPS (propojené přímo s tímto) i ostatním strojům (užitečné v případě, že je také napájí a mají nainstalovaného NUT klienta)."
 
 msgid "Enabled"
 msgstr "Zapnuto"
-
-msgid "General settings"
-msgstr "Obecná nastavení"
 
 msgid "Identifier"
 msgstr "Identifikátor"
@@ -76,9 +70,6 @@ msgstr "Heslo pro síťového klienta"
 msgid "Netclient user name"
 msgstr "Uživatelské jméno pro netclient"
 
-msgid "Netclient username"
-msgstr "Uživatelské jméno pro síťového klienta"
-
 msgid "PID"
 msgstr "Identif. procesu (PID)"
 
@@ -96,9 +87,6 @@ msgstr "Zpřístupnění stavu ostatním strojům"
 
 msgid "Service disabled"
 msgstr "Poskytování služby je vypnuté"
-
-msgid "Settings"
-msgstr "Nastavení"
 
 msgid "Shutdown mode"
 msgstr "Vypínat když"
@@ -149,12 +137,6 @@ msgstr "Slouží pro ověřování oprávněnosti přístupu z jiného stroje."
 
 msgid "User name"
 msgstr "Uživatelské jméno"
-
-msgid "Username"
-msgstr "Uživatelské jméno"
-
-msgid "Variables"
-msgstr "Proměnné"
 
 msgid "Voltage"
 msgstr "Napětí"

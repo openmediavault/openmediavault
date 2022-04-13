@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: LeeYang <150183966@qq.com>, 2021\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
@@ -21,9 +21,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "Allow new files"
-msgstr "允许新文件"
 
 msgid "Allow new files to be created."
 msgstr "允许创建新文件。"
@@ -39,31 +36,17 @@ msgid ""
 "retransmitted."
 msgstr "决定在重新传输第一个数据包之前的默认超时时间，时间单位微秒。"
 
-msgid "Enable"
-msgstr "启用"
-
 msgid "Enabled"
 msgstr "已启用"
 
 msgid "Extra options"
 msgstr "扩展选项"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "如果有新文件写入，请确保该共享文件夹开放公共写权限。"
-
 msgid "Port"
 msgstr "端口"
 
-msgid "Port to listen on."
-msgstr "监听端口。"
-
 msgid "Retry timeout"
 msgstr "重试超时"
-
-msgid "Settings"
-msgstr "设置"
 
 msgid "Shared folder"
 msgstr "共享文件夹"
@@ -75,9 +58,6 @@ msgstr "指定允许的最大块大小，该范围允许值 512 到 65464 。"
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "共享文件的路径。"
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

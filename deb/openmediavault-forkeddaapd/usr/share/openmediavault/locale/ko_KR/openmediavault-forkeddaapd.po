@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2015\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -25,14 +25,8 @@ msgstr "라이브러리에 접근하려면 암호가 필요합니다."
 msgid "Authentication"
 msgstr "인증"
 
-msgid "Enable"
-msgstr "활성화"
-
 msgid "Enabled"
 msgstr "활성화됨"
-
-msgid "General settings"
-msgstr "일반 설정"
 
 msgid "Library name"
 msgstr "라이브러리 이름"
@@ -45,9 +39,6 @@ msgstr "포트"
 
 msgid "Port to listen on."
 msgstr "청취를 위한 포트"
-
-msgid "Settings"
-msgstr "설정"
 
 msgid "Shared folder"
 msgstr "공유 폴더"

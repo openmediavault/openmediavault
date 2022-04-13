@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2021\n"
 "Language-Team: Spanish (Spain) (https://www.transifex.com/openmediavault/teams/14254/es_ES/)\n"
@@ -21,9 +21,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Allow new files"
-msgstr "Permitir nuevos archivos"
 
 msgid "Allow new files to be created."
 msgstr "Permitir la creación de nuevos archivos."
@@ -41,33 +38,17 @@ msgstr ""
 "Determina el tiempo por defecto en microsegundos, antes de que el primer "
 "paquete sea retransmitido."
 
-msgid "Enable"
-msgstr "Habilitar"
-
 msgid "Enabled"
 msgstr "Habilitado"
 
 msgid "Extra options"
 msgstr "Opciones extra"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-"Por favor verifique que la carpeta compartida tiene permisos de escritura "
-"por si nuevos archivos fuesen necesarios."
-
 msgid "Port"
 msgstr "Puerto"
 
-msgid "Port to listen on."
-msgstr "Puerto de escucha."
-
 msgid "Retry timeout"
 msgstr "Tiempo de reintento"
-
-msgid "Settings"
-msgstr "Configuración"
 
 msgid "Shared folder"
 msgstr "Carpeta Compartida"
@@ -79,9 +60,6 @@ msgstr "Max. tamaño de bloque permitido. El rango permitido es de 512 a 65464"
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "La ubicación de los archivos a compartir."
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

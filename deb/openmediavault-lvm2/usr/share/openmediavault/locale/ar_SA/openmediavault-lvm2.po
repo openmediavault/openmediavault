@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -21,31 +21,14 @@ msgstr ""
 msgid "Active"
 msgstr "نشط"
 
-msgid "Add physical volume"
-msgstr "إضافة وحدة تخزين حقيقية "
-
-msgid ""
-"After the logical volume has been extended you can resize the containing "
-"filesystem."
-msgstr "بعد توسيع وحدة التخزين المنطقية  ، يمكنك تغيير حجم نظام الملفات الموجود داخل هذه الوحدة  "
-
 msgid "Available"
 msgstr "متاح"
 
 msgid "Capacity"
 msgstr "السعة"
 
-msgid "Confirmation"
-msgstr "التأكيد"
-
 msgid "Create"
 msgstr "إنشاء"
-
-msgid "Create logical volume"
-msgstr "إنشاء وحدة تخزين منطقية"
-
-msgid "Create volume group"
-msgstr "إنشاء مجموعة وحدة تخزين"
 
 msgid "Created logical volume '{{ name }}'."
 msgstr ""
@@ -59,9 +42,6 @@ msgstr ""
 msgid "Created volume group '{{ name }}'."
 msgstr ""
 
-msgid "Description"
-msgstr "وصف"
-
 msgid "Device"
 msgstr "الجهاز"
 
@@ -71,35 +51,14 @@ msgstr "الأجهزة"
 msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
 msgstr ""
 
-msgid "Do you really want to create the logical volume?"
-msgstr "هل تريد فعلا إنشاء وحدة التخزين المنطقية ؟"
-
-msgid "Do you really want to create the physical volume?"
-msgstr "هل تريد فعلا إنشاء وحدة التخزين الحقيقية ؟"
-
-msgid "Do you really want to create the volume group?"
-msgstr "هل تريد فعلا إنشاء  مجموعة وحدة تخزين ؟"
-
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "هل تريد فعلا تغيير حجم وحدة التخزين الفعلية المحددة؟"
 
 msgid "Edit"
 msgstr "تحرير"
 
-msgid "Edit logical volume"
-msgstr "تحرير وحدة تخزين منطقية"
-
-msgid "Edit volume group"
-msgstr "تحرير مجموعة وحدة تخزين  "
-
 msgid "Extend"
 msgstr "توسيع"
-
-msgid "Extend logical volume"
-msgstr "توسيع وحدة التخزين المنطقية"
-
-msgid "Extend volume group"
-msgstr "توسيع مجموعة تخزين"
 
 msgid "Extended logical volume '{{ devicefile }}'."
 msgstr ""
@@ -119,29 +78,14 @@ msgstr "إدارة وحدات التخزين المنطقية"
 msgid "Logical Volumes"
 msgstr ""
 
-msgid "Logical volumes"
-msgstr "وحدات التخزين المنطقية"
-
 msgid "Name"
 msgstr "الاسم"
-
-msgid "No free space available to create a logical volume."
-msgstr "لا توجد مساحة حرة متوفرة لإنشاء وحدة تخزين منطقية."
-
-msgid "No free space available to extend the logical volume."
-msgstr "لا توجد مساحة حرة متوفرة لتوسيع وحدة تخزين منطقية."
 
 msgid "Physical Volumes"
 msgstr ""
 
-msgid "Physical volumes"
-msgstr "وحدات التخزين الحقيقية  "
-
 msgid "Reduce"
 msgstr "تقليص"
-
-msgid "Reduce volume group"
-msgstr "تقليص مجموعة وحدة التخزين"
 
 msgid "Reduced volume group '{{ devicefile }}'."
 msgstr ""
@@ -154,9 +98,6 @@ msgstr "تحديد جهاز ..."
 
 msgid "Select a volume group ..."
 msgstr "اختر مجموعة وحدة تخزين"
-
-msgid "Select an device ..."
-msgstr "تحديد جهاز ..."
 
 msgid "Select devices ..."
 msgstr ""
@@ -206,6 +147,3 @@ msgstr ""
 
 msgid "Volume group"
 msgstr " مجموعة وحدة تخزين  "
-
-msgid "Volume groups"
-msgstr " مجموعات وحدة تخزين  "

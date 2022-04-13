@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -18,9 +18,6 @@ msgstr ""
 "Language: ar_SA\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
-msgid "Add backup job"
-msgstr "إضافة وظيفة نسخ احتياطي"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -28,9 +25,6 @@ msgstr "يتم إرسال رسالة بريد إلكتروني مع مخرجات
 
 msgid "Archive"
 msgstr "الأرشيف"
-
-msgid "Backup jobs"
-msgstr "وظيفة نسخ احتياطي"
 
 msgid "Comment"
 msgstr "التعليق"
@@ -56,17 +50,8 @@ msgstr "حذف الملفات على الجانب المتلقي والتي لا
 msgid "Device"
 msgstr "الجهاز"
 
-msgid "Done ..."
-msgstr "تم ..."
-
 msgid "Edit"
 msgstr "تحرير"
-
-msgid "Edit backup job"
-msgstr "تحرير وظيفة نسخ إحتياطي"
-
-msgid "Enable"
-msgstr "تمكين"
 
 msgid "Enable archive mode."
 msgstr "تمكين وضع الأرشيف"
@@ -79,14 +64,8 @@ msgstr "تمكين هذا الخيار للاحتفاظ بالملفات الم�
 msgid "Enabled"
 msgstr "ممكن"
 
-msgid "Execute backup job"
-msgstr "تنفيذ وظيفة النسخ الاحتياطي"
-
 msgid "External Storage Device"
 msgstr ""
-
-msgid "External storage device"
-msgstr "جهاز التخزين الخارجي"
 
 msgid "Extra options"
 msgstr "خيارات إضافية"
@@ -107,12 +86,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "الرجاء التحقق من <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'> صفحة الدليل </a> للحصول على مزيد من التفاصيل."
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "يرجى الملاحظة أن صفحة الويب سيتم تعطيلها مؤقتا حتي ينتهي تنفيذ وظيفة النسخ الاحتياطي التي تم تشغيلها يدويا. على أية حال وظيفة النسخ الاحتياطي سيتم تنفيذها في الخلفية عندما يكون جهاز التخزين موصول بجهاز التخزين الشبكي"
 
 msgid "Preserve ACLs"
 msgstr "الحفاظ على قوائم ACL"
@@ -147,14 +120,8 @@ msgstr "تشغيل"
 msgid "Run backup job"
 msgstr ""
 
-msgid "Scan"
-msgstr "مسح"
-
 msgid "Select a device ..."
 msgstr "تحديد جهاز ..."
-
-msgid "Send command output via email."
-msgstr "إرسال مخرجات الأمر عبر البريد الإلكتروني"
 
 msgid "Send email"
 msgstr "إرسال بريد إلكتروني"
@@ -180,12 +147,6 @@ msgstr "منع الرسائل غير المتعلقة بالأخطاء"
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr ""
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "مزامنة من وإلى المجلد الموجود في جهاز التخزين الخارجي"
-
-msgid "The external storage device."
-msgstr "جهاز التخزين الخارجي"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

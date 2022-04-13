@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2022\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -26,14 +26,8 @@ msgstr "Ett lösenord krävs för att få åtkomst till biblioteket."
 msgid "Authentication"
 msgstr "Autentisering"
 
-msgid "Enable"
-msgstr "Aktivera"
-
 msgid "Enabled"
 msgstr "Aktiverad"
-
-msgid "General settings"
-msgstr "Allmänna inställningar"
 
 msgid "Library name"
 msgstr "Biblioteksnamn"
@@ -46,9 +40,6 @@ msgstr "Port"
 
 msgid "Port to listen on."
 msgstr "Port att lyssna på."
-
-msgid "Settings"
-msgstr "Inställningar"
 
 msgid "Shared folder"
 msgstr "Delad mapp"

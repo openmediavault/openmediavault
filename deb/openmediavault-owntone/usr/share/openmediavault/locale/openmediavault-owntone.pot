@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-owntone\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,9 +42,6 @@ msgid "Shared folder"
 msgstr ""
 
 msgid "The 'admin' password to access the web interface."
-msgstr ""
-
-msgid "The location of the media files to share."
 msgstr ""
 
 msgid "The location of the media files to share. Make sure the user <em>owntone</em> or group <em>users</em> can access the files."

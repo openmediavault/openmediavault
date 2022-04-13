@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -23,9 +23,6 @@ msgstr ""
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add backup job"
-msgstr "Mentési feladat hozzáadása"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -33,9 +30,6 @@ msgstr "Egy e-mail elküldése az adminisztrátornak a parancs kimenettel (ha va
 
 msgid "Archive"
 msgstr "Archívum"
-
-msgid "Backup jobs"
-msgstr "Mentési feladat"
 
 msgid "Comment"
 msgstr "Megjegyzés"
@@ -61,17 +55,8 @@ msgstr "Fájlok törlése a fogadó oldalon, ha a feladó nem létezik."
 msgid "Device"
 msgstr "Meghajtó"
 
-msgid "Done ..."
-msgstr "Kész..."
-
 msgid "Edit"
 msgstr "Szerkesztés"
-
-msgid "Edit backup job"
-msgstr "Mentési feladat módosítása"
-
-msgid "Enable"
-msgstr "Bekapcsolás"
 
 msgid "Enable archive mode."
 msgstr "Archiváló mód engedélyezése."
@@ -84,13 +69,7 @@ msgstr "Engedélyezze ezt az opciót, hogy megmaradjanak a csak részben átkül
 msgid "Enabled"
 msgstr "Engedélyezve"
 
-msgid "Execute backup job"
-msgstr "Mentési feladat végrehajtása"
-
 msgid "External Storage Device"
-msgstr "Külső tárolóeszköz"
-
-msgid "External storage device"
 msgstr "Külső tárolóeszköz"
 
 msgid "Extra options"
@@ -112,12 +91,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Tekintse meg a <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>kézikönyvet</a> további részletekért."
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "Vegye figyelembe, hogy a webes felület nem lesz elérhető amíg az elkezdett mentési folyamat be nem fejeződik. Ugyanakkor a biztonsági mentés a tárolóeszköz csatlakoztatásakor automatikusan lefut."
 
 msgid "Preserve ACLs"
 msgstr "ACL-ek megőrzése"
@@ -152,14 +125,8 @@ msgstr "Futtatás"
 msgid "Run backup job"
 msgstr "Mentési feladat futtatása"
 
-msgid "Scan"
-msgstr "Keresés"
-
 msgid "Select a device ..."
 msgstr "Válasszon ki egy meghajtót..."
-
-msgid "Send command output via email."
-msgstr "Parancs kimenet elküldése emailben."
 
 msgid "Send email"
 msgstr "E-mail küldése"
@@ -185,12 +152,6 @@ msgstr "Nem hibaüzenetek kihagyása."
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "Megosztott mappa szinkronizálása a külső tárolóval."
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "Megosztott mappa szinkronizálása a külső tárolóval."
-
-msgid "The external storage device."
-msgstr "A külső tárolóeszköz."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

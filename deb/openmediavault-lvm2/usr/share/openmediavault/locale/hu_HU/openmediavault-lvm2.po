@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -26,31 +26,14 @@ msgstr ""
 msgid "Active"
 msgstr "Aktív"
 
-msgid "Add physical volume"
-msgstr "Fizikai kötet hozzáadása"
-
-msgid ""
-"After the logical volume has been extended you can resize the containing "
-"filesystem."
-msgstr "A logikai kötet kiterjesztése után átméretezhető a fájlrendszer."
-
 msgid "Available"
 msgstr "Elérhető"
 
 msgid "Capacity"
 msgstr "Kapacitás"
 
-msgid "Confirmation"
-msgstr "Megerősítés"
-
 msgid "Create"
 msgstr "Létrehozás"
-
-msgid "Create logical volume"
-msgstr "Logikai kötet létrehozása"
-
-msgid "Create volume group"
-msgstr "Kötetcsoport létrehozása"
 
 msgid "Created logical volume '{{ name }}'."
 msgstr "'{{ name }}' logikai kötet létrehozva."
@@ -64,9 +47,6 @@ msgstr "Pillanatkép a '{{ devicefile }}' logikai kötetről létrehozva."
 msgid "Created volume group '{{ name }}'."
 msgstr "'{{ name }}' kötetcsoport létrehozva."
 
-msgid "Description"
-msgstr "Leírás"
-
 msgid "Device"
 msgstr "Meghajtó"
 
@@ -76,35 +56,14 @@ msgstr "Meghajtók"
 msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
 msgstr "Valóban létre akarja hozni a  '{{ devicefile }}' fizikai kötetet?"
 
-msgid "Do you really want to create the logical volume?"
-msgstr "Valóban létre szeretné hozni a logikai kötetet?"
-
-msgid "Do you really want to create the physical volume?"
-msgstr "Valóban létre szeretné hozni a fizikai kötetet?"
-
-msgid "Do you really want to create the volume group?"
-msgstr "Valóban létre szeretné hozni a kötetcsoportot?"
-
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "Valóban át szeretné méretezni a kiválasztott fizikai kötetet?"
 
 msgid "Edit"
 msgstr "Szerkesztés"
 
-msgid "Edit logical volume"
-msgstr "Logikai kötet szerkesztése"
-
-msgid "Edit volume group"
-msgstr "Kötetcsoport szerkesztése"
-
 msgid "Extend"
 msgstr "Kiterjesztés"
-
-msgid "Extend logical volume"
-msgstr "Logikai kötet kiterjesztése"
-
-msgid "Extend volume group"
-msgstr "Kötetcsoport kiterjesztése"
 
 msgid "Extended logical volume '{{ devicefile }}'."
 msgstr "'{{ devicefile }}' kiterjesztett logikai kötet."
@@ -124,29 +83,14 @@ msgstr "Logikai kötet kezelése"
 msgid "Logical Volumes"
 msgstr "Logikai kötetek"
 
-msgid "Logical volumes"
-msgstr "Logikai kötetek"
-
 msgid "Name"
 msgstr "Név"
-
-msgid "No free space available to create a logical volume."
-msgstr "Nincs elég szabad terület a logikai meghajtón a létrehozáshoz. "
-
-msgid "No free space available to extend the logical volume."
-msgstr "Nincs elég szabad terület a logikai meghajtón a kiterjesztéshez. "
 
 msgid "Physical Volumes"
 msgstr "Fizikai kötetek"
 
-msgid "Physical volumes"
-msgstr "Fizikai kötetek"
-
 msgid "Reduce"
 msgstr "Csökkentés"
-
-msgid "Reduce volume group"
-msgstr "Kötetcsoport csökkentése"
 
 msgid "Reduced volume group '{{ devicefile }}'."
 msgstr "'{{ devicefile }}' kötetcsoport csökkentése."
@@ -159,9 +103,6 @@ msgstr "Válasszon ki egy meghajtót ..."
 
 msgid "Select a volume group ..."
 msgstr "Válasszon ki egy kötetcsoportot..."
-
-msgid "Select an device ..."
-msgstr "Válasszon ki egy meghajtót..."
 
 msgid "Select devices ..."
 msgstr "Eszközök kivála \nSelect devic"
@@ -211,6 +152,3 @@ msgstr "Kötetcsoportok"
 
 msgid "Volume group"
 msgstr "Kötetcsoport"
-
-msgid "Volume groups"
-msgstr "Kötetcsoportok"

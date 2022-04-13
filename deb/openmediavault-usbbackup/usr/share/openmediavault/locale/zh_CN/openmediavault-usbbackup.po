@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2014,2016-2017,2019,2021\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -21,9 +21,6 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Add backup job"
-msgstr "添加备份任务"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -31,9 +28,6 @@ msgstr "发送一封包含命令输出结果(如有发生)的电子邮件给管�
 
 msgid "Archive"
 msgstr "归档"
-
-msgid "Backup jobs"
-msgstr "备份任务"
 
 msgid "Comment"
 msgstr "注释"
@@ -59,17 +53,8 @@ msgstr "删除接收端存在而发送端不存在的文件。"
 msgid "Device"
 msgstr "设备"
 
-msgid "Done ..."
-msgstr "完成中 ..."
-
 msgid "Edit"
 msgstr "编辑"
-
-msgid "Edit backup job"
-msgstr "编辑备份任务"
-
-msgid "Enable"
-msgstr "启用"
 
 msgid "Enable archive mode."
 msgstr "启用归档模式。"
@@ -82,13 +67,7 @@ msgstr "启用此选项以保存未传输完整的文件，否则在传输中断
 msgid "Enabled"
 msgstr "已启用"
 
-msgid "Execute backup job"
-msgstr "执行备份任务"
-
 msgid "External Storage Device"
-msgstr "外部存储设备"
-
-msgid "External storage device"
 msgstr "外部存储设备"
 
 msgid "Extra options"
@@ -110,12 +89,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "详情请看 <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>手册</a> 。"
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "请注意在手动备份完成之前web界面会处于锁定状态，自动备份任务在后台执行时要确保存储设备处于联机状态。"
 
 msgid "Preserve ACLs"
 msgstr "保存 ACLs"
@@ -150,14 +123,8 @@ msgstr "运行"
 msgid "Run backup job"
 msgstr "运行备份任务"
 
-msgid "Scan"
-msgstr "扫描"
-
 msgid "Select a device ..."
 msgstr "选择设备 ..."
-
-msgid "Send command output via email."
-msgstr "通过 Email 发送命令行输出的结果。"
 
 msgid "Send email"
 msgstr "发送 Email"
@@ -183,12 +150,6 @@ msgstr "抑制非错误信息。"
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "同步到外部存储设备上的目录或从外部设备目录同步。"
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "同步到外部存储设备上的目录或从外部设备目录同步。"
-
-msgid "The external storage device."
-msgstr "外部存储设备。"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

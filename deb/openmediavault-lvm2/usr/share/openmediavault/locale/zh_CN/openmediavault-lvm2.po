@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2015,2017,2021\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -22,31 +22,14 @@ msgstr ""
 msgid "Active"
 msgstr "激活"
 
-msgid "Add physical volume"
-msgstr "添加物理卷"
-
-msgid ""
-"After the logical volume has been extended you can resize the containing "
-"filesystem."
-msgstr "逻辑卷扩展后你可以调整包含文件系统的大小。"
-
 msgid "Available"
 msgstr "可用"
 
 msgid "Capacity"
 msgstr "容量"
 
-msgid "Confirmation"
-msgstr "确认"
-
 msgid "Create"
 msgstr "新建"
-
-msgid "Create logical volume"
-msgstr "创建逻辑卷"
-
-msgid "Create volume group"
-msgstr "创建卷组"
 
 msgid "Created logical volume '{{ name }}'."
 msgstr "已建逻辑卷‘{{逻辑卷名}}’"
@@ -60,9 +43,6 @@ msgstr "已建逻辑卷‘{{设备文件}}’的快照"
 msgid "Created volume group '{{ name }}'."
 msgstr "已建卷组‘{{卷组名}}’"
 
-msgid "Description"
-msgstr "描述"
-
 msgid "Device"
 msgstr "设备"
 
@@ -72,35 +52,14 @@ msgstr "设备"
 msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
 msgstr "确认在‘{{设备文件}}’上创建物理卷？"
 
-msgid "Do you really want to create the logical volume?"
-msgstr "确认创建逻辑卷？"
-
-msgid "Do you really want to create the physical volume?"
-msgstr "确认创建物理卷？"
-
-msgid "Do you really want to create the volume group?"
-msgstr "确认创建卷组？"
-
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "确定要调整选中物理卷大小？"
 
 msgid "Edit"
 msgstr "编辑"
 
-msgid "Edit logical volume"
-msgstr "编辑逻辑卷"
-
-msgid "Edit volume group"
-msgstr "编辑卷组"
-
 msgid "Extend"
 msgstr "扩展"
-
-msgid "Extend logical volume"
-msgstr "扩展逻辑卷"
-
-msgid "Extend volume group"
-msgstr "扩展卷组"
 
 msgid "Extended logical volume '{{ devicefile }}'."
 msgstr "已扩容逻辑卷‘{{设备文件}}’"
@@ -120,29 +79,14 @@ msgstr "逻辑卷管理"
 msgid "Logical Volumes"
 msgstr "逻辑卷"
 
-msgid "Logical volumes"
-msgstr "逻辑卷"
-
 msgid "Name"
 msgstr "名称"
-
-msgid "No free space available to create a logical volume."
-msgstr "没有可用空间来创建逻辑卷。"
-
-msgid "No free space available to extend the logical volume."
-msgstr "没有可用空间来扩展逻辑卷。"
 
 msgid "Physical Volumes"
 msgstr "多个物理卷"
 
-msgid "Physical volumes"
-msgstr "多个物理卷"
-
 msgid "Reduce"
 msgstr "缩容"
-
-msgid "Reduce volume group"
-msgstr "卷组缩容"
 
 msgid "Reduced volume group '{{ devicefile }}'."
 msgstr "经缩容的卷组‘{{设备文件}}’"
@@ -155,9 +99,6 @@ msgstr "选择设备 ..."
 
 msgid "Select a volume group ..."
 msgstr "选择卷组 ..."
-
-msgid "Select an device ..."
-msgstr "选择设备 ..."
 
 msgid "Select devices ..."
 msgstr "选择设备（可多选） ..."
@@ -206,7 +147,4 @@ msgid "Volume Groups"
 msgstr "多个卷组"
 
 msgid "Volume group"
-msgstr "卷组"
-
-msgid "Volume groups"
 msgstr "卷组"

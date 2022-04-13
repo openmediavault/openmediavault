@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2022\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -40,17 +40,11 @@ msgstr "Definiera när avstängning initieras."
 msgid "Driver configuration directives"
 msgstr "Direktiv för drivrutinskonfiguration"
 
-msgid "Enable"
-msgstr "Aktivera"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Aktivera fjärrövervakning för den lokalt anslutna UPS:en."
 
 msgid "Enabled"
 msgstr "Aktiverad"
-
-msgid "General settings"
-msgstr "Allmänna Inställningar"
 
 msgid "Identifier"
 msgstr "Identifierare"
@@ -79,9 +73,6 @@ msgstr "Netclient-lösenord"
 msgid "Netclient user name"
 msgstr "Netclient-användarnamn"
 
-msgid "Netclient username"
-msgstr "Netclient-användarnamn"
-
 msgid "PID"
 msgstr "PID"
 
@@ -99,9 +90,6 @@ msgstr "Fjärrövervakning"
 
 msgid "Service disabled"
 msgstr "Tjänst inaktiverad"
-
-msgid "Settings"
-msgstr "Inställningar"
 
 msgid "Shutdown mode"
 msgstr "Avstängningsläge"
@@ -152,12 +140,6 @@ msgstr "Används för fjärrautentisering."
 
 msgid "User name"
 msgstr "Användarnamn"
-
-msgid "Username"
-msgstr "Användarnamn"
-
-msgid "Variables"
-msgstr "Variabler"
 
 msgid "Voltage"
 msgstr "Volt"

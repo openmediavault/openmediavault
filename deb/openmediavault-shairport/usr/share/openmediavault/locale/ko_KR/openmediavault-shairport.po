@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2014-06-23 16:18+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2017\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -25,23 +25,14 @@ msgstr "오디오를 스트리밍하려면 암호가 필요합니다."
 msgid "Authentication"
 msgstr "인증"
 
-msgid "Enable"
-msgstr "활성화"
-
 msgid "Enabled"
 msgstr "활성화됨"
-
-msgid "General settings"
-msgstr "일반 설정"
 
 msgid "Name"
 msgstr "이름"
 
 msgid "Password"
 msgstr "암호"
-
-msgid "Settings"
-msgstr "설정"
 
 msgid "Shairport"
 msgstr "Shairport"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-nut\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,16 +35,10 @@ msgstr ""
 msgid "Driver configuration directives"
 msgstr ""
 
-msgid "Enable"
-msgstr ""
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr ""
 
 msgid "Enabled"
-msgstr ""
-
-msgid "General settings"
 msgstr ""
 
 msgid "Identifier"
@@ -74,9 +68,6 @@ msgstr ""
 msgid "Netclient user name"
 msgstr ""
 
-msgid "Netclient username"
-msgstr ""
-
 msgid "PID"
 msgstr ""
 
@@ -93,9 +84,6 @@ msgid "Remote monitoring"
 msgstr ""
 
 msgid "Service disabled"
-msgstr ""
-
-msgid "Settings"
 msgstr ""
 
 msgid "Shutdown mode"
@@ -138,12 +126,6 @@ msgid "Used for remote authentication."
 msgstr ""
 
 msgid "User name"
-msgstr ""
-
-msgid "Username"
-msgstr ""
-
-msgid "Variables"
 msgstr ""
 
 msgid "Voltage"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,16 +38,10 @@ msgstr ""
 msgid "Contact information, e.g. name or email address of the person responsible for this system."
 msgstr ""
 
-msgid "Enable"
-msgstr ""
-
 msgid "Enabled"
 msgstr ""
 
 msgid "Extra options"
-msgstr ""
-
-msgid "General settings"
 msgstr ""
 
 msgid "Host"
@@ -83,9 +77,6 @@ msgstr ""
 msgid "Security level"
 msgstr ""
 
-msgid "Settings"
-msgstr ""
-
 msgid "Traps"
 msgstr ""
 
@@ -93,9 +84,6 @@ msgid "Updated SNMP settings."
 msgstr ""
 
 msgid "User name"
-msgstr ""
-
-msgid "Username"
 msgstr ""
 
 msgid "Version"

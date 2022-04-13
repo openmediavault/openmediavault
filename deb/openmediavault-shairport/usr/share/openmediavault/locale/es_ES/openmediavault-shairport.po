@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2014-06-23 16:18+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2014-2016,2021\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -24,23 +24,14 @@ msgstr "Se requiere contraseña para transmitir audio."
 msgid "Authentication"
 msgstr "Autentificación"
 
-msgid "Enable"
-msgstr "Habilitar"
-
 msgid "Enabled"
 msgstr "Habilitado"
-
-msgid "General settings"
-msgstr "Opciones"
 
 msgid "Name"
 msgstr "Nombre"
 
 msgid "Password"
 msgstr "Contraseña"
-
-msgid "Settings"
-msgstr "Opciones"
 
 msgid "Shairport"
 msgstr "Shairport"

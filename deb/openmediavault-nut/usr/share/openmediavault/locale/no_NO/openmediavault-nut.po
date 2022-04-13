@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
 "Language-Team: Norwegian (http://www.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -38,17 +38,11 @@ msgstr "Definerer når avstengning startes."
 msgid "Driver configuration directives"
 msgstr "Driverkonfigurasjonsdirektiver"
 
-msgid "Enable"
-msgstr "Aktiver"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Aktiver ekstern overvåkning av lokalt tilkoblet UPS."
 
 msgid "Enabled"
 msgstr "Aktivert"
-
-msgid "General settings"
-msgstr "Generelle innstillinger"
 
 msgid "Identifier"
 msgstr "Identifikator"
@@ -77,9 +71,6 @@ msgstr ""
 msgid "Netclient user name"
 msgstr ""
 
-msgid "Netclient username"
-msgstr ""
-
 msgid "PID"
 msgstr ""
 
@@ -97,9 +88,6 @@ msgstr "Ekstern overvåkning"
 
 msgid "Service disabled"
 msgstr "Tjeneste deaktivert"
-
-msgid "Settings"
-msgstr "Innstillinger"
 
 msgid "Shutdown mode"
 msgstr "Avstengningsmodus"
@@ -150,12 +138,6 @@ msgstr "Brukt for ekstern autentisering"
 
 msgid "User name"
 msgstr ""
-
-msgid "Username"
-msgstr "Brukernavn"
-
-msgid "Variables"
-msgstr "Variabler"
 
 msgid "Voltage"
 msgstr "Volt"

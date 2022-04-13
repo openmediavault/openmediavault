@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: jacekniedziolka71 <lucas71@interia.pl>, 2017\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -24,31 +24,14 @@ msgstr ""
 msgid "Active"
 msgstr "Aktywny"
 
-msgid "Add physical volume"
-msgstr "Dodaj fizyczny wolumin"
-
-msgid ""
-"After the logical volume has been extended you can resize the containing "
-"filesystem."
-msgstr "Po rozszerzeniu logicznego woluminu możesz zmieniać zawarty system plików."
-
 msgid "Available"
 msgstr "Dostępność"
 
 msgid "Capacity"
 msgstr "Pojemność"
 
-msgid "Confirmation"
-msgstr "Potwierdzenie"
-
 msgid "Create"
 msgstr "Utwórz"
-
-msgid "Create logical volume"
-msgstr "Stwórz logiczny wolumin"
-
-msgid "Create volume group"
-msgstr "Stwórz grupę woluminów"
 
 msgid "Created logical volume '{{ name }}'."
 msgstr ""
@@ -62,9 +45,6 @@ msgstr ""
 msgid "Created volume group '{{ name }}'."
 msgstr ""
 
-msgid "Description"
-msgstr "Opis"
-
 msgid "Device"
 msgstr "Urządzenie"
 
@@ -74,35 +54,14 @@ msgstr "Urządzenia"
 msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
 msgstr ""
 
-msgid "Do you really want to create the logical volume?"
-msgstr "Czy na pewno chcesz utworzyć logiczny wolumin?"
-
-msgid "Do you really want to create the physical volume?"
-msgstr "Czy na pewno chcesz utworzyć fizyczny wolumin?"
-
-msgid "Do you really want to create the volume group?"
-msgstr "Czy na pewno chcesz utworzyć grupę woluminów?"
-
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "Czy na pewno chcesz zmienić rozmiar  wybranego fizycznego woluminu?"
 
 msgid "Edit"
 msgstr "Edytuj"
 
-msgid "Edit logical volume"
-msgstr "Edycja woluminu logicznego"
-
-msgid "Edit volume group"
-msgstr "Edycja grupy woluminów"
-
 msgid "Extend"
 msgstr "Rozszerz"
-
-msgid "Extend logical volume"
-msgstr "Rozszerz wolumin logiczny"
-
-msgid "Extend volume group"
-msgstr "Rozszerz grupę woluminów"
 
 msgid "Extended logical volume '{{ devicefile }}'."
 msgstr ""
@@ -122,29 +81,14 @@ msgstr "Zarządzanie logicznym woluminem"
 msgid "Logical Volumes"
 msgstr ""
 
-msgid "Logical volumes"
-msgstr "Logiczne woluminy"
-
 msgid "Name"
 msgstr "Nazwa"
-
-msgid "No free space available to create a logical volume."
-msgstr "Brak wolnego miejsca do utworzenia woluminu logicznego."
-
-msgid "No free space available to extend the logical volume."
-msgstr "Brak wolnego miejsca do rozszerzenia woluminu logicznego."
 
 msgid "Physical Volumes"
 msgstr ""
 
-msgid "Physical volumes"
-msgstr "Fizyczne woluminy"
-
 msgid "Reduce"
 msgstr "Ogranicz"
-
-msgid "Reduce volume group"
-msgstr "Ogranicz grupę woluminów"
 
 msgid "Reduced volume group '{{ devicefile }}'."
 msgstr ""
@@ -157,9 +101,6 @@ msgstr "Wybierz urządzenie ..."
 
 msgid "Select a volume group ..."
 msgstr "Wybierz grupę woluminu..."
-
-msgid "Select an device ..."
-msgstr "Wybierz urządzenie..."
 
 msgid "Select devices ..."
 msgstr "Wybierz urządzenia..."
@@ -209,6 +150,3 @@ msgstr ""
 
 msgid "Volume group"
 msgstr "Grupa woluminu"
-
-msgid "Volume groups"
-msgstr "Grupy woluminu"

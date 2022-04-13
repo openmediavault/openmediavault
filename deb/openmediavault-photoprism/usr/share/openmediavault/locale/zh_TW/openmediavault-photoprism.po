@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-photoprism\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2022\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
@@ -23,23 +23,14 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "A password is required to access the library."
-msgstr "需要密碼才能存取該媒體庫。"
-
 msgid "Application data"
 msgstr "應用資料"
 
-msgid "Authentication"
-msgstr "驗證"
-
-msgid "Enable"
-msgstr "啟用"
+msgid "Certificate"
+msgstr "憑證"
 
 msgid "Enabled"
 msgstr "已啟用"
-
-msgid "General settings"
-msgstr "一般設定"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -52,17 +43,8 @@ msgstr "圖片"
 msgid "Import"
 msgstr "匯入"
 
-msgid "Library name"
-msgstr "媒體庫名稱"
-
-msgid "Note, this application does not support HTTPS."
-msgstr "注意：此應用不支援 HTTPS。"
-
 msgid "Open UI"
 msgstr "打開 UI"
-
-msgid "Password"
-msgstr "密碼"
 
 msgid "PhotoPrism"
 msgstr "PhotoPrism"
@@ -81,17 +63,8 @@ msgstr "要監聽的通訊埠。"
 msgid "Read-only"
 msgstr "唯讀"
 
-msgid "Settings"
-msgstr "設定"
-
-msgid "Shared folder"
-msgstr "共享檔案夾"
-
-msgid "The location of the media files to share."
-msgstr "共享媒體檔案的位置。"
-
-msgid "The location of the media files."
-msgstr "媒體檔案的位置。"
+msgid "The SSL certificate."
+msgstr "SSL 憑證。"
 
 msgid ""
 "The location of the media files. Make sure the user <em>photoprism</em> or "
@@ -101,35 +74,13 @@ msgstr "媒體檔案的位置。請確認使用者 <em>photoprism</em> 或群組
 msgid "The location where to store the application data."
 msgstr "應用資料儲存的位置。"
 
-msgid "The name of the library as displayed by the clients."
-msgstr "顯示在客戶端之媒體庫的名稱。"
-
 msgid "Updated PhotoPrism settings."
 msgstr "已更新 PhotoPrism 設定。"
-
-msgid "Updated iTunes/DAAP settings."
-msgstr "已更新 iTunes/DAAP 設定。"
-
-msgid ""
-"Use the <<strong>admin:photoprism</strong>> credentials when logging in for "
-"the first time. Please do not forget to change the password immediately."
-msgstr "當首次使用 <<strong>admin:photoprism</strong>> 帳號資料登入時，請不要忘記立即更改密碼。"
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
 " Please do not forget to change the password immediately."
 msgstr "當首次使用 <em>admin:admin</em> 帳號資料登入時，請不要忘記立即更改密碼。"
-
-msgid ""
-"Use the <em>admin:photoprism</em> credentials when logging in for the first "
-"time. Please do not forget to change the password immediately."
-msgstr "當首次使用 <em>admin:photoprism</em> 帳號資料登入時，請不要忘記立即更改密碼。"
-
-msgid ""
-"You may optionally mount an import folder from which files can be "
-"transferred to the originals folder in a structured way that avoids "
-"duplicates."
-msgstr "您可以選擇性地掛載一個匯入檔案夾，其內的檔案能以結構性的方式被傳送到原始檔案夾裡，避免重複。"
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
@@ -139,6 +90,3 @@ msgid ""
 msgstr ""
 "您可以選擇性地掛載一個匯入檔案夾，其內的檔案能以結構性的方式被傳送到原始檔案夾裡，避免重複。請確認使用者 <em>photoprism</em> 或群組"
 " <em>users</em> 能夠存取那些檔案。"
-
-msgid "iTunes/DAAP"
-msgstr "iTunes/DAAP"

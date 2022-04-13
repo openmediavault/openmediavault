@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014,2020-2021\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -37,17 +37,11 @@ msgstr "シャットダウンが開始されるときの定義。"
 msgid "Driver configuration directives"
 msgstr "ドライバの設定ディレクティブ"
 
-msgid "Enable"
-msgstr "有効"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "ローカル接続されたUPSのリモート監視を有効にします。"
 
 msgid "Enabled"
 msgstr "有効"
-
-msgid "General settings"
-msgstr "一般設定"
 
 msgid "Identifier"
 msgstr "識別子"
@@ -76,9 +70,6 @@ msgstr "Netclient パスワード"
 msgid "Netclient user name"
 msgstr "Netclient ユーザー名"
 
-msgid "Netclient username"
-msgstr "Netclient ユーザー名"
-
 msgid "PID"
 msgstr "PID"
 
@@ -96,9 +87,6 @@ msgstr "リモート監視"
 
 msgid "Service disabled"
 msgstr "サービスは無効"
-
-msgid "Settings"
-msgstr "設定"
 
 msgid "Shutdown mode"
 msgstr "シャットダウンモード"
@@ -149,12 +137,6 @@ msgstr "リモート認証を使用します。"
 
 msgid "User name"
 msgstr "ユーザー名"
-
-msgid "Username"
-msgstr "ユーザー名"
-
-msgid "Variables"
-msgstr "変数"
 
 msgid "Voltage"
 msgstr "電圧"

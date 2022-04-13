@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: zubr139, 2021\n"
 "Language-Team: Ukrainian (https://www.transifex.com/openmediavault/teams/14254/uk/)\n"
@@ -21,9 +21,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
-
-msgid "Allow new files"
-msgstr "Дозволити нові файли"
 
 msgid "Allow new files to be created."
 msgstr "Дозволити створювати нові файли"
@@ -43,31 +40,17 @@ msgstr ""
 "Визначити час очікування типово, в мікросекундах, перш ніж перший пакет "
 "передається повторно."
 
-msgid "Enable"
-msgstr "Увімкнути"
-
 msgid "Enabled"
 msgstr "Увімкнено"
 
 msgid "Extra options"
 msgstr "Додаткові опції"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "Будь ласка, переконайтеся, що спільна тека доступна для запису."
-
 msgid "Port"
 msgstr "Порт"
 
-msgid "Port to listen on."
-msgstr "Порт для прослуховування."
-
 msgid "Retry timeout"
 msgstr "Очікування повтору"
-
-msgid "Settings"
-msgstr "Налаштування"
 
 msgid "Shared folder"
 msgstr "Спільна тека"
@@ -81,9 +64,6 @@ msgstr ""
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "Розташування файлів для загального доступу."
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

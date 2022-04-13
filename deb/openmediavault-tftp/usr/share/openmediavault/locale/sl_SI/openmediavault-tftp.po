@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2022\n"
 "Language-Team: Slovenian (Slovenia) (https://www.transifex.com/openmediavault/teams/14254/sl_SI/)\n"
@@ -20,9 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl_SI\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
-
-msgid "Allow new files"
-msgstr "Dovoli nove datoteke"
 
 msgid "Allow new files to be created."
 msgstr "Dovoli  ustvarjanje novih datotek"
@@ -40,33 +37,17 @@ msgstr ""
 "Določite privzeto zakasnitev v mikrosekundah, preden je prvi paket ponovno "
 "prenesen."
 
-msgid "Enable"
-msgstr "Omogoči"
-
 msgid "Enabled"
 msgstr "Omogočeno"
 
 msgid "Extra options"
 msgstr "Dodatne nastavitve"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-"V kolikor je kreiranje novih datotek dovoljeno, vas prosimo, da preverite, "
-"če je deljena mapa javno zapisljiva."
-
 msgid "Port"
 msgstr "Vrata"
 
-msgid "Port to listen on."
-msgstr "Vrata na katerih servis posluša."
-
 msgid "Retry timeout"
 msgstr "Časovna omejitev ponovnega poskusa"
-
-msgid "Settings"
-msgstr "Nastavitve"
 
 msgid "Shared folder"
 msgstr "Deljena mapa"
@@ -80,9 +61,6 @@ msgstr ""
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "Lokacija datotek za deljenje."
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

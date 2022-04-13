@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2017\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
@@ -24,14 +24,8 @@ msgstr "Нужна е парола за достъп до библиотекат
 msgid "Authentication"
 msgstr "Удостоверяване"
 
-msgid "Enable"
-msgstr "Разреши"
-
 msgid "Enabled"
 msgstr "Разрешено"
-
-msgid "General settings"
-msgstr "Основни настройки"
 
 msgid "Library name"
 msgstr "Име на библиотеката."
@@ -44,9 +38,6 @@ msgstr "Порт"
 
 msgid "Port to listen on."
 msgstr "Порт, на който да слуша."
-
-msgid "Settings"
-msgstr "Настройки"
 
 msgid "Shared folder"
 msgstr "Споделена папка"

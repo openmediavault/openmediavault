@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2014-06-23 16:18+0000\n"
 "Last-Translator: LeeYang <150183966@qq.com>, 2021\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -25,23 +25,14 @@ msgstr "音频流需要密码。"
 msgid "Authentication"
 msgstr "验证"
 
-msgid "Enable"
-msgstr "启用"
-
 msgid "Enabled"
 msgstr "已启用"
-
-msgid "General settings"
-msgstr "常规设置"
 
 msgid "Name"
 msgstr "名称"
 
 msgid "Password"
 msgstr "密码"
-
-msgid "Settings"
-msgstr "设置"
 
 msgid "Shairport"
 msgstr "Shairport"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2021\n"
 "Language-Team: Turkish (Turkey) (https://www.transifex.com/openmediavault/teams/14254/tr_TR/)\n"
@@ -21,9 +21,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-
-msgid "Allow new files"
-msgstr "Yeni dosyalara izin ver"
 
 msgid "Allow new files to be created."
 msgstr "Yeni dosyaların yaratılmasına izin ver."
@@ -41,33 +38,17 @@ msgstr ""
 "Birinci paketin tekrar gönderilmesinden önce geçerli zaman aşımını "
 "milisaniye cinsinden tanımlayınız."
 
-msgid "Enable"
-msgstr "Açık"
-
 msgid "Enabled"
 msgstr "Etkin"
 
 msgid "Extra options"
 msgstr "İlave seçenekler"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-"Yeni dosyalara izin verilmiş ise paylaşılan klasörün herkes tarafından "
-"yazılabilir olduğundan emin olunuz."
-
 msgid "Port"
 msgstr "Port"
 
-msgid "Port to listen on."
-msgstr "Dinlenen port"
-
 msgid "Retry timeout"
 msgstr "Tekrar deneme zaman aşımı"
-
-msgid "Settings"
-msgstr "Ayarlar"
 
 msgid "Shared folder"
 msgstr "Paylaşılmış klasör"
@@ -81,9 +62,6 @@ msgstr ""
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "Paylaşılacak dosyaların yeri."
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wetty\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Kostas Moho, 2022\n"
 "Language-Team: Greek (Greece) (https://www.transifex.com/openmediavault/teams/14254/el_GR/)\n"
@@ -28,17 +28,8 @@ msgstr "Πιστοποιητικό"
 msgid "Enabled"
 msgstr "Ενεργό"
 
-msgid "Library name"
-msgstr "Όνομα βιβλιοθήκης"
-
 msgid "Open UI"
 msgstr "Open UI"
-
-msgid "OwnTone"
-msgstr "OwnTone"
-
-msgid "Password"
-msgstr "Συνθηματικό"
 
 msgid "Port"
 msgstr "Θύρα"
@@ -46,40 +37,11 @@ msgstr "Θύρα"
 msgid "Port to listen on."
 msgstr "Θύρα για ακρόαση."
 
-msgid "Shared folder"
-msgstr "Κοινόχρηστος φάκελος"
-
-msgid "The 'admin' password to access the web interface."
-msgstr "Κωδικός διαχειριστή για την πρόσβαση στο γραφικό περιβάλλον."
-
 msgid "The SSL certificate."
 msgstr "Το πιστοποιητικό SSL."
-
-msgid "The location of the media files to share."
-msgstr "Η τοποθεσία των αρχείων προς διαμοιρασμό."
-
-msgid ""
-"The location of the media files to share. Make sure the user "
-"<em>owntone</em> or group <em>users</em> can access the files."
-msgstr ""
-"Η τοποθεσία των αρχείων πολυμέσων προς διαμοιρασμό. Βεβαιωθείτε πως ο "
-"χρήστης <em>owntone</em> ή η ομάδα <em>χρήστες</em> έχει πρόσβαση στα "
-"αρχεία."
-
-msgid "The name of the library as displayed by the clients."
-msgstr "Τό όνομα της βιβλιοθήκης, όπως φαίνεται στους πελάτες."
-
-msgid "The password to access the library."
-msgstr "Ο κωδικός για την πρόσβαση στην βιβλιοθήκη."
-
-msgid "Updated OwnTone settings."
-msgstr "Ενημέρωση ρυθμίσεων OwnTone."
 
 msgid "Updated WeTTY settings."
 msgstr "Ενημέρωση ρυθμίσεων WeTTY."
 
 msgid "WeTTY"
 msgstr "WeTTY"
-
-msgid "Web interface"
-msgstr "Γραφικό περιβάλλον"

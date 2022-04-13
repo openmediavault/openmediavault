@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013-2014\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -38,17 +38,11 @@ msgstr "Określa, kiedy wyłączenie jest inicjowane."
 msgid "Driver configuration directives"
 msgstr "Dyrektyw konfiguracji sterownika"
 
-msgid "Enable"
-msgstr "Włączone"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Włącz zdalne monitorowanie lokalnie podłączonych UPS-ów."
 
 msgid "Enabled"
 msgstr "Właczony"
-
-msgid "General settings"
-msgstr "Ustawienia"
 
 msgid "Identifier"
 msgstr "Identyfikator"
@@ -77,9 +71,6 @@ msgstr ""
 msgid "Netclient user name"
 msgstr ""
 
-msgid "Netclient username"
-msgstr ""
-
 msgid "PID"
 msgstr "PID"
 
@@ -97,9 +88,6 @@ msgstr "Zdalny monitoring"
 
 msgid "Service disabled"
 msgstr "Serwis wyłączony"
-
-msgid "Settings"
-msgstr "Ustawienia"
 
 msgid "Shutdown mode"
 msgstr "Opcje wyłączania "
@@ -150,12 +138,6 @@ msgstr "Wykorzystany do zdalnego uwierzytelniania."
 
 msgid "User name"
 msgstr ""
-
-msgid "Username"
-msgstr "Użytkownik"
-
-msgid "Variables"
-msgstr "Zmienne"
 
 msgid "Voltage"
 msgstr "Napięcie"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2022\n"
 "Language-Team: Bulgarian (Bulgaria) (https://www.transifex.com/openmediavault/teams/14254/bg_BG/)\n"
@@ -44,17 +44,11 @@ msgid ""
 "for this system."
 msgstr ""
 
-msgid "Enable"
-msgstr "Разреши"
-
 msgid "Enabled"
 msgstr "Разрешено"
 
 msgid "Extra options"
 msgstr "Допълнителни опции"
-
-msgid "General settings"
-msgstr "Основни настройки"
 
 msgid "Host"
 msgstr ""
@@ -89,9 +83,6 @@ msgstr ""
 msgid "Security level"
 msgstr ""
 
-msgid "Settings"
-msgstr "Настройки"
-
 msgid "Traps"
 msgstr ""
 
@@ -100,9 +91,6 @@ msgstr ""
 
 msgid "User name"
 msgstr ""
-
-msgid "Username"
-msgstr "Потребителско име"
 
 msgid "Version"
 msgstr "Версия"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2021\n"
 "Language-Team: Czech (Czech Republic) (https://www.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
@@ -21,9 +21,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
-
-msgid "Allow new files"
-msgstr "Umožnit vytváření nových souborů"
 
 msgid "Allow new files to be created."
 msgstr "Umožnit vytváření nových souborů."
@@ -43,33 +40,17 @@ msgstr ""
 "Určuje výchozí časový limit (v mikrosekundách), po jehož překročení je "
 "opakován přenos prvního paketu."
 
-msgid "Enable"
-msgstr "Zapnout"
-
 msgid "Enabled"
 msgstr "Zapnuto"
 
 msgid "Extra options"
 msgstr "Rozšířené předvolby"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-"V případě, že zde umožníte vytváření nových souborů ověřte, zda je sdílená "
-"složka zapisovatelná komukoliv."
-
 msgid "Port"
 msgstr "Port"
 
-msgid "Port to listen on."
-msgstr "Port, na kterém očekávat spojení."
-
 msgid "Retry timeout"
 msgstr "Časový limit pro opětovný pokus"
-
-msgid "Settings"
-msgstr "Nastavení"
 
 msgid "Shared folder"
 msgstr "Sdílená složka"
@@ -83,9 +64,6 @@ msgstr ""
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "Umístění souborů pro sdílení."
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

@@ -4,8 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Chang-Eon Byeon <ksna0827@gmail.com>, 2022
 # Volker Theile <votdev@gmx.de>, 2022
+# Chang-Eon Byeon <ksna0827@gmail.com>, 2022
 # Ji-Hyeon Gim <potatogim@potatogim.net>, 2022
 # 
 #, fuzzy
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wetty\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2022\n"
 "Language-Team: Korean (Korea) (https://www.transifex.com/openmediavault/teams/14254/ko_KR/)\n"
@@ -29,17 +29,8 @@ msgstr "인증"
 msgid "Enabled"
 msgstr "활성화됨"
 
-msgid "Library name"
-msgstr "라이브러리 이름"
-
 msgid "Open UI"
 msgstr "UI 열기"
-
-msgid "OwnTone"
-msgstr "OwnTone"
-
-msgid "Password"
-msgstr "암호"
 
 msgid "Port"
 msgstr "포트"
@@ -47,39 +38,11 @@ msgstr "포트"
 msgid "Port to listen on."
 msgstr "청취를 위한 포트"
 
-msgid "Shared folder"
-msgstr "공유 폴더"
-
-msgid "The 'admin' password to access the web interface."
-msgstr "웹 인터페이스에 접근하기 위한 '관리자' 암호입니다. "
-
 msgid "The SSL certificate."
 msgstr "SSL 인증"
-
-msgid "The location of the media files to share."
-msgstr "공유할 미디어 파일 위치"
-
-msgid ""
-"The location of the media files to share. Make sure the user "
-"<em>owntone</em> or group <em>users</em> can access the files."
-msgstr ""
-"공유할 미디어 파일들의 위치입니다. <em>owntone</em> 사용자나 <em>users</em> 그룹이 이 위치에 접근할 수 있어야"
-" 합니다."
-
-msgid "The name of the library as displayed by the clients."
-msgstr "클라이언트에 보여질 라이브러리 이름"
-
-msgid "The password to access the library."
-msgstr "라이브러리에 접근하기 위한 암호입니다."
-
-msgid "Updated OwnTone settings."
-msgstr "OwnTone 설정이 갱신되었습니다."
 
 msgid "Updated WeTTY settings."
 msgstr ""
 
 msgid "WeTTY"
 msgstr ""
-
-msgid "Web interface"
-msgstr "웹 인터페이스"

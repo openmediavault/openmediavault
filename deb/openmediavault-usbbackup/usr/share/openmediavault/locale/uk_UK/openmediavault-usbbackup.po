@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: zubr139, 2013,2015-2017,2021\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -18,9 +18,6 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-msgid "Add backup job"
-msgstr "Додати завдання резервного копіювання"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -28,9 +25,6 @@ msgstr "Надіслати адміністратору повідомлення
 
 msgid "Archive"
 msgstr "Архів"
-
-msgid "Backup jobs"
-msgstr "Завдання резервного копіювання"
 
 msgid "Comment"
 msgstr "Коментар"
@@ -56,17 +50,8 @@ msgstr "Видалити файли на стороні отримувача, я
 msgid "Device"
 msgstr "Пристрій"
 
-msgid "Done ..."
-msgstr "Виконано ..."
-
 msgid "Edit"
 msgstr "Редагувати"
-
-msgid "Edit backup job"
-msgstr "Редагувати завдання резервного копіювання"
-
-msgid "Enable"
-msgstr "Увімкнути"
 
 msgid "Enable archive mode."
 msgstr "Увімкнути режим архівування."
@@ -79,13 +64,7 @@ msgstr "Увімкнути цей параметр, щоб частково пе
 msgid "Enabled"
 msgstr "Увімкнено"
 
-msgid "Execute backup job"
-msgstr "Виконати завдання резервного копіювання"
-
 msgid "External Storage Device"
-msgstr "Зовнішній накопичувач"
-
-msgid "External storage device"
 msgstr "Зовнішній накопичувач"
 
 msgid "Extra options"
@@ -107,12 +86,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Будь ласка, перевірте  <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>сторінку керівництва</a> для більш докладної інформації."
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "Будь ласка, зверніть увагу, веб-інтерфейс блокується, поки вручну запущене резервне копіювання не буде завершене. Однак завдання резервного копіювання виконується автоматично у фоновому режимі, коли накопичувач підключений до хосту."
 
 msgid "Preserve ACLs"
 msgstr "Зберігати списки ACLs"
@@ -147,14 +120,8 @@ msgstr "Запустити"
 msgid "Run backup job"
 msgstr "Запустити завдання резервного копіювання"
 
-msgid "Scan"
-msgstr "Сканувати"
-
 msgid "Select a device ..."
 msgstr "Оберіть пристрій ..."
-
-msgid "Send command output via email."
-msgstr "Надіслати команду виведення електронною поштою."
 
 msgid "Send email"
 msgstr "Надіслати листа"
@@ -180,12 +147,6 @@ msgstr "Не показувати повідомлення в яких нема�
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "Синхронізація з/на каталогу на зовнішній запам'ятовуючий пристрій"
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "Синхронізація з/на каталог на зовнішній запам'ятовуючий пристрій."
-
-msgid "The external storage device."
-msgstr "Зовнішній пристрій зберігання дантх."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

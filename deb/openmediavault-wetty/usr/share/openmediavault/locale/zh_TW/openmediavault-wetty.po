@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wetty\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2022\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
@@ -29,17 +29,8 @@ msgstr "憑證"
 msgid "Enabled"
 msgstr "已啟用"
 
-msgid "Library name"
-msgstr "媒體庫名稱"
-
 msgid "Open UI"
 msgstr "打開 UI"
-
-msgid "OwnTone"
-msgstr "OwnTone"
-
-msgid "Password"
-msgstr "密碼"
 
 msgid "Port"
 msgstr "通訊埠"
@@ -47,37 +38,11 @@ msgstr "通訊埠"
 msgid "Port to listen on."
 msgstr "要監聽的通訊埠。"
 
-msgid "Shared folder"
-msgstr "共享檔案夾"
-
-msgid "The 'admin' password to access the web interface."
-msgstr "用以登入網頁介面的 'admin' 帳號密碼。"
-
 msgid "The SSL certificate."
 msgstr "SSL 憑證。"
-
-msgid "The location of the media files to share."
-msgstr "共享媒體檔案的位置。"
-
-msgid ""
-"The location of the media files to share. Make sure the user "
-"<em>owntone</em> or group <em>users</em> can access the files."
-msgstr "所要分享媒體檔案的位置。請確認使用者 <em>owntone</em> 或群組 <em>users</em> 能夠存取那些檔案。"
-
-msgid "The name of the library as displayed by the clients."
-msgstr "顯示在客戶端之媒體庫的名稱"
-
-msgid "The password to access the library."
-msgstr "存取媒體庫所用之密碼。"
-
-msgid "Updated OwnTone settings."
-msgstr "已更新 OwnTone 設定。"
 
 msgid "Updated WeTTY settings."
 msgstr "已更新 WeTTY 設定。"
 
 msgid "WeTTY"
 msgstr "WeTTY"
-
-msgid "Web interface"
-msgstr "網頁介面"

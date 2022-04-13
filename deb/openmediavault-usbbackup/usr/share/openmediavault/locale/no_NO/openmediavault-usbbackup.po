@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
 "Language-Team: Norwegian (http://www.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -18,9 +18,6 @@ msgstr ""
 "Language: no\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add backup job"
-msgstr "Legg til sikkerhetskopijobb"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -28,9 +25,6 @@ msgstr "En epost med kommandoresultatet (hvis noe blir produsert) vil bli sendt 
 
 msgid "Archive"
 msgstr "Arkiv"
-
-msgid "Backup jobs"
-msgstr "Sikkerhetskopijobber"
 
 msgid "Comment"
 msgstr "Kommentar"
@@ -56,17 +50,8 @@ msgstr "Slett filer som ikke lenger eksisterer hos avsender."
 msgid "Device"
 msgstr "Enhet"
 
-msgid "Done ..."
-msgstr "Ferdig ..."
-
 msgid "Edit"
 msgstr "Endre"
-
-msgid "Edit backup job"
-msgstr "Rediger sikkerhetskopijobb"
-
-msgid "Enable"
-msgstr "Aktiver"
 
 msgid "Enable archive mode."
 msgstr "Aktiver arkivmodus."
@@ -79,14 +64,8 @@ msgstr "Aktiver dette alternativet for å holde delvis overførte filer, ellers 
 msgid "Enabled"
 msgstr "Aktivert"
 
-msgid "Execute backup job"
-msgstr "Utfør sikkerhetskopijobb"
-
 msgid "External Storage Device"
 msgstr ""
-
-msgid "External storage device"
-msgstr "Ekstern lagringsenhet"
 
 msgid "Extra options"
 msgstr "Tilleggsfunksjoner"
@@ -107,12 +86,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Vennligst sjekk <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>bruksanvisning</a> for mer informasjon."
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr ""
 
 msgid "Preserve ACLs"
 msgstr "Bevar ACL"
@@ -147,14 +120,8 @@ msgstr "Kjør"
 msgid "Run backup job"
 msgstr ""
 
-msgid "Scan"
-msgstr "Skann"
-
 msgid "Select a device ..."
 msgstr "Velg en enhet ..."
-
-msgid "Send command output via email."
-msgstr "Send kommando utgang via epost."
 
 msgid "Send email"
 msgstr "Send epost"
@@ -180,12 +147,6 @@ msgstr "Fortreng ikke-feilmeldinger"
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr ""
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "Synkroniser til/fra mappe på ekstern lagringsenhet"
-
-msgid "The external storage device."
-msgstr "Den eksterne lagringsenheten."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wetty\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2022\n"
 "Language-Team: Arabic (Saudi Arabia) (https://www.transifex.com/openmediavault/teams/14254/ar_SA/)\n"
@@ -28,17 +28,8 @@ msgstr "شهادة"
 msgid "Enabled"
 msgstr "ممكن"
 
-msgid "Library name"
-msgstr "اسم المكتبة"
-
 msgid "Open UI"
 msgstr ""
-
-msgid "OwnTone"
-msgstr ""
-
-msgid "Password"
-msgstr "كلمة المرور"
 
 msgid "Port"
 msgstr "المنفذ"
@@ -46,37 +37,11 @@ msgstr "المنفذ"
 msgid "Port to listen on."
 msgstr "المنفذ المراد مراقبته"
 
-msgid "Shared folder"
-msgstr "مجلد مشترك"
-
-msgid "The 'admin' password to access the web interface."
-msgstr ""
-
 msgid "The SSL certificate."
 msgstr "شهادة SSL."
-
-msgid "The location of the media files to share."
-msgstr "موقع ملفات الوسائط المراد مشاركتها."
-
-msgid ""
-"The location of the media files to share. Make sure the user "
-"<em>owntone</em> or group <em>users</em> can access the files."
-msgstr ""
-
-msgid "The name of the library as displayed by the clients."
-msgstr "اسم المكتبة كما يظهر لدى العميل"
-
-msgid "The password to access the library."
-msgstr ""
-
-msgid "Updated OwnTone settings."
-msgstr ""
 
 msgid "Updated WeTTY settings."
 msgstr ""
 
 msgid "WeTTY"
-msgstr ""
-
-msgid "Web interface"
 msgstr ""

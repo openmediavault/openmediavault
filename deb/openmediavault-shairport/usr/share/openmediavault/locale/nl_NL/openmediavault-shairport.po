@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2014-06-23 16:18+0000\n"
 "Last-Translator: Milan Toet <milantoet@gmail.com>, 2016\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -25,23 +25,14 @@ msgstr "Een wachtwoord is vereist om audio te streamen"
 msgid "Authentication"
 msgstr "Authenticatie"
 
-msgid "Enable"
-msgstr "Inschakelen"
-
 msgid "Enabled"
 msgstr "Ingeschakeld"
-
-msgid "General settings"
-msgstr "Algemene instellingen"
 
 msgid "Name"
 msgstr "Naam"
 
 msgid "Password"
 msgstr "Wachtwoord"
-
-msgid "Settings"
-msgstr "Instellingen"
 
 msgid "Shairport"
 msgstr "Shairport"

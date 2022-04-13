@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -19,9 +19,6 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Add backup job"
-msgstr "新增備份工作"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -29,9 +26,6 @@ msgstr "一封含有指令輸出(如有產生)的電子信件會被送給管理�
 
 msgid "Archive"
 msgstr "歸檔"
-
-msgid "Backup jobs"
-msgstr "備份工作"
 
 msgid "Comment"
 msgstr "註釋"
@@ -57,17 +51,8 @@ msgstr "刪除在接收端但不存於發送端的檔案。"
 msgid "Device"
 msgstr "裝置"
 
-msgid "Done ..."
-msgstr "完成 ..."
-
 msgid "Edit"
 msgstr "編輯"
-
-msgid "Edit backup job"
-msgstr "編輯備份工作"
-
-msgid "Enable"
-msgstr "啟用"
 
 msgid "Enable archive mode."
 msgstr "啟用歸檔模式。"
@@ -80,13 +65,7 @@ msgstr "啟用此選項來保留部分傳送的的檔案，否則如果傳送中
 msgid "Enabled"
 msgstr "已啟用"
 
-msgid "Execute backup job"
-msgstr "執行備份工作"
-
 msgid "External Storage Device"
-msgstr "外接儲存裝置"
-
-msgid "External storage device"
 msgstr "外接儲存裝置"
 
 msgid "Extra options"
@@ -108,12 +87,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "詳情請查看<a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>手冊頁</a>。"
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "請注意網站介面會被阻擋住，直到手動執行的備份工作完成。然而，當儲存裝置接上主機時，備份工作則是自動於背景執行。"
 
 msgid "Preserve ACLs"
 msgstr "保存 ACLs"
@@ -148,14 +121,8 @@ msgstr "執行"
 msgid "Run backup job"
 msgstr "執行備份工作"
 
-msgid "Scan"
-msgstr "掃視"
-
 msgid "Select a device ..."
 msgstr "選擇一個裝置 ..."
-
-msgid "Send command output via email."
-msgstr "經由電子郵件發送指令執行結果輸出。"
 
 msgid "Send email"
 msgstr "發送電子郵件"
@@ -181,12 +148,6 @@ msgstr "抑制非錯誤訊息。"
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "在外接式儲存裝置上將來源/目的目錄做同步化"
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "外接式儲存裝置上要做同步化的來源/目的目錄。"
-
-msgid "The external storage device."
-msgstr "外接式儲存裝置。"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

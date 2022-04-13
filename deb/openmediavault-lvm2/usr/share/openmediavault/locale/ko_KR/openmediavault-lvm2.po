@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2020\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -22,31 +22,14 @@ msgstr ""
 msgid "Active"
 msgstr "활성화"
 
-msgid "Add physical volume"
-msgstr "물리 볼륨 추가"
-
-msgid ""
-"After the logical volume has been extended you can resize the containing "
-"filesystem."
-msgstr "논리 볼륨이 확장된 후에 포함된 파일 시스템의 크기를 조정할 수 있습니다."
-
 msgid "Available"
 msgstr "사용 가능"
 
 msgid "Capacity"
 msgstr "용량"
 
-msgid "Confirmation"
-msgstr "확인"
-
 msgid "Create"
 msgstr "생성"
-
-msgid "Create logical volume"
-msgstr "논리 볼륨 생성"
-
-msgid "Create volume group"
-msgstr "볼륨 그룹 생성"
 
 msgid "Created logical volume '{{ name }}'."
 msgstr ""
@@ -60,9 +43,6 @@ msgstr ""
 msgid "Created volume group '{{ name }}'."
 msgstr ""
 
-msgid "Description"
-msgstr "설명"
-
 msgid "Device"
 msgstr "장치"
 
@@ -72,35 +52,14 @@ msgstr "장치"
 msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
 msgstr ""
 
-msgid "Do you really want to create the logical volume?"
-msgstr "논리 볼륨을 정말 만드시겠습니까?"
-
-msgid "Do you really want to create the physical volume?"
-msgstr "물리 볼륨을 정말 만드시겠습니까?"
-
-msgid "Do you really want to create the volume group?"
-msgstr "볼륨 그룹을 정말 만드시겠습니까?"
-
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "선택된 물리 볼륨을 정말 조정하시겠습니까?"
 
 msgid "Edit"
 msgstr "편집"
 
-msgid "Edit logical volume"
-msgstr "논리 볼륨 편집"
-
-msgid "Edit volume group"
-msgstr "볼륨 그룹 편집"
-
 msgid "Extend"
 msgstr "확장"
-
-msgid "Extend logical volume"
-msgstr "논리 볼륨 확장"
-
-msgid "Extend volume group"
-msgstr "볼륨 그룹 확장"
 
 msgid "Extended logical volume '{{ devicefile }}'."
 msgstr ""
@@ -120,29 +79,14 @@ msgstr "논리 볼륨 관리"
 msgid "Logical Volumes"
 msgstr ""
 
-msgid "Logical volumes"
-msgstr "논리 볼륨"
-
 msgid "Name"
 msgstr "이름"
-
-msgid "No free space available to create a logical volume."
-msgstr "논리 볼륨을 만들 여유 공간이 없습니다."
-
-msgid "No free space available to extend the logical volume."
-msgstr "논리 볼륨을 확장할 여유 공간이 없습니다."
 
 msgid "Physical Volumes"
 msgstr ""
 
-msgid "Physical volumes"
-msgstr "물리 볼륨"
-
 msgid "Reduce"
 msgstr "감소"
-
-msgid "Reduce volume group"
-msgstr "볼륨 그룹 감소"
 
 msgid "Reduced volume group '{{ devicefile }}'."
 msgstr ""
@@ -155,9 +99,6 @@ msgstr "장치를 선택하세요 ..."
 
 msgid "Select a volume group ..."
 msgstr "볼륨 그룹을 선택하세요 ..."
-
-msgid "Select an device ..."
-msgstr "장치를 선택하세요 ..."
 
 msgid "Select devices ..."
 msgstr ""
@@ -206,7 +147,4 @@ msgid "Volume Groups"
 msgstr ""
 
 msgid "Volume group"
-msgstr "볼륨 그룹"
-
-msgid "Volume groups"
 msgstr "볼륨 그룹"

@@ -5,7 +5,6 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
-# Antonio Pelaez Redondo <antorayman@gmail.com>, 2022
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2022
 # 
 #, fuzzy
@@ -13,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-photoprism\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2022\n"
 "Language-Team: Spanish (Spain) (https://www.transifex.com/openmediavault/teams/14254/es_ES/)\n"
@@ -23,23 +22,14 @@ msgstr ""
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "A password is required to access the library."
-msgstr "Es necesaria una contraseña para acceder a la librería."
-
 msgid "Application data"
 msgstr "Datos de la aplicación"
 
-msgid "Authentication"
-msgstr "Autentificación"
-
-msgid "Enable"
-msgstr "Habilitar"
+msgid "Certificate"
+msgstr "Certificado"
 
 msgid "Enabled"
 msgstr "Habilitado"
-
-msgid "General settings"
-msgstr "Opciones"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -55,17 +45,8 @@ msgstr "Imagenes"
 msgid "Import"
 msgstr "Importar"
 
-msgid "Library name"
-msgstr "Nombre de la librería"
-
-msgid "Note, this application does not support HTTPS."
-msgstr "Nota: está aplicación NO soporta HTTPS."
-
 msgid "Open UI"
 msgstr "Abrir UI"
-
-msgid "Password"
-msgstr "Contraseña"
 
 msgid "PhotoPrism"
 msgstr "PhotoPrism"
@@ -86,17 +67,8 @@ msgstr "Puerto de escucha."
 msgid "Read-only"
 msgstr "Solo lectura"
 
-msgid "Settings"
-msgstr "Opciones"
-
-msgid "Shared folder"
-msgstr "Carpeta Compartida"
-
-msgid "The location of the media files to share."
-msgstr "Localización de los archivos multimedia a compartir."
-
-msgid "The location of the media files."
-msgstr "Ubicación de los archivos multimedia."
+msgid "The SSL certificate."
+msgstr "El certificado SSL."
 
 msgid ""
 "The location of the media files. Make sure the user <em>photoprism</em> or "
@@ -109,22 +81,8 @@ msgstr ""
 msgid "The location where to store the application data."
 msgstr "Ubicación donde guardar los datos d ela aplicación."
 
-msgid "The name of the library as displayed by the clients."
-msgstr "El nombre de la librería que se mostrará a los clientes"
-
 msgid "Updated PhotoPrism settings."
 msgstr "Opciones de PhotoPrism actualizadas."
-
-msgid "Updated iTunes/DAAP settings."
-msgstr "Actualizar opciones iTunes/DAAP."
-
-msgid ""
-"Use the <<strong>admin:photoprism</strong>> credentials when logging in for "
-"the first time. Please do not forget to change the password immediately."
-msgstr ""
-"Utilice las credenciales de <<strong>admin:photoprism</strong>> cuando "
-"inicie sesión por primera vez. Por favor, no olvide cambiar la contraseña "
-"inmediatamente."
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
@@ -132,22 +90,6 @@ msgid ""
 msgstr ""
 "Utilice las credenciales de <<em>admin:admin</em>> cuando inicie sesión por "
 "primera vez. Por favor, no olvide cambiar la contraseña inmediatamente."
-
-msgid ""
-"Use the <em>admin:photoprism</em> credentials when logging in for the first "
-"time. Please do not forget to change the password immediately."
-msgstr ""
-"Utilice las credenciales de <em>admin:photoprism</em> cuando inicie sesión "
-"por primera vez. Por favor, no olvide cambiar la contraseña inmediatamente."
-
-msgid ""
-"You may optionally mount an import folder from which files can be "
-"transferred to the originals folder in a structured way that avoids "
-"duplicates."
-msgstr ""
-"Opcionalmente, puede montar una carpeta de importación desde la cual los "
-"archivos se pueden transferir a la carpeta original de una manera "
-"estructurada que evita duplicados."
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
@@ -160,6 +102,3 @@ msgstr ""
 "estructurada que evita duplicados. Asegúrese de que el usuario "
 "<em>photoprism</em> o los usuarios del <em>grupo</em> puedan acceder a los "
 "archivos."
-
-msgid "iTunes/DAAP"
-msgstr "iTunes/DAAP"

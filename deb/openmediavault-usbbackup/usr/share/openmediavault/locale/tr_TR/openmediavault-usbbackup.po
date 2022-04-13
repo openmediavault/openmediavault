@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2013-2014,2017,2020-2021\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -18,9 +18,6 @@ msgstr ""
 "Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-msgid "Add backup job"
-msgstr "Yedekleme görevi ekle"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -28,9 +25,6 @@ msgstr "Yöneticiye komut çıkış bilgisi (eğer üretilmişse) ile birlikte b
 
 msgid "Archive"
 msgstr "Arşiv"
-
-msgid "Backup jobs"
-msgstr "Yedekleme görevleri"
 
 msgid "Comment"
 msgstr "Açıklama"
@@ -56,17 +50,8 @@ msgstr "Göndericide bulunmayan dosyaları kaydedilen taraftan sil"
 msgid "Device"
 msgstr "Aygıt"
 
-msgid "Done ..."
-msgstr "Tamamlandı ..."
-
 msgid "Edit"
 msgstr "Düzenle"
-
-msgid "Edit backup job"
-msgstr "Yedekleme görevini düzenle"
-
-msgid "Enable"
-msgstr "Geçerli"
 
 msgid "Enable archive mode."
 msgstr "Arşiv modunu aç"
@@ -79,14 +64,8 @@ msgstr "Kısmen aktarılmış dosyaları korumak için bu seçeneği aktifleşti
 msgid "Enabled"
 msgstr "Geçerli"
 
-msgid "Execute backup job"
-msgstr "Yedekleme görevini başlat"
-
 msgid "External Storage Device"
 msgstr "Harici Depolama Aygıtı "
-
-msgid "External storage device"
-msgstr "Harici depolama cihazı"
 
 msgid "Extra options"
 msgstr "İlave seçenekler"
@@ -107,12 +86,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Daha fazla bilgi için lütfen <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> adresini ziyaret ediniz."
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "Manuel olarak başlatılmış yedekleme görevi tamamlanana kadar web arayüzü erişilmez olacaktır. Ancak, sunucuya bir depolama aygıtı bağlandığında yedekleme görevi otomatik olarak arka planda başlatılacaktır."
 
 msgid "Preserve ACLs"
 msgstr "ACL leri koru"
@@ -147,14 +120,8 @@ msgstr "Çalıştır"
 msgid "Run backup job"
 msgstr "Yedekleme görevini çalıştır"
 
-msgid "Scan"
-msgstr "Tara"
-
 msgid "Select a device ..."
 msgstr "Aygıt seçiniz ..."
-
-msgid "Send command output via email."
-msgstr "Komut çıktısını e-posta ile gönder"
 
 msgid "Send email"
 msgstr "E-mail yolla"
@@ -180,12 +147,6 @@ msgstr "Hata belirtlemeyen mesajları gizle"
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "Harici saklama aygıtı ve/ile dizini senkronize et."
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "Harici saklama aygıtı ve/ile dizini senkronize et."
-
-msgid "The external storage device."
-msgstr "Harici depolama aygıtı."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

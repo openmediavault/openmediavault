@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2014\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -38,17 +38,11 @@ msgstr "Definiert wann ein Shutdown initiiert wird."
 msgid "Driver configuration directives"
 msgstr "Treiber-einstellungen"
 
-msgid "Enable"
-msgstr "Aktiviere"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Aktiviere Fernüberwachung der lokal angeschlossenen USV."
 
 msgid "Enabled"
 msgstr "Aktiviert"
-
-msgid "General settings"
-msgstr "Allgemeine Einstellungen"
 
 msgid "Identifier"
 msgstr "Identifikation"
@@ -77,9 +71,6 @@ msgstr ""
 msgid "Netclient user name"
 msgstr ""
 
-msgid "Netclient username"
-msgstr ""
-
 msgid "PID"
 msgstr "PID"
 
@@ -97,9 +88,6 @@ msgstr "Fernüberwachung"
 
 msgid "Service disabled"
 msgstr "Dienst deaktiviert"
-
-msgid "Settings"
-msgstr "Einstellungen"
 
 msgid "Shutdown mode"
 msgstr "Shutdown Modus"
@@ -150,12 +138,6 @@ msgstr "Benutzt für Fernüberwachung."
 
 msgid "User name"
 msgstr "Benutzername"
-
-msgid "Username"
-msgstr "Benutzername"
-
-msgid "Variables"
-msgstr "Variablen"
 
 msgid "Voltage"
 msgstr "Spannung"

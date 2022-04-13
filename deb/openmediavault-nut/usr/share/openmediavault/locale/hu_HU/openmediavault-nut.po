@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2014,2021\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -41,17 +41,11 @@ msgstr "Leállítási szabályok."
 msgid "Driver configuration directives"
 msgstr "Illesztőprogrambeállítási direktívák"
 
-msgid "Enable"
-msgstr "Engedélyezés"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "A helyileg csatlakoztatott UPS távfelügyeletének bekapcsolása"
 
 msgid "Enabled"
 msgstr "Engedélyezve"
-
-msgid "General settings"
-msgstr "Általános beállítások"
 
 msgid "Identifier"
 msgstr "Azonosító"
@@ -80,9 +74,6 @@ msgstr "Hálózati kliens jelszava"
 msgid "Netclient user name"
 msgstr "Netclient felhasználói név"
 
-msgid "Netclient username"
-msgstr "Hálózati kliens felhasználói neve"
-
 msgid "PID"
 msgstr "PID"
 
@@ -100,9 +91,6 @@ msgstr "Távfelügyelet"
 
 msgid "Service disabled"
 msgstr "Szolgáltatás letiltva"
-
-msgid "Settings"
-msgstr "Beállítások"
 
 msgid "Shutdown mode"
 msgstr "Leállítási mód"
@@ -153,12 +141,6 @@ msgstr "Távoli hitelesítéshez."
 
 msgid "User name"
 msgstr "Felhasználói név"
-
-msgid "Username"
-msgstr "Felhasználónév"
-
-msgid "Variables"
-msgstr "Változók"
 
 msgid "Voltage"
 msgstr "Feszültség"

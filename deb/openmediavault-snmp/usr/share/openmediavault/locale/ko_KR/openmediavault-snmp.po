@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2022\n"
 "Language-Team: Korean (Korea) (https://www.transifex.com/openmediavault/teams/14254/ko_KR/)\n"
@@ -44,17 +44,11 @@ msgid ""
 "for this system."
 msgstr "연락처 정보, 예들 들어 이 시스템 책임자의 이름 혹은 전자우편 주소."
 
-msgid "Enable"
-msgstr "활성화"
-
 msgid "Enabled"
 msgstr "활성화됨"
 
 msgid "Extra options"
 msgstr "추가 옵션"
-
-msgid "General settings"
-msgstr "일반 설정"
 
 msgid "Host"
 msgstr "호스트"
@@ -89,9 +83,6 @@ msgstr "SNMP 버전 3"
 msgid "Security level"
 msgstr "보안 수준"
 
-msgid "Settings"
-msgstr "설정"
-
 msgid "Traps"
 msgstr "트랩"
 
@@ -100,9 +91,6 @@ msgstr ""
 
 msgid "User name"
 msgstr ""
-
-msgid "Username"
-msgstr "사용자명"
 
 msgid "Version"
 msgstr "버전"

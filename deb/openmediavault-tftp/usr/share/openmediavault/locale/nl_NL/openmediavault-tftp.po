@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: Milan Toet <milantoet@gmail.com>, 2022\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
@@ -21,9 +21,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Allow new files"
-msgstr "Nieuwe bestanden toestaan"
 
 msgid "Allow new files to be created."
 msgstr "Het aanmaken van nieuwe bestanden toestaan."
@@ -43,33 +40,17 @@ msgstr ""
 "Bepaal de standaard time-out, in microseconden, voordat het eerste pakket is"
 " verstuurd."
 
-msgid "Enable"
-msgstr "Inschakelen"
-
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
 msgid "Extra options"
 msgstr "Extra opties"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-"Controleer of de gedeelde map schrijfrechten heeft indien nieuwe bestanden "
-"zijn toegestaan"
-
 msgid "Port"
 msgstr "Poort"
 
-msgid "Port to listen on."
-msgstr "Poort om te beluisteren."
-
 msgid "Retry timeout"
 msgstr "Time-out tijdens opnieuw proberen"
-
-msgid "Settings"
-msgstr "Instellingen"
 
 msgid "Shared folder"
 msgstr "Gedeelde map"
@@ -83,9 +64,6 @@ msgstr ""
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "De locatie van te delen bestanden."
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

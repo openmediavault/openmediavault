@@ -50,7 +50,7 @@ omv_build_pot:
 	dh_clean
 	echo "Building PO template file ..." >&2
 	mkdir -p $(OMV_POT_DIR)
-	touch $(OMV_POT_DIR)/$(OMV_POT_FILE)
+	cat /dev/null > $(OMV_POT_DIR)/$(OMV_POT_FILE)
 	# Extract strings from Angular project.
 	if [ -e "$(CURDIR)/workbench/package.json" ]; then \
 		cd $(CURDIR)/workbench && npm install --only=dev && \

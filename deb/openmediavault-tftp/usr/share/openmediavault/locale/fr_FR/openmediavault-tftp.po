@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: Pierre Girard <pierre4012@hotmail.com>, 2021\n"
 "Language-Team: French (France) (https://www.transifex.com/openmediavault/teams/14254/fr_FR/)\n"
@@ -20,10 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_FR\n"
-"Plural-Forms: nplurals=3; plural=(n==0 || n==1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
-
-msgid "Allow new files"
-msgstr "Autoriser les nouveaux fichiers"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Allow new files to be created."
 msgstr "Autoriser la création de nouveaux fichiers."
@@ -42,33 +39,17 @@ msgstr ""
 "Détermine, en microsecondes, le délai d'attente par défaut avant que le "
 "premier paquet ne soit retransmis."
 
-msgid "Enable"
-msgstr "Activer"
-
 msgid "Enabled"
 msgstr "Activé"
 
 msgid "Extra options"
 msgstr "Options supplémentaires"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-"Assurez vous que le répertoire partagé est ouvert en écriture si la création"
-" de nouveaux fichiers est autorisée."
-
 msgid "Port"
 msgstr "Port"
 
-msgid "Port to listen on."
-msgstr "Port à écouter."
-
 msgid "Retry timeout"
 msgstr "Délai de retransmission"
-
-msgid "Settings"
-msgstr "Paramètres"
 
 msgid "Shared folder"
 msgstr "Dossier partagé"
@@ -82,9 +63,6 @@ msgstr ""
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "L'emplacement des fichiers à partager."
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:13+0200\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,9 +39,6 @@ msgid "The user that is used to read/write the files."
 msgstr ""
 
 msgid "Updated OneDrive settings."
-msgstr ""
-
-msgid "Use the <em>admin:admin</em> credentials when logging in for the first time. Please do not forget to change the password immediately."
 msgstr ""
 
 msgid "User"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-photoprism\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2022\n"
 "Language-Team: Portuguese (Portugal) (https://www.transifex.com/openmediavault/teams/14254/pt_PT/)\n"
@@ -22,23 +22,14 @@ msgstr ""
 "Language: pt_PT\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "A password is required to access the library."
-msgstr "É necessária a senha de acesso para aceder à biblioteca."
-
 msgid "Application data"
 msgstr ""
 
-msgid "Authentication"
-msgstr "Autenticação"
-
-msgid "Enable"
-msgstr "Ativo"
+msgid "Certificate"
+msgstr "Certificado"
 
 msgid "Enabled"
 msgstr "Ativar"
-
-msgid "General settings"
-msgstr "Definições gerais"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -51,17 +42,8 @@ msgstr ""
 msgid "Import"
 msgstr "Importar"
 
-msgid "Library name"
-msgstr "Nome da biblioteca"
-
-msgid "Note, this application does not support HTTPS."
-msgstr ""
-
 msgid "Open UI"
 msgstr ""
-
-msgid "Password"
-msgstr "Senha de acesso"
 
 msgid "PhotoPrism"
 msgstr ""
@@ -80,17 +62,8 @@ msgstr "Porta para escutar."
 msgid "Read-only"
 msgstr "Leitura-apenas"
 
-msgid "Settings"
-msgstr "Definições"
-
-msgid "Shared folder"
-msgstr "Pasta partilhada"
-
-msgid "The location of the media files to share."
-msgstr "A localização dos ficheiros multimédia para partilha."
-
-msgid "The location of the media files."
-msgstr ""
+msgid "The SSL certificate."
+msgstr "O certificado SSL."
 
 msgid ""
 "The location of the media files. Make sure the user <em>photoprism</em> or "
@@ -100,18 +73,7 @@ msgstr ""
 msgid "The location where to store the application data."
 msgstr ""
 
-msgid "The name of the library as displayed by the clients."
-msgstr "O nome da biblioteca que aparece aos clientes."
-
 msgid "Updated PhotoPrism settings."
-msgstr ""
-
-msgid "Updated iTunes/DAAP settings."
-msgstr ""
-
-msgid ""
-"Use the <<strong>admin:photoprism</strong>> credentials when logging in for "
-"the first time. Please do not forget to change the password immediately."
 msgstr ""
 
 msgid ""
@@ -120,22 +82,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Use the <em>admin:photoprism</em> credentials when logging in for the first "
-"time. Please do not forget to change the password immediately."
-msgstr ""
-
-msgid ""
-"You may optionally mount an import folder from which files can be "
-"transferred to the originals folder in a structured way that avoids "
-"duplicates."
-msgstr ""
-
-msgid ""
 "You may optionally mount an import folder from which files can be "
 "transferred to the originals folder in a structured way that avoids "
 "duplicates. Make sure the user <em>photoprism</em> or group <em>users</em> "
 "can access the files."
 msgstr ""
-
-msgid "iTunes/DAAP"
-msgstr "iTunes/DAAP"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Pierre Girard <pierre4012@hotmail.com>, 2021\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_FR\n"
-"Plural-Forms: nplurals=3; plural=(n==0 || n==1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
@@ -40,17 +40,11 @@ msgstr "Défini quand l'arrêt du système est initié."
 msgid "Driver configuration directives"
 msgstr "Directives de configuration du pilote"
 
-msgid "Enable"
-msgstr "Activer"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Surveiller à distance l'onduleur local."
 
 msgid "Enabled"
 msgstr "Activé"
-
-msgid "General settings"
-msgstr "Paramètres généraux"
 
 msgid "Identifier"
 msgstr "Identifiant"
@@ -79,9 +73,6 @@ msgstr "Mot de passe du client réseau"
 msgid "Netclient user name"
 msgstr "Nom d'utilisateur Netclient"
 
-msgid "Netclient username"
-msgstr "Nom d'utilisateur du client réseau"
-
 msgid "PID"
 msgstr "PID"
 
@@ -99,9 +90,6 @@ msgstr "Surveillance à distance"
 
 msgid "Service disabled"
 msgstr "Service inactif"
-
-msgid "Settings"
-msgstr "Paramètres"
 
 msgid "Shutdown mode"
 msgstr "Mode d'arrêt"
@@ -152,12 +140,6 @@ msgstr "Utilisé pour l'identification à distance."
 
 msgid "User name"
 msgstr "Nom d'utilisateur"
-
-msgid "Username"
-msgstr "Utilisateur"
-
-msgid "Variables"
-msgstr "Variables"
 
 msgid "Voltage"
 msgstr "Tension"

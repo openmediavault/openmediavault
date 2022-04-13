@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2022\n"
 "Language-Team: Korean (Korea) (https://www.transifex.com/openmediavault/teams/14254/ko_KR/)\n"
@@ -21,9 +21,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "Allow new files"
-msgstr "새 파일을 허용합니다."
 
 msgid "Allow new files to be created."
 msgstr "새로운 파일이 생성되도록 허용합니다."
@@ -39,31 +36,17 @@ msgid ""
 "retransmitted."
 msgstr "첫 번째 패킷이 재전송되기 전에 마이크로초 단위의 기본 만료 시간을 정합니다,"
 
-msgid "Enable"
-msgstr "활성화"
-
 msgid "Enabled"
 msgstr "활성화됨"
 
 msgid "Extra options"
 msgstr "추가 옵션"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "새 파일들이 허용된다면 공유된 폴더가 공개적으로 쓰기가 가능한지 확인해주시길 바랍니다."
-
 msgid "Port"
 msgstr "포트"
 
-msgid "Port to listen on."
-msgstr "청취를 위한 포트"
-
 msgid "Retry timeout"
 msgstr "재시도 시간만료"
-
-msgid "Settings"
-msgstr "설정"
 
 msgid "Shared folder"
 msgstr "공유 폴더"
@@ -75,9 +58,6 @@ msgstr "최대 허용된 블록의 크기를 지정합니다. 이 매개변수�
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "공유할 파일 위치"
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

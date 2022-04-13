@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2014,2020-2021\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -37,17 +37,11 @@ msgstr "Kapanmanın ne zaman başladığını gösterir."
 msgid "Driver configuration directives"
 msgstr "Sürücü konfigürasyon direktifleri"
 
-msgid "Enable"
-msgstr "Aç"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Lokal bağlı KGK için uzaktan izlemeyi etkinleştir."
 
 msgid "Enabled"
 msgstr "Etkin"
-
-msgid "General settings"
-msgstr "Genel ayarlar"
 
 msgid "Identifier"
 msgstr "Tanımlayıcı"
@@ -76,9 +70,6 @@ msgstr "Ağ kullanıcısı şifresi"
 msgid "Netclient user name"
 msgstr "Netclient kullanıcı adı"
 
-msgid "Netclient username"
-msgstr "Ağ kullanıcısı kullanıcı adı"
-
 msgid "PID"
 msgstr "PID"
 
@@ -96,9 +87,6 @@ msgstr "Uzaktan izleme"
 
 msgid "Service disabled"
 msgstr "Servis kapalı"
-
-msgid "Settings"
-msgstr "Ayarlar"
 
 msgid "Shutdown mode"
 msgstr "Kapanma modu"
@@ -149,12 +137,6 @@ msgstr "uzaktan doğrulama için kullanıldı."
 
 msgid "User name"
 msgstr "Kullanıcı adı"
-
-msgid "Username"
-msgstr "Kullanıcı adı"
-
-msgid "Variables"
-msgstr "Değişkenler"
 
 msgid "Voltage"
 msgstr "Voltaj"

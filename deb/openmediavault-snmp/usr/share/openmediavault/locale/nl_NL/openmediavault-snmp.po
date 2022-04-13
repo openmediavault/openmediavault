@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
 "Last-Translator: Milan Toet <milantoet@gmail.com>, 2022\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
@@ -47,17 +47,11 @@ msgstr ""
 "Contactgegevens, bijv. naam of e-mailadres van de verantwoordelijke persoon "
 "voor dit systeem."
 
-msgid "Enable"
-msgstr "Inschakelen"
-
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
 msgid "Extra options"
 msgstr "Extra opties"
-
-msgid "General settings"
-msgstr "Algemene instellingen"
 
 msgid "Host"
 msgstr "Host"
@@ -92,9 +86,6 @@ msgstr "SNMP-versie 3"
 msgid "Security level"
 msgstr "Veiligheidsniveau"
 
-msgid "Settings"
-msgstr "Instellingen"
-
 msgid "Traps"
 msgstr "Traps"
 
@@ -103,9 +94,6 @@ msgstr ""
 
 msgid "User name"
 msgstr ""
-
-msgid "Username"
-msgstr "Gebruikersnaam"
 
 msgid "Version"
 msgstr "Versie"

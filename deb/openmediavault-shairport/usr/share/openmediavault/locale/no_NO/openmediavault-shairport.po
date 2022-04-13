@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2014-06-23 16:18+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Norwegian (http://www.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -23,23 +23,14 @@ msgstr ""
 msgid "Authentication"
 msgstr "Autentisering"
 
-msgid "Enable"
-msgstr "Aktiver"
-
 msgid "Enabled"
 msgstr "Aktivert"
-
-msgid "General settings"
-msgstr "Generelle innstilling"
 
 msgid "Name"
 msgstr "Navn"
 
 msgid "Password"
 msgstr "Passord"
-
-msgid "Settings"
-msgstr "Instillinger"
 
 msgid "Shairport"
 msgstr ""

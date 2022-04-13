@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
@@ -25,14 +25,8 @@ msgstr "Requírese un contrasinal para acceder á biblioteca."
 msgid "Authentication"
 msgstr "Autenticación"
 
-msgid "Enable"
-msgstr "Activar"
-
 msgid "Enabled"
 msgstr "Activado"
-
-msgid "General settings"
-msgstr "Axustes xerais"
 
 msgid "Library name"
 msgstr "Nome da biblioteca"
@@ -45,9 +39,6 @@ msgstr "Porto"
 
 msgid "Port to listen on."
 msgstr "Porto a empregar."
-
-msgid "Settings"
-msgstr "Axustes"
 
 msgid "Shared folder"
 msgstr "Cartafol compartido"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2021-2022\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -20,9 +20,6 @@ msgstr ""
 "Language: ca_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add backup job"
-msgstr "Afegir una tasca de  còpia de seguretat"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -30,9 +27,6 @@ msgstr "S'envia un missatge a l'administrador amb la sortida de la comanda (si n
 
 msgid "Archive"
 msgstr "Fitxer"
-
-msgid "Backup jobs"
-msgstr "Tasques de  còpia de seguretat"
 
 msgid "Comment"
 msgstr "Comentari"
@@ -58,17 +52,8 @@ msgstr "Esborrar els fitxers de la banda receptora que no existeixin en la banda
 msgid "Device"
 msgstr "Dispositiu"
 
-msgid "Done ..."
-msgstr "Fet ..."
-
 msgid "Edit"
 msgstr "Edita"
-
-msgid "Edit backup job"
-msgstr "Editar tasca de  còpia de seguretat"
-
-msgid "Enable"
-msgstr "Habilitar"
 
 msgid "Enable archive mode."
 msgstr "Habilitar mode fitxer"
@@ -81,13 +66,7 @@ msgstr "Habilita aquesta opció per a mantenir els fitxers parcialment transferi
 msgid "Enabled"
 msgstr "Habilitat"
 
-msgid "Execute backup job"
-msgstr "Executar tasca de  còpia de seguretat"
-
 msgid "External Storage Device"
-msgstr "Dispositiu d'emmagatzematge extern"
-
-msgid "External storage device"
 msgstr "Dispositiu d'emmagatzematge extern"
 
 msgid "Extra options"
@@ -109,12 +88,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Per a la resta de detalls visiteu la <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>pàgina del manual</a>."
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "Recorda que la interfície web quedarà bloquejada fins que l'actual  còpia de seguretat manual finalitzi. Recorda també que si la còpia de seguretat s'inicia automàticament, serà executat en segon pla quan el dispositiu d'emmagatzematge estigui connectat al host."
 
 msgid "Preserve ACLs"
 msgstr "Conservar ACLs"
@@ -149,14 +122,8 @@ msgstr "Executar"
 msgid "Run backup job"
 msgstr "Executar tasca de còpia de seguretat"
 
-msgid "Scan"
-msgstr "Escanejar"
-
 msgid "Select a device ..."
 msgstr "Selecciona un dispositiu ..."
-
-msgid "Send command output via email."
-msgstr "Enviar la sortida de la comanda per e-mail"
 
 msgid "Send email"
 msgstr "Enviar e-mail"
@@ -182,12 +149,6 @@ msgstr "Suprimeix missatges que no siguin d'error"
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "Sincronitzar des del/cap al directori del dispositiu extern."
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "Sincronitzar des del/cap al directori del dispositiu extern."
-
-msgid "The external storage device."
-msgstr "El dispositiu d'emmagatzematge extern"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

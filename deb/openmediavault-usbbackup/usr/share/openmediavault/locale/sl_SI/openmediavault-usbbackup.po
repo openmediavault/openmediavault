@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -18,9 +18,6 @@ msgstr ""
 "Language: sl_SI\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
-msgid "Add backup job"
-msgstr "Dodaj opravilo varnostnega kopiranja."
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -28,9 +25,6 @@ msgstr "Elektronsko sporočilo z rezultatom ukaza (v kolikor obstaja) je poslan 
 
 msgid "Archive"
 msgstr "Arhiviraj"
-
-msgid "Backup jobs"
-msgstr "Opravila varnostnega arhiviranja"
 
 msgid "Comment"
 msgstr "Komentar"
@@ -56,17 +50,8 @@ msgstr "Izbriši datoteke, ki obstajajo na strani naslovnika in ne obstajajo na 
 msgid "Device"
 msgstr "Naprava"
 
-msgid "Done ..."
-msgstr "Končano..."
-
 msgid "Edit"
 msgstr "Uredi"
-
-msgid "Edit backup job"
-msgstr "Uredi opravil ovarnostnega kopiranja"
-
-msgid "Enable"
-msgstr "Omogoči"
 
 msgid "Enable archive mode."
 msgstr "Omogoči način arhiviranja."
@@ -79,14 +64,8 @@ msgstr "Omogočite to možnost, da shranite delno prenesene datoteke, sicer bodo
 msgid "Enabled"
 msgstr "Omogočeno"
 
-msgid "Execute backup job"
-msgstr "Izvedi opravilo varnostnega kopiranja"
-
 msgid "External Storage Device"
 msgstr ""
-
-msgid "External storage device"
-msgstr "Zunanja naprava za shranjevanje"
 
 msgid "Extra options"
 msgstr "Dodatne nastavitve"
@@ -107,12 +86,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Prosimo oglejte si <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>stran v priročniku</a> za več informacij."
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "Upoštevajte, da je spletni vmesnik blokiran, dokler ročno zagnano varnostno kopiranje ni končano. Varnostno kopiranje se samodejno izvede v ozadju, ko je pomnilniška naprava povezana z gostiteljem."
 
 msgid "Preserve ACLs"
 msgstr "Ohrani ACL-je"
@@ -147,14 +120,8 @@ msgstr "Zaženi"
 msgid "Run backup job"
 msgstr ""
 
-msgid "Scan"
-msgstr "Išči"
-
 msgid "Select a device ..."
 msgstr "Izberi napravo ..."
-
-msgid "Send command output via email."
-msgstr "Pošlji rezultat ukaza preko elektronske pošte"
 
 msgid "Send email"
 msgstr "Pošlji elektronsko sporočilo"
@@ -180,12 +147,6 @@ msgstr "Ne prikaži sporočil, ki niso napake."
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr ""
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "Sinhronizirajte iz/v mapo na zunanji pomnilniški napravi."
-
-msgid "The external storage device."
-msgstr "Zunanja naprava za shranjevanje"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

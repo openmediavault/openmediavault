@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-usbbackup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Add backup job"
-msgstr ""
-
 msgid "An email message with the command output (if any produced) is send to the administrator."
 msgstr ""
 
 msgid "Archive"
-msgstr ""
-
-msgid "Backup jobs"
 msgstr ""
 
 msgid "Comment"
@@ -53,16 +47,7 @@ msgstr ""
 msgid "Device"
 msgstr ""
 
-msgid "Done ..."
-msgstr ""
-
 msgid "Edit"
-msgstr ""
-
-msgid "Edit backup job"
-msgstr ""
-
-msgid "Enable"
 msgstr ""
 
 msgid "Enable archive mode."
@@ -74,13 +59,7 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-msgid "Execute backup job"
-msgstr ""
-
 msgid "External Storage Device"
-msgstr ""
-
-msgid "External storage device"
 msgstr ""
 
 msgid "Extra options"
@@ -99,9 +78,6 @@ msgid "Mode"
 msgstr ""
 
 msgid "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> for more details."
-msgstr ""
-
-msgid "Please note that the web interface is blocked until the manually started backup job has been finished. However the backup job is automatically executed in the background when the storage device is connected to the host."
 msgstr ""
 
 msgid "Preserve ACLs"
@@ -137,13 +113,7 @@ msgstr ""
 msgid "Run backup job"
 msgstr ""
 
-msgid "Scan"
-msgstr ""
-
 msgid "Select a device ..."
-msgstr ""
-
-msgid "Send command output via email."
 msgstr ""
 
 msgid "Send email"
@@ -165,12 +135,6 @@ msgid "Suppress non-error messages."
 msgstr ""
 
 msgid "Synchronise from/to directory on external storage device"
-msgstr ""
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr ""
-
-msgid "The external storage device."
 msgstr ""
 
 msgid "The external storage device. Please make sure that the device has only one file system."

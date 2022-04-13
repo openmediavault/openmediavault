@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -37,17 +37,11 @@ msgstr "Definira čas začetka zaustavitve sistema."
 msgid "Driver configuration directives"
 msgstr "Navodila za konfiguracijo gonilnikov"
 
-msgid "Enable"
-msgstr "Omogoči"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Omogoči oddaljen nadzor lokalno priklopljenih UPS naprav."
 
 msgid "Enabled"
 msgstr "Omogočeno"
-
-msgid "General settings"
-msgstr "Splošne nastavitve"
 
 msgid "Identifier"
 msgstr "Identifikator"
@@ -76,9 +70,6 @@ msgstr ""
 msgid "Netclient user name"
 msgstr ""
 
-msgid "Netclient username"
-msgstr ""
-
 msgid "PID"
 msgstr "PID"
 
@@ -96,9 +87,6 @@ msgstr "Oddaljen nadzor"
 
 msgid "Service disabled"
 msgstr "Storitev je onemogočena"
-
-msgid "Settings"
-msgstr "Nastavitve"
 
 msgid "Shutdown mode"
 msgstr "Način zaustavitve"
@@ -149,12 +137,6 @@ msgstr "Uporabljeno za oddaljeno avtentikacijo."
 
 msgid "User name"
 msgstr ""
-
-msgid "Username"
-msgstr "Uporabniško ime"
-
-msgid "Variables"
-msgstr "Spremenljivke"
 
 msgid "Voltage"
 msgstr "Napetost"

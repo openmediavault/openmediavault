@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-03 23:46+0200\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2022\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -267,7 +267,7 @@ msgstr "Λειτουργεία ως διακομιστής WINS"
 
 msgid ""
 "Acting as a WINS server and using a WINS server are mutually exclusive."
-msgstr ""
+msgstr "Η λειτουργία ως διακομιστής WINS και η χρήση κάποιου άλλου διακομιστή WINS είναι αμοιβαία εξαιρούμενα."
 
 msgid "Action"
 msgstr "Ενέργεια"
@@ -321,7 +321,7 @@ msgid "All"
 msgstr "Όλα"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
-msgstr ""
+msgstr "Θα αναβαθμιστούν όλα τα πακέτα. Συνέχεια;"
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -387,7 +387,7 @@ msgid "April"
 msgstr "Απρίλιος"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Αρχιτεκτονική"
 
 msgid "Archive mode"
 msgstr "Κατάσταση αρχειοθέτησης"
@@ -3245,7 +3245,7 @@ msgid "The data has been copied to the clipboard."
 msgstr "Τα δεδομένα μεταφέρθηκαν στο πρόχειρο."
 
 msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
-msgstr ""
+msgstr "Η εξ'ορισμού θύρα του ταχυδρομικού διακομιστή SMTP, π.χ. 25, 465 ή 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3827,7 +3827,7 @@ msgid "Updated settings."
 msgstr "Ενημέρωση ρυθμίσεων."
 
 msgid "Updated shared folder."
-msgstr ""
+msgstr "Ενημέρωση κοινόχρηστου φακέλου."
 
 msgid "Updated update management settings."
 msgstr "Ενημέρωση ρυθμίσεων διαχείρισης ενημερώσεων."

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2022\n"
 "Language-Team: Slovenian (Slovenia) (https://www.transifex.com/openmediavault/teams/14254/sl_SI/)\n"
@@ -46,17 +46,11 @@ msgstr ""
 "Kontaktne informacije npr. ime ali elektronski naslov osebe, ki je odgovorna"
 " za ta sistem."
 
-msgid "Enable"
-msgstr "Omogoči"
-
 msgid "Enabled"
 msgstr "Omogočeno"
 
 msgid "Extra options"
 msgstr "Dodatne možnosti"
-
-msgid "General settings"
-msgstr "Splošne nastavitve"
 
 msgid "Host"
 msgstr "Gostitelj"
@@ -91,9 +85,6 @@ msgstr "SNMP različica 3"
 msgid "Security level"
 msgstr "Raven varnosti"
 
-msgid "Settings"
-msgstr "Nastavitve"
-
 msgid "Traps"
 msgstr "Pasti"
 
@@ -102,9 +93,6 @@ msgstr ""
 
 msgid "User name"
 msgstr ""
-
-msgid "Username"
-msgstr "Uporabniško ime"
 
 msgid "Version"
 msgstr "Različica"

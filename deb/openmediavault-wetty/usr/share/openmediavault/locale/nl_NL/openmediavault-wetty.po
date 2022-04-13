@@ -4,8 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Tim <co_ti@hotmail.com>, 2022
 # Volker Theile <votdev@gmx.de>, 2022
+# Tim <co_ti@hotmail.com>, 2022
 # Milan Toet <milantoet@gmail.com>, 2022
 # 
 #, fuzzy
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wetty\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Milan Toet <milantoet@gmail.com>, 2022\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
@@ -29,17 +29,8 @@ msgstr "Certificaat"
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
-msgid "Library name"
-msgstr "Bibliotheek naam"
-
 msgid "Open UI"
 msgstr ""
-
-msgid "OwnTone"
-msgstr ""
-
-msgid "Password"
-msgstr "Wachtwoord"
 
 msgid "Port"
 msgstr "Poort"
@@ -47,37 +38,11 @@ msgstr "Poort"
 msgid "Port to listen on."
 msgstr "Poort om te beluisteren."
 
-msgid "Shared folder"
-msgstr "Gedeelde map"
-
-msgid "The 'admin' password to access the web interface."
-msgstr ""
-
 msgid "The SSL certificate."
 msgstr "Het SSL-certificaat"
-
-msgid "The location of the media files to share."
-msgstr "De locatie van de mediabestanden om te delen."
-
-msgid ""
-"The location of the media files to share. Make sure the user "
-"<em>owntone</em> or group <em>users</em> can access the files."
-msgstr ""
-
-msgid "The name of the library as displayed by the clients."
-msgstr "De naam van de bibliotheek zoals deze aan gebruikers wordt getoond."
-
-msgid "The password to access the library."
-msgstr ""
-
-msgid "Updated OwnTone settings."
-msgstr ""
 
 msgid "Updated WeTTY settings."
 msgstr ""
 
 msgid "WeTTY"
-msgstr ""
-
-msgid "Web interface"
 msgstr ""

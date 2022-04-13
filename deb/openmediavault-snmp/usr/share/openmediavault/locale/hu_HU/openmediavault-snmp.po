@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2021\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
@@ -48,17 +48,11 @@ msgstr ""
 "Kapcsolatinformáció, pl. a rendszerért felelős személy neve vagy e-mail "
 "címe."
 
-msgid "Enable"
-msgstr "Engedélyezés"
-
 msgid "Enabled"
 msgstr "Engedélyezve"
 
 msgid "Extra options"
 msgstr "Extra beállítások"
-
-msgid "General settings"
-msgstr "Általános beállítások"
 
 msgid "Host"
 msgstr "Gép"
@@ -93,9 +87,6 @@ msgstr "SNMP v. 3"
 msgid "Security level"
 msgstr "Biztonsági szint"
 
-msgid "Settings"
-msgstr "Beállítások"
-
 msgid "Traps"
 msgstr "Csapdák"
 
@@ -104,9 +95,6 @@ msgstr "SNMP beállításai frissítve."
 
 msgid "User name"
 msgstr "Felhasználói név"
-
-msgid "Username"
-msgstr "Felhasználónév"
 
 msgid "Version"
 msgstr "Verzió"

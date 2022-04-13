@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2022\n"
 "Language-Team: Polish (Poland) (https://www.transifex.com/openmediavault/teams/14254/pl_PL/)\n"
@@ -21,9 +21,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
-
-msgid "Allow new files"
-msgstr "Zezwalaj na nowe pliki"
 
 msgid "Allow new files to be created."
 msgstr "Pozwala tworzyć nowe pliki"
@@ -42,33 +39,17 @@ msgstr ""
 "Określa domyślny limit czasu, w mikrosekundach, zanim pierwszy pakiet będzie"
 " ponownie wysłany."
 
-msgid "Enable"
-msgstr "Włącz"
-
 msgid "Enabled"
 msgstr "Właczony"
 
 msgid "Extra options"
 msgstr "Dodatkowe opcje"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-"Upewnij się, że folder udostępniony publicznie są do zapisu jeśli nowe pliki"
-" są dozwolone."
-
 msgid "Port"
 msgstr "Port"
 
-msgid "Port to listen on."
-msgstr "Port nasłuchiwania."
-
 msgid "Retry timeout"
 msgstr "Limit czasu powtórzeń"
-
-msgid "Settings"
-msgstr "Konfiguracja"
 
 msgid "Shared folder"
 msgstr "Katalog współdzielony"
@@ -82,9 +63,6 @@ msgstr ""
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "Lokalizacja plików do współdzielenia."
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

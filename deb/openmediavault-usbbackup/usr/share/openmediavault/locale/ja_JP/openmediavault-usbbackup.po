@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2019,2021-2022\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -18,9 +18,6 @@ msgstr ""
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Add backup job"
-msgstr "バックアップジョブの追加"
-
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
@@ -28,9 +25,6 @@ msgstr "コマンドの出力（もしあれば）が電子メールで管理者
 
 msgid "Archive"
 msgstr "アーカイブ"
-
-msgid "Backup jobs"
-msgstr "バックアップジョブ"
 
 msgid "Comment"
 msgstr "コメント"
@@ -56,17 +50,8 @@ msgstr "送信側に存在しないファイルは受信側で削除されます
 msgid "Device"
 msgstr "デバイス"
 
-msgid "Done ..."
-msgstr "完了 ..."
-
 msgid "Edit"
 msgstr "編集"
-
-msgid "Edit backup job"
-msgstr "バックアップジョブの編集"
-
-msgid "Enable"
-msgstr "有効"
 
 msgid "Enable archive mode."
 msgstr "アーカイブモードを有効化。"
@@ -79,13 +64,7 @@ msgstr "部分的に転送されたファイルを保持するにはこのオプ
 msgid "Enabled"
 msgstr "有効化済み"
 
-msgid "Execute backup job"
-msgstr "バックアップジョブの実行"
-
 msgid "External Storage Device"
-msgstr "外部ストレージデバイス"
-
-msgid "External storage device"
 msgstr "外部ストレージデバイス"
 
 msgid "Extra options"
@@ -107,12 +86,6 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "詳細は <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>マニュアルページ</a> を参照してください。"
-
-msgid ""
-"Please note that the web interface is blocked until the manually started "
-"backup job has been finished. However the backup job is automatically "
-"executed in the background when the storage device is connected to the host."
-msgstr "手動で起動したバックアップジョブが終了するまで、Webインターフェイスがブロックされることに注意してください。ただし、ストレージデバイスがホストに接続されている場合、バックアップジョブは自動的にバックグラウンドで実行されます。"
 
 msgid "Preserve ACLs"
 msgstr "ACLを維持する"
@@ -147,14 +120,8 @@ msgstr "実行"
 msgid "Run backup job"
 msgstr "バックアップジョブの実行"
 
-msgid "Scan"
-msgstr "スキャン"
-
 msgid "Select a device ..."
 msgstr "デバイスを選択 ..."
-
-msgid "Send command output via email."
-msgstr "電子メールを介してコマンドの出力を送信します。"
 
 msgid "Send email"
 msgstr "電子メールの送信"
@@ -180,12 +147,6 @@ msgstr "エラー以外のメッセージを抑制します。"
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "外部ストレージデバイス上のディレクトリから（またはディレクトリへ）同期します。"
-
-msgid "Synchronise from/to directory on external storage device."
-msgstr "外部ストレージデバイス上のディレクトリから（またはディレクトリへ）同期します。"
-
-msgid "The external storage device."
-msgstr "外部ストレージデバイス。"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

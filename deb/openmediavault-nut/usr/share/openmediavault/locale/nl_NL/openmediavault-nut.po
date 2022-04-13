@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Varkentjes, 2020\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -39,17 +39,11 @@ msgstr "Bepaalt wanneer het afsluiten van het systeem wordt gestart."
 msgid "Driver configuration directives"
 msgstr "Stuurprogramma configuratieregels"
 
-msgid "Enable"
-msgstr "Inschakelen"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Het op afstand observeren van de lokaal aangesloten UPS inschakelen."
 
 msgid "Enabled"
 msgstr "Ingeschakeld"
-
-msgid "General settings"
-msgstr "Algemene instellingen"
 
 msgid "Identifier"
 msgstr "Identificatie"
@@ -78,9 +72,6 @@ msgstr "Netclient wachtwoord"
 msgid "Netclient user name"
 msgstr ""
 
-msgid "Netclient username"
-msgstr "Netclient gebruikersnaam"
-
 msgid "PID"
 msgstr "PID"
 
@@ -98,9 +89,6 @@ msgstr "Op afstand observeren"
 
 msgid "Service disabled"
 msgstr "Dienst uitgeschakeld"
-
-msgid "Settings"
-msgstr "Instellingen"
 
 msgid "Shutdown mode"
 msgstr "Uitschakelmodus"
@@ -151,12 +139,6 @@ msgstr "Gebruikt voor authenticatie op afstand"
 
 msgid "User name"
 msgstr ""
-
-msgid "Username"
-msgstr "Gebruikersnaam"
-
-msgid "Variables"
-msgstr "Variabelen"
 
 msgid "Voltage"
 msgstr "Spanning"

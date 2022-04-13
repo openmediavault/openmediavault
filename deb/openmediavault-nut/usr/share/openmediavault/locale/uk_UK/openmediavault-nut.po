@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: zubr139, 2013,2015,2021\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -37,17 +37,11 @@ msgstr "Визначає, коли, почнеться відключення."
 msgid "Driver configuration directives"
 msgstr "Директиви конфігурації драйверів"
 
-msgid "Enable"
-msgstr "Увімкнути"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Увімкнути віддалений моніторинг локально підєднаного ДБЖ."
 
 msgid "Enabled"
 msgstr "Увімкнено"
-
-msgid "General settings"
-msgstr "Загальні налаштування"
 
 msgid "Identifier"
 msgstr "Ідентифікатор"
@@ -76,9 +70,6 @@ msgstr "Пароль Netclient"
 msgid "Netclient user name"
 msgstr "Ім'я користувача Netclient"
 
-msgid "Netclient username"
-msgstr "Ім'я користувача Netclient"
-
 msgid "PID"
 msgstr "PID"
 
@@ -96,9 +87,6 @@ msgstr "Віддалений моніторинг"
 
 msgid "Service disabled"
 msgstr "Служба вимкнення"
-
-msgid "Settings"
-msgstr "Налаштування"
 
 msgid "Shutdown mode"
 msgstr "Режим вимкнення"
@@ -149,12 +137,6 @@ msgstr "Використовується для віддаленої аутен�
 
 msgid "User name"
 msgstr "Ім'я користувача"
-
-msgid "Username"
-msgstr "Ім'я користувача"
-
-msgid "Variables"
-msgstr "Змінні"
 
 msgid "Voltage"
 msgstr "Напруга"

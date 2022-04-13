@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Kostas Moho, 2012-2013,2021\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -24,14 +24,8 @@ msgstr "Απαιτείται κωδικός για την πρόσβαση στ�
 msgid "Authentication"
 msgstr "Πιστοποίηση"
 
-msgid "Enable"
-msgstr "Ενεργοποίηση"
-
 msgid "Enabled"
 msgstr "Ενεργό"
-
-msgid "General settings"
-msgstr "Γενικές ρυθμίσεις"
 
 msgid "Library name"
 msgstr "Όνομα βιβλιοθήκης"
@@ -44,9 +38,6 @@ msgstr "Θύρα"
 
 msgid "Port to listen on."
 msgstr "Θύρα για ακρόαση."
-
-msgid "Settings"
-msgstr "Ρυθμίσεις"
 
 msgid "Shared folder"
 msgstr "Κοινόχρηστος φάκελος"

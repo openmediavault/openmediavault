@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2021\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -25,14 +25,8 @@ msgstr "Cal una contrasenya per accedir a la llibreria."
 msgid "Authentication"
 msgstr "Autenticació"
 
-msgid "Enable"
-msgstr "Activar"
-
 msgid "Enabled"
 msgstr "Activat"
-
-msgid "General settings"
-msgstr "Ajustos generals"
 
 msgid "Library name"
 msgstr "Nom de la llibreria"
@@ -45,9 +39,6 @@ msgstr "Port"
 
 msgid "Port to listen on."
 msgstr "Port que s'escolta"
-
-msgid "Settings"
-msgstr "Opcions"
 
 msgid "Shared folder"
 msgstr "Carpeta compartida"

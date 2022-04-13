@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2014,2021\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -25,14 +25,8 @@ msgstr "需要密碼才能存取該媒體庫。"
 msgid "Authentication"
 msgstr "驗證"
 
-msgid "Enable"
-msgstr "啟用"
-
 msgid "Enabled"
 msgstr "已啟用"
-
-msgid "General settings"
-msgstr "一般設定"
 
 msgid "Library name"
 msgstr "媒體庫名稱"
@@ -45,9 +39,6 @@ msgstr "通訊埠"
 
 msgid "Port to listen on."
 msgstr "所監聽的通訊埠。"
-
-msgid "Settings"
-msgstr "設定"
 
 msgid "Shared folder"
 msgstr "共享檔案夾"

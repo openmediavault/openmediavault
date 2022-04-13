@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wetty\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2022\n"
 "Language-Team: Japanese (Japan) (https://www.transifex.com/openmediavault/teams/14254/ja_JP/)\n"
@@ -28,17 +28,8 @@ msgstr "証明書"
 msgid "Enabled"
 msgstr "有効"
 
-msgid "Library name"
-msgstr "ライブラリ名"
-
 msgid "Open UI"
 msgstr ""
-
-msgid "OwnTone"
-msgstr ""
-
-msgid "Password"
-msgstr "パスワード"
 
 msgid "Port"
 msgstr "ポート"
@@ -46,37 +37,11 @@ msgstr "ポート"
 msgid "Port to listen on."
 msgstr "待ちうけポート"
 
-msgid "Shared folder"
-msgstr "共有フォルダ"
-
-msgid "The 'admin' password to access the web interface."
-msgstr ""
-
 msgid "The SSL certificate."
 msgstr "SSL証明書。"
-
-msgid "The location of the media files to share."
-msgstr "共有するメディアファイルの場所。"
-
-msgid ""
-"The location of the media files to share. Make sure the user "
-"<em>owntone</em> or group <em>users</em> can access the files."
-msgstr ""
-
-msgid "The name of the library as displayed by the clients."
-msgstr "クライアントに表示されるライブラリ名。"
-
-msgid "The password to access the library."
-msgstr ""
-
-msgid "Updated OwnTone settings."
-msgstr ""
 
 msgid "Updated WeTTY settings."
 msgstr ""
 
 msgid "WeTTY"
-msgstr ""
-
-msgid "Web interface"
 msgstr ""

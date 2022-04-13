@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-03 23:46+0200\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2022\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -270,7 +270,7 @@ msgstr "Fungera som en WINS-server."
 
 msgid ""
 "Acting as a WINS server and using a WINS server are mutually exclusive."
-msgstr ""
+msgstr "Att agera som WINS-server och använda en WINS-server utesluter varandra."
 
 msgid "Action"
 msgstr "Åtgärd"
@@ -324,7 +324,7 @@ msgid "All"
 msgstr "Alla"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
-msgstr ""
+msgstr "Alla paket kommer att uppgraderas. Vill du fortsätta?"
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -390,7 +390,7 @@ msgid "April"
 msgstr "April"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Arkitektur"
 
 msgid "Archive mode"
 msgstr "Arkivläge"
@@ -3248,7 +3248,7 @@ msgid "The data has been copied to the clipboard."
 msgstr "Data har kopierats till urklipp."
 
 msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
-msgstr ""
+msgstr "Standardporten för SMTP-e-postserver, t.ex. 25, 465 eller 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3830,7 +3830,7 @@ msgid "Updated settings."
 msgstr "Uppdaterade inställningarna."
 
 msgid "Updated shared folder."
-msgstr ""
+msgstr "Uppdaterad delad mapp."
 
 msgid "Updated update management settings."
 msgstr "Uppdaterade inställningar för uppdateringshantering."

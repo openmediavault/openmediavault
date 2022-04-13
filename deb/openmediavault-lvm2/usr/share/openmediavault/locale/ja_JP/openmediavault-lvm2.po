@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2015,2017,2021-2022\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -21,31 +21,14 @@ msgstr ""
 msgid "Active"
 msgstr "アクティブ"
 
-msgid "Add physical volume"
-msgstr "物理ボリュームの追加"
-
-msgid ""
-"After the logical volume has been extended you can resize the containing "
-"filesystem."
-msgstr "論理ボリュームが拡張された後、ファイルシステムをリサイズできます。"
-
 msgid "Available"
 msgstr "利用可能"
 
 msgid "Capacity"
 msgstr "容量"
 
-msgid "Confirmation"
-msgstr "確認"
-
 msgid "Create"
 msgstr "作成"
-
-msgid "Create logical volume"
-msgstr "論理ボリュームの作成"
-
-msgid "Create volume group"
-msgstr "ボリュームグループの作成"
 
 msgid "Created logical volume '{{ name }}'."
 msgstr "論理ボリューム '{{ name }}' を作成しました。"
@@ -59,9 +42,6 @@ msgstr "論理ボリューム '{{ devicefile }}' のスナップショットを�
 msgid "Created volume group '{{ name }}'."
 msgstr "ボリュームグループ '{{ name }}' を作成しました。"
 
-msgid "Description"
-msgstr "説明"
-
 msgid "Device"
 msgstr "デバイス"
 
@@ -71,35 +51,14 @@ msgstr "デバイス"
 msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
 msgstr "'{{devicefile}}'に物理ボリュームを作成しますか？"
 
-msgid "Do you really want to create the logical volume?"
-msgstr "論理ボリュームを作成してもよろしいですか？"
-
-msgid "Do you really want to create the physical volume?"
-msgstr "物理ボリュームを作成してもよろしいですか？"
-
-msgid "Do you really want to create the volume group?"
-msgstr "ボリュームグループを作成してもよろしいですか？"
-
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "選択した物理ボリュームをリサイズしてもよろしいですか？"
 
 msgid "Edit"
 msgstr "編集"
 
-msgid "Edit logical volume"
-msgstr "論理ボリュームの編集"
-
-msgid "Edit volume group"
-msgstr "ボリュームグループの編集"
-
 msgid "Extend"
 msgstr "拡張"
-
-msgid "Extend logical volume"
-msgstr "論理ボリュームの拡張"
-
-msgid "Extend volume group"
-msgstr "ボリュームグループの拡張"
 
 msgid "Extended logical volume '{{ devicefile }}'."
 msgstr "拡張論理ボリューム '{{devicefile}}'。"
@@ -119,29 +78,14 @@ msgstr "論理ボリュームの管理(LVM)"
 msgid "Logical Volumes"
 msgstr "論理ボリューム"
 
-msgid "Logical volumes"
-msgstr "論理ボリューム"
-
 msgid "Name"
 msgstr "名前"
-
-msgid "No free space available to create a logical volume."
-msgstr "論理ボリュームを作成するために利用可能な空きスペースがありません。"
-
-msgid "No free space available to extend the logical volume."
-msgstr "論理ボリュームを拡張するために利用可能な空きスペースがありません。"
 
 msgid "Physical Volumes"
 msgstr "物理ボリューム"
 
-msgid "Physical volumes"
-msgstr "物理ボリューム"
-
 msgid "Reduce"
 msgstr "縮小"
-
-msgid "Reduce volume group"
-msgstr "ボリュームグループの縮小"
 
 msgid "Reduced volume group '{{ devicefile }}'."
 msgstr "削減されたボリュームグループ '{{devicefile}}'。"
@@ -154,9 +98,6 @@ msgstr "デバイスを選択 ..."
 
 msgid "Select a volume group ..."
 msgstr "ボリュームグループの選択 ..."
-
-msgid "Select an device ..."
-msgstr "デバイスの選択 ..."
 
 msgid "Select devices ..."
 msgstr "デバイスを選択 ..."
@@ -205,7 +146,4 @@ msgid "Volume Groups"
 msgstr "ボリュームグループ"
 
 msgid "Volume group"
-msgstr "ボリュームグループ"
-
-msgid "Volume groups"
 msgstr "ボリュームグループ"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2022\n"
 "Language-Team: Bulgarian (Bulgaria) (https://www.transifex.com/openmediavault/teams/14254/bg_BG/)\n"
@@ -20,9 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Allow new files"
-msgstr "Позволи нови файлове"
 
 msgid "Allow new files to be created."
 msgstr "Позволи създаването на нови файлове."
@@ -41,33 +38,17 @@ msgstr ""
 "Определете времето за изчакване по подразбиране, в микросекунди, преди "
 "препредаването на първия пакет."
 
-msgid "Enable"
-msgstr "Разреши"
-
 msgid "Enabled"
 msgstr "Разрешено"
 
 msgid "Extra options"
 msgstr "Допълнителни опции"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-"Моля, уверете се, че споделената папка е публично достъпна, ако са позволени"
-" нови файлове."
-
 msgid "Port"
 msgstr "Порт"
 
-msgid "Port to listen on."
-msgstr "Порт за слушане."
-
 msgid "Retry timeout"
 msgstr "Повторно изчакване"
-
-msgid "Settings"
-msgstr "Настройки"
 
 msgid "Shared folder"
 msgstr "Споделена папка"
@@ -81,9 +62,6 @@ msgstr ""
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "Местоположението на файловете за споделяне."
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

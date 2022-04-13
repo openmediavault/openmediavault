@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
 "Language-Team: Norwegian (http://www.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -25,14 +25,8 @@ msgstr "Et passord kreves for å få tilgang til databasen"
 msgid "Authentication"
 msgstr "Autentisering"
 
-msgid "Enable"
-msgstr "Aktiver"
-
 msgid "Enabled"
 msgstr "Aktivert"
-
-msgid "General settings"
-msgstr "Generelle innstillinger"
 
 msgid "Library name"
 msgstr "Biblioteksnavn"
@@ -45,9 +39,6 @@ msgstr "Port"
 
 msgid "Port to listen on."
 msgstr "Port å lytte på."
-
-msgid "Settings"
-msgstr "Innstillinger"
 
 msgid "Shared folder"
 msgstr "Delt mappe"

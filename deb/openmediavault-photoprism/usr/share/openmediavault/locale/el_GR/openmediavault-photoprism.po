@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-photoprism\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Kostas Moho, 2022\n"
 "Language-Team: Greek (Greece) (https://www.transifex.com/openmediavault/teams/14254/el_GR/)\n"
@@ -22,23 +22,14 @@ msgstr ""
 "Language: el_GR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "A password is required to access the library."
-msgstr "Απαιτείται κωδικός για την πρόσβαση στην βιβλιοθήκη."
-
 msgid "Application data"
 msgstr "Δεδομένα εφαρμογής"
 
-msgid "Authentication"
-msgstr "Πιστοποίηση"
-
-msgid "Enable"
-msgstr "Ενεργοποίηση"
+msgid "Certificate"
+msgstr "Πιστοποιητικό"
 
 msgid "Enabled"
 msgstr "Ενεργό"
-
-msgid "General settings"
-msgstr "Γενικές ρυθμίσεις"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -54,17 +45,8 @@ msgstr "Εικόνες"
 msgid "Import"
 msgstr "Εισαγωγή"
 
-msgid "Library name"
-msgstr "Όνομα βιβλιοθήκης"
-
-msgid "Note, this application does not support HTTPS."
-msgstr "Σημειωτέον, αυτή η εφαρμογή δεν υποστηρίζει HTTPS."
-
 msgid "Open UI"
 msgstr "Open UI"
-
-msgid "Password"
-msgstr "Συνθηματικό"
 
 msgid "PhotoPrism"
 msgstr "PhotoPrism"
@@ -85,17 +67,8 @@ msgstr "Θύρα για ακρόαση."
 msgid "Read-only"
 msgstr "Μόνο για ανάγνωση"
 
-msgid "Settings"
-msgstr "Ρυθμίσεις"
-
-msgid "Shared folder"
-msgstr "Κοινόχρηστος φάκελος"
-
-msgid "The location of the media files to share."
-msgstr "Η τοποθεσία των αρχείων προς διαμοιρασμό."
-
-msgid "The location of the media files."
-msgstr "Η τοποθεσία των αρχείων πολυμέσων."
+msgid "The SSL certificate."
+msgstr "Το πιστοποιητικό SSL."
 
 msgid ""
 "The location of the media files. Make sure the user <em>photoprism</em> or "
@@ -107,21 +80,8 @@ msgstr ""
 msgid "The location where to store the application data."
 msgstr "Η θέση αποθήκευσης των δεδομένων της εφαρμογής."
 
-msgid "The name of the library as displayed by the clients."
-msgstr "Τό όνομα της βιβλιοθήκης, όπως φαίνεται στους πελάτες."
-
 msgid "Updated PhotoPrism settings."
 msgstr "Ενημέρωση ρυθμίσεων PhotoPrism."
-
-msgid "Updated iTunes/DAAP settings."
-msgstr "Ενημέρωση ρυθμίσεων iTunes/DAAP."
-
-msgid ""
-"Use the <<strong>admin:photoprism</strong>> credentials when logging in for "
-"the first time. Please do not forget to change the password immediately."
-msgstr ""
-"Δώστε τα διαπιστευτήρια admin:photoprism κατά την πρώτη σύνδεση. Μην "
-"ξεχάσετε μετά να αλλάξετε αμέσως τον κωδικό."
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
@@ -129,22 +89,6 @@ msgid ""
 msgstr ""
 "Δώστε τα διαπιστευτήρια <em>admin:admin</em> κατά την πρώτη σύνδεση. Μην "
 "ξεχάσετε μετά να αλλάξετε αμέσως τον κωδικό."
-
-msgid ""
-"Use the <em>admin:photoprism</em> credentials when logging in for the first "
-"time. Please do not forget to change the password immediately."
-msgstr ""
-"Δώστε τα διαπιστευτήρια <em>admin:photoprism</em> κατά την πρώτη σύνδεση. "
-"Μην ξεχάσετε μετά να αλλάξετε αμέσως τον κωδικό."
-
-msgid ""
-"You may optionally mount an import folder from which files can be "
-"transferred to the originals folder in a structured way that avoids "
-"duplicates."
-msgstr ""
-"Μπορείτε προαιρετικά να προσαρτήσετε έναν φάκελο εισαγωγής από όπου θα "
-"μεταφέρονται αρχεία  στον πρωτότυπο φάκελο με δομημένο τρόπο που αποτρέπει "
-"τα διπλότυπα."
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
@@ -156,6 +100,3 @@ msgstr ""
 "μεταφέρονται αρχεία στον πρωτότυπο φάκελο με δομημένο τρόπο που αποτρέπει τα"
 " διπλότυπα. Βεβαιωθείτε πως ο χρήστης <em>photoprism</em> ή η ομάδα  "
 "<em>χρήστες</em> έχουν πρόσβαση στα αρχεία."
-
-msgid "iTunes/DAAP"
-msgstr "iTunes/DAAP"

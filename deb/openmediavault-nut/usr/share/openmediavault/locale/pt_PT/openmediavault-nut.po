@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2014\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
@@ -38,17 +38,11 @@ msgstr "Definir quando se inicia o desligar."
 msgid "Driver configuration directives"
 msgstr "Directivas de configuração do driver"
 
-msgid "Enable"
-msgstr "Ativo"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Permitir a monitorização remota das UPS locais ligadas."
 
 msgid "Enabled"
 msgstr "Ativar"
-
-msgid "General settings"
-msgstr "Definições Gerais"
 
 msgid "Identifier"
 msgstr "Identificador"
@@ -77,9 +71,6 @@ msgstr ""
 msgid "Netclient user name"
 msgstr ""
 
-msgid "Netclient username"
-msgstr ""
-
 msgid "PID"
 msgstr "PID"
 
@@ -97,9 +88,6 @@ msgstr "Monitorização remota"
 
 msgid "Service disabled"
 msgstr "Serviço desativo"
-
-msgid "Settings"
-msgstr "Definições"
 
 msgid "Shutdown mode"
 msgstr "Modo de encerramento"
@@ -150,12 +138,6 @@ msgstr "Utilizador para autenticação remota."
 
 msgid "User name"
 msgstr ""
-
-msgid "Username"
-msgstr "Utilizador"
-
-msgid "Variables"
-msgstr "Variáveis"
 
 msgid "Voltage"
 msgstr "Voltagem"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2013-2015,2021\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -39,17 +39,11 @@ msgstr "Definisce quando viene avviato lo spegnimento."
 msgid "Driver configuration directives"
 msgstr "Direttive di configurazione del driver"
 
-msgid "Enable"
-msgstr "Abilita"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Abilita monitoraggio remoto dell'UPS collegato localmente."
 
 msgid "Enabled"
 msgstr "Abilitato"
-
-msgid "General settings"
-msgstr "Impostazioni generali"
 
 msgid "Identifier"
 msgstr "Identificativo"
@@ -78,9 +72,6 @@ msgstr "Password Netclient"
 msgid "Netclient user name"
 msgstr "Nome utente Netclient"
 
-msgid "Netclient username"
-msgstr "Username Netclient"
-
 msgid "PID"
 msgstr "PID"
 
@@ -98,9 +89,6 @@ msgstr "Monitoraggio remoto"
 
 msgid "Service disabled"
 msgstr "Servizio disabilitato"
-
-msgid "Settings"
-msgstr "Impostazioni"
 
 msgid "Shutdown mode"
 msgstr "Modalità di spegnimento"
@@ -151,12 +139,6 @@ msgstr "Usato per autenticazione remota."
 
 msgid "User name"
 msgstr "Nome utente"
-
-msgid "Username"
-msgstr "Nome utente"
-
-msgid "Variables"
-msgstr "Variabili"
 
 msgid "Voltage"
 msgstr "Voltaggio"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2021\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
@@ -22,9 +22,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Allow new files"
-msgstr "Új fájlok engedélyezése"
 
 msgid "Allow new files to be created."
 msgstr "Új fájlok létrehozásának engedélyezése."
@@ -44,33 +41,17 @@ msgstr ""
 "Alapértelmezett időtúllépés meghatározása, mikroszekundumban, mielőtt "
 "újraküldi az első csomagot."
 
-msgid "Enable"
-msgstr "Engedélyezés"
-
 msgid "Enabled"
 msgstr "Engedélyezve"
 
 msgid "Extra options"
 msgstr "Extra opciók"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-"Győződjön meg róla, hogy a megosztott mappa nyilvánosan írható és az új "
-"fájlok engedélyezettek-e."
-
 msgid "Port"
 msgstr "Port"
 
-msgid "Port to listen on."
-msgstr "Beállítás erre a portra."
-
 msgid "Retry timeout"
 msgstr "Újbóli időtúllépés"
-
-msgid "Settings"
-msgstr "Beállítások"
 
 msgid "Shared folder"
 msgstr "Megosztott mappa"
@@ -84,9 +65,6 @@ msgstr ""
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "A megosztás fájljainak helye."
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "

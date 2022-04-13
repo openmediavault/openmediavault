@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2021\n"
 "Language-Team: Catalan (Spain) (https://www.transifex.com/openmediavault/teams/14254/ca_ES/)\n"
@@ -46,17 +46,11 @@ msgstr ""
 "Informació de contacte, p.e. nom o adreça de correu electrònic de la persona"
 " responsable d'aquest sistema."
 
-msgid "Enable"
-msgstr "Habilita"
-
 msgid "Enabled"
 msgstr "Activat"
 
 msgid "Extra options"
 msgstr "Opcions addicionals"
-
-msgid "General settings"
-msgstr "Configuració general"
 
 msgid "Host"
 msgstr "Amfitrió"
@@ -91,9 +85,6 @@ msgstr "SNMP versió 3"
 msgid "Security level"
 msgstr "Nivell de seguretat"
 
-msgid "Settings"
-msgstr "Configuració"
-
 msgid "Traps"
 msgstr "Trampes"
 
@@ -101,9 +92,6 @@ msgid "Updated SNMP settings."
 msgstr "Configuració SNMP actualitzada."
 
 msgid "User name"
-msgstr "Nom d'usuari"
-
-msgid "Username"
 msgstr "Nom d'usuari"
 
 msgid "Version"

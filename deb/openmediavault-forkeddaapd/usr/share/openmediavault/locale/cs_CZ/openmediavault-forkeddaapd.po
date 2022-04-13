@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2016,2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -25,14 +25,8 @@ msgstr "Pro přístup do této knihovny je vyžadováno heslo."
 msgid "Authentication"
 msgstr "Ověřování"
 
-msgid "Enable"
-msgstr "Zapnout"
-
 msgid "Enabled"
 msgstr "Zapnuto"
-
-msgid "General settings"
-msgstr "Obecná nastavení"
 
 msgid "Library name"
 msgstr "Název knihovny"
@@ -45,9 +39,6 @@ msgstr "Port"
 
 msgid "Port to listen on."
 msgstr "Port na kterém očekávat spojení."
-
-msgid "Settings"
-msgstr "Nastavení"
 
 msgid "Shared folder"
 msgstr "Sdílená složka"

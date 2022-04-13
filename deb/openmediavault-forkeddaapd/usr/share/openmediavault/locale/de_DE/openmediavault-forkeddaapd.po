@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2014,2021\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -26,14 +26,8 @@ msgstr "Für den Zugriff auf diese Bibliothek wird ein Passwort benötigt."
 msgid "Authentication"
 msgstr "Authentifizierung"
 
-msgid "Enable"
-msgstr "Aktivieren"
-
 msgid "Enabled"
 msgstr "Aktiviert"
-
-msgid "General settings"
-msgstr "Allgemeine Einstellungen"
 
 msgid "Library name"
 msgstr "Bibliotheksname"
@@ -46,9 +40,6 @@ msgstr "Port"
 
 msgid "Port to listen on."
 msgstr "Port auf welchem der Server lauscht."
-
-msgid "Settings"
-msgstr "Einstellungen"
 
 msgid "Shared folder"
 msgstr "Freigegebener Ordner"

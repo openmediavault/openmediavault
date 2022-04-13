@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-tftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:32+0100\n"
+"POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2022\n"
 "Language-Team: Swedish (https://www.transifex.com/openmediavault/teams/14254/sv/)\n"
@@ -22,9 +22,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Allow new files"
-msgstr "Tillåt nya filer"
 
 msgid "Allow new files to be created."
 msgstr "Tillåt att nya filer skapas."
@@ -42,33 +39,17 @@ msgstr ""
 "Bestäm standard-timeout, i mikrosekunder, innan det första paketet är "
 "återsänt."
 
-msgid "Enable"
-msgstr "Aktivera"
-
 msgid "Enabled"
 msgstr "Aktiverad"
 
 msgid "Extra options"
 msgstr "Extra alternativ"
 
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-"Se till att den delade mappen är offentligt skrivbar om nya filer är "
-"tillåtna."
-
 msgid "Port"
 msgstr "Port"
 
-msgid "Port to listen on."
-msgstr "Port att lyssna på."
-
 msgid "Retry timeout"
 msgstr "Timeout för att försöka igen"
-
-msgid "Settings"
-msgstr "Inställningar"
 
 msgid "Shared folder"
 msgstr "Delad mapp"
@@ -82,9 +63,6 @@ msgstr ""
 
 msgid "TFTP"
 msgstr "TFTP"
-
-msgid "The location of the files to share."
-msgstr "Platsen för filerna som ska delas."
 
 msgid ""
 "The location of the files to share. Please make sure that the shared folder "
