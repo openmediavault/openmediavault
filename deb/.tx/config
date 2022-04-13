@@ -8,6 +8,11 @@ file_filter = openmediavault/usr/share/openmediavault/locale/<lang>/openmediavau
 source_file = openmediavault/usr/share/openmediavault/locale/openmediavault.pot
 source_lang = en
 
+[openmediavault.openmediavault-filebrowser]
+file_filter = openmediavault-filebrowser/usr/share/openmediavault/locale/<lang>/openmediavault-filebrowser.po
+source_file = openmediavault-filebrowser/usr/share/openmediavault/locale/openmediavault-filebrowser.pot
+source_lang = en
+
 [openmediavault.openmediavault-forkeddaapd]
 file_filter = openmediavault-forkeddaapd/usr/share/openmediavault/locale/<lang>/openmediavault-forkeddaapd.po
 source_file = openmediavault-forkeddaapd/usr/share/openmediavault/locale/openmediavault-forkeddaapd.pot
