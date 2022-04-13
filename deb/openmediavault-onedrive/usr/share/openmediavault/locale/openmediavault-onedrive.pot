@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-onedrive package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-onedrive\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-13 17:13+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "After enabling and deploying this service the first time please run the command <em>omv-onedrive-auth</em> in the CLI to authenticate the application in Microsoft OneDrive."
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "OneDrive"
+msgstr ""
+
+msgid "Select an user ..."
+msgstr ""
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "The location of the media files."
+msgstr ""
+
+msgid "The user that is used to read/write the files."
+msgstr ""
+
+msgid "Updated OneDrive settings."
+msgstr ""
+
+msgid "Use the <em>admin:admin</em> credentials when logging in for the first time. Please do not forget to change the password immediately."
+msgstr ""
+
+msgid "User"
+msgstr ""

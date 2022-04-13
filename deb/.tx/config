@@ -97,3 +97,8 @@ source_lang = en
 file_filter = openmediavault-s3/usr/share/openmediavault/locale/<lang>/openmediavault-s3.po
 source_file = openmediavault-s3/usr/share/openmediavault/locale/openmediavault-s3.pot
 source_lang = en
+
+[openmediavault.openmediavault-onedrive]
+file_filter = openmediavault-onedrive/usr/share/openmediavault/locale/<lang>/openmediavault-onedrive.po
+source_file = openmediavault-onedrive/usr/share/openmediavault/locale/openmediavault-onedrive.pot
+source_lang = en

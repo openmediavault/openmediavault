@@ -1,0 +1,59 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-onedrive-form-page
+  type: formPage
+  config:
+    request:
+      service: OneDrive
+      get:
+        method: get
+      post:
+        method: set
+    fields:
+      - type: hint
+        text: _("After enabling and deploying this service the first time please run the command <em>omv-onedrive-auth</em> in the CLI to authenticate the application in Microsoft OneDrive.")
+        dismissible: true
+        stateId: c563faed-4331-493b-937d-20489be8c203
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: select
+        name: username
+        label: _("User")
+        placeholder: _("Select an user ...")
+        hint: _("The user that is used to read/write the files.")
+        value: ""
+        valueField: name
+        textField: name
+        store:
+          proxy:
+            service: UserMgmt
+            get:
+              method: enumerateUsers
+          sorters:
+            - dir: asc
+              prop: name
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+      - type: sharedFolderSelect
+        name: sharedfolderref
+        label: _("Shared folder")
+        hint: _("The location of the media files.")
+        hasEmptyOption: true
+        value: ""
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+    buttons:
+      - template: cancel
+        execute:
+          type: url
+          url: "/services"
+      - template: submit
