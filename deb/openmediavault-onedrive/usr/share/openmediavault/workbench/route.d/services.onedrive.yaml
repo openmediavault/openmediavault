@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/onedrive"
+  title: _("OneDrive")
+  editing: true
+  notificationTitle: _("Updated OneDrive settings.")
+  component: omv-services-onedrive-form-page

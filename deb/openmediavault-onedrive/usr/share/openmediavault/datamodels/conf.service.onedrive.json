@@ -1,0 +1,28 @@
+{
+	"type": "config",
+	"id": "conf.service.onedrive",
+	"title": "OneDrive",
+	"queryinfo": {
+		"xpath": "//services/onedrive",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"username": {
+			"type": "string"
+		},
+		"sharedfolderref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		}
+	}
+}

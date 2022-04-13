@@ -1,0 +1,68 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2022 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# https://github.com/abraunegg/onedrive/blob/master/docs/Docker.md
+# https://github.com/abraunegg/onedrive/blob/master/contrib/docker/entrypoint.sh
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_ONEDRIVE_APP_CONTAINER_IMAGE=${OMV_ONEDRIVE_APP_CONTAINER_IMAGE:-"docker.io/driveone/onedrive:latest"}
+OMV_ONEDRIVE_APP_CONTAINER_GNAME=${OMV_ONEDRIVE_APP_CONTAINER_GNAME:-"users"}
+
+echo "Please wait, stopping service ..."
+systemctl stop container-onedrive.service || true
+rm -f /var/cache/onedrive/refresh_token
+
+username=$(omv_config_get "/config/services/onedrive/username")
+uid=$(id --user ${username})
+gid=$(getent group ${OMV_ONEDRIVE_APP_CONTAINER_GNAME} | cut -d: -f3)
+podman run -d --rm --replace --pull=never \
+  --name=onedrive-auth --net=host \
+  -e ONEDRIVE_UID=${uid} \
+  -e ONEDRIVE_GID=${gid} \
+  -v /var/cache/onedrive/:/onedrive/conf/ \
+  ${OMV_ONEDRIVE_APP_CONTAINER_IMAGE} \
+  --confdir /onedrive/conf \
+  --auth-files "/onedrive/conf/authUrl:/onedrive/conf/responseUrl"
+
+while [ ! -f /var/cache/onedrive/authUrl ]; do
+  echo -n "."
+  sleep 1
+done
+echo "\nAuthorize this app by visiting the URI:\n"
+cat /var/cache/onedrive/authUrl
+echo "\n"
+read -p "Enter the response URI: " responseUrl
+echo ${responseUrl} > /var/cache/onedrive/responseUrl
+
+echo -n "\nPlease wait, restarting service ..."
+while [ ! -f /var/cache/onedrive/refresh_token ]; do
+  echo -n "."
+  sleep 1
+done
+echo "\n"
+systemctl restart container-onedrive.service || true
+
+exit 0

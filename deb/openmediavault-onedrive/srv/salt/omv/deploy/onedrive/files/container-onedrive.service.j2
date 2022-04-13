@@ -1,0 +1,24 @@
+{%- set image = salt['pillar.get']('default:OMV_ONEDRIVE_APP_CONTAINER_IMAGE', 'docker.io/driveone/onedrive:latest') -%}
+{%- set gname = salt['pillar.get']('default:OMV_ONEDRIVE_APP_CONTAINER_GNAME', 'users') -%}
+{%- set uid = salt['user.info'](config.username).uid -%}
+{%- set gid = salt['group.info'](gname).gid -%}
+{%- set sf_path = salt['omv_conf.get_sharedfolder_path'](config.sharedfolderref) -%}
+{{ pillar['headers']['multiline'] -}}
+[Unit]
+Description=OneDrive container
+Wants=network.target
+After=network-online.target
+
+[Service]
+Environment=PODMAN_SYSTEMD_UNIT=%n
+Restart=on-failure
+TimeoutStopSec=70
+ExecStartPre=/bin/rm -f %t/container-onedrive.pid %t/container-onedrive.ctr-id
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-onedrive.pid --cidfile %t/container-onedrive.ctr-id --cgroups=no-conmon -d --replace --pull=never --name=onedrive -e ONEDRIVE_UID={{ uid }} -e ONEDRIVE_GID={{ gid }} -e ONEDRIVE_VERBOSE=1 -v /var/cache/onedrive/:/onedrive/conf/ -v "{{ sf_path }}":/onedrive/data/ {{ image }}
+ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-onedrive.ctr-id
+ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-onedrive.ctr-id
+PIDFile=%t/container-onedrive.pid
+Type=forking
+
+[Install]
+WantedBy=multi-user.target default.target
