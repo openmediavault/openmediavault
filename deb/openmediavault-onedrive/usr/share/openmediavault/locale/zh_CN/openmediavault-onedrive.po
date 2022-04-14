@@ -6,6 +6,7 @@
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
 # LeeYang <150183966@qq.com>, 2022
+# 黃柏諺 <s8321414@gmail.com>, 2022
 # 
 #, fuzzy
 msgid ""
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-13 18:17+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
-"Last-Translator: LeeYang <150183966@qq.com>, 2022\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2022\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,12 +28,14 @@ msgid ""
 "command <em>omv-onedrive-auth</em> in the CLI to authenticate the "
 "application in Microsoft OneDrive."
 msgstr ""
+"在首次啟用並部署此服務後，請在命令列介面中執行指令 <em>omv-onedrive-auth</em> 以在 Microsoft OneDrive "
+"中驗證應用程式。"
 
 msgid "Enabled"
 msgstr "已启用"
 
 msgid "OneDrive"
-msgstr ""
+msgstr "OneDrive"
 
 msgid "Shared folder"
 msgstr "共享文件夹"
@@ -40,7 +43,7 @@ msgstr "共享文件夹"
 msgid ""
 "The location of the media files. Make sure the user <em>onedrive</em> or "
 "group <em>users</em> can access the files."
-msgstr ""
+msgstr "媒體檔案的位置。請確認使用者 <em>onedrive</em> 或群組 <em>users</em> 能夠存取那些檔案。"
 
 msgid "Updated OneDrive settings."
-msgstr ""
+msgstr "已更新 OneDrive 設定。"

@@ -20,6 +20,19 @@
 				"type": "string",
 				"maxLength": 0
 			}]
+		},
+		"replicationmode": {
+			"type": "string",
+			"enum": ["down", "up", "updown"],
+			"default": "updown"
+		},
+		"localfirst": {
+			"type": "boolean",
+			"default": false
+		},
+		"skipdotfiles": {
+			"type": "boolean",
+			"default": false
 		}
 	}
 }

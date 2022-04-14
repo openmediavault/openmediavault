@@ -44,12 +44,24 @@ create_onedrive_container_systemd_unit_file:
     - group: root
     - mode: 644
 
-setup_onedrive_conf_dir:
+setup_onedrive_config_dir:
   module.run:
     - file.chown:
       - path: "/var/cache/onedrive/"
       - user: {{ uname }}
       - group: {{ gname }}
+
+create_onedrive_config_file:
+  file.managed:
+    - name: "/var/cache/onedrive/config"
+    - source:
+      - salt://{{ tpldir }}/files/config.j2
+    - template: jinja
+    - context:
+        config: {{ config }}
+    - user: {{ uname }}
+    - group: {{ gname }}
+    - mode: 644
 
 onedrive_systemctl_daemon_reload:
   module.run:
