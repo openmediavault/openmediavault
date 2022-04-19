@@ -84,6 +84,7 @@ start_onedrive_service:
     - enable: True
     - watch:
       - file: create_onedrive_container_systemd_unit_file
+      - file: create_onedrive_config_file
 
 {% else %}
 
