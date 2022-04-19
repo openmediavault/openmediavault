@@ -1,7 +1,6 @@
 Source: openmediavault-onedrive
 Section: net
 XB-Plugin-Section: utilities
-XB-Plugin-Architecture: amd64
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>= 12), gettext
@@ -10,7 +9,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-onedrive
 Architecture: all
-Depends: openmediavault (>= 6.0.22), podman
+Depends: openmediavault (>= 6.0.22), onedrive, sudo
 Priority: optional
 Description: openmediavault OneDrive plugin
  OneDrive is the cloud storage system of Microsoft. This plugin

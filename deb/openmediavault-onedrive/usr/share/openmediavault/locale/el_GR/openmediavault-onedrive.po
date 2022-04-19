@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 18:17+0200\n"
+"POT-Creation-Date: 2022-04-19 21:32+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: Kostas Moho, 2022\n"
 "Language-Team: Greek (Greece) (https://www.transifex.com/openmediavault/teams/14254/el_GR/)\n"
@@ -21,6 +21,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: el_GR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "1 MiB/s"
+msgstr ""
+
+msgid "1 minute"
+msgstr "1 λεπτό"
+
+msgid "10 MiB/s"
+msgstr ""
+
+msgid "10 minutes"
+msgstr "10 λεπτά"
+
+msgid "100 MiB/s"
+msgstr ""
+
+msgid "128 KiB/s"
+msgstr ""
+
+msgid "15 minutes"
+msgstr "15 λεπτά"
+
+msgid "2 minutes"
+msgstr "2 λεπτά"
+
+msgid "256 KiB/s"
+msgstr ""
+
+msgid "3 minutes"
+msgstr "3 λεπτά"
+
+msgid "30 minutes"
+msgstr "30 λεπτά"
+
+msgid "4 minutes"
+msgstr "4 λεπτά"
+
+msgid "5 minutes"
+msgstr "5 λεπτά"
+
+msgid "512 KiB/s"
+msgstr ""
+
+msgid "60 minutes"
+msgstr "60 λεπτά"
+
+msgid ""
+"<ul><li>Full - Replicate changes from and to OneDrive.</li><li>Download only"
+" - Replicate the OneDrive online state locally, by only downloading changes "
+"from OneDrive. Do not upload local changes to OneDrive.</li><li>Upload only "
+"- Replicate the local state to OneDrive, by only uploading local changes to "
+"OneDrive. Do not download changes from OneDrive.</li></ul>"
+msgstr ""
 
 msgid ""
 "After enabling and deploying this service the first time please run the "
@@ -31,14 +84,44 @@ msgstr ""
 "εκτελεστεί στην γραμμή εντολών η εντολή <em>omv-onedrive-auth</em> για την "
 "πιστοποίηση της εφαρμογής στο Microsoft OneDrive."
 
+msgid "Disabled"
+msgstr "Ανενεργό"
+
+msgid "Download only"
+msgstr ""
+
 msgid "Enabled"
 msgstr "Ενεργό"
+
+msgid "Full"
+msgstr "Πλήρες"
+
+msgid "Local first"
+msgstr ""
+
+msgid "Monitor interval"
+msgstr ""
 
 msgid "OneDrive"
 msgstr "OneDrive"
 
+msgid "Rate limit"
+msgstr ""
+
+msgid "Replicate local state first, before downloading changes from OneDrive."
+msgstr ""
+
+msgid "Replication mode"
+msgstr ""
+
 msgid "Shared folder"
 msgstr "Κοινόχρηστος φάκελος"
+
+msgid "Skip dot files and folders from syncing."
+msgstr ""
+
+msgid "Skip dotfiles"
+msgstr ""
 
 msgid ""
 "The location of the media files. Make sure the user <em>onedrive</em> or "
@@ -47,5 +130,14 @@ msgstr ""
 "Η τοποθεσία των αρχείων πολυμέσων. Βεβαιωθείτε πως ο χρήστης "
 "<em>onedrive</em> ή η ομάδα <em>χρήστες</em> έχει πρόσβαση στα αρχεία."
 
+msgid "The wait time between each sync operation."
+msgstr ""
+
 msgid "Updated OneDrive settings."
 msgstr "Ενημέρωση ρυθμίσεων OneDrive."
+
+msgid "Upload only"
+msgstr ""
+
+msgid "Upload/Download rate limit."
+msgstr ""

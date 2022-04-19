@@ -4,23 +4,77 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2022
 # 黃柏諺 <s8321414@gmail.com>, 2022
+# kochin <kochinc@outlook.com>, 2022
+# Volker Theile <votdev@gmx.de>, 2022
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 18:17+0200\n"
+"POT-Creation-Date: 2022-04-19 21:32+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2022\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "1 MiB/s"
+msgstr ""
+
+msgid "1 minute"
+msgstr "1 分鐘"
+
+msgid "10 MiB/s"
+msgstr ""
+
+msgid "10 minutes"
+msgstr "10 分鐘"
+
+msgid "100 MiB/s"
+msgstr ""
+
+msgid "128 KiB/s"
+msgstr ""
+
+msgid "15 minutes"
+msgstr "15 分鐘"
+
+msgid "2 minutes"
+msgstr "2 分鐘"
+
+msgid "256 KiB/s"
+msgstr ""
+
+msgid "3 minutes"
+msgstr "3 分鐘"
+
+msgid "30 minutes"
+msgstr "30 分鐘"
+
+msgid "4 minutes"
+msgstr "4 分鐘"
+
+msgid "5 minutes"
+msgstr "5 分鐘"
+
+msgid "512 KiB/s"
+msgstr ""
+
+msgid "60 minutes"
+msgstr "60 分鐘"
+
+msgid ""
+"<ul><li>Full - Replicate changes from and to OneDrive.</li><li>Download only"
+" - Replicate the OneDrive online state locally, by only downloading changes "
+"from OneDrive. Do not upload local changes to OneDrive.</li><li>Upload only "
+"- Replicate the local state to OneDrive, by only uploading local changes to "
+"OneDrive. Do not download changes from OneDrive.</li></ul>"
+msgstr ""
 
 msgid ""
 "After enabling and deploying this service the first time please run the "
@@ -30,19 +84,58 @@ msgstr ""
 "在首次啟用並部署此服務後，請在命令列介面中執行指令 <em>omv-onedrive-auth</em> 以在 Microsoft OneDrive "
 "中驗證應用程式。"
 
+msgid "Disabled"
+msgstr "已停用"
+
+msgid "Download only"
+msgstr ""
+
 msgid "Enabled"
 msgstr "已啟用"
+
+msgid "Full"
+msgstr "完整"
+
+msgid "Local first"
+msgstr ""
+
+msgid "Monitor interval"
+msgstr ""
 
 msgid "OneDrive"
 msgstr "OneDrive"
 
+msgid "Rate limit"
+msgstr ""
+
+msgid "Replicate local state first, before downloading changes from OneDrive."
+msgstr ""
+
+msgid "Replication mode"
+msgstr ""
+
 msgid "Shared folder"
 msgstr "共享資料夾"
+
+msgid "Skip dot files and folders from syncing."
+msgstr ""
+
+msgid "Skip dotfiles"
+msgstr ""
 
 msgid ""
 "The location of the media files. Make sure the user <em>onedrive</em> or "
 "group <em>users</em> can access the files."
 msgstr "媒體檔案的位置。請確認使用者 <em>onedrive</em> 或群組 <em>users</em> 能夠存取那些檔案。"
 
+msgid "The wait time between each sync operation."
+msgstr ""
+
 msgid "Updated OneDrive settings."
 msgstr "已更新 OneDrive 設定。"
+
+msgid "Upload only"
+msgstr ""
+
+msgid "Upload/Download rate limit."
+msgstr ""

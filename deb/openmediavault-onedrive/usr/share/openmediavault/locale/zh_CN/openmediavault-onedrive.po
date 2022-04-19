@@ -7,6 +7,7 @@
 # Volker Theile <votdev@gmx.de>, 2022
 # LeeYang <150183966@qq.com>, 2022
 # 黃柏諺 <s8321414@gmail.com>, 2022
+# Herald Yu <yuhr123@gmail.com>, 2022
 # songming <by@songming.me>, 2022
 # 
 #, fuzzy
@@ -14,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 18:17+0200\n"
+"POT-Creation-Date: 2022-04-19 21:32+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: songming <by@songming.me>, 2022\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
@@ -24,25 +25,117 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+msgid "1 MiB/s"
+msgstr ""
+
+msgid "1 minute"
+msgstr "1 分钟"
+
+msgid "10 MiB/s"
+msgstr ""
+
+msgid "10 minutes"
+msgstr "10 分钟"
+
+msgid "100 MiB/s"
+msgstr ""
+
+msgid "128 KiB/s"
+msgstr ""
+
+msgid "15 minutes"
+msgstr "15 分钟"
+
+msgid "2 minutes"
+msgstr "2 分钟"
+
+msgid "256 KiB/s"
+msgstr ""
+
+msgid "3 minutes"
+msgstr "3 分钟"
+
+msgid "30 minutes"
+msgstr "30 分钟"
+
+msgid "4 minutes"
+msgstr "4 分钟"
+
+msgid "5 minutes"
+msgstr "5 分钟"
+
+msgid "512 KiB/s"
+msgstr ""
+
+msgid "60 minutes"
+msgstr "60 分钟"
+
+msgid ""
+"<ul><li>Full - Replicate changes from and to OneDrive.</li><li>Download only"
+" - Replicate the OneDrive online state locally, by only downloading changes "
+"from OneDrive. Do not upload local changes to OneDrive.</li><li>Upload only "
+"- Replicate the local state to OneDrive, by only uploading local changes to "
+"OneDrive. Do not download changes from OneDrive.</li></ul>"
+msgstr ""
+
 msgid ""
 "After enabling and deploying this service the first time please run the "
 "command <em>omv-onedrive-auth</em> in the CLI to authenticate the "
 "application in Microsoft OneDrive."
 msgstr "首次启用部署此服务时，请在终端执行<em>omv-onedrive-auth</em>命令，根据提示进行 OneDrive 应用授权。"
 
+msgid "Disabled"
+msgstr "禁用"
+
+msgid "Download only"
+msgstr ""
+
 msgid "Enabled"
 msgstr "已启用"
+
+msgid "Full"
+msgstr "全部"
+
+msgid "Local first"
+msgstr ""
+
+msgid "Monitor interval"
+msgstr ""
 
 msgid "OneDrive"
 msgstr "OneDrive"
 
+msgid "Rate limit"
+msgstr ""
+
+msgid "Replicate local state first, before downloading changes from OneDrive."
+msgstr ""
+
+msgid "Replication mode"
+msgstr ""
+
 msgid "Shared folder"
 msgstr "共享文件夹"
+
+msgid "Skip dot files and folders from syncing."
+msgstr ""
+
+msgid "Skip dotfiles"
+msgstr ""
 
 msgid ""
 "The location of the media files. Make sure the user <em>onedrive</em> or "
 "group <em>users</em> can access the files."
 msgstr "本地媒体文件位置。请确保用户<em>onedrive</em>或用户组<em>users</em>有对应文件的读取权限。"
 
+msgid "The wait time between each sync operation."
+msgstr ""
+
 msgid "Updated OneDrive settings."
 msgstr "已更新 OneDrive 设置。"
+
+msgid "Upload only"
+msgstr ""
+
+msgid "Upload/Download rate limit."
+msgstr ""

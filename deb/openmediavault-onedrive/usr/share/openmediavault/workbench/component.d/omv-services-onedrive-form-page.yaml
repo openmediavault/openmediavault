@@ -43,6 +43,52 @@ data:
               - _("Download only")
             - - "up"
               - _("Upload only")
+      - type: select
+        name: monitorinterval
+        label: _("Monitor interval")
+        hint: _("The wait time between each sync operation.")
+        value: 300
+        store:
+          data:
+            - - 60
+              - _("1 minute")
+            - - 120
+              - _("2 minutes")
+            - - 180
+              - _("3 minutes")
+            - - 240
+              - _("4 minutes")
+            - - 300
+              - _("5 minutes")
+            - - 600
+              - _("10 minutes")
+            - - 900
+              - _("15 minutes")
+            - - 1800
+              - _("30 minutes")
+            - - 3600
+              - _("60 minutes")
+      - type: select
+        name: ratelimit
+        label: _("Rate limit")
+        hint: _("Upload/Download rate limit.")
+        value: 0
+        store:
+          data:
+            - - 0
+              - _("Disabled")
+            - - 131072
+              - _("128 KiB/s")
+            - - 262144
+              - _("256 KiB/s")
+            - - 524288
+              - _("512 KiB/s")
+            - - 1048576
+              - _("1 MiB/s")
+            - - 10485760
+              - _("10 MiB/s")
+            - - 104857600
+              - _("100 MiB/s")
       - type: checkbox
         name: localfirst
         label: _("Local first")
