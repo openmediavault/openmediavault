@@ -19,19 +19,11 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-enabled=$(systemctl is-enabled onedrive.service)
+set -e
 
-if [ $enabled ]; then
-  echo "Please wait, stopping service ..."
-  systemctl stop onedrive.service || true
-fi
+. /usr/share/openmediavault/scripts/helper-functions
 
-rm -f /var/cache/onedrive/refresh_token
-sudo -u onedrive onedrive --confdir /var/cache/onedrive
-
-if [ $enabled ]; then
-  echo "Please wait, restarting service ..."
-  systemctl restart onedrive.service || true
-fi
+omv_config_add_key "/config/services/onedrive" "monitorinterval" "300"
+omv_config_add_key "/config/services/onedrive" "ratelimit" "0"
 
 exit 0

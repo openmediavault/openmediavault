@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 18:17+0200\n"
+"POT-Creation-Date: 2022-04-19 21:32+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2022\n"
 "Language-Team: Bulgarian (Bulgaria) (https://www.transifex.com/openmediavault/teams/14254/bg_BG/)\n"
@@ -21,25 +21,117 @@ msgstr ""
 "Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "1 MiB/s"
+msgstr ""
+
+msgid "1 minute"
+msgstr ""
+
+msgid "10 MiB/s"
+msgstr ""
+
+msgid "10 minutes"
+msgstr "10 минути"
+
+msgid "100 MiB/s"
+msgstr ""
+
+msgid "128 KiB/s"
+msgstr ""
+
+msgid "15 minutes"
+msgstr ""
+
+msgid "2 minutes"
+msgstr ""
+
+msgid "256 KiB/s"
+msgstr ""
+
+msgid "3 minutes"
+msgstr ""
+
+msgid "30 minutes"
+msgstr "30 минути"
+
+msgid "4 minutes"
+msgstr ""
+
+msgid "5 minutes"
+msgstr "5 минути"
+
+msgid "512 KiB/s"
+msgstr ""
+
+msgid "60 minutes"
+msgstr "60 минути"
+
+msgid ""
+"<ul><li>Full - Replicate changes from and to OneDrive.</li><li>Download only"
+" - Replicate the OneDrive online state locally, by only downloading changes "
+"from OneDrive. Do not upload local changes to OneDrive.</li><li>Upload only "
+"- Replicate the local state to OneDrive, by only uploading local changes to "
+"OneDrive. Do not download changes from OneDrive.</li></ul>"
+msgstr ""
+
 msgid ""
 "After enabling and deploying this service the first time please run the "
 "command <em>omv-onedrive-auth</em> in the CLI to authenticate the "
 "application in Microsoft OneDrive."
 msgstr ""
 
+msgid "Disabled"
+msgstr ""
+
+msgid "Download only"
+msgstr ""
+
 msgid "Enabled"
 msgstr "Разрешено"
+
+msgid "Full"
+msgstr ""
+
+msgid "Local first"
+msgstr ""
+
+msgid "Monitor interval"
+msgstr ""
 
 msgid "OneDrive"
 msgstr ""
 
+msgid "Rate limit"
+msgstr ""
+
+msgid "Replicate local state first, before downloading changes from OneDrive."
+msgstr ""
+
+msgid "Replication mode"
+msgstr ""
+
 msgid "Shared folder"
 msgstr "Споделена папка"
+
+msgid "Skip dot files and folders from syncing."
+msgstr ""
+
+msgid "Skip dotfiles"
+msgstr ""
 
 msgid ""
 "The location of the media files. Make sure the user <em>onedrive</em> or "
 "group <em>users</em> can access the files."
 msgstr ""
 
+msgid "The wait time between each sync operation."
+msgstr ""
+
 msgid "Updated OneDrive settings."
+msgstr ""
+
+msgid "Upload only"
+msgstr ""
+
+msgid "Upload/Download rate limit."
 msgstr ""

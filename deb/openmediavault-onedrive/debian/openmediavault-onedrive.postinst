@@ -41,6 +41,15 @@ case "$1" in
 		fi
 
 		########################################################################
+		# Set the default settings to those expected by the plugin.
+		########################################################################
+		if [ -z "$2" ]; then
+			echo "Updating service units ..."
+			deb-systemd-invoke stop onedrive || :
+			deb-systemd-helper disable onedrive || :
+		fi
+
+		########################################################################
 		# Activate trigger to rebuild workbench configuration files.
 		########################################################################
 		dpkg-trigger update-workbench
@@ -58,15 +67,8 @@ case "$1" in
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
-		if dpkg --compare-versions "$2" lt-nl "6.0.1"; then
+		if dpkg --compare-versions "$2" lt-nl "6.1.0"; then
 			omv_module_set_dirty onedrive
-		fi
-
-		########################################################################
-		# Restart service if necessary.
-		########################################################################
-		if [ -n "$2" ]; then
-		  deb-systemd-invoke restart container-onedrive.service || true
 		fi
 	;;
 

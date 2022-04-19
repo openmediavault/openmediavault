@@ -24,15 +24,7 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_ONEDRIVE_APP_CONTAINER_IMAGE=${OMV_ONEDRIVE_APP_CONTAINER_IMAGE:-"docker.io/driveone/onedrive:latest"}
-
 remove_action() {
-  # Remove systemd unit file.
-  echo "Removing systemd unit files ..."
-  rm -rf /etc/systemd/system/container-onedrive.service
-  systemctl --system daemon-reload || true
-  # Remove container image.
-  podman rmi "${OMV_ONEDRIVE_APP_CONTAINER_IMAGE}" || true
 	# Activate trigger to rebuild workbench configuration files.
 	dpkg-trigger update-workbench
 }

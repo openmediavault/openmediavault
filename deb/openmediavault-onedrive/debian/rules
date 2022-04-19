@@ -7,3 +7,6 @@ include ../openmediavault.mk
 
 %:
 	dh $@
+
+override_dh_installsystemd:
+	dh_installsystemd -r --no-start --name=onedrive

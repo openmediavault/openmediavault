@@ -30,7 +30,7 @@ class OneDrive extends \OMV\Engine\Module\ServiceAbstract
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.onedrive");
-		$systemCtl = new \OMV\System\SystemCtl("container-onedrive");
+		$systemCtl = new \OMV\System\SystemCtl("onedrive");
 		return [
 			"name" => $this->getName(),
 			"title" => gettext("OneDrive"),
