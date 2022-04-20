@@ -1,6 +1,10 @@
+{%- set sync_dir_permissions = salt['pillar.get']('default:OMV_ONEDRIVE_SYNCDIRPERMISSIONS', '750') -%}
+{%- set sync_file_permissions = salt['pillar.get']('default:OMV_ONEDRIVE_SYNCFILEPERMISSIONS', '640') -%}
 {%- set sf_path = salt['omv_conf.get_sharedfolder_path'](config.sharedfolderref) -%}
 {{ pillar['headers']['multiline'] -}}
 sync_dir = "{{ sf_path }}"
+sync_dir_permissions = "{{ sync_dir_permissions }}"
+sync_file_permissions = "{{ sync_file_permissions }}"
 disable_notifications = "true"
 local_first = "{{ ((config.replicationmode == 'updown') and config.localfirst) | to_bool | yesno('true,false') }}"
 download_only = "{{ (config.replicationmode == 'down') | to_bool | yesno('true,false') }}"
