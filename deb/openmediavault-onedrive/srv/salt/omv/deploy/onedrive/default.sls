@@ -28,6 +28,13 @@
 
 {% if config.enable | to_bool %}
 
+setup_onedrive_config_dir:
+  module.run:
+    - file.chown:
+      - path: "/var/cache/onedrive/"
+      - user: onedrive
+      - group: users
+
 create_onedrive_config_file:
   file.managed:
     - name: "/var/cache/onedrive/config"
