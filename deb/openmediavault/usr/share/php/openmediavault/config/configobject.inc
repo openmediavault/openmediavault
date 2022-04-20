@@ -75,6 +75,23 @@ class ConfigObject {
 	}
 
 	/**
+	 * Assert that the specified property has the given value.
+	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
+	 * @param value The value of the property.
+	 * @param message The alternative error message.
+	 * @return void
+	 * @throw \OMV\AssertException
+	 */
+	protected function assertValue($name, $value, $message = NULL) {
+		if ($this->get($name) !== $value) {
+			$message = is_null($message) ? sprintf(
+				"The property '%s' does not match the value '%s'.",
+				$name, strval($value)) : $error;
+			throw new \OMV\AssertException($message);
+		}
+	}
+
+	/**
 	 * Get the data model of the configuration object.
 	 * @return The data model object.
 	 */

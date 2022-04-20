@@ -47,13 +47,10 @@ class OMVRpcServiceWeTTY extends \OMV\Rpc\ServiceAbstract {
 		if (boolvalEx($params['enable'])) {
 			$db = \OMV\Config\Database::getInstance();
 			$object = $db->get("conf.service.ssh");
-			if (FALSE === $object->get("enable")) {
-				throw new \OMV\Config\Exception("SSH must be enabled.");
-			}
-			if (FALSE === $object->get("passwordauthentication")) {
-				throw new \OMV\Config\Exception(
-					"SSH password authentication must be enabled.");
-			}
+			$object->assertValue("enable", TRUE,
+				"SSH must be enabled.");
+			$object->assertValue("passwordauthentication", TRUE,
+				"SSH password authentication must be enabled.");
 		}
 		return \OMV\Rpc\Rpc::call("Config", "set", [
 			"id" => "conf.service.wetty",

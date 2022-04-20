@@ -1,8 +1,14 @@
+openmediavault-wetty (6.0.2-1) unstable; urgency=low
+
+  * Internal enhancements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Apr 2022 22:18:54 +0200
+
 openmediavault-wetty (6.0.1-4) unstable; urgency=low
 
   * Fix 'Connection refused' issue.
 
- -- vot <vot@caladan>  Thu, 31 Mar 2022 17:00:18 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 31 Mar 2022 17:00:18 +0200
 
 openmediavault-wetty (6.0-3) unstable; urgency=low
 
