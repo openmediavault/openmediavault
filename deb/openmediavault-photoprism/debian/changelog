@@ -1,3 +1,9 @@
+openmediavault-photoprism (6.0.2-1) unstable; urgency=low
+
+  * Add 'Public' and 'Filesize limit' options.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Apr 2022 17:17:36 +0200
+
 openmediavault-photoprism (6.0.1-4) unstable; urgency=low
 
   * Add SSL support.

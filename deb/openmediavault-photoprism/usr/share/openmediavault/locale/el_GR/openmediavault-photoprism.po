@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-photoprism\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-04-20 17:56+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Kostas Moho, 2022\n"
 "Language-Team: Greek (Greece) (https://www.transifex.com/openmediavault/teams/14254/el_GR/)\n"
@@ -22,14 +22,66 @@ msgstr ""
 "Language: el_GR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "1 GB"
+msgstr ""
+
+msgid "1 MB"
+msgstr ""
+
+msgid "10 GB"
+msgstr ""
+
+msgid "10 MB"
+msgstr ""
+
+msgid "100 GB"
+msgstr ""
+
+msgid "100 MB"
+msgstr ""
+
+msgid "25 GB"
+msgstr ""
+
+msgid "25 MB"
+msgstr ""
+
+msgid "250 MB"
+msgstr ""
+
+msgid "5 GB"
+msgstr ""
+
+msgid "5 MB"
+msgstr ""
+
+msgid "50 GB"
+msgstr ""
+
+msgid "50 MB"
+msgstr ""
+
+msgid "500 MB"
+msgstr ""
+
 msgid "Application data"
 msgstr "Δεδομένα εφαρμογής"
 
 msgid "Certificate"
 msgstr "Πιστοποιητικό"
 
+msgid ""
+"Disable password authentication, WebDAV, and the advanced settings page."
+msgstr ""
+
+msgid "Disabled"
+msgstr "Ανενεργό"
+
 msgid "Enabled"
 msgstr "Ενεργό"
+
+msgid "Filesize limit"
+msgstr ""
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -64,6 +116,9 @@ msgstr "Θύρα"
 msgid "Port to listen on."
 msgstr "Θύρα για ακρόαση."
 
+msgid "Public"
+msgstr "Δημόσιο"
+
 msgid "Read-only"
 msgstr "Μόνο για ανάγνωση"
 
@@ -79,6 +134,9 @@ msgstr ""
 
 msgid "The location where to store the application data."
 msgstr "Η θέση αποθήκευσης των δεδομένων της εφαρμογής."
+
+msgid "The maximum size of media files."
+msgstr ""
 
 msgid "Updated PhotoPrism settings."
 msgstr "Ενημέρωση ρυθμίσεων PhotoPrism."

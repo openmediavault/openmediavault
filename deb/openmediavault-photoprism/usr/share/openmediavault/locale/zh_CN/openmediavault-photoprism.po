@@ -6,6 +6,7 @@
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
 # LeeYang <150183966@qq.com>, 2022
+# Herald Yu <yuhr123@gmail.com>, 2022
 # songming <by@songming.me>, 2022
 # 
 #, fuzzy
@@ -13,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-photoprism\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-04-20 17:56+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: songming <by@songming.me>, 2022\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
@@ -23,14 +24,66 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+msgid "1 GB"
+msgstr ""
+
+msgid "1 MB"
+msgstr ""
+
+msgid "10 GB"
+msgstr ""
+
+msgid "10 MB"
+msgstr ""
+
+msgid "100 GB"
+msgstr ""
+
+msgid "100 MB"
+msgstr ""
+
+msgid "25 GB"
+msgstr ""
+
+msgid "25 MB"
+msgstr ""
+
+msgid "250 MB"
+msgstr ""
+
+msgid "5 GB"
+msgstr ""
+
+msgid "5 MB"
+msgstr ""
+
+msgid "50 GB"
+msgstr ""
+
+msgid "50 MB"
+msgstr ""
+
+msgid "500 MB"
+msgstr ""
+
 msgid "Application data"
 msgstr "应用数据"
 
 msgid "Certificate"
 msgstr "证书"
 
+msgid ""
+"Disable password authentication, WebDAV, and the advanced settings page."
+msgstr ""
+
+msgid "Disabled"
+msgstr "禁用"
+
 msgid "Enabled"
 msgstr "已启用"
+
+msgid "Filesize limit"
+msgstr ""
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -60,6 +113,9 @@ msgstr "端口"
 msgid "Port to listen on."
 msgstr "监听端口。"
 
+msgid "Public"
+msgstr "公开"
+
 msgid "Read-only"
 msgstr "只读"
 
@@ -73,6 +129,9 @@ msgstr "请确保用户<em>photoprism</em>或用户组<em>users</em>有本地媒
 
 msgid "The location where to store the application data."
 msgstr "存储应用数据的本地路径。"
+
+msgid "The maximum size of media files."
+msgstr ""
 
 msgid "Updated PhotoPrism settings."
 msgstr "更新 PhotoPrism 设置。"

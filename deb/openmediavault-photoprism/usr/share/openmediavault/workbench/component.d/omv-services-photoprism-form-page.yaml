@@ -40,10 +40,52 @@ data:
         hasEmptyOption: true
         value: ""
       - type: checkbox
+        name: public
+        label: _("Public")
+        value: false
+        hint: _("Disable password authentication, WebDAV, and the advanced settings page.")
+      - type: checkbox
         name: readonly
         label: _("Read-only")
         value: false
         hint: _("If enabled, all features that require write permission to the images folder are disabled, in particular import, upload, and delete.")
+      - type: select
+        name: originalslimit
+        label: _("Filesize limit")
+        hint: _("The maximum size of media files.")
+        value: 1000
+        store:
+          data:
+            - - -1
+              - _("Disabled")
+            - - 1
+              - _("1 MB")
+            - - 5
+              - _("5 MB")
+            - - 10
+              - _("10 MB")
+            - - 25
+              - _("25 MB")
+            - - 50
+              - _("50 MB")
+            - - 100
+              - _("100 MB")
+            - - 250
+              - _("250 MB")
+            - - 500
+              - _("500 MB")
+            - - 1000
+              - _("1 GB")
+            - - 5000
+              - _("5 GB")
+            - - 10000
+              - _("10 GB")
+            - - 25000
+              - _("25 GB")
+            - - 50000
+              - _("50 GB")
+            - - 100000
+              - _("100 GB")
       - type: sharedFolderSelect
         name: originals_sharedfolderref
         label: _("Images")

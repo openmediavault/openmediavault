@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-photoprism\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-04-20 17:56+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2022\n"
 "Language-Team: Slovenian (Slovenia) (https://www.transifex.com/openmediavault/teams/14254/sl_SI/)\n"
@@ -21,14 +21,66 @@ msgstr ""
 "Language: sl_SI\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
+msgid "1 GB"
+msgstr ""
+
+msgid "1 MB"
+msgstr ""
+
+msgid "10 GB"
+msgstr ""
+
+msgid "10 MB"
+msgstr ""
+
+msgid "100 GB"
+msgstr ""
+
+msgid "100 MB"
+msgstr ""
+
+msgid "25 GB"
+msgstr ""
+
+msgid "25 MB"
+msgstr ""
+
+msgid "250 MB"
+msgstr ""
+
+msgid "5 GB"
+msgstr ""
+
+msgid "5 MB"
+msgstr ""
+
+msgid "50 GB"
+msgstr ""
+
+msgid "50 MB"
+msgstr ""
+
+msgid "500 MB"
+msgstr ""
+
 msgid "Application data"
 msgstr ""
 
 msgid "Certificate"
 msgstr "Potrdilo"
 
+msgid ""
+"Disable password authentication, WebDAV, and the advanced settings page."
+msgstr ""
+
+msgid "Disabled"
+msgstr "Onemogočeno"
+
 msgid "Enabled"
 msgstr "Omogočeno"
+
+msgid "Filesize limit"
+msgstr ""
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -58,6 +110,9 @@ msgstr "Vrata"
 msgid "Port to listen on."
 msgstr "Vrata na katerih servis posluša."
 
+msgid "Public"
+msgstr "Javno"
+
 msgid "Read-only"
 msgstr "Samo za branje"
 
@@ -70,6 +125,9 @@ msgid ""
 msgstr ""
 
 msgid "The location where to store the application data."
+msgstr ""
+
+msgid "The maximum size of media files."
 msgstr ""
 
 msgid "Updated PhotoPrism settings."

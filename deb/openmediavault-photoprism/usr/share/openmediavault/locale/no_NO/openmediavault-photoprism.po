@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-photoprism\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-04-20 17:56+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2022\n"
 "Language-Team: Norwegian (https://www.transifex.com/openmediavault/teams/14254/no/)\n"
@@ -22,14 +22,66 @@ msgstr ""
 "Language: no\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "1 GB"
+msgstr ""
+
+msgid "1 MB"
+msgstr ""
+
+msgid "10 GB"
+msgstr ""
+
+msgid "10 MB"
+msgstr ""
+
+msgid "100 GB"
+msgstr ""
+
+msgid "100 MB"
+msgstr ""
+
+msgid "25 GB"
+msgstr ""
+
+msgid "25 MB"
+msgstr ""
+
+msgid "250 MB"
+msgstr ""
+
+msgid "5 GB"
+msgstr ""
+
+msgid "5 MB"
+msgstr ""
+
+msgid "50 GB"
+msgstr ""
+
+msgid "50 MB"
+msgstr ""
+
+msgid "500 MB"
+msgstr ""
+
 msgid "Application data"
 msgstr ""
 
 msgid "Certificate"
 msgstr "Sertifikat"
 
+msgid ""
+"Disable password authentication, WebDAV, and the advanced settings page."
+msgstr ""
+
+msgid "Disabled"
+msgstr "Deaktivert"
+
 msgid "Enabled"
 msgstr "Aktivert"
+
+msgid "Filesize limit"
+msgstr ""
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -59,6 +111,9 @@ msgstr "Port"
 msgid "Port to listen on."
 msgstr "Port å lytte på."
 
+msgid "Public"
+msgstr "Offentlig"
+
 msgid "Read-only"
 msgstr "Kun lesing"
 
@@ -71,6 +126,9 @@ msgid ""
 msgstr ""
 
 msgid "The location where to store the application data."
+msgstr ""
+
+msgid "The maximum size of media files."
 msgstr ""
 
 msgid "Updated PhotoPrism settings."

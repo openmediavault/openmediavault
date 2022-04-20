@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-photoprism\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-04-20 17:56+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
 "Language-Team: German (https://www.transifex.com/openmediavault/teams/14254/de/)\n"
@@ -22,14 +22,66 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "1 GB"
+msgstr "1 GB"
+
+msgid "1 MB"
+msgstr "1 MB"
+
+msgid "10 GB"
+msgstr "10 GB"
+
+msgid "10 MB"
+msgstr "10 MB"
+
+msgid "100 GB"
+msgstr "100 GB"
+
+msgid "100 MB"
+msgstr "100 MB"
+
+msgid "25 GB"
+msgstr "25 GB"
+
+msgid "25 MB"
+msgstr "25 MB"
+
+msgid "250 MB"
+msgstr "250 MB"
+
+msgid "5 GB"
+msgstr "5 GB"
+
+msgid "5 MB"
+msgstr "5 MB"
+
+msgid "50 GB"
+msgstr "50 GB"
+
+msgid "50 MB"
+msgstr "50 MB"
+
+msgid "500 MB"
+msgstr "500 MB"
+
 msgid "Application data"
-msgstr ""
+msgstr "Anwendungsdaten"
 
 msgid "Certificate"
 msgstr "Zertifikat"
 
+msgid ""
+"Disable password authentication, WebDAV, and the advanced settings page."
+msgstr ""
+
+msgid "Disabled"
+msgstr "Deaktiviert"
+
 msgid "Enabled"
 msgstr "Aktiviert"
+
+msgid "Filesize limit"
+msgstr "Dateigrößenbegrenzung"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -37,13 +89,13 @@ msgid ""
 msgstr ""
 
 msgid "Images"
-msgstr ""
+msgstr "Bilder"
 
 msgid "Import"
 msgstr "Importieren"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Benutzeroberfläche öffnen"
 
 msgid "PhotoPrism"
 msgstr ""
@@ -59,6 +111,9 @@ msgstr "Port"
 msgid "Port to listen on."
 msgstr "Port auf dem gelauscht wird."
 
+msgid "Public"
+msgstr "Öffentlich"
+
 msgid "Read-only"
 msgstr "Nur lesen"
 
@@ -71,7 +126,10 @@ msgid ""
 msgstr ""
 
 msgid "The location where to store the application data."
-msgstr ""
+msgstr "Der Ort, an dem die Anwendungsdaten gespeichert werden."
+
+msgid "The maximum size of media files."
+msgstr "Die maximale Größe von Mediendateien."
 
 msgid "Updated PhotoPrism settings."
 msgstr ""

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-photoprism\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-04-20 17:56+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2022\n"
 "Language-Team: Polish (Poland) (https://www.transifex.com/openmediavault/teams/14254/pl_PL/)\n"
@@ -24,14 +24,66 @@ msgstr ""
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
+msgid "1 GB"
+msgstr ""
+
+msgid "1 MB"
+msgstr ""
+
+msgid "10 GB"
+msgstr ""
+
+msgid "10 MB"
+msgstr ""
+
+msgid "100 GB"
+msgstr ""
+
+msgid "100 MB"
+msgstr ""
+
+msgid "25 GB"
+msgstr ""
+
+msgid "25 MB"
+msgstr ""
+
+msgid "250 MB"
+msgstr ""
+
+msgid "5 GB"
+msgstr ""
+
+msgid "5 MB"
+msgstr ""
+
+msgid "50 GB"
+msgstr ""
+
+msgid "50 MB"
+msgstr ""
+
+msgid "500 MB"
+msgstr ""
+
 msgid "Application data"
 msgstr ""
 
 msgid "Certificate"
 msgstr "Certyfikat"
 
+msgid ""
+"Disable password authentication, WebDAV, and the advanced settings page."
+msgstr ""
+
+msgid "Disabled"
+msgstr "Wyłączony"
+
 msgid "Enabled"
 msgstr "Właczony"
+
+msgid "Filesize limit"
+msgstr ""
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -61,6 +113,9 @@ msgstr "Port"
 msgid "Port to listen on."
 msgstr "Port nasłuchiwania."
 
+msgid "Public"
+msgstr "Publiczny"
+
 msgid "Read-only"
 msgstr "Tylko do odczytu"
 
@@ -73,6 +128,9 @@ msgid ""
 msgstr ""
 
 msgid "The location where to store the application data."
+msgstr ""
+
+msgid "The maximum size of media files."
 msgstr ""
 
 msgid "Updated PhotoPrism settings."

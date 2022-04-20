@@ -31,6 +31,16 @@
 			"type": "boolean",
 			"default": false
 		},
+		"public": {
+			"type": "boolean",
+			"default": false
+		},
+		"originalslimit": {
+			"type": "integer",
+			"minimum": -1,
+			"maximum": 100000,
+			"default": 1000
+		},
 		"appdata_sharedfolderref": {
 			"type": "string",
 			"oneOf": [{
