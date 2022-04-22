@@ -43,7 +43,7 @@ try {
 	$object = $db->get("conf.system.time");
 	// According to http://php.net/manual/en/timezones.others.php
 	// some of the time zones that the Debian installer supports are
-	// deprectated. To prevent errors we support them to (ALL_WITH_BC).
+	// deprecated. To prevent errors we support them to (ALL_WITH_BC).
 	if (in_array($object->get("timezone"), \DateTimeZone::listIdentifiers(
 			\DateTimeZone::ALL_WITH_BC))) {
 		date_default_timezone_set($object->get("timezone"));
