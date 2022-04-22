@@ -367,8 +367,14 @@ class User {
 	 * Change the user password.
 	 * @param string $password The new password in plain text.
 	 * @throw \OMV\ExecException
+	 * @throw \OMV\ValueException
 	 */
 	public function changePassword($password) {
+		if (empty($password)) {
+			throw new \OMV\ValueException(
+				"No password has been supplied for user '%s'.",
+				$this->getName());
+		}
 		$tmpFile = new \OMV\System\TmpFile();
 		$tmpFile->write(sprintf("%s:%s", $this->getName(), $password));
 		$cmd = new \OMV\System\Process("chpasswd");

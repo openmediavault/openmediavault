@@ -581,10 +581,6 @@ finish:
 			$cmd = new \OMV\System\Process("useradd", $cmdArgs);
 			$cmd->setRedirect2to1();
 			$cmd->execute();
-			// Set the password.
-			$user = new \OMV\System\User($params['name']);
-			$user->assertExists();
-			$user->changePassword($params['password']);
 		} else {
 			// Append additional arguments.
 			$cmdArgs[] = escapeshellarg($params['name']);
@@ -592,13 +588,13 @@ finish:
 			$cmd = new \OMV\System\Process("usermod", $cmdArgs);
 			$cmd->setRedirect2to1();
 			$cmd->execute();
-			// Modify the password.
-			if (array_key_exists("password", $params) &&
-					!empty($params['password'])) {
-				$user = new \OMV\System\User($params['name']);
-				$user->assertExists();
-				$user->changePassword($params['password']);
-			}
+		}
+		// Update the password.
+		if (array_key_exists("password", $params) &&
+				!empty($params['password'])) {
+			$user = new \OMV\System\User($params['name']);
+			$user->assertExists();
+			$user->changePassword($params['password']);
 		}
 		// Append some more information to the notification object.
 		$objectAssoc = array_merge($object->getAssoc(), $params);
