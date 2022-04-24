@@ -36,6 +36,14 @@ export class SshFormPageComponent {
     },
     fields: [
       {
+        type: 'hint',
+        text: gettext(
+          'Users must be assigned to the <em>ssh</em> group to be able to log in via SSH.'
+        ),
+        dismissible: true,
+        stateId: '1f7e0754-e049-4578-9272-8cbb365fad97'
+      },
+      {
         type: 'checkbox',
         name: 'enable',
         label: gettext('Enabled'),
