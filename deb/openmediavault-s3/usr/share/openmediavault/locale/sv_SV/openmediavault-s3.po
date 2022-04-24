@@ -56,7 +56,7 @@ msgid ""
 "<em>users</em> can access the files."
 msgstr ""
 "Platsen för mediafilerna. Se till att användaren <em>s3</em> eller "
-"grupp<em>användare</em> kan komma åt filerna."
+"gruppen<em>users</em> har åtkomst till filerna."
 
 msgid "The name of the root user."
 msgstr "Namnet på rootanvändaren."

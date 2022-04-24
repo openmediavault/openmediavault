@@ -260,7 +260,7 @@ msgid "Sunday"
 msgstr "Неділя"
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "Поле має містити лише * або список значень, розділених комами."
 
 msgid "The location of the files to scan on-access."
 msgstr "Розташування файлів для сканування доступу."

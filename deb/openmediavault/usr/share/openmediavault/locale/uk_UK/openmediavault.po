@@ -269,7 +269,7 @@ msgstr "Виступати в якості WINS сервера."
 
 msgid ""
 "Acting as a WINS server and using a WINS server are mutually exclusive."
-msgstr ""
+msgstr "Робота як сервер WINS і використання сервера WINS є взаємовиключними."
 
 msgid "Action"
 msgstr "Дія"
@@ -323,7 +323,7 @@ msgid "All"
 msgstr "Всі"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
-msgstr ""
+msgstr "Усі пакунки будуть оновлені. Продовжити?"
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -389,7 +389,7 @@ msgid "April"
 msgstr "Квітень"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Архітектура"
 
 msgid "Archive mode"
 msgstr "Режим архіву"
@@ -713,7 +713,7 @@ msgid ""
 msgstr "Стиснення варто використовувати, якщо ваше з'єднання йде повільно. Ефективність стиснення залежить від типу файлу, і коливається в широких межах. "
 
 msgid "Confirm"
-msgstr ""
+msgstr "Підтвердити"
 
 msgid "Confirm password"
 msgstr "Підтвердити пароль"
@@ -962,34 +962,34 @@ msgid "Disks"
 msgstr "Диски"
 
 msgid "Dismiss"
-msgstr ""
+msgstr "Звільнити"
 
 msgid "Dismiss all"
-msgstr ""
+msgstr "Звільнити все"
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "Відобразити домашній каталог користувача у списку перегляду."
 
 msgid "Displays information about the file systems in a grid."
-msgstr ""
+msgstr "Відображення інформації про файлові системи в сітці."
 
 msgid "Displays information about the file systems in a table."
-msgstr ""
+msgstr "Відображення інформації про файлові системи в таблиці."
 
 msgid "Displays information about the network interfaces in a grid."
-msgstr ""
+msgstr "Відображення інформації про мережеві інтерфейси в сітці."
 
 msgid "Displays information about the network interfaces in a table."
-msgstr ""
+msgstr "Відображення інформації про мережеві інтерфейси в таблиці."
 
 msgid "Displays information about the services in a grid."
-msgstr ""
+msgstr "Відображає інформацію про послуги в сітці."
 
 msgid "Displays information about the services in a table."
-msgstr ""
+msgstr "Відображає інформацію про послуги в таблиці."
 
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
-msgstr ""
+msgstr "Відображає S.M.A.R.T. інформація про всі контрольовані дискові пристрої."
 
 msgid "Djibouti"
 msgstr "Джібуті"
@@ -2005,7 +2005,7 @@ msgid "Mount"
 msgstr "Монтувати"
 
 msgid "Mount Options"
-msgstr ""
+msgstr "Параметри монтування"
 
 msgid "Mount Point"
 msgstr "Точка монтування"
@@ -2650,7 +2650,7 @@ msgid "Romania"
 msgstr "Румунія"
 
 msgid "Row No."
-msgstr ""
+msgstr "Row No."
 
 msgid "Rsync"
 msgstr "Rsync"
@@ -2965,7 +2965,7 @@ msgid "Show/Hide columns"
 msgstr "Показати/сховати стовпці"
 
 msgid "Show/Hide navigation"
-msgstr ""
+msgstr "Показати/приховати навігацію"
 
 msgid "Shutdown"
 msgstr "Вимкнути"
@@ -3182,7 +3182,7 @@ msgid "System account"
 msgstr "Системний обліковий запис"
 
 msgid "System monitoring is disabled. To enable it, please go to the"
-msgstr ""
+msgstr "Моніторинг системи вимкнено. Щоб увімкнути його, перейдіть до"
 
 msgid "System time"
 msgstr "Cистемний час"
@@ -3247,7 +3247,7 @@ msgid "The data has been copied to the clipboard."
 msgstr "Дані скопійовано до буферу обміну."
 
 msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
-msgstr ""
+msgstr "Порт поштового сервера SMTP типово, напр. 25, 465 або 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3255,7 +3255,7 @@ msgid ""
 msgstr "Віддалений сервер призначення, наприклад [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "Поле має містити лише * або список значень, розділених комами."
 
 msgid "The file mode of the shared folder path."
 msgstr "Розширення файлу для спільної теки."
@@ -3829,7 +3829,7 @@ msgid "Updated settings."
 msgstr "Налаштування оновлено."
 
 msgid "Updated shared folder."
-msgstr ""
+msgstr "Оновлено спільну теку."
 
 msgid "Updated update management settings."
 msgstr "Оновлено налаштування керування оновленнями."

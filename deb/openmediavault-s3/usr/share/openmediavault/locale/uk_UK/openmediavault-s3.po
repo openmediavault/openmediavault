@@ -33,7 +33,7 @@ msgid "Name"
 msgstr "Ім'я"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Відкрити інтерфейс користувача"
 
 msgid "Password"
 msgstr "Пароль"
@@ -45,7 +45,7 @@ msgid "Port to listen on."
 msgstr "Порт для прослуховування."
 
 msgid "S3"
-msgstr ""
+msgstr "S3"
 
 msgid "Shared folder"
 msgstr "Спільна тека"
@@ -54,15 +54,17 @@ msgid ""
 "The location of the media files. Make sure the user <em>s3</em> or group "
 "<em>users</em> can access the files."
 msgstr ""
+"Розташування медіафайлів. Переконайтеся, що користувач <em>s3</em> або "
+"<em>користувачі</em> групи мають доступ до файлів."
 
 msgid "The name of the root user."
-msgstr ""
+msgstr "Ім'я користувача root."
 
 msgid "The password of the root user."
-msgstr ""
+msgstr "Пароль користувача root."
 
 msgid "Updated S3 settings."
-msgstr ""
+msgstr "Оновлено налаштування S3."
 
 msgid "Web interface"
-msgstr ""
+msgstr "Веб-інтерфейс"

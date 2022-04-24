@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
+# Thomas Melka, 2022
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-13 17:38+0200\n"
 "PO-Revision-Date: 2022-04-13 15:40+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
+"Last-Translator: Thomas Melka, 2022\n"
 "Language-Team: German (https://www.transifex.com/openmediavault/teams/14254/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,10 +26,10 @@ msgid "Enabled"
 msgstr "Aktiviert"
 
 msgid "File Browser"
-msgstr ""
+msgstr "Datei Browser"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Benutzeroberfläche öffnen"
 
 msgid "Port"
 msgstr "Port"
@@ -45,7 +46,7 @@ msgid ""
 msgstr ""
 
 msgid "Updated File Browser settings."
-msgstr ""
+msgstr "Datei Browser Einstellung aktualisiert."
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."

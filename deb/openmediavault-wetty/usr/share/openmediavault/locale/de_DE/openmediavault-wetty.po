@@ -28,7 +28,7 @@ msgid "Enabled"
 msgstr "Aktiviert"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Benutzeroberfläche öffnen"
 
 msgid "Port"
 msgstr "Port"

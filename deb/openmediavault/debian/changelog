@@ -1,5 +1,6 @@
 openmediavault (6.0.23-1) unstable; urgency=low
 
+  * Update locale files.
   * Various API enhancements.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Apr 2022 22:17:57 +0200

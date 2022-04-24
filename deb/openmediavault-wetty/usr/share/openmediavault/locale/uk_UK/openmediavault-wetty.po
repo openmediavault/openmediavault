@@ -29,7 +29,7 @@ msgid "Enabled"
 msgstr "Увімкнено"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Відкрити інтерфейс користувача"
 
 msgid "Port"
 msgstr "Порт"
@@ -41,7 +41,7 @@ msgid "The SSL certificate."
 msgstr "Сертифікат SSL."
 
 msgid "Updated WeTTY settings."
-msgstr ""
+msgstr "Оновлено налаштування WeTTY."
 
 msgid "WeTTY"
-msgstr ""
+msgstr "WeTTY"

@@ -5,8 +5,8 @@
 # 
 # Translators:
 # songming <by@songming.me>, 2022
-# kochin <kochinc@outlook.com>, 2022
 # Volker Theile <votdev@gmx.de>, 2022
+# kochin <kochinc@outlook.com>, 2022
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-20 17:56+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2022\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,46 +24,46 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "1 GB"
-msgstr ""
+msgstr "1 GB"
 
 msgid "1 MB"
-msgstr ""
+msgstr "1 MB"
 
 msgid "10 GB"
-msgstr ""
+msgstr "10 GB"
 
 msgid "10 MB"
-msgstr ""
+msgstr "10 MB"
 
 msgid "100 GB"
-msgstr ""
+msgstr "100 GB"
 
 msgid "100 MB"
-msgstr ""
+msgstr "100 MB"
 
 msgid "25 GB"
-msgstr ""
+msgstr "25 GB"
 
 msgid "25 MB"
-msgstr ""
+msgstr "25 MB"
 
 msgid "250 MB"
-msgstr ""
+msgstr "250 MB"
 
 msgid "5 GB"
-msgstr ""
+msgstr "5 GB"
 
 msgid "5 MB"
-msgstr ""
+msgstr "5 MB"
 
 msgid "50 GB"
-msgstr ""
+msgstr "50 GB"
 
 msgid "50 MB"
-msgstr ""
+msgstr "50 MB"
 
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 msgid "Application data"
 msgstr "應用資料"
@@ -73,7 +73,7 @@ msgstr "憑證"
 
 msgid ""
 "Disable password authentication, WebDAV, and the advanced settings page."
-msgstr ""
+msgstr "停用密碼驗證、WebDAV、及進階設定頁。"
 
 msgid "Disabled"
 msgstr "已停用"
@@ -82,7 +82,7 @@ msgid "Enabled"
 msgstr "已啟用"
 
 msgid "Filesize limit"
-msgstr ""
+msgstr "檔案大小限制"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -130,7 +130,7 @@ msgid "The location where to store the application data."
 msgstr "應用資料儲存的位置。"
 
 msgid "The maximum size of media files."
-msgstr ""
+msgstr "媒體檔案大小的最大值。"
 
 msgid "Updated PhotoPrism settings."
 msgstr "已更新 PhotoPrism 設定。"
