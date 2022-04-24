@@ -21,8 +21,8 @@
 # https://fleet.linuxserver.io/image?name=linuxserver/daapd
 
 # Testing:
-# podman exec -it daapd /bin/bash
-# podman logs -f daapd
+# podman exec -it owntone /bin/bash
+# podman logs -f owntone
 
 {% set config = salt['omv_conf.get']('conf.service.owntone') %}
 {% set time_config = salt['omv_conf.get']('conf.system.time') %}
