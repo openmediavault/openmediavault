@@ -28,7 +28,7 @@ class WeTTY extends \OMV\Engine\Module\ServiceAbstract
 	}
 
 	public function deployAfter(): array {
-		return ["systemd-networkd", "ssh", "certificates"];
+		return ["hostname", "systemd-networkd", "ssh", "certificates"];
 	}
 
 	public function getStatus() {
