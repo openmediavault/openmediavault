@@ -58,13 +58,6 @@ case "$1" in
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
-
-		########################################################################
-		# Restart service if necessary.
-		########################################################################
-		if [ -n "$2" ]; then
-		  deb-systemd-invoke restart pod-photoprism.service || true
-		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
