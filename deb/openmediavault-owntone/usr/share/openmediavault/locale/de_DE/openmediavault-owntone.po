@@ -29,7 +29,7 @@ msgid "Library name"
 msgstr "Bibliotheksname"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Benutzeroberfläche öffnen"
 
 msgid "OwnTone"
 msgstr ""

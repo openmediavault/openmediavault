@@ -4,6 +4,7 @@
 {%- set general_loglevel = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_LOGLEVEL', 'log') -%}
 {%- set general_db_path = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_DBPATH', '/config/dbase_and_logs/songs3.db') -%}
 {%- set general_cache_path = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_DBPATH', '/config/dbase_and_logs/cache.db') -%}
+{%- set general_trusted_networks = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_TRUSTEDNETWORKS', '{localhost,192.168,fd}') -%}
 {%- set library_filescan_disable = salt['pillar.get']('default:OMV_OWNTONE_LIBRARY_FILESCANDISABLE', 'false') -%}
 {%- set library_itunes_overrides = salt['pillar.get']('default:OMV_OWNTONE_LIBRARY_ITUNESOVERRIDES', 'false') -%}
 {%- set audio_nickname = salt['pillar.get']('default:OMV_OWNTONE_AUDIO_NICKNAME', 'Computer') -%}
@@ -38,7 +39,7 @@ general {
   # client types like Remotes, DAAP clients (iTunes) and to the web
   # interface. Options are "any", "localhost" or the prefix to one or
   # more ipv4/6 networks. The default is { "localhost", "192.168", "fd" }
-#	trusted_networks = { "localhost", "192.168", "fd" }
+  trusted_networks = {{ general_trusted_networks }}
 
   # Enable/disable IPv6
   ipv6 = {{ "yes" if ipv6_enabled else "no"  }}

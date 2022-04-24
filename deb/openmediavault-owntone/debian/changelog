@@ -1,3 +1,12 @@
+openmediavault-owntone (6.0.1-1) unstable; urgency=low
+
+  * Update locale files.
+  * Add OMV_OWNTONE_GENERAL_TRUSTEDNETWORKS environment variable to customize
+    who is allowed to connect without authorisation.
+    Defaults to '{localhost,192.168,fd}'.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 Apr 2022 11:50:25 +0200
+
 openmediavault-owntone (6.0-6) unstable; urgency=low
 
   * Internal release
