@@ -1,4 +1,4 @@
-openmediavault-owntone (6.0.1-2) unstable; urgency=low
+openmediavault-owntone (6.0.1-3) unstable; urgency=low
 
   * Update locale files.
   * Add OMV_OWNTONE_GENERAL_TRUSTEDNETWORKS environment variable to customize

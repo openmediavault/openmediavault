@@ -1,4 +1,4 @@
-openmediavault-onedrive (6.1.0-2) unstable; urgency=low
+openmediavault-onedrive (6.1.0-3) unstable; urgency=low
 
   * Update locale files.
   * Use the Debian package of onedrive instead of the Docker

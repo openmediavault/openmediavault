@@ -22,7 +22,10 @@
 set -e
 
 case "$1" in
-	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+  upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+  ;;
+
+	remove)
 	  deb-systemd-invoke stop container-filebrowser.service || true
 	;;
 
