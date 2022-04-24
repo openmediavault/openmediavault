@@ -1,4 +1,4 @@
-openmediavault (6.0.23-1) unstable; urgency=low
+openmediavault (6.0.23-2) unstable; urgency=low
 
   * Update locale files.
   * Various API enhancements.

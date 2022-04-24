@@ -66,7 +66,7 @@ class ConfigObject {
 	 * @return void
 	 * @throw \OMV\AssertException
 	 */
-	protected function assertExists($name) {
+	public function assertExists($name) {
 		if (FALSE === $this->exists($name)) {
 			throw new \OMV\AssertException(
 			  "The property '%s' does not exist in the model '%s'.",
@@ -82,7 +82,7 @@ class ConfigObject {
 	 * @return void
 	 * @throw \OMV\AssertException
 	 */
-	protected function assertValue($name, $value, $message = NULL) {
+	public function assertValue($name, $value, $message = NULL) {
 		if ($this->get($name) !== $value) {
 			$message = is_null($message) ? sprintf(
 				"The property '%s' does not match the value '%s'.",
