@@ -29,6 +29,27 @@ require_once("openmediavault/functions.inc");
  */
 class System {
 	/**
+	 * Get a partition parent block device
+	 * @return Returns the storage parent device file of the partiton of where the
+	 * operating system is installed
+	 * @throw \OMV\ExecException
+	 */
+	public static function getBlockParentDevice($blockdevices, $partiton, &$rootDeviceFile) {
+		foreach ($blockdevices as $blocks => &$block) {
+			foreach ($block->children as $children => &$child) {
+				$child->name = $block->name . ":" . $child->name ;
+			}
+			$items = explode(":",$block->name);
+			if (strpos($partiton, end($items)) === 0) {
+				$rootDeviceFile = $items[0];
+			} else if(!is_null($block->children)) {
+				self::getBlockParentDevice(
+					$block->children, $partiton, $rootDeviceFile);
+			}
+		}
+	}
+
+	/**
 	 * Get the device file where the operating system is installed on (e.g.
 	 * /dev/sda1). To avoid further useless process calls to determine the
 	 * root device file the value is cached in a static variable when this
@@ -49,7 +70,14 @@ class System {
 		//if (is_block_device("/dev/root"))
 		//	return realpath("/dev/root");
 		$mp = new \OMV\System\MountPoint("/");
-		return $mp->getDeviceFile();
+		$cmd = new \OMV\System\Process("lsblk", "-J", "-o NAME");
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+		$blockDevicesObject = json_decode(implode($output));
+		$blockParentDevice = self::getBlockParentDevice(
+			$blockDevicesObject->blockdevices,
+			basename($mp->getDeviceFile()), $rootDeviceFile);
+		return $blockParentDevice;
 	}
 
 	/**
@@ -70,7 +98,8 @@ class System {
 				($rootDeviceFile == realpath($deviceFile))) ?
 				TRUE : FALSE;
 		}
-		return ((0 === strpos($rootDeviceFile, $deviceFile)) ||
+		return ((0 === strpos(basename($rootDeviceFile), basename($deviceFile))) ||
+		    (0 === strpos($rootDeviceFile, $deviceFile)) ||
 			(0 === strpos($rootDeviceFile, realpath($deviceFile)))) ?
 			TRUE : FALSE;
 	}
