@@ -7,6 +7,7 @@
 {%- set general_trusted_networks = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_TRUSTEDNETWORKS', '{localhost,192.168,fd}') -%}
 {%- set library_filescan_disable = salt['pillar.get']('default:OMV_OWNTONE_LIBRARY_FILESCANDISABLE', 'false') -%}
 {%- set library_itunes_overrides = salt['pillar.get']('default:OMV_OWNTONE_LIBRARY_ITUNESOVERRIDES', 'false') -%}
+{%- set library_artwork_basenames = salt['pillar.get']('default:OMV_OWNTONE_LIBRARY_ARTWORKBASENAMES', '{artwork,cover,Folder,folder}') -%}
 {%- set audio_nickname = salt['pillar.get']('default:OMV_OWNTONE_AUDIO_NICKNAME', 'Computer') -%}
 {%- set audio_type = salt['pillar.get']('default:OMV_OWNTONE_AUDIO_TYPE', 'dummy') -%}
 {%- set mpd_port = salt['pillar.get']('default:OMV_OWNTONE_MPD_PORT', '0') -%}
@@ -138,7 +139,7 @@ library {
 
   # Artwork file names (without file type extension)
   # owntone will look for jpg and png files with these base names
-# artwork_basenames = { "artwork", "cover", "Folder" }
+  artwork_basenames = {{ library_artwork_basenames }}
 
   # Enable searching for artwork corresponding to each individual media
   # file instead of only looking for album artwork. This is disabled by

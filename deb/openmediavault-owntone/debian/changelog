@@ -1,3 +1,10 @@
+openmediavault-owntone (6.0.2-1) unstable; urgency=low
+
+  * Add OMV_OWNTONE_LIBRARY_ARTWORKBASENAMES environment variable.
+    Defaults to '{artwork,cover,Folder,folder}'.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 26 Apr 2022 14:19:10 +0200
+
 openmediavault-owntone (6.0.1-3) unstable; urgency=low
 
   * Update locale files.
