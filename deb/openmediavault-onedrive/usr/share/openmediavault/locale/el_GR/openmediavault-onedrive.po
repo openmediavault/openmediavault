@@ -23,22 +23,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "1 MiB/s"
-msgstr ""
+msgstr "1 MiB/s"
 
 msgid "1 minute"
 msgstr "1 λεπτό"
 
 msgid "10 MiB/s"
-msgstr ""
+msgstr "10 MiB/s"
 
 msgid "10 minutes"
 msgstr "10 λεπτά"
 
 msgid "100 MiB/s"
-msgstr ""
+msgstr "100 MiB/s"
 
 msgid "128 KiB/s"
-msgstr ""
+msgstr "128 KiB/s"
 
 msgid "15 minutes"
 msgstr "15 λεπτά"
@@ -47,7 +47,7 @@ msgid "2 minutes"
 msgstr "2 λεπτά"
 
 msgid "256 KiB/s"
-msgstr ""
+msgstr "256 KiB/s"
 
 msgid "3 minutes"
 msgstr "3 λεπτά"
@@ -62,7 +62,7 @@ msgid "5 minutes"
 msgstr "5 λεπτά"
 
 msgid "512 KiB/s"
-msgstr ""
+msgstr "512 KiB/s"
 
 msgid "60 minutes"
 msgstr "60 λεπτά"
@@ -74,6 +74,12 @@ msgid ""
 "- Replicate the local state to OneDrive, by only uploading local changes to "
 "OneDrive. Do not download changes from OneDrive.</li></ul>"
 msgstr ""
+"<ul><li>Πλήρης - Αντιγραφή αλλαγών από και προς το OneDrive.</li><li>Μόνο "
+"Λήψη - Αντιγραφή της απομακρυσμένης κατάστασης του OneDrive τοπικά, μόνο "
+"λαμβάνοντας τις αλλαγές από το OneDrive. Χωρίς αποστολή των τοπικών αλλαγών "
+"στο OneDrive.</li><li>Μόνο Αποστολή - Αντιγραφή της τοπικής κατάστασης στο "
+"OneDrive, μόνο αποστέλλοντας τις αλλαγές στο OneDrive. Χωρίς λήψη αλλαγών "
+"από το OneDrive.</li></ul>"
 
 msgid ""
 "After enabling and deploying this service the first time please run the "
@@ -88,7 +94,7 @@ msgid "Disabled"
 msgstr "Ανενεργό"
 
 msgid "Download only"
-msgstr ""
+msgstr "Μόνο Λήψη"
 
 msgid "Enabled"
 msgstr "Ενεργό"
@@ -97,31 +103,33 @@ msgid "Full"
 msgstr "Πλήρες"
 
 msgid "Local first"
-msgstr ""
+msgstr "Τοπικά πρώτα"
 
 msgid "Monitor interval"
-msgstr ""
+msgstr "Διάστημα επίβλεψης"
 
 msgid "OneDrive"
 msgstr "OneDrive"
 
 msgid "Rate limit"
-msgstr ""
+msgstr "Όριο μετάδοσης"
 
 msgid "Replicate local state first, before downloading changes from OneDrive."
 msgstr ""
+"Αντιγραφή πρώτα της τοπικής κατάστασης, πριν την λήψη αλλαγών από το "
+"OneDrive."
 
 msgid "Replication mode"
-msgstr ""
+msgstr "Λειτουργία αντιγραφής"
 
 msgid "Shared folder"
 msgstr "Κοινόχρηστος φάκελος"
 
 msgid "Skip dot files and folders from syncing."
-msgstr ""
+msgstr "Παράλειψη κρυφών αρχείων και φακέλων από τον συγχρονισμό."
 
 msgid "Skip dotfiles"
-msgstr ""
+msgstr "Παράλειψη κρυφών αρχείων"
 
 msgid ""
 "The location of the media files. Make sure the user <em>onedrive</em> or "
@@ -131,13 +139,13 @@ msgstr ""
 "<em>onedrive</em> ή η ομάδα <em>χρήστες</em> έχει πρόσβαση στα αρχεία."
 
 msgid "The wait time between each sync operation."
-msgstr ""
+msgstr "Ο χρόνος αναμονής ανάμεσα στον κάθε συγχρονισμό."
 
 msgid "Updated OneDrive settings."
 msgstr "Ενημέρωση ρυθμίσεων OneDrive."
 
 msgid "Upload only"
-msgstr ""
+msgstr "Μόνο Αποστολή"
 
 msgid "Upload/Download rate limit."
-msgstr ""
+msgstr "Όριο μετάδοσης Αποστολής/Λήψης."

@@ -6,8 +6,8 @@
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
 # Sári Gábor <sari.gabor@gmail.com>, 2022
-# Grawens <szabolcs.szanyi@gmail.com>, 2022
 # Ádám Balajti <balajtiadam@gmail.com>, 2022
+# Grawens <szabolcs.szanyi@gmail.com>, 2022
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-20 17:56+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: Ádám Balajti <balajtiadam@gmail.com>, 2022\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2022\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,46 +25,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "1 GB"
-msgstr ""
+msgstr "1 GB"
 
 msgid "1 MB"
-msgstr ""
+msgstr "1 MB"
 
 msgid "10 GB"
-msgstr ""
+msgstr "10 GB"
 
 msgid "10 MB"
-msgstr ""
+msgstr "10 MB"
 
 msgid "100 GB"
-msgstr ""
+msgstr "100 GB"
 
 msgid "100 MB"
-msgstr ""
+msgstr "100 MB"
 
 msgid "25 GB"
-msgstr ""
+msgstr "25 GB"
 
 msgid "25 MB"
-msgstr ""
+msgstr "25 MB"
 
 msgid "250 MB"
-msgstr ""
+msgstr "250 MB"
 
 msgid "5 GB"
-msgstr ""
+msgstr "5 GB"
 
 msgid "5 MB"
-msgstr ""
+msgstr "5 MB"
 
 msgid "50 GB"
-msgstr ""
+msgstr "50 GB"
 
 msgid "50 MB"
-msgstr ""
+msgstr "50 MB"
 
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 msgid "Application data"
 msgstr "Alkalmazás adatok"
@@ -75,6 +75,8 @@ msgstr "Tanúsítvány"
 msgid ""
 "Disable password authentication, WebDAV, and the advanced settings page."
 msgstr ""
+"Tiltsa le a jelszavas hitelesítést, valamint a WebDAV-t és a speciális "
+"beállítások oldalt."
 
 msgid "Disabled"
 msgstr "Letiltva"
@@ -83,7 +85,7 @@ msgid "Enabled"
 msgstr "Engedélyezve"
 
 msgid "Filesize limit"
-msgstr ""
+msgstr "Fájlméret korlát"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -139,7 +141,7 @@ msgid "The location where to store the application data."
 msgstr "Az alkalmazásadatok tárolásának helye."
 
 msgid "The maximum size of media files."
-msgstr ""
+msgstr "A médiafájlok maximális mérete."
 
 msgid "Updated PhotoPrism settings."
 msgstr "PhotoPrism beállítások frissítve."
