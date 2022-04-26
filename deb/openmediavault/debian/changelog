@@ -1,6 +1,7 @@
 openmediavault (6.0.24-1) unstable; urgency=low
 
-  *
+  * Enhance installer. Ensure that /media is unmounted to allow
+    installation to USB devices.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 Apr 2022 17:15:58 +0200
 
