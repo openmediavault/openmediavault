@@ -261,6 +261,9 @@ openmediavault (6.0-34) unstable; urgency=low
     your settings whether the migration was correct or reconfigure
     them if necessary.
   * Added SMART status dashboard widget.
+  * Remove ability to cleanup system logs. This is no longer possible
+    because the data is now fetched from the systemd journal, which
+    cannot be cleaned per unit.
   * Issue #1099: Add environment variables OMV_NGINX_SITE_WEBGUI_LISTEN_IPV4_ADDRESS
     and OMV_NGINX_SITE_WEBGUI_LISTEN_IPV6_ADDRESS to configure the
     WebUI to listen on a specific IP address only instead of all.
