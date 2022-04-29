@@ -73,7 +73,7 @@
     "@types/jasminewd2": "^2.0.10",
     "@types/jest": "^27.4.1",
     "@types/lodash": "^4.14.182",
-    "@types/node": "^16.11.31",
+    "@types/node": "^16.11.32",
     "@types/nunjucks": "^3.2.1",
     "@types/validator": "^13.7.2",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
