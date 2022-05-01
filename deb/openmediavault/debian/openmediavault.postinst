@@ -160,14 +160,14 @@ case "$1" in
 			ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa
 		fi
 
-    # Always ensure various services that are replaced by others
-    # are stopped, disabled and masked.
-    deb-systemd-helper disable ntp.service || :
-    deb-systemd-invoke stop ntp.service || :
-    deb-systemd-invoke mask ntp.service || :
-    deb-systemd-helper disable systemd-timesyncd.service || :
-    deb-systemd-invoke stop systemd-timesyncd.service || :
-    deb-systemd-invoke mask systemd-timesyncd.service || :
+		# Always ensure various services that are replaced by others
+		# are stopped, disabled and masked.
+		deb-systemd-helper disable ntp.service || :
+		deb-systemd-invoke stop ntp.service || :
+		deb-systemd-invoke mask ntp.service || :
+		deb-systemd-helper disable systemd-timesyncd.service || :
+		deb-systemd-invoke stop systemd-timesyncd.service || :
+		deb-systemd-invoke mask systemd-timesyncd.service || :
 
 		# Ensure all openmediavault systemd units are enabled.
 		deb-systemd-helper enable openmediavault-beep-up.service
