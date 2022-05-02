@@ -21,13 +21,25 @@
 # https://github.com/saltstack/salt/pull/59829
 patch_network_module_pr_59829:
   file.patch:
-    - name: "/lib/python3/dist-packages/salt/modules/network.py"
+    - name: /lib/python3/dist-packages/salt/modules/network.py
     - source:
       - salt://{{ tpldir }}/files/salt-pr-59829.patch
+    - unless: test -e /var/lib/openmediavault/salt/patch_network_module_pr_59829_stamp
+
+touch_network_module_pr_59829_stamp:
+  file.touch:
+    - name: /var/lib/openmediavault/salt/patch_network_module_pr_59829_stamp
+    - makedirs: true
 
 # https://github.com/saltstack/salt/pull/60536
 patch_fileserver_root_pr_60536:
   file.patch:
-    - name: "/lib/python3/dist-packages/salt/fileserver/roots.py"
+    - name: /lib/python3/dist-packages/salt/fileserver/roots.py
     - source:
       - salt://{{ tpldir }}/files/salt-pr-60536.patch
+    - unless: test -e /var/lib/openmediavault/salt/patch_fileserver_root_pr_60536_stamp
+
+touch_fileserver_root_pr_60536_stamp:
+  file.touch:
+    - name: /var/lib/openmediavault/salt/patch_fileserver_root_pr_60536_stamp
+    - makedirs: true
