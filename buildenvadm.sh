@@ -57,7 +57,7 @@ check_deps() {
 create() {
 	ctr=$(buildah from ${BASE_IMAGE})
 	buildah run ${ctr} /bin/sh -c 'apt -y update'
-	buildah run ${ctr} /bin/sh -c 'apt -y install zsh bash-completion fakeroot debhelper gettext doxygen make npm nano debian-keyring devscripts'
+	buildah run ${ctr} /bin/sh -c 'apt -y install zsh bash-completion fakeroot debhelper gettext doxygen make npm nano debian-keyring devscripts quilt build-essential'
 	buildah run ${ctr} /bin/sh -c '
 cat <<EOF >> ~/.inputrc
 "\C-[OA": history-search-backward
