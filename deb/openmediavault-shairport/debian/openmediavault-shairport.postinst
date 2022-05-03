@@ -70,6 +70,7 @@ case "$1" in
 			fi
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.0"; then
+			omv_module_set_dirty monit
 			omv_module_set_dirty shairport-sync
 		fi
 	;;

@@ -1,4 +1,4 @@
-check process shairport-sync with pidfile /run/shairport-sync/shairport-sync.pid
+check process shairport-sync matching shairport-sync
     start program = "/bin/systemctl start shairport-sync"
     stop program = "/bin/systemctl stop shairport-sync"
     mode active
