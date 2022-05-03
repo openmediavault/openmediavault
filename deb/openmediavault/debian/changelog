@@ -1,11 +1,6 @@
-openmediavault (6.0.26-1) unstable; urgency=low
+openmediavault (6.0.25-2) unstable; urgency=low
 
-  *
-
- -- Volker Theile <volker.theile@openmediavault.org>  Sun, 01 May 2022 11:51:34 +0200
-
-openmediavault (6.0.25-1) unstable; urgency=low
-
+  * Various improvements.
   * Force avahi-daemon to only use ethernet, bond and wifi network
     interfaces that are configured via the UI. It is still possible to
     overwritten this behaviour by the OMV_AVAHIDAEMON_ALLOW_INTERFACES
