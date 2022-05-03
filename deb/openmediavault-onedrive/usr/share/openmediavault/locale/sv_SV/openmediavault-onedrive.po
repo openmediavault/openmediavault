@@ -4,9 +4,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Jonatan Nyberg <jonatan@autistici.org>, 2022
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2022
 # d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2022
+# Jonatan Nyberg <jonatan@autistici.org>, 2022
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-19 21:32+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
-"Last-Translator: d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2022\n"
+"Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2022\n"
 "Language-Team: Swedish (https://www.transifex.com/openmediavault/teams/14254/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,22 +24,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "1 MiB/s"
-msgstr ""
+msgstr "1 MiB/s"
 
 msgid "1 minute"
 msgstr "1 minut"
 
 msgid "10 MiB/s"
-msgstr ""
+msgstr "10 MiB/s"
 
 msgid "10 minutes"
 msgstr "10 minuter"
 
 msgid "100 MiB/s"
-msgstr ""
+msgstr "100 MiB/s"
 
 msgid "128 KiB/s"
-msgstr ""
+msgstr "128 KiB/s"
 
 msgid "15 minutes"
 msgstr "15 minuter"
@@ -48,7 +48,7 @@ msgid "2 minutes"
 msgstr "2 minuter"
 
 msgid "256 KiB/s"
-msgstr ""
+msgstr "256 KiB/s"
 
 msgid "3 minutes"
 msgstr "3 minuter"
@@ -63,7 +63,7 @@ msgid "5 minutes"
 msgstr "5 minuter"
 
 msgid "512 KiB/s"
-msgstr ""
+msgstr "512 KiB/s"
 
 msgid "60 minutes"
 msgstr "60 minuter"
@@ -75,6 +75,12 @@ msgid ""
 "- Replicate the local state to OneDrive, by only uploading local changes to "
 "OneDrive. Do not download changes from OneDrive.</li></ul>"
 msgstr ""
+"<ul><li>Fullständig - Replikera ändringar från och till "
+"OneDrive.</li><li>Endast hämtning - Replikera OneDrive-onlinetillståndet "
+"lokalt, genom att endast hämta ändringar från OneDrive. Ladda inte upp "
+"lokala ändringar till OneDrive.</li><li>Ladda endast upp - Replikera det "
+"lokala tillståndet till OneDrive genom att bara ladda upp lokala ändringar "
+"till OneDrive. Hämta inte ändringar från OneDrive.</li></ul>"
 
 msgid ""
 "After enabling and deploying this service the first time please run the "
@@ -89,7 +95,7 @@ msgid "Disabled"
 msgstr "Inaktiverad"
 
 msgid "Download only"
-msgstr ""
+msgstr "Endast hämtning"
 
 msgid "Enabled"
 msgstr "Aktiverad"
@@ -98,31 +104,33 @@ msgid "Full"
 msgstr "Fullständig"
 
 msgid "Local first"
-msgstr ""
+msgstr "Lokala först"
 
 msgid "Monitor interval"
-msgstr ""
+msgstr "Övervakningsintervall"
 
 msgid "OneDrive"
 msgstr "OneDrive"
 
 msgid "Rate limit"
-msgstr ""
+msgstr "Hastighetsgräns"
 
 msgid "Replicate local state first, before downloading changes from OneDrive."
 msgstr ""
+"Replikera det lokala tillståndet först innan du hämtar ändringar från "
+"OneDrive."
 
 msgid "Replication mode"
-msgstr ""
+msgstr "Replikeringsläge"
 
 msgid "Shared folder"
 msgstr "Delad mapp"
 
 msgid "Skip dot files and folders from syncing."
-msgstr ""
+msgstr "Hoppa över punktfiler och mappar från synkronisering."
 
 msgid "Skip dotfiles"
-msgstr ""
+msgstr "Hoppa över punktfiler"
 
 msgid ""
 "The location of the media files. Make sure the user <em>onedrive</em> or "
@@ -132,13 +140,13 @@ msgstr ""
 "gruppen <em>users</em> har åtkomst till filerna."
 
 msgid "The wait time between each sync operation."
-msgstr ""
+msgstr "Väntetiden mellan varje synkroniseringsåtgärd."
 
 msgid "Updated OneDrive settings."
 msgstr "Uppdaterade OneDrive-inställningar."
 
 msgid "Upload only"
-msgstr ""
+msgstr "Ladda endast upp"
 
 msgid "Upload/Download rate limit."
-msgstr ""
+msgstr "Uppladdnings-/hämtningshastighetsgräns."

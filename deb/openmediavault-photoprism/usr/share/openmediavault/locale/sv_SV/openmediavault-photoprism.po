@@ -25,46 +25,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "1 GB"
-msgstr ""
+msgstr "1 GB"
 
 msgid "1 MB"
-msgstr ""
+msgstr "1 MB"
 
 msgid "10 GB"
-msgstr ""
+msgstr "10 GB"
 
 msgid "10 MB"
-msgstr ""
+msgstr "10 MB"
 
 msgid "100 GB"
-msgstr ""
+msgstr "100 GB"
 
 msgid "100 MB"
-msgstr ""
+msgstr "100 MB"
 
 msgid "25 GB"
-msgstr ""
+msgstr "25 GB"
 
 msgid "25 MB"
-msgstr ""
+msgstr "25 MB"
 
 msgid "250 MB"
-msgstr ""
+msgstr "250 MB"
 
 msgid "5 GB"
-msgstr ""
+msgstr "5 GB"
 
 msgid "5 MB"
-msgstr ""
+msgstr "5 MB"
 
 msgid "50 GB"
-msgstr ""
+msgstr "50 GB"
 
 msgid "50 MB"
-msgstr ""
+msgstr "50 MB"
 
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 msgid "Application data"
 msgstr "Applikationsdata"
@@ -75,6 +75,8 @@ msgstr "Certifikat"
 msgid ""
 "Disable password authentication, WebDAV, and the advanced settings page."
 msgstr ""
+"Inaktivera lösenordsautentisering, WebDAV och sidan för avancerade "
+"inställningar."
 
 msgid "Disabled"
 msgstr "Inaktiverad"
@@ -83,7 +85,7 @@ msgid "Enabled"
 msgstr "Aktiverad"
 
 msgid "Filesize limit"
-msgstr ""
+msgstr "Filstorleksgräns"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -137,7 +139,7 @@ msgid "The location where to store the application data."
 msgstr "Platsen där applikationsdata ska lagras."
 
 msgid "The maximum size of media files."
-msgstr ""
+msgstr "Den maximala storleken på mediefiler."
 
 msgid "Updated PhotoPrism settings."
 msgstr "Uppdaterade PhotoPrism-inställningar."
