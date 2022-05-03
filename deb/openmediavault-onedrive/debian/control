@@ -9,7 +9,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-onedrive
 Architecture: all
-Depends: openmediavault (>= 6.0.22), onedrive, sudo
+Depends: openmediavault (>= 6.0.25), onedrive, sudo
 Priority: optional
 Description: openmediavault OneDrive plugin
  OneDrive is the cloud storage system of Microsoft. This plugin

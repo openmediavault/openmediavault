@@ -10,7 +10,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-filebrowser
 Architecture: all
-Depends: openmediavault (>= 6.0.20), podman
+Depends: openmediavault (>= 6.0.25), podman
 Priority: optional
 Description: openmediavault File Browser plugin
  File Browser provides a file managing interface within a specified

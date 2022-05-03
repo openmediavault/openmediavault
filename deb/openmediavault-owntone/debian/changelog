@@ -1,4 +1,4 @@
-openmediavault-owntone (6.0.2-1) unstable; urgency=low
+openmediavault-owntone (6.0.2-2) unstable; urgency=low
 
   * Add OMV_OWNTONE_LIBRARY_ARTWORKBASENAMES environment variable.
     Defaults to '{artwork,cover,Folder,folder}'.
