@@ -40,5 +40,9 @@ class Avahi extends \OMV\Engine\Module\ServiceAbstract
 			OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.service.zeroconf.service",
 			[$this, "setDirty"]);
+		$dispatcher->addListener(
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.system.network.interface",
+			[$this, "setDirty"]);
 	}
 }
