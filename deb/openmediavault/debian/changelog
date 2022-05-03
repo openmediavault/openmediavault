@@ -1,4 +1,4 @@
-openmediavault (6.0.25-2) unstable; urgency=low
+openmediavault (6.0.25-3) unstable; urgency=low
 
   * Various improvements.
   * Force avahi-daemon to only use ethernet, bond and wifi network
