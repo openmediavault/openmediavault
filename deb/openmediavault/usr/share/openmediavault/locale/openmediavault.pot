@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-04 12:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1100,6 +1100,9 @@ msgstr ""
 msgid "Enable recycle bin"
 msgstr ""
 
+msgid "Enable remote logging of syslog to the specified host."
+msgstr ""
+
 msgid "Enable reverse DNS lookup performed on the remote host's IP address for incoming active mode data connections and outgoing passive mode data connections."
 msgstr ""
 
@@ -1704,6 +1707,9 @@ msgid "Log level"
 msgstr ""
 
 msgid "Logout"
+msgstr ""
+
+msgid "Logs"
 msgstr ""
 
 msgid "Long self-test"
@@ -3044,6 +3050,9 @@ msgstr ""
 msgid "System time"
 msgstr ""
 
+msgid "TCP"
+msgstr ""
+
 msgid "TCP forwarding"
 msgstr ""
 
@@ -3425,6 +3434,9 @@ msgstr ""
 msgid "U.S. Virgin Islands"
 msgstr ""
 
+msgid "UDP"
+msgstr ""
+
 msgid "UID"
 msgstr ""
 
@@ -3678,6 +3690,9 @@ msgid "User/Group permissions"
 msgstr ""
 
 msgid "Users"
+msgstr ""
+
+msgid "Users must be assigned to the <em>ssh</em> group to be able to log in via SSH."
 msgstr ""
 
 msgid "Uzbekistan"

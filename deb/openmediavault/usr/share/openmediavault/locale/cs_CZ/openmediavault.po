@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-04 12:59+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -1130,6 +1130,9 @@ msgstr "Zapnout ověřování se veřejným klíčem."
 msgid "Enable recycle bin"
 msgstr "Používat Koš"
 
+msgid "Enable remote logging of syslog to the specified host."
+msgstr ""
+
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
@@ -1782,6 +1785,9 @@ msgstr "Úroveň podrobnosti záznamu událostí"
 
 msgid "Logout"
 msgstr "Odhlásit"
+
+msgid "Logs"
+msgstr "Záznamy událostí v systému"
 
 msgid "Long self-test"
 msgstr "Podrobná kontrola"
@@ -3186,6 +3192,9 @@ msgstr ""
 msgid "System time"
 msgstr "Systémový čas"
 
+msgid "TCP"
+msgstr ""
+
 msgid "TCP forwarding"
 msgstr "Přeposílání TCP"
 
@@ -3658,6 +3667,9 @@ msgstr "Menší odlehlé ostrovy Spojených států amerických"
 msgid "U.S. Virgin Islands"
 msgstr "Americké Panenské ostrovy"
 
+msgid "UDP"
+msgstr ""
+
 msgid "UID"
 msgstr "Identif. uživatele (UID)"
 
@@ -3918,6 +3930,11 @@ msgstr "Oprávnění uživatele/skupiny"
 
 msgid "Users"
 msgstr "Uživatelé"
+
+msgid ""
+"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"SSH."
+msgstr ""
 
 msgid "Uzbekistan"
 msgstr "Uzbekistán"

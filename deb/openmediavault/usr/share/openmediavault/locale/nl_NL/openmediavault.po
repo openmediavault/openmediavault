@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-04 12:59+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Tim <co_ti@hotmail.com>, 2013-2014,2016-2017,2022\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -1135,6 +1135,9 @@ msgstr ""
 msgid "Enable recycle bin"
 msgstr "Prullenbak inschakelen"
 
+msgid "Enable remote logging of syslog to the specified host."
+msgstr ""
+
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
@@ -1787,6 +1790,9 @@ msgstr "Logniveau"
 
 msgid "Logout"
 msgstr "Afmelden"
+
+msgid "Logs"
+msgstr "Logbestanden"
 
 msgid "Long self-test"
 msgstr "Lange zelftest"
@@ -3191,6 +3197,9 @@ msgstr ""
 msgid "System time"
 msgstr "Systeemtijd"
 
+msgid "TCP"
+msgstr ""
+
 msgid "TCP forwarding"
 msgstr "TCP-forwarden"
 
@@ -3663,6 +3672,9 @@ msgstr "Amerikaanse Diversen Pacifische Eilanden"
 msgid "U.S. Virgin Islands"
 msgstr "Amerikaanse Maagdeneilanden"
 
+msgid "UDP"
+msgstr ""
+
 msgid "UID"
 msgstr "UID"
 
@@ -3923,6 +3935,11 @@ msgstr "Gebruiker/Groepsrechten"
 
 msgid "Users"
 msgstr "Gebruikers"
+
+msgid ""
+"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"SSH."
+msgstr ""
 
 msgid "Uzbekistan"
 msgstr "Oezbekistan"

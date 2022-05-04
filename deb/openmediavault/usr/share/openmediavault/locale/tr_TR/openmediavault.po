@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2021
+# Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-04 12:59+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2021\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) kullanıldı, %s mevcut]"
 
 msgid "%s [%s]"
-msgstr ""
+msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [%s de, %s]"
@@ -59,10 +59,10 @@ msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Minimum güç kullanımı - Bekleme (dönüş durması) ile"
 
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 msgid "1 day"
 msgstr "1 gün"
@@ -83,7 +83,7 @@ msgid "1 year"
 msgstr "1 yıl"
 
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 msgid "10 minutes"
 msgstr "10 dakika"
@@ -92,7 +92,7 @@ msgid "10 years"
 msgstr "10 yıl"
 
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 msgid "120 minutes"
 msgstr "120 dakika"
@@ -119,10 +119,10 @@ msgid "192 - Intermediate power usage without standby"
 msgstr "192 - Orta düzey güç kullanımı - bekleme olmaksızın"
 
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 msgid "2 MiB"
-msgstr ""
+msgstr "2 MiB"
 
 msgid "2 days"
 msgstr "2 gün"
@@ -146,13 +146,13 @@ msgid "240 minutes"
 msgstr "240 dakika"
 
 msgid "25 MiB"
-msgstr ""
+msgstr "25 MiB"
 
 msgid "25 years"
 msgstr "25 yıl"
 
 msgid "250 MiB"
-msgstr ""
+msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - En yüksek performans, en yüksek güç kullanımı"
@@ -185,7 +185,7 @@ msgid "330 minutes"
 msgstr "330 dakika"
 
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 msgid "4 days"
 msgstr "4 gün"
@@ -197,7 +197,7 @@ msgid "4 years"
 msgstr "4 yıl"
 
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 msgid "5 days"
 msgstr "5 gün"
@@ -212,10 +212,10 @@ msgid "5 years"
 msgstr "5 yıl"
 
 msgid "50 MiB"
-msgstr ""
+msgstr "50 MiB"
 
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 msgid "6 days"
 msgstr "6 gün"
@@ -230,10 +230,10 @@ msgid "64 - Intermediate power usage with standby"
 msgstr "64 - Orta düzey güç kullanımı - Bekleme ile"
 
 msgid "75 MiB"
-msgstr ""
+msgstr "75 MiB"
 
 msgid "750 MiB"
-msgstr ""
+msgstr "750 MiB"
 
 msgid "9 months"
 msgstr "9 ay"
@@ -276,7 +276,7 @@ msgid "Add"
 msgstr "Ekle"
 
 msgid "Add hot spares / recover RAID device."
-msgstr ""
+msgstr "RAID aygıtına yedek ekle / kurtar"
 
 msgid "Address"
 msgstr "Adres"
@@ -321,7 +321,7 @@ msgid "All"
 msgstr "Tüm"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
-msgstr ""
+msgstr "Tüm paketler güncellenecektir. Devam etmek istiyor musunuz?"
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -375,7 +375,7 @@ msgid "Antigua and Barbuda"
 msgstr "Antigua ve Barbuda"
 
 msgid "Applied the configuration changes."
-msgstr ""
+msgstr "Uygulanmış konfigürasyon değişiklikleri."
 
 msgid "Apply"
 msgstr "Uygula"
@@ -387,10 +387,10 @@ msgid "April"
 msgstr "Nisan"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Mimari"
 
 msgid "Archive mode"
-msgstr ""
+msgstr "Arşiv modu"
 
 msgid "Argentina"
 msgstr "Arjantin"
@@ -405,7 +405,7 @@ msgid "Asynchronous I/O"
 msgstr "Asenkron I/O"
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "En az dört aygıt gereklidir."
 
 msgid "At least one network interface is required."
 msgstr "En azından bir ağ arabirimi gereklidir."
@@ -465,7 +465,7 @@ msgid "BTRFS"
 msgstr "BTRFS"
 
 msgid "Back"
-msgstr ""
+msgstr "Geri"
 
 msgid "Bad"
 msgstr "Kötü"
@@ -477,7 +477,7 @@ msgid "Bahrain"
 msgstr "Bahreyn"
 
 msgid "Ban Rules"
-msgstr ""
+msgstr "Engelleme Kuralları"
 
 msgid "Ban statistics:"
 msgstr "Yasaklama istatistikleri:"
@@ -492,7 +492,7 @@ msgid "Barbados"
 msgstr "Barbados"
 
 msgid "Base path"
-msgstr ""
+msgstr "Temel yol"
 
 msgid "Belarus"
 msgstr "Beyaz Rusya"
@@ -573,7 +573,7 @@ msgid "CPU Usage"
 msgstr "CPU Kullanımı"
 
 msgid "CPU Utilization"
-msgstr ""
+msgstr "CPU Kullanımı"
 
 msgid "CPU usage"
 msgstr "CPU kullanımı"
@@ -651,7 +651,7 @@ msgid "City"
 msgstr "Şehir"
 
 msgid "Cleaning up recycle bin on the share."
-msgstr ""
+msgstr "Paylaşım noktasındaki geri dönüşüm kutusu temizleniyor."
 
 msgid "Clear"
 msgstr "Temiz"
@@ -711,7 +711,7 @@ msgid ""
 msgstr "Bağlantı hızı düşük ise sıkıştırma kullanmak faydalıdır. Sıkıştırma oranı dosya tipine bağlı olarak değişebilir. Sadece internet transferlerinde kullanışlıdır."
 
 msgid "Confirm"
-msgstr ""
+msgstr "Onay"
 
 msgid "Confirm password"
 msgstr "Şifreyi onayla"
@@ -741,7 +741,7 @@ msgid "Copy"
 msgstr "Kopya"
 
 msgid "Copy privileges"
-msgstr ""
+msgstr "Ayricaliklari kopyala"
 
 msgid "Copy public SSH key"
 msgstr "Açık SSH anahtarını kopyala"
@@ -759,61 +759,61 @@ msgid "Create"
 msgstr "Yarat"
 
 msgid "Create a new file system."
-msgstr ""
+msgstr "Yeni dosya sistemi oluştur."
 
 msgid "Create file system"
 msgstr "Dosya sistemi yarat"
 
 msgid "Create | Import"
-msgstr ""
+msgstr "Oluştur | İçe aktar"
 
 msgid "Create | Mount"
-msgstr ""
+msgstr "Oluştur | Bağla"
 
 msgid "Created FTP ban rule."
-msgstr ""
+msgstr "FTP engelleme kuralı oluşturuldu."
 
 msgid "Created FTP share."
-msgstr ""
+msgstr "FTP paylaşımı oluşturuldu."
 
 msgid "Created NFS share."
-msgstr ""
+msgstr "NFS paylaşımı oluşturuldu."
 
 msgid "Created Rsync server module \"{{ name }}\"."
 msgstr ""
 
 msgid "Created Rsync task."
-msgstr ""
+msgstr "Rsync görevi oluşturuldu."
 
 msgid "Created SMB/CIFS share."
-msgstr ""
+msgstr "SMB/CIFS paylaşımı oluşturuldu."
 
 msgid "Created SSH certificate."
-msgstr ""
+msgstr "SSH sertifikası oluşturuldu."
 
 msgid "Created SSL certificate."
-msgstr ""
+msgstr "SSL sertifikası oluşturuldu."
 
 msgid "Created VLAN network connection."
-msgstr ""
+msgstr "VLAN ağ bağlantısı oluşturuldu."
 
 msgid "Created bond network connection."
-msgstr ""
+msgstr "Birleştirilmiş ağ bağlantısı oluşturuldu."
 
 msgid "Created bridge network connection."
-msgstr ""
+msgstr "Köprü ağ bağlantısı oluşturuldu."
 
 msgid "Created firewall rule."
-msgstr ""
+msgstr "Firewall kuralı oluşturuldu."
 
 msgid "Created group \"{{ name }}\"."
-msgstr ""
+msgstr "\"{{ name }}\" grubu oluşturuldu."
 
 msgid "Created scheduled task."
-msgstr ""
+msgstr "Zamanlanmış görev oluşturuldu."
 
 msgid "Created user \"{{ name }}\"."
-msgstr ""
+msgstr "\"{{ name }}\" kullanıcısı oluşturuldu."
 
 msgid "Created wired network connection."
 msgstr ""
@@ -903,13 +903,13 @@ msgid "Destination shared folder"
 msgstr "Hedef paylaşılmış klasör"
 
 msgid "Details"
-msgstr ""
+msgstr "Ayrıntılar"
 
 msgid "Device"
 msgstr "Aygıt"
 
 msgid "Device Information"
-msgstr ""
+msgstr "Aygıt Bilgisi"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Aygıt Bağlantılandırıcısı %s [%s, %s]"
@@ -918,10 +918,10 @@ msgid "Device Symlinks"
 msgstr "Aygıt Sembolik Linkleri"
 
 msgid "Device has a few bad sectors."
-msgstr ""
+msgstr "Aygıtta az miktarda bozuk sektör var"
 
 msgid "Device has many bad sectors."
-msgstr ""
+msgstr "Aygıtta çok sayıda bozuk sektör var"
 
 msgid "Device is being used outside design parameters."
 msgstr ""
@@ -954,16 +954,16 @@ msgid "Disallow the user to modify his own account."
 msgstr ""
 
 msgid "Disk Usage"
-msgstr ""
+msgstr "Disk Kullanımı"
 
 msgid "Disks"
 msgstr "Diskler"
 
 msgid "Dismiss"
-msgstr ""
+msgstr "Vazgeç"
 
 msgid "Dismiss all"
-msgstr ""
+msgstr "Hepsinden vazgeç"
 
 msgid "Display the home directory of the user in the browse list."
 msgstr ""
@@ -1050,7 +1050,7 @@ msgid ""
 msgstr ""
 
 msgid "Documentation"
-msgstr ""
+msgstr "Dökümantasyon"
 
 msgid "Domain name"
 msgstr "Alan adı"
@@ -1077,10 +1077,10 @@ msgid "Dronning Maud Land"
 msgstr "Dronning Maud Bölgesi"
 
 msgid "EXT3"
-msgstr ""
+msgstr "EXT3"
 
 msgid "EXT4"
-msgstr ""
+msgstr "EXT4"
 
 msgid "Each line represents a group."
 msgstr ""
@@ -1128,6 +1128,9 @@ msgstr ""
 
 msgid "Enable recycle bin"
 msgstr "Geri dönüşüm kutusunu aktive et"
+
+msgid "Enable remote logging of syslog to the specified host."
+msgstr ""
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
@@ -1204,7 +1207,7 @@ msgid "Extra options"
 msgstr "İlave seçenekler"
 
 msgid "F2FS"
-msgstr ""
+msgstr "F2FS"
 
 msgid "FTP"
 msgstr "FTP"
@@ -1294,7 +1297,7 @@ msgid "Force secure connection only."
 msgstr "Sadece güvenli bağlatıyı zorunlu kıl"
 
 msgid "Forum"
-msgstr ""
+msgstr "Forum"
 
 msgid "France"
 msgstr "Fransa"
@@ -1408,10 +1411,10 @@ msgid "Heard Island and McDonald Islands"
 msgstr "Heard Adası ve McDonal Adası"
 
 msgid "Help"
-msgstr ""
+msgstr "Yardım"
 
 msgid "Hide"
-msgstr ""
+msgstr "Gizle"
 
 msgid "Hide dot files"
 msgstr "Noktalı dosyaları gizle"
@@ -1538,16 +1541,16 @@ msgid "Import"
 msgstr "İçeri aktarmak"
 
 msgid "Imported SSH certificate."
-msgstr ""
+msgstr "Aktarılmış SSH sertifikası."
 
 msgid "Imported SSL certificate."
-msgstr ""
+msgstr "Aktarılmış SSL sertifikası."
 
 msgid "Imported groups."
-msgstr ""
+msgstr "Aktarılmış gruplar."
 
 msgid "Imported users."
-msgstr ""
+msgstr "Aktarılmış kullanıcılar."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1582,10 +1585,10 @@ msgid "Install"
 msgstr "Kur"
 
 msgid "Install plugin"
-msgstr ""
+msgstr "Eklentileri kur"
 
 msgid "Install updates"
-msgstr ""
+msgstr "Güncelleştirmeleri kur"
 
 msgid "Install updates from"
 msgstr "Güncellemeleri şuradan yükle"
@@ -1605,28 +1608,28 @@ msgid "Invalid IP address."
 msgstr "Geçersiz IP adresi."
 
 msgid "Invalid SSH public key (OpenSSH format)."
-msgstr ""
+msgstr "Geçersiz SSH açık anahtarı (OpenSSH formatı)"
 
 msgid "Invalid SSH public key (OpenSSH or RFC 4716 format)"
-msgstr ""
+msgstr "Geçersiz SSH açık anahtarı (OpenSSH ya da RFC 4716 formatı)"
 
 msgid "Invalid SSH public key (RFC 4716 format)."
-msgstr ""
+msgstr "Geçersiz SSH açık anahtarı (RFC 4716 formatı)."
 
 msgid "Invalid User-Agent."
 msgstr "Geçersiz kullanıcı aracı."
 
 msgid "Invalid domain name."
-msgstr ""
+msgstr "Geçersiz alan adı."
 
 msgid "Invalid group name."
-msgstr ""
+msgstr "Geçersiz grup adı."
 
 msgid "Invalid host name."
-msgstr ""
+msgstr "Geçersiz cihaz adı."
 
 msgid "Invalid user name."
-msgstr ""
+msgstr "Geçersiz kullanıcı adı."
 
 msgid "Invalid user."
 msgstr "Geçersiz kullanıcı."
@@ -1655,7 +1658,7 @@ msgid "Ivory Coast"
 msgstr "Ivory Coast"
 
 msgid "JFS"
-msgstr ""
+msgstr "JFS"
 
 msgid "Jamaica"
 msgstr "Jamaika"
@@ -1759,7 +1762,7 @@ msgid "Lithuania"
 msgstr "Litvanya"
 
 msgid "Load Average"
-msgstr ""
+msgstr "Yük ortalaması"
 
 msgid "Load average"
 msgstr "Yük ortalaması"
@@ -1782,6 +1785,9 @@ msgstr "Kayıt seviyesi"
 msgid "Logout"
 msgstr "Çıkış"
 
+msgid "Logs"
+msgstr "Kayıtlar"
+
 msgid "Long self-test"
 msgstr "uzun otomatik test"
 
@@ -1792,7 +1798,7 @@ msgid "Luxembourg"
 msgstr "Lüksemburg"
 
 msgid "MAC"
-msgstr ""
+msgstr "MAC"
 
 msgid "MII monitoring frequency"
 msgstr "MII izleme sıklığı"
@@ -1842,12 +1848,12 @@ msgstr "Gizlenmiş adres"
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "Hedef portun verilmiş portlarla aynı olduğunu kontrol et. Örneğin 21 veya !443 ya da 1024-65535."
 
 msgid ""
 "Match if the source port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "Kaynakf portun verilmiş portlarla aynı olduğunu kontrol et. Örneğin 21 veya !443 ya da 1024-65535."
 
 msgid "Mauritania"
 msgstr "Moritanya"
@@ -1871,7 +1877,7 @@ msgid "Max. passive port"
 msgstr ""
 
 msgid "Maximum"
-msgstr ""
+msgstr "En fazla"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maksimum indirme hızı (KiB/s)"
@@ -1910,10 +1916,10 @@ msgid "Members"
 msgstr "Üyeler"
 
 msgid "Memory"
-msgstr ""
+msgstr "Hafıza"
 
 msgid "Memory Usage"
-msgstr ""
+msgstr "Hafıza kullanımı"
 
 msgid "Memory usage"
 msgstr "Hafıza kullanımı"
@@ -1979,13 +1985,13 @@ msgid "Mongolia"
 msgstr "Moğolistan"
 
 msgid "Monitored"
-msgstr ""
+msgstr "İzlenmiş"
 
 msgid "Monitoring"
 msgstr "İzleme"
 
 msgid "Monitoring enabled"
-msgstr ""
+msgstr "İzleme etkin"
 
 msgid "Month"
 msgstr "Ay"
@@ -2003,7 +2009,7 @@ msgid "Mount"
 msgstr "Bağla"
 
 msgid "Mount Options"
-msgstr ""
+msgstr "Bağlantı Seçenekleri"
 
 msgid "Mount Point"
 msgstr "Bağlantı Noktası"
@@ -2087,7 +2093,7 @@ msgid "No connections"
 msgstr "Baülantı yok"
 
 msgid "No data to display."
-msgstr ""
+msgstr "Gösterilecek bilgi yok."
 
 msgid "No session reuse required"
 msgstr "Oturum tekrar kullanımı gerekli değil"
@@ -2129,10 +2135,10 @@ msgid "Not UDP"
 msgstr "UDP değil"
 
 msgid "Not mounted"
-msgstr ""
+msgstr "Bağlanmadı"
 
 msgid "Not running"
-msgstr ""
+msgstr "Çalışmıyor"
 
 msgid "Nothing"
 msgstr "Hiçbirşey"
@@ -2165,7 +2171,7 @@ msgid "Offline immediate test"
 msgstr "Çevrimdışı anlık test"
 
 msgid "Old-age"
-msgstr ""
+msgstr "Yaşlı"
 
 msgid "Oman"
 msgstr "Amman"
@@ -2183,7 +2189,7 @@ msgid "Organization Name"
 msgstr "Organizasyon Adı"
 
 msgid "Organization Unit"
-msgstr ""
+msgstr "Organizasyon Birimi"
 
 msgid "Others"
 msgstr "Diğerleri"
@@ -2201,7 +2207,7 @@ msgid "Pacific Islands Trust Territory"
 msgstr "Pasifik Adaları Ortaklığı Bölgesi"
 
 msgid "Package Information"
-msgstr ""
+msgstr "Paket Bilgisi"
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2240,10 +2246,10 @@ msgid "Password authentication"
 msgstr "Şifre onaylaması"
 
 msgid "Password does not match."
-msgstr ""
+msgstr "Şifreler uyuşmuyor."
 
 msgid "Password doesn't match."
-msgstr ""
+msgstr "Şifreler uyuşmuyor."
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
 msgstr "RSA ya da ECC sertifikasını X.509 PEM formatında buraya yapıştırınız."
@@ -2254,7 +2260,7 @@ msgstr "RSA ya da ECC özel anahtarını X.509 PEM formatında buraya yapıştı
 msgid ""
 "Pending configuration changes. You must apply these changes in order for "
 "them to take effect."
-msgstr ""
+msgstr "Bekleyen yapılandırma değişiklikleri. Bu değişikliklerin etkin olabilmesi için uygulamanız gerekmektedir."
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "Yemek Demoktarik Halk Cumhuriyeti"
@@ -2263,7 +2269,7 @@ msgid "Perform a trial run with no changes made"
 msgstr "Herhangi bir değişiklik yapmadan deneme çalıştırması yapmak."
 
 msgid "Performance Statistics"
-msgstr ""
+msgstr "Performans İstatistikleri"
 
 msgid "Period of validity"
 msgstr "Geçerlilik süresi"
@@ -2284,7 +2290,7 @@ msgid "Permit root login"
 msgstr "Root girişine izin ver"
 
 msgid "Permit to do SSH tunneling."
-msgstr ""
+msgstr "SSH tuneline izin ver."
 
 msgid "Peru"
 msgstr "Peru"
@@ -2298,17 +2304,17 @@ msgstr "Pitcairn"
 msgid ""
 "Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr ""
+msgstr "Daha fazla bilgi için lütfen <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" target=\"_blank\">kullanıcı kılavuzu</a> adresini ziyaret ediniz."
 
 msgid ""
 "Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
 " target=\"_blank\">manual page</a> for more details."
-msgstr ""
+msgstr "Daha fazla bilgi için lütfen <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\" target=\"_blank\">kullanıcı kılavuzu</a> adresini ziyaret ediniz."
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr ""
+msgstr "Daha fazla bilgi için lütfen <a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\">kullanıcı kılavuzu</a> adresini ziyaret ediniz."
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
@@ -2338,7 +2344,7 @@ msgid ""
 msgstr "Daha fazla bilgi için lütfen <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> adresini ziyaret ediniz."
 
 msgid "Please choose the method to wipe the device."
-msgstr ""
+msgstr "Cihazı silmek için bir metod seçiniz."
 
 msgid "Please wait ..."
 msgstr "Lütfen bekleyiniz..."
@@ -2395,7 +2401,7 @@ msgid "Portugal"
 msgstr "Portekiz"
 
 msgid "Power"
-msgstr ""
+msgstr "Güç"
 
 msgid "Power Management"
 msgstr "Güç Yönetimi"
@@ -2552,7 +2558,7 @@ msgid "Reboot"
 msgstr "Yeniden başlat"
 
 msgid "Reboot required"
-msgstr ""
+msgstr "Yeniden başlatma gerekli"
 
 msgid "Recipient"
 msgstr "Alıcı"
@@ -2570,13 +2576,13 @@ msgid "Referenced"
 msgstr "Başvurulmuş"
 
 msgid "Refresh time"
-msgstr ""
+msgstr "Yenileme zamanı"
 
 msgid "Relative Path"
 msgstr "Bağlantılı Dizin"
 
 msgid "Relative path"
-msgstr ""
+msgstr "Bağlantılı dizin"
 
 msgid "Reload"
 msgstr "Yeniden yükle"
@@ -2597,7 +2603,7 @@ msgid "Replace"
 msgstr "Değiştir"
 
 msgid "Replace all existing permissions."
-msgstr ""
+msgstr "Mevcut tüm yetkileri değiştir."
 
 msgid "Report"
 msgstr "Rapor"
@@ -2660,16 +2666,16 @@ msgid "Rsync - Server"
 msgstr "Rsync - Sunucu"
 
 msgid "Rules"
-msgstr ""
+msgstr "Kurallar"
 
 msgid "Run"
 msgstr "Çalıştır"
 
 msgid "Run rsync task"
-msgstr ""
+msgstr "Rsync görevini başlat"
 
 msgid "Run scheduled task"
-msgstr ""
+msgstr "Zamanlanmış görevi başlat"
 
 msgid "Running"
 msgstr "Çalışıyor"
@@ -2711,7 +2717,7 @@ msgid "SSH public key"
 msgstr "SSH açık anahtarı"
 
 msgid "SSH public keys"
-msgstr ""
+msgstr "SSH açık anahtarları"
 
 msgid "SSID"
 msgstr "SSID"
@@ -2723,10 +2729,10 @@ msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
 msgid "SSL/TLS Settings"
-msgstr ""
+msgstr "SSL/TLS Ayarları"
 
 msgid "SSL/TLS enabled"
-msgstr ""
+msgstr "SSL/TLS etkinleştirildi"
 
 msgid "STARTTLS"
 msgstr "STARTTLS"
@@ -2765,13 +2771,13 @@ msgid "Save"
 msgstr "Kaydet"
 
 msgid "Scan for new devices"
-msgstr ""
+msgstr "Yeni aygıtları araştır"
 
 msgid "Scanning for new devices ..."
 msgstr "Yeni aygıtlar taranıyor ..."
 
 msgid "Scheduled Tasks"
-msgstr ""
+msgstr "Zamanlanmış Görevler"
 
 msgid "Scheduling"
 msgstr "Zamanlama"
@@ -3185,6 +3191,9 @@ msgstr ""
 msgid "System time"
 msgstr "Sistem zamanı"
 
+msgid "TCP"
+msgstr ""
+
 msgid "TCP forwarding"
 msgstr "TCP yönlendirme"
 
@@ -3253,7 +3262,7 @@ msgid ""
 msgstr "Hedef uzak sunucu, örn. [USER@]HOST:DEST, [USER@]HOST::DEST veya rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "Bu alan sadece * ya da virgülle ayrılmış değerler listesini içerebilir."
 
 msgid "The file mode of the shared folder path."
 msgstr "Paylaşılmış klasör adresinin dosya modu."
@@ -3657,6 +3666,9 @@ msgstr "ABD Çeşitli Pasifik Adaları"
 msgid "U.S. Virgin Islands"
 msgstr "Virgin Adaları"
 
+msgid "UDP"
+msgstr ""
+
 msgid "UID"
 msgstr "UID"
 
@@ -3917,6 +3929,11 @@ msgstr "Kullanıcı/Grup yetkileri"
 
 msgid "Users"
 msgstr "Kullanıcılar"
+
+msgid ""
+"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"SSH."
+msgstr ""
 
 msgid "Uzbekistan"
 msgstr "Özbekistan"

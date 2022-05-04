@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-04 12:59+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2022\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -1129,6 +1129,9 @@ msgstr "Ενεργή πιστοποίηση με δημόσιο κλειδί."
 msgid "Enable recycle bin"
 msgstr "Ενεργοποίηση κάδου ανακύκλωσης"
 
+msgid "Enable remote logging of syslog to the specified host."
+msgstr ""
+
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
@@ -1781,6 +1784,9 @@ msgstr "Επίπεδο καταγραφής"
 
 msgid "Logout"
 msgstr "Έξοδος"
+
+msgid "Logs"
+msgstr "Καταγραφή"
 
 msgid "Long self-test"
 msgstr "Αυτοέλεγχος διαρκείας"
@@ -3185,6 +3191,9 @@ msgstr "Η επίβλεψη συστήματος είναι ανενεργή. Γ
 msgid "System time"
 msgstr "Ώρα συστήματος"
 
+msgid "TCP"
+msgstr ""
+
 msgid "TCP forwarding"
 msgstr "Προώθηση TCP"
 
@@ -3657,6 +3666,9 @@ msgstr "U.S. Miscellaneous Pacific Islands"
 msgid "U.S. Virgin Islands"
 msgstr "U.S. Virgin Islands"
 
+msgid "UDP"
+msgstr ""
+
 msgid "UID"
 msgstr "Αναγνωριστικό χρήστη"
 
@@ -3917,6 +3929,11 @@ msgstr "Δικαιώματα Χρήστη/Ομάδας"
 
 msgid "Users"
 msgstr "Χρήστες"
+
+msgid ""
+"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"SSH."
+msgstr ""
 
 msgid "Uzbekistan"
 msgstr "Uzbekistan"

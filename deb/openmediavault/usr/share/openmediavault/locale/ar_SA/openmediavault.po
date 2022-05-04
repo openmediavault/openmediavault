@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-04 12:59+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2022\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -1130,6 +1130,9 @@ msgstr ""
 msgid "Enable recycle bin"
 msgstr "تمكين سلة المحذوفات"
 
+msgid "Enable remote logging of syslog to the specified host."
+msgstr ""
+
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
@@ -1782,6 +1785,9 @@ msgstr "مستوى السجل"
 
 msgid "Logout"
 msgstr "تسجيل الخروج"
+
+msgid "Logs"
+msgstr "سجلات"
 
 msgid "Long self-test"
 msgstr "الاختبار الذاتي الطويل"
@@ -3186,6 +3192,9 @@ msgstr ""
 msgid "System time"
 msgstr "وقت النظام"
 
+msgid "TCP"
+msgstr ""
+
 msgid "TCP forwarding"
 msgstr "إعادة توجيه TCP "
 
@@ -3658,6 +3667,9 @@ msgstr "جزر المحيط الهادئ المتنوعة للولايات ال�
 msgid "U.S. Virgin Islands"
 msgstr "جزر فيرجن الأمريكية"
 
+msgid "UDP"
+msgstr ""
+
 msgid "UID"
 msgstr "UID"
 
@@ -3918,6 +3930,11 @@ msgstr "أذونات المستخدم / المجموعة"
 
 msgid "Users"
 msgstr "المستخدمون"
+
+msgid ""
+"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"SSH."
+msgstr ""
 
 msgid "Uzbekistan"
 msgstr "أوزبكستان"

@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-04 12:59+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2022\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -333,7 +333,7 @@ msgid "All"
 msgstr "Alle"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
-msgstr ""
+msgstr "Alle Pakete werden aktualisiert. Möchten Sie fortfahren?"
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -399,7 +399,7 @@ msgid "April"
 msgstr "April"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Architektur"
 
 msgid "Archive mode"
 msgstr "Archivmodus"
@@ -1141,6 +1141,9 @@ msgstr "Aktiviere Authentifizierung mit öffentlichem Schlüssel."
 msgid "Enable recycle bin"
 msgstr "Aktiviere Papierkorb"
 
+msgid "Enable remote logging of syslog to the specified host."
+msgstr "Aktiviert die Fernprotokollierung von Syslog an den angegebenen Host."
+
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
@@ -1429,7 +1432,7 @@ msgid "Hide dot files"
 msgstr "Verstecke Dotfiles"
 
 msgid "Home"
-msgstr ""
+msgstr "Heim"
 
 msgid "Home directories"
 msgstr "Heimatverzeichnisse"
@@ -1793,6 +1796,9 @@ msgstr "Log Level"
 
 msgid "Logout"
 msgstr "Abmelden"
+
+msgid "Logs"
+msgstr "Logs"
 
 msgid "Long self-test"
 msgstr "Ausführlicher Selbstest"
@@ -3197,6 +3203,9 @@ msgstr ""
 msgid "System time"
 msgstr "Systemzeit"
 
+msgid "TCP"
+msgstr "TCP"
+
 msgid "TCP forwarding"
 msgstr "TCP Weiterleitung"
 
@@ -3669,6 +3678,9 @@ msgstr "U.S. Miscellaneous Pacific Islands"
 msgid "U.S. Virgin Islands"
 msgstr "Amerikanische Jungferninseln"
 
+msgid "UDP"
+msgstr "UDP"
+
 msgid "UID"
 msgstr "UID"
 
@@ -3839,7 +3851,7 @@ msgid "Updated settings."
 msgstr "Einstellungen wurden aktualisiert."
 
 msgid "Updated shared folder."
-msgstr ""
+msgstr "Freigegebener Ordner wurde aktualisiert."
 
 msgid "Updated update management settings."
 msgstr "Aktualisierungseinstellungen wurden aktualisiert."
@@ -3878,7 +3890,7 @@ msgid "Usage"
 msgstr ""
 
 msgid "Usage Warning Threshold"
-msgstr ""
+msgstr "Warnschwelle für die Nutzung"
 
 msgid "Use NTP server"
 msgstr "NTP Server benutzen"
@@ -3929,6 +3941,11 @@ msgstr "Benutzer/Gruppe Berechtigungen"
 
 msgid "Users"
 msgstr "Benutzer"
+
+msgid ""
+"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"SSH."
+msgstr ""
 
 msgid "Uzbekistan"
 msgstr "Usbekistan"

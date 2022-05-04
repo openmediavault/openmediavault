@@ -17,11 +17,13 @@ import { ServiceSmbTextPageComponent } from '~/app/pages/diagnostics/services/se
 import { ServiceSshTextPageComponent } from '~/app/pages/diagnostics/services/service-ssh-text-page.component';
 import { SystemInformationDatatablePageComponent } from '~/app/pages/diagnostics/system-information/system-information-datatable-page.component';
 import { SystemLogsListPageComponent } from '~/app/pages/diagnostics/system-logs/system-logs-list-page.component';
+import { SystemLogsRemoteFormPageComponent } from '~/app/pages/diagnostics/system-logs/system-logs-remote-form-page.component';
 
 @NgModule({
   declarations: [
     SystemInformationDatatablePageComponent,
     SystemLogsListPageComponent,
+    SystemLogsRemoteFormPageComponent,
     ProcessesTextPageComponent,
     ReportTextPageComponent,
     PerformanceStatisticCpuRrdPageComponent,
