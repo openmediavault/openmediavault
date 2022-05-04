@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.system-logs.remote"
+  position: 20
+  text: _("Remote")
+  icon: tune
+  url: "/diagnostics/system-logs/remote"

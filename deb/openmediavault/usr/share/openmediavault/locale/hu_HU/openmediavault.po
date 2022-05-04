@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-04 12:59+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2022\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -1135,6 +1135,9 @@ msgstr "Nyilvános kulcs hitelesítés engedélyezése."
 msgid "Enable recycle bin"
 msgstr "Lomtár engedélyezése"
 
+msgid "Enable remote logging of syslog to the specified host."
+msgstr ""
+
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
@@ -1787,6 +1790,9 @@ msgstr "Naplózási szint"
 
 msgid "Logout"
 msgstr "Kijelentkezés"
+
+msgid "Logs"
+msgstr "Naplók"
 
 msgid "Long self-test"
 msgstr "Hosszú önteszt"
@@ -3191,6 +3197,9 @@ msgstr "A rendszer monitorozása ki van kapcsolva. Engedélyezéséhez kérjük,
 msgid "System time"
 msgstr "Rendszeridő"
 
+msgid "TCP"
+msgstr ""
+
 msgid "TCP forwarding"
 msgstr "TCP továbbítás"
 
@@ -3663,6 +3672,9 @@ msgstr "U.S. egyéb Csendes-óceáni szigetek"
 msgid "U.S. Virgin Islands"
 msgstr "U.S. Virgin-szigetek"
 
+msgid "UDP"
+msgstr ""
+
 msgid "UID"
 msgstr "UID"
 
@@ -3923,6 +3935,11 @@ msgstr "Felhasználó és Csoport jogosultságok"
 
 msgid "Users"
 msgstr "Felhasználók"
+
+msgid ""
+"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"SSH."
+msgstr ""
 
 msgid "Uzbekistan"
 msgstr "Üzbegisztán"

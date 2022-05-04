@@ -1,3 +1,10 @@
+openmediavault (6.0.26-1) unstable; urgency=low
+
+  * Add missing UI to configure remote logging of syslog. The
+    page can be found at 'Diagnostics | System Logs | Remote'.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 04 May 2022 18:58:31 +0200
+
 openmediavault (6.0.25-3) unstable; urgency=low
 
   * Various improvements.

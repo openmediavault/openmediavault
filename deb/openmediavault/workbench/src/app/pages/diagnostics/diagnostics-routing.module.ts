@@ -18,6 +18,7 @@ import { ServiceSmbTextPageComponent } from '~/app/pages/diagnostics/services/se
 import { ServiceSshTextPageComponent } from '~/app/pages/diagnostics/services/service-ssh-text-page.component';
 import { SystemInformationDatatablePageComponent } from '~/app/pages/diagnostics/system-information/system-information-datatable-page.component';
 import { SystemLogsListPageComponent } from '~/app/pages/diagnostics/system-logs/system-logs-list-page.component';
+import { SystemLogsRemoteFormPageComponent } from '~/app/pages/diagnostics/system-logs/system-logs-remote-form-page.component';
 
 const routes: Routes = [
   {
@@ -41,8 +42,20 @@ const routes: Routes = [
   },
   {
     path: 'system-logs',
-    component: SystemLogsListPageComponent,
-    data: { title: gettext('System Logs') }
+    data: { title: gettext('System Logs') },
+    children: [
+      { path: '', component: NavigationPageComponent },
+      {
+        path: 'logs',
+        component: SystemLogsListPageComponent,
+        data: { title: gettext('Logs') }
+      },
+      {
+        path: 'remote',
+        component: SystemLogsRemoteFormPageComponent,
+        data: { title: gettext('Remote') }
+      }
+    ]
   },
   {
     path: 'performance-statistics',

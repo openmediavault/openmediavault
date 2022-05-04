@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-04 12:59+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: jacekniedziolka71 <lucas71@interia.pl>, 2017,2022\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -1134,6 +1134,9 @@ msgstr "Włącz uwierzytelnianie publicznym kluczem."
 msgid "Enable recycle bin"
 msgstr "Włącz kosz"
 
+msgid "Enable remote logging of syslog to the specified host."
+msgstr ""
+
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
@@ -1786,6 +1789,9 @@ msgstr "Poziom logów"
 
 msgid "Logout"
 msgstr "Wyloguj"
+
+msgid "Logs"
+msgstr "Logi"
 
 msgid "Long self-test"
 msgstr "Długi test własny"
@@ -3190,6 +3196,9 @@ msgstr "Monitoring systemu wyłączony. Aby włączyć idź do"
 msgid "System time"
 msgstr "Czas systemowy"
 
+msgid "TCP"
+msgstr ""
+
 msgid "TCP forwarding"
 msgstr "Przekazywanie TCP"
 
@@ -3662,6 +3671,9 @@ msgstr "U.S. Miscellaneous Pacific Islands"
 msgid "U.S. Virgin Islands"
 msgstr "U.S. Virgin Islands"
 
+msgid "UDP"
+msgstr ""
+
 msgid "UID"
 msgstr "UID"
 
@@ -3922,6 +3934,11 @@ msgstr "Uprawnienia grup/użytkowników"
 
 msgid "Users"
 msgstr "Użytkownicy"
+
+msgid ""
+"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"SSH."
+msgstr ""
 
 msgid "Uzbekistan"
 msgstr "Uzbekistan"

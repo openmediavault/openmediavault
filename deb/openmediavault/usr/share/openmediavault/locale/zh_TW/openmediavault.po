@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-04 12:59+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2022\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -1131,6 +1131,9 @@ msgstr "啟用公鑰驗證。"
 msgid "Enable recycle bin"
 msgstr "啟用回收筒"
 
+msgid "Enable remote logging of syslog to the specified host."
+msgstr ""
+
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
@@ -1783,6 +1786,9 @@ msgstr "日誌層級"
 
 msgid "Logout"
 msgstr "登出"
+
+msgid "Logs"
+msgstr "日誌"
 
 msgid "Long self-test"
 msgstr "延展自我測試"
@@ -3187,6 +3193,9 @@ msgstr "系统监测已停用，启用请点击。"
 msgid "System time"
 msgstr "系統時間"
 
+msgid "TCP"
+msgstr ""
+
 msgid "TCP forwarding"
 msgstr "TCP 轉送"
 
@@ -3659,6 +3668,9 @@ msgstr "美屬其他太平洋島嶼"
 msgid "U.S. Virgin Islands"
 msgstr "美屬維爾京群島"
 
+msgid "UDP"
+msgstr ""
+
 msgid "UID"
 msgstr "UID"
 
@@ -3919,6 +3931,11 @@ msgstr "用戶/群組權限"
 
 msgid "Users"
 msgstr "用戶"
+
+msgid ""
+"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"SSH."
+msgstr ""
 
 msgid "Uzbekistan"
 msgstr "烏茲別克斯坦"
