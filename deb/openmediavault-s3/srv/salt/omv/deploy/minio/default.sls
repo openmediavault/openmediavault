@@ -21,7 +21,7 @@
 # https://hub.docker.com/r/minio/minio/
 # https://docs.min.io/docs/minio-docker-quickstart-guide.html
 # https://docs.min.io/minio/baremetal/reference/minio-server/minio-server.html
-# https://caddyserver.com/docs/caddyfile/
+# https://caddyserver.com/docs/caddyfile
 
 # Testing:
 # podman exec -it minio-app /bin/bash

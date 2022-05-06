@@ -20,7 +20,7 @@
 # Documentation/Howto:
 # https://docs.photoprism.app/getting-started/
 # https://github.com/photoprism/photoprism/blob/develop/docker-compose.latest.yml
-# https://caddyserver.com/docs/caddyfile/
+# https://caddyserver.com/docs/caddyfile
 
 # Testing:
 # podman exec -it photoprism-app /bin/bash
