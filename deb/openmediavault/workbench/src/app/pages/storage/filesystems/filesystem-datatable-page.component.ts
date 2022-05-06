@@ -290,7 +290,6 @@ export class FilesystemDatatablePageComponent {
         },
         confirmationDialogConfig: {
           title: gettext('Unmount'),
-          template: 'confirmation',
           message: gettext(
             // eslint-disable-next-line max-len
             'Do you really want to unmount this file system? Please make sure that the file system is not used by any service before unmounting. Note, the file system will not be deleted by this action.'
