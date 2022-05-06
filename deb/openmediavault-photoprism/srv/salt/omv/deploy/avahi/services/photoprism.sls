@@ -37,7 +37,7 @@ configure_avahi_service_photoprism:
       - salt://{{ tpldir }}/files/template.j2
     - template: jinja
     - context:
-        type: "{{ if ssl_enabled | yesno('_https,_http') }}._tcp"
+        type: "{{ ssl_enabled | yesno('_https,_http') }}._tcp"
         port: {{ config.port }}
         name: "{{ zeroconf_name }}"
     - user: root
