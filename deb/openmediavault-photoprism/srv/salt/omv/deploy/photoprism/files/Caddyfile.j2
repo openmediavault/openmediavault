@@ -1,13 +1,13 @@
 {%- set ssl_enabled = config.sslcertificateref | length > 0 -%}
 :2342 {
-{% if ssl_enabled %}
+{%- if ssl_enabled %}
   tls /data/cert.crt /data/cert.key
-{% endif %}
+{%- endif %}
   header -Server
   reverse_proxy http://photoprism-app:2384 {
-{% if ssl_enabled %}
+{%- if ssl_enabled %}
     header_down Strict-Transport-Security max-age=15768000
-{% endif %}
+{%- endif %}
     header_down X-Frame-Options "SAMEORIGIN"
     header_down X-Content-Type-Options "nosniff"
     header_down X-XSS-Protection "1; mode=block"
