@@ -19,6 +19,8 @@
 
 # Documentation/Howto:
 # https://hub.docker.com/r/minio/minio/
+# https://docs.min.io/docs/minio-docker-quickstart-guide.html
+# https://docs.min.io/minio/baremetal/reference/minio-server/minio-server.html
 
 # Testing:
 # podman exec -it minio /bin/bash
