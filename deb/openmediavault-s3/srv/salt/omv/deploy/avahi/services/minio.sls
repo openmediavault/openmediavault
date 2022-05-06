@@ -18,6 +18,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set config = salt['omv_conf.get']('conf.service.minio') %}
+{% set ssl_enabled = config.consolesslcertificateref | length > 0 %}
 {% set zeroconf_enabled = salt['pillar.get']('default:OMV_S3_ZEROCONF_ENABLED', 1) %}
 {% set zeroconf_name = salt['pillar.get']('default:OMV_S3_ZEROCONF_NAME', '%h - S3') %}
 
@@ -36,7 +37,7 @@ configure_avahi_service_minio:
       - salt://{{ tpldir }}/files/template.j2
     - template: jinja
     - context:
-        type: "_http._tcp"
+        type: "{{ ssl_enabled | yesno('_https,_http') }}._tcp"
         port: {{ config.consoleport }}
         name: "{{ zeroconf_name }}"
     - user: root

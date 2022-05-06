@@ -34,7 +34,7 @@ class MinIO extends \OMV\Engine\Module\ServiceAbstract
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.minio");
-		$systemCtl = new \OMV\System\SystemCtl("container-minio");
+		$systemCtl = new \OMV\System\SystemCtl("pod-minio");
 		return [
 			"name" => $this->getName(),
 			"title" => gettext("S3"),
@@ -47,10 +47,6 @@ class MinIO extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 			OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.service.minio",
-			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.certificate.ssl",
 			[$this, "setDirty"]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(

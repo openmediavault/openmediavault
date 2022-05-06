@@ -21,18 +21,8 @@
 
 set -e
 
-case "$1" in
-  upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-  ;;
+. /usr/share/openmediavault/scripts/helper-functions
 
-	remove)
-	  deb-systemd-invoke stop pod-minio.service || true
-	;;
-
-	*)
-		echo "prerm called with unknown argument '$1'" >&2
-		exit 1
-	;;
-esac
+omv_config_add_key "/config/services/minio" "consolesslcertificateref" ""
 
 exit 0
