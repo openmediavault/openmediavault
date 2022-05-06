@@ -26,7 +26,6 @@
 # Testing:
 # podman exec -it minio-app /bin/bash
 # podman logs -f minio-app
-# podman logs -f minio-db
 # podman logs -f minio-proxy
 
 {% set config = salt['omv_conf.get']('conf.service.minio') %}
