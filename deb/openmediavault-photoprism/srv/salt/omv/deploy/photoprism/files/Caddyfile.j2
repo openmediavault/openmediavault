@@ -4,7 +4,7 @@
   tls /data/cert.crt /data/cert.key
 {%- endif %}
   header -Server
-  reverse_proxy http://photoprism-app:2384 {
+  reverse_proxy http://photoprism-app:8080 {
 {%- if ssl_enabled %}
     header_down Strict-Transport-Security max-age=15768000
 {%- endif %}
