@@ -18,6 +18,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set config = salt['omv_conf.get']('conf.service.photoprism') %}
+{% set ssl_enabled = config.sslcertificateref | length > 0 %}
 {% set zeroconf_enabled = salt['pillar.get']('default:OMV_PHOTOPRISM_ZEROCONF_ENABLED', 1) %}
 {% set zeroconf_name = salt['pillar.get']('default:OMV_PHOTOPRISM_ZEROCONF_NAME', '%h - PhotoPrism') %}
 
@@ -36,7 +37,7 @@ configure_avahi_service_photoprism:
       - salt://{{ tpldir }}/files/template.j2
     - template: jinja
     - context:
-        type: "_http._tcp"
+        type: "{{ if ssl_enabled | yesno('_https,_http') }}._tcp"
         port: {{ config.port }}
         name: "{{ zeroconf_name }}"
     - user: root

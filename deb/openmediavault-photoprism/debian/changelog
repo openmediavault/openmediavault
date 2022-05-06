@@ -1,6 +1,7 @@
-openmediavault-photoprism (6.0.2-5) unstable; urgency=low
+openmediavault-photoprism (6.0.2-6) unstable; urgency=low
 
   * Add 'Public' and 'Filesize limit' options.
+  * Write correct Avahi service configuration when HTTPS is enabled.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Apr 2022 17:17:36 +0200
 
