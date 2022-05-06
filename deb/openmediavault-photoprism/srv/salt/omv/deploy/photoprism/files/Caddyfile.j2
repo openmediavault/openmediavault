@@ -2,6 +2,8 @@
 :2342 {
 {%- if ssl_enabled %}
   tls /data/cert.crt /data/cert.key
+{%- else %}
+  auto_https off
 {%- endif %}
   header -Server
   reverse_proxy http://photoprism-app:8080 {
