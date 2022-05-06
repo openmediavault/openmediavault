@@ -23,6 +23,16 @@
 			"maximum": 65535,
 			"default": 9001
 		},
+		"consolesslcertificateref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		},
 		"rootname": {
 			"type": "string",
 			"minLength": 3

@@ -25,11 +25,15 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_S3_APP_CONTAINER_IMAGE=${OMV_S3_APP_CONTAINER_IMAGE:-"docker.io/minio/minio:latest"}
+# Do NOT remove images that could be used by other plugins.
+# OMV_S3_PROXY_CONTAINER_IMAGE=${OMV_S3_PROXY_CONTAINER_IMAGE:-"docker.io/library/caddy:latest"}
 
 remove_action() {
   # Remove systemd unit file.
   echo "Removing systemd unit files ..."
-  rm -rf /etc/systemd/system/container-minio.service
+  rm -rf /etc/systemd/system/container-minio-app.service
+  rm -rf /etc/systemd/system/container-minio-proxy.service
+  rm -rf /etc/systemd/system/pod-minio.service
   systemctl --system daemon-reload || true
   # Remove container image.
   podman rmi "${OMV_S3_APP_CONTAINER_IMAGE}" || true

@@ -48,6 +48,12 @@ data:
           max: 65535
           patternType: port
           required: true
+      - type: sslCertSelect
+        name: consolesslcertificateref
+        label: _("Certificate")
+        hint: _("The SSL certificate.")
+        hasEmptyOption: true
+        value: ""
       - type: textInput
         name: rootname
         label: _("Name")
@@ -73,7 +79,7 @@ data:
             prop: "enable"
         execute:
           type: url
-          url: "/externalRedirect/{{ ['http://', location() | get('hostname'), ':', consoleport] | join | encodeuricomponent }}"
+          url: "/externalRedirect/{% if consolesslcertificateref %}https{% else %}http{% endif %}{{ ['://', location() | get('hostname'), ':', consoleport] | join | encodeuricomponent }}"
       - template: cancel
         execute:
           type: url

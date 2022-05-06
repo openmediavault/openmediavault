@@ -1,3 +1,9 @@
+openmediavault-s3 (6.0.1-1) unstable; urgency=low
+
+  * Add SSL support for the MinIO UI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 06 May 2022 18:12:26 +0200
+
 openmediavault-s3 (6.0-9) unstable; urgency=low
 
   * Internal release

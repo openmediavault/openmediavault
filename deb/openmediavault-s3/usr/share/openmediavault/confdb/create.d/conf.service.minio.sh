@@ -31,6 +31,7 @@ set -e
 #       <enable>0|1</enable>
 #       <port>9000</port>
 #       <consoleport>9001</consoleport>
+#       <consolesslcertificateref></consolesslcertificateref>
 #       <rootname>admin</rootname>
 #       <rootpassword>openmediavault</rootpassword>
 #       <sharedfolderref></sharedfolderref>
@@ -43,6 +44,7 @@ if ! omv_config_exists "/config/services/minio"; then
 	omv_config_add_key "/config/services/minio" "enable" "0"
 	omv_config_add_key "/config/services/minio" "port" "9000"
 	omv_config_add_key "/config/services/minio" "consoleport" "9001"
+	omv_config_add_key "/config/services/minio" "consolesslcertificateref" ""
 	omv_config_add_key "/config/services/minio" "rootname" "admin"
 	omv_config_add_key "/config/services/minio" "rootpassword" "openmediavault"
 	omv_config_add_key "/config/services/minio" "sharedfolderref" ""
