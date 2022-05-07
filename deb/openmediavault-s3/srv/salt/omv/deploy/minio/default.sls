@@ -118,7 +118,7 @@ stop_minio_proxy_service:
     - name: container-minio-proxy
     - enable: False
 
-remove_minio_proxy_container_caddyfile:
+purge_minio_proxy_container_caddyfile:
   file.absent:
     - name: "/var/lib/minio/Caddyfile"
 

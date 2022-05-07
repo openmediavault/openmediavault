@@ -157,7 +157,7 @@ stop_photoprism_proxy_service:
     - name: container-photoprism-proxy
     - enable: False
 
-remove_photoprism_proxy_container_caddyfile:
+purge_photoprism_proxy_container_caddyfile:
   file.absent:
     - name: "{{ appdata_sf_path }}/proxy/Caddyfile"
 
