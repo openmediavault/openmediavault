@@ -29,29 +29,17 @@
 # podman logs -f minio-proxy
 
 {% set config = salt['omv_conf.get']('conf.service.minio') %}
-
-{% if config.enable | to_bool %}
-
 {% set app_image = salt['pillar.get']('default:OMV_S3_APP_CONTAINER_IMAGE', 'docker.io/minio/minio:latest') %}
 {% set proxy_image = salt['pillar.get']('default:OMV_S3_PROXY_CONTAINER_IMAGE', 'docker.io/library/caddy:latest') %}
+{% set ssl_enabled = config.consolesslcertificateref | length > 0 %}
+
+{% if config.enable | to_bool %}
 
 create_minio_app_container_systemd_unit_file:
   file.managed:
     - name: "/etc/systemd/system/container-minio-app.service"
     - source:
       - salt://{{ tpldir }}/files/container-minio-app.service.j2
-    - template: jinja
-    - context:
-        config: {{ config | json }}
-    - user: root
-    - group: root
-    - mode: 644
-
-create_minio_proxy_container_systemd_unit_file:
-  file.managed:
-    - name: "/etc/systemd/system/container-minio-proxy.service"
-    - source:
-      - salt://{{ tpldir }}/files/container-minio-proxy.service.j2
     - template: jinja
     - context:
         config: {{ config | json }}
@@ -86,18 +74,21 @@ minio_app_image_exists:
     - name: podman image exists {{ app_image }}
     - failhard: True
 
-minio_pull_proxy_image:
-  cmd.run:
-    - name: podman pull {{ proxy_image }}
-    - unless: podman image exists {{ proxy_image }}
-    - failhard: True
+{% if ssl_enabled %}
 
-minio_proxy_image_exists:
-  cmd.run:
-    - name: podman image exists {{ proxy_image }}
-    - failhard: True
+create_minio_proxy_container_systemd_unit_file:
+  file.managed:
+    - name: "/etc/systemd/system/container-minio-proxy.service"
+    - source:
+      - salt://{{ tpldir }}/files/container-minio-proxy.service.j2
+    - template: jinja
+    - context:
+        config: {{ config | json }}
+    - user: root
+    - group: root
+    - mode: 644
 
-configure_caddyfile:
+create_minio_proxy_container_caddyfile:
   file.managed:
     - name: "/var/lib/minio/Caddyfile"
     - source:
@@ -109,6 +100,30 @@ configure_caddyfile:
     - group: root
     - mode: 644
 
+minio_pull_proxy_image:
+  cmd.run:
+    - name: podman pull {{ proxy_image }}
+    - unless: podman image exists {{ proxy_image }}
+    - failhard: True
+
+minio_proxy_image_exists:
+  cmd.run:
+    - name: podman image exists {{ proxy_image }}
+    - failhard: True
+
+{% else %}
+
+stop_minio_proxy_service:
+  service.dead:
+    - name: container-minio-proxy
+    - enable: False
+
+remove_minio_proxy_container_caddyfile:
+  file.absent:
+    - name: "/var/lib/minio/Caddyfile"
+
+{% endif %}
+
 start_minio_service:
   service.running:
     - name: pod-minio
@@ -116,15 +131,17 @@ start_minio_service:
     - watch:
       - file: create_minio_pod_systemd_unit_file
       - file: create_minio_app_container_systemd_unit_file
-      - file: create_minio_proxy_container_systemd_unit_file
-      - file: configure_caddyfile
 
 {% else %}
 
 stop_minio_service:
   service.dead:
-    - name: container-minio
+    - name: pod-minio
     - enable: False
+
+remove_minio_proxy_container_caddyfile:
+  file.absent:
+    - name: "/var/lib/minio/Caddyfile"
 
 remove_minio_app_container_systemd_unit_file:
   file.absent:

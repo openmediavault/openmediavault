@@ -30,13 +30,13 @@
 # podman logs -f photoprism-proxy
 
 {% set config = salt['omv_conf.get']('conf.service.photoprism') %}
-
-{% if config.enable | to_bool %}
-
 {% set app_image = salt['pillar.get']('default:OMV_PHOTOPRISM_APP_CONTAINER_IMAGE', 'docker.io/photoprism/photoprism:latest') %}
 {% set db_image = salt['pillar.get']('default:OMV_PHOTOPRISM_DB_CONTAINER_IMAGE', 'docker.io/mariadb:latest') %}
 {% set proxy_image = salt['pillar.get']('default:OMV_PHOTOPRISM_PROXY_CONTAINER_IMAGE', 'docker.io/library/caddy:latest') %}
 {% set appdata_sf_path = salt['omv_conf.get_sharedfolder_path'](config.appdata_sharedfolderref) %}
+{% set ssl_enabled = config.sslcertificateref | length > 0 %}
+
+{% if config.enable | to_bool %}
 
 create_photoprism_appdata_storage_dir:
   file.directory:
@@ -45,11 +45,6 @@ create_photoprism_appdata_storage_dir:
 create_photoprism_appdata_db_dir:
   file.directory:
     - name: "{{ appdata_sf_path }}/db/"
-
-create_photoprism_appdata_proxy_data_dir:
-  file.directory:
-    - name: "{{ appdata_sf_path }}/proxy/data/"
-    - makedirs: True
 
 create_photoprism_app_container_systemd_unit_file:
   file.managed:
@@ -68,18 +63,6 @@ create_photoprism_db_container_systemd_unit_file:
     - name: "/etc/systemd/system/container-photoprism-db.service"
     - source:
       - salt://{{ tpldir }}/files/container-photoprism-db.service.j2
-    - template: jinja
-    - context:
-        config: {{ config | json }}
-    - user: root
-    - group: root
-    - mode: 644
-
-create_photoprism_proxy_container_systemd_unit_file:
-  file.managed:
-    - name: "/etc/systemd/system/container-photoprism-proxy.service"
-    - source:
-      - salt://{{ tpldir }}/files/container-photoprism-proxy.service.j2
     - template: jinja
     - context:
         config: {{ config | json }}
@@ -125,18 +108,26 @@ photoprism_db_image_exists:
     - name: podman image exists {{ db_image }}
     - failhard: True
 
-photoprism_pull_proxy_image:
-  cmd.run:
-    - name: podman pull {{ proxy_image }}
-    - unless: podman image exists {{ proxy_image }}
-    - failhard: True
+{% if ssl_enabled %}
 
-photoprism_proxy_image_exists:
-  cmd.run:
-    - name: podman image exists {{ proxy_image }}
-    - failhard: True
+create_photoprism_appdata_proxy_data_dir:
+  file.directory:
+    - name: "{{ appdata_sf_path }}/proxy/data/"
+    - makedirs: True
 
-configure_caddyfile:
+create_photoprism_proxy_container_systemd_unit_file:
+  file.managed:
+    - name: "/etc/systemd/system/container-photoprism-proxy.service"
+    - source:
+      - salt://{{ tpldir }}/files/container-photoprism-proxy.service.j2
+    - template: jinja
+    - context:
+        config: {{ config | json }}
+    - user: root
+    - group: root
+    - mode: 644
+
+create_photoprism_proxy_container_caddyfile:
   file.managed:
     - name: "{{ appdata_sf_path }}/proxy/Caddyfile"
     - source:
@@ -148,6 +139,30 @@ configure_caddyfile:
     - group: root
     - mode: 644
 
+photoprism_pull_proxy_image:
+  cmd.run:
+    - name: podman pull {{ proxy_image }}
+    - unless: podman image exists {{ proxy_image }}
+    - failhard: True
+
+photoprism_proxy_image_exists:
+  cmd.run:
+    - name: podman image exists {{ proxy_image }}
+    - failhard: True
+
+{% else %}
+
+stop_photoprism_proxy_service:
+  service.dead:
+    - name: container-photoprism-proxy
+    - enable: False
+
+remove_photoprism_proxy_container_caddyfile:
+  file.absent:
+    - name: "{{ appdata_sf_path }}/proxy/Caddyfile"
+
+{% endif %}
+
 start_photoprism_service:
   service.running:
     - name: pod-photoprism
@@ -156,8 +171,6 @@ start_photoprism_service:
       - file: create_photoprism_pod_systemd_unit_file
       - file: create_photoprism_app_container_systemd_unit_file
       - file: create_photoprism_db_container_systemd_unit_file
-      - file: create_photoprism_proxy_container_systemd_unit_file
-      - file: configure_caddyfile
 
 {% else %}
 
@@ -165,6 +178,10 @@ stop_photoprism_service:
   service.dead:
     - name: pod-photoprism
     - enable: False
+
+remove_photoprism_proxy_container_caddyfile:
+  file.absent:
+    - name: "{{ appdata_sf_path }}/proxy/Caddyfile"
 
 remove_photoprism_app_container_systemd_unit_file:
   file.absent:

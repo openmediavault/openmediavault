@@ -5,6 +5,7 @@
 {%- set uid = salt['user.info'](uname).uid -%}
 {%- set gid = salt['group.info'](gname).gid -%}
 {%- set sf_path = salt['omv_conf.get_sharedfolder_path'](config.sharedfolderref) -%}
+{%- set ssl_enabled = config.consolesslcertificateref | length > 0 -%}
 {{ pillar['headers']['multiline'] -}}
 [Unit]
 Description=Podman container-minio-app.service
@@ -18,7 +19,7 @@ Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/container-minio-app.pid %t/container-minio-app.ctr-id
-ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-minio-app.pid --cidfile %t/container-minio-app.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-minio.pod-id -d --replace --pull=never --name=minio-app -u {{ uid }}:{{ gid }} -e MINIO_ROOT_USER="{{ config.rootname }}" -e MINIO_ROOT_PASSWORD="{{ config.rootpassword }}" -v "{{ sf_path }}":/data/ {{ image }} server /data/ --address ":9000" --console-address ":8080" {{ cmd_args }}
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-minio-app.pid --cidfile %t/container-minio-app.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-minio.pod-id -d --replace --pull=never --name=minio-app -u {{ uid }}:{{ gid }} -e MINIO_ROOT_USER="{{ config.rootname }}" -e MINIO_ROOT_PASSWORD="{{ config.rootpassword }}" -v "{{ sf_path }}":/data/ {{ image }} server /data/ --address ":9000" --console-address ":{{ ssl_enabled | yesno('8080,9001') }}" {{ cmd_args }}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-minio-app.ctr-id
 ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-minio-app.ctr-id
 PIDFile=%t/container-minio-app.pid

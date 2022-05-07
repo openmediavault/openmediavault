@@ -1,19 +1,11 @@
-{%- set ssl_enabled = config.consolesslcertificateref | length > 0 -%}
 {
   admin off
-{%- if not ssl_enabled %}
-  auto_https off
-{%- endif %}
 }
 :9001 {
-{%- if ssl_enabled %}
   tls /data/cert.crt /data/cert.key
-{%- endif %}
   header -Server
   reverse_proxy http://minio-app:8080 {
-{%- if ssl_enabled %}
     header_down Strict-Transport-Security max-age=15768000
-{%- endif %}
     header_down X-Frame-Options "SAMEORIGIN"
     header_down X-Content-Type-Options "nosniff"
     header_down X-XSS-Protection "1; mode=block"

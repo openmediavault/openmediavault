@@ -31,8 +31,7 @@ OMV_S3_APP_CONTAINER_IMAGE=${OMV_S3_APP_CONTAINER_IMAGE:-"docker.io/minio/minio:
 remove_action() {
   # Remove systemd unit file.
   echo "Removing systemd unit files ..."
-  rm -rf /etc/systemd/system/container-minio-app.service
-  rm -rf /etc/systemd/system/container-minio-proxy.service
+  rm -rf /etc/systemd/system/container-minio-*.service
   rm -rf /etc/systemd/system/pod-minio.service
   systemctl --system daemon-reload || true
   # Remove container image.

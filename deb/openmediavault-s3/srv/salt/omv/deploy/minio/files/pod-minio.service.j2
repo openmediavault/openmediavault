@@ -1,10 +1,11 @@
+{%- set ssl_enabled = config.consolesslcertificateref | length > 0 -%}
 {{ pillar['headers']['multiline'] -}}
 [Unit]
 Description=Podman pod-minio.service
 Wants=network.target
 After=network-online.target
-Requires=container-minio-app.service container-minio-proxy.service
-Before=container-minio-app.service container-minio-proxy.service
+Requires=container-minio-app.service {% if ssl_enabled %}container-minio-proxy.service{% endif %}
+Before=container-minio-app.service {% if ssl_enabled %}container-minio-proxy.service{% endif %}
 
 [Service]
 Environment=PODMAN_SYSTEMD_UNIT=%n

@@ -32,9 +32,7 @@ OMV_PHOTOPRISM_APP_CONTAINER_IMAGE=${OMV_PHOTOPRISM_APP_CONTAINER_IMAGE:-"docker
 remove_action() {
   # Remove systemd unit files.
   echo "Removing systemd unit files ..."
-  rm -rf /etc/systemd/system/container-photoprism-app.service
-  rm -rf /etc/systemd/system/container-photoprism-db.service
-  rm -rf /etc/systemd/system/container-photoprism-proxy.service
+  rm -rf /etc/systemd/system/container-photoprism-*.service
   rm -rf /etc/systemd/system/pod-photoprism.service
   systemctl --system daemon-reload || true
   # Remove container image.
