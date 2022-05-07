@@ -59,10 +59,6 @@ create_minio_pod_systemd_unit_file:
     - group: root
     - mode: 644
 
-minio_systemctl_daemon_reload:
-  module.run:
-    - service.systemctl_reload:
-
 minio_pull_app_image:
   cmd.run:
     - name: podman pull {{ app_image }}
@@ -122,7 +118,15 @@ purge_minio_proxy_container_caddyfile:
   file.absent:
     - name: "/var/lib/minio/Caddyfile"
 
+purge_minio_proxy_container_systemd_unit_file:
+  file.absent:
+    - name: "/etc/systemd/system/container-minio-proxy.service"
+
 {% endif %}
+
+minio_systemctl_daemon_reload:
+  module.run:
+    - service.systemctl_reload:
 
 start_minio_service:
   service.running:

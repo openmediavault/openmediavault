@@ -82,10 +82,6 @@ create_photoprism_pod_systemd_unit_file:
     - group: root
     - mode: 644
 
-photoprism_systemctl_daemon_reload:
-  module.run:
-    - service.systemctl_reload:
-
 photoprism_pull_app_image:
   cmd.run:
     - name: podman pull {{ app_image }}
@@ -161,7 +157,15 @@ purge_photoprism_proxy_container_caddyfile:
   file.absent:
     - name: "{{ appdata_sf_path }}/proxy/Caddyfile"
 
+purge_photoprism_proxy_container_systemd_unit_file:
+  file.absent:
+    - name: "/etc/systemd/system/container-photoprism-proxy.service"
+
 {% endif %}
+
+photoprism_systemctl_daemon_reload:
+  module.run:
+    - service.systemctl_reload:
 
 start_photoprism_service:
   service.running:
