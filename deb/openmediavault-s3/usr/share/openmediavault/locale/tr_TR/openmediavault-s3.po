@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-s3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-07 09:01+0200\n"
 "PO-Revision-Date: 2022-03-25 19:15+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2022\n"
 "Language-Team: Turkish (Turkey) (https://www.transifex.com/openmediavault/teams/14254/tr_TR/)\n"
@@ -25,6 +25,9 @@ msgstr ""
 msgid "Address"
 msgstr "Adres"
 
+msgid "Certificate"
+msgstr "Sertifika"
+
 msgid "Enabled"
 msgstr "Etkin"
 
@@ -32,7 +35,7 @@ msgid "Name"
 msgstr "Ad"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Açık UI"
 
 msgid "Password"
 msgstr "Şifre"
@@ -44,24 +47,29 @@ msgid "Port to listen on."
 msgstr "Dinlenen port"
 
 msgid "S3"
-msgstr ""
+msgstr "S3"
 
 msgid "Shared folder"
 msgstr "Paylaşılmış klasör"
+
+msgid "The SSL certificate."
+msgstr "SSL sertifikası."
 
 msgid ""
 "The location of the media files. Make sure the user <em>s3</em> or group "
 "<em>users</em> can access the files."
 msgstr ""
+"Medya dosyalarının yeri. <em>s3</em> kullanıcısının ya da grup "
+"<em>kullanıcılar</em>ının dosyaya erişebildiğinden emin olunuz."
 
 msgid "The name of the root user."
-msgstr ""
+msgstr "Root kullanıcısının adı."
 
 msgid "The password of the root user."
-msgstr ""
+msgstr "Root kullanıcısının şifresi."
 
 msgid "Updated S3 settings."
-msgstr ""
+msgstr "Güncellenmiş S3 ayarları."
 
 msgid "Web interface"
-msgstr ""
+msgstr "Web arayüzü"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-s3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-07 09:01+0200\n"
 "PO-Revision-Date: 2022-03-25 19:15+0000\n"
 "Last-Translator: Tim <co_ti@hotmail.com>, 2022\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
@@ -25,6 +25,9 @@ msgstr ""
 
 msgid "Address"
 msgstr "Adres"
+
+msgid "Certificate"
+msgstr "Certificaat"
 
 msgid "Enabled"
 msgstr "Ingeschakeld"
@@ -49,6 +52,9 @@ msgstr ""
 
 msgid "Shared folder"
 msgstr "Gedeelde map"
+
+msgid "The SSL certificate."
+msgstr "Het SSL-certificaat"
 
 msgid ""
 "The location of the media files. Make sure the user <em>s3</em> or group "

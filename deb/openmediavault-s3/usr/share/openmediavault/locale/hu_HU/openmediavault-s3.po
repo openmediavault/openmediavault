@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-s3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-07 09:01+0200\n"
 "PO-Revision-Date: 2022-03-25 19:15+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2022\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
@@ -26,6 +26,9 @@ msgstr ""
 
 msgid "Address"
 msgstr "Cím"
+
+msgid "Certificate"
+msgstr "Tanúsítvány"
 
 msgid "Enabled"
 msgstr "Engedélyezve"
@@ -50,6 +53,9 @@ msgstr "S3"
 
 msgid "Shared folder"
 msgstr "Megosztott mappa"
+
+msgid "The SSL certificate."
+msgstr "Az SSL tanúsítvány."
 
 msgid ""
 "The location of the media files. Make sure the user <em>s3</em> or group "

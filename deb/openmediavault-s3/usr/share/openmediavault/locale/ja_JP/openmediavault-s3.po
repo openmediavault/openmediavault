@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-s3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-07 09:01+0200\n"
 "PO-Revision-Date: 2022-03-25 19:15+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2022\n"
 "Language-Team: Japanese (Japan) (https://www.transifex.com/openmediavault/teams/14254/ja_JP/)\n"
@@ -24,6 +24,9 @@ msgstr ""
 
 msgid "Address"
 msgstr "アドレス"
+
+msgid "Certificate"
+msgstr "証明書"
 
 msgid "Enabled"
 msgstr "有効"
@@ -48,6 +51,9 @@ msgstr ""
 
 msgid "Shared folder"
 msgstr "共有フォルダ"
+
+msgid "The SSL certificate."
+msgstr "SSL証明書。"
 
 msgid ""
 "The location of the media files. Make sure the user <em>s3</em> or group "

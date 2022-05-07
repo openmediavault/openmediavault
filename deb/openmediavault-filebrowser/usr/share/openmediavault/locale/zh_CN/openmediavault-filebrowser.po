@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-filebrowser\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-07 09:01+0200\n"
 "PO-Revision-Date: 2022-04-13 15:40+0000\n"
 "Last-Translator: songming <by@songming.me>, 2022\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
@@ -22,6 +22,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Certificate"
+msgstr "证书"
 
 msgid "Enabled"
 msgstr "已启用"
@@ -40,6 +43,9 @@ msgstr "监听端口。"
 
 msgid "Shared folder"
 msgstr "共享文件夹"
+
+msgid "The SSL certificate."
+msgstr "SSL 证书。"
 
 msgid ""
 "The location of the media files. Make sure the user <em>filebrowser</em> or "

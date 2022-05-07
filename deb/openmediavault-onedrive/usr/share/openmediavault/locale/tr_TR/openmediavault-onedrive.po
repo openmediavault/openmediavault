@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-19 21:32+0200\n"
+"POT-Creation-Date: 2022-05-07 09:01+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2022\n"
 "Language-Team: Turkish (Turkey) (https://www.transifex.com/openmediavault/teams/14254/tr_TR/)\n"
@@ -23,22 +23,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "1 MiB/s"
-msgstr ""
+msgstr "1 MiB/s"
 
 msgid "1 minute"
 msgstr "1 dakika"
 
 msgid "10 MiB/s"
-msgstr ""
+msgstr "10 MiB/s"
 
 msgid "10 minutes"
 msgstr "10 dakika"
 
 msgid "100 MiB/s"
-msgstr ""
+msgstr "100 MiB/s"
 
 msgid "128 KiB/s"
-msgstr ""
+msgstr "128 KiB/s"
 
 msgid "15 minutes"
 msgstr "15 dakika"
@@ -47,7 +47,7 @@ msgid "2 minutes"
 msgstr "2 dakika"
 
 msgid "256 KiB/s"
-msgstr ""
+msgstr "256 KiB/s"
 
 msgid "3 minutes"
 msgstr "3 dakika"
@@ -62,7 +62,7 @@ msgid "5 minutes"
 msgstr "5 dakika"
 
 msgid "512 KiB/s"
-msgstr ""
+msgstr "512 KiB/s"
 
 msgid "60 minutes"
 msgstr "60 dakika"
@@ -74,18 +74,26 @@ msgid ""
 "- Replicate the local state to OneDrive, by only uploading local changes to "
 "OneDrive. Do not download changes from OneDrive.</li></ul>"
 msgstr ""
+"<ul><li>Tam - OneDrive ile tam eşitleme yap.</li><li>Sadece indir -  "
+"OneDrive çevrimiçi durumunu sadece OneDrive daki değişiklikleri indirerek "
+"yerel durum ile eşitle. Yerel değişiklikleri OneDrive a "
+"yükleme.</li><li>Sadece yükle - Yerel durumu sadece OneDrive a dosya "
+"göndererek eşitle. OneDrive daki değişiklikleri indirme.</li></ul>"
 
 msgid ""
 "After enabling and deploying this service the first time please run the "
 "command <em>omv-onedrive-auth</em> in the CLI to authenticate the "
 "application in Microsoft OneDrive."
 msgstr ""
+"Bu servisi aktifleştirip sisteme kurmadan önce komut istemcisinde <em>omv-"
+"onedrive-auth</em> komutunu çalıştırarak Microsoft OneDrive uygulamasını "
+"yetkilendirmelisiniz."
 
 msgid "Disabled"
 msgstr "Kapatılmış"
 
 msgid "Download only"
-msgstr ""
+msgstr "Sadece indirme"
 
 msgid "Enabled"
 msgstr "Etkin"
@@ -94,45 +102,47 @@ msgid "Full"
 msgstr "Dolu"
 
 msgid "Local first"
-msgstr ""
+msgstr "Önce yerel"
 
 msgid "Monitor interval"
-msgstr ""
+msgstr "İzleme aralığı"
 
 msgid "OneDrive"
-msgstr ""
+msgstr "OneDrive"
 
 msgid "Rate limit"
-msgstr ""
+msgstr "Oran limiti"
 
 msgid "Replicate local state first, before downloading changes from OneDrive."
-msgstr ""
+msgstr "OneDrive dan değişiklikleri indirmeden önce yerel durumu eşitle."
 
 msgid "Replication mode"
-msgstr ""
+msgstr "Eşitleme modu"
 
 msgid "Shared folder"
 msgstr "Paylaşılmış klasör"
 
 msgid "Skip dot files and folders from syncing."
-msgstr ""
+msgstr "Dot dosyalarıı ve klasörlerini eşleştirmede atla."
 
 msgid "Skip dotfiles"
-msgstr ""
+msgstr "Dot dosyalarını atla"
 
 msgid ""
 "The location of the media files. Make sure the user <em>onedrive</em> or "
 "group <em>users</em> can access the files."
 msgstr ""
+"Medya dosyalarının yeri. <em>onedrive</em> ya da grup "
+"<em>kullanıcılar</em>ının dosyaya erişebildiğinden emin olunuz."
 
 msgid "The wait time between each sync operation."
-msgstr ""
+msgstr "Herbir eşitleme işlemi arasında bekleme süresi."
 
 msgid "Updated OneDrive settings."
-msgstr ""
+msgstr "Güncellenmiş OneDrive ayarları."
 
 msgid "Upload only"
-msgstr ""
+msgstr "Sadece yükleme"
 
 msgid "Upload/Download rate limit."
-msgstr ""
+msgstr "Yükleme/İndirme oran limiti."

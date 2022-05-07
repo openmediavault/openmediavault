@@ -4,17 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Volker Theile <votdev@gmx.de>, 2022
 # omv nas <myomv100@gmail.com>, 2022
+# Volker Theile <votdev@gmx.de>, 2022
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-s3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-07 09:01+0200\n"
 "PO-Revision-Date: 2022-03-25 19:15+0000\n"
-"Last-Translator: omv nas <myomv100@gmail.com>, 2022\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
 "Language-Team: Arabic (Saudi Arabia) (https://www.transifex.com/openmediavault/teams/14254/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,6 +24,9 @@ msgstr ""
 
 msgid "Address"
 msgstr "العنوان"
+
+msgid "Certificate"
+msgstr "شهادة"
 
 msgid "Enabled"
 msgstr "ممكن"
@@ -48,6 +51,9 @@ msgstr ""
 
 msgid "Shared folder"
 msgstr "مجلد مشترك"
+
+msgid "The SSL certificate."
+msgstr "شهادة SSL."
 
 msgid ""
 "The location of the media files. Make sure the user <em>s3</em> or group "

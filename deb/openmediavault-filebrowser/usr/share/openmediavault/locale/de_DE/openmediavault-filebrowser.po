@@ -4,23 +4,26 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Volker Theile <votdev@gmx.de>, 2022
 # Thomas Melka, 2022
+# Volker Theile <votdev@gmx.de>, 2022
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-filebrowser\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-07 09:01+0200\n"
 "PO-Revision-Date: 2022-04-13 15:40+0000\n"
-"Last-Translator: Thomas Melka, 2022\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
 "Language-Team: German (https://www.transifex.com/openmediavault/teams/14254/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Certificate"
+msgstr "Zertifikat"
 
 msgid "Enabled"
 msgstr "Aktiviert"
@@ -39,6 +42,9 @@ msgstr "Port auf dem gelauscht wird."
 
 msgid "Shared folder"
 msgstr "Freigegebene Ordner"
+
+msgid "The SSL certificate."
+msgstr "Das SSL-Zertifikat."
 
 msgid ""
 "The location of the media files. Make sure the user <em>filebrowser</em> or "

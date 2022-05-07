@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-04 12:59+0200\n"
+"POT-Creation-Date: 2022-05-07 09:01+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -328,11 +328,11 @@ msgid ""
 msgstr ""
 
 msgid "Allow clients to resume interrupted uploads and downloads."
-msgstr ""
+msgstr "Kullanıcıların kesintiye uğramış indirme ve yüklemelerine devam etmelerine izin ver."
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
-msgstr ""
+msgstr "Sunucunun kendisini Windows istemcilerine zaman sunucusu olarak tanıtmasına izin ver."
 
 msgid "Allowed clients"
 msgstr "İzin verilmiş kullanıcılar"
@@ -381,7 +381,7 @@ msgid "Apply"
 msgstr "Uygula"
 
 msgid "Apply permissions to files and subfolders."
-msgstr ""
+msgstr "Yetkileri dosya ve alt dizinlere uygula."
 
 msgid "April"
 msgstr "Nisan"
@@ -423,7 +423,7 @@ msgid "Attributes"
 msgstr "Özellikler"
 
 msgid "Audit file operations"
-msgstr ""
+msgstr "Dosya işlemlerini izle"
 
 msgid "August"
 msgstr "Ağustos"
@@ -549,7 +549,7 @@ msgid "British Virgin Islands"
 msgstr "İngiliz Virgin Adaları"
 
 msgid "Browse directory"
-msgstr ""
+msgstr "Klasörü araştır"
 
 msgid "Browseable"
 msgstr "Taranabilir"
@@ -687,7 +687,7 @@ msgid "Common Name"
 msgstr "Genel İsim"
 
 msgid "Community-maintained updates"
-msgstr ""
+msgstr "Topluluk tarafından yönetilen güncellemeler"
 
 msgid "Comoros"
 msgstr "Comoros"
@@ -735,7 +735,7 @@ msgid "Cook Islands"
 msgstr "Cook Adaları"
 
 msgid "Copied SSH certificate to {{ hostname }}."
-msgstr ""
+msgstr "SSH sertifikası {{ hostname }} e kopyalandı."
 
 msgid "Copy"
 msgstr "Kopya"
@@ -780,7 +780,7 @@ msgid "Created NFS share."
 msgstr "NFS paylaşımı oluşturuldu."
 
 msgid "Created Rsync server module \"{{ name }}\"."
-msgstr ""
+msgstr "Rsync sunucu modülü \"{{ name }}\" yaratıldı."
 
 msgid "Created Rsync task."
 msgstr "Rsync görevi oluşturuldu."
@@ -816,10 +816,10 @@ msgid "Created user \"{{ name }}\"."
 msgstr "\"{{ name }}\" kullanıcısı oluşturuldu."
 
 msgid "Created wired network connection."
-msgstr ""
+msgstr "Kablolu ağ bağlantısı yarat."
 
 msgid "Created wireless network connection."
-msgstr ""
+msgstr "Kablosuz ağ bağlantısı yarat."
 
 msgid "Croatia"
 msgstr "Hırvatistan"
@@ -948,10 +948,10 @@ msgid "Disabled"
 msgstr "Kapatılmış"
 
 msgid "Disallow account modification"
-msgstr ""
+msgstr "Hesap değişikliğine izin verme"
 
 msgid "Disallow the user to modify his own account."
-msgstr ""
+msgstr "Kullanıcının kendi hesabını değiştirmesine izin verme."
 
 msgid "Disk Usage"
 msgstr "Disk Kullanımı"
@@ -966,28 +966,28 @@ msgid "Dismiss all"
 msgstr "Hepsinden vazgeç"
 
 msgid "Display the home directory of the user in the browse list."
-msgstr ""
+msgstr "Gözatma listesinde kullanıcının ev dizinini göster."
 
 msgid "Displays information about the file systems in a grid."
-msgstr ""
+msgstr "Dosya sistemlerine ait bilgileri kareli düzende göster."
 
 msgid "Displays information about the file systems in a table."
-msgstr ""
+msgstr "Dosya sistemlerine ait bilgileri tablo düzeninde göster."
 
 msgid "Displays information about the network interfaces in a grid."
-msgstr ""
+msgstr "Ağ arabirimlerine ait bilgileri kareli düzende göster."
 
 msgid "Displays information about the network interfaces in a table."
-msgstr ""
+msgstr "Ağ arabirimlerine ait bilgileri tablo düzeninde göster."
 
 msgid "Displays information about the services in a grid."
-msgstr ""
+msgstr "Servislere ait bilgileri kareli düzende göster."
 
 msgid "Displays information about the services in a table."
-msgstr ""
+msgstr "Servislere ait bilgileri tablo düzeninde göster."
 
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
-msgstr ""
+msgstr "Tüm izlenen disk aygıtlarına ait S.M.A.R.T. bilgisini göster."
 
 msgid "Djibouti"
 msgstr "Cibuti"
@@ -996,7 +996,7 @@ msgid "Do you really want to apply the configuration changes?"
 msgstr "Konfigurasyon değişikliklerini gerçekten uygulamak istiyor musunuz?"
 
 msgid "Do you really want to copy the privileges from the shared folder?"
-msgstr ""
+msgstr "Paylaşılmış klasördeki tüm yetkileri koplayalamak istiyor musunuz?"
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -1007,13 +1007,13 @@ msgid "Do you really want to delete the selected item(s)?"
 msgstr "Seçilmiş öge(leri) gerçekten silmek istiyor musunuz? "
 
 msgid "Do you really want to install the plugin?"
-msgstr ""
+msgstr "Eklentiyi kurmak istediğinize emin misiniz?"
 
 msgid "Do you really want to logout?"
 msgstr "Çıkış yapmak istediğinize emin misiniz?"
 
 msgid "Do you really want to mount the file system?"
-msgstr ""
+msgstr "Dosya sistemini bağlamak istediğinize emin misiniz?"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Sistemi bekleme konumuna almak istediğinize emin misiniz?"
@@ -1022,7 +1022,7 @@ msgid "Do you really want to reboot the system?"
 msgstr "Sistemi yeniden başlatmak istediğinize emin misiniz?"
 
 msgid "Do you really want to reset the UI settings to their default values?"
-msgstr ""
+msgstr "Kullanıcı Arabirimi ayarlarını geçerli ayarlara sıfırlamak istediğinize emin misiniz?"
 
 msgid ""
 "Do you really want to resize the file system? You have to do that after a "
@@ -1033,10 +1033,10 @@ msgid "Do you really want to shutdown the system?"
 msgstr "Sistemi kapatmak istediğinize emin misiniz?"
 
 msgid "Do you really want to undo the configuration changes?"
-msgstr ""
+msgstr "Konfigürasyon değişikliklerini geri almak istediğinize emin misiniz?"
 
 msgid "Do you really want to uninstall the plugin?"
-msgstr ""
+msgstr "Eklentiyi kaldırmak istediğinize emin misiniz?"
 
 msgid ""
 "Do you really want to unmount this file system? Please make sure that the "
@@ -1083,7 +1083,7 @@ msgid "EXT4"
 msgstr "EXT4"
 
 msgid "Each line represents a group."
-msgstr ""
+msgstr "Her satır bir grubu temsil eder."
 
 msgid ""
 "Each line represents a user. Note, the password must be entered in plain "
@@ -1112,7 +1112,7 @@ msgid "Empty now"
 msgstr "Şimdi boş"
 
 msgid "Enable SSL/TLS connections."
-msgstr ""
+msgstr "SSL/TLS bağlantılarını etkinleştir."
 
 msgid "Enable Time Machine support for this share."
 msgstr "Bu paylaşımda Time Machine desteğini aktive et."

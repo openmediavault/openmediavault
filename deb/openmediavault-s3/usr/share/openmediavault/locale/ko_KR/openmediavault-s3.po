@@ -5,17 +5,17 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
-# Chang-Eon Byeon <ksna0827@gmail.com>, 2022
 # Ji-Hyeon Gim <potatogim@potatogim.net>, 2022
+# Chang-Eon Byeon <ksna0827@gmail.com>, 2022
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-s3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-13 17:38+0200\n"
+"POT-Creation-Date: 2022-05-07 09:01+0200\n"
 "PO-Revision-Date: 2022-03-25 19:15+0000\n"
-"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2022\n"
+"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>, 2022\n"
 "Language-Team: Korean (Korea) (https://www.transifex.com/openmediavault/teams/14254/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,6 +25,9 @@ msgstr ""
 
 msgid "Address"
 msgstr "주소"
+
+msgid "Certificate"
+msgstr "인증"
 
 msgid "Enabled"
 msgstr "활성화됨"
@@ -49,6 +52,9 @@ msgstr "S3"
 
 msgid "Shared folder"
 msgstr "공유 폴더"
+
+msgid "The SSL certificate."
+msgstr "SSL 인증"
 
 msgid ""
 "The location of the media files. Make sure the user <em>s3</em> or group "
