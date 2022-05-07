@@ -16,7 +16,7 @@ Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/container-filebrowser-proxy.pid %t/container-filebrowser-proxy.ctr-id
-ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-filebrowser-proxy.pid --cidfile %t/container-filebrowser-proxy.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-filebrowser.pod-id -d --replace --pull=never --name=filebrowser-proxy -v "/var/lib/filebrowser/Caddyfile":/etc/caddy/Caddyfile:Z -v "/var/lib/filebrowser/":/data/ -v "{{ ssl_cert }}":/data/cert.crt:ro -v "{{ ssl_key }}":/data/cert.key:ro {{ image }}
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-filebrowser-proxy.pid --cidfile %t/container-filebrowser-proxy.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-filebrowser.pod-id -d --replace --pull=never --name=filebrowser-proxy -v "/var/lib/filebrowser/Caddyfile":/etc/caddy/Caddyfile:Z -v "{{ ssl_cert }}":/data/cert.crt:ro -v "{{ ssl_key }}":/data/cert.key:ro {{ image }}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-filebrowser-proxy.ctr-id
 ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-filebrowser-proxy.ctr-id
 PIDFile=%t/container-filebrowser-proxy.pid
