@@ -58,6 +58,10 @@ case "$1" in
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "6.0.3"; then
+			omv_module_set_dirty avahi
+			omv_module_set_dirty photoprism
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
