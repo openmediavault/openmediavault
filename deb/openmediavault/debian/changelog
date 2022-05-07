@@ -1,5 +1,6 @@
 openmediavault (6.0.26-1) stable; urgency=low
 
+  * Update locale files.
   * Add missing UI to configure remote logging of syslog. The
     page can be found at 'Diagnostics | System Logs | Remote'.
 

@@ -1,5 +1,6 @@
 openmediavault-filebrowser (6.0.1-1) stable; urgency=low
 
+  * Update locale files.
   * Add SSL support for the FileBrowser UI.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 07 May 2022 07:57:49 +0200

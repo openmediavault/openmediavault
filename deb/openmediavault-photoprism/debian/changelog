@@ -1,5 +1,6 @@
 openmediavault-photoprism (6.0.3-1) stable; urgency=low
 
+  * Update locale files.
   * Write correct Avahi service configuration when HTTPS is enabled.
   * Use proxy container only when HTTPS is enabled.
 
