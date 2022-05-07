@@ -1,0 +1,13 @@
+{
+  admin off
+}
+:8443 {
+  tls /data/cert.crt /data/cert.key
+  header -Server
+  reverse_proxy http://filebrowser-app:8080 {
+    header_down Strict-Transport-Security max-age=15768000
+    header_down X-Frame-Options "SAMEORIGIN"
+    header_down X-Content-Type-Options "nosniff"
+    header_down X-XSS-Protection "1; mode=block"
+  }
+}

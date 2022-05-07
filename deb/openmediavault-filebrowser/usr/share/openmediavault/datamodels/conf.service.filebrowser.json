@@ -17,6 +17,16 @@
 			"maximum": 65535,
 			"default": 3670
 		},
+		"sslcertificateref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		},
 		"sharedfolderref": {
 			"type": "string",
 			"oneOf": [{

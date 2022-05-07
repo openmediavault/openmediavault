@@ -1,3 +1,9 @@
+openmediavault-filebrowser (6.0.1-1) unstable; urgency=low
+
+  * Add SSL support for the FileBrowser UI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 07 May 2022 07:57:49 +0200
+
 openmediavault-filebrowser (6.0-10) unstable; urgency=low
 
   * Internal release

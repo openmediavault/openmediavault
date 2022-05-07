@@ -30,7 +30,7 @@ class FileBrowser extends \OMV\Engine\Module\ServiceAbstract
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.filebrowser");
-		$systemCtl = new \OMV\System\SystemCtl("container-filebrowser");
+		$systemCtl = new \OMV\System\SystemCtl("pod-filebrowser");
 		return [
 			"name" => $this->getName(),
 			"title" => gettext("File Browser"),

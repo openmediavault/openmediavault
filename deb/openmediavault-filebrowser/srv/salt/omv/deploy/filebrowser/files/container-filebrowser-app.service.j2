@@ -1,0 +1,27 @@
+{%- set image = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_IMAGE', 'docker.io/filebrowser/filebrowser:latest') -%}
+{%- set uname = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_UNAME', 'filebrowser') -%}
+{%- set gname = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_GNAME', 'users') -%}
+{%- set uid = salt['user.info'](uname).uid -%}
+{%- set gid = salt['group.info'](gname).gid -%}
+{%- set sf_path = salt['omv_conf.get_sharedfolder_path'](config.sharedfolderref) -%}
+{{ pillar['headers']['multiline'] -}}
+[Unit]
+Description=Podman container-filebrowser-app.service
+Wants=network.target
+After=network-online.target
+BindsTo=pod-filebrowser.service
+After=pod-filebrowser.service
+
+[Service]
+Environment=PODMAN_SYSTEMD_UNIT=%n
+Restart=on-failure
+TimeoutStopSec=70
+ExecStartPre=/bin/rm -f %t/container-filebrowser-app.pid %t/container-filebrowser-app.ctr-id
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-filebrowser-app.pid --cidfile %t/container-filebrowser-app.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-filebrowser.pod-id -d --replace --pull=never --name=filebrowser-app -u {{ uid }}:{{ gid }} -v /var/lib/filebrowser/database.db:/database.db -v /var/lib/filebrowser/filebrowser.json:/.filebrowser.json -v "{{ sf_path }}":/srv/ {{ image }}
+ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-filebrowser-app.ctr-id
+ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-filebrowser-app.ctr-id
+PIDFile=%t/container-filebrowser-app.pid
+Type=forking
+
+[Install]
+WantedBy=multi-user.target default.target

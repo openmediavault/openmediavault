@@ -58,6 +58,12 @@ case "$1" in
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "6.0.1"; then
+			deb-systemd-invoke stop container-filebrowser.service || :
+			rm -rf /etc/systemd/system/container-filebrowser.service
+			systemctl --system daemon-reload || true
+			omv_module_set_dirty filebrowser
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

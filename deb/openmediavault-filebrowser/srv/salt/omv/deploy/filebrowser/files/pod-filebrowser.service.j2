@@ -1,0 +1,23 @@
+{%- set ssl_enabled = config.sslcertificateref | length > 0 -%}
+{{ pillar['headers']['multiline'] -}}
+[Unit]
+Description=Podman pod-filebrowser.service
+Wants=network.target
+After=network-online.target
+Requires=container-filebrowser-app.service {% if ssl_enabled %}container-filebrowser-proxy.service{% endif %}
+Before=container-filebrowser-app.service {% if ssl_enabled %}container-filebrowser-proxy.service{% endif %}
+
+[Service]
+Environment=PODMAN_SYSTEMD_UNIT=%n
+Restart=on-failure
+TimeoutStopSec=70
+ExecStartPre=/bin/rm -f %t/pod-filebrowser.pid %t/pod-filebrowser.pod-id
+ExecStartPre=/usr/bin/podman pod create --infra-conmon-pidfile %t/pod-filebrowser.pid --pod-id-file %t/pod-filebrowser.pod-id --name=filebrowser -p {{ config.port }}:{{ ssl_enabled | yesno('8443,8080') }} --replace
+ExecStart=/usr/bin/podman pod start --pod-id-file %t/pod-filebrowser.pod-id
+ExecStop=/usr/bin/podman pod stop --ignore --pod-id-file %t/pod-filebrowser.pod-id
+ExecStopPost=/usr/bin/podman pod rm --ignore -f --pod-id-file %t/pod-filebrowser.pod-id
+PIDFile=%t/pod-filebrowser.pid
+Type=forking
+
+[Install]
+WantedBy=multi-user.target default.target

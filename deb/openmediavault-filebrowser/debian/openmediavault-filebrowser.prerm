@@ -26,7 +26,7 @@ case "$1" in
   ;;
 
 	remove)
-	  deb-systemd-invoke stop container-filebrowser.service || true
+	  deb-systemd-invoke stop pod-filebrowser.service || true
 	;;
 
 	*)

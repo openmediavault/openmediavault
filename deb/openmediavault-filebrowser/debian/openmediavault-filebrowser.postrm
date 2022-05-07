@@ -25,11 +25,14 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_FILEBROWSER_APP_CONTAINER_IMAGE=${OMV_FILEBROWSER_APP_CONTAINER_IMAGE:-"docker.io/filebrowser/filebrowser:latest"}
+# Do NOT remove images that could be used by other plugins.
+# OMV_FILEBROWSER_PROXY_CONTAINER_IMAGE=${OMV_FILEBROWSER_PROXY_CONTAINER_IMAGE:-"docker.io/library/caddy:latest"}
 
 remove_action() {
   # Remove systemd unit file.
   echo "Removing systemd unit files ..."
-  rm -rf /etc/systemd/system/container-filebrowser.service
+  rm -rf /etc/systemd/system/container-filebrowser-*.service
+  rm -rf /etc/systemd/system/pod-filebrowser.service
   systemctl --system daemon-reload || true
   # Remove container image.
   podman rmi "${OMV_FILEBROWSER_APP_CONTAINER_IMAGE}" || true
