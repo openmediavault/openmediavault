@@ -15,6 +15,6 @@ openmediavault-onedrive (6.0.1-2) unstable; urgency=low
 
 openmediavault-onedrive (6.0-2) unstable; urgency=low
 
-  * Internal release
+  * Initial release.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 12 Apr 2022 19:14:38 +0100
