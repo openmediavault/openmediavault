@@ -29,6 +29,7 @@ interface UdevInterface {
 	/**
 	 * Queries the udev database for device information stored in the
 	 * udev database.
+	 * Note, blanks are automatically trimmed.
 	 * @param boolean force Force the collection of the information,
 	 *   although the information is already cached. Defaults to FALSE.
 	 * @result void

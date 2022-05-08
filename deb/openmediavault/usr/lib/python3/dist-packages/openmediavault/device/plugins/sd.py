@@ -106,7 +106,15 @@ class StorageDevice(openmediavault.device.StorageDevice):
 
     @property
     def smart_device_type(self):
-        return 'sat' if self.is_usb else ''
+        if self.is_usb:
+            model_map = {
+                'TR-004 DISK00': 'jmb39x-q,0',
+                'TR-004 DISK01': 'jmb39x-q,1',
+                'TR-004 DISK02': 'jmb39x-q,2',
+                'TR-004 DISK03': 'jmb39x-q,3'
+            }
+            return model_map.get(self.model.strip(), 'sat')
+        return ''
 
     @cached_property
     def hctl(self) -> HCTL:

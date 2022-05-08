@@ -29,8 +29,10 @@ require_once("openmediavault/functions.inc");
 class StorageDevice extends \OMV\System\BlockDevice
 		implements StorageDeviceInterface {
 	/**
-	 * Get the device model.
+	 * Get the device model (via udev or sysfs).
 	 * @return string The device model, otherwise an empty string.
+	 *   Note, underscores are replaced by blanks when the value is
+	 *   retrieved via udev.
 	 */
 	public function getModel() {
 		if (FALSE === $this->hasUdevProperty("ID_MODEL")) {
@@ -45,8 +47,10 @@ class StorageDevice extends \OMV\System\BlockDevice
 	}
 
 	/**
-	 * Get the device vendor.
+	 * Get the device vendor (via udev or sysfs).
 	 * @return string The device vendor, otherwise an empty string.
+	 *   Note, underscores are replaced by blanks when the value is
+	 *   retrieved via udev.
 	 */
 	public function getVendor() {
 		if (FALSE === $this->hasUdevProperty("ID_VENDOR")) {
@@ -63,6 +67,7 @@ class StorageDevice extends \OMV\System\BlockDevice
 	/**
 	 * Get the device serial number.
 	 * @return string The device serial number, otherwise an empty string.
+	 *   Note, underscores are replaced by blanks.
 	 */
 	public function getSerialNumber() {
 		if (FALSE === $this->hasUdevProperty("ID_SERIAL_SHORT"))

@@ -115,20 +115,25 @@ interface StorageDeviceInterface {
 	public function getSectorSize();
 
 	/**
-	 * Get the device model.
-	 * @return The device model, otherwise an empty string.
+	 * Get the device model (via udev or sysfs).
+	 * @return string The device model, otherwise an empty string.
+	 *   Note, underscores are replaced by blanks when the value is
+	 *   retrieved via udev.
 	 */
 	public function getModel();
 
 	/**
-	 * Get the device vendor.
-	 * @return The device vendor, otherwise an empty string.
+	 * Get the device vendor (via udev or sysfs).
+	 * @return string The device vendor, otherwise an empty string.
+	 *   Note, underscores are replaced by blanks when the value is
+	 *   retrieved via udev.
 	 */
 	public function getVendor();
 
 	/**
 	 * Get the device serial number.
-	 * @return The device serial number, otherwise an empty string.
+	 * @return string The device serial number, otherwise an empty string.
+	 *   Note, underscores are replaced by blanks.
 	 */
 	public function getSerialNumber();
 
