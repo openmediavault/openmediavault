@@ -1170,13 +1170,15 @@ finish:
 		if (TRUE === $db->exists("conf.system.usermngmnt.user", $filter)) {
 			$object = $db->getByFilter("conf.system.usermngmnt.user",
 				$filter, 1);
-			$modifiedObject = clone $object;
-			$modifiedObject->set("password", $params['password']);
+			// Append some more information to the notification object.
+			$objectAssoc = array_merge($object->getAssoc(), [
+				"password" => $params['password']
+			]);
 			// Notify configuration changes.
 			$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_MODIFY,
 				"org.openmediavault.conf.system.usermngmnt.user",
-				$modifiedObject->getAssoc(), $object->getAssoc());
+				$objectAssoc, $object->getAssoc());
 		}
 	}
 }
