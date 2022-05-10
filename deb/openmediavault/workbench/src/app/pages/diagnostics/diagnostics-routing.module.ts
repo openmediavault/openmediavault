@@ -53,7 +53,11 @@ const routes: Routes = [
       {
         path: 'remote',
         component: SystemLogsRemoteFormPageComponent,
-        data: { title: gettext('Remote') }
+        data: {
+          title: gettext('Remote'),
+          notificationTitle: gettext('Updated remote system-logs settings.'),
+          editing: true
+        }
       }
     ]
   },

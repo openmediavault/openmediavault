@@ -2,6 +2,7 @@ openmediavault (6.0.27-1) stable; urgency=low
 
   * Issue #1302: Add SMART support for QNAP TR-004 (non-RAID mode).
   * Fix bug when user tries to change the password via the UI.
+  * Fix bug in 'Diagnostics | System Logs | Remote' page.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 08 May 2022 08:57:06 +0200
 
