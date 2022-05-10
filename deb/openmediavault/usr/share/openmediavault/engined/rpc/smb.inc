@@ -86,7 +86,8 @@ class Smb extends \OMV\Rpc\ServiceAbstract {
 			$dnsObject = $db->get("conf.system.network.dns");
 			if (strlen($dnsObject->get("hostname")) > 15) {
 				throw new \OMV\ConstraintException(
-					"The DNS hostname is limited to 15 characters when using SMB/CIFS.");
+					"The DNS hostname is limited to 15 characters when using SMB/CIFS. ".
+					"Please change the hostname in the network settings page.");
 			}
 			// - Check if the user home directories are enabled.
 			if ($object->get("homesenable")) {
