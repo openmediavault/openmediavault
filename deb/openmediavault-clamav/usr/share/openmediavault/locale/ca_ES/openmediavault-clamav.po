@@ -262,7 +262,7 @@ msgid "Sunday"
 msgstr "Diumenge"
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "El camp només ha de contenir * o una llista de valors separats per comes."
 
 msgid "The location of the files to scan on-access."
 msgstr "La ubicació dels fitxers per escanejar en l'accés."

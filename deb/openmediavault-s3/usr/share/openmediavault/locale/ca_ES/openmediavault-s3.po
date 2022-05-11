@@ -35,7 +35,7 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Open UI"
 
 msgid "Password"
 msgstr "Contrasenya"
@@ -47,7 +47,7 @@ msgid "Port to listen on."
 msgstr "Port d’escolta."
 
 msgid "S3"
-msgstr ""
+msgstr "S3"
 
 msgid "Shared folder"
 msgstr "Carpeta compartida"
@@ -59,15 +59,17 @@ msgid ""
 "The location of the media files. Make sure the user <em>s3</em> or group "
 "<em>users</em> can access the files."
 msgstr ""
+"La ubicació dels fitxers multimèdia. Assegureu-vos que l'usuari <em>s3</em> "
+"o el grup <em>users</em> puguin accedir als fitxers."
 
 msgid "The name of the root user."
-msgstr ""
+msgstr "El nom de l'usuari root."
 
 msgid "The password of the root user."
-msgstr ""
+msgstr "La contrasenya de l'usuari root."
 
 msgid "Updated S3 settings."
-msgstr ""
+msgstr "Configuració de l'S3 actualitzada."
 
 msgid "Web interface"
-msgstr ""
+msgstr " Interfície web"

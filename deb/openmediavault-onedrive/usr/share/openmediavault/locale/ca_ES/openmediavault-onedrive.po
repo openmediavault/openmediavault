@@ -23,22 +23,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "1 MiB/s"
-msgstr ""
+msgstr "1 MiB/s"
 
 msgid "1 minute"
 msgstr "1 minut"
 
 msgid "10 MiB/s"
-msgstr ""
+msgstr "10 MiB/s"
 
 msgid "10 minutes"
 msgstr "10 minuts"
 
 msgid "100 MiB/s"
-msgstr ""
+msgstr "100 MiB/s"
 
 msgid "128 KiB/s"
-msgstr ""
+msgstr "128 KiB/s"
 
 msgid "15 minutes"
 msgstr "15 minuts"
@@ -47,7 +47,7 @@ msgid "2 minutes"
 msgstr "2 minuts"
 
 msgid "256 KiB/s"
-msgstr ""
+msgstr "256 KiB/s"
 
 msgid "3 minutes"
 msgstr "3 minuts"
@@ -62,7 +62,7 @@ msgid "5 minutes"
 msgstr "5 minuts"
 
 msgid "512 KiB/s"
-msgstr ""
+msgstr "512 KiB/s"
 
 msgid "60 minutes"
 msgstr "60 minuts"
@@ -74,18 +74,26 @@ msgid ""
 "- Replicate the local state to OneDrive, by only uploading local changes to "
 "OneDrive. Do not download changes from OneDrive.</li></ul>"
 msgstr ""
+"<ul><li>Complet - Replica els canvis des de i cap a OneDrive.</li><li>Només "
+"descàrrega - Replica l'estat en línia de l'OneDrive localment, baixant només"
+" els canvis des de OneDrive. No carregueu els canvis locals a OneDrive. "
+"</li><li>Només carregueu: replica l'estat local a OneDrive, penjant només "
+"els canvis locals a OneDrive. No baixeu els canvis de OneDrive.</li></ul> "
 
 msgid ""
 "After enabling and deploying this service the first time please run the "
 "command <em>omv-onedrive-auth</em> in the CLI to authenticate the "
 "application in Microsoft OneDrive."
 msgstr ""
+"Després d'habilitar i desplegar aquest servei la primera vegada, executeu "
+"l'ordre <em>omv-onedrive-auth</em> a la CLI per autenticar l'aplicació a "
+"Microsoft OneDrive."
 
 msgid "Disabled"
 msgstr "Deshabilitat"
 
 msgid "Download only"
-msgstr ""
+msgstr "Només descarregar"
 
 msgid "Enabled"
 msgstr "Activat"
@@ -94,45 +102,48 @@ msgid "Full"
 msgstr "Ple"
 
 msgid "Local first"
-msgstr ""
+msgstr "Primer local"
 
 msgid "Monitor interval"
-msgstr ""
+msgstr "Interval de monitoratge"
 
 msgid "OneDrive"
-msgstr ""
+msgstr "OneDrive"
 
 msgid "Rate limit"
-msgstr ""
+msgstr "Límit de tarifa-rate-"
 
 msgid "Replicate local state first, before downloading changes from OneDrive."
 msgstr ""
+"Replica primer l'estat local, abans de descarregar els canvis de OneDrive."
 
 msgid "Replication mode"
-msgstr ""
+msgstr "Mode de replicació"
 
 msgid "Shared folder"
 msgstr "Carpeta compartida"
 
 msgid "Skip dot files and folders from syncing."
-msgstr ""
+msgstr "Omet els fitxers i les carpetes de punts de la sincronització."
 
 msgid "Skip dotfiles"
-msgstr ""
+msgstr "Omet els fitxers ocults"
 
 msgid ""
 "The location of the media files. Make sure the user <em>onedrive</em> or "
 "group <em>users</em> can access the files."
 msgstr ""
+"La ubicació dels fitxers multimèdia. Assegureu-vos que l'usuari  "
+"<em>onedrive</em> o el grup <em>users</em> puguin accedir als fitxers."
 
 msgid "The wait time between each sync operation."
-msgstr ""
+msgstr "El temps d'espera entre cada operació de sincronització."
 
 msgid "Updated OneDrive settings."
-msgstr ""
+msgstr "Configuració d'OneDrive actualitzada."
 
 msgid "Upload only"
-msgstr ""
+msgstr "Només carregar"
 
 msgid "Upload/Download rate limit."
-msgstr ""
+msgstr "Límit de velocitat de càrrega/descàrrega."

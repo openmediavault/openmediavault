@@ -24,46 +24,46 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
 msgid "1 GB"
-msgstr ""
+msgstr "1 ГБ"
 
 msgid "1 MB"
-msgstr ""
+msgstr "1 МБ"
 
 msgid "10 GB"
-msgstr ""
+msgstr "10 ГБ"
 
 msgid "10 MB"
-msgstr ""
+msgstr "10 МБ"
 
 msgid "100 GB"
-msgstr ""
+msgstr "100 ГБ"
 
 msgid "100 MB"
-msgstr ""
+msgstr "100 МБ"
 
 msgid "25 GB"
-msgstr ""
+msgstr "25 ГБ"
 
 msgid "25 MB"
-msgstr ""
+msgstr "25 МБ"
 
 msgid "250 MB"
-msgstr ""
+msgstr "250 МБ"
 
 msgid "5 GB"
-msgstr ""
+msgstr "5 ГБ"
 
 msgid "5 MB"
-msgstr ""
+msgstr "5 МБ"
 
 msgid "50 GB"
-msgstr ""
+msgstr "50 ГБ"
 
 msgid "50 MB"
-msgstr ""
+msgstr "50 МБ"
 
 msgid "500 MB"
-msgstr ""
+msgstr "500 МБ"
 
 msgid "Application data"
 msgstr "Дані програми"
@@ -74,6 +74,7 @@ msgstr "Сертифікат"
 msgid ""
 "Disable password authentication, WebDAV, and the advanced settings page."
 msgstr ""
+"Вимкнути автентифікацію паролем, WebDAV та сторінку додаткових налаштувань."
 
 msgid "Disabled"
 msgstr "Вимкнено"
@@ -82,7 +83,7 @@ msgid "Enabled"
 msgstr "Увімкнено"
 
 msgid "Filesize limit"
-msgstr ""
+msgstr "Обмеження розміру файлу"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -136,7 +137,7 @@ msgid "The location where to store the application data."
 msgstr "Місце, де зберігаються дані програми."
 
 msgid "The maximum size of media files."
-msgstr ""
+msgstr "Максимальний розмір медіафайлів."
 
 msgid "Updated PhotoPrism settings."
 msgstr "Оновлені налаштування PhotoPrism."

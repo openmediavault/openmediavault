@@ -1130,7 +1130,7 @@ msgid "Enable recycle bin"
 msgstr "Ενεργοποίηση κάδου ανακύκλωσης"
 
 msgid "Enable remote logging of syslog to the specified host."
-msgstr ""
+msgstr "Ενεργοποίηση απομακρυσμένης καταγραφής στον οριζόμενο υπολογιστή."
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
@@ -3192,7 +3192,7 @@ msgid "System time"
 msgstr "Ώρα συστήματος"
 
 msgid "TCP"
-msgstr ""
+msgstr "TCP"
 
 msgid "TCP forwarding"
 msgstr "Προώθηση TCP"
@@ -3667,7 +3667,7 @@ msgid "U.S. Virgin Islands"
 msgstr "U.S. Virgin Islands"
 
 msgid "UDP"
-msgstr ""
+msgstr "UDP"
 
 msgid "UID"
 msgstr "Αναγνωριστικό χρήστη"
@@ -3933,7 +3933,7 @@ msgstr "Χρήστες"
 msgid ""
 "Users must be assigned to the <em>ssh</em> group to be able to log in via "
 "SSH."
-msgstr ""
+msgstr "Οι χρήστες πρέπει να προστεθούν στην ομάδα <em>ssh</em> για να μπορούν αν συνδεθούν μέσω SSH."
 
 msgid "Uzbekistan"
 msgstr "Uzbekistan"

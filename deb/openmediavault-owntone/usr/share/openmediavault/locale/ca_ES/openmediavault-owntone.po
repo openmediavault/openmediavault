@@ -29,10 +29,10 @@ msgid "Library name"
 msgstr "Nom de la llibreria"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Open UI"
 
 msgid "OwnTone"
-msgstr ""
+msgstr "OwnTone"
 
 msgid "Password"
 msgstr "Contrasenya"
@@ -48,20 +48,25 @@ msgstr "Carpeta compartida"
 
 msgid "The 'admin' password to access the web interface."
 msgstr ""
+"La contrasenya \"administrador\" per accedir a la interfície web.\n"
+" "
 
 msgid ""
 "The location of the media files to share. Make sure the user "
 "<em>owntone</em> or group <em>users</em> can access the files."
 msgstr ""
+"La ubicació dels fitxers multimèdia per compartir. Assegureu-vos que "
+"l'usuari <em>owntone</em> o el grup <em>users</em> puguin accedir als "
+"fitxers."
 
 msgid "The name of the library as displayed by the clients."
 msgstr "El nom de la llibreria que es mostrarà als clients"
 
 msgid "The password to access the library."
-msgstr ""
+msgstr "La contrasenya per accedir a la biblioteca."
 
 msgid "Updated OwnTone settings."
-msgstr ""
+msgstr "Configuració d'OwnTone actualitzada."
 
 msgid "Web interface"
-msgstr ""
+msgstr " Interfície web"

@@ -269,7 +269,7 @@ msgstr "Funcionar com a servidor WINS."
 
 msgid ""
 "Acting as a WINS server and using a WINS server are mutually exclusive."
-msgstr ""
+msgstr " Actuar com a servidor WINS i utilitzar un servidor WINS són mútuament excloents."
 
 msgid "Action"
 msgstr "Acció"
@@ -323,7 +323,7 @@ msgid "All"
 msgstr "Tots"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
-msgstr ""
+msgstr "Tots els paquets s'actualitzaran. Vols continuar?"
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -389,7 +389,7 @@ msgid "April"
 msgstr "Abril"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Arquitectura"
 
 msgid "Archive mode"
 msgstr "Mode d'arxiu "
@@ -713,7 +713,7 @@ msgid ""
 msgstr "La compressió val la pena si la seva connexió es lenta. L’eficiència de la compressió depèn del tipus d’arxiu i varia molt. Només és util per a transferències per Internet."
 
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 msgid "Confirm password"
 msgstr "Confirmar contrasenya"
@@ -962,34 +962,34 @@ msgid "Disks"
 msgstr "Discs"
 
 msgid "Dismiss"
-msgstr ""
+msgstr "Descartar"
 
 msgid "Dismiss all"
-msgstr ""
+msgstr "Descartar tot"
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "Mostra el directori inicial de l'usuari a la llista de navegació."
 
 msgid "Displays information about the file systems in a grid."
-msgstr ""
+msgstr "Mostra la informació sobre els sistemes de fitxers en una graella."
 
 msgid "Displays information about the file systems in a table."
-msgstr ""
+msgstr "Mostra la informació sobre els sistemes de fitxers en una taula."
 
 msgid "Displays information about the network interfaces in a grid."
-msgstr ""
+msgstr "Mostra la informació sobre les interfícies de xarxa en una graella."
 
 msgid "Displays information about the network interfaces in a table."
-msgstr ""
+msgstr "Mostra la informació sobre les interfícies de xarxa en una taula."
 
 msgid "Displays information about the services in a grid."
-msgstr ""
+msgstr "Mostra la informació sobre els serveis en una graella."
 
 msgid "Displays information about the services in a table."
-msgstr ""
+msgstr "Mostra la informació sobre els serveis en una taula."
 
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
-msgstr ""
+msgstr "Mostra la informació S.M.A.R.T. de tots els dispositius de disc supervisats."
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1132,7 +1132,7 @@ msgid "Enable recycle bin"
 msgstr "Habilitar paperera de reciclatge"
 
 msgid "Enable remote logging of syslog to the specified host."
-msgstr ""
+msgstr "Habiliteu el registre remot del syslog a l'amfitrió especificat."
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
@@ -2011,7 +2011,7 @@ msgid "Mount"
 msgstr "Muntar"
 
 msgid "Mount Options"
-msgstr ""
+msgstr "Opcions de muntatge"
 
 msgid "Mount Point"
 msgstr "Punt de muntatge"
@@ -2656,7 +2656,7 @@ msgid "Romania"
 msgstr "Romania"
 
 msgid "Row No."
-msgstr ""
+msgstr " Fila núm."
 
 msgid "Rsync"
 msgstr "Rsync"
@@ -2971,7 +2971,7 @@ msgid "Show/Hide columns"
 msgstr "Mostra / Amaga columnes "
 
 msgid "Show/Hide navigation"
-msgstr ""
+msgstr "Mostra/amaga la navegació"
 
 msgid "Shutdown"
 msgstr "Apagar"
@@ -3188,13 +3188,13 @@ msgid "System account"
 msgstr "Compte del sistema "
 
 msgid "System monitoring is disabled. To enable it, please go to the"
-msgstr ""
+msgstr "La supervisió del sistema està desactivada. Per activar-lo, aneu a"
 
 msgid "System time"
 msgstr "Hora del sistema"
 
 msgid "TCP"
-msgstr ""
+msgstr "TCP"
 
 msgid "TCP forwarding"
 msgstr "Reenviament TCP"
@@ -3256,7 +3256,7 @@ msgid "The data has been copied to the clipboard."
 msgstr "Les dades s’han copiat al porta-retalls."
 
 msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
-msgstr ""
+msgstr "El port predeterminat del servidor de correu SMTP, p ex 25, 465 o 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3264,7 +3264,7 @@ msgid ""
 msgstr "El servidor remot de destí, p.e. [USER@]HOST:DEST, [USER@]HOST::DEST o rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "El camp només ha de contenir * o una llista de valors separats per comes."
 
 msgid "The file mode of the shared folder path."
 msgstr "Mode d’arxiu de la ruta a les carpetes compartides."
@@ -3669,7 +3669,7 @@ msgid "U.S. Virgin Islands"
 msgstr "Illes Verges (EEUU)"
 
 msgid "UDP"
-msgstr ""
+msgstr "UDP"
 
 msgid "UID"
 msgstr "UID"
@@ -3841,7 +3841,7 @@ msgid "Updated settings."
 msgstr "Configuració actualitzada."
 
 msgid "Updated shared folder."
-msgstr ""
+msgstr "Carpeta compartida actualitzada."
 
 msgid "Updated update management settings."
 msgstr "Configuració de gestió d'actualitzacions actualitzada."
@@ -3935,7 +3935,7 @@ msgstr "Usuaris"
 msgid ""
 "Users must be assigned to the <em>ssh</em> group to be able to log in via "
 "SSH."
-msgstr ""
+msgstr "Els usuaris han d'estar assignats al grup <em>ssh</em> per poder iniciar sessió mitjançant SSH."
 
 msgid "Uzbekistan"
 msgstr "Uzbekistan"
