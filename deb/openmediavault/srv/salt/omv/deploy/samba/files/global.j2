@@ -3,7 +3,6 @@
 {%- set max_log_size = salt['pillar.get']('default:OMV_SAMBA_MAXLOGSIZE', '1000') -%}
 {%- set logging = salt['pillar.get']('default:OMV_SAMBA_LOGGING', 'syslog') -%}
 {%- set panic_action = salt['pillar.get']('default:OMV_SAMBA_PANICACTION', '/usr/share/samba/panic-action %d') -%}
-{%- set encrypt_passwords = salt['pillar.get']('default:OMV_SAMBA_ENCRYPTPASSWORDS', 'true') -%}
 {%- set passdb_backend = salt['pillar.get']('default:OMV_SAMBA_PASSDBBACKEND', 'tdbsam') -%}
 {%- set obey_pam_restrictions = salt['pillar.get']('default:OMV_SAMBA_OBEYPAMRESTRICTIONS', 'no') -%}
 {%- set unix_password_sync = salt['pillar.get']('default:OMV_SAMBA_UNIXPASSWORDSYNC', 'no') -%}
@@ -36,7 +35,6 @@ log file = {{ log_file }}
 max log size = {{ max_log_size }}
 logging = {{ logging }}
 panic action = {{ panic_action }}
-encrypt passwords = {{ encrypt_passwords }}
 passdb backend = {{ passdb_backend }}
 obey pam restrictions = {{ obey_pam_restrictions }}
 unix password sync = {{ unix_password_sync }}
