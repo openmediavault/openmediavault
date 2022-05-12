@@ -1,7 +1,5 @@
 <mat-toolbar *ngIf="hasActionBar"
-             sticky
-             [disabled]="!hasStickyActionBar"
-             [scrollContainer]="ownerContainer"
+             [ngClass]="{'omv-sticky': hasStickyActionBar}"
              fxLayout="row">
   <!-- Custom action buttons -->
   <ng-content select="omv-datatable-actions"></ng-content>

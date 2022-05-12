@@ -10,8 +10,7 @@
 </omv-alert-panel>
 <mat-card [ngClass]="{'omv-display-none': loading || error}">
   <mat-toolbar *ngIf="config.multiple && config.hasSelectAllButton"
-               sticky
-               [scrollContainer]="'#omv-workbench-router-outlet'"
+               class="omv-sticky"
                fxLayout="row">
     <button mat-icon-button
             matTooltip="{{ 'Select all' | translate }}"
