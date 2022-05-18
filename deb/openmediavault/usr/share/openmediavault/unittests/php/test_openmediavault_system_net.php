@@ -101,7 +101,7 @@ class test_openmediavault_system_net extends \PHPUnit\Framework\TestCase {
 		$mngr->registerBackend($backend);
 		// Get existing devices.
 		$devs = $mngr->enumerate(OMV_NETWORK_INTERFACE_TYPE_ETHERNET);
-		$this->assertInternalType("array", $devs);
+		$this->assertIsArray($devs);
 		$this->assertGreaterThan(1, count($devs));
 		// Create an interface device object.
 		$netIf = $mngr->getImpl($devs[0]);
@@ -111,13 +111,13 @@ class test_openmediavault_system_net extends \PHPUnit\Framework\TestCase {
 		// - the interface is UP
 		// - check only IPv4 method
 		$this->assertTrue($netIf->exists());
-		$this->assertInternalType("string", $netIf->getDeviceName());
-		$this->assertInternalType("string", $netIf->getIP());
-		$this->assertInternalType("int", $netIf->getPrefix());
-		$this->assertInternalType("string", $netIf->getNetmask());
-		$this->assertInternalType("string", $netIf->getMAC());
-		$this->assertInternalType("string", $netIf->getMTU());
-		$this->assertInternalType("string", $netIf->getGateway());
+		$this->assertIsString($netIf->getDeviceName());
+		$this->assertIsString($netIf->getIP());
+		$this->assertIsInt($netIf->getPrefix());
+		$this->assertIsString($netIf->getNetmask());
+		$this->assertIsString($netIf->getMAC());
+		$this->assertIsString($netIf->getMTU());
+		$this->assertIsString($netIf->getGateway());
 		$this->assertEquals($netIf->getState(), "UP");
 	}
 }

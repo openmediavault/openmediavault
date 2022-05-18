@@ -31,7 +31,7 @@ class test_openmediavault_util_keyvaluefile extends \PHPUnit\Framework\TestCase 
 		$file->setKeyCaseSensitiv(TRUE);
 		$dict = $file->getAssoc();
 		// Check if the returned value is an associative array.
-		$this->assertInternalType("array", $dict);
+		$this->assertIsArray($dict);
 		// Check if some keys exist.
 		$this->assertArrayHasKey("UID_MIN", $dict);
 		$this->assertEquals($dict["UID_MIN"], "1000");

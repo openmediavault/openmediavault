@@ -24,22 +24,22 @@ require_once("openmediavault/autoloader.inc");
 require_once("openmediavault/globals.inc");
 
 class test_openmediavault_system_systemctrl extends \PHPUnit\Framework\TestCase {
-	public function test_is_enabled() {
+	public function testIsEnabled() {
 		$systemCtl = new \OMV\System\SystemCtl("rsyslog.service");
 		$this->assertTrue($systemCtl->isEnabled());
 	}
 
-	public function test_is_not_enabled() {
+	public function testIsNotEnabled() {
 		$systemCtl = new \OMV\System\SystemCtl("ctrl-alt-del.target");
 		$this->assertFalse($systemCtl->isEnabled());
 	}
 
-	public function test_is_active() {
+	public function testIsActive() {
 		$systemCtl = new \OMV\System\SystemCtl("rsyslog.service");
 		$this->assertTrue($systemCtl->isActive());
 	}
 
-	public function test_enable_disable() {
+	public function testEnableDisable() {
 		$systemCtl = new \OMV\System\SystemCtl("acpid.service");
 		$isEnabled = $systemCtl->isEnabled();
 		$isActive = $systemCtl->isActive();
@@ -59,17 +59,17 @@ class test_openmediavault_system_systemctrl extends \PHPUnit\Framework\TestCase 
 		}
 	}
 
-	public function test_is_masked() {
+	public function testIsMasked() {
 		$systemCtl = new \OMV\System\SystemCtl("reboot.service");
 		$this->assertTrue($systemCtl->isMasked());
 	}
 
-	public function test_is_not_masked() {
+	public function testIsNotMasked() {
 		$systemCtl = new \OMV\System\SystemCtl("default.target");
 		$this->assertFalse($systemCtl->isMasked());
 	}
 
-	public function test_mask_unmask() {
+	public function testMaskUnmask() {
 		$systemCtl = new \OMV\System\SystemCtl("acpid.service");
 		$isMasked = $systemCtl->isMasked();
 		$systemCtl->mask();

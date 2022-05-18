@@ -95,12 +95,12 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 
 	public function testGetAssoc() {
 		$schema = $this->getSchema();
-		$this->assertInternalType("array", $schema->getAssoc());
+		$this->assertIsArray($schema->getAssoc());
 	}
 
 	public function testGetAssocByPath1() {
 		$schema = $this->getSchema();
-		$this->assertInternalType("array", $schema->getAssocByPath("price"));
+		$this->assertIsArray($schema->getAssocByPath("price"));
 	}
 
 	public function testGetAssocByPath2() {

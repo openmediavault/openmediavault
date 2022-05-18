@@ -24,7 +24,7 @@ require_once("openmediavault/autoloader.inc");
 require_once("openmediavault/globals.inc");
 
 class test_openmediavault_config_configobject extends \PHPUnit\Framework\TestCase {
-	public function setUp() {
+	protected function setUp(): void {
 		// Tell the database implementation to use the test database.
 		\OMV\Environment::set("OMV_CONFIG_FILE", sprintf(
 			"%s/../data/config.xml", getcwd()));
@@ -70,7 +70,7 @@ class test_openmediavault_config_configobject extends \PHPUnit\Framework\TestCas
 	public function testGetSet3() {
 		$object = new \OMV\Config\ConfigObject("conf.system.sharedfolder");
 		$privileges = $object->get("privileges.privilege");
-		$this->assertInternalType("array", $privileges);
+		$this->assertIsArray($privileges);
 		$this->assertEquals($privileges, []);
 	}
 

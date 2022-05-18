@@ -230,13 +230,13 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 		];
 		$json = json_encode_safe($data);
 		$this->assertNotNull($json);
-		$this->assertInternalType("string", $json);
+		$this->assertIsString($json);
 	}
 
 	public function test_json_decode_safe() {
 		$json = '{"z": [1,2,3], "x": 3, "a.b.c": 10.4, "k": "\u00e4\u00f6\u00fc$%#\t\n\f\r"}';
 		$data = json_decode_safe($json, TRUE);
-		$this->assertInternalType("array", $data);
+		$this->assertIsArray($data);
 		$k = "äöü$%#".chr(0x09).chr(0x0A).chr(0x0C).chr(0x0D);
 		$this->assertEquals($data['k'], $k);
 	}
@@ -250,7 +250,7 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 			['id' => 5, 'text' => 'b']
 		];
 		$d = array_unique_key($d, "text");
-		$this->assertInternalType("array", $d);
+		$this->assertIsArray($d);
 		$this->assertEquals($d, [
 			['id' => 3, 'text' => 'c'],
 			['id' => 1, 'text' => 'a'],
@@ -286,13 +286,13 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 
 	public function test_explode_safe_1() {
 		$parts = explode_safe(",", "");
-		$this->assertInternalType("array", $parts);
+		$this->assertIsArray($parts);
 		$this->assertEmpty($parts);
 	}
 
 	public function test_explode_safe_2() {
 		$parts = explode_safe(",", "1,2,3");
-		$this->assertInternalType("array", $parts);
+		$this->assertIsArray($parts);
 		$this->assertEquals($parts, ["1", "2", "3"]);
 	}
 
@@ -400,7 +400,7 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 
 	public function test_strpdate() {
 		$ts = strpdate('Oct 19 04:24:38', 'M j G:i:s');
-		$this->assertInternalType('int', $ts);
+		$this->assertIsInt($ts);
 		$this->assertEquals($ts, 1634617478);
 	}
 

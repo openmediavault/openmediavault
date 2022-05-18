@@ -24,7 +24,7 @@ require_once("openmediavault/autoloader.inc");
 require_once("openmediavault/globals.inc");
 
 class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
-	public function setUp() {
+	protected function setUp(): void {
 		// Tell the database implementation to use the test database.
 		\OMV\Environment::set("OMV_CONFIG_FILE", sprintf(
 			"%s/../data/config.xml", getcwd()));
@@ -76,7 +76,7 @@ class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
 	public function testGetIterable() {
 		$db = new \OMV\Config\Database();
 		$objects = $db->get("conf.system.notification.notification");
-		$this->assertInternalType("array", $objects);
+		$this->assertIsArray($objects);
 		$this->assertTrue(0 < count($objects));
 		$this->assertInstanceOf("OMV\Config\ConfigObject", $objects[0]);
 	}
@@ -88,7 +88,7 @@ class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
 			'arg0' => 'uuid',
 			'arg1' => '03dc067d-1310-45b5-899f-b471a0ae9233'
 		]);
-		$this->assertInternalType("array", $objects);
+		$this->assertIsArray($objects);
 		$this->assertEquals(count($objects), 1);
 		$this->assertInstanceOf("OMV\Config\ConfigObject", $objects[0]);
 	}
@@ -100,7 +100,7 @@ class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
 			'arg0' => 'id',
 			'arg1' => 'monit'
 		]);
-		$this->assertInternalType("array", $objects);
+		$this->assertIsArray($objects);
 		$this->assertEquals(count($objects), 5);
 	}
 
@@ -110,7 +110,7 @@ class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
 			'operator' => 'distinct',
 			'arg0' => 'enable'
 		]);
-		$this->assertInternalType("array", $objects);
+		$this->assertIsArray($objects);
 		$this->assertEquals(count($objects), 2);
 	}
 
@@ -177,7 +177,7 @@ class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
 			]);
 		// Check the number of remaining configuration objects.
 		$objects = $db->get("conf.system.notification.notification");
-		$this->assertInternalType("array", $objects);
+		$this->assertIsArray($objects);
 		$this->assertEquals(count($objects), 3);
 	}
 
@@ -201,7 +201,7 @@ class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
 		$db->getBackend()->setVersioning(FALSE);
 		// Check the current number of configuration objects.
 		$objects = $db->get("conf.system.notification.notification");
-		$this->assertInternalType("array", $objects);
+		$this->assertIsArray($objects);
 		$this->assertEquals(count($objects), 8);
 		// Create a new configuration object.
 		$newObject = new \OMV\Config\ConfigObject(
@@ -217,7 +217,7 @@ class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
 			\OMV\Environment::get('OMV_CONFIGOBJECT_NEW_UUID'));
 		// Check whether the new configuration object was stored.
 		$objects = $db->get("conf.system.notification.notification");
-		$this->assertInternalType("array", $objects);
+		$this->assertIsArray($objects);
 		$this->assertEquals(count($objects), 9);
 		// Get the configuration object to validate its properties.
 		$object = $db->get("conf.system.notification.notification",
@@ -270,8 +270,7 @@ class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
 		$object = $db->get("conf.system.sharedfolder",
 			"339bd101-5744-4017-9392-01a156f15ab9");
 		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
-		$this->assertInternalType("array", $object->get(
-			"privileges.privilege"));
+		$this->assertIsArray($object->get("privileges.privilege"));
 		$this->assertEquals($object->get("privileges.privilege.0.perms"), 7);
 		$this->assertEquals($object->get("privileges.privilege.1.name"),
 			"test2");

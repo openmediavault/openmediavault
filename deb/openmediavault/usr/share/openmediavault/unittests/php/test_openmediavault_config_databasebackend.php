@@ -25,14 +25,14 @@ require_once("openmediavault/autoloader.inc");
 class test_openmediavault_config_databasebackend extends \PHPUnit\Framework\TestCase {
 	private $databaseBackend;
 
-	public function setUp() {
+	protected function setUp(): void {
 		$this->databaseBackend = new \OMV\Config\DatabaseBackend(
 			sprintf("%s/../data/config.xml", getcwd()),
 			FALSE);
 		$this->databaseBackend->load();
 	}
 
-	public function test_compare_1() {
+	public function testCompare1() {
 		$this->assertEquals($this->databaseBackend->compare(
 			"//system/time",
 			[
@@ -46,7 +46,7 @@ class test_openmediavault_config_databasebackend extends \PHPUnit\Framework\Test
 		), 0);
 	}
 
-	public function test_compare_2() {
+	public function testCompare2() {
 		$this->assertEquals($this->databaseBackend->compare(
 			"//system/powermanagement",
 			[
