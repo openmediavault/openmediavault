@@ -64,7 +64,7 @@ class System {
 		// need it sometime).
 		if ("/dev/root" == $deviceFile)
 			return TRUE;
-		$rootDeviceFile = self::getRootDeviceFile();
+		$rootDeviceFile = static::getRootDeviceFile();
 		if (TRUE === $exact) {
 			return (($rootDeviceFile == $deviceFile) ||
 				($rootDeviceFile == realpath($deviceFile))) ?
