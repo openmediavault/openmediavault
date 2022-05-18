@@ -12,6 +12,7 @@
 {%- set listen_ipv4_addr = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_LISTEN_IPV4_ADDRESS', '*') -%}
 {%- set listen_ipv6_addr = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_LISTEN_IPV6_ADDRESS', '::') -%}
 {%- set listen_params = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_LISTEN_PARAMS', 'default_server') -%}
+{%- set listen_http2_param = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_LISTEN_HTTP2_ENABLE', 'yes') | to_bool | yesno('http2,') -%}
 
 {{ pillar['headers']['multiline'] }}
 server {
@@ -57,10 +58,10 @@ server {
 {%- endif %}
 {%- if config.enablessl | to_bool %}
 {%- if ipv6_enabled | to_bool %}
-    listen {{ listen_ipv4_addr }}:{{ config.sslport }} {{ listen_params }} ssl deferred;
-    listen [{{ listen_ipv6_addr }}]:{{ config.sslport }} {{ listen_params }} ssl deferred;
+    listen {{ listen_ipv4_addr }}:{{ config.sslport }} {{ listen_params }} {{ listen_http2_param }} ssl deferred;
+    listen [{{ listen_ipv6_addr }}]:{{ config.sslport }} {{ listen_params }} {{ listen_http2_param }} ssl deferred;
 {%- else %}
-    listen {{ config.sslport }} {{ listen_params }} ssl deferred;
+    listen {{ config.sslport }} {{ listen_params }} {{ listen_http2_param }} ssl deferred;
 {%- endif %}
     ssl_certificate {{ ssl_cert_dir | path_join('certs', ssl_cert_prefix ~ config.sslcertificateref ~ '.crt') }};
     ssl_certificate_key {{ ssl_cert_dir | path_join('private', ssl_cert_prefix ~ config.sslcertificateref ~ '.key') }};
