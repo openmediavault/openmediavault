@@ -93,15 +93,10 @@ class SystemCtl {
 	 *   Defaults to FALSE.
 	 */
 	public function enable($now = FALSE, $quiet = FALSE) {
-/* The option '--now' is not supported in Debian Jessie.
 		$options = [];
 		if (TRUE === $now)
 			$options[] = "--now";
 		$this->exec("enable", $options, $quiet);
-*/
-		$this->exec("enable", NULL, $quiet);
-		if (TRUE === $now)
-			$this->exec("start", NULL, $quiet);
 	}
 
 	/**
@@ -110,15 +105,10 @@ class SystemCtl {
 	 *   Defaults to FALSE.
 	 */
 	public function disable($now = FALSE, $quiet = FALSE) {
-/* The option '--now' is not supported in Debian Jessie.
 		$options = [];
 		if (TRUE === $now)
 			$options[] = "--now";
 		$this->exec("disable", $options, $quiet);
-*/
-		$this->exec("disable", NULL, $quiet);
-		if (TRUE === $now)
-			$this->exec("stop", NULL, $quiet);
 	}
 
 	/**
