@@ -118,11 +118,9 @@ class test_openmediavault_datamodel_schema extends \PHPUnit\Framework\TestCase {
 			[ "format" => "dirpath" ], "field1");
 	}
 
-	/**
-	 * @expectedException OMV\Json\SchemaValidationException
-	 */
 	public function testCheckFormatDirpathFail() {
 		$schema = $this->getSchema();
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
 		$schema->checkFormat("/media/a/../../b/c",
 			[ "format" => "dirpath" ], "field1");
 	}

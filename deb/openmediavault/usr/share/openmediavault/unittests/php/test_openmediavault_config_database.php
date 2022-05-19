@@ -64,11 +64,9 @@ class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
 		$this->assertFalse($object->get("proposed"));
 	}
 
-	/**
-	 * @expectedException OMV\Config\DatabaseException
-	 */
 	public function testGetFail() {
 		$db = new \OMV\Config\Database();
+		$this->expectException(\OMV\Config\DatabaseException::class);
 		$db->get("conf.system.notification.notification",
 			"c1cd54af-0000-1111-2222-2a19420355bb");
 	}
@@ -227,9 +225,6 @@ class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
 		$this->assertFalse($object->get("enable"));
 	}
 
-	/**
-	 * @expectedException OMV\Config\DatabaseException
-	 */
 	public function testSetFail() {
 		$this->useTmpConfigDatabase();
 		$db = new \OMV\Config\Database();
@@ -242,6 +237,7 @@ class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
 			'id' => 'xyz',
 			'enable' => TRUE
 		]);
+		$this->expectException(\OMV\Config\DatabaseException::class);
 		$db->set($newObject);
 	}
 

@@ -111,35 +111,27 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 		]);
 	}
 
-	/**
-	 * @expectedException OMV\Json\SchemaPathException
-	 */
 	public function testGetAssocByPathFail() {
 		$schema = $this->getSchema();
+		$this->expectException(\OMV\Json\SchemaPathException::class);
 		$schema->getAssocByPath("a.b.c");
 	}
 
-	/**
-	 * @expectedException OMV\Json\SchemaValidationException
-	 */
 	public function testValidateFail() {
 		$schema = $this->getSchema();
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
 		$schema->validate(["price" => 38]);
 	}
 
-	/**
-	 * @expectedException OMV\Json\SchemaValidationException
-	 */
 	public function testValidateMaximumFail() {
 		$schema = $this->getSchema();
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
 		$schema->validate(["name" => "Apple", "price" => 41]);
 	}
 
-	/**
-	 * @expectedException OMV\Json\SchemaValidationException
-	 */
 	public function testValidateMinimumFail() {
 		$schema = $this->getSchema();
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
 		$schema->validate(["name" => "Eggs", "price" => 34.99]);
 	}
 
@@ -184,33 +176,27 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 		]);
 	}
 
-	/**
-	 * @expectedException OMV\Json\SchemaValidationException
-	 */
 	public function testValidatePatternFail1() {
 		$schema = $this->getSchema();
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
 		$schema->validate([
 			"name" => "Eggs",
 			"slaves" => utf8_encode("xyz0")
 		]);
 	}
 
-	/**
-	 * @expectedException OMV\Json\SchemaValidationException
-	 */
 	public function testValidatePatternFail2() {
 		$schema = $this->getSchema();
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
 		$schema->validate([
 			"name" => "foo",
 			"upsname" => utf8_encode("ε体λñι語ά_1234")
 		]);
 	}
 
-	/**
-	 * @expectedException OMV\Json\SchemaValidationException
-	 */
 	public function testValidatePatternFail3() {
 		$schema = $this->getSchema();
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
 		$schema->validate([
 			"name" => "xyz",
 			"hostname" => utf8_encode("ε体λñ-ι語ά1234")
@@ -248,9 +234,6 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 		$schema->validate([ "192.168.10.101" ]);
 	}
 
-	/**
-	 * @expectedException OMV\Json\SchemaValidationException
-	 */
 	public function testValidateItemsFail() {
 		$schema = new \OMV\Json\Schema([
 			"type" => "array",
@@ -262,6 +245,7 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 				"format" => "ipv6"
 			]]
 		]);
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
 		$schema->validate([ 10, "192.168.10.101" ]);
 	}
 
@@ -299,9 +283,6 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 		$schema->validate("test@test.com");
 	}
 
-	/**
-	 * @expectedException OMV\Json\SchemaValidationException
-	 */
 	public function testValidateOneOfFail() {
 		$schema = new \OMV\Json\Schema([
 			"type" => "string",
@@ -313,6 +294,7 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 				"format" => "ipv4"
 			]]
 		]);
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
 		$schema->validate("xyz");
 	}
 }

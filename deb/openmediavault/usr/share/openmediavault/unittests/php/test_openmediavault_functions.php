@@ -401,7 +401,7 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 	public function test_strpdate() {
 		$ts = strpdate('Oct 19 04:24:38', 'M j G:i:s');
 		$this->assertIsInt($ts);
-		$this->assertEquals($ts, 1634617478);
+		$this->assertEquals($ts, 1666153478);
 	}
 
 	public function test_binary_format_1() {

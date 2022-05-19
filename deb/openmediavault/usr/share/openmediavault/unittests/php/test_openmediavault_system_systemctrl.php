@@ -40,7 +40,7 @@ class test_openmediavault_system_systemctrl extends \PHPUnit\Framework\TestCase 
 	}
 
 	public function testEnableDisable() {
-		$systemCtl = new \OMV\System\SystemCtl("acpid.service");
+		$systemCtl = new \OMV\System\SystemCtl("chrony.service");
 		$isEnabled = $systemCtl->isEnabled();
 		$isActive = $systemCtl->isActive();
 		$systemCtl->enable(TRUE);
@@ -60,7 +60,7 @@ class test_openmediavault_system_systemctrl extends \PHPUnit\Framework\TestCase 
 	}
 
 	public function testIsMasked() {
-		$systemCtl = new \OMV\System\SystemCtl("reboot.service");
+		$systemCtl = new \OMV\System\SystemCtl("hwclock.service");
 		$this->assertTrue($systemCtl->isMasked());
 	}
 
@@ -70,7 +70,7 @@ class test_openmediavault_system_systemctrl extends \PHPUnit\Framework\TestCase 
 	}
 
 	public function testMaskUnmask() {
-		$systemCtl = new \OMV\System\SystemCtl("acpid.service");
+		$systemCtl = new \OMV\System\SystemCtl("chrony.service");
 		$isMasked = $systemCtl->isMasked();
 		$systemCtl->mask();
 		$this->assertTrue($systemCtl->isMasked());
