@@ -70,15 +70,6 @@ export class SmartDeviceDetailsTabsPageComponent {
               label: gettext('Firmware version'),
               disabled: true
             }
-          ],
-          buttons: [
-            {
-              template: 'back',
-              execute: {
-                type: 'url',
-                url: '/storage/smart/devices'
-              }
-            }
           ]
         }
       },
@@ -192,12 +183,6 @@ export class SmartDeviceDetailsTabsPageComponent {
                 }
               }
             }
-          ],
-          buttons: [
-            {
-              template: 'back',
-              url: '/storage/smart/devices'
-            }
           ]
         }
       },
@@ -258,12 +243,6 @@ export class SmartDeviceDetailsTabsPageComponent {
               prop: 'lbaoffirsterror',
               flexGrow: 1
             }
-          ],
-          buttons: [
-            {
-              template: 'back',
-              url: '/storage/smart/devices'
-            }
           ]
         }
       },
@@ -280,13 +259,7 @@ export class SmartDeviceDetailsTabsPageComponent {
                 devicefile: '{{ _routeParams.devicefile }}'
               }
             }
-          },
-          buttons: [
-            {
-              template: 'back',
-              url: '/storage/smart/devices'
-            }
-          ]
+          }
         }
       }
     ]

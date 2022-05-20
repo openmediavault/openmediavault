@@ -15,6 +15,10 @@
 
     .mat-form-field-infix {
       padding-bottom: unset;
+
+      .mat-input-element {
+        color: mat.get-color-from-palette(map-get($omv-light-theme, foreground), text);
+      }
     }
   }
 }

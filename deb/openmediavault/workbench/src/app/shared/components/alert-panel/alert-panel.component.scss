@@ -8,9 +8,6 @@
   }
 
   .mat-card-content {
-    @extend .omv-vertical-align;
-
-    height: 100%;
     margin-bottom: unset;
   }
 }

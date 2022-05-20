@@ -2,7 +2,9 @@
   <div fxLayout="row">
     <mat-icon mat-card-avatar
               svgIcon="{{ icon }}"></mat-icon>
-    <div fxFlex>
+    <div fxFlex
+         fxLayout="column"
+         fxLayoutAlign="center start">
       <mat-card-title *ngIf="hasTitle">
         {{ title }}
       </mat-card-title>
