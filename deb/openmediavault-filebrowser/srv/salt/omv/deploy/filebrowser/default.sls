@@ -20,6 +20,7 @@
 # Documentation/Howto:
 # https://filebrowser.org/installation
 # https://github.com/filebrowser/filebrowser/blob/master/Dockerfile
+# https://github.com/filebrowser/filebrowser/blob/master/docker/root/defaults/settings.json
 # https://caddyserver.com/docs/caddyfile
 
 # Testing:
