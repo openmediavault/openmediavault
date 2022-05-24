@@ -33,10 +33,11 @@
 {% set app_image = salt['pillar.get']('default:OMV_PHOTOPRISM_APP_CONTAINER_IMAGE', 'docker.io/photoprism/photoprism:latest') %}
 {% set db_image = salt['pillar.get']('default:OMV_PHOTOPRISM_DB_CONTAINER_IMAGE', 'docker.io/mariadb:latest') %}
 {% set proxy_image = salt['pillar.get']('default:OMV_PHOTOPRISM_PROXY_CONTAINER_IMAGE', 'docker.io/library/caddy:latest') %}
-{% set appdata_sf_path = salt['omv_conf.get_sharedfolder_path'](config.appdata_sharedfolderref) %}
 {% set ssl_enabled = config.sslcertificateref | length > 0 %}
 
 {% if config.enable | to_bool %}
+
+{% set appdata_sf_path = salt['omv_conf.get_sharedfolder_path'](config.appdata_sharedfolderref) %}
 
 create_photoprism_appdata_storage_dir:
   file.directory:
@@ -106,11 +107,6 @@ photoprism_db_image_exists:
 
 {% if ssl_enabled %}
 
-create_photoprism_appdata_proxy_data_dir:
-  file.directory:
-    - name: "{{ appdata_sf_path }}/proxy/data/"
-    - makedirs: True
-
 create_photoprism_proxy_container_systemd_unit_file:
   file.managed:
     - name: "/etc/systemd/system/container-photoprism-proxy.service"
@@ -125,7 +121,7 @@ create_photoprism_proxy_container_systemd_unit_file:
 
 create_photoprism_proxy_container_caddyfile:
   file.managed:
-    - name: "{{ appdata_sf_path }}/proxy/Caddyfile"
+    - name: "/var/lib/photoprism/Caddyfile"
     - source:
       - salt://{{ tpldir }}/files/Caddyfile.j2
     - template: jinja
@@ -155,7 +151,7 @@ stop_photoprism_proxy_service:
 
 purge_photoprism_proxy_container_caddyfile:
   file.absent:
-    - name: "{{ appdata_sf_path }}/proxy/Caddyfile"
+    - name: "/var/lib/photoprism/Caddyfile"
 
 purge_photoprism_proxy_container_systemd_unit_file:
   file.absent:
@@ -185,7 +181,7 @@ stop_photoprism_service:
 
 remove_photoprism_proxy_container_caddyfile:
   file.absent:
-    - name: "{{ appdata_sf_path }}/proxy/Caddyfile"
+    - name: "/var/lib/photoprism/Caddyfile"
 
 remove_photoprism_app_container_systemd_unit_file:
   file.absent:
