@@ -13,6 +13,10 @@
   .mat-button-base:not(:last-child) {
     margin-right: 0.5rem;
   }
+
+  .mat-icon {
+    @extend .omv-color-disabled-text;
+  }
 }
 
 .mat-form-field + .mat-form-field {

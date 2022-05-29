@@ -1,6 +1,7 @@
 openmediavault (6.0.28-1) stable; urgency=low
 
   * Various improvements in the Workbench UI.
+  * Add automatic dark mode support in UI.
   * Use HTTP/2 by default for HTTPS connections to the Workbench UI.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 12 May 2022 07:45:19 +0200

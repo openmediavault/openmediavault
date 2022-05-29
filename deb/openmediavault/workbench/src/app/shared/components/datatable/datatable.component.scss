@@ -171,17 +171,21 @@
         vertical-align: middle;
 
         &.disabled a {
-          color: rgba(0, 0, 0, 0.26) !important;
+          @extend .omv-color-disabled-text;
+
           background-color: transparent !important;
         }
 
         &.active a {
-          background-color: rgba(158, 158, 158, 0.2);
+          @extend .omv-background-color-hover;
+
           font-weight: bold;
         }
       }
 
       a {
+        @extend .omv-color-text;
+
         height: 22px;
         min-width: 24px;
         line-height: 22px;
@@ -189,13 +193,12 @@
         border-radius: 3px;
         margin: 6px 3px;
         text-align: center;
-        color: rgba(0, 0, 0, 0.54);
         text-decoration: none;
         vertical-align: bottom;
 
         &:hover {
-          color: rgba(0, 0, 0, 0.75);
-          background-color: rgba(158, 158, 158, 0.2);
+          @extend .omv-color-primary;
+          @extend .omv-background-color-hover;
         }
       }
 
