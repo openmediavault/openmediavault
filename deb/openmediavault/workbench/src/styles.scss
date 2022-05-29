@@ -627,13 +627,8 @@ img.loading {
 
 ////////////////////////////////////////////////////////////////////////////////
 // Sidenav
-.mat-sidenav-container {
-  height: 100%;
-  background-color: map-get($omv-color-gray-palette, 50);
-}
-
 .mat-sidenav {
-  background-color: map-get($omv-color-gray-palette, 500);
+  background-color: map-get(mat.$blue-grey-palette, 900);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
