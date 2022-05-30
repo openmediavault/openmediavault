@@ -9,10 +9,11 @@
       {{option[config.textField]}}
     </mat-option>
   </mat-select>
-  <mat-icon matSuffix
+  <mat-icon *ngIf="config.hasCreateButton"
+            matSuffix
             matTooltip="{{ 'Create' | translate }}"
             svgIcon="mdi:plus-circle-outline"
-            routerLink="/storage/shared-folders/create">
+            (click)="onCreate()">
   </mat-icon>
   <mat-error *ngIf="formGroup.invalid">
     <span *ngIf="formGroup.hasError('required', config.name)">

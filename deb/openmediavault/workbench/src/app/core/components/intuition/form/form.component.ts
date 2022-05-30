@@ -142,6 +142,11 @@ export class FormComponent implements AfterViewInit, OnInit {
               fields: _.uniq([field.valueField, field.textField])
             });
           }
+          if (['sharedFolderSelect', 'sshCertSelect', 'sslCertSelect'].includes(field.type)) {
+            _.defaultsDeep(field, {
+              hasCreateButton: true
+            });
+          }
           break;
         case 'passwordInput':
           _.defaultsDeep(field, {

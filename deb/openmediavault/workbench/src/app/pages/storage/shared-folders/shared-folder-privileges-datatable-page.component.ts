@@ -124,6 +124,7 @@ export class SharedFolderPrivilegesDatatablePageComponent {
                     { operator: 'ne', arg0: { prop: 'uuid' }, arg1: '{{ _routeParams.uuid }}' }
                   ]
                 },
+                hasCreateButton: false,
                 label: gettext('Source'),
                 hint: gettext('The shared folder from which the privileges are copied.'),
                 validators: {

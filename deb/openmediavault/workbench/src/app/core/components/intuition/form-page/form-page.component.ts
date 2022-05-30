@@ -226,6 +226,12 @@ export class FormPageComponent
           }
           break;
         case 'url':
+          // Check if there is a return URL specified. This will override the configured URL.
+          const returnUrl = _.get(this.activatedRoute.snapshot.queryParams, 'returnUrl');
+          if (_.isString(returnUrl)) {
+            this.router.navigate([returnUrl]);
+            break;
+          }
           if (_.isString(buttonConfig.execute.url)) {
             // Navigate to the specified URL.
             const url = format(buttonConfig.execute.url, _.merge({}, values, this.pageContext));

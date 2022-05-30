@@ -85,12 +85,6 @@ export class FilesystemQuotaDatatablePageComponent {
           url: '/storage/filesystems/quota/{{ _routeParams.uuid }}/edit/{{ _selected[0].type }}/{{ _selected[0].name }}'
         }
       }
-    ],
-    buttons: [
-      {
-        text: gettext('Back'),
-        url: '/storage/filesystems'
-      }
     ]
   };
 }

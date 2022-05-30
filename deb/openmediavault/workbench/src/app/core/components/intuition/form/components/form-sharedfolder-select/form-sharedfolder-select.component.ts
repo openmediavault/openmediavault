@@ -15,11 +15,13 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 
 import { FormSelectComponent } from '~/app/core/components/intuition/form/components/form-select/form-select.component';
+import { DataStoreService } from '~/app/shared/services/data-store.service';
 
 @Component({
   selector: 'omv-form-sharedfolder-select',
@@ -27,6 +29,19 @@ import { FormSelectComponent } from '~/app/core/components/intuition/form/compon
   styleUrls: ['./form-sharedfolder-select.component.scss']
 })
 export class FormSharedfolderSelectComponent extends FormSelectComponent {
+  constructor(
+    @Inject(DataStoreService) dataStoreService: DataStoreService,
+    private router: Router
+  ) {
+    super(dataStoreService);
+  }
+
+  public onCreate(): void {
+    this.router.navigate(['/storage/shared-folders/create'], {
+      queryParams: { returnUrl: this.router.url }
+    });
+  }
+
   protected sanitizeConfig(): void {
     super.sanitizeConfig();
     _.merge(this.config, {

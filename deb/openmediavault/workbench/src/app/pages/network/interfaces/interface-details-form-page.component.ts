@@ -109,15 +109,6 @@ export class InterfaceDetailsFormPageComponent {
         label: gettext('Gateway'),
         disabled: true
       }
-    ],
-    buttons: [
-      {
-        template: 'back',
-        execute: {
-          type: 'url',
-          url: '/network/interfaces'
-        }
-      }
     ]
   };
 }

@@ -270,6 +270,9 @@ export type FormFieldConfig = {
   emptyOptionText?: string;
   selectionChange?: (value: any) => void;
 
+  // --- sharedFolderSelect | sshCertSelect | sslCertSelect ---
+  hasCreateButton?: boolean;
+
   // --- divider | paragraph ---
   title?: string;
 
