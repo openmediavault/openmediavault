@@ -27,27 +27,41 @@ $omv-typography-config: mat.define-typography-config($omv-font-family-default);
 
 @include mat.core($omv-typography-config);
 
-$omv-light-theme-primary-palette: mat.define-palette($omv-color-corporate-palette);
-$omv-light-theme-accent-palette: map-merge(
+$omv-theme-primary-palette: mat.define-palette($omv-color-corporate-palette);
+$omv-theme-accent-palette: map-merge(
   mat.define-palette($omv-color-yellow-palette),
   (
     // https://paletton.com/#uid=11v0u0kw0v7jRCppdxByzopDWj8
     default-contrast: #988200
   )
 );
-$omv-light-theme-warn-palette: mat.define-palette($omv-color-red-palette);
+$omv-theme-warn-palette: mat.define-palette($omv-color-red-palette);
 
 $omv-light-theme: mat.define-light-theme(
   (
     color: (
-      primary: $omv-light-theme-primary-palette,
-      accent: $omv-light-theme-accent-palette,
-      warn: $omv-light-theme-warn-palette
+      primary: $omv-theme-primary-palette,
+      accent: $omv-theme-accent-palette,
+      warn: $omv-theme-warn-palette
+    )
+  )
+);
+
+$omv-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $omv-theme-primary-palette,
+      accent: $omv-theme-accent-palette,
+      warn: $omv-theme-warn-palette
     )
   )
 );
 
 @include mat.all-component-themes($omv-light-theme);
+
+@media (prefers-color-scheme: dark) {
+  @include mat.all-component-colors($omv-dark-theme);
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Variables
@@ -283,6 +297,30 @@ $omv-color-themes: (
 
 ////////////////////////////////////////////////////////////////////////////////
 // Colors
+@mixin foreground-color-from-theme-palette($hue) {
+  $palette: map-get($omv-light-theme, foreground);
+
+  color: mat.get-color-from-palette($palette, $hue);
+
+  @media (prefers-color-scheme: dark) {
+    $palette: map-get($omv-dark-theme, foreground);
+
+    color: mat.get-color-from-palette($palette, $hue);
+  }
+}
+
+@mixin background-color-from-theme-palette($hue) {
+  $palette: map-get($omv-light-theme, background);
+
+  background-color: mat.get-color-from-palette($palette, $hue);
+
+  @media (prefers-color-scheme: dark) {
+    $palette: map-get($omv-dark-theme, background);
+
+    background-color: mat.get-color-from-palette($palette, $hue);
+  }
+}
+
 .omv-color-primary {
   color: $omv-color-primary;
 }
@@ -332,11 +370,43 @@ $omv-color-themes: (
   color: $omv-color-transparent-black;
 }
 
+.omv-color-text {
+  @include foreground-color-from-theme-palette(text);
+}
+
+.omv-color-secondary-text {
+  @include foreground-color-from-theme-palette(secondary-text);
+}
+
+.omv-color-disabled-text {
+  @include foreground-color-from-theme-palette(disabled-text);
+}
+
+.omv-color-hint-text {
+  @include foreground-color-from-theme-palette(hint-text);
+}
+
 @each $name, $map in $omv-color-themes {
   .omv-background-color-theme-#{$name} {
     color: map-get($map, color);
     background-color: map-get($map, background-color);
   }
+}
+
+.omv-background-color-hover {
+  @include background-color-from-theme-palette(hover);
+}
+
+.omv-background-color-button {
+  @include background-color-from-theme-palette(button);
+}
+
+.omv-background-color-selected-button {
+  @include background-color-from-theme-palette(selected-button);
+}
+
+.omv-background-color-card {
+  @include background-color-from-theme-palette(card);
 }
 
 .omv-background-color-theme-transparent {
@@ -445,7 +515,7 @@ $omv-color-themes: (
 }
 
 .omv-text-muted {
-  color: $omv-color-transparent-black;
+  @extend .omv-color-disabled-text;
 }
 
 .omv-text-capitalize {
@@ -629,6 +699,10 @@ img.loading {
 // Sidenav
 .mat-sidenav {
   background-color: map-get(mat.$blue-grey-palette, 900);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: mat.get-color-from-palette(map-get($omv-dark-theme, background), background);
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -695,7 +769,8 @@ img.loading {
 
 .mat-form-field-suffix .mat-icon,
 .mat-form-field-prefix .mat-icon {
-  color: $omv-color-transparent-black;
+  @extend .omv-color-secondary-text;
+
   // Suffix/Prefix icons are aligned too high by default.
   vertical-align: bottom;
 }

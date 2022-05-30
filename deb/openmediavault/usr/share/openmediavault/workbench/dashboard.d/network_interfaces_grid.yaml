@@ -11,7 +11,7 @@ data:
   description: _("Displays information about the network interfaces in a grid.")
   grid:
     item:
-      class: 'omv-background-color-theme-whitesmoke'
+      class: 'omv-color-text omv-background-color-selected-button'
       title: '{{ devicename }}'
       titleClass: 'omv-text-truncate'
       content: '{{ address | default("-", true) }}<br>{{ address6 | default("-", true) }}'
