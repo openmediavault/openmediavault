@@ -1,3 +1,9 @@
+openmediavault (6.0.29-1) stable; urgency=low
+
+  * Issue #1316: Improve color contrast.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 31 May 2022 22:14:52 +0200
+
 openmediavault (6.0.28-1) stable; urgency=low
 
   * Various improvements in the Workbench UI.
