@@ -31,8 +31,7 @@ $omv-theme-primary-palette: mat.define-palette($omv-color-corporate-palette);
 $omv-theme-accent-palette: map-merge(
   mat.define-palette($omv-color-yellow-palette),
   (
-    // https://paletton.com/#uid=11v0u0kw0v7jRCppdxByzopDWj8
-    default-contrast: #988200
+    default-contrast: $omv-color-brown-coffee
   )
 );
 $omv-theme-warn-palette: mat.define-palette($omv-color-red-palette);
@@ -86,11 +85,11 @@ $omv-color-themes: (
   ),
   'green': (
     background-color: $omv-color-green,
-    color: $omv-color-white
+    color: $omv-color-jungle-green
   ),
   'yellow': (
     background-color: $omv-color-yellow,
-    color: $omv-color-accent-complementary
+    color: $omv-color-brown-coffee
   ),
   'red': (
     background-color: $omv-color-red,
@@ -122,7 +121,7 @@ $omv-color-themes: (
   ),
   'success': (
     background-color: $omv-color-success,
-    color: $omv-color-white
+    color: $omv-color-jungle-green
   ),
   'info': (
     background-color: $omv-color-info,
@@ -130,12 +129,12 @@ $omv-color-themes: (
   ),
   'warning': (
     background-color: $omv-color-warning,
-    color: $omv-color-white
+    color: $omv-color-brown-coffee
   ),
   'terminal': (
     // https://retrocomputing.stackexchange.com/questions/12835/exactly-what-color-was-the-text-on-monochrome-terminals-with-green-on-black-and/12837#12837
-    background-color: #282828,
-    color: #33ff33
+    background-color: $omv-color-charleston-green,
+    color: $omv-color-neon-green
   )
 );
 
@@ -552,10 +551,6 @@ $omv-color-themes: (
   height: 2rem !important;
   width: 2rem !important;
   flex-shrink: 0;
-}
-// Use this when the background color is white.
-.omv-icon-color-default {
-  color: rgba(0, 0, 0, 0.54);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
