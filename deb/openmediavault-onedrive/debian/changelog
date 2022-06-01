@@ -1,4 +1,4 @@
-openmediavault-onedrive (6.1.1-1) unstable; urgency=low
+openmediavault-onedrive (6.2.0-1) unstable; urgency=low
 
   * Adapt to onedrive 2.4.17.
   * Force HTTP/2 by default. Can be customized via OMV_ONEDRIVE_FORCEHTTP2.
