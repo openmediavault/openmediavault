@@ -1,5 +1,6 @@
 {%- set sync_dir_permissions = salt['pillar.get']('default:OMV_ONEDRIVE_SYNCDIRPERMISSIONS', '750') -%}
 {%- set sync_file_permissions = salt['pillar.get']('default:OMV_ONEDRIVE_SYNCFILEPERMISSIONS', '640') -%}
+{%- set force_http_2 = salt['pillar.get']('default:OMV_ONEDRIVE_FORCEHTTP2', 'true') -%}
 {%- set sf_path = salt['omv_conf.get_sharedfolder_path'](config.sharedfolderref) -%}
 {{ pillar['headers']['multiline'] -}}
 sync_dir = "{{ sf_path }}"
@@ -12,3 +13,4 @@ upload_only = "{{ (config.replicationmode == 'up') | to_bool | yesno('true,false
 skip_dotfiles = "{{ config.skipdotfiles | to_bool | yesno('true,false') }}"
 monitor_interval = "{{ config.monitorinterval }}"
 rate_limit = "{{ config.ratelimit }}"
+force_http_2 = "{{ force_http_2 }}"

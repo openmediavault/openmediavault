@@ -27,7 +27,7 @@ if [ $enabled ]; then
 fi
 
 rm -f /var/cache/onedrive/refresh_token
-sudo -u onedrive onedrive --confdir /var/cache/onedrive
+sudo -u onedrive onedrive --confdir /var/cache/onedrive --resync --resync-auth
 
 if [ $enabled ]; then
   echo "Please wait, restarting service ..."

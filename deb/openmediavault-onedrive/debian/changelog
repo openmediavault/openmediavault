@@ -1,3 +1,10 @@
+openmediavault-onedrive (6.1.1-1) unstable; urgency=low
+
+  * Adapt to onedrive 2.4.17.
+  * Force HTTP/2 by default. Can be customized via OMV_ONEDRIVE_FORCEHTTP2.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 01 Jun 2022 18:09:38 +0200
+
 openmediavault-onedrive (6.1.0-4) unstable; urgency=low
 
   * Update locale files.
