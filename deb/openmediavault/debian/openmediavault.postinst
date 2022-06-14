@@ -381,6 +381,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.0.29"; then
 			omv_module_set_dirty proftpd
+			omv_module_set_dirty hosts
 		fi
 
 		########################################################################
