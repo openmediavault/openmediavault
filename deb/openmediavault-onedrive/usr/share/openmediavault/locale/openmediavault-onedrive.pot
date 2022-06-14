@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-07 09:01+0200\n"
+"POT-Creation-Date: 2022-06-14 20:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,6 +71,9 @@ msgstr ""
 msgid "Disabled"
 msgstr ""
 
+msgid "Do not delete local file deletions from OneDrive."
+msgstr ""
+
 msgid "Download only"
 msgstr ""
 
@@ -84,6 +87,9 @@ msgid "Local first"
 msgstr ""
 
 msgid "Monitor interval"
+msgstr ""
+
+msgid "No remote delete"
 msgstr ""
 
 msgid "OneDrive"

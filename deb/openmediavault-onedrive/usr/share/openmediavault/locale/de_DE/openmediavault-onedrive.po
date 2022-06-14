@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-07 09:01+0200\n"
+"POT-Creation-Date: 2022-06-14 20:24+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
 "Language-Team: German (https://www.transifex.com/openmediavault/teams/14254/de/)\n"
@@ -87,6 +87,9 @@ msgstr ""
 msgid "Disabled"
 msgstr "Deaktiviert"
 
+msgid "Do not delete local file deletions from OneDrive."
+msgstr "Löschen Sie keine lokalen Dateilöschungen aus OneDrive."
+
 msgid "Download only"
 msgstr "Nur herunterladen"
 
@@ -102,6 +105,9 @@ msgstr "Lokal zuerst"
 msgid "Monitor interval"
 msgstr "Überwachungsintervall"
 
+msgid "No remote delete"
+msgstr "Kein Fernlöschen"
+
 msgid "OneDrive"
 msgstr "OneDrive"
 
@@ -110,6 +116,8 @@ msgstr "Ratenbegrenzung"
 
 msgid "Replicate local state first, before downloading changes from OneDrive."
 msgstr ""
+"Repliziere zuerst den lokalen Zustand, bevor Änderungen von OneDrive "
+"heruntergeladen werden."
 
 msgid "Replication mode"
 msgstr "Replikationsmodus"
@@ -118,7 +126,7 @@ msgid "Shared folder"
 msgstr "Freigegebene Ordner"
 
 msgid "Skip dot files and folders from syncing."
-msgstr ""
+msgstr "Überspringe Punktdateien und -ordner bei der Synchronisierung."
 
 msgid "Skip dotfiles"
 msgstr "Punktdateien überspringen"
@@ -132,7 +140,7 @@ msgstr ""
 "kann."
 
 msgid "The wait time between each sync operation."
-msgstr ""
+msgstr "Die Wartezeit zwischen den einzelnen Synchronisierungsvorgängen."
 
 msgid "Updated OneDrive settings."
 msgstr "OneDrive-Einstellungen wurden aktualisiert."

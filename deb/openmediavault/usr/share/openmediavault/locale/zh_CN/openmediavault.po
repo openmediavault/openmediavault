@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-07 09:01+0200\n"
+"POT-Creation-Date: 2022-06-14 20:24+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -3835,6 +3835,9 @@ msgstr "已更新的代理设置。"
 
 msgid "Updated quota."
 msgstr "已更新的配额。"
+
+msgid "Updated remote system-logs settings."
+msgstr ""
 
 msgid "Updated scheduled task."
 msgstr "已更新的计划任务。"

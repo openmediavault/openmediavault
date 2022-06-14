@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-07 09:01+0200\n"
+"POT-Creation-Date: 2022-06-14 20:24+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -3833,6 +3833,9 @@ msgstr "Оновлено налаштування проксі."
 
 msgid "Updated quota."
 msgstr "Оновлена квота."
+
+msgid "Updated remote system-logs settings."
+msgstr ""
 
 msgid "Updated scheduled task."
 msgstr "Оновлено планове завдання."

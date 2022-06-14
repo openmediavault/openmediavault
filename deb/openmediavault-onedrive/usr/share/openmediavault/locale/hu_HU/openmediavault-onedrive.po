@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-07 09:01+0200\n"
+"POT-Creation-Date: 2022-06-14 20:24+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2022\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
@@ -95,6 +95,9 @@ msgstr ""
 msgid "Disabled"
 msgstr "Letiltva"
 
+msgid "Do not delete local file deletions from OneDrive."
+msgstr ""
+
 msgid "Download only"
 msgstr "Csak letöltés"
 
@@ -109,6 +112,9 @@ msgstr "Először a helyi"
 
 msgid "Monitor interval"
 msgstr "Monitor intervallum"
+
+msgid "No remote delete"
+msgstr ""
 
 msgid "OneDrive"
 msgstr "OneDrive"

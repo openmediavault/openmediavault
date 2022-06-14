@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-07 09:01+0200\n"
+"POT-Creation-Date: 2022-06-14 20:24+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: jacekniedziolka71 <lucas71@interia.pl>, 2017,2022\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -3835,6 +3835,9 @@ msgid "Updated proxy settings."
 msgstr "Zaktualizowano ustawienia proxy."
 
 msgid "Updated quota."
+msgstr ""
+
+msgid "Updated remote system-logs settings."
 msgstr ""
 
 msgid "Updated scheduled task."
