@@ -3,7 +3,6 @@
 {%- set use_ipv6 = salt['pillar.get']('default:OMV_PROFTPD_USEIPV6', 'on') -%}
 {%- set server_type = salt['pillar.get']('default:OMV_PROFTPD_SERVERTYPE', 'standalone') -%}
 {%- set defer_welcome = salt['pillar.get']('default:OMV_PROFTPD_DEFERWELCOME', 'on') -%}
-{%- set multi_line_rfc2228 = salt['pillar.get']('default:OMV_PROFTPD_MULTILINERFC2228', 'on') -%}
 {%- set default_server = salt['pillar.get']('default:OMV_PROFTPD_DEFAULTSERVER', 'on') -%}
 {%- set show_symlinks = salt['pillar.get']('default:OMV_PROFTPD_SHOWSYMLINKS', 'on') -%}
 {%- set list_options = salt['pillar.get']('default:OMV_PROFTPD_LISTOPTIONS', '-l') -%}
@@ -32,7 +31,6 @@ UseIPv6 {{ use_ipv6 }}
 ServerName {{ dns_config.hostname }}
 ServerType {{ server_type }}
 DeferWelcome {{ defer_welcome }}
-MultilineRFC2228 {{ multi_line_rfc2228 }}
 DefaultServer {{ default_server }}
 ShowSymlinks {{ show_symlinks }}
 DisplayChdir .message true
