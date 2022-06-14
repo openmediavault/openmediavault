@@ -101,6 +101,17 @@ data:
           }
         ]
       - type: checkbox
+        name: noremotedelete
+        label: _("No remote delete")
+        hint: _("Do not delete local file deletions from OneDrive.")
+        value: false
+        modifiers: [
+          {
+            type: 'disabled',
+            constraint: { operator: 'ne', arg0: { prop: 'replicationmode' }, arg1: 'up' }
+          }
+        ]
+      - type: checkbox
         name: skipdotfiles
         label: _("Skip dotfiles")
         hint: _("Skip dot files and folders from syncing.")

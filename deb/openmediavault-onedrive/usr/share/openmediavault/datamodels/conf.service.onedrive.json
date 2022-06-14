@@ -30,6 +30,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"noremotedelete": {
+			"type": "boolean",
+			"default": false
+		},
 		"skipdotfiles": {
 			"type": "boolean",
 			"default": false

@@ -1,3 +1,10 @@
+openmediavault-onedrive (6.2.1-1) unstable; urgency=low
+
+  * Issue #1324: Add option to do not delete local file
+    deletions from OneDrive when using 'Upload only'.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 14 Jun 2022 07:08:32 +0200
+
 openmediavault-onedrive (6.2.0-1) unstable; urgency=low
 
   * Adapt to onedrive 2.4.17.
