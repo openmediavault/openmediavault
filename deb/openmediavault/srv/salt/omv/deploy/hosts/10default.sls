@@ -36,13 +36,20 @@ configure_hosts_default_ipv4:
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
         127.0.0.1 localhost.localdomain localhost
-        127.0.1.1 {{ fqdn }} {{ alias }}
     - user: root
     - group: root
     - mode: 644
 
-{% if salt['omv_utils.is_ipv6_enabled']() %}
+{% if interfaces_config | selectattr('method', 'equalto', 'static') | list | length == 0 %}
+append_hosts_127.0.1.1_ipv4:
+  host.only:
+    - name: "127.0.1.1"
+    - hostnames:
+      - "{{ fqdn }}"
+      - "{{ alias }}"
+{% endif %}
 
+{% if salt['omv_utils.is_ipv6_enabled']() %}
 configure_hosts_default_ipv6:
   file.append:
     - name: "/etc/hosts"
@@ -54,13 +61,12 @@ configure_hosts_default_ipv6:
         ff02::1 ip6-allnodes
         ff02::2 ip6-allrouters
         ff02::3 ip6-allhosts
-
 {% endif %}
 
 {% for interface in interfaces_config %}
 
 {% if interface.address | is_ipv4 %}
-append_hosts_{{ interface.devicename }}_v4:
+append_hosts_{{ interface.devicename }}_ipv4:
   host.only:
     - name: "{{ interface.address }}"
     - hostnames:
@@ -69,7 +75,7 @@ append_hosts_{{ interface.devicename }}_v4:
 {% endif %}
 
 {% if interface.address6 | is_ipv6 %}
-append_hosts_{{ interface.devicename }}_v6:
+append_hosts_{{ interface.devicename }}_ipv6:
   host.only:
     - name: "{{ interface.address6 }}"
     - hostnames:

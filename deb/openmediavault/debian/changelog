@@ -1,6 +1,8 @@
 openmediavault (6.0.29-1) stable; urgency=low
 
   * Remove MultilineRFC2228 option in proftpd configuration.
+  * Issue #510: Create correct /etc/hosts if permanent IP addresses
+    are used.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 14 Jun 2022 07:14:53 +0200
 
