@@ -17,7 +17,7 @@
  */
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MediaObserver } from '@angular/flex-layout';
-import { MatSidenav, MatDrawerMode } from '@angular/material/sidenav';
+import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
 import { Event, NavigationEnd, Router } from '@angular/router';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
