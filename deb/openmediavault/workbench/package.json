@@ -53,9 +53,9 @@
     "nunjucks": "^3.2.3",
     "rxjs": "~6.6.7",
     "strip-ansi": "7.0.1",
-    "tslib": "^2.3.1",
+    "tslib": "^2.4.0",
     "validator": "^13.7.0",
-    "zone.js": "~0.11.5"
+    "zone.js": "~0.11.6"
   },
   "devDependencies": {
     "@angular-builders/jest": "^12.1.2",
@@ -73,7 +73,7 @@
     "@types/jasminewd2": "^2.0.10",
     "@types/jest": "^27.5.2",
     "@types/lodash": "^4.14.182",
-    "@types/node": "^16.11.39",
+    "@types/node": "^16.11.41",
     "@types/nunjucks": "^3.2.1",
     "@types/validator": "^13.7.3",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
