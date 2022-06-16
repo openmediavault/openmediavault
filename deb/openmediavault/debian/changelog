@@ -1,3 +1,9 @@
+openmediavault (6.0.30-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 16 Jun 2022 14:33:05 +0200
+
 openmediavault (6.0.29-1) stable; urgency=low
 
   * Remove MultilineRFC2228 option in proftpd configuration.
