@@ -3839,7 +3839,7 @@ msgid "Updated quota."
 msgstr "Kvóta frissítve."
 
 msgid "Updated remote system-logs settings."
-msgstr ""
+msgstr "Távoli rendszernaplók beállításai frissítve."
 
 msgid "Updated scheduled task."
 msgstr "Ütemezett ellenőrzés frissítve."

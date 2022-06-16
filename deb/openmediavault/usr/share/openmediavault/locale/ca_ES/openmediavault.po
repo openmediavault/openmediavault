@@ -3835,7 +3835,7 @@ msgid "Updated quota."
 msgstr "Quota actualitzada. "
 
 msgid "Updated remote system-logs settings."
-msgstr ""
+msgstr "Actualitzar la configuració del sistema de registres remot."
 
 msgid "Updated scheduled task."
 msgstr "Tasca programada actualitzada. "

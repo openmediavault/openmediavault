@@ -95,7 +95,7 @@ msgid "Disabled"
 msgstr "Inaktiverad"
 
 msgid "Do not delete local file deletions from OneDrive."
-msgstr ""
+msgstr "Ta inte bort lokala filborttagningar från OneDrive."
 
 msgid "Download only"
 msgstr "Endast hämtning"
@@ -113,7 +113,7 @@ msgid "Monitor interval"
 msgstr "Övervakningsintervall"
 
 msgid "No remote delete"
-msgstr ""
+msgstr "Ingen fjärrborttagning"
 
 msgid "OneDrive"
 msgstr "OneDrive"

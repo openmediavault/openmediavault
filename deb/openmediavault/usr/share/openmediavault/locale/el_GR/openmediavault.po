@@ -3833,7 +3833,7 @@ msgid "Updated quota."
 msgstr "Ενημέρωση μεριδίων."
 
 msgid "Updated remote system-logs settings."
-msgstr ""
+msgstr "Ενημέρωση ρυθμίσεων απομακρυσμένης καταγραφής συστήματος."
 
 msgid "Updated scheduled task."
 msgstr "Ενημέρωση προγραμματισμένης εργασίας."

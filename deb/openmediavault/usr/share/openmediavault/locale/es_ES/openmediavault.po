@@ -3794,7 +3794,7 @@ msgid "Updated date & time settings."
 msgstr "Configuración de hora actualizada."
 
 msgid "Updated file system settings."
-msgstr "Actualizando las opciones del sistema."
+msgstr "Actualizadas las opciones del sistema."
 
 msgid "Updated firewall rule."
 msgstr "Regla de firewall actualizada."
@@ -3836,7 +3836,7 @@ msgid "Updated quota."
 msgstr "Cuota actualizada."
 
 msgid "Updated remote system-logs settings."
-msgstr ""
+msgstr "Actualizadas las opciones de system-logs remoto."
 
 msgid "Updated scheduled task."
 msgstr "Tarea programada actualizada."

@@ -94,7 +94,7 @@ msgid "Disabled"
 msgstr "Ανενεργό"
 
 msgid "Do not delete local file deletions from OneDrive."
-msgstr ""
+msgstr "Να μην διαγράφονται οι τοπικές διαγραφές αρχείων από το OneDrive."
 
 msgid "Download only"
 msgstr "Μόνο Λήψη"
@@ -112,7 +112,7 @@ msgid "Monitor interval"
 msgstr "Διάστημα επίβλεψης"
 
 msgid "No remote delete"
-msgstr ""
+msgstr "Όχι απομακρυσμένη διαγραφή"
 
 msgid "OneDrive"
 msgstr "OneDrive"

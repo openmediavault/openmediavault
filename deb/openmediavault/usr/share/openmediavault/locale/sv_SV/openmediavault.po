@@ -3836,7 +3836,7 @@ msgid "Updated quota."
 msgstr "Uppdaterade kvoten."
 
 msgid "Updated remote system-logs settings."
-msgstr ""
+msgstr "Uppdaterade inställningar för fjärrsystemloggar."
 
 msgid "Updated scheduled task."
 msgstr "Uppdaterade schemalagd uppgift."

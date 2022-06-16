@@ -3837,7 +3837,7 @@ msgid "Updated quota."
 msgstr "已更新的配额。"
 
 msgid "Updated remote system-logs settings."
-msgstr ""
+msgstr "已更新遠端系統紀錄檔設定。"
 
 msgid "Updated scheduled task."
 msgstr "已更新的计划任务。"
