@@ -489,7 +489,8 @@ class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			"numdevices" => $numDevices,
 //			"devices" => array_diff($devices, $rmDevices)
 		]);
-		$object->set("devices", array_diff($devices, $rmDevices)); // Workaround
+		$object->set("devices", array_values(array_diff($devices,
+			$rmDevices))); // Workaround
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  $object->getModel()->getNotificationId(), $object->getAssoc());
