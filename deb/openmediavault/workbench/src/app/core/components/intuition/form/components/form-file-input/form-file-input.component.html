@@ -24,6 +24,7 @@
   <input *ngIf="config.rows === 1"
          matInput
          type="text"
+         class="omv-text-truncate"
          [ngClass]="{'omv-text-monospace': config.monospace}"
          [formControlName]="config.name"
          [placeholder]="config.placeholder | translate"
