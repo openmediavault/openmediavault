@@ -9,8 +9,5 @@ module.exports = {
   setupFiles: ['jest-canvas-mock'],
   setupFilesAfterEnv: ['<rootDir>/src/setupJest.ts'],
   testMatch: ['**/*.spec.ts'],
-  transform: {
-    '^.+\\.(ts|js|mjs|html|svg)$': 'jest-preset-angular'
-  },
   transformIgnorePatterns: ['/node_modules/(?!ansi-regex|strip-ansi)']
 };
