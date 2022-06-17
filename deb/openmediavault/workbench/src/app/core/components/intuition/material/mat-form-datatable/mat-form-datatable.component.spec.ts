@@ -11,7 +11,8 @@ describe('MatFormDatatableComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ComponentsModule, TestingModule, ToastrModule.forRoot()]
+      imports: [ComponentsModule, TestingModule, ToastrModule.forRoot()],
+      declarations: [MatFormDatatableComponent]
     }).compileComponents();
   }));
 
