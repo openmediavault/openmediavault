@@ -1,0 +1,27 @@
+<mat-form-field fxFlex
+                [formGroup]="formGroup">
+  <mat-label>{{ config.label | translate }}</mat-label>
+  <!-- This is a workaround to be able to use 'mat-form-field' -->
+  <input matInput
+         hidden
+         [formControlName]="config.name"
+         [required]="config.validators?.required">
+  <ngx-monaco-editor [formControlName]="config.name"
+                     [options]="options">
+  </ngx-monaco-editor>
+  <mat-error *ngIf="formGroup.invalid">
+    <span *ngIf="formGroup.hasError('required', config.name)"
+          translate>
+      This field is required.
+    </span>
+    <span *ngIf="formGroup.hasError('constraint', config.name)">
+      {{ formGroup.getError('constraint', config.name) | translate }}
+    </span>
+    <span *ngIf="formGroup.hasError('pattern', config.name)">
+      {{ formGroup.getError('pattern', config.name) | translate }}
+    </span>
+  </mat-error>
+  <mat-hint *ngIf="config.hint?.length > 0"
+            [innerHTML]="config.hint | translate | sanitizeHtml">
+  </mat-hint>
+</mat-form-field>

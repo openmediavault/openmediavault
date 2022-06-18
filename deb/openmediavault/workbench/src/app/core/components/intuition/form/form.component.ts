@@ -171,6 +171,11 @@ export class FormComponent implements AfterViewInit, OnInit {
             dismissible: false
           });
           break;
+        case 'codeEditor':
+          _.defaultsDeep(field, {
+            lineNumbers: true
+          });
+          break;
       }
     });
     // Populate the data model identifier field.
