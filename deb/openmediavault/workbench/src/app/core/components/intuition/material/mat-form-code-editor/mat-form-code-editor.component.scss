@@ -1,0 +1,19 @@
+@import 'src/styles';
+
+mat-form-code-editor {
+  ::ng-deep & .cm-editor {
+    @include omv-scrollbar;
+
+    height: 300px;
+    resize: vertical;
+    overflow: auto;
+
+    .cm-scroller {
+      @include omv-scrollbar;
+    }
+
+    &.cm-focused {
+      outline: unset !important;
+    }
+  }
+}

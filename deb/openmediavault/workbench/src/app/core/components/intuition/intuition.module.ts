@@ -5,7 +5,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { MonacoEditorModule } from 'ngx-monaco-editor';
 
 import { DatatablePageComponent } from '~/app/core/components/intuition/datatable-page/datatable-page.component';
 import { FormBinaryUnitInputComponent } from '~/app/core/components/intuition/form/components/form-binary-unit-input/form-binary-unit-input.component';
@@ -33,6 +32,7 @@ import { FormComponent } from '~/app/core/components/intuition/form/form.compone
 import { FormDialogComponent } from '~/app/core/components/intuition/form-dialog/form-dialog.component';
 import { FormPageComponent } from '~/app/core/components/intuition/form-page/form-page.component';
 import { MatFormButtonComponent } from '~/app/core/components/intuition/material/mat-form-button/mat-form-button.component';
+import { MatFormCodeEditorComponent } from '~/app/core/components/intuition/material/mat-form-code-editor/mat-form-code-editor.component';
 import { MatFormDatatableComponent } from '~/app/core/components/intuition/material/mat-form-datatable/mat-form-datatable.component';
 import { RrdPageComponent } from '~/app/core/components/intuition/rrd-page/rrd-page.component';
 import { SelectionListPageComponent } from '~/app/core/components/intuition/selection-list-page/selection-list-page.component';
@@ -44,6 +44,7 @@ import { SharedModule } from '~/app/shared/shared.module';
 @NgModule({
   declarations: [
     MatFormDatatableComponent,
+    MatFormCodeEditorComponent,
     MatFormButtonComponent,
     FormComponent,
     FormDialogComponent,
@@ -92,8 +93,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     TranslateModule.forChild(),
-    RouterModule,
-    MonacoEditorModule.forRoot()
+    RouterModule
   ]
 })
 export class IntuitionModule {}

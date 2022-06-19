@@ -15,9 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { MediaMatcher } from '@angular/cdk/layout';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import * as _ from 'lodash';
+import { Component } from '@angular/core';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 
@@ -26,43 +24,4 @@ import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form
   templateUrl: './form-code-editor.component.html',
   styleUrls: ['./form-code-editor.component.scss']
 })
-export class FormCodeEditorComponent
-  extends AbstractFormFieldComponent
-  implements OnInit, OnDestroy
-{
-  options: Record<string, any> = {};
-
-  private mediaQueryList: MediaQueryList;
-
-  constructor(private mediaMatcher: MediaMatcher) {
-    super();
-  }
-
-  ngOnInit(): void {
-    super.ngOnInit();
-    this.mediaQueryList = this.mediaMatcher.matchMedia('(prefers-color-scheme: light)');
-    this.mediaQueryList.onchange = (event: MediaQueryListEvent) => {
-      // Force an Angular change-detection.
-      this.options = _.merge({}, this.options, {
-        theme: this.getTheme(event)
-      });
-    };
-    this.options = {
-      readOnly: this.config.readonly,
-      lineNumbers: this.config.lineNumbers ? 'on' : 'off',
-      theme: this.getTheme(this.mediaQueryList),
-      language: this.config.language,
-      minimap: { enabled: false },
-      scrollBeyondLastLine: false,
-      automaticLayout: true
-    };
-  }
-
-  ngOnDestroy(): void {
-    this.mediaQueryList.onchange = undefined;
-  }
-
-  private getTheme(event: MediaQueryList | MediaQueryListEvent): string {
-    return event.matches ? 'vs-light' : 'vs-dark';
-  }
-}
+export class FormCodeEditorComponent extends AbstractFormFieldComponent {}
