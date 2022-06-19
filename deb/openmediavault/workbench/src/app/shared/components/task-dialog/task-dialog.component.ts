@@ -115,7 +115,7 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
       )
       .subscribe({
         next: (value: RpcBgResponse) => {
-          this.print(value.output);
+          this.print(value.output, true);
         },
         complete: () => {
           // Set the result value to `true` because the request finished
@@ -197,7 +197,7 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
     }
   }
 
-  private print(text: string): void {
+  private print(text: string, escape: boolean = false): void {
     const nativeEl = this.content.nativeElement;
     // Make sure we do not exceed a max. size of displayed
     // content to keep the memory consumption low.
@@ -214,7 +214,9 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
       const pos = nativeEl.innerHTML.indexOf('\n', startSearch);
       nativeEl.innerHTML = nativeEl.innerHTML.slice(pos > 0 ? pos : startSearch);
     }
-    nativeEl.innerHTML += stripAnsi(text);
+    // Strip ASCII escape codes and escape characters to
+    // HTML-safe sequences if necessary.
+    nativeEl.innerHTML += stripAnsi(escape ? format('{{ text | escape }}', { text }) : text);
     if (this.config.autoScroll && _.isFunction(nativeEl.scroll)) {
       nativeEl.scroll({ behavior: 'auto', top: nativeEl.scrollHeight });
     }
