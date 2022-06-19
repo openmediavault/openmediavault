@@ -2,7 +2,7 @@ version: "1.0"
 type: navigation-item
 data:
   path: "storage.md"
-  position: 20
+  position: 30
   text: _("RAID Management")
   icon: "mdi:database"
   url: "/storage/md"
