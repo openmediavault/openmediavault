@@ -105,7 +105,7 @@ const routes: Routes = [
   },
   {
     path: 'md',
-    data: { title: gettext('RAID Management') },
+    data: { title: gettext('Software RAID') },
     children: [
       { path: '', component: MdDatatablePageComponent },
       {
