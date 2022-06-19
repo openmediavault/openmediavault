@@ -94,6 +94,7 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.blockUI.resetGlobal();
+    // Ensure all currently opened dialogs are closed.
     this.dialogService.closeAll();
   }
 
