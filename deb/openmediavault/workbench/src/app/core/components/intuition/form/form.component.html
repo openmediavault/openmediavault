@@ -142,5 +142,11 @@
                      [formGroup]="formGroup">
       </omv-form-hint>
     </ng-template>
+
+    <ng-template [ngSwitchCase]="'codeEditor'">
+      <omv-form-code-editor [config]="field"
+                            [formGroup]="formGroup">
+      </omv-form-code-editor>
+    </ng-template>
   </ng-container>
 </ng-template>

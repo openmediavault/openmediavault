@@ -28,12 +28,14 @@ export type FormFieldConfig = {
   // |-------------|------------------------------------------------------|
   // | confObjUuid | This is a hidden field that contains an UUID. By     |
   // |             | default it is set to the UUID that tells the backend |
-  // |             | that it should handle the the data to create a new   |
+  // |             | that it should handle the data to create a new       |
   // |             | database configuration object.                       |
   // | hidden      | A hidden form field.                                 |
   // | paragraph   | Displays a title.                                    |
   // | divider     | Displays a horizontal line and an optional title.    |
   // | hint        | Displays a text and an icon.                         |
+  // | codeEditor  | A code editor width support for different languages  |
+  // |             | and syntax highlighting.                             |
   // | ...         | ...                                                  |
   // | container   | Align child fields in horizontal order.              |
   // '--------------------------------------------------------------------'
@@ -60,7 +62,8 @@ export type FormFieldConfig = {
     | 'datatable'
     | 'slider'
     | 'container'
-    | 'hint';
+    | 'hint'
+    | 'codeEditor';
   name?: string;
   label?: string;
   placeholder?: string;
@@ -242,6 +245,10 @@ export type FormFieldConfig = {
   // --- textarea | textInput | fileInput | folderBrowser ---
   // Use a monospace font.
   monospace?: boolean;
+
+  // --- codeEditor ---
+  lineNumbers?: boolean;
+  language?: 'json' | 'shell' | 'xml' | 'yaml';
 
   // --- fileInput ---
   // Takes a comma-separated list of one or more file types, or

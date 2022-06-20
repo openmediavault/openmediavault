@@ -10,6 +10,7 @@ import { DatatablePageComponent } from '~/app/core/components/intuition/datatabl
 import { FormBinaryUnitInputComponent } from '~/app/core/components/intuition/form/components/form-binary-unit-input/form-binary-unit-input.component';
 import { FormButtonComponent } from '~/app/core/components/intuition/form/components/form-button/form-button.component';
 import { FormCheckboxComponent } from '~/app/core/components/intuition/form/components/form-checkbox/form-checkbox.component';
+import { FormCodeEditorComponent } from '~/app/core/components/intuition/form/components/form-code-editor/form-code-editor.component';
 import { FormDatatableComponent } from '~/app/core/components/intuition/form/components/form-datatable/form-datatable.component';
 import { FormDatepickerComponent } from '~/app/core/components/intuition/form/components/form-datepicker/form-datepicker.component';
 import { FormDividerComponent } from '~/app/core/components/intuition/form/components/form-divider/form-divider.component';
@@ -31,6 +32,7 @@ import { FormComponent } from '~/app/core/components/intuition/form/form.compone
 import { FormDialogComponent } from '~/app/core/components/intuition/form-dialog/form-dialog.component';
 import { FormPageComponent } from '~/app/core/components/intuition/form-page/form-page.component';
 import { MatFormButtonComponent } from '~/app/core/components/intuition/material/mat-form-button/mat-form-button.component';
+import { MatFormCodeEditorComponent } from '~/app/core/components/intuition/material/mat-form-code-editor/mat-form-code-editor.component';
 import { MatFormDatatableComponent } from '~/app/core/components/intuition/material/mat-form-datatable/mat-form-datatable.component';
 import { RrdPageComponent } from '~/app/core/components/intuition/rrd-page/rrd-page.component';
 import { SelectionListPageComponent } from '~/app/core/components/intuition/selection-list-page/selection-list-page.component';
@@ -42,6 +44,7 @@ import { SharedModule } from '~/app/shared/shared.module';
 @NgModule({
   declarations: [
     MatFormDatatableComponent,
+    MatFormCodeEditorComponent,
     MatFormButtonComponent,
     FormComponent,
     FormDialogComponent,
@@ -70,7 +73,8 @@ import { SharedModule } from '~/app/shared/shared.module';
     FormFolderbrowserComponent,
     FormFileInputComponent,
     SelectionListPageComponent,
-    RrdPageComponent
+    RrdPageComponent,
+    FormCodeEditorComponent
   ],
   exports: [
     DatatablePageComponent,

@@ -9,5 +9,5 @@ module.exports = {
   setupFiles: ['jest-canvas-mock'],
   setupFilesAfterEnv: ['<rootDir>/src/setupJest.ts'],
   testMatch: ['**/*.spec.ts'],
-  transformIgnorePatterns: ['/node_modules/(?!ansi-regex|strip-ansi)']
+  transformIgnorePatterns: ['/node_modules/(?!ansi-regex|strip-ansi|@codemirror/legacy-modes)']
 };
