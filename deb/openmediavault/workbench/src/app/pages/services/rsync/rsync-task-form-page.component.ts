@@ -725,7 +725,7 @@ export class RsyncTaskFormPageComponent {
         type: 'checkbox',
         name: 'optiongroup',
         label: gettext('Preserve group'),
-        hint: gettext('"Set the group of the destination file to be the same as the source file.'),
+        hint: gettext('Set the group of the destination file to be the same as the source file.'),
         value: true,
         modifiers: [
           {
