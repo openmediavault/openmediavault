@@ -96,7 +96,7 @@ msgid "Disabled"
 msgstr "Letiltva"
 
 msgid "Do not delete local file deletions from OneDrive."
-msgstr ""
+msgstr "Ne törölje a helyileg törölt fájlokat a OneDrive-ról."
 
 msgid "Download only"
 msgstr "Csak letöltés"
@@ -114,7 +114,7 @@ msgid "Monitor interval"
 msgstr "Monitor intervallum"
 
 msgid "No remote delete"
-msgstr ""
+msgstr "Nincs távoli törlés"
 
 msgid "OneDrive"
 msgstr "OneDrive"
