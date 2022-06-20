@@ -557,7 +557,6 @@ $omv-color-themes: (
 // Scrollbar
 @mixin omv-scrollbar {
   scrollbar-color: $omv-color-primary transparent;
-  scrollbar-width: thin;
 
   --scrollbar-border-radius: 0 !important;
   // Using variables does not work somehow.
