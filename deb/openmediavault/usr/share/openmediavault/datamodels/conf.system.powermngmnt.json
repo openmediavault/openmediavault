@@ -15,6 +15,11 @@
 			"type": "string",
 			"enum": [ "nothing", "shutdown", "standby" ],
 			"default": "nothing"
+		},
+		"standbymode": {
+			"type": "string",
+			"enum": [ "poweroff", "suspend", "hibernate", "suspendhybrid" ],
+			"default": "suspend"
 		}
 	}
 }

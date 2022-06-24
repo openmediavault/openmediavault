@@ -57,6 +57,35 @@ export class PowermgmtSettingsFormPageComponent {
             ['standby', gettext('Standby')]
           ]
         }
+      },
+      {
+        type: 'select',
+        name: 'standbymode',
+        label: gettext('Standby mode'),
+        value: 'poweroff',
+        store: {
+          proxy: {
+            service: 'PowerMgmt',
+            get: {
+              method: 'enumerateStandbyModes'
+            }
+          },
+          sorters: [
+            {
+              dir: 'asc',
+              prop: 'text'
+            }
+          ],
+          assign: {
+            key: 'value',
+            sources: {
+              poweroff: { text: gettext('Poweroff') },
+              suspend: { text: gettext('Suspend') },
+              hibernate: { text: gettext('Hibernate') },
+              suspendhybrid: { text: gettext('Hybrid sleep') }
+            }
+          }
+        }
       }
     ],
     buttons: [

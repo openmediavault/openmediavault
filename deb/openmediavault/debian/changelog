@@ -1,5 +1,9 @@
 openmediavault (6.0.31-1) stable; urgency=low
 
+  * Issue #1330: Add configuration option to set standby mode
+    in the 'System | Power Management' page. This setting will
+    be used by the scheduled jobs and the 'Standby' option in
+    the UI.
   * Issue #1332: Fix translations in confirmation dialog.
   * Issue #1335: Confirmation dialogs are too wide on wider screens.
   * Issue #1343: Improve selection list layout on small screens.

@@ -40,6 +40,7 @@ class PowerMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("setScheduledJob");
 		$this->registerMethod("deleteScheduledJob");
 		$this->registerMethod("executeScheduledJob");
+		$this->registerMethod("enumerateStandbyModes");
 	}
 
 	/**
@@ -171,5 +172,31 @@ class PowerMgmt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function executeScheduledJob($params, $context) {
 		return \OMV\Rpc\Rpc::call("cron", "execute", $params, $context);
+	}
+
+	/**
+	 * Get a list of available standby modes.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array of strings of the available standby modes.
+	 */
+	function enumerateStandbyModes($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Get the list of available standby modes.
+		$pm = new \OMV\System\PowerManagement();
+		$result = ['poweroff'];
+		if (TRUE === $pm->isStateSupported(
+				\OMV\System\PowerManagement::STATE_SUSPEND))
+			$result[] = "suspend";
+		if (TRUE === $pm->isStateSupported(
+				\OMV\System\PowerManagement::STATE_HIBERNATE))
+			$result[] = "hibernate";
+		if (TRUE === $pm->isStateSupported(
+				\OMV\System\PowerManagement::STATE_SUSPENDHYBRID))
+			$result[] = "suspendhybrid";
+		return $result;
 	}
 }

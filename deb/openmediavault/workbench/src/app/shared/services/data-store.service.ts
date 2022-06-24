@@ -161,6 +161,18 @@ export class DataStoreService {
         data.push(newItem);
       });
     }
+    // Assign additional sources?
+    if (_.isArray(data) && _.isPlainObject(store.assign)) {
+      const key = store.assign.key;
+      const sources = store.assign.sources;
+      _.forEach(data, (item) => {
+        const value = _.get(item, key);
+        if (_.has(sources, value)) {
+          const source = _.get(sources, value);
+          _.merge(item, source);
+        }
+      });
+    }
     // Transform data?
     if (_.isPlainObject(store.transform)) {
       _.forEach(data, (item) => {
