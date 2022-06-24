@@ -106,7 +106,7 @@ export class UserFormPageComponent {
           sorters: [
             {
               dir: 'asc',
-              prop: 'label'
+              prop: 'text'
             }
           ]
         }
