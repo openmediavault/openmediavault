@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 20:29+0100\n"
+"POT-Creation-Date: 2022-11-18 19:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,9 +42,6 @@ msgid "%s [on %s, %s]"
 msgstr ""
 
 msgid "%s ago"
-msgstr ""
-
-msgid "."
 msgstr ""
 
 msgid "0 KiB/s means unlimited."
@@ -2912,9 +2909,6 @@ msgstr ""
 msgid "Sierra Leone"
 msgstr ""
 
-msgid "Signed in as"
-msgstr ""
-
 msgid "Singapore"
 msgstr ""
 
@@ -3119,7 +3113,7 @@ msgstr ""
 msgid "System clock synchronization client and server."
 msgstr ""
 
-msgid "System monitoring is disabled. To enable it, please go to the"
+msgid "System monitoring is disabled. To enable it, please go to the <a href='#/system/monitoring'>settings page</a>."
 msgstr ""
 
 msgid "System time"
@@ -3179,7 +3173,7 @@ msgstr ""
 msgid "The action to be done when pressing the power button."
 msgstr ""
 
-msgid "The dashboard has not yet been configured. To personalize it, please go to the"
+msgid "The dashboard has not yet been configured. To personalize it, please go to the <a href='#/dashboard/settings'>settings page</a>."
 msgstr ""
 
 msgid "The data has been copied to the clipboard."

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
 import { DashboardWidgetRrdComponent } from '~/app/core/components/dashboard/dashboard-widget-rrd/dashboard-widget-rrd.component';
@@ -12,7 +11,7 @@ describe('DashboardWidgetRrdComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [DashboardWidgetRrdComponent],
-      imports: [DashboardModule, TestingModule, TranslateModule.forRoot()]
+      imports: [DashboardModule, TestingModule]
     }).compileComponents();
   }));
 

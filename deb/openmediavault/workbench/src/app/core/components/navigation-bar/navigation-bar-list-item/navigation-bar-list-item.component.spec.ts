@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { ComponentsModule } from '~/app/core/components/components.module';
 import { NavigationBarListItemComponent } from '~/app/core/components/navigation-bar/navigation-bar-list-item/navigation-bar-list-item.component';
@@ -12,7 +11,7 @@ describe('NavbarListItemComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ComponentsModule, TestingModule, TranslateModule.forRoot()]
+      imports: [ComponentsModule, TestingModule]
     }).compileComponents();
   }));
 

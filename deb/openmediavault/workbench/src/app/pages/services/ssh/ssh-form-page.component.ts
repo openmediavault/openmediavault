@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component } from '@angular/core';
-import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 
 import { FormPageConfig } from '~/app/core/components/intuition/models/form-page-config.type';
 import { IsDirtyFormPageComponent } from '~/app/pages/is-dirty-page-component';
@@ -96,9 +96,7 @@ export class SshFormPageComponent extends IsDirtyFormPageComponent {
         label: gettext('Compression'),
         value: true,
         hint: gettext(
-          'Compression is worth using if your connection is slow. ' +
-            'The efficiency of the compression depends on the type of the ' +
-            'file, and varies widely. Useful for internet transfer only.'
+          'Compression is worth using if your connection is slow. The efficiency of the compression depends on the type of the file, and varies widely. Useful for internet transfer only.'
         )
       },
       {

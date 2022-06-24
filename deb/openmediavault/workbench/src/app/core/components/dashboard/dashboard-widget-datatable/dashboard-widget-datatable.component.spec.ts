@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
@@ -14,7 +13,7 @@ describe('DashboardWidgetDatatableComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [DashboardWidgetDatatableComponent],
-      imports: [DashboardModule, TestingModule, ToastrModule.forRoot(), TranslateModule.forRoot()]
+      imports: [DashboardModule, TestingModule, ToastrModule.forRoot()]
     }).compileComponents();
   }));
 

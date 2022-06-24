@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { DashboardPageComponent } from '~/app/core/pages/dashboard-page/dashboard-page.component';
 import { PagesModule } from '~/app/core/pages/pages.module';
@@ -11,7 +10,7 @@ describe('DashboardPageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [PagesModule, TestingModule, TranslateModule.forRoot()]
+      imports: [PagesModule, TestingModule]
     }).compileComponents();
   }));
 

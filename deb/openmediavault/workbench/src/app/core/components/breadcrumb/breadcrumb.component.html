@@ -4,7 +4,7 @@
   <a routerLink="/"
      class="mat-subheading-2"
      [ngClass]="{'active': !breadcrumbs.length}"
-     matTooltip="{{ 'Home' | translate }}">
+     matTooltip="{{ 'Home' | transloco }}">
     <mat-icon svgIcon="{{ icon.home }}">
     </mat-icon>
   </a>
@@ -13,7 +13,7 @@
     <a [routerLink]="[breadcrumb.url]"
        class="mat-subheading-2"
        [ngClass]="{'active': last}">
-      <span>{{ breadcrumb.text | translate }}</span>
+      <span>{{ breadcrumb.text | transloco }}</span>
     </a>
   </div>
 </nav>

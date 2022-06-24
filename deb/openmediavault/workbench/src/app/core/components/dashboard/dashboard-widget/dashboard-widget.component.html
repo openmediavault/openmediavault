@@ -5,7 +5,7 @@
                       mode="indeterminate">
     </mat-progress-bar>
     <mat-card-title-group *ngIf="config.title && !config.hideTitle">
-      <mat-card-title>{{ config.title | translate }}</mat-card-title>
+      <mat-card-title>{{ config.title | transloco }}</mat-card-title>
     </mat-card-title-group>
     <mat-card-content>
       <ng-content *ngIf="!error && !firstLoad"></ng-content>

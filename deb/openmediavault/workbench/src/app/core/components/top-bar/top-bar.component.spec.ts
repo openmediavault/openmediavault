@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 
 import { ComponentsModule } from '~/app/core/components/components.module';
@@ -12,7 +11,7 @@ describe('TopBarComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ComponentsModule, TestingModule, ToastrModule.forRoot(), TranslateModule.forRoot()]
+      imports: [ComponentsModule, TestingModule, ToastrModule.forRoot()]
     }).compileComponents();
   }));
 

@@ -20,7 +20,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslocoModule } from '@ngneat/transloco';
 
 import { DashboardWidgetComponent } from '~/app/core/components/dashboard/dashboard-widget/dashboard-widget.component';
 import { DashboardWidgetChartComponent } from '~/app/core/components/dashboard/dashboard-widget-chart/dashboard-widget-chart.component';
@@ -62,7 +62,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     MaterialModule,
     RouterModule,
     SharedModule,
-    TranslateModule.forChild()
+    TranslocoModule
   ]
 })
 export class DashboardModule {}

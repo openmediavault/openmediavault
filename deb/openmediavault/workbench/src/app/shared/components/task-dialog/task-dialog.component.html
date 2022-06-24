@@ -3,7 +3,7 @@
   <mat-icon *ngIf="config.icon"
             svgIcon="{{ config.icon }}">
   </mat-icon>
-  {{ config.title | translate }}
+  {{ config.title | transloco }}
 </h1>
 <mat-progress-bar *ngIf="running"
                   mode="indeterminate">
@@ -20,7 +20,7 @@
           [mat-dialog-close]="config.buttons.close.dialogResult"
           [disabled]="config.buttons.close.disabled"
           [autofocus]="config.buttons.close.autofocus">
-    {{ config.buttons.close.text | translate }}
+    {{ config.buttons.close.text | transloco }}
   </button>
   <button *ngIf="!config.buttons.stop.hidden"
           mat-flat-button
@@ -28,7 +28,7 @@
           [disabled]="config.buttons.stop.disabled"
           [autofocus]="config.buttons.stop.autofocus"
           (click)="onStop()">
-    {{ config.buttons.stop.text | translate }}
+    {{ config.buttons.stop.text | transloco }}
   </button>
   <button *ngIf="!config.buttons.start.hidden"
           mat-flat-button
@@ -36,6 +36,6 @@
           [disabled]="config.buttons.start.disabled"
           [autofocus]="config.buttons.start.autofocus"
           (click)="onStart()">
-    {{ config.buttons.start.text | translate }}
+    {{ config.buttons.start.text | transloco }}
   </button>
 </mat-dialog-actions>

@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
 import { DashboardWidgetFilesystemsStatusComponent } from '~/app/core/components/dashboard/dashboard-widget-filesystems-status/dashboard-widget-filesystems-status.component';
@@ -13,7 +12,7 @@ describe('DashboardWidgetFilesystemsStatusComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardWidgetFilesystemsStatusComponent],
-      imports: [DashboardModule, TestingModule, TranslateModule.forRoot()]
+      imports: [DashboardModule, TestingModule]
     }).compileComponents();
   });
 

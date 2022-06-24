@@ -6,32 +6,32 @@
        gdGap="8px"
        gdColumns="repeat(2, 1fr)">
     <div class="omv-grid-cell">
-      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Hostname' | translate }}</div>
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Hostname' | transloco }}</div>
       <div>{{ data?.hostname }}</div>
     </div>
     <div class="omv-grid-cell">
-      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Version' | translate }}</div>
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Version' | transloco }}</div>
       <div>{{ data?.version }}</div>
     </div>
     <div class="omv-grid-cell">
-      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Processor' | translate }}</div>
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Processor' | transloco }}</div>
       <div>{{ data?.cpuModelName }}</div>
     </div>
     <div class="omv-grid-cell">
-      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Kernel' | translate }}</div>
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Kernel' | transloco }}</div>
       <div>{{ data?.kernel }}</div>
     </div>
     <div class="omv-grid-cell">
-      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'System time' | translate }}</div>
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'System time' | transloco }}</div>
       <div>{{ data?.time }}</div>
     </div>
     <div class="omv-grid-cell">
-      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Uptime' | translate }}</div>
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Uptime' | transloco }}</div>
       <div>{{ data?.uptime | localeDate:'relative':true }}</div>
     </div>
     <div *ngIf="data?.pkgUpdatesAvailable"
          class="omv-grid-cell">
-      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Updates available' | translate }}</div>
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Updates available' | transloco }}</div>
       <div>
         <a routerLink="/system/updatemgmt/updates">
           <mat-icon svgIcon="mdi:check"></mat-icon>
@@ -40,7 +40,7 @@
     </div>
     <div *ngIf="data?.rebootRequired"
          class="omv-grid-cell">
-      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Reboot required' | translate }}</div>
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Reboot required' | transloco }}</div>
       <div>
         <mat-icon svgIcon="mdi:check"></mat-icon>
       </div>

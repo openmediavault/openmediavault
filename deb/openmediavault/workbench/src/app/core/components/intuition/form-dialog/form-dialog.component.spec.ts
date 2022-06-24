@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 
 import { FormDialogComponent } from '~/app/core/components/intuition/form-dialog/form-dialog.component';
@@ -13,7 +12,7 @@ describe('FormDialogComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot(), TranslateModule.forRoot()],
+      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: {} },
         {

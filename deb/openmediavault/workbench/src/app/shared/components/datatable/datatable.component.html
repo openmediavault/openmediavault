@@ -7,7 +7,7 @@
   <!-- Default action buttons -->
   <button *ngIf="stateId"
           mat-icon-button
-          matTooltip="{{ 'Show/Hide columns' | translate }}"
+          matTooltip="{{ 'Show/Hide columns' | transloco }}"
           [matMenuTriggerFor]="columnMenu">
     <mat-icon svgIcon="{{ icon.table }}"></mat-icon>
   </button>
@@ -23,7 +23,7 @@
              (ngModelChange)="onSearchFilterChange()">
       <button mat-icon-button
               matSuffix
-              matTooltip="{{ 'Clear' | translate }}"
+              matTooltip="{{ 'Clear' | transloco }}"
               (click)="clearSearchFilter()">
         <mat-icon svgIcon="{{ icon.clear }}"></mat-icon>
       </button>
@@ -31,7 +31,7 @@
   </div>
   <button *ngIf="hasReloadButton"
           mat-icon-button
-          matTooltip="{{ 'Reload' | translate }}"
+          matTooltip="{{ 'Reload' | transloco }}"
           (click)="reloadData()">
     <mat-icon svgIcon="{{ icon.reload }}"></mat-icon>
   </button>
@@ -193,7 +193,7 @@
     <span [matTooltip]="value">{{ value | preventHtml }}</span>
     <mat-icon class="omv-icon-sm omv-cursor-pointer omv-ml-q"
               svgIcon="{{ icon.copy }}"
-              matTooltip="{{ 'Copy to clipboard' | translate }}"
+              matTooltip="{{ 'Copy to clipboard' | transloco }}"
               (click)="onCopyToClipboard(value)">
     </mat-icon>
   </ng-container>

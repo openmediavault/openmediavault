@@ -5,17 +5,17 @@
   <mat-checkbox [formControlName]="config.name"
                 [checked]="config.value"
                 [required]="config.validators?.required">
-    {{ config.label | translate }}
+    {{ config.label | transloco }}
   </mat-checkbox>
   <mat-error *ngIf="formGroup.invalid">
     <span *ngIf="formGroup.hasError('required', config.name)">
-      {{ 'This field is required.' | translate }}
+      {{ 'This field is required.' | transloco }}
     </span>
     <span *ngIf="formGroup.hasError('constraint', config.name)">
-      {{ formGroup.getError('constraint', config.name) | translate }}
+      {{ formGroup.getError('constraint', config.name) | transloco }}
     </span>
   </mat-error>
   <mat-hint *ngIf="config.hint?.length > 0 && !formGroup.get(config.name)?.errors"
-            [innerHTML]="config.hint | translate | sanitizeHtml">
+            [innerHTML]="config.hint | transloco | sanitizeHtml">
   </mat-hint>
 </div>

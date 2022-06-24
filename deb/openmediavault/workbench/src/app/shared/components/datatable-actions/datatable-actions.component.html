@@ -3,15 +3,15 @@
     <ng-template [ngSwitchCase]="'button'">
       <button mat-button
               [disabled]="isDisabled(action)"
-              matTooltip="{{ action.tooltip | translate }}"
+              matTooltip="{{ action.tooltip | transloco }}"
               (click)="onButtonClick(action)">
-        {{ action.text | translate }}
+        {{ action.text | transloco }}
       </button>
     </ng-template>
     <ng-template [ngSwitchCase]="'iconButton'">
       <button mat-icon-button
               [disabled]="isDisabled(action)"
-              matTooltip="{{ action.tooltip | translate }}"
+              matTooltip="{{ action.tooltip | transloco }}"
               (click)="onButtonClick(action)">
         <mat-icon svgIcon="{{ action.icon }}"></mat-icon>
       </button>
@@ -19,7 +19,7 @@
     <ng-template [ngSwitchCase]="'menu'">
       <button mat-icon-button
               [disabled]="isDisabled(action)"
-              matTooltip="{{ action.tooltip | translate }}"
+              matTooltip="{{ action.tooltip | transloco }}"
               [matMenuTriggerFor]="menu">
         <mat-icon svgIcon="{{ action.icon }}"></mat-icon>
       </button>
@@ -28,10 +28,10 @@
           <button *ngFor="let action of action.actions"
                   mat-menu-item
                   [disabled]="isDisabled(action)"
-                  matTooltip="{{ action.tooltip | translate }}"
+                  matTooltip="{{ action.tooltip | transloco }}"
                   (click)="onButtonClick(action)">
             <mat-icon svgIcon="{{ action.icon }}"></mat-icon>
-            <span>{{ action.text | translate }}</span>
+            <span>{{ action.text | transloco }}</span>
           </button>
         </ng-template>
       </mat-menu>
@@ -40,11 +40,11 @@
       <mat-form-field>
         <mat-label></mat-label>
         <mat-select [disabled]="isDisabled(action)"
-                    placeholder="{{ action.placeholder | translate }}"
+                    placeholder="{{ action.placeholder | transloco }}"
                     (selectionChange)="onSelectionChange($event, action)">
           <mat-option *ngFor="let option of action.store.data"
                       [value]="option[action.valueField]">
-            {{ option[action.textField] | translate }}
+            {{ option[action.textField] | transloco }}
           </mat-option>
         </mat-select>
       </mat-form-field>

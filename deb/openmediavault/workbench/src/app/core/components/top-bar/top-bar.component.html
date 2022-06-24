@@ -1,7 +1,7 @@
 <mat-toolbar class="omv-top-bar"
              color="primary">
   <button mat-icon-button
-          matTooltip="{{ 'Show/Hide navigation' | translate }}"
+          matTooltip="{{ 'Show/Hide navigation' | transloco }}"
           (click)="onToggleNavigationSidenav()">
     <mat-icon svgIcon="{{ icon.menu }}">
     </mat-icon>
@@ -13,7 +13,7 @@
   </mat-divider>
   <button *ngIf="permissions?.role.includes(roles.admin)"
           mat-icon-button
-          matTooltip="{{ 'Notifications' | translate }}"
+          matTooltip="{{ 'Notifications' | transloco }}"
           (click)="onToggleNotificationsSidenav()">
     <mat-icon svgIcon="{{ icon.bell }}"
               [matBadge]="numNotifications"
@@ -23,19 +23,19 @@
     </mat-icon>
   </button>
   <button mat-icon-button
-          matTooltip="{{ 'Help' | translate }}"
+          matTooltip="{{ 'Help' | transloco }}"
           [matMenuTriggerFor]="helpMenu">
     <mat-icon svgIcon="{{ icon.help }}">
     </mat-icon>
   </button>
   <button mat-icon-button
-          matTooltip="{{ 'User Settings' | translate }}"
+          matTooltip="{{ 'User Settings' | transloco }}"
           [matMenuTriggerFor]="settingsMenu">
     <mat-icon svgIcon="{{ icon.user }}">
     </mat-icon>
   </button>
   <button mat-icon-button
-          matTooltip="{{ 'Power' | translate }}"
+          matTooltip="{{ 'Power' | transloco }}"
           [matMenuTriggerFor]="powerMenu">
     <mat-icon svgIcon="{{ icon.power }}">
     </mat-icon>
@@ -46,41 +46,41 @@
       <button mat-menu-item
               disabled>
         <mat-icon svgIcon="{{ icon.user }}"></mat-icon>
-        <span translate>Signed in as <b>{{ username }}</b></span>
+        <span transloco="Logged in as <strong>{{ username }}</>strong>"></span>
       </button>
       <button *ngIf="permissions?.role.includes(roles.user)"
               mat-menu-item
               routerLink="/usermgmt/profile">
         <mat-icon svgIcon="mdi:account-details"></mat-icon>
-        <span>{{ 'Your profile' | translate }}</span>
+        <span>{{ 'Your profile' | transloco }}</span>
       </button>
       <button mat-menu-item
               routerLink="/usermgmt/change-password">
         <mat-icon svgIcon="{{ icon.password }}"></mat-icon>
-        <span>{{ 'Change Password' | translate }}</span>
+        <span>{{ 'Change Password' | transloco }}</span>
       </button>
       <mat-divider></mat-divider>
       <button mat-menu-item
               [ngClass]="{'active': darkModeEnabled}"
               (click)="onToggleDarkMode()">
         <mat-icon svgIcon="mdi:weather-night"></mat-icon>
-        <mat-slide-toggle [checked]="darkModeEnabled">{{ 'Dark mode' | translate }}</mat-slide-toggle>
+        <mat-slide-toggle [checked]="darkModeEnabled">{{ 'Dark mode' | transloco }}</mat-slide-toggle>
       </button>
       <button mat-menu-item
               [matMenuTriggerFor]="localeMenu">
         <mat-icon svgIcon="mdi:earth"></mat-icon>
-        <span>{{ 'Language' | translate }}</span>
+        <span>{{ 'Language' | transloco }}</span>
       </button>
       <button mat-menu-item
               routerLink="/dashboard/settings">
         <mat-icon svgIcon="{{ icon.apps }}"></mat-icon>
-        <span>{{ 'Dashboard' | translate }}</span>
+        <span>{{ 'Dashboard' | transloco }}</span>
       </button>
       <mat-divider></mat-divider>
       <button mat-menu-item
               (click)="onClearStateStorage()">
         <mat-icon svgIcon="{{ icon.reset }}"></mat-icon>
-        <span>{{ 'Reset UI to defaults' | translate }}</span>
+        <span>{{ 'Reset UI to defaults' | transloco }}</span>
       </button>
     </ng-template>
   </mat-menu>
@@ -90,25 +90,25 @@
       <button mat-menu-item
               (click)="onLogout()">
         <mat-icon svgIcon="{{ icon.logout }}"></mat-icon>
-        <span>{{ 'Logout' | translate }}</span>
+        <span>{{ 'Logout' | transloco }}</span>
       </button>
       <button *ngIf="permissions?.role.includes(roles.admin)"
               mat-menu-item
               (click)="onReboot()">
         <mat-icon svgIcon="{{ icon.reboot }}"></mat-icon>
-        <span>{{ 'Reboot' | translate }}</span>
+        <span>{{ 'Reboot' | transloco }}</span>
       </button>
       <button *ngIf="permissions?.role.includes(roles.admin)"
               mat-menu-item
               (click)="onStandby()">
         <mat-icon svgIcon="{{ icon.standby }}"></mat-icon>
-        <span>{{ 'Standby' | translate }}</span>
+        <span>{{ 'Standby' | transloco }}</span>
       </button>
       <button *ngIf="permissions?.role.includes(roles.admin)"
               mat-menu-item
               (click)="onShutdown()">
         <mat-icon svgIcon="{{ icon.shutdown }}"></mat-icon>
-        <span>{{ 'Shutdown' | translate }}</span>
+        <span>{{ 'Shutdown' | transloco }}</span>
       </button>
     </ng-template>
   </mat-menu>
@@ -132,7 +132,7 @@
          target="_blank">
         <button mat-menu-item>
           <mat-icon svgIcon="mdi:script-text"></mat-icon>
-          <span>{{ 'Documentation' | translate }}</span>
+          <span>{{ 'Documentation' | transloco }}</span>
         </button>
       </a>
       <a class="omv-text-decoration-none"
@@ -140,7 +140,7 @@
          target="_blank">
         <button mat-menu-item>
           <mat-icon svgIcon="mdi:forum"></mat-icon>
-          <span>{{ 'Forum' | translate }}</span>
+          <span>{{ 'Forum' | transloco }}</span>
         </button>
       </a>
       <a class="omv-text-decoration-none"
@@ -148,14 +148,14 @@
          target="_blank">
         <button mat-menu-item>
           <mat-icon svgIcon="mdi:web"></mat-icon>
-          <span>{{ 'Homepage' | translate }}</span>
+          <span>{{ 'Homepage' | transloco }}</span>
         </button>
       </a>
       <mat-divider></mat-divider>
       <button mat-menu-item
               routerLink="/about">
         <mat-icon svgIcon="{{ icon.information }}"></mat-icon>
-        <span>{{ 'About' | translate }}</span>
+        <span>{{ 'About' | transloco }}</span>
       </button>
     </ng-template>
   </mat-menu>

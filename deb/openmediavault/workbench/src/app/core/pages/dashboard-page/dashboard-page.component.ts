@@ -16,6 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component, OnInit } from '@angular/core';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 
 import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/dashboard-widget-config.model';
@@ -28,6 +29,10 @@ import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widg
 })
 export class DashboardPageComponent implements OnInit {
   public widgets: Array<DashboardWidgetConfig> = [];
+
+  public notConfiguredMessage: string = gettext(
+    "The dashboard has not yet been configured. To personalize it, please go to the <a href='#/dashboard/settings'>settings page</a>."
+  );
 
   constructor(private dashboardWidgetConfigService: DashboardWidgetConfigService) {}
 

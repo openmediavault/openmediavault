@@ -14,7 +14,7 @@
         <mat-chip class="omv-background-color-pair-green"
                   [selectable]="false"
                   [disableRipple]="true">
-          {{ 'Installed' | translate }}
+          {{ 'Installed' | transloco }}
         </mat-chip>
       </mat-chip-list>
     </div>
@@ -30,15 +30,15 @@
     </div>
     <br>
     <ng-container *ngIf="row.extendeddescription"><span>{{ row.extendeddescription }}</span><br><br></ng-container>
-    <ng-container *ngIf="row.pluginsection"><span>{{ 'Section' | translate }}: {{ row.pluginsection | titlecase }}</span><br></ng-container>
-    <ng-container *ngIf="row.maintainer"><span>{{ 'Maintainer' | translate }}: {{ row.maintainer }}</span><br></ng-container>
+    <ng-container *ngIf="row.pluginsection"><span>{{ 'Section' | transloco }}: {{ row.pluginsection | titlecase }}</span><br></ng-container>
+    <ng-container *ngIf="row.maintainer"><span>{{ 'Maintainer' | transloco }}: {{ row.maintainer }}</span><br></ng-container>
     <ng-container *ngIf="row.homepage">
       <span>
-        {{ 'Homepage' | translate }}: <a href="{{ row.homepage }}"
+        {{ 'Homepage' | transloco }}: <a href="{{ row.homepage }}"
                                          target="_blank">{{ row.homepage }}</a>
       </span><br>
     </ng-container>
-    <ng-container *ngIf="row.repository"><span>{{ 'Repository' | translate }}: {{ row.repository }}</span><br></ng-container>
-    <ng-container *ngIf="row.size"><span>{{ 'Size' | translate }}: {{ row.size | binaryUnit }}</span><br></ng-container>
+    <ng-container *ngIf="row.repository"><span>{{ 'Repository' | transloco }}: {{ row.repository }}</span><br></ng-container>
+    <ng-container *ngIf="row.size"><span>{{ 'Size' | transloco }}: {{ row.size | binaryUnit }}</span><br></ng-container>
   </div>
 </ng-template>

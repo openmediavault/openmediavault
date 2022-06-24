@@ -4,12 +4,12 @@
        matPrefix>
     <mat-icon [svgIcon]="config.icon"></mat-icon>&nbsp;
   </div>
-  <mat-label>{{ config.label | translate }}</mat-label>
+  <mat-label>{{ config.label | transloco }}</mat-label>
   <textarea *ngIf="config.rows > 1"
             matInput
             [ngClass]="{'omv-text-monospace': config.monospace}"
             [formControlName]="config.name"
-            [placeholder]="config.placeholder | translate"
+            [placeholder]="config.placeholder | transloco"
             [readonly]="config.readonly"
             [autocapitalize]="config.autocapitalize"
             [autofocus]="config.autofocus"
@@ -27,7 +27,7 @@
          class="omv-text-truncate"
          [ngClass]="{'omv-text-monospace': config.monospace}"
          [formControlName]="config.name"
-         [placeholder]="config.placeholder | translate"
+         [placeholder]="config.placeholder | transloco"
          [readonly]="config.readonly"
          [autofocus]="config.autofocus"
          [autocapitalize]="config.autocapitalize"
@@ -40,24 +40,22 @@
          (change)="onChange($event)">
   <mat-error *ngIf="formGroup.invalid">
     <span *ngIf="formGroup.hasError('required', config.name)">
-      {{ 'This field is required.' | translate }}
+      {{ 'This field is required.' | transloco }}
     </span>
     <span *ngIf="formGroup.hasError('minlength', config.name)"
-          translate>
-      The value must be at least {{ config.validators.minLength }} characters long.
+          transloco="The value must be at least {{ config.validators.minLength }} characters long.">
     </span>
     <span *ngIf="formGroup.hasError('maxlength', config.name)"
-          translate>
-      The value cannot exceed {{ config.validators.maxLength }} characters.
+          transloco="The value cannot exceed {{ config.validators.maxLength }} characters.">
     </span>
     <span *ngIf="formGroup.hasError('constraint', config.name)">
-      {{ formGroup.getError('constraint', config.name) | translate }}
+      {{ formGroup.getError('constraint', config.name) | transloco }}
     </span>
     <span *ngIf="formGroup.hasError('pattern', config.name)">
-      {{ formGroup.getError('pattern', config.name) | translate }}
+      {{ formGroup.getError('pattern', config.name) | transloco }}
     </span>
   </mat-error>
   <mat-hint *ngIf="config.hint?.length > 0"
-            [innerHTML]="config.hint | translate | sanitizeHtml">
+            [innerHTML]="config.hint | transloco | sanitizeHtml">
   </mat-hint>
 </mat-form-field>

@@ -2,7 +2,7 @@
                 [formGroup]="formGroup">
   <mat-label>{{ config.label }}</mat-label>
   <mat-select [formControlName]="config.name"
-              [placeholder]="config.placeholder | translate"
+              [placeholder]="config.placeholder | transloco"
               [required]="config.validators?.required">
     <mat-option *ngFor="let option of config.store.data"
                 [value]="option[config.valueField]">
@@ -11,7 +11,7 @@
   </mat-select>
   <mat-icon *ngIf="config.hasCreateButton"
             matSuffix
-            matTooltip="{{ 'Create' | translate }}"
+            matTooltip="{{ 'Create' | transloco }}"
             svgIcon="mdi:plus-circle-outline"
             (click)="onCreate()">
   </mat-icon>

@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
 
 // eslint-disable-next-line max-len
 import { FormFolderbrowserComponent } from '~/app/core/components/intuition/form/components/form-folderbrowser/form-folderbrowser.component';
@@ -13,7 +12,7 @@ describe('FormFolderbrowserComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
+      imports: [IntuitionModule, TestingModule]
     }).compileComponents();
   }));
 

@@ -15,12 +15,12 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslocoService } from '@ngneat/transloco';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import { ToastrModule } from 'ngx-toastr';
@@ -29,13 +29,14 @@ import { tap } from 'rxjs/operators';
 import { AppComponent } from '~/app/app.component';
 import { AppRoutingModule } from '~/app/app-routing.module';
 import { CoreModule } from '~/app/core/core.module';
-import { setTranslationService, translate, TranslateHttpLoader } from '~/app/i18n.helper';
+import { setTranslationService, translate } from '~/app/i18n.helper';
 import { MaterialModule } from '~/app/material.module';
 import { GlobalErrorHandlerService } from '~/app/shared/services/global-error-handler.service';
 import { HttpErrorInterceptorService } from '~/app/shared/services/http-error-interceptor.service';
 import { LocaleService } from '~/app/shared/services/locale.service';
 import { TitleService } from '~/app/shared/services/title.service';
 import { SharedModule } from '~/app/shared/shared.module';
+import { TranslocoRootModule } from '~/app/transloco-root.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -49,13 +50,7 @@ import { SharedModule } from '~/app/shared/shared.module';
       positionClass: 'toast-bottom-center',
       preventDuplicates: true
     }),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (http: HttpClient) => new TranslateHttpLoader(http),
-        deps: [HttpClient]
-      }
-    }),
+    TranslocoRootModule,
     MaterialModule,
     AppRoutingModule
   ],
@@ -71,15 +66,15 @@ import { SharedModule } from '~/app/shared/shared.module';
     },
     {
       provide: APP_INITIALIZER,
-      useFactory: (translateService: TranslateService) => () => {
+      useFactory: (translocoService: TranslocoService) => () => {
         // Make translation service globally available to be able to use
         // it where DI is not possible.
-        setTranslationService(translateService);
+        setTranslationService(translocoService);
         // Setup translation service. Delay app bootstrapping until
         // translation file has been loaded.
-        translateService.setDefaultLang('en_GB');
-        return translateService
-          .use(LocaleService.getLocale())
+        translocoService.setActiveLang(LocaleService.getLocale());
+        return translocoService
+          .load(translocoService.getActiveLang())
           .pipe(
             tap(() => {
               // Translate various day.js locale strings.
@@ -107,7 +102,7 @@ import { SharedModule } from '~/app/shared/shared.module';
           .toPromise();
       },
       multi: true,
-      deps: [TranslateService]
+      deps: [TranslocoService]
     }
   ],
   bootstrap: [AppComponent]

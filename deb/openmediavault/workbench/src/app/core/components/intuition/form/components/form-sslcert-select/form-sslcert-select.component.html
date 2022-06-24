@@ -6,12 +6,12 @@
               [required]="config.validators?.required">
     <mat-option *ngFor="let option of config.store.data"
                 [value]="option[config.valueField]">
-      {{ option[config.textField] }}<ng-container *ngIf="option['validto']"> [{{ 'Valid to' | translate }} {{ option['validto'] | localeDate:'datetime' }}]</ng-container>
+      {{ option[config.textField] }}<ng-container *ngIf="option['validto']"> [{{ 'Valid to' | transloco }} {{ option['validto'] | localeDate:'datetime' }}]</ng-container>
     </mat-option>
   </mat-select>
   <mat-icon *ngIf="config.hasCreateButton"
             matSuffix
-            matTooltip="{{ 'Create' | translate }}"
+            matTooltip="{{ 'Create' | transloco }}"
             svgIcon="mdi:plus-circle-outline"
             (click)="onCreate()">
   </mat-icon>

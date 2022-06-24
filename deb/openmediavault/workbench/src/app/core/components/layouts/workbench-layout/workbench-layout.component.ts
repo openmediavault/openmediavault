@@ -19,7 +19,7 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MediaObserver } from '@angular/flex-layout';
 import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
 import { Event, NavigationEnd, Router } from '@angular/router';
-import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { forkJoin, Subscription } from 'rxjs';
 import { delay, filter, finalize } from 'rxjs/operators';

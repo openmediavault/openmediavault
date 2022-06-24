@@ -17,7 +17,7 @@
  */
 import { Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 
 import { FormSelectComponent } from '~/app/core/components/intuition/form/components/form-select/form-select.component';

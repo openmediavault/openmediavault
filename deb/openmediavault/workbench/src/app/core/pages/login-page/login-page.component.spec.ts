@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 
 import { LoginPageComponent } from '~/app/core/pages/login-page/login-page.component';
@@ -13,13 +12,7 @@ describe('LoginPageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        BrowserAnimationsModule,
-        PagesModule,
-        TestingModule,
-        ToastrModule.forRoot(),
-        TranslateModule.forRoot()
-      ]
+      imports: [BrowserAnimationsModule, PagesModule, TestingModule, ToastrModule.forRoot()]
     }).compileComponents();
   }));
 
