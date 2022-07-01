@@ -41,7 +41,7 @@ export class DialogService {
       component,
       _.defaultsDeep(config, {
         disableClose: true,
-        width: '50%'
+        width: '30rem'
       })
     );
   }
