@@ -21,7 +21,7 @@ import { Sorter } from '~/app/shared/models/sorter.type';
 export type DataStore = {
   // An array of data to load inline. If the data is a dict/object,
   // then it will be auto-converted into an array with the specified
-  // fields (defaults to 'key' and 'value').
+  // fields (defaults to ['key', 'value']).
   data?: any;
   // The field names of an item in 'data'. This is only
   // necessary when loading inline data, but not when a
@@ -61,6 +61,13 @@ export type DataStore = {
   };
   // Load a file via HTTP.
   url?: string;
+  // Assigns additional sources to objects within the data that are
+  // identified by the specified key.
+  // Example:
+  // Response = ['foo', 'bar] <- will be converted automatically to an object.
+  // assignByKey = { key: 'value', sources: { foo: { text: 'xyz' } } }
+  // Result = [{ key: 'foo', value: 'foo', text: 'xyz' }, { key: 'bar', value: 'bar' }]
+  assign?: { key: string; sources: Record<string, any> };
   // Transform the data. The given fields can be tokenized strings
   // that will be formatted using the origin data. Finally, these fields
   // are merged with the origin data.

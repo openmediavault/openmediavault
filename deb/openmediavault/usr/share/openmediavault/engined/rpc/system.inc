@@ -186,6 +186,9 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.system.standby");
+		// Get the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->getAssoc("conf.system.powermngmnt");
 		// Delay execution?
 		if (0 < $params['delay']) {
 			$pid = $this->fork();
@@ -197,7 +200,20 @@ class System extends \OMV\Rpc\ServiceAbstract {
 			sleep($params['delay']);
 		}
 		$pm = new \OMV\System\PowerManagement();
-		$pm->standby();
+		switch ($object['standbymode']) {
+		case "poweroff":
+			$pm->shutdown();
+			break;
+		case "suspend":
+			$pm->suspend();
+			break;
+		case "hibernate":
+			$pm->hibernate();
+			break;
+		case "suspendhybrid":
+			$pm->suspendHybrid();
+			break;
+		}
 	}
 
 	/**

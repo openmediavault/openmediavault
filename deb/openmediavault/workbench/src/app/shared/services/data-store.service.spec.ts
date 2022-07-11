@@ -115,4 +115,27 @@ describe('DataStoreService', () => {
       done();
     });
   });
+
+  it('should assign additional sources', (done) => {
+    const store: DataStore = {
+      data: ['poweroff', 'hybrid', 'suspendhybrid'],
+      fields: ['key', 'value'],
+      assign: {
+        key: 'key',
+        sources: {
+          poweroff: { value: 'Poweroff' },
+          suspendhybrid: { value: 'Hybrid sleep' },
+          hybrid: { text: 'foo bar baz' }
+        }
+      }
+    };
+    service.load(store).subscribe(() => {
+      expect(store.data).toEqual([
+        { key: 'poweroff', value: 'Poweroff' },
+        { key: 'hybrid', text: 'foo bar baz', value: 'hybrid' },
+        { key: 'suspendhybrid', value: 'Hybrid sleep' }
+      ]);
+      done();
+    });
+  });
 });
