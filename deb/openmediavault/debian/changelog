@@ -1,6 +1,6 @@
 openmediavault (6.0.31-1) stable; urgency=low
 
-  *
+  * Issue #1335: Confirmation dialogs are too wide on wider screens.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 Jun 2022 23:28:53 +0200
 

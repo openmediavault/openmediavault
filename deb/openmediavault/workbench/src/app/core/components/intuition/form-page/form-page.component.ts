@@ -315,7 +315,7 @@ export class FormPageComponent
           data.message = format(data.message, values);
         }
         const dialogRef = this.dialogService.open(ModalDialogComponent, {
-          width: _.get(data, 'width', '50%'),
+          width: _.get(data, 'width'),
           data: _.omit(data, ['width'])
         });
         dialogRef.afterClosed().subscribe((res: any) => {
@@ -385,7 +385,7 @@ export class FormPageComponent
               data.message = format(data.message, values);
             }
             const dialogRef = this.dialogService.open(ModalDialogComponent, {
-              width: _.get(data, 'width', '50%'),
+              width: _.get(data, 'width'),
               data: _.omit(data, ['width'])
             });
             dialogRef.afterClosed().subscribe((res: any) => {

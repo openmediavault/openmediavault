@@ -40,8 +40,7 @@ export class DialogService {
     return this.matDialog.open(
       component,
       _.defaultsDeep(config, {
-        disableClose: true,
-        width: '50%'
+        disableClose: true
       })
     );
   }

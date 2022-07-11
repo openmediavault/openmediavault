@@ -265,7 +265,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
         data.message = format(data.message, this.pageContext);
       }
       const dialogRef = this.dialogService.open(ModalDialogComponent, {
-        width: _.get(data, 'width', '50%'),
+        width: _.get(data, 'width'),
         data: _.omit(data, ['width'])
       });
       dialogRef.afterClosed().subscribe((res) => {
