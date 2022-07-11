@@ -1,5 +1,6 @@
 openmediavault (6.0.31-1) stable; urgency=low
 
+  * Issue #1332: Fix translations in confirmation dialog.
   * Issue #1335: Confirmation dialogs are too wide on wider screens.
   * Issue #1343: Improve selection list layout on small screens.
 
