@@ -94,7 +94,7 @@ msgid "Disabled"
 msgstr "Вимкнено"
 
 msgid "Do not delete local file deletions from OneDrive."
-msgstr ""
+msgstr "Не видаляйте локальні видалені файли з OneDrive."
 
 msgid "Download only"
 msgstr "Тільки завантажити"
@@ -112,7 +112,7 @@ msgid "Monitor interval"
 msgstr "Інтервал моніторингу"
 
 msgid "No remote delete"
-msgstr ""
+msgstr "Немає віддаленого видалення"
 
 msgid "OneDrive"
 msgstr "OneDrive"

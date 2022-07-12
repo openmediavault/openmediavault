@@ -5,13 +5,14 @@
 # Translators:
 # songming <by@songming.me>, 2013-2015,2017,2021
 # LeeYang <150183966@qq.com>, 2021
+# 王大山, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-14 20:24+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
-"Last-Translator: songming <by@songming.me>, 2013-2015,2017,2021\n"
+"Last-Translator: 王大山, 2022\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,16 +33,16 @@ msgid "Create"
 msgstr "新建"
 
 msgid "Created logical volume '{{ name }}'."
-msgstr "已建逻辑卷‘{{逻辑卷名}}’"
+msgstr "已建逻辑卷‘{{ name }}’"
 
 msgid "Created physical volume {{ devicefile }}."
-msgstr "已建物理卷‘{{设备文件}}’"
+msgstr "已建物理卷‘{{ devicefile }}’"
 
 msgid "Created snapshot of logical volume '{{ devicefile }}'."
-msgstr "已建逻辑卷‘{{设备文件}}’的快照"
+msgstr "已建逻辑卷‘{{ devicefile }}’的快照"
 
 msgid "Created volume group '{{ name }}'."
-msgstr "已建卷组‘{{卷组名}}’"
+msgstr "已建卷组‘{{ name }}’"
 
 msgid "Device"
 msgstr "设备"
@@ -50,7 +51,7 @@ msgid "Devices"
 msgstr "设备"
 
 msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
-msgstr "确认在‘{{设备文件}}’上创建物理卷？"
+msgstr "确认在‘{{ devicefile }}’上创建物理卷？"
 
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "确定要调整选中物理卷大小？"
@@ -62,10 +63,10 @@ msgid "Extend"
 msgstr "扩展"
 
 msgid "Extended logical volume '{{ devicefile }}'."
-msgstr "已扩容逻辑卷‘{{设备文件}}’"
+msgstr "已扩容逻辑卷‘{{ devicefile }}’"
 
 msgid "Extended volume group '{{ devicefile }}'."
-msgstr "已扩容卷组‘{{设备文件}}’"
+msgstr "已扩容卷组‘{{ devicefile }}’"
 
 msgid "Free"
 msgstr "空闲"
@@ -89,7 +90,7 @@ msgid "Reduce"
 msgstr "缩容"
 
 msgid "Reduced volume group '{{ devicefile }}'."
-msgstr "经缩容的卷组‘{{设备文件}}’"
+msgstr "经缩容的卷组‘{{ devicefile }}’"
 
 msgid "Resize"
 msgstr "调整大小"
@@ -132,10 +133,10 @@ msgid ""
 msgstr "逻辑卷在卷组内的可用空间（百分数）"
 
 msgid "Updated logical volume '{{ devicefile }}'."
-msgstr "已更新的逻辑卷‘{{设备文件}}’"
+msgstr "已更新的逻辑卷‘{{ devicefile }}’"
 
 msgid "Updated volume group '{{ devicefile }}'."
-msgstr "已更新的卷组‘{{设备文件}}’"
+msgstr "已更新的卷组‘{{ devicefile }}’"
 
 msgid "Used"
 msgstr "已使用"

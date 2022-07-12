@@ -1,5 +1,6 @@
 openmediavault-onedrive (6.2.2-1) stable; urgency=low
 
+  * Update locale files.
   * Add the 'OMV_ONEDRIVE_MONITORFULLSCANFREQUENCY' environment
     variable to customize the number of iterations between a full
     scan of the data to ensure data integrity and consistency.

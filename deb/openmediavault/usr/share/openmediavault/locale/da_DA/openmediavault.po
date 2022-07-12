@@ -387,10 +387,10 @@ msgid "April"
 msgstr "April"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Arkitektur"
 
 msgid "Archive mode"
-msgstr ""
+msgstr "Arkiv tilstand"
 
 msgid "Argentina"
 msgstr "Argentina"
@@ -765,10 +765,10 @@ msgid "Create file system"
 msgstr "Opret filsystem"
 
 msgid "Create | Import"
-msgstr ""
+msgstr "Opret | Importer"
 
 msgid "Create | Mount"
-msgstr ""
+msgstr "Opret | Mount"
 
 msgid "Created FTP ban rule."
 msgstr ""
@@ -789,13 +789,13 @@ msgid "Created SMB/CIFS share."
 msgstr ""
 
 msgid "Created SSH certificate."
-msgstr ""
+msgstr "Oprettet SSH certifikat."
 
 msgid "Created SSL certificate."
-msgstr ""
+msgstr "Oprettet SSL certifikat."
 
 msgid "Created VLAN network connection."
-msgstr ""
+msgstr "Oprettet VLAN netværksforbindelse."
 
 msgid "Created bond network connection."
 msgstr ""
@@ -1147,13 +1147,13 @@ msgid "Enable user home directories."
 msgstr "Aktiver bruger hjemme biblioteker."
 
 msgid "Enable write-cache"
-msgstr ""
+msgstr "Aktiver skrive-cache"
 
 msgid "Enabled"
 msgstr "Aktiveret"
 
 msgid "Enabled widgets"
-msgstr ""
+msgstr "Aktiver widgets"
 
 msgid "Encryption mode"
 msgstr "Krypterings tilstand"
@@ -1198,7 +1198,7 @@ msgid "Expire"
 msgstr "Udløb"
 
 msgid "Extended Information"
-msgstr ""
+msgstr "Udvidede Oplysninger"
 
 msgid "Extended attributes"
 msgstr "Udvidede attributter"
@@ -1254,7 +1254,7 @@ msgid "File Systems"
 msgstr "Filsystemer"
 
 msgid "File path"
-msgstr ""
+msgstr "Filsti"
 
 msgid "File system"
 msgstr "Filsystem"
@@ -1273,7 +1273,7 @@ msgstr "Filer i papirkurven vil blive automatisk slettet efter det specificeret 
 msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
-msgstr ""
+msgstr "Filer, der er større end det specificeret antal, vil ikke blive lagt i papirkurven."
 
 msgid "Filesize"
 msgstr "Filstørrelse"
@@ -1384,7 +1384,7 @@ msgid "Guests allowed"
 msgstr "Gæster tilladt"
 
 msgid "Guests only"
-msgstr ""
+msgstr "Kun gæster"
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1405,22 +1405,22 @@ msgid "Haiti"
 msgstr "Haiti"
 
 msgid "Hardware Address"
-msgstr ""
+msgstr "Hardware Adresse"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard Island og McDonald Islands"
 
 msgid "Help"
-msgstr ""
+msgstr "Hjælp"
 
 msgid "Hide"
-msgstr ""
+msgstr "Gem væk"
 
 msgid "Hide dot files"
 msgstr "Vis ikke dot filer"
 
 msgid "Home"
-msgstr ""
+msgstr "Hjem"
 
 msgid "Home directories"
 msgstr "Hjemme biblioteker"

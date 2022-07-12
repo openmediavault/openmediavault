@@ -4,17 +4,19 @@
 # 
 # Translators:
 # Herald Yu <yuhr123@gmail.com>, 2018-2019
+# LeeYang <150183966@qq.com>, 2021
 # songming <by@songming.me>, 2013-2022
 # Volker Theile <votdev@gmx.de>, 2022
 # Wei Ding <dyw.net@gmail.com>, 2014-2015
 # LeeYang <150183966@qq.com>, 2021
+# 王大山, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-14 20:24+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
+"Last-Translator: 王大山, 2022\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -739,7 +741,7 @@ msgid "Cook Islands"
 msgstr "库克群岛"
 
 msgid "Copied SSH certificate to {{ hostname }}."
-msgstr "复制SSH证书到{{主机名 }}。"
+msgstr "复制SSH证书到{{ hostname }}。"
 
 msgid "Copy"
 msgstr "复制"
@@ -784,7 +786,7 @@ msgid "Created NFS share."
 msgstr "已建NFS共享"
 
 msgid "Created Rsync server module \"{{ name }}\"."
-msgstr "已新建rsync服务器模块\"{{名称}}\""
+msgstr "已新建rsync服务器模块“{{ name }}”。"
 
 msgid "Created Rsync task."
 msgstr "已建Rsync任务。"
@@ -811,13 +813,13 @@ msgid "Created firewall rule."
 msgstr "已建的防火墙规则。"
 
 msgid "Created group \"{{ name }}\"."
-msgstr "已建卷组‘{{卷组名}}’"
+msgstr "已建卷组“{{ name }}”。"
 
 msgid "Created scheduled task."
 msgstr "已建计划任务。"
 
 msgid "Created user \"{{ name }}\"."
-msgstr "已新建用户‘{{用户名}}’"
+msgstr "已新建用户“{{ name }}”。"
 
 msgid "Created wired network connection."
 msgstr "已建有线网络连接。"
@@ -964,10 +966,10 @@ msgid "Disks"
 msgstr "磁盘"
 
 msgid "Dismiss"
-msgstr "撤銷"
+msgstr "撤销"
 
 msgid "Dismiss all"
-msgstr "撤銷全部"
+msgstr "撤销全部"
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "在用浏览时显示用户 Home 目录."
@@ -1051,7 +1053,7 @@ msgstr "确定要卸载该文件系统？卸载前请确保无设备在用本文
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
 "will be lost."
-msgstr "确定要擦除该设备？所有数据将丢失。"
+msgstr "确定要擦除“{{ canonicaldevicefile }}”？所有数据将丢失。"
 
 msgid "Documentation"
 msgstr "文档"
@@ -1134,7 +1136,7 @@ msgid "Enable recycle bin"
 msgstr "启用回收站"
 
 msgid "Enable remote logging of syslog to the specified host."
-msgstr "啟用 syslog 遠端日誌到指定的主機。"
+msgstr "启用 syslog 远程日志到指定的主机。"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
@@ -2360,7 +2362,7 @@ msgid "Please wait, identifying network device ..."
 msgstr "请稍等，正在识别网络设备……"
 
 msgid "Please wait, installing public SSH key on remote system ..."
-msgstr "请稍等，正在远程主机上按照SSH公钥……"
+msgstr "请稍等，正在远程主机上安装SSH公钥……"
 
 msgid "Please wait, processing selected item(s) ..."
 msgstr "请稍等，正在执行选中项（可多选）..."
@@ -3371,7 +3373,7 @@ msgid "The users that are allowed to access this module."
 msgstr "允许访问该模块的用户。"
 
 msgid "The value does not match the pattern /{{ pattern }}/."
-msgstr "该值不符合规则/{{规则}}/。"
+msgstr "该值不符合规则/{{ pattern }}/。"
 
 msgid ""
 "The value must be on of the slave network interfaces {{ slaves | join(\", "
@@ -3396,13 +3398,13 @@ msgid ""
 "These settings are used by the services to configure the access rights for "
 "the group \"{{ _routeParams.name }}\". Please note that these settings have "
 "no effect on file system permissions."
-msgstr "这些设置用来配置用户组 \"{{ _routeParams.name }}\" 访问服务器的权限，不会对文件系统权限有影响。"
+msgstr "这些设置用来配置用户组 “{{ _routeParams.name }}” 访问服务器的权限，不会对文件系统权限有影响。"
 
 msgid ""
 "These settings are used by the services to configure the access rights for "
 "the user \"{{ _routeParams.name }}\". Please note that these settings have "
 "no effect on file system permissions."
-msgstr "这些设置用来配置用户 \"{{ _routeParams.name }}\" 访问服务器的权限，不会对文件系统权限有影响。"
+msgstr "这些设置用来配置用户 “{{ _routeParams.name }}” 访问服务器的权限，不会对文件系统权限有影响。"
 
 msgid ""
 "These settings are used by the services to configure the user and group "
@@ -3423,7 +3425,7 @@ msgstr "此字段包含无效字符，例如空白或 \"/[]:+|<>=;,*? 字符。"
 msgid ""
 "This field contains invalid characters, only alphanumeric characters and "
 "underscore are allowed."
-msgstr "含有非法字符！（只允许非法字母和下划线）"
+msgstr "含有非法字符！（只允许字母和下划线）"
 
 msgid "This field is required."
 msgstr "此字段是必须的"
@@ -3759,7 +3761,7 @@ msgid "Updated Rsync Server settings."
 msgstr "已更新rsync服务器设置。"
 
 msgid "Updated Rsync server module \"{{ name }}\"."
-msgstr "更新 Rsync 服务端模块 \"{{ name }}\"。"
+msgstr "更新 Rsync 服务端模块 “{{ name }}”。"
 
 msgid "Updated Rsync task."
 msgstr "已更新rsync任务。"
@@ -3777,16 +3779,16 @@ msgid "Updated SSH settings."
 msgstr "已更新的SSH设置。"
 
 msgid "Updated VLAN network connection \"{{ devicename }}\"."
-msgstr "已更新VLAN连接“{{设备名}}”。"
+msgstr "已更新VLAN连接“{{ devicename }}”。"
 
 msgid "Updated access control list of shared folder."
 msgstr "已更新共享文件夹的访问控制列表。"
 
 msgid "Updated bond network connection \"{{ devicename }}\"."
-msgstr "更新绑定网络连接 \"{{ devicename }}\"。"
+msgstr "更新绑定网络连接 “{{ devicename }}”。"
 
 msgid "Updated bridge network connection \"{{ devicename }}\"."
-msgstr "已更新桥接网络连接“{{设备名}}”。"
+msgstr "已更新桥接网络连接“{{ devicename }}”。"
 
 msgid "Updated dashboard settings."
 msgstr "仪表盘设置已更新。"
@@ -3804,7 +3806,7 @@ msgid "Updated firewall rules."
 msgstr "已更新的防火墙规则。"
 
 msgid "Updated group \"{{ name }}\"."
-msgstr "已更新组‘{{组名}}’"
+msgstr "已更新组“{{ name }}”。"
 
 msgid "Updated monitoring settings."
 msgstr "已更新监测设置。"
@@ -3822,13 +3824,13 @@ msgid "Updated power management settings."
 msgstr "已更新电源管理设置"
 
 msgid "Updated privileges of group \"{{ name }}\"."
-msgstr "更新用户组权限 \"{{ name }}\"。"
+msgstr "更新用户组权限 “{{ name }}”。"
 
 msgid "Updated privileges of shared folder."
 msgstr "已更新共享文件夹的权限。"
 
 msgid "Updated privileges of user \"{{ name }}\"."
-msgstr "已更新用户 \"{{ 用户名}}\"的权限。"
+msgstr "已更新用户 “{{ name }}”的权限。"
 
 msgid "Updated proxy settings."
 msgstr "已更新的代理设置。"
@@ -3837,7 +3839,7 @@ msgid "Updated quota."
 msgstr "已更新的配额。"
 
 msgid "Updated remote system-logs settings."
-msgstr "已更新遠端系統紀錄檔設定。"
+msgstr "已更新远程系统日志设定。"
 
 msgid "Updated scheduled task."
 msgstr "已更新的计划任务。"
@@ -3852,16 +3854,16 @@ msgid "Updated update management settings."
 msgstr "已更新更新管理设置"
 
 msgid "Updated user \"{{ name }}\"."
-msgstr "已更新用户‘{{用户名}}’"
+msgstr "已更新用户“{{ name }}”。"
 
 msgid "Updated user profile."
 msgstr "已更新用户描述。"
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
-msgstr "已更新有线网络连接“{{设备名}}”。"
+msgstr "已更新有线网络连接“{{ devicename }}”。"
 
 msgid "Updated wireless network connection \"{{ devicename }}\"."
-msgstr "已更新无线网络连接“{{设备名}}”。"
+msgstr "已更新无线网络连接“{{ devicename }}”。"
 
 msgid "Updated workbench settings."
 msgstr "已更新工作台设置。"
@@ -3940,7 +3942,7 @@ msgstr "用户"
 msgid ""
 "Users must be assigned to the <em>ssh</em> group to be able to log in via "
 "SSH."
-msgstr "用戶必須被指派到 <em>ssh</em> 群組才能夠經由 SSH 登入。"
+msgstr "用户必须被分配到 <em>ssh</em> 用户组才能够通过SSH 登陆。"
 
 msgid "Uzbekistan"
 msgstr "乌兹别克斯坦"
@@ -3961,7 +3963,7 @@ msgid "Vanuatu"
 msgstr "南太平洋的岛国"
 
 msgid "Vatican"
-msgstr "梵谛冈"
+msgstr "梵蒂冈"
 
 msgid "Vendor"
 msgstr "供应商"
