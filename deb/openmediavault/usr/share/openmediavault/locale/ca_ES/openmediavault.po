@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2022\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -19,10 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr "Establiu el grup del fitxer de destinació perquè sigui el mateix que el fitxer d'origen"
 
 msgid "%d days"
 msgstr "dies"
@@ -1415,6 +1411,9 @@ msgstr "Illes Heard i McDonald (Austràlia)"
 msgid "Help"
 msgstr "Ajuda"
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr "Amaga"
 
@@ -1456,6 +1455,9 @@ msgstr "Cada hora"
 
 msgid "Hungary"
 msgstr "Hongria"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
@@ -2408,6 +2410,9 @@ msgstr "Potència "
 msgid "Power Management"
 msgstr "Maneig d'energia."
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "Boto d’encesa"
 
@@ -2531,9 +2536,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "Gestió de RAID"
 
 msgid "RSync server"
 msgstr "Servidor rsync"
@@ -2919,6 +2921,10 @@ msgid ""
 msgstr "Establiu els permisos de destinació perquè siguin els mateixos que els permisos d'origen. "
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Definiu el grup del fitxer de destinació al mateix que el fitxer font."
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr "Definiu el propietari del fitxer de destinació al mateix que el fitxer font, però només si s'executa l'rsync receptor com a super-usuari."
@@ -3112,6 +3118,9 @@ msgstr "Sri Lanka"
 msgid "Standby"
 msgstr "Repòs"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "Inici"
 
@@ -3153,6 +3162,9 @@ msgstr "Suprimeix missatges que no siguin d’error"
 
 msgid "Suriname"
 msgstr "Surinam"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Illes de Svalbard i Jan Mayen"

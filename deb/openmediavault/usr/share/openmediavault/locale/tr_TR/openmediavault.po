@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -17,10 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr "Hedef dosya gurubunu kaynak dosya ile aynı olacak şekilde ayarla."
 
 msgid "%d days"
 msgstr "%d gün"
@@ -1413,6 +1409,9 @@ msgstr "Heard Adası ve McDonal Adası"
 msgid "Help"
 msgstr "Yardım"
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr "Gizle"
 
@@ -1454,6 +1453,9 @@ msgstr "Saat başı"
 
 msgid "Hungary"
 msgstr "Macaristan"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
@@ -2406,6 +2408,9 @@ msgstr "Güç"
 msgid "Power Management"
 msgstr "Güç Yönetimi"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "Güç Düğmesi"
 
@@ -2529,9 +2534,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "RAID Yönetimi"
 
 msgid "RSync server"
 msgstr "Rsync sunucu"
@@ -2917,6 +2919,10 @@ msgid ""
 msgstr "Hedef yetkilerini kaynak yetkileri ile aynı olacak şekilde ayarla"
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Hedef dosya grup bilgisini kaynak dosya ile aynı yap."
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr "Sadece super-user tarafından çalıştırılan rsync ile alındığında hedef dosya sahiplik bilgisini kaynak dosya ile aynı olacak şekilde ayarla."
@@ -3110,6 +3116,9 @@ msgstr "Sri Lanka"
 msgid "Standby"
 msgstr "Bekleme"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "Başla"
 
@@ -3151,6 +3160,9 @@ msgstr "Hata belitrlemeyen mesajları gizle"
 
 msgid "Suriname"
 msgstr "Surinam"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Svalbard ve Jan Mayen"

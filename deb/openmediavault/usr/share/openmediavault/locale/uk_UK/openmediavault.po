@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -19,10 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr "\"Встановіть групу цільового файлу так само, як і вихідний файл."
 
 msgid "%d days"
 msgstr "%d днів"
@@ -1415,6 +1411,9 @@ msgstr "Острови Херд і Макдональд"
 msgid "Help"
 msgstr "Допомога"
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr "Приховати"
 
@@ -1456,6 +1455,9 @@ msgstr "Щогодини"
 
 msgid "Hungary"
 msgstr "Угорщина"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
@@ -2408,6 +2410,9 @@ msgstr "Живлення"
 msgid "Power Management"
 msgstr "Менеджер енергоспоживання"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "Кнопка виключення"
 
@@ -2531,9 +2536,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "Керування RAID"
 
 msgid "RSync server"
 msgstr "RSync сервер"
@@ -2919,6 +2921,10 @@ msgid ""
 msgstr "Встановити дозволи призначення такі ж, як на джерелі."
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Встановіть групу файлу призначення таким самим, що і вихідний файл."
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr "Встановіть власника цільового файлу таким самим, що і вихідний файл, але лише в тому випадку, якщо отримувач rsync запускається як суперкористувач."
@@ -3112,6 +3118,9 @@ msgstr "Шрі Ланка"
 msgid "Standby"
 msgstr "Очікування"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "Старт"
 
@@ -3153,6 +3162,9 @@ msgstr "Не показувати повідомлення в яких нема�
 
 msgid "Suriname"
 msgstr "Сурінам"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Свальбард та Ян-Маєн"

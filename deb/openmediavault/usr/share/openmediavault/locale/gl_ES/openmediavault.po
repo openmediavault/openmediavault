@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013,2015\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
@@ -20,10 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: gl_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr ""
 
 msgid "%d days"
 msgstr ""
@@ -1416,6 +1412,9 @@ msgstr "Illa Heard e Illas McDonald"
 msgid "Help"
 msgstr ""
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr ""
 
@@ -1457,6 +1456,9 @@ msgstr "Cada hora"
 
 msgid "Hungary"
 msgstr "Hungría"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
@@ -2409,6 +2411,9 @@ msgstr ""
 msgid "Power Management"
 msgstr "Xestión da enerxía"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "Botón de acendido/apagado"
 
@@ -2532,9 +2537,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "Xestión do RAID"
 
 msgid "RSync server"
 msgstr "Servidor RSync"
@@ -2920,6 +2922,10 @@ msgid ""
 msgstr "Configurar os permisos de destino para sexan os mesmos que os permisos de orixe."
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr ""
@@ -3113,6 +3119,9 @@ msgstr "Sri Lanka"
 msgid "Standby"
 msgstr "En espera"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "Inicio"
 
@@ -3154,6 +3163,9 @@ msgstr "Suprimir as mensaxes que non sexan de erros"
 
 msgid "Suriname"
 msgstr "Surinam"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Illas Svalbard e Jan Mayen"

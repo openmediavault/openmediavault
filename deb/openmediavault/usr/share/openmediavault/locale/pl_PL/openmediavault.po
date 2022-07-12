@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: jacekniedziolka71 <lucas71@interia.pl>, 2017,2022\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -22,10 +22,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr "Ustaw grupę pliku docelowego tak jak plik źródłowy."
 
 msgid "%d days"
 msgstr "%d dni"
@@ -1418,6 +1414,9 @@ msgstr "Heard Island and McDonald Islands"
 msgid "Help"
 msgstr "Pomoc"
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr "Ukryj"
 
@@ -1459,6 +1458,9 @@ msgstr "Cogodzinny"
 
 msgid "Hungary"
 msgstr "Hungary"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
@@ -2411,6 +2413,9 @@ msgstr "Zasilanie"
 msgid "Power Management"
 msgstr "Zarządzanie zasilaniem"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "Przycisk zasilania"
 
@@ -2534,9 +2539,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "Zarządzanie RAID"
 
 msgid "RSync server"
 msgstr "Serwer RSync"
@@ -2922,6 +2924,10 @@ msgid ""
 msgstr "Ustawić uprawnienia przeznaczenia na takie same, jak uprawnienia źródła"
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr ""
@@ -3115,6 +3121,9 @@ msgstr "Sri Lanka"
 msgid "Standby"
 msgstr "Stan wstrzymania"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "Start"
 
@@ -3156,6 +3165,9 @@ msgstr "Pomijaj inne komunikaty niż błędy"
 
 msgid "Suriname"
 msgstr "Suriname"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Svalbard and Jan Mayen"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2017\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
@@ -17,10 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr ""
 
 msgid "%d days"
 msgstr ""
@@ -1413,6 +1409,9 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr ""
 
@@ -1453,6 +1452,9 @@ msgid "Hourly"
 msgstr "Всеки час"
 
 msgid "Hungary"
+msgstr ""
+
+msgid "Hybrid sleep"
 msgstr ""
 
 msgid "ID"
@@ -2406,6 +2408,9 @@ msgstr ""
 msgid "Power Management"
 msgstr "Управление на захранването"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr ""
 
@@ -2529,9 +2534,6 @@ msgstr ""
 
 msgid "RAID 6"
 msgstr ""
-
-msgid "RAID Management"
-msgstr "RAID управление"
 
 msgid "RSync server"
 msgstr ""
@@ -2917,6 +2919,10 @@ msgid ""
 msgstr "Задайте разрешенията за дестинацията да бъдат същите като разрешенията на източника."
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr ""
@@ -3110,6 +3116,9 @@ msgstr ""
 msgid "Standby"
 msgstr "Режим на готовност"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr ""
 
@@ -3150,6 +3159,9 @@ msgid "Suppress non-error messages"
 msgstr ""
 
 msgid "Suriname"
+msgstr ""
+
+msgid "Suspend"
 msgstr ""
 
 msgid "Svalbard and Jan Mayen"

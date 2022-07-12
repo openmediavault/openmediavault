@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2022\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -19,10 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr "「將目的檔案的群組設定為與來源檔案相同。"
 
 msgid "%d days"
 msgstr "%d 天"
@@ -1415,6 +1411,9 @@ msgstr "赫德島與麥當勞群島"
 msgid "Help"
 msgstr "幫助"
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr "隱藏"
 
@@ -1456,6 +1455,9 @@ msgstr "每小時"
 
 msgid "Hungary"
 msgstr "匈牙利"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
@@ -2408,6 +2410,9 @@ msgstr "電源"
 msgid "Power Management"
 msgstr "電源管理"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "電源按鈕"
 
@@ -2531,9 +2536,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "RAID 管理"
 
 msgid "RSync server"
 msgstr "RSync 伺服器"
@@ -2919,6 +2921,10 @@ msgid ""
 msgstr "將目的地的權限設定為與來源的權限相同。"
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "將目的檔案的群組設定為與來源檔案相同。"
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr "將目的檔案的擁有者設定為與來源檔案相同，但只有當接收方 rsync 是以超級用戶執行時。"
@@ -3112,6 +3118,9 @@ msgstr "斯里蘭卡"
 msgid "Standby"
 msgstr "待機"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "開始"
 
@@ -3153,6 +3162,9 @@ msgstr "抑制非錯誤訊息"
 
 msgid "Suriname"
 msgstr "蘇里南"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "斯瓦爾巴與揚馬延"

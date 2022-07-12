@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2022\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -18,10 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar_SA\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr "اضبط مجموعة الملف الوجهة لتكون هي نفسها الملف المصدر."
 
 msgid "%d days"
 msgstr "%d يوم"
@@ -1414,6 +1410,9 @@ msgstr "جزيرة هيرد وجزر ماكدونالد"
 msgid "Help"
 msgstr ""
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr ""
 
@@ -1455,6 +1454,9 @@ msgstr "كل ساعة"
 
 msgid "Hungary"
 msgstr "هنغاريا"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
@@ -2407,6 +2409,9 @@ msgstr ""
 msgid "Power Management"
 msgstr "إدارة الطاقة"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "زر الطاقة"
 
@@ -2530,9 +2535,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "إدارة أجهزة RAID"
 
 msgid "RSync server"
 msgstr "RSync خادم"
@@ -2918,6 +2920,10 @@ msgid ""
 msgstr "اضبط أذونات الوجهة لتكون هي نفس أذونات المصدر"
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "قم بتعيين مجموعة الملف الوجهة لتكون هي نفسها الملف المصدر."
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr "عيّن مالك الملف الوجهة ليكون هو نفسه الملف المصدر ، ولكن فقط إذا كان rsync المستقبل قيد التشغيل كمستخدم فائق."
@@ -3111,6 +3117,9 @@ msgstr "سريلانكا"
 msgid "Standby"
 msgstr "الاستعداد"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "ابدأ"
 
@@ -3152,6 +3161,9 @@ msgstr "منع الرسائل غير المتعلقة بالخطأ"
 
 msgid "Suriname"
 msgstr "سورينام"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "سفالبارد وجان ماين"

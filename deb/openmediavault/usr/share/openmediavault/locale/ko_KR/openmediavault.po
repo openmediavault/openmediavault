@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -20,10 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr ""
 
 msgid "%d days"
 msgstr ""
@@ -1416,6 +1412,9 @@ msgstr "허드 섬 및 맥도널드 제도"
 msgid "Help"
 msgstr ""
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr ""
 
@@ -1457,6 +1456,9 @@ msgstr "매시간"
 
 msgid "Hungary"
 msgstr "헝가리"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
@@ -2409,6 +2411,9 @@ msgstr ""
 msgid "Power Management"
 msgstr "전원 관리"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "전원 버튼"
 
@@ -2532,9 +2537,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "RAID 관리"
 
 msgid "RSync server"
 msgstr "RSync 서버"
@@ -2920,6 +2922,10 @@ msgid ""
 msgstr "목적 권한을 원본 권한과 같게 설정"
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "목적지 파일의 소유 그룹을 원본 파일과 같게 설정합니다."
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr "파일 소유자를 동기화하며, 목적지의 rsync가 슈퍼-유저로 동작할 경우에만 가능합니다."
@@ -3113,6 +3119,9 @@ msgstr "스리랑카"
 msgid "Standby"
 msgstr "대기"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "시작"
 
@@ -3154,6 +3163,9 @@ msgstr "오류가 아닌 메시지를 숨깁니다."
 
 msgid "Suriname"
 msgstr "수리남"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "스발바르 얀마옌 제도"

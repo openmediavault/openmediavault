@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2022\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -17,10 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: el_GR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr "Να τεθεί η ομάδα των αρχείων στον προορισμό όπως είναι στην πηγή."
 
 msgid "%d days"
 msgstr "%d ημέρες"
@@ -1413,6 +1409,9 @@ msgstr "Heard Island and McDonald Islands"
 msgid "Help"
 msgstr "Βοήθεια"
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr "Απόκρυψη"
 
@@ -1454,6 +1453,9 @@ msgstr "Ωριαία"
 
 msgid "Hungary"
 msgstr "Hungary"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "Αναγνωριστικό"
@@ -2406,6 +2408,9 @@ msgstr "Ισχύς"
 msgid "Power Management"
 msgstr "Διαχείριση ενέργειας"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "Πλήκτρο λειτουργίας"
 
@@ -2529,9 +2534,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "Διαχείριση RAID"
 
 msgid "RSync server"
 msgstr "Διακομιστής απομακρυσμένου συγχρονισμού"
@@ -2917,6 +2919,10 @@ msgid ""
 msgstr "Να τεθούν τα δικαιώματα των αρχείων στον προορισμό όπως είναι στην πηγή."
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Να τεθεί η ομάδα των αρχείων στον προορισμό όπως είναι στην πηγή."
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr "Να τεθεί ο ιδιοκτήτης των αρχείων στον προορισμό όπως είναι στην πηγή, αλλά μόνο όταν ο αποδέκτης λειτουργεί ως υπερ-χρήστης."
@@ -3110,6 +3116,9 @@ msgstr "Sri Lanka"
 msgid "Standby"
 msgstr "Κατάσταση αναμονής"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "Εκκίνηση"
 
@@ -3151,6 +3160,9 @@ msgstr "Απόκρυψη μηνυμάτων που δεν αφορούν σφά�
 
 msgid "Suriname"
 msgstr "Επώνυμο"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Svalbard and Jan Mayen"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Danish (http://www.transifex.com/openmediavault/openmediavault/language/da/)\n"
@@ -17,10 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr "\"Sæt gruppen på destination fil til at være den samme som kilde fil."
 
 msgid "%d days"
 msgstr "%d dage"
@@ -1413,6 +1409,9 @@ msgstr "Heard Island og McDonald Islands"
 msgid "Help"
 msgstr "Hjælp"
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr "Gem væk"
 
@@ -1454,6 +1453,9 @@ msgstr "Hver time"
 
 msgid "Hungary"
 msgstr "Hungary"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
@@ -2406,6 +2408,9 @@ msgstr ""
 msgid "Power Management"
 msgstr "Strøm Håndtering"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "Power knap"
 
@@ -2529,9 +2534,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "RAID Håndtering"
 
 msgid "RSync server"
 msgstr "RSync server"
@@ -2917,6 +2919,10 @@ msgid ""
 msgstr "Sæt destinations tilladelser til at være de samme som kilde tilladelser"
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Sæt gruppen på destination fil til at være den samme som kilde fil."
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr "Sæt ejer på destinations filen til at være den samme som kilde filen, men kun hvis den modtagende rsync bliver kørt som super-bruger."
@@ -3110,6 +3116,9 @@ msgstr "Sri Lanka"
 msgid "Standby"
 msgstr "Standby"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "Start"
 
@@ -3151,6 +3160,9 @@ msgstr "Undertryk beskeder uden fejl"
 
 msgid "Suriname"
 msgstr "Suriname"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Svalbard and Jan Mayen"

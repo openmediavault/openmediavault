@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -18,10 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr "Nastavit skupinu cílového souboru tak, aby byla stejná, jako na zdrojovém souboru."
 
 msgid "%d days"
 msgstr "%d dnů"
@@ -1414,6 +1410,9 @@ msgstr "Heardův ostrov a McDonaldovy ostrovy"
 msgid "Help"
 msgstr "Nápověda"
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr "Skrýt"
 
@@ -1455,6 +1454,9 @@ msgstr "Každou hodinu"
 
 msgid "Hungary"
 msgstr "Maďarsko"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "Identif."
@@ -2407,6 +2409,9 @@ msgstr "Napájení"
 msgid "Power Management"
 msgstr "Správa napájení"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "Tlačítko napájení"
 
@@ -2530,9 +2535,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "Správa RAID polí"
 
 msgid "RSync server"
 msgstr "RSync server"
@@ -2918,6 +2920,10 @@ msgid ""
 msgstr "Nastavit oprávnění v cíli tak, aby byla stejná jako na zdroji."
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Nastavit skupinu cílového souboru tak, aby byla stejná, jako na zdrojovém souboru."
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr "Nastavit vlastníka cílového souboru tak, aby byla stejná jako na zdrojovém souboru, ale pouze pokud je přijímající rsync spuštěn pod účtem s právy správy."
@@ -3111,6 +3117,9 @@ msgstr "Srí Lanka"
 msgid "Standby"
 msgstr "Pohotovostní režim"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "Spustit"
 
@@ -3152,6 +3161,9 @@ msgstr "Hlásit pouze chyby, ostatní potlačit"
 
 msgid "Suriname"
 msgstr "Surinam"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Špicberky a Jan Mayen"

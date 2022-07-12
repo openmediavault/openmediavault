@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -29,10 +29,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr "Adapter le groupe du fichier cible pour qu'il soit identique au groupe du fichier source."
 
 msgid "%d days"
 msgstr "%d jours"
@@ -1425,6 +1421,9 @@ msgstr "Île Heard et Îles McDonald"
 msgid "Help"
 msgstr "Aide"
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr "Masquer"
 
@@ -1466,6 +1465,9 @@ msgstr "Une fois par heure"
 
 msgid "Hungary"
 msgstr "Hongrie"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
@@ -2418,6 +2420,9 @@ msgstr "Puissance"
 msgid "Power Management"
 msgstr "Gestion de l'énergie"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "Bouton d'alimentation"
 
@@ -2541,9 +2546,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "Gestion du RAID"
 
 msgid "RSync server"
 msgstr "Serveur RSync"
@@ -2929,6 +2931,10 @@ msgid ""
 msgstr "Définir les permissions de la destination à l'identique de celles de la source."
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Définir le groupe pour le fichier de destination identique au fichier d'origine"
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr "Définir le propriétaire pour le fichier de destination identique au fichier d'origine, seulement si la réception rsync est démarré en tant que super-utilisateur."
@@ -3122,6 +3128,9 @@ msgstr "Sri Lanka"
 msgid "Standby"
 msgstr "Standby"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "Démarrer"
 
@@ -3163,6 +3172,9 @@ msgstr "Supprime les messages de non-erreur"
 
 msgid "Suriname"
 msgstr "Suriname"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Île Jan Mayen"

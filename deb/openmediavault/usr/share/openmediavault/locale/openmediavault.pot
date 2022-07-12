@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,9 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-msgid "\"Set the group of the destination file to be the same as the source file."
-msgstr ""
 
 msgid "%d days"
 msgstr ""
@@ -1373,6 +1370,9 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr ""
 
@@ -1413,6 +1413,9 @@ msgid "Hourly"
 msgstr ""
 
 msgid "Hungary"
+msgstr ""
+
+msgid "Hybrid sleep"
 msgstr ""
 
 msgid "ID"
@@ -2303,6 +2306,9 @@ msgstr ""
 msgid "Power Management"
 msgstr ""
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr ""
 
@@ -2415,9 +2421,6 @@ msgid "RAID 5"
 msgstr ""
 
 msgid "RAID 6"
-msgstr ""
-
-msgid "RAID Management"
 msgstr ""
 
 msgid "RSync server"
@@ -2795,6 +2798,9 @@ msgstr ""
 msgid "Set the destination permissions to be the same as the source permissions."
 msgstr ""
 
+msgid "Set the group of the destination file to be the same as the source file."
+msgstr ""
+
 msgid "Set the owner of the destination file to be the same as the source file, but only if the receiving rsync is being run as the super-user."
 msgstr ""
 
@@ -2969,6 +2975,9 @@ msgstr ""
 msgid "Standby"
 msgstr ""
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr ""
 
@@ -3009,6 +3018,9 @@ msgid "Suppress non-error messages"
 msgstr ""
 
 msgid "Suriname"
+msgstr ""
+
+msgid "Suspend"
 msgstr ""
 
 msgid "Svalbard and Jan Mayen"

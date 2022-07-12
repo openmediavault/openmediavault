@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Tim <co_ti@hotmail.com>, 2013-2014,2016-2017,2022\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -23,10 +23,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr "Groep van het bestand instellen gelijk aan die van het bronbestand"
 
 msgid "%d days"
 msgstr "%ddagen"
@@ -1419,6 +1415,9 @@ msgstr "Heard Eilanden en McDonald Eilanden"
 msgid "Help"
 msgstr ""
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr ""
 
@@ -1460,6 +1459,9 @@ msgstr "Uurlijks"
 
 msgid "Hungary"
 msgstr "Hongarije"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
@@ -2412,6 +2414,9 @@ msgstr ""
 msgid "Power Management"
 msgstr "Energiebeheer"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "Aan/Uit knop"
 
@@ -2535,9 +2540,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "RAID-beheer"
 
 msgid "RSync server"
 msgstr "RSync-server"
@@ -2923,6 +2925,10 @@ msgid ""
 msgstr "Stel de rechten van het doel hetzelfde in als de rechten van de bron"
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Stel de groep van het doelbestand in op hetzelfde als het bronbestand."
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr "Stel in dat de eigenaar van het bestemmingsbestand hetzelfde is als het bronbestand, maar alleen als de ontvangende rsync wordt uitgevoerd als super-user."
@@ -3116,6 +3122,9 @@ msgstr "Sri Lanka"
 msgid "Standby"
 msgstr "Stand-by"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "Start"
 
@@ -3157,6 +3166,9 @@ msgstr "Onderdruk non-foutmeldingen"
 
 msgid "Suriname"
 msgstr "Suriname"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Spitsbergen"

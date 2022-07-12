@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2022\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -17,10 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr "宛先ファイルのグループを元のファイルと同じになるように設定します。"
 
 msgid "%d days"
 msgstr "%d 日"
@@ -1413,6 +1409,9 @@ msgstr "ハード島とマクドナルド諸島"
 msgid "Help"
 msgstr "ヘルプ"
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr "隠す"
 
@@ -1454,6 +1453,9 @@ msgstr "毎時"
 
 msgid "Hungary"
 msgstr "ハンガリー"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
@@ -2406,6 +2408,9 @@ msgstr "電源"
 msgid "Power Management"
 msgstr "電源管理"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "電源ボタン"
 
@@ -2529,9 +2534,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "RAID管理"
 
 msgid "RSync server"
 msgstr "RSyncサーバー"
@@ -2917,6 +2919,10 @@ msgid ""
 msgstr "元のアクセス権と同じになるように先のアクセス権を設定します。"
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "宛先ファイルのグループを元のファイルと同じになるように設定します。"
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr "受信側のrsyncがスーパーユーザーとして実行されている場合のみ、送信先ファイルの所有者を送信元ファイルと同じに設定します。"
@@ -3110,6 +3116,9 @@ msgstr "スリランカ"
 msgid "Standby"
 msgstr "スタンバイ"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "スタート"
 
@@ -3151,6 +3160,9 @@ msgstr "非エラーメッセージを抑制する"
 
 msgid "Suriname"
 msgstr "スリナム"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "スヴァールバル諸島およびヤンマイエン島"

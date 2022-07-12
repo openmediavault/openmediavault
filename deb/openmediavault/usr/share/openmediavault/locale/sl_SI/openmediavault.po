@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -17,10 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl_SI\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr ""
 
 msgid "%d days"
 msgstr ""
@@ -1413,6 +1409,9 @@ msgstr "Otok Heard in otočje McDonald"
 msgid "Help"
 msgstr ""
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr ""
 
@@ -1454,6 +1453,9 @@ msgstr "Vsako uro"
 
 msgid "Hungary"
 msgstr "Madžarska"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
@@ -2406,6 +2408,9 @@ msgstr ""
 msgid "Power Management"
 msgstr ""
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "Gumb za vklop"
 
@@ -2529,9 +2534,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "RAID Upravljanje"
 
 msgid "RSync server"
 msgstr "RSync strežnik"
@@ -2917,6 +2919,10 @@ msgid ""
 msgstr "Nastavi dovoljenja na cilju na enaka, kot so na izvorni strani."
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr ""
@@ -3110,6 +3116,9 @@ msgstr "Šrilanka"
 msgid "Standby"
 msgstr "Stanje pripravljenosti"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "Zaženi"
 
@@ -3151,6 +3160,9 @@ msgstr ""
 
 msgid "Suriname"
 msgstr "Priimek"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Svalbard in Jan Mayen"

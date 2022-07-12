@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2022\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -23,10 +23,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr "A célfájl csoportjának beállítása a forrásfájllal megegyezőre."
 
 msgid "%d days"
 msgstr "%d nap"
@@ -1419,6 +1415,9 @@ msgstr "Heard-sziget és McDonald-szigetek"
 msgid "Help"
 msgstr "Súgó "
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr "Elrejt"
 
@@ -1460,6 +1459,9 @@ msgstr "Óránként"
 
 msgid "Hungary"
 msgstr "Magyarország"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "Azonosító"
@@ -2412,6 +2414,9 @@ msgstr "Be- és kikapcsolás"
 msgid "Power Management"
 msgstr "Energiagazdálkodás"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "Bekapcsoló gomb"
 
@@ -2535,9 +2540,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "RAID kezelés"
 
 msgid "RSync server"
 msgstr "RSync szerver"
@@ -2923,6 +2925,10 @@ msgid ""
 msgstr "Célállomás jogosultságai egyezzenek meg a forrás jogosultságaival."
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "A célfájl csoportjának beállítása a forrásfájllal megegyezőre."
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr "A célfájl tulajdonosának beállítása a forrásfájllal megegyezőre abban az esetben ha a fogadó rsync szuperfelhasználóként fut."
@@ -3116,6 +3122,9 @@ msgstr "Srí Lanka"
 msgid "Standby"
 msgstr "Készenlét"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "Indítás"
 
@@ -3157,6 +3166,9 @@ msgstr "Nem hibaüzenetek kihagyása"
 
 msgid "Suriname"
 msgstr "Suriname"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Svalbard és Jan Mayen-szigetek"

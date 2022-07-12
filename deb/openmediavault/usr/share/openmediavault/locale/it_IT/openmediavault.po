@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 20:24+0200\n"
+"POT-Creation-Date: 2022-07-12 17:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2013-2019,2021\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -22,10 +22,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
-
-msgid ""
-"\"Set the group of the destination file to be the same as the source file."
-msgstr ""
 
 msgid "%d days"
 msgstr "%d giorni"
@@ -1418,6 +1414,9 @@ msgstr "Isole Heard e McDonald"
 msgid "Help"
 msgstr "Aiuto"
 
+msgid "Hibernate"
+msgstr ""
+
 msgid "Hide"
 msgstr "Nascondi"
 
@@ -1459,6 +1458,9 @@ msgstr "Orario"
 
 msgid "Hungary"
 msgstr "Ungheria"
+
+msgid "Hybrid sleep"
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
@@ -2411,6 +2413,9 @@ msgstr ""
 msgid "Power Management"
 msgstr "Gestione Alimentazione"
 
+msgid "Power Off"
+msgstr ""
+
 msgid "Power button"
 msgstr "Pulsante alimentazione"
 
@@ -2534,9 +2539,6 @@ msgstr "RAID 5"
 
 msgid "RAID 6"
 msgstr "RAID 6"
-
-msgid "RAID Management"
-msgstr "Gestione RAID"
 
 msgid "RSync server"
 msgstr "Server RSync"
@@ -2922,6 +2924,10 @@ msgid ""
 msgstr "Imposta i permessi di destinazione allo stesso modo dei permessi della sorgente."
 
 msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
 msgstr ""
@@ -3115,6 +3121,9 @@ msgstr "Sri Lanka"
 msgid "Standby"
 msgstr "Standby"
 
+msgid "Standby mode"
+msgstr ""
+
 msgid "Start"
 msgstr "Avvio"
 
@@ -3156,6 +3165,9 @@ msgstr "Sopprimi i messaggi che non sono di errore"
 
 msgid "Suriname"
 msgstr "Suriname (Guyana Olandese)"
+
+msgid "Suspend"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Svalbard e Jan Mayen"
