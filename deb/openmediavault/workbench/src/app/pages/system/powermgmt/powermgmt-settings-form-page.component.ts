@@ -53,7 +53,7 @@ export class PowermgmtSettingsFormPageComponent {
         store: {
           data: [
             ['nothing', gettext('Nothing')],
-            ['shutdown', gettext('Shutdown')],
+            ['shutdown', gettext('Power Off')],
             ['standby', gettext('Standby')]
           ]
         }
@@ -79,7 +79,7 @@ export class PowermgmtSettingsFormPageComponent {
           assign: {
             key: 'value',
             sources: {
-              poweroff: { text: gettext('Poweroff') },
+              poweroff: { text: gettext('Power Off') },
               suspend: { text: gettext('Suspend') },
               hibernate: { text: gettext('Hibernate') },
               suspendhybrid: { text: gettext('Hybrid sleep') }

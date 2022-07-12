@@ -383,6 +383,9 @@ case "$1" in
 			omv_module_set_dirty proftpd
 			omv_module_set_dirty hosts
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.31"; then
+			omv_module_set_dirty systemd-logind
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the

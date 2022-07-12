@@ -50,6 +50,7 @@ class PowerManagement {
 	 * @param state The state to check for.
 	 * @return TRUE if the state is supported, if not then FALSE. In case
 	 *   of an error NULL is returned.
+	 * @see https://cgit.freedesktop.org/pm-utils/tree/pm/pm-functions.in#n294
 	 */
 	public function isStateSupported($state) {
 		$result = FALSE;
