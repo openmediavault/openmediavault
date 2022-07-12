@@ -1,6 +1,7 @@
 {%- set sync_dir_permissions = salt['pillar.get']('default:OMV_ONEDRIVE_SYNCDIRPERMISSIONS', '750') -%}
 {%- set sync_file_permissions = salt['pillar.get']('default:OMV_ONEDRIVE_SYNCFILEPERMISSIONS', '640') -%}
 {%- set force_http_2 = salt['pillar.get']('default:OMV_ONEDRIVE_FORCEHTTP2', 'true') -%}
+{%- set monitor_fullscan_frequency = salt['pillar.get']('default:OMV_ONEDRIVE_MONITORFULLSCANFREQUENCY', '12') -%}
 {%- set sf_path = salt['omv_conf.get_sharedfolder_path'](config.sharedfolderref) -%}
 {{ pillar['headers']['multiline'] -}}
 sync_dir = "{{ sf_path }}"
@@ -13,5 +14,6 @@ download_only = "{{ (config.replicationmode == 'down') | to_bool | yesno('true,f
 upload_only = "{{ (config.replicationmode == 'up') | to_bool | yesno('true,false') }}"
 skip_dotfiles = "{{ config.skipdotfiles | to_bool | yesno('true,false') }}"
 monitor_interval = "{{ config.monitorinterval }}"
+monitor_fullscan_frequency = "{{ monitor_fullscan_frequency }}"
 rate_limit = "{{ config.ratelimit }}"
 force_http_2 = "{{ force_http_2 }}"
