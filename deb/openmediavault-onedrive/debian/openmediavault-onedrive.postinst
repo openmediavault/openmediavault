@@ -73,6 +73,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "6.2.0"; then
 			omv_module_set_dirty onedrive
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.2.3"; then
+			omv_module_set_dirty onedrive
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
