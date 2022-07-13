@@ -1416,7 +1416,7 @@ msgid "Help"
 msgstr "Súgó "
 
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernálás"
 
 msgid "Hide"
 msgstr "Elrejt"
@@ -1461,7 +1461,7 @@ msgid "Hungary"
 msgstr "Magyarország"
 
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Hibrid alvás"
 
 msgid "ID"
 msgstr "Azonosító"
@@ -2415,7 +2415,7 @@ msgid "Power Management"
 msgstr "Energiagazdálkodás"
 
 msgid "Power Off"
-msgstr ""
+msgstr "Kikapcsolás"
 
 msgid "Power button"
 msgstr "Bekapcsoló gomb"
@@ -3123,7 +3123,7 @@ msgid "Standby"
 msgstr "Készenlét"
 
 msgid "Standby mode"
-msgstr ""
+msgstr "Készenléti mód"
 
 msgid "Start"
 msgstr "Indítás"
@@ -3168,7 +3168,7 @@ msgid "Suriname"
 msgstr "Suriname"
 
 msgid "Suspend"
-msgstr ""
+msgstr "Felfüggesztés"
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Svalbard és Jan Mayen-szigetek"

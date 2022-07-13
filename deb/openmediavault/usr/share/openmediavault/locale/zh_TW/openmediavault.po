@@ -1412,7 +1412,7 @@ msgid "Help"
 msgstr "幫助"
 
 msgid "Hibernate"
-msgstr ""
+msgstr "冬眠"
 
 msgid "Hide"
 msgstr "隱藏"
@@ -1457,7 +1457,7 @@ msgid "Hungary"
 msgstr "匈牙利"
 
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "休眠"
 
 msgid "ID"
 msgstr "ID"
@@ -2411,7 +2411,7 @@ msgid "Power Management"
 msgstr "電源管理"
 
 msgid "Power Off"
-msgstr ""
+msgstr "關機"
 
 msgid "Power button"
 msgstr "電源按鈕"
@@ -3119,7 +3119,7 @@ msgid "Standby"
 msgstr "待機"
 
 msgid "Standby mode"
-msgstr ""
+msgstr "待機模式"
 
 msgid "Start"
 msgstr "開始"
@@ -3164,7 +3164,7 @@ msgid "Suriname"
 msgstr "蘇里南"
 
 msgid "Suspend"
-msgstr ""
+msgstr "暫停"
 
 msgid "Svalbard and Jan Mayen"
 msgstr "斯瓦爾巴與揚馬延"
