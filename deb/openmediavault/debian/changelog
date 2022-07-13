@@ -1,4 +1,4 @@
-openmediavault (6.0.31-1) stable; urgency=low
+openmediavault (6.0.31-2) stable; urgency=low
 
   * Update locale files.
   * Issue #1330: Add configuration option to set standby mode
