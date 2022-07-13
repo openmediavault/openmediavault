@@ -1,3 +1,9 @@
+openmediavault (6.0.32-1) stable; urgency=low
+
+  * Issue #1342: Log does not show latest events.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 13 Jul 2022 18:53:31 +0200
+
 openmediavault (6.0.31-2) stable; urgency=low
 
   * Update locale files.

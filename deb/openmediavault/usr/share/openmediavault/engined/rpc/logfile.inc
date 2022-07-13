@@ -74,19 +74,22 @@ class LogFile extends \OMV\Rpc\ServiceAbstract {
 			$cmd->setRedirect2to1();
 			$cmd->execute();
 		}
+		// Limit the number of lines to process because of memory issues.
+		$maxLines = \OMV\Environment::getInteger("OMV_MAX_LOGFILE_LINES");
 		// Read the log file content.
-		if (FALSE === ($fh = fopen($filePath, "r"))) {
-			throw new \OMV\Exception(
-			  "Failed to open the log file (filename=%s).",
-			  $filePath);
+		// - Get the total number of lines of the file.
+		// - Seek to the position from where OMV_MAX_LOGFILE_LINES can be read.
+		$file = new \SplFileObject($filePath, "r");
+		$file->seek(PHP_INT_MAX);
+		$linesTotal = $file->key();
+		$file->rewind();
+		if ($linesTotal > $maxLines) {
+			$file->seek($linesTotal - $maxLines - 1);
 		}
 		$objects = [];
 		$rowNum = 0;
-		while (($line = fgets($fh)) !== FALSE) {
-			if ($rowNum > \OMV\Environment::getInteger(
-			  "OMV_MAX_LOGFILE_LINES")) {
-				break;
-			}
+		while (!$file->eof()) {
+			$line = $file->fgets();
 			// Skip invalid pattern matches.
 			$result = preg_match($spec->getRegex(), $line, $matches);
 			if ((FALSE === $result) || (0 == $result))
@@ -107,11 +110,6 @@ class LogFile extends \OMV\Rpc\ServiceAbstract {
 				}
 			}
 			$objects[] = $object;
-		}
-		if (FALSE === fclose($fh)) {
-			throw new \OMV\Exception(
-			  "Failed to close the log file (filename=%s).",
-			  $filePath);
 		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
