@@ -18,10 +18,11 @@
 			<!--
 			<cpufreq>0|1</cpufreq>
 			<powerbtn>nothing|shutdown|standby</powerbtn>
+			<standbymode>poweroff|suspend|hibernate|suspendhybrid</standbymode>
 			-->
 			<cpufreq>1</cpufreq>
 			<powerbtn>nothing</powerbtn>
-			<standbymode>poweroff|suspend|hibernate|suspendhybrid</standbymode>
+			<standbymode>poweroff</standbymode>
 		</powermanagement>
 		<monitoring>
 			<perfstats>
