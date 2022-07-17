@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-12 17:31+0200\n"
+"POT-Creation-Date: 2022-07-17 15:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3693,6 +3693,9 @@ msgid "User"
 msgstr ""
 
 msgid "User Management"
+msgstr ""
+
+msgid "User Settings"
 msgstr ""
 
 msgid "User home directory"
