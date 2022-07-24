@@ -24,6 +24,10 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_PHOTOPRISM_APP_CONTAINER_IMAGE=${OMV_PHOTOPRISM_APP_CONTAINER_IMAGE:-"docker.io/photoprism/photoprism:latest"}
+OMV_PHOTOPRISM_DB_CONTAINER_IMAGE=${OMV_PHOTOPRISM_DB_CONTAINER_IMAGE:-"docker.io/mariadb:latest"}
+OMV_PHOTOPRISM_PROXY_CONTAINER_IMAGE=${OMV_PHOTOPRISM_PROXY_CONTAINER_IMAGE:-"docker.io/library/caddy:latest"}
+
 case "$1" in
 	configure)
 		####################################################################
@@ -44,6 +48,16 @@ case "$1" in
 		# Activate trigger to rebuild workbench configuration files.
 		########################################################################
 		dpkg-trigger update-workbench
+
+    ########################################################################
+    # Download the latest container image(s) when the package is installed
+    # the first time.
+    ########################################################################
+		if [ -z "$2" ]; then
+		  podman pull "${OMV_PHOTOPRISM_APP_CONTAINER_IMAGE}" || :
+		  podman pull "${OMV_PHOTOPRISM_DB_CONTAINER_IMAGE}" || :
+		  podman pull "${OMV_PHOTOPRISM_PROXY_CONTAINER_IMAGE}" || :
+		fi
 
 		########################################################################
 		# Initialize and migrate configuration database.

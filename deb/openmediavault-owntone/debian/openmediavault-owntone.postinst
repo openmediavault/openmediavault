@@ -24,6 +24,8 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_OWNTONE_APP_CONTAINER_IMAGE=${OMV_OWNTONE_APP_CONTAINER_IMAGE:-"lscr.io/linuxserver/daapd:latest"}
+
 case "$1" in
 	configure)
 		####################################################################
@@ -38,6 +40,14 @@ case "$1" in
 			useradd --system --no-user-group --no-create-home \
 				--shell '/usr/sbin/nologin' --groups 'users' \
 				owntone
+		fi
+
+    ########################################################################
+    # Download the latest container image(s) when the package is installed
+    # the first time.
+    ########################################################################
+		if [ -z "$2" ]; then
+		  podman pull "${OMV_OWNTONE_APP_CONTAINER_IMAGE}" || :
 		fi
 
 		########################################################################

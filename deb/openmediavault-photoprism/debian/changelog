@@ -1,3 +1,9 @@
+openmediavault-photoprism (6.0.5-1) stable; urgency=low
+
+  * Download container images during first package installation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 Jul 2022 23:14:02 +0200
+
 openmediavault-photoprism (6.0.4-1) stable; urgency=low
 
   * Store proxy configuration file in /var.

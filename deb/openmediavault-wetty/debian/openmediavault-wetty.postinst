@@ -24,8 +24,18 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_WETTY_APP_CONTAINER_IMAGE=${OMV_WETTY_APP_CONTAINER_IMAGE:-"docker.io/wettyoss/wetty:latest"}
+
 case "$1" in
 	configure)
+    ########################################################################
+    # Download the latest container image(s) when the package is installed
+    # the first time.
+    ########################################################################
+		if [ -z "$2" ]; then
+		  podman pull "${OMV_WETTY_APP_CONTAINER_IMAGE}" || :
+		fi
+
 		########################################################################
 		# Activate trigger to rebuild workbench configuration files.
 		########################################################################
