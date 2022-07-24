@@ -22,4 +22,4 @@ data:
     dataConfig:
       - label: _("Usage")
         prop: cpuUsage
-        backgroundColor: "#4cd964"
+        backgroundColor: "#5dacdf"
