@@ -62,7 +62,13 @@ export class NfsShareFormPageComponent {
         type: 'textInput',
         name: 'client',
         label: gettext('Client'),
-        hint: gettext('Clients allowed to mount the file system, e.g. 192.168.178.0/24.'),
+        hint:
+          gettext('Clients allowed to mount the file system, e.g. 192.168.178.0/24.') +
+          ' ' +
+          gettext(
+            // eslint-disable-next-line max-len
+            'Please check the <a href=\'https://manpages.debian.org/nfs-kernel-server/exports.5.html\' target=\'_blank\'>manual page</a> for more details.'
+          ),
         value: '',
         validators: {
           required: true
@@ -85,7 +91,8 @@ export class NfsShareFormPageComponent {
         name: 'extraoptions',
         label: gettext('Extra options'),
         hint: gettext(
-          'Please check the <a href=\'http://linux.die.net/man/5/exports\' target=\'_blank\'>manual page</a> for more details.'
+          // eslint-disable-next-line max-len
+          'Please check the <a href=\'https://manpages.debian.org/nfs-kernel-server/exports.5.html\' target=\'_blank\'>manual page</a> for more details.'
         ),
         value: 'subtree_check,insecure'
       },
