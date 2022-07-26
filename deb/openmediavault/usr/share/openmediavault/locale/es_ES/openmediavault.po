@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-12 17:31+0200\n"
+"POT-Creation-Date: 2022-07-26 21:22+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2022\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -1413,7 +1413,7 @@ msgid "Help"
 msgstr "Ayuda"
 
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernar"
 
 msgid "Hide"
 msgstr "Ocultar"
@@ -1458,7 +1458,7 @@ msgid "Hungary"
 msgstr "Hungría"
 
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Sueño híbrido"
 
 msgid "ID"
 msgstr "ID"
@@ -2322,11 +2322,6 @@ msgid ""
 msgstr "Por favor revise la página <a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\"> del manual</a> para más detalles."
 
 msgid ""
-"Please check the <a href='http://linux.die.net/man/5/exports' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Por favor vea: <a href='http://linux.die.net/man/5/exports' target='_blank'>página del manual</a> para más detalles."
-
-msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Por favor, vea <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>página del manual</a> para más detalles."
@@ -2347,6 +2342,11 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Por favor vea: <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>página del manual</a> para más detalles."
+
+msgid ""
+"Please check the <a href='https://manpages.debian.org/nfs-kernel-"
+"server/exports.5.html' target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid "Please choose the method to wipe the device."
 msgstr "Por favor elija el método de borrado del disco."
@@ -2412,7 +2412,7 @@ msgid "Power Management"
 msgstr "Manejo de energia."
 
 msgid "Power Off"
-msgstr ""
+msgstr "Apagar"
 
 msgid "Power button"
 msgstr "Boton de encendido"
@@ -3120,7 +3120,7 @@ msgid "Standby"
 msgstr "Reposo"
 
 msgid "Standby mode"
-msgstr ""
+msgstr "Modo Standby"
 
 msgid "Start"
 msgstr "Comienzo"
@@ -3165,7 +3165,7 @@ msgid "Suriname"
 msgstr "Surinam"
 
 msgid "Suspend"
-msgstr ""
+msgstr "Suspender"
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Islas de Svalbard y Jan Mayen"
@@ -3935,6 +3935,9 @@ msgstr "Usuario"
 
 msgid "User Management"
 msgstr "Gestión de usuarios"
+
+msgid "User Settings"
+msgstr "Opciones de usuario"
 
 msgid "User home directory"
 msgstr "Directorio Home de usuario"

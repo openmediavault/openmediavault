@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-12 17:31+0200\n"
+"POT-Creation-Date: 2022-07-26 21:22+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2022\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -1413,7 +1413,7 @@ msgid "Help"
 msgstr "Hjälp"
 
 msgid "Hibernate"
-msgstr ""
+msgstr "Viloläge"
 
 msgid "Hide"
 msgstr "Dölj"
@@ -1458,7 +1458,7 @@ msgid "Hungary"
 msgstr "Ungern"
 
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Hybrid viloläge"
 
 msgid "ID"
 msgstr "ID"
@@ -2322,11 +2322,6 @@ msgid ""
 msgstr "Se <a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\">manualsidan</a> för mer detaljer."
 
 msgid ""
-"Please check the <a href='http://linux.die.net/man/5/exports' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Se <a href='http://linux.die.net/man/5/exports' target='_blank'>manualsidan</a> för mer information."
-
-msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Se <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manualsidan</a> för mer information."
@@ -2347,6 +2342,11 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Se <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manualsidan</a> för mer information."
+
+msgid ""
+"Please check the <a href='https://manpages.debian.org/nfs-kernel-"
+"server/exports.5.html' target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid "Please choose the method to wipe the device."
 msgstr "Välj metoden för att tömma enheten."
@@ -2412,7 +2412,7 @@ msgid "Power Management"
 msgstr "Strömhantering"
 
 msgid "Power Off"
-msgstr ""
+msgstr "Stäng av"
 
 msgid "Power button"
 msgstr "Strömbrytare"
@@ -3120,7 +3120,7 @@ msgid "Standby"
 msgstr "Vänteläge"
 
 msgid "Standby mode"
-msgstr ""
+msgstr "Vänteläge"
 
 msgid "Start"
 msgstr "Starta"
@@ -3165,7 +3165,7 @@ msgid "Suriname"
 msgstr "Surinam"
 
 msgid "Suspend"
-msgstr ""
+msgstr "Suspendera"
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Svalbard och Jan Mayen"
@@ -3935,6 +3935,9 @@ msgstr "Användare"
 
 msgid "User Management"
 msgstr "Användarhantering"
+
+msgid "User Settings"
+msgstr "Användarinställningar"
 
 msgid "User home directory"
 msgstr "Användarens hemmapp"
