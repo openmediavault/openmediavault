@@ -1,5 +1,6 @@
 openmediavault-filebrowser (6.0.2-1) stable; urgency=low
 
+  * Update locale files.
   * Download container images during first package installation.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 Jul 2022 23:11:51 +0200

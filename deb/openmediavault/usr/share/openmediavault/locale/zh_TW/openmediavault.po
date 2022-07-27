@@ -385,7 +385,7 @@ msgid "April"
 msgstr "四月"
 
 msgid "Architecture"
-msgstr "结构"
+msgstr "架構"
 
 msgid "Archive mode"
 msgstr "歸檔模式"
@@ -2345,7 +2345,7 @@ msgstr "詳情請查看<a href='http://www.samba.org/samba/docs/man/manpages-3/s
 msgid ""
 "Please check the <a href='https://manpages.debian.org/nfs-kernel-"
 "server/exports.5.html' target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "詳情請查閱 <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>手冊頁</a>。"
 
 msgid "Please choose the method to wipe the device."
 msgstr "請選擇抹除該裝置的方式。"

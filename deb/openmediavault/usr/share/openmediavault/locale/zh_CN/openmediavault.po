@@ -2349,7 +2349,7 @@ msgstr "详情请看 <a href='http://www.samba.org/samba/docs/man/manpages-3/smb
 msgid ""
 "Please check the <a href='https://manpages.debian.org/nfs-kernel-"
 "server/exports.5.html' target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "詳情請查閱 <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>手冊頁</a>。"
 
 msgid "Please choose the method to wipe the device."
 msgstr "请选择该设备的擦除方式。"

@@ -1,5 +1,6 @@
 openmediavault-photoprism (6.0.5-1) stable; urgency=low
 
+  * Update locale files.
   * Download container images during first package installation.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 Jul 2022 23:14:02 +0200
