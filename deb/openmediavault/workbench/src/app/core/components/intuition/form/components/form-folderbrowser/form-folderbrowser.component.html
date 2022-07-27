@@ -76,6 +76,25 @@
   <div class="mat-select-panel-wrap">
     <div class="mat-select-panel mat-primary"
          fxLayout="column">
+      <mat-toolbar class="omv-selection-header"
+           fxLayout="row"
+           fxLayoutAlign="end center">
+        <mat-form-field>
+          <button mat-icon-button
+                  matPrefix>
+            <mat-icon svgIcon="{{ icon.search }}"></mat-icon>
+          </button>
+          <input matInput
+                 type="search"
+                 [formControl]="searchFilter">
+          <button mat-icon-button
+                  matSuffix
+                  matTooltip="{{ 'Clear' | translate }}"
+                  (click)="searchFilter.setValue('')">
+            <mat-icon svgIcon="{{ icon.clear }}"></mat-icon>
+          </button>
+        </mat-form-field>
+      </mat-toolbar>
       <div class="omv-scrollable-y">
         <mat-selection-list [multiple]="false"
                             (selectionChange)="onSelectionChange($event)">
@@ -85,7 +104,7 @@
                       svgIcon="{{ icon.folder }}"></mat-icon>
             <span class="mat-option-text">.</span>
           </mat-list-option>
-          <mat-list-option *ngFor="let folder of folders"
+          <mat-list-option *ngFor="let folder of filteredFolders | async"
                            [value]="folder">
             <mat-icon *ngIf="'..' === folder"
                       matListIcon

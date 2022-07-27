@@ -18,11 +18,12 @@
 import { ConnectedPosition } from '@angular/cdk/overlay';
 import { ViewportRuler } from '@angular/cdk/scrolling';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
 import { MatSelectionListChange } from '@angular/material/list';
 import * as _ from 'lodash';
 import { EMPTY, from, Observable, Subject, Subscription } from 'rxjs';
-import { catchError, concatMap, map, takeUntil, tap, toArray } from 'rxjs/operators';
+import { catchError, concatMap, map, startWith, takeUntil, tap, toArray } from 'rxjs/operators';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 import { Icon } from '~/app/shared/enum/icon.enum';
@@ -42,7 +43,9 @@ export class FormFolderbrowserComponent
 
   icon = Icon;
   isOpen = false;
-  folders: Array<string> = [];
+  folders: string[] = [];
+  filteredFolders: Observable<string[]>;
+  searchFilter = new FormControl('');
   triggerRect: ClientRect;
   positions: ConnectedPosition[] = [
     {
@@ -119,6 +122,13 @@ export class FormFolderbrowserComponent
         );
       }
     }
+    // Subscribe to changes of the 'searchFilter' field.
+    this.filteredFolders = this.searchFilter.valueChanges.pipe(
+      startWith(''),
+      map((value: string) =>
+        this.folders.filter((folder: string) => folder.toLowerCase().includes(value.toLowerCase()))
+      )
+    );
   }
 
   ngOnDestroy(): void {
@@ -212,6 +222,7 @@ export class FormFolderbrowserComponent
       }),
       tap((folders) => {
         this.folders = folders;
+        this.searchFilter.setValue('');
       })
     );
   }

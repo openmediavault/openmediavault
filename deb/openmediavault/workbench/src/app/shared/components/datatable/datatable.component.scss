@@ -5,13 +5,16 @@
 // Toolbar
 ::ng-deep omv-datatable .mat-toolbar {
   .mat-button,
-  .mat-icon-button,
-  .mat-form-field.mat-focused {
+  .mat-icon-button {
     color: $omv-color-primary;
   }
 
   .mat-form-field {
     font-size: mat.font-size($omv-typography-config, body-1);
+
+    &.mat-focused {
+      color: $omv-color-primary;
+    }
 
     .mat-form-field-infix {
       padding-bottom: unset;

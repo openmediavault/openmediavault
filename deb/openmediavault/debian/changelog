@@ -1,5 +1,7 @@
 openmediavault (6.0.32-1) stable; urgency=low
 
+  * Various improvements, e.g. sorting the folders and filtering
+    them in the folder browser form field.
   * Issue #1342: Log does not show latest events.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 13 Jul 2022 18:53:31 +0200

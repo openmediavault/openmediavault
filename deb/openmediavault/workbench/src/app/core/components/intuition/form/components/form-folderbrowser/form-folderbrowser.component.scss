@@ -2,8 +2,34 @@
 
 @import 'src/styles';
 
-.mat-list-base .mat-list-option {
-  font-size: mat.font-size($omv-typography-config, body-1);
+.mat-list-base {
+  padding-top: unset;
+
+  .mat-list-option {
+    font-size: mat.font-size($omv-typography-config, body-1);
+  }
+}
+
+.mat-form-field + .mat-form-field {
+  padding-left: 12px;
+}
+
+::ng-deep .mat-toolbar.omv-selection-header {
+  .mat-form-field {
+    font-size: mat.font-size($omv-typography-config, body-1);
+
+    &.mat-focused {
+      color: $omv-color-primary;
+    }
+
+    .mat-form-field-infix {
+      padding-bottom: unset;
+
+      .mat-input-element {
+        color: mat.get-color-from-palette(map-get($omv-light-theme, foreground), text);
+      }
+    }
+  }
 }
 
 .omv-selection-actions {
@@ -17,8 +43,4 @@
   .mat-icon {
     @extend .omv-color-disabled-text;
   }
-}
-
-.mat-form-field + .mat-form-field {
-  padding-left: 12px;
 }
