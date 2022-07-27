@@ -113,6 +113,9 @@ export type FormPageButtonConfig = {
   class?: string;
   // Disable the button. Defaults to 'false'.
   disabled?: boolean;
+  // If set to `true`, the form value will be submitted when the
+  // button is pressed.
+  submit?: boolean;
   // If set, the constraints must succeed to enable the button,
   // otherwise it is disabled.
   enabledConstraint?: Constraint;
