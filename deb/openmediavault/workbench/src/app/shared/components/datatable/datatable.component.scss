@@ -6,7 +6,7 @@
 ::ng-deep omv-datatable .mat-toolbar {
   .mat-button,
   .mat-icon-button,
-  .mat-form-field {
+  .mat-form-field.mat-focused {
     color: $omv-color-primary;
   }
 
