@@ -204,6 +204,7 @@ export class FormFolderbrowserComponent
     const path = this.joinPaths(paths);
     return this.requestData(path).pipe(
       map((res: Array<string>) => {
+        res.sort(Intl.Collator().compare);
         if (paths.length) {
           res.unshift('..');
         }
