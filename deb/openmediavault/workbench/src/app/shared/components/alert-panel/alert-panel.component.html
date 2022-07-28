@@ -1,6 +1,6 @@
 <mat-card [ngClass]="{'omv-display-none': dismissed, 'omv-background-color-theme-info': type === 'info', 'omv-background-color-theme-success': type === 'success', 'omv-background-color-theme-warning': type === 'warning', 'omv-background-color-theme-error': type === 'error', 'omv-background-color-theme-tip': type === 'tip'}">
   <div fxLayout="row">
-    <mat-icon mat-card-avatar
+    <mat-icon class="omv-icon-lg"
               svgIcon="{{ icon }}"></mat-icon>
     <div fxFlex
          fxLayout="column"
