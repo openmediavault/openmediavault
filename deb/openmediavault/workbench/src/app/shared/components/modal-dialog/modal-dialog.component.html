@@ -3,6 +3,7 @@
      fxLayout="row"
      fxLayoutGap="10px">
   <mat-icon *ngIf="config.icon"
+            mat-card-avatar
             svgIcon="{{ config.icon }}">
   </mat-icon>
   <div>{{ config.title | translate }}</div>
