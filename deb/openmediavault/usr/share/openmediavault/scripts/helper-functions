@@ -194,37 +194,44 @@ omv_checkyesno() {
 }
 
 # omv_log <message>
-# Print message to standard out (STDOUT) and syslog.
+# Print a one-liner message to standard out (STDOUT) and syslog.
 omv_log() {
 	omv_msg $*
 	omv_syslog_info $*
 }
 
 # omv_info <message>
-# Print message to standard out (STDOUT) and syslog.
+# Print a one-liner message to standard out (STDOUT) and syslog.
 omv_info() {
 	omv_msg "INFO:" $*
 	omv_syslog_info $*
 }
 
 # omv_warning <message>
-# Print message to standard out (STDOUT) and syslog.
+# Print a one-liner message to standard out (STDOUT) and syslog.
 omv_warning() {
 	omv_msg "WARNING:" $*
 	omv_syslog_warning $*
 }
 
 # omv_error <message>
-# Print message to standard error (STDERR) and syslog.
+# Print a one-liner message to standard error (STDERR) and syslog.
 omv_error() {
 	omv_msg "ERROR:" $* >&2
 	omv_syslog_error $*
 }
 
 # omv_msg <message>
-# Print the message to standard out (STDOUT).
+# Print a one-liner the message to standard out (STDOUT).
 omv_msg() {
 	echo $*
+}
+
+# omv_print <message>
+# Print the message, by keeping the blanks and line breaks, to
+# standard out (STDOUT).
+omv_print() {
+	echo "$*"
 }
 
 # omv_debug <message>
@@ -239,7 +246,7 @@ omv_debug() {
 }
 
 # omv_syslog [-p priority] [-t tag] <message>
-# Log the given message to syslog with priority 'info' by default.
+# Log the given message as one-liner to syslog with priority 'info' by default.
 # See 'man logger' for more information about the optional arguments.
 omv_syslog() {
 	local _tag _priority
@@ -263,25 +270,25 @@ omv_syslog() {
 }
 
 # omv_syslog_info <message>
-# Log the given message to syslog with priority 'info'.
+# Log the given message as one-liner to syslog with priority 'info'.
 omv_syslog_info() {
 	omv_syslog -p "syslog.info" $*
 }
 
 # omv_syslog_warning <message>
-# Log the given message to syslog with priority 'warning'.
+# Log the given message as one-liner to syslog with priority 'warning'.
 omv_syslog_warning() {
 	omv_syslog -p "syslog.warning" $*
 }
 
 # omv_syslog_error <message>
-# Log the given message to syslog with priority 'err'.
+# Log the given message as one-liner to syslog with priority 'err'.
 omv_syslog_error() {
 	omv_syslog -p "syslog.err" $*
 }
 
 # omv_syslog_debug <message>
-# Log the given message to syslog with priority 'debug'.
+# Log the given message as one-liner to syslog with priority 'debug'.
 omv_syslog_debug() {
 	omv_syslog -p "syslog.debug" $*
 }
