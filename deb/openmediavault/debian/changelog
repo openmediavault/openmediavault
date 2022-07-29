@@ -1,6 +1,6 @@
 openmediavault (6.0.33-1) stable; urgency=low
 
-  *
+  * Issue #1365: omv_sysinfo_msg loses leading spaces.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 28 Jul 2022 02:41:16 +0200
 
