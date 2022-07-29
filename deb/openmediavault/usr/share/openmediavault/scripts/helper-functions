@@ -196,35 +196,35 @@ omv_checkyesno() {
 # omv_log <message>
 # Print message to standard out (STDOUT) and syslog.
 omv_log() {
-	omv_msg "$*"
+	omv_msg $*
 	omv_syslog_info $*
 }
 
 # omv_info <message>
 # Print message to standard out (STDOUT) and syslog.
 omv_info() {
-	omv_msg "INFO: ${*}"
+	omv_msg "INFO:" $*
 	omv_syslog_info $*
 }
 
 # omv_warning <message>
 # Print message to standard out (STDOUT) and syslog.
 omv_warning() {
-	omv_msg "WARNING: ${*}"
+	omv_msg "WARNING:" $*
 	omv_syslog_warning $*
 }
 
 # omv_error <message>
 # Print message to standard error (STDERR) and syslog.
 omv_error() {
-	omv_msg "ERROR: ${*}" >&2
+	omv_msg "ERROR:" $* >&2
 	omv_syslog_error $*
 }
 
 # omv_msg <message>
 # Print the message to standard out (STDOUT).
 omv_msg() {
-	echo "$*"
+	echo $*
 }
 
 # omv_debug <message>
@@ -232,7 +232,7 @@ omv_msg() {
 omv_debug() {
 	case ${OMV_DEBUG_SCRIPT} in
 	[Yy][Ee][Ss]|[Tt][Rr][Uu][Ee]|[Oo][Nn]|1)
-		omv_msg "DEBUG: ${*}" 1>&2
+		omv_msg "DEBUG:" $* 1>&2
 		omv_syslog_debug $*
 		;;
 	esac
