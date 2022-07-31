@@ -26,7 +26,7 @@ export type FormFieldConfig = {
   // .--------------------------------------------------------------------.
   // | Type        | Description                                          |
   // |-------------|------------------------------------------------------|
-  // | confObjUuid | This is a hidden field that contains an UUID. By     |
+  // | confObjUuid | This is a hidden field that contains a UUID. By      |
   // |             | default it is set to the UUID that tells the backend |
   // |             | that it should handle the data to create a new       |
   // |             | database configuration object.                       |

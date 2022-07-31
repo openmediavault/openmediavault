@@ -429,7 +429,7 @@ export class FormPageComponent
     // Populate the datamodel identifier field. This must be done here
     // in addition to the `FormComponent`, since the form has not yet
     // been initialized at this point in time and the fields have
-    // therefore not yet been setup.
+    // therefore not yet been set up.
     setupConfObjUuidFields(this.config.fields);
     // Set the default values of the buttons.
     _.forEach(this.config.buttons, (button) => {

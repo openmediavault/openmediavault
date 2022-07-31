@@ -39,7 +39,7 @@ export const flattenFormFieldConfig = (fields: Array<FormFieldConfig>): Array<Fo
   );
 
 /**
- * Helper function to setup 'confObjUuid' form fields.
+ * Helper function to set up 'confObjUuid' form fields.
  */
 export const setupConfObjUuidFields = (fields: Array<FormFieldConfig>) => {
   const filteredFields = _.filter(fields, { type: 'confObjUuid' });
