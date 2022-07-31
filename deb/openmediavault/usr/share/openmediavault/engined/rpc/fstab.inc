@@ -184,11 +184,16 @@ class FsTab extends \OMV\Rpc\ServiceAbstract {
 		if (!is_null($fs) && $fs->exists()) {
 			$fsNames[] = $fs->getCanonicalDeviceFile();
 			$fsNames = array_merge($fsNames, $fs->getDeviceFileSymlinks());
+			// To keep backward compatibility we need to search for
+			// the file system UUID, too.
 			if (TRUE === $fs->hasUuid()) {
-				// To keep backward compatibility we need to search for
-				// the file system UUID, too.
 				$fsNames[] = $fs->getUuid();
 			}
+			// Add the predictable device file, even if this might be
+			// a duplication. Keep in mind that external file system
+			// backends (plugins) are out of our control and might behave
+			// unexpected here.
+			$fsNames[] = $fs->getPredictableDeviceFile();
 		}
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->getByFilter("conf.system.filesystem.mountpoint", [
