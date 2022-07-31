@@ -48,7 +48,12 @@ export class SharedFolderAclFormPageComponent implements OnInit {
   public config: FormPageConfig = {
     fields: [
       {
-        type: 'confObjUuid'
+        type: 'sharedFolderSelect',
+        name: 'uuid',
+        label: gettext('Shared folder'),
+        disabled: true,
+        hasCreateButton: false,
+        value: '{{ _routeParams.uuid }}'
       },
       {
         type: 'folderBrowser',
