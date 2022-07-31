@@ -50,7 +50,7 @@ export class SharedFolderAclFormPageComponent implements OnInit {
       {
         type: 'sharedFolderSelect',
         name: 'uuid',
-        label: gettext('Shared folder'),
+        label: gettext('Name'),
         disabled: true,
         hasCreateButton: false,
         value: '{{ _routeParams.uuid }}'
