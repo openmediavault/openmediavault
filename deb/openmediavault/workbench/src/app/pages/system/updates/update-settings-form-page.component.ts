@@ -31,8 +31,7 @@ export class UpdateSettingsFormPageComponent {
         method: 'getSettings'
       },
       post: {
-        method: 'setSettings',
-        progressMessage: gettext('Please wait, the configuration changes are being applied ...')
+        method: 'setSettings'
       }
     },
     fields: [

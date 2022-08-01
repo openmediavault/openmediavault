@@ -348,6 +348,10 @@ export class FormPageComponent
           }
           if (_.isString(request.post.progressMessage)) {
             this.blockUI.start(translate(request.post.progressMessage));
+          } else {
+            // Show a default progress message because the RPC might
+            // take some while.
+            this.blockUI.start(translate(gettext('Please wait ...')));
           }
           this.rpcService[request.post.task ? 'requestTask' : 'request'](
             request.service,
@@ -356,9 +360,7 @@ export class FormPageComponent
           )
             .pipe(
               finalize(() => {
-                if (_.isString(request.post.progressMessage)) {
-                  this.blockUI.stop();
-                }
+                this.blockUI.stop();
               })
             )
             .subscribe(() => {
