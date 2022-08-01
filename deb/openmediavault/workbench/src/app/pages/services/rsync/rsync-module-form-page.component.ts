@@ -253,7 +253,7 @@ export class RsyncModuleFormPageComponent {
         )
       },
       {
-        type: 'textInput',
+        type: 'textarea',
         name: 'extraoptions',
         label: gettext('Extra options'),
         hint: gettext(
