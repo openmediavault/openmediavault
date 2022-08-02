@@ -87,7 +87,7 @@ msgstr "Läge"
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Se <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manualsidan</a> för mer detaljer."
+msgstr "Se <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manualsidan</a> för mer information."
 
 msgid "Preserve ACLs"
 msgstr "Bevara åtkomstkontrollistor"

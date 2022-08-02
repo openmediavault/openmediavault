@@ -1,5 +1,6 @@
 openmediavault (6.0.33-1) stable; urgency=low
 
+  * Update locale files.
   * Fix bug in rsync.secrets file with multiple users.
   * Allow to add multiple extra options in rsyncd modules.
   * Issue #1364: Display shared folder name in ACL page.

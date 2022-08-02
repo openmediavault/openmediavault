@@ -9,14 +9,14 @@
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2017
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2022
 # Sári Gábor <sari.gabor@gmail.com>, 2018,2022
-# Grawens <szabolcs.szanyi@gmail.com>, 2014-2021
+# Grawens <szabolcs.szanyi@gmail.com>, 2014-2022
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-26 21:22+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2022\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2014-2022\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2349,7 +2349,7 @@ msgstr "Tekintse meg a <a href='http://www.samba.org/samba/docs/man/manpages-3/s
 msgid ""
 "Please check the <a href='https://manpages.debian.org/nfs-kernel-"
 "server/exports.5.html' target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Tekintse meg a <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>kézikönyvet</a> további részletekért."
 
 msgid "Please choose the method to wipe the device."
 msgstr "Kérjük, válassza ki az eszköz törlésének módját. "

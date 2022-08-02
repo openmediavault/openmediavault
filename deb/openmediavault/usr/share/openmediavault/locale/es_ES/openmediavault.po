@@ -2346,7 +2346,7 @@ msgstr "Por favor vea: <a href='http://www.samba.org/samba/docs/man/manpages-3/s
 msgid ""
 "Please check the <a href='https://manpages.debian.org/nfs-kernel-"
 "server/exports.5.html' target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Por favor, revise <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>la pagina del manual</a>, para más detalles."
 
 msgid "Please choose the method to wipe the device."
 msgstr "Por favor elija el método de borrado del disco."
