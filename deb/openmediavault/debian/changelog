@@ -10,7 +10,7 @@ openmediavault (6.0.33-1) stable; urgency=low
   * Fix bug in rsync.secrets file with multiple users.
   * Allow to add multiple extra options in rsyncd modules.
   * Issue #1364: Display shared folder name in ACL page.
-  * Issue #1366: increase the accuracy of the search for existing
+  * Issue #1366: Increase the accuracy of the search for existing
     mount points.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 28 Jul 2022 02:41:16 +0200
