@@ -76,6 +76,7 @@
 
       ::ng-deep .mat-card {
         color: $omv-color-white;
+        backdrop-filter: blur(4px);
         background-color:
           hsla(
             hue($omv-color-corporate-default),
