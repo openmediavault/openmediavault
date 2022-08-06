@@ -1,6 +1,6 @@
 openmediavault (6.0.34-1) stable; urgency=low
 
-  *
+  * Issue #1369: Deploy correct SMB async I/O configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 02 Aug 2022 18:27:46 +0200
 
