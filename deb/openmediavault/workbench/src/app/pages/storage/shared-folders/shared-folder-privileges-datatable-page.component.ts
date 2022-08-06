@@ -40,7 +40,7 @@ export class SharedFolderPrivilegesDatatablePageComponent {
     limit: 0,
     hasFooter: false,
     hasSearchField: true,
-    icon: 'tip',
+    icon: 'information',
     subTitle: gettext(
       // eslint-disable-next-line max-len
       'These settings are used by the services to configure the user and group access rights. Please note that these settings have no effect on file system permissions.'
