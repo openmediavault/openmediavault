@@ -391,6 +391,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.0.34"; then
 			omv_module_set_dirty samba
+			omv_module_set_dirty monit
 		fi
 
 		########################################################################

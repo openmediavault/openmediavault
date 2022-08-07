@@ -1,5 +1,5 @@
 {%- set check_interval = salt['pillar.get']('default:OMV_MONIT_CHECK_INTERVAL', '30') -%}
-{%- set delay_seconds = salt['pillar.get']('default:OMV_MONIT_DELAY_SECONDS', '5') -%}
+{%- set check_start_delay = salt['pillar.get']('default:OMV_MONIT_CHECK_START_DELAY', '30') -%}
 {%- set logfile = salt['pillar.get']('default:OMV_MONIT_LOGFILE', 'syslog facility log_daemon') -%}
 {%- set idfile = salt['pillar.get']('default:OMV_MONIT_IDFILE', '/var/lib/monit/id') -%}
 {%- set statefile = salt['pillar.get']('default:OMV_MONIT_STATEFILE', '/var/lib/monit/state') -%}
@@ -10,7 +10,7 @@
 {%- set email_timeout = salt['pillar.get']('default:OMV_MONIT_EMAIL_TIMEOUT', '5') -%}
 {%- set email_alert_noevents = salt['pillar.get']('default:OMV_MONIT_EMAIL_ALERT_NOTEVENTS', 'action, instance') -%}
 {{ pillar['headers']['multiline'] }}
-set daemon {{ check_interval }} with start delay {{ delay_seconds }}
+set daemon {{ check_interval }} with start delay {{ check_start_delay }}
 set logfile {{ logfile }}
 set idfile {{ idfile }}
 set statefile {{ statefile }}

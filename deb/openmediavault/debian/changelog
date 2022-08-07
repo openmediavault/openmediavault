@@ -1,5 +1,9 @@
 openmediavault (6.0.34-1) stable; urgency=low
 
+  * Let monit wait 30 seconds before it starts checking the
+    services. This should prevent alert messages by giving
+    services enough time to settle up. The delay can be customized
+    via the OMV_MONIT_CHECK_START_DELAY environment variable.
   * Issue #1369: Deploy correct SMB async I/O configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 02 Aug 2022 18:27:46 +0200
