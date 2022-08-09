@@ -44,3 +44,7 @@
     @extend .omv-color-disabled-text;
   }
 }
+
+.mat-select-panel {
+  max-height: 50vh;
+}

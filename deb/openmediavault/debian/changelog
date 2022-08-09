@@ -1,5 +1,6 @@
 openmediavault (6.0.34-1) stable; urgency=low
 
+  * Various UI improvements.
   * Let monit wait 30 seconds before it starts checking the
     services. This should prevent alert messages by giving
     services enough time to settle up. The delay can be customized
