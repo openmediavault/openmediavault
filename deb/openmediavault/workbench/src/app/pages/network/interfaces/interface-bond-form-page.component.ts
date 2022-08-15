@@ -128,18 +128,64 @@ export class InterfaceBondFormPageComponent {
             typeConfig: '{{ slaves | get(0) }}',
             constraint: {
               operator: 'and',
-              arg0: { operator: 'notEmpty', arg0: { prop: 'slaves' } },
-              arg1: { operator: 'empty', arg0: { prop: 'bondprimary' } }
+              arg0: {
+                operator: 'not',
+                arg0: {
+                  operator: 'in',
+                  arg0: { prop: 'bondmode' },
+                  arg1: [4]
+                }
+              },
+              arg1: {
+                operator: 'and',
+                arg0: { operator: 'notEmpty', arg0: { prop: 'slaves' } },
+                arg1: { operator: 'empty', arg0: { prop: 'bondprimary' } }
+              }
+            }
+          },
+          {
+            type: 'value',
+            typeConfig: '',
+            constraint: {
+              operator: 'in',
+              arg0: { prop: 'bondmode' },
+              arg1: [4]
+            }
+          },
+          {
+            type: 'disabled',
+            constraint: {
+              operator: 'in',
+              arg0: { prop: 'bondmode' },
+              arg1: [4]
             }
           }
         ],
         validators: {
-          required: true,
+          requiredIf: {
+            operator: 'not',
+            arg0: {
+              operator: 'in',
+              arg0: { prop: 'bondmode' },
+              arg1: [4]
+            }
+          },
           custom: [
             {
               constraint: {
                 operator: 'if',
-                arg0: { operator: 'notEmpty', arg0: { prop: 'slaves' } },
+                arg0: {
+                  operator: 'and',
+                  arg0: { operator: 'notEmpty', arg0: { prop: 'slaves' } },
+                  arg1: {
+                    operator: 'not',
+                    arg0: {
+                      operator: 'in',
+                      arg0: { prop: 'bondmode' },
+                      arg1: [4]
+                    }
+                  }
+                },
                 arg1: {
                   operator: 'and',
                   arg0: { operator: 'notEmpty', arg0: { prop: 'bondprimary' } },
@@ -157,7 +203,18 @@ export class InterfaceBondFormPageComponent {
             {
               constraint: {
                 operator: 'if',
-                arg0: { operator: 'empty', arg0: { prop: 'slaves' } },
+                arg0: {
+                  operator: 'and',
+                  arg0: { operator: 'empty', arg0: { prop: 'slaves' } },
+                  arg1: {
+                    operator: 'not',
+                    arg0: {
+                      operator: 'in',
+                      arg0: { prop: 'bondmode' },
+                      arg1: [4]
+                    }
+                  }
+                },
                 arg1: {
                   operator: 'in',
                   arg0: { prop: 'bondprimary' },
