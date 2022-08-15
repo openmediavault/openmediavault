@@ -1,5 +1,7 @@
 openmediavault (6.0.35-1) stable; urgency=low
 
+  * Unset smartmontools.service condition check which prevents
+    the service from getting started in virtualized environments.
   * Issue #1371: Bond mode LACP (802.3ad) forces primary device
     erroneously.
   * Issue #1373: Standby scheduled task still uses hibernate
