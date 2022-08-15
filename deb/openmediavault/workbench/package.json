@@ -56,7 +56,7 @@
     "chart.js": "^3.9.1",
     "chartjs-plugin-datalabels": "^2.1.0",
     "core-js": "3.24.1",
-    "dayjs": "^1.11.4",
+    "dayjs": "^1.11.5",
     "lodash": "^4.17.21",
     "ng-block-ui": "^3.0.2",
     "ngx-scrollbar": "~7.6.1",
@@ -66,7 +66,7 @@
     "strip-ansi": "7.0.1",
     "tslib": "^2.4.0",
     "validator": "^13.7.0",
-    "zone.js": "~0.11.7"
+    "zone.js": "~0.11.8"
   },
   "devDependencies": {
     "@angular-builders/jest": "^12.1.2",
@@ -84,7 +84,7 @@
     "@types/jasminewd2": "^2.0.10",
     "@types/jest": "^27.5.2",
     "@types/lodash": "^4.14.182",
-    "@types/node": "^16.11.47",
+    "@types/node": "^16.11.48",
     "@types/nunjucks": "^3.2.1",
     "@types/validator": "^13.7.5",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
