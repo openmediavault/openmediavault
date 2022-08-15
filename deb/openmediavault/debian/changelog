@@ -1,3 +1,10 @@
+openmediavault (6.0.35-1) stable; urgency=low
+
+  * Issue #1373: Standby scheduled task still uses hibernate
+    command despite configuration.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 15 Aug 2022 10:25:22 +0200
+
 openmediavault (6.0.34-1) stable; urgency=low
 
   * Various UI improvements.
@@ -36,11 +43,7 @@ openmediavault (6.0.31-2) stable; urgency=low
     in the 'System | Power Management' page. This setting will
     be used by the scheduled jobs, the 'Power button' action
     and the 'Standby' option in the UI. Defaults to 'Power Off'.
-    Make sure to configure it to your needs. Please note,
-    existing tasks in 'System | Power Management | Scheduled Tasks'
-    will not be migrated and may behave unexpectedly as they
-    execute different commands than configured now. Delete and
-    recreate them to make sure they are doing the right thing.
+    Make sure to configure it to your needs.
   * Issue #1332: Fix translations in confirmation dialog.
   * Issue #1335: Confirmation dialogs are too wide on wider screens.
   * Issue #1343: Improve selection list layout on small screens.

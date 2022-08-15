@@ -40,5 +40,9 @@ class Cron extends \OMV\Engine\Module\ServiceAbstract
 			OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.system.time",
 			[$this, "setDirty"]);
+		$dispatcher->addListener(
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.powermngmnt",
+			[$this, "setDirty"]);
     }
 }

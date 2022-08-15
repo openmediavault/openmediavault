@@ -127,6 +127,11 @@ class PowerMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Set missing configuration object fields.
 		$params['username'] = "root";
 		$params['sendemail'] = FALSE;
+		// Note, pre-filling the 'command' parameter is useless
+		// at this point and is only done to make the database
+		// and constraint checks happy. The 'command' parameter
+		// will be set (based on other power management settings)
+		// during the deployment of the cron job files.
 		switch ($params['type']) {
 		case "reboot":
 			$params['command'] = "systemctl reboot";
@@ -135,18 +140,22 @@ class PowerMgmt extends \OMV\Rpc\ServiceAbstract {
 			$params['command'] = "systemctl poweroff";
 			break;
 		case "standby":
-		    $pm = new \OMV\System\PowerManagement();
-		    if (TRUE === $pm->isStateSupported(
-		            \OMV\System\PowerManagement::STATE_SUSPENDHYBRID))
-		        $params['command'] = "systemctl hybrid-sleep";
-            else if (TRUE === $pm->isStateSupported(
-                    \OMV\System\PowerManagement::STATE_HIBERNATE))
-                $params['command'] = "systemctl hibernate";
-            else if (TRUE === $pm->isStateSupported(
-                    \OMV\System\PowerManagement::STATE_SUSPEND))
-                $params['command'] = "systemctl suspend";
-            else
-                $params['command'] = "systemctl poweroff";
+			$db = \OMV\Config\Database::getInstance();
+			$object = $db->getAssoc("conf.system.powermngmnt");
+			switch ($object['standbymode']) {
+			case "poweroff":
+				$params['command'] = "systemctl poweroff";
+				break;
+			case "suspend":
+				$params['command'] = "systemctl suspend";
+				break;
+			case "hibernate":
+				$params['command'] = "systemctl hibernate";
+				break;
+			case "suspendhybrid":
+				$params['command'] = "systemctl hybrid-sleep";
+				break;
+			}
 			break;
 		}
 		return \OMV\Rpc\Rpc::call("cron", "set", $params, $context);
