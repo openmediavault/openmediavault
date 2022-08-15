@@ -12,5 +12,5 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 {%- else -%}
 @{{ job.execution }}
 {%- endif -%}
-{{ separator }}{{ job.username }}{{ separator }}{{ job.command }} >/dev/null 2>&1
+{{ separator }}{{ job.username }}{{ separator }}{{ 'systemctl ' + (job.type | replace('shutdown', 'poweroff') | replace('standby', config.standbymode) | replace('suspendhybrid', 'hybrid-sleep')) }} >/dev/null 2>&1
 {%- endfor -%}
