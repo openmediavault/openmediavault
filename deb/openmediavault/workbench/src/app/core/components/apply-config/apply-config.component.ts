@@ -51,7 +51,7 @@ export class ApplyConfigComponent {
     this.dialogService
       .open(ModalDialogComponent, {
         data: {
-          template: 'confirmation-critical',
+          template: 'confirmation-danger',
           title: gettext('Apply'),
           message: gettext('Do you really want to apply the configuration changes?')
         }
@@ -92,7 +92,7 @@ export class ApplyConfigComponent {
     this.dialogService
       .open(ModalDialogComponent, {
         data: {
-          template: 'confirmation-critical',
+          template: 'confirmation-danger',
           title: gettext('Undo'),
           message: gettext('Do you really want to undo the configuration changes?')
         }
