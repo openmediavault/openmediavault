@@ -1,5 +1,6 @@
 openmediavault (6.0.35-1) stable; urgency=low
 
+  * Update locale files.
   * Remove checkbox in the confirmation dialog when applying
     or reverting configuration changes.
   * Unset smartmontools.service condition check which prevents

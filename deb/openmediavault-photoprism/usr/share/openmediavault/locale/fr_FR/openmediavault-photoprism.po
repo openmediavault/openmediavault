@@ -9,6 +9,7 @@
 # Pierre Girard <pierre4012@hotmail.com>, 2022
 # Christophe Lherieau <skimpax@gmail.com>, 2022
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2022
+# Mathieu Delplanque, 2022
 # 
 #, fuzzy
 msgid ""
@@ -17,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-26 21:22+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: Stéphane BOCQUET <sbocquet4772@gmail.com>, 2022\n"
+"Last-Translator: Mathieu Delplanque, 2022\n"
 "Language-Team: French (France) (https://www.transifex.com/openmediavault/teams/14254/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,49 +27,49 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "1 GB"
-msgstr ""
+msgstr "1 Go"
 
 msgid "1 MB"
-msgstr ""
+msgstr "1 Mo"
 
 msgid "10 GB"
-msgstr ""
+msgstr "10 Go"
 
 msgid "10 MB"
-msgstr ""
+msgstr "10 Mo"
 
 msgid "100 GB"
-msgstr ""
+msgstr "100 Go"
 
 msgid "100 MB"
-msgstr ""
+msgstr "100 Mo"
 
 msgid "25 GB"
-msgstr ""
+msgstr "25 Go"
 
 msgid "25 MB"
-msgstr ""
+msgstr "25 Mo"
 
 msgid "250 MB"
-msgstr ""
+msgstr "250 Mo"
 
 msgid "5 GB"
-msgstr ""
+msgstr "5 Go"
 
 msgid "5 MB"
-msgstr ""
+msgstr "5 Mo"
 
 msgid "50 GB"
-msgstr ""
+msgstr "50 Go"
 
 msgid "50 MB"
-msgstr ""
+msgstr "50 Mo"
 
 msgid "500 MB"
-msgstr ""
+msgstr "500 Mo"
 
 msgid "Application data"
-msgstr ""
+msgstr "Données de l'application"
 
 msgid "Certificate"
 msgstr "Certificat"
@@ -76,6 +77,8 @@ msgstr "Certificat"
 msgid ""
 "Disable password authentication, WebDAV, and the advanced settings page."
 msgstr ""
+"Désactive l'authentification par mot de passe, le WebDAV et la page de "
+"paramétrages avancés."
 
 msgid "Disabled"
 msgstr "Désactiver"
@@ -90,9 +93,12 @@ msgid ""
 "If enabled, all features that require write permission to the images folder "
 "are disabled, in particular import, upload, and delete."
 msgstr ""
+"Si activé, toutes les fonctions nécessitant la permission d'écriture dans le"
+" dossier images seront désactivées, en particulier l'import, l'envoie et la "
+"suppression."
 
 msgid "Images"
-msgstr ""
+msgstr "Images"
 
 msgid "Import"
 msgstr "Importer"
@@ -101,7 +107,7 @@ msgid "Open UI"
 msgstr ""
 
 msgid "PhotoPrism"
-msgstr ""
+msgstr "PhotoPrism"
 
 msgid ""
 "Please note that the first deployment of the application can take a long "
@@ -129,18 +135,20 @@ msgid ""
 msgstr ""
 
 msgid "The location where to store the application data."
-msgstr ""
+msgstr "Emplacement des données de l'application."
 
 msgid "The maximum size of media files."
 msgstr ""
 
 msgid "Updated PhotoPrism settings."
-msgstr ""
+msgstr "Paramètres de PhotoPrism mis à jour."
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
 " Please do not forget to change the password immediately."
 msgstr ""
+"Utilisez <em>admin:admin</em> pour votre première authentification et "
+"n'oubliez pas de changer ce mot de passe immédiatement."
 
 msgid ""
 "You may optionally mount an import folder from which files can be "

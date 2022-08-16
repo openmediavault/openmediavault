@@ -8,6 +8,7 @@
 # Pierre Girard <pierre4012@hotmail.com>, 2022
 # Axel Cantenys, 2022
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2022
+# Mathieu Delplanque, 2022
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-26 21:22+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
-"Last-Translator: Stéphane BOCQUET <sbocquet4772@gmail.com>, 2022\n"
+"Last-Translator: Mathieu Delplanque, 2022\n"
 "Language-Team: French (France) (https://www.transifex.com/openmediavault/teams/14254/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,22 +26,22 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "1 MiB/s"
-msgstr ""
+msgstr "1 Mo/s"
 
 msgid "1 minute"
 msgstr "1 minute"
 
 msgid "10 MiB/s"
-msgstr ""
+msgstr "10 Mo/s"
 
 msgid "10 minutes"
 msgstr "10 minutes"
 
 msgid "100 MiB/s"
-msgstr ""
+msgstr "100 Mo/s"
 
 msgid "128 KiB/s"
-msgstr ""
+msgstr "128 Ko/s"
 
 msgid "15 minutes"
 msgstr "15 minutes"
@@ -49,7 +50,7 @@ msgid "2 minutes"
 msgstr "2 minutes"
 
 msgid "256 KiB/s"
-msgstr ""
+msgstr "256 Ko/s"
 
 msgid "3 minutes"
 msgstr "3 minutes"
@@ -64,7 +65,7 @@ msgid "5 minutes"
 msgstr "5 minutes"
 
 msgid "512 KiB/s"
-msgstr ""
+msgstr "512 Ko/s"
 
 msgid "60 minutes"
 msgstr "60 minutes"
@@ -90,7 +91,7 @@ msgid "Do not delete local file deletions from OneDrive."
 msgstr ""
 
 msgid "Download only"
-msgstr ""
+msgstr "Réception uniquement"
 
 msgid "Enabled"
 msgstr "Activé"
@@ -102,13 +103,13 @@ msgid "Local first"
 msgstr ""
 
 msgid "Monitor interval"
-msgstr ""
+msgstr "Intervalle de surveillance"
 
 msgid "No remote delete"
 msgstr ""
 
 msgid "OneDrive"
-msgstr ""
+msgstr "OneDrive"
 
 msgid "Rate limit"
 msgstr ""
@@ -117,16 +118,18 @@ msgid "Replicate local state first, before downloading changes from OneDrive."
 msgstr ""
 
 msgid "Replication mode"
-msgstr ""
+msgstr "Mode de réplication"
 
 msgid "Shared folder"
 msgstr "Dossier partagé"
 
 msgid "Skip dot files and folders from syncing."
 msgstr ""
+"Ignorer les fichiers et les dossiers commençant par un '.' de la "
+"synchronisation."
 
 msgid "Skip dotfiles"
-msgstr ""
+msgstr "Ignorer les fichiers commençant par un '.'"
 
 msgid ""
 "The location of the media files. Make sure the user <em>onedrive</em> or "
@@ -134,13 +137,13 @@ msgid ""
 msgstr ""
 
 msgid "The wait time between each sync operation."
-msgstr ""
+msgstr "Intervalle entre chaque synchronisation."
 
 msgid "Updated OneDrive settings."
-msgstr ""
+msgstr "Paramètres OneDrive mis à jour."
 
 msgid "Upload only"
-msgstr ""
+msgstr "Envoi uniquement"
 
 msgid "Upload/Download rate limit."
-msgstr ""
+msgstr "Limite d'envoi/réception."

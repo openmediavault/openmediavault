@@ -10,6 +10,8 @@
 # Jérémy D <bxt@mondedie.fr>, 2018
 # Jonathan Tasseroul <jonathan.tasseroul@gmail.com>, 2021
 # kevin LECLERCQ <nuklearstriker@gmail.com>, 2020
+# Mathieu Delplanque, 2022
+# Mathieu Delplanque, 2022
 # Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2012-2013
 # Pierre Girard <pierre4012@hotmail.com>, 2021
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012-2013
@@ -22,7 +24,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-26 21:22+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
+"Last-Translator: Mathieu Delplanque, 2022\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,7 +51,7 @@ msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s[%s, %s (%d %%) utilisé, %s disponible]"
 
 msgid "%s [%s]"
-msgstr ""
+msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [le %s, %s]"
@@ -67,10 +69,10 @@ msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Consommation minimale avec mise en veille (spindown)"
 
 msgid "1 GiB"
-msgstr ""
+msgstr "1 Go"
 
 msgid "1 MiB"
-msgstr ""
+msgstr "1 Mo"
 
 msgid "1 day"
 msgstr "1 jour"
@@ -91,7 +93,7 @@ msgid "1 year"
 msgstr "1 an"
 
 msgid "10 MiB"
-msgstr ""
+msgstr "10 Mo"
 
 msgid "10 minutes"
 msgstr "10 minutes"
@@ -100,7 +102,7 @@ msgid "10 years"
 msgstr "10 ans"
 
 msgid "100 MiB"
-msgstr ""
+msgstr "100 Mo"
 
 msgid "120 minutes"
 msgstr "120 minutes"
@@ -127,10 +129,10 @@ msgid "192 - Intermediate power usage without standby"
 msgstr "192 - Consommation intermédiaire sans mise en veille"
 
 msgid "2 GiB"
-msgstr ""
+msgstr "2 Go"
 
 msgid "2 MiB"
-msgstr ""
+msgstr "2 Mo"
 
 msgid "2 days"
 msgstr "2 jours"
@@ -154,13 +156,13 @@ msgid "240 minutes"
 msgstr "240 minutes"
 
 msgid "25 MiB"
-msgstr ""
+msgstr "25 Mo"
 
 msgid "25 years"
 msgstr "25 ans"
 
 msgid "250 MiB"
-msgstr ""
+msgstr "250 Mo"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Performance maximale, consommation maximale"
@@ -193,7 +195,7 @@ msgid "330 minutes"
 msgstr "330 minutes"
 
 msgid "4 GiB"
-msgstr ""
+msgstr "4 Go"
 
 msgid "4 days"
 msgstr "4 jours"
@@ -205,7 +207,7 @@ msgid "4 years"
 msgstr "4 ans"
 
 msgid "5 MiB"
-msgstr ""
+msgstr "5 Mo"
 
 msgid "5 days"
 msgstr "5 jours"
@@ -220,10 +222,10 @@ msgid "5 years"
 msgstr "5 ans"
 
 msgid "50 MiB"
-msgstr ""
+msgstr "50 Mo"
 
 msgid "500 MiB"
-msgstr ""
+msgstr "500 Mo"
 
 msgid "6 days"
 msgstr "6 jours"
@@ -238,10 +240,10 @@ msgid "64 - Intermediate power usage with standby"
 msgstr "64 - Consommation intermédiaire avec mise en veille"
 
 msgid "75 MiB"
-msgstr ""
+msgstr "75 Mo"
 
 msgid "750 MiB"
-msgstr ""
+msgstr "750 Mo"
 
 msgid "9 months"
 msgstr "9 mois"
@@ -275,7 +277,7 @@ msgstr "Agir en tant que serveur WINS."
 
 msgid ""
 "Acting as a WINS server and using a WINS server are mutually exclusive."
-msgstr ""
+msgstr "Vous ne pouvez pas activer le serveur WINS et utiliser un serveur WINS en même temps."
 
 msgid "Action"
 msgstr "Action"
@@ -329,7 +331,7 @@ msgid "All"
 msgstr "Tous"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
-msgstr ""
+msgstr "Tous les paquets seront mis à jour. Voulez-vous continuer ?"
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
@@ -340,7 +342,7 @@ msgstr "Permettre aux clients de redémarrer les téléchargements interrompus."
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
-msgstr ""
+msgstr "Autoriser ce serveur à se faire connaître comme un serveur de temps pour les clients Windows"
 
 msgid "Allowed clients"
 msgstr "Clients autorisés"
@@ -395,7 +397,7 @@ msgid "April"
 msgstr "Avril"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Architecture"
 
 msgid "Archive mode"
 msgstr "Mode Archive"
@@ -581,7 +583,7 @@ msgid "CPU Usage"
 msgstr "Utilisation du processeur"
 
 msgid "CPU Utilization"
-msgstr ""
+msgstr "Utilisation du processeur"
 
 msgid "CPU usage"
 msgstr "Processeur"
@@ -767,7 +769,7 @@ msgid "Create"
 msgstr "Créer"
 
 msgid "Create a new file system."
-msgstr ""
+msgstr "Créer un nouveau système de fichier."
 
 msgid "Create file system"
 msgstr "Créer un système de fichiers"
@@ -887,7 +889,7 @@ msgid "Denmark"
 msgstr "Danemark"
 
 msgid "Deny logins which do not have a valid shell."
-msgstr ""
+msgstr "Refuser les connexions qui n’ont pas de shell valide."
 
 msgid "Description"
 msgstr "Description"
@@ -968,34 +970,34 @@ msgid "Disks"
 msgstr "Disques"
 
 msgid "Dismiss"
-msgstr ""
+msgstr "Rejeter"
 
 msgid "Dismiss all"
-msgstr ""
+msgstr "Tout rejeter"
 
 msgid "Display the home directory of the user in the browse list."
-msgstr ""
+msgstr "Affiche le répertoire personnel de l'utilisateur dans la liste de navigation."
 
 msgid "Displays information about the file systems in a grid."
-msgstr ""
+msgstr "Affiche les informations du système de fichier dans une grille."
 
 msgid "Displays information about the file systems in a table."
-msgstr ""
+msgstr "Affiche les informations du système de fichier dans une table."
 
 msgid "Displays information about the network interfaces in a grid."
-msgstr ""
+msgstr "Affiche les informations des interfaces réseaux dans une grille."
 
 msgid "Displays information about the network interfaces in a table."
-msgstr ""
+msgstr "Affiche les informations des interfaces réseaux dans une table."
 
 msgid "Displays information about the services in a grid."
-msgstr ""
+msgstr "Affiche les informations des services dans une grille."
 
 msgid "Displays information about the services in a table."
-msgstr ""
+msgstr "Affiche les informations des services dans une table."
 
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
-msgstr ""
+msgstr "Affiche les informations S.M.A.R.T. de tous les disques surveillés."
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1004,7 +1006,7 @@ msgid "Do you really want to apply the configuration changes?"
 msgstr "Voulez-vous vraiment appliquer les modifications de configuration ?"
 
 msgid "Do you really want to copy the privileges from the shared folder?"
-msgstr ""
+msgstr "Voulez-vous vraiment copier les privilèges à partir du dossier partagé ?"
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -1138,7 +1140,7 @@ msgid "Enable recycle bin"
 msgstr "Activer la poubelle"
 
 msgid "Enable remote logging of syslog to the specified host."
-msgstr ""
+msgstr "Active la journalisation à distance sur l’hôte spécifié."
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
@@ -1281,7 +1283,7 @@ msgstr "Les fichiers dans la poubelle seront automatiquement supprimés après l
 msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
-msgstr ""
+msgstr "Les fichiers dont la taille est supérieure au nombre spécifié ne seront pas placés dans la poubelle."
 
 msgid "Filesize"
 msgstr "Taille de fichier"
@@ -1413,7 +1415,7 @@ msgid "Haiti"
 msgstr "Haitï"
 
 msgid "Hardware Address"
-msgstr ""
+msgstr "Adresse matérielle"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Île Heard et Îles McDonald"
@@ -1431,7 +1433,7 @@ msgid "Hide dot files"
 msgstr "Cacher les fichiers systèmes"
 
 msgid "Home"
-msgstr ""
+msgstr "Accueil"
 
 msgid "Home directories"
 msgstr "Répertoires personnels"
@@ -1891,7 +1893,7 @@ msgid "Max. passive port"
 msgstr "Port passif max."
 
 msgid "Maximum"
-msgstr ""
+msgstr "Maximum"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Vitesse réception max. (Ko/s)"
@@ -1930,7 +1932,7 @@ msgid "Members"
 msgstr "Membres"
 
 msgid "Memory"
-msgstr ""
+msgstr "Mémoire"
 
 msgid "Memory Usage"
 msgstr "Utilisation de la mémoire"
@@ -2005,7 +2007,7 @@ msgid "Monitoring"
 msgstr "Surveillance"
 
 msgid "Monitoring enabled"
-msgstr ""
+msgstr "Surveillance activée"
 
 msgid "Month"
 msgstr "Mois"
@@ -2023,13 +2025,13 @@ msgid "Mount"
 msgstr "Monter"
 
 msgid "Mount Options"
-msgstr ""
+msgstr "Options de montage"
 
 msgid "Mount Point"
 msgstr "Point de montage"
 
 msgid "Mount an existing file system."
-msgstr ""
+msgstr "Monter un système de fichier existant."
 
 msgid "Mounted"
 msgstr "Monté"
@@ -2173,7 +2175,7 @@ msgid "OK"
 msgstr "OK"
 
 msgid "Obsolete cached data found. Page will be reloaded."
-msgstr ""
+msgstr "Données obsolètes en cache. La page sera réactualisée."
 
 msgid "Occurrence"
 msgstr "Occurence"
@@ -2355,7 +2357,7 @@ msgstr "Voir la <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf
 msgid ""
 "Please check the <a href='https://manpages.debian.org/nfs-kernel-"
 "server/exports.5.html' target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Veuillez vous référer aux <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>pages du manuel</a> pour plus de détails."
 
 msgid "Please choose the method to wipe the device."
 msgstr "Veuillez choisir la méthode pour effacer le périphérique."
@@ -2400,7 +2402,7 @@ msgid "Please wait, updating access control lists ..."
 msgstr "Veuillez patienter, mise à jour de la liste de contrôle d'accès..."
 
 msgid "Please wait, updating the permissions ..."
-msgstr ""
+msgstr "Veuillez patienter, mise à jour des permissions..."
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -2625,11 +2627,11 @@ msgstr "Rapport"
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report."
-msgstr ""
+msgstr "Notifie si la température a changé d'au moins N degrés Celsius depuis la dernière vérification."
 
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius."
-msgstr ""
+msgstr "Notifie si la température est supérieure ou égale à N degrés Celsius."
 
 msgid "Repository"
 msgstr "Dépôt"
@@ -2839,7 +2841,7 @@ msgid "Select a type ..."
 msgstr "Sélectionner un type ..."
 
 msgid "Select all"
-msgstr ""
+msgstr "Tout sélectionner"
 
 msgid "Select an authentication mode ..."
 msgstr "Sélectionnez un mode d'authentification..."
@@ -3129,7 +3131,7 @@ msgid "Standby"
 msgstr "Standby"
 
 msgid "Standby mode"
-msgstr ""
+msgstr "Mode veille"
 
 msgid "Start"
 msgstr "Démarrer"
@@ -3210,13 +3212,13 @@ msgid "System account"
 msgstr "Comptes système"
 
 msgid "System monitoring is disabled. To enable it, please go to the"
-msgstr ""
+msgstr "La surveillance du système est désactivée. Pour l'activer, merci d'aller au"
 
 msgid "System time"
 msgstr "Date système"
 
 msgid "TCP"
-msgstr ""
+msgstr "TCP"
 
 msgid "TCP forwarding"
 msgstr "Transmission TCP"
@@ -3278,7 +3280,7 @@ msgid "The data has been copied to the clipboard."
 msgstr "Les données ont été copiées dans le presse-papiers."
 
 msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
-msgstr ""
+msgstr "Port du serveur de messagerie SMTP (ex: 25, 465 ou 587)."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3286,7 +3288,7 @@ msgid ""
 msgstr "Le serveur distant de destination (ex: [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST)."
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "Le champ peut seulement contenir * ou une liste de valeurs séparées par une virgule."
 
 msgid "The file mode of the shared folder path."
 msgstr "Les droits assignés au dossier partagé."
@@ -3481,7 +3483,7 @@ msgid ""
 msgstr "Ce champ doit contenir un masque de réseau compris dans la plage allant de 128.0.0.0 à 255.255.255.252."
 
 msgid "This field should be a network port in the range of 1 to 65535."
-msgstr ""
+msgstr "Ce champ doit être un port dans la plage allant de 1 à 65535"
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
@@ -3500,13 +3502,13 @@ msgid "This field should be an email address."
 msgstr "Ce champ doit contenir une adresse de courriel."
 
 msgid "This field should contain a decimal value."
-msgstr ""
+msgstr "Ce champ doit contenir une valeur décimale."
 
 msgid "This field should contain a number with a binary prefix."
-msgstr ""
+msgstr "Ce champ doit contenir un nombre avec un préfixe binaire."
 
 msgid "This field should contain a numeric value."
-msgstr ""
+msgstr "Ce champ doit contenir une valeur numérique."
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Cette fonction n'est effective que si le disque dur la supporte."
@@ -3599,10 +3601,10 @@ msgid "This specifies what to do if the packet matches."
 msgstr "Cela spécifie que qui doit être fait lorsque le paquet correspond."
 
 msgid "This will create a recycle bin for each user home directory."
-msgstr ""
+msgstr "Cela créera une poubelle pour chaque répertoire personnel."
 
 msgid "This will create a recycle bin for the share."
-msgstr ""
+msgstr "Cela créera une poubelle dans le partage."
 
 msgid "Threshold"
 msgstr "Seuil"
@@ -3691,7 +3693,7 @@ msgid "U.S. Virgin Islands"
 msgstr "Îles vierges américaines"
 
 msgid "UDP"
-msgstr ""
+msgstr "UDP"
 
 msgid "UID"
 msgstr "UID"
@@ -3815,7 +3817,7 @@ msgid "Updated date & time settings."
 msgstr "Paramètres de date et d'heure mis à jour."
 
 msgid "Updated file system settings."
-msgstr ""
+msgstr "Paramètres du système de fichiers mis à jour."
 
 msgid "Updated firewall rule."
 msgstr "Règle de pare-feu mise à jour."
@@ -3857,7 +3859,7 @@ msgid "Updated quota."
 msgstr "Quota mis à jour."
 
 msgid "Updated remote system-logs settings."
-msgstr ""
+msgstr "Paramètres des journaux système distants mis à jour."
 
 msgid "Updated scheduled task."
 msgstr "Tâche planifiée mise à jour."
@@ -3866,7 +3868,7 @@ msgid "Updated settings."
 msgstr "Paramètres mis à jour."
 
 msgid "Updated shared folder."
-msgstr ""
+msgstr "Dossier partagé mis à jour."
 
 msgid "Updated update management settings."
 msgstr "Paramètres de gestion des mises à jour mis à jour."
@@ -3902,7 +3904,7 @@ msgid "Uruguay"
 msgstr "Uruguay"
 
 msgid "Usage"
-msgstr ""
+msgstr "Utilisation"
 
 msgid "Usage Warning Threshold"
 msgstr "Seuil d'avertissement d'utilisation"
@@ -3946,7 +3948,7 @@ msgid "User Management"
 msgstr "Gestion des utilisateurs"
 
 msgid "User Settings"
-msgstr ""
+msgstr "Préférences utilisateur"
 
 msgid "User home directory"
 msgstr "Répertoires personnels des utilisateurs"
@@ -3963,7 +3965,7 @@ msgstr "Utilisateurs"
 msgid ""
 "Users must be assigned to the <em>ssh</em> group to be able to log in via "
 "SSH."
-msgstr ""
+msgstr "Les utilisateurs devront être ajoutés au groupe <em>ssh</em> pour pouvoir se connecter via SSH."
 
 msgid "Uzbekistan"
 msgstr "Ouzbékistan"
@@ -4088,7 +4090,7 @@ msgid "Yes"
 msgstr "Oui"
 
 msgid "Your changes will be lost. Do you want to continue?"
-msgstr ""
+msgstr "Vos changements seront perdus. Voulez-vous continuer ?"
 
 msgid "Your profile"
 msgstr "Votre profil"

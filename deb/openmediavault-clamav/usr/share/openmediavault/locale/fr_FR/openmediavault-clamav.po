@@ -263,7 +263,7 @@ msgid "Sunday"
 msgstr "Dimanche"
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "Le champ peut seulement contenir * ou une liste de valeur séparées par une virgule."
 
 msgid "The location of the files to scan on-access."
 msgstr "L'emplacement des fichiers à analyser lors de l'accès."

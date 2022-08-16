@@ -1,5 +1,6 @@
 openmediavault-onedrive (6.2.4-1) stable; urgency=low
 
+  * Update locale files.
   * Add some more 'Monitor interval' options. Please keep
     in mind that this also affects the full scan frequency.
     You can use the OMV_ONEDRIVE_MONITORFULLSCANFREQUENCY

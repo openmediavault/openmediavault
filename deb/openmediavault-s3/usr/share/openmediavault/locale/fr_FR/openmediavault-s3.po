@@ -10,6 +10,7 @@
 # Axel Cantenys, 2022
 # kevin LECLERCQ <nuklearstriker@gmail.com>, 2022
 # Christophe Lherieau <skimpax@gmail.com>, 2022
+# Mathieu Delplanque, 2022
 # 
 #, fuzzy
 msgid ""
@@ -18,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-26 21:22+0200\n"
 "PO-Revision-Date: 2022-03-25 19:15+0000\n"
-"Last-Translator: Christophe Lherieau <skimpax@gmail.com>, 2022\n"
+"Last-Translator: Mathieu Delplanque, 2022\n"
 "Language-Team: French (France) (https://www.transifex.com/openmediavault/teams/14254/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +52,7 @@ msgid "Port to listen on."
 msgstr "Port à écouter."
 
 msgid "S3"
-msgstr ""
+msgstr "S3"
 
 msgid "Shared folder"
 msgstr "Dossier partagé"
@@ -65,13 +66,13 @@ msgid ""
 msgstr ""
 
 msgid "The name of the root user."
-msgstr ""
+msgstr "Nom de l'utilisateur root."
 
 msgid "The password of the root user."
-msgstr ""
+msgstr "Mot de passe de l'utilisateur root."
 
 msgid "Updated S3 settings."
-msgstr ""
+msgstr "Paramètres S3 mis à jour."
 
 msgid "Web interface"
-msgstr ""
+msgstr "Interface Web"
