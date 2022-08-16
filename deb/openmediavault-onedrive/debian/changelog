@@ -1,3 +1,13 @@
+openmediavault-onedrive (6.2.4-1) stable; urgency=low
+
+  * Add some more 'Monitor interval' options. Please keep
+    in mind that this also affects the full scan frequency.
+    You can use the OMV_ONEDRIVE_MONITORFULLSCANFREQUENCY
+    environment variable to customize this multiplier if
+    needed (defaults to 12).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 16 Aug 2022 18:13:02 +0200
+
 openmediavault-onedrive (6.2.3-1) stable; urgency=low
 
   * Issue #1351: Do not set 'force_http_2'.

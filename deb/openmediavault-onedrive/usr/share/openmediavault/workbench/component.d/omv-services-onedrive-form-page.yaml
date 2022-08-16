@@ -68,6 +68,12 @@ data:
               - _("30 minutes")
             - - 3600
               - _("60 minutes")
+            - - 21600
+              - _("6 hours")
+            - - 43200
+              - _("12 hours")
+            - - 86400
+              - _("24 hours")
       - type: select
         name: ratelimit
         label: _("Rate limit")
