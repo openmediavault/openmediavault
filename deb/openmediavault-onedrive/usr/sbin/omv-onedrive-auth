@@ -26,8 +26,7 @@ if [ $enabled ]; then
   systemctl stop onedrive.service || true
 fi
 
-rm -f /var/cache/onedrive/refresh_token
-sudo -u onedrive onedrive --confdir /var/cache/onedrive --resync --resync-auth
+sudo -u onedrive onedrive --confdir /var/cache/onedrive --reauth
 
 if [ $enabled ]; then
   echo "Please wait, restarting service ..."
