@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "upgrade": "ncu -u --target minor",
     "start": "ng serve --port 4201",
     "build": "ng build",
     "build:prod": "ng build --configuration production --verbose",
