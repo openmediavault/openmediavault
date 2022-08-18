@@ -21,6 +21,9 @@
 
 set -e
 
+# Disable the Debian backport repositories.
+sed -i '/-backports/s/^/#/' /etc/apt/sources.list
+
 # Append user 'vagrant' to group 'ssh', otherwise the user is not allowed
 # to log in via SSH.
 usermod --groups ssh --append vagrant
