@@ -29,6 +29,7 @@ export class UserDatatablePageComponent {
     autoReload: false,
     remoteSorting: true,
     remotePaging: true,
+    remoteSearching: true,
     hasSearchField: true,
     rowId: 'name',
     rowEnumFmt: '{{ name }}',

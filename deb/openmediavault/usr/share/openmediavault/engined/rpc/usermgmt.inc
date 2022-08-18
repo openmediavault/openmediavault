@@ -377,7 +377,8 @@ finish:
 		}
 		// Filter the result.
 		return $this->applyFilter($users, $params['start'],
-		  $params['limit'], $params['sortfield'], $params['sortdir']);
+			$params['limit'], $params['sortfield'], $params['sortdir'],
+			$params['search']);
 	}
 
 	/**
@@ -798,7 +799,8 @@ finish:
 		}
 		// Filter result.
 		return $this->applyFilter($groups, $params['start'],
-		  $params['limit'], $params['sortfield'], $params['sortdir']);
+			$params['limit'], $params['sortfield'], $params['sortdir'],
+			$params['search']);
 	}
 
 	/**

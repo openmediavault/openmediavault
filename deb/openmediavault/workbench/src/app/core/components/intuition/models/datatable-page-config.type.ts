@@ -49,17 +49,21 @@ export type DatatablePageConfig = {
   limit?: number;
   // If set to `true`, the parameters `start` and `limit` from the data
   // table paging component are added to the RPC request parameters.
+  // Defaults to `false`.
   remotePaging?: boolean;
   // If set to `true`, the sorting order and property name of the current
   // active column of the data table are added as parameters `sortdir` and
-  // `sortfield` to the RPC request parameters.
+  // `sortfield` to the RPC request parameters. Defaults to `false`.
   remoteSorting?: boolean;
   // If set to `true`, the content of the search field of the data table
   // is added as parameter `search` to the RPC request parameters.
+  // Defaults to `false`.
   remoteSearching?: boolean;
   // Automatically load the data after datatable has been initialized.
+  // Defaults to `true`.
   autoLoad?: boolean;
   // The frequency in milliseconds with which the data should be reloaded.
+  // Defaults to `false`.
   autoReload?: boolean | number;
   sorters?: Array<Sorter>;
   store?: DataStore;
