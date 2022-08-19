@@ -22,8 +22,12 @@
 {%- set follow_symlinks = salt['pillar.get']('default:OMV_SAMBA_SHARE_FOLLOWSYMLINKS', 'yes') -%}
 {%- set fruit_locking = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_LOCKING', 'none') -%}
 {%- set fruit_encoding = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_ENCODING', 'private') -%}
-{%- set fruit_metadata = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_METADATA', 'netatalk') -%}
+{%- set fruit_metadata = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_METADATA', 'stream') -%}
 {%- set fruit_resource = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_RESOURCE', 'file') -%}
+{%- set fruit_veto_appledouble = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_VETOAPPLEDOUBLE', 'no') -%}
+{%- set fruit_nfs_aces = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_NFSACES', 'no') -%}
+{%- set fruit_wipe_intentionally_left_blank_rfork = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_WIPEINTENTIONALLYLEFTBLANKRFORK', 'yes') -%}
+{%- set fruit_delete_empty_adfiles = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_DELETEEMPTYADFILES', 'yes') -%}
 #======================= Share Definitions =======================
 {%- for share in config.shares.share | selectattr('enable') %}
 [{{ salt['omv_conf.get_sharedfolder_name'](share.sharedfolderref) }}]
@@ -57,6 +61,10 @@ fruit:encoding = {{ fruit_encoding }}
 fruit:locking = {{ fruit_locking }}
 fruit:metadata = {{ fruit_metadata }}
 fruit:resource = {{ fruit_resource }}
+fruit:veto_appledouble = {{ fruit_veto_appledouble }}
+fruit:nfs_aces = {{ fruit_nfs_aces }}
+fruit:wipe_intentionally_left_blank_rfork = {{ fruit_wipe_intentionally_left_blank_rfork }}
+fruit:delete_empty_adfiles = {{ fruit_delete_empty_adfiles }}
 fruit:time machine = yes
 {%- endif %}
 {%- if share.recyclebin | to_bool %}

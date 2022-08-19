@@ -20,6 +20,7 @@
 # Documentation/Howto:
 # http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/AccessControls.html#id2611892
 # http://us5.samba.org/samba/docs/man/manpages-3/smb.conf.5.html
+# https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
 # http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
 # http://oreilly.com/catalog/samba/chapter/book/ch06_02.html
 # https://www.bsi.bund.de/ContentBSI/grundschutz/kataloge/m/m04/m04332.html

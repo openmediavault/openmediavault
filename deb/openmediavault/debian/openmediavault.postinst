@@ -396,6 +396,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "6.0.35"; then
 			omv_module_set_dirty cron
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.36"; then
+			omv_module_set_dirty samba
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the

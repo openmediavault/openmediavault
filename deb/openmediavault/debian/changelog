@@ -1,6 +1,14 @@
 openmediavault (6.0.36-1) stable; urgency=low
 
   * Enable remote searching in user/group management pages.
+  * Adapted Samba vfs_fruit settings according to the wiki to
+    better work with Mac OS X.
+    The following environment variables have been introduced
+    to customize these settings:
+    - OMV_SAMBA_SHARE_FRUIT_VETOAPPLEDOUBLE (defaults to 'no')
+    - OMV_SAMBA_SHARE_FRUIT_NFSACES (defaults to 'no')
+    - OMV_SAMBA_SHARE_FRUIT_WIPEINTENTIONALLYLEFTBLANKRFORK (defaults to 'yes')
+    - OMV_SAMBA_SHARE_FRUIT_DELETEEMPTYADFILES (defaults to 'yes')
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 18 Aug 2022 10:16:56 +0200
 
