@@ -466,7 +466,7 @@ export class CustomValidators {
               case 'focused':
                 if (fulfilled) {
                   setTimeout(() => {
-                    element.focus();
+                    nativeElement.focus();
                   });
                 }
                 break;
