@@ -27,6 +27,8 @@ export class NativeElementDirective implements OnInit {
   constructor(private elementRef: ElementRef, private control: NgControl) {}
 
   ngOnInit(): void {
-    _.set(this.control.control, 'nativeElement', this.elementRef.nativeElement);
+    if (this.control.control) {
+      _.set(this.control.control, 'nativeElement', this.elementRef.nativeElement);
+    }
   }
 }

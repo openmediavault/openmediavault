@@ -417,7 +417,7 @@ export class CustomValidators {
       if (!control.parent) {
         return null;
       }
-      // Ensure to not subscribe to changes of the own control.
+      // Ensure to not subscribe to value changes of the own control.
       _.pull(props, getControlName(control));
       // Subscribe to value changes for all fields involved.
       if (!hasSubscribed) {
@@ -426,8 +426,8 @@ export class CustomValidators {
         props.forEach((path) => {
           const pathControl = control.parent.get(path);
           pathControl.valueChanges.subscribe(() => {
-            const element: HTMLElement = _.get(control, 'nativeElement');
-            const formFieldElement = element && element.closest('.mat-form-field');
+            const nativeElement: HTMLElement = _.get(control, 'nativeElement');
+            const formFieldElement = nativeElement && nativeElement.closest('.mat-form-field');
             const values = _.merge({}, context, getFormValues(control));
             const fulfilled = ConstraintService.test(constraint, values);
             switch (type) {
