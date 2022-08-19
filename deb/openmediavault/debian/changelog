@@ -9,6 +9,7 @@ openmediavault (6.0.36-1) stable; urgency=low
     - OMV_SAMBA_SHARE_FRUIT_NFSACES (defaults to 'no')
     - OMV_SAMBA_SHARE_FRUIT_WIPEINTENTIONALLYLEFTBLANKRFORK (defaults to 'yes')
     - OMV_SAMBA_SHARE_FRUIT_DELETEEMPTYADFILES (defaults to 'yes')
+  * Issue #1378: Validate SMB workgroup name.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 18 Aug 2022 10:16:56 +0200
 

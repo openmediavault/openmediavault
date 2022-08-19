@@ -143,6 +143,7 @@ export type FormFieldConfig = {
       | 'domainNameList'
       | 'domainNameIp'
       | 'domainNameIpList'
+      | 'netbiosName'
       | 'port'
       | 'time'
       | 'numeric'

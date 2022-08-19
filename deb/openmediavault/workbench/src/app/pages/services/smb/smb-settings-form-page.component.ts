@@ -49,7 +49,8 @@ export class SmbSettingsFormPageComponent {
         value: 'WORKGROUP',
         hint: gettext('The workgroup the server will appear to be in when queried by clients.'),
         validators: {
-          required: true
+          required: true,
+          patternType: 'netbiosName'
         }
       },
       {

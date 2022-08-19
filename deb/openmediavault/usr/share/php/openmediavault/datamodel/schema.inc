@@ -51,7 +51,7 @@ class Schema extends \OMV\Json\Schema {
 			case "devicefile":
 				if (!preg_match('/^\/dev(\/disk\/by-id)?\/.+$/i', $value)) {
 					throw new \OMV\Json\SchemaValidationException(
-					  "%s: The value '%s' is no device file.",
+					  "%s: The value '%s' is not a device file.",
 					  $name, $value);
 				}
 				break;
@@ -59,21 +59,21 @@ class Schema extends \OMV\Json\Schema {
 				if (!preg_match('/^(?!.*[\/]\.{2}[\/])(?!\.{2}[\/])'.
 				  '[-\w.\/@ ]+$/u', $value)) {
 					throw new \OMV\Json\SchemaValidationException(
-					  "%s: The value '%s' is no valid directory path.",
+					  "%s: The value '%s' is not a valid directory path.",
 					  $name, $value);
 				}
 				break;
 			case "sshpubkey-openssh":
 				if (!\OMV\Ssh\PublicKey::isOpenSSH($value)) {
 					throw new \OMV\Json\SchemaValidationException(
-					  "%s: The value '%s' is no SSH public key (OpenSSH).",
+					  "%s: The value '%s' is not a SSH public key (OpenSSH).",
 					  $name, $value);
 				}
 				break;
 			case "sshpubkey-rfc4716":
 				if (!\OMV\Ssh\PublicKey::isRfc4716($value)) {
 					throw new \OMV\Json\SchemaValidationException(
-					  "%s: The value '%s' is no SSH public key (RFC4716).",
+					  "%s: The value '%s' is not a SSH public key (RFC4716).",
 					  $name, $value);
 				}
 				break;
@@ -81,7 +81,7 @@ class Schema extends \OMV\Json\Schema {
 				if (!preg_match('/^-----BEGIN RSA PRIVATE KEY-----(\n|\r|\f)(.+)'.
 				  '(\n|\r|\f)-----END RSA PRIVATE KEY-----$/sm', $value)) {
 					throw new \OMV\Json\SchemaValidationException(
-					  "%s: The value '%s' is no SSH private key (RSA).",
+					  "%s: The value '%s' is not a SSH private key (RSA).",
 					  $name, $value);
 				}
 				break;
@@ -100,7 +100,7 @@ class Schema extends \OMV\Json\Schema {
 				if (!preg_match('/^[^.]([^"/\\\[\]:+|<>=;,*?. ]+){0,1}([.]'.
 				  '[^"/\\\[\]:+|<>=;,*?. ]+){0,}$/', $value)) {
 					throw new \OMV\Json\SchemaValidationException(
-					  "%s: The value '%s' is no valid share name.",
+					  "%s: The value '%s' is not a valid share name.",
 					  $name, $value);
 				}
 				break;
@@ -109,7 +109,7 @@ class Schema extends \OMV\Json\Schema {
 				if (!preg_match('/^[_.A-Za-z0-9][-\@_.A-Za-z0-9]*\$?$/',
 				  $value)) {
 					throw new \OMV\Json\SchemaValidationException(
-					  "%s: The value '%s' is no valid user name.",
+					  "%s: The value '%s' is not a valid user name.",
 					  $name, $value);
 				}
 				break;
@@ -119,7 +119,16 @@ class Schema extends \OMV\Json\Schema {
 				  '[a-zA-Z0-9])?([.][a-zA-Z0-9]([-a-zA-Z0-9]{0,61}'.
 				  '[a-zA-Z0-9])?)*$/', $value)) {
 					throw new \OMV\Json\SchemaValidationException(
-					  "%s: The value '%s' is no valid domain name.",
+					  "%s: The value '%s' is not a valid domain name.",
+					  $name, $value);
+				}
+				break;
+			case "netbiosname":
+				// https://github.com/samba-team/samba/blob/samba-4.13.13/python/samba/__init__.py#L317
+				if (!preg_match('/^[\w !#$%&\'()\-.@^_{}~]{1,15}$/',
+				  $value)) {
+					throw new \OMV\Json\SchemaValidationException(
+					  "%s: The value '%s' is not a valid NetBIOS name.",
 					  $name, $value);
 				}
 				break;

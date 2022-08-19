@@ -13,7 +13,8 @@
 		},
 		"workgroup": {
 			"type": "string",
-			"default": "WORKGROUP"
+			"default": "WORKGROUP",
+			"format": "netbiosname"
 		},
 		"serverstring": {
 			"type": "string",

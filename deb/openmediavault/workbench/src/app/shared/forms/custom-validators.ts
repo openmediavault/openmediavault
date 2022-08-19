@@ -53,6 +53,8 @@ const regExp = {
   // See http://shauninman.com/archive/2006/05/08/validating_domain_names
   domainName:
     /^[a-zA-Z0-9]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?([.][a-zA-Z0-9]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?)*$/,
+  // https://github.com/samba-team/samba/blob/samba-4.13.13/python/samba/__init__.py#L317
+  netbiosName: /^[\w !#$%&'()\-.@^_{}~]{1,15}$/,
   port: /^([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$/,
   numeric: /^[-]?\d+$/,
   decimal: /^[-]?\d+(.\d+)?$/,
@@ -330,6 +332,8 @@ export class CustomValidators {
             return regExp.domainName.test(part) || validator.isIP(part);
           });
         }, gettext('This field should be a list of domain names or IP addresses.'));
+      case 'netbiosName':
+        return CustomValidators.pattern(regExp.netbiosName, gettext('Invalid NetBIOS name.'));
       case 'port':
         return CustomValidators.pattern(
           regExp.port,

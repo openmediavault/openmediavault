@@ -329,6 +329,34 @@ describe('CustomValidators', () => {
       });
     });
 
+    describe('netbiosName', () => {
+      let validator: ValidatorFn;
+
+      beforeEach(() => {
+        validator = CustomValidators.patternType('netbiosName');
+      });
+
+      it('should validate netbiosName [1]', () => {
+        formControl.setValue('WORKGROUP');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate netbiosName [2]', () => {
+        formControl.setValue('F!OO-%&B^AR_');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should not validate netbiosName [1]', () => {
+        formControl.setValue('REWARDEDIVANSNAS');
+        expect(validator(formControl)).toEqual({ pattern: 'Invalid NetBIOS name.' });
+      });
+
+      it('should not validate netbiosName [2]', () => {
+        formControl.setValue('FOO]BAR');
+        expect(validator(formControl)).toEqual({ pattern: 'Invalid NetBIOS name.' });
+      });
+    });
+
     describe('numeric', () => {
       let validator: ValidatorFn;
 

@@ -124,4 +124,36 @@ class test_openmediavault_datamodel_schema extends \PHPUnit\Framework\TestCase {
 		$schema->checkFormat("/media/a/../../b/c",
 			[ "format" => "dirpath" ], "field1");
 	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testCheckFormatNetbios1() {
+		$schema = $this->getSchema();
+		$schema->checkFormat("WORKGROUP",
+			[ "format" => "netbiosname" ], "field1");
+	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testCheckFormatNetbios2() {
+		$schema = $this->getSchema();
+		$schema->checkFormat("F!OO-%&B^AR_",
+			[ "format" => "netbiosname" ], "field1");
+	}
+
+	public function testCheckFormatNetbios3() {
+		$schema = $this->getSchema();
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$schema->checkFormat("REWARDEDIVANSNAS",
+			[ "format" => "netbiosname" ], "field1");
+	}
+
+	public function testCheckFormatNetbios4() {
+		$schema = $this->getSchema();
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$schema->checkFormat("FOO]BAR",
+			[ "format" => "netbiosname" ], "field1");
+	}
 }
