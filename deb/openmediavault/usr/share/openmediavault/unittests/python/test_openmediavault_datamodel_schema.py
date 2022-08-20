@@ -181,6 +181,32 @@ class SchemaTestCase(unittest.TestCase):
                 "-----END RSA PRIVATE KEY-----",
                 {"format": "sshprivkey-rsa"}, "foo"))
 
+    def test_check_format_netbiosname_1(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("WORKGROUP", {"format": "netbiosname"}, "field1")
+
+    def test_check_format_netbiosname_2(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("F!OO-%&B^AR_", {"format": "netbiosname"}, "field1")
+
+    def test_check_format_netbiosname_fail_1(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "REWARDEDIVANSNAS", {"format": "netbiosname"}, "field1"
+            )
+        )
+
+    def test_check_format_netbiosname_fail_2(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "FOO]BAR", {"format": "netbiosname"}, "field1"
+            )
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

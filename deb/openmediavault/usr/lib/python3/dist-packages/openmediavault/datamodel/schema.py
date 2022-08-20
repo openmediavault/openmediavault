@@ -61,7 +61,7 @@ class Schema(openmediavault.json.Schema):
                 ):
                     raise openmediavault.json.SchemaValidationException(
                         name,
-                        "The value '%s' is no valid directory path." % value,
+                        "The value '%s' is not a valid directory path." % value,
                     )
             elif "sshpubkey-openssh" == schema['format']:
                 if not re.match(
@@ -117,12 +117,12 @@ class Schema(openmediavault.json.Schema):
                     value,
                 ):
                     raise openmediavault.json.SchemaValidationException(
-                        name, "The value '%s' is no valid share name." % value
+                        name, "The value '%s' is not a valid share name." % value
                     )
             elif "username" == schema['format']:
                 if not re.match(r'^[_.A-Za-z0-9][-\@_.A-Za-z0-9]*\$?$', value):
                     raise openmediavault.json.SchemaValidationException(
-                        name, "The value '%s' is no valid user name." % value
+                        name, "The value '%s' is not a valid user name." % value
                     )
             elif "domainname" == schema['format']:
                 if not re.match(
@@ -132,7 +132,13 @@ class Schema(openmediavault.json.Schema):
                     value,
                 ):
                     raise openmediavault.json.SchemaValidationException(
-                        name, "The value '%s' is no valid domain name." % value
+                        name, "The value '%s' is not a valid domain name." % value
+                    )
+            elif "netbiosname" == schema['format']:
+                # https://github.com/samba-team/samba/blob/samba-4.13.13/python/samba/__init__.py#L317
+                if not re.match(r'^[\w !#$%&\'()\-.@^_{}~]{1,15}$', value):
+                    raise openmediavault.json.SchemaValidationException(
+                        name, "The value '%s' is not a valid NetBIOS name." % value
                     )
             else:
                 raise openmediavault.json.SchemaException(

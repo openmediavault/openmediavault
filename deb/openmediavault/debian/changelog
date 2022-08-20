@@ -1,4 +1,4 @@
-openmediavault (6.0.36-1) stable; urgency=low
+openmediavault (6.0.36-2) stable; urgency=low
 
   * Update locale files.
   * Enable remote searching in user/group management pages.
