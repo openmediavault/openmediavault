@@ -1237,7 +1237,7 @@ msgid ""
 msgstr "FXP permet les transferts entre deux serveurs distants sans qu'aucun fichier ne passe par le client qui demande le transfert."
 
 msgid "Failed"
-msgstr ""
+msgstr "Echec"
 
 msgid "Failed to copy data to the clipboard."
 msgstr "Erreur de la copie des données dans le presse-papiers."
@@ -2670,7 +2670,7 @@ msgid "Romania"
 msgstr "Roumanie"
 
 msgid "Row No."
-msgstr ""
+msgstr "N° de ligne"
 
 msgid "Rsync"
 msgstr "Rsync"
@@ -3916,7 +3916,7 @@ msgid "Use chroot"
 msgstr "Utiliser le chroot"
 
 msgid "Use global settings"
-msgstr ""
+msgstr "Utilise les paramètres généraux"
 
 msgid "Use sendfile"
 msgstr "Utiliser sendfile"
@@ -4013,7 +4013,7 @@ msgid "WOL"
 msgstr "WOL"
 
 msgid "WWN"
-msgstr ""
+msgstr "WWN"
 
 msgid "Wake Island"
 msgstr "Île Wake"

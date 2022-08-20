@@ -40,7 +40,7 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Ouvrir l'interface"
 
 msgid "Password"
 msgstr "Mot de passe"
@@ -64,6 +64,8 @@ msgid ""
 "The location of the media files. Make sure the user <em>s3</em> or group "
 "<em>users</em> can access the files."
 msgstr ""
+"Emplacement des fichiers média. Assurez-vous que l'utilisateur <em>s3</em> "
+"ou le groupe <em>users</em> peut accéder aux fichiers."
 
 msgid "The name of the root user."
 msgstr "Nom de l'utilisateur root."

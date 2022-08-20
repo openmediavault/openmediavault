@@ -35,7 +35,7 @@ msgid "File Browser"
 msgstr "Navigateur"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Ouvrir l'interface"
 
 msgid "Port"
 msgstr "Port"

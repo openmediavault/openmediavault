@@ -33,7 +33,7 @@ msgid "Library name"
 msgstr "Nom de la bibliothèque"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Ouvrir l'interface"
 
 msgid "OwnTone"
 msgstr "OwnTone"
@@ -57,6 +57,8 @@ msgid ""
 "The location of the media files to share. Make sure the user "
 "<em>owntone</em> or group <em>users</em> can access the files."
 msgstr ""
+"Emplacement des fichiers média. Assurez-vous que l'utilisateur "
+"<em>owntone</em> ou le groupe <em>users</em> peut accéder aux fichiers."
 
 msgid "The name of the library as displayed by the clients."
 msgstr "Le nom de la bibliothèque a afficher."
