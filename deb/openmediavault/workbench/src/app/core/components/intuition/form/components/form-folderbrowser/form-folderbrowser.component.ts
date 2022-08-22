@@ -241,5 +241,8 @@ export class FormFolderbrowserComponent
   private updateValue(): void {
     const control = this.formGroup.get(this.config.name);
     control.setValue(this.currentPath);
+    control.markAsTouched();
+    control.markAsDirty();
+    control.updateValueAndValidity();
   }
 }
