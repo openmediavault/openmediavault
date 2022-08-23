@@ -1,5 +1,6 @@
 openmediavault (6.0.37-1) stable; urgency=low
 
+  * Various UI improvements.
   * Issue #1379: Choosing a path in the shared folder form
     field does not mark the form as dirty.
 

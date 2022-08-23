@@ -10,6 +10,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
 import { ApplyConfigComponent } from '~/app/core/components/apply-config/apply-config.component';
 import { BreadcrumbComponent } from '~/app/core/components/breadcrumb/breadcrumb.component';
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
+import { GreenRainComponent } from '~/app/core/components/green-rain/green-rain.component';
 import { GuruMeditationComponent } from '~/app/core/components/guru-meditation/guru-meditation.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
 import { BlankLayoutComponent } from '~/app/core/components/layouts/blank-layout/blank-layout.component';
@@ -31,9 +32,16 @@ import { SharedModule } from '~/app/shared/shared.module';
     NotificationsComponent,
     BlankLayoutComponent,
     WorkbenchLayoutComponent,
-    ApplyConfigComponent
+    ApplyConfigComponent,
+    GreenRainComponent
   ],
-  exports: [GuruMeditationComponent, IntuitionModule, NotificationsComponent, DashboardModule],
+  exports: [
+    GuruMeditationComponent,
+    IntuitionModule,
+    NotificationsComponent,
+    DashboardModule,
+    GreenRainComponent
+  ],
   imports: [
     BlockUIModule.forRoot(),
     CommonModule,
