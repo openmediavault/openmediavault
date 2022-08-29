@@ -5,6 +5,8 @@ openmediavault (6.0.38-1) stable; urgency=low
     'System | Update Management | Updates' page. This should
     prevent confusion why packages are kept back in the UI
     but installed via the CLI command 'omv-upgrade'.
+  * Issue #1381: Fixed an error when changing a user that does
+    not yet exist in the database.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 29 Aug 2022 16:09:06 +0200
 

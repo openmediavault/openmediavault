@@ -499,10 +499,12 @@ finish:
 			"arg1" => $params['name']
 		];
 		$db = \OMV\Config\Database::getInstance();
+		// Does the user already exist in the database?
 		$oldObject = NULL;
 		if ($db->exists("conf.system.usermngmnt.user", $filter)) {
-			// Get the user configuration object. Due the fact that a user
-			// name is unique, we can simply use the first found object.
+			$notifyType = OMV_NOTIFY_MODIFY;
+			// Get the user configuration object. Since the name of a user
+			// is unique, we can simply use the first object found.
 			$object = $oldObject = $db->getByFilter(
 				"conf.system.usermngmnt.user", $filter, 1);
 			$object->set("email", $params['email']);
@@ -512,6 +514,8 @@ finish:
 				"sshpubkey" => $params['sshpubkeys']
 			]);
 		} else {
+			$notifyType = OMV_NOTIFY_CREATE;
+			// Create a new user configuration object.
 			$object = new \OMV\Config\ConfigObject(
 				"conf.system.usermngmnt.user");
 			$object->setNew();
@@ -558,8 +562,7 @@ finish:
 			$cmdArgs[] = escapeshellarg(implode(",", $params['groups']));
 		}
 		// Does the user already exist?
-		$isNew = !$user->exists();
-		if (TRUE === $isNew) {
+		if (TRUE === !$user->exists()) {
 			// Get user management settings.
 			$hdsobject = $db->get("conf.system.usermngmnt.homedir");
 			// Append additional arguments.
@@ -601,9 +604,9 @@ finish:
 		$objectAssoc = array_merge($object->getAssoc(), $params);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		$dispatcher->notify($notifyType,
 			"org.openmediavault.conf.system.usermngmnt.user",
-			$objectAssoc, $isNew ? NULL : $oldObject->getAssoc());
+			$objectAssoc, $oldObject ? $oldObject->getAssoc() : NULL);
 		// Return the configuration object.
 		return $objectAssoc;
 	}
