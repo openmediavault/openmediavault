@@ -1,3 +1,13 @@
+openmediavault (6.0.38-1) stable; urgency=low
+
+  * Packages that are changing dependencies are now installed
+    when pressing the 'Install packages' button in the
+    'System | Update Management | Updates' page. This should
+    prevent confusion why packages are kept back in the UI
+    but installed via the CLI command 'omv-upgrade'.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 29 Aug 2022 16:09:06 +0200
+
 openmediavault (6.0.37-1) stable; urgency=low
 
   * Various UI improvements.

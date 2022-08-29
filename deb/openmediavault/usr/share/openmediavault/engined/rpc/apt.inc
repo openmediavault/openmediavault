@@ -187,7 +187,10 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
-	 * Upgrade the given packages.
+	 * Packages currently installed with new versions available are
+	 * retrieved and upgraded. In addition to performing the function
+	 * of upgrade, changing dependencies with new versions of packages
+	 * are intelligently handled.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
@@ -202,6 +205,7 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($params) {
+			// See https://manpages.debian.org/apt/apt-get.8.en.html
 			$cmdArgs = [];
 			$cmdArgs[] = "--yes";
 			$cmdArgs[] = "--allow-downgrades";
@@ -212,7 +216,7 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = "--allow-unauthenticated";
 			$cmdArgs[] = "--show-upgraded";
 			$cmdArgs[] = "--option DPkg::Options::=\"--force-confold\"";
-			$cmdArgs[] = "upgrade";
+			$cmdArgs[] = "dist-upgrade";
 			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
 			$cmd->setRedirect2to1();
 			$cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");

@@ -31,7 +31,7 @@ export DEBIAN_FRONTEND=noninteractive
 # packages non-interactively.
 apt-get update
 apt-get --yes --allow-downgrades --allow-change-held-packages --fix-missing \
-	--auto-remove --allow-unauthenticated \
+	--fix-broken --auto-remove --allow-unauthenticated \
 	--show-upgraded --option DPkg::Options::="--force-confold" dist-upgrade
 
 exit 0
