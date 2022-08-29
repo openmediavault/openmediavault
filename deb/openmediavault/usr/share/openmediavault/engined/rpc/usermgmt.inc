@@ -562,7 +562,7 @@ finish:
 			$cmdArgs[] = escapeshellarg(implode(",", $params['groups']));
 		}
 		// Does the user already exist?
-		if (TRUE === !$user->exists()) {
+		if (FALSE === $user->exists()) {
 			// Get user management settings.
 			$hdsobject = $db->get("conf.system.usermngmnt.homedir");
 			// Append additional arguments.
@@ -874,15 +874,20 @@ finish:
 			"arg1" => $params['name']
 		];
 		$db = \OMV\Config\Database::getInstance();
+		// Does the group already exist in the database?
+		$oldObject = NULL;
 		if ($db->exists("conf.system.usermngmnt.group", $filter)) {
-			// Get the group configuration object. Due the fact that a group
-			// name is unique, we can simply use the first found object.
-			$object = $db->getByFilter("conf.system.usermngmnt.group",
-			  $filter, 1);
+			$notifyType = OMV_NOTIFY_MODIFY;
+			// Get the group configuration object. Since the name of a group
+			// is unique, we can simply use the first object found.
+			$object = $oldObject = $db->getByFilter(
+				"conf.system.usermngmnt.group", $filter, 1);
 			$object->set("comment", $params['comment']);
 		} else {
+			$notifyType = OMV_NOTIFY_CREATE;
+			// Create a new group configuration object.
 			$object = new \OMV\Config\ConfigObject(
-			  "conf.system.usermngmnt.group");
+				"conf.system.usermngmnt.group");
 			$object->setNew();
 			$object->set("name", $params['name']);
 			$object->set("comment", $params['comment']);
@@ -891,8 +896,7 @@ finish:
 		// Append some more information to the notification object.
 		$objectAssoc = $object->getAssoc();
 		// Does the group already exist?
-		$isNew = !$group->exists();
-		if (TRUE === $isNew) {
+		if (FALSE === $group->exists()) {
 			// Prepare command arguments.
 			$cmdArgs = [];
 			if (array_key_exists("gid", $params)) {
@@ -927,9 +931,10 @@ finish:
 		}
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.usermngmnt.group",
-		  $objectAssoc);
+		$dispatcher->notify($notifyType,
+			"org.openmediavault.conf.system.usermngmnt.group",
+			$objectAssoc,
+			!is_null($oldObject) ? $oldObject->getAssoc() : NULL);
 		// Return the configuration object.
 		return $objectAssoc;
 	}
