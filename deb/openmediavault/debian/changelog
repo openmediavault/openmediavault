@@ -1,6 +1,6 @@
 openmediavault (6.0.39-1) stable; urgency=low
 
-  *
+  * Fix error when accessing the FTP service stats page.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 31 Aug 2022 22:17:25 +0200
 

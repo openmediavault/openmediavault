@@ -364,7 +364,9 @@ class Ftp extends \OMV\Rpc\ServiceAbstract {
 			if (TRUE === $db->exists("conf.service.ftp.modban.rule")) {
 				$stats .= sprintf("\n\n%s\n", gettext("Ban statistics:"));
 				$cmdArgs = [];
-				$cmdArgs[] = "-s /run/proftpd/proftpd.sock";
+				$cmdArgs[] = sprintf("-s %s", \OMV\Environment::get(
+					"OMV_PROFTPD_MODCTRLS_CONTROLSSOCKET",
+					"/run/proftpd.sock"));
 				$cmdArgs[] = "ban info";
 				$cmdArgs[] = "-v";
 				$cmdArgs[] = "-e";
