@@ -23,14 +23,14 @@ configure_proftpd_mod_core:
 
 configure_proftpd_mod_core_custom_login_msg:
   file.managed:
-    - name: "/srv/ftp/welcome.msg"
+    - name: "/etc/proftpd/welcome.msg"
     - contents: "{{ ftp_config.displaylogin }}"
 
 {% else %}
 
 configure_proftpd_mod_core_default_login_msg:
   file.managed:
-    - name: "/srv/ftp/welcome.msg"
+    - name: "/etc/proftpd/welcome.msg"
     - contents: |
         Welcome user %U@%R to %L FTP server.
         The local time is: %T

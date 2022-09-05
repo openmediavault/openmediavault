@@ -1,4 +1,4 @@
-{%- set display_login = salt['pillar.get']('default:OMV_PROFTPD_DISPLAYLOGIN', '/srv/ftp/welcome.msg') -%}
+{%- set display_login = salt['pillar.get']('default:OMV_PROFTPD_DISPLAYLOGIN', '/etc/proftpd/welcome.msg') -%}
 {%- set show_display_login = salt['pillar.get']('default:OMV_PROFTPD_SHOW_DISPLAYLOGIN', 'yes') -%}
 {%- set use_ipv6 = salt['pillar.get']('default:OMV_PROFTPD_USEIPV6', 'on') -%}
 {%- set server_type = salt['pillar.get']('default:OMV_PROFTPD_SERVERTYPE', 'standalone') -%}
