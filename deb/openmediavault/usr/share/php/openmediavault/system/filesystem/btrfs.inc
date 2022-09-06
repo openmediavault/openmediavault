@@ -268,7 +268,8 @@ class Btrfs extends Filesystem {
 			// Space available for Data, adjusted for average data ratio.
 			"available" => bcdiv($available, $dataRatio, 0),
 			// Raw disk usage, all profiles, divided by raw size.
-			"percentage" => bcmul(bcdiv(array_sum($usedRaw), $totalBytes, 3), 100, 0)
+			"percentage" => intval(bcmul(
+				bcdiv(array_sum($usedRaw), $totalBytes, 3), 100, 0))
 		]);
 
 		return $stats;
