@@ -14,6 +14,7 @@
       margin-bottom: $omv-margin * 0.5;
       padding: unset;
       width: 100%;
+      break-inside: avoid;
 
       .mat-card-title-group {
         border-top-left-radius: $omv-radius;
