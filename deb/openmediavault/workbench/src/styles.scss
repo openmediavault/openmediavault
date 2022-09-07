@@ -681,11 +681,11 @@ img.loading {
   border-left: 0.25rem solid transparent !important;
 
   &.active {
-    border-left: 0.25rem solid $omv-color-corporate-default !important;
+    border-left: 0.25rem solid $omv-color-primary !important;
   }
 
   &:hover {
-    border-left: 0.25rem solid $omv-color-yellow !important;
+    border-left: 0.25rem solid $omv-color-accent !important;
   }
 }
 

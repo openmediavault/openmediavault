@@ -23,7 +23,7 @@ describe('WidgetValueComponent', () => {
       type: 'value',
       title: 'bar',
       value: {
-        text: '{{ foo }}',
+        title: '{{ foo }} baz',
         value: 'foo {{ xyz }} bar'
       }
     };

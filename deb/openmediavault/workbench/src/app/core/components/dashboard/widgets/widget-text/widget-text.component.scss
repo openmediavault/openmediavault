@@ -1,6 +1,6 @@
-@import 'src/styles';
+@use 'src/scss/defaults/variables' as dv;
 
 .omv-dashboard-widget-text {
-  margin: 0 $omv-padding $omv-padding;
+  margin: 0 dv.$omv-padding dv.$omv-padding;
   max-height: 300px;
 }

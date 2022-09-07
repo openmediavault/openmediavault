@@ -1,25 +1,25 @@
-@import 'src/styles';
+@use 'src/scss/defaults/variables' as dv;
 
 .omv-dashboard-page {
-  margin: $omv-margin;
+  margin: dv.$omv-margin;
 
   .omv-dashboard-page-content {
     box-sizing: border-box;
     column-count: 1;
-    column-gap: $omv-margin * 0.5;
+    column-gap: dv.$omv-margin * 0.5;
 
     .mat-card {
       box-sizing: inherit;
       display: inline-block;
-      margin-bottom: $omv-margin * 0.5;
+      margin-bottom: dv.$omv-margin * 0.5;
       padding: unset;
       width: 100%;
       break-inside: avoid;
 
       .mat-card-title-group {
-        border-top-left-radius: $omv-radius;
-        border-top-right-radius: $omv-radius;
-        padding: $omv-padding $omv-padding ($omv-padding * 0.5) $omv-padding;
+        border-top-left-radius: dv.$omv-radius;
+        border-top-right-radius: dv.$omv-radius;
+        padding: dv.$omv-padding dv.$omv-padding (dv.$omv-padding * 0.5) dv.$omv-padding;
       }
     }
   }

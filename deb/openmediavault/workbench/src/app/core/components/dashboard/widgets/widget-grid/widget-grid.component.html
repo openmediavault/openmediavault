@@ -12,7 +12,7 @@
        [matTooltip]="config.grid.item.tooltip | template:item | br2nl | preventHtml"
        [routerLink]="config.grid.item.url | template:item">
     <div *ngIf="config.grid.item.title"
-         class="title"
+         class="title omv-font-weight-bold"
          [ngClass]="config.grid.item.titleClass | template:item"
          [innerHTML]="config.grid.item.title | template:item | sanitizeHtml">
     </div>

@@ -1,7 +1,7 @@
-@import 'src/styles';
+@use 'src/scss/defaults/variables' as dv;
 
 .omv-dashboard-widget-system-information {
-  margin: 0 $omv-padding $omv-padding;
+  margin: 0 dv.$omv-padding dv.$omv-padding;
 
   .omv-grid-cell {
     break-inside: avoid;

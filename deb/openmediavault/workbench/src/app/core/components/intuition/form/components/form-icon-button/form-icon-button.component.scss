@@ -1,5 +1,7 @@
+@use 'src/scss/defaults/colors' as dc;
+
 .mat-flat-button {
-  color: #ffffff;
+  color: dc.$omv-color-white;
 }
 
 ::ng-deep omv-form-icon-button .mat-form-field-underline {

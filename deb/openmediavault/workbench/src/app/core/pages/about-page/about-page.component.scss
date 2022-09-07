@@ -1,4 +1,4 @@
-@import 'src/styles';
+@use 'src/scss/defaults/variables' as dv;
 
 .omv-about-page {
   animation-name: decrunch;
@@ -7,11 +7,9 @@
   animation-timing-function: steps(1);
 
   .mat-card {
-    margin: $omv-margin;
+    margin: dv.$omv-margin;
 
     .logo {
-      @extend .omv-text-monospace;
-
       .ascii-art {
         line-height: normal;
         margin: 0;
