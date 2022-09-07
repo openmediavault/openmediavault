@@ -35,6 +35,7 @@ export type DashboardWidgetConfig = {
   // - grid
   // - rrd
   // - text
+  // - value
   // All other widget types are internal only.
   type:
     | 'chart'
@@ -42,6 +43,7 @@ export type DashboardWidgetConfig = {
     | 'grid'
     | 'rrd'
     | 'text'
+    | 'value'
     | 'system-information' // internal
     | 'filesystems-status'; // internal
   // The widget title.
@@ -56,6 +58,7 @@ export type DashboardWidgetConfig = {
   // - grid: 10000
   // - rrd: 60000
   // - text: 10000
+  // - value: 10000
   reloadPeriod?: number;
 
   grid?: {
@@ -140,6 +143,21 @@ export type DashboardWidgetConfig = {
   text?: {
     // Custom CSS class.
     class?: string;
+    request?: {
+      service: string;
+      method: string;
+      params?: Record<string, any>;
+      // Set `true` if the RPC is a long-running background task.
+      task?: boolean;
+    };
+  };
+
+  value?: {
+    icon?: string;
+    // The string or template to render the title.
+    title: string;
+    // The string or template to render the value.
+    value: string;
     request?: {
       service: string;
       method: string;

@@ -10,7 +10,8 @@ import {
   isUUID,
   notAvailable,
   toBoolean,
-  toBytes
+  toBytes,
+  yesNo
 } from '~/app/functions.helper';
 
 describe('functions.helper', () => {
@@ -188,6 +189,22 @@ describe('functions.helper', () => {
 
   it('should be false [4]', () => {
     expect(toBoolean(4711)).toBe(false);
+  });
+
+  it('should be Yes [1]', () => {
+    expect(yesNo(true)).toBe('Yes');
+  });
+
+  it('should be Yes [2]', () => {
+    expect(yesNo('1')).toBe('Yes');
+  });
+
+  it('should be No [1]', () => {
+    expect(yesNo(4711)).toBe('No');
+  });
+
+  it('should be No [2]', () => {
+    expect(yesNo('no')).toBe('No');
   });
 
   it('should convert binary unit [1]', () => {

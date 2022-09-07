@@ -61,6 +61,15 @@ export const toBoolean = (value: any): boolean => {
 };
 
 /**
+ * Convert a boolean value to string.
+ *
+ * @param value The boolean value to convert.
+ * @return Returns `Yes` if the value represents true,
+ *   otherwise `No`.
+ */
+export const yesNo = (value: any): string => (toBoolean(value) ? gettext('Yes') : gettext('No'));
+
+/**
  * Render a Nunjucks/Jinja2 template.
  *
  * @param str The template to render.
@@ -343,6 +352,7 @@ nunjucksEnv.addFilter('notavailable', notAvailable);
  * Convert an object to a boolean.
  */
 nunjucksEnv.addFilter('toboolean', toBoolean);
+nunjucksEnv.addFilter('yesNo', yesNo);
 nunjucksEnv.addFilter('strip', (str: string, chars?: string) => _.trim(str, chars));
 nunjucksEnv.addFilter('lstrip', (str: string, chars?: string) => _.trimStart(str, chars));
 nunjucksEnv.addFilter('rstrip', (str: string, chars?: string) => _.trimEnd(str, chars));

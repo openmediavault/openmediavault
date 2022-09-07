@@ -68,7 +68,6 @@ export class NavigationBarListItemComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.sanitizeConfig();
     if (this.item.children && this.item.children.length > 0) {
       this.item.active = this.router.url === this.item.url;
     } else {
@@ -88,10 +87,5 @@ export class NavigationBarListItemComponent implements OnInit, OnDestroy {
     if (item.url) {
       this.router.navigate([item.url]);
     }
-  }
-
-  protected sanitizeConfig() {
-    // Map icon from 'foo' to 'mdi:foo' if necessary.
-    this.item.icon = _.get(Icon, this.item.icon, this.item.icon);
   }
 }

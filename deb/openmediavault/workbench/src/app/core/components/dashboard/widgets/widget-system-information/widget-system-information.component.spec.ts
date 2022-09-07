@@ -12,6 +12,7 @@ describe('WidgetSystemInformationComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      declarations: [WidgetSystemInformationComponent],
       imports: [DashboardModule, TestingModule, TranslateModule.forRoot()]
     }).compileComponents();
   }));

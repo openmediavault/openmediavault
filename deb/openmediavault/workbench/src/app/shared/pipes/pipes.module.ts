@@ -10,6 +10,7 @@ import { HttpErrorResponsePipe } from '~/app/shared/pipes/http-error-response.pi
 import { JoinPipe } from '~/app/shared/pipes/join.pipe';
 import { LocaleDatePipe } from '~/app/shared/pipes/locale-date.pipe';
 import { MapPipe } from '~/app/shared/pipes/map.pipe';
+import { MapIconEnumPipe } from '~/app/shared/pipes/map-icon-enum.pipe';
 import { MaxPipe } from '~/app/shared/pipes/max.pipe';
 import { Nl2brPipe } from '~/app/shared/pipes/nl2br.pipe';
 import { NotAvailablePipe } from '~/app/shared/pipes/not-available.pipe';
@@ -39,6 +40,7 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     TrustHtmlPipe,
     UpperFirstPipe,
     MaxPipe,
+    MapIconEnumPipe,
     SanitizeHtmlPipe,
     EncodeUriComponentPipe,
     ReplacePipe,
@@ -58,6 +60,7 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     BinaryUnitPipe,
     HttpErrorResponsePipe,
     MapPipe,
+    MapIconEnumPipe,
     ArrayPipe,
     TemplatePipe,
     TrustHtmlPipe,
@@ -81,6 +84,7 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     BinaryUnitPipe,
     HttpErrorResponsePipe,
     MapPipe,
+    MapIconEnumPipe,
     ArrayPipe,
     TemplatePipe,
     TrustHtmlPipe,

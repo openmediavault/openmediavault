@@ -4,8 +4,6 @@
   margin: 0 $omv-padding $omv-padding;
 
   .omv-grid-cell {
-    .omv-grid-cell-title {
-      @extend .omv-font-weight-bold;
-    }
+    break-inside: avoid;
   }
 }

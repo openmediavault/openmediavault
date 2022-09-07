@@ -17,7 +17,7 @@
 <ng-template #renderWidget
              let-widget>
   <mat-card>
-    <mat-card-title-group>
+    <mat-card-title-group *ngIf="!['value'].includes(widget.type)">
       <mat-card-title>{{ widget.title | translate }}</mat-card-title>
     </mat-card-title-group>
     <mat-card-content class="omv-scrollable-xy"
@@ -45,6 +45,11 @@
       <ng-template [ngSwitchCase]="'text'">
         <omv-dashboard-widget-text [config]="widget">
         </omv-dashboard-widget-text>
+      </ng-template>
+
+      <ng-template [ngSwitchCase]="'value'">
+        <omv-dashboard-widget-value [config]="widget">
+        </omv-dashboard-widget-value>
       </ng-template>
 
       <ng-template [ngSwitchCase]="'system-information'">

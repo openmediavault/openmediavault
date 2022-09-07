@@ -11,6 +11,7 @@ describe('WidgetRrdComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      declarations: [WidgetRrdComponent],
       imports: [DashboardModule, TestingModule, TranslateModule.forRoot()]
     }).compileComponents();
   }));

@@ -29,6 +29,7 @@ import { WidgetGridComponent } from '~/app/core/components/dashboard/widgets/wid
 import { WidgetRrdComponent } from '~/app/core/components/dashboard/widgets/widget-rrd/widget-rrd.component';
 import { WidgetSystemInformationComponent } from '~/app/core/components/dashboard/widgets/widget-system-information/widget-system-information.component';
 import { WidgetTextComponent } from '~/app/core/components/dashboard/widgets/widget-text/widget-text.component';
+import { WidgetValueComponent } from '~/app/core/components/dashboard/widgets/widget-value/widget-value.component';
 import { MaterialModule } from '~/app/material.module';
 import { SharedModule } from '~/app/shared/shared.module';
 
@@ -40,7 +41,8 @@ import { SharedModule } from '~/app/shared/shared.module';
     WidgetChartComponent,
     WidgetFilesystemsStatusComponent,
     WidgetGridComponent,
-    WidgetTextComponent
+    WidgetTextComponent,
+    WidgetValueComponent
   ],
   exports: [
     WidgetDatatableComponent,
@@ -49,7 +51,8 @@ import { SharedModule } from '~/app/shared/shared.module';
     WidgetChartComponent,
     WidgetFilesystemsStatusComponent,
     WidgetGridComponent,
-    WidgetTextComponent
+    WidgetTextComponent,
+    WidgetValueComponent
   ],
   imports: [
     CommonModule,

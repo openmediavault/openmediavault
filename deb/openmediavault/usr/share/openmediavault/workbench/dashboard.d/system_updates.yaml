@@ -1,0 +1,13 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 725881a1-e0d4-4f59-8efd-acf5398ebfb0
+  title: _("Updates Available")
+  type: value
+  value:
+    icon: "mdi:download"
+    title: _("Updates available")
+    value: "{{ pkgUpdatesAvailable | yesNo }}"
+    request:
+      service: System
+      method: getInformation

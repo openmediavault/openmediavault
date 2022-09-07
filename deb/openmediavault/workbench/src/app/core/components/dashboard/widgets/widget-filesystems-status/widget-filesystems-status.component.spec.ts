@@ -11,6 +11,7 @@ describe('WidgetFilesystemsStatusComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      declarations: [WidgetFilesystemsStatusComponent],
       imports: [DashboardModule, TestingModule]
     }).compileComponents();
   });

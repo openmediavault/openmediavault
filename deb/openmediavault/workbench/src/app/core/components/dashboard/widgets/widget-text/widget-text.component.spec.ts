@@ -10,6 +10,7 @@ describe('WidgetTextComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      declarations: [WidgetTextComponent],
       imports: [DashboardModule, TestingModule]
     }).compileComponents();
   });

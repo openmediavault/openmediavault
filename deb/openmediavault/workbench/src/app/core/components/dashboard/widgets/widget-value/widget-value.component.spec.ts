@@ -1,30 +1,30 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
-import { WidgetChartComponent } from '~/app/core/components/dashboard/widgets/widget-chart/widget-chart.component';
+import { WidgetValueComponent } from '~/app/core/components/dashboard/widgets/widget-value/widget-value.component';
 import { TestingModule } from '~/app/testing.module';
 
-describe('WidgetChartComponent', () => {
-  let component: WidgetChartComponent;
-  let fixture: ComponentFixture<WidgetChartComponent>;
+describe('WidgetValueComponent', () => {
+  let component: WidgetValueComponent;
+  let fixture: ComponentFixture<WidgetValueComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [WidgetChartComponent],
+      declarations: [WidgetValueComponent],
       imports: [DashboardModule, TestingModule]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WidgetChartComponent);
+    fixture = TestBed.createComponent(WidgetValueComponent);
     component = fixture.componentInstance;
     component.config = {
-      id: 'c2eecbb8-f40f-4110-99f1-4cb037edce68',
-      type: 'chart',
-      title: 'foo',
-      chart: {
-        type: 'doughnut',
-        dataConfig: []
+      id: '5a388783-c349-4032-9747-2482563c44dd',
+      type: 'value',
+      title: 'bar',
+      value: {
+        text: '{{ foo }}',
+        value: 'foo {{ xyz }} bar'
       }
     };
     fixture.detectChanges();

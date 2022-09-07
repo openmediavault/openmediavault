@@ -2,7 +2,7 @@
                [ngClass]="{'active': item.active}"
                (click)="onClick(item)">
   <div class="omv-list-item-indent-z{{ depth }}"></div>
-  <mat-icon svgIcon="{{ item.icon }}"></mat-icon>
+  <mat-icon svgIcon="{{ item.icon | mapIconEnum }}"></mat-icon>
   <div>
     {{ item.text | translate }}
   </div>

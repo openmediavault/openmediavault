@@ -12,6 +12,7 @@ describe('WidgetDatatableComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      declarations: [WidgetDatatableComponent],
       imports: [DashboardModule, TestingModule, ToastrModule.forRoot(), TranslateModule.forRoot()]
     }).compileComponents();
   }));

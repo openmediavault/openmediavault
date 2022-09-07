@@ -11,6 +11,7 @@ describe('WidgetGridComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      declarations: [WidgetGridComponent],
       imports: [DashboardModule, TestingModule, TranslateModule.forRoot()]
     }).compileComponents();
   });
