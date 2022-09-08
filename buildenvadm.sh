@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # This file is part of OpenMediaVault.
 #
@@ -41,6 +41,7 @@ Options:
   -h, --help  Show this message.
 
 EOF
+	exit 0
 }
 
 check_deps() {
@@ -103,12 +104,22 @@ install() {
 	sudo apt-get -y install buildah podman
 }
 
-while getopts ":?h" option
+while getopts ":h-:" option
 do
 	case ${option} in
-	h|help|?)
-		usage >&2
-		exit 2
+	-)
+		case "${OPTARG}" in
+		help)
+			usage
+			;;
+		*)
+			echo "Unknown option '${OPTARG}'."
+			usage
+			;;
+		esac
+		;;
+	h)
+		usage
 		;;
 	esac
 done
@@ -132,8 +143,8 @@ install)
 	install
 	;;
 *)
-	usage >&2
-	exit 2
+	echo "Unknown command '$@'."
+	usage
 	;;
 esac
 
