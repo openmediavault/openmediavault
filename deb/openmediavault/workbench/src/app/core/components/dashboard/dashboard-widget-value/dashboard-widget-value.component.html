@@ -1,0 +1,22 @@
+<omv-dashboard-widget [config]="config"
+                      (dataChangedEvent)="dataChanged($event)">
+  <div *ngIf="data"
+       class="widget-content"
+       fxLayout="row"
+       fxLayoutAlign="start center">
+    <mat-icon *ngIf="config.value.icon"
+              mat-card-avatar
+              svgIcon="{{ config.value.icon | mapIconEnum }}">
+    </mat-icon>
+    <div fxLayout="column"
+         fxLayoutAlign="center stretch"
+         [ngClass]="{'omv-ml-h': config.value.icon}">
+      <div class="omv-font-weight-bold">
+        {{ config.value.title | template:data | translate }}
+      </div>
+      <div>
+        {{ config.value.value | template:data | translate }}
+      </div>
+    </div>
+  </div>
+</omv-dashboard-widget>

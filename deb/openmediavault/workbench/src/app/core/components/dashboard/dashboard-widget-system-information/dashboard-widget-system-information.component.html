@@ -1,0 +1,57 @@
+<omv-dashboard-widget [config]="config"
+                      [loadData]="loadData.bind(this)"
+                      (dataChangedEvent)="dataChanged($event)">
+  <div *ngIf="data"
+       class="widget-content"
+       gdGap="8px"
+       gdColumns="repeat(2, 1fr)">
+    <div class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold"
+           translate>Hostname</div>
+      <div>{{ data?.hostname }}</div>
+    </div>
+    <div class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold"
+           translate>Version</div>
+      <div>{{ data?.version }}</div>
+    </div>
+    <div class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold"
+           translate>Processor</div>
+      <div>{{ data?.cpuModelName }}</div>
+    </div>
+    <div class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold"
+           translate>Kernel</div>
+      <div>{{ data?.kernel }}</div>
+    </div>
+    <div class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold"
+           translate>System time</div>
+      <div>{{ data?.time }}</div>
+    </div>
+    <div class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold"
+           translate>Uptime</div>
+      <div>{{ data?.uptime | localeDate:'relative':true }}</div>
+    </div>
+    <div *ngIf="data?.pkgUpdatesAvailable"
+         class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold"
+           translate>Updates available</div>
+      <div>
+        <a routerLink="/system/updatemgmt/updates">
+          <mat-icon svgIcon="mdi:check"></mat-icon>
+        </a>
+      </div>
+    </div>
+    <div *ngIf="data?.rebootRequired"
+         class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold"
+           translate>Reboot required</div>
+      <div>
+        <mat-icon svgIcon="mdi:check"></mat-icon>
+      </div>
+    </div>
+  </div>
+</omv-dashboard-widget>

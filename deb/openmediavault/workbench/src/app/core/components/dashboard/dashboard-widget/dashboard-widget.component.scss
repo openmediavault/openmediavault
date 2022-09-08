@@ -1,0 +1,25 @@
+@use 'src/scss/defaults/variables' as dv;
+
+.omv-dashboard-widget-container {
+  break-inside: avoid;
+
+  .mat-card {
+    margin-bottom: dv.$omv-margin * 0.5;
+    padding: unset;
+    position: relative;
+
+    .mat-progress-bar {
+      position: absolute;
+    }
+
+    .mat-card-title-group {
+      border-top-left-radius: dv.$omv-radius;
+      border-top-right-radius: dv.$omv-radius;
+      padding: dv.$omv-padding dv.$omv-padding (dv.$omv-padding * 0.5) dv.$omv-padding;
+    }
+  }
+
+  &.loading .mat-card {
+    min-height: 2rem;
+  }
+}
