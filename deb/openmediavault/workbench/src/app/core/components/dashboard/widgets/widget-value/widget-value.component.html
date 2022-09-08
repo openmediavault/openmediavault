@@ -1,9 +1,10 @@
 <mat-progress-bar *ngIf="loading && firstLoad"
                   mode="indeterminate">
 </mat-progress-bar>
-<div *ngIf="data"
-     class="omv-dashboard-widget-value">
-  <div class="content"
+<div class="omv-dashboard-widget-value"
+     [ngClass]="{'loading': loading && firstLoad}">
+  <div *ngIf="data"
+       class="content"
        fxLayout="row"
        fxLayoutAlign="start center">
     <mat-icon *ngIf="config.value.icon"
