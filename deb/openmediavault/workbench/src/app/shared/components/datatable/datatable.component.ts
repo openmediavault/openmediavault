@@ -32,9 +32,9 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import { DatatableComponent as NgxDatatableComponent } from '@swimlane/ngx-datatable';
 import * as _ from 'lodash';
-import { Subscription, timer } from 'rxjs';
+import { Subject, Subscription, timer } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
-import { Debounce } from '~/app/decorators';
 import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { Datatable } from '~/app/shared/models/datatable.interface';
@@ -232,6 +232,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   private subscriptions = new Subscription();
   private cellTemplates: { [key: string]: TemplateRef<any> };
   private rawColumns: DatatableColumn[] = [];
+  private searchFilterSubject: Subject<string> = new Subject<string>();
 
   constructor(
     private clipboardService: ClipboardService,
@@ -384,14 +385,19 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     this.filteredColumns = this.rawColumns.filter((column) => !column.hidden);
   }
 
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  @Debounce(200)
   onSearchFilterChange(): void {
-    if (!this.remoteSearching) {
-      this.applySearchFilter();
-    } else {
-      this.reloadData();
+    if (!this.searchFilterSubject.observers.length) {
+      this.subscriptions.add(
+        this.searchFilterSubject.pipe(debounceTime(2000), distinctUntilChanged()).subscribe(() => {
+          if (!this.remoteSearching) {
+            this.applySearchFilter();
+          } else {
+            this.reloadData();
+          }
+        })
+      );
     }
+    this.searchFilterSubject.next(this.searchFilter);
   }
 
   clearSearchFilter(): void {
