@@ -36,3 +36,17 @@ export function Unsubscribe() {
     };
   };
 }
+
+/**
+ * Decorator that creates a debounced function that delays invoking func
+ * until after wait milliseconds have elapsed since the last time the
+ * debounced function was invoked.
+ */
+// eslint-disable-next-line @typescript-eslint/naming-convention,prefer-arrow/prefer-arrow-functions
+export function Debounce(wait: number) {
+  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
+    const originalFn = descriptor.value;
+    descriptor.value = _.debounce(originalFn, wait);
+    return descriptor;
+  };
+}

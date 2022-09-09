@@ -20,7 +20,7 @@
       <input matInput
              type="search"
              [(ngModel)]="searchFilter"
-             (keyup)="onSearchFilterChange()">
+             (ngModelChange)="onSearchFilterChange()">
       <button mat-icon-button
               matSuffix
               matTooltip="{{ 'Clear' | translate }}"
