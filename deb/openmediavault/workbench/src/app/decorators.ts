@@ -41,6 +41,8 @@ export function Unsubscribe() {
  * Decorator that creates a debounced function that delays invoking func
  * until after wait milliseconds have elapsed since the last time the
  * debounced function was invoked.
+ *
+ * @param wait The number of milliseconds to delay.
  */
 // eslint-disable-next-line @typescript-eslint/naming-convention,prefer-arrow/prefer-arrow-functions
 export function Debounce(wait: number) {

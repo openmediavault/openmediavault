@@ -32,9 +32,9 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import { DatatableComponent as NgxDatatableComponent } from '@swimlane/ngx-datatable';
 import * as _ from 'lodash';
-import { Subject, Subscription, timer } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { Subscription, timer } from 'rxjs';
 
+import { Debounce } from '~/app/decorators';
 import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { Datatable } from '~/app/shared/models/datatable.interface';
@@ -232,7 +232,6 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   private subscriptions = new Subscription();
   private cellTemplates: { [key: string]: TemplateRef<any> };
   private rawColumns: DatatableColumn[] = [];
-  private searchFilterSubject: Subject<string> = new Subject<string>();
 
   constructor(
     private clipboardService: ClipboardService,
@@ -253,6 +252,15 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   set columns(columns: DatatableColumn[]) {
     this.sanitizeColumns(columns);
     this.rawColumns = [...columns];
+  }
+
+  @Debounce(200)
+  onSearchFilterChange(): void {
+    if (!this.remoteSearching) {
+      this.applySearchFilter();
+    } else {
+      this.reloadData();
+    }
   }
 
   ngOnInit(): void {
@@ -277,6 +285,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
+    (this.onSearchFilterChange as any).cancel?.();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -383,21 +392,6 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     // local store and filter hidden columns.
     this.loadColumnState();
     this.filteredColumns = this.rawColumns.filter((column) => !column.hidden);
-  }
-
-  onSearchFilterChange(): void {
-    if (!this.searchFilterSubject.observers.length) {
-      this.subscriptions.add(
-        this.searchFilterSubject.pipe(debounceTime(2000), distinctUntilChanged()).subscribe(() => {
-          if (!this.remoteSearching) {
-            this.applySearchFilter();
-          } else {
-            this.reloadData();
-          }
-        })
-      );
-    }
-    this.searchFilterSubject.next(this.searchFilter);
   }
 
   clearSearchFilter(): void {
