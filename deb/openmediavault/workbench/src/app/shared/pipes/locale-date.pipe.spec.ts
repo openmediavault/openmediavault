@@ -6,7 +6,21 @@ describe('LocaleDatePipe', () => {
   const pipe = new LocaleDatePipe();
 
   beforeEach(() => {
-    dayjs.locale('de');
+    jest.spyOn(pipe, 'toLocaleString').mockImplementation((date: Date, format: string) => {
+      let result;
+      switch (format) {
+        case 'datetime':
+          result = date.toLocaleString('de-DE', { timeZone: 'Europe/Berlin' });
+          break;
+        case 'time':
+          result = date.toLocaleTimeString('de-DE', { timeZone: 'Europe/Berlin' });
+          break;
+        case 'date':
+          result = date.toLocaleDateString('de-DE', { timeZone: 'Europe/Berlin' });
+          break;
+      }
+      return result;
+    });
   });
 
   it('create an instance', () => {

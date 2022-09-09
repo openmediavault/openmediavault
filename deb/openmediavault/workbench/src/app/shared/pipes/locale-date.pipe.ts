@@ -33,12 +33,16 @@ export class LocaleDatePipe implements PipeTransform {
    *
    * @param value The date/time value. If it is a number, a UNIX epoch
    *   timestamp is assumed.
-   * @param dateFormat The format to use, e.g. 'date', 'time', 'datetime'
+   * @param format The format to use, e.g. 'date', 'time', 'datetime'
    *   or 'relative'. Defaults to 'date'.
    * @params options Additional options.
    * @return The time in the given format or an empty string on failure.
    */
-  transform(value: Date | string | number, dateFormat?: string, options?: any): any {
+  transform(
+    value: Date | string | number,
+    format?: 'relative' | 'datetime' | 'time' | 'date',
+    options?: any
+  ): any {
     if (!(_.isString(value) || _.isDate(value) || _.isNumber(value))) {
       return '';
     }
@@ -52,19 +56,28 @@ export class LocaleDatePipe implements PipeTransform {
       return '';
     }
     let result;
-    switch (dateFormat) {
+    switch (format) {
       case 'relative':
         result = date.fromNow(options);
         break;
+      default:
+        result = this.toLocaleString(date.toDate(), format);
+        break;
+    }
+    return result;
+  }
+
+  toLocaleString(date: Date, format?: 'datetime' | 'time' | 'date'): string {
+    let result;
+    switch (format) {
       case 'datetime':
-        result = date.toDate().toLocaleString();
+        result = date.toLocaleString();
         break;
       case 'time':
-        result = date.toDate().toLocaleTimeString();
+        result = date.toLocaleTimeString();
         break;
       case 'date':
-      default:
-        result = date.toDate().toLocaleDateString();
+        result = date.toLocaleDateString();
         break;
     }
     return result;
