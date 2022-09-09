@@ -48,6 +48,7 @@ export type DashboardWidgetConfig = {
     | 'filesystems-status'; // internal
   // The widget title.
   title: string;
+  hideTitle?: boolean;
   // The description of the widget.
   description?: string;
   permissions?: Permissions;

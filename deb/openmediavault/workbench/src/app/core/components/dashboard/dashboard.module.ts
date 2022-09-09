@@ -22,37 +22,39 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { WidgetChartComponent } from '~/app/core/components/dashboard/widgets/widget-chart/widget-chart.component';
-import { WidgetDatatableComponent } from '~/app/core/components/dashboard/widgets/widget-datatable/widget-datatable.component';
-import { WidgetFilesystemsStatusComponent } from '~/app/core/components/dashboard/widgets/widget-filesystems-status/widget-filesystems-status.component';
-import { WidgetGridComponent } from '~/app/core/components/dashboard/widgets/widget-grid/widget-grid.component';
-import { WidgetRrdComponent } from '~/app/core/components/dashboard/widgets/widget-rrd/widget-rrd.component';
-import { WidgetSystemInformationComponent } from '~/app/core/components/dashboard/widgets/widget-system-information/widget-system-information.component';
-import { WidgetTextComponent } from '~/app/core/components/dashboard/widgets/widget-text/widget-text.component';
-import { WidgetValueComponent } from '~/app/core/components/dashboard/widgets/widget-value/widget-value.component';
+import { DashboardWidgetComponent } from '~/app/core/components/dashboard/dashboard-widget/dashboard-widget.component';
+import { DashboardWidgetChartComponent } from '~/app/core/components/dashboard/dashboard-widget-chart/dashboard-widget-chart.component';
+import { DashboardWidgetDatatableComponent } from '~/app/core/components/dashboard/dashboard-widget-datatable/dashboard-widget-datatable.component';
+import { DashboardWidgetFilesystemsStatusComponent } from '~/app/core/components/dashboard/dashboard-widget-filesystems-status/dashboard-widget-filesystems-status.component';
+import { DashboardWidgetGridComponent } from '~/app/core/components/dashboard/dashboard-widget-grid/dashboard-widget-grid.component';
+import { DashboardWidgetRrdComponent } from '~/app/core/components/dashboard/dashboard-widget-rrd/dashboard-widget-rrd.component';
+import { DashboardWidgetSystemInformationComponent } from '~/app/core/components/dashboard/dashboard-widget-system-information/dashboard-widget-system-information.component';
+import { DashboardWidgetTextComponent } from '~/app/core/components/dashboard/dashboard-widget-text/dashboard-widget-text.component';
+import { DashboardWidgetValueComponent } from '~/app/core/components/dashboard/dashboard-widget-value/dashboard-widget-value.component';
 import { MaterialModule } from '~/app/material.module';
 import { SharedModule } from '~/app/shared/shared.module';
 
 @NgModule({
   declarations: [
-    WidgetDatatableComponent,
-    WidgetRrdComponent,
-    WidgetSystemInformationComponent,
-    WidgetChartComponent,
-    WidgetFilesystemsStatusComponent,
-    WidgetGridComponent,
-    WidgetTextComponent,
-    WidgetValueComponent
+    DashboardWidgetComponent,
+    DashboardWidgetDatatableComponent,
+    DashboardWidgetRrdComponent,
+    DashboardWidgetSystemInformationComponent,
+    DashboardWidgetChartComponent,
+    DashboardWidgetFilesystemsStatusComponent,
+    DashboardWidgetGridComponent,
+    DashboardWidgetTextComponent,
+    DashboardWidgetValueComponent
   ],
   exports: [
-    WidgetDatatableComponent,
-    WidgetRrdComponent,
-    WidgetSystemInformationComponent,
-    WidgetChartComponent,
-    WidgetFilesystemsStatusComponent,
-    WidgetGridComponent,
-    WidgetTextComponent,
-    WidgetValueComponent
+    DashboardWidgetDatatableComponent,
+    DashboardWidgetRrdComponent,
+    DashboardWidgetSystemInformationComponent,
+    DashboardWidgetChartComponent,
+    DashboardWidgetFilesystemsStatusComponent,
+    DashboardWidgetGridComponent,
+    DashboardWidgetTextComponent,
+    DashboardWidgetValueComponent
   ],
   imports: [
     CommonModule,
