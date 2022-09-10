@@ -215,6 +215,7 @@ ENV{ID_VENDOR_ID}=="152d", \
 
 # QUAD SATA HAT KIT for your Raspberry Pi 4
 # https://shop.allnetchina.cn/products/quad-sata-hat-case-for-raspberry-pi-4?_pos=4&_sid=8298cd20c&_ss=r
+# https://wiki.radxa.com/Dual_Quad_SATA_HAT
 #
 # P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-2/2-2:1.0/host0/target0:0:0/0:0:0:0/block/sda
 # N: sda
