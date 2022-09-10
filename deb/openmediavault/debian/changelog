@@ -1,5 +1,8 @@
 openmediavault (6.0.39-1) stable; urgency=low
 
+  * Update locale files.
+  * Various improvements, e.g. code refactoring of the
+    Dashboard widgets.
   * Fix error when accessing the FTP service stats page.
   * Relocate FTP welcome message into the /etc/proftpd directory.
   * Add new Dashboard widget type to display simple values.
