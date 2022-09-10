@@ -1422,7 +1422,7 @@ msgid "Help"
 msgstr "Hilfe"
 
 msgid "Hibernate"
-msgstr ""
+msgstr "Ruhezustand"
 
 msgid "Hide"
 msgstr "Ausblenden"
