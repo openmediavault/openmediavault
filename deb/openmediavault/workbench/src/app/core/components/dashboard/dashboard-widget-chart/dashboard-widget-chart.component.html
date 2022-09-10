@@ -4,7 +4,7 @@
        fxLayout="row">
     <div class="chart"
          [fxFlex]="chartWidth">
-      <div *ngIf="config.chart.displayValue && data && chart && chartCtx"
+      <div *ngIf="config.chart?.displayValue && data && chart && chartCtx"
            class="gauge-label"
            fxFlexFill
            fxLayout="column"
@@ -12,7 +12,7 @@
         <span class="value">{{ labelFormatter(getMaxValue(), chartCtx) }}</span>
       </div>
       <canvas #chartCtx
-              [style]="{'max-height': config.chart.maxHeight, 'max-width': config.chart.maxWidth}">
+              [style]="{'max-height': config.chart?.maxHeight, 'max-width': config.chart?.maxWidth}">
         {{ chart }}
       </canvas>
     </div>
@@ -21,7 +21,7 @@
 </omv-dashboard-widget>
 
 <ng-template #renderChartLegend>
-  <ng-container [ngSwitch]="config.chart.type">
+  <ng-container [ngSwitch]="config.chart?.type">
     <ng-template [ngSwitchCase]="'advanced-doughnut'">
       <div *ngIf="data && chart && chartCtx"
            class="advanced-label"
@@ -36,7 +36,7 @@
         <div class="items"
              gdGap="8px"
              gdColumns="repeat(2, 1fr)">
-          <div *ngFor="let item of config.chart.dataConfig"
+          <div *ngFor="let item of config.chart?.dataConfig"
                [ngStyle]="{'border-left-color': item.backgroundColor}"
                class="item"
                fxLayout="column"
@@ -58,7 +58,7 @@
         <div class="items"
              gdGap="8px"
              gdColumns="repeat(3, 1fr)">
-          <div *ngFor="let item of config.chart.dataConfig"
+          <div *ngFor="let item of config.chart?.dataConfig"
                [ngStyle]="{'border-left-color': item.backgroundColor}"
                class="item"
                fxLayout="column"

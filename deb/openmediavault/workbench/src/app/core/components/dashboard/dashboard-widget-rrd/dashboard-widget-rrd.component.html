@@ -3,7 +3,7 @@
                       (dataChangedEvent)="dataChanged($event)">
   <div class="widget-content"
        fxLayoutAlign="center">
-    <img src="rrd.php?name={{ config.rrd.name }}&time={{ time }}"
+    <img src="rrd.php?name={{ config.rrd?.name }}&time={{ time }}"
          loading="lazy"
          loadingState
          alt="RRD graph"/>
