@@ -3,7 +3,9 @@
   <div *ngIf="data"
        class="widget-content"
        fxLayout="row"
-       fxLayoutAlign="start center">
+       fxLayoutAlign="start center"
+       [ngClass]="{'omv-cursor-pointer': config.value?.url}"
+       [routerLink]="config.value?.url | template:data">
     <mat-icon *ngIf="config.value?.icon"
               mat-card-avatar
               svgIcon="{{ config.value?.icon | mapIconEnum }}">

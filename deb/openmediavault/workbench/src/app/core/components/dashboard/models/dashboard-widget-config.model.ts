@@ -159,6 +159,9 @@ export type DashboardWidgetConfig = {
     title: string;
     // The string or template to render the value.
     value: string;
+    // The template to generate the URL to navigate to when
+    // the widget is clicked.
+    url?: string;
     request?: {
       service: string;
       method: string;

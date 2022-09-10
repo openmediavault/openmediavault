@@ -5,10 +5,12 @@ data:
   title: _("Updates Available")
   description: _("Indicates whether updates are available.")
   type: value
+  reloadPeriod: 120000
   value:
     icon: "mdi:download"
     title: _("Updates available")
     value: "{{ pkgUpdatesAvailable | yesNo }}"
+    url: "/system/updatemgmt/updates"
     request:
       service: System
       method: getInformation
