@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 21:22+0200\n"
+"POT-Creation-Date: 2022-09-10 10:27+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2014-2022\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -991,6 +991,12 @@ msgstr "Táblázatos formában jeleníti meg a szolgáltatások információt."
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "Megjeleníti az összes megfigyelt lemez S.M.A.R.T. információit."
 
+msgid "Displays the system time."
+msgstr ""
+
+msgid "Displays various system information."
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Dzsibuti"
 
@@ -1574,6 +1580,9 @@ msgstr "Egyes esetekben passzív port tartományokat kell megadnia a tűzfal kor
 msgid "India"
 msgstr "India"
 
+msgid "Indicates whether updates are available."
+msgstr ""
+
 msgid "Indonesia"
 msgstr "Indonézia"
 
@@ -1614,6 +1623,9 @@ msgstr "Interfészek"
 
 msgid "Invalid IP address."
 msgstr "Érvénytelen IP-cím."
+
+msgid "Invalid NetBIOS name."
+msgstr ""
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Érvénytelen SSH nyilvános kulcs (OpenSSH formátum)."
@@ -3882,6 +3894,9 @@ msgstr "Munkaasztal beállításai frissítve."
 
 msgid "Updates"
 msgstr "Frissítések"
+
+msgid "Updates Available"
+msgstr ""
 
 msgid "Updates available"
 msgstr "Frissítés elérhető"

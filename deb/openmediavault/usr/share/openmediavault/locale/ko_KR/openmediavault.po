@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 21:22+0200\n"
+"POT-Creation-Date: 2022-09-10 10:27+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -988,6 +988,12 @@ msgstr ""
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr ""
 
+msgid "Displays the system time."
+msgstr ""
+
+msgid "Displays various system information."
+msgstr ""
+
 msgid "Djibouti"
 msgstr "지부티"
 
@@ -1571,6 +1577,9 @@ msgstr "일부 경우에 수동 포트 범위를 우회 방화벽 제한에 지�
 msgid "India"
 msgstr "인도"
 
+msgid "Indicates whether updates are available."
+msgstr ""
+
 msgid "Indonesia"
 msgstr "인도네시아"
 
@@ -1611,6 +1620,9 @@ msgstr "인터페이스"
 
 msgid "Invalid IP address."
 msgstr "잘못된 IP 주소."
+
+msgid "Invalid NetBIOS name."
+msgstr ""
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr ""
@@ -3879,6 +3891,9 @@ msgstr ""
 
 msgid "Updates"
 msgstr "업데이트"
+
+msgid "Updates Available"
+msgstr ""
 
 msgid "Updates available"
 msgstr "업데이트가 가능합니다"

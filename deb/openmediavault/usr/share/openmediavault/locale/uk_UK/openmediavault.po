@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 21:22+0200\n"
+"POT-Creation-Date: 2022-09-10 10:27+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -987,6 +987,12 @@ msgstr "Відображає інформацію про послуги в та�
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "Відображає S.M.A.R.T. інформація про всі контрольовані дискові пристрої."
 
+msgid "Displays the system time."
+msgstr ""
+
+msgid "Displays various system information."
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Джібуті"
 
@@ -1570,6 +1576,9 @@ msgstr "У деяких випадках ви повинні вказати па
 msgid "India"
 msgstr "Індія"
 
+msgid "Indicates whether updates are available."
+msgstr ""
+
 msgid "Indonesia"
 msgstr "Індонезія"
 
@@ -1610,6 +1619,9 @@ msgstr "Інтерфейси"
 
 msgid "Invalid IP address."
 msgstr "Невірна IP адреса."
+
+msgid "Invalid NetBIOS name."
+msgstr ""
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Недійсний відкритий ключ SSH (формат OpenSSH)."
@@ -3878,6 +3890,9 @@ msgstr "Оновлено налаштування робочого місця."
 
 msgid "Updates"
 msgstr "Оновлення"
+
+msgid "Updates Available"
+msgstr ""
 
 msgid "Updates available"
 msgstr "Доступні оновлення"

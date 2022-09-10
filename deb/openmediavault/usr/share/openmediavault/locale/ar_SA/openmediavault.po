@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 21:22+0200\n"
+"POT-Creation-Date: 2022-09-10 10:27+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2022\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -986,6 +986,12 @@ msgstr ""
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr ""
 
+msgid "Displays the system time."
+msgstr ""
+
+msgid "Displays various system information."
+msgstr ""
+
 msgid "Djibouti"
 msgstr "جيبوتي"
 
@@ -1569,6 +1575,9 @@ msgstr "في بعض الحالات ، يجب عليك تحديد نطاق الم
 msgid "India"
 msgstr "الهند"
 
+msgid "Indicates whether updates are available."
+msgstr ""
+
 msgid "Indonesia"
 msgstr "اندونيسيا"
 
@@ -1609,6 +1618,9 @@ msgstr "بطاقات الشبكة"
 
 msgid "Invalid IP address."
 msgstr "عنوان IP غير صالح."
+
+msgid "Invalid NetBIOS name."
+msgstr ""
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr ""
@@ -3877,6 +3889,9 @@ msgstr ""
 
 msgid "Updates"
 msgstr "تحديثات"
+
+msgid "Updates Available"
+msgstr ""
 
 msgid "Updates available"
 msgstr "التحديثات متوفرة"

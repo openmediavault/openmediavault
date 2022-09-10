@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 21:22+0200\n"
+"POT-Creation-Date: 2022-09-10 10:25+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: Mathieu Delplanque, 2022\n"
 "Language-Team: French (France) (https://www.transifex.com/openmediavault/teams/14254/fr_FR/)\n"
@@ -40,6 +40,9 @@ msgstr "10 minutes"
 msgid "100 MiB/s"
 msgstr "100 Mo/s"
 
+msgid "12 hours"
+msgstr ""
+
 msgid "128 KiB/s"
 msgstr "128 Ko/s"
 
@@ -48,6 +51,9 @@ msgstr "15 minutes"
 
 msgid "2 minutes"
 msgstr "2 minutes"
+
+msgid "24 hours"
+msgstr ""
 
 msgid "256 KiB/s"
 msgstr "256 Ko/s"
@@ -66,6 +72,9 @@ msgstr "5 minutes"
 
 msgid "512 KiB/s"
 msgstr "512 Ko/s"
+
+msgid "6 hours"
+msgstr ""
 
 msgid "60 minutes"
 msgstr "60 minutes"

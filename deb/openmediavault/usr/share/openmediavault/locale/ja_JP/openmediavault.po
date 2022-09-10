@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 21:22+0200\n"
+"POT-Creation-Date: 2022-09-10 10:27+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2022\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -985,6 +985,12 @@ msgstr ""
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr ""
 
+msgid "Displays the system time."
+msgstr ""
+
+msgid "Displays various system information."
+msgstr ""
+
 msgid "Djibouti"
 msgstr "ジブチ"
 
@@ -1568,6 +1574,9 @@ msgstr "いくつかのケースではファイアウォールの制限を回避
 msgid "India"
 msgstr "インド"
 
+msgid "Indicates whether updates are available."
+msgstr ""
+
 msgid "Indonesia"
 msgstr "インドネシア"
 
@@ -1608,6 +1617,9 @@ msgstr "インタフェース"
 
 msgid "Invalid IP address."
 msgstr "不正なIPアドレスです。"
+
+msgid "Invalid NetBIOS name."
+msgstr ""
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "無効なSSH公開鍵 (OpenSSH形式)"
@@ -3876,6 +3888,9 @@ msgstr ""
 
 msgid "Updates"
 msgstr "アップデート"
+
+msgid "Updates Available"
+msgstr ""
 
 msgid "Updates available"
 msgstr "アップデートが利用可能です"

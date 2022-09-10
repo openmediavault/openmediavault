@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 21:22+0200\n"
+"POT-Creation-Date: 2022-09-10 10:27+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2022\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -997,6 +997,12 @@ msgstr "Zeigt Informationen über die Dienste in einer Tabelle an."
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "Zeigt die S.M.A.R.T.-Informationen aller überwachten Festplattengeräte an."
 
+msgid "Displays the system time."
+msgstr "Zeigt die Systemzeit an."
+
+msgid "Displays various system information."
+msgstr "Zeigt verschiedene Systeminformationen an."
+
 msgid "Djibouti"
 msgstr "Dschibuti"
 
@@ -1580,6 +1586,9 @@ msgstr "In manchen Fällen müssen Sie einen Bereich von passiven Ports auswähl
 msgid "India"
 msgstr "Indien"
 
+msgid "Indicates whether updates are available."
+msgstr "Zeigt an, ob Aktualisierungen verfügbar sind."
+
 msgid "Indonesia"
 msgstr "Indonesien"
 
@@ -1620,6 +1629,9 @@ msgstr "Schnittstellen"
 
 msgid "Invalid IP address."
 msgstr "IP Adresse ungültig"
+
+msgid "Invalid NetBIOS name."
+msgstr "Unzulässiger NetBIOS-Name."
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Ungültiger öffentlicher SSH-Schlüssel (public key, OpenSSH Format)."
@@ -3888,6 +3900,9 @@ msgstr "Die Einstellungen der Workbench wurden aktualisiert."
 
 msgid "Updates"
 msgstr "Aktualisierungen"
+
+msgid "Updates Available"
+msgstr "Aktualisierungen verfügbar"
 
 msgid "Updates available"
 msgstr "Aktualisierungen verfügbar"

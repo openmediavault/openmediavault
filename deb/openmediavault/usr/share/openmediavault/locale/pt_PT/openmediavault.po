@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 21:22+0200\n"
+"POT-Creation-Date: 2022-09-10 10:27+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2012-2015,2017,2019\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
@@ -986,6 +986,12 @@ msgstr ""
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr ""
 
+msgid "Displays the system time."
+msgstr ""
+
+msgid "Displays various system information."
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Djibouti"
 
@@ -1569,6 +1575,9 @@ msgstr "Em alguns casos você tem que especificar o intervalo portas passiva par
 msgid "India"
 msgstr "India"
 
+msgid "Indicates whether updates are available."
+msgstr ""
+
 msgid "Indonesia"
 msgstr "Indonésia"
 
@@ -1608,6 +1617,9 @@ msgid "Interfaces"
 msgstr "Interfaces"
 
 msgid "Invalid IP address."
+msgstr ""
+
+msgid "Invalid NetBIOS name."
 msgstr ""
 
 msgid "Invalid SSH public key (OpenSSH format)."
@@ -3877,6 +3889,9 @@ msgstr ""
 
 msgid "Updates"
 msgstr "Actualizações"
+
+msgid "Updates Available"
+msgstr ""
 
 msgid "Updates available"
 msgstr ""

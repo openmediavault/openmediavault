@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 21:22+0200\n"
+"POT-Creation-Date: 2022-09-10 10:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,6 +32,9 @@ msgstr ""
 msgid "100 MiB/s"
 msgstr ""
 
+msgid "12 hours"
+msgstr ""
+
 msgid "128 KiB/s"
 msgstr ""
 
@@ -39,6 +42,9 @@ msgid "15 minutes"
 msgstr ""
 
 msgid "2 minutes"
+msgstr ""
+
+msgid "24 hours"
 msgstr ""
 
 msgid "256 KiB/s"
@@ -57,6 +63,9 @@ msgid "5 minutes"
 msgstr ""
 
 msgid "512 KiB/s"
+msgstr ""
+
+msgid "6 hours"
 msgstr ""
 
 msgid "60 minutes"

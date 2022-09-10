@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 21:22+0200\n"
+"POT-Creation-Date: 2022-09-10 10:27+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -985,6 +985,12 @@ msgstr "Servislere ait bilgileri tablo düzeninde göster."
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "Tüm izlenen disk aygıtlarına ait S.M.A.R.T. bilgisini göster."
 
+msgid "Displays the system time."
+msgstr ""
+
+msgid "Displays various system information."
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Cibuti"
 
@@ -1568,6 +1574,9 @@ msgstr "Bazı durumlarda güvenlik duvarını devre dışı bırakabilmek için 
 msgid "India"
 msgstr "Hindistan"
 
+msgid "Indicates whether updates are available."
+msgstr ""
+
 msgid "Indonesia"
 msgstr "Endonezya"
 
@@ -1608,6 +1617,9 @@ msgstr "Arabirim"
 
 msgid "Invalid IP address."
 msgstr "Geçersiz IP adresi."
+
+msgid "Invalid NetBIOS name."
+msgstr ""
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Geçersiz SSH açık anahtarı (OpenSSH formatı)"
@@ -3876,6 +3888,9 @@ msgstr ""
 
 msgid "Updates"
 msgstr "Güncellemeler"
+
+msgid "Updates Available"
+msgstr ""
 
 msgid "Updates available"
 msgstr "Güncelleştirmeler mevcut"
