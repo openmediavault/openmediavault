@@ -1,0 +1,67 @@
+// This file is part of OpenMediaVault.
+//
+// @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+// @author    Volker Theile <volker.theile@openmediavault.org>
+// @copyright Copyright (c) 2009-2022 Volker Theile
+//
+// OpenMediaVault is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// OpenMediaVault is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+@use '~@angular/material' as mat;
+
+@mixin define-css-variables($theme-config, $typography-config) {
+  :root {
+    ////////////////////////////////////////////////////////////////////////////////
+    // Color
+    --mat-color-text: #{mat.get-color-from-palette(map-get($theme-config, foreground), text)};
+    --mat-color-secondary-text:
+      #{mat.get-color-from-palette(
+        map-get($theme-config, foreground),
+        secondary-text
+      )};
+    --mat-color-disabled-text:
+      #{mat.get-color-from-palette(
+        map-get($theme-config, foreground),
+        disabled-text
+      )};
+    --mat-color-hint-text:
+      #{mat.get-color-from-palette(
+        map-get($theme-config, foreground),
+        hint-text
+      )};
+    --mat-background-color-hover:
+      #{mat.get-color-from-palette(
+        map-get($theme-config, background),
+        hover
+      )};
+    --mat-background-color-selected-button:
+      #{mat.get-color-from-palette(
+        map-get($theme-config, background),
+        selected-button
+      )};
+    --mat-background-color-card:
+      #{mat.get-color-from-palette(
+        map-get($theme-config, background),
+        card
+      )};
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // Typography
+    --mat-font-size-body-1: #{mat.font-size($typography-config, body-1)};
+    --mat-font-size-button: #{mat.font-size($typography-config, button)};
+    --mat-font-size-caption: #{mat.font-size($typography-config, caption)};
+    --mat-font-size-headline: #{mat.font-size($typography-config, headline)};
+    --mat-font-size-subheading-2: #{mat.font-size($typography-config, subheading-2)};
+    --mat-font-size-title: #{mat.font-size($typography-config, title)};
+    --mat-font-weight-body-1: #{mat.font-weight($typography-config, body-1)};
+    --mat-font-weight-headline: #{mat.font-weight($typography-config, headline)};
+    --mat-font-weight-subheading-2: #{mat.font-weight($typography-config, subheading-2)};
+    --mat-font-weight-title: #{mat.font-weight($typography-config, title)};
+  }
+}

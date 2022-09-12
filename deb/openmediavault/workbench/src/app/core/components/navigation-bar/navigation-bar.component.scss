@@ -1,4 +1,5 @@
-@import 'src/styles';
+@use 'src/scss/defaults/colors' as dc;
+@use 'src/scss/defaults/variables' as dv;
 
 .omv-navigation-bar {
   min-width: 18rem;
@@ -6,10 +7,10 @@
   height: 100%;
 
   .header {
-    background-color: $omv-color-transparent;
-    border-left: 3px solid $omv-color-transparent;
-    height: $omv-top-bar-height;
-    padding-left: $omv-padding;
+    background-color: dc.$omv-color-transparent;
+    border-left: 3px solid dc.$omv-color-transparent;
+    height: dv.$omv-top-bar-height;
+    padding-left: dv.$omv-padding;
 
     .logo {
       width: 100%;

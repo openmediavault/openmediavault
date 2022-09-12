@@ -331,7 +331,7 @@ export class MatFormDatatableComponent
             template: 'confirmation',
             title: gettext('Delete'),
             message: gettext('Do you really want to delete the selected item(s)?'),
-            buttons: [{}, { class: 'omv-background-color-theme-red' }]
+            buttons: [{}, { class: 'omv-background-color-pair-red' }]
           }
         });
         modalDialogRef.afterClosed().subscribe((res) => {

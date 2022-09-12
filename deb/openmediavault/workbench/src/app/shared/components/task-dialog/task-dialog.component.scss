@@ -1,6 +1,5 @@
-@use '~@angular/material' as mat;
-
-@import 'src/styles';
+@use 'src/scss/defaults/colors' as dc;
+@use 'src/scss/theme';
 
 .mat-dialog-title {
   display: flex;
@@ -13,8 +12,6 @@
 
 .mat-dialog-content {
   .omv-task-dialog-content {
-    @extend .omv-background-color-theme-terminal;
-
     height: 300px;
     white-space: break-spaces;
   }
@@ -22,10 +19,10 @@
 
 .mat-progress-bar {
   ::ng-deep .mat-progress-bar-buffer {
-    background-color: map-get($omv-color-themes, terminal, color);
+    background-color: map-get(theme.$omv-color-pairs, terminal, color);
   }
 
   ::ng-deep .mat-progress-bar-fill::after {
-    background-color: $omv-color-transparent-black;
+    background-color: dc.$omv-color-transparent-black;
   }
 }

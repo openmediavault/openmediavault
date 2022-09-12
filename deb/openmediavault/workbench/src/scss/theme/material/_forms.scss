@@ -1,0 +1,61 @@
+// This file is part of OpenMediaVault.
+//
+// @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+// @author    Volker Theile <volker.theile@openmediavault.org>
+// @copyright Copyright (c) 2009-2022 Volker Theile
+//
+// OpenMediaVault is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// OpenMediaVault is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+@use 'sass:math';
+@use '~@angular/material' as mat;
+
+@mixin theme($mode, $theme-config, $typography-config) {
+  // Workaround for https://github.com/angular/material2/issues/4580.
+  .mat-form-field {
+    // Copy-paste from @mat-form-field-typography();
+    $line-height: mat.line-height($typography-config, input);
+    $subscript-font-scale: 0.75;
+
+    & & {
+      &-underline {
+        position: static;
+      }
+
+      &-subscript-wrapper {
+        $subscript-margin-top: math.div(0.5em, $subscript-font-scale);
+        $subscript-min-height: $line-height * 1em;
+        $subscript-margin-bottom: -#{$subscript-margin-top + $line-height};
+
+        position: static;
+        min-height: $subscript-min-height;
+        margin-bottom: $subscript-margin-bottom;
+      }
+    }
+
+    &-appearance-legacy &-subscript-wrapper {
+      // Copy-paste from @mat-form-field-legacy-typography();
+      $line-spacing: ($line-height - 1) * 0.5;
+      $subscript-margin-top: math.div(0.5em, $subscript-font-scale) - ($line-spacing * 2);
+
+      $subscript-min-height: $line-height * 1em;
+      $subscript-margin-bottom: -#{$subscript-margin-top + $line-height};
+
+      min-height: $subscript-min-height;
+      margin-bottom: $subscript-margin-bottom;
+    }
+  }
+
+  .mat-form-field-suffix .mat-icon,
+  .mat-form-field-prefix .mat-icon {
+    color: mat.get-color-from-palette(map-get($theme-config, foreground), secondary-text);
+    // Suffix/Prefix icons are aligned too high by default.
+    vertical-align: bottom;
+  }
+}

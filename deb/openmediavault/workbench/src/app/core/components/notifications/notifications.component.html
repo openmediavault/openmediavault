@@ -15,7 +15,7 @@
               svgIcon="{{ icon.information }}">
     </mat-icon>
     <p mat-line
-       class="omv-notification-list-item-title"
+       class="list-item-title omv-font-weight-bold"
        translate>
       There are no notifications.
     </p>
@@ -43,15 +43,15 @@
               svgIcon="{{ icon.information }}">
     </mat-icon>
     <span mat-line
-          class="omv-notification-list-item-title">
+          class="list-item-title omv-font-weight-bold">
       {{ notification.title | translate | truncate:100 }}
     </span>
     <span mat-line
-          class="omv-notification-list-item-message">
+          class="list-item-message">
       {{ notification.message | translate | truncate:100 }}
     </span>
     <span mat-line
-          class="omv-notification-list-item-timestamp">
+          class="list-item-timestamp">
       {{ notification.timestamp | localeDate:'relative' }}
     </span>
     <button mat-icon-button

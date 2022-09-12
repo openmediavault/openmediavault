@@ -161,7 +161,7 @@ export class SharedFolderPrivilegesDatatablePageComponent {
       },
       {
         text: gettext('Save'),
-        class: 'omv-background-color-theme-primary',
+        class: 'omv-background-color-pair-primary',
         click: this.onSave.bind(this)
       }
     ]

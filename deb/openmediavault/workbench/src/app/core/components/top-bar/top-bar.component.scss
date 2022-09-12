@@ -1,23 +1,22 @@
-@use '~@angular/material' as mat;
-
-@import 'src/styles';
+@use 'src/scss/defaults/variables' as dv;
+@use 'src/scss/theme';
 
 .omv-top-bar {
-  height: $omv-top-bar-height;
+  height: dv.$omv-top-bar-height;
 
   button .mat-icon {
-    color: $omv-color-primary-complementary;
+    color: theme.$omv-color-primary-contrast;
   }
 
   .mat-divider {
     height: 24px;
-    background-color: $omv-color-primary-complementary;
+    background-color: theme.$omv-color-primary-contrast;
   }
 
   .hostname {
-    color: $omv-color-primary-complementary;
-    font-size: mat.font-size($omv-typography-config, body-1);
-    font-weight: mat.font-weight($omv-typography-config, body-1);
-    padding: $omv-padding;
+    color: theme.$omv-color-primary-contrast;
+    font-size: var(--mat-font-size-body-1);
+    font-weight: var(--mat-font-weight-body-1);
+    padding: dv.$omv-padding;
   }
 }

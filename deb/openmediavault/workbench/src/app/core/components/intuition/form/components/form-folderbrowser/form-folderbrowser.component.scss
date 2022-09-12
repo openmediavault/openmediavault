@@ -1,12 +1,11 @@
-@use '~@angular/material' as mat;
-
-@import 'src/styles';
+@use 'src/scss/defaults/variables' as dv;
+@use 'src/scss/theme';
 
 .mat-list-base {
   padding-top: unset;
 
   .mat-list-option {
-    font-size: mat.font-size($omv-typography-config, body-1);
+    font-size: var(--mat-font-size-body-1);
   }
 }
 
@@ -16,32 +15,28 @@
 
 ::ng-deep .mat-toolbar.omv-selection-header {
   .mat-form-field {
-    font-size: mat.font-size($omv-typography-config, body-1);
+    font-size: var(--mat-font-size-body-1);
 
     &.mat-focused {
-      color: $omv-color-primary;
+      color: theme.$omv-color-primary;
     }
 
     .mat-form-field-infix {
       padding-bottom: unset;
 
       .mat-input-element {
-        color: mat.get-color-from-palette(map-get($omv-light-theme, foreground), text);
+        color: var(--mat-color-text);
       }
     }
   }
 }
 
 .omv-selection-actions {
-  font-size: mat.font-size($omv-typography-config, body-1);
-  padding: $omv-padding;
+  font-size: var(--mat-font-size-body-1);
+  padding: dv.$omv-padding;
 
   .mat-button-base:not(:last-child) {
     margin-right: 0.5rem;
-  }
-
-  .mat-icon {
-    @extend .omv-color-disabled-text;
   }
 }
 

@@ -46,21 +46,6 @@ $omv-color-white: white;
 $omv-color-whitesmoke: whitesmoke;
 $omv-color-gray: #656c72;
 
-// Status colors
-$omv-color-success: $omv-color-green;
-$omv-color-error: $omv-color-red;
-$omv-color-warning: $omv-color-yellow;
-$omv-color-info: $omv-color-corporate-dark;
-
-// Components
-$omv-color-component-border: hsla(
-  hue($omv-color-black),
-  saturation($omv-color-black),
-  lightness($omv-color-black),
-  0.2
-);
-$omv-color-list-item-hover: $omv-color-whitesmoke;
-
 ////////////////////////////////////////////////////////////////////////////////
 // Material Design palettes
 // http://mcg.mbitson.com
