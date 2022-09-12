@@ -7,6 +7,7 @@
     margin-bottom: dv.$omv-margin * 0.5;
     padding: unset;
     position: relative;
+    overflow: hidden; // https://stackoverflow.com/a/67873739
 
     .mat-progress-bar {
       position: absolute;
