@@ -1,13 +1,14 @@
-@import 'src/styles';
+@use 'src/scss/defaults/variables' as dv;
+@use 'src/scss/theme';
 
 .omv-shutdown-page {
-  @extend .omv-background-color-theme-primary;
+  @include theme.background-color-pair('primary');
 
   align-items: center;
   background-image: url('/assets/images/openmediavault_logo.svg');
   background-attachment: scroll;
   background-repeat: no-repeat;
-  background-position: center bottom $omv-margin;
+  background-position: center bottom dv.$omv-margin;
   display: flex;
   height: 100%;
   justify-content: center;

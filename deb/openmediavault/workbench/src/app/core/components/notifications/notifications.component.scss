@@ -1,16 +1,14 @@
-@import 'src/styles';
+@use 'src/scss/defaults/colors' as dc;
 
 .mat-list {
   .mat-list-item {
-    @extend .omv-color-white;
+    color: dc.$omv-color-white;
 
-    .omv-notification-list-item-title {
-      @extend .omv-font-weight-bold;
-
+    .list-item-title {
       white-space: normal;
     }
 
-    .omv-notification-list-item-message {
+    .list-item-message {
       max-width: 300px;
       white-space: normal;
     }

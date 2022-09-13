@@ -13,28 +13,31 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-@use 'sass:math';
 @use '~@angular/cdk' as cdk;
 @use '~@angular/material' as mat;
-
-@import 'src/scss/defaults';
+@use 'src/scss/defaults/colors' as dc;
+@use 'src/scss/defaults/variables' as dv;
+@use 'src/scss/theme';
+@use 'src/scss/mixins';
+@use 'src/scss/ng-block-ui';
+@use 'src/scss/ngx-scrollbar';
+@use 'src/scss/ngx-toastr';
 
 ////////////////////////////////////////////////////////////////////////////////
 // Initialize Material
 ////////////////////////////////////////////////////////////////////////////////
-
-$omv-typography-config: mat.define-typography-config($omv-font-family-default);
+$omv-typography-config: mat.define-typography-config(theme.$omv-font-family-default);
 
 @include mat.core($omv-typography-config);
 
-$omv-theme-primary-palette: mat.define-palette($omv-color-corporate-palette);
+$omv-theme-primary-palette: mat.define-palette(theme.$omv-color-primary-palette);
 $omv-theme-accent-palette: map-merge(
-  mat.define-palette($omv-color-yellow-palette),
+  mat.define-palette(theme.$omv-color-accent-palette),
   (
-    default-contrast: $omv-color-brown-coffee
+    default-contrast: theme.$omv-color-accent-contrast
   )
 );
-$omv-theme-warn-palette: mat.define-palette($omv-color-red-palette);
+$omv-theme-warn-palette: mat.define-palette(theme.$omv-color-warn-palette);
 
 $omv-light-theme: mat.define-light-theme(
   (
@@ -57,89 +60,17 @@ $omv-dark-theme: mat.define-dark-theme(
 );
 
 @include mat.all-component-themes($omv-light-theme);
+@include theme.define-css-variables($omv-light-theme, $omv-typography-config);
+@include theme.all-component-themes('light', $omv-light-theme, $omv-typography-config);
 
 @media (prefers-color-scheme: dark) {
   @include mat.all-component-colors($omv-dark-theme);
+  @include theme.define-css-variables($omv-dark-theme, $omv-typography-config);
+  @include theme.all-component-themes('dark', $omv-dark-theme, $omv-typography-config);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Variables
-////////////////////////////////////////////////////////////////////////////////
-
-$omv-color-primary: mat.get-color-from-palette(map-get($omv-light-theme, primary));
-$omv-color-primary-complementary: $omv-color-white;
-$omv-color-accent: mat.get-color-from-palette(map-get($omv-light-theme, accent));
-$omv-color-accent-complementary: mat.get-color-from-palette(
-  map-get($omv-light-theme, accent),
-  default-contrast
-);
-
-$omv-color-themes: (
-  'primary': (
-    background-color: $omv-color-primary,
-    color: $omv-color-primary-complementary
-  ),
-  'accent': (
-    background-color: $omv-color-accent,
-    color: $omv-color-accent-complementary
-  ),
-  'green': (
-    background-color: $omv-color-green,
-    color: $omv-color-jungle-green
-  ),
-  'yellow': (
-    background-color: $omv-color-yellow,
-    color: $omv-color-brown-coffee
-  ),
-  'red': (
-    background-color: $omv-color-red,
-    color: $omv-color-white
-  ),
-  'blue': (
-    background-color: $omv-color-blue,
-    color: $omv-color-white
-  ),
-  'dark': (
-    background-color: $omv-color-black,
-    color: $omv-color-white
-  ),
-  'gray': (
-    background-color: $omv-color-gray,
-    color: $omv-color-white
-  ),
-  'white': (
-    background-color: $omv-color-white,
-    color: rgba(0, 0, 0, 0.87)
-  ),
-  'whitesmoke': (
-    background-color: $omv-color-whitesmoke,
-    color: rgba(0, 0, 0, 0.87)
-  ),
-  'error': (
-    background-color: $omv-color-error,
-    color: $omv-color-white
-  ),
-  'success': (
-    background-color: $omv-color-success,
-    color: $omv-color-jungle-green
-  ),
-  'info': (
-    background-color: $omv-color-info,
-    color: $omv-color-white
-  ),
-  'warning': (
-    background-color: $omv-color-warning,
-    color: $omv-color-brown-coffee
-  ),
-  'terminal': (
-    // https://retrocomputing.stackexchange.com/questions/12835/exactly-what-color-was-the-text-on-monochrome-terminals-with-green-on-black-and/12837#12837
-    background-color: $omv-color-charleston-green,
-    color: $omv-color-neon-green
-  )
-);
-
-////////////////////////////////////////////////////////////////////////////////
-// Global
+// Classes
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -175,7 +106,7 @@ $omv-color-themes: (
 // q - For classes that set the margin to $omv-margin * 0.25
 // blank - For classes that set the margin to $omv-margin * 1
 .omv-m {
-  margin: $omv-margin;
+  margin: dv.$omv-margin;
 }
 
 .omv-m-z {
@@ -183,15 +114,15 @@ $omv-color-themes: (
 }
 
 .omv-m-h {
-  margin: $omv-margin * 0.5;
+  margin: dv.$omv-margin * 0.5;
 }
 
 .omv-m-q {
-  margin: $omv-margin * 0.25;
+  margin: dv.$omv-margin * 0.25;
 }
 
 .omv-mr {
-  margin-right: $omv-margin;
+  margin-right: dv.$omv-margin;
 }
 
 .omv-mr-z {
@@ -199,15 +130,15 @@ $omv-color-themes: (
 }
 
 .omv-mr-h {
-  margin-right: $omv-margin * 0.5;
+  margin-right: dv.$omv-margin * 0.5;
 }
 
 .omv-mr-q {
-  margin-right: $omv-margin * 0.25;
+  margin-right: dv.$omv-margin * 0.25;
 }
 
 .omv-ml {
-  margin-left: $omv-margin;
+  margin-left: dv.$omv-margin;
 }
 
 .omv-ml-z {
@@ -215,15 +146,15 @@ $omv-color-themes: (
 }
 
 .omv-ml-h {
-  margin-left: $omv-margin * 0.5;
+  margin-left: dv.$omv-margin * 0.5;
 }
 
 .omv-ml-q {
-  margin-left: $omv-margin * 0.25;
+  margin-left: dv.$omv-margin * 0.25;
 }
 
 .omv-mt {
-  margin-top: $omv-margin;
+  margin-top: dv.$omv-margin;
 }
 
 .omv-mt-z {
@@ -231,15 +162,15 @@ $omv-color-themes: (
 }
 
 .omv-mt-h {
-  margin-top: $omv-margin * 0.5;
+  margin-top: dv.$omv-margin * 0.5;
 }
 
 .omv-mt-q {
-  margin-top: $omv-margin * 0.25;
+  margin-top: dv.$omv-margin * 0.25;
 }
 
 .omv-mb {
-  margin-bottom: $omv-margin;
+  margin-bottom: dv.$omv-margin;
 }
 
 .omv-mb-z {
@@ -247,11 +178,11 @@ $omv-color-themes: (
 }
 
 .omv-mb-h {
-  margin-bottom: $omv-margin * 0.5;
+  margin-bottom: dv.$omv-margin * 0.5;
 }
 
 .omv-mb-q {
-  margin-bottom: $omv-margin * 0.25;
+  margin-bottom: dv.$omv-margin * 0.25;
 }
 
 .omv-mx {
@@ -295,132 +226,100 @@ $omv-color-themes: (
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Colors
-@mixin foreground-color-from-theme-palette($hue) {
-  $palette: map-get($omv-light-theme, foreground);
-
-  color: mat.get-color-from-palette($palette, $hue);
-
-  @media (prefers-color-scheme: dark) {
-    $palette: map-get($omv-dark-theme, foreground);
-
-    color: mat.get-color-from-palette($palette, $hue);
-  }
-}
-
-@mixin background-color-from-theme-palette($hue) {
-  $palette: map-get($omv-light-theme, background);
-
-  background-color: mat.get-color-from-palette($palette, $hue);
-
-  @media (prefers-color-scheme: dark) {
-    $palette: map-get($omv-dark-theme, background);
-
-    background-color: mat.get-color-from-palette($palette, $hue);
-  }
-}
-
+// Color
 .omv-color-primary {
-  color: $omv-color-primary;
+  color: theme.$omv-color-primary;
 }
 
 .omv-color-accent {
-  color: $omv-color-accent;
+  color: theme.$omv-color-accent;
 }
 
 .omv-color-black {
-  color: $omv-color-black;
+  color: dc.$omv-color-black;
 }
 
 .omv-color-gray {
-  color: $omv-color-gray;
+  color: dc.$omv-color-gray;
 }
 
 .omv-color-white {
-  color: $omv-color-white;
+  color: dc.$omv-color-white;
 }
 
 .omv-color-green,
 .omv-color-success,
 .omv-color-enabled {
-  color: $omv-color-success;
+  color: theme.$omv-color-success;
 }
 
 .omv-color-red,
 .omv-color-error {
-  color: $omv-color-error;
+  color: theme.$omv-color-error;
 }
 
 .omv-color-yellow,
 .omv-color-warning {
-  color: $omv-color-warning;
+  color: theme.$omv-color-warning;
 }
 
 .omv-color-blue,
 .omv-color-info {
-  color: $omv-color-info;
+  color: theme.$omv-color-info;
 }
 
-.omv-color-primary-complementary {
-  color: $omv-color-primary-complementary;
-}
-
-.omv-color-white-complementary {
-  color: $omv-color-transparent-black;
-}
-
-.omv-color-text {
-  @include foreground-color-from-theme-palette(text);
-}
-
-.omv-color-secondary-text {
-  @include foreground-color-from-theme-palette(secondary-text);
-}
-
-.omv-color-disabled-text {
-  @include foreground-color-from-theme-palette(disabled-text);
-}
-
-.omv-color-hint-text {
-  @include foreground-color-from-theme-palette(hint-text);
-}
-
-@each $name, $map in $omv-color-themes {
+@each $name in map-keys(theme.$omv-color-pairs) {
+  // Deprecated, use `.omv-background-color-pair-xxx`.
   .omv-background-color-theme-#{$name} {
-    color: map-get($map, color);
-    background-color: map-get($map, background-color);
+    @include theme.background-color-pair($name);
+  }
+  .omv-background-color-pair-#{$name} {
+    @include theme.background-color-pair($name);
   }
 }
 
-.omv-background-color-hover {
-  @include background-color-from-theme-palette(hover);
+.omv-background-color-pair-transparent {
+  background-color: dc.$omv-color-transparent;
 }
 
-.omv-background-color-button {
-  @include background-color-from-theme-palette(button);
-}
-
-.omv-background-color-selected-button {
-  @include background-color-from-theme-palette(selected-button);
-}
-
-.omv-background-color-card {
-  @include background-color-from-theme-palette(card);
-}
-
-.omv-background-color-theme-transparent {
-  background-color: transparent;
-}
-
-.omv-background-color-theme-tip {
+.omv-background-color-pair-tip {
 }
 
 // mat-chip colors must use '!important' to get them applied.
-@each $name, $map in $omv-color-themes {
+@each $name in map-keys(theme.$omv-color-pairs) {
   .omv-chip-theme-#{$name} {
-    color: map-get($map, color) !important;
-    background-color: map-get($map, background-color) !important;
+    @include theme.background-color-pair($name);
   }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Color - Derived from the active Material theme
+.omv-color-text {
+  color: var(--mat-color-text);
+}
+
+.omv-color-secondary-text {
+  color: var(--mat-color-secondary-text);
+}
+
+.omv-color-disabled-text {
+  color: var(--mat-color-disabled-text);
+}
+
+.omv-color-hint-text {
+  color: var(--mat-color-hint-text);
+}
+
+.omv-background-color-hover {
+  background: var(--mat-background-color-hover);
+}
+
+.omv-background-color-selected-button {
+  background: var(--mat-background-color-selected-button);
+}
+
+.omv-background-color-card {
+  background: var(--mat-background-color-card);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -486,13 +385,27 @@ $omv-color-themes: (
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+// Font - Derived from the Material theme typography
+.omv-font-weight-title {
+  font-weight: var(--mat-font-weight-title);
+}
+
+.omv-font-size-title {
+  font-size: var(--mat-font-size-title);
+}
+
+.omv-font-size-subheading-2 {
+  font-size: var(--mat-font-size-subheading-2);
+}
+
+////////////////////////////////////////////////////////////////////////////////
 // Text
 .omv-text-center {
   text-align: center !important;
 }
 
 .omv-text-monospace {
-  font-family: $omv-font-family-monospace !important;
+  font-family: theme.$omv-font-family-monospace !important;
 }
 
 .omv-text-truncate {
@@ -559,19 +472,9 @@ $omv-color-themes: (
 
 ////////////////////////////////////////////////////////////////////////////////
 // Scrollbar
-@mixin omv-scrollbar {
-  scrollbar-color: $omv-color-primary transparent;
-
-  --scrollbar-border-radius: 0 !important;
-  // Using variables does not work somehow.
-  // --scrollbar-thumb-color: $omv-color-primary;
-  --scrollbar-thumb-color: #5dacdf !important;
-  --scrollbar-thumb-hover-color: var(--scrollbar-thumb-color) !important;
-}
-
 .omv-scrollable-xy,
 .omv-scrollable-y {
-  @include omv-scrollbar;
+  @include mixins.omv-scrollbar;
 }
 
 .omv-scrollable-xy {
@@ -601,8 +504,8 @@ body {
 }
 
 body {
-  background-color: $omv-color-corporate-light;
-  font-family: mat.font-family($omv-typography-config);
+  background-color: dc.$omv-color-corporate-light;
+  font-family: theme.$omv-font-family-default;
   margin: 0;
 }
 
@@ -615,14 +518,14 @@ a {
 ////////////////////////////////////////////////////////////////////////////////
 // Textarea
 textarea {
-  @include omv-scrollbar;
+  @include mixins.omv-scrollbar;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // Image
 img.loading,
 img.loading::after {
-  background-color: $omv-color-transparent;
+  background-color: dc.$omv-color-transparent;
   border-radius: 50%;
   width: 10em !important;
   height: 10em !important;
@@ -632,10 +535,10 @@ img.loading {
   content: url('data:image/x-icon;base64,');
   color: rgba(0, 0, 0, 0) !important; // Hide 'alt' text.
   font-size: 5px;
-  border-top: 1.1em solid $omv-color-whitesmoke;
-  border-right: 1.1em solid $omv-color-whitesmoke;
-  border-bottom: 1.1em solid $omv-color-whitesmoke;
-  border-left: 1.1em solid $omv-color-corporate-default;
+  border-top: 1.1em solid dc.$omv-color-whitesmoke;
+  border-right: 1.1em solid dc.$omv-color-whitesmoke;
+  border-bottom: 1.1em solid dc.$omv-color-whitesmoke;
+  border-left: 1.1em solid dc.$omv-color-corporate-default;
   animation-duration: 1.1s;
   animation-iteration-count: infinite;
   animation-name: loading-spinner;
@@ -650,242 +553,4 @@ img.loading {
   100% {
     transform: rotate(360deg);
   }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Customize Material
-////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
-// Tabs
-.mat-tab-group {
-  height: 100%;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Select
-.mat-select-panel {
-  @include omv-scrollbar;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Checkbox
-// Workaround for https://github.com/angular/components/issues/8416
-.mat-checkbox-layout {
-  white-space: normal !important;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Menu
-.mat-menu-panel {
-  @include omv-scrollbar;
-}
-
-.mat-menu-item {
-  border-left: 0.25rem solid transparent !important;
-
-  &.active {
-    border-left: 0.25rem solid $omv-color-primary !important;
-  }
-
-  &:hover {
-    border-left: 0.25rem solid $omv-color-accent !important;
-  }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Sidenav
-.mat-sidenav {
-  background-color: map-get(mat.$blue-grey-palette, 900);
-
-  @media (prefers-color-scheme: dark) {
-    background-color: mat.get-color-from-palette(map-get($omv-dark-theme, background), background);
-  }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Dialog
-.mat-dialog-content {
-  font-family: mat.font-family($omv-typography-config);
-  font-size: mat.font-size($omv-typography-config, body-1);
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Card
-.mat-card-actions {
-  .mat-button-base:not(:last-child) {
-    margin-right: 0.5rem;
-  }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Buttons
-.mat-button-toggle.mat-button-toggle-checked {
-  @extend .omv-background-color-theme-accent;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Forms
-// Workaround for https://github.com/angular/material2/issues/4580.
-@mixin mat-form-field-multiline-workaround($typography-config) {
-  .mat-form-field {
-    // Copy-paste from @mat-form-field-typography();
-    $line-height: mat.line-height($typography-config, input);
-    $subscript-font-scale: 0.75;
-
-    & & {
-      &-underline {
-        position: static;
-      }
-
-      &-subscript-wrapper {
-        $subscript-margin-top: math.div(0.5em, $subscript-font-scale);
-        $subscript-min-height: $line-height * 1em;
-        $subscript-margin-bottom: -#{$subscript-margin-top + $line-height};
-
-        position: static;
-        min-height: $subscript-min-height;
-        margin-bottom: $subscript-margin-bottom;
-      }
-    }
-
-    &-appearance-legacy &-subscript-wrapper {
-      // Copy-paste from @mat-form-field-legacy-typography();
-      $line-spacing: ($line-height - 1) * 0.5;
-      $subscript-margin-top: math.div(0.5em, $subscript-font-scale) - ($line-spacing * 2);
-
-      $subscript-min-height: $line-height * 1em;
-      $subscript-margin-bottom: -#{$subscript-margin-top + $line-height};
-
-      min-height: $subscript-min-height;
-      margin-bottom: $subscript-margin-bottom;
-    }
-  }
-}
-
-@include mat-form-field-multiline-workaround($omv-typography-config);
-
-.mat-form-field-suffix .mat-icon,
-.mat-form-field-prefix .mat-icon {
-  @extend .omv-color-secondary-text;
-
-  // Suffix/Prefix icons are aligned too high by default.
-  vertical-align: bottom;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Customize BlockUI
-////////////////////////////////////////////////////////////////////////////////
-.block-ui-wrapper {
-  background: $omv-color-transparent-black !important;
-  cursor:
-    url('data:image/x-icon;base64,AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAMIeAADCHgAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8AAAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wAAAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP////8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/0BA4P9AQOD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/QEDg/0BA4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8AAAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/0BA4P9AQOD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wAAAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/QEDg/0BA4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/0BA4P9AQOD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8AAAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/QEDg/0BA4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/0BA4P9AQOD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/QEDg/0BA4P8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAP8AAAD/AAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP/A4OD/wODg/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/8Dg4P/A4OD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AwODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wDA4OD/wODg/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A/8AD///AA//8AAA//AAAP/AAAA/wAAAPwAAAA8AAAAPAAAADwAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAPAAAADwAAAA8AAAAPwAAAP8AAAD/wAAD/8AAA//8AD///AA///8D////A////AD///wA///8AP///AD/8='),
-    auto !important;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Customize ngx-scrollbar
-////////////////////////////////////////////////////////////////////////////////
-.ng-scrollbar {
-  @include omv-scrollbar;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Customize Toastr
-////////////////////////////////////////////////////////////////////////////////
-.toast-container {
-  font-family: mat.font-family($omv-typography-config);
-  font-size: mat.font-size($omv-typography-config, body-1);
-
-  .ngx-toastr {
-    box-shadow: unset;
-
-    &:hover {
-      box-shadow: unset;
-    }
-
-    min-width: 300px;
-    width: 50% !important;
-    max-width: 500px;
-  }
-}
-
-.toast-error {
-  background-color: $omv-color-error;
-  // https://materialdesignicons.com/icon/close-circle
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiICB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xMiwyQzE3LjUzLDIgMjIsNi40NyAyMiwxMkMyMiwxNy41MyAxNy41MywyMiAxMiwyMkM2LjQ3LDIyIDIsMTcuNTMgMiwxMkMyLDYuNDcgNi40NywyIDEyLDJNMTUuNTksN0wxMiwxMC41OUw4LjQxLDdMNyw4LjQxTDEwLjU5LDEyTDcsMTUuNTlMOC40MSwxN0wxMiwxMy40MUwxNS41OSwxN0wxNywxNS41OUwxMy40MSwxMkwxNyw4LjQxTDE1LjU5LDdaIiAvPgo8L3N2Zz4=');
-  color: $omv-color-white !important;
-}
-
-.toast-success {
-  background-color: $omv-color-success;
-  // https://materialdesignicons.com/icon/check
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiICB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgIDxwYXRoIGZpbGw9IiMxQTIzMUEiIGQ9Ik0yMSw3TDksMTlMMy41LDEzLjVMNC45MSwxMi4wOUw5LDE2LjE3TDE5LjU5LDUuNTlMMjEsN1oiIC8+Cjwvc3ZnPg==');
-  color: $omv-color-jungle-green !important;
-}
-
-.toast-info {
-  background-color: $omv-color-info;
-  // https://materialdesignicons.com/icon/information-outline
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiICB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xMSw5SDEzVjdIMTFNMTIsMjBDNy41OSwyMCA0LDE2LjQxIDQsMTJDNCw3LjU5IDcuNTksNCAxMiw0QzE2LjQxLDQgMjAsNy41OSAyMCwxMkMyMCwxNi40MSAxNi40MSwyMCAxMiwyME0xMiwyQTEwLDEwIDAgMCwwIDIsMTJBMTAsMTAgMCAwLDAgMTIsMjJBMTAsMTAgMCAwLDAgMjIsMTJBMTAsMTAgMCAwLDAgMTIsMk0xMSwxN0gxM1YxMUgxMVYxN1oiIC8+Cjwvc3ZnPg==');
-  color: $omv-color-white !important;
-}
-
-.toast-warning {
-  background-color: $omv-color-yellow;
-  // https://materialdesignicons.com/icon/alert
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiICB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgIDxwYXRoIGZpbGw9IiM0RDJFMjUiIGQ9Ik0xMyAxNEgxMVY5SDEzTTEzIDE4SDExVjE2SDEzTTEgMjFIMjNMMTIgMkwxIDIxWiIgLz4KPC9zdmc+');
-  color: $omv-color-brown-coffee !important;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Swimlane ngx-charts
-////////////////////////////////////////////////////////////////////////////////
-ngx-charts-gauge {
-  font-size: mat.font-size($omv-typography-config, body-1);
-}
-
-ngx-charts-advanced-pie-chart {
-  .advanced-pie-legend {
-    .legend-items-container .legend-items {
-      overflow: initial;
-
-      .legend-item {
-        .item-value {
-          font-size: mat.font-size($omv-typography-config, body-1);
-        }
-
-        .item-label {
-          font-size: mat.font-size($omv-typography-config, caption);
-        }
-
-        .item-percent {
-          font-size: mat.font-size($omv-typography-config, body-1);
-        }
-      }
-    }
-
-    .total-value {
-      font-size: mat.font-size($omv-typography-config, subheading-2);
-    }
-
-    .total-label {
-      font-size: mat.font-size($omv-typography-config, body-1);
-    }
-  }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Customize openmediavault components & directives
-////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
-// Datatable
-.omv-datatable-cell-title {
-  font-weight: mat.font-weight($omv-typography-config, title);
-  font-size: mat.font-size($omv-typography-config, title);
-}
-
-.omv-datatable-cell-subtitle {
-  font-size: mat.font-size($omv-typography-config, subheading-2);
 }

@@ -1,15 +1,15 @@
-@import 'src/styles';
+@use 'src/scss/mixins';
 
 mat-form-code-editor {
   ::ng-deep & .cm-editor {
-    @include omv-scrollbar;
+    @include mixins.omv-scrollbar;
 
     height: 300px;
     resize: vertical;
     overflow: auto;
 
     .cm-scroller {
-      @include omv-scrollbar;
+      @include mixins.omv-scrollbar;
     }
 
     &.cm-focused {

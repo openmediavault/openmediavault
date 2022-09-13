@@ -2,6 +2,7 @@
      fxLayout="row"
      fxLayoutAlign="start center">
   <a routerLink="/"
+     class="mat-subheading-2"
      [ngClass]="{'active': !breadcrumbs.length}"
      matTooltip="{{ 'Home' | translate }}">
     <mat-icon svgIcon="{{ icon.home }}">
@@ -10,6 +11,7 @@
   <div *ngFor="let breadcrumb of breadcrumbs; let last = last">
     <mat-divider vertical="true"></mat-divider>
     <a [routerLink]="[breadcrumb.url]"
+       class="mat-subheading-2"
        [ngClass]="{'active': last}">
       <span>{{ breadcrumb.text | translate }}</span>
     </a>

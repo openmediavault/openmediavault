@@ -1,4 +1,4 @@
-@import 'src/styles';
+@use 'src/scss/theme';
 
 .omv-progress-bar {
   position: relative;
@@ -10,7 +10,7 @@
   }
 
   .omv-progress-bar-fill {
-    @extend .omv-background-color-theme-green;
+    @include theme.background-color-pair('green');
 
     overflow: hidden;
     position: absolute;
@@ -20,6 +20,6 @@
   }
 
   .omv-progress-bar-fill.warning {
-    @extend .omv-background-color-theme-error;
+    @include theme.background-color-pair('error');
   }
 }

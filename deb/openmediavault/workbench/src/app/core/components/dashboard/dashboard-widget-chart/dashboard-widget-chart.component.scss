@@ -1,17 +1,16 @@
-@use '~@angular/material/index' as mat;
-
-@import 'src/styles';
+@use 'src/scss/defaults/variables' as dv;
+@use 'src/scss/theme';
 
 .widget-content {
-  padding: 0 $omv-padding $omv-padding;
+  padding: 0 dv.$omv-padding dv.$omv-padding;
 
   .chart {
     position: relative;
 
     .gauge-label {
       position: absolute;
-      font-size: mat.font-size($omv-typography-config, body-1);
-      font-weight: mat.font-weight($omv-typography-config, body-1);
+      font-size: var(--mat-font-size-body-1);
+      font-weight: var(--mat-font-weight-title);
     }
   }
 
@@ -22,11 +21,11 @@
       margin-bottom: 8px;
 
       .total-value {
-        font-size: mat.font-size($omv-typography-config, body-1);
+        font-size: var(--mat-font-size-body-1);
       }
 
       .total-label {
-        font-size: mat.font-size($omv-typography-config, caption);
+        font-size: var(--mat-font-size-caption);
       }
     }
 
@@ -36,15 +35,15 @@
         padding-left: 8px;
 
         .item-value {
-          font-size: mat.font-size($omv-typography-config, body-1);
+          font-size: var(--mat-font-size-body-1);
         }
 
         .item-label {
-          font-size: mat.font-size($omv-typography-config, caption);
+          font-size: var(--mat-font-size-caption);
         }
 
         .item-percent {
-          font-size: mat.font-size($omv-typography-config, body-1);
+          font-size: var(--mat-font-size-body-1);
         }
       }
     }

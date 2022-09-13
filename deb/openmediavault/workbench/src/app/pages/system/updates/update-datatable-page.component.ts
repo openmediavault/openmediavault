@@ -34,8 +34,8 @@ export class UpdateDatatablePageComponent {
         cellTemplateConfig:
           '<div>' +
           '  <div fxLayout="row">' +
-          '    <div class="omv-datatable-cell-title">{{ name }} {{ version }}</div>' +
-          '    <div class="omv-datatable-cell-subtitle">{{ summary }}</div>' +
+          '    <div class="omv-font-weight-title omv-font-size-title">{{ name }} {{ version }}</div>' +
+          '    <div class="omv-font-size-subheading-2">{{ summary }}</div>' +
           '  </div>' +
           '  <br>' +
           '{% if extendeddescription %}  <span>{{ extendeddescription }}</span><br><br>{% endif %}' +

@@ -67,8 +67,8 @@ export class ModalDialogComponent {
               dialogResult: true,
               class:
                 'confirmation' === this.config.template
-                  ? 'omv-background-color-theme-primary'
-                  : 'omv-background-color-theme-red'
+                  ? 'omv-background-color-pair-primary'
+                  : 'omv-background-color-pair-red'
             }
           ]
         });
@@ -86,7 +86,7 @@ export class ModalDialogComponent {
               text: gettext('OK'),
               autofocus: true,
               dialogResult: true,
-              class: 'omv-background-color-theme-primary'
+              class: 'omv-background-color-pair-primary'
             }
           ]
         });

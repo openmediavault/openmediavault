@@ -1,0 +1,100 @@
+// This file is part of OpenMediaVault.
+//
+// @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+// @author    Volker Theile <volker.theile@openmediavault.org>
+// @copyright Copyright (c) 2009-2022 Volker Theile
+//
+// OpenMediaVault is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// OpenMediaVault is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+@use 'src/scss/defaults/colors' as dc;
+
+$omv-color-primary-palette: dc.$omv-color-corporate-palette;
+$omv-color-primary: dc.$omv-color-corporate-default;
+$omv-color-primary-contrast: dc.$omv-color-white;
+
+$omv-color-accent-palette: dc.$omv-color-yellow-palette;
+$omv-color-accent: dc.$omv-color-yellow;
+$omv-color-accent-contrast: dc.$omv-color-brown-coffee;
+
+$omv-color-warn-palette: dc.$omv-color-red-palette;
+
+$omv-color-success: dc.$omv-color-green;
+$omv-color-error: dc.$omv-color-red;
+$omv-color-warning: dc.$omv-color-yellow;
+$omv-color-info: dc.$omv-color-corporate-dark;
+
+$omv-color-pairs: (
+  'primary': (
+    background-color: $omv-color-primary,
+    color: $omv-color-primary-contrast
+  ),
+  'accent': (
+    background-color: $omv-color-accent,
+    color: $omv-color-accent-contrast
+  ),
+  'green': (
+    background-color: dc.$omv-color-green,
+    color: dc.$omv-color-jungle-green
+  ),
+  'yellow': (
+    background-color: dc.$omv-color-yellow,
+    color: dc.$omv-color-brown-coffee
+  ),
+  'red': (
+    background-color: dc.$omv-color-red,
+    color: dc.$omv-color-white
+  ),
+  'blue': (
+    background-color: dc.$omv-color-blue,
+    color: dc.$omv-color-white
+  ),
+  'dark': (
+    background-color: dc.$omv-color-black,
+    color: dc.$omv-color-white
+  ),
+  'gray': (
+    background-color: dc.$omv-color-gray,
+    color: dc.$omv-color-white
+  ),
+  'white': (
+    background-color: dc.$omv-color-white,
+    color: rgba(0, 0, 0, 0.87)
+  ),
+  'whitesmoke': (
+    background-color: dc.$omv-color-whitesmoke,
+    color: rgba(0, 0, 0, 0.87)
+  ),
+  'error': (
+    background-color: $omv-color-error,
+    color: dc.$omv-color-white
+  ),
+  'success': (
+    background-color: $omv-color-success,
+    color: dc.$omv-color-jungle-green
+  ),
+  'info': (
+    background-color: $omv-color-info,
+    color: dc.$omv-color-white
+  ),
+  'warning': (
+    background-color: $omv-color-warning,
+    color: dc.$omv-color-brown-coffee
+  ),
+  'terminal': (
+    // https://retrocomputing.stackexchange.com/questions/12835/exactly-what-color-was-the-text-on-monochrome-terminals-with-green-on-black-and/12837#12837
+    background-color: dc.$omv-color-charleston-green,
+    color: dc.$omv-color-neon-green
+  )
+);
+
+@mixin background-color-pair($name) {
+  color: map-get($omv-color-pairs, $name, color) !important;
+  background-color: map-get($omv-color-pairs, $name, background-color) !important;
+}

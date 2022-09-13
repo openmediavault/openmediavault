@@ -6,8 +6,8 @@
     <div fxLayout="row"
          class="omv-datatable-cell-header">
       <div class="omv-datatable-cell-header-text">
-        <div class="omv-datatable-cell-title">{{ row.name }} {{ row.version }}</div>
-        <div class="omv-datatable-cell-subtitle">{{ row.summary }}</div>
+        <div class="omv-font-weight-title omv-font-size-title">{{ row.name }} {{ row.version }}</div>
+        <div class="omv-font-size-subheading-2">{{ row.summary }}</div>
       </div>
       <mat-chip-list *ngIf="row.installed"
                      class="installed">

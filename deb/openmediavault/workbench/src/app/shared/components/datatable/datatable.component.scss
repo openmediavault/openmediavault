@@ -1,26 +1,25 @@
-@use '~@angular/material' as mat;
-
-@import 'src/styles';
+@use 'src/scss/defaults/colors' as dc;
+@use 'src/scss/theme';
 
 // Toolbar
 ::ng-deep omv-datatable .mat-toolbar {
   .mat-button,
   .mat-icon-button {
-    color: $omv-color-primary;
+    color: theme.$omv-color-primary;
   }
 
   .mat-form-field {
-    font-size: mat.font-size($omv-typography-config, body-1);
+    font-size: var(--mat-font-size-body-1);
 
     &.mat-focused {
-      color: $omv-color-primary;
+      color: theme.$omv-color-primary;
     }
 
     .mat-form-field-infix {
       padding-bottom: unset;
 
       .mat-input-element {
-        color: mat.get-color-from-palette(map-get($omv-light-theme, foreground), text);
+        color: var(--mat-color-text);
       }
     }
   }
@@ -52,14 +51,14 @@
     .datatable-body-row {
       &.active,
       &.active .datatable-row-group {
-        @extend .omv-background-color-theme-accent;
+        @include theme.background-color-pair('accent');
       }
 
       &.active:hover,
       &.active:hover .datatable-row-group {
-        @extend .omv-background-color-theme-accent;
+        @include theme.background-color-pair('accent');
 
-        background-color: map-get($omv-color-yellow-palette, 800) !important;
+        background-color: map-get(theme.$omv-color-accent-palette, 800) !important;
         transition-property: background;
         transition-duration: 0.3s;
         transition-timing-function: linear;
@@ -67,9 +66,9 @@
 
       &.active:focus,
       &.active:focus .datatable-row-group {
-        @extend .omv-background-color-theme-accent;
+        @include theme.background-color-pair('accent');
 
-        background-color: map-get($omv-color-yellow-palette, 700) !important;
+        background-color: map-get(theme.$omv-color-accent-palette, 700) !important;
       }
     }
   }
@@ -78,7 +77,7 @@
     .datatable-body-row {
       &:hover,
       &:hover .datatable-row-group {
-        @extend .omv-background-color-theme-primary;
+        @include theme.background-color-pair('primary');
 
         transition-property: background;
         transition-duration: 0.3s;
@@ -87,9 +86,9 @@
 
       &:focus,
       &:focus .datatable-row-group {
-        @extend .omv-background-color-theme-primary;
+        @include theme.background-color-pair('primary');
 
-        background-color: map-get($omv-color-corporate-palette, 700);
+        background-color: map-get(theme.$omv-color-primary-palette, 700);
       }
     }
   }
@@ -120,12 +119,12 @@
    */
   .datatable-body {
     .datatable-row-detail {
-      background: $omv-color-whitesmoke;
+      background: dc.$omv-color-whitesmoke;
       padding: 10px;
     }
 
     .datatable-group-header {
-      background: $omv-color-whitesmoke;
+      background: dc.$omv-color-whitesmoke;
       border-bottom: solid 1px #d9d8d9;
       border-top: solid 1px #d9d8d9;
     }
@@ -174,21 +173,18 @@
         vertical-align: middle;
 
         &.disabled a {
-          @extend .omv-color-disabled-text;
-
+          color: var(--mat-color-disabled-text);
           background-color: transparent !important;
         }
 
         &.active a {
-          @extend .omv-background-color-hover;
-
+          background: var(--mat-background-color-hover);
           font-weight: bold;
         }
       }
 
       a {
-        @extend .omv-color-text;
-
+        color: var(--mat-color-text);
         height: 22px;
         min-width: 24px;
         line-height: 22px;
@@ -200,8 +196,8 @@
         vertical-align: bottom;
 
         &:hover {
-          @extend .omv-color-primary;
-          @extend .omv-background-color-hover;
+          background: var(--mat-background-color-hover);
+          color: theme.$omv-color-primary;
         }
       }
 

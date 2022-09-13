@@ -1,18 +1,17 @@
-@use '~@angular/material' as mat;
-
-@import 'src/styles';
+@use 'src/scss/defaults/colors' as dc;
+@use 'src/scss/defaults/variables' as dv;
+@use 'src/scss/theme';
 
 .omv-breadcrumb {
   a {
-    @include mat.typography-level($omv-typography-config, subheading-2);
-
-    border-bottom: 3px solid $omv-color-transparent;
+    border-bottom: 3px solid dc.$omv-color-transparent;
     display: inline-block;
+    margin: 0;
     text-decoration: none;
     white-space: nowrap;
 
     &:hover:not(.active) {
-      border-bottom: 3px solid $omv-color-accent;
+      border-bottom: 3px solid theme.$omv-color-accent;
     }
 
     .mat-icon {
@@ -21,9 +20,9 @@
   }
 
   .mat-divider {
-    @extend .omv-mx-h;
-
     border-color: inherit;
     display: unset;
+    margin-left: dv.$omv-margin * 0.5;
+    margin-right: dv.$omv-margin * 0.5;
   }
 }

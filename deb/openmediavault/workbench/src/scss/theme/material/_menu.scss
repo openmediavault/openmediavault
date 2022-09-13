@@ -1,0 +1,35 @@
+// This file is part of OpenMediaVault.
+//
+// @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+// @author    Volker Theile <volker.theile@openmediavault.org>
+// @copyright Copyright (c) 2009-2022 Volker Theile
+//
+// OpenMediaVault is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// OpenMediaVault is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+@use 'src/scss/theme/colors' as tc;
+@use 'src/scss/mixins';
+
+@mixin theme($mode, $theme-config, $typography-config) {
+  .mat-menu-panel {
+    @include mixins.omv-scrollbar;
+  }
+
+  .mat-menu-item {
+    border-left: 0.25rem solid transparent !important;
+
+    &.active {
+      border-left: 0.25rem solid tc.$omv-color-primary !important;
+    }
+
+    &:hover {
+      border-left: 0.25rem solid tc.$omv-color-accent !important;
+    }
+  }
+}

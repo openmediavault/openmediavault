@@ -180,12 +180,12 @@ export class DiskDatatablePageComponent {
                   {
                     text: gettext('Quick'),
                     dialogResult: 'quick',
-                    class: 'omv-background-color-theme-red'
+                    class: 'omv-background-color-pair-red'
                   },
                   {
                     text: gettext('Secure'),
                     dialogResult: 'secure',
-                    class: 'omv-background-color-theme-red'
+                    class: 'omv-background-color-pair-red'
                   }
                 ]
               }

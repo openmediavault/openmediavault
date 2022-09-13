@@ -1,6 +1,6 @@
 openmediavault (6.0.40-1) stable; urgency=low
 
-  *
+  * Reduce final UI bundle size by 50%.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 10 Sep 2022 10:57:41 +0200
 

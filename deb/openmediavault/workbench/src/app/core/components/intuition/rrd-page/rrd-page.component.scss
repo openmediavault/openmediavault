@@ -1,16 +1,17 @@
-@import 'src/styles';
+@use 'src/scss/defaults/variables' as dv;
+@use 'src/scss/theme';
 
 .mat-card {
-  margin: $omv-margin;
+  margin: dv.$omv-margin;
   padding: unset;
 
   .mat-toolbar {
-    border-top-left-radius: $omv-radius;
-    border-top-right-radius: $omv-radius;
-    color: $omv-color-primary;
+    border-top-left-radius: dv.$omv-radius;
+    border-top-right-radius: dv.$omv-radius;
+    color: theme.$omv-color-primary;
   }
 
   .mat-card-content {
-    padding: $omv-padding;
+    padding: dv.$omv-padding;
   }
 }
