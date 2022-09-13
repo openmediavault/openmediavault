@@ -58,6 +58,12 @@
     </button>
     <mat-divider></mat-divider>
     <button mat-menu-item
+            (click)="prefersColorSchemeService.toggle()">
+      <mat-icon svgIcon="mdi:weather-night"></mat-icon>
+      <mat-slide-toggle [checked]="prefersColorSchemeService.current === 'dark'"
+                        translate>Dark mode</mat-slide-toggle>
+    </button>
+    <button mat-menu-item
             [matMenuTriggerFor]="localeMenu">
       <mat-icon svgIcon="mdi:earth"></mat-icon>
       <span translate>Language</span>

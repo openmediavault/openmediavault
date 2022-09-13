@@ -15,7 +15,12 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
+
+import {
+  PrefersColorScheme,
+  PrefersColorSchemeService
+} from '~/app/shared/services/prefers-color-scheme.service';
 
 @Component({
   selector: 'omv-root',
@@ -23,5 +28,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor() {}
+  constructor(
+    private prefersColorSchemeService: PrefersColorSchemeService,
+    private renderer2: Renderer2
+  ) {
+    this.prefersColorSchemeService.change$.subscribe((prefersColorScheme: PrefersColorScheme) => {
+      if (prefersColorScheme === 'dark') {
+        this.renderer2.addClass(document.body, 'omv-dark-theme');
+      } else {
+        this.renderer2.removeClass(document.body, 'omv-dark-theme');
+      }
+    });
+  }
 }

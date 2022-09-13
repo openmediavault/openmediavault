@@ -63,7 +63,7 @@ $omv-dark-theme: mat.define-dark-theme(
 @include theme.define-css-variables($omv-light-theme, $omv-typography-config);
 @include theme.all-component-themes('light', $omv-light-theme, $omv-typography-config);
 
-@media (prefers-color-scheme: dark) {
+.omv-dark-theme {
   @include mat.all-component-colors($omv-dark-theme);
   @include theme.define-css-variables($omv-dark-theme, $omv-typography-config);
   @include theme.all-component-themes('dark', $omv-dark-theme, $omv-typography-config);

@@ -33,6 +33,7 @@ import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { LocaleService } from '~/app/shared/services/locale.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
+import { PrefersColorSchemeService } from '~/app/shared/services/prefers-color-scheme.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 import { SystemInformationService } from '~/app/shared/services/system-information.service';
 import { UserStorageService } from '~/app/shared/services/user-storage.service';
@@ -64,6 +65,7 @@ export class TopBarComponent implements OnDestroy {
   private subscriptions = new Subscription();
 
   constructor(
+    public prefersColorSchemeService: PrefersColorSchemeService,
     private router: Router,
     private authService: AuthService,
     private authSessionService: AuthSessionService,
