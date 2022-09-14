@@ -40,113 +40,122 @@
   </button>
 
   <mat-menu #settingsMenu="matMenu">
-    <button mat-menu-item
-            disabled>
-      <mat-icon svgIcon="{{ icon.user }}"></mat-icon>
-      <span translate>Signed in as <b>{{ username }}</b></span>
-    </button>
-    <button *ngIf="permissions?.role.includes(roles.user)"
-            mat-menu-item
-            routerLink="/usermgmt/profile">
-      <mat-icon svgIcon="mdi:account-details"></mat-icon>
-      <span translate>Your profile</span>
-    </button>
-    <button mat-menu-item
-            routerLink="/usermgmt/change-password">
-      <mat-icon svgIcon="{{ icon.password }}"></mat-icon>
-      <span translate>Change Password</span>
-    </button>
-    <mat-divider></mat-divider>
-    <button mat-menu-item
-            (click)="prefersColorSchemeService.toggle()">
-      <mat-icon svgIcon="mdi:weather-night"></mat-icon>
-      <mat-slide-toggle [checked]="prefersColorSchemeService.current === 'dark'"
-                        translate>Dark mode</mat-slide-toggle>
-    </button>
-    <button mat-menu-item
-            [matMenuTriggerFor]="localeMenu">
-      <mat-icon svgIcon="mdi:earth"></mat-icon>
-      <span translate>Language</span>
-    </button>
-    <button mat-menu-item
-            routerLink="/dashboard/settings">
-      <mat-icon svgIcon="{{ icon.apps }}"></mat-icon>
-      <span translate>Dashboard</span>
-    </button>
-    <mat-divider></mat-divider>
-    <button mat-menu-item
-            (click)="onClearStateStorage()">
-      <mat-icon svgIcon="{{ icon.reset }}"></mat-icon>
-      <span translate>Reset UI to defaults</span>
-    </button>
+    <ng-template matMenuContent>
+      <button mat-menu-item
+              disabled>
+        <mat-icon svgIcon="{{ icon.user }}"></mat-icon>
+        <span translate>Signed in as <b>{{ username }}</b></span>
+      </button>
+      <button *ngIf="permissions?.role.includes(roles.user)"
+              mat-menu-item
+              routerLink="/usermgmt/profile">
+        <mat-icon svgIcon="mdi:account-details"></mat-icon>
+        <span translate>Your profile</span>
+      </button>
+      <button mat-menu-item
+              routerLink="/usermgmt/change-password">
+        <mat-icon svgIcon="{{ icon.password }}"></mat-icon>
+        <span translate>Change Password</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item
+              [ngClass]="{'active': darkModeEnabled}"
+              (click)="onToggleDarkMode()">
+        <mat-icon svgIcon="mdi:weather-night"></mat-icon>
+        <mat-slide-toggle [checked]="darkModeEnabled"
+                          translate>Dark mode</mat-slide-toggle>
+      </button>
+      <button mat-menu-item
+              [matMenuTriggerFor]="localeMenu">
+        <mat-icon svgIcon="mdi:earth"></mat-icon>
+        <span translate>Language</span>
+      </button>
+      <button mat-menu-item
+              routerLink="/dashboard/settings">
+        <mat-icon svgIcon="{{ icon.apps }}"></mat-icon>
+        <span translate>Dashboard</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item
+              (click)="onClearStateStorage()">
+        <mat-icon svgIcon="{{ icon.reset }}"></mat-icon>
+        <span translate>Reset UI to defaults</span>
+      </button>
+    </ng-template>
   </mat-menu>
 
   <mat-menu #powerMenu="matMenu">
-    <button mat-menu-item
-            (click)="onLogout()">
-      <mat-icon svgIcon="{{ icon.logout }}"></mat-icon>
-      <span translate>Logout</span>
-    </button>
-    <button *ngIf="permissions?.role.includes(roles.admin)"
-            mat-menu-item
-            (click)="onReboot()">
-      <mat-icon svgIcon="{{ icon.reboot }}"></mat-icon>
-      <span translate>Reboot</span>
-    </button>
-    <button *ngIf="permissions?.role.includes(roles.admin)"
-            mat-menu-item
-            (click)="onStandby()">
-      <mat-icon svgIcon="{{ icon.standby }}"></mat-icon>
-      <span translate>Standby</span>
-    </button>
-    <button *ngIf="permissions?.role.includes(roles.admin)"
-            mat-menu-item
-            (click)="onShutdown()">
-      <mat-icon svgIcon="{{ icon.shutdown }}"></mat-icon>
-      <span translate>Shutdown</span>
-    </button>
+    <ng-template matMenuContent>
+      <button mat-menu-item
+              (click)="onLogout()">
+        <mat-icon svgIcon="{{ icon.logout }}"></mat-icon>
+        <span translate>Logout</span>
+      </button>
+      <button *ngIf="permissions?.role.includes(roles.admin)"
+              mat-menu-item
+              (click)="onReboot()">
+        <mat-icon svgIcon="{{ icon.reboot }}"></mat-icon>
+        <span translate>Reboot</span>
+      </button>
+      <button *ngIf="permissions?.role.includes(roles.admin)"
+              mat-menu-item
+              (click)="onStandby()">
+        <mat-icon svgIcon="{{ icon.standby }}"></mat-icon>
+        <span translate>Standby</span>
+      </button>
+      <button *ngIf="permissions?.role.includes(roles.admin)"
+              mat-menu-item
+              (click)="onShutdown()">
+        <mat-icon svgIcon="{{ icon.shutdown }}"></mat-icon>
+        <span translate>Shutdown</span>
+      </button>
+    </ng-template>
   </mat-menu>
 
   <mat-menu #localeMenu="matMenu">
-    <button *ngFor="let locale of locales | keyvalue"
-            mat-menu-item
-            [ngClass]="{'active': locale.key === currentLocale}"
-            [disabled]="locale.key === currentLocale"
-            (click)="onLocale(locale.key)">
-      <span>{{ locale.value }}</span>
-    </button>
+    <ng-template matMenuContent>
+      <button *ngFor="let locale of locales | keyvalue"
+              mat-menu-item
+              [ngClass]="{'active': locale.key === currentLocale}"
+              [disabled]="locale.key === currentLocale"
+              (click)="onLocale(locale.key)">
+        <span>{{ locale.value }}</span>
+      </button>
+    </ng-template>
   </mat-menu>
 
   <mat-menu #helpMenu="matMenu">
-    <a class="omv-text-decoration-none"
-       href="https://docs.openmediavault.org"
-       target="_blank">
-      <button mat-menu-item>
-        <mat-icon svgIcon="mdi:script-text"></mat-icon>
-        <span translate>Documentation</span>
+    <ng-template matMenuContent>
+      <a class="omv-text-decoration-none"
+         href="https://docs.openmediavault.org"
+         target="_blank">
+        <button mat-menu-item>
+          <mat-icon svgIcon="mdi:script-text"></mat-icon>
+          <span translate>Documentation</span>
+        </button>
+      </a>
+      <a class="omv-text-decoration-none"
+         href="https://forum.openmediavault.org"
+         target="_blank">
+        <button mat-menu-item>
+          <mat-icon svgIcon="mdi:forum"></mat-icon>
+          <span translate>Forum</span>
+        </button>
+      </a>
+      <a class="omv-text-decoration-none"
+         href="https://www.openmediavault.org"
+         target="_blank">
+        <button mat-menu-item>
+          <mat-icon svgIcon="mdi:web"></mat-icon>
+          <span translate>Homepage</span>
+        </button>
+      </a>
+      <mat-divider></mat-divider>
+      <button mat-menu-item
+              routerLink="/about">
+        <mat-icon svgIcon="{{ icon.information }}"></mat-icon>
+        <span translate>About</span>
       </button>
-    </a>
-    <a class="omv-text-decoration-none"
-       href="https://forum.openmediavault.org"
-       target="_blank">
-      <button mat-menu-item>
-        <mat-icon svgIcon="mdi:forum"></mat-icon>
-        <span translate>Forum</span>
-      </button>
-    </a>
-    <a class="omv-text-decoration-none"
-       href="https://www.openmediavault.org"
-       target="_blank">
-      <button mat-menu-item>
-        <mat-icon svgIcon="mdi:web"></mat-icon>
-        <span translate>Homepage</span>
-      </button>
-    </a>
-    <mat-divider></mat-divider>
-    <button mat-menu-item
-            routerLink="/about">
-      <mat-icon svgIcon="{{ icon.information }}"></mat-icon>
-      <span translate>About</span>
-    </button>
+    </ng-template>
   </mat-menu>
 </mat-toolbar>

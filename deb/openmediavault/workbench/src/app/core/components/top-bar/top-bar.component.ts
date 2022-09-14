@@ -61,14 +61,15 @@ export class TopBarComponent implements OnDestroy {
   public permissions: Permissions;
   public readonly roles = Roles;
   public numNotifications: undefined | number;
+  public darkModeEnabled: boolean;
 
   private subscriptions = new Subscription();
 
   constructor(
-    public prefersColorSchemeService: PrefersColorSchemeService,
     private router: Router,
     private authService: AuthService,
     private authSessionService: AuthSessionService,
+    private prefersColorSchemeService: PrefersColorSchemeService,
     private rpcService: RpcService,
     private userStorageService: UserStorageService,
     private dialogService: DialogService,
@@ -79,6 +80,7 @@ export class TopBarComponent implements OnDestroy {
     this.locales = LocaleService.getLocales();
     this.username = this.authSessionService.getUsername();
     this.permissions = this.authSessionService.getPermissions();
+    this.darkModeEnabled = this.prefersColorSchemeService.current === 'dark';
     this.subscriptions.add(
       this.notificationService.notifications$.subscribe((notifications: Notification[]) => {
         this.numNotifications = notifications.length ? notifications.length : undefined;
@@ -95,15 +97,15 @@ export class TopBarComponent implements OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  onToggleNavigationSidenav() {
+  onToggleNavigationSidenav(): void {
     this.toggleNavigationSidenavEvent.emit();
   }
 
-  onToggleNotificationsSidenav() {
+  onToggleNotificationsSidenav(): void {
     this.toggleNotificationSidenavEvent.emit();
   }
 
-  onLogout() {
+  onLogout(): void {
     this.showDialog(
       gettext('Logout'),
       gettext('Do you really want to logout?'),
@@ -115,7 +117,7 @@ export class TopBarComponent implements OnDestroy {
     );
   }
 
-  onReboot() {
+  onReboot(): void {
     this.showDialog(
       gettext('Reboot'),
       gettext('Do you really want to reboot the system?'),
@@ -153,7 +155,7 @@ export class TopBarComponent implements OnDestroy {
     );
   }
 
-  onStandby() {
+  onStandby(): void {
     this.showDialog(
       gettext('Standby'),
       gettext('Do you really want to put the system into standby?'),
@@ -166,7 +168,7 @@ export class TopBarComponent implements OnDestroy {
     );
   }
 
-  onShutdown() {
+  onShutdown(): void {
     this.showDialog(
       gettext('Shutdown'),
       gettext('Do you really want to shutdown the system?'),
@@ -179,13 +181,13 @@ export class TopBarComponent implements OnDestroy {
     );
   }
 
-  onLocale(locale) {
+  onLocale(locale): void {
     // Update browser cookie and reload page.
     LocaleService.setLocale(locale);
     this.router.navigate(['/reload']);
   }
 
-  onClearStateStorage() {
+  onClearStateStorage(): void {
     // Clear browser cookies and reload page.
     this.showDialog(
       gettext('Reset UI to defaults'),
@@ -198,7 +200,12 @@ export class TopBarComponent implements OnDestroy {
     );
   }
 
-  private showDialog(title: string, message: string, template: string, callback: () => void) {
+  onToggleDarkMode(): void {
+    this.prefersColorSchemeService.toggle();
+    this.darkModeEnabled = !this.darkModeEnabled;
+  }
+
+  private showDialog(title: string, message: string, template: string, callback: () => void): void {
     const dialogRef = this.dialogService.open(ModalDialogComponent, {
       data: { template, title, message }
     });

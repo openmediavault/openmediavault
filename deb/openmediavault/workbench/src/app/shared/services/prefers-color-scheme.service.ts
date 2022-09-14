@@ -27,12 +27,22 @@ export class PrefersColorSchemeService {
     );
   }
 
+  /**
+   * Set the color scheme.
+   *
+   * @returns Returns the color scheme that has been set.
+   */
   public set(value: PrefersColorScheme): PrefersColorScheme {
     localStorage.setItem('prefers-color-scheme', value);
     this.prefersColorScheme.next(value);
-    return value;
+    return this.current;
   }
 
+  /**
+   * Toggles the current color scheme.
+   *
+   * @returns Returns the name of the now active color scheme.
+   */
   public toggle(): PrefersColorScheme {
     return this.set(this.current === 'dark' ? 'light' : 'dark');
   }
