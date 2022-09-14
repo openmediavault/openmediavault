@@ -59,17 +59,19 @@
       <mat-icon svgIcon="{{ icon.dotmenu }}"></mat-icon>
     </button>
     <mat-menu #actionMenu="matMenu">
-      <button mat-menu-item
-              [disabled]="!notification.message?.length"
-              (click)="onCopyNotification(notification)">
-        <mat-icon svgIcon="{{ icon.copy }}"></mat-icon>
-        <span translate>Copy to clipboard</span>
-      </button>
-      <button mat-menu-item
-              (click)="onRemoveNotification(notification)">
-        <mat-icon svgIcon="{{ icon.delete }}"></mat-icon>
-        <span translate>Dismiss</span>
-      </button>
+      <ng-template matMenuContent>
+        <button mat-menu-item
+                [disabled]="!notification.message?.length"
+                (click)="onCopyNotification(notification)">
+          <mat-icon svgIcon="{{ icon.copy }}"></mat-icon>
+          <span translate>Copy to clipboard</span>
+        </button>
+        <button mat-menu-item
+                (click)="onRemoveNotification(notification)">
+          <mat-icon svgIcon="{{ icon.delete }}"></mat-icon>
+          <span translate>Dismiss</span>
+        </button>
+      </ng-template>
     </mat-menu>
   </mat-list-item>
 </mat-list>

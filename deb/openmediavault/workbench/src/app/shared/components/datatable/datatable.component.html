@@ -64,17 +64,19 @@
 </ngx-datatable>
 
 <mat-menu #columnMenu="matMenu">
-  <button *ngFor="let column of columns"
-          mat-menu-item
-          (click)="onToggleColumn(column)">
-    <mat-icon *ngIf="!column.hidden"
-              svgIcon="{{ icon.checkBoxMarked }}">
-    </mat-icon>
-    <mat-icon *ngIf="column.hidden"
-              svgIcon="{{ icon.checkBoxBlank }}">
-    </mat-icon>
-    <span>{{ column.name }}</span>
-  </button>
+  <ng-template matMenuContent>
+    <button *ngFor="let column of columns"
+            mat-menu-item
+            (click)="onToggleColumn(column)">
+      <mat-icon *ngIf="!column.hidden"
+                svgIcon="{{ icon.checkBoxMarked }}">
+      </mat-icon>
+      <mat-icon *ngIf="column.hidden"
+                svgIcon="{{ icon.checkBoxBlank }}">
+      </mat-icon>
+      <span>{{ column.name }}</span>
+    </button>
+  </ng-template>
 </mat-menu>
 
 <ng-template #textTpl

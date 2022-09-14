@@ -24,14 +24,16 @@
         <mat-icon svgIcon="{{ action.icon }}"></mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button *ngFor="let action of action.actions"
-                mat-menu-item
-                [disabled]="isDisabled(action)"
-                matTooltip="{{ action.tooltip | translate }}"
-                (click)="onButtonClick(action)">
-          <mat-icon svgIcon="{{ action.icon }}"></mat-icon>
-          <span>{{ action.text | translate }}</span>
-        </button>
+        <ng-template matMenuContent>
+          <button *ngFor="let action of action.actions"
+                  mat-menu-item
+                  [disabled]="isDisabled(action)"
+                  matTooltip="{{ action.tooltip | translate }}"
+                  (click)="onButtonClick(action)">
+            <mat-icon svgIcon="{{ action.icon }}"></mat-icon>
+            <span>{{ action.text | translate }}</span>
+          </button>
+        </ng-template>
       </mat-menu>
     </ng-template>
     <ng-template [ngSwitchCase]="'select'">

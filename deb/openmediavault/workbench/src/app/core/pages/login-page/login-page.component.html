@@ -24,11 +24,13 @@
 </div>
 
 <mat-menu #localeMenu="matMenu">
-  <button *ngFor="let locale of locales | keyvalue"
-          mat-menu-item
-          [ngClass]="{'active': locale.key === currentLocale}"
-          [disabled]="locale.key === currentLocale"
-          (click)="onSelectLocale(locale.key)">
-    <span>{{ locale.value }}</span>
-  </button>
+  <ng-template matMenuContent>
+    <button *ngFor="let locale of locales | keyvalue"
+            mat-menu-item
+            [ngClass]="{'active': locale.key === currentLocale}"
+            [disabled]="locale.key === currentLocale"
+            (click)="onSelectLocale(locale.key)">
+      <span>{{ locale.value }}</span>
+    </button>
+  </ng-template>
 </mat-menu>
