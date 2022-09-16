@@ -18,6 +18,7 @@
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import * as _ from 'lodash';
 import * as nunjucks from 'nunjucks';
 import validator from 'validator';
@@ -25,6 +26,7 @@ import validator from 'validator';
 import { translate } from '~/app/i18n.helper';
 
 dayjs.extend(advancedFormat);
+dayjs.extend(relativeTime);
 
 //////////////////////////////////////////////////////////////////////////
 // Create Nunjucks environment.
@@ -318,6 +320,67 @@ export const notAvailable = (value, defaultValue?: any) =>
  */
 export const unixTimeStamp = (ms: number = Date.now()): number => Math.floor(ms / 1000);
 
+/**
+ * Convert the specified date/time appropriate to the host environment's
+ * current locale or into relative time like '2 hours ago'.
+ *
+ * @param value The date/time value. If it is a number, a UNIX epoch
+ *   timestamp is assumed.
+ * @param dateFormat The format to use, e.g. 'date', 'time', 'datetime'
+ *   or 'relative'. Defaults to 'date'.
+ * @params options Additional options.
+ * @return The time in the given format or an empty string on failure.
+ */
+export const toLocaleDate = (
+  value: Date | string | number,
+  dateFormat?: 'relative' | 'datetime' | 'time' | 'date',
+  options?: any
+): any => {
+  if (!(_.isString(value) || _.isDate(value) || _.isNumber(value))) {
+    return '';
+  }
+  let date: dayjs.Dayjs;
+  if (_.isNumber(value)) {
+    date = dayjs.unix(value);
+  } else {
+    date = dayjs(value);
+  }
+  if (!date.isValid()) {
+    return '';
+  }
+  let result;
+  switch (dateFormat) {
+    case 'relative':
+      result = date.fromNow(options);
+      break;
+    default:
+      result = dateToLocale(date.toDate(), dateFormat);
+      break;
+  }
+  return result;
+};
+
+/**
+ * Helper function to convert a `Date` object to the given format.
+ * The method is outsourced mainly for mocking issues in unit tests.
+ */
+export const dateToLocale = (date: Date, dateFormat?: 'datetime' | 'time' | 'date'): string => {
+  let result;
+  switch (dateFormat) {
+    case 'datetime':
+      result = date.toLocaleString();
+      break;
+    case 'time':
+      result = date.toLocaleTimeString();
+      break;
+    default:
+    case 'date':
+      result = date.toLocaleDateString();
+      break;
+  }
+  return result;
+};
+
 //////////////////////////////////////////////////////////////////////////
 // Add custom Nunjucks filter.
 /**
@@ -389,3 +452,8 @@ nunjucksEnv.addFilter('compact', (value: Array<any>) => _.compact(value));
 nunjucksEnv.addFilter('encodeuricomponent', (value: string | number | boolean): string =>
   encodeURIComponent(value)
 );
+/**
+ * Convert the value to the host environment's current locale or
+ * into relative time.
+ */
+nunjucksEnv.addFilter('localedate', toLocaleDate);

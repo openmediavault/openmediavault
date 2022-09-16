@@ -16,11 +16,8 @@
  * GNU General Public License for more details.
  */
 import { Pipe, PipeTransform } from '@angular/core';
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import * as _ from 'lodash';
 
-dayjs.extend(relativeTime);
+import { toLocaleDate } from '~/app/functions.helper';
 
 @Pipe({
   name: 'localeDate',
@@ -43,43 +40,6 @@ export class LocaleDatePipe implements PipeTransform {
     format?: 'relative' | 'datetime' | 'time' | 'date',
     options?: any
   ): any {
-    if (!(_.isString(value) || _.isDate(value) || _.isNumber(value))) {
-      return '';
-    }
-    let date: dayjs.Dayjs;
-    if (_.isNumber(value)) {
-      date = dayjs.unix(value);
-    } else {
-      date = dayjs(value);
-    }
-    if (!date.isValid()) {
-      return '';
-    }
-    let result;
-    switch (format) {
-      case 'relative':
-        result = date.fromNow(options);
-        break;
-      default:
-        result = this.toLocaleString(date.toDate(), format);
-        break;
-    }
-    return result;
-  }
-
-  toLocaleString(date: Date, format?: 'datetime' | 'time' | 'date'): string {
-    let result;
-    switch (format) {
-      case 'datetime':
-        result = date.toLocaleString();
-        break;
-      case 'time':
-        result = date.toLocaleTimeString();
-        break;
-      case 'date':
-        result = date.toLocaleDateString();
-        break;
-    }
-    return result;
+    return toLocaleDate(value, format, options);
   }
 }

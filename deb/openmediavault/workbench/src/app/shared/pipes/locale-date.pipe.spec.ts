@@ -1,12 +1,13 @@
 import dayjs from 'dayjs';
 
+import * as functions from '~/app/functions.helper';
 import { LocaleDatePipe } from '~/app/shared/pipes/locale-date.pipe';
 
 describe('LocaleDatePipe', () => {
   const pipe = new LocaleDatePipe();
 
   beforeEach(() => {
-    jest.spyOn(pipe, 'toLocaleString').mockImplementation((date: Date, format: string) => {
+    jest.spyOn(functions, 'dateToLocale').mockImplementation((date: Date, format: string) => {
       let result;
       switch (format) {
         case 'datetime':

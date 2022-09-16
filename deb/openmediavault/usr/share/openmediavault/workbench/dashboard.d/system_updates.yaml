@@ -2,6 +2,9 @@ version: "1.0"
 type: dashboard-widget
 data:
   id: 725881a1-e0d4-4f59-8efd-acf5398ebfb0
+  permissions:
+    role:
+    - admin
   title: _("Updates Available")
   description: _("Indicates whether updates are available.")
   type: value
