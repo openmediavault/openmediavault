@@ -51,6 +51,7 @@
     position: absolute;
 
     mat-toolbar {
+      background-color: dc.$omv-color-transparent;
       display: flex;
       justify-content: flex-end;
     }
