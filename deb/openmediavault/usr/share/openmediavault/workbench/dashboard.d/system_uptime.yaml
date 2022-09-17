@@ -8,6 +8,7 @@ data:
   title: _("Uptime")
   description: _("Displays the system uptime.")
   type: value
+  reloadPeriod: 60000
   value:
     icon: "clock"
     title: _("Uptime")
