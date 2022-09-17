@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-10 10:27+0200\n"
+"POT-Creation-Date: 2022-09-17 09:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2022\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -853,6 +853,9 @@ msgstr "守护进程"
 msgid "Daily"
 msgstr "每天"
 
+msgid "Dark mode"
+msgstr "暗黑模式"
+
 msgid "Dashboard"
 msgstr "仪表盘"
 
@@ -992,10 +995,13 @@ msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "显示所有监控磁盘  S.M.A.R.T. 信息。"
 
 msgid "Displays the system time."
+msgstr "顯示系統時間。"
+
+msgid "Displays the system uptime."
 msgstr ""
 
 msgid "Displays various system information."
-msgstr ""
+msgstr "顯示多種系統資訊。"
 
 msgid "Djibouti"
 msgstr "吉布提"
@@ -1581,7 +1587,7 @@ msgid "India"
 msgstr "印度"
 
 msgid "Indicates whether updates are available."
-msgstr ""
+msgstr "標示是否有可用更新。"
 
 msgid "Indonesia"
 msgstr "印度尼西亚"
@@ -1625,7 +1631,7 @@ msgid "Invalid IP address."
 msgstr "无效的 IP 地址"
 
 msgid "Invalid NetBIOS name."
-msgstr ""
+msgstr "無效 NetBIOS 名稱。"
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "无效 SSH 公钥 (OpenSSH格式)"
@@ -3896,7 +3902,7 @@ msgid "Updates"
 msgstr "更新"
 
 msgid "Updates Available"
-msgstr ""
+msgstr "有可用更新"
 
 msgid "Updates available"
 msgstr "有更新可用"

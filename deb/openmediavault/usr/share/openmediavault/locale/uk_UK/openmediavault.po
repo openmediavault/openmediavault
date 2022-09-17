@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-10 10:27+0200\n"
+"POT-Creation-Date: 2022-09-17 09:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -849,6 +849,9 @@ msgstr "Демон"
 msgid "Daily"
 msgstr "Щодня"
 
+msgid "Dark mode"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "Панель приладів"
 
@@ -988,6 +991,9 @@ msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "Відображає S.M.A.R.T. інформація про всі контрольовані дискові пристрої."
 
 msgid "Displays the system time."
+msgstr ""
+
+msgid "Displays the system uptime."
 msgstr ""
 
 msgid "Displays various system information."

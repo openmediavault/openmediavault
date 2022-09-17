@@ -1,3 +1,9 @@
+openmediavault-shairport (6.0.1-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 17 Sep 2022 10:04:12 +0200
+
 openmediavault-shairport (6.0-9) unstable; urgency=low
 
   * Reimplement UI.

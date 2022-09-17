@@ -1,8 +1,8 @@
 openmediavault-photoprism (6.0.6-1) stable; urgency=low
 
-  *
+  * Update locale files.
 
- -- Volker Theile <volker.theile@openmediavault.org>  Tue, 02 Aug 2022 18:28:01 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 17 Sep 2022 10:02:02 +0200
 
 openmediavault-photoprism (6.0.5-2) stable; urgency=low
 

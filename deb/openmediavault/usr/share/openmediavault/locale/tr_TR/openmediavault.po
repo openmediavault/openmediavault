@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-10 10:27+0200\n"
+"POT-Creation-Date: 2022-09-17 09:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -847,6 +847,9 @@ msgstr "Program"
 msgid "Daily"
 msgstr "Günlük"
 
+msgid "Dark mode"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "Gösterge Paneli"
 
@@ -986,6 +989,9 @@ msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "Tüm izlenen disk aygıtlarına ait S.M.A.R.T. bilgisini göster."
 
 msgid "Displays the system time."
+msgstr ""
+
+msgid "Displays the system uptime."
 msgstr ""
 
 msgid "Displays various system information."

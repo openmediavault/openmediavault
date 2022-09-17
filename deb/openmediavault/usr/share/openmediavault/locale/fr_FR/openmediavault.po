@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-10 10:27+0200\n"
+"POT-Creation-Date: 2022-09-17 09:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Mathieu Delplanque, 2022\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -861,6 +861,9 @@ msgstr "Daemon"
 msgid "Daily"
 msgstr "Quotidiennement"
 
+msgid "Dark mode"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
@@ -1000,10 +1003,13 @@ msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "Affiche les informations S.M.A.R.T. de tous les disques surveillés."
 
 msgid "Displays the system time."
+msgstr "Affiche l'horloge système."
+
+msgid "Displays the system uptime."
 msgstr ""
 
 msgid "Displays various system information."
-msgstr ""
+msgstr "Affiche diverses informations du système."
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1589,7 +1595,7 @@ msgid "India"
 msgstr "Inde"
 
 msgid "Indicates whether updates are available."
-msgstr ""
+msgstr "Affiche si des mises à jour sont disponibles."
 
 msgid "Indonesia"
 msgstr "Indonésie"
@@ -1633,7 +1639,7 @@ msgid "Invalid IP address."
 msgstr "Adresse IP non valide."
 
 msgid "Invalid NetBIOS name."
-msgstr ""
+msgstr "Nom NetBIOS invalide."
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Clé publique SSH invalide (format OpenSSH)."
@@ -3904,7 +3910,7 @@ msgid "Updates"
 msgstr "Mises à jour"
 
 msgid "Updates Available"
-msgstr ""
+msgstr "Mise à jour disponible"
 
 msgid "Updates available"
 msgstr "Mise à jour disponible"

@@ -1,3 +1,9 @@
+openmediavault-clamav (6.0.1-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 17 Sep 2022 09:51:13 +0200
+
 openmediavault-clamav (6.0-9) unstable; urgency=low
 
   * Reimplement UI.

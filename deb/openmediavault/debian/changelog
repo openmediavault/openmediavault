@@ -1,5 +1,6 @@
 openmediavault (6.0.40-1) stable; urgency=low
 
+  * Update locale files.
   * Reduce final UI bundle size by 50%.
   * Issue #1386: Add switch to turn on/off dark mode.
   * Add the 'Uptime' Dashboard widget.

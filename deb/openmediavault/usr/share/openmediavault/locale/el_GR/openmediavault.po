@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-10 10:27+0200\n"
+"POT-Creation-Date: 2022-09-17 09:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2022\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -847,6 +847,9 @@ msgstr "Δαίμονας"
 msgid "Daily"
 msgstr "Καθημερινά"
 
+msgid "Dark mode"
+msgstr "Σκοτεινή λειτουργία"
+
 msgid "Dashboard"
 msgstr "Ταμπλό"
 
@@ -986,10 +989,13 @@ msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "Εμφάνιση πληροφοριών S.M.A.R.T. για όλες τις παρακολουθούμενες συσκευές δίσκων."
 
 msgid "Displays the system time."
+msgstr "Εμφανίζει την ώρα του συστήματος."
+
+msgid "Displays the system uptime."
 msgstr ""
 
 msgid "Displays various system information."
-msgstr ""
+msgstr "Εμφανίζει διάφορες πληροφορίες του συστήματος."
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1575,7 +1581,7 @@ msgid "India"
 msgstr "India"
 
 msgid "Indicates whether updates are available."
-msgstr ""
+msgstr "Δείχνει αν υπάρχουν διαθέσιμες ενημερώσεις."
 
 msgid "Indonesia"
 msgstr "Indonesia"
@@ -1619,7 +1625,7 @@ msgid "Invalid IP address."
 msgstr "Άκυρη διεύθυνση ΙΡ."
 
 msgid "Invalid NetBIOS name."
-msgstr ""
+msgstr "Άκυρο όνομα NetBIOS."
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Μη αποδεκτό δημόσιο κλειδί SSH (μορφή OpenSSH)."
@@ -3890,7 +3896,7 @@ msgid "Updates"
 msgstr "Ενημερώσεις"
 
 msgid "Updates Available"
-msgstr ""
+msgstr "Διαθέσιμες Ενημερώσεις"
 
 msgid "Updates available"
 msgstr "Διαθέσιμες ενημερώσεις"

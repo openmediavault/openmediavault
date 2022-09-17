@@ -1,4 +1,10 @@
-openmediavault-tftp (6.0-4) UNRELEASED; urgency=low
+openmediavault-tftp (6.0.1-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 17 Sep 2022 10:06:25 +0200
+
+openmediavault-tftp (6.0-4) unstable; urgency=low
 
   * Reimplement UI.
 

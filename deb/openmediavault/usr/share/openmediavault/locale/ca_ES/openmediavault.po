@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-10 10:27+0200\n"
+"POT-Creation-Date: 2022-09-17 09:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2022\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -849,6 +849,9 @@ msgstr "Dimoni"
 msgid "Daily"
 msgstr "diari"
 
+msgid "Dark mode"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "Panell"
 
@@ -988,6 +991,9 @@ msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "Mostra la informació S.M.A.R.T. de tots els dispositius de disc supervisats."
 
 msgid "Displays the system time."
+msgstr ""
+
+msgid "Displays the system uptime."
 msgstr ""
 
 msgid "Displays various system information."

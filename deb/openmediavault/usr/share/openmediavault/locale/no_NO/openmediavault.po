@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-10 10:27+0200\n"
+"POT-Creation-Date: 2022-09-17 09:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
 "Language-Team: Norwegian (http://www.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -848,6 +848,9 @@ msgstr "Deamon"
 msgid "Daily"
 msgstr ""
 
+msgid "Dark mode"
+msgstr ""
+
 msgid "Dashboard"
 msgstr ""
 
@@ -987,6 +990,9 @@ msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr ""
 
 msgid "Displays the system time."
+msgstr ""
+
+msgid "Displays the system uptime."
 msgstr ""
 
 msgid "Displays various system information."

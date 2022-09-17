@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-10 10:27+0200\n"
+"POT-Creation-Date: 2022-09-17 09:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2014-2022\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2022\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -853,6 +853,9 @@ msgstr "Démon"
 msgid "Daily"
 msgstr "Naponta"
 
+msgid "Dark mode"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "Műszerfal"
 
@@ -992,10 +995,13 @@ msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "Megjeleníti az összes megfigyelt lemez S.M.A.R.T. információit."
 
 msgid "Displays the system time."
+msgstr "Megjeleníti a rendszeridőt."
+
+msgid "Displays the system uptime."
 msgstr ""
 
 msgid "Displays various system information."
-msgstr ""
+msgstr "Különböző rendszer-információk megjelenítése."
 
 msgid "Djibouti"
 msgstr "Dzsibuti"
@@ -1581,7 +1587,7 @@ msgid "India"
 msgstr "India"
 
 msgid "Indicates whether updates are available."
-msgstr ""
+msgstr "Jelzi, hogy rendelkezésre állnak-e frissítések."
 
 msgid "Indonesia"
 msgstr "Indonézia"
@@ -1625,7 +1631,7 @@ msgid "Invalid IP address."
 msgstr "Érvénytelen IP-cím."
 
 msgid "Invalid NetBIOS name."
-msgstr ""
+msgstr "Érvénytelen NetBIOS név."
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Érvénytelen SSH nyilvános kulcs (OpenSSH formátum)."
@@ -3896,7 +3902,7 @@ msgid "Updates"
 msgstr "Frissítések"
 
 msgid "Updates Available"
-msgstr ""
+msgstr "Frissítés elérhető"
 
 msgid "Updates available"
 msgstr "Frissítés elérhető"
