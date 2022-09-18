@@ -25,4 +25,8 @@ class PhpFpm extends \OMV\Engine\Module\ServiceAbstract {
 	public function getName() {
 		return "phpfpm";
 	}
+
+	public function deployAfter(): array {
+		return ["monit"];
+	}
 }
