@@ -1,15 +1,12 @@
-openmediavault (6.0.41-1) stable; urgency=low
-
-  *
-
- -- Volker Theile <volker.theile@openmediavault.org>  Sat, 17 Sep 2022 11:03:06 +0200
-
-openmediavault (6.0.40-1) stable; urgency=low
+openmediavault (6.0.40-2) stable; urgency=low
 
   * Update locale files.
-  * Reduce final UI bundle size by 50%.
+  * Reduce final UI bundle size by 75%.
   * Issue #1386: Add switch to turn on/off dark mode.
   * Add the 'Uptime' Dashboard widget.
+  * Do not use Salt grains for hostname/domain when deploying
+    the Postfix configuration. This increases the deployment time
+    dramatically.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 10 Sep 2022 10:57:41 +0200
 
