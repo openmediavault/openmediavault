@@ -995,7 +995,7 @@ msgid "Displays the system time."
 msgstr "Muestra la hora del sistema"
 
 msgid "Displays the system uptime."
-msgstr ""
+msgstr "Mostrar tiempo desde inicio."
 
 msgid "Displays various system information."
 msgstr "Muestra información variada del sistema"

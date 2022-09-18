@@ -854,7 +854,7 @@ msgid "Daily"
 msgstr "Naponta"
 
 msgid "Dark mode"
-msgstr ""
+msgstr "Sötét mód"
 
 msgid "Dashboard"
 msgstr "Műszerfal"
@@ -998,7 +998,7 @@ msgid "Displays the system time."
 msgstr "Megjeleníti a rendszeridőt."
 
 msgid "Displays the system uptime."
-msgstr ""
+msgstr "Megjeleníti a rendszer működési idejét."
 
 msgid "Displays various system information."
 msgstr "Különböző rendszer-információk megjelenítése."

@@ -992,10 +992,10 @@ msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "Visar S.M.A.R.T. information om alla övervakade diskenheter."
 
 msgid "Displays the system time."
-msgstr "Visar systemtiden."
+msgstr "Visar systemets tid."
 
 msgid "Displays the system uptime."
-msgstr ""
+msgstr "Visar systemets driftstid."
 
 msgid "Displays various system information."
 msgstr "Visar olika systeminformation."
@@ -3908,7 +3908,7 @@ msgid "Upgrade system"
 msgstr "Uppgradera systemet"
 
 msgid "Uptime"
-msgstr "Drifttid"
+msgstr "Driftstid"
 
 msgid "Uruguay"
 msgstr "Uruguay"
