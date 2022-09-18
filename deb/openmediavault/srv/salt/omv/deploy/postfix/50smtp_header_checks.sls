@@ -17,16 +17,20 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+{% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
+{% set fqdn = dns_config.hostname %}
+{% if dns_config.domainname | length > 0 %}
+{% set fqdn = [dns_config.hostname, dns_config.domainname] | join('.') %}
+{% endif %}
+
 configure_postfix_smtp_header_checks:
   file.managed:
     - name: "/etc/postfix/smtp_header_checks"
     - contents: |
         # Append the hostname to the email subject.
-        /^Subject: (.*)/ REPLACE Subject: [{{ grains['fqdn'] }}] ${1}
+        /^Subject: (.*)/ REPLACE Subject: [{{ fqdn }}] ${1}
     - user: root
     - group: root
     - mode: 600
-    - require:
-      - salt: prereq_postfix_hostname
     - watch_in:
       - service: start_postfix_service

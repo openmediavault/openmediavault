@@ -42,15 +42,6 @@
 {% set config = salt['omv_conf.get']('conf.system.notification.email') %}
 {% set dirpath = '/srv/salt' | path_join(tpldir) %}
 
-# Make sure the hostname configuration is applied.
-prereq_postfix_hostname:
-  salt.state:
-    - tgt: '*'
-    - sls: omv.deploy.hostname
-  module.run:
-    - saltutil.refresh_grains:
-      - refresh_pillar: False
-
 include:
 {% for file in salt['file.readdir'](dirpath) | sort %}
 {% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}

@@ -24,7 +24,7 @@
 {% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 {% set fqdn = dns_config.hostname %}
 {% set alias = "" %}
-{% if dns_config.domainname %}
+{% if dns_config.domainname | length > 0 %}
 {% set fqdn = [dns_config.hostname, dns_config.domainname] | join('.') %}
 {% set alias = dns_config.hostname %}
 {% endif %}

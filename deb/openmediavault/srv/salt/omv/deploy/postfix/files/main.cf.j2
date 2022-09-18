@@ -25,8 +25,8 @@
 {%- set relayhost_mxlookup_enable = salt['pillar.get']('default:OMV_POSTFIX_MAIN_RELAYHOST_MXLOOKUP_ENABLE', 'no') -%}
 {{ pillar['headers']['multiline'] }}
 compatibility_level = {{ compatibility_level }}
-{%- if grains['domain'] | length > 0 %}
-mydomain = {{ grains['domain'] }}
+{%- if dns_config['domainname'] | length > 0 %}
+mydomain = {{ dns_config['domainname'] }}
 {%- endif %}
 mydestination = {{ mydestination }}
 inet_interfaces = {{ inet_interfaces }}

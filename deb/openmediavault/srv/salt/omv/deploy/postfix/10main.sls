@@ -23,6 +23,7 @@
 # http://blog.mailgun.com/25-465-587-what-port-should-i-use/
 
 {% set config = salt['omv_conf.get']('conf.system.notification.email') %}
+{% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 
 configure_postfix_main:
   file.managed:
@@ -32,10 +33,9 @@ configure_postfix_main:
     - template: jinja
     - context:
         config: {{ config | json }}
+        dns_config: {{ dns_config | json }}
     - user: root
     - group: root
     - mode: 644
-    - require:
-      - salt: prereq_postfix_hostname
     - watch_in:
       - service: start_postfix_service

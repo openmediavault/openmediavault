@@ -4,9 +4,9 @@ admin {{ email_config.primaryemail }}
 {%- for user in users %}
 {{ user.name }} {{ user.email }}
 {%- endfor %}
-{%- if grains['domain'] | length > 0 %}
-@{{ grains['fqdn'] }} {{ email_config.primaryemail }}
+{%- if dns_config['domainname'] | length > 0 %}
+@{{ [dns_config.hostname, dns_config.domainname] | join('.') }} {{ email_config.primaryemail }}
 {%- else %}
-@{{ grains['host'] }}.localdomain {{ email_config.primaryemail }}
+@{{ dns_config['hostname'] }}.localdomain {{ email_config.primaryemail }}
 {%- endif -%}
 {%- endif -%}
