@@ -1,6 +1,8 @@
 openmediavault (6.0.41-1) stable; urgency=low
 
-  *
+  * Set Postfix mailbox size limit to unlimited by default.
+    This can be customized via the OMV_POSTFIX_MAIN_MAILBOX_SIZE_LIMIT
+    environment variable.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 19 Sep 2022 00:16:12 +0200
 

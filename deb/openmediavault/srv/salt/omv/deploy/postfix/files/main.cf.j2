@@ -16,6 +16,7 @@
 {%- set smtp_header_checks = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS', '/etc/postfix/smtp_header_checks') -%}
 {%- set alias_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_ALIAS_MAPS', 'hash:/etc/aliases') -%}
 {%- set transport_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_TRANSPORT_MAPS', 'hash:/etc/postfix/transport') -%}
+{%- set mailbox_size_limit = salt['pillar.get']('default:OMV_POSTFIX_MAIN_MAILBOX_SIZE_LIMIT', 0) -%}
 {%- set message_size_limit = salt['pillar.get']('default:OMV_POSTFIX_MAIN_MESSAGE_SIZE_LIMIT', 10240000) -%}
 {%- set throttling_enable = salt['pillar.get']('default:OMV_POSTFIX_MAIN_THROTTLING_ENABLE', 'yes') -%}
 {%- set default_destination_concurrency_limit = salt['pillar.get']('default:OMV_POSTFIX_MAIN_DEFAULT_DESTINATION_CONCURRENCY_LIMIT', 2) -%}
@@ -55,6 +56,7 @@ smtp_tls_CApath = {{ smtp_tls_CApath }}
 smtp_header_checks = regexp:{{ smtp_header_checks }}
 alias_maps = {{ alias_maps }}
 transport_maps = {{ transport_maps }}
+mailbox_size_limit = {{ mailbox_size_limit }}
 message_size_limit = {{ message_size_limit }}
 {%- if throttling_enable | to_bool %}
 default_destination_concurrency_limit = {{ default_destination_concurrency_limit }}
