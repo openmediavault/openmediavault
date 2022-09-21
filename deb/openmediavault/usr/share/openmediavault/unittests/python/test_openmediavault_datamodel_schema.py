@@ -187,7 +187,8 @@ class SchemaTestCase(unittest.TestCase):
 
     def test_check_format_netbiosname_2(self):
         schema = openmediavault.datamodel.Schema({})
-        schema._check_format("F!OO-%&B^AR_", {"format": "netbiosname"}, "field1")
+        schema._check_format(
+            "F!OO-%&B^AR_", {"format": "netbiosname"}, "field1")
 
     def test_check_format_netbiosname_fail_1(self):
         schema = openmediavault.datamodel.Schema({})
