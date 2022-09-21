@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
 import re
+import urllib.parse
 
 import openmediavault.collectiontools
 import openmediavault.config
@@ -474,3 +475,13 @@ def _get(obj, path, default=None):
     assert isinstance(obj, dict)
     dd = openmediavault.collectiontools.DotDict(obj)
     return dd.get(path, default)
+
+
+@jinja_filter('urlparse')
+def _urlparse(value):
+    """
+    Get the scheme of the given URL.
+    :return: Returns the URL scheme, e.g. 'http', 'https' or 'ftp',
+      otherwise an empty string.
+    """
+    return urllib.parse.urlparse(value)._asdict()  # pylint: disable=protected-access

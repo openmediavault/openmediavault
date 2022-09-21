@@ -57,7 +57,6 @@ export class ProxyFormPageComponent {
           }
         ],
         validators: {
-          patternType: 'domainNameIp',
           requiredIf: { operator: 'truthy', arg0: { prop: 'httpenable' } }
         }
       },
@@ -130,7 +129,6 @@ export class ProxyFormPageComponent {
           }
         ],
         validators: {
-          patternType: 'domainNameIp',
           requiredIf: { operator: 'truthy', arg0: { prop: 'httpsenable' } }
         }
       },
@@ -203,7 +201,6 @@ export class ProxyFormPageComponent {
           }
         ],
         validators: {
-          patternType: 'domainNameIp',
           requiredIf: { operator: 'truthy', arg0: { prop: 'ftpenable' } }
         }
       },
