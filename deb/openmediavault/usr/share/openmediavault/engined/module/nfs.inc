@@ -45,21 +45,52 @@ class Nfs extends \OMV\Engine\Module\ServiceAbstract implements
 
 	/**
 	 * Helper function to find out whether the given shared folder
-	 * configuration object is used. If it is used, then mark the
-	 * module as dirty.
+	 * configuration object is used by a NFS share. If it is used, then
+	 * check if the associated bind mount needs to be adapted.
+	 *
 	 * @param type The event message type.
 	 * @param path The event message path.
 	 * @param object The configuration object.
+	 * @param oldObject The previous configuration object.
 	 */
-	final public function onSharedFolder($type, $path, $object) {
+	final public function onSharedFolder($type, $path, $object, $oldObject) {
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $db->exists("conf.service.nfs.share", [
+		$shareObjects = $db->getByFilter("conf.service.nfs.share", [
 			"operator" => "stringEquals",
 			"arg0" => "sharedfolderref",
 			"arg1" => $object['uuid']
-		])) {
-			$this->setDirty();
-			$this->setDirtyByName("fstab");
+		]);
+		if (0 < count($shareObjects)) {
+			// Check whether the '/export/{name}' bind mount needs to be
+			// adapted. This has to be done when the file system or the
+			// relative path of the shared folder has been changed.
+			if ($oldObject['mntentref'] !== $object['mntentref'] ||
+				$oldObject['reldirpath'] !== $object['reldirpath']
+			) {
+				// Get the mount point configuration of the modified
+				// shared folder.
+				$sfMeObject = $db->get(
+					"conf.system.filesystem.mountpoint",
+					$object['mntentref']);
+				// Even if the filter query returns several NFS share
+				// objects here, they all use the same '/export/{name}'
+				// bind mount.
+				$shareObject = $shareObjects[0];
+				// Get the configuration of the bind mount that is
+				// associated to this NFS share and update it.
+				$shareMeObject = $db->get(
+					"conf.system.filesystem.mountpoint",
+					$shareObject->get("mntentref"));
+				$shareMeObject->set("fsname", build_path(
+					DIRECTORY_SEPARATOR,
+					$sfMeObject->get("dir"),
+					$object['reldirpath']));
+				$db->set($shareMeObject);
+				// Finally mark the associated modules as dirty.
+				$this->setDirty();
+				$this->setDirtyByName("fstab");
+			}
+
 		}
 	}
 
