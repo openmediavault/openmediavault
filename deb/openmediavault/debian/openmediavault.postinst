@@ -407,6 +407,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.0.41"; then
 			omv_module_set_dirty postfix
+			omv_module_set_dirty samba
 		fi
 
 		########################################################################

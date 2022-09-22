@@ -25,7 +25,6 @@
 {%- set fruit_metadata = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_METADATA', 'stream') -%}
 {%- set fruit_resource = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_RESOURCE', 'file') -%}
 {%- set fruit_veto_appledouble = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_VETOAPPLEDOUBLE', 'no') -%}
-{%- set fruit_nfs_aces = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_NFSACES', 'no') -%}
 {%- set fruit_wipe_intentionally_left_blank_rfork = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_WIPEINTENTIONALLYLEFTBLANKRFORK', 'yes') -%}
 {%- set fruit_delete_empty_adfiles = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_DELETEEMPTYADFILES', 'yes') -%}
 #======================= Share Definitions =======================
@@ -62,7 +61,6 @@ fruit:locking = {{ fruit_locking }}
 fruit:metadata = {{ fruit_metadata }}
 fruit:resource = {{ fruit_resource }}
 fruit:veto_appledouble = {{ fruit_veto_appledouble }}
-fruit:nfs_aces = {{ fruit_nfs_aces }}
 fruit:wipe_intentionally_left_blank_rfork = {{ fruit_wipe_intentionally_left_blank_rfork }}
 fruit:delete_empty_adfiles = {{ fruit_delete_empty_adfiles }}
 fruit:time machine = yes

@@ -23,6 +23,8 @@
 {%- set aio_read_size = salt['pillar.get']('default:OMV_SAMBA_AIOREADSIZE', '1') -%}
 {%- set aio_write_size = salt['pillar.get']('default:OMV_SAMBA_AIOWRITESIZE', '1') -%}
 {%- set fruit_aapl = salt['pillar.get']('default:OMV_SAMBA_FRUIT_AAPL', 'yes') -%}
+{%- set fruit_nfs_aces = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_NFSACES', 'no') -%}
+{%- set fruit_copyfile = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_COPYFILE', 'yes') -%}
 {%- set nmbd_enable = salt['pillar.get']('default:OMV_SAMBA_NMBD_ENABLE', 'no') -%}
 {{ pillar['headers']['multiline'] -}}
 #======================= Global Settings =======================
@@ -66,6 +68,8 @@ disable netbios = {{ nmbd_enable | to_bool | not | yesno }}
 multicast dns register = no
 # Special configuration for Apple's Time Machine
 fruit:aapl = {{ fruit_aapl }}
+fruit:copyfile = {{ fruit_copyfile }}
+fruit:nfs_aces = {{ fruit_nfs_aces }}
 {%- if config.extraoptions | length > 0 %}
 # Extra options
 {{ config.extraoptions }}
