@@ -92,6 +92,9 @@ class FsTab extends \OMV\Rpc\ServiceAbstract {
 	 *   \em passno This field is used by the fsck(8) program to determine
 	 *     the order in which filesystem checks are done at reboot time.
 	 *   \em hidden Set to 0 to write the mount point entry to /etc/fstab.
+	 *     Note, this flag is automatically pre-filled with the value
+	 *     returned by the filesystem backend (which is specified via the
+	 *     `type` parameter) when a new configuration object is created.
 	 *   \em usagewarnthreshold The threshold in percent when to warn the
 	 *      device is running out of disk space.
 	 *   \em comment Any text string. This field is optional.

@@ -327,9 +327,6 @@
 				<opts></opts>
 				<freq>0</freq>
 				<passno>0|1|2</passno>
-				# The 'hidden' flag is pre-filled with the value returned by
-				# the filesystem backend when a new configuration object is
-				# created.
 				<hidden>0|1</hidden>
 				<usagewarnthreshold>xxx</usagewarnthreshold>
 				<comment>xxx</comment>
