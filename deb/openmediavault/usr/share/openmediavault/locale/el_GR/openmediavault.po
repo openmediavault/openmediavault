@@ -992,7 +992,7 @@ msgid "Displays the system time."
 msgstr "Εμφανίζει την ώρα του συστήματος."
 
 msgid "Displays the system uptime."
-msgstr ""
+msgstr "Εμφανίζει τον χρόνο λειτουργίας του συστήματος."
 
 msgid "Displays various system information."
 msgstr "Εμφανίζει διάφορες πληροφορίες του συστήματος."
