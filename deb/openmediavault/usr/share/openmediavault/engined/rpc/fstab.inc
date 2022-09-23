@@ -113,7 +113,6 @@ class FsTab extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject(
 			"conf.system.filesystem.mountpoint");
 		$object->setAssoc($params);
-		$object->set("hidden", !$fsb->hasFstabSupport());
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		if (TRUE === $object->isNew()) {
@@ -122,6 +121,10 @@ class FsTab extends \OMV\Rpc\ServiceAbstract {
 			// - The mount point must be unique
 			$db->assertIsUnique($object, "fsname");
 			$db->assertIsUnique($object, "dir");
+			// Ask the filesystem backend whether a '/etc/fstab' entry
+			// is supported. If not, then mark this configuration
+			// object as 'hidden'.
+			$object->set("hidden", !$fsb->hasFstabSupport());
 		}
 		$db->set($object);
 		// Return the configuration object.

@@ -6,6 +6,8 @@ openmediavault (6.0.41-1) stable; urgency=low
   * Don't be so restrictive with the proxy configuration.
   * Fix an issue related to NFS shares when the associated shared
     folder has been modified.
+  * Fix an issue related to the hidden mount point configuration
+    objects. Editing those will not flip the 'hidden' flag anymore.
   * Issue #1393: Add the OMV_SAMBA_SHARE_FRUIT_COPYFILE environment
     variable. Defaults to 'yes'.
 
