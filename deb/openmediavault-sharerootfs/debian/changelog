@@ -1,3 +1,9 @@
+openmediavault-sharerootfs (6.0.1-1) stable; urgency=low
+
+  * Fix mount point configuration.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 23 Sep 2022 19:20:29 +0200
+
 openmediavault-sharerootfs (6.0-4) unstable; urgency=low
 
   * Reimplement UI.

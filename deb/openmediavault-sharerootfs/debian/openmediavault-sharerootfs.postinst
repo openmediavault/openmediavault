@@ -56,6 +56,15 @@ case "$1" in
         omv_warning "No root filesystem has been found."
       fi
     fi
+
+    ########################################################################
+    # Action to be done depending on the previous version.
+    ########################################################################
+    echo "Updating configuration ..."
+    if dpkg --compare-versions "$2" lt-nl "6.0.1"; then
+      omv_config_update "/config/system/fstab/mntent[uuid='${uuid}']/hidden" "1"
+      omv_module_set_dirty fstab
+    fi
   ;;
 
   abort-upgrade|abort-remove|abort-deconfigure)
