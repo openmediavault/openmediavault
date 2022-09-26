@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
 import { NgControl } from '@angular/forms';
-import _ from 'lodash';
+import * as _ from 'lodash';
 
 import { binaryUnit, toBytes } from '~/app/functions.helper';
 

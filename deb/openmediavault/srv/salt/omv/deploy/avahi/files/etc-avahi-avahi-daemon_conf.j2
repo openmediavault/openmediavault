@@ -8,6 +8,7 @@
 {%- set publish_workstation = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_WORKSTATION', 'no') -%}
 {%- set interfaces = salt['omv_conf.get_by_filter']('conf.system.network.interface',
   {'operator': 'stringEnum', 'arg0': 'type', 'arg1': ['ethernet', 'bond', 'wifi']}) -%}
+{{ pillar['headers']['multiline'] }}
 [server]
 #host-name=foo
 #domain-name=local
