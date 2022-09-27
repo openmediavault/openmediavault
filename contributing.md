@@ -1,6 +1,7 @@
 # Contribution rules
 Code contributions must satisfy the following conditions. Contributions that do not fulfill these conditions will not be accepted.
 
+- Before jumping into a PR be sure to search existing PRs or issues for an open or closed item that relates to your submission.
 - You have to sign the CLA online via GitHub.
 - The coding guidelines outline in reference manual https://docs.openmediavault.org/en/stable/development/coding_guideline.html must be followed.
 - The feature/improvement must be implemented as generic as possible.
