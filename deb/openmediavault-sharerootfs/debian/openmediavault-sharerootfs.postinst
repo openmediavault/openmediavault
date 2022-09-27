@@ -61,9 +61,10 @@ case "$1" in
     # Action to be done depending on the previous version.
     ########################################################################
     echo "Updating configuration ..."
-    if dpkg --compare-versions "$2" lt-nl "6.0.1"; then
+    if dpkg --compare-versions "$2" lt-nl "6.0.2"; then
       omv_config_update "/config/system/fstab/mntent[uuid='${uuid}']/hidden" "1"
       omv_module_set_dirty fstab
+      omv_module_set_dirty monit
     fi
   ;;
 
