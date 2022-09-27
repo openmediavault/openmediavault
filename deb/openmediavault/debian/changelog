@@ -1,5 +1,6 @@
 openmediavault (6.0.42-1) stable; urgency=low
 
+  * Update locale files.
   * Display more information about SSL certificates in the UI.
   * Check the expiry date of SSL certificates daily and send a
     notification email if it expires in less than 7 days. Use
