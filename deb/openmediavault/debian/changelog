@@ -1,4 +1,4 @@
-openmediavault (6.0.42-1) stable; urgency=low
+openmediavault (6.0.42-2) stable; urgency=low
 
   * Update locale files.
   * Display more information about SSL certificates in the UI.
