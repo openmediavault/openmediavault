@@ -1,3 +1,15 @@
+openmediavault (6.0.42-2) stable; urgency=low
+
+  * Update locale files.
+  * Display more information about SSL certificates in the UI.
+  * Check the expiry date of SSL certificates daily and send a
+    notification email if it expires in less than 7 days. Use
+    the 'OMV_SSL_CERTIFICATE_CHECK_EXPIRY_DAYS' environment
+    variable to customize the number of days to check for.
+  * Allow the Avahi daemon to use bridge network interfaces.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 27 Sep 2022 17:55:42 +0200
+
 openmediavault (6.0.41-1) stable; urgency=low
 
   * Update locale files.

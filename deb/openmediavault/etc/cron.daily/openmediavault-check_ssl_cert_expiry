@@ -1,0 +1,49 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2022 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+[ "$(omv_config_get "//system/email/enable")" != "1" ] && exit 0
+
+OMV_SSL_CERTIFICATE_PREFIX=${OMV_SSL_CERTIFICATE_PREFIX:-"openmediavault-"}
+OMV_SSL_CERTIFICATE_CHECK_EXPIRY_DAYS=${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_DAYS:-"7"}
+
+for f in /etc/ssl/certs/${OMV_SSL_CERTIFICATE_PREFIX}*.crt ; do
+  [ -e "${f}" ] || continue
+
+  enddate=$(openssl x509 -enddate -noout -in "${f}" | sed "s/.*=\(.*\)/\1/" | awk -F " " '{print $1,$2,$3,$4}')
+  enddate_seconds=$(date -d "${enddate}" +%s)
+  now_seconds=$(date -d now +%s)
+  datediff_days=$(( (${enddate_seconds} - ${now_seconds}) / (60 * 60 * 24) ))
+
+  if [ "${datediff_days}" -le "${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_DAYS}" -a "${datediff_days}" -gt 0 ]; then
+    subject=$(openssl x509 -subject -noout -in "${f}" | sed "s/subject=\(.*\)/\1/")
+    (
+      echo "The following SSL certificate expires in ${datediff_days} days.\n";
+      echo "File: ${f}"
+      echo "Subject: ${subject}"
+      echo "Expiration date: ${enddate}"
+    ) | mail -E -s "SSL certificate expires in ${datediff_days} days" root
+  fi
+done
