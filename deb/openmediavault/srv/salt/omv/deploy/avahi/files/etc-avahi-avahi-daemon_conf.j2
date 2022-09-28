@@ -7,7 +7,7 @@
 {%- set publish_hinfo = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_HINFO', 'no') -%}
 {%- set publish_workstation = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_WORKSTATION', 'no') -%}
 {%- set interfaces = salt['omv_conf.get_by_filter']('conf.system.network.interface',
-  {'operator': 'stringEnum', 'arg0': 'type', 'arg1': ['ethernet', 'bond', 'wifi']}) -%}
+  {'operator': 'and', 'arg0': {'operator': 'stringEnum', 'arg0': 'type', 'arg1': ['ethernet', 'bond', 'bridge', 'wifi']}, 'arg1': {'operator': 'or', 'arg0': {'operator': 'stringNotEquals', 'arg0': 'method', 'arg1': 'manual'}, 'arg1': {'operator': 'stringNotEquals', 'arg0': 'method6', 'arg1': 'manual'}}}) -%}
 {{ pillar['headers']['multiline'] }}
 [server]
 #host-name=foo

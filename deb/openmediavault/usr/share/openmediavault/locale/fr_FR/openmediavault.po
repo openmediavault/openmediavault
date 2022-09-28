@@ -63,7 +63,7 @@ msgid "."
 msgstr "."
 
 msgid "0 KiB/s means unlimited."
-msgstr "0 KiB/s correspond à illimité."
+msgstr "0 Ko/s correspond à illimité."
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Consommation minimale avec mise en veille (spindown)"
@@ -661,7 +661,7 @@ msgid "City"
 msgstr "Ville"
 
 msgid "Cleaning up recycle bin on the share."
-msgstr "Elimination des fichiers supprimés du dossier partagé."
+msgstr "Vide la corbeille du dossier partagé."
 
 msgid "Clear"
 msgstr "Effacer"
@@ -862,7 +862,7 @@ msgid "Daily"
 msgstr "Quotidiennement"
 
 msgid "Dark mode"
-msgstr ""
+msgstr "Mode sombre"
 
 msgid "Dashboard"
 msgstr "Tableau de bord"
@@ -967,7 +967,7 @@ msgid "Disallow the user to modify his own account."
 msgstr "Interdire à l'utilisateur de modifier son propre compte."
 
 msgid "Disk Usage"
-msgstr "Utilisation du disque"
+msgstr "Disque - Usage"
 
 msgid "Disks"
 msgstr "Disques"
@@ -1006,7 +1006,7 @@ msgid "Displays the system time."
 msgstr "Affiche l'horloge système."
 
 msgid "Displays the system uptime."
-msgstr ""
+msgstr "Affiche la durée de fonctionnement."
 
 msgid "Displays various system information."
 msgstr "Affiche diverses informations du système."
@@ -1149,7 +1149,7 @@ msgid "Enable public key authentication."
 msgstr "Activer l'authentification par clef publique."
 
 msgid "Enable recycle bin"
-msgstr "Activer la poubelle"
+msgstr "Activer la corbeille"
 
 msgid "Enable remote logging of syslog to the specified host."
 msgstr "Active la journalisation à distance sur l’hôte spécifié."
@@ -1290,12 +1290,12 @@ msgstr "Nom de fichier"
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
-msgstr "Les fichiers dans la poubelle seront automatiquement supprimés après le nombre de jours spécifié. Mettre 0 pour une suppression manuelle."
+msgstr "Les fichiers dans la corbeille seront automatiquement supprimés après le nombre de jours spécifié. Mettre 0 pour une suppression manuelle."
 
 msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
-msgstr "Les fichiers dont la taille est supérieure au nombre spécifié ne seront pas placés dans la poubelle."
+msgstr "Les fichiers dont la taille est supérieure au nombre spécifié ne seront pas placés dans la corbeille."
 
 msgid "Filesize"
 msgstr "Taille de fichier"
@@ -1436,7 +1436,7 @@ msgid "Help"
 msgstr "Aide"
 
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernation"
 
 msgid "Hide"
 msgstr "Masquer"
@@ -1481,7 +1481,7 @@ msgid "Hungary"
 msgstr "Hongrie"
 
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Veille hybride"
 
 msgid "ID"
 msgstr "ID"
@@ -1953,7 +1953,7 @@ msgid "Memory"
 msgstr "Mémoire"
 
 msgid "Memory Usage"
-msgstr "Utilisation de la mémoire"
+msgstr "Mémoire"
 
 msgid "Memory usage"
 msgstr "Utilisation de la mémoire"
@@ -2175,7 +2175,7 @@ msgid "Not running"
 msgstr "Non lancé"
 
 msgid "Nothing"
-msgstr "Rien"
+msgstr "Ne rien faire"
 
 msgid "Notification"
 msgstr "Notification"
@@ -2303,7 +2303,7 @@ msgid "Perform a trial run with no changes made"
 msgstr "Effectue un essai sans aucun changement"
 
 msgid "Performance Statistics"
-msgstr "Statistiques de performance"
+msgstr "Statistiques"
 
 msgid "Period of validity"
 msgstr "Validité"
@@ -2435,13 +2435,13 @@ msgid "Portugal"
 msgstr "Portugal"
 
 msgid "Power"
-msgstr "Puissance"
+msgstr "Options d'alimentation"
 
 msgid "Power Management"
 msgstr "Gestion de l'énergie"
 
 msgid "Power Off"
-msgstr ""
+msgstr "Eteindre"
 
 msgid "Power button"
 msgstr "Bouton d'alimentation"
@@ -3037,7 +3037,7 @@ msgid "Slovenia"
 msgstr "Slovénie"
 
 msgid "Software Failure.   Press left mouse button to continue."
-msgstr "Erreur logicielle.   Cliquez sur le bouton gauche de la sourie pour continuer."
+msgstr "Erreur logicielle.   Cliquez sur le bouton gauche de la souris pour continuer."
 
 msgid "Software RAID"
 msgstr "RAID logiciel"
@@ -3146,7 +3146,7 @@ msgid "Sri Lanka"
 msgstr "Sri Lanka"
 
 msgid "Standby"
-msgstr "Standby"
+msgstr "Mettre en veille"
 
 msgid "Standby mode"
 msgstr "Mode veille"
@@ -3194,7 +3194,7 @@ msgid "Suriname"
 msgstr "Suriname"
 
 msgid "Suspend"
-msgstr ""
+msgstr "Suspendre"
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Île Jan Mayen"
@@ -3224,7 +3224,7 @@ msgid "System Logs"
 msgstr "Journaux système"
 
 msgid "System Time"
-msgstr "Date système"
+msgstr "Horloge système"
 
 msgid "System account"
 msgstr "Comptes système"
@@ -3233,7 +3233,7 @@ msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr "La surveillance du système est désactivée. Pour l'activer, merci d'aller au"
 
 msgid "System time"
-msgstr "Date système"
+msgstr "Horloge système"
 
 msgid "TCP"
 msgstr "TCP"
@@ -3416,7 +3416,7 @@ msgstr "La valeur ne correspond pas au modèle /{{ pattern }}/."
 msgid ""
 "The value must be on of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "La valeur doit être sur les interfaces réseau esclaves {{ slaves | join(\", \") }}."
+msgstr "La valeur doit être une des interfaces réseau esclaves {{ slaves | join(\", \") }}."
 
 msgid "The value must be on of the slave network interfaces."
 msgstr "La valeur doit être sur les interfaces réseau esclaves."
@@ -3619,10 +3619,10 @@ msgid "This specifies what to do if the packet matches."
 msgstr "Cela spécifie que qui doit être fait lorsque le paquet correspond."
 
 msgid "This will create a recycle bin for each user home directory."
-msgstr "Cela créera une poubelle pour chaque répertoire personnel."
+msgstr "Cela créera une corbeille pour chaque répertoire personnel."
 
 msgid "This will create a recycle bin for the share."
-msgstr "Cela créera une poubelle dans le partage."
+msgstr "Cela créera une corbeille dans le partage."
 
 msgid "Threshold"
 msgstr "Seuil"
@@ -3759,7 +3759,7 @@ msgid "Unmount"
 msgstr "Démonter"
 
 msgid "Unrestricted"
-msgstr ""
+msgstr "Sans restriction"
 
 msgid "Up"
 msgstr "Haut"
@@ -3768,7 +3768,7 @@ msgid "Up delay"
 msgstr "Délai de reprise"
 
 msgid "Update Management"
-msgstr "Gestionaire de mises à jour"
+msgstr "Mises à jour"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Mettre à jour les ACLs de la destination pour correspondre aux ACLs de la source."
@@ -3907,7 +3907,7 @@ msgid "Updated workbench settings."
 msgstr "Paramètres d'interface utilisateur mis à jour."
 
 msgid "Updates"
-msgstr "Mises à jour"
+msgstr "Paquets"
 
 msgid "Updates Available"
 msgstr "Mise à jour disponible"
@@ -3919,7 +3919,7 @@ msgid "Upgrade system"
 msgstr "Mettre à niveau le système"
 
 msgid "Uptime"
-msgstr "Durée de fonctionnement"
+msgstr "Fonctionnement"
 
 msgid "Uruguay"
 msgstr "Uruguay"

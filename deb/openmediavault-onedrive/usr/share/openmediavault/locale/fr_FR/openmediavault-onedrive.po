@@ -41,7 +41,7 @@ msgid "100 MiB/s"
 msgstr "100 Mo/s"
 
 msgid "12 hours"
-msgstr ""
+msgstr "12 heures"
 
 msgid "128 KiB/s"
 msgstr "128 Ko/s"
@@ -53,7 +53,7 @@ msgid "2 minutes"
 msgstr "2 minutes"
 
 msgid "24 hours"
-msgstr ""
+msgstr "24 heures"
 
 msgid "256 KiB/s"
 msgstr "256 Ko/s"
@@ -74,7 +74,7 @@ msgid "512 KiB/s"
 msgstr "512 Ko/s"
 
 msgid "6 hours"
-msgstr ""
+msgstr "6 heures"
 
 msgid "60 minutes"
 msgstr "60 minutes"
@@ -86,6 +86,12 @@ msgid ""
 "- Replicate the local state to OneDrive, by only uploading local changes to "
 "OneDrive. Do not download changes from OneDrive.</li></ul>"
 msgstr ""
+"<ul><li>Total - Réplique toutes les modifications venant de et vers "
+"OneDrive.</li><li>Téléchargement uniquement - Réplique localement l'état de "
+"OneDrive en téléchargeant uniquement les changements venant de OneDrive et "
+"n'envoie aucune modification locale.</li><li>Envoi uniquement - Réplique "
+"l'état local vers OneDrive, en envoyant uniquement les changements locaux "
+"vers OneDrive et ne télécharge aucune modification distante.</li></ul>"
 
 msgid ""
 "After enabling and deploying this service the first time please run the "
@@ -100,7 +106,7 @@ msgid "Disabled"
 msgstr "Désactiver"
 
 msgid "Do not delete local file deletions from OneDrive."
-msgstr ""
+msgstr "Ne pas supprimer les fichiers locaux à partir de OneDrive."
 
 msgid "Download only"
 msgstr "Réception uniquement"
@@ -112,22 +118,24 @@ msgid "Full"
 msgstr "Plein"
 
 msgid "Local first"
-msgstr ""
+msgstr "En local d'abord"
 
 msgid "Monitor interval"
 msgstr "Intervalle de surveillance"
 
 msgid "No remote delete"
-msgstr ""
+msgstr "Pas de suppression distante"
 
 msgid "OneDrive"
 msgstr "OneDrive"
 
 msgid "Rate limit"
-msgstr ""
+msgstr "Vitesse limite de transfert"
 
 msgid "Replicate local state first, before downloading changes from OneDrive."
 msgstr ""
+"Répliquer l'état local d'abord, avant de télécharger les modifications de "
+"OneDrive."
 
 msgid "Replication mode"
 msgstr "Mode de réplication"

@@ -33,6 +33,20 @@ export class SslCertificateDatatablePageComponent {
         cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
+      },
+      {
+        name: gettext('Valid to'),
+        prop: 'validto',
+        flexGrow: 1,
+        sortable: true,
+        cellTemplateName: 'localeDateTime'
+      },
+      {
+        name: gettext('Referenced'),
+        prop: '_used',
+        flexGrow: 1,
+        sortable: true,
+        cellTemplateName: 'checkIcon'
       }
     ],
     sorters: [

@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Axel Cantenys, 2020
+# Mathieu Delplanque, 2022
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-09-17 09:39+0200\n"
 "PO-Revision-Date: 2017-12-31 13:16+0000\n"
-"Last-Translator: Axel Cantenys, 2020\n"
+"Last-Translator: Mathieu Delplanque, 2022\n"
 "Language-Team: French (France) (https://www.transifex.com/openmediavault/teams/14254/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Disk I/O"
-msgstr "E/S de disque"
+msgstr "Disque - E/S"
 
 msgid "Operations"
 msgstr "Opérations"
