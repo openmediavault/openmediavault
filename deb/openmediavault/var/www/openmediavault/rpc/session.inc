@@ -50,6 +50,10 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.session.login");
 		$authenticated = FALSE;
 		$permissions = [];
+		// Strip whitespaces from the user name.
+		if (is_string($params['username'])) {
+			$params['username'] = trim($params['username']);
+		}
 		// Authenticate the given user. Note, the OMV engine RPC is
 		// executed in another context which allows reading the shadow
 		// file, otherwise pam_auth() will fail.
