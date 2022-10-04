@@ -37,6 +37,7 @@ import re
 import sys
 
 import apt
+import click
 import openmediavault.productinfo
 
 import openmediavault
@@ -121,104 +122,115 @@ def get_value(f, default=None):
     return default
 
 
-cache = apt.cache.Cache()
+@click.command()
+@click.option('--verbose', is_flag=True, help='Shows verbose output.')
+def main(verbose: bool):
+    cache = apt.cache.Cache()
 
-# Create the '/var/lib/openmediavault/apt/upgradeindex.json' file.
-print("Creating index of upgradeable packages ...")
-data = []
-cache.upgrade(True)
-for pkg in cache.get_changes():
-    if pkg.candidate is None:
-        continue
-    data.append({
-        "name": pkg.name,
-        "oldversion": pkg.installed.version if pkg.is_installed and pkg.installed is not None else "",
-        "repository": "{}/{}".format(pkg.candidate.origins[0].label, pkg.candidate.origins[0].archive)
-        if pkg.candidate.origins is not None else "",
-        "package": pkg.candidate.record.get("Package"),
-        "source": pkg.candidate.source_name,
-        "sourceversion": pkg.candidate.source_version,
-        "version": pkg.candidate.version,
-        "installedsize": pkg.candidate.size,
-        "maintainer": pkg.candidate.record.get("Maintainer", ""),
-        "architecture": pkg.candidate.architecture,
-        "depends": pkg.candidate.record.get("Depends", ""),
-        "suggests": pkg.candidate.record.get("Suggests", ""),
-        "conflicts": pkg.candidate.record.get("Conflicts", ""),
-        "breaks": pkg.candidate.record.get("Breaks", ""),
-        "abstract": pkg.candidate.summary,  # Deprecated
-        "summary": pkg.candidate.summary,
-        "description": pkg.candidate.record.get("Description", ""),
-        "extendeddescription": get_extended_description(pkg.candidate.raw_description),
-        "homepage": pkg.candidate.homepage,
-        "descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
-        "multiarch": pkg.candidate.record.get("Multi-Arch", ""),
-        "predepends": pkg.candidate.record.get("Pre-Depends", ""),
-        "section": pkg.candidate.section,
-        "priority": pkg.candidate.priority,
-        "filename": pkg.candidate.filename,
-        "size": pkg.candidate.size,
-        "md5sum": get_value(lambda: pkg.candidate.md5),
-        "sha1": get_value(lambda: pkg.candidate.sha1),
-        "sha256": get_value(lambda: pkg.candidate.sha256),
-        "uri": pkg.candidate.uri,
-        "uris": pkg.candidate.uris
-    })
-with open(
-    openmediavault.getenv(
-        'OMV_APT_UPGRADE_INDEX_FILE',
-        '/var/lib/openmediavault/apt/upgradeindex.json'
-    ), 'w'
-) as outfile:
-    json.dump(data, outfile, sort_keys=True, indent=4)
+    # Create the '/var/lib/openmediavault/apt/upgradeindex.json' file.
+    print("Creating index of upgradeable packages ...")
+    data = []
+    cache.upgrade(True)
+    for pkg in cache.get_changes():
+        if pkg.candidate is None:
+            continue
+        data.append({
+            "name": pkg.name,
+            "oldversion": pkg.installed.version if pkg.is_installed and pkg.installed is not None else "",
+            "repository": "{}/{}".format(pkg.candidate.origins[0].label, pkg.candidate.origins[0].archive)
+            if pkg.candidate.origins is not None else "",
+            "package": pkg.candidate.record.get("Package"),
+            "source": pkg.candidate.source_name,
+            "sourceversion": pkg.candidate.source_version,
+            "version": pkg.candidate.version,
+            "installedsize": pkg.candidate.size,
+            "maintainer": pkg.candidate.record.get("Maintainer", ""),
+            "architecture": pkg.candidate.architecture,
+            "depends": pkg.candidate.record.get("Depends", ""),
+            "suggests": pkg.candidate.record.get("Suggests", ""),
+            "conflicts": pkg.candidate.record.get("Conflicts", ""),
+            "breaks": pkg.candidate.record.get("Breaks", ""),
+            "abstract": pkg.candidate.summary,  # Deprecated
+            "summary": pkg.candidate.summary,
+            "description": pkg.candidate.record.get("Description", ""),
+            "extendeddescription": get_extended_description(pkg.candidate.raw_description),
+            "homepage": pkg.candidate.homepage,
+            "descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
+            "multiarch": pkg.candidate.record.get("Multi-Arch", ""),
+            "predepends": pkg.candidate.record.get("Pre-Depends", ""),
+            "section": pkg.candidate.section,
+            "priority": pkg.candidate.priority,
+            "filename": pkg.candidate.filename,
+            "size": pkg.candidate.size,
+            "md5sum": get_value(lambda: pkg.candidate.md5),
+            "sha1": get_value(lambda: pkg.candidate.sha1),
+            "sha256": get_value(lambda: pkg.candidate.sha256),
+            "uri": pkg.candidate.uri,
+            "uris": pkg.candidate.uris
+        })
+        verbose and print(f"Added package '{pkg.name}'")
+    with open(
+        openmediavault.getenv(
+            'OMV_APT_UPGRADE_INDEX_FILE',
+            '/var/lib/openmediavault/apt/upgradeindex.json'
+        ), 'w'
+    ) as outfile:
+        json.dump(data, outfile, sort_keys=True, indent=4)
+        verbose and print(f"Index file '{outfile.name}' successfully updated.")
 
-# Create the '/var/lib/openmediavault/apt/pluginsindex.json' file.
-print("Creating index of %s plugins ..." % pi.name)
-data = []
-cache = apt.cache.Cache()
-filtered = apt.cache.FilteredCache(cache)
-filtered.set_filter(OpenMediaVaultPluginsFilter())
-for pkg in filtered:
-    if pkg.candidate is None:
-        continue
-    data.append({
-        "name": pkg.name,
-        "repository": "{}/{}".format(pkg.candidate.origins[0].label, pkg.candidate.origins[0].archive)
-        if pkg.candidate.origins is not None else "",
-        "package": pkg.candidate.record.get("Package"),
-        "version": pkg.candidate.version,
-        "installedsize": pkg.candidate.size,
-        "maintainer": pkg.candidate.record.get("Maintainer", ""),
-        "architecture": pkg.candidate.architecture,
-        "depends": pkg.candidate.record.get("Depends", ""),
-        "suggests": pkg.candidate.record.get("Suggests", ""),
-        "conflicts": pkg.candidate.record.get("Conflicts", ""),
-        "breaks": pkg.candidate.record.get("Breaks", ""),
-        "abstract": pkg.candidate.summary,  # Deprecated
-        "summary": pkg.candidate.summary,
-        "description": pkg.candidate.record.get("Description", ""),
-        "extendeddescription": get_extended_description(pkg.candidate.raw_description),
-        "homepage": pkg.candidate.homepage,
-        "descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
-        "multiarch": pkg.candidate.record.get("Multi-Arch", ""),
-        "predepends": pkg.candidate.record.get("Pre-Depends", ""),
-        "section": pkg.candidate.section,
-        "pluginsection": pkg.candidate.record.get("Plugin-Section", ""),
-        "pluginarchitecture": explode_csv(pkg.candidate.record.get("Plugin-Architecture")),
-        "priority": pkg.candidate.priority,
-        "filename": pkg.candidate.filename,
-        "size": pkg.candidate.size,
-        "md5sum": get_value(lambda: pkg.candidate.md5),
-        "sha1": get_value(lambda: pkg.candidate.sha1),
-        "sha256": get_value(lambda: pkg.candidate.sha256),
-        "installed": pkg.is_installed
-    })
-with open(
-    openmediavault.getenv(
-        'OMV_APT_PLUGINS_INDEX_FILE',
-        '/var/lib/openmediavault/apt/pluginsindex.json'
-    ), 'w'
-) as outfile:
-    json.dump(data, outfile, sort_keys=True, indent=4)
+    # Create the '/var/lib/openmediavault/apt/pluginsindex.json' file.
+    print("Creating index of plugins ...")
+    data = []
+    cache = apt.cache.Cache()
+    filtered = apt.cache.FilteredCache(cache)
+    filtered.set_filter(OpenMediaVaultPluginsFilter())
+    for pkg in filtered:
+        if pkg.candidate is None:
+            continue
+        data.append({
+            "name": pkg.name,
+            "repository": "{}/{}".format(pkg.candidate.origins[0].label, pkg.candidate.origins[0].archive)
+            if pkg.candidate.origins is not None else "",
+            "package": pkg.candidate.record.get("Package"),
+            "version": pkg.candidate.version,
+            "installedsize": pkg.candidate.size,
+            "maintainer": pkg.candidate.record.get("Maintainer", ""),
+            "architecture": pkg.candidate.architecture,
+            "depends": pkg.candidate.record.get("Depends", ""),
+            "suggests": pkg.candidate.record.get("Suggests", ""),
+            "conflicts": pkg.candidate.record.get("Conflicts", ""),
+            "breaks": pkg.candidate.record.get("Breaks", ""),
+            "abstract": pkg.candidate.summary,  # Deprecated
+            "summary": pkg.candidate.summary,
+            "description": pkg.candidate.record.get("Description", ""),
+            "extendeddescription": get_extended_description(pkg.candidate.raw_description),
+            "homepage": pkg.candidate.homepage,
+            "descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
+            "multiarch": pkg.candidate.record.get("Multi-Arch", ""),
+            "predepends": pkg.candidate.record.get("Pre-Depends", ""),
+            "section": pkg.candidate.section,
+            "pluginsection": pkg.candidate.record.get("Plugin-Section", ""),
+            "pluginarchitecture": explode_csv(pkg.candidate.record.get("Plugin-Architecture")),
+            "priority": pkg.candidate.priority,
+            "filename": pkg.candidate.filename,
+            "size": pkg.candidate.size,
+            "md5sum": get_value(lambda: pkg.candidate.md5),
+            "sha1": get_value(lambda: pkg.candidate.sha1),
+            "sha256": get_value(lambda: pkg.candidate.sha256),
+            "installed": pkg.is_installed
+        })
+        verbose and print(f"Added package '{pkg.name}'")
+    with open(
+        openmediavault.getenv(
+            'OMV_APT_PLUGINS_INDEX_FILE',
+            '/var/lib/openmediavault/apt/pluginsindex.json'
+        ), 'w'
+    ) as outfile:
+        json.dump(data, outfile, sort_keys=True, indent=4)
+        verbose and print(f"Index file '{outfile.name}' successfully updated.")
 
-sys.exit(0)
+    sys.exit(0)
+
+
+if __name__ == '__main__':
+    sys.exit(main())
