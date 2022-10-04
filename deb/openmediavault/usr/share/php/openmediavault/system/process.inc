@@ -155,6 +155,26 @@ class Process {
 	}
 
 	/**
+	 * Set environment variable(s) from a file.
+	 * @param string $file The name of the file to load from environment
+	 *   variable(s) from.
+	 * @return void
+	 */
+	public function setEnvFromFile($file) {
+		if (file_exists($file)) {
+			$envs = file($file);
+			foreach ($envs as $env) {
+				if (FALSE === empty($env)) {
+					$parts = explode("=", $env);
+					$name = trim($parts[0]);
+					$value = trim($parts[1]);
+					$this->setEnv($name, $value);
+				}
+			}
+		}
+	}
+
+	/**
 	 * Get the command line to be executed.
 	 * @return The command line.
 	 */
