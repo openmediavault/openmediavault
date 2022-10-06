@@ -48,7 +48,8 @@ export class NotificationSettingsFormPageComponent {
         hint: gettext('Outgoing SMTP mail server address, e.g. smtp.mycorp.com.'),
         value: '',
         validators: {
-          requiredIf: { operator: 'eq', arg0: { prop: 'enable' }, arg1: true }
+          requiredIf: { operator: 'eq', arg0: { prop: 'enable' }, arg1: true },
+          patternType: 'domainNameIp'
         }
       },
       {
