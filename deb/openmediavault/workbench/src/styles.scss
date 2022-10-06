@@ -281,13 +281,6 @@ $omv-dark-theme: mat.define-dark-theme(
 .omv-background-color-pair-tip {
 }
 
-// mat-chip colors must use '!important' to get them applied.
-@each $name in map-keys(theme.$omv-color-pairs) {
-  .omv-chip-theme-#{$name} {
-    @include theme.background-color-pair($name);
-  }
-}
-
 ////////////////////////////////////////////////////////////////////////////////
 // Color - Derived from the active Material theme
 .omv-color-text {

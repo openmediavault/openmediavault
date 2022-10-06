@@ -167,9 +167,9 @@ export class FilesystemDatatablePageComponent {
         cellTemplateName: 'chip',
         cellTemplateConfig: {
           map: {
-            1: { value: gettext('Online'), class: 'omv-chip-theme-success' },
-            2: { value: gettext('Initializing'), class: 'omv-chip-theme-info' },
-            3: { value: gettext('Missing'), class: 'omv-chip-theme-error' }
+            1: { value: gettext('Online'), class: 'omv-background-color-pair-success' },
+            2: { value: gettext('Initializing'), class: 'omv-background-color-pair-info' },
+            3: { value: gettext('Missing'), class: 'omv-background-color-pair-error' }
           }
         }
       }

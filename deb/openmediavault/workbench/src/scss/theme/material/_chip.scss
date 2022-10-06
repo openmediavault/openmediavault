@@ -16,14 +16,10 @@
 @use 'src/scss/theme/colors' as tc;
 
 @mixin theme($mode, $theme-config, $typography-config) {
-  .mat-button-toggle.mat-button-toggle-checked {
-    @include tc.background-color-pair('accent');
-  }
-
   // We need to define these classes here as well to have a
   // higher order of precedence.
   @each $name in map-keys(tc.$omv-color-pairs) {
-    .mat-flat-button.omv-background-color-pair-#{$name} {
+    .mat-chip.omv-background-color-pair-#{$name} {
       @include tc.background-color-pair($name);
     }
   }

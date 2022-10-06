@@ -18,6 +18,7 @@
 @use 'button';
 @use 'card';
 @use 'checkbox';
+@use 'chip';
 @use 'dialog';
 @use 'forms';
 @use 'menu';
@@ -29,6 +30,7 @@
   @include button.theme($mode, $theme-config, $typography-config);
   @include card.theme($mode, $theme-config, $typography-config);
   @include checkbox.theme($mode, $theme-config, $typography-config);
+  @include chip.theme($mode, $theme-config, $typography-config);
   @include dialog.theme($mode, $theme-config, $typography-config);
   @include forms.theme($mode, $theme-config, $typography-config);
   @include menu.theme($mode, $theme-config, $typography-config);

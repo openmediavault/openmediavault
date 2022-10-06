@@ -158,26 +158,26 @@ export class SmartDeviceDetailsTabsPageComponent {
               cellTemplateConfig: {
                 map: {
                   /* eslint-disable @typescript-eslint/naming-convention */
-                  GOOD: { value: gettext('Good'), class: 'omv-chip-theme-success' },
+                  GOOD: { value: gettext('Good'), class: 'omv-background-color-pair-success' },
                   BAD_STATUS: { value: gettext('Unknown') },
                   BAD_ATTRIBUTE_NOW: {
                     value: gettext('Bad'),
-                    class: 'omv-chip-theme-error',
+                    class: 'omv-background-color-pair-error',
                     tooltip: gettext('Device is being used outside design parameters.')
                   },
                   BAD_ATTRIBUTE_IN_THE_PAST: {
                     value: gettext('Bad'),
-                    class: 'omv-chip-theme-error',
+                    class: 'omv-background-color-pair-error',
                     tooltip: gettext('Device was used outside of design parameters in the past.')
                   },
                   BAD_SECTOR: {
                     value: gettext('Bad'),
-                    class: 'omv-chip-theme-error',
+                    class: 'omv-background-color-pair-error',
                     tooltip: gettext('Device has a few bad sectors.')
                   },
                   BAD_SECTOR_MANY: {
                     value: gettext('Bad'),
-                    class: 'omv-chip-theme-error',
+                    class: 'omv-background-color-pair-error',
                     tooltip: gettext('Device has many bad sectors.')
                   }
                 }

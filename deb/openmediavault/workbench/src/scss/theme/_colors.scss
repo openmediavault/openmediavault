@@ -95,6 +95,6 @@ $omv-color-pairs: (
 );
 
 @mixin background-color-pair($name) {
-  color: map-get($omv-color-pairs, $name, color) !important;
-  background-color: map-get($omv-color-pairs, $name, background-color) !important;
+  color: map-get($omv-color-pairs, $name, color);
+  background-color: map-get($omv-color-pairs, $name, background-color);
 }

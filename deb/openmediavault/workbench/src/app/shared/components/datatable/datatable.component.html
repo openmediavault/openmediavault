@@ -156,7 +156,7 @@
     <mat-chip *ngFor="let item of (value | array)"
               [selectable]="false"
               [disableRipple]="true"
-              [ngClass]="(column?.cellTemplateConfig?.map && column?.cellTemplateConfig?.map[item]?.class) ? column.cellTemplateConfig.map[item].class : (column?.cellTemplateConfig?.class ? column.cellTemplateConfig.class : 'omv-chip-theme-gray')"
+              [ngClass]="(column?.cellTemplateConfig?.map && column?.cellTemplateConfig?.map[item]?.class) ? column.cellTemplateConfig.map[item].class : (column?.cellTemplateConfig?.class ? column.cellTemplateConfig.class : 'omv-background-color-pair-gray')"
               [matTooltip]="(column?.cellTemplateConfig?.map && column?.cellTemplateConfig?.map[item]?.tooltip) ? column?.cellTemplateConfig?.map[item]?.tooltip : undefined">
       <span class="omv-text-truncate">{{ (column?.cellTemplateConfig?.map && column?.cellTemplateConfig?.map[item]?.value) ? (column.cellTemplateConfig.map[item].value | template:row) : (column?.cellTemplateConfig?.template ? (column.cellTemplateConfig.template | template:row) : item) }}</span>
     </mat-chip>
