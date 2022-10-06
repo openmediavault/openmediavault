@@ -36,6 +36,8 @@ import { SharedModule } from '~/app/shared/shared.module';
     GreenRainComponent
   ],
   exports: [
+    BlankLayoutComponent,
+    WorkbenchLayoutComponent,
     GuruMeditationComponent,
     IntuitionModule,
     NotificationsComponent,
