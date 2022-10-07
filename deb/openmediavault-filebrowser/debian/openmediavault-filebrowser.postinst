@@ -76,6 +76,9 @@ case "$1" in
 			systemctl --system daemon-reload || true
 			omv_module_set_dirty filebrowser
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.4"; then
+			omv_module_set_dirty filebrowser
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

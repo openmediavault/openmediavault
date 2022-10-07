@@ -76,6 +76,9 @@ case "$1" in
 			omv_module_set_dirty avahi
 			omv_module_set_dirty photoprism
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.7"; then
+			omv_module_set_dirty photoprism
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
