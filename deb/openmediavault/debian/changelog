@@ -1,5 +1,6 @@
 openmediavault (6.0.43-1) stable; urgency=low
 
+  * Update locale files.
   * Various improvements.
   * Issue #1400: Strip whitespaces from the user name at the
     authentication process.

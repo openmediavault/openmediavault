@@ -2127,7 +2127,7 @@ msgid "No connections"
 msgstr "Aucune connexion"
 
 msgid "No data to display."
-msgstr "Aucune données à afficher."
+msgstr "Aucune donnée à afficher."
 
 msgid "No session reuse required"
 msgstr "Aucune réutilisation de session"
@@ -3126,7 +3126,7 @@ msgstr "Se connecter en tant que superutilisateur."
 msgid ""
 "Specifies whether the system performance statistics are collected "
 "periodically."
-msgstr "Spécifier si les statistiques performance du système sont collectées périodiquement"
+msgstr "Spécifie si les statistiques de performance du système sont collectées périodiquement."
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
