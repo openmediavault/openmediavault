@@ -1,3 +1,10 @@
+openmediavault-photoprism (6.0.7-1) stable; urgency=low
+
+  * Make sure the container is started after the file systems of
+    the shared folder is mounted.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 07 Oct 2022 17:31:32 +0200
+
 openmediavault-photoprism (6.0.6-1) stable; urgency=low
 
   * Update locale files.

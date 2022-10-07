@@ -5,6 +5,7 @@
 {%- set uid = salt['user.info'](uname).uid -%}
 {%- set gid = salt['group.info'](gname).gid -%}
 {%- set sf_path = salt['omv_conf.get_sharedfolder_path'](config.sharedfolderref) -%}
+{%- set sf_mnt_path = salt['omv_conf.get_sharedfolder_mount_path'](config.sharedfolderref) -%}
 {%- set ssl_enabled = config.consolesslcertificateref | length > 0 -%}
 {{ pillar['headers']['multiline'] -}}
 [Unit]
@@ -13,6 +14,7 @@ Wants=network.target
 After=network-online.target
 BindsTo=pod-minio.service
 After=pod-minio.service
+RequiresMountsFor="{{ sf_mnt_path }}"
 
 [Service]
 Environment=PODMAN_SYSTEMD_UNIT=%n

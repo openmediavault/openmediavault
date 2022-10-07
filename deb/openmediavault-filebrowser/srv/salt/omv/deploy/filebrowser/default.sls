@@ -44,7 +44,7 @@ create_filebrowser_app_container_systemd_unit_file:
       - salt://{{ tpldir }}/files/container-filebrowser-app.service.j2
     - template: jinja
     - context:
-        config: {{ config }}
+        config: {{ config | json }}
     - user: root
     - group: root
     - mode: 644
@@ -88,7 +88,7 @@ configure_filebrowser:
       - salt://{{ tpldir }}/files/filebrowser.json.j2
     - template: jinja
     - context:
-        config: {{ config }}
+        config: {{ config | json }}
     - user: {{ uname }}
     - group: {{ gname }}
     - mode: 644

@@ -1,6 +1,7 @@
 {%- set image = salt['pillar.get']('default:OMV_PHOTOPRISM_DB_CONTAINER_IMAGE', 'docker.io/mariadb:latest') -%}
 {%- set options = salt['pillar.get']('default:OMV_PHOTOPRISM_DB_CONTAINER_START_OPTIONS', '') -%}
 {%- set appdata_path = salt['omv_conf.get_sharedfolder_path'](config.appdata_sharedfolderref) -%}
+{%- set appdata_mnt_path = salt['omv_conf.get_sharedfolder_mount_path'](config.appdata_sharedfolderref) -%}
 {{ pillar['headers']['multiline'] -}}
 [Unit]
 Description=Podman container-photoprism-db.service
@@ -8,6 +9,7 @@ Wants=network.target
 After=network-online.target
 BindsTo=pod-photoprism.service
 After=pod-photoprism.service
+RequiresMountsFor="{{ appdata_mnt_path }}"
 
 [Service]
 Environment=PODMAN_SYSTEMD_UNIT=%n

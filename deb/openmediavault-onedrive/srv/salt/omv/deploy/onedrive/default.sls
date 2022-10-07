@@ -42,7 +42,7 @@ create_onedrive_config_file:
       - salt://{{ tpldir }}/files/config.j2
     - template: jinja
     - context:
-        config: {{ config }}
+        config: {{ config | json }}
     - user: onedrive
     - group: users
     - mode: 644

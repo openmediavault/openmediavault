@@ -5,7 +5,9 @@
 {%- set uid = salt['user.info'](uname).uid -%}
 {%- set gid = salt['group.info'](gname).gid -%}
 {%- set originals_path = salt['omv_conf.get_sharedfolder_path'](config.originals_sharedfolderref) -%}
+{%- set originals_mnt_path = salt['omv_conf.get_sharedfolder_mount_path'](config.originals_sharedfolderref) -%}
 {%- set appdata_path = salt['omv_conf.get_sharedfolder_path'](config.appdata_sharedfolderref) -%}
+{%- set appdata_mnt_path = salt['omv_conf.get_sharedfolder_mount_path'](config.appdata_sharedfolderref) -%}
 {%- set ssl_enabled = config.sslcertificateref | length > 0 -%}
 {{ pillar['headers']['multiline'] -}}
 [Unit]
@@ -14,6 +16,7 @@ Wants=network.target
 After=network-online.target
 BindsTo=pod-photoprism.service
 After=pod-photoprism.service container-photoprism-db.service
+RequiresMountsFor="{{ originals_mnt_path }}" "{{ appdata_mnt_path }}"
 
 [Service]
 Environment=PODMAN_SYSTEMD_UNIT=%n
