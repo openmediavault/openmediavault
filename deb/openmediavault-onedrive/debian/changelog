@@ -1,3 +1,9 @@
+openmediavault-onedrive (6.2.7-1) stable; urgency=low
+
+  * Improve omv-onedrive-auth script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Oct 2022 00:01:28 +0200
+
 openmediavault-onedrive (6.2.6-1) stable; urgency=low
 
   * Update locales.

@@ -27,6 +27,9 @@ if [ $enabled ]; then
 fi
 
 sudo -u onedrive onedrive --confdir /var/cache/onedrive --reauth
+if [ $? -eq 126 ]; then
+  sudo -u onedrive onedrive --confdir /var/cache/onedrive --resync
+fi
 
 if [ $enabled ]; then
   echo "Please wait, restarting service ..."
