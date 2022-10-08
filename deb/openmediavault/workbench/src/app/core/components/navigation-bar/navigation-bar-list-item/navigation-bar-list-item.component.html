@@ -3,7 +3,7 @@
                (click)="onClick(item)">
   <div class="omv-list-item-indent-z{{ depth }}"></div>
   <mat-icon svgIcon="{{ item.icon | mapIconEnum }}"></mat-icon>
-  <div>
+  <div class="omv-text-truncate">
     {{ item.text | translate }}
   </div>
   <div *ngIf="item.children?.length > 0"

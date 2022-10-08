@@ -8,9 +8,9 @@
               (click)="onClick(item)">
       <mat-icon *ngIf="item.icon"
                 svgIcon="{{ item.icon }}"></mat-icon>
-      <span class="omv-text-center omv-text-truncate omv-w-100">
+      <div class="omv-text-center omv-text-truncate omv-w-100">
         {{ item.text | translate }}
-      </span>
+      </div>
     </mat-card>
   </div>
 </div>

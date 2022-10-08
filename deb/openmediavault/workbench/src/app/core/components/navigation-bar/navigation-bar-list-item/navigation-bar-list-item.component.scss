@@ -3,8 +3,10 @@
 @use 'src/scss/theme';
 
 .mat-list-item {
-  color: dc.$omv-color-white;
   border-left: 3px solid transparent;
+  color: dc.$omv-color-white;
+  min-width: dv.$omv-navigation-bar-width;
+  max-width: dv.$omv-navigation-bar-width;
 
   &.active {
     border-left: 3px solid theme.$omv-color-primary;

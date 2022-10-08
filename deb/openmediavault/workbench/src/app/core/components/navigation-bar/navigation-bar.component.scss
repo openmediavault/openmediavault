@@ -2,8 +2,8 @@
 @use 'src/scss/defaults/variables' as dv;
 
 .omv-navigation-bar {
-  min-width: 18rem;
-  max-width: 18rem;
+  min-width: dv.$omv-navigation-bar-width;
+  max-width: dv.$omv-navigation-bar-width;
   height: 100%;
 
   .header {
