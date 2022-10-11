@@ -174,6 +174,7 @@ class Schema:
         schema = self.get_by_path(name)
         self._validate_type(value, schema, name)
 
+    # pylint: disable=too-many-branches
     def _validate_type(self, value, schema, name):
         """
         :returns: None
@@ -390,6 +391,7 @@ class Schema:
                 % (value, schema['pattern']),
             )
 
+    # pylint: disable=too-many-branches
     def _check_format(self, value, schema, name):
         """
         Check https://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.23
@@ -413,7 +415,7 @@ class Schema:
                 )
         elif schema['format'] in ["host-name", "hostname"]:
             if not re.match(
-                r'^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])' '{0,1}$', value
+                r'^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?$', value
             ):
                 raise SchemaValidationException(
                     name, "The value '%s' is not a valid hostname." % value
@@ -424,14 +426,14 @@ class Schema:
             except:
                 raise SchemaValidationException(
                     name, "The value '%s' is not a valid regex." % value
-                )
+                ) from None
         elif "uri" == schema['format']:
             try:
                 urllib.parse.urlparse(value)
             except:
                 raise SchemaValidationException(
                     name, "The value '%s' is not an URI." % value
-                )
+                ) from None
         elif "email" == schema['format']:
             if "@" not in value:
                 raise SchemaValidationException(
@@ -443,14 +445,14 @@ class Schema:
             except socket.error:
                 raise SchemaValidationException(
                     name, "The value '%s' is not an IPv4 address." % value
-                )
+                ) from None
         elif "ipv6" == schema['format']:
             try:
                 socket.inet_pton(socket.AF_INET6, value)
             except socket.error:
                 raise SchemaValidationException(
                     name, "The value '%s' is not an IPv6 address." % value
-                )
+                ) from None
         else:
             raise SchemaException(
                 "{}: The format '{}' is not defined.".format(

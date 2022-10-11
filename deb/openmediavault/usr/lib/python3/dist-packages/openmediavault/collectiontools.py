@@ -148,6 +148,7 @@ class DotDict(dict):
 
     __getattr__ = __getitem__
 
+    # pylint: disable=too-many-branches
     def __setitem__(self, key, value):
         matches = re.match(r'(\w+)\[(\d+)\](.(\S+))?', key)
         # pylint: disable=too-many-branches
@@ -155,7 +156,7 @@ class DotDict(dict):
             first = matches.group(1)
             index = int(matches.group(2))
             rest = matches.group(4)
-            branch = self.setdefault(first, list())
+            branch = self.setdefault(first, [])
             # Auto-expand list if necessary.
             size = len(branch)
             if index >= size:
@@ -176,7 +177,7 @@ class DotDict(dict):
             if not matches:
                 branch = self.setdefault(first, DotDict())
             else:
-                branch = self.setdefault(first, list())
+                branch = self.setdefault(first, [])
                 if not isinstance(branch, list):
                     raise TypeError("Expected list.")
                 index = int(matches.group(1))

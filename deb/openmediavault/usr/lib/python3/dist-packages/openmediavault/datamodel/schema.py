@@ -38,21 +38,21 @@ class Schema(openmediavault.json.Schema):
                 if not openmediavault.stringutils.is_uuid4(value):
                     raise openmediavault.json.SchemaValidationException(
                         name, "The value '%s' is not a valid UUIDv4." % value
-                    )
+                    ) from None
             elif "fsuuid" == schema['format']:
                 if not openmediavault.stringutils.is_fs_uuid(value):
                     raise openmediavault.json.SchemaValidationException(
                         name,
                         "The value '%s' is not a valid filesystem UUID."
                         % value,
-                    )
+                    ) from None
             elif "devicefile" == schema['format']:
                 if not re.match(
                     r'^\/dev(\/disk\/by-id)?\/.+$', value, flags=re.IGNORECASE
                 ):
                     raise openmediavault.json.SchemaValidationException(
                         name, "The value '%s' is no device file name." % value
-                    )
+                    ) from None
             elif "dirpath" == schema['format']:
                 if not re.match(
                     r'^(?!.*[\/]\.{2}[\/])(?!\.{2}[\/])[-\w.\/@ ]+$',
@@ -62,7 +62,7 @@ class Schema(openmediavault.json.Schema):
                     raise openmediavault.json.SchemaValidationException(
                         name,
                         "The value '%s' is not a valid directory path." % value,
-                    )
+                    ) from None
             elif "sshpubkey-openssh" == schema['format']:
                 if not re.match(
                     r'^ssh-rsa AAAA[0-9A-Za-z+\/]+[=]{0,3}\s*'
@@ -73,7 +73,7 @@ class Schema(openmediavault.json.Schema):
                         name,
                         "The value '%s' is no SSH public key (OpenSSH)."
                         % value,
-                    )
+                    ) from None
             elif "sshpubkey-rfc4716" == schema['format']:
                 if not re.match(
                     r'^---- BEGIN SSH2 PUBLIC KEY ----'
@@ -86,7 +86,7 @@ class Schema(openmediavault.json.Schema):
                         name,
                         "The value '%s' is no SSH public key (RFC4716)."
                         % value,
-                    )
+                    ) from None
             elif "sshprivkey-rsa" == schema['format']:
                 if not re.match(
                     r'^-----BEGIN RSA PRIVATE KEY-----'
@@ -98,7 +98,7 @@ class Schema(openmediavault.json.Schema):
                     raise openmediavault.json.SchemaValidationException(
                         name,
                         "The value '%s' is no SSH private key (RSA)." % value,
-                    )
+                    ) from None
             elif "sharename" == schema['format']:
                 # We are using the SMB/CIFS file/directory naming convention
                 # for this:
@@ -118,7 +118,7 @@ class Schema(openmediavault.json.Schema):
                 ):
                     raise openmediavault.json.SchemaValidationException(
                         name, "The value '%s' is not a valid share name." % value
-                    )
+                    ) from None
             elif "username" == schema['format']:
                 if not re.match(r'^[_.A-Za-z0-9][-\@_.A-Za-z0-9]*\$?$', value):
                     raise openmediavault.json.SchemaValidationException(
@@ -133,15 +133,15 @@ class Schema(openmediavault.json.Schema):
                 ):
                     raise openmediavault.json.SchemaValidationException(
                         name, "The value '%s' is not a valid domain name." % value
-                    )
+                    ) from None
             elif "netbiosname" == schema['format']:
                 # https://github.com/samba-team/samba/blob/samba-4.13.13/python/samba/__init__.py#L317
                 if not re.match(r'^[\w !#$%&\'()\-.@^_{}~]{1,15}$', value):
                     raise openmediavault.json.SchemaValidationException(
                         name, "The value '%s' is not a valid NetBIOS name." % value
-                    )
+                    ) from None
             else:
                 raise openmediavault.json.SchemaException(
                     "%s: The format '%s' is not defined."
                     % (name, schema['format'])
-                )
+                ) from None

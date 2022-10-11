@@ -92,7 +92,7 @@ class Job(_Object):  # lgtm[py/missing-call-to-init]
         try:
             self.interface.Cancel()
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(e)
+            raise SystemdException(e) from None
 
 
 class Manager(_Object):  # lgtm[py/missing-call-to-init]
@@ -105,25 +105,25 @@ class Manager(_Object):  # lgtm[py/missing-call-to-init]
         try:
             self.interface.Halt()
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(e)
+            raise SystemdException(e) from None
 
     def power_off(self):
         try:
             self.interface.PowerOff()
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(e)
+            raise SystemdException(e) from None
 
     def reboot(self):
         try:
             self.interface.Reboot()
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(e)
+            raise SystemdException(e) from None
 
     def reload(self):
         try:
             self.interface.Reload()
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(e)
+            raise SystemdException(e) from None
 
     def list_units(self):
         try:
@@ -132,7 +132,7 @@ class Manager(_Object):  # lgtm[py/missing-call-to-init]
                 units.append(Unit(unit[6]))
             return tuple(units)
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(e)
+            raise SystemdException(e) from None
 
     def get_unit(self, name):
         try:
@@ -140,7 +140,7 @@ class Manager(_Object):  # lgtm[py/missing-call-to-init]
             unit = Unit(unit_path)
             return unit
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(e)
+            raise SystemdException(e) from None
 
     def start_unit(self, name, mode):
         try:
@@ -148,7 +148,7 @@ class Manager(_Object):  # lgtm[py/missing-call-to-init]
             job = Job(job_path)
             return job
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(e)
+            raise SystemdException(e) from None
 
     def stop_unit(self, name, mode):
         try:
@@ -156,7 +156,7 @@ class Manager(_Object):  # lgtm[py/missing-call-to-init]
             job = Job(job_path)
             return job
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(e)
+            raise SystemdException(e) from None
 
 
 class Unit(_Object):  # lgtm[py/missing-call-to-init]
@@ -169,7 +169,7 @@ class Unit(_Object):  # lgtm[py/missing-call-to-init]
             job = Job(job_path)
             return job
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(e)
+            raise SystemdException(e) from None
 
     def stop(self, mode):
         try:
@@ -177,7 +177,7 @@ class Unit(_Object):  # lgtm[py/missing-call-to-init]
             job = Job(job_path)
             return job
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(e)
+            raise SystemdException(e) from None
 
     def reload(self, mode):
         try:
@@ -185,7 +185,7 @@ class Unit(_Object):  # lgtm[py/missing-call-to-init]
             job = Job(job_path)
             return job
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(e)
+            raise SystemdException(e) from None
 
     def restart(self, mode):
         try:
@@ -193,7 +193,7 @@ class Unit(_Object):  # lgtm[py/missing-call-to-init]
             job = Job(job_path)
             return job
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(e)
+            raise SystemdException(e) from None
 
     @property
     def active(self):
@@ -215,4 +215,4 @@ class Unit(_Object):  # lgtm[py/missing-call-to-init]
         try:
             self.interface.KillUnit(who, mode, signal)
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(e)
+            raise SystemdException(e) from None

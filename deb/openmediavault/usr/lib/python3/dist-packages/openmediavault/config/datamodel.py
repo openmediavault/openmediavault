@@ -114,7 +114,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
         try:
             schema.validate(model)
         except openmediavault.json.SchemaValidationException as e:
-            raise Exception("The data model is invalid: %s" % str(e))
+            raise Exception("The data model is invalid: %s" % str(e)) from None
 
     @property
     def is_iterable(self):
@@ -301,7 +301,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
             # Re-raise the exception, but with a more meaningful message.
             raise ValueError(
                 "Failed to convert property '{}': {}".format(name, str(e))
-            )
+            ) from None
         return result
 
     def walk_schema(self, path, callback, user_data=None):

@@ -59,16 +59,14 @@ def is_ethernet(name):
     #
     # Understanding systemd’s predictable network device names:
     # https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
-    return (
-        True
-        if re.match(
+    return bool(
+        re.match(
             r'^(eth|venet)[0-9]+|veth[a-z0-9]+|'
             r'en(b\d+|c\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|'
             r'x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|'
             r'(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$',
-            name,
+            name
         )
-        else False
     )
 
 
@@ -105,16 +103,14 @@ def is_wifi(name):
     #
     # Understanding systemd’s predictable network device names:
     # https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
-    return (
-        True
-        if re.match(
+    return bool(
+        re.match(
             r'^wlan[0-9]+|wl(b\d+|c\d+|o\d+(n\S+|d\d+)?|'
             r's\d+(f\d+)?(n\S+|d\d+)?|'
             r'x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|'
             r'(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$',
-            name,
+            name
         )
-        else False
     )
 
 
@@ -129,7 +125,7 @@ def is_bond(name):
     """
     if not isinstance(name, str):
         return False
-    return True if re.match(r'^bond[0-9]+$', name) else False
+    return bool(re.match(r'^bond[0-9]+$', name))
 
 
 def is_bridge(name):
@@ -143,7 +139,7 @@ def is_bridge(name):
     """
     if not isinstance(name, str):
         return False
-    return True if re.match(r'^br[0-9]+$', name) else False
+    return bool(re.match(r'^br[0-9]+$', name))
 
 
 def is_vlan(name):
@@ -157,4 +153,4 @@ def is_vlan(name):
     """
     if not isinstance(name, str):
         return False
-    return True if re.match(r'^(\S+\d+)\.(\d+)$', name) else False
+    return bool(re.match(r'^(\S+\d+)\.(\d+)$', name))

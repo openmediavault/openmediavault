@@ -23,7 +23,6 @@ import os
 import openmediavault.config
 import openmediavault.device
 import openmediavault.stringutils
-
 from salt.utils.decorators.jinja import jinja_filter
 
 

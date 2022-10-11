@@ -51,19 +51,16 @@ class MkRrdGraphTestCase(unittest.TestCase):
         mock_copyfile.assert_called_with("foo.png", "bar.png")
 
     @mock.patch("os.path.exists", return_value=True)
-    @mock.patch("builtins.open", new_callable=mock.mock_open)
+    @mock.patch("builtins.open", new_callable=mock.mock_open,
+                read_data="\n".join([
+                    "LoadPlugin interface",
+                    "<Plugin interface>",
+                    "  Interface 'ens6'",
+                    "  Interface \"ens7\"",
+                    "  IgnoreSelected false",
+                    "</Plugin>",
+                ]))
     def test_load_collectd_config(self, mock_open, mock_exists):
-        # mock_open doesn't properly handle iterating over the open file
-        # with for "line in file".
-        # https://bugs.python.org/issue32933
-        mock_open.return_value.__iter__.return_value = [
-            "LoadPlugin interface",
-            "<Plugin interface>",
-            "  Interface 'ens6'",
-            "  Interface \"ens7\"",
-            "  IgnoreSelected false",
-            "</Plugin>",
-        ]
         openmediavault.setenv("OMV_COLLECTD_CONFIG_DIR", "/x/y/z")
         result = openmediavault.mkrrdgraph.load_collectd_config(
             "interface", "Interface"

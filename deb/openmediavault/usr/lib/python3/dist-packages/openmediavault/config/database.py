@@ -85,6 +85,7 @@ class Database:
         query.execute()
         return query.response
 
+    # pylint: disable=redefined-builtin
     def get_by_filter(self, id, filter, **kwargs):
         """
         Get the iterable configuration objects that are matching the specified
@@ -139,6 +140,7 @@ class Database:
                         query.xpath, max_result))
         return query.response
 
+    # pylint: disable=redefined-builtin
     def exists(self, id, filter=None):
         """
         Check if on or more configuration object of the specified data
@@ -179,6 +181,7 @@ class Database:
         query.execute()
         return query.response
 
+    # pylint: disable=redefined-builtin
     def is_unique(self, obj, property):
         """
         Check if a configuration object with the value of the specified
@@ -200,6 +203,7 @@ class Database:
             ),
         )
 
+    # pylint: disable=redefined-builtin
     def is_unique_by_filter(self, obj, filter):
         """
         Check if a configuration object with the specified constraints
@@ -252,6 +256,7 @@ class Database:
         query.execute()
         return query.response
 
+    # pylint: disable=redefined-builtin
     def delete_by_filter(self, id, filter):
         """
         Delete the specified configuration objects that are matching the
@@ -299,6 +304,7 @@ class Database:
 
 
 class DatabaseQuery(abc.ABC):
+    # pylint: disable=redefined-builtin
     def __init__(self, id):
         """
         :param id: The data model identifier, e.g. 'conf.service.ftp.share'.
@@ -529,6 +535,7 @@ class DatabaseQuery(abc.ABC):
             element.append(sub_element)
             _process_value(sub_element, sub_value)
 
+    # pylint: disable=too-many-branches
     def _build_predicate(self, filter):
         """
         Helper method to build the predicate for the specified filter.
@@ -673,6 +680,7 @@ class DatabaseQuery(abc.ABC):
 
 
 class DatabaseGetByFilterQuery(DatabaseQuery):
+    # pylint: disable=redefined-builtin
     def __init__(self, id, filter):
         if not filter is None:
             assert isinstance(filter, DatabaseFilter)
@@ -698,6 +706,7 @@ class DatabaseGetByFilterQuery(DatabaseQuery):
 
 
 class DatabaseGetQuery(DatabaseQuery):
+    # pylint: disable=redefined-builtin
     def __init__(self, id, identifier=None):
         super().__init__(id)
         self._identifier = identifier
@@ -734,7 +743,8 @@ class DatabaseGetQuery(DatabaseQuery):
                 # Reset the response object.
                 self._response = None
                 # Raise an exception.
-                raise DatabaseQueryNotFoundException(self.xpath, self.model)
+                raise DatabaseQueryNotFoundException(
+                    self.xpath, self.model) from None
 
 
 class DatabaseIsReferencedQuery(DatabaseQuery):

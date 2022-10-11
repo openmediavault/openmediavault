@@ -78,7 +78,7 @@ def is_device_file(path) -> bool:
     """
     if not isinstance(path, str):
         return False
-    return True if re.match(r'^/dev/.+$', path) else False
+    return bool(re.match(r'^/dev/.+$', path))
 
 
 def is_device_file_by(path) -> bool:
@@ -99,7 +99,7 @@ def is_device_file_by(path) -> bool:
     """
     if not isinstance(path, str):
         return False
-    return True if re.match(r'^/dev/disk/by-\S+/.+$', path) else False
+    return bool(re.match(r'^/dev/disk/by-\S+/.+$', path))
 
 
 def is_device_file_by_uuid(path) -> bool:
@@ -119,7 +119,7 @@ def is_device_file_by_uuid(path) -> bool:
     """
     if not isinstance(path, str):
         return False
-    return True if re.match(r'^/dev/disk/by-uuid/.+$', path) else False
+    return bool(re.match(r'^/dev/disk/by-uuid/.+$', path))
 
 
 def is_device_file_by_id(path) -> bool:
@@ -139,7 +139,7 @@ def is_device_file_by_id(path) -> bool:
     """
     if not isinstance(path, str):
         return False
-    return True if re.match(r'^/dev/disk/by-id/.+$', path) else False
+    return bool(re.match(r'^/dev/disk/by-id/.+$', path))
 
 
 def is_device_file_by_label(path) -> bool:
@@ -158,7 +158,7 @@ def is_device_file_by_label(path) -> bool:
     """
     if not isinstance(path, str):
         return False
-    return True if re.match(r'^/dev/disk/by-label/.+$', path) else False
+    return bool(re.match(r'^/dev/disk/by-label/.+$', path))
 
 
 def is_device_file_by_path(path) -> bool:
@@ -178,4 +178,4 @@ def is_device_file_by_path(path) -> bool:
     """
     if not isinstance(path, str):
         return False
-    return True if re.match(r'^/dev/disk/by-path/.+$', path) else False
+    return bool(re.match(r'^/dev/disk/by-path/.+$', path))

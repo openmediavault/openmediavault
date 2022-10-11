@@ -145,7 +145,12 @@ disable=print-statement,
         too-many-locals,
         too-many-statements,
         too-few-public-methods,
-        misplaced-comparison-constant
+        misplaced-comparison-constant,
+        consider-using-f-string,
+        unnecessary-pass,
+        no-else-return,
+        invalid-name,
+        line-too-long
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
