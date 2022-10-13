@@ -1,6 +1,6 @@
 openmediavault (6.0.44-1) stable; urgency=low
 
-  *
+  * Make sure hostnames are in lower case in /etc/hosts.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Oct 2022 13:39:48 +0200
 

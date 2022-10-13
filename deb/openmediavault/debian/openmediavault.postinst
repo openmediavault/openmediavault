@@ -412,6 +412,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "6.0.42"; then
 			omv_module_set_dirty avahi
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.44"; then
+			omv_module_set_dirty hosts
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
