@@ -1,3 +1,9 @@
+openmediavault (6.0.45-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Oct 2022 01:53:06 +0200
+
 openmediavault (6.0.44-1) stable; urgency=low
 
   * Make sure the hostname is in lower case (e.g. /etc/hostname
