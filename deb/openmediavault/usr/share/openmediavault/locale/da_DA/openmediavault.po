@@ -253,7 +253,7 @@ msgid "Abstract"
 msgstr "Abstrakt"
 
 msgid "Access control list"
-msgstr ""
+msgstr "Tilgå kontrol liste"
 
 msgid "Access mode"
 msgstr "Adgangs tilstand"
@@ -545,7 +545,7 @@ msgid "British Virgin Islands"
 msgstr "British Virgin Islands"
 
 msgid "Browse directory"
-msgstr ""
+msgstr "Gennemse bibliotek"
 
 msgid "Browseable"
 msgstr "Søgebar"
@@ -755,7 +755,7 @@ msgid "Create"
 msgstr "Opret"
 
 msgid "Create a new file system."
-msgstr ""
+msgstr "Opret nyt filsystem"
 
 msgid "Create file system"
 msgstr "Opret filsystem"
@@ -770,7 +770,7 @@ msgid "Created FTP ban rule."
 msgstr ""
 
 msgid "Created FTP share."
-msgstr ""
+msgstr "Opret FTP deling."
 
 msgid "Created NFS share."
 msgstr "Opret NFS deling."
@@ -779,10 +779,10 @@ msgid "Created Rsync server module \"{{ name }}\"."
 msgstr ""
 
 msgid "Created Rsync task."
-msgstr ""
+msgstr "Opret Rsync opgave."
 
 msgid "Created SMB/CIFS share."
-msgstr ""
+msgstr "Opret SMB/CIFS deling."
 
 msgid "Created SSH certificate."
 msgstr "Oprettet SSH certifikat."
@@ -812,10 +812,10 @@ msgid "Created user \"{{ name }}\"."
 msgstr ""
 
 msgid "Created wired network connection."
-msgstr ""
+msgstr "Oprettet kablet netværksforbindelse."
 
 msgid "Created wireless network connection."
-msgstr ""
+msgstr "Oprettet trådløs netværksforbindelse."
 
 msgid "Croatia"
 msgstr "Croatia"
@@ -848,7 +848,7 @@ msgid "Daily"
 msgstr "Dagligt"
 
 msgid "Dark mode"
-msgstr ""
+msgstr "Mørk tilstand"
 
 msgid "Dashboard"
 msgstr "Dashboard"
@@ -1058,7 +1058,7 @@ msgid ""
 msgstr ""
 
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentation"
 
 msgid "Domain name"
 msgstr "Domænenavn"
@@ -1235,10 +1235,10 @@ msgid ""
 msgstr "FXP tillader overførsler mellem to eksterne servere uden at fildata tilgår klienten for anmodning af overførslen."
 
 msgid "Failed"
-msgstr ""
+msgstr "Fejlet"
 
 msgid "Failed to copy data to the clipboard."
-msgstr ""
+msgstr "Kunne ikke kopier data til udklipsholder."
 
 msgid "Falkland Islands"
 msgstr "Falkland Islands"
@@ -1422,7 +1422,7 @@ msgid "Help"
 msgstr "Hjælp"
 
 msgid "Hibernate"
-msgstr ""
+msgstr "Dvale"
 
 msgid "Hide"
 msgstr "Gem væk"
