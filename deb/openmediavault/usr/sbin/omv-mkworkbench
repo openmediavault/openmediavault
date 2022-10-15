@@ -364,7 +364,7 @@ def i18n(ctx):
             openmediavault.log.info(
                 'Processing PO file "%s" ...', po_file_path, verbose=ctx.verbose)
             for entry in po_file.translated_entries():
-                if entry.msgid and entry.msgstr:
+                if entry.msgid and entry.msgstr and (entry.msgid not in translations):
                     translations[entry.msgid] = entry.msgstr
         write_json_file(lang_file_path, translations, ctx.verbose)
 
