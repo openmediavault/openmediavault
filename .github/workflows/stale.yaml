@@ -1,0 +1,56 @@
+name: Mark stale issues and pull requests
+
+on:
+  schedule:
+  - cron: '0 * * * *'
+
+jobs:
+  stale:
+
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+    - uses: actions/stale@v5
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        days-before-stale: 60
+        days-before-close: 30
+        remove-stale-when-updated: true
+        operations-per-run: 30
+
+        exempt-issue-labels: 'pinned,security,planned'
+        stale-issue-label: 'stale'
+        stale-issue-message: |
+          This issue has been automatically marked as stale because it
+          has not had any activity for 60 days. It will be closed if no further
+          activity occurs for another 30 days.
+
+        close-issue-message: |
+          This issue has been automatically closed because there has
+          been no activity for 90 days. We are sorry that we haven't been
+          able to prioritize it yet. Please feel free to reopen this
+          issue or create a new one. Thank you!
+
+        exempt-pr-labels: 'pinned,security,planned'
+        stale-pr-label: 'stale'
+        stale-pr-message: |
+          This pull request has been automatically marked as stale because it
+          has not had any activity for 60 days. It will be closed if no further
+          activity occurs for another 30 days.
+
+          If you are a maintainer or core committer, please follow-up on this
+          pull request to identify what steps should be taken by the author to move this
+          proposed change forward.
+
+          If you are the author of this pull request, thank you for your proposed
+          contribution. If you believe this change is still appropriate, please
+          ensure that any feedback has been addressed and ask for a code review.
+
+        close-pr-message: |
+          This pull request has been automatically closed because there has
+          been no activity for 90 days. Please feel free to reopen this pull
+          request (or open a new one) if the proposed change is still
+          appropriate. Thank you for your contribution!

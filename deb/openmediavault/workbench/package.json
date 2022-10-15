@@ -10,7 +10,6 @@
     "test": "jest --watch --no-cache",
     "test:ci": "jest --no-cache",
     "lint:html": "htmllint src/app/**/*.html && html-linter --config html-linter.config.json",
-    "lint:prettier": "prettier --list-different \"src/**/*.{ts,scss}\"",
     "lint:tsc": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.spec.json --noEmit",
     "lint:eslint": "ng lint",
     "lint:scss": "stylelint \"**/*.scss\"",

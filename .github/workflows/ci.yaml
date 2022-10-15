@@ -1,0 +1,51 @@
+name: Continues Integration
+
+on:
+  push:
+    branches:
+      - 'master'
+
+env:
+  NODE_VERSION: 16
+  NODE_OPTIONS: --max_old_space_size=4096
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        working-directory: ./deb/openmediavault/workbench
+        run: npm ci
+
+      - name: Run lint
+        working-directory: ./deb/openmediavault/workbench
+        run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        working-directory: ./deb/openmediavault/workbench
+        run: npm ci
+
+      - name: Run unit tests
+        working-directory: ./deb/openmediavault/workbench
+        run: npm run test:ci
