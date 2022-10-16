@@ -28,6 +28,7 @@ import sys
 from typing import Any, Callable, Dict, List, Union
 
 import click
+import natsort
 import openmediavault.collectiontools
 import openmediavault.datamodel.schema
 import openmediavault.json.schema
@@ -358,8 +359,12 @@ def i18n(ctx):
             continue
         lang = os.path.basename(lang_dir)
         lang_file_path = os.path.join(assets_i18n_dir, f'{lang}.json')
+        po_files = glob.iglob(os.path.join(lang_dir, '*.po'))
         translations = {}
-        for po_file_path in glob.iglob(os.path.join(lang_dir, '*.po')):
+        # Process the *.po files naturally in reverse order to ensure
+        # the core translations are extracted from the openmediavault.po
+        # file.
+        for po_file_path in natsort.humansorted(po_files, reverse=True):
             po_file = polib.pofile(po_file_path)
             openmediavault.log.info(
                 'Processing PO file "%s" ...', po_file_path, verbose=ctx.verbose)
