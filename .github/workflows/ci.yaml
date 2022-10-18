@@ -11,10 +11,11 @@ on:
 env:
   NODE_VERSION: 16
   NODE_OPTIONS: --max_old_space_size=4096
+  PYTHON_VERSION: '3.10'
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
+  lint_ts:
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout code
@@ -26,15 +27,15 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install dependencies
-        working-directory: ./deb/openmediavault/workbench
+        working-directory: ./deb/openmediavault/workbench/
         run: npm ci
 
       - name: Run lint
-        working-directory: ./deb/openmediavault/workbench
+        working-directory: ./deb/openmediavault/workbench/
         run: npm run lint
 
-  test:
-    runs-on: ubuntu-latest
+  test_ts:
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout code
@@ -46,9 +47,29 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install dependencies
-        working-directory: ./deb/openmediavault/workbench
+        working-directory: ./deb/openmediavault/workbench/
         run: npm ci
 
       - name: Run unit tests
-        working-directory: ./deb/openmediavault/workbench
+        working-directory: ./deb/openmediavault/workbench/
         run: npm run test:ci
+
+  test_py:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install dependencies
+        working-directory: ./deb/openmediavault/usr/share/openmediavault/unittests/python/
+        run: make install
+
+      - name: Run unit tests
+        working-directory: ./deb/openmediavault/usr/share/openmediavault/unittests/python/
+        run: PYTHONPATH="${PYTHONPATH}:../../../../lib/python3/dist-packages/" make test

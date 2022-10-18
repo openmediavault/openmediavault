@@ -23,7 +23,8 @@ test:
 
 install:
 	echo "Installing required packages ..."
-	sudo apt-get install python3-pip python3-mock python3-pytest
-	pip3 install pyfakefs
+	sudo apt-get install python3-pip python3-mock python3-pytest \
+		python3-apt python3-pyudev python3-natsort python3-netifaces \
+		python3-lxml python3-cached-property python3-pyfakefs
 
 .PHONY: test install
