@@ -51,7 +51,7 @@ reload_hdparm_{{ device.devicefile }}:
   cmd.run:
     - name: "/lib/udev/hdparm"
     - env:
-      - DEVNAME: "{{ device.devicefile | path_realpath }}"
+      - DEVNAME: "{{ device.devicefile }}"
     - onchanges:
       - file: configure_hdparm_conf
 {% endfor %}
