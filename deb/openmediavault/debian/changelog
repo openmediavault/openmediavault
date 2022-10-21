@@ -2,6 +2,9 @@ openmediavault (6.0.45-1) stable; urgency=low
 
   * Fix issue when changing APM, spin-down time or write cache
     settings of disks.
+  * Fix an SMB issue when a user is created/modified and the
+    password contains backslashes. This caused problems in
+    pdbedit.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Oct 2022 01:53:06 +0200
 

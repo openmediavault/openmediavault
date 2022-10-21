@@ -69,11 +69,12 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
 		if (FALSE === array_key_exists("password", $object))
 			return;
 		// Add the new user into the database.
+		$pwdFile = new \OMV\System\TmpFile();
+		$pwdFile->write(sprintf("%s\n%s\n", $object['password'],
+			$object['password']));
 		$cmdArgs = [];
-		$cmdArgs[] = sprintf("(echo %s; echo %s)", escapeshellarg(
-			$object['password']), escapeshellarg($object['password']));
-		$cmdArgs[] = "|";
-		$cmdArgs[] = "pdbedit";
+		$cmdArgs[] = sprintf("--configfile=%s", escapeshellarg(
+			"/etc/samba/smb.conf"));
 		$cmdArgs[] = "--create";
 		$cmdArgs[] = "--verbose";
 		$cmdArgs[] = "--password-from-stdin";
@@ -83,9 +84,10 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
 				$object['comment']));
 		}
 		$cmdArgs[] = escapeshellarg($object['name']);
-		$cmd = implode(" ", $cmdArgs);
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
+		$cmd = new \OMV\System\Process("pdbedit", $cmdArgs);
+		$cmd->setInputFromFile($pwdFile->getFilename());
+		$cmd->setRedirect2to1();
+		$cmd->execute();
 	}
 
 	/**
@@ -104,6 +106,8 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
 			return $this->onAddUser($type, $path, $object);
 		// Modify the user in the database.
 		$cmdArgs = [];
+		$cmdArgs[] = sprintf("--configfile=%s", escapeshellarg(
+			"/etc/samba/smb.conf"));
 		$cmdArgs[] = "--modify";
 		$cmdArgs[] = "--verbose";
 		$cmdArgs[] = sprintf("--fullname=%s", escapeshellarg($object['name']));
@@ -119,16 +123,18 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
 		// changed (in this case it is not empty).
 		if (array_key_exists("password", $object) &&
 				!empty($object['password'])) {
+			$pwdFile = new \OMV\System\TmpFile();
+			$pwdFile->write(sprintf("%s\n%s\n", $object['password'],
+				$object['password']));
 			$cmdArgs = [];
-			$cmdArgs[] = sprintf("(echo %s; echo %s)", escapeshellarg(
-			  $object['password']), escapeshellarg($object['password']));
-			$cmdArgs[] = "|";
-			$cmdArgs[] = "smbpasswd";
+			$cmdArgs[] = sprintf("-c %s", escapeshellarg(
+				"/etc/samba/smb.conf"));
 			$cmdArgs[] = "-s";
 			$cmdArgs[] = escapeshellarg($object['name']);
-			$cmd = implode(" ", $cmdArgs);
-			if (0 !== $this->exec($cmd, $output))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmd = new \OMV\System\Process("smbpasswd", $cmdArgs);
+			$cmd->setInputFromFile($pwdFile->getFilename());
+			$cmd->setRedirect2to1();
+			$cmd->execute();
 		}
 	}
 
