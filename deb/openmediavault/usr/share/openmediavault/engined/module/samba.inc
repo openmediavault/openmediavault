@@ -153,6 +153,8 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
 			return;
 		// Delete the user from the database.
 		$cmdArgs = [];
+		$cmdArgs[] = sprintf("-c %s", escapeshellarg(
+			"/etc/samba/smb.conf"));
 		$cmdArgs[] = "--delete";
 		$cmdArgs[] = "--verbose";
 		$cmdArgs[] = escapeshellarg($object['name']);
