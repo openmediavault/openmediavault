@@ -145,12 +145,6 @@ class Btrfs extends Filesystem {
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 
-		// Parse command output:
-		// System, RAID1: total=8388608, used=4096
-		// System, single: total=4194304, used=0
-		// Data+Metadata, RAID1: total=67108864, used=28672
-		// Data+Metadata, single: total=8388608, used=0
-		// GlobalReserve, single: total=4194304, used=0
 		// Initialize arrays.
 		$allocated = $allocatedUnused = $used = $allocatedRaw =
 		  $allocatedUnusedRaw = $usedRaw = [
@@ -160,6 +154,20 @@ class Btrfs extends Filesystem {
 			"System" => 0,
 			"GlobalReserve"	=> 0
 		];
+
+		// Parse command output.
+		// Example 1:
+		// System, RAID1: total=8388608, used=4096
+		// System, single: total=4194304, used=0
+		// Data+Metadata, RAID1: total=67108864, used=28672
+		// Data+Metadata, single: total=8388608, used=0
+		// GlobalReserve, single: total=4194304, used=0
+		//
+		// Example 2:
+		// Data, single: total=712704000, used=712704000
+		// System, DUP: total=8388608, used=16384
+		// Metadata, DUP: total=171048960, used=1458176
+		// GlobalReserve, single: total=3407872, used=0
 		$regex = "/^([\w\+]+), ([a-zA-Z0156]+): total=([0-9]+), ".
 		  "used=([0-9]+)$/i";
 		foreach (preg_filter($regex, "$1 $2 $3 $4", $output) as $rowv) {
@@ -199,7 +207,7 @@ class Btrfs extends Filesystem {
 			  bcmul($t, strval($factor), 0));
 			// Raw disk used by allocated but unused extents.
 			$allocatedUnusedRaw[$type] = bcadd($allocatedUnusedRaw[$type],
-			  bcmul(bcsub($t, $u, 0), $factor, 0));
+			  bcmul(bcsub($t, $u, 0), strval($factor), 0));
 			// Raw disk data usage, i.e. including redundancy.
 			$usedRaw[$type] = bcadd($usedRaw[$type], bcmul($u,
 			  strval($factor), 0));
@@ -213,7 +221,8 @@ class Btrfs extends Filesystem {
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 
-		// Parse command output:
+		// Parse command output.
+		// Example 1:
 		// superblock: bytenr=65536, device=/dev/sdb
 		// ---------------------------------------------------------
 		// csum			0x2013cfbe [match]
@@ -227,6 +236,33 @@ class Btrfs extends Filesystem {
 		// leafsize		4096
 		// ...
 		// num_devices		2
+		// ...
+		//
+		// Example 2:
+		// superblock: bytenr=65536, device=/dev/sdb1
+        // ---------------------------------------------------------
+        // csum_type		0 (crc32c)
+        // csum_size		4
+        // csum			0xc03b8452 [match]
+        // bytenr			65536
+		// ...
+        // generation		266
+        // root			30998528
+        // sys_array_size		129
+        // chunk_root_generation	73
+        // root_level		0
+        // chunk_root		22167552
+        // chunk_root_level	0
+        // ...
+        // total_bytes		1072672768
+        // bytes_used		714178560
+        // sectorsize		4096
+        // nodesize		16384
+        // leafsize (deprecated)	16384
+        // stripesize		4096
+        // root_dir		6
+        // num_devices		1
+        // ...
 		$regex = "/total_bytes\s+(\d+)/";
 		preg_match($regex, implode("\n", $output), $matches);
 		$totalBytes = $matches[1];	// Raw fs size
@@ -244,6 +280,10 @@ class Btrfs extends Filesystem {
 			array_sum(array_filter($allocatedUnusedRaw, function($type) {
 				return in_array($type, [ 'Data', 'Data+Metadata' ]);
 			}, ARRAY_FILTER_USE_KEY)));
+		// Ensure available space is not negative.
+		if (1 == bccomp("0", $available)) {
+			$available = "0";
+		}
 		// Data ratio is calculated based only on Data (or Data+Metadata).
 		$dataRatio = bcdiv(
 			array_sum(array_filter($usedRaw, function($type) {
