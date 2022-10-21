@@ -7,6 +7,7 @@
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
+    "strict": false,
     "declaration": false,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
