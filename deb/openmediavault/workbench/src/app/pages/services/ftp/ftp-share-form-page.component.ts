@@ -68,7 +68,7 @@ export class FtpShareFormPageComponent {
         name: 'extraoptions',
         label: gettext('Extra options'),
         hint: gettext(
-          'Please check the <a href=\'http://www.proftpd.org/docs/directives/linked/by-name.html\' target=\'_blank\'>manual page</a> for more details.'
+          "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>manual page</a> for more details."
         ),
         value: ''
       }

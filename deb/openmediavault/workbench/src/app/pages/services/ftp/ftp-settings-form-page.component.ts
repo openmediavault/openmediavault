@@ -313,7 +313,7 @@ export class FtpSettingsFormPageComponent {
         name: 'usereversedns',
         label: gettext('Reverse DNS lookup'),
         hint: gettext(
-          'Enable reverse DNS lookup performed on the remote host\'s IP address for incoming active mode data connections and outgoing passive mode data connections.'
+          "Enable reverse DNS lookup performed on the remote host's IP address for incoming active mode data connections and outgoing passive mode data connections."
         ),
         value: false
       },
@@ -328,7 +328,7 @@ export class FtpSettingsFormPageComponent {
         name: 'extraoptions',
         label: gettext('Extra options'),
         hint: gettext(
-          'Please check the <a href=\'http://www.proftpd.org/docs/directives/configuration_full.html\' target=\'_blank\'>manual page</a> for more details.'
+          "Please check the <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manual page</a> for more details."
         ),
         value: ''
       }

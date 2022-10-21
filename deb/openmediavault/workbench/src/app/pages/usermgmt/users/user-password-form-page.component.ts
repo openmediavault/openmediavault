@@ -55,7 +55,7 @@ export class UserPasswordFormPageComponent {
                 arg0: { prop: 'password' },
                 arg1: { prop: 'passwordconf' }
               },
-              errorData: gettext('Password doesn\'t match.')
+              errorData: gettext("Password doesn't match.")
             }
           ]
         }

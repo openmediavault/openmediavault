@@ -386,7 +386,7 @@ export class SslCertificateFormPageComponent {
             { value: 'PZ', text: gettext('Panama Canal Zone') },
             { value: 'PG', text: gettext('Papua New Guinea') },
             { value: 'PY', text: gettext('Paraguay') },
-            { value: 'YD', text: gettext('People\'s Democratic Republic of Yemen') },
+            { value: 'YD', text: gettext("People's Democratic Republic of Yemen") },
             { value: 'PE', text: gettext('Peru') },
             { value: 'PH', text: gettext('Philippines') },
             { value: 'PN', text: gettext('Pitcairn') },

@@ -787,7 +787,7 @@ export class RsyncTaskFormPageComponent {
         type: 'checkbox',
         name: 'optiondelete',
         label: gettext('Delete'),
-        hint: gettext('Delete files on the receiving side that don\'t exist on sender.'),
+        hint: gettext("Delete files on the receiving side that don't exist on sender."),
         value: false
       },
       {

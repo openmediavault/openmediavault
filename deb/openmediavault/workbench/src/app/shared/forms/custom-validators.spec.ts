@@ -57,7 +57,7 @@ describe('CustomValidators', () => {
       },
       undefined,
       'constraint',
-      'Password doesn\'t match.'
+      "Password doesn't match."
     );
 
     beforeEach(() => {
@@ -81,18 +81,18 @@ describe('CustomValidators', () => {
 
     it('should validate constraint (1)', () => {
       passwordControl.setValue('foo');
-      expect(validator(passwordConfControl)).toEqual({ constraint: 'Password doesn\'t match.' });
+      expect(validator(passwordConfControl)).toEqual({ constraint: "Password doesn't match." });
     });
 
     it('should validate constraint (2)', () => {
       passwordConfControl.setValue('bar');
-      expect(validator(passwordConfControl)).toEqual({ constraint: 'Password doesn\'t match.' });
+      expect(validator(passwordConfControl)).toEqual({ constraint: "Password doesn't match." });
     });
 
     it('should validate constraint (3)', () => {
       passwordControl.setValue('foo');
       passwordConfControl.setValue('bar');
-      expect(validator(passwordConfControl)).toEqual({ constraint: 'Password doesn\'t match.' });
+      expect(validator(passwordConfControl)).toEqual({ constraint: "Password doesn't match." });
     });
   });
 

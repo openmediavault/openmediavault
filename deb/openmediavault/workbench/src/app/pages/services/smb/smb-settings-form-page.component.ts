@@ -173,7 +173,7 @@ export class SmbSettingsFormPageComponent {
         name: 'usesendfile',
         label: gettext('Use sendfile'),
         hint: gettext(
-          'Use the more efficient sendfile system call for files that are exclusively oplocked. This may make more efficient use of the system CPU\'s and cause Samba to be faster. Samba automatically turns this off for clients that use protocol levels lower than NT LM 0.12 and when it detects a client is Windows 9x.'
+          "Use the more efficient sendfile system call for files that are exclusively oplocked. This may make more efficient use of the system CPU's and cause Samba to be faster. Samba automatically turns this off for clients that use protocol levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
         ),
         value: true
       },
@@ -188,7 +188,7 @@ export class SmbSettingsFormPageComponent {
         name: 'extraoptions',
         label: gettext('Extra options'),
         hint: gettext(
-          'Please check the <a href=\'http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html\' target=\'_blank\'>manual page</a> for more details.'
+          "Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details."
         ),
         value: ''
       }

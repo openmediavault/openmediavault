@@ -67,7 +67,7 @@ export class NfsShareFormPageComponent {
           ' ' +
           gettext(
             // eslint-disable-next-line max-len
-            'Please check the <a href=\'https://manpages.debian.org/nfs-kernel-server/exports.5.html\' target=\'_blank\'>manual page</a> for more details.'
+            "Please check the <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>manual page</a> for more details."
           ),
         value: '',
         validators: {
@@ -92,7 +92,7 @@ export class NfsShareFormPageComponent {
         label: gettext('Extra options'),
         hint: gettext(
           // eslint-disable-next-line max-len
-          'Please check the <a href=\'https://manpages.debian.org/nfs-kernel-server/exports.5.html\' target=\'_blank\'>manual page</a> for more details.'
+          "Please check the <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>manual page</a> for more details."
         ),
         value: 'subtree_check,insecure'
       },
