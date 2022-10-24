@@ -52,3 +52,18 @@ export function Debounce(wait: number) {
     return descriptor;
   };
 }
+
+/**
+ * Decorator that creates a throttled function that only invokes func at
+ * most once per every wait milliseconds.
+ *
+ * @param wait The number of milliseconds to throttle invocations to.
+ */
+// eslint-disable-next-line @typescript-eslint/naming-convention,prefer-arrow/prefer-arrow-functions
+export function Throttle(wait: number) {
+  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
+    const originalFn = descriptor.value;
+    descriptor.value = _.throttle(originalFn, wait);
+    return descriptor;
+  };
+}

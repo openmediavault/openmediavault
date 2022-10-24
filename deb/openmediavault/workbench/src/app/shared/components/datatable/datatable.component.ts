@@ -34,7 +34,7 @@ import { DatatableComponent as NgxDatatableComponent } from '@swimlane/ngx-datat
 import * as _ from 'lodash';
 import { Subscription, timer } from 'rxjs';
 
-import { Debounce } from '~/app/decorators';
+import { Throttle } from '~/app/decorators';
 import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { Datatable } from '~/app/shared/models/datatable.interface';
@@ -254,7 +254,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     this.rawColumns = [...columns];
   }
 
-  @Debounce(200)
+  @Throttle(1000)
   onSearchFilterChange(): void {
     if (!this.remoteSearching) {
       this.applySearchFilter();
