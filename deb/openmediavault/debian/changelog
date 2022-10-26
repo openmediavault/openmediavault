@@ -1,3 +1,9 @@
+openmediavault (6.0.46-1) stable; urgency=low
+
+  * Finally fixing the /run/proftpd issue the systemd way.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Oct 2022 06:53:58 +0200
+
 openmediavault (6.0.45-1) stable; urgency=low
 
   * Fix issue when changing APM, spin-down time or write cache

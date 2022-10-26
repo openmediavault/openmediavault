@@ -21,7 +21,7 @@
 {% set controls_max_clients = salt['pillar.get']('default:OMV_PROFTPD_MODCTRLS_CONTROLSMAXCLIENTS', '2') %}
 {% set controls_log = salt['pillar.get']('default:OMV_PROFTPD_MODCTRLS_CONTROLSLOG', '/var/log/proftpd/controls.log') %}
 {% set controls_interval = salt['pillar.get']('default:OMV_PROFTPD_MODCTRLS_CONTROLSINTERVAL', '5') %}
-{% set controls_socket = salt['pillar.get']('default:OMV_PROFTPD_MODCTRLS_CONTROLSSOCKET', '/run/proftpd.sock') %}
+{% set controls_socket = salt['pillar.get']('default:OMV_PROFTPD_MODCTRLS_CONTROLSSOCKET', '/run/proftpd/proftpd.sock') %}
 
 configure_proftpd_mod_ctrls:
   file.append:
