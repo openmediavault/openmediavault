@@ -104,7 +104,7 @@
                       svgIcon="{{ icon.folder }}"></mat-icon>
             <span class="mat-option-text">.</span>
           </mat-list-option>
-          <mat-list-option *ngFor="let folder of filteredFolders | async"
+          <mat-list-option *ngFor="let folder of filteredFolders$ | async"
                            [value]="folder">
             <mat-icon *ngIf="'..' === folder"
                       matListIcon

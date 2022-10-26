@@ -44,7 +44,7 @@ export class FormFolderbrowserComponent
   icon = Icon;
   isOpen = false;
   folders: string[] = [];
-  filteredFolders: Observable<string[]>;
+  filteredFolders$: Observable<string[]>;
   searchFilter = new FormControl('');
   triggerRect: ClientRect;
   positions: ConnectedPosition[] = [
@@ -123,7 +123,7 @@ export class FormFolderbrowserComponent
       }
     }
     // Subscribe to changes of the 'searchFilter' field.
-    this.filteredFolders = this.searchFilter.valueChanges.pipe(
+    this.filteredFolders$ = this.searchFilter.valueChanges.pipe(
       startWith(''),
       map((value: string) =>
         this.folders.filter((folder: string) => folder.toLowerCase().includes(value.toLowerCase()))
