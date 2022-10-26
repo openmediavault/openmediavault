@@ -45,6 +45,15 @@ abstract class ModuleAbstract {
 	}
 
 	/**
+	 * Get a brief description of the module and its function.
+	 * @return string The description of the module. Defaults
+	 *   to an empty string.
+	 */
+	public function getDescription() {
+		return "";
+	}
+
+	/**
 	 * Helper function to mark this module as dirty.
 	 * @return array The list of dirty modules.
 	 */

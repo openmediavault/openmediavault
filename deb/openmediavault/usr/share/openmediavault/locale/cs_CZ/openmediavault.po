@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2022-10-26 23:49+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -241,6 +241,12 @@ msgstr "Odebrat je možné nejvýše jedno zařízení."
 msgid "A maximum of two device can be removed."
 msgstr "Odebrat je možné nejvýše dvě zařízení."
 
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "A secure shell (SSH) server."
+msgstr ""
+
 msgid "ACL"
 msgstr "ACL"
 
@@ -451,6 +457,9 @@ msgstr "Automatické"
 
 msgid "Auto logout"
 msgstr "Automatické odhlášení"
+
+msgid "Automatic update and installation of packages."
+msgstr ""
 
 msgid "Available"
 msgstr "K dispozici"
@@ -724,6 +733,9 @@ msgstr "Demokratická republika Kongo (Kinhasa)"
 
 msgid "Connections"
 msgstr "Spojení"
+
+msgid "Control and monitor storage systems using S.M.A.R.T."
+msgstr ""
 
 msgid "Conveyance self-test"
 msgstr "Kontrola případného poškození při přepravě"
@@ -1308,6 +1320,9 @@ msgstr "Požadovat výhradně zabezpečené spojení."
 msgid "Forum"
 msgstr "Diskuzní fórum"
 
+msgid "Framework for Multicast DNS Service Discovery."
+msgstr ""
+
 msgid "France"
 msgstr "Francie"
 
@@ -1430,6 +1445,9 @@ msgstr "Skrýt"
 
 msgid "Hide dot files"
 msgstr "Skrýt soubory s názvy začínajícími tečkou"
+
+msgid "High-performance mail transport agent."
+msgstr ""
 
 msgid "Home"
 msgstr "Domů"
@@ -2719,6 +2737,9 @@ msgstr "SMB/CIFS"
 msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS – audit"
 
+msgid "SMB/CIFS file, print, and login server for Unix."
+msgstr ""
+
 msgid "SMTP port"
 msgstr "SMTP port"
 
@@ -3150,6 +3171,9 @@ msgstr "Stát/provincie"
 msgid "Static"
 msgstr "Ruční (statické)"
 
+msgid "Statistics collection and monitoring daemon."
+msgstr ""
+
 msgid "Status"
 msgstr "Stav"
 
@@ -3303,6 +3327,9 @@ msgstr "Souborový systém na kterém má být sdílená složka vytvořena."
 
 msgid "The file system to mount."
 msgstr "Souborový systém, který připojit."
+
+msgid "The following modules will be updated:"
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Název pod kterým stroj vystupuje na síti."

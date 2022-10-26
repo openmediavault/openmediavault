@@ -27,6 +27,10 @@ class Monit extends \OMV\Engine\Module\ServiceAbstract
 		return "monit";
 	}
 
+	public function getDescription() {
+		return gettext("Statistics collection and monitoring daemon.");
+	}
+
 	public function deployAfter(): array {
 		return ["email"];
 	}

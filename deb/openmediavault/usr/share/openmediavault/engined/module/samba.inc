@@ -29,6 +29,10 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
 		return "samba";
 	}
 
+	public function getDescription() {
+		return gettext("SMB/CIFS file, print, and login server for Unix.");
+	}
+
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.smb");

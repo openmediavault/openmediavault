@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2022-10-26 23:49+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013,2015\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
@@ -243,6 +243,12 @@ msgstr ""
 msgid "A maximum of two device can be removed."
 msgstr ""
 
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "A secure shell (SSH) server."
+msgstr ""
+
 msgid "ACL"
 msgstr "ACL"
 
@@ -452,6 +458,9 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Auto logout"
+msgstr ""
+
+msgid "Automatic update and installation of packages."
 msgstr ""
 
 msgid "Available"
@@ -726,6 +735,9 @@ msgstr "República Democrática do Congo-Kinshasa"
 
 msgid "Connections"
 msgstr "Conexións"
+
+msgid "Control and monitor storage systems using S.M.A.R.T."
+msgstr ""
 
 msgid "Conveyance self-test"
 msgstr "Transporte de autocomprobación"
@@ -1310,6 +1322,9 @@ msgstr "Forzar a só conexións seguras."
 msgid "Forum"
 msgstr ""
 
+msgid "Framework for Multicast DNS Service Discovery."
+msgstr ""
+
 msgid "France"
 msgstr "Francia"
 
@@ -1432,6 +1447,9 @@ msgstr ""
 
 msgid "Hide dot files"
 msgstr "Agochar os ficheiros con punto"
+
+msgid "High-performance mail transport agent."
+msgstr ""
 
 msgid "Home"
 msgstr ""
@@ -2721,6 +2739,9 @@ msgstr "SMB/CIFS"
 msgid "SMB/CIFS - Audit"
 msgstr "Auditoría - SMB/CIFS"
 
+msgid "SMB/CIFS file, print, and login server for Unix."
+msgstr ""
+
 msgid "SMTP port"
 msgstr "Porto SMTP"
 
@@ -3152,6 +3173,9 @@ msgstr "Estado/Provincia"
 msgid "Static"
 msgstr "Estático"
 
+msgid "Statistics collection and monitoring daemon."
+msgstr ""
+
 msgid "Status"
 msgstr "Estado"
 
@@ -3304,6 +3328,9 @@ msgid "The file system on which the shared folder is to be created."
 msgstr ""
 
 msgid "The file system to mount."
+msgstr ""
+
+msgid "The following modules will be updated:"
 msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."

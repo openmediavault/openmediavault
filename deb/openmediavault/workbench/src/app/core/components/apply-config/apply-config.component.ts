@@ -15,10 +15,12 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
+import * as _ from 'lodash';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { Subscription } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
 import { translate } from '~/app/i18n.helper';
@@ -28,24 +30,43 @@ import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
+import {
+  SystemInformation,
+  SystemInformationService
+} from '~/app/shared/services/system-information.service';
 
 @Component({
   selector: 'omv-apply-config',
   templateUrl: './apply-config.component.html',
   styleUrls: ['./apply-config.component.scss']
 })
-export class ApplyConfigComponent {
+export class ApplyConfigComponent implements OnDestroy {
   @BlockUI()
   blockUI: NgBlockUI;
 
   public icon = Icon;
+  public dirtyModules: Record<string, string> = {};
+  public expanded = false;
+
+  private subscription: Subscription;
 
   constructor(
     private dialogService: DialogService,
     private notificationService: NotificationService,
     private router: Router,
-    private rpcService: RpcService
-  ) {}
+    private rpcService: RpcService,
+    private systemInformationService: SystemInformationService
+  ) {
+    this.subscription = this.systemInformationService.systemInfo$.subscribe(
+      (res: SystemInformation) => {
+        this.dirtyModules = _.get(res, 'dirtyModules', []);
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
+  }
 
   onApplyPendingChanges(): void {
     this.dialogService

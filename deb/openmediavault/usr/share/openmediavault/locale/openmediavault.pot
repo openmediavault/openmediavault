@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2022-10-26 23:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -239,6 +239,12 @@ msgstr ""
 msgid "A maximum of two device can be removed."
 msgstr ""
 
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "A secure shell (SSH) server."
+msgstr ""
+
 msgid "ACL"
 msgstr ""
 
@@ -438,6 +444,9 @@ msgid "Auto"
 msgstr ""
 
 msgid "Auto logout"
+msgstr ""
+
+msgid "Automatic update and installation of packages."
 msgstr ""
 
 msgid "Available"
@@ -708,6 +717,9 @@ msgid "Congo (Kinshasa)"
 msgstr ""
 
 msgid "Connections"
+msgstr ""
+
+msgid "Control and monitor storage systems using S.M.A.R.T."
 msgstr ""
 
 msgid "Conveyance self-test"
@@ -1268,6 +1280,9 @@ msgstr ""
 msgid "Forum"
 msgstr ""
 
+msgid "Framework for Multicast DNS Service Discovery."
+msgstr ""
+
 msgid "France"
 msgstr ""
 
@@ -1389,6 +1404,9 @@ msgid "Hide"
 msgstr ""
 
 msgid "Hide dot files"
+msgstr ""
+
+msgid "High-performance mail transport agent."
 msgstr ""
 
 msgid "Home"
@@ -2603,6 +2621,9 @@ msgstr ""
 msgid "SMB/CIFS - Audit"
 msgstr ""
 
+msgid "SMB/CIFS file, print, and login server for Unix."
+msgstr ""
+
 msgid "SMTP port"
 msgstr ""
 
@@ -3008,6 +3029,9 @@ msgstr ""
 msgid "Static"
 msgstr ""
 
+msgid "Statistics collection and monitoring daemon."
+msgstr ""
+
 msgid "Status"
 msgstr ""
 
@@ -3156,6 +3180,9 @@ msgid "The file system on which the shared folder is to be created."
 msgstr ""
 
 msgid "The file system to mount."
+msgstr ""
+
+msgid "The following modules will be updated:"
 msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."

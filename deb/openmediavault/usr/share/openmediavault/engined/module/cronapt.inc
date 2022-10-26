@@ -27,6 +27,10 @@ class CronApt extends \OMV\Engine\Module\ServiceAbstract
 		return "cronapt";
 	}
 
+	public function getDescription() {
+		return gettext("Automatic update and installation of packages.");
+	}
+
 	public function deployAfter(): array {
 		return ["apt", "email"];
 	}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2022-10-26 23:49+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2022\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -240,6 +240,12 @@ msgstr "Μπορεί να αφαιρεθεί μία συσκευή το πολύ
 msgid "A maximum of two device can be removed."
 msgstr "Μπορούν να αφαιρεθούν δύο συσκευές το πολύ."
 
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "A secure shell (SSH) server."
+msgstr ""
+
 msgid "ACL"
 msgstr "Λίστα Διαχείρισης Πρόσβασης"
 
@@ -450,6 +456,9 @@ msgstr "Αυτόματο"
 
 msgid "Auto logout"
 msgstr "Αυτόματη αποσύνδεση"
+
+msgid "Automatic update and installation of packages."
+msgstr ""
 
 msgid "Available"
 msgstr "Διαθέσιμο"
@@ -723,6 +732,9 @@ msgstr "Congo (Kinshasa)"
 
 msgid "Connections"
 msgstr "Συνδέσεις"
+
+msgid "Control and monitor storage systems using S.M.A.R.T."
+msgstr ""
 
 msgid "Conveyance self-test"
 msgstr "Έλεγχος μετάδοσης"
@@ -1307,6 +1319,9 @@ msgstr "Να απαιτείται μόνο ασφαλής σύνδεση."
 msgid "Forum"
 msgstr "Forum"
 
+msgid "Framework for Multicast DNS Service Discovery."
+msgstr ""
+
 msgid "France"
 msgstr "France"
 
@@ -1429,6 +1444,9 @@ msgstr "Απόκρυψη"
 
 msgid "Hide dot files"
 msgstr "Απόκρυψη αρχείων που αρχίζουν με τελεία"
+
+msgid "High-performance mail transport agent."
+msgstr ""
 
 msgid "Home"
 msgstr "Αρχική"
@@ -2718,6 +2736,9 @@ msgstr "SMB/CIFS"
 msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - Έλεγχος"
 
+msgid "SMB/CIFS file, print, and login server for Unix."
+msgstr ""
+
 msgid "SMTP port"
 msgstr "Θύρα SMTP"
 
@@ -3149,6 +3170,9 @@ msgstr "Πολιτεία/Περιφέρεια"
 msgid "Static"
 msgstr "Στατικό"
 
+msgid "Statistics collection and monitoring daemon."
+msgstr ""
+
 msgid "Status"
 msgstr "Κατάσταση"
 
@@ -3302,6 +3326,9 @@ msgstr "Το σύστημα αρχείων στο οποίο θα δημιουρ
 
 msgid "The file system to mount."
 msgstr "Το σύστημα αρχείων προς προσάρτηση."
+
+msgid "The following modules will be updated:"
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Το όνομα συστήματος είναι μια ετικέτα που χαρακτηρίζει το σύστημα στο δίκτυο."
