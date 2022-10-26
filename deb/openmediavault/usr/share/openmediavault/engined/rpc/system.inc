@@ -373,10 +373,12 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Append the information that is only visible to an administrator.
 		if (TRUE === $this->hasContextRole($context, OMV_ROLE_ADMINISTRATOR)) {
+			$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 			$prd = new \OMV\ProductInfo();
 			$uname = posix_uname();
 			$memStats = \OMV\System\System::getMemoryStats();
 			$cpuStats = \OMV\System\System::getCpuStats();
+			$dirtyModules = $moduleMngr->getDirtyModulesAssoc();
 			$result = array_merge($result, [
 				"version" => sprintf("%s (%s)", $prd->getVersion(),
 					$prd->getVersionName()),
@@ -391,9 +393,8 @@ class System extends \OMV\Rpc\ServiceAbstract {
 					$uname['release']),
 				"uptime" => \OMV\System\System::uptime(),
 				"loadAverage" => \OMV\System\System::getLoadAverage(),
-				"configDirty" => \OMV\Rpc\Rpc::call(
-					"Config", "isDirty", NULL, $context
-				),
+				"configDirty" => !empty($dirtyModules),
+				"dirtyModules" => $dirtyModules,
 				"rebootRequired" => file_exists("/run/reboot-required"),
 				"pkgUpdatesAvailable" => !empty($pkgUpgradeList)
 			]);

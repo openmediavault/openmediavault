@@ -27,6 +27,10 @@ class Ssh extends \OMV\Engine\Module\ServiceAbstract implements
 		return "ssh";
 	}
 
+	public function getDescription() {
+		return gettext("A secure shell (SSH) server.");
+	}
+
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.ssh");

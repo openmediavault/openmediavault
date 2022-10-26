@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2022-10-26 23:49+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2022\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -246,6 +246,12 @@ msgstr "Legfeljebb egy eszköz távolítható el. "
 msgid "A maximum of two device can be removed."
 msgstr "Legfeljebb két eszköz távolítható el. "
 
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "A secure shell (SSH) server."
+msgstr ""
+
 msgid "ACL"
 msgstr "ACL"
 
@@ -456,6 +462,9 @@ msgstr "Auto"
 
 msgid "Auto logout"
 msgstr "Automatikus kilépés"
+
+msgid "Automatic update and installation of packages."
+msgstr ""
 
 msgid "Available"
 msgstr "Elérhető"
@@ -729,6 +738,9 @@ msgstr "Kongó (Kinshasa)"
 
 msgid "Connections"
 msgstr "Kapcsolatok"
+
+msgid "Control and monitor storage systems using S.M.A.R.T."
+msgstr ""
 
 msgid "Conveyance self-test"
 msgstr "Önteszt továbbítása"
@@ -1313,6 +1325,9 @@ msgstr "Csak biztonságos kapcsolat kényszerítése."
 msgid "Forum"
 msgstr "Fórum"
 
+msgid "Framework for Multicast DNS Service Discovery."
+msgstr ""
+
 msgid "France"
 msgstr "Franciaország"
 
@@ -1435,6 +1450,9 @@ msgstr "Elrejt"
 
 msgid "Hide dot files"
 msgstr "Ponttal kezdődő fájlok elrejtése"
+
+msgid "High-performance mail transport agent."
+msgstr ""
 
 msgid "Home"
 msgstr "Saját"
@@ -2724,6 +2742,9 @@ msgstr "SMB/CIFS"
 msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - Felülvizsgálat"
 
+msgid "SMB/CIFS file, print, and login server for Unix."
+msgstr ""
+
 msgid "SMTP port"
 msgstr "SMTP port"
 
@@ -3155,6 +3176,9 @@ msgstr "Állam/Tartomány"
 msgid "Static"
 msgstr "Statikus"
 
+msgid "Statistics collection and monitoring daemon."
+msgstr ""
+
 msgid "Status"
 msgstr "Állapot"
 
@@ -3308,6 +3332,9 @@ msgstr "A fájlrendszer, amelyben a megosztott mappát kell létrehozni."
 
 msgid "The file system to mount."
 msgstr "A csatlakoztatni kívánt fájlrendszer. "
+
+msgid "The following modules will be updated:"
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "A gépnév egy címke, ami azonosítja a rendszert a hálózaton."

@@ -27,6 +27,10 @@ class Postfix extends \OMV\Engine\Module\ServiceAbstract
 		return "postfix";
 	}
 
+	public function getDescription() {
+		return gettext("High-performance mail transport agent.");
+	}
+
 	public function getAlias() {
 		return "email";
 	}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2022-10-26 23:49+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -240,6 +240,12 @@ msgstr ""
 msgid "A maximum of two device can be removed."
 msgstr ""
 
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "A secure shell (SSH) server."
+msgstr ""
+
 msgid "ACL"
 msgstr "ACL"
 
@@ -450,6 +456,9 @@ msgstr ""
 
 msgid "Auto logout"
 msgstr "Samodejna odjava"
+
+msgid "Automatic update and installation of packages."
+msgstr ""
 
 msgid "Available"
 msgstr "Na voljo"
@@ -723,6 +732,9 @@ msgstr "Kongo-Kinšasa"
 
 msgid "Connections"
 msgstr "Povezave"
+
+msgid "Control and monitor storage systems using S.M.A.R.T."
+msgstr ""
 
 msgid "Conveyance self-test"
 msgstr ""
@@ -1307,6 +1319,9 @@ msgstr "Vsili le varno povezavo"
 msgid "Forum"
 msgstr ""
 
+msgid "Framework for Multicast DNS Service Discovery."
+msgstr ""
+
 msgid "France"
 msgstr "Francija"
 
@@ -1429,6 +1444,9 @@ msgstr ""
 
 msgid "Hide dot files"
 msgstr "Skrij datoteke, ki se začnejo s piko"
+
+msgid "High-performance mail transport agent."
+msgstr ""
 
 msgid "Home"
 msgstr ""
@@ -2718,6 +2736,9 @@ msgstr "SMB/CIFS"
 msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - Audit"
 
+msgid "SMB/CIFS file, print, and login server for Unix."
+msgstr ""
+
 msgid "SMTP port"
 msgstr "SMTP vrata"
 
@@ -3149,6 +3170,9 @@ msgstr "Država/Provinca"
 msgid "Static"
 msgstr ""
 
+msgid "Statistics collection and monitoring daemon."
+msgstr ""
+
 msgid "Status"
 msgstr "Status"
 
@@ -3301,6 +3325,9 @@ msgid "The file system on which the shared folder is to be created."
 msgstr ""
 
 msgid "The file system to mount."
+msgstr ""
+
+msgid "The following modules will be updated:"
 msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."

@@ -31,6 +31,10 @@ class Proftpd extends \OMV\Engine\Module\ServiceAbstract implements
 		return "ftp";
 	}
 
+	public function getDescription() {
+		return gettext("A powerful modular FTP/SFTP/FTPS server.");
+	}
+
 	public function deployAfter(): array {
 		return ["certificates", "monit", "timezone"];
 	}

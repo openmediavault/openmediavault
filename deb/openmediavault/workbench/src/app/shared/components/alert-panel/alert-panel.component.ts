@@ -35,6 +35,9 @@ export class AlertPanelComponent implements OnInit {
   hasTitle = true;
 
   @Input()
+  hasMargin = true;
+
+  @Input()
   dismissible = false;
 
   // An identifier, e.g. a UUID, which identifies this alert panel

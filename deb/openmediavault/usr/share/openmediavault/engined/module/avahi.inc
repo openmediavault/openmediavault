@@ -31,6 +31,10 @@ class Avahi extends \OMV\Engine\Module\ServiceAbstract
 		return "zeroconf";
 	}
 
+	public function getDescription() {
+		return gettext("Framework for Multicast DNS Service Discovery.");
+	}
+
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 			OMV_NOTIFY_MODIFY,

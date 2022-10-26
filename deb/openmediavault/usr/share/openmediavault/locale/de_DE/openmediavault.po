@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2022-10-26 23:49+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2022\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -252,6 +252,12 @@ msgstr "Es kann maximal ein Gerät entfernt werden."
 msgid "A maximum of two device can be removed."
 msgstr "Es können maximal zwei Geräte entfernt werden."
 
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr "Ein leistungsstarker modularer FTP/SFTP/FTPS-Server."
+
+msgid "A secure shell (SSH) server."
+msgstr "Ein sicherer Shell-Server (SSH)."
+
 msgid "ACL"
 msgstr "ACL"
 
@@ -462,6 +468,9 @@ msgstr "Auto"
 
 msgid "Auto logout"
 msgstr "Automatische Abmeldung"
+
+msgid "Automatic update and installation of packages."
+msgstr ""
 
 msgid "Available"
 msgstr "Verfügbar"
@@ -736,6 +745,9 @@ msgstr "Kongo (Kinshasa)"
 msgid "Connections"
 msgstr "Verbindungen"
 
+msgid "Control and monitor storage systems using S.M.A.R.T."
+msgstr "Steuerung und Überwachung von Speichersystemen mit S.M.A.R.T."
+
 msgid "Conveyance self-test"
 msgstr "Conveyance Selbsttest"
 
@@ -860,7 +872,7 @@ msgid "Daily"
 msgstr "Täglich"
 
 msgid "Dark mode"
-msgstr ""
+msgstr "Dunkelmodus"
 
 msgid "Dashboard"
 msgstr "Dashboard"
@@ -1319,6 +1331,9 @@ msgstr "Sichere Verbindung erzwingen."
 msgid "Forum"
 msgstr "Forum"
 
+msgid "Framework for Multicast DNS Service Discovery."
+msgstr "Framework für Multicast DNS Service Discovery."
+
 msgid "France"
 msgstr "Frankreich"
 
@@ -1441,6 +1456,9 @@ msgstr "Ausblenden"
 
 msgid "Hide dot files"
 msgstr "Verstecke Dotfiles"
+
+msgid "High-performance mail transport agent."
+msgstr ""
 
 msgid "Home"
 msgstr "Heim"
@@ -2730,6 +2748,9 @@ msgstr "SMB/CIFS"
 msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - Audit"
 
+msgid "SMB/CIFS file, print, and login server for Unix."
+msgstr ""
+
 msgid "SMTP port"
 msgstr "SMTP Port"
 
@@ -3161,6 +3182,9 @@ msgstr "Staat/Provinz"
 msgid "Static"
 msgstr "Statisch"
 
+msgid "Statistics collection and monitoring daemon."
+msgstr ""
+
 msgid "Status"
 msgstr "Status"
 
@@ -3314,6 +3338,9 @@ msgstr "Das Dateisystem, auf dem der freigegebene Ordner erstellt werden soll."
 
 msgid "The file system to mount."
 msgstr "Das einzuhängende Dateisystem."
+
+msgid "The following modules will be updated:"
+msgstr "Die folgenden Module werden aktualisiert:"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Der Hostname identifiziert das System im Netzwerk."

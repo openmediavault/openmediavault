@@ -119,6 +119,21 @@ class Manager {
 	}
 
 	/**
+	 * Helper function to get the names and descriptions of all dirty
+	 * modules.
+	 * @return array An associative array with name/desc pairs of the
+	 *   dirty marked modules.
+	 */
+	final public function getDirtyModulesAssoc() {
+		$names = $this->getDirtyModules();
+		$descriptions = array_map(function($name) {
+			$module = $this->getModule($name);
+			return $module->getDescription();
+		}, $names);
+		return array_combine($names, $descriptions);
+	}
+
+	/**
 	 * Helper function to mark a module as dirty.
 	 * @param name The name of the module.
 	 * @return array The list of dirty modules.

@@ -100,6 +100,7 @@ $omv-dark-theme: mat.define-dark-theme(
 //
 // Where property is one of:
 // m - For classes that set margin
+// p - For classes that set padding
 //
 // Where sides is one of:
 // t - For classes that set margin-top
@@ -233,6 +234,126 @@ $omv-dark-theme: mat.define-dark-theme(
 .omv-my-q {
   @extend .omv-mt-q;
   @extend .omv-mb-q;
+}
+
+.omv-p {
+  padding: dv.$omv-padding;
+}
+
+.omv-p-z {
+  padding: 0;
+}
+
+.omv-p-h {
+  padding: dv.$omv-padding * 0.5;
+}
+
+.omv-p-q {
+  padding: dv.$omv-padding * 0.25;
+}
+
+.omv-pr {
+  padding-right: dv.$omv-padding;
+}
+
+.omv-pr-z {
+  padding-right: 0;
+}
+
+.omv-pr-h {
+  padding-right: dv.$omv-padding * 0.5;
+}
+
+.omv-pr-q {
+  padding-right: dv.$omv-padding * 0.25;
+}
+
+.omv-pl {
+  padding-left: dv.$omv-padding;
+}
+
+.omv-pl-z {
+  padding-left: 0;
+}
+
+.omv-pl-h {
+  padding-left: dv.$omv-padding * 0.5;
+}
+
+.omv-pl-q {
+  padding-left: dv.$omv-padding * 0.25;
+}
+
+.omv-pt {
+  padding-top: dv.$omv-padding;
+}
+
+.omv-pt-z {
+  padding-top: 0;
+}
+
+.omv-pt-h {
+  padding-top: dv.$omv-padding * 0.5;
+}
+
+.omv-pt-q {
+  padding-top: dv.$omv-padding * 0.25;
+}
+
+.omv-pb {
+  padding-bottom: dv.$omv-padding;
+}
+
+.omv-pb-z {
+  padding-bottom: 0;
+}
+
+.omv-pb-h {
+  padding-bottom: dv.$omv-padding * 0.5;
+}
+
+.omv-pb-q {
+  padding-bottom: dv.$omv-padding * 0.25;
+}
+
+.omv-px {
+  @extend .omv-pl;
+  @extend .omv-pr;
+}
+
+.omv-px-z {
+  @extend .omv-pl-z;
+  @extend .omv-pr-z;
+}
+
+.omv-px-h {
+  @extend .omv-pl-h;
+  @extend .omv-pr-h;
+}
+
+.omv-px-q {
+  @extend .omv-pl-q;
+  @extend .omv-pr-q;
+}
+
+.omv-py {
+  @extend .omv-pt;
+  @extend .omv-pb;
+}
+
+.omv-py-z {
+  @extend .omv-pt-z;
+  @extend .omv-pb-z;
+}
+
+.omv-py-h {
+  @extend .omv-pt-h;
+  @extend .omv-pb-h;
+}
+
+.omv-py-q {
+  @extend .omv-pt-q;
+  @extend .omv-pb-q;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

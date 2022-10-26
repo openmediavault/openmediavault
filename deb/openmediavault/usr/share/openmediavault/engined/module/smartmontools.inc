@@ -27,6 +27,10 @@ class SmartMonTools extends \OMV\Engine\Module\ServiceAbstract
 		return "smartmontools";
 	}
 
+	public function getDescription() {
+		return gettext("Control and monitor storage systems using S.M.A.R.T.");
+	}
+
 	public function deployAfter(): array {
 		return ["email"];
 	}

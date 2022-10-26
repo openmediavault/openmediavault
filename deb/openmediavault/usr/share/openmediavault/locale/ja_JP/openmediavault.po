@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2022-10-26 23:49+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2022\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -240,6 +240,12 @@ msgstr "最大1つのデバイスを取り外すことができます。"
 msgid "A maximum of two device can be removed."
 msgstr "最大2つのデバイスを取り外すことができます。"
 
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "A secure shell (SSH) server."
+msgstr ""
+
 msgid "ACL"
 msgstr "ACL"
 
@@ -450,6 +456,9 @@ msgstr "自動"
 
 msgid "Auto logout"
 msgstr "自動的にログアウト"
+
+msgid "Automatic update and installation of packages."
+msgstr ""
 
 msgid "Available"
 msgstr "利用可能"
@@ -723,6 +732,9 @@ msgstr "コンゴ（キンシャサ）"
 
 msgid "Connections"
 msgstr "接続"
+
+msgid "Control and monitor storage systems using S.M.A.R.T."
+msgstr ""
 
 msgid "Conveyance self-test"
 msgstr "コンベイアンスセルフテスト"
@@ -1307,6 +1319,9 @@ msgstr "セキュアコネクションを強制します。"
 msgid "Forum"
 msgstr "フォーラム"
 
+msgid "Framework for Multicast DNS Service Discovery."
+msgstr ""
+
 msgid "France"
 msgstr "フランス"
 
@@ -1429,6 +1444,9 @@ msgstr "隠す"
 
 msgid "Hide dot files"
 msgstr "ドットで始まるファイルを隠す"
+
+msgid "High-performance mail transport agent."
+msgstr ""
 
 msgid "Home"
 msgstr "ホーム"
@@ -2718,6 +2736,9 @@ msgstr "SMB/CIFS"
 msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - 監査"
 
+msgid "SMB/CIFS file, print, and login server for Unix."
+msgstr ""
+
 msgid "SMTP port"
 msgstr "SMTP ポート"
 
@@ -3149,6 +3170,9 @@ msgstr "州/地方"
 msgid "Static"
 msgstr "スタティック"
 
+msgid "Statistics collection and monitoring daemon."
+msgstr ""
+
 msgid "Status"
 msgstr "ステータス"
 
@@ -3301,6 +3325,9 @@ msgid "The file system on which the shared folder is to be created."
 msgstr ""
 
 msgid "The file system to mount."
+msgstr ""
+
+msgid "The following modules will be updated:"
 msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."

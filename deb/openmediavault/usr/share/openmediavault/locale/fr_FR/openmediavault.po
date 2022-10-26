@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2022-10-26 23:49+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Mathieu Delplanque, 2022\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -254,6 +254,12 @@ msgstr "Un seul périphérique peut être enlevé au maximum."
 msgid "A maximum of two device can be removed."
 msgstr "Deux périphériques peuvent être enlevés au maximum."
 
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "A secure shell (SSH) server."
+msgstr ""
+
 msgid "ACL"
 msgstr "ACL"
 
@@ -464,6 +470,9 @@ msgstr "Auto"
 
 msgid "Auto logout"
 msgstr "Déconnexion automatique"
+
+msgid "Automatic update and installation of packages."
+msgstr ""
 
 msgid "Available"
 msgstr "Disponible"
@@ -737,6 +746,9 @@ msgstr "Congo (Kinshasa)"
 
 msgid "Connections"
 msgstr "Connexions"
+
+msgid "Control and monitor storage systems using S.M.A.R.T."
+msgstr ""
 
 msgid "Conveyance self-test"
 msgstr "Conveyance self-test"
@@ -1321,6 +1333,9 @@ msgstr "Forcer les connections sécurisées."
 msgid "Forum"
 msgstr "Forum"
 
+msgid "Framework for Multicast DNS Service Discovery."
+msgstr ""
+
 msgid "France"
 msgstr "France"
 
@@ -1443,6 +1458,9 @@ msgstr "Masquer"
 
 msgid "Hide dot files"
 msgstr "Cacher les fichiers systèmes"
+
+msgid "High-performance mail transport agent."
+msgstr ""
 
 msgid "Home"
 msgstr "Accueil"
@@ -2732,6 +2750,9 @@ msgstr "SMB/CIFS"
 msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - Audit"
 
+msgid "SMB/CIFS file, print, and login server for Unix."
+msgstr ""
+
 msgid "SMTP port"
 msgstr "Port SMTP"
 
@@ -3163,6 +3184,9 @@ msgstr "État/Province"
 msgid "Static"
 msgstr "Statique"
 
+msgid "Statistics collection and monitoring daemon."
+msgstr ""
+
 msgid "Status"
 msgstr "Status"
 
@@ -3316,6 +3340,9 @@ msgstr "Le système de fichier sur lequel le dossier partagé sera créé."
 
 msgid "The file system to mount."
 msgstr "Le système de fichier à monter."
+
+msgid "The following modules will be updated:"
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Le nom de l'hôte est un libellé qui identifie le système sur le réseau."

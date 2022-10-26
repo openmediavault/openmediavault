@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2022-10-26 23:49+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2022\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -246,6 +246,12 @@ msgstr "最多一个设备可被移除。"
 msgid "A maximum of two device can be removed."
 msgstr "最多两个设备可被移除。"
 
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "A secure shell (SSH) server."
+msgstr ""
+
 msgid "ACL"
 msgstr "ACL"
 
@@ -456,6 +462,9 @@ msgstr "自动"
 
 msgid "Auto logout"
 msgstr "自动登出"
+
+msgid "Automatic update and installation of packages."
+msgstr ""
 
 msgid "Available"
 msgstr "可用"
@@ -729,6 +738,9 @@ msgstr "刚果(金沙萨)"
 
 msgid "Connections"
 msgstr "连接"
+
+msgid "Control and monitor storage systems using S.M.A.R.T."
+msgstr ""
 
 msgid "Conveyance self-test"
 msgstr "传输时自检"
@@ -1313,6 +1325,9 @@ msgstr "强制只允许使用安全连接。"
 msgid "Forum"
 msgstr "论坛"
 
+msgid "Framework for Multicast DNS Service Discovery."
+msgstr ""
+
 msgid "France"
 msgstr "法国"
 
@@ -1435,6 +1450,9 @@ msgstr "隐藏"
 
 msgid "Hide dot files"
 msgstr "隐藏点文件"
+
+msgid "High-performance mail transport agent."
+msgstr ""
 
 msgid "Home"
 msgstr "Home"
@@ -2724,6 +2742,9 @@ msgstr "SMB/CIFS"
 msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - 审核"
 
+msgid "SMB/CIFS file, print, and login server for Unix."
+msgstr ""
+
 msgid "SMTP port"
 msgstr "SMTP 端口"
 
@@ -3155,6 +3176,9 @@ msgstr "州/省"
 msgid "Static"
 msgstr "静态"
 
+msgid "Statistics collection and monitoring daemon."
+msgstr ""
+
 msgid "Status"
 msgstr "状态"
 
@@ -3308,6 +3332,9 @@ msgstr "将在该文件系统上新建共享文件夹。"
 
 msgid "The file system to mount."
 msgstr "要挂载的文件系统。"
+
+msgid "The following modules will be updated:"
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "主机名可以作为网络上识别系统的标签。"

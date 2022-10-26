@@ -20,7 +20,6 @@ import { MediaObserver } from '@angular/flex-layout';
 import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
 import { Event, NavigationEnd, Router } from '@angular/router';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
-import * as _ from 'lodash';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { forkJoin, Subscription } from 'rxjs';
 import { delay, filter, finalize } from 'rxjs/operators';
@@ -29,10 +28,6 @@ import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widg
 import { LogConfigService } from '~/app/core/services/log-config.service';
 import { NavigationConfigService } from '~/app/core/services/navigation-config.service';
 import { translate } from '~/app/i18n.helper';
-import {
-  SystemInformation,
-  SystemInformationService
-} from '~/app/shared/services/system-information.service';
 
 @Component({
   selector: 'omv-workbench-layout',
@@ -52,7 +47,6 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
   public loading = true;
   public sideNavMode: MatDrawerMode;
   public sideNavOpened = false;
-  public pendingChanges = false;
 
   private isSmallScreen: boolean;
   private subscriptions = new Subscription();
@@ -62,7 +56,6 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
     private media: MediaObserver,
     private navigationConfig: NavigationConfigService,
     private router: Router,
-    private systemInformationService: SystemInformationService,
     private logConfigService: LogConfigService
   ) {
     this.blockUI.start(translate(gettext('Loading ...')));
@@ -98,11 +91,6 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       media.asObservable().subscribe(() => {
         this.updateState();
-      })
-    );
-    this.subscriptions.add(
-      this.systemInformationService.systemInfo$.subscribe((res: SystemInformation) => {
-        this.pendingChanges = _.get(res, 'configDirty', false) as boolean;
       })
     );
   }

@@ -1,4 +1,4 @@
-<mat-card [ngClass]="{'omv-display-none': dismissed, 'omv-background-color-pair-info': type === 'info', 'omv-background-color-pair-success': type === 'success', 'omv-background-color-pair-warning': type === 'warning', 'omv-background-color-pair-error': type === 'error', 'omv-background-color-pair-tip': type === 'tip'}">
+<mat-card [ngClass]="{'omv-m': hasMargin, 'omv-display-none': dismissed, 'omv-background-color-pair-info': type === 'info', 'omv-background-color-pair-success': type === 'success', 'omv-background-color-pair-warning': type === 'warning', 'omv-background-color-pair-error': type === 'error', 'omv-background-color-pair-tip': type === 'tip'}">
   <div fxLayout="row">
     <mat-icon class="omv-icon-lg"
               svgIcon="{{ icon }}"></mat-icon>
