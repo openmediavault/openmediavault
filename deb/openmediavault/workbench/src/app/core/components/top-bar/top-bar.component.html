@@ -8,7 +8,9 @@
   </button>
   <span fxFlex></span>
   <span class="hostname">{{ hostname }}</span>
-  <mat-divider vertical="true"></mat-divider>
+  <mat-divider *ngIf="hostname"
+               vertical="true">
+  </mat-divider>
   <button *ngIf="permissions?.role.includes(roles.admin)"
           mat-icon-button
           matTooltip="{{ 'Notifications' | translate }}"
