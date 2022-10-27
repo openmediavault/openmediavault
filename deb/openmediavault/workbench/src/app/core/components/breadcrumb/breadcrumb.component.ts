@@ -44,10 +44,10 @@ export class BreadcrumbComponent implements OnDestroy {
   public breadcrumbs: Breadcrumb[] = [];
   public icon = Icon;
 
-  private routerSubscription: Subscription;
+  private subscription: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {
-    this.routerSubscription = this.router.events
+    this.subscription = this.router.events
       .pipe(
         filter((event: Event) => event instanceof NavigationEnd),
         // The first 'NavigationEnd' event is already fired on page
@@ -63,7 +63,7 @@ export class BreadcrumbComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.routerSubscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
   private parseRoute(routeSnapshot: ActivatedRouteSnapshot): Breadcrumb[] {
