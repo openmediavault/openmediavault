@@ -27,6 +27,10 @@ class FSTab extends \OMV\Engine\Module\ServiceAbstract
 		return "fstab";
 	}
 
+	public function getDescription() {
+		return gettext("Management of the file systems to be mounted.");
+	}
+
 	public function preDeploy() {
 		$this->execTasks("delete");
 	}

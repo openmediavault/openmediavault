@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 23:49+0200\n"
+"POT-Creation-Date: 2022-10-27 09:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2013-2019,2021\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -620,6 +620,9 @@ msgstr "Data determinata"
 
 msgid "Certificate"
 msgstr "Certificato"
+
+msgid "Certificate management."
+msgstr ""
 
 msgid "Certificates"
 msgstr "Certificati"
@@ -1876,6 +1879,15 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
+msgid "Management of CPUfreq settings."
+msgstr ""
+
+msgid "Management of scheduled tasks."
+msgstr ""
+
+msgid "Management of the file systems to be mounted."
+msgstr ""
+
 msgid "March"
 msgstr "Marzo"
 
@@ -2250,6 +2262,9 @@ msgid "Pacific Islands Trust Territory"
 msgstr "Territorio fiduciario delle Isole del Pacifico"
 
 msgid "Package Information"
+msgstr ""
+
+msgid "Package management."
 msgstr ""
 
 msgid "Pakistan"
@@ -3244,6 +3259,9 @@ msgstr ""
 msgid "System account"
 msgstr ""
 
+msgid "System clock synchronization client and server."
+msgstr ""
+
 msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr ""
 
@@ -3703,6 +3721,9 @@ msgstr "Trinidad e Tobago"
 
 msgid "Tuesday"
 msgstr "Martedì"
+
+msgid "Tune hard disk parameters."
+msgstr ""
 
 msgid "Tunisia"
 msgstr "Tunisia"

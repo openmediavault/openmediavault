@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 23:49+0200\n"
+"POT-Creation-Date: 2022-10-27 09:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2022\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -247,10 +247,10 @@ msgid "A maximum of two device can be removed."
 msgstr "最多两个设备可被移除。"
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
+msgstr "一个高效 FTP/SFTP/FTPS 服务模块"
 
 msgid "A secure shell (SSH) server."
-msgstr ""
+msgstr "一个安全 shell (SSH) 服务。"
 
 msgid "ACL"
 msgstr "ACL"
@@ -464,7 +464,7 @@ msgid "Auto logout"
 msgstr "自动登出"
 
 msgid "Automatic update and installation of packages."
-msgstr ""
+msgstr "自动下载并安装更新包。"
 
 msgid "Available"
 msgstr "可用"
@@ -622,6 +622,9 @@ msgstr "特定日期"
 msgid "Certificate"
 msgstr "证书"
 
+msgid "Certificate management."
+msgstr "憑證管理。"
+
 msgid "Certificates"
 msgstr "证书"
 
@@ -740,7 +743,7 @@ msgid "Connections"
 msgstr "连接"
 
 msgid "Control and monitor storage systems using S.M.A.R.T."
-msgstr ""
+msgstr "使用 S.M.A.R.T 监控存储系统。"
 
 msgid "Conveyance self-test"
 msgstr "传输时自检"
@@ -1326,7 +1329,7 @@ msgid "Forum"
 msgstr "论坛"
 
 msgid "Framework for Multicast DNS Service Discovery."
-msgstr ""
+msgstr "多播 DNS 发现服务框架。"
 
 msgid "France"
 msgstr "法国"
@@ -1452,7 +1455,7 @@ msgid "Hide dot files"
 msgstr "隐藏点文件"
 
 msgid "High-performance mail transport agent."
-msgstr ""
+msgstr "高性能邮件代理传输服务。"
 
 msgid "Home"
 msgstr "Home"
@@ -1877,6 +1880,15 @@ msgstr "马里"
 msgid "Malta"
 msgstr "马耳他"
 
+msgid "Management of CPUfreq settings."
+msgstr "CPU 頻率設定管理。"
+
+msgid "Management of scheduled tasks."
+msgstr "預定工作管理。"
+
+msgid "Management of the file systems to be mounted."
+msgstr "所要掛載的檔案系統管理。"
+
 msgid "March"
 msgstr "三月"
 
@@ -2252,6 +2264,9 @@ msgstr "太平洋岛屿托管领土"
 
 msgid "Package Information"
 msgstr "软件包信息"
+
+msgid "Package management."
+msgstr "套件管理。"
 
 msgid "Pakistan"
 msgstr "巴基斯坦"
@@ -2743,7 +2758,7 @@ msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - 审核"
 
 msgid "SMB/CIFS file, print, and login server for Unix."
-msgstr ""
+msgstr "SMB/CIFS 文件、打印、和登录服务。"
 
 msgid "SMTP port"
 msgstr "SMTP 端口"
@@ -3177,7 +3192,7 @@ msgid "Static"
 msgstr "静态"
 
 msgid "Statistics collection and monitoring daemon."
-msgstr ""
+msgstr "统计信息收集和监视守护程序。"
 
 msgid "Status"
 msgstr "状态"
@@ -3244,6 +3259,9 @@ msgstr "系统时间"
 
 msgid "System account"
 msgstr "系统账户"
+
+msgid "System clock synchronization client and server."
+msgstr "客戶端與伺服端系統時鐘同步。"
 
 msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr "系统监测已停用，启用请点击。"
@@ -3334,7 +3352,7 @@ msgid "The file system to mount."
 msgstr "要挂载的文件系统。"
 
 msgid "The following modules will be updated:"
-msgstr ""
+msgstr "将更新以下模块："
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "主机名可以作为网络上识别系统的标签。"
@@ -3704,6 +3722,9 @@ msgstr "特立尼达和多巴哥"
 
 msgid "Tuesday"
 msgstr "星期二"
+
+msgid "Tune hard disk parameters."
+msgstr "調整硬碟參數。"
 
 msgid "Tunisia"
 msgstr "突尼斯"

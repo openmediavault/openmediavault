@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 23:49+0200\n"
+"POT-Creation-Date: 2022-10-27 09:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -617,6 +617,9 @@ msgstr "Певна дата"
 
 msgid "Certificate"
 msgstr "Cертифікат"
+
+msgid "Certificate management."
+msgstr ""
 
 msgid "Certificates"
 msgstr "Сертифікати"
@@ -1873,6 +1876,15 @@ msgstr "Малі"
 msgid "Malta"
 msgstr "Мальта"
 
+msgid "Management of CPUfreq settings."
+msgstr ""
+
+msgid "Management of scheduled tasks."
+msgstr ""
+
+msgid "Management of the file systems to be mounted."
+msgstr ""
+
 msgid "March"
 msgstr "Березень"
 
@@ -2248,6 +2260,9 @@ msgstr "Підопічна територія ООН Тихоокеанські 
 
 msgid "Package Information"
 msgstr "Інформація про пакунок"
+
+msgid "Package management."
+msgstr ""
 
 msgid "Pakistan"
 msgstr "Пакистан"
@@ -3241,6 +3256,9 @@ msgstr "Cистемний Час"
 msgid "System account"
 msgstr "Системний обліковий запис"
 
+msgid "System clock synchronization client and server."
+msgstr ""
+
 msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr "Моніторинг системи вимкнено. Щоб увімкнути його, перейдіть до"
 
@@ -3700,6 +3718,9 @@ msgstr "Тринідад і Тобаго"
 
 msgid "Tuesday"
 msgstr "Вівторок"
+
+msgid "Tune hard disk parameters."
+msgstr ""
 
 msgid "Tunisia"
 msgstr "Туніс"

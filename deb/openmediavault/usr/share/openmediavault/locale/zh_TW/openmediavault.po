@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 23:49+0200\n"
+"POT-Creation-Date: 2022-10-27 09:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2022\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -243,10 +243,10 @@ msgid "A maximum of two device can be removed."
 msgstr "最多可移除兩個裝置。"
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
+msgstr "一個強大的模組式 FTP/SFTP/FTPS 伺服器。"
 
 msgid "A secure shell (SSH) server."
-msgstr ""
+msgstr "一個安全指令殼 (SSH) 伺服器。"
 
 msgid "ACL"
 msgstr "ACL"
@@ -271,7 +271,7 @@ msgstr "作為一個 WINS 伺服器。"
 
 msgid ""
 "Acting as a WINS server and using a WINS server are mutually exclusive."
-msgstr "启用 WINS 服务器和使用 WINS 服务器只能二选一。"
+msgstr "做為 WINS 伺服器和使用 WINS 伺服器只能二選一。"
 
 msgid "Action"
 msgstr "動作"
@@ -460,7 +460,7 @@ msgid "Auto logout"
 msgstr "自動登出"
 
 msgid "Automatic update and installation of packages."
-msgstr ""
+msgstr "自动下载并安装更新包。"
 
 msgid "Available"
 msgstr "可用"
@@ -618,6 +618,9 @@ msgstr "某個日期"
 msgid "Certificate"
 msgstr "憑證"
 
+msgid "Certificate management."
+msgstr "憑證管理。"
+
 msgid "Certificates"
 msgstr "憑證"
 
@@ -736,7 +739,7 @@ msgid "Connections"
 msgstr "連線"
 
 msgid "Control and monitor storage systems using S.M.A.R.T."
-msgstr ""
+msgstr "使用 S.M.A.R.T. 來監控儲存系統。"
 
 msgid "Conveyance self-test"
 msgstr "運送自我測試"
@@ -892,7 +895,7 @@ msgid "Denmark"
 msgstr "丹麥"
 
 msgid "Deny logins which do not have a valid shell."
-msgstr "拒絕缺少可用指令殼層(shell)的登入"
+msgstr "拒絕缺少可用指令殼層(shell)的登入。"
 
 msgid "Description"
 msgstr "敘述"
@@ -982,25 +985,25 @@ msgid "Display the home directory of the user in the browse list."
 msgstr "顯示用戶的家目錄於瀏覽列表內。"
 
 msgid "Displays information about the file systems in a grid."
-msgstr "在网格中显示文件系统信息。"
+msgstr "以網格顯示關於檔案系統的資訊。"
 
 msgid "Displays information about the file systems in a table."
-msgstr "在标签中显示文件系统信息。"
+msgstr "以列表顯示關於檔案系統的資訊。"
 
 msgid "Displays information about the network interfaces in a grid."
-msgstr "在网格中显示网络接口信息。"
+msgstr "以網格顯示關於網路介面的資訊。"
 
 msgid "Displays information about the network interfaces in a table."
-msgstr "在标签中显示网络接口信息。"
+msgstr "以列表顯示關於網路介面的資訊。"
 
 msgid "Displays information about the services in a grid."
-msgstr "在网格中显示服务信息。"
+msgstr "以網格顯示關於服務的資訊。"
 
 msgid "Displays information about the services in a table."
-msgstr "在标签中显示服务信息。"
+msgstr "以列表顯示關於服務的資訊。"
 
 msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
-msgstr "显示所有监控磁盘  S.M.A.R.T. 信息。"
+msgstr "顯示全部被監測磁碟的  S.M.A.R.T. 資訊。"
 
 msgid "Displays the system time."
 msgstr "顯示系統時間。"
@@ -1322,7 +1325,7 @@ msgid "Forum"
 msgstr "論壇"
 
 msgid "Framework for Multicast DNS Service Discovery."
-msgstr ""
+msgstr "多播 DNS 发现服务框架。"
 
 msgid "France"
 msgstr "法國"
@@ -1448,7 +1451,7 @@ msgid "Hide dot files"
 msgstr "隱藏點檔案"
 
 msgid "High-performance mail transport agent."
-msgstr ""
+msgstr "高性能邮件代理传输服务。"
 
 msgid "Home"
 msgstr "家目錄"
@@ -1873,6 +1876,15 @@ msgstr "馬里"
 msgid "Malta"
 msgstr "馬爾他"
 
+msgid "Management of CPUfreq settings."
+msgstr "CPU 頻率設定管理。"
+
+msgid "Management of scheduled tasks."
+msgstr "預定工作管理。"
+
+msgid "Management of the file systems to be mounted."
+msgstr "所要掛載的檔案系統管理。"
+
 msgid "March"
 msgstr "三月"
 
@@ -2248,6 +2260,9 @@ msgstr "太平洋島嶼託管領地"
 
 msgid "Package Information"
 msgstr "套件資訊"
+
+msgid "Package management."
+msgstr "套件管理。"
 
 msgid "Pakistan"
 msgstr "巴基斯坦"
@@ -2739,7 +2754,7 @@ msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - 審核"
 
 msgid "SMB/CIFS file, print, and login server for Unix."
-msgstr ""
+msgstr "SMB/CIFS 文件、打印、和登录服务。"
 
 msgid "SMTP port"
 msgstr "SMTP 通訊埠"
@@ -3173,7 +3188,7 @@ msgid "Static"
 msgstr "靜態"
 
 msgid "Statistics collection and monitoring daemon."
-msgstr ""
+msgstr "统计信息收集和监视守护程序。"
 
 msgid "Status"
 msgstr "狀態"
@@ -3241,8 +3256,11 @@ msgstr "系統時間"
 msgid "System account"
 msgstr "系統帳户"
 
+msgid "System clock synchronization client and server."
+msgstr "客戶端與伺服端系統時鐘同步。"
+
 msgid "System monitoring is disabled. To enable it, please go to the"
-msgstr "系统监测已停用，启用请点击。"
+msgstr "系統監測已被停用。若要啟動它，請前往"
 
 msgid "System time"
 msgstr "系統時間"
@@ -3330,7 +3348,7 @@ msgid "The file system to mount."
 msgstr "要掛載的檔案系統。"
 
 msgid "The following modules will be updated:"
-msgstr ""
+msgstr "将更新以下模块："
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "主機名稱是一個用以於網路上識別系統的標籤。"
@@ -3701,6 +3719,9 @@ msgstr "特里尼達與托巴哥"
 msgid "Tuesday"
 msgstr "星期二"
 
+msgid "Tune hard disk parameters."
+msgstr "調整硬碟參數。"
+
 msgid "Tunisia"
 msgstr "突尼西亞"
 
@@ -3984,7 +4005,7 @@ msgid "User Management"
 msgstr "用戶管理"
 
 msgid "User Settings"
-msgstr "用户设置"
+msgstr "用户設定"
 
 msgid "User home directory"
 msgstr "用戶家目錄"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 23:49+0200\n"
+"POT-Creation-Date: 2022-10-27 09:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2022\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -247,10 +247,10 @@ msgid "A maximum of two device can be removed."
 msgstr "Legfeljebb két eszköz távolítható el. "
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
+msgstr "Nagy teljesítményű moduláris FTP/SFTP/FTPS kiszolgáló."
 
 msgid "A secure shell (SSH) server."
-msgstr ""
+msgstr "Biztonságos shell (SSH) kiszolgáló."
 
 msgid "ACL"
 msgstr "ACL"
@@ -464,7 +464,7 @@ msgid "Auto logout"
 msgstr "Automatikus kilépés"
 
 msgid "Automatic update and installation of packages."
-msgstr ""
+msgstr "Csomagok automatikus frissítése és telepítése."
 
 msgid "Available"
 msgstr "Elérhető"
@@ -622,6 +622,9 @@ msgstr "Adott dátum"
 msgid "Certificate"
 msgstr "Tanúsítvány"
 
+msgid "Certificate management."
+msgstr "Tanúsítványkezelés."
+
 msgid "Certificates"
 msgstr "Tanúsítványok"
 
@@ -740,7 +743,7 @@ msgid "Connections"
 msgstr "Kapcsolatok"
 
 msgid "Control and monitor storage systems using S.M.A.R.T."
-msgstr ""
+msgstr "Tárolórendszerek vezérlése és felügyelete a S.M.A.R.T. segítségével."
 
 msgid "Conveyance self-test"
 msgstr "Önteszt továbbítása"
@@ -1326,7 +1329,7 @@ msgid "Forum"
 msgstr "Fórum"
 
 msgid "Framework for Multicast DNS Service Discovery."
-msgstr ""
+msgstr "Keretrendszer a multicast DNS-szolgáltatások felkutatásához."
 
 msgid "France"
 msgstr "Franciaország"
@@ -1452,7 +1455,7 @@ msgid "Hide dot files"
 msgstr "Ponttal kezdődő fájlok elrejtése"
 
 msgid "High-performance mail transport agent."
-msgstr ""
+msgstr "Nagy teljesítményű levélküldő ügynök."
 
 msgid "Home"
 msgstr "Saját"
@@ -1877,6 +1880,15 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Málta"
 
+msgid "Management of CPUfreq settings."
+msgstr "CPU frekvencia beállítások kezelése."
+
+msgid "Management of scheduled tasks."
+msgstr "Ütemezett feladatok kezelése."
+
+msgid "Management of the file systems to be mounted."
+msgstr "Csatolandó fájlrendszerek kezelése."
+
 msgid "March"
 msgstr "Március"
 
@@ -2252,6 +2264,9 @@ msgstr "Csendes-óceáni terület"
 
 msgid "Package Information"
 msgstr "Csomag információ"
+
+msgid "Package management."
+msgstr "Csomagkezelés."
 
 msgid "Pakistan"
 msgstr "Pakisztán"
@@ -2743,7 +2758,7 @@ msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - Felülvizsgálat"
 
 msgid "SMB/CIFS file, print, and login server for Unix."
-msgstr ""
+msgstr "SMB/CIFS fájl-, nyomtatási és bejelentkezési kiszolgáló Unixhoz."
 
 msgid "SMTP port"
 msgstr "SMTP port"
@@ -3177,7 +3192,7 @@ msgid "Static"
 msgstr "Statikus"
 
 msgid "Statistics collection and monitoring daemon."
-msgstr ""
+msgstr "Statisztikagyűjtő és felügyeleti démon."
 
 msgid "Status"
 msgstr "Állapot"
@@ -3244,6 +3259,9 @@ msgstr "Rendszeridő"
 
 msgid "System account"
 msgstr "Rendszerfiók"
+
+msgid "System clock synchronization client and server."
+msgstr "Rendszeróra-szinkronizáló ügyfél és kiszolgáló."
 
 msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr "A rendszer monitorozása ki van kapcsolva. Engedélyezéséhez kérjük, lépjen a"
@@ -3334,7 +3352,7 @@ msgid "The file system to mount."
 msgstr "A csatlakoztatni kívánt fájlrendszer. "
 
 msgid "The following modules will be updated:"
-msgstr ""
+msgstr "Aa következő modulok frissítve lesznek:"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "A gépnév egy címke, ami azonosítja a rendszert a hálózaton."
@@ -3704,6 +3722,9 @@ msgstr "Trinidad és Tobago"
 
 msgid "Tuesday"
 msgstr "Kedd"
+
+msgid "Tune hard disk parameters."
+msgstr "A merevlemez paramétereinek beállítása."
 
 msgid "Tunisia"
 msgstr "Tunézia"

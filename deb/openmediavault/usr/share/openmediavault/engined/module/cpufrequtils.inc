@@ -27,6 +27,10 @@ class CpuFreqUtils extends \OMV\Engine\Module\ServiceAbstract
 		return "cpufrequtils";
 	}
 
+	public function getDescription() {
+		return gettext("Management of CPUfreq settings.");
+	}
+
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 			OMV_NOTIFY_MODIFY,

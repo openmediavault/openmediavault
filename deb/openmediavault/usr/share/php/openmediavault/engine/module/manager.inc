@@ -105,7 +105,8 @@ class Manager {
 
 	/**
 	 * Helper function to get a list of dirty modules.
-	 * @return array An array containing the names of the dirty marked modules.
+	 * @return array A sorted array containing the names of the modules
+	 *   that are marked dirty.
 	 */
 	final public function getDirtyModules() {
 		$jsonFile = new \OMV\Json\File(\OMV\Environment::get(
@@ -115,6 +116,7 @@ class Manager {
 		$jsonFile->open("r", LOCK_SH);
 		$modules = array_unique($jsonFile->read());
 		$jsonFile->close();
+		natsort($modules);
 		return $modules;
 	}
 

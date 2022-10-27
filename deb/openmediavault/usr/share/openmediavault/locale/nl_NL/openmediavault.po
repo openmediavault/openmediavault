@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 23:49+0200\n"
+"POT-Creation-Date: 2022-10-27 09:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Tim <co_ti@hotmail.com>, 2013-2014,2016-2017,2022\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -621,6 +621,9 @@ msgstr "Bepaalde datum"
 
 msgid "Certificate"
 msgstr "Certificaat"
+
+msgid "Certificate management."
+msgstr ""
 
 msgid "Certificates"
 msgstr "Certificaten"
@@ -1877,6 +1880,15 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
+msgid "Management of CPUfreq settings."
+msgstr ""
+
+msgid "Management of scheduled tasks."
+msgstr ""
+
+msgid "Management of the file systems to be mounted."
+msgstr ""
+
 msgid "March"
 msgstr "maart"
 
@@ -2251,6 +2263,9 @@ msgid "Pacific Islands Trust Territory"
 msgstr "Trustschap van de Pacifische Eilanden"
 
 msgid "Package Information"
+msgstr ""
+
+msgid "Package management."
 msgstr ""
 
 msgid "Pakistan"
@@ -3245,6 +3260,9 @@ msgstr ""
 msgid "System account"
 msgstr ""
 
+msgid "System clock synchronization client and server."
+msgstr ""
+
 msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr ""
 
@@ -3704,6 +3722,9 @@ msgstr "Trinidad en Tobago"
 
 msgid "Tuesday"
 msgstr "Dinsdag"
+
+msgid "Tune hard disk parameters."
+msgstr ""
 
 msgid "Tunisia"
 msgstr "Tunesië"

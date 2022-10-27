@@ -27,6 +27,10 @@ class Certificates extends \OMV\Engine\Module\ServiceAbstract
 		return "certificates";
 	}
 
+	public function getDescription() {
+		return gettext("Certificate management.");
+	}
+
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,

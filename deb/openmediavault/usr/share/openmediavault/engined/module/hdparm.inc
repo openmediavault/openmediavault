@@ -27,6 +27,10 @@ class HdParm extends \OMV\Engine\Module\ServiceAbstract
 		return "hdparm";
 	}
 
+	public function getDescription() {
+		return gettext("Tune hard disk parameters.");
+	}
+
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,

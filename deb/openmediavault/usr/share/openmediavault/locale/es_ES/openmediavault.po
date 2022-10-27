@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 23:49+0200\n"
+"POT-Creation-Date: 2022-10-27 09:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2022\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -244,10 +244,10 @@ msgid "A maximum of two device can be removed."
 msgstr "Como máximo dos dispositivos pueden ser eliminados"
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
+msgstr "Servidor modular FTP/SFTP/FTPS"
 
 msgid "A secure shell (SSH) server."
-msgstr ""
+msgstr "Servidor seguro (SSH)"
 
 msgid "ACL"
 msgstr "ACL"
@@ -461,7 +461,7 @@ msgid "Auto logout"
 msgstr "Salir automáticamente"
 
 msgid "Automatic update and installation of packages."
-msgstr ""
+msgstr "Instalación de paquetes y actualizaciones."
 
 msgid "Available"
 msgstr "Disponible"
@@ -619,6 +619,9 @@ msgstr "En una Fecha concreta"
 msgid "Certificate"
 msgstr "Certificado"
 
+msgid "Certificate management."
+msgstr ""
+
 msgid "Certificates"
 msgstr "Certificados"
 
@@ -737,7 +740,7 @@ msgid "Connections"
 msgstr "Conexiones"
 
 msgid "Control and monitor storage systems using S.M.A.R.T."
-msgstr ""
+msgstr "Contrala y monitoriza el almacenamiento usando  S.M.A.R.T."
 
 msgid "Conveyance self-test"
 msgstr "Auto prueba de transferencia"
@@ -1323,7 +1326,7 @@ msgid "Forum"
 msgstr "Forum"
 
 msgid "Framework for Multicast DNS Service Discovery."
-msgstr ""
+msgstr "Marco para el descubrimiento de servicios DNS de multidifusión."
 
 msgid "France"
 msgstr "Francia"
@@ -1449,7 +1452,7 @@ msgid "Hide dot files"
 msgstr "Ocultar archivos dot\".\""
 
 msgid "High-performance mail transport agent."
-msgstr ""
+msgstr "Agente de transporte de correo de alto rendimiento."
 
 msgid "Home"
 msgstr "Home"
@@ -1874,6 +1877,15 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
+msgid "Management of CPUfreq settings."
+msgstr ""
+
+msgid "Management of scheduled tasks."
+msgstr ""
+
+msgid "Management of the file systems to be mounted."
+msgstr ""
+
 msgid "March"
 msgstr "Marzo"
 
@@ -2249,6 +2261,9 @@ msgstr "Territorio en Fideicomiso de las Islas del Pacífico"
 
 msgid "Package Information"
 msgstr "Información del paquete"
+
+msgid "Package management."
+msgstr ""
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2740,7 +2755,7 @@ msgid "SMB/CIFS - Audit"
 msgstr "Auditar SMB/CIFS"
 
 msgid "SMB/CIFS file, print, and login server for Unix."
-msgstr ""
+msgstr "Servidor de inicio de sesión, impresión y archivos SMB/CIFS para Unix."
 
 msgid "SMTP port"
 msgstr "Puerto SMTP"
@@ -3174,7 +3189,7 @@ msgid "Static"
 msgstr "Estatico"
 
 msgid "Statistics collection and monitoring daemon."
-msgstr ""
+msgstr "Demonio de recopilación y seguimiento de estadísticas."
 
 msgid "Status"
 msgstr "Estado"
@@ -3241,6 +3256,9 @@ msgstr "Hora del sistema"
 
 msgid "System account"
 msgstr "Cuenta del sistema"
+
+msgid "System clock synchronization client and server."
+msgstr ""
 
 msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr "La supervisión del sistema está deshabilitada. Para habilitarlo, vaya a la"
@@ -3331,7 +3349,7 @@ msgid "The file system to mount."
 msgstr "Sistema de archivos a montar"
 
 msgid "The following modules will be updated:"
-msgstr ""
+msgstr "Se actualizarán los siguientes módulos:"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "El nombre de host es una etiqueta que identifica al sistema en la red."
@@ -3701,6 +3719,9 @@ msgstr "Trinidad y Tobago"
 
 msgid "Tuesday"
 msgstr "Martes"
+
+msgid "Tune hard disk parameters."
+msgstr ""
 
 msgid "Tunisia"
 msgstr "Tunez"

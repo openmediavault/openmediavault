@@ -27,6 +27,10 @@ class Collectd extends \OMV\Engine\Module\ServiceAbstract
 		return "collectd";
 	}
 
+	public function getDescription() {
+		return gettext("Statistics collection and monitoring daemon.");
+	}
+
 	public function deployAfter(): array {
 		return ["monit", "rrdcached"];
 	}

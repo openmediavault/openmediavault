@@ -1,12 +1,15 @@
 <mat-toolbar *ngIf="dirtyModules | count"
-             class="omv-background-color-pair-accent">
+             class="omv-background-color-pair-warning"
+             matRipple
+             [matRippleTrigger]="content">
   <div class="omv-my-h"
        fxFlex
        fxLayout="row">
     <mat-icon class="icon omv-icon-lg"
               svgIcon="{{ icon.information }}">
     </mat-icon>
-    <div class="content omv-mx-h omv-cursor-pointer"
+    <div #content
+         class="content omv-mx-h omv-cursor-pointer"
          fxFlex
          fxLayout="column"
          fxLayoutAlign="center start"

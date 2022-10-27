@@ -27,6 +27,10 @@ class Chrony extends \OMV\Engine\Module\ServiceAbstract
 		return "chrony";
 	}
 
+	public function getDescription() {
+		return gettext("System clock synchronization client and server.");
+	}
+
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 			OMV_NOTIFY_MODIFY,

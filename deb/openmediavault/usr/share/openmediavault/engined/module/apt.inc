@@ -27,6 +27,10 @@ class Apt extends \OMV\Engine\Module\ServiceAbstract
 		return "apt";
 	}
 
+	public function getDescription() {
+		return gettext("Package management.");
+	}
+
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 			OMV_NOTIFY_MODIFY,

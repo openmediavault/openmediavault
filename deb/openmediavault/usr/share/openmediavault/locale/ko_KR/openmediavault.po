@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 23:49+0200\n"
+"POT-Creation-Date: 2022-10-27 09:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -618,6 +618,9 @@ msgstr "유효 기간"
 
 msgid "Certificate"
 msgstr "인증"
+
+msgid "Certificate management."
+msgstr ""
 
 msgid "Certificates"
 msgstr "인증"
@@ -1874,6 +1877,15 @@ msgstr "말리"
 msgid "Malta"
 msgstr "몰타"
 
+msgid "Management of CPUfreq settings."
+msgstr ""
+
+msgid "Management of scheduled tasks."
+msgstr ""
+
+msgid "Management of the file systems to be mounted."
+msgstr ""
+
 msgid "March"
 msgstr "3월"
 
@@ -2248,6 +2260,9 @@ msgid "Pacific Islands Trust Territory"
 msgstr "태평양 제도 신탁통치령"
 
 msgid "Package Information"
+msgstr ""
+
+msgid "Package management."
 msgstr ""
 
 msgid "Pakistan"
@@ -3242,6 +3257,9 @@ msgstr ""
 msgid "System account"
 msgstr ""
 
+msgid "System clock synchronization client and server."
+msgstr ""
+
 msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr ""
 
@@ -3701,6 +3719,9 @@ msgstr "트리니다드토바고"
 
 msgid "Tuesday"
 msgstr "화요일"
+
+msgid "Tune hard disk parameters."
+msgstr ""
 
 msgid "Tunisia"
 msgstr "튀니지"

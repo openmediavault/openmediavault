@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 23:49+0200\n"
+"POT-Creation-Date: 2022-10-27 09:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -603,6 +603,9 @@ msgid "Certain date"
 msgstr ""
 
 msgid "Certificate"
+msgstr ""
+
+msgid "Certificate management."
 msgstr ""
 
 msgid "Certificates"
@@ -1796,6 +1799,15 @@ msgstr ""
 msgid "Malta"
 msgstr ""
 
+msgid "Management of CPUfreq settings."
+msgstr ""
+
+msgid "Management of scheduled tasks."
+msgstr ""
+
+msgid "Management of the file systems to be mounted."
+msgstr ""
+
 msgid "March"
 msgstr ""
 
@@ -2163,6 +2175,9 @@ msgid "Pacific Islands Trust Territory"
 msgstr ""
 
 msgid "Package Information"
+msgstr ""
+
+msgid "Package management."
 msgstr ""
 
 msgid "Pakistan"
@@ -3098,6 +3113,9 @@ msgstr ""
 msgid "System account"
 msgstr ""
 
+msgid "System clock synchronization client and server."
+msgstr ""
+
 msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr ""
 
@@ -3465,6 +3483,9 @@ msgid "Trinidad and Tobago"
 msgstr ""
 
 msgid "Tuesday"
+msgstr ""
+
+msgid "Tune hard disk parameters."
 msgstr ""
 
 msgid "Tunisia"

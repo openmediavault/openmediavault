@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 23:49+0200\n"
+"POT-Creation-Date: 2022-10-27 09:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2022\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -617,6 +617,9 @@ msgstr "En una data concreta"
 
 msgid "Certificate"
 msgstr "Certificat"
+
+msgid "Certificate management."
+msgstr ""
 
 msgid "Certificates"
 msgstr "Certificats"
@@ -1873,6 +1876,15 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
+msgid "Management of CPUfreq settings."
+msgstr ""
+
+msgid "Management of scheduled tasks."
+msgstr ""
+
+msgid "Management of the file systems to be mounted."
+msgstr ""
+
 msgid "March"
 msgstr "Març"
 
@@ -2248,6 +2260,9 @@ msgstr "Territori en Fideïcomís de les Illes del Pacífic"
 
 msgid "Package Information"
 msgstr "Informació del paquet "
+
+msgid "Package management."
+msgstr ""
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -3241,6 +3256,9 @@ msgstr "Hora del sistema "
 msgid "System account"
 msgstr "Compte del sistema "
 
+msgid "System clock synchronization client and server."
+msgstr ""
+
 msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr "La supervisió del sistema està desactivada. Per activar-lo, aneu a"
 
@@ -3700,6 +3718,9 @@ msgstr "Trinitat i Tobago"
 
 msgid "Tuesday"
 msgstr "Dimarts"
+
+msgid "Tune hard disk parameters."
+msgstr ""
 
 msgid "Tunisia"
 msgstr "Tunísia"

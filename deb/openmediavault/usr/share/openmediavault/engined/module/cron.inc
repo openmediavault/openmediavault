@@ -27,6 +27,10 @@ class Cron extends \OMV\Engine\Module\ServiceAbstract
 		return "cron";
 	}
 
+	public function getDescription() {
+		return gettext("Management of scheduled tasks.");
+	}
+
 	public function deployAfter(): array {
 		return ["email"];
 	}
