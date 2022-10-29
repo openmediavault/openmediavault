@@ -118,7 +118,8 @@ define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 	"Fear is the mind-killer.",
 	"Without change something sleeps inside us, and seldom awakens. ".
 		"The sleeper must awaken.",
-	"What does a mirror look at?"
+	"What does a mirror look at?",
+	"A great man does not seek to lead. He is called to it."
 ]);
 
 // Read the default file.
