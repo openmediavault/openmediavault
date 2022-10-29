@@ -6,7 +6,7 @@
        gdGap="8px"
        gdColumns="repeat(auto-fit, minmax(100px, 1fr))">
     <div *ngIf="!data.total">
-      <span translate>No data to display.</span>
+      <span>{{ 'No data to display.' | translate }}</span>
     </div>
     <div *ngFor="let item of data.data"
          class="item"
@@ -26,14 +26,12 @@
                         [warningThreshold]="item.usagewarnthreshold | defaultTo:0">
       </omv-progress-bar>
       <div *ngIf="(item.status === 1) && !item.mounted"
-           class="item-subtext omv-text-truncate"
-           translate>
-        Not mounted
+           class="item-subtext omv-text-truncate">
+        {{ 'Not mounted' | translate }}
       </div>
       <div *ngIf="item.status === 3"
-           class="item-subtext omv-text-truncate"
-           translate>
-        Missing
+           class="item-subtext omv-text-truncate">
+        {{ 'Missing' | translate }}
       </div>
     </div>
   </div>

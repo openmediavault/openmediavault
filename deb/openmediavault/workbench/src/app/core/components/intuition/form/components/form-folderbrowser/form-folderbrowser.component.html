@@ -1,7 +1,7 @@
 <mat-form-field *ngIf="config.dirVisible"
                 fxFlex="25"
                 [formGroup]="formGroup">
-  <mat-label translate>Base path</mat-label>
+  <mat-label>{{ 'Base path' | translate }}</mat-label>
   <input *ngIf="config.dirVisible"
          matInput
          type="text"
@@ -39,9 +39,8 @@
             svgIcon="mdi:file-tree">
   </mat-icon>
   <mat-error *ngIf="formGroup.invalid">
-    <span *ngIf="formGroup.hasError('required', config.name)"
-          translate>
-      This field is required.
+    <span *ngIf="formGroup.hasError('required', config.name)">
+      {{ 'This field is required.' | translate }}
     </span>
     <span *ngIf="formGroup.hasError('minlength', config.name)"
           translate>

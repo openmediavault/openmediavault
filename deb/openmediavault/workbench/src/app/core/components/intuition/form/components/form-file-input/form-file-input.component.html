@@ -39,9 +39,8 @@
          [accept]="config.accept"
          (change)="onChange($event)">
   <mat-error *ngIf="formGroup.invalid">
-    <span *ngIf="formGroup.hasError('required', config.name)"
-          translate>
-      This field is required.
+    <span *ngIf="formGroup.hasError('required', config.name)">
+      {{ 'This field is required.' | translate }}
     </span>
     <span *ngIf="formGroup.hasError('minlength', config.name)"
           translate>

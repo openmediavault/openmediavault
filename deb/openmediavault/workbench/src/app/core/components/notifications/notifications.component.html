@@ -15,9 +15,8 @@
               svgIcon="{{ icon.information }}">
     </mat-icon>
     <p mat-line
-       class="list-item-title omv-font-weight-bold"
-       translate>
-      There are no notifications.
+       class="list-item-title omv-font-weight-bold">
+      {{ 'There are no notifications.' | translate }}
     </p>
   </mat-list-item>
   <mat-list-item *ngFor="let notification of notifications"
@@ -64,12 +63,12 @@
                 [disabled]="!notification.message?.length"
                 (click)="onCopyNotification(notification)">
           <mat-icon svgIcon="{{ icon.copy }}"></mat-icon>
-          <span translate>Copy to clipboard</span>
+          <span>{{ 'Copy to clipboard' | translate }}</span>
         </button>
         <button mat-menu-item
                 (click)="onRemoveNotification(notification)">
           <mat-icon svgIcon="{{ icon.delete }}"></mat-icon>
-          <span translate>Dismiss</span>
+          <span>{{ 'Dismiss' | translate }}</span>
         </button>
       </ng-template>
     </mat-menu>

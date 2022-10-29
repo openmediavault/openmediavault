@@ -52,36 +52,35 @@
               mat-menu-item
               routerLink="/usermgmt/profile">
         <mat-icon svgIcon="mdi:account-details"></mat-icon>
-        <span translate>Your profile</span>
+        <span>{{ 'Your profile' | translate }}</span>
       </button>
       <button mat-menu-item
               routerLink="/usermgmt/change-password">
         <mat-icon svgIcon="{{ icon.password }}"></mat-icon>
-        <span translate>Change Password</span>
+        <span>{{ 'Change Password' | translate }}</span>
       </button>
       <mat-divider></mat-divider>
       <button mat-menu-item
               [ngClass]="{'active': darkModeEnabled}"
               (click)="onToggleDarkMode()">
         <mat-icon svgIcon="mdi:weather-night"></mat-icon>
-        <mat-slide-toggle [checked]="darkModeEnabled"
-                          translate>Dark mode</mat-slide-toggle>
+        <mat-slide-toggle [checked]="darkModeEnabled">{{ 'Dark mode' | translate }}</mat-slide-toggle>
       </button>
       <button mat-menu-item
               [matMenuTriggerFor]="localeMenu">
         <mat-icon svgIcon="mdi:earth"></mat-icon>
-        <span translate>Language</span>
+        <span>{{ 'Language' | translate }}</span>
       </button>
       <button mat-menu-item
               routerLink="/dashboard/settings">
         <mat-icon svgIcon="{{ icon.apps }}"></mat-icon>
-        <span translate>Dashboard</span>
+        <span>{{ 'Dashboard' | translate }}</span>
       </button>
       <mat-divider></mat-divider>
       <button mat-menu-item
               (click)="onClearStateStorage()">
         <mat-icon svgIcon="{{ icon.reset }}"></mat-icon>
-        <span translate>Reset UI to defaults</span>
+        <span>{{ 'Reset UI to defaults' | translate }}</span>
       </button>
     </ng-template>
   </mat-menu>
@@ -91,25 +90,25 @@
       <button mat-menu-item
               (click)="onLogout()">
         <mat-icon svgIcon="{{ icon.logout }}"></mat-icon>
-        <span translate>Logout</span>
+        <span>{{ 'Logout' | translate }}</span>
       </button>
       <button *ngIf="permissions?.role.includes(roles.admin)"
               mat-menu-item
               (click)="onReboot()">
         <mat-icon svgIcon="{{ icon.reboot }}"></mat-icon>
-        <span translate>Reboot</span>
+        <span>{{ 'Reboot' | translate }}</span>
       </button>
       <button *ngIf="permissions?.role.includes(roles.admin)"
               mat-menu-item
               (click)="onStandby()">
         <mat-icon svgIcon="{{ icon.standby }}"></mat-icon>
-        <span translate>Standby</span>
+        <span>{{ 'Standby' | translate }}</span>
       </button>
       <button *ngIf="permissions?.role.includes(roles.admin)"
               mat-menu-item
               (click)="onShutdown()">
         <mat-icon svgIcon="{{ icon.shutdown }}"></mat-icon>
-        <span translate>Shutdown</span>
+        <span>{{ 'Shutdown' | translate }}</span>
       </button>
     </ng-template>
   </mat-menu>
@@ -133,7 +132,7 @@
          target="_blank">
         <button mat-menu-item>
           <mat-icon svgIcon="mdi:script-text"></mat-icon>
-          <span translate>Documentation</span>
+          <span>{{ 'Documentation' | translate }}</span>
         </button>
       </a>
       <a class="omv-text-decoration-none"
@@ -141,7 +140,7 @@
          target="_blank">
         <button mat-menu-item>
           <mat-icon svgIcon="mdi:forum"></mat-icon>
-          <span translate>Forum</span>
+          <span>{{ 'Forum' | translate }}</span>
         </button>
       </a>
       <a class="omv-text-decoration-none"
@@ -149,14 +148,14 @@
          target="_blank">
         <button mat-menu-item>
           <mat-icon svgIcon="mdi:web"></mat-icon>
-          <span translate>Homepage</span>
+          <span>{{ 'Homepage' | translate }}</span>
         </button>
       </a>
       <mat-divider></mat-divider>
       <button mat-menu-item
               routerLink="/about">
         <mat-icon svgIcon="{{ icon.information }}"></mat-icon>
-        <span translate>About</span>
+        <span>{{ 'About' | translate }}</span>
       </button>
     </ng-template>
   </mat-menu>

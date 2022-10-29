@@ -15,9 +15,8 @@
                       [valueType]="config.valueType">
   </mat-form-datatable>
   <mat-error *ngIf="formGroup.invalid">
-    <span *ngIf="formGroup.hasError('required', config.name)"
-          translate>
-      This field is required.
+    <span *ngIf="formGroup.hasError('required', config.name)">
+      {{ 'This field is required.' | translate }}
     </span>
   </mat-error>
   <mat-hint *ngIf="config.hint?.length > 0"
