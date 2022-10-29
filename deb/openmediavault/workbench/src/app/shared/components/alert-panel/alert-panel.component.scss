@@ -1,4 +1,26 @@
+@use 'src/scss/theme/colors' as tc;
+
 .mat-card {
+  &.alert-info {
+    @include tc.background-color-pair('info');
+  }
+
+  &.alert-success {
+    @include tc.background-color-pair('success');
+  }
+
+  &.alert-warning {
+    @include tc.background-color-pair('warning');
+  }
+
+  &.alert-error {
+    @include tc.background-color-pair('error');
+  }
+
+  &.alert-tip {
+    @include tc.background-color-pair('tip');
+  }
+
   .mat-icon {
     margin-right: 16px;
   }

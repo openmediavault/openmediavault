@@ -1,4 +1,8 @@
+@use 'src/scss/theme/colors' as tc;
+
 .mat-toolbar {
+  @include tc.background-color-pair('warning');
+
   height: auto;
   min-height: 4rem; // 64px
 
