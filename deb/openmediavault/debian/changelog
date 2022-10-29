@@ -1,5 +1,7 @@
 openmediavault (6.0.46-1) stable; urgency=low
 
+  * Hardening the quota deployment script. Skip users/groups that
+    do not exists anymore.
   * Finally fixing the /run/proftpd issue the systemd way.
   * Issue #1377: Display some information about the dirty modules
     in the "Apply configuration" toolbar.

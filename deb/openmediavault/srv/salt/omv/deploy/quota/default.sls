@@ -76,6 +76,8 @@ quota_off_{{ fsuuid }}:
 
 {% if enabled | to_bool %}
 
+{% set user_names = salt['user.getent']() | map(attribute='name') %}
+{% set group_names = salt['group.getent']() | map(attribute='name') %}
 {% set ns.enable_service = True %}
 
 {% if mountpoint.type | check_whitelist_blacklist(blacklist=['xfs']) %}
@@ -89,15 +91,19 @@ quota_on_{{ fsuuid }}:
     - name: quotaon --group --user {{ device }}
 
 {% for usrquota in quota.usrquota %}
+{% if usrquota.name in user_names %}
 quota_set_user_{{ fsuuid }}_{{ usrquota.name }}:
   cmd.run:
     - name: setquota --user '{{ usrquota.name }}' {{ usrquota.bsoftlimit }} {{ usrquota.bhardlimit }} {{ usrquota.isoftlimit }} {{ usrquota.ihardlimit }} {{ device }}
+{% endif %}
 {% endfor %}
 
 {% for grpquota in quota.grpquota %}
+{% if grpquota.name in group_names %}
 quota_set_group_{{ fsuuid }}_{{ grpquota.name }}:
   cmd.run:
     - name: setquota --group '{{ grpquota.name }}' {{ grpquota.bsoftlimit }} {{ grpquota.bhardlimit }} {{ grpquota.isoftlimit }} {{ grpquota.ihardlimit }} {{ device }}
+{% endif %}
 {% endfor %}
 
 {% endif %}
