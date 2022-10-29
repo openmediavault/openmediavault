@@ -241,10 +241,10 @@ msgid "A maximum of two device can be removed."
 msgstr "Μπορούν να αφαιρεθούν δύο συσκευές το πολύ."
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
+msgstr "Ένας πανίσχυρος αρθρωτός διακομιστής FTP/SFTP/FTPS."
 
 msgid "A secure shell (SSH) server."
-msgstr ""
+msgstr "Ένας διακομιστής ασφαλούς κελύφους (SSH)."
 
 msgid "ACL"
 msgstr "Λίστα Διαχείρισης Πρόσβασης"
@@ -458,7 +458,7 @@ msgid "Auto logout"
 msgstr "Αυτόματη αποσύνδεση"
 
 msgid "Automatic update and installation of packages."
-msgstr ""
+msgstr "Αυτόματη ενημέρωση και εγκατάσταση πακέτων."
 
 msgid "Available"
 msgstr "Διαθέσιμο"
@@ -617,7 +617,7 @@ msgid "Certificate"
 msgstr "Πιστοποιητικό"
 
 msgid "Certificate management."
-msgstr ""
+msgstr "Διαχείριση πιστοποιητικών."
 
 msgid "Certificates"
 msgstr "Πιστοποιητικά"
@@ -737,7 +737,7 @@ msgid "Connections"
 msgstr "Συνδέσεις"
 
 msgid "Control and monitor storage systems using S.M.A.R.T."
-msgstr ""
+msgstr "Έλεγχος και επίβλεψη αποθηκευτικών συστημάτων μέσω S.M.A.R.T"
 
 msgid "Conveyance self-test"
 msgstr "Έλεγχος μετάδοσης"
@@ -1323,7 +1323,7 @@ msgid "Forum"
 msgstr "Forum"
 
 msgid "Framework for Multicast DNS Service Discovery."
-msgstr ""
+msgstr "Πλαίσιο εργασίας για Ανακάλυψη Υπηρεσιών Multicast DNS."
 
 msgid "France"
 msgstr "France"
@@ -1449,7 +1449,7 @@ msgid "Hide dot files"
 msgstr "Απόκρυψη αρχείων που αρχίζουν με τελεία"
 
 msgid "High-performance mail transport agent."
-msgstr ""
+msgstr "Αποδοτικός πράκτορας διακίνησης αλληλογραφίας."
 
 msgid "Home"
 msgstr "Αρχική"
@@ -1875,13 +1875,13 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Management of CPUfreq settings."
-msgstr ""
+msgstr "Διαχείριση ρυθμίσεων του CPUfreq."
 
 msgid "Management of scheduled tasks."
-msgstr ""
+msgstr "Διαχείριση προγραμματισμένων εργασιών."
 
 msgid "Management of the file systems to be mounted."
-msgstr ""
+msgstr "Διαχείριση των συστημάτων αρχείων για προσάρτηση."
 
 msgid "March"
 msgstr "Μάρτιος"
@@ -2260,7 +2260,7 @@ msgid "Package Information"
 msgstr "Πληροφορίες Πακέτου"
 
 msgid "Package management."
-msgstr ""
+msgstr "Διαχείριση πακέτων."
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2752,7 +2752,7 @@ msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - Έλεγχος"
 
 msgid "SMB/CIFS file, print, and login server for Unix."
-msgstr ""
+msgstr "Διακομιστής Unix για αρχεία, εκτυπώσεις, και συνδέσεις με SMB/CIFS."
 
 msgid "SMTP port"
 msgstr "Θύρα SMTP"
@@ -3186,7 +3186,7 @@ msgid "Static"
 msgstr "Στατικό"
 
 msgid "Statistics collection and monitoring daemon."
-msgstr ""
+msgstr "Δαίμονας συλλογής και επίβλεψης στατιστικών."
 
 msgid "Status"
 msgstr "Κατάσταση"
@@ -3255,7 +3255,7 @@ msgid "System account"
 msgstr "Λογαριασμός συστήματος"
 
 msgid "System clock synchronization client and server."
-msgstr ""
+msgstr "Πελάτης και διακομιστής για συγχρονισμό της ώρας του συστήματος."
 
 msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr "Η επίβλεψη συστήματος είναι ανενεργή. Για ενεργοποίηση, πάμε στο"
@@ -3346,7 +3346,7 @@ msgid "The file system to mount."
 msgstr "Το σύστημα αρχείων προς προσάρτηση."
 
 msgid "The following modules will be updated:"
-msgstr ""
+msgstr "Θα αναβαθμιστούν οι ακόλουθες μονάδες :"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Το όνομα συστήματος είναι μια ετικέτα που χαρακτηρίζει το σύστημα στο δίκτυο."
@@ -3718,7 +3718,7 @@ msgid "Tuesday"
 msgstr "Τρίτη"
 
 msgid "Tune hard disk parameters."
-msgstr ""
+msgstr "Ρυθμίσεις παραμέτρων σκληρών δίσκων."
 
 msgid "Tunisia"
 msgstr "Tunisia"

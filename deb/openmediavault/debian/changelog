@@ -1,12 +1,13 @@
 openmediavault (6.0.46-1) stable; urgency=low
 
+  * Update locale files.
   * Hardening the quota deployment script. Skip users/groups that
     do not exists anymore.
   * Finally fixing the /run/proftpd issue the systemd way.
   * Issue #1377: Display some information about the dirty modules
     in the "Apply configuration" toolbar.
 
- -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Oct 2022 06:53:58 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 29 Oct 2022 16:09:50 +0200
 
 openmediavault (6.0.45-1) stable; urgency=low
 

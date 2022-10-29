@@ -281,7 +281,7 @@ msgstr "Arbeite als WINS Server."
 
 msgid ""
 "Acting as a WINS server and using a WINS server are mutually exclusive."
-msgstr ""
+msgstr "Als WINS-Server zu agieren und einen WINS-Server zu verwenden, schließt sich gegenseitig aus."
 
 msgid "Action"
 msgstr "Aktion"
@@ -470,7 +470,7 @@ msgid "Auto logout"
 msgstr "Automatische Abmeldung"
 
 msgid "Automatic update and installation of packages."
-msgstr ""
+msgstr "Automatische Aktualisierung und Installation von Paketen."
 
 msgid "Available"
 msgstr "Verfügbar"
@@ -629,7 +629,7 @@ msgid "Certificate"
 msgstr "Zertifikat"
 
 msgid "Certificate management."
-msgstr ""
+msgstr "Verwaltung der Zertifikate."
 
 msgid "Certificates"
 msgstr "Zertifikate"
@@ -1890,10 +1890,10 @@ msgid "Management of CPUfreq settings."
 msgstr ""
 
 msgid "Management of scheduled tasks."
-msgstr ""
+msgstr "Verwaltung der geplanten Aufgaben."
 
 msgid "Management of the file systems to be mounted."
-msgstr ""
+msgstr "Verwaltung der einzubindenden Dateisysteme."
 
 msgid "March"
 msgstr "März"
@@ -2272,7 +2272,7 @@ msgid "Package Information"
 msgstr "Paketinformationen"
 
 msgid "Package management."
-msgstr ""
+msgstr "Verwaltung der Pakete."
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2325,7 +2325,7 @@ msgstr "Hier ein privates RSA oder ECC Zertifikat im X.509 PEM Format einfügen.
 msgid ""
 "Pending configuration changes. You must apply these changes in order for "
 "them to take effect."
-msgstr "Ausstehende Konfigurationsänderungen. Sie müssen die Änderungen anwenden, damit diese wirksam wird."
+msgstr "Ausstehende Konfigurationsänderungen. Sie müssen die Änderungen anwenden, damit diese wirksam werden."
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "Volksdemokratische Republik Jemen"
@@ -2764,7 +2764,7 @@ msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - Audit"
 
 msgid "SMB/CIFS file, print, and login server for Unix."
-msgstr ""
+msgstr "SMB/CIFS-Datei-, Druck- und Anmeldeserver für Unix."
 
 msgid "SMTP port"
 msgstr "SMTP Port"
@@ -3198,7 +3198,7 @@ msgid "Static"
 msgstr "Statisch"
 
 msgid "Statistics collection and monitoring daemon."
-msgstr ""
+msgstr "Statistikerfassungs- und Überwachungs-Daemon."
 
 msgid "Status"
 msgstr "Status"
@@ -3267,7 +3267,7 @@ msgid "System account"
 msgstr "Systemkonto"
 
 msgid "System clock synchronization client and server."
-msgstr ""
+msgstr "Client und Server für die Synchronisierung der Systemuhr."
 
 msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr ""
