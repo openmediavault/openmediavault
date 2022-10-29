@@ -22,4 +22,4 @@
 # Make sure the 'start-stop-daemon' command is not diverted. This can
 # sometimes happen when a package installation or update fails or is
 # aborted.
-dpkg-divert /usr/sbin/start-stop-daemon >/dev/null 2>&1 || true
+dpkg-divert --remove --rename /usr/sbin/start-stop-daemon >/dev/null 2>&1 || true
