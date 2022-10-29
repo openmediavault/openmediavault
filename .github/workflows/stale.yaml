@@ -21,7 +21,7 @@ jobs:
         remove-stale-when-updated: true
         operations-per-run: 30
 
-        exempt-issue-labels: 'pinned,security,planned'
+        exempt-issue-labels: 'pinned,security,planned,community contribution welcome'
         stale-issue-label: 'stale'
         stale-issue-message: |
           This issue has been automatically marked as stale because it

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { ComponentsModule } from '~/app/core/components/components.module';
 import { GreenRainComponent } from '~/app/core/components/green-rain/green-rain.component';
 import { TestingModule } from '~/app/testing.module';
 
@@ -10,7 +11,7 @@ describe('GreenRainComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [GreenRainComponent],
-      imports: [TestingModule]
+      imports: [ComponentsModule, TestingModule]
     }).compileComponents();
   });
 
