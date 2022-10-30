@@ -16,9 +16,9 @@
  * GNU General Public License for more details.
  */
 import { Component, Input, OnInit } from '@angular/core';
+import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 
-import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { UserStorageService } from '~/app/shared/services/user-storage.service';
 
@@ -71,23 +71,23 @@ export class AlertPanelComponent implements OnInit {
     this.type = _.defaultTo(this.type, 'info');
     switch (this.type) {
       case 'info':
-        this.title = this.title || translate('Information');
+        this.title = this.title || gettext('Information');
         this.icon = Icon.information;
         break;
       case 'success':
-        this.title = this.title || translate('Success');
+        this.title = this.title || gettext('Success');
         this.icon = Icon.success;
         break;
       case 'warning':
-        this.title = this.title || translate('Warning');
+        this.title = this.title || gettext('Warning');
         this.icon = Icon.warning;
         break;
       case 'error':
-        this.title = this.title || translate('Error');
+        this.title = this.title || gettext('Error');
         this.icon = Icon.error;
         break;
       case 'tip':
-        this.title = this.title || translate('Tip');
+        this.title = this.title || gettext('Tip');
         this.icon = Icon.tip;
         break;
     }

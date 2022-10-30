@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { AlertPanelComponent } from '~/app/shared/components/alert-panel/alert-panel.component';
 import { ComponentsModule } from '~/app/shared/components/components.module';
@@ -10,7 +11,7 @@ describe('AlertPanelComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ComponentsModule, TestingModule]
+      imports: [ComponentsModule, TestingModule, TranslateModule.forRoot()]
     }).compileComponents();
   }));
 
