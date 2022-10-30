@@ -22,6 +22,13 @@ import * as _ from 'lodash';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { UserStorageService } from '~/app/shared/services/user-storage.service';
 
+export type AlertPanelButtonConfig = {
+  icon: string;
+  class?: string;
+  tooltip?: string;
+  click?: (config: AlertPanelButtonConfig) => void;
+};
+
 @Component({
   selector: 'omv-alert-panel',
   templateUrl: './alert-panel.component.html',
@@ -45,17 +52,32 @@ export class AlertPanelComponent implements OnInit {
   @Input()
   stateId: string;
 
+  @Input()
+  buttons: AlertPanelButtonConfig[] = [];
+
+  @Input()
+  icon?: string;
+
+  @Input()
+  title?: string;
+
   // Internal
-  public icon: string;
-  public title: string;
   public dismissed = false;
 
   constructor(private userStorageService: UserStorageService) {}
 
   ngOnInit(): void {
-    if (this.dismissible && this.stateId) {
-      this.dismissed =
-        'dismiss' === this.userStorageService.get(`alertpanel_state_${this.stateId}`, '');
+    if (this.dismissible) {
+      this.buttons.push({
+        icon: 'mdi:window-close',
+        tooltip: gettext('Dismiss'),
+        click: this.close.bind(this)
+      });
+
+      if (this.stateId) {
+        this.dismissed =
+          'dismiss' === this.userStorageService.get(`alertpanel_state_${this.stateId}`, '');
+      }
     }
     this.sanitizeConfig();
   }
@@ -72,23 +94,23 @@ export class AlertPanelComponent implements OnInit {
     switch (this.type) {
       case 'info':
         this.title = this.title || gettext('Information');
-        this.icon = Icon.information;
+        this.icon = _.get(Icon, this.icon, Icon.information);
         break;
       case 'success':
         this.title = this.title || gettext('Success');
-        this.icon = Icon.success;
+        this.icon = _.get(Icon, this.icon, Icon.success);
         break;
       case 'warning':
         this.title = this.title || gettext('Warning');
-        this.icon = Icon.warning;
+        this.icon = _.get(Icon, this.icon, Icon.warning);
         break;
       case 'error':
         this.title = this.title || gettext('Error');
-        this.icon = Icon.error;
+        this.icon = _.get(Icon, this.icon, Icon.error);
         break;
       case 'tip':
         this.title = this.title || gettext('Tip');
-        this.icon = Icon.tip;
+        this.icon = _.get(Icon, this.icon, Icon.tip);
         break;
     }
   }

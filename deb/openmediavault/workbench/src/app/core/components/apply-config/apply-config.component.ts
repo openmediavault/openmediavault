@@ -24,6 +24,7 @@ import { Subscription } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
 import { translate } from '~/app/i18n.helper';
+import { AlertPanelButtonConfig } from '~/app/shared/components/alert-panel/alert-panel.component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
@@ -47,6 +48,7 @@ export class ApplyConfigComponent implements OnDestroy {
   public icon = Icon;
   public dirtyModules: Record<string, string> = {};
   public expanded = false;
+  public buttons: AlertPanelButtonConfig[] = [];
 
   private subscription: Subscription;
 
@@ -62,6 +64,23 @@ export class ApplyConfigComponent implements OnDestroy {
         this.dirtyModules = _.get(res, 'dirtyModules', []);
       }
     );
+    this.buttons = [
+      {
+        tooltip: gettext('Show details'),
+        icon: this.icon.details,
+        click: () => (this.expanded = !this.expanded)
+      },
+      {
+        tooltip: gettext('Undo'),
+        icon: this.icon.undo,
+        click: this.onUndoPendingChanges.bind(this)
+      },
+      {
+        tooltip: gettext('Apply'),
+        icon: this.icon.check,
+        click: this.onApplyPendingChanges.bind(this)
+      }
+    ];
   }
 
   ngOnDestroy(): void {

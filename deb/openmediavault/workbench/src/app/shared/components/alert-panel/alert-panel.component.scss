@@ -21,18 +21,27 @@
     @include tc.background-color-pair('tip');
   }
 
-  .mat-icon {
+  .mat-icon.alert-icon {
     margin-right: 16px;
   }
 
   .mat-card-content {
     margin-bottom: unset;
   }
-}
 
-.dismiss-button {
-  cursor: pointer;
-  margin-left: 16px;
-  width: 1.5rem;
-  height: 1.5rem;
+  .mat-card-actions {
+    margin: 0 0 0 16px;
+    padding: 0;
+
+    .alert-action-button {
+      cursor: pointer;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: 0;
+
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+    }
+  }
 }

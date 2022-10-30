@@ -1,24 +1,30 @@
 <mat-card class="alert-{{ type }}"
           [ngClass]="{'omv-m': hasMargin, 'omv-display-none': dismissed}">
   <div fxLayout="row">
-    <mat-icon class="omv-icon-lg"
+    <mat-icon *ngIf="icon"
+              class="alert-icon omv-icon-lg"
               svgIcon="{{ icon }}"></mat-icon>
     <div fxFlex
          fxLayout="column"
          fxLayoutAlign="center start">
-      <mat-card-title *ngIf="hasTitle">
+      <mat-card-title *ngIf="hasTitle && title">
         {{ title | translate }}
       </mat-card-title>
       <mat-card-content>
         <ng-content></ng-content>
       </mat-card-content>
     </div>
-    <div *ngIf="dismissible"
-         mat-ripple
-         class="dismiss-button"
-         matTooltip="{{ 'Dismiss' | translate }}"
-         (click)="close()">
-      <mat-icon svgIcon="mdi:window-close"></mat-icon>
-    </div>
+    <mat-card-actions *ngIf="buttons.length"
+                      fxLayout="row"
+                      fxLayoutAlign="end start">
+      <div *ngFor="let button of buttons"
+           class="alert-action-button omv-ml-q"
+           [class]="button.class"
+           mat-ripple
+           [matTooltip]="button.tooltip | translate"
+           (click)="button.click && button.click(button)">
+        <mat-icon svgIcon="{{ button.icon }}"></mat-icon>
+      </div>
+    </mat-card-actions>
   </div>
 </mat-card>
