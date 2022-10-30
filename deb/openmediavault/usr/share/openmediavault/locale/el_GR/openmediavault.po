@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 09:26+0200\n"
+"POT-Creation-Date: 2022-10-30 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2022\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -2310,10 +2310,8 @@ msgstr "Επικόλληση πιστοποιητικού RSA ή ECC σε μορ
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr "Επικόλληση ιδιωτικού κλειδιού RSA ή ECC σε μορφή X.509 PEM εδώ."
 
-msgid ""
-"Pending configuration changes. You must apply these changes in order for "
-"them to take effect."
-msgstr "Εκκρεμούν αλλαγές ρυθμίσεων. Πρέπει να εφαρμόσετε τις αλλαγές για να τεθούν σε ισχύ."
+msgid "Pending configuration changes"
+msgstr ""
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "People's Democratic Republic of Yemen"
@@ -3203,6 +3201,9 @@ msgstr "Αποθήκευση ιδιοτήτων DOS"
 msgid "Stripe"
 msgstr "Λωρίδα"
 
+msgid "Success"
+msgstr "Επιτυχία"
+
 msgid "Sudan"
 msgstr "Sudan"
 
@@ -3682,6 +3683,9 @@ msgstr "Ζώνη ώρας"
 msgid "Timeout"
 msgstr "Χρονικό όριο"
 
+msgid "Tip"
+msgstr ""
+
 msgid "Togo"
 msgstr "Togo"
 
@@ -4143,6 +4147,9 @@ msgstr "Yemen"
 
 msgid "Yes"
 msgstr "Ναι"
+
+msgid "You must apply these changes in order for them to take effect."
+msgstr ""
 
 msgid "Your changes will be lost. Do you want to continue?"
 msgstr "Οι αλλαγές θα χαθούν. Θέλετε να συνεχίσετε;"

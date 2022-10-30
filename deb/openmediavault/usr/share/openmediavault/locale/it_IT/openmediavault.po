@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 09:26+0200\n"
+"POT-Creation-Date: 2022-10-30 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2013-2019,2021\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -2315,9 +2315,7 @@ msgstr ""
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr ""
 
-msgid ""
-"Pending configuration changes. You must apply these changes in order for "
-"them to take effect."
+msgid "Pending configuration changes"
 msgstr ""
 
 msgid "People's Democratic Republic of Yemen"
@@ -3208,6 +3206,9 @@ msgstr "Memorizza gli attributi DOS"
 msgid "Stripe"
 msgstr "Stripe"
 
+msgid "Success"
+msgstr "Successo"
+
 msgid "Sudan"
 msgstr "Sudan"
 
@@ -3687,6 +3688,9 @@ msgstr "Fuso orario"
 msgid "Timeout"
 msgstr "Timeout"
 
+msgid "Tip"
+msgstr ""
+
 msgid "Togo"
 msgstr "Togo"
 
@@ -4148,6 +4152,9 @@ msgstr "Yemen"
 
 msgid "Yes"
 msgstr "Sì"
+
+msgid "You must apply these changes in order for them to take effect."
+msgstr ""
 
 msgid "Your changes will be lost. Do you want to continue?"
 msgstr ""

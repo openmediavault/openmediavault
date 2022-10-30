@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 09:26+0200\n"
+"POT-Creation-Date: 2022-10-30 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -2312,10 +2312,8 @@ msgstr "Сюди вставте сертифікат RSA або ECC у форм�
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr "Сюди вставте закритий ключ RSA або ECC у форматі X.509 PEM."
 
-msgid ""
-"Pending configuration changes. You must apply these changes in order for "
-"them to take effect."
-msgstr "Очікуються зміни конфігурації. Ви повинні застосувати ці зміни, щоб вони набули чинності."
+msgid "Pending configuration changes"
+msgstr ""
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "Народна Демократична Республіка Ємен"
@@ -3205,6 +3203,9 @@ msgstr "Зберігати атрибути DOS"
 msgid "Stripe"
 msgstr "Смуга"
 
+msgid "Success"
+msgstr "Вдало"
+
 msgid "Sudan"
 msgstr "Судан"
 
@@ -3684,6 +3685,9 @@ msgstr "Часовий пояс"
 msgid "Timeout"
 msgstr "Тайм-аут"
 
+msgid "Tip"
+msgstr ""
+
 msgid "Togo"
 msgstr "Тоґо"
 
@@ -4145,6 +4149,9 @@ msgstr "Ємен"
 
 msgid "Yes"
 msgstr "Так"
+
+msgid "You must apply these changes in order for them to take effect."
+msgstr ""
 
 msgid "Your changes will be lost. Do you want to continue?"
 msgstr "Ваші зміни буде втрачено. Бажаєте продовжити?"

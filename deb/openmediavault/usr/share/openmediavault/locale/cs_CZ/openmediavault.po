@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 09:26+0200\n"
+"POT-Creation-Date: 2022-10-30 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -2311,10 +2311,8 @@ msgstr "Sem vložte obsah RSA nebo ECC certifikátu ve formátu X.509 PEM."
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr "Sem vložte obsah RSA nebo ECC soukromého klíče ve formátu X.509 PEM."
 
-msgid ""
-"Pending configuration changes. You must apply these changes in order for "
-"them to take effect."
-msgstr "Změny v nastavení čekají na uplatnění. Aby zafungovaly, je třeba je uplatnit."
+msgid "Pending configuration changes"
+msgstr ""
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "Jemenská lidová demokratická republika"
@@ -3204,6 +3202,9 @@ msgstr "Uchovat (systému) DOS atributy"
 msgid "Stripe"
 msgstr "RAID 0 (jen rozložení zápisu)"
 
+msgid "Success"
+msgstr "Úspěch"
+
 msgid "Sudan"
 msgstr "Súdán"
 
@@ -3683,6 +3684,9 @@ msgstr "Časové pásmo"
 msgid "Timeout"
 msgstr "Limit časové prodlevy"
 
+msgid "Tip"
+msgstr ""
+
 msgid "Togo"
 msgstr "Togo"
 
@@ -4144,6 +4148,9 @@ msgstr "Jemen"
 
 msgid "Yes"
 msgstr "Ano"
+
+msgid "You must apply these changes in order for them to take effect."
+msgstr ""
 
 msgid "Your changes will be lost. Do you want to continue?"
 msgstr "Vámi provedené změny budou ztraceny. Chcete pokračovat?"

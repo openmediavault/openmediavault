@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 09:26+0200\n"
+"POT-Creation-Date: 2022-10-30 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2022\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -1461,7 +1461,7 @@ msgid "Hide dot files"
 msgstr "Verstecke Dotfiles"
 
 msgid "High-performance mail transport agent."
-msgstr ""
+msgstr "Leistungsstarker Mail-Transport-Agent."
 
 msgid "Home"
 msgstr "Heim"
@@ -2322,10 +2322,8 @@ msgstr "Hier ein RSA oder ECC Zertifikat im X.509 PEM Format einfügen."
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr "Hier ein privates RSA oder ECC Zertifikat im X.509 PEM Format einfügen."
 
-msgid ""
-"Pending configuration changes. You must apply these changes in order for "
-"them to take effect."
-msgstr "Ausstehende Konfigurationsänderungen. Sie müssen die Änderungen anwenden, damit diese wirksam werden."
+msgid "Pending configuration changes"
+msgstr "Ausstehende Konfigurationsänderungen"
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "Volksdemokratische Republik Jemen"
@@ -3215,6 +3213,9 @@ msgstr "DOS Attribute speichern"
 msgid "Stripe"
 msgstr "Stripe"
 
+msgid "Success"
+msgstr "Erfolg"
+
 msgid "Sudan"
 msgstr "Sudan"
 
@@ -3694,6 +3695,9 @@ msgstr "Zeitzone"
 msgid "Timeout"
 msgstr "Zeitüberschreitung"
 
+msgid "Tip"
+msgstr "Tipp"
+
 msgid "Togo"
 msgstr "Togo"
 
@@ -3730,7 +3734,7 @@ msgid "Tuesday"
 msgstr "Dienstag"
 
 msgid "Tune hard disk parameters."
-msgstr ""
+msgstr "Einstellen der Festplattenparameter."
 
 msgid "Tunisia"
 msgstr "Tunesien"
@@ -4155,6 +4159,9 @@ msgstr "Jemen"
 
 msgid "Yes"
 msgstr "Ja"
+
+msgid "You must apply these changes in order for them to take effect."
+msgstr "Sie müssen die Änderungen anwenden, damit diese wirksam werden."
 
 msgid "Your changes will be lost. Do you want to continue?"
 msgstr "Ihre Änderungen gehen dann verloren. Möchten Sie fortfahren?"

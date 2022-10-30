@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 09:26+0200\n"
+"POT-Creation-Date: 2022-10-30 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -2313,9 +2313,7 @@ msgstr "X.509 PEM 포맷의 RSA 혹은 ECC 인증서를 여기에 붙여넣습�
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr "X.509 PEM 포맷의 RSA 혹은 ECC 개인 키를 여기에 붙여넣습니다."
 
-msgid ""
-"Pending configuration changes. You must apply these changes in order for "
-"them to take effect."
+msgid "Pending configuration changes"
 msgstr ""
 
 msgid "People's Democratic Republic of Yemen"
@@ -3206,6 +3204,9 @@ msgstr "DOS 속성 저장"
 msgid "Stripe"
 msgstr "스트라이프"
 
+msgid "Success"
+msgstr "성공"
+
 msgid "Sudan"
 msgstr "수단"
 
@@ -3685,6 +3686,9 @@ msgstr "시간대"
 msgid "Timeout"
 msgstr "만료"
 
+msgid "Tip"
+msgstr ""
+
 msgid "Togo"
 msgstr "토고"
 
@@ -4146,6 +4150,9 @@ msgstr "예맨"
 
 msgid "Yes"
 msgstr "예"
+
+msgid "You must apply these changes in order for them to take effect."
+msgstr ""
 
 msgid "Your changes will be lost. Do you want to continue?"
 msgstr ""

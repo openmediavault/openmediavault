@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 09:26+0200\n"
+"POT-Creation-Date: 2022-10-30 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2022\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -2316,10 +2316,8 @@ msgstr "Illesszen be egy X.509 PEM formátumú RSA vagy ECC tanúsítványt ide.
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr "Illesszen be egy X.509 PEM formátumú RSA vagy ECC személyes kulcsot ide."
 
-msgid ""
-"Pending configuration changes. You must apply these changes in order for "
-"them to take effect."
-msgstr "A konfigurációs változások függőben vannak . Alkalmaznikell  a változtatásokat, hogy érvénybe léphessenek."
+msgid "Pending configuration changes"
+msgstr ""
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "Jemeni Demokratikus Népköztársaság"
@@ -3209,6 +3207,9 @@ msgstr "DOS attribútumok tárolása"
 msgid "Stripe"
 msgstr "Sáv"
 
+msgid "Success"
+msgstr "Sikeres"
+
 msgid "Sudan"
 msgstr "Szudán"
 
@@ -3688,6 +3689,9 @@ msgstr "Időzóna"
 msgid "Timeout"
 msgstr "Időtúllépés"
 
+msgid "Tip"
+msgstr ""
+
 msgid "Togo"
 msgstr "Togo"
 
@@ -4149,6 +4153,9 @@ msgstr "Jemen"
 
 msgid "Yes"
 msgstr "Igen"
+
+msgid "You must apply these changes in order for them to take effect."
+msgstr ""
 
 msgid "Your changes will be lost. Do you want to continue?"
 msgstr "A módosítások elvesznek. Szeretné folytatni?"

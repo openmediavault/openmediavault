@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 09:26+0200\n"
+"POT-Creation-Date: 2022-10-30 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2022\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -2312,10 +2312,8 @@ msgstr "Enganxeu aquí un certificat RSA o ECC en format PEM X.509."
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr "Enganxeu una clau privada RSA o ECC en format PEM X.509 aquí."
 
-msgid ""
-"Pending configuration changes. You must apply these changes in order for "
-"them to take effect."
-msgstr "Canvis de configuració pendents. Heu d'aplicar aquests canvis perquè entrin en vigor. "
+msgid "Pending configuration changes"
+msgstr ""
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "República Democràtica del Iemen"
@@ -3205,6 +3203,9 @@ msgstr "Guardar atributs DOS"
 msgid "Stripe"
 msgstr "Bandes (stripe)"
 
+msgid "Success"
+msgstr "Èxit"
+
 msgid "Sudan"
 msgstr "Sudan"
 
@@ -3684,6 +3685,9 @@ msgstr "Zona horària"
 msgid "Timeout"
 msgstr "Temps límit"
 
+msgid "Tip"
+msgstr ""
+
 msgid "Togo"
 msgstr "Togo"
 
@@ -4145,6 +4149,9 @@ msgstr "Iemen"
 
 msgid "Yes"
 msgstr "Si"
+
+msgid "You must apply these changes in order for them to take effect."
+msgstr ""
 
 msgid "Your changes will be lost. Do you want to continue?"
 msgstr "Els canvis es perdran. Vols continuar?"

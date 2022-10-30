@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 09:26+0200\n"
+"POT-Creation-Date: 2022-10-30 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2022\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -2312,10 +2312,8 @@ msgstr "貼上 X.509 PEM 格式的 RSA 或 ECC 憑證。"
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr "貼上私人 X.509 PEM 格式的 RSA 或 ECC 密鑰。"
 
-msgid ""
-"Pending configuration changes. You must apply these changes in order for "
-"them to take effect."
-msgstr "配置改變有待套用。您必須套用那些變更，才會使它們生效。"
+msgid "Pending configuration changes"
+msgstr ""
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "葉門人民民主共和國"
@@ -3205,6 +3203,9 @@ msgstr "儲存 DOS 屬性"
 msgid "Stripe"
 msgstr "分條"
 
+msgid "Success"
+msgstr "成功"
+
 msgid "Sudan"
 msgstr "蘇丹"
 
@@ -3684,6 +3685,9 @@ msgstr "時區"
 msgid "Timeout"
 msgstr "逾時"
 
+msgid "Tip"
+msgstr ""
+
 msgid "Togo"
 msgstr "托戈"
 
@@ -4145,6 +4149,9 @@ msgstr "葉門"
 
 msgid "Yes"
 msgstr "是"
+
+msgid "You must apply these changes in order for them to take effect."
+msgstr ""
 
 msgid "Your changes will be lost. Do you want to continue?"
 msgstr "您所做的變更將會被丟失。請問您要繼續嗎？"
