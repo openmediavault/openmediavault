@@ -10,10 +10,10 @@
       <omv-navigation-bar></omv-navigation-bar>
     </mat-sidenav>
     <mat-sidenav-content fxLayout="column">
-      <omv-apply-config></omv-apply-config>
       <omv-top-bar (toggleNavigationSidenavEvent)="onToggleNavigationSidenav()"
                    (toggleNotificationSidenavEvent)="onToggleNotificationsSidenav()">
       </omv-top-bar>
+      <omv-apply-config></omv-apply-config>
       <omv-breadcrumb class="omv-mx omv-my-q"></omv-breadcrumb>
       <div id="omv-workbench-router-outlet"
            class="omv-scrollable-y">
