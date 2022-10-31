@@ -5,6 +5,8 @@ import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
+import { translate } from '~/app/i18n.helper';
+
 const DEFAULT_TITLE = 'openmediavault Workbench';
 
 @Injectable({
@@ -39,6 +41,6 @@ export class TitleService implements OnDestroy {
     if (route.snapshot.data.title) {
       titles.push(route.snapshot.data.title);
     }
-    return _.uniqWith(titles, _.isEqual);
+    return _.uniqWith(titles, _.isEqual).map((title) => translate(title));
   }
 }
