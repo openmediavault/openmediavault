@@ -19,10 +19,6 @@
 
 {% set zeroconf_enabled = salt['pillar.get']('default:OMV_ZEROCONF_ENABLED', 'yes') -%}
 
-unmask_avahi_service:
-  service.unmasked:
-    - name: avahi-daemon
-
 {% if zeroconf_enabled | to_bool %}
 
 start_avahi_socket:
