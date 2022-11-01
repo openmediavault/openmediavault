@@ -61,7 +61,7 @@ export class ApplyConfigComponent implements OnDestroy {
   ) {
     this.subscription = this.systemInformationService.systemInfo$.subscribe(
       (res: SystemInformation) => {
-        this.dirtyModules = _.get(res, 'dirtyModules', []);
+        this.dirtyModules = _.get(res, 'dirtyModules', {});
       }
     );
     this.buttons = [

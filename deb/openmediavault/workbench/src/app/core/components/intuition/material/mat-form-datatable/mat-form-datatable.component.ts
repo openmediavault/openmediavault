@@ -278,7 +278,7 @@ export class MatFormDatatableComponent
     switch (action.id) {
       case 'add':
       case 'edit':
-        const formDialogConfig = _.get(actionConfig, 'formDialogConfig');
+        const formDialogConfig: Record<string, any> = _.get(actionConfig, 'formDialogConfig');
         const data = {
           title: _.get(formDialogConfig, 'title'),
           fields: _.get(formDialogConfig, 'fields')

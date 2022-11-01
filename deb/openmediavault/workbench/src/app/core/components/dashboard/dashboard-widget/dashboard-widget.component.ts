@@ -57,7 +57,7 @@ export class DashboardWidgetComponent implements OnInit, OnDestroy {
       return EMPTY;
     }
     const type = this.config.type;
-    const request = _.get(this.config, `${type}.request`);
+    const request: Record<string, any> = _.get(this.config, `${type}.request`);
     if (!_.isPlainObject(request)) {
       return EMPTY;
     }
