@@ -130,7 +130,7 @@ class Manager {
 		$names = $this->getDirtyModules();
 		$descriptions = array_map(function($name) {
 			$module = $this->getModule($name);
-			return $module->getDescription();
+			return $module ? $module->getDescription() : "";
 		}, $names);
 		return array_combine($names, $descriptions);
 	}
