@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-30 13:07+0100\n"
+"POT-Creation-Date: 2022-10-30 19:48+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2022\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -44,9 +44,6 @@ msgstr "%s [σε %s, %s]"
 
 msgid "%s ago"
 msgstr "%s πριν"
-
-msgid "."
-msgstr "."
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s σημαίνει απεριόριστο."
@@ -3035,9 +3032,6 @@ msgstr "Τερματισμός"
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
-msgid "Signed in as"
-msgstr "Συνδεδεμένος ως"
-
 msgid "Singapore"
 msgstr "Singapore"
 
@@ -3258,8 +3252,10 @@ msgstr "Λογαριασμός συστήματος"
 msgid "System clock synchronization client and server."
 msgstr "Πελάτης και διακομιστής για συγχρονισμό της ώρας του συστήματος."
 
-msgid "System monitoring is disabled. To enable it, please go to the"
-msgstr "Η επίβλεψη συστήματος είναι ανενεργή. Για ενεργοποίηση, πάμε στο"
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
+msgstr ""
 
 msgid "System time"
 msgstr "Ώρα συστήματος"
@@ -3320,8 +3316,8 @@ msgstr "Η ενέργεια που λαμβάνεται με το πάτημα �
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the"
-msgstr "Το ταμπλό δεν έχει ρυθμιστεί ακόμα. Για την προσαρμογή του, μετάβαση σε"
+"the <a href='#/dashboard/settings'>settings page</a>."
+msgstr ""
 
 msgid "The data has been copied to the clipboard."
 msgstr "Τα δεδομένα μεταφέρθηκαν στο πρόχειρο."

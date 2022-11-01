@@ -1,10 +1,4 @@
-openmediavault (6.0.47-1) stable; urgency=low
-
-  *
-
- -- Volker Theile <volker.theile@openmediavault.org>  Sat, 29 Oct 2022 17:50:21 +0200
-
-openmediavault (6.0.46-1) stable; urgency=low
+openmediavault (6.0.46-2) stable; urgency=low
 
   * Update locale files.
   * Hardening the quota deployment script. Skip users/groups that
@@ -13,7 +7,7 @@ openmediavault (6.0.46-1) stable; urgency=low
   * Issue #1377: Display some information about the dirty modules
     in the "Apply configuration" toolbar.
 
- -- Volker Theile <volker.theile@openmediavault.org>  Wed, 29 Oct 2022 16:09:50 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 01 Nov 2022 11:11:04 +0200
 
 openmediavault (6.0.45-1) stable; urgency=low
 

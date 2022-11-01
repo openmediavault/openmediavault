@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-30 13:07+0100\n"
+"POT-Creation-Date: 2022-10-30 19:48+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2012-2015,2017,2019\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
@@ -44,9 +44,6 @@ msgid "%s [on %s, %s]"
 msgstr "%s [em %s, %s]"
 
 msgid "%s ago"
-msgstr ""
-
-msgid "."
 msgstr ""
 
 msgid "0 KiB/s means unlimited."
@@ -3036,9 +3033,6 @@ msgstr "Desligar"
 msgid "Sierra Leone"
 msgstr "Serra Leoa"
 
-msgid "Signed in as"
-msgstr ""
-
 msgid "Singapore"
 msgstr "Singapura"
 
@@ -3259,7 +3253,9 @@ msgstr ""
 msgid "System clock synchronization client and server."
 msgstr ""
 
-msgid "System monitoring is disabled. To enable it, please go to the"
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
 msgstr ""
 
 msgid "System time"
@@ -3321,7 +3317,7 @@ msgstr "A acção a tomar quando se prime o botão de corrente."
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the"
+"the <a href='#/dashboard/settings'>settings page</a>."
 msgstr ""
 
 msgid "The data has been copied to the clipboard."

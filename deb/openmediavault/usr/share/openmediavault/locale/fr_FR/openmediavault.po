@@ -10,8 +10,8 @@
 # Jérémy D <bxt@mondedie.fr>, 2018
 # Jonathan Tasseroul <jonathan.tasseroul@gmail.com>, 2021
 # kevin LECLERCQ <nuklearstriker@gmail.com>, 2020
-# Mathieu Delplanque, 2022
-# Mathieu Delplanque, 2022
+# M@T D., 2022
+# M@T D., 2022
 # Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2012-2013
 # Pierre Girard <pierre4012@hotmail.com>, 2021
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012-2013
@@ -22,9 +22,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-30 13:07+0100\n"
+"POT-Creation-Date: 2022-10-30 19:48+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Mathieu Delplanque, 2022\n"
+"Last-Translator: M@T D., 2022\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,9 +58,6 @@ msgstr "%s [le %s, %s]"
 
 msgid "%s ago"
 msgstr "Il y a %s"
-
-msgid "."
-msgstr "."
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 Ko/s correspond à illimité."
@@ -255,10 +252,10 @@ msgid "A maximum of two device can be removed."
 msgstr "Deux périphériques peuvent être enlevés au maximum."
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
+msgstr "Un puissant serveur modulaire FTP/SFTP/FTPS."
 
 msgid "A secure shell (SSH) server."
-msgstr ""
+msgstr "Un serveur de Shell sécurisé (SSH)."
 
 msgid "ACL"
 msgstr "ACL"
@@ -472,7 +469,7 @@ msgid "Auto logout"
 msgstr "Déconnexion automatique"
 
 msgid "Automatic update and installation of packages."
-msgstr ""
+msgstr "Mise à jour automatique et installation de paquets"
 
 msgid "Available"
 msgstr "Disponible"
@@ -631,7 +628,7 @@ msgid "Certificate"
 msgstr "Certificat"
 
 msgid "Certificate management."
-msgstr ""
+msgstr "Gestion des certificats."
 
 msgid "Certificates"
 msgstr "Certificats"
@@ -751,7 +748,7 @@ msgid "Connections"
 msgstr "Connexions"
 
 msgid "Control and monitor storage systems using S.M.A.R.T."
-msgstr ""
+msgstr "Contrôle et surveille le système de stockage via S.M.A.R.T."
 
 msgid "Conveyance self-test"
 msgstr "Conveyance self-test"
@@ -1337,7 +1334,7 @@ msgid "Forum"
 msgstr "Forum"
 
 msgid "Framework for Multicast DNS Service Discovery."
-msgstr ""
+msgstr "Framework de découverte des services DNS multidiffusion."
 
 msgid "France"
 msgstr "France"
@@ -1463,7 +1460,7 @@ msgid "Hide dot files"
 msgstr "Cacher les fichiers systèmes"
 
 msgid "High-performance mail transport agent."
-msgstr ""
+msgstr "Agent de routage de mails haute-performance."
 
 msgid "Home"
 msgstr "Accueil"
@@ -1889,13 +1886,13 @@ msgid "Malta"
 msgstr "Malte"
 
 msgid "Management of CPUfreq settings."
-msgstr ""
+msgstr "Gestion de la fréquence du processeur."
 
 msgid "Management of scheduled tasks."
-msgstr ""
+msgstr "Gestion des tâches planifiées."
 
 msgid "Management of the file systems to be mounted."
-msgstr ""
+msgstr "Gestion des systèmes de fichiers."
 
 msgid "March"
 msgstr "Mars"
@@ -2274,7 +2271,7 @@ msgid "Package Information"
 msgstr "Informations sur le paquet"
 
 msgid "Package management."
-msgstr ""
+msgstr "Gestion des paquets."
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2325,7 +2322,7 @@ msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr "Coller une clé privée RSA ou ECC au format X.509 PEM ici."
 
 msgid "Pending configuration changes"
-msgstr ""
+msgstr "Changements de configuration en attente"
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "Yémen"
@@ -2764,7 +2761,7 @@ msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - Audit"
 
 msgid "SMB/CIFS file, print, and login server for Unix."
-msgstr ""
+msgstr "Serveur de fichiers SMB/CIFS, d'impression et de connexion."
 
 msgid "SMTP port"
 msgstr "Port SMTP"
@@ -3049,9 +3046,6 @@ msgstr "Arrêter"
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
-msgid "Signed in as"
-msgstr "Connecté en tant que"
-
 msgid "Singapore"
 msgstr "Singapour"
 
@@ -3198,7 +3192,7 @@ msgid "Static"
 msgstr "Statique"
 
 msgid "Statistics collection and monitoring daemon."
-msgstr ""
+msgstr "Service de monitoring et gestion statistiques."
 
 msgid "Status"
 msgstr "Status"
@@ -3270,10 +3264,12 @@ msgid "System account"
 msgstr "Comptes système"
 
 msgid "System clock synchronization client and server."
-msgstr ""
+msgstr "Client et serveur de synchro de l'horloge système."
 
-msgid "System monitoring is disabled. To enable it, please go to the"
-msgstr "La surveillance du système est désactivée. Pour l'activer, merci d'aller au"
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
+msgstr "La surveillance du système est désactivée. Pour l'activer, allez sur la  <a href='#/system/monitoring'>page de paramétrage</a>."
 
 msgid "System time"
 msgstr "Horloge système"
@@ -3334,8 +3330,8 @@ msgstr "L'action effectuée sur un appui sur le bouton d'alimentation."
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the"
-msgstr "Le tableau de bord n'a pas encore été configuré. Pour le personnaliser, veuillez vous rendre dans la section"
+"the <a href='#/dashboard/settings'>settings page</a>."
+msgstr "Le tableau de bord n'a pas encore été configuré. Pour le personnaliser, allez sur la <a href='#/dashboard/settings'>page de paramétrage</a>."
 
 msgid "The data has been copied to the clipboard."
 msgstr "Les données ont été copiées dans le presse-papiers."
@@ -3361,7 +3357,7 @@ msgid "The file system to mount."
 msgstr "Le système de fichier à monter."
 
 msgid "The following modules will be updated:"
-msgstr ""
+msgstr "Les modules suivant vont être mis à jour:"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Le nom de l'hôte est un libellé qui identifie le système sur le réseau."
@@ -3698,7 +3694,7 @@ msgid "Timeout"
 msgstr "Inactivité"
 
 msgid "Tip"
-msgstr ""
+msgstr "Astuce"
 
 msgid "Togo"
 msgstr "Togo"
@@ -3736,7 +3732,7 @@ msgid "Tuesday"
 msgstr "Mardi"
 
 msgid "Tune hard disk parameters."
-msgstr ""
+msgstr "Gestion des paramètres disques durs."
 
 msgid "Tunisia"
 msgstr "Tunisie"
@@ -4163,7 +4159,7 @@ msgid "Yes"
 msgstr "Oui"
 
 msgid "You must apply these changes in order for them to take effect."
-msgstr ""
+msgstr "Vous devez appliquer les changements pour qu'ils prennent effet."
 
 msgid "Your changes will be lost. Do you want to continue?"
 msgstr "Vos changements seront perdus. Voulez-vous continuer ?"

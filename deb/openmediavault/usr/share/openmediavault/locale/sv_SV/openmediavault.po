@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-30 13:07+0100\n"
+"POT-Creation-Date: 2022-10-30 19:48+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2022\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -47,9 +47,6 @@ msgstr "%s [på %s, %s]"
 
 msgid "%s ago"
 msgstr "%s sedan"
-
-msgid "."
-msgstr "."
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s betyder obegränsat."
@@ -244,10 +241,10 @@ msgid "A maximum of two device can be removed."
 msgstr "Maximalt två enheter kan tas bort."
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
+msgstr "En kraftfull modulär FTP/SFTP/FTPS-server."
 
 msgid "A secure shell (SSH) server."
-msgstr ""
+msgstr "En säker skal (SSH)-server."
 
 msgid "ACL"
 msgstr "Åtkomstkontrollista"
@@ -461,7 +458,7 @@ msgid "Auto logout"
 msgstr "Automatisk utloggning"
 
 msgid "Automatic update and installation of packages."
-msgstr ""
+msgstr "Automatisk uppdatering och installation av paket."
 
 msgid "Available"
 msgstr "Tillgänglig"
@@ -620,7 +617,7 @@ msgid "Certificate"
 msgstr "Certifikat"
 
 msgid "Certificate management."
-msgstr ""
+msgstr "Certifikathantering."
 
 msgid "Certificates"
 msgstr "Certifikat"
@@ -740,7 +737,7 @@ msgid "Connections"
 msgstr "Anslutningar"
 
 msgid "Control and monitor storage systems using S.M.A.R.T."
-msgstr ""
+msgstr "Styr och övervaka lagringssystem med S.M.A.R.T."
 
 msgid "Conveyance self-test"
 msgstr "Överföringssjälvtest"
@@ -1326,7 +1323,7 @@ msgid "Forum"
 msgstr "Forum"
 
 msgid "Framework for Multicast DNS Service Discovery."
-msgstr ""
+msgstr "Ramverk för upptäckt av multicast-DNS-tjänster."
 
 msgid "France"
 msgstr "Frankrike"
@@ -1452,7 +1449,7 @@ msgid "Hide dot files"
 msgstr "Dölj punkt-filer"
 
 msgid "High-performance mail transport agent."
-msgstr ""
+msgstr "Högpresterande posttransportagent."
 
 msgid "Home"
 msgstr "Hem"
@@ -1878,13 +1875,13 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Management of CPUfreq settings."
-msgstr ""
+msgstr "Hantering av CPUfreq-inställningar."
 
 msgid "Management of scheduled tasks."
-msgstr ""
+msgstr "Hantering av schemalagda uppgifter."
 
 msgid "Management of the file systems to be mounted."
-msgstr ""
+msgstr "Hantering av filsystemen som ska monteras."
 
 msgid "March"
 msgstr "Mars"
@@ -2263,7 +2260,7 @@ msgid "Package Information"
 msgstr "Paketinformation"
 
 msgid "Package management."
-msgstr ""
+msgstr "Pakethantering."
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2314,7 +2311,7 @@ msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr "Klistra in en RSA- eller ECC-privatnyckel i X.509 PEM-formatet här."
 
 msgid "Pending configuration changes"
-msgstr ""
+msgstr "Väntande konfigurationsändringar"
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "Demokratiska folkrepubliken Jemen"
@@ -2753,7 +2750,7 @@ msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - Revision"
 
 msgid "SMB/CIFS file, print, and login server for Unix."
-msgstr ""
+msgstr "SMB/CIFS-fil-, utskrifts- och inloggningsserver för Unix."
 
 msgid "SMTP port"
 msgstr "SMTP-port"
@@ -3038,9 +3035,6 @@ msgstr "Stäng av"
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
-msgid "Signed in as"
-msgstr "Inloggad som"
-
 msgid "Singapore"
 msgstr "Singapore"
 
@@ -3187,7 +3181,7 @@ msgid "Static"
 msgstr "Statisk"
 
 msgid "Statistics collection and monitoring daemon."
-msgstr ""
+msgstr "Demon för insamling och övervakning av statistik."
 
 msgid "Status"
 msgstr "Status"
@@ -3259,10 +3253,12 @@ msgid "System account"
 msgstr "Systemkonto"
 
 msgid "System clock synchronization client and server."
-msgstr ""
+msgstr "Systemklocksynkronisering, klient och server."
 
-msgid "System monitoring is disabled. To enable it, please go to the"
-msgstr "Systemövervakning är inaktiverad. För att aktivera det, gå till"
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
+msgstr "Systemövervakning är inaktiverad. För att aktivera det, gå till <a href='#/system/monitoring'>inställningssidan</a>."
 
 msgid "System time"
 msgstr "Systemtid"
@@ -3323,8 +3319,8 @@ msgstr "Åtgärden som ska göras när du trycker på strömbrytaren."
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the"
-msgstr "Instrumentpanelen har ännu inte konfigurerats. För att anpassa det, gå till"
+"the <a href='#/dashboard/settings'>settings page</a>."
+msgstr "Instrumentpanelen har ännu inte konfigurerats. För att anpassa den, gå till <a href='#/dashboard/settings'>inställningssidan</a>."
 
 msgid "The data has been copied to the clipboard."
 msgstr "Data har kopierats till urklipp."
@@ -3350,7 +3346,7 @@ msgid "The file system to mount."
 msgstr "Filsystemet som ska monteras."
 
 msgid "The following modules will be updated:"
-msgstr ""
+msgstr "Följande moduler kommer att uppdateras:"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Värdnamnet är en etikett som identifierar systemet till nätverket."
@@ -3687,7 +3683,7 @@ msgid "Timeout"
 msgstr "Timeout"
 
 msgid "Tip"
-msgstr ""
+msgstr "Tips"
 
 msgid "Togo"
 msgstr "Togo"
@@ -3725,7 +3721,7 @@ msgid "Tuesday"
 msgstr "Tisdag"
 
 msgid "Tune hard disk parameters."
-msgstr ""
+msgstr "Justera hårddiskparametrar."
 
 msgid "Tunisia"
 msgstr "Tunisien"
@@ -4152,7 +4148,7 @@ msgid "Yes"
 msgstr "Ja"
 
 msgid "You must apply these changes in order for them to take effect."
-msgstr ""
+msgstr "Du måste tillämpa dessa ändringar för att de ska träda i kraft."
 
 msgid "Your changes will be lost. Do you want to continue?"
 msgstr "Dina ändringar går förlorade. Vill du fortsätta?"
