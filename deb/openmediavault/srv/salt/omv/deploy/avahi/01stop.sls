@@ -17,6 +17,15 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Note, it is necessary to stop the service, otherwise the configuration
+# is auto-reloaded every time a configuration file is modified.
+# Mask the service to prevent restarting via DBUS (.e.g. shairport-sync or
+# forked-daapd).
+mask_avahi_service:
+  service.masked:
+    - name: avahi-daemon
+    - runtime: True
+
 stop_avahi_service:
   service.dead:
     - name: avahi-daemon.service

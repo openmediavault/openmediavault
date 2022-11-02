@@ -1,4 +1,4 @@
-openmediavault (6.0.46-3) stable; urgency=low
+openmediavault (6.0.46-4) stable; urgency=low
 
   * Update locale files.
   * Hardening the quota deployment script. Skip users/groups that
