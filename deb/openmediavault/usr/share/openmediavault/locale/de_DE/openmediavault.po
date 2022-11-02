@@ -1827,7 +1827,7 @@ msgid "Location"
 msgstr "Speicherort"
 
 msgid "Log in"
-msgstr "Einloggen"
+msgstr "Anmelden"
 
 msgid "Log level"
 msgstr "Log Level"
