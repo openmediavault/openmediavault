@@ -17,12 +17,12 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-stop_avahi_socket:
-  service.dead:
-    - name: avahi-daemon.socket
-    - enable: False
-
 stop_avahi_service:
   service.dead:
     - name: avahi-daemon.service
+    - enable: False
+
+stop_avahi_socket:
+  service.dead:
+    - name: avahi-daemon.socket
     - enable: False
