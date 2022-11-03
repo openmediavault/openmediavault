@@ -19,6 +19,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 
+import { CoerceBoolean } from '~/app/decorators';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { UserStorageService } from '~/app/shared/services/user-storage.service';
 
@@ -38,12 +39,15 @@ export class AlertPanelComponent implements OnInit {
   @Input()
   type: 'info' | 'success' | 'warning' | 'error' | 'tip';
 
+  @CoerceBoolean()
   @Input()
   hasTitle = true;
 
+  @CoerceBoolean()
   @Input()
   hasMargin = true;
 
+  @CoerceBoolean()
   @Input()
   dismissible = false;
 

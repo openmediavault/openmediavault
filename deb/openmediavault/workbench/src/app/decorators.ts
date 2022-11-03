@@ -15,6 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import * as _ from 'lodash';
 
 /**
@@ -65,5 +66,28 @@ export function Throttle(wait: number) {
     const originalFn = descriptor.value;
     descriptor.value = _.throttle(originalFn, wait);
     return descriptor;
+  };
+}
+
+/**
+ * Decorator to coercing a data-bound value (typically a string) to a boolean.
+ */
+// eslint-disable-next-line @typescript-eslint/naming-convention,prefer-arrow/prefer-arrow-functions
+export function CoerceBoolean() {
+  return (target: any, propertyKey: string): any => {
+    const _propertyKey = Symbol(propertyKey);
+    target[_propertyKey] = target[propertyKey];
+    Object.defineProperty(target, _propertyKey, {
+      configurable: true,
+      writable: true
+    });
+    return {
+      get() {
+        return this[_propertyKey];
+      },
+      set(value: any) {
+        this[_propertyKey] = coerceBooleanProperty(value);
+      }
+    };
   };
 }
