@@ -28,8 +28,14 @@
   .content-wrapper {
     overflow: hidden;
 
-    &.mat-card-content {
-      margin-bottom: unset;
+    & .mat-card-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: normal;
+    }
+
+    & .mat-card-content {
+      margin-bottom: 0;
     }
   }
 
