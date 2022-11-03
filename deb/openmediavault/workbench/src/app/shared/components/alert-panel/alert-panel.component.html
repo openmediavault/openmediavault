@@ -17,7 +17,8 @@
     </div>
     <mat-card-actions *ngIf="buttons.length"
                       fxLayout="row"
-                      fxLayoutAlign="end start">
+                      fxLayoutAlign="end start"
+                      fxLayout.lt-sm="column-reverse">
       <div *ngFor="let button of buttons"
            class="alert-action-button omv-ml-q"
            [class]="button.class"
