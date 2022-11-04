@@ -145,8 +145,10 @@ case "$1" in
 
 			# Enable and start various services that are necessary for
 			# openmediavault to work correct.
+			deb-systemd-helper unmask systemd-networkd.service
 			deb-systemd-helper enable systemd-networkd.service
 			deb-systemd-invoke start systemd-networkd.service || :
+			deb-systemd-helper unmask systemd-resolved.service
 			deb-systemd-helper enable systemd-resolved.service
 			deb-systemd-invoke start systemd-resolved.service || :
 			deb-systemd-helper enable systemd-journald.service
