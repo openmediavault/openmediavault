@@ -25,6 +25,10 @@ class UsbBackup extends \OMV\Engine\Module\ServiceAbstract
 		return "usbbackup";
 	}
 
+	public function getDescription() {
+		return gettext("Backup to USB device");
+	}
+	
 	/**
 	 * Helper function to find out whether the given shared folder
 	 * configuration object is used. If it is used, then mark the
