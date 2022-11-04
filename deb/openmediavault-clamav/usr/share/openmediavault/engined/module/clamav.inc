@@ -25,6 +25,10 @@ class ClamAV extends \OMV\Engine\Module\ServiceAbstract implements
 		return "clamav";
 	}
 
+	public function getDescription() {
+		return gettext("ClamAV® is an open-source antivirus engine for detecting trojans, viruses, malware & other malicious threats.");
+	}
+	
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.clamav");
