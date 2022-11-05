@@ -1,12 +1,7 @@
-openmediavault (6.0.47-1) stable; urgency=low
-
-  *
-
- -- Volker Theile <volker.theile@openmediavault.org>  Wed, 02 Nov 2022 22:53:32 +0100
-
-openmediavault (6.0.46-4) stable; urgency=low
+openmediavault (6.0.46-5) stable; urgency=low
 
   * Update locale files.
+  * Various improvements.
   * Hardening the quota deployment script. Skip users/groups that
     do not exists anymore.
   * Finally fixing the /run/proftpd issue the systemd way.
