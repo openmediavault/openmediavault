@@ -82,7 +82,7 @@
     "@types/jasmine": "^3.10.6",
     "@types/jasminewd2": "^2.0.10",
     "@types/jest": "^27.5.2",
-    "@types/lodash": "^4.14.187",
+    "@types/lodash": "^4.14.188",
     "@types/node": "^16.18.3",
     "@types/nunjucks": "^3.2.1",
     "@types/validator": "^13.7.10",
