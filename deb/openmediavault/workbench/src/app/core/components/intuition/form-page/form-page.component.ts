@@ -407,7 +407,9 @@ export class FormPageComponent
         const dialogRef = this.dialogService.open(ModalDialogComponent, {
           data: {
             template: 'confirmation-danger',
-            message: gettext('You have made changes that have not yet been saved. Do you want to discard them?')
+            message: gettext(
+              'You have made changes that have not yet been saved. Do you want to discard them?'
+            )
           }
         });
         dialogRef.afterClosed().subscribe((res: any) => {
