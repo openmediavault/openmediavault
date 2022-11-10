@@ -15,19 +15,19 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EMPTY } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
 
-import { FormPageComponent } from '~/app/core/components/intuition/form-page/form-page.component';
 import {
   FormPageButtonConfig,
   FormPageConfig
 } from '~/app/core/components/intuition/models/form-page-config.type';
 import { translate } from '~/app/i18n.helper';
+import { IsDirtyFormPageComponent } from '~/app/pages/is-dirty-page-component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
@@ -38,12 +38,9 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
 })
-export class SharedFolderAclFormPageComponent implements OnInit {
+export class SharedFolderAclFormPageComponent extends IsDirtyFormPageComponent implements OnInit {
   @BlockUI()
   blockUI: NgBlockUI;
-
-  @ViewChild(FormPageComponent, { static: true })
-  private page: FormPageComponent;
 
   public config: FormPageConfig = {
     fields: [
@@ -288,7 +285,9 @@ export class SharedFolderAclFormPageComponent implements OnInit {
     private dialogService: DialogService,
     private notificationService: NotificationService,
     private rpcService: RpcService
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
     const self = this.page;

@@ -19,11 +19,12 @@ import { Component } from '@angular/core';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 
 import { FormPageConfig } from '~/app/core/components/intuition/models/form-page-config.type';
+import { IsDirtyFormPageComponent } from '~/app/pages/is-dirty-page-component';
 
 @Component({
   template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
 })
-export class SystemLogsRemoteFormPageComponent {
+export class SystemLogsRemoteFormPageComponent extends IsDirtyFormPageComponent {
   public config: FormPageConfig = {
     request: {
       service: 'Syslog',

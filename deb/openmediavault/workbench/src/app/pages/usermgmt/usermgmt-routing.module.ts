@@ -15,6 +15,7 @@ import { UserPasswordFormPageComponent } from '~/app/pages/usermgmt/users/user-p
 import { UserPrivilegesDatatablePageComponent } from '~/app/pages/usermgmt/users/user-privileges-datatable-page.component';
 import { UserProfileFormPageComponent } from '~/app/pages/usermgmt/users/user-profile-form-page.component';
 import { UserSettingsFormPageComponent } from '~/app/pages/usermgmt/users/user-settings-form-page.component';
+import { IsDirtyGuardService } from '~/app/shared/services/is-dirty-guard.service';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
   {
     path: 'change-password',
     component: UserPasswordFormPageComponent,
+    canDeactivate: [IsDirtyGuardService],
     data: {
       title: gettext('Change Password'),
       editing: true,
@@ -33,6 +35,7 @@ const routes: Routes = [
   {
     path: 'profile',
     component: UserProfileFormPageComponent,
+    canDeactivate: [IsDirtyGuardService],
     data: {
       title: gettext('Profile'),
       editing: true,
@@ -47,6 +50,7 @@ const routes: Routes = [
       {
         path: 'create',
         component: UserFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Create'),
           editing: false,
@@ -56,11 +60,13 @@ const routes: Routes = [
       {
         path: 'import',
         component: UserImportFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: { title: gettext('Import'), notificationTitle: gettext('Imported users.') }
       },
       {
         path: 'edit/:name',
         component: UserFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Edit'),
           editing: true,
@@ -85,6 +91,7 @@ const routes: Routes = [
       {
         path: 'create',
         component: GroupFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Create'),
           editing: false,
@@ -94,11 +101,13 @@ const routes: Routes = [
       {
         path: 'import',
         component: GroupImportFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: { title: gettext('Import'), notificationTitle: gettext('Imported groups.') }
       },
       {
         path: 'edit/:name',
         component: GroupFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Edit'),
           editing: true,
@@ -118,6 +127,7 @@ const routes: Routes = [
   {
     path: 'settings',
     component: UserSettingsFormPageComponent,
+    canDeactivate: [IsDirtyGuardService],
     data: {
       title: gettext('Settings'),
       editing: true,

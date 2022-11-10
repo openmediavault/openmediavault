@@ -17,6 +17,7 @@ import { InterfaceEthernetFormPageComponent } from '~/app/pages/network/interfac
 import { InterfaceVlanFormPageComponent } from '~/app/pages/network/interfaces/interface-vlan-form-page.component';
 import { InterfaceWifiFormPageComponent } from '~/app/pages/network/interfaces/interface-wifi-form-page.component';
 import { ProxyFormPageComponent } from '~/app/pages/network/proxy/proxy-form-page.component';
+import { IsDirtyGuardService } from '~/app/shared/services/is-dirty-guard.service';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
   {
     path: 'general',
     component: GeneralNetworkFormPageComponent,
+    canDeactivate: [IsDirtyGuardService],
     data: {
       title: gettext('General'),
       notificationTitle: gettext('Updated network settings.'),
@@ -45,6 +47,7 @@ const routes: Routes = [
       {
         path: 'ethernet/create',
         component: InterfaceEthernetFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Create'),
           editing: false,
@@ -54,6 +57,7 @@ const routes: Routes = [
       {
         path: 'ethernet/edit/:uuid',
         component: InterfaceEthernetFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Edit'),
           editing: true,
@@ -63,6 +67,7 @@ const routes: Routes = [
       {
         path: 'wifi/create',
         component: InterfaceWifiFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Create'),
           editing: false,
@@ -72,6 +77,7 @@ const routes: Routes = [
       {
         path: 'wifi/edit/:uuid',
         component: InterfaceWifiFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Edit'),
           editing: true,
@@ -81,6 +87,7 @@ const routes: Routes = [
       {
         path: 'bond/create',
         component: InterfaceBondFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Create'),
           editing: false,
@@ -90,6 +97,7 @@ const routes: Routes = [
       {
         path: 'bond/edit/:uuid',
         component: InterfaceBondFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Edit'),
           editing: true,
@@ -99,6 +107,7 @@ const routes: Routes = [
       {
         path: 'vlan/create',
         component: InterfaceVlanFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Create'),
           editing: false,
@@ -108,6 +117,7 @@ const routes: Routes = [
       {
         path: 'vlan/edit/:uuid',
         component: InterfaceVlanFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Edit'),
           editing: true,
@@ -117,6 +127,7 @@ const routes: Routes = [
       {
         path: 'bridge/create',
         component: InterfaceBridgeFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Create'),
           editing: false,
@@ -126,6 +137,7 @@ const routes: Routes = [
       {
         path: 'bridge/edit/:uuid',
         component: InterfaceBridgeFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Edit'),
           editing: true,
@@ -137,6 +149,7 @@ const routes: Routes = [
   {
     path: 'proxy',
     component: ProxyFormPageComponent,
+    canDeactivate: [IsDirtyGuardService],
     data: {
       title: gettext('Proxy'),
       notificationTitle: gettext('Updated proxy settings.'),
@@ -168,6 +181,7 @@ const routes: Routes = [
           {
             path: ':family/create',
             component: FirewallRuleFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Create'),
               editing: false,
@@ -177,6 +191,7 @@ const routes: Routes = [
           {
             path: ':family/edit/:uuid',
             component: FirewallRuleFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Edit'),
               editing: true,

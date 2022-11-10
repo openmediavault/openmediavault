@@ -19,6 +19,7 @@ import { ServiceSshTextPageComponent } from '~/app/pages/diagnostics/services/se
 import { SystemInformationDatatablePageComponent } from '~/app/pages/diagnostics/system-information/system-information-datatable-page.component';
 import { SystemLogsListPageComponent } from '~/app/pages/diagnostics/system-logs/system-logs-list-page.component';
 import { SystemLogsRemoteFormPageComponent } from '~/app/pages/diagnostics/system-logs/system-logs-remote-form-page.component';
+import { IsDirtyGuardService } from '~/app/shared/services/is-dirty-guard.service';
 
 const routes: Routes = [
   {
@@ -53,6 +54,7 @@ const routes: Routes = [
       {
         path: 'remote',
         component: SystemLogsRemoteFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Remote'),
           notificationTitle: gettext('Updated remote system-logs settings.'),

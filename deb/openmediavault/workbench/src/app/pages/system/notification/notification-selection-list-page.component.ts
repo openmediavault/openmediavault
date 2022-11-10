@@ -18,12 +18,13 @@
 import { Component } from '@angular/core';
 
 import { SelectionListPageConfig } from '~/app/core/components/intuition/models/selection-list-page-config.type';
+import { IsDirtySelectionListPageComponent } from '~/app/pages/is-dirty-page-component';
 
 @Component({
   template:
     '<omv-intuition-selection-list-page [config]="this.config"></omv-intuition-selection-list-page>'
 })
-export class NotificationSelectionListPageComponent {
+export class NotificationSelectionListPageComponent extends IsDirtySelectionListPageComponent {
   public config: SelectionListPageConfig = {
     hasSelectAllButton: true,
     multiple: true,
