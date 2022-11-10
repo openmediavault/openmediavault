@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-30 19:48+0100\n"
+"POT-Creation-Date: 2022-11-10 20:29+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -46,6 +46,9 @@ msgid "%s [on %s, %s]"
 msgstr "%s [on %s, %s]"
 
 msgid "%s ago"
+msgstr ""
+
+msgid "."
 msgstr ""
 
 msgid "0 KiB/s means unlimited."
@@ -3035,6 +3038,9 @@ msgstr "종료"
 msgid "Sierra Leone"
 msgstr "시에라리온"
 
+msgid "Signed in as"
+msgstr ""
+
 msgid "Singapore"
 msgstr "싱가포르"
 
@@ -3255,9 +3261,7 @@ msgstr ""
 msgid "System clock synchronization client and server."
 msgstr ""
 
-msgid ""
-"System monitoring is disabled. To enable it, please go to the <a "
-"href='#/system/monitoring'>settings page</a>."
+msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr ""
 
 msgid "System time"
@@ -3319,7 +3323,7 @@ msgstr "전원 버튼을 눌렀을 때 수행할 작업"
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the <a href='#/dashboard/settings'>settings page</a>."
+"the"
 msgstr ""
 
 msgid "The data has been copied to the clipboard."
@@ -4147,10 +4151,12 @@ msgstr "예맨"
 msgid "Yes"
 msgstr "예"
 
-msgid "You must apply these changes in order for them to take effect."
+msgid ""
+"You have made changes that have not yet been saved. Do you want to discard "
+"them?"
 msgstr ""
 
-msgid "Your changes will be lost. Do you want to continue?"
+msgid "You must apply these changes in order for them to take effect."
 msgstr ""
 
 msgid "Your profile"

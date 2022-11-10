@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-30 19:48+0100\n"
+"POT-Creation-Date: 2022-11-10 20:29+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: jacekniedziolka71 <lucas71@interia.pl>, 2017,2022\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -49,6 +49,9 @@ msgstr "%s [na %s, %s]"
 
 msgid "%s ago"
 msgstr "%s temu"
+
+msgid "."
+msgstr "."
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s oznacza nielimitowny."
@@ -3037,6 +3040,9 @@ msgstr "Wyłącz"
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
+msgid "Signed in as"
+msgstr "Podpisane jako"
+
 msgid "Singapore"
 msgstr "Singapore"
 
@@ -3257,10 +3263,8 @@ msgstr "Konto systemowe."
 msgid "System clock synchronization client and server."
 msgstr ""
 
-msgid ""
-"System monitoring is disabled. To enable it, please go to the <a "
-"href='#/system/monitoring'>settings page</a>."
-msgstr ""
+msgid "System monitoring is disabled. To enable it, please go to the"
+msgstr "Monitoring systemu wyłączony. Aby włączyć idź do"
 
 msgid "System time"
 msgstr "Czas systemowy"
@@ -3321,7 +3325,7 @@ msgstr "Akcja zostanie wykonana po naciśnięciu przycisku zasilania."
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the <a href='#/dashboard/settings'>settings page</a>."
+"the"
 msgstr ""
 
 msgid "The data has been copied to the clipboard."
@@ -4149,11 +4153,13 @@ msgstr "Yemen"
 msgid "Yes"
 msgstr "Tak"
 
-msgid "You must apply these changes in order for them to take effect."
+msgid ""
+"You have made changes that have not yet been saved. Do you want to discard "
+"them?"
 msgstr ""
 
-msgid "Your changes will be lost. Do you want to continue?"
-msgstr "Zmiany zostaną utracone. Chcesz kontynuować?"
+msgid "You must apply these changes in order for them to take effect."
+msgstr ""
 
 msgid "Your profile"
 msgstr "Twój profil"

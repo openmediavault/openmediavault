@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-30 19:48+0100\n"
+"POT-Creation-Date: 2022-11-10 20:29+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2022\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -46,6 +46,9 @@ msgstr "%s [位於 %s, %s]"
 
 msgid "%s ago"
 msgstr "%s 以前"
+
+msgid "."
+msgstr "。"
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s 表示無限制。"
@@ -3034,6 +3037,9 @@ msgstr "關機"
 msgid "Sierra Leone"
 msgstr "塞拉里昂"
 
+msgid "Signed in as"
+msgstr "登入為"
+
 msgid "Singapore"
 msgstr "新加坡"
 
@@ -3254,10 +3260,8 @@ msgstr "系統帳户"
 msgid "System clock synchronization client and server."
 msgstr "客戶端與伺服端系統時鐘同步。"
 
-msgid ""
-"System monitoring is disabled. To enable it, please go to the <a "
-"href='#/system/monitoring'>settings page</a>."
-msgstr "系統監測被停用。若要啟用它，請前往 <a href='#/system/monitoring'>設定頁面</a>。"
+msgid "System monitoring is disabled. To enable it, please go to the"
+msgstr "系統監測已被停用。若要啟動它，請前往"
 
 msgid "System time"
 msgstr "系統時間"
@@ -3318,8 +3322,8 @@ msgstr "當按下電源按鈕時，將執行的動作。"
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the <a href='#/dashboard/settings'>settings page</a>."
-msgstr "儀表板尚未被設置。如要個性化，請前往 <a href='#/dashboard/settings'>設定頁面</a>。"
+"the"
+msgstr "儀表板尚未被設置。如要個性化，請前往"
 
 msgid "The data has been copied to the clipboard."
 msgstr "資料已經被複製到剪貼簿。"
@@ -4146,11 +4150,13 @@ msgstr "葉門"
 msgid "Yes"
 msgstr "是"
 
+msgid ""
+"You have made changes that have not yet been saved. Do you want to discard "
+"them?"
+msgstr ""
+
 msgid "You must apply these changes in order for them to take effect."
 msgstr "您必須套用那些變更，才會使它們生效。"
-
-msgid "Your changes will be lost. Do you want to continue?"
-msgstr "您所做的變更將會被丟失。請問您要繼續嗎？"
 
 msgid "Your profile"
 msgstr "您的概廓"

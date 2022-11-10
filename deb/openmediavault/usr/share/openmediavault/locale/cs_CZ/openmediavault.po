@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-30 19:48+0100\n"
+"POT-Creation-Date: 2022-11-10 20:29+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -45,6 +45,9 @@ msgstr "%s [na %s, %s]"
 
 msgid "%s ago"
 msgstr "před %s"
+
+msgid "."
+msgstr "."
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 (nula) KiB/s znamená neomezené."
@@ -3033,6 +3036,9 @@ msgstr "Vypnout"
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
+msgid "Signed in as"
+msgstr "Přihlášeni jako"
+
 msgid "Singapore"
 msgstr "Singapur"
 
@@ -3253,9 +3259,7 @@ msgstr "Systémový účet"
 msgid "System clock synchronization client and server."
 msgstr ""
 
-msgid ""
-"System monitoring is disabled. To enable it, please go to the <a "
-"href='#/system/monitoring'>settings page</a>."
+msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr ""
 
 msgid "System time"
@@ -3317,8 +3321,8 @@ msgstr "Akce, která bude provedena při stisku tlačítka napájení."
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the <a href='#/dashboard/settings'>settings page</a>."
-msgstr ""
+"the"
+msgstr "Stránka přehledu ještě není nastavená. Pokud si jí chcete přizpůsobit, přejděte na"
 
 msgid "The data has been copied to the clipboard."
 msgstr "Data byla zkopírována do schránky."
@@ -4145,11 +4149,13 @@ msgstr "Jemen"
 msgid "Yes"
 msgstr "Ano"
 
-msgid "You must apply these changes in order for them to take effect."
+msgid ""
+"You have made changes that have not yet been saved. Do you want to discard "
+"them?"
 msgstr ""
 
-msgid "Your changes will be lost. Do you want to continue?"
-msgstr "Vámi provedené změny budou ztraceny. Chcete pokračovat?"
+msgid "You must apply these changes in order for them to take effect."
+msgstr ""
 
 msgid "Your profile"
 msgstr "Váš profil"

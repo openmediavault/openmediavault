@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-30 19:48+0100\n"
+"POT-Creation-Date: 2022-11-10 20:29+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2022\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -47,6 +47,9 @@ msgstr "%s [på %s, %s]"
 
 msgid "%s ago"
 msgstr "%s sedan"
+
+msgid "."
+msgstr "."
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s betyder obegränsat."
@@ -3035,6 +3038,9 @@ msgstr "Stäng av"
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
+msgid "Signed in as"
+msgstr "Inloggad som"
+
 msgid "Singapore"
 msgstr "Singapore"
 
@@ -3255,10 +3261,8 @@ msgstr "Systemkonto"
 msgid "System clock synchronization client and server."
 msgstr "Systemklocksynkronisering, klient och server."
 
-msgid ""
-"System monitoring is disabled. To enable it, please go to the <a "
-"href='#/system/monitoring'>settings page</a>."
-msgstr "Systemövervakning är inaktiverad. För att aktivera det, gå till <a href='#/system/monitoring'>inställningssidan</a>."
+msgid "System monitoring is disabled. To enable it, please go to the"
+msgstr "Systemövervakning är inaktiverad. För att aktivera det, gå till"
 
 msgid "System time"
 msgstr "Systemtid"
@@ -3319,8 +3323,8 @@ msgstr "Åtgärden som ska göras när du trycker på strömbrytaren."
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the <a href='#/dashboard/settings'>settings page</a>."
-msgstr "Instrumentpanelen har ännu inte konfigurerats. För att anpassa den, gå till <a href='#/dashboard/settings'>inställningssidan</a>."
+"the"
+msgstr "Instrumentpanelen har ännu inte konfigurerats. För att anpassa det, gå till"
 
 msgid "The data has been copied to the clipboard."
 msgstr "Data har kopierats till urklipp."
@@ -4147,11 +4151,13 @@ msgstr "Yemen"
 msgid "Yes"
 msgstr "Ja"
 
+msgid ""
+"You have made changes that have not yet been saved. Do you want to discard "
+"them?"
+msgstr ""
+
 msgid "You must apply these changes in order for them to take effect."
 msgstr "Du måste tillämpa dessa ändringar för att de ska träda i kraft."
-
-msgid "Your changes will be lost. Do you want to continue?"
-msgstr "Dina ändringar går förlorade. Vill du fortsätta?"
 
 msgid "Your profile"
 msgstr "Din profil"

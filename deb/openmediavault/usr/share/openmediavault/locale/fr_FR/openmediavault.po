@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-30 19:48+0100\n"
+"POT-Creation-Date: 2022-11-10 20:29+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: M@T D., 2022\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -58,6 +58,9 @@ msgstr "%s [le %s, %s]"
 
 msgid "%s ago"
 msgstr "Il y a %s"
+
+msgid "."
+msgstr "."
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 Ko/s correspond à illimité."
@@ -3046,6 +3049,9 @@ msgstr "Arrêter"
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
+msgid "Signed in as"
+msgstr "Connecté en tant que"
+
 msgid "Singapore"
 msgstr "Singapour"
 
@@ -3266,10 +3272,8 @@ msgstr "Comptes système"
 msgid "System clock synchronization client and server."
 msgstr "Client et serveur de synchro de l'horloge système."
 
-msgid ""
-"System monitoring is disabled. To enable it, please go to the <a "
-"href='#/system/monitoring'>settings page</a>."
-msgstr "La surveillance du système est désactivée. Pour l'activer, allez sur la  <a href='#/system/monitoring'>page de paramétrage</a>."
+msgid "System monitoring is disabled. To enable it, please go to the"
+msgstr "La surveillance du système est désactivée. Pour l'activer, merci d'aller au"
 
 msgid "System time"
 msgstr "Horloge système"
@@ -3330,8 +3334,8 @@ msgstr "L'action effectuée sur un appui sur le bouton d'alimentation."
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the <a href='#/dashboard/settings'>settings page</a>."
-msgstr "Le tableau de bord n'a pas encore été configuré. Pour le personnaliser, allez sur la <a href='#/dashboard/settings'>page de paramétrage</a>."
+"the"
+msgstr "Le tableau de bord n'a pas encore été configuré. Pour le personnaliser, veuillez vous rendre dans la section"
 
 msgid "The data has been copied to the clipboard."
 msgstr "Les données ont été copiées dans le presse-papiers."
@@ -4158,11 +4162,13 @@ msgstr "Yémen"
 msgid "Yes"
 msgstr "Oui"
 
+msgid ""
+"You have made changes that have not yet been saved. Do you want to discard "
+"them?"
+msgstr ""
+
 msgid "You must apply these changes in order for them to take effect."
 msgstr "Vous devez appliquer les changements pour qu'ils prennent effet."
-
-msgid "Your changes will be lost. Do you want to continue?"
-msgstr "Vos changements seront perdus. Voulez-vous continuer ?"
 
 msgid "Your profile"
 msgstr "Votre profil"

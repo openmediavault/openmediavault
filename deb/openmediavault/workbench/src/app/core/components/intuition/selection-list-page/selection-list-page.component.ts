@@ -123,7 +123,7 @@ export class SelectionListPageComponent
       const dialogRef = this.dialogService.open(ModalDialogComponent, {
         data: {
           template: 'confirmation-danger',
-          message: gettext('Your changes will be lost. Do you want to continue?')
+          message: gettext('You have made changes that have not yet been saved. Do you want to discard them?')
         }
       });
       dialogRef.afterClosed().subscribe((res: any) => {

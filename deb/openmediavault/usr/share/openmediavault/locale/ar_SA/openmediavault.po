@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-30 19:48+0100\n"
+"POT-Creation-Date: 2022-11-10 20:29+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2022\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -45,6 +45,9 @@ msgstr "٪s [على ٪s ، ٪s]"
 
 msgid "%s ago"
 msgstr "منذ %s "
+
+msgid "."
+msgstr ""
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s يعني غير محدود."
@@ -3033,6 +3036,9 @@ msgstr "إيقاف التشغيل"
 msgid "Sierra Leone"
 msgstr "سيراليون"
 
+msgid "Signed in as"
+msgstr ""
+
 msgid "Singapore"
 msgstr "سنغافورة"
 
@@ -3253,9 +3259,7 @@ msgstr ""
 msgid "System clock synchronization client and server."
 msgstr ""
 
-msgid ""
-"System monitoring is disabled. To enable it, please go to the <a "
-"href='#/system/monitoring'>settings page</a>."
+msgid "System monitoring is disabled. To enable it, please go to the"
 msgstr ""
 
 msgid "System time"
@@ -3317,7 +3321,7 @@ msgstr "الإجراء الذي يجب القيام به عند الضغط عل�
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the <a href='#/dashboard/settings'>settings page</a>."
+"the"
 msgstr ""
 
 msgid "The data has been copied to the clipboard."
@@ -4145,10 +4149,12 @@ msgstr "اليمن"
 msgid "Yes"
 msgstr "نعم"
 
-msgid "You must apply these changes in order for them to take effect."
+msgid ""
+"You have made changes that have not yet been saved. Do you want to discard "
+"them?"
 msgstr ""
 
-msgid "Your changes will be lost. Do you want to continue?"
+msgid "You must apply these changes in order for them to take effect."
 msgstr ""
 
 msgid "Your profile"
