@@ -26,7 +26,7 @@ class UsbBackup extends \OMV\Engine\Module\ServiceAbstract
 	}
 
 	public function getDescription() {
-		return gettext("Backup to USB device");
+		return gettext("openmediavault USB/eSATA backup plugin");
 	}
 	
 	/**
