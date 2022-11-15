@@ -269,16 +269,11 @@ export class FilesystemDatatablePageComponent {
         tooltip: gettext('Unmount'),
         enabledConstraints: {
           constraint: [
-            // Disable button if file system is in use or read-only.
+            // Disable button if file system is in use.
             {
               operator: 'if',
               arg0: { operator: 'has', arg0: { prop: '_used' } },
               arg1: { operator: 'falsy', arg0: { prop: '_used' } }
-            },
-            {
-              operator: 'if',
-              arg0: { operator: 'has', arg0: { prop: '_readonly' } },
-              arg1: { operator: 'falsy', arg0: { prop: '_readonly' } }
             },
             // Disable button if file system is initialized (status=2)
             // at the moment.
