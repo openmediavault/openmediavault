@@ -120,8 +120,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				"propfstab" => $fsb->hasFstabSupport(),
 				"propreadonly" => $fsb->hasReadOnlySupport(),
 				"propcompress" => $fsb->hasCompressSupport(),
-				"propautodefrag" => $fsb->hasAutoDefragSupport(),
-				"_readonly" => $fsb->hasReadOnlySupport()
+				"propautodefrag" => $fsb->hasAutoDefragSupport()
 			]);
 		}
 		return $result;
