@@ -15,26 +15,22 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
 
-import { DatatablePageComponent } from '~/app/core/components/intuition/datatable-page/datatable-page.component';
 import { DatatablePageActionConfig } from '~/app/core/components/intuition/models/datatable-page-action-config.type';
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
+import { IsDirtyDatatablePageComponent } from '~/app/pages/is-dirty-page-component';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { Datatable } from '~/app/shared/models/datatable.interface';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  template:
-    '<omv-intuition-datatable-page #page [config]="this.config"></omv-intuition-datatable-page>'
+  template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
 })
-export class FirewallRuleInet6DatatablePageComponent {
-  @ViewChild('page', { static: true })
-  page: DatatablePageComponent;
-
+export class FirewallRuleInet6DatatablePageComponent extends IsDirtyDatatablePageComponent {
   public config: DatatablePageConfig = {
     stateId: 'da278886-7c09-11ea-a477-a7d7e6d13d1d',
     autoReload: false,
@@ -176,9 +172,9 @@ export class FirewallRuleInet6DatatablePageComponent {
     ]
   };
 
-  private dirty = false;
-
-  constructor(private rpcService: RpcService, private notificationService: NotificationService) {}
+  constructor(private rpcService: RpcService, private notificationService: NotificationService) {
+    super();
+  }
 
   onSave(action: DatatablePageActionConfig, table: Datatable) {
     this.rpcService.request('Iptables', 'setRules6', table.data).subscribe(() => {

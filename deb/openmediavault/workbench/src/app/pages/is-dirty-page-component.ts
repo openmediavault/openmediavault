@@ -19,6 +19,7 @@
 import { Directive, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { DatatablePageComponent } from '~/app/core/components/intuition/datatable-page/datatable-page.component';
 import { FormPageComponent } from '~/app/core/components/intuition/form-page/form-page.component';
 import { SelectionListPageComponent } from '~/app/core/components/intuition/selection-list-page/selection-list-page.component';
 import { IsDirty } from '~/app/shared/models/is-dirty.interface';
@@ -40,5 +41,17 @@ export class IsDirtySelectionListPageComponent implements IsDirty {
 
   isDirty(): Observable<boolean> | Promise<boolean> | boolean {
     return this.page?.isDirty?.() ?? false;
+  }
+}
+
+@Directive()
+export class IsDirtyDatatablePageComponent implements IsDirty {
+  @ViewChild(DatatablePageComponent, { static: true })
+  protected page: DatatablePageComponent;
+
+  protected dirty = false;
+
+  isDirty(): Observable<boolean> | Promise<boolean> | boolean {
+    return this.dirty;
   }
 }

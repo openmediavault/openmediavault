@@ -174,8 +174,16 @@ const routes: Routes = [
                 redirectTo: 'inet',
                 pathMatch: 'full'
               },
-              { path: 'inet', component: FirewallRuleInetDatatablePageComponent },
-              { path: 'inet6', component: FirewallRuleInet6DatatablePageComponent }
+              {
+                path: 'inet',
+                component: FirewallRuleInetDatatablePageComponent,
+                canDeactivate: [IsDirtyGuardService]
+              },
+              {
+                path: 'inet6',
+                component: FirewallRuleInet6DatatablePageComponent,
+                canDeactivate: [IsDirtyGuardService]
+              }
             ]
           },
           {

@@ -51,7 +51,7 @@ export class SelectionListPageComponent
 
   public error: HttpErrorResponse;
   public loading = false;
-  public pristine = true;
+  public dirty = false;
   public data: Record<string, any>[] = [];
 
   constructor(
@@ -70,7 +70,7 @@ export class SelectionListPageComponent
   }
 
   isDirty(): boolean {
-    return !this.pristine;
+    return this.dirty;
   }
 
   onSelectAll(): void {
@@ -84,7 +84,7 @@ export class SelectionListPageComponent
       _.forEach(this.config.store.data, (item: Record<string, any>) => {
         _.set(item, this.config.selectedProp, !allSelected);
       });
-      this.pristine = false;
+      this.dirty = true;
     }
   }
 
@@ -97,7 +97,7 @@ export class SelectionListPageComponent
       if (-1 !== index) {
         const item: Record<string, any> = _.nth(this.config.store.data, index);
         _.set(item, this.config.selectedProp, event.options[0].selected);
-        this.pristine = false;
+        this.dirty = true;
       }
     }
   }
