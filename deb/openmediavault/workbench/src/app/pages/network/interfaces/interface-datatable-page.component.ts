@@ -19,11 +19,13 @@ import { Component } from '@angular/core';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
+import { IsDirtyFormPageComponent } from '~/app/pages/is-dirty-page-component';
 
 @Component({
-  template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
+  template:
+    '<omv-intuition-datatable-page #page [config]="this.config"></omv-intuition-datatable-page>'
 })
-export class InterfaceDatatablePageComponent {
+export class InterfaceDatatablePageComponent extends IsDirtyFormPageComponent {
   public config: DatatablePageConfig = {
     stateId: '1c782151-4393-493b-9767-257620370fb2',
     autoReload: false,

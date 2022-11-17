@@ -29,6 +29,7 @@ import { SelectionListPageComponent } from '~/app/core/components/intuition/sele
 import { TabsPageComponent } from '~/app/core/components/intuition/tabs-page/tabs-page.component';
 import { TextPageComponent } from '~/app/core/components/intuition/text-page/text-page.component';
 import { NavigationPageComponent } from '~/app/core/pages/navigation-page/navigation-page.component';
+import { IsDirtyGuardService } from '~/app/shared/services/is-dirty-guard.service';
 
 const componentMap: Record<string, Type<any>> = {
   navigationPage: NavigationPageComponent,
@@ -88,7 +89,7 @@ export class RouteConfigService {
         // Convert the loaded route configuration into Angular
         // 'Route' objects.
         _.forEach(configs, (config) => {
-          routes.push({
+          const route = {
             path: config.url,
             component: componentMap[config.component.type],
             data: {
@@ -97,7 +98,16 @@ export class RouteConfigService {
               notificationTitle: config.notificationTitle,
               config: config.component.config
             }
-          });
+          };
+          switch (config.component.type) {
+            case 'formPage':
+            case 'selectionListPage':
+              _.merge(route, {
+                canDeactivate: [IsDirtyGuardService]
+              });
+              break;
+          }
+          routes.push(route);
         });
         this.configsSource.next(routes);
         return routes;
@@ -156,7 +166,8 @@ export class RouteConfigService {
               node.children.push({
                 path: '',
                 component: node.component,
-                data: _.pick(node.data, ['config'])
+                data: _.pick(node.data, ['config']),
+                canDeactivate: node.canDeactivate
               });
               node.data = _.pick(node.data, ['title']);
               delete node.component;

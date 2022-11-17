@@ -30,12 +30,11 @@ import {
   SelectionListPageConfig
 } from '~/app/core/components/intuition/models/selection-list-page-config.type';
 import { format, toBoolean } from '~/app/functions.helper';
-import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DataStore } from '~/app/shared/models/data-store.type';
+import { IsDirty } from '~/app/shared/models/is-dirty.interface';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
-import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 
 @Component({
@@ -45,21 +44,20 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 })
 export class SelectionListPageComponent
   extends AbstractPageComponent<SelectionListPageConfig>
-  implements OnInit
+  implements OnInit, IsDirty
 {
   @ViewChild('list', { static: true })
   list: MatSelectionList;
 
   public error: HttpErrorResponse;
   public loading = false;
-  public pristine = true;
+  public dirty = false;
   public data: Record<string, any>[] = [];
 
   constructor(
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
     private dataStoreService: DataStoreService,
-    private dialogService: DialogService,
     private notificationService: NotificationService,
     private router: Router
   ) {
@@ -69,6 +67,10 @@ export class SelectionListPageComponent
   ngOnInit(): void {
     super.ngOnInit();
     this.loadData();
+  }
+
+  isDirty(): boolean {
+    return this.dirty;
   }
 
   onSelectAll(): void {
@@ -82,7 +84,7 @@ export class SelectionListPageComponent
       _.forEach(this.config.store.data, (item: Record<string, any>) => {
         _.set(item, this.config.selectedProp, !allSelected);
       });
-      this.pristine = false;
+      this.dirty = true;
     }
   }
 
@@ -95,46 +97,27 @@ export class SelectionListPageComponent
       if (-1 !== index) {
         const item: Record<string, any> = _.nth(this.config.store.data, index);
         _.set(item, this.config.selectedProp, event.options[0].selected);
-        this.pristine = false;
+        this.dirty = true;
       }
     }
   }
 
   onButtonClick(buttonConfig: SelectionListPageButtonConfig): void {
-    const doButtonActionFn = () => {
-      switch (buttonConfig?.execute?.type) {
-        case 'click':
-          if (_.isFunction(buttonConfig.execute.click)) {
-            const values = [];
-            _.forEach(this.list.selectedOptions.selected, (selected) => {
-              values.push(selected.value);
-            });
-            buttonConfig.execute.click(buttonConfig, this.config.store, values);
-          }
-          break;
-        case 'url':
-          if (!_.isEmpty(buttonConfig.execute.url)) {
-            this.router.navigate([buttonConfig.execute.url]);
-          }
-          break;
-      }
-    };
-    if (!this.pristine && ['back', 'cancel'].includes(buttonConfig?.template)) {
-      const dialogRef = this.dialogService.open(ModalDialogComponent, {
-        data: {
-          template: 'confirmation-danger',
-          message: gettext(
-            'You have made changes that have not yet been saved. Do you want to discard them?'
-          )
+    switch (buttonConfig?.execute?.type) {
+      case 'click':
+        if (_.isFunction(buttonConfig.execute.click)) {
+          const values = [];
+          _.forEach(this.list.selectedOptions.selected, (selected) => {
+            values.push(selected.value);
+          });
+          buttonConfig.execute.click(buttonConfig, this.config.store, values);
         }
-      });
-      dialogRef.afterClosed().subscribe((res: any) => {
-        if (true === res) {
-          doButtonActionFn();
+        break;
+      case 'url':
+        if (!_.isEmpty(buttonConfig.execute.url)) {
+          this.router.navigate([buttonConfig.execute.url]);
         }
-      });
-    } else {
-      doButtonActionFn();
+        break;
     }
   }
 

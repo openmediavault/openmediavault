@@ -29,6 +29,7 @@ import { SmartDeviceFormPageComponent } from '~/app/pages/storage/smart/smart-de
 import { SmartSettingsFormPageComponent } from '~/app/pages/storage/smart/smart-settings-form-page.component';
 import { SmartTaskDatatablePageComponent } from '~/app/pages/storage/smart/smart-task-datatable-page.component';
 import { SmartTaskFormPageComponent } from '~/app/pages/storage/smart/smart-task-form-page.component';
+import { IsDirtyGuardService } from '~/app/shared/services/is-dirty-guard.service';
 
 const routes: Routes = [
   {
@@ -43,11 +44,13 @@ const routes: Routes = [
       {
         path: 'hdparm/create/:devicefile',
         component: DiskFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: { title: gettext('Edit'), editing: false }
       },
       {
         path: 'hdparm/edit/:uuid',
         component: DiskFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: { title: gettext('Edit'), editing: true }
       }
     ]
@@ -60,6 +63,7 @@ const routes: Routes = [
       {
         path: 'settings',
         component: SmartSettingsFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: { title: gettext('Settings'), editing: true }
       },
       {
@@ -75,11 +79,13 @@ const routes: Routes = [
           {
             path: 'create/:uuid/:devicefile',
             component: SmartDeviceFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: { title: gettext('Edit'), editing: false }
           },
           {
             path: 'edit/:uuid/:devicefile',
             component: SmartDeviceFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: { title: gettext('Edit'), editing: true }
           }
         ]
@@ -92,11 +98,13 @@ const routes: Routes = [
           {
             path: 'create',
             component: SmartTaskFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: { title: gettext('Create'), editing: false }
           },
           {
             path: 'edit/:uuid',
             component: SmartTaskFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: { title: gettext('Edit'), editing: true }
           }
         ]
@@ -111,21 +119,25 @@ const routes: Routes = [
       {
         path: 'create',
         component: MdFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: { title: gettext('Create'), editing: false }
       },
       {
         path: 'grow/:devicefile',
         component: MdGrowFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: { title: gettext('Grow'), editing: false }
       },
       {
         path: 'remove/:devicefile',
         component: MdRemoveFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: { title: gettext('Remove'), editing: true }
       },
       {
         path: 'recover/:devicefile',
         component: MdRecoverFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: { title: gettext('Recover'), editing: false }
       },
       {
@@ -143,11 +155,13 @@ const routes: Routes = [
       {
         path: 'create',
         component: SharedFolderFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: { title: gettext('Create'), editing: false }
       },
       {
         path: 'edit/:uuid',
         component: SharedFolderFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Edit'),
           editing: true,
@@ -165,6 +179,7 @@ const routes: Routes = [
       {
         path: 'acl/:uuid',
         component: SharedFolderAclFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('ACL'),
           notificationTitle: gettext('Updated access control list of shared folder.')
@@ -180,16 +195,19 @@ const routes: Routes = [
       {
         path: 'create',
         component: FilesystemCreateFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: { title: gettext('Create'), editing: false }
       },
       {
         path: 'mount',
         component: FilesystemMountFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: { title: gettext('Mount'), editing: false }
       },
       {
         path: 'edit/:fsname',
         component: FilesystemEditFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Edit'),
           editing: true,
@@ -204,6 +222,7 @@ const routes: Routes = [
           {
             path: 'edit/:type/:name',
             component: FilesystemQuotaFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Edit'),
               editing: true,

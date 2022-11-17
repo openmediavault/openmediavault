@@ -23,7 +23,7 @@ import { catchError, tap } from 'rxjs/operators';
 
 import { DatatableColumn } from '~/app/shared/models/datatable-column.type';
 
-export interface ILogConfig {
+export type LogConfig = {
   // A unique identifier.
   id: string;
   text: string;
@@ -39,21 +39,21 @@ export interface ILogConfig {
     dir: 'asc' | 'desc';
     prop: string;
   }>;
-}
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class LogConfigService {
-  public readonly configs$: Observable<ILogConfig[]>;
+  public readonly configs$: Observable<LogConfig[]>;
 
-  private configsSource = new ReplaySubject<ILogConfig[]>(1);
+  private configsSource = new ReplaySubject<LogConfig[]>(1);
 
   constructor(private http: HttpClient) {
     this.configs$ = this.configsSource.asObservable();
   }
 
-  public load(): Observable<ILogConfig[]> {
+  public load(): Observable<LogConfig[]> {
     return this.http.get('./assets/log-config.json').pipe(
       catchError((error) => {
         if (_.isFunction(error.preventDefault)) {
@@ -61,7 +61,7 @@ export class LogConfigService {
         }
         return of([]);
       }),
-      tap((logs: Array<ILogConfig>) => {
+      tap((logs: Array<LogConfig>) => {
         this.configsSource.next(logs);
       })
     );

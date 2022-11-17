@@ -23,6 +23,7 @@ import * as _ from 'lodash';
 import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/dashboard-widget-config.model';
 import { SelectionListPageConfig } from '~/app/core/components/intuition/models/selection-list-page-config.type';
 import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widget-config.service';
+import { IsDirtySelectionListPageComponent } from '~/app/pages/is-dirty-page-component';
 
 type SelectionListItem = Pick<DashboardWidgetConfig, 'id' | 'title' | 'description'> & {
   enabled: boolean;
@@ -32,7 +33,10 @@ type SelectionListItem = Pick<DashboardWidgetConfig, 'id' | 'title' | 'descripti
   template:
     '<omv-intuition-selection-list-page [config]="this.config"></omv-intuition-selection-list-page>'
 })
-export class DashboardSettingsPageComponent implements OnInit {
+export class DashboardSettingsPageComponent
+  extends IsDirtySelectionListPageComponent
+  implements OnInit
+{
   public config: SelectionListPageConfig = {
     title: gettext('Enabled widgets'),
     hasSelectAllButton: true,
@@ -72,7 +76,9 @@ export class DashboardSettingsPageComponent implements OnInit {
   constructor(
     private dashboardWidgetConfigService: DashboardWidgetConfigService,
     private router: Router
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
     this.dashboardWidgetConfigService.configs$.subscribe(

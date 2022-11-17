@@ -21,17 +21,16 @@ import * as _ from 'lodash';
 
 import { DatatablePageComponent } from '~/app/core/components/intuition/datatable-page/datatable-page.component';
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
-import { ILogConfig, LogConfigService } from '~/app/core/services/log-config.service';
+import { LogConfig, LogConfigService } from '~/app/core/services/log-config.service';
 import { translate } from '~/app/i18n.helper';
 import { DatatableAction } from '~/app/shared/models/datatable-action.type';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  template:
-    '<omv-intuition-datatable-page #page [config]="this.config"></omv-intuition-datatable-page>'
+  template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
 })
 export class SystemLogsListPageComponent implements OnInit {
-  @ViewChild('page', { static: true })
+  @ViewChild(DatatablePageComponent, { static: true })
   page: DatatablePageComponent;
 
   public config: DatatablePageConfig = {
@@ -77,7 +76,7 @@ export class SystemLogsListPageComponent implements OnInit {
   constructor(private rpcService: RpcService, private logConfigService: LogConfigService) {}
 
   ngOnInit(): void {
-    this.logConfigService.configs$.subscribe((logConfigs: Array<ILogConfig>) => {
+    this.logConfigService.configs$.subscribe((logConfigs: Array<LogConfig>) => {
       this.config.actions[0].store.data = _.chain(logConfigs)
         .sortBy(['text'])
         .map((systemLogConfig) => ({
@@ -89,8 +88,8 @@ export class SystemLogsListPageComponent implements OnInit {
   }
 
   onSelectionChange(action: DatatableAction, value: string) {
-    this.logConfigService.configs$.subscribe((logs: Array<ILogConfig>) => {
-      const logConfig = logs.find((lc: ILogConfig) => lc.id === value);
+    this.logConfigService.configs$.subscribe((logs: Array<LogConfig>) => {
+      const logConfig = logs.find((lc: LogConfig) => lc.id === value);
       if (!_.isUndefined(logConfig)) {
         this.logId = value;
         // Update the configuration of the datatable.

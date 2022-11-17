@@ -25,6 +25,7 @@ import { PowermgmtTaskFormPageComponent } from '~/app/pages/system/powermgmt/pow
 import { UpdateDatatablePageComponent } from '~/app/pages/system/updates/update-datatable-page.component';
 import { UpdateSettingsFormPageComponent } from '~/app/pages/system/updates/update-settings-form-page.component';
 import { WorkbenchFormPageComponent } from '~/app/pages/system/workbench/workbench-form-page.component';
+import { IsDirtyGuardService } from '~/app/shared/services/is-dirty-guard.service';
 
 const routes: Routes = [
   {
@@ -34,6 +35,7 @@ const routes: Routes = [
   {
     path: 'workbench',
     component: WorkbenchFormPageComponent,
+    canDeactivate: [IsDirtyGuardService],
     data: {
       title: gettext('Workbench'),
       notificationTitle: gettext('Updated workbench settings.'),
@@ -56,6 +58,7 @@ const routes: Routes = [
           {
             path: 'create',
             component: SslCertificateFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Create'),
               notificationTitle: gettext('Created SSL certificate.')
@@ -69,6 +72,7 @@ const routes: Routes = [
           {
             path: 'import',
             component: SslCertificateImportFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Import'),
               notificationTitle: gettext('Imported SSL certificate.')
@@ -84,6 +88,7 @@ const routes: Routes = [
           {
             path: 'create',
             component: SshCertificateCreateFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Create'),
               notificationTitle: gettext('Created SSH certificate.')
@@ -92,6 +97,7 @@ const routes: Routes = [
           {
             path: 'edit/:uuid',
             component: SshCertificateEditFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Edit'),
               notificationTitle: gettext('Updated SSH certificate.'),
@@ -101,6 +107,7 @@ const routes: Routes = [
           {
             path: 'import',
             component: SshCertificateImportFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Import'),
               notificationTitle: gettext('Imported SSH certificate.')
@@ -113,6 +120,7 @@ const routes: Routes = [
   {
     path: 'monitoring',
     component: MonitoringFormPageComponent,
+    canDeactivate: [IsDirtyGuardService],
     data: {
       title: gettext('Monitoring'),
       notificationTitle: gettext('Updated monitoring settings.'),
@@ -130,6 +138,7 @@ const routes: Routes = [
       {
         path: 'settings',
         component: NotificationSettingsFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Settings'),
           notificationTitle: gettext('Updated notification settings.'),
@@ -139,6 +148,7 @@ const routes: Routes = [
       {
         path: 'notifications',
         component: NotificationSelectionListPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Notifications'),
           notificationTitle: gettext('Updated notification settings.')
@@ -149,6 +159,7 @@ const routes: Routes = [
   {
     path: 'date-time',
     component: DateTimeFormPageComponent,
+    canDeactivate: [IsDirtyGuardService],
     data: {
       title: gettext('Date & Time'),
       notificationTitle: gettext('Updated date & time settings.'),
@@ -166,6 +177,7 @@ const routes: Routes = [
       {
         path: 'settings',
         component: PowermgmtSettingsFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Settings'),
           notificationTitle: gettext('Updated power management settings.'),
@@ -180,6 +192,7 @@ const routes: Routes = [
           {
             path: 'create',
             component: PowermgmtTaskFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Create'),
               notificationTitle: gettext('Created scheduled task.'),
@@ -189,6 +202,7 @@ const routes: Routes = [
           {
             path: 'edit/:uuid',
             component: PowermgmtTaskFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Edit'),
               notificationTitle: gettext('Updated scheduled task.'),
@@ -207,6 +221,7 @@ const routes: Routes = [
       {
         path: 'create',
         component: CronTaskFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Create'),
           editing: false,
@@ -216,6 +231,7 @@ const routes: Routes = [
       {
         path: 'edit/:uuid',
         component: CronTaskFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Edit'),
           editing: true,
@@ -240,6 +256,7 @@ const routes: Routes = [
       {
         path: 'settings',
         component: UpdateSettingsFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Settings'),
           notificationTitle: gettext('Updated update management settings.'),

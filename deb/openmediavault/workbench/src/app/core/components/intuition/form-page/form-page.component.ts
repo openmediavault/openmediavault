@@ -41,6 +41,7 @@ import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
+import { IsDirty } from '~/app/shared/models/is-dirty.interface';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
@@ -61,7 +62,7 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 })
 export class FormPageComponent
   extends AbstractPageComponent<FormPageConfig>
-  implements AfterViewInit, OnInit, OnDestroy
+  implements AfterViewInit, OnInit, OnDestroy, IsDirty
 {
   @BlockUI()
   blockUI: NgBlockUI;
@@ -144,6 +145,10 @@ export class FormPageComponent
         })
       );
     }
+  }
+
+  isDirty(): boolean {
+    return this.form.formGroup.dirty;
   }
 
   loadData(): void {
@@ -398,25 +403,6 @@ export class FormPageComponent
         } else {
           doRpcRequestFn();
         }
-      } else {
-        doPreButtonActionFn();
-      }
-    } else if ('cancel' === buttonConfig.template) {
-      // Process 'Cancel' buttons.
-      if (this.form.formGroup.dirty) {
-        const dialogRef = this.dialogService.open(ModalDialogComponent, {
-          data: {
-            template: 'confirmation-danger',
-            message: gettext(
-              'You have made changes that have not yet been saved. Do you want to discard them?'
-            )
-          }
-        });
-        dialogRef.afterClosed().subscribe((res: any) => {
-          if (true === res) {
-            doPreButtonActionFn();
-          }
-        });
       } else {
         doPreButtonActionFn();
       }

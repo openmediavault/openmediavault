@@ -22,6 +22,7 @@ import { SmbSettingsFormPageComponent } from '~/app/pages/services/smb/smb-setti
 import { SmbShareDatatablePageComponent } from '~/app/pages/services/smb/smb-share-datatable-page.component';
 import { SmbShareFormPageComponent } from '~/app/pages/services/smb/smb-share-form-page.component';
 import { SshFormPageComponent } from '~/app/pages/services/ssh/ssh-form-page.component';
+import { IsDirtyGuardService } from '~/app/shared/services/is-dirty-guard.service';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
   {
     path: 'ssh',
     component: SshFormPageComponent,
+    canDeactivate: [IsDirtyGuardService],
     data: {
       title: gettext('SSH'),
       editing: true,
@@ -45,6 +47,7 @@ const routes: Routes = [
       {
         path: 'settings',
         component: FtpSettingsFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Settings'),
           editing: true,
@@ -54,6 +57,7 @@ const routes: Routes = [
       {
         path: 'tls-settings',
         component: FtpTlsSettingsFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('SSL/TLS Settings'),
           editing: true,
@@ -68,6 +72,7 @@ const routes: Routes = [
           {
             path: 'create',
             component: FtpBanRuleFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Create'),
               editing: false,
@@ -77,6 +82,7 @@ const routes: Routes = [
           {
             path: 'edit/:uuid',
             component: FtpBanRuleFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Edit'),
               editing: true,
@@ -93,6 +99,7 @@ const routes: Routes = [
           {
             path: 'create',
             component: FtpShareFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Create'),
               editing: false,
@@ -102,6 +109,7 @@ const routes: Routes = [
           {
             path: 'edit/:uuid',
             component: FtpShareFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Edit'),
               editing: true,
@@ -125,6 +133,7 @@ const routes: Routes = [
           {
             path: 'create',
             component: RsyncTaskFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Create'),
               editing: false,
@@ -134,6 +143,7 @@ const routes: Routes = [
           {
             path: 'edit/:uuid',
             component: RsyncTaskFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Edit'),
               editing: true,
@@ -150,6 +160,7 @@ const routes: Routes = [
           {
             path: 'settings',
             component: RsyncModuleSettingsFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Settings'),
               editing: true,
@@ -164,6 +175,7 @@ const routes: Routes = [
               {
                 path: 'create',
                 component: RsyncModuleFormPageComponent,
+                canDeactivate: [IsDirtyGuardService],
                 data: {
                   title: gettext('Create'),
                   editing: false,
@@ -173,6 +185,7 @@ const routes: Routes = [
               {
                 path: 'edit/:uuid',
                 component: RsyncModuleFormPageComponent,
+                canDeactivate: [IsDirtyGuardService],
                 data: {
                   title: gettext('Edit'),
                   editing: true,
@@ -207,6 +220,7 @@ const routes: Routes = [
           {
             path: 'create',
             component: SmbShareFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Create'),
               editing: false,
@@ -216,6 +230,7 @@ const routes: Routes = [
           {
             path: 'edit/:uuid',
             component: SmbShareFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Edit'),
               editing: true,
@@ -234,6 +249,7 @@ const routes: Routes = [
       {
         path: 'settings',
         component: NfsSettingsFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('Settings'),
           editing: true,
@@ -248,6 +264,7 @@ const routes: Routes = [
           {
             path: 'create',
             component: NfsShareFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Create'),
               editing: false,
@@ -257,6 +274,7 @@ const routes: Routes = [
           {
             path: 'edit/:uuid',
             component: NfsShareFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
             data: {
               title: gettext('Edit'),
               editing: true,
