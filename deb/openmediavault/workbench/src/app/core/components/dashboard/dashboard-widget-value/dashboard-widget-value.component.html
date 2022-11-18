@@ -14,10 +14,10 @@
          fxLayoutAlign="center stretch"
          [ngClass]="{'omv-ml-h': config.value?.icon}">
       <div class="omv-font-weight-bold">
-        {{ config.value?.title | template:data | translate }}
+        {{ config.value?.title | template:data | transloco }}
       </div>
       <div>
-        {{ config.value?.value | template:data | translate }}
+        {{ config.value?.value | template:data | transloco }}
       </div>
     </div>
   </div>

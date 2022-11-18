@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
 import { DashboardWidgetComponent } from '~/app/core/components/dashboard/dashboard-widget/dashboard-widget.component';
@@ -12,7 +11,7 @@ describe('DashboardWidgetComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardWidgetComponent],
-      imports: [DashboardModule, TestingModule, TranslateModule.forRoot()]
+      imports: [DashboardModule, TestingModule]
     }).compileComponents();
   });
 

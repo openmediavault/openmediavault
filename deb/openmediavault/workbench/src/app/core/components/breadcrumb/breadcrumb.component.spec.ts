@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { BreadcrumbComponent } from '~/app/core/components/breadcrumb/breadcrumb.component';
 import { ComponentsModule } from '~/app/core/components/components.module';
@@ -11,7 +10,7 @@ describe('BreadcrumbComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ComponentsModule, TestingModule, TranslateModule.forRoot()]
+      imports: [ComponentsModule, TestingModule]
     }).compileComponents();
   }));
 

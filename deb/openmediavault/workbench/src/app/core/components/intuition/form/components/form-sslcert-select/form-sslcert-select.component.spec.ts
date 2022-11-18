@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { FormSslcertSelectComponent } from '~/app/core/components/intuition/form/components/form-sslcert-select/form-sslcert-select.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
@@ -13,7 +12,7 @@ describe('FormSslcertSelectComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
+      imports: [IntuitionModule, TestingModule]
     }).compileComponents();
   }));
 

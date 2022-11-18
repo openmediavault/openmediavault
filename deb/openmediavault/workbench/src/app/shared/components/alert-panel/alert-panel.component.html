@@ -9,7 +9,7 @@
          fxLayout="column"
          fxLayoutAlign="center">
       <mat-card-title *ngIf="hasTitle && title">
-        {{ title | translate }}
+        {{ title | transloco }}
       </mat-card-title>
       <mat-card-content>
         <ng-content></ng-content>
@@ -23,7 +23,7 @@
            class="alert-action-button omv-ml-q"
            [class]="button.class"
            mat-ripple
-           [matTooltip]="button.tooltip | translate"
+           [matTooltip]="button.tooltip | transloco"
            (click)="button.click && button.click(button)">
         <mat-icon svgIcon="{{ button.icon }}"></mat-icon>
       </div>

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslocoModule } from '@ngneat/transloco';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { MaterialModule } from '~/app/material.module';
@@ -39,7 +39,7 @@ import { PipesModule } from '~/app/shared/pipes/pipes.module';
     PipesModule,
     MaterialModule,
     NgxDatatableModule,
-    TranslateModule.forChild(),
+    TranslocoModule,
     FormsModule,
     FlexLayoutModule,
     DirectivesModule

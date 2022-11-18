@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { ComponentsModule } from '~/app/core/components/components.module';
 import { GuruMeditationComponent } from '~/app/core/components/guru-meditation/guru-meditation.component';
@@ -12,7 +11,7 @@ describe('GuruMeditationComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [GuruMeditationComponent],
-      imports: [ComponentsModule, TestingModule, TranslateModule.forRoot()]
+      imports: [ComponentsModule, TestingModule]
     }).compileComponents();
   }));
 

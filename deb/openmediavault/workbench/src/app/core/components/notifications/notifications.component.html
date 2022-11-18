@@ -1,7 +1,7 @@
 <mat-toolbar>
   <button mat-icon-button
           class="omv-color-primary"
-          matTooltip="{{ 'Dismiss all' | translate }}"
+          matTooltip="{{ 'Dismiss all' | transloco }}"
           [disabled]="!notifications.length"
           (click)="onRemoveAllNotifications()">
     <mat-icon svgIcon="{{ icon.delete }}"></mat-icon>
@@ -16,7 +16,7 @@
     </mat-icon>
     <p mat-line
        class="list-item-title omv-font-weight-bold">
-      {{ 'There are no notifications.' | translate }}
+      {{ 'There are no notifications.' | transloco }}
     </p>
   </mat-list-item>
   <mat-list-item *ngFor="let notification of notifications"
@@ -43,11 +43,11 @@
     </mat-icon>
     <span mat-line
           class="list-item-title omv-font-weight-bold">
-      {{ notification.title | translate | truncate:100 }}
+      {{ notification.title | transloco | truncate:100 }}
     </span>
     <span mat-line
           class="list-item-message">
-      {{ notification.message | translate | truncate:100 }}
+      {{ notification.message | transloco | truncate:100 }}
     </span>
     <span mat-line
           class="list-item-timestamp">
@@ -63,12 +63,12 @@
                 [disabled]="!notification.message?.length"
                 (click)="onCopyNotification(notification)">
           <mat-icon svgIcon="{{ icon.copy }}"></mat-icon>
-          <span>{{ 'Copy to clipboard' | translate }}</span>
+          <span>{{ 'Copy to clipboard' | transloco }}</span>
         </button>
         <button mat-menu-item
                 (click)="onRemoveNotification(notification)">
           <mat-icon svgIcon="{{ icon.delete }}"></mat-icon>
-          <span>{{ 'Dismiss' | translate }}</span>
+          <span>{{ 'Dismiss' | transloco }}</span>
         </button>
       </ng-template>
     </mat-menu>

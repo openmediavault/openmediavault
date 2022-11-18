@@ -17,7 +17,7 @@
           mat-flat-button
           color="accent"
           (click)="onCancel()">
-    {{ config.buttons.cancel.text | translate }}
+    {{ config.buttons.cancel.text | transloco }}
   </button>
   <omv-submit-button *ngIf="config.buttons.submit && !config.buttons.submit.hidden"
                      cdkFocusInitial
@@ -25,7 +25,7 @@
                      [formGroup]="form.formGroup"
                      [disabled]="form.formGroup.pristine"
                      (buttonClick)="onSubmit()">
-    {{ config.buttons.submit.text | translate }}
+    {{ config.buttons.submit.text | transloco }}
   </omv-submit-button>
 </mat-dialog-actions>
 

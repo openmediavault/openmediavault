@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
 import { DashboardWidgetTextComponent } from '~/app/core/components/dashboard/dashboard-widget-text/dashboard-widget-text.component';
@@ -13,7 +12,7 @@ describe('DashboardWidgetTextComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardWidgetTextComponent],
-      imports: [DashboardModule, TestingModule, TranslateModule.forRoot()]
+      imports: [DashboardModule, TestingModule]
     }).compileComponents();
   });
 

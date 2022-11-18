@@ -1,8 +1,6 @@
 <omv-alert-panel *ngIf="!monitoringEnabled"
                  type="info">
-  <span translate>
-    System monitoring is disabled. To enable it, please go to the <a routerLink="/system/monitoring">settings page</a>.
-  </span>
+  <span [innerHTML]="monitoringDisabledMessage | transloco | sanitizeHtml"></span>
 </omv-alert-panel>
 
 <ng-container *ngIf="monitoringEnabled && !config.store">
@@ -15,7 +13,7 @@
   <ng-container *ngIf="loading">
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     <omv-alert-panel type="info">
-      {{ "Please wait, the data is being loaded ..." | translate }}
+      {{ "Please wait, the data is being loaded ..." | transloco }}
     </omv-alert-panel>
   </ng-container>
   <omv-alert-panel *ngIf="error && !loading"
@@ -58,7 +56,7 @@
                  class="omv-sticky">
       <span fxFlex></span>
       <button mat-icon-button
-              matTooltip="{{ 'Reload' | translate }}"
+              matTooltip="{{ 'Reload' | transloco }}"
               (click)="onGenerate()">
         <mat-icon svgIcon="{{ icon.reload }}">
         </mat-icon>

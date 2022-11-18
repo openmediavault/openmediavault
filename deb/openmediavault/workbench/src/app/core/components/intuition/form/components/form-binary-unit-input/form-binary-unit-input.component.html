@@ -17,7 +17,7 @@
          [defaultUnit]="config.defaultUnit">
   <mat-icon *ngIf="config.hasCopyToClipboardButton"
             matSuffix
-            matTooltip="{{ 'Copy to clipboard' | translate }}"
+            matTooltip="{{ 'Copy to clipboard' | transloco }}"
             (click)="onCopyToClipboard()"
             svgIcon="{{ icon.copy }}">
   </mat-icon>
@@ -32,7 +32,7 @@
       The value cannot exceed {{ config.validators.max | binaryUnit }}.
     </span>
     <span *ngIf="formGroup.hasError('pattern', config.name)">
-      {{ formGroup.getError('pattern', config.name) | translate }}
+      {{ formGroup.getError('pattern', config.name) | transloco }}
     </span>
   </mat-error>
   <mat-hint *ngIf="config.hint?.length > 0"

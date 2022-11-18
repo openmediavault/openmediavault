@@ -41,14 +41,14 @@
       <omv-submit-button *ngIf="button.template === 'submit'"
                          [disabled]="button.disabled"
                          (buttonClick)="onButtonClick(button)">
-        {{ button.text | translate }}
+        {{ button.text | transloco }}
       </omv-submit-button>
       <button *ngIf="button.template !== 'submit'"
               mat-flat-button
               [class]="button.class"
               [disabled]="button.disabled"
               (click)="onButtonClick(button)">
-        {{ button.text | translate }}
+        {{ button.text | transloco }}
       </button>
     </ng-container>
   </mat-card-actions>

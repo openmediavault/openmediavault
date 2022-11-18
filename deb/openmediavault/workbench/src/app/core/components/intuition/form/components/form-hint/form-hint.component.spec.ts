@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { FormHintComponent } from '~/app/core/components/intuition/form/components/form-hint/form-hint.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
@@ -11,7 +10,7 @@ describe('FormHintComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
+      imports: [IntuitionModule, TestingModule]
     }).compileComponents();
   });
 

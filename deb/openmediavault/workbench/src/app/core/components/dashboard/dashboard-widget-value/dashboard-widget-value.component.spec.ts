@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
 import { DashboardWidgetValueComponent } from '~/app/core/components/dashboard/dashboard-widget-value/dashboard-widget-value.component';
@@ -13,7 +12,7 @@ describe('DashboardWidgetValueComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardWidgetValueComponent],
-      imports: [DashboardModule, TestingModule, TranslateModule.forRoot()]
+      imports: [DashboardModule, TestingModule]
     }).compileComponents();
   });
 

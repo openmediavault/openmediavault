@@ -1,7 +1,7 @@
 <ng-container *ngIf="loading">
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   <omv-alert-panel type="info">
-    {{ "Please wait, the data is being loaded ..." | translate }}
+    {{ "Please wait, the data is being loaded ..." | transloco }}
   </omv-alert-panel>
 </ng-container>
 <omv-alert-panel *ngIf="error && !loading"
@@ -13,17 +13,17 @@
                class="omv-sticky"
                fxLayout="row">
     <button mat-icon-button
-            matTooltip="{{ 'Select all' | translate }}"
+            matTooltip="{{ 'Select all' | transloco }}"
             (click)="onSelectAll()">
       <mat-icon svgIcon="mdi:check-all"></mat-icon>
     </button>
   </mat-toolbar>
   <mat-card-title-group *ngIf="config.title || config.subTitle">
     <mat-card-title *ngIf="config.title">
-      {{ config.title | translate }}
+      {{ config.title | transloco }}
     </mat-card-title>
     <mat-card-subtitle *ngIf="config.subTitle">
-      {{ config.subTitle | translate }}
+      {{ config.subTitle | transloco }}
     </mat-card-subtitle>
   </mat-card-title-group>
   <mat-card-content>
@@ -34,9 +34,9 @@
                        checkboxPosition="before"
                        [value]="option[config.valueProp]"
                        [selected]="config.value.includes(option[config.valueProp])">
-        {{ option[config.textProp] | translate }}
+        {{ option[config.textProp] | transloco }}
         <mat-hint *ngIf="config.hintProp && option[config.hintProp]">
-          {{ option[config.hintProp] | translate }}
+          {{ option[config.hintProp] | transloco }}
         </mat-hint>
       </mat-list-option>
     </mat-selection-list>
@@ -48,13 +48,13 @@
       <omv-submit-button *ngIf="button.template === 'submit'"
                          [disabled]="!dirty"
                          (buttonClick)="onButtonClick(button)">
-        {{ button.text | translate }}
+        {{ button.text | transloco }}
       </omv-submit-button>
       <button *ngIf="button.template !== 'submit'"
               mat-flat-button
               [class]="button.class"
               (click)="onButtonClick(button)">
-        {{ button.text | translate }}
+        {{ button.text | transloco }}
       </button>
     </ng-container>
   </mat-card-actions>

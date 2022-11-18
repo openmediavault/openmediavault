@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { ComponentsModule } from '~/app/shared/components/components.module';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
@@ -12,7 +11,7 @@ describe('TaskDialogComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ComponentsModule, TestingModule, TranslateModule.forRoot()],
+      imports: [ComponentsModule, TestingModule],
       providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }]
     }).compileComponents();
   }));

@@ -4,7 +4,7 @@
   <div class="omv-list-item-indent-z{{ depth }}"></div>
   <mat-icon svgIcon="{{ item.icon | mapIconEnum }}"></mat-icon>
   <div class="omv-text-truncate">
-    {{ item.text | translate }}
+    {{ item.text | transloco }}
   </div>
   <div *ngIf="item.children?.length > 0"
        fxFlex>

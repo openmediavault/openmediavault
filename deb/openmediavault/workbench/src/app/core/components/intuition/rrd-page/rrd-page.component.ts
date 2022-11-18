@@ -18,7 +18,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EMPTY } from 'rxjs';
@@ -53,6 +53,10 @@ export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> imple
     label: string;
     graphs: Array<RrdPageGraphConfig>;
   }> = [];
+
+  public monitoringDisabledMessage: string = gettext(
+    "System monitoring is disabled. To enable it, please go to the <a href='#/system/monitoring'>settings page</a>."
+  );
 
   constructor(
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,

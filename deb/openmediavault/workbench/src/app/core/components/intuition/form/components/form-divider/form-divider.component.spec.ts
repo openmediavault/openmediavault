@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { FormDividerComponent } from '~/app/core/components/intuition/form/components/form-divider/form-divider.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
@@ -11,7 +10,7 @@ describe('FormDividerComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [IntuitionModule, TestingModule, TranslateModule.forRoot()]
+      imports: [IntuitionModule, TestingModule]
     }).compileComponents();
   }));
 

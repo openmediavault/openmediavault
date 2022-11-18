@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslocoModule } from '@ngneat/transloco';
 
 import { DatatablePageComponent } from '~/app/core/components/intuition/datatable-page/datatable-page.component';
 import { FormBinaryUnitInputComponent } from '~/app/core/components/intuition/form/components/form-binary-unit-input/form-binary-unit-input.component';
@@ -92,7 +92,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule.forChild(),
+    TranslocoModule,
     RouterModule
   ]
 })

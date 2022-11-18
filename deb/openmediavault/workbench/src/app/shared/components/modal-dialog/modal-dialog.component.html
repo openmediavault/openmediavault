@@ -7,15 +7,15 @@
             class="omv-icon-lg"
             svgIcon="{{ config.icon }}">
   </mat-icon>
-  <div>{{ config.title | translate }}</div>
+  <div>{{ config.title | transloco }}</div>
 </div>
 <mat-dialog-content>
-  <span [innerHTML]="config.message | translate | sanitizeHtml"></span>
+  <span [innerHTML]="config.message | transloco | sanitizeHtml"></span>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <ng-container *ngIf="showConfirmCheckbox">
     <mat-checkbox (change)="onConfirmCheckboxChange()">
-      {{ 'Confirm' | translate }}
+      {{ 'Confirm' | transloco }}
     </mat-checkbox>
     <span fxFlex></span>
   </ng-container>
@@ -25,6 +25,6 @@
           [mat-dialog-close]="button.dialogResult"
           [disabled]="button.disabled"
           [autofocus]="button.autofocus">
-    {{ button.text | translate }}
+    {{ button.text | transloco }}
   </button>
 </mat-dialog-actions>

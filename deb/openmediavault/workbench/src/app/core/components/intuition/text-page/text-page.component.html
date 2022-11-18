@@ -1,7 +1,7 @@
 <ng-container *ngIf="loading">
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   <omv-alert-panel type="info">
-    {{ "Please wait, the data is being loaded ..." | translate }}
+    {{ "Please wait, the data is being loaded ..." | transloco }}
   </omv-alert-panel>
 </ng-container>
 <omv-alert-panel *ngIf="error && !loading"
@@ -14,24 +14,24 @@
                fxLayout="row">
     <button *ngIf="config.hasCopyToClipboardButton"
             mat-icon-button
-            matTooltip="{{ 'Copy to clipboard' | translate }}"
+            matTooltip="{{ 'Copy to clipboard' | transloco }}"
             (click)="onCopyToClipboard()">
       <mat-icon svgIcon="{{ icon.copy }}"></mat-icon>
     </button>
     <div fxFlex></div>
     <button *ngIf="config.hasReloadButton && !config.autoReload"
             mat-icon-button
-            matTooltip="{{ 'Reload' | translate }}"
+            matTooltip="{{ 'Reload' | transloco }}"
             (click)="loadData()">
       <mat-icon svgIcon="{{ icon.reload }}"></mat-icon>
     </button>
   </mat-toolbar>
   <mat-card-title-group *ngIf="config.title || config.subTitle">
     <mat-card-title *ngIf="config.title">
-      {{ config.title | translate }}
+      {{ config.title | transloco }}
     </mat-card-title>
     <mat-card-subtitle *ngIf="config.subTitle">
-      {{ config.subTitle | translate }}
+      {{ config.subTitle | transloco }}
     </mat-card-subtitle>
   </mat-card-title-group>
   <mat-card-content class="omv-scrollable-xy">
@@ -44,7 +44,7 @@
             mat-flat-button
             [class]="button.class"
             (click)="onButtonClick(button)">
-      {{ button.text | translate }}
+      {{ button.text | transloco }}
     </button>
   </mat-card-actions>
 </mat-card>

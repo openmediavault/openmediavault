@@ -26,7 +26,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { from, of, Subscription } from 'rxjs';
 import { concatMap, delay, finalize, tap } from 'rxjs/operators';

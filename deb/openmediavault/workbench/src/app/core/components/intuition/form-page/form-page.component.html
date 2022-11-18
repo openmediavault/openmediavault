@@ -1,7 +1,7 @@
 <ng-container *ngIf="loading">
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   <omv-alert-panel type="info">
-    {{ "Please wait, the data is being loaded ..." | translate }}
+    {{ "Please wait, the data is being loaded ..." | transloco }}
   </omv-alert-panel>
 </ng-container>
 <omv-alert-panel *ngIf="error && !loading"
@@ -25,14 +25,14 @@
                          [formGroup]="form.formGroup"
                          [disabled]="button.disabled || (editing && form.formGroup.pristine)"
                          (buttonClick)="onButtonClick(button)">
-        {{ button.text | translate }}
+        {{ button.text | transloco }}
       </omv-submit-button>
       <button *ngIf="button.template !== 'submit'"
               mat-flat-button
               [class]="button.class"
               [disabled]="button.disabled"
               (click)="onButtonClick(button)">
-        {{ button.text | translate }}
+        {{ button.text | transloco }}
       </button>
     </ng-container>
   </mat-card-actions>

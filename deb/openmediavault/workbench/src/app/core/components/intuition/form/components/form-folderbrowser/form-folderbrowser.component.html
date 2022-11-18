@@ -1,7 +1,7 @@
 <mat-form-field *ngIf="config.dirVisible"
                 fxFlex="25"
                 [formGroup]="formGroup">
-  <mat-label>{{ 'Base path' | translate }}</mat-label>
+  <mat-label>{{ 'Base path' | transloco }}</mat-label>
   <input *ngIf="config.dirVisible"
          matInput
          type="text"
@@ -20,12 +20,12 @@
        matPrefix>
     <mat-icon [svgIcon]="config.icon"></mat-icon>&nbsp;
   </div>
-  <mat-label>{{ config.label | translate }}</mat-label>
+  <mat-label>{{ config.label | transloco }}</mat-label>
   <input matInput
          type="text"
          [ngClass]="{'omv-text-monospace': config.monospace}"
          [formControlName]="config.name"
-         [placeholder]="config.placeholder | translate"
+         [placeholder]="config.placeholder | transloco"
          [readonly]="config.readonly"
          [autocapitalize]="config.autocapitalize"
          [autofocus]="config.autofocus"
@@ -34,31 +34,29 @@
          [maxlength]="config.validators?.maxLength">
   <mat-icon *ngIf="formGroup.controls[config.dirRefIdField].value"
             matSuffix
-            matTooltip="{{ 'Browse directory' | translate }}"
+            matTooltip="{{ 'Browse directory' | transloco }}"
             (click)="open()"
             svgIcon="mdi:file-tree">
   </mat-icon>
   <mat-error *ngIf="formGroup.invalid">
     <span *ngIf="formGroup.hasError('required', config.name)">
-      {{ 'This field is required.' | translate }}
+      {{ 'This field is required.' | transloco }}
     </span>
     <span *ngIf="formGroup.hasError('minlength', config.name)"
-          translate>
-      The value must be at least {{ config.validators.minLength }} characters long.
+          transloco="The value must be at least {{ config.validators.minLength }} characters long.">
     </span>
     <span *ngIf="formGroup.hasError('maxlength', config.name)"
-          translate>
-      The value cannot exceed {{ config.validators.maxLength }} characters.
+          transloco="The value cannot exceed {{ config.validators.maxLength }} characters.">
     </span>
     <span *ngIf="formGroup.hasError('constraint', config.name)">
-      {{ formGroup.getError('constraint', config.name) | translate }}
+      {{ formGroup.getError('constraint', config.name) | transloco }}
     </span>
     <span *ngIf="formGroup.hasError('pattern', config.name)">
-      {{ formGroup.getError('pattern', config.name) | translate }}
+      {{ formGroup.getError('pattern', config.name) | transloco }}
     </span>
   </mat-error>
   <mat-hint *ngIf="config.hint?.length > 0"
-            [innerHTML]="config.hint | translate | sanitizeHtml">
+            [innerHTML]="config.hint | transloco | sanitizeHtml">
   </mat-hint>
 </mat-form-field>
 
@@ -88,7 +86,7 @@
                  [formControl]="searchFilter">
           <button mat-icon-button
                   matSuffix
-                  matTooltip="{{ 'Clear' | translate }}"
+                  matTooltip="{{ 'Clear' | transloco }}"
                   (click)="searchFilter.setValue('')">
             <mat-icon svgIcon="{{ icon.clear }}"></mat-icon>
           </button>
@@ -127,10 +125,10 @@
         <div fxFlex></div>
         <button mat-flat-button
                 (click)="close()">
-          {{ 'Cancel' | translate }}
+          {{ 'Cancel' | transloco }}
         </button>
         <omv-submit-button (buttonClick)="choose()">
-          {{ 'Choose' | translate }}
+          {{ 'Choose' | transloco }}
         </omv-submit-button>
       </div>
     </div>
