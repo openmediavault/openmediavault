@@ -2,6 +2,10 @@ openmediavault (6.0.47-1) stable; urgency=low
 
   * Fixed a bug in the file system page. Allow unmounting of read-only
     file systems.
+  * Fix render bug in the notification sidebar.
+  * Migrate to Transloco i18n library in the UI.
+  * Request confirmation to discard pending changes when leaving
+    a page.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 15 Nov 2022 18:12:42 +0100
 
