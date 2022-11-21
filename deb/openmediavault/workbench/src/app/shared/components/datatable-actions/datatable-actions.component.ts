@@ -56,7 +56,7 @@ export class DatatableActionsComponent implements OnInit {
     });
   }
 
-  isDisabled(action: DatatableAction) {
+  isDisabled(action: DatatableAction): boolean {
     if (_.isPlainObject(action.enabledConstraints)) {
       const validators: Array<DatatableActionEnabledConstraintsFn> = [];
       if (_.isBoolean(action.enabledConstraints.hasData)) {
@@ -87,19 +87,19 @@ export class DatatableActionsComponent implements OnInit {
     return false;
   }
 
-  onButtonClick(action: DatatableAction) {
+  onButtonClick(action: DatatableAction): void {
     if (_.isFunction(action.click)) {
       action.click(action, this.table);
     }
   }
 
-  onSelectionChange(event: MatSelectChange, action: DatatableAction) {
+  onSelectionChange(event: MatSelectChange, action: DatatableAction): void {
     if (_.isFunction(action.selectionChange)) {
       action.selectionChange(action, event.value, this.table);
     }
   }
 
-  protected sanitizeConfig() {
+  protected sanitizeConfig(): void {
     _.forEach(this.actions, (action) => {
       // Map icon from 'foo' to 'mdi:foo' if necessary.
       action.icon = _.get(Icon, action.icon, action.icon);

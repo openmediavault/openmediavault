@@ -2,7 +2,7 @@
 @use 'src/scss/defaults/variables' as dv;
 @use 'src/scss/theme';
 
-.omv-breadcrumb {
+nav {
   a {
     border-bottom: 3px solid dc.$omv-color-transparent;
     display: inline-block;

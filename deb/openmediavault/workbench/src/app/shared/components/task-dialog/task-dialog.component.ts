@@ -55,7 +55,7 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
   private content: ElementRef;
 
   // Internal
-  public config: TaskDialogConfig = {} as TaskDialogConfig;
+  public config: TaskDialogConfig = {};
   public running = false;
   private subscription: Subscription;
   private filename: string;
@@ -124,27 +124,7 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
           // Notify all subscribers.
           this.finishEvent.emit(this.content.nativeElement.innerHTML);
           // Append EOL message.
-          if (this.config.showCompletion) {
-            from([
-              '<br>',
-              'E',
-              'N',
-              'D',
-              ' ',
-              'O',
-              'F',
-              ' ',
-              'L',
-              'I',
-              'N',
-              'E',
-              '<br><span class="omv-text-blink">█</span>'
-            ])
-              .pipe(concatMap((text) => of(text).pipe(delay(25))))
-              .subscribe((text) => {
-                this.print(text);
-              });
-          }
+          this.printEOL();
         }
       });
   }
@@ -220,5 +200,30 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
     if (this.config.autoScroll && _.isFunction(nativeEl.scroll)) {
       nativeEl.scroll({ behavior: 'auto', top: nativeEl.scrollHeight });
     }
+  }
+
+  private printEOL(): void {
+    if (!this.config.showCompletion) {
+      return;
+    }
+    from([
+      '<br>',
+      'E',
+      'N',
+      'D',
+      ' ',
+      'O',
+      'F',
+      ' ',
+      'L',
+      'I',
+      'N',
+      'E',
+      '<br><span class="omv-text-blink">█</span>'
+    ])
+      .pipe(concatMap((text) => of(text).pipe(delay(25))))
+      .subscribe((text) => {
+        this.print(text);
+      });
   }
 }

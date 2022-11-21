@@ -220,11 +220,12 @@ export class ConstraintService {
   }
 
   /**
-   * Filter all objects that meet the condition.
+   * Iterates over elements of collection, returning an array of all elements
+   * the constraint returns truthy for.
    *
-   * @param objects The objects to be filtered.
+   * @param objects The collection to iterate over.
    * @param constraint The constraint to process.
-   * @return Return a list ob objects that meet the specified condition.
+   * @return Returns the new filtered array.
    */
   static filter(objects: Array<ConstraintRecord>, constraint: Constraint): Array<ConstraintRecord> {
     return _.filter(objects, (object) => ConstraintService.test(constraint, object));
