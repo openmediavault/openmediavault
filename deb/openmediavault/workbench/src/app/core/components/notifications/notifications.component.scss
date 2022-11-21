@@ -3,6 +3,9 @@
 .mat-list {
   .mat-list-item {
     color: dc.$omv-color-white;
+    height: fit-content;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 
     .list-item-title {
       white-space: normal;
