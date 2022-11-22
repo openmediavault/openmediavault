@@ -58,23 +58,7 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
     private router: Router,
     private logConfigService: LogConfigService
   ) {
-    this.blockUI.start(translate(gettext('Loading ...')));
-    // Load the navigation and dashboard widget configuration.
-    forkJoin([
-      this.navigationConfig.load(),
-      this.dashboardWidgetConfigService.load(),
-      this.logConfigService.load()
-    ])
-      .pipe(
-        // Delay a second, otherwise the display of the loading progress
-        // bar looks like screen flickering.
-        delay(1000),
-        finalize(() => {
-          this.loading = false;
-          this.blockUI.stop();
-        })
-      )
-      .subscribe();
+    this.loadConfiguration();
     // Do not subscribe on login page.
     this.subscriptions.add(
       this.router.events
@@ -82,9 +66,7 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
         .subscribe(() => {
           if (this.isSmallScreen) {
             // Is not available on login page.
-            if (this.navigationSidenav) {
-              this.navigationSidenav.close();
-            }
+            this.navigationSidenav?.close();
           }
         })
     );
@@ -104,15 +86,11 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
   }
 
   onToggleNavigationSidenav() {
-    if (this.navigationSidenav) {
-      this.navigationSidenav.toggle();
-    }
+    this.navigationSidenav?.toggle();
   }
 
   onToggleNotificationsSidenav() {
-    if (this.notificationsSidenav) {
-      this.notificationsSidenav.toggle();
-    }
+    this.notificationsSidenav?.toggle();
   }
 
   private updateState() {
@@ -121,5 +99,30 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
       this.sideNavOpened = !this.isSmallScreen;
       this.sideNavMode = this.isSmallScreen ? 'over' : 'side';
     });
+  }
+
+  /**
+   * Load the navigation, dashboard widgets and logging configuration.
+   *
+   * @private
+   */
+  private loadConfiguration(): void {
+    this.loading = true;
+    this.blockUI.start(translate(gettext('Loading ...')));
+    forkJoin([
+      this.navigationConfig.load(),
+      this.dashboardWidgetConfigService.load(),
+      this.logConfigService.load()
+    ])
+      .pipe(
+        // Delay a second, otherwise the display of the loading progress
+        // bar looks like screen flickering.
+        delay(1000),
+        finalize(() => {
+          this.loading = false;
+          this.blockUI.stop();
+        })
+      )
+      .subscribe();
   }
 }
