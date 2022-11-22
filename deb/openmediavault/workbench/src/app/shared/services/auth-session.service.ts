@@ -17,7 +17,7 @@
  */
 import { Injectable } from '@angular/core';
 
-import { Permissions } from '~/app/shared/models/permissions.model';
+import { Permissions, Roles } from '~/app/shared/models/permissions.model';
 
 @Injectable({
   providedIn: 'root'
@@ -42,5 +42,10 @@ export class AuthSessionService {
   revoke(): void {
     localStorage.removeItem('username');
     localStorage.removeItem('permissions');
+  }
+
+  hasAdminRole(): boolean {
+    const permissions = this.getPermissions();
+    return permissions.role.includes(Roles.admin);
   }
 }

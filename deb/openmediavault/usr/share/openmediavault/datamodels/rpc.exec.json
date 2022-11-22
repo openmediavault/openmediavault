@@ -44,4 +44,16 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.exec.attach",
+	"params": {
+		"type": "object",
+		"properties": {
+			"filename": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
 }]

@@ -1,19 +1,29 @@
 @use 'src/scss/defaults/colors' as dc;
+@use 'src/scss/defaults/variables' as dv;
 
-.mat-list {
-  .mat-list-item {
-    color: dc.$omv-color-white;
-    height: fit-content;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+.omv-notification-bar {
+  min-width: dv.$omv-notification-bar-width;
+  max-width: dv.$omv-notification-bar-width;
 
-    .list-item-title {
-      white-space: normal;
+  .mat-list {
+    .mat-list-item {
+      color: dc.$omv-color-white;
+      height: fit-content;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+
+      .list-item-title {
+        white-space: normal;
+      }
+
+      .list-item-message {
+        max-width: 300px;
+        white-space: normal;
+      }
     }
 
-    .list-item-message {
-      max-width: 300px;
-      white-space: normal;
+    .mat-divider {
+      border-color: dc.$omv-color-white-translucent;
     }
   }
 }

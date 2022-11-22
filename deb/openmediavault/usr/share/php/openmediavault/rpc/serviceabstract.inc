@@ -270,8 +270,10 @@ abstract class ServiceAbstract {
 
 	/**
 	 * Helper function to determine all running background processes.
-	 * @return An array containing status information of all running
-	 *   background processes.
+	 * @return An associative array containing status information of all
+	 *   running background processes. The `key` is the name of the
+	 *   status file and the `value` is an associative array containing
+	 *   some information about the corresponding background process.
 	 */
 	final protected function enumerateRunningBgProcStatus() {
 		$pattern = sprintf("%s/bgstatus*", sys_get_temp_dir());

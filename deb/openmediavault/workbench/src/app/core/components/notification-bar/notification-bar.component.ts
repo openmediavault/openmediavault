@@ -15,43 +15,71 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { Subscription } from 'rxjs';
-import { delay, map } from 'rxjs/operators';
+import { Subscription, timer } from 'rxjs';
+import { delay, map, takeUntil } from 'rxjs/operators';
 
+import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { Notification } from '~/app/shared/models/notification.model';
+import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
+import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
+import { RpcService } from '~/app/shared/services/rpc.service';
+import { RunningTasks, TaskRunnerService } from '~/app/shared/services/task-runner.service';
 
 @Component({
   selector: 'omv-notification-bar',
   templateUrl: './notification-bar.component.html',
   styleUrls: ['./notification-bar.component.scss']
 })
-export class NotificationBarComponent implements OnDestroy {
+export class NotificationBarComponent implements OnInit, OnDestroy {
+  @Input()
+  sidenav?: MatSidenav;
+
   public icon = Icon;
   public notifications: Notification[] = [];
+  public tasks: RunningTasks;
 
-  private subscription: Subscription;
+  private subscriptions: Subscription = new Subscription();
 
   constructor(
+    private authSessionService: AuthSessionService,
     private clipboardService: ClipboardService,
-    private notificationService: NotificationService
-  ) {
-    this.subscription = this.notificationService.notifications$
-      .pipe(
-        map((notifications) => _.reverse(_.clone(notifications))),
-        delay(0)
-      )
-      .subscribe((notifications: Notification[]) => {
-        this.notifications = notifications;
-      });
+    private dialogService: DialogService,
+    private notificationService: NotificationService,
+    private rpcService: RpcService,
+    private taskRunnerService: TaskRunnerService
+  ) {}
+
+  ngOnInit(): void {
+    this.subscriptions.add(
+      this.notificationService.notifications$
+        .pipe(
+          map((notifications) => _.reverse(_.clone(notifications))),
+          delay(0)
+        )
+        .subscribe((notifications: Notification[]) => {
+          this.notifications = notifications;
+        })
+    );
+    if (this.authSessionService.hasAdminRole()) {
+      this.subscriptions.add(
+        this.sidenav.openedStart.subscribe(() => {
+          timer(0, 5000)
+            .pipe(takeUntil(this.sidenav.closedStart))
+            .subscribe(() => this.loadTasks());
+        })
+      );
+    }
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscriptions.unsubscribe();
   }
 
   onRemoveNotification(notification: Notification): void {
@@ -64,5 +92,39 @@ export class NotificationBarComponent implements OnDestroy {
 
   onCopyNotification(notification: Notification): void {
     this.clipboardService.copy(`${notification.message}\n\n${notification.traceback}`);
+  }
+
+  onStopTask(filename: string): void {
+    this.rpcService
+      .request('Exec', 'stop', {
+        filename
+      })
+      .subscribe({
+        complete: () => this.loadTasks()
+      });
+  }
+
+  onAttachTask(filename: string): void {
+    this.sidenav.close();
+    this.dialogService.open(TaskDialogComponent, {
+      width: '75%',
+      data: {
+        title: gettext('Background task'),
+        startOnInit: true,
+        request: {
+          service: 'Exec',
+          method: 'attach',
+          params: {
+            filename
+          }
+        }
+      }
+    });
+  }
+
+  private loadTasks(): void {
+    this.taskRunnerService.enumerate().subscribe((tasks: RunningTasks) => {
+      this.tasks = tasks;
+    });
   }
 }

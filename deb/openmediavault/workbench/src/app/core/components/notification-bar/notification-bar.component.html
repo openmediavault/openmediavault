@@ -1,76 +1,115 @@
-<mat-toolbar>
-  <button mat-icon-button
-          class="omv-color-primary"
-          matTooltip="{{ 'Dismiss all' | transloco }}"
-          [disabled]="!notifications.length"
-          (click)="onRemoveAllNotifications()">
-    <mat-icon svgIcon="{{ icon.delete }}"></mat-icon>
-  </button>
-</mat-toolbar>
-<mat-list role="list">
-  <mat-list-item *ngIf="!notifications.length"
-                 role="listitem">
-    <mat-icon mat-list-icon
-              class="omv-color-info"
-              svgIcon="{{ icon.information }}">
-    </mat-icon>
-    <p mat-line
-       class="list-item-title omv-font-weight-bold">
-      {{ 'There are no notifications.' | transloco }}
-    </p>
-  </mat-list-item>
-  <mat-list-item *ngFor="let notification of notifications"
-                 role="listitem">
-    <mat-icon *ngIf="notification.type === 'success'"
-              mat-list-icon
-              class="omv-color-success"
-              svgIcon="{{ icon.success }}">
-    </mat-icon>
-    <mat-icon *ngIf="notification.type === 'error'"
-              mat-list-icon
-              class="omv-color-error"
-              svgIcon="{{ icon.error }}">
-    </mat-icon>
-    <mat-icon *ngIf="notification.type === 'warning'"
-              mat-list-icon
-              class="omv-color-warning"
-              svgIcon="{{ icon.warning }}">
-    </mat-icon>
-    <mat-icon *ngIf="notification.type === 'info'"
-              mat-list-icon
-              class="omv-color-info"
-              svgIcon="{{ icon.information }}">
-    </mat-icon>
-    <span mat-line
-          class="list-item-title omv-font-weight-bold">
-      {{ notification.title | transloco | truncate:100 }}
-    </span>
-    <span mat-line
-          class="list-item-message">
-      {{ notification.message | transloco | truncate:100 }}
-    </span>
-    <span mat-line
-          class="list-item-timestamp">
-      {{ notification.timestamp | localeDate:'relative' }}
-    </span>
+<div class="omv-notification-bar">
+  <mat-toolbar>
     <button mat-icon-button
-            [matMenuTriggerFor]="actionMenu">
-      <mat-icon svgIcon="{{ icon.dotmenu }}"></mat-icon>
+            class="omv-color-primary"
+            matTooltip="{{ 'Dismiss all' | transloco }}"
+            [disabled]="!notifications.length"
+            (click)="onRemoveAllNotifications()">
+      <mat-icon svgIcon="{{ icon.delete }}"></mat-icon>
     </button>
-    <mat-menu #actionMenu="matMenu">
-      <ng-template matMenuContent>
-        <button mat-menu-item
-                [disabled]="!notification.message?.length"
-                (click)="onCopyNotification(notification)">
-          <mat-icon svgIcon="{{ icon.copy }}"></mat-icon>
-          <span>{{ 'Copy to clipboard' | transloco }}</span>
-        </button>
-        <button mat-menu-item
-                (click)="onRemoveNotification(notification)">
-          <mat-icon svgIcon="{{ icon.delete }}"></mat-icon>
-          <span>{{ 'Dismiss' | transloco }}</span>
-        </button>
-      </ng-template>
-    </mat-menu>
-  </mat-list-item>
-</mat-list>
+  </mat-toolbar>
+  <mat-list role="list">
+    <mat-list-item *ngFor="let task of tasks | keyvalue"
+                   role="listitem">
+      <mat-icon mat-list-icon
+                svgIcon="{{ icon.console }}">
+      </mat-icon>
+      <span mat-line
+            class="list-item-message">
+        {{ "Background task" | transloco }}
+      </span>
+      <span mat-line
+            class="list-item-timestamp">
+        {{ task.value.startTime | localeDate:'relative' }}
+      </span>
+      <button mat-icon-button
+              [matMenuTriggerFor]="taskActionMenu">
+        <mat-icon svgIcon="{{ icon.dotmenu }}"></mat-icon>
+      </button>
+      <mat-menu #taskActionMenu="matMenu">
+        <ng-template matMenuContent>
+          <button mat-menu-item
+                  (click)="onAttachTask(task.key)">
+            <mat-icon svgIcon="{{ icon.console }}"></mat-icon>
+            <span>{{ 'Attach' | transloco }}</span>
+          </button>
+          <mat-divider></mat-divider>
+          <button mat-menu-item
+                  (click)="onStopTask(task.key)">
+            <mat-icon svgIcon="{{ icon.stop }}"></mat-icon>
+            <span>{{ 'Stop' | transloco }}</span>
+          </button>
+        </ng-template>
+      </mat-menu>
+    </mat-list-item>
+
+    <mat-divider *ngIf="tasks | count"></mat-divider>
+
+    <mat-list-item *ngIf="!notifications.length"
+                   role="listitem">
+      <mat-icon mat-list-icon
+                class="omv-color-info"
+                svgIcon="{{ icon.information }}">
+      </mat-icon>
+      <p mat-line
+         class="list-item-title omv-font-weight-bold">
+        {{ 'There are no notifications.' | transloco }}
+      </p>
+    </mat-list-item>
+
+    <mat-list-item *ngFor="let notification of notifications"
+                   role="listitem">
+      <mat-icon *ngIf="notification.type === 'success'"
+                mat-list-icon
+                class="omv-color-success"
+                svgIcon="{{ icon.success }}">
+      </mat-icon>
+      <mat-icon *ngIf="notification.type === 'error'"
+                mat-list-icon
+                class="omv-color-error"
+                svgIcon="{{ icon.error }}">
+      </mat-icon>
+      <mat-icon *ngIf="notification.type === 'warning'"
+                mat-list-icon
+                class="omv-color-warning"
+                svgIcon="{{ icon.warning }}">
+      </mat-icon>
+      <mat-icon *ngIf="notification.type === 'info'"
+                mat-list-icon
+                class="omv-color-info"
+                svgIcon="{{ icon.information }}">
+      </mat-icon>
+      <span mat-line
+            class="list-item-title omv-font-weight-bold">
+        {{ notification.title | transloco | truncate:100 }}
+      </span>
+      <span mat-line
+            class="list-item-message">
+        {{ notification.message | transloco | truncate:100 }}
+      </span>
+      <span mat-line
+            class="list-item-timestamp">
+        {{ notification.timestamp | localeDate:'relative' }}
+      </span>
+      <button mat-icon-button
+              [matMenuTriggerFor]="notificationActionMenu">
+        <mat-icon svgIcon="{{ icon.dotmenu }}"></mat-icon>
+      </button>
+      <mat-menu #notificationActionMenu="matMenu">
+        <ng-template matMenuContent>
+          <button mat-menu-item
+                  [disabled]="!notification.message?.length"
+                  (click)="onCopyNotification(notification)">
+            <mat-icon svgIcon="{{ icon.copy }}"></mat-icon>
+            <span>{{ 'Copy to clipboard' | transloco }}</span>
+          </button>
+          <button mat-menu-item
+                  (click)="onRemoveNotification(notification)">
+            <mat-icon svgIcon="{{ icon.delete }}"></mat-icon>
+            <span>{{ 'Dismiss' | transloco }}</span>
+          </button>
+        </ng-template>
+      </mat-menu>
+    </mat-list-item>
+  </mat-list>
+</div>
