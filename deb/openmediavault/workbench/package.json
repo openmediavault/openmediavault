@@ -95,6 +95,7 @@
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-unused-imports": "^1.1.5",
     "html-linter": "^1.1.1",
     "htmllint-cli": "^0.0.7",
     "jasmine-core": "^3.99.1",

@@ -14,13 +14,14 @@
         "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:prettier/recommended"
       ],
-      "plugins": ["simple-import-sort"],
+      "plugins": ["simple-import-sort", "unused-imports"],
       "rules": {
         "comma-dangle": ["error", "never"],
         "eol-last": ["error", "always"],
         "no-trailing-spaces": ["error", { "skipBlankLines": false, "ignoreComments": false }],
         "no-underscore-dangle": "off",
         "simple-import-sort/imports": "error",
+        "unused-imports/no-unused-imports": "error",
         "@angular-eslint/component-selector": [
           "error",
           {
