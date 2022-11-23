@@ -41,8 +41,8 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
   @ViewChild('navigationSidenav', { static: false })
   private navigationSidenav: MatSidenav;
 
-  @ViewChild('notificationsSidenav', { static: false })
-  private notificationsSidenav: MatSidenav;
+  @ViewChild('notificationSidenav', { static: false })
+  private notificationSidenav: MatSidenav;
 
   public loading = true;
   public sideNavMode: MatDrawerMode;
@@ -85,12 +85,12 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  onToggleNavigationSidenav() {
+  onToggleNavigation() {
     this.navigationSidenav?.toggle();
   }
 
-  onToggleNotificationsSidenav() {
-    this.notificationsSidenav?.toggle();
+  onToggleNotification() {
+    this.notificationSidenav?.toggle();
   }
 
   private updateState() {

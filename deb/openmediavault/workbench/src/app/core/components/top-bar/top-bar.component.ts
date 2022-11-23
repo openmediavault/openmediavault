@@ -45,10 +45,10 @@ import { UserStorageService } from '~/app/shared/services/user-storage.service';
 })
 export class TopBarComponent implements OnDestroy {
   @Output()
-  readonly toggleNavigationSidenavEvent = new EventEmitter();
+  readonly navigationToggleChange = new EventEmitter();
 
   @Output()
-  readonly toggleNotificationSidenavEvent = new EventEmitter();
+  readonly notificationToggleChange = new EventEmitter();
 
   @BlockUI()
   blockUI: NgBlockUI;
@@ -97,12 +97,12 @@ export class TopBarComponent implements OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  onToggleNavigationSidenav(): void {
-    this.toggleNavigationSidenavEvent.emit();
+  onToggleNavigation(): void {
+    this.navigationToggleChange.emit();
   }
 
-  onToggleNotificationsSidenav(): void {
-    this.toggleNotificationSidenavEvent.emit();
+  onToggleNotification(): void {
+    this.notificationToggleChange.emit();
   }
 
   onLogout(): void {

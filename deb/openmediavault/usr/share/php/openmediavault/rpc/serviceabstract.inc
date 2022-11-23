@@ -269,6 +269,32 @@ abstract class ServiceAbstract {
 	}
 
 	/**
+	 * Helper function to determine all running background processes.
+	 * @return An array containing status information of all running
+	 *   background processes.
+	 */
+	final protected function enumerateRunningBgProcStatus() {
+		$pattern = sprintf("%s/bgstatus*", sys_get_temp_dir());
+		if (FALSE === ($files = glob($pattern))) {
+			return NULL;
+		}
+		$result = [];
+		foreach ($files as $file) {
+			try {
+				$status = $this->getBgProcStatus($file);
+				if (TRUE === $status['running']) {
+					$result[$file] = [
+						"startTime" => $status['startTime']
+					];
+				}
+			} catch (\Exception $e) {
+				// Nothing to do here.
+			}
+		}
+		return $result;
+	}
+
+	/**
 	 * Helper function to create the file containing the background
 	 * process output.
 	 * @return The name of the background process output file.
@@ -305,7 +331,8 @@ abstract class ServiceAbstract {
 		$jsonFile->open("r+");
 		$status = [
 			"pid" => $pid,
-			"running" => TRUE
+			"running" => TRUE,
+			"startTime" => time()
 		];
 		$jsonFile->write($status);
 		$jsonFile->close();
@@ -363,6 +390,7 @@ abstract class ServiceAbstract {
 		$status = $jsonFile->read();
 		$status['pid'] = posix_getpid();
 		$status['running'] = FALSE;
+		$status['endTime'] = time();
 		$status['result'] = $result;
 		$status['error'] = NULL;
 		if ($exception instanceof \Exception) {

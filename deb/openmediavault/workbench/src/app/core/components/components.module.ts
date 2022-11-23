@@ -17,7 +17,7 @@ import { BlankLayoutComponent } from '~/app/core/components/layouts/blank-layout
 import { WorkbenchLayoutComponent } from '~/app/core/components/layouts/workbench-layout/workbench-layout.component';
 import { NavigationBarComponent } from '~/app/core/components/navigation-bar/navigation-bar.component';
 import { NavigationBarListItemComponent } from '~/app/core/components/navigation-bar/navigation-bar-list-item/navigation-bar-list-item.component';
-import { NotificationsComponent } from '~/app/core/components/notifications/notifications.component';
+import { NotificationBarComponent } from '~/app/core/components/notification-bar/notification-bar.component';
 import { TopBarComponent } from '~/app/core/components/top-bar/top-bar.component';
 import { MaterialModule } from '~/app/material.module';
 import { SharedModule } from '~/app/shared/shared.module';
@@ -29,7 +29,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     TopBarComponent,
     GuruMeditationComponent,
     BreadcrumbComponent,
-    NotificationsComponent,
+    NotificationBarComponent,
     BlankLayoutComponent,
     WorkbenchLayoutComponent,
     ApplyConfigComponent,
@@ -40,7 +40,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     WorkbenchLayoutComponent,
     GuruMeditationComponent,
     IntuitionModule,
-    NotificationsComponent,
+    NotificationBarComponent,
     DashboardModule,
     GreenRainComponent
   ],

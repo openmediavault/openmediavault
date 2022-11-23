@@ -26,11 +26,11 @@ import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 
 @Component({
-  selector: 'omv-notifications',
-  templateUrl: './notifications.component.html',
-  styleUrls: ['./notifications.component.scss']
+  selector: 'omv-notification-bar',
+  templateUrl: './notification-bar.component.html',
+  styleUrls: ['./notification-bar.component.scss']
 })
-export class NotificationsComponent implements OnDestroy {
+export class NotificationBarComponent implements OnDestroy {
   public icon = Icon;
   public notifications: Notification[] = [];
 

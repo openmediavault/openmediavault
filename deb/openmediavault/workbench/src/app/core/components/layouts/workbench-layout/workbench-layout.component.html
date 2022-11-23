@@ -10,8 +10,8 @@
       <omv-navigation-bar></omv-navigation-bar>
     </mat-sidenav>
     <mat-sidenav-content fxLayout="column">
-      <omv-top-bar (toggleNavigationSidenavEvent)="onToggleNavigationSidenav()"
-                   (toggleNotificationSidenavEvent)="onToggleNotificationsSidenav()">
+      <omv-top-bar (navigationToggleChange)="onToggleNavigation()"
+                   (notificationToggleChange)="onToggleNotification()">
       </omv-top-bar>
       <omv-apply-config></omv-apply-config>
       <omv-breadcrumb class="omv-mx omv-my-q"></omv-breadcrumb>
@@ -20,10 +20,10 @@
         <router-outlet></router-outlet>
       </div>
     </mat-sidenav-content>
-    <mat-sidenav #notificationsSidenav
+    <mat-sidenav #notificationSidenav
                  mode="over"
                  position="end">
-      <omv-notifications></omv-notifications>
+      <omv-notification-bar></omv-notification-bar>
     </mat-sidenav>
   </mat-sidenav-container>
 </block-ui>
