@@ -14,6 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   HostListener,
@@ -38,7 +39,8 @@ type Column = {
 @Component({
   selector: 'omv-green-rain',
   templateUrl: './green-rain.component.html',
-  styleUrls: ['./green-rain.component.scss']
+  styleUrls: ['./green-rain.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GreenRainComponent implements OnInit, OnDestroy {
   @ViewChild('canvas', { static: true })

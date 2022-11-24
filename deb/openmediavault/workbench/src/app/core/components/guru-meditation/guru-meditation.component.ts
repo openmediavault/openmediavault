@@ -15,11 +15,12 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'omv-guru-meditation',
   templateUrl: './guru-meditation.component.html',
-  styleUrls: ['./guru-meditation.component.scss']
+  styleUrls: ['./guru-meditation.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GuruMeditationComponent {}

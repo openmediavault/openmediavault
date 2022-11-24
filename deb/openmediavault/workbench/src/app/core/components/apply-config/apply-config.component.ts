@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
@@ -31,15 +31,13 @@ import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
-import {
-  SystemInformation,
-  SystemInformationService
-} from '~/app/shared/services/system-information.service';
+import { SystemInformation, SystemInformationService } from '~/app/shared/services/system-information.service';
 
 @Component({
   selector: 'omv-apply-config',
   templateUrl: './apply-config.component.html',
-  styleUrls: ['./apply-config.component.scss']
+  styleUrls: ['./apply-config.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ApplyConfigComponent implements OnDestroy {
   @BlockUI()
@@ -53,6 +51,7 @@ export class ApplyConfigComponent implements OnDestroy {
   private subscription: Subscription;
 
   constructor(
+    private cd: ChangeDetectorRef,
     private dialogService: DialogService,
     private notificationService: NotificationService,
     private router: Router,
@@ -62,6 +61,7 @@ export class ApplyConfigComponent implements OnDestroy {
     this.subscription = this.systemInformationService.systemInfo$.subscribe(
       (res: SystemInformation) => {
         this.dirtyModules = _.get(res, 'dirtyModules', {});
+        this.cd.markForCheck();
       }
     );
     this.buttons = [

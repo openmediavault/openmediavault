@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import {
   ActivatedRoute,
   ActivatedRouteSnapshot,
@@ -38,7 +38,8 @@ export type Breadcrumb = {
 @Component({
   selector: 'omv-breadcrumb',
   templateUrl: './breadcrumb.component.html',
-  styleUrls: ['./breadcrumb.component.scss']
+  styleUrls: ['./breadcrumb.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BreadcrumbComponent implements OnDestroy {
   public breadcrumbs: Breadcrumb[] = [];
@@ -46,7 +47,11 @@ export class BreadcrumbComponent implements OnDestroy {
 
   private subscription: Subscription;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private cd: ChangeDetectorRef,
+    private router: Router
+  ) {
     this.subscription = this.router.events
       .pipe(
         filter((event: Event) => event instanceof NavigationEnd),
@@ -59,6 +64,7 @@ export class BreadcrumbComponent implements OnDestroy {
       .subscribe(() => {
         const breadcrumbs = this.parseRoute(this.activatedRoute.snapshot.root);
         this.breadcrumbs = _.uniqWith(breadcrumbs, _.isEqual);
+        this.cd.markForCheck();
       });
   }
 
