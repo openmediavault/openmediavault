@@ -117,6 +117,9 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
         next: (value: RpcBgResponse) => {
           this.print(value.output, true);
         },
+        error: () => {
+          this.printTypeWriter('** CONNECTION LOST **');
+        },
         complete: () => {
           // Set the result value to `true` because the request finished
           // successfully.
@@ -124,7 +127,9 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
           // Notify all subscribers.
           this.finishEvent.emit(this.content.nativeElement.innerHTML);
           // Append EOL message.
-          this.printEOL();
+          if (this.config.showCompletion) {
+            this.printTypeWriter('END OF LINE');
+          }
         }
       });
   }
@@ -202,28 +207,11 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
     }
   }
 
-  private printEOL(): void {
-    if (!this.config.showCompletion) {
-      return;
-    }
-    from([
-      '<br>',
-      'E',
-      'N',
-      'D',
-      ' ',
-      'O',
-      'F',
-      ' ',
-      'L',
-      'I',
-      'N',
-      'E',
-      '<br><span class="omv-text-blink">█</span>'
-    ])
-      .pipe(concatMap((text) => of(text).pipe(delay(25))))
-      .subscribe((text) => {
-        this.print(text);
+  private printTypeWriter(text: string): void {
+    from(['<br>', ...text, '<br><span class="omv-text-blink">█</span>'])
+      .pipe(concatMap((value) => of(value).pipe(delay(25))))
+      .subscribe((value) => {
+        this.print(value);
       });
   }
 }

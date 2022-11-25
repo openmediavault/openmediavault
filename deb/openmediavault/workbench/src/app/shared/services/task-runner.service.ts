@@ -23,6 +23,14 @@ import { finalize } from 'rxjs/operators';
 import { translate } from '~/app/i18n.helper';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
+export type TaskInformation = {
+  startTime: number;
+};
+
+export type RunningTasks = {
+  [filename: string]: TaskInformation;
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -57,5 +65,12 @@ export class TaskRunnerService {
         this.blockUI.stop();
       })
     );
+  }
+
+  /**
+   * Determine all running tasks.
+   */
+  enumerate(): Observable<RunningTasks> {
+    return this.rpcService.request('Exec', 'enumerate');
   }
 }

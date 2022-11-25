@@ -26,9 +26,9 @@ $omv-color-corporate-darker: #1b7bba;
 ////////////////////////////////////////////////////////////////////////////////
 // Various
 ////////////////////////////////////////////////////////////////////////////////
-$omv-color-black: #000000;
 $omv-color-transparent: transparent;
-$omv-color-transparent-black: hsla(
+$omv-color-black: #000000;
+$omv-color-black-translucent: hsla(
   hue($omv-color-black),
   saturation($omv-color-black),
   lightness($omv-color-black),
@@ -43,6 +43,12 @@ $omv-color-red: #ff3b30;
 $omv-color-yellow: #f8d400;
 $omv-color-brown-coffee: #4d2e25;
 $omv-color-white: white;
+$omv-color-white-translucent: hsla(
+  hue($omv-color-white),
+  saturation($omv-color-white),
+  lightness($omv-color-white),
+  0.38
+);
 $omv-color-whitesmoke: whitesmoke;
 $omv-color-gray: #656c72;
 

@@ -20,6 +20,7 @@ import { MediaObserver } from '@angular/flex-layout';
 import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
 import { Event, NavigationEnd, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
+import * as _ from 'lodash';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { forkJoin, Subscription } from 'rxjs';
 import { delay, filter, finalize } from 'rxjs/operators';
@@ -28,6 +29,10 @@ import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widg
 import { LogConfigService } from '~/app/core/services/log-config.service';
 import { NavigationConfigService } from '~/app/core/services/navigation-config.service';
 import { translate } from '~/app/i18n.helper';
+import { NotificationType } from '~/app/shared/enum/notification-type.enum';
+import { AuthSessionService } from '~/app/shared/services/auth-session.service';
+import { NotificationService } from '~/app/shared/services/notification.service';
+import { RunningTasks, TaskRunnerService } from '~/app/shared/services/task-runner.service';
 
 @Component({
   selector: 'omv-workbench-layout',
@@ -52,13 +57,16 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
   private subscriptions = new Subscription();
 
   constructor(
+    private authSessionService: AuthSessionService,
     private dashboardWidgetConfigService: DashboardWidgetConfigService,
     private media: MediaObserver,
     private navigationConfig: NavigationConfigService,
+    private notificationService: NotificationService,
     private router: Router,
-    private logConfigService: LogConfigService
+    private logConfigService: LogConfigService,
+    private taskRunnerService: TaskRunnerService
   ) {
-    this.loadConfiguration();
+    this.initLayout();
     // Do not subscribe on login page.
     this.subscriptions.add(
       this.router.events
@@ -101,12 +109,8 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
     });
   }
 
-  /**
-   * Load the navigation, dashboard widgets and logging configuration.
-   *
-   * @private
-   */
-  private loadConfiguration(): void {
+  private initLayout(): void {
+    // Load the navigation, dashboard widgets and logging configuration.
     this.loading = true;
     this.blockUI.start(translate(gettext('Loading ...')));
     forkJoin([
@@ -121,8 +125,23 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
         finalize(() => {
           this.loading = false;
           this.blockUI.stop();
+          this.onAfterInitLayout();
         })
       )
       .subscribe();
+  }
+
+  private onAfterInitLayout(): void {
+    if (this.authSessionService.hasAdminRole()) {
+      this.taskRunnerService.enumerate().subscribe((tasks: RunningTasks) => {
+        if (_.keys(tasks).length) {
+          this.notificationService.show(
+            NotificationType.info,
+            gettext('A running background task was detected.'),
+            gettext('Go to the notification sidebar to attach to it.')
+          );
+        }
+      });
+    }
   }
 }

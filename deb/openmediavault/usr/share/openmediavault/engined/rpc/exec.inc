@@ -36,6 +36,8 @@ class Exec extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("stop");
 		$this->registerMethod("getOutput");
 		$this->registerMethod("isRunning");
+		$this->registerMethod("enumerate");
+		$this->registerMethod("attach");
 	}
 
 	/**
@@ -187,5 +189,39 @@ class Exec extends \OMV\Rpc\ServiceAbstract {
 			"filename" => $params['filename'],
 			"running" => $status->isRunning()
 		];
+	}
+
+	/**
+	 * Determine all running background processes.
+	 * @param params Optional method parameters.
+	 * @param context The context of the caller.
+	 * @return An associative array containing status information of all
+	 *   running background processes. The `key` is the name of the
+	 *   status file and the `value` is an associative array containing
+	 *   some information about the corresponding background process.
+	 */
+	public function enumerate($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		return $this->enumerateRunningBgProcStatus();
+	}
+
+	/**
+	 * Attach to the specified background process.
+	 * @param params An array containing the following fields:
+	 *   \em filename The name of the background process status file.
+	 * @param context The context of the caller.
+	 * @return The name of the background process status file.
+	 */
+	public function attach($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.exec.attach");
+		return $params['filename'];
 	}
 }
