@@ -52,6 +52,7 @@ export class WorkbenchFormPageComponent extends IsDirtyFormPageComponent {
         type: 'select',
         name: 'timeout',
         label: gettext('Auto logout'),
+        hint: gettext('Close the session on inactivity after the specified time.'),
         value: 5,
         store: {
           data: [
