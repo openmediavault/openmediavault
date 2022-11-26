@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 20:29+0100\n"
+"POT-Creation-Date: 2022-11-26 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2022\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -44,9 +44,6 @@ msgstr "%s [%s 上, %s]"
 
 msgid "%s ago"
 msgstr "%s 前"
-
-msgid "."
-msgstr "."
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s は無制限となります。"
@@ -243,6 +240,9 @@ msgstr "最大2つのデバイスを取り外すことができます。"
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr ""
 
+msgid "A running background task was detected."
+msgstr ""
+
 msgid "A secure shell (SSH) server."
 msgstr ""
 
@@ -421,6 +421,9 @@ msgstr "少なくとも2つのデバイスが必要です。"
 msgid "At reboot"
 msgstr "再起動時に"
 
+msgid "Attach"
+msgstr ""
+
 msgid "Attributes"
 msgstr "属性"
 
@@ -471,6 +474,9 @@ msgstr "BTRFS"
 
 msgid "Back"
 msgstr "戻る"
+
+msgid "Background task"
+msgstr ""
 
 msgid "Bad"
 msgstr "悪い"
@@ -678,6 +684,9 @@ msgstr "クライアントからのファイルシステムのマウントを許
 
 msgid "Close"
 msgstr "閉じる"
+
+msgid "Close the session on inactivity after the specified time."
+msgstr ""
 
 msgid "Cocos (Keeling) Islands"
 msgstr "ココス（キーリング）諸島"
@@ -1375,6 +1384,9 @@ msgstr "ガーナ"
 
 msgid "Gibraltar"
 msgstr "ジブラルタル"
+
+msgid "Go to the notification sidebar to attach to it."
+msgstr ""
 
 msgid "Good"
 msgstr "良い"
@@ -3035,9 +3047,6 @@ msgstr "シャットダウン"
 msgid "Sierra Leone"
 msgstr "シエラレオネ"
 
-msgid "Signed in as"
-msgstr ""
-
 msgid "Singapore"
 msgstr "シンガポール"
 
@@ -3258,7 +3267,9 @@ msgstr ""
 msgid "System clock synchronization client and server."
 msgstr ""
 
-msgid "System monitoring is disabled. To enable it, please go to the"
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
 msgstr ""
 
 msgid "System time"
@@ -3320,7 +3331,7 @@ msgstr "電源ボタンを押したときに実行されるアクション。"
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the"
+"the <a href='#/dashboard/settings'>settings page</a>."
 msgstr ""
 
 msgid "The data has been copied to the clipboard."

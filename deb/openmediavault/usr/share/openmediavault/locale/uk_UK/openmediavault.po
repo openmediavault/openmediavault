@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 20:29+0100\n"
+"POT-Creation-Date: 2022-11-26 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -46,9 +46,6 @@ msgstr "%s [на %s, %s]"
 
 msgid "%s ago"
 msgstr "%s назад"
-
-msgid "."
-msgstr "."
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 Кб/с - необмежено."
@@ -245,6 +242,9 @@ msgstr "Можна вилучити максимум два пристрої."
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr ""
 
+msgid "A running background task was detected."
+msgstr ""
+
 msgid "A secure shell (SSH) server."
 msgstr ""
 
@@ -423,6 +423,9 @@ msgstr "Необхідно принаймні два пристрої."
 msgid "At reboot"
 msgstr "При перезавантаженні"
 
+msgid "Attach"
+msgstr ""
+
 msgid "Attributes"
 msgstr "Атрибути"
 
@@ -473,6 +476,9 @@ msgstr "BTRFS"
 
 msgid "Back"
 msgstr "Назад"
+
+msgid "Background task"
+msgstr ""
 
 msgid "Bad"
 msgstr "Поганий"
@@ -680,6 +686,9 @@ msgstr "Клієнтам дозволено монтувати файлову с
 
 msgid "Close"
 msgstr "Закрити"
+
+msgid "Close the session on inactivity after the specified time."
+msgstr ""
 
 msgid "Cocos (Keeling) Islands"
 msgstr "Кокосові (Кілінґ) острови"
@@ -1377,6 +1386,9 @@ msgstr "Гана"
 
 msgid "Gibraltar"
 msgstr "Ґібралтар"
+
+msgid "Go to the notification sidebar to attach to it."
+msgstr ""
 
 msgid "Good"
 msgstr "Добре"
@@ -3037,9 +3049,6 @@ msgstr "Вимкнути"
 msgid "Sierra Leone"
 msgstr "Сьєрра-Леоне"
 
-msgid "Signed in as"
-msgstr "Увійшов як"
-
 msgid "Singapore"
 msgstr "Сінгапур"
 
@@ -3260,8 +3269,10 @@ msgstr "Системний обліковий запис"
 msgid "System clock synchronization client and server."
 msgstr ""
 
-msgid "System monitoring is disabled. To enable it, please go to the"
-msgstr "Моніторинг системи вимкнено. Щоб увімкнути його, перейдіть до"
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
+msgstr ""
 
 msgid "System time"
 msgstr "Cистемний час"
@@ -3322,8 +3333,8 @@ msgstr "Що повинно бути зроблено при натисненн�
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the"
-msgstr "Панель приладів ще не налаштована. Щоб персоналізувати її, перейдіть до"
+"the <a href='#/dashboard/settings'>settings page</a>."
+msgstr ""
 
 msgid "The data has been copied to the clipboard."
 msgstr "Дані скопійовано до буферу обміну."

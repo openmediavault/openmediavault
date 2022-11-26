@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 20:29+0100\n"
+"POT-Creation-Date: 2022-11-26 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -46,9 +46,6 @@ msgid "%s [on %s, %s]"
 msgstr "%s [on %s, %s]"
 
 msgid "%s ago"
-msgstr ""
-
-msgid "."
 msgstr ""
 
 msgid "0 KiB/s means unlimited."
@@ -246,6 +243,9 @@ msgstr ""
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr ""
 
+msgid "A running background task was detected."
+msgstr ""
+
 msgid "A secure shell (SSH) server."
 msgstr ""
 
@@ -424,6 +424,9 @@ msgstr ""
 msgid "At reboot"
 msgstr "재시작시"
 
+msgid "Attach"
+msgstr ""
+
 msgid "Attributes"
 msgstr "속성"
 
@@ -473,6 +476,9 @@ msgid "BTRFS"
 msgstr ""
 
 msgid "Back"
+msgstr ""
+
+msgid "Background task"
 msgstr ""
 
 msgid "Bad"
@@ -681,6 +687,9 @@ msgstr "파일 시스템 마운트를 허용할 클라이언트들. 예를 들�
 
 msgid "Close"
 msgstr "닫기"
+
+msgid "Close the session on inactivity after the specified time."
+msgstr ""
 
 msgid "Cocos (Keeling) Islands"
 msgstr "코코스 제도"
@@ -1378,6 +1387,9 @@ msgstr "가나"
 
 msgid "Gibraltar"
 msgstr "지브롤터"
+
+msgid "Go to the notification sidebar to attach to it."
+msgstr ""
 
 msgid "Good"
 msgstr "좋음"
@@ -3038,9 +3050,6 @@ msgstr "종료"
 msgid "Sierra Leone"
 msgstr "시에라리온"
 
-msgid "Signed in as"
-msgstr ""
-
 msgid "Singapore"
 msgstr "싱가포르"
 
@@ -3261,7 +3270,9 @@ msgstr ""
 msgid "System clock synchronization client and server."
 msgstr ""
 
-msgid "System monitoring is disabled. To enable it, please go to the"
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
 msgstr ""
 
 msgid "System time"
@@ -3323,7 +3334,7 @@ msgstr "전원 버튼을 눌렀을 때 수행할 작업"
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the"
+"the <a href='#/dashboard/settings'>settings page</a>."
 msgstr ""
 
 msgid "The data has been copied to the clipboard."

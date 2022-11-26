@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 20:29+0100\n"
+"POT-Creation-Date: 2022-11-26 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2022\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -50,9 +50,6 @@ msgstr "%s [on %s, %s]"
 
 msgid "%s ago"
 msgstr "%s以前"
-
-msgid "."
-msgstr "。"
 
 msgid "0 KiB/s means unlimited."
 msgstr "0KB/s 表示不限制。"
@@ -249,6 +246,9 @@ msgstr "最多两个设备可被移除。"
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "一个高效 FTP/SFTP/FTPS 服务模块"
 
+msgid "A running background task was detected."
+msgstr ""
+
 msgid "A secure shell (SSH) server."
 msgstr "一个安全 shell (SSH) 服务。"
 
@@ -427,6 +427,9 @@ msgstr "至少需要两台设备。"
 msgid "At reboot"
 msgstr "在重启时"
 
+msgid "Attach"
+msgstr ""
+
 msgid "Attributes"
 msgstr "属性"
 
@@ -477,6 +480,9 @@ msgstr "BTRFS文件系统。"
 
 msgid "Back"
 msgstr "返回"
+
+msgid "Background task"
+msgstr ""
 
 msgid "Bad"
 msgstr "损坏"
@@ -684,6 +690,9 @@ msgstr "允许挂载文件系统的客户端，如 192.168.178.0/24。"
 
 msgid "Close"
 msgstr "关闭"
+
+msgid "Close the session on inactivity after the specified time."
+msgstr ""
 
 msgid "Cocos (Keeling) Islands"
 msgstr "科科斯(基林)群岛"
@@ -1381,6 +1390,9 @@ msgstr "加纳"
 
 msgid "Gibraltar"
 msgstr "直布罗陀"
+
+msgid "Go to the notification sidebar to attach to it."
+msgstr ""
 
 msgid "Good"
 msgstr "好"
@@ -3041,9 +3053,6 @@ msgstr "关机"
 msgid "Sierra Leone"
 msgstr "塞拉利昂"
 
-msgid "Signed in as"
-msgstr "登录为"
-
 msgid "Singapore"
 msgstr "新加坡"
 
@@ -3264,8 +3273,10 @@ msgstr "系统账户"
 msgid "System clock synchronization client and server."
 msgstr "客戶端與伺服端系統時鐘同步。"
 
-msgid "System monitoring is disabled. To enable it, please go to the"
-msgstr "系统监测已停用，启用请点击。"
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
+msgstr "系統監測被停用。若要啟用它，請前往 <a href='#/system/monitoring'>設定頁面</a>。"
 
 msgid "System time"
 msgstr "系统时间"
@@ -3326,8 +3337,8 @@ msgstr "按下电源时要执行的动作。"
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the"
-msgstr "仪表盘尚未配置，如需个性化设置请访问"
+"the <a href='#/dashboard/settings'>settings page</a>."
+msgstr "儀表板尚未被設置。如要個性化，請前往 <a href='#/dashboard/settings'>設定頁面</a>。"
 
 msgid "The data has been copied to the clipboard."
 msgstr "数据已复制到粘贴板"
@@ -4157,7 +4168,7 @@ msgstr "是"
 msgid ""
 "You have made changes that have not yet been saved. Do you want to discard "
 "them?"
-msgstr ""
+msgstr "您進行了尚未儲存的變更。您想放棄它們嗎？"
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "您必須套用那些變更，才會使它們生效。"

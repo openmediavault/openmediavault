@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 20:29+0100\n"
+"POT-Creation-Date: 2022-11-26 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2022\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -46,9 +46,6 @@ msgstr "%s [en %s, %s]"
 
 msgid "%s ago"
 msgstr "fa"
-
-msgid "."
-msgstr "."
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s significa ilimitat."
@@ -243,10 +240,13 @@ msgid "A maximum of two device can be removed."
 msgstr "Es pot eliminar un màxim de dos dispositius. "
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr "Un potent servidor FTP/SFTP/FTPS modular."
+
+msgid "A running background task was detected."
 msgstr ""
 
 msgid "A secure shell (SSH) server."
-msgstr ""
+msgstr "Un servidor shell segur (SSH)."
 
 msgid "ACL"
 msgstr "ACL"
@@ -423,6 +423,9 @@ msgstr "Es requereixen almenys dos dispositius. "
 msgid "At reboot"
 msgstr "Al Reiniciar"
 
+msgid "Attach"
+msgstr ""
+
 msgid "Attributes"
 msgstr "Atributs"
 
@@ -460,7 +463,7 @@ msgid "Auto logout"
 msgstr "Sortida automàtica"
 
 msgid "Automatic update and installation of packages."
-msgstr ""
+msgstr "Actualització i instal·lació automàtica de paquets."
 
 msgid "Available"
 msgstr "Disponible"
@@ -473,6 +476,9 @@ msgstr "BTRFS"
 
 msgid "Back"
 msgstr "Enrere"
+
+msgid "Background task"
+msgstr ""
 
 msgid "Bad"
 msgstr "Dolen"
@@ -619,7 +625,7 @@ msgid "Certificate"
 msgstr "Certificat"
 
 msgid "Certificate management."
-msgstr ""
+msgstr "Gestió de certificats."
 
 msgid "Certificates"
 msgstr "Certificats"
@@ -681,6 +687,9 @@ msgstr "Clients als que es permet muntar el sistema d'arxius, Ex.: 192.168.178.0
 msgid "Close"
 msgstr "Tancar"
 
+msgid "Close the session on inactivity after the specified time."
+msgstr ""
+
 msgid "Cocos (Keeling) Islands"
 msgstr "Illes Cocos (Keeling)"
 
@@ -739,7 +748,7 @@ msgid "Connections"
 msgstr "Connexions"
 
 msgid "Control and monitor storage systems using S.M.A.R.T."
-msgstr ""
+msgstr "Controlar i supervisar els sistemes d'emmagatzematge mitjançant S.M.A.R.T."
 
 msgid "Conveyance self-test"
 msgstr "Auto prova de transferència"
@@ -865,7 +874,7 @@ msgid "Daily"
 msgstr "diari"
 
 msgid "Dark mode"
-msgstr ""
+msgstr "Mode fosc"
 
 msgid "Dashboard"
 msgstr "Panell"
@@ -1006,13 +1015,13 @@ msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "Mostra la informació S.M.A.R.T. de tots els dispositius de disc supervisats."
 
 msgid "Displays the system time."
-msgstr ""
+msgstr "Mostra l'hora del sistema."
 
 msgid "Displays the system uptime."
-msgstr ""
+msgstr "Displays the system uptime."
 
 msgid "Displays various system information."
-msgstr ""
+msgstr "Mostra informació diversa del sistema."
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1325,7 +1334,7 @@ msgid "Forum"
 msgstr "Fòrum "
 
 msgid "Framework for Multicast DNS Service Discovery."
-msgstr ""
+msgstr "Marc per al Multicast DNS Service Discovery."
 
 msgid "France"
 msgstr "França"
@@ -1377,6 +1386,9 @@ msgstr "Ghana"
 
 msgid "Gibraltar"
 msgstr "Gibraltar"
+
+msgid "Go to the notification sidebar to attach to it."
+msgstr ""
 
 msgid "Good"
 msgstr "Bé"
@@ -1442,7 +1454,7 @@ msgid "Help"
 msgstr "Ajuda"
 
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernar"
 
 msgid "Hide"
 msgstr "Amaga"
@@ -1451,7 +1463,7 @@ msgid "Hide dot files"
 msgstr "Amagar arxius dot\".\""
 
 msgid "High-performance mail transport agent."
-msgstr ""
+msgstr "Agent de transport de correu d'alt rendiment."
 
 msgid "Home"
 msgstr "Inici"
@@ -1490,7 +1502,7 @@ msgid "Hungary"
 msgstr "Hongria"
 
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Repòs híbrid"
 
 msgid "ID"
 msgstr "ID"
@@ -1604,7 +1616,7 @@ msgid "India"
 msgstr "Índia"
 
 msgid "Indicates whether updates are available."
-msgstr ""
+msgstr "Indica si hi ha actualitzacions disponibles."
 
 msgid "Indonesia"
 msgstr "Indonèsia"
@@ -1648,7 +1660,7 @@ msgid "Invalid IP address."
 msgstr "Adreça IP no vàlida."
 
 msgid "Invalid NetBIOS name."
-msgstr ""
+msgstr "Nom NetBIOS no vàlid."
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Clau pública SSH no vàlida (format OpenSSH). "
@@ -1877,13 +1889,13 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Management of CPUfreq settings."
-msgstr ""
+msgstr "Gestió de la configuració de CPUfreq."
 
 msgid "Management of scheduled tasks."
-msgstr ""
+msgstr "Gestió de les tasques programades."
 
 msgid "Management of the file systems to be mounted."
-msgstr ""
+msgstr "Gestió dels sistemes de fitxers a muntar."
 
 msgid "March"
 msgstr "Març"
@@ -2262,7 +2274,7 @@ msgid "Package Information"
 msgstr "Informació del paquet "
 
 msgid "Package management."
-msgstr ""
+msgstr "Gestió de paquets."
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2313,7 +2325,7 @@ msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr "Enganxeu una clau privada RSA o ECC en format PEM X.509 aquí."
 
 msgid "Pending configuration changes"
-msgstr ""
+msgstr "Canvis de configuració pendents"
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "República Democràtica del Iemen"
@@ -2394,7 +2406,7 @@ msgstr "Per favor vegi: <a href='http://www.samba.org/samba/docs/man/manpages-3/
 msgid ""
 "Please check the <a href='https://manpages.debian.org/nfs-kernel-"
 "server/exports.5.html' target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Consulteu la pàgina <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>manual page</a> del manual per obtenir més detalls."
 
 msgid "Please choose the method to wipe the device."
 msgstr "Trieu el mètode per netejar el dispositiu. "
@@ -2460,7 +2472,7 @@ msgid "Power Management"
 msgstr "Maneig d'energia."
 
 msgid "Power Off"
-msgstr ""
+msgstr "Apagar"
 
 msgid "Power button"
 msgstr "Boto d’encesa"
@@ -2752,7 +2764,7 @@ msgid "SMB/CIFS - Audit"
 msgstr "Auditar SMB/CIFS"
 
 msgid "SMB/CIFS file, print, and login server for Unix."
-msgstr ""
+msgstr "Fitxers SMB/CIFS, impressió i inici de sessió per al servidor  Unix."
 
 msgid "SMTP port"
 msgstr "Port SMTP"
@@ -3037,9 +3049,6 @@ msgstr "Apagar"
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
-msgid "Signed in as"
-msgstr "Heu iniciat la sessió com a"
-
 msgid "Singapore"
 msgstr "Singapur"
 
@@ -3171,7 +3180,7 @@ msgid "Standby"
 msgstr "Repòs"
 
 msgid "Standby mode"
-msgstr ""
+msgstr "Mode d'espera"
 
 msgid "Start"
 msgstr "Inici"
@@ -3186,7 +3195,7 @@ msgid "Static"
 msgstr "Estàtic"
 
 msgid "Statistics collection and monitoring daemon."
-msgstr ""
+msgstr "Robot de recollida i seguiment d'estadístiques."
 
 msgid "Status"
 msgstr "Estat"
@@ -3222,7 +3231,7 @@ msgid "Suriname"
 msgstr "Surinam"
 
 msgid "Suspend"
-msgstr ""
+msgstr "Suspensió"
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Illes de Svalbard i Jan Mayen"
@@ -3258,10 +3267,12 @@ msgid "System account"
 msgstr "Compte del sistema "
 
 msgid "System clock synchronization client and server."
-msgstr ""
+msgstr "Sincronització del rellotge del sistema client/servidor."
 
-msgid "System monitoring is disabled. To enable it, please go to the"
-msgstr "La supervisió del sistema està desactivada. Per activar-lo, aneu a"
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
+msgstr "La supervisió del sistema està desactivada. Per activar-lo, aneu a la pàgina <a href='#/system/monitoring'>settings page</a> de configuració. "
 
 msgid "System time"
 msgstr "Hora del sistema"
@@ -3322,8 +3333,8 @@ msgstr "Acció a realitzar quant es premi el botó de \"power\""
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the"
-msgstr "El tauler encara no s'ha configurat. Per personalitzar-lo, aneu a "
+"the <a href='#/dashboard/settings'>settings page</a>."
+msgstr "El tauler encara no s'ha configurat. Per personalitzar-lo, aneu a la pàgina <a href='#/dashboard/settings'>settings page</a> de configuració."
 
 msgid "The data has been copied to the clipboard."
 msgstr "Les dades s’han copiat al porta-retalls."
@@ -3349,7 +3360,7 @@ msgid "The file system to mount."
 msgstr "El sistema de fitxers a muntar. "
 
 msgid "The following modules will be updated:"
-msgstr ""
+msgstr "S'actualitzaran els mòduls següents:"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "El nom de host es una etiqueta que identifica al sistema a la xarxa."
@@ -3686,7 +3697,7 @@ msgid "Timeout"
 msgstr "Temps límit"
 
 msgid "Tip"
-msgstr ""
+msgstr "Consell"
 
 msgid "Togo"
 msgstr "Togo"
@@ -3724,7 +3735,7 @@ msgid "Tuesday"
 msgstr "Dimarts"
 
 msgid "Tune hard disk parameters."
-msgstr ""
+msgstr "Ajustar els paràmetres del disc dur."
 
 msgid "Tunisia"
 msgstr "Tunísia"
@@ -3950,7 +3961,7 @@ msgid "Updates"
 msgstr "Actualitzacions"
 
 msgid "Updates Available"
-msgstr ""
+msgstr "Actualitzacions disponibles"
 
 msgid "Updates available"
 msgstr "Actualitzacions disponibles"
@@ -4009,7 +4020,7 @@ msgid "User Management"
 msgstr "Gestió d’usuaris"
 
 msgid "User Settings"
-msgstr ""
+msgstr "Configuració d'usuari"
 
 msgid "User home directory"
 msgstr "Directori Home d'usuari"
@@ -4153,10 +4164,10 @@ msgstr "Si"
 msgid ""
 "You have made changes that have not yet been saved. Do you want to discard "
 "them?"
-msgstr ""
+msgstr "Heu fet canvis que encara no s'han desat. Vols descartar-los?"
 
 msgid "You must apply these changes in order for them to take effect."
-msgstr ""
+msgstr "Heu d'aplicar aquests canvis perquè tinguin efecte."
 
 msgid "Your profile"
 msgstr "El teu perfil"

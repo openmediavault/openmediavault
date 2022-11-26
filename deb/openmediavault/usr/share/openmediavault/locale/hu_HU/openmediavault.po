@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 20:29+0100\n"
+"POT-Creation-Date: 2022-11-26 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2022\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -50,9 +50,6 @@ msgstr "%s [-n %s, %s]"
 
 msgid "%s ago"
 msgstr "%s előtt"
-
-msgid "."
-msgstr "."
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 kB/s korlátlan."
@@ -249,6 +246,9 @@ msgstr "Legfeljebb két eszköz távolítható el. "
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "Nagy teljesítményű moduláris FTP/SFTP/FTPS kiszolgáló."
 
+msgid "A running background task was detected."
+msgstr ""
+
 msgid "A secure shell (SSH) server."
 msgstr "Biztonságos shell (SSH) kiszolgáló."
 
@@ -427,6 +427,9 @@ msgstr "Legalább két eszközre van szükség."
 msgid "At reboot"
 msgstr "Újraindításkor"
 
+msgid "Attach"
+msgstr ""
+
 msgid "Attributes"
 msgstr "Attribútumok"
 
@@ -477,6 +480,9 @@ msgstr "BTRFS"
 
 msgid "Back"
 msgstr "Vissza"
+
+msgid "Background task"
+msgstr ""
 
 msgid "Bad"
 msgstr "Rossz"
@@ -684,6 +690,9 @@ msgstr "Kliensek engedélyezése a fájlrendszer felcsatoláshoz, pl. 192.168.17
 
 msgid "Close"
 msgstr "Bezárás"
+
+msgid "Close the session on inactivity after the specified time."
+msgstr ""
 
 msgid "Cocos (Keeling) Islands"
 msgstr "Kókusz (Keeling) sziget "
@@ -1381,6 +1390,9 @@ msgstr "Ghána"
 
 msgid "Gibraltar"
 msgstr "Gibraltár"
+
+msgid "Go to the notification sidebar to attach to it."
+msgstr ""
 
 msgid "Good"
 msgstr "Jó"
@@ -3041,9 +3053,6 @@ msgstr "Leállítás"
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
-msgid "Signed in as"
-msgstr "Bejelentkezve mint "
-
 msgid "Singapore"
 msgstr "Szingapúr"
 
@@ -3264,8 +3273,10 @@ msgstr "Rendszerfiók"
 msgid "System clock synchronization client and server."
 msgstr "Rendszeróra-szinkronizáló ügyfél és kiszolgáló."
 
-msgid "System monitoring is disabled. To enable it, please go to the"
-msgstr "A rendszer monitorozása ki van kapcsolva. Engedélyezéséhez kérjük, lépjen a"
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
+msgstr ""
 
 msgid "System time"
 msgstr "Rendszeridő"
@@ -3326,8 +3337,8 @@ msgstr "Feladatok végrehajtása a bekapcsoló gomb megnyomásakor."
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the"
-msgstr "A műszerfal még nincs konfigurálva. A személyre szabáshoz kérjük, menjen a"
+"the <a href='#/dashboard/settings'>settings page</a>."
+msgstr ""
 
 msgid "The data has been copied to the clipboard."
 msgstr "Az adatokat átmásolva a vágólapra."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 20:29+0100\n"
+"POT-Creation-Date: 2022-11-26 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2022\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -45,9 +45,6 @@ msgstr "٪s [على ٪s ، ٪s]"
 
 msgid "%s ago"
 msgstr "منذ %s "
-
-msgid "."
-msgstr ""
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s يعني غير محدود."
@@ -244,6 +241,9 @@ msgstr "يمكن إزالة جهازين كحد أقصى."
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr ""
 
+msgid "A running background task was detected."
+msgstr ""
+
 msgid "A secure shell (SSH) server."
 msgstr ""
 
@@ -422,6 +422,9 @@ msgstr "مطلوب جهازين على الأقل."
 msgid "At reboot"
 msgstr "عند إعادة التشغيل"
 
+msgid "Attach"
+msgstr ""
+
 msgid "Attributes"
 msgstr "السمات"
 
@@ -472,6 +475,9 @@ msgstr "BTRFS"
 
 msgid "Back"
 msgstr "للحلف"
+
+msgid "Background task"
+msgstr ""
 
 msgid "Bad"
 msgstr "سيء"
@@ -679,6 +685,9 @@ msgstr "العملاء مسموح لهم بتحميل نظام الملفات ،
 
 msgid "Close"
 msgstr "إغلاق"
+
+msgid "Close the session on inactivity after the specified time."
+msgstr ""
 
 msgid "Cocos (Keeling) Islands"
 msgstr "جزر كوكوس (كيلينغ)"
@@ -1376,6 +1385,9 @@ msgstr "غانا"
 
 msgid "Gibraltar"
 msgstr "جبل طارق"
+
+msgid "Go to the notification sidebar to attach to it."
+msgstr ""
 
 msgid "Good"
 msgstr "جيد"
@@ -3036,9 +3048,6 @@ msgstr "إيقاف التشغيل"
 msgid "Sierra Leone"
 msgstr "سيراليون"
 
-msgid "Signed in as"
-msgstr ""
-
 msgid "Singapore"
 msgstr "سنغافورة"
 
@@ -3259,7 +3268,9 @@ msgstr ""
 msgid "System clock synchronization client and server."
 msgstr ""
 
-msgid "System monitoring is disabled. To enable it, please go to the"
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
 msgstr ""
 
 msgid "System time"
@@ -3321,7 +3332,7 @@ msgstr "الإجراء الذي يجب القيام به عند الضغط عل�
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the"
+"the <a href='#/dashboard/settings'>settings page</a>."
 msgstr ""
 
 msgid "The data has been copied to the clipboard."

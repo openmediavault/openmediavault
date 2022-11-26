@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 20:29+0100\n"
+"POT-Creation-Date: 2022-11-26 13:07+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -44,9 +44,6 @@ msgstr "%s [%s de, %s]"
 
 msgid "%s ago"
 msgstr "%s önce"
-
-msgid "."
-msgstr "."
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s limitsiz demektir."
@@ -243,8 +240,11 @@ msgstr "En fazla iki cihaz kaldırılabilir."
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr ""
 
-msgid "A secure shell (SSH) server."
+msgid "A running background task was detected."
 msgstr ""
+
+msgid "A secure shell (SSH) server."
+msgstr "Güvenli kabuk (SSH) sunucusu."
 
 msgid "ACL"
 msgstr "ACL"
@@ -421,6 +421,9 @@ msgstr "En azından iki aygıt gereklidir."
 msgid "At reboot"
 msgstr "Yeniden başlatma sırasında"
 
+msgid "Attach"
+msgstr ""
+
 msgid "Attributes"
 msgstr "Özellikler"
 
@@ -471,6 +474,9 @@ msgstr "BTRFS"
 
 msgid "Back"
 msgstr "Geri"
+
+msgid "Background task"
+msgstr ""
 
 msgid "Bad"
 msgstr "Kötü"
@@ -617,7 +623,7 @@ msgid "Certificate"
 msgstr "Sertifika"
 
 msgid "Certificate management."
-msgstr ""
+msgstr "Sertifika yönetimi."
 
 msgid "Certificates"
 msgstr "Sertifikalar"
@@ -678,6 +684,9 @@ msgstr "Dosya sistemine bağlanmasına izin verilen kullanıcılar, örneğin 19
 
 msgid "Close"
 msgstr "Kapat"
+
+msgid "Close the session on inactivity after the specified time."
+msgstr ""
 
 msgid "Cocos (Keeling) Islands"
 msgstr "Cocos (Keeling) Adaları"
@@ -863,7 +872,7 @@ msgid "Daily"
 msgstr "Günlük"
 
 msgid "Dark mode"
-msgstr ""
+msgstr "Karanlık mod"
 
 msgid "Dashboard"
 msgstr "Gösterge Paneli"
@@ -1004,13 +1013,13 @@ msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "Tüm izlenen disk aygıtlarına ait S.M.A.R.T. bilgisini göster."
 
 msgid "Displays the system time."
-msgstr ""
+msgstr "Sistem zamanını gösterir."
 
 msgid "Displays the system uptime."
-msgstr ""
+msgstr "Sistem çalışma süresini gösterir."
 
 msgid "Displays various system information."
-msgstr ""
+msgstr "Çeşitli sistem bilgilerini gösterir."
 
 msgid "Djibouti"
 msgstr "Cibuti"
@@ -1144,10 +1153,10 @@ msgid "Enable WINS server"
 msgstr "WINS sunucusu aç"
 
 msgid "Enable keyboard-interactive authentication."
-msgstr ""
+msgstr "Klavye etkileşimli doğrulamayı etkinleştir."
 
 msgid "Enable public key authentication."
-msgstr ""
+msgstr "Açık anahtar doğrulamayı etkinleştir."
 
 msgid "Enable recycle bin"
 msgstr "Geri dönüşüm kutusunu aktive et"
@@ -1170,13 +1179,13 @@ msgid "Enable user home directories."
 msgstr "Kullanıcı ana klasörlerine izin ver."
 
 msgid "Enable write-cache"
-msgstr ""
+msgstr "Yazma önbelleğini etkinleştir"
 
 msgid "Enabled"
 msgstr "Aktif"
 
 msgid "Enabled widgets"
-msgstr ""
+msgstr "Minik araçları etkinleştir"
 
 msgid "Encryption mode"
 msgstr "Şifreleme modu"
@@ -1221,7 +1230,7 @@ msgid "Expire"
 msgstr "Zaman aşımı"
 
 msgid "Extended Information"
-msgstr ""
+msgstr "Genişletilmiş Bilgi"
 
 msgid "Extended attributes"
 msgstr "Genişletilmiş öznitelikler"
@@ -1250,10 +1259,10 @@ msgid ""
 msgstr "FXP kullanıcı tarafına herhangi bir dosya bilgisi aktarımı olmaksızın iki uzak sunucu arasında aktarıma imkan tanır."
 
 msgid "Failed"
-msgstr ""
+msgstr "Başarısız"
 
 msgid "Failed to copy data to the clipboard."
-msgstr ""
+msgstr "Verilerin panoya kopyalanması başarısız."
 
 msgid "Falkland Islands"
 msgstr "Falkland Adaları"
@@ -1277,7 +1286,7 @@ msgid "File Systems"
 msgstr "Dosya sistemleri"
 
 msgid "File path"
-msgstr ""
+msgstr "Dosya yolu"
 
 msgid "File system"
 msgstr "Dosya sistemi"
@@ -1376,6 +1385,9 @@ msgstr "Gana"
 msgid "Gibraltar"
 msgstr "Cebelitarık"
 
+msgid "Go to the notification sidebar to attach to it."
+msgstr ""
+
 msgid "Good"
 msgstr "İyi"
 
@@ -1410,7 +1422,7 @@ msgid "Guests allowed"
 msgstr "Misafirler müsaade edilmiştir"
 
 msgid "Guests only"
-msgstr ""
+msgstr "Sadece misafirler"
 
 msgid "Guinea"
 msgstr "Gine"
@@ -1431,7 +1443,7 @@ msgid "Haiti"
 msgstr "Haiti"
 
 msgid "Hardware Address"
-msgstr ""
+msgstr "Donanım Adresi"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard Adası ve McDonal Adası"
@@ -1646,7 +1658,7 @@ msgid "Invalid IP address."
 msgstr "Geçersiz IP adresi."
 
 msgid "Invalid NetBIOS name."
-msgstr ""
+msgstr "Geçersiz NetBIOS adı."
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Geçersiz SSH açık anahtarı (OpenSSH formatı)"
@@ -1797,7 +1809,7 @@ msgid "Link"
 msgstr "Link"
 
 msgid "List module"
-msgstr ""
+msgstr "Modülleri listele"
 
 msgid "Lithuania"
 msgstr "Litvanya"
@@ -1818,7 +1830,7 @@ msgid "Location"
 msgstr "Yerleşim"
 
 msgid "Log in"
-msgstr ""
+msgstr "Giriş"
 
 msgid "Log level"
 msgstr "Kayıt seviyesi"
@@ -2260,7 +2272,7 @@ msgid "Package Information"
 msgstr "Paket Bilgisi"
 
 msgid "Package management."
-msgstr ""
+msgstr "Paket yönetimi."
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2458,7 +2470,7 @@ msgid "Power Management"
 msgstr "Güç Yönetimi"
 
 msgid "Power Off"
-msgstr ""
+msgstr "Kapat"
 
 msgid "Power button"
 msgstr "Güç Düğmesi"
@@ -2531,7 +2543,7 @@ msgid "Processor"
 msgstr "İşlemci"
 
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 msgid "Protocol"
 msgstr "Protokol"
@@ -2879,7 +2891,7 @@ msgid "Select a type ..."
 msgstr ""
 
 msgid "Select all"
-msgstr ""
+msgstr "Tümünü seç"
 
 msgid "Select an authentication mode ..."
 msgstr "Doğrulama metodunu seçiniz ..."
@@ -3034,9 +3046,6 @@ msgstr "Kapat"
 
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
-
-msgid "Signed in as"
-msgstr ""
 
 msgid "Singapore"
 msgstr "Singapur"
@@ -3208,7 +3217,7 @@ msgid "Sudan"
 msgstr "Sudan"
 
 msgid "Summary"
-msgstr ""
+msgstr "Özet"
 
 msgid "Sunday"
 msgstr "Pazar"
@@ -3250,28 +3259,30 @@ msgid "System Logs"
 msgstr "Sistem Kayıtları"
 
 msgid "System Time"
-msgstr ""
+msgstr "Sistem Saati"
 
 msgid "System account"
-msgstr ""
+msgstr "Sistem hesabı"
 
 msgid "System clock synchronization client and server."
 msgstr ""
 
-msgid "System monitoring is disabled. To enable it, please go to the"
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
 msgstr ""
 
 msgid "System time"
 msgstr "Sistem zamanı"
 
 msgid "TCP"
-msgstr ""
+msgstr "TCP"
 
 msgid "TCP forwarding"
 msgstr "TCP yönlendirme"
 
 msgid "TLS Settings"
-msgstr ""
+msgstr "TLS Ayarları"
 
 msgid "Taiwan"
 msgstr "Tayvan"
@@ -3283,7 +3294,7 @@ msgid "Tanzania"
 msgstr "Tanzanya"
 
 msgid "Tasks"
-msgstr ""
+msgstr "Görevler"
 
 msgid "Temperature"
 msgstr "Sıcaklık"
@@ -3292,7 +3303,7 @@ msgid "Temperature monitoring"
 msgstr "Sıcaklık izleme"
 
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 msgid "Thailand"
 msgstr "Tayland"
@@ -3320,11 +3331,11 @@ msgstr "Güç düğmesine basıldığında yapılacak işlem."
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
-"the"
+"the <a href='#/dashboard/settings'>settings page</a>."
 msgstr ""
 
 msgid "The data has been copied to the clipboard."
-msgstr ""
+msgstr "Veriler panoya koplayanmıştır."
 
 msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
 msgstr ""
@@ -3462,7 +3473,7 @@ msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Çalışma grubu, kullanıcılar tarafından sorgulandığında sunucunun bulunacağı yerdir."
 
 msgid "There are no notifications."
-msgstr ""
+msgstr "Bildirim yok."
 
 msgid ""
 "These settings are used by the services to configure the access rights for "
@@ -3498,7 +3509,7 @@ msgid ""
 msgstr ""
 
 msgid "This field is required."
-msgstr ""
+msgstr "Bu alan gereklidir."
 
 msgid "This field must have the format <hh:mm:ss>."
 msgstr ""
@@ -3540,25 +3551,25 @@ msgid ""
 msgstr ""
 
 msgid "This field should be an IP address."
-msgstr ""
+msgstr "Bu alan IP adresi olmalıdır."
 
 msgid "This field should be an IPv4 address."
-msgstr ""
+msgstr "Bu alan IPv4 adresi olmalıdır."
 
 msgid "This field should be an IPv6 address."
-msgstr ""
+msgstr "Bu alan IPv6 adresi olmalıdır."
 
 msgid "This field should be an email address."
-msgstr ""
+msgstr "Bu alan email adresi olmalıdır."
 
 msgid "This field should contain a decimal value."
-msgstr ""
+msgstr "Bu alan ondalık değer bulundurmalıdır."
 
 msgid "This field should contain a number with a binary prefix."
-msgstr ""
+msgstr "Bu alan ikili sistem ön ekli rakam bulundurmalıdır."
 
 msgid "This field should contain a numeric value."
-msgstr ""
+msgstr "Bu alan rakamsal değer bulundurmalıdır."
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Bu fonksiyon sadece sabit disk destekliyor ise çalışır."
@@ -3684,7 +3695,7 @@ msgid "Timeout"
 msgstr "Zaman aşımı"
 
 msgid "Tip"
-msgstr ""
+msgstr "İpucu"
 
 msgid "Togo"
 msgstr "togo"
@@ -3749,7 +3760,7 @@ msgid "U.S. Virgin Islands"
 msgstr "Virgin Adaları"
 
 msgid "UDP"
-msgstr ""
+msgstr "UDP"
 
 msgid "UID"
 msgstr "UID"
@@ -3764,13 +3775,13 @@ msgid "Ukraine"
 msgstr "Ukrayna"
 
 msgid "Undo"
-msgstr ""
+msgstr "Geri Al"
 
 msgid "Uninstall"
 msgstr "Kaldır"
 
 msgid "Uninstall plugin"
-msgstr ""
+msgstr "Eklentiyi kaldır"
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "Sovyet Sosyalist Cumhuriyetleri Birliği"
@@ -3933,7 +3944,7 @@ msgid "Updated user \"{{ name }}\"."
 msgstr ""
 
 msgid "Updated user profile."
-msgstr ""
+msgstr "Güncellenmiş kullanıcı profili."
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr ""
@@ -3942,19 +3953,19 @@ msgid "Updated wireless network connection \"{{ devicename }}\"."
 msgstr ""
 
 msgid "Updated workbench settings."
-msgstr ""
+msgstr "Güncellenmiş çalışma alanı ayarları."
 
 msgid "Updates"
 msgstr "Güncellemeler"
 
 msgid "Updates Available"
-msgstr ""
+msgstr "Güncelleştirmeler Mevcut"
 
 msgid "Updates available"
 msgstr "Güncelleştirmeler mevcut"
 
 msgid "Upgrade system"
-msgstr ""
+msgstr "Sistemi yükselt"
 
 msgid "Uptime"
 msgstr "Çalışma süresi"
@@ -3963,7 +3974,7 @@ msgid "Uruguay"
 msgstr "Uruguay"
 
 msgid "Usage"
-msgstr ""
+msgstr "Kullanım"
 
 msgid "Usage Warning Threshold"
 msgstr ""
@@ -3975,7 +3986,7 @@ msgid "Use chroot"
 msgstr "Chroot kullan"
 
 msgid "Use global settings"
-msgstr ""
+msgstr "Genel ayarları kullan"
 
 msgid "Use sendfile"
 msgstr "Sendfile kullan"
@@ -4004,10 +4015,10 @@ msgid "User"
 msgstr "Kullanıcı"
 
 msgid "User Management"
-msgstr ""
+msgstr "Kullanıcı Yönetimi"
 
 msgid "User Settings"
-msgstr ""
+msgstr "Kullanıcı Ayarları"
 
 msgid "User home directory"
 msgstr "Kullanıcı ana dizini"
@@ -4072,7 +4083,7 @@ msgid "WOL"
 msgstr "WOL"
 
 msgid "WWN"
-msgstr ""
+msgstr "WWN"
 
 msgid "Wake Island"
 msgstr "Wake Adası"
@@ -4113,10 +4124,10 @@ msgid "Wipe"
 msgstr "Sil"
 
 msgid "Wiping device"
-msgstr ""
+msgstr "Aygıt siliniyor"
 
 msgid "Workbench"
-msgstr ""
+msgstr "Çalışma alanı"
 
 msgid "Workgroup"
 msgstr "Çalışma grubu"
@@ -4134,7 +4145,7 @@ msgid "Write/Execute"
 msgstr "Yaz/Çalıştır"
 
 msgid "XFS"
-msgstr ""
+msgstr "XFS"
 
 msgid "Xen virtual disk device"
 msgstr "Xen sanal disk aygıtı"
@@ -4166,22 +4177,22 @@ msgid "Zimbabwe"
 msgstr "Zimbabve"
 
 msgid "a day"
-msgstr ""
+msgstr "gün"
 
 msgid "a few seconds"
-msgstr ""
+msgstr "birkaç saniye"
 
 msgid "a minute"
-msgstr ""
+msgstr "dakika"
 
 msgid "a month"
-msgstr ""
+msgstr "ay"
 
 msgid "a year"
-msgstr ""
+msgstr "yıl"
 
 msgid "an hour"
-msgstr ""
+msgstr "saat"
 
 msgid "in %s"
 msgstr ""
@@ -4190,7 +4201,7 @@ msgid "n/a"
 msgstr "yok"
 
 msgid "selected"
-msgstr ""
+msgstr "seçili"
 
 msgid "total"
-msgstr ""
+msgstr "total"
