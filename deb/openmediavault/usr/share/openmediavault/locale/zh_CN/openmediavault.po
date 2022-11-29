@@ -247,7 +247,7 @@ msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "一个高效 FTP/SFTP/FTPS 服务模块"
 
 msgid "A running background task was detected."
-msgstr ""
+msgstr "检测到有后台任务正在运行。"
 
 msgid "A secure shell (SSH) server."
 msgstr "一个安全 shell (SSH) 服务。"
@@ -428,7 +428,7 @@ msgid "At reboot"
 msgstr "在重启时"
 
 msgid "Attach"
-msgstr ""
+msgstr "相关"
 
 msgid "Attributes"
 msgstr "属性"
@@ -482,7 +482,7 @@ msgid "Back"
 msgstr "返回"
 
 msgid "Background task"
-msgstr ""
+msgstr "后台任务"
 
 msgid "Bad"
 msgstr "损坏"
@@ -692,7 +692,7 @@ msgid "Close"
 msgstr "关闭"
 
 msgid "Close the session on inactivity after the specified time."
-msgstr ""
+msgstr "在指定时间后关闭非活动状态会话。"
 
 msgid "Cocos (Keeling) Islands"
 msgstr "科科斯(基林)群岛"
@@ -1392,7 +1392,7 @@ msgid "Gibraltar"
 msgstr "直布罗陀"
 
 msgid "Go to the notification sidebar to attach to it."
-msgstr ""
+msgstr "转到通知侧栏查看相关信息。"
 
 msgid "Good"
 msgstr "好"

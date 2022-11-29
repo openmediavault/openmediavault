@@ -38,7 +38,7 @@ msgid "100 MiB/s"
 msgstr "100 MiB/s"
 
 msgid "12 hours"
-msgstr ""
+msgstr "12 hores"
 
 msgid "128 KiB/s"
 msgstr "128 KiB/s"
@@ -50,7 +50,7 @@ msgid "2 minutes"
 msgstr "2 minuts"
 
 msgid "24 hours"
-msgstr ""
+msgstr "24 hores"
 
 msgid "256 KiB/s"
 msgstr "256 KiB/s"
@@ -71,7 +71,7 @@ msgid "512 KiB/s"
 msgstr "512 KiB/s"
 
 msgid "6 hours"
-msgstr ""
+msgstr "6 hores"
 
 msgid "60 minutes"
 msgstr "60 minuts"

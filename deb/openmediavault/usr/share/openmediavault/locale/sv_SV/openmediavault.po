@@ -244,7 +244,7 @@ msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "En kraftfull modulär FTP/SFTP/FTPS-server."
 
 msgid "A running background task was detected."
-msgstr ""
+msgstr "En pågående bakgrundsuppgift upptäcktes."
 
 msgid "A secure shell (SSH) server."
 msgstr "En säker skal (SSH)-server."
@@ -425,7 +425,7 @@ msgid "At reboot"
 msgstr "Vid omstart"
 
 msgid "Attach"
-msgstr ""
+msgstr "Bifoga"
 
 msgid "Attributes"
 msgstr "Attribut"
@@ -479,7 +479,7 @@ msgid "Back"
 msgstr "Tillbaka"
 
 msgid "Background task"
-msgstr ""
+msgstr "Bakgrundsuppgift"
 
 msgid "Bad"
 msgstr "Dålig"
@@ -689,7 +689,7 @@ msgid "Close"
 msgstr "Stäng"
 
 msgid "Close the session on inactivity after the specified time."
-msgstr ""
+msgstr "Stäng sessionen vid inaktivitet efter den angivna tiden."
 
 msgid "Cocos (Keeling) Islands"
 msgstr "Cocos (Keeling)-öarna"
@@ -1389,7 +1389,7 @@ msgid "Gibraltar"
 msgstr "Gibraltar"
 
 msgid "Go to the notification sidebar to attach to it."
-msgstr ""
+msgstr "Gå till sidofältet för meddelanden för att bifoga det."
 
 msgid "Good"
 msgstr "Bra"

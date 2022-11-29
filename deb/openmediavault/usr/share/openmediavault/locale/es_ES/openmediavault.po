@@ -244,7 +244,7 @@ msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "Servidor modular FTP/SFTP/FTPS"
 
 msgid "A running background task was detected."
-msgstr ""
+msgstr "ha sido detectada una tarea corriendo en background."
 
 msgid "A secure shell (SSH) server."
 msgstr "Servidor seguro (SSH)"
@@ -425,7 +425,7 @@ msgid "At reboot"
 msgstr "Al Reiniciar"
 
 msgid "Attach"
-msgstr ""
+msgstr "Adjuntar"
 
 msgid "Attributes"
 msgstr "Atributos"
@@ -479,7 +479,7 @@ msgid "Back"
 msgstr "Volver"
 
 msgid "Background task"
-msgstr ""
+msgstr "Tarea en Background"
 
 msgid "Bad"
 msgstr "Mal"
@@ -689,7 +689,7 @@ msgid "Close"
 msgstr "Cerrar"
 
 msgid "Close the session on inactivity after the specified time."
-msgstr ""
+msgstr "Cierra la sesión tras el periodo especificado de inactividad."
 
 msgid "Cocos (Keeling) Islands"
 msgstr "Islas Cocos (Keeling)"
@@ -1389,7 +1389,7 @@ msgid "Gibraltar"
 msgstr "Gibraltar"
 
 msgid "Go to the notification sidebar to attach to it."
-msgstr ""
+msgstr "Ve a la barra lateral de notificación para añadirte a ella."
 
 msgid "Good"
 msgstr "Bien"
@@ -3273,7 +3273,7 @@ msgstr "Cliente y servidor de sincronización del reloj del sistema."
 msgid ""
 "System monitoring is disabled. To enable it, please go to the <a "
 "href='#/system/monitoring'>settings page</a>."
-msgstr ""
+msgstr "La supervisión del sistema está deshabilitada. Para habilitarlo, vaya a la <a href='#/system/monitoring'>página de configuración</a>."
 
 msgid "System time"
 msgstr "Hora del sistema"
@@ -3335,7 +3335,7 @@ msgstr "Acción a realizar cuando se presione el botón de \"power\""
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
 "the <a href='#/dashboard/settings'>settings page</a>."
-msgstr ""
+msgstr "El panel aún no se ha configurado. Para personalizarlo, vaya a la <a href='#/dashboard/settings'>página de configuración</a>."
 
 msgid "The data has been copied to the clipboard."
 msgstr "Los datos han sido copiados al prtapapeles."
