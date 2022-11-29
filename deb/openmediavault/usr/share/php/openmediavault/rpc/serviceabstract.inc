@@ -433,14 +433,20 @@ abstract class ServiceAbstract {
 	 * @return The background process status.
 	 */
 	final protected function getBgProcStatus($filename) {
+		// To prevent a manipulated file from being read, it must be
+		// ensured that the file was created by this process itself.
+		if (fileowner($filename) !== posix_getuid()) {
+			throw new Exception("Illegitimate file owner.");
+		}
 		$jsonFile = new \OMV\Json\File($filename);
 		$jsonFile->open("r");
 		$status = $jsonFile->read();
 		$jsonFile->close();
 		// Check if the process is really still running.
 		if (TRUE === $status['running']) {
-			if (!is_dir(sprintf("/proc/%d", $status['pid'])))
+			if (!is_dir(sprintf("/proc/%d", $status['pid']))) {
 				$status['running'] = FALSE;
+			}
 		}
 		return $status;
 	}
