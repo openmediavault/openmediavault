@@ -291,7 +291,7 @@ register_shutdown_function("shutdownHandler");
 ///////////////////////////////////////////////////////////////////////////////
 
 // Check the command line arguments. Exit and display usage if
-// nessecary.
+// necessary.
 $cmdArgs = [
 	"d::" => "debug::",
 	"f::" => "foreground::",

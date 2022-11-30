@@ -329,15 +329,15 @@ abstract class ServiceAbstract {
 	 * @return The background process status.
 	 */
 	final protected function initializeBgProcStatus($filename, $pid) {
-		$jsonFile = new \OMV\Json\File($filename);
-		$jsonFile->open("r+");
+		$file = new \OMV\Rpc\BgStatusFile($filename);
+		$file->open("r+");
 		$status = [
 			"pid" => $pid,
 			"running" => TRUE,
 			"startTime" => time()
 		];
-		$jsonFile->write($status);
-		$jsonFile->close();
+		$file->write($status);
+		$file->close();
 		return $status;
 	}
 
@@ -359,12 +359,12 @@ abstract class ServiceAbstract {
 			// createBgProcStatus() simply creates an empty file which is
 			// filled with valid JSON by initializeBgProcStatus().
 			$initialized = FALSE;
-			$jsonFile = new \OMV\Json\File($filename);
+			$file = new \OMV\Rpc\BgStatusFile($filename);
 			try {
-				$jsonFile->open("r+");
-				$initialized = !$jsonFile->isEmpty();
+				$file->open("r+");
+				$initialized = !$file->isEmpty();
 			} finally {
-				$jsonFile->close();
+				$file->close();
 			}
 			if ($initialized)
 				return;
@@ -387,9 +387,9 @@ abstract class ServiceAbstract {
 	 */
 	final protected function finalizeBgProcStatus($filename,
 	  $result = NULL, $exception = NULL) {
-		$jsonFile = new \OMV\Json\File($filename);
-		$jsonFile->open("r+");
-		$status = $jsonFile->read();
+		$file = new \OMV\Rpc\BgStatusFile($filename);
+		$file->open("r+");
+		$status = $file->read();
 		$status['pid'] = posix_getpid();
 		$status['running'] = FALSE;
 		$status['endTime'] = time();
@@ -402,13 +402,13 @@ abstract class ServiceAbstract {
 				"trace" => $exception->__toString()
 			];
 		}
-		$jsonFile->write($status);
-		$jsonFile->close();
+		$file->write($status);
+		$file->close();
 		return $status;
 	}
 
 	/**
-	 * Helper function to update informations of the background process
+	 * Helper function to update information's of the background process
 	 * status file.
 	 * @param filename The name of the status file.
 	 * @param key The name of the field to be modified.
@@ -416,14 +416,14 @@ abstract class ServiceAbstract {
 	 * @return The background process status.
 	 */
 	final protected function updateBgProcStatus($filename, $key, $value) {
-		$jsonFile = new \OMV\Json\File($filename);
-		$jsonFile->open("r+");
-		$status = $jsonFile->read();
+		$file = new \OMV\Rpc\BgStatusFile($filename);
+		$file->open("r+");
+		$status = $file->read();
 		$status['pid'] = posix_getpid();
 		$status['running'] = TRUE;
 		$status[$key] = $value;
-		$jsonFile->write($status);
-		$jsonFile->close();
+		$file->write($status);
+		$file->close();
 		return $status;
 	}
 
@@ -433,15 +433,10 @@ abstract class ServiceAbstract {
 	 * @return The background process status.
 	 */
 	final protected function getBgProcStatus($filename) {
-		// To prevent a manipulated file from being read, it must be
-		// ensured that the file was created by this process itself.
-		if (fileowner($filename) !== posix_getuid()) {
-			throw new Exception("Illegitimate file owner.");
-		}
-		$jsonFile = new \OMV\Json\File($filename);
-		$jsonFile->open("r");
-		$status = $jsonFile->read();
-		$jsonFile->close();
+		$file = new \OMV\Rpc\BgStatusFile($filename);
+		$file->open("r");
+		$status = $file->read();
+		$file->close();
 		// Check if the process is really still running.
 		if (TRUE === $status['running']) {
 			if (!is_dir(sprintf("/proc/%d", $status['pid']))) {
@@ -457,16 +452,16 @@ abstract class ServiceAbstract {
 	 * @return void
 	 */
 	final protected function unlinkBgProcStatus($filename) {
-		$jsonFile = new \OMV\Json\File($filename);
-		$jsonFile->open("r");
-		$status = $jsonFile->read();
-		$jsonFile->close();
+		$file = new \OMV\Rpc\BgStatusFile($filename);
+		$file->open("r");
+		$status = $file->read();
+		$file->close();
 		// Unlink the command output file if defined.
 		if (array_key_exists("outputfilename", $status) && !empty(
 		  $status['outputfilename'])) {
 			@unlink($status['outputfilename']);
 		}
-		$jsonFile->unlink();
+		$file->unlink();
 	}
 
 	/**
