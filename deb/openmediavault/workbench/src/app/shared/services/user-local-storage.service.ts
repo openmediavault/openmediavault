@@ -32,12 +32,12 @@ export class UserLocalStorageService {
     return _.defaultTo(value, defaultValue);
   }
 
-  set(key: string, value: string) {
+  set(key: string, value: string): void {
     const username = this.authSessionService.getUsername();
     localStorage.setItem(`${username}@${key}`, value);
   }
 
-  clear() {
+  clear(): void {
     const username = this.authSessionService.getUsername();
     const numKeys = localStorage.length;
     const keys = [];

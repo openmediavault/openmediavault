@@ -486,8 +486,9 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     if (!this.cellTemplates) {
       return;
     }
-    columns.forEach((column) => {
+    columns.forEach((column: DatatableColumn) => {
       column.hidden = !!column.hidden;
+      column.sortable = !!column.sortable;
       // Convert column configuration.
       if (_.isString(column.cellTemplateName) && column.cellTemplateName.length) {
         column.cellTemplate = this.cellTemplates[column.cellTemplateName];
@@ -508,7 +509,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
       return;
     }
     const value = this.userLocalStorageService.get(`datatable_state_${this.stateId}`);
-    if (value) {
+    if (_.isString(value)) {
       const columnsConfig = JSON.parse(value);
       _.forEach(columnsConfig, (columnConfig: Record<string, any>) => {
         const column = _.find(this.columns, ['name', _.get(columnConfig, 'name')]);
