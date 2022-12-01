@@ -12,6 +12,20 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="favicon_180x180.png">
   <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+
+  <style>
+    omv-root:empty::after {
+      position: absolute;
+      display: block;
+      color: white;
+      content: url("/assets/images/openmediavault_logo.svg");
+      width: auto;
+      height: auto;
+      margin: 1.5rem;
+      transform-origin: top right;
+      transform: translateX(-100%) rotate(-90deg);
+    }
+  </style>
 </head>
 <body>
   <omv-root></omv-root>
