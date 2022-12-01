@@ -24,7 +24,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/dashboard-widget-config.model';
 import { Permissions, Roles } from '~/app/shared/models/permissions.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
-import { UserStorageService } from '~/app/shared/services/user-storage.service';
+import { UserLocalStorageService } from '~/app/shared/services/user-local-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +37,7 @@ export class DashboardWidgetConfigService {
   constructor(
     private authSessionService: AuthSessionService,
     private http: HttpClient,
-    private userStorageService: UserStorageService
+    private userLocalStorageService: UserLocalStorageService
   ) {
     this.configs$ = this.configsSource.asObservable();
   }
@@ -81,7 +81,7 @@ export class DashboardWidgetConfigService {
    * @return Returns a list of widget identifiers (UUID).
    */
   public getEnabled(): Array<string> {
-    const value = this.userStorageService.get('dashboard_widgets', '[]');
+    const value = this.userLocalStorageService.get('dashboard_widgets', '[]');
     const result: Array<string> = JSON.parse(value);
     return result;
   }
@@ -93,6 +93,6 @@ export class DashboardWidgetConfigService {
    */
   public setEnabled(ids: Array<string>) {
     const value = JSON.stringify(ids);
-    this.userStorageService.set('dashboard_widgets', value);
+    this.userLocalStorageService.set('dashboard_widgets', value);
   }
 }

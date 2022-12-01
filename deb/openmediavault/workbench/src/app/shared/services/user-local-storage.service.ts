@@ -23,7 +23,7 @@ import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 @Injectable({
   providedIn: 'root'
 })
-export class UserStorageService {
+export class UserLocalStorageService {
   constructor(private authSessionService: AuthSessionService) {}
 
   get(key: string, defaultValue?: any): string | null {

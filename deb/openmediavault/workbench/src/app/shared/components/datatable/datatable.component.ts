@@ -43,7 +43,7 @@ import { DatatableData } from '~/app/shared/models/datatable-data.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { Sorter } from '~/app/shared/models/sorter.type';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
-import { UserStorageService } from '~/app/shared/services/user-storage.service';
+import { UserLocalStorageService } from '~/app/shared/services/user-local-storage.service';
 
 export type DataTableLoadParams = {
   dir?: 'asc' | 'desc';
@@ -235,7 +235,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
 
   constructor(
     private clipboardService: ClipboardService,
-    private userStorageService: UserStorageService
+    private userLocalStorageService: UserLocalStorageService
   ) {
     this.messages = {
       emptyMessage: translate(gettext('No data to display.')),
@@ -507,7 +507,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     if (!this.stateId) {
       return;
     }
-    const value = this.userStorageService.get(`datatable_state_${this.stateId}`);
+    const value = this.userLocalStorageService.get(`datatable_state_${this.stateId}`);
     if (value) {
       const columnsConfig = JSON.parse(value);
       _.forEach(columnsConfig, (columnConfig: Record<string, any>) => {
@@ -530,6 +530,9 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
         hidden: column.hidden
       });
     });
-    this.userStorageService.set(`datatable_state_${this.stateId}`, JSON.stringify(columnsConfig));
+    this.userLocalStorageService.set(
+      `datatable_state_${this.stateId}`,
+      JSON.stringify(columnsConfig)
+    );
   }
 }

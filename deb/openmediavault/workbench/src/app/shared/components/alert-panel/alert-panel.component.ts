@@ -21,7 +21,7 @@ import * as _ from 'lodash';
 
 import { CoerceBoolean } from '~/app/decorators';
 import { Icon } from '~/app/shared/enum/icon.enum';
-import { UserStorageService } from '~/app/shared/services/user-storage.service';
+import { UserLocalStorageService } from '~/app/shared/services/user-local-storage.service';
 
 export type AlertPanelButtonConfig = {
   icon: string;
@@ -68,7 +68,7 @@ export class AlertPanelComponent implements OnInit {
   // Internal
   public dismissed = false;
 
-  constructor(private userStorageService: UserStorageService) {}
+  constructor(private userLocalStorageService: UserLocalStorageService) {}
 
   ngOnInit(): void {
     if (this.dismissible) {
@@ -80,7 +80,7 @@ export class AlertPanelComponent implements OnInit {
 
       if (this.stateId) {
         this.dismissed =
-          'dismiss' === this.userStorageService.get(`alertpanel_state_${this.stateId}`, '');
+          'dismiss' === this.userLocalStorageService.get(`alertpanel_state_${this.stateId}`, '');
       }
     }
     this.sanitizeConfig();
@@ -89,7 +89,7 @@ export class AlertPanelComponent implements OnInit {
   close(): void {
     this.dismissed = true;
     if (this.stateId) {
-      this.userStorageService.set(`alertpanel_state_${this.stateId}`, 'dismiss');
+      this.userLocalStorageService.set(`alertpanel_state_${this.stateId}`, 'dismiss');
     }
   }
 

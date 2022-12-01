@@ -36,7 +36,7 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 import { PrefersColorSchemeService } from '~/app/shared/services/prefers-color-scheme.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 import { SystemInformationService } from '~/app/shared/services/system-information.service';
-import { UserStorageService } from '~/app/shared/services/user-storage.service';
+import { UserLocalStorageService } from '~/app/shared/services/user-local-storage.service';
 
 @Component({
   selector: 'omv-top-bar',
@@ -71,7 +71,7 @@ export class TopBarComponent implements OnDestroy {
     private authSessionService: AuthSessionService,
     private prefersColorSchemeService: PrefersColorSchemeService,
     private rpcService: RpcService,
-    private userStorageService: UserStorageService,
+    private userLocalStorageService: UserLocalStorageService,
     private dialogService: DialogService,
     private notificationService: NotificationService,
     private systemInformationService: SystemInformationService
@@ -194,7 +194,7 @@ export class TopBarComponent implements OnDestroy {
       gettext('Do you really want to reset the UI settings to their default values?'),
       'confirmation',
       () => {
-        this.userStorageService.clear();
+        this.userLocalStorageService.clear();
         this.router.navigate(['/reload']);
       }
     );
