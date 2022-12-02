@@ -1,5 +1,7 @@
 openmediavault (6.1.0-1) stable; urgency=low
 
+  * Update locale files.
+  * Various improvements.
   * Fixed a bug in the file system page. Allow unmounting of read-only
     file systems.
   * Fix render bug in the notification sidebar.
