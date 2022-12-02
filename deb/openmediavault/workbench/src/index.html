@@ -14,10 +14,27 @@
   <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
 
   <style>
-    omv-root:empty::after {
+    .boot-loader {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      cursor: url('data:image/x-icon;base64,AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAMIeAADCHgAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8AAAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wAAAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP////8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/0BA4P9AQOD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/QEDg/0BA4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8AAAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/0BA4P9AQOD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wAAAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/QEDg/0BA4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/0BA4P9AQOD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8AAAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/QEDg/0BA4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/0BA4P9AQOD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/QEDg/0BA4P8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAP8AAAD/AAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP/A4OD/wODg/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/8Dg4P/A4OD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AwODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wDA4OD/wODg/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A/8AD///AA//8AAA//AAAP/AAAA/wAAAPwAAAA8AAAAPAAAADwAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAPAAAADwAAAA8AAAAPwAAAP8AAAD/wAAD/8AAA//8AD///AA///8D////A////AD///wA///8AP///AD/8='), auto;
+      transition: opacity 1.4s ease-in-out, visibility 1.4s;
+    }
+    .boot-loader .text {
       position: absolute;
-      display: block;
       color: white;
+      font-family: "Inter", "Roboto", "HelveticaNeue", "Helvetica Neue", helvetica, arial, sans-serif;
+      font-size: 1.3em;
+      font-weight: 400;
+      text-align: center;
+      left: 0px;
+      right: 0px;
+      top: 50%;
+    }
+    .boot-loader .logo {
+      position: absolute;
       content: url("/assets/images/openmediavault_logo.svg");
       width: auto;
       height: auto;
@@ -25,9 +42,20 @@
       transform-origin: top right;
       transform: translateX(-100%) rotate(-90deg);
     }
+    .cursor {
+      font-family: monospace;
+      animation: toggle-opacity 1s step-start infinite;
+    }
   </style>
 </head>
 <body>
-  <omv-root></omv-root>
+  <omv-root>
+    <div class="boot-loader">
+      <div class="logo"></div>
+      <div class="text">
+        Loading ...<span class="cursor">█</span>
+      </div>
+    </div>
+  </omv-root>
 </body>
 </html>
