@@ -241,7 +241,7 @@ msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "Ένας πανίσχυρος αρθρωτός διακομιστής FTP/SFTP/FTPS."
 
 msgid "A running background task was detected."
-msgstr ""
+msgstr "Εντοπίστηκε κάποια ενεργή εργασία παρασκηνίου."
 
 msgid "A secure shell (SSH) server."
 msgstr "Ένας διακομιστής ασφαλούς κελύφους (SSH)."
@@ -422,7 +422,7 @@ msgid "At reboot"
 msgstr "Κατά την επανεκκίνηση"
 
 msgid "Attach"
-msgstr ""
+msgstr "Προσάρτηση"
 
 msgid "Attributes"
 msgstr "Χαρακτηριστικά"
@@ -476,7 +476,7 @@ msgid "Back"
 msgstr "Πίσω"
 
 msgid "Background task"
-msgstr ""
+msgstr "Εργασία παρασκηνίου"
 
 msgid "Bad"
 msgstr "Κακό"
@@ -686,7 +686,7 @@ msgid "Close"
 msgstr "Κλείσιμο"
 
 msgid "Close the session on inactivity after the specified time."
-msgstr ""
+msgstr "Κλείσιμο αδρανούς συνεδρίας μετά τον ορισμένο χρόνο."
 
 msgid "Cocos (Keeling) Islands"
 msgstr "Cocos (Keeling) Islands"
@@ -1386,7 +1386,7 @@ msgid "Gibraltar"
 msgstr "Gibraltar"
 
 msgid "Go to the notification sidebar to attach to it."
-msgstr ""
+msgstr "Μετάβαση στην πλευρική μπάρα ειδοποιήσεων για προσάρτηση σε αυτή."
 
 msgid "Good"
 msgstr "Καλό"
@@ -2973,10 +2973,10 @@ msgid "Services"
 msgstr "Υπηρεσίες"
 
 msgid "Session expired."
-msgstr "Η σύνδεση έληξε."
+msgstr "Η συνεδρία έληξε."
 
 msgid "Session not authenticated."
-msgstr "Η σύνδεση δεν πιστοποιήθηκε."
+msgstr "Η συνεδρία δεν πιστοποιήθηκε."
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
