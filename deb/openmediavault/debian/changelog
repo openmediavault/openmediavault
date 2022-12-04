@@ -1,6 +1,7 @@
 openmediavault (6.1.1-1) stable; urgency=low
 
-  *
+  * Do not request a confirmation after the shared folders ACL page
+    has been saved and is exited.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Dec 2022 13:19:18 +0100
 

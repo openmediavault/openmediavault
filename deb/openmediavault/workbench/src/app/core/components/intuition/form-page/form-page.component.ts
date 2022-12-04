@@ -151,6 +151,10 @@ export class FormPageComponent
     return this.form.formGroup.dirty;
   }
 
+  markAsPristine(): void {
+    this.form.formGroup.markAsPristine();
+  }
+
   loadData(): void {
     const request = this.config.request;
     if (_.isString(request?.service) && _.isPlainObject(request?.get)) {
@@ -372,7 +376,7 @@ export class FormPageComponent
               // At this point we can assume the form values have been
               // submitted and stored, so we can safely mark the form as
               // pristine again.
-              this.form.formGroup.markAsPristine();
+              this.markAsPristine();
               // Display a success notification?
               const notificationTitle = _.get(this.routeConfig, 'data.notificationTitle');
               if (!_.isEmpty(notificationTitle)) {

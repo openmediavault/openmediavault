@@ -358,6 +358,7 @@ export class SharedFolderAclFormPageComponent extends IsDirtyFormPageComponent i
         })
       )
       .subscribe(() => {
+        this.page.markAsPristine();
         this.notificationService.show(
           NotificationType.success,
           _.get(this.page.routeConfig, 'data.notificationTitle')
