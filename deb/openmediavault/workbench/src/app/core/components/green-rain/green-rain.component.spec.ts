@@ -23,5 +23,7 @@ describe('GreenRainComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    // eslint-disable-next-line @typescript-eslint/dot-notation
+    expect(component['prefersReducedMotion']).toBeFalsy();
   });
 });

@@ -68,6 +68,7 @@ export class GreenRainComponent implements OnInit, OnDestroy {
   private fontFamily: string;
   private timerSubscription: Subscription;
   private initialDelayComplete = false;
+  private prefersReducedMotion = false;
 
   private get width(): number {
     const element = this.canvas.nativeElement as HTMLCanvasElement;
@@ -79,10 +80,15 @@ export class GreenRainComponent implements OnInit, OnDestroy {
     return element.height;
   }
 
-  constructor() {}
+  constructor() {
+    this.prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
+    if (this.prefersReducedMotion) {
+      return;
+    }
     if (this.initialDelayComplete) {
       this.stop();
       this.init();
@@ -91,6 +97,10 @@ export class GreenRainComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    if (this.prefersReducedMotion) {
+      return;
+    }
+
     const element = this.canvas.nativeElement as HTMLCanvasElement;
     const styles = window.getComputedStyle(element);
 

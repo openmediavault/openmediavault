@@ -2,6 +2,8 @@ openmediavault (6.1.1-1) stable; urgency=low
 
   * Do not request a confirmation after the shared folders ACL page
     has been saved and is exited.
+  * Issue #1435: Disable the animation in the login screen if the
+    `prefers-reduced-motion` preference is set to `reduce`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Dec 2022 13:19:18 +0100
 
