@@ -28,7 +28,7 @@ data:
       - type: sharedFolderSelect
         name: sharedfolderref
         label: _("Shared folder")
-        hint: _("The location of the media files. Make sure the user <em>s3</em> or group <em>users</em> can access the files.")
+        hint: _("The location where the object data is stored. Make sure the user <em>s3</em> or group <em>users</em> can access the files.")
         hasEmptyOption: true
         value: ""
         validators:

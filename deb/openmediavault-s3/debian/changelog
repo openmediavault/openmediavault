@@ -1,3 +1,13 @@
+openmediavault-s3 (6.0.5-1) stable; urgency=low
+
+  * Update locales.
+  * Update hint in the service page. MinIO has dropped the
+    gateway function so that the files in the shared folder
+    can no longer be exported. The shared folder is now used
+    to store the MinIO object data.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 06 Dec 2022 21:50:31 +0100
+
 openmediavault-s3 (6.0.4-1) stable; urgency=low
 
   * Make sure the container is started after the file systems of
