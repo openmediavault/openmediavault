@@ -247,7 +247,7 @@ msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "Nagy teljesítményű moduláris FTP/SFTP/FTPS kiszolgáló."
 
 msgid "A running background task was detected."
-msgstr ""
+msgstr "Egy futó háttérfeladat észlelve."
 
 msgid "A secure shell (SSH) server."
 msgstr "Biztonságos shell (SSH) kiszolgáló."
@@ -428,7 +428,7 @@ msgid "At reboot"
 msgstr "Újraindításkor"
 
 msgid "Attach"
-msgstr ""
+msgstr "Csatolás"
 
 msgid "Attributes"
 msgstr "Attribútumok"
@@ -482,7 +482,7 @@ msgid "Back"
 msgstr "Vissza"
 
 msgid "Background task"
-msgstr ""
+msgstr "Háttérfeladat"
 
 msgid "Bad"
 msgstr "Rossz"
@@ -692,7 +692,7 @@ msgid "Close"
 msgstr "Bezárás"
 
 msgid "Close the session on inactivity after the specified time."
-msgstr ""
+msgstr "Inaktivitás esetén a munkamenet bezárása a megadott idő után."
 
 msgid "Cocos (Keeling) Islands"
 msgstr "Kókusz (Keeling) sziget "
@@ -1392,7 +1392,7 @@ msgid "Gibraltar"
 msgstr "Gibraltár"
 
 msgid "Go to the notification sidebar to attach to it."
-msgstr ""
+msgstr "Ugrás az értesítési oldalsávra, hogy csatlakozzon hozzá."
 
 msgid "Good"
 msgstr "Jó"
@@ -2329,7 +2329,7 @@ msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr "Illesszen be egy X.509 PEM formátumú RSA vagy ECC személyes kulcsot ide."
 
 msgid "Pending configuration changes"
-msgstr ""
+msgstr "Függő konfigurációs változások"
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "Jemeni Demokratikus Népköztársaság"
@@ -3276,7 +3276,7 @@ msgstr "Rendszeróra-szinkronizáló ügyfél és kiszolgáló."
 msgid ""
 "System monitoring is disabled. To enable it, please go to the <a "
 "href='#/system/monitoring'>settings page</a>."
-msgstr ""
+msgstr "A rendszerfelügyelet ki van kapcsolva. Az engedélyezéséhez lépjen a<a href='#/system/monitoring'>beállítások oldalra</a>."
 
 msgid "System time"
 msgstr "Rendszeridő"
@@ -3338,7 +3338,7 @@ msgstr "Feladatok végrehajtása a bekapcsoló gomb megnyomásakor."
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
 "the <a href='#/dashboard/settings'>settings page</a>."
-msgstr ""
+msgstr "A műszerfal még nincs konfigurálva. A személyre szabáshoz kérjük, menjen a <a href='#/dashboard/settings'>beállítások oldalra</a>."
 
 msgid "The data has been copied to the clipboard."
 msgstr "Az adatokat átmásolva a vágólapra."
@@ -3701,7 +3701,7 @@ msgid "Timeout"
 msgstr "Időtúllépés"
 
 msgid "Tip"
-msgstr ""
+msgstr "Tipp"
 
 msgid "Togo"
 msgstr "Togo"
@@ -4168,10 +4168,10 @@ msgstr "Igen"
 msgid ""
 "You have made changes that have not yet been saved. Do you want to discard "
 "them?"
-msgstr ""
+msgstr "Olyan módosításokat hajtott végre, amelyeket még nem mentett el. El akarja vetni őket?"
 
 msgid "You must apply these changes in order for them to take effect."
-msgstr ""
+msgstr "Alkalmazni kell a változtatásokat, hogy érvénybe léphessenek."
 
 msgid "Your profile"
 msgstr "Az ön profilja"
