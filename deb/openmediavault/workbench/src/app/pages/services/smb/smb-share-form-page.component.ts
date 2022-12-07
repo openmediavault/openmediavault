@@ -71,9 +71,12 @@ export class SmbShareFormPageComponent extends IsDirtyFormPageComponent {
         type: 'select',
         name: 'guest',
         label: gettext('Public'),
-        hint: gettext(
-          "If 'Guests allowed' is selected and no login credential is provided, then access as guest. Always access as guest when 'Guests only' is selecting; in this case no password is required to connect to the share." // eslint-disable-line @typescript-eslint/quotes
-        ),
+        hint: [
+          gettext(
+            "If 'Guests allowed' is selected and no login credential is provided, then access as guest. Always access as guest when 'Guests only' is selecting; in this case no password is required to connect to the share." // eslint-disable-line @typescript-eslint/quotes
+          ),
+          gettext('Make sure that the guest user <em>nobody</em> can access the files.')
+        ].join(' '),
         value: 'no',
         store: {
           data: [
