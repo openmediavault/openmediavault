@@ -23,7 +23,7 @@
 
 {% set config = salt['omv_conf.get']('conf.service.ssh') %}
 
-configure_ssh_sshd_config:
+configure_sshd_config:
   file.managed:
     - name: "/etc/ssh/sshd_config"
     - source:
@@ -35,6 +35,10 @@ configure_ssh_sshd_config:
     - group: root
     - mode: 644
 
-divert_ssh_sshd_config:
+divert_sshd_config:
   omv_dpkg.divert_add:
     - name: "/etc/ssh/sshd_config"
+
+test_sshd_config:
+  cmd.run:
+    - name: "sshd -t"

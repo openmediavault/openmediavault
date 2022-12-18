@@ -1,6 +1,6 @@
 openmediavault (6.1.2-1) stable; urgency=low
 
-  *
+  * Validate `/etc/ssh/sshd_config` after deployment.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 07 Dec 2022 18:44:42 +0100
 

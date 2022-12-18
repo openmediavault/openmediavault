@@ -34,7 +34,7 @@ start_ssh_service:
     - name: ssh
     - enable: True
     - watch:
-      - file: configure_ssh_sshd_config
+      - file: configure_sshd_config
 
 {% else %}
 

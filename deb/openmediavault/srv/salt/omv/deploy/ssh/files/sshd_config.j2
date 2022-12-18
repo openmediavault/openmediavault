@@ -20,9 +20,9 @@
 {% set addressFamily = salt['pillar.get']('default:OMV_SSHD_ADDRESSFAMILY', 'any') -%}
 {% set authorizedKeysFileDir = salt['pillar.get']('default:OMV_SSHD_AUTHORIZEDKEYSFILE_DIR', '/var/lib/openmediavault/ssh/authorized_keys') -%}
 {% set authorizedKeysFile = salt['pillar.get']('default:OMV_SSHD_AUTHORIZEDKEYSFILE', '.ssh/authorized_keys .ssh/authorized_keys2 ' ~  authorizedKeysFileDir ~ '/%u') -%}
+{{ pillar['headers']['multiline'] }}
 Protocol {{ protocol }}
 HostKey /etc/ssh/ssh_host_rsa_key
-HostKey /etc/ssh/ssh_host_dsa_key
 HostKey /etc/ssh/ssh_host_ecdsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
 SyslogFacility {{ syslogFacility }}
