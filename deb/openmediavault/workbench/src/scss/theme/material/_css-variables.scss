@@ -50,6 +50,11 @@
         map-get($theme-config, background),
         card
       )};
+    --mat-primary-color-text:
+      #{mat.get-color-from-palette(
+        map-get($theme-config, primary),
+        text
+      )};
 
     ////////////////////////////////////////////////////////////////////////////////
     // Typography
