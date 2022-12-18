@@ -32,7 +32,7 @@ import {
 import { format, toBoolean } from '~/app/functions.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DataStore } from '~/app/shared/models/data-store.type';
-import { IsDirty } from '~/app/shared/models/is-dirty.interface';
+import { Dirty } from '~/app/shared/models/dirty.interface';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
@@ -44,7 +44,7 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 })
 export class SelectionListPageComponent
   extends AbstractPageComponent<SelectionListPageConfig>
-  implements OnInit, IsDirty
+  implements OnInit, Dirty
 {
   @ViewChild('list', { static: true })
   list: MatSelectionList;
@@ -73,6 +73,14 @@ export class SelectionListPageComponent
     return this.dirty;
   }
 
+  markAsDirty(): void {
+    this.dirty = true;
+  }
+
+  markAsPristine(): void {
+    this.dirty = false;
+  }
+
   onSelectAll(): void {
     if (!_.isEmpty(this.config.selectedProp) && this.config.updateStoreOnSelectionChange) {
       const allSelected = _.every(this.config.store.data, [this.config.selectedProp, true]);
@@ -84,7 +92,7 @@ export class SelectionListPageComponent
       _.forEach(this.config.store.data, (item: Record<string, any>) => {
         _.set(item, this.config.selectedProp, !allSelected);
       });
-      this.dirty = true;
+      this.markAsDirty();
     }
   }
 
@@ -97,7 +105,7 @@ export class SelectionListPageComponent
       if (-1 !== index) {
         const item: Record<string, any> = _.nth(this.config.store.data, index);
         _.set(item, this.config.selectedProp, event.options[0].selected);
-        this.dirty = true;
+        this.markAsDirty();
       }
     }
   }
@@ -131,6 +139,7 @@ export class SelectionListPageComponent
         })
       )
       .subscribe(() => {
+        this.markAsPristine();
         // Display the configured notification message.
         const notificationTitle = _.get(this.routeConfig, 'data.notificationTitle');
         if (!_.isEmpty(notificationTitle)) {

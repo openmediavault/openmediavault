@@ -23,7 +23,7 @@ import * as _ from 'lodash';
 import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/dashboard-widget-config.model';
 import { SelectionListPageConfig } from '~/app/core/components/intuition/models/selection-list-page-config.type';
 import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widget-config.service';
-import { IsDirtySelectionListPageComponent } from '~/app/pages/is-dirty-page-component';
+import { BaseSelectionListPageComponent } from '~/app/pages/base-page-component';
 
 type SelectionListItem = Pick<DashboardWidgetConfig, 'id' | 'title' | 'description'> & {
   enabled: boolean;
@@ -34,7 +34,7 @@ type SelectionListItem = Pick<DashboardWidgetConfig, 'id' | 'title' | 'descripti
     '<omv-intuition-selection-list-page [config]="this.config"></omv-intuition-selection-list-page>'
 })
 export class DashboardSettingsPageComponent
-  extends IsDirtySelectionListPageComponent
+  extends BaseSelectionListPageComponent
   implements OnInit
 {
   public config: SelectionListPageConfig = {
@@ -99,6 +99,7 @@ export class DashboardSettingsPageComponent
   }
 
   onSubmit(buttonConfig, store, value: Array<string>) {
+    this.markAsPristine();
     this.dashboardWidgetConfigService.setEnabled(value);
     this.router.navigate(['/dashboard']);
   }

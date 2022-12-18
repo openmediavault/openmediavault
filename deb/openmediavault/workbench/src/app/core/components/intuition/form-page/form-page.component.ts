@@ -41,7 +41,7 @@ import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
-import { IsDirty } from '~/app/shared/models/is-dirty.interface';
+import { Dirty } from '~/app/shared/models/dirty.interface';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
@@ -62,7 +62,7 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 })
 export class FormPageComponent
   extends AbstractPageComponent<FormPageConfig>
-  implements AfterViewInit, OnInit, OnDestroy, IsDirty
+  implements AfterViewInit, OnInit, OnDestroy, Dirty
 {
   @BlockUI()
   blockUI: NgBlockUI;
@@ -149,6 +149,10 @@ export class FormPageComponent
 
   isDirty(): boolean {
     return this.form.formGroup.dirty;
+  }
+
+  markAsDirty(): void {
+    this.form.formGroup.markAsDirty();
   }
 
   markAsPristine(): void {

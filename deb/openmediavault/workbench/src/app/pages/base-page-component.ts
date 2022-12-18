@@ -22,30 +22,46 @@ import { Observable } from 'rxjs';
 import { DatatablePageComponent } from '~/app/core/components/intuition/datatable-page/datatable-page.component';
 import { FormPageComponent } from '~/app/core/components/intuition/form-page/form-page.component';
 import { SelectionListPageComponent } from '~/app/core/components/intuition/selection-list-page/selection-list-page.component';
-import { IsDirty } from '~/app/shared/models/is-dirty.interface';
+import { Dirty } from '~/app/shared/models/dirty.interface';
 
 @Directive()
-export class IsDirtyFormPageComponent implements IsDirty {
+export class BaseFormPageComponent implements Dirty {
   @ViewChild(FormPageComponent, { static: true })
   protected page: FormPageComponent;
 
   isDirty(): Observable<boolean> | Promise<boolean> | boolean {
     return this.page?.isDirty?.() ?? false;
   }
+
+  markAsDirty(): void {
+    this.page.markAsDirty();
+  }
+
+  markAsPristine(): void {
+    this.page.markAsPristine();
+  }
 }
 
 @Directive()
-export class IsDirtySelectionListPageComponent implements IsDirty {
+export class BaseSelectionListPageComponent implements Dirty {
   @ViewChild(SelectionListPageComponent, { static: true })
   protected page: SelectionListPageComponent;
 
   isDirty(): Observable<boolean> | Promise<boolean> | boolean {
     return this.page?.isDirty?.() ?? false;
   }
+
+  markAsDirty(): void {
+    this.page.markAsDirty();
+  }
+
+  markAsPristine(): void {
+    this.page.markAsPristine();
+  }
 }
 
 @Directive()
-export class IsDirtyDatatablePageComponent implements IsDirty {
+export class BaseDatatablePageComponent implements Dirty {
   @ViewChild(DatatablePageComponent, { static: true })
   protected page: DatatablePageComponent;
 
@@ -53,5 +69,13 @@ export class IsDirtyDatatablePageComponent implements IsDirty {
 
   isDirty(): Observable<boolean> | Promise<boolean> | boolean {
     return this.dirty;
+  }
+
+  markAsDirty(): void {
+    this.dirty = true;
+  }
+
+  markAsPristine(): void {
+    this.dirty = false;
   }
 }

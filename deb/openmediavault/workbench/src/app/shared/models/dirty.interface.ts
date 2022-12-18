@@ -17,6 +17,10 @@
  */
 import { Observable } from 'rxjs';
 
-export interface IsDirty {
+export interface Dirty {
   isDirty: () => Observable<boolean> | Promise<boolean> | boolean;
+
+  markAsDirty(): void;
+
+  markAsPristine(): void;
 }

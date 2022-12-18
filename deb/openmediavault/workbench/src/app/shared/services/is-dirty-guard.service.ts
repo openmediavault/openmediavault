@@ -23,16 +23,16 @@ import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
-import { IsDirty } from '~/app/shared/models/is-dirty.interface';
+import { Dirty } from '~/app/shared/models/dirty.interface';
 import { DialogService } from '~/app/shared/services/dialog.service';
 @Injectable({
   providedIn: 'root'
 })
-export class IsDirtyGuardService implements CanDeactivate<IsDirty> {
+export class IsDirtyGuardService implements CanDeactivate<Dirty> {
   constructor(private dialogService: DialogService) {}
 
   canDeactivate(
-    component: IsDirty,
+    component: Dirty,
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot

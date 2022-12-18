@@ -19,12 +19,12 @@ import { Component } from '@angular/core';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 
 import { FormPageConfig } from '~/app/core/components/intuition/models/form-page-config.type';
-import { IsDirtyFormPageComponent } from '~/app/pages/is-dirty-page-component';
+import { BaseFormPageComponent } from '~/app/pages/base-page-component';
 
 @Component({
   template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
 })
-export class MdRecoverFormPageComponent extends IsDirtyFormPageComponent {
+export class MdRecoverFormPageComponent extends BaseFormPageComponent {
   public config: FormPageConfig = {
     subTitle: gettext('Add hot spares / recover RAID device.'),
     request: {

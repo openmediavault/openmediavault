@@ -19,13 +19,13 @@ import { Component } from '@angular/core';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
-import { IsDirtyFormPageComponent } from '~/app/pages/is-dirty-page-component';
+import { BaseFormPageComponent } from '~/app/pages/base-page-component';
 
 @Component({
   template:
     '<omv-intuition-datatable-page #page [config]="this.config"></omv-intuition-datatable-page>'
 })
-export class InterfaceDatatablePageComponent extends IsDirtyFormPageComponent {
+export class InterfaceDatatablePageComponent extends BaseFormPageComponent {
   public config: DatatablePageConfig = {
     stateId: '1c782151-4393-493b-9767-257620370fb2',
     autoReload: false,

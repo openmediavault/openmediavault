@@ -27,7 +27,7 @@ import {
   FormPageConfig
 } from '~/app/core/components/intuition/models/form-page-config.type';
 import { translate } from '~/app/i18n.helper';
-import { IsDirtyFormPageComponent } from '~/app/pages/is-dirty-page-component';
+import { BaseFormPageComponent } from '~/app/pages/base-page-component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
@@ -38,7 +38,7 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
 })
-export class SharedFolderAclFormPageComponent extends IsDirtyFormPageComponent implements OnInit {
+export class SharedFolderAclFormPageComponent extends BaseFormPageComponent implements OnInit {
   @BlockUI()
   blockUI: NgBlockUI;
 

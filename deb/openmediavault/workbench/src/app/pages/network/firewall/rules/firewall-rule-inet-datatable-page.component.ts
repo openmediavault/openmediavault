@@ -21,7 +21,7 @@ import * as _ from 'lodash';
 
 import { DatatablePageActionConfig } from '~/app/core/components/intuition/models/datatable-page-action-config.type';
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
-import { IsDirtyDatatablePageComponent } from '~/app/pages/is-dirty-page-component';
+import { BaseDatatablePageComponent } from '~/app/pages/base-page-component';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { Datatable } from '~/app/shared/models/datatable.interface';
 import { NotificationService } from '~/app/shared/services/notification.service';
@@ -30,7 +30,7 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
 })
-export class FirewallRuleInetDatatablePageComponent extends IsDirtyDatatablePageComponent {
+export class FirewallRuleInetDatatablePageComponent extends BaseDatatablePageComponent {
   public config: DatatablePageConfig = {
     stateId: '9cee722c-7c04-11ea-a3e8-37671db9f618',
     autoReload: false,
