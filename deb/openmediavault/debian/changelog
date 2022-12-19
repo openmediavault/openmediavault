@@ -3,6 +3,7 @@ openmediavault (6.1.2-1) stable; urgency=low
   * Validate `/etc/ssh/sshd_config` after deployment.
   * Fix faulty pending confirmation request on Dashboard settings
     page.
+  * Issue #1442: Enhance network interface dashboard widget (grid).
   * Issue #1443: Fix datatable search field render issue when
     dark mode is enabled.
 

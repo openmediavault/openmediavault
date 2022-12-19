@@ -11,12 +11,12 @@ data:
   description: _("Displays information about the network interfaces in a grid.")
   grid:
     item:
-      class: 'omv-color-text omv-background-color-selected-button'
+      class: 'omv-color-text {% if link %}omv-background-color-pair-success{% else %}omv-background-color-selected-button{% endif %}'
       title: '{{ devicename }}'
       titleClass: 'omv-text-truncate'
-      content: '{{ address | default("-", true) }}<br>{{ address6 | default("-", true) }}'
-      contentClass: 'omv-text-nowrap omv-text-small'
-      tooltip: 'IPv4: {{ address | default("-", true) }}<br>IPv6: {{ address6 | default("-", true) }}'
+      content: '{{ address | default("-", true) }}<br>{{ netmask | default("-", true) }}<br>{{ gateway | default("-", true) }}<hr>{{ address6 | default("-", true) }}<br>{{ netmask6 | replace("-1", "") | default("-", true) }}<br>{{ gateway6 | default("-", true) }}'
+      contentClass: 'omv-text-truncate omv-font-size-small'
+      tooltip: 'IPv4:<br>{{ address | default("-", true) }}<br>{{ netmask | default("-", true) }}<br>{{ gateway | default("-", true) }}<br>IPv6:<br>{{ address6 | default("-", true) }}<br>{{ netmask6 | replace("-1", "") | default("-", true) }}<br>{{ gateway6 | default("-", true) }}'
     store:
       proxy:
         service: Network
