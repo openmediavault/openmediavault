@@ -25,13 +25,14 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
+          cache-dependency-path: deb/openmediavault/workbench/package-lock.json
 
       - name: Install dependencies
-        working-directory: ./deb/openmediavault/workbench/
+        working-directory: deb/openmediavault/workbench/
         run: npm ci
 
       - name: Run lint
-        working-directory: ./deb/openmediavault/workbench/
+        working-directory: deb/openmediavault/workbench/
         run: npm run lint
 
   test:
@@ -46,11 +47,12 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
+          cache-dependency-path: deb/openmediavault/workbench/package-lock.json
 
       - name: Install dependencies
-        working-directory: ./deb/openmediavault/workbench/
+        working-directory: deb/openmediavault/workbench/
         run: npm ci
 
       - name: Run unit tests
-        working-directory: ./deb/openmediavault/workbench/
+        working-directory: deb/openmediavault/workbench/
         run: npm run test:ci
