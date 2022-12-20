@@ -77,6 +77,8 @@ export type DashboardWidgetConfig = {
       // The template to generate the URL to navigate to when
       // a grid item is clicked.
       url?: string;
+      // The minimum width of an item. Defaults to `100px`.
+      minWidth?: string;
     };
     // The data to be displayed.
     store: DataStore;

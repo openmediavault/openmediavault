@@ -14,9 +14,10 @@ data:
       class: 'omv-color-text {% if link %}omv-background-color-pair-success{% else %}omv-background-color-selected-button{% endif %}'
       title: '{{ devicename }}'
       titleClass: 'omv-text-truncate'
-      content: '{{ address | default("-", true) }}<br>{{ netmask | default("-", true) }}<br>{{ gateway | default("-", true) }}<hr>{{ address6 | default("-", true) }}<br>{{ netmask6 | replace("-1", "") | default("-", true) }}<br>{{ gateway6 | default("-", true) }}'
+      content: '{{ address | default("-", true) }}{% if address %}/{{ prefix }}{% endif %}<br>{{ address6 | default("-", true) }}{% if address6 %}/{{ prefix6 }}{% endif %}'
       contentClass: 'omv-text-truncate omv-font-size-small'
-      tooltip: 'IPv4:<br>{{ address | default("-", true) }}<br>{{ netmask | default("-", true) }}<br>{{ gateway | default("-", true) }}<br>IPv6:<br>{{ address6 | default("-", true) }}<br>{{ netmask6 | replace("-1", "") | default("-", true) }}<br>{{ gateway6 | default("-", true) }}'
+      tooltip: '{{ "Address" | translate }}:<br>{{ address | default("-", true) }}{% if address %}/{{ prefix }}{% endif %}<br>{{ address6 | default("-", true) }}{% if address6 %}/{{ prefix6 }}{% endif %}<br>{{ "Gateway" | translate }}:<br>{{ gateway | default("-", true) }}<br>{{ gateway6 | default("-", true) }}<br>MTU: {{ mtu | default("-", true) }}<br>{{ "State" | translate }}: {{ state }}'
+      minWidth: '180px'
     store:
       proxy:
         service: Network

@@ -109,6 +109,16 @@ describe('functions.helper', () => {
     ).toBe('/externalRedirect/http%3A%2F%2Ffoo%3A1234');
   });
 
+  it('should format string [6]', () => {
+    const data = { foo: 'aaa', bar: '', baz: -1, qux: false };
+    expect(format('{{ foo | default("a") }}', data)).toBe('aaa');
+    expect(format('{{ bar | default("b") }}', data)).toBe('');
+    expect(format('{{ bar | default("c", true) }}', data)).toBe('c');
+    expect(format('{{ baz | default("d") }}', data)).toBe('-1');
+    expect(format('{{ baz | default("e", true) }}', data)).toBe('-1');
+    expect(format('{{ qux | default("f", true) }}', data)).toBe('f');
+  });
+
   it('should format deep [1]', () => {
     const data = { foo: { bar: 'xyz' } };
     expect(formatDeep('My name is {{ foo.bar }}', data)).toEqual('My name is xyz');

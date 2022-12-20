@@ -1,5 +1,6 @@
 openmediavault (6.1.2-1) stable; urgency=low
 
+  * Various improvements.
   * Validate `/etc/ssh/sshd_config` after deployment.
   * Fix faulty pending confirmation request on Dashboard settings
     page.

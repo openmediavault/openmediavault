@@ -51,6 +51,9 @@ export class DashboardWidgetGridComponent implements OnInit {
     _.defaultsDeep(this.config, {
       reloadPeriod: 10000,
       grid: {
+        item: {
+          minWidth: '100px'
+        },
         store: {
           data: []
         }

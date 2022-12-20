@@ -79,6 +79,8 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 			"gateway6" => "",
 			"address" => "",
 			"address6" => "",
+			"prefix" => -1,
+			"prefix6" => -1,
 			"netmask" => "",
 			"netmask6" => -1,
 			"ether" => "",
@@ -99,6 +101,8 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 			$gateway6 = $iface->getGateway6();
 			$address = $iface->getIP();
 			$address6 = $iface->getIP6();
+			$prefix = $iface->getPrefix();
+			$prefix6 = $iface->getPrefix6();
 			$netmask = $iface->getNetmask();
 			$netmask6 = $iface->getNetmask6();
 			$ether = $iface->getMAC();
@@ -112,8 +116,8 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 			$obj['gateway6'] = !$gateway6 ? "" : $gateway6;
 			$obj['address'] = !$address ? "" : $address;
 			$obj['address6'] = !$address6 ? "" : $address6;
-			$obj['prefix'] = $iface->getPrefix();
-			$obj['prefix6'] = $iface->getPrefix6();
+			$obj['prefix'] = !$prefix ? -1 : $prefix;
+			$obj['prefix6'] = !$prefix6 ? -1 : $prefix6;
 			$obj['netmask'] = !$netmask ? "" : $netmask;
 			$obj['netmask6'] = !$netmask6 ? -1 : $netmask6;
 			$obj['ether'] = !$ether ? "" : $ether;

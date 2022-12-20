@@ -33,7 +33,8 @@ export class InterfaceDetailsFormPageComponent {
           devicename: '{{ _routeParams.devicename }}'
         },
         transform: {
-          netmask6: '{{ netmask6 | replace("-1", "") }}'
+          prefix: '{{ prefix | replace("-1", "") }}',
+          prefix6: '{{ prefix6 | replace("-1", "") }}'
         }
       }
     },
@@ -76,15 +77,16 @@ export class InterfaceDetailsFormPageComponent {
       },
       {
         type: 'textInput',
-        name: 'netmask',
-        label: gettext('Netmask'),
+        name: 'prefix',
+        label: gettext('Prefix length'),
         disabled: true
       },
       {
         type: 'textInput',
         name: 'gateway',
         label: gettext('Gateway'),
-        disabled: true
+        disabled: true,
+        hasCopyToClipboardButton: true
       },
       {
         type: 'divider',
@@ -99,7 +101,7 @@ export class InterfaceDetailsFormPageComponent {
       },
       {
         type: 'textInput',
-        name: 'netmask6',
+        name: 'prefix6',
         label: gettext('Prefix length'),
         disabled: true
       },
@@ -107,7 +109,8 @@ export class InterfaceDetailsFormPageComponent {
         type: 'textInput',
         name: 'gateway6',
         label: gettext('Gateway'),
-        disabled: true
+        disabled: true,
+        hasCopyToClipboardButton: true
       }
     ]
   };

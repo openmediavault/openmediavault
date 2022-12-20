@@ -19,13 +19,14 @@ data:
       flexGrow: 1
       sortable: true
       cellTemplateName: template
-      cellTemplateConfig: 'IPv4: {{ address | default("-", true) }}<br>IPv6: {{ address6 | default("-", true) }}'
+      cellTemplateConfig: 'IPv4: {{ address | default("-", true) }}{% if address %}/{{ prefix }}{% endif %}<br>IPv6: {{ address6 | default("-", true) }}{% if address6 %}/{{ prefix6 }}{% endif %}'
     - name: _("Netmask")
       prop: netmask
       flexGrow: 1
       sortable: true
       cellTemplateName: template
       cellTemplateConfig: 'IPv4: {{ netmask | default("-", true) }}<br>IPv6: {{ netmask6 | replace("-1", "") | default("-", true) }}'
+      hidden: true
     - name: _("Gateway")
       prop: gateway
       flexGrow: 1

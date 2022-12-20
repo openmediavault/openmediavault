@@ -4,7 +4,7 @@
   <div *ngIf="data"
        class="widget-content"
        gdGap="3px"
-       gdColumns="repeat(auto-fit, minmax(100px, 1fr))">
+       gdColumns="repeat(auto-fit, minmax({{ config.grid?.item.minWidth | defaultTo:'100px' }}, 1fr))">
     <div *ngFor="let item of data.data"
          class="item"
          [ngClass]="config.grid?.item.class | template:item"
