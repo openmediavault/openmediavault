@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-26 13:07+0100\n"
+"POT-Creation-Date: 2022-12-07 18:46+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2022\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -1876,6 +1876,9 @@ msgstr "马达加斯加"
 
 msgid "Maintainer"
 msgstr "维护者"
+
+msgid "Make sure that the guest user <em>nobody</em> can access the files."
+msgstr "請確定訪客用戶 <em>nobody</em> 能夠取用檔案。"
 
 msgid "Malawi"
 msgstr "马拉维"

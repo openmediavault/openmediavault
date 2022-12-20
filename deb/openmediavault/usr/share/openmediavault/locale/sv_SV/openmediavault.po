@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-26 13:07+0100\n"
+"POT-Creation-Date: 2022-12-07 18:46+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2022\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -1873,6 +1873,9 @@ msgstr "Madagaskar"
 
 msgid "Maintainer"
 msgstr "Upprätthållare"
+
+msgid "Make sure that the guest user <em>nobody</em> can access the files."
+msgstr "Se till att gästanvändaren <em>ingen</em> kan komma åt filerna."
 
 msgid "Malawi"
 msgstr "Malawi"

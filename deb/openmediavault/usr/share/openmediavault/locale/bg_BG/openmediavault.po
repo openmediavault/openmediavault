@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-26 13:07+0100\n"
+"POT-Creation-Date: 2022-12-07 18:46+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2017\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
@@ -1869,6 +1869,9 @@ msgid "Madagascar"
 msgstr ""
 
 msgid "Maintainer"
+msgstr ""
+
+msgid "Make sure that the guest user <em>nobody</em> can access the files."
 msgstr ""
 
 msgid "Malawi"

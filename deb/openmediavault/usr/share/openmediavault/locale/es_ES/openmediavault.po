@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-26 13:07+0100\n"
+"POT-Creation-Date: 2022-12-07 18:46+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2022\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -1873,6 +1873,9 @@ msgstr "Madagascar"
 
 msgid "Maintainer"
 msgstr "Mantenedor"
+
+msgid "Make sure that the guest user <em>nobody</em> can access the files."
+msgstr "Asegúrese de que el usuario invitado <em>nobody</em> puede acceder a los archivos."
 
 msgid "Malawi"
 msgstr "Malawi"

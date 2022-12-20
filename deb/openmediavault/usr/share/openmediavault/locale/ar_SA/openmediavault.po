@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-26 13:07+0100\n"
+"POT-Creation-Date: 2022-12-07 18:46+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2022\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -1871,6 +1871,9 @@ msgstr "مدغشقر"
 
 msgid "Maintainer"
 msgstr "المطور"
+
+msgid "Make sure that the guest user <em>nobody</em> can access the files."
+msgstr ""
 
 msgid "Malawi"
 msgstr "ملاوي"

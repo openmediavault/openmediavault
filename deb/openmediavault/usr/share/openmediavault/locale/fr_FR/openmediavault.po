@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-26 13:07+0100\n"
+"POT-Creation-Date: 2022-12-07 18:46+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: M@T D., 2022\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -255,7 +255,7 @@ msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "Un puissant serveur modulaire FTP/SFTP/FTPS."
 
 msgid "A running background task was detected."
-msgstr ""
+msgstr "Une tâche en arrière-plan en cours d'exécution a été détectée."
 
 msgid "A secure shell (SSH) server."
 msgstr "Un serveur de Shell sécurisé (SSH)."
@@ -436,7 +436,7 @@ msgid "At reboot"
 msgstr "Au redémarrage"
 
 msgid "Attach"
-msgstr ""
+msgstr "Joindre"
 
 msgid "Attributes"
 msgstr "Attributs"
@@ -490,7 +490,7 @@ msgid "Back"
 msgstr "Retour"
 
 msgid "Background task"
-msgstr ""
+msgstr "Tâche en arrière-plan"
 
 msgid "Bad"
 msgstr "Mauvais"
@@ -595,7 +595,7 @@ msgid "CPU"
 msgstr "Processeur"
 
 msgid "CPU Usage"
-msgstr "Utilisation du processeur"
+msgstr "Charge instantanée"
 
 msgid "CPU Utilization"
 msgstr "Utilisation du processeur"
@@ -700,7 +700,7 @@ msgid "Close"
 msgstr "Fermer"
 
 msgid "Close the session on inactivity after the specified time."
-msgstr ""
+msgstr "Ferme la session pour inactivité après un certain temps."
 
 msgid "Cocos (Keeling) Islands"
 msgstr "Îles Cocos"
@@ -1400,7 +1400,7 @@ msgid "Gibraltar"
 msgstr "Gibraltar"
 
 msgid "Go to the notification sidebar to attach to it."
-msgstr ""
+msgstr "Accédez à la barre latérale de notification pour le joindre."
 
 msgid "Good"
 msgstr "Bon"
@@ -1884,6 +1884,9 @@ msgstr "Madagascar"
 
 msgid "Maintainer"
 msgstr "Mainteneur"
+
+msgid "Make sure that the guest user <em>nobody</em> can access the files."
+msgstr "Assurez-vous que l'utilisateur invité <em>nobody</em> peut accéder aux fichiers."
 
 msgid "Malawi"
 msgstr "Malawi"
@@ -2481,7 +2484,7 @@ msgid "Power"
 msgstr "Options d'alimentation"
 
 msgid "Power Management"
-msgstr "Gestion de l'énergie"
+msgstr "Alimentation"
 
 msgid "Power Off"
 msgstr "Eteindre"
@@ -4176,7 +4179,7 @@ msgstr "Oui"
 msgid ""
 "You have made changes that have not yet been saved. Do you want to discard "
 "them?"
-msgstr ""
+msgstr "Vous avez apporté des modifications qui n'ont pas encore été enregistrées. Voulez-vous les annuler ?"
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "Vous devez appliquer les changements pour qu'ils prennent effet."
