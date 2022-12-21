@@ -13,7 +13,25 @@
               [disabled]="isDisabled(action)"
               matTooltip="{{ action.tooltip | transloco }}"
               (click)="onButtonClick(action)">
-        <mat-icon svgIcon="{{ action.icon }}"></mat-icon>
+        <mat-icon *ngIf="!action.hasBadge"
+                  svgIcon="{{ action.icon }}">
+        </mat-icon>
+        <mat-icon *ngIf="action.hasBadge === 'dataItems'"
+                  svgIcon="{{ action.icon }}"
+                  [matBadge]="table.data?.length"
+                  [matBadgeHidden]="!table.data?.length"
+                  matBadgeColor="accent"
+                  matBadgeOverlap="true"
+                  matBadgeSize="small">
+        </mat-icon>
+        <mat-icon *ngIf="action.hasBadge === 'selectionItems'"
+                  svgIcon="{{ action.icon }}"
+                  [matBadge]="selection.length"
+                  [matBadgeHidden]="!selection.length"
+                  matBadgeColor="accent"
+                  matBadgeOverlap="true"
+                  matBadgeSize="small">
+        </mat-icon>
       </button>
     </ng-template>
     <ng-template [ngSwitchCase]="'menu'">
