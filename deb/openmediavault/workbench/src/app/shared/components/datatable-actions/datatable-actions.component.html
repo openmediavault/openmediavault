@@ -16,7 +16,7 @@
         <mat-icon *ngIf="!action.hasBadge"
                   svgIcon="{{ action.icon }}">
         </mat-icon>
-        <mat-icon *ngIf="action.hasBadge === 'dataItems'"
+        <mat-icon *ngIf="['numDataItems'].includes(action.hasBadge)"
                   svgIcon="{{ action.icon }}"
                   [matBadge]="table.data?.length"
                   [matBadgeHidden]="!table.data?.length"
@@ -24,7 +24,7 @@
                   matBadgeOverlap="true"
                   matBadgeSize="small">
         </mat-icon>
-        <mat-icon *ngIf="action.hasBadge === 'selectionItems'"
+        <mat-icon *ngIf="['numSelectedItems'].includes(action.hasBadge)"
                   svgIcon="{{ action.icon }}"
                   [matBadge]="selection.length"
                   [matBadgeHidden]="!selection.length"

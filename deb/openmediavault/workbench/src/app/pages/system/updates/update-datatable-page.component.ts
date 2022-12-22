@@ -118,7 +118,7 @@ export class UpdateDatatablePageComponent {
         type: 'iconButton',
         icon: 'mdi:download',
         tooltip: gettext('Install updates'),
-        hasBadge: 'dataItems',
+        hasBadge: 'numDataItems',
         enabledConstraints: {
           hasData: true
         },

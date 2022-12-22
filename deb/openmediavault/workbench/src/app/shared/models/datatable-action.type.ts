@@ -57,9 +57,9 @@ export type DatatableAction = {
   icon?: string;
 
   // --- iconbutton ---
-  // Display a badge showing the number of table data items or the number
+  // Display a badge showing the number of datatable items or the number
   // of selected items.
-  hasBadge?: 'dataItems' | 'selectionItems';
+  hasBadge?: 'numDataItems' | 'numSelectedItems';
 
   // --- button | iconbutton | menu ---
   tooltip?: string;
