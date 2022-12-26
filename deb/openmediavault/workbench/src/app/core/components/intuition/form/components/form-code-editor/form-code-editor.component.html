@@ -3,7 +3,6 @@
   <mat-label>{{ config.label | transloco }}</mat-label>
   <mat-form-code-editor [formControlName]="config.name"
                         [autofocus]="config.autofocus"
-                        [readonly]="config.readonly"
                         [required]="config.validators?.required"
                         [language]="config.language"
                         [lineNumbers]="config.lineNumbers">
