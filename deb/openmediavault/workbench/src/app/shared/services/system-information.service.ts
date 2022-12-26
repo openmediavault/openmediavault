@@ -40,6 +40,7 @@ export type SystemInformation = {
   configDirty?: boolean;
   rebootRequired?: boolean;
   pkgUpdatesAvailable?: boolean;
+  displayWelcomeMessage?: boolean;
 };
 
 @Injectable({

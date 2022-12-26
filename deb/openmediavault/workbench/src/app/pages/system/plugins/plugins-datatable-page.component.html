@@ -34,8 +34,7 @@
     <ng-container *ngIf="row.maintainer"><span>{{ 'Maintainer' | transloco }}: {{ row.maintainer }}</span><br></ng-container>
     <ng-container *ngIf="row.homepage">
       <span>
-        {{ 'Homepage' | transloco }}: <a href="{{ row.homepage }}"
-                                         target="_blank">{{ row.homepage }}</a>
+        {{ 'Homepage' | transloco }}: <a href="{{ row.homepage }}">{{ row.homepage }}</a>
       </span><br>
     </ng-container>
     <ng-container *ngIf="row.repository"><span>{{ 'Repository' | transloco }}: {{ row.repository }}</span><br></ng-container>

@@ -96,5 +96,6 @@ export enum Icon {
   expand = 'mdi:arrow-expand',
   collapse = 'mdi:arrow-collapse',
   folder = 'mdi:folder',
-  console = 'mdi:console'
+  console = 'mdi:console',
+  close = 'mdi:window-close'
 }

@@ -37,12 +37,12 @@ import {
 } from '~/app/shared/services/system-information.service';
 
 @Component({
-  selector: 'omv-apply-config',
-  templateUrl: './apply-config.component.html',
-  styleUrls: ['./apply-config.component.scss'],
+  selector: 'omv-apply-config-panel',
+  templateUrl: './apply-config-panel.component.html',
+  styleUrls: ['./apply-config-panel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ApplyConfigComponent implements OnDestroy {
+export class ApplyConfigPanelComponent implements OnDestroy {
   @BlockUI()
   blockUI: NgBlockUI;
 

@@ -23,7 +23,7 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { forkJoin, Subscription } from 'rxjs';
-import { delay, filter, finalize } from 'rxjs/operators';
+import { delay, filter, finalize, take } from 'rxjs/operators';
 
 import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widget-config.service';
 import { LogConfigService } from '~/app/core/services/log-config.service';
@@ -32,6 +32,7 @@ import { translate } from '~/app/i18n.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
+import { SystemInformationService } from '~/app/shared/services/system-information.service';
 import { RunningTasks, TaskRunnerService } from '~/app/shared/services/task-runner.service';
 
 @Component({
@@ -52,6 +53,7 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
   public loading = true;
   public sideNavMode: MatDrawerMode;
   public sideNavOpened = false;
+  public displayWelcomeMessage = false;
 
   private isSmallScreen: boolean;
   private subscriptions = new Subscription();
@@ -64,6 +66,7 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
     private notificationService: NotificationService,
     private router: Router,
     private logConfigService: LogConfigService,
+    private systemInformationService: SystemInformationService,
     private taskRunnerService: TaskRunnerService
   ) {
     this.initLayout();
@@ -141,6 +144,9 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
             gettext('Go to the notification sidebar to attach to it.')
           );
         }
+      });
+      this.systemInformationService.systemInfo$.pipe(take(1)).subscribe((sysInfo) => {
+        this.displayWelcomeMessage = sysInfo.displayWelcomeMessage;
       });
     }
   }

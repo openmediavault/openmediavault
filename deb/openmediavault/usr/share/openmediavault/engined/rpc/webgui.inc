@@ -35,6 +35,7 @@ class WebGui extends \OMV\Rpc\ServiceAbstract {
 	public function initialize() {
 		$this->registerMethod("getSettings");
 		$this->registerMethod("setSettings");
+		$this->registerMethod("dismissWelcomeMessage");
 	}
 
 	/**
@@ -75,5 +76,16 @@ class WebGui extends \OMV\Rpc\ServiceAbstract {
 		$db->set($object);
 		// Return the configuration object.
 		return $object->getAssoc();
+	}
+
+	/**
+	 * Dismiss the welcome message which is displayed at the first log in.
+	 */
+	function dismissWelcomeMessage($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		unlink("/var/lib/openmediavault/display_welcome_message");
 	}
 }

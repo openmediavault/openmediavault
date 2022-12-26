@@ -102,6 +102,7 @@ case "$1" in
 			####################################################################
 			# Create various required files.
 			####################################################################
+			touch /var/lib/openmediavault/display_welcome_message
 			touch /var/log/tallylog
 
 			####################################################################
@@ -419,6 +420,9 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.0.46"; then
 			omv_module_set_dirty proftpd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.1.3"; then
+			touch /var/lib/openmediavault/display_welcome_message
 		fi
 
 		########################################################################

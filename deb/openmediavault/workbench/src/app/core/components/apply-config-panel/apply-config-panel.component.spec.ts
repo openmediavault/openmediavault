@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ToastrModule } from 'ngx-toastr';
 
-import { ApplyConfigComponent } from '~/app/core/components/apply-config/apply-config.component';
+import { ApplyConfigPanelComponent } from '~/app/core/components/apply-config-panel/apply-config-panel.component';
 import { ComponentsModule } from '~/app/core/components/components.module';
 import { TestingModule } from '~/app/testing.module';
 
-describe('ApplyConfigComponent', () => {
-  let component: ApplyConfigComponent;
-  let fixture: ComponentFixture<ApplyConfigComponent>;
+describe('ApplyConfigPanelComponent', () => {
+  let component: ApplyConfigPanelComponent;
+  let fixture: ComponentFixture<ApplyConfigPanelComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -16,7 +16,7 @@ describe('ApplyConfigComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ApplyConfigComponent);
+    fixture = TestBed.createComponent(ApplyConfigPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
