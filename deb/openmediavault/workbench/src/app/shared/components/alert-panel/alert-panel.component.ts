@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 
@@ -65,6 +65,9 @@ export class AlertPanelComponent implements OnInit {
   @Input()
   title?: string;
 
+  @Output()
+  closed = new EventEmitter();
+
   // Internal
   public dismissed = false;
 
@@ -73,7 +76,7 @@ export class AlertPanelComponent implements OnInit {
   ngOnInit(): void {
     if (this.dismissible) {
       this.buttons.push({
-        icon: 'mdi:window-close',
+        icon: Icon.close,
         tooltip: gettext('Dismiss'),
         click: this.close.bind(this)
       });
@@ -91,6 +94,7 @@ export class AlertPanelComponent implements OnInit {
     if (this.stateId) {
       this.userLocalStorageService.set(`alertpanel_state_${this.stateId}`, 'dismiss');
     }
+    this.closed.emit();
   }
 
   protected sanitizeConfig() {

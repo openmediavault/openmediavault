@@ -396,7 +396,9 @@ class System extends \OMV\Rpc\ServiceAbstract {
 				"configDirty" => !empty($dirtyModules),
 				"dirtyModules" => $dirtyModules,
 				"rebootRequired" => file_exists("/run/reboot-required"),
-				"pkgUpdatesAvailable" => !empty($pkgUpgradeList)
+				"pkgUpdatesAvailable" => !empty($pkgUpgradeList),
+				"displayWelcomeMessage" => file_exists(
+					"/var/lib/openmediavault/display_welcome_message")
 			]);
 		}
 		return $result;

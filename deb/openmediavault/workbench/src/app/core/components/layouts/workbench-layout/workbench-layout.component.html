@@ -13,7 +13,8 @@
       <omv-top-bar (navigationToggleChange)="onToggleNavigation()"
                    (notificationToggleChange)="onToggleNotification()">
       </omv-top-bar>
-      <omv-apply-config></omv-apply-config>
+      <omv-welcome-panel *ngIf="displayWelcomeMessage"></omv-welcome-panel>
+      <omv-apply-config-panel></omv-apply-config-panel>
       <omv-breadcrumb class="omv-mx omv-my-q"></omv-breadcrumb>
       <div id="omv-workbench-router-outlet"
            class="omv-scrollable-y">
