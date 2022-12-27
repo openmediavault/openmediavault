@@ -412,6 +412,7 @@ export class FormPageComponent
           doRpcRequestFn();
         }
       } else {
+        this.markAsPristine();
         doPreButtonActionFn();
       }
     } else {
