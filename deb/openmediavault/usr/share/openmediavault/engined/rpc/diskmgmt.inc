@@ -51,7 +51,7 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing physical disk device objects with the
 	 *   fields \em devicename, \em canonicaldevicefile, \em devicefile,
 	 *   \em devicelinks, \em model, \em size, \em description, \em vendor,
-	 *   \em serialnumber, \em israid and \em isroot.
+	 *   \em serialnumber, \em israid, \em isroot and \em isreadonly.
 	 * @throw \OMV\Exception
 	 */
 	public function enumerateDevices($params, $context) {
@@ -91,7 +91,8 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				"wwn" => $sd->getWorldWideName(),
 				"israid" => $sd->isRaid(),
 				"isroot" => \OMV\System\System::isRootDeviceFile(
-					$sd->getCanonicalDeviceFile(), FALSE)
+					$sd->getCanonicalDeviceFile(), FALSE),
+				"isreadonly" => $sd->isReadOnly()
 			];
 		}
 		return $objects;

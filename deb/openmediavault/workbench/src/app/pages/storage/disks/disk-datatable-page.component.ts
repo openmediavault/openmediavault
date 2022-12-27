@@ -107,7 +107,13 @@ export class DiskDatatablePageComponent {
         enabledConstraints: {
           minSelected: 1,
           maxSelected: 1,
-          constraint: [{ operator: 'falsy', arg0: { prop: 'isroot' } }]
+          constraint: [
+            {
+              operator: 'and',
+              arg0: { operator: 'falsy', arg0: { prop: 'isroot' } },
+              arg1: { operator: 'falsy', arg0: { prop: 'isreadonly' } }
+            }
+          ]
         },
         click: this.onWipe.bind(this)
       },
