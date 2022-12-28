@@ -467,9 +467,9 @@ export class PowermgmtTaskFormPageComponent extends BaseFormPageComponent {
         }
       },
       {
-        type: 'textInput',
+        type: 'tagInput',
         name: 'comment',
-        label: gettext('Comment'),
+        label: gettext('Tags'),
         value: ''
       }
     ],

@@ -110,13 +110,10 @@ export class InterfaceVlanFormPageComponent extends BaseFormPageComponent {
         disabled: '{{ _routeConfig.data.editing | toboolean }}'
       },
       {
-        type: 'textInput',
+        type: 'tagInput',
         name: 'comment',
-        label: gettext('Comment'),
-        value: '',
-        validators: {
-          maxLength: 65
-        }
+        label: gettext('Tags'),
+        value: ''
       },
       {
         type: 'divider',

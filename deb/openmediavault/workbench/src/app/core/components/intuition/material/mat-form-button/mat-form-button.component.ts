@@ -97,21 +97,21 @@ export class MatFormButtonComponent implements ControlValueAccessor, MatFormFiel
   /**
    * Implemented as part of ControlValueAccessor.
    */
-  writeValue(value: any) {
+  writeValue(value: any): void {
     // Nothing to do here.
   }
 
   /**
    * Implemented as part of ControlValueAccessor.
    */
-  registerOnChange(fn: (value: any) => void) {
+  registerOnChange(fn: (value: any) => void): void {
     // Nothing to do here.
   }
 
   /**
    * Implemented as part of ControlValueAccessor.
    */
-  registerOnTouched(fn: any) {
+  registerOnTouched(fn: any): void {
     // Nothing to do here.
   }
 

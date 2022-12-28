@@ -28,6 +28,12 @@
       </omv-form-text-input>
     </ng-template>
 
+    <ng-template [ngSwitchCase]="'tagInput'">
+      <omv-form-tag-input [config]="field"
+                          [formGroup]="formGroup">
+      </omv-form-tag-input>
+    </ng-template>
+
     <ng-template [ngSwitchCase]="'numberInput'">
       <omv-form-number-input [config]="field"
                              [formGroup]="formGroup">

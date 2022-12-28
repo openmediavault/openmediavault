@@ -40,9 +40,12 @@ export class FtpShareDatatablePageComponent {
       },
       { name: gettext('Shared folder'), prop: 'sharedfoldername', flexGrow: 1, sortable: true },
       {
-        name: gettext('Comment'),
+        name: gettext('Tags'),
         prop: 'comment',
-        cellTemplateName: 'text',
+        cellTemplateName: 'chip',
+        cellTemplateConfig: {
+          separator: ','
+        },
         flexGrow: 1,
         sortable: true
       }

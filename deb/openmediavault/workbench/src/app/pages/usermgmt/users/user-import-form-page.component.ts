@@ -38,7 +38,7 @@ export class UserImportFormPageComponent extends BaseFormPageComponent {
         type: 'textarea',
         name: 'csv',
         value:
-          '# <username>;<uid>;<comment>;<email>;<password>;<shell>;<groupname,groupname,...>;<disallowusermod>',
+          '# <username>;<uid>;<tags>;<email>;<password>;<shell>;<groupname,groupname,...>;<disallowusermod>',
         hint: gettext(
           'Each line represents a user. Note, the password must be entered in plain text.'
         ),

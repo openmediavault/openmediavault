@@ -177,8 +177,8 @@ export class MatFormCodeEditorComponent
   get required(): boolean {
     return this._required;
   }
-  set required(required: boolean) {
-    this._required = coerceBooleanProperty(required);
+  set required(value: boolean) {
+    this._required = coerceBooleanProperty(value);
     this.stateChanges.next();
   }
 
@@ -189,21 +189,21 @@ export class MatFormCodeEditorComponent
     return this._focused;
   }
   set focused(value: boolean) {
-    this._focused = value;
+    this._focused = coerceBooleanProperty(value);
     this.stateChanges.next();
   }
 
   /**
    * Implemented as part of MatFormFieldControl.
    */
-  get errorState() {
+  get errorState(): boolean {
     return this.ngControl && !this.ngControl.pristine && !this.ngControl.valid;
   }
 
   /**
    * Implemented as part of MatFormFieldControl.
    */
-  get empty() {
+  get empty(): boolean {
     return !this.value;
   }
 
@@ -250,21 +250,21 @@ export class MatFormCodeEditorComponent
   /**
    * Implemented as part of ControlValueAccessor.
    */
-  writeValue(value: string) {
+  writeValue(value: string): void {
     this.value = value;
   }
 
   /**
    * Implemented as part of ControlValueAccessor.
    */
-  registerOnChange(fn: (value: any) => void) {
+  registerOnChange(fn: (value: any) => void): void {
     this.onChange = fn;
   }
 
   /**
    * Implemented as part of ControlValueAccessor.
    */
-  registerOnTouched(fn: any) {
+  registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
 

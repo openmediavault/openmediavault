@@ -12,6 +12,7 @@ describe('FormCodeEditorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      declarations: [FormCodeEditorComponent],
       imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()]
     }).compileComponents();
   }));

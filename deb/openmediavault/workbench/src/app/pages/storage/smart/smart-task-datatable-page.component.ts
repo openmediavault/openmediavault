@@ -79,9 +79,12 @@ export class SmartTaskDatatablePageComponent {
         cellTemplateConfig: '{{ hour }} {{ dayofmonth }} {{ month }} {{ dayofweek }}'
       },
       {
-        name: gettext('Comment'),
+        name: gettext('Tags'),
         prop: 'comment',
-        cellTemplateName: 'text',
+        cellTemplateName: 'chip',
+        cellTemplateConfig: {
+          separator: ','
+        },
         flexGrow: 1,
         sortable: true
       }
