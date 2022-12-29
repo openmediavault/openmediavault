@@ -46,7 +46,7 @@
       <button mat-menu-item
               disabled>
         <mat-icon svgIcon="{{ icon.user }}"></mat-icon>
-        <span transloco="Logged in as <strong>{{ username }}</>strong>"></span>
+        <span [innerHTML]="loggedInAs | transloco | sanitizeHtml"></span>
       </button>
       <button *ngIf="permissions?.role.includes(roles.user)"
               mat-menu-item

@@ -23,6 +23,7 @@ import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EMPTY, interval, Subscription } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 
+import { format } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
@@ -62,6 +63,7 @@ export class TopBarComponent implements OnDestroy {
   public readonly roles = Roles;
   public numNotifications: undefined | number;
   public darkModeEnabled: boolean;
+  public loggedInAs: string;
 
   private subscriptions = new Subscription();
 
@@ -79,6 +81,9 @@ export class TopBarComponent implements OnDestroy {
     this.currentLocale = LocaleService.getLocale();
     this.locales = LocaleService.getLocales();
     this.username = this.authSessionService.getUsername();
+    this.loggedInAs = gettext(
+      format('Logged in as <strong>{{ username }}</strong>', { username: this.username })
+    );
     this.permissions = this.authSessionService.getPermissions();
     this.darkModeEnabled = this.prefersColorSchemeService.current === 'dark';
     this.subscriptions.add(
