@@ -75,9 +75,9 @@ export class GroupFormPageComponent extends BaseFormPageComponent {
         }
       },
       {
-        type: 'textInput',
+        type: 'tagInput',
         name: 'comment',
-        label: gettext('Comment'),
+        label: gettext('Tags'),
         value: '',
         validators: {
           maxLength: 65

@@ -153,7 +153,7 @@
              let-column="column"
              let-row="row">
   <mat-chip-list>
-    <mat-chip *ngFor="let item of (value | array)"
+    <mat-chip *ngFor="let item of (value | split:column?.cellTemplateConfig?.separator | array)"
               [selectable]="false"
               [disableRipple]="true"
               [ngClass]="(column?.cellTemplateConfig?.map && column?.cellTemplateConfig?.map[item]?.class) ? column.cellTemplateConfig.map[item].class : (column?.cellTemplateConfig?.class ? column.cellTemplateConfig.class : 'omv-background-color-pair-gray')"

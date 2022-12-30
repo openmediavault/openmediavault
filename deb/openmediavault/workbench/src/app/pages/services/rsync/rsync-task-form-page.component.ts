@@ -801,9 +801,9 @@ export class RsyncTaskFormPageComponent extends BaseFormPageComponent {
         value: ''
       },
       {
-        type: 'textInput',
+        type: 'tagInput',
         name: 'comment',
-        label: gettext('Comment'),
+        label: gettext('Tags'),
         value: ''
       }
     ],

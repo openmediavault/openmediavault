@@ -176,6 +176,11 @@ export class FormComponent implements AfterViewInit, OnInit {
             lineNumbers: true
           });
           break;
+        case 'tagInput':
+          _.defaultsDeep(field, {
+            separator: ','
+          });
+          break;
       }
     });
     // Populate the data model identifier field.

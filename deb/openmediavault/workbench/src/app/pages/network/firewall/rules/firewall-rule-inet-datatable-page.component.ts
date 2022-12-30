@@ -85,11 +85,14 @@ export class FirewallRuleInetDatatablePageComponent extends BaseDatatablePageCom
         sortable: false
       },
       {
-        name: gettext('Comment'),
+        name: gettext('Tags'),
         prop: 'comment',
-        cellTemplateName: 'text',
+        cellTemplateName: 'chip',
+        cellTemplateConfig: {
+          separator: ','
+        },
         flexGrow: 1,
-        sortable: false
+        sortable: true
       }
     ],
     sorters: [

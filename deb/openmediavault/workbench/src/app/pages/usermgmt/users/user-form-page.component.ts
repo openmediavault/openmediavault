@@ -188,9 +188,9 @@ export class UserFormPageComponent extends BaseFormPageComponent {
         hint: gettext('Disallow the user to modify his own account.')
       },
       {
-        type: 'textInput',
+        type: 'tagInput',
         name: 'comment',
-        label: gettext('Comment'),
+        label: gettext('Tags'),
         value: '',
         validators: {
           maxLength: 65

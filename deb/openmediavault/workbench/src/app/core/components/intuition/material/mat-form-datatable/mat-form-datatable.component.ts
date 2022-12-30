@@ -122,8 +122,8 @@ export class MatFormDatatableComponent
   get required(): boolean {
     return this._required;
   }
-  set required(required: boolean) {
-    this._required = coerceBooleanProperty(required);
+  set required(value: boolean) {
+    this._required = coerceBooleanProperty(value);
     this.stateChanges.next();
   }
 
@@ -215,7 +215,7 @@ export class MatFormDatatableComponent
   // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match
   private onChange = (_value: any) => {};
 
-  writeValue(value: any) {
+  writeValue(value: any): void {
     this.value = value;
   }
 
@@ -223,11 +223,11 @@ export class MatFormDatatableComponent
     this.disabled = isDisabled;
   }
 
-  registerOnChange(fn: (value: any) => void) {
+  registerOnChange(fn: (value: any) => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any) {}
+  registerOnTouched(fn: any): void {}
 
   setDescribedByIds(ids: string[]): void {
     // Nothing to do here.

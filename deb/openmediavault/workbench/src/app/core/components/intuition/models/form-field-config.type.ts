@@ -36,6 +36,8 @@ export type FormFieldConfig = {
   // | hint        | Displays a text and an icon.                         |
   // | codeEditor  | A code editor width support for different languages  |
   // |             | and syntax highlighting.                             |
+  // | tagInput    | Displays a list of tags. The value is stored as a    |
+  // |             | string. The separator defaults to a comma.           |
   // | ...         | ...                                                  |
   // | container   | Align child fields in horizontal order.              |
   // '--------------------------------------------------------------------'
@@ -63,7 +65,8 @@ export type FormFieldConfig = {
     | 'slider'
     | 'container'
     | 'hint'
-    | 'codeEditor';
+    | 'codeEditor'
+    | 'tagInput';
   name?: string;
   label?: string;
   placeholder?: string;
@@ -302,6 +305,9 @@ export type FormFieldConfig = {
   hintType?: 'info' | 'warning';
   dismissible?: boolean;
   stateId?: string;
+
+  // --- tagInput ---
+  separator?: string;
 };
 
 export type FormFieldConstraintValidator = {

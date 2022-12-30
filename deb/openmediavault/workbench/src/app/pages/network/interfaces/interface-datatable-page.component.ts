@@ -98,9 +98,12 @@ export class InterfaceDatatablePageComponent extends BaseFormPageComponent {
         cellTemplateName: 'checkIcon'
       },
       {
-        name: gettext('Comment'),
+        name: gettext('Tags'),
         prop: 'comment',
-        cellTemplateName: 'text',
+        cellTemplateName: 'chip',
+        cellTemplateConfig: {
+          separator: ','
+        },
         flexGrow: 1,
         sortable: true
       }

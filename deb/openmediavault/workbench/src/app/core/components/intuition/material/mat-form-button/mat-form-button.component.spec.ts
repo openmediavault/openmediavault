@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
+import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
 import { MatFormButtonComponent } from '~/app/core/components/intuition/material/mat-form-button/mat-form-button.component';
 
 describe('MatFormButtonComponent', () => {
@@ -8,7 +9,8 @@ describe('MatFormButtonComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [MatFormButtonComponent]
+      declarations: [MatFormButtonComponent],
+      imports: [IntuitionModule]
     }).compileComponents();
   }));
 

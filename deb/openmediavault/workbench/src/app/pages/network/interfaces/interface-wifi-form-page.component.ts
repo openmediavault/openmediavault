@@ -107,13 +107,10 @@ export class InterfaceWifiFormPageComponent extends BaseFormPageComponent {
         }
       },
       {
-        type: 'textInput',
+        type: 'tagInput',
         name: 'comment',
-        label: gettext('Comment'),
-        value: '',
-        validators: {
-          maxLength: 65
-        }
+        label: gettext('Tags'),
+        value: ''
       },
       {
         type: 'divider',

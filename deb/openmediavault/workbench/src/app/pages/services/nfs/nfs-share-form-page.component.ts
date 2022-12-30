@@ -98,9 +98,9 @@ export class NfsShareFormPageComponent extends BaseFormPageComponent {
         value: 'subtree_check,insecure'
       },
       {
-        type: 'textInput',
+        type: 'tagInput',
         name: 'comment',
-        label: gettext('Comment'),
+        label: gettext('Tags'),
         value: ''
       },
       {
