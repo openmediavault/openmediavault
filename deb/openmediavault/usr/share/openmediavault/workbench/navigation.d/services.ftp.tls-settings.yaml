@@ -3,6 +3,6 @@ type: navigation-item
 data:
   path: "services.ftp.tls-settings"
   position: 20
-  text: _("TLS Settings")
+  text: _("SSL/TLS Settings")
   icon: tune
   url: "/services/ftp/tls-settings"
