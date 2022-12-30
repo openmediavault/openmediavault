@@ -15,35 +15,13 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component } from '@angular/core';
-import { MatChipInputEvent } from '@angular/material/chips';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
-import { Icon } from '~/app/shared/enum/icon.enum';
 
 @Component({
   selector: 'omv-form-tag-input',
   templateUrl: './form-tag-input.component.html',
   styleUrls: ['./form-tag-input.component.scss']
 })
-export class FormTagInputComponent extends AbstractFormFieldComponent {
-  public icon = Icon;
-  public tags: string[] = [];
-  public readonly separatorKeysCodes = [ENTER, COMMA] as const;
-
-  onAdd(event: MatChipInputEvent): void {
-    const value = (event.value || '').trim();
-    if (value) {
-      this.tags.push(value);
-    }
-    event.chipInput?.clear();
-  }
-
-  onRemove(tag: string): void {
-    const index = this.tags.indexOf(tag);
-    if (index >= 0) {
-      this.tags.splice(index, 1);
-    }
-  }
-}
+export class FormTagInputComponent extends AbstractFormFieldComponent {}
