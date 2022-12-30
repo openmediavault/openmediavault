@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 18:46+0100\n"
+"POT-Creation-Date: 2022-12-30 16:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1023,9 +1023,6 @@ msgid "Do you really want to install the plugin?"
 msgstr ""
 
 msgid "Do you really want to logout?"
-msgstr ""
-
-msgid "Do you really want to mount the file system?"
 msgstr ""
 
 msgid "Do you really want to put the system into standby?"
@@ -2339,9 +2336,6 @@ msgstr ""
 msgid "Please wait, the data is being loaded ..."
 msgstr ""
 
-msgid "Please wait, the file system is being mounted ..."
-msgstr ""
-
 msgid "Please wait, the statistic graphs will be regenerated ..."
 msgstr ""
 
@@ -3143,7 +3137,7 @@ msgstr ""
 msgid "TCP forwarding"
 msgstr ""
 
-msgid "TLS Settings"
+msgid "Tags"
 msgstr ""
 
 msgid "Taiwan"
@@ -3870,6 +3864,9 @@ msgid "Weekly"
 msgstr ""
 
 msgid "Welcome message"
+msgstr ""
+
+msgid "Welcome to openmediavault"
 msgstr ""
 
 msgid "Western Sahara"
