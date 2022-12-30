@@ -44,6 +44,23 @@ export class InterfaceWifiFormPageComponent extends BaseFormPageComponent {
       },
       {
         type: 'select',
+        name: 'type',
+        label: gettext('Type'),
+        disabled: true,
+        submitValue: false,
+        value: 'wifi',
+        store: {
+          data: [
+            ['ethernet', gettext('Ethernet')],
+            ['bond', gettext('Bond')],
+            ['vlan', gettext('VLAN')],
+            ['wifi', gettext('Wi-Fi')],
+            ['bridge', gettext('Bridge')]
+          ]
+        }
+      },
+      {
+        type: 'select',
         name: 'devicename',
         label: gettext('Device'),
         placeholder: gettext('Select a device ...'),

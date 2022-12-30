@@ -43,7 +43,13 @@ export class InterfaceDatatablePageComponent extends BaseFormPageComponent {
         hidden: true,
         cellTemplateName: 'chip',
         cellTemplateConfig: {
-          template: '{{ type | title }}'
+          map: {
+            ethernet: { value: gettext('Ethernet') },
+            bond: { value: gettext('Bond') },
+            vlan: { value: gettext('VLAN') },
+            wifi: { value: gettext('Wi-Fi') },
+            bridge: { value: gettext('Bridge') }
+          }
         }
       },
       {

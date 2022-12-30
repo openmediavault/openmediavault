@@ -40,6 +40,23 @@ export class InterfaceDetailsFormPageComponent {
     },
     fields: [
       {
+        type: 'select',
+        name: 'type',
+        label: gettext('Type'),
+        disabled: true,
+        submitValue: false,
+        value: 'bond',
+        store: {
+          data: [
+            ['ethernet', gettext('Ethernet')],
+            ['bond', gettext('Bond')],
+            ['vlan', gettext('VLAN')],
+            ['wifi', gettext('Wi-Fi')],
+            ['bridge', gettext('Bridge')]
+          ]
+        }
+      },
+      {
         type: 'textInput',
         name: 'devicename',
         label: gettext('Device'),

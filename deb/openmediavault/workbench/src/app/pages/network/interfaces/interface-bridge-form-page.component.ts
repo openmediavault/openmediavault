@@ -46,6 +46,23 @@ export class InterfaceBridgeFormPageComponent extends BaseFormPageComponent {
         type: 'confObjUuid'
       },
       {
+        type: 'select',
+        name: 'type',
+        label: gettext('Type'),
+        disabled: true,
+        submitValue: false,
+        value: 'bridge',
+        store: {
+          data: [
+            ['ethernet', gettext('Ethernet')],
+            ['bond', gettext('Bond')],
+            ['vlan', gettext('VLAN')],
+            ['wifi', gettext('Wi-Fi')],
+            ['bridge', gettext('Bridge')]
+          ]
+        }
+      },
+      {
         type: 'textInput',
         name: 'devicename',
         label: gettext('Device'),
