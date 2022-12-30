@@ -29,12 +29,7 @@ export class FilesystemMountFormPageComponent extends BaseFormPageComponent {
     request: {
       service: 'FileSystemMgmt',
       post: {
-        method: 'setMountPoint',
-        confirmationDialogConfig: {
-          template: 'confirmation',
-          message: gettext('Do you really want to mount the file system?')
-        },
-        progressMessage: gettext('Please wait, the file system is being mounted ...')
+        method: 'setMountPoint'
       }
     },
     fields: [
