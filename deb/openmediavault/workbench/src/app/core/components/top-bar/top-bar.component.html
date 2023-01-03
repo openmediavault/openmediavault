@@ -17,6 +17,7 @@
           (click)="onToggleNotification()">
     <mat-icon svgIcon="{{ icon.bell }}"
               [matBadge]="numNotifications"
+              [matBadgeHidden]="!numNotifications"
               matBadgeColor="accent"
               matBadgeOverlap="true"
               matBadgeSize="small">
