@@ -3,7 +3,7 @@
     <button mat-icon-button
             class="omv-color-primary"
             matTooltip="{{ 'Dismiss all' | transloco }}"
-            [disabled]="!notifications.length"
+            [disabled]="!dismissibleNotifications"
             (click)="onRemoveAllNotifications()">
       <mat-icon svgIcon="{{ icon.delete }}"></mat-icon>
     </button>
@@ -104,6 +104,7 @@
             <span>{{ 'Copy to clipboard' | transloco }}</span>
           </button>
           <button mat-menu-item
+                  [disabled]="!notification.dismissible"
                   (click)="onRemoveNotification(notification)">
             <mat-icon svgIcon="{{ icon.delete }}"></mat-icon>
             <span>{{ 'Dismiss' | transloco }}</span>

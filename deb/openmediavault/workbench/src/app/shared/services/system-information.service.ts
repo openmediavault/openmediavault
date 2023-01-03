@@ -39,7 +39,7 @@ export type SystemInformation = {
   loadAverage?: string;
   configDirty?: boolean;
   rebootRequired?: boolean;
-  pkgUpdatesAvailable?: boolean;
+  availablePkgUpdates?: number;
   displayWelcomeMessage?: boolean;
 };
 

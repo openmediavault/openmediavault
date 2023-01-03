@@ -29,7 +29,7 @@
       <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Uptime' | transloco }}</div>
       <div>{{ data?.uptime | localeDate:'relative':true }}</div>
     </div>
-    <div *ngIf="data?.pkgUpdatesAvailable"
+    <div *ngIf="data?.availablePkgUpdates > 0"
          class="omv-grid-cell">
       <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Updates available' | transloco }}</div>
       <div>
@@ -40,7 +40,7 @@
     </div>
     <div *ngIf="data?.rebootRequired"
          class="omv-grid-cell">
-      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Reboot required' | transloco }}</div>
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'System restart required' | transloco }}</div>
       <div>
         <mat-icon svgIcon="mdi:check"></mat-icon>
       </div>

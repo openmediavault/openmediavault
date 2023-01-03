@@ -20,16 +20,21 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { Subscription, timer } from 'rxjs';
-import { delay, map, takeUntil } from 'rxjs/operators';
+import { take, takeUntil } from 'rxjs/operators';
 
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
+import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { Notification } from '~/app/shared/models/notification.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
+import {
+  SystemInformation,
+  SystemInformationService
+} from '~/app/shared/services/system-information.service';
 import { RunningTasks, TaskRunnerService } from '~/app/shared/services/task-runner.service';
 
 @Component({
@@ -44,6 +49,7 @@ export class NotificationBarComponent implements OnInit, OnDestroy {
   public icon = Icon;
   public notifications: Notification[] = [];
   public tasks: RunningTasks;
+  public dismissibleNotifications = false;
 
   private subscriptions: Subscription = new Subscription();
 
@@ -53,19 +59,16 @@ export class NotificationBarComponent implements OnInit, OnDestroy {
     private dialogService: DialogService,
     private notificationService: NotificationService,
     private rpcService: RpcService,
+    private systemInformationService: SystemInformationService,
     private taskRunnerService: TaskRunnerService
   ) {}
 
   ngOnInit(): void {
     this.subscriptions.add(
-      this.notificationService.notifications$
-        .pipe(
-          map((notifications) => _.reverse(_.clone(notifications))),
-          delay(0)
-        )
-        .subscribe((notifications: Notification[]) => {
-          this.notifications = notifications;
-        })
+      this.notificationService.notifications$.subscribe(() => this.updateNotifications())
+    );
+    this.subscriptions.add(
+      this.systemInformationService.systemInfo$.subscribe(() => this.updateNotifications())
     );
     if (this.authSessionService.hasAdminRole()) {
       this.subscriptions.add(
@@ -126,5 +129,33 @@ export class NotificationBarComponent implements OnInit, OnDestroy {
     this.taskRunnerService.enumerate().subscribe((tasks: RunningTasks) => {
       this.tasks = tasks;
     });
+  }
+
+  private updateNotifications(): void {
+    this.systemInformationService.systemInfo$
+      .pipe(take(1))
+      .subscribe((sysInfo: SystemInformation) => {
+        // Make a deep copy of the notifications and reverse the order.
+        const notifications = _.reverse(_.clone(this.notificationService.list()));
+        // Append additional notifications.
+        if (sysInfo.rebootRequired) {
+          const notification: Notification = new Notification(
+            NotificationType.info,
+            gettext('System restart required.')
+          );
+          notification.dismissible = false;
+          notifications.unshift(notification);
+        }
+        if (sysInfo.availablePkgUpdates > 0) {
+          const notification: Notification = new Notification(
+            NotificationType.info,
+            gettext('Updates available.')
+          );
+          notification.dismissible = false;
+          notifications.unshift(notification);
+        }
+        this.dismissibleNotifications = _.filter(notifications, ['dismissible', true]).length > 0;
+        this.notifications = notifications;
+      });
   }
 }

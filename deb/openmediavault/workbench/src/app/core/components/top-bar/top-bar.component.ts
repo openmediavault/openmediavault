@@ -21,13 +21,12 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EMPTY, interval, Subscription } from 'rxjs';
-import { catchError, switchMap } from 'rxjs/operators';
+import { catchError, switchMap, take } from 'rxjs/operators';
 
 import { format } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
-import { Notification } from '~/app/shared/models/notification.model';
 import { Permissions, Roles } from '~/app/shared/models/permissions.model';
 import { AuthService } from '~/app/shared/services/auth.service';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
@@ -36,7 +35,10 @@ import { LocaleService } from '~/app/shared/services/locale.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { PrefersColorSchemeService } from '~/app/shared/services/prefers-color-scheme.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
-import { SystemInformationService } from '~/app/shared/services/system-information.service';
+import {
+  SystemInformation,
+  SystemInformationService
+} from '~/app/shared/services/system-information.service';
 import { UserLocalStorageService } from '~/app/shared/services/user-local-storage.service';
 
 @Component({
@@ -87,13 +89,12 @@ export class TopBarComponent implements OnDestroy {
     this.permissions = this.authSessionService.getPermissions();
     this.darkModeEnabled = this.prefersColorSchemeService.current === 'dark';
     this.subscriptions.add(
-      this.notificationService.notifications$.subscribe((notifications: Notification[]) => {
-        this.numNotifications = notifications.length ? notifications.length : undefined;
-      })
+      this.notificationService.notifications$.subscribe(() => this.updateNumNotifications())
     );
     this.subscriptions.add(
-      this.systemInformationService.systemInfo$.subscribe((sysInfo) => {
+      this.systemInformationService.systemInfo$.subscribe((sysInfo: SystemInformation) => {
         this.hostname = sysInfo.hostname;
+        this.updateNumNotifications();
       })
     );
   }
@@ -219,5 +220,20 @@ export class TopBarComponent implements OnDestroy {
         callback();
       }
     });
+  }
+
+  private updateNumNotifications(): void {
+    this.systemInformationService.systemInfo$
+      .pipe(take(1))
+      .subscribe((sysInfo: SystemInformation) => {
+        let numNotifications: number = this.notificationService.list().length;
+        if (sysInfo.rebootRequired) {
+          numNotifications += 1;
+        }
+        if (sysInfo.availablePkgUpdates > 0) {
+          numNotifications += 1;
+        }
+        this.numNotifications = numNotifications;
+      });
   }
 }

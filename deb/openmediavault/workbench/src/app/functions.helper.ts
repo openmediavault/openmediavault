@@ -415,6 +415,7 @@ nunjucksEnv.addFilter('notavailable', notAvailable);
  * Convert an object to a boolean.
  */
 nunjucksEnv.addFilter('toboolean', toBoolean);
+nunjucksEnv.addFilter('not', (value: any) => !value);
 nunjucksEnv.addFilter('yesNo', yesNo);
 nunjucksEnv.addFilter('strip', (str: string, chars?: string) => _.trim(str, chars));
 nunjucksEnv.addFilter('lstrip', (str: string, chars?: string) => _.trimStart(str, chars));

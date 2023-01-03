@@ -27,7 +27,8 @@ export class Notification {
     public type: NotificationType = NotificationType.info,
     public title?: string,
     public message?: string,
-    public traceback?: string
+    public traceback?: string,
+    public dismissible: boolean = true
   ) {
     this.id = Notification.nextId++;
     this.timestamp = new Date().toJSON(); // ISO 8601

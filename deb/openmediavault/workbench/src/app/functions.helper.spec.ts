@@ -119,6 +119,15 @@ describe('functions.helper', () => {
     expect(format('{{ qux | default("f", true) }}', data)).toBe('f');
   });
 
+  it('should format string [7]', () => {
+    const data = { foo: 1, bar: 0, baz: -1, qux: false };
+    expect(format('{{ foo | not }}', data)).toBe('false');
+    expect(format('{{ bar | not }}', data)).toBe('true');
+    expect(format('{{ qux | not }}', data)).toBe('true');
+    expect(format('{{ qux | not | not }}', data)).toBe('false');
+    expect(format('{{ baz | not }}', data)).toBe('false');
+  });
+
   it('should format deep [1]', () => {
     const data = { foo: { bar: 'xyz' } };
     expect(formatDeep('My name is {{ foo.bar }}', data)).toEqual('My name is xyz');

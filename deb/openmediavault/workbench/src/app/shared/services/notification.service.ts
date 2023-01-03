@@ -77,4 +77,8 @@ export class NotificationService {
   removeAll(): void {
     this.notificationsSource.next([]);
   }
+
+  list(): Notification[] {
+    return this.notificationsSource.value;
+  }
 }
