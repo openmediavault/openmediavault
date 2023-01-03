@@ -37,9 +37,11 @@ data:
           {% if everynhour %}{% set _hour %}*/{{ hour }}{% endset %}{% endif %}
           {% if everyndayofmonth %}{% set _dayofmonth %}*/{{ dayofmonth }}{% endset %}{% endif %}
           {{ _minute }} {{ _hour }} {{ _dayofmonth }} {{ month }} {{ dayofweek }}
-      - name: _("Comment")
+      - name: _("Tags")
         prop: comment
-        cellTemplateName: text
+        cellTemplateName: chip
+        cellTemplateConfig:
+          separator: ','
         flexGrow: 1
         sortable: true
     actions:

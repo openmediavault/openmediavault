@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-usbbackup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-30 16:00+0100\n"
+"POT-Creation-Date: 2023-01-03 10:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,9 +21,6 @@ msgid "An email message with the command output (if any produced) is send to the
 msgstr ""
 
 msgid "Archive"
-msgstr ""
-
-msgid "Comment"
 msgstr ""
 
 msgid "Compress"
@@ -135,6 +132,9 @@ msgid "Suppress non-error messages."
 msgstr ""
 
 msgid "Synchronise from/to directory on external storage device"
+msgstr ""
+
+msgid "Tags"
 msgstr ""
 
 msgid "The external storage device. Please make sure that the device has only one file system."
