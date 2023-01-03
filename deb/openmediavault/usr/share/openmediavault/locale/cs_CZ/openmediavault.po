@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 18:46+0100\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -1044,9 +1044,6 @@ msgstr "Opravdu chcete zásuvný modul nainstalovat?"
 
 msgid "Do you really want to logout?"
 msgstr "Opravdu se chcete odhlásit?"
-
-msgid "Do you really want to mount the file system?"
-msgstr "Opravdu chcete souborový systém připojit?"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Opravdu chcete systém uvést do pohotovostního režimu?"
@@ -2440,9 +2437,6 @@ msgstr "Vyčkejte nastavené změny jsou uplatňovány"
 msgid "Please wait, the data is being loaded ..."
 msgstr "Vyčkejte, data jsou načítána"
 
-msgid "Please wait, the file system is being mounted ..."
-msgstr "Vyčkejte, souborový systém je připojován"
-
 msgid "Please wait, the statistic graphs will be regenerated ..."
 msgstr "Vyčkejte, statistické grafy budou znovu vytvořeny"
 
@@ -2623,9 +2617,6 @@ msgstr "Čtení/zápis/spouštění"
 
 msgid "Reboot"
 msgstr "Restartovat"
-
-msgid "Reboot required"
-msgstr "Vyžadován restart"
 
 msgid "Recipient"
 msgstr "Příjemce"
@@ -3276,6 +3267,9 @@ msgid ""
 "href='#/system/monitoring'>settings page</a>."
 msgstr ""
 
+msgid "System restart required"
+msgstr ""
+
 msgid "System time"
 msgstr "Systémový čas"
 
@@ -3285,8 +3279,8 @@ msgstr ""
 msgid "TCP forwarding"
 msgstr "Přeposílání TCP"
 
-msgid "TLS Settings"
-msgstr "Nastavení pro TLS"
+msgid "Tags"
+msgstr ""
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4112,6 +4106,9 @@ msgstr "Týdně"
 
 msgid "Welcome message"
 msgstr "Uvítací zpráva"
+
+msgid "Welcome to openmediavault"
+msgstr ""
 
 msgid "Western Sahara"
 msgstr "Západní Sahara"

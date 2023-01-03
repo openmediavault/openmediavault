@@ -1,5 +1,6 @@
 openmediavault-usbbackup (6.0.2-1) stable; urgency=low
 
+  * Update locale files.
   * Convert `Comments` field into `Tags`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jan 2023 10:14:13 +0100

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 18:46+0100\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2022\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -1043,9 +1043,6 @@ msgstr "Να εγκατασταθεί το πρόσθετο;"
 
 msgid "Do you really want to logout?"
 msgstr "Να γίνει αποσύνδεση;"
-
-msgid "Do you really want to mount the file system?"
-msgstr "Να προσαρτηθεί το σύστημα αρχείων;"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Να μπει το σύστημα σε κατάσταση αναμονής;"
@@ -2439,9 +2436,6 @@ msgstr "Αναμείνατε για εφαρμογή των αλλαγμένων
 msgid "Please wait, the data is being loaded ..."
 msgstr "Αναμείνατε για φόρτωση των δεδομένων ..."
 
-msgid "Please wait, the file system is being mounted ..."
-msgstr "Αναμείνατε για προσάρτηση του συστήματος αρχείων ..."
-
 msgid "Please wait, the statistic graphs will be regenerated ..."
 msgstr "Αναμείνατε για δημιουργία των στατιστικών γραφημάτων ..."
 
@@ -2622,9 +2616,6 @@ msgstr "Ανάγνωση/Εγγραφή/Εκτέλεση"
 
 msgid "Reboot"
 msgstr "Επανεκκίνηση"
-
-msgid "Reboot required"
-msgstr "Απαιτείται επανεκκίνηση"
 
 msgid "Recipient"
 msgstr "Παραλήπτης"
@@ -3275,6 +3266,9 @@ msgid ""
 "href='#/system/monitoring'>settings page</a>."
 msgstr "Η επίβλεψη συστήματος είναι απενεργοποιημένη. Ενεργοποιείται από τη <a href='#/system/monitoring'>σελίδα ρυθμίσεων</a>."
 
+msgid "System restart required"
+msgstr ""
+
 msgid "System time"
 msgstr "Ώρα συστήματος"
 
@@ -3284,8 +3278,8 @@ msgstr "TCP"
 msgid "TCP forwarding"
 msgstr "Προώθηση TCP"
 
-msgid "TLS Settings"
-msgstr "Ρυθμίσεις TLS"
+msgid "Tags"
+msgstr ""
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4111,6 +4105,9 @@ msgstr "Εβδομαδιαία"
 
 msgid "Welcome message"
 msgstr "Μήνυμα καλωσορίσματος"
+
+msgid "Welcome to openmediavault"
+msgstr ""
 
 msgid "Western Sahara"
 msgstr "Western Sahara"

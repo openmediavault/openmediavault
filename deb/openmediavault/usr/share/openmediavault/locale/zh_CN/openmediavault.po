@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 18:46+0100\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2022\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -1049,9 +1049,6 @@ msgstr "是否要安装选中的插件？"
 
 msgid "Do you really want to logout?"
 msgstr "是否要退出登录？"
-
-msgid "Do you really want to mount the file system?"
-msgstr "确定挂载文件系统？"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "确定要让系统进入待机状态？"
@@ -2445,9 +2442,6 @@ msgstr "请稍等，正在应用变更后的配置……"
 msgid "Please wait, the data is being loaded ..."
 msgstr "请稍等，正在加载数据……"
 
-msgid "Please wait, the file system is being mounted ..."
-msgstr "请稍等，正在挂载文件系统……"
-
 msgid "Please wait, the statistic graphs will be regenerated ..."
 msgstr "请稍等，马上生成统计图……"
 
@@ -2628,9 +2622,6 @@ msgstr "读/写/执行"
 
 msgid "Reboot"
 msgstr "重启"
-
-msgid "Reboot required"
-msgstr "需要重启"
 
 msgid "Recipient"
 msgstr "收件人"
@@ -3281,6 +3272,9 @@ msgid ""
 "href='#/system/monitoring'>settings page</a>."
 msgstr "系統監測被停用。若要啟用它，請前往 <a href='#/system/monitoring'>設定頁面</a>。"
 
+msgid "System restart required"
+msgstr ""
+
 msgid "System time"
 msgstr "系统时间"
 
@@ -3290,8 +3284,8 @@ msgstr "TCP"
 msgid "TCP forwarding"
 msgstr "TCP 转发"
 
-msgid "TLS Settings"
-msgstr "TLS设置"
+msgid "Tags"
+msgstr "標籤"
 
 msgid "Taiwan"
 msgstr "中国台湾"
@@ -4117,6 +4111,9 @@ msgstr "每周"
 
 msgid "Welcome message"
 msgstr "欢迎消息"
+
+msgid "Welcome to openmediavault"
+msgstr "歡迎使用 openmediavault"
 
 msgid "Western Sahara"
 msgstr "西撒哈拉"

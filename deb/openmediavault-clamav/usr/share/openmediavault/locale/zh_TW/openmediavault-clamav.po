@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:37+0200\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2014,2017,2021\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -37,9 +37,6 @@ msgstr "八月"
 
 msgid "Be verbose."
 msgstr "要詳細報告。"
-
-msgid "Comment"
-msgstr "註釋"
 
 msgid "Create"
 msgstr "新建"
@@ -258,6 +255,9 @@ msgstr "共享檔案夾"
 
 msgid "Sunday"
 msgstr "週日"
+
+msgid "Tags"
+msgstr "標籤"
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "此处仅包含 * 或逗号分割的值列表。"

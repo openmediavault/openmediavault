@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:37+0200\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -37,9 +37,6 @@ msgstr "Avgust"
 
 msgid "Be verbose."
 msgstr "Bodi gostobeseden."
-
-msgid "Comment"
-msgstr "Komentar"
 
 msgid "Create"
 msgstr "Ustvari"
@@ -258,6 +255,9 @@ msgstr "Deljena mapa"
 
 msgid "Sunday"
 msgstr "Nedelja"
+
+msgid "Tags"
+msgstr ""
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr ""

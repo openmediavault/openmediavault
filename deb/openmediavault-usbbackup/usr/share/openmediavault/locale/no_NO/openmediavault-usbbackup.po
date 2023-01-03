@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
 "Language-Team: Norwegian (http://www.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -25,9 +25,6 @@ msgstr "En epost med kommandoresultatet (hvis noe blir produsert) vil bli sendt 
 
 msgid "Archive"
 msgstr "Arkiv"
-
-msgid "Comment"
-msgstr "Kommentar"
 
 msgid "Compress"
 msgstr "Komprimer"
@@ -146,6 +143,9 @@ msgid "Suppress non-error messages."
 msgstr "Fortreng ikke-feilmeldinger"
 
 msgid "Synchronise from/to directory on external storage device"
+msgstr ""
+
+msgid "Tags"
 msgstr ""
 
 msgid ""

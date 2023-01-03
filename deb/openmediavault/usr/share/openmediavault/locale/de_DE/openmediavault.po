@@ -10,7 +10,7 @@
 # Pascal Tippelt <pascal.tippelt@go-eight.de>, 2021
 # Stephan Steiner, 2014
 # Thomas Melka, 2022
-# Volker Theile <votdev@gmx.de>, 2021-2022
+# Volker Theile <votdev@gmx.de>, 2021-2023
 # Volker Theile <votdev@gmx.de>, 2013-2021
 # Volker Theile <votdev@gmx.de>, 2012
 # Volker Theile <votdev@gmx.de>, 2012
@@ -20,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 18:46+0100\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2022\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2023\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1055,9 +1055,6 @@ msgstr "Wollen Sie die Erweiterungen wirklich installieren?"
 
 msgid "Do you really want to logout?"
 msgstr "Wollen Sie sich wirklich abmelden?"
-
-msgid "Do you really want to mount the file system?"
-msgstr "Möchten Sie das Dateisystem wirklich einhängen?"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Wollen Sie das System wirklich in den Ruhestand versetzen?"
@@ -2451,9 +2448,6 @@ msgstr "Bitte warten, die Konfigurationsänderungen werden übernommen ..."
 msgid "Please wait, the data is being loaded ..."
 msgstr "Bitte warten, die Daten werden geladen ..."
 
-msgid "Please wait, the file system is being mounted ..."
-msgstr "Bitte warten, das Dateisystem wird eingehängt ..."
-
 msgid "Please wait, the statistic graphs will be regenerated ..."
 msgstr "Bitte warten, die Statistikgrafiken werden neu generiert ..."
 
@@ -2634,9 +2628,6 @@ msgstr "Lesen/Schreiben/Ausführen"
 
 msgid "Reboot"
 msgstr "Neu starten"
-
-msgid "Reboot required"
-msgstr "Neustart erforderlich"
 
 msgid "Recipient"
 msgstr "Empfänger"
@@ -3287,6 +3278,9 @@ msgid ""
 "href='#/system/monitoring'>settings page</a>."
 msgstr "Die Systemüberwachung ist deaktiviert. Um es zu aktivieren, gehen Sie bitte auf die <a href='#/system/monitoring'>Einstellungsseite</a>."
 
+msgid "System restart required"
+msgstr "Systemneustart erforderlich"
+
 msgid "System time"
 msgstr "Systemzeit"
 
@@ -3296,8 +3290,8 @@ msgstr "TCP"
 msgid "TCP forwarding"
 msgstr "TCP Weiterleitung"
 
-msgid "TLS Settings"
-msgstr "TLS Einstellungen"
+msgid "Tags"
+msgstr "Stichworte"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4123,6 +4117,9 @@ msgstr "Wöchentlich"
 
 msgid "Welcome message"
 msgstr "Willkommens-nachricht"
+
+msgid "Welcome to openmediavault"
+msgstr "Willkommen bei openmediavault"
 
 msgid "Western Sahara"
 msgstr "Westsahara"

@@ -5,16 +5,16 @@
 # 
 # Translators:
 # warhog <warhog@gmx.de>, 2022
-# Volker Theile <votdev@gmx.de>, 2022
+# Volker Theile <votdev@gmx.de>, 2023
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:37+0200\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2023\n"
 "Language-Team: German (https://www.transifex.com/openmediavault/teams/14254/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,7 +38,7 @@ msgid "100 MiB/s"
 msgstr "100 MiB/s"
 
 msgid "12 hours"
-msgstr ""
+msgstr "12 Stunden"
 
 msgid "128 KiB/s"
 msgstr "128 KiB/s"
@@ -50,7 +50,7 @@ msgid "2 minutes"
 msgstr "2 Minuten"
 
 msgid "24 hours"
-msgstr ""
+msgstr "24 Stunden"
 
 msgid "256 KiB/s"
 msgstr "256 KiB/s"
@@ -71,7 +71,7 @@ msgid "512 KiB/s"
 msgstr "512 KiB/s"
 
 msgid "6 hours"
-msgstr ""
+msgstr "6 Stunden"
 
 msgid "60 minutes"
 msgstr "60 Minuten"

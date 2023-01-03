@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -26,9 +26,6 @@ msgstr "一封含有指令輸出(如有產生)的電子信件會被送給管理�
 
 msgid "Archive"
 msgstr "歸檔"
-
-msgid "Comment"
-msgstr "註釋"
 
 msgid "Compress"
 msgstr "壓縮"
@@ -148,6 +145,9 @@ msgstr "抑制非錯誤訊息。"
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "在外接式儲存裝置上將來源/目的目錄做同步化"
+
+msgid "Tags"
+msgstr "標籤"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

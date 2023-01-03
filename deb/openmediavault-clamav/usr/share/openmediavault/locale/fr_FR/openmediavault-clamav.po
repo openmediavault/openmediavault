@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:37+0200\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Pierre Girard <pierre4012@hotmail.com>, 2021\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -40,9 +40,6 @@ msgstr "Août"
 
 msgid "Be verbose."
 msgstr "Mode verbeux"
-
-msgid "Comment"
-msgstr "Commentaires"
 
 msgid "Create"
 msgstr "Créer"
@@ -261,6 +258,9 @@ msgstr "Dossier partagé"
 
 msgid "Sunday"
 msgstr "Dimanche"
+
+msgid "Tags"
+msgstr ""
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "Le champ peut seulement contenir * ou une liste de valeur séparées par une virgule."

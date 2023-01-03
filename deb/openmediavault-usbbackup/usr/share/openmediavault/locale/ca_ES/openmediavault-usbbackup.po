@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2021-2022\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -27,9 +27,6 @@ msgstr "S'envia un missatge a l'administrador amb la sortida de la comanda (si n
 
 msgid "Archive"
 msgstr "Fitxer"
-
-msgid "Comment"
-msgstr "Comentari"
 
 msgid "Compress"
 msgstr "Comprimir"
@@ -149,6 +146,9 @@ msgstr "Suprimeix missatges que no siguin d'error"
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "Sincronitzar des del/cap al directori del dispositiu extern."
+
+msgid "Tags"
+msgstr ""
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

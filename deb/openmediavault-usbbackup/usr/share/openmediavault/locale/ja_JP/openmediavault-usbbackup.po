@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2019,2021-2022\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -25,9 +25,6 @@ msgstr "コマンドの出力（もしあれば）が電子メールで管理者
 
 msgid "Archive"
 msgstr "アーカイブ"
-
-msgid "Comment"
-msgstr "コメント"
 
 msgid "Compress"
 msgstr "圧縮"
@@ -147,6 +144,9 @@ msgstr "エラー以外のメッセージを抑制します。"
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "外部ストレージデバイス上のディレクトリから（またはディレクトリへ）同期します。"
+
+msgid "Tags"
+msgstr ""
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2017\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
@@ -25,9 +25,6 @@ msgstr "Имейл съобщение с изход от командата (а�
 
 msgid "Archive"
 msgstr "Архив"
-
-msgid "Comment"
-msgstr "Коментар"
 
 msgid "Compress"
 msgstr "Компресия"
@@ -146,6 +143,9 @@ msgid "Suppress non-error messages."
 msgstr "Потискайте съобщенията без грешки."
 
 msgid "Synchronise from/to directory on external storage device"
+msgstr ""
+
+msgid "Tags"
 msgstr ""
 
 msgid ""

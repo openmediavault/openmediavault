@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: zubr139, 2013,2015-2017,2021\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -25,9 +25,6 @@ msgstr "Надіслати адміністратору повідомлення
 
 msgid "Archive"
 msgstr "Архів"
-
-msgid "Comment"
-msgstr "Коментар"
 
 msgid "Compress"
 msgstr "Стискати"
@@ -147,6 +144,9 @@ msgstr "Не показувати повідомлення в яких нема�
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "Синхронізація з/на каталогу на зовнішній запам'ятовуючий пристрій"
+
+msgid "Tags"
+msgstr ""
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

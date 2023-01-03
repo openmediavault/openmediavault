@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:37+0200\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2022\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -40,9 +40,6 @@ msgstr "Augusti"
 
 msgid "Be verbose."
 msgstr "Var pratig."
-
-msgid "Comment"
-msgstr "Kommentar"
 
 msgid "Create"
 msgstr "Skapa"
@@ -261,6 +258,9 @@ msgstr "Delad mapp"
 
 msgid "Sunday"
 msgstr "Söndag"
+
+msgid "Tags"
+msgstr ""
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "Fältet ska bara innehålla * eller en kommaseparerad lista över värden."

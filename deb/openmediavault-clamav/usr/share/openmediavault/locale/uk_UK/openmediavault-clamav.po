@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:37+0200\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: zubr139, 2013-2014,2016-2017,2021\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -37,9 +37,6 @@ msgstr "Серпень"
 
 msgid "Be verbose."
 msgstr "Детальний вивід."
-
-msgid "Comment"
-msgstr "Коментар"
 
 msgid "Create"
 msgstr "Створити"
@@ -258,6 +255,9 @@ msgstr "Спільна тека"
 
 msgid "Sunday"
 msgstr "Неділя"
+
+msgid "Tags"
+msgstr ""
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "Поле має містити лише * або список значень, розділених комами."

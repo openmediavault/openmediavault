@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2014-2015\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
@@ -27,9 +27,6 @@ msgstr "Enviaráselle ao administrador unha mensaxe de correo coa saída da orde
 
 msgid "Archive"
 msgstr "Arquivo"
-
-msgid "Comment"
-msgstr "Comentario"
 
 msgid "Compress"
 msgstr "Comprimir"
@@ -148,6 +145,9 @@ msgid "Suppress non-error messages."
 msgstr "Suprimir as mensaxes que non sexan de erros."
 
 msgid "Synchronise from/to directory on external storage device"
+msgstr ""
+
+msgid "Tags"
 msgstr ""
 
 msgid ""

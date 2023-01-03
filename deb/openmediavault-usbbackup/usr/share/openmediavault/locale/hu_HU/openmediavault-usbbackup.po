@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -30,9 +30,6 @@ msgstr "Egy e-mail elküldése az adminisztrátornak a parancs kimenettel (ha va
 
 msgid "Archive"
 msgstr "Archívum"
-
-msgid "Comment"
-msgstr "Megjegyzés"
 
 msgid "Compress"
 msgstr "Tömörítés"
@@ -152,6 +149,9 @@ msgstr "Nem hibaüzenetek kihagyása."
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "Megosztott mappa szinkronizálása a külső tárolóval."
+
+msgid "Tags"
+msgstr ""
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

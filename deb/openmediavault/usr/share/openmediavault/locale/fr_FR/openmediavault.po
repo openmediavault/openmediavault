@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 18:46+0100\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: M@T D., 2022\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -1057,9 +1057,6 @@ msgstr "Voulez-vous vraiment installer le plugin ?"
 
 msgid "Do you really want to logout?"
 msgstr "Voulez-vous vraiment vous déconnecter ?"
-
-msgid "Do you really want to mount the file system?"
-msgstr "Voulez-vous vraiment monter le système de fichier ?"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Voulez-vous vraiment mettre le système en veille ?"
@@ -2453,9 +2450,6 @@ msgstr "Veuillez patienter, les changements de configuration sont en cours d'app
 msgid "Please wait, the data is being loaded ..."
 msgstr "Veuillez patienter, les données sont en cours de chargement..."
 
-msgid "Please wait, the file system is being mounted ..."
-msgstr "Veuillez patienter, le système de fichiers est en cours de montage..."
-
 msgid "Please wait, the statistic graphs will be regenerated ..."
 msgstr "Veuillez patienter, les graphiques de statistiques sont cours de régénération..."
 
@@ -2636,9 +2630,6 @@ msgstr "Lecture/Ecriture/Exécution"
 
 msgid "Reboot"
 msgstr "Redémarrer"
-
-msgid "Reboot required"
-msgstr "Redémarrage nécessaire"
 
 msgid "Recipient"
 msgstr "Récipient"
@@ -3289,6 +3280,9 @@ msgid ""
 "href='#/system/monitoring'>settings page</a>."
 msgstr "La surveillance du système est désactivée. Pour l'activer, allez sur la  <a href='#/system/monitoring'>page de paramétrage</a>."
 
+msgid "System restart required"
+msgstr ""
+
 msgid "System time"
 msgstr "Horloge système"
 
@@ -3298,8 +3292,8 @@ msgstr "TCP"
 msgid "TCP forwarding"
 msgstr "Transmission TCP"
 
-msgid "TLS Settings"
-msgstr "Paramètres TLS"
+msgid "Tags"
+msgstr ""
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4125,6 +4119,9 @@ msgstr "Hebdomadaire"
 
 msgid "Welcome message"
 msgstr "Message de bienvenue"
+
+msgid "Welcome to openmediavault"
+msgstr ""
 
 msgid "Western Sahara"
 msgstr "Sahara occidental"

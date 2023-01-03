@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 18:46+0100\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: jacekniedziolka71 <lucas71@interia.pl>, 2017,2022\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -1048,9 +1048,6 @@ msgstr "Czy na pewno zainstalować wtyczkę?"
 
 msgid "Do you really want to logout?"
 msgstr "Czy na pewno chcesz się wylogować?"
-
-msgid "Do you really want to mount the file system?"
-msgstr "Czy na pewno zamontować system plików?"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Czy na pewno chcesz wstrzymać system?"
@@ -2444,9 +2441,6 @@ msgstr "Proszę czekać, zmiany konfiguracji w toku..."
 msgid "Please wait, the data is being loaded ..."
 msgstr "Proszę czekać, dane są ładowane..."
 
-msgid "Please wait, the file system is being mounted ..."
-msgstr "Proszę czekać, montowanie systemu plików w toku..."
-
 msgid "Please wait, the statistic graphs will be regenerated ..."
 msgstr "Proszę czekać, grafika statystyk będzie ponownie wygenerowana..."
 
@@ -2627,9 +2621,6 @@ msgstr "Odczyt/Zapis/Wykonanie"
 
 msgid "Reboot"
 msgstr "Restart"
-
-msgid "Reboot required"
-msgstr "Wymagany restart"
 
 msgid "Recipient"
 msgstr "Odbiorca"
@@ -3280,6 +3271,9 @@ msgid ""
 "href='#/system/monitoring'>settings page</a>."
 msgstr ""
 
+msgid "System restart required"
+msgstr ""
+
 msgid "System time"
 msgstr "Czas systemowy"
 
@@ -3289,8 +3283,8 @@ msgstr ""
 msgid "TCP forwarding"
 msgstr "Przekazywanie TCP"
 
-msgid "TLS Settings"
-msgstr "Ustawienia TLS"
+msgid "Tags"
+msgstr ""
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4116,6 +4110,9 @@ msgstr "Tygodniowy"
 
 msgid "Welcome message"
 msgstr "Wiadomość powitalna"
+
+msgid "Welcome to openmediavault"
+msgstr ""
 
 msgid "Western Sahara"
 msgstr "Western Sahara"

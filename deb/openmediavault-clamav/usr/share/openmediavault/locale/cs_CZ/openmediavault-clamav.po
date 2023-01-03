@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:37+0200\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2017,2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -38,9 +38,6 @@ msgstr "srpen"
 
 msgid "Be verbose."
 msgstr "Uvádět ve výstupu více podrobností."
-
-msgid "Comment"
-msgstr "Komentář"
 
 msgid "Create"
 msgstr "Vytvořit"
@@ -259,6 +256,9 @@ msgstr "Sdílená složka"
 
 msgid "Sunday"
 msgstr "neděle"
+
+msgid "Tags"
+msgstr ""
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr ""

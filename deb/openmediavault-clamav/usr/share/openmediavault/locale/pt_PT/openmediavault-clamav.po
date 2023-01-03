@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:37+0200\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2012,2014\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
@@ -38,9 +38,6 @@ msgstr "Agosto"
 
 msgid "Be verbose."
 msgstr "Ser detalhado."
-
-msgid "Comment"
-msgstr "Comentário"
 
 msgid "Create"
 msgstr "Criar"
@@ -259,6 +256,9 @@ msgstr "Pasta partilhada"
 
 msgid "Sunday"
 msgstr "Domingo"
+
+msgid "Tags"
+msgstr ""
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr ""

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 18:46+0100\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2013-2019,2021\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -1048,9 +1048,6 @@ msgstr ""
 
 msgid "Do you really want to logout?"
 msgstr "Sicuro di voler effettuare il logout?"
-
-msgid "Do you really want to mount the file system?"
-msgstr ""
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Sei sicuro di voler mandare il sistema in standby?"
@@ -2444,9 +2441,6 @@ msgstr ""
 msgid "Please wait, the data is being loaded ..."
 msgstr ""
 
-msgid "Please wait, the file system is being mounted ..."
-msgstr ""
-
 msgid "Please wait, the statistic graphs will be regenerated ..."
 msgstr ""
 
@@ -2627,9 +2621,6 @@ msgstr "Lettura/Scrittura/Esecuzione"
 
 msgid "Reboot"
 msgstr "Riavvio"
-
-msgid "Reboot required"
-msgstr ""
 
 msgid "Recipient"
 msgstr "Destinatario"
@@ -3280,6 +3271,9 @@ msgid ""
 "href='#/system/monitoring'>settings page</a>."
 msgstr ""
 
+msgid "System restart required"
+msgstr ""
+
 msgid "System time"
 msgstr "Ora di sistema"
 
@@ -3289,7 +3283,7 @@ msgstr ""
 msgid "TCP forwarding"
 msgstr "TCP forwarding"
 
-msgid "TLS Settings"
+msgid "Tags"
 msgstr ""
 
 msgid "Taiwan"
@@ -4116,6 +4110,9 @@ msgstr "Settimanale"
 
 msgid "Welcome message"
 msgstr "Messaggio di benvenuto"
+
+msgid "Welcome to openmediavault"
+msgstr ""
 
 msgid "Western Sahara"
 msgstr "Sahara Occidentale"

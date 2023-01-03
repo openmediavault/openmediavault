@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2017,2019,2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -25,9 +25,6 @@ msgstr "Výstup z příkazu (pokud nějaký vznikne) bude e-mailem odeslán spr�
 
 msgid "Archive"
 msgstr "Archivní režim"
-
-msgid "Comment"
-msgstr "Komentář"
 
 msgid "Compress"
 msgstr "Komprimovat"
@@ -147,6 +144,9 @@ msgstr "Hlásit pouze chyby, ostatní potlačit."
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "Synchronizovat z/do vyhrazené složky na vnějším úložném zařízení"
+
+msgid "Tags"
+msgstr ""
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

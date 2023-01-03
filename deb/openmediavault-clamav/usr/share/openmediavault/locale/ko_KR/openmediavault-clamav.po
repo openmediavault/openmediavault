@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:37+0200\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2020\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -39,9 +39,6 @@ msgstr "8월"
 
 msgid "Be verbose."
 msgstr "상세히"
-
-msgid "Comment"
-msgstr "설명"
 
 msgid "Create"
 msgstr "생성"
@@ -260,6 +257,9 @@ msgstr "공유 폴더"
 
 msgid "Sunday"
 msgstr "일요일"
+
+msgid "Tags"
+msgstr ""
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr ""

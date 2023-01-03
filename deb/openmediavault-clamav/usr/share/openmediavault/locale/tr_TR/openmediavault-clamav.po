@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:37+0200\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2014,2017,2021-2022\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -37,9 +37,6 @@ msgstr "Ağustos"
 
 msgid "Be verbose."
 msgstr "Ayrıntılı tara."
-
-msgid "Comment"
-msgstr "Açıklama"
 
 msgid "Create"
 msgstr "Oluştur"
@@ -258,6 +255,9 @@ msgstr "Paylaşılmış klasör"
 
 msgid "Sunday"
 msgstr "Pazar"
+
+msgid "Tags"
+msgstr ""
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "Bu alan sadece * ya da virgülle ayrılmış değerler listesini içerebilir."

@@ -1,5 +1,6 @@
 openmediavault (6.1.4-1) stable; urgency=low
 
+  * Update locale files.
   * Various bug fixes and improvements.
   * Add tags form field.
   * Convert `Comments` field into `Tags` on various pages across

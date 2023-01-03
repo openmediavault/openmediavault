@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 18:46+0100\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2022\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -1049,9 +1049,6 @@ msgstr "Valóban telepíteni szeretné a bővítményt? "
 
 msgid "Do you really want to logout?"
 msgstr "Valóban ki szeretne jelentkezni?"
-
-msgid "Do you really want to mount the file system?"
-msgstr "Valóban csatlakoztatni szeretné a fájlrendszert? "
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Valóban készenléti állapotba szeretné kapcsolni a rendszert?"
@@ -2445,9 +2442,6 @@ msgstr "Kérjük várjon, a konfigurációs változások érvénybe lépéséig�
 msgid "Please wait, the data is being loaded ..."
 msgstr "Kérjük várjon, az adatok betöltése folyamatban van…"
 
-msgid "Please wait, the file system is being mounted ..."
-msgstr "Kérjük várjon, a fájlrendszer telepítése folyamatban van…"
-
 msgid "Please wait, the statistic graphs will be regenerated ..."
 msgstr "Kérjük várjon, amíg a statisztikai grafikonok újból elkészülnek…"
 
@@ -2628,9 +2622,6 @@ msgstr "Olvasás/Írás/Végrehajtás"
 
 msgid "Reboot"
 msgstr "Újraindítás"
-
-msgid "Reboot required"
-msgstr "Újraindítás szükséges"
 
 msgid "Recipient"
 msgstr "Címzett"
@@ -3281,6 +3272,9 @@ msgid ""
 "href='#/system/monitoring'>settings page</a>."
 msgstr "A rendszerfelügyelet ki van kapcsolva. Az engedélyezéséhez lépjen a<a href='#/system/monitoring'>beállítások oldalra</a>."
 
+msgid "System restart required"
+msgstr ""
+
 msgid "System time"
 msgstr "Rendszeridő"
 
@@ -3290,8 +3284,8 @@ msgstr "TCP"
 msgid "TCP forwarding"
 msgstr "TCP továbbítás"
 
-msgid "TLS Settings"
-msgstr "TLS beállítások"
+msgid "Tags"
+msgstr ""
 
 msgid "Taiwan"
 msgstr "Tajvan"
@@ -4117,6 +4111,9 @@ msgstr "Hetente"
 
 msgid "Welcome message"
 msgstr "Üdvözlő üzenet"
+
+msgid "Welcome to openmediavault"
+msgstr ""
 
 msgid "Western Sahara"
 msgstr "Nyugat-Szahara"

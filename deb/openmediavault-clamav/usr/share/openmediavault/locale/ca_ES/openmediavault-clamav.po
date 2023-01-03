@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:37+0200\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2021\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -39,9 +39,6 @@ msgstr "Agost"
 
 msgid "Be verbose."
 msgstr "Mostra els detalls"
-
-msgid "Comment"
-msgstr "Comentari"
 
 msgid "Create"
 msgstr "Crea"
@@ -260,6 +257,9 @@ msgstr "Carpeta compartida"
 
 msgid "Sunday"
 msgstr "Diumenge"
+
+msgid "Tags"
+msgstr ""
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "El camp només ha de contenir * o una llista de valors separats per comes."

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 18:46+0100\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -1045,9 +1045,6 @@ msgstr "Бажаєте встановити плагін?"
 
 msgid "Do you really want to logout?"
 msgstr "Бажаєте вийти?"
-
-msgid "Do you really want to mount the file system?"
-msgstr "Бажаєте змонтувати файлову систему?"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Бажаєте перевести систему в режим очікування?"
@@ -2441,9 +2438,6 @@ msgstr "Зачекайте, застосовуються зміни конфіг
 msgid "Please wait, the data is being loaded ..."
 msgstr "Зачекайте, дані завантажуються ..."
 
-msgid "Please wait, the file system is being mounted ..."
-msgstr "Будь ласка, зачекайте, файлова система монтується ..."
-
 msgid "Please wait, the statistic graphs will be regenerated ..."
 msgstr "Будь ласка, зачекайте, статистичні графіки оновлюються ..."
 
@@ -2624,9 +2618,6 @@ msgstr "Читання /Запис/Виконання"
 
 msgid "Reboot"
 msgstr "Перезавантажити"
-
-msgid "Reboot required"
-msgstr "Потрібне перезавантаження"
 
 msgid "Recipient"
 msgstr "Отримувач"
@@ -3277,6 +3268,9 @@ msgid ""
 "href='#/system/monitoring'>settings page</a>."
 msgstr ""
 
+msgid "System restart required"
+msgstr ""
+
 msgid "System time"
 msgstr "Cистемний час"
 
@@ -3286,8 +3280,8 @@ msgstr "TCP"
 msgid "TCP forwarding"
 msgstr "TCP переадресація"
 
-msgid "TLS Settings"
-msgstr "Налаштування TLS"
+msgid "Tags"
+msgstr ""
 
 msgid "Taiwan"
 msgstr "Тайвань"
@@ -4113,6 +4107,9 @@ msgstr "Щотижня"
 
 msgid "Welcome message"
 msgstr "Вітаємо повідомлення"
+
+msgid "Welcome to openmediavault"
+msgstr ""
 
 msgid "Western Sahara"
 msgstr "Західна Сахара"

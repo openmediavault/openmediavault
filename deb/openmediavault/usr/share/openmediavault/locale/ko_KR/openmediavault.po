@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 18:46+0100\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -1046,9 +1046,6 @@ msgstr ""
 
 msgid "Do you really want to logout?"
 msgstr "정말 로그아웃 하시겠습니까?"
-
-msgid "Do you really want to mount the file system?"
-msgstr ""
 
 msgid "Do you really want to put the system into standby?"
 msgstr "시스템을 정말 대기 상태로 전환하시겠습니까?"
@@ -2442,9 +2439,6 @@ msgstr ""
 msgid "Please wait, the data is being loaded ..."
 msgstr ""
 
-msgid "Please wait, the file system is being mounted ..."
-msgstr ""
-
 msgid "Please wait, the statistic graphs will be regenerated ..."
 msgstr ""
 
@@ -2625,9 +2619,6 @@ msgstr "읽기/쓰기/실행"
 
 msgid "Reboot"
 msgstr "재시작"
-
-msgid "Reboot required"
-msgstr ""
 
 msgid "Recipient"
 msgstr "수신자"
@@ -3278,6 +3269,9 @@ msgid ""
 "href='#/system/monitoring'>settings page</a>."
 msgstr ""
 
+msgid "System restart required"
+msgstr ""
+
 msgid "System time"
 msgstr "시스템 시간"
 
@@ -3287,7 +3281,7 @@ msgstr ""
 msgid "TCP forwarding"
 msgstr "TCP 포워드"
 
-msgid "TLS Settings"
+msgid "Tags"
 msgstr ""
 
 msgid "Taiwan"
@@ -4114,6 +4108,9 @@ msgstr "매주"
 
 msgid "Welcome message"
 msgstr "환영 메시지"
+
+msgid "Welcome to openmediavault"
+msgstr ""
 
 msgid "Western Sahara"
 msgstr "서 사하라"

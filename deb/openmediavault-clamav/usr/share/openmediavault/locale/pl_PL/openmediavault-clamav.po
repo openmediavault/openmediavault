@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:37+0200\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013-2014,2017-2018\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -39,9 +39,6 @@ msgstr "Sierpień"
 
 msgid "Be verbose."
 msgstr "Jest pełne."
-
-msgid "Comment"
-msgstr "Komentarz"
 
 msgid "Create"
 msgstr "Utwórz"
@@ -260,6 +257,9 @@ msgstr "Folder udostępniony"
 
 msgid "Sunday"
 msgstr "Niedziela"
+
+msgid "Tags"
+msgstr ""
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "Pole powinno zawierać * lub listę wartości oddzieloną przecinkami ."

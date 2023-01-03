@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 18:46+0100\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2017\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
@@ -1043,9 +1043,6 @@ msgstr ""
 
 msgid "Do you really want to logout?"
 msgstr "Наистина ли искаш да излезеш?"
-
-msgid "Do you really want to mount the file system?"
-msgstr ""
 
 msgid "Do you really want to put the system into standby?"
 msgstr ""
@@ -2439,9 +2436,6 @@ msgstr ""
 msgid "Please wait, the data is being loaded ..."
 msgstr ""
 
-msgid "Please wait, the file system is being mounted ..."
-msgstr ""
-
 msgid "Please wait, the statistic graphs will be regenerated ..."
 msgstr ""
 
@@ -2622,9 +2616,6 @@ msgstr ""
 
 msgid "Reboot"
 msgstr "Рестарт"
-
-msgid "Reboot required"
-msgstr ""
 
 msgid "Recipient"
 msgstr ""
@@ -3275,6 +3266,9 @@ msgid ""
 "href='#/system/monitoring'>settings page</a>."
 msgstr ""
 
+msgid "System restart required"
+msgstr ""
+
 msgid "System time"
 msgstr "Системно време"
 
@@ -3284,7 +3278,7 @@ msgstr ""
 msgid "TCP forwarding"
 msgstr ""
 
-msgid "TLS Settings"
+msgid "Tags"
 msgstr ""
 
 msgid "Taiwan"
@@ -4110,6 +4104,9 @@ msgid "Weekly"
 msgstr ""
 
 msgid "Welcome message"
+msgstr ""
+
+msgid "Welcome to openmediavault"
 msgstr ""
 
 msgid "Western Sahara"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 09:39+0200\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Dietmar Schultz, 2022\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -28,9 +28,6 @@ msgstr "Eine E-Mail mit der Ausgabe des Befehls (wenn eine Ausgabe erzeugt wurde
 
 msgid "Archive"
 msgstr "Archiv"
-
-msgid "Comment"
-msgstr "Kommentar"
 
 msgid "Compress"
 msgstr "Komprimieren"
@@ -150,6 +147,9 @@ msgstr "Unterdrücke Nicht-Fehlermeldungen."
 
 msgid "Synchronise from/to directory on external storage device"
 msgstr "Synchronisiere von/in das Verzeichnis auf dem externen Speichergerät."
+
+msgid "Tags"
+msgstr "Stichworte"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

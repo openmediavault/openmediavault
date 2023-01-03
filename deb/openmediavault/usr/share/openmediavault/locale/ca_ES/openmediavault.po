@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 18:46+0100\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2022\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -1045,9 +1045,6 @@ msgstr "Segur que voleu instal·lar el connector? "
 
 msgid "Do you really want to logout?"
 msgstr "Realment desitja sortir del sistema?"
-
-msgid "Do you really want to mount the file system?"
-msgstr "Segur que voleu muntar el sistema de fitxers?"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Realment desitja posar el sistema en standby?"
@@ -2441,9 +2438,6 @@ msgstr "Espereu, s’estan aplicant els canvis de configuració ... "
 msgid "Please wait, the data is being loaded ..."
 msgstr "Espereu, s’estan carregant les dades ..."
 
-msgid "Please wait, the file system is being mounted ..."
-msgstr "Espereu, muntant el sistema de fitxers ... "
-
 msgid "Please wait, the statistic graphs will be regenerated ..."
 msgstr "Espereu, es regeneraran els gràfics estadístics ... "
 
@@ -2624,9 +2618,6 @@ msgstr "Lectura/Escriptura/Execució"
 
 msgid "Reboot"
 msgstr "Reiniciar"
-
-msgid "Reboot required"
-msgstr "Es requereix un reinici "
 
 msgid "Recipient"
 msgstr "Destinatari"
@@ -3277,6 +3268,9 @@ msgid ""
 "href='#/system/monitoring'>settings page</a>."
 msgstr "La supervisió del sistema està desactivada. Per activar-lo, aneu a la pàgina <a href='#/system/monitoring'>settings page</a> de configuració. "
 
+msgid "System restart required"
+msgstr ""
+
 msgid "System time"
 msgstr "Hora del sistema"
 
@@ -3286,8 +3280,8 @@ msgstr "TCP"
 msgid "TCP forwarding"
 msgstr "Reenviament TCP"
 
-msgid "TLS Settings"
-msgstr "Configuració de TLS "
+msgid "Tags"
+msgstr ""
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4113,6 +4107,9 @@ msgstr "Setmanalment"
 
 msgid "Welcome message"
 msgstr "Missatge de benvinguda"
+
+msgid "Welcome to openmediavault"
+msgstr ""
 
 msgid "Western Sahara"
 msgstr "Sàhara Occidental"
