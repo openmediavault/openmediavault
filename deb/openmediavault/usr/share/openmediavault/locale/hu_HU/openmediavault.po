@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2023-01-03 14:10+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2022\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -245,6 +245,11 @@ msgstr "Legfeljebb két eszköz távolítható el. "
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "Nagy teljesítményű moduláris FTP/SFTP/FTPS kiszolgáló."
+
+msgid ""
+"A reboot is needed to fully apply the changes introduced by package "
+"installation or upgrade."
+msgstr ""
 
 msgid "A running background task was detected."
 msgstr "Egy futó háttérfeladat észlelve."
@@ -2135,6 +2140,9 @@ msgstr "Új-Kaledónia"
 
 msgid "New Zealand"
 msgstr "Új-Zéland "
+
+msgid "New package updates are available for installation."
+msgstr ""
 
 msgid "New password"
 msgstr "Új jelszó"

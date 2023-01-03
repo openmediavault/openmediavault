@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2023-01-03 14:10+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2023\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -241,6 +241,11 @@ msgstr "最多可移除兩個裝置。"
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "一個強大的模組化 FTP/SFTP/FTPS 伺服器。"
+
+msgid ""
+"A reboot is needed to fully apply the changes introduced by package "
+"installation or upgrade."
+msgstr ""
 
 msgid "A running background task was detected."
 msgstr "偵測到有個後台任務正在運行中。"
@@ -2131,6 +2136,9 @@ msgstr "新卡里多尼亞"
 
 msgid "New Zealand"
 msgstr "紐西蘭"
+
+msgid "New package updates are available for installation."
+msgstr ""
 
 msgid "New password"
 msgstr "新密碼"

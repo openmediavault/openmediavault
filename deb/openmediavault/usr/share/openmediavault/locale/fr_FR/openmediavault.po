@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2023-01-03 14:10+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: M@T D., 2022\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -253,6 +253,11 @@ msgstr "Deux périphériques peuvent être enlevés au maximum."
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "Un puissant serveur modulaire FTP/SFTP/FTPS."
+
+msgid ""
+"A reboot is needed to fully apply the changes introduced by package "
+"installation or upgrade."
+msgstr ""
 
 msgid "A running background task was detected."
 msgstr "Une tâche en arrière-plan en cours d'exécution a été détectée."
@@ -2143,6 +2148,9 @@ msgstr "Nouvelle-Calédonie"
 
 msgid "New Zealand"
 msgstr "Nouvelle-Zélande"
+
+msgid "New package updates are available for installation."
+msgstr ""
 
 msgid "New password"
 msgstr "Nouveau mot de passe"

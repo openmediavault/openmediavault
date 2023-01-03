@@ -141,7 +141,10 @@ export class NotificationBarComponent implements OnInit, OnDestroy {
         if (sysInfo.rebootRequired) {
           const notification: Notification = new Notification(
             NotificationType.info,
-            gettext('System restart required')
+            gettext('System restart required'),
+            gettext(
+              'A reboot is needed to fully apply the changes introduced by package installation or upgrade.'
+            )
           );
           notification.dismissible = false;
           notifications.unshift(notification);
@@ -149,7 +152,8 @@ export class NotificationBarComponent implements OnInit, OnDestroy {
         if (sysInfo.availablePkgUpdates > 0) {
           const notification: Notification = new Notification(
             NotificationType.info,
-            gettext('Updates available')
+            gettext('Updates available'),
+            gettext('New package updates are available for installation.')
           );
           notification.dismissible = false;
           notifications.unshift(notification);

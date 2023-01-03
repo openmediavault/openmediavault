@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2023-01-03 14:10+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: jacekniedziolka71 <lucas71@interia.pl>, 2017,2022\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -243,6 +243,11 @@ msgid "A maximum of two device can be removed."
 msgstr "Maksymalnie dwa urządzenia mogą być usunięte."
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid ""
+"A reboot is needed to fully apply the changes introduced by package "
+"installation or upgrade."
 msgstr ""
 
 msgid "A running background task was detected."
@@ -2134,6 +2139,9 @@ msgstr "New Caledonia"
 
 msgid "New Zealand"
 msgstr "New Zealand"
+
+msgid "New package updates are available for installation."
+msgstr ""
 
 msgid "New password"
 msgstr "Nowe hasło"

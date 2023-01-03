@@ -32,7 +32,7 @@
     <div *ngIf="data?.availablePkgUpdates > 0"
          class="omv-grid-cell">
       <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Updates available' | transloco }}</div>
-      <div>
+      <div matTooltip="{{ 'New package updates are available for installation.' | transloco }}">
         <a routerLink="/system/updatemgmt/updates">
           <mat-icon svgIcon="mdi:check"></mat-icon>
         </a>
@@ -41,7 +41,7 @@
     <div *ngIf="data?.rebootRequired"
          class="omv-grid-cell">
       <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'System restart required' | transloco }}</div>
-      <div>
+      <div matTooltip="{{ 'A reboot is needed to fully apply the changes introduced by package installation or upgrade.' | transloco }}">
         <mat-icon svgIcon="mdi:check"></mat-icon>
       </div>
     </div>

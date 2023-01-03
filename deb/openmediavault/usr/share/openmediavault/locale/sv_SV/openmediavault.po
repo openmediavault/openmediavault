@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2023-01-03 14:10+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2022\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -242,6 +242,11 @@ msgstr "Maximalt två enheter kan tas bort."
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "En kraftfull modulär FTP/SFTP/FTPS-server."
+
+msgid ""
+"A reboot is needed to fully apply the changes introduced by package "
+"installation or upgrade."
+msgstr ""
 
 msgid "A running background task was detected."
 msgstr "En pågående bakgrundsuppgift upptäcktes."
@@ -2132,6 +2137,9 @@ msgstr "Nya Kaledonien"
 
 msgid "New Zealand"
 msgstr "Nya Zeeland"
+
+msgid "New package updates are available for installation."
+msgstr ""
 
 msgid "New password"
 msgstr "Nytt lösenord"
