@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-30 16:00+0100\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2507,9 +2507,6 @@ msgstr ""
 msgid "Reboot"
 msgstr ""
 
-msgid "Reboot required"
-msgstr ""
-
 msgid "Recipient"
 msgstr ""
 
@@ -3126,6 +3123,9 @@ msgid "System clock synchronization client and server."
 msgstr ""
 
 msgid "System monitoring is disabled. To enable it, please go to the <a href='#/system/monitoring'>settings page</a>."
+msgstr ""
+
+msgid "System restart required"
 msgstr ""
 
 msgid "System time"
