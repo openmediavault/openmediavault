@@ -245,7 +245,7 @@ msgstr "一個強大的模組化 FTP/SFTP/FTPS 伺服器。"
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr ""
+msgstr "需要重新啟動才能完全套用軟體包安裝或升級所帶來的變更。"
 
 msgid "A running background task was detected."
 msgstr "偵測到有個後台任務正在運行中。"
@@ -2138,7 +2138,7 @@ msgid "New Zealand"
 msgstr "紐西蘭"
 
 msgid "New package updates are available for installation."
-msgstr ""
+msgstr "新的軟體包更新已可安裝。"
 
 msgid "New password"
 msgstr "新密碼"
@@ -3277,7 +3277,7 @@ msgid ""
 msgstr "系統監測被停用。若要啟用它，請前往 <a href='#/system/monitoring'>設定頁面</a>。"
 
 msgid "System restart required"
-msgstr ""
+msgstr "需要重新啟動系統"
 
 msgid "System time"
 msgstr "系統時間"
