@@ -2,7 +2,7 @@
 {{ pillar['productinfo']['name'] }} {{ pillar['productinfo']['version'] }} ({{ pillar['productinfo']['versionname'] }}) \n \l
 {{ pillar['productinfo']['copyright'] }}
 
-To manage the system visit the {{ pillar['productinfo']['name'] }} web control panel:
+To manage the system visit the {{ pillar['productinfo']['name'] }} workbench:
 {%- if interfaces | length > 0 %}
 {% for ifname in interfaces.keys() | sort %}
 {%- if ifname != 'lo' %}
@@ -16,11 +16,10 @@ To manage the system visit the {{ pillar['productinfo']['name'] }} web control p
 No network interface(s) available.
 {%- endif %}
 
-By default the web control panel administrator account has the
+By default the workbench administrator account has the
 username 'admin' and password '{{ pillar['productinfo']['name'] | lower }}'.
 It is recommended that you change the password for this account
-within the web control panel or using the 'omv-firstaid' CLI
-command.
+within the workbench or using the 'omv-firstaid' CLI command.
 
 For more information regarding this appliance, please visit the
 web site: {{ pillar['productinfo']['url'] }}
