@@ -72,11 +72,13 @@ const regExp = {
 
 const isEmptyInputValue = (value: any): boolean => _.isNull(value) || value.length === 0;
 
-const getControlName = (control: AbstractControl): string | null => {
+const getControlName = (control: AbstractControl): string | undefined => {
   if (!control || !control.parent) {
-    return null;
+    return undefined;
   }
-  return _.keys(control.parent.controls).find((key) => control === control.parent.controls[key]);
+  return _.keys(control.parent.controls).find(
+    (key) => control === _.get(control.parent.controls, key)
+  );
 };
 
 /**
