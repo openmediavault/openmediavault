@@ -1,6 +1,7 @@
 openmediavault (6.1.5-1) stable; urgency=low
 
-  *
+  * Issue #1459: Improve error message when obsolete cached data
+    has been found.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 05 Jan 2023 12:58:10 +0100
 

@@ -14,7 +14,9 @@ export class GlobalErrorHandlerService implements ErrorHandler {
     if (/Loading chunk \d+ failed/.test(error?.message || '')) {
       this.router.navigate(['/guruMeditation'], {
         queryParams: {
-          message: gettext('Obsolete cached data found. Page will be reloaded.'),
+          message: gettext(
+            'Obsolete cached data found. Page will be reloaded. If the problem persists, press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page.'
+          ),
           url: '/reload'
         }
       });
