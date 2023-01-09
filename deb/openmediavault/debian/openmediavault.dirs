@@ -6,6 +6,7 @@ usr/share/php/openmediavault
 var/lib/openmediavault
 var/lib/openmediavault/apt
 var/lib/openmediavault/cron.d
+var/lib/openmediavault/dashboard.d
 var/lib/openmediavault/ssh/authorized_keys
 var/lib/openmediavault/ssh/keys
 var/www/openmediavault

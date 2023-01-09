@@ -118,7 +118,8 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
     this.blockUI.start(translate(gettext('Loading ...')));
     forkJoin([
       this.navigationConfig.load(),
-      this.dashboardWidgetConfigService.load(),
+      this.dashboardWidgetConfigService.loadWidgetConfig(),
+      this.dashboardWidgetConfigService.loadUserWidgetConfig(),
       this.logConfigService.load()
     ])
       .pipe(

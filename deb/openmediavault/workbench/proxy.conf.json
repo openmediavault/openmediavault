@@ -13,5 +13,10 @@
     "target": "http://omv6box.local/",
     "secure": false,
     "logLevel": "debug"
+  },
+  "/assets/*.json": {
+    "target": "http://omv6box.local/",
+    "secure": false,
+    "logLevel": "debug"
   }
 }

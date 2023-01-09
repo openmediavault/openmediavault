@@ -23,6 +23,7 @@ import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EMPTY, interval, Subscription } from 'rxjs';
 import { catchError, switchMap, take } from 'rxjs/operators';
 
+import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widget-config.service';
 import { format } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
@@ -78,7 +79,8 @@ export class TopBarComponent implements OnDestroy {
     private userLocalStorageService: UserLocalStorageService,
     private dialogService: DialogService,
     private notificationService: NotificationService,
-    private systemInformationService: SystemInformationService
+    private systemInformationService: SystemInformationService,
+    private dashboardWidgetConfigService: DashboardWidgetConfigService
   ) {
     this.currentLocale = LocaleService.getLocale();
     this.locales = LocaleService.getLocales();
@@ -202,8 +204,10 @@ export class TopBarComponent implements OnDestroy {
       gettext('Do you really want to reset the UI settings to their default values?'),
       'confirmation',
       () => {
-        this.userLocalStorageService.clear();
-        this.router.navigate(['/reload']);
+        this.dashboardWidgetConfigService.reset().subscribe(() => {
+          this.userLocalStorageService.clear();
+          this.router.navigate(['/reload']);
+        });
       }
     );
   }

@@ -1,0 +1,45 @@
+[
+	{
+		"type": "rpc",
+		"id": "rpc.dashboard.getsetting",
+		"params": {
+			"type": "object",
+			"properties": {
+				"deviceType": {
+					"type": "string",
+					"required": true
+				}
+			}
+		}
+	},
+	{
+		"type": "rpc",
+		"id": "rpc.dashboard.setsetting",
+		"params": {
+			"type": "object",
+			"properties": {
+				"deviceType": {
+					"type": "string",
+					"required": true
+				},
+				"data": {
+					"type": "any",
+					"required": true
+				}
+			}
+		}
+	},
+	{
+		"type": "rpc",
+		"id": "rpc.dashboard.deletesetting",
+		"params": {
+			"type": "object",
+			"properties": {
+				"deviceType": {
+					"type": "string",
+					"required": true
+				}
+			}
+		}
+	}
+]

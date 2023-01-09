@@ -17,8 +17,10 @@
  */
 import { Component, OnInit } from '@angular/core';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
-import * as _ from 'lodash';
+import { Observable } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
+import { DashboardUserConfig } from '~/app/core/components/dashboard/models/dashboard-user-config.model';
 import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/dashboard-widget-config.model';
 import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widget-config.service';
 
@@ -28,7 +30,7 @@ import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widg
   styleUrls: ['./dashboard-page.component.scss']
 })
 export class DashboardPageComponent implements OnInit {
-  public widgets: Array<DashboardWidgetConfig> = [];
+  public widgets$: Observable<Array<DashboardWidgetConfig>>;
 
   public notConfiguredMessage: string = gettext(
     "The dashboard has not yet been configured. To personalize it, please go to the <a href='#/dashboard/settings'>settings page</a>."
@@ -37,17 +39,11 @@ export class DashboardPageComponent implements OnInit {
   constructor(private dashboardWidgetConfigService: DashboardWidgetConfigService) {}
 
   ngOnInit(): void {
-    this.dashboardWidgetConfigService.configs$.subscribe(
-      (widgets: Array<DashboardWidgetConfig>) => {
-        const enabledWidgets: Array<string> = this.dashboardWidgetConfigService.getEnabled();
-        this.widgets = [];
-        _.forEach(enabledWidgets, (id) => {
-          const widget = _.find(widgets, ['id', id]);
-          if (!_.isUndefined(widget)) {
-            this.widgets.push(widget);
-          }
-        });
-      }
+    this.widgets$ = this.dashboardWidgetConfigService.getEnabled().pipe(
+      withLatestFrom(this.dashboardWidgetConfigService.configs$),
+      map(([enabledWidgets, widgets]: [DashboardUserConfig, Array<DashboardWidgetConfig>]) => {
+        return widgets.filter((m) => enabledWidgets.widgets.map((w) => w.id).includes(m.id));
+      })
     );
   }
 }

@@ -19,7 +19,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
+import { withLatestFrom } from 'rxjs/operators';
 
+import { DashboardUserConfig } from '~/app/core/components/dashboard/models/dashboard-user-config.model';
 import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/dashboard-widget-config.model';
 import { SelectionListPageConfig } from '~/app/core/components/intuition/models/selection-list-page-config.type';
 import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widget-config.service';
@@ -81,26 +83,29 @@ export class DashboardSettingsPageComponent
   }
 
   ngOnInit(): void {
-    this.dashboardWidgetConfigService.configs$.subscribe(
-      (widgets: Array<DashboardWidgetConfig>) => {
-        const data: Array<SelectionListItem> = [];
-        const enabledWidgets: Array<string> = this.dashboardWidgetConfigService.getEnabled();
-        _.forEach(widgets, (widget: DashboardWidgetConfig) => {
-          data.push({
-            id: widget.id,
-            title: widget.title,
-            description: widget.description,
-            enabled: enabledWidgets.includes(widget.id)
+    this.dashboardWidgetConfigService
+      .getEnabled()
+      .pipe(withLatestFrom(this.dashboardWidgetConfigService.configs$))
+      .subscribe(
+        ([enabledWidgets, widgets]: [DashboardUserConfig, Array<DashboardWidgetConfig>]) => {
+          const data: Array<SelectionListItem> = [];
+          _.forEach(widgets, (widget: DashboardWidgetConfig) => {
+            data.push({
+              id: widget.id,
+              title: widget.title,
+              description: widget.description,
+              enabled: enabledWidgets.widgets.map((m) => m.id).includes(widget.id)
+            });
           });
-        });
-        this.config.store.data = [...data];
-      }
-    );
+          this.config.store.data = [...data];
+        }
+      );
   }
 
   onSubmit(buttonConfig, store, value: Array<string>) {
     this.markAsPristine();
-    this.dashboardWidgetConfigService.setEnabled(value);
-    this.router.navigate(['/dashboard']);
+    this.dashboardWidgetConfigService
+      .setEnabled(value)
+      .subscribe(() => this.router.navigate(['/dashboard']));
   }
 }

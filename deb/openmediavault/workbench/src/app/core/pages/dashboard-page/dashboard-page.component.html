@@ -1,19 +1,24 @@
 <div class="omv-dashboard-page-container">
-  <omv-alert-panel *ngIf="!widgets.length"
-                   type="info">
-    <span [innerHTML]="notConfiguredMessage | transloco | sanitizeHtml"></span>
-  </omv-alert-panel>
-  <div class="widgets-container">
-    <div *ngFor="let widget of widgets">
-      <ng-container [ngTemplateOutlet]="renderWidget"
-                    [ngTemplateOutletContext]="{ $implicit: widget }">
-      </ng-container>
+  <ng-container *ngIf="widgets$ | async as widgets">
+    <div class="widgets-container"
+         *ngIf="widgets !== null && widgets.length > 0; else nowidgets">
+      <div *ngFor="let widget of widgets">
+        <ng-container [ngTemplateOutlet]="renderWidget"
+                      [ngTemplateOutletContext]="{ $implicit: widget }">
+        </ng-container>
+      </div>
     </div>
-  </div>
+  </ng-container>
 </div>
 
-<ng-template #renderWidget
-             let-widget>
+<ng-template #nowidgets>
+  <omv-alert-panel type="info">
+    <span [innerHTML]="notConfiguredMessage | transloco | sanitizeHtml"></span>
+  </omv-alert-panel>
+</ng-template>
+
+<ng-template let-widget
+             #renderWidget>
   <ng-container [ngSwitch]="widget.type">
     <ng-template [ngSwitchCase]="'grid'">
       <omv-dashboard-widget-grid [config]="widget">

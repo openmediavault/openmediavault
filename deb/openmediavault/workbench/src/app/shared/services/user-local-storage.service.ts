@@ -37,6 +37,11 @@ export class UserLocalStorageService {
     localStorage.setItem(`${username}@${key}`, value);
   }
 
+  remove(key: string): void {
+    const username = this.authSessionService.getUsername();
+    localStorage.removeItem(`${username}@${key}`);
+  }
+
   clear(): void {
     const username = this.authSessionService.getUsername();
     const numKeys = localStorage.length;
