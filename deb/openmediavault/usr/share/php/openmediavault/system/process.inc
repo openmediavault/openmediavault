@@ -201,6 +201,8 @@ class Process {
 	 * Execute the command.
 	 * @param output If the output argument is present, then the specified
 	 *   array will be filled with every line of output from the command.
+	 *   Note that if it already contains some elements, execute() will
+	 *   append to the end of this array.
 	 * @param exitStatus If the argument is present along with the output
 	 *   argument, then the return status of the executed command will be
 	 *   written to this variable.
