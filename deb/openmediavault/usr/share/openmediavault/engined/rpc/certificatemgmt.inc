@@ -218,23 +218,24 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// that the certificate has not been created or updated until now.
 		if ($this->isModuleDirty("certificates"))
 			throw new \OMV\Config\ConfigDirtyException();
-		$output = []
+		$output = [];
 		// Private key path.
 		$keyPath = sprintf(
 			"%s/private/%s%s.key",
 			\OMV\Environment::get("OMV_SSL_CERTIFICATE_DIR"),
 			\OMV\Environment::get("OMV_SSL_CERTIFICATE_PREFIX"),
-			$params['uuid']
-		)
-		$output[] = sprintf("Private Key Path: %s", $keyPath)
+			$params['uuid'],
+		);
+		$output[] = sprintf("Private Key Path: %s", $keyPath);
 		// Certificate path.
 		$certPath = sprintf(
 			"%s/certs/%s%s.crt",
 			\OMV\Environment::get("OMV_SSL_CERTIFICATE_DIR"),
 			\OMV\Environment::get("OMV_SSL_CERTIFICATE_PREFIX"),
-			$params['uuid']
-		)
-		$output[] = sprintf("Certificate Path: %s", $certPath)
+			$params['uuid'],
+		);
+		$output[] = sprintf("Certificate Path: %s", $certPath);
+		$output[] = "\n";
 		// Get certificate details.
 		$cmdArgs = [];
 		$cmdArgs[] = "x509";
@@ -245,6 +246,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Get certificate fingerprints.
+		$output[] = "\n";
 		foreach ([ "sha1", "sha256", "sha512" ] as $alg) {
 			$cmd = new \OMV\System\Process("openssl", [
 				"x509",
