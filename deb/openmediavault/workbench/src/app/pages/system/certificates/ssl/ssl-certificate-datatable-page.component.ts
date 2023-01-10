@@ -42,6 +42,22 @@ export class SslCertificateDatatablePageComponent {
         cellTemplateName: 'localeDateTime'
       },
       {
+        name: gettext('Fingerprint (SHA-1)'),
+        prop: 'fingerprintsha1',
+        flexGrow: 1,
+        sortable: true,
+        hidden: true,
+        cellTemplateName: 'copyToClipboard'
+      },
+      {
+        name: gettext('Fingerprint (SHA-256)'),
+        prop: 'fingerprintsha256',
+        flexGrow: 1,
+        sortable: true,
+        hidden: true,
+        cellTemplateName: 'copyToClipboard'
+      },
+      {
         name: gettext('Referenced'),
         prop: '_used',
         flexGrow: 1,

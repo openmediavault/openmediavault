@@ -1,5 +1,6 @@
 openmediavault (6.1.5-1) stable; urgency=low
 
+  * Display SSL fingerprints in the details page.
   * Issue #1459: Improve error message when obsolete cached data
     has been found.
 

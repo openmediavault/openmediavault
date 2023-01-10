@@ -72,6 +72,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Process the list of objects.
 		$result = [];
 		foreach ($objects as $objectk => $objectv) {
+			$certificate = $objectv->get("certificate");
 			// Add additional properties.
 			$objectv->add("name", "string", "");
 			$objectv->add("validto", "integer", 0);
@@ -79,11 +80,21 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Remove the private key. It should not leave the system.
 			$objectv->remove("privatekey");
 			// Parse the certificate.
-			if ($certinfo = openssl_x509_parse($objectv->get("certificate"))) {
+			if ($certinfo = openssl_x509_parse($certificate)) {
 				$objectv->setFlatAssoc([
 					"name" => $certinfo['name'],
 					"validto" => $certinfo['validTo_time_t']
 				]);
+			}
+			// Get the fingerprints.
+			foreach ([ "sha1", "sha256" ] as $digestAlgo) {
+				if (FALSE !== ($fingerprint = openssl_x509_fingerprint(
+						$certificate, $digestAlgo))) {
+					$name = sprintf("fingerprint%s", $digestAlgo);
+					$objectv->add($name, "string", "");
+					$objectv->set($name, substr(chunk_split(
+						$fingerprint, 2, ':'), 0, -1));
+				}
 			}
 			// Set '_used' flag if the certificate is referenced.
 			$objectv->set("_used", $db->isReferenced($objectv));
@@ -218,20 +229,31 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// that the certificate has not been created or updated until now.
 		if ($this->isModuleDirty("certificates"))
 			throw new \OMV\Config\ConfigDirtyException();
-		// Get certificate details.
 		$cmdArgs = [];
 		$cmdArgs[] = "x509";
-		$cmdArgs[] = "-text";
 		$cmdArgs[] = "-noout";
 		$cmdArgs[] = sprintf("-in %s", escapeshellarg(sprintf(
 			"%s/certs/%s%s.crt",
 			\OMV\Environment::get("OMV_SSL_CERTIFICATE_DIR"),
 			\OMV\Environment::get("OMV_SSL_CERTIFICATE_PREFIX"),
 			$params['uuid'])));
-		$cmd = new \OMV\System\Process("openssl", $cmdArgs);
+		// Get certificate details.
+		$cmd = new \OMV\System\Process("openssl", array_merge($cmdArgs,
+			["-text"]));
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
-		return implode("\n", $output);
+		// Append the certificate fingerprints.
+		$indent = str_repeat(" ", 4);
+		$fingerprintOutput = [ "Fingerprints:" ];
+		foreach ([ "-sha1", "-sha256" ] as $digest) {
+			$cmd = new \OMV\System\Process("openssl", array_merge(
+				$cmdArgs, ["-fingerprint", $digest]));
+			$cmd->setRedirect2to1();
+			$fingerprintOutput[] = $indent . str_replace(
+				"=", ":\n" . $indent . $indent,
+				$cmd->execute());
+		}
+		return implode("\n", array_merge($output, $fingerprintOutput));
 	}
 
 	/**
