@@ -147,6 +147,7 @@ export class NotificationBarComponent implements OnInit, OnDestroy {
             )
           );
           notification.dismissible = false;
+          notification.timestamp = undefined;
           notifications.unshift(notification);
         }
         if (sysInfo.availablePkgUpdates > 0) {
@@ -156,6 +157,7 @@ export class NotificationBarComponent implements OnInit, OnDestroy {
             gettext('New package updates are available for installation.')
           );
           notification.dismissible = false;
+          notification.timestamp = undefined;
           notifications.unshift(notification);
         }
         this.dismissibleNotifications = _.filter(notifications, ['dismissible', true]).length > 0;

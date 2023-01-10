@@ -21,13 +21,13 @@ export class Notification {
   private static nextId = 1;
 
   public readonly id: number;
-  public readonly timestamp: string;
 
   constructor(
     public type: NotificationType = NotificationType.info,
     public title?: string,
     public message?: string,
     public traceback?: string,
+    public timestamp?: string,
     public dismissible: boolean = true
   ) {
     this.id = Notification.nextId++;

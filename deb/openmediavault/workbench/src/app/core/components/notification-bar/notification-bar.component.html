@@ -87,7 +87,8 @@
             class="list-item-message">
         {{ notification.message | transloco | truncate:100 }}
       </span>
-      <span mat-line
+      <span *ngIf="notification.timestamp"
+            mat-line
             class="list-item-timestamp">
         {{ notification.timestamp | localeDate:'relative' }}
       </span>
