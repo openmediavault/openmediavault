@@ -28,6 +28,7 @@ export class Notification {
     public message?: string,
     public traceback?: string,
     public timestamp?: string,
+    public url?: string,
     public dismissible: boolean = true
   ) {
     this.id = Notification.nextId++;

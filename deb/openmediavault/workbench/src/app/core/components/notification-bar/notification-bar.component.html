@@ -80,11 +80,15 @@
                 svgIcon="{{ icon.information }}">
       </mat-icon>
       <span mat-line
-            class="list-item-title omv-font-weight-bold">
+            class="list-item-title omv-font-weight-bold"
+            [ngClass]="{'omv-cursor-pointer': notification.url}"
+            (click)="onNavigate(notification.url)">
         {{ notification.title | transloco | truncate:100 }}
       </span>
       <span mat-line
-            class="list-item-message">
+            class="list-item-message"
+            [ngClass]="{'omv-cursor-pointer': notification.url}"
+            (click)="onNavigate(notification.url)">
         {{ notification.message | transloco | truncate:100 }}
       </span>
       <span *ngIf="notification.timestamp"

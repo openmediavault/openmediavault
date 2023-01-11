@@ -17,6 +17,7 @@
  */
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { Subscription, timer } from 'rxjs';
@@ -58,6 +59,7 @@ export class NotificationBarComponent implements OnInit, OnDestroy {
     private clipboardService: ClipboardService,
     private dialogService: DialogService,
     private notificationService: NotificationService,
+    private router: Router,
     private rpcService: RpcService,
     private systemInformationService: SystemInformationService,
     private taskRunnerService: TaskRunnerService
@@ -125,6 +127,13 @@ export class NotificationBarComponent implements OnInit, OnDestroy {
     });
   }
 
+  onNavigate(url?: string): void {
+    if (_.isString(url)) {
+      this.sidenav.close();
+      this.router.navigate([url]);
+    }
+  }
+
   private loadTasks(): void {
     this.taskRunnerService.enumerate().subscribe((tasks: RunningTasks) => {
       this.tasks = tasks;
@@ -158,6 +167,7 @@ export class NotificationBarComponent implements OnInit, OnDestroy {
           );
           notification.dismissible = false;
           notification.timestamp = undefined;
+          notification.url = '/system/updatemgmt/updates';
           notifications.unshift(notification);
         }
         this.dismissibleNotifications = _.filter(notifications, ['dismissible', true]).length > 0;
