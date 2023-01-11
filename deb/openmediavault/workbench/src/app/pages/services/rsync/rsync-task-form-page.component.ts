@@ -677,7 +677,34 @@ export class RsyncTaskFormPageComponent extends BaseFormPageComponent {
         type: 'checkbox',
         name: 'optionarchive',
         label: gettext('Archive mode'),
-        value: true
+        value: true,
+        modifiers: [
+          {
+            type: 'unchecked',
+            opposite: false,
+            constraint: { operator: 'falsy', arg0: { prop: 'optionrecursive' } }
+          },
+          {
+            type: 'unchecked',
+            opposite: false,
+            constraint: { operator: 'falsy', arg0: { prop: 'optionperms' } }
+          },
+          {
+            type: 'unchecked',
+            opposite: false,
+            constraint: { operator: 'falsy', arg0: { prop: 'optiontimes' } }
+          },
+          {
+            type: 'unchecked',
+            opposite: false,
+            constraint: { operator: 'falsy', arg0: { prop: 'optiongroup' } }
+          },
+          {
+            type: 'unchecked',
+            opposite: false,
+            constraint: { operator: 'falsy', arg0: { prop: 'optionowner' } }
+          }
+        ]
       },
       {
         type: 'checkbox',
