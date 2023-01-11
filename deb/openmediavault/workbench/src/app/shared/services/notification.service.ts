@@ -59,7 +59,7 @@ export class NotificationService {
   }
 
   add(notification: Notification): void {
-    const notifications = this.notificationsSource.getValue();
+    const notifications = this.getAll();
     notifications.push(notification);
     this.notificationsSource.next(notifications);
   }
@@ -69,7 +69,7 @@ export class NotificationService {
   }
 
   remove(notification: Notification): void {
-    const notifications = this.notificationsSource.getValue();
+    const notifications = this.getAll();
     _.remove(notifications, { id: notification.id });
     this.notificationsSource.next(notifications);
   }
@@ -78,7 +78,7 @@ export class NotificationService {
     this.notificationsSource.next([]);
   }
 
-  list(): Notification[] {
-    return this.notificationsSource.value;
+  getAll(): Notification[] {
+    return this.notificationsSource.getValue();
   }
 }

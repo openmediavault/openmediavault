@@ -2,7 +2,7 @@
              color="primary">
   <button mat-icon-button
           matTooltip="{{ 'Show/Hide navigation' | transloco }}"
-          (click)="onToggleNavigation()">
+          (click)="onToggleNavigation($event)">
     <mat-icon svgIcon="{{ icon.menu }}">
     </mat-icon>
   </button>
@@ -14,7 +14,7 @@
   <button *ngIf="permissions?.role.includes(roles.admin)"
           mat-icon-button
           matTooltip="{{ 'Notifications' | transloco }}"
-          (click)="onToggleNotification()">
+          (click)="onToggleNotification($event)">
     <mat-icon svgIcon="{{ icon.bell }}"
               [matBadge]="numNotifications"
               [matBadgeHidden]="!numNotifications"

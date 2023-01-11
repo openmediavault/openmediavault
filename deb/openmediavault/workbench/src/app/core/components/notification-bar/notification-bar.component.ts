@@ -145,7 +145,7 @@ export class NotificationBarComponent implements OnInit, OnDestroy {
       .pipe(take(1))
       .subscribe((sysInfo: SystemInformation) => {
         // Make a deep copy of the notifications and reverse the order.
-        const notifications = _.reverse(_.clone(this.notificationService.list()));
+        const notifications = _.reverse(_.clone(this.notificationService.getAll()));
         // Append additional notifications.
         if (sysInfo.rebootRequired) {
           const notification: Notification = new Notification(

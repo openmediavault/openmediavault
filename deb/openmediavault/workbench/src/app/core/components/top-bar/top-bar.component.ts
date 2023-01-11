@@ -103,11 +103,13 @@ export class TopBarComponent implements OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  onToggleNavigation(): void {
+  onToggleNavigation(event: Event): void {
+    event.stopPropagation();
     this.navigationToggleChange.emit();
   }
 
-  onToggleNotification(): void {
+  onToggleNotification(event: Event): void {
+    event.stopPropagation();
     this.notificationToggleChange.emit();
   }
 
@@ -226,7 +228,7 @@ export class TopBarComponent implements OnDestroy {
     this.systemInformationService.systemInfo$
       .pipe(take(1))
       .subscribe((sysInfo: SystemInformation) => {
-        let numNotifications: number = this.notificationService.list().length;
+        let numNotifications: number = this.notificationService.getAll().length;
         if (sysInfo.rebootRequired) {
           numNotifications += 1;
         }
