@@ -239,7 +239,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			$params['uuid'])));
 		// Get certificate details.
 		$cmd = new \OMV\System\Process("openssl", array_merge($cmdArgs,
-			["-text"]));
+			[ "-text" ]));
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Append the certificate fingerprints.
@@ -247,7 +247,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$fingerprintOutput = [ "Fingerprints:" ];
 		foreach ([ "-sha1", "-sha256" ] as $digest) {
 			$cmd = new \OMV\System\Process("openssl", array_merge(
-				$cmdArgs, ["-fingerprint", $digest]));
+				$cmdArgs, [ "-fingerprint", $digest ]));
 			$cmd->setRedirect2to1();
 			$fingerprintOutput[] = $indent . str_replace(
 				"=", ":\n" . $indent . $indent,
