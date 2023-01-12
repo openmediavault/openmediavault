@@ -21,6 +21,7 @@
 @use 'chip';
 @use 'dialog';
 @use 'forms';
+@use 'icon';
 @use 'menu';
 @use 'select';
 @use 'sidenav';
@@ -33,6 +34,7 @@
   @include chip.theme($mode, $theme-config, $typography-config);
   @include dialog.theme($mode, $theme-config, $typography-config);
   @include forms.theme($mode, $theme-config, $typography-config);
+  @include icon.theme($mode, $theme-config, $typography-config);
   @include menu.theme($mode, $theme-config, $typography-config);
   @include select.theme($mode, $theme-config, $typography-config);
   @include sidenav.theme($mode, $theme-config, $typography-config);
