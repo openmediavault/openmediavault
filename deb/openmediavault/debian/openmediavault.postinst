@@ -424,6 +424,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "6.1.3"; then
 			touch /var/lib/openmediavault/display_welcome_message
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.1.5"; then
+			omv_module_set_dirty proftpd
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the

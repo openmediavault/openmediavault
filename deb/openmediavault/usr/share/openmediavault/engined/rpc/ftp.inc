@@ -366,15 +366,18 @@ class Ftp extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs = [];
 				$cmdArgs[] = sprintf("-s %s", \OMV\Environment::get(
 					"OMV_PROFTPD_MODCTRLS_CONTROLSSOCKET",
-					"/run/proftpd.sock"));
+					"/run/proftpd/proftpd.sock"));
 				$cmdArgs[] = "ban info";
 				$cmdArgs[] = "-v";
 				$cmdArgs[] = "-e";
+				$output = [];
 				$cmd = new \OMV\System\Process("ftpdctl", $cmdArgs);
 				$cmd->setRedirect2to1();
 				$cmd->execute($output);
-				foreach ($output as &$outputv)
-					$outputv = preg_replace("/^ftpdctl:/", "", $outputv);
+				foreach ($output as &$outputv) {
+					$outputv = trim(preg_replace("/^ftpdctl:/", "",
+						$outputv));
+				}
 				$stats .= implode("\n", $output);
 			}
 		}

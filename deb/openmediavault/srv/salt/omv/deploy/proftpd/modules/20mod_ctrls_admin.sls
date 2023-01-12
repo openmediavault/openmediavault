@@ -17,14 +17,14 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set admin_controls_engine = salt['pillar.get']('default:OMV_PROFTPD_MODCTRLSADMIN_ADMINCONTROLSENGINE', 'off') %}
+{% set config = salt['omv_conf.get']('conf.service.ftp.modban.rule') %}
 
 configure_proftpd_mod_ctrls_admin:
   file.append:
     - name: "/etc/proftpd/proftpd.conf"
     - text: |
         <IfModule mod_ctrls_admin.c>
-          AdminControlsEngine {{ admin_controls_engine }}
+          AdminControlsEngine {{ (config | length > 0) | yesno('on,off') }}
         </IfModule>
     - watch_in:
       - service: start_proftpd_service

@@ -2,6 +2,7 @@ openmediavault (6.1.5-1) stable; urgency=low
 
   * Display SSL fingerprints in the details page.
   * Fix bug related to the `archive` flag in the Rsync task page.
+  * Fix bug on FTP statistics page when ban rules are activated.
   * Issue #1459: Improve error message when obsolete cached data
     has been found.
 
