@@ -71,8 +71,21 @@ class StorageDeviceSD extends StorageDevice implements SmartInterface {
 	 */
 	public function getSmartDeviceType() {
 		if (TRUE === $this->isUsb()) {
+			// Identify by ID_VENDOR_ID and ID_MODEL_ID.
+			if ($this->hasUdevProperty("ID_VENDOR_ID") &&
+					$this->hasUdevProperty("ID_MODEL_ID")) {
+				$vendorId = $this->getUdevProperty("ID_VENDOR_ID");
+				$modelId = $this->getUdevProperty("ID_MODEL_ID");
+				// ASMedia ASM2362 USB to NVMe bridge
+				// https://www.argon40.com/products/argon-one-m-2-expansion-board-nvme
+				// https://www.smartmontools.org/ticket/1221
+				if (("174c" == $vendorId) && ("2362" == $modelId)) {
+					return "sntasmedia";
+				}
+			}
+			// Identify by ID_MODEL_ID or `/sys/block/<XXX>/device/model`.
 			$modelMap = [
-				"TR-004 DISK00" => "jmb39x-q,0",
+				"TR-004 DISK00" => "jmb39x-q,0", // QNAP TR-004
 				"TR-004 DISK01" => "jmb39x-q,1",
 				"TR-004 DISK02" => "jmb39x-q,2",
 				"TR-004 DISK03" => "jmb39x-q,3"

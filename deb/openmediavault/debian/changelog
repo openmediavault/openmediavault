@@ -6,6 +6,7 @@ openmediavault (6.1.5-1) stable; urgency=low
   * Fix bug on FTP statistics page when ban rules are activated.
   * Issue #1459: Improve error message when obsolete cached data
     has been found.
+  * Issue #1467: Support ASMedia ASM2362 USB to NVMe bridge.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 05 Jan 2023 12:58:10 +0100
 
