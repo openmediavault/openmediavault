@@ -29,7 +29,7 @@ import openmediavault.rpc
 class Module(openmediavault.firstaid.IModule):
     @property
     def description(self):
-        return "Configure web control panel"
+        return "Configure workbench access"
 
     def execute(self):
         # Default values.
@@ -42,7 +42,7 @@ class Module(openmediavault.firstaid.IModule):
         d = dialog.Dialog(dialog="dialog")
         while not port:
             (code, port) = d.inputbox(
-                "Please enter the port to access the control panel via HTTP.",
+                "Please enter the port to access the workbench via HTTP.",
                 backtitle=self.description,
                 clear=True,
                 height=8,
@@ -101,7 +101,7 @@ class Module(openmediavault.firstaid.IModule):
                 while not sslport:
                     (code, sslport) = d.inputbox(
                         "Please enter the port "
-                        "to access the control panel via HTTPS.",
+                        "to access the workbench via HTTPS.",
                         backtitle=self.description,
                         clear=True,
                         height=8,
@@ -167,7 +167,7 @@ class Module(openmediavault.firstaid.IModule):
                 if code == d.OK:
                     forcesslonly = True
         # Update the configuration.
-        print("Updating web control panel settings. Please wait ...")
+        print("Updating workbench settings. Please wait ...")
         openmediavault.rpc.call(
             "WebGui",
             "setSettings",
@@ -184,9 +184,9 @@ class Module(openmediavault.firstaid.IModule):
         openmediavault.rpc.call(
             "Config", "applyChanges", {"modules": [], "force": False}
         )
-        print("The web control panel settings were successfully changed.")
+        print("The workbench settings were successfully changed.")
         # Display the URL's available to reach the web control panel.
-        print("\nThe web control panel is reachable via URL:")
+        print("\nThe workbench is reachable via URL:")
         for if_name in netifaces.interfaces():
             # Skip unwanted network interface devices.
             if if_name in ["lo"]:
