@@ -13,12 +13,11 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-@forward 'css-variables';
-
 @use 'button';
 @use 'card';
 @use 'checkbox';
 @use 'chip';
+@use 'css-variables';
 @use 'dialog';
 @use 'forms';
 @use 'icon';
@@ -32,6 +31,7 @@
   @include card.theme($mode, $theme-config, $typography-config);
   @include checkbox.theme($mode, $theme-config, $typography-config);
   @include chip.theme($mode, $theme-config, $typography-config);
+  @include css-variables.theme($mode, $theme-config, $typography-config);
   @include dialog.theme($mode, $theme-config, $typography-config);
   @include forms.theme($mode, $theme-config, $typography-config);
   @include icon.theme($mode, $theme-config, $typography-config);

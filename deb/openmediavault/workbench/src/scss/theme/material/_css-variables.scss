@@ -15,49 +15,8 @@
 // GNU General Public License for more details.
 @use '~@angular/material' as mat;
 
-@mixin define-css-variables($theme-config, $typography-config) {
+@mixin theme($mode, $theme-config, $typography-config) {
   :root {
-    ////////////////////////////////////////////////////////////////////////////////
-    // Color
-    --mat-color-text: #{mat.get-color-from-palette(map-get($theme-config, foreground), text)};
-    --mat-color-secondary-text:
-      #{mat.get-color-from-palette(
-        map-get($theme-config, foreground),
-        secondary-text
-      )};
-    --mat-color-disabled-text:
-      #{mat.get-color-from-palette(
-        map-get($theme-config, foreground),
-        disabled-text
-      )};
-    --mat-color-hint-text:
-      #{mat.get-color-from-palette(
-        map-get($theme-config, foreground),
-        hint-text
-      )};
-    --mat-background-color-hover:
-      #{mat.get-color-from-palette(
-        map-get($theme-config, background),
-        hover
-      )};
-    --mat-background-color-selected-button:
-      #{mat.get-color-from-palette(
-        map-get($theme-config, background),
-        selected-button
-      )};
-    --mat-background-color-card:
-      #{mat.get-color-from-palette(
-        map-get($theme-config, background),
-        card
-      )};
-    --mat-primary-color-text:
-      #{mat.get-color-from-palette(
-        map-get($theme-config, primary),
-        text
-      )};
-
-    ////////////////////////////////////////////////////////////////////////////////
-    // Typography
     --mat-font-size-body-1: #{mat.font-size($typography-config, body-1)};
     --mat-font-size-button: #{mat.font-size($typography-config, button)};
     --mat-font-size-caption: #{mat.font-size($typography-config, caption)};
@@ -68,5 +27,52 @@
     --mat-font-weight-headline: #{mat.font-weight($typography-config, headline)};
     --mat-font-weight-subheading-2: #{mat.font-weight($typography-config, subheading-2)};
     --mat-font-weight-title: #{mat.font-weight($typography-config, title)};
+
+    @if $mode == light {
+      @include color($theme-config, $typography-config);
+    }
   }
+
+  @if $mode == dark {
+    @include color($theme-config, $typography-config);
+  }
+}
+
+@mixin color($theme-config, $typography-config) {
+  --mat-color-text: #{mat.get-color-from-palette(map-get($theme-config, foreground), text)};
+  --mat-color-secondary-text:
+    #{mat.get-color-from-palette(
+      map-get($theme-config, foreground),
+      secondary-text
+    )};
+  --mat-color-disabled-text:
+    #{mat.get-color-from-palette(
+      map-get($theme-config, foreground),
+      disabled-text
+    )};
+  --mat-color-hint-text:
+    #{mat.get-color-from-palette(
+      map-get($theme-config, foreground),
+      hint-text
+    )};
+  --mat-background-color-hover:
+    #{mat.get-color-from-palette(
+      map-get($theme-config, background),
+      hover
+    )};
+  --mat-background-color-selected-button:
+    #{mat.get-color-from-palette(
+      map-get($theme-config, background),
+      selected-button
+    )};
+  --mat-background-color-card:
+    #{mat.get-color-from-palette(
+      map-get($theme-config, background),
+      card
+    )};
+  --mat-primary-color-text:
+    #{mat.get-color-from-palette(
+      map-get($theme-config, primary),
+      text
+    )};
 }
