@@ -29,7 +29,7 @@ import openmediavault.rpc
 class Module(openmediavault.firstaid.IModule):
     @property
     def description(self):
-        return "Configure workbench access"
+        return "Configure workbench"
 
     def execute(self):
         # Default values.
