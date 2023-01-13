@@ -107,8 +107,18 @@ class StorageDevice(openmediavault.device.StorageDevice):
     @property
     def smart_device_type(self):
         if self.is_usb:
+            # Identify by ID_VENDOR_ID and ID_MODEL_ID.
+            if self.has_udev_property('ID_VENDOR_ID') and self.has_udev_property('ID_MODEL_ID'):
+                vendor_id = self.udev_property('ID_VENDOR_ID')
+                model_id = self.udev_property('ID_MODEL_ID')
+                # ASMedia ASM2362 USB to NVMe bridge
+                # https://www.argon40.com/products/argon-one-m-2-expansion-board-nvme
+                # https://www.smartmontools.org/ticket/1221
+                if '174c' == vendor_id and '2362' == model_id:
+                    return 'sntasmedia'
+            # Identify by ID_MODEL_ID or `/sys/block/<XXX>/device/model`.
             model_map = {
-                'TR-004 DISK00': 'jmb39x-q,0',
+                'TR-004 DISK00': 'jmb39x-q,0',  # QNAP TR-004
                 'TR-004 DISK01': 'jmb39x-q,1',
                 'TR-004 DISK02': 'jmb39x-q,2',
                 'TR-004 DISK03': 'jmb39x-q,3'
