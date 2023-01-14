@@ -87,28 +87,28 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 					return FALSE;
 				}
 				// Get the S.M.A.R.T. information about the given device.
-				$smartInfo = $sd->getSmartInformation();
+				$si = $sd->getSmartInformation();
 				// Try to get the device temperature via S.M.A.R.T.
-				$temperature = $smartInfo->getTemperature();
+				$temperature = $si->getTemperature();
 				// Get the device details collected via S.M.A.R.T.
-				$details = $smartInfo->getInformation();
+				$info = $si->getInformation();
 				// Prepare device object
 				return [
 					"devicename" => $sd->getDeviceName(),
 					"canonicaldevicefile" => $sd->getCanonicalDeviceFile(),
 					"devicefile" => $sd->getPredictableDeviceFile(),
 					"devicelinks" => $sd->getDeviceFileSymlinks(),
-					"model" => !empty($details['devicemodel']) ?
-						$details['devicemodel'] : $sd->getModel(),
+					"model" => !empty($info['devicemodel']) ?
+						$info['devicemodel'] : $sd->getModel(),
 					"size" => $sd->getSize(),
 					"temperature" => (FALSE === $temperature) ?
 						"" : sprintf("%d°C", $temperature),
 					"description" => $sd->getDescription(),
 					"vendor" => $sd->getVendor(),
-					"serialnumber" => !empty($details['serialnumber']) ?
-						$details['serialnumber'] : $sd->getSerialNumber(),
+					"serialnumber" => !empty($info['serialnumber']) ?
+						$info['serialnumber'] : $sd->getSerialNumber(),
 					"wwn" => $sd->getWorldWideName(),
-					"overallstatus" => $smartInfo->getOverallStatus()
+					"overallstatus" => $si->getOverallStatus()
 				];
 			});
 		}
@@ -377,8 +377,8 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 		// Ensure that the device has S.M.A.R.T. support.
 		$sd->assertHasSmartSupport();
 		// Get the S.M.A.R.T. information.
-		$smartInfo = $sd->getSmartInformation();
-		return $smartInfo->getExtendedInformation();
+		$si = $sd->getSmartInformation();
+		return $si->getExtendedInformation();
 	}
 
 	/**
@@ -401,8 +401,8 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 		// Ensure that the device has S.M.A.R.T. support.
 		$sd->assertHasSmartSupport();
 		// Get the S.M.A.R.T. information.
-		$smartInfo = $sd->getSmartInformation();
-		return $smartInfo->getAttributes();
+		$si = $sd->getSmartInformation();
+		return $si->getAttributes();
 	}
 
 	/**
@@ -425,8 +425,8 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 		// Ensure that the device has S.M.A.R.T. support.
 		$sd->assertHasSmartSupport();
 		// Get the S.M.A.R.T. information.
-		$smartInfo = $sd->getSmartInformation();
-		return $smartInfo->getSelfTestLogs();
+		$si = $sd->getSmartInformation();
+		return $si->getSelfTestLogs();
 	}
 
 	/**
@@ -449,8 +449,8 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 		// Ensure that the device has S.M.A.R.T. support.
 		$sd->assertHasSmartSupport();
 		// Get the S.M.A.R.T. information.
-		$smartInfo = $sd->getSmartInformation();
-		return $smartInfo->getInformation();
+		$si = $sd->getSmartInformation();
+		return $si->getInformation();
 	}
 
 	/**
