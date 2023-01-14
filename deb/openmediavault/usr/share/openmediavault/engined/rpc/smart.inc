@@ -90,19 +90,23 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 				$smartInfo = $sd->getSmartInformation();
 				// Try to get the device temperature via S.M.A.R.T.
 				$temperature = $smartInfo->getTemperature();
+				// Get the device details collected via S.M.A.R.T.
+				$details = $smartInfo->getInformation();
 				// Prepare device object
 				return [
 					"devicename" => $sd->getDeviceName(),
 					"canonicaldevicefile" => $sd->getCanonicalDeviceFile(),
 					"devicefile" => $sd->getPredictableDeviceFile(),
 					"devicelinks" => $sd->getDeviceFileSymlinks(),
-					"model" => $sd->getModel(),
+					"model" => !empty($details['devicemodel']) ?
+						$details['devicemodel'] : $sd->getModel(),
 					"size" => $sd->getSize(),
 					"temperature" => (FALSE === $temperature) ?
 						"" : sprintf("%d°C", $temperature),
 					"description" => $sd->getDescription(),
 					"vendor" => $sd->getVendor(),
-					"serialnumber" => $sd->getSerialNumber(),
+					"serialnumber" => !empty($details['serialnumber']) ?
+						$details['serialnumber'] : $sd->getSerialNumber(),
 					"wwn" => $sd->getWorldWideName(),
 					"overallstatus" => $smartInfo->getOverallStatus()
 				];
