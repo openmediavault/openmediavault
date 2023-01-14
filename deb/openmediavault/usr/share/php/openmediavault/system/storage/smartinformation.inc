@@ -333,21 +333,25 @@ class SmartInformation {
 			$cmdOutputv = trim($cmdOutputv);
 			// Abort parsing, we are not interested in the information
 			// shown below this line.
-			if ($cmdOutputv == "=== START OF READ SMART DATA SECTION ===")
+			if (in_array([ "=== START OF READ SMART DATA SECTION ===",
+					"=== START OF SMART DATA SECTION ===" ], $cmdOutputv)) {
 				break;
+			}
 			// Ignore everything that is not below this line.
 			if ($cmdOutputv == "=== START OF INFORMATION SECTION ===") {
 				$sectionFound = TRUE;
 				continue;
 			}
 			// Have we found the information section?
-			if (FALSE === $sectionFound)
+			if (FALSE === $sectionFound) {
 				continue;
+			}
 			// Parse the information section line:
 			// Device Model:     WDC WD2502ABYS-02B7A0
 			$regex = '/^([^:]+):\s+(.+)$/i';
-			if (1 !== preg_match($regex, $cmdOutputv, $matches))
+			if (1 !== preg_match($regex, $cmdOutputv, $matches)) {
 				continue;
+			}
 			// Convert the attribute name, e.g. 'Device Model' to
 			// 'devicemodel'.
 			$attrKey = mb_strtolower(str_replace(" ", "", $matches[1]));
@@ -357,17 +361,18 @@ class SmartInformation {
 		// Map various keys if the user has installed an unsupported
 		// smartmontools version.
 		//
-		// smartctl 7.1 2019-12-30 r5022 ...
+		// smartctl 7.3 2022-02-28 r5338 ...
 		// ...
 		// === START OF INFORMATION SECTION ===
 		// Model Number:     WDC WD2502ABYS-02B7A0
 		// Serial Number:    WD-WCAV1B245569
 		// Firmware Version: 02.03B03
 		// ...
+		// === START OF SMART DATA SECTION ===
 		$attrKeyMap = [
 			'modelnumber' => 'devicemodel'
 		];
-		foreach($attrKeyMap as $attrKeyk => $attrKeyv) {
+		foreach ($attrKeyMap as $attrKeyk => $attrKeyv) {
 			// Copy new attributes only if the origin attribute does
 			// not exist.
 			if (array_key_exists($attrKeyk, $result) &&
