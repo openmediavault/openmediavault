@@ -148,7 +148,7 @@ msgid "Synchronise from/to directory on external storage device"
 msgstr "Synkronisera från/till mapp på extern lagringsenhet"
 
 msgid "Tags"
-msgstr ""
+msgstr "Taggar"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

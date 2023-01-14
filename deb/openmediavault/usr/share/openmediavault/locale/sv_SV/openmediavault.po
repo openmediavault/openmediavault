@@ -4,16 +4,16 @@
 # 
 # Translators:
 # d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2012
-# Jonatan Nyberg <jonatan@autistici.org>, 2021-2022
+# Jonatan Nyberg <jonatan@autistici.org>, 2021-2023
 # Jonatan Nyberg <jonatan@autistici.org>, 2018-2021
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 14:10+0100\n"
+"POT-Creation-Date: 2023-01-09 17:51+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2022\n"
+"Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2023\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -246,7 +246,7 @@ msgstr "En kraftfull modulär FTP/SFTP/FTPS-server."
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr ""
+msgstr "En omstart krävs för att fullt ut tillämpa ändringarna som infördes genom paketinstallation eller uppgradering."
 
 msgid "A running background task was detected."
 msgstr "En pågående bakgrundsuppgift upptäcktes."
@@ -2139,7 +2139,7 @@ msgid "New Zealand"
 msgstr "Nya Zeeland"
 
 msgid "New package updates are available for installation."
-msgstr ""
+msgstr "Nya paketuppdateringar är tillgängliga för installation."
 
 msgid "New password"
 msgstr "Nytt lösenord"
@@ -2231,8 +2231,10 @@ msgstr "Num"
 msgid "OK"
 msgstr "OK"
 
-msgid "Obsolete cached data found. Page will be reloaded."
-msgstr "Föråldrade cachade data hittades. Sidan kommer att läsas om."
+msgid ""
+"Obsolete cached data found. Page will be reloaded. If the problem persists, "
+"press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
+msgstr ""
 
 msgid "Occurrence"
 msgstr "Händelse"
@@ -3278,7 +3280,7 @@ msgid ""
 msgstr "Systemövervakning är inaktiverad. För att aktivera det, gå till <a href='#/system/monitoring'>inställningssidan</a>."
 
 msgid "System restart required"
-msgstr ""
+msgstr "Systemomstart krävs"
 
 msgid "System time"
 msgstr "Systemtid"
@@ -3290,7 +3292,7 @@ msgid "TCP forwarding"
 msgstr "TCP-vidarebefodran"
 
 msgid "Tags"
-msgstr ""
+msgstr "Taggar"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4118,7 +4120,7 @@ msgid "Welcome message"
 msgstr "Välkomstmeddelande"
 
 msgid "Welcome to openmediavault"
-msgstr ""
+msgstr "Välkommen till openmediavault"
 
 msgid "Western Sahara"
 msgstr "Västsahara"

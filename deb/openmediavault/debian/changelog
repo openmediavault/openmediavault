@@ -1,5 +1,6 @@
 openmediavault (6.1.5-1) stable; urgency=low
 
+  * Update locale files.
   * Various bug fixes and improvements.
   * Display SSL fingerprints in the details page.
   * Fix bug related to the `archive` flag in the Rsync task page.

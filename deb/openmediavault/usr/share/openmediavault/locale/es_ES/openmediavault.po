@@ -5,15 +5,15 @@
 # Translators:
 # jmcainzos <jmcainzos@vodafone.es>, 2013
 # jmcainzos <jmcainzos@vodafone.es>, 2012
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2022
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2023
 # Volker Theile <votdev@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 14:10+0100\n"
+"POT-Creation-Date: 2023-01-09 17:51+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2022\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2023\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -246,7 +246,7 @@ msgstr "Servidor modular FTP/SFTP/FTPS"
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr ""
+msgstr "Es necesario reiniciar para aplicar completamente los cambios introducidos por la instalación o actualización del paquete."
 
 msgid "A running background task was detected."
 msgstr "ha sido detectada una tarea corriendo en background."
@@ -2139,7 +2139,7 @@ msgid "New Zealand"
 msgstr "Nueva Zelanda"
 
 msgid "New package updates are available for installation."
-msgstr ""
+msgstr "Hay nuevas actualizaciones de paquetes disponibles para su instalación."
 
 msgid "New password"
 msgstr "Nueva contraseña"
@@ -2231,8 +2231,10 @@ msgstr "Número"
 msgid "OK"
 msgstr "OK"
 
-msgid "Obsolete cached data found. Page will be reloaded."
-msgstr "Caché obsoleta. La pagina debe volver a cargarse."
+msgid ""
+"Obsolete cached data found. Page will be reloaded. If the problem persists, "
+"press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
+msgstr ""
 
 msgid "Occurrence"
 msgstr "Instancia"
@@ -3278,7 +3280,7 @@ msgid ""
 msgstr "La supervisión del sistema está deshabilitada. Para habilitarlo, vaya a la <a href='#/system/monitoring'>página de configuración</a>."
 
 msgid "System restart required"
-msgstr ""
+msgstr "Se requiere un reinicio del sistema"
 
 msgid "System time"
 msgstr "Hora del sistema"
@@ -3290,7 +3292,7 @@ msgid "TCP forwarding"
 msgstr "Reenvío TCP"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4118,7 +4120,7 @@ msgid "Welcome message"
 msgstr "Mensaje de bienvenida"
 
 msgid "Welcome to openmediavault"
-msgstr ""
+msgstr "Bienvenido a Openmediavault"
 
 msgid "Western Sahara"
 msgstr "Sáhara Occidental"

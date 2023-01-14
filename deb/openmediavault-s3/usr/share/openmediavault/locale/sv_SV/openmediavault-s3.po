@@ -6,8 +6,8 @@
 # Translators:
 # d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2022
 # Volker Theile <votdev@gmx.de>, 2022
-# Jonatan Nyberg <jonatan@autistici.org>, 2022
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2022
+# Jonatan Nyberg <jonatan@autistici.org>, 2023
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2022-03-25 19:15+0000\n"
-"Last-Translator: efef6ec5b435a041fce803c7f8af77d2_2341d43, 2022\n"
+"Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2023\n"
 "Language-Team: Swedish (https://www.transifex.com/openmediavault/teams/14254/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,6 +61,8 @@ msgid ""
 "The location where the object data is stored. Make sure the user <em>s3</em>"
 " or group <em>users</em> can access the files."
 msgstr ""
+"Platsen där objektdata lagras. Se till att användaren <em>s3</em> eller "
+"grupp<em>användare</em> kan komma åt filerna."
 
 msgid "The name of the root user."
 msgstr "Namnet på rootanvändaren."

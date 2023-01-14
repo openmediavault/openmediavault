@@ -260,7 +260,7 @@ msgid "Sunday"
 msgstr "Söndag"
 
 msgid "Tags"
-msgstr ""
+msgstr "Taggar"
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "Fältet ska bara innehålla * eller en kommaseparerad lista över värden."
