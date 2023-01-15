@@ -1,3 +1,9 @@
+openmediavault (6.1.6-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 15 Jan 2023 14:23:58 +0100
+
 openmediavault (6.1.5-2) stable; urgency=low
 
   * Update locale files.
