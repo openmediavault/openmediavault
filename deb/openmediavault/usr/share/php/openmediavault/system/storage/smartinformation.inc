@@ -373,10 +373,11 @@ class SmartInformation {
 			'modelnumber' => 'devicemodel'
 		];
 		foreach ($attrKeyMap as $attrKeyk => $attrKeyv) {
-			// Copy new attributes only if the origin attribute does
-			// not exist.
+			// Copy new attributes only if the origin attribute is empty.
 			if (array_key_exists($attrKeyk, $result) &&
-					!array_key_exists($attrKeyv, $result)) {
+				array_key_exists($attrKeyv, $result) &&
+				empty($result[$attrKeyv])
+			) {
 				$result[$attrKeyv] = $result[$attrKeyk];
 			}
 		}
