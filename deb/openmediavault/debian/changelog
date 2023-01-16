@@ -1,5 +1,6 @@
 openmediavault (6.1.6-1) stable; urgency=low
 
+  * Update locale files.
   * Issue #1466: Add hint about issues with SMART check interval.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 15 Jan 2023 14:23:58 +0100

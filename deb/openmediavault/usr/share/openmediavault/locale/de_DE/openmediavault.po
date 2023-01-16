@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 17:51+0100\n"
+"POT-Creation-Date: 2023-01-16 18:48+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2023\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -1323,6 +1323,12 @@ msgstr "Dateien, die größer als die angegebene Anzahl von Bytes sind, werden n
 
 msgid "Filesize"
 msgstr "Dateigröße"
+
+msgid "Fingerprint (SHA-1)"
+msgstr "Fingerprint (SHA-1)"
+
+msgid "Fingerprint (SHA-256)"
+msgstr "Fingerprint (SHA-256)"
 
 msgid "Finland"
 msgstr "Finnland"
@@ -3007,10 +3013,8 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "Stelle den Eigentümer der Zieldatei so ein, dass er mit der Quelldatei identisch ist, jedoch nur, wenn der empfangende Rsync als Superuser ausgeführt wird."
 
-msgid ""
-"Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
-"errors and changes of S.M.A.R.T. attributes."
-msgstr "Setzt den Intervall zwischen Plattenchecks auf N Sekunden, um S.M.A.R.T. Fehler und Änderungen von S.M.A.R.T. Attributen zu protokollieren."
+msgid "Sets the interval between disk checks to N seconds."
+msgstr "Setzt das Intervall zwischen den Festplattenprüfungen auf N Sekunden."
 
 msgid "Settings"
 msgstr "Einstellungen"
@@ -3308,6 +3312,13 @@ msgstr "Taiwan"
 
 msgid "Tajikistan"
 msgstr "Tadschikistan"
+
+msgid ""
+"Take caution when setting this polling interval to more than sixty minutes. "
+"The poll times may fail to coincide with any of the scheduled test that have"
+" been specified. In this case the scheduled test will be run following the "
+"next device polling."
+msgstr "Seien Sie vorsichtig, wenn Sie dieses Abfrageintervall auf mehr als sechzig Minuten einstellen. Die Abfragezeiten stimmen möglicherweise nicht mit einem der festgelegten geplanten Tests überein. In diesem Fall wird der geplante Test nach der nächsten Geräteabfrage durchgeführt."
 
 msgid "Tanzania"
 msgstr "Tansania"

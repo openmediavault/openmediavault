@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 17:51+0100\n"
+"POT-Creation-Date: 2023-01-16 18:48+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2022\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -1317,6 +1317,12 @@ msgstr "A megadott bájtméretnél nagyobb fájlok nem helyezhetőek át a lomt�
 
 msgid "Filesize"
 msgstr "Fájlméret"
+
+msgid "Fingerprint (SHA-1)"
+msgstr ""
+
+msgid "Fingerprint (SHA-256)"
+msgstr ""
 
 msgid "Finland"
 msgstr "Finnország"
@@ -3001,10 +3007,8 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "A célfájl tulajdonosának beállítása a forrásfájllal megegyezőre abban az esetben ha a fogadó rsync szuperfelhasználóként fut."
 
-msgid ""
-"Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
-"errors and changes of S.M.A.R.T. attributes."
-msgstr "Lemez ellenőrzések közti N másodperces intervallum beállítása, és S.M.A.R.T. hibák és S.M.A.R.T. attribútum változásainak naplózása."
+msgid "Sets the interval between disk checks to N seconds."
+msgstr "Lemez ellenőrzések közti N másodperces intervallum beállítása."
 
 msgid "Settings"
 msgstr "Beállítások"
@@ -3302,6 +3306,13 @@ msgstr "Tajvan"
 
 msgid "Tajikistan"
 msgstr "Tádzsikisztán"
+
+msgid ""
+"Take caution when setting this polling interval to more than sixty minutes. "
+"The poll times may fail to coincide with any of the scheduled test that have"
+" been specified. In this case the scheduled test will be run following the "
+"next device polling."
+msgstr ""
 
 msgid "Tanzania"
 msgstr "Tanzánia"

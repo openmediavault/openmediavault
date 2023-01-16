@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 17:51+0100\n"
+"POT-Creation-Date: 2023-01-16 18:48+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2022\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -1311,6 +1311,12 @@ msgstr "指定された数よりも大きいファイルは、ごみ箱に入れ
 
 msgid "Filesize"
 msgstr "ファイルサイズ"
+
+msgid "Fingerprint (SHA-1)"
+msgstr ""
+
+msgid "Fingerprint (SHA-256)"
+msgstr ""
 
 msgid "Finland"
 msgstr "フィンランド"
@@ -2995,10 +3001,8 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "受信側のrsyncがスーパーユーザーとして実行されている場合のみ、送信先ファイルの所有者を送信元ファイルと同じに設定します。"
 
-msgid ""
-"Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
-"errors and changes of S.M.A.R.T. attributes."
-msgstr "S.M.A.R.T.のエラーと属性の変化のロギングのためのディスクチェック間隔をN秒単位で設定します。"
+msgid "Sets the interval between disk checks to N seconds."
+msgstr "ディスクチェックの間隔をN秒に設定します。"
 
 msgid "Settings"
 msgstr "設定"
@@ -3296,6 +3300,13 @@ msgstr "台湾"
 
 msgid "Tajikistan"
 msgstr "タジキスタン"
+
+msgid ""
+"Take caution when setting this polling interval to more than sixty minutes. "
+"The poll times may fail to coincide with any of the scheduled test that have"
+" been specified. In this case the scheduled test will be run following the "
+"next device polling."
+msgstr ""
 
 msgid "Tanzania"
 msgstr "タンザニア"

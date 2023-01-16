@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 17:51+0100\n"
+"POT-Creation-Date: 2023-01-16 18:48+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2023\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -1314,6 +1314,12 @@ msgstr "Filer som är större än det angivna antalet kommer inte att läggas i 
 
 msgid "Filesize"
 msgstr "Filstorlek"
+
+msgid "Fingerprint (SHA-1)"
+msgstr ""
+
+msgid "Fingerprint (SHA-256)"
+msgstr ""
 
 msgid "Finland"
 msgstr "Finland"
@@ -2998,10 +3004,8 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "Ställ in att ägaren till målfilen ska vara densamma som källfilen, men endast om den mottagande rsync körs som superanvändare."
 
-msgid ""
-"Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
-"errors and changes of S.M.A.R.T. attributes."
-msgstr "Ställer in intervallet mellan diskkontroller till N sekunder, loggar S.M.A.R.T. fel och förändringar av S.M.A.R.T. attribut."
+msgid "Sets the interval between disk checks to N seconds."
+msgstr "Ange intervall mellan enhetskontroller till N sekunder."
 
 msgid "Settings"
 msgstr "Inställningar"
@@ -3299,6 +3303,13 @@ msgstr "Taiwan"
 
 msgid "Tajikistan"
 msgstr "Tadzjikistan"
+
+msgid ""
+"Take caution when setting this polling interval to more than sixty minutes. "
+"The poll times may fail to coincide with any of the scheduled test that have"
+" been specified. In this case the scheduled test will be run following the "
+"next device polling."
+msgstr ""
 
 msgid "Tanzania"
 msgstr "Tanzania"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 17:51+0100\n"
+"POT-Creation-Date: 2023-01-16 18:48+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2022\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -1317,6 +1317,12 @@ msgstr "大于设置大小的文件不会放到回收站。"
 
 msgid "Filesize"
 msgstr "文件大小"
+
+msgid "Fingerprint (SHA-1)"
+msgstr ""
+
+msgid "Fingerprint (SHA-256)"
+msgstr ""
 
 msgid "Finland"
 msgstr "芬兰"
@@ -3001,10 +3007,8 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "仅超级用户运行 rsync 接受文件时，设置目标拥有者与源文件一致。"
 
-msgid ""
-"Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
-"errors and changes of S.M.A.R.T. attributes."
-msgstr "设定磁盘检查间隔时间为 N 秒，以记录 S.M.A.R.T. 错误或特性变化日志。"
+msgid "Sets the interval between disk checks to N seconds."
+msgstr "设定磁盘检查间隔时间为 N 秒"
 
 msgid "Settings"
 msgstr "设置"
@@ -3302,6 +3306,13 @@ msgstr "中国台湾"
 
 msgid "Tajikistan"
 msgstr "塔吉克斯坦斯坦"
+
+msgid ""
+"Take caution when setting this polling interval to more than sixty minutes. "
+"The poll times may fail to coincide with any of the scheduled test that have"
+" been specified. In this case the scheduled test will be run following the "
+"next device polling."
+msgstr ""
 
 msgid "Tanzania"
 msgstr "坦桑尼亚"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 17:51+0100\n"
+"POT-Creation-Date: 2023-01-16 18:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1269,6 +1269,12 @@ msgid "Files that are larger than the specified number will not be put into the 
 msgstr ""
 
 msgid "Filesize"
+msgstr ""
+
+msgid "Fingerprint (SHA-1)"
+msgstr ""
+
+msgid "Fingerprint (SHA-256)"
 msgstr ""
 
 msgid "Finland"
@@ -2870,7 +2876,7 @@ msgstr ""
 msgid "Set the owner of the destination file to be the same as the source file, but only if the receiving rsync is being run as the super-user."
 msgstr ""
 
-msgid "Sets the interval between disk checks to N seconds, logging S.M.A.R.T. errors and changes of S.M.A.R.T. attributes."
+msgid "Sets the interval between disk checks to N seconds."
 msgstr ""
 
 msgid "Settings"
@@ -3150,6 +3156,9 @@ msgid "Taiwan"
 msgstr ""
 
 msgid "Tajikistan"
+msgstr ""
+
+msgid "Take caution when setting this polling interval to more than sixty minutes. The poll times may fail to coincide with any of the scheduled test that have been specified. In this case the scheduled test will be run following the next device polling."
 msgstr ""
 
 msgid "Tanzania"
