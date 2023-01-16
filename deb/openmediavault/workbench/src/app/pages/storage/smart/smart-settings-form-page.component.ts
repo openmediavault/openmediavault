@@ -47,9 +47,12 @@ export class SmartSettingsFormPageComponent extends BaseFormPageComponent {
         type: 'numberInput',
         name: 'interval',
         label: gettext('Check interval'),
-        hint: gettext(
-          'Sets the interval between disk checks to N seconds, logging S.M.A.R.T. errors and changes of S.M.A.R.T. attributes.'
-        ),
+        hint:
+          gettext('Sets the interval between disk checks to N seconds.') +
+          '&nbsp;' +
+          gettext(
+            'Take caution when setting this polling interval to more than sixty minutes. The poll times may fail to coincide with any of the scheduled test that have been specified. In this case the scheduled test will be run following the next device polling.'
+          ),
         value: 1800,
         validators: {
           min: 10,
