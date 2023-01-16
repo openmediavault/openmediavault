@@ -8,7 +8,7 @@
     "build": "ng build",
     "build:prod": "ng build --configuration production --verbose",
     "test": "jest --watch --no-cache",
-    "test:ci": "jest --no-cache",
+    "test:ci": "jest --no-cache --maxWorkers=4",
     "lint:html": "htmllint src/app/**/*.html && html-linter --config html-linter.config.json",
     "lint:tsc": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.spec.json --noEmit",
     "lint:eslint": "ng lint",
