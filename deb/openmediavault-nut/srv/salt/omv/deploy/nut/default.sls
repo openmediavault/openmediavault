@@ -130,11 +130,12 @@ divert_nut_upssched_conf:
 configure_nut_default_upssched_cmd:
   file.managed:
     - name: "/etc/default/upssched-cmd"
-    - contents: |
-        {{ pillar['headers']['auto_generated'] }}
-        {{ pillar['headers']['warning'] }}
-        OMV_NUT_UPSSCHEDCMD_EMAIL_ENABLE="{{ "YES" if email_config.enable | to_bool else "NO" }}"
-        OMV_NUT_UPSSCHEDCMD_SHUTDOWNTIMER={{ nut_config.shutdowntimer }}
+    - source:
+      - salt://{{ tpldir }}/files/etc-default-upssched-cmd.j2
+    - template: jinja
+    - context:
+        nut_config: {{ nut_config | json }}
+        email_config: {{ email_config | json }}
     - user: root
     - group: nut
     - mode: 640
