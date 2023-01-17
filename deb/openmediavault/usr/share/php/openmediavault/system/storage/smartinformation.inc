@@ -249,13 +249,15 @@ class SmartInformation {
 
 	/**
 	 * Get a specific attribute by ID.
-	 * @return object|boolean An object with the requested attribute data,
-	 *   otherwise FALSE.
+	 * @param int $id The attribute ID.
+	 * @param any $default An optional default value. Defaults to FALSE.
+	 * @return object|any An object with the requested attribute data,
+	 *   otherwise the specified default value.
 	 */
-	public function getAttribute($id) {
+	public function getAttribute($id, $default = FALSE) {
 		if (FALSE === ($attributes = $this->getAttributes()))
-			return FALSE;
-		$result = FALSE;
+			return $default;
+		$result = $default;
 		foreach ($attributes as $attrk => $attrv) {
 			if ($attrv['id'] == $id) {
 				$result = $attrv;
@@ -475,6 +477,52 @@ class SmartInformation {
 			}
 		}
 		return (TRUE === $found) ? $result : FALSE;
+	}
+
+	/**
+	 * Get the count of power on/off cycles.
+	 * @return int Returns the count of power on/off cycles, otherwise -1.
+	 */
+	public function getPowerCycleCount() {
+		if (FALSE !=== ($result = $this->getAttribute(12))) // Power_Cycle_Count
+			return $result;
+		// If the SMART attributes are not present then it may be a NVMe device.
+		// Then the command output looks like:
+		//
+		// === START OF SMART DATA SECTION ===
+		// ...
+		// Critical Warning:                   0x00
+		// Temperature:                        39 Celsius
+		// Available Spare:                    100%
+		// ...
+		// Power Cycles:                       196
+		// Power On Hours:                     616
+		// ...
+		$info = $this->getInformation();
+		return array_value($info, "powercycles", -1);
+	}
+
+	/**
+	 * Get the count of hours in power-on state.
+	 * @return int Returns the count of power on/off cycles, otherwise -1.
+	 */
+	public function getPowerOnHours() {
+		if (FALSE !=== ($result = $this->getAttribute(9))) // Power_On_Hours
+			return $result;
+		// If the SMART attributes are not present then it may be a NVMe device.
+		// Then the command output looks like:
+		//
+		// === START OF SMART DATA SECTION ===
+		// ...
+		// Critical Warning:                   0x00
+		// Temperature:                        39 Celsius
+		// Available Spare:                    100%
+		// ...
+		// Power Cycles:                       196
+		// Power On Hours:                     616
+		// ...
+		$info = $this->getInformation();
+		return array_value($info, "poweronhours", -1);
 	}
 
 	/**

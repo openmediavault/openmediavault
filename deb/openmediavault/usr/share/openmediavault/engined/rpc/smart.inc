@@ -450,7 +450,21 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 		$sd->assertHasSmartSupport();
 		// Get the S.M.A.R.T. information.
 		$si = $sd->getSmartInformation();
-		return $si->getInformation();
+		$result = $si->getInformation();
+		// Get additional information:
+		// - Temperature
+		// - Power Cycle Count
+		// - Power-On Hours (POH)
+		if (FALSE !== ($value = $si->getTemperature())) {
+			$result['temperature'] = sprintf("%d°C", $value);
+		}
+		if (-1 !== ($value = $si->getPowerCycleCount())) {
+			$result['powercycles'] = $value;
+		}
+		if (-1 !== ($value = $si->getPowerOnHours())) {
+			$result['poweronhours'] = $value;
+		}
+		return $result;
 	}
 
 	/**

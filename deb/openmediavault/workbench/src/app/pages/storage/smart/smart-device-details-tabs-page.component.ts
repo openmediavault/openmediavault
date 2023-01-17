@@ -36,6 +36,10 @@ export class SmartDeviceDetailsTabsPageComponent {
               method: 'getInformation',
               params: {
                 devicefile: '{{ _routeParams.devicefile }}'
+              },
+              transform: {
+                poweronhours:
+                  '{% if poweronhours %}{{ (poweronhours / 24) | round(1) }} {{ "days" | translate }}{% endif %}'
               }
             }
           },
@@ -68,6 +72,24 @@ export class SmartDeviceDetailsTabsPageComponent {
               type: 'textInput',
               name: 'firmwareversion',
               label: gettext('Firmware version'),
+              disabled: true
+            },
+            {
+              type: 'textInput',
+              name: 'powercycles',
+              label: gettext('Power cycle count'),
+              disabled: true
+            },
+            {
+              type: 'textInput',
+              name: 'poweronhours',
+              label: gettext('Powered on'),
+              disabled: true
+            },
+            {
+              type: 'textInput',
+              name: 'temperature',
+              label: gettext('Temperature'),
               disabled: true
             }
           ]

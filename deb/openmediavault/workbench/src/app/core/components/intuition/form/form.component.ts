@@ -75,7 +75,7 @@ export class FormComponent implements AfterViewInit, OnInit {
         }
       });
     });
-    _.forEach(_.uniq(fieldsToUpdate), (path) => {
+    _.forEach(_.uniq(fieldsToUpdate), (path: string) => {
       const control = this.formGroup.get(path);
       control.updateValueAndValidity({ onlySelf: true, emitEvent: true });
     });
