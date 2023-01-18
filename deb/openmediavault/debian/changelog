@@ -1,6 +1,7 @@
 openmediavault (6.1.6-1) stable; urgency=low
 
   * Update locale files.
+  * Various bug fixes and improvements.
   * Display additional SMART data in the `Device Information` page.
   * Issue #1466: Add hint about issues with SMART check interval.
 
