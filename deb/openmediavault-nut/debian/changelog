@@ -2,7 +2,9 @@ openmediavault-nut (6.0.2-1) stable; urgency=low
 
   * Update locales.
   * Issue #1432: Add support to customize the notification emails
-    via environment variables.
+    via environment variables. The environment variable
+    OMV_NUT_UPSSCHEDCMD_EMAIL_SUBJECT supports the placeholders
+    %d (date) and %h (hostname).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 16 Jan 2023 06:41:38 +0100
 
