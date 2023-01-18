@@ -47,7 +47,7 @@ class TraceException extends Exception {
 	 * String representation of the exception.
 	 * @return Returns the string representation of the exception.
 	 */
-	public function __toString() : string {
-		return $this->trace;
+	public function __toString(): string {
+		return strval($this->trace);
 	}
 }

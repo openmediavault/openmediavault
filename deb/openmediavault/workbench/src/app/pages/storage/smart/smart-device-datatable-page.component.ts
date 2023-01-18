@@ -40,6 +40,9 @@ export class SmartDeviceDatatablePageComponent {
           method: 'getListBg',
           task: true
         }
+      },
+      transform: {
+        temperature: '{% if temperature %}{{ temperature }}°C{% endif %}'
       }
     },
     columns: [

@@ -102,7 +102,7 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 						$info['devicemodel'] : $sd->getModel(),
 					"size" => $sd->getSize(),
 					"temperature" => (FALSE === $temperature) ?
-						"" : sprintf("%d°C", $temperature),
+						"" : $temperature,
 					"description" => $sd->getDescription(),
 					"vendor" => $sd->getVendor(),
 					"serialnumber" => !empty($info['serialnumber']) ?
@@ -456,7 +456,7 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 		// - Power Cycle Count
 		// - Power-On Hours (POH)
 		if (FALSE !== ($value = $si->getTemperature())) {
-			$result['temperature'] = sprintf("%d°C", $value);
+			$result['temperature'] = $value;
 		}
 		if (-1 !== ($value = $si->getPowerCycleCount())) {
 			$result['powercycles'] = $value;

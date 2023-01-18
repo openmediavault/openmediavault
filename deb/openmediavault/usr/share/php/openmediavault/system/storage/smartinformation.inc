@@ -484,7 +484,7 @@ class SmartInformation {
 	 * @return int Returns the count of power on/off cycles, otherwise -1.
 	 */
 	public function getPowerCycleCount() {
-		if (FALSE !=== ($result = $this->getAttribute(12))) // Power_Cycle_Count
+		if (FALSE !== ($result = $this->getAttribute(12))) // Power_Cycle_Count
 			return $result;
 		// If the SMART attributes are not present then it may be a NVMe device.
 		// Then the command output looks like:
@@ -507,7 +507,7 @@ class SmartInformation {
 	 * @return int Returns the count of power on/off cycles, otherwise -1.
 	 */
 	public function getPowerOnHours() {
-		if (FALSE !=== ($result = $this->getAttribute(9))) // Power_On_Hours
+		if (FALSE !== ($result = $this->getAttribute(9))) // Power_On_Hours
 			return $result;
 		// If the SMART attributes are not present then it may be a NVMe device.
 		// Then the command output looks like:
