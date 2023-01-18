@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 18:48+0100\n"
+"POT-Creation-Date: 2023-01-17 21:35+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2023\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -2500,8 +2500,14 @@ msgstr "Ausschalten"
 msgid "Power button"
 msgstr "Einschaltknopf"
 
+msgid "Power cycle count"
+msgstr "Anzahl der Einschaltzyklen"
+
 msgid "Power mode"
 msgstr "Powermodus"
+
+msgid "Powered on"
+msgstr "Eingeschaltet"
 
 msgid "Pre-release updates"
 msgstr "Vorabveröffentlichte Aktualisierungen"

@@ -7,16 +7,16 @@
 # Sári Gábor <sari.gabor@gmail.com>, 2017
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2018-2020
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2017
-# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2022
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2023
 # Sári Gábor <sari.gabor@gmail.com>, 2018,2022
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2022
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 18:48+0100\n"
+"POT-Creation-Date: 2023-01-17 21:35+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2022\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2023\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -249,7 +249,7 @@ msgstr "Nagy teljesítményű moduláris FTP/SFTP/FTPS kiszolgáló."
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr ""
+msgstr "Újraindítás szükséges a csomag telepítése vagy frissítése által bevezetett változások teljes körű alkalmazásához."
 
 msgid "A running background task was detected."
 msgstr "Egy futó háttérfeladat észlelve."
@@ -1319,10 +1319,10 @@ msgid "Filesize"
 msgstr "Fájlméret"
 
 msgid "Fingerprint (SHA-1)"
-msgstr ""
+msgstr "Ujjlenyomat (SHA-1)"
 
 msgid "Fingerprint (SHA-256)"
-msgstr ""
+msgstr "Ujjlenyomat (SHA-256)"
 
 msgid "Finland"
 msgstr "Finnország"
@@ -1886,7 +1886,7 @@ msgid "Maintainer"
 msgstr "Karbantartó"
 
 msgid "Make sure that the guest user <em>nobody</em> can access the files."
-msgstr ""
+msgstr "Győződjön meg róla, hogy a<em>nobody</em> vendégfelhasználó  hozzáfér a fájlokhoz."
 
 msgid "Malawi"
 msgstr "Malawi"
@@ -2148,7 +2148,7 @@ msgid "New Zealand"
 msgstr "Új-Zéland "
 
 msgid "New package updates are available for installation."
-msgstr ""
+msgstr "Új csomagfrissítések telepíthetőek."
 
 msgid "New password"
 msgstr "Új jelszó"
@@ -2243,7 +2243,7 @@ msgstr "OK"
 msgid ""
 "Obsolete cached data found. Page will be reloaded. If the problem persists, "
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
-msgstr ""
+msgstr "Elavult gyorsítótárazott adatokat találtunk. Az oldal újratöltésre kerül. Ha a probléma továbbra is fennáll, nyomja le a Ctrl-Shift-R vagy a Ctrl-F5 billentyűt az oldal kényszerített újratöltéséhez."
 
 msgid "Occurrence"
 msgstr "Előfordulás"
@@ -2494,8 +2494,14 @@ msgstr "Kikapcsolás"
 msgid "Power button"
 msgstr "Bekapcsoló gomb"
 
+msgid "Power cycle count"
+msgstr ""
+
 msgid "Power mode"
 msgstr "Energia mód"
+
+msgid "Powered on"
+msgstr ""
 
 msgid "Pre-release updates"
 msgstr "Kiadás előtt álló frissítések"
@@ -3287,7 +3293,7 @@ msgid ""
 msgstr "A rendszerfelügyelet ki van kapcsolva. Az engedélyezéséhez lépjen a<a href='#/system/monitoring'>beállítások oldalra</a>."
 
 msgid "System restart required"
-msgstr ""
+msgstr "Rendszer-újraindítás szükséges"
 
 msgid "System time"
 msgstr "Rendszeridő"
@@ -3299,7 +3305,7 @@ msgid "TCP forwarding"
 msgstr "TCP továbbítás"
 
 msgid "Tags"
-msgstr ""
+msgstr "Címkék"
 
 msgid "Taiwan"
 msgstr "Tajvan"
@@ -3312,7 +3318,7 @@ msgid ""
 "The poll times may fail to coincide with any of the scheduled test that have"
 " been specified. In this case the scheduled test will be run following the "
 "next device polling."
-msgstr ""
+msgstr "Legyen óvatos, ha ezt a lekérdezési intervallumot hatvan percnél hosszabbra állítja be. Előfordulhat, hogy a lekérdezési időpontok nem esnek egybe a megadott ütemezett tesztekkel. Ebben az esetben az ütemezett teszt a következő eszközlekérdezést követően fog lefutni."
 
 msgid "Tanzania"
 msgstr "Tanzánia"
@@ -4134,7 +4140,7 @@ msgid "Welcome message"
 msgstr "Üdvözlő üzenet"
 
 msgid "Welcome to openmediavault"
-msgstr ""
+msgstr "Üdvözöljük az openmediavault-ban"
 
 msgid "Western Sahara"
 msgstr "Nyugat-Szahara"

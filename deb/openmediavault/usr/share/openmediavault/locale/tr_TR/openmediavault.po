@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 18:48+0100\n"
+"POT-Creation-Date: 2023-01-17 21:35+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -2488,8 +2488,14 @@ msgstr "Kapat"
 msgid "Power button"
 msgstr "Güç Düğmesi"
 
+msgid "Power cycle count"
+msgstr ""
+
 msgid "Power mode"
 msgstr "Güç modu"
+
+msgid "Powered on"
+msgstr ""
 
 msgid "Pre-release updates"
 msgstr ""

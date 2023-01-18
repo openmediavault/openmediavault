@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 18:48+0100\n"
+"POT-Creation-Date: 2023-01-17 21:35+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2022\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -2490,8 +2490,14 @@ msgstr "Apagar"
 msgid "Power button"
 msgstr "Boto d’encesa"
 
+msgid "Power cycle count"
+msgstr ""
+
 msgid "Power mode"
 msgstr "Mode d’energia"
+
+msgid "Powered on"
+msgstr ""
 
 msgid "Pre-release updates"
 msgstr "Actualitzacions prèvies a la versió "
