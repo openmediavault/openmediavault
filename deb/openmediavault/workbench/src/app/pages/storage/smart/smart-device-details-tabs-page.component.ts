@@ -39,8 +39,8 @@ export class SmartDeviceDetailsTabsPageComponent {
               },
               transform: {
                 poweronhours:
-                  '{% if poweronhours %}{{ (poweronhours / 24) | round(1) }} {{ "days" | translate }}{% endif %}',
-                temperature: '{% if temperature %}{{ temperature }}°C{% endif %}'
+                  '{% if poweronhours %}{{ (poweronhours / 24) | round(1) }} d{% endif %}',
+                temperature: '{% if temperature %}{{ temperature }} °C{% endif %}'
               }
             }
           },

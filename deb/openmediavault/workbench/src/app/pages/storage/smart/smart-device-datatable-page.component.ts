@@ -42,7 +42,7 @@ export class SmartDeviceDatatablePageComponent {
         }
       },
       transform: {
-        temperature: '{% if temperature %}{{ temperature }}°C{% endif %}'
+        temperature: '{% if temperature %}{{ temperature }} °C{% endif %}'
       }
     },
     columns: [
