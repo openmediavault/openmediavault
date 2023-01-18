@@ -26,22 +26,22 @@ export class AuthSessionService {
   constructor() {}
 
   set(username: string, permissions: Permissions): void {
-    localStorage.setItem('username', username);
-    localStorage.setItem('permissions', Permissions.toJSON(permissions));
+    sessionStorage.setItem('username', username);
+    sessionStorage.setItem('permissions', Permissions.toJSON(permissions));
   }
 
   getUsername(): string | null {
-    return localStorage.getItem('username');
+    return sessionStorage.getItem('username');
   }
 
   getPermissions(): Permissions {
-    const item = localStorage.getItem('permissions') || '{}';
+    const item = sessionStorage.getItem('permissions') || '{}';
     return Permissions.fromJSON(item);
   }
 
   revoke(): void {
-    localStorage.removeItem('username');
-    localStorage.removeItem('permissions');
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('permissions');
   }
 
   hasAdminRole(): boolean {
