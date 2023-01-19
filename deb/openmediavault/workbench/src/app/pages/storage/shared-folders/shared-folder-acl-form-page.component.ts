@@ -20,7 +20,7 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EMPTY } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { catchError, distinctUntilChanged, finalize } from 'rxjs/operators';
 
 import {
   FormPageButtonConfig,
@@ -295,7 +295,7 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
     self.loadData = () => this.loadData('/');
     self.afterViewInitEvent.subscribe(() => {
       const control = self.form.formGroup.get('file');
-      control.valueChanges.subscribe((value) => this.loadData(value));
+      control.valueChanges.pipe(distinctUntilChanged()).subscribe((value) => this.loadData(value));
     });
   }
 

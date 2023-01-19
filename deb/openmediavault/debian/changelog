@@ -1,5 +1,6 @@
 openmediavault (6.1.7-1) stable; urgency=low
 
+  * Fix reload loop bug on shared folder ACL page.
   * Issue #1310: Store UI settings on the server as well instead
     of the browser only. Note, existing settings in the browser
     are not adopted. Thanks to jpspringall for his contribution.
