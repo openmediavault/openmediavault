@@ -21,6 +21,8 @@
  */
 namespace Engined\Rpc;
 
+require_once("openmediavault/functions.inc");
+
 class WebGui extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -36,6 +38,9 @@ class WebGui extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getSettings");
 		$this->registerMethod("setSettings");
 		$this->registerMethod("dismissWelcomeMessage");
+		$this->registerMethod("getLocalStorageItems");
+		$this->registerMethod("setLocalStorageItem");
+		$this->registerMethod("clearLocalStorageItems");
 	}
 
 	/**
@@ -87,5 +92,100 @@ class WebGui extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		unlink("/var/lib/openmediavault/display_welcome_message");
+	}
+
+	/**
+	 * Get the local storage settings of the current context user.
+	 * @param params An array containing the following fields:
+	 *   \em devicetype The device type, e.g. `desktop` or `mobile`.
+	 * @param context The context of the caller.
+	 * @return void
+	 */
+	function getLocalStorageItems($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_EVERYONE
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params,
+			"rpc.webgui.getlocalstorageitems");
+		$content = [];
+		$filename = build_path(DIRECTORY_SEPARATOR,
+			\OMV\Environment::get("OMV_WEBGUI_LOCALSTORAGE_DIR",
+				"/var/lib/openmediavault/workbench/localstorage.d"),
+			$context["username"]);
+		$jsonFile = new \OMV\Json\File($filename);
+		if ($jsonFile->exists($filename)) {
+			$jsonFile->open("r", LOCK_SH);
+			$content = $jsonFile->read();
+			$jsonFile->close();
+		}
+		return array_value($content, $params['devicetype'], []);
+	}
+
+	/**
+	 * Set the local storage settings of the current context user.
+	 * @param params An array containing the following fields:
+	 *   \em devicetype The device type, e.g. `desktop` or `mobile`.
+	 *   \em key A string containing the name of the key you want to
+	 *     create/update.
+	 *   \em value A string containing the value you want to give
+	 *     the key.
+	 * @param context The context of the caller.
+	 * @return void
+	 */
+	public function setLocalStorageItem($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_EVERYONE
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params,
+			"rpc.webgui.setlocalstorageitem");
+		$content = [];
+		$filename = build_path(DIRECTORY_SEPARATOR,
+			\OMV\Environment::get("OMV_WEBGUI_LOCALSTORAGE_DIR",
+				"/var/lib/openmediavault/workbench/localstorage.d"),
+			$context["username"]);
+		$jsonFile = new \OMV\Json\File($filename);
+		$jsonFile->open("c+");
+		if (!$jsonFile->isEmpty()) {
+			$content = $jsonFile->read();
+		}
+		$key = sprintf("%s.%s", $params['devicetype'], $params['key']);
+		$contentDict = new \OMV\Dictionary($content);
+		$contentDict->set($key, $params['value']);
+		$jsonFile->write($contentDict->getData());
+		$jsonFile->close();
+		return $params['data'];
+	}
+
+	/**
+	 * Clear the local storage settings of the current context user.
+	 * @param params An array containing the following fields:
+	 *   \em devicetype The device type, e.g. `desktop` or `mobile`.
+	 * @param context The context of the caller.
+	 * @return void
+	 */
+	public function clearLocalStorageItems($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_EVERYONE
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params,
+			"rpc.webgui.clearlocalstorageitems");
+		$filename = build_path(DIRECTORY_SEPARATOR,
+			\OMV\Environment::get("OMV_WEBGUI_LOCALSTORAGE_DIR",
+				"/var/lib/openmediavault/workbench/localstorage.d"),
+			$context["username"]);
+		$jsonFile = new \OMV\Json\File($filename);
+		if ($jsonFile->exists($filename)) {
+			$jsonFile->open("c+");
+			$contentDict = new \OMV\Dictionary($jsonFile->read());
+			$contentDict->remove($params['devicetype']);
+			$jsonFile->write($contentDict->getData());
+			$jsonFile->close();
+		}
 	}
 }

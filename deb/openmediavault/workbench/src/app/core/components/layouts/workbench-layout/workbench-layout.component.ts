@@ -23,7 +23,7 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { forkJoin, Subscription } from 'rxjs';
-import { delay, filter, finalize, take } from 'rxjs/operators';
+import { delay, filter, finalize, take, tap } from 'rxjs/operators';
 
 import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widget-config.service';
 import { LogConfigService } from '~/app/core/services/log-config.service';
@@ -32,8 +32,10 @@ import { translate } from '~/app/i18n.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
+import { PrefersColorSchemeService } from '~/app/shared/services/prefers-color-scheme.service';
 import { SystemInformationService } from '~/app/shared/services/system-information.service';
 import { RunningTasks, TaskRunnerService } from '~/app/shared/services/task-runner.service';
+import { UserLocalStorageService } from '~/app/shared/services/user-local-storage.service';
 
 @Component({
   selector: 'omv-workbench-layout',
@@ -64,10 +66,12 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
     private media: MediaObserver,
     private navigationConfig: NavigationConfigService,
     private notificationService: NotificationService,
+    private prefersColorSchemeService: PrefersColorSchemeService,
     private router: Router,
     private logConfigService: LogConfigService,
     private systemInformationService: SystemInformationService,
-    private taskRunnerService: TaskRunnerService
+    private taskRunnerService: TaskRunnerService,
+    private userLocalStorageService: UserLocalStorageService
   ) {
     this.initLayout();
     // Do not subscribe on login page.
@@ -114,12 +118,22 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
 
   private initLayout(): void {
     // Load the navigation, dashboard widgets and logging configuration.
+    // Additionally, load the users local storage settings and apply them
+    // to the browsers local storage.
     this.loading = true;
     this.blockUI.start(translate(gettext('Loading ...')));
     forkJoin([
       this.navigationConfig.load(),
       this.dashboardWidgetConfigService.load(),
-      this.logConfigService.load()
+      this.logConfigService.load(),
+      this.userLocalStorageService.load().pipe(
+        tap(() => {
+          // The theme settings may need to be synchronized and applied
+          // after the local storage settings have been transferred from
+          // the server.
+          this.prefersColorSchemeService.sync();
+        })
+      )
     ])
       .pipe(
         // Delay a second, otherwise the display of the loading progress

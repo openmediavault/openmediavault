@@ -33,6 +33,7 @@ OMV_RRDGRAPH_ERROR_IMAGE="/usr/share/openmediavault/icons/rrd_graph_error_64.png
 OMV_WEBGUI_ADMINUSER_NAME="admin"
 OMV_WEBGUI_ADMINGROUP_NAME="openmediavault-admin"
 OMV_WEBGUI_FILE_OWNERGROUP_NAME="openmediavault-webgui"
+OMV_WEBGUI_LOCALSTORAGE_DIR="/var/lib/openmediavault/workbench/localstorage.d"
 OMV_CONFIGOBJECT_NEW_UUID="fa4b1c66-ef79-11e5-87a0-0002b3a176b4"
 OMV_DEBUG_SCRIPT="NO"
 OMV_DEBUG_PHP="NO"
