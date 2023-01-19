@@ -428,6 +428,8 @@ case "$1" in
 			omv_module_set_dirty proftpd
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.1.7"; then
+			omv_set_default "OMV_WEBGUI_LOCALSTORAGE_DIR" \
+				"/var/lib/openmediavault/workbench/localstorage.d/" 0 || :
 			mkdir -p /var/lib/openmediavault/workbench/localstorage.d/
 		fi
 
