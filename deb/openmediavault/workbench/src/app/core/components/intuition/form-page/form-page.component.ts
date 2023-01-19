@@ -204,14 +204,6 @@ export class FormPageComponent
    */
   setFormValues(values: Record<string, any>, markAsPristine = true): void {
     this.form.formGroup.patchValue(values);
-    // this.form.formGroup.updateValueAndValidity({ onlySelf: false, emitEvent: true });
-
-    const allFields: FormFieldConfig[] = flattenFormFieldConfig(this.config.fields);
-    _.forEach(_.uniq(allFields), (field: FormFieldConfig) => {
-      const control = this.form.formGroup.get(field.name);
-      control?.updateValueAndValidity({ onlySelf: true, emitEvent: true });
-    });
-
     if (markAsPristine) {
       this.form.formGroup.markAsPristine();
     }
