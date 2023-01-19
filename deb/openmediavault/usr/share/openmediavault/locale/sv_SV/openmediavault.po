@@ -3315,7 +3315,7 @@ msgid ""
 "The poll times may fail to coincide with any of the scheduled test that have"
 " been specified. In this case the scheduled test will be run following the "
 "next device polling."
-msgstr ""
+msgstr "Var försiktig när du ställer in detta omröstningsintervall till mer än sextio minuter. Omröstningstiderna kan misslyckas med att sammanfalla med något av de schemalagda testerna som har specificerats. I det här fallet kommer det schemalagda testet att köras efter nästa enhetsomröstning."
 
 msgid "Tanzania"
 msgstr "Tanzania"

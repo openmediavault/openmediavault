@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Kostas Moho, 2012-2022
+# Kostas Moho, 2012-2023
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 21:35+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Kostas Moho, 2012-2022\n"
+"Last-Translator: Kostas Moho, 2012-2023\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -243,7 +243,7 @@ msgstr "Ένας πανίσχυρος αρθρωτός διακομιστής FT
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr ""
+msgstr "Απαιτείται επανεκκίνηση για την πλήρη εφαρμογή των αλλαγών από την εγκατάσταση ή ενημέρωση των πακέτων."
 
 msgid "A running background task was detected."
 msgstr "Εντοπίστηκε κάποια ενεργή εργασία παρασκηνίου."
@@ -1313,10 +1313,10 @@ msgid "Filesize"
 msgstr "Μέγεθος αρχείου"
 
 msgid "Fingerprint (SHA-1)"
-msgstr ""
+msgstr "Αποτύπωμα (SHA-1)"
 
 msgid "Fingerprint (SHA-256)"
-msgstr ""
+msgstr "Αποτύπωμα (SHA-256)"
 
 msgid "Finland"
 msgstr "Finland"
@@ -2142,7 +2142,7 @@ msgid "New Zealand"
 msgstr "New Zealand"
 
 msgid "New package updates are available for installation."
-msgstr ""
+msgstr "Υπάρχουν διαθέσιμες για εγκατάσταση νέες ενημερώσεις πακέτων."
 
 msgid "New password"
 msgstr "Νέος κωδικός"
@@ -2237,7 +2237,7 @@ msgstr "Εντάξει"
 msgid ""
 "Obsolete cached data found. Page will be reloaded. If the problem persists, "
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
-msgstr ""
+msgstr "Βρέθηκαν σωσμένα παλαιά δεδομένα. Η σελίδα θα επαναφορτωθεί. Αν το πρόβλημα επιμείνει, πατήστε Ctrl-Shift-R ή Ctrl-F5 για πλήρη επαναφόρτωση της σελίδας."
 
 msgid "Occurrence"
 msgstr "Εμφάνιση"
@@ -2489,13 +2489,13 @@ msgid "Power button"
 msgstr "Πλήκτρο λειτουργίας"
 
 msgid "Power cycle count"
-msgstr ""
+msgstr "Power cycle count"
 
 msgid "Power mode"
 msgstr "Κατάστασης ενέργειας"
 
 msgid "Powered on"
-msgstr ""
+msgstr "Powered on"
 
 msgid "Pre-release updates"
 msgstr "Πρώιμες ενημερώσεις"
@@ -3287,7 +3287,7 @@ msgid ""
 msgstr "Η επίβλεψη συστήματος είναι απενεργοποιημένη. Ενεργοποιείται από τη <a href='#/system/monitoring'>σελίδα ρυθμίσεων</a>."
 
 msgid "System restart required"
-msgstr ""
+msgstr "Απαιτείται επανεκκίνηση του συστήματος"
 
 msgid "System time"
 msgstr "Ώρα συστήματος"
@@ -3299,7 +3299,7 @@ msgid "TCP forwarding"
 msgstr "Προώθηση TCP"
 
 msgid "Tags"
-msgstr ""
+msgstr "Ετικέτες"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -3312,7 +3312,7 @@ msgid ""
 "The poll times may fail to coincide with any of the scheduled test that have"
 " been specified. In this case the scheduled test will be run following the "
 "next device polling."
-msgstr ""
+msgstr "Συνίσταται προσοχή όταν ρυθμίζετε αυτό το διάστημα σφυγμομέτρησης σε περισσότερο από εξήντα λεπτά. Οι χρόνοι σφυγμομέτρησης ίσως να μην συμπίπτουν με τους προγραμματισμένους ελέγχους που έχουν ορισθεί. Σε τέτοια περίπτωση, ο προγραμματισμένος έλεγχος θα εκτελείται μετά από την επόμενη σφυγμομέτρηση της συσκευής."
 
 msgid "Tanzania"
 msgstr "Tanzania"
@@ -4134,7 +4134,7 @@ msgid "Welcome message"
 msgstr "Μήνυμα καλωσορίσματος"
 
 msgid "Welcome to openmediavault"
-msgstr ""
+msgstr "Καλωσορίσατε στο openmediavault"
 
 msgid "Western Sahara"
 msgstr "Western Sahara"
