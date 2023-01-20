@@ -3,8 +3,10 @@ openmediavault (6.1.7-1) stable; urgency=low
   * Update locale files.
   * Fix reload loop bug on shared folder ACL page.
   * Issue #1310: Store UI settings on the server as well instead
-    of the browser only. Note, existing settings in the browser
-    are not adopted. Thanks to jpspringall for his contribution.
+    of the browser only. Settings are stored in two separate
+    profiles, `desktop` and `mobile`. Note, existing settings in
+    the browser are not adopted. Thanks to jpspringall for his
+    contribution.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 19 Jan 2023 07:26:55 +0100
 
