@@ -56,10 +56,10 @@ class StorageDevice(openmediavault.device.StorageDevice):
             return self.__class__(parent_device_file)
         return None
 
-    def device_name(self, canonical=False):
+    def device_name(self, canonicalize=False):
         # Get the device name and convert '/' character to '!', e.g.
         # cciss/c0d0 => cciss!c0d0.
-        return super().device_name(canonical).replace('/', '!')
+        return super().device_name(canonicalize).replace('/', '!')
 
     @property
     def is_raid(self):

@@ -34,6 +34,13 @@ case "$1" in
 		# Activate trigger to rebuild workbench configuration files.
 		########################################################################
 		dpkg-trigger update-workbench
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		if dpkg --compare-versions "$2" lt-nl "6.0.2"; then
+			omv_module_set_dirty collectd
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

@@ -188,19 +188,19 @@ class BlockDevice:
                 return device_link
         return None
 
-    def device_name(self, canonical=False) -> str:
+    def device_name(self, canonicalize=False) -> str:
         """
         Get the device name, e.g. sda or hdb.
-        :param canonical: If set to True the canonical device file will
+        :param canonicalize: If set to True the canonical device file will
             be used. Defaults to `False`.
-        :type canonical: bool
+        :type canonicalize: bool
         :return: The device name.
         :rtype: str
         """
         return re.sub(
             r'^/dev/',
             '',
-            self.device_file if not canonical else self.canonical_device_file,
+            self.device_file if not canonicalize else self.canonical_device_file,
         )
 
     @property

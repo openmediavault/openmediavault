@@ -203,7 +203,7 @@ def is_fs_uuid(value):
     return openmediavault.stringutils.is_fs_uuid(value)
 
 
-def get_fs_parent_device_file(id_):
+def get_fs_parent_device_file(id_, canonicalize=False):
     """
     Get the parent device file of the specified filesystem.
     :param id_: The filesystem identifier, e.g.
@@ -217,12 +217,18 @@ def get_fs_parent_device_file(id_):
     * 2ED43920D438EC29 (NTFS)
 
     :type id_: str
+    :param canonicalize: If set to True the canonical device file will
+        be used. Defaults to `False`.
+    :type canonicalize: bool
     :return: Returns the device file of the underlying storage device
       or ``None`` in case of an error.
     :rtype: str|None
     """
     fs = openmediavault.fs.Filesystem(id_)
-    return fs.parent_device_file
+    result = fs.parent_device_file
+    if canonicalize and os.path.islink(result):
+        result = os.path.realpath(result)
+    return result
 
 
 def get_root_filesystem():

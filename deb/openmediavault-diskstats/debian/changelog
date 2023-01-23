@@ -1,3 +1,9 @@
+openmediavault-diskstats (6.0.2-1) stable; urgency=low
+
+  * Use canonical device file of the root device.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 23 Jan 2023 17:53:33 +0100
+
 openmediavault-diskstats (6.0.1-1) stable; urgency=low
 
   * Update locales.
