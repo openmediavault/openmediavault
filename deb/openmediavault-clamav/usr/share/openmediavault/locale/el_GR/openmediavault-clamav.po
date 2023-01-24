@@ -257,7 +257,7 @@ msgid "Sunday"
 msgstr "Κυριακή"
 
 msgid "Tags"
-msgstr ""
+msgstr "Ετικέτες"
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "Αυτό το πεδίο πρέπει να περιέχει μόνο * ή μια λίστα τιμών χωρισμένες με κόμμα."
