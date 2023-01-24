@@ -1,3 +1,9 @@
+openmediavault-nut (6.0.3-1) stable; urgency=low
+
+  * Make plugin uninstallation more failure tolerant.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 24 Jan 2023 17:32:20 +0100
+
 openmediavault-nut (6.0.2-1) stable; urgency=low
 
   * Update locales.

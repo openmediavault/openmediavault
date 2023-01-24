@@ -27,18 +27,19 @@ set -e
 OMV_NUT_UDEV_RULE_CONFIG=${OMV_NUT_UDEV_RULE_CONFIG:-"/etc/udev/rules.d/99-openmediavault-nut-serialups.rules"}
 
 remove_action() {
-	# Force the creation of the monit service configuration files. This
-	# way we can simply purge this service configuration file. Finally
-	# reload the monit configuration.
-	rm -rf "/etc/monit/conf.d/openmediavault-nut.conf"
-	omv-salt deploy run --no-color monit
-	# Create new collectd configuration after nut plugin has been removed
-	# and restart the service if necessary.
-	rm -rf "/etc/collectd/collectd.conf.d/nut.conf"
-	omv-salt deploy run --no-color collectd
+	# Remove the existing monit service configuration file. Finally
+	# force monit to reload the configuration.
+	rm -f "/etc/monit/conf.d/openmediavault-nut.conf"
+	monit reload || :
+	# Remove the collectd service configuration file and restart the
+	# service.
+	rm -f "/etc/collectd/collectd.conf.d/nut.conf"
+	if deb-systemd-helper is-enabled collectd.service; then
+		deb-systemd-invoke restart collectd.service || :
+	fi
 	# Remove udev-rule.
 	rm -f "${OMV_NUT_UDEV_RULE_CONFIG}"
-	udevadm control --reload-rules
+	udevadm control --reload-rules || :
 	# Reload rsyslog configuration because the nut configuration
 	# file has been removed by the package management.
 	deb-systemd-invoke force-reload rsyslog || :
