@@ -47,7 +47,7 @@
     "@codemirror/view": "^6.7.3",
     "@fontsource/inter": "^4.5.15",
     "@fontsource/roboto-mono": "^4.5.10",
-    "@mdi/angular-material": "^6.9.96",
+    "@mdi/angular-material": "^7.1.96",
     "@ngneat/transloco": "^3.2.0",
     "@swimlane/ngx-datatable": "20.0.0",
     "@types/chart.js": "^2.9.37",
