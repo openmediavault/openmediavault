@@ -21,7 +21,6 @@
 import sys
 
 import dialog
-import netifaces
 import openmediavault.firstaid
 import openmediavault.rpc
 
