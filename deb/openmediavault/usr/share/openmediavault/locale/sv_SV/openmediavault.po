@@ -2492,13 +2492,13 @@ msgid "Power button"
 msgstr "Strömbrytare"
 
 msgid "Power cycle count"
-msgstr ""
+msgstr "Antal strömcyklar"
 
 msgid "Power mode"
 msgstr "Strömläge"
 
 msgid "Powered on"
-msgstr ""
+msgstr "Påslagen"
 
 msgid "Pre-release updates"
 msgstr "Uppdateringar för förhandsutgåva"

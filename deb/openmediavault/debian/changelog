@@ -1,5 +1,6 @@
 openmediavault (6.1.9-1) stable; urgency=low
 
+  * Update locale files.
   * Add 'Configure time zone' option to omv-firstaid.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 25 Jan 2023 07:55:00 +0100
