@@ -1,4 +1,4 @@
-openmediavault-clamav (6.0.2-1) stable; urgency=low
+openmediavault-clamav (6.0.2-2) stable; urgency=low
 
   * Update locale files.
   * Convert `Comments` field into `Tags`.

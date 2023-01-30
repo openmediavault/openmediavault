@@ -22,7 +22,13 @@
 set -e
 
 case "$1" in
-	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+	;;
+
+	remove)
+		# Stop services.
+		deb-systemd-invoke stop forked-daapd || :
+		deb-systemd-helper disable forked-daapd || :
 	;;
 
 	*)

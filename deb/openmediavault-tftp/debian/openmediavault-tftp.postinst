@@ -32,8 +32,8 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Updating service units ..."
-			deb-systemd-helper disable tftpd-hpa.service
 			deb-systemd-invoke stop tftpd-hpa.service || :
+			deb-systemd-helper disable tftpd-hpa.service || :
 		fi
 
 		########################################################################
