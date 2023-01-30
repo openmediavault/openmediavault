@@ -83,6 +83,10 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.config.applychanges");
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$notifyDispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
+		// Lock the database to prevent writes during the deployment is
+		// in progress.
+		$db = \OMV\Config\Database::getInstance();
+		$mutex = $db->lock();
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.
 		$jsonFile = new \OMV\Json\File(\OMV\Environment::get(
@@ -178,7 +182,6 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 		$jsonFile->write($dirtyModules);
 		$jsonFile->close();
 		// Unlink all configuration revision files.
-		$db = \OMV\Config\Database::getInstance();
 		$db->unlinkRevisions();
 	}
 

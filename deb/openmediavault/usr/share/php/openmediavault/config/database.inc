@@ -54,6 +54,16 @@ class Database {
 	}
 
 	/**
+	 * Lock the database.
+	 * @param boolean $auto Automatically acquire the lock and release
+	 *   it on destruction. Defaults to TRUE.
+	 * @return The mutex object.
+	 */
+	public function lock($auto = TRUE): \OMV\Mutex {
+		return $this->getBackend()->lock();
+	}
+
+	/**
 	 * Get the specified configuration object.
 	 * @param id The data model identifier, e.g. 'conf.service.ftp'.
 	 * @param uuid The UUID of an configuration object. Defaults to NULL.

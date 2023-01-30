@@ -85,6 +85,16 @@ class DatabaseBackend {
 	}
 
 	/**
+	 * Lock the database backend.
+	 * @param boolean $auto Automatically acquire the lock and release
+	 *   it on destruction. Defaults to TRUE.
+	 * @return The mutex object.
+	 */
+	public function lock($auto = TRUE): \OMV\Mutex {
+		return new \OMV\Mutex($this->filename, $auto);
+	}
+
+	/**
 	 * Add an enum.
 	 */
 	public function addEnum($enum) {
@@ -122,7 +132,7 @@ class DatabaseBackend {
 	 * @return TRUE on success, otherwise FALSE.
 	 */
 	public function save() {
-		$mutex = new \OMV\Mutex($this->filename);
+		$mutex = $this->lock();
 		return $this->commit(TRUE);
 	}
 
@@ -194,7 +204,7 @@ class DatabaseBackend {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function set($xpath, $data) {
-		$mutex = new \OMV\Mutex($this->filename);
+		$mutex = $this->lock();
 		$this->reload();
 		$domxpath = new \DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
@@ -217,7 +227,7 @@ class DatabaseBackend {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function replace($xpath, $data) {
-		$mutex = new \OMV\Mutex($this->filename);
+		$mutex = $this->lock();
 		$this->reload();
 		$domxpath = new \DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
@@ -243,7 +253,7 @@ class DatabaseBackend {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function update($xpath, $data) {
-		$mutex = new \OMV\Mutex($this->filename);
+		$mutex = $this->lock();
 		// Get the configuration for the given XPath expression.
 		$currentData = $this->get($xpath);
 		if (is_null($currentData))
@@ -271,7 +281,7 @@ class DatabaseBackend {
 	 * @return Returns the deleted nodes, otherwise FALSE.
 	 */
 	public function delete($xpath) {
-		$mutex = new \OMV\Mutex($this->filename);
+		$mutex = $this->lock();
 		if (is_null($result = $this->get($xpath))) {
 			return FALSE;
 		}
@@ -361,7 +371,7 @@ class DatabaseBackend {
 	public function revert($filename) {
 		if (TRUE !== $this->versioning)
 			throw new DatabaseException("Versioning is not enabled.");
-		$mutex = new \OMV\Mutex($this->filename);
+		$mutex = $this->lock();
 		if (empty($filename)) {
 			// Determine the lowest revision number.
 			$revision = PHP_INT_MAX;
