@@ -1,0 +1,355 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-ftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2023
+# Kostas Moho, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-ftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"PO-Revision-Date: 2023-01-30 10:17+0000\n"
+"Last-Translator: Kostas Moho, 2023\n"
+"Language-Team: Greek (Greece) (https://www.transifex.com/openmediavault/teams/14254/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "0 KiB/s means unlimited."
+msgstr "0 KiB/s σημαίνει απεριόριστο."
+
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr "Ένας πανίσχυρος αρθρωτός διακομιστής FTP/SFTP/FTPS."
+
+msgid "Advanced settings"
+msgstr "Προχωρημένες ρυθμίσεις"
+
+msgid "Allow clients to resume interrupted uploads and downloads."
+msgstr "Να επιτρέπεται στους πελάτες να συνεχίζουν μεταφορές που διακόπηκαν."
+
+msgid "Anonymous FTP"
+msgstr "Ανόνυμη πρόσβαση FTP"
+
+msgid "Ban Rules"
+msgstr "Κανόνες Αποκλεισμού"
+
+msgid "Ban statistics:"
+msgstr "Στατιστικά Αποκλεισμού :"
+
+msgid "Bandwidth restriction"
+msgstr "Περιορισμός Ταχύτητας"
+
+msgid "Certificate"
+msgstr "Πιστοποιητικό"
+
+msgid "Create"
+msgstr "Δημιουργία"
+
+msgid "Created FTP ban rule."
+msgstr "Δημιουργία κανόνα αποκλεισμού FTP."
+
+msgid "Created FTP share."
+msgstr "Δημιουργία κοινόχρηστου FTP."
+
+msgid "Currently logged in users:"
+msgstr "Συνδεδεμένοι χρήστες :"
+
+msgid "Deny logins which do not have a valid shell."
+msgstr "Απόρριψη συνδέσεων χωρίς έγκυρο κέλυφος."
+
+msgid "Display the home directory of the user in the browse list."
+msgstr "Εμφάνιση του οικείου φακέλου στην λίστα αναζήτησης."
+
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+msgid "Enable SSL/TLS connections."
+msgstr "Ενεργοποίηση συνδέσεων SSL/TLS."
+
+msgid "Enable file transfer logging."
+msgstr ""
+
+msgid ""
+"Enable reverse DNS lookup performed on the remote host's IP address for "
+"incoming active mode data connections and outgoing passive mode data "
+"connections."
+msgstr ""
+"Ενεργοποίηση ανάστροφης αναζήτησης DNS στην δυεύθυνση ΙΡ του απομακρυσμένου "
+"χρήση για ενεργές εισερχόμενες και παθητικές εξερχόμενες συνδέσεις "
+"δεδομένων."
+
+msgid "Enabled"
+msgstr "Ενεργό"
+
+msgid "Event"
+msgstr "Συμβάν"
+
+msgid "Expire"
+msgstr "Λήξη"
+
+msgid "Extra options"
+msgstr "Επιπλέον επιλογές"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "FXP"
+msgstr "FXP"
+
+msgid ""
+"FXP allows transfers between two remote servers without any file data going "
+"to the client asking for the transfer."
+msgstr ""
+"Το FXP επιτρέπει την μεταφορά αρχείων ανάμεσα σε δύο διακομιστές, χωρίς τα "
+"δεδομένα να περνάνε από τον πελάτη που ζήτησε την μεταφορά."
+
+msgid "Home directories"
+msgstr "Φάκελοι χρηστών"
+
+msgid "Ident protocol"
+msgstr "Πρωτόκολλο αναγνώρισης"
+
+msgid ""
+"If your host is acting as a NAT gateway or port forwarder for the server, "
+"this option is useful in order to allow passive tranfers to work. You have "
+"to use your public address and opening the passive ports used on your "
+"firewall as well."
+msgstr ""
+"Αν το σύστημα λειτουργεί ως πύλη πρόσβασης ΝΑΤ ή προώθησης θυρών για τον "
+"διακομιστή, αυτή η ρύθμιση χρησιμεύει στο να λειτουργούν οι παθητικές "
+"μεταφορές. Θα πρέπει επιπροσθέτως να χρησιμοποιηθεί η δημόσια διεύθυνση και "
+"να ανοιχτούν οι χρησιμοποιούμενες παθητικές θύρες στο σύστημα ασφαλείας."
+
+msgid "Implicit SSL"
+msgstr "Σίγουρα SSL"
+
+msgid ""
+"In some cases you have to specify passive ports range to by-pass firewall "
+"limitations. Passive ports restricts the range of ports from which the "
+"server will select when sent the PASV command from a client. The server will"
+" randomly choose a number from within the specified range until an open port"
+" is found. The port range selected must be in the non-privileged range (eg. "
+"greater than or equal to 1024). It is strongly recommended that the chosen "
+"range be large enough to handle many simultaneous passive connections (for "
+"example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr ""
+"Σε μερικές περιπτώσεις θα πρέπει να ορίσετε ένα εύρος παθητικών θυρών για να"
+" παρακάμψετε τους περιορισμούς του συστήματος ασφαλείας. Οι παθητικές θύρες "
+"περιορίζουν το εύρος των θυρών απο τις οποίες θα επιλέγει ο διακομιστής όταν"
+" δέχεται την εντολή PASV από έναν πελάτη. Θα επιλέγεται τυχαία κάποια θύρα "
+"από το δωσμένο εύρος, ώσπου να βρεθεί κάποια ανοιχτή. Οι δωσμένες θύρες θα "
+"πρέπει μην βρίσκονται στο μη-προνομιακό εύρος (δηλαδή πρέπει να είναι πάνω "
+"από το 1024). Συνίσταται να δωθεί αρκετά μεγάλο εύρος (π.χ. 49152-65534), "
+"ώστε να υπάρχει περιθώριο χειρισμού αρκετών ταυτόχρονων παθητικών συνδέσεων."
+
+msgid "Masquerade address"
+msgstr "Απόκρυψη διεύθυνσης"
+
+msgid "Max. clients"
+msgstr "Μέγιστος αριθμός πελατών"
+
+msgid "Max. connections per host"
+msgstr "Μέγιστες συνδέσεις ανά χρήστη"
+
+msgid "Max. login attempts"
+msgstr "Μέγιστες απόπειρες εισόδου"
+
+msgid "Max. passive port"
+msgstr "Μέγιστη παθητική θύρα"
+
+msgid "Maximum download rate (KiB/s)"
+msgstr "Μέγιστη ταχύτητα κατεβάσματος (KiB/s)"
+
+msgid ""
+"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
+"timer completely (clients can stay connected for ever, without sending "
+"data)."
+msgstr ""
+"Μέγιστη διάρκεια αδράνειας σε δευτερόλεπτα. Με 0 απενεργοποιείται και οι "
+"πελάτες μπορούν να μένουν συνδεδεμένοι (χωρίς να στέλνουν δεδομένα)."
+
+msgid "Maximum number of allowed password attempts before disconnection."
+msgstr "Μέγιστες απόπειρες πιστοποίησης πριν την αποσύνδεση."
+
+msgid "Maximum number of connections per IP (0 = unlimited)."
+msgstr "Μέγιστος αριθμός συνδέσεων ανά διεύθυνση ΙΡ (0 = απεριόριστες)."
+
+msgid "Maximum number of simultaneous clients."
+msgstr "Μέγιστος αριθμός ταυτόχρονων πελατών."
+
+msgid "Maximum upload rate (KiB/s)"
+msgstr "Μέγιστη ταχύτητα αποστολής (KiB/s)"
+
+msgid "Min. passive port"
+msgstr "Ελάχιστη παθητική θύρα"
+
+msgid "No session reuse required"
+msgstr "Δεν απαιτείται επανάχρηση συνεδρίας"
+
+msgid "Occurrence"
+msgstr "Εμφάνιση"
+
+msgid "Passive FTP"
+msgstr "Παθητικό FTP"
+
+msgid "Permit root login"
+msgstr "Να επιτρέπεται είσοδος ως root"
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"Δες το <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> για περισσότερες λεπτομέρειες."
+
+msgid ""
+"Please check the <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"Για περισσότερες λεπτομέρειες : <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>εδώ</a>."
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
+"name.html' target='_blank'>manual page</a> for more details."
+msgstr ""
+"Δείτε στο <a href='http://www.proftpd.org/docs/directives/linked/by-"
+"name.html' target='_blank'>εγχειρίδιο</a> για περισσότερες λεπτομέρειες."
+
+msgid "Port"
+msgstr "Θύρα"
+
+msgid "Refresh time"
+msgstr "Χρόνος ανανέωσης"
+
+msgid "Require valid shell"
+msgstr "Να απαιτείται ισχύον κέλυφος"
+
+msgid "Required"
+msgstr "Απαιτούμενο"
+
+msgid "Resume"
+msgstr "Συνέχιση"
+
+msgid "Reverse DNS lookup"
+msgstr "Ανάστροφη αναζήτηση DNS"
+
+msgid "SSL/TLS Settings"
+msgstr "Ρυθμίσεις SSL/TLS"
+
+msgid "Service disabled"
+msgstr "Ανενεργή υπηρεσία"
+
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+msgid "Shared folder"
+msgstr "Κοινόχρηστος φάκελος"
+
+msgid "Shares"
+msgstr "Μερίδια"
+
+msgid ""
+"Specifies the amount of time, in seconds, between checking and updating the "
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
+msgstr ""
+"Ο χρόνος σε δευτερόλεπτα ανάμεσα στον έλεγχο και την ενημέρωση της "
+"μασκαρεμένης διεύθυνσης με επίλυση ΙΡ. Με 0 απενεργοποιείται."
+
+msgid "Specifies the time in hh:mm:ss after which the ban expires."
+msgstr "Ορίζει τον χρόνο διάρκειας (ωω:λλ:δδ) του αποκλεισμού."
+
+msgid ""
+"Specifies the time interval in hh:mm:ss in which the given number of "
+"occurrences must happen to add the ban."
+msgstr ""
+"Ορίζει το χρονικό διάστημα (ωω:λλ:δδ) στο οποίο πρέπει να συμβεί ο "
+"συγκεκριμένος αριθμός παραπτωμάτων, για την επιβολή του αποκλεισμού."
+
+msgid "Specifies whether it is allowed to login as superuser directly."
+msgstr "Ορίζει το αν επιτρέπεται η απευθείας είσοδος ως υπερχρήστης"
+
+msgid "Tags"
+msgstr "Ετικέτες"
+
+msgid "The SSL certificate."
+msgstr "Το πιστοποιητικό SSL."
+
+msgid "The location of the files to share."
+msgstr "Η θέση των αρχείων προς διαμοιρασμό"
+
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr ""
+"Δεν θα είναι απαραίτητο να χρησιμοποιείται για την σύνδεση δεδομένων η "
+"συνεδρία SSL της σύνδεσης ελέγχου."
+
+msgid ""
+"The welcome message will be displayed to the user at login. Please check the"
+" <a href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
+"target='_blank'>manual page</a> how to use variables. Leave this field empty"
+" to disable the welcome message."
+msgstr ""
+
+msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr ""
+"Αυτή η επιλογή υποχρεώνει τους πελάτες να χρησιμοποιούν TLS για το FTP."
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr "Αυτή η επιλογή θα χειρίζεται όλες τις συνδέσεις ως SSL."
+
+msgid ""
+"This parameter says that if N occurrences of the event happen within the "
+"given time interval, then a ban is automatically added."
+msgstr ""
+"Ορίζει τον αριθμό των παραπτωμάτων που πρέπει να συμβούν μέσα στο χρονικό "
+"διάστημα για να επιβληθεί ο αποκλεισμός."
+
+msgid "This rule is triggered whenever the selected event directive occurs."
+msgstr "Αυτός ο κανόνας ενεργοποιείται όταν συμβεί το επιλεγμένο γεγονός."
+
+msgid "Time interval"
+msgstr "Χρονικό διάστημα"
+
+msgid "Timeout"
+msgstr "Χρονικό όριο"
+
+msgid "Transfer log"
+msgstr "Καταγραφή μεταφορών"
+
+msgid "Updated FTP ban rule."
+msgstr "Ενημέρωση κανόνα αποκλεισμού FTP."
+
+msgid "Updated FTP share."
+msgstr "Ενημέρωση κοινόχρηστου FTP."
+
+msgid "Use the following bandwidth restriction."
+msgstr "Χρήση του ακόλουθου περιορισμού ταχύτητας."
+
+msgid "Welcome message"
+msgstr "Μήνυμα καλωσορίσματος"
+
+msgid ""
+"When a client initially connects to the server the ident protocol is used to"
+" attempt to identify the remote user name."
+msgstr ""
+"Όταν ένας πελάτης συνδέεται αρχικά, το πρωτόκολλο ident χρησιμοποιείται για "
+"να διαπιστωθεί το όνομά του."
+
+msgid "n/a"
+msgstr "n/a"

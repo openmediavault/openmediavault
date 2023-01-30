@@ -1,0 +1,69 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-ftp-ban-rule-form-page
+  type: formPage
+  config:
+    request:
+      service: FTP
+      get:
+        method: getModBanRule
+        params:
+          uuid: '{{ _routeParams.uuid }}'
+      post:
+        method: setModBanRule
+    fields:
+      - type: confObjUuid
+      - type: select
+        name: event
+        label: _("Event")
+        hint: _("This rule is triggered whenever the selected event directive occurs.")
+        value: MaxConnectionsPerHost
+        store:
+          data:
+            - AnonRejectPasswords
+            - ClientConnectRate
+            - MaxClientsPerClass
+            - MaxClientsPerHost
+            - MaxClientsPerUser
+            - MaxConnectionsPerHost
+            - MaxHostsPerUser
+            - MaxLoginAttempts
+            - TimeoutIdle
+            - TimeoutNoTransfer
+      - type: numberInput
+        name: occurrence
+        label: _("Occurrence")
+        hint: _("This parameter says that if N occurrences of the event happen within the given time interval, then a ban is automatically added.")
+        value: 2
+        validators:
+          required: true
+          min: 1
+          patternType: integer
+      - type: textInput
+        name: timeinterval
+        label: _("Time interval")
+        hint: _("Specifies the time interval in hh:mm:ss in which the given number of occurrences must happen to add the ban.")
+        value: '00:30:00'
+        validators:
+          required: true
+          patternType: time
+          maxLength: 81
+      - type: textInput
+        name: expire
+        label: _("Expire")
+        hint: _("Specifies the time in hh:mm:ss after which the ban expires.")
+        value: '00:10:00'
+        validators:
+          required: true
+          patternType: time
+          maxLength: 81
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: /services/ftp/ban-rules
+      - template: cancel
+        execute:
+          type: url
+          url: /services/ftp/ban-rules

@@ -1,0 +1,267 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-ftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-ftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "0 KiB/s means unlimited."
+msgstr ""
+
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "Advanced settings"
+msgstr ""
+
+msgid "Allow clients to resume interrupted uploads and downloads."
+msgstr ""
+
+msgid "Anonymous FTP"
+msgstr ""
+
+msgid "Ban Rules"
+msgstr ""
+
+msgid "Ban statistics:"
+msgstr ""
+
+msgid "Bandwidth restriction"
+msgstr ""
+
+msgid "Certificate"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "Created FTP ban rule."
+msgstr ""
+
+msgid "Created FTP share."
+msgstr ""
+
+msgid "Currently logged in users:"
+msgstr ""
+
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Enable SSL/TLS connections."
+msgstr ""
+
+msgid "Enable file transfer logging."
+msgstr ""
+
+msgid "Enable reverse DNS lookup performed on the remote host's IP address for incoming active mode data connections and outgoing passive mode data connections."
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Event"
+msgstr ""
+
+msgid "Expire"
+msgstr ""
+
+msgid "Extra options"
+msgstr ""
+
+msgid "FTP"
+msgstr ""
+
+msgid "FXP"
+msgstr ""
+
+msgid "FXP allows transfers between two remote servers without any file data going to the client asking for the transfer."
+msgstr ""
+
+msgid "Home directories"
+msgstr ""
+
+msgid "Ident protocol"
+msgstr ""
+
+msgid "If your host is acting as a NAT gateway or port forwarder for the server, this option is useful in order to allow passive tranfers to work. You have to use your public address and opening the passive ports used on your firewall as well."
+msgstr ""
+
+msgid "Implicit SSL"
+msgstr ""
+
+msgid "In some cases you have to specify passive ports range to by-pass firewall limitations. Passive ports restricts the range of ports from which the server will select when sent the PASV command from a client. The server will randomly choose a number from within the specified range until an open port is found. The port range selected must be in the non-privileged range (eg. greater than or equal to 1024). It is strongly recommended that the chosen range be large enough to handle many simultaneous passive connections (for example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr ""
+
+msgid "Masquerade address"
+msgstr ""
+
+msgid "Max. clients"
+msgstr ""
+
+msgid "Max. connections per host"
+msgstr ""
+
+msgid "Max. login attempts"
+msgstr ""
+
+msgid "Max. passive port"
+msgstr ""
+
+msgid "Maximum download rate (KiB/s)"
+msgstr ""
+
+msgid "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle timer completely (clients can stay connected for ever, without sending data)."
+msgstr ""
+
+msgid "Maximum number of allowed password attempts before disconnection."
+msgstr ""
+
+msgid "Maximum number of connections per IP (0 = unlimited)."
+msgstr ""
+
+msgid "Maximum number of simultaneous clients."
+msgstr ""
+
+msgid "Maximum upload rate (KiB/s)"
+msgstr ""
+
+msgid "Min. passive port"
+msgstr ""
+
+msgid "No session reuse required"
+msgstr ""
+
+msgid "Occurrence"
+msgstr ""
+
+msgid "Passive FTP"
+msgstr ""
+
+msgid "Permit root login"
+msgstr ""
+
+msgid "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid "Please check the <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid "Port"
+msgstr ""
+
+msgid "Refresh time"
+msgstr ""
+
+msgid "Require valid shell"
+msgstr ""
+
+msgid "Required"
+msgstr ""
+
+msgid "Resume"
+msgstr ""
+
+msgid "Reverse DNS lookup"
+msgstr ""
+
+msgid "SSL/TLS Settings"
+msgstr ""
+
+msgid "Service disabled"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "Shares"
+msgstr ""
+
+msgid "Specifies the amount of time, in seconds, between checking and updating the masquerade address by resolving the IP address. Set this value to 0 to disable this option."
+msgstr ""
+
+msgid "Specifies the time in hh:mm:ss after which the ban expires."
+msgstr ""
+
+msgid "Specifies the time interval in hh:mm:ss in which the given number of occurrences must happen to add the ban."
+msgstr ""
+
+msgid "Specifies whether it is allowed to login as superuser directly."
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "The SSL certificate."
+msgstr ""
+
+msgid "The location of the files to share."
+msgstr ""
+
+msgid "The requirement that the SSL session from the control connection is reused for data connections is not required."
+msgstr ""
+
+msgid "The welcome message will be displayed to the user at login. Please check the <a href='http://www.proftpd.org/docs/howto/DisplayFiles.html' target='_blank'>manual page</a> how to use variables. Leave this field empty to disable the welcome message."
+msgstr ""
+
+msgid "This option requires clients to use FTP over TLS when talking to this server."
+msgstr ""
+
+msgid "This option will handle all connections as if they are SSL connections implicitly."
+msgstr ""
+
+msgid "This parameter says that if N occurrences of the event happen within the given time interval, then a ban is automatically added."
+msgstr ""
+
+msgid "This rule is triggered whenever the selected event directive occurs."
+msgstr ""
+
+msgid "Time interval"
+msgstr ""
+
+msgid "Timeout"
+msgstr ""
+
+msgid "Transfer log"
+msgstr ""
+
+msgid "Updated FTP ban rule."
+msgstr ""
+
+msgid "Updated FTP share."
+msgstr ""
+
+msgid "Use the following bandwidth restriction."
+msgstr ""
+
+msgid "Welcome message"
+msgstr ""
+
+msgid "When a client initially connects to the server the ident protocol is used to attempt to identify the remote user name."
+msgstr ""
+
+msgid "n/a"
+msgstr ""

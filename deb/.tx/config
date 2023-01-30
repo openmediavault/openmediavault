@@ -102,3 +102,8 @@ source_lang = en
 file_filter = openmediavault-onedrive/usr/share/openmediavault/locale/<lang>/openmediavault-onedrive.po
 source_file = openmediavault-onedrive/usr/share/openmediavault/locale/openmediavault-onedrive.pot
 source_lang = en
+
+[openmediavault.openmediavault-ftp]
+file_filter = openmediavault-ftp/usr/share/openmediavault/locale/<lang>/openmediavault-ftp.po
+source_file = openmediavault-ftp/usr/share/openmediavault/locale/openmediavault-ftp.pot
+source_lang = en

@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/ftp/settings"
+  title: _("Settings")
+  editing: true
+  notificationTitle: _('Updated FTP settings.')
+  component: omv-services-ftp-settings-form-page

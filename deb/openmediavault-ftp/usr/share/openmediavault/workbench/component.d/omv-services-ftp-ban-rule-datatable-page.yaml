@@ -1,0 +1,52 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-ftp-ban-rule-datatable-page
+  type: datatablePage
+  config:
+    stateId: 5cb9dfa8-36fd-11ea-99ec-5ba8c267c020
+    autoReload: false
+    remoteSorting: true
+    remotePaging: true
+    columns:
+      - name: _("Event")
+        prop: event
+        flexGrow: 1
+        sortable: true
+      - name: _("Occurrence")
+        prop: occurrence
+        flexGrow: 1
+        sortable: true
+      - name: _("Time interval")
+        prop: timeinterval
+        flexGrow: 1
+        sortable: true
+      - name: _("Expire")
+        prop: expire
+        flexGrow: 1
+        sortable: true
+    sorters:
+      - dir: asc
+        prop: event
+    store:
+      proxy:
+        service: FTP
+        get:
+          method: getModBanRuleList
+    actions:
+      - template: create
+        execute:
+          type: url
+          url: /services/ftp/ban-rules/create
+      - template: edit
+        execute:
+          type: url
+          url: /services/ftp/ban-rules/edit/{{ _selected[0].uuid }}
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: FTP
+            method: deleteModBanRule
+            params:
+              uuid: '{{ uuid }}'

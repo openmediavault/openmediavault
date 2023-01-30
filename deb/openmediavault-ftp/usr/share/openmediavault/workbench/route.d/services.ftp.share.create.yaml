@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/ftp/shares/create"
+  title: _("Create")
+  notificationTitle: _("Created FTP share.")
+  component: omv-services-ftp-share-form-page

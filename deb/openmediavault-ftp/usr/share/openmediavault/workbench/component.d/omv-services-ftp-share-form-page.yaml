@@ -1,0 +1,48 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-ftp-share-form-page
+  type: formPage
+  config:
+    request:
+      service: FTP
+      get:
+        method: getShare
+        params:
+          uuid: '{{ _routeParams.uuid }}'
+      post:
+        method: setShare
+    fields:
+      - type: confObjUuid
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: true
+      - type: sharedFolderSelect
+        name: sharedfolderref
+        label: _("Shared folder")
+        hint: _("The location of the files to share.")
+        validators:
+          requiredIf:
+            operator: eq
+            arg0:
+              prop: enable
+            arg1: true
+      - type: tagInput
+        name: comment
+        label: _("Tags")
+        value: ''
+      - type: textarea
+        name: extraoptions
+        label: _("Extra options")
+        hint: _("Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>manual page</a> for more details.")
+        value: ''
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: /services/ftp/shares
+      - template: cancel
+        execute:
+          type: url
+          url: /services/ftp/shares

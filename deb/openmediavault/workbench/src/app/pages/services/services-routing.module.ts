@@ -4,12 +4,6 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 
 import { NavigationPageComponent } from '~/app/core/pages/navigation-page/navigation-page.component';
 import { RouteConfigService } from '~/app/core/services/route-config.service';
-import { FtpBanRuleDatatablePageComponent } from '~/app/pages/services/ftp/ftp-ban-rule-datatable-page.component';
-import { FtpBanRuleFormPageComponent } from '~/app/pages/services/ftp/ftp-ban-rule-form-page.component';
-import { FtpSettingsFormPageComponent } from '~/app/pages/services/ftp/ftp-settings-form-page.component';
-import { FtpShareDatatablePageComponent } from '~/app/pages/services/ftp/ftp-share-datatable-page.component';
-import { FtpShareFormPageComponent } from '~/app/pages/services/ftp/ftp-share-form-page.component';
-import { FtpTlsSettingsFormPageComponent } from '~/app/pages/services/ftp/ftp-tls-settings-form-page.component';
 import { NfsSettingsFormPageComponent } from '~/app/pages/services/nfs/nfs-settings-form-page.component';
 import { NfsShareDatatablePageComponent } from '~/app/pages/services/nfs/nfs-share-datatable-page.component';
 import { NfsShareFormPageComponent } from '~/app/pages/services/nfs/nfs-share-form-page.component';
@@ -38,87 +32,6 @@ const routes: Routes = [
       editing: true,
       notificationTitle: gettext('Updated SSH settings.')
     }
-  },
-  {
-    path: 'ftp',
-    data: { title: gettext('FTP') },
-    children: [
-      { path: '', component: NavigationPageComponent },
-      {
-        path: 'settings',
-        component: FtpSettingsFormPageComponent,
-        canDeactivate: [IsDirtyGuardService],
-        data: {
-          title: gettext('Settings'),
-          editing: true,
-          notificationTitle: gettext('Updated FTP settings.')
-        }
-      },
-      {
-        path: 'tls-settings',
-        component: FtpTlsSettingsFormPageComponent,
-        canDeactivate: [IsDirtyGuardService],
-        data: {
-          title: gettext('SSL/TLS Settings'),
-          editing: true,
-          notificationTitle: gettext('Updated FTP SSL/TLS settings.')
-        }
-      },
-      {
-        path: 'ban-rules',
-        data: { title: gettext('Ban Rules') },
-        children: [
-          { path: '', component: FtpBanRuleDatatablePageComponent },
-          {
-            path: 'create',
-            component: FtpBanRuleFormPageComponent,
-            canDeactivate: [IsDirtyGuardService],
-            data: {
-              title: gettext('Create'),
-              editing: false,
-              notificationTitle: gettext('Created FTP ban rule.')
-            }
-          },
-          {
-            path: 'edit/:uuid',
-            component: FtpBanRuleFormPageComponent,
-            canDeactivate: [IsDirtyGuardService],
-            data: {
-              title: gettext('Edit'),
-              editing: true,
-              notificationTitle: gettext('Updated FTP ban rule.')
-            }
-          }
-        ]
-      },
-      {
-        path: 'shares',
-        data: { title: gettext('Shares') },
-        children: [
-          { path: '', component: FtpShareDatatablePageComponent },
-          {
-            path: 'create',
-            component: FtpShareFormPageComponent,
-            canDeactivate: [IsDirtyGuardService],
-            data: {
-              title: gettext('Create'),
-              editing: false,
-              notificationTitle: gettext('Created FTP share.')
-            }
-          },
-          {
-            path: 'edit/:uuid',
-            component: FtpShareFormPageComponent,
-            canDeactivate: [IsDirtyGuardService],
-            data: {
-              title: gettext('Edit'),
-              editing: true,
-              notificationTitle: gettext('Updated FTP share.')
-            }
-          }
-        ]
-      }
-    ]
   },
   {
     path: 'rsync',
