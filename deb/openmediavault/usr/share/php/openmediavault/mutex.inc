@@ -24,7 +24,7 @@ namespace OMV;
 /**
  * A mutex provides mutual exclusion. Create the mutex at the beginning
  * of the scope you want to protect. The mutex will be auto-released when
- * leaving the scope.
+ * leaving the scope of the variable.
  * @ingroup api
  */
 class Mutex {
@@ -34,9 +34,9 @@ class Mutex {
 	/**
 	 * Constructor
 	 * @param string $key The unique identifier.
-	 * @param boolean $auto Automatically acquire the lock on
-	 *   creation and release it on destruction. Defaults
-	 *   to TRUE.
+	 * @param boolean $auto Automatically acquire the lock on creation
+	 *   and release it on destruction (e.g. when leaving the scope of
+	 *   the variable). Defaults to TRUE.
 	 */
 	public function __construct($key, $auto = TRUE) {
 		$this->auto = $auto;

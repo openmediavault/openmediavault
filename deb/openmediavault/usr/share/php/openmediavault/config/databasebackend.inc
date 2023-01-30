@@ -127,7 +127,7 @@ class DatabaseBackend {
 
 	/**
 	 * Save configuration file. This function is protected by mutual exclusion,
-	 * thus the function will be blocked until it can acces the protected
+	 * thus the function will be blocked until it can access the protected
 	 * section.
 	 * @return TRUE on success, otherwise FALSE.
 	 */
