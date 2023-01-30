@@ -128,8 +128,6 @@ case "$1" in
 			deb-systemd-invoke stop smartmontools.service || :
 			deb-systemd-helper disable rsync.service
 			deb-systemd-invoke stop rsync.service || :
-			deb-systemd-helper disable proftpd.service
-			deb-systemd-invoke stop proftpd.service || :
 			deb-systemd-helper disable nfs-server.service
 			deb-systemd-invoke stop nfs-server.service || :
 			deb-systemd-helper disable smbd.service

@@ -1,0 +1,15 @@
+Source: openmediavault-ftp
+Section: net
+XB-Plugin-Section: sharing
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gettext
+Standards-Version: 3.9.6
+Homepage: http://www.openmediavault.org
+
+Package: openmediavault-ftp
+Architecture: all
+Depends: openmediavault (>= 6.2.0), proftpd-basic, proftpd-mod-vroot,
+Priority: optional
+Description: openmediavault FTP-Server plugin
+ ProFTPD is a powerful modular FTP/SFTP/FTPS server.

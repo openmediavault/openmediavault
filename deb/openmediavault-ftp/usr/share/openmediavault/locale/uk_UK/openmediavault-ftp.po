@@ -1,0 +1,362 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-ftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2023
+# Андрей Чапалда <ansilent@gmail.com>, 2023
+# zubr139, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-ftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"PO-Revision-Date: 2023-01-30 10:17+0000\n"
+"Last-Translator: zubr139, 2023\n"
+"Language-Team: Ukrainian (https://www.transifex.com/openmediavault/teams/14254/uk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+msgid "0 KiB/s means unlimited."
+msgstr "0 Кб/с - необмежено."
+
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "Advanced settings"
+msgstr "Розширенні налаштування"
+
+msgid "Allow clients to resume interrupted uploads and downloads."
+msgstr "Дозволити клієнтам відновити перервані відвантаження та завантаження."
+
+msgid "Anonymous FTP"
+msgstr "Анонімний FTP"
+
+msgid "Ban Rules"
+msgstr "Правила заборони"
+
+msgid "Ban statistics:"
+msgstr "Статистика банів:"
+
+msgid "Bandwidth restriction"
+msgstr "Обмеження смуги пропускання"
+
+msgid "Certificate"
+msgstr "Сертифікат"
+
+msgid "Create"
+msgstr "Створити"
+
+msgid "Created FTP ban rule."
+msgstr "Створено правило блокування FTP."
+
+msgid "Created FTP share."
+msgstr "Створено спільну теку FTP."
+
+msgid "Currently logged in users:"
+msgstr "Поточні користувачі в системі:"
+
+msgid "Deny logins which do not have a valid shell."
+msgstr "Заборонити вхід у систему, якщо немає дійсної оболонки."
+
+msgid "Display the home directory of the user in the browse list."
+msgstr "Відобразити домашній каталог користувача у списку перегляду."
+
+msgid "Edit"
+msgstr "Редагувати"
+
+msgid "Enable SSL/TLS connections."
+msgstr "Увімкнути з’єднання SSL/TLS."
+
+msgid "Enable file transfer logging."
+msgstr ""
+
+msgid ""
+"Enable reverse DNS lookup performed on the remote host's IP address for "
+"incoming active mode data connections and outgoing passive mode data "
+"connections."
+msgstr ""
+"Увімкнути зворотний перегляд DNS на IP адресі віддаленого хоста для вхідних "
+"з'єднань в активному режимі передачі даних і вихідних з'єднань в пасивному "
+"режимі передачі даних."
+
+msgid "Enabled"
+msgstr "Увімкнено"
+
+msgid "Event"
+msgstr "Подія"
+
+msgid "Expire"
+msgstr "Спливає"
+
+msgid "Extra options"
+msgstr "Додаткові опції"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "FXP"
+msgstr "FXP"
+
+msgid ""
+"FXP allows transfers between two remote servers without any file data going "
+"to the client asking for the transfer."
+msgstr ""
+"FXP дозволяє передавати дані між двома серверами без запиту передачі до "
+"клієнта."
+
+msgid "Home directories"
+msgstr "Домашній каталог"
+
+msgid "Ident protocol"
+msgstr "Ідентифікаційний протокол"
+
+msgid ""
+"If your host is acting as a NAT gateway or port forwarder for the server, "
+"this option is useful in order to allow passive tranfers to work. You have "
+"to use your public address and opening the passive ports used on your "
+"firewall as well."
+msgstr ""
+"Якщо ваш хост виступає в якості NAT шлюзу або засіб передачі порта для "
+"сервера, ця опція корисна для того, щоб дозволити пасивні з’єднання. Ви "
+"повинні використовувати вашу публічну адресу і відкрити пасивні порти в "
+"брандмауері."
+
+msgid "Implicit SSL"
+msgstr "Наявний SSL"
+
+msgid ""
+"In some cases you have to specify passive ports range to by-pass firewall "
+"limitations. Passive ports restricts the range of ports from which the "
+"server will select when sent the PASV command from a client. The server will"
+" randomly choose a number from within the specified range until an open port"
+" is found. The port range selected must be in the non-privileged range (eg. "
+"greater than or equal to 1024). It is strongly recommended that the chosen "
+"range be large enough to handle many simultaneous passive connections (for "
+"example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr ""
+"У деяких випадках ви повинні вказати пасивний діапазон портів в обхід "
+"обмежень брандмауера. При отриманні від клієнта команди PASV, сервер в "
+"довільному порядку вибирає із заданого діапазону пасивних портів, поки не "
+"буде знайдений відкритий порт. Обраний діапазон портів повинен бути в "
+"непривілейованому діапазоні (наприклад, більше або рівне 1024). Наполеглево "
+"рекомендується, що обраний діапазон був досить великим, щоб обробити безліч "
+"одночасних пасивних підключень (наприклад, 49152-65534, зареєстрований у "
+"IANA ефемерний діапазон портів)."
+
+msgid "Masquerade address"
+msgstr "Маскарад адрес"
+
+msgid "Max. clients"
+msgstr "Максимум клієнтів"
+
+msgid "Max. connections per host"
+msgstr "Максимум з'єднать на хост"
+
+msgid "Max. login attempts"
+msgstr "Максимум спроб для входу"
+
+msgid "Max. passive port"
+msgstr "Макс. пасивний порт"
+
+msgid "Maximum download rate (KiB/s)"
+msgstr "Максимальна швидкість завантаження (КіБ/с)"
+
+msgid ""
+"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
+"timer completely (clients can stay connected for ever, without sending "
+"data)."
+msgstr ""
+"Максимальний час простою в секундах. Встановлення часу очікування до 0 "
+"відключає таймер очікування повністю (клієнти можуть залишатися на зв'язку "
+"назавжди, без відправки даних)."
+
+msgid "Maximum number of allowed password attempts before disconnection."
+msgstr ""
+"Максимальна кількість дозволених спроб введення пароля перед відключенням."
+
+msgid "Maximum number of connections per IP (0 = unlimited)."
+msgstr "Максимальна кількість підключень на IP (0 = не обмежена)."
+
+msgid "Maximum number of simultaneous clients."
+msgstr "Максимальна кількість одночасних клієнтів."
+
+msgid "Maximum upload rate (KiB/s)"
+msgstr "Максимальна швидкість віддачі  (КіБ/с)"
+
+msgid "Min. passive port"
+msgstr "Мінімальний пасивний порт"
+
+msgid "No session reuse required"
+msgstr "Немає необхідності в повторному використанні сесії"
+
+msgid "Occurrence"
+msgstr "Подія"
+
+msgid "Passive FTP"
+msgstr "Пасивний режим FTP"
+
+msgid "Permit root login"
+msgstr "Дозволити вхід адміністратора"
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"Відвідайте <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>сторінку керівництва</a> для більш докладної інформації."
+
+msgid ""
+"Please check the <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"Відвідайте <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>сторінку керівництва</a> для більш докладної інформації."
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
+"name.html' target='_blank'>manual page</a> for more details."
+msgstr ""
+"Відвідайте <a href='http://www.proftpd.org/docs/directives/linked/by-"
+"name.html' target='_blank'>сторінку керівництва</a> для більш докладної "
+"інформації."
+
+msgid "Port"
+msgstr "Порт"
+
+msgid "Refresh time"
+msgstr "Час оновлення"
+
+msgid "Require valid shell"
+msgstr "Вимагати надання оболонки"
+
+msgid "Required"
+msgstr "Вимагається"
+
+msgid "Resume"
+msgstr "Підсумок"
+
+msgid "Reverse DNS lookup"
+msgstr "Зворотний пошук в DNS"
+
+msgid "SSL/TLS Settings"
+msgstr "Налаштування SSL/TLS"
+
+msgid "Service disabled"
+msgstr "Служба вимкнення"
+
+msgid "Settings"
+msgstr "Налаштування"
+
+msgid "Shared folder"
+msgstr "Спільна тека"
+
+msgid "Shares"
+msgstr "Спільні ресурси"
+
+msgid ""
+"Specifies the amount of time, in seconds, between checking and updating the "
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
+msgstr ""
+"Визначає кількість часу в секундах, між перевіркою та оновленням маскараду "
+"адрес за допомогою дозволу IP-адреси. Встановіть це значення в 0, щоб "
+"відключити дану опцію."
+
+msgid "Specifies the time in hh:mm:ss after which the ban expires."
+msgstr ""
+
+msgid ""
+"Specifies the time interval in hh:mm:ss in which the given number of "
+"occurrences must happen to add the ban."
+msgstr ""
+"Задає інтервал часу в форматі гг:хх:сс, протягом якого задана кількість "
+"подій додає заборону."
+
+msgid "Specifies whether it is allowed to login as superuser directly."
+msgstr "Вказує, чи дозволено входити безпосередньо як суперкористувач."
+
+msgid "Tags"
+msgstr ""
+
+msgid "The SSL certificate."
+msgstr "Сертифікат SSL."
+
+msgid "The location of the files to share."
+msgstr "Розташування файлів для загального доступу."
+
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr ""
+"Встановлення повторного використання сесії SSL керуючого з'єднання для "
+"передачі даних."
+
+msgid ""
+"The welcome message will be displayed to the user at login. Please check the"
+" <a href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
+"target='_blank'>manual page</a> how to use variables. Leave this field empty"
+" to disable the welcome message."
+msgstr ""
+
+msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr ""
+"Ця опція вимагає від клієнтів використовувати FTP через TLS, коли йде "
+"звернення до цього сервера."
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr ""
+"Ця опція буде неявно обробляти всі з'єднання, як ніби вони SSL з'єднання."
+
+msgid ""
+"This parameter says that if N occurrences of the event happen within the "
+"given time interval, then a ban is automatically added."
+msgstr ""
+"Цей параметр говорить, що якщо N появ події відбувається протягом заданого "
+"інтервалу часу, то заборона автоматично додається."
+
+msgid "This rule is triggered whenever the selected event directive occurs."
+msgstr "Це правило спрацьовує щоразу, коли відбувається обрана подія."
+
+msgid "Time interval"
+msgstr "Інтервал часу"
+
+msgid "Timeout"
+msgstr "Тайм-аут"
+
+msgid "Transfer log"
+msgstr "Протокол передачі"
+
+msgid "Updated FTP ban rule."
+msgstr "Оновлено правило блокування FTP."
+
+msgid "Updated FTP share."
+msgstr "Оновлено спільний ресурс FTP."
+
+msgid "Use the following bandwidth restriction."
+msgstr "Використовувати наступне обмеження пропускної здатності."
+
+msgid "Welcome message"
+msgstr "Вітаємо повідомлення"
+
+msgid ""
+"When a client initially connects to the server the ident protocol is used to"
+" attempt to identify the remote user name."
+msgstr ""
+"Коли клієнт спочатку підключається до сервера використовується протокол "
+"ident, щоб спробувати ідентифікувати віддаленого користувача."
+
+msgid "n/a"
+msgstr "н/д"

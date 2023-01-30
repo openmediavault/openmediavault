@@ -1,0 +1,368 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-ftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2023
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2023
+# Ádám Balajti <balajtiadam@gmail.com>, 2023
+# Sári Gábor <sari.gabor@gmail.com>, 2023
+# Grawens <szabolcs.szanyi@gmail.com>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-ftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"PO-Revision-Date: 2023-01-30 10:17+0000\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2023\n"
+"Language-Team: Hungarian (Hungary) (https://www.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "0 KiB/s means unlimited."
+msgstr "0 kB/s korlátlan."
+
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr "Nagy teljesítményű moduláris FTP/SFTP/FTPS kiszolgáló."
+
+msgid "Advanced settings"
+msgstr "Haladó beállítások"
+
+msgid "Allow clients to resume interrupted uploads and downloads."
+msgstr ""
+"Megszakadt feltöltések és letöltések folytatásának engedélyezése a kliensek "
+"számára."
+
+msgid "Anonymous FTP"
+msgstr "Névtelen FTP"
+
+msgid "Ban Rules"
+msgstr "Tiltási szabályok"
+
+msgid "Ban statistics:"
+msgstr "Kitiltás statisztika:"
+
+msgid "Bandwidth restriction"
+msgstr "Sávszélesség korlátozás"
+
+msgid "Certificate"
+msgstr "Tanúsítvány"
+
+msgid "Create"
+msgstr "Létrehozás"
+
+msgid "Created FTP ban rule."
+msgstr "FTP tiltási szabály létrehozva."
+
+msgid "Created FTP share."
+msgstr "FTP megosztás létrehozva."
+
+msgid "Currently logged in users:"
+msgstr "Jelenleg bejelentkezett felhasználók:"
+
+msgid "Deny logins which do not have a valid shell."
+msgstr "Bejelentkezések tiltása, ha nincs érvényes parancsértelmező"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr "Felhasználó saját könyvtárának megjelenítése a böngészési listában."
+
+msgid "Edit"
+msgstr "Szerkesztés"
+
+msgid "Enable SSL/TLS connections."
+msgstr "SSL/TLS kapcsolatok engedélyezése."
+
+msgid "Enable file transfer logging."
+msgstr ""
+
+msgid ""
+"Enable reverse DNS lookup performed on the remote host's IP address for "
+"incoming active mode data connections and outgoing passive mode data "
+"connections."
+msgstr ""
+"Fordított DNS lekérdezés végrehajtásának engedélyezése a távoli hoszt IP "
+"címének a bejövő aktív módú adatkapcsolataira és kimenő passzív módú "
+"adatkapcsolataira."
+
+msgid "Enabled"
+msgstr "Engedélyezve"
+
+msgid "Event"
+msgstr "Esemény"
+
+msgid "Expire"
+msgstr "Lejárat"
+
+msgid "Extra options"
+msgstr "További beállítások"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "FXP"
+msgstr "FXP"
+
+msgid ""
+"FXP allows transfers between two remote servers without any file data going "
+"to the client asking for the transfer."
+msgstr ""
+"FXP lehetővé teszi az átvitelt két távoli szerver között anélkül, hogy az "
+"adatfájl átvitelét a kliensnek is kérnie kellene."
+
+msgid "Home directories"
+msgstr "Saját könyvtárak"
+
+msgid "Ident protocol"
+msgstr "Azonosító protokoll"
+
+msgid ""
+"If your host is acting as a NAT gateway or port forwarder for the server, "
+"this option is useful in order to allow passive tranfers to work. You have "
+"to use your public address and opening the passive ports used on your "
+"firewall as well."
+msgstr ""
+"Ha a hoszt úgy működik mint egy NAT átjáró vagy port továbbító a szerveren, "
+"akkor ez az az opció, ami hasznos, hogy a megengedett passzív átvitelek jól "
+"működjenek. Ehhez a nyilvános címét kell használnia és passzív portokat kell"
+" nyitni rajta, hogy jól használható legyen tűzfalon keresztül is."
+
+msgid "Implicit SSL"
+msgstr "Közvetett SSL"
+
+msgid ""
+"In some cases you have to specify passive ports range to by-pass firewall "
+"limitations. Passive ports restricts the range of ports from which the "
+"server will select when sent the PASV command from a client. The server will"
+" randomly choose a number from within the specified range until an open port"
+" is found. The port range selected must be in the non-privileged range (eg. "
+"greater than or equal to 1024). It is strongly recommended that the chosen "
+"range be large enough to handle many simultaneous passive connections (for "
+"example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr ""
+"Egyes esetekben passzív port tartományokat kell megadnia a tűzfal "
+"korlátozások kikerüléséhez. A passzív portok korlátozhatják a portok "
+"tartományát, melyből a szerver válogathat, mikor a kliens elküldi a PASV "
+"parancsot. A szerver véletlenszerűen választ egy portot a tartományból "
+"addig, amíg nyitott portot nem talál. A kiválasztott port tartománynak nem "
+"privilegizált tartománynak kell lennie (pl. nagyobb vagy egyenlő mint 1024)."
+" Erősen ajánlott olyan nagy tartomány választása, mely elég nagy több "
+"passzív kapcsolat egyidejű használatához (például: 49152-65534, az IANA-"
+"regisztrált rövid idejű port tartomány)."
+
+msgid "Masquerade address"
+msgstr "Maszkolási cím"
+
+msgid "Max. clients"
+msgstr "Kliensek max. száma"
+
+msgid "Max. connections per host"
+msgstr "Max. kapcsolat hosztonként"
+
+msgid "Max. login attempts"
+msgstr "Max. bejelentkezési kísérlet"
+
+msgid "Max. passive port"
+msgstr "Max. passzív port"
+
+msgid "Maximum download rate (KiB/s)"
+msgstr "Maximális letöltési sebesség (KB/s)"
+
+msgid ""
+"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
+"timer completely (clients can stay connected for ever, without sending "
+"data)."
+msgstr ""
+"Maximális készenléti idő másodpercben. A 0 beállítás teljesen leállítja a "
+"készenléti időmérőt (a kliensek bármeddig kapcsolódva lehetnek anélkül , "
+"hogy adatot küldenének)."
+
+msgid "Maximum number of allowed password attempts before disconnection."
+msgstr ""
+"Jelszavas kísérletek maximális számának engedélyezése szétkapcsolás előtt."
+
+msgid "Maximum number of connections per IP (0 = unlimited)."
+msgstr "Kapcsolatok/IP maximális száma (0 = végtelen)."
+
+msgid "Maximum number of simultaneous clients."
+msgstr "Egyidejűleg bejelentkezett kliensek maximális száma."
+
+msgid "Maximum upload rate (KiB/s)"
+msgstr "Maximális feltöltési sebesség (KB/s)"
+
+msgid "Min. passive port"
+msgstr "Min. passzív port"
+
+msgid "No session reuse required"
+msgstr "Nincs szükség munkamenet újra használathoz"
+
+msgid "Occurrence"
+msgstr "Előfordulás"
+
+msgid "Passive FTP"
+msgstr "Passzív FTP"
+
+msgid "Permit root login"
+msgstr "Root bejelentkezés engedélyezése"
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"Tekintse meg a <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>kézikönyvet</a> további részletekért."
+
+msgid ""
+"Please check the <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"Tekintse meg a <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>kézikönyvet</a> további részletekért."
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
+"name.html' target='_blank'>manual page</a> for more details."
+msgstr ""
+"Tekintse meg a  <a href='http://www.proftpd.org/docs/directives/linked/by-"
+"name.html' target='_blank'>kézikönyvet</a> további részletekért."
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Refresh time"
+msgstr "Frissítési idő"
+
+msgid "Require valid shell"
+msgstr "Érvényes parancsértelmező szükséges"
+
+msgid "Required"
+msgstr "Kötelező"
+
+msgid "Resume"
+msgstr "Folytatás"
+
+msgid "Reverse DNS lookup"
+msgstr "Fordított DNS figyelés"
+
+msgid "SSL/TLS Settings"
+msgstr "SSL/TLS beállítások"
+
+msgid "Service disabled"
+msgstr "Szolgáltatás letiltva"
+
+msgid "Settings"
+msgstr "Beállítások"
+
+msgid "Shared folder"
+msgstr "Megosztott mappa"
+
+msgid "Shares"
+msgstr "Megosztások"
+
+msgid ""
+"Specifies the amount of time, in seconds, between checking and updating the "
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
+msgstr ""
+"Az IP cím feloldás ellenőrzésének és frissítésének megadása másodpercben az "
+"ál címen keresztül. A 0 beállítás letiltja az opciót."
+
+msgid "Specifies the time in hh:mm:ss after which the ban expires."
+msgstr "Kitiltási idő lejárásának meghatározása óó:pp:mm formátumban."
+
+msgid ""
+"Specifies the time interval in hh:mm:ss in which the given number of "
+"occurrences must happen to add the ban."
+msgstr ""
+"Idő intervallum meghatározása óó:pp:mm formátumban, melynél a kitiltáshoz a "
+"megadott számú esemény előfordulásnak kell történnie."
+
+msgid "Specifies whether it is allowed to login as superuser directly."
+msgstr ""
+"Meghatározza, hogy engedélyezve legyen-e a belépés közvetlenül "
+"rendszergazdaként."
+
+msgid "Tags"
+msgstr "Címkék"
+
+msgid "The SSL certificate."
+msgstr "Az SSL tanúsítvány."
+
+msgid "The location of the files to share."
+msgstr "A megosztás fájljainak helye."
+
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr ""
+"Annak a követelménye, hogy az SSL munkamenettől a vezérlő kapcsolat újra "
+"használatához nincs szükség adat kapcsolatokra."
+
+msgid ""
+"The welcome message will be displayed to the user at login. Please check the"
+" <a href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
+"target='_blank'>manual page</a> how to use variables. Leave this field empty"
+" to disable the welcome message."
+msgstr ""
+
+msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr ""
+"Ez az opció szükséges a klienseknek az FTP-ről TLS-re váltás használatához, "
+"mikor a szerverrel kommunikálnak."
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr ""
+"Ez az opció fogja kezelni az összes kapcsolatot, úgy, mintha kizárólag SSL "
+"kapcsolatok lennének."
+
+msgid ""
+"This parameter says that if N occurrences of the event happen within the "
+"given time interval, then a ban is automatically added."
+msgstr ""
+"Ennek a paraméternek a hatására ha egy esemény N előfordulása a megadott "
+"intervallumban megtörténik, akkor automatikusan tiltólistára kerül."
+
+msgid "This rule is triggered whenever the selected event directive occurs."
+msgstr "Ezt az eseményt váltja ki, mikor a kiválasztott utasítás történik."
+
+msgid "Time interval"
+msgstr "Idő intervallum"
+
+msgid "Timeout"
+msgstr "Időtúllépés"
+
+msgid "Transfer log"
+msgstr "Átviteli napló"
+
+msgid "Updated FTP ban rule."
+msgstr "FTP tiltási szabály frissítve."
+
+msgid "Updated FTP share."
+msgstr "FTP megosztás frissítve."
+
+msgid "Use the following bandwidth restriction."
+msgstr "A következő sávszélesség-korlátozás használata."
+
+msgid "Welcome message"
+msgstr "Üdvözlő üzenet"
+
+msgid ""
+"When a client initially connects to the server the ident protocol is used to"
+" attempt to identify the remote user name."
+msgstr ""
+"Amikor egy kliens először csatlakozik a szerverhez, akkor az azonosító "
+"protokollt használja, hogy megpróbálja azonosítani a távoli felhasználót."
+
+msgid "n/a"
+msgstr "n/a"

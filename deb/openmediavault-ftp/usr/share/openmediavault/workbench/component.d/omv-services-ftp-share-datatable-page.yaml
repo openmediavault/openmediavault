@@ -1,0 +1,53 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-ftp-share-datatable-page
+  type: datatablePage
+  config:
+    stateId: 62dcd674-36fd-11ea-868f-7fa489e1f378
+    autoReload: false
+    remoteSorting: true
+    remotePaging: true
+    rowEnumFmt: '{{ sharedfoldername }}'
+    columns:
+      - name: _("Enabled")
+        prop: enable
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: checkIcon
+      - name: _("Shared folder")
+        prop: sharedfoldername
+        flexGrow: 1
+        sortable: true
+      - name: _("Tags")
+        prop: comment
+        cellTemplateName: chip
+        cellTemplateConfig:
+          separator: ','
+        flexGrow: 1
+        sortable: true
+    sorters:
+      - dir: asc
+        prop: sharedfoldername
+    store:
+      proxy:
+        service: FTP
+        get:
+          method: getShareList
+    actions:
+      - template: create
+        execute:
+          type: url
+          url: /services/ftp/shares/create
+      - template: edit
+        execute:
+          type: url
+          url: /services/ftp/shares/edit/{{ _selected[0].uuid }}
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: FTP
+            method: deleteShare
+            params:
+              uuid: '{{ uuid }}'

@@ -1,0 +1,330 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-ftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2023
+# Toshihiro Kan <kansuke4649@gmail.com>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-ftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"PO-Revision-Date: 2023-01-30 10:17+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2023\n"
+"Language-Team: Japanese (Japan) (https://www.transifex.com/openmediavault/teams/14254/ja_JP/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "0 KiB/s means unlimited."
+msgstr "0 KiB/s は無制限となります。"
+
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "Advanced settings"
+msgstr "高度な設定"
+
+msgid "Allow clients to resume interrupted uploads and downloads."
+msgstr "アップロードとダウンロードの中断時のレジュームをクライアントに許可します。"
+
+msgid "Anonymous FTP"
+msgstr "Anonymous FTP"
+
+msgid "Ban Rules"
+msgstr "禁止ルール"
+
+msgid "Ban statistics:"
+msgstr "Ban統計:"
+
+msgid "Bandwidth restriction"
+msgstr "帯域幅の制限"
+
+msgid "Certificate"
+msgstr "証明書"
+
+msgid "Create"
+msgstr "作成"
+
+msgid "Created FTP ban rule."
+msgstr "FTP禁止ルールを作成しました。"
+
+msgid "Created FTP share."
+msgstr "FTP共有を作成しました。"
+
+msgid "Currently logged in users:"
+msgstr "現在のログインユーザー:"
+
+msgid "Deny logins which do not have a valid shell."
+msgstr "有効なシェルを持っていないログインを拒否します。"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr "参照リストにユーザーのホームディレクトリを表示します。"
+
+msgid "Edit"
+msgstr "編集"
+
+msgid "Enable SSL/TLS connections."
+msgstr "SSL/TLS接続を有効化します。"
+
+msgid "Enable file transfer logging."
+msgstr ""
+
+msgid ""
+"Enable reverse DNS lookup performed on the remote host's IP address for "
+"incoming active mode data connections and outgoing passive mode data "
+"connections."
+msgstr ""
+"サーバに入ってくるアクティブモードデータ接続と、サーバから出ていくパッシブモード接続のリモートホストのIPアドレスをDNSで逆引き参照することを有効にします。"
+
+msgid "Enabled"
+msgstr "有効"
+
+msgid "Event"
+msgstr "イベント"
+
+msgid "Expire"
+msgstr "有効期限"
+
+msgid "Extra options"
+msgstr "その他のオプション"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "FXP"
+msgstr "FXP"
+
+msgid ""
+"FXP allows transfers between two remote servers without any file data going "
+"to the client asking for the transfer."
+msgstr "FXPはクライアントを経由しなくても２つのリモートサーバ間でデータ転送を行えます。"
+
+msgid "Home directories"
+msgstr "ホームディレクトリ"
+
+msgid "Ident protocol"
+msgstr "Identプロトコル"
+
+msgid ""
+"If your host is acting as a NAT gateway or port forwarder for the server, "
+"this option is useful in order to allow passive tranfers to work. You have "
+"to use your public address and opening the passive ports used on your "
+"firewall as well."
+msgstr ""
+"もし、あなたのホストがNATゲートウェイか、サーバのポートフォワーダーとして動作している場合、このオプションはパッシブトランスファーとして動作することを許可するのに役立ちます。あなたは公開アドレスを使用し、ファイアウォールでパッシブポートを開く必要があります。"
+
+msgid "Implicit SSL"
+msgstr "暗黙のSSL"
+
+msgid ""
+"In some cases you have to specify passive ports range to by-pass firewall "
+"limitations. Passive ports restricts the range of ports from which the "
+"server will select when sent the PASV command from a client. The server will"
+" randomly choose a number from within the specified range until an open port"
+" is found. The port range selected must be in the non-privileged range (eg. "
+"greater than or equal to 1024). It is strongly recommended that the chosen "
+"range be large enough to handle many simultaneous passive connections (for "
+"example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr ""
+"いくつかのケースではファイアウォールの制限を回避するためにパッシブポートの範囲を指定する必要があります。サーバはクライアントからPASVコマンドを送信したとき、選択元となるパッシブポートの範囲を制限します。開いているポートが見つかるまで、サーバーがランダムに指定された範囲内の数値を選択します。選択されたポート範囲は（例えば1024以上の）非特権の範囲でなければなりません。選択した範囲は、多くの同時パッシブ接続を処理するのに十分な大きさであることを強くお勧めします。（例えば"
+" 49152-65534、IANAに登録されたエフェメラル·ポートの範囲）"
+
+msgid "Masquerade address"
+msgstr "アドレスマスカレード"
+
+msgid "Max. clients"
+msgstr "最大クライアント"
+
+msgid "Max. connections per host"
+msgstr "ホストあたりの最大コネクション"
+
+msgid "Max. login attempts"
+msgstr "最大ログイン試行回数"
+
+msgid "Max. passive port"
+msgstr "最大パッシブポート"
+
+msgid "Maximum download rate (KiB/s)"
+msgstr "最大ダウンロード速度(KiB/s)"
+
+msgid ""
+"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
+"timer completely (clients can stay connected for ever, without sending "
+"data)."
+msgstr ""
+"秒単位の最大アイドル時間。0にアイドルタイムアウトを設定すると、完全にアイドルタイマーを無効にします（クライアントはデータを送信せずに、いつまでも接続を維持することができます）。"
+
+msgid "Maximum number of allowed password attempts before disconnection."
+msgstr "切断までのパスワードの最大試行回数。"
+
+msgid "Maximum number of connections per IP (0 = unlimited)."
+msgstr "IPあたりの最大接続数（0 = 無制限）。"
+
+msgid "Maximum number of simultaneous clients."
+msgstr "クライアントの同時接続最大数。"
+
+msgid "Maximum upload rate (KiB/s)"
+msgstr "最大アップロード速度 (KiB/s)"
+
+msgid "Min. passive port"
+msgstr "最小パッシブポート"
+
+msgid "No session reuse required"
+msgstr "セッション再利用はありません"
+
+msgid "Occurrence"
+msgstr "発生"
+
+msgid "Passive FTP"
+msgstr "パッシブFTP"
+
+msgid "Permit root login"
+msgstr "rootアカウントでのログインの許可"
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"詳細については <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>マニュアルページ</a> を確認してください。"
+
+msgid ""
+"Please check the <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"詳細については <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>マニュアルページ</a> を確認してください。"
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
+"name.html' target='_blank'>manual page</a> for more details."
+msgstr ""
+"詳細については<a href='http://www.proftpd.org/docs/directives/linked/by-name.html' "
+"target='_blank'>マニュアルページ</a> を確認してください。"
+
+msgid "Port"
+msgstr "ポート"
+
+msgid "Refresh time"
+msgstr ""
+
+msgid "Require valid shell"
+msgstr "有効なシェルが必要です"
+
+msgid "Required"
+msgstr "必須"
+
+msgid "Resume"
+msgstr "リジューム"
+
+msgid "Reverse DNS lookup"
+msgstr "DNSの逆引き"
+
+msgid "SSL/TLS Settings"
+msgstr "SSL/TLS 設定"
+
+msgid "Service disabled"
+msgstr "サービスは無効"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Shared folder"
+msgstr "共有フォルダ"
+
+msgid "Shares"
+msgstr "共有"
+
+msgid ""
+"Specifies the amount of time, in seconds, between checking and updating the "
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
+msgstr "IPアドレスを名前解決してマスカレードアドレスのチェック、アップデートをする間隔を秒単位で指定します。"
+
+msgid "Specifies the time in hh:mm:ss after which the ban expires."
+msgstr "指定した時間を過ぎると期限切れとなります。hh:mm:ss 形式で時間を指定します。"
+
+msgid ""
+"Specifies the time interval in hh:mm:ss in which the given number of "
+"occurrences must happen to add the ban."
+msgstr "BAN(禁止) を追加するインターバルを時間形式 hh:mm:ss で入力します。"
+
+msgid "Specifies whether it is allowed to login as superuser directly."
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "The SSL certificate."
+msgstr "SSL証明書。"
+
+msgid "The location of the files to share."
+msgstr "共有するファイルの場所。"
+
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr "コントロールコネクションからのSSLセッションがデータ接続に再利用される場合は本要件は不要です。"
+
+msgid ""
+"The welcome message will be displayed to the user at login. Please check the"
+" <a href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
+"target='_blank'>manual page</a> how to use variables. Leave this field empty"
+" to disable the welcome message."
+msgstr ""
+
+msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr "このオプションは、このサーバーとの通信時にFTP over TLSを使用するようにクライアントに要求します。"
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr "このオプションは全ての接続が暗黙的にSSL接続であるかのように処理します。"
+
+msgid ""
+"This parameter says that if N occurrences of the event happen within the "
+"given time interval, then a ban is automatically added."
+msgstr "このパラメータは、イベント中が与えられた時間内に N 回発生した場合にBAN (禁止）が自動的に追加されます。"
+
+msgid "This rule is triggered whenever the selected event directive occurs."
+msgstr "選択したイベントディレクティブが発生するたびに、このルールがトリガされます。"
+
+msgid "Time interval"
+msgstr "タイムインターバル"
+
+msgid "Timeout"
+msgstr "タイムアウト"
+
+msgid "Transfer log"
+msgstr "転送ログ"
+
+msgid "Updated FTP ban rule."
+msgstr ""
+
+msgid "Updated FTP share."
+msgstr ""
+
+msgid "Use the following bandwidth restriction."
+msgstr ""
+
+msgid "Welcome message"
+msgstr "ウェルカムメッセージ"
+
+msgid ""
+"When a client initially connects to the server the ident protocol is used to"
+" attempt to identify the remote user name."
+msgstr ""
+
+msgid "n/a"
+msgstr "n/a"

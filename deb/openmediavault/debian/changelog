@@ -1,3 +1,11 @@
+openmediavault (6.2.0-1) stable; urgency=low
+
+  * Relocate FTP service into a separate plugin. Please install
+    the plugin if you are using the service. The configuration
+    will be migrated.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Jan 2023 08:27:41 +0100
+
 openmediavault (6.1.9-1) stable; urgency=low
 
   * Update locale files.

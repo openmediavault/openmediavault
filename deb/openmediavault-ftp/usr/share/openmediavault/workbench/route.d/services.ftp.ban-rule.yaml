@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/ftp/ban-rules"
+  title: _("Ban Rules")
+  component: omv-services-ftp-ban-rule-datatable-page

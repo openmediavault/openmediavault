@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/ftp/ban-rules/create"
+  title: _("Create")
+  notificationTitle: _("Created FTP ban rule.")
+  component: omv-services-ftp-ban-rule-form-page

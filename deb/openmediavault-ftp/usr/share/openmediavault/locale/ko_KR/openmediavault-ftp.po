@@ -1,0 +1,338 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-ftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2023
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2023
+# Chang-Eon Byeon <ksna0827@gmail.com>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-ftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"PO-Revision-Date: 2023-01-30 10:17+0000\n"
+"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>, 2023\n"
+"Language-Team: Korean (Korea) (https://www.transifex.com/openmediavault/teams/14254/ko_KR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "0 KiB/s means unlimited."
+msgstr "0 KiB/s는 제한이 없음을 뜻합니다."
+
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "Advanced settings"
+msgstr "고급 설정"
+
+msgid "Allow clients to resume interrupted uploads and downloads."
+msgstr ""
+
+msgid "Anonymous FTP"
+msgstr "익명 FTP"
+
+msgid "Ban Rules"
+msgstr ""
+
+msgid "Ban statistics:"
+msgstr "차단 통계:"
+
+msgid "Bandwidth restriction"
+msgstr "대역폭 제한"
+
+msgid "Certificate"
+msgstr "인증"
+
+msgid "Create"
+msgstr "생성"
+
+msgid "Created FTP ban rule."
+msgstr ""
+
+msgid "Created FTP share."
+msgstr ""
+
+msgid "Currently logged in users:"
+msgstr "현재 로그인 된 사용자:"
+
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
+
+msgid "Edit"
+msgstr "편집"
+
+msgid "Enable SSL/TLS connections."
+msgstr ""
+
+msgid "Enable file transfer logging."
+msgstr ""
+
+msgid ""
+"Enable reverse DNS lookup performed on the remote host's IP address for "
+"incoming active mode data connections and outgoing passive mode data "
+"connections."
+msgstr ""
+"들어오는 능동 모드 데이터 연결과 나가는 수동 모드 데이터 연결에 대하여 원격지 호스트 IP 주소의 역방향 DNS 질의를 수행하려면 "
+"활성화합니다."
+
+msgid "Enabled"
+msgstr "활성화됨"
+
+msgid "Event"
+msgstr "이벤트"
+
+msgid "Expire"
+msgstr "만료"
+
+msgid "Extra options"
+msgstr "추가 옵션"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "FXP"
+msgstr "FXP"
+
+msgid ""
+"FXP allows transfers between two remote servers without any file data going "
+"to the client asking for the transfer."
+msgstr "FXP는 전송을 요청하는 클라이언트로 가는 어떤 파일 데이터 없이 두 원격 서버 간에 파일 데이터를 전송할 수 있습니다."
+
+msgid "Home directories"
+msgstr "홈 경로"
+
+msgid "Ident protocol"
+msgstr "식별 프로토콜"
+
+msgid ""
+"If your host is acting as a NAT gateway or port forwarder for the server, "
+"this option is useful in order to allow passive tranfers to work. You have "
+"to use your public address and opening the passive ports used on your "
+"firewall as well."
+msgstr ""
+"호스트가 서버에 대해 NAT 게이트웨이나 포트 포워더로 동작한다면, 이 옵션은 작동할 수동 전달을 허용하는 데에 유용합니다. 공인 주소를"
+" 사용해야 할 뿐만 아니라 사용된 수동 포트들도 방화벽에서 열어주어야 합니다."
+
+msgid "Implicit SSL"
+msgstr "묵시적 SSL"
+
+msgid ""
+"In some cases you have to specify passive ports range to by-pass firewall "
+"limitations. Passive ports restricts the range of ports from which the "
+"server will select when sent the PASV command from a client. The server will"
+" randomly choose a number from within the specified range until an open port"
+" is found. The port range selected must be in the non-privileged range (eg. "
+"greater than or equal to 1024). It is strongly recommended that the chosen "
+"range be large enough to handle many simultaneous passive connections (for "
+"example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr ""
+"일부 경우에 수동 포트 범위를 우회 방화벽 제한에 지정해야 합니다. 수동 포트는 클라이언트로부터 PASV 명령을 송신할 때 선택될 "
+"서버로부터 포트의 범위를 제한합니다. 이 서버는 열려있는 포트를 찾을 때까지 지정된 범위 내에서 임의로 포트를 선택할 것입니다. 이 포트"
+" 범위는 비-권한 범위(1024 이상의) 안에서 선택되야 합니다. 선택된 범위는 동시다발적인 수동 연결을 처리하기 위해서 충분히 크게 "
+"지정할 것을 강력히 권장합니다. (예를 들어, 49152-65534, IANA에 등록된 일시적으로 사용되는 포트 범위와 같은.)"
+
+msgid "Masquerade address"
+msgstr "위장 주소"
+
+msgid "Max. clients"
+msgstr "최대 클라이언트"
+
+msgid "Max. connections per host"
+msgstr "호스트 당 최대 연결"
+
+msgid "Max. login attempts"
+msgstr "최대 로그인 시도 횟수"
+
+msgid "Max. passive port"
+msgstr ""
+
+msgid "Maximum download rate (KiB/s)"
+msgstr "최대 내려받기 속도 (KiB/s)"
+
+msgid ""
+"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
+"timer completely (clients can stay connected for ever, without sending "
+"data)."
+msgstr ""
+"초당 최대 유휴 시간. 유휴 시간을 0으로 설정하는 것은 유휴 타이머를 완전히 비활성화합니다. (클라이언트는 데이터 전송 없이 계속 "
+"연결을 기다릴 수 있습니다.)"
+
+msgid "Maximum number of allowed password attempts before disconnection."
+msgstr "연결을 종료하기 전에 암호 인증을 시도할 수 있는 최대 횟수"
+
+msgid "Maximum number of connections per IP (0 = unlimited)."
+msgstr "IP 당 최대 연결의 갯수 (0 = 무제한)"
+
+msgid "Maximum number of simultaneous clients."
+msgstr "최대 동시 접속 클라이언트의 수"
+
+msgid "Maximum upload rate (KiB/s)"
+msgstr "최대 올리기 속도 (KiB/s)"
+
+msgid "Min. passive port"
+msgstr ""
+
+msgid "No session reuse required"
+msgstr "세션 재사용 불필요"
+
+msgid "Occurrence"
+msgstr "발생"
+
+msgid "Passive FTP"
+msgstr "수동 FTP"
+
+msgid "Permit root login"
+msgstr "루트 로그인을 허용합니다."
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"자세한 내용은 <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>매뉴얼 페이지</a> 를 참고하세요."
+
+msgid ""
+"Please check the <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"자세한 내용은 <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>매뉴얼 페이지</a>를 참고하세요."
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
+"name.html' target='_blank'>manual page</a> for more details."
+msgstr ""
+"자세한 내용은 <a href='http://www.proftpd.org/docs/directives/linked/by-name.html'"
+" target='_blank'>매뉴얼 페이지</a>를 참고하세요."
+
+msgid "Port"
+msgstr "포트"
+
+msgid "Refresh time"
+msgstr ""
+
+msgid "Require valid shell"
+msgstr "유효한 쉘이 필요합니다."
+
+msgid "Required"
+msgstr "필수"
+
+msgid "Resume"
+msgstr "다시 시작"
+
+msgid "Reverse DNS lookup"
+msgstr "역방향 DNS 질의"
+
+msgid "SSL/TLS Settings"
+msgstr ""
+
+msgid "Service disabled"
+msgstr "서비스 비활성화됨"
+
+msgid "Settings"
+msgstr "설정"
+
+msgid "Shared folder"
+msgstr "공유 폴더"
+
+msgid "Shares"
+msgstr "공유"
+
+msgid ""
+"Specifies the amount of time, in seconds, between checking and updating the "
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
+msgstr ""
+"IP 주소의 해석을 통해 마스커레이드 주소를 검사하고 갱신하는 사이의 시간 간격을 초 단위로 지정합니다. 0으로 설정하면 이 옵션은 "
+"비활성화됩니다."
+
+msgid "Specifies the time in hh:mm:ss after which the ban expires."
+msgstr "차단이 만료될 시간을 시:분:초 형식으로 지정합니다."
+
+msgid ""
+"Specifies the time interval in hh:mm:ss in which the given number of "
+"occurrences must happen to add the ban."
+msgstr "차단 대상에 추가하기 위한 출현 횟수가 유효한 시간 간격을 시:분:초 형식으로 지정합니다."
+
+msgid "Specifies whether it is allowed to login as superuser directly."
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "The SSL certificate."
+msgstr "SSL 인증"
+
+msgid "The location of the files to share."
+msgstr "공유할 파일 위치"
+
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr "컨트롤 연결에서 SSL 세션 데이터 연결에 재사용되는 경우 이 요구 사항은 필요하지 않습니다."
+
+msgid ""
+"The welcome message will be displayed to the user at login. Please check the"
+" <a href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
+"target='_blank'>manual page</a> how to use variables. Leave this field empty"
+" to disable the welcome message."
+msgstr ""
+
+msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr "이 옵션은 클라이언트가 이 서버와 통신할 때, TLS를 통한 FTP를 사용하도록 합니다."
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr "이 옵션은 모든 연결이 묵시적으로 SSL 연결을 하게 할 것입니다."
+
+msgid ""
+"This parameter says that if N occurrences of the event happen within the "
+"given time interval, then a ban is automatically added."
+msgstr "이 매개변수는 주어진 시간 내에 이 사건이 N번 나타나면 자동으로 차단 대상에 추가됨을 의미합니다."
+
+msgid "This rule is triggered whenever the selected event directive occurs."
+msgstr "이 규칙은 선택된 이벤트 지시자가 발생할 때마다 발동됩니다."
+
+msgid "Time interval"
+msgstr "시간 주기"
+
+msgid "Timeout"
+msgstr "만료"
+
+msgid "Transfer log"
+msgstr "전송 기록"
+
+msgid "Updated FTP ban rule."
+msgstr ""
+
+msgid "Updated FTP share."
+msgstr ""
+
+msgid "Use the following bandwidth restriction."
+msgstr ""
+
+msgid "Welcome message"
+msgstr "환영 메시지"
+
+msgid ""
+"When a client initially connects to the server the ident protocol is used to"
+" attempt to identify the remote user name."
+msgstr ""
+
+msgid "n/a"
+msgstr "해당 없음"

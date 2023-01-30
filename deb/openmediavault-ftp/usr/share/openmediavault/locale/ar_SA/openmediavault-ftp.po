@@ -1,0 +1,352 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-ftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# omv nas <myomv100@gmail.com>, 2023
+# Volker Theile <votdev@gmx.de>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-ftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"PO-Revision-Date: 2023-01-30 10:17+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2023\n"
+"Language-Team: Arabic (Saudi Arabia) (https://www.transifex.com/openmediavault/teams/14254/ar_SA/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar_SA\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "0 KiB/s means unlimited."
+msgstr "0 KiB/s يعني غير محدود."
+
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "Advanced settings"
+msgstr "الإعدادات المتقدمة"
+
+msgid "Allow clients to resume interrupted uploads and downloads."
+msgstr ""
+"السماح للمستخدمين باستئناف عمليات التحميل والتنزيلات التي تمت مقاطعتها"
+
+msgid "Anonymous FTP"
+msgstr "FTP مجهول"
+
+msgid "Ban Rules"
+msgstr "قواعد الحظر"
+
+msgid "Ban statistics:"
+msgstr "إحصائيات الحظر:"
+
+msgid "Bandwidth restriction"
+msgstr "تقييد سعة النطاق العريض"
+
+msgid "Certificate"
+msgstr "شهادة"
+
+msgid "Create"
+msgstr "إنشاء"
+
+msgid "Created FTP ban rule."
+msgstr ""
+
+msgid "Created FTP share."
+msgstr ""
+
+msgid "Currently logged in users:"
+msgstr "المستخدمون المسجلون حاليا:"
+
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
+
+msgid "Edit"
+msgstr "تحرير"
+
+msgid "Enable SSL/TLS connections."
+msgstr ""
+
+msgid "Enable file transfer logging."
+msgstr ""
+
+msgid ""
+"Enable reverse DNS lookup performed on the remote host's IP address for "
+"incoming active mode data connections and outgoing passive mode data "
+"connections."
+msgstr ""
+"تمكين بحث DNS العكسي الذي تم إجراؤه على عنوان IP الخاص بالمضيف البعيد "
+"لاتصالات بيانات الوضع النشط الواردة واتصالات بيانات الوضع غير النشط الصادرة."
+
+msgid "Enabled"
+msgstr "ممكن"
+
+msgid "Event"
+msgstr "حدث"
+
+msgid "Expire"
+msgstr "انتهاء الصلاحية"
+
+msgid "Extra options"
+msgstr "خيارات إضافية"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "FXP"
+msgstr "FXP"
+
+msgid ""
+"FXP allows transfers between two remote servers without any file data going "
+"to the client asking for the transfer."
+msgstr ""
+"يتيح FXP عمليات النقل بين خادمين بعيدين دون توجيه أي بيانات إلى العميل يطلب "
+"النقل."
+
+msgid "Home directories"
+msgstr ""
+
+msgid "Ident protocol"
+msgstr "بروتوكول التعريف"
+
+msgid ""
+"If your host is acting as a NAT gateway or port forwarder for the server, "
+"this option is useful in order to allow passive tranfers to work. You have "
+"to use your public address and opening the passive ports used on your "
+"firewall as well."
+msgstr ""
+"إذا كان مضيفك يعتبر بوابة NAT أو معيد توجيه المنفذ للخادم ، فإن هذا الخيار "
+"مفيد من أجل السماح للنقلين السلبيين بالعمل. عليك استخدام عنوانك العام وفتح "
+"المنافذ السلبية المستخدمة في الجدار الناري الخاص بك أيضًا. "
+
+msgid "Implicit SSL"
+msgstr "SSL الضمني"
+
+msgid ""
+"In some cases you have to specify passive ports range to by-pass firewall "
+"limitations. Passive ports restricts the range of ports from which the "
+"server will select when sent the PASV command from a client. The server will"
+" randomly choose a number from within the specified range until an open port"
+" is found. The port range selected must be in the non-privileged range (eg. "
+"greater than or equal to 1024). It is strongly recommended that the chosen "
+"range be large enough to handle many simultaneous passive connections (for "
+"example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr ""
+"في بعض الحالات ، يجب عليك تحديد نطاق المنافذ السلبية Passive Ports لتجاوز "
+"جوانب القصور في الجدار الناري. تعمل المنافذ السلبية على تقييد نطاق المنافذ "
+"الذي سيحدد منه الخادم عند إرسال أمر PASV من عميل ما. سيختار الخادم رقمًا "
+"عشوائيًا من داخل النطاق المحدد حتى يتم العثور على منفذ مفتوح. يجب أن يكون "
+"نطاق المنفذ المحدد في النطاق غير المميز Non-Privileged Port Range (على سبيل "
+"المثال ، أكبر من أو يساوي 1024). يوصى بشدة أن يكون النطاق المختار كبيرًا بما"
+" يكفي للتعامل مع العديد من الاتصالات السلبية Passive Connections المتزامنة "
+"(على سبيل المثال ، 49152-65534 ، نطاق المنافذ المؤقتة المسجل في IANA)."
+
+msgid "Masquerade address"
+msgstr "عنوان التخفي Masquerade"
+
+msgid "Max. clients"
+msgstr "العدد الأقصى من العملاء"
+
+msgid "Max. connections per host"
+msgstr "الحد الأقصى. الاتصالات لكل مضيف"
+
+msgid "Max. login attempts"
+msgstr "محاولات تسجيل الدخول القصوى"
+
+msgid "Max. passive port"
+msgstr ""
+
+msgid "Maximum download rate (KiB/s)"
+msgstr "الحد الأقصى لمعدل التنزيل (KiB / s)"
+
+msgid ""
+"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
+"timer completely (clients can stay connected for ever, without sending "
+"data)."
+msgstr ""
+"الحد الأقصى لوقت الخمول بالثواني. يؤدي تعيين مهلة الخمول إلى 0 إلى تعطيل "
+"مؤقت الخمول تمامًا (يمكن للعملاء البقاء متصلاً إلى الأبد ، دون إرسال "
+"البيانات)."
+
+msgid "Maximum number of allowed password attempts before disconnection."
+msgstr "الحد الأقصى لعدد محاولات كلمة المرور المسموح بها قبل قطع الاتصال."
+
+msgid "Maximum number of connections per IP (0 = unlimited)."
+msgstr "الحد الأقصى لعدد الاتصالات لكل IP (0 = غير محدود)."
+
+msgid "Maximum number of simultaneous clients."
+msgstr "الحد الأقصى لعدد العملاء المتزامنين."
+
+msgid "Maximum upload rate (KiB/s)"
+msgstr "الحد الأقصى لمعدل التحميل (KiB / s)"
+
+msgid "Min. passive port"
+msgstr ""
+
+msgid "No session reuse required"
+msgstr "لا حاجة لإعادة استخدام الجلسة"
+
+msgid "Occurrence"
+msgstr "حالة الحدوث"
+
+msgid "Passive FTP"
+msgstr "FTP السلبي"
+
+msgid "Permit root login"
+msgstr "تصريح تسجيل الدخول إلى المجلد الجذر root"
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"الرجاء التحقق من <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'> صفحة الدليل </a> للحصول على مزيد من التفاصيل."
+
+msgid ""
+"Please check the <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"الرجاء التحقق من <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'> صفحة الدليل </a> للحصول على مزيد من التفاصيل."
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
+"name.html' target='_blank'>manual page</a> for more details."
+msgstr ""
+"الرجاء التحقق من <a href='http://www.proftpd.org/docs/directives/linked/by-"
+"name.html' target='_blank'> صفحة الدليل </a> للحصول على مزيد من التفاصيل."
+
+msgid "Port"
+msgstr "المنفذ"
+
+msgid "Refresh time"
+msgstr ""
+
+msgid "Require valid shell"
+msgstr "يتطلب Shell صالح "
+
+msgid "Required"
+msgstr "مطلوب"
+
+msgid "Resume"
+msgstr "استئناف"
+
+msgid "Reverse DNS lookup"
+msgstr "بحث  DNS  عكسي"
+
+msgid "SSL/TLS Settings"
+msgstr ""
+
+msgid "Service disabled"
+msgstr "الخدمة معطلة"
+
+msgid "Settings"
+msgstr "إعدادات"
+
+msgid "Shared folder"
+msgstr "مجلد مشترك"
+
+msgid "Shares"
+msgstr "المشاركات"
+
+msgid ""
+"Specifies the amount of time, in seconds, between checking and updating the "
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
+msgstr ""
+"يحدد مقدار الوقت ، بالثواني ، بين فحص وتحديث عنوان Masquerade IP عن طريق حل "
+"عنوان IP. عيّن هذه القيمة إلى 0 لتعطيل هذا الخيار."
+
+msgid "Specifies the time in hh:mm:ss after which the ban expires."
+msgstr "يحدد الوقت في hh: mm: ss بعد انتهاء صلاحية الحظر."
+
+msgid ""
+"Specifies the time interval in hh:mm:ss in which the given number of "
+"occurrences must happen to add the ban."
+msgstr ""
+"يحدد الفاصل الزمني في hh: mm: ss الذي يجب أن يحدث فيه عدد مرات الحدوث لإضافة"
+" الحظر."
+
+msgid "Specifies whether it is allowed to login as superuser directly."
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "The SSL certificate."
+msgstr "شهادة SSL."
+
+msgid "The location of the files to share."
+msgstr "موقع الملفات المراد مشاركتها."
+
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr "مطلوب إعادة استخدام جلسة عمل SSL من اتصال التحكم لاتصالات البيانات."
+
+msgid ""
+"The welcome message will be displayed to the user at login. Please check the"
+" <a href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
+"target='_blank'>manual page</a> how to use variables. Leave this field empty"
+" to disable the welcome message."
+msgstr ""
+
+msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr ""
+"يتطلب هذا الخيار من العملاء استخدام FTP عبر TLS عند التحدث إلى هذا الخادم."
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr ""
+"هذا الخيار سوف يتعامل مع جميع الاتصالات كما لو كانت اتصالات SSL ضمنيا."
+
+msgid ""
+"This parameter says that if N occurrences of the event happen within the "
+"given time interval, then a ban is automatically added."
+msgstr ""
+"يشير هذا الخبار إلى أنه في حالة حدوث N للحدث خلال الفاصل الزمني المحدد ، "
+"فسيتم إضافة حظر تلقائيًا."
+
+msgid "This rule is triggered whenever the selected event directive occurs."
+msgstr "يتم تشغيل هذه القاعدة كلما حدث توجيه الحدث المحدد."
+
+msgid "Time interval"
+msgstr "الفاصل الزمني"
+
+msgid "Timeout"
+msgstr "انتهاء الوقت"
+
+msgid "Transfer log"
+msgstr "سجل النقل"
+
+msgid "Updated FTP ban rule."
+msgstr ""
+
+msgid "Updated FTP share."
+msgstr ""
+
+msgid "Use the following bandwidth restriction."
+msgstr ""
+
+msgid "Welcome message"
+msgstr "رسالة ترحيب"
+
+msgid ""
+"When a client initially connects to the server the ident protocol is used to"
+" attempt to identify the remote user name."
+msgstr ""
+
+msgid "n/a"
+msgstr "لا ينطبق"

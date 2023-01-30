@@ -1,0 +1,362 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-ftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2023
+# Nelson Rosado <nelsontrosado@gmail.com>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-ftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"PO-Revision-Date: 2023-01-30 10:17+0000\n"
+"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2023\n"
+"Language-Team: Portuguese (Portugal) (https://www.transifex.com/openmediavault/teams/14254/pt_PT/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "0 KiB/s means unlimited."
+msgstr "0 KiB/s significa ilimitado."
+
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr ""
+
+msgid "Advanced settings"
+msgstr "Definições avançadas"
+
+msgid "Allow clients to resume interrupted uploads and downloads."
+msgstr ""
+
+msgid "Anonymous FTP"
+msgstr "FTP Anonimo"
+
+msgid "Ban Rules"
+msgstr ""
+
+msgid "Ban statistics:"
+msgstr "Estatística dos banidos:"
+
+msgid "Bandwidth restriction"
+msgstr "Restrição de largura de banda"
+
+msgid "Certificate"
+msgstr "Certificado"
+
+msgid "Create"
+msgstr "Criar"
+
+msgid "Created FTP ban rule."
+msgstr ""
+
+msgid "Created FTP share."
+msgstr ""
+
+msgid "Currently logged in users:"
+msgstr "Ligado atualmente nos utilizadores:"
+
+msgid "Deny logins which do not have a valid shell."
+msgstr ""
+
+msgid "Display the home directory of the user in the browse list."
+msgstr ""
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Enable SSL/TLS connections."
+msgstr ""
+
+msgid "Enable file transfer logging."
+msgstr ""
+
+msgid ""
+"Enable reverse DNS lookup performed on the remote host's IP address for "
+"incoming active mode data connections and outgoing passive mode data "
+"connections."
+msgstr ""
+"Ativar pesquisa de DNS inversa realizada no endereço IP do host remoto para "
+"entrada de dados de modo ativo as conexões de saída e ligações de dados no "
+"modo passivo."
+
+msgid "Enabled"
+msgstr "Ativar"
+
+msgid "Event"
+msgstr "Invento"
+
+msgid "Expire"
+msgstr "Expirar"
+
+msgid "Extra options"
+msgstr "Opções extra"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "FXP"
+msgstr "FXP"
+
+msgid ""
+"FXP allows transfers between two remote servers without any file data going "
+"to the client asking for the transfer."
+msgstr ""
+"FXP permite a transferência entre dois servidores sem que nenhum ficheiro "
+"que vá para o cliente peça para transferir."
+
+msgid "Home directories"
+msgstr "Directório"
+
+msgid "Ident protocol"
+msgstr "Protocolo de identidade"
+
+msgid ""
+"If your host is acting as a NAT gateway or port forwarder for the server, "
+"this option is useful in order to allow passive tranfers to work. You have "
+"to use your public address and opening the passive ports used on your "
+"firewall as well."
+msgstr ""
+"Se o seu host está atuando como um gateway NAT ou redirecionamento de porta "
+"para o servidor, esta opção é útil para permitir tranfers passivos para "
+"trabalhar. Você tem que usar seu endereço público e abrindo as portas "
+"passivas utilizadas em seu firewall também."
+
+msgid "Implicit SSL"
+msgstr "SSL Implicito"
+
+msgid ""
+"In some cases you have to specify passive ports range to by-pass firewall "
+"limitations. Passive ports restricts the range of ports from which the "
+"server will select when sent the PASV command from a client. The server will"
+" randomly choose a number from within the specified range until an open port"
+" is found. The port range selected must be in the non-privileged range (eg. "
+"greater than or equal to 1024). It is strongly recommended that the chosen "
+"range be large enough to handle many simultaneous passive connections (for "
+"example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr ""
+"Em alguns casos você tem que especificar o intervalo portas passiva para "
+"limitações by-pass de firewall. Portas passivas restringe o intervalo de "
+"portas a partir do qual o servidor irá selecionar quando enviar o comando "
+"PASV de um cliente. O servidor escolherá aleatoriamente um número de dentro "
+"do intervalo especificado, até uma porta aberta ser encontrada. O intervalo "
+"de porta seleccionado deve estar no intervalo de não-privilegiado (por "
+"exemplo, maior do que ou igual a 1024). É altamente recomendável que a faixa"
+" escolhida seja grande o suficiente para lidar com muitas conexões "
+"simultâneas passivos (por exemplo, 49152-65534, a IANA-registado intervalo "
+"de portas efêmeras)."
+
+msgid "Masquerade address"
+msgstr "Endereço mascarado"
+
+msgid "Max. clients"
+msgstr "Max. Clientes"
+
+msgid "Max. connections per host"
+msgstr "Ligações máximas por anfitrião"
+
+msgid "Max. login attempts"
+msgstr "Max. tentativas de entrar"
+
+msgid "Max. passive port"
+msgstr ""
+
+msgid "Maximum download rate (KiB/s)"
+msgstr "Taxa máxima de descarga (KiB/s)"
+
+msgid ""
+"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
+"timer completely (clients can stay connected for ever, without sending "
+"data)."
+msgstr ""
+"Tempo de inatividade máximo em segundos. Definir o tempo limite inativo para"
+" 0 desativa o temporizador de inactividade completamente (os clientes podem "
+"ficar ligado para sempre, sem o envio de dados)."
+
+msgid "Maximum number of allowed password attempts before disconnection."
+msgstr "Numero máximo de tentativas de senas de acesso antes de desligar."
+
+msgid "Maximum number of connections per IP (0 = unlimited)."
+msgstr "Numero máximo de ligações por IP (0=ilimitadas)."
+
+msgid "Maximum number of simultaneous clients."
+msgstr "Numero máximo do clientes em simoltaneo."
+
+msgid "Maximum upload rate (KiB/s)"
+msgstr "Taxa máxima de carregamento (KiB/s)"
+
+msgid "Min. passive port"
+msgstr ""
+
+msgid "No session reuse required"
+msgstr "Não é requerida nenhuma sessão reutilizada"
+
+msgid "Occurrence"
+msgstr "Ocorrência"
+
+msgid "Passive FTP"
+msgstr "FTP Passivo"
+
+msgid "Permit root login"
+msgstr "Permitir login root"
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"Verifique por favor <a "
+"href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> para mais detalhes"
+
+msgid ""
+"Please check the <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"Por favor verifique em  <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>manual page</a> para mais detalhes."
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
+"name.html' target='_blank'>manual page</a> for more details."
+msgstr ""
+"Por favor verifique <a "
+"href='http://www.proftpd.org/docs/directives/linked/by-name.html' "
+"target='_blank'>a página do manual</a> para mais detalhes."
+
+msgid "Port"
+msgstr "Porta"
+
+msgid "Refresh time"
+msgstr ""
+
+msgid "Require valid shell"
+msgstr "Requerer escudo válido"
+
+msgid "Required"
+msgstr "Requerer"
+
+msgid "Resume"
+msgstr "Retomar"
+
+msgid "Reverse DNS lookup"
+msgstr "Pesquisa reversa de DNS"
+
+msgid "SSL/TLS Settings"
+msgstr ""
+
+msgid "Service disabled"
+msgstr "Serviço desativo"
+
+msgid "Settings"
+msgstr "Definições"
+
+msgid "Shared folder"
+msgstr "Pasta partilhada"
+
+msgid "Shares"
+msgstr "Partilhas"
+
+msgid ""
+"Specifies the amount of time, in seconds, between checking and updating the "
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
+msgstr ""
+"Especifica a quantidade de tempo, em segundos, entre a verificação e "
+"atualização do endereço mascarada por resolver o endereço IP. Defina esse "
+"valor para 0 para desabilitar esta opção."
+
+msgid "Specifies the time in hh:mm:ss after which the ban expires."
+msgstr "Especifica o tempo em hh: mm: ss depois que a proibição expira."
+
+msgid ""
+"Specifies the time interval in hh:mm:ss in which the given number of "
+"occurrences must happen to add the ban."
+msgstr ""
+"Especifica o intervalo de tempo em hh: mm: ss em que o dado número de "
+"ocorrências deve acontecer para adicionar a proibição."
+
+msgid "Specifies whether it is allowed to login as superuser directly."
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "The SSL certificate."
+msgstr "O certificado SSL."
+
+msgid "The location of the files to share."
+msgstr "A localização dos ficheiros para partilha."
+
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr ""
+"O requisito de que a sessão SSL a partir da ligação de controle que é "
+"reutilizado para conexões de dados não é necessário."
+
+msgid ""
+"The welcome message will be displayed to the user at login. Please check the"
+" <a href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
+"target='_blank'>manual page</a> how to use variables. Leave this field empty"
+" to disable the welcome message."
+msgstr ""
+
+msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr ""
+"Esta opção requer que os clientes de FTP utilizarem TLS para ligar ao "
+"servidor."
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr ""
+"Esta opção irá lidar com todas as ligações como se fossem conexões SSL "
+"implicitamente."
+
+msgid ""
+"This parameter says that if N occurrences of the event happen within the "
+"given time interval, then a ban is automatically added."
+msgstr ""
+"This parameter says that if N occurrences of the event happen within the "
+"given time interval, then a ban is automatically added."
+
+msgid "This rule is triggered whenever the selected event directive occurs."
+msgstr "Esta regra é acionada sempre que o evento selecionado ocorrer."
+
+msgid "Time interval"
+msgstr "Intervalo de tempo"
+
+msgid "Timeout"
+msgstr "Tempo limite"
+
+msgid "Transfer log"
+msgstr "Log de transferência"
+
+msgid "Updated FTP ban rule."
+msgstr ""
+
+msgid "Updated FTP share."
+msgstr ""
+
+msgid "Use the following bandwidth restriction."
+msgstr ""
+
+msgid "Welcome message"
+msgstr "Mensagem de boas vindas"
+
+msgid ""
+"When a client initially connects to the server the ident protocol is used to"
+" attempt to identify the remote user name."
+msgstr ""
+
+msgid "n/a"
+msgstr "n/a"

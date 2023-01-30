@@ -1,0 +1,331 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-ftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# 黃柏諺 <s8321414@gmail.com>, 2023
+# Volker Theile <votdev@gmx.de>, 2023
+# kochin <kochinc@outlook.com>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-ftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"PO-Revision-Date: 2023-01-30 10:17+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2023\n"
+"Language-Team: Chinese (Taiwan) (https://www.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "0 KiB/s means unlimited."
+msgstr "0 KiB/s 表示無限制。"
+
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr "一個強大的模組化 FTP/SFTP/FTPS 伺服器。"
+
+msgid "Advanced settings"
+msgstr "進階設定"
+
+msgid "Allow clients to resume interrupted uploads and downloads."
+msgstr "允許客戶恢復被中斷的上傳和下載。"
+
+msgid "Anonymous FTP"
+msgstr "匿名 FTP"
+
+msgid "Ban Rules"
+msgstr "禁用規則"
+
+msgid "Ban statistics:"
+msgstr "禁止統計："
+
+msgid "Bandwidth restriction"
+msgstr "頻寬限制"
+
+msgid "Certificate"
+msgstr "憑證"
+
+msgid "Create"
+msgstr "新建"
+
+msgid "Created FTP ban rule."
+msgstr "已建立 FTP 禁用規則。"
+
+msgid "Created FTP share."
+msgstr "已建立 FTP 共享。"
+
+msgid "Currently logged in users:"
+msgstr "當前登入的用戶："
+
+msgid "Deny logins which do not have a valid shell."
+msgstr "拒絕缺少可用指令殼層(shell)的登入。"
+
+msgid "Display the home directory of the user in the browse list."
+msgstr "顯示用戶的家目錄於瀏覽列表內。"
+
+msgid "Edit"
+msgstr "編輯"
+
+msgid "Enable SSL/TLS connections."
+msgstr "啟用 SSL/TLS 連線。"
+
+msgid "Enable file transfer logging."
+msgstr ""
+
+msgid ""
+"Enable reverse DNS lookup performed on the remote host's IP address for "
+"incoming active mode data connections and outgoing passive mode data "
+"connections."
+msgstr "啟用對遠端主機 IP 位址的反向 DNS 查詢，用於傳入的主動模式資料連線及傳出的被動模式資料連線。"
+
+msgid "Enabled"
+msgstr "已啟用"
+
+msgid "Event"
+msgstr "事件"
+
+msgid "Expire"
+msgstr "過期"
+
+msgid "Extra options"
+msgstr "額外選項"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "FXP"
+msgstr "FXP"
+
+msgid ""
+"FXP allows transfers between two remote servers without any file data going "
+"to the client asking for the transfer."
+msgstr "FXP 允許兩個遠端伺服器之間的傳輸，而沒有任何檔案資料送到要求傳送的客戶端。"
+
+msgid "Home directories"
+msgstr "家目錄"
+
+msgid "Ident protocol"
+msgstr "Ident 通訊協定"
+
+msgid ""
+"If your host is acting as a NAT gateway or port forwarder for the server, "
+"this option is useful in order to allow passive tranfers to work. You have "
+"to use your public address and opening the passive ports used on your "
+"firewall as well."
+msgstr ""
+"如果你的主機是作為一個 NAT "
+"閘道器或伺服器的通訊埠轉接，則這個選項對讓被動傳送順利作業是很有用的。你必須使用你的公開網址，並且開放在你的防火牆的被動通訊埠。"
+
+msgid "Implicit SSL"
+msgstr "隱式 SSL"
+
+msgid ""
+"In some cases you have to specify passive ports range to by-pass firewall "
+"limitations. Passive ports restricts the range of ports from which the "
+"server will select when sent the PASV command from a client. The server will"
+" randomly choose a number from within the specified range until an open port"
+" is found. The port range selected must be in the non-privileged range (eg. "
+"greater than or equal to 1024). It is strongly recommended that the chosen "
+"range be large enough to handle many simultaneous passive connections (for "
+"example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr ""
+"在某些情況下，你必須指定被動通訊埠範圍來避開防火牆的限制。當客戶端送來 PASV "
+"指令時，被動通訊埠限制了伺服器選用通訊埠的範圍。伺服器將在指定範圍內隨機選擇一個號碼，直到找到一個開放的通訊埠。所選的通訊埠範圍必須是在非特權的範圍內(例如：大於或等於1024)。我們強烈建議，選擇的範圍應大到足以處理許多同時發生的被動連線(例如：49152-65534，這是"
+" IANA 註冊的短暫使用通訊埠範圍)。"
+
+msgid "Masquerade address"
+msgstr "偽裝位址"
+
+msgid "Max. clients"
+msgstr "最多客戶端數目"
+
+msgid "Max. connections per host"
+msgstr "每個主機最多連線數目"
+
+msgid "Max. login attempts"
+msgstr "最多登入嘗試次數"
+
+msgid "Max. passive port"
+msgstr "最大被動連接埠"
+
+msgid "Maximum download rate (KiB/s)"
+msgstr "最大下載速度 (KiB/s)"
+
+msgid ""
+"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
+"timer completely (clients can stay connected for ever, without sending "
+"data)."
+msgstr "以秒為單位的最大閒置時間。閒置逾時時間若設定為 0，則完全停用閒置計時器(客戶可以永遠保持連線，即使不傳送資料）。"
+
+msgid "Maximum number of allowed password attempts before disconnection."
+msgstr "最多允許密碼嘗試的次數，超過後切斷連線。"
+
+msgid "Maximum number of connections per IP (0 = unlimited)."
+msgstr "每個 IP 最多連線數目 (0 = 無限制)。"
+
+msgid "Maximum number of simultaneous clients."
+msgstr "同時進行的最多客戶數量。"
+
+msgid "Maximum upload rate (KiB/s)"
+msgstr "最大上傳速度 (KiB/s)"
+
+msgid "Min. passive port"
+msgstr "最小被動連接埠"
+
+msgid "No session reuse required"
+msgstr "無須重用作業階段"
+
+msgid "Occurrence"
+msgstr "發生次數"
+
+msgid "Passive FTP"
+msgstr "被動式 FTP"
+
+msgid "Permit root login"
+msgstr "允許 root 登入"
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"詳情請查看<a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>手冊頁</a>。"
+
+msgid ""
+"Please check the <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"詳情請查看<a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>我們的手冊頁</a>。"
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
+"name.html' target='_blank'>manual page</a> for more details."
+msgstr ""
+"詳情請參閱 <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' "
+"target='_blank'>手册頁</a>。"
+
+msgid "Port"
+msgstr "通訊埠"
+
+msgid "Refresh time"
+msgstr "刷新時間"
+
+msgid "Require valid shell"
+msgstr "需要可用的指令殼層(shell)"
+
+msgid "Required"
+msgstr "必要"
+
+msgid "Resume"
+msgstr "恢復"
+
+msgid "Reverse DNS lookup"
+msgstr "反向 DNS 查詢"
+
+msgid "SSL/TLS Settings"
+msgstr "SSL/TLS 設定"
+
+msgid "Service disabled"
+msgstr "服務已停用"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Shared folder"
+msgstr "共享資料夾"
+
+msgid "Shares"
+msgstr "共享"
+
+msgid ""
+"Specifies the amount of time, in seconds, between checking and updating the "
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
+msgstr "指定經由解析 IP 位址來做偽裝位址的檢查與更新之間的時間，以秒為單位。設此值為 0 來停用這選項。"
+
+msgid "Specifies the time in hh:mm:ss after which the ban expires."
+msgstr "以 hh:mm:ss 的格式來指定時間。在這時間之後，禁止就過期了。"
+
+msgid ""
+"Specifies the time interval in hh:mm:ss in which the given number of "
+"occurrences must happen to add the ban."
+msgstr "以 hh:mm:ss 的格式來指定時間間隔。在這段時間之內，必須發生被給定的次數，才會加入禁止。"
+
+msgid "Specifies whether it is allowed to login as superuser directly."
+msgstr "指定是否允許以超級用戶的身份直接登入。"
+
+msgid "Tags"
+msgstr "標籤"
+
+msgid "The SSL certificate."
+msgstr "SSL 憑證。"
+
+msgid "The location of the files to share."
+msgstr "用來共享之檔案的位置。"
+
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr "從控制連線來的 SSL 作業階段須被重用做資料連線的需求將不被要求。"
+
+msgid ""
+"The welcome message will be displayed to the user at login. Please check the"
+" <a href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
+"target='_blank'>manual page</a> how to use variables. Leave this field empty"
+" to disable the welcome message."
+msgstr ""
+
+msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr "此選項要求客戶端使用 FTP over TLS 來與該伺服器交談。"
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr "此選項將所有的連線默認是 SSL 連線來處理。"
+
+msgid ""
+"This parameter says that if N occurrences of the event happen within the "
+"given time interval, then a ban is automatically added."
+msgstr "此參數表示，如果在給定的時間間隔內發生 N 次事件，那麼會自動加進一項禁止。"
+
+msgid "This rule is triggered whenever the selected event directive occurs."
+msgstr "當所選定的事件指示發生時，此規則會被觸發。"
+
+msgid "Time interval"
+msgstr "時間間隔"
+
+msgid "Timeout"
+msgstr "逾時"
+
+msgid "Transfer log"
+msgstr "傳輸日誌"
+
+msgid "Updated FTP ban rule."
+msgstr "已更新 FTP 禁用規則。"
+
+msgid "Updated FTP share."
+msgstr "已更新 FTP 共享。"
+
+msgid "Use the following bandwidth restriction."
+msgstr "使用以下頻寬限制。"
+
+msgid "Welcome message"
+msgstr "歡迎訊息"
+
+msgid ""
+"When a client initially connects to the server the ident protocol is used to"
+" attempt to identify the remote user name."
+msgstr "當一個客戶端初始連接到伺服器時，使用 ident 協定來試圖識別遠端的用戶名稱。"
+
+msgid "n/a"
+msgstr "n/a"
