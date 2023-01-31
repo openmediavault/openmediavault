@@ -2,6 +2,7 @@ version: "1.0"
 type: navigation-item
 data:
   path: "storage.lvm"
-  text: _("Logical Volume Management")
+  position: 30
+  text: _("LVM")
   icon: "mdi:database"
   url: "/storage/lvm"
