@@ -1,5 +1,6 @@
 openmediavault-lvm2 (6.0.2-1) stable; urgency=low
 
+  * Update locales.
   * Change order in navigation menu.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 31 Jan 2023 12:44:48 +0100
