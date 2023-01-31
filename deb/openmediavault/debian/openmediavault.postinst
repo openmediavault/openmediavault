@@ -430,6 +430,11 @@ case "$1" in
 				"/var/lib/openmediavault/workbench/localstorage.d/" 0 || :
 			mkdir -p /var/lib/openmediavault/workbench/localstorage.d/
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.2.0"; then
+			# It seems we need to unmask the service to prevent an error
+			# when the openmediavault-ftp plugin is installed.
+			systemctl unmask proftpd.service || :
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the

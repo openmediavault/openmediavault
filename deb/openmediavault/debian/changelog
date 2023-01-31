@@ -1,10 +1,4 @@
-openmediavault (6.2.1-1) stable; urgency=low
-
-  * Various improvements.
-
- -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Jan 2023 23:37:00 +0100
-
-openmediavault (6.2.0-1) stable; urgency=low
+openmediavault (6.2.0-2) stable; urgency=low
 
   * Relocate FTP service into a separate plugin. Please install
     the plugin if you are using the service. The configuration
