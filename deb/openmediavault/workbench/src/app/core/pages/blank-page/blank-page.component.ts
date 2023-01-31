@@ -18,10 +18,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'omv-empty-page',
-  templateUrl: './empty-page.component.html',
-  styleUrls: ['./empty-page.component.scss']
+  selector: 'omv-blank-page',
+  templateUrl: './blank-page.component.html',
+  styleUrls: ['./blank-page.component.scss']
 })
-export class EmptyPageComponent {
+export class BlankPageComponent {
   constructor() {}
 }

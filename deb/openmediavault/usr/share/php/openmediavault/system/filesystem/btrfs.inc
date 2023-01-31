@@ -384,4 +384,23 @@ class Btrfs extends Filesystem {
 		// the file system.
 		parent::umount($force, $lazy, TRUE);
 	}
+
+	/**
+	 * Grow the filesystem.
+	 * @return void
+	 * @throw \OMV\ExecException
+	 */
+	final public function grow() {
+		if (!$this->isMounted()) {
+			throw new NotMountedException($this->getDeviceFile());
+		}
+		$cmdArgs = [];
+		$cmdArgs[] = "filesystem";
+		$cmdArgs[] = "resize";
+		$cmdArgs[] = "max";
+		$cmdArgs[] = escapeshellarg($this->getMountPoint());
+		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
+	}
 }

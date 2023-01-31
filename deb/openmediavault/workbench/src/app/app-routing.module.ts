@@ -24,7 +24,7 @@ import { EMPTY } from 'rxjs';
 import { BlankLayoutComponent } from '~/app/core/components/layouts/blank-layout/blank-layout.component';
 import { WorkbenchLayoutComponent } from '~/app/core/components/layouts/workbench-layout/workbench-layout.component';
 import { AboutPageComponent } from '~/app/core/pages/about-page/about-page.component';
-import { EmptyPageComponent } from '~/app/core/pages/empty-page/empty-page.component';
+import { BlankPageComponent } from '~/app/core/pages/blank-page/blank-page.component';
 import { GuruMeditationPageComponent } from '~/app/core/pages/guru-meditation-page/guru-meditation-page.component';
 import { LoginPageComponent } from '~/app/core/pages/login-page/login-page.component';
 import { NavigationPageComponent } from '~/app/core/pages/navigation-page/navigation-page.component';
@@ -113,14 +113,14 @@ const routes: Routes = [
         resolve: {
           url: 'externalRedirectResolver'
         },
-        component: EmptyPageComponent
+        component: BlankPageComponent
       },
       {
         path: 'reload',
         resolve: {
           url: 'reloadResolver'
         },
-        component: EmptyPageComponent
+        component: BlankPageComponent
       },
       {
         path: 'guruMeditation',

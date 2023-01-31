@@ -21,20 +21,16 @@
  */
 namespace OMV\System\Filesystem;
 
-class Xfs extends Filesystem {
+/**
+ * \em NotMountedException is thrown when a file system is not mounted.
+ * @ingroup api
+ */
+class NotMountedException extends \OMV\Exception {
 	/**
-	 * Grow the filesystem.
-	 * @return void
-	 * @throw \OMV\ExecException
+	 * Constructor
+	 * @param string deviceFile The device file of the file system.
 	 */
-	final public function grow() {
-		if (!$this->isMounted()) {
-			throw new NotMountedException($this->getDeviceFile());
-		}
-		$cmdArgs = [];
-		$cmdArgs[] = escapeshellarg($this->getMountPoint());
-		$cmd = new \OMV\System\Process("xfs_growfs", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
+	public function __construct($deviceFile) {
+		parent::__construct("The file system '%s' is not mounted.", $deviceFile);
 	}
 }

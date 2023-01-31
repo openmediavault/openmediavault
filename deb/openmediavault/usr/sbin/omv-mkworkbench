@@ -109,6 +109,7 @@ def load_components(skip_invalid: bool = True, verbose: bool = False) -> Dict:
             'data': {'type': 'object', 'properties': {
                 'name': {'type': 'string', 'required': True},
                 'type': {'type': 'string', 'enum': [
+                    'blankPage',
                     'navigationPage',
                     'formPage',
                     'selectionListPage',
@@ -143,7 +144,7 @@ def load_components(skip_invalid: bool = True, verbose: bool = False) -> Dict:
             sys.exit(1)
         v['config'] = openmediavault.collectiontools.merge(
             copy.deepcopy(component_dict[v['extends']]['config']),
-            v['config'])
+            v.get('config', {}))
         v.pop('extends')
 
     return component_dict
@@ -173,6 +174,7 @@ def all_():
     ctx.invoke(navigation)
     ctx.invoke(route)
     ctx.invoke(log)
+    ctx.invoke(mkfs)
     ctx.invoke(i18n)
 
 
@@ -372,6 +374,35 @@ def i18n(ctx):
                 if entry.msgid and entry.msgstr and (entry.msgid not in translations):
                     translations[entry.msgid] = entry.msgstr
         write_json_file(lang_file_path, translations, ctx.verbose)
+
+
+@cli.command(name='mkfs', help='Build the mkfs configuration file.')
+@pass_context
+def mkfs(ctx):
+    mkfs_dir = openmediavault.getenv(
+        'OMV_WORKBENCH_MKFS_CONFIG_DIR',
+        '/usr/share/openmediavault/workbench/mkfs.d'
+    )
+    mkfs_file = openmediavault.getenv(
+        'OMV_WORKBENCH_MKFS_CONFIG_ASSETS_FILE',
+        '/var/www/openmediavault/assets/mkfs-config.json'
+    )
+    mkfs_schema = openmediavault.datamodel.Schema({
+        'type': 'object',
+        'properties': {
+            'version': {'type': 'string', 'required': True},
+            'type': {'type': 'string', 'enum': ['mkfs'], 'required': True},
+            'data': {'type': 'object', 'properties': {
+                'text': {'type': 'string', 'required': True},
+                'url': {'type': 'string', 'required': True}
+            }}
+        }
+    })
+    openmediavault.log.info(
+        'Creating mkfs configuration file ...', verbose=ctx.verbose)
+    log_configs = load_yaml_files(
+        mkfs_schema, mkfs_dir, ctx.skip_invalid, ctx.verbose)
+    write_json_file(mkfs_file, log_configs, ctx.verbose)
 
 
 def main():

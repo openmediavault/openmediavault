@@ -24,7 +24,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { ActivatedRoute, ParamMap, Route } from '@angular/router';
+import { ActivatedRoute, ParamMap, Route, Router } from '@angular/router';
 import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
 
@@ -43,15 +43,18 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
   @Output()
   readonly afterViewInitEvent = new EventEmitter();
 
+  readonly routeUrlSegments: string[];
   readonly routeConfig: Route;
   routeParams: Record<string, any> = {};
   private activatedRouteSubscription: Subscription;
 
   protected constructor(
     protected activatedRoute: ActivatedRoute,
-    protected authSessionService: AuthSessionService
+    protected authSessionService: AuthSessionService,
+    protected router: Router
   ) {
     this.routeConfig = this.activatedRoute.routeConfig;
+    this.routeUrlSegments = _.trim(this.router.url, '/').split('/');
     // Is the component configured via route data?
     if (_.has(this.routeConfig, 'data.config')) {
       this.config = _.cloneDeep(_.get(this.routeConfig, 'data.config'));
@@ -71,7 +74,8 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
         permissions: this.authSessionService.getPermissions()
       },
       _routeConfig: this.routeConfig,
-      _routeParams: this.routeParams
+      _routeParams: this.routeParams,
+      _routeUrlSegments: this.routeUrlSegments
     };
   }
 

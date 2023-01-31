@@ -57,11 +57,11 @@ export class SelectionListPageComponent
   constructor(
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
+    @Inject(Router) router: Router,
     private dataStoreService: DataStoreService,
-    private notificationService: NotificationService,
-    private router: Router
+    private notificationService: NotificationService
   ) {
-    super(activatedRoute, authSessionService);
+    super(activatedRoute, authSessionService, router);
   }
 
   ngOnInit(): void {

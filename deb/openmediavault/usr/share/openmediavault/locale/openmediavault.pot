@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 11:15+0100\n"
+"POT-Creation-Date: 2023-02-01 12:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -389,6 +389,9 @@ msgstr ""
 msgid "At least four devices are required."
 msgstr ""
 
+msgid "At least one device is required."
+msgstr ""
+
 msgid "At least one network interface is required."
 msgstr ""
 
@@ -447,9 +450,6 @@ msgid "Available"
 msgstr ""
 
 msgid "Azerbaijan"
-msgstr ""
-
-msgid "BTRFS"
 msgstr ""
 
 msgid "Back"
@@ -746,16 +746,13 @@ msgstr ""
 msgid "Create"
 msgstr ""
 
-msgid "Create a new file system."
+msgid "Create and mount a file system."
 msgstr ""
 
 msgid "Create file system"
 msgstr ""
 
 msgid "Create | Import"
-msgstr ""
-
-msgid "Create | Mount"
 msgstr ""
 
 msgid "Created NFS share."
@@ -1046,12 +1043,6 @@ msgstr ""
 msgid "Dronning Maud Land"
 msgstr ""
 
-msgid "EXT3"
-msgstr ""
-
-msgid "EXT4"
-msgstr ""
-
 msgid "Each line represents a group."
 msgstr ""
 
@@ -1155,9 +1146,6 @@ msgid "Extended attributes"
 msgstr ""
 
 msgid "Extra options"
-msgstr ""
-
-msgid "F2FS"
 msgstr ""
 
 msgid "FTP"
@@ -1575,9 +1563,6 @@ msgid "Italy"
 msgstr ""
 
 msgid "Ivory Coast"
-msgstr ""
-
-msgid "JFS"
 msgstr ""
 
 msgid "Jamaica"
@@ -2648,9 +2633,6 @@ msgstr ""
 msgid "Select a system log ..."
 msgstr ""
 
-msgid "Select a type ..."
-msgstr ""
-
 msgid "Select all"
 msgstr ""
 
@@ -2688,6 +2670,9 @@ msgid "Select the device that will be used to create the file system."
 msgstr ""
 
 msgid "Select the devices that will be used to create the RAID device. Devices connected via USB will not be listed (too unreliable)."
+msgstr ""
+
+msgid "Select the devices that will be used to create the file system."
 msgstr ""
 
 msgid "Self-Test Logs"
@@ -3141,9 +3126,6 @@ msgid "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or rsync
 msgstr ""
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr ""
-
-msgid "The type of the file system to create."
 msgstr ""
 
 msgid "The users that are allowed to access this module."
@@ -3720,9 +3702,6 @@ msgid "Write-only"
 msgstr ""
 
 msgid "Write/Execute"
-msgstr ""
-
-msgid "XFS"
 msgstr ""
 
 msgid "Xen virtual disk device"

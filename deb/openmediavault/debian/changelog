@@ -1,6 +1,9 @@
-openmediavault (6.2.1-1) stable; urgency=low
+openmediavault (6.3.0-1) stable; urgency=low
 
-  *
+  * Add an infrastructure to allow plugins to append additional
+    file systems to the file system creation page in the UI.
+  * Enhance the BTRFS file system creation page by adding support
+    of profiles to create various RAID levels.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 31 Jan 2023 12:31:57 +0100
 

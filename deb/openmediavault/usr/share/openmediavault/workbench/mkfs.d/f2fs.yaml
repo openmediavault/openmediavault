@@ -1,0 +1,5 @@
+version: "1.0"
+type: mkfs
+data:
+  text: "F2FS"
+  url: /storage/filesystems/f2fs/create

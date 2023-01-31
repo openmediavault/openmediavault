@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/filesystems/btrfs/create"
+  title: _("Create")
+  component: omv-storage-filesystem-btrfs-create-form-page

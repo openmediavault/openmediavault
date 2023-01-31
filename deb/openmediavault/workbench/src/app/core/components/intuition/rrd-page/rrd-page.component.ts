@@ -17,7 +17,7 @@
  */
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
@@ -61,10 +61,11 @@ export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> imple
   constructor(
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
+    @Inject(Router) router: Router,
     private dataStoreService: DataStoreService,
     private rpcService: RpcService
   ) {
-    super(activatedRoute, authSessionService);
+    super(activatedRoute, authSessionService, router);
     // Check if monitoring is enabled.
     this.rpcService.request('PerfStats', 'get').subscribe((resp) => {
       this.monitoringEnabled = _.get(resp, 'enable', false);

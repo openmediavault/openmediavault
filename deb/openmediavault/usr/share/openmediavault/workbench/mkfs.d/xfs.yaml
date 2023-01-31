@@ -1,0 +1,5 @@
+version: "1.0"
+type: mkfs
+data:
+  text: "XFS"
+  url: /storage/filesystems/xfs/create

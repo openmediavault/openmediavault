@@ -1,0 +1,5 @@
+version: "1.0"
+type: mkfs
+data:
+  text: "EXT3"
+  url: /storage/filesystems/ext3/create

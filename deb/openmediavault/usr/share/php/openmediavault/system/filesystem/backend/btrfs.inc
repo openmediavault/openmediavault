@@ -25,7 +25,8 @@ class Btrfs extends BackendAbstract {
 	public function __construct() {
 		$this->type = "btrfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-		  self::PROP_DISCARD | self::PROP_COMPRESS | self::PROP_AUTO_DEFRAG;
+			self::PROP_DISCARD | self::PROP_COMPRESS |
+			self::PROP_AUTO_DEFRAG | self::PROP_RESIZE;
 		$this->mkfsOptions = \OMV\Environment::get("OMV_MKFS_OPTIONS_BTRFS");
 		$this->mntOptions = explode(",", \OMV\Environment::get(
 		  "OMV_FSTAB_MNTOPS_BTRFS"));
