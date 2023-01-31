@@ -34,16 +34,16 @@ override_dh_builddeb:
 	dh_builddeb -- -Zxz
 
 omv_tx_status:
-	tx --root="$(CURDIR)/../" status \
-		--resource=$(OMV_TRANSIFEX_PROJECT_SLUG).$(OMV_PACKAGE)
+	cd "$(CURDIR)/../"; tx status \
+		$(OMV_TRANSIFEX_PROJECT_SLUG).$(OMV_PACKAGE)
 
 omv_tx_pull_po:
-	tx --root="$(CURDIR)/../" pull --all --force \
-		--resource=$(OMV_TRANSIFEX_PROJECT_SLUG).$(OMV_PACKAGE)
+	cd "$(CURDIR)/../"; tx pull --all --force \
+		$(OMV_TRANSIFEX_PROJECT_SLUG).$(OMV_PACKAGE)
 
 omv_tx_push_pot:
-	tx --root="$(CURDIR)/../" push --source \
-		--resource=$(OMV_TRANSIFEX_PROJECT_SLUG).$(OMV_PACKAGE)
+	cd "$(CURDIR)/../"; tx push --source \
+		$(OMV_TRANSIFEX_PROJECT_SLUG).$(OMV_PACKAGE)
 
 omv_build_pot:
 	dh_testdir

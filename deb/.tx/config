@@ -1,109 +1,129 @@
 [main]
 host = https://www.transifex.com
-lang_map = de: de_DE, it: it_IT, ru: ru_RU, uk: uk_UK, da: da_DA, no: no_NO, sv: sv_SV
-type = PO
+lang_map = sv: sv_SV, de: de_DE, it: it_IT, ru: ru_RU, uk: uk_UK, da: da_DA, no: no_NO
 
-[openmediavault.openmediavault]
+[o:openmediavault:p:openmediavault:r:openmediavault]
 file_filter = openmediavault/usr/share/openmediavault/locale/<lang>/openmediavault.po
 source_file = openmediavault/usr/share/openmediavault/locale/openmediavault.pot
 source_lang = en
+type = PO
 
-[openmediavault.openmediavault-filebrowser]
-file_filter = openmediavault-filebrowser/usr/share/openmediavault/locale/<lang>/openmediavault-filebrowser.po
-source_file = openmediavault-filebrowser/usr/share/openmediavault/locale/openmediavault-filebrowser.pot
-source_lang = en
-
-[openmediavault.openmediavault-forkeddaapd]
-file_filter = openmediavault-forkeddaapd/usr/share/openmediavault/locale/<lang>/openmediavault-forkeddaapd.po
-source_file = openmediavault-forkeddaapd/usr/share/openmediavault/locale/openmediavault-forkeddaapd.pot
-source_lang = en
-
-[openmediavault.openmediavault-owntone]
-file_filter = openmediavault-owntone/usr/share/openmediavault/locale/<lang>/openmediavault-owntone.po
-source_file = openmediavault-owntone/usr/share/openmediavault/locale/openmediavault-owntone.pot
-source_lang = en
-
-[openmediavault.openmediavault-lvm2]
-file_filter = openmediavault-lvm2/usr/share/openmediavault/locale/<lang>/openmediavault-lvm2.po
-source_file = openmediavault-lvm2/usr/share/openmediavault/locale/openmediavault-lvm2.pot
-source_lang = en
-
-[openmediavault.openmediavault-netatalk]
-file_filter = openmediavault-netatalk/usr/share/openmediavault/locale/<lang>/openmediavault-netatalk.po
-source_file = openmediavault-netatalk/usr/share/openmediavault/locale/openmediavault-netatalk.pot
-source_lang = en
-
-[openmediavault.openmediavault-nut]
-file_filter = openmediavault-nut/usr/share/openmediavault/locale/<lang>/openmediavault-nut.po
-source_file = openmediavault-nut/usr/share/openmediavault/locale/openmediavault-nut.pot
-source_lang = en
-
-[openmediavault.openmediavault-clamav]
+[o:openmediavault:p:openmediavault:r:openmediavault-clamav]
 file_filter = openmediavault-clamav/usr/share/openmediavault/locale/<lang>/openmediavault-clamav.po
 source_file = openmediavault-clamav/usr/share/openmediavault/locale/openmediavault-clamav.pot
 source_lang = en
+type = PO
 
-[openmediavault.openmediavault-ldap]
-file_filter = openmediavault-ldap/usr/share/openmediavault/locale/<lang>/openmediavault-ldap.po
-source_file = openmediavault-ldap/usr/share/openmediavault/locale/openmediavault-ldap.pot
-source_lang = en
-
-[openmediavault.openmediavault-route]
-file_filter = openmediavault-route/usr/share/openmediavault/locale/<lang>/openmediavault-route.po
-source_file = openmediavault-route/usr/share/openmediavault/locale/openmediavault-route.pot
-source_lang = en
-
-[openmediavault.openmediavault-usbbackup]
-file_filter = openmediavault-usbbackup/usr/share/openmediavault/locale/<lang>/openmediavault-usbbackup.po
-source_file = openmediavault-usbbackup/usr/share/openmediavault/locale/openmediavault-usbbackup.pot
-source_lang = en
-
-[openmediavault.openmediavault-owncloud]
-file_filter = openmediavault-owncloud/usr/share/openmediavault/locale/<lang>/openmediavault-owncloud.po
-source_file = openmediavault-owncloud/usr/share/openmediavault/locale/openmediavault-owncloud.pot
-source_lang = en
-
-[openmediavault.openmediavault-shairport]
-file_filter = openmediavault-shairport/usr/share/openmediavault/locale/<lang>/openmediavault-shairport.po
-source_file = openmediavault-shairport/usr/share/openmediavault/locale/openmediavault-shairport.pot
-source_lang = en
-
-[openmediavault.openmediavault-tftp]
-file_filter = openmediavault-tftp/usr/share/openmediavault/locale/<lang>/openmediavault-tftp.po
-source_file = openmediavault-tftp/usr/share/openmediavault/locale/openmediavault-tftp.pot
-source_lang = en
-
-[openmediavault.openmediavault-snmp]
-file_filter = openmediavault-snmp/usr/share/openmediavault/locale/<lang>/openmediavault-snmp.po
-source_file = openmediavault-snmp/usr/share/openmediavault/locale/openmediavault-snmp.pot
-source_lang = en
-
-[openmediavault.openmediavault-diskstats]
+[o:openmediavault:p:openmediavault:r:openmediavault-diskstats]
 file_filter = openmediavault-diskstats/usr/share/openmediavault/locale/<lang>/openmediavault-diskstats.po
 source_file = openmediavault-diskstats/usr/share/openmediavault/locale/openmediavault-diskstats.pot
 source_lang = en
+type = PO
 
-[openmediavault.openmediavault-wetty]
-file_filter = openmediavault-wetty/usr/share/openmediavault/locale/<lang>/openmediavault-wetty.po
-source_file = openmediavault-wetty/usr/share/openmediavault/locale/openmediavault-wetty.pot
+[o:openmediavault:p:openmediavault:r:openmediavault-filebrowser]
+file_filter = openmediavault-filebrowser/usr/share/openmediavault/locale/<lang>/openmediavault-filebrowser.po
+source_file = openmediavault-filebrowser/usr/share/openmediavault/locale/openmediavault-filebrowser.pot
 source_lang = en
+type = PO
 
-[openmediavault.openmediavault-photoprism]
-file_filter = openmediavault-photoprism/usr/share/openmediavault/locale/<lang>/openmediavault-photoprism.po
-source_file = openmediavault-photoprism/usr/share/openmediavault/locale/openmediavault-photoprism.pot
+[o:openmediavault:p:openmediavault:r:openmediavault-forkeddaapd]
+file_filter = openmediavault-forkeddaapd/usr/share/openmediavault/locale/<lang>/openmediavault-forkeddaapd.po
+source_file = openmediavault-forkeddaapd/usr/share/openmediavault/locale/openmediavault-forkeddaapd.pot
 source_lang = en
+type = PO
 
-[openmediavault.openmediavault-s3]
-file_filter = openmediavault-s3/usr/share/openmediavault/locale/<lang>/openmediavault-s3.po
-source_file = openmediavault-s3/usr/share/openmediavault/locale/openmediavault-s3.pot
-source_lang = en
-
-[openmediavault.openmediavault-onedrive]
-file_filter = openmediavault-onedrive/usr/share/openmediavault/locale/<lang>/openmediavault-onedrive.po
-source_file = openmediavault-onedrive/usr/share/openmediavault/locale/openmediavault-onedrive.pot
-source_lang = en
-
-[openmediavault.openmediavault-ftp]
+[o:openmediavault:p:openmediavault:r:openmediavault-ftp]
 file_filter = openmediavault-ftp/usr/share/openmediavault/locale/<lang>/openmediavault-ftp.po
 source_file = openmediavault-ftp/usr/share/openmediavault/locale/openmediavault-ftp.pot
 source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-ldap]
+file_filter = openmediavault-ldap/usr/share/openmediavault/locale/<lang>/openmediavault-ldap.po
+source_file = openmediavault-ldap/usr/share/openmediavault/locale/openmediavault-ldap.pot
+source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-lvm2]
+file_filter = openmediavault-lvm2/usr/share/openmediavault/locale/<lang>/openmediavault-lvm2.po
+source_file = openmediavault-lvm2/usr/share/openmediavault/locale/openmediavault-lvm2.pot
+source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-netatalk]
+file_filter = openmediavault-netatalk/usr/share/openmediavault/locale/<lang>/openmediavault-netatalk.po
+source_file = openmediavault-netatalk/usr/share/openmediavault/locale/openmediavault-netatalk.pot
+source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-nut]
+file_filter = openmediavault-nut/usr/share/openmediavault/locale/<lang>/openmediavault-nut.po
+source_file = openmediavault-nut/usr/share/openmediavault/locale/openmediavault-nut.pot
+source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-onedrive]
+file_filter = openmediavault-onedrive/usr/share/openmediavault/locale/<lang>/openmediavault-onedrive.po
+source_file = openmediavault-onedrive/usr/share/openmediavault/locale/openmediavault-onedrive.pot
+source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-owncloud]
+file_filter = openmediavault-owncloud/usr/share/openmediavault/locale/<lang>/openmediavault-owncloud.po
+source_file = openmediavault-owncloud/usr/share/openmediavault/locale/openmediavault-owncloud.pot
+source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-owntone]
+file_filter = openmediavault-owntone/usr/share/openmediavault/locale/<lang>/openmediavault-owntone.po
+source_file = openmediavault-owntone/usr/share/openmediavault/locale/openmediavault-owntone.pot
+source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-photoprism]
+file_filter = openmediavault-photoprism/usr/share/openmediavault/locale/<lang>/openmediavault-photoprism.po
+source_file = openmediavault-photoprism/usr/share/openmediavault/locale/openmediavault-photoprism.pot
+source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-route]
+file_filter = openmediavault-route/usr/share/openmediavault/locale/<lang>/openmediavault-route.po
+source_file = openmediavault-route/usr/share/openmediavault/locale/openmediavault-route.pot
+source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-s3]
+file_filter = openmediavault-s3/usr/share/openmediavault/locale/<lang>/openmediavault-s3.po
+source_file = openmediavault-s3/usr/share/openmediavault/locale/openmediavault-s3.pot
+source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-shairport]
+file_filter = openmediavault-shairport/usr/share/openmediavault/locale/<lang>/openmediavault-shairport.po
+source_file = openmediavault-shairport/usr/share/openmediavault/locale/openmediavault-shairport.pot
+source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-snmp]
+file_filter = openmediavault-snmp/usr/share/openmediavault/locale/<lang>/openmediavault-snmp.po
+source_file = openmediavault-snmp/usr/share/openmediavault/locale/openmediavault-snmp.pot
+source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-tftp]
+file_filter = openmediavault-tftp/usr/share/openmediavault/locale/<lang>/openmediavault-tftp.po
+source_file = openmediavault-tftp/usr/share/openmediavault/locale/openmediavault-tftp.pot
+source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-usbbackup]
+file_filter = openmediavault-usbbackup/usr/share/openmediavault/locale/<lang>/openmediavault-usbbackup.po
+source_file = openmediavault-usbbackup/usr/share/openmediavault/locale/openmediavault-usbbackup.pot
+source_lang = en
+type = PO
+
+[o:openmediavault:p:openmediavault:r:openmediavault-wetty]
+file_filter = openmediavault-wetty/usr/share/openmediavault/locale/<lang>/openmediavault-wetty.po
+source_file = openmediavault-wetty/usr/share/openmediavault/locale/openmediavault-wetty.pot
+source_lang = en
+type = PO
