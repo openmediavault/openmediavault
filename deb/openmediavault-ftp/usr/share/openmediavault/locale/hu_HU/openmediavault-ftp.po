@@ -5,10 +5,10 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2023
-# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2023
 # Ádám Balajti <balajtiadam@gmail.com>, 2023
 # Sári Gábor <sari.gabor@gmail.com>, 2023
 # Grawens <szabolcs.szanyi@gmail.com>, 2023
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2023
 # 
 #, fuzzy
 msgid ""
@@ -17,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-30 12:27+0100\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2023\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2023\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,7 +79,7 @@ msgid "Enable SSL/TLS connections."
 msgstr "SSL/TLS kapcsolatok engedélyezése."
 
 msgid "Enable file transfer logging."
-msgstr ""
+msgstr "Fájlátviteli napló engedélyezése"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
@@ -311,6 +311,10 @@ msgid ""
 "target='_blank'>manual page</a> how to use variables. Leave this field empty"
 " to disable the welcome message."
 msgstr ""
+"Az üdvözlő üzenet a felhasználó belépésekor fog megjelenni. A <a "
+"href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
+"target='_blank'>felhasználó kézikönyv</a> ad útmutatást a változók "
+"használatáról. A mező üresen hagyásával az üdvözlő üzenet le lesz tiltva."
 
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
