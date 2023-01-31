@@ -28,6 +28,7 @@ import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
 import { filter, startWith } from 'rxjs/operators';
 
+import { format } from '~/app/functions.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 
 export type Breadcrumb = {
@@ -81,7 +82,7 @@ export class BreadcrumbComponent implements OnDestroy {
       });
       const url = urlSegments.map((urlSegment) => urlSegment.path).join('/');
       routeParts.push({
-        text: routeSnapshot.data.title,
+        text: format(routeSnapshot.data.title, { _routeParams: routeSnapshot.params }),
         url: '/' + url
       });
     }
