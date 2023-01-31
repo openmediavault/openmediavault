@@ -48,7 +48,9 @@
                   [disabled]="isDisabled(action)"
                   matTooltip="{{ action.tooltip | transloco }}"
                   (click)="onButtonClick(action)">
-            <mat-icon svgIcon="{{ action.icon }}"></mat-icon>
+            <mat-icon *ngIf="action.icon"
+                      svgIcon="{{ action.icon }}">
+            </mat-icon>
             <span>{{ action.text | transloco }}</span>
           </button>
         </ng-template>
