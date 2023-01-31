@@ -431,8 +431,10 @@ case "$1" in
 			mkdir -p /var/lib/openmediavault/workbench/localstorage.d/
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.2.0"; then
-			# It seems we need to unmask the service to prevent an error
-			# when the openmediavault-ftp plugin is installed.
+		  # The proftpd.service unit is automatically masked by APT
+		  # when the removed dependencies are uninstalled. To prevent
+		  # an error while installing the openmediavault-ftp plugin
+		  # the unit file must be unmasked.
 			systemctl unmask proftpd.service || :
 		fi
 
