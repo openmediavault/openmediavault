@@ -7,7 +7,6 @@ import { NavigationPageComponent } from '~/app/core/pages/navigation-page/naviga
 import { RouteConfigService } from '~/app/core/services/route-config.service';
 import { DiskDatatablePageComponent } from '~/app/pages/storage/disks/disk-datatable-page.component';
 import { DiskFormPageComponent } from '~/app/pages/storage/disks/disk-form-page.component';
-import { FilesystemCreateFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-create-form-page.component';
 import { FilesystemDatatablePageComponent } from '~/app/pages/storage/filesystems/filesystem-datatable-page.component';
 import { FilesystemEditFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-edit-form-page.component';
 import { FilesystemMountFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-mount-form-page.component';
@@ -192,12 +191,6 @@ const routes: Routes = [
     data: { title: gettext('File Systems') },
     children: [
       { path: '', component: FilesystemDatatablePageComponent },
-      {
-        path: 'create',
-        component: FilesystemCreateFormPageComponent,
-        canDeactivate: [IsDirtyGuardService],
-        data: { title: gettext('Create'), editing: false }
-      },
       {
         path: 'mount',
         component: FilesystemMountFormPageComponent,

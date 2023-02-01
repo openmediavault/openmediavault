@@ -27,6 +27,7 @@ import { delay, filter, finalize, take, tap } from 'rxjs/operators';
 
 import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widget-config.service';
 import { LogConfigService } from '~/app/core/services/log-config.service';
+import { MkfsConfigService } from '~/app/core/services/mkfs-config.service';
 import { NavigationConfigService } from '~/app/core/services/navigation-config.service';
 import { translate } from '~/app/i18n.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
@@ -69,6 +70,7 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
     private prefersColorSchemeService: PrefersColorSchemeService,
     private router: Router,
     private logConfigService: LogConfigService,
+    private mkfsConfigService: MkfsConfigService,
     private systemInformationService: SystemInformationService,
     private taskRunnerService: TaskRunnerService,
     private userLocalStorageService: UserLocalStorageService
@@ -126,6 +128,7 @@ export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
       this.navigationConfig.load(),
       this.dashboardWidgetConfigService.load(),
       this.logConfigService.load(),
+      this.mkfsConfigService.load(),
       this.userLocalStorageService.load().pipe(
         tap(() => {
           // The theme settings may need to be synchronized and applied

@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/filesystems/f2fs/create"
+  title: _("Create")
+  component: omv-storage-filesystem-generic-create-form-page

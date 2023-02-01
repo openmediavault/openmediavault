@@ -43,6 +43,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getCandidatesBg");
 		$this->registerMethod("getMountCandidates");
 		$this->registerMethod("create");
+		$this->registerMethod("createBtrfs");
 		$this->registerMethod("resize");
 		$this->registerMethod("setMountPoint");
 		$this->registerMethod("umount");
@@ -705,6 +706,53 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		}, NULL, function() use($jsonFile) {
 			// Cleanup
 			$jsonFile->unlink();
+		});
+	}
+
+	/**
+	 * Create a Btrfs volume.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The requested configuration object.
+	 */
+	function createBtrfs($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params,
+			"rpc.filesystemmgmt.createbtrfs");
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($params) {
+		  	$deviceFiles = explode(",", $params['devicefiles']);
+			// Wipe all existing data on the storage devices.
+			foreach ($deviceFiles as $deviceFile) {
+				$sd = \OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+					$deviceFile);
+				$sd->wipe();
+			}
+			// Create the Btrfs volume. We do not need to create an
+			// partition on each associated device.
+			$cmdArgs = [];
+			$cmdArgs[] = "--force";
+			if (!empty($params['label'])) {
+				$cmdArgs[] = "--label";
+				$cmdArgs[] = escapeshellarg($params['label']);
+			}
+			$cmdArgs[] = "--data";
+			$cmdArgs[] = escapeshellarg($params['profile']);
+			$cmdArgs[] = "--metadata";
+			$cmdArgs[] = escapeshellarg($params['profile']);
+			$cmdArgs = array_merge($cmdArgs, $deviceFiles);
+			$cmd = new \OMV\System\Process("mkfs.btrfs", $cmdArgs);
+			$cmd->setRedirect2to1();
+			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+				$output, $bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
+					$exitStatus);
+			}
 		});
 	}
 

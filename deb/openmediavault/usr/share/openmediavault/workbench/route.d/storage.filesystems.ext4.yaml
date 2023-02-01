@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/filesystems/ext4"
+  title: EXT4
+  component: omv-blank-page

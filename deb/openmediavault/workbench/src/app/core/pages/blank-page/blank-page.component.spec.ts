@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmptyPageComponent } from '~/app/core/pages/empty-page/empty-page.component';
+import { BlankPageComponent } from '~/app/core/pages/blank-page/blank-page.component';
 import { PagesModule } from '~/app/core/pages/pages.module';
 import { TestingModule } from '~/app/testing.module';
 
-describe('EmptyPageComponent', () => {
-  let component: EmptyPageComponent;
-  let fixture: ComponentFixture<EmptyPageComponent>;
+describe('BlankPageComponent', () => {
+  let component: BlankPageComponent;
+  let fixture: ComponentFixture<BlankPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -15,7 +15,7 @@ describe('EmptyPageComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmptyPageComponent);
+    fixture = TestBed.createComponent(BlankPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

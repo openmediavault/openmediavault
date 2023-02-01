@@ -28,10 +28,12 @@ import { RrdPageComponent } from '~/app/core/components/intuition/rrd-page/rrd-p
 import { SelectionListPageComponent } from '~/app/core/components/intuition/selection-list-page/selection-list-page.component';
 import { TabsPageComponent } from '~/app/core/components/intuition/tabs-page/tabs-page.component';
 import { TextPageComponent } from '~/app/core/components/intuition/text-page/text-page.component';
+import { BlankPageComponent } from '~/app/core/pages/blank-page/blank-page.component';
 import { NavigationPageComponent } from '~/app/core/pages/navigation-page/navigation-page.component';
 import { IsDirtyGuardService } from '~/app/shared/services/is-dirty-guard.service';
 
 const componentMap: Record<string, Type<any>> = {
+  blankPage: BlankPageComponent,
   navigationPage: NavigationPageComponent,
   formPage: FormPageComponent,
   selectionListPage: SelectionListPageComponent,
@@ -48,6 +50,7 @@ type RouteConfig = {
   notificationTitle?: string;
   component: {
     type:
+      | 'blankPage'
       | 'navigationPage'
       | 'formPage'
       | 'selectionListPage'

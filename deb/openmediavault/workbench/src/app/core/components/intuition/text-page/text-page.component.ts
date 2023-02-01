@@ -55,11 +55,11 @@ export class TextPageComponent
   constructor(
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
+    @Inject(Router) router: Router,
     private clipboardService: ClipboardService,
-    private router: Router,
     private rpcService: RpcService
   ) {
-    super(activatedRoute, authSessionService);
+    super(activatedRoute, authSessionService, router);
   }
 
   ngOnInit(): void {

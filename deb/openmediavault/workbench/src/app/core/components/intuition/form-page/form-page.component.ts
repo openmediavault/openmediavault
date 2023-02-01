@@ -80,12 +80,12 @@ export class FormPageComponent
   constructor(
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
-    private router: Router,
+    @Inject(Router) router: Router,
     private rpcService: RpcService,
     private dialogService: DialogService,
     private notificationService: NotificationService
   ) {
-    super(activatedRoute, authSessionService);
+    super(activatedRoute, authSessionService, router);
     // Set the form mode to 'Create' (default) or 'Edit'.
     // This depends on the component configuration that is done via the
     // router config.
