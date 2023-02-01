@@ -674,6 +674,18 @@ class Filesystem extends \OMV\System\BlockDevice
 	}
 
 	/**
+	 * Assert that the file system is mounted.
+	 * @throw \OMV\AssertException
+	 */
+	public function assertIsMounted() {
+		if (FALSE === $this->isMounted()) {
+			throw new \OMV\AssertException(
+				"The file system '%s' is not mounted.",
+				$this->getDeviceFile());
+		}
+	}
+
+	/**
 	 * Mount the filesystem by its device file or UUID.
 	 * @param options Additional mount options as array or string.
 	 *   Defaults to "".
@@ -842,7 +854,7 @@ class Filesystem extends \OMV\System\BlockDevice
 	public static function assertGetImpl($id) {
 		$result = self::getImpl($id);
 		if (is_null($result) || !$result->exists()) {
-			throw new \OMV\Exception(
+			throw new \OMV\AssertException(
 			  "Failed to get the file system implementation for '%s' ".
 			  "or the file system does not exist.", $id);
 		}

@@ -28,9 +28,7 @@ class Xfs extends Filesystem {
 	 * @throw \OMV\ExecException
 	 */
 	final public function grow() {
-		if (!$this->isMounted()) {
-			throw new NotMountedException($this->getDeviceFile());
-		}
+		$this->assertIsMounted();
 		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($this->getMountPoint());
 		$cmd = new \OMV\System\Process("xfs_growfs", $cmdArgs);

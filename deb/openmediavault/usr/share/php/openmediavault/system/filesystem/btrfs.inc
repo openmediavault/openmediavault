@@ -391,9 +391,7 @@ class Btrfs extends Filesystem {
 	 * @throw \OMV\ExecException
 	 */
 	final public function grow() {
-		if (!$this->isMounted()) {
-			throw new NotMountedException($this->getDeviceFile());
-		}
+		$this->assertIsMounted();
 		$cmdArgs = [];
 		$cmdArgs[] = "filesystem";
 		$cmdArgs[] = "resize";
