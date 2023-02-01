@@ -147,9 +147,13 @@ export class RouteConfigService {
           const segment: string = segments.shift();
           let node = _.find(routes, (route: Route) => route.path === segment);
           if (_.isUndefined(node)) {
-            // Create the missing node.
+            // Create the missing node. Use the URL segment name as
+            // default title.
             node = {
               path: segment,
+              data: {
+                title: _.upperFirst(segment)
+              },
               children: []
             };
             routes.push(node);
