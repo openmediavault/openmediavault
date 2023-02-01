@@ -1,6 +1,0 @@
-version: "1.0"
-type: route
-data:
-  url: "/storage/filesystems/btrfs"
-  title: BTRFS
-  component: omv-blank-page

@@ -1,6 +1,0 @@
-version: "1.0"
-type: route
-data:
-  url: "/storage/filesystems/f2fs"
-  title: F2FS
-  component: omv-blank-page
