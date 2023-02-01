@@ -4,6 +4,10 @@
 	"params": {
 		"type": "object",
 		"properties": {
+			"type": {
+				"type": "string",
+				"required": false
+			},
 			"includeroot": {
 				"type": "boolean",
 				"required": false

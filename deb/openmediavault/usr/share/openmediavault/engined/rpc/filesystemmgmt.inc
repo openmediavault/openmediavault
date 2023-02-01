@@ -220,8 +220,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * Enumerate all file systems that have a mount point configuration
 	 * object, except binds, and that are actually mounted.
 	 * @param params The method parameters.
-	 *   \em includeroot TRUE to append the file system '/dev/root' if mounted.
-	 *     Defaults to FALSE.
+	 *   \em type Optional. Return only the file system of the specified type.
+	 *   \em includeroot Optional. Set to TRUE to append the file system
+	 *     '/dev/root' if mounted. Defaults to FALSE.
 	 * @param context The context of the caller.
 	 * @return An array of objects with the following fields: \em uuid,
 	 *   \em devicefile, \em type, \em label, \em blocks, \em size,
@@ -274,6 +275,11 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get the file system details for each mount point.
 		$procs = [];
 		foreach ($objects as $objectk => $objectv) {
+			// Process only the specified file system types?
+			if (array_key_exists('type', $params) && (array_value($params,
+					'type') !== $objectv->get("type"))) {
+				continue;
+			}
 			// Collect the file system information asynchronous.
 			$procs[] = $this->asyncProc(function() use ($objectv) {
 				// Get the file system backend.
