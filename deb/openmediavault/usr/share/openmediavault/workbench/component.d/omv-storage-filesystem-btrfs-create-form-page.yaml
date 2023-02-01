@@ -9,7 +9,7 @@ data:
         name: type
         label: _("Type")
         disabled: true
-        value: BTRFS
+        value: Btrfs
         submitValue: false
       - type: select
         name: profile

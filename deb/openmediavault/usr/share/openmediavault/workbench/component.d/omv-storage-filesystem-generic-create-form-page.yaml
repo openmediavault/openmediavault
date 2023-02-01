@@ -10,7 +10,7 @@ data:
         label: _("Type")
         disabled: true
         submitValue: false
-        value: '{{ _routeUrlSegments | reverse | get(1) | upper }}'
+        value: '{{ _routeUrlSegments | reverse | get(1) | title }}'
       - type: select
         name: devicefile
         label: _("Device")
