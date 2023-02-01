@@ -102,7 +102,12 @@ export class FilesystemDatatablePageComponent implements OnInit {
         sortable: true,
         cellTemplateName: 'chip',
         cellTemplateConfig: {
-          template: '{{ type | upper }}'
+          template: '{{ type | title }}',
+          map: {
+            jfs: { value: 'JFS' },
+            xfs: { value: 'XFS' },
+            zfs: { value: 'ZFS' }
+          }
         }
       },
       {
