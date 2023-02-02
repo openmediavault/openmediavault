@@ -19,6 +19,8 @@ data:
           data:
             - - "single"
               - "Single"
+            - - "dup"
+              - "DUP"
             - - "raid0"
               - "RAID0"
             - - "raid1"
@@ -48,10 +50,12 @@ data:
             - constraint:
                 operator: if
                 arg0:
-                  operator: eq
+                  operator: in
                   arg0:
                     prop: profile
-                  arg1: single
+                  arg1:
+                    - single
+                    - dup
                 arg1:
                   operator: '>='
                   arg0:

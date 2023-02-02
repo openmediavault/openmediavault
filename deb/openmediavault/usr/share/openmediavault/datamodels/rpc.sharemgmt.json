@@ -253,4 +253,55 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.deletesnapshot",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"id": {
+				"type": [ "string", "integer" ],
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.restoresnapshot",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"id": {
+				"type": [ "string", "integer" ],
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.fromsnapshot",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"id": {
+				"type": [ "string", "integer" ],
+				"required": true
+			}
+		}
+	}
 }]

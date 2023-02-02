@@ -43,7 +43,7 @@
 			},
 			"profile":{
 				"type": "string",
-				"enum": [ "single", "raid0", "raid1", "raid10" ],
+				"enum": [ "single", "dup", "raid0", "raid1", "raid10" ],
 				"required": true
 			},
 			"devicefiles": {

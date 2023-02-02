@@ -741,6 +741,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			}
 			// Create the Btrfs volume. We do not need to create an
 			// partition on each associated device.
+			// https://btrfs.readthedocs.io/en/latest/mkfs.btrfs.html#
+			// https://btrfs.readthedocs.io/en/latest/mkfs.btrfs.html#profiles
 			$cmdArgs = [];
 			$cmdArgs[] = "--force";
 			if (!empty($params['label'])) {
