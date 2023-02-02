@@ -102,7 +102,7 @@ export class FilesystemDatatablePageComponent implements OnInit {
         sortable: true,
         cellTemplateName: 'chip',
         cellTemplateConfig: {
-          template: '{{ type | upper }}',
+          template: '{{ type | upper }}'
         }
       },
       {
