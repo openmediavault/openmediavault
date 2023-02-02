@@ -206,7 +206,7 @@ export class FilesystemDatatablePageComponent implements OnInit {
       {
         type: 'iconButton',
         icon: 'expand',
-        tooltip: gettext('Resize'),
+        tooltip: gettext('Grow'),
         enabledConstraints: {
           minSelected: 1,
           maxSelected: 1,
@@ -229,7 +229,7 @@ export class FilesystemDatatablePageComponent implements OnInit {
           type: 'request',
           request: {
             service: 'FileSystemMgmt',
-            method: 'resize',
+            method: 'grow',
             params: {
               id: '{{ _selected[0].uuid }}'
             }

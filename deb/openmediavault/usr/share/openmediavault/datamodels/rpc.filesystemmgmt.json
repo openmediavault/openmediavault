@@ -54,7 +54,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.filesystemmgmt.resize",
+	"id": "rpc.filesystemmgmt.grow",
 	"params": {
 		"type": "object",
 		"properties": {

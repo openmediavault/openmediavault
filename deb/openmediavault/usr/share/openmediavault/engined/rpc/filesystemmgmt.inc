@@ -44,7 +44,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getMountCandidates");
 		$this->registerMethod("create");
 		$this->registerMethod("createBtrfs");
-		$this->registerMethod("resize");
+		$this->registerMethod("grow");
 		$this->registerMethod("setMountPoint");
 		$this->registerMethod("umount");
 		$this->registerMethod("hasFilesystem");
@@ -763,39 +763,40 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
-	 * Resize a file system.
+	 * Grow a file system.
 	 * @param params An array containing the following fields:
-	 *   \em id The UUID or block special device of the file system to resize.
+	 *   \em id The UUID or block special device of the file system to grow.
 	 * @param context The context of the caller.
 	 * @return void
 	 * @throw \OMV\Exception
 	 */
-	public function resize($params, $context) {
+	public function grow($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.filesystemmgmt.resize");
+		$this->validateMethodParams($params, "rpc.filesystemmgmt.grow");
 		// Get the file system backend.
 		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
 		$fsb = $fsbMngr->getBackendById($params['id']);
 		if (is_null($fsb)) {
-			throw new \OMV\Exception("No file system backend exists for '%s'.",
-			  $params['id']);
+			throw new \OMV\Exception(
+				"No file system backend exists for '%s'.",
+				$params['id']);
 		}
 		// Check if the file system supports online resizing.
 		if (!$fsb->hasResizeSupport()) {
 			throw new \OMV\Exception(
-			  "The file system '%s' (type=%s) does not support online resizing.",
-			  $params['id'], $fsb->getType());
+				"The file system '%s' (type=%s) does not support online resizing.",
+				$params['id'], $fsb->getType());
 		}
 		// Get the file system implementation.
 		$fs = $fsb->getImpl($params['id']);
 		if (is_null($fs) || !$fs->exists()) {
 			throw new \OMV\Exception(
-			  "Failed to get the '%s' file system implementation or '%s' ".
-			  "does not exist.", $fsb->getType(), $params['id']);
+				"Failed to get the '%s' file system implementation or '%s' ".
+				"does not exist.", $fsb->getType(), $params['id']);
 		}
 		// Grow the file system.
 		$fs->grow();
