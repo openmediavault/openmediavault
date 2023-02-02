@@ -72,7 +72,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 				}
 			} else {
 				// Initialize session.
-				$role = ("admin" === $permissions['role']) ?
+				$role = ("admin" == $permissions['role']) ?
 					OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER;
 				$session->initialize($params['username'], $role);
 			}

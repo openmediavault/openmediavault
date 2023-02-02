@@ -59,7 +59,7 @@ class DM extends BackendAbstract {
 
 	function getImpl($args) {
 		$sd = new \OMV\System\Storage\StorageDeviceDM($args);
-		if ("lvm" === $sd->getDeviceMapperSubsystem())
+		if ("lvm" == $sd->getDeviceMapperSubsystem())
 			return new \OMV\System\Storage\StorageDeviceLvm($args);
 		return new \OMV\System\Storage\StorageDeviceDM($args);
 	}

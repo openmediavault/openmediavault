@@ -125,7 +125,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 			$obj['state'] = !$state ? gettext("UNKNOWN") : $state;
 			$obj['link'] = $iface->getLink();
 			$obj['speed'] = !$speed ? -1 : $speed;
-			if ("vlan" === $obj['type']) {
+			if ("vlan" == $obj['type']) {
 				$obj['vlan'] = TRUE;
 				$obj['vlanid'] = $iface->getVlanId();
 			}

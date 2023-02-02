@@ -59,7 +59,7 @@ class Manager implements \IteratorAggregate {
 			// insert the storage device backend class to register.
 			$offset = FALSE;
 			foreach ($this->backends as $backendk => $backendv) {
-				if (("\OMV\System\Storage\Backend\BackendAbstract" === $parent) ||
+				if (("\OMV\System\Storage\Backend\BackendAbstract" == $parent) ||
 				  (FALSE === ($backendv instanceof $parent)))
 					continue;
 				$offset = $backendk;
