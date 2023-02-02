@@ -862,6 +862,26 @@ class Filesystem extends \OMV\System\BlockDevice
 	}
 
 	/**
+	 * Get the object of the class which implements the file system
+	 * for the given type.
+	 * @param string $type The file system type, e.g. 'btrfs' or 'ext4'.
+	 * @param string $id The UUID or device path of the filesystem, e.g.
+	 *   <ul>
+	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d
+	 *   \li /dev/sde1
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
+	 *   </ul>
+	 * @return The class object (which implements the interface
+	 *   OMV\System\Filesystem\FilesystemInterface), otherwise NULL.
+	 */
+	public static function getImplByType($type, $id) {
+		$mngr = Backend\Manager::getInstance();
+		if (NULL == ($backend = $mngr->getBackendByType($type)))
+			return NULL;
+		return $backend->getImpl($id);
+	}
+
+	/**
 	 * Get the object of the class which implements the filesystem
 	 * for the given mount point.
 	 * @param dir The file system path prefix, e.g. '/home/ftp/data'.
@@ -880,9 +900,7 @@ class Filesystem extends \OMV\System\BlockDevice
 		// Try to get the backend using the filesystem type. This has
 		// to be done especially when using union filesystems.
 		$info = $mp->getInfo();
-		$mngr = Backend\Manager::getInstance();
-		$backend = $mngr->getBackendByType($info['fstype']);
-		return $backend->getImpl($info['source']);
+		return self::getImplByType($info['fstype'], $info['source']);
 	}
 
 	/**
