@@ -401,4 +401,23 @@ class Btrfs extends Filesystem {
 		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
+
+	/**
+	 * Check if the specified path is a subvolume.
+	 * @param string $filename The path to check.
+	 * @return Returns TRUE if the specified path is a subvolume,
+	 *   otherwise FALSE.
+	 */
+	public static function isSubvolume($filename) {
+		$cmdArgs = [];
+		$cmdArgs[] = "subvolume";
+		$cmdArgs[] = "show";
+		$cmdArgs[] = escapeshellarg($filename);
+		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
+		$cmd->setQuiet(TRUE);
+		$cmd->execute($output, $exitStatus);
+		if ($exitStatus !== 0)
+			return FALSE;
+		return TRUE;
+	}
 }

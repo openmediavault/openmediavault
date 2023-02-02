@@ -884,4 +884,22 @@ class Filesystem extends \OMV\System\BlockDevice
 		$backend = $mngr->getBackendByType($info['fstype']);
 		return $backend->getImpl($info['source']);
 	}
+
+	/**
+	 * Get the file system type of the given path.
+	 * @param string $filename Path to the file.
+	 * @return The file system type in human readable form, e.g.
+	 *   `btrfs` or `ext2/ext3`, otherwise FALSE.
+	 */
+	public static function getTypeByPath($filename) {
+		$cmdArgs = [];
+		$cmdArgs[] = "--file-system";
+		$cmdArgs[] = "--format=%T";
+		$cmdArgs[] = escapeshellarg($filename);
+		$cmd = new \OMV\System\Process("stat", $cmdArgs);
+		$cmd->execute($output, $exitStatus);
+		if ($exitStatus !== 0)
+			return FALSE;
+		return $output[0];
+	}
 }
