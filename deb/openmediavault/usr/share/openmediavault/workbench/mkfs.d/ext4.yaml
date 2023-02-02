@@ -1,5 +1,5 @@
 version: "1.0"
 type: mkfs
 data:
-  text: "Ext4"
+  text: "EXT4"
   url: /storage/filesystems/ext4/create

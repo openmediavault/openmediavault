@@ -1,5 +1,5 @@
 version: "1.0"
 type: mkfs
 data:
-  text: "Btrfs"
+  text: "BTRFS"
   url: /storage/filesystems/btrfs/create
