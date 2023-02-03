@@ -156,7 +156,7 @@ export class SharedFolderPrivilegesDatatablePageComponent {
     ],
     buttons: [
       {
-        text: gettext('Cancel'),
+        template: 'cancel',
         url: '/storage/shared-folders'
       },
       {

@@ -91,7 +91,7 @@ export class GroupPrivilegesDatatablePageComponent {
     },
     buttons: [
       {
-        text: gettext('Cancel'),
+        template: 'cancel',
         url: '/usermgmt/groups'
       },
       {
