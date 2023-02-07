@@ -1,16 +1,18 @@
 <div class="omv-navigation-page"
      gdGap="12px"
      gdColumns="repeat(auto-fit, minmax(150px, 1fr))">
-  <div *ngFor="let item of menuItems">
-    <mat-card mat-ripple
-              fxLayout="column"
-              fxLayoutAlign="center center"
-              (click)="onClick(item)">
-      <mat-icon *ngIf="item.icon"
-                svgIcon="{{ item.icon }}"></mat-icon>
-      <div class="omv-text-center omv-text-truncate omv-w-100">
-        {{ item.text | transloco }}
-      </div>
-    </mat-card>
-  </div>
+  <mat-card *ngFor="let item of menuItems"
+            mat-ripple
+            fxLayout="column"
+            fxLayoutAlign="center center"
+            tabindex="0"
+            (keyup.space)="onClick(item)"
+            (keyup.enter)="onClick(item)"
+            (click)="onClick(item)">
+    <mat-icon *ngIf="item.icon"
+              svgIcon="{{ item.icon }}"></mat-icon>
+    <div class="omv-text-center omv-text-truncate omv-w-100">
+      {{ item.text | transloco }}
+    </div>
+  </mat-card>
 </div>
