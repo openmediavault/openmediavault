@@ -24,6 +24,9 @@
            [class]="button.class"
            mat-ripple
            [matTooltip]="button.tooltip | transloco"
+           tabindex="0"
+           (keyup.space)="button.click && button.click(button)"
+           (keyup.enter)="button.click && button.click(button)"
            (click)="button.click && button.click(button)">
         <mat-icon svgIcon="{{ button.icon }}"></mat-icon>
       </div>
