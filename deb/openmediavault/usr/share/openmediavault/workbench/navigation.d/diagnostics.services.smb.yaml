@@ -2,7 +2,6 @@ version: "1.0"
 type: navigation-item
 data:
   path: "diagnostics.services.smb"
-  position: 20
   text: _("SMB/CIFS")
   icon: smb
   url: "/diagnostics/services/smb"

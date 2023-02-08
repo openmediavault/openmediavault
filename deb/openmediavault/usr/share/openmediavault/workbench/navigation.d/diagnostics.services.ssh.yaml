@@ -2,7 +2,6 @@ version: "1.0"
 type: navigation-item
 data:
   path: "diagnostics.services.ssh"
-  position: 30
   text: _("SSH")
   icon: ssh
   url: "/diagnostics/services/ssh"

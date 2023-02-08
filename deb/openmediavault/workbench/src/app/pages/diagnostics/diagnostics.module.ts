@@ -12,7 +12,6 @@ import { PerformanceStatisticNetworkRrdPageComponent } from '~/app/pages/diagnos
 import { PerformanceStatisticUptimeRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-uptime-rrd-page.component';
 import { ProcessesTextPageComponent } from '~/app/pages/diagnostics/processes/processes-text-page.component';
 import { ReportTextPageComponent } from '~/app/pages/diagnostics/report/report-text-page.component';
-import { ServiceFtpTextPageComponent } from '~/app/pages/diagnostics/services/service-ftp-text-page.component';
 import { ServiceSmbTextPageComponent } from '~/app/pages/diagnostics/services/service-smb-text-page.component';
 import { ServiceSshTextPageComponent } from '~/app/pages/diagnostics/services/service-ssh-text-page.component';
 import { SystemInformationDatatablePageComponent } from '~/app/pages/diagnostics/system-information/system-information-datatable-page.component';
@@ -33,7 +32,6 @@ import { SystemLogsRemoteFormPageComponent } from '~/app/pages/diagnostics/syste
     PerformanceStatisticNetworkRrdPageComponent,
     PerformanceStatisticUptimeRrdPageComponent,
     ServiceSmbTextPageComponent,
-    ServiceFtpTextPageComponent,
     ServiceSshTextPageComponent
   ],
   imports: [CommonModule, CoreModule, DiagnosticsRoutingModule]

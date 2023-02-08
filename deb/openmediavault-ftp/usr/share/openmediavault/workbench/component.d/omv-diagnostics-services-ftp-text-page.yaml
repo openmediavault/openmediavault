@@ -1,0 +1,11 @@
+version: "1.0"
+type: component
+data:
+  name: omv-diagnostics-services-ftp-text-page
+  type: textPage
+  config:
+    hasReloadButton: true
+    request:
+      service: FTP
+      get:
+        method: getStats

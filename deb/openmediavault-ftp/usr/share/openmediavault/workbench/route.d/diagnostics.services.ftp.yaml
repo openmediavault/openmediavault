@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/diagnostics/services/ftp"
+  title: _("FTP")
+  component: omv-diagnostics-services-ftp-text-page
