@@ -21,6 +21,7 @@ import { SharedFolderAclFormPageComponent } from '~/app/pages/storage/shared-fol
 import { SharedFolderDatatablePageComponent } from '~/app/pages/storage/shared-folders/shared-folder-datatable-page.component';
 import { SharedFolderFormPageComponent } from '~/app/pages/storage/shared-folders/shared-folder-form-page.component';
 import { SharedFolderPrivilegesDatatablePageComponent } from '~/app/pages/storage/shared-folders/shared-folder-privileges-datatable-page.component';
+import { SharedFolderSnapshotsDatatablePageComponent } from '~/app/pages/storage/shared-folders/shared-folder-snapshots-datatable-page.component';
 import { SmartDeviceDatatablePageComponent } from '~/app/pages/storage/smart/smart-device-datatable-page.component';
 import { SmartDeviceDetailsTabsPageComponent } from '~/app/pages/storage/smart/smart-device-details-tabs-page.component';
 import { SmartDeviceFormPageComponent } from '~/app/pages/storage/smart/smart-device-form-page.component';
@@ -50,6 +51,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     MdRecoverFormPageComponent,
     SharedFolderFormPageComponent,
     SharedFolderPrivilegesDatatablePageComponent,
+    SharedFolderSnapshotsDatatablePageComponent,
     FilesystemEditFormPageComponent,
     FilesystemMountFormPageComponent,
     FilesystemQuotaDatatablePageComponent,

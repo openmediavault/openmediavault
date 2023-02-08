@@ -138,6 +138,20 @@ export class SharedFolderDatatablePageComponent {
         }
       },
       {
+        type: 'iconButton',
+        icon: 'mdi:camera',
+        tooltip: gettext('Snapshots'),
+        enabledConstraints: {
+          minSelected: 1,
+          maxSelected: 1,
+          constraint: [{ operator: 'truthy', arg0: { prop: 'snapshots' } }]
+        },
+        execute: {
+          type: 'url',
+          url: '/storage/shared-folders/snapshots/{{ _selected[0].uuid }}'
+        }
+      },
+      {
         template: 'delete',
         enabledConstraints: {
           constraint: [

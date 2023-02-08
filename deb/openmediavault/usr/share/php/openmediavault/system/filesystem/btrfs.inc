@@ -404,20 +404,170 @@ class Btrfs extends Filesystem {
 
 	/**
 	 * Check if the specified path is a subvolume.
-	 * @param string $filename The path to check.
+	 * @param string $path The path to check.
 	 * @return Returns TRUE if the specified path is a subvolume,
 	 *   otherwise FALSE.
 	 */
-	public static function isSubvolume($filename) {
+	public static function isSubvolume($path) {
 		$cmdArgs = [];
 		$cmdArgs[] = "subvolume";
 		$cmdArgs[] = "show";
-		$cmdArgs[] = escapeshellarg($filename);
+		$cmdArgs[] = escapeshellarg($path);
 		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
 		if ($exitStatus !== 0)
 			return FALSE;
 		return TRUE;
+	}
+
+	/**
+	 * Get information about the specified subvolume.
+	 * @param string $path The path of the subvolume.
+	 * @return Returns an array containing the subvolume information,
+	 *   otherwise FALSE.
+	 */
+	public static function getSubvolumeInfo($path) {
+		$cmdArgs = [];
+		$cmdArgs[] = "subvolume";
+		$cmdArgs[] = "show";
+		$cmdArgs[] = escapeshellarg($path);
+		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
+		$cmd->setQuiet(TRUE);
+		$cmd->execute($output, $exitStatus);
+		if ($exitStatus !== 0)
+			return FALSE;
+		$result = [];
+		// Parse the output:
+		//
+		// test01
+		//     Name:            test01
+		//     UUID:            9b0fa98a-c1aa-934a-83c7-e48ec4d806db
+		//     Parent UUID:     -
+		//     Received UUID:   -
+		//     Creation time:   2023-02-01 16:12:53 +0300
+		//     Subvolume ID:    259
+		//     Generation:      32
+		//     Gen at creation: 12
+		//     Parent ID:       5
+		//     Top level ID:    5
+		//     Flags:           -
+		//     Snapshot(s):
+		//                      .snapshots/test01-foo-bar
+		foreach ($output as $outputk => $outputv) {
+			$regex = "/^\s+([\w ]+):\s+(.+)$/";
+			if (1 !== preg_match($regex, $outputv, $matches)) {
+				continue;
+			}
+			$key = strtolower(str_replace(" ", "_", $matches[1]));
+			$result[$key] = $matches[2];
+		}
+		return $result;
+	}
+
+	/**
+	 * Create a subvolume.
+	 * @param string $path The path of the subvolume.
+	 */
+	public static function createSubvolume($path) {
+		$cmdArgs = [];
+		$cmdArgs[] = "subvolume";
+		$cmdArgs[] = "create";
+		$cmdArgs[] = escapeshellarg($path);
+		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
+		$cmd->execute();
+	}
+
+	/**
+	 * Delete a subvolume.
+	 * @param string $path The path of the subvolume.
+	 */
+	public static function deleteSubvolume($path) {
+		$cmdArgs = [];
+		$cmdArgs[] = "subvolume";
+		$cmdArgs[] = "delete";
+		$cmdArgs[] = "--verbose";
+		$cmdArgs[] = escapeshellarg($path);
+		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
+		$cmd->execute();
+	}
+
+	/**
+	 * Get a list of snapshots for the specified subvolume.
+	 * @param string $path The path of the subvolume.
+	 * @return Returns a list of snapshots.
+	 */
+	public static function listSnapshots($path) {
+		$cmdArgs = [];
+		$cmdArgs[] = "subvolume";
+		$cmdArgs[] = "list";
+		$cmdArgs[] = "-s";
+		$cmdArgs[] = "-q";
+		$cmdArgs[] = "-u";
+		$cmdArgs[] = escapeshellarg($path);
+		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
+		$cmd->execute($output);
+		$result = [];
+		// Parse the output:
+		//
+		// ID 262 gen 32 cgen 32 top level 5 otime 2023-02-02 15:01:14 parent_uuid 9b0fa98a-c1aa-934a-83c7-e48ec4d806db uuid d1cad0c2-10f7-8441-a978-c5e1c6ecf40b path .snapshots/test01-foo-bar
+		foreach ($output as $outputk => $outputv) {
+			$regex = "/^ID (\d+) gen (\d+) cgen (\d+) top level (\d+) otime (.+) parent_uuid (.+) uuid (.+) path (.+)$/";
+			if (1 !== preg_match($regex, $outputv, $matches)) {
+				continue;
+			}
+			$result[] = [
+				"id" => $matches[1],
+				"gen" => $matches[2],
+				"cgen" => $matches[3],
+				"top_level" => $matches[4],
+				"otime" => $matches[5],
+				"parent_uuid" => $matches[6],
+				"uuid" => $matches[7],
+				"path" => $matches[8],
+				"name" => basename($matches[8])
+			];
+		}
+		return $result;
+	}
+
+	/**
+	 * Create a snapshot of the specified subvolume.
+	 * @param string $path The path of the subvolume.
+	 * @param string $target The path where the snapshot is stored.
+	 * @param bool $readOnly Make the new snapshot readonly.
+	 *   Defaults to FALSE.
+	 * @return void
+	 */
+	public static function createSnapshot($path, $target, $readOnly = FALSE) {
+		$cmdArgs = [];
+		$cmdArgs[] = "subvolume";
+		$cmdArgs[] = "snapshot";
+		if (TRUE === $readOnly) {
+			$cmdArgs[] = "-r";
+		}
+		$cmdArgs[] = escapeshellarg($path);
+		$cmdArgs[] = escapeshellarg($target);
+		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
+		$cmd->execute();
+	}
+
+	/**
+	 * Delete a snapshot of a specified subvolume.
+	 * @param string $path The path of the subvolume.
+	 * @param string|int $id The ID of the subvolume. Defaults to NULL.
+	 * @return void
+	 */
+	public static function deleteSnapshot($path, $id = NULL) {
+		$cmdArgs = [];
+		$cmdArgs[] = "subvolume";
+		$cmdArgs[] = "delete";
+		if (!is_null($id)) {
+			$cmdArgs[] = "--subvolid";
+			$cmdArgs[] = $id;
+		}
+		$cmdArgs[] = escapeshellarg($path);
+		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
+		$cmd->execute();
 	}
 }

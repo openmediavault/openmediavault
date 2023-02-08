@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-01 12:18+0100\n"
+"POT-Creation-Date: 2023-02-08 23:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -798,6 +798,9 @@ msgid "Created wired network connection."
 msgstr ""
 
 msgid "Created wireless network connection."
+msgstr ""
+
+msgid "Creation Time"
 msgstr ""
 
 msgid "Croatia"
@@ -2105,6 +2108,9 @@ msgstr ""
 msgid "Parent Device"
 msgstr ""
 
+msgid "Parent UUID"
+msgstr ""
+
 msgid "Parent device"
 msgstr ""
 
@@ -2447,9 +2453,6 @@ msgstr ""
 msgid "Reset UI to defaults"
 msgstr ""
 
-msgid "Resize"
-msgstr ""
-
 msgid "Result"
 msgstr ""
 
@@ -2738,6 +2741,9 @@ msgstr ""
 msgid "Seychelles"
 msgstr ""
 
+msgid "Share"
+msgstr ""
+
 msgid "Shared Folders"
 msgstr ""
 
@@ -2799,6 +2805,9 @@ msgid "Slovakia"
 msgstr ""
 
 msgid "Slovenia"
+msgstr ""
+
+msgid "Snapshots"
 msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."
@@ -3122,6 +3131,9 @@ msgstr ""
 msgid "The shared folder from which the privileges are copied."
 msgstr ""
 
+msgid "The shared folder {{ _selected[0].name }} was successfully created."
+msgstr ""
+
 msgid "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or rsync://[USER@]HOST[:PORT]/SRC."
 msgstr ""
 
@@ -3354,6 +3366,9 @@ msgid "UID"
 msgstr ""
 
 msgid "UNKNOWN"
+msgstr ""
+
+msgid "UUID"
 msgstr ""
 
 msgid "Uganda"

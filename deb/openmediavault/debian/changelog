@@ -4,6 +4,15 @@ openmediavault (6.3.0-1) stable; urgency=low
     file systems to the file system creation page in the UI.
   * Enhance the BTRFS file system creation page by adding support
     of profiles to create various RAID levels.
+  * Issue #1241: Use BTRFS subvolumes for shared folders on BTRFS
+    file systems. Snapshots can be created per shared folder.
+    The snapshot management UI allows to create and delete those
+    snapshots. A restore feature has not been implemented by
+    intention because those shared folders need to be unreferenced
+    from every service beforehand. Instead a shared folders should
+    be created from these snapshots, which is a less error-prone
+    approach. The snapshots are stored in the `.snapshots` folder
+    in the root subvolume of the BTRFS file system.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 31 Jan 2023 12:31:57 +0100
 
