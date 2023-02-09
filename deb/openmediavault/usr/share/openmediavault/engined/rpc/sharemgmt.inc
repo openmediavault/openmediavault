@@ -1391,7 +1391,8 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			"reldirpath" => $snapshots[0]['path'],
 			"mntentref" => $meObject->get("uuid"),
 			"mode" => decoct($stat['mode'] & 000777),
-			"privileges" => $sfObject->get("privileges"),
+			"privileges" => $sfObject->isEmpty("privileges") ?
+				[] : $sfObject->get("privileges"),
 			"comment" => "Snapshot"
 		], $context);
 	}

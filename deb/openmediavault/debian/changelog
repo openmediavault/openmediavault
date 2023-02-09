@@ -1,4 +1,4 @@
-openmediavault (6.3.0-1) stable; urgency=low
+openmediavault (6.3.0-2) stable; urgency=low
 
   * Add an infrastructure to allow plugins to append additional
     file systems to the file system creation page in the UI.
