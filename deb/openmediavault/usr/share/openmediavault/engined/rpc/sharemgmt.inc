@@ -1252,12 +1252,14 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				$sfObject->get("name"));
 		}
 		// Build the target of the snapshot. This includes the name of
-		// the shared folder + the current time in ISO 8601 format.
+		// the shared folder + the current time in ISO 8601 format
+		// (without time zone designator).
 		// Make sure the `.snapshots` directory/subvolume exists.
 		$snapshotsDir = build_path(DIRECTORY_SEPARATOR,
 			$meObject->get("dir"), ".snapshots");
 		$snapshotPath = build_path(DIRECTORY_SEPARATOR, $snapshotsDir,
-			sprintf("%s_%s", $sfObject->get("name"), date('c')));
+			sprintf("%s_%s", $sfObject->get("name"),
+			date('Y-m-d\TH:i:s')));
 		if (FALSE === is_dir($snapshotsDir)) {
 			$fs->createSubvolume($snapshotsDir);
 		}

@@ -27,13 +27,16 @@
 {%- set fruit_veto_appledouble = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_VETOAPPLEDOUBLE', 'no') -%}
 {%- set fruit_wipe_intentionally_left_blank_rfork = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_WIPEINTENTIONALLYLEFTBLANKRFORK', 'yes') -%}
 {%- set fruit_delete_empty_adfiles = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_DELETEEMPTYADFILES', 'yes') -%}
+{%- set shadow_sort = salt['pillar.get']('default:OMV_SAMBA_SHARE_SHADOW_SORT', 'desc') -%}
 #======================= Share Definitions =======================
 {%- for share in config.shares.share | selectattr('enable') %}
-[{{ salt['omv_conf.get_sharedfolder_name'](share.sharedfolderref) }}]
+{%- set sf_name = salt['omv_conf.get_sharedfolder_name'](share.sharedfolderref) %}
+{%- set sf_path = salt['omv_conf.get_sharedfolder_path'](share.sharedfolderref) %}
+[{{ sf_name }}]
 {%- if share.comment | length > 0 %}
 comment = {{ share.comment }}
 {%- endif %}
-path = {{ salt['omv_conf.get_sharedfolder_path'](share.sharedfolderref) }}
+path = {{ sf_path }}
 guest ok = {{ (share.guest != 'no') | yesno }}
 guest only = {{ (share.guest == 'only') | yesno }}
 read only = {{ share.readonly | to_bool | yesno }}
@@ -80,6 +83,13 @@ recycle:maxsize = {{ share.recyclemaxsize }}
 {%- endif %}
 {%- if share.sharedfolderref | omv_conf_get_by_identifier('conf.system.sharedfolder') | attr('mntentref') | omv_conf_get_by_identifier('conf.system.filesystem.mountpoint') | attr('type') == 'btrfs' %}
 {%- set _ = vfs_objects.append('btrfs') %}
+{%- set _ = vfs_objects.append('shadow_copy2') %}
+shadow:mountpoint = {{ salt['omv_conf.get_sharedfolder_mount_path'](share.sharedfolderref) }}
+shadow:snapdir = .snapshots
+shadow:basedir = {{ sf_path }}
+shadow:sort = {{ shadow_sort }}
+shadow:format = {{ sf_name }}_%FT%T
+shadow:localtime = yes
 {%- endif %}
 vfs objects = {{ vfs_objects | unique | join(' ') }}
 printable = {{ printable }}

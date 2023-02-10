@@ -13,6 +13,8 @@ openmediavault (6.3.0-2) stable; urgency=low
     be created from these snapshots, which is a less error-prone
     approach. The snapshots are stored in the `.snapshots` folder
     in the root subvolume of the BTRFS file system.
+  * Issue #1490: Support SMB shadow copies for shared folders that
+    are located on a BTRFS file system.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 31 Jan 2023 12:31:57 +0100
 
