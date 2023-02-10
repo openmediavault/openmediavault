@@ -194,7 +194,7 @@
     <mat-icon class="omv-icon-sm omv-cursor-pointer omv-ml-q"
               svgIcon="{{ icon.copy }}"
               matTooltip="{{ 'Copy to clipboard' | transloco }}"
-              (click)="onCopyToClipboard(value)">
+              (click)="onCopyToClipboard($event, value)">
     </mat-icon>
   </ng-container>
 </ng-template>

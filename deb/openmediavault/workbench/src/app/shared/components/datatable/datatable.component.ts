@@ -383,7 +383,8 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     this.updateColumns();
   }
 
-  onCopyToClipboard(value: any): void {
+  onCopyToClipboard(event: Event, value: any): void {
+    event.stopPropagation();
     this.clipboardService.copy(value);
   }
 
