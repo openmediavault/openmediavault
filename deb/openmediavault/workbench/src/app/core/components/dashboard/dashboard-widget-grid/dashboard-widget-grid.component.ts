@@ -16,10 +16,12 @@
  * GNU General Public License for more details.
  */
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 
 import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/dashboard-widget-config.model';
+import { formatDeep, isFormatable } from '~/app/functions.helper';
 import { DataStoreResponse, DataStoreService } from '~/app/shared/services/data-store.service';
 
 @Component({
@@ -33,7 +35,7 @@ export class DashboardWidgetGridComponent implements OnInit {
 
   public data: DataStoreResponse;
 
-  constructor(private dataStoreService: DataStoreService) {}
+  constructor(private dataStoreService: DataStoreService, private router: Router) {}
 
   ngOnInit(): void {
     this.sanitizeConfig();
@@ -45,6 +47,13 @@ export class DashboardWidgetGridComponent implements OnInit {
 
   public dataChanged(data: DataStoreResponse): void {
     this.data = data;
+  }
+
+  public onClick(data: Record<any, any>): void {
+    if (isFormatable(this.config.grid?.item.url)) {
+      const url = formatDeep(this.config.grid.item.url, data);
+      this.router.navigate([url]);
+    }
   }
 
   protected sanitizeConfig() {

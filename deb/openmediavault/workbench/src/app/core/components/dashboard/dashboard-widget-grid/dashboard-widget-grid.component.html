@@ -10,7 +10,10 @@
          [ngClass]="config.grid?.item.class | template:item"
          matTooltipClass="omv-text-wrap-line"
          [matTooltip]="config.grid?.item.tooltip | template:item | br2nl | preventHtml"
-         [routerLink]="config.grid?.item.url | template:item">
+         [tabIndex]="config.grid?.item.url ? '0' : '-1'"
+         (keyup.space)="onClick(item)"
+         (keyup.enter)="onClick(item)"
+         (click)="onClick(item)">
       <div *ngIf="config.grid?.item.title"
            class="title omv-font-weight-bold"
            [ngClass]="config.grid?.item.titleClass | template:item"
