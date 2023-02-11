@@ -4,17 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Артур Мудрых <arturmon82@gmail.com>, 2017
+# Артур Мудрых <arturmon82@gmail.com>, 2022
+# Artem Raspopov <raspopov@gmail.com>, 2022
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-snmp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 20:46+0200\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
-"Last-Translator: Артур Мудрых <arturmon82@gmail.com>, 2017\n"
-"Language-Team: Russian (Russia) (https://www.transifex.com/votdev/teams/14254/ru_RU/)\n"
+"Last-Translator: Artem Raspopov <raspopov@gmail.com>, 2022\n"
+"Language-Team: Russian (Russia) (https://www.transifex.com/openmediavault/teams/14254/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,14 +47,11 @@ msgstr ""
 "Контактная информация, например. имя или адрес электронной почты лица, "
 "ответственного за эту систему."
 
-msgid "Enable"
-msgstr "Включить"
+msgid "Enabled"
+msgstr "Включено"
 
 msgid "Extra options"
 msgstr "Дополнительные опции"
-
-msgid "General settings"
-msgstr "Общие параметры"
 
 msgid "Host"
 msgstr "Хост"
@@ -89,13 +87,13 @@ msgstr "SNMP версия 3"
 msgid "Security level"
 msgstr "Уровень безопасности"
 
-msgid "Settings"
-msgstr "Настройки"
-
 msgid "Traps"
 msgstr "Ловушки"
 
-msgid "Username"
+msgid "Updated SNMP settings."
+msgstr ""
+
+msgid "User name"
 msgstr "Имя пользователя"
 
 msgid "Version"

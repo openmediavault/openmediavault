@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 21:35+0100\n"
+"POT-Creation-Date: 2023-02-08 23:14+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2014-2023\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2023\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,9 +50,6 @@ msgstr "%s [-n %s, %s]"
 
 msgid "%s ago"
 msgstr "%s előtt"
-
-msgid "0 KiB/s means unlimited."
-msgstr "0 kB/s korlátlan."
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Minimális energiahasználat készenléti állapotban (leállítás)"
@@ -243,9 +240,6 @@ msgstr "Legfeljebb egy eszköz távolítható el. "
 msgid "A maximum of two device can be removed."
 msgstr "Legfeljebb két eszköz távolítható el. "
 
-msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr "Nagy teljesítményű moduláris FTP/SFTP/FTPS kiszolgáló."
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -340,9 +334,6 @@ msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr "Az engedélyezett kliensek megpróbálják tárolni az OS/2 állapotú kiterjesztett attribútumokat a megosztásban."
 
-msgid "Allow clients to resume interrupted uploads and downloads."
-msgstr "Megszakadt feltöltések és letöltések folytatásának engedélyezése a kliensek számára."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
 msgstr "Szerver közzétételének engedélyezése mint idő szerver, Windows klienseken"
@@ -377,9 +368,6 @@ msgstr "Angola"
 
 msgid "Anguilla"
 msgstr "Anguilla"
-
-msgid "Anonymous FTP"
-msgstr "Névtelen FTP"
 
 msgid "Antarctica"
 msgstr "Antarktika"
@@ -419,6 +407,9 @@ msgstr "Aszinkron I/O"
 
 msgid "At least four devices are required."
 msgstr "Legalább négy eszközre van szükség."
+
+msgid "At least one device is required."
+msgstr "Legalább egy eszköz szükséges."
 
 msgid "At least one network interface is required."
 msgstr "Legalább egy hálózati interfészre van szükség."
@@ -480,9 +471,6 @@ msgstr "Elérhető"
 msgid "Azerbaijan"
 msgstr "Azerbajdzsán"
 
-msgid "BTRFS"
-msgstr "BTRFS"
-
 msgid "Back"
 msgstr "Vissza"
 
@@ -497,15 +485,6 @@ msgstr "Bahamák"
 
 msgid "Bahrain"
 msgstr "Bahrein "
-
-msgid "Ban Rules"
-msgstr "Tiltási szabályok"
-
-msgid "Ban statistics:"
-msgstr "Kitiltás statisztika:"
-
-msgid "Bandwidth restriction"
-msgstr "Sávszélesség korlátozás"
 
 msgid "Bangladesh"
 msgstr "Banglades"
@@ -789,23 +768,14 @@ msgstr "Ország"
 msgid "Create"
 msgstr "Létrehozás"
 
-msgid "Create a new file system."
-msgstr "Új fájlrendszer létrehozása."
+msgid "Create and mount a file system."
+msgstr "Új fájlrendszer létrehozása és csatolása."
 
 msgid "Create file system"
 msgstr "Fájlrendszer létrehozása"
 
 msgid "Create | Import"
 msgstr "Létrehozás | Importálás"
-
-msgid "Create | Mount"
-msgstr "Létrehozás | Csatolás"
-
-msgid "Created FTP ban rule."
-msgstr "FTP tiltási szabály létrehozva."
-
-msgid "Created FTP share."
-msgstr "FTP megosztás létrehozva."
 
 msgid "Created NFS share."
 msgstr "NFS megosztás létrehozva."
@@ -852,6 +822,9 @@ msgstr "vezetékes hálózati kapcsolat létrehozva."
 msgid "Created wireless network connection."
 msgstr "Vezeték nélküli hálózati kapcsolat létrehozva."
 
+msgid "Creation Time"
+msgstr "Létrehozás ideje"
+
 msgid "Croatia"
 msgstr "Horvátország"
 
@@ -860,9 +833,6 @@ msgstr "Kuba"
 
 msgid "Currently logged in users"
 msgstr "Jelenleg bejelentkezett felhasználók"
-
-msgid "Currently logged in users:"
-msgstr "Jelenleg bejelentkezett felhasználók:"
 
 msgid "Cyprus"
 msgstr "Ciprus"
@@ -911,9 +881,6 @@ msgstr "Fájlok törlése a fogadó oldalon, ha a feladó nem létezik."
 
 msgid "Denmark"
 msgstr "Dánia"
-
-msgid "Deny logins which do not have a valid shell."
-msgstr "Bejelentkezések tiltása, ha nincs érvényes parancsértelmező"
 
 msgid "Description"
 msgstr "Leírás"
@@ -998,9 +965,6 @@ msgstr "Elutasítás"
 
 msgid "Dismiss all"
 msgstr "Összes elutasítása"
-
-msgid "Display the home directory of the user in the browse list."
-msgstr "Felhasználó saját könyvtárának megjelenítése a böngészési listában."
 
 msgid "Displays information about the file systems in a grid."
 msgstr "Rácsos formában jeleníti meg a fájlrendszerek információt."
@@ -1116,12 +1080,6 @@ msgstr "Letöltés"
 msgid "Dronning Maud Land"
 msgstr "Maud királyné föld"
 
-msgid "EXT3"
-msgstr "EXT3"
-
-msgid "EXT4"
-msgstr "EXT4"
-
 msgid "Each line represents a group."
 msgstr "Minden sor egy csoportot jelent."
 
@@ -1151,9 +1109,6 @@ msgstr "E-mail"
 msgid "Empty now"
 msgstr "Ürítés most"
 
-msgid "Enable SSL/TLS connections."
-msgstr "SSL/TLS kapcsolatok engedélyezése."
-
 msgid "Enable Time Machine support for this share."
 msgstr "Time Machine támogatás bekapcsolása ehhez a megosztáshoz."
 
@@ -1171,12 +1126,6 @@ msgstr "Lomtár engedélyezése"
 
 msgid "Enable remote logging of syslog to the specified host."
 msgstr "Távoli naplózás engedélyezése egy meghatározott kiszolgálóra."
-
-msgid ""
-"Enable reverse DNS lookup performed on the remote host's IP address for "
-"incoming active mode data connections and outgoing passive mode data "
-"connections."
-msgstr "Fordított DNS lekérdezés végrehajtásának engedélyezése a távoli hoszt IP címének a bejövő aktív módú adatkapcsolataira és kimenő passzív módú adatkapcsolataira."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -1216,9 +1165,6 @@ msgstr "Ethernet"
 msgid "Ethiopia"
 msgstr "Etiópia"
 
-msgid "Event"
-msgstr "Esemény"
-
 msgid "Every N day of month"
 msgstr "Minden \"x\" napon a hónapban"
 
@@ -1234,9 +1180,6 @@ msgstr "Mindenki: olvasás/írás"
 msgid "Execute only"
 msgstr "Csak végrehajtás"
 
-msgid "Expire"
-msgstr "Lejárat"
-
 msgid "Extended Information"
 msgstr "További információ"
 
@@ -1246,9 +1189,6 @@ msgstr "Kiterjesztett attribútumok"
 msgid "Extra options"
 msgstr "További beállítások"
 
-msgid "F2FS"
-msgstr "F2FS"
-
 msgid "FTP"
 msgstr "FTP"
 
@@ -1257,14 +1197,6 @@ msgstr "FTP - átviteli napló"
 
 msgid "FTP-Proxy"
 msgstr "FTP-Proxy"
-
-msgid "FXP"
-msgstr "FXP"
-
-msgid ""
-"FXP allows transfers between two remote servers without any file data going "
-"to the client asking for the transfer."
-msgstr "FXP lehetővé teszi az átvitelt két távoli szerver között anélkül, hogy az adatfájl átvitelét a kliensnek is kérnie kellene."
 
 msgid "Failed"
 msgstr "Nem sikerült"
@@ -1536,9 +1468,6 @@ msgstr "IPv6"
 msgid "Iceland"
 msgstr "Izland"
 
-msgid "Ident protocol"
-msgstr "Azonosító protokoll"
-
 msgid "Identify"
 msgstr "Azonosítás"
 
@@ -1588,16 +1517,6 @@ msgid ""
 "share."
 msgstr "Ha ez a paraméter aktív, akkor a felhasználók nem hozhatnak létre vagy nem módosíthatnak fájlokat a megosztásban. "
 
-msgid ""
-"If your host is acting as a NAT gateway or port forwarder for the server, "
-"this option is useful in order to allow passive tranfers to work. You have "
-"to use your public address and opening the passive ports used on your "
-"firewall as well."
-msgstr "Ha a hoszt úgy működik mint egy NAT átjáró vagy port továbbító a szerveren, akkor ez az az opció, ami hasznos, hogy a megengedett passzív átvitelek jól működjenek. Ehhez a nyilvános címét kell használnia és passzív portokat kell nyitni rajta, hogy jól használható legyen tűzfalon keresztül is."
-
-msgid "Implicit SSL"
-msgstr "Közvetett SSL"
-
 msgid "Import"
 msgstr "Importálás"
 
@@ -1612,17 +1531,6 @@ msgstr "Csoportok importálva."
 
 msgid "Imported users."
 msgstr "Felhasználók importálva."
-
-msgid ""
-"In some cases you have to specify passive ports range to by-pass firewall "
-"limitations. Passive ports restricts the range of ports from which the "
-"server will select when sent the PASV command from a client. The server will"
-" randomly choose a number from within the specified range until an open port"
-" is found. The port range selected must be in the non-privileged range (eg. "
-"greater than or equal to 1024). It is strongly recommended that the chosen "
-"range be large enough to handle many simultaneous passive connections (for "
-"example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "Egyes esetekben passzív port tartományokat kell megadnia a tűzfal korlátozások kikerüléséhez. A passzív portok korlátozhatják a portok tartományát, melyből a szerver válogathat, mikor a kliens elküldi a PASV parancsot. A szerver véletlenszerűen választ egy portot a tartományból addig, amíg nyitott portot nem talál. A kiválasztott port tartománynak nem privilegizált tartománynak kell lennie (pl. nagyobb vagy egyenlő mint 1024). Erősen ajánlott olyan nagy tartomány választása, mely elég nagy több passzív kapcsolat egyidejű használatához (például: 49152-65534, az IANA-regisztrált rövid idejű port tartomány)."
 
 msgid "India"
 msgstr "India"
@@ -1723,9 +1631,6 @@ msgstr "Olaszország"
 
 msgid "Ivory Coast"
 msgstr "Elefántcsontpart"
-
-msgid "JFS"
-msgstr "JFS"
 
 msgid "Jamaica"
 msgstr "Jamaika"
@@ -1921,9 +1826,6 @@ msgstr "Marshall-szigetek"
 msgid "Martinique"
 msgstr "Martinique"
 
-msgid "Masquerade address"
-msgstr "Maszkolási cím"
-
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
@@ -1940,50 +1842,17 @@ msgstr "Mauritánia"
 msgid "Mauritius"
 msgstr "Mauritius"
 
-msgid "Max. clients"
-msgstr "Kliensek max. száma"
-
 msgid "Max. connections"
 msgstr "Kapcsolatok max. száma"
-
-msgid "Max. connections per host"
-msgstr "Max. kapcsolat hosztonként"
-
-msgid "Max. login attempts"
-msgstr "Max. bejelentkezési kísérlet"
-
-msgid "Max. passive port"
-msgstr "Max. passzív port"
 
 msgid "Maximum"
 msgstr "Maximum"
 
-msgid "Maximum download rate (KiB/s)"
-msgstr "Maximális letöltési sebesség (KB/s)"
-
 msgid "Maximum file size"
 msgstr "Maximális fájlméret "
 
-msgid ""
-"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
-"timer completely (clients can stay connected for ever, without sending "
-"data)."
-msgstr "Maximális készenléti idő másodpercben. A 0 beállítás teljesen leállítja a készenléti időmérőt (a kliensek bármeddig kapcsolódva lehetnek anélkül , hogy adatot küldenének)."
-
-msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "Jelszavas kísérletek maximális számának engedélyezése szétkapcsolás előtt."
-
-msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "Kapcsolatok/IP maximális száma (0 = végtelen)."
-
-msgid "Maximum number of simultaneous clients."
-msgstr "Egyidejűleg bejelentkezett kliensek maximális száma."
-
 msgid "Maximum performance, maximum acoustic output"
 msgstr "Maximális teljesítmény, maximális zajszint"
-
-msgid "Maximum upload rate (KiB/s)"
-msgstr "Maximális feltöltési sebesség (KB/s)"
 
 msgid "May"
 msgstr "Május"
@@ -2023,9 +1892,6 @@ msgstr "Mikronézia"
 
 msgid "Midway Islands"
 msgstr "Midway-szigetek"
-
-msgid "Min. passive port"
-msgstr "Min. passzív port"
 
 msgid "Minimum"
 msgstr "Minimum"
@@ -2177,9 +2043,6 @@ msgstr "Nincsenek kapcsolatok"
 msgid "No data to display."
 msgstr "Nincs megjeleníthető adat."
 
-msgid "No session reuse required"
-msgstr "Nincs szükség munkamenet újra használathoz"
-
 msgid "No users connected"
 msgstr "Nincsenek kapcsolódó felhasználók"
 
@@ -2244,9 +2107,6 @@ msgid ""
 "Obsolete cached data found. Page will be reloaded. If the problem persists, "
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
 msgstr "Elavult gyorsítótárazott adatokat találtunk. Az oldal újratöltésre kerül. Ha a probléma továbbra is fennáll, nyomja le a Ctrl-Shift-R vagy a Ctrl-F5 billentyűt az oldal kényszerített újratöltéséhez."
-
-msgid "Occurrence"
-msgstr "Előfordulás"
 
 msgid "October"
 msgstr "Október"
@@ -2320,11 +2180,11 @@ msgstr "Paraguay"
 msgid "Parent Device"
 msgstr "Szülő eszköz"
 
+msgid "Parent UUID"
+msgstr "Szülő UUID"
+
 msgid "Parent device"
 msgstr "Szülő eszköz"
-
-msgid "Passive FTP"
-msgstr "Passzív FTP"
 
 msgid "Password"
 msgstr "Jelszó"
@@ -2400,22 +2260,6 @@ msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
 "target=\"_blank\">manual page</a> for more details."
 msgstr "Tekintse meg a <a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\">kézikönyvet</a> további részletekért."
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Tekintse meg a <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>kézikönyvet</a> további részletekért."
-
-msgid ""
-"Please check the <a "
-"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Tekintse meg a <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>kézikönyvet</a> további részletekért."
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
-"name.html' target='_blank'>manual page</a> for more details."
-msgstr "Tekintse meg a  <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>kézikönyvet</a> további részletekért."
 
 msgid ""
 "Please check the <a "
@@ -2660,9 +2504,6 @@ msgstr "Rekurzívan"
 msgid "Referenced"
 msgstr "Használatban"
 
-msgid "Refresh time"
-msgstr "Frissítési idő"
-
 msgid "Relative Path"
 msgstr "Relatív elérési út"
 
@@ -2705,32 +2546,17 @@ msgstr "Jelzés, ha a hőmérséklet nagyobb vagy egyenlő N Celsius fokkal."
 msgid "Repository"
 msgstr "Gyűjtemény"
 
-msgid "Require valid shell"
-msgstr "Érvényes parancsértelmező szükséges"
-
-msgid "Required"
-msgstr "Kötelező"
-
 msgid "Reset UI to defaults"
 msgstr "UI alapértékek visszaállítása"
 
-msgid "Resize"
-msgstr "Átméretezés"
-
 msgid "Result"
 msgstr "Eredmény"
-
-msgid "Resume"
-msgstr "Folytatás"
 
 msgid "Retention time"
 msgstr "Késleltetési idő"
 
 msgid "Reunion"
 msgstr "Újraegyesítés"
-
-msgid "Reverse DNS lookup"
-msgstr "Fordított DNS figyelés"
 
 msgid "Reverted the configuration changes."
 msgstr "Konfigurációs változások visszavonva."
@@ -2815,9 +2641,6 @@ msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
-
-msgid "SSL/TLS Settings"
-msgstr "SSL/TLS beállítások"
 
 msgid "SSL/TLS enabled"
 msgstr "SSL/TLS engedélyezve"
@@ -2909,9 +2732,6 @@ msgstr "Válasszon ki egy parancsértelmezőt…"
 msgid "Select a system log ..."
 msgstr "Válasszon ki egy rendszernaplót…"
 
-msgid "Select a type ..."
-msgstr "Válasszon ki egy típust…"
-
 msgid "Select all"
 msgstr "Összes kijelölése"
 
@@ -2952,6 +2772,9 @@ msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr "Jelölje ki a RAID-eszköz létrehozásához használt eszközöket. Az USB-s eszközök nem szerepelnek a listán (túl megbízhatatlan)."
+
+msgid "Select the devices that will be used to create the file system."
+msgstr "Jelölje ki a fájlrendszer létrehozásához használt eszközt. "
 
 msgid "Self-Test Logs"
 msgstr "Önteszt naplók"
@@ -3022,6 +2845,9 @@ msgstr "Beállítások"
 msgid "Seychelles"
 msgstr "Seychelle-szigetek"
 
+msgid "Share"
+msgstr "Megosztás"
+
 msgid "Shared Folders"
 msgstr "Megosztott mappák"
 
@@ -3085,6 +2911,9 @@ msgstr "Szlovákia"
 msgid "Slovenia"
 msgstr "Szlovénia"
 
+msgid "Snapshots"
+msgstr "Pillanatképek"
+
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Szoftver hiba.   A folytatáshoz nyomja meg a bal egérgombot."
 
@@ -3136,25 +2965,11 @@ msgstr "Különleges jelzés"
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "MII link ellenőrzési gyakoriság meghatározása milliszekundumban."
 
-msgid ""
-"Specifies the amount of time, in seconds, between checking and updating the "
-"masquerade address by resolving the IP address. Set this value to 0 to "
-"disable this option."
-msgstr "Az IP cím feloldás ellenőrzésének és frissítésének megadása másodpercben az ál címen keresztül. A 0 beállítás letiltja az opciót."
-
 msgid "Specifies the interface devices."
 msgstr "Beviteli eszközök megadása."
 
 msgid "Specifies the slave devices."
 msgstr "Másodlagos eszközök megadása."
-
-msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "Kitiltási idő lejárásának meghatározása óó:pp:mm formátumban."
-
-msgid ""
-"Specifies the time interval in hh:mm:ss in which the given number of "
-"occurrences must happen to add the ban."
-msgstr "Idő intervallum meghatározása óó:pp:mm formátumban, melynél a kitiltáshoz a megadott számú esemény előfordulásnak kell történnie."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
@@ -3165,9 +2980,6 @@ msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
 msgstr "Az idő meghatározása milliszekundumban, hogy mennyit várjon, mielőtt engedélyez egy megjavított linket az észlelése után."
-
-msgid "Specifies whether it is allowed to login as superuser directly."
-msgstr "Meghatározza, hogy engedélyezve legyen-e a belépés közvetlenül rendszergazdaként."
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Rendszergazdaként való bejelentkezés engedélyezése."
@@ -3353,9 +3165,6 @@ msgstr "Az SSH tanúsítvány használata hitelesítéshez."
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
 msgstr "Az SSH nyilvános kulcs OpenSSH vagy RFC 4716 formátumban."
 
-msgid "The SSL certificate."
-msgstr "Az SSL tanúsítvány."
-
 msgid "The action to be done when pressing the power button."
 msgstr "Feladatok végrehajtása a bekapcsoló gomb megnyomásakor."
 
@@ -3458,16 +3267,14 @@ msgstr "A tároló ellenőrizve lesz az új, eltávolított, vagy frissített sz
 msgid "The requested page was not found."
 msgstr "A kért oldal nem található."
 
-msgid ""
-"The requirement that the SSL session from the control connection is reused "
-"for data connections is not required."
-msgstr "Annak a követelménye, hogy az SSL munkamenettől a vezérlő kapcsolat újra használatához nincs szükség adat kapcsolatokra."
-
 msgid "The server is unavailable to handle this request right now."
 msgstr "A kiszolgáló jelenleg nem elérhető, így nem tudja tudja fogadni a kérést."
 
 msgid "The shared folder from which the privileges are copied."
 msgstr "A megosztott mappa, ahonnan a jogosultságokat másoljuk. "
+
+msgid "The shared folder {{ _selected[0].name }} was successfully created."
+msgstr "A(z) {{ _selected[0].name }} megosztott mappa sikeresen létrehozva."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3476,9 +3283,6 @@ msgstr "A távoli forrás szerver, pl. [FELHASZNÁLÓ@]HOSZT:FORRÁS, [FELHASZN�
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "A rendszer most újraindul. Ez eltarthat egy ideig…"
-
-msgid "The type of the file system to create."
-msgstr "A létrehozandó fájlrendszer típusa."
 
 msgid "The users that are allowed to access this module."
 msgstr "A felhasználók, akik hozzáférhetnek ehhez a modulhoz."
@@ -3493,11 +3297,6 @@ msgstr "Az értéknek a másodlagos hálózati eszközön kell lennie {{ slaves 
 
 msgid "The value must be on of the slave network interfaces."
 msgstr "Az értéknek a másodlagos hálózati eszközön kell lennie."
-
-msgid ""
-"The welcome message which will be displayed to the user when they initially "
-"login."
-msgstr "Az üdvözlő üzenet, amely megjelenik a felhasználóknak, mikor bejelentkeznek."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "A munkacsoport a szerver részéről látszani fog, mikor a kliensek lekérdezik azt."
@@ -3645,11 +3444,6 @@ msgid ""
 msgstr "Ez az opció egy vesszővel, szóközzel vagy tabulátorral elválasztott géplistának a beállítására szolgál, melyeknek engedélyezett a hozzáférés ehhez a megosztáshoz. A gépeket gépnévvel vagy IP-címét is meg lehet adni. Üresen hagyva az alapértelmezett beállítások lesznek használva."
 
 msgid ""
-"This option requires clients to use FTP over TLS when talking to this "
-"server."
-msgstr "Ez az opció szükséges a klienseknek az FTP-ről TLS-re váltás használatához, mikor a szerverrel kommunikálnak."
-
-msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "Ezen opció által meghatározott csoport, a modul alapján fájlátvitelt kezdeményezhet."
@@ -3665,11 +3459,6 @@ msgid ""
 msgstr "Ezen opció által meghatározott felhasználó, a modul alapján fájlátvitelt kezdeményezhet."
 
 msgid ""
-"This option will handle all connections as if they are SSL connections "
-"implicitly."
-msgstr "Ez az opció fogja kezelni az összes kapcsolatot, úgy, mintha kizárólag SSL kapcsolatok lennének."
-
-msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
@@ -3679,14 +3468,6 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "Ez a paraméter szabályozza, hogy a ponttal kezdődő fájlok rejtett fájlként jelenjenek meg."
-
-msgid ""
-"This parameter says that if N occurrences of the event happen within the "
-"given time interval, then a ban is automatically added."
-msgstr "Ennek a paraméternek a hatására ha egy esemény N előfordulása a megadott intervallumban megtörténik, akkor automatikusan tiltólistára kerül."
-
-msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr "Ezt az eseményt váltja ki, mikor a kiválasztott utasítás történik."
 
 msgid "This specifies what to do if the packet matches."
 msgstr "Ez határozza meg, hogy mit kell tenni, ha a csomag megegyezik."
@@ -3706,9 +3487,6 @@ msgstr "Csütörtök"
 msgid "Time Machine support"
 msgstr "Time Machine támogatás"
 
-msgid "Time interval"
-msgstr "Idő intervallum"
-
 msgid "Time of execution"
 msgstr "Végrehajtás időpontja"
 
@@ -3720,9 +3498,6 @@ msgstr "Idő szerverek"
 
 msgid "Time zone"
 msgstr "Időzóna"
-
-msgid "Timeout"
-msgstr "Időtúllépés"
 
 msgid "Tip"
 msgstr "Tipp"
@@ -3738,9 +3513,6 @@ msgstr "Tonga"
 
 msgid "Total"
 msgstr "Kapacitás"
-
-msgid "Transfer log"
-msgstr "Átviteli napló"
 
 msgid ""
 "Transfer modification times along with the files and update them on the "
@@ -3797,6 +3569,9 @@ msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "ISMERETLEN"
+
+msgid "UUID"
+msgstr "UUID"
 
 msgid "Uganda"
 msgstr "Uganda"
@@ -3855,18 +3630,6 @@ msgstr "A célállomás ACL-ek frissítése, hogy megegyezzen a forrás ACL-ekke
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "A célállomás kiterjesztett attribútumainak frissítése, hogy megegyezzen a helyiekkel."
-
-msgid "Updated FTP SSL/TLS settings."
-msgstr "FTP SSL/TLS beállításai frissítve."
-
-msgid "Updated FTP ban rule."
-msgstr "FTP tiltási szabály frissítve."
-
-msgid "Updated FTP settings."
-msgstr "FTP beállításai frissítve."
-
-msgid "Updated FTP share."
-msgstr "FTP megosztás frissítve."
 
 msgid "Updated NFS settings."
 msgstr "NFS beállításai frissítve."
@@ -4021,9 +3784,6 @@ msgstr "Globális beállítások használata"
 msgid "Use sendfile"
 msgstr "Sendfile használata"
 
-msgid "Use the following bandwidth restriction."
-msgstr "A következő sávszélesség-korlátozás használata."
-
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked. This may make more efficient use of the system CPU's and cause "
@@ -4136,19 +3896,11 @@ msgstr "Szerda"
 msgid "Weekly"
 msgstr "Hetente"
 
-msgid "Welcome message"
-msgstr "Üdvözlő üzenet"
-
 msgid "Welcome to openmediavault"
 msgstr "Üdvözöljük az openmediavault-ban"
 
 msgid "Western Sahara"
 msgstr "Nyugat-Szahara"
-
-msgid ""
-"When a client initially connects to the server the ident protocol is used to"
-" attempt to identify the remote user name."
-msgstr "Amikor egy kliens először csatlakozik a szerverhez, akkor az azonosító protokollt használja, hogy megpróbálja azonosítani a távoli felhasználót."
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -4176,9 +3928,6 @@ msgstr "Csak-írás"
 
 msgid "Write/Execute"
 msgstr "Írás/Végrehajtás"
-
-msgid "XFS"
-msgstr "XFS"
 
 msgid "Xen virtual disk device"
 msgstr "Xen virtuális lemez eszköz"

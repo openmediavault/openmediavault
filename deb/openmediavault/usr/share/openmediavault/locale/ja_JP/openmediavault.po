@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 21:35+0100\n"
+"POT-Creation-Date: 2023-02-08 23:14+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2022\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -44,9 +44,6 @@ msgstr "%s [%s 上, %s]"
 
 msgid "%s ago"
 msgstr "%s 前"
-
-msgid "0 KiB/s means unlimited."
-msgstr "0 KiB/s は無制限となります。"
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - スタンバイ（スピンダウン）を使った最小の消費電力"
@@ -237,9 +234,6 @@ msgstr "最大1つのデバイスを取り外すことができます。"
 msgid "A maximum of two device can be removed."
 msgstr "最大2つのデバイスを取り外すことができます。"
 
-msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -334,9 +328,6 @@ msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr "クライアントが共有に、OS/2状態拡張属性を格納することを許可します。"
 
-msgid "Allow clients to resume interrupted uploads and downloads."
-msgstr "アップロードとダウンロードの中断時のレジュームをクライアントに許可します。"
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
 msgstr "このサーバがWindowsクライアントへのタイムサーバとして自身を通知することを許可"
@@ -371,9 +362,6 @@ msgstr "アンゴラ"
 
 msgid "Anguilla"
 msgstr "アンギラ"
-
-msgid "Anonymous FTP"
-msgstr "Anonymous FTP"
 
 msgid "Antarctica"
 msgstr "南極大陸"
@@ -413,6 +401,9 @@ msgstr "非同期I/O"
 
 msgid "At least four devices are required."
 msgstr "少なくとも4つのデバイスが必要です。"
+
+msgid "At least one device is required."
+msgstr ""
 
 msgid "At least one network interface is required."
 msgstr "少なくとも1つのネットワークインターフェイスが必要です。"
@@ -474,9 +465,6 @@ msgstr "利用可能"
 msgid "Azerbaijan"
 msgstr "アゼルバイジャン"
 
-msgid "BTRFS"
-msgstr "BTRFS"
-
 msgid "Back"
 msgstr "戻る"
 
@@ -491,15 +479,6 @@ msgstr "な浜"
 
 msgid "Bahrain"
 msgstr "バーレーン"
-
-msgid "Ban Rules"
-msgstr "禁止ルール"
-
-msgid "Ban statistics:"
-msgstr "Ban統計:"
-
-msgid "Bandwidth restriction"
-msgstr "帯域幅の制限"
 
 msgid "Bangladesh"
 msgstr "バングラディシュ"
@@ -783,23 +762,14 @@ msgstr "国"
 msgid "Create"
 msgstr "作成"
 
-msgid "Create a new file system."
-msgstr "新規ファイルシステムの作成。"
+msgid "Create and mount a file system."
+msgstr ""
 
 msgid "Create file system"
 msgstr "ファイルシステムの作成"
 
 msgid "Create | Import"
 msgstr "作成 | インポート"
-
-msgid "Create | Mount"
-msgstr "作成 | マウント"
-
-msgid "Created FTP ban rule."
-msgstr "FTP禁止ルールを作成しました。"
-
-msgid "Created FTP share."
-msgstr "FTP共有を作成しました。"
 
 msgid "Created NFS share."
 msgstr "NFS共有を作成しました。"
@@ -846,6 +816,9 @@ msgstr "有線ネットワーク接続を作成しました。"
 msgid "Created wireless network connection."
 msgstr "無線ネットワーク接続を作成しました。"
 
+msgid "Creation Time"
+msgstr ""
+
 msgid "Croatia"
 msgstr "クロアチア"
 
@@ -854,9 +827,6 @@ msgstr "キューバ"
 
 msgid "Currently logged in users"
 msgstr "現在のログインユーザー"
-
-msgid "Currently logged in users:"
-msgstr "現在のログインユーザー:"
 
 msgid "Cyprus"
 msgstr "キプロス"
@@ -905,9 +875,6 @@ msgstr "送信側に存在しないファイルは受信側で削除されます
 
 msgid "Denmark"
 msgstr "デンマーク"
-
-msgid "Deny logins which do not have a valid shell."
-msgstr "有効なシェルを持っていないログインを拒否します。"
 
 msgid "Description"
 msgstr "説明"
@@ -992,9 +959,6 @@ msgstr ""
 
 msgid "Dismiss all"
 msgstr ""
-
-msgid "Display the home directory of the user in the browse list."
-msgstr "参照リストにユーザーのホームディレクトリを表示します。"
 
 msgid "Displays information about the file systems in a grid."
 msgstr ""
@@ -1110,12 +1074,6 @@ msgstr "ダウンロード"
 msgid "Dronning Maud Land"
 msgstr "ドローニング・モード・ランド"
 
-msgid "EXT3"
-msgstr "EXT3"
-
-msgid "EXT4"
-msgstr "EXT4"
-
 msgid "Each line represents a group."
 msgstr "各行は1つのグループを表します。"
 
@@ -1145,9 +1103,6 @@ msgstr "Email"
 msgid "Empty now"
 msgstr "今すぐ空にする"
 
-msgid "Enable SSL/TLS connections."
-msgstr "SSL/TLS接続を有効化します。"
-
 msgid "Enable Time Machine support for this share."
 msgstr "この共有でTime Machineサポートを有効にします。"
 
@@ -1165,12 +1120,6 @@ msgstr "ごみ箱を有効化"
 
 msgid "Enable remote logging of syslog to the specified host."
 msgstr ""
-
-msgid ""
-"Enable reverse DNS lookup performed on the remote host's IP address for "
-"incoming active mode data connections and outgoing passive mode data "
-"connections."
-msgstr "サーバに入ってくるアクティブモードデータ接続と、サーバから出ていくパッシブモード接続のリモートホストのIPアドレスをDNSで逆引き参照することを有効にします。"
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -1210,9 +1159,6 @@ msgstr "イーサネット"
 msgid "Ethiopia"
 msgstr "エチオピア"
 
-msgid "Event"
-msgstr "イベント"
-
 msgid "Every N day of month"
 msgstr "毎月N日"
 
@@ -1228,9 +1174,6 @@ msgstr "みんな:読み/書き"
 msgid "Execute only"
 msgstr "実行のみ"
 
-msgid "Expire"
-msgstr "有効期限"
-
 msgid "Extended Information"
 msgstr "拡張情報"
 
@@ -1240,9 +1183,6 @@ msgstr "拡張属性"
 msgid "Extra options"
 msgstr "追加オプション"
 
-msgid "F2FS"
-msgstr "F2FS"
-
 msgid "FTP"
 msgstr "FTP"
 
@@ -1251,14 +1191,6 @@ msgstr "FTP - 転送ログ"
 
 msgid "FTP-Proxy"
 msgstr "FTP-プロキシ"
-
-msgid "FXP"
-msgstr "FXP"
-
-msgid ""
-"FXP allows transfers between two remote servers without any file data going "
-"to the client asking for the transfer."
-msgstr "FXPはクライアントを経由しなくても２つのリモートサーバ間でデータ転送を行えます。"
 
 msgid "Failed"
 msgstr "失敗"
@@ -1530,9 +1462,6 @@ msgstr "IPv6"
 msgid "Iceland"
 msgstr "アイスランド"
 
-msgid "Ident protocol"
-msgstr "Identプロトコル"
-
 msgid "Identify"
 msgstr "識別"
 
@@ -1582,16 +1511,6 @@ msgid ""
 "share."
 msgstr "このパラメータを設定すると共有内のファイルを作成または変更することができません。"
 
-msgid ""
-"If your host is acting as a NAT gateway or port forwarder for the server, "
-"this option is useful in order to allow passive tranfers to work. You have "
-"to use your public address and opening the passive ports used on your "
-"firewall as well."
-msgstr "もし、あなたのホストがNATゲートウェイか、サーバのポートフォワーダーとして動作している場合、このオプションはパッシブトランスファーとして動作することを許可するのに役立ちます。あなたは公開アドレスを使用し、ファイアウォールでパッシブポートを開く必要があります。"
-
-msgid "Implicit SSL"
-msgstr "暗黙のSSL"
-
 msgid "Import"
 msgstr "インポート"
 
@@ -1606,17 +1525,6 @@ msgstr "グループのインポート。"
 
 msgid "Imported users."
 msgstr "ユーザーのインポート。"
-
-msgid ""
-"In some cases you have to specify passive ports range to by-pass firewall "
-"limitations. Passive ports restricts the range of ports from which the "
-"server will select when sent the PASV command from a client. The server will"
-" randomly choose a number from within the specified range until an open port"
-" is found. The port range selected must be in the non-privileged range (eg. "
-"greater than or equal to 1024). It is strongly recommended that the chosen "
-"range be large enough to handle many simultaneous passive connections (for "
-"example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "いくつかのケースではファイアウォールの制限を回避するためにパッシブポートの範囲を指定する必要があります。サーバはクライアントからPASVコマンドを送信したとき、選択元となるパッシブポートの範囲を制限します。開いているポートが見つかるまで、サーバーがランダムに指定された範囲内の数値を選択します。選択されたポート範囲は（例えば1024以上の）非特権の範囲でなければなりません。選択した範囲は、多くの同時パッシブ接続を処理するのに十分な大きさであることを強くお勧めします。（例えば 49152-65534、IANAに登録されたエフェメラル·ポートの範囲）"
 
 msgid "India"
 msgstr "インド"
@@ -1717,9 +1625,6 @@ msgstr "イタリア"
 
 msgid "Ivory Coast"
 msgstr "コートジボワール"
-
-msgid "JFS"
-msgstr "JFS"
 
 msgid "Jamaica"
 msgstr "ジャマイカ"
@@ -1915,9 +1820,6 @@ msgstr "マーシャル諸島"
 msgid "Martinique"
 msgstr "マルティニーク島"
 
-msgid "Masquerade address"
-msgstr "アドレスマスカレード"
-
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
@@ -1934,50 +1836,17 @@ msgstr "モーリタニア"
 msgid "Mauritius"
 msgstr "モーリシャス"
 
-msgid "Max. clients"
-msgstr "最大クライアント"
-
 msgid "Max. connections"
 msgstr "最大コネクション"
-
-msgid "Max. connections per host"
-msgstr "ホストあたりの最大コネクション"
-
-msgid "Max. login attempts"
-msgstr "最大ログイン試行回数"
-
-msgid "Max. passive port"
-msgstr "最大パッシブポート"
 
 msgid "Maximum"
 msgstr "最大"
 
-msgid "Maximum download rate (KiB/s)"
-msgstr "最大ダウンロード速度(KiB/s)"
-
 msgid "Maximum file size"
 msgstr "最大ファイルサイズ"
 
-msgid ""
-"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
-"timer completely (clients can stay connected for ever, without sending "
-"data)."
-msgstr "秒単位の最大アイドル時間。0にアイドルタイムアウトを設定すると、完全にアイドルタイマーを無効にします（クライアントはデータを送信せずに、いつまでも接続を維持することができます）。"
-
-msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "切断までのパスワードの最大試行回数。"
-
-msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "IPあたりの最大接続数（0 = 無制限）。"
-
-msgid "Maximum number of simultaneous clients."
-msgstr "クライアントの同時接続最大数。"
-
 msgid "Maximum performance, maximum acoustic output"
 msgstr "最大のパフォーマンス、最大音響出力"
-
-msgid "Maximum upload rate (KiB/s)"
-msgstr "最大アップロード速度 (KiB/s)"
 
 msgid "May"
 msgstr "5月"
@@ -2017,9 +1886,6 @@ msgstr "ミクロネシア"
 
 msgid "Midway Islands"
 msgstr "ミッドウェー諸島"
-
-msgid "Min. passive port"
-msgstr "最小パッシブポート"
 
 msgid "Minimum"
 msgstr "最小"
@@ -2171,9 +2037,6 @@ msgstr "接続はありません"
 msgid "No data to display."
 msgstr "表示するデータがありません。"
 
-msgid "No session reuse required"
-msgstr "セッション再利用はありません"
-
 msgid "No users connected"
 msgstr "ユーザーの接続はありません"
 
@@ -2238,9 +2101,6 @@ msgid ""
 "Obsolete cached data found. Page will be reloaded. If the problem persists, "
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
 msgstr ""
-
-msgid "Occurrence"
-msgstr "発生"
 
 msgid "October"
 msgstr "10月"
@@ -2314,11 +2174,11 @@ msgstr "パラグアイ"
 msgid "Parent Device"
 msgstr "親デバイス"
 
+msgid "Parent UUID"
+msgstr ""
+
 msgid "Parent device"
 msgstr "親デバイス"
-
-msgid "Passive FTP"
-msgstr "パッシブFTP"
 
 msgid "Password"
 msgstr "パスワード"
@@ -2394,22 +2254,6 @@ msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
 "target=\"_blank\">manual page</a> for more details."
 msgstr ""
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "詳細については <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>マニュアルページ</a> を確認してください。"
-
-msgid ""
-"Please check the <a "
-"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "詳細については <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>マニュアルページ</a> を確認してください。"
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
-"name.html' target='_blank'>manual page</a> for more details."
-msgstr "詳細については<a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>マニュアルページ</a> を確認してください。"
 
 msgid ""
 "Please check the <a "
@@ -2654,9 +2498,6 @@ msgstr "再帰的"
 msgid "Referenced"
 msgstr "参照先"
 
-msgid "Refresh time"
-msgstr ""
-
 msgid "Relative Path"
 msgstr "相対パス"
 
@@ -2699,32 +2540,17 @@ msgstr ""
 msgid "Repository"
 msgstr "リポジトリ"
 
-msgid "Require valid shell"
-msgstr "有効なシェルが必要です"
-
-msgid "Required"
-msgstr "必須"
-
 msgid "Reset UI to defaults"
 msgstr "UIをデフォルトにリセット"
 
-msgid "Resize"
-msgstr "リサイズ"
-
 msgid "Result"
 msgstr "結果"
-
-msgid "Resume"
-msgstr "リジューム"
 
 msgid "Retention time"
 msgstr ""
 
 msgid "Reunion"
 msgstr "レユニオン"
-
-msgid "Reverse DNS lookup"
-msgstr "DNSの逆引き"
 
 msgid "Reverted the configuration changes."
 msgstr ""
@@ -2809,9 +2635,6 @@ msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
-
-msgid "SSL/TLS Settings"
-msgstr "SSL/TLS 設定"
 
 msgid "SSL/TLS enabled"
 msgstr ""
@@ -2903,9 +2726,6 @@ msgstr "シェルを選択 ..."
 msgid "Select a system log ..."
 msgstr ""
 
-msgid "Select a type ..."
-msgstr ""
-
 msgid "Select all"
 msgstr ""
 
@@ -2946,6 +2766,9 @@ msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr "RAIDデバイスの作成に使用されるデバイスを選択してください。 USB経由で接続されているデバイスは表示されません。（信頼性が低いため）"
+
+msgid "Select the devices that will be used to create the file system."
+msgstr ""
 
 msgid "Self-Test Logs"
 msgstr ""
@@ -3016,6 +2839,9 @@ msgstr "設定"
 msgid "Seychelles"
 msgstr "セイシェル"
 
+msgid "Share"
+msgstr ""
+
 msgid "Shared Folders"
 msgstr "共有フォルダ"
 
@@ -3079,6 +2905,9 @@ msgstr "スロバキア"
 msgid "Slovenia"
 msgstr "スロベニア"
 
+msgid "Snapshots"
+msgstr ""
+
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr ""
 
@@ -3130,25 +2959,11 @@ msgstr "特殊なアクションフラグ"
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "ミリ秒単位でMIIリンク監視頻度を指定します。"
 
-msgid ""
-"Specifies the amount of time, in seconds, between checking and updating the "
-"masquerade address by resolving the IP address. Set this value to 0 to "
-"disable this option."
-msgstr "IPアドレスを名前解決してマスカレードアドレスのチェック、アップデートをする間隔を秒単位で指定します。"
-
 msgid "Specifies the interface devices."
 msgstr ""
 
 msgid "Specifies the slave devices."
 msgstr ""
-
-msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "指定した時間を過ぎると期限切れとなります。hh:mm:ss 形式で時間を指定します。"
-
-msgid ""
-"Specifies the time interval in hh:mm:ss in which the given number of "
-"occurrences must happen to add the ban."
-msgstr "BAN(禁止) を追加するインターバルを時間形式 hh:mm:ss で入力します。"
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
@@ -3159,9 +2974,6 @@ msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
 msgstr "リンクリカバリーが検出された後、スレーブを有効にする前に待機する時間をミリ秒単位で指定します。"
-
-msgid "Specifies whether it is allowed to login as superuser directly."
-msgstr ""
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "スーパーユーザーとしてログインすることを許可するかを指定します。"
@@ -3347,9 +3159,6 @@ msgstr "SSH証明書が認証に使用されます。"
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
 msgstr "OpenSSHまたはRFC4716形式のSSH公開鍵。"
 
-msgid "The SSL certificate."
-msgstr "SSL証明書。"
-
 msgid "The action to be done when pressing the power button."
 msgstr "電源ボタンを押したときに実行されるアクション。"
 
@@ -3452,15 +3261,13 @@ msgstr "新規、削除またはアップデートされたソフトウェアパ
 msgid "The requested page was not found."
 msgstr "要求されたページはありません。"
 
-msgid ""
-"The requirement that the SSL session from the control connection is reused "
-"for data connections is not required."
-msgstr "コントロールコネクションからのSSLセッションがデータ接続に再利用される場合は本要件は不要です。"
-
 msgid "The server is unavailable to handle this request right now."
 msgstr ""
 
 msgid "The shared folder from which the privileges are copied."
+msgstr ""
+
+msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr ""
 
 msgid ""
@@ -3470,9 +3277,6 @@ msgstr "送信元リモートサーバ 例） [USER@]HOST:SRC, [USER@]HOST::SRC 
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "システムが再起動されます。これにはしばらく時間がかかることがあります..."
-
-msgid "The type of the file system to create."
-msgstr ""
 
 msgid "The users that are allowed to access this module."
 msgstr ""
@@ -3487,11 +3291,6 @@ msgstr ""
 
 msgid "The value must be on of the slave network interfaces."
 msgstr ""
-
-msgid ""
-"The welcome message which will be displayed to the user when they initially "
-"login."
-msgstr "ウェルカムメッセージはユーザーが最初にログインする際に表示されます。"
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "ワークグループはサーバがクライアントから参照される際に表示されます。"
@@ -3639,11 +3438,6 @@ msgid ""
 msgstr "このオプションはこの共有へのアクセスを許可するホストをカンマ、半角スペース、タブで区切り入力します。ホスト名、IPアドレスどちらの形式でも可能です。空にすると標準の設定を使用します。"
 
 msgid ""
-"This option requires clients to use FTP over TLS when talking to this "
-"server."
-msgstr "このオプションは、このサーバーとの通信時にFTP over TLSを使用するようにクライアントに要求します。"
-
-msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "このオプションはモジュールへの、またモジュールからのファイル転送時のグループ名を指定します。"
@@ -3659,11 +3453,6 @@ msgid ""
 msgstr "このオプションはモジュールへの、またモジュールからのファイル転送時のユーザ名を指定します。"
 
 msgid ""
-"This option will handle all connections as if they are SSL connections "
-"implicitly."
-msgstr "このオプションは全ての接続が暗黙的にSSL接続であるかのように処理します。"
-
-msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
@@ -3673,14 +3462,6 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "このパラメータは、ドットで始まるファイルは隠しファイルとして表示されるかどうかを制御します"
-
-msgid ""
-"This parameter says that if N occurrences of the event happen within the "
-"given time interval, then a ban is automatically added."
-msgstr "このパラメータは、イベント中が与えられた時間内に N 回発生した場合にBAN (禁止）が自動的に追加されます。"
-
-msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr "選択したイベントディレクティブが発生するたびに、このルールがトリガされます。"
 
 msgid "This specifies what to do if the packet matches."
 msgstr "パケットが一致した場合にどうするかを指定します。"
@@ -3700,9 +3481,6 @@ msgstr "木曜"
 msgid "Time Machine support"
 msgstr "Time Machineサポート"
 
-msgid "Time interval"
-msgstr "タイムインターバル"
-
 msgid "Time of execution"
 msgstr "実行時刻"
 
@@ -3714,9 +3492,6 @@ msgstr "時刻サーバ"
 
 msgid "Time zone"
 msgstr "タイムゾーン"
-
-msgid "Timeout"
-msgstr "タイムアウト"
 
 msgid "Tip"
 msgstr ""
@@ -3732,9 +3507,6 @@ msgstr "トンガ"
 
 msgid "Total"
 msgstr "トータル"
-
-msgid "Transfer log"
-msgstr "転送ログ"
 
 msgid ""
 "Transfer modification times along with the files and update them on the "
@@ -3791,6 +3563,9 @@ msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "UNKNOWN"
+
+msgid "UUID"
+msgstr ""
 
 msgid "Uganda"
 msgstr "ウガンダ"
@@ -3849,18 +3624,6 @@ msgstr "元のACLと同じになるように先のACLを更新します。"
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "元の拡張属性と同じになるように先の拡張属性を更新します。"
-
-msgid "Updated FTP SSL/TLS settings."
-msgstr ""
-
-msgid "Updated FTP ban rule."
-msgstr ""
-
-msgid "Updated FTP settings."
-msgstr ""
-
-msgid "Updated FTP share."
-msgstr ""
 
 msgid "Updated NFS settings."
 msgstr ""
@@ -4015,9 +3778,6 @@ msgstr ""
 msgid "Use sendfile"
 msgstr "Sendfileを使用する"
 
-msgid "Use the following bandwidth restriction."
-msgstr ""
-
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked. This may make more efficient use of the system CPU's and cause "
@@ -4130,19 +3890,11 @@ msgstr "水曜"
 msgid "Weekly"
 msgstr "毎週"
 
-msgid "Welcome message"
-msgstr "ウェルカムメッセージ"
-
 msgid "Welcome to openmediavault"
 msgstr ""
 
 msgid "Western Sahara"
 msgstr "西サハラ"
-
-msgid ""
-"When a client initially connects to the server the ident protocol is used to"
-" attempt to identify the remote user name."
-msgstr ""
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -4170,9 +3922,6 @@ msgstr "書き込み専用"
 
 msgid "Write/Execute"
 msgstr "書き込み/実行"
-
-msgid "XFS"
-msgstr "XFS"
 
 msgid "Xen virtual disk device"
 msgstr "Xen仮想ディスクデバイス"

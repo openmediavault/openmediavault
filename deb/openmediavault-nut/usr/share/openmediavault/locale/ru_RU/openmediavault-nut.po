@@ -5,21 +5,25 @@
 # Translators:
 # Alexander Savchenko, 2014
 # mictian <ffrants@gmail.com>, 2012
-# Volker <votdev@gmx.de>, 2017
+# Volker Theile <votdev@gmx.de>, 2017
 # Артур Мудрых <arturmon82@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-23 18:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2017\n"
+"Language-Team: Russian (Russia) (http://www.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru_RU\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr ""
 
 msgid "Charge"
 msgstr "Заряд"
@@ -36,17 +40,17 @@ msgstr "Определяет, когда начинается отключени
 msgid "Driver configuration directives"
 msgstr "Директивы конфигурации драйверов"
 
-msgid "Enable"
-msgstr "Включить"
-
 msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Включить удаленный мониторинг локально подключенного ИБП."
 
-msgid "General settings"
-msgstr "Общие параметры"
+msgid "Enabled"
+msgstr "Включено"
 
 msgid "Identifier"
 msgstr "Идентификатор"
+
+msgid "Invalid identifier"
+msgstr ""
 
 msgid "Load"
 msgstr "Загрузка"
@@ -54,11 +58,29 @@ msgstr "Загрузка"
 msgid "Message"
 msgstr "сообщение"
 
+msgid "Mode"
+msgstr "Режим"
+
+msgid "Netclient"
+msgstr ""
+
+msgid "Netclient hostname"
+msgstr ""
+
+msgid "Netclient password"
+msgstr ""
+
+msgid "Netclient user name"
+msgstr ""
+
 msgid "PID"
 msgstr "PID"
 
 msgid "Password"
 msgstr "Пароль"
+
+msgid "Powervalue"
+msgstr ""
 
 msgid "Program"
 msgstr "Программа"
@@ -69,20 +91,26 @@ msgstr "Удаленный мониторинг"
 msgid "Service disabled"
 msgstr "Служба отключена"
 
-msgid "Settings"
-msgstr "Настройки"
-
 msgid "Shutdown mode"
 msgstr "Режим отключения"
 
 msgid "Shutdown timer"
 msgstr "Таймер выключения"
 
+msgid "Standalone"
+msgstr ""
+
 msgid "Temperature"
 msgstr "Температура"
 
-msgid "The name used to uniquely identify your UPS on this system."
-msgstr "Имя используемое для однозначной идентификации ИБП в этой системе."
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr ""
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr ""
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
@@ -104,14 +132,14 @@ msgstr "ИБП переходит на батареи"
 msgid "UPS reaches low battery"
 msgstr "ИБП достигает низкого заряда батареи"
 
+msgid "Updated UPS settings."
+msgstr ""
+
 msgid "Used for remote authentication."
 msgstr "Используется для удаленной аутентификации."
 
-msgid "Username"
+msgid "User name"
 msgstr "Имя пользователя"
-
-msgid "Variables"
-msgstr "Переменные"
 
 msgid "Voltage"
 msgstr "Напряжение"

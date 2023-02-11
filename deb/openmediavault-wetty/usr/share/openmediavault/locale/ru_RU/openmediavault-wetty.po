@@ -3,13 +3,19 @@
 # This file is distributed under the same license as the openmediavault-wetty package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2022
+# Alexander Savchenko, 2022
+# Артур Мудрых <arturmon82@gmail.com>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wetty\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-22 22:33+0100\n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: Артур Мудрых <arturmon82@gmail.com>, 2022\n"
 "Language-Team: Russian (Russia) (https://www.transifex.com/openmediavault/teams/14254/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,60 +24,25 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Сертификат"
 
 msgid "Enabled"
-msgstr ""
-
-msgid "Library name"
-msgstr ""
+msgstr "Включено"
 
 msgid "Open UI"
 msgstr ""
 
-msgid "OwnTone"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 msgid "Port to listen on."
-msgstr ""
-
-msgid "Shared folder"
-msgstr ""
-
-msgid "The 'admin' password to access the web interface."
-msgstr ""
+msgstr "Порт для прослушивания."
 
 msgid "The SSL certificate."
-msgstr ""
-
-msgid "The location of the media files to share."
-msgstr ""
-
-msgid ""
-"The location of the media files to share. Make sure the user "
-"<em>owntone</em> or group <em>users</em> can access the files."
-msgstr ""
-
-msgid "The name of the library as displayed by the clients."
-msgstr ""
-
-msgid "The password to access the library."
-msgstr ""
-
-msgid "Updated OwnTone settings."
-msgstr ""
+msgstr "Сертификат SSL."
 
 msgid "Updated WeTTY settings."
 msgstr ""
 
 msgid "WeTTY"
-msgstr ""
-
-msgid "Web interface"
 msgstr ""

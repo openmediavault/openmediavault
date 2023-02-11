@@ -5,7 +5,7 @@
 # Translators:
 # Herald Yu <yuhr123@gmail.com>, 2018-2019
 # LeeYang <150183966@qq.com>, 2021
-# songming <by@songming.me>, 2013-2022
+# songming <by@songming.me>, 2013-2023
 # Volker Theile <votdev@gmx.de>, 2022
 # Wei Ding <dyw.net@gmail.com>, 2014-2015
 # LeeYang <150183966@qq.com>, 2021
@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 21:35+0100\n"
+"POT-Creation-Date: 2023-02-08 23:14+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: songming <by@songming.me>, 2013-2022\n"
+"Last-Translator: songming <by@songming.me>, 2013-2023\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,9 +50,6 @@ msgstr "%s [on %s, %s]"
 
 msgid "%s ago"
 msgstr "%s以前"
-
-msgid "0 KiB/s means unlimited."
-msgstr "0KB/s 表示不限制。"
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - 待机状态时最低功耗(磁头停转)"
@@ -243,9 +240,6 @@ msgstr "最多一个设备可被移除。"
 msgid "A maximum of two device can be removed."
 msgstr "最多两个设备可被移除。"
 
-msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr "一个高效 FTP/SFTP/FTPS 服务模块"
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -340,9 +334,6 @@ msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr "允许客户端尝试在共享上存储 OS / 2 风格的扩展属性。"
 
-msgid "Allow clients to resume interrupted uploads and downloads."
-msgstr "允许客户端恢复中断的上传和下载"
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
 msgstr "允许此服务器作为 Windows 客户端的时间服务器."
@@ -377,9 +368,6 @@ msgstr "安哥拉"
 
 msgid "Anguilla"
 msgstr "安圭拉"
-
-msgid "Anonymous FTP"
-msgstr "匿名 FTP"
 
 msgid "Antarctica"
 msgstr "南极洲"
@@ -419,6 +407,9 @@ msgstr "异步 I/O"
 
 msgid "At least four devices are required."
 msgstr "至少需要四台设备。"
+
+msgid "At least one device is required."
+msgstr "至少需要一個裝置。"
 
 msgid "At least one network interface is required."
 msgstr "至少需要一个网卡。"
@@ -480,9 +471,6 @@ msgstr "可用"
 msgid "Azerbaijan"
 msgstr "阿塞拜疆"
 
-msgid "BTRFS"
-msgstr "BTRFS文件系统。"
-
 msgid "Back"
 msgstr "返回"
 
@@ -497,15 +485,6 @@ msgstr "巴哈马"
 
 msgid "Bahrain"
 msgstr "巴林"
-
-msgid "Ban Rules"
-msgstr "禁止规则"
-
-msgid "Ban statistics:"
-msgstr "禁止统计："
-
-msgid "Bandwidth restriction"
-msgstr "带宽限制"
 
 msgid "Bangladesh"
 msgstr "孟加拉"
@@ -789,23 +768,14 @@ msgstr "国家"
 msgid "Create"
 msgstr "创建"
 
-msgid "Create a new file system."
-msgstr "创建新的文件系统。"
+msgid "Create and mount a file system."
+msgstr "建立並掛載檔案系統。"
 
 msgid "Create file system"
 msgstr "创建文件系统"
 
 msgid "Create | Import"
 msgstr "新建 | 导入"
-
-msgid "Create | Mount"
-msgstr "新建 | 挂载"
-
-msgid "Created FTP ban rule."
-msgstr "创建 FTP 禁止规则。"
-
-msgid "Created FTP share."
-msgstr "已建FTP共享"
 
 msgid "Created NFS share."
 msgstr "已建NFS共享"
@@ -852,6 +822,9 @@ msgstr "已建有线网络连接。"
 msgid "Created wireless network connection."
 msgstr "已建无线网络连接。"
 
+msgid "Creation Time"
+msgstr "建立時間"
+
 msgid "Croatia"
 msgstr "克罗地亚"
 
@@ -860,9 +833,6 @@ msgstr "古巴"
 
 msgid "Currently logged in users"
 msgstr "当前登录用户"
-
-msgid "Currently logged in users:"
-msgstr "当前登录用户："
 
 msgid "Cyprus"
 msgstr "塞浦路斯"
@@ -911,9 +881,6 @@ msgstr "删除接收端存在而发送端不存在的文件。"
 
 msgid "Denmark"
 msgstr "丹麦"
-
-msgid "Deny logins which do not have a valid shell."
-msgstr "拒绝无效的 shell 登录."
 
 msgid "Description"
 msgstr "描述"
@@ -998,9 +965,6 @@ msgstr "撤销"
 
 msgid "Dismiss all"
 msgstr "撤销全部"
-
-msgid "Display the home directory of the user in the browse list."
-msgstr "在用浏览时显示用户 Home 目录."
 
 msgid "Displays information about the file systems in a grid."
 msgstr "在网格中显示文件系统信息。"
@@ -1116,12 +1080,6 @@ msgstr "下载"
 msgid "Dronning Maud Land"
 msgstr "毛德皇后地"
 
-msgid "EXT3"
-msgstr "EXT3"
-
-msgid "EXT4"
-msgstr "EXT4"
-
 msgid "Each line represents a group."
 msgstr "每行代表一个组。"
 
@@ -1151,9 +1109,6 @@ msgstr "Email"
 msgid "Empty now"
 msgstr "立即清空"
 
-msgid "Enable SSL/TLS connections."
-msgstr "启用 SSL/TLS 连接"
-
 msgid "Enable Time Machine support for this share."
 msgstr "在这个共享文件夹启用时间胶囊 Time Machine 支持。"
 
@@ -1171,12 +1126,6 @@ msgstr "启用回收站"
 
 msgid "Enable remote logging of syslog to the specified host."
 msgstr "启用 syslog 远程日志到指定的主机。"
-
-msgid ""
-"Enable reverse DNS lookup performed on the remote host's IP address for "
-"incoming active mode data connections and outgoing passive mode data "
-"connections."
-msgstr "对于传入传出的数据连接启用远程主机 IP 地址 DNS 反向查询。"
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -1216,9 +1165,6 @@ msgstr "以太网"
 msgid "Ethiopia"
 msgstr "埃塞俄比亚"
 
-msgid "Event"
-msgstr "事件"
-
 msgid "Every N day of month"
 msgstr "每月每N天"
 
@@ -1234,9 +1180,6 @@ msgstr "每个人：读/写"
 msgid "Execute only"
 msgstr "仅执行"
 
-msgid "Expire"
-msgstr "过期"
-
 msgid "Extended Information"
 msgstr "扩展信息"
 
@@ -1246,9 +1189,6 @@ msgstr "扩展属性"
 msgid "Extra options"
 msgstr "扩展选项"
 
-msgid "F2FS"
-msgstr "F2FS文件系统"
-
 msgid "FTP"
 msgstr "FTP"
 
@@ -1257,14 +1197,6 @@ msgstr "FTP - 传输日志"
 
 msgid "FTP-Proxy"
 msgstr "FTP - 代理"
-
-msgid "FXP"
-msgstr "FXP"
-
-msgid ""
-"FXP allows transfers between two remote servers without any file data going "
-"to the client asking for the transfer."
-msgstr "FXP 允许两个远程服务器之间进行传输，即使客户端没有任何数据请求。"
 
 msgid "Failed"
 msgstr "失败"
@@ -1536,9 +1468,6 @@ msgstr "IPv6"
 msgid "Iceland"
 msgstr "冰岛"
 
-msgid "Ident protocol"
-msgstr "IDENT 协议"
-
 msgid "Identify"
 msgstr "识别"
 
@@ -1588,16 +1517,6 @@ msgid ""
 "share."
 msgstr "如果设定，那么用户将无法创建或修改共享中的文件。"
 
-msgid ""
-"If your host is acting as a NAT gateway or port forwarder for the server, "
-"this option is useful in order to allow passive tranfers to work. You have "
-"to use your public address and opening the passive ports used on your "
-"firewall as well."
-msgstr "如果该主机作为 NAT 网关或者端口转发服务器，该选项对被动传输很有用，你需要使用你的公网 IP 以及在防火墙中打开被动端口。"
-
-msgid "Implicit SSL"
-msgstr "隐式 SSL"
-
 msgid "Import"
 msgstr "导入"
 
@@ -1612,17 +1531,6 @@ msgstr "已导入的用户组。"
 
 msgid "Imported users."
 msgstr "已导入用户。"
-
-msgid ""
-"In some cases you have to specify passive ports range to by-pass firewall "
-"limitations. Passive ports restricts the range of ports from which the "
-"server will select when sent the PASV command from a client. The server will"
-" randomly choose a number from within the specified range until an open port"
-" is found. The port range selected must be in the non-privileged range (eg. "
-"greater than or equal to 1024). It is strongly recommended that the chosen "
-"range be large enough to handle many simultaneous passive connections (for "
-"example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "有些时候，你必须制定被动通讯端口范围避开防火墙限制。当客户端传来 PASV 命令时，端口范围限制了服务器的选用;服务器将在设定范围选择一个，直到这个端口是开放的；所选的端口范围必须在非特殊端口范围内(例如：大于或等于 1024)；强烈建议选择的范围扩大到足以处理许多同时响应的连线(例如：49152-65534)，这是 IANA 注册的临时端口范围。"
 
 msgid "India"
 msgstr "印度"
@@ -1723,9 +1631,6 @@ msgstr "意大利"
 
 msgid "Ivory Coast"
 msgstr "象牙海岸"
-
-msgid "JFS"
-msgstr "JFS文件系统"
 
 msgid "Jamaica"
 msgstr "牙买加"
@@ -1921,9 +1826,6 @@ msgstr "马绍尔群岛"
 msgid "Martinique"
 msgstr "马提尼克白胸打谷鸟"
 
-msgid "Masquerade address"
-msgstr "伪装地址"
-
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
@@ -1940,50 +1842,17 @@ msgstr "毛里塔尼亚"
 msgid "Mauritius"
 msgstr "毛里求斯"
 
-msgid "Max. clients"
-msgstr "最多客户端数"
-
 msgid "Max. connections"
 msgstr "最大连接数"
-
-msgid "Max. connections per host"
-msgstr "每个主机最大连接数"
-
-msgid "Max. login attempts"
-msgstr "最多登录尝试次数"
-
-msgid "Max. passive port"
-msgstr "最大被动端口"
 
 msgid "Maximum"
 msgstr "最大"
 
-msgid "Maximum download rate (KiB/s)"
-msgstr "最大下载速度 (KB/s)"
-
 msgid "Maximum file size"
 msgstr "文件大小限制"
 
-msgid ""
-"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
-"timer completely (clients can stay connected for ever, without sending "
-"data)."
-msgstr "以秒为单位的最长空闲时间，若设定为 0 则计时器关闭 (客户端永久保持连接，即使没有传输数据)。"
-
-msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "最多密码尝试次数，超过次数后断开连接。"
-
-msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "每个 IP 最多连接数 (0=不限制)。"
-
-msgid "Maximum number of simultaneous clients."
-msgstr "最大并发客户端数。"
-
 msgid "Maximum performance, maximum acoustic output"
 msgstr "最高性能，噪音最大"
-
-msgid "Maximum upload rate (KiB/s)"
-msgstr "最大上传速度(KB/s)"
 
 msgid "May"
 msgstr "五月"
@@ -2023,9 +1892,6 @@ msgstr "密克罗尼西亚"
 
 msgid "Midway Islands"
 msgstr "中途岛"
-
-msgid "Min. passive port"
-msgstr "最小被动端口"
 
 msgid "Minimum"
 msgstr "最小"
@@ -2177,9 +2043,6 @@ msgstr "无连接"
 msgid "No data to display."
 msgstr "无数据可显示"
 
-msgid "No session reuse required"
-msgstr "无需重用会话"
-
 msgid "No users connected"
 msgstr "无用户连接"
 
@@ -2245,9 +2108,6 @@ msgid ""
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
 msgstr "發現過時的快取資料。將會重新整理頁面。若問題持續，請按 Ctrl-Shift-R 或 Ctrl-F5 強制重新整理頁面。"
 
-msgid "Occurrence"
-msgstr "发生次数"
-
 msgid "October"
 msgstr "十月"
 
@@ -2255,7 +2115,7 @@ msgid "Offline immediate test"
 msgstr "离线即使测试"
 
 msgid "Old-age"
-msgstr "旧时代的"
+msgstr "Old-age"
 
 msgid "Oman"
 msgstr "阿曼"
@@ -2320,11 +2180,11 @@ msgstr "巴拉圭"
 msgid "Parent Device"
 msgstr "父设备"
 
+msgid "Parent UUID"
+msgstr "上層 UUID"
+
 msgid "Parent device"
 msgstr "父设备"
-
-msgid "Passive FTP"
-msgstr "被动式 FTP"
 
 msgid "Password"
 msgstr "密码"
@@ -2400,22 +2260,6 @@ msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
 "target=\"_blank\">manual page</a> for more details."
 msgstr "详情请看<a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\">手册</a>。"
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "详情请看 <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'> 手册 </a> 。"
-
-msgid ""
-"Please check the <a "
-"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "详情请看 <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'> 手册 </a> 。"
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
-"name.html' target='_blank'>manual page</a> for more details."
-msgstr "详情请看 <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'> 手册 </a>。"
 
 msgid ""
 "Please check the <a "
@@ -2660,9 +2504,6 @@ msgstr "递归"
 msgid "Referenced"
 msgstr "引用"
 
-msgid "Refresh time"
-msgstr "刷新时间"
-
 msgid "Relative Path"
 msgstr "相对路径"
 
@@ -2705,32 +2546,17 @@ msgstr "如果温度大于或等于 N 摄氏度则报告."
 msgid "Repository"
 msgstr "软件源"
 
-msgid "Require valid shell"
-msgstr "需要有效 shell"
-
-msgid "Required"
-msgstr "必要"
-
 msgid "Reset UI to defaults"
 msgstr "恢复默认 UI 状态"
 
-msgid "Resize"
-msgstr "调整大小"
-
 msgid "Result"
 msgstr "结果"
-
-msgid "Resume"
-msgstr "恢复"
 
 msgid "Retention time"
 msgstr "保留时间"
 
 msgid "Reunion"
 msgstr "留尼汪"
-
-msgid "Reverse DNS lookup"
-msgstr "反向 DNS 查找"
 
 msgid "Reverted the configuration changes."
 msgstr "恢复配置变更"
@@ -2815,9 +2641,6 @@ msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
-
-msgid "SSL/TLS Settings"
-msgstr "SSL/TLS设置"
 
 msgid "SSL/TLS enabled"
 msgstr "已启用SSL/TLS"
@@ -2909,9 +2732,6 @@ msgstr "选择 shell ..."
 msgid "Select a system log ..."
 msgstr "选择一个系统日志……"
 
-msgid "Select a type ..."
-msgstr "选择一个类型"
-
 msgid "Select all"
 msgstr "选择全部"
 
@@ -2952,6 +2772,9 @@ msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr "选择将要用于创建 RAID 的设备，通过 USB 接入的设备不会再列表中显示（USB接入不稳定）。"
+
+msgid "Select the devices that will be used to create the file system."
+msgstr "選取要用來建立檔案系統的裝置。"
 
 msgid "Self-Test Logs"
 msgstr "自检日志"
@@ -3022,6 +2845,9 @@ msgstr "设置"
 msgid "Seychelles"
 msgstr "塞舌尔群岛"
 
+msgid "Share"
+msgstr "分享"
+
 msgid "Shared Folders"
 msgstr "共享文件夹"
 
@@ -3085,6 +2911,9 @@ msgstr "斯洛伐克"
 msgid "Slovenia"
 msgstr "斯罗文尼亚"
 
+msgid "Snapshots"
+msgstr "快照"
+
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "软件错误。   按鼠标左键继续。"
 
@@ -3136,25 +2965,11 @@ msgstr "特殊动作标志"
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "指定 MII 连接的监控频率，单位是毫秒。"
 
-msgid ""
-"Specifies the amount of time, in seconds, between checking and updating the "
-"masquerade address by resolving the IP address. Set this value to 0 to "
-"disable this option."
-msgstr "指定多少秒的时间作为检查和更新伪装地址的 IP 时间间隔，设为 0 则表示停用。"
-
 msgid "Specifies the interface devices."
 msgstr "指定接口设备"
 
 msgid "Specifies the slave devices."
 msgstr "指定从设备"
-
-msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "以 hh:mm:ss 的格式来指定时间，这个时间后禁止策略失效。"
-
-msgid ""
-"Specifies the time interval in hh:mm:ss in which the given number of "
-"occurrences must happen to add the ban."
-msgstr "以 hh:mm:ss 的格式来指定时间间隔，这段时间内必须达到发生次数禁止策略才生效。"
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
@@ -3165,9 +2980,6 @@ msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
 msgstr "检测到正常后等多少毫秒再恢复链路。"
-
-msgid "Specifies whether it is allowed to login as superuser directly."
-msgstr "指定是否允许以超级用户直接登录。"
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "指定是否允许以超级用户登录。"
@@ -3353,9 +3165,6 @@ msgstr "该 SSH 证书用于授权。"
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
 msgstr "OpenSSH或 RFC 4716 格式的SSH公钥"
 
-msgid "The SSL certificate."
-msgstr "SSL 证书。"
-
 msgid "The action to be done when pressing the power button."
 msgstr "按下电源时要执行的动作。"
 
@@ -3458,16 +3267,14 @@ msgstr "软件源将检查是否有删除或更新的软件包信息。"
 msgid "The requested page was not found."
 msgstr "未找到请求的页面。"
 
-msgid ""
-"The requirement that the SSL session from the control connection is reused "
-"for data connections is not required."
-msgstr "不要求控制连接 SSL 会话重用与数据连接。"
-
 msgid "The server is unavailable to handle this request right now."
 msgstr "该请求当前无可用服务器资源。"
 
 msgid "The shared folder from which the privileges are copied."
 msgstr "复制该共享文件夹的权限"
+
+msgid "The shared folder {{ _selected[0].name }} was successfully created."
+msgstr "共享資料夾 {{ _selected[0].name }} 已成功建立。"
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3476,9 +3283,6 @@ msgstr "源远程服务器，例如 [USER@]HOST:SRC, [USER@]HOST::SRC 或  rsync
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "系统将要重启，这需要一些时间 ..."
-
-msgid "The type of the file system to create."
-msgstr "新建文件系统类型"
 
 msgid "The users that are allowed to access this module."
 msgstr "允许访问该模块的用户。"
@@ -3493,11 +3297,6 @@ msgstr "这里必须使用从网络接口 {{ slaves | join(\", \") }}。"
 
 msgid "The value must be on of the slave network interfaces."
 msgstr "该值必须是从网络接口。"
-
-msgid ""
-"The welcome message which will be displayed to the user when they initially "
-"login."
-msgstr "欢迎信息将在用户首次登陆时显示。"
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "当客户端查询时，服务器会出现在该工作组。"
@@ -3645,11 +3444,6 @@ msgid ""
 msgstr "此选项是以逗号、空格或制表符分开的一组主机，这些主机允许读写这个共享，可以使用主机名或者 IP 地址来指定主机，此位置空则使用默认设置。"
 
 msgid ""
-"This option requires clients to use FTP over TLS when talking to this "
-"server."
-msgstr "此项要求客户端使用 FTP 与服务器建立会话时使用 TLS。"
-
-msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "此选项指定文件传输时的用户组名称。"
@@ -3665,11 +3459,6 @@ msgid ""
 msgstr "此选项指定文件传输时的用户组名称。"
 
 msgid ""
-"This option will handle all connections as if they are SSL connections "
-"implicitly."
-msgstr "此选项将现在所有链接默认用 SSL 来处理。"
-
-msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
@@ -3679,14 +3468,6 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "此参数决定是否要把以点开头的文件显示为隐藏文件"
-
-msgid ""
-"This parameter says that if N occurrences of the event happen within the "
-"given time interval, then a ban is automatically added."
-msgstr "此参数表示如果在指定时间内发生 N 次事件，那么自动添加一项禁止列表。"
-
-msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr "当选择的事件发生时这项规则会被触发。"
 
 msgid "This specifies what to do if the packet matches."
 msgstr "该规则是如果数据包匹配则做什么。"
@@ -3706,9 +3487,6 @@ msgstr "星期四"
 msgid "Time Machine support"
 msgstr "支持时间胶囊 Time Machine"
 
-msgid "Time interval"
-msgstr "时间间隔"
-
 msgid "Time of execution"
 msgstr "执行的时间"
 
@@ -3720,9 +3498,6 @@ msgstr "时间服务器"
 
 msgid "Time zone"
 msgstr "时区"
-
-msgid "Timeout"
-msgstr "超时"
 
 msgid "Tip"
 msgstr "提示"
@@ -3738,9 +3513,6 @@ msgstr "汤加"
 
 msgid "Total"
 msgstr "总计"
-
-msgid "Transfer log"
-msgstr "传输日志"
 
 msgid ""
 "Transfer modification times along with the files and update them on the "
@@ -3797,6 +3569,9 @@ msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "未知"
+
+msgid "UUID"
+msgstr "UUID"
 
 msgid "Uganda"
 msgstr "乌干达"
@@ -3855,18 +3630,6 @@ msgstr "更新目标 ACLs 和源 ACLs 一致。"
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "更新目标扩展属性与本地的一致。"
-
-msgid "Updated FTP SSL/TLS settings."
-msgstr "已更新的FTP SSL/TLS设置。"
-
-msgid "Updated FTP ban rule."
-msgstr "更新 FTP 禁用规则。"
-
-msgid "Updated FTP settings."
-msgstr "已更新的FTP设置"
-
-msgid "Updated FTP share."
-msgstr "已更新的FTP共享"
 
 msgid "Updated NFS settings."
 msgstr "已更新NFS设置"
@@ -4021,9 +3784,6 @@ msgstr "使用全局设置"
 msgid "Use sendfile"
 msgstr "使用 sendfile"
 
-msgid "Use the following bandwidth restriction."
-msgstr "使用以下带宽限制。"
-
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked. This may make more efficient use of the system CPU's and cause "
@@ -4136,19 +3896,11 @@ msgstr "星期三"
 msgid "Weekly"
 msgstr "每周"
 
-msgid "Welcome message"
-msgstr "欢迎消息"
-
 msgid "Welcome to openmediavault"
 msgstr "歡迎使用 openmediavault"
 
 msgid "Western Sahara"
 msgstr "西撒哈拉"
-
-msgid ""
-"When a client initially connects to the server the ident protocol is used to"
-" attempt to identify the remote user name."
-msgstr "当一个客户端首次连接到服务器时，使用 ident 协议来尝试识别远程用户名。"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -4176,9 +3928,6 @@ msgstr "只写"
 
 msgid "Write/Execute"
 msgstr "写/执行"
-
-msgid "XFS"
-msgstr "XFS文件系统"
 
 msgid "Xen virtual disk device"
 msgstr "Xen 虚拟磁盘设备"

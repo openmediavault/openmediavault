@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 21:35+0100\n"
+"POT-Creation-Date: 2023-02-08 23:14+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -45,9 +45,6 @@ msgstr "%s [na %s, %s]"
 
 msgid "%s ago"
 msgstr "před %s"
-
-msgid "0 KiB/s means unlimited."
-msgstr "0 (nula) KiB/s znamená neomezené."
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 – nejnižší spotřeba energie s pohotovostním režimem (zastavení otáčení ploten)"
@@ -238,9 +235,6 @@ msgstr "Odebrat je možné nejvýše jedno zařízení."
 msgid "A maximum of two device can be removed."
 msgstr "Odebrat je možné nejvýše dvě zařízení."
 
-msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -335,9 +329,6 @@ msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr "Na sdílení umožnit klientům pokoušet se uložit rozšířené atributy jako v systému OS/2."
 
-msgid "Allow clients to resume interrupted uploads and downloads."
-msgstr "Umožnit klientům pokračovat v přerušeném stahování nebo nahrávání."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
 msgstr "Povolit tomuto serveru propagovat se Windows klientům jako časový server."
@@ -372,9 +363,6 @@ msgstr "Angola"
 
 msgid "Anguilla"
 msgstr "Anguilla"
-
-msgid "Anonymous FTP"
-msgstr "Anonymní FTP"
 
 msgid "Antarctica"
 msgstr "Antarktida"
@@ -414,6 +402,9 @@ msgstr "Asynchronní vstup/výstup"
 
 msgid "At least four devices are required."
 msgstr "Je zapotřebí přinejmenším čtyřech zařízení."
+
+msgid "At least one device is required."
+msgstr ""
 
 msgid "At least one network interface is required."
 msgstr "Je zapotřebí alespoň jedno síťové rozhraní."
@@ -475,9 +466,6 @@ msgstr "K dispozici"
 msgid "Azerbaijan"
 msgstr "Ázerbájdžán"
 
-msgid "BTRFS"
-msgstr "BTRFS"
-
 msgid "Back"
 msgstr "Zpět"
 
@@ -492,15 +480,6 @@ msgstr "Bahamy"
 
 msgid "Bahrain"
 msgstr "Bahrajn"
-
-msgid "Ban Rules"
-msgstr "Pravidla pro odepření"
-
-msgid "Ban statistics:"
-msgstr "Statistiky vyloučení:"
-
-msgid "Bandwidth restriction"
-msgstr "Omezení rychlosti toku dat"
 
 msgid "Bangladesh"
 msgstr "Bangladéš"
@@ -784,7 +763,7 @@ msgstr "Země"
 msgid "Create"
 msgstr "Vytvořit"
 
-msgid "Create a new file system."
+msgid "Create and mount a file system."
 msgstr ""
 
 msgid "Create file system"
@@ -792,15 +771,6 @@ msgstr "Vytvořit souborový systém"
 
 msgid "Create | Import"
 msgstr "Vytvořit | naimportovat"
-
-msgid "Create | Mount"
-msgstr "Vytvořit | Připojit (mount)"
-
-msgid "Created FTP ban rule."
-msgstr "Vytvořeno pravidlo FTP odepření"
-
-msgid "Created FTP share."
-msgstr "Vytvořeno FTP sdílení."
 
 msgid "Created NFS share."
 msgstr "Vytvořeno NFS sdílení."
@@ -847,6 +817,9 @@ msgstr "Vytvořeno připojení k drátové síti."
 msgid "Created wireless network connection."
 msgstr "Vytvořeno připojení k bezdrátové síti."
 
+msgid "Creation Time"
+msgstr ""
+
 msgid "Croatia"
 msgstr "Chorvatsko"
 
@@ -855,9 +828,6 @@ msgstr "Kuba"
 
 msgid "Currently logged in users"
 msgstr "Aktuálně přihlášení uživatelé"
-
-msgid "Currently logged in users:"
-msgstr "Aktuálně přihlášení uživatelé:"
 
 msgid "Cyprus"
 msgstr "Kypr"
@@ -906,9 +876,6 @@ msgstr "V cíli smazat ty soubory, které neexistují na straně zdroje."
 
 msgid "Denmark"
 msgstr "Dánsko"
-
-msgid "Deny logins which do not have a valid shell."
-msgstr "Neumožnit přihlašování k účtům bez platného shellu."
 
 msgid "Description"
 msgstr "Popis"
@@ -993,9 +960,6 @@ msgstr ""
 
 msgid "Dismiss all"
 msgstr ""
-
-msgid "Display the home directory of the user in the browse list."
-msgstr "Zobrazit domovskou složku uživatele v seznamu procházení."
 
 msgid "Displays information about the file systems in a grid."
 msgstr ""
@@ -1111,12 +1075,6 @@ msgstr "Stáhnout"
 msgid "Dronning Maud Land"
 msgstr "Země královny Maud"
 
-msgid "EXT3"
-msgstr "EXT3"
-
-msgid "EXT4"
-msgstr "EXT4"
-
 msgid "Each line represents a group."
 msgstr "Každý řádek představuje skupinu."
 
@@ -1146,9 +1104,6 @@ msgstr "E-mail"
 msgid "Empty now"
 msgstr "Vyprázdnit nyní"
 
-msgid "Enable SSL/TLS connections."
-msgstr "Používat SSL/TLS spojení."
-
 msgid "Enable Time Machine support for this share."
 msgstr "Zapnout pro toto sdílení podporu pro Apple Time Machine."
 
@@ -1166,12 +1121,6 @@ msgstr "Používat Koš"
 
 msgid "Enable remote logging of syslog to the specified host."
 msgstr ""
-
-msgid ""
-"Enable reverse DNS lookup performed on the remote host's IP address for "
-"incoming active mode data connections and outgoing passive mode data "
-"connections."
-msgstr "Zapnout zpětné DNS dotazy na IP adresu vzdáleného systému pro datová spojení v aktivním režimu a odchozí spojení v pasivním režimu."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -1211,9 +1160,6 @@ msgstr "Ethernet"
 msgid "Ethiopia"
 msgstr "Etiopie"
 
-msgid "Event"
-msgstr "Událost"
-
 msgid "Every N day of month"
 msgstr "Každý Ntý den v měsíci"
 
@@ -1229,9 +1175,6 @@ msgstr "Kdokoliv: čtení/zápis"
 msgid "Execute only"
 msgstr "Pouze spouštět"
 
-msgid "Expire"
-msgstr "Skončení platnosti"
-
 msgid "Extended Information"
 msgstr "Další informace"
 
@@ -1241,9 +1184,6 @@ msgstr "Rozšířené atributy"
 msgid "Extra options"
 msgstr "Rozšířené předvolby"
 
-msgid "F2FS"
-msgstr "F2FS"
-
 msgid "FTP"
 msgstr "FTP"
 
@@ -1252,14 +1192,6 @@ msgstr "FTP – Protokol přenosů"
 
 msgid "FTP-Proxy"
 msgstr "FTP proxy"
-
-msgid "FXP"
-msgstr "FXP"
-
-msgid ""
-"FXP allows transfers between two remote servers without any file data going "
-"to the client asking for the transfer."
-msgstr "Protokol FXP umožňuje přenášet data mezi vzdálenými servery na pokyn klienta, přes kterého přitom žádná data neprocházejí. "
 
 msgid "Failed"
 msgstr ""
@@ -1531,9 +1463,6 @@ msgstr "IPv6"
 msgid "Iceland"
 msgstr "Island"
 
-msgid "Ident protocol"
-msgstr "Protokol ident"
-
 msgid "Identify"
 msgstr "Rozpoznat"
 
@@ -1583,16 +1512,6 @@ msgid ""
 "share."
 msgstr "Pokud je tento parametr nastaven, pak uživatelé nebudou na sdílení moci vytvářet nové či upravovat stávající soubory."
 
-msgid ""
-"If your host is acting as a NAT gateway or port forwarder for the server, "
-"this option is useful in order to allow passive tranfers to work. You have "
-"to use your public address and opening the passive ports used on your "
-"firewall as well."
-msgstr "V případě, že tento stroj plní funkci NAT brány či přesměrovává porty pro server, je tato volba užitečná pro fungování pasivních přenosů. Je třeba použít vaší veřejnou IP adresu a také otevřít pasivní porty, použité na firewallu."
-
-msgid "Implicit SSL"
-msgstr "Vždy SSL"
-
 msgid "Import"
 msgstr "Importovat"
 
@@ -1607,17 +1526,6 @@ msgstr "Importované skupiny."
 
 msgid "Imported users."
 msgstr "Uživatelé naimportováni."
-
-msgid ""
-"In some cases you have to specify passive ports range to by-pass firewall "
-"limitations. Passive ports restricts the range of ports from which the "
-"server will select when sent the PASV command from a client. The server will"
-" randomly choose a number from within the specified range until an open port"
-" is found. The port range selected must be in the non-privileged range (eg. "
-"greater than or equal to 1024). It is strongly recommended that the chosen "
-"range be large enough to handle many simultaneous passive connections (for "
-"example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "V některých případech je nutné pro obejití omezení brány firewall zadat rozsah pasivních portů. Ten omezuje výběr portů pro server, když obdrží od klienta příkaz PASV. Server pak ze zadaného rozsahu volí číslo tak dlouho, dokud se nepovede zvolit otevřený port. Rozsah portů musí ležet v neprivilegovaném rozsahu (např. výše nebo rovno 1024). Je silně doporučováno, aby tyto zvolené rozsahy byly dostatečné pro obsluhu mnoha současně probíhajících pasivních spojení (např. 49152-65534 – rozsah dočasných portů dle organizace IANA)."
 
 msgid "India"
 msgstr "Indie"
@@ -1718,9 +1626,6 @@ msgstr "Itálie"
 
 msgid "Ivory Coast"
 msgstr "Pobřeží slonoviny"
-
-msgid "JFS"
-msgstr "JFS"
 
 msgid "Jamaica"
 msgstr "Jamajka"
@@ -1916,9 +1821,6 @@ msgstr "Marshallovy ostrovy"
 msgid "Martinique"
 msgstr "Martinik"
 
-msgid "Masquerade address"
-msgstr "Vnější adresa, na keré dochází k překladu na vnitřní (NAT)"
-
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
@@ -1935,50 +1837,17 @@ msgstr "Mauritánie"
 msgid "Mauritius"
 msgstr "Mauricius"
 
-msgid "Max. clients"
-msgstr "Nejvýše klientů"
-
 msgid "Max. connections"
 msgstr "Nejvýše připojení"
-
-msgid "Max. connections per host"
-msgstr "Nejvýše připojení z jednoho stroje"
-
-msgid "Max. login attempts"
-msgstr "Nejvýše pokusů o přihlášení"
-
-msgid "Max. passive port"
-msgstr "Nejvyšší číslo pasivního portu"
 
 msgid "Maximum"
 msgstr "Maximum"
 
-msgid "Maximum download rate (KiB/s)"
-msgstr "Nejvyšší umožněná rychlost stahování dat (KiB/s)"
-
 msgid "Maximum file size"
 msgstr "Nejvyšší umožněná velikost souboru"
 
-msgid ""
-"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
-"timer completely (clients can stay connected for ever, without sending "
-"data)."
-msgstr "Nejdelší přijatelný čas nečinnosti. Nastavení na 0 (nula) tento limit zcela vypíná (tzn. i když nepřenášejí žádná data, mohou klienti zůstat připojeni napořád)."
-
-msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "Nejvyšší umožněný počet pokusů o zadání hesla, po jehož vyčerpání bude relace uživatele ukončena."
-
-msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "Nejvyšší umožněný počet spojení z jedné IP adresy. 0 (nula) znamená neomezený."
-
-msgid "Maximum number of simultaneous clients."
-msgstr "Nejvyšší umožněný počet souběžně připojených klientů."
-
 msgid "Maximum performance, maximum acoustic output"
 msgstr "Nejvyšší výkon, ale také nejvyšší hlučnost"
-
-msgid "Maximum upload rate (KiB/s)"
-msgstr "Nejvyšší umožněná rychlost odesílání dat (KiB/s)"
 
 msgid "May"
 msgstr "květen"
@@ -2018,9 +1887,6 @@ msgstr "Mikronésie"
 
 msgid "Midway Islands"
 msgstr "Ostrovy Midway"
-
-msgid "Min. passive port"
-msgstr "Nejnižší číslo pasivního portu"
 
 msgid "Minimum"
 msgstr "Nejméně"
@@ -2172,9 +2038,6 @@ msgstr "Žádná spojení"
 msgid "No data to display."
 msgstr "Chybí data – není co zobrazovat."
 
-msgid "No session reuse required"
-msgstr "Opětovné využití relace není vyžadováno"
-
 msgid "No users connected"
 msgstr "Žádní připojení uživatelé"
 
@@ -2239,9 +2102,6 @@ msgid ""
 "Obsolete cached data found. Page will be reloaded. If the problem persists, "
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
 msgstr ""
-
-msgid "Occurrence"
-msgstr "Výskyt"
 
 msgid "October"
 msgstr "říjen"
@@ -2315,11 +2175,11 @@ msgstr "Paraguay"
 msgid "Parent Device"
 msgstr "Nadřazené zařízení"
 
+msgid "Parent UUID"
+msgstr ""
+
 msgid "Parent device"
 msgstr "Nadřazené zařízení"
-
-msgid "Passive FTP"
-msgstr "Pasivní FTP"
 
 msgid "Password"
 msgstr "Heslo"
@@ -2395,22 +2255,6 @@ msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
 "target=\"_blank\">manual page</a> for more details."
 msgstr "Další podrobnosti naleznete v <a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\">manuálové stránce</a>."
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Podrobnosti naleznete v <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manuálové stránce</a> (v angličtině)."
-
-msgid ""
-"Please check the <a "
-"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Podrobnosti naleznete v <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manuálové stránce</a> (v angličtině)."
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
-"name.html' target='_blank'>manual page</a> for more details."
-msgstr "Podrobnosti naleznete v <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>manuálové stránce</a> (v angličtině)."
 
 msgid ""
 "Please check the <a "
@@ -2655,9 +2499,6 @@ msgstr "Rekurzivní"
 msgid "Referenced"
 msgstr "Odkazované"
 
-msgid "Refresh time"
-msgstr "Znovu načíst čas"
-
 msgid "Relative Path"
 msgstr "Vztažený popis umístění"
 
@@ -2700,32 +2541,17 @@ msgstr "Hlásit, pokud je teplota vyšší nebo rovna N stupňům Celsia."
 msgid "Repository"
 msgstr "Repozitář"
 
-msgid "Require valid shell"
-msgstr "Vyžadovat platný shell"
-
-msgid "Required"
-msgstr "Povinné"
-
 msgid "Reset UI to defaults"
 msgstr "Resetovat stav webového rozhraní"
 
-msgid "Resize"
-msgstr "Změnit velikost"
-
 msgid "Result"
 msgstr "Výsledek"
-
-msgid "Resume"
-msgstr "Pokračovat"
 
 msgid "Retention time"
 msgstr "Doba udržování"
 
 msgid "Reunion"
 msgstr "Opětovné spojení"
-
-msgid "Reverse DNS lookup"
-msgstr "Zpětný DNS dotaz"
 
 msgid "Reverted the configuration changes."
 msgstr "Vráceny zpět změny v nastavení."
@@ -2810,9 +2636,6 @@ msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
-
-msgid "SSL/TLS Settings"
-msgstr "Nastavení SSL/TLS"
 
 msgid "SSL/TLS enabled"
 msgstr "SSL/TLS zapnuto"
@@ -2904,9 +2727,6 @@ msgstr "Vyberte shell…"
 msgid "Select a system log ..."
 msgstr "Vyberte záznam událostí v systému…"
 
-msgid "Select a type ..."
-msgstr "Vyberte typ"
-
 msgid "Select all"
 msgstr ""
 
@@ -2947,6 +2767,9 @@ msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr "Vyberte zařízení která budou použita pro vytvoření RAID zařízení. Zařízení připojená prostřednictvím USB nebudou uvedena (příliš nespolehlivé)."
+
+msgid "Select the devices that will be used to create the file system."
+msgstr ""
 
 msgid "Self-Test Logs"
 msgstr "Protokoly ze samotestů"
@@ -3017,6 +2840,9 @@ msgstr "Nastavení"
 msgid "Seychelles"
 msgstr "Seychely"
 
+msgid "Share"
+msgstr ""
+
 msgid "Shared Folders"
 msgstr "Sdílené složky"
 
@@ -3080,6 +2906,9 @@ msgstr "Slovensko"
 msgid "Slovenia"
 msgstr "Slovinsko"
 
+msgid "Snapshots"
+msgstr ""
+
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Selhání software.   Pokračujte kliknutím levým tlačítkem myši."
 
@@ -3131,25 +2960,11 @@ msgstr "Příznak zvláštní akce"
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Určuje četnost hlídání rozhraní MII (v milisekundách)."
 
-msgid ""
-"Specifies the amount of time, in seconds, between checking and updating the "
-"masquerade address by resolving the IP address. Set this value to 0 to "
-"disable this option."
-msgstr "Určuje časové rozmezí (v sekundách) jednotlivých zjišťování a aktualizací vnější veřejné IP adresy (dotazem do jmenné služby DNS), na které probíhá překlad na vnitřní, neveřejné (NAT). Pokud se adresa nemění, můžete toto zjišťování vypnout nastavením na 0 (nula)."
-
 msgid "Specifies the interface devices."
 msgstr "Určuje zařízení daného rozhraní."
 
 msgid "Specifies the slave devices."
 msgstr "Určuje podřízená zařízení."
-
-msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "Určuje lhůtu (ve formátu hh:mm:ss), po jejímž uplynutí skončí platnost vyloučení."
-
-msgid ""
-"Specifies the time interval in hh:mm:ss in which the given number of "
-"occurrences must happen to add the ban."
-msgstr "Určuje délku cyklů (ve formátu hh:mm:ss) při kterých se sčítá vždy do stanovené hranice počtu incidentů, po jejímž dosažení je uděleno vyloučení."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
@@ -3160,9 +2975,6 @@ msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
 msgstr "Určuje prodlevu (v milisekundách) zahájení opětovného používání rozhraní poté, co na něm bylo obnoveno spojení."
-
-msgid "Specifies whether it is allowed to login as superuser directly."
-msgstr "Určuje zda je umožněno se přihlašovat přímo jako správce systému (root)."
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Určuje zda je umožněno přihlašovat se jako správce systému (root)."
@@ -3348,9 +3160,6 @@ msgstr "SSH certifikát použitý pro ověřování."
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
 msgstr "Veřejná část SSH klíče ve formátu OpenSSH nebo RFC 4716."
 
-msgid "The SSL certificate."
-msgstr "SSL certifikát."
-
 msgid "The action to be done when pressing the power button."
 msgstr "Akce, která bude provedena při stisku tlačítka napájení."
 
@@ -3453,16 +3262,14 @@ msgstr "Budou zjištěny balíčky software, které jsou v repozitáři nové, a
 msgid "The requested page was not found."
 msgstr "Požadovaná stránka nebyla nalezena."
 
-msgid ""
-"The requirement that the SSL session from the control connection is reused "
-"for data connections is not required."
-msgstr "Není vyžadováno, aby SSL relace z řídícího spojení byla následně použita i pro to datové."
-
 msgid "The server is unavailable to handle this request right now."
 msgstr "Server v tuto chvíli není dostupný pro vyřízení tohoto požadavku."
 
 msgid "The shared folder from which the privileges are copied."
 msgstr "Sdílená složka, ze které jsou přístupová oprávnění kopírována."
+
+msgid "The shared folder {{ _selected[0].name }} was successfully created."
+msgstr ""
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3471,9 +3278,6 @@ msgstr "Zdrojový vzdálený server, např. [UZIVATEL@]STROJ:ZDROJ, [UZIVATEL@]S
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Systém nyní bude restartován. Chvíli to potrvá…"
-
-msgid "The type of the file system to create."
-msgstr "Typ souborového systému, který vytvořit."
 
 msgid "The users that are allowed to access this module."
 msgstr "Uživatelé, kterým je umožněn přístup k tomuto modulu."
@@ -3488,11 +3292,6 @@ msgstr "Je třeba, aby hodnota byla jedno z podřízených síťových rozhraní
 
 msgid "The value must be on of the slave network interfaces."
 msgstr "Je třeba, aby hodnota byla jedno z podřízených síťových rozhraní."
-
-msgid ""
-"The welcome message which will be displayed to the user when they initially "
-"login."
-msgstr "Uvítací zpráva, kterou uživatelé uvidí jako první věc po přihlášení."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Pracovní skupina, které se server bude jevit členem, když bude dotazován klienty."
@@ -3640,11 +3439,6 @@ msgid ""
 msgstr "Tato volba je čárkou, mezerou či tabulátorem oddělovaný seznam strojů, ze kterých je umožněn přístup k tomuto sdílení. Stroje mohou být uvedeny dle jejich názvu nebo IP adresy. Pokud není nic vyplněno, jsou použita výchozí nastavení."
 
 msgid ""
-"This option requires clients to use FTP over TLS when talking to this "
-"server."
-msgstr "Použitím této předvolby je po FTP klientech vyžadováno aby se k tomuto serveru připojovali zabezpečeně, pomocí protokolu TLS."
-
-msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "Tato předvolba určuje skupinu, kterou se budou dít přenosy souboru do a z modulu."
@@ -3660,11 +3454,6 @@ msgid ""
 msgstr "Tato volba určuje uživatelské jméno, kterým se budou dít přenosy souborů do a z modulu."
 
 msgid ""
-"This option will handle all connections as if they are SSL connections "
-"implicitly."
-msgstr "Tato volba znamená, že se všechna spojení budou vždy obsloužena zabezpečeně (SSL)."
-
-msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
@@ -3674,14 +3463,6 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "Tento parametr řídí zda skrývat soubory, jejichž názvy začínají tečkou"
-
-msgid ""
-"This parameter says that if N occurrences of the event happen within the "
-"given time interval, then a ban is automatically added."
-msgstr "Tento parametr znamená, že když v daném časovém rozmezí nastane N výskytů dané události, je automaticky uděleno vyloučení."
-
-msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr "Toto pravidlo je uplatněno kdykoli nastane událost, které se týká zvolená směrnice."
 
 msgid "This specifies what to do if the packet matches."
 msgstr "Toto určuje co dělat případě, že paket vyhoví pravidlu."
@@ -3701,9 +3482,6 @@ msgstr "čtvrtek"
 msgid "Time Machine support"
 msgstr "Podpora pro Time Machine"
 
-msgid "Time interval"
-msgstr "Časové rozmezí"
-
 msgid "Time of execution"
 msgstr "Kdy spouštět"
 
@@ -3715,9 +3493,6 @@ msgstr "Časové servery"
 
 msgid "Time zone"
 msgstr "Časové pásmo"
-
-msgid "Timeout"
-msgstr "Limit časové prodlevy"
 
 msgid "Tip"
 msgstr ""
@@ -3733,9 +3508,6 @@ msgstr "Tonga"
 
 msgid "Total"
 msgstr "Celkem"
-
-msgid "Transfer log"
-msgstr "Záznam událostí při přenosu"
 
 msgid ""
 "Transfer modification times along with the files and update them on the "
@@ -3792,6 +3564,9 @@ msgstr "Identif. uživatele (UID)"
 
 msgid "UNKNOWN"
 msgstr "NEZNÁMÉ"
+
+msgid "UUID"
+msgstr ""
 
 msgid "Uganda"
 msgstr "Uganda"
@@ -3850,18 +3625,6 @@ msgstr "Aktualizovat ACL seznamy v cíli tak, aby byly stejné jako na zdroji."
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "Aktualizovat rozšířené atributy v cíli tak, aby byly stejné jako ty místní."
-
-msgid "Updated FTP SSL/TLS settings."
-msgstr "Nastavení FTP SSL/TLS zaktualizována."
-
-msgid "Updated FTP ban rule."
-msgstr "Zaktualizováno pravidlo FTP odepření."
-
-msgid "Updated FTP settings."
-msgstr "Nastavení FTP zaktualizována."
-
-msgid "Updated FTP share."
-msgstr "Aktualizováno FTP sdílení."
 
 msgid "Updated NFS settings."
 msgstr "Zaktualizována nastavení NFS."
@@ -4016,9 +3779,6 @@ msgstr "Použít globální nastavení"
 msgid "Use sendfile"
 msgstr "Použít volání sendfile"
 
-msgid "Use the following bandwidth restriction."
-msgstr "Použít následující omezení rychlosti přenosu dat."
-
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked. This may make more efficient use of the system CPU's and cause "
@@ -4131,19 +3891,11 @@ msgstr "středa"
 msgid "Weekly"
 msgstr "Týdně"
 
-msgid "Welcome message"
-msgstr "Uvítací zpráva"
-
 msgid "Welcome to openmediavault"
 msgstr ""
 
 msgid "Western Sahara"
 msgstr "Západní Sahara"
-
-msgid ""
-"When a client initially connects to the server the ident protocol is used to"
-" attempt to identify the remote user name."
-msgstr "Na úvod připojení klienta k serveru dojde k pokusu o zjištění jeho uživatelského jména v systému, ze kterého přistupuje, a to pomocí protokolu ident."
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -4171,9 +3923,6 @@ msgstr "Pouze pro zápis"
 
 msgid "Write/Execute"
 msgstr "Zápis/spouštění"
-
-msgid "XFS"
-msgstr "XFS"
 
 msgid "Xen virtual disk device"
 msgstr "Úložné zařízení poskytované virtualizací Xen"

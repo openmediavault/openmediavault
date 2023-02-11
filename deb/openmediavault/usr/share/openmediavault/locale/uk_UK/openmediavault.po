@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 21:35+0100\n"
+"POT-Creation-Date: 2023-02-08 23:14+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -46,9 +46,6 @@ msgstr "%s [на %s, %s]"
 
 msgid "%s ago"
 msgstr "%s назад"
-
-msgid "0 KiB/s means unlimited."
-msgstr "0 Кб/с - необмежено."
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Мінімальне енергоспоживання в режимі очікування (spindown)"
@@ -239,9 +236,6 @@ msgstr "Можна вилучити максимум один пристрій."
 msgid "A maximum of two device can be removed."
 msgstr "Можна вилучити максимум два пристрої."
 
-msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -336,9 +330,6 @@ msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr "Дозволити клієнтам намагатися зберігати розширені атрибути стану OS/2 у спільній теці."
 
-msgid "Allow clients to resume interrupted uploads and downloads."
-msgstr "Дозволити клієнтам відновити перервані відвантаження та завантаження."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
 msgstr "Дозволити цьому серверу подавати себе як сервер часу для клієнтів Windows."
@@ -373,9 +364,6 @@ msgstr "Ангола"
 
 msgid "Anguilla"
 msgstr "Ангілья"
-
-msgid "Anonymous FTP"
-msgstr "Анонімний FTP"
 
 msgid "Antarctica"
 msgstr "Антарктида"
@@ -415,6 +403,9 @@ msgstr "Асинхронний ввід/вивід"
 
 msgid "At least four devices are required."
 msgstr "Необхідно щонайменше чотири пристрої."
+
+msgid "At least one device is required."
+msgstr ""
 
 msgid "At least one network interface is required."
 msgstr "Потрібен принаймні один мережевий інтерфейс. "
@@ -476,9 +467,6 @@ msgstr "Доступно"
 msgid "Azerbaijan"
 msgstr "Азербайджан"
 
-msgid "BTRFS"
-msgstr "BTRFS"
-
 msgid "Back"
 msgstr "Назад"
 
@@ -493,15 +481,6 @@ msgstr "Багами"
 
 msgid "Bahrain"
 msgstr "Бахрейн"
-
-msgid "Ban Rules"
-msgstr "Правила заборони"
-
-msgid "Ban statistics:"
-msgstr "Статистика банів:"
-
-msgid "Bandwidth restriction"
-msgstr "Обмеження смуги пропускання"
 
 msgid "Bangladesh"
 msgstr "Банґладеш"
@@ -785,23 +764,14 @@ msgstr "Країна"
 msgid "Create"
 msgstr "Створити"
 
-msgid "Create a new file system."
-msgstr "Створити нову файлову систему."
+msgid "Create and mount a file system."
+msgstr ""
 
 msgid "Create file system"
 msgstr "Створення файлової системи"
 
 msgid "Create | Import"
 msgstr "Створити | Імпорт"
-
-msgid "Create | Mount"
-msgstr "Створити | Змонтувати"
-
-msgid "Created FTP ban rule."
-msgstr "Створено правило блокування FTP."
-
-msgid "Created FTP share."
-msgstr "Створено спільну теку FTP."
 
 msgid "Created NFS share."
 msgstr "Створено спільний ресурс NFS."
@@ -848,6 +818,9 @@ msgstr "Створене дротове мережеве підключення.
 msgid "Created wireless network connection."
 msgstr "Створено бездротове мережеве підключення."
 
+msgid "Creation Time"
+msgstr ""
+
 msgid "Croatia"
 msgstr "Хорватія"
 
@@ -856,9 +829,6 @@ msgstr "Куба"
 
 msgid "Currently logged in users"
 msgstr "В даний час зареєстрованих користувачів"
-
-msgid "Currently logged in users:"
-msgstr "Поточні користувачі в системі:"
 
 msgid "Cyprus"
 msgstr "Кіпр"
@@ -907,9 +877,6 @@ msgstr "Видалити файли на стороні отримувача, я
 
 msgid "Denmark"
 msgstr "Данія"
-
-msgid "Deny logins which do not have a valid shell."
-msgstr "Заборонити вхід у систему, якщо немає дійсної оболонки."
 
 msgid "Description"
 msgstr "Опис"
@@ -994,9 +961,6 @@ msgstr "Звільнити"
 
 msgid "Dismiss all"
 msgstr "Звільнити все"
-
-msgid "Display the home directory of the user in the browse list."
-msgstr "Відобразити домашній каталог користувача у списку перегляду."
 
 msgid "Displays information about the file systems in a grid."
 msgstr "Відображення інформації про файлові системи в сітці."
@@ -1112,12 +1076,6 @@ msgstr "Завантажити"
 msgid "Dronning Maud Land"
 msgstr "Земля Королеви Мод"
 
-msgid "EXT3"
-msgstr "EXT3"
-
-msgid "EXT4"
-msgstr "EXT4"
-
 msgid "Each line represents a group."
 msgstr "Кожен рядок представляє групу."
 
@@ -1147,9 +1105,6 @@ msgstr "Email"
 msgid "Empty now"
 msgstr "Очистити зараз"
 
-msgid "Enable SSL/TLS connections."
-msgstr "Увімкнути з’єднання SSL/TLS."
-
 msgid "Enable Time Machine support for this share."
 msgstr "Увімкнути підтримку Time Machine для цього спільного ресурсу."
 
@@ -1167,12 +1122,6 @@ msgstr "Використовувати корзину"
 
 msgid "Enable remote logging of syslog to the specified host."
 msgstr "Увімкнути віддалену реєстрацію системного журналу на вказаному хості."
-
-msgid ""
-"Enable reverse DNS lookup performed on the remote host's IP address for "
-"incoming active mode data connections and outgoing passive mode data "
-"connections."
-msgstr "Увімкнути зворотний перегляд DNS на IP адресі віддаленого хоста для вхідних з'єднань в активному режимі передачі даних і вихідних з'єднань в пасивному режимі передачі даних."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -1212,9 +1161,6 @@ msgstr "Ethernet"
 msgid "Ethiopia"
 msgstr "Ефіопія"
 
-msgid "Event"
-msgstr "Подія"
-
 msgid "Every N day of month"
 msgstr "Кожен N день місяця"
 
@@ -1230,9 +1176,6 @@ msgstr "Всі: читання/запис"
 msgid "Execute only"
 msgstr "Лишень виконати"
 
-msgid "Expire"
-msgstr "Спливає"
-
 msgid "Extended Information"
 msgstr "Розширена інформація"
 
@@ -1242,9 +1185,6 @@ msgstr "Розширенні атрибути"
 msgid "Extra options"
 msgstr "Додаткові опції"
 
-msgid "F2FS"
-msgstr "F2FS"
-
 msgid "FTP"
 msgstr "FTP"
 
@@ -1253,14 +1193,6 @@ msgstr "FTP - Протокол передач"
 
 msgid "FTP-Proxy"
 msgstr "FTP-проксі"
-
-msgid "FXP"
-msgstr "FXP"
-
-msgid ""
-"FXP allows transfers between two remote servers without any file data going "
-"to the client asking for the transfer."
-msgstr "FXP дозволяє передавати дані між двома серверами без запиту передачі до клієнта."
 
 msgid "Failed"
 msgstr "Не вдалося"
@@ -1532,9 +1464,6 @@ msgstr "IPv6"
 msgid "Iceland"
 msgstr "Ісландія"
 
-msgid "Ident protocol"
-msgstr "Ідентифікаційний протокол"
-
 msgid "Identify"
 msgstr "Ідентифікувати"
 
@@ -1584,16 +1513,6 @@ msgid ""
 "share."
 msgstr "Якщо цей параметр встановлений, то користувачі не можуть створювати або змінювати файли в спільній теці."
 
-msgid ""
-"If your host is acting as a NAT gateway or port forwarder for the server, "
-"this option is useful in order to allow passive tranfers to work. You have "
-"to use your public address and opening the passive ports used on your "
-"firewall as well."
-msgstr "Якщо ваш хост виступає в якості NAT шлюзу або засіб передачі порта для сервера, ця опція корисна для того, щоб дозволити пасивні з’єднання. Ви повинні використовувати вашу публічну адресу і відкрити пасивні порти в брандмауері."
-
-msgid "Implicit SSL"
-msgstr "Наявний SSL"
-
 msgid "Import"
 msgstr "Імпорт"
 
@@ -1608,17 +1527,6 @@ msgstr "Імпортовані групи."
 
 msgid "Imported users."
 msgstr "Імпортовані користувачі."
-
-msgid ""
-"In some cases you have to specify passive ports range to by-pass firewall "
-"limitations. Passive ports restricts the range of ports from which the "
-"server will select when sent the PASV command from a client. The server will"
-" randomly choose a number from within the specified range until an open port"
-" is found. The port range selected must be in the non-privileged range (eg. "
-"greater than or equal to 1024). It is strongly recommended that the chosen "
-"range be large enough to handle many simultaneous passive connections (for "
-"example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "У деяких випадках ви повинні вказати пасивний діапазон портів в обхід обмежень брандмауера. При отриманні від клієнта команди PASV, сервер в довільному порядку вибирає із заданого діапазону пасивних портів, поки не буде знайдений відкритий порт. Обраний діапазон портів повинен бути в непривілейованому діапазоні (наприклад, більше або рівне 1024). Наполеглево рекомендується, що обраний діапазон був досить великим, щоб обробити безліч одночасних пасивних підключень (наприклад, 49152-65534, зареєстрований у IANA ефемерний діапазон портів)."
 
 msgid "India"
 msgstr "Індія"
@@ -1719,9 +1627,6 @@ msgstr "Італія"
 
 msgid "Ivory Coast"
 msgstr "Берег Слонової Кістки"
-
-msgid "JFS"
-msgstr "JFS"
 
 msgid "Jamaica"
 msgstr "Ямайка"
@@ -1917,9 +1822,6 @@ msgstr "Маршаллові острови"
 msgid "Martinique"
 msgstr "Мартініка"
 
-msgid "Masquerade address"
-msgstr "Маскарад адрес"
-
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
@@ -1936,50 +1838,17 @@ msgstr "Мавританія"
 msgid "Mauritius"
 msgstr "Маврикій"
 
-msgid "Max. clients"
-msgstr "Максимум клієнтів"
-
 msgid "Max. connections"
 msgstr "Максимум з'єднать"
-
-msgid "Max. connections per host"
-msgstr "Максимум з'єднать на хост"
-
-msgid "Max. login attempts"
-msgstr "Максимум спроб для входу"
-
-msgid "Max. passive port"
-msgstr "Макс. пасивний порт"
 
 msgid "Maximum"
 msgstr "Максимум"
 
-msgid "Maximum download rate (KiB/s)"
-msgstr "Максимальна швидкість завантаження (КіБ/с)"
-
 msgid "Maximum file size"
 msgstr "Максимальний розмір файлу"
 
-msgid ""
-"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
-"timer completely (clients can stay connected for ever, without sending "
-"data)."
-msgstr "Максимальний час простою в секундах. Встановлення часу очікування до 0 відключає таймер очікування повністю (клієнти можуть залишатися на зв'язку назавжди, без відправки даних)."
-
-msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "Максимальна кількість дозволених спроб введення пароля перед відключенням."
-
-msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "Максимальна кількість підключень на IP (0 = не обмежена)."
-
-msgid "Maximum number of simultaneous clients."
-msgstr "Максимальна кількість одночасних клієнтів."
-
 msgid "Maximum performance, maximum acoustic output"
 msgstr "Максимальна продуктивність, максимум акустичного шуму"
-
-msgid "Maximum upload rate (KiB/s)"
-msgstr "Максимальна швидкість віддачі  (КіБ/с)"
 
 msgid "May"
 msgstr "Травень"
@@ -2019,9 +1888,6 @@ msgstr "Мікронезія"
 
 msgid "Midway Islands"
 msgstr "Острови Мідуей"
-
-msgid "Min. passive port"
-msgstr "Мінімальний пасивний порт"
 
 msgid "Minimum"
 msgstr "Мінімальне"
@@ -2173,9 +2039,6 @@ msgstr "Немає з'єднання"
 msgid "No data to display."
 msgstr "Немає даних для відображення."
 
-msgid "No session reuse required"
-msgstr "Немає необхідності в повторному використанні сесії"
-
 msgid "No users connected"
 msgstr "Підключених користувачів немає"
 
@@ -2240,9 +2103,6 @@ msgid ""
 "Obsolete cached data found. Page will be reloaded. If the problem persists, "
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
 msgstr ""
-
-msgid "Occurrence"
-msgstr "Подія"
 
 msgid "October"
 msgstr "Жовтень"
@@ -2316,11 +2176,11 @@ msgstr "Парагвай"
 msgid "Parent Device"
 msgstr "Батьківський пристрій"
 
+msgid "Parent UUID"
+msgstr ""
+
 msgid "Parent device"
 msgstr "Батьківський пристрій"
-
-msgid "Passive FTP"
-msgstr "Пасивний режим FTP"
 
 msgid "Password"
 msgstr "Пароль"
@@ -2396,22 +2256,6 @@ msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
 "target=\"_blank\">manual page</a> for more details."
 msgstr "Будь ласка, перегляньте <a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\">сторінку посібника</a> для отримання додаткової інформації."
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Відвідайте <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>сторінку керівництва</a> для більш докладної інформації."
-
-msgid ""
-"Please check the <a "
-"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Відвідайте <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>сторінку керівництва</a> для більш докладної інформації."
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
-"name.html' target='_blank'>manual page</a> for more details."
-msgstr "Відвідайте <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>сторінку керівництва</a> для більш докладної інформації."
 
 msgid ""
 "Please check the <a "
@@ -2656,9 +2500,6 @@ msgstr "Рекурсивний"
 msgid "Referenced"
 msgstr "Використовується"
 
-msgid "Refresh time"
-msgstr "Час оновлення"
-
 msgid "Relative Path"
 msgstr "Відносний шлях"
 
@@ -2701,32 +2542,17 @@ msgstr "Повідомити, якщо температура більше аб�
 msgid "Repository"
 msgstr "Репозиторій"
 
-msgid "Require valid shell"
-msgstr "Вимагати надання оболонки"
-
-msgid "Required"
-msgstr "Вимагається"
-
 msgid "Reset UI to defaults"
 msgstr "Скинути UI на типове"
 
-msgid "Resize"
-msgstr "Зміна розміру"
-
 msgid "Result"
 msgstr "Результат"
-
-msgid "Resume"
-msgstr "Підсумок"
 
 msgid "Retention time"
 msgstr "Час утримання"
 
 msgid "Reunion"
 msgstr "Поновити з’єднання"
-
-msgid "Reverse DNS lookup"
-msgstr "Зворотний пошук в DNS"
 
 msgid "Reverted the configuration changes."
 msgstr "Скасовано зміни конфігурації."
@@ -2811,9 +2637,6 @@ msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
-
-msgid "SSL/TLS Settings"
-msgstr "Налаштування SSL/TLS"
 
 msgid "SSL/TLS enabled"
 msgstr "SSL/TLS увімкнено"
@@ -2905,9 +2728,6 @@ msgstr "Оберіть оболонку ..."
 msgid "Select a system log ..."
 msgstr "Оберіть системний журнал ..."
 
-msgid "Select a type ..."
-msgstr "Виберіть тип ..."
-
 msgid "Select all"
 msgstr "Вибрати все"
 
@@ -2948,6 +2768,9 @@ msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr "Виберіть пристрої, які будуть використовуватися для створення пристрою RAID. Пристрої, підключені через USB, не будуть перераховані (надто ненадійні)."
+
+msgid "Select the devices that will be used to create the file system."
+msgstr ""
 
 msgid "Self-Test Logs"
 msgstr "Журнали самоперевірки"
@@ -3018,6 +2841,9 @@ msgstr "Налаштування"
 msgid "Seychelles"
 msgstr "Сейшельські острови"
 
+msgid "Share"
+msgstr ""
+
 msgid "Shared Folders"
 msgstr "Спільні теки"
 
@@ -3081,6 +2907,9 @@ msgstr "Словаччина"
 msgid "Slovenia"
 msgstr "Словенія"
 
+msgid "Snapshots"
+msgstr ""
+
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Збій програмного забезпечення.    Натисніть ліву кнопку миші, щоб продовжити."
 
@@ -3132,25 +2961,11 @@ msgstr "Спеціальний прапор дії"
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Визначає частоту моніторингу MII лінії зв'язку в мілісекундах."
 
-msgid ""
-"Specifies the amount of time, in seconds, between checking and updating the "
-"masquerade address by resolving the IP address. Set this value to 0 to "
-"disable this option."
-msgstr "Визначає кількість часу в секундах, між перевіркою та оновленням маскараду адрес за допомогою дозволу IP-адреси. Встановіть це значення в 0, щоб відключити дану опцію."
-
 msgid "Specifies the interface devices."
 msgstr "Визначає пристрої інтерфейсу."
 
 msgid "Specifies the slave devices."
 msgstr "Визначає підпорядковані пристрої."
-
-msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "Визначає час дії бану у форматі гг:хв:сс."
-
-msgid ""
-"Specifies the time interval in hh:mm:ss in which the given number of "
-"occurrences must happen to add the ban."
-msgstr "Задає інтервал часу в форматі гг:хх:сс, протягом якого задана кількість подій додає заборону."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
@@ -3161,9 +2976,6 @@ msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
 msgstr "Визначає час, в мілісекундах перед включенням пристрою після відновлення з'єднання."
-
-msgid "Specifies whether it is allowed to login as superuser directly."
-msgstr "Вказує, чи дозволено входити безпосередньо як суперкористувач."
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Визначає чи дозволено увійти в систему, як адміністратор."
@@ -3349,9 +3161,6 @@ msgstr "Сертифікат SSH використовується для пер�
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
 msgstr "Відкритий ключ SSH у форматі OpenSSH або RFC 4716."
 
-msgid "The SSL certificate."
-msgstr "Сертифікат SSL."
-
 msgid "The action to be done when pressing the power button."
 msgstr "Що повинно бути зроблено при натисненні на кнопку живлення."
 
@@ -3454,16 +3263,14 @@ msgstr "Сховище буде перевірене на наявність н�
 msgid "The requested page was not found."
 msgstr "Сторінку не знайдено."
 
-msgid ""
-"The requirement that the SSL session from the control connection is reused "
-"for data connections is not required."
-msgstr "Встановлення повторного використання сесії SSL керуючого з'єднання для передачі даних."
-
 msgid "The server is unavailable to handle this request right now."
 msgstr "Сервер зараз недоступний для обробки цього запиту."
 
 msgid "The shared folder from which the privileges are copied."
 msgstr "Спільна тека, з якої копіюються привілеї."
+
+msgid "The shared folder {{ _selected[0].name }} was successfully created."
+msgstr ""
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3472,9 +3279,6 @@ msgstr "Віддалений сервер джерела, наприклад [US
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Зараз система буде перезавантажена. Це може зайняти деякий час..."
-
-msgid "The type of the file system to create."
-msgstr "Тип створюваної файлової системи."
 
 msgid "The users that are allowed to access this module."
 msgstr "Користувачі, яким дозволено доступ до цього модуля."
@@ -3489,11 +3293,6 @@ msgstr "Значення має бути одним із підлеглих ме
 
 msgid "The value must be on of the slave network interfaces."
 msgstr "Значення має бути одним із підлеглих мережевих інтерфейсів."
-
-msgid ""
-"The welcome message which will be displayed to the user when they initially "
-"login."
-msgstr "Привітання, яке буде відображатися користувачу, при вході до системи."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Робоча група, в якій відображається сервер при запиті клієнтами."
@@ -3641,11 +3440,6 @@ msgid ""
 msgstr "Розділений комою, пробілом, або символом табуляції список хостів, яким дозволений доступ до цього спільного ресурсу. Ви можете визначити хости по імені або по IP-адресі. Залиште це поле порожнім, щоб використовувати стандартні параметри."
 
 msgid ""
-"This option requires clients to use FTP over TLS when talking to this "
-"server."
-msgstr "Ця опція вимагає від клієнтів використовувати FTP через TLS, коли йде звернення до цього сервера."
-
-msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "Ця опція визначає ім'я групи, від імені якої відбувається передача файлів до модуля і від нього."
@@ -3661,11 +3455,6 @@ msgid ""
 msgstr "Ця опція визначає ім'я користувача, від імені якого відбувається передача файлів до модуля і від нього."
 
 msgid ""
-"This option will handle all connections as if they are SSL connections "
-"implicitly."
-msgstr "Ця опція буде неявно обробляти всі з'єднання, як ніби вони SSL з'єднання."
-
-msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
@@ -3675,14 +3464,6 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "Цей параметр визначає, чи будуть файли, що починаються з точки відображатися, як приховані файли"
-
-msgid ""
-"This parameter says that if N occurrences of the event happen within the "
-"given time interval, then a ban is automatically added."
-msgstr "Цей параметр говорить, що якщо N появ події відбувається протягом заданого інтервалу часу, то заборона автоматично додається."
-
-msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr "Це правило спрацьовує щоразу, коли відбувається обрана подія."
 
 msgid "This specifies what to do if the packet matches."
 msgstr "Вказує, що робити, якщо пакет відповідає."
@@ -3702,9 +3483,6 @@ msgstr "Четвер"
 msgid "Time Machine support"
 msgstr "Підтримка Time Machine"
 
-msgid "Time interval"
-msgstr "Інтервал часу"
-
 msgid "Time of execution"
 msgstr "Час виконання"
 
@@ -3716,9 +3494,6 @@ msgstr "Сервери часу"
 
 msgid "Time zone"
 msgstr "Часовий пояс"
-
-msgid "Timeout"
-msgstr "Тайм-аут"
 
 msgid "Tip"
 msgstr ""
@@ -3734,9 +3509,6 @@ msgstr "Тонґа"
 
 msgid "Total"
 msgstr "Загальний розмір"
-
-msgid "Transfer log"
-msgstr "Протокол передачі"
 
 msgid ""
 "Transfer modification times along with the files and update them on the "
@@ -3793,6 +3565,9 @@ msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "НЕВІДОМЕ"
+
+msgid "UUID"
+msgstr ""
 
 msgid "Uganda"
 msgstr "Уганда"
@@ -3851,18 +3626,6 @@ msgstr "Оновіть цільові списки керування досту
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "Оновіть розширені атрибути призначення, щоб вони були такими ж, як і локальні."
-
-msgid "Updated FTP SSL/TLS settings."
-msgstr "Оновлено налаштування FTP SSL/TLS."
-
-msgid "Updated FTP ban rule."
-msgstr "Оновлено правило блокування FTP."
-
-msgid "Updated FTP settings."
-msgstr "Оновлено налаштування FTP."
-
-msgid "Updated FTP share."
-msgstr "Оновлено спільний ресурс FTP."
 
 msgid "Updated NFS settings."
 msgstr "Оновлено налаштування NFS."
@@ -4017,9 +3780,6 @@ msgstr "Використовувати глобальні налаштуванн
 msgid "Use sendfile"
 msgstr "Використовувати надсилання файлу"
 
-msgid "Use the following bandwidth restriction."
-msgstr "Використовувати наступне обмеження пропускної здатності."
-
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked. This may make more efficient use of the system CPU's and cause "
@@ -4132,19 +3892,11 @@ msgstr "Середа"
 msgid "Weekly"
 msgstr "Щотижня"
 
-msgid "Welcome message"
-msgstr "Вітаємо повідомлення"
-
 msgid "Welcome to openmediavault"
 msgstr ""
 
 msgid "Western Sahara"
 msgstr "Західна Сахара"
-
-msgid ""
-"When a client initially connects to the server the ident protocol is used to"
-" attempt to identify the remote user name."
-msgstr "Коли клієнт спочатку підключається до сервера використовується протокол ident, щоб спробувати ідентифікувати віддаленого користувача."
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -4172,9 +3924,6 @@ msgstr "Лише запис"
 
 msgid "Write/Execute"
 msgstr "Записати/Виконати"
-
-msgid "XFS"
-msgstr "XFS"
 
 msgid "Xen virtual disk device"
 msgstr "Віртуальний дисковий пристрій Xen"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 21:35+0100\n"
+"POT-Creation-Date: 2023-02-08 23:14+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -44,9 +44,6 @@ msgstr "%s [%s de, %s]"
 
 msgid "%s ago"
 msgstr "%s önce"
-
-msgid "0 KiB/s means unlimited."
-msgstr "0 KiB/s limitsiz demektir."
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Minimum güç kullanımı - Bekleme (dönüş durması) ile"
@@ -237,9 +234,6 @@ msgstr "En fazla bir cihaz kaldırılabilir."
 msgid "A maximum of two device can be removed."
 msgstr "En fazla iki cihaz kaldırılabilir."
 
-msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -334,9 +328,6 @@ msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr ""
 
-msgid "Allow clients to resume interrupted uploads and downloads."
-msgstr "Kullanıcıların kesintiye uğramış indirme ve yüklemelerine devam etmelerine izin ver."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
 msgstr "Sunucunun kendisini Windows istemcilerine zaman sunucusu olarak tanıtmasına izin ver."
@@ -371,9 +362,6 @@ msgstr "Angola"
 
 msgid "Anguilla"
 msgstr "Anguilla"
-
-msgid "Anonymous FTP"
-msgstr "Anonim FTP"
 
 msgid "Antarctica"
 msgstr "Antartika"
@@ -413,6 +401,9 @@ msgstr "Asenkron I/O"
 
 msgid "At least four devices are required."
 msgstr "En az dört aygıt gereklidir."
+
+msgid "At least one device is required."
+msgstr ""
 
 msgid "At least one network interface is required."
 msgstr "En azından bir ağ arabirimi gereklidir."
@@ -474,9 +465,6 @@ msgstr "Mevcut"
 msgid "Azerbaijan"
 msgstr "Azerbaycan"
 
-msgid "BTRFS"
-msgstr "BTRFS"
-
 msgid "Back"
 msgstr "Geri"
 
@@ -491,15 +479,6 @@ msgstr "Bahamalar"
 
 msgid "Bahrain"
 msgstr "Bahreyn"
-
-msgid "Ban Rules"
-msgstr "Engelleme Kuralları"
-
-msgid "Ban statistics:"
-msgstr "Yasaklama istatistikleri:"
-
-msgid "Bandwidth restriction"
-msgstr "Bantgenişliği kısıtlaması"
 
 msgid "Bangladesh"
 msgstr "Bangladeş"
@@ -783,23 +762,14 @@ msgstr "Ülke"
 msgid "Create"
 msgstr "Yarat"
 
-msgid "Create a new file system."
-msgstr "Yeni dosya sistemi oluştur."
+msgid "Create and mount a file system."
+msgstr ""
 
 msgid "Create file system"
 msgstr "Dosya sistemi yarat"
 
 msgid "Create | Import"
 msgstr "Oluştur | İçe aktar"
-
-msgid "Create | Mount"
-msgstr "Oluştur | Bağla"
-
-msgid "Created FTP ban rule."
-msgstr "FTP engelleme kuralı oluşturuldu."
-
-msgid "Created FTP share."
-msgstr "FTP paylaşımı oluşturuldu."
 
 msgid "Created NFS share."
 msgstr "NFS paylaşımı oluşturuldu."
@@ -846,6 +816,9 @@ msgstr "Kablolu ağ bağlantısı yarat."
 msgid "Created wireless network connection."
 msgstr "Kablosuz ağ bağlantısı yarat."
 
+msgid "Creation Time"
+msgstr ""
+
 msgid "Croatia"
 msgstr "Hırvatistan"
 
@@ -854,9 +827,6 @@ msgstr "Küba"
 
 msgid "Currently logged in users"
 msgstr "Şu anda bağlı bulunan kullanıcılar"
-
-msgid "Currently logged in users:"
-msgstr "Şu anda sisteme bağlı kullanıcılar:"
 
 msgid "Cyprus"
 msgstr "Kıbrıs"
@@ -905,9 +875,6 @@ msgstr "Göndericide bulunmayan dosyaları kaydedilen taraftan sil"
 
 msgid "Denmark"
 msgstr "Danimarka"
-
-msgid "Deny logins which do not have a valid shell."
-msgstr ""
 
 msgid "Description"
 msgstr "Açıklama"
@@ -992,9 +959,6 @@ msgstr "Vazgeç"
 
 msgid "Dismiss all"
 msgstr "Hepsinden vazgeç"
-
-msgid "Display the home directory of the user in the browse list."
-msgstr "Gözatma listesinde kullanıcının ev dizinini göster."
 
 msgid "Displays information about the file systems in a grid."
 msgstr "Dosya sistemlerine ait bilgileri kareli düzende göster."
@@ -1110,12 +1074,6 @@ msgstr "İndirme"
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Bölgesi"
 
-msgid "EXT3"
-msgstr "EXT3"
-
-msgid "EXT4"
-msgstr "EXT4"
-
 msgid "Each line represents a group."
 msgstr "Her satır bir grubu temsil eder."
 
@@ -1145,9 +1103,6 @@ msgstr "E-posta"
 msgid "Empty now"
 msgstr "Şimdi boş"
 
-msgid "Enable SSL/TLS connections."
-msgstr "SSL/TLS bağlantılarını etkinleştir."
-
 msgid "Enable Time Machine support for this share."
 msgstr "Bu paylaşımda Time Machine desteğini aktive et."
 
@@ -1165,12 +1120,6 @@ msgstr "Geri dönüşüm kutusunu aktive et"
 
 msgid "Enable remote logging of syslog to the specified host."
 msgstr ""
-
-msgid ""
-"Enable reverse DNS lookup performed on the remote host's IP address for "
-"incoming active mode data connections and outgoing passive mode data "
-"connections."
-msgstr "Gelen aktif  ve giden pasif moddaki data bağlantılarında uzak bilgisayar IP adresi için ters DNS sorgulaması yapılmasına izin ver."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -1210,9 +1159,6 @@ msgstr "Ethernet"
 msgid "Ethiopia"
 msgstr "Etiyopya"
 
-msgid "Event"
-msgstr "Olay"
-
 msgid "Every N day of month"
 msgstr "Ayın her N günü"
 
@@ -1228,9 +1174,6 @@ msgstr "Herkes:oku/yaz"
 msgid "Execute only"
 msgstr "Sadece çalıştır"
 
-msgid "Expire"
-msgstr "Zaman aşımı"
-
 msgid "Extended Information"
 msgstr "Genişletilmiş Bilgi"
 
@@ -1240,9 +1183,6 @@ msgstr "Genişletilmiş öznitelikler"
 msgid "Extra options"
 msgstr "İlave seçenekler"
 
-msgid "F2FS"
-msgstr "F2FS"
-
 msgid "FTP"
 msgstr "FTP"
 
@@ -1251,14 +1191,6 @@ msgstr "FTP - Tansfer kaydı"
 
 msgid "FTP-Proxy"
 msgstr "FTP-Vekil Sunucu"
-
-msgid "FXP"
-msgstr "FXP"
-
-msgid ""
-"FXP allows transfers between two remote servers without any file data going "
-"to the client asking for the transfer."
-msgstr "FXP kullanıcı tarafına herhangi bir dosya bilgisi aktarımı olmaksızın iki uzak sunucu arasında aktarıma imkan tanır."
 
 msgid "Failed"
 msgstr "Başarısız"
@@ -1530,9 +1462,6 @@ msgstr "IPv6"
 msgid "Iceland"
 msgstr "İzlanda"
 
-msgid "Ident protocol"
-msgstr "Ident iletişim kuralı"
-
 msgid "Identify"
 msgstr "Belirle"
 
@@ -1582,16 +1511,6 @@ msgid ""
 "share."
 msgstr "Bu seçenek ektive edilir ise kullanıcılar paylaşıma bulunan dosyaları değiştiremeyebilir ya da yeni dosya oluşturamayabilirler."
 
-msgid ""
-"If your host is acting as a NAT gateway or port forwarder for the server, "
-"this option is useful in order to allow passive tranfers to work. You have "
-"to use your public address and opening the passive ports used on your "
-"firewall as well."
-msgstr "Eğer makinanız sunucu çin NAT ag geçidi ya da port yönlendirici olarak çalışıyor ise, bu seçenek çalışmak için pasif transferlere izin verdiğinden oldukça kullanışlıdır."
-
-msgid "Implicit SSL"
-msgstr "Kesin SSL"
-
 msgid "Import"
 msgstr "İçeri aktarmak"
 
@@ -1606,17 +1525,6 @@ msgstr "Aktarılmış gruplar."
 
 msgid "Imported users."
 msgstr "Aktarılmış kullanıcılar."
-
-msgid ""
-"In some cases you have to specify passive ports range to by-pass firewall "
-"limitations. Passive ports restricts the range of ports from which the "
-"server will select when sent the PASV command from a client. The server will"
-" randomly choose a number from within the specified range until an open port"
-" is found. The port range selected must be in the non-privileged range (eg. "
-"greater than or equal to 1024). It is strongly recommended that the chosen "
-"range be large enough to handle many simultaneous passive connections (for "
-"example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "Bazı durumlarda güvenlik duvarını devre dışı bırakabilmek için pasif port aralığı tanımlamak zorunda kalırsınız. Pasif portlar kullanıcı tarafından PASV komutu geldiğinde sunucunun seçebileceği port aralığını sınırlar. Sunucu belirlenmiş aralıktan açık bir port bulana kadar rastgele port numaraları dener. Port aralığı mutlaka özelleştirilmemiş bir aralıktan (örn. 1024 ya da daha büyük) seçilmelidir. Seçilen aralığın olabilecek en fazla sayıdaki pasif bağlantıyı karşılayabilecek kadar geniş olarak ayarlanması şiddetle önerilir (örneğin, IANA - kayıtlı geçici port aralığı olan 49152-65534 şeklinde)."
 
 msgid "India"
 msgstr "Hindistan"
@@ -1717,9 +1625,6 @@ msgstr "İtalya"
 
 msgid "Ivory Coast"
 msgstr "Ivory Coast"
-
-msgid "JFS"
-msgstr "JFS"
 
 msgid "Jamaica"
 msgstr "Jamaika"
@@ -1915,9 +1820,6 @@ msgstr "Marshall Adaları"
 msgid "Martinique"
 msgstr "Martinik"
 
-msgid "Masquerade address"
-msgstr "Gizlenmiş adres"
-
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
@@ -1934,50 +1836,17 @@ msgstr "Moritanya"
 msgid "Mauritius"
 msgstr "Mauritius"
 
-msgid "Max. clients"
-msgstr "Maksimum kullanıcı"
-
 msgid "Max. connections"
 msgstr "Maksimum bağlantı"
-
-msgid "Max. connections per host"
-msgstr "Herbir makina için maksimum bağlantı sayısı"
-
-msgid "Max. login attempts"
-msgstr "Maksimum giriş denemesi"
-
-msgid "Max. passive port"
-msgstr ""
 
 msgid "Maximum"
 msgstr "En fazla"
 
-msgid "Maximum download rate (KiB/s)"
-msgstr "Maksimum indirme hızı (KiB/s)"
-
 msgid "Maximum file size"
 msgstr "Maksimum dosya büyüklüğü"
 
-msgid ""
-"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
-"timer completely (clients can stay connected for ever, without sending "
-"data)."
-msgstr "Maksimum boşta bekleme süresi. Boşta bekleme zaman aşım süresini 0 olarak ayarlamanız durumunda ilgili sayaç tamamen kapatılacaktır (kullanıcılar hiçbir bilgi göndermeden sonsuza kadar bağlı kalabilirler)."
-
-msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "Bağlantı kesilmeden önce izin verilen maksimum şifre deneme sayısı."
-
-msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "IP başına maksimum bağlantı sayısı (0 = sınırsız)"
-
-msgid "Maximum number of simultaneous clients."
-msgstr "Aynı anda bağlanabilecek maksimum kullanıcı sayısı."
-
 msgid "Maximum performance, maximum acoustic output"
 msgstr "Maksimum performans, maksimum akustik seviye"
-
-msgid "Maximum upload rate (KiB/s)"
-msgstr "Maksimum yükleme hızı (KiB/s)"
 
 msgid "May"
 msgstr "Mayıs"
@@ -2017,9 +1886,6 @@ msgstr "Mikronezya"
 
 msgid "Midway Islands"
 msgstr "Midway Adaları"
-
-msgid "Min. passive port"
-msgstr ""
 
 msgid "Minimum"
 msgstr "Minimum"
@@ -2171,9 +2037,6 @@ msgstr "Baülantı yok"
 msgid "No data to display."
 msgstr "Gösterilecek bilgi yok."
 
-msgid "No session reuse required"
-msgstr "Oturum tekrar kullanımı gerekli değil"
-
 msgid "No users connected"
 msgstr "Herhangi bir kullanıcı bağlı değil"
 
@@ -2238,9 +2101,6 @@ msgid ""
 "Obsolete cached data found. Page will be reloaded. If the problem persists, "
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
 msgstr ""
-
-msgid "Occurrence"
-msgstr "Olay"
 
 msgid "October"
 msgstr "Ekim"
@@ -2314,11 +2174,11 @@ msgstr "Paraguay"
 msgid "Parent Device"
 msgstr "Ana Cihaz"
 
+msgid "Parent UUID"
+msgstr ""
+
 msgid "Parent device"
 msgstr "Ana aygıt"
-
-msgid "Passive FTP"
-msgstr "Pasif FTP"
 
 msgid "Password"
 msgstr "Şifre"
@@ -2394,22 +2254,6 @@ msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
 "target=\"_blank\">manual page</a> for more details."
 msgstr "Daha fazla bilgi için lütfen <a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\">kullanıcı kılavuzu</a> adresini ziyaret ediniz."
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Daha fazla bilgi için lütfen <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manual page</a> adresiniz ziyaret ediniz."
-
-msgid ""
-"Please check the <a "
-"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Daha fazla bilgi için lütfen <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manual page</a> adresini ziyaret ediniz."
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
-"name.html' target='_blank'>manual page</a> for more details."
-msgstr "Lütfen daha fazla detay için <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>kullanıcı kılavuzu</a> sayfasını ziyaret ediniz."
 
 msgid ""
 "Please check the <a "
@@ -2654,9 +2498,6 @@ msgstr "Tekrarlanan"
 msgid "Referenced"
 msgstr "Başvurulmuş"
 
-msgid "Refresh time"
-msgstr "Yenileme zamanı"
-
 msgid "Relative Path"
 msgstr "Bağlantılı Dizin"
 
@@ -2699,32 +2540,17 @@ msgstr ""
 msgid "Repository"
 msgstr "Depo"
 
-msgid "Require valid shell"
-msgstr "Geçerli bir kabul gereklidir"
-
-msgid "Required"
-msgstr "Gerekli"
-
 msgid "Reset UI to defaults"
 msgstr "UI yi varsayılan ayarlara getirin"
 
-msgid "Resize"
-msgstr "Yeniden boyutlandır"
-
 msgid "Result"
 msgstr "Sonuç"
-
-msgid "Resume"
-msgstr "Devam et"
 
 msgid "Retention time"
 msgstr ""
 
 msgid "Reunion"
 msgstr "Birleşmek"
-
-msgid "Reverse DNS lookup"
-msgstr "Ters DNS sorgulaması"
 
 msgid "Reverted the configuration changes."
 msgstr ""
@@ -2809,9 +2635,6 @@ msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
-
-msgid "SSL/TLS Settings"
-msgstr "SSL/TLS Ayarları"
 
 msgid "SSL/TLS enabled"
 msgstr "SSL/TLS etkinleştirildi"
@@ -2903,9 +2726,6 @@ msgstr "Bir kabuk seçin ..."
 msgid "Select a system log ..."
 msgstr ""
 
-msgid "Select a type ..."
-msgstr ""
-
 msgid "Select all"
 msgstr "Tümünü seç"
 
@@ -2946,6 +2766,9 @@ msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr "RAID aygıtını oluşturmak için kulalnılacak aygıtları seçiniz. USB arabiriminden bağlanan aygıtlar listelenmeyecektir (oldukça güvensiz)."
+
+msgid "Select the devices that will be used to create the file system."
+msgstr ""
 
 msgid "Self-Test Logs"
 msgstr ""
@@ -3016,6 +2839,9 @@ msgstr "Ayarlar"
 msgid "Seychelles"
 msgstr "Seyşeller"
 
+msgid "Share"
+msgstr ""
+
 msgid "Shared Folders"
 msgstr "Paylaşılmış Klasörler"
 
@@ -3079,6 +2905,9 @@ msgstr "Slovakya"
 msgid "Slovenia"
 msgstr "Slovenya"
 
+msgid "Snapshots"
+msgstr ""
+
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr ""
 
@@ -3130,25 +2959,11 @@ msgstr "Özel işlem belirteci"
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Milisaniye cinsinden MII bağlantı izleme frekansını belirler."
 
-msgid ""
-"Specifies the amount of time, in seconds, between checking and updating the "
-"masquerade address by resolving the IP address. Set this value to 0 to "
-"disable this option."
-msgstr "Gizli adresin IP adresi çözülerek güncellenmesi için geçen süreyi saniye cinsinden belirtir. Bu opsiyonu kapatmak için 0 değerini giriniz."
-
 msgid "Specifies the interface devices."
 msgstr ""
 
 msgid "Specifies the slave devices."
 msgstr ""
-
-msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "Yasaklamanın kalkacağı zamanı SS:dd:ss cinsinden tanımlar."
-
-msgid ""
-"Specifies the time interval in hh:mm:ss in which the given number of "
-"occurrences must happen to add the ban."
-msgstr "Yasaklama yapılabilmesi için belirtilen sayıda olayın gerçekleşceği zaman aralığını SS:dd:ss cinsinden belirtir."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
@@ -3159,9 +2974,6 @@ msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
 msgstr "İkincil bağlantı yeniden kurulduğunda bağlantıyı yenilemeden önce beklenecek süreyi milisaniye sindinden belirtir."
-
-msgid "Specifies whether it is allowed to login as superuser directly."
-msgstr ""
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Superuser olarak sisteme giriş yapılıp yapılamayacağını belirler."
@@ -3347,9 +3159,6 @@ msgstr "SSH sertifikası kimlik doğrulama için kullanılır"
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
 msgstr "SSH açık anahtarı ya OpenSSH ya da RFC 4716 formatındadır."
 
-msgid "The SSL certificate."
-msgstr "SSL sertifikası."
-
 msgid "The action to be done when pressing the power button."
 msgstr "Güç düğmesine basıldığında yapılacak işlem."
 
@@ -3452,15 +3261,13 @@ msgstr "Yazılım deposu yeni, kaldırılmış ve güncellenmiş yazılım paket
 msgid "The requested page was not found."
 msgstr "İstek gönderilen sayfa bulunamadı."
 
-msgid ""
-"The requirement that the SSL session from the control connection is reused "
-"for data connections is not required."
-msgstr "Kontrol bağlantılarındaki SSL oturumlarının data bağlantılarında yeniden kullanılması gerekli değildir."
-
 msgid "The server is unavailable to handle this request right now."
 msgstr ""
 
 msgid "The shared folder from which the privileges are copied."
+msgstr ""
+
+msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr ""
 
 msgid ""
@@ -3470,9 +3277,6 @@ msgstr "Kaynak uzak sunucu, örn. [USER@]HOST:SRC, [USER@]HOST::SRC veya rsync:/
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Sistem yeniden başlatılıyor. Bu işlem vakit alabilir ..."
-
-msgid "The type of the file system to create."
-msgstr ""
 
 msgid "The users that are allowed to access this module."
 msgstr ""
@@ -3487,11 +3291,6 @@ msgstr ""
 
 msgid "The value must be on of the slave network interfaces."
 msgstr ""
-
-msgid ""
-"The welcome message which will be displayed to the user when they initially "
-"login."
-msgstr "Hoşgeldiniz mesajı kullanıcılara giriş yaptıklarında gösterilir."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Çalışma grubu, kullanıcılar tarafından sorgulandığında sunucunun bulunacağı yerdir."
@@ -3639,11 +3438,6 @@ msgid ""
 msgstr "Bu seçenek, bu paylaşıma erişim hakkı bulunan, virgül, boşluk veya tab ile ayrılmış kullanıcı listesidir. Kullanıcıları isim veya IP numarası ile belirleyebilirsiniz. Varsayılan ayarları kullanmak için bu alanı boş bırakınız."
 
 msgid ""
-"This option requires clients to use FTP over TLS when talking to this "
-"server."
-msgstr "Bu seçenek, kullanıcıların sunucu ile iletişimde TLS üzerinden FTP kullanmalarını gerektirir."
-
-msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "Bu seçenek yer alacağı modülden ya da modüle dosya transferleri sırasında kullanılacak grup adını belirler."
@@ -3659,11 +3453,6 @@ msgid ""
 msgstr "Bu seçenek yer alacağı modülden ya da modüle dosya transferleri sırasında kullanılacak kullanıcı adını belirler."
 
 msgid ""
-"This option will handle all connections as if they are SSL connections "
-"implicitly."
-msgstr "Bu seçenek, kesin olarak SSL bağlantı tipinde olan tüm bağlantıları yönetir."
-
-msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
@@ -3673,14 +3462,6 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "Bu parametre isimleri nokta ile başlayan dosyaların gizli dosya olup olmayacaklarını belirler"
-
-msgid ""
-"This parameter says that if N occurrences of the event happen within the "
-"given time interval, then a ban is automatically added."
-msgstr "Bu parametre ile belirlenmiş zaman diliminde N sayıda olay olduğunda otomatik olarak yasaklama getirilmesini sağlar."
-
-msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr "Bu kural, seçili olay talimatları gerçekleştiğinde tetiklenir."
 
 msgid "This specifies what to do if the packet matches."
 msgstr "Paketler eşleştiğinde ne yapılacağını belirler."
@@ -3700,9 +3481,6 @@ msgstr "Perşembe"
 msgid "Time Machine support"
 msgstr "Tiem Machine desteği"
 
-msgid "Time interval"
-msgstr "Zaman aralığı"
-
 msgid "Time of execution"
 msgstr "Çalıştırma zamanı"
 
@@ -3714,9 +3492,6 @@ msgstr "Zaman sunucuları"
 
 msgid "Time zone"
 msgstr "Saat dilimi"
-
-msgid "Timeout"
-msgstr "Zaman aşımı"
 
 msgid "Tip"
 msgstr "İpucu"
@@ -3732,9 +3507,6 @@ msgstr "Tonga"
 
 msgid "Total"
 msgstr "Toplam"
-
-msgid "Transfer log"
-msgstr "Altarım kaydı"
 
 msgid ""
 "Transfer modification times along with the files and update them on the "
@@ -3791,6 +3563,9 @@ msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "BİLİNMİYOR"
+
+msgid "UUID"
+msgstr ""
 
 msgid "Uganda"
 msgstr "Uganda"
@@ -3849,18 +3624,6 @@ msgstr "Hedef ACL lerini kaynak ACL leri ile aynı olacak biçimde güncelleşti
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "Hedefteki genişletilmiş öznitelikleri yerel olanlarla aynı olacak şekilde güncelleştir."
-
-msgid "Updated FTP SSL/TLS settings."
-msgstr ""
-
-msgid "Updated FTP ban rule."
-msgstr ""
-
-msgid "Updated FTP settings."
-msgstr ""
-
-msgid "Updated FTP share."
-msgstr ""
 
 msgid "Updated NFS settings."
 msgstr ""
@@ -4015,9 +3778,6 @@ msgstr "Genel ayarları kullan"
 msgid "Use sendfile"
 msgstr "Sendfile kullan"
 
-msgid "Use the following bandwidth restriction."
-msgstr ""
-
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked. This may make more efficient use of the system CPU's and cause "
@@ -4130,19 +3890,11 @@ msgstr "Çarşamba"
 msgid "Weekly"
 msgstr "Haftalık"
 
-msgid "Welcome message"
-msgstr "Hoşgeldiniz mesajı"
-
 msgid "Welcome to openmediavault"
 msgstr ""
 
 msgid "Western Sahara"
 msgstr "Batı Sahara"
-
-msgid ""
-"When a client initially connects to the server the ident protocol is used to"
-" attempt to identify the remote user name."
-msgstr ""
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -4170,9 +3922,6 @@ msgstr ""
 
 msgid "Write/Execute"
 msgstr "Yaz/Çalıştır"
-
-msgid "XFS"
-msgstr "XFS"
 
 msgid "Xen virtual disk device"
 msgstr "Xen sanal disk aygıtı"

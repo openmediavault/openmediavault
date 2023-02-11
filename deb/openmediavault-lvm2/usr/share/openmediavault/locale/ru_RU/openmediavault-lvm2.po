@@ -12,10 +12,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-19 17:07+0000\n"
-"Last-Translator: Артур Мудрых <arturmon82@gmail.com>\n"
-"Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"PO-Revision-Date: 2012-03-17 01:49+0000\n"
+"Last-Translator: Артур Мудрых <arturmon82@gmail.com>, 2017\n"
+"Language-Team: Russian (Russia) (http://www.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,31 +25,26 @@ msgstr ""
 msgid "Active"
 msgstr "Активный"
 
-msgid "Add physical volume"
-msgstr "Добавить физические тома"
-
-msgid ""
-"After the logical volume has been extended you can resize the containing "
-"filesystem."
-msgstr "После того как логический том был расширен вы можете изменить размер файловой системы."
-
 msgid "Available"
 msgstr "Доступно"
 
 msgid "Capacity"
 msgstr "Емкость"
 
-msgid "Confirmation"
-msgstr "Подтверждение"
+msgid "Create"
+msgstr "Создать"
 
-msgid "Create logical volume"
-msgstr "Создание логического тома"
+msgid "Created logical volume '{{ name }}'."
+msgstr ""
 
-msgid "Create volume group"
-msgstr "Создать группу томов"
+msgid "Created physical volume {{ devicefile }}."
+msgstr ""
 
-msgid "Description"
-msgstr "Описание"
+msgid "Created snapshot of logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Created volume group '{{ name }}'."
+msgstr ""
 
 msgid "Device"
 msgstr "Устройство"
@@ -57,32 +52,23 @@ msgstr "Устройство"
 msgid "Devices"
 msgstr "Устройства"
 
-msgid "Do you really want to create the logical volume?"
-msgstr "Вы действительно хотите создать логический том?"
-
-msgid "Do you really want to create the physical volume?"
-msgstr "Вы действительно хотите создать физический том?"
-
-msgid "Do you really want to create the volume group?"
-msgstr "Вы действительно хотите создать группу томов?"
+msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
+msgstr ""
 
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "Вы действительно хотите изменить выбранный физический том?"
 
-msgid "Edit logical volume"
-msgstr "Редактирование логического тома"
-
-msgid "Edit volume group"
-msgstr "Редактировать группу томов"
+msgid "Edit"
+msgstr "Редактировать"
 
 msgid "Extend"
 msgstr "Увеличить"
 
-msgid "Extend logical volume"
-msgstr "Увеличить логический том"
+msgid "Extended logical volume '{{ devicefile }}'."
+msgstr ""
 
-msgid "Extend volume group"
-msgstr "Увеличить группу томов"
+msgid "Extended volume group '{{ devicefile }}'."
+msgstr ""
 
 msgid "Free"
 msgstr "Свободно"
@@ -93,35 +79,38 @@ msgstr "Недопустимое имя"
 msgid "Logical Volume Management"
 msgstr "Управление логическими томами"
 
-msgid "Logical volumes"
-msgstr "Логические тома"
+msgid "Logical Volumes"
+msgstr ""
 
 msgid "Name"
 msgstr "Имя"
 
-msgid "No free space available to create a logical volume."
-msgstr "Нет свободного места для создания логический томов."
-
-msgid "No free space available to extend the logical volume."
-msgstr "Нет свободного места, чтобы расширить логический том."
-
-msgid "Physical volumes"
-msgstr "Физические тома"
+msgid "Physical Volumes"
+msgstr ""
 
 msgid "Reduce"
 msgstr "Уменьшить"
 
-msgid "Reduce volume group"
-msgstr "Уменьшить группу томов"
+msgid "Reduced volume group '{{ devicefile }}'."
+msgstr ""
 
 msgid "Resize"
 msgstr "Изменить размер"
 
+msgid "Select a device ..."
+msgstr "Выберите устройство..."
+
 msgid "Select a volume group ..."
 msgstr "Выберите группу томов ..."
 
-msgid "Select an device ..."
-msgstr "Выберите устройство ..."
+msgid "Select devices ..."
+msgstr "Выберите устройства ..."
+
+msgid "Select the devices used to extend the volume group."
+msgstr ""
+
+msgid "Select the devices used to reduce from the volume group."
+msgstr ""
 
 msgid "Size"
 msgstr "Размер"
@@ -129,11 +118,36 @@ msgstr "Размер"
 msgid "Snapshot"
 msgstr "Снимок"
 
+msgid "The name of the logical volume."
+msgstr ""
+
+msgid "The name of the volume group."
+msgstr ""
+
+msgid ""
+"The percentage of the total space in the volume group to allocate for the "
+"new logical volume."
+msgstr ""
+
+msgid ""
+"The percentage of the total space in the volume group to use by the logical "
+"volume."
+msgstr ""
+
+msgid "Updated logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Updated volume group '{{ devicefile }}'."
+msgstr ""
+
 msgid "Used"
 msgstr "Использованно"
 
+msgid "Volume Group"
+msgstr ""
+
+msgid "Volume Groups"
+msgstr ""
+
 msgid "Volume group"
 msgstr "Группа томов"
-
-msgid "Volume groups"
-msgstr "Группы томов"

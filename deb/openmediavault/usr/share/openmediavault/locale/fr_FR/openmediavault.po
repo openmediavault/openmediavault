@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 21:35+0100\n"
+"POT-Creation-Date: 2023-02-08 23:14+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: M@T D., 2022\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -58,9 +58,6 @@ msgstr "%s [le %s, %s]"
 
 msgid "%s ago"
 msgstr "Il y a %s"
-
-msgid "0 KiB/s means unlimited."
-msgstr "0 Ko/s correspond à illimité."
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Consommation minimale avec mise en veille (spindown)"
@@ -251,9 +248,6 @@ msgstr "Un seul périphérique peut être enlevé au maximum."
 msgid "A maximum of two device can be removed."
 msgstr "Deux périphériques peuvent être enlevés au maximum."
 
-msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr "Un puissant serveur modulaire FTP/SFTP/FTPS."
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -348,9 +342,6 @@ msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr "Permettre aux clients d'essayer de stocker des attributs d'état OS/2 étendus dans un dossier partagé."
 
-msgid "Allow clients to resume interrupted uploads and downloads."
-msgstr "Permettre aux clients de redémarrer les téléchargements interrompus."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
 msgstr "Autoriser ce serveur à se faire connaître comme un serveur de temps pour les clients Windows"
@@ -385,9 +376,6 @@ msgstr "Angola"
 
 msgid "Anguilla"
 msgstr "Anguille"
-
-msgid "Anonymous FTP"
-msgstr "FTP anonyme"
 
 msgid "Antarctica"
 msgstr "Antarctique"
@@ -427,6 +415,9 @@ msgstr "E/S asynchrones"
 
 msgid "At least four devices are required."
 msgstr "Quatre périphériques sont nécessaires au minimum."
+
+msgid "At least one device is required."
+msgstr ""
 
 msgid "At least one network interface is required."
 msgstr "Au moins une interface réseau est nécessaire."
@@ -488,9 +479,6 @@ msgstr "Disponible"
 msgid "Azerbaijan"
 msgstr "Azerbaijan"
 
-msgid "BTRFS"
-msgstr "BTRFS"
-
 msgid "Back"
 msgstr "Retour"
 
@@ -505,15 +493,6 @@ msgstr "Bahamas"
 
 msgid "Bahrain"
 msgstr "Bahrain"
-
-msgid "Ban Rules"
-msgstr "Règles d'exclusion"
-
-msgid "Ban statistics:"
-msgstr "Statistiques d'interdiction :"
-
-msgid "Bandwidth restriction"
-msgstr "Restriction de bande passante"
 
 msgid "Bangladesh"
 msgstr "Bangladesh"
@@ -797,23 +776,14 @@ msgstr "Pays"
 msgid "Create"
 msgstr "Créer"
 
-msgid "Create a new file system."
-msgstr "Créer un nouveau système de fichier."
+msgid "Create and mount a file system."
+msgstr ""
 
 msgid "Create file system"
 msgstr "Créer un système de fichiers"
 
 msgid "Create | Import"
 msgstr "Créer | Import"
-
-msgid "Create | Mount"
-msgstr "Créer | Point de montage"
-
-msgid "Created FTP ban rule."
-msgstr "Règle d'exclusion FTP créée."
-
-msgid "Created FTP share."
-msgstr "Dossier partagé FTP créé."
 
 msgid "Created NFS share."
 msgstr "Dossier partagé NFS créé."
@@ -860,6 +830,9 @@ msgstr "Connexion réseau filaire créée."
 msgid "Created wireless network connection."
 msgstr "Connexion réseau sans fil créée."
 
+msgid "Creation Time"
+msgstr ""
+
 msgid "Croatia"
 msgstr "Croatie"
 
@@ -868,9 +841,6 @@ msgstr "Cuba"
 
 msgid "Currently logged in users"
 msgstr "Utilisateurs connectés"
-
-msgid "Currently logged in users:"
-msgstr "Utilisateurs actuellement connectés :"
 
 msgid "Cyprus"
 msgstr "Chypre"
@@ -919,9 +889,6 @@ msgstr "Supprimer les fichiers sur la destination qui n'existent pas sur la sour
 
 msgid "Denmark"
 msgstr "Danemark"
-
-msgid "Deny logins which do not have a valid shell."
-msgstr "Refuser les connexions qui n’ont pas de shell valide."
 
 msgid "Description"
 msgstr "Description"
@@ -1006,9 +973,6 @@ msgstr "Rejeter"
 
 msgid "Dismiss all"
 msgstr "Tout rejeter"
-
-msgid "Display the home directory of the user in the browse list."
-msgstr "Affiche le répertoire personnel de l'utilisateur dans la liste de navigation."
 
 msgid "Displays information about the file systems in a grid."
 msgstr "Affiche les informations du système de fichier dans une grille."
@@ -1124,12 +1088,6 @@ msgstr "Télécharger"
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
 
-msgid "EXT3"
-msgstr "EXT3"
-
-msgid "EXT4"
-msgstr "EXT4"
-
 msgid "Each line represents a group."
 msgstr "Chaque ligne représente un groupe."
 
@@ -1159,9 +1117,6 @@ msgstr "Adresse mail"
 msgid "Empty now"
 msgstr "Vider maintenant"
 
-msgid "Enable SSL/TLS connections."
-msgstr "Activer les connexions SSL/TLS."
-
 msgid "Enable Time Machine support for this share."
 msgstr "Activer le support Time Machine pour ce partage"
 
@@ -1179,12 +1134,6 @@ msgstr "Activer la corbeille"
 
 msgid "Enable remote logging of syslog to the specified host."
 msgstr "Active la journalisation à distance sur l’hôte spécifié."
-
-msgid ""
-"Enable reverse DNS lookup performed on the remote host's IP address for "
-"incoming active mode data connections and outgoing passive mode data "
-"connections."
-msgstr "Activer la recherche DNS inversée sur l'adresse IP de l'hôte distant pour les connexions entrantes actives et connexions sortantes passives."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -1224,9 +1173,6 @@ msgstr "Ethernet"
 msgid "Ethiopia"
 msgstr "Ethiopie"
 
-msgid "Event"
-msgstr "Evénement"
-
 msgid "Every N day of month"
 msgstr "Tous les N jours"
 
@@ -1242,9 +1188,6 @@ msgstr "Tous : lecture/écriture"
 msgid "Execute only"
 msgstr "Exécuter uniquement"
 
-msgid "Expire"
-msgstr "Expire"
-
 msgid "Extended Information"
 msgstr "Informations étendues"
 
@@ -1254,9 +1197,6 @@ msgstr "Attributs étendus"
 msgid "Extra options"
 msgstr "Options supplémentaires"
 
-msgid "F2FS"
-msgstr "F2FS"
-
 msgid "FTP"
 msgstr "FTP"
 
@@ -1265,14 +1205,6 @@ msgstr "FTP - Logs de transfert"
 
 msgid "FTP-Proxy"
 msgstr "Proxy FTP"
-
-msgid "FXP"
-msgstr "FXP"
-
-msgid ""
-"FXP allows transfers between two remote servers without any file data going "
-"to the client asking for the transfer."
-msgstr "FXP permet les transferts entre deux serveurs distants sans qu'aucun fichier ne passe par le client qui demande le transfert."
 
 msgid "Failed"
 msgstr "Echec"
@@ -1544,9 +1476,6 @@ msgstr "IPv6"
 msgid "Iceland"
 msgstr "Iseland"
 
-msgid "Ident protocol"
-msgstr "Protocole Ident"
-
 msgid "Identify"
 msgstr "Identifier"
 
@@ -1596,16 +1525,6 @@ msgid ""
 "share."
 msgstr "Si cette option est activée, les utilisateurs ne pourront pas créer ou modifier de fichiers dans le partage."
 
-msgid ""
-"If your host is acting as a NAT gateway or port forwarder for the server, "
-"this option is useful in order to allow passive tranfers to work. You have "
-"to use your public address and opening the passive ports used on your "
-"firewall as well."
-msgstr "Si votre hôte agit comme une passerelle NAT ou un transfert de port pour le serveur, cette option est utile afin de permettre les transferts passifs. Vous devez utiliser votre adresse publique et ouvrir dans votre pare-feu les ports passifs utilisés."
-
-msgid "Implicit SSL"
-msgstr "SSL implicite"
-
 msgid "Import"
 msgstr "Importer"
 
@@ -1620,17 +1539,6 @@ msgstr "Groupes importés."
 
 msgid "Imported users."
 msgstr "Utilisateurs importés."
-
-msgid ""
-"In some cases you have to specify passive ports range to by-pass firewall "
-"limitations. Passive ports restricts the range of ports from which the "
-"server will select when sent the PASV command from a client. The server will"
-" randomly choose a number from within the specified range until an open port"
-" is found. The port range selected must be in the non-privileged range (eg. "
-"greater than or equal to 1024). It is strongly recommended that the chosen "
-"range be large enough to handle many simultaneous passive connections (for "
-"example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "Dans certains cas, vous devez spécifier un plage de port passifs pour passer outre les limitations du pare-feu. Le serveur va choisir au hasard un nombre au sein de la plage spécifiée jusqu'à ce qu'un port ouvert soit trouvé. La plage de ports doit être choisi dans la plage Unix non-privilégiée (supérieur ou égal à 1024). Il est fortement recommandé que la plage choisie soit suffisamment grande pour traiter de nombreuses connexions simultanées passives (ex: 49152-65534, la plage de ports éphémères enregistrés à l'IANA)."
 
 msgid "India"
 msgstr "Inde"
@@ -1731,9 +1639,6 @@ msgstr "Italie"
 
 msgid "Ivory Coast"
 msgstr "Côte d'Ivoire"
-
-msgid "JFS"
-msgstr "JFS"
 
 msgid "Jamaica"
 msgstr "Jamaïque"
@@ -1929,9 +1834,6 @@ msgstr "Îles Marshall"
 msgid "Martinique"
 msgstr "Martinique"
 
-msgid "Masquerade address"
-msgstr "Adresse mascarade"
-
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
@@ -1948,50 +1850,17 @@ msgstr "Mauritanie"
 msgid "Mauritius"
 msgstr "Île Maurice"
 
-msgid "Max. clients"
-msgstr "Max. clients"
-
 msgid "Max. connections"
 msgstr "Max. connexions"
-
-msgid "Max. connections per host"
-msgstr "Max. connexions par hôte"
-
-msgid "Max. login attempts"
-msgstr "Max. tentatives de connexion"
-
-msgid "Max. passive port"
-msgstr "Port passif max."
 
 msgid "Maximum"
 msgstr "Maximum"
 
-msgid "Maximum download rate (KiB/s)"
-msgstr "Vitesse réception max. (Ko/s)"
-
 msgid "Maximum file size"
 msgstr "Taille maximale de fichier"
 
-msgid ""
-"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
-"timer completely (clients can stay connected for ever, without sending "
-"data)."
-msgstr "Durée maximale d'inactivité en secondes. Régler le délai d'inactivité à 0 désactive le minuteur d'inactivité (les clients peuvent rester connectés à tout jamais, sans envoyer de données)."
-
-msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "Nombre maximum de tentatives de mot de passe avant déconnexion."
-
-msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "Nombre maximum de connexions par IP (0 = illimité)."
-
-msgid "Maximum number of simultaneous clients."
-msgstr "Nombre maximum de clients simultanés."
-
 msgid "Maximum performance, maximum acoustic output"
 msgstr "Performances maximales, bruit maximum"
-
-msgid "Maximum upload rate (KiB/s)"
-msgstr "Vitesse émission max. (Ko/s)"
 
 msgid "May"
 msgstr "Mai"
@@ -2031,9 +1900,6 @@ msgstr "Micronésie"
 
 msgid "Midway Islands"
 msgstr "Îles Midway"
-
-msgid "Min. passive port"
-msgstr "Port passif min."
 
 msgid "Minimum"
 msgstr "Minimum"
@@ -2185,9 +2051,6 @@ msgstr "Aucune connexion"
 msgid "No data to display."
 msgstr "Aucune donnée à afficher."
 
-msgid "No session reuse required"
-msgstr "Aucune réutilisation de session"
-
 msgid "No users connected"
 msgstr "Aucun utilisateur connecté"
 
@@ -2252,9 +2115,6 @@ msgid ""
 "Obsolete cached data found. Page will be reloaded. If the problem persists, "
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
 msgstr ""
-
-msgid "Occurrence"
-msgstr "Occurence"
 
 msgid "October"
 msgstr "Octobre"
@@ -2328,11 +2188,11 @@ msgstr "Paraguay"
 msgid "Parent Device"
 msgstr "Périphérique parent"
 
+msgid "Parent UUID"
+msgstr ""
+
 msgid "Parent device"
 msgstr "appareil parent"
-
-msgid "Passive FTP"
-msgstr "FTP passif"
 
 msgid "Password"
 msgstr "Mot de passe"
@@ -2408,22 +2268,6 @@ msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
 "target=\"_blank\">manual page</a> for more details."
 msgstr "Veuillez vous référer aux <a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\">pages du manuel</a> pour plus de détails."
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Voir la <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>page d'aide</ a> pour plus de détails."
-
-msgid ""
-"Please check the <a "
-"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Voir la <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>page d'aide</a> pour plus de détails."
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
-"name.html' target='_blank'>manual page</a> for more details."
-msgstr "Voir la <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>page d'aide</a> pour plus de détails."
 
 msgid ""
 "Please check the <a "
@@ -2668,9 +2512,6 @@ msgstr "Récursif"
 msgid "Referenced"
 msgstr "Référencé"
 
-msgid "Refresh time"
-msgstr "Date de changement"
-
 msgid "Relative Path"
 msgstr "Chemin relatif"
 
@@ -2713,32 +2554,17 @@ msgstr "Notifie si la température est supérieure ou égale à N degrés Celsiu
 msgid "Repository"
 msgstr "Dépôt"
 
-msgid "Require valid shell"
-msgstr "Shell valide"
-
-msgid "Required"
-msgstr "Requis"
-
 msgid "Reset UI to defaults"
 msgstr "Réinitialiser aux paramètres par défaut"
 
-msgid "Resize"
-msgstr "Redimensionner"
-
 msgid "Result"
 msgstr "Résultat"
-
-msgid "Resume"
-msgstr "Reprise"
 
 msgid "Retention time"
 msgstr "Temps de maintien"
 
 msgid "Reunion"
 msgstr "Île de la Réunion"
-
-msgid "Reverse DNS lookup"
-msgstr "Recherche DNS inversé"
 
 msgid "Reverted the configuration changes."
 msgstr "Annuler les changement de configuration."
@@ -2823,9 +2649,6 @@ msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
-
-msgid "SSL/TLS Settings"
-msgstr "Paramètres SSL/TLS"
 
 msgid "SSL/TLS enabled"
 msgstr "SSL/TLS activé"
@@ -2917,9 +2740,6 @@ msgstr "Sélectionnez un shell..."
 msgid "Select a system log ..."
 msgstr "Sélectionner un journal système ..."
 
-msgid "Select a type ..."
-msgstr "Sélectionner un type ..."
-
 msgid "Select all"
 msgstr "Tout sélectionner"
 
@@ -2960,6 +2780,9 @@ msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr "Sélectionner les périphériques qui seront utilisés pour créer la grappe RAID. Les périphériques USB ne sont pas affiché (pas assez fiable)"
+
+msgid "Select the devices that will be used to create the file system."
+msgstr ""
 
 msgid "Self-Test Logs"
 msgstr "Journal des tests"
@@ -3030,6 +2853,9 @@ msgstr "Paramètres"
 msgid "Seychelles"
 msgstr "Seychelles"
 
+msgid "Share"
+msgstr ""
+
 msgid "Shared Folders"
 msgstr "Dossiers partagés"
 
@@ -3093,6 +2919,9 @@ msgstr "Slovaquie"
 msgid "Slovenia"
 msgstr "Slovénie"
 
+msgid "Snapshots"
+msgstr ""
+
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Erreur logicielle.   Cliquez sur le bouton gauche de la souris pour continuer."
 
@@ -3144,25 +2973,11 @@ msgstr "Drapeau d'action spéciale"
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Indique la fréquence de surveillance du lien MII en millisecondes."
 
-msgid ""
-"Specifies the amount of time, in seconds, between checking and updating the "
-"masquerade address by resolving the IP address. Set this value to 0 to "
-"disable this option."
-msgstr "Spécifie le délai, en secondes, entre la vérification et la mise à jour de l'adresse de masquerade par résolution de l'adresse IP . Mettre cette valeur à 0 pour désactiver cette option."
-
 msgid "Specifies the interface devices."
 msgstr "Spécifie les périphériques."
 
 msgid "Specifies the slave devices."
 msgstr "Spécifie les périphériques esclaves."
-
-msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "Indique le temps au format hh:mm:ss avant que l'interdiction n'expire."
-
-msgid ""
-"Specifies the time interval in hh:mm:ss in which the given number of "
-"occurrences must happen to add the ban."
-msgstr "Indique l'intervalle de temps au format hh:mm:ss pendant lequel le nombre donné d'occurrences doivent arriver pour ajouter l'interdiction."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
@@ -3173,9 +2988,6 @@ msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
 msgstr "Indique le temps d'attente, en millisecondes, avant la réactivation d'un esclave suite à la détection d'une reconnexion du lien."
-
-msgid "Specifies whether it is allowed to login as superuser directly."
-msgstr "Spécifie s'il est permis de se connecter comme superutilisateur directement."
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Se connecter en tant que superutilisateur."
@@ -3361,9 +3173,6 @@ msgstr "Le certificat SSH utilisé pour l'authentification"
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
 msgstr "La clé publique SSH dans un format OpenSSH ou RFC 4716."
 
-msgid "The SSL certificate."
-msgstr "Le certificat SSL à utiliser."
-
 msgid "The action to be done when pressing the power button."
 msgstr "L'action effectuée sur un appui sur le bouton d'alimentation."
 
@@ -3466,16 +3275,14 @@ msgstr "Le dépôt sera consulté pour identifier des nouveaux paquets, des paqu
 msgid "The requested page was not found."
 msgstr "La page demandé n'a pas été trouvée."
 
-msgid ""
-"The requirement that the SSL session from the control connection is reused "
-"for data connections is not required."
-msgstr "Il n'est pas nécessaire que la session SSL de la connexion de contrôle soit réutilisée pour les connexions de données."
-
 msgid "The server is unavailable to handle this request right now."
 msgstr "Le serveur n'est pas disponible pour traiter cette demande pour le moment."
 
 msgid "The shared folder from which the privileges are copied."
 msgstr "Le dossier partagé à partir duquel les privilèges sont copiés."
+
+msgid "The shared folder {{ _selected[0].name }} was successfully created."
+msgstr ""
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3484,9 +3291,6 @@ msgstr "Les serveur source distant (exemple: [USER@]HOST:SRC, [USER@]HOST::SRC o
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Le système va redémarrer maintenant. Cela peut prendre un certain temps ..."
-
-msgid "The type of the file system to create."
-msgstr "Le type du système de fichier à créer."
 
 msgid "The users that are allowed to access this module."
 msgstr "Les utilisateurs qui sont autorisés à accéder à ce module."
@@ -3501,11 +3305,6 @@ msgstr "La valeur doit être une des interfaces réseau esclaves {{ slaves | joi
 
 msgid "The value must be on of the slave network interfaces."
 msgstr "La valeur doit être sur les interfaces réseau esclaves."
-
-msgid ""
-"The welcome message which will be displayed to the user when they initially "
-"login."
-msgstr "Ce message sera affiché aux utilisateurs lorsqu'ils se connecteront au serveur FTP."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Le groupe de travail du serveur."
@@ -3653,11 +3452,6 @@ msgid ""
 msgstr "Cette option est un ensemble, délimité par une virgule, un espace ou des tabulations, d'hôtes qui sont autorisés à accéder à ce partage. Vous pouvez spécifier les hôtes par leurs nom ou leur adresse IP. Laissez ce champ vide pour utiliser les paramètres par défaut."
 
 msgid ""
-"This option requires clients to use FTP over TLS when talking to this "
-"server."
-msgstr "Les clients doivent utiliser le protocole FTP sur TLS lors de la connexion à ce serveur."
-
-msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "Indique le nom de groupe que les transferts de fichiers auront à partir et vers ce module."
@@ -3673,11 +3467,6 @@ msgid ""
 msgstr "Indique le nom d'utilisateur que les transferts de fichiers auront à partir et vers ce module."
 
 msgid ""
-"This option will handle all connections as if they are SSL connections "
-"implicitly."
-msgstr "Toutes les connexions sont gérées comme des connexions SSL implicites."
-
-msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
@@ -3687,14 +3476,6 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "Ce paramètre détermine si les fichiers commençant par un point apparaissent comme des fichiers cachés"
-
-msgid ""
-"This parameter says that if N occurrences of the event happen within the "
-"given time interval, then a ban is automatically added."
-msgstr "Ce paramètre indique que si N occurrences de l'événement se produisent dans l'intervalle de temps donné, une interdiction sera automatiquement ajoutée."
-
-msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr "Cette règle est déclenchée chaque fois que la directive événement sélectionnée se produit."
 
 msgid "This specifies what to do if the packet matches."
 msgstr "Cela spécifie que qui doit être fait lorsque le paquet correspond."
@@ -3714,9 +3495,6 @@ msgstr "Jeudi"
 msgid "Time Machine support"
 msgstr "Support Time Machine"
 
-msgid "Time interval"
-msgstr "Intervalle de temps"
-
 msgid "Time of execution"
 msgstr "Date d'exécution"
 
@@ -3728,9 +3506,6 @@ msgstr "Serveurs de temps"
 
 msgid "Time zone"
 msgstr "Fuseau horaire"
-
-msgid "Timeout"
-msgstr "Inactivité"
 
 msgid "Tip"
 msgstr "Astuce"
@@ -3746,9 +3521,6 @@ msgstr "Tonga"
 
 msgid "Total"
 msgstr "Total"
-
-msgid "Transfer log"
-msgstr "Log de transfert"
 
 msgid ""
 "Transfer modification times along with the files and update them on the "
@@ -3805,6 +3577,9 @@ msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "INCONNU"
+
+msgid "UUID"
+msgstr ""
 
 msgid "Uganda"
 msgstr "Ouganda"
@@ -3863,18 +3638,6 @@ msgstr "Mettre à jour les ACLs de la destination pour correspondre aux ACLs de 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "Mettre à jour les attributs étendus de la destination pour correspondre aux attributs locaux."
-
-msgid "Updated FTP SSL/TLS settings."
-msgstr "Paramètres FTP SSL/TLS mis à jour."
-
-msgid "Updated FTP ban rule."
-msgstr "Règle d'exclusion FTP mis à jour."
-
-msgid "Updated FTP settings."
-msgstr "Paramètres FTP mis à jour."
-
-msgid "Updated FTP share."
-msgstr "Partage FTP mis à jour."
 
 msgid "Updated NFS settings."
 msgstr "Paramètres NFS mis à jour."
@@ -4029,9 +3792,6 @@ msgstr "Utilise les paramètres généraux"
 msgid "Use sendfile"
 msgstr "Utiliser sendfile"
 
-msgid "Use the following bandwidth restriction."
-msgstr "Utiliser la restriction de bande passante suivante."
-
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked. This may make more efficient use of the system CPU's and cause "
@@ -4144,19 +3904,11 @@ msgstr "Mercredi"
 msgid "Weekly"
 msgstr "Hebdomadaire"
 
-msgid "Welcome message"
-msgstr "Message de bienvenue"
-
 msgid "Welcome to openmediavault"
 msgstr ""
 
 msgid "Western Sahara"
 msgstr "Sahara occidental"
-
-msgid ""
-"When a client initially connects to the server the ident protocol is used to"
-" attempt to identify the remote user name."
-msgstr "Quand un client se connecte au serveur, le protocole d'identification Ident est utilisé pour tenter d'identifier le nom de l'utilisateur distant."
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -4184,9 +3936,6 @@ msgstr "Écriture seule"
 
 msgid "Write/Execute"
 msgstr "Ecrire/Exécuter"
-
-msgid "XFS"
-msgstr "XFS"
 
 msgid "Xen virtual disk device"
 msgstr "Périphérique disque virtuel Xen"

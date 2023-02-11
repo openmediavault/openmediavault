@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 21:35+0100\n"
+"POT-Creation-Date: 2023-02-08 23:14+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -47,9 +47,6 @@ msgstr "%s [on %s, %s]"
 
 msgid "%s ago"
 msgstr ""
-
-msgid "0 KiB/s means unlimited."
-msgstr "0 KiB/s는 제한이 없음을 뜻합니다."
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - 대기와 최소 전력 사용량 (스핀다운)"
@@ -240,9 +237,6 @@ msgstr ""
 msgid "A maximum of two device can be removed."
 msgstr ""
 
-msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -337,9 +331,6 @@ msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr ""
 
-msgid "Allow clients to resume interrupted uploads and downloads."
-msgstr ""
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
 msgstr ""
@@ -374,9 +365,6 @@ msgstr "앙골라"
 
 msgid "Anguilla"
 msgstr "앙귈라"
-
-msgid "Anonymous FTP"
-msgstr "익명 FTP"
 
 msgid "Antarctica"
 msgstr "남극"
@@ -415,6 +403,9 @@ msgid "Asynchronous I/O"
 msgstr "비동기 입출력"
 
 msgid "At least four devices are required."
+msgstr ""
+
+msgid "At least one device is required."
 msgstr ""
 
 msgid "At least one network interface is required."
@@ -477,9 +468,6 @@ msgstr "사용 가능"
 msgid "Azerbaijan"
 msgstr "아제르바이잔"
 
-msgid "BTRFS"
-msgstr ""
-
 msgid "Back"
 msgstr ""
 
@@ -494,15 +482,6 @@ msgstr "바하마"
 
 msgid "Bahrain"
 msgstr "바레인"
-
-msgid "Ban Rules"
-msgstr ""
-
-msgid "Ban statistics:"
-msgstr "차단 통계:"
-
-msgid "Bandwidth restriction"
-msgstr "대역폭 제한"
 
 msgid "Bangladesh"
 msgstr "방글라데시"
@@ -786,22 +765,13 @@ msgstr "국가"
 msgid "Create"
 msgstr "생성"
 
-msgid "Create a new file system."
+msgid "Create and mount a file system."
 msgstr ""
 
 msgid "Create file system"
 msgstr "파일 시스템 생성"
 
 msgid "Create | Import"
-msgstr ""
-
-msgid "Create | Mount"
-msgstr ""
-
-msgid "Created FTP ban rule."
-msgstr ""
-
-msgid "Created FTP share."
 msgstr ""
 
 msgid "Created NFS share."
@@ -849,6 +819,9 @@ msgstr ""
 msgid "Created wireless network connection."
 msgstr ""
 
+msgid "Creation Time"
+msgstr ""
+
 msgid "Croatia"
 msgstr "크로아티아"
 
@@ -857,9 +830,6 @@ msgstr "쿠바"
 
 msgid "Currently logged in users"
 msgstr "현재 로그인 된 사용자"
-
-msgid "Currently logged in users:"
-msgstr "현재 로그인 된 사용자:"
 
 msgid "Cyprus"
 msgstr "키프로스"
@@ -908,9 +878,6 @@ msgstr "수신 측에서 송신 측에 존재하지 않는 파일을 삭제합�
 
 msgid "Denmark"
 msgstr "덴마크"
-
-msgid "Deny logins which do not have a valid shell."
-msgstr ""
 
 msgid "Description"
 msgstr "설명"
@@ -994,9 +961,6 @@ msgid "Dismiss"
 msgstr ""
 
 msgid "Dismiss all"
-msgstr ""
-
-msgid "Display the home directory of the user in the browse list."
 msgstr ""
 
 msgid "Displays information about the file systems in a grid."
@@ -1113,12 +1077,6 @@ msgstr "내려받기"
 msgid "Dronning Maud Land"
 msgstr "퀸 모드랜드"
 
-msgid "EXT3"
-msgstr ""
-
-msgid "EXT4"
-msgstr ""
-
 msgid "Each line represents a group."
 msgstr ""
 
@@ -1148,9 +1106,6 @@ msgstr "전자우편"
 msgid "Empty now"
 msgstr "지금 비우기"
 
-msgid "Enable SSL/TLS connections."
-msgstr ""
-
 msgid "Enable Time Machine support for this share."
 msgstr "이 공유에 대해 타임머신을 활성화합니다."
 
@@ -1168,12 +1123,6 @@ msgstr "휴지통 활성화"
 
 msgid "Enable remote logging of syslog to the specified host."
 msgstr ""
-
-msgid ""
-"Enable reverse DNS lookup performed on the remote host's IP address for "
-"incoming active mode data connections and outgoing passive mode data "
-"connections."
-msgstr "들어오는 능동 모드 데이터 연결과 나가는 수동 모드 데이터 연결에 대하여 원격지 호스트 IP 주소의 역방향 DNS 질의를 수행하려면 활성화합니다."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -1213,9 +1162,6 @@ msgstr "이더넷"
 msgid "Ethiopia"
 msgstr "에티오피아"
 
-msgid "Event"
-msgstr "이벤트"
-
 msgid "Every N day of month"
 msgstr "매달 N일마다"
 
@@ -1231,9 +1177,6 @@ msgstr "모두: 읽기/쓰기"
 msgid "Execute only"
 msgstr "실행 전용"
 
-msgid "Expire"
-msgstr "만료"
-
 msgid "Extended Information"
 msgstr ""
 
@@ -1243,9 +1186,6 @@ msgstr "확장 속성"
 msgid "Extra options"
 msgstr "추가 옵션"
 
-msgid "F2FS"
-msgstr ""
-
 msgid "FTP"
 msgstr "FTP"
 
@@ -1254,14 +1194,6 @@ msgstr "FTP - 전송 기록"
 
 msgid "FTP-Proxy"
 msgstr "FTP-프록시"
-
-msgid "FXP"
-msgstr "FXP"
-
-msgid ""
-"FXP allows transfers between two remote servers without any file data going "
-"to the client asking for the transfer."
-msgstr "FXP는 전송을 요청하는 클라이언트로 가는 어떤 파일 데이터 없이 두 원격 서버 간에 파일 데이터를 전송할 수 있습니다."
 
 msgid "Failed"
 msgstr ""
@@ -1533,9 +1465,6 @@ msgstr "IPv6"
 msgid "Iceland"
 msgstr "아이슬란드"
 
-msgid "Ident protocol"
-msgstr "식별 프로토콜"
-
 msgid "Identify"
 msgstr "식별"
 
@@ -1585,16 +1514,6 @@ msgid ""
 "share."
 msgstr "이 매개변수가 설정되면, 사용자는 공유 내에서 파일들을 생성하거나 수정할 수 없게 됩니다."
 
-msgid ""
-"If your host is acting as a NAT gateway or port forwarder for the server, "
-"this option is useful in order to allow passive tranfers to work. You have "
-"to use your public address and opening the passive ports used on your "
-"firewall as well."
-msgstr "호스트가 서버에 대해 NAT 게이트웨이나 포트 포워더로 동작한다면, 이 옵션은 작동할 수동 전달을 허용하는 데에 유용합니다. 공인 주소를 사용해야 할 뿐만 아니라 사용된 수동 포트들도 방화벽에서 열어주어야 합니다."
-
-msgid "Implicit SSL"
-msgstr "묵시적 SSL"
-
 msgid "Import"
 msgstr "불러오기"
 
@@ -1609,17 +1528,6 @@ msgstr ""
 
 msgid "Imported users."
 msgstr ""
-
-msgid ""
-"In some cases you have to specify passive ports range to by-pass firewall "
-"limitations. Passive ports restricts the range of ports from which the "
-"server will select when sent the PASV command from a client. The server will"
-" randomly choose a number from within the specified range until an open port"
-" is found. The port range selected must be in the non-privileged range (eg. "
-"greater than or equal to 1024). It is strongly recommended that the chosen "
-"range be large enough to handle many simultaneous passive connections (for "
-"example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "일부 경우에 수동 포트 범위를 우회 방화벽 제한에 지정해야 합니다. 수동 포트는 클라이언트로부터 PASV 명령을 송신할 때 선택될 서버로부터 포트의 범위를 제한합니다. 이 서버는 열려있는 포트를 찾을 때까지 지정된 범위 내에서 임의로 포트를 선택할 것입니다. 이 포트 범위는 비-권한 범위(1024 이상의) 안에서 선택되야 합니다. 선택된 범위는 동시다발적인 수동 연결을 처리하기 위해서 충분히 크게 지정할 것을 강력히 권장합니다. (예를 들어, 49152-65534, IANA에 등록된 일시적으로 사용되는 포트 범위와 같은.)"
 
 msgid "India"
 msgstr "인도"
@@ -1720,9 +1628,6 @@ msgstr "이탈리아"
 
 msgid "Ivory Coast"
 msgstr "상아 해안"
-
-msgid "JFS"
-msgstr ""
 
 msgid "Jamaica"
 msgstr "자메이카"
@@ -1918,9 +1823,6 @@ msgstr "마셜 제도"
 msgid "Martinique"
 msgstr "마르티니크"
 
-msgid "Masquerade address"
-msgstr "위장 주소"
-
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
@@ -1937,50 +1839,17 @@ msgstr "모리타니"
 msgid "Mauritius"
 msgstr "모리셔스"
 
-msgid "Max. clients"
-msgstr "최대 클라이언트"
-
 msgid "Max. connections"
 msgstr "최대 연결"
-
-msgid "Max. connections per host"
-msgstr "호스트 당 최대 연결"
-
-msgid "Max. login attempts"
-msgstr "최대 로그인 시도 횟수"
-
-msgid "Max. passive port"
-msgstr ""
 
 msgid "Maximum"
 msgstr ""
 
-msgid "Maximum download rate (KiB/s)"
-msgstr "최대 내려받기 속도 (KiB/s)"
-
 msgid "Maximum file size"
 msgstr ""
 
-msgid ""
-"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
-"timer completely (clients can stay connected for ever, without sending "
-"data)."
-msgstr "초당 최대 유휴 시간. 유휴 시간을 0으로 설정하는 것은 유휴 타이머를 완전히 비활성화합니다. (클라이언트는 데이터 전송 없이 계속 연결을 기다릴 수 있습니다.)"
-
-msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "연결을 종료하기 전에 암호 인증을 시도할 수 있는 최대 횟수"
-
-msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "IP 당 최대 연결의 갯수 (0 = 무제한)"
-
-msgid "Maximum number of simultaneous clients."
-msgstr "최대 동시 접속 클라이언트의 수"
-
 msgid "Maximum performance, maximum acoustic output"
 msgstr "최대 성능, 최대 음향 출력"
-
-msgid "Maximum upload rate (KiB/s)"
-msgstr "최대 올리기 속도 (KiB/s)"
 
 msgid "May"
 msgstr "5월"
@@ -2020,9 +1889,6 @@ msgstr "미크로네시아"
 
 msgid "Midway Islands"
 msgstr "미드웨이 섬"
-
-msgid "Min. passive port"
-msgstr ""
 
 msgid "Minimum"
 msgstr "최소"
@@ -2174,9 +2040,6 @@ msgstr "연결 없음"
 msgid "No data to display."
 msgstr ""
 
-msgid "No session reuse required"
-msgstr "세션 재사용 불필요"
-
 msgid "No users connected"
 msgstr "연결된 사용자 없음"
 
@@ -2241,9 +2104,6 @@ msgid ""
 "Obsolete cached data found. Page will be reloaded. If the problem persists, "
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
 msgstr ""
-
-msgid "Occurrence"
-msgstr "발생"
 
 msgid "October"
 msgstr "10월"
@@ -2317,11 +2177,11 @@ msgstr "파라과이"
 msgid "Parent Device"
 msgstr "부모 장치"
 
+msgid "Parent UUID"
+msgstr ""
+
 msgid "Parent device"
 msgstr "상위 장치"
-
-msgid "Passive FTP"
-msgstr "수동 FTP"
 
 msgid "Password"
 msgstr "암호"
@@ -2397,22 +2257,6 @@ msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
 "target=\"_blank\">manual page</a> for more details."
 msgstr ""
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "자세한 내용은 <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>매뉴얼 페이지</a> 를 참고하세요."
-
-msgid ""
-"Please check the <a "
-"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "자세한 내용은 <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
-"name.html' target='_blank'>manual page</a> for more details."
-msgstr "자세한 내용은 <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
 
 msgid ""
 "Please check the <a "
@@ -2657,9 +2501,6 @@ msgstr "재귀적으로"
 msgid "Referenced"
 msgstr "참조"
 
-msgid "Refresh time"
-msgstr ""
-
 msgid "Relative Path"
 msgstr "상대 경로"
 
@@ -2702,32 +2543,17 @@ msgstr ""
 msgid "Repository"
 msgstr "저장소"
 
-msgid "Require valid shell"
-msgstr "유효한 쉘이 필요합니다."
-
-msgid "Required"
-msgstr "필수"
-
 msgid "Reset UI to defaults"
 msgstr "UI를 기본값으로 재설정"
 
-msgid "Resize"
-msgstr "크기 조정"
-
 msgid "Result"
 msgstr "결과"
-
-msgid "Resume"
-msgstr "다시 시작"
 
 msgid "Retention time"
 msgstr ""
 
 msgid "Reunion"
 msgstr "재결합"
-
-msgid "Reverse DNS lookup"
-msgstr "역방향 DNS 질의"
 
 msgid "Reverted the configuration changes."
 msgstr ""
@@ -2812,9 +2638,6 @@ msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
-
-msgid "SSL/TLS Settings"
-msgstr ""
 
 msgid "SSL/TLS enabled"
 msgstr ""
@@ -2906,9 +2729,6 @@ msgstr "쉘을 선택하세요 ..."
 msgid "Select a system log ..."
 msgstr ""
 
-msgid "Select a type ..."
-msgstr ""
-
 msgid "Select all"
 msgstr ""
 
@@ -2949,6 +2769,9 @@ msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr "RAID 장치로 만들 장치들을 선택합니다. USB로 연결된 장치들은 신뢰할 수 없기에 목록에 나타나지 않습니다"
+
+msgid "Select the devices that will be used to create the file system."
+msgstr ""
 
 msgid "Self-Test Logs"
 msgstr ""
@@ -3019,6 +2842,9 @@ msgstr "설정"
 msgid "Seychelles"
 msgstr "세이셸"
 
+msgid "Share"
+msgstr ""
+
 msgid "Shared Folders"
 msgstr "공유 폴더"
 
@@ -3082,6 +2908,9 @@ msgstr "슬로바키아"
 msgid "Slovenia"
 msgstr "슬로베니아"
 
+msgid "Snapshots"
+msgstr ""
+
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr ""
 
@@ -3133,25 +2962,11 @@ msgstr "특수 행동 플래그"
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "밀리 초 단위로 MII 링크 모니터링 주기를 지정합니다."
 
-msgid ""
-"Specifies the amount of time, in seconds, between checking and updating the "
-"masquerade address by resolving the IP address. Set this value to 0 to "
-"disable this option."
-msgstr "IP 주소의 해석을 통해 마스커레이드 주소를 검사하고 갱신하는 사이의 시간 간격을 초 단위로 지정합니다. 0으로 설정하면 이 옵션은 비활성화됩니다."
-
 msgid "Specifies the interface devices."
 msgstr ""
 
 msgid "Specifies the slave devices."
 msgstr ""
-
-msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "차단이 만료될 시간을 시:분:초 형식으로 지정합니다."
-
-msgid ""
-"Specifies the time interval in hh:mm:ss in which the given number of "
-"occurrences must happen to add the ban."
-msgstr "차단 대상에 추가하기 위한 출현 횟수가 유효한 시간 간격을 시:분:초 형식으로 지정합니다."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
@@ -3162,9 +2977,6 @@ msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
 msgstr "링크 복구를 감지했을 때 보조 장치를 활성화하기 전 대기할 시간을 밀리초 단위로 지정합니다"
-
-msgid "Specifies whether it is allowed to login as superuser directly."
-msgstr ""
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "수퍼유저로 로그인이 가능하게 할 것인지 지정합니다."
@@ -3350,9 +3162,6 @@ msgstr "인증에 사용되는 SSH 인증서"
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
 msgstr ""
 
-msgid "The SSL certificate."
-msgstr "SSL 인증"
-
 msgid "The action to be done when pressing the power button."
 msgstr "전원 버튼을 눌렀을 때 수행할 작업"
 
@@ -3455,15 +3264,13 @@ msgstr "저장소는 새롭거나 제거된, 또는 업그레이드된 소프트
 msgid "The requested page was not found."
 msgstr "요청하신 페이지를 찾을 수 없습니다."
 
-msgid ""
-"The requirement that the SSL session from the control connection is reused "
-"for data connections is not required."
-msgstr "컨트롤 연결에서 SSL 세션 데이터 연결에 재사용되는 경우 이 요구 사항은 필요하지 않습니다."
-
 msgid "The server is unavailable to handle this request right now."
 msgstr ""
 
 msgid "The shared folder from which the privileges are copied."
+msgstr ""
+
+msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr ""
 
 msgid ""
@@ -3473,9 +3280,6 @@ msgstr "원본 원격 서버. 예를 들면, [USER@]HOST:SRC, [USER@]HOST::SRC �
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "시스템이 재시작됩니다. 몇 분이 소요될 수 있습니다 ..."
-
-msgid "The type of the file system to create."
-msgstr ""
 
 msgid "The users that are allowed to access this module."
 msgstr ""
@@ -3490,11 +3294,6 @@ msgstr ""
 
 msgid "The value must be on of the slave network interfaces."
 msgstr ""
-
-msgid ""
-"The welcome message which will be displayed to the user when they initially "
-"login."
-msgstr "이 환영 메시지는 사용자의 초기 로그인 시점에 나타납니다."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "클라이언트가 조회할 때 작업 그룹의 서버가 나타날 것입니다."
@@ -3642,11 +3441,6 @@ msgid ""
 msgstr "이 옵션은 이 공유에 대한 접근이 허용되는 쉼표, 공백 또는 탭으로 구분되는 호스트의 묶음입니다. 호스트를 이름 또는 IP주소로 지정할 수 있습니다. 기본 설정으로 사용하려면 이 영역을 비워두십시오."
 
 msgid ""
-"This option requires clients to use FTP over TLS when talking to this "
-"server."
-msgstr "이 옵션은 클라이언트가 이 서버와 통신할 때, TLS를 통한 FTP를 사용하도록 합니다."
-
-msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "이 옵션은 이 파일 전송 모듈이 사용하는 그룹 이름을 지정합니다."
@@ -3662,11 +3456,6 @@ msgid ""
 msgstr "이 옵션은 이 파일 전송 모듈이 사용하는 사용자 이름을 지정합니다."
 
 msgid ""
-"This option will handle all connections as if they are SSL connections "
-"implicitly."
-msgstr "이 옵션은 모든 연결이 묵시적으로 SSL 연결을 하게 할 것입니다."
-
-msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
@@ -3676,14 +3465,6 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "이 매개변수는 점으로 시작하는 파일을 숨김 파일로 표시할 것인지 제어합니다."
-
-msgid ""
-"This parameter says that if N occurrences of the event happen within the "
-"given time interval, then a ban is automatically added."
-msgstr "이 매개변수는 주어진 시간 내에 이 사건이 N번 나타나면 자동으로 차단 대상에 추가됨을 의미합니다."
-
-msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr "이 규칙은 선택된 이벤트 지시자가 발생할 때마다 발동됩니다."
 
 msgid "This specifies what to do if the packet matches."
 msgstr "패킷이 일치하는 경우 어떻게 할 것인지를 지정합니다"
@@ -3703,9 +3484,6 @@ msgstr "목요일"
 msgid "Time Machine support"
 msgstr "타임머신 지원"
 
-msgid "Time interval"
-msgstr "시간 주기"
-
 msgid "Time of execution"
 msgstr "실행 시간"
 
@@ -3717,9 +3495,6 @@ msgstr "시간 서버"
 
 msgid "Time zone"
 msgstr "시간대"
-
-msgid "Timeout"
-msgstr "만료"
 
 msgid "Tip"
 msgstr ""
@@ -3735,9 +3510,6 @@ msgstr "통가"
 
 msgid "Total"
 msgstr "전체"
-
-msgid "Transfer log"
-msgstr "전송 기록"
 
 msgid ""
 "Transfer modification times along with the files and update them on the "
@@ -3794,6 +3566,9 @@ msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "알 수 없는"
+
+msgid "UUID"
+msgstr ""
 
 msgid "Uganda"
 msgstr "우간다"
@@ -3852,18 +3627,6 @@ msgstr "대상 ACL을 원본 ACL과 같게 업데이트"
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "확장 속성을 로컬과 같게 업데이트"
-
-msgid "Updated FTP SSL/TLS settings."
-msgstr ""
-
-msgid "Updated FTP ban rule."
-msgstr ""
-
-msgid "Updated FTP settings."
-msgstr ""
-
-msgid "Updated FTP share."
-msgstr ""
 
 msgid "Updated NFS settings."
 msgstr ""
@@ -4018,9 +3781,6 @@ msgstr ""
 msgid "Use sendfile"
 msgstr "sendfile 사용"
 
-msgid "Use the following bandwidth restriction."
-msgstr ""
-
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked. This may make more efficient use of the system CPU's and cause "
@@ -4133,19 +3893,11 @@ msgstr "수요일"
 msgid "Weekly"
 msgstr "매주"
 
-msgid "Welcome message"
-msgstr "환영 메시지"
-
 msgid "Welcome to openmediavault"
 msgstr ""
 
 msgid "Western Sahara"
 msgstr "서 사하라"
-
-msgid ""
-"When a client initially connects to the server the ident protocol is used to"
-" attempt to identify the remote user name."
-msgstr ""
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -4173,9 +3925,6 @@ msgstr ""
 
 msgid "Write/Execute"
 msgstr "쓰기/실행"
-
-msgid "XFS"
-msgstr ""
 
 msgid "Xen virtual disk device"
 msgstr "Xen 가상 디스크 장치"

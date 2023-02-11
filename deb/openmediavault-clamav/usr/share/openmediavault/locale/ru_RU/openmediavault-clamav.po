@@ -7,28 +7,22 @@
 # Alexander Savchenko <>, 2012
 # Alexander Savchenko, 2014
 # mictian <ffrants@gmail.com>, 2012
-# Volker <votdev@gmx.de>, 2017
+# Volker Theile <votdev@gmx.de>, 2017
 # Артур Мудрых <arturmon82@gmail.com>, 2012-2013
 # Артур Мудрых <arturmon82@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2017-11-27 07:23+0000\n"
-"Last-Translator: Артур Мудрых <arturmon82@gmail.com>\n"
-"Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"PO-Revision-Date: 2012-05-18 22:06+0000\n"
+"Last-Translator: Артур Мудрых <arturmon82@gmail.com>, 2017\n"
+"Language-Team: Russian (Russia) (http://www.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru_RU\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
-
-msgid "Add on-access scan"
-msgstr "Добавить проверку доступа"
-
-msgid "Add scheduled job"
-msgstr "Добавить запланированное задание"
 
 msgid "Algorithmic detection"
 msgstr "Алгоритмическое обнаружение"
@@ -41,11 +35,23 @@ msgstr "Электронное письмо с выводом команды (е
 msgid "Antivirus"
 msgstr "Антивирус"
 
+msgid "April"
+msgstr "Апрель"
+
+msgid "August"
+msgstr "Август"
+
 msgid "Be verbose."
 msgstr "Подробный вывод."
 
-msgid "Comment"
-msgstr "Комментарий"
+msgid "Create"
+msgstr "Создать"
+
+msgid "Created on-access scan."
+msgstr ""
+
+msgid "Created scheduled scan."
+msgstr ""
 
 msgid "Database checks"
 msgstr "Проверки базы данных"
@@ -59,32 +65,26 @@ msgstr "День месяца"
 msgid "Day of week"
 msgstr "День недели"
 
+msgid "December"
+msgstr "Декабрь"
+
+msgid "Delete immediately"
+msgstr ""
+
 msgid "Detect PUA"
 msgstr "Обнаружение PUA"
 
 msgid "Detect broken executables"
 msgstr "Обнаружение повреждённых исполняемых файлов"
 
-msgid "Done ..."
-msgstr "Выполнено..."
-
-msgid "Edit on-access scan"
-msgstr "Редактировать проверку доступа"
-
-msgid "Edit scheduled job"
-msgstr "Изменить запланированное задание"
-
-msgid "Enable"
-msgstr "Включить"
+msgid "Edit"
+msgstr "Редактировать"
 
 msgid "Enable HTML detection and normalisation."
 msgstr "Включить обнаружение HTML и нормализацию."
 
 msgid "Enable archive scanning."
 msgstr "Включить сканирование архивов."
-
-msgid "Enable on-access virus scanning"
-msgstr "Включить сканирование при обращении к файлу"
 
 msgid "Enable scanning of ELF files."
 msgstr "Включить сканирование ELF файлов."
@@ -118,11 +118,14 @@ msgstr "Каждый N час"
 msgid "Every N minute"
 msgstr "Каждую N минуту"
 
-msgid "Execute scheduled job"
-msgstr "Выполнение запланированного задания"
+msgid "Execute scheduled scan"
+msgstr ""
 
 msgid "Extra options"
 msgstr "Дополнительные опции"
+
+msgid "February"
+msgstr "Февраль"
 
 msgid "Follow directory symlinks"
 msgstr "Следовать по символьными ссылками каталога"
@@ -136,8 +139,8 @@ msgstr "Следовать по символьными ссылками файл
 msgid "Follow regular file symlinks."
 msgstr "Следовать по регулярными символьными ссылками файла."
 
-msgid "General settings"
-msgstr "Общие настройки"
+msgid "Friday"
+msgstr "Пятница"
 
 msgid "Hour"
 msgstr "Час"
@@ -145,11 +148,26 @@ msgstr "Час"
 msgid "Infected files"
 msgstr "Зараженные файлы"
 
+msgid "January"
+msgstr "Январь"
+
+msgid "July"
+msgstr "Июль"
+
+msgid "June"
+msgstr "Июнь"
+
 msgid "Log clean files"
 msgstr "Записывать в лог чистые файлы"
 
 msgid "Log clean files. This drastically increases the log size."
 msgstr "Записывать в лог чистые файлы. Это значительно увеличивает размер журнала."
+
+msgid "March"
+msgstr "Март"
+
+msgid "May"
+msgstr "Май"
 
 msgid "Message"
 msgstr "Сообщение"
@@ -157,38 +175,50 @@ msgstr "Сообщение"
 msgid "Minute"
 msgstr "Минут"
 
-msgid "Monitor the shared folder and scan new or modified files."
-msgstr "Контролировать общую папку и сканировать новые или измененные файлы."
+msgid "Monday"
+msgstr "Понедельник"
 
 msgid "Month"
 msgstr "Месяц"
 
+msgid "Move to quarantine"
+msgstr ""
+
 msgid "Multiscan"
 msgstr "Мультисканирование"
+
+msgid "November"
+msgstr "Ноябрь"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Количество проверок обновлений базы данных в день. Установите в 0 для отключения."
 
+msgid "October"
+msgstr "Октябрь"
+
 msgid "On Access Scans"
 msgstr "Проверка доступа"
-
-msgid "On-access"
-msgstr "При обращении"
 
 msgid "Perform a deeper analysis of executable files."
 msgstr "Выполнить более глубокий анализ исполняемых файлов."
 
+msgid "Perform nothing"
+msgstr ""
+
 msgid ""
-"Please check the <a href='https://github.com/vrtadmin/clamav-"
-"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr "Пожалуйста, проверьте <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>страницу руководства</a> для более подробной информации."
+msgstr ""
 
 msgid "Quarantine"
 msgstr "Карантин"
 
 msgid "Run"
 msgstr "Запуск"
+
+msgid "Saturday"
+msgstr "Суббота"
 
 msgid "Scan ELF"
 msgstr "Сканировать ELF"
@@ -211,20 +241,32 @@ msgstr "Сканировать архивы"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "Сканировать содержимое каталога параллельно, используя доступные потоки."
 
-msgid "Scheduled Jobs"
-msgstr "Запланированные задания"
+msgid "Scheduled Scans"
+msgstr ""
 
-msgid "Send command output via email"
-msgstr "Отправить вывод комманды по электронной почте"
+msgid "Scheduling"
+msgstr "Планируется"
 
 msgid "Send email"
 msgstr "Отправить электронное письмо"
+
+msgid "September"
+msgstr "Сентябрь"
 
 msgid "Settings"
 msgstr "Настройки"
 
 msgid "Shared folder"
 msgstr "Общая папка"
+
+msgid "Sunday"
+msgstr "Воскресенье"
+
+msgid "Tags"
+msgstr ""
+
+msgid "The field should only contain * or a comma separated list of values."
+msgstr ""
 
 msgid "The location of the files to scan on-access."
 msgstr "Расположение файлов для сканирования по доступу."
@@ -238,8 +280,23 @@ msgstr "Расположение которое будет использова�
 msgid "The option, how to handle infected files."
 msgstr "Опции , как обращаться с зараженными файлами."
 
+msgid "Thursday"
+msgstr "Четверг"
+
+msgid "Tuesday"
+msgstr "Вторник"
+
+msgid "Updated on-access scan."
+msgstr ""
+
+msgid "Updated scheduled scan."
+msgstr ""
+
 msgid "Verbose"
 msgstr "Отладка"
+
+msgid "Wednesday"
+msgstr "Среда"
 
 msgid "n/a"
 msgstr "н/д"

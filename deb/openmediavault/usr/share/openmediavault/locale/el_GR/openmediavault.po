@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 21:35+0100\n"
+"POT-Creation-Date: 2023-02-08 23:14+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2023\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -44,9 +44,6 @@ msgstr "%s [σε %s, %s]"
 
 msgid "%s ago"
 msgstr "%s πριν"
-
-msgid "0 KiB/s means unlimited."
-msgstr "0 KiB/s σημαίνει απεριόριστο."
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Ελάχιστη κατανάλωση ενέργειας με στάση"
@@ -237,9 +234,6 @@ msgstr "Μπορεί να αφαιρεθεί μία συσκευή το πολύ
 msgid "A maximum of two device can be removed."
 msgstr "Μπορούν να αφαιρεθούν δύο συσκευές το πολύ."
 
-msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr "Ένας πανίσχυρος αρθρωτός διακομιστής FTP/SFTP/FTPS."
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -334,9 +328,6 @@ msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr "Να επιτρέπεται στους πελάτες να αποθηκεύουν εκτεταμένες ιδιότητες OS/2 στα κοινόχρηστα."
 
-msgid "Allow clients to resume interrupted uploads and downloads."
-msgstr "Να επιτρέπεται στους πελάτες να συνεχίζουν μεταφορές που διακόπηκαν."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
 msgstr "Επιτρέπεται να διαφημίζεται ως ρυθμιστής ώρας σε πελάτες Windows"
@@ -371,9 +362,6 @@ msgstr "Angola"
 
 msgid "Anguilla"
 msgstr "Anguilla"
-
-msgid "Anonymous FTP"
-msgstr "Ανόνυμη πρόσβαση FTP"
 
 msgid "Antarctica"
 msgstr "Antarctica"
@@ -413,6 +401,9 @@ msgstr "Ασύγχρονες μεταφορές"
 
 msgid "At least four devices are required."
 msgstr "Απαιτούνται τουλάχιστον τέσσερις συσκευές."
+
+msgid "At least one device is required."
+msgstr "Απαιτείται τουλάχιστον μία συσκευή."
 
 msgid "At least one network interface is required."
 msgstr "Απαιτείται τουλάχιστον μία διασύνδεση δικτύου."
@@ -474,9 +465,6 @@ msgstr "Διαθέσιμο"
 msgid "Azerbaijan"
 msgstr "Azerbaijan"
 
-msgid "BTRFS"
-msgstr "BTRFS"
-
 msgid "Back"
 msgstr "Πίσω"
 
@@ -491,15 +479,6 @@ msgstr "Bahamas"
 
 msgid "Bahrain"
 msgstr "Bahrain"
-
-msgid "Ban Rules"
-msgstr "Κανόνες αποκλεισμού"
-
-msgid "Ban statistics:"
-msgstr "Στατιστικά αποκλεισμών"
-
-msgid "Bandwidth restriction"
-msgstr "Περιορισμός διαμεταγωγής"
 
 msgid "Bangladesh"
 msgstr "Bangladesh"
@@ -783,23 +762,14 @@ msgstr "Χώρα"
 msgid "Create"
 msgstr "Δημιουργία"
 
-msgid "Create a new file system."
-msgstr "Δημιουργία νέου συστήματος αρχείων."
+msgid "Create and mount a file system."
+msgstr "Δημιουργία και προσάρτηση ενός συστήματος αρχείων."
 
 msgid "Create file system"
 msgstr "Δημιουργία συστήματος αρχείων"
 
 msgid "Create | Import"
 msgstr "Δημιουργία | Εισαγωγή"
-
-msgid "Create | Mount"
-msgstr "Δημιουργία | Προσάρτηση"
-
-msgid "Created FTP ban rule."
-msgstr "Δημιουργία κανόνα αποκλεισμού FTP."
-
-msgid "Created FTP share."
-msgstr "Δημιουργία κοινόχρηστου FTP."
 
 msgid "Created NFS share."
 msgstr "Δημιουργία κοινόχρηστου NFS."
@@ -846,6 +816,9 @@ msgstr "Δημιουργία ενσύρματης σύνδεσης δικτύο�
 msgid "Created wireless network connection."
 msgstr "Δημιουργία ασύρματης σύνδεσης δικτύου."
 
+msgid "Creation Time"
+msgstr "Χρόνος Δημιουργίας"
+
 msgid "Croatia"
 msgstr "Croatia"
 
@@ -854,9 +827,6 @@ msgstr "Cuba"
 
 msgid "Currently logged in users"
 msgstr "Συνδεδεμένοι χρήστες τώρα"
-
-msgid "Currently logged in users:"
-msgstr "Συνδεδεμένοι χρήστες :"
 
 msgid "Cyprus"
 msgstr "Cyprus"
@@ -905,9 +875,6 @@ msgstr "Διαγραφή αρχείων του παραλήπτη που δεν 
 
 msgid "Denmark"
 msgstr "Denmark"
-
-msgid "Deny logins which do not have a valid shell."
-msgstr "Απόρριψη συνδέσεων χωρίς έγκυρο κέλυφος."
 
 msgid "Description"
 msgstr "Περιγραφή"
@@ -992,9 +959,6 @@ msgstr "Απόρριψη"
 
 msgid "Dismiss all"
 msgstr "Απόρριψη όλων"
-
-msgid "Display the home directory of the user in the browse list."
-msgstr "Εμφάνιση του οικείου φακέλου στην λίστα αναζήτησης."
 
 msgid "Displays information about the file systems in a grid."
 msgstr "Εμφάνιση πληροφοριών για τα συστήματα αρχείων σε πλέγμα."
@@ -1110,12 +1074,6 @@ msgstr "Λήψη"
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
 
-msgid "EXT3"
-msgstr "EXT3"
-
-msgid "EXT4"
-msgstr "EXT4"
-
 msgid "Each line represents a group."
 msgstr "Κάθε γραμμή αντιπροσωπεύει μία ομάδα."
 
@@ -1145,9 +1103,6 @@ msgstr "Ηλεκτρονικό ταχυδρομείο"
 msgid "Empty now"
 msgstr "Άδειασμα τώρα"
 
-msgid "Enable SSL/TLS connections."
-msgstr "Ενεργοποίηση συνδέσεων SSL/TLS."
-
 msgid "Enable Time Machine support for this share."
 msgstr "Ενεργοποίηση της Χρονομηχανής για αυτό το κοινόχρηστο."
 
@@ -1165,12 +1120,6 @@ msgstr "Ενεργοποίηση κάδου ανακύκλωσης"
 
 msgid "Enable remote logging of syslog to the specified host."
 msgstr "Ενεργοποίηση απομακρυσμένης καταγραφής στον οριζόμενο υπολογιστή."
-
-msgid ""
-"Enable reverse DNS lookup performed on the remote host's IP address for "
-"incoming active mode data connections and outgoing passive mode data "
-"connections."
-msgstr "Ενεργοποίηση ανάστροφης αναζήτησης DNS στην δυεύθυνση ΙΡ του απομακρυσμένου χρήση για ενεργές εισερχόμενες και παθητικές εξερχόμενες συνδέσεις δεδομένων."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -1210,9 +1159,6 @@ msgstr "Ethernet"
 msgid "Ethiopia"
 msgstr "Ethiopia"
 
-msgid "Event"
-msgstr "Συμβάν"
-
 msgid "Every N day of month"
 msgstr "Κάθε Ν μέρα του μήνα"
 
@@ -1228,9 +1174,6 @@ msgstr "Όλοι : ανάγνωση & εγγραφή"
 msgid "Execute only"
 msgstr "Μόνο εκτέλεση"
 
-msgid "Expire"
-msgstr "Λήξη"
-
 msgid "Extended Information"
 msgstr "Εκτεταμένες πληροφορίες"
 
@@ -1240,9 +1183,6 @@ msgstr "Εκτεταμένες ιδιότητες"
 msgid "Extra options"
 msgstr "Επιπλέον ρυθμίσεις"
 
-msgid "F2FS"
-msgstr "F2FS"
-
 msgid "FTP"
 msgstr "FTP"
 
@@ -1251,14 +1191,6 @@ msgstr "Καταγραφή μεταφορών FTP"
 
 msgid "FTP-Proxy"
 msgstr "Διαμεσολαβητής FTP"
-
-msgid "FXP"
-msgstr "FXP"
-
-msgid ""
-"FXP allows transfers between two remote servers without any file data going "
-"to the client asking for the transfer."
-msgstr "Το FXP επιτρέπει την μεταφορά αρχείων ανάμεσα σε δύο διακομιστές, χωρίς τα δεδομένα να περνάνε από τον πελάτη που ζήτησε την μεταφορά."
 
 msgid "Failed"
 msgstr "Απέτυχε"
@@ -1530,9 +1462,6 @@ msgstr "IPv6"
 msgid "Iceland"
 msgstr "Iceland"
 
-msgid "Ident protocol"
-msgstr "Πρωτόκολλο αναγνώρισης"
-
 msgid "Identify"
 msgstr "Αναγνώριση"
 
@@ -1582,16 +1511,6 @@ msgid ""
 "share."
 msgstr "Αν ενεργοποιηθεί, τότε οι χρήστες δεν θα μπορούν να δημιουργήσουν ή νε μεταβάλλουν αρχεία στο κοινόχρηστο."
 
-msgid ""
-"If your host is acting as a NAT gateway or port forwarder for the server, "
-"this option is useful in order to allow passive tranfers to work. You have "
-"to use your public address and opening the passive ports used on your "
-"firewall as well."
-msgstr "Αν το σύστημα λειτουργεί ως πύλη πρόσβασης ΝΑΤ ή προώθησης θυρών για τον διακομιστή, αυτή η ρύθμιση χρησιμεύει στο να λειτουργούν οι παθητικές μεταφορές. Θα πρέπει επιπροσθέτως να χρησιμοποιηθεί η δημόσια διεύθυνση και να ανοιχτούν οι χρησιμοποιούμενες παθητικές θύρες στο σύστημα ασφαλείας."
-
-msgid "Implicit SSL"
-msgstr "Σίγουρα SSL"
-
 msgid "Import"
 msgstr "Εισαγωγή"
 
@@ -1606,17 +1525,6 @@ msgstr "Εισαγωγή ομάδων."
 
 msgid "Imported users."
 msgstr "Εισαγωγή χρηστών."
-
-msgid ""
-"In some cases you have to specify passive ports range to by-pass firewall "
-"limitations. Passive ports restricts the range of ports from which the "
-"server will select when sent the PASV command from a client. The server will"
-" randomly choose a number from within the specified range until an open port"
-" is found. The port range selected must be in the non-privileged range (eg. "
-"greater than or equal to 1024). It is strongly recommended that the chosen "
-"range be large enough to handle many simultaneous passive connections (for "
-"example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "Σε μερικές περιπτώσεις θα πρέπει να ορίσετε ένα εύρος παθητικών θυρών για να παρακάμψετε τους περιορισμούς του συστήματος ασφαλείας. Οι παθητικές θύρες περιορίζουν το εύρος των θυρών απο τις οποίες θα επιλέγει ο διακομιστής όταν δέχεται την εντολή PASV από έναν πελάτη. Θα επιλέγεται τυχαία κάποια θύρα από το δωσμένο εύρος, ώσπου να βρεθεί κάποια ανοιχτή. Οι δωσμένες θύρες θα πρέπει μην βρίσκονται στο μη-προνομιακό εύρος (δηλαδή πρέπει να είναι πάνω από το 1024). Συνίσταται να δωθεί αρκετά μεγάλο εύρος (π.χ. 49152-65534), ώστε να υπάρχει περιθώριο χειρισμού αρκετών ταυτόχρονων παθητικών συνδέσεων."
 
 msgid "India"
 msgstr "India"
@@ -1717,9 +1625,6 @@ msgstr "Italy"
 
 msgid "Ivory Coast"
 msgstr "Ivory Coast"
-
-msgid "JFS"
-msgstr "JFS"
 
 msgid "Jamaica"
 msgstr "Jamaica"
@@ -1915,9 +1820,6 @@ msgstr "Marshall Islands"
 msgid "Martinique"
 msgstr "Martinique"
 
-msgid "Masquerade address"
-msgstr "Απόκρυψη διεύθυνσης"
-
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
@@ -1934,50 +1836,17 @@ msgstr "Mauritania"
 msgid "Mauritius"
 msgstr "Mauritius"
 
-msgid "Max. clients"
-msgstr "Μέγιστος αριθμός πελατών"
-
 msgid "Max. connections"
 msgstr "Μέγιστες συνδέσεις"
-
-msgid "Max. connections per host"
-msgstr "Μέγιστες συνδέσεις ανά χρήστη"
-
-msgid "Max. login attempts"
-msgstr "Μέγιστες απόπειρες εισόδου"
-
-msgid "Max. passive port"
-msgstr "Μέγιστη παθητική θύρα"
 
 msgid "Maximum"
 msgstr "Μέγιστο"
 
-msgid "Maximum download rate (KiB/s)"
-msgstr "Μέγιστη ταχύτητα κατεβάσματος (KiB/s)"
-
 msgid "Maximum file size"
 msgstr "Μέγιστο μέγεθος αρχείου"
 
-msgid ""
-"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
-"timer completely (clients can stay connected for ever, without sending "
-"data)."
-msgstr "Μέγιστη διάρκεια αδράνειας σε δευτερόλεπτα. Με 0 απενεργοποιείται και οι πελάτες μπορούν να μένουν συνδεδεμένοι (χωρίς να στέλνουν δεδομένα)."
-
-msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "Μέγιστες απόπειρες πιστοποίησης πριν την αποσύνδεση."
-
-msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "Μέγιστος αριθμός συνδέσεων ανά διεύθυνση ΙΡ (0 = απεριόριστες)."
-
-msgid "Maximum number of simultaneous clients."
-msgstr "Μέγιστος αριθμός ταυτόχρονων πελατών."
-
 msgid "Maximum performance, maximum acoustic output"
 msgstr "Μέγιστη απόδοση, μέγιστος θόρυβος"
-
-msgid "Maximum upload rate (KiB/s)"
-msgstr "Μέγιστη ταχύτητα αποστολής (KiB/s)"
 
 msgid "May"
 msgstr "Μάιος"
@@ -2017,9 +1886,6 @@ msgstr "Micronesia"
 
 msgid "Midway Islands"
 msgstr "Midway Islands"
-
-msgid "Min. passive port"
-msgstr "Ελάχιστη παθητική θύρα"
 
 msgid "Minimum"
 msgstr "Ελάχιστο"
@@ -2171,9 +2037,6 @@ msgstr "Χωρίς συνδέσεις"
 msgid "No data to display."
 msgstr "Δεν υπάρχουν δεδομένα προς εμφάνιση."
 
-msgid "No session reuse required"
-msgstr "Δεν απαιτείται επανάχρηση συνεδρίας"
-
 msgid "No users connected"
 msgstr "Δεν υπάρχουν συνδεδεμένοι χρήστες"
 
@@ -2238,9 +2101,6 @@ msgid ""
 "Obsolete cached data found. Page will be reloaded. If the problem persists, "
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
 msgstr "Βρέθηκαν σωσμένα παλαιά δεδομένα. Η σελίδα θα επαναφορτωθεί. Αν το πρόβλημα επιμείνει, πατήστε Ctrl-Shift-R ή Ctrl-F5 για πλήρη επαναφόρτωση της σελίδας."
-
-msgid "Occurrence"
-msgstr "Εμφάνιση"
 
 msgid "October"
 msgstr "Οκτώβριος"
@@ -2314,11 +2174,11 @@ msgstr "Paraguay"
 msgid "Parent Device"
 msgstr "Γονεϊκή Συσκευή"
 
+msgid "Parent UUID"
+msgstr "Γονεϊκό UUID"
+
 msgid "Parent device"
 msgstr "Γονεϊκή συσκευή"
-
-msgid "Passive FTP"
-msgstr "Παθητικό FTP"
 
 msgid "Password"
 msgstr "Κωδικός"
@@ -2394,22 +2254,6 @@ msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
 "target=\"_blank\">manual page</a> for more details."
 msgstr "Διαβάστε το <a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\">εγχειρίδιο</a> για περισσότερες πληροφορίες."
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Δες το <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manual page</a> για περισσότερες λεπτομέρειες."
-
-msgid ""
-"Please check the <a "
-"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Για περισσότερες λεπτομέρειες : <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>εδώ</a>."
-
-msgid ""
-"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
-"name.html' target='_blank'>manual page</a> for more details."
-msgstr "Δείτε στο <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>εγχειρίδιο</a> για περισσότερες λεπτομέρειες."
 
 msgid ""
 "Please check the <a "
@@ -2654,9 +2498,6 @@ msgstr "Αναδρομικός"
 msgid "Referenced"
 msgstr "Αναφερόμενα"
 
-msgid "Refresh time"
-msgstr "Χρόνος ανανέωσης"
-
 msgid "Relative Path"
 msgstr "Σχετική Διαδρομή"
 
@@ -2699,32 +2540,17 @@ msgstr "Αναφορά αν η θερμοκρασία είναι ίση ή με�
 msgid "Repository"
 msgstr "Εναποθετήριο"
 
-msgid "Require valid shell"
-msgstr "Να απαιτείται ισχύον κέλυφος"
-
-msgid "Required"
-msgstr "Απαιτούμενο"
-
 msgid "Reset UI to defaults"
 msgstr "Επαναφορά αρχικών ρυθμίσεων γραφικού περιβάλλοντος διαχείρισης"
 
-msgid "Resize"
-msgstr "Προσαρμογή"
-
 msgid "Result"
 msgstr "Αποτέλεσμα"
-
-msgid "Resume"
-msgstr "Συνέχιση"
 
 msgid "Retention time"
 msgstr "Χρόνος διατήρησης"
 
 msgid "Reunion"
 msgstr "Επανένωση"
-
-msgid "Reverse DNS lookup"
-msgstr "Ανάστροφη αναζήτηση DNS"
 
 msgid "Reverted the configuration changes."
 msgstr "Αναιρέθηκαν αλλαγές στις ρυθμίσεις."
@@ -2809,9 +2635,6 @@ msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
-
-msgid "SSL/TLS Settings"
-msgstr "Ρυθμίσεις SSL/TLS"
 
 msgid "SSL/TLS enabled"
 msgstr "Ενεργό SSL/TLS"
@@ -2903,9 +2726,6 @@ msgstr "Επιλογή κελύφους ..."
 msgid "Select a system log ..."
 msgstr "Επιλογή αρχείου καταγραφής ..."
 
-msgid "Select a type ..."
-msgstr "Επιλογή τύπου ..."
-
 msgid "Select all"
 msgstr "Επιλογή όλων"
 
@@ -2946,6 +2766,9 @@ msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr "Επιλογή συσκευών που θα χρησιμοποιηθούν για την δημιουργία της συσκευής RAID. Οι συσκευές που είναι συνδεδεμένες μέσω USB δεν θα εμφανίζονται (δεν είναι αξιόπιστες)."
+
+msgid "Select the devices that will be used to create the file system."
+msgstr "Επιλογή συσκευών για την δημιουργία συστήματος αρχείων."
 
 msgid "Self-Test Logs"
 msgstr "Καταγραφές Αυτοελέγχων"
@@ -3016,6 +2839,9 @@ msgstr "Ρυθμίσεις"
 msgid "Seychelles"
 msgstr "Seychelles"
 
+msgid "Share"
+msgstr "Κοινόχρηστο"
+
 msgid "Shared Folders"
 msgstr "Κοινόχρηστοι Φάκελοι"
 
@@ -3079,6 +2905,9 @@ msgstr "Συνέχιση"
 msgid "Slovenia"
 msgstr "Slovenia"
 
+msgid "Snapshots"
+msgstr "Στιγμιότυπα"
+
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Σφάλμα Λογισμικού   Αριστερό κλικ για συνέχεια."
 
@@ -3130,25 +2959,11 @@ msgstr "Σημαία ειδικής δράσης"
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Ορίζει την συχνότητα παρακολούθησης της ζεύξης ΜΙΙ σε χιλιοστά του δευτερολέπτου."
 
-msgid ""
-"Specifies the amount of time, in seconds, between checking and updating the "
-"masquerade address by resolving the IP address. Set this value to 0 to "
-"disable this option."
-msgstr "Ο χρόνος σε δευτερόλεπτα ανάμεσα στον έλεγχο και την ενημέρωση της μασκαρεμένης διεύθυνσης με επίλυση ΙΡ. Με 0 απενεργοποιείται."
-
 msgid "Specifies the interface devices."
 msgstr "Ορισμός των συσκευών διασύνδεσης."
 
 msgid "Specifies the slave devices."
 msgstr "Ορισμός των υποτελών συσκευών."
-
-msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "Ορίζει τον χρόνο διάρκειας (ωω:λλ:δδ) του αποκλεισμού."
-
-msgid ""
-"Specifies the time interval in hh:mm:ss in which the given number of "
-"occurrences must happen to add the ban."
-msgstr "Ορίζει το χρονικό διάστημα (ωω:λλ:δδ) στο οποίο πρέπει να συμβεί ο συγκεκριμένος αριθμός παραπτωμάτων, για την επιβολή του αποκλεισμού."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
@@ -3159,9 +2974,6 @@ msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
 msgstr "Ορίζει τον χρόνο αναμονής, σε χιλιοστά του δευτερολέπτου, πριν την ενεργοποίηση του - εφόσον ανιχνευθεί επαναφορά της ζεύξης."
-
-msgid "Specifies whether it is allowed to login as superuser directly."
-msgstr "Ορίζει το αν επιτρέπεται η απευθείας είσοδος ως υπερχρήστης"
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Ορίζει το αν επιτρέπεται η είσοδος ως υπερχρήστης"
@@ -3347,9 +3159,6 @@ msgstr "Το πιστοποιητικό SSH που θα χρησιμοποιεί
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
 msgstr "Το δημόσιο κλειδί SSH σε μορφοποίηση OpenSSH ή RFC 4716."
 
-msgid "The SSL certificate."
-msgstr "Το πιστοποιητικό SSL."
-
 msgid "The action to be done when pressing the power button."
 msgstr "Η ενέργεια που λαμβάνεται με το πάτημα του πλήκτρου λειτουργίας."
 
@@ -3452,16 +3261,14 @@ msgstr "Το εναποθετήριο θα ελεγχθεί για νέα, κα�
 msgid "The requested page was not found."
 msgstr "Η σελίδα που ζητήθηκε δεν βρέθηκε."
 
-msgid ""
-"The requirement that the SSL session from the control connection is reused "
-"for data connections is not required."
-msgstr "Δεν θα είναι απαραίτητο να χρησιμοποιείται για την σύνδεση δεδομένων η συνεδρία SSL της σύνδεσης ελέγχου."
-
 msgid "The server is unavailable to handle this request right now."
 msgstr "Ο διακομιστής δεν είναι διαθέσιμος για να χειριστεί αυτό το αίτημα τώρα."
 
 msgid "The shared folder from which the privileges are copied."
 msgstr "Ο κοινόχρηστος φάκελος από τον οποίον αντιγράφονται τα δικαιώματα."
+
+msgid "The shared folder {{ _selected[0].name }} was successfully created."
+msgstr "Ο κοινόχρηστος φάκελος {{ _selected[0].name }} δημιουργήθηκε επιτυχώς."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3470,9 +3277,6 @@ msgstr "Ο απομακρυσμένος διακομιστής προέλευσ�
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Το σύστημα θα επανεκκινήσει τώρα. Αυτό μπορεί να πάρει λίγη ώρα ..."
-
-msgid "The type of the file system to create."
-msgstr "Ο τύπος του συστήματος αρχείων προς δημιουργία."
 
 msgid "The users that are allowed to access this module."
 msgstr "Οι χρήστες που επιτρέπεται να προσπελάσουν αυτό το πρόσθετο."
@@ -3487,11 +3291,6 @@ msgstr "Πρέπει να οριστεί μία από τις υποτελείς
 
 msgid "The value must be on of the slave network interfaces."
 msgstr "Πρέπει να οριστεί μία από τις υποτελείς διασυνδέσεις δικτύου."
-
-msgid ""
-"The welcome message which will be displayed to the user when they initially "
-"login."
-msgstr "Το μήνυμα καλωσορίσματος θα εμφανίζεται στον χρήστη κατά την αρχική του είσοδο."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Ο διακομιστής θα αναφέρει οτι ανήκει σε αυτήν την ομάδα εργασίας όταν ρωτάνε οι πελάτες."
@@ -3639,11 +3438,6 @@ msgid ""
 msgstr "Αυτό είναι το σύνολο των χρηστών (ορισμένων με όνομα ή διεύθυνση ΙΡ και χωρισμένων με κόμμα, κενό ή διάκενο) που έχουν πρόσβαση στο κοινόχρηστο. Αν μείνει κενό θα χρησιμοποιηθούν οι εξ'όρισμού ρυθμίσεις."
 
 msgid ""
-"This option requires clients to use FTP over TLS when talking to this "
-"server."
-msgstr "Αυτή η επιλογή υποχρεώνει τους πελάτες να χρησιμοποιούν TLS για το FTP."
-
-msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "Εδώ ορίζεται το όνομα της ομάδας με το οποίο θα τελούνται οι μεταφορές από και προς αυτή τη μονάδα."
@@ -3659,11 +3453,6 @@ msgid ""
 msgstr "Εδώ ορίζεται το όνομα του χρήστη με το οποίο θα τελούνται οι μεταφορές από και προς αυτή τη μονάδα."
 
 msgid ""
-"This option will handle all connections as if they are SSL connections "
-"implicitly."
-msgstr "Αυτή η επιλογή θα χειρίζεται όλες τις συνδέσεις ως SSL."
-
-msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
@@ -3673,14 +3462,6 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "Θύρα για ακρόαση."
-
-msgid ""
-"This parameter says that if N occurrences of the event happen within the "
-"given time interval, then a ban is automatically added."
-msgstr "Ορίζει τον αριθμό των παραπτωμάτων που πρέπει να συμβούν μέσα στο χρονικό διάστημα για να επιβληθεί ο αποκλεισμός."
-
-msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr "Αυτός ο κανόνας ενεργοποιείται όταν συμβεί το επιλεγμένο γεγονός."
 
 msgid "This specifies what to do if the packet matches."
 msgstr "Εδώ ορίζεται η δράση για όταν ταιριάζει το πακέτο."
@@ -3700,9 +3481,6 @@ msgstr "Πέμπτη"
 msgid "Time Machine support"
 msgstr "Υποστήριξη Χρονομηχανής"
 
-msgid "Time interval"
-msgstr "Χρονικό διάστημα"
-
 msgid "Time of execution"
 msgstr "Χρόνος εκτέλεσης"
 
@@ -3714,9 +3492,6 @@ msgstr "Διακομιστές ώρας"
 
 msgid "Time zone"
 msgstr "Ζώνη ώρας"
-
-msgid "Timeout"
-msgstr "Χρονικό όριο"
 
 msgid "Tip"
 msgstr "Συμβουλή"
@@ -3732,9 +3507,6 @@ msgstr "Tonga"
 
 msgid "Total"
 msgstr "Σύνολο"
-
-msgid "Transfer log"
-msgstr "Καταγραφή μεταφορών"
 
 msgid ""
 "Transfer modification times along with the files and update them on the "
@@ -3791,6 +3563,9 @@ msgstr "Αναγνωριστικό χρήστη"
 
 msgid "UNKNOWN"
 msgstr "ΑΓΝΩΣΤΟΝ"
+
+msgid "UUID"
+msgstr "UUID"
 
 msgid "Uganda"
 msgstr "Uganda"
@@ -3849,18 +3624,6 @@ msgstr "Ενημέρωση των λιστών πρόσβασης του προ�
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "Ενημέρωση των εκτεταμένων ιδιοτήτων του προορισμού ώστε να ταυτίζονται με τις τοπικές."
-
-msgid "Updated FTP SSL/TLS settings."
-msgstr "Ενημέρωση ρυθμίσεων FTP SSL/TLS."
-
-msgid "Updated FTP ban rule."
-msgstr "Ενημέρωση κανόνα αποκλεισμού FTP."
-
-msgid "Updated FTP settings."
-msgstr "Ενημέρωση ρυθμίσεων FTP."
-
-msgid "Updated FTP share."
-msgstr "Ενημέρωση κοινόχρηστου FTP."
 
 msgid "Updated NFS settings."
 msgstr "Ενημέρωση ρυθμίσεων NFS."
@@ -4015,9 +3778,6 @@ msgstr "Χρήση γενικευμένων ρυθμίσεων"
 msgid "Use sendfile"
 msgstr "Χρήση πρωτοκόλου sendfile"
 
-msgid "Use the following bandwidth restriction."
-msgstr "Χρήση του ακόλουθου περιορισμού ταχύτητας."
-
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked. This may make more efficient use of the system CPU's and cause "
@@ -4130,19 +3890,11 @@ msgstr "Τετάρτη"
 msgid "Weekly"
 msgstr "Εβδομαδιαία"
 
-msgid "Welcome message"
-msgstr "Μήνυμα καλωσορίσματος"
-
 msgid "Welcome to openmediavault"
 msgstr "Καλωσορίσατε στο openmediavault"
 
 msgid "Western Sahara"
 msgstr "Western Sahara"
-
-msgid ""
-"When a client initially connects to the server the ident protocol is used to"
-" attempt to identify the remote user name."
-msgstr "Όταν ένας πελάτης συνδέεται αρχικά, το πρωτόκολλο ident χρησιμοποιείται για να διαπιστωθεί το όνομά του."
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -4170,9 +3922,6 @@ msgstr "Μόνο εγγραφή"
 
 msgid "Write/Execute"
 msgstr "Εγγραφή/Εκτέλεση"
-
-msgid "XFS"
-msgstr "XFS"
 
 msgid "Xen virtual disk device"
 msgstr "Συσκευή εικονικού δίσκου Xen"
