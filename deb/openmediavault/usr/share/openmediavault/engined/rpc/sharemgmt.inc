@@ -1395,7 +1395,8 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			"mode" => decoct($stat['mode'] & 000777),
 			"privileges" => $sfObject->isEmpty("privileges") ?
 				[] : $sfObject->get("privileges"),
-			"comment" => "Snapshot"
+			"comment" => sprintf("Snapshot,%s,%s", $sfObject->get("name"),
+				$snapshots[0]['otime'])
 		], $context);
 	}
 }
