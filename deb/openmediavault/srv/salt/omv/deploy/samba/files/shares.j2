@@ -84,8 +84,9 @@ recycle:maxsize = {{ share.recyclemaxsize }}
 {%- if share.sharedfolderref | omv_conf_get_by_identifier('conf.system.sharedfolder') | attr('mntentref') | omv_conf_get_by_identifier('conf.system.filesystem.mountpoint') | attr('type') == 'btrfs' %}
 {%- set _ = vfs_objects.append('btrfs') %}
 {%- set _ = vfs_objects.append('shadow_copy2') %}
-shadow:mountpoint = {{ salt['omv_conf.get_sharedfolder_mount_path'](share.sharedfolderref) }}
-shadow:snapdir = .snapshots
+{%- set sf_mount_path = salt['omv_conf.get_sharedfolder_mount_path'](share.sharedfolderref) %}
+shadow:mountpoint = {{ sf_mount_path }}
+shadow:snapdir = {{ sf_mount_path | path_join('.snapshots') | path_prettify }}
 shadow:basedir = {{ sf_path }}
 shadow:sort = {{ shadow_sort }}
 shadow:format = {{ sf_name }}_%FT%T
