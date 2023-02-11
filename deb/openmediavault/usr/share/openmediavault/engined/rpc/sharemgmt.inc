@@ -395,8 +395,8 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 					$object->get("mode"), $pathName, $error['message']);
 			}
 		}
-		// Change group owner of directory to configured default group,
-		// e.g. 'users'.
+		// Change group owner of directory to the configured default
+		// group, e.g. 'users'.
 		$defaultGroup = \OMV\Environment::get("OMV_USERMGMT_DEFAULT_GROUP",
 			"users");
 		if (FALSE === chgrp($pathName, $defaultGroup)) {
@@ -1262,6 +1262,16 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			date('Y-m-d\TH:i:s')));
 		if (FALSE === is_dir($snapshotsDir)) {
 			$fs->createSubvolume($snapshotsDir);
+			// Change group owner of the `.snapshots` directory to
+			// the configured default group, e.g. 'users'.
+			$defaultGroup = \OMV\Environment::get(
+				"OMV_USERMGMT_DEFAULT_GROUP", "users");
+			if (FALSE === chgrp($snapshotsDir, $defaultGroup)) {
+				$error = error_get_last();
+				throw new \OMV\Exception(
+					"Failed to set file group to '%s' for '%s': %s",
+					$defaultGroup, $snapshotsDir, $error['message']);
+			}
 		}
 		$fs->createSnapshot($sfAbsPath, $snapshotPath);
 	}
