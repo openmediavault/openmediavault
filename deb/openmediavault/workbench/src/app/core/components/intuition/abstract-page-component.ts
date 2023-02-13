@@ -24,7 +24,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { ActivatedRoute, ParamMap, Route, Router } from '@angular/router';
+import { ActivatedRoute, Params, Route, Router } from '@angular/router';
 import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
 
@@ -81,7 +81,7 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
 
   ngOnInit(): void {
     this.sanitizeConfig();
-    this.activatedRouteSubscription = this.activatedRoute.params.subscribe((params: ParamMap) => {
+    this.activatedRouteSubscription = this.activatedRoute.params.subscribe((params: Params) => {
       this.routeParams = decodeURIComponentDeep(params);
       this.onRouteParams();
     });
