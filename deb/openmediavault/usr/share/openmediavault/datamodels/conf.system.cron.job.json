@@ -44,7 +44,8 @@
 		},
 		"minute": {
 			"type": "string",
-			"pattern": "^[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[*]$"
+			"pattern": "^[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[*]$",
+			"default": 0
 		},
 		"everynminute": {
 			"type": "boolean",
@@ -52,7 +53,8 @@
 		},
 		"hour": {
 			"type": "string",
-			"pattern": "^[0-9]|1[0-9]|2[0-3]|[*]$"
+			"pattern": "^[0-9]|1[0-9]|2[0-3]|[*]$",
+			"default": 0
 		},
 		"everynhour": {
 			"type":"boolean",
@@ -60,11 +62,13 @@
 		},
 		"month": {
 			"type": "string",
-			"pattern": "^[1-9]|1[0-2]|[*]$"
+			"pattern": "^[1-9]|1[0-2]|[*]$",
+			"default": "*"
 		},
 		"dayofmonth": {
 			"type": "string",
-			"pattern": "^[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$"
+			"pattern": "^[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$",
+			"default": "*"
 		},
 		"everyndayofmonth": {
 			"type": "boolean",
@@ -72,7 +76,8 @@
 		},
 		"dayofweek": {
 			"type": "string",
-			"pattern": "^[1-7]|[*]$"
+			"pattern": "^[1-7]|[*]$",
+			"default": "*"
 		},
 		"username": {
 			"type": "string",

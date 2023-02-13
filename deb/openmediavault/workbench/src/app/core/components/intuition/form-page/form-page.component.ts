@@ -275,6 +275,7 @@ export class FormPageComponent
                 if (_.isString(request.successNotification)) {
                   this.notificationService.show(
                     NotificationType.success,
+                    undefined,
                     format(
                       request.successNotification,
                       _.merge({ _response: res }, this.pageContext, values)
@@ -386,6 +387,7 @@ export class FormPageComponent
               if (!_.isEmpty(notificationTitle)) {
                 this.notificationService.show(
                   NotificationType.success,
+                  undefined,
                   format(notificationTitle, _.merge({}, this.pageContext, values))
                 );
               }
@@ -473,9 +475,17 @@ export class FormPageComponent
     // Load the content if form page is in 'editing' mode.
     if (this.editing) {
       this.loadData();
+    } else {
+      // Inject the query parameters of the route into the form fields.
+      // This will override the configured form field values.
+      _.forEach(allFields, (fieldConfig: FormFieldConfig) => {
+        if (_.has(this.routeQueryParams, fieldConfig.name)) {
+          fieldConfig.value = _.get(this.routeQueryParams, fieldConfig.name);
+        }
+      });
     }
-    // Inject route configuration and parameters into various form field
-    // configuration properties.
+    // Inject the route configuration and parameters into various form
+    // field configuration properties.
     _.forEach(allFields, (fieldConfig: FormFieldConfig) => {
       _.forEach(['store.proxy', 'store.filters', 'value', 'request.params'], (path) => {
         const value = _.get(fieldConfig, path);

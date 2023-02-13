@@ -205,29 +205,21 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
                 }
               })
             )
-            .subscribe(() => {
+            .subscribe((res: any) => {
               // Display a notification?
               if (_.isString(request.successNotification)) {
                 const message = format(
                   request.successNotification,
-                  _.merge(
-                    {},
-                    this.pageContext,
-                    this.selection.hasSingleSelection ? this.selection.first() : {}
-                  )
+                  _.merge({}, this.pageContext, isFormatable(res) ? { _response: res } : {})
                 );
-                this.notificationService.show(NotificationType.success, message);
+                this.notificationService.show(NotificationType.success, undefined, message);
               }
               // Navigate to the specified URL or reload the datatable
               // content.
               if (_.isString(request.successUrl)) {
                 const successUrl = format(
                   request.successUrl,
-                  _.merge(
-                    {},
-                    this.pageContext,
-                    this.selection.hasSingleSelection ? this.selection.first() : {}
-                  )
+                  _.merge({}, this.pageContext, isFormatable(res) ? { _response: res } : {})
                 );
                 this.router.navigateByUrl(successUrl);
               } else {

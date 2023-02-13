@@ -145,6 +145,7 @@ export class SelectionListPageComponent
         if (!_.isEmpty(notificationTitle)) {
           this.notificationService.show(
             NotificationType.success,
+            undefined,
             format(notificationTitle, this.pageContext)
           );
         }

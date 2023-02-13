@@ -165,6 +165,7 @@ export class FormDialogComponent {
             if (_.isString(request.successNotification)) {
               this.notificationService.show(
                 NotificationType.success,
+                undefined,
                 format(request.successNotification, values)
               );
             }

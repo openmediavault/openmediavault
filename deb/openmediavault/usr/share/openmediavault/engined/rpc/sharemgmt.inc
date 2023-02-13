@@ -51,6 +51,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getPath");
 		$this->registerMethod("enumerateSnapshots");
 		$this->registerMethod("createSnapshot");
+		$this->registerMethod("createScheduledSnapshot");
 		$this->registerMethod("deleteSnapshot");
 		$this->registerMethod("restoreSnapshot");
 		$this->registerMethod("fromSnapshot");
@@ -1217,7 +1218,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
-	 * Get the snapshots of the specified shared folder.
+	 * Create a snapshot of the specified shared folder.
 	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the shared folder configuration object.
 	 * @param context The context of the caller.
@@ -1255,11 +1256,12 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// the shared folder + the current time in ISO 8601 format
 		// (without time zone designator).
 		// Make sure the `.snapshots` directory/subvolume exists.
+		$snapshotName = sprintf("%s_%s", $sfObject->get("name"),
+			date('Y-m-d\TH:i:s'));
 		$snapshotsDir = build_path(DIRECTORY_SEPARATOR,
 			$meObject->get("dir"), ".snapshots");
 		$snapshotPath = build_path(DIRECTORY_SEPARATOR, $snapshotsDir,
-			sprintf("%s_%s", $sfObject->get("name"),
-			date('Y-m-d\TH:i:s')));
+			$snapshotName);
 		if (FALSE === is_dir($snapshotsDir)) {
 			$fs->createSubvolume($snapshotsDir);
 		}
@@ -1274,6 +1276,76 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				$defaultGroup, $snapshotsDir, $error['message']);
 		}
 		$fs->createSnapshot($sfAbsPath, $snapshotPath);
+		return [
+			"sharedfolder" => $sfObject->get("name"),
+			"sharedfolderref" => $sfObject->getIdentifier(),
+			"name" => $snapshotName,
+			"path" => build_path(DIRECTORY_SEPARATOR, ".snapshots",
+				$snapshotName),
+			"abspath" => $snapshotPath
+		];
+	}
+
+	/**
+	 * Create a scheduled task that will do a snapshot of the specified
+	 * shared folder.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the shared folder configuration object.
+	 *   \em execution The time when the snapshot should be created
+	 *     periodically.
+	 * @param context The context of the caller.
+	 * @return void
+	 * @throw \OMV\Exception
+	 */
+	public function createScheduledSnapshot($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.sharemgmt.createscheduledsnapshot");
+		// Get the shared folder and mount point configuration objects.
+		$db = \OMV\Config\Database::getInstance();
+		$sfObject = $db->get("conf.system.sharedfolder", $params['uuid']);
+		$meObject = $db->get("conf.system.filesystem.mountpoint",
+			$sfObject->get("mntentref"));
+		// Does the shared folder support snapshots?
+		if ("btrfs" !== $meObject->get("type")) {
+			throw new \OMV\Exception(
+				"The shared folder '%s' does not support snapshots.",
+				$sfObject->get("name"));
+		}
+		$fs = \OMV\System\Filesystem\Filesystem::getImplByMountPoint(
+			$meObject->get("dir"));
+		$sfAbsPath = build_path(DIRECTORY_SEPARATOR, $meObject->get("dir"),
+			$sfObject->get("reldirpath"));
+		if (FALSE === $fs->isSubvolume($sfAbsPath)) {
+			throw new \OMV\Exception(
+				"The shared folder '%s' does not support snapshots.",
+				$sfObject->get("name"));
+		}
+		$snapshotPath = build_path(DIRECTORY_SEPARATOR,
+			$meObject->get("dir"), ".snapshots",
+			sprintf("%s_$(date +%%FT%%T)", $sfObject->get("name")));
+		// Create the scheduled job.
+		$object = new \OMV\Config\ConfigObject("conf.system.cron.job");
+		$object->setNew();
+		$object->setAssoc([
+			"type" => "userdefined",
+			"enable" => TRUE,
+			"execution" => $params['execution'],
+			"command" => sprintf("btrfs subvolume snapshot %s %s",
+				$sfAbsPath, $snapshotPath),
+			"username" => "root",
+			"sendemail" => TRUE,
+			"comment" => sprintf("Snapshot,%s,%s",
+				ucfirst($params['execution']), $sfObject->get("name"))
+		]);
+		$object->validate();
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
+		// Return the configuration object.
+		return $object->getAssoc();
 	}
 
 	/**
