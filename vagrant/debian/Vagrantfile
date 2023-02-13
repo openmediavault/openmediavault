@@ -52,7 +52,7 @@ Vagrant.configure("2") do |config|
 			prov.storage :file, :size => "1G", :bus => "scsi"
 		end
 	end
-	config.vm.synced_folder "../deb", "/home/vagrant/openmediavault",
+	config.vm.synced_folder "../../deb", "/home/vagrant/openmediavault",
 		:type => "nfs",
 		:nfs_version => 4
 end
