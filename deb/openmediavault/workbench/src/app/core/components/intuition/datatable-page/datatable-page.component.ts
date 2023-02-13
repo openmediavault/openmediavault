@@ -199,7 +199,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
             )
             .subscribe(() => {
               // Display a notification?
-              if (_.isString(request.successNotification)) {
+              if (isFormatable(request.successNotification)) {
                 const message = format(
                   request.successNotification,
                   _.merge(
@@ -210,7 +210,21 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
                 );
                 this.notificationService.show(NotificationType.success, message);
               }
-              this.reloadData();
+              // Navigate to the specified URL or reload the datatable
+              // content.
+              if (isFormatable(request.successUrl)) {
+                const url = format(
+                  request.successUrl,
+                  _.merge(
+                    {},
+                    this.pageContext,
+                    this.selection.hasSingleSelection ? this.selection.first() : {}
+                  )
+                );
+                this.router.navigate([url]);
+              } else {
+                this.reloadData();
+              }
             });
           break;
         case 'taskDialog':

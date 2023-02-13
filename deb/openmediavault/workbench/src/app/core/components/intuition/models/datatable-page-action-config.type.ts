@@ -79,6 +79,10 @@ export type DatatablePageActionExecute = {
     // Display a notification when the request was successful.
     // The notification can contain route config/params tokens.
     successNotification?: string;
+    // Navigate to this URL when the request was successful.
+    // The URL is formatted with the page context (please see
+    // AbstractPageComponent::pageContext).
+    successUrl?: string;
   };
   // Display a dialog that shows the output the given RPC.
   taskDialog?: {

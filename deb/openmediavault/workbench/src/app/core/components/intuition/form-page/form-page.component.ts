@@ -272,7 +272,7 @@ export class FormPageComponent
               )
               .subscribe((res: any) => {
                 // Display a notification?
-                if (_.isString(request.successNotification)) {
+                if (isFormatable(request.successNotification)) {
                   this.notificationService.show(
                     NotificationType.success,
                     format(
@@ -282,7 +282,7 @@ export class FormPageComponent
                   );
                 }
                 // Navigate to a specified URL?
-                if (_.isString(request.successUrl)) {
+                if (isFormatable(request.successUrl)) {
                   const url = format(
                     request.successUrl,
                     _.merge({ _response: res }, this.pageContext, values)
