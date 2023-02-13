@@ -158,7 +158,15 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     const postConfirmFn = () => {
       switch (action?.execute?.type) {
         case 'url':
-          this.navigate(action.execute.url);
+          const url = format(
+            action.execute.url,
+            _.merge(
+              {},
+              this.pageContext,
+              this.selection.hasSingleSelection ? this.selection.first() : {}
+            )
+          );
+          this.router.navigate([url]);
           break;
         case 'request':
           const observables = [];
@@ -213,7 +221,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
               // Navigate to the specified URL or reload the datatable
               // content.
               if (isFormatable(request.successUrl)) {
-                const url = format(
+                const successUrl = format(
                   request.successUrl,
                   _.merge(
                     {},
@@ -221,7 +229,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
                     this.selection.hasSingleSelection ? this.selection.first() : {}
                   )
                 );
-                this.router.navigate([url]);
+                this.router.navigate([successUrl]);
               } else {
                 this.reloadData();
               }
