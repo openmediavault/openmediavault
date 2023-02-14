@@ -53,7 +53,7 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
     } else if (_.isString(this.config.url)) {
       // Navigate to the specified URL.
       const url = format(this.config.url, formValues);
-      this.router.navigate([url]);
+      this.router.navigateByUrl(url);
     } else if (_.isPlainObject(this.config.request)) {
       // Execute the specified request.
       const request = this.config.request;
@@ -92,7 +92,7 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
                 formValues
               )
             );
-            this.router.navigate([url]);
+            this.router.navigateByUrl(url);
           }
         });
     }

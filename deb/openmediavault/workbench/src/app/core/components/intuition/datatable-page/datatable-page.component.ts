@@ -166,7 +166,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
               this.selection.hasSingleSelection ? this.selection.first() : {}
             )
           );
-          this.router.navigate([url]);
+          this.router.navigateByUrl(url);
           break;
         case 'request':
           const observables = [];
@@ -207,7 +207,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
             )
             .subscribe(() => {
               // Display a notification?
-              if (isFormatable(request.successNotification)) {
+              if (_.isString(request.successNotification)) {
                 const message = format(
                   request.successNotification,
                   _.merge(
@@ -220,7 +220,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
               }
               // Navigate to the specified URL or reload the datatable
               // content.
-              if (isFormatable(request.successUrl)) {
+              if (_.isString(request.successUrl)) {
                 const successUrl = format(
                   request.successUrl,
                   _.merge(
@@ -229,7 +229,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
                     this.selection.hasSingleSelection ? this.selection.first() : {}
                   )
                 );
-                this.router.navigate([successUrl]);
+                this.router.navigateByUrl(successUrl);
               } else {
                 this.reloadData();
               }
@@ -480,6 +480,6 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
 
   private navigate(url: string) {
     const formattedUrl = format(url, this.pageContext);
-    this.router.navigate([formattedUrl]);
+    this.router.navigateByUrl(formattedUrl);
   }
 }

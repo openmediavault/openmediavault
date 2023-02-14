@@ -85,7 +85,7 @@ export class TextPageComponent
     if (_.isFunction(buttonConfig.click)) {
       buttonConfig.click();
     } else {
-      this.router.navigate([buttonConfig.url]);
+      this.router.navigateByUrl(buttonConfig.url);
     }
   }
 

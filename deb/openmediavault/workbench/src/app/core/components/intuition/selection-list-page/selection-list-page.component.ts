@@ -122,8 +122,8 @@ export class SelectionListPageComponent
         }
         break;
       case 'url':
-        if (!_.isEmpty(buttonConfig.execute.url)) {
-          this.router.navigate([buttonConfig.execute.url]);
+        if (_.isString(buttonConfig.execute.url)) {
+          this.router.navigateByUrl(buttonConfig.execute.url);
         }
         break;
     }
@@ -149,8 +149,8 @@ export class SelectionListPageComponent
           );
         }
         // Navigate to an optional URL.
-        if (!_.isEmpty(buttonConfig.execute.url)) {
-          this.router.navigate([buttonConfig.execute.url]);
+        if (_.isString(buttonConfig.execute.url)) {
+          this.router.navigateByUrl(buttonConfig.execute.url);
         }
       });
   }

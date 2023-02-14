@@ -242,13 +242,13 @@ export class FormPageComponent
           // Check if there is a return URL specified. This will override the configured URL.
           const returnUrl = _.get(this.activatedRoute.snapshot.queryParams, 'returnUrl');
           if (_.isString(returnUrl)) {
-            this.router.navigate([returnUrl]);
+            this.router.navigateByUrl(returnUrl);
             break;
           }
           if (_.isString(buttonConfig.execute.url)) {
             // Navigate to the specified URL.
             const url = format(buttonConfig.execute.url, _.merge({}, values, this.pageContext));
-            this.router.navigate([url]);
+            this.router.navigateByUrl(url);
           }
           break;
         case 'request':
@@ -272,7 +272,7 @@ export class FormPageComponent
               )
               .subscribe((res: any) => {
                 // Display a notification?
-                if (isFormatable(request.successNotification)) {
+                if (_.isString(request.successNotification)) {
                   this.notificationService.show(
                     NotificationType.success,
                     format(
@@ -282,12 +282,12 @@ export class FormPageComponent
                   );
                 }
                 // Navigate to a specified URL?
-                if (isFormatable(request.successUrl)) {
+                if (_.isString(request.successUrl)) {
                   const url = format(
                     request.successUrl,
                     _.merge({ _response: res }, this.pageContext, values)
                   );
-                  this.router.navigate([url]);
+                  this.router.navigateByUrl(url);
                 }
               });
           }
@@ -311,9 +311,9 @@ export class FormPageComponent
           });
           // Navigate to the specified URL if pressed button returns `true`.
           dialog.afterClosed().subscribe((res) => {
-            if (res && taskDialog.successUrl) {
+            if (res && _.isString(taskDialog.successUrl)) {
               const url = format(taskDialog.successUrl, _.merge({}, values, this.pageContext));
-              this.router.navigate([url]);
+              this.router.navigateByUrl(url);
             }
           });
           break;

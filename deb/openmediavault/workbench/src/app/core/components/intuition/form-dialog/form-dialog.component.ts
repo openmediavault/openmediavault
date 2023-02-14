@@ -129,7 +129,8 @@ export class FormDialogComponent {
     switch (buttonConfig?.execute?.type) {
       case 'url':
         this.matDialogRef.close(dialogResult);
-        this.router.navigate([buttonConfig.execute.url]);
+        const url = format(buttonConfig.execute.url, values);
+        this.router.navigateByUrl(url);
         break;
       case 'request':
         const request = buttonConfig.execute.request;
@@ -169,8 +170,8 @@ export class FormDialogComponent {
             }
             // Navigate to a specified URL?
             if (_.isString(request.successUrl)) {
-              const url = format(request.successUrl, values);
-              this.router.navigate([url]);
+              const successUrl = format(request.successUrl, values);
+              this.router.navigateByUrl(successUrl);
             }
           });
         break;
