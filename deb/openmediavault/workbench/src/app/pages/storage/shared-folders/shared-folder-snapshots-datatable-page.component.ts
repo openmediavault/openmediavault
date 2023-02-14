@@ -30,7 +30,7 @@ export class SharedFolderSnapshotsDatatablePageComponent {
     limit: 0,
     hasFooter: false,
     hasSearchField: false,
-    selectionType: 'single',
+    selectionType: 'multi',
     columns: [
       {
         name: gettext('ID'),
@@ -111,17 +111,91 @@ export class SharedFolderSnapshotsDatatablePageComponent {
     },
     actions: [
       {
-        template: 'create',
-        execute: {
-          type: 'request',
-          request: {
-            service: 'ShareMgmt',
-            method: 'createSnapshot',
-            params: {
-              uuid: '{{ _routeParams.uuid }}'
+        type: 'menu',
+        icon: 'add',
+        tooltip: gettext('Create'),
+        actions: [
+          {
+            text: gettext('Now'),
+            execute: {
+              type: 'request',
+              request: {
+                service: 'ShareMgmt',
+                method: 'createSnapshot',
+                params: {
+                  uuid: '{{ _routeParams.uuid }}'
+                },
+                successNotification: gettext(
+                  "The snapshot '{{ _response.name }}' has been created for the shared folder '{{ _response.sharedfolder }}'."
+                )
+              }
+            }
+          },
+          {
+            text: gettext('Hourly'),
+            execute: {
+              type: 'request',
+              request: {
+                service: 'ShareMgmt',
+                method: 'createScheduledSnapshot',
+                params: {
+                  uuid: '{{ _routeParams.uuid }}',
+                  execution: 'hourly'
+                },
+                successNotification: gettext('A scheduled snapshot has been created.'),
+                successUrl: '/system/cron/edit/{{ _response.uuid }}'
+              }
+            }
+          },
+          {
+            text: gettext('Daily'),
+            execute: {
+              type: 'request',
+              request: {
+                service: 'ShareMgmt',
+                method: 'createScheduledSnapshot',
+                params: {
+                  uuid: '{{ _routeParams.uuid }}',
+                  execution: 'daily'
+                },
+                successNotification: gettext('A scheduled snapshot has been created.'),
+                successUrl: '/system/cron/edit/{{ _response.uuid }}'
+              }
+            }
+          },
+          {
+            text: gettext('Weekly'),
+            execute: {
+              type: 'request',
+              request: {
+                service: 'ShareMgmt',
+                method: 'createScheduledSnapshot',
+                params: {
+                  uuid: '{{ _routeParams.uuid }}',
+                  execution: 'weekly'
+                },
+                successNotification: gettext('A scheduled snapshot has been created.'),
+                successUrl: '/system/cron/edit/{{ _response.uuid }}'
+              }
+            }
+          },
+          {
+            text: gettext('Monthly'),
+            execute: {
+              type: 'request',
+              request: {
+                service: 'ShareMgmt',
+                method: 'createScheduledSnapshot',
+                params: {
+                  uuid: '{{ _routeParams.uuid }}',
+                  execution: 'monthly'
+                },
+                successNotification: gettext('A scheduled snapshot has been created.'),
+                successUrl: '/system/cron/edit/{{ _response.uuid }}'
+              }
             }
           }
-        }
+        ]
       },
       {
         type: 'iconButton',

@@ -304,4 +304,28 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.createscheduledsnapshot",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"execution": {
+				"type": "string",
+				"required": true,
+				"enum": [
+					"hourly",
+					"daily",
+					"weekly",
+					"monthly",
+					"yearly"
+				]
+			}
+		}
+	}
 }]

@@ -1,3 +1,10 @@
+openmediavault (6.3.1-1) stable; urgency=low
+
+  * Issue #1489: Add UI to create scheduled snapshots for shared
+    folders.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 14 Feb 2023 18:02:33 +0100
+
 openmediavault (6.3.0-2) stable; urgency=low
 
   * Add an infrastructure to allow plugins to append additional

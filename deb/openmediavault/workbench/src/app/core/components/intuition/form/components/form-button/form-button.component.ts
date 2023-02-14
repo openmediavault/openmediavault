@@ -78,6 +78,7 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
           if (_.isString(request.successNotification)) {
             this.notificationService.show(
               NotificationType.success,
+              undefined,
               format(request.successNotification, _.merge({ _response: res }, formValues))
             );
           }

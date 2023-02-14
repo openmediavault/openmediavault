@@ -26,7 +26,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Params, Route, Router } from '@angular/router';
 import * as _ from 'lodash';
-import { Subscription } from 'rxjs';
+import { combineLatest, Subscription } from 'rxjs';
 
 import { decodeURIComponentDeep, formatDeep, isFormatable } from '~/app/functions.helper';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
@@ -45,7 +45,9 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
 
   readonly routeUrlSegments: string[];
   readonly routeConfig: Route;
-  routeParams: Record<string, any> = {};
+  routeParams: Params = {};
+  routeQueryParams: Params = {};
+
   private activatedRouteSubscription: Subscription;
 
   protected constructor(
@@ -75,14 +77,19 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
       },
       _routeConfig: this.routeConfig,
       _routeParams: this.routeParams,
+      _routeQueryParams: this.routeQueryParams,
       _routeUrlSegments: this.routeUrlSegments
     };
   }
 
   ngOnInit(): void {
     this.sanitizeConfig();
-    this.activatedRouteSubscription = this.activatedRoute.params.subscribe((params: Params) => {
+    this.activatedRouteSubscription = combineLatest([
+      this.activatedRoute.params,
+      this.activatedRoute.queryParams
+    ]).subscribe(([params, queryParams]: Params[]) => {
       this.routeParams = decodeURIComponentDeep(params);
+      this.routeQueryParams = decodeURIComponentDeep(queryParams);
       this.onRouteParams();
     });
   }
