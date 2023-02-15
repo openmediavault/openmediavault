@@ -51,7 +51,8 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getPath");
 		$this->registerMethod("enumerateSnapshots");
 		$this->registerMethod("createSnapshot");
-		$this->registerMethod("createScheduledSnapshot");
+		$this->registerMethod("createScheduledSnapshotTask");
+		$this->registerMethod("enumerateScheduledSnapshotTasks");
 		$this->registerMethod("deleteSnapshot");
 		$this->registerMethod("restoreSnapshot");
 		$this->registerMethod("fromSnapshot");
@@ -1297,7 +1298,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return void
 	 * @throw \OMV\Exception
 	 */
-	public function createScheduledSnapshot($params, $context) {
+	public function createScheduledSnapshotTask($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
@@ -1346,6 +1347,45 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$db->set($object);
 		// Return the configuration object.
 		return $object->getAssoc();
+	}
+
+	/**
+	 * Get the cron jobs taking the snapshots of the specified shared
+	 * folder.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the shared folder configuration object.
+	 * @param context The context of the caller.
+	 * @return An array containing the snapshot information.
+	 */
+	public function enumerateScheduledSnapshotTasks($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
+		// Get the shared folder and mount point configuration objects.
+		$db = \OMV\Config\Database::getInstance();
+		$sfObject = $db->get("conf.system.sharedfolder", $params['uuid']);
+		$meObject = $db->get("conf.system.filesystem.mountpoint",
+			$sfObject->get("mntentref"));
+		// Build the path to search for.
+		$sfAbsPath = build_path(DIRECTORY_SEPARATOR, $meObject->get("dir"),
+			$sfObject->get("reldirpath"));
+		// Find the scheduled task configuration objects.
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->getByFilter("conf.system.cron.job", [
+			"operator" => "stringContains",
+			"arg0" => "command",
+			"arg1" => $sfAbsPath
+		]);
+		// Convert the response into an associative array.
+		$result = array_map(function($object) {
+			return $object->getAssoc();
+		}, $objects);
+		// Filter the result.
+		return $this->applyFilter($result, $params['start'],
+			$params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
 	/**
