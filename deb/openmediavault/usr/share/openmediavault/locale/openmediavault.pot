@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-14 18:20+0100\n"
+"POT-Creation-Date: 2023-02-15 17:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -239,7 +239,7 @@ msgstr ""
 msgid "A running background task was detected."
 msgstr ""
 
-msgid "A scheduled snapshot has been created."
+msgid "A scheduled task to create a snapshot has been created."
 msgstr ""
 
 msgid "A secure shell (SSH) server."
@@ -2028,9 +2028,6 @@ msgid "Notifications"
 msgstr ""
 
 msgid "November"
-msgstr ""
-
-msgid "Now"
 msgstr ""
 
 msgid "Num"
