@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-08 23:14+0100\n"
+"POT-Creation-Date: 2023-02-15 17:29+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2023\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -241,6 +241,9 @@ msgstr "Απαιτείται επανεκκίνηση για την πλήρη �
 
 msgid "A running background task was detected."
 msgstr "Εντοπίστηκε κάποια ενεργή εργασία παρασκηνίου."
+
+msgid "A scheduled task to create a snapshot has been created."
+msgstr "Καταχωρήθηκε προγραμματισμένη εργασία για την δημιουργία στιγμιότυπου."
 
 msgid "A secure shell (SSH) server."
 msgstr "Ένας διακομιστής ασφαλούς κελύφους (SSH)."
@@ -3269,6 +3272,11 @@ msgstr "Ο κοινόχρηστος φάκελος από τον οποίον α
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr "Ο κοινόχρηστος φάκελος {{ _selected[0].name }} δημιουργήθηκε επιτυχώς."
+
+msgid ""
+"The snapshot '{{ _response.name }}' has been created for the shared folder "
+"'{{ _response.sharedfolder }}'."
+msgstr "Δημιουργήθηκε το στιγμιότυπο '{{ _response.name }}' για τον κοινόχρηστο φάκελο '{{ _response.sharedfolder }}'."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "

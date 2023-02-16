@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-08 23:14+0100\n"
+"POT-Creation-Date: 2023-02-15 17:29+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2023\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -100,7 +100,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - 非待机状态时最低功耗(磁头不停转)"
 
 msgid "15 min"
-msgstr "15分钟"
+msgstr "15 分钟"
 
 msgid "15 minutes"
 msgstr "15 分钟"
@@ -199,7 +199,7 @@ msgid "5 days"
 msgstr "5 天"
 
 msgid "5 min"
-msgstr "5分钟"
+msgstr "5 分钟"
 
 msgid "5 minutes"
 msgstr "5 分钟"
@@ -243,10 +243,13 @@ msgstr "最多两个设备可被移除。"
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr "需要重新啟動才能完全套用軟體包安裝或升級所帶來的變更。"
+msgstr "需要重启系统才能完全应用软件包安装或升级带来的变更。"
 
 msgid "A running background task was detected."
 msgstr "检测到有后台任务正在运行。"
+
+msgid "A scheduled task to create a snapshot has been created."
+msgstr "快照计划任务已创建。"
 
 msgid "A secure shell (SSH) server."
 msgstr "一个安全 shell (SSH) 服务。"
@@ -769,7 +772,7 @@ msgid "Create"
 msgstr "创建"
 
 msgid "Create and mount a file system."
-msgstr "建立並掛載檔案系統。"
+msgstr "建立並挂载文件系统。"
 
 msgid "Create file system"
 msgstr "创建文件系统"
@@ -988,13 +991,13 @@ msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
 msgstr "显示所有监控磁盘  S.M.A.R.T. 信息。"
 
 msgid "Displays the system time."
-msgstr "顯示系統時間。"
+msgstr "显示系统时间。"
 
 msgid "Displays the system uptime."
-msgstr "顯示系統運行時間。"
+msgstr "显示系统运行时间。"
 
 msgid "Displays various system information."
-msgstr "顯示多種系統資訊。"
+msgstr "显示各种系统信息。"
 
 msgid "Djibouti"
 msgstr "吉布提"
@@ -1580,7 +1583,7 @@ msgid "Invalid IP address."
 msgstr "无效的 IP 地址"
 
 msgid "Invalid NetBIOS name."
-msgstr "無效 NetBIOS 名稱。"
+msgstr "无效 NetBIOS 名称。"
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "无效 SSH 公钥 (OpenSSH格式)"
@@ -1791,7 +1794,7 @@ msgid "Maintainer"
 msgstr "维护者"
 
 msgid "Make sure that the guest user <em>nobody</em> can access the files."
-msgstr "請確定訪客用戶 <em>nobody</em> 能夠取用檔案。"
+msgstr "请确定访客用戶 <em>nobody</em> 有文件的对应权限。"
 
 msgid "Malawi"
 msgstr "马拉维"
@@ -1809,13 +1812,13 @@ msgid "Malta"
 msgstr "马耳他"
 
 msgid "Management of CPUfreq settings."
-msgstr "CPU 頻率設定管理。"
+msgstr "管理设置 CPU 频率。"
 
 msgid "Management of scheduled tasks."
-msgstr "預定工作管理。"
+msgstr "管理计划任务。"
 
 msgid "Management of the file systems to be mounted."
-msgstr "所要掛載的檔案系統管理。"
+msgstr "管理要挂载的文件系统。"
 
 msgid "March"
 msgstr "三月"
@@ -2014,7 +2017,7 @@ msgid "New Zealand"
 msgstr "新西兰"
 
 msgid "New package updates are available for installation."
-msgstr "新的軟體包更新已可安裝。"
+msgstr "新的软件包更新已可安裝。"
 
 msgid "New password"
 msgstr "新密码"
@@ -2106,7 +2109,7 @@ msgstr "是"
 msgid ""
 "Obsolete cached data found. Page will be reloaded. If the problem persists, "
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
-msgstr "發現過時的快取資料。將會重新整理頁面。若問題持續，請按 Ctrl-Shift-R 或 Ctrl-F5 強制重新整理頁面。"
+msgstr "发现过期的缓存，页面将刷新，如果还有问题，请按 Ctrl-Shift-R 或 Ctrl-F5 强制刷新页面。"
 
 msgid "October"
 msgstr "十月"
@@ -2205,7 +2208,7 @@ msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr "在这粘贴 X.509 格式的 RSA 或 ECC 私钥。"
 
 msgid "Pending configuration changes"
-msgstr "設置變更有待套用"
+msgstr "待应用的配置更改"
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "也门人民民主共和国"
@@ -2270,7 +2273,7 @@ msgstr "详情请看 <a href='http://www.samba.org/samba/docs/man/manpages-3/smb
 msgid ""
 "Please check the <a href='https://manpages.debian.org/nfs-kernel-"
 "server/exports.5.html' target='_blank'>manual page</a> for more details."
-msgstr "詳情請查閱 <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>手冊頁</a>。"
+msgstr "详情请看 <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>手冊</a>。"
 
 msgid "Please choose the method to wipe the device."
 msgstr "请选择该设备的擦除方式。"
@@ -2333,19 +2336,19 @@ msgid "Power Management"
 msgstr "电源管理"
 
 msgid "Power Off"
-msgstr "關機"
+msgstr "关机"
 
 msgid "Power button"
 msgstr "电源按键"
 
 msgid "Power cycle count"
-msgstr "電力循環計數"
+msgstr "电源循环计数"
 
 msgid "Power mode"
 msgstr "电源模式"
 
 msgid "Powered on"
-msgstr "開機"
+msgstr "开机"
 
 msgid "Pre-release updates"
 msgstr "预发布更新。"
@@ -2774,7 +2777,7 @@ msgid ""
 msgstr "选择将要用于创建 RAID 的设备，通过 USB 接入的设备不会再列表中显示（USB接入不稳定）。"
 
 msgid "Select the devices that will be used to create the file system."
-msgstr "選取要用來建立檔案系統的裝置。"
+msgstr "选择要创建文件系统的磁盘。"
 
 msgid "Self-Test Logs"
 msgstr "自检日志"
@@ -3010,7 +3013,7 @@ msgid "Standby"
 msgstr "待机"
 
 msgid "Standby mode"
-msgstr "待機模式"
+msgstr "待机模式"
 
 msgid "Start"
 msgstr "开始"
@@ -3097,15 +3100,15 @@ msgid "System account"
 msgstr "系统账户"
 
 msgid "System clock synchronization client and server."
-msgstr "客戶端與伺服端系統時鐘同步。"
+msgstr "系统时间与客户方和服务端同步。"
 
 msgid ""
 "System monitoring is disabled. To enable it, please go to the <a "
 "href='#/system/monitoring'>settings page</a>."
-msgstr "系統監測被停用。若要啟用它，請前往 <a href='#/system/monitoring'>設定頁面</a>。"
+msgstr "系統监测被停用。若要启用它，请前往 <a href='#/system/monitoring'>设置页</a>。"
 
 msgid "System restart required"
-msgstr "需要重新啟動系統"
+msgstr "需要重启系統"
 
 msgid "System time"
 msgstr "系统时间"
@@ -3117,7 +3120,7 @@ msgid "TCP forwarding"
 msgstr "TCP 转发"
 
 msgid "Tags"
-msgstr "標籤"
+msgstr "标签"
 
 msgid "Taiwan"
 msgstr "中国台湾"
@@ -3130,7 +3133,7 @@ msgid ""
 "The poll times may fail to coincide with any of the scheduled test that have"
 " been specified. In this case the scheduled test will be run following the "
 "next device polling."
-msgstr "將此輪詢間隔設定為超過60分鐘時要小心。輪詢時間可能無法與已指定的任何預定測試重合。在這種情況下，計劃的測試將在下一次裝置輪詢之後運行。"
+msgstr "将此周期间隔设置为 60 分钟以上时要注意。周期时间可能无法与指定的任何计划测试一致。这种情况下，计划的测试将在下一周期运行。"
 
 msgid "Tanzania"
 msgstr "坦桑尼亚"
@@ -3171,7 +3174,7 @@ msgstr "按下电源时要执行的动作。"
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
 "the <a href='#/dashboard/settings'>settings page</a>."
-msgstr "儀表板尚未被設置。如要個性化，請前往 <a href='#/dashboard/settings'>設定頁面</a>。"
+msgstr "仪表盘未配置。如要个性化，请前往 <a href='#/dashboard/settings'>设置页</a>。"
 
 msgid "The data has been copied to the clipboard."
 msgstr "数据已复制到粘贴板"
@@ -3274,7 +3277,12 @@ msgid "The shared folder from which the privileges are copied."
 msgstr "复制该共享文件夹的权限"
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
-msgstr "共享資料夾 {{ _selected[0].name }} 已成功建立。"
+msgstr "共享文件夹 {{ _selected[0].name }} 已成功建立。"
+
+msgid ""
+"The snapshot '{{ _response.name }}' has been created for the shared folder "
+"'{{ _response.sharedfolder }}'."
+msgstr " 共享文件夹 '{{ _response.sharedfolder }}' 的快照 '{{ _response.name }}' 已创建。"
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3535,7 +3543,7 @@ msgid "Tuesday"
 msgstr "星期二"
 
 msgid "Tune hard disk parameters."
-msgstr "調整硬碟參數。"
+msgstr "调整磁盘参数。"
 
 msgid "Tunisia"
 msgstr "突尼斯"
@@ -3897,7 +3905,7 @@ msgid "Weekly"
 msgstr "每周"
 
 msgid "Welcome to openmediavault"
-msgstr "歡迎使用 openmediavault"
+msgstr "欢迎使用 openmediavault"
 
 msgid "Western Sahara"
 msgstr "西撒哈拉"
@@ -3944,10 +3952,10 @@ msgstr "是"
 msgid ""
 "You have made changes that have not yet been saved. Do you want to discard "
 "them?"
-msgstr "您進行了尚未儲存的變更。您想放棄它們嗎？"
+msgstr "您所更改的配置还未保存。您想放弃更改吗？"
 
 msgid "You must apply these changes in order for them to take effect."
-msgstr "您必須套用那些變更，才會使它們生效。"
+msgstr "您必须应用配置变更才会使他们生效。"
 
 msgid "Your profile"
 msgstr "你的介绍"

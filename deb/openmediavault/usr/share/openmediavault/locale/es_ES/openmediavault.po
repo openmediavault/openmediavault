@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-08 23:14+0100\n"
+"POT-Creation-Date: 2023-02-15 17:29+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2023\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -244,6 +244,9 @@ msgstr "Es necesario reiniciar para aplicar completamente los cambios introducid
 
 msgid "A running background task was detected."
 msgstr "ha sido detectada una tarea corriendo en background."
+
+msgid "A scheduled task to create a snapshot has been created."
+msgstr "Ha sido creada una tarea programada para crear una instantánea."
 
 msgid "A secure shell (SSH) server."
 msgstr "Servidor seguro (SSH)"
@@ -3271,7 +3274,12 @@ msgid "The shared folder from which the privileges are copied."
 msgstr "La carpeta compartida de la que se copiaran los privilegios."
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
-msgstr ""
+msgstr "La carpeta compartida {{ _selected[0].name }} se creó correctamente."
+
+msgid ""
+"The snapshot '{{ _response.name }}' has been created for the shared folder "
+"'{{ _response.sharedfolder }}'."
+msgstr "La instantánea '{{ _response.name }}' Ha sido creada en la carpeta '{{ _response.sharedfolder }}'."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "

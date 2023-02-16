@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-08 23:14+0100\n"
+"POT-Creation-Date: 2023-02-15 17:29+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2023\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -244,6 +244,9 @@ msgstr "En omstart krävs för att fullt ut tillämpa ändringarna som infördes
 
 msgid "A running background task was detected."
 msgstr "En pågående bakgrundsuppgift upptäcktes."
+
+msgid "A scheduled task to create a snapshot has been created."
+msgstr ""
 
 msgid "A secure shell (SSH) server."
 msgstr "En säker skal (SSH)-server."
@@ -3272,6 +3275,11 @@ msgstr "Den delade mappen från vilken behörigheterna kopieras."
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr "Den delade mappen {{ _selected[0].name }} har skapats."
+
+msgid ""
+"The snapshot '{{ _response.name }}' has been created for the shared folder "
+"'{{ _response.sharedfolder }}'."
+msgstr ""
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "

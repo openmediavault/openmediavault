@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-08 23:14+0100\n"
+"POT-Creation-Date: 2023-02-15 17:29+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2023\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -247,6 +247,9 @@ msgstr "Újraindítás szükséges a csomag telepítése vagy frissítése álta
 
 msgid "A running background task was detected."
 msgstr "Egy futó háttérfeladat észlelve."
+
+msgid "A scheduled task to create a snapshot has been created."
+msgstr "Létrejött egy ütemezett feladat pillanatkép létrehozásához."
 
 msgid "A secure shell (SSH) server."
 msgstr "Biztonságos shell (SSH) kiszolgáló."
@@ -2297,7 +2300,7 @@ msgid "Please wait, sending a test email ..."
 msgstr "Teszt email küldése, kérjük várjon…"
 
 msgid "Please wait, the configuration changes are being applied ..."
-msgstr "Kérjük várjon, a konfigurációs változások érvénybe lépéséig…"
+msgstr "Kérjük várjon a konfigurációs változások érvénybe lépéséig…"
 
 msgid "Please wait, the data is being loaded ..."
 msgstr "Kérjük várjon, az adatok betöltése folyamatban van…"
@@ -3197,7 +3200,7 @@ msgid "The file system to mount."
 msgstr "A csatlakoztatni kívánt fájlrendszer. "
 
 msgid "The following modules will be updated:"
-msgstr "Aa következő modulok frissítve lesznek:"
+msgstr "A következő modulok frissítve lesznek:"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "A gépnév egy címke, ami azonosítja a rendszert a hálózaton."
@@ -3275,6 +3278,11 @@ msgstr "A megosztott mappa, ahonnan a jogosultságokat másoljuk. "
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr "A(z) {{ _selected[0].name }} megosztott mappa sikeresen létrehozva."
+
+msgid ""
+"The snapshot '{{ _response.name }}' has been created for the shared folder "
+"'{{ _response.sharedfolder }}'."
+msgstr "A(z) '{{ _response.name }}' pillanatkép létrejött a(z) '{{ _response.sharedfolder }}' megosztott mappáról."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3825,7 +3833,7 @@ msgstr "Felhasználók"
 msgid ""
 "Users must be assigned to the <em>ssh</em> group to be able to log in via "
 "SSH."
-msgstr "A felhasználóknak az <em>ssh</em> csoport tagjainak kell lenniük, hogy SSH-val tudjanak naplózni."
+msgstr "A felhasználóknak az <em>ssh</em> csoport tagjainak kell lenniük, hogy SSH-val be tudjanak lépni."
 
 msgid "Uzbekistan"
 msgstr "Üzbegisztán"

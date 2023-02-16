@@ -146,7 +146,7 @@ msgid "Synchronise from/to directory on external storage device"
 msgstr "外部ストレージデバイス上のディレクトリから（またはディレクトリへ）同期します。"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

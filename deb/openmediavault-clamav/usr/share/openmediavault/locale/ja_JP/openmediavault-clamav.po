@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2021
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2021,2023
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2021\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2021,2023\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -257,10 +257,10 @@ msgid "Sunday"
 msgstr "日曜"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "フィールドには、* またはカンマで区切られた値のリストのみを含める必要があります。"
 
 msgid "The location of the files to scan on-access."
 msgstr "アクセス時のスキャンを行うファイルの場所。"

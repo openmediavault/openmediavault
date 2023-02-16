@@ -11,7 +11,7 @@
 # Jonathan Tasseroul <jonathan.tasseroul@gmail.com>, 2021
 # kevin LECLERCQ <nuklearstriker@gmail.com>, 2020
 # M@T D., 2022
-# M@T D., 2022
+# M@T D., 2022-2023
 # Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2012-2013
 # Pierre Girard <pierre4012@hotmail.com>, 2021
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012-2013
@@ -22,9 +22,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-08 23:14+0100\n"
+"POT-Creation-Date: 2023-02-15 17:29+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: M@T D., 2022\n"
+"Last-Translator: M@T D., 2022-2023\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -251,10 +251,13 @@ msgstr "Deux périphériques peuvent être enlevés au maximum."
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr ""
+msgstr "Un redémarrage est nécessaire pour appliquer les modifications introduites par l'installation ou la mise à niveau du package."
 
 msgid "A running background task was detected."
 msgstr "Une tâche en arrière-plan en cours d'exécution a été détectée."
+
+msgid "A scheduled task to create a snapshot has been created."
+msgstr ""
 
 msgid "A secure shell (SSH) server."
 msgstr "Un serveur de Shell sécurisé (SSH)."
@@ -417,7 +420,7 @@ msgid "At least four devices are required."
 msgstr "Quatre périphériques sont nécessaires au minimum."
 
 msgid "At least one device is required."
-msgstr ""
+msgstr "Au moins un périphérique est nécessaire."
 
 msgid "At least one network interface is required."
 msgstr "Au moins une interface réseau est nécessaire."
@@ -777,7 +780,7 @@ msgid "Create"
 msgstr "Créer"
 
 msgid "Create and mount a file system."
-msgstr ""
+msgstr "Créer et monter un système de fichier."
 
 msgid "Create file system"
 msgstr "Créer un système de fichiers"
@@ -831,7 +834,7 @@ msgid "Created wireless network connection."
 msgstr "Connexion réseau sans fil créée."
 
 msgid "Creation Time"
-msgstr ""
+msgstr "Date de création"
 
 msgid "Croatia"
 msgstr "Croatie"
@@ -1259,10 +1262,10 @@ msgid "Filesize"
 msgstr "Taille de fichier"
 
 msgid "Fingerprint (SHA-1)"
-msgstr ""
+msgstr "Empreinte (SHA-1)"
 
 msgid "Fingerprint (SHA-256)"
-msgstr ""
+msgstr "Empreinte (SHA-256)"
 
 msgid "Finland"
 msgstr "Finlande"
@@ -2022,7 +2025,7 @@ msgid "New Zealand"
 msgstr "Nouvelle-Zélande"
 
 msgid "New package updates are available for installation."
-msgstr ""
+msgstr "De nouvelles mises à jour sont disponibles pour installation."
 
 msgid "New password"
 msgstr "Nouveau mot de passe"
@@ -2189,7 +2192,7 @@ msgid "Parent Device"
 msgstr "Périphérique parent"
 
 msgid "Parent UUID"
-msgstr ""
+msgstr "UUID Parent"
 
 msgid "Parent device"
 msgstr "appareil parent"
@@ -2782,7 +2785,7 @@ msgid ""
 msgstr "Sélectionner les périphériques qui seront utilisés pour créer la grappe RAID. Les périphériques USB ne sont pas affiché (pas assez fiable)"
 
 msgid "Select the devices that will be used to create the file system."
-msgstr ""
+msgstr "Sélectionner les périphériques qui seront utilisés pour créer le système de fichier."
 
 msgid "Self-Test Logs"
 msgstr "Journal des tests"
@@ -2854,7 +2857,7 @@ msgid "Seychelles"
 msgstr "Seychelles"
 
 msgid "Share"
-msgstr ""
+msgstr "Partage"
 
 msgid "Shared Folders"
 msgstr "Dossiers partagés"
@@ -2920,7 +2923,7 @@ msgid "Slovenia"
 msgstr "Slovénie"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Instantanés"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Erreur logicielle.   Cliquez sur le bouton gauche de la souris pour continuer."
@@ -3113,7 +3116,7 @@ msgid ""
 msgstr "La surveillance du système est désactivée. Pour l'activer, allez sur la  <a href='#/system/monitoring'>page de paramétrage</a>."
 
 msgid "System restart required"
-msgstr ""
+msgstr "Redémarrage requis"
 
 msgid "System time"
 msgstr "Horloge système"
@@ -3125,7 +3128,7 @@ msgid "TCP forwarding"
 msgstr "Transmission TCP"
 
 msgid "Tags"
-msgstr ""
+msgstr "Étiquettes"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -3282,6 +3285,11 @@ msgid "The shared folder from which the privileges are copied."
 msgstr "Le dossier partagé à partir duquel les privilèges sont copiés."
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
+msgstr ""
+
+msgid ""
+"The snapshot '{{ _response.name }}' has been created for the shared folder "
+"'{{ _response.sharedfolder }}'."
 msgstr ""
 
 msgid ""
@@ -3579,7 +3587,7 @@ msgid "UNKNOWN"
 msgstr "INCONNU"
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Uganda"
 msgstr "Ouganda"
@@ -3905,7 +3913,7 @@ msgid "Weekly"
 msgstr "Hebdomadaire"
 
 msgid "Welcome to openmediavault"
-msgstr ""
+msgstr "Bienvenue sur OpenMediaVault."
 
 msgid "Western Sahara"
 msgstr "Sahara occidental"
