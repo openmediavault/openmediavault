@@ -21,8 +21,9 @@
 # http://us5.samba.org/samba/docs/man/manpages-3/smb.conf.5.html
 
 {% set config = salt['omv_conf.get']('conf.service.smb') %}
+{% set homedir_config = salt['omv_conf.get']('conf.system.usermngmnt.homedir') %}
 
-{% if config.homesenable | to_bool %}
+{% if config.homesenable | to_bool and homedir_config.enable | to_bool %}
 
 configure_samba_homes:
   file.append:
@@ -32,6 +33,7 @@ configure_samba_homes:
     - template: jinja
     - context:
         config: {{ config | json }}
+        homedir_config: {{ homedir_config | json }}
     - watch_in:
       - service: start_samba_service
 

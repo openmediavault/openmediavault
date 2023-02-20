@@ -1,6 +1,7 @@
 openmediavault (6.3.2-1) stable; urgency=low
 
-  *
+  * Issue #1490: Support SMB shadow copies for home directories
+    when the shared folder is located on a BTRFS file system.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 Feb 2023 01:39:54 +0100
 
