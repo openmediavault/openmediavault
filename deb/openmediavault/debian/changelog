@@ -6,7 +6,8 @@ openmediavault (6.3.2-1) stable; urgency=low
     naming schema because Windows does not support `:` in
     file names. Note that due to this change, earlier snapshots
     with the ISO 8601 extended format are no longer listed under
-    Windows in `Previous Versions`.
+    Windows in `Previous Versions`. Please delete and recreate
+    scheduled snapshot tasks as well.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 Feb 2023 01:39:54 +0100
 

@@ -1327,7 +1327,8 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		$snapshotPath = build_path(DIRECTORY_SEPARATOR,
 			$meObject->get("dir"), ".snapshots",
-			sprintf("%s_$(date +%%FT%%T)", $sfObject->get("name")));
+			sprintf("%s_$(date +%%Y%%m%%dT%%H%%M%%S)",
+			$sfObject->get("name")));
 		// Create the scheduled job.
 		$object = new \OMV\Config\ConfigObject("conf.system.cron.job");
 		$object->setNew();
