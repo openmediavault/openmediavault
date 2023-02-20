@@ -52,7 +52,7 @@ shadow:mountpoint = {{ sf_mount_path }}
 shadow:snapdir = {{ sf_mount_path | path_join('.snapshots') | path_prettify }}
 shadow:basedir = {{ sf_path }}
 shadow:sort = {{ shadow_sort }}
-shadow:format = homes_%FT%T
+shadow:format = homes_%Y%m%dT%H%M%S
 shadow:localtime = yes
 {%- endif %}
 vfs objects = {{ vfs_objects | unique | join(' ') }}
