@@ -353,6 +353,10 @@
 			"wpapsk": {
 				"type": "string",
 				"required": true
+			},
+			"hidden": {
+			   "type": "boolean",
+			   "required": true
 			}
 		}
 	}
