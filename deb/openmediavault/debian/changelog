@@ -8,6 +8,7 @@ openmediavault (6.3.2-1) stable; urgency=low
     with the ISO 8601 extended format are no longer listed under
     Windows in `Previous Versions`. Please delete and recreate
     scheduled snapshot tasks as well.
+  * Issue #1502: Add support for hidden WiFi networks.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 Feb 2023 01:39:54 +0100
 

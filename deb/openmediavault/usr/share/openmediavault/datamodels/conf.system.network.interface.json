@@ -120,6 +120,10 @@
 		},
 		"wpapsk": {
 			"type": "string"
+		},
+		"hidden": {
+			"type": "boolean",
+			"default": false
 		}
 	}
 }

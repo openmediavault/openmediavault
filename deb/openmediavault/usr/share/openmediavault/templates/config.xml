@@ -166,6 +166,7 @@
 					# - wifi
 					<wpassid>xxx</wpassid>
 					<wpapsk>xxx</wpapsk>
+					<hidden>0|1</hidden>
 					# - bridge
 					<slaves>(((eth|venet|wlan)\d+|(en|veth|wl)\S+),)*((eth|venet|wlan)\d+|(en|veth|wl)\S+)</slaves>
 				</interface>

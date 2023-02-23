@@ -107,6 +107,13 @@ export class InterfaceWifiFormPageComponent extends BaseFormPageComponent {
         }
       },
       {
+        type: 'checkbox',
+        name: 'hidden',
+        label: gettext('Connect to hidden network'),
+        hint: gettext('Connect even if the network is not broadcasting its SSID name.'),
+        value: false
+      },
+      {
         type: 'tagInput',
         name: 'comment',
         label: gettext('Tags'),
