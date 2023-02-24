@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-15 17:29+0100\n"
+"POT-Creation-Date: 2023-02-23 01:00+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -728,6 +728,12 @@ msgstr "コンゴ（ブラザビル）"
 
 msgid "Congo (Kinshasa)"
 msgstr "コンゴ（キンシャサ）"
+
+msgid "Connect even if the network is not broadcasting its SSID name."
+msgstr ""
+
+msgid "Connect to hidden network"
+msgstr ""
 
 msgid "Connections"
 msgstr "接続"
@@ -3174,7 +3180,7 @@ msgid "The data has been copied to the clipboard."
 msgstr "データがクリップボードにコピーされました。"
 
 msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
-msgstr ""
+msgstr "デフォルトのSMTPメールサーバーポート。 例：25、465、587"
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3188,13 +3194,13 @@ msgid "The file mode of the shared folder path."
 msgstr "共有フォルダパスのファイルモード。"
 
 msgid "The file system on which the shared folder is to be created."
-msgstr ""
+msgstr "共有フォルダーを作成するファイルシステム。"
 
 msgid "The file system to mount."
-msgstr ""
+msgstr "マウントするファイルシステム。"
 
 msgid "The following modules will be updated:"
-msgstr ""
+msgstr "以下のモジュールが更新されます:"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "ホスト名はネットワーク上でシステムを識別するためのラベルです。"
@@ -3205,7 +3211,7 @@ msgstr "リモートシステムのホスト名。"
 msgid ""
 "The information about available software is out-of-date. Do you want to "
 "reload this information?"
-msgstr ""
+msgstr "利用可能なソフトウェアの情報が古くなっています。情報を再取得しますか？"
 
 msgid "The location of the files to share."
 msgstr "共有するファイルの場所。"
@@ -3232,7 +3238,7 @@ msgstr "この日数だけ証明書は有効です。"
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
 "used for remote shell transport such as SSH."
-msgstr ""
+msgstr "rsync デーモン経由のアクセスに使用されるパスワードです。SSHのようなリモートシェル転送では使用されないことに注意してください。"
 
 msgid ""
 "The permissions on new files and directories are normally governed by create"
@@ -3249,12 +3255,12 @@ msgstr "X.509 PEM形式でのプライベートRSA鍵。"
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
-msgstr ""
+msgstr "ソース/デスティネーションポートと組み合わせたプロトコルはサポートされていません。"
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
 "created if it does not exist."
-msgstr ""
+msgstr "共有するフォルダーの相対パス。指定したフォルダが存在しない場合は作成されます。"
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3265,18 +3271,18 @@ msgid "The requested page was not found."
 msgstr "要求されたページはありません。"
 
 msgid "The server is unavailable to handle this request right now."
-msgstr ""
+msgstr "サーバーは現在、このリクエストを処理することができません。"
 
 msgid "The shared folder from which the privileges are copied."
-msgstr ""
+msgstr "権限のコピー元の共有フォルダー。"
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
-msgstr ""
+msgstr "共有フォルダ{{ _selected[0].name }}が正常に作成されました。"
 
 msgid ""
 "The snapshot '{{ _response.name }}' has been created for the shared folder "
 "'{{ _response.sharedfolder }}'."
-msgstr ""
+msgstr "共有フォルダ '{{ _response.sharedfolder }} 'に対してスナップショット '{{ _response.name }}' が作成されました。"
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3287,42 +3293,42 @@ msgid "The system will reboot now. This may take some time ..."
 msgstr "システムが再起動されます。これにはしばらく時間がかかることがあります..."
 
 msgid "The users that are allowed to access this module."
-msgstr ""
+msgstr "このモジュールへのアクセスを許可されたユーザー。"
 
 msgid "The value does not match the pattern /{{ pattern }}/."
-msgstr ""
+msgstr "値がパターンに一致しない /{{ pattern }}/。"
 
 msgid ""
 "The value must be on of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr ""
+msgstr "値は、スレーブ ネットワーク インターフェイスのいずれかでなければなりません {{ slaves | join(\", \") }}"
 
 msgid "The value must be on of the slave network interfaces."
-msgstr ""
+msgstr "この値は、スレーブネットワークインターフェース上になければなりません。"
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "ワークグループはサーバがクライアントから参照される際に表示されます。"
 
 msgid "There are no notifications."
-msgstr ""
+msgstr "通知はありません。"
 
 msgid ""
 "These settings are used by the services to configure the access rights for "
 "the group \"{{ _routeParams.name }}\". Please note that these settings have "
 "no effect on file system permissions."
-msgstr ""
+msgstr "これらの設定は、各サービスがグループ\"{{ _routeParams.name }}\"のアクセス権を設定するために使用されます。これらの設定は、ファイルシステムのパーミッションには影響しないことに注意してください。"
 
 msgid ""
 "These settings are used by the services to configure the access rights for "
 "the user \"{{ _routeParams.name }}\". Please note that these settings have "
 "no effect on file system permissions."
-msgstr ""
+msgstr "これらの設定は、各サービスがユーザ\"{{ _routeParams.name }}\"のアクセス権を設定するために使用されます。これらの設定は、ファイルシステムのパーミッションには影響しないことに注意してください。"
 
 msgid ""
 "These settings are used by the services to configure the user and group "
 "access rights. Please note that these settings have no effect on file system"
 " permissions."
-msgstr ""
+msgstr "これらの設定は、ユーザーとグループのアクセス権を構成するためにサービスによって使用されます。これらの設定は、ファイルシステムのパーミッションには影響しないことに注意してください。"
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3332,75 +3338,75 @@ msgstr "共有が、net viewとブラウズリストで利用可能な共有の�
 msgid ""
 "This field contains invalid characters, e.g. a blank or \"/[]:+|<>=;,*? "
 "character."
-msgstr ""
+msgstr "このフィールドには、無効な文字が含まれています。例えば、空白または\"/[]:+|<>=;,*? 文字 \"などです。"
 
 msgid ""
 "This field contains invalid characters, only alphanumeric characters and "
 "underscore are allowed."
-msgstr ""
+msgstr "このフィールドには無効な文字が含まれています。英数字とアンダースコアのみが使用可能です。"
 
 msgid "This field is required."
-msgstr ""
+msgstr "このフィールドは必須です。"
 
 msgid "This field must have the format <hh:mm:ss>."
-msgstr ""
+msgstr "このフィールドは <hh:mm:ss>のフォーマットで記述する必要があります。"
 
 msgid "This field should be a IP network address in CIDR notation."
-msgstr ""
+msgstr "このフィールドは、CIDR記法によるIPネットワークアドレスである必要があります。"
 
 msgid "This field should be a domain name or an IP address."
-msgstr ""
+msgstr "このフィールドは、ドメイン名またはIPアドレスである必要があります。"
 
 msgid "This field should be a host name or an IP address in CIDR notation."
-msgstr ""
+msgstr "このフィールドには、ホスト名またはCIDR表記のIPアドレスを指定します。"
 
 msgid "This field should be a list of IP addresses separated by <,> or <;>."
-msgstr ""
+msgstr "このフィールドは、IPアドレスを<,>または<;>で区切ったリストである必要があります。"
 
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>."
-msgstr ""
+msgstr "このフィールドは、ドメイン名またはIPアドレスを<,>または<;>で区切ったリストである必要があります。"
 
 msgid "This field should be a list of domain names or IP addresses."
-msgstr ""
+msgstr "このフィールドは、ドメイン名またはIPアドレスのリストである必要があります。"
 
 msgid ""
 "This field should be a list of host names or IP addresses in CIDR notation "
 "separated by <,> or <;>."
-msgstr ""
+msgstr "このフィールドは、ホスト名またはIPアドレスをCIDR表記で<,>または<;>で区切ったリストである必要があります。"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
-msgstr ""
+msgstr "このフィールドには、128.0.0.0 - 255.255.252の範囲内のネットマスクを指定する必要があります。"
 
 msgid "This field should be a network port in the range of 1 to 65535."
-msgstr ""
+msgstr "このフィールドには、1～65535の範囲のネットワークポートを指定する必要があります。"
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
-msgstr ""
+msgstr "このフィールドには、ポートまたはポート範囲（例：21または!443または1024-65535）を指定する必要があります。"
 
 msgid "This field should be an IP address."
-msgstr ""
+msgstr "このフィールドは、IPアドレスである必要があります。"
 
 msgid "This field should be an IPv4 address."
-msgstr ""
+msgstr "このフィールドは、IPv4アドレスである必要があります。"
 
 msgid "This field should be an IPv6 address."
-msgstr ""
+msgstr "このフィールドは、IPv6アドレスである必要があります。"
 
 msgid "This field should be an email address."
-msgstr ""
+msgstr "このフィールドは、電子メールアドレスである必要があります。"
 
 msgid "This field should contain a decimal value."
-msgstr ""
+msgstr "このフィールドには、10 進数の値を含める必要があります。"
 
 msgid "This field should contain a number with a binary prefix."
-msgstr ""
+msgstr "このフィールドには、2 進数の接頭辞を持つ数値を格納する必要があります。"
 
 msgid "This field should contain a numeric value."
-msgstr ""
+msgstr "このフィールドは数値を含む必要があります。"
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "この機能は、ハードドライブがサポートしている場合にのみ有効です。"
@@ -3475,10 +3481,10 @@ msgid "This specifies what to do if the packet matches."
 msgstr "パケットが一致した場合にどうするかを指定します。"
 
 msgid "This will create a recycle bin for each user home directory."
-msgstr ""
+msgstr "各ユーザーのホームディレクトリにごみ箱が作成されます。"
 
 msgid "This will create a recycle bin for the share."
-msgstr ""
+msgstr "共有のごみ箱が作成されます。"
 
 msgid "Threshold"
 msgstr "閾値"
@@ -3502,7 +3508,7 @@ msgid "Time zone"
 msgstr "タイムゾーン"
 
 msgid "Tip"
-msgstr ""
+msgstr "Tip"
 
 msgid "Togo"
 msgstr "トーゴ"
@@ -3537,7 +3543,7 @@ msgid "Tuesday"
 msgstr "火曜"
 
 msgid "Tune hard disk parameters."
-msgstr ""
+msgstr "ハードディスクのパラメータを調整する。"
 
 msgid "Tunisia"
 msgstr "チュニジア"
@@ -3564,7 +3570,7 @@ msgid "U.S. Virgin Islands"
 msgstr "アメリカ領ヴァージン諸島"
 
 msgid "UDP"
-msgstr ""
+msgstr "UDP"
 
 msgid "UID"
 msgstr "UID"
@@ -3573,7 +3579,7 @@ msgid "UNKNOWN"
 msgstr "UNKNOWN"
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Uganda"
 msgstr "ウガンダ"
@@ -3582,13 +3588,13 @@ msgid "Ukraine"
 msgstr "ウクライナ"
 
 msgid "Undo"
-msgstr ""
+msgstr "もとに戻す"
 
 msgid "Uninstall"
 msgstr "アンインストール"
 
 msgid "Uninstall plugin"
-msgstr ""
+msgstr "プラグインのアンインストール"
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "ソビエト連邦"
@@ -3615,7 +3621,7 @@ msgid "Unmount"
 msgstr "アンマウント"
 
 msgid "Unrestricted"
-msgstr ""
+msgstr "制限なし"
 
 msgid "Up"
 msgstr "上"
@@ -3634,16 +3640,16 @@ msgid ""
 msgstr "元の拡張属性と同じになるように先の拡張属性を更新します。"
 
 msgid "Updated NFS settings."
-msgstr ""
+msgstr "NFSの設定を更新しました。"
 
 msgid "Updated NFS share."
-msgstr ""
+msgstr "NFS共有を更新しました。"
 
 msgid "Updated Rsync Server settings."
-msgstr ""
+msgstr "Rsync Server の設定を更新しました。"
 
 msgid "Updated Rsync server module \"{{ name }}\"."
-msgstr ""
+msgstr "Rsyncサーバーモジュール\"{{ name }}\"を更新しました。"
 
 msgid "Updated Rsync task."
 msgstr "Rsyncタスクをアップデートしました。"
@@ -3661,94 +3667,94 @@ msgid "Updated SSH settings."
 msgstr "SSHの設定をアップデートしました。"
 
 msgid "Updated VLAN network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "VLANネットワーク接続 \"{{ devicename }}\" を更新しました。"
 
 msgid "Updated access control list of shared folder."
-msgstr ""
+msgstr "共有フォルダのアクセスコントロールリストを更新しました。"
 
 msgid "Updated bond network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "bondネットワーク接続 \"{{devicename }}\" を更新しました。"
 
 msgid "Updated bridge network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "ブリッジネットワーク接続 \"{{ devicename }}\" を更新しました。"
 
 msgid "Updated dashboard settings."
-msgstr ""
+msgstr "ダッシュボードの設定を更新しました。"
 
 msgid "Updated date & time settings."
-msgstr ""
+msgstr "日付と時刻の設定を更新しました。"
 
 msgid "Updated file system settings."
-msgstr ""
+msgstr "ファイルシステムの設定を更新しました。"
 
 msgid "Updated firewall rule."
-msgstr ""
+msgstr "ファイアウォール のルールを更新しました。"
 
 msgid "Updated firewall rules."
-msgstr ""
+msgstr "ファイアウォールのルールを更新しました。"
 
 msgid "Updated group \"{{ name }}\"."
-msgstr ""
+msgstr "グループ \"{{ name }}\" を更新しました。"
 
 msgid "Updated monitoring settings."
-msgstr ""
+msgstr "モニタリングの設定を更新しました。"
 
 msgid "Updated network settings."
-msgstr ""
+msgstr "ネットワーク設定を更新しました。"
 
 msgid "Updated notification settings."
-msgstr ""
+msgstr "通知設定を更新しました。"
 
 msgid "Updated password."
-msgstr ""
+msgstr "パスワードを更新しました。"
 
 msgid "Updated power management settings."
-msgstr ""
+msgstr "パワーマネージメントの設定を更新しました。"
 
 msgid "Updated privileges of group \"{{ name }}\"."
-msgstr ""
+msgstr "グループ \"{{ name }}\" の権限を更新しました。"
 
 msgid "Updated privileges of shared folder."
-msgstr ""
+msgstr "共有フォルダの権限を更新しました。"
 
 msgid "Updated privileges of user \"{{ name }}\"."
-msgstr ""
+msgstr "ユーザー \"{{ name }}\" の権限を更新しました。"
 
 msgid "Updated proxy settings."
-msgstr ""
+msgstr "プロキシ設定を更新しました。"
 
 msgid "Updated quota."
-msgstr ""
+msgstr "クォータを更新しました。"
 
 msgid "Updated remote system-logs settings."
-msgstr ""
+msgstr "リモートシステムログの設定を更新しました。"
 
 msgid "Updated scheduled task."
-msgstr ""
+msgstr "スケジュールタスクを更新しました。"
 
 msgid "Updated settings."
-msgstr ""
+msgstr "設定を更新しました。"
 
 msgid "Updated shared folder."
-msgstr ""
+msgstr "共有フォルダーを更新しました。"
 
 msgid "Updated update management settings."
-msgstr ""
+msgstr "アップデート管理設定を更新しました。"
 
 msgid "Updated user \"{{ name }}\"."
-msgstr ""
+msgstr "ユーザー \"{{ name }}\" を更新しました。"
 
 msgid "Updated user profile."
-msgstr ""
+msgstr "ユーザープロフィールを更新しました。"
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "有線ネットワーク接続 \"{{ devicename }}\" を更新しました。"
 
 msgid "Updated wireless network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "ワイヤレスネットワーク接続 \"{{ devicename }}\" を更新しました。"
 
 msgid "Updated workbench settings."
-msgstr ""
+msgstr "ワークベンチの設定を更新しました。"
 
 msgid "Updates"
 msgstr "アップデート"
@@ -3827,7 +3833,7 @@ msgstr "ユーザー"
 msgid ""
 "Users must be assigned to the <em>ssh</em> group to be able to log in via "
 "SSH."
-msgstr ""
+msgstr "SSHでログインできるようにするには、<em>ssh</em>グループにユーザーを割り当てる必要があります。"
 
 msgid "Uzbekistan"
 msgstr "ウズベキスタン"
@@ -3899,7 +3905,7 @@ msgid "Weekly"
 msgstr "毎週"
 
 msgid "Welcome to openmediavault"
-msgstr ""
+msgstr "openmediavaultへようこそ"
 
 msgid "Western Sahara"
 msgstr "西サハラ"
@@ -3946,10 +3952,10 @@ msgstr "はい"
 msgid ""
 "You have made changes that have not yet been saved. Do you want to discard "
 "them?"
-msgstr ""
+msgstr "変更は保存されていません。変更内容を破棄しますか？"
 
 msgid "You must apply these changes in order for them to take effect."
-msgstr ""
+msgstr "これらの変更を有効にするためには、適用する必要があります。"
 
 msgid "Your profile"
 msgstr "あなたのプロファイル"

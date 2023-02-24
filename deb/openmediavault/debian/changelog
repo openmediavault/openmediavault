@@ -1,5 +1,6 @@
 openmediavault (6.3.2-1) stable; urgency=low
 
+  * Update locale files.
   * Issue #1490: Support SMB shadow copies for home directories
     when the shared folder is located on a BTRFS file system.
   * Issue #1500: Use ISO 8601 basic format in the snapshot

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-15 17:29+0100\n"
+"POT-Creation-Date: 2023-02-23 01:00+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Артур Мудрых <arturmon82@gmail.com>, 2017-2021\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -739,6 +739,12 @@ msgstr "Конго (Бразавиль)"
 
 msgid "Congo (Kinshasa)"
 msgstr "Конго (Киншаса)"
+
+msgid "Connect even if the network is not broadcasting its SSID name."
+msgstr ""
+
+msgid "Connect to hidden network"
+msgstr ""
 
 msgid "Connections"
 msgstr "Соединение"

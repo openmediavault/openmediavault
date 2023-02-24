@@ -26,7 +26,7 @@ msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s は無制限となります。"
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
+msgstr "強力なモジュール式FTP/SFTP/FTPSサーバーです。"
 
 msgid "Advanced settings"
 msgstr "高度な設定"
@@ -74,7 +74,7 @@ msgid "Enable SSL/TLS connections."
 msgstr "SSL/TLS接続を有効化します。"
 
 msgid "Enable file transfer logging."
-msgstr ""
+msgstr "ファイル転送のログを有効にする。"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
@@ -215,7 +215,7 @@ msgid "Port"
 msgstr "ポート"
 
 msgid "Refresh time"
-msgstr ""
+msgstr "リフレッシュ時間"
 
 msgid "Require valid shell"
 msgstr "有効なシェルが必要です"
@@ -259,10 +259,10 @@ msgid ""
 msgstr "BAN(禁止) を追加するインターバルを時間形式 hh:mm:ss で入力します。"
 
 msgid "Specifies whether it is allowed to login as superuser directly."
-msgstr ""
+msgstr "スーパーユーザーとしてログインすることを許可するかを指定します。"
 
 msgid "Tags"
-msgstr ""
+msgstr "タグ"
 
 msgid "The SSL certificate."
 msgstr "SSL証明書。"
@@ -281,6 +281,9 @@ msgid ""
 "target='_blank'>manual page</a> how to use variables. Leave this field empty"
 " to disable the welcome message."
 msgstr ""
+"ログイン時にユーザーに対してウェルカムメッセージを表示します。変数の使用方法については、<a "
+"href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
+"target='_blank'>マニュアルページ</a>をご覧ください。ウェルカムメッセージを表示しない場合は、このフィールドを空欄にしてください。"
 
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
@@ -310,13 +313,13 @@ msgid "Transfer log"
 msgstr "転送ログ"
 
 msgid "Updated FTP ban rule."
-msgstr ""
+msgstr "FTP禁止ルールを更新しました。"
 
 msgid "Updated FTP share."
-msgstr ""
+msgstr "FTP共有を更新しました。"
 
 msgid "Use the following bandwidth restriction."
-msgstr ""
+msgstr "以下の帯域制限を利用してください。"
 
 msgid "Welcome message"
 msgstr "ウェルカムメッセージ"
@@ -324,7 +327,7 @@ msgstr "ウェルカムメッセージ"
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote user name."
-msgstr ""
+msgstr "クライアントがサーバーに最初に接続するとき、identプロトコルはリモートユーザー名の識別を試みるために使用されます。"
 
 msgid "n/a"
 msgstr "n/a"
