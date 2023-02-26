@@ -730,10 +730,10 @@ msgid "Congo (Kinshasa)"
 msgstr "コンゴ（キンシャサ）"
 
 msgid "Connect even if the network is not broadcasting its SSID name."
-msgstr ""
+msgstr "ネットワークがSSID名を公開していない場合でも接続します。"
 
 msgid "Connect to hidden network"
-msgstr ""
+msgstr "非公開ネットワークへの接続"
 
 msgid "Connections"
 msgstr "接続"
