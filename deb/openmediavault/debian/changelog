@@ -1,4 +1,4 @@
-openmediavault (6.3.2-1) stable; urgency=low
+openmediavault (6.3.2-2) stable; urgency=low
 
   * Update locale files.
   * Issue #1490: Support SMB shadow copies for home directories

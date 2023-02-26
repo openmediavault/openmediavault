@@ -439,6 +439,17 @@ class Module(openmediavault.firstaid.IModule):
                         width=32,
                     )
             rpc_params["wpapsk"] = wpa_psk
+            # Is this a hidden wireless network?
+            code = d.yesno(
+                "Is this network hidden and not broadcasting its SSID name?",
+                backtitle=self.description,
+                height=5,
+                width=50,
+                defaultno=False,
+            )
+            if code == d.ESC:
+                return 0
+            rpc_params["hidden"] = True if code == d.OK else False
         # Update the interface configuration.
         print("Configuring network interface. Please wait ...")
         # Delete all existing network interface configuration objects.

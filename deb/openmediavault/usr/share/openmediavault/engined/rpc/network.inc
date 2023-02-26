@@ -909,7 +909,8 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		return $this->setInterfaceConfig($params, [
 			"type" => "wifi",
 			"wpassid" => $params['wpassid'],
-			"wpapsk" => $params['wpapsk']
+			"wpapsk" => $params['wpapsk'],
+			"hidden" => $params['hidden']
 		]);
     }
 
