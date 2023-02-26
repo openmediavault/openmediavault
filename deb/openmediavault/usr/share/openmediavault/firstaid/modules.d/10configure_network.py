@@ -444,8 +444,8 @@ class Module(openmediavault.firstaid.IModule):
                 "Is this network hidden and not broadcasting its SSID name?",
                 backtitle=self.description,
                 height=5,
-                width=50,
-                defaultno=False,
+                width=62,
+                defaultno=True,
             )
             if code == d.ESC:
                 return 0
