@@ -3,9 +3,13 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Event, NavigationEnd, Router } from '@angular/router';
 import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, switchMap } from 'rxjs/operators';
 
 import { translate } from '~/app/i18n.helper';
+import {
+  SystemInformation,
+  SystemInformationService
+} from '~/app/shared/services/system-information.service';
 
 const DEFAULT_TITLE = 'openmediavault Workbench';
 
@@ -15,13 +19,26 @@ const DEFAULT_TITLE = 'openmediavault Workbench';
 export class TitleService implements OnDestroy {
   private subscription: Subscription;
 
-  constructor(private router: Router, private title: Title) {
+  constructor(
+    private router: Router,
+    private systemInformationService: SystemInformationService,
+    private title: Title
+  ) {
     this.subscription = this.router.events
-      .pipe(filter((event: Event) => event instanceof NavigationEnd))
-      .subscribe(() => {
+      .pipe(
+        filter((event: Event) => event instanceof NavigationEnd),
+        switchMap(() => {
+          return this.systemInformationService.systemInfo$;
+        })
+      )
+      .subscribe((res: SystemInformation) => {
         const titles: string[] = this.getTitles(this.router.routerState.root);
         const text: string = titles.join(' | ');
-        const newTitle = `${DEFAULT_TITLE}${titles.length ? ' - ' : ''}${text}`;
+        const newTitle =
+          (res.hostname.length ? `${res.hostname} - ` : '') +
+          `${DEFAULT_TITLE}${titles.length ? ' - ' : ''}${text}`;
+        // Use the following template for the page title:
+        // (<HOSTNAME> - )?<DEFAULT_TITLE>( - <BREADCRUMBS>)?
         this.title.setTitle(newTitle);
       });
   }
