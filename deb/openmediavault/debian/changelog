@@ -1,6 +1,10 @@
 openmediavault (6.3.3-1) stable; urgency=low
 
   * Display hostname in page title.
+  * Add a prefix to shared folder snapshots that are created
+    via scheduled tasks, e.g. `images@daily_20230228T095758`.
+    Please delete your existing scheduled tasks and recreate
+    them to take advantage of the new naming scheme.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Feb 2023 00:08:49 +0100
 

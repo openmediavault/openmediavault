@@ -1293,7 +1293,8 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the shared folder configuration object.
 	 *   \em execution The time when the snapshot should be created
-	 *     periodically.
+	 *     periodically, e.g. `hourly`, `daily`, `weekly`, `monthly`
+	 *     or `yearly`.
 	 * @param context The context of the caller.
 	 * @return void
 	 * @throw \OMV\Exception
@@ -1327,8 +1328,8 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		$snapshotPath = build_path(DIRECTORY_SEPARATOR,
 			$meObject->get("dir"), ".snapshots",
-			sprintf("%s_$(date +%%Y%%m%%dT%%H%%M%%S)",
-			$sfObject->get("name")));
+			sprintf("%s@%s_$(date +%%Y%%m%%dT%%H%%M%%S)",
+			$sfObject->get("name"), $params['execution']));
 		// Create the scheduled job.
 		$object = new \OMV\Config\ConfigObject("conf.system.cron.job");
 		$object->setNew();
