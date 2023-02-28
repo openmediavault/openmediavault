@@ -34,7 +34,7 @@ jobs:
           able to prioritize it yet. Please feel free to reopen this
           issue or create a new one. Thank you!
 
-        exempt-pr-labels: 'pinned,security,planned'
+        exempt-pr-labels: 'pinned,security,planned,do not merge'
         stale-pr-label: 'stale'
         stale-pr-message: |
           This pull request has been automatically marked as stale because it
