@@ -35,6 +35,12 @@
 		"gateway": {
 			"type": "string"
 		},
+		"routemetric": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 65535,
+			"default": 0
+		},
 		"method6": {
 			"type": "string",
 			"enum": [ "auto", "dhcp", "static", "manual" ],
@@ -51,6 +57,12 @@
 		},
 		"gateway6": {
 			"type": "string"
+		},
+		"routemetric6": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 65535,
+			"default": 1
 		},
 		"dnsnameservers": {
 			"type": "string",

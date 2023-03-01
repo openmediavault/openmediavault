@@ -19,7 +19,6 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import ipaddress
-import re
 import sys
 
 import dialog
@@ -43,11 +42,13 @@ class Module(openmediavault.firstaid.IModule):
         address = ""
         netmask = ""
         gateway = ""
+        routemetric = 0
         method = "manual"
         address6 = ""
         method6 = "manual"
         netmask6 = 64
         gateway6 = ""
+        routemetric6 = 1
         wol = False
         dns_nameservers = ""
         wpa_ssid = None
@@ -385,10 +386,12 @@ class Module(openmediavault.firstaid.IModule):
                 "address": address,
                 "netmask": netmask,
                 "gateway": gateway,
+                "routemetric": routemetric,
                 "method6": method6,
                 "address6": address6,
                 "netmask6": netmask6,
                 "gateway6": gateway6,
+                "routemetric6": routemetric6,
                 "dnsnameservers": dns_nameservers,
                 "dnssearch": "",
                 "mtu": 0,

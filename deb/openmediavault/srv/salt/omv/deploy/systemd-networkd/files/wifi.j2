@@ -11,11 +11,22 @@ network:
       - {{ interface.address6 }}/{{ interface.netmask6 }}
 {%- endif %}
 {%- endif %}
+{%- if (interface.method == "static" and interface.gateway | is_ipv4) or (interface.method6 == "static" and interface.gateway6 | is_ipv6) %}
+      routes:
 {%- if interface.method == "static" and interface.gateway | is_ipv4 %}
-      gateway4: {{ interface.gateway }}
+      - to: 0.0.0.0/0
+        via: {{ interface.gateway }}
+{%- if interface.routemetric > 0 %}
+        metric: {{ interface.routemetric }}
+{%- endif %}
 {%- endif %}
 {%- if interface.method6 == "static" and interface.gateway6 | is_ipv6 %}
-      gateway6: {{ interface.gateway6 }}
+      - to: ::/0
+        via: {{ interface.gateway6 }}
+{%- if interface.routemetric6 != 1 %}
+        metric: {{ interface.routemetric6 }}
+{%- endif %}
+{%- endif %}
 {%- endif %}
 {%- if interface.method6 in ["auto", "dhcp"] %}
       accept-ra: true

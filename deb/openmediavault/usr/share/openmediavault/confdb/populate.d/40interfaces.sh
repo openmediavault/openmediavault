@@ -66,12 +66,12 @@ grep -iP "^\s*iface\s+(eth[0-9]+|en[a-z0-9]+)\s+(inet|inet6)\s+(static|dhcp)" ${
             fi
             jq --null-input --compact-output "{uuid: \"${OMV_CONFIGOBJECT_NEW_UUID}\", \
                 devicename: \"${devname}\", type: \"ethernet\", method6: \"manual\", \
-                address6: \"\", netmask6: 64, gateway6: \"\", \
+                address6: \"\", netmask6: 64, gateway6: \"\", routemetric6: 1, \
                 dnsnameservers: \"${dnsnameservers}\", dnssearch: \"\", \
                 wol: false, mtu: 0, \
                 comment: \"\", method: \"${method}\", \
                 address: \"${address}\", netmask: \"${netmask}\", \
-                gateway: \"${gateway}\"}" |
+                gateway: \"${gateway}\", routemetric: 0}" |
                 omv-confdbadm update "conf.system.network.interface" -
         fi
     done
