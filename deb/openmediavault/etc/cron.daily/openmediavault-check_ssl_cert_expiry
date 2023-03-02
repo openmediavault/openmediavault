@@ -24,10 +24,15 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-[ "$(omv_config_get "//system/email/enable")" != "1" ] && exit 0
-
 OMV_SSL_CERTIFICATE_PREFIX=${OMV_SSL_CERTIFICATE_PREFIX:-"openmediavault-"}
 OMV_SSL_CERTIFICATE_CHECK_EXPIRY_DAYS=${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_DAYS:-"7"}
+OMV_SSL_CERTIFICATE_CHECK_EXPIRY_ENABLED=${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_ENABLED:-"yes"}
+
+# Exit immediately if SSL cert checking is disabled.
+! omv_checkyesno "${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_ENABLED}" && exit 0
+
+# Abort if email notification is disabled.
+[ "$(omv_config_get "//system/email/enable")" != "1" ] && exit 0
 
 for f in /etc/ssl/certs/${OMV_SSL_CERTIFICATE_PREFIX}*.crt ; do
   [ -e "${f}" ] || continue
