@@ -80,4 +80,7 @@ export type DataStore = {
   sorters?: Array<Sorter>;
   // Filter that data that fulfills the specified constraint.
   filters?: Array<Constraint>;
+  // Make sure the data contains only unique values of a certain
+  // property.
+  uniqBy?: string;
 };

@@ -1,3 +1,11 @@
+openmediavault-diskstats (6.0.3-1) stable; urgency=low
+
+  * Make sure that the same storage device is not displayed
+    in several tabs. This happened when a storage device was
+    split into several partitions.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 08 Mar 2023 00:27:26 +0100
+
 openmediavault-diskstats (6.0.2-1) stable; urgency=low
 
   * Use canonical device file of the root device.

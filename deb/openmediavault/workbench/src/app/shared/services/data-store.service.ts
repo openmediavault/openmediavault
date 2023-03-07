@@ -186,6 +186,10 @@ export class DataStoreService {
         data = ConstraintService.filter(data, filter);
       });
     }
+    // Make sure the data is unique.
+    if (_.isString(store.uniqBy)) {
+      data = _.uniqBy(data, store.uniqBy);
+    }
     // Sort data?
     if (_.isArray(store.sorters)) {
       const fields: Array<string> = [];

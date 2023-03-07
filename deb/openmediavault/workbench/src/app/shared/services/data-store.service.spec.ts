@@ -116,6 +116,18 @@ describe('DataStoreService', () => {
     });
   });
 
+  it('should load inline data (7)', (done) => {
+    const store: DataStore = {
+      data: [{ foo: 'a1' }, { foo: 'a2' }, { foo: 'a2' }, { foo: 'a3' }],
+      uniqBy: 'foo'
+    };
+    service.load(store).subscribe(() => {
+      expect(store.data).toEqual([{ foo: 'a1' }, { foo: 'a2' }, { foo: 'a3' }]);
+      expect(store.data.length).toEqual(3);
+      done();
+    });
+  });
+
   it('should assign additional sources', (done) => {
     const store: DataStore = {
       data: ['poweroff', 'hybrid', 'suspendhybrid'],

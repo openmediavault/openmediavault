@@ -27,3 +27,4 @@ data:
           arg0:
             prop: "parentdevicefile"
           arg1: "/dev/"
+      uniqBy: "parentdevicefile"
