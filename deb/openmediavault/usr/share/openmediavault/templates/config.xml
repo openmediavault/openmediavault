@@ -143,10 +143,12 @@
 					<address>xxx.xxx.xxx.xxx</address>
 					<netmask>xxx.xxx.xxx.xxx</netmask>
 					<gateway>xxx.xxx.xxx.xxx</gateway>
+					<routemetric>0-65535</routemetric>
 					<method6>auto|dhcp|static|manual</method6>
 					<address6>xxxx:xxxx:...:xxxx</address6>
 					<netmask6>0-128</netmask6>
 					<gateway6>xxxx:xxxx:...:xxxx</gateway6>
+					<routemetric6>0-65535</routemetric6>
 					<dnsnameservers>xxx yyy zzz</dnsnameservers>
 					<dnssearch></dnssearch>
 					<mtu>0...n</mtu>

@@ -8,6 +8,9 @@ openmediavault (6.3.3-1) stable; urgency=low
     via scheduled tasks, e.g. `images@daily_20230228T095758`.
     Please delete your existing scheduled tasks and recreate
     them to take advantage of the new naming scheme.
+  * Add the ability to specify the metric (relative priority)
+    of the default route set via the `Gateway` option in the
+    network interface page.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Feb 2023 00:08:49 +0100
 

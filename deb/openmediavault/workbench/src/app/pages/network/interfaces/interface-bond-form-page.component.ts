@@ -340,17 +340,40 @@ export class InterfaceBondFormPageComponent extends BaseFormPageComponent {
         ]
       },
       {
-        type: 'textInput',
-        name: 'gateway',
-        label: gettext('Gateway'),
-        value: '',
-        validators: {
-          patternType: 'ipv4'
-        },
-        modifiers: [
+        type: 'container',
+        fields: [
           {
-            type: 'disabled',
-            constraint: { operator: 'ne', arg0: { prop: 'method' }, arg1: 'static' }
+            type: 'textInput',
+            name: 'gateway',
+            label: gettext('Gateway'),
+            value: '',
+            validators: {
+              patternType: 'ipv4'
+            },
+            modifiers: [
+              {
+                type: 'disabled',
+                constraint: { operator: 'ne', arg0: { prop: 'method' }, arg1: 'static' }
+              }
+            ],
+            flex: 75
+          },
+          {
+            type: 'numberInput',
+            name: 'routemetric',
+            label: gettext('Metric'),
+            value: 0,
+            validators: {
+              min: 0,
+              max: 65535,
+              patternType: 'integer'
+            },
+            modifiers: [
+              {
+                type: 'disabled',
+                constraint: { operator: 'ne', arg0: { prop: 'method' }, arg1: 'static' }
+              }
+            ]
           }
         ]
       },
@@ -410,17 +433,40 @@ export class InterfaceBondFormPageComponent extends BaseFormPageComponent {
         ]
       },
       {
-        type: 'textInput',
-        name: 'gateway6',
-        label: gettext('Gateway'),
-        value: '',
-        validators: {
-          patternType: 'ipv6'
-        },
-        modifiers: [
+        type: 'container',
+        fields: [
           {
-            type: 'disabled',
-            constraint: { operator: 'ne', arg0: { prop: 'method6' }, arg1: 'static' }
+            type: 'textInput',
+            name: 'gateway6',
+            label: gettext('Gateway'),
+            value: '',
+            validators: {
+              patternType: 'ipv6'
+            },
+            modifiers: [
+              {
+                type: 'disabled',
+                constraint: { operator: 'ne', arg0: { prop: 'method6' }, arg1: 'static' }
+              }
+            ],
+            flex: 75
+          },
+          {
+            type: 'numberInput',
+            name: 'routemetric6',
+            label: gettext('Metric'),
+            value: 1,
+            validators: {
+              min: 0,
+              max: 65535,
+              patternType: 'integer'
+            },
+            modifiers: [
+              {
+                type: 'disabled',
+                constraint: { operator: 'ne', arg0: { prop: 'method6' }, arg1: 'static' }
+              }
+            ]
           }
         ]
       },

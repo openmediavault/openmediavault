@@ -30,6 +30,12 @@
 			   "type": "string",
 			   "required": true
 			},
+			"routemetric": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "maximum": 65535,
+			   "required": true
+			},
 			"method6": {
 			   "type": "string",
 			   "enum": [ "auto", "static", "manual", "dhcp" ],
@@ -47,6 +53,12 @@
 			},
 			"gateway6": {
 			   "type": "string",
+			   "required": true
+			},
+			"routemetric6": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "maximum": 65535,
 			   "required": true
 			},
 			"dnsnameservers": {
@@ -107,6 +119,12 @@
 			   "type": "string",
 			   "required": true
 			},
+			"routemetric": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "maximum": 65535,
+			   "required": true
+			},
 			"method6": {
 			   "type": "string",
 			   "enum": [ "auto", "static", "manual", "dhcp" ],
@@ -124,6 +142,12 @@
 			},
 			"gateway6": {
 			   "type": "string",
+			   "required": true
+			},
+			"routemetric6": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "maximum": 65535,
 			   "required": true
 			},
 			"dnsnameservers": {
@@ -216,6 +240,12 @@
 			   "type": "string",
 			   "required": true
 			},
+			"routemetric": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "maximum": 65535,
+			   "required": true
+			},
 			"method6": {
 			   "type": "string",
 			   "enum": [ "auto", "static", "manual", "dhcp" ],
@@ -233,6 +263,12 @@
 			},
 			"gateway6": {
 			   "type": "string",
+			   "required": true
+			},
+			"routemetric6": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "maximum": 65535,
 			   "required": true
 			},
 			"dnsnameservers": {
@@ -303,6 +339,12 @@
 			   "type": "string",
 			   "required": true
 			},
+			"routemetric": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "maximum": 65535,
+			   "required": true
+			},
 			"method6": {
 			   "type": "string",
 			   "enum": [ "auto", "static", "manual", "dhcp" ],
@@ -320,6 +362,12 @@
 			},
 			"gateway6": {
 			   "type": "string",
+			   "required": true
+			},
+			"routemetric6": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "maximum": 65535,
 			   "required": true
 			},
 			"dnsnameservers": {
@@ -393,6 +441,12 @@
 				"type": "string",
 				"required": true
 			},
+			"routemetric": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "maximum": 65535,
+			   "required": true
+			},
 			"method6": {
 				"type": "string",
 				"enum": ["auto", "static", "manual", "dhcp"],
@@ -411,6 +465,12 @@
 			"gateway6": {
 				"type": "string",
 				"required": true
+			},
+			"routemetric6": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "maximum": 65535,
+			   "required": true
 			},
 			"dnsnameservers": {
 				"type": "string",
