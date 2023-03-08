@@ -246,7 +246,7 @@ msgid "A running background task was detected."
 msgstr "En pågående bakgrundsuppgift upptäcktes."
 
 msgid "A scheduled task to create a snapshot has been created."
-msgstr ""
+msgstr "En schemalagd uppgift för att skapa en ögonblicksbild har skapats."
 
 msgid "A secure shell (SSH) server."
 msgstr "En säker skal (SSH)-server."
@@ -733,10 +733,10 @@ msgid "Congo (Kinshasa)"
 msgstr "Kongo (Kinshasa)"
 
 msgid "Connect even if the network is not broadcasting its SSID name."
-msgstr ""
+msgstr "Anslut även om nätverket inte sänder sitt SSID-namn."
 
 msgid "Connect to hidden network"
-msgstr ""
+msgstr "Anslut till dolt nätverk"
 
 msgid "Connections"
 msgstr "Anslutningar"
@@ -3285,7 +3285,7 @@ msgstr "Den delade mappen {{ _selected[0].name }} har skapats."
 msgid ""
 "The snapshot '{{ _response.name }}' has been created for the shared folder "
 "'{{ _response.sharedfolder }}'."
-msgstr ""
+msgstr "Ögonblicksbilden '{{ _response.name }}' har skapats för den delade mappen '{{ _response.sharedfolder }}'."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "

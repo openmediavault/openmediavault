@@ -1,5 +1,6 @@
 openmediavault (6.3.3-1) stable; urgency=low
 
+  * Update locale files.
   * Display hostname in page title.
   * The `OMV_SSL_CERTIFICATE_CHECK_EXPIRY_ENABLED` environment
     variable has been added to be able to disable the daily SSL
