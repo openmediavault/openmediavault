@@ -54,6 +54,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("createSnapshot");
 		$this->registerMethod("createScheduledSnapshotTask");
 		$this->registerMethod("enumerateScheduledSnapshotTasks");
+		$this->registerMethod("enumerateAllScheduledSnapshotTasks");
 		$this->registerMethod("deleteSnapshot");
 		$this->registerMethod("restoreSnapshot");
 		$this->registerMethod("fromSnapshot");
@@ -1378,12 +1379,14 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
-	 * Get the cron jobs taking the snapshots of the specified shared
-	 * folder.
+	 * Enumerate the cron jobs taking the snapshots of the specified
+	 * shared folder.
 	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the shared folder configuration object.
 	 * @param context The context of the caller.
-	 * @return An array containing the snapshot information.
+	 * @return An array containing the cron job configurations of the
+	 *   specified shared folder. Check the `Cron::getList` RPC for
+	 *   more information.
 	 */
 	public function enumerateScheduledSnapshotTasks($params, $context) {
 		// Validate the RPC caller context.
@@ -1414,6 +1417,32 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Filter the result.
 		return $this->applyFilter($result, $params['start'],
 			$params['limit'], $params['sortfield'], $params['sortdir']);
+	}
+
+	/**
+	 * Enumerate the cron jobs taking the snapshots of all existing
+	 * shared folders.
+	 * @param params Not used.
+	 * @param context The context of the caller.
+	 * @return An array containing the cron job configurations of all
+	 *   existing shared folder. Check the `Cron::getList` RPC for
+	 *   more information.
+	 */
+	public function enumerateAllScheduledSnapshotTasks($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.system.sharedfolder");
+		$result = [];
+		foreach ($objects as $objectk => $objectv) {
+			$result = array_merge($result, $this->callMethod(
+				"enumerateScheduledSnapshotTasks", [
+					"uuid" => $objectv->getIdentifier()
+				], $context));
+		}
+		return $result;
 	}
 
 	/**

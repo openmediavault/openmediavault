@@ -18,6 +18,7 @@ import { MdGrowFormPageComponent } from '~/app/pages/storage/md/md-grow-form-pag
 import { MdRecoverFormPageComponent } from '~/app/pages/storage/md/md-recover-form-page.component';
 import { MdRemoveFormPageComponent } from '~/app/pages/storage/md/md-remove-form-page.component';
 import { SharedFolderAclFormPageComponent } from '~/app/pages/storage/shared-folders/shared-folder-acl-form-page.component';
+import { SharedFolderAllSnapshotsTabsPageComponent } from '~/app/pages/storage/shared-folders/shared-folder-all-snapshots-tabs-page.component';
 import { SharedFolderDatatablePageComponent } from '~/app/pages/storage/shared-folders/shared-folder-datatable-page.component';
 import { SharedFolderFormPageComponent } from '~/app/pages/storage/shared-folders/shared-folder-form-page.component';
 import { SharedFolderPrivilegesDatatablePageComponent } from '~/app/pages/storage/shared-folders/shared-folder-privileges-datatable-page.component';
@@ -52,6 +53,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     SharedFolderFormPageComponent,
     SharedFolderPrivilegesDatatablePageComponent,
     SharedFolderSnapshotsTabsPageComponent,
+    SharedFolderAllSnapshotsTabsPageComponent,
     FilesystemEditFormPageComponent,
     FilesystemMountFormPageComponent,
     FilesystemQuotaDatatablePageComponent,
