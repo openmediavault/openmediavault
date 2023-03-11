@@ -1,8 +1,0 @@
-version: "1.0"
-type: navigation-item
-data:
-  path: "system.notification.notifications"
-  position: 20
-  text: _("Notifications")
-  icon: bell
-  url: "/system/notification/notifications"

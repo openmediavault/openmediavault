@@ -146,12 +146,12 @@ const routes: Routes = [
         }
       },
       {
-        path: 'notifications',
+        path: 'alerts',
         component: NotificationSelectionListPageComponent,
         canDeactivate: [IsDirtyGuardService],
         data: {
-          title: gettext('Notifications'),
-          notificationTitle: gettext('Updated notification settings.')
+          title: gettext('Alerts'),
+          notificationTitle: gettext('Updated alert settings.')
         }
       }
     ]
