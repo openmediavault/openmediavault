@@ -50,6 +50,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("setFileACL");
 		$this->registerMethod("getPath");
 		$this->registerMethod("enumerateSnapshots");
+		$this->registerMethod("enumerateAllSnapshots");
 		$this->registerMethod("createSnapshot");
 		$this->registerMethod("createScheduledSnapshotTask");
 		$this->registerMethod("enumerateScheduledSnapshotTasks");
@@ -236,10 +237,10 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Enumerate all shared folders.
 		$objects = $this->callMethod("enumerateSharedFolders", NULL,
-		  $context);
+			$context);
 		// Filter the result.
 		return $this->applyFilter($objects, $params['start'],
-		  $params['limit'], $params['sortfield'], $params['sortdir']);
+			$params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
 	/**
@@ -1164,7 +1165,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
-	 * Get the snapshots of the specified shared folder.
+	 * Enumerate the snapshots of the specified shared folder.
 	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the shared folder configuration object.
 	 * @param context The context of the caller.
@@ -1203,6 +1204,8 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Check if the snapshot is referenced by a shared folder.
 		$db = \OMV\Config\Database::getInstance();
 		foreach ($result as $snapshotk => &$snapshotv) {
+			$snapshotv['mntentref'] = $meObject->getIdentifier();
+			$snapshotv['sharedfolderref'] = $sfObject->getIdentifier();
 			$snapshotv['otimets'] = strpdate($snapshotv['otime'],
 				"Y-m-d H:i:s");
 			$snapshotv['abspath'] = build_path(DIRECTORY_SEPARATOR,
@@ -1214,6 +1217,29 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 					"arg1" => build_path(DIRECTORY_SEPARATOR,
 						$snapshotv['path'], DIRECTORY_SEPARATOR)
 				]);
+		}
+		return $result;
+	}
+
+	/**
+	 * Enumerate the snapshots of all existing shared folders.
+	 * @param params Not used.
+	 * @param context The context of the caller.
+	 * @return An array containing the information of all snapshots.
+	 */
+	public function enumerateAllSnapshots($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.system.sharedfolder");
+		$result = [];
+		foreach ($objects as $objectk => $objectv) {
+			$result = array_merge($result, $this->callMethod(
+				"enumerateSnapshots", [
+					"uuid" => $objectv->getIdentifier()
+				], $context));
 		}
 		return $result;
 	}
@@ -1394,7 +1420,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * Delete a snapshots of a shared folder.
 	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the shared folder configuration object.
-	 *   \em id The ID of the subvolume to delete.
+	 *   \em id The ID of the subvolume to delete, e.g. 397.
 	 * @param context The context of the caller.
 	 * @return void
 	 * @throw \OMV\Exception
