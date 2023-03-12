@@ -6,7 +6,7 @@ openmediavault (6.3.4-1) stable; urgency=low
     page to manage the snapshots of all shared folders that are
     located on a BTRFS file system.
 
- -- Volker Theile <volker.theile@openmediavault.org>  Sat, 11 Mar 2023 12:32:57 +0100
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Mar 2023 21:54:03 +0100
 
 openmediavault (6.3.3-1) stable; urgency=low
 
