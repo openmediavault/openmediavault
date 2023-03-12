@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.notification.events"
+  position: 20
+  text: _("Events")
+  icon: bell
+  url: "/system/notification/events"
