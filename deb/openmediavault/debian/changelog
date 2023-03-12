@@ -1,5 +1,6 @@
 openmediavault (6.3.4-1) stable; urgency=low
 
+  * Update locale files.
   * Rename various navigation menu items in the UI.
   * Add `All Snapshots` button in the `Storage | Shared Folders`
     page to manage the snapshots of all shared folders that are
