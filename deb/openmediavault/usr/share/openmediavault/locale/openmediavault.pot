@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 01:00+0100\n"
+"POT-Creation-Date: 2023-03-12 13:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -318,6 +318,9 @@ msgid "Algeria"
 msgstr ""
 
 msgid "All"
+msgstr ""
+
+msgid "All Snapshots"
 msgstr ""
 
 msgid "All packages will be upgraded. Do you want to proceed?"
@@ -1136,6 +1139,9 @@ msgstr ""
 msgid "Ethiopia"
 msgstr ""
 
+msgid "Events"
+msgstr ""
+
 msgid "Every N day of month"
 msgstr ""
 
@@ -1818,6 +1824,9 @@ msgid "Messages"
 msgstr ""
 
 msgid "Method"
+msgstr ""
+
+msgid "Metric"
 msgstr ""
 
 msgid "Metropolitan France"
@@ -3501,6 +3510,9 @@ msgid "Updated monitoring settings."
 msgstr ""
 
 msgid "Updated network settings."
+msgstr ""
+
+msgid "Updated notification event settings."
 msgstr ""
 
 msgid "Updated notification settings."
