@@ -27,7 +27,7 @@ export class SharedFolderAllSnapshotsTabsPageComponent {
   public config: TabsPageConfig = {
     tabs: [
       {
-        label: gettext('All Snapshots'),
+        label: gettext('Snapshots'),
         type: 'datatable',
         config: {
           stateId: 'beae0ef8-bfff-11ed-8ff5-17628e8426cf',
@@ -166,7 +166,7 @@ export class SharedFolderAllSnapshotsTabsPageComponent {
         }
       },
       {
-        label: gettext('All Scheduled Tasks'),
+        label: gettext('Scheduled Tasks'),
         type: 'datatable',
         config: {
           stateId: 'd1f00a2c-c002-11ed-9171-6f9f7fbdd288',
