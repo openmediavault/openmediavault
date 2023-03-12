@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 01:00+0100\n"
+"POT-Creation-Date: 2023-03-12 13:54+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -323,6 +323,9 @@ msgstr "Cezayir"
 
 msgid "All"
 msgstr "Tüm"
+
+msgid "All Snapshots"
+msgstr ""
 
 msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr "Tüm paketler güncellenecektir. Devam etmek istiyor musunuz?"
@@ -1168,6 +1171,9 @@ msgstr "Ethernet"
 msgid "Ethiopia"
 msgstr "Etiyopya"
 
+msgid "Events"
+msgstr ""
+
 msgid "Every N day of month"
 msgstr "Ayın her N günü"
 
@@ -1883,6 +1889,9 @@ msgstr "Mesajlar"
 
 msgid "Method"
 msgstr "Metod"
+
+msgid "Metric"
+msgstr ""
 
 msgid "Metropolitan France"
 msgstr "Fransa Şehiriçi"
@@ -3700,6 +3709,9 @@ msgid "Updated monitoring settings."
 msgstr ""
 
 msgid "Updated network settings."
+msgstr ""
+
+msgid "Updated notification event settings."
 msgstr ""
 
 msgid "Updated notification settings."

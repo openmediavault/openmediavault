@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 01:00+0100\n"
+"POT-Creation-Date: 2023-03-12 13:54+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -323,6 +323,9 @@ msgstr "アルジェリア"
 
 msgid "All"
 msgstr "すべて"
+
+msgid "All Snapshots"
+msgstr ""
 
 msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr "すべてのパッケージがアップグレードされます。続行しますか？"
@@ -1168,6 +1171,9 @@ msgstr "イーサネット"
 msgid "Ethiopia"
 msgstr "エチオピア"
 
+msgid "Events"
+msgstr ""
+
 msgid "Every N day of month"
 msgstr "毎月N日"
 
@@ -1883,6 +1889,9 @@ msgstr "メッセージ"
 
 msgid "Method"
 msgstr "メソッド"
+
+msgid "Metric"
+msgstr ""
 
 msgid "Metropolitan France"
 msgstr "フランス・メトロポリテーヌ"
@@ -3701,6 +3710,9 @@ msgstr "モニタリングの設定を更新しました。"
 
 msgid "Updated network settings."
 msgstr "ネットワーク設定を更新しました。"
+
+msgid "Updated notification event settings."
+msgstr ""
 
 msgid "Updated notification settings."
 msgstr "通知設定を更新しました。"

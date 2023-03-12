@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 01:00+0100\n"
+"POT-Creation-Date: 2023-03-12 13:54+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2023\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -329,6 +329,9 @@ msgstr "阿尔及利亚"
 
 msgid "All"
 msgstr "全部"
+
+msgid "All Snapshots"
+msgstr ""
 
 msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr "所有软件包将升级，您确定要继续？"
@@ -1174,6 +1177,9 @@ msgstr "以太网"
 msgid "Ethiopia"
 msgstr "埃塞俄比亚"
 
+msgid "Events"
+msgstr ""
+
 msgid "Every N day of month"
 msgstr "每月每N天"
 
@@ -1889,6 +1895,9 @@ msgstr "消息"
 
 msgid "Method"
 msgstr "方式"
+
+msgid "Metric"
+msgstr ""
 
 msgid "Metropolitan France"
 msgstr "法国本土"
@@ -3707,6 +3716,9 @@ msgstr "已更新监测设置。"
 
 msgid "Updated network settings."
 msgstr "已更新的网络设置。"
+
+msgid "Updated notification event settings."
+msgstr ""
 
 msgid "Updated notification settings."
 msgstr "已更新通知消息设置。"

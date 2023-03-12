@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 01:00+0100\n"
+"POT-Creation-Date: 2023-03-12 13:54+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan@autistici.org>, 2021-2023\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -326,6 +326,9 @@ msgstr "Algeriet"
 
 msgid "All"
 msgstr "Alla"
+
+msgid "All Snapshots"
+msgstr ""
 
 msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr "Alla paket kommer att uppgraderas. Vill du fortsätta?"
@@ -1171,6 +1174,9 @@ msgstr "Ethernet"
 msgid "Ethiopia"
 msgstr "Etiopien"
 
+msgid "Events"
+msgstr ""
+
 msgid "Every N day of month"
 msgstr "Varje N dag i månad"
 
@@ -1886,6 +1892,9 @@ msgstr "Meddelanden"
 
 msgid "Method"
 msgstr "Läge"
+
+msgid "Metric"
+msgstr ""
 
 msgid "Metropolitan France"
 msgstr "Frankrikes huvudstad"
@@ -3704,6 +3713,9 @@ msgstr "Uppdaterade övervakningsinställningarna."
 
 msgid "Updated network settings."
 msgstr "Uppdaterade nätverksinställningarna."
+
+msgid "Updated notification event settings."
+msgstr ""
 
 msgid "Updated notification settings."
 msgstr "Uppdaterade aviseringsinställningarna."

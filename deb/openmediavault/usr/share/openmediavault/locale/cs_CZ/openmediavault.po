@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 01:00+0100\n"
+"POT-Creation-Date: 2023-03-12 13:54+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -324,6 +324,9 @@ msgstr "Alžírsko"
 
 msgid "All"
 msgstr "Vše"
+
+msgid "All Snapshots"
+msgstr ""
 
 msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr ""
@@ -1169,6 +1172,9 @@ msgstr "Ethernet"
 msgid "Ethiopia"
 msgstr "Etiopie"
 
+msgid "Events"
+msgstr ""
+
 msgid "Every N day of month"
 msgstr "Každý Ntý den v měsíci"
 
@@ -1884,6 +1890,9 @@ msgstr "Zprávy"
 
 msgid "Method"
 msgstr "Způsob nastavení"
+
+msgid "Metric"
+msgstr ""
 
 msgid "Metropolitan France"
 msgstr "Metropolitní Francie"
@@ -3702,6 +3711,9 @@ msgstr "Zaktualizována nastavení dohledování."
 
 msgid "Updated network settings."
 msgstr "Zaktualizována nastavení sítě."
+
+msgid "Updated notification event settings."
+msgstr ""
 
 msgid "Updated notification settings."
 msgstr "Zaktualizována nastavení upozorňování."

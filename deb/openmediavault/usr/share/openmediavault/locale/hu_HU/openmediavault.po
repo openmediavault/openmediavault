@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 01:00+0100\n"
+"POT-Creation-Date: 2023-03-12 13:54+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2023\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -329,6 +329,9 @@ msgstr "Algéria"
 
 msgid "All"
 msgstr "Összes"
+
+msgid "All Snapshots"
+msgstr "Összes pilllanatkép"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr "Minden csomag frissítésre kerül. Szeretné folytatni?"
@@ -1174,6 +1177,9 @@ msgstr "Ethernet"
 msgid "Ethiopia"
 msgstr "Etiópia"
 
+msgid "Events"
+msgstr "Események"
+
 msgid "Every N day of month"
 msgstr "Minden \"x\" napon a hónapban"
 
@@ -1889,6 +1895,9 @@ msgstr "Üzenetek"
 
 msgid "Method"
 msgstr "Módszer"
+
+msgid "Metric"
+msgstr "Metrikus"
 
 msgid "Metropolitan France"
 msgstr "Francia főváros"
@@ -3708,8 +3717,11 @@ msgstr "Felügyeleti beállítások frissítve. "
 msgid "Updated network settings."
 msgstr "Hálózati beállítások frissítve."
 
+msgid "Updated notification event settings."
+msgstr "Értesítési esemény beállítások frissítve."
+
 msgid "Updated notification settings."
-msgstr "Értesítési beállítások frissítve ."
+msgstr "Értesítési beállítások frissítve."
 
 msgid "Updated password."
 msgstr "Jelszó frissítve."

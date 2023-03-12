@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 01:00+0100\n"
+"POT-Creation-Date: 2023-03-12 13:54+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -326,6 +326,9 @@ msgstr "알제리"
 
 msgid "All"
 msgstr "모두"
+
+msgid "All Snapshots"
+msgstr ""
 
 msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr ""
@@ -1171,6 +1174,9 @@ msgstr "이더넷"
 msgid "Ethiopia"
 msgstr "에티오피아"
 
+msgid "Events"
+msgstr ""
+
 msgid "Every N day of month"
 msgstr "매달 N일마다"
 
@@ -1886,6 +1892,9 @@ msgstr "메시지"
 
 msgid "Method"
 msgstr "방법"
+
+msgid "Metric"
+msgstr ""
 
 msgid "Metropolitan France"
 msgstr "프랑스 본국"
@@ -3703,6 +3712,9 @@ msgid "Updated monitoring settings."
 msgstr ""
 
 msgid "Updated network settings."
+msgstr ""
+
+msgid "Updated notification event settings."
 msgstr ""
 
 msgid "Updated notification settings."

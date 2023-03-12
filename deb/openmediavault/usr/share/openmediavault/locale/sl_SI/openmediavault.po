@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 01:00+0100\n"
+"POT-Creation-Date: 2023-03-12 13:54+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -323,6 +323,9 @@ msgstr "Alžirija"
 
 msgid "All"
 msgstr "Vse"
+
+msgid "All Snapshots"
+msgstr ""
 
 msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr ""
@@ -1168,6 +1171,9 @@ msgstr "Eternet"
 msgid "Ethiopia"
 msgstr "Etiopija"
 
+msgid "Events"
+msgstr ""
+
 msgid "Every N day of month"
 msgstr "Vsaki N dan v mesecu"
 
@@ -1883,6 +1889,9 @@ msgstr "Sporočil"
 
 msgid "Method"
 msgstr "Metoda"
+
+msgid "Metric"
+msgstr ""
 
 msgid "Metropolitan France"
 msgstr "Metropolitanska Francija"
@@ -3700,6 +3709,9 @@ msgid "Updated monitoring settings."
 msgstr ""
 
 msgid "Updated network settings."
+msgstr ""
+
+msgid "Updated notification event settings."
 msgstr ""
 
 msgid "Updated notification settings."

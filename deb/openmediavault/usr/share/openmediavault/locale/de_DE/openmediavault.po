@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 01:00+0100\n"
+"POT-Creation-Date: 2023-03-12 13:54+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2023\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -335,6 +335,9 @@ msgstr "Algerien"
 
 msgid "All"
 msgstr "Alle"
+
+msgid "All Snapshots"
+msgstr "Alle Snapshots"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr "Alle Pakete werden aktualisiert. Möchten Sie fortfahren?"
@@ -1180,6 +1183,9 @@ msgstr "Ethernet"
 msgid "Ethiopia"
 msgstr "Äthiopien"
 
+msgid "Events"
+msgstr "Ereignisse"
+
 msgid "Every N day of month"
 msgstr "Jeden Nten Tag des Monats"
 
@@ -1895,6 +1901,9 @@ msgstr "Nachrichten"
 
 msgid "Method"
 msgstr "Methode"
+
+msgid "Metric"
+msgstr "Metric"
 
 msgid "Metropolitan France"
 msgstr "France métropolitaine"
@@ -3713,6 +3722,9 @@ msgstr "Überwachungseinstellungen wurde aktualisiert."
 
 msgid "Updated network settings."
 msgstr "Netzwerkeinstellungen wurde aktualisiert."
+
+msgid "Updated notification event settings."
+msgstr "Benachrichtigungsereignisse wurde aktualisiert."
 
 msgid "Updated notification settings."
 msgstr "Benachrichtigungseinstellungen wurde aktualisiert."
