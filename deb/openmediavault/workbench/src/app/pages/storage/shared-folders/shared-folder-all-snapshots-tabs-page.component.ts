@@ -34,7 +34,7 @@ export class SharedFolderAllSnapshotsTabsPageComponent {
           autoReload: false,
           limit: 0,
           hasFooter: false,
-          hasSearchField: false,
+          hasSearchField: true,
           selectionType: 'multi',
           columns: [
             {
@@ -173,7 +173,7 @@ export class SharedFolderAllSnapshotsTabsPageComponent {
           autoReload: false,
           limit: 0,
           hasFooter: false,
-          hasSearchField: false,
+          hasSearchField: true,
           selectionType: 'multi',
           columns: [
             {

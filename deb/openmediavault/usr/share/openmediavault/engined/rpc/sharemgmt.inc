@@ -1411,12 +1411,9 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			"arg1" => $sfAbsPath
 		]);
 		// Convert the response into an associative array.
-		$result = array_map(function($object) {
+		return array_map(function($object) {
 			return $object->getAssoc();
 		}, $objects);
-		// Filter the result.
-		return $this->applyFilter($result, $params['start'],
-			$params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
 	/**
