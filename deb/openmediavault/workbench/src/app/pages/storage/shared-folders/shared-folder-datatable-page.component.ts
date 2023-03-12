@@ -170,6 +170,18 @@ export class SharedFolderDatatablePageComponent {
             }
           }
         }
+      },
+      {
+        type: 'divider'
+      },
+      {
+        type: 'iconButton',
+        icon: 'mdi:camera',
+        tooltip: gettext('All Snapshots'),
+        execute: {
+          type: 'url',
+          url: '/storage/shared-folders/snapshots'
+        }
       }
     ]
   };
