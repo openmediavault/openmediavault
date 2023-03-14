@@ -2,6 +2,8 @@ openmediavault (6.3.5-1) stable; urgency=low
 
   * Do not configure monit alerts for `CPU usage` and `Memory usage`
     if they are disabled in the UI.
+  * Set metadata to 'DUP' when creating a BTRFS file system with
+    the 'Single' profile (default since Kernel version 5.15).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Mar 2023 22:04:06 +0100
 

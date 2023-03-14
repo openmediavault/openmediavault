@@ -743,6 +743,11 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// partition on each associated device.
 			// https://btrfs.readthedocs.io/en/latest/mkfs.btrfs.html#
 			// https://btrfs.readthedocs.io/en/latest/mkfs.btrfs.html#profiles
+			$dataProfile = $params['profile'];
+			$metadataProfile = $params['profile'];
+			if ("single" == $params['profile']) {
+				$metadataProfile = "dup";
+			}
 			$cmdArgs = [];
 			$cmdArgs[] = "--force";
 			if (!empty($params['label'])) {
@@ -750,9 +755,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = escapeshellarg($params['label']);
 			}
 			$cmdArgs[] = "--data";
-			$cmdArgs[] = escapeshellarg($params['profile']);
+			$cmdArgs[] = escapeshellarg($dataProfile);
 			$cmdArgs[] = "--metadata";
-			$cmdArgs[] = escapeshellarg($params['profile']);
+			$cmdArgs[] = escapeshellarg($metadataProfile);
 			$cmdArgs = array_merge($cmdArgs, $deviceFiles);
 			$cmd = new \OMV\System\Process("mkfs.btrfs", $cmdArgs);
 			$cmd->setRedirect2to1();
