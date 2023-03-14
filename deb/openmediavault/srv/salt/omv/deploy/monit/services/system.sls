@@ -37,8 +37,8 @@ configure_monit_system_service:
     - context:
         email_config: {{ email_config | json }}
         loadavg_notification_config: {{ loadavg_notification_config | json }}
-        memory_usage_notification_config: {{ loadavg_notification_config | json }}
-        cpu_usage_notification_config: {{ loadavg_notification_config | json }}
+        memory_usage_notification_config: {{ memory_usage_notification_config | json }}
+        cpu_usage_notification_config: {{ cpu_usage_notification_config | json }}
     - user: root
     - group: root
     - mode: 644
