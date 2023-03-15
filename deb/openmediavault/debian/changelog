@@ -10,6 +10,11 @@ openmediavault (6.4.0-1) stable; urgency=low
     `balance-tlb` and `balance-alb` modes.
   * Improve DNS configuration. systemd-resolved is now fully
     responsible for network name resolution.
+  * Add snapshot lifecycle management to clean up snapshots of shared
+    folders according to given rules. The tool `omv-sfsnapadm` is
+    called hourly by a cron job to do the cleanup. The settings can
+    be found at `Storage | Shared Folders | All Snapshots` in the UI.
+    This feature is disabled by default.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 19 May 2023 14:54:50 +0200
 

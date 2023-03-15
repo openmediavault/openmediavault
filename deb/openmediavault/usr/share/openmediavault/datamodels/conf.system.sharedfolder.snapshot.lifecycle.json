@@ -1,0 +1,57 @@
+{
+	"type": "config",
+	"id": "conf.system.sharedfolder.snapshot.lifecycle",
+	"title": "Shared folder snapshot lifecycle settings",
+	"queryinfo": {
+		"xpath": "//system/sharedfoldersnapshotlifecycle",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"retentionperiod":{
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 65535,
+			"default": 1800
+		},
+		"limitcustom":{
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 1024,
+			"default": 10
+		},
+		"limithourly":{
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 1024,
+			"default": 24
+		},
+		"limitdaily":{
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 1024,
+			"default": 7
+		},
+		"limitweekly":{
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 1024,
+			"default": 4
+		},
+		"limitmonthly":{
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 1024,
+			"default": 12
+		},
+		"limityearly":{
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 1024,
+			"default": 1
+		}
+	}
+}
