@@ -26,6 +26,8 @@ set -e
 
 MAILTO=""
 
+omv_log "Checking for pending configuration changes."
+
 # Notify the administrator if there are any configuration changes that
 # need to be applied.
 if omv_module_is_dirty; then
