@@ -26,11 +26,11 @@ set -e
 
 MAILTO=""
 
-[ "$(omv_config_get "//system/email/enable")" != "1" ] && exit 0
-
 # Make sure the directory exists. Note, after a reboot this directory does not
 # exist until the PAM faillock module has been executed.
 [ ! -d "/var/run/faillock/" ] && exit 0
+
+omv_info "Checking for locked/banned users."
 
 # Check if there are locked users.
 # admin:
@@ -41,6 +41,7 @@ MAILTO=""
 # 2021-05-11 22:07:00 SVC   openmediavault                                       V
 # 2021-05-11 22:07:04 SVC   openmediavault                                       V
 if [ $(faillock | sed -E -e '/^[^:]+:$/d' -e '/^When/d' | wc -l) -gt 0 ]; then
+  omv_warning "Several users are locked/banned or are candidates for too many failed login attempts."
 	(
     echo "The following users are locked/banned or are candidates for too many failed login attempts:\n";
     faillock;
