@@ -21,7 +21,9 @@
 
 set -eu
 
+MAILTO=""
 MDADM=/sbin/mdadm
+
 [ -x "$MDADM" ] || exit 0
 
 # Exit if no email address is configured, otherwise the error message

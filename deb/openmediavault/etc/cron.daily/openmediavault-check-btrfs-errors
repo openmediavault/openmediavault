@@ -24,24 +24,28 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+MAILTO=""
 OMV_BTRFS_ERROR_CHECK_ENABLED=${OMV_BTRFS_ERROR_CHECK_ENABLED:-"yes"}
 
-if omv_checkyesno "${OMV_BTRFS_ERROR_CHECK_ENABLED}"; then
-    omv_syslog_info "Performing an error check on Btrfs file systems."
-    findmnt --all --canonicalize --notruncate --uniq --noheadings --output SOURCE,TARGET --types btrfs |
-        sort |
-        while read row
-    do
-         device=${row% *}
-         mountpoint=${row#* }
-         omv_syslog_info "Checking ${device} for errors ..."
-         stats=$(btrfs device stats --check "${mountpoint}")
-         if [ $? -ne 0 ]; then
-             omv_syslog_warning "Errors were detected on the file system ${device}."
-             (
-                 echo -e "Errors were detected on the Btrfs file system that is mounted under ${mountpoint}.\n";
-                 echo "${stats}"
-             ) | mail -E -s "Errors were detected on the file system ${device}" root
-         fi
-    done
-fi
+# Exit immediately if Btrfs error checking is disabled.
+! omv_checkyesno "${OMV_BTRFS_ERROR_CHECK_ENABLED}" && exit 0
+
+omv_syslog_info "Performing an error check on Btrfs file systems."
+findmnt --all --canonicalize --notruncate --uniq --noheadings --output SOURCE,TARGET --types btrfs |
+    sort |
+    while read row
+do
+     device=${row% *}
+     mountpoint=${row#* }
+     omv_syslog_info "Checking ${device} for errors ..."
+     stats=$(btrfs device stats --check "${mountpoint}")
+     if [ $? -ne 0 ]; then
+         omv_syslog_warning "Errors were detected on the file system ${device}."
+         # Ignore the file system notification settings because of the
+         # importance of this message.
+         (
+             echo -e "Errors were detected on the Btrfs file system that is mounted under ${mountpoint}.\n";
+             echo "${stats}"
+         ) | mail -E -s "Errors were detected on the file system ${device}" root
+     fi
+done

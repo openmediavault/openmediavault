@@ -30,6 +30,8 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+MAILTO=""
+
 if [ "$(omv_config_get "//system/email/enable")" = "0" ]; then
     postfix set-permissions || true
     postsuper -d ALL >/dev/null 2>&1

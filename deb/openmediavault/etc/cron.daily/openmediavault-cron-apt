@@ -25,6 +25,8 @@
 # (where the default cron-apt cron job file is located) this script ensures
 # that cron-apt is executed at least once a day.
 
+MAILTO=""
+
 # Remove the '/etc/cron.d/cron-apt' file installed by the cron-apt package.
 rm -rf /etc/cron.d/cron-apt
 

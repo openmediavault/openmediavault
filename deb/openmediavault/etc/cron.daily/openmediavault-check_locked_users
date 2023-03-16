@@ -24,6 +24,8 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+MAILTO=""
+
 [ "$(omv_config_get "//system/email/enable")" != "1" ] && exit 0
 
 # Make sure the directory exists. Note, after a reboot this directory does not
