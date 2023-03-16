@@ -28,14 +28,15 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
+  template:
+    '<omv-intuition-datatable-page #page [config]="this.config"></omv-intuition-datatable-page>'
 })
-export class SharedFolderPrivilegesDatatablePageComponent {
-  @ViewChild(DatatablePageComponent, { static: true })
-  private page: DatatablePageComponent;
+export class UserSharedFolderPermissionsDatatablePageComponent {
+  @ViewChild('page', { static: true })
+  page: DatatablePageComponent;
 
   public config: DatatablePageConfig = {
-    stateId: '99f40468-8309-11ea-834f-cbe87c99180b',
+    stateId: '3752268a-27c1-11ea-a5b1-a3d1c7dcb22c',
     autoReload: false,
     limit: 0,
     hasFooter: false,
@@ -43,28 +44,15 @@ export class SharedFolderPrivilegesDatatablePageComponent {
     icon: 'information',
     subTitle: gettext(
       // eslint-disable-next-line max-len
-      'These settings are used by the services to configure the user and group access rights. Please note that these settings have no effect on file system permissions.'
+      'These settings are used by the services to configure the access rights for the user "{{ _routeParams.name }}". Please note that these settings have no effect on file system permissions.'
     ),
     selectionType: 'none',
     columns: [
-      { name: gettext('Name'), prop: 'name', flexGrow: 2, sortable: true },
-      {
-        name: gettext('Type'),
-        prop: 'type',
-        flexGrow: 1,
-        sortable: true,
-        cellTemplateName: 'chip',
-        cellTemplateConfig: {
-          map: {
-            user: { value: gettext('User') },
-            group: { value: gettext('Group') }
-          }
-        }
-      },
+      { name: gettext('Shared folder'), prop: 'name', flexGrow: 1, sortable: true },
       {
         name: gettext('Permissions'),
         prop: 'perms',
-        flexGrow: 3,
+        flexGrow: 1,
         sortable: true,
         cellTemplateName: 'buttonToggle',
         cellTemplateConfig: {
@@ -87,10 +75,6 @@ export class SharedFolderPrivilegesDatatablePageComponent {
     ],
     sorters: [
       {
-        dir: 'desc',
-        prop: 'type'
-      },
-      {
         dir: 'asc',
         prop: 'name'
       }
@@ -99,70 +83,22 @@ export class SharedFolderPrivilegesDatatablePageComponent {
       proxy: {
         service: 'ShareMgmt',
         get: {
-          method: 'getPrivileges',
+          method: 'getPrivilegesByRole',
           params: {
-            uuid: '{{ _routeParams.uuid }}'
+            role: 'user',
+            name: '{{ _routeParams.name }}'
           }
         }
       }
     },
-    actions: [
-      {
-        type: 'iconButton',
-        icon: 'mdi:transfer',
-        tooltip: gettext('Copy privileges'),
-        execute: {
-          type: 'formDialog',
-          formDialog: {
-            title: gettext('Copy privileges'),
-            fields: [
-              {
-                type: 'sharedFolderSelect',
-                name: 'src',
-                store: {
-                  filters: [
-                    { operator: 'ne', arg0: { prop: 'uuid' }, arg1: '{{ _routeParams.uuid }}' }
-                  ]
-                },
-                hasCreateButton: false,
-                label: gettext('Source'),
-                hint: gettext('The shared folder from which the privileges are copied.'),
-                validators: {
-                  required: true
-                }
-              },
-              {
-                type: 'hidden',
-                name: 'dst',
-                value: '{{ _routeParams.uuid }}'
-              }
-            ],
-            buttons: {
-              submit: {
-                text: gettext('Copy'),
-                execute: {
-                  type: 'request',
-                  request: {
-                    service: 'ShareMgmt',
-                    method: 'copyPrivileges',
-                    successNotification: gettext('Shared folder permissions have been transferred.')
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    ],
     buttons: [
       {
-        template: 'cancel',
-        url: '/storage/shared-folders'
+        template: 'submit',
+        click: this.onSave.bind(this)
       },
       {
-        text: gettext('Save'),
-        class: 'omv-background-color-pair-primary',
-        click: this.onSave.bind(this)
+        template: 'cancel',
+        url: '/usermgmt/users'
       }
     ]
   };
@@ -175,13 +111,13 @@ export class SharedFolderPrivilegesDatatablePageComponent {
 
   onSave() {
     const privileges = _.map(_.reject(this.page.table.data, ['perms', null]), (obj) => ({
-      name: obj.name,
-      type: obj.type,
+      uuid: obj.uuid,
       perms: _.toInteger(obj.perms)
     }));
     this.rpcService
-      .request('ShareMgmt', 'setPrivileges', {
-        uuid: _.get(this.page.routeParams, 'uuid'),
+      .request('ShareMgmt', 'setPrivilegesByRole', {
+        role: 'user',
+        name: _.get(this.page.routeParams, 'name'),
         privileges
       })
       .subscribe(() => {
@@ -189,7 +125,7 @@ export class SharedFolderPrivilegesDatatablePageComponent {
           NotificationType.success,
           format(_.get(this.page.routeConfig, 'data.notificationTitle'), this.page.routeParams)
         );
-        this.router.navigate(['/storage/shared-folders']);
+        this.router.navigate(['/usermgmt/users']);
       });
   }
 }

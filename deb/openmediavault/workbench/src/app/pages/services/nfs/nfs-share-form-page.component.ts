@@ -78,7 +78,7 @@ export class NfsShareFormPageComponent extends BaseFormPageComponent {
       {
         type: 'select',
         name: 'options',
-        label: gettext('Privilege'),
+        label: gettext('Permission'),
         value: 'ro',
         store: {
           data: [

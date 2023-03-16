@@ -118,8 +118,8 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
         actions: [
           {
             icon: 'mdi:transfer',
-            tooltip: gettext('Copy privileges'),
-            click: this.onCopyPrivileges.bind(this)
+            tooltip: gettext('Copy permissions'),
+            click: this.onCopyPermissions.bind(this)
           }
         ],
         sorters: [
@@ -299,15 +299,15 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
     });
   }
 
-  onCopyPrivileges() {
+  onCopyPermissions() {
     const uuid = _.get(this.page.routeParams, 'uuid');
     const values = this.page.getFormValues();
     this.dialogService
       .open(ModalDialogComponent, {
         data: {
           template: 'confirmation',
-          title: gettext('Copy privileges'),
-          message: gettext('Do you really want to copy the privileges from the shared folder?')
+          title: gettext('Copy permissions'),
+          message: gettext('Do you really want to copy the permissions from the shared folder?')
         }
       })
       .afterClosed()

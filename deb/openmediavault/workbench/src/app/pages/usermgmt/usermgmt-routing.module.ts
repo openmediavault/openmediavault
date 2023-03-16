@@ -7,14 +7,14 @@ import { RouteConfigService } from '~/app/core/services/route-config.service';
 import { GroupDatatablePageComponent } from '~/app/pages/usermgmt/groups/group-datatable-page.component';
 import { GroupFormPageComponent } from '~/app/pages/usermgmt/groups/group-form-page.component';
 import { GroupImportFormPageComponent } from '~/app/pages/usermgmt/groups/group-import-form-page.component';
-import { GroupPrivilegesDatatablePageComponent } from '~/app/pages/usermgmt/groups/group-privileges-datatable-page.component';
+import { GroupSharedFolderPermissionsDatatablePageComponent } from '~/app/pages/usermgmt/groups/group-shared-folder-permissions-datatable-page.component';
 import { UserDatatablePageComponent } from '~/app/pages/usermgmt/users/user-datatable-page.component';
 import { UserFormPageComponent } from '~/app/pages/usermgmt/users/user-form-page.component';
 import { UserImportFormPageComponent } from '~/app/pages/usermgmt/users/user-import-form-page.component';
 import { UserPasswordFormPageComponent } from '~/app/pages/usermgmt/users/user-password-form-page.component';
-import { UserPrivilegesDatatablePageComponent } from '~/app/pages/usermgmt/users/user-privileges-datatable-page.component';
 import { UserProfileFormPageComponent } from '~/app/pages/usermgmt/users/user-profile-form-page.component';
 import { UserSettingsFormPageComponent } from '~/app/pages/usermgmt/users/user-settings-form-page.component';
+import { UserSharedFolderPermissionsDatatablePageComponent } from '~/app/pages/usermgmt/users/user-shared-folder-permissions-datatable-page.component';
 import { IsDirtyGuardService } from '~/app/shared/services/is-dirty-guard.service';
 
 const routes: Routes = [
@@ -74,11 +74,11 @@ const routes: Routes = [
         }
       },
       {
-        path: 'privileges/:name',
-        component: UserPrivilegesDatatablePageComponent,
+        path: 'permissions/:name',
+        component: UserSharedFolderPermissionsDatatablePageComponent,
         data: {
-          title: gettext('Privileges'),
-          notificationTitle: gettext('Updated privileges of user "{{ name }}".')
+          title: gettext('Permissions'),
+          notificationTitle: gettext('Updated permissions of user "{{ name }}".')
         }
       }
     ]
@@ -115,11 +115,11 @@ const routes: Routes = [
         }
       },
       {
-        path: 'privileges/:name',
-        component: GroupPrivilegesDatatablePageComponent,
+        path: 'permissions/:name',
+        component: GroupSharedFolderPermissionsDatatablePageComponent,
         data: {
-          title: gettext('Privileges'),
-          notificationTitle: gettext('Updated privileges of group "{{ name }}".')
+          title: gettext('Permissions'),
+          notificationTitle: gettext('Updated permissions of group "{{ name }}".')
         }
       }
     ]

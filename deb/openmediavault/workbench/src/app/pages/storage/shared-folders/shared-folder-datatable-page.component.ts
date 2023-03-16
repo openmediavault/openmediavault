@@ -108,15 +108,15 @@ export class SharedFolderDatatablePageComponent {
       },
       {
         type: 'iconButton',
-        icon: 'mdi:account-check',
-        tooltip: gettext('Privileges'),
+        icon: 'mdi:folder-key',
+        tooltip: gettext('Permissions'),
         enabledConstraints: {
           minSelected: 1,
           maxSelected: 1
         },
         execute: {
           type: 'url',
-          url: '/storage/shared-folders/privileges/{{ _selected[0].uuid }}'
+          url: '/storage/shared-folders/permissions/{{ _selected[0].uuid }}'
         }
       },
       {

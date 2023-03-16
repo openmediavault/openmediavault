@@ -31,7 +31,7 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   template:
     '<omv-intuition-datatable-page #page [config]="this.config"></omv-intuition-datatable-page>'
 })
-export class GroupPrivilegesDatatablePageComponent {
+export class GroupSharedFolderPermissionsDatatablePageComponent {
   @ViewChild('page', { static: true })
   page: DatatablePageComponent;
 
@@ -39,7 +39,9 @@ export class GroupPrivilegesDatatablePageComponent {
     stateId: '21212794-27c1-11ea-abdb-e3fc0648b2ae',
     autoReload: false,
     limit: 0,
-    icon: 'tip',
+    hasFooter: false,
+    hasSearchField: true,
+    icon: 'information',
     subTitle: gettext(
       // eslint-disable-next-line max-len
       'These settings are used by the services to configure the access rights for the group "{{ _routeParams.name }}". Please note that these settings have no effect on file system permissions.'

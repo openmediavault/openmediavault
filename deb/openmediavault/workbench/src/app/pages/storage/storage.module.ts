@@ -21,7 +21,7 @@ import { SharedFolderAclFormPageComponent } from '~/app/pages/storage/shared-fol
 import { SharedFolderAllSnapshotsTabsPageComponent } from '~/app/pages/storage/shared-folders/shared-folder-all-snapshots-tabs-page.component';
 import { SharedFolderDatatablePageComponent } from '~/app/pages/storage/shared-folders/shared-folder-datatable-page.component';
 import { SharedFolderFormPageComponent } from '~/app/pages/storage/shared-folders/shared-folder-form-page.component';
-import { SharedFolderPrivilegesDatatablePageComponent } from '~/app/pages/storage/shared-folders/shared-folder-privileges-datatable-page.component';
+import { SharedFolderPermissionsDatatablePageComponent } from '~/app/pages/storage/shared-folders/shared-folder-permissions-datatable-page.component';
 import { SharedFolderSnapshotsTabsPageComponent } from '~/app/pages/storage/shared-folders/shared-folder-snapshots-tabs-page.component';
 import { SmartDeviceDatatablePageComponent } from '~/app/pages/storage/smart/smart-device-datatable-page.component';
 import { SmartDeviceDetailsTabsPageComponent } from '~/app/pages/storage/smart/smart-device-details-tabs-page.component';
@@ -51,7 +51,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     MdRemoveFormPageComponent,
     MdRecoverFormPageComponent,
     SharedFolderFormPageComponent,
-    SharedFolderPrivilegesDatatablePageComponent,
+    SharedFolderPermissionsDatatablePageComponent,
     SharedFolderSnapshotsTabsPageComponent,
     SharedFolderAllSnapshotsTabsPageComponent,
     FilesystemEditFormPageComponent,

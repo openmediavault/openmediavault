@@ -117,14 +117,14 @@ export class UserDatatablePageComponent {
       {
         type: 'iconButton',
         icon: 'mdi:folder-key',
-        tooltip: gettext('Shared folder privileges'),
+        tooltip: gettext('Shared folder permissions'),
         enabledConstraints: {
           minSelected: 1,
           maxSelected: 1
         },
         execute: {
           type: 'url',
-          url: '/usermgmt/users/privileges/{{ _selected[0].name }}'
+          url: '/usermgmt/users/permissions/{{ _selected[0].name }}'
         }
       },
       {
