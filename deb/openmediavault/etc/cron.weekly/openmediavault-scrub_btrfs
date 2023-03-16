@@ -50,5 +50,5 @@ do
      (
          echo "Scrubbing the Btrfs file system that is mounted under ${mountpoint} has been finished.";
          echo "${stats}"
-     ) | mail -E -s "Scrub report of file system ${device}" root
+     ) | mail -E -s "Scrub report of the file system ${device}" root
 done
