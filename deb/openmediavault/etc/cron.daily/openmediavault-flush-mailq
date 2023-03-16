@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 #
 # This file is part of OpenMediaVault.
 #
@@ -33,6 +33,6 @@ set -e
 MAILTO=""
 
 if [ "$(omv_config_get "//system/email/enable")" = "0" ]; then
-    postfix set-permissions || true
-    postsuper -d ALL >/dev/null 2>&1
+  postfix set-permissions || true
+  postsuper -d ALL
 fi

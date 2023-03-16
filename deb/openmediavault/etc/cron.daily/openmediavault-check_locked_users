@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 #
 # This file is part of OpenMediaVault.
 #
@@ -42,8 +42,8 @@ MAILTO=""
 # 2021-05-11 22:07:04 SVC   openmediavault                                       V
 if [ $(faillock | sed -E -e '/^[^:]+:$/d' -e '/^When/d' | wc -l) -gt 0 ]; then
 	(
-	echo "The following users are locked/banned or are candidates for too many failed login attempts:\n";
-	faillock;
-	echo "\nYou can reset their counters and unlock them via the omv-firstaid command."
+    echo "The following users are locked/banned or are candidates for too many failed login attempts:\n";
+    faillock;
+    echo "\nYou can reset their counters and unlock them via the omv-firstaid command."
 	) | mail -E -s "Locked users overview" root
 fi

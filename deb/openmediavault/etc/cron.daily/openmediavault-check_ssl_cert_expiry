@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 #
 # This file is part of OpenMediaVault.
 #
@@ -35,8 +35,11 @@ OMV_SSL_CERTIFICATE_CHECK_EXPIRY_ENABLED=${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_ENAB
 # Abort if email notification is disabled.
 [ "$(omv_config_get "//system/email/enable")" != "1" ] && exit 0
 
+omv_info "Perform a check for expired SSL certificates."
 for f in /etc/ssl/certs/${OMV_SSL_CERTIFICATE_PREFIX}*.crt ; do
   [ -e "${f}" ] || continue
+
+  omv_info "Validating ${f} ..."
 
   enddate=$(openssl x509 -enddate -noout -in "${f}" | sed "s/.*=\(.*\)/\1/" | awk -F " " '{print $1,$2,$3,$4}')
   enddate_seconds=$(date -d "${enddate}" +%s)
@@ -44,12 +47,13 @@ for f in /etc/ssl/certs/${OMV_SSL_CERTIFICATE_PREFIX}*.crt ; do
   datediff_days=$(( (${enddate_seconds} - ${now_seconds}) / (60 * 60 * 24) ))
 
   if [ "${datediff_days}" -le "${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_DAYS}" -a "${datediff_days}" -gt 0 ]; then
+    omv_warning "The SSL certificate ${f} expires in ${datediff_days} days."
     subject=$(openssl x509 -subject -noout -in "${f}" | sed "s/subject=\(.*\)/\1/")
     (
-      echo "The following SSL certificate expires in ${datediff_days} days.\n";
-      echo "File: ${f}"
+      echo "The SSL certificate ${f} expires in ${datediff_days} days.";
+      echo ""
       echo "Subject: ${subject}"
       echo "Expiration date: ${enddate}"
-    ) | mail -E -s "SSL certificate expires in ${datediff_days} days" root
+    ) | mail -E -s "A SSL certificate expires in ${datediff_days} days" root
   fi
 done

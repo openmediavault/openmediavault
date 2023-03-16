@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 #
 # This file is part of OpenMediaVault.
 #
@@ -32,23 +32,26 @@ OMV_BTRFS_SCRUB_READONLY=${OMV_BTRFS_SCRUB_READONLY:-"no"}
 # Exit immediately if Btrfs scrubbing is disabled.
 ! omv_checkyesno "${OMV_BTRFS_SCRUB_ENABLED}" && exit 0
 
-omv_syslog_info "Performing a scrub on Btrfs file systems."
+omv_info "Performing a scrub on Btrfs file systems."
 findmnt --all --canonicalize --notruncate --uniq --noheadings --output SOURCE,TARGET --types btrfs |
-    sort |
-    while read row
+  sort |
+  while read row
 do
-     device=${row% *}
-     mountpoint=${row#* }
-     omv_syslog_info "Scrubbing ${device} ..."
-     cmdargs="${OMV_BTRFS_SCRUB_PRIORITY}"
-     if omv_checkyesno ${OMV_BTRFS_SCRUB_READONLY}; then
-         cmdargs="${cmdargs} -r"
-     fi
-     stats=$(btrfs scrub start -B -d ${cmdargs} "${mountpoint}")
-     # Ignore the file system notification settings because of the
-     # importance of this message.
-     (
-         echo "Scrubbing the Btrfs file system that is mounted under ${mountpoint} has been finished.";
-         echo "${stats}"
-     ) | mail -E -s "Scrub report of the file system ${device}" root
+  device=${row% *}
+  mountpoint=${row#* }
+
+  omv_info "Scrubbing ${device} ..."
+
+  cmdargs="${OMV_BTRFS_SCRUB_PRIORITY}"
+  if omv_checkyesno ${OMV_BTRFS_SCRUB_READONLY}; then
+    cmdargs="${cmdargs} -r"
+  fi
+
+  stats=$(btrfs scrub start -B -d ${cmdargs} "${mountpoint}")
+  # Ignore the file system notification settings because of the
+  # importance of this message.
+  (
+    echo "Scrubbing the Btrfs file system that is mounted at ${mountpoint} has been finished.";
+    echo "${stats}"
+  ) | mail -E -s "Scrub report of the file system ${device}" root
 done

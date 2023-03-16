@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/usr/bin/bash -l
 #
 # This file is part of OpenMediaVault.
 #
@@ -32,8 +32,8 @@ MAILTO=""
 OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED=${OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED:-"yes"}
 
 if omv_checkyesno "${OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED}"; then
-    omv_syslog_info "Updating smartmontools drive database ..."
-    cd /var/lib/smartmontools/drivedb
-    wget --quiet --backups=1 https://raw.githubusercontent.com/mirror/smartmontools/master/drivedb.h
-    chown -c root:root drivedb.h
+  omv_info "Updating smartmontools drive database ..."
+  cd /var/lib/smartmontools/drivedb
+  wget --quiet --backups=1 https://raw.githubusercontent.com/mirror/smartmontools/master/drivedb.h
+  chown -c root:root drivedb.h
 fi

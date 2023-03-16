@@ -266,7 +266,7 @@ omv_syslog() {
 		esac
 	done
 	shift $((OPTIND-1))
-	logger --priority "${_priority}" --tag "${_tag}" $@
+	logger --priority "${_priority}" --tag "${_tag}" -- $@
 }
 
 # omv_syslog_info <message>

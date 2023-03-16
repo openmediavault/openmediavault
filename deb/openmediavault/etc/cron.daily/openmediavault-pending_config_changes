@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 #
 # This file is part of OpenMediaVault.
 #
@@ -31,5 +31,5 @@ MAILTO=""
 # Notify the administrator if there are any configuration changes that
 # need to be applied.
 if omv_module_is_dirty; then
-    echo "The configuration has been changed. You must apply the changes in order for them to take effect." | mail -E -s "Pending configuration changes" root
+  echo "The configuration has been changed. You must apply the changes in order for them to take effect." | mail -E -s "Pending configuration changes" root
 fi
