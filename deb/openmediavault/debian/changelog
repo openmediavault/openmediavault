@@ -2,8 +2,12 @@ openmediavault (6.3.5-1) stable; urgency=low
 
   * Do not configure monit alerts for `CPU usage` and `Memory usage`
     if they are disabled in the UI.
-  * Set metadata to 'DUP' when creating a BTRFS file system with
+  * Set metadata to 'DUP' when creating a Btrfs file system with
     the 'Single' profile (default since Kernel version 5.15).
+  * Perform a weekly scheduled cron task that checks Btrfs file
+    systems for errors. An email will be sent when errors are
+    detected. Use the OMV_BTRFS_ERROR_CHECK_ENABLED environment
+    variable to disable this check.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Mar 2023 22:04:06 +0100
 
@@ -13,7 +17,7 @@ openmediavault (6.3.4-1) stable; urgency=low
   * Rename various navigation menu items in the UI.
   * Add `All Snapshots` button in the `Storage | Shared Folders`
     page to manage the snapshots of all shared folders that are
-    located on a BTRFS file system.
+    located on a Btrfs file system.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Mar 2023 21:54:03 +0100
 
@@ -38,7 +42,7 @@ openmediavault (6.3.2-2) stable; urgency=low
 
   * Update locale files.
   * Issue #1490: Support SMB shadow copies for home directories
-    when the shared folder is located on a BTRFS file system.
+    when the shared folder is located on a Btrfs file system.
   * Issue #1500: Use ISO 8601 basic format in the snapshot
     naming schema because Windows does not support `:` in
     file names. Note that due to this change, earlier snapshots
@@ -61,9 +65,9 @@ openmediavault (6.3.0-2) stable; urgency=low
 
   * Add an infrastructure to allow plugins to append additional
     file systems to the file system creation page in the UI.
-  * Enhance the BTRFS file system creation page by adding support
+  * Enhance the Btrfs file system creation page by adding support
     of profiles to create various RAID levels.
-  * Issue #1241: Use BTRFS subvolumes for shared folders on BTRFS
+  * Issue #1241: Use Btrfs subvolumes for shared folders on Btrfs
     file systems. Snapshots can be created per shared folder.
     The snapshot management UI allows to create and delete those
     snapshots. A restore feature has not been implemented by
@@ -71,9 +75,9 @@ openmediavault (6.3.0-2) stable; urgency=low
     from every service beforehand. Instead a shared folders should
     be created from these snapshots, which is a less error-prone
     approach. The snapshots are stored in the `.snapshots` folder
-    in the root subvolume of the BTRFS file system.
+    in the root subvolume of the Btrfs file system.
   * Issue #1490: Support SMB shadow copies for shared folders that
-    are located on a BTRFS file system.
+    are located on a Btrfs file system.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 31 Jan 2023 12:31:57 +0100
 
@@ -278,7 +282,7 @@ openmediavault (6.0.39-1) stable; urgency=low
     The 'System time' and 'System updates' widget have been
     added as examples.
   * Issue #1384: Incorrect disk usage warning is displayed for
-    BTRFS file systems.
+    Btrfs file systems.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 31 Aug 2022 22:17:25 +0200
 
@@ -613,7 +617,7 @@ openmediavault (6.0.6-1) unstable; urgency=low
   * Fix PAM faillock issue related to missing directory.
   * Issue #618: Remove backslash in Monit notification email.
   * Issue #1159: Add enhanced server-side copy offload for SMB
-    shares residing on BTRFS file systems.
+    shares residing on Btrfs file systems.
   * Issue #1160: Improve S.M.A.R.T. overall status assessment.
   * Issue #1166: SMB user password is not updated.
 
@@ -793,7 +797,7 @@ openmediavault (5.6.15-1) stable; urgency=low
 
   * Set correct time zone in proftpd.
   * Skip missing file systems when applying quotas.
-  * Do not show used devices, e.g. that of a BTRFS RAID, in the file
+  * Do not show used devices, e.g. that of a Btrfs RAID, in the file
     system creation dialog.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 26 Aug 2021 18:39:49 +0200
@@ -979,7 +983,7 @@ openmediavault (5.5.22-1) stable; urgency=low
 
 openmediavault (5.5.21-1) stable; urgency=low
 
-  * Fixing a bug related to BTRFS which crashed the filesystem UI page.
+  * Fixing a bug related to Btrfs which crashed the filesystem UI page.
   * Improve UDEV rules to workaround a JMicron bug. Debugging should be
     easier now because the serial_id helper tool behaves like scsi_id and
     prints out the environment variable ID_SERIAL_SHORT.
@@ -1006,7 +1010,7 @@ openmediavault (5.5.20-1) stable; urgency=low
 
   * Improved PHP and Python block device and filesystem implementation.
     Re-add usage of /dev/disk/by-uuid device files for all filesystems
-    (except BTRFS) to workaround problems with JMicron based USB enclosures.
+    (except Btrfs) to workaround problems with JMicron based USB enclosures.
   * Issue #894: Disabled cron jobs are still executed.
   * Issue #896: Improve UDEV rule to fix issues with JMS567 SATA 6Gb/s
     bridge based USB enclosures.
@@ -1390,7 +1394,7 @@ openmediavault (5.3.2-1) unstable; urgency=low
 
   * Update locales.
   * Fix issue in the S.M.A.R.T. scheduled tests page.
-  * Issue #601: Error listing mount points when using BTRFS subvolumes.
+  * Issue #601: Error listing mount points when using Btrfs subvolumes.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Feb 2020 13:20:00 +0100
 
@@ -1452,14 +1456,14 @@ openmediavault (5.2.4-1) unstable; urgency=low
 openmediavault (5.2.3-2) unstable; urgency=low
 
   * Issue #564: Improve openmediavault.fs.Filesystem::get_parent_device_file()
-    to handle BTRFS subvolumes.
+    to handle Btrfs subvolumes.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 13 Jan 2020 23:05:01 +0100
 
 openmediavault (5.2.3-1) unstable; urgency=low
 
   * Issue #564: Improve openmediavault.fs.Filesystem::get_parent_device_file()
-    to handle BTRFS subvolumes.
+    to handle Btrfs subvolumes.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 11 Jan 2020 15:57:07 +0100
 
@@ -1473,7 +1477,7 @@ openmediavault (5.2.1-1) unstable; urgency=low
 
   * Issue #542: Add OMV_WATCHDOG_CONF_WATCHDOG_TIMEOUT to customize
     the watchdog timeout.
-  * Issue #543: Fix BTRFS mounting issue.
+  * Issue #543: Fix Btrfs mounting issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 22 Dec 2019 22:18:16 +0100
 
@@ -1716,7 +1720,7 @@ openmediavault (4.1.32-1) stable; urgency=low
 openmediavault (4.1.31-1) stable; urgency=low
 
   * Issue #430: Fix grid column render issue.
-  * Issue #550: Fix bug in detecting BTRFS filesystems.
+  * Issue #550: Fix bug in detecting Btrfs filesystems.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 01 Jan 2020 18:20:01 +0100
 
@@ -1724,7 +1728,7 @@ openmediavault (4.1.30-1) stable; urgency=low
 
   * Allow to use veth* and venet* network interfaces in bonded
     interfaces.
-  * Issue #543: Fix BTRFS mounting issue.
+  * Issue #543: Fix Btrfs mounting issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 18 Dec 2019 17:21:52 +0100
 
@@ -2135,7 +2139,7 @@ openmediavault (4.0.10-1) stable; urgency=low
 openmediavault (4.0.9-1) stable; urgency=low
 
   * Various improvements.
-  * Mantis 0001844: BTRFS RAID filesystems shows twice in OMV filesystems view.
+  * Mantis 0001844: Btrfs RAID filesystems shows twice in OMV filesystems view.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 31 Oct 2017 17:05:47 +0100
 
@@ -2329,7 +2333,7 @@ openmediavault (3.0.85) stable; urgency=low
     open S.M.A.R.T. details.
   * Mantis 0001777: Memory leak when calling Guru Meditation window.
   * Mantis 0001781: Increase granularity on SSH "Permit root login" setting.
-  * Mantis 0001782: BTRFS multi device listing is wrong formatted.
+  * Mantis 0001782: Btrfs multi device listing is wrong formatted.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 17 Jul 2017 17:55:39 +0200
 
@@ -2479,7 +2483,7 @@ openmediavault (3.0.68) stable; urgency=low
   * Various bug fixes and improvements.
   * Add 'omv-confdbadm exists' command.
   * Do not use /etc/fstab entries like UUID=<xxx> anymore because this
-    will make problems with LV/BTRFS snapshots. Use /dev/disk/by-xxx/xxx
+    will make problems with LV/Btrfs snapshots. Use /dev/disk/by-xxx/xxx
     device files instead.
   * Improve the datamodel to be able to resolve shared folder references.
   * File systems will be mounted according to FHS below /srv now.
@@ -2974,7 +2978,7 @@ openmediavault (3.0.12) stable; urgency=low
   * Update locales.
   * Add ability to configure global HTTP/HTTPS/FTP proxy servers using the
     menu 'System | Network | Proxy'.
-  * Mantis 0001424: Improve BTRFS file system backend.
+  * Mantis 0001424: Improve Btrfs file system backend.
   * Mantis 0001469: 20authorized_keys mkconf file typo.
   * Mantis 0001471: Updating smartmontools db fails due to address redirection.
 
@@ -2986,7 +2990,7 @@ openmediavault (3.0.11) stable; urgency=low
   * Various improvements.
   * Output more detailed S.M.A.R.T. error description via tooltip in
     the device overview.
-  * Mantis 0001424: Improve BTRFS file system backend.
+  * Mantis 0001424: Improve Btrfs file system backend.
   * Mantis 0001464: Unable to create rsync rule.
   * Mantis 0001466: New rsync via ssh. Add SSH port.
 
@@ -3006,9 +3010,9 @@ openmediavault (3.0.9) stable; urgency=low
   * Update locales.
   * Mantis 0001294: Add the ability to execute a rsync job via SSH and
     authenticate via public key.
-  * Mantis 0001424: Duplicate BTRFS file systems are displayed.
+  * Mantis 0001424: Duplicate Btrfs file systems are displayed.
   * Mantis 0001442: Add APT terminal output and history logs to log viewer.
-  * Mantis 0001459: Allow formatting single HDD with the BTRFS filesystem.
+  * Mantis 0001459: Allow formatting single HDD with the Btrfs filesystem.
   * Mantsi 0001462: Hide private SSH/SSL key in the WebGUI.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 12 Feb 2016 15:32:52 +0100
