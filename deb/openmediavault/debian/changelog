@@ -4,7 +4,7 @@ openmediavault (6.3.5-1) stable; urgency=low
     if they are disabled in the UI.
   * Set metadata to 'DUP' when creating a Btrfs file system with
     the 'Single' profile (default since Kernel version 5.15).
-  * Perform a weekly scheduled cron task that checks Btrfs file
+  * Perform a daily scheduled cron task that checks Btrfs file
     systems for errors. An email will be sent when errors are
     detected. Use the OMV_BTRFS_ERROR_CHECK_ENABLED environment
     variable to disable this check.
