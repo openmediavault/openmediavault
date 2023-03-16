@@ -8,6 +8,11 @@ openmediavault (6.3.5-1) stable; urgency=low
     systems for errors. An email will be sent when errors are
     detected. Use the OMV_BTRFS_ERROR_CHECK_ENABLED environment
     variable to disable this check.
+  * Perform a weekly scheduled cron task that scrubs all mounted
+    Btrfs file systems. A report will be emailed afterwards.
+    Use the OMV_BTRFS_SCRUB_ENABLED environment variable to disable
+    this task. Use the additional variables OMV_BTRFS_SCRUB_PRIORITY
+    and OMV_BTRFS_SCRUB_READONLY to customize the scrub task.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Mar 2023 22:04:06 +0100
 
