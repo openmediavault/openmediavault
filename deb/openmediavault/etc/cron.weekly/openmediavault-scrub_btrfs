@@ -41,7 +41,7 @@ do
      mountpoint=${row#* }
      omv_syslog_info "Scrubbing ${device} ..."
      cmdargs="${OMV_BTRFS_SCRUB_PRIORITY}"
-     if omv_checkyesno ${OMV_BTRFS_SCRUB_READ_ONLY}; then
+     if omv_checkyesno ${OMV_BTRFS_SCRUB_READONLY}; then
          cmdargs="${cmdargs} -r"
      fi
      stats=$(btrfs scrub start -B -d ${cmdargs} "${mountpoint}")
