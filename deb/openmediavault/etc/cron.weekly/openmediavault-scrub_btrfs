@@ -32,7 +32,7 @@ OMV_BTRFS_SCRUB_READONLY=${OMV_BTRFS_SCRUB_READONLY:-"no"}
 # Exit immediately if Btrfs scrubbing is disabled.
 ! omv_checkyesno "${OMV_BTRFS_SCRUB_ENABLED}" && exit 0
 
-omv_info "Performing a scrub on Btrfs file systems."
+omv_log "Performing a scrub on Btrfs file systems."
 findmnt --all --canonicalize --notruncate --uniq --noheadings --output SOURCE,TARGET --types btrfs |
   sort |
   while read row
@@ -40,7 +40,7 @@ do
   device=${row% *}
   mountpoint=${row#* }
 
-  omv_info "Scrubbing ${device} ..."
+  omv_log "Scrubbing ${device} ..."
 
   cmdargs="${OMV_BTRFS_SCRUB_PRIORITY}"
   if omv_checkyesno ${OMV_BTRFS_SCRUB_READONLY}; then

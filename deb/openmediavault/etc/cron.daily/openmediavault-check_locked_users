@@ -30,7 +30,7 @@ MAILTO=""
 # exist until the PAM faillock module has been executed.
 [ ! -d "/var/run/faillock/" ] && exit 0
 
-omv_info "Checking for locked/banned users."
+omv_log "Checking for locked/banned users."
 
 # Check if there are locked users.
 # admin:

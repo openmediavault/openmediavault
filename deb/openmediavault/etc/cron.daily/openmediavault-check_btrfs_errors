@@ -30,7 +30,7 @@ OMV_BTRFS_ERROR_CHECK_ENABLED=${OMV_BTRFS_ERROR_CHECK_ENABLED:-"yes"}
 # Exit immediately if Btrfs error checking is disabled.
 ! omv_checkyesno "${OMV_BTRFS_ERROR_CHECK_ENABLED}" && exit 0
 
-omv_info "Performing an error check on Btrfs file systems."
+omv_log "Performing an error check on Btrfs file systems."
 findmnt --all --canonicalize --notruncate --uniq --noheadings --output SOURCE,TARGET --types btrfs |
   sort |
   while read row
@@ -38,7 +38,7 @@ do
   device=${row% *}
   mountpoint=${row#* }
 
-  omv_info "Checking ${device} for errors ..."
+  omv_log "Checking ${device} for errors ..."
 
   stats=$(btrfs device stats --check "${mountpoint}")
   if [ $? -ne 0 ]; then
