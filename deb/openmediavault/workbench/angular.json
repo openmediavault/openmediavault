@@ -29,6 +29,7 @@
               "strip-ansi",
               "chart.js",
               "chartjs-plugin-datalabels",
+              "cronstrue",
               "validator"
             ],
             "outputPath": "dist/openmediavault-workbench",
