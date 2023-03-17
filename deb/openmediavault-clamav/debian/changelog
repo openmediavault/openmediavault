@@ -1,3 +1,9 @@
+openmediavault-clamav (6.0.3-1) stable; urgency=low
+
+  * Translate Cron expressions to human-readable descriptions.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 17 Mar 2023 18:09:18 +0100
+
 openmediavault-clamav (6.0.2-2) stable; urgency=low
 
   * Update locale files.

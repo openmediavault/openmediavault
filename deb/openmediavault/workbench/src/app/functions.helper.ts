@@ -15,7 +15,30 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
+import 'cronstrue/locales/de';
+import 'cronstrue/locales/ru';
+import 'cronstrue/locales/nl';
+import 'cronstrue/locales/it';
+import 'cronstrue/locales/tr';
+import 'cronstrue/locales/fr';
+import 'cronstrue/locales/pl';
+import 'cronstrue/locales/cs';
+import 'cronstrue/locales/es';
+import 'cronstrue/locales/ca';
+import 'cronstrue/locales/hu';
+import 'cronstrue/locales/da';
+import 'cronstrue/locales/uk';
+import 'cronstrue/locales/sv';
+import 'cronstrue/locales/pt_PT';
+import 'cronstrue/locales/sl';
+import 'cronstrue/locales/zh_CN';
+import 'cronstrue/locales/zh_TW';
+import 'cronstrue/locales/ja';
+import 'cronstrue/locales/ko';
+import 'cronstrue/locales/ar';
+
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
+import cronstrue from 'cronstrue';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -23,8 +46,10 @@ import * as _ from 'lodash';
 import * as nunjucks from 'nunjucks';
 import validator from 'validator';
 
-import { translate } from '~/app/i18n.helper';
+import { getCurrentLocale, translate } from '~/app/i18n.helper';
 
+//////////////////////////////////////////////////////////////////////////
+// Initialize additional dayjs plugins.
 dayjs.extend(advancedFormat);
 dayjs.extend(relativeTime);
 
@@ -381,6 +406,46 @@ export const dateToLocale = (date: Date, dateFormat?: 'datetime' | 'time' | 'dat
   return result;
 };
 
+/**
+ * Convert a Cron expression into a human-readable description.
+ *
+ * @param value The Cron expression, e.g. `5 13 * * 5`.
+ * @return The Cron expression as human-readable description.
+ */
+export const cron2human = (value: string): string => {
+  // These are the locales that are supported by the upstream cRonstrue
+  // project. Map the internal locale short codes to the codes that are
+  // used by the library.
+  const localeMap = {
+    /* eslint-disable @typescript-eslint/naming-convention */
+    ar_SA: 'ar', // Arabic
+    ca_ES: 'ca', // Catalan
+    cs_CZ: 'cs', // Czech
+    da_DA: 'da', // Danish
+    de_DE: 'de', // German
+    es_ES: 'es', // Spanish
+    fr_FR: 'fr', // French
+    hu_HU: 'hu', // Hungarian
+    it_IT: 'it', // Italian
+    ja_JP: 'ja', // Japanese (Japan)
+    ko_KR: 'ko', // Korean
+    nl_NL: 'nl', // Dutch
+    pl_PL: 'pl', // Polish
+    pt_PT: 'pt_PT', // Portuguese
+    ru_RU: 'ru', // Russian
+    sl_SI: 'sl', // Slovenian
+    sv_SV: 'sv', // Swedish
+    tr_TR: 'tr', // Turkish
+    uk_UK: 'uk', // Ukrainian
+    zh_CN: 'zh_CN', // Chinese (Simplified Chinese)
+    zh_TW: 'zh_TW' // Chinese (Taiwan)
+    /* eslint-enable @typescript-eslint/naming-convention */
+  };
+  return cronstrue.toString(value, {
+    locale: _.get(localeMap, getCurrentLocale(), 'en')
+  });
+};
+
 //////////////////////////////////////////////////////////////////////////
 // Add custom Nunjucks filter.
 /**
@@ -458,3 +523,7 @@ nunjucksEnv.addFilter('encodeuricomponent', (value: string | number | boolean): 
  * into relative time.
  */
 nunjucksEnv.addFilter('localedate', toLocaleDate);
+/**
+ * Convert a Cron expression into a human-readable description.
+ */
+nunjucksEnv.addFilter('cron2human', cron2human);

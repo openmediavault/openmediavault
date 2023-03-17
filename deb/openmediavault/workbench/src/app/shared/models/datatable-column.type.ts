@@ -89,6 +89,7 @@ export type DatatableColumn = TableColumn & {
    *                progressBar - Render a progress bar.
    *                localeDateTime - Render date/time using the browser locale.
    *                relativeTime - Render relative date/time.
+   * cronToHuman - Convert a Cron expression into a human-readable description.
    */
   cellTemplateName?:
     | 'text'
@@ -106,6 +107,7 @@ export type DatatableColumn = TableColumn & {
     | 'binaryUnit'
     | 'unsortedList'
     | 'copyToClipboard'
+    | 'cronToHuman'
     | 'template';
   cellTemplateConfig?: any; // Custom cell template configuration.
 };

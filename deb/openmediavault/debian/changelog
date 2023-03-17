@@ -14,6 +14,7 @@ openmediavault (6.3.5-1) stable; urgency=low
     this task. Use the additional variables OMV_BTRFS_SCRUB_PRIORITY
     and OMV_BTRFS_SCRUB_READONLY to customize the scrub task.
   * Improved cron scripts by added better logging output.
+  * Translate Cron expressions to human-readable descriptions.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Mar 2023 22:04:06 +0100
 

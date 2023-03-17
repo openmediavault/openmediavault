@@ -196,7 +196,7 @@ export class SharedFolderAllSnapshotsTabsPageComponent {
                 '{% if everynminute %}{% set _minute %}*/{{ minute }}{% endset %}{% endif %}' +
                 '{% if everynhour %}{% set _hour %}*/{{ hour }}{% endset %}{% endif %}' +
                 '{% if everyndayofmonth %}{% set _dayofmonth %}*/{{ dayofmonth }}{% endset %}{% endif %}' +
-                '{{ _minute }} {{ _hour }} {{ _dayofmonth }} {{ month }} {{ dayofweek }}' +
+                '{{ [_minute, _hour, _dayofmonth, month, dayofweek] | join(" ") | cron2human }}' +
                 '{% else %}' +
                 '{{ execution | capitalize | translate }}' +
                 '{% endif %}'

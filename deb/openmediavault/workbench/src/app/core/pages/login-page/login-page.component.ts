@@ -88,8 +88,8 @@ export class LoginPageComponent implements OnInit {
     private dialogService: DialogService,
     private router: Router
   ) {
-    this.currentLocale = LocaleService.getLocale();
-    this.locales = LocaleService.getLocales();
+    this.currentLocale = LocaleService.getCurrentLocale();
+    this.locales = LocaleService.getSupportedLocales();
   }
 
   ngOnInit(): void {
@@ -115,7 +115,7 @@ export class LoginPageComponent implements OnInit {
 
   onSelectLocale(locale) {
     // Update the browser cookie and reload the page.
-    LocaleService.setLocale(locale);
+    LocaleService.setCurrentLocale(locale);
     this.router.navigate(['/reload']);
   }
 }

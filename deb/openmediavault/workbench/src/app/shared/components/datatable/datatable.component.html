@@ -138,6 +138,11 @@
   {{ value | localeDate:'relative':true }}
 </ng-template>
 
+<ng-template #cronToHumanTpl
+             let-value="value">
+  {{ value | cron2human }}
+</ng-template>
+
 <ng-template #progressBarTpl
              let-value="value"
              let-column="column"
