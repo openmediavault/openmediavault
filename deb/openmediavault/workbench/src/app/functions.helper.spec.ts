@@ -128,6 +128,12 @@ describe('functions.helper', () => {
     expect(format('{{ baz | not }}', data)).toBe('false');
   });
 
+  it('should format string [8]', () => {
+    const data = { foo: '* * * * *', bar: '29 13 * * *' };
+    expect(format('{{ foo | cron2human }}', data)).toBe('Every minute');
+    expect(format('{{ bar | cron2human }}', data)).toBe('At 01:29 PM');
+  });
+
   it('should format deep [1]', () => {
     const data = { foo: { bar: 'xyz' } };
     expect(formatDeep('My name is {{ foo.bar }}', data)).toEqual('My name is xyz');

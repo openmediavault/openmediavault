@@ -102,6 +102,8 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   buttonToggleTpl: TemplateRef<any>;
   @ViewChild('copyToClipboardTpl', { static: true })
   copyToClipboardTpl: TemplateRef<any>;
+  @ViewChild('cronToHumanTpl', { static: true })
+  cronToHumanTpl: TemplateRef<any>;
 
   // Define a query selector if the datatable is used in an
   // overflow container.
@@ -465,7 +467,8 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
       unsortedList: this.unsortedListTpl,
       template: this.templateTpl,
       buttonToggle: this.buttonToggleTpl,
-      copyToClipboard: this.copyToClipboardTpl
+      copyToClipboard: this.copyToClipboardTpl,
+      cronToHuman: this.cronToHumanTpl
     };
   }
 

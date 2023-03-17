@@ -5,6 +5,7 @@ import { ArrayPipe } from '~/app/shared/pipes/array.pipe';
 import { BinaryUnitPipe } from '~/app/shared/pipes/binary-unit.pipe';
 import { Br2nlPipe } from '~/app/shared/pipes/br2nl.pipe';
 import { CountPipe } from '~/app/shared/pipes/count.pipe';
+import { Cron2humanPipe } from '~/app/shared/pipes/cron2human.pipe';
 import { DefaultToPipe } from '~/app/shared/pipes/default-to.pipe';
 import { EncodeUriComponentPipe } from '~/app/shared/pipes/encode-uri-component.pipe';
 import { HttpErrorResponsePipe } from '~/app/shared/pipes/http-error-response.pipe';
@@ -51,7 +52,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     PreventHtmlPipe,
     SortPipe,
     CountPipe,
-    SplitPipe
+    SplitPipe,
+    Cron2humanPipe
   ],
   imports: [CommonModule],
   exports: [
@@ -78,7 +80,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     PreventHtmlPipe,
     SortPipe,
     CountPipe,
-    SplitPipe
+    SplitPipe,
+    Cron2humanPipe
   ],
   providers: [
     ToBooleanPipe,
@@ -104,7 +107,8 @@ import { UpperFirstPipe } from '~/app/shared/pipes/upper-first.pipe';
     PreventHtmlPipe,
     SortPipe,
     CountPipe,
-    SplitPipe
+    SplitPipe,
+    Cron2humanPipe
   ]
 })
 export class PipesModule {}

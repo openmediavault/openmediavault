@@ -80,8 +80,8 @@ export class TopBarComponent implements OnDestroy {
     private notificationService: NotificationService,
     private systemInformationService: SystemInformationService
   ) {
-    this.currentLocale = LocaleService.getLocale();
-    this.locales = LocaleService.getLocales();
+    this.currentLocale = LocaleService.getCurrentLocale();
+    this.locales = LocaleService.getSupportedLocales();
     this.username = this.authSessionService.getUsername();
     this.loggedInAs = gettext(
       format('Logged in as <strong>{{ username }}</strong>', { username: this.username })
@@ -191,7 +191,7 @@ export class TopBarComponent implements OnDestroy {
 
   onLocale(locale): void {
     // Update browser cookie and reload page.
-    LocaleService.setLocale(locale);
+    LocaleService.setCurrentLocale(locale);
     this.router.navigate(['/reload']);
   }
 

@@ -54,6 +54,7 @@
     "chart.js": "^3.9.1",
     "chartjs-plugin-datalabels": "^2.2.0",
     "core-js": "3.29.0",
+    "cronstrue": "^2.23.0",
     "dayjs": "^1.11.7",
     "lodash": "^4.17.21",
     "ng-block-ui": "^3.0.2",

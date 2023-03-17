@@ -18,51 +18,40 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 
-import { Locale } from '~/app/shared/enum/locale.enum';
+import { getCurrentLocale, setCurrentLocale, SupportedLocales } from '~/app/i18n.helper';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocaleService {
   /**
-   * Get the browser locale.
-   *
-   * @return The browser locale, e.g. 'en_GB', 'de_DE'.
+   * Get the current locale.
    */
-  static getBrowserLocale(): string {
-    let result: string;
-    if (_.isArray(navigator.languages)) {
-      result = _.chain<string>(navigator.languages)
-        .filter((l: string) => l.includes('-'))
-        .map((l: string) => l.replace('-', '_'))
-        .filter((l: string) => _.has(Locale, l))
-        .first()
-        .value();
-    }
-    return _.defaultTo(result, 'en_GB');
-  }
-
-  static getLocale(): string {
-    return localStorage.getItem('locale') || LocaleService.getBrowserLocale();
-  }
-
-  static setLocale(locale: string) {
-    localStorage.setItem('locale', locale);
+  static getCurrentLocale(): string {
+    return getCurrentLocale();
   }
 
   /**
-   * Get a list of supported locales.
+   * Set the current locale.
+   */
+  static setCurrentLocale(locale: string): void {
+    setCurrentLocale(locale);
+  }
+
+  /**
+   * Get an object of the supported locales, where the key is the country
+   * code and the value is the long description of the locale.
    *
    * @return A dictionary of locales, e.g. {
    *     'en_GB': 'English',
    *     'de_DE': 'Deutsch'
    *   }.
    */
-  static getLocales(): Record<string, string> {
+  static getSupportedLocales(): Record<string, string> {
     return _.reduce(
-      _.keys(Locale),
+      _.keys(SupportedLocales),
       (d, k) => {
-        d[k] = _.get(Locale, k);
+        d[k] = _.get(SupportedLocales, k);
         return d;
       },
       {}

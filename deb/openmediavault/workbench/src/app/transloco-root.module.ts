@@ -12,7 +12,7 @@ import * as _ from 'lodash';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Locale } from '~/app/shared/enum/locale.enum';
+import { SupportedLocales } from '~/app/i18n.helper';
 import { environment } from '~/environments/environment';
 
 @Injectable({ providedIn: 'root' })
@@ -39,7 +39,7 @@ export class TranslocoHttpLoader implements TranslocoLoader {
     {
       provide: TRANSLOCO_CONFIG,
       useValue: translocoConfig({
-        availableLangs: _.keys(Locale),
+        availableLangs: _.keys(SupportedLocales),
         defaultLang: 'en_GB',
         missingHandler: { allowEmpty: true, logMissingKey: false },
         prodMode: environment.production,
