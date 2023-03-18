@@ -27,7 +27,8 @@ import {
 import {
   FormFieldConfig,
   FormFieldConstraintValidator,
-  FormFieldModifier, FormFieldName
+  FormFieldModifier,
+  FormFieldName
 } from '~/app/core/components/intuition/models/form-field-config.type';
 import { format } from '~/app/functions.helper';
 import { CustomValidators } from '~/app/shared/forms/custom-validators';
