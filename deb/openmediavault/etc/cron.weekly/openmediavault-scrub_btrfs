@@ -40,7 +40,7 @@ do
   device=${row% *}
   mountpoint=${row#* }
 
-  omv_log "Scrubbing ${device} ..."
+  omv_log "Scrubbing the file system ${device} ..."
 
   cmdargs="${OMV_BTRFS_SCRUB_PRIORITY}"
   if omv_checkyesno ${OMV_BTRFS_SCRUB_READONLY}; then

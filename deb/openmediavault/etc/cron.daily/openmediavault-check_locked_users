@@ -47,4 +47,6 @@ if [ $(faillock | sed -E -e '/^[^:]+:$/d' -e '/^When/d' | wc -l) -gt 0 ]; then
     faillock;
     echo "\nYou can reset their counters and unlock them via the omv-firstaid command."
 	) | mail -E -s "Locked users overview" root
+else
+  omv_log "No locked/banned users found."
 fi

@@ -36,7 +36,7 @@ omv_log "Perform a check for expired SSL certificates."
 for f in /etc/ssl/certs/${OMV_SSL_CERTIFICATE_PREFIX}*.crt ; do
   [ -e "${f}" ] || continue
 
-  omv_log "Validating ${f} ..."
+  omv_log "Validating the SSL certificate ${f} ..."
 
   enddate=$(openssl x509 -enddate -noout -in "${f}" | sed "s/.*=\(.*\)/\1/" | awk -F " " '{print $1,$2,$3,$4}')
   enddate_seconds=$(date -d "${enddate}" +%s)
@@ -52,5 +52,7 @@ for f in /etc/ssl/certs/${OMV_SSL_CERTIFICATE_PREFIX}*.crt ; do
       echo "Subject: ${subject}"
       echo "Expiration date: ${enddate}"
     ) | mail -E -s "A SSL certificate expires in ${datediff_days} days" root
+  else
+    omv_log "The SSL certificate $(basename ${f}) is valid."
   fi
 done
