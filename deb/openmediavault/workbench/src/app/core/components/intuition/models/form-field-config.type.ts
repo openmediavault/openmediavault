@@ -16,12 +16,11 @@
  * GNU General Public License for more details.
  */
 import { MatFormDatatableAction } from '~/app/core/components/intuition/material/mat-form-datatable/mat-form-datatable.component';
+import { FormFieldName } from '~/app/core/components/intuition/models/form.type';
 import { Constraint } from '~/app/shared/models/constraint.type';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { DatatableColumn } from '~/app/shared/models/datatable-column.type';
 import { Sorter } from '~/app/shared/models/sorter.type';
-
-export type FormFieldName = string;
 
 export type FormFieldConfig = {
   // The following field controls are supported:

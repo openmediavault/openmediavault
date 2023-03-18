@@ -18,7 +18,7 @@
 import { ConnectedPosition } from '@angular/cdk/overlay';
 import { ViewportRuler } from '@angular/cdk/scrolling';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { AbstractControl, FormControl } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
 import { MatSelectionListChange } from '@angular/material/list';
 import * as _ from 'lodash';
@@ -94,7 +94,7 @@ export class FormFolderbrowserComponent
       });
     // Subscribe to changes of the 'dirRefIdField' field.
     if (this.config.dirVisible) {
-      const dirRefIdControl = this.formGroup.get(this.config.dirRefIdField);
+      const dirRefIdControl: AbstractControl = this.formGroup.get(this.config.dirRefIdField);
       if (dirRefIdControl) {
         this.subscriptions.add(
           dirRefIdControl.valueChanges.subscribe((value) => {

@@ -25,6 +25,7 @@ import {
 } from '@angular/forms';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
+import { debounceTime } from 'rxjs/operators';
 import validator from 'validator';
 
 import { format, formatDeep, toBytes } from '~/app/functions.helper';
@@ -121,9 +122,12 @@ export class CustomValidators {
       // Subscribe to value changes for all fields involved.
       if (!hasSubscribed) {
         props.forEach((path) => {
-          control.parent.get(path).valueChanges.subscribe(() => {
-            control.updateValueAndValidity({ emitEvent: false });
-          });
+          control.parent
+            .get(path)
+            .valueChanges.pipe(debounceTime(5))
+            .subscribe(() => {
+              control.updateValueAndValidity({ emitEvent: false });
+            });
         });
         hasSubscribed = true;
       }
@@ -172,9 +176,12 @@ export class CustomValidators {
       // Subscribe to value changes for all fields involved.
       if (!hasSubscribed) {
         props.forEach((path) => {
-          control.parent.get(path).valueChanges.subscribe(() => {
-            control.updateValueAndValidity({ emitEvent: false });
-          });
+          control.parent
+            .get(path)
+            .valueChanges.pipe(debounceTime(5))
+            .subscribe(() => {
+              control.updateValueAndValidity({ emitEvent: false });
+            });
         });
         hasSubscribed = true;
       }
@@ -431,7 +438,7 @@ export class CustomValidators {
         // and the state of the form field will be updated.
         props.forEach((path) => {
           const pathControl = control.parent.get(path);
-          pathControl.valueChanges.subscribe(() => {
+          pathControl.valueChanges.pipe(debounceTime(5)).subscribe(() => {
             const nativeElement: HTMLElement = _.get(control, 'nativeElement');
             const formFieldElement = nativeElement && nativeElement.closest('.mat-form-field');
             const values = _.merge({}, context, getFormValues(control));

@@ -16,12 +16,14 @@
  * GNU General Public License for more details.
  */
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EMPTY } from 'rxjs';
 import { catchError, distinctUntilChanged, finalize } from 'rxjs/operators';
 
+import { FormValues } from '~/app/core/components/intuition/models/form.type';
 import {
   FormPageButtonConfig,
   FormPageConfig
@@ -294,14 +296,14 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
     self.editing = true;
     self.loadData = () => this.loadData('/');
     self.afterViewInitEvent.subscribe(() => {
-      const control = self.form.formGroup.get('file');
-      control.valueChanges.pipe(distinctUntilChanged()).subscribe((value) => this.loadData(value));
+      const control: AbstractControl = self.form.formGroup.get('file');
+      control?.valueChanges.pipe(distinctUntilChanged()).subscribe((value) => this.loadData(value));
     });
   }
 
   onCopyPermissions() {
-    const uuid = _.get(this.page.routeParams, 'uuid');
-    const values = this.page.getFormValues();
+    const uuid: string = _.get(this.page.routeParams, 'uuid');
+    const values: FormValues = this.page.getFormValues();
     this.dialogService
       .open(ModalDialogComponent, {
         data: {
@@ -367,7 +369,7 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
   }
 
   protected loadData(file: string) {
-    const uuid = _.get(this.page.routeParams, 'uuid');
+    const uuid: string = _.get(this.page.routeParams, 'uuid');
     this.page.loading = true;
     this.rpcService
       .request('ShareMgmt', 'getFileACL', {

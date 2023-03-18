@@ -24,6 +24,8 @@ import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { finalize } from 'rxjs/operators';
 
 import { FormComponent } from '~/app/core/components/intuition/form/form.component';
+import { FormFieldName } from '~/app/core/components/intuition/models/form.type';
+import { FormValues } from '~/app/core/components/intuition/models/form.type';
 import {
   FormDialogButtonConfig,
   FormDialogConfig
@@ -66,21 +68,15 @@ export class FormDialogComponent {
   }
 
   /**
-   * Sets the values of the form fields.
+   * Sets the form values.
    *
    * @param values The values to be set.
    */
-  setFormValues(values: Array<any>) {
-    // Set the value for each form field separately to prevent a
-    // runtime error to be thrown when the values contains keys
-    // for non-existing fields or when there is no form field for
-    // a key.
-    _.forEach(values, (value: any, key: string) => {
-      const control = this.form.formGroup.get(key);
-      if (!_.isNull(control)) {
-        control.setValue(value);
-      }
-    });
+  setFormValues(values: FormValues, markAsPristine = true): void {
+    this.form.formGroup.patchValue(values);
+    if (markAsPristine) {
+      this.form.formGroup.markAsPristine();
+    }
   }
 
   /**
@@ -89,14 +85,17 @@ export class FormDialogComponent {
    *
    * @return Returns an object containing the form field values.
    */
-  getFormValues(): Record<string, any> {
-    const values = _.pickBy(this.form.formGroup.value, (value: any, key: string) => {
-      const field = _.find(this.config.fields, { name: key });
-      if (_.isUndefined(field)) {
-        return true;
+  getFormValues(): FormValues {
+    const values: FormValues = _.pickBy(
+      this.form.formGroup.getRawValue(),
+      (value: any, key: FormFieldName) => {
+        const field = _.find(this.config.fields, { name: key });
+        if (_.isUndefined(field)) {
+          return true;
+        }
+        return _.defaultTo(field.submitValue, true);
       }
-      return _.defaultTo(field.submitValue, true);
-    });
+    );
     return values;
   }
 
@@ -124,7 +123,7 @@ export class FormDialogComponent {
   }
 
   private onButtonClick(buttonConfig: FormDialogButtonConfig) {
-    const values = this.getFormValues();
+    const values: FormValues = this.getFormValues();
     const dialogResult = _.defaultTo(buttonConfig.dialogResult, values);
     switch (buttonConfig?.execute?.type) {
       case 'url':

@@ -16,7 +16,14 @@
  * GNU General Public License for more details.
  */
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ValidatorFn,
+  Validators
+} from '@angular/forms';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 
@@ -24,11 +31,11 @@ import {
   flattenFormFieldConfig,
   setupConfObjUuidFields
 } from '~/app/core/components/intuition/functions.helper';
+import { FormFieldName } from '~/app/core/components/intuition/models/form.type';
 import {
   FormFieldConfig,
   FormFieldConstraintValidator,
-  FormFieldModifier,
-  FormFieldName
+  FormFieldModifier
 } from '~/app/core/components/intuition/models/form-field-config.type';
 import { format } from '~/app/functions.helper';
 import { CustomValidators } from '~/app/shared/forms/custom-validators';
@@ -77,7 +84,7 @@ export class FormComponent implements AfterViewInit, OnInit {
       });
     });
     _.forEach(_.uniq(fieldsToUpdate), (name: FormFieldName) => {
-      const control = this.formGroup.get(name);
+      const control: AbstractControl = this.formGroup.get(name);
       control?.updateValueAndValidity({ onlySelf: true, emitEvent: true });
     });
   }

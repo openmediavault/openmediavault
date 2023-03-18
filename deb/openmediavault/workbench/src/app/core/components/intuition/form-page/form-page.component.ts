@@ -22,7 +22,7 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EMPTY, Subscription } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { catchError, debounceTime, finalize } from 'rxjs/operators';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import { FormComponent } from '~/app/core/components/intuition/form/form.component';
@@ -30,6 +30,8 @@ import {
   flattenFormFieldConfig,
   setupConfObjUuidFields
 } from '~/app/core/components/intuition/functions.helper';
+import { FormFieldName } from '~/app/core/components/intuition/models/form.type';
+import { FormValues } from '~/app/core/components/intuition/models/form.type';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
 import {
   FormPageButtonConfig,
@@ -136,7 +138,7 @@ export class FormPageComponent
     // Process all specified constraints per button.
     if (_.some(this.config.buttons, (button) => _.isPlainObject(button.enabledConstraint))) {
       this.subscriptions.add(
-        this.form.formGroup.valueChanges.subscribe((values: Record<any, any>) => {
+        this.form.formGroup.valueChanges.pipe(debounceTime(5)).subscribe((values: FormValues) => {
           _.forEach(this.config.buttons, (button) => {
             if (_.isPlainObject(button.enabledConstraint)) {
               button.disabled = !ConstraintService.test(button.enabledConstraint, values);
@@ -201,8 +203,10 @@ export class FormPageComponent
 
   /**
    * Sets the form values.
+   *
+   * @param values The values to be set.
    */
-  setFormValues(values: Record<string, any>, markAsPristine = true): void {
+  setFormValues(values: FormValues, markAsPristine = true): void {
     this.form.formGroup.patchValue(values);
     if (markAsPristine) {
       this.form.formGroup.markAsPristine();
@@ -215,20 +219,23 @@ export class FormPageComponent
    *
    * @return Returns an object containing the form field values.
    */
-  getFormValues(): Record<string, any> {
-    const allFields = flattenFormFieldConfig(this.config.fields);
-    const values = _.pickBy(this.form.formGroup.getRawValue(), (value, key) => {
-      const field = _.find(allFields, { name: key });
-      if (_.isUndefined(field)) {
-        return true;
+  getFormValues(): FormValues {
+    const allFields: Array<FormFieldConfig> = flattenFormFieldConfig(this.config.fields);
+    const values: FormValues = _.pickBy(
+      this.form.formGroup.getRawValue(),
+      (value: any, key: FormFieldName) => {
+        const field = _.find(allFields, { name: key });
+        if (_.isUndefined(field)) {
+          return true;
+        }
+        return _.defaultTo(field.submitValue, true);
       }
-      return _.defaultTo(field.submitValue, true);
-    });
+    );
     return values;
   }
 
   onButtonClick(buttonConfig: FormPageButtonConfig) {
-    let values = this.getFormValues();
+    let values: FormValues = this.getFormValues();
     // Closure that handles the button action.
     const doButtonActionFn = () => {
       switch (buttonConfig?.execute?.type) {

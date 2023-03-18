@@ -15,6 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
+import { FormValues } from '~/app/core/components/intuition/models/form.type';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
 import { Constraint } from '~/app/shared/models/constraint.type';
 import { ModalDialogConfig } from '~/app/shared/models/modal-dialog-config.type';
@@ -170,5 +171,5 @@ export type FormPageButtonExecute = {
     successUrl?: string;
   };
   // A callback function. Internal only.
-  click?: (buttonConfig: FormPageButtonConfig, values: Record<string, any>) => void;
+  click?: (buttonConfig: FormPageButtonConfig, values: FormValues) => void;
 };
