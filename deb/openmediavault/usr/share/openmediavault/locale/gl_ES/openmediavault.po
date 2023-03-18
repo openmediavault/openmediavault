@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-12 13:54+0100\n"
+"POT-Creation-Date: 2023-03-16 10:40+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013,2015\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
@@ -759,7 +759,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-msgid "Copy privileges"
+msgid "Copy permissions"
 msgstr ""
 
 msgid "Copy public SSH key"
@@ -1011,7 +1011,7 @@ msgstr "Xibuti"
 msgid "Do you really want to apply the configuration changes?"
 msgstr "Confirma que quere aplicar os cambios na configuración?"
 
-msgid "Do you really want to copy the privileges from the shared folder?"
+msgid "Do you really want to copy the permissions from the shared folder?"
 msgstr ""
 
 msgid ""
@@ -2234,6 +2234,9 @@ msgstr ""
 msgid "Period of validity"
 msgstr "Período de vixencia"
 
+msgid "Permission"
+msgstr ""
+
 msgid "Permissions"
 msgstr "Permisos"
 
@@ -2410,12 +2413,6 @@ msgstr "Enderezo de correo primario"
 
 msgid "Private key"
 msgstr "Chave privada"
-
-msgid "Privilege"
-msgstr "Privilexio"
-
-msgid "Privileges"
-msgstr "Privilexios"
 
 msgid "Process monitoring"
 msgstr "Supervisión dos procesos"
@@ -2875,11 +2872,11 @@ msgstr "Nome do cartafol compartido"
 msgid "Shared folder path"
 msgstr "Ruta ao cartafol compartido"
 
-msgid "Shared folder permissions have been transferred."
+msgid "Shared folder permissions"
 msgstr ""
 
-msgid "Shared folder privileges"
-msgstr "Privilexios do cartafol compartido"
+msgid "Shared folder permissions have been copied."
+msgstr ""
 
 msgid "Shares"
 msgstr "Recursos compartidos"
@@ -3285,7 +3282,7 @@ msgstr ""
 msgid "The server is unavailable to handle this request right now."
 msgstr ""
 
-msgid "The shared folder from which the privileges are copied."
+msgid "The shared folder from which the permissions are copied."
 msgstr ""
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
@@ -3723,16 +3720,16 @@ msgstr ""
 msgid "Updated password."
 msgstr ""
 
+msgid "Updated permissions of group \"{{ name }}\"."
+msgstr ""
+
+msgid "Updated permissions of shared folder."
+msgstr ""
+
+msgid "Updated permissions of user \"{{ name }}\"."
+msgstr ""
+
 msgid "Updated power management settings."
-msgstr ""
-
-msgid "Updated privileges of group \"{{ name }}\"."
-msgstr ""
-
-msgid "Updated privileges of shared folder."
-msgstr ""
-
-msgid "Updated privileges of user \"{{ name }}\"."
 msgstr ""
 
 msgid "Updated proxy settings."

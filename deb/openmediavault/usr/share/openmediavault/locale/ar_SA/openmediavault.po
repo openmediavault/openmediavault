@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-12 13:54+0100\n"
+"POT-Creation-Date: 2023-03-16 10:40+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2022\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -757,8 +757,8 @@ msgstr "تم نسخ شهادة SSH إلى {{ hostname }}."
 msgid "Copy"
 msgstr "نسخ"
 
-msgid "Copy privileges"
-msgstr "نسخ الامتيازات"
+msgid "Copy permissions"
+msgstr ""
 
 msgid "Copy public SSH key"
 msgstr "نسخ مفتاح SSH العمومي"
@@ -1009,7 +1009,7 @@ msgstr "جيبوتي"
 msgid "Do you really want to apply the configuration changes?"
 msgstr "هل تريد تطبيق تغييرات التكوين؟"
 
-msgid "Do you really want to copy the privileges from the shared folder?"
+msgid "Do you really want to copy the permissions from the shared folder?"
 msgstr ""
 
 msgid ""
@@ -2232,6 +2232,9 @@ msgstr ""
 msgid "Period of validity"
 msgstr "فترة الصلاحية"
 
+msgid "Permission"
+msgstr ""
+
 msgid "Permissions"
 msgstr "أذونات"
 
@@ -2408,12 +2411,6 @@ msgstr "البريد الإلكتروني الأساسي"
 
 msgid "Private key"
 msgstr "المفتاح الخاص"
-
-msgid "Privilege"
-msgstr "امتياز"
-
-msgid "Privileges"
-msgstr "الامتيازات"
 
 msgid "Process monitoring"
 msgstr "مراقبة العمليات"
@@ -2873,11 +2870,11 @@ msgstr "اسم المجلد المشترك"
 msgid "Shared folder path"
 msgstr "مسار المجلد المشترك"
 
-msgid "Shared folder permissions have been transferred."
+msgid "Shared folder permissions"
 msgstr ""
 
-msgid "Shared folder privileges"
-msgstr "امتيازات المجلد المشترك"
+msgid "Shared folder permissions have been copied."
+msgstr ""
 
 msgid "Shares"
 msgstr "المشاركات"
@@ -3283,7 +3280,7 @@ msgstr "الصفحة المطلوبة لم يتم العثور عليها."
 msgid "The server is unavailable to handle this request right now."
 msgstr ""
 
-msgid "The shared folder from which the privileges are copied."
+msgid "The shared folder from which the permissions are copied."
 msgstr ""
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
@@ -3721,16 +3718,16 @@ msgstr ""
 msgid "Updated password."
 msgstr ""
 
+msgid "Updated permissions of group \"{{ name }}\"."
+msgstr ""
+
+msgid "Updated permissions of shared folder."
+msgstr ""
+
+msgid "Updated permissions of user \"{{ name }}\"."
+msgstr ""
+
 msgid "Updated power management settings."
-msgstr ""
-
-msgid "Updated privileges of group \"{{ name }}\"."
-msgstr ""
-
-msgid "Updated privileges of shared folder."
-msgstr ""
-
-msgid "Updated privileges of user \"{{ name }}\"."
 msgstr ""
 
 msgid "Updated proxy settings."

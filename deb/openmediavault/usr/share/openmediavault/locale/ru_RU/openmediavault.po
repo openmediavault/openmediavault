@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-12 13:54+0100\n"
+"POT-Creation-Date: 2023-03-16 10:40+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Артур Мудрых <arturmon82@gmail.com>, 2017-2021\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -767,8 +767,8 @@ msgstr "SSH сертификат скопирован в {{ hostname }}."
 msgid "Copy"
 msgstr "Копировать"
 
-msgid "Copy privileges"
-msgstr "Скопировать права доступа"
+msgid "Copy permissions"
+msgstr ""
 
 msgid "Copy public SSH key"
 msgstr "Копировать публичный ключ SSH"
@@ -1019,7 +1019,7 @@ msgstr "Джибути"
 msgid "Do you really want to apply the configuration changes?"
 msgstr "Вы действительно хотите, применить изменения в конфигурации?"
 
-msgid "Do you really want to copy the privileges from the shared folder?"
+msgid "Do you really want to copy the permissions from the shared folder?"
 msgstr ""
 
 msgid ""
@@ -2242,6 +2242,9 @@ msgstr "Статистика производительности"
 msgid "Period of validity"
 msgstr "Срок действия"
 
+msgid "Permission"
+msgstr ""
+
 msgid "Permissions"
 msgstr "Права доступа"
 
@@ -2418,12 +2421,6 @@ msgstr "Основной e-mail"
 
 msgid "Private key"
 msgstr "Секретный ключ"
-
-msgid "Privilege"
-msgstr "Привилегии"
-
-msgid "Privileges"
-msgstr "Привилегии"
 
 msgid "Process monitoring"
 msgstr "Мониторинг процессов"
@@ -2883,11 +2880,11 @@ msgstr "Имя общей папки"
 msgid "Shared folder path"
 msgstr "Путь к Общей папке"
 
-msgid "Shared folder permissions have been transferred."
-msgstr "Права доступа к общим папкам были переданы."
+msgid "Shared folder permissions"
+msgstr ""
 
-msgid "Shared folder privileges"
-msgstr "Привилегии общей папки"
+msgid "Shared folder permissions have been copied."
+msgstr ""
 
 msgid "Shares"
 msgstr "Общие ресурсы"
@@ -3293,7 +3290,7 @@ msgstr "Запрошенная страница не найдена."
 msgid "The server is unavailable to handle this request right now."
 msgstr ""
 
-msgid "The shared folder from which the privileges are copied."
+msgid "The shared folder from which the permissions are copied."
 msgstr ""
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
@@ -3731,17 +3728,17 @@ msgstr "Настройки уведомлений изменены."
 msgid "Updated password."
 msgstr "Пароль изменён."
 
+msgid "Updated permissions of group \"{{ name }}\"."
+msgstr ""
+
+msgid "Updated permissions of shared folder."
+msgstr ""
+
+msgid "Updated permissions of user \"{{ name }}\"."
+msgstr ""
+
 msgid "Updated power management settings."
 msgstr "Настройки управления питанием изменены."
-
-msgid "Updated privileges of group \"{{ name }}\"."
-msgstr "Права доступа группы \"{{ name }}\" изменены."
-
-msgid "Updated privileges of shared folder."
-msgstr "Права доступа к общей папке изменены."
-
-msgid "Updated privileges of user \"{{ name }}\"."
-msgstr "Права пользователя \"{{ name }}\" изменены."
 
 msgid "Updated proxy settings."
 msgstr "Настройки прокси изменены."

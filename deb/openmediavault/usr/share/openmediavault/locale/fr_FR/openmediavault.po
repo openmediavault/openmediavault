@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-12 13:54+0100\n"
+"POT-Creation-Date: 2023-03-16 10:40+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: M@T D., 2022-2023\n"
 "Language-Team: French (France) (http://www.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -770,8 +770,8 @@ msgstr "Le certificat SSH a été copié vers {{ hostname }}."
 msgid "Copy"
 msgstr "Copie"
 
-msgid "Copy privileges"
-msgstr "Copier les privilèges"
+msgid "Copy permissions"
+msgstr ""
 
 msgid "Copy public SSH key"
 msgstr "Copier la clé publique SSH"
@@ -1022,8 +1022,8 @@ msgstr "Djibouti"
 msgid "Do you really want to apply the configuration changes?"
 msgstr "Voulez-vous vraiment appliquer les modifications de configuration ?"
 
-msgid "Do you really want to copy the privileges from the shared folder?"
-msgstr "Voulez-vous vraiment copier les privilèges à partir du dossier partagé ?"
+msgid "Do you really want to copy the permissions from the shared folder?"
+msgstr ""
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -2245,6 +2245,9 @@ msgstr "Statistiques"
 msgid "Period of validity"
 msgstr "Validité"
 
+msgid "Permission"
+msgstr ""
+
 msgid "Permissions"
 msgstr "Permissions"
 
@@ -2421,12 +2424,6 @@ msgstr "Adresse mail principale"
 
 msgid "Private key"
 msgstr "Clé privée"
-
-msgid "Privilege"
-msgstr "Privilèges"
-
-msgid "Privileges"
-msgstr "Privilèges"
 
 msgid "Process monitoring"
 msgstr "Surveillance des process"
@@ -2886,11 +2883,11 @@ msgstr "Nom du dossier partagé"
 msgid "Shared folder path"
 msgstr "Chemin du dossier partagé"
 
-msgid "Shared folder permissions have been transferred."
-msgstr "Les permissions du dossier partagé ont été transférées."
+msgid "Shared folder permissions"
+msgstr ""
 
-msgid "Shared folder privileges"
-msgstr "Privilèges du dossier partagé"
+msgid "Shared folder permissions have been copied."
+msgstr ""
 
 msgid "Shares"
 msgstr "Partages"
@@ -3296,8 +3293,8 @@ msgstr "La page demandé n'a pas été trouvée."
 msgid "The server is unavailable to handle this request right now."
 msgstr "Le serveur n'est pas disponible pour traiter cette demande pour le moment."
 
-msgid "The shared folder from which the privileges are copied."
-msgstr "Le dossier partagé à partir duquel les privilèges sont copiés."
+msgid "The shared folder from which the permissions are copied."
+msgstr ""
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr ""
@@ -3734,17 +3731,17 @@ msgstr "Paramètres de notification mis à jour."
 msgid "Updated password."
 msgstr "Mot de passe mis à jour."
 
+msgid "Updated permissions of group \"{{ name }}\"."
+msgstr ""
+
+msgid "Updated permissions of shared folder."
+msgstr ""
+
+msgid "Updated permissions of user \"{{ name }}\"."
+msgstr ""
+
 msgid "Updated power management settings."
 msgstr "Paramètres de gestion de l'alimentation mis à jour."
-
-msgid "Updated privileges of group \"{{ name }}\"."
-msgstr "Privilèges du group \"{{ name }}\" mis à jour."
-
-msgid "Updated privileges of shared folder."
-msgstr "Privilèges du dossier partagé mis à jour."
-
-msgid "Updated privileges of user \"{{ name }}\"."
-msgstr "Privilèges de l'utilisateur \"{{ name }}\" mis à jour."
 
 msgid "Updated proxy settings."
 msgstr "Paramètres proxy mis à jour."

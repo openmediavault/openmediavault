@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-12 13:54+0100\n"
+"POT-Creation-Date: 2023-03-16 10:40+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -757,8 +757,8 @@ msgstr "Zkopírován SSH certifikát na {{ hostname }}."
 msgid "Copy"
 msgstr "Zkopírovat"
 
-msgid "Copy privileges"
-msgstr "Zkopírovat oprávnění"
+msgid "Copy permissions"
+msgstr ""
 
 msgid "Copy public SSH key"
 msgstr "Zkopírovat veřejnou část SSH klíče"
@@ -1009,7 +1009,7 @@ msgstr "Džibutsko"
 msgid "Do you really want to apply the configuration changes?"
 msgstr "Opravdu chcete změny v nastavení potvrdit?"
 
-msgid "Do you really want to copy the privileges from the shared folder?"
+msgid "Do you really want to copy the permissions from the shared folder?"
 msgstr ""
 
 msgid ""
@@ -2232,6 +2232,9 @@ msgstr "Statistiky ohledně výkonnosti"
 msgid "Period of validity"
 msgstr "Období platnosti"
 
+msgid "Permission"
+msgstr ""
+
 msgid "Permissions"
 msgstr "Oprávnění"
 
@@ -2408,12 +2411,6 @@ msgstr "Hlavní e-mail"
 
 msgid "Private key"
 msgstr "Soukromá část klíče"
-
-msgid "Privilege"
-msgstr "Oprávnění"
-
-msgid "Privileges"
-msgstr "Oprávnění"
 
 msgid "Process monitoring"
 msgstr "Sledování procesů"
@@ -2873,11 +2870,11 @@ msgstr "Název sdílené složky"
 msgid "Shared folder path"
 msgstr "Popis umístění sdílené složky"
 
-msgid "Shared folder permissions have been transferred."
-msgstr "Oprávnění pro sdílenou složku byla přenesena."
+msgid "Shared folder permissions"
+msgstr ""
 
-msgid "Shared folder privileges"
-msgstr "Oprávnění sdílené složky"
+msgid "Shared folder permissions have been copied."
+msgstr ""
 
 msgid "Shares"
 msgstr "Sdílení"
@@ -3283,8 +3280,8 @@ msgstr "Požadovaná stránka nebyla nalezena."
 msgid "The server is unavailable to handle this request right now."
 msgstr "Server v tuto chvíli není dostupný pro vyřízení tohoto požadavku."
 
-msgid "The shared folder from which the privileges are copied."
-msgstr "Sdílená složka, ze které jsou přístupová oprávnění kopírována."
+msgid "The shared folder from which the permissions are copied."
+msgstr ""
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr ""
@@ -3721,17 +3718,17 @@ msgstr "Zaktualizována nastavení upozorňování."
 msgid "Updated password."
 msgstr "Heslo zaktualizováno."
 
+msgid "Updated permissions of group \"{{ name }}\"."
+msgstr ""
+
+msgid "Updated permissions of shared folder."
+msgstr ""
+
+msgid "Updated permissions of user \"{{ name }}\"."
+msgstr ""
+
 msgid "Updated power management settings."
 msgstr "Nastavení správy napájení zaktualizována."
-
-msgid "Updated privileges of group \"{{ name }}\"."
-msgstr "Zaktualizována oprávnění skupiny „{{ name }}“."
-
-msgid "Updated privileges of shared folder."
-msgstr "Zaktualizována oprávnění na sdílené složce."
-
-msgid "Updated privileges of user \"{{ name }}\"."
-msgstr "Zaktualizována oprávnění uživatele „{{ name }}“."
 
 msgid "Updated proxy settings."
 msgstr "Zaktualizována nastavení proxy."

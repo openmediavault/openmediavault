@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-12 13:54+0100\n"
+"POT-Creation-Date: 2023-03-16 10:40+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -759,7 +759,7 @@ msgstr ""
 msgid "Copy"
 msgstr "복사"
 
-msgid "Copy privileges"
+msgid "Copy permissions"
 msgstr ""
 
 msgid "Copy public SSH key"
@@ -1011,7 +1011,7 @@ msgstr "지부티"
 msgid "Do you really want to apply the configuration changes?"
 msgstr "변경된 설정을 적용하시겠습니까?"
 
-msgid "Do you really want to copy the privileges from the shared folder?"
+msgid "Do you really want to copy the permissions from the shared folder?"
 msgstr ""
 
 msgid ""
@@ -2234,6 +2234,9 @@ msgstr ""
 msgid "Period of validity"
 msgstr "유효 기간"
 
+msgid "Permission"
+msgstr ""
+
 msgid "Permissions"
 msgstr "권한"
 
@@ -2410,12 +2413,6 @@ msgstr "주 전자우편"
 
 msgid "Private key"
 msgstr "개인 키"
-
-msgid "Privilege"
-msgstr "권한"
-
-msgid "Privileges"
-msgstr "권한"
 
 msgid "Process monitoring"
 msgstr "프로세스 감시"
@@ -2875,11 +2872,11 @@ msgstr "공유 폴더 이름"
 msgid "Shared folder path"
 msgstr "공유 폴더 경로"
 
-msgid "Shared folder permissions have been transferred."
+msgid "Shared folder permissions"
 msgstr ""
 
-msgid "Shared folder privileges"
-msgstr "공유 폴더 권한"
+msgid "Shared folder permissions have been copied."
+msgstr ""
 
 msgid "Shares"
 msgstr "공유"
@@ -3285,7 +3282,7 @@ msgstr "요청하신 페이지를 찾을 수 없습니다."
 msgid "The server is unavailable to handle this request right now."
 msgstr ""
 
-msgid "The shared folder from which the privileges are copied."
+msgid "The shared folder from which the permissions are copied."
 msgstr ""
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
@@ -3723,16 +3720,16 @@ msgstr ""
 msgid "Updated password."
 msgstr ""
 
+msgid "Updated permissions of group \"{{ name }}\"."
+msgstr ""
+
+msgid "Updated permissions of shared folder."
+msgstr ""
+
+msgid "Updated permissions of user \"{{ name }}\"."
+msgstr ""
+
 msgid "Updated power management settings."
-msgstr ""
-
-msgid "Updated privileges of group \"{{ name }}\"."
-msgstr ""
-
-msgid "Updated privileges of shared folder."
-msgstr ""
-
-msgid "Updated privileges of user \"{{ name }}\"."
 msgstr ""
 
 msgid "Updated proxy settings."

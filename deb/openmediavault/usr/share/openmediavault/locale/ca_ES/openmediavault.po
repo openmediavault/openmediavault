@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-12 13:54+0100\n"
+"POT-Creation-Date: 2023-03-16 10:40+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2022\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -758,8 +758,8 @@ msgstr "S'ha copiat el certificat SSH a {{hostname}}. "
 msgid "Copy"
 msgstr "Còpia"
 
-msgid "Copy privileges"
-msgstr "Privilegis de còpia"
+msgid "Copy permissions"
+msgstr ""
 
 msgid "Copy public SSH key"
 msgstr "Copieu la clau pública SSH"
@@ -1010,8 +1010,8 @@ msgstr "Djibouti"
 msgid "Do you really want to apply the configuration changes?"
 msgstr "Segur que vol aplicar els canvis a la configuració?"
 
-msgid "Do you really want to copy the privileges from the shared folder?"
-msgstr "Realment voleu copiar els privilegis de la carpeta compartida?"
+msgid "Do you really want to copy the permissions from the shared folder?"
+msgstr ""
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -2233,6 +2233,9 @@ msgstr "Estadístiques de rendiment "
 msgid "Period of validity"
 msgstr "Període de validesa"
 
+msgid "Permission"
+msgstr ""
+
 msgid "Permissions"
 msgstr "Permisos"
 
@@ -2409,12 +2412,6 @@ msgstr "E-mail principal"
 
 msgid "Private key"
 msgstr "Clau privada"
-
-msgid "Privilege"
-msgstr "Privilegi"
-
-msgid "Privileges"
-msgstr "Privilegis"
 
 msgid "Process monitoring"
 msgstr "Monitoratge de processos"
@@ -2874,11 +2871,11 @@ msgstr "Nom de la carpeta compartida"
 msgid "Shared folder path"
 msgstr "Ruta de la carpeta compartida"
 
-msgid "Shared folder permissions have been transferred."
-msgstr "Els permisos de carpeta compartida s'han transferit. "
+msgid "Shared folder permissions"
+msgstr ""
 
-msgid "Shared folder privileges"
-msgstr "Privilegis de la carpeta compartida"
+msgid "Shared folder permissions have been copied."
+msgstr ""
 
 msgid "Shares"
 msgstr "Compartits"
@@ -3284,8 +3281,8 @@ msgstr "No s'ha trobat la pàgina sol·licitada."
 msgid "The server is unavailable to handle this request right now."
 msgstr "El servidor no està disponible per gestionar aquesta sol·licitud ara mateix. "
 
-msgid "The shared folder from which the privileges are copied."
-msgstr "La carpeta compartida des de la qual es copien els privilegis. "
+msgid "The shared folder from which the permissions are copied."
+msgstr ""
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr ""
@@ -3722,17 +3719,17 @@ msgstr "Configuració de notificacions actualitzada. "
 msgid "Updated password."
 msgstr "Contrasenya actualitzada. "
 
+msgid "Updated permissions of group \"{{ name }}\"."
+msgstr ""
+
+msgid "Updated permissions of shared folder."
+msgstr ""
+
+msgid "Updated permissions of user \"{{ name }}\"."
+msgstr ""
+
 msgid "Updated power management settings."
 msgstr "Configuració actualitzada de gestió d'energia. "
-
-msgid "Updated privileges of group \"{{ name }}\"."
-msgstr "S'han actualitzat els privilegis del grup \"{{name}}\". "
-
-msgid "Updated privileges of shared folder."
-msgstr "S'han actualitzat els privilegis de la carpeta compartida. "
-
-msgid "Updated privileges of user \"{{ name }}\"."
-msgstr "S'han actualitzat els privilegis de l'usuari \"{{name}}\". "
 
 msgid "Updated proxy settings."
 msgstr "Configuració del servidor intermediari actualitzada. "

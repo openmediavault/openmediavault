@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-12 13:54+0100\n"
+"POT-Creation-Date: 2023-03-16 10:40+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -325,7 +325,7 @@ msgid "All"
 msgstr "すべて"
 
 msgid "All Snapshots"
-msgstr ""
+msgstr "すべてのスナップショット"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr "すべてのパッケージがアップグレードされます。続行しますか？"
@@ -756,8 +756,8 @@ msgstr "SSH証明書を {{ hostname }} にコピーしました。"
 msgid "Copy"
 msgstr "コピー"
 
-msgid "Copy privileges"
-msgstr "特権のコピー"
+msgid "Copy permissions"
+msgstr ""
 
 msgid "Copy public SSH key"
 msgstr "公開SSHキーをコピー"
@@ -1008,8 +1008,8 @@ msgstr "ジブチ"
 msgid "Do you really want to apply the configuration changes?"
 msgstr "設定の変更を適用してよろしいですか？"
 
-msgid "Do you really want to copy the privileges from the shared folder?"
-msgstr "共有フォルダから権限をコピーしますか？"
+msgid "Do you really want to copy the permissions from the shared folder?"
+msgstr ""
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -1172,7 +1172,7 @@ msgid "Ethiopia"
 msgstr "エチオピア"
 
 msgid "Events"
-msgstr ""
+msgstr "イベント"
 
 msgid "Every N day of month"
 msgstr "毎月N日"
@@ -1891,7 +1891,7 @@ msgid "Method"
 msgstr "メソッド"
 
 msgid "Metric"
-msgstr ""
+msgstr "メトリック"
 
 msgid "Metropolitan France"
 msgstr "フランス・メトロポリテーヌ"
@@ -2231,6 +2231,9 @@ msgstr "パフォーマンス統計"
 msgid "Period of validity"
 msgstr "有効期間"
 
+msgid "Permission"
+msgstr ""
+
 msgid "Permissions"
 msgstr "パーミッション"
 
@@ -2407,12 +2410,6 @@ msgstr "プライマリメール"
 
 msgid "Private key"
 msgstr "プライベートキー"
-
-msgid "Privilege"
-msgstr "特権"
-
-msgid "Privileges"
-msgstr "特権"
 
 msgid "Process monitoring"
 msgstr "プロセスモニタリング"
@@ -2872,11 +2869,11 @@ msgstr "共有フォルダ名"
 msgid "Shared folder path"
 msgstr "共有フォルダのパス"
 
-msgid "Shared folder permissions have been transferred."
-msgstr "共有フォルダの権限が移管されました。"
+msgid "Shared folder permissions"
+msgstr ""
 
-msgid "Shared folder privileges"
-msgstr "共有フォルダの権限"
+msgid "Shared folder permissions have been copied."
+msgstr ""
 
 msgid "Shares"
 msgstr "共有"
@@ -3282,8 +3279,8 @@ msgstr "要求されたページはありません。"
 msgid "The server is unavailable to handle this request right now."
 msgstr "サーバーは現在、このリクエストを処理することができません。"
 
-msgid "The shared folder from which the privileges are copied."
-msgstr "権限のコピー元の共有フォルダー。"
+msgid "The shared folder from which the permissions are copied."
+msgstr ""
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr "共有フォルダ{{ _selected[0].name }}が正常に作成されました。"
@@ -3712,7 +3709,7 @@ msgid "Updated network settings."
 msgstr "ネットワーク設定を更新しました。"
 
 msgid "Updated notification event settings."
-msgstr ""
+msgstr "通知イベント設定を更新しました。"
 
 msgid "Updated notification settings."
 msgstr "通知設定を更新しました。"
@@ -3720,17 +3717,17 @@ msgstr "通知設定を更新しました。"
 msgid "Updated password."
 msgstr "パスワードを更新しました。"
 
+msgid "Updated permissions of group \"{{ name }}\"."
+msgstr ""
+
+msgid "Updated permissions of shared folder."
+msgstr ""
+
+msgid "Updated permissions of user \"{{ name }}\"."
+msgstr ""
+
 msgid "Updated power management settings."
 msgstr "パワーマネージメントの設定を更新しました。"
-
-msgid "Updated privileges of group \"{{ name }}\"."
-msgstr "グループ \"{{ name }}\" の権限を更新しました。"
-
-msgid "Updated privileges of shared folder."
-msgstr "共有フォルダの権限を更新しました。"
-
-msgid "Updated privileges of user \"{{ name }}\"."
-msgstr "ユーザー \"{{ name }}\" の権限を更新しました。"
 
 msgid "Updated proxy settings."
 msgstr "プロキシ設定を更新しました。"

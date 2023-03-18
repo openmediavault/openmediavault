@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-12 13:54+0100\n"
+"POT-Creation-Date: 2023-03-16 10:40+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2023\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -768,8 +768,8 @@ msgstr "Zertifikat nach {{ hostname }} kopiert."
 msgid "Copy"
 msgstr "Kopieren"
 
-msgid "Copy privileges"
-msgstr "Kopierrechte"
+msgid "Copy permissions"
+msgstr "Berechtigungen kopieren"
 
 msgid "Copy public SSH key"
 msgstr "Kopiere öffentlichen SSH Schlüssel"
@@ -919,7 +919,7 @@ msgid "Destination server"
 msgstr "Zielserver"
 
 msgid "Destination shared folder"
-msgstr "Ziel-Freigabe"
+msgstr "Freigegebener Zielordner"
 
 msgid "Details"
 msgstr "Details"
@@ -1020,7 +1020,7 @@ msgstr "Dschibuti"
 msgid "Do you really want to apply the configuration changes?"
 msgstr "Wollen Sie die Änderungen der Konfiguration wirklich anwenden?"
 
-msgid "Do you really want to copy the privileges from the shared folder?"
+msgid "Do you really want to copy the permissions from the shared folder?"
 msgstr "Wollen Sie wirklich die Berechtigungen des freigegebenen Ordners kopieren?"
 
 msgid ""
@@ -1517,7 +1517,7 @@ msgid ""
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr "Ist diese Option gesetzt, wird der Daemon das Root-Verzeichnis mit dem geteilten Ordner ersetzen bevor der Datei-Transfer gestartet wird. Folglich ist es nicht mehr möglich Benutzer und Gruppen nach Namen zuzuordnen, ebenso kann der Daemon absoluten symbolischen Links oder symbolischen Links, die sich außerhalb des neuen Root-Verzeichnis befinden, nicht mehr folgen."
+msgstr "Ist diese Option gesetzt, wird der Daemon das Root-Verzeichnis mit dem freigegebenen Ordner ersetzen bevor der Datei-Transfer gestartet wird. Folglich ist es nicht mehr möglich Benutzer und Gruppen nach Namen zuzuordnen, ebenso kann der Daemon absoluten symbolischen Links oder symbolischen Links, die sich außerhalb des neuen Root-Verzeichnis befinden, nicht mehr folgen."
 
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr "Wenn diese Option aktiviert ist wird jeder Downloadversuch fehlschlagen."
@@ -2243,6 +2243,9 @@ msgstr "Leistungsstatistiken"
 msgid "Period of validity"
 msgstr "Gültigkeitsdauer"
 
+msgid "Permission"
+msgstr "Berechtigungen"
+
 msgid "Permissions"
 msgstr "Zugriffsrechte"
 
@@ -2419,12 +2422,6 @@ msgstr "Primäre E-Mail"
 
 msgid "Private key"
 msgstr "Privater Schlüssel"
-
-msgid "Privilege"
-msgstr "Privileg"
-
-msgid "Privileges"
-msgstr "Privilegien"
 
 msgid "Process monitoring"
 msgstr "Prozessüberwachung"
@@ -2876,19 +2873,19 @@ msgid "Shared Folders"
 msgstr "Freigegebene Ordner"
 
 msgid "Shared folder"
-msgstr "Freigegebene Ordner"
+msgstr "Freigegebener Ordner"
 
 msgid "Shared folder name"
-msgstr "Name des freigegebene Ordners"
+msgstr "Name des freigegebenen Ordners"
 
 msgid "Shared folder path"
 msgstr "Pfad des freigegebenen Ordners"
 
-msgid "Shared folder permissions have been transferred."
-msgstr "Berechtigungen für freigegebene Ordner wurden übertragen."
+msgid "Shared folder permissions"
+msgstr "Berechtigungen für freigegebene Ordner"
 
-msgid "Shared folder privileges"
-msgstr "Privilegien der freigegebenen Ordner"
+msgid "Shared folder permissions have been copied."
+msgstr "Die Berechtigungen für freigegebene Ordner wurden kopiert."
 
 msgid "Shares"
 msgstr "Freigaben"
@@ -2969,7 +2966,7 @@ msgid "Source server"
 msgstr "Quellserver"
 
 msgid "Source shared folder"
-msgstr "Quell-Freigabe"
+msgstr "Freigegebener Quellordner"
 
 msgid "South Africa"
 msgstr "Südafrika"
@@ -3294,8 +3291,8 @@ msgstr "Die angeforderte Seite wurde nicht gefunden."
 msgid "The server is unavailable to handle this request right now."
 msgstr "Der Server ist derzeit nicht verfügbar, um diese Anfrage zu bearbeiten."
 
-msgid "The shared folder from which the privileges are copied."
-msgstr "Der freigegebene Ordner, von welchem die Berechtigungen kopiert werden."
+msgid "The shared folder from which the permissions are copied."
+msgstr "Der freigegebene Ordner, aus dem die Berechtigungen kopiert werden."
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr "Der gemeinsame Ordner {{ _selected[0].name }} wurde erfolgreich erstellt."
@@ -3732,17 +3729,17 @@ msgstr "Benachrichtigungseinstellungen wurde aktualisiert."
 msgid "Updated password."
 msgstr "Passwort wurde aktualisiert."
 
+msgid "Updated permissions of group \"{{ name }}\"."
+msgstr "Berechtigungen der Gruppe \"{{ name }}\" wurde aktualisiert."
+
+msgid "Updated permissions of shared folder."
+msgstr "Berechtigungen des freigegebenen Ordners wurden aktualisiert."
+
+msgid "Updated permissions of user \"{{ name }}\"."
+msgstr "Berechtigungen des Benutzers \"{{ name }}\" wurden aktualisisert."
+
 msgid "Updated power management settings."
 msgstr "Einstellungen für die Energieverwaltung wurde aktualisiert."
-
-msgid "Updated privileges of group \"{{ name }}\"."
-msgstr "Privilegien der Gruppe \"{{ name }}\" wurde aktualisiert."
-
-msgid "Updated privileges of shared folder."
-msgstr "Privilegien eines freigegebenen Ordner wurden aktualisiert."
-
-msgid "Updated privileges of user \"{{ name }}\"."
-msgstr "Privilegien des Benutzers \"{{ name }}\" wurden aktualisisert."
 
 msgid "Updated proxy settings."
 msgstr "Proxy-Einstellungen wurden aktualisisert."
