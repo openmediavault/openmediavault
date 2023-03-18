@@ -21,6 +21,8 @@ import { DataStore } from '~/app/shared/models/data-store.type';
 import { DatatableColumn } from '~/app/shared/models/datatable-column.type';
 import { Sorter } from '~/app/shared/models/sorter.type';
 
+export type FormFieldName = string;
+
 export type FormFieldConfig = {
   // The following field controls are supported:
   // .--------------------------------------------------------------------.
@@ -67,7 +69,7 @@ export type FormFieldConfig = {
     | 'hint'
     | 'codeEditor'
     | 'tagInput';
-  name?: string;
+  name?: FormFieldName;
   label?: string;
   placeholder?: string;
   tooltip?: string;
@@ -213,7 +215,7 @@ export type FormFieldConfig = {
   dirType?: 'sharedfolder' | 'mntent';
   // The name of the field that contains the UUID of the
   // shared folder or mount point configuration object.
-  dirRefIdField?: string;
+  dirRefIdField?: FormFieldName;
   // Set to `true` to show the path of the database object
   // specified with `dirType` and `dirRefIdField`.
   // Defaults to `false`.

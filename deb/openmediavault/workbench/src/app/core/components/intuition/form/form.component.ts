@@ -27,7 +27,7 @@ import {
 import {
   FormFieldConfig,
   FormFieldConstraintValidator,
-  FormFieldModifier
+  FormFieldModifier, FormFieldName
 } from '~/app/core/components/intuition/models/form-field-config.type';
 import { format } from '~/app/functions.helper';
 import { CustomValidators } from '~/app/shared/forms/custom-validators';
@@ -65,7 +65,7 @@ export class FormComponent implements AfterViewInit, OnInit {
     // which finally sets the correct (configured) state of the form field
     // after form initialization.
     const allFields: Array<FormFieldConfig> = flattenFormFieldConfig(this.config);
-    const fieldsToUpdate: Array<string> = [];
+    const fieldsToUpdate: Array<FormFieldName> = [];
     _.forEach(allFields, (field: FormFieldConfig) => {
       _.forEach(field?.modifiers, (modifier) => {
         if (['visible', 'hidden'].includes(modifier.type)) {
@@ -75,9 +75,9 @@ export class FormComponent implements AfterViewInit, OnInit {
         }
       });
     });
-    _.forEach(_.uniq(fieldsToUpdate), (path: string) => {
-      const control = this.formGroup.get(path);
-      control.updateValueAndValidity({ onlySelf: true, emitEvent: true });
+    _.forEach(_.uniq(fieldsToUpdate), (name: FormFieldName) => {
+      const control = this.formGroup.get(name);
+      control?.updateValueAndValidity({ onlySelf: true, emitEvent: true });
     });
   }
 
