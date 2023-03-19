@@ -91,14 +91,17 @@ export class PowermgmtTaskFormPageComponent extends BaseFormPageComponent {
           {
             type: 'value',
             typeConfig:
+              '{% if execution == "exactly" %}' +
               '{% set _minute = minute %}' +
               '{% set _hour = hour %}' +
               '{% set _dayofmonth = dayofmonth %}' +
               '{% if everynminute %}{% set _minute %}*/{{ minute }}{% endset %}{% endif %}' +
               '{% if everynhour %}{% set _hour %}*/{{ hour }}{% endset %}{% endif %}' +
               '{% if everyndayofmonth %}{% set _dayofmonth %}*/{{ dayofmonth }}{% endset %}{% endif %}' +
-              '{{ [_minute, _hour, _dayofmonth, month, dayofweek] | join(" ") | cron2human }}',
+              '{{ [_minute, _hour, _dayofmonth, month, dayofweek] | join(" ") | cron2human }}' +
+              '{% endif %}',
             deps: [
+              'execution',
               'minute',
               'everynminute',
               'hour',
