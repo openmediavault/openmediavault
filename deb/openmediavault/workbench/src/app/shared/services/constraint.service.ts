@@ -17,7 +17,7 @@
  */
 import * as _ from 'lodash';
 
-import { format, isUUID } from '~/app/functions.helper';
+import { format, isFormatable, isUUID } from '~/app/functions.helper';
 import {
   Constraint,
   ConstraintProperty,
@@ -106,7 +106,7 @@ export class ConstraintService {
           result = _.get(data, node.prop);
         } else if (_.has(node, 'value')) {
           node = node as ConstraintValue;
-          result = format(node.value, data);
+          result = isFormatable(node.value) ? format(node.value, data) : node.value;
         } else if (_.has(node, 'operator')) {
           let arg0;
           let arg1;
