@@ -454,18 +454,6 @@ describe('ConstraintService', () => {
     const result = ConstraintService.test(
       {
         operator: 'in',
-        arg0: { prop: 'locales' },
-        arg1: 'en'
-      },
-      object
-    );
-    expect(result).toBeTruthy();
-  });
-
-  it('should test (36)', () => {
-    const result = ConstraintService.test(
-      {
-        operator: 'in',
         arg0: { value: 2 },
         arg1: [1, 2, 3, 4]
       },

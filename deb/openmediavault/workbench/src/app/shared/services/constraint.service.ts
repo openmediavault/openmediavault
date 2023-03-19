@@ -165,13 +165,7 @@ export class ConstraintService {
             case 'in':
               arg0 = innerTest(data, node.arg0);
               arg1 = innerTest(data, node.arg1);
-              if (_.isString(arg0) && _.isString(arg1)) {
-                result = (arg1 as string).search(arg0) !== -1;
-              } else if (_.isArray(arg0) && _.isString(arg1)) {
-                result = _.includes(arg0, arg1);
-              } else {
-                result = _.includes(arg1, arg0);
-              }
+              result = _.includes(arg1, arg0);
               break;
             case 'startsWith':
               result = _.startsWith(innerTest(data, node.arg0), innerTest(data, node.arg1));
