@@ -51,6 +51,7 @@ export class ConstraintService {
             case 'eq':
             case '!==':
             case 'ne':
+            case '<>':
             case '==':
             case '!=':
             case '<':
@@ -134,6 +135,7 @@ export class ConstraintService {
             case '!=':
             case '!==':
             case 'ne':
+            case '<>':
               result = innerTest(data, node.arg0) !== innerTest(data, node.arg1);
               break;
             case '<':

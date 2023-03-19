@@ -204,12 +204,20 @@ export class CronTaskFormPageComponent extends BaseFormPageComponent {
                   operator: 'or',
                   arg0: { operator: 'ne', arg0: { prop: 'execution' }, arg1: 'exactly' },
                   arg1: {
-                    operator: '>',
+                    operator: 'or',
                     arg0: {
-                      operator: 'length',
-                      arg0: { prop: 'minute' }
+                      operator: '<>',
+                      arg0: {
+                        operator: 'length',
+                        arg0: { prop: 'minute' }
+                      },
+                      arg1: 1
                     },
-                    arg1: 1
+                    arg1: {
+                      operator: 'in',
+                      arg0: { value: '*' },
+                      arg1: { prop: 'minute' }
+                    }
                   }
                 }
               },
@@ -217,7 +225,7 @@ export class CronTaskFormPageComponent extends BaseFormPageComponent {
                 type: 'unchecked',
                 opposite: false,
                 constraint: {
-                  operator: '>',
+                  operator: '<>',
                   arg0: {
                     operator: 'length',
                     arg0: { prop: 'minute' }
@@ -295,12 +303,20 @@ export class CronTaskFormPageComponent extends BaseFormPageComponent {
                   operator: 'or',
                   arg0: { operator: 'ne', arg0: { prop: 'execution' }, arg1: 'exactly' },
                   arg1: {
-                    operator: '>',
+                    operator: 'or',
                     arg0: {
-                      operator: 'length',
-                      arg0: { prop: 'hour' }
+                      operator: '<>',
+                      arg0: {
+                        operator: 'length',
+                        arg0: { prop: 'hour' }
+                      },
+                      arg1: 1
                     },
-                    arg1: 1
+                    arg1: {
+                      operator: 'in',
+                      arg0: { value: '*' },
+                      arg1: { prop: 'hour' }
+                    }
                   }
                 }
               },
@@ -308,7 +324,7 @@ export class CronTaskFormPageComponent extends BaseFormPageComponent {
                 type: 'unchecked',
                 opposite: false,
                 constraint: {
-                  operator: '>',
+                  operator: '<>',
                   arg0: {
                     operator: 'length',
                     arg0: { prop: 'hour' }
@@ -393,12 +409,20 @@ export class CronTaskFormPageComponent extends BaseFormPageComponent {
                   operator: 'or',
                   arg0: { operator: 'ne', arg0: { prop: 'execution' }, arg1: 'exactly' },
                   arg1: {
-                    operator: '>',
+                    operator: 'or',
                     arg0: {
-                      operator: 'length',
-                      arg0: { prop: 'dayofmonth' }
+                      operator: '<>',
+                      arg0: {
+                        operator: 'length',
+                        arg0: { prop: 'dayofmonth' }
+                      },
+                      arg1: 1
                     },
-                    arg1: 1
+                    arg1: {
+                      operator: 'in',
+                      arg0: { value: '*' },
+                      arg1: { prop: 'dayofmonth' }
+                    }
                   }
                 }
               },
@@ -406,7 +430,7 @@ export class CronTaskFormPageComponent extends BaseFormPageComponent {
                 type: 'unchecked',
                 opposite: false,
                 constraint: {
-                  operator: '>',
+                  operator: '<>',
                   arg0: {
                     operator: 'length',
                     arg0: { prop: 'dayofmonth' }

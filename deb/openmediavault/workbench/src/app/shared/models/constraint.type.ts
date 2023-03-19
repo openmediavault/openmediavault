@@ -98,6 +98,7 @@ export type Constraint = {
     | 'eq'
     | '!=='
     | 'ne'
+    | '<>'
     | '=='
     | '!='
     | '<'

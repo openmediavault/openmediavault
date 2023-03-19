@@ -342,7 +342,7 @@ export class RsyncTaskFormPageComponent extends BaseFormPageComponent {
             type: 'select',
             name: 'minute',
             label: gettext('Minute'),
-            value: ['{{ moment("mm") }}'],
+            value: ['{{ moment("m") }}'],
             store: {
               data: [
                 ['*', '*'],
@@ -429,7 +429,7 @@ export class RsyncTaskFormPageComponent extends BaseFormPageComponent {
                 type: 'unchecked',
                 opposite: false,
                 constraint: {
-                  operator: '>',
+                  operator: '<>',
                   arg0: {
                     operator: 'length',
                     arg0: { prop: 'minute' }
@@ -440,12 +440,20 @@ export class RsyncTaskFormPageComponent extends BaseFormPageComponent {
               {
                 type: 'disabled',
                 constraint: {
-                  operator: '>',
+                  operator: 'or',
                   arg0: {
-                    operator: 'length',
-                    arg0: { prop: 'minute' }
+                    operator: '<>',
+                    arg0: {
+                      operator: 'length',
+                      arg0: { prop: 'minute' }
+                    },
+                    arg1: 1
                   },
-                  arg1: 1
+                  arg1: {
+                    operator: 'in',
+                    arg0: { value: '*' },
+                    arg1: { prop: 'minute' }
+                  }
                 }
               }
             ]
@@ -510,7 +518,7 @@ export class RsyncTaskFormPageComponent extends BaseFormPageComponent {
                 type: 'unchecked',
                 opposite: false,
                 constraint: {
-                  operator: '>',
+                  operator: '<>',
                   arg0: {
                     operator: 'length',
                     arg0: { prop: 'hour' }
@@ -521,12 +529,20 @@ export class RsyncTaskFormPageComponent extends BaseFormPageComponent {
               {
                 type: 'disabled',
                 constraint: {
-                  operator: '>',
+                  operator: 'or',
                   arg0: {
-                    operator: 'length',
-                    arg0: { prop: 'hour' }
+                    operator: '<>',
+                    arg0: {
+                      operator: 'length',
+                      arg0: { prop: 'hour' }
+                    },
+                    arg1: 1
                   },
-                  arg1: 1
+                  arg1: {
+                    operator: 'in',
+                    arg0: { value: '*' },
+                    arg1: { prop: 'hour' }
+                  }
                 }
               }
             ]
@@ -598,7 +614,7 @@ export class RsyncTaskFormPageComponent extends BaseFormPageComponent {
                 type: 'unchecked',
                 opposite: false,
                 constraint: {
-                  operator: '>',
+                  operator: '<>',
                   arg0: {
                     operator: 'length',
                     arg0: { prop: 'dayofmonth' }
@@ -609,12 +625,20 @@ export class RsyncTaskFormPageComponent extends BaseFormPageComponent {
               {
                 type: 'disabled',
                 constraint: {
-                  operator: '>',
+                  operator: 'or',
                   arg0: {
-                    operator: 'length',
-                    arg0: { prop: 'dayofmonth' }
+                    operator: '<>',
+                    arg0: {
+                      operator: 'length',
+                      arg0: { prop: 'dayofmonth' }
+                    },
+                    arg1: 1
                   },
-                  arg1: 1
+                  arg1: {
+                    operator: 'in',
+                    arg0: { value: '*' },
+                    arg1: { prop: 'dayofmonth' }
+                  }
                 }
               }
             ]

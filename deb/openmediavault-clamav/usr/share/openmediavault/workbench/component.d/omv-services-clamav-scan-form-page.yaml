@@ -195,7 +195,7 @@ data:
               - type: unchecked
                 opposite: false
                 constraint:
-                  operator: ">"
+                  operator: "<>"
                   arg0:
                     operator: length
                     arg0:
@@ -203,12 +203,20 @@ data:
                   arg1: 1
               - type: disabled
                 constraint:
-                  operator: ">"
+                  operator: or
                   arg0:
-                    operator: length
+                    operator: "<>"
                     arg0:
+                      operator: length
+                      arg0:
+                        prop: minute
+                    arg1: 1
+                  arg1:
+                    operator: "in"
+                    arg0:
+                      value: "*"
+                    arg1:
                       prop: minute
-                  arg1: 1
       - type: container
         fields:
           - type: select
@@ -282,7 +290,7 @@ data:
               - type: unchecked
                 opposite: false
                 constraint:
-                  operator: ">"
+                  operator: "<>"
                   arg0:
                     operator: length
                     arg0:
@@ -290,12 +298,20 @@ data:
                   arg1: 1
               - type: disabled
                 constraint:
-                  operator: ">"
+                  operator: or
                   arg0:
-                    operator: length
+                    operator: "<>"
                     arg0:
+                      operator: length
+                      arg0:
+                        prop: hour
+                    arg1: 1
+                  arg1:
+                    operator: "in"
+                    arg0:
+                      value: "*"
+                    arg1:
                       prop: hour
-                  arg1: 1
       - type: container
         fields:
           - type: select
@@ -383,7 +399,7 @@ data:
               - type: unchecked
                 opposite: false
                 constraint:
-                  operator: ">"
+                  operator: "<>"
                   arg0:
                     operator: length
                     arg0:
@@ -391,12 +407,20 @@ data:
                   arg1: 1
               - type: disabled
                 constraint:
-                  operator: ">"
+                  operator: or
                   arg0:
-                    operator: length
+                    operator: "<>"
                     arg0:
+                      operator: length
+                      arg0:
+                        prop: dayofmonth
+                    arg1: 1
+                  arg1:
+                    operator: "in"
+                    arg0:
+                      value: "*"
+                    arg1:
                       prop: dayofmonth
-                  arg1: 1
       - type: select
         name: month
         label: _("Month")
