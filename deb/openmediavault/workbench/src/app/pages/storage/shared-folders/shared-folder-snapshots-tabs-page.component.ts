@@ -33,7 +33,7 @@ export class SharedFolderSnapshotsTabsPageComponent {
           stateId: '7fcc8590-a2e3-11ed-ac0f-238d9ec75eda',
           autoReload: false,
           limit: 0,
-          hasFooter: false,
+          hasFooter: true,
           hasSearchField: false,
           selectionType: 'multi',
           columns: [
@@ -211,7 +211,7 @@ export class SharedFolderSnapshotsTabsPageComponent {
           stateId: '5762ee82-ad1f-11ed-98df-0b261daceb5d',
           autoReload: false,
           limit: 0,
-          hasFooter: false,
+          hasFooter: true,
           hasSearchField: false,
           selectionType: 'multi',
           columns: [
