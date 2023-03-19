@@ -402,6 +402,42 @@ describe('ConstraintService', () => {
     expect(result).toBeTruthy();
   });
 
+  it('should test (31)', () => {
+    const result = ConstraintService.test(
+      {
+        operator: 'in',
+        arg0: { value: 'fr' },
+        arg1: { prop: 'locales' }
+      },
+      object
+    );
+    expect(result).toBeTruthy();
+  });
+
+  it('should test (32)', () => {
+    const result = ConstraintService.test(
+      {
+        operator: 'in',
+        arg0: { value: '*' },
+        arg1: { prop: 'locales' }
+      },
+      object
+    );
+    expect(result).toBeFalsy();
+  });
+
+  it('should test (33)', () => {
+    const result = ConstraintService.test(
+      {
+        operator: 'in',
+        arg0: { prop: 'locales' },
+        arg1: { prop: 'language' }
+      },
+      object
+    );
+    expect(result).toBeFalsy();
+  });
+
   it('should get properties (1)', () => {
     const result = ConstraintService.getProps({
       operator: 'and',
