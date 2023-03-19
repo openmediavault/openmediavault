@@ -341,7 +341,22 @@ export type FormFieldModifier = {
   // Apply the opposite type, e.g. `disabled` for `enabled`, if the
   // constraint is falsy. Defaults to `true`.
   opposite?: boolean;
-  // The constraint can access the current form field
-  // values, e.g. '{ field: '<NAME>' }'
-  constraint: Constraint;
+  // When the constraint is truthy, then the modifier gets applied.
+  // The form fields that this modifier depends on are extracted from
+  // the `prop` fields of the constraint. Whenever the value of one
+  // of those form fields changes, then the modifier is triggered.
+  // The constraint has access to the current form values and the
+  // context of the page which includes the following variables:
+  // - `_session.username`
+  // - `_session.permissions`
+  // - `_routeConfig`
+  // - `_routeParams`
+  // - `_routeQueryParams`
+  // - `_routeUrlSegments`
+  // Note: both options `constraint` and `deps` are mutually exclusive.
+  constraint?: Constraint;
+  // A list of form field names that this modifier depends on. If one
+  // of the specified fields is changed, the modifier gets triggered.
+  // Note: both options `constraint` and `deps` are mutually exclusive.
+  deps?: Array<FormFieldName>;
 };

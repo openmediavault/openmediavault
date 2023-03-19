@@ -288,21 +288,38 @@ export class FormComponent implements AfterViewInit, OnInit, OnDestroy {
       (field: FormFieldConfig) => {
         const control: AbstractControl = this.formGroup.get(field.name);
         _.forEach(field.modifiers, (modifier: FormFieldModifier) => {
-          // Determine the list of form fields that are involved in this
-          // constraint. Make sure, the field itself is not included in
-          // that list.
-          const fieldNames: FormFieldName[] = ConstraintService.getProps(modifier.constraint);
-          _.pull(fieldNames, field.name);
+          // Determine the list of form field names that this modifier
+          // depends on.
+          let deps: FormFieldName[] = [];
+          if (_.isPlainObject(modifier.constraint) && _.isArray(modifier.deps)) {
+            throw new Error('Both "constraint" and "deps" are mutually exclusive.');
+          }
+          if (!_.isPlainObject(modifier.constraint) && !_.isArray(modifier.deps)) {
+            throw new Error('The "constraint" or "deps" property is required.');
+          }
+          if (_.isPlainObject(modifier.constraint)) {
+            deps = ConstraintService.getProps(modifier.constraint);
+          }
+          if (_.isArray(modifier.deps)) {
+            deps = _.cloneDeep(modifier.deps);
+          }
+          // Make sure, the field itself is not included in that list.
+          _.pull(deps, field.name);
           // Subscribe to the `valueChanges` event for all involved fields.
           // If a field which is part of the constraint changes its value,
           // then the modifier is processed and applied.
-          _.forEach(fieldNames, (fieldName: string) => {
+          _.forEach(deps, (fieldName: string) => {
             this.subscriptions.add(
               this.formGroup.get(fieldName)?.valueChanges.subscribe(() => {
                 this.doModifier(control, modifier);
               })
             );
           });
+          // Trigger the modifier to apply and display the current state.
+          // This is necessary because there are situations where a form
+          // does not trigger any `valueChanges` event during the whole
+          // initialization.
+          this.doModifier(control, modifier);
         });
       }
     );
@@ -317,7 +334,12 @@ export class FormComponent implements AfterViewInit, OnInit, OnDestroy {
     // that moment because the event we are handling has not bubbled up
     // to the form yet.
     const values = _.merge({}, this.context, this.formGroup.getRawValue());
-    const fulfilled = ConstraintService.test(modifier.constraint, values);
+    // If there is a constraint specified, then test it, otherwise assume
+    // the condition of the modifier is fulfilled. This is the case when
+    // the `deps` property is specified.
+    const fulfilled = _.isPlainObject(modifier.constraint)
+      ? ConstraintService.test(modifier.constraint, values)
+      : true;
     switch (modifier.type) {
       case 'disabled':
         if (fulfilled) {

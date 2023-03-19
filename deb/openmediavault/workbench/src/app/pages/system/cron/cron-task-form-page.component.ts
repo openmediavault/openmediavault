@@ -69,6 +69,40 @@ export class CronTaskFormPageComponent extends BaseFormPageComponent {
         }
       },
       {
+        type: 'textInput',
+        name: 'cronexprdesc',
+        disabled: true,
+        submitValue: false,
+        value: '',
+        modifiers: [
+          {
+            type: 'visible',
+            constraint: { operator: 'eq', arg0: { prop: 'execution' }, arg1: 'exactly' }
+          },
+          {
+            type: 'value',
+            typeConfig:
+              '{% set _minute = minute %}' +
+              '{% set _hour = hour %}' +
+              '{% set _dayofmonth = dayofmonth %}' +
+              '{% if everynminute %}{% set _minute %}*/{{ minute }}{% endset %}{% endif %}' +
+              '{% if everynhour %}{% set _hour %}*/{{ hour }}{% endset %}{% endif %}' +
+              '{% if everyndayofmonth %}{% set _dayofmonth %}*/{{ dayofmonth }}{% endset %}{% endif %}' +
+              '{{ [_minute, _hour, _dayofmonth, month, dayofweek] | join(" ") | cron2human }}',
+            deps: [
+              'minute',
+              'everynminute',
+              'hour',
+              'everynhour',
+              'dayofmonth',
+              'everyndayofmonth',
+              'month',
+              'dayofweek'
+            ]
+          }
+        ]
+      },
+      {
         type: 'container',
         fields: [
           {
