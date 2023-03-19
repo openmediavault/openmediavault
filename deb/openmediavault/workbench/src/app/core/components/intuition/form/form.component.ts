@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -26,6 +26,7 @@ import {
 } from '@angular/forms';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
+import { Subscription } from 'rxjs';
 
 import {
   flattenFormFieldConfig,
@@ -37,7 +38,7 @@ import {
   FormFieldConstraintValidator,
   FormFieldModifier
 } from '~/app/core/components/intuition/models/form-field-config.type';
-import { format } from '~/app/functions.helper';
+import { format, formatDeep } from '~/app/functions.helper';
 import { CustomValidators } from '~/app/shared/forms/custom-validators';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
 
@@ -48,7 +49,7 @@ let nextUniqueId = 0;
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements AfterViewInit, OnInit {
+export class FormComponent implements AfterViewInit, OnInit, OnDestroy {
   @Input()
   id: string;
 
@@ -60,11 +61,14 @@ export class FormComponent implements AfterViewInit, OnInit {
 
   public formGroup: FormGroup;
 
+  private subscriptions: Subscription = new Subscription();
+
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.sanitizeConfig();
     this.createForm();
+    this.initializeModifiers();
   }
 
   ngAfterViewInit(): void {
@@ -72,24 +76,32 @@ export class FormComponent implements AfterViewInit, OnInit {
     // must be updated. This will trigger the evaluation of the constraint
     // which finally sets the correct (configured) state of the form field
     // after form initialization.
-    const allFields: Array<FormFieldConfig> = flattenFormFieldConfig(this.config);
-    const fieldsToUpdate: Array<FormFieldName> = [];
+    const allFields: FormFieldConfig[] = flattenFormFieldConfig(this.config);
+    const fieldNamesToUpdate: FormFieldName[] = [];
     _.forEach(allFields, (field: FormFieldConfig) => {
-      _.forEach(field?.modifiers, (modifier) => {
-        if (['visible', 'hidden'].includes(modifier.type)) {
-          // Determine the fields involved in the constraint.
-          const props = ConstraintService.getProps(modifier.constraint);
-          fieldsToUpdate.push(...props);
+      _.forEach(
+        _.filter(field?.modifiers, (modifier: FormFieldModifier) =>
+          ['visible', 'hidden'].includes(modifier.type)
+        ),
+        (modifier: FormFieldModifier) => {
+          // Determine the list of form fields that are involved in this
+          // constraint.
+          const fieldNames = ConstraintService.getProps(modifier.constraint);
+          fieldNamesToUpdate.push(...fieldNames);
         }
-      });
+      );
     });
-    _.forEach(_.uniq(fieldsToUpdate), (name: FormFieldName) => {
+    _.forEach(_.uniq(fieldNamesToUpdate), (name: FormFieldName) => {
       const control: AbstractControl = this.formGroup.get(name);
       control?.updateValueAndValidity({ onlySelf: true, emitEvent: true });
     });
   }
 
-  protected sanitizeConfig() {
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  protected sanitizeConfig(): void {
     // Create unique form identifier.
     this.id = _.defaultTo(this.id, `omv-intuition-form-${++nextUniqueId}`);
     // Sanitize the configuration of individual form fields.
@@ -195,25 +207,12 @@ export class FormComponent implements AfterViewInit, OnInit {
     setupConfObjUuidFields(this.config);
   }
 
-  private createForm() {
+  private createForm(): void {
     const controlsConfig = {};
     const allFields: Array<FormFieldConfig> = flattenFormFieldConfig(this.config);
     _.forEach(allFields, (field: FormFieldConfig) => {
       const validators: Array<ValidatorFn> = [];
       // Build the validator configuration.
-      if (_.isArray(field.modifiers)) {
-        _.forEach(field.modifiers, (modifier: FormFieldModifier) => {
-          validators.push(
-            CustomValidators.modifyIf(
-              modifier.type,
-              modifier.typeConfig,
-              _.defaultTo(modifier.opposite, true),
-              modifier.constraint,
-              this.context
-            )
-          );
-        });
-      }
       if (_.isPlainObject(field.validators)) {
         if (_.isBoolean(field.validators.required) && field.validators.required) {
           validators.push(Validators.required);
@@ -280,5 +279,111 @@ export class FormComponent implements AfterViewInit, OnInit {
       );
     });
     this.formGroup = this.formBuilder.group(controlsConfig);
+  }
+
+  private initializeModifiers(): void {
+    const allFields: FormFieldConfig[] = flattenFormFieldConfig(this.config);
+    _.forEach(
+      _.filter(allFields, (field) => !_.isEmpty(field.modifiers)),
+      (field: FormFieldConfig) => {
+        const control: AbstractControl = this.formGroup.get(field.name);
+        _.forEach(field.modifiers, (modifier: FormFieldModifier) => {
+          // Determine the list of form fields that are involved in this
+          // constraint. Make sure, the field itself is not included in
+          // that list.
+          const fieldNames: FormFieldName[] = ConstraintService.getProps(modifier.constraint);
+          _.pull(fieldNames, field.name);
+          // Subscribe to the `valueChanges` event for all involved fields.
+          // If a field which is part of the constraint changes its value,
+          // then the modifier is processed and applied.
+          _.forEach(fieldNames, (fieldName: string) => {
+            this.subscriptions.add(
+              this.formGroup.get(fieldName)?.valueChanges.subscribe(() => {
+                this.doModifier(control, modifier);
+              })
+            );
+          });
+        });
+      }
+    );
+  }
+
+  private doModifier(control: AbstractControl, modifier: FormFieldModifier): void {
+    const opposite = _.defaultTo(modifier.opposite, true);
+    const nativeElement: HTMLElement = _.get(control, 'nativeElement');
+    const formFieldElement = nativeElement && nativeElement.closest('.mat-form-field');
+    // Note, use `getRawValue` here to get the latest values including
+    // those of disabled form fields as well. `values` is outdated at
+    // that moment because the event we are handling has not bubbled up
+    // to the form yet.
+    const values = _.merge({}, this.context, this.formGroup.getRawValue());
+    const fulfilled = ConstraintService.test(modifier.constraint, values);
+    switch (modifier.type) {
+      case 'disabled':
+        if (fulfilled) {
+          control.disable();
+        }
+        if (!fulfilled && opposite) {
+          control.enable();
+        }
+        break;
+      case 'enabled':
+        if (fulfilled) {
+          control.enable();
+        }
+        if (!fulfilled && opposite) {
+          control.disable();
+        }
+        break;
+      case 'checked':
+        if (fulfilled) {
+          control.setValue(true);
+        }
+        if (!fulfilled && opposite) {
+          control.setValue(false);
+        }
+        break;
+      case 'unchecked':
+        if (fulfilled) {
+          control.setValue(false);
+        }
+        if (!fulfilled && opposite) {
+          control.setValue(true);
+        }
+        break;
+      case 'focused':
+        if (fulfilled) {
+          setTimeout(() => {
+            nativeElement.focus();
+          });
+        }
+        break;
+      case 'visible':
+        if (!_.isUndefined(formFieldElement)) {
+          if (fulfilled) {
+            (formFieldElement as HTMLElement).parentElement.style.display = 'flex';
+          }
+          if (!fulfilled && opposite) {
+            (formFieldElement as HTMLElement).parentElement.style.display = 'none';
+          }
+        }
+        break;
+      case 'hidden':
+        if (!_.isUndefined(formFieldElement)) {
+          if (fulfilled) {
+            (formFieldElement as HTMLElement).parentElement.style.display = 'none';
+          }
+          if (!fulfilled && opposite) {
+            (formFieldElement as HTMLElement).parentElement.style.display = 'flex';
+          }
+        }
+        break;
+      case 'value':
+        if (fulfilled) {
+          const value = formatDeep(modifier.typeConfig, values);
+          control.setValue(value);
+        }
+        break;
+    }
   }
 }
