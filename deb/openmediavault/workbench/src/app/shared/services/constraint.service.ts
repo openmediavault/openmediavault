@@ -189,12 +189,30 @@ export class ConstraintService {
               result = isUUID(innerTest(data, node.arg0));
               break;
             case 'truthy':
-              result = _.includes([1, 'true', true, 'yes', 'y'], innerTest(data, node.arg0));
+              result = _.includes(
+                [1, 'TRUE', 'True', 'true', true, 'YES', 'Yes', 'yes', 'Y', 'y'],
+                innerTest(data, node.arg0)
+              );
               break;
             case 'falsy':
               // https://developer.mozilla.org/en-US/docs/Glossary/Falsy
               result = _.includes(
-                [0, 'false', false, 'no', 'n', undefined, null, NaN, ''],
+                [
+                  0,
+                  'FALSE',
+                  'False',
+                  'false',
+                  false,
+                  'NO',
+                  'No',
+                  'no',
+                  'N',
+                  'n',
+                  undefined,
+                  null,
+                  NaN,
+                  ''
+                ],
                 innerTest(data, node.arg0)
               );
               break;

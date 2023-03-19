@@ -72,13 +72,17 @@ export const toBoolean = (value: any): boolean => {
     case 'y':
     case 'Y':
     case 'yes':
+    case 'Yes':
     case 'YES':
     case 't':
     case 'true':
+    case 'True':
     case 'TRUE':
     case 'on':
+    case 'On':
     case 'ON':
     case 'ok':
+    case 'Ok':
     case 'OK':
     case '1':
       result = true;
