@@ -8,7 +8,8 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "strict": false,
-    "declaration": false,
+    "declaration": true,
+    "declarationMap": true,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
@@ -24,7 +25,8 @@
     "esModuleInterop": true,
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"],
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "incremental": true
   },
   "exclude": ["dist", "node_modules"],
   "angularCompilerOptions": {
