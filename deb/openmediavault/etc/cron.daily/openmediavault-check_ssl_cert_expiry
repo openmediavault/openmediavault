@@ -53,6 +53,6 @@ for f in /etc/ssl/certs/${OMV_SSL_CERTIFICATE_PREFIX}*.crt ; do
       echo "Expiration date: ${enddate}"
     ) | mail -E -s "A SSL certificate expires in ${datediff_days} days" root
   else
-    omv_log "The SSL certificate $(basename ${f}) is valid."
+    omv_info "The SSL certificate $(basename ${f}) is valid."
   fi
 done

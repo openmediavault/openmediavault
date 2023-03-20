@@ -51,6 +51,6 @@ do
       echo "${stats}"
     ) | mail -E -s "Errors were detected on the file system ${device}" root
   else
-    omv_log "No errors found on file system ${device}."
+    omv_info "No errors found on file system ${device}."
   fi
 done
