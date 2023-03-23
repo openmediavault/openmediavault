@@ -1,6 +1,8 @@
 openmediavault (6.3.6-1) stable; urgency=low
 
-  *
+  * Improve the weekly Btrfs scrub cron task by skipping the
+    subvolumes of a file system, which prevents the file system
+    from being processed multiple times.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Mar 2023 22:14:10 +0100
 

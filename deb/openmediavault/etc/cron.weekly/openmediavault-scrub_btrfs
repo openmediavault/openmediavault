@@ -33,25 +33,23 @@ OMV_BTRFS_SCRUB_READONLY=${OMV_BTRFS_SCRUB_READONLY:-"no"}
 ! omv_checkyesno "${OMV_BTRFS_SCRUB_ENABLED}" && exit 0
 
 omv_log "Performing a scrub on Btrfs file systems."
-findmnt --all --canonicalize --notruncate --uniq --noheadings --output SOURCE,TARGET --types btrfs |
-  sort |
-  while read row
+# Ignore subvolumes.
+findmnt --all --canonicalize --notruncate --nofsroot --uniq --noheadings --output SOURCE --types btrfs |
+  sort | uniq |
+  while read device
 do
-  device=${row% *}
-  mountpoint=${row#* }
-
-  omv_log "Scrubbing the file system ${device} ..."
+  omv_log "Scrubbing the file system on ${device} ..."
 
   cmdargs="${OMV_BTRFS_SCRUB_PRIORITY}"
   if omv_checkyesno ${OMV_BTRFS_SCRUB_READONLY}; then
     cmdargs="${cmdargs} -r"
   fi
 
-  stats=$(btrfs scrub start -B -d ${cmdargs} "${mountpoint}")
+  stats=$(btrfs scrub start -B -d ${cmdargs} "${device}")
   # Ignore the file system notification settings because of the
   # importance of this message.
   (
-    echo "Scrubbing the Btrfs file system that is mounted at ${mountpoint} has been finished.";
+    echo "Scrubbing the Btrfs file system on ${device} has been finished.";
     echo "${stats}"
   ) | mail -E -s "Scrub report of the file system ${device}" root
 done
