@@ -17,6 +17,8 @@ openmediavault (6.3.5-1) stable; urgency=low
   * Improve cron scripts by added better logging output.
   * Display Cron expressions in human-readable descriptions on
     forms and in datatable columns.
+  * Issue #1516: Adapt the UI so that it works properly behind
+    reverse proxies.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Mar 2023 22:04:06 +0100
 
