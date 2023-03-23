@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-12 13:54+0100\n"
+"POT-Creation-Date: 2023-03-16 10:40+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2023\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2013-2023\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -327,7 +327,7 @@ msgid "All"
 msgstr "全部"
 
 msgid "All Snapshots"
-msgstr ""
+msgstr "所有快照"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr "所有套件都將被升級，您確定要繼續嗎？"
@@ -758,7 +758,7 @@ msgstr "複製 SSH 憑證到 {{ hostname }}。"
 msgid "Copy"
 msgstr "複製"
 
-msgid "Copy privileges"
+msgid "Copy permissions"
 msgstr "複製權限"
 
 msgid "Copy public SSH key"
@@ -1010,8 +1010,8 @@ msgstr "吉布提"
 msgid "Do you really want to apply the configuration changes?"
 msgstr "你真的要套用此配置變更？"
 
-msgid "Do you really want to copy the privileges from the shared folder?"
-msgstr "您真的要從分享資料夾中複製權限嗎？"
+msgid "Do you really want to copy the permissions from the shared folder?"
+msgstr "您真的要從共享資料夾複製權限嗎？"
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -1174,7 +1174,7 @@ msgid "Ethiopia"
 msgstr "衣索比亞"
 
 msgid "Events"
-msgstr ""
+msgstr "事件"
 
 msgid "Every N day of month"
 msgstr "月內每 N 日"
@@ -1893,7 +1893,7 @@ msgid "Method"
 msgstr "方式"
 
 msgid "Metric"
-msgstr ""
+msgstr "評量指標"
 
 msgid "Metropolitan France"
 msgstr "法國本土"
@@ -2233,6 +2233,9 @@ msgstr "效能統計資料"
 msgid "Period of validity"
 msgstr "有效期間"
 
+msgid "Permission"
+msgstr "權限"
+
 msgid "Permissions"
 msgstr "權限"
 
@@ -2409,12 +2412,6 @@ msgstr "主要電子郵件"
 
 msgid "Private key"
 msgstr "私有密鑰"
-
-msgid "Privilege"
-msgstr "特權"
-
-msgid "Privileges"
-msgstr "特權"
 
 msgid "Process monitoring"
 msgstr "程序監測"
@@ -2874,11 +2871,11 @@ msgstr "共享檔案夾名稱"
 msgid "Shared folder path"
 msgstr "共享檔案夾路徑"
 
-msgid "Shared folder permissions have been transferred."
-msgstr "共享檔案夾的權限已被轉移。"
+msgid "Shared folder permissions"
+msgstr "共享檔案夾權限"
 
-msgid "Shared folder privileges"
-msgstr "共享檔案夾特權"
+msgid "Shared folder permissions have been copied."
+msgstr "共享檔案夾的權限已被複製。"
 
 msgid "Shares"
 msgstr "共享"
@@ -3284,8 +3281,8 @@ msgstr "無法找到所要求的網頁。"
 msgid "The server is unavailable to handle this request right now."
 msgstr "伺服器目前無法處理這個請求。"
 
-msgid "The shared folder from which the privileges are copied."
-msgstr "特權是由此共享檔案夾複製來的。"
+msgid "The shared folder from which the permissions are copied."
+msgstr "權限是由此共享檔案夾複製來的。"
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr "共享資料夾 {{ _selected[0].name }} 已成功建立。"
@@ -3714,7 +3711,7 @@ msgid "Updated network settings."
 msgstr "已更新網路設定。"
 
 msgid "Updated notification event settings."
-msgstr ""
+msgstr "已更新通知事件設定。"
 
 msgid "Updated notification settings."
 msgstr "已更新通知設定。"
@@ -3722,17 +3719,17 @@ msgstr "已更新通知設定。"
 msgid "Updated password."
 msgstr "已更新密碼。"
 
+msgid "Updated permissions of group \"{{ name }}\"."
+msgstr "已更新群組 \"{{ name }}\" 的權限。"
+
+msgid "Updated permissions of shared folder."
+msgstr "已更新共享檔案夾的權限。"
+
+msgid "Updated permissions of user \"{{ name }}\"."
+msgstr "已更新用戶 \"{{ name }}\" 的權限。"
+
 msgid "Updated power management settings."
 msgstr "已更新電源管理設定。"
-
-msgid "Updated privileges of group \"{{ name }}\"."
-msgstr "已更新群組 \"{{ name }}\" 的特權。"
-
-msgid "Updated privileges of shared folder."
-msgstr "已更新共享檔案夾的特權。"
-
-msgid "Updated privileges of user \"{{ name }}\"."
-msgstr "已更新用戶 \"{{ name }}\" 的特權。"
 
 msgid "Updated proxy settings."
 msgstr "已更新代理設定。"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-12 13:54+0100\n"
+"POT-Creation-Date: 2023-03-16 10:40+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -758,8 +758,8 @@ msgstr "Сертифікат SSH скопійовано до {{ ім’я хос
 msgid "Copy"
 msgstr "Копіювати"
 
-msgid "Copy privileges"
-msgstr "Копіювати привілеї"
+msgid "Copy permissions"
+msgstr ""
 
 msgid "Copy public SSH key"
 msgstr "Копіювати загальнодоступний ключ SSH"
@@ -1010,8 +1010,8 @@ msgstr "Джібуті"
 msgid "Do you really want to apply the configuration changes?"
 msgstr "Бажаєте застосувати зміни в конфігурації?"
 
-msgid "Do you really want to copy the privileges from the shared folder?"
-msgstr "Бажаєте скопіювати привілеї зі спільної теки?"
+msgid "Do you really want to copy the permissions from the shared folder?"
+msgstr ""
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -2233,6 +2233,9 @@ msgstr "Статистика продуктивності"
 msgid "Period of validity"
 msgstr "Термін дії"
 
+msgid "Permission"
+msgstr ""
+
 msgid "Permissions"
 msgstr "Права доступу"
 
@@ -2409,12 +2412,6 @@ msgstr "Первинний email"
 
 msgid "Private key"
 msgstr "Приватний ключ"
-
-msgid "Privilege"
-msgstr "Привілегія"
-
-msgid "Privileges"
-msgstr "Привілегії"
 
 msgid "Process monitoring"
 msgstr "Моніторинг процесів"
@@ -2874,11 +2871,11 @@ msgstr "Ім’я спільної теки"
 msgid "Shared folder path"
 msgstr "Шлях до спільної теки"
 
-msgid "Shared folder permissions have been transferred."
-msgstr "Дозволи на спільну теку передано."
+msgid "Shared folder permissions"
+msgstr ""
 
-msgid "Shared folder privileges"
-msgstr "Привілеї спільної теки"
+msgid "Shared folder permissions have been copied."
+msgstr ""
 
 msgid "Shares"
 msgstr "Спільні ресурси"
@@ -3284,8 +3281,8 @@ msgstr "Сторінку не знайдено."
 msgid "The server is unavailable to handle this request right now."
 msgstr "Сервер зараз недоступний для обробки цього запиту."
 
-msgid "The shared folder from which the privileges are copied."
-msgstr "Спільна тека, з якої копіюються привілеї."
+msgid "The shared folder from which the permissions are copied."
+msgstr ""
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr ""
@@ -3722,17 +3719,17 @@ msgstr "Оновлено налаштування сповіщень."
 msgid "Updated password."
 msgstr "Пароль оновлено."
 
+msgid "Updated permissions of group \"{{ name }}\"."
+msgstr ""
+
+msgid "Updated permissions of shared folder."
+msgstr ""
+
+msgid "Updated permissions of user \"{{ name }}\"."
+msgstr ""
+
 msgid "Updated power management settings."
 msgstr "Оновлено налаштування керування живленням."
-
-msgid "Updated privileges of group \"{{ name }}\"."
-msgstr "Оновлено привілеї групи \"{{ name }}\"."
-
-msgid "Updated privileges of shared folder."
-msgstr "Оновлено привілеї спільної теки."
-
-msgid "Updated privileges of user \"{{ name }}\"."
-msgstr "Оновлено привілеї користувача \"{{ name }}\"."
 
 msgid "Updated proxy settings."
 msgstr "Оновлено налаштування проксі."

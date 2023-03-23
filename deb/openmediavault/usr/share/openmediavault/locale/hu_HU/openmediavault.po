@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-12 13:54+0100\n"
+"POT-Creation-Date: 2023-03-16 10:40+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2023\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -762,8 +762,8 @@ msgstr "SSH tanúsítvány átmásolva ide: {{ hostname }}."
 msgid "Copy"
 msgstr "Másolás"
 
-msgid "Copy privileges"
-msgstr "Jogosultságok másolása"
+msgid "Copy permissions"
+msgstr "Engedélyek másolása"
 
 msgid "Copy public SSH key"
 msgstr "Nyilvános SSH-kulcs"
@@ -1014,7 +1014,7 @@ msgstr "Dzsibuti"
 msgid "Do you really want to apply the configuration changes?"
 msgstr "Valóban alkalmazni szeretné a konfigurációs változásokat?"
 
-msgid "Do you really want to copy the privileges from the shared folder?"
+msgid "Do you really want to copy the permissions from the shared folder?"
 msgstr "Valóban lemásolhatóak a megosztott mappa jogosultságai?"
 
 msgid ""
@@ -2237,6 +2237,9 @@ msgstr "Teljesítménystatisztikák"
 msgid "Period of validity"
 msgstr "Érvényesség ideje"
 
+msgid "Permission"
+msgstr "Jogosultság"
+
 msgid "Permissions"
 msgstr "Jogosultságok"
 
@@ -2413,12 +2416,6 @@ msgstr "Elsődleges e-mail cím"
 
 msgid "Private key"
 msgstr "Privát kulcs"
-
-msgid "Privilege"
-msgstr "Privilégium"
-
-msgid "Privileges"
-msgstr "Jogosultságok"
 
 msgid "Process monitoring"
 msgstr "Folyamat monitorozás"
@@ -2878,11 +2875,11 @@ msgstr "Megosztott mappa neve"
 msgid "Shared folder path"
 msgstr "Megosztott mappa útvonala"
 
-msgid "Shared folder permissions have been transferred."
-msgstr "A megosztott mappák engedélyei áthelyezve."
+msgid "Shared folder permissions"
+msgstr "Megosztott mappa jogosultságok"
 
-msgid "Shared folder privileges"
-msgstr "Megosztott mappa jogosultságai"
+msgid "Shared folder permissions have been copied."
+msgstr "A megosztott mappák engedélyei átmásolva."
 
 msgid "Shares"
 msgstr "Megosztások"
@@ -3288,8 +3285,8 @@ msgstr "A kért oldal nem található."
 msgid "The server is unavailable to handle this request right now."
 msgstr "A kiszolgáló jelenleg nem elérhető, így nem tudja tudja fogadni a kérést."
 
-msgid "The shared folder from which the privileges are copied."
-msgstr "A megosztott mappa, ahonnan a jogosultságokat másoljuk. "
+msgid "The shared folder from which the permissions are copied."
+msgstr "A megosztott mappa, ahonnan a jogosultságokat másoljuk."
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr "A(z) {{ _selected[0].name }} megosztott mappa sikeresen létrehozva."
@@ -3726,17 +3723,17 @@ msgstr "Értesítési beállítások frissítve."
 msgid "Updated password."
 msgstr "Jelszó frissítve."
 
-msgid "Updated power management settings."
-msgstr "Energiagazdálkodás beállításai frissítve."
-
-msgid "Updated privileges of group \"{{ name }}\"."
+msgid "Updated permissions of group \"{{ name }}\"."
 msgstr "\"{{ name }}\" csoport jogosultságai frissítve."
 
-msgid "Updated privileges of shared folder."
-msgstr "A megosztott mappa jogosultságai frissítve. "
+msgid "Updated permissions of shared folder."
+msgstr "A megosztott mappa jogosultságai frissítve."
 
-msgid "Updated privileges of user \"{{ name }}\"."
+msgid "Updated permissions of user \"{{ name }}\"."
 msgstr "\"{{ name }}\" felhasználó jogosultságai frissítve."
+
+msgid "Updated power management settings."
+msgstr "Energiagazdálkodás beállításai frissítve."
 
 msgid "Updated proxy settings."
 msgstr "Proxy beállításai frissítve"
