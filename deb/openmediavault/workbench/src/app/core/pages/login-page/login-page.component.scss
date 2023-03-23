@@ -28,7 +28,7 @@
     height: 100%;
     position: absolute;
     background-color: dc.$omv-color-corporate-light;
-    content: url('/assets/images/benjamin-lehman-GNyjCePVRs8-unsplash.jpg');
+    content: url('^./assets/images/benjamin-lehman-GNyjCePVRs8-unsplash.jpg');
     mix-blend-mode: multiply;
     // animation-name: ken-burns-top-left;
     // animation-duration: 20s;
@@ -64,7 +64,7 @@
     position: absolute;
 
     .logo {
-      content: url('/assets/images/openmediavault_logo.svg');
+      content: url('^./assets/images/openmediavault_logo.svg');
       margin: dv.$omv-margin;
       width: auto;
       height: auto;
