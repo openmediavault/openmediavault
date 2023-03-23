@@ -1,4 +1,4 @@
-openmediavault (6.3.5-1) stable; urgency=low
+openmediavault (6.3.5-2) stable; urgency=low
 
   * Update locale files.
   * Do not configure monit alerts for `CPU usage` and `Memory usage`
@@ -20,7 +20,7 @@ openmediavault (6.3.5-1) stable; urgency=low
   * Issue #1516: Adapt the UI so that it works properly behind
     reverse proxies.
 
- -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Mar 2023 22:04:06 +0100
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Mar 2023 19:06:34 +0100
 
 openmediavault (6.3.4-1) stable; urgency=low
 
