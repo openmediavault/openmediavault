@@ -17,7 +17,7 @@
 @use 'src/scss/defaults/variables' as dv;
 @use 'src/scss/theme';
 
-.omv-login-page {
+:host .omv-login-page {
   width: 100%;
   height: 100%;
   position: relative;

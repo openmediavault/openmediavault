@@ -2,7 +2,7 @@
 @use 'src/scss/theme';
 
 // Toolbar
-::ng-deep omv-datatable .mat-toolbar {
+:host ::ng-deep omv-datatable .mat-toolbar {
   .mat-button,
   .mat-icon-button {
     color: var(--mat-primary-color-text);
@@ -44,7 +44,7 @@
 }
 
 // Datatable
-::ng-deep omv-datatable .ngx-datatable {
+:host ::ng-deep omv-datatable .ngx-datatable {
   /* stylelint-disable no-descending-specificity */
   box-shadow: none;
 
