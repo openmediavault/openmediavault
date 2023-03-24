@@ -34,11 +34,8 @@ omv_log "Performing an error check on Btrfs file systems."
 # Ignore subvolumes.
 findmnt --all --canonicalize --notruncate --nofsroot --uniq --noheadings --output SOURCE,UUID --types btrfs |
   sort | uniq |
-  while read row
+  while read device uuid
 do
-  device=${row% *}
-  uuid=${row#* }
-
   omv_log "Checking file system ${device} [UUID=${uuid}] for errors ..."
 
   stats=$(btrfs device stats --check "${device}")

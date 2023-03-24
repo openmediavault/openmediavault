@@ -36,11 +36,8 @@ omv_log "Performing a scrub on Btrfs file systems."
 # Ignore subvolumes.
 findmnt --all --canonicalize --notruncate --nofsroot --uniq --noheadings --output SOURCE,UUID --types btrfs |
   sort | uniq |
-  while read row
+  while read device uuid
 do
-  device=${row% *}
-  uuid=${row#* }
-
   omv_log "Scrubbing the file system on ${device} [UUID=${uuid}] ..."
 
   cmdargs="${OMV_BTRFS_SCRUB_PRIORITY}"
