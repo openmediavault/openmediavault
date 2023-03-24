@@ -25,7 +25,6 @@ OMV_ENGINED_SO_OWNERGROUP_NAME="openmediavault-engined"
 OMV_ENGINED_SO_SNDTIMEO=10
 OMV_ENGINED_SO_RCVTIMEO=180
 OMV_ENGINED_DIRTY_MODULES_FILE="/var/lib/openmediavault/dirtymodules.json"
-OMV_INITDB_SCRIPTS_DIR="/usr/share/openmediavault/initsystem"
 OMV_INITDB_FILE="/var/lib/openmediavault/initsystem.req"
 OMV_USERMGMT_DEFAULT_GROUP="users"
 OMV_RRDGRAPH_DIR="/var/lib/openmediavault/rrd"
