@@ -34,11 +34,14 @@ OMV_BTRFS_SCRUB_READONLY=${OMV_BTRFS_SCRUB_READONLY:-"no"}
 
 omv_log "Performing a scrub on Btrfs file systems."
 # Ignore subvolumes.
-findmnt --all --canonicalize --notruncate --nofsroot --uniq --noheadings --output SOURCE --types btrfs |
+findmnt --all --canonicalize --notruncate --nofsroot --uniq --noheadings --output SOURCE,UUID --types btrfs |
   sort | uniq |
-  while read device
+  while read row
 do
-  omv_log "Scrubbing the file system on ${device} ..."
+  device=${row% *}
+  uuid=${row#* }
+
+  omv_log "Scrubbing the file system on ${device} [UUID=${uuid}] ..."
 
   cmdargs="${OMV_BTRFS_SCRUB_PRIORITY}"
   if omv_checkyesno ${OMV_BTRFS_SCRUB_READONLY}; then
@@ -49,7 +52,7 @@ do
   # Ignore the file system notification settings because of the
   # importance of this message.
   (
-    echo "Scrubbing the Btrfs file system on ${device} has been finished.";
+    echo "Scrubbing the Btrfs file system on ${device} [UUID=${uuid}] has been finished.";
     echo "${stats}"
-  ) | mail -E -s "Scrub report of the file system ${device}" root
+  ) | mail -E -s "Scrub report of the file system ${device} [UUID=${uuid}]" root
 done
