@@ -34,7 +34,7 @@ MAILTO=""
 
 # Purge all outstanding messages if notifications are disabled.
 if [ "$(omv_config_get "//system/email/enable")" = "0" ]; then
-  omv_log "Purging all messages in mail queue."
+  omv_syslog_info "Purging all messages in mail queue."
   postfix set-permissions || true
   postsuper -d ALL
 fi

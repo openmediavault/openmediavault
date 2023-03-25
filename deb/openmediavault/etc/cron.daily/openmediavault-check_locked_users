@@ -30,7 +30,7 @@ MAILTO=""
 # exist until the PAM faillock module has been executed.
 [ ! -d "/var/run/faillock/" ] && exit 0
 
-omv_log "Checking for locked/banned users."
+omv_syslog_info "Checking for locked/banned users."
 
 # Check if there are locked users.
 # admin:
@@ -41,12 +41,12 @@ omv_log "Checking for locked/banned users."
 # 2021-05-11 22:07:00 SVC   openmediavault                                       V
 # 2021-05-11 22:07:04 SVC   openmediavault                                       V
 if [ $(faillock | sed -E -e '/^[^:]+:$/d' -e '/^When/d' | wc -l) -gt 0 ]; then
-  omv_warning "Several users are locked/banned or are candidates for too many failed login attempts."
+  omv_syslog_warning "Several users are locked/banned or are candidates for too many failed login attempts."
 	(
     echo "The following users are locked/banned or are candidates for too many failed login attempts:\n";
     faillock;
     echo "\nYou can reset their counters and unlock them via the omv-firstaid command."
 	) | mail -E -s "Locked users overview" root
 else
-  omv_info "No locked/banned users found."
+  omv_syslog_info "No locked/banned users found."
 fi

@@ -36,6 +36,6 @@ test -x /usr/sbin/cron-apt && /usr/sbin/cron-apt
 # Send an email when a reboot is required.
 if [ -e "/run/reboot-required" ]; then
   msg="A reboot of the system is required to complete a package upgrade."
-  omv_info ${msg}
+  omv_syslog_info ${msg}
   echo ${msg} | mail -E -s "Reboot required" root
 fi
