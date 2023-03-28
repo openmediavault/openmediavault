@@ -1,4 +1,4 @@
-openmediavault (6.3.6-1) stable; urgency=low
+openmediavault (6.3.6-2) stable; urgency=low
 
   * Improve the scheduled Btrfs cron tasks by skipping the
     subvolumes of a file system, which prevents the file
