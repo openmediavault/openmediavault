@@ -29,9 +29,9 @@ MDADM=/sbin/mdadm
 # Exit if no email address is configured, otherwise the error message
 # 'mdadm: No mail address or alert command - not monitoring.' will be
 # displayed.
-[ -z "$(grep "^MAILADDR" /etc/mdadm/mdadm.conf)" ] && exit 0
+grep -q "^MAILADDR" /etc/mdadm/mdadm.conf || exit 0
 
 # Exit if no ARRAY is configured.
-[ -z "$(grep "^ARRAY" /etc/mdadm/mdadm.conf)" ] && exit 0
+grep -q "^ARRAY" /etc/mdadm/mdadm.conf || exit 0
 
 exec $MDADM --monitor --scan --oneshot

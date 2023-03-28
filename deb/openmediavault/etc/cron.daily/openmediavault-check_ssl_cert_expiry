@@ -33,7 +33,7 @@ OMV_SSL_CERTIFICATE_CHECK_EXPIRY_ENABLED=${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_ENAB
 ! omv_checkyesno "${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_ENABLED}" && exit 0
 
 omv_syslog_info "Perform a check for expired SSL certificates."
-for f in /etc/ssl/certs/${OMV_SSL_CERTIFICATE_PREFIX}*.crt ; do
+for f in /etc/ssl/certs/"${OMV_SSL_CERTIFICATE_PREFIX}"*.crt ; do
   [ -e "${f}" ] || continue
 
   omv_syslog_info "Validating the SSL certificate ${f} ..."
@@ -41,9 +41,9 @@ for f in /etc/ssl/certs/${OMV_SSL_CERTIFICATE_PREFIX}*.crt ; do
   enddate=$(openssl x509 -enddate -noout -in "${f}" | sed "s/.*=\(.*\)/\1/" | awk -F " " '{print $1,$2,$3,$4}')
   enddate_seconds=$(date -d "${enddate}" +%s)
   now_seconds=$(date -d now +%s)
-  datediff_days=$(( (${enddate_seconds} - ${now_seconds}) / (60 * 60 * 24) ))
+  datediff_days=$(( (enddate_seconds - now_seconds) / (60 * 60 * 24) ))
 
-  if [ "${datediff_days}" -le "${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_DAYS}" -a "${datediff_days}" -gt 0 ]; then
+  if [ "${datediff_days}" -le "${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_DAYS}" ] && [ "${datediff_days}" -gt 0 ]; then
     omv_syslog_warning "The SSL certificate ${f} expires in ${datediff_days} days."
     subject=$(openssl x509 -subject -noout -in "${f}" | sed "s/subject=\(.*\)/\1/")
     (

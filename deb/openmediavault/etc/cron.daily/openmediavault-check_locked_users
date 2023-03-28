@@ -28,7 +28,7 @@ MAILTO=""
 
 # Make sure the directory exists. Note, after a reboot this directory does not
 # exist until the PAM faillock module has been executed.
-[ ! -d "/var/run/faillock/" ] && exit 0
+[ -d "/var/run/faillock/" ] || exit 0
 
 omv_syslog_info "Checking for locked/banned users."
 
@@ -40,7 +40,7 @@ omv_syslog_info "Checking for locked/banned users."
 # 2021-05-11 22:06:57 SVC   openmediavault                                       V
 # 2021-05-11 22:07:00 SVC   openmediavault                                       V
 # 2021-05-11 22:07:04 SVC   openmediavault                                       V
-if [ $(faillock | sed -E -e '/^[^:]+:$/d' -e '/^When/d' | wc -l) -gt 0 ]; then
+if [ "$(faillock | sed -E -e '/^[^:]+:$/d' -e '/^When/d' | wc -l)" -gt 0 ]; then
   omv_syslog_warning "Several users are locked/banned or are candidates for too many failed login attempts."
 	(
     echo "The following users are locked/banned or are candidates for too many failed login attempts:\n";
