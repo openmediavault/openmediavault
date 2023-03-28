@@ -1,3 +1,9 @@
+openmediavault (6.3.7-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Mar 2023 23:54:48 +0200
+
 openmediavault (6.3.6-2) stable; urgency=low
 
   * Improve the scheduled Btrfs cron tasks by skipping the
