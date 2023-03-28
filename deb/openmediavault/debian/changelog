@@ -5,6 +5,8 @@ openmediavault (6.3.6-1) stable; urgency=low
     system from being processed multiple times.
   * Perform automatic scrubbing of all Btrfs file systems
     monthly instead weekly.
+  * Fix a validation bug in the `Gateway` form field on the Wi-Fi
+    network interface page.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Mar 2023 22:14:10 +0100
 

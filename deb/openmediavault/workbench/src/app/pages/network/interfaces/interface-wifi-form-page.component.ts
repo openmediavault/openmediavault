@@ -180,7 +180,7 @@ export class InterfaceWifiFormPageComponent extends BaseFormPageComponent {
             label: gettext('Gateway'),
             value: '',
             validators: {
-              patternType: 'ipv6'
+              patternType: 'ipv4'
             },
             modifiers: [
               {
@@ -273,7 +273,7 @@ export class InterfaceWifiFormPageComponent extends BaseFormPageComponent {
             label: gettext('Gateway'),
             value: '',
             validators: {
-              patternType: 'ipv4'
+              patternType: 'ipv6'
             },
             modifiers: [
               {
