@@ -31,15 +31,28 @@ import openmediavault
 
 
 def grep_env_vars() -> List[str]:
-    salt_root_dir = openmediavault.getenv(
-        'OMV_SALT_DIR', '/srv/salt/omv'
-    )
-    output = openmediavault.procutils.check_output(
-        ['grep', '--recursive', 'default:OMV_', salt_root_dir]
-    )
     result = set()
+    # Grep the environment variables used in Salt states.
+    output = openmediavault.procutils.check_output(
+        ['grep', '--no-filename', '--recursive', 'default:OMV_',
+            openmediavault.getenv('OMV_SALT_DIR', '/srv/salt/omv')]
+    )
     for line in output.splitlines():
         m = re.match(r".+'default:(OMV_[\S_]+)'.+", line.decode())
+        if not m:
+            continue
+        result.add(m.group(1))
+    # Grep environment variables used in various shell scripts.
+    paths = [
+        '/etc/cron.daily',
+        '/etc/cron.weekly',
+        '/etc/cron.monthly'
+    ]
+    output = openmediavault.procutils.check_output(
+        ['grep', '--no-filename', '--recursive', 'OMV_.*=${OMV_', *paths]
+    )
+    for line in output.splitlines():
+        m = re.match(r"^(OMV_[\S_]+)=.+$", line.decode())
         if not m:
             continue
         result.add(m.group(1))
