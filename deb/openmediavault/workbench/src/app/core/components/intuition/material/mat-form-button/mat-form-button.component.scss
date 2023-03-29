@@ -4,6 +4,6 @@
   color: dc.$omv-color-white;
 }
 
-::ng-deep button * {
+:host ::ng-deep > button * {
   pointer-events: none;
 }

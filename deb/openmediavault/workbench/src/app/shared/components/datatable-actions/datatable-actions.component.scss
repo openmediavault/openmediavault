@@ -1,12 +1,11 @@
 .mat-form-field {
   vertical-align: middle;
 
-  .mat-select {
+  ::ng-deep .mat-select {
     font-size: var(--mat-font-size-button);
 
-    ::ng-deep .mat-select-placeholder {
+    .mat-select-placeholder {
       color: inherit;
-      -webkit-text-fill-color: inherit;
     }
   }
 }

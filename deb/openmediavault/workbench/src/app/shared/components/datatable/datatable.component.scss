@@ -2,9 +2,9 @@
 @use 'src/scss/theme';
 
 // Toolbar
-::ng-deep omv-datatable .mat-toolbar {
-  .mat-button,
-  .mat-icon-button {
+:host ::ng-deep .mat-toolbar {
+  .mat-button:not(.mat-button-disabled),
+  .mat-icon-button:not(.mat-button-disabled) {
     color: var(--mat-primary-color-text);
   }
 
@@ -44,7 +44,7 @@
 }
 
 // Datatable
-::ng-deep omv-datatable .ngx-datatable {
+:host ::ng-deep .ngx-datatable {
   /* stylelint-disable no-descending-specificity */
   box-shadow: none;
 
