@@ -446,6 +446,10 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "6.3.5"; then
 			omv_module_set_dirty monit
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.3.7"; then
+			# The file should have been deleted automatically.
+			rm -f /etc/cron.weekly/openmediavault-scrub_btrfs
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
