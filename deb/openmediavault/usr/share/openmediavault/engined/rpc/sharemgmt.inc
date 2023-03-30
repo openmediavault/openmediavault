@@ -204,6 +204,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				$sfAbsPath = build_path(DIRECTORY_SEPARATOR,
 					$meObject->get("dir"), $objectv->get("reldirpath"));
 				if (("btrfs" == $meObject->get("type")) &&
+						(FALSE === is_null($fs)) &&
 						$fs->isSubvolume($sfAbsPath)) {
 					$objectDict->set("snapshots", TRUE);
 				}
