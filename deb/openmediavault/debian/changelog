@@ -2,6 +2,9 @@ openmediavault (6.3.7-1) stable; urgency=low
 
   * Improve `omv-env list` command. The directories `/etc/cron.*`
     will be parsed for environment variables as well now.
+  * Improve Salt configuration.
+  * Always populate basic IPv6 configuration in /etc/hosts. This will
+    lead to a dramatically speed improvement of the Salt deployment.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Mar 2023 23:54:48 +0200
 

@@ -29,16 +29,21 @@
 {% set alias = dns_config.hostname | lower %}
 {% endif %}
 
-configure_hosts_default_ipv4:
+configure_hosts_default:
   file.managed:
     - name: "/etc/hosts"
     - contents: |
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
-        127.0.0.1 localhost.localdomain localhost
     - user: root
     - group: root
     - mode: 644
+
+configure_hosts_default_ipv4:
+  file.append:
+    - name: "/etc/hosts"
+    - text: |
+        127.0.0.1 localhost.localdomain localhost
 
 {% if interfaces_config | selectattr('method', 'equalto', 'static') | list | length == 0 %}
 append_hosts_127.0.1.1_ipv4:
@@ -49,7 +54,6 @@ append_hosts_127.0.1.1_ipv4:
       - "{{ alias }}"
 {% endif %}
 
-{% if salt['omv_utils.is_ipv6_enabled']() %}
 configure_hosts_default_ipv6:
   file.append:
     - name: "/etc/hosts"
@@ -61,6 +65,14 @@ configure_hosts_default_ipv6:
         ff02::1 ip6-allnodes
         ff02::2 ip6-allrouters
         ff02::3 ip6-allhosts
+
+{% if interfaces_config | selectattr('method6', 'equalto', 'static') | list | length == 0 %}
+append_hosts_::1_ipv6:
+  host.only:
+    - name: "::1"
+    - hostnames:
+      - "{{ fqdn }}"
+      - "{{ alias }}"
 {% endif %}
 
 {% for interface in interfaces_config %}

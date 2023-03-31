@@ -447,6 +447,7 @@ case "$1" in
 			omv_module_set_dirty monit
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.3.7"; then
+			omv_module_set_dirty hosts
 			# The file should have been deleted automatically.
 			rm -f /etc/cron.weekly/openmediavault-scrub_btrfs
 		fi

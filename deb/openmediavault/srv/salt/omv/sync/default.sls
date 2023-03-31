@@ -23,18 +23,15 @@ clear_cache:
 
 # Sync grains from salt://_grains to the minion.
 sync_grains:
-  module.run:
-    - saltutil.sync_grains:
-      - refresh: True
-
-# Sync execution modules from salt://_modules to the minion.
-sync_modules:
-  module.run:
-    - saltutil.sync_modules:
-      - refresh: True
+  saltutil.sync_grains:
+    - refresh: True
 
 # Sync state modules from salt://_states to the minion.
 sync_states:
-  module.run:
-    - saltutil.sync_states:
-      - refresh: True
+  saltutil.sync_states:
+    - refresh: True
+
+# Sync execution modules from salt://_modules to the minion.
+sync_modules:
+  saltutil.sync_modules:
+    - refresh: True
