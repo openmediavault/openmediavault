@@ -1,5 +1,6 @@
 openmediavault (6.3.7-1) stable; urgency=low
 
+  * Update locale files.
   * Improve `omv-env list` command. The directories `/etc/cron.*`
     will be parsed for environment variables as well now.
   * Improve Salt configuration.

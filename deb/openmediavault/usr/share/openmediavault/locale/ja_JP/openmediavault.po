@@ -757,7 +757,7 @@ msgid "Copy"
 msgstr "コピー"
 
 msgid "Copy permissions"
-msgstr ""
+msgstr "パーミッションのコピー"
 
 msgid "Copy public SSH key"
 msgstr "公開SSHキーをコピー"
@@ -1009,7 +1009,7 @@ msgid "Do you really want to apply the configuration changes?"
 msgstr "設定の変更を適用してよろしいですか？"
 
 msgid "Do you really want to copy the permissions from the shared folder?"
-msgstr ""
+msgstr "共有フォルダのパーミッションをコピーしてよろしいですか？"
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
@@ -2232,7 +2232,7 @@ msgid "Period of validity"
 msgstr "有効期間"
 
 msgid "Permission"
-msgstr ""
+msgstr "パーミッション"
 
 msgid "Permissions"
 msgstr "パーミッション"
@@ -2870,10 +2870,10 @@ msgid "Shared folder path"
 msgstr "共有フォルダのパス"
 
 msgid "Shared folder permissions"
-msgstr ""
+msgstr "共有フォルダのパーミッション"
 
 msgid "Shared folder permissions have been copied."
-msgstr ""
+msgstr "共有フォルダのパーミッションがコピーされました。"
 
 msgid "Shares"
 msgstr "共有"
@@ -3280,7 +3280,7 @@ msgid "The server is unavailable to handle this request right now."
 msgstr "サーバーは現在、このリクエストを処理することができません。"
 
 msgid "The shared folder from which the permissions are copied."
-msgstr ""
+msgstr "パーミッションのコピー元となる共有フォルダーです。"
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr "共有フォルダ{{ _selected[0].name }}が正常に作成されました。"
