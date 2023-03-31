@@ -220,4 +220,8 @@ export class MatFormTagInputComponent implements ControlValueAccessor, MatFormFi
       this.onChange(this.value);
     }
   }
+
+  onBlur(event: Event): void {
+    this.onTouched();
+  }
 }

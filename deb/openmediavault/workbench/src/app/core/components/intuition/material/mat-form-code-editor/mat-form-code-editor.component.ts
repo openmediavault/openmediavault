@@ -320,6 +320,11 @@ export class MatFormCodeEditorComponent
           this.focused = vu.view.hasFocus;
         }
       }),
+      EditorView.domEventHandlers({
+        blur: () => {
+          this.onTouched();
+        }
+      }),
       this.getLineNumbersExtensions(),
       this.getThemeExtensions(),
       this.getLanguageExtensions()
