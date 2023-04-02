@@ -19,7 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-def populate_grains():
+def raspberrypi():
     grains = {'raspberrypi': False}
     # Check if the system is a RPi device.
     try:
