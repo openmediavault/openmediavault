@@ -60,5 +60,10 @@ apt-get --yes --auto-remove --show-upgraded \
 # Populate the database.
 omv-confdbadm populate
 
+# Deploy the /etc/hosts file to ensure localhost for IPv4 and IPv6 are
+# configured properly. Otherwise building the Salt grains will take a
+# very long time.
+omv-salt deploy run hosts
+
 # Display the login information.
 cat /etc/issue
