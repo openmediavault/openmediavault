@@ -28,19 +28,16 @@ run_state_patch:
 sync_runners:
   salt.runner:
     - name: saltutil.sync_runners
-    - parallel: True
 
 # Sync execution modules from salt://_modules to the master.
 sync_modules:
   salt.runner:
     - name: saltutil.sync_modules
-    - parallel: True
 
 # Sync state modules from salt://_states to the master.
 sync_states:
   salt.runner:
     - name: saltutil.sync_states
-    - parallel: True
 
 # Create openmediavault pillar data.
 populate_pillar:
