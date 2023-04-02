@@ -1,4 +1,4 @@
-openmediavault (6.3.7-1) stable; urgency=low
+openmediavault (6.3.7-2) stable; urgency=low
 
   * Update locale files.
   * Improve `omv-env list` command. The directories `/etc/cron.*`
