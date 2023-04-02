@@ -68,7 +68,7 @@ configure_hosts_default_ipv6:
 
 # Add hostname to ::1 if there is no other IPv6 interface. This is
 # necessary to properly resolve the hostname, otherwise building the Salt
- grains (core.fqdns and core.ip_fqdn) will take a very long time.
+# grains (core.fqdns and core.ip_fqdn) will take a very long time.
 {% if interfaces_config | selectattr('method6', 'equalto', 'static') | list | length == 0 %}
 append_hosts_::1_ipv6:
   host.present:
