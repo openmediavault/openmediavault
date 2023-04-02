@@ -20,7 +20,6 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 set -e
-set -x
 
 # Get the current timezone and update the database.
 timezone=$(salt-call --local --retcode-passthrough --no-color --out=json timezone.get_zone | \
