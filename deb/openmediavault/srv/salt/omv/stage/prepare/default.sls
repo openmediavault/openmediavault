@@ -43,6 +43,8 @@ sync_states:
 populate_pillar:
   salt.runner:
     - name: omv.populate_pillar
+    - require:
+      - salt: sync_runners
 
 run_state_sync:
   salt.state:
