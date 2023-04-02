@@ -59,18 +59,21 @@ configure_hosts_default_ipv6:
     - name: "/etc/hosts"
     - text: |
         # The following lines are desirable for IPv6 capable hosts.
-        ::1     ip6-localhost ip6-loopback
+        ::1     localhost ip6-localhost ip6-loopback
         fe00::0 ip6-localnet
         ff00::0 ip6-mcastprefix
         ff02::1 ip6-allnodes
         ff02::2 ip6-allrouters
         ff02::3 ip6-allhosts
 
+# Add hostname to ::1 if there is no other IPv6 interface. This is
+# necessary otherwise fetching Salt grains (core.fqdns and core.ip_fqdn)
+# will take a very long time.
 {% if interfaces_config | selectattr('method6', 'equalto', 'static') | list | length == 0 %}
 append_hosts_::1_ipv6:
-  host.only:
-    - name: "::1"
-    - hostnames:
+  host.present:
+    - ip: "::1"
+    - names:
       - "{{ fqdn }}"
       - "{{ alias }}"
 {% endif %}
