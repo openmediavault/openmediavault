@@ -1,10 +1,4 @@
-openmediavault (6.3.8-1) stable; urgency=low
-
-  *
-
- -- Volker Theile <volker.theile@openmediavault.org>  Sun, 02 Apr 2023 22:32:24 +0200
-
-openmediavault (6.3.7-4) stable; urgency=low
+openmediavault (6.3.7-5) stable; urgency=low
 
   * Update locale files.
   * Improve `omv-env list` command. The directories `/etc/cron.*`
@@ -13,7 +7,7 @@ openmediavault (6.3.7-4) stable; urgency=low
   * Always populate basic IPv6 configuration in /etc/hosts. This will
     lead to a dramatically speed improvement of the Salt deployment.
 
- -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Mar 2023 23:54:48 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 03 Apr 2023 21:17:25 +0200
 
 openmediavault (6.3.6-2) stable; urgency=low
 
