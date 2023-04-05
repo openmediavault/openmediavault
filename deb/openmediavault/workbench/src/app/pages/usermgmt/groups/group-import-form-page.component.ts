@@ -39,7 +39,8 @@ export class GroupImportFormPageComponent extends BaseFormPageComponent {
         name: 'csv',
         value: '# <groupname>;<gid>;<tags>',
         hint: gettext('Each line represents a group.'),
-        monospace: true
+        monospace: true,
+        rows: 10
       }
     ],
     buttons: [

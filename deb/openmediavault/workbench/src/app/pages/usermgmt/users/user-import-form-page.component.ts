@@ -42,7 +42,8 @@ export class UserImportFormPageComponent extends BaseFormPageComponent {
         hint: gettext(
           'Each line represents a user. Note, the password must be entered in plain text.'
         ),
-        monospace: true
+        monospace: true,
+        rows: 10
       }
     ],
     buttons: [
