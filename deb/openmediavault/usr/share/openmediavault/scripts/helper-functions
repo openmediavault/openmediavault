@@ -17,7 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-. /etc/default/openmediavault
+OMV_DEFAULT_FILE=${OMV_DEFAULT_FILE:-"/etc/default/openmediavault"}
+
+[ -f "${OMV_DEFAULT_FILE}" ] && . ${OMV_DEFAULT_FILE}
 
 # Helper makro for 'xmlstarlet' to get the shared folder path for a
 # given 'sharedfolderref'. The 'sharedfolderref' element must be a child
@@ -41,7 +43,7 @@ OMV_XMLSTARLET_GET_SHAREDFOLDER_MOUNT_DIR=${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH
 # Check if the given argument is a number.
 # Return 0 if it is a number, otherwise 1.
 omv_isnumber() {
-	if $(echo "$1" | grep -q [^[:digit:]]); then
+	if echo "$1" | grep -q "[^[:digit:]]"; then
 		return 1
 	fi
 	return 0
@@ -51,7 +53,7 @@ omv_isnumber() {
 # Check if the given argument is an UUID v4.
 # Return 0 if it is a UUID, otherwise 1.
 omv_isuuid() {
-	if $(echo "$1" | grep -Eqi "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"); then
+	if echo "$1" | grep -Eqi "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"; then
 		return 0
 	fi
 	return 1
@@ -70,7 +72,7 @@ omv_isfsuuid() {
 		return 0
 	fi
 	# Test the DOS/NTFS/ISO9660 formats.
-	if $(echo "$1" | grep -Eqi "^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16}|[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2})$"); then
+	if echo "$1" | grep -Eqi "^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16}|[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2})$"; then
 		return 0
 	fi
 	return 1
@@ -80,7 +82,7 @@ omv_isfsuuid() {
 # Finds out whether a variable describes a devicefile, e.g. /dev/sda1.
 # Return 0 the variable describes a devicefile, otherwise 1.
 omv_is_devicefile() {
-	if $(echo "$1" | grep -Eqi "^\/dev\/.+$"); then
+	if echo "$1" | grep -Eqi "^\/dev\/.+$"; then
 		return 0
 	fi
 	return 1
@@ -117,8 +119,7 @@ omv_trim() {
 	_left=0
 	_right=0
 	_cmdargs=""
-	while getopts 'c:lr' option
-	do
+	while getopts 'c:lr' option; do
 		case ${option} in
 		c)
 			_char="${OPTARG}"
@@ -131,8 +132,8 @@ omv_trim() {
 			;;
 		esac
 	done
-	shift $((OPTIND-1))
-	if [ ${_left} -eq 0 -a ${_right} -eq 0 ]; then
+	shift $((OPTIND - 1))
+	if [ "${_left}" -eq 0 ] && [ "${_right}" -eq 0 ]; then
 		_left=1
 		_right=1
 	fi
@@ -159,13 +160,13 @@ omv_trim() {
 # omv_rtrim <value>
 # Strip a character, white spaces by default, from the end of a string.
 omv_rtrim() {
-	omv_trim -r $@
+	omv_trim -r "$@"
 }
 
 # omv_ltrim <value>
 # Strip a character, white spaces by default, from the beginning of a string.
 omv_ltrim() {
-	omv_trim -l $@
+	omv_trim -l "$@"
 }
 
 # omv_uuid
@@ -180,11 +181,11 @@ omv_uuid() {
 #   'TRUE', ...
 # @return Return 0 if it's "1|y|yes|true|on", otherwise 1.
 omv_checkyesno() {
-	case ${1} in
-	1|[Yy]|[Yy][Ee][Ss]|[Tt][Rr][Uu][Ee]|[Oo][Nn])
+	case "$1" in
+	1 | [Yy] | [Yy][Ee][Ss] | [Tt][Rr][Uu][Ee] | [Oo][Nn])
 		return 0
 		;;
-	0|[Nn]|[Nn][Oo]|[Ff][Aa][Ll][Ss][Ee]|[Oo][Ff][Ff])
+	0 | [Nn] | [Nn][Oo] | [Ff][Aa][Ll][Ss][Ee] | [Oo][Ff][Ff])
 		return 1
 		;;
 	*)
@@ -196,51 +197,51 @@ omv_checkyesno() {
 # omv_log <message>
 # Print a one-liner message to standard out (STDOUT) and syslog.
 omv_log() {
-	omv_msg $*
-	omv_syslog_info $*
+	omv_msg $@
+	omv_syslog_info $@
 }
 
 # omv_info <message>
 # Print a one-liner message to standard out (STDOUT) and syslog.
 omv_info() {
-	omv_msg "INFO:" $*
-	omv_syslog_info $*
+	omv_msg "INFO:" $@
+	omv_syslog_info $@
 }
 
 # omv_warning <message>
 # Print a one-liner message to standard out (STDOUT) and syslog.
 omv_warning() {
-	omv_msg "WARNING:" $*
-	omv_syslog_warning $*
+	omv_msg "WARNING:" $@
+	omv_syslog_warning $@
 }
 
 # omv_error <message>
 # Print a one-liner message to standard error (STDERR) and syslog.
 omv_error() {
-	omv_msg "ERROR:" $* >&2
-	omv_syslog_error $*
+	omv_msg "ERROR:" $@ >&2
+	omv_syslog_error $@
 }
 
 # omv_msg <message>
 # Print a one-liner the message to standard out (STDOUT).
 omv_msg() {
-	echo $*
+	echo $@
 }
 
 # omv_print <message>
 # Print the message, by keeping the blanks and line breaks, to
 # standard out (STDOUT).
 omv_print() {
-	echo "$*"
+	echo "$@"
 }
 
 # omv_debug <message>
 # If debugging is enabled output message to stderr.
 omv_debug() {
-	case ${OMV_DEBUG_SCRIPT} in
-	[Yy][Ee][Ss]|[Tt][Rr][Uu][Ee]|[Oo][Nn]|1)
-		omv_msg "DEBUG:" $* 1>&2
-		omv_syslog_debug $*
+	case "${OMV_DEBUG_SCRIPT}" in
+	[Yy][Ee][Ss] | [Tt][Rr][Uu][Ee] | [Oo][Nn] | 1)
+		omv_msg "DEBUG:" $@ 1>&2
+		omv_syslog_debug $@
 		;;
 	esac
 }
@@ -254,8 +255,7 @@ omv_syslog() {
 	_tag=$(basename "$0")
 	_priority="syslog.info"
 	# Parse function arguments.
-	while getopts 't:p:' option
-	do
+	while getopts 't:p:' option; do
 		case ${option} in
 		p)
 			_priority="${OPTARG}"
@@ -265,32 +265,32 @@ omv_syslog() {
 			;;
 		esac
 	done
-	shift $((OPTIND-1))
+	shift $((OPTIND - 1))
 	logger --priority "${_priority}" --tag "${_tag}" -- $@
 }
 
 # omv_syslog_info <message>
 # Log the given message as one-liner to syslog with priority 'info'.
 omv_syslog_info() {
-	omv_syslog -p "syslog.info" $*
+	omv_syslog -p "syslog.info" $@
 }
 
 # omv_syslog_warning <message>
 # Log the given message as one-liner to syslog with priority 'warning'.
 omv_syslog_warning() {
-	omv_syslog -p "syslog.warning" $*
+	omv_syslog -p "syslog.warning" $@
 }
 
 # omv_syslog_error <message>
 # Log the given message as one-liner to syslog with priority 'err'.
 omv_syslog_error() {
-	omv_syslog -p "syslog.err" $*
+	omv_syslog -p "syslog.err" $@
 }
 
 # omv_syslog_debug <message>
 # Log the given message as one-liner to syslog with priority 'debug'.
 omv_syslog_debug() {
-	omv_syslog -p "syslog.debug" $*
+	omv_syslog -p "syslog.debug" $@
 }
 
 # omv_exec_rpc <service> <method> <params>
@@ -315,9 +315,9 @@ omv_exec_rpc() {
 # omv_get_if <interface>
 # Get the interface. If set to 'auto' use the first interface found.
 omv_get_if() {
-	case $1 in
+	case "$1" in
 	[Aa][Uu][Tt][Oo])
-		ls -1 /sys/class/net | head -n 1
+		basename "$(find /sys/class/net -type l | sort | head -n 1)"
 		;;
 	*)
 		echo -n "$1"
@@ -328,30 +328,34 @@ omv_get_if() {
 # omv_get_ipaddr <interface>
 # Get the IPv4 address from the given network interface.
 omv_get_ipaddr() {
-	export LANG=C; ip -4 addr show $1 2>/dev/null | sed -n 's/^\s\+inet \([0-9\.]\+\)\/[0-9]\+ brd.\+/\1/p'
+	export LANG=C;
+	ip -4 addr show "$1" 2>/dev/null | sed -n 's/^\s\+inet \([0-9\.]\+\)\/[0-9]\+ brd.\+/\1/p'
 }
 
 # omv_get_ipaddr6 <interface>
 # Get the IPv6 address from the given network interface.
 omv_get_ipaddr6() {
-	export LANG=C; ip -6 addr show $1 2>/dev/null | sed -n 's/^\s\+inet6 \([a-f0-9:]\+\)\/[0-9]\+ scope global/\1/p'
+	export LANG=C;
+	ip -6 addr show "$1" 2>/dev/null | sed -n 's/^\s\+inet6 \([a-f0-9:]\+\)\/[0-9]\+ scope global/\1/p'
 }
 
 # omv_get_gateway <interface>
 # Get the default IPv4 gateway for the given network interface.
 omv_get_gateway() {
-	export LANG=C; ip -4 route show dev $1 2>/dev/null | sed -n 's/default via \([0-9\.]\+\)/\1/p'
+	export LANG=C;
+	ip -4 route show dev "$1" 2>/dev/null | sed -n 's/default via \([0-9\.]\+\)/\1/p'
 }
 
 # omv_get_gateway6 <interface>
 # Get the default IPv6 gateway for the given network interface.
 omv_get_gateway6() {
-	export LANG=C; ip -6 route show dev $1 2>/dev/null | sed -n 's/default via \([a-f0-9:]\+\)/\1/p'
+	export LANG=C;
+	ip -6 route show dev "$1" 2>/dev/null | sed -n 's/default via \([a-f0-9:]\+\)/\1/p'
 }
 
 # omv_config_exists <xpath>
 # Check if xpath is available/found in the configuration file.
-# Return 0 if set, nonzero otherwise.
+# Return 0 if exists, nonzero otherwise.
 # $1 - XPATH expression
 omv_config_exists() {
 	local _queryresult _rc
@@ -359,7 +363,7 @@ omv_config_exists() {
 	omv_debug "omv_config_exists: xpath=<$1>"
 
 	# Get requested xpath
-	_queryresult=`xmlstarlet sel -t -v "count($1)" ${OMV_CONFIG_FILE}`
+	_queryresult=$(xmlstarlet sel -t -v "count($1)" ${OMV_CONFIG_FILE})
 	_rc=$?
 
 	omv_debug "omv_config_exists: results: query=<${_queryresult}> cmd=<${_rc}>"
@@ -381,7 +385,7 @@ omv_config_get() {
 	omv_debug "omv_config_get: xpath=<$1>"
 
 	# Get requested xpath
-	_queryresult=`xmlstarlet sel -t -v "$1" ${OMV_CONFIG_FILE} | xmlstarlet unesc`
+	_queryresult=$(xmlstarlet sel -t -v "$1" ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 	_rc=$?
 
 	# Output query for later processing.
@@ -401,7 +405,7 @@ omv_config_exec_query() {
 	omv_debug "omv_config_exec_query: query=<$@>"
 
 	# Execute xml query.
-	_queryresult=`eval "xmlstarlet sel -t $@ ${OMV_CONFIG_FILE} | xmlstarlet unesc"`
+	_queryresult=$(eval "xmlstarlet sel -t $@ ${OMV_CONFIG_FILE} | xmlstarlet unesc")
 	_rc=$?
 
 	# Output query result for later processing.
@@ -422,7 +426,7 @@ omv_config_get_count() {
 	omv_debug "omv_config_get_count: xpath=<$1>"
 
 	# Get requested xpath
-	_queryresult=`xmlstarlet sel -t -v "count($1)" ${OMV_CONFIG_FILE}`
+	_queryresult=$(xmlstarlet sel -t -v "count($1)" ${OMV_CONFIG_FILE})
 	_rc=$?
 
 	# Output query for later processing.
@@ -434,7 +438,7 @@ omv_config_get_count() {
 }
 
 # omv_config_add_node <xpath> <name>
-# Add a new node at the specifield XPath. The function will exit if the
+# Add a new node at the specified XPath. The function will exit if the
 # node already exists.
 # Example:
 # omv_config_add_node "/config/system" "email"
@@ -457,12 +461,12 @@ omv_config_add_node() {
 		# another file because xmlstarlet does not like to use the same file
 		# for input and output in a pipe like xmlstarlet ... file > file
 		xmlstarlet edit -P -s "${xpath}" -t elem -n "${name}" -v "" \
-		  "${OMV_CONFIG_FILE}" | tee "${tmpfile}" >/dev/null
+      "${OMV_CONFIG_FILE}" | tee "${tmpfile}" >/dev/null
 
 		# Copy temporary file content to config file. Do not move it to
 		# ensure that there still exists a working configuration file.
 		# Note, the existing file permissions must be kept.
-		cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
+		cat "${tmpfile}" >"${OMV_CONFIG_FILE}"
 	fi
 
 	# Remove temporary file.
@@ -470,7 +474,7 @@ omv_config_add_node() {
 }
 
 # omv_config_add_key <xpath> <name> <value>
-# Add a new key at the specifield XPath. The function will exit if the
+# Add a new key at the specified XPath. The function will exit if the
 # key already exists.
 # Example:
 # omv_config_add_key "/config/system/email" "primaryemail" "test@test.com"
@@ -496,12 +500,12 @@ omv_config_add_key() {
 		# another file because xmlstarlet does not like to use the same file
 		# for input and output in a pipe like xmlstarlet ... file > file
 		xmlstarlet edit -P -s "${xpath}" -t elem -n "${name}" -v "${value}" \
-		  "${OMV_CONFIG_FILE}" | tee "${tmpfile}" >/dev/null
+      "${OMV_CONFIG_FILE}" | tee "${tmpfile}" >/dev/null
 
 		# Copy temporary file content to config file. Do not move it to
 		# ensure that there still exists a working configuration file.
 		# Note, the existing file permissions must be kept.
-		cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
+		cat "${tmpfile}" >"${OMV_CONFIG_FILE}"
 	fi
 
 	# Remove temporary file.
@@ -531,7 +535,7 @@ omv_config_add_node_data() {
 	# file because xmlstarlet does not like to use the same file
 	# for input and output in a pipe like xmlstarlet ... file > file
 	xmlstarlet edit -P -s "${xpath}" -t elem -n "${name}" -v "${tmpdata}" \
-	  "${OMV_CONFIG_FILE}" | tee "${tmpfile}" >/dev/null
+    "${OMV_CONFIG_FILE}" | tee "${tmpfile}" >/dev/null
 
 	# If the value contains XML data then special characters must be
 	# escaped for sed, otherwise they will be misinterpreted.
@@ -539,7 +543,7 @@ omv_config_add_node_data() {
 
 	# Copy temporary file content to config file. Note, the config file
 	# permissions must be kept.
-	cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
+	cat "${tmpfile}" >"${OMV_CONFIG_FILE}"
 
 	# Remove temporary file.
 	rm -f -- "${tmpfile}"
@@ -565,7 +569,7 @@ omv_config_rename() {
 
 	# Copy temporary file content to config file. Note, the config file
 	# permissions must be kept.
-	cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
+	cat "${tmpfile}" >"${OMV_CONFIG_FILE}"
 
 	# Remove temporary file.
 	rm -f -- "${tmpfile}"
@@ -591,7 +595,7 @@ omv_config_move() {
 
 	# Copy temporary file content to config file. Note, the config file
 	# permissions must be kept.
-	cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
+	cat "${tmpfile}" >"${OMV_CONFIG_FILE}"
 
 	# Remove temporary file.
 	rm -f -- "${tmpfile}"
@@ -632,7 +636,7 @@ omv_config_update() {
 
 	# Copy temporary file content to config file. Note, the config file
 	# permissions must be kept.
-	cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
+	cat "${tmpfile}" >"${OMV_CONFIG_FILE}"
 
 	# Remove temporary file.
 	rm -f -- "${tmpfile}"
@@ -657,7 +661,7 @@ omv_config_delete() {
 
 	# Copy temporary file content to config file. Note, the config file
 	# permissions must be kept.
-	cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
+	cat "${tmpfile}" >"${OMV_CONFIG_FILE}"
 
 	# Remove temporary file.
 	rm -f -- "${tmpfile}"
@@ -667,7 +671,7 @@ omv_config_delete() {
 # Quote special characters (\/&) in the given string.
 # @param string The string to quote
 omv_quotemeta() {
-	echo -n "$*" | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g'
+	echo -n "$@" | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g'
 }
 
 # omv_mask2cidr <mask>
@@ -719,9 +723,10 @@ omv_cidr2mask() {
 # @param address The IPv4 address to validate.
 # @return 0 if valid, otherwise 1.
 omv_is_ipaddr4() {
-	echo "$1" | grep -Eq "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$"
-	[ $? -ne 0 ] && return 1
-	return 0
+	if echo "$1" | grep -Eq "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$"; then
+	  return 0
+	fi
+	return 1
 }
 
 # omv_is_netmask4 <netmask>
@@ -729,9 +734,10 @@ omv_is_ipaddr4() {
 # @param netmask The IPv4 netmask to validate.
 # @return 0 if valid, otherwise 1.
 omv_is_netmask4() {
-	echo "$1" | grep -Eq "^(128|192|224|24[08]|25[245].0.0.0)|(255.(0|128|192|224|24[08]|25[245]).0.0)|(255.255.(0|128|192|224|24[08]|25[245]).0)|(255.255.255.(0|128|192|224|24[08]|252))$"
-	[ $? -ne 0 ] && return 1
-	return 0
+	if echo "$1" | grep -Eq "^((128|192|224|24[08]|25[245]).0.0.0)|(255.(0|128|192|224|24[08]|25[245]).0.0)|(255.255.(0|128|192|224|24[08]|25[245]).0)|(255.255.255.(0|128|192|224|24[08]|252))$"; then
+	  return 0
+	fi
+	return 1
 }
 
 # omv_is_gateway4 <gateway>
@@ -739,9 +745,10 @@ omv_is_netmask4() {
 # @param gateway The IPv4 gateway to validate.
 # @return 0 if valid, otherwise 1.
 omv_is_gateway4() {
-	echo "$1" | grep -Eq "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$"
-	[ $? -ne 0 ] && return 1
-	return 0
+	if echo "$1" | grep -Eq "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$"; then
+	  return 0
+	fi
+	return 1
 }
 
 # omv_is_ipaddr6 <address>
@@ -750,7 +757,7 @@ omv_is_gateway4() {
 # @return 0 if valid, otherwise 1.
 omv_is_ipaddr6() {
 	local _valid
-	_valid=$(php7.4 -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
+	_valid=$(php -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
 	return ${_valid}
 }
 
@@ -769,7 +776,7 @@ omv_is_netmask6() {
 # @return 0 if valid, otherwise 1.
 omv_is_gateway6() {
 	local _valid
-	_valid=$(php7.4 -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
+	_valid=$(php -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
 	return ${_valid}
 }
 
@@ -787,9 +794,10 @@ omv_is_ipv6_enabled() {
 # Check if the given device is a wireless network interface.
 # @return 0 if wireless, otherwise 1.
 omv_is_wlan() {
-	echo "$1" | grep -Eq "^wlan[0-9]+$"
-	[ $? -ne 0 ] && return 1
-	return 0
+	if echo "$1" | grep -Pq "^wlan[0-9]+|wl(b\d+|c\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$"; then
+	  return 0
+	fi
+	return 1
 }
 
 # omv_get_sharedfolder_name <uuid>
@@ -1040,7 +1048,7 @@ omv_get_root_devicefile() {
 # @param user The name of the user.
 # @return 0 if the user exists, otherwise 1.
 omv_user_id_exists() {
-	getent passwd $1 >/dev/null 2>&1
+	getent passwd "$1" >/dev/null 2>&1
 	return $?
 }
 
@@ -1049,14 +1057,14 @@ omv_user_id_exists() {
 # @param group The name of the group.
 # @return 0 if the group exists, otherwise 1.
 omv_group_id_exists() {
-	getent group $1 >/dev/null 2>&1
+	getent group "$1" >/dev/null 2>&1
 	return $?
 }
 
 # omv_md5 <string>
 # Calculate the md5 hash of a string
 omv_md5() {
-	echo -n "$*" | md5sum - | cut -b-32
+	echo -n "$@" | md5sum - | cut -b-32
 }
 
 # omv_pwgen <length>
