@@ -35,7 +35,7 @@ jobs:
         working-directory: deb/openmediavault/workbench/
         run: npm run lint
 
-  test:
+  test-ui:
     runs-on: ubuntu-latest
 
     steps:
@@ -56,3 +56,18 @@ jobs:
       - name: Run unit tests
         working-directory: deb/openmediavault/workbench/
         run: npm run test:ci
+
+  test-shell:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        working-directory: deb/openmediavault/usr/share/openmediavault/unittests/shell
+        run: make install
+
+      - name: Run unit tests
+        working-directory: deb/openmediavault/usr/share/openmediavault/unittests/shell
+        run: make test
