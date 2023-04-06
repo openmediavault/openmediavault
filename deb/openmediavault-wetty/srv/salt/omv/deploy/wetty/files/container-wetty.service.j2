@@ -1,6 +1,7 @@
 {%- set image = salt['pillar.get']('default:OMV_WETTY_APP_CONTAINER_IMAGE', 'docker.io/wettyoss/wetty:latest') -%}
 {%- set uname = salt['pillar.get']('default:OMV_WETTY_APP_CONTAINER_UNAME', 'nobody') -%}
 {%- set gname = salt['pillar.get']('default:OMV_WETTY_APP_CONTAINER_GNAME', 'nogroup') -%}
+{%- set base = salt['pillar.get']('default:OMV_WETTY_APP_CONTAINER_BASE', '') -%}
 {%- set ssl_enabled = wetty_config.sslcertificateref | length > 0 -%}
 {%- if ssl_enabled -%}
 {%- set ssl_cert_dir = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_DIR', '/etc/ssl') -%}
@@ -22,7 +23,7 @@ Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/container-wetty.pid %t/container-wetty.ctr-id
-ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-wetty.pid --cidfile %t/container-wetty.ctr-id --cgroups=no-conmon -d --replace --pull=never --name=wetty --net=host {% if not ssl_enabled %}-u {{ uid }}:{{ gid }}{% endif %} {% if ssl_enabled %}-v {{ ssl_cert_file }}:/cert.crt:ro -v {{ ssl_key_file }}:/cert.key:ro{% endif %} {{ image }} --force-ssh --ssh-port {{ ssh_config.port }} --ssh-host {{ dns_config.hostname }} --base "" --port {{ wetty_config.port }} {% if ssl_enabled %}--ssl-cert /cert.crt --ssl-key /cert.key{% endif %}
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-wetty.pid --cidfile %t/container-wetty.ctr-id --cgroups=no-conmon -d --replace --pull=never --name=wetty --net=host {% if not ssl_enabled %}-u {{ uid }}:{{ gid }}{% endif %} {% if ssl_enabled %}-v {{ ssl_cert_file }}:/cert.crt:ro -v {{ ssl_key_file }}:/cert.key:ro{% endif %} {{ image }} --force-ssh --ssh-port {{ ssh_config.port }} --ssh-host {{ dns_config.hostname }} --base "{{ base }}" --port {{ wetty_config.port }} {% if ssl_enabled %}--ssl-cert /cert.crt --ssl-key /cert.key{% endif %}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-wetty.ctr-id
 ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-wetty.ctr-id
 PIDFile=%t/container-wetty.pid
