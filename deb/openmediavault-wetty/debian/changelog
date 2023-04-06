@@ -1,3 +1,12 @@
+openmediavault-wetty (6.0.5-1) stable; urgency=low
+
+  * Add the ebvironment variable `OMV_WETTY_APP_CONTAINER_BASE` to
+    customize the `--base` parameter of WeTTY. Note, the plugin UI
+    will not take care about this and will not redirect you to the
+    correct URL anymore after the customization.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 06 Apr 2023 17:03:19 +0200
+
 openmediavault-wetty (6.0.4-1) stable; urgency=low
 
   * Update locales.
