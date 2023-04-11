@@ -7,7 +7,7 @@ openmediavault (6.3.9-1) stable; urgency=low
     certain date, you may disable the build-in cron jobs via the
     environment variable `OMV_BTRFS_SCRUB_ENABLED`. Finally create
     your custom scheduled tasks via the UI by running the command
-    `omv-btrfs-scrub -e`.
+    `omv-btrfs-scrub`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 11 Apr 2023 16:44:59 +0200
 
