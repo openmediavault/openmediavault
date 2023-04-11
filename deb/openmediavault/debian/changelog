@@ -1,5 +1,6 @@
 openmediavault (6.3.8-1) stable; urgency=low
 
+  * Update locale files.
   * Issue #1528: Fix the error `The "constraint" or "deps" property
     is required`.
 

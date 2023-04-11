@@ -3,8 +3,8 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
-# Thomas Melka, 2022
-# Volker Theile <votdev@gmx.de>, 2022
+# Thomas Melka, 2022-2023
+# Volker Theile <votdev@gmx.de>, 2022-2023
 # Volker Theile <votdev@gmx.de>, 2014,2016-2017
 # Volker Theile <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2012
@@ -14,8 +14,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
-"Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2022-2023\n"
+"Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,7 +49,7 @@ msgid "Created on-access scan."
 msgstr ""
 
 msgid "Created scheduled scan."
-msgstr ""
+msgstr "Geplante Aufgabe erstellt."
 
 msgid "Database checks"
 msgstr "Datenbank Prüfungen"
@@ -117,7 +117,7 @@ msgid "Every N minute"
 msgstr "Jede N. Minute"
 
 msgid "Execute scheduled scan"
-msgstr ""
+msgstr "Geplante Aufgabe ausführen"
 
 msgid "Extra options"
 msgstr "Erweiterte Optionen"
@@ -180,7 +180,7 @@ msgid "Month"
 msgstr "Monat"
 
 msgid "Move to quarantine"
-msgstr ""
+msgstr "In Quarantäne verschieben"
 
 msgid "Multiscan"
 msgstr "Multiscan"
@@ -201,7 +201,7 @@ msgid "Perform a deeper analysis of executable files."
 msgstr "Führe eine tiefergehende Analyse von ausführbaren Dateien durch."
 
 msgid "Perform nothing"
-msgstr ""
+msgstr "Nichts ausführen"
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
@@ -240,7 +240,7 @@ msgid "Scan the directory contents in parallel using available threads."
 msgstr "Scanne die Verzeichnis-Inhalte parallel mithilfe der verfügbaren Threads."
 
 msgid "Scheduled Scans"
-msgstr ""
+msgstr "Geplante Aufgaben"
 
 msgid "Scheduling"
 msgstr "Terminplanung"
@@ -288,7 +288,7 @@ msgid "Updated on-access scan."
 msgstr ""
 
 msgid "Updated scheduled scan."
-msgstr ""
+msgstr "Geplante Aufgabe aktualisiert."
 
 msgid "Verbose"
 msgstr "Wortreich"

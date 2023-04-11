@@ -5,6 +5,7 @@
 # Translators:
 # Dietmar Schultz, 2022
 # Stephan Steiner, 2014
+# Thomas Melka, 2023
 # Volker Theile <votdev@gmx.de>, 2021
 # Volker Theile <votdev@gmx.de>, 2013-2014,2017,2019
 msgid ""
@@ -13,8 +14,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
-"Last-Translator: Dietmar Schultz, 2022\n"
-"Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
+"Last-Translator: Thomas Melka, 2023\n"
+"Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -65,7 +66,7 @@ msgid "Enabled"
 msgstr "Aktiviert"
 
 msgid "External Storage Device"
-msgstr ""
+msgstr "Externes Speichergerät"
 
 msgid "Extra options"
 msgstr "Erweiterte Optionen"

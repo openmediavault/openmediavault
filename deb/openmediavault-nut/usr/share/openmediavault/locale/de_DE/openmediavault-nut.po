@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault-nut package.
 # 
 # Translators:
+# Volker Theile <votdev@gmx.de>, 2023
 # Volker Theile <votdev@gmx.de>, 2014
 # warhog <warhog@gmx.de>, 2012
 msgid ""
@@ -11,8 +12,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2014\n"
-"Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2023\n"
+"Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,7 +49,7 @@ msgid "Identifier"
 msgstr "Identifikation"
 
 msgid "Invalid identifier"
-msgstr ""
+msgstr "Ungültiger Bezeichner"
 
 msgid "Load"
 msgstr "Last"
@@ -96,7 +97,7 @@ msgid "Shutdown timer"
 msgstr "Shutdown Timer"
 
 msgid "Standalone"
-msgstr ""
+msgstr "Alleinstehend"
 
 msgid "Temperature"
 msgstr "Temperatur"
