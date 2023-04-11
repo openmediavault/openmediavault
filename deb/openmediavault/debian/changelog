@@ -2,6 +2,12 @@ openmediavault (6.3.9-1) stable; urgency=low
 
   * Add the environment variable `OMV_BTRFS_SCRUB_PERIOD`. The supported
     values are `weekly` and `monthly`. Defaults to`monthly`.
+  * Relocate the Cron Btrfs scrubbing script into a separate CLI tool
+    named `omv-btrfs-scrub`. If you need to run the scrub jobs at a
+    certain date, you may disable the build-in cron jobs via the
+    environment variable `OMV_BTRFS_SCRUB_ENABLED`. Finally create
+    your custom scheduled tasks via the UI by running the command
+    `omv-btrfs-scrub -e`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 11 Apr 2023 16:44:59 +0200
 
