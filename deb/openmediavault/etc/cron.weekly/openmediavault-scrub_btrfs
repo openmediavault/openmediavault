@@ -32,7 +32,7 @@ OMV_BTRFS_SCRUB_PERIOD=${OMV_BTRFS_SCRUB_PERIOD:-"monthly"}
 # Exit immediately if Btrfs scrubbing is disabled.
 ! omv_checkyesno "${OMV_BTRFS_SCRUB_ENABLED}" && exit 0
 
-# Exit immediately if Btrfs scrubbing period is not 'monthly'.
-[ "${OMV_BTRFS_SCRUB_PERIOD}" != "monthly" ] && exit 0
+# Exit immediately if Btrfs scrubbing period is not 'weekly'.
+[ "${OMV_BTRFS_SCRUB_PERIOD}" != "weekly" ] && exit 0
 
 omv-btrfs-scrub -e >/dev/null 2>&1
