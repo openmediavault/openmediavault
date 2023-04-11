@@ -294,9 +294,6 @@ export class FormComponent implements AfterViewInit, OnInit, OnDestroy {
           if (_.isPlainObject(modifier.constraint) && _.isArray(modifier.deps)) {
             throw new Error('Both "constraint" and "deps" are mutually exclusive.');
           }
-          if (!_.isPlainObject(modifier.constraint) && !_.isArray(modifier.deps)) {
-            throw new Error('The "constraint" or "deps" property is required.');
-          }
           if (_.isPlainObject(modifier.constraint)) {
             deps = ConstraintService.getProps(modifier.constraint);
           }

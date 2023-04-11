@@ -1,6 +1,7 @@
 openmediavault (6.3.8-1) stable; urgency=low
 
-  *
+  * Issue #1528: Fix the error `The "constraint" or "deps" property
+    is required`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 04 Apr 2023 22:51:27 +0200
 
