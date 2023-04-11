@@ -1,0 +1,82 @@
+#!/usr/bin/env dash
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2023 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_BTRFS_SCRUB_PRIORITY=${OMV_BTRFS_SCRUB_PRIORITY:-"-c 2 -n 4"}
+OMV_BTRFS_SCRUB_READONLY=${OMV_BTRFS_SCRUB_READONLY:-"no"}
+
+usage() {
+	cat <<EOF
+Usage:
+  $(basename $0) [options] <command>
+
+Perform a scrub on all mounted Btrfs file systems.
+
+OPTIONS:
+  -e  Send reports per device via email.
+  -h  Show this message.
+
+EOF
+}
+
+mail=0
+
+while getopts "e?h" option
+do
+	case ${option} in
+	e)
+		mail=1
+		;;
+	h|?)
+		usage >&2
+		exit 2
+		;;
+	esac
+done
+
+omv_log "Performing a scrub on all mounted Btrfs file systems."
+# Ignore subvolumes.
+findmnt --all --canonicalize --notruncate --nofsroot --uniq --noheadings --output SOURCE,UUID --types btrfs |
+  sort | uniq |
+  while read -r device uuid
+do
+  omv_msg "" # Print line break only on STDOUT.
+  omv_log "Scrubbing the file system on ${device} [UUID=${uuid}] ..."
+
+  cmdargs="${OMV_BTRFS_SCRUB_PRIORITY}"
+  if omv_checkyesno ${OMV_BTRFS_SCRUB_READONLY}; then
+    cmdargs="${cmdargs} -r"
+  fi
+
+  stats=$(btrfs scrub start -B -d ${cmdargs} "${device}" | tail -n +2)
+
+  # Write a success message to syslog because the report is only printed
+  # on STDOUT.
+  omv_syslog_info "Scrubbing the Btrfs file system on ${device} [UUID=${uuid}] has been finished.";
+  omv_print "${stats}"
+
+  # Send the report by email?
+  if [ "${mail}" -eq 1 ]; then
+    omv_print "${stats}" | mail -E -s "Scrub report of the file system ${device} [UUID=${uuid}]" root
+  fi
+done

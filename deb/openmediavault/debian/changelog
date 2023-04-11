@@ -1,6 +1,7 @@
 openmediavault (6.3.9-1) stable; urgency=low
 
-  * 
+  * Add the environment variable `OMV_BTRFS_SCRUB_PERIOD`. The supported
+    values are `weekly` and `monthly`. Defaults to`monthly`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 11 Apr 2023 16:44:59 +0200
 
