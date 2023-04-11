@@ -43,7 +43,7 @@ do
     cmdargs="${cmdargs} -r"
   fi
 
-  stats=$(btrfs scrub start -B -d ${cmdargs} "${device}")
+  stats=$(btrfs scrub start -B -d ${cmdargs} "${device}" | tail -n +2)
   # Ignore the file system notification settings because of the
   # importance of this message.
   (
