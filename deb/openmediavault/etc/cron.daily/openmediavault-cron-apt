@@ -25,13 +25,17 @@
 # (where the default cron-apt cron job file is located) this script ensures
 # that cron-apt is executed at least once a day.
 
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
 MAILTO=""
+OMV_CRON_APT_ENABLED=${OMV_CRON_APT_ENABLED:-"yes"}
 
-# Remove the '/etc/cron.d/cron-apt' file installed by the cron-apt package.
-rm -rf /etc/cron.d/cron-apt
-
-# Download and install packages.
-test -x /usr/sbin/cron-apt && /usr/sbin/cron-apt
+# Execute cron-apt to check for new updates and automatically download/install
+# security updates.
+if omv_checkyesno "${OMV_CRON_APT_ENABLED}"; then
+  which cron-apt >/dev/null 2>&1 && cron-apt
+fi
 
 # Send an email when a reboot is required.
 if [ -e "/run/reboot-required" ]; then
