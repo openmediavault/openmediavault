@@ -1,6 +1,6 @@
 openmediavault-wetty (6.0.5-1) stable; urgency=low
 
-  * Add the ebvironment variable `OMV_WETTY_APP_CONTAINER_BASE` to
+  * Add the environment variable `OMV_WETTY_APP_CONTAINER_BASE` to
     customize the `--base` parameter of WeTTY. Note, the plugin UI
     will not take care about this and will not redirect you to the
     correct URL anymore after the customization.
