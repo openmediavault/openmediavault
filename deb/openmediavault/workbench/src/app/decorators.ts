@@ -19,29 +19,27 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import * as _ from 'lodash';
 
 /**
- * Decorator to automatically unsubscribe subscriptions.
+ * A property decorator to automatically unsubscribe subscriptions.
  */
 // eslint-disable-next-line @typescript-eslint/naming-convention,prefer-arrow/prefer-arrow-functions
 export function Unsubscribe() {
-  return (constructor) => {
-    const originalFn = constructor.prototype.ngOnDestroy;
+  return (target: any, propertyKey: string) => {
+    const originalFn = target.ngOnDestroy;
     // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
-    constructor.prototype.ngOnDestroy = function () {
-      _.forEach(this, (value, key) => {
-        const property = this[key];
-        if (_.isFunction(property.unsubscribe)) {
-          property.unsubscribe();
-        }
-      });
+    target.ngOnDestroy = function () {
+      const property = this[propertyKey];
+      if (_.isFunction(property.unsubscribe)) {
+        property.unsubscribe();
+      }
       originalFn?.apply();
     };
   };
 }
 
 /**
- * Decorator that creates a debounced function that delays invoking func
- * until after wait milliseconds have elapsed since the last time the
- * debounced function was invoked.
+ * A method decorator that creates a debounced function that delays
+ * invoking func until after wait milliseconds have elapsed since the
+ * last time the debounced function was invoked.
  *
  * @param wait The number of milliseconds to delay.
  */
@@ -55,8 +53,8 @@ export function Debounce(wait: number) {
 }
 
 /**
- * Decorator that creates a throttled function that only invokes func at
- * most once per every wait milliseconds.
+ * A method decorator that creates a throttled function that only
+ * invokes func at most once per every wait milliseconds.
  *
  * @param wait The number of milliseconds to throttle invocations to.
  */
@@ -70,7 +68,8 @@ export function Throttle(wait: number) {
 }
 
 /**
- * Decorator to coercing a data-bound value (typically a string) to a boolean.
+ * A property decorator to coercing a data-bound value (typically
+ * a string) to a boolean.
  */
 // eslint-disable-next-line @typescript-eslint/naming-convention,prefer-arrow/prefer-arrow-functions
 export function CoerceBoolean() {
