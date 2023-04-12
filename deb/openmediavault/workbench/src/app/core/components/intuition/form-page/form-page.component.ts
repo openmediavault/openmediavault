@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { HttpErrorResponse } from '@angular/common/http';
-import { AfterViewInit, Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
@@ -37,6 +37,7 @@ import {
   FormPageButtonConfig,
   FormPageConfig
 } from '~/app/core/components/intuition/models/form-page-config.type';
+import { Unsubscribe } from '~/app/decorators';
 import { format, formatDeep, isFormatable, toBoolean } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
@@ -64,7 +65,7 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 })
 export class FormPageComponent
   extends AbstractPageComponent<FormPageConfig>
-  implements AfterViewInit, OnInit, OnDestroy, Dirty
+  implements AfterViewInit, OnInit, Dirty
 {
   @BlockUI()
   blockUI: NgBlockUI;
@@ -72,12 +73,13 @@ export class FormPageComponent
   @ViewChild(FormComponent, { static: true })
   form: FormComponent;
 
+  @Unsubscribe()
+  private subscriptions = new Subscription();
+
   // Internal
   public editing = false;
   public loading = false;
   public error: HttpErrorResponse;
-
-  private subscriptions = new Subscription();
 
   constructor(
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
@@ -127,10 +129,6 @@ export class FormPageComponent
         );
       }
     });
-  }
-
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
   }
 
   ngAfterViewInit(): void {

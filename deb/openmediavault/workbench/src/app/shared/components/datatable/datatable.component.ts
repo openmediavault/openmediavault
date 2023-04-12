@@ -34,7 +34,7 @@ import { DatatableComponent as NgxDatatableComponent } from '@swimlane/ngx-datat
 import * as _ from 'lodash';
 import { Subscription, timer } from 'rxjs';
 
-import { Throttle } from '~/app/decorators';
+import { Throttle, Unsubscribe } from '~/app/decorators';
 import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { Datatable } from '~/app/shared/models/datatable.interface';
@@ -218,6 +218,9 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   @Output()
   readonly cellDataChangedEvent = new EventEmitter<DataTableCellChanged>();
 
+  @Unsubscribe()
+  private subscriptions = new Subscription();
+
   // Internal
   public icon = Icon;
   public rows = [];
@@ -231,7 +234,6 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   };
   public searchFilter = '';
 
-  private subscriptions = new Subscription();
   private cellTemplates: { [key: string]: TemplateRef<any> };
   private rawColumns: DatatableColumn[] = [];
 
@@ -286,7 +288,6 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   }
 
   ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
     (this.onSearchFilterChange as any).cancel?.();
   }
 
