@@ -67,7 +67,7 @@ pass_context = click.make_pass_decorator(Context, ensure=True)
 
 
 @click.group()
-@click.option('--verbose', is_flag=True, help='Shows verbose output.')
+@click.option('-v', '--verbose', is_flag=True, help='Shows verbose output.')
 @pass_context
 def cli(ctx, verbose: bool):
     ctx.verbose = verbose
