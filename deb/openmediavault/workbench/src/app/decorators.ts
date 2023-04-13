@@ -28,10 +28,8 @@ export function Unsubscribe() {
     // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
     target.ngOnDestroy = function () {
       const property = this[propertyKey];
-      if (_.isFunction(property.unsubscribe)) {
-        property.unsubscribe();
-      }
-      originalFn?.apply();
+      property?.unsubscribe?.();
+      originalFn?.apply?.(this, arguments);
     };
   };
 }
