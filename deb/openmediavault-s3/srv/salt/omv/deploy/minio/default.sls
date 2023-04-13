@@ -18,7 +18,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# https://hub.docker.com/r/minio/minio/
+# https://quay.io/repository/minio/minio
 # https://docs.min.io/docs/minio-docker-quickstart-guide.html
 # https://docs.min.io/minio/baremetal/reference/minio-server/minio-server.html
 # https://caddyserver.com/docs/caddyfile
@@ -29,7 +29,7 @@
 # podman logs -f minio-proxy
 
 {% set config = salt['omv_conf.get']('conf.service.minio') %}
-{% set app_image = salt['pillar.get']('default:OMV_S3_APP_CONTAINER_IMAGE', 'docker.io/minio/minio:latest') %}
+{% set app_image = salt['pillar.get']('default:OMV_S3_APP_CONTAINER_IMAGE', 'quay.io/minio/minio:latest') %}
 {% set proxy_image = salt['pillar.get']('default:OMV_S3_PROXY_CONTAINER_IMAGE', 'docker.io/library/caddy:latest') %}
 {% set ssl_enabled = config.consolesslcertificateref | length > 0 %}
 

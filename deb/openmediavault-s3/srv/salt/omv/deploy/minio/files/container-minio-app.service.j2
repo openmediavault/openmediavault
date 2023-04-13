@@ -1,4 +1,4 @@
-{%- set image = salt['pillar.get']('default:OMV_S3_APP_CONTAINER_IMAGE', 'docker.io/minio/minio:latest') -%}
+{%- set image = salt['pillar.get']('default:OMV_S3_APP_CONTAINER_IMAGE', 'quay.io/minio/minio:latest') -%}
 {%- set uname = salt['pillar.get']('default:OMV_S3_APP_CONTAINER_UNAME', 's3') -%}
 {%- set gname = salt['pillar.get']('default:OMV_S3_APP_CONTAINER_GNAME', 'users') -%}
 {%- set cmd_args = salt['pillar.get']('default:OMV_S3_APP_CONTAINER_CMD_ARGS', '') -%}
