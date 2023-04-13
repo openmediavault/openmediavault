@@ -15,13 +15,14 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import dayjs from 'dayjs';
 import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
 
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
+import { Unsubscribe } from '~/app/decorators';
 import { format } from '~/app/functions.helper';
 import { BinaryUnitPipe } from '~/app/shared/pipes/binary-unit.pipe';
 import {
@@ -32,7 +33,10 @@ import {
 @Component({
   template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
 })
-export class SystemInformationDatatablePageComponent implements OnDestroy {
+export class SystemInformationDatatablePageComponent {
+  @Unsubscribe()
+  private subscriptions = new Subscription();
+
   public config: DatatablePageConfig = {
     limit: 0,
     autoReload: false,
@@ -59,7 +63,6 @@ export class SystemInformationDatatablePageComponent implements OnDestroy {
       fields: ['name', 'value']
     }
   };
-  private subscriptions = new Subscription();
 
   constructor(
     private binaryUnitPipe: BinaryUnitPipe,
@@ -148,9 +151,5 @@ export class SystemInformationDatatablePageComponent implements OnDestroy {
         this.config.store.data = data;
       })
     );
-  }
-
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
   }
 }
