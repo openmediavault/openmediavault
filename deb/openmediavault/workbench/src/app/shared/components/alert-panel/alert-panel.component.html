@@ -23,6 +23,7 @@
            class="alert-action-button omv-ml-q"
            [class]="button.class"
            mat-ripple
+           [attr.aria-label]="button.tooltip | transloco"
            [matTooltip]="button.tooltip | transloco"
            tabindex="0"
            (keyup.space)="button.click && button.click(button)"
