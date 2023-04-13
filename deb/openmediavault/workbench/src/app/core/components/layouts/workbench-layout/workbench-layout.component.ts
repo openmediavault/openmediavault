@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MediaObserver } from '@angular/flex-layout';
 import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
 import { Event, NavigationEnd, Router } from '@angular/router';
@@ -29,7 +29,6 @@ import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widg
 import { LogConfigService } from '~/app/core/services/log-config.service';
 import { MkfsConfigService } from '~/app/core/services/mkfs-config.service';
 import { NavigationConfigService } from '~/app/core/services/navigation-config.service';
-import { Unsubscribe } from '~/app/decorators';
 import { translate } from '~/app/i18n.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
@@ -44,7 +43,7 @@ import { UserLocalStorageService } from '~/app/shared/services/user-local-storag
   templateUrl: './workbench-layout.component.html',
   styleUrls: ['./workbench-layout.component.scss']
 })
-export class WorkbenchLayoutComponent implements OnInit {
+export class WorkbenchLayoutComponent implements OnInit, OnDestroy {
   @BlockUI()
   blockUI: NgBlockUI;
 
@@ -54,15 +53,13 @@ export class WorkbenchLayoutComponent implements OnInit {
   @ViewChild('notificationSidenav', { static: false })
   private notificationSidenav: MatSidenav;
 
-  @Unsubscribe()
-  private subscriptions = new Subscription();
-
   public loading = true;
   public sideNavMode: MatDrawerMode;
   public sideNavOpened = false;
   public displayWelcomeMessage = false;
 
   private isSmallScreen: boolean;
+  private subscriptions = new Subscription();
 
   constructor(
     private authSessionService: AuthSessionService,
@@ -99,6 +96,10 @@ export class WorkbenchLayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateState();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   onToggleNavigation() {

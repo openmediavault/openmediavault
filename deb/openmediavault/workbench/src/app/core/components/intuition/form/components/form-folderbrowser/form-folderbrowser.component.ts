@@ -26,7 +26,6 @@ import { EMPTY, from, Observable, Subject, Subscription } from 'rxjs';
 import { catchError, concatMap, map, startWith, takeUntil, tap, toArray } from 'rxjs/operators';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
-import { Unsubscribe } from '~/app/decorators';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
@@ -41,9 +40,6 @@ export class FormFolderbrowserComponent
 {
   @ViewChild('trigger')
   trigger: MatFormField;
-
-  @Unsubscribe()
-  private subscriptions = new Subscription();
 
   icon = Icon;
   isOpen = false;
@@ -70,6 +66,8 @@ export class FormFolderbrowserComponent
   protected currentPaths: Array<string> = [];
   // Emits whenever the component is destroyed.
   protected readonly destroy = new Subject<void>();
+
+  private subscriptions = new Subscription();
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
@@ -136,6 +134,7 @@ export class FormFolderbrowserComponent
   ngOnDestroy(): void {
     this.destroy.next();
     this.destroy.complete();
+    this.subscriptions.unsubscribe();
   }
 
   open(): void {

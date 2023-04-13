@@ -1,10 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import * as _ from 'lodash';
 import { EMPTY, Observable, Subscription, timer } from 'rxjs';
 import { catchError, finalize, map, take } from 'rxjs/operators';
 
 import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/dashboard-widget-config.model';
-import { Unsubscribe } from '~/app/decorators';
 import { formatDeep } from '~/app/functions.helper';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
@@ -13,7 +12,7 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   templateUrl: './dashboard-widget.component.html',
   styleUrls: ['./dashboard-widget.component.scss']
 })
-export class DashboardWidgetComponent implements OnInit {
+export class DashboardWidgetComponent implements OnInit, OnDestroy {
   @Input()
   config: DashboardWidgetConfig;
 
@@ -23,18 +22,21 @@ export class DashboardWidgetComponent implements OnInit {
   @Output()
   readonly dataChangedEvent = new EventEmitter<any>();
 
-  @Unsubscribe()
-  private subscriptions: Subscription = new Subscription();
-
   public loading = false;
   public firstLoad = true;
   public error: any | boolean = false;
+
+  private subscriptions: Subscription = new Subscription();
 
   constructor(private rpcService: RpcService) {}
 
   ngOnInit(): void {
     this.sanitizeConfig();
     this.reloadData();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   protected sanitizeConfig() {

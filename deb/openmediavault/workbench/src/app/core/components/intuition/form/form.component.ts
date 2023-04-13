@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -38,7 +38,6 @@ import {
   FormFieldConstraintValidator,
   FormFieldModifier
 } from '~/app/core/components/intuition/models/form-field-config.type';
-import { Unsubscribe } from '~/app/decorators';
 import { format, formatDeep } from '~/app/functions.helper';
 import { CustomValidators } from '~/app/shared/forms/custom-validators';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
@@ -50,7 +49,7 @@ let nextUniqueId = 0;
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements AfterViewInit, OnInit {
+export class FormComponent implements AfterViewInit, OnInit, OnDestroy {
   @Input()
   id: string;
 
@@ -60,10 +59,9 @@ export class FormComponent implements AfterViewInit, OnInit {
   @Input()
   context = {};
 
-  @Unsubscribe()
-  private subscriptions: Subscription = new Subscription();
-
   public formGroup: FormGroup;
+
+  private subscriptions: Subscription = new Subscription();
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -97,6 +95,10 @@ export class FormComponent implements AfterViewInit, OnInit {
       const control: AbstractControl = this.formGroup.get(name);
       control?.updateValueAndValidity({ onlySelf: true, emitEvent: true });
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   protected sanitizeConfig(): void {

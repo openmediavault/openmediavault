@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
@@ -23,7 +23,6 @@ import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EMPTY, interval, Subscription } from 'rxjs';
 import { catchError, switchMap, take } from 'rxjs/operators';
 
-import { Unsubscribe } from '~/app/decorators';
 import { format } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
@@ -47,7 +46,7 @@ import { UserLocalStorageService } from '~/app/shared/services/user-local-storag
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.scss']
 })
-export class TopBarComponent {
+export class TopBarComponent implements OnDestroy {
   @Output()
   readonly navigationToggleChange = new EventEmitter();
 
@@ -56,9 +55,6 @@ export class TopBarComponent {
 
   @BlockUI()
   blockUI: NgBlockUI;
-
-  @Unsubscribe()
-  private subscriptions = new Subscription();
 
   public icon = Icon;
   public currentLocale: string;
@@ -70,6 +66,8 @@ export class TopBarComponent {
   public numNotifications: undefined | number;
   public darkModeEnabled: boolean;
   public loggedInAs: string;
+
+  private subscriptions = new Subscription();
 
   constructor(
     private router: Router,
@@ -99,6 +97,10 @@ export class TopBarComponent {
         this.updateNumNotifications();
       })
     );
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   onToggleNavigation(event: Event): void {
