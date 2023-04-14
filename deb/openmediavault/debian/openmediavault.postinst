@@ -451,6 +451,9 @@ case "$1" in
 			# The file should have been deleted automatically.
 			rm -f /etc/cron.weekly/openmediavault-scrub_btrfs
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.3.9"; then
+			omv_module_set_dirty cron
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
