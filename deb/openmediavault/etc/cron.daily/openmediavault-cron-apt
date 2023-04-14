@@ -18,17 +18,17 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
+#
 # NOTE:
 # If the machine does not run 24/7 it might happen that cron-apt is not
 # executed. Because anacron does not execute cron jobs defined in /etc/cron.d
 # (where the default cron-apt cron job file is located) this script ensures
 # that cron-apt is executed at least once a day.
+MAILTO=""
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-MAILTO=""
 OMV_CRON_APT_ENABLED=${OMV_CRON_APT_ENABLED:-"yes"}
 
 # Execute cron-apt to check for new updates and automatically download/install

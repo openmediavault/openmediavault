@@ -18,14 +18,14 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
+#
 # Testing:
 # anacron -f -n
+MAILTO=""
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-MAILTO=""
 OMV_BTRFS_SCRUB_ENABLED=${OMV_BTRFS_SCRUB_ENABLED:-"yes"}
 OMV_BTRFS_SCRUB_PERIOD=${OMV_BTRFS_SCRUB_PERIOD:-"monthly"}
 

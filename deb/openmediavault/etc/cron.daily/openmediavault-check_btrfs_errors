@@ -18,11 +18,11 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+MAILTO=""
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-MAILTO=""
 OMV_BTRFS_ERROR_CHECK_ENABLED=${OMV_BTRFS_ERROR_CHECK_ENABLED:-"yes"}
 
 # Exit immediately if Btrfs error checking is disabled.

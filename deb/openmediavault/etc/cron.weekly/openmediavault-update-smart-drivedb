@@ -18,17 +18,17 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
+#
 # Documentation/Howto:
 # https://www.thomas-krenn.com/de/wiki/Smartmontools_Drive_Database_aktualisieren
 # https://www.endpointdev.com/blog/2013/05/login-shells-in-scripts-called-from-cron/
+MAILTO=""
 
 set -e
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-MAILTO=""
 OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED=${OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED:-"yes"}
 
 if omv_checkyesno "${OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED}"; then
