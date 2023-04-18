@@ -460,6 +460,7 @@ ENV{ID_VENDOR_ID}=="152d", \
 
 # GENESYS USB2.0/SATA ADAPTER
 # https://devicehunt.com/view/type/usb/vendor/05E3/device/0718
+#
 # P: /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host0/target0:0:0/0:0:0:0/block/sda
 # N: sda
 # L: 0
@@ -495,6 +496,52 @@ ENV{ID_VENDOR_ID}=="152d", \
 # E: TAGS=:systemd:
 ENV{ID_VENDOR_ID}=="05e3", \
   ENV{ID_MODEL_ID}=="0718", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# QNAP TR-004
+# https://www.qnap.com/en-us/product/tr-004
+# https://devicehunt.com/search/type/usb/vendor/1C04/device/0013
+# https://github.com/openmediavault/openmediavault/issues/1302
+# https://forum.openmediavault.org/index.php?thread/47388-qnap-tr-004-usb-raid-enclosure-duplicate-serial-number-fix/
+#
+# P: /devices/pci0000:00/0000:00:14.0/usb2/2-2/2-2.3/2-2.3:1.0/host0/target0:0:0/0:0:0:0/block/sda
+# N: sda
+# L: 0
+# S: disk/by-id/usb-QNAP_TR-004_DISK00_51313943493135333139-0:0
+# S: disk/by-path/pci-0000:00:14.0-usb-0:2.3:1.0-scsi-0:0:0:0
+# E: DEVPATH=/devices/pci0000:00/0000:00:14.0/usb2/2-2/2-2.3/2-2.3:1.0/host0/target0:0:0/0:0:0:0/block/sda
+# E: DEVNAME=/dev/sda
+# E: DEVTYPE=disk
+# E: DISKSEQ=8
+# E: MAJOR=8
+# E: MINOR=0
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=863778658
+# E: ID_VENDOR=QNAP
+# E: ID_VENDOR_ENC=QNAP\x20\x20\x20\x20
+# E: ID_VENDOR_ID=1c04
+# E: ID_MODEL=TR-004_DISK00
+# E: ID_MODEL_ENC=TR-004\x20DISK00\x20\x20\x20
+# E: ID_MODEL_ID=0013
+# E: ID_REVISION=6111
+# E: ID_SERIAL=QNAP_TR-004_DISK00_51313943493135333139-0:0
+# E: ID_SERIAL_SHORT=51313943493135333139
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=usb-storage
+# E: ID_PATH=pci-0000:00:14.0-usb-0:2.3:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=pci-0000_00_14_0-usb-0_2_3_1_0-scsi-0_0_0_0
+# E: DEVLINKS=/dev/disk/by-id/usb-QNAP_TR-004_DISK00_51313943493135333139-0:0 /dev/disk/by-path/pci-0000:00:14.0-usb-0:2.3:1.0-scsi-0:0:0:0
+# E: TAGS=:systemd:
+# E: CURRENT_TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="1c04", \
+  ENV{ID_MODEL_ID}=="0013", \
   IMPORT{program}="serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
