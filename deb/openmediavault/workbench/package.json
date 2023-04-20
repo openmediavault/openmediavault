@@ -60,7 +60,7 @@
     "ng-block-ui": "^3.0.2",
     "ngx-scrollbar": "~7.6.1",
     "ngx-toastr": "14.1.4",
-    "nunjucks": "^3.2.3",
+    "nunjucks": "^3.2.4",
     "rxjs": "~6.6.7",
     "strip-ansi": "7.0.1",
     "tslib": "^2.4.1",
