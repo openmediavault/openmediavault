@@ -31,23 +31,23 @@ OMV_BTRFS_ERROR_CHECK_CMD_ARGS=${OMV_BTRFS_ERROR_CHECK_CMD_ARGS:-"--check --rese
 
 omv_syslog_info "Performing an error check on Btrfs file systems."
 # Ignore subvolumes.
-findmnt --all --canonicalize --notruncate --nofsroot --uniq --noheadings --output SOURCE,UUID --types btrfs |
+findmnt --all --canonicalize --notruncate --nofsroot --uniq --noheadings --output TARGET,UUID --types btrfs |
   sort | uniq |
-  while read -r device uuid
+  while read -r target uuid
 do
-  omv_syslog_info "Checking file system ${device} [UUID=${uuid}] for errors ..."
+  omv_syslog_info "Checking file system mounted at ${target} [UUID=${uuid}] for errors ..."
 
-  stats=$(btrfs device stats ${OMV_BTRFS_ERROR_CHECK_CMD_ARGS} "${device}")
+  stats=$(btrfs device stats ${OMV_BTRFS_ERROR_CHECK_CMD_ARGS} "${target}")
   if [ $? -ne 0 ]; then
-    omv_syslog_warning "Errors were detected on the file system ${device} [UUID=${uuid}]."
+    omv_syslog_warning "Errors were detected on the file system mounted at ${target} [UUID=${uuid}]."
     # Ignore the file system notification settings because of the
     # importance of this message.
     (
       echo "Errors were detected on the Btrfs file system with UUID ${uuid}.";
       echo ""
       echo "${stats}"
-    ) | mail -E -s "Errors were detected on the file system ${device} [UUID=${uuid}]" root
+    ) | mail -E -s "Errors were detected on the file system mounted at ${target} [UUID=${uuid}]" root
   else
-    omv_syslog_info "No errors found on file system ${device} [UUID=${uuid}]."
+    omv_syslog_info "No errors found on file system mounted at ${target} [UUID=${uuid}]."
   fi
 done
