@@ -56,27 +56,27 @@ done
 
 omv_log "Performing a scrub on all mounted Btrfs file systems."
 # Ignore subvolumes.
-findmnt --all --canonicalize --notruncate --nofsroot --uniq --noheadings --output SOURCE,UUID --types btrfs |
+findmnt --all --canonicalize --notruncate --nofsroot --uniq --noheadings --output TARGET,UUID --types btrfs |
   sort | uniq |
-  while read -r device uuid
+  while read -r target uuid
 do
   omv_msg "" # Print line break only on STDOUT.
-  omv_log "Scrubbing the file system on ${device} [UUID=${uuid}] ..."
+  omv_log "Scrubbing the file system mounted at ${target} [UUID=${uuid}] ..."
 
   cmdargs="${OMV_BTRFS_SCRUB_PRIORITY}"
   if omv_checkyesno ${OMV_BTRFS_SCRUB_READONLY}; then
     cmdargs="${cmdargs} -r"
   fi
 
-  stats=$(btrfs scrub start -B -d ${cmdargs} "${device}" | tail -n +2)
+  stats=$(btrfs scrub start -B -d ${cmdargs} "${target}" | tail -n +2)
 
   # Write a success message to syslog because the report is only printed
   # on STDOUT.
-  omv_syslog_info "Scrubbing the Btrfs file system on ${device} [UUID=${uuid}] has been finished.";
+  omv_syslog_info "Scrubbing the Btrfs file system mounted at ${target} [UUID=${uuid}] has been finished.";
   omv_print "${stats}"
 
   # Send the report by email?
   if [ "${mail}" -eq 1 ]; then
-    omv_print "${stats}" | mail -E -s "Scrub report of the file system ${device} [UUID=${uuid}]" root
+    omv_print "${stats}" | mail -E -s "Scrub report of the file system mounted at ${target} [UUID=${uuid}]" root
   fi
 done
