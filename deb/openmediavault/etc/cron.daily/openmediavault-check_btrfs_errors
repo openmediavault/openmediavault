@@ -24,6 +24,7 @@ MAILTO=""
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_BTRFS_ERROR_CHECK_ENABLED=${OMV_BTRFS_ERROR_CHECK_ENABLED:-"yes"}
+OMV_BTRFS_ERROR_CHECK_CMD_ARGS=${OMV_BTRFS_ERROR_CHECK_CMD_ARGS:-"--check --reset"}
 
 # Exit immediately if Btrfs error checking is disabled.
 ! omv_checkyesno "${OMV_BTRFS_ERROR_CHECK_ENABLED}" && exit 0
@@ -36,7 +37,7 @@ findmnt --all --canonicalize --notruncate --nofsroot --uniq --noheadings --outpu
 do
   omv_syslog_info "Checking file system ${device} [UUID=${uuid}] for errors ..."
 
-  stats=$(btrfs device stats --check "${device}")
+  stats=$(btrfs device stats ${OMV_BTRFS_ERROR_CHECK_CMD_ARGS} "${device}")
   if [ $? -ne 0 ]; then
     omv_syslog_warning "Errors were detected on the file system ${device} [UUID=${uuid}]."
     # Ignore the file system notification settings because of the
