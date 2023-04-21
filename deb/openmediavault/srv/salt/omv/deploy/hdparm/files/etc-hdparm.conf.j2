@@ -8,7 +8,7 @@
     apm = {{ device.apm }}
 {%- endif %}
 {%- if device.spindowntime > 0 %}
-    spindown_time = {{ device.spindowntime }}
+    force_spindown_time = {{ device.spindowntime }}
 {%- endif %}
 {%- if device.writecache | to_bool %}
     write_cache = on

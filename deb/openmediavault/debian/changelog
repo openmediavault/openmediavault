@@ -12,6 +12,8 @@ openmediavault (6.3.9-1) stable; urgency=low
     TR-004 devices.
   * Perform scheduled Btrfs scrub and scan tasks on file system mount
     points rather than devices.
+  * Fix hdparm configuration. Use `force_spindown_time` to apply settings
+    to non-APM devices.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 11 Apr 2023 16:44:59 +0200
 

@@ -453,6 +453,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.3.9"; then
 			omv_module_set_dirty cron
+			omv_module_set_dirty hdparm
 		fi
 
 		########################################################################
