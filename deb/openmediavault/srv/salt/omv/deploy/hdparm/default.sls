@@ -19,6 +19,7 @@
 
 # Documentation/Howto:
 # http://wiki.debianforum.de/Hdparm
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=930796
 
 # hdparm is now triggered via UDEV.
 # See /lib/udev/rules.d/85-hdparm.rules and /lib/udev/hdparm scripts.
