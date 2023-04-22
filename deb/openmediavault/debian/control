@@ -23,7 +23,7 @@ Depends: php-fpm, libpam-modules, php-json, dpkg, patch, dash,
  rrdcached, locales, nginx, bash-completion, python3, f2fs-tools,
  python3-apt, wpasupplicant, systemd, systemd-sysv, btrfs-progs,
  samba-vfs-modules, pciutils, python3-pyudev, python3-natsort, jq, chrony,
- python3-netifaces, udev, python3-lxml, salt-minion (>= 3003),
+ python3-netifaces, udev, python3-lxml, salt-minion (>= 3003), salt-minion (<< 3004),
  libnss-myhostname, php-yaml, python3-click, python3-cached-property,
  python3-polib, libnss-systemd, ${misc:Depends}
 Description: openmediavault - The open network attached storage solution
