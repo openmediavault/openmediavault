@@ -32,7 +32,8 @@ clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot:
 
 install:
 	echo "Installing required packages ..."
-	sudo apt-get install debhelper fakeroot gettext python3-pip npm
+	sudo apt-get update
+	sudo apt-get install -y debhelper fakeroot gettext python3-pip npm
 	pip3 install --upgrade autopep8 isort pylint
 
 .PHONY: install clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot
