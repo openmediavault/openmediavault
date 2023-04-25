@@ -2,6 +2,9 @@ openmediavault (6.3.10-1) stable; urgency=low
 
   * Issue #1537: `findmnt` is using tree-like output on some systems
     which breaks the parsing of the content.
+  * Enhance the UDEV rules to workaround the duplicate serial number
+    bug of various disk enclosures. Now the `disk/by-uuid` symlinks
+    are created as well if a file system UUID exists.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 22 Apr 2023 10:03:02 +0200
 
@@ -19,7 +22,7 @@ openmediavault (6.3.9-1) stable; urgency=low
     TR-004 devices.
   * Perform scheduled Btrfs scrub and scan tasks on file system mount
     points rather than devices.
-  * Fix hdparm configuration. Use `force_spindown_time` to apply settings
+  * Fix `hdparm` configuration. Use `force_spindown_time` to apply settings
     to non-APM devices.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 11 Apr 2023 16:44:59 +0200
