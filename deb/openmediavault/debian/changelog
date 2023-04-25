@@ -1,4 +1,4 @@
-openmediavault (6.3.10-1) stable; urgency=low
+openmediavault (6.3.10-2) stable; urgency=low
 
   * Issue #1537: `findmnt` is using tree-like output on some systems
     which breaks the parsing of the content.
