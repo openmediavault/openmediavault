@@ -564,6 +564,7 @@ class Filesystem extends \OMV\System\BlockDevice
 	public function getMountPoint() {
 		$this->getData();
 		$cmdArgs = [];
+		$cmdArgs[] = "--list";
 		$cmdArgs[] = "--noheadings";
 		$cmdArgs[] = "--raw";
 		$cmdArgs[] = "--nofsroot";

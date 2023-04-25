@@ -31,7 +31,7 @@ OMV_BTRFS_ERROR_CHECK_CMD_ARGS=${OMV_BTRFS_ERROR_CHECK_CMD_ARGS:-"--check --rese
 
 omv_syslog_info "Performing an error check on Btrfs file systems."
 # Ignore subvolumes.
-findmnt --all --canonicalize --notruncate --nofsroot --uniq --noheadings --output TARGET,UUID --types btrfs |
+findmnt --list --all --canonicalize --notruncate --nofsroot --uniq --noheadings --output TARGET,UUID --types btrfs |
   sort | uniq |
   while read -r target uuid
 do
