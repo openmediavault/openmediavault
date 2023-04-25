@@ -547,9 +547,23 @@ ENV{ID_VENDOR_ID}=="1c04", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
   SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
 
+# by-uuid links (filesystem metadata)
+# Skip bcache backing devices, handled in `/lib/udev/rules.d/69-bcache.rules`.
+ENV{ID_FS_TYPE}=="bcache", GOTO="omv_skip_by_uuid"
+# Skip devices that already have a `disk/by-uuid` link.
+SYMLINK=="*disk/by-uuid/*", GOTO="omv_skip_by_uuid"
+ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{ID_FS_UUID_ENC}=="?*", SYMLINK+="disk/by-uuid/$env{ID_FS_UUID_ENC}"
+LABEL="omv_skip_by_uuid"
+
 # by-id (World Wide Name)
 SYMLINK=="*disk/by-id/wwn-*", GOTO="omv_skip_by_id_wwn"
 ENV{ID_WWN_WITH_EXTENSION}=="?*", SYMLINK+="disk/by-id/wwn-$env{ID_WWN_WITH_EXTENSION}"
 LABEL="omv_skip_by_id_wwn"
+
+# by-partuuid links (partition metadata)
+# Skip devices that already have a `disk/by-partuuid` link.
+SYMLINK=="*disk/by-partuuid/*", GOTO="omv_skip_by_partuuid"
+ENV{ID_PART_ENTRY_UUID}=="?*", SYMLINK+="disk/by-partuuid/$env{ID_PART_ENTRY_UUID}"
+LABEL="omv_skip_by_partuuid"
 
 LABEL="omv_dev_disk_by_id_end"
