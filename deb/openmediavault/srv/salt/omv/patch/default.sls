@@ -17,29 +17,15 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Add processing for multicast entries in 'ip -6 route show table all'
-# https://github.com/saltstack/salt/pull/59829
-patch_network_module_pr_59829:
+# https://github.com/saltstack/salt/pull/62952
+patch_utils_event_pr_62952:
   file.patch:
-    - name: /lib/python3/dist-packages/salt/modules/network.py
+    - name: /lib/python3/dist-packages/salt/utils/event.py
     - source:
-      - salt://{{ tpldir }}/files/salt-pr-59829.patch
-    - unless: test -e /var/lib/openmediavault/salt/patch_network_module_pr_59829_stamp
+      - salt://{{ tpldir }}/files/salt-pr-62952.patch
+    - unless: test -e /var/lib/openmediavault/salt/patch_utils_event_pr_62952_stamp
 
-touch_network_module_pr_59829_stamp:
+touch_utils_event_pr_62952_stamp:
   file.touch:
-    - name: /var/lib/openmediavault/salt/patch_network_module_pr_59829_stamp
-    - makedirs: true
-
-# https://github.com/saltstack/salt/pull/60536
-patch_fileserver_root_pr_60536:
-  file.patch:
-    - name: /lib/python3/dist-packages/salt/fileserver/roots.py
-    - source:
-      - salt://{{ tpldir }}/files/salt-pr-60536.patch
-    - unless: test -e /var/lib/openmediavault/salt/patch_fileserver_root_pr_60536_stamp
-
-touch_fileserver_root_pr_60536_stamp:
-  file.touch:
-    - name: /var/lib/openmediavault/salt/patch_fileserver_root_pr_60536_stamp
+    - name: /var/lib/openmediavault/salt/patch_utils_event_pr_62952_stamp
     - makedirs: true
