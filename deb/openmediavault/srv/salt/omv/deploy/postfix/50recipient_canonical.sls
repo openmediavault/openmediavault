@@ -38,8 +38,6 @@ configure_postfix_recipient_canonical:
     - user: root
     - group: root
     - mode: 600
-    - watch_in:
-      - service: start_postfix_service
 
 run_postmap_recipient_canonical:
   cmd.run:

@@ -59,11 +59,18 @@ start_postfix_service:
   service.running:
     - name: postfix
     - enable: True
+    - watch:
+      - file: configure_postfix_main
+      - file: configure_postfix_master
+      - file: configure_postfix_recipient_bcc
+      - file: configure_postfix_recipient_canonical
+      - file: configure_postfix_sasl_passwd
+      - file: configure_postfix_sender_bcc
+      - file: configure_postfix_sender_canonical
+      - file: configure_postfix_smtp_header_checks
+      - file: configure_postfix_transport
 
 {% else %}
-
-start_postfix_service:
-  test.nop
 
 stop_postfix_service:
   service.dead:

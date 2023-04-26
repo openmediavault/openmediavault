@@ -34,7 +34,9 @@ configure_samba_homes:
     - context:
         config: {{ config | json }}
         homedir_config: {{ homedir_config | json }}
+{% if config.enable | to_bool %}
     - watch_in:
       - service: start_samba_service
+{% endif %}
 
 {% endif %}

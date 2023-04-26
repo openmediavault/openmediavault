@@ -49,6 +49,9 @@ start_samba_service:
     - enable: True
     - require:
       - cmd: test_samba_service_config
+    - watch:
+      - file: configure_samba_global
+      - file: configure_samba_shares
 
 {% if nmbd_enable | to_bool %}
 
@@ -69,9 +72,6 @@ start_wsdd_service:
 {% endif %}
 
 {% else %}
-
-start_samba_service:
-  test.nop
 
 stop_samba_service_smbd:
   service.dead:

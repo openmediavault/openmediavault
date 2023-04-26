@@ -31,8 +31,6 @@ configure_postfix_sender_bcc:
     - user: root
     - group: root
     - mode: 600
-    - watch_in:
-      - service: start_postfix_service
 
 run_postmap_sender_bcc:
   cmd.run:

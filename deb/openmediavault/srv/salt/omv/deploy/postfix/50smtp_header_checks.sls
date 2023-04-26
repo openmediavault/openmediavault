@@ -32,5 +32,3 @@ configure_postfix_smtp_header_checks:
     - user: root
     - group: root
     - mode: 600
-    - watch_in:
-      - service: start_postfix_service

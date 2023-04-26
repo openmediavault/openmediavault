@@ -39,7 +39,5 @@ configure_postfix_cron:
     - user: root
     - group: root
     - mode: 750
-    - watch_in:
-      - service: start_postfix_service
 
 {% endif %}

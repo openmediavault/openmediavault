@@ -24,8 +24,6 @@ configure_postfix_transport:
     - user: root
     - group: root
     - mode: 600
-    - watch_in:
-      - service: start_postfix_service
 
 run_postmap_transport:
   cmd.run:

@@ -42,5 +42,3 @@ configure_samba_shares:
     - context:
         config: {{ config | json }}
         enable_timemachine_vfs: {{ timemachine_shares | length > 0 }}
-    - watch_in:
-      - service: start_samba_service

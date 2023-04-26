@@ -30,8 +30,6 @@ configure_postfix_sasl_passwd:
     - user: root
     - group: root
     - mode: 600
-    - watch_in:
-      - service: start_postfix_service
 
 run_postmap_sasl_passwd:
   cmd.run:

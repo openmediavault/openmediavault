@@ -28,5 +28,3 @@ configure_postfix_master:
     - user: root
     - group: root
     - mode: 644
-    - watch_in:
-      - service: start_postfix_service

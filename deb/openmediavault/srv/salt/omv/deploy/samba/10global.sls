@@ -35,5 +35,3 @@ configure_samba_global:
     - user: root
     - group: root
     - mode: 644
-    - watch_in:
-      - service: start_samba_service
