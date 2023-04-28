@@ -44,11 +44,8 @@ $(BUILDPLACE) $(BUILDRESULT) $(APTCACHE):
 	sudo mkdir -p $@
 
 install_keyring:
-	wget -O "/tmp/openmediavault-archive-keyring.asc" \
-		https://packages.openmediavault.org/public/archive.key
-	gpg --dearmor < /tmp/openmediavault-archive-keyring.asc \
-		> /tmp/openmediavault-archive-keyring.gpg
-	sudo cp -v /tmp/openmediavault-archive-keyring.* /etc/apt/trusted.gpg.d
+	wget --quiet --output-document=- https://packages.openmediavault.org/public/archive.key | \
+		gpg --dearmor | sudo tee $(KEYRING)
 
 build:
 	sudo pbuilder build \
