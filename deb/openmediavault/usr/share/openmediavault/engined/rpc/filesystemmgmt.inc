@@ -541,20 +541,6 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get a list of all potential usable devices.
 		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused()))
 			throw new \OMV\Exception("Failed to get list of unused devices.");
-		// Get a list of all detected file systems.
-		$filesystems = \OMV\System\Filesystem\Filesystem::getFilesystems();
-		// Get the list of device files that are occupied by a file system.
-		$usedDevs = [];
-		foreach ($filesystems as $filesystemk => $filesystemv) {
-			$usedDevs[] = $filesystemv->getParentDeviceFile();
-			// Check if the file system uses multiple devices, e.g.
-			// a BTRFS RAID, and add them.
-			if ($filesystemv->hasMultipleDevices()) {
-				$usedDevs = array_merge($filesystemv->getDeviceFiles(),
-					$usedDevs);
-			}
-		}
-		// Prepare the result list.
 		$result = [];
 		foreach ($devs as $devk => $devv) {
 			// Get the storage device object for the specified device file.
@@ -575,8 +561,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  ]))
 				continue;
 */
-			// Does this device already contain a file system?
-			if (in_array($sd->getCanonicalDeviceFile(), $usedDevs))
+			if (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem(
+				$sd->getDeviceFile()))
 				continue;
 			// The device is a potential candidate to create a file system
 			// on it.

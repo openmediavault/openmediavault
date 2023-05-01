@@ -130,7 +130,7 @@ abstract class BackendAbstract {
 	 */
 	final protected function enumerateProcFs($regex) {
 		$result = [];
-		$regex = sprintf('/^\s+(\d+)\s+(\d+)\s+(\d+)\s+(%s)$/', $regex);
+		$regex = sprintf('/^\s+(\d+)\s+(\d+)\s+(\d+)\s+(%s[0-9]*)$/', $regex);
 		foreach(file("/proc/partitions") as $outputk => $outputv) {
 			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;

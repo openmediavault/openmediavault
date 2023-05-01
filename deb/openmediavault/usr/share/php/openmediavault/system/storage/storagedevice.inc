@@ -268,6 +268,22 @@ class StorageDevice extends \OMV\System\BlockDevice
 	}
 
 	/**
+	 * Check if the given device is a partition.
+	 * @return boolean Returns TRUE if the OS reports it as a partition,
+	 *   otherwise FALSE.
+	 */
+	function IsPartition() {
+		$cmdArgs = [];
+		$cmdArgs[] = "-dno TYPE";
+		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		$cmd = new \OMV\System\Process("lsblk", $cmdArgs);
+		$cmd->setQuiet(TRUE);
+		$cmd->execute($output, $exitStatus);
+		return ($output[0] == "part");
+	}
+
+
+	/**
 	 * Enumerate devices matching the given storage device type.
 	 * @param integer type Defines the storage device type, e.g. hard disk,
 	 *   hard or Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.

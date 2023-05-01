@@ -783,12 +783,12 @@ class Filesystem extends \OMV\System\BlockDevice
 	 */
 	public static function hasFileSystem($deviceFile) {
 		$cmdArgs = [];
-		$cmdArgs[] = "-u filesystem";
+		$cmdArgs[] = "-no FSTYPE";
 		$cmdArgs[] = escapeshellarg($deviceFile);
-		$cmd = new \OMV\System\Process("blkid", $cmdArgs);
+		$cmd = new \OMV\System\Process("lsblk", $cmdArgs);
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
-		if ($exitStatus !== 0)
+		if (sizeof($output) == 1 && $output[0] == "")
 			return FALSE;
 		return TRUE;
 	}

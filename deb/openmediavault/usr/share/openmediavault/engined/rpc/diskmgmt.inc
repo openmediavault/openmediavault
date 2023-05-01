@@ -78,6 +78,8 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			// without an inserted media.
 			if (FALSE === $sd->IsMediaAvailable())
 				continue;
+			if (TRUE === $sd->IsPartition())
+				continue;
 			$objects[] = [
 				"devicename" => $sd->getDeviceName(),
 				"canonicaldevicefile" => $sd->getCanonicalDeviceFile(),
