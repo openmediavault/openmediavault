@@ -11,7 +11,7 @@
 {{ pillar['headers']['multiline'] }}
 {%- if config.enablessl | to_bool %}
 # PFS (Perfect Forward Secrecy)
-# https://ssl-config.mozilla.org/#server=nginx&version=1.14.2&config=intermediate&openssl=1.1.1d&ocsp=false&guideline=5.4
+# https://ssl-config.mozilla.org/#server=nginx&version=1.18.0&config=intermediate&openssl=1.1.1n&ocsp=false&guideline=5.6
 ssl_protocols {{ ssl_protocols }};
 ssl_prefer_server_ciphers {{ ssl_prefer_server_ciphers }};
 ssl_ciphers "{{ ssl_ciphers }}";
