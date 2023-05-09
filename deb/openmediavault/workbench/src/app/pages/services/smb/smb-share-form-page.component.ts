@@ -113,6 +113,15 @@ export class SmbShareFormPageComponent extends BaseFormPageComponent {
       },
       {
         type: 'checkbox',
+        name: 'transportencryption',
+        label: gettext('Transport encryption'),
+        hint: gettext(
+          'Enforce transport encryption for this share. Clients that do not support encryption will be denied access to the share.'
+        ),
+        value: false
+      },
+      {
+        type: 'checkbox',
         name: 'inheritacls',
         label: gettext('Inherit ACLs'),
         hint: gettext(

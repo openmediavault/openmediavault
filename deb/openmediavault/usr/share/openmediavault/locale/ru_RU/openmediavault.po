@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 17:28+0200\n"
+"POT-Creation-Date: 2023-05-09 19:50+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -1166,6 +1166,11 @@ msgstr "Включить виджеты"
 
 msgid "Encryption mode"
 msgstr "Режим шифрования"
+
+msgid ""
+"Enforce transport encryption for this share. Clients that do not support "
+"encryption will be denied access to the share."
+msgstr ""
 
 msgid "Equatorial Guinea"
 msgstr "Экваториальная Гвинея"
@@ -3560,6 +3565,9 @@ msgstr "Время передачи"
 
 msgid "Transfer type"
 msgstr "Тип передачи"
+
+msgid "Transport encryption"
+msgstr ""
 
 msgid "Trial run"
 msgstr "Пробный запуск"

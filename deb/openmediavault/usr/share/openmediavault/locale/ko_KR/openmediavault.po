@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 17:28+0200\n"
+"POT-Creation-Date: 2023-05-09 19:50+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -1155,6 +1155,11 @@ msgstr ""
 
 msgid "Encryption mode"
 msgstr "암호화 모드"
+
+msgid ""
+"Enforce transport encryption for this share. Clients that do not support "
+"encryption will be denied access to the share."
+msgstr ""
 
 msgid "Equatorial Guinea"
 msgstr "적도기니"
@@ -3549,6 +3554,9 @@ msgstr "전송 시간"
 
 msgid "Transfer type"
 msgstr "전송 유형"
+
+msgid "Transport encryption"
+msgstr ""
 
 msgid "Trial run"
 msgstr "시행"

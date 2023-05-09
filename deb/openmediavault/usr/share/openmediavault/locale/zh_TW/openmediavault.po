@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 17:28+0200\n"
+"POT-Creation-Date: 2023-05-09 19:50+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2023\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -1154,6 +1154,11 @@ msgstr "已啟用的部件"
 
 msgid "Encryption mode"
 msgstr "加密模式"
+
+msgid ""
+"Enforce transport encryption for this share. Clients that do not support "
+"encryption will be denied access to the share."
+msgstr ""
 
 msgid "Equatorial Guinea"
 msgstr "赤道幾內亞"
@@ -3548,6 +3553,9 @@ msgstr "傳輸時間"
 
 msgid "Transfer type"
 msgstr "傳輸型式"
+
+msgid "Transport encryption"
+msgstr ""
 
 msgid "Trial run"
 msgstr "試行"

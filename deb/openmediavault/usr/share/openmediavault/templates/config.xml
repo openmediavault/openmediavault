@@ -465,6 +465,7 @@
 					<hostsallow></hostsallow>
 					<hostsdeny></hostsdeny>
 					<audit>0|1</audit>
+					<transportencryption>0|1</transportencryption>
 					<extraoptions></extraoptions>
 				</share>
 				-->

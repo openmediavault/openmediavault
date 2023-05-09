@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 17:28+0200\n"
+"POT-Creation-Date: 2023-05-09 19:50+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2012-2015,2017,2019\n"
 "Language-Team: Portuguese (Portugal) (http://app.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
@@ -1152,6 +1152,11 @@ msgid "Enabled widgets"
 msgstr ""
 
 msgid "Encryption mode"
+msgstr ""
+
+msgid ""
+"Enforce transport encryption for this share. Clients that do not support "
+"encryption will be denied access to the share."
 msgstr ""
 
 msgid "Equatorial Guinea"
@@ -3547,6 +3552,9 @@ msgstr "Tempo de transferência"
 
 msgid "Transfer type"
 msgstr "Tipo de transferência"
+
+msgid "Transport encryption"
+msgstr ""
 
 msgid "Trial run"
 msgstr "Ensaio"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 17:28+0200\n"
+"POT-Creation-Date: 2023-05-09 19:50+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2022\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -1153,6 +1153,11 @@ msgstr ""
 
 msgid "Encryption mode"
 msgstr "وضع التشفير"
+
+msgid ""
+"Enforce transport encryption for this share. Clients that do not support "
+"encryption will be denied access to the share."
+msgstr ""
 
 msgid "Equatorial Guinea"
 msgstr "غينيا الاستوائية"
@@ -3547,6 +3552,9 @@ msgstr "وقت النقل"
 
 msgid "Transfer type"
 msgstr "نوع النقل"
+
+msgid "Transport encryption"
+msgstr ""
 
 msgid "Trial run"
 msgstr "التشغيل التجريبي"

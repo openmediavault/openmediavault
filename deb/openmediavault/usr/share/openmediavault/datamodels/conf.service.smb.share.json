@@ -82,6 +82,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"transportencryption": {
+			"type": "boolean",
+			"default": false
+		},
 		"extraoptions": {
 			"type": "string"
 		}

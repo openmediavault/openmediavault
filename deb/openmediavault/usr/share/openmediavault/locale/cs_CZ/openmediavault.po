@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 17:28+0200\n"
+"POT-Creation-Date: 2023-05-09 19:50+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -1153,6 +1153,11 @@ msgstr "Zapnuté widgety"
 
 msgid "Encryption mode"
 msgstr "Režim šifrování"
+
+msgid ""
+"Enforce transport encryption for this share. Clients that do not support "
+"encryption will be denied access to the share."
+msgstr ""
 
 msgid "Equatorial Guinea"
 msgstr "Rovníková Guinea"
@@ -3547,6 +3552,9 @@ msgstr "Čas přenosu"
 
 msgid "Transfer type"
 msgstr "Typ přenosu"
+
+msgid "Transport encryption"
+msgstr ""
 
 msgid "Trial run"
 msgstr "Vyzkoušet nanečisto"
