@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-16 10:40+0100\n"
+"POT-Creation-Date: 2023-05-09 17:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1452,6 +1452,9 @@ msgid "Idle"
 msgstr ""
 
 msgid "If 'Guests allowed' is selected and no login credential is provided, then access as guest. Always access as guest when 'Guests only' is selecting; in this case no password is required to connect to the share."
+msgstr ""
+
+msgid "If a device is not listed here, it is usually because the device already contains a file system or partitions. With the former, the file system can be mounted <a href='#/storage/filesystems/mount'>here<a>. For the latter, please <a href='#/storage/disks'>wipe<a> the device as partitions are not supported."
 msgstr ""
 
 msgid "If set then the client will be prompted to supply a user name and password to connect to the module."
