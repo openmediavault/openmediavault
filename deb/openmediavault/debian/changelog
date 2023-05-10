@@ -1,5 +1,6 @@
 openmediavault (6.3.11-1) stable; urgency=low
 
+  * Update locale files.
   * Upgrade Salt to version 3005.1.
   * Issue #1485: Add option to enforce transport encryption per SMB
     share. Defaults to disabled.
