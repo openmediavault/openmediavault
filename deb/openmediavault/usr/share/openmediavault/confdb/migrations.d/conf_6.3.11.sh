@@ -24,5 +24,6 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 omv_config_add_key "/config/services/smb/shares/share" "transportencryption" "0"
+omv_config_add_key "/config/system/network/interfaces/interface" "bondtransmithashpolicy" "layer2"
 
 exit 0

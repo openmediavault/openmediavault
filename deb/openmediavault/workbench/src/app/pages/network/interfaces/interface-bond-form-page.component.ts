@@ -135,6 +135,31 @@ export class InterfaceBondFormPageComponent extends BaseFormPageComponent {
         }
       },
       {
+        type: 'select',
+        name: 'bondtransmithashpolicy',
+        label: gettext('Transmit Hash Policy'),
+        value: 'layer2',
+        store: {
+          data: [
+            ['layer2', 'layer2'],
+            ['layer2+3', 'layer2+3'],
+            ['layer3+4', 'layer3+4'],
+            ['encap2+3', 'encap2+3'],
+            ['encap3+4', 'encap3+4']
+          ]
+        },
+        modifiers: [
+          {
+            type: 'enabled',
+            constraint: {
+              operator: 'in',
+              arg0: { prop: 'bondmode' },
+              arg1: [2, 4, 5]
+            }
+          }
+        ]
+      },
+      {
         type: 'textInput',
         name: 'bondprimary',
         label: gettext('Primary'),
