@@ -766,6 +766,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 			"bondmiimon" => $params['bondmiimon'],
 			"bonddowndelay" => $params['bonddowndelay'],
 			"bondupdelay" => $params['bondupdelay'],
+			"bondtransmithashpolicy" => $params['bondtransmithashpolicy'],
 			"slaves" => $params['slaves']
 		]);
 	}

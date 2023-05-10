@@ -162,6 +162,8 @@
 					<bondmiimon>0</bondmiimon>
 					<bonddowndelay>0</bonddowndelay>
 					<bondupdelay>0</bondupdelay>
+					<bondupdelay>0</bondupdelay>
+					<bondtransmithashpolicy>layer2|layer2+3|layer3+4|encap2+3|encap3+4</bondtransmithashpolicy>
 					# - vlan
 					<vlanid>1-4095</vlanid>
 					<vlanrawdevice>xxx</vlanrawdevice>

@@ -118,6 +118,11 @@
 			"minimum": 0,
 			"default": 0
 		},
+		"bondtransmithashpolicy": {
+			"type": "string",
+			"enum": [ "layer2", "layer2+3", "layer3+4", "encap2+3", "encap3+4" ],
+			"default": "layer2"
+		},
 		"vlanid": {
 			"type": "integer",
 			"minimum": 1,
