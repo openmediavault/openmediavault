@@ -21,7 +21,6 @@ import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
 import { Event, NavigationEnd, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { forkJoin, Subscription } from 'rxjs';
 import { delay, filter, finalize, take, tap } from 'rxjs/operators';
 
@@ -33,6 +32,7 @@ import { Unsubscribe } from '~/app/decorators';
 import { translate } from '~/app/i18n.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
+import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { PrefersColorSchemeService } from '~/app/shared/services/prefers-color-scheme.service';
 import { SystemInformationService } from '~/app/shared/services/system-information.service';
@@ -45,9 +45,6 @@ import { UserLocalStorageService } from '~/app/shared/services/user-local-storag
   styleUrls: ['./workbench-layout.component.scss']
 })
 export class WorkbenchLayoutComponent implements OnInit {
-  @BlockUI()
-  blockUI: NgBlockUI;
-
   @ViewChild('navigationSidenav', { static: false })
   private navigationSidenav: MatSidenav;
 
@@ -66,6 +63,7 @@ export class WorkbenchLayoutComponent implements OnInit {
 
   constructor(
     private authSessionService: AuthSessionService,
+    private blockUiService: BlockUiService,
     private dashboardWidgetConfigService: DashboardWidgetConfigService,
     private media: MediaObserver,
     private navigationConfig: NavigationConfigService,
@@ -122,7 +120,7 @@ export class WorkbenchLayoutComponent implements OnInit {
     // Additionally, load the users local storage settings and apply them
     // to the browsers local storage.
     this.loading = true;
-    this.blockUI.start(translate(gettext('Loading ...')));
+    this.blockUiService.start(translate(gettext('Loading ...')));
     forkJoin([
       this.navigationConfig.load(),
       this.dashboardWidgetConfigService.load(),
@@ -143,7 +141,7 @@ export class WorkbenchLayoutComponent implements OnInit {
         delay(1000),
         finalize(() => {
           this.loading = false;
-          this.blockUI.stop();
+          this.blockUiService.stop();
           this.onAfterInitLayout();
         })
       )

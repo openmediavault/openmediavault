@@ -20,7 +20,6 @@ import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/co
 import { ActivatedRoute, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EMPTY, Subscription } from 'rxjs';
 import { catchError, debounceTime, finalize } from 'rxjs/operators';
 
@@ -47,6 +46,7 @@ import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { Dirty } from '~/app/shared/models/dirty.interface';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
+import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
@@ -54,7 +54,7 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 
 /**
  * This component will render a page containing a form with the
- * configured form fields. By default this page contains a 'Save'
+ * configured form fields. By default, this page contains a 'Save'
  * and 'Cancel' button. The 'Save' button is enabled when the form
  * is dirty and the form validation was successfully.
  */
@@ -67,9 +67,6 @@ export class FormPageComponent
   extends AbstractPageComponent<FormPageConfig>
   implements AfterViewInit, OnInit, Dirty
 {
-  @BlockUI()
-  blockUI: NgBlockUI;
-
   @ViewChild(FormComponent, { static: true })
   form: FormComponent;
 
@@ -85,6 +82,7 @@ export class FormPageComponent
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
     @Inject(Router) router: Router,
+    private blockUiService: BlockUiService,
     private rpcService: RpcService,
     private dialogService: DialogService,
     private notificationService: NotificationService
@@ -261,7 +259,7 @@ export class FormPageComponent
             // Execute the specified request.
             const request = buttonConfig.execute.request;
             if (_.isString(request.progressMessage)) {
-              this.blockUI.start(translate(request.progressMessage));
+              this.blockUiService.start(translate(request.progressMessage));
             }
             this.rpcService[request.task ? 'requestTask' : 'request'](
               request.service,
@@ -271,7 +269,7 @@ export class FormPageComponent
               .pipe(
                 finalize(() => {
                   if (_.isString(request.progressMessage)) {
-                    this.blockUI.stop();
+                    this.blockUiService.stop();
                   }
                 })
               )
@@ -366,11 +364,11 @@ export class FormPageComponent
             values = tmp;
           }
           if (_.isString(request.post.progressMessage)) {
-            this.blockUI.start(translate(request.post.progressMessage));
+            this.blockUiService.start(translate(request.post.progressMessage));
           } else {
             // Show a default progress message because the RPC might
             // take some while.
-            this.blockUI.start(translate(gettext('Please wait ...')));
+            this.blockUiService.start(translate(gettext('Please wait ...')));
           }
           this.rpcService[request.post.task ? 'requestTask' : 'request'](
             request.service,
@@ -379,7 +377,7 @@ export class FormPageComponent
           )
             .pipe(
               finalize(() => {
-                this.blockUI.stop();
+                this.blockUiService.stop();
               })
             )
             .subscribe(() => {

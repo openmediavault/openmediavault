@@ -19,7 +19,6 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy } from
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { Subscription } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
@@ -28,6 +27,7 @@ import { AlertPanelButtonConfig } from '~/app/shared/components/alert-panel/aler
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
+import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
@@ -43,9 +43,6 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ApplyConfigPanelComponent implements OnDestroy {
-  @BlockUI()
-  blockUI: NgBlockUI;
-
   public icon = Icon;
   public dirtyModules: Record<string, string> = {};
   public expanded = false;
@@ -54,6 +51,7 @@ export class ApplyConfigPanelComponent implements OnDestroy {
   private subscription: Subscription;
 
   constructor(
+    private blockUiService: BlockUiService,
     private cd: ChangeDetectorRef,
     private dialogService: DialogService,
     private notificationService: NotificationService,
@@ -102,7 +100,7 @@ export class ApplyConfigPanelComponent implements OnDestroy {
       .afterClosed()
       .subscribe((res) => {
         if (res) {
-          this.blockUI.start(
+          this.blockUiService.start(
             translate(gettext('Please wait, the configuration changes are being applied ...'))
           );
           this.rpcService
@@ -118,7 +116,7 @@ export class ApplyConfigPanelComponent implements OnDestroy {
             )
             .pipe(
               finalize(() => {
-                this.blockUI.stop();
+                this.blockUiService.stop();
               })
             )
             .subscribe(() => {
@@ -143,7 +141,7 @@ export class ApplyConfigPanelComponent implements OnDestroy {
       .afterClosed()
       .subscribe((res) => {
         if (res) {
-          this.blockUI.start(
+          this.blockUiService.start(
             translate(gettext('Please wait, reverting configuration changes ...'))
           );
           this.rpcService
@@ -152,7 +150,7 @@ export class ApplyConfigPanelComponent implements OnDestroy {
             })
             .pipe(
               finalize(() => {
-                this.blockUI.stop();
+                this.blockUiService.stop();
               })
             )
             .subscribe(() => {

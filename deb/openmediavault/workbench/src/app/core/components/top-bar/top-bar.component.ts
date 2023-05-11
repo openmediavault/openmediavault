@@ -19,7 +19,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EMPTY, interval, Subscription } from 'rxjs';
 import { catchError, switchMap, take } from 'rxjs/operators';
 
@@ -31,6 +30,7 @@ import { Icon } from '~/app/shared/enum/icon.enum';
 import { Permissions, Roles } from '~/app/shared/models/permissions.model';
 import { AuthService } from '~/app/shared/services/auth.service';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
+import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { LocaleService } from '~/app/shared/services/locale.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
@@ -54,9 +54,6 @@ export class TopBarComponent {
   @Output()
   readonly notificationToggleChange = new EventEmitter();
 
-  @BlockUI()
-  blockUI: NgBlockUI;
-
   @Unsubscribe()
   private subscriptions = new Subscription();
 
@@ -72,10 +69,11 @@ export class TopBarComponent {
   public loggedInAs: string;
 
   constructor(
-    private router: Router,
+    private blockUiService: BlockUiService,
     private authService: AuthService,
     private authSessionService: AuthSessionService,
     private prefersColorSchemeService: PrefersColorSchemeService,
+    private router: Router,
     private rpcService: RpcService,
     private userLocalStorageService: UserLocalStorageService,
     private dialogService: DialogService,
@@ -117,7 +115,7 @@ export class TopBarComponent {
       gettext('Do you really want to logout?'),
       'confirmation',
       () => {
-        this.blockUI.start(translate(gettext('Please wait ...')));
+        this.blockUiService.start(translate(gettext('Please wait ...')));
         this.authService.logout().subscribe();
       }
     );
@@ -130,7 +128,7 @@ export class TopBarComponent {
       'confirmation-critical',
       () => {
         this.rpcService.request('System', 'reboot', { delay: 0 }).subscribe(() => {
-          this.blockUI.start(
+          this.blockUiService.start(
             translate(gettext('The system will reboot now. This may take some time ...'))
           );
           const subscription = interval(5000)
@@ -148,7 +146,7 @@ export class TopBarComponent {
                     // up again.
                     if (error.status === 401) {
                       subscription.unsubscribe();
-                      this.blockUI.stop();
+                      this.blockUiService.stop();
                     }
                     return EMPTY;
                   })
