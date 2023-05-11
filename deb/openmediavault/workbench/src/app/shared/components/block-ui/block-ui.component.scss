@@ -33,7 +33,7 @@
 
     .message {
       color: dc.$omv-color-white;
-      font-size: 1.138rem;
+      font-size: var(--mat-font-size-subheading-2);
       text-align: center;
     }
   }
