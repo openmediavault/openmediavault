@@ -28,7 +28,7 @@
       border: 5px solid rgba(255, 255, 255, 0.2);
       border-radius: 50%;
       border-left-color: dc.$omv-color-white;
-      animation: icon-animation 1s infinite linear;
+      animation: rotate-360 1s infinite linear;
     }
 
     .message {
@@ -36,15 +36,5 @@
       font-size: 1.138rem;
       text-align: center;
     }
-  }
-}
-
-@keyframes icon-animation {
-  0% {
-    transform: rotate(0);
-  }
-
-  100% {
-    transform: rotate(360deg);
   }
 }

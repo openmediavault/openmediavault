@@ -575,9 +575,21 @@ $omv-dark-theme: mat.define-dark-theme(
   animation: toggle-opacity 1s step-start infinite;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// Keyframes
 @keyframes toggle-opacity {
   50% {
     opacity: 0;
+  }
+}
+
+@keyframes rotate-360 {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 
