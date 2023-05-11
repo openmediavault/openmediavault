@@ -18,13 +18,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import * as _ from 'lodash';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { finalize } from 'rxjs/operators';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 import { format, formatDeep } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
+import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
@@ -34,10 +34,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   styleUrls: ['./form-button.component.scss']
 })
 export class FormButtonComponent extends AbstractFormFieldComponent {
-  @BlockUI()
-  blockUI: NgBlockUI;
-
   constructor(
+    private blockUiService: BlockUiService,
     private notificationService: NotificationService,
     private rpcService: RpcService,
     private router: Router
@@ -59,7 +57,7 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
       const request = this.config.request;
       const params = formatDeep(request.params, formValues);
       if (_.isString(request.progressMessage)) {
-        this.blockUI.start(translate(request.progressMessage));
+        this.blockUiService.start(translate(request.progressMessage));
       }
       this.rpcService[request.task ? 'requestTask' : 'request'](
         request.service,
@@ -69,7 +67,7 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
         .pipe(
           finalize(() => {
             if (_.isString(request.progressMessage)) {
-              this.blockUI.stop();
+              this.blockUiService.stop();
             }
           })
         )

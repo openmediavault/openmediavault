@@ -20,7 +20,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { finalize } from 'rxjs/operators';
 
 import { FormComponent } from '~/app/core/components/intuition/form/form.component';
@@ -33,6 +32,7 @@ import {
 import { format, formatDeep } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
+import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
@@ -47,9 +47,6 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   styleUrls: ['./form-dialog.component.scss']
 })
 export class FormDialogComponent {
-  @BlockUI()
-  blockUI: NgBlockUI;
-
   @ViewChild(FormComponent, { static: true })
   form: FormComponent;
 
@@ -57,6 +54,7 @@ export class FormDialogComponent {
   public config: FormDialogConfig;
 
   constructor(
+    private blockUiService: BlockUiService,
     private router: Router,
     private rpcService: RpcService,
     private notificationService: NotificationService,
@@ -141,7 +139,7 @@ export class FormDialogComponent {
         }
         // Block UI and display the progress message.
         if (_.isString(request.progressMessage)) {
-          this.blockUI.start(translate(request.progressMessage));
+          this.blockUiService.start(translate(request.progressMessage));
         }
         this.rpcService[request.task ? 'requestTask' : 'request'](
           request.service,
@@ -151,7 +149,7 @@ export class FormDialogComponent {
           .pipe(
             finalize(() => {
               if (_.isString(request.progressMessage)) {
-                this.blockUI.stop();
+                this.blockUiService.stop();
               }
             })
           )

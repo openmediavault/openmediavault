@@ -19,7 +19,6 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EMPTY } from 'rxjs';
 import { catchError, distinctUntilChanged, finalize } from 'rxjs/operators';
 
@@ -33,6 +32,7 @@ import { BaseFormPageComponent } from '~/app/pages/base-page-component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
+import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
@@ -41,9 +41,6 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
 })
 export class SharedFolderAclFormPageComponent extends BaseFormPageComponent implements OnInit {
-  @BlockUI()
-  blockUI: NgBlockUI;
-
   public config: FormPageConfig = {
     fields: [
       {
@@ -284,6 +281,7 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
   };
 
   constructor(
+    private blockUiService: BlockUiService,
     private dialogService: DialogService,
     private notificationService: NotificationService,
     private rpcService: RpcService
@@ -315,12 +313,14 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
       .afterClosed()
       .subscribe((choice: boolean) => {
         if (choice) {
-          this.blockUI.start(translate(gettext('Please wait, updating the permissions ...')));
+          this.blockUiService.start(
+            translate(gettext('Please wait, updating the permissions ...'))
+          );
           this.rpcService
             .request('ShareMgmt', 'getPrivileges', { uuid })
             .pipe(
               finalize(() => {
-                this.blockUI.stop();
+                this.blockUiService.stop();
               })
             )
             .subscribe((privs: Record<string, any>) => {
@@ -343,7 +343,7 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
   }
 
   onSubmit(buttonConfig: FormPageButtonConfig, values: Record<string, any>) {
-    this.blockUI.start(translate(gettext('Please wait, updating access control lists ...')));
+    this.blockUiService.start(translate(gettext('Please wait, updating access control lists ...')));
     // Process RPC parameters.
     const perms = _.map(_.reject(values.perms, ['perms', null]), (obj) => {
       obj.perms = _.toInteger(obj.perms);
@@ -356,7 +356,7 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
       .requestTask('ShareMgmt', 'setFileACL', rpcParams)
       .pipe(
         finalize(() => {
-          this.blockUI.stop();
+          this.blockUiService.stop();
         })
       )
       .subscribe(() => {

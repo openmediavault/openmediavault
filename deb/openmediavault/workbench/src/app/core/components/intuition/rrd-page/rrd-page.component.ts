@@ -20,7 +20,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EMPTY } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
 
@@ -32,6 +31,7 @@ import {
 import { format, formatDeep, unixTimeStamp } from '~/app/functions.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
+import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
@@ -41,9 +41,6 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   styleUrls: ['./rrd-page.component.scss']
 })
 export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> implements OnInit {
-  @BlockUI()
-  blockUI: NgBlockUI;
-
   public monitoringEnabled = true;
   public error: HttpErrorResponse;
   public icon = Icon;
@@ -62,6 +59,7 @@ export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> imple
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
     @Inject(Router) router: Router,
+    private blockUiService: BlockUiService,
     private dataStoreService: DataStoreService,
     private rpcService: RpcService
   ) {
@@ -102,12 +100,12 @@ export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> imple
   }
 
   onGenerate() {
-    this.blockUI.start(gettext('Please wait, the statistic graphs will be regenerated ...'));
+    this.blockUiService.start(gettext('Please wait, the statistic graphs will be regenerated ...'));
     this.rpcService
       .requestTask('Rrd', 'generate')
       .pipe(
         finalize(() => {
-          this.blockUI.stop();
+          this.blockUiService.stop();
         })
       )
       .subscribe(() => {

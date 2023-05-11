@@ -19,7 +19,6 @@ import { Component, Inject, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { concat } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
@@ -46,6 +45,7 @@ import { DatatableAction } from '~/app/shared/models/datatable-action.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { RpcListResponse } from '~/app/shared/models/rpc.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
+import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
@@ -57,9 +57,6 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   styleUrls: ['./datatable-page.component.scss']
 })
 export class DatatablePageComponent extends AbstractPageComponent<DatatablePageConfig> {
-  @BlockUI()
-  blockUI: NgBlockUI;
-
   @ViewChild('table', { static: true })
   table: DatatableComponent;
 
@@ -71,6 +68,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
     @Inject(Router) router: Router,
+    private blockUiService: BlockUiService,
     private dataStoreService: DataStoreService,
     private rpcService: RpcService,
     private dialogService: DialogService,
@@ -194,14 +192,14 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           }
           // Block UI and display the progress message.
           if (_.isString(request.progressMessage)) {
-            this.blockUI.start(translate(request.progressMessage));
+            this.blockUiService.start(translate(request.progressMessage));
           }
           // Process each request one-by-one (NOT in parallel).
           concat(...observables)
             .pipe(
               finalize(() => {
                 if (_.isString(request.progressMessage)) {
-                  this.blockUI.stop();
+                  this.blockUiService.stop();
                 }
               })
             )
