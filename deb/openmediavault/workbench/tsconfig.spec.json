@@ -3,16 +3,9 @@
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "module": "CommonJs",
-    "types": [
-      "jest",
-      "node"
-    ]
+    "types": ["jest", "node"],
+    "resolveJsonModule": true
   },
-  "files": [
-    "./src/polyfills.ts"
-  ],
-  "include": [
-    "./src/**/*.spec.ts",
-    "./src/**/*.d.ts"
-  ]
+  "files": ["./src/polyfills.ts"],
+  "include": ["./src/**/*.spec.ts", "./src/**/*.d.ts"]
 }

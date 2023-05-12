@@ -7,7 +7,8 @@ import { TestingModule } from '~/app/testing.module';
 describe('HttpErrorInterceptorService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [TestingModule, ToastrModule.forRoot()]
+      imports: [TestingModule, ToastrModule.forRoot()],
+      teardown: { destroyAfterEach: false }
     })
   );
 

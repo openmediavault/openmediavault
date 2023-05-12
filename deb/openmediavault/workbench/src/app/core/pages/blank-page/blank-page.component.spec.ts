@@ -10,7 +10,8 @@ describe('BlankPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PagesModule, TestingModule]
+      imports: [PagesModule, TestingModule],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   });
 

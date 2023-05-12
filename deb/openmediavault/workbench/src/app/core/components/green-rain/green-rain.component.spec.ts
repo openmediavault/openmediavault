@@ -11,7 +11,8 @@ describe('GreenRainComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [GreenRainComponent],
-      imports: [ComponentsModule, TestingModule]
+      imports: [ComponentsModule, TestingModule],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   });
 

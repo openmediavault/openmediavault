@@ -10,7 +10,8 @@ describe('StandbyPageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [PagesModule, TestingModule]
+      imports: [PagesModule, TestingModule],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   }));
 

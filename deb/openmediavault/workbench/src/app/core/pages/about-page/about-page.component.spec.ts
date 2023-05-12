@@ -10,7 +10,8 @@ describe('AboutPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PagesModule, TestingModule]
+      imports: [PagesModule, TestingModule],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   });
 

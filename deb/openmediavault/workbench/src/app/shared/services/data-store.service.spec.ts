@@ -10,7 +10,8 @@ describe('DataStoreService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [TestingModule]
+      imports: [TestingModule],
+      teardown: { destroyAfterEach: false }
     });
     service = TestBed.inject(DataStoreService);
   });

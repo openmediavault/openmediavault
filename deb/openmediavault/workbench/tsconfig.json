@@ -24,7 +24,7 @@
     "target": "es2017",
     "esModuleInterop": true,
     "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "dom"],
+    "lib": ["es2018", "dom", "dom.iterable"],
     "downlevelIteration": true,
     "incremental": true
   },

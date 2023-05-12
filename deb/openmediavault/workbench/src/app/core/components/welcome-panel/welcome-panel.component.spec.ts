@@ -11,7 +11,8 @@ describe('WelcomePanelComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [WelcomePanelComponent],
-      imports: [ComponentsModule, TestingModule]
+      imports: [ComponentsModule, TestingModule],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   });
 

@@ -8,7 +8,8 @@ describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      imports: [SharedModule, TestingModule]
+      imports: [SharedModule, TestingModule],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   }));
 

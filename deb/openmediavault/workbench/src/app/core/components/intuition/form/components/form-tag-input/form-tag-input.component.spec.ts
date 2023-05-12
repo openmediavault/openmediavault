@@ -12,7 +12,8 @@ describe('FormTagInputComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [FormTagInputComponent],
-      imports: [IntuitionModule, TestingModule]
+      imports: [IntuitionModule, TestingModule],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   });
 

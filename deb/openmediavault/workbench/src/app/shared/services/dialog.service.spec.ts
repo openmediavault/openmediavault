@@ -9,7 +9,8 @@ describe('DialogService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [SharedModule, TestingModule]
+      imports: [SharedModule, TestingModule],
+      teardown: { destroyAfterEach: false }
     });
     service = TestBed.inject(DialogService);
   });
