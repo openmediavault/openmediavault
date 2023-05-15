@@ -21,10 +21,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2017",
+    "target": "es2020",
+    "module": "es2020",
     "esModuleInterop": true,
     "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "dom", "dom.iterable"],
+    "lib": ["es2020", "dom", "dom.iterable"],
     "downlevelIteration": true,
     "incremental": true
   },

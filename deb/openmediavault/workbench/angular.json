@@ -30,7 +30,10 @@
               "chart.js",
               "chartjs-plugin-datalabels",
               "cronstrue",
-              "validator"
+              "validator",
+              "bezier-easing",
+              "dayjs",
+              "@ngneat/transloco-keys-manager/marker"
             ],
             "outputPath": "dist/openmediavault-workbench",
             "index": "src/index.html",
@@ -50,8 +53,8 @@
               }
             ],
             "styles": [
-              "node_modules/@fontsource/inter",
-              "node_modules/@fontsource/roboto-mono",
+              "node_modules/@fontsource/inter/index.css",
+              "node_modules/@fontsource/roboto-mono/index.css",
               "node_modules/@swimlane/ngx-datatable/index.scss",
               "node_modules/@swimlane/ngx-datatable/assets/icons.css",
               "node_modules/ngx-toastr/toastr.css",
@@ -162,6 +165,5 @@
         }
       }
     }
-  },
-  "defaultProject": "openmediavault-workbench"
+  }
 }

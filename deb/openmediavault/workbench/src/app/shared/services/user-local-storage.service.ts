@@ -28,15 +28,15 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   providedIn: 'root'
 })
 export class UserLocalStorageService {
-  private get deviceType(): string {
-    return this.platform.ANDROID || this.platform.IOS ? 'mobile' : 'desktop';
-  }
-
   constructor(
     private authSessionService: AuthSessionService,
     private platform: Platform,
     private rpcService: RpcService
   ) {}
+
+  private get deviceType(): string {
+    return this.platform.ANDROID || this.platform.IOS ? 'mobile' : 'desktop';
+  }
 
   get(key: string, defaultValue?: any): string | null {
     const username = this.authSessionService.getUsername();

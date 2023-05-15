@@ -20,6 +20,7 @@ describe('MapPipe', () => {
   });
 
   it('transforms to true [4/5]', () => {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     expect(pipe.transform(5, { 5: 'Five' })).toBe('Five');
   });
 

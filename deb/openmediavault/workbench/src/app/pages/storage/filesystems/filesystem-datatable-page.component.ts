@@ -172,9 +172,11 @@ export class FilesystemDatatablePageComponent implements OnInit {
         cellTemplateName: 'chip',
         cellTemplateConfig: {
           map: {
+            /* eslint-disable @typescript-eslint/naming-convention */
             1: { value: gettext('Online'), class: 'omv-background-color-pair-success' },
             2: { value: gettext('Initializing'), class: 'omv-background-color-pair-info' },
             3: { value: gettext('Missing'), class: 'omv-background-color-pair-error' }
+            /* eslint-enable @typescript-eslint/naming-convention */
           }
         }
       }

@@ -11,15 +11,15 @@ export type PrefersColorScheme = 'light' | 'dark';
 export class PrefersColorSchemeService {
   public readonly change$: Observable<PrefersColorScheme>;
 
-  get current(): PrefersColorScheme {
-    return this.prefersColorScheme.value;
-  }
-
   private prefersColorScheme: BehaviorSubject<PrefersColorScheme> = new BehaviorSubject('light');
 
   constructor(private userLocalStorageService: UserLocalStorageService) {
     this.prefersColorScheme.next(this.get());
     this.change$ = this.prefersColorScheme.asObservable();
+  }
+
+  get current(): PrefersColorScheme {
+    return this.prefersColorScheme.value;
   }
 
   public get(): PrefersColorScheme {

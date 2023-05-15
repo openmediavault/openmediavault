@@ -1,4 +1,4 @@
-const esModules = ['ansi-regex', 'strip-ansi', '@codemirror/legacy-modes'];
+const esModules = ['@codemirror/legacy-modes', 'ansi-regex', 'rxjs', 'strip-ansi'];
 module.exports = {
   testTimeout: 10000,
   moduleNameMapper: {
