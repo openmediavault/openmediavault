@@ -18,6 +18,7 @@
 
 @mixin theme($mode, $theme-config, $typography-config) {
   // Workaround for https://github.com/angular/material2/issues/4580.
+  // @deprecated in Angular15
   .mat-form-field {
     // Copy-paste from @mat-form-field-typography();
     $line-height: mat.line-height($typography-config, input);
@@ -54,7 +55,7 @@
 
   .mat-form-field-suffix .mat-icon,
   .mat-form-field-prefix .mat-icon {
-    color: mat.get-color-from-palette(map-get($theme-config, foreground), secondary-text);
+    color: var(--mat-color-secondary-text);
     // Suffix/Prefix icons are aligned too high by default.
     vertical-align: bottom;
   }

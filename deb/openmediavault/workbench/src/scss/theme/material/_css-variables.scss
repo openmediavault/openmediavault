@@ -70,6 +70,11 @@
       map-get($theme-config, background),
       card
     )};
+  --mat-background-color-background:
+    #{mat.get-color-from-palette(
+      map-get($theme-config, background),
+      background
+    )};
   --mat-primary-color-text:
     #{mat.get-color-from-palette(
       map-get($theme-config, primary),

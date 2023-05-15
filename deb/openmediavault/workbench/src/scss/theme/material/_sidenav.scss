@@ -22,7 +22,7 @@
     }
 
     @else {
-      background-color: mat.get-color-from-palette(map-get($theme-config, background), background);
+      background-color: var(--mat-background-color-background);
     }
   }
 }
