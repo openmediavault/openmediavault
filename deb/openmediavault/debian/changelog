@@ -7,7 +7,7 @@ openmediavault (6.3.11-2) stable; urgency=low
   * Issue #1542: Add transmit hash policy support to bond network
     interfaces.
 
- -- Volker Theile <volker.theile@openmediavault.org> Tue, 25 Apr 2023 19:09:12 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 25 Apr 2023 19:09:12 +0200
 
 openmediavault (6.3.10-2) stable; urgency=low
 
