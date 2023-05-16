@@ -58,14 +58,24 @@ network:
       addresses: []
 {%- endif %}
       dhcp4: {{ "true" if interface.method == "dhcp" else "false" }}
-{%- if not interface.dnsnameservers == "" and interface.method == "dhcp" %}
+{%- if interface.method == "dhcp" and (interface.dnsnameservers != "" or interface.dnssearch != "") %}
       dhcp4-overrides:
+{%- if interface.dnsnameservers != "" %}
         use-dns: no
 {%- endif %}
+{%- if interface.dnssearch != 0 %}
+        use-domains: no
+{%- endif %}
+{%- endif %}
       dhcp6: {{ "true" if interface.method6 == "dhcp" else "false" }}
-{%- if not interface.dnsnameservers == "" and interface.method6 == "dhcp" %}
+{%- if interface.method6 == "dhcp" and (interface.dnsnameservers != "" or interface.dnssearch != "") %}
       dhcp6-overrides:
+{%- if interface.dnsnameservers != "" %}
         use-dns: no
+{%- endif %}
+{%- if interface.dnssearch != "" %}
+        use-domains: no
+{%- endif %}
 {%- endif %}
 {%- if interface.method6 == "manual" %}
       link-local: []

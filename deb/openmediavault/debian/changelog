@@ -1,6 +1,7 @@
 openmediavault (6.3.12-1) stable; urgency=low
 
-  *
+  * Prevent custom network interface search domain settings from
+    being overwritten by settings provided via DHCP.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 15 May 2023 20:44:19 +0200
 
