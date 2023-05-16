@@ -17,26 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-remove_systemd_networkd_config_files:
-  module.run:
-    - file.find:
-      - path: "/etc/systemd/network/"
-      - iname: "^(*-)?openmediavault-*"
-      - delete: "f"
+include:
+  - .netplan
 
-# Remove empty configuration files, otherwise the command
-# "udevadm test-builtin net_setup_link /sys/class/net/lo"
-# which is executed by netplan.io will fail.
-remove_empty_systemd_networkd_config_files:
-  module.run:
-    - file.find:
-      - path: "/etc/systemd/network/"
-      - size: "0"
-      - delete: "f"
-
-remove_netplan_config_files:
-  module.run:
-    - file.find:
-      - path: "/etc/netplan/"
-      - iname: "^(*-)?openmediavault-*.yaml"
-      - delete: "f"
+apply_netplan_config:
+  cmd.run:
+    - name: "netplan apply"
