@@ -41,3 +41,19 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+// eslint-disable-next-line @typescript-eslint/no-namespace
+declare namespace Cypress {
+  interface Chainable<Subject = any> {
+    login(): Chainable<Subject>;
+  }
+}
+
+Cypress.Commands.add('login', () => {
+  cy.visit('/');
+  const username: string = Cypress.env('username');
+  const password: string = Cypress.env('password');
+  cy.get('[ng-reflect-name="username"]').type(username);
+  cy.get('[ng-reflect-name="password"]').type(password);
+  cy.get('button[type="submit"]').click();
+});
