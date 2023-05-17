@@ -20,6 +20,7 @@ import * as _ from 'lodash';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+import { translate } from '~/app/i18n.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { Notification } from '~/app/shared/models/notification.model';
 
@@ -53,8 +54,14 @@ export class NotificationService {
       // Store the notification.
       this.add(notification);
       // Show the notification as toasty.
-      const fn = _.bind(this.toastrService[notification.type], this.toastrService);
-      fn(_.truncate(notification.message, { length: 1500, omission: '...' }), notification.title);
+      const fn: (message: string, title: string) => any = _.bind(
+        this.toastrService[notification.type],
+        this.toastrService
+      );
+      fn(
+        _.truncate(translate(notification.message), { length: 1500, omission: '...' }),
+        translate(notification.title)
+      );
     }, 5);
   }
 
