@@ -29,7 +29,7 @@
     "downlevelIteration": true,
     "incremental": true
   },
-  "exclude": ["dist", "node_modules"],
+  "exclude": ["cypress", "dist", "node_modules"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
