@@ -12,7 +12,8 @@ describe('FormIconButtonComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()]
+      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   }));
 

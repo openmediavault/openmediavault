@@ -9,7 +9,8 @@ describe('SanitizeHtmlPipe', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DomSanitizer]
+      providers: [DomSanitizer],
+      teardown: { destroyAfterEach: false }
     });
     domSanitizer = TestBed.inject(DomSanitizer);
     pipe = new SanitizeHtmlPipe(domSanitizer);

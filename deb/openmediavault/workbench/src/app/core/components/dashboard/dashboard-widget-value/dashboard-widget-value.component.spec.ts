@@ -12,7 +12,8 @@ describe('DashboardWidgetValueComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardWidgetValueComponent],
-      imports: [DashboardModule, TestingModule]
+      imports: [DashboardModule, TestingModule],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   });
 

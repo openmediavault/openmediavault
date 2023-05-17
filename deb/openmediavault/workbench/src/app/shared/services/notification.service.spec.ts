@@ -6,7 +6,8 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 describe('NotificationService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [ToastrModule.forRoot()]
+      imports: [ToastrModule.forRoot()],
+      teardown: { destroyAfterEach: false }
     })
   );
 

@@ -6,7 +6,8 @@ import { TestingModule } from '~/app/testing.module';
 describe('AuthGuardService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [TestingModule]
+      imports: [TestingModule],
+      teardown: { destroyAfterEach: false }
     })
   );
 

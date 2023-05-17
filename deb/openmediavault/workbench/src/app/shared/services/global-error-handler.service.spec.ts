@@ -8,7 +8,8 @@ describe('GlobalErrorHandlerService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [TestingModule]
+      imports: [TestingModule],
+      teardown: { destroyAfterEach: false }
     });
     service = TestBed.inject(GlobalErrorHandlerService);
   });

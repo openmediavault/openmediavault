@@ -13,7 +13,8 @@ describe('FormTextInputComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [FormTextInputComponent],
-      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()]
+      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   }));
 

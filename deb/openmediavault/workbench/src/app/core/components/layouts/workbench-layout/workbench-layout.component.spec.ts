@@ -13,7 +13,8 @@ describe('WorkbenchLayoutComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       providers: [ɵMockMatchMediaProvider],
-      imports: [ComponentsModule, TestingModule, ToastrModule.forRoot()]
+      imports: [ComponentsModule, TestingModule, ToastrModule.forRoot()],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   }));
 

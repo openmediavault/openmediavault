@@ -10,7 +10,8 @@ describe('FormComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [IntuitionModule, TestingModule]
+      imports: [IntuitionModule, TestingModule],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   }));
 

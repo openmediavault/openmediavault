@@ -13,8 +13,8 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-@use '~@angular/cdk' as cdk;
-@use '~@angular/material' as mat;
+@use '@angular/cdk' as cdk;
+@use '@angular/material' as mat;
 @use 'src/scss/defaults/colors' as dc;
 @use 'src/scss/defaults/variables' as dv;
 @use 'src/scss/theme';

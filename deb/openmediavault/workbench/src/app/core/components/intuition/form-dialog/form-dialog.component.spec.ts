@@ -19,7 +19,8 @@ describe('FormDialogComponent', () => {
           provide: MatDialogRef,
           useValue: {}
         }
-      ]
+      ],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   }));
 

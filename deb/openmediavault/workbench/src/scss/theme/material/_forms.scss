@@ -14,7 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 @use 'sass:math';
-@use '~@angular/material' as mat;
+@use '@angular/material' as mat;
 
 @mixin theme($mode, $theme-config, $typography-config) {
   // Workaround for https://github.com/angular/material2/issues/4580.

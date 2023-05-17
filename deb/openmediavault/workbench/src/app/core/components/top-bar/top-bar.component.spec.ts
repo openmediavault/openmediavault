@@ -11,7 +11,8 @@ describe('TopBarComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ComponentsModule, TestingModule, ToastrModule.forRoot()]
+      imports: [ComponentsModule, TestingModule, ToastrModule.forRoot()],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   }));
 

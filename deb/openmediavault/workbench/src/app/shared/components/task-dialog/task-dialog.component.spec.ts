@@ -12,7 +12,8 @@ describe('TaskDialogComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ComponentsModule, TestingModule],
-      providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }]
+      providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   }));
 

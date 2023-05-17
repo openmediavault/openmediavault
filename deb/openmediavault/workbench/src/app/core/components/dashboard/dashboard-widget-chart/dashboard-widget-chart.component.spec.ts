@@ -12,7 +12,8 @@ describe('DashboardWidgetChartComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardWidgetChartComponent],
-      imports: [DashboardModule, TestingModule]
+      imports: [DashboardModule, TestingModule],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   });
 

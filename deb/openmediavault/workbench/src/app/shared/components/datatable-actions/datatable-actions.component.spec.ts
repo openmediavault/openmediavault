@@ -11,7 +11,8 @@ describe('DatatableActionsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ComponentsModule, TestingModule]
+      imports: [ComponentsModule, TestingModule],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   }));
 

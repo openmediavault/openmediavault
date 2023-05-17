@@ -65,6 +65,7 @@ export class FirewallRuleInetDatatablePageComponent extends BaseDatatablePageCom
         cellTemplateName: 'chip',
         cellTemplateConfig: {
           map: {
+            /* eslint-disable @typescript-eslint/naming-convention */
             tcp: { value: 'TCP' },
             udp: { value: 'UDP' },
             icmp: { value: 'ICMP' },
@@ -74,6 +75,7 @@ export class FirewallRuleInetDatatablePageComponent extends BaseDatatablePageCom
             '!udp': { value: gettext('Not UDP') },
             '!icmp': { value: gettext('Not ICMP') },
             '!icmpv6': { value: gettext('Not ICMPv6') }
+            /* eslint-enable @typescript-eslint/naming-convention */
           }
         }
       },

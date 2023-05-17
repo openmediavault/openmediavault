@@ -12,7 +12,8 @@ describe('LoginPageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, PagesModule, TestingModule, ToastrModule.forRoot()]
+      imports: [BrowserAnimationsModule, PagesModule, TestingModule, ToastrModule.forRoot()],
+      teardown: { destroyAfterEach: false }
     }).compileComponents();
   }));
 
