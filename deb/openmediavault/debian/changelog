@@ -1,8 +1,9 @@
-openmediavault (6.3.13-1) stable; urgency=low
+openmediavault (6.4.0-1) stable; urgency=low
 
   * Various improvements.
+  * Upgrade to Angular 14.
 
- -- Volker Theile <volker.theile@openmediavault.org>  Wed, 17 May 2023 21:16:27 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 19 May 2023 14:54:50 +0200
 
 openmediavault (6.3.12-1) stable; urgency=low
 
