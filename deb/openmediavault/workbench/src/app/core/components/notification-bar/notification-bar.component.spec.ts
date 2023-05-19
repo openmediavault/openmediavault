@@ -11,8 +11,7 @@ describe('NotificationBarComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ComponentsModule, TestingModule, ToastrModule.forRoot()],
-      teardown: { destroyAfterEach: false }
+      imports: [ComponentsModule, TestingModule, ToastrModule.forRoot()]
     }).compileComponents();
   }));
 

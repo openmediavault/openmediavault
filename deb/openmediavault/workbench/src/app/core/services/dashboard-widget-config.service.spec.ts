@@ -8,8 +8,7 @@ describe('DashboardWidgetConfigService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [TestingModule],
-      teardown: { destroyAfterEach: false }
+      imports: [TestingModule]
     });
     service = TestBed.inject(DashboardWidgetConfigService);
   });

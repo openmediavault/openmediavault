@@ -8,7 +8,7 @@ describe('ConstraintService', () => {
   let objects: Array<ConstraintRecord>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({ teardown: { destroyAfterEach: false } });
+    TestBed.configureTestingModule({});
     object = {
       password0: 'foo',
       password1: '123456789',

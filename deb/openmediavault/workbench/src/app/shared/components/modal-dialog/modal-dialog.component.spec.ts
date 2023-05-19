@@ -12,8 +12,7 @@ describe('ConfirmDialogComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ComponentsModule, TestingModule],
-      providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
-      teardown: { destroyAfterEach: false }
+      providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }]
     }).compileComponents();
   }));
 

@@ -13,8 +13,7 @@ describe('rxjs.helper', () => {
 
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [TestingModule],
-      teardown: { destroyAfterEach: false }
+      imports: [TestingModule]
     })
   );
 

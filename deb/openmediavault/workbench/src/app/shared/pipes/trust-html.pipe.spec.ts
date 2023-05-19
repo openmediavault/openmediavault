@@ -9,8 +9,7 @@ describe('TrustHtmlPipe', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DomSanitizer],
-      teardown: { destroyAfterEach: false }
+      providers: [DomSanitizer]
     });
     domSanitizer = TestBed.inject(DomSanitizer);
     pipe = new TrustHtmlPipe(domSanitizer);

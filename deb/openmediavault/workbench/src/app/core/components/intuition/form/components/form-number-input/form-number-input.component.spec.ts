@@ -13,8 +13,7 @@ describe('FormNumberInputComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [FormNumberInputComponent],
-      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()],
-      teardown: { destroyAfterEach: false }
+      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()]
     }).compileComponents();
   }));
 

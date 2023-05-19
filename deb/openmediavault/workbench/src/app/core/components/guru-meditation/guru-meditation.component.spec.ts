@@ -11,8 +11,7 @@ describe('GuruMeditationComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [GuruMeditationComponent],
-      imports: [ComponentsModule, TestingModule],
-      teardown: { destroyAfterEach: false }
+      imports: [ComponentsModule, TestingModule]
     }).compileComponents();
   }));
 

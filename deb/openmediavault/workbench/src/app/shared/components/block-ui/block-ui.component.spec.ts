@@ -8,8 +8,7 @@ describe('BlockUiComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BlockUiComponent],
-      teardown: { destroyAfterEach: false }
+      declarations: [BlockUiComponent]
     }).compileComponents();
   });
 

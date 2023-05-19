@@ -12,8 +12,7 @@ describe('FormFolderbrowserComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [IntuitionModule, TestingModule],
-      teardown: { destroyAfterEach: false }
+      imports: [IntuitionModule, TestingModule]
     }).compileComponents();
   }));
 

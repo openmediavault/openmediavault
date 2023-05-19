@@ -10,8 +10,7 @@ describe('DefaultLayoutComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ComponentsModule, TestingModule],
-      teardown: { destroyAfterEach: false }
+      imports: [ComponentsModule, TestingModule]
     }).compileComponents();
   }));
 

@@ -10,8 +10,7 @@ describe('ProgressBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ComponentsModule, TestingModule],
-      teardown: { destroyAfterEach: false }
+      imports: [ComponentsModule, TestingModule]
     }).compileComponents();
   });
 

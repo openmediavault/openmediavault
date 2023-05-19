@@ -12,8 +12,7 @@ describe('DashboardWidgetSystemInformationComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [DashboardWidgetSystemInformationComponent],
-      imports: [DashboardModule, TestingModule],
-      teardown: { destroyAfterEach: false }
+      imports: [DashboardModule, TestingModule]
     }).compileComponents();
   }));
 

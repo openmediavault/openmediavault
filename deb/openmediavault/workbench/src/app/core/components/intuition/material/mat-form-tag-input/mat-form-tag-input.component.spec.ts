@@ -10,8 +10,7 @@ describe('MatFormTagInputComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [MatFormTagInputComponent],
-      imports: [IntuitionModule],
-      teardown: { destroyAfterEach: false }
+      imports: [IntuitionModule]
     }).compileComponents();
   });
 

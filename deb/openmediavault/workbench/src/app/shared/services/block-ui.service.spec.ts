@@ -6,7 +6,7 @@ describe('BlockUiService', () => {
   let service: BlockUiService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({ teardown: { destroyAfterEach: false } });
+    TestBed.configureTestingModule({});
     service = TestBed.inject(BlockUiService);
   });
 

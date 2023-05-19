@@ -10,8 +10,7 @@ describe('ShutdownPageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [PagesModule, TestingModule],
-      teardown: { destroyAfterEach: false }
+      imports: [PagesModule, TestingModule]
     }).compileComponents();
   }));
 

@@ -13,8 +13,7 @@ describe('DashboardWidgetDatatableComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [DashboardWidgetDatatableComponent],
-      imports: [DashboardModule, TestingModule, ToastrModule.forRoot()],
-      teardown: { destroyAfterEach: false }
+      imports: [DashboardModule, TestingModule, ToastrModule.forRoot()]
     }).compileComponents();
   }));
 

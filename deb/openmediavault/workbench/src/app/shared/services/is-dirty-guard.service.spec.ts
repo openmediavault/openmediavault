@@ -9,8 +9,7 @@ describe('IsDirtyGuardService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [SharedModule, TestingModule],
-      teardown: { destroyAfterEach: false }
+      imports: [SharedModule, TestingModule]
     });
     service = TestBed.inject(IsDirtyGuardService);
   });

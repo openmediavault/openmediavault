@@ -10,8 +10,7 @@ describe('MatFormButtonComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [MatFormButtonComponent],
-      imports: [IntuitionModule],
-      teardown: { destroyAfterEach: false }
+      imports: [IntuitionModule]
     }).compileComponents();
   }));
 

@@ -8,8 +8,7 @@ describe('TitleService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [TestingModule],
-      teardown: { destroyAfterEach: false }
+      imports: [TestingModule]
     });
     service = TestBed.inject(TitleService);
   });

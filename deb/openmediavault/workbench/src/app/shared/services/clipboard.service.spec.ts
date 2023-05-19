@@ -6,8 +6,7 @@ import { ClipboardService } from '~/app/shared/services/clipboard.service';
 describe('ClipboardService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [ToastrModule.forRoot()],
-      teardown: { destroyAfterEach: false }
+      imports: [ToastrModule.forRoot()]
     })
   );
 

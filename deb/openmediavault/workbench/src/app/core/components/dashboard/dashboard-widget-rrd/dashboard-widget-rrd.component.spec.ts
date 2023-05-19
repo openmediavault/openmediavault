@@ -11,8 +11,7 @@ describe('DashboardWidgetRrdComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [DashboardWidgetRrdComponent],
-      imports: [DashboardModule, TestingModule],
-      teardown: { destroyAfterEach: false }
+      imports: [DashboardModule, TestingModule]
     }).compileComponents();
   }));
 

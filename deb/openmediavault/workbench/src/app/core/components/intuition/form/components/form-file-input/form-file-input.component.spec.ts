@@ -11,8 +11,7 @@ describe('FormFileInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [IntuitionModule, TestingModule],
-      teardown: { destroyAfterEach: false }
+      imports: [IntuitionModule, TestingModule]
     }).compileComponents();
   });
 
