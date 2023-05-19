@@ -129,6 +129,7 @@ export class RsyncTaskDatatablePageComponent {
           taskDialog: {
             config: {
               title: gettext('Run rsync task'),
+              startOnInit: true,
               request: {
                 service: 'Rsync',
                 method: 'execute',

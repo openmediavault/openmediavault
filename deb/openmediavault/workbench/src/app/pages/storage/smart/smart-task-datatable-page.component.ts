@@ -117,7 +117,7 @@ export class SmartTaskDatatablePageComponent {
           taskDialog: {
             config: {
               title: gettext('Run scheduled task'),
-              width: '75%',
+              startOnInit: true,
               request: {
                 service: 'Smart',
                 method: 'executeScheduledTest',

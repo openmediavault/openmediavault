@@ -122,7 +122,7 @@ export class CronTaskDatatablePageComponent {
           taskDialog: {
             config: {
               title: gettext('Run scheduled task'),
-              width: '75%',
+              startOnInit: true,
               request: {
                 service: 'Cron',
                 method: 'execute',
