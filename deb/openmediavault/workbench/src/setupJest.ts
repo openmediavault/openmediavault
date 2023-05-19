@@ -1,4 +1,4 @@
-import 'jest-preset-angular/setup-jest';
+import { jest } from '@jest/globals';
 
 Object.defineProperty(window, 'getComputedStyle', {
   value: () => ({
