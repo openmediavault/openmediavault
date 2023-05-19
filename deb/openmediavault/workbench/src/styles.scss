@@ -13,6 +13,7 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
+@use "sass:map";
 @use '@angular/cdk' as cdk;
 @use '@angular/material' as mat;
 @use 'src/scss/defaults/colors' as dc;
@@ -30,14 +31,13 @@ $omv-typography-config: mat.define-typography-config(theme.$omv-font-family-defa
 @include mat.core($omv-typography-config);
 
 $omv-theme-primary-palette: mat.define-palette(theme.$omv-color-primary-palette);
-$omv-theme-accent-palette: map-merge(
+$omv-theme-accent-palette: map.merge(
   mat.define-palette(theme.$omv-color-accent-palette),
   (
     default-contrast: theme.$omv-color-accent-contrast
   )
 );
 $omv-theme-warn-palette: mat.define-palette(theme.$omv-color-warn-palette);
-
 $omv-light-theme: mat.define-light-theme(
   (
     color: (
@@ -47,7 +47,6 @@ $omv-light-theme: mat.define-light-theme(
     )
   )
 );
-
 $omv-dark-theme: mat.define-dark-theme(
   (
     color: (
@@ -670,7 +669,7 @@ img.loading::after {
 
 img.loading {
   content: url('data:image/x-icon;base64,');
-  color: rgba(0, 0, 0, 0) !important; // Hide 'alt' text.
+  color: rgb(0 0 0 / 0%) !important; // Hide 'alt' text.
   font-size: 5px;
   border-top: 1.1em solid dc.$omv-color-whitesmoke;
   border-right: 1.1em solid dc.$omv-color-whitesmoke;

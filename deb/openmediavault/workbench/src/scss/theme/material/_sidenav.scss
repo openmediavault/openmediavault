@@ -13,15 +13,14 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
+@use "sass:map";
 @use '@angular/material' as mat;
 
 @mixin theme($mode, $theme-config, $typography-config) {
   .mat-sidenav {
     @if $mode == light {
-      background-color: map-get(mat.$blue-grey-palette, 900);
-    }
-
-    @else {
+      background-color: map.get(mat.$blue-grey-palette, 900);
+    } @else {
       background-color: var(--mat-background-color-background);
     }
   }

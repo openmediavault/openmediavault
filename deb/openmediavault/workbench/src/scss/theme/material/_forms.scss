@@ -44,7 +44,6 @@
       // Copy-paste from @mat-form-field-legacy-typography();
       $line-spacing: ($line-height - 1) * 0.5;
       $subscript-margin-top: math.div(0.5em, $subscript-font-scale) - ($line-spacing * 2);
-
       $subscript-min-height: $line-height * 1em;
       $subscript-margin-bottom: -#{$subscript-margin-top + $line-height};
 
@@ -56,6 +55,7 @@
   .mat-form-field-suffix .mat-icon,
   .mat-form-field-prefix .mat-icon {
     color: var(--mat-color-secondary-text);
+
     // Suffix/Prefix icons are aligned too high by default.
     vertical-align: bottom;
   }

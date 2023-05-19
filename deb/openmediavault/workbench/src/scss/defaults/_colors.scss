@@ -13,6 +13,7 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
+@use "sass:color";
 
 ////////////////////////////////////////////////////////////////////////////////
 // Corporate colors (http://paletton.com/#uid=13v0u0kjPPS8-YpePUsofKdt2CQ)
@@ -29,10 +30,10 @@ $omv-color-corporate-darker: #1b7bba;
 $omv-color-transparent: transparent;
 $omv-color-black: #000000;
 $omv-color-black-translucent: hsla(
-  hue($omv-color-black),
-  saturation($omv-color-black),
-  lightness($omv-color-black),
-  0.54
+  color.hue($omv-color-black),
+  color.saturation($omv-color-black),
+  color.lightness($omv-color-black),
+  54%
 );
 $omv-color-green: #4cd964;
 $omv-color-jungle-green: #1a231a;
@@ -44,10 +45,10 @@ $omv-color-yellow: #f8d400;
 $omv-color-brown-coffee: #4d2e25;
 $omv-color-white: white;
 $omv-color-white-translucent: hsla(
-  hue($omv-color-white),
-  saturation($omv-color-white),
-  lightness($omv-color-white),
-  0.38
+  color.hue($omv-color-white),
+  color.saturation($omv-color-white),
+  color.lightness($omv-color-white),
+  38%
 );
 $omv-color-whitesmoke: whitesmoke;
 $omv-color-gray: #656c72;

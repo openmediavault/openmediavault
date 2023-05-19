@@ -13,23 +13,20 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
+@use "sass:map";
 @use 'src/scss/defaults/colors' as dc;
 
 $omv-color-primary-palette: dc.$omv-color-corporate-palette;
 $omv-color-primary: dc.$omv-color-corporate-default;
 $omv-color-primary-contrast: dc.$omv-color-white;
-
 $omv-color-accent-palette: dc.$omv-color-yellow-palette;
 $omv-color-accent: dc.$omv-color-yellow;
 $omv-color-accent-contrast: dc.$omv-color-brown-coffee;
-
 $omv-color-warn-palette: dc.$omv-color-red-palette;
-
 $omv-color-success: dc.$omv-color-green;
 $omv-color-error: dc.$omv-color-red;
 $omv-color-warning: dc.$omv-color-yellow;
 $omv-color-info: dc.$omv-color-corporate-dark;
-
 $omv-color-pairs: (
   'primary': (
     background-color: $omv-color-primary,
@@ -65,11 +62,11 @@ $omv-color-pairs: (
   ),
   'white': (
     background-color: dc.$omv-color-white,
-    color: rgba(0, 0, 0, 0.87)
+    color: rgba(0 0 0 / 87%)
   ),
   'whitesmoke': (
     background-color: dc.$omv-color-whitesmoke,
-    color: rgba(0, 0, 0, 0.87)
+    color: rgba(0 0 0 / 87%)
   ),
   'error': (
     background-color: $omv-color-error,
@@ -95,6 +92,6 @@ $omv-color-pairs: (
 );
 
 @mixin background-color-pair($name) {
-  color: map-get($omv-color-pairs, $name, color);
-  background-color: map-get($omv-color-pairs, $name, background-color);
+  color: map.get($omv-color-pairs, $name, color);
+  background-color: map.get($omv-color-pairs, $name, background-color);
 }

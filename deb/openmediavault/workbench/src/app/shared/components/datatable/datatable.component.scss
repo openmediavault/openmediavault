@@ -1,3 +1,4 @@
+@use "sass:map";
 @use 'src/scss/defaults/colors' as dc;
 @use 'src/scss/theme';
 
@@ -22,7 +23,7 @@
 
       .mat-input-element {
         caret-color: var(--mat-primary-color-text);
-        color: currentColor;
+        color: currentcolor;
       }
     }
   }
@@ -61,7 +62,7 @@
       &.active:hover .datatable-row-group {
         @include theme.background-color-pair('accent');
 
-        background-color: map-get(theme.$omv-color-accent-palette, 800) !important;
+        background-color: map.get(theme.$omv-color-accent-palette, 800) !important;
         transition-property: background;
         transition-duration: 0.3s;
         transition-timing-function: linear;
@@ -71,7 +72,7 @@
       &.active:focus .datatable-row-group {
         @include theme.background-color-pair('accent');
 
-        background-color: map-get(theme.$omv-color-accent-palette, 700) !important;
+        background-color: map.get(theme.$omv-color-accent-palette, 700) !important;
       }
     }
   }
@@ -91,7 +92,7 @@
       &:focus .datatable-row-group {
         @include theme.background-color-pair('primary');
 
-        background-color: map-get(theme.$omv-color-primary-palette, 700);
+        background-color: map.get(theme.$omv-color-primary-palette, 700);
       }
     }
   }
@@ -100,7 +101,7 @@
    * Header Styles
    */
   .datatable-header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgb(0 0 0 / 12%);
 
     .datatable-header-cell {
       text-align: left;
@@ -134,14 +135,14 @@
 
     .empty-row {
       border-top: 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      border-bottom: 1px solid rgb(0 0 0 / 12%);
       text-align: left;
       padding: 0.5rem 1.2rem;
       vertical-align: top;
     }
 
     .datatable-body-row {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      border-bottom: 1px solid rgb(0 0 0 / 12%);
 
       .datatable-body-cell {
         text-align: left;

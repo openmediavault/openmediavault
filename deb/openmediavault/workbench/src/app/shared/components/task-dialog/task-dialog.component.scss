@@ -1,3 +1,4 @@
+@use "sass:map";
 @use 'src/scss/defaults/colors' as dc;
 @use 'src/scss/theme';
 
@@ -19,7 +20,7 @@
 
 :host ::ng-deep .mat-progress-bar {
   .mat-progress-bar-buffer {
-    background-color: map-get(theme.$omv-color-pairs, terminal, color);
+    background-color: map.get(theme.$omv-color-pairs, terminal, color);
   }
 
   .mat-progress-bar-fill::after {
