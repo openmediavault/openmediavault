@@ -2,6 +2,8 @@ openmediavault (6.4.0-1) stable; urgency=low
 
   * Various improvements.
   * Upgrade to Angular 14.
+  * Improve omv-btrfs-scrub and scheduled Btrfs error checks.
+    Deduplicate TARGET and UUID to prevent unnecessary work.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 19 May 2023 14:54:50 +0200
 
