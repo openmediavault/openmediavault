@@ -58,7 +58,7 @@ omv_log "Performing a scrub on all mounted Btrfs file systems."
 # Ignore subvolumes.
 # Deduplicate TARGET and UUID to prevent unnecessary work.
 findmnt --list --all --canonicalize --notruncate --nofsroot --uniq --noheadings --output TARGET,UUID --types btrfs |
-  sort | uniq --skip-fields=1 |
+  sort | awk '!a[$NF]++' |
   while read -r target uuid
 do
   omv_msg "" # Print line break only on STDOUT.
