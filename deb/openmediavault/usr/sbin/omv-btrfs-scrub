@@ -40,6 +40,10 @@ OPTIONS:
 EOF
 }
 
+is_running() {
+  btrfs scrub status "$1" | grep --ignore-case --quiet --perl-regexp "status:\s+running"
+}
+
 mail=0
 
 while getopts "e?h" option
@@ -64,6 +68,11 @@ findmnt --list --all --canonicalize --notruncate --nofsroot --uniq --noheadings 
 do
   omv_msg "" # Print line break only on STDOUT.
   omv_log "Scrubbing the file system mounted at ${target} [UUID=${uuid}] ..."
+
+  if is_running "${target}"; then
+    omv_info "Abort, ${target} is already being processed."
+    break
+  fi
 
   cmdargs="${OMV_BTRFS_SCRUB_PRIORITY}"
   if omv_checkyesno ${OMV_BTRFS_SCRUB_READONLY}; then
