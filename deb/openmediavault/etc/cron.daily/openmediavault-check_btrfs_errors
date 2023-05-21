@@ -20,6 +20,8 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 MAILTO=""
 
+export LANG=C
+
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 

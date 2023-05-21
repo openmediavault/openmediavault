@@ -18,14 +18,15 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
-set -e
+export LANG=C
 
 . /usr/share/openmediavault/scripts/helper-functions
 
 NGINX_CONFIG_DIR=${NGINX_CONFIG_DIR:-"/etc/nginx"}
 NGINX_AVAILABLE_SITES_DIR=${NGINX_AVAILABLE_SITES_DIR:-"${NGINX_CONFIG_DIR}/sites-available"}
 NGINX_ENABLED_SITES_DIR=${NGINX_ENABLED_SITES_DIR:-"${NGINX_CONFIG_DIR}/sites-enabled"}
+
+set -e
 
 usage() {
 	cat <<EOF

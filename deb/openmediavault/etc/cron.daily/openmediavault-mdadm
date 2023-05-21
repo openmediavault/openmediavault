@@ -19,10 +19,11 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 MAILTO=""
+MDADM=/sbin/mdadm
+
+export LANG=C
 
 set -eu
-
-MDADM=/sbin/mdadm
 
 [ -x "$MDADM" ] || exit 0
 

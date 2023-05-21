@@ -21,12 +21,13 @@
 
 # Documentation/Howto:
 # https://www.thomas-krenn.com/de/wiki/Software_RAID_mit_MDADM_verwalten#RAID_0_mit_MDADM
-
-set -e
+export LANG=C
 
 . /etc/default/openmediavault
 
 OMV_MKRAID_CMDARGS=${OMV_MKRAID_CMDARGS:-"--verbose --run --force"}
+
+set -e
 
 usage() {
 	cat <<EOF

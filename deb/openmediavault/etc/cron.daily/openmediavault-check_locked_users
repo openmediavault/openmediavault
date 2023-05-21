@@ -20,10 +20,12 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 MAILTO=""
 
-set -e
+export LANG=C
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
+
+set -e
 
 # Make sure the directory exists. Note, after a reboot this directory does not
 # exist until the PAM faillock module has been executed.

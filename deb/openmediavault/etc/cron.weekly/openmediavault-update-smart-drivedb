@@ -24,12 +24,14 @@
 # https://www.endpointdev.com/blog/2013/05/login-shells-in-scripts-called-from-cron/
 MAILTO=""
 
-set -e
+export LANG=C
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED=${OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED:-"yes"}
+
+set -e
 
 if omv_checkyesno "${OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED}"; then
   omv_syslog_info "Updating smartmontools drive database."

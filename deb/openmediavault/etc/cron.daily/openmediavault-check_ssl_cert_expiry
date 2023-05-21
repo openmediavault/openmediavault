@@ -20,7 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 MAILTO=""
 
-set -e
+export LANG=C
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
@@ -28,6 +28,8 @@ set -e
 OMV_SSL_CERTIFICATE_PREFIX=${OMV_SSL_CERTIFICATE_PREFIX:-"openmediavault-"}
 OMV_SSL_CERTIFICATE_CHECK_EXPIRY_DAYS=${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_DAYS:-"7"}
 OMV_SSL_CERTIFICATE_CHECK_EXPIRY_ENABLED=${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_ENABLED:-"yes"}
+
+set -e
 
 # Exit immediately if SSL cert checking is disabled.
 ! omv_checkyesno "${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_ENABLED}" && exit 0

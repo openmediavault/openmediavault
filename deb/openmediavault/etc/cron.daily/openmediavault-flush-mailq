@@ -26,10 +26,12 @@
 # service is disabled.
 MAILTO=""
 
-set -e
+export LANG=C
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
+
+set -e
 
 # Purge all outstanding messages if notifications are disabled.
 if [ "$(omv_config_get "//system/email/enable")" = "0" ]; then

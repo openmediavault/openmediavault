@@ -26,6 +26,8 @@
 # that cron-apt is executed at least once a day.
 MAILTO=""
 
+export LANG=C
+
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
