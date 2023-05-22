@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# omv nas <myomv100@gmail.com>, 2020
-# omv nas <myomv100@gmail.com>, 2020-2022
+# Abo Khalid <myomv100@gmail.com>, 2020,2023
+# Abo Khalid <myomv100@gmail.com>, 2020-2022
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-09 19:50+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: omv nas <myomv100@gmail.com>, 2020-2022\n"
+"Last-Translator: Abo Khalid <myomv100@gmail.com>, 2020,2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -241,7 +241,7 @@ msgid ""
 msgstr ""
 
 msgid "A running background task was detected."
-msgstr ""
+msgstr "تم الكشف عن عملية قيد التشغيل في الخلفية."
 
 msgid "A scheduled task to create a snapshot has been created."
 msgstr ""

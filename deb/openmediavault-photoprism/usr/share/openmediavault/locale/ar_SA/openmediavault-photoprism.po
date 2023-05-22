@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# omv nas <myomv100@gmail.com>, 2022
+# Abo Khalid <myomv100@gmail.com>, 2022
 # Volker Theile <votdev@gmx.de>, 2022
 # 
 #, fuzzy
