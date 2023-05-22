@@ -4,6 +4,7 @@ openmediavault (6.4.0-1) stable; urgency=low
   * Upgrade to Angular 14.
   * Improve omv-btrfs-scrub and scheduled Btrfs error checks.
     Deduplicate file system UUID to prevent unnecessary work.
+  * Configure DHCP overrides in Netplan.io.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 19 May 2023 14:54:50 +0200
 
