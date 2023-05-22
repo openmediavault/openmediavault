@@ -28,7 +28,7 @@ class SystemdNetworkd extends \OMV\Engine\Module\ServiceAbstract
 	}
 
 	public function deployAfter(): array {
-		return ["task"];
+		return ["hostname", "task"];
 	}
 
 	/**
