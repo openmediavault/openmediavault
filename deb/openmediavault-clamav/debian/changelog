@@ -1,3 +1,10 @@
+openmediavault-clamav (6.0.4-1) stable; urgency=low
+
+  * Update locale files.
+  * Immediately run scheduled task when pressing the `Play` button.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 22 May 2023 19:00:15 +0200
+
 openmediavault-clamav (6.0.3-1) stable; urgency=low
 
   * Translate Cron expressions to human-readable descriptions.

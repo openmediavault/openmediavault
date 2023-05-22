@@ -64,6 +64,7 @@ data:
           taskDialog:
             config:
               title: _("Execute scheduled scan")
+              startOnInit: true
               request:
                 service: ClamAV
                 method: executeJob

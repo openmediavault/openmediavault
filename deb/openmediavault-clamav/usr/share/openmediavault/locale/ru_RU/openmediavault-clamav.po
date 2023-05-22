@@ -263,10 +263,10 @@ msgid "Sunday"
 msgstr "Воскресенье"
 
 msgid "Tags"
-msgstr ""
+msgstr "Теги"
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "Поле должно содержать только * или список значений, разделенных запятыми."
 
 msgid "The location of the files to scan on-access."
 msgstr "Расположение файлов для сканирования по доступу."
