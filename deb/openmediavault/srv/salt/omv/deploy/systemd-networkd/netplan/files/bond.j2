@@ -98,7 +98,7 @@ network:
 {%- if interface.bondmode in [2, 4, 5] %}
         transmit-hash-policy: {{ interface.bondtransmithashpolicy }}
 {%- endif %}
-{%- if interface.bondprimary | length > 0 %}
+{%- if interface.bondprimary | length > 0 and interface.bondmode in [1, 5, 6] %}
         primary: {{ interface.bondprimary }}
         primary-reselect-policy: {{ primary_reselect_policy }}
 {%- endif %}

@@ -5,6 +5,9 @@ openmediavault (6.4.0-1) stable; urgency=low
   * Improve omv-btrfs-scrub and scheduled Btrfs error checks.
     Deduplicate file system UUID to prevent unnecessary work.
   * Configure DHCP overrides in Netplan.io.
+  * Fix bug in the bonding network interface configuration page.
+    The `Primary` field is only used by the `active-backup`,
+    `balance-tlb` and `balance-alb` modes.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 19 May 2023 14:54:50 +0200
 

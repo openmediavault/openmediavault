@@ -172,12 +172,9 @@ export class InterfaceBondFormPageComponent extends BaseFormPageComponent {
             constraint: {
               operator: 'and',
               arg0: {
-                operator: 'not',
-                arg0: {
-                  operator: 'in',
-                  arg0: { prop: 'bondmode' },
-                  arg1: [4]
-                }
+                operator: 'in',
+                arg0: { prop: 'bondmode' },
+                arg1: [1, 5, 6]
               },
               arg1: {
                 operator: 'and',
@@ -190,28 +187,28 @@ export class InterfaceBondFormPageComponent extends BaseFormPageComponent {
             type: 'value',
             typeConfig: '',
             constraint: {
-              operator: 'in',
-              arg0: { prop: 'bondmode' },
-              arg1: [4]
+              operator: 'not',
+              arg0: {
+                operator: 'in',
+                arg0: { prop: 'bondmode' },
+                arg1: [1, 5, 6]
+              }
             }
           },
           {
-            type: 'disabled',
+            type: 'enabled',
             constraint: {
               operator: 'in',
               arg0: { prop: 'bondmode' },
-              arg1: [4]
+              arg1: [1, 5, 6]
             }
           }
         ],
         validators: {
           requiredIf: {
-            operator: 'not',
-            arg0: {
-              operator: 'in',
-              arg0: { prop: 'bondmode' },
-              arg1: [4]
-            }
+            operator: 'in',
+            arg0: { prop: 'bondmode' },
+            arg1: [1, 5, 6]
           },
           custom: [
             {
@@ -221,12 +218,9 @@ export class InterfaceBondFormPageComponent extends BaseFormPageComponent {
                   operator: 'and',
                   arg0: { operator: 'notEmpty', arg0: { prop: 'slaves' } },
                   arg1: {
-                    operator: 'not',
-                    arg0: {
-                      operator: 'in',
-                      arg0: { prop: 'bondmode' },
-                      arg1: [4]
-                    }
+                    operator: 'in',
+                    arg0: { prop: 'bondmode' },
+                    arg1: [1, 5, 6]
                   }
                 },
                 arg1: {
@@ -250,12 +244,9 @@ export class InterfaceBondFormPageComponent extends BaseFormPageComponent {
                   operator: 'and',
                   arg0: { operator: 'empty', arg0: { prop: 'slaves' } },
                   arg1: {
-                    operator: 'not',
-                    arg0: {
-                      operator: 'in',
-                      arg0: { prop: 'bondmode' },
-                      arg1: [4]
-                    }
+                    operator: 'in',
+                    arg0: { prop: 'bondmode' },
+                    arg1: [1, 5, 6]
                   }
                 },
                 arg1: {

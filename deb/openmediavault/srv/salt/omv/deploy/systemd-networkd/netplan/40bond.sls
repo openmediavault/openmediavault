@@ -17,6 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Documentation/Howto:
+# https://www.kernel.org/doc/Documentation/networking/bonding.txt
+
 {% set interfaces = salt['omv_conf.get_by_filter'](
   'conf.system.network.interface',
   {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'bond'}) %}
