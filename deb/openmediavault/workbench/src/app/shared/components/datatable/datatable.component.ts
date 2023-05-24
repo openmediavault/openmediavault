@@ -34,7 +34,7 @@ import { DatatableComponent as NgxDatatableComponent } from '@swimlane/ngx-datat
 import * as _ from 'lodash';
 import { Subscription, timer } from 'rxjs';
 
-import { Throttle, Unsubscribe } from '~/app/decorators';
+import { CoerceBoolean, Throttle, Unsubscribe } from '~/app/decorators';
 import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { Datatable } from '~/app/shared/models/datatable.interface';
@@ -115,6 +115,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   data: DatatableData[];
 
   // Show the linear loading bar.
+  @CoerceBoolean()
   @Input()
   loadingIndicator? = false;
 
@@ -130,33 +131,40 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   @Input()
   columnMode?: 'standard' | 'flex' | 'force' = 'flex';
 
+  @CoerceBoolean()
   @Input()
   reorderable? = false;
 
   // Display the toolbar above the datatable that includes
   // the custom and default (e.g. 'Reload') action buttons?
+  @CoerceBoolean()
   @Input()
   hasActionBar? = true;
 
   // Use a fixed action bar so that it does not leave the viewport
   // even when scrolled.
+  @CoerceBoolean()
   @Input()
   hasStickyActionBar? = false;
 
   // Show/Hide the reload button. If 'autoReload' is set to `true`,
   // then the button is automatically hidden.
+  @CoerceBoolean()
   @Input()
   hasReloadButton? = true;
 
   // Show/Hide the search field. Defaults to `false`.
+  @CoerceBoolean()
   @Input()
   hasSearchField? = false;
 
   // Display the datatable header?
+  @CoerceBoolean()
   @Input()
   hasHeader? = true;
 
   // Display the datatable footer?
+  @CoerceBoolean()
   @Input()
   hasFooter? = true;
 
@@ -170,6 +178,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   // Automatically load the data after datatable has been
   // initialized. If set to false, the autoReload configuration
   // is not taken into action. Defaults to `true`.
+  @CoerceBoolean()
   @Input()
   autoLoad? = true;
 
@@ -187,14 +196,17 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   count? = 0;
 
   // Use remote paging instead of client-side.
+  @CoerceBoolean()
   @Input()
   remotePaging = false;
 
   // Use remote sorting instead of client-side.
+  @CoerceBoolean()
   @Input()
   remoteSorting = false;
 
   // Use remote searching instead of client-side.
+  @CoerceBoolean()
   @Input()
   remoteSearching = false;
 
