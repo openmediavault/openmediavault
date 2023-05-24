@@ -18,11 +18,14 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# https://www.redpill-linpro.com/techblog/2016/08/17/systemd-network.html
+# https://www.freedesktop.org/software/systemd/man/systemd-resolved.service.html#/etc/resolv.conf
+# https://unix.stackexchange.com/questions/548830/whats-the-difference-between-run-systemd-resolve-stub-resolv-conf-and-run-sys
+# https://superuser.com/questions/1490670/does-systemd-networkd-systemd-resolved-add-search-domains-specified-in-dhcp#comment2249615_1490670
+# https://wiki.archlinux.org/title/systemd-resolved
 
 symlink_systemd_resolvconf:
   file.symlink:
     - name: /etc/resolv.conf
-    - target: /run/systemd/resolve/resolv.conf
+    - target: /run/systemd/resolve/stub-resolv.conf
     - force: True
-    - onlyif: "test -e /run/systemd/resolve/resolv.conf"
+    - onlyif: "test -e /run/systemd/resolve/stub-resolv.conf"
