@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:50+0200\n"
+"POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2023\n"
 "Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -1124,6 +1124,9 @@ msgstr "Habilitar el soporte Time Machine para este compartido."
 msgid "Enable WINS server"
 msgstr "Habilitar servidor WINS"
 
+msgid "Enable automatic snapshot clean up."
+msgstr "Habilitar limpieza automática de snapshot."
+
 msgid "Enable keyboard-interactive authentication."
 msgstr "Habilita la autentificación interactiva por teclado"
 
@@ -1745,6 +1748,24 @@ msgstr "Liechtenstein"
 
 msgid "Lifetime"
 msgstr "Tiempo de vida"
+
+msgid "Limit custom"
+msgstr "Limite variable"
+
+msgid "Limit daily"
+msgstr "Limite diario"
+
+msgid "Limit hourly"
+msgstr "Limite horario"
+
+msgid "Limit monthly"
+msgstr "Limite mensual"
+
+msgid "Limit weekly"
+msgstr "Limite semanal"
+
+msgid "Limit yearly"
+msgstr "Limite anual"
 
 msgid "Linear"
 msgstr "Lineal"
@@ -2577,6 +2598,9 @@ msgstr "Volver a valores por defecto de la WebGUI"
 msgid "Result"
 msgstr "Resultado"
 
+msgid "Retention period"
+msgstr "Periodo de retención"
+
 msgid "Retention time"
 msgstr "Tiempo de retención"
 
@@ -3254,8 +3278,26 @@ msgstr "La unidad máxima de transmisión en bytes para el dispositivo.. poner a
 msgid "The name of the share."
 msgstr "El nombre del compartido"
 
+msgid "The number of custom snapshots to keep."
+msgstr "Número de snapshots variables a mantener. "
+
+msgid "The number of daily snapshots to keep."
+msgstr "Número de snapshots diarios a mantener. "
+
 msgid "The number of days the certificate is valid for."
 msgstr "El número de días de validez del certificado."
+
+msgid "The number of hourly snapshots to keep."
+msgstr "Número de snapshots horarios a mantener. "
+
+msgid "The number of monthly snapshots to keep."
+msgstr "Número de snapshots mensuales a mantener. "
+
+msgid "The number of weekly snapshots to keep."
+msgstr "Número de snapshots semanales a mantener. "
+
+msgid "The number of yearly snapshots to keep."
+msgstr "Número de snapshots anuales a mantener. "
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3291,6 +3333,12 @@ msgstr "El repositorio será recargado en busca de nuevos, eliminados o mejorado
 
 msgid "The requested page was not found."
 msgstr "La pagina solicitada no existe."
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr "El período de retención (en segundos) antes de que se pueda eliminar un snapshot. Esto garantiza que un anapshot que se acaba de crear no se pueda volver a eliminar inmediatamente."
 
 msgid "The server is unavailable to handle this request right now."
 msgstr "El servidor no está disponible para procesar está petición ahora mismo."
@@ -3554,6 +3602,9 @@ msgstr "Tiempo de transferencia"
 
 msgid "Transfer type"
 msgstr "Tipo de transferencia"
+
+msgid "Transmit Hash Policy"
+msgstr ""
 
 msgid "Transport encryption"
 msgstr "Cifrado de transporte"

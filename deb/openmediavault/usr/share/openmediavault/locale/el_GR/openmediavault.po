@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:50+0200\n"
+"POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2023\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -1121,6 +1121,9 @@ msgstr "Ενεργοποίηση της Χρονομηχανής για αυτό
 msgid "Enable WINS server"
 msgstr "Ενεργοποίηση διακομιστή WINS"
 
+msgid "Enable automatic snapshot clean up."
+msgstr "Να γίνεται αυτόματη εκκαθάριση στιγμιοτύπων."
+
 msgid "Enable keyboard-interactive authentication."
 msgstr "Ενεργοποίηση πιστοποίησης μέσω πληκτρολογίου."
 
@@ -1742,6 +1745,24 @@ msgstr "Liechtenstein"
 
 msgid "Lifetime"
 msgstr "Διάρκεια ζωής"
+
+msgid "Limit custom"
+msgstr "Όριο προσαρμοσμένων"
+
+msgid "Limit daily"
+msgstr "Όριο ημερήσιων"
+
+msgid "Limit hourly"
+msgstr "Όριο ωριαίων"
+
+msgid "Limit monthly"
+msgstr "Όριο μηνιαίων"
+
+msgid "Limit weekly"
+msgstr "Όριο εβδομαδιαίων"
+
+msgid "Limit yearly"
+msgstr "Όριο ετήσιων"
 
 msgid "Linear"
 msgstr "Γραμμική"
@@ -2574,6 +2595,9 @@ msgstr "Επαναφορά αρχικών ρυθμίσεων γραφικού π
 msgid "Result"
 msgstr "Αποτέλεσμα"
 
+msgid "Retention period"
+msgstr "Περίοδος διαφύλαξης"
+
 msgid "Retention time"
 msgstr "Χρόνος διατήρησης"
 
@@ -3251,8 +3275,26 @@ msgstr "Η μέγιστη μονάδα μετάδοσης σε bytes για τη
 msgid "The name of the share."
 msgstr "Το όνομα του κοινόχρηστου."
 
+msgid "The number of custom snapshots to keep."
+msgstr "Αριθμός προσαρμοσμένων στιγμιότυπων προς διατήρηση."
+
+msgid "The number of daily snapshots to keep."
+msgstr "Αριθμός ημερήσιων στιγμιότυπων προς διατήρηση."
+
 msgid "The number of days the certificate is valid for."
 msgstr "Ο αριθμός των ημερών για τις οποίες ισχύει το πιστοποιητικό."
+
+msgid "The number of hourly snapshots to keep."
+msgstr "Αριθμός ωριαίων στιγμιότυπων προς διατήρηση."
+
+msgid "The number of monthly snapshots to keep."
+msgstr "Αριθμός μηνιαίων στιγμιότυπων προς διατήρηση."
+
+msgid "The number of weekly snapshots to keep."
+msgstr "Αριθμός εβδομαδιαίων στιγμιότυπων προς διατήρηση."
+
+msgid "The number of yearly snapshots to keep."
+msgstr "Αριθμός ετήσιων στιγμιότυπων προς διατήρηση."
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3288,6 +3330,12 @@ msgstr "Το εναποθετήριο θα ελεγχθεί για νέα, κα�
 
 msgid "The requested page was not found."
 msgstr "Η σελίδα που ζητήθηκε δεν βρέθηκε."
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr "Περίοδος διαφύλαξης (σε δευτερόλεπτα) πριν να επιτρέπεται η διαγραφή ενός στιγμιότυπου. Εξασφαλίζει πως δεν θα διαγραφεί άμεσα κάποιο στιγμιότυπο που μόλις δημιουργήθηκε."
 
 msgid "The server is unavailable to handle this request right now."
 msgstr "Ο διακομιστής δεν είναι διαθέσιμος για να χειριστεί αυτό το αίτημα τώρα."
@@ -3551,6 +3599,9 @@ msgstr "Χρόνος μεταφοράς"
 
 msgid "Transfer type"
 msgstr "Είδος μεταφοράς"
+
+msgid "Transmit Hash Policy"
+msgstr ""
 
 msgid "Transport encryption"
 msgstr "Κρυπτογράφηση μεταφορών"

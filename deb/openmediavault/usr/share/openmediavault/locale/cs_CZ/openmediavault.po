@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:50+0200\n"
+"POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -1122,6 +1122,9 @@ msgstr "Zapnout pro toto sdílení podporu pro Apple Time Machine."
 msgid "Enable WINS server"
 msgstr "Zapnout WINS server"
 
+msgid "Enable automatic snapshot clean up."
+msgstr ""
+
 msgid "Enable keyboard-interactive authentication."
 msgstr "Umožnit přihlašování pomocí klávesnice."
 
@@ -1743,6 +1746,24 @@ msgstr "Lichtenštejnsko"
 
 msgid "Lifetime"
 msgstr "Doba provozu"
+
+msgid "Limit custom"
+msgstr ""
+
+msgid "Limit daily"
+msgstr ""
+
+msgid "Limit hourly"
+msgstr ""
+
+msgid "Limit monthly"
+msgstr ""
+
+msgid "Limit weekly"
+msgstr ""
+
+msgid "Limit yearly"
+msgstr ""
 
 msgid "Linear"
 msgstr "JBOD (pouze spojení kapacit)"
@@ -2575,6 +2596,9 @@ msgstr "Resetovat stav webového rozhraní"
 msgid "Result"
 msgstr "Výsledek"
 
+msgid "Retention period"
+msgstr ""
+
 msgid "Retention time"
 msgstr "Doba udržování"
 
@@ -3252,8 +3276,26 @@ msgstr "Největší umožněná velikost (v bajtech) přenosové jednotky (MTU) 
 msgid "The name of the share."
 msgstr "Název sdílení."
 
+msgid "The number of custom snapshots to keep."
+msgstr ""
+
+msgid "The number of daily snapshots to keep."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "Počet dnů platnosti certifikátu."
+
+msgid "The number of hourly snapshots to keep."
+msgstr ""
+
+msgid "The number of monthly snapshots to keep."
+msgstr ""
+
+msgid "The number of weekly snapshots to keep."
+msgstr ""
+
+msgid "The number of yearly snapshots to keep."
+msgstr ""
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3289,6 +3331,12 @@ msgstr "Budou zjištěny balíčky software, které jsou v repozitáři nové, a
 
 msgid "The requested page was not found."
 msgstr "Požadovaná stránka nebyla nalezena."
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr ""
 
 msgid "The server is unavailable to handle this request right now."
 msgstr "Server v tuto chvíli není dostupný pro vyřízení tohoto požadavku."
@@ -3552,6 +3600,9 @@ msgstr "Čas přenosu"
 
 msgid "Transfer type"
 msgstr "Typ přenosu"
+
+msgid "Transmit Hash Policy"
+msgstr ""
 
 msgid "Transport encryption"
 msgstr ""

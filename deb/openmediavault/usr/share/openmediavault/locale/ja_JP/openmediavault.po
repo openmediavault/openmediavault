@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:50+0200\n"
+"POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -1121,6 +1121,9 @@ msgstr "この共有でTime Machineサポートを有効にします。"
 msgid "Enable WINS server"
 msgstr "WINSサーバーを有効化"
 
+msgid "Enable automatic snapshot clean up."
+msgstr ""
+
 msgid "Enable keyboard-interactive authentication."
 msgstr "キーボードインタラクティブ認証を有効化します。"
 
@@ -1742,6 +1745,24 @@ msgstr "リヒテンシュタイン"
 
 msgid "Lifetime"
 msgstr "ライフタイム"
+
+msgid "Limit custom"
+msgstr ""
+
+msgid "Limit daily"
+msgstr ""
+
+msgid "Limit hourly"
+msgstr ""
+
+msgid "Limit monthly"
+msgstr ""
+
+msgid "Limit weekly"
+msgstr ""
+
+msgid "Limit yearly"
+msgstr ""
 
 msgid "Linear"
 msgstr "リニア"
@@ -2574,6 +2595,9 @@ msgstr "UIをデフォルトにリセット"
 msgid "Result"
 msgstr "結果"
 
+msgid "Retention period"
+msgstr ""
+
 msgid "Retention time"
 msgstr "保持時間"
 
@@ -3251,8 +3275,26 @@ msgstr "デバイスに設定するバイト単位での最大転送単位。 �
 msgid "The name of the share."
 msgstr "共有の名前。"
 
+msgid "The number of custom snapshots to keep."
+msgstr ""
+
+msgid "The number of daily snapshots to keep."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "この日数だけ証明書は有効です。"
+
+msgid "The number of hourly snapshots to keep."
+msgstr ""
+
+msgid "The number of monthly snapshots to keep."
+msgstr ""
+
+msgid "The number of weekly snapshots to keep."
+msgstr ""
+
+msgid "The number of yearly snapshots to keep."
+msgstr ""
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3288,6 +3330,12 @@ msgstr "新規、削除またはアップデートされたソフトウェアパ
 
 msgid "The requested page was not found."
 msgstr "要求されたページはありません。"
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr ""
 
 msgid "The server is unavailable to handle this request right now."
 msgstr "サーバーは現在、このリクエストを処理することができません。"
@@ -3551,6 +3599,9 @@ msgstr "転送時間"
 
 msgid "Transfer type"
 msgstr "転送タイプ"
+
+msgid "Transmit Hash Policy"
+msgstr ""
 
 msgid "Transport encryption"
 msgstr ""

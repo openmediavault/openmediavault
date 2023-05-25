@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:50+0200\n"
+"POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -1121,6 +1121,9 @@ msgstr ""
 msgid "Enable WINS server"
 msgstr "Omogoči WINS strežnik"
 
+msgid "Enable automatic snapshot clean up."
+msgstr ""
+
 msgid "Enable keyboard-interactive authentication."
 msgstr ""
 
@@ -1741,6 +1744,24 @@ msgid "Liechtenstein"
 msgstr "Lihtenštajn"
 
 msgid "Lifetime"
+msgstr ""
+
+msgid "Limit custom"
+msgstr ""
+
+msgid "Limit daily"
+msgstr ""
+
+msgid "Limit hourly"
+msgstr ""
+
+msgid "Limit monthly"
+msgstr ""
+
+msgid "Limit weekly"
+msgstr ""
+
+msgid "Limit yearly"
 msgstr ""
 
 msgid "Linear"
@@ -2574,6 +2595,9 @@ msgstr "Ponastavi uporabniški vmesnik na privzeto"
 msgid "Result"
 msgstr "Rezultat"
 
+msgid "Retention period"
+msgstr ""
+
 msgid "Retention time"
 msgstr ""
 
@@ -3251,8 +3275,26 @@ msgstr ""
 msgid "The name of the share."
 msgstr "Ime deljene mape"
 
+msgid "The number of custom snapshots to keep."
+msgstr ""
+
+msgid "The number of daily snapshots to keep."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "Število dni veljavnosti potrdila."
+
+msgid "The number of hourly snapshots to keep."
+msgstr ""
+
+msgid "The number of monthly snapshots to keep."
+msgstr ""
+
+msgid "The number of weekly snapshots to keep."
+msgstr ""
+
+msgid "The number of yearly snapshots to keep."
+msgstr ""
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3287,6 +3329,12 @@ msgid ""
 msgstr "Repozitorij bo preverjen za nove, odstranjene ali nadgrajene programske pakete."
 
 msgid "The requested page was not found."
+msgstr ""
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
 msgstr ""
 
 msgid "The server is unavailable to handle this request right now."
@@ -3551,6 +3599,9 @@ msgstr "Čas prenosa"
 
 msgid "Transfer type"
 msgstr "Tip prenosa"
+
+msgid "Transmit Hash Policy"
+msgstr ""
 
 msgid "Transport encryption"
 msgstr ""

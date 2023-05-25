@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:50+0200\n"
+"POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2022\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -1123,6 +1123,9 @@ msgstr "Activa el suport de la màquina de temps per a aquest recurs."
 msgid "Enable WINS server"
 msgstr "Habilitar servidor WINS"
 
+msgid "Enable automatic snapshot clean up."
+msgstr ""
+
 msgid "Enable keyboard-interactive authentication."
 msgstr "Habilitar autenticació interactiva"
 
@@ -1744,6 +1747,24 @@ msgstr "Liechtenstein"
 
 msgid "Lifetime"
 msgstr "Temps de vida"
+
+msgid "Limit custom"
+msgstr ""
+
+msgid "Limit daily"
+msgstr ""
+
+msgid "Limit hourly"
+msgstr ""
+
+msgid "Limit monthly"
+msgstr ""
+
+msgid "Limit weekly"
+msgstr ""
+
+msgid "Limit yearly"
+msgstr ""
 
 msgid "Linear"
 msgstr "Lineal"
@@ -2576,6 +2597,9 @@ msgstr "Reinicia WebGUI per defecte"
 msgid "Result"
 msgstr "Resultat"
 
+msgid "Retention period"
+msgstr ""
+
 msgid "Retention time"
 msgstr "Temps de retenció"
 
@@ -3253,8 +3277,26 @@ msgstr "La unitat màxima de transmissió en bytes a configurar per al dispositi
 msgid "The name of the share."
 msgstr "El nom del compartit"
 
+msgid "The number of custom snapshots to keep."
+msgstr ""
+
+msgid "The number of daily snapshots to keep."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "El número de dies de validesa del certificat."
+
+msgid "The number of hourly snapshots to keep."
+msgstr ""
+
+msgid "The number of monthly snapshots to keep."
+msgstr ""
+
+msgid "The number of weekly snapshots to keep."
+msgstr ""
+
+msgid "The number of yearly snapshots to keep."
+msgstr ""
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3290,6 +3332,12 @@ msgstr "El repositori serà recarregat per a cercar nous, eliminats o millorats 
 
 msgid "The requested page was not found."
 msgstr "No s'ha trobat la pàgina sol·licitada."
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr ""
 
 msgid "The server is unavailable to handle this request right now."
 msgstr "El servidor no està disponible per gestionar aquesta sol·licitud ara mateix. "
@@ -3553,6 +3601,9 @@ msgstr "Temps de transferència"
 
 msgid "Transfer type"
 msgstr "Tipus de transferència"
+
+msgid "Transmit Hash Policy"
+msgstr ""
 
 msgid "Transport encryption"
 msgstr ""

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:50+0200\n"
+"POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2023\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -1124,6 +1124,9 @@ msgstr "Aktivera stöd för Time Machine för den här delningen."
 msgid "Enable WINS server"
 msgstr "Aktivera WINS-server"
 
+msgid "Enable automatic snapshot clean up."
+msgstr "Aktivera automatisk rensning av ögonblicksbilder."
+
 msgid "Enable keyboard-interactive authentication."
 msgstr "Aktivera tangentbord-interaktiv autentisering."
 
@@ -1745,6 +1748,24 @@ msgstr "Liechtenstein"
 
 msgid "Lifetime"
 msgstr "Livstid"
+
+msgid "Limit custom"
+msgstr "Begränsa anpassade"
+
+msgid "Limit daily"
+msgstr "Begränsa dagligen"
+
+msgid "Limit hourly"
+msgstr "Begränsa varje timme"
+
+msgid "Limit monthly"
+msgstr "Begränsa månadsvis"
+
+msgid "Limit weekly"
+msgstr "Begränsa veckovis"
+
+msgid "Limit yearly"
+msgstr "Begränsa årligen"
 
 msgid "Linear"
 msgstr "Linjär"
@@ -2577,6 +2598,9 @@ msgstr "Återställ användargränssnittet till standardvärdena"
 msgid "Result"
 msgstr "Resultat"
 
+msgid "Retention period"
+msgstr "Lagringsperiod"
+
 msgid "Retention time"
 msgstr "Retentionstid"
 
@@ -3254,8 +3278,26 @@ msgstr "Den maximala överföringsenheten i byte att ställa in för enheten. St
 msgid "The name of the share."
 msgstr "Namnet på den delade resursen."
 
+msgid "The number of custom snapshots to keep."
+msgstr "Antalet anpassade ögonblicksbilder att behålla."
+
+msgid "The number of daily snapshots to keep."
+msgstr "Antalet dagliga ögonblicksbilder att behålla."
+
 msgid "The number of days the certificate is valid for."
 msgstr "Antalet dagar som certifikatet är giltigt för."
+
+msgid "The number of hourly snapshots to keep."
+msgstr "Antalet ögonblicksbilder per timme att behålla."
+
+msgid "The number of monthly snapshots to keep."
+msgstr "Antalet månatliga ögonblicksbilder att behålla."
+
+msgid "The number of weekly snapshots to keep."
+msgstr "Antalet veckovisa ögonblicksbilder att behålla."
+
+msgid "The number of yearly snapshots to keep."
+msgstr "Antalet årliga ögonblicksbilder att behålla."
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3291,6 +3333,12 @@ msgstr "Förrådet kommer att kontrolleras för nya, borttagna eller uppgraderad
 
 msgid "The requested page was not found."
 msgstr "Den begärda sidan hittades inte."
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr "Lagringsperioden (i sekunder) innan en ögonblicksbild kan raderas. Detta säkerställer att en ögonblicksbild som just har skapats inte kan tas bort omedelbart igen."
 
 msgid "The server is unavailable to handle this request right now."
 msgstr "Servern är inte tillgänglig för att hantera denna begäran just nu."
@@ -3554,6 +3602,9 @@ msgstr "Överföringstid"
 
 msgid "Transfer type"
 msgstr "Överföringstyp"
+
+msgid "Transmit Hash Policy"
+msgstr ""
 
 msgid "Transport encryption"
 msgstr "Transportkryptering"

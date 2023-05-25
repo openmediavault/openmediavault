@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:50+0200\n"
+"POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -1124,6 +1124,9 @@ msgstr "이 공유에 대해 타임머신을 활성화합니다."
 msgid "Enable WINS server"
 msgstr "WINS 서버 활성화"
 
+msgid "Enable automatic snapshot clean up."
+msgstr ""
+
 msgid "Enable keyboard-interactive authentication."
 msgstr ""
 
@@ -1745,6 +1748,24 @@ msgstr "리히텐슈타인"
 
 msgid "Lifetime"
 msgstr "수명"
+
+msgid "Limit custom"
+msgstr ""
+
+msgid "Limit daily"
+msgstr ""
+
+msgid "Limit hourly"
+msgstr ""
+
+msgid "Limit monthly"
+msgstr ""
+
+msgid "Limit weekly"
+msgstr ""
+
+msgid "Limit yearly"
+msgstr ""
 
 msgid "Linear"
 msgstr "선형"
@@ -2577,6 +2598,9 @@ msgstr "UI를 기본값으로 재설정"
 msgid "Result"
 msgstr "결과"
 
+msgid "Retention period"
+msgstr ""
+
 msgid "Retention time"
 msgstr ""
 
@@ -3254,8 +3278,26 @@ msgstr "이 장치에 대한 최대 전송 단위(MTU)를 지정합니다. 기�
 msgid "The name of the share."
 msgstr "공유 이름"
 
+msgid "The number of custom snapshots to keep."
+msgstr ""
+
+msgid "The number of daily snapshots to keep."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "이 인증서가 유효한 일수"
+
+msgid "The number of hourly snapshots to keep."
+msgstr ""
+
+msgid "The number of monthly snapshots to keep."
+msgstr ""
+
+msgid "The number of weekly snapshots to keep."
+msgstr ""
+
+msgid "The number of yearly snapshots to keep."
+msgstr ""
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3291,6 +3333,12 @@ msgstr "저장소는 새롭거나 제거된, 또는 업그레이드된 소프트
 
 msgid "The requested page was not found."
 msgstr "요청하신 페이지를 찾을 수 없습니다."
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr ""
 
 msgid "The server is unavailable to handle this request right now."
 msgstr ""
@@ -3554,6 +3602,9 @@ msgstr "전송 시간"
 
 msgid "Transfer type"
 msgstr "전송 유형"
+
+msgid "Transmit Hash Policy"
+msgstr ""
 
 msgid "Transport encryption"
 msgstr ""

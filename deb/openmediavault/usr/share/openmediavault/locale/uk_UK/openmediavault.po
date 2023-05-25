@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:50+0200\n"
+"POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -1123,6 +1123,9 @@ msgstr "Увімкнути підтримку Time Machine для цього с�
 msgid "Enable WINS server"
 msgstr "Увімкнути WINS сервер"
 
+msgid "Enable automatic snapshot clean up."
+msgstr ""
+
 msgid "Enable keyboard-interactive authentication."
 msgstr "Увімкнути інтерактивну автентифікацію за допомогою клавіатури."
 
@@ -1744,6 +1747,24 @@ msgstr "Ліхтенштейн"
 
 msgid "Lifetime"
 msgstr "Час життя"
+
+msgid "Limit custom"
+msgstr ""
+
+msgid "Limit daily"
+msgstr ""
+
+msgid "Limit hourly"
+msgstr ""
+
+msgid "Limit monthly"
+msgstr ""
+
+msgid "Limit weekly"
+msgstr ""
+
+msgid "Limit yearly"
+msgstr ""
 
 msgid "Linear"
 msgstr "Лінійний"
@@ -2576,6 +2597,9 @@ msgstr "Скинути UI на типове"
 msgid "Result"
 msgstr "Результат"
 
+msgid "Retention period"
+msgstr ""
+
 msgid "Retention time"
 msgstr "Час утримання"
 
@@ -3253,8 +3277,26 @@ msgstr "Максимальна одиниця передачі в байтах, 
 msgid "The name of the share."
 msgstr "Назва спільного ресурсу"
 
+msgid "The number of custom snapshots to keep."
+msgstr ""
+
+msgid "The number of daily snapshots to keep."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "Кількість днів протягом яких сертифікат дійсний."
+
+msgid "The number of hourly snapshots to keep."
+msgstr ""
+
+msgid "The number of monthly snapshots to keep."
+msgstr ""
+
+msgid "The number of weekly snapshots to keep."
+msgstr ""
+
+msgid "The number of yearly snapshots to keep."
+msgstr ""
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3290,6 +3332,12 @@ msgstr "Сховище буде перевірене на наявність н�
 
 msgid "The requested page was not found."
 msgstr "Сторінку не знайдено."
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr ""
 
 msgid "The server is unavailable to handle this request right now."
 msgstr "Сервер зараз недоступний для обробки цього запиту."
@@ -3553,6 +3601,9 @@ msgstr "Час передачі"
 
 msgid "Transfer type"
 msgstr "Тип передачі"
+
+msgid "Transmit Hash Policy"
+msgstr ""
 
 msgid "Transport encryption"
 msgstr ""

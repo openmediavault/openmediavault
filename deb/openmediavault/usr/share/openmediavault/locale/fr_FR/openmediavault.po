@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:50+0200\n"
+"POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: M@T D., 2022-2023\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -1135,6 +1135,9 @@ msgstr "Activer le support Time Machine pour ce partage"
 msgid "Enable WINS server"
 msgstr "Active le server WINS"
 
+msgid "Enable automatic snapshot clean up."
+msgstr ""
+
 msgid "Enable keyboard-interactive authentication."
 msgstr "Activer l'authentification clavier."
 
@@ -1756,6 +1759,24 @@ msgstr "Liechtenstein"
 
 msgid "Lifetime"
 msgstr "Durée de vie"
+
+msgid "Limit custom"
+msgstr ""
+
+msgid "Limit daily"
+msgstr ""
+
+msgid "Limit hourly"
+msgstr ""
+
+msgid "Limit monthly"
+msgstr ""
+
+msgid "Limit weekly"
+msgstr ""
+
+msgid "Limit yearly"
+msgstr ""
 
 msgid "Linear"
 msgstr "Linéaire"
@@ -2588,6 +2609,9 @@ msgstr "Réinitialiser aux paramètres par défaut"
 msgid "Result"
 msgstr "Résultat"
 
+msgid "Retention period"
+msgstr ""
+
 msgid "Retention time"
 msgstr "Temps de maintien"
 
@@ -3265,8 +3289,26 @@ msgstr "Unité de transmission maximale en octets à définir pour le périphér
 msgid "The name of the share."
 msgstr "Le nom du partage."
 
+msgid "The number of custom snapshots to keep."
+msgstr ""
+
+msgid "The number of daily snapshots to keep."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "La durée de validité du certificat."
+
+msgid "The number of hourly snapshots to keep."
+msgstr ""
+
+msgid "The number of monthly snapshots to keep."
+msgstr ""
+
+msgid "The number of weekly snapshots to keep."
+msgstr ""
+
+msgid "The number of yearly snapshots to keep."
+msgstr ""
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3302,6 +3344,12 @@ msgstr "Le dépôt sera consulté pour identifier des nouveaux paquets, des paqu
 
 msgid "The requested page was not found."
 msgstr "La page demandé n'a pas été trouvée."
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr ""
 
 msgid "The server is unavailable to handle this request right now."
 msgstr "Le serveur n'est pas disponible pour traiter cette demande pour le moment."
@@ -3565,6 +3613,9 @@ msgstr "Temps de transfert"
 
 msgid "Transfer type"
 msgstr "Type de transfert"
+
+msgid "Transmit Hash Policy"
+msgstr ""
 
 msgid "Transport encryption"
 msgstr ""

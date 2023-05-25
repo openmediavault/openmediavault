@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:50+0200\n"
+"POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Tim <co_ti@hotmail.com>, 2013-2014,2016-2017,2022\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -1127,6 +1127,9 @@ msgstr "Schakel Time Machine-ondersteuning in voor deze share."
 msgid "Enable WINS server"
 msgstr "WINS server inschakelen"
 
+msgid "Enable automatic snapshot clean up."
+msgstr ""
+
 msgid "Enable keyboard-interactive authentication."
 msgstr ""
 
@@ -1748,6 +1751,24 @@ msgstr "Liechtenstein"
 
 msgid "Lifetime"
 msgstr "Levensduur"
+
+msgid "Limit custom"
+msgstr ""
+
+msgid "Limit daily"
+msgstr ""
+
+msgid "Limit hourly"
+msgstr ""
+
+msgid "Limit monthly"
+msgstr ""
+
+msgid "Limit weekly"
+msgstr ""
+
+msgid "Limit yearly"
+msgstr ""
 
 msgid "Linear"
 msgstr "Lineair"
@@ -2580,6 +2601,9 @@ msgstr "Herstel de UI naar de standaard waarden"
 msgid "Result"
 msgstr "Uitslag"
 
+msgid "Retention period"
+msgstr ""
+
 msgid "Retention time"
 msgstr ""
 
@@ -3257,8 +3281,26 @@ msgstr "De maximale transmissie-eenheid in bytes die voor het apparaat moet word
 msgid "The name of the share."
 msgstr "De naam van de gedeelde bron."
 
+msgid "The number of custom snapshots to keep."
+msgstr ""
+
+msgid "The number of daily snapshots to keep."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "Het aantal dagen dat het certificaat geldig is."
+
+msgid "The number of hourly snapshots to keep."
+msgstr ""
+
+msgid "The number of monthly snapshots to keep."
+msgstr ""
+
+msgid "The number of weekly snapshots to keep."
+msgstr ""
+
+msgid "The number of yearly snapshots to keep."
+msgstr ""
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3294,6 +3336,12 @@ msgstr "De repository zal worden gecontroleerd op nieuwe, verwijderde of bijgewe
 
 msgid "The requested page was not found."
 msgstr "De opgevraagde pagina is niet gevonden."
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr ""
 
 msgid "The server is unavailable to handle this request right now."
 msgstr ""
@@ -3557,6 +3605,9 @@ msgstr "Overdrachtstijd"
 
 msgid "Transfer type"
 msgstr "Overdrachtstype"
+
+msgid "Transmit Hash Policy"
+msgstr ""
 
 msgid "Transport encryption"
 msgstr ""

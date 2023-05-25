@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:50+0200\n"
+"POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2023\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -1127,6 +1127,9 @@ msgstr "在这个共享文件夹启用时间胶囊 Time Machine 支持。"
 msgid "Enable WINS server"
 msgstr "启用 WINS 服务器"
 
+msgid "Enable automatic snapshot clean up."
+msgstr "啟用自動快照清理。"
+
 msgid "Enable keyboard-interactive authentication."
 msgstr "启用键盘交互认证"
 
@@ -1748,6 +1751,24 @@ msgstr "列支敦士登"
 
 msgid "Lifetime"
 msgstr "寿命"
+
+msgid "Limit custom"
+msgstr "限制自訂"
+
+msgid "Limit daily"
+msgstr "限制每天"
+
+msgid "Limit hourly"
+msgstr "限制每小時"
+
+msgid "Limit monthly"
+msgstr "限制每月"
+
+msgid "Limit weekly"
+msgstr "限制每週"
+
+msgid "Limit yearly"
+msgstr "限制每年"
 
 msgid "Linear"
 msgstr "线性"
@@ -2580,6 +2601,9 @@ msgstr "恢复默认 UI 状态"
 msgid "Result"
 msgstr "结果"
 
+msgid "Retention period"
+msgstr "保留時間"
+
 msgid "Retention time"
 msgstr "保留时间"
 
@@ -3257,8 +3281,26 @@ msgstr "为该设备设置最大传输值，以字节b为单位，0 为默认值
 msgid "The name of the share."
 msgstr "共享名称。"
 
+msgid "The number of custom snapshots to keep."
+msgstr "自訂要保留的快照數量。"
+
+msgid "The number of daily snapshots to keep."
+msgstr "要保留的每日快照數量。"
+
 msgid "The number of days the certificate is valid for."
 msgstr "证书有效期天数。"
+
+msgid "The number of hourly snapshots to keep."
+msgstr "要保留的每小時快照數量。"
+
+msgid "The number of monthly snapshots to keep."
+msgstr "要保留的每月快照數量。"
+
+msgid "The number of weekly snapshots to keep."
+msgstr "要保留的每週快照數量。"
+
+msgid "The number of yearly snapshots to keep."
+msgstr "要保留的每年快照數量。"
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3294,6 +3336,12 @@ msgstr "软件源将检查是否有删除或更新的软件包信息。"
 
 msgid "The requested page was not found."
 msgstr "未找到请求的页面。"
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr "可以刪除快照之前的保留期（以秒為單位）。這確保了剛建立的快照不能立即再次刪除。"
 
 msgid "The server is unavailable to handle this request right now."
 msgstr "该请求当前无可用服务器资源。"
@@ -3557,6 +3605,9 @@ msgstr "传输时间"
 
 msgid "Transfer type"
 msgstr "传输类型"
+
+msgid "Transmit Hash Policy"
+msgstr ""
 
 msgid "Transport encryption"
 msgstr "傳輸加密"

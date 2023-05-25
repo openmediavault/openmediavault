@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:50+0200\n"
+"POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -1121,6 +1121,9 @@ msgstr "Bu paylaşımda Time Machine desteğini aktive et."
 msgid "Enable WINS server"
 msgstr "WINS sunucusu aç"
 
+msgid "Enable automatic snapshot clean up."
+msgstr ""
+
 msgid "Enable keyboard-interactive authentication."
 msgstr "Klavye etkileşimli doğrulamayı etkinleştir."
 
@@ -1742,6 +1745,24 @@ msgstr "Lihtenştayn"
 
 msgid "Lifetime"
 msgstr "Yaşam süresi"
+
+msgid "Limit custom"
+msgstr ""
+
+msgid "Limit daily"
+msgstr ""
+
+msgid "Limit hourly"
+msgstr ""
+
+msgid "Limit monthly"
+msgstr ""
+
+msgid "Limit weekly"
+msgstr ""
+
+msgid "Limit yearly"
+msgstr ""
 
 msgid "Linear"
 msgstr "Çizgisel"
@@ -2574,6 +2595,9 @@ msgstr "UI yi varsayılan ayarlara getirin"
 msgid "Result"
 msgstr "Sonuç"
 
+msgid "Retention period"
+msgstr ""
+
 msgid "Retention time"
 msgstr ""
 
@@ -3251,8 +3275,26 @@ msgstr "Aygıt için ayarlanmış byte tipinde en yüksek iletim birimi. Varsay�
 msgid "The name of the share."
 msgstr "Paylaşımın adı."
 
+msgid "The number of custom snapshots to keep."
+msgstr ""
+
+msgid "The number of daily snapshots to keep."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "Sertifikanın geçerli olduğu gün sayısı."
+
+msgid "The number of hourly snapshots to keep."
+msgstr ""
+
+msgid "The number of monthly snapshots to keep."
+msgstr ""
+
+msgid "The number of weekly snapshots to keep."
+msgstr ""
+
+msgid "The number of yearly snapshots to keep."
+msgstr ""
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3288,6 +3330,12 @@ msgstr "Yazılım deposu yeni, kaldırılmış ve güncellenmiş yazılım paket
 
 msgid "The requested page was not found."
 msgstr "İstek gönderilen sayfa bulunamadı."
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr ""
 
 msgid "The server is unavailable to handle this request right now."
 msgstr ""
@@ -3551,6 +3599,9 @@ msgstr "Aktarım zamanı"
 
 msgid "Transfer type"
 msgstr "Aktarım tipi"
+
+msgid "Transmit Hash Policy"
+msgstr ""
 
 msgid "Transport encryption"
 msgstr ""

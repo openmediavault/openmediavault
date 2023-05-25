@@ -1,5 +1,6 @@
 openmediavault (6.4.0-1) stable; urgency=low
 
+  * Update locale files.
   * Various improvements.
   * Upgrade to Angular 14.
   * Improve omv-btrfs-scrub and scheduled Btrfs error checks.

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:50+0200\n"
+"POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2023\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -1127,6 +1127,9 @@ msgstr "Time Machine támogatás bekapcsolása ehhez a megosztáshoz."
 msgid "Enable WINS server"
 msgstr "WINS szerver engedélyezése"
 
+msgid "Enable automatic snapshot clean up."
+msgstr "Pillanatképek automatikus tisztításának engedélyezése."
+
 msgid "Enable keyboard-interactive authentication."
 msgstr "Interaktív billentyűzet hitelesítés engedélyezése."
 
@@ -1748,6 +1751,24 @@ msgstr "Liechtenstein"
 
 msgid "Lifetime"
 msgstr "Élettartam"
+
+msgid "Limit custom"
+msgstr "Egyéni határérték"
+
+msgid "Limit daily"
+msgstr "Napi határérték"
+
+msgid "Limit hourly"
+msgstr "Óránkénti határérték"
+
+msgid "Limit monthly"
+msgstr "Havi határérték"
+
+msgid "Limit weekly"
+msgstr "Heti határérték"
+
+msgid "Limit yearly"
+msgstr "Éves határérték"
 
 msgid "Linear"
 msgstr "Lineáris"
@@ -2580,6 +2601,9 @@ msgstr "UI alapértékek visszaállítása"
 msgid "Result"
 msgstr "Eredmény"
 
+msgid "Retention period"
+msgstr "Megőrzési időszak"
+
 msgid "Retention time"
 msgstr "Késleltetési idő"
 
@@ -3257,8 +3281,26 @@ msgstr "Az eszközre beállított maximum átviteli egység bájtban kifejezve. 
 msgid "The name of the share."
 msgstr "A megosztás neve."
 
+msgid "The number of custom snapshots to keep."
+msgstr "A megtartandó egyéni pillanatképek száma."
+
+msgid "The number of daily snapshots to keep."
+msgstr "A megtartandó pillanatképek száma naponta."
+
 msgid "The number of days the certificate is valid for."
 msgstr "A tanúsítvány érvényességének ideje."
+
+msgid "The number of hourly snapshots to keep."
+msgstr "A megtartandó pillanatképek száma óránként."
+
+msgid "The number of monthly snapshots to keep."
+msgstr "A megtartandó pillanatképek száma havonta."
+
+msgid "The number of weekly snapshots to keep."
+msgstr "A megtartandó pillanatképek száma hetente."
+
+msgid "The number of yearly snapshots to keep."
+msgstr "A megtartandó pillanatképek száma évente."
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3294,6 +3336,12 @@ msgstr "A tároló ellenőrizve lesz az új, eltávolított, vagy frissített sz
 
 msgid "The requested page was not found."
 msgstr "A kért oldal nem található."
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr "A pillanatképek törlése előtti megőrzési idő (másodpercben). Ez biztosítja, hogy az éppen létrehozott pillanatkép ne törlődhessen azon nyomban."
 
 msgid "The server is unavailable to handle this request right now."
 msgstr "A kiszolgáló jelenleg nem elérhető, így nem tudja tudja fogadni a kérést."
@@ -3557,6 +3605,9 @@ msgstr "Átviteli idő"
 
 msgid "Transfer type"
 msgstr "Átviteli típus"
+
+msgid "Transmit Hash Policy"
+msgstr ""
 
 msgid "Transport encryption"
 msgstr "Szállítási titkosítás"
