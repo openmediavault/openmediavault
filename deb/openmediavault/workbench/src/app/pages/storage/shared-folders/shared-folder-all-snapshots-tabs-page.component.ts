@@ -263,6 +263,127 @@ export class SharedFolderAllSnapshotsTabsPageComponent {
             }
           ]
         }
+      },
+      {
+        label: gettext('Settings'),
+        type: 'form',
+        config: {
+          request: {
+            service: 'ShareMgmt',
+            get: {
+              method: 'getSnapshotLifecycle'
+            },
+            post: {
+              method: 'setSnapshotLifecycle'
+            }
+          },
+          fields: [
+            {
+              type: 'checkbox',
+              name: 'enable',
+              label: gettext('Enable automatic snapshot clean up.'),
+              value: false
+            },
+            {
+              type: 'numberInput',
+              name: 'retentionperiod',
+              label: gettext('Retention period'),
+              hint: gettext(
+                'The retention period (in seconds) before a snapshot can be deleted. This ensures that a snapshot that has just been created cannot be deleted again immediately.'
+              ),
+              value: 1800,
+              validators: {
+                min: 0,
+                max: 65535,
+                patternType: 'integer'
+              }
+            },
+            {
+              type: 'numberInput',
+              name: 'limitcustom',
+              label: gettext('Limit custom'),
+              hint: gettext('The number of custom snapshots to keep.'),
+              value: 10,
+              validators: {
+                min: 0,
+                max: 1024,
+                patternType: 'integer'
+              }
+            },
+            {
+              type: 'numberInput',
+              name: 'limithourly',
+              label: gettext('Limit hourly'),
+              hint: gettext('The number of hourly snapshots to keep.'),
+              value: 24,
+              validators: {
+                min: 0,
+                max: 1024,
+                patternType: 'integer'
+              }
+            },
+            {
+              type: 'numberInput',
+              name: 'limitdaily',
+              label: gettext('Limit daily'),
+              hint: gettext('The number of daily snapshots to keep.'),
+              value: 7,
+              validators: {
+                min: 0,
+                max: 1024,
+                patternType: 'integer'
+              }
+            },
+            {
+              type: 'numberInput',
+              name: 'limitweekly',
+              label: gettext('Limit weekly'),
+              hint: gettext('The number of weekly snapshots to keep.'),
+              value: 4,
+              validators: {
+                min: 0,
+                max: 1024,
+                patternType: 'integer'
+              }
+            },
+            {
+              type: 'numberInput',
+              name: 'limitmonthly',
+              label: gettext('Limit monthly'),
+              hint: gettext('The number of monthly snapshots to keep.'),
+              value: 12,
+              validators: {
+                min: 0,
+                max: 1024,
+                patternType: 'integer'
+              }
+            },
+            {
+              type: 'numberInput',
+              name: 'limityearly',
+              label: gettext('Limit yearly'),
+              hint: gettext('The number of yearly snapshots to keep.'),
+              value: 1,
+              validators: {
+                min: 0,
+                max: 1024,
+                patternType: 'integer'
+              }
+            }
+          ],
+          buttons: [
+            {
+              template: 'submit'
+            },
+            {
+              template: 'back',
+              execute: {
+                type: 'url',
+                url: '/storage/shared-folders'
+              }
+            }
+          ]
+        }
       }
     ]
   };

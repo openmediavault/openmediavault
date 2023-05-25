@@ -356,6 +356,16 @@
 			</sharedfolder>
 			-->
 		</shares>
+		<sharedfoldersnapshotlifecycle>
+			<enable>1</enable>
+			<retentionperiod>1800</retentionperiod>
+			<limitcustom>10</limitcustom>
+			<limithourly>24</limithourly>
+			<limitdaily>7</limitdaily>
+			<limitweekly>4</limitweekly>
+			<limitmonthly>12</limitmonthly>
+			<limityearly>1</limityearly>
+		</sharedfoldersnapshotlifecycle>
 	</system>
 	<!-- Web control panel configuration - Do not add any configuration here -->
 	<webadmin>

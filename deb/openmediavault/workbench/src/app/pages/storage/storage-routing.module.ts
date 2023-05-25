@@ -190,7 +190,8 @@ const routes: Routes = [
         path: 'snapshots',
         component: SharedFolderAllSnapshotsTabsPageComponent,
         data: {
-          title: gettext('All Snapshots')
+          title: gettext('All Snapshots'),
+          editing: true
         }
       },
       {

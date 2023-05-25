@@ -58,6 +58,8 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("deleteSnapshot");
 		$this->registerMethod("restoreSnapshot");
 		$this->registerMethod("fromSnapshot");
+		$this->registerMethod("getSnapshotLifecycle");
+		$this->registerMethod("setSnapshotLifecycle");
 	}
 
 	/**
@@ -1574,6 +1576,31 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				[] : $sfObject->get("privileges"),
 			"comment" => sprintf("Snapshot,%s,%s", $sfObject->get("name"),
 				$snapshots[0]['otime'])
+		], $context);
+	}
+
+	/**
+	 * Get the snapshot lifecycle configuration.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The configuration object.
+	 */
+	public function getSnapshotLifecycle($params, $context) {
+		return \OMV\Rpc\Rpc::call("Config", "get", [
+			"id" => "conf.system.sharedfolder.snapshot.lifecycle"
+		], $context);
+	}
+
+	/**
+	 * Set the snapshot lifecycle configuration.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 */
+	public function setSnapshotLifecycle($params, $context) {
+		return \OMV\Rpc\Rpc::call("Config", "set", [
+			"id" => "conf.system.sharedfolder.snapshot.lifecycle",
+			"data" => $params
 		], $context);
 	}
 }
