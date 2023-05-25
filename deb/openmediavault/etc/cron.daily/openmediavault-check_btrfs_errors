@@ -35,7 +35,7 @@ omv_syslog_info "Performing an error check on Btrfs file systems."
 # Ignore subvolumes.
 # Deduplicate UUID to prevent unnecessary work.
 findmnt --list --all --canonicalize --notruncate --nofsroot --uniq --noheadings --output TARGET,UUID --types btrfs |
-  sort | awk '!a[$NF]++' |
+  awk '!a[$NF]++' |
   while read -r target uuid
 do
   omv_syslog_info "Checking file system mounted at ${target} [UUID=${uuid}] for errors ..."
