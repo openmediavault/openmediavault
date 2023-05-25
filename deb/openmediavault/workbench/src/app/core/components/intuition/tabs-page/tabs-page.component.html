@@ -1,7 +1,7 @@
 <ng-container *ngIf="config.singleRoute">
   <mat-tab-group>
     <mat-tab *ngFor="let tab of config.tabs"
-             [label]="tab.label">
+             label="{{ tab.label | transloco }}">
       <ng-container [ngSwitch]="tab.type">
         <ng-template [ngSwitchCase]="'form'">
           <omv-intuition-form-page [config]="tab.config"></omv-intuition-form-page>
@@ -30,7 +30,7 @@
        routerLinkActive
        #rla="routerLinkActive"
        [active]="rla.isActive">
-      <span>{{ tab.label }}</span>
+      {{ tab.label | transloco }}
     </a>
   </nav>
   <router-outlet></router-outlet>
