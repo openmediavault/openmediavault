@@ -3607,7 +3607,7 @@ msgid "Transfer type"
 msgstr "Átviteli típus"
 
 msgid "Transmit Hash Policy"
-msgstr ""
+msgstr "Átviteli hasítófüggvény-szabályzat"
 
 msgid "Transport encryption"
 msgstr "Szállítási titkosítás"

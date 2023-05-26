@@ -3603,7 +3603,7 @@ msgid "Transfer type"
 msgstr "傳輸型式"
 
 msgid "Transmit Hash Policy"
-msgstr ""
+msgstr "傳輸雜湊策略"
 
 msgid "Transport encryption"
 msgstr "傳輸加密"
