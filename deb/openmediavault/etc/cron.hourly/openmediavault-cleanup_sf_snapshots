@@ -22,4 +22,4 @@ MAILTO=""
 
 # Delete snapshots of the shared folders according to the specified
 # lifecycle rules.
-omv-sfsnapadm cleanup >/dev/null
+omv-sfsnapadm cleanup >/dev/null || true
