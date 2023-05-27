@@ -457,6 +457,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.4.0"; then
 			omv_module_set_dirty samba
+			omv_module_set_dirty systemd-networkd
 		fi
 
 		########################################################################
