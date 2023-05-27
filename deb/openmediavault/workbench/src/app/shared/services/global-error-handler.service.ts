@@ -9,7 +9,6 @@ export class GlobalErrorHandlerService implements ErrorHandler {
   constructor(private router: Router) {}
 
   handleError(error: any): void {
-    console.error(error);
     // Reload application if lazy loading of a module fails.
     if (/Loading chunk \d+ failed/.test(error?.message || '')) {
       this.router.navigate(['/guruMeditation'], {
