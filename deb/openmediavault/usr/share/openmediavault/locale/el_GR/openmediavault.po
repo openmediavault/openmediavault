@@ -3601,7 +3601,7 @@ msgid "Transfer type"
 msgstr "Είδος μεταφοράς"
 
 msgid "Transmit Hash Policy"
-msgstr ""
+msgstr "Τακτική Κατακερματισμού Μεταδόσεων"
 
 msgid "Transport encryption"
 msgstr "Κρυπτογράφηση μεταφορών"

@@ -3604,7 +3604,7 @@ msgid "Transfer type"
 msgstr "Tipo de transferencia"
 
 msgid "Transmit Hash Policy"
-msgstr ""
+msgstr "Transmitir política de Hash"
 
 msgid "Transport encryption"
 msgstr "Cifrado de transporte"
