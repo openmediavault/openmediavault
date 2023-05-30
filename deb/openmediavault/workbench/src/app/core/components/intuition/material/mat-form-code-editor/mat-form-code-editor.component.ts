@@ -23,7 +23,6 @@ import {
   ElementRef,
   HostBinding,
   Input,
-  OnDestroy,
   OnInit,
   Optional,
   Self,
@@ -63,8 +62,9 @@ import {
   ViewUpdate
 } from '@codemirror/view';
 import * as _ from 'lodash';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 
+import { Unsubscribe } from '~/app/decorators';
 import {
   PrefersColorScheme,
   PrefersColorSchemeService
@@ -86,7 +86,7 @@ let nextUniqueId = 0;
   ]
 })
 export class MatFormCodeEditorComponent
-  implements OnInit, OnDestroy, AfterViewInit, ControlValueAccessor, MatFormFieldControl<string>
+  implements OnInit, AfterViewInit, ControlValueAccessor, MatFormFieldControl<string>
 {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   static ngAcceptInputType_required: BooleanInput;
@@ -108,8 +108,10 @@ export class MatFormCodeEditorComponent
   private _uniqueId = `mat-form-code-editor-${++nextUniqueId}`;
   private _editorState: EditorState;
   private _editorView: EditorView;
-  private _mediaQueryList: MediaQueryList;
   private _useDarkTheme = false;
+
+  @Unsubscribe()
+  private subscriptions: Subscription = new Subscription();
 
   // @ts-ignore
   private onChange = (_value: any) => {};
@@ -215,18 +217,16 @@ export class MatFormCodeEditorComponent
   }
 
   ngOnInit(): void {
-    this.prefersColorSchemeService.change$.subscribe(
-      (prefersColorScheme: PrefersColorScheme): void => {
-        this._useDarkTheme = prefersColorScheme === 'dark';
-        this._editorView.dispatch({
-          effects: StateEffect.reconfigure.of(this.getExtensions())
-        });
-      }
+    this.subscriptions.add(
+      this.prefersColorSchemeService.change$.subscribe(
+        (prefersColorScheme: PrefersColorScheme): void => {
+          this._useDarkTheme = prefersColorScheme === 'dark';
+          this._editorView.dispatch({
+            effects: StateEffect.reconfigure.of(this.getExtensions())
+          });
+        }
+      )
     );
-  }
-
-  ngOnDestroy(): void {
-    this._mediaQueryList.onchange = undefined;
   }
 
   ngAfterViewInit(): void {

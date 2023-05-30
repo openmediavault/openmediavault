@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import {
   ActivatedRoute,
   ActivatedRouteSnapshot,
@@ -28,6 +28,7 @@ import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
 import { filter, startWith } from 'rxjs/operators';
 
+import { Unsubscribe } from '~/app/decorators';
 import { format } from '~/app/functions.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 
@@ -42,35 +43,34 @@ export type Breadcrumb = {
   styleUrls: ['./breadcrumb.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BreadcrumbComponent implements OnDestroy {
+export class BreadcrumbComponent {
+  @Unsubscribe()
+  private subscriptions: Subscription = new Subscription();
+
   public breadcrumbs: Breadcrumb[] = [];
   public icon = Icon;
-
-  private subscription: Subscription;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private cd: ChangeDetectorRef,
     private router: Router
   ) {
-    this.subscription = this.router.events
-      .pipe(
-        filter((event: Event) => event instanceof NavigationEnd),
-        // The first 'NavigationEnd' event is already fired on page
-        // load when this component is instantiated, so simply emit
-        // a value before the router regularly begins to emit events
-        // to render the breadcrumbs of the current activated route.
-        startWith(true)
-      )
-      .subscribe(() => {
-        const breadcrumbs = this.parseRoute(this.activatedRoute.snapshot.root);
-        this.breadcrumbs = _.uniqWith(breadcrumbs, _.isEqual);
-        this.cd.markForCheck();
-      });
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscriptions.add(
+      this.router.events
+        .pipe(
+          filter((event: Event) => event instanceof NavigationEnd),
+          // The first 'NavigationEnd' event is already fired on page
+          // load when this component is instantiated, so simply emit
+          // a value before the router regularly begins to emit events
+          // to render the breadcrumbs of the current activated route.
+          startWith(true)
+        )
+        .subscribe(() => {
+          const breadcrumbs = this.parseRoute(this.activatedRoute.snapshot.root);
+          this.breadcrumbs = _.uniqWith(breadcrumbs, _.isEqual);
+          this.cd.markForCheck();
+        })
+    );
   }
 
   private parseRoute(routeSnapshot: ActivatedRouteSnapshot): Breadcrumb[] {
