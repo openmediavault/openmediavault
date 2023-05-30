@@ -32,12 +32,14 @@ export class AppComponent {
     private prefersColorSchemeService: PrefersColorSchemeService,
     private renderer2: Renderer2
   ) {
-    this.prefersColorSchemeService.change$.subscribe((prefersColorScheme: PrefersColorScheme) => {
-      if (prefersColorScheme === 'dark') {
-        this.renderer2.addClass(document.body, 'omv-dark-theme');
-      } else {
-        this.renderer2.removeClass(document.body, 'omv-dark-theme');
+    this.prefersColorSchemeService.change$.subscribe(
+      (prefersColorScheme: PrefersColorScheme): void => {
+        if (prefersColorScheme === 'dark') {
+          this.renderer2.addClass(document.body, 'omv-dark-theme');
+        } else {
+          this.renderer2.removeClass(document.body, 'omv-dark-theme');
+        }
       }
-    });
+    );
   }
 }

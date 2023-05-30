@@ -17,7 +17,6 @@
  */
 /* eslint-disable @typescript-eslint/member-ordering */
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { MediaMatcher } from '@angular/cdk/layout';
 import {
   AfterViewInit,
   Component,
@@ -66,6 +65,11 @@ import {
 import * as _ from 'lodash';
 import { Subject } from 'rxjs';
 
+import {
+  PrefersColorScheme,
+  PrefersColorSchemeService
+} from '~/app/shared/services/prefers-color-scheme.service';
+
 let nextUniqueId = 0;
 
 @Component({
@@ -112,7 +116,10 @@ export class MatFormCodeEditorComponent
   // @ts-ignore
   private onTouched = () => {};
 
-  constructor(private mediaMatcher: MediaMatcher, @Optional() @Self() public ngControl: NgControl) {
+  constructor(
+    private prefersColorSchemeService: PrefersColorSchemeService,
+    @Optional() @Self() public ngControl: NgControl
+  ) {
     if (!_.isNull(this.ngControl)) {
       this.ngControl.valueAccessor = this;
     }
@@ -208,14 +215,14 @@ export class MatFormCodeEditorComponent
   }
 
   ngOnInit(): void {
-    this._mediaQueryList = this.mediaMatcher.matchMedia('(prefers-color-scheme: dark)');
-    this._useDarkTheme = this._mediaQueryList.matches;
-    this._mediaQueryList.onchange = (event: MediaQueryListEvent) => {
-      this._useDarkTheme = event.matches;
-      this._editorView.dispatch({
-        effects: StateEffect.reconfigure.of(this.getExtensions())
-      });
-    };
+    this.prefersColorSchemeService.change$.subscribe(
+      (prefersColorScheme: PrefersColorScheme): void => {
+        this._useDarkTheme = prefersColorScheme === 'dark';
+        this._editorView.dispatch({
+          effects: StateEffect.reconfigure.of(this.getExtensions())
+        });
+      }
+    );
   }
 
   ngOnDestroy(): void {

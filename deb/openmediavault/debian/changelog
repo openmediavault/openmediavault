@@ -2,6 +2,8 @@ openmediavault (6.4.1-1) stable; urgency=low
 
   * Respect timezone when exposing shared folder snapshots to
     Windows clients as shadow copies via Samba.
+  * Issue #1556: Use correct color theme in code input field when
+    dark mode is enabled.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 30 May 2023 01:20:05 +0200
 
