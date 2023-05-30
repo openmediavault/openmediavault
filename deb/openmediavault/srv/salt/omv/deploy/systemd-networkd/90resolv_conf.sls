@@ -23,9 +23,11 @@
 # https://superuser.com/questions/1490670/does-systemd-networkd-systemd-resolved-add-search-domains-specified-in-dhcp#comment2249615_1490670
 # https://wiki.archlinux.org/title/systemd-resolved
 
+{% set resolvconf_target = salt['pillar.get']('default:OMV_SYSTEMD_NETWORKD_RESOLVCONF_TARGET', '/run/systemd/resolve/stub-resolv.conf') %}
+
 symlink_systemd_resolvconf:
   file.symlink:
     - name: /etc/resolv.conf
-    - target: /run/systemd/resolve/stub-resolv.conf
+    - target: {{ resolvconf_target }}
     - force: True
-    - onlyif: "test -e /run/systemd/resolve/stub-resolv.conf"
+    - onlyif: "test -e {{ resolvconf_target }}"
