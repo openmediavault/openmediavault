@@ -1,3 +1,10 @@
+openmediavault (6.4.1-1) stable; urgency=low
+
+  * Respect timezone when exposing shared folder snapshots to
+    Windows clients as shadow copies via Samba.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 30 May 2023 01:20:05 +0200
+
 openmediavault (6.4.0-3) stable; urgency=low
 
   * Update locale files.
