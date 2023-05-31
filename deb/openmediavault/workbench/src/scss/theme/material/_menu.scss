@@ -13,8 +13,8 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-@use 'src/scss/theme/colors' as tc;
-@use 'src/scss/mixins';
+@use 'scss/theme/colors' as tc;
+@use 'scss/mixins';
 
 @mixin theme($mode, $theme-config, $typography-config) {
   .mat-menu-panel {

@@ -1,4 +1,4 @@
-@use 'src/scss/mixins';
+@use 'scss/mixins';
 
 :host ::ng-deep .cm-editor {
   @include mixins.omv-scrollbar;

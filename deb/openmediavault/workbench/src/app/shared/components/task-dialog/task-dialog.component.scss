@@ -1,6 +1,6 @@
 @use "sass:map";
-@use 'src/scss/defaults/colors' as dc;
-@use 'src/scss/theme';
+@use 'scss/defaults/colors' as dc;
+@use 'scss/theme';
 
 .mat-dialog-title {
   display: flex;

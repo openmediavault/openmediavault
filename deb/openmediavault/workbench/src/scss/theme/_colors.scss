@@ -14,7 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 @use "sass:map";
-@use 'src/scss/defaults/colors' as dc;
+@use 'scss/defaults/colors' as dc;
 
 $omv-color-primary-palette: dc.$omv-color-corporate-palette;
 $omv-color-primary: dc.$omv-color-corporate-default;
