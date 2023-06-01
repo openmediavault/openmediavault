@@ -26,5 +26,3 @@ configure_proftpd_mod_quotatab:
         <IfModule mod_quotatab.c>
           QuotaEngine {{ quota_engine }}
         </IfModule>
-    - watch_in:
-      - service: start_proftpd_service

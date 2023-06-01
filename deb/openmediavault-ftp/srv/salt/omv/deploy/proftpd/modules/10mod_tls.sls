@@ -16,5 +16,3 @@ configure_proftpd_mod_tls:
     - user: root
     - group: root
     - mode: 644
-    - watch_in:
-      - service: start_proftpd_service

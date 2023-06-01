@@ -9,5 +9,3 @@ configure_proftpd_mod_auth_pam:
           AuthPAM {{ auth_pam }}
           AuthPAMConfig {{ auth_pam_config }}
         </IfModule>
-    - watch_in:
-      - service: start_proftpd_service

@@ -27,5 +27,3 @@ configure_proftpd_mod_ident:
     - template: jinja
     - context:
         config: {{ config | json }}
-    - watch_in:
-      - service: start_proftpd_service

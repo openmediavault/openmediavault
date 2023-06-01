@@ -26,5 +26,3 @@ configure_proftpd_mod_ratio:
         <IfModule mod_ratio.c>
           Ratios {{ ratios }}
         </IfModule>
-    - watch_in:
-      - service: start_proftpd_service

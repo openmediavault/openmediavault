@@ -34,5 +34,3 @@ configure_proftpd_mod_ctrls:
           ControlsInterval {{ controls_interval }}
           ControlsSocket {{ controls_socket }}
         </IfModule>
-    - watch_in:
-      - service: start_proftpd_service

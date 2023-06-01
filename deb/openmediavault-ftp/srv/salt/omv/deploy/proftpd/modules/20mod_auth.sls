@@ -8,8 +8,6 @@ configure_proftpd_mod_auth:
     - template: jinja
     - context:
         config: {{ config | json }}
-    - watch_in:
-      - service: start_proftpd_service
 
 # Modify /etc/ftpusers because root login is handled by the PAM
 # pam_listfile.so module.

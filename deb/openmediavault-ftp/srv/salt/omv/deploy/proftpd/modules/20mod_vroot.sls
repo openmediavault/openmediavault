@@ -29,5 +29,3 @@ configure_proftpd_mod_vroot:
     - context:
         config: {{ config | json }}
         homedir_config: {{ homedir_config | json }}
-    - watch_in:
-      - service: start_proftpd_service

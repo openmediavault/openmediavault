@@ -26,5 +26,3 @@ configure_proftpd_mod_ctrls_admin:
         <IfModule mod_ctrls_admin.c>
           AdminControlsEngine {{ (config | length > 0) | yesno('on,off') }}
         </IfModule>
-    - watch_in:
-      - service: start_proftpd_service

@@ -30,8 +30,6 @@ configure_proftpd_mod_wrap:
           TCPAccessSyslogLevels {{ tcp_access_syslog_levels }}
           TCPServiceName {{ tcp_service_name }}
         </IfModule>
-    - watch_in:
-      - service: start_proftpd_service
 
 {% for host_file in tcp_access_files.split() %}
 

@@ -1,3 +1,10 @@
+openmediavault-ftp (6.0.1-1) UNRELEASED; urgency=medium
+
+  * Update locale files.
+  * Fix SLS render issues when FTP service is disabled.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 01 Jun 2023 20:48:14 +0200
+
 openmediavault-ftp (6.0-3) unstable; urgency=low
 
   * Initial release.

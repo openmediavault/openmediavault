@@ -27,5 +27,3 @@ configure_proftpd_mod_ban:
     - template: jinja
     - context:
         config: {{ config.modules.mod_ban | json }}
-    - watch_in:
-      - service: start_proftpd_service

@@ -26,5 +26,3 @@ configure_proftpd_mod_facl:
         <IfModule mod_facl.c>
           FACLEngine {{ facl_engine }}
         </IfModule>
-    - watch_in:
-      - service: start_proftpd_service

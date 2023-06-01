@@ -28,7 +28,9 @@ configure_proftpd_mod_dynmasq:
         <IfModule mod_dynmasq.c>
           DynMasqRefresh {{ config.dynmasqrefresh }}
         </IfModule>
+{% if config.enable | to_bool %}
     - watch_in:
       - service: start_proftpd_service
+{% endif %}
 
 {% endif %}

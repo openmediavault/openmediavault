@@ -16,8 +16,6 @@ configure_proftpd_mod_core:
     - user: root
     - group: root
     - mode: 644
-    - watch_in:
-      - service: start_proftpd_service
 
 # Create welcome message file.
 {% if ftp_config.displaylogin | length > 0 %}

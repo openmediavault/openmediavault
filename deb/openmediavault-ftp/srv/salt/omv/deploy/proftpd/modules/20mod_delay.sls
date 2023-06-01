@@ -26,5 +26,3 @@ configure_proftpd_mod_delay:
         <IfModule mod_delay.c>
           DelayEngine {{ delay_engine }}
         </IfModule>
-    - watch_in:
-      - service: start_proftpd_service
