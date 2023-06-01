@@ -46,6 +46,7 @@ remove_sharedfolder_{{ data.name }}_mount_point:
 
 {% else %}
 
+# Prevent empty rendering.
 disable_sharedfolder_alias:
   test.nop
 
