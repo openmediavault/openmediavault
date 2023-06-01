@@ -1,4 +1,4 @@
-openmediavault-ftp (6.0.1-1) UNRELEASED; urgency=medium
+openmediavault-ftp (6.0.1-1) stable; urgency=low
 
   * Update locale files.
   * Fix SLS render issues when FTP service is disabled.
