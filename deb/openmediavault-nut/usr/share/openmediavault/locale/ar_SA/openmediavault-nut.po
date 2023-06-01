@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the openmediavault-nut package.
 # 
 # Translators:
-# Abo Khalid <myomv100@gmail.com>, 2020
+# omv nas <myomv100@gmail.com>, 2023
+# omv nas <myomv100@gmail.com>, 2020,2023
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
-"Last-Translator: Abo Khalid <myomv100@gmail.com>, 2020\n"
+"Last-Translator: omv nas <myomv100@gmail.com>, 2020,2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
-msgstr ""
+msgstr "\"مستقل\" لـ UPS المحلي ، \"Netclient\" لـ UPS البعيد على خادم NUT."
 
 msgid "Charge"
 msgstr "شحن"
@@ -47,7 +48,7 @@ msgid "Identifier"
 msgstr "محدد"
 
 msgid "Invalid identifier"
-msgstr ""
+msgstr "معرف غير صالح"
 
 msgid "Load"
 msgstr "تحميل"
@@ -59,16 +60,16 @@ msgid "Mode"
 msgstr "الوضع"
 
 msgid "Netclient"
-msgstr ""
+msgstr "Netclient"
 
 msgid "Netclient hostname"
-msgstr ""
+msgstr "اسم مضيف Netclient"
 
 msgid "Netclient password"
-msgstr ""
+msgstr "كلمة مرور Netclient"
 
 msgid "Netclient user name"
-msgstr ""
+msgstr "اسم مستخدم Netclient"
 
 msgid "PID"
 msgstr "PID"
@@ -77,7 +78,7 @@ msgid "Password"
 msgstr "كلمة المرور"
 
 msgid "Powervalue"
-msgstr ""
+msgstr "Powervalue"
 
 msgid "Program"
 msgstr "برنامج"
@@ -95,19 +96,19 @@ msgid "Shutdown timer"
 msgstr "مؤقت إيقاف التشغيل"
 
 msgid "Standalone"
-msgstr ""
+msgstr "مستقل"
 
 msgid "Temperature"
 msgstr "درجة الحرارة"
 
 msgid "The name used to uniquely identify your UPS on local or remote system."
-msgstr ""
+msgstr "الاسم المستخدم لتعريف UPS الخاص بك بشكل فريد على النظام المحلي أو البعيد."
 
 msgid ""
 "The number of power supplies that the UPS feeds on this system (usually 1), "
 "refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
 "target='_blank'>upsmon.conf(5)</a> for more information."
-msgstr ""
+msgstr "عدد مصادر الطاقة التي يغذيها UPS على هذا النظام (عادةً 1) ، راجع <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'> upsmon.conf (5 ) </a> لمزيد من المعلومات."
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
@@ -130,7 +131,7 @@ msgid "UPS reaches low battery"
 msgstr "UPS يصل لمستوى بطارية منخفض"
 
 msgid "Updated UPS settings."
-msgstr ""
+msgstr "تم تحديث إعدادات UPS."
 
 msgid "Used for remote authentication."
 msgstr "يستخدم للمصادقة عن بعد"

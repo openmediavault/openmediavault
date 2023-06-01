@@ -4,14 +4,14 @@
 # 
 # Translators:
 # omv nas <myomv100@gmail.com>, 2020,2023
-# omv nas <myomv100@gmail.com>, 2020-2022
+# omv nas <myomv100@gmail.com>, 2020-2023
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-25 22:05+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: omv nas <myomv100@gmail.com>, 2020,2023\n"
+"Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -863,7 +863,7 @@ msgid "Dark mode"
 msgstr "الوضع الداكن"
 
 msgid "Dashboard"
-msgstr "لوحة العرض الرئيسية"
+msgstr "الصفحة الرئيسية"
 
 msgid "Date & Time"
 msgstr "التاريخ والوقت"
@@ -1117,42 +1117,42 @@ msgid "Empty now"
 msgstr "تفريغ الآن"
 
 msgid "Enable Time Machine support for this share."
-msgstr "تمكين دعم آلة الزمن لهذه المشاركة."
+msgstr "تفعيل دعم آلة الزمن لهذه المشاركة."
 
 msgid "Enable WINS server"
-msgstr "تمكين خادم WINS"
+msgstr "تفعيل خادم WINS"
 
 msgid "Enable automatic snapshot clean up."
 msgstr "تفعيل التنظيف التلقائي للنسخ Snapshots."
 
 msgid "Enable keyboard-interactive authentication."
-msgstr "تمكين مصادقة لوحة المفاتيح التفاعلية"
+msgstr "تفعيل مصادقة لوحة المفاتيح التفاعلية"
 
 msgid "Enable public key authentication."
-msgstr "تمكين مصادقة المفتاح العمومي"
+msgstr "تفعيل مصادقة المفتاح العام."
 
 msgid "Enable recycle bin"
-msgstr "تمكين سلة المحذوفات"
+msgstr "تفعيل سلة المحذوفات"
 
 msgid "Enable remote logging of syslog to the specified host."
-msgstr "تمكين التسجيل عن بُعد لسجل النظام إلى المضيف المحدد."
+msgstr "تفعيل التسجيل عن بُعد لسجل أحداث النظام إلى المضيف المحدد."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr "تمكين هذا الخيار للاحتفاظ بالملفات المنقولة جزئيًا ، وإلا فسيتم حذفها إذا تمت مقاطعة النقل."
+msgstr "تفعيل هذا الخيار للاحتفاظ بالملفات المنقولة جزئيًا ، وإلا فسيتم حذفها إذا تمت مقاطعة النقل."
 
 msgid "Enable user home directories."
-msgstr "تمكين مجلدات المستخدم الرئيسية"
+msgstr "تفعيل مجلدات المستخدم الرئيسية."
 
 msgid "Enable write-cache"
-msgstr "تمكين ذاكرة التخزين المؤقت للكتابة."
+msgstr "تفعيل ذاكرة التخزين المؤقت للكتابة."
 
 msgid "Enabled"
-msgstr "ممكن"
+msgstr "مفعّل"
 
 msgid "Enabled widgets"
-msgstr "تمكين الأدوات"
+msgstr "تفعيل الأدوات"
 
 msgid "Encryption mode"
 msgstr "وضع التشفير"
@@ -1502,7 +1502,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Guests only' is selecting; in "
 "this case no password is required to connect to the share."
-msgstr "إذا تم تحديد' الضيوف المسموح لهم 'ولم يتم توفير بيانات اعتماد تسجيل الدخول ، فقم بالوصول كضيف. قم دائمًا بالوصول كضيف عند تحديد' الضيوف فقط '؛ وفي هذه الحالة لا يلزم كلمة مرور للاتصال بالمشاركة."
+msgstr "إذا تم تحديد ' الضيوف المسموح لهم ' ولم يتم توفير معلومات تسجيل الدخول ، فقم بالوصول كضيف. قم دائما بالوصول كضيف عند تحديد' الضيوف فقط '؛ وفي هذه الحالة لا يلزم كلمة مرور للاتصال بالمشاركة."
 
 msgid ""
 "If a device is not listed here, it is usually because the device already "
@@ -1597,7 +1597,7 @@ msgstr "مثبت"
 msgid ""
 "Installs the public SSH key on a remote system as an authorized key. Make "
 "sure password authentication is enabled on that remote system."
-msgstr "تثبيت مفتاح SSH العام على نظام بعيد كمفتاح معتمد. تأكد من تمكين مصادقة كلمة المرور على هذا النظام البعيد."
+msgstr "تثبيت مفتاح SSH العام على نظام بعيد كمفتاح معتمد. تأكد من تفعيل مصادقة كلمة المرور على هذا النظام البعيد."
 
 msgid "Interfaces"
 msgstr "بطاقات الشبكة"
@@ -1778,10 +1778,10 @@ msgid "Lithuania"
 msgstr "ليتوانيا"
 
 msgid "Load Average"
-msgstr "معدل الحمل"
+msgstr "متوسط الحمل"
 
 msgid "Load average"
-msgstr "معدل التحميل"
+msgstr "متوسط الحمل"
 
 msgid "Loading ..."
 msgstr "يتم التحميل ..."
@@ -1983,7 +1983,7 @@ msgid "Monitoring"
 msgstr "مراقبة"
 
 msgid "Monitoring enabled"
-msgstr "المراقبة مفعلة"
+msgstr "المراقبة مفعّلة"
 
 msgid "Month"
 msgstr "شهر"
@@ -2690,7 +2690,7 @@ msgid "SSL/TLS"
 msgstr "SSL / TLS"
 
 msgid "SSL/TLS enabled"
-msgstr "تم تمكين SSL / TLS"
+msgstr "تم تفعيل SSL/TLS"
 
 msgid "STARTTLS"
 msgstr "STARTTLS"
@@ -2965,7 +2965,7 @@ msgid "Software Failure.   Press left mouse button to continue."
 msgstr "فشل في البرنامج. اضغط على زر الفأرة الأيسر للمتابعة."
 
 msgid "Software RAID"
-msgstr "RAID مبني على البرمجيات"
+msgstr "RAID"
 
 msgid "Software updates"
 msgstr "تحديثات البرامج"
@@ -3149,7 +3149,7 @@ msgstr "عميل وخادم مزامنة ساعة النظام."
 msgid ""
 "System monitoring is disabled. To enable it, please go to the <a "
 "href='#/system/monitoring'>settings page</a>."
-msgstr "تم تعطيل مراقبة النظام. لتمكينه ، يرجى الانتقال إلى صفحة <a href='#/system/monitoring'>الإعدادات</a>."
+msgstr "تم تعطيل مراقبة النظام. لتفعيلها مرة أخرى، يرجى الانتقال إلى صفحة <a href='#/system/monitoring'>الإعدادات</a>."
 
 msgid "System restart required"
 msgstr "يجب إعادة تشغيل النظام"
@@ -3218,7 +3218,7 @@ msgstr "الإجراء الذي يجب القيام به عند الضغط عل�
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
 "the <a href='#/dashboard/settings'>settings page</a>."
-msgstr "لم يتم تكوين لوحة العرض الرئيسية. لتخصيصها، يرجى الانتقال إلى <a href='#/dashboard/settings'>صفحة الإعدادات </a>."
+msgstr "لم يتم تكوين الصفحة الرئيسية. لتخصيصها، يرجى الانتقال إلى <a href='#/dashboard/settings'>صفحة الإعدادات </a>."
 
 msgid "The data has been copied to the clipboard."
 msgstr "تم نسخ البيانات إلى الحافظة المؤقتة."
@@ -3753,7 +3753,7 @@ msgid "Updated bridge network connection \"{{ devicename }}\"."
 msgstr "تم تحديث اتصال شبكة الجسر \"{{ devicename }}\"."
 
 msgid "Updated dashboard settings."
-msgstr "إعدادات لوحة العرض الرئيسية المحدثة."
+msgstr "تم تحديث إعدادات الصفحة الرئيسية."
 
 msgid "Updated date & time settings."
 msgstr "تم تحديث إعدادات التاريخ والوقت."

@@ -4,8 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Abo Khalid <myomv100@gmail.com>, 2022
 # Volker Theile <votdev@gmx.de>, 2022
+# omv nas <myomv100@gmail.com>, 2023
 # 
 #, fuzzy
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
+"Last-Translator: omv nas <myomv100@gmail.com>, 2023\n"
 "Language-Team: Arabic (Saudi Arabia) (https://app.transifex.com/openmediavault/teams/14254/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,56 +23,56 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
 msgid "1 GB"
-msgstr ""
+msgstr "1 جيجابايت"
 
 msgid "1 MB"
-msgstr ""
+msgstr "1 ميجابايت"
 
 msgid "10 GB"
-msgstr ""
+msgstr "10 جيجابايت"
 
 msgid "10 MB"
-msgstr ""
+msgstr "10 ميجابايت"
 
 msgid "100 GB"
-msgstr ""
+msgstr "100 جيجابايت"
 
 msgid "100 MB"
-msgstr ""
+msgstr "100 ميجابايت"
 
 msgid "25 GB"
-msgstr ""
+msgstr "25 جيجابايت"
 
 msgid "25 MB"
-msgstr ""
+msgstr "25 ميجابايت"
 
 msgid "250 MB"
-msgstr ""
+msgstr "250 ميجابايت"
 
 msgid "5 GB"
-msgstr ""
+msgstr "5 جيجابايت"
 
 msgid "5 MB"
-msgstr ""
+msgstr "5 ميجابايت"
 
 msgid "50 GB"
-msgstr ""
+msgstr "50 جيجابايت"
 
 msgid "50 MB"
-msgstr ""
+msgstr "50 ميجابايت"
 
 msgid "500 MB"
-msgstr ""
+msgstr "500 ميجابايت"
 
 msgid "Application data"
-msgstr ""
+msgstr "بيانات التطبيق"
 
 msgid "Certificate"
 msgstr "شهادة"
 
 msgid ""
 "Disable password authentication, WebDAV, and the advanced settings page."
-msgstr ""
+msgstr "تعطيل مصادقة كلمة المرور و WebDAV وصفحة الإعدادات المتقدمة."
 
 msgid "Disabled"
 msgstr "معطل"
@@ -81,24 +81,26 @@ msgid "Enabled"
 msgstr "ممكن"
 
 msgid "Filesize limit"
-msgstr ""
+msgstr "حدود حجم الملف"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
 "are disabled, in particular import, upload, and delete."
 msgstr ""
+"في حالة التمكين، يتم تعطيل جميع الميزات التي تتطلب صلاحية الكتابة إلى مجلد "
+"الصور ، ولا سيما الاستيراد والتحميل والحذف."
 
 msgid "Images"
-msgstr ""
+msgstr "الصور"
 
 msgid "Import"
 msgstr "استيراد"
 
 msgid "Open UI"
-msgstr ""
+msgstr "افتح واجهة المستخدم"
 
 msgid "PhotoPrism"
-msgstr ""
+msgstr "PhotoPrism"
 
 msgid "Port"
 msgstr "المنفذ"
@@ -119,20 +121,24 @@ msgid ""
 "The location of the media files. Make sure the user <em>photoprism</em> or "
 "group <em>users</em> can access the files."
 msgstr ""
+"موقع ملفات الوسائط المراد مشاركتها. تأكد من أن المستخدم <em> photoprism</em>"
+"  أو المجموعة <em> users  </em>يمكنهم الوصول إلى الملفات."
 
 msgid "The location where to store the application data."
-msgstr ""
+msgstr "موقع تخزين بيانات التطبيق."
 
 msgid "The maximum size of media files."
-msgstr ""
+msgstr "الحجم الأقصى لملفات الوسائط."
 
 msgid "Updated PhotoPrism settings."
-msgstr ""
+msgstr "تم تحديث إعدادات PhotoPrism."
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
 " Please do not forget to change the password immediately."
 msgstr ""
+"استخدم بيانات اعتماد <em>admin:admin</em> عند تسجيل الدخول لأول مرة. من فضلك"
+" لا تنسى تغيير كلمة المرور على الفور."
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
@@ -140,3 +146,6 @@ msgid ""
 "duplicates. Make sure the user <em>photoprism</em> or group <em>users</em> "
 "can access the files."
 msgstr ""
+"يمكنك اختياريًا تحميل مجلد استيراد يمكن من خلاله نقل الملفات إلى مجلد النسخ "
+"الأصلية بطريقة منظمة تتجنب التكرارات. تأكد من أن المستخدم "
+"<em>photoprism</em> أو المجموعة <em>users</em> يمكنه الوصول إلى الملفات."

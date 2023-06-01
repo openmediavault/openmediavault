@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
-# Abo Khalid <myomv100@gmail.com>, 2020
+# omv nas <myomv100@gmail.com>, 2023
+# omv nas <myomv100@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
-"Last-Translator: Abo Khalid <myomv100@gmail.com>, 2020\n"
+"Last-Translator: omv nas <myomv100@gmail.com>, 2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,10 +43,10 @@ msgid "Create"
 msgstr "إنشاء"
 
 msgid "Created on-access scan."
-msgstr ""
+msgstr "فحص تم إنشاؤه عند الوصول."
 
 msgid "Created scheduled scan."
-msgstr ""
+msgstr "تم إنشاء الفحص المجدول."
 
 msgid "Database checks"
 msgstr "فحوصات قاعدة البيانات"
@@ -63,7 +64,7 @@ msgid "December"
 msgstr "ديسمبر"
 
 msgid "Delete immediately"
-msgstr ""
+msgstr "احذف فورًا"
 
 msgid "Detect PUA"
 msgstr "اكتشاف PUA"
@@ -113,7 +114,7 @@ msgid "Every N minute"
 msgstr "كل العدد المحدد من الدقائق"
 
 msgid "Execute scheduled scan"
-msgstr ""
+msgstr "تنفيذ الفحص المجدول"
 
 msgid "Extra options"
 msgstr "خيارات إضافية"
@@ -176,7 +177,7 @@ msgid "Month"
 msgstr "شهر"
 
 msgid "Move to quarantine"
-msgstr ""
+msgstr "نقل الى العزل"
 
 msgid "Multiscan"
 msgstr "فحص متعدد"
@@ -197,13 +198,13 @@ msgid "Perform a deeper analysis of executable files."
 msgstr "إجراء تحليل أعمق للملفات القابلة للتنفيذ."
 
 msgid "Perform nothing"
-msgstr ""
+msgstr "لا تفعل شيئا"
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
 "daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "يرجى مراجعة <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'> دليل الصفحة </a> لمزيد من التفاصيل."
 
 msgid "Quarantine"
 msgstr "الحجر "
@@ -236,7 +237,7 @@ msgid "Scan the directory contents in parallel using available threads."
 msgstr "مسح محتويات الدليل بالتوازي باستخدام مؤشرات الترابط المتوفرة."
 
 msgid "Scheduled Scans"
-msgstr ""
+msgstr "عمليات الفحص المجدولة"
 
 msgid "Scheduling"
 msgstr "الجدولة"
@@ -257,10 +258,10 @@ msgid "Sunday"
 msgstr "الأحد"
 
 msgid "Tags"
-msgstr ""
+msgstr "العلامات"
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "يجب أن يحتوي الحقل فقط على * أو قائمة قيم مفصولة بفواصل."
 
 msgid "The location of the files to scan on-access."
 msgstr "موقع الملفات المراد مسحها وتفحصها وقت-الدخول."
@@ -281,10 +282,10 @@ msgid "Tuesday"
 msgstr "الثلاثاء"
 
 msgid "Updated on-access scan."
-msgstr ""
+msgstr "تم تحديث الفحص عند الوصول."
 
 msgid "Updated scheduled scan."
-msgstr ""
+msgstr "تم تحديث الفحص المجدول."
 
 msgid "Verbose"
 msgstr "مفصل"

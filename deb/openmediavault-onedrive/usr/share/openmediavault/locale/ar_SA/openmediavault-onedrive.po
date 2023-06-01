@@ -4,8 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Abo Khalid <myomv100@gmail.com>, 2022
 # Volker Theile <votdev@gmx.de>, 2022
+# omv nas <myomv100@gmail.com>, 2023
 # 
 #, fuzzy
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
+"Last-Translator: omv nas <myomv100@gmail.com>, 2023\n"
 "Language-Team: Arabic (Saudi Arabia) (https://app.transifex.com/openmediavault/teams/14254/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,25 +23,25 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
 msgid "1 MiB/s"
-msgstr ""
+msgstr "1 ميجابايت/ثانية"
 
 msgid "1 minute"
 msgstr "1 دقيقة"
 
 msgid "10 MiB/s"
-msgstr ""
+msgstr "10 ميجابايت/ثانية"
 
 msgid "10 minutes"
 msgstr "10 دقيقة"
 
 msgid "100 MiB/s"
-msgstr ""
+msgstr "100 ميجابايت/ثانية"
 
 msgid "12 hours"
-msgstr ""
+msgstr "12 ساعة"
 
 msgid "128 KiB/s"
-msgstr ""
+msgstr "128 كيلوبايت/ثانية"
 
 msgid "15 minutes"
 msgstr "15 دقيقة"
@@ -50,10 +50,10 @@ msgid "2 minutes"
 msgstr "دقيقتان"
 
 msgid "24 hours"
-msgstr ""
+msgstr "24 ساعة"
 
 msgid "256 KiB/s"
-msgstr ""
+msgstr "256 كيلوبايت/ثانية"
 
 msgid "3 minutes"
 msgstr "3 دقائق"
@@ -68,10 +68,10 @@ msgid "5 minutes"
 msgstr "5 دقائق"
 
 msgid "512 KiB/s"
-msgstr ""
+msgstr "512 كيلوبايت/ثانية"
 
 msgid "6 hours"
-msgstr ""
+msgstr "6 ساعات"
 
 msgid "60 minutes"
 msgstr "60 دقيقة"
@@ -83,21 +83,30 @@ msgid ""
 "- Replicate the local state to OneDrive, by only uploading local changes to "
 "OneDrive. Do not download changes from OneDrive.</li></ul>"
 msgstr ""
+"<ul><li> كامل - إجراء نسخ متماثل للتغييرات من وإلى OneDrive. </li><li> "
+"التنزيل فقط - إجراء نسخ متماثل لحالة OneDrive عبر الإنترنت محليًا ، عن طريق "
+"تنزيل التغييرات من OneDrive فقط. لا تقم بتحميل التغييرات المحلية إلى "
+"OneDrive. </li><li> التحميل فقط - قم بإجراء نسخ متماثل للحالة المحلية على "
+"OneDrive ، عن طريق تحميل التغييرات المحلية إلى OneDrive فقط. لا تقم بتنزيل "
+"التغييرات من OneDrive. </ul>"
 
 msgid ""
 "After enabling and deploying this service the first time please run the "
 "command <em>omv-onedrive-auth</em> in the CLI to authenticate the "
 "application in Microsoft OneDrive."
 msgstr ""
+"بعد تمكين هذه الخدمة وتشغيلها للمرة الأولى ، يرجى تشغيل الأمر <em>omv-"
+"onedrive-auth </em> في سطر الأوامر  CLI لمصادقة التطبيق في مايكروسوفت "
+"OneDrive."
 
 msgid "Disabled"
 msgstr "معطل"
 
 msgid "Do not delete local file deletions from OneDrive."
-msgstr ""
+msgstr "لا تحذف ما تم حذفه محليا من الملفات في OneDrive."
 
 msgid "Download only"
-msgstr ""
+msgstr "تنزيل فقط"
 
 msgid "Enabled"
 msgstr "ممكن"
@@ -106,48 +115,51 @@ msgid "Full"
 msgstr "ممتلئ"
 
 msgid "Local first"
-msgstr ""
+msgstr "محلي فقط"
 
 msgid "Monitor interval"
-msgstr ""
+msgstr "الفاصل الزمني للمراقبة"
 
 msgid "No remote delete"
-msgstr ""
+msgstr "لا تحذف الملفات على الخادم"
 
 msgid "OneDrive"
-msgstr ""
+msgstr "OneDrive"
 
 msgid "Rate limit"
-msgstr ""
+msgstr "حدود الاستهلاك"
 
 msgid "Replicate local state first, before downloading changes from OneDrive."
 msgstr ""
+"قم بإجراء نسخ متماثل للحالة المحلية أولاً ، قبل تنزيل التغييرات من OneDrive."
 
 msgid "Replication mode"
-msgstr ""
+msgstr "وضع النسخ المتكرر"
 
 msgid "Shared folder"
 msgstr "مجلد مشترك"
 
 msgid "Skip dot files and folders from syncing."
-msgstr ""
+msgstr "تجاهل  الملفات والمجلدات التي تبدأ اسمائها بنقطة من المزامنة."
 
 msgid "Skip dotfiles"
-msgstr ""
+msgstr "تجاهل الملفات التي تبدأ اسمائها بنقطة"
 
 msgid ""
 "The location of the media files. Make sure the user <em>onedrive</em> or "
 "group <em>users</em> can access the files."
 msgstr ""
+"موقع ملفات الوسائط المراد مشاركتها. تأكد من أن المستخدم <em>onedrive</em>  "
+"أو المجموعة <em> users  </em>يمكنهم الوصول إلى الملفات."
 
 msgid "The wait time between each sync operation."
-msgstr ""
+msgstr "وقت الانتظار بين كل عملية مزامنة."
 
 msgid "Updated OneDrive settings."
-msgstr ""
+msgstr "تم تحديث إعدادات OneDrive."
 
 msgid "Upload only"
-msgstr ""
+msgstr "تحميل فقط"
 
 msgid "Upload/Download rate limit."
-msgstr ""
+msgstr "حد معدل التحميل/التنزيل."

@@ -1,5 +1,6 @@
 openmediavault (6.4.1-1) stable; urgency=low
 
+  * Update locale files.
   * Respect timezone when exposing shared folder snapshots to
     Windows clients as shadow copies via Samba.
   * Issue #1556: Use correct color theme in code input field when
