@@ -25,7 +25,7 @@ prereq_nginx_service_monit:
     - sls: omv.deploy.monit
 
 include:
-{% for file in salt['file.find'](dirpath, iname='*.sls', print='name') | difference(['init.sls', 'default.sls']) %}
+{% for file in salt['file.find'](dirpath, iname='*.sls', print='name') | difference(['init.sls', 'default.sls']) | sort %}
   - .{{ file | replace('.sls', '') }}
 {% endfor %}
 
@@ -39,6 +39,9 @@ restart_nginx_service:
     - enable: True
     - require:
       - cmd: test_nginx_service_config
+    - watch:
+      - file: configure_nginx_site_webgui
+      - file: configure_nginx_security
 
 monitor_nginx_service:
   module.run:

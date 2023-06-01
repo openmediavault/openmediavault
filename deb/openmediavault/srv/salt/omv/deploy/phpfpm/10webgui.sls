@@ -86,5 +86,3 @@ configure_phpfpm_webgui:
         ; Note: This directive is hardcoded to 0 for the CLI SAPI
         php_value[max_execution_time] = 90
     - mode: 644
-    - watch_in:
-      - service: restart_phpfpm_service

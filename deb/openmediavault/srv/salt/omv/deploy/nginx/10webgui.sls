@@ -43,8 +43,6 @@ configure_nginx_site_webgui:
     - user: root
     - group: root
     - mode: 644
-    - watch_in:
-      - service: restart_nginx_service
 
 configure_nginx_security:
   file.managed:
@@ -57,8 +55,6 @@ configure_nginx_security:
     - user: root
     - group: root
     - mode: 644
-    - watch_in:
-      - service: restart_nginx_service
 
 execute_nginx_ensite:
   cmd.run:

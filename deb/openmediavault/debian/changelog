@@ -1,4 +1,4 @@
-openmediavault (6.4.1-1) stable; urgency=low
+openmediavault (6.4.1-2) stable; urgency=low
 
   * Update locale files.
   * Respect timezone when exposing shared folder snapshots to

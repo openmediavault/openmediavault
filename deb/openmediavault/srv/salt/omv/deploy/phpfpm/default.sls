@@ -25,7 +25,7 @@ prereq_phpfpm_service_monit:
     - sls: omv.deploy.monit
 
 include:
-{% for file in salt['file.find'](dirpath, iname='*.sls', print='name') | difference(['init.sls', 'default.sls']) %}
+{% for file in salt['file.find'](dirpath, iname='*.sls', print='name') | difference(['init.sls', 'default.sls']) | sort %}
   - .{{ file | replace('.sls', '') }}
 {% endfor %}
 
@@ -39,6 +39,8 @@ restart_phpfpm_service:
     - enable: True
     - require:
       - cmd: test_phpfpm_service_config
+    - watch:
+      - file: configure_phpfpm_webgui
 
 monitor_phpfpm_service:
   module.run:
