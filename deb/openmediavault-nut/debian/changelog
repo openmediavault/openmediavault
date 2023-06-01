@@ -1,3 +1,10 @@
+openmediavault-nut (6.0.4-1) stable; urgency=low
+
+  * Update locales.
+  * Make sure rendering of the Salt state will not break.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 01 Jun 2023 19:54:28 +0200
+
 openmediavault-nut (6.0.3-1) stable; urgency=low
 
   * Make plugin uninstallation more failure tolerant.

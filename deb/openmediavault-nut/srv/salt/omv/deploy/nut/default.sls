@@ -85,10 +85,10 @@ configure_nut_upsd_users:
     - template: jinja
     - context:
         config: {{ nut_config | json }}
-        admin_user: {{ admin_user }}
-        admin_passwd: {{ admin_passwd }}
-        monitor_user: {{ monitor_user }}
-        monitor_passwd: {{ monitor_passwd }}
+        admin_user: "{{ admin_user }}"
+        admin_passwd: "{{ admin_passwd }}"
+        monitor_user: "{{ monitor_user }}"
+        monitor_passwd: "{{ monitor_passwd }}"
     - user: root
     - group: nut
     - mode: 640
@@ -101,8 +101,8 @@ configure_nut_upsmon_conf:
     - template: jinja
     - context:
         config: {{ nut_config | json }}
-        monitor_user: {{ monitor_user }}
-        monitor_passwd: {{ monitor_passwd }}
+        monitor_user: "{{ monitor_user }}"
+        monitor_passwd: "{{ monitor_passwd }}"
     - user: root
     - group: nut
     - mode: 640
