@@ -58,7 +58,7 @@
     "chartjs-plugin-datalabels": "^2.2.0",
     "core-js": "~3.30.2",
     "cronstrue": "^2.27.0",
-    "dayjs": "^1.11.7",
+    "dayjs": "^1.11.8",
     "lodash": "^4.17.21",
     "ngx-scrollbar": "^10.0.1",
     "ngx-toastr": "^15.2.2",
