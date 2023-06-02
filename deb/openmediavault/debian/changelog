@@ -1,3 +1,9 @@
+openmediavault (6.4.2-1) stable; urgency=low
+
+  * Improve security of the openmediavault package repository.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 02 Jun 2023 21:07:59 +0200
+
 openmediavault (6.4.1-2) stable; urgency=low
 
   * Update locale files.

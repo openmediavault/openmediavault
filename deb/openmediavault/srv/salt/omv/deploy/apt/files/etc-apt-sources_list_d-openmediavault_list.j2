@@ -1,20 +1,21 @@
 {%- set repo_url = salt['pillar.get']('default:OMV_APT_REPOSITORY_URL', 'http://packages.openmediavault.org/public/') -%}
 {%- set alt_repo_url = salt['pillar.get']('default:OMV_APT_ALT_REPOSITORY_URL', 'https://openmediavault.github.io/packages/') -%}
-deb {{ repo_url }} {{ pillar['productinfo']['distribution'] }} main
-deb {{ alt_repo_url }} {{ pillar['productinfo']['distribution'] }} main
-# deb http://downloads.sourceforge.net/project/openmediavault/packages/ {{ pillar['productinfo']['distribution'] }} main
+{%- set signed_by_keyfile = salt['pillar.get']('default:OMV_APT_REPOSITORY_SIGNED_BY_KEYFILE', '/usr/share/keyrings/openmediavault-archive-keyring.gpg') -%}
+deb {% if signed_by_keyfile | length > 0 %}[signed-by={{ signed_by_keyfile }}]{% endif %} {{ repo_url }} {{ pillar['productinfo']['distribution'] }} main
+deb {% if signed_by_keyfile | length > 0 %}[signed-by={{ signed_by_keyfile }}]{% endif %} {{ alt_repo_url }} {{ pillar['productinfo']['distribution'] }} main
+# deb {% if signed_by_keyfile | length > 0 %}[signed-by={{ signed_by_keyfile }}]{% endif %} http://downloads.sourceforge.net/project/openmediavault/packages/ {{ pillar['productinfo']['distribution'] }} main
 
 {%- if config.proposed | to_bool %}
 ## Uncomment the following line to add software from the proposed repository.
-deb {{ repo_url }} {{ pillar['productinfo']['distribution'] }}-proposed main
-deb {{ alt_repo_url }} {{ pillar['productinfo']['distribution'] }}-proposed main
-# deb http://downloads.sourceforge.net/project/openmediavault/packages/ {{ pillar['productinfo']['distribution'] }}-proposed main
+deb {% if signed_by_keyfile | length > 0 %}[signed-by={{ signed_by_keyfile }}]{% endif %} {{ repo_url }} {{ pillar['productinfo']['distribution'] }}-proposed main
+deb {% if signed_by_keyfile | length > 0 %}[signed-by={{ signed_by_keyfile }}]{% endif %} {{ alt_repo_url }} {{ pillar['productinfo']['distribution'] }}-proposed main
+# deb {% if signed_by_keyfile | length > 0 %}[signed-by={{ signed_by_keyfile }}]{% endif %} http://downloads.sourceforge.net/project/openmediavault/packages/ {{ pillar['productinfo']['distribution'] }}-proposed main
 {%- endif %}
 
 {%- if config.partner | to_bool %}
 ## This software is not part of OpenMediaVault, but is offered by third-party
 ## developers as a service to OpenMediaVault users.
-deb {{ repo_url }} {{ pillar['productinfo']['distribution'] }} partner
-deb {{ alt_repo_url }} {{ pillar['productinfo']['distribution'] }} partner
-# deb http://downloads.sourceforge.net/project/openmediavault/packages/ {{ pillar['productinfo']['distribution'] }} partner
+deb {% if signed_by_keyfile | length > 0 %}[signed-by={{ signed_by_keyfile }}]{% endif %} {{ repo_url }} {{ pillar['productinfo']['distribution'] }} partner
+deb {% if signed_by_keyfile | length > 0 %}[signed-by={{ signed_by_keyfile }}]{% endif %} {{ alt_repo_url }} {{ pillar['productinfo']['distribution'] }} partner
+# deb {% if signed_by_keyfile | length > 0 %}[signed-by={{ signed_by_keyfile }}]{% endif %} http://downloads.sourceforge.net/project/openmediavault/packages/ {{ pillar['productinfo']['distribution'] }} partner
 {%- endif %}
