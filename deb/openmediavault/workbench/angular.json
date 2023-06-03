@@ -33,7 +33,8 @@
               "validator",
               "bezier-easing",
               "dayjs",
-              "@ngneat/transloco-keys-manager/marker"
+              "@ngneat/transloco-keys-manager/marker",
+              "nunjucks"
             ],
             "outputPath": "dist/openmediavault-workbench",
             "index": "src/index.html",
