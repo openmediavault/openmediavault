@@ -1,3 +1,4 @@
+@use 'scss/defaults/colors' as dc;
 @use 'scss/defaults/variables' as dv;
 
 .omv-about-page {
@@ -8,6 +9,47 @@
 
   .mat-card {
     margin: dv.$omv-margin;
+    padding: 0;
+
+    .titlebar {
+      display: flex;
+      flex-flow: row nowrap;
+      height: 20px;
+      background-color: dc.$omv-color-cobalt-blue;
+      color: dc.$omv-color-white;
+
+      .close {
+        background-image: url('^./assets/images/wb-tb-close.png');
+        width: 30px;
+        height: inherit;
+      }
+
+      .title {
+        background-color: dc.$omv-color-white;
+        color: dc.$omv-color-cobalt-blue;
+        font-family: sans-serif;
+      }
+
+      .mid {
+        background-image: url('^./assets/images/wb-tb-mid.png');
+        flex-grow: 1;
+      }
+
+      .position {
+        background-image: url('^./assets/images/wb-tb-position.png');
+        width: 53px;
+        height: inherit;
+      }
+    }
+  }
+
+  .mat-card-content {
+    border-left: 2px dc.$omv-color-white solid;
+    border-right: 2px dc.$omv-color-white solid;
+    border-bottom: 2px dc.$omv-color-white solid;
+    padding: dv.$omv-padding;
+    background-color: dc.$omv-color-cobalt-blue;
+    color: dc.$omv-color-white;
 
     .logo {
       .ascii-art {
@@ -37,8 +79,7 @@
 
 @keyframes decrunch {
   20% {
-    background:
-      #68d0a8
+    background: #68d0a8
       linear-gradient(
         to bottom,
         #68d0a8 10%,
@@ -81,8 +122,7 @@
   }
 
   40% {
-    background:
-      #b8b8b8
+    background: #b8b8b8
       linear-gradient(
         to bottom,
         #b8b8b8 5%,
@@ -123,8 +163,7 @@
   }
 
   60% {
-    background:
-      #e5e53e
+    background: #e5e53e
       linear-gradient(
         to bottom,
         #e5e53e 5%,
@@ -165,8 +204,7 @@
   }
 
   80% {
-    background:
-      #bb3ee5
+    background: #bb3ee5
       linear-gradient(
         to bottom,
         #bb3ee5 5%,
@@ -209,8 +247,7 @@
   }
 
   100% {
-    background:
-      #3e3ee5
+    background: #3e3ee5
       linear-gradient(
         to bottom,
         #3e3ee5 5%,
