@@ -2,15 +2,6 @@
 @use 'scss/defaults/colors' as dc;
 @use 'scss/theme';
 
-.mat-dialog-title {
-  display: flex;
-  align-items: center;
-
-  .mat-icon {
-    margin-right: 10px;
-  }
-}
-
 .mat-dialog-content {
   .omv-task-dialog-content {
     height: 300px;

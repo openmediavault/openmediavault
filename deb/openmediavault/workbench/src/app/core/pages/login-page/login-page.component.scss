@@ -54,8 +54,6 @@
 
     mat-toolbar {
       background-color: dc.$omv-color-transparent;
-      display: flex;
-      justify-content: flex-end;
     }
   }
 
@@ -81,9 +79,6 @@
 
     omv-intuition-form-page {
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
       ::ng-deep .mat-card {
         color: dc.$omv-color-white;

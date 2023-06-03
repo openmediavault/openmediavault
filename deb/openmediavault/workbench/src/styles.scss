@@ -72,13 +72,13 @@ $omv-dark-theme: mat.define-dark-theme(
 ////////////////////////////////////////////////////////////////////////////////
 // Orientation
 .omv-vertical-align {
-  display: flex;
-  align-items: center;
+  @extend .omv-flex;
+  @extend .omv-items-center;
 }
 
 .omv-horizontal-align {
-  display: flex;
-  justify-content: center;
+  @extend .omv-flex;
+  @extend .omv-justify-center;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -358,6 +358,52 @@ $omv-dark-theme: mat.define-dark-theme(
 .omv-py-q {
   @extend .omv-pt-q;
   @extend .omv-pb-q;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Flex
+.omv-flex {
+  display: flex !important;
+}
+
+.omw-flex-row {
+  flex-direction: row;
+}
+
+.omw-flex-column {
+  flex-direction: column;
+}
+
+.omw-flex-grow {
+  flex-grow: 1;
+}
+
+.omw-flex-grow-0 {
+  flex-grow: 0;
+}
+
+.omv-justify-start {
+  justify-content: flex-start;
+}
+
+.omv-justify-end {
+  justify-content: flex-end;
+}
+
+.omv-justify-center {
+  justify-content: center;
+}
+
+.omv-items-start {
+  align-items: flex-start;
+}
+
+.omv-items-end {
+  align-items: flex-end;
+}
+
+.omv-items-center {
+  align-items: center;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

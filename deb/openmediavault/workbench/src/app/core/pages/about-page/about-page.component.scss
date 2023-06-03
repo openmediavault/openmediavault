@@ -12,8 +12,6 @@
     padding: 0;
 
     .titlebar {
-      display: flex;
-      flex-flow: row nowrap;
       height: 20px;
       background-color: dc.$omv-color-cobalt-blue;
       color: dc.$omv-color-white;
@@ -32,7 +30,6 @@
 
       .mid {
         background-image: url('^./assets/images/wb-tb-mid.png');
-        flex-grow: 1;
       }
 
       .position {

@@ -1,6 +1,8 @@
 <h1 *ngIf="config.title"
+    class="omv-flex omv-items-center"
     mat-dialog-title>
   <mat-icon *ngIf="config.icon"
+            class="omv-pr-h"
             svgIcon="{{ config.icon }}">
   </mat-icon>
   {{ config.title | transloco }}

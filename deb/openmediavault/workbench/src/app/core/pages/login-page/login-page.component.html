@@ -5,7 +5,7 @@
                   secondaryColor="#f8d400">
   </omv-green-rain>
   <div class="toolbar">
-    <mat-toolbar>
+    <mat-toolbar class="omv-flex omv-justify-end">
       <button mat-icon-button
               matTooltip="{{ 'Language' | transloco }}"
               [matMenuTriggerFor]="localeMenu">
@@ -19,7 +19,9 @@
     <div class="logo"></div>
   </div>
   <div class="content">
-    <omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>
+    <omv-intuition-form-page class="omv-flex omv-justify-center omv-items-center"
+                             [config]="this.config">
+    </omv-intuition-form-page>
   </div>
 </div>
 
