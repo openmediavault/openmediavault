@@ -26,10 +26,17 @@
         background-color: dc.$omv-color-white;
         color: dc.$omv-color-cobalt-blue;
         font-family: sans-serif;
+        padding-left: 4px;
+        padding-right: 4px;
       }
 
       .mid {
         background-image: url('^./assets/images/wb-tb-mid.png');
+      }
+
+      .mid-end {
+        background-color: dc.$omv-color-white;
+        width: 3px;
       }
 
       .position {
@@ -64,6 +71,10 @@
           animation: scroll-left 30s infinite linear;
         }
       }
+    }
+
+    .cursor {
+      color: dc.$omv-color-dark-orange;
     }
   }
 }
