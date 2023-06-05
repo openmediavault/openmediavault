@@ -1,6 +1,6 @@
 openmediavault (6.4.3-1) stable; urgency=low
 
-  *
+  * Issue #1558: Fix file system creation on bcache devices.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 05 Jun 2023 00:12:24 +0200
 
