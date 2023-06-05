@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { ɵMockMatchMediaProvider } from '@angular/flex-layout';
 import { ToastrModule } from 'ngx-toastr';
 
 import { ComponentsModule } from '~/app/core/components/components.module';
@@ -12,7 +11,6 @@ describe('WorkbenchLayoutComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      providers: [ɵMockMatchMediaProvider],
       imports: [ComponentsModule, TestingModule, ToastrModule.forRoot()]
     }).compileComponents();
   }));

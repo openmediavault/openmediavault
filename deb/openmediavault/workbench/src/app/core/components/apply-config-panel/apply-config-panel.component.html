@@ -3,10 +3,7 @@
                  icon="information"
                  title="{{ 'Pending configuration changes' | transloco }}"
                  [buttons]="buttons">
-  <div class="omv-cursor-pointer"
-       fxFlex
-       fxLayout="column"
-       fxLayoutAlign="center start"
+  <div class="omv-cursor-pointer omv-display-flex omv-flex-column omv-align-items-start omv-align-content-start omv-justify-content-center"
        (click)="expanded = !expanded">
     {{ 'You must apply these changes in order for them to take effect.' | transloco }}
     <div class="details"

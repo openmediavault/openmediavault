@@ -17,8 +17,8 @@
     </omv-intuition-form>
   </mat-card-content>
   <mat-card-actions *ngIf="config.buttons.length"
-                    fxLayout="row"
-                    [fxLayoutAlign]="config.buttonAlign">
+                    class="omv-display-flex omv-flex-row"
+                    [ngClass]="{'omv-justify-content-start': config.buttonAlign === 'start', 'omv-justify-content-center': config.buttonAlign === 'center', 'omv-justify-content-end': config.buttonAlign === 'end'}">
     <ng-container *ngFor="let button of config.buttons">
       <omv-submit-button *ngIf="button.template === 'submit'"
                          [form]="config.id"

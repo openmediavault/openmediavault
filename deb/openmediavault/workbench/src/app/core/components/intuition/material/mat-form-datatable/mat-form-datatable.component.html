@@ -14,8 +14,7 @@
                [sorters]="sorters"
                [sortType]="sortType"
                (cellDataChangedEvent)="onCellDataChanged($event)">
-  <omv-datatable-actions fxFlex
-                         [actions]="actions"
+  <omv-datatable-actions [actions]="actions"
                          [selection]="selection"
                          [table]="table">
   </omv-datatable-actions>

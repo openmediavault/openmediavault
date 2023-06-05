@@ -1,5 +1,5 @@
 <mat-form-field *ngIf="config.dirVisible"
-                fxFlex="25"
+                class="omv-flex-initial omv-w-25"
                 [formGroup]="formGroup">
   <mat-label>{{ 'Base path' | transloco }}</mat-label>
   <input *ngIf="config.dirVisible"
@@ -14,7 +14,7 @@
 <mat-form-field #origin="cdkOverlayOrigin"
                 #trigger
                 cdkOverlayOrigin
-                fxFlex
+                class="omv-flex-1"
                 [formGroup]="formGroup">
   <div *ngIf="config.icon"
        matPrefix>
@@ -71,11 +71,8 @@
              (backdropClick)="close()"
              (detach)="close()">
   <div class="mat-select-panel-wrap">
-    <div class="mat-select-panel mat-primary"
-         fxLayout="column">
-      <mat-toolbar class="omv-selection-header"
-                   fxLayout="row"
-                   fxLayoutAlign="end center">
+    <div class="mat-select-panel mat-primary">
+      <mat-toolbar class="omv-selection-header omv-display-flex omv-flex-row omv-justify-content-end">
         <mat-form-field>
           <button mat-icon-button
                   matPrefix>
@@ -113,16 +110,14 @@
           </mat-list-option>
         </mat-selection-list>
       </div>
-      <div class="omv-selection-actions"
-           fxLayout="row"
-           fxLayoutAlign="start center">
+      <div class="omv-selection-actions omv-display-flex omv-flex-row omv-justify-content-start omv-align-items-center">
         <mat-icon class="omv-text-muted omv-mr-q"
                   svgIcon="mdi:folder-open">
         </mat-icon>
         <div class="omv-text-muted">
           {{ currentPath }}
         </div>
-        <div fxFlex></div>
+        <div class="omv-flex-1"></div>
         <button mat-flat-button
                 (click)="close()">
           {{ 'Cancel' | transloco }}

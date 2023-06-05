@@ -7,8 +7,8 @@
     {{ item.text | transloco }}
   </div>
   <div *ngIf="item.children?.length > 0"
-       fxFlex>
-    <div fxFlex></div>
+       class="omv-display-flex omv-flex-row omv-flex-1">
+    <div class="omv-flex-1"></div>
     <mat-icon svgIcon="{{ item.expanded ? icon.chevronDown : icon.chevronRight }}"></mat-icon>
   </div>
 </mat-list-item>

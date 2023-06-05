@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -44,7 +43,6 @@ import { PipesModule } from '~/app/shared/pipes/pipes.module';
     NgxDatatableModule,
     TranslocoModule,
     FormsModule,
-    FlexLayoutModule,
     DirectivesModule
   ]
 })

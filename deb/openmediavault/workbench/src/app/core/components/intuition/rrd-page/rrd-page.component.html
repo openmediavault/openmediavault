@@ -52,18 +52,14 @@
 <ng-template #renderRrdGraph
              let-name>
   <mat-card>
-    <mat-toolbar fxLayout="row"
-                 class="omv-sticky">
-      <span fxFlex></span>
+    <mat-toolbar class="omv-display-flex omv-flex-row omv-justify-content-end omv-sticky">
       <button mat-icon-button
               matTooltip="{{ 'Reload' | transloco }}"
               (click)="onGenerate()">
-        <mat-icon svgIcon="{{ icon.reload }}">
-        </mat-icon>
+        <mat-icon svgIcon="{{ icon.reload }}"></mat-icon>
       </button>
     </mat-toolbar>
-    <mat-card-content fxLayout="column"
-                      fxLayoutAlign="start center">
+    <mat-card-content class="omv-display-flex omv-flex-column omv-justify-content-start omv-align-items-center">
       <div>
         <img src="rrd.php?name={{ name }}-hour.png&time={{ time }}"
              loading="lazy"

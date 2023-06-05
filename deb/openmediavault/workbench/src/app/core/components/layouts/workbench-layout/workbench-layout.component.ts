@@ -15,8 +15,8 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MediaObserver } from '@angular/flex-layout';
 import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
 import { Event, NavigationEnd, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
@@ -65,7 +65,7 @@ export class WorkbenchLayoutComponent implements OnInit {
     private authSessionService: AuthSessionService,
     private blockUiService: BlockUiService,
     private dashboardWidgetConfigService: DashboardWidgetConfigService,
-    private media: MediaObserver,
+    private breakpointObserver: BreakpointObserver,
     private navigationConfig: NavigationConfigService,
     private notificationService: NotificationService,
     private prefersColorSchemeService: PrefersColorSchemeService,
@@ -89,7 +89,7 @@ export class WorkbenchLayoutComponent implements OnInit {
         })
     );
     this.subscriptions.add(
-      media.asObservable().subscribe(() => {
+      breakpointObserver.observe([Breakpoints.XSmall, Breakpoints.Small]).subscribe(() => {
         this.updateState();
       })
     );
@@ -108,7 +108,9 @@ export class WorkbenchLayoutComponent implements OnInit {
   }
 
   private updateState() {
-    this.isSmallScreen = this.media.isActive('xs') || this.media.isActive('sm');
+    this.isSmallScreen =
+      this.breakpointObserver.isMatched(Breakpoints.XSmall) ||
+      this.breakpointObserver.isMatched(Breakpoints.Small);
     setTimeout(() => {
       this.sideNavOpened = !this.isSmallScreen;
       this.sideNavMode = this.isSmallScreen ? 'over' : 'side';

@@ -11,125 +11,142 @@
              let-field>
   <ng-container [ngSwitch]="field.type">
     <ng-template [ngSwitchCase]="'button'">
-      <omv-form-button [config]="field"
+      <omv-form-button class="omv-display-flex"
+                       [config]="field"
                        [formGroup]="formGroup">
       </omv-form-button>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'iconButton'">
-      <omv-form-icon-button [config]="field"
+      <omv-form-icon-button class="omv-display-flex"
+                            [config]="field"
                             [formGroup]="formGroup">
       </omv-form-icon-button>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'textInput'">
-      <omv-form-text-input [config]="field"
+      <omv-form-text-input class="omv-display-flex"
+                           [config]="field"
                            [formGroup]="formGroup">
       </omv-form-text-input>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'tagInput'">
-      <omv-form-tag-input [config]="field"
+      <omv-form-tag-input class="omv-display-flex"
+                          [config]="field"
                           [formGroup]="formGroup">
       </omv-form-tag-input>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'numberInput'">
-      <omv-form-number-input [config]="field"
+      <omv-form-number-input class="omv-display-flex"
+                             [config]="field"
                              [formGroup]="formGroup">
       </omv-form-number-input>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'binaryUnitInput'">
-      <omv-form-binary-unit-input [config]="field"
+      <omv-form-binary-unit-input class="omv-display-flex"
+                                  [config]="field"
                                   [formGroup]="formGroup">
       </omv-form-binary-unit-input>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'folderBrowser'">
-      <omv-form-folderbrowser [config]="field"
+      <omv-form-folderbrowser class="omv-display-flex"
+                              [config]="field"
                               [formGroup]="formGroup">
       </omv-form-folderbrowser>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'checkbox'">
-      <omv-form-checkbox [config]="field"
+      <omv-form-checkbox class="omv-display-flex"
+                         [config]="field"
                          [formGroup]="formGroup">
       </omv-form-checkbox>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'passwordInput'">
-      <omv-form-password-input [config]="field"
+      <omv-form-password-input class="omv-display-flex"
+                               [config]="field"
                                [formGroup]="formGroup">
       </omv-form-password-input>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'textarea'">
-      <omv-form-textarea [config]="field"
+      <omv-form-textarea class="omv-display-flex"
+                         [config]="field"
                          [formGroup]="formGroup">
       </omv-form-textarea>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'select'">
-      <omv-form-select [config]="field"
+      <omv-form-select class="omv-display-flex"
+                       [config]="field"
                        [formGroup]="formGroup">
       </omv-form-select>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'sharedFolderSelect'">
-      <omv-form-sharedfolder-select [config]="field"
+      <omv-form-sharedfolder-select class="omv-display-flex"
+                                    [config]="field"
                                     [formGroup]="formGroup">
       </omv-form-sharedfolder-select>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'sshCertSelect'">
-      <omv-form-sshcert-select [config]="field"
+      <omv-form-sshcert-select class="omv-display-flex"
+                               [config]="field"
                                [formGroup]="formGroup">
       </omv-form-sshcert-select>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'sslCertSelect'">
-      <omv-form-sslcert-select [config]="field"
+      <omv-form-sslcert-select class="omv-display-flex"
+                               [config]="field"
                                [formGroup]="formGroup">
       </omv-form-sslcert-select>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'divider'">
-      <omv-form-divider [config]="field"
+      <omv-form-divider class="omv-display-flex"
+                        [config]="field"
                         [formGroup]="formGroup">
       </omv-form-divider>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'paragraph'">
-      <omv-form-paragraph [config]="field"
+      <omv-form-paragraph class="omv-display-flex"
+                          [config]="field"
                           [formGroup]="formGroup">
       </omv-form-paragraph>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'datePicker'">
-      <omv-form-datepicker [config]="field"
+      <omv-form-datepicker class="omv-display-flex"
+                           [config]="field"
                            [formGroup]="formGroup">
       </omv-form-datepicker>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'datatable'">
-      <omv-form-datatable [config]="field"
+      <omv-form-datatable class="omv-display-flex"
+                          [config]="field"
                           [formGroup]="formGroup">
       </omv-form-datatable>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'slider'">
-      <omv-form-slider [config]="field"
+      <omv-form-slider class="omv-display-flex"
+                       [config]="field"
                        [formGroup]="formGroup">
       </omv-form-slider>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'container'">
-      <div class="omv-form-container"
-           fxLayout="row">
+      <div class="omv-form-container omv-display-flex omv-flex-row">
         <div *ngFor="let innerField of field.fields"
-             class="omv-form-container-item"
-             [fxFlex]="innerField.flex ? innerField.flex : ''">
+             class="omv-form-container-item omv-w-{{ innerField.flex ?? 100 }}">
           <ng-container [ngTemplateOutlet]="renderFormField"
                         [ngTemplateOutletContext]="{ $implicit: innerField }">
           </ng-container>
@@ -138,19 +155,22 @@
     </ng-template>
 
     <ng-template [ngSwitchCase]="'fileInput'">
-      <omv-form-file-input [config]="field"
+      <omv-form-file-input class="omv-display-flex"
+                           [config]="field"
                            [formGroup]="formGroup">
       </omv-form-file-input>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'hint'">
-      <omv-form-hint [config]="field"
+      <omv-form-hint class="omv-display-flex"
+                     [config]="field"
                      [formGroup]="formGroup">
       </omv-form-hint>
     </ng-template>
 
     <ng-template [ngSwitchCase]="'codeEditor'">
-      <omv-form-code-editor [config]="field"
+      <omv-form-code-editor class="omv-display-flex"
+                            [config]="field"
                             [formGroup]="formGroup">
       </omv-form-code-editor>
     </ng-template>

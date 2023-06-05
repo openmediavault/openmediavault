@@ -50,7 +50,8 @@ export class DashboardWidgetChartComponent implements OnInit {
   config: DashboardWidgetConfig;
 
   public chart?: Chart;
-  public chartWidth?: number;
+  // The chart width in percent.
+  public chartWidth?: 25 | 50 | 75 | 100;
   public data: Record<string, any>;
 
   constructor() {}

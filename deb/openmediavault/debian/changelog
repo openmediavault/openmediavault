@@ -1,6 +1,7 @@
-openmediavault (6.6.1-1) stable; urgency=low
+openmediavault (6.7.0-1) stable; urgency=low
 
   * Various improvements.
+  * Issue #1576: Getting rid of `@angular/flex-layout`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 19 Aug 2023 14:32:14 +0200
 

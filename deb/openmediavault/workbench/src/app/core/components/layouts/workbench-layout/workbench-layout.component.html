@@ -1,5 +1,5 @@
 <mat-sidenav-container *ngIf="!loading"
-                       fxFlexFill
+                       class="omv-flex-fill"
                        autosize>
   <mat-sidenav #navigationSidenav
                id="omv-workbench-navigation"
@@ -8,7 +8,7 @@
                [opened]="sideNavOpened">
     <omv-navigation-bar></omv-navigation-bar>
   </mat-sidenav>
-  <mat-sidenav-content fxLayout="column">
+  <mat-sidenav-content class="omv-display-flex omv-flex-column">
     <omv-top-bar (navigationToggleChange)="onToggleNavigation()"
                  (notificationToggleChange)="onToggleNotification()">
     </omv-top-bar>

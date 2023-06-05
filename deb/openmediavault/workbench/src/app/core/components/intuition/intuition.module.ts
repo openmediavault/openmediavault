@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslocoModule } from '@ngneat/transloco';
@@ -93,7 +92,6 @@ import { SharedModule } from '~/app/shared/shared.module';
     CommonModule,
     SharedModule,
     MaterialModule,
-    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
     TranslocoModule,

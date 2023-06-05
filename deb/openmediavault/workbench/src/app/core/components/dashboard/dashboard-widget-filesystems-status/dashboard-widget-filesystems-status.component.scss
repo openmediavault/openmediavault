@@ -3,6 +3,7 @@
 
 .widget-content {
   padding: 0 dv.$omv-padding dv.$omv-padding;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 
   .item {
     border-left: 3px solid;

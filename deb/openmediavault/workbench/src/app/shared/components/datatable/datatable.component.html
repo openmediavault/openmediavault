@@ -1,9 +1,9 @@
 <mat-toolbar *ngIf="hasActionBar"
-             [ngClass]="{'omv-sticky': hasStickyActionBar}"
-             fxLayout="row">
+             class="omv-display-flex"
+             [ngClass]="{'omv-sticky': hasStickyActionBar}">
   <!-- Custom action buttons -->
   <ng-content select="omv-datatable-actions"></ng-content>
-  <span fxFlex></span>
+  <span class="omv-flex-1"></span>
   <!-- Default action buttons -->
   <button *ngIf="stateId"
           mat-icon-button
@@ -182,10 +182,10 @@
              let-value="value"
              let-column="column"
              let-row="row">
-  <mat-button-toggle-group fxLayout="row"
+  <mat-button-toggle-group class="omv-display-flex omv-flex-row"
                            value="{{ value }}">
     <mat-button-toggle *ngFor="let button of column.cellTemplateConfig.buttons"
-                       fxFlex
+                       class="omv-flex-1"
                        [value]="button.value"
                        (change)="onButtonToggleChange($event, row, column)">
       <span>{{ button.text }}</span>

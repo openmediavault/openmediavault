@@ -2,9 +2,7 @@
                       [loadData]="loadData.bind(this)"
                       (dataChangedEvent)="dataChanged($event)">
   <div *ngIf="data"
-       class="widget-content"
-       gdGap="8px"
-       gdColumns="repeat(2, 1fr)">
+       class="widget-content omv-grid omv-gap-2 omv-grid-cols-2">
     <div class="omv-grid-cell">
       <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Hostname' | transloco }}</div>
       <div>{{ data?.hostname }}</div>

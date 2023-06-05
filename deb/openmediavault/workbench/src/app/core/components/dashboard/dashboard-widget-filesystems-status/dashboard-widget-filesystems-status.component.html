@@ -2,17 +2,13 @@
                       [loadData]="loadData.bind(this)"
                       (dataChangedEvent)="dataChanged($event)">
   <div *ngIf="data"
-       class="widget-content"
-       gdGap="8px"
-       gdColumns="repeat(auto-fit, minmax(100px, 1fr))">
+       class="widget-content omv-grid omv-gap-2">
     <div *ngIf="!data.total">
       <span>{{ 'No data to display.' | transloco }}</span>
     </div>
     <div *ngFor="let item of data.data"
-         class="item"
-         [ngClass]="{'error': item.status === 3, 'warning': (item.status === 1) && !item.mounted}"
-         fxLayout="column"
-         fxLayoutAlign="start stretch">
+         class="item omv-display-flex omv-flex-column omv-align-content-stretch omv-justify-content-start omv-align-items-stretch"
+         [ngClass]="{'error': item.status === 3, 'warning': (item.status === 1) && !item.mounted}">
       <div class="item-text omv-text-truncate">
         {{ item.canonicaldevicefile }}
       </div>
