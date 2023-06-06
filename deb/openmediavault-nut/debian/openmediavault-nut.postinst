@@ -91,6 +91,9 @@ case "$1" in
 			omv-mkconf monit
 			monit reload
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.5"; then
+			omv_module_set_dirty nut
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
