@@ -32,7 +32,8 @@ openmediavault (6.4.0-3) stable; urgency=low
     The `Primary` field is only used by the `active-backup`,
     `balance-tlb` and `balance-alb` modes.
   * Improve DNS configuration. systemd-resolved is now fully
-    responsible for network name resolution.
+    responsible for network name resolution. It is operated in
+    stub mode.
   * Add snapshot lifecycle management to clean up snapshots of shared
     folders according to given rules. The tool `omv-sfsnapadm` is
     called hourly by a cron job to do the cleanup. The settings can
