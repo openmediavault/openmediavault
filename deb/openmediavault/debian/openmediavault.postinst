@@ -465,6 +465,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "6.4.2"; then
 			omv_module_set_dirty apt
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.4.4"; then
+			omv_module_set_dirty samba
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the

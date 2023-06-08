@@ -1,6 +1,7 @@
 openmediavault (6.4.4-1) stable; urgency=low
 
-  *
+  * Issue #420: Fix SMB issue with Btrfs subvolumes. The incorrect
+    displayed share size in Windows should be fixed as well.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 07 Jun 2023 00:14:51 +0200
 
