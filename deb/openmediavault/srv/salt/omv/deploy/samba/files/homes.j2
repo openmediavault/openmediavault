@@ -18,6 +18,8 @@
 {%- set recycle_exclude = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_EXCLUDE', '') -%}
 {%- set recycle_exclude_dir = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_EXCLUDEDIR', '.recycle') -%}
 {%- set shadow_sort = salt['pillar.get']('default:OMV_SAMBA_SHARE_SHADOW_SORT', 'desc') -%}
+{%- set dfree_command = salt['pillar.get']('default:OMV_SAMBA_HOMES_DFREECOMMAND', '/usr/sbin/omv-btrfs-dfree') -%}
+{%- set dfree_cache_time = salt['pillar.get']('default:OMV_SAMBA_HOMES_DFREECACHETIME', '60') -%}
 #======================= Home Directories =======================
 [homes]
 comment = {{ comment }}
@@ -56,5 +58,7 @@ shadow:format = _%Y%m%dT%H%M%S
 shadow:delimiter = _
 shadow:snapprefix = ^homes\(@hourly\)\{0,1\}\(@daily\)\{0,1\}\(@weekly\)\{0,1\}\(@monthly\)\{0,1\}\(@yearly\)\{0,1\}$
 shadow:localtime = {{ (salt['timezone.get_offset']() != '+0000') | yesno }}
+dfree command = {{ dfree_command }}
+dfree cache time = {{ dfree_cache_time }}
 {%- endif %}
 vfs objects = {{ vfs_objects | unique | join(' ') }}

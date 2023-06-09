@@ -28,6 +28,8 @@
 {%- set fruit_wipe_intentionally_left_blank_rfork = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_WIPEINTENTIONALLYLEFTBLANKRFORK', 'yes') -%}
 {%- set fruit_delete_empty_adfiles = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_DELETEEMPTYADFILES', 'yes') -%}
 {%- set shadow_sort = salt['pillar.get']('default:OMV_SAMBA_SHARE_SHADOW_SORT', 'desc') -%}
+{%- set dfree_command = salt['pillar.get']('default:OMV_SAMBA_SHARE_DFREECOMMAND', '/usr/sbin/omv-btrfs-dfree') -%}
+{%- set dfree_cache_time = salt['pillar.get']('default:OMV_SAMBA_SHARE_DFREECACHETIME', '60') -%}
 #======================= Share Definitions =======================
 {%- for share in config.shares.share | selectattr('enable') %}
 {%- set sf_name = salt['omv_conf.get_sharedfolder_name'](share.sharedfolderref) %}
@@ -96,6 +98,8 @@ shadow:format = _%Y%m%dT%H%M%S
 shadow:delimiter = _
 shadow:snapprefix = ^{{ sf_name }}\(@hourly\)\{0,1\}\(@daily\)\{0,1\}\(@weekly\)\{0,1\}\(@monthly\)\{0,1\}\(@yearly\)\{0,1\}$
 shadow:localtime = {{ (salt['timezone.get_offset']() != '+0000') | yesno }}
+dfree command = {{ dfree_command }}
+dfree cache time = {{ dfree_cache_time }}
 {%- endif %}
 vfs objects = {{ vfs_objects | unique | join(' ') }}
 printable = {{ printable }}
