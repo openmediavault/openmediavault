@@ -29,7 +29,7 @@
 {%- set fruit_delete_empty_adfiles = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_DELETEEMPTYADFILES', 'yes') -%}
 {%- set shadow_sort = salt['pillar.get']('default:OMV_SAMBA_SHARE_SHADOW_SORT', 'desc') -%}
 {%- set dfree_command = salt['pillar.get']('default:OMV_SAMBA_SHARE_DFREECOMMAND', '/usr/sbin/omv-btrfs-dfree') -%}
-{%- set dfree_cache_time = salt['pillar.get']('default:OMV_SAMBA_SHARE_DFREECACHETIME', '60') -%}
+{%- set dfree_cache_time = salt['pillar.get']('default:OMV_SAMBA_SHARE_DFREECACHETIME', '30') -%}
 #======================= Share Definitions =======================
 {%- for share in config.shares.share | selectattr('enable') %}
 {%- set sf_name = salt['omv_conf.get_sharedfolder_name'](share.sharedfolderref) %}
