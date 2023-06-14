@@ -18,14 +18,19 @@
 import { Component, OnInit } from '@angular/core';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
+import { Subscription } from 'rxjs';
 
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { MkfsConfig, MkfsConfigService } from '~/app/core/services/mkfs-config.service';
+import { Unsubscribe } from '~/app/decorators';
 
 @Component({
   template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
 })
 export class FilesystemDatatablePageComponent implements OnInit {
+  @Unsubscribe()
+  private subscriptions: Subscription = new Subscription();
+
   public config: DatatablePageConfig = {
     stateId: '66d9d2ce-2fee-11ea-8386-e3eba0cf8f78',
     autoReload: 10000,
@@ -312,19 +317,21 @@ export class FilesystemDatatablePageComponent implements OnInit {
   constructor(private mkfsConfigService: MkfsConfigService) {}
 
   ngOnInit(): void {
-    this.mkfsConfigService.configs$.subscribe((configs: MkfsConfig[]) => {
-      // @ts-ignore
-      this.config.actions[1].actions = _.chain(configs)
-        .sortBy(['text'])
-        .map((config) => ({
-          type: 'button',
-          text: config.text,
-          execute: {
-            type: 'url',
-            url: config.url
-          }
-        }))
-        .value();
-    });
+    this.subscriptions.add(
+      this.mkfsConfigService.configs$.subscribe((configs: MkfsConfig[]) => {
+        // @ts-ignore
+        this.config.actions[1].actions = _.chain(configs)
+          .sortBy(['text'])
+          .map((config) => ({
+            type: 'button',
+            text: config.text,
+            execute: {
+              type: 'url',
+              url: config.url
+            }
+          }))
+          .value();
+      })
+    );
   }
 }

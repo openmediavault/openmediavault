@@ -15,13 +15,14 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
+import { Unsubscribe } from '~/app/decorators';
 import { translate } from '~/app/i18n.helper';
 import { AlertPanelButtonConfig } from '~/app/shared/components/alert-panel/alert-panel.component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
@@ -42,13 +43,14 @@ import {
   styleUrls: ['./apply-config-panel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ApplyConfigPanelComponent implements OnDestroy {
+export class ApplyConfigPanelComponent {
+  @Unsubscribe()
+  private subscriptions: Subscription = new Subscription();
+
   public icon = Icon;
   public dirtyModules: Record<string, string> = {};
   public expanded = false;
   public buttons: AlertPanelButtonConfig[] = [];
-
-  private subscription: Subscription;
 
   constructor(
     private blockUiService: BlockUiService,
@@ -59,11 +61,11 @@ export class ApplyConfigPanelComponent implements OnDestroy {
     private rpcService: RpcService,
     private systemInformationService: SystemInformationService
   ) {
-    this.subscription = this.systemInformationService.systemInfo$.subscribe(
-      (res: SystemInformation) => {
+    this.subscriptions.add(
+      this.systemInformationService.systemInfo$.subscribe((res: SystemInformation) => {
         this.dirtyModules = _.get(res, 'dirtyModules', {});
         this.cd.markForCheck();
-      }
+      })
     );
     this.buttons = [
       {
@@ -82,10 +84,6 @@ export class ApplyConfigPanelComponent implements OnDestroy {
         click: this.onApplyPendingChanges.bind(this)
       }
     ];
-  }
-
-  ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
   }
 
   onApplyPendingChanges(): void {
