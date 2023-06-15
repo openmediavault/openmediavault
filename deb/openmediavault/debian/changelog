@@ -1,6 +1,7 @@
 openmediavault (6.4.5-1) stable; urgency=low
 
-  *
+  * Disable smtpd in Postfix. It is not necessary in sent-only
+    satellite mode.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 13 Jun 2023 18:31:48 +0200
 
