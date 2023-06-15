@@ -66,6 +66,7 @@ export type DatatablePageConfig = {
   // Defaults to `false`.
   autoReload?: boolean | number;
   sorters?: Array<Sorter>;
+  sortType?: 'single' | 'multi';
   store?: DataStore;
   actions?: Array<DatatablePageActionConfig>;
   // The page footer buttons.

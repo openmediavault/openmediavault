@@ -348,6 +348,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
       columns: [],
       actions: [],
       sorters: [],
+      sortType: 'single',
       buttonAlign: 'end',
       buttons: []
     });

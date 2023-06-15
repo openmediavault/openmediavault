@@ -88,6 +88,7 @@ export type DashboardWidgetConfig = {
     columns: Array<DatatableColumn>;
     columnMode?: 'standard' | 'flex' | 'force';
     sorters?: Array<Sorter>;
+    sortType?: 'single' | 'multi';
     // The data to be displayed.
     store: DataStore;
     hasHeader?: boolean; // Defaults to `true`.

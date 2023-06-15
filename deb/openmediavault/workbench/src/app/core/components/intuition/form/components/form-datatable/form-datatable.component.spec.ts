@@ -30,6 +30,7 @@ describe('FormDatatableComponent', () => {
       columns: [],
       actions: [],
       sorters: [],
+      sortType: 'single',
       valueType: 'object'
     };
     const formBuilder = TestBed.inject(FormBuilder);

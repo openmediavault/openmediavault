@@ -52,6 +52,8 @@ export class DashboardWidgetDatatableComponent implements OnInit {
         hasHeader: true,
         hasFooter: false,
         columns: [],
+        sorters: [],
+        sortType: 'single',
         store: {
           data: []
         }

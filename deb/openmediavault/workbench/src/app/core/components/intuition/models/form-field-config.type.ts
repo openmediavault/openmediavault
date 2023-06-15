@@ -299,6 +299,7 @@ export type FormFieldConfig = {
   selectionType?: 'none' | 'single' | 'multi';
   limit?: number;
   sorters?: Array<Sorter>;
+  sortType?: 'single' | 'multi';
   actions?: Array<MatFormDatatableAction>;
   // Specifies the type of the array items. Defaults to `object`.
   valueType?: 'string' | 'integer' | 'number' | 'object';

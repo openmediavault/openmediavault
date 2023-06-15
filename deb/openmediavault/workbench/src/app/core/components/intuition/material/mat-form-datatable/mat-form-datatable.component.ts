@@ -190,6 +190,9 @@ export class MatFormDatatableComponent
   sorters?: Sorter[] = [];
 
   @Input()
+  sortType?: 'single' | 'multi' = 'single';
+
+  @Input()
   selectionType?: 'none' | 'single' | 'multi' = 'multi';
 
   @Input()

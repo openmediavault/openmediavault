@@ -125,6 +125,7 @@ export class FormComponent implements AfterViewInit, OnInit {
             columns: [],
             actions: [],
             sorters: [],
+            sortType: 'single',
             valueType: 'object'
           });
           break;

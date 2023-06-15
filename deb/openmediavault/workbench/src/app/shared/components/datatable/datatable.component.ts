@@ -210,6 +210,13 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   @Input()
   remoteSearching = false;
 
+  // Sorting mode. In "single" mode, clicking on a column name will
+  // reset the existing sorting before sorting by the new selection.
+  // In multi selection mode, additional clicks on column names will
+  // add sorting using multiple columns.
+  @Input()
+  sortType?: 'single' | 'multi' = 'single';
+
   // Ordered array of objects used to determine sorting by column.
   @Input()
   sorters?: Sorter[] = [];
