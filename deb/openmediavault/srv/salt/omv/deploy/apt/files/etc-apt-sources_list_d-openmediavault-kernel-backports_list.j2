@@ -3,5 +3,6 @@
 deb {{ repo_url }} {{ grains['oscodename'] }}-backports main restricted universe
 {%- else -%}
 {%- set repo_url = salt['pillar.get']('default:OMV_APT_KERNEL_BACKPORTS_REPOSITORY_URL', 'http://httpredir.debian.org/debian') -%}
-deb {{ repo_url }} {{ grains['oscodename'] }}-backports main contrib non-free
+{%- set signed_by_keyfile = salt['pillar.get']('default:OMV_APT_KERNEL_BACKPORTS_REPOSITORY_SIGNED_BY_KEYFILE', '/etc/apt/trusted.gpg.d/debian-archive-' ~ grains['oscodename'] ~ '-automatic.gpg') -%}
+deb {% if signed_by_keyfile | length > 0 %}[signed-by={{ signed_by_keyfile }}]{% endif %} {{ repo_url }} {{ grains['oscodename'] }}-backports main contrib non-free
 {%- endif %}
