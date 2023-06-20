@@ -106,9 +106,11 @@ remove_apt_sources_list_omv_security_obsolete:
 # errors related to duplicate definitions.
 {% for security_pkg_repo in security_pkg_repos %}
 remove_apt_sources_list_security_{{ loop.index0 }}:
-  module.run:
-    - pkg.del_repo:
-      - repo: "{{ security_pkg_repo.line }}"
+  file.line:
+    - name: {{ security_pkg_repo.file }}
+    - match: {{ security_pkg_repo.line | regex_escape }}
+    - mode: delete
+    - quiet: True
 {% endfor %}
 
 {% if use_os_security | to_bool %}
