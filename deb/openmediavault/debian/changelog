@@ -3,6 +3,8 @@ openmediavault (6.4.5-1) stable; urgency=low
   * Disable smtpd in Postfix. It is not necessary in sent-only
     satellite mode.
   * Workaround bug in SaltStack `pkg.del_repo` module.
+  * Improve the security of the Debian security repository by
+    using `signed-by`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 13 Jun 2023 18:31:48 +0200
 
@@ -23,7 +25,7 @@ openmediavault (6.4.3-1) stable; urgency=low
 
 openmediavault (6.4.2-1) stable; urgency=low
 
-  * Improve security of the openmediavault package repository.
+  * Improve the security of the openmediavault package repository.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 02 Jun 2023 21:07:59 +0200
 
