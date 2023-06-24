@@ -26,7 +26,7 @@ Depends: php-fpm, libpam-modules, php-json, dpkg, patch, dash, mawk | gawk,
  python3-netifaces, udev, python3-lxml, salt-minion (>= 3005.1),
  libnss-myhostname, php-yaml, python3-click, python3-cached-property,
  python3-polib, libnss-systemd, libnss-resolve, debian-archive-keyring,
- ${misc:Depends}
+ openmediavault-keyring, ${misc:Depends}
 Description: openmediavault - The open network attached storage solution
  openmediavault is a small and simple to use network attached storage system
  with a smart WebGUI.
