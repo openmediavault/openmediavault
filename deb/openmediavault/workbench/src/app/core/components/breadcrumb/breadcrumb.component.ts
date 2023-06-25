@@ -80,7 +80,7 @@ export class BreadcrumbComponent {
       routeSnapshot.pathFromRoot.forEach((routerState: ActivatedRouteSnapshot) => {
         urlSegments = urlSegments.concat(routerState.url);
       });
-      const url = urlSegments.map((urlSegment) => urlSegment.path).join('/');
+      const url = urlSegments.map((urlSegment) => encodeURIComponent(urlSegment.path)).join('/');
       routeParts.push({
         text: format(routeSnapshot.data.title, { _routeParams: routeSnapshot.params }),
         url: '/' + url
