@@ -29,6 +29,7 @@ class Wifi extends BackendAbstract {
 	// Examples:
 	// - wlan1
 	// - wlp3s0
+	// - wlx984827050421
 	//
 	// Predictable network interface device name types:
 	// - BCMA bus core number

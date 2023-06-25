@@ -52,7 +52,8 @@ class Ethernet extends BackendAbstract {
 	//   [P<domain>]p<bus>s<slot>[f<function>][u<port>][..][c<config>][i<interface>]
 	//
 	// Understanding systemd’s predictable network device names:
-	// https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
+	// - https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames
+	// - https://github.com/systemd/systemd/blob/v242/src/udev/udev-builtin-net_id.c
 	protected $regex = "/^(eth|venet)[0-9]+|veth[a-z0-9]+|".
 		"en(b\d+|c\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|".
 		"x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|".
