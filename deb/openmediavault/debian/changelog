@@ -3,6 +3,8 @@ openmediavault (6.4.6-1) stable; urgency=low
   * Improve `omv-btrfs-dfree` to display correct free space on
     Windows.
   * Various improvements in UI.
+  * Add `OMV_POSTFIX_MASTER_SMTPD_ENABLED` environment variable to
+    enable/disable snmpd in Postfix. Defaults to `no`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Jun 2023 18:45:01 +0200
 
