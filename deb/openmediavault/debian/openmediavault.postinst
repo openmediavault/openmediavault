@@ -472,6 +472,9 @@ case "$1" in
 		  omv_module_set_dirty apt
 			omv_module_set_dirty postfix
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.4.6"; then
+			omv_module_set_dirty postfix
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
