@@ -1,6 +1,6 @@
 {%- set runner_script = salt['pillar.get']('default:OMV_POSTFIX_MASTER_NOTIFICATION_RUNNER', '/usr/share/openmediavault/notification/postfix-runner.sh') -%}
 {%- set runner_user = salt['pillar.get']('default:OMV_POSTFIX_MASTER_NOTIFICATION_RUNNER_USER', 'openmediavault-notify') -%}
-{%- set smtpd_enabled = salt['pillar.get']('default:OMV_POSTFIX_MASTER_SMTPD_ENABLED', 'no') -%}
+{%- set smtpd_enabled = salt['pillar.get']('default:OMV_POSTFIX_MASTER_SMTPD_ENABLED', 'yes') -%}
 {{ pillar['headers']['multiline'] }}
 # ==========================================================================
 # service type  private unpriv  chroot  wakeup  maxproc command + args

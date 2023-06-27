@@ -4,7 +4,8 @@ openmediavault (6.4.6-1) stable; urgency=low
     Windows.
   * Various improvements in UI.
   * Add `OMV_POSTFIX_MASTER_SMTPD_ENABLED` environment variable to
-    enable/disable smtpd in Postfix. Defaults to `no`.
+    enable/disable smtpd in Postfix. Defaults to `yes`. It comes
+    out that monit requires a running smtpd.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Jun 2023 18:45:01 +0200
 
