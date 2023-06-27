@@ -1,11 +1,16 @@
+openmediavault (6.4.7-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 27 Jun 2023 20:20:55 +0200
+
 openmediavault (6.4.6-1) stable; urgency=low
 
+  * Various improvements in UI.
   * Improve `omv-btrfs-dfree` to display correct free space on
     Windows.
-  * Various improvements in UI.
   * Add `OMV_POSTFIX_MASTER_SMTPD_ENABLED` environment variable to
-    enable/disable smtpd in Postfix. Defaults to `yes`. It comes
-    out that monit requires a running smtpd.
+    enable/disable smtpd in Postfix. Defaults to `yes`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Jun 2023 18:45:01 +0200
 
