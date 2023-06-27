@@ -68,7 +68,7 @@
   <ng-template matMenuContent>
     <button *ngFor="let column of columns"
             mat-menu-item
-            (click)="onToggleColumn(column)">
+            (click)="$event.stopPropagation(); onToggleColumn(column)">
       <mat-icon *ngIf="!column.hidden"
                 svgIcon="{{ icon.checkBoxMarked }}">
       </mat-icon>
