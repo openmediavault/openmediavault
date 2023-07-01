@@ -19,13 +19,13 @@
 
 configure_phpfpm_webgui:
   file.managed:
-    - name: "/etc/php/7.4/fpm/pool.d/openmediavault-webgui.conf"
+    - name: "/etc/php/8.2/fpm/pool.d/openmediavault-webgui.conf"
     - contents: |
         [openmediavault-webgui]
         user = openmediavault-webgui
         group = openmediavault-webgui
 
-        listen = /run/php/php7.4-fpm-openmediavault-webgui.sock
+        listen = /run/php/php8.2-fpm-openmediavault-webgui.sock
         listen.owner = www-data
         listen.group = www-data
         listen.mode = 0600

@@ -945,7 +945,7 @@ omv_kill_children() {
 # Mark the given module as dirty.
 # @param name The name of the module.
 omv_module_set_dirty() {
-	php7.4 -c /etc/openmediavault <<EOF
+	php8.2 -c /etc/openmediavault <<EOF
 <?php
 require_once('openmediavault/autoloader.inc'); \
 \$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
@@ -958,7 +958,7 @@ EOF
 # Check if any modules are marked as dirty.
 omv_module_is_dirty() {
 	local _dirty
-	_dirty=$(php7.4 -c /etc/openmediavault -r \
+	_dirty=$(php8.2 -c /etc/openmediavault -r \
 	  "require_once('openmediavault/autoloader.inc'); \
 	  \$moduleMngr = \OMV\Engine\Module\Manager::getInstance(); \
 	  \$dirtyModules = \$moduleMngr->getDirtyModules(); \
@@ -1012,7 +1012,7 @@ omv_is_proc_running_pid() {
 omv_is_device_nonrotational() {
 	local _rc
 	[ -z "$1" ] && return 1
-	_rc=$(php7.4 -c /etc/openmediavault <<EOF
+	_rc=$(php8.2 -c /etc/openmediavault <<EOF
 <?php
 require_once('openmediavault/autoloader.inc'); \
 \$result = TRUE;

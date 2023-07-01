@@ -1,3 +1,9 @@
+openmediavault-filebrowser (7.0-1) unstable; urgency=low
+
+  * Adapt to openmediavault 7 (Sandworm).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Jul 2023 17:07:50 +0200
+
 openmediavault-filebrowser (6.0.7-1) stable; urgency=low
 
   * Add the `OMV_FILEBROWSER_APP_CONTAINER_START_OPTIONS`

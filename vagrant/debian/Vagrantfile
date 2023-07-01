@@ -20,10 +20,10 @@
 # along with openmediavault. If not, see <http://www.gnu.org/licenses/>.
 
 # Default values.
-hostname = "omv6box"
+hostname = "omv7box"
 
 Vagrant.configure("2") do |config|
-	config.vm.box = "debian/bullseye64"
+	config.vm.box = "debian/bookworm64"
 	config.vm.define hostname
 	config.vm.provision :shell, reboot: true, :path => "patch.sh"
 	config.vm.provision :shell, :path => "install.sh"

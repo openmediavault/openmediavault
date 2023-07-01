@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.10.12" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema- instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.10.13" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>pam</name>
  <channel>pecl.php.net</channel>
  <summary>PAM integration</summary>
@@ -10,10 +10,10 @@
   <email>anonamish AT gmail DOT com</email>
   <active>yes</active>
  </lead>
- <date>2021-06-08</date>
- <time>06:30:45</time>
+ <date>2022-01-19</date>
+ <time>14:45:49</time>
  <version>
-  <release>2.2.3</release>
+  <release>2.2.4</release>
   <api>2.2.0</api>
  </version>
  <stability>
@@ -22,7 +22,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP</license>
  <notes>
-Fix minimum version of php and pear installer
+Update TSRMLS_CACHE in RINIT_FUNCTION and MINIT_FUNCTION
  </notes>
  <contents>
   <dir name="/">
@@ -30,10 +30,10 @@ Fix minimum version of php and pear installer
    <file md5sum="bdb1e119a407fa3aae202537378bce3b" name="CREDITS" role="doc" />
    <file md5sum="7e571b888d585b31f9ef5edcc647fa30" name="LICENSE" role="doc" />
    <file md5sum="5cca8e971156b8d2bfee8df90cce674a" name="pam_arginfo.h" role="src" />
-   <file md5sum="4b17508847087c2edb27cb41ee5235e1" name="pam.c" role="src" />
+   <file md5sum="f4a0223c40eebd19e7de4b3e33eb54db" name="pam.c" role="src" />
    <file md5sum="657c141fa1ef6147aecd6a040551188c" name="pam_legacy_arginfo.h" role="src" />
    <file md5sum="c271a5050f9632d8efffb97274fcca89" name="pam.stub.php" role="src" />
-   <file md5sum="3764d37f4e82af33423c1a716aa16caa" name="php_pam.h" role="src" />
+   <file md5sum="dfca4c32c6e083b8aeb099e8fe87dc9c" name="php_pam.h" role="src" />
    <file md5sum="8f9e1de50efc40a815ec5193259f811a" name="README" role="doc" />
   </dir>
  </contents>
@@ -50,6 +50,22 @@ Fix minimum version of php and pear installer
  <providesextension>pam</providesextension>
  <extsrcrelease />
  <changelog>
+  <release>
+   <date>2022-01-19</date>
+   <time>20:04:23</time>
+   <version>
+    <release>2.2.4</release>
+    <api>2.2.4</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.php.net/license">PHP</license>
+   <notes>
+Update TSRMLS_CACHE in RINIT_FUNCTION and MINIT_FUNCTION
+   </notes>
+  </release>
   <release>
    <date>2021-06-08</date>
    <time>14:08:27</time>

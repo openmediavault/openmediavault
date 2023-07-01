@@ -9,7 +9,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-sharerootfs
 Architecture: all
-Depends: openmediavault (>= 6.5.0)
+Depends: openmediavault (>= 7.0)
 Priority: optional
 Description: openmediavault share root filesystem plugin
  By default the root filesystem is hidden in openmediavault

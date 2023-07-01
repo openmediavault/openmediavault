@@ -21,6 +21,7 @@
 import json
 import os
 import sys
+import warnings
 from typing import List
 
 import click
@@ -46,6 +47,9 @@ __dirty_modules_file = openmediavault.getenv(
     "OMV_ENGINED_DIRTY_MODULES_FILE",
     "/var/lib/openmediavault/dirtymodules.json"
 )
+
+
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 
 def get_dirty_modules() -> List[str]:

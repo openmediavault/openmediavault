@@ -27,11 +27,11 @@ PHPIZE=/usr/bin/phpize
 PHPCONFIG=/usr/bin/php-config
 EXT_DIR=$(shell $(PHPCONFIG) --extension-dir | sed -e "s-/--")
 SOURCE_DIR=$(shell ls -d $(PECL_PKG_REALNAME)-*)
-BINARYTARGETS=binary-arch-v7.4
-BUILDTARGETS=build-v7.4
-CLEANTARGETS=clean-v7.4
+BINARYTARGETS=binary-arch-v8.2
+BUILDTARGETS=build-v8.2
+CLEANTARGETS=clean-v8.2
 PHPAPIVER=$(shell /usr/bin/php-config --phpapi)
-PHPCONFD=$(shell echo "/etc/php/7.4/mods-available" | sed -e "s-/--")
+PHPCONFD=$(shell echo "/etc/php/8.2/mods-available" | sed -e "s-/--")
 
 %:
 	dh $@

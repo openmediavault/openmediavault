@@ -1,3 +1,9 @@
+openmediavault-clamav (7.0-1) unstable; urgency=low
+
+  * Adapt to openmediavault 7 (Sandworm).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Jul 2023 17:07:21 +0200
+
 openmediavault-clamav (6.0.6-1) stable; urgency=low
 
   * Update locale files.

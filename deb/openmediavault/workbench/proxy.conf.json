@@ -1,21 +1,21 @@
 {
   "/download.php": {
-    "target": "http://omv6box.local/",
+    "target": "http://omv7box.local/",
     "secure": false,
     "logLevel": "debug"
   },
   "/rpc.php": {
-    "target": "http://omv6box.local/",
+    "target": "http://omv7box.local/",
     "secure": false,
     "logLevel": "debug"
   },
   "/rrd.php": {
-    "target": "http://omv6box.local/",
+    "target": "http://omv7box.local/",
     "secure": false,
     "logLevel": "debug"
   },
   "/assets/**/*.json": {
-    "target": "http://omv6box.local/",
+    "target": "http://omv7box.local/",
     "secure": false,
     "logLevel": "debug"
   }

@@ -1,3 +1,9 @@
+php-pam (2.2.4-1+deb12u1) stable; urgency=low
+
+  * New upstream version 2.2.4.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 18 Jul 2023 23:05:19 +0200
+
 php-pam (2.2.3-1+deb11u1) stable; urgency=low
 
   * New upstream version 2.2.3.
