@@ -22,7 +22,7 @@
 set -e
 
 BASE_IMAGE=${BASE_IMAGE:-"docker.io/library/debian:bullseye"}
-IMAGE_NAME=${IMAGE_NAME:-"omv-pkgbuildenv"}
+IMAGE_NAME=${IMAGE_NAME:-"omv6-pkgbuildenv"}
 
 usage() {
 	cat <<EOF
@@ -92,14 +92,13 @@ install() {
 	case ${ID} in
 	debian)
 		dirname=Debian_${VERSION_ID}
+		sudo echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/${dirname}/ /" | sudo tee /etc/apt/sources.list.d/opensuse_devel_kubic_libcontainers_stable.list
+		sudo curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/${dirname}/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/opensuse_devel_kubic_libcontainers_stable.gpg > /dev/null
 		;;
 	ubuntu)
-		dirname=xUbuntu_${VERSION_ID}
 		;;
 	esac
 
-	sudo echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/${dirname}/ /" | sudo tee /etc/apt/sources.list.d/opensuse_devel_kubic_libcontainers_stable.list
-	sudo curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/${dirname}/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/opensuse_devel_kubic_libcontainers_stable.gpg > /dev/null
 	sudo apt-get -y update
 	sudo apt-get -y install buildah podman
 }
