@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2023-07-01 22:32+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: Kostas Moho, 2022\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
@@ -146,12 +146,11 @@ msgstr "Παράλειψη κρυφών αρχείων και φακέλων α�
 msgid "Skip dotfiles"
 msgstr "Παράλειψη κρυφών αρχείων"
 
-msgid ""
-"The location of the media files. Make sure the user <em>onedrive</em> or "
-"group <em>users</em> can access the files."
+msgid "The location to which the files are synchronised."
 msgstr ""
-"Η τοποθεσία των αρχείων πολυμέσων. Βεβαιωθείτε πως ο χρήστης "
-"<em>onedrive</em> ή η ομάδα <em>χρήστες</em> έχει πρόσβαση στα αρχεία."
+
+msgid "The synchronised files and directories are owned by this user."
+msgstr ""
 
 msgid "The wait time between each sync operation."
 msgstr "Ο χρόνος αναμονής ανάμεσα στον κάθε συγχρονισμό."
@@ -164,3 +163,6 @@ msgstr "Μόνο Αποστολή"
 
 msgid "Upload/Download rate limit."
 msgstr "Όριο μετάδοσης Αποστολής/Λήψης."
+
+msgid "User"
+msgstr ""

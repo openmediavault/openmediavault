@@ -31,12 +31,16 @@
 setup_onedrive_config_dir:
   file.directory:
     - name: "/var/cache/onedrive/"
-    - user: onedrive
+    - user: "{{ config.username }}"
+    - recurse:
+      - user
 
 setup_onedrive_log_dir:
   file.directory:
     - name: "/var/log/onedrive/"
-    - user: onedrive
+    - user: "{{ config.username }}"
+    - recurse:
+      - user
 
 create_onedrive_config_file:
   file.managed:
@@ -46,8 +50,16 @@ create_onedrive_config_file:
     - template: jinja
     - context:
         config: {{ config | json }}
-    - user: onedrive
-    - group: users
+    - user: "{{ config.username }}"
+    - mode: 644
+
+create_onedrive_systemd_conf:
+  file.managed:
+    - name: "/etc/systemd/system/onedrive.service.d/openmediavault.conf"
+    - contents: |
+        [Service]
+        User={{ config.username }}
+    - makedirs: True
     - mode: 644
 
 start_onedrive_service:
@@ -56,6 +68,7 @@ start_onedrive_service:
     - enable: True
     - watch:
       - file: create_onedrive_config_file
+      - file: create_onedrive_systemd_conf
 
 {% else %}
 

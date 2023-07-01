@@ -36,6 +36,7 @@ set -e
 #       <skipdotfiles>0|1</skipdotfiles>
 #       <monitorinterval>60|120|180|240|300|600|900|1800|3600</monitorinterval>
 #       <ratelimit>0|131072|262144|524288|1048576|10485760|104857600</ratelimit>
+#       <username>onedrive</username>
 #     </onedrive>
 #   </services>
 # </config>
@@ -50,6 +51,7 @@ if ! omv_config_exists "/config/services/onedrive"; then
 	omv_config_add_key "/config/services/onedrive" "skipdotfiles" "0"
 	omv_config_add_key "/config/services/onedrive" "monitorinterval" "300"
 	omv_config_add_key "/config/services/onedrive" "ratelimit" "0"
+	omv_config_add_key "/config/services/onedrive" "username" "onedrive"
 fi
 
 exit 0

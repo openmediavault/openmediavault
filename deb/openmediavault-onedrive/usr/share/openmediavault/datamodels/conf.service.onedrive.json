@@ -47,6 +47,10 @@
 			"type": "integer",
 			"enum": [0, 131072, 262144, 524288, 1048576, 10485760, 104857600],
 			"default": 0
+		},
+		"username": {
+			"type": "string",
+			"default": "onedrive"
 		}
 	}
 }

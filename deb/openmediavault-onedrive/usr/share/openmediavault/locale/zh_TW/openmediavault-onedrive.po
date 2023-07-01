@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2023-07-01 22:32+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2022\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
@@ -141,10 +141,11 @@ msgstr "在做同步時，跳過名稱開頭是點符號的檔案及檔案夾。
 msgid "Skip dotfiles"
 msgstr "跳過點檔案"
 
-msgid ""
-"The location of the media files. Make sure the user <em>onedrive</em> or "
-"group <em>users</em> can access the files."
-msgstr "媒體檔案的位置。請確認使用者 <em>onedrive</em> 或群組 <em>users</em> 能夠存取那些檔案。"
+msgid "The location to which the files are synchronised."
+msgstr ""
+
+msgid "The synchronised files and directories are owned by this user."
+msgstr ""
 
 msgid "The wait time between each sync operation."
 msgstr "在每次同步作業之間的等待時間。"
@@ -157,3 +158,6 @@ msgstr "僅做上傳"
 
 msgid "Upload/Download rate limit."
 msgstr "上傳/下載速率限制。"
+
+msgid "User"
+msgstr ""

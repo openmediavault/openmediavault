@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2023-07-01 22:32+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2023\n"
 "Language-Team: Arabic (Saudi Arabia) (https://app.transifex.com/openmediavault/teams/14254/ar_SA/)\n"
@@ -145,12 +145,11 @@ msgstr "تجاهل  الملفات والمجلدات التي تبدأ اسما
 msgid "Skip dotfiles"
 msgstr "تجاهل الملفات التي تبدأ اسمائها بنقطة"
 
-msgid ""
-"The location of the media files. Make sure the user <em>onedrive</em> or "
-"group <em>users</em> can access the files."
+msgid "The location to which the files are synchronised."
 msgstr ""
-"موقع ملفات الوسائط المراد مشاركتها. تأكد من أن المستخدم <em>onedrive</em>  "
-"أو المجموعة <em> users  </em>يمكنهم الوصول إلى الملفات."
+
+msgid "The synchronised files and directories are owned by this user."
+msgstr ""
 
 msgid "The wait time between each sync operation."
 msgstr "وقت الانتظار بين كل عملية مزامنة."
@@ -163,3 +162,6 @@ msgstr "تحميل فقط"
 
 msgid "Upload/Download rate limit."
 msgstr "حد معدل التحميل/التنزيل."
+
+msgid "User"
+msgstr ""

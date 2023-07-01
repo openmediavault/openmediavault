@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2023-07-01 22:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,7 +122,10 @@ msgstr ""
 msgid "Skip dotfiles"
 msgstr ""
 
-msgid "The location of the media files. Make sure the user <em>onedrive</em> or group <em>users</em> can access the files."
+msgid "The location to which the files are synchronised."
+msgstr ""
+
+msgid "The synchronised files and directories are owned by this user."
 msgstr ""
 
 msgid "The wait time between each sync operation."
@@ -135,4 +138,7 @@ msgid "Upload only"
 msgstr ""
 
 msgid "Upload/Download rate limit."
+msgstr ""
+
+msgid "User"
 msgstr ""

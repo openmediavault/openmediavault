@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2023-07-01 22:32+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: zubr139, 2022\n"
 "Language-Team: Ukrainian (https://app.transifex.com/openmediavault/teams/14254/uk/)\n"
@@ -145,12 +145,11 @@ msgstr "Пропускати точкові файли та теки від си
 msgid "Skip dotfiles"
 msgstr "Пропускати файли точок"
 
-msgid ""
-"The location of the media files. Make sure the user <em>onedrive</em> or "
-"group <em>users</em> can access the files."
+msgid "The location to which the files are synchronised."
 msgstr ""
-"Розташування медіафайлів. Переконайтеся, що користувач <em>onedrive</em> або"
-" <em>користувачі</em> групи мають доступ до файлів."
+
+msgid "The synchronised files and directories are owned by this user."
+msgstr ""
 
 msgid "The wait time between each sync operation."
 msgstr "Час очікування між кожною операцією синхронізації"
@@ -163,3 +162,6 @@ msgstr "Тільки вивантажити"
 
 msgid "Upload/Download rate limit."
 msgstr "Обмеження швидкості вивантаження/завантаження."
+
+msgid "User"
+msgstr ""
