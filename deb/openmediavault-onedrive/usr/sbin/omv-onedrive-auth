@@ -23,26 +23,26 @@ enabled=$(systemctl is-enabled onedrive.service)
 username=$(omv-confdbadm read 'conf.service.onedrive' | jq --raw-output '.username')
 
 stop_onedrive_service() {
-  echo "Please wait, stopping service ..."
-  systemctl stop onedrive.service || true
+  if [ ${enabled} ]; then
+    echo "Please wait, stopping service ..."
+    systemctl stop onedrive.service || true
+  fi
 }
 
 start_onedrive_service() {
-  echo "Please wait, starting service ..."
-  systemctl start onedrive.service || true
+  if [ ${enabled} ]; then
+    echo "Please wait, starting service ..."
+    systemctl start onedrive.service || true
+  fi
 }
 
-if [ ${enabled} ]; then
-  stop_onedrive_service
-fi
-
+stop_onedrive_service
+trap start_onedrive_service 2
 sudo -u "${username}" onedrive --confdir /var/cache/onedrive --reauth
 if [ $? -eq 126 ]; then
   sudo -u "${username}" onedrive --confdir /var/cache/onedrive --resync
 fi
-
-if [ ${enabled} ]; then
-  start_onedrive_service
-fi
+trap - 2
+start_onedrive_service
 
 exit 0
