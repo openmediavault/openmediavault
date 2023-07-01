@@ -53,6 +53,6 @@ Vagrant.configure("2") do |config|
 		end
 	end
 	config.vm.synced_folder "../../deb", "/home/vagrant/openmediavault",
-		:type => "nfs",
-		:nfs_version => 4
+		type: "nfs",
+		nfs_version: 4
 end
