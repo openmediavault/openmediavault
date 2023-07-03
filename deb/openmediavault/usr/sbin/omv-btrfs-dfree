@@ -21,6 +21,7 @@
 
 # Documentation:
 # https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#DFREECOMMAND
+# https://archive.kernel.org/oldwiki/btrfs.wiki.kernel.org/index.php/FAQ.html#Why_is_free_space_so_complicated.3F
 
 import os
 import re
