@@ -1,6 +1,7 @@
 openmediavault (6.4.7-1) stable; urgency=low
 
-  *
+  * Ensure systemd-networkd and systemd-resolved services are unmasked
+    and enabled.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 27 Jun 2023 20:20:55 +0200
 
