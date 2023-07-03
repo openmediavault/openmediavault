@@ -1,5 +1,6 @@
 openmediavault (6.4.7-1) stable; urgency=low
 
+  * Update locale files.
   * Ensure systemd-networkd and systemd-resolved services are unmasked
     and enabled.
 
