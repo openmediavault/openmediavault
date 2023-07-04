@@ -1356,10 +1356,16 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				"The shared folder '%s' does not support snapshots.",
 				$sfObject->get("name"));
 		}
+		$snapshotsDir = build_path(DIRECTORY_SEPARATOR,
+			$meObject->get("dir"), ".snapshots");
 		$snapshotPath = build_path(DIRECTORY_SEPARATOR,
-			$meObject->get("dir"), ".snapshots",
+			$snapshotsDir,
 			sprintf("%s@%s_$(date +%%Y%%m%%dT%%H%%M%%S)",
-			$sfObject->get("name"), $params['execution']));
+				$sfObject->get("name"), $params['execution']));
+		// Make sure that the `.snapshots` directory exists.
+		if (FALSE === is_dir($snapshotsDir)) {
+			$fs->createSubvolume($snapshotsDir);
+		}
 		// Create the scheduled job.
 		$object = new \OMV\Config\ConfigObject("conf.system.cron.job");
 		$object->setNew();
