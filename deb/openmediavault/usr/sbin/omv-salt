@@ -49,15 +49,25 @@ __dirty_modules_file = openmediavault.getenv(
 
 
 def get_dirty_modules() -> List[str]:
-    with open(__dirty_modules_file, 'r') as fd:
+    with open(__dirty_modules_file, "r") as fd:
         names = json.load(fd)
     names.sort()
     return names
 
 
 def reset_dirty_modules():
-    with open(__dirty_modules_file, 'w') as fd:
+    with open(__dirty_modules_file, "w") as fd:
         fd.write("[]")
+
+
+def process_names(ctx, param, value):
+    value = list(value)
+    append_dirty = ctx.params.get("append_dirty", False)
+    if append_dirty:
+        value.extend(get_dirty_modules())
+    if not value:
+        raise click.MissingParameter(ctx=ctx, param=param)
+    return value
 
 
 @click.group()
@@ -125,7 +135,7 @@ def deploy_list():
 
 
 @deploy.command(name='run', help='Run the specified state(s).')
-@click.argument('names', nargs=-1, required=False)
+@click.argument('names', nargs=-1, callback=process_names)
 @click.option(
     '--no-color',
     is_flag=True,
@@ -143,12 +153,6 @@ def deploy_list():
     help='Append the states that are marked as dirty.'
 )
 def deploy_run(names: List[str], no_color, quiet, append_dirty):
-    names = list(names)
-    if append_dirty:
-        names.extend(get_dirty_modules())
-    if not names:
-        openmediavault.log.error("No state(s) specified")
-        sys.exit(1)
     # Check if the states exists.
     for name in names:
         path = os.path.join(__deploy_scripts_dir, name)
