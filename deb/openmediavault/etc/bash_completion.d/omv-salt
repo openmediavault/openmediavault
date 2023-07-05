@@ -28,6 +28,9 @@ _omv-salt()
 	case ${words[1]} in
 	deploy)
 		case ${words[2]} in
+		run-dirty)
+			return 0
+			;;
 		run)
 			COMPREPLY=( $( compgen -W "$( command omv-salt deploy list \
 			 	2>/dev/null )" -- "$cur" ) )
@@ -37,7 +40,7 @@ _omv-salt()
 			return 0
 			;;
 		*)
-			COMPREPLY=( $( compgen -W "list run" -- "$cur" ) )
+			COMPREPLY=( $( compgen -W "list run run-dirty" -- "$cur" ) )
 			return 0
 			;;
 		esac
