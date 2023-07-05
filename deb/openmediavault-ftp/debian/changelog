@@ -1,3 +1,9 @@
+openmediavault-ftp (6.0.2-1) stable; urgency=low
+
+  * Disable socket activation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 05 Jul 2023 11:35:05 +0200
+
 openmediavault-ftp (6.0.1-1) stable; urgency=low
 
   * Update locale files.

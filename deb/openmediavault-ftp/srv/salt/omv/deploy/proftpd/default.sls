@@ -22,6 +22,11 @@
 include:
   - .modules
 
+disable_proftpd_socket_activation:
+  service.dead:
+    - name: proftpd.socket
+    - enable: False
+
 {% if config.enable | to_bool %}
 
 test_proftpd_service_config:

@@ -34,6 +34,7 @@ case "$1" in
 			echo "Updating service units ..."
 			deb-systemd-invoke stop proftpd.service || :
 			deb-systemd-helper disable proftpd.service || :
+			deb-systemd-helper disable proftpd.socket || :
 		fi
 
 		########################################################################
