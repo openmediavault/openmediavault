@@ -177,10 +177,6 @@ case "$1" in
 		deb-systemd-invoke stop systemd-timesyncd.service || :
 		deb-systemd-invoke mask systemd-timesyncd.service || :
 
-		deb-systemd-invoke stop systemd-timesyncd.service || :
-		deb-systemd-invoke mask systemd-timesyncd.service || :
-
-
 		# Ensure all openmediavault systemd units are enabled.
 		deb-systemd-helper enable openmediavault-beep-up.service
 		deb-systemd-helper enable openmediavault-beep-down.service
