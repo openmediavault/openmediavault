@@ -145,7 +145,7 @@ case "$1" in
 			deb-systemd-helper disable salt-minion.service
 			deb-systemd-invoke stop salt-minion.service || :
 
-      # Enable and start various services that are enabled by default.
+			# Enable and start various services that are enabled by default.
 			deb-systemd-helper enable sshd.service
 			deb-systemd-invoke start sshd.service || :
 
