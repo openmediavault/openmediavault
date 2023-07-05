@@ -42,17 +42,22 @@ __stage_scripts_dir = openmediavault.getenv(
 __salt_minion_config_file = openmediavault.getenv(
     "OMV_SALT_MINION_CONFIG_FILE", "/etc/salt/minion"
 )
+__dirty_modules_file = openmediavault.getenv(
+    "OMV_ENGINED_DIRTY_MODULES_FILE",
+    "/var/lib/openmediavault/dirtymodules.json"
+)
 
 
 def get_dirty_modules() -> List[str]:
-    dirty_modules_file = openmediavault.getenv(
-        "OMV_ENGINED_DIRTY_MODULES_FILE",
-        "/var/lib/openmediavault/dirtymodules.json"
-    )
-    with open(dirty_modules_file, 'r') as fd:
+    with open(__dirty_modules_file, 'r') as fd:
         names = json.load(fd)
     names.sort()
     return names
+
+
+def reset_dirty_modules():
+    with open(__dirty_modules_file, 'w') as fd:
+        fd.write("[]")
 
 
 @click.group()
@@ -119,31 +124,8 @@ def deploy_list():
     sys.exit(0)
 
 
-@deploy.command(name='run-dirty', help='Run the states marked as dirty.')
-@click.option(
-    '--no-color',
-    is_flag=True,
-    help='Disable all colored output.'
-)
-@click.option(
-    '-q',
-    '--quiet',
-    is_flag=True,
-    help='Quiet mode, no messages are displayed.'
-)
-def deploy_run_dirty(no_color, quiet):
-    names = get_dirty_modules()
-    if not names:
-        openmediavault.log.info("No dirty states found")
-        sys.exit(0)
-    if not quiet:
-        openmediavault.log.info("Deploying dirty states %s ...",
-                                ", ".join(names))
-    deploy_run.callback(names, no_color, quiet)
-
-
 @deploy.command(name='run', help='Run the specified state(s).')
-@click.argument('names', nargs=-1, required=True)
+@click.argument('names', nargs=-1, required=False)
 @click.option(
     '--no-color',
     is_flag=True,
@@ -155,7 +137,18 @@ def deploy_run_dirty(no_color, quiet):
     is_flag=True,
     help='Quiet mode, no messages are displayed.'
 )
-def deploy_run(names, no_color, quiet):
+@click.option(
+    '--append-dirty',
+    is_flag=True,
+    help='Append the states that are marked as dirty.'
+)
+def deploy_run(names: List[str], no_color, quiet, append_dirty):
+    names = list(names)
+    if append_dirty:
+        names.extend(get_dirty_modules())
+    if not names:
+        openmediavault.log.error("No state(s) specified")
+        sys.exit(1)
     # Check if the states exists.
     for name in names:
         path = os.path.join(__deploy_scripts_dir, name)
@@ -176,6 +169,8 @@ def deploy_run(names, no_color, quiet):
         if __out == "nested":
             result = {"local": result}
         salt.output.display_output(result, out=__out, opts=mopts)
+    if append_dirty and rc == 0:
+        reset_dirty_modules()
     sys.exit(rc)
 
 

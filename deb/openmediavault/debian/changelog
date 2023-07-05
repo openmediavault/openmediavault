@@ -4,8 +4,8 @@ openmediavault (6.4.8-1) stable; urgency=low
     snapshot of a shared folder.
   * Disable SSH socket activation which is activated by default on
     several Debian derivatives.
-  * Add command option `omv-salt deploy run-dirty` to deploy states
-    that are marked as dirty.
+  * Add option `--append-dirty` to `omv-salt deploy run` to append
+    states that are marked as dirty.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 04 Jul 2023 08:07:18 +0200
 
