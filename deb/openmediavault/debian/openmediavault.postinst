@@ -137,10 +137,17 @@ case "$1" in
 			deb-systemd-helper disable postfix.service
 			deb-systemd-invoke stop postfix.service || :
 
+			# Disable socket activation of various services.
+			deb-systemd-helper disable ssh.socket
+
 			# The salt-minion service does not need to be running when
 			# running a masterless minion setup.
 			deb-systemd-helper disable salt-minion.service
 			deb-systemd-invoke stop salt-minion.service || :
+
+      # Enable and start various services that are enabled by default.
+			deb-systemd-helper enable sshd.service
+			deb-systemd-invoke start sshd.service || :
 
 			# Enable and start various services that are necessary for
 			# openmediavault to work correct.
@@ -169,6 +176,10 @@ case "$1" in
 		deb-systemd-helper disable systemd-timesyncd.service || :
 		deb-systemd-invoke stop systemd-timesyncd.service || :
 		deb-systemd-invoke mask systemd-timesyncd.service || :
+
+		deb-systemd-invoke stop systemd-timesyncd.service || :
+		deb-systemd-invoke mask systemd-timesyncd.service || :
+
 
 		# Ensure all openmediavault systemd units are enabled.
 		deb-systemd-helper enable openmediavault-beep-up.service
@@ -474,6 +485,9 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.4.6"; then
 			omv_module_set_dirty postfix
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.4.8"; then
+			omv_module_set_dirty ssh
 		fi
 
 		########################################################################

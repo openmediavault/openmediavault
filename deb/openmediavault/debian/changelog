@@ -2,6 +2,8 @@ openmediavault (6.4.8-1) stable; urgency=low
 
   * Ensure the .snapshot directory exists when creating a scheduled
     snapshot of a shared folder.
+  * Disable SSH socket activation which is activated by default on
+    several Debian derivatives.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 04 Jul 2023 08:07:18 +0200
 
