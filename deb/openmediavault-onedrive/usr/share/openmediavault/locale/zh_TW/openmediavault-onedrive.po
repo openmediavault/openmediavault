@@ -6,7 +6,7 @@
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
 # 黃柏諺 <s8321414@gmail.com>, 2022
-# kochin <kochinc@outlook.com>, 2022
+# kochin <kochinc@outlook.com>, 2023
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-01 22:32+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2022\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2023\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -142,10 +142,10 @@ msgid "Skip dotfiles"
 msgstr "跳過點檔案"
 
 msgid "The location to which the files are synchronised."
-msgstr ""
+msgstr "檔案被同步前去的位置。"
 
 msgid "The synchronised files and directories are owned by this user."
-msgstr ""
+msgstr "被同步的檔案和目錄是此用戶所擁有。"
 
 msgid "The wait time between each sync operation."
 msgstr "在每次同步作業之間的等待時間。"
@@ -160,4 +160,4 @@ msgid "Upload/Download rate limit."
 msgstr "上傳/下載速率限制。"
 
 msgid "User"
-msgstr ""
+msgstr "用戶"
