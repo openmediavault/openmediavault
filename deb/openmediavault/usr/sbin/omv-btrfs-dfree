@@ -37,7 +37,7 @@ def main():
         ['btrfs', 'filesystem', 'usage', '--raw', path],
         stderr=subprocess.DEVNULL
     ).decode()
-    matches = re.match(r'.+Device size:\s+(\d+).+Free \(estimated\):\s+(\d+).+',
+    matches = re.match(r'.+Device size:\s+(\d+).+Free \(statfs, df\):\s+(\d+).+',
                        output, re.DOTALL)
     if matches is not None:
         total = int(matches.group(1)) // 1024

@@ -1,6 +1,9 @@
 openmediavault (6.4.9-1) stable; urgency=low
 
-  *
+  * Improve `omv-btrfs-dfree` command which is used by Samba on
+    Btrfs file systems. Use the free space determined via statfs
+    and df instead of the estimated value which was causing
+    problems on several systems.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Jul 2023 12:05:13 +0200
 
