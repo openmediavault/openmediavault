@@ -60,14 +60,14 @@ def reset_dirty_modules():
         fd.write("[]")
 
 
-def process_names(ctx, param, value):
-    value = list(value)
+def process_names(ctx, param, value) -> List[str]:
+    value = set(value)
     append_dirty = ctx.params.get("append_dirty", False)
     if append_dirty:
-        value.extend(get_dirty_modules())
+        value.update(get_dirty_modules())
     if not value:
         raise click.MissingParameter(ctx=ctx, param=param)
-    return value
+    return list(value)
 
 
 @click.group()
