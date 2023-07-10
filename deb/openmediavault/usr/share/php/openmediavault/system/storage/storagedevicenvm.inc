@@ -36,4 +36,13 @@ class StorageDeviceNVM extends StorageDevice implements SmartInterface {
 	public function getSmartDeviceType() {
 		return "nvme";
 	}
+
+	public function getVendor() {
+		$filename = sprintf("/sys/block/%s/device/device/vendor",
+			$this->getDeviceName(TRUE));
+		if (file_exists($filename)) {
+			return trim(file_get_contents($filename));
+		}
+		return parent::getVendor();
+	}
 }

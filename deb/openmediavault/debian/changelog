@@ -4,6 +4,7 @@ openmediavault (6.4.9-1) stable; urgency=low
     Btrfs file systems. Use the free space determined via statfs
     and df instead of the estimated value which was causing
     problems on several systems.
+  * Get PCI vendor/subsystem ID of NVMe devices via sysfs.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Jul 2023 12:05:13 +0200
 
