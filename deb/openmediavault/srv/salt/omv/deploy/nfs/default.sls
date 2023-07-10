@@ -24,6 +24,7 @@
 # https://help.ubuntu.com/community/NFSv4Howto
 # http://jkossen.nl/2009/05/12/simple-nfsv4-configuration-for-debian-and-ubuntu.html
 # http://doc.opensuse.org/products/opensuse/openSUSE/opensuse-reference/cha.nfs.html
+# /usr/lib/systemd/scripts/nfs-utils_env.sh
 
 # Testing:
 # showmount -e <nfs-server>

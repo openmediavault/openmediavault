@@ -1,17 +1,20 @@
 {%- set rpc_nfsd_count = salt['pillar.get']('default:OMV_NFSD_COUNT', '8') -%}
 {%- set rpc_nfsd_priority = salt['pillar.get']('default:OMV_NFSD_PRIORITY', '0') -%}
+{%- set rpc_nfsd_opts = salt['pillar.get']('default:OMV_NFSD_OPTS', '') -%}
 {%- set rpc_mountd_opts = salt['pillar.get']('default:OMV_NFSD_MOUNTDOPTS', '--manage-gids') -%}
 {%- set need_svcgssd = salt['pillar.get']('default:OMV_NFSD_NEEDSVCGSSD', '') -%}
 {%- set rpc_svcgssd_opts = salt['pillar.get']('default:OMV_NFSD_SVCGSSDOPTS', '') -%}
 {{ pillar['headers']['multiline'] }}
 # Number of servers to start up
-RPCNFSDCOUNT={{ rpc_nfsd_count }}
+RPCNFSDCOUNT="{{ rpc_nfsd_count }}"
 # Runtime priority of server (see nice(1))
-RPCNFSDPRIORITY={{ rpc_nfsd_priority }}
+RPCNFSDPRIORITY="{{ rpc_nfsd_priority }}"
+# Options for rpc.nfsd.
+RPCNFSDOPTS="{{ rpc_nfsd_opts }}"
 # Options for rpc.mountd.
 RPCMOUNTDOPTS="{{ rpc_mountd_opts }}"
 # Do you want to start the svcgssd daemon? It is only required for Kerberos
 # exports.
-NEED_SVCGSSD={{ need_svcgssd }}
+NEED_SVCGSSD="{{ need_svcgssd }}"
 # Options for rpc.svcgssd.
-RPCSVCGSSDOPTS={{ rpc_svcgssd_opts }}
+RPCSVCGSSDOPTS="{{ rpc_svcgssd_opts }}"
