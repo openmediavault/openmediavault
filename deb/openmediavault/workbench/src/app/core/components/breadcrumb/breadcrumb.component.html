@@ -8,9 +8,13 @@
   </a>
   <div *ngFor="let breadcrumb of breadcrumbs; let last = last">
     <mat-divider vertical="true"></mat-divider>
-    <a [routerLink]="[breadcrumb.url]"
-       class="mat-subheading-2"
-       [ngClass]="{'active': last}">
+    <a *ngIf="!last"
+       [routerLink]="breadcrumb.url"
+       class="mat-subheading-2">
+      <span>{{ breadcrumb.text | transloco }}</span>
+    </a>
+    <a *ngIf="last"
+       class="mat-subheading-2 active">
       <span>{{ breadcrumb.text | transloco }}</span>
     </a>
   </div>
