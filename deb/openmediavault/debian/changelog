@@ -6,7 +6,9 @@ openmediavault (6.4.9-1) stable; urgency=low
     problems on several systems.
   * Get PCI vendor/subsystem ID of NVMe devices via sysfs.
   * Add the `OMV_NFSD_OPTS` environment variable to add custom
-    arguments for rpc.nfsd.
+    arguments for rpc.nfsd. This can be used to specify the
+    supported versions of NFS for example. Please check the
+    rpc.nfsd man page for more information.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Jul 2023 12:05:13 +0200
 
