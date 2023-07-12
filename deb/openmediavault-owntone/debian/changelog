@@ -1,3 +1,11 @@
+openmediavault-owntone (6.0.6-1) stable; urgency=low
+
+  * Update locale files.
+  * Add environment variable `OMV_OWNTONE_APP_CONTAINER_START_OPTIONS`
+    to append custom `podman run` arguments.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Jul 2023 13:32:54 +0200
+
 openmediavault-owntone (6.0.5-1) stable; urgency=low
 
   * Make sure the container is started after the file systems of
