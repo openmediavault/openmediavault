@@ -268,6 +268,14 @@ export class CustomValidators {
           (value) => validator.isEmail(value),
           gettext('This field should be an email address.')
         );
+      case 'macAddress':
+        return CustomValidators.pattern(
+          // .isMACAddress doesn't accept ":", so we can remove them for the check
+          // systemd *does* accept ":", so we don't have to edit the value in the config
+          // see https://manpages.debian.org/buster/systemd/systemd.network.5.en.html#%5BMATCH%5D_SECTION_OPTIONS
+          (value) => validator.isMACAddress(value.replace(":","-")),
+          gettext('This field should be an MAC address.')
+        );
       case 'ipv4':
         return CustomValidators.pattern(
           (value) => validator.isIP(value, 4),

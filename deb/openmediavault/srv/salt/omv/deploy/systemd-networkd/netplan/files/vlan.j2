@@ -2,6 +2,9 @@
 network:
   vlans:
     {{ interface.devicename }}:
+{%- if not interface.forcedmac == "" %}
+      macaddress: {{ interface.forcedmac }}
+{%- endif %}
 {%- if interface.method == "static" or interface.method6 == "static" %}
       addresses:
 {%- if interface.method == "static" %}
