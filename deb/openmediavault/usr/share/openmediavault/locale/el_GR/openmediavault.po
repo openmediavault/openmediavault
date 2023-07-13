@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-25 22:05+0200\n"
+"POT-Creation-Date: 2023-07-13 16:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2023\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -1288,6 +1288,9 @@ msgstr "Σημάνσεις"
 msgid "Force SSL/TLS"
 msgstr "Επιβολή SSL/TLS"
 
+msgid "Force a specific MAC address on this interface."
+msgstr ""
+
 msgid "Force secure connection only."
 msgstr "Να απαιτείται μόνο ασφαλής σύνδεση."
 
@@ -1814,6 +1817,9 @@ msgstr "Luxembourg"
 
 msgid "MAC"
 msgstr "MAC"
+
+msgid "MAC address"
+msgstr "Διεύθυνση MAC"
 
 msgid "MII monitoring frequency"
 msgstr "Συχνότητα παρακολούθησης ΜΙΙ"
@@ -3420,6 +3426,9 @@ msgstr "Αυτό το πεδίο πρέπει να έχει μορφή <hh:mm:ss
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "Αυτό το πεδίο δέχεται διεύθυνση ΙΡ σε μορφή CIDR."
+
+msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
+msgstr ""
 
 msgid "This field should be a domain name or an IP address."
 msgstr "Αυτό το πεδίο δέχεται όνομα τομέα ή διεύθυνση ΙΡ."

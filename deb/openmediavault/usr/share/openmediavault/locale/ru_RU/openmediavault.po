@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-25 22:05+0200\n"
+"POT-Creation-Date: 2023-07-13 16:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -1302,6 +1302,9 @@ msgstr "Флаг"
 msgid "Force SSL/TLS"
 msgstr "Принудительно SSL/TLS"
 
+msgid "Force a specific MAC address on this interface."
+msgstr ""
+
 msgid "Force secure connection only."
 msgstr "Принудительно только защищенное соединение"
 
@@ -1828,6 +1831,9 @@ msgstr "Люксембург"
 
 msgid "MAC"
 msgstr "MAC"
+
+msgid "MAC address"
+msgstr "MAC адрес"
 
 msgid "MII monitoring frequency"
 msgstr "Частота мониторинга MII"
@@ -3434,6 +3440,9 @@ msgstr "Это поле должно соответствовать формат
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "В этом поле должен быть IP-адрес сети в нотации CIDR."
+
+msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
+msgstr ""
 
 msgid "This field should be a domain name or an IP address."
 msgstr "В этом поле должно быть доменное имя или IP-адрес."

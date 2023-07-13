@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-25 22:05+0200\n"
+"POT-Creation-Date: 2023-07-13 16:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2022\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -1290,6 +1290,9 @@ msgstr "Banderes"
 msgid "Force SSL/TLS"
 msgstr "Forçar SSL/TLS"
 
+msgid "Force a specific MAC address on this interface."
+msgstr ""
+
 msgid "Force secure connection only."
 msgstr "Forçar connexió segura"
 
@@ -1816,6 +1819,9 @@ msgstr "Luxemburg"
 
 msgid "MAC"
 msgstr "MAC"
+
+msgid "MAC address"
+msgstr "Adreça MAC"
 
 msgid "MII monitoring frequency"
 msgstr "Freqüència de monitoratge (ethernet)"
@@ -3422,6 +3428,9 @@ msgstr "Aquest camp ha de tenir el format<hh:mm:ss>. "
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "Aquest camp hauria de ser una adreça de xarxa IP a la notació CIDR. "
+
+msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
+msgstr ""
 
 msgid "This field should be a domain name or an IP address."
 msgstr "Aquest camp hauria de ser un nom de domini o una adreça IP. "

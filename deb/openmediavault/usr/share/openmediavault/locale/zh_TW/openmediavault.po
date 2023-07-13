@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-25 22:05+0200\n"
+"POT-Creation-Date: 2023-07-13 16:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2023\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -1290,6 +1290,9 @@ msgstr "旗標"
 msgid "Force SSL/TLS"
 msgstr "強制 SSL/TLS"
 
+msgid "Force a specific MAC address on this interface."
+msgstr ""
+
 msgid "Force secure connection only."
 msgstr "強制只能進行安全連線。"
 
@@ -1816,6 +1819,9 @@ msgstr "盧森堡"
 
 msgid "MAC"
 msgstr "MAC"
+
+msgid "MAC address"
+msgstr "MAC 位址"
 
 msgid "MII monitoring frequency"
 msgstr "MII 監測頻率"
@@ -3422,6 +3428,9 @@ msgstr "此欄位的格式必須為 <hh:mm:ss>。"
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "此欄位應該是一個以 CIDR 表示法的 IP 網路位址。"
+
+msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
+msgstr ""
 
 msgid "This field should be a domain name or an IP address."
 msgstr "此欄位應該是一個網域名稱或 IP 位址。"

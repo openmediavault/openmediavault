@@ -155,6 +155,8 @@
 					<wol>0|1</wol>
 					<comment>xxx</comment>
 					# Optional arguments by type:
+					# - ethernet | wifi | vlan
+					<altmacaddress>|xx:xx:xx:xx:xx:xx</altmacaddress>
 					# - bond
 					<slaves>(((eth|venet|wlan)\d+|(en|veth|wl)\S+),)*((eth|venet|wlan)\d+|(en|veth|wl)\S+)</slaves>
 					<bondprimary>(eth|wlan)\d+</bondprimary>

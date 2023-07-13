@@ -135,6 +135,7 @@ export type FormFieldConfig = {
       | 'groupName'
       | 'shareName'
       | 'email'
+      | 'macAddress'
       | 'ip'
       | 'ipv4'
       | 'ipv6'

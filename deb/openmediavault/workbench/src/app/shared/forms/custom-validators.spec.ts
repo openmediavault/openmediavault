@@ -139,6 +139,47 @@ describe('CustomValidators', () => {
       });
     });
 
+    describe('macAddress', () => {
+      let validator: ValidatorFn;
+
+      beforeEach(() => {
+        validator = CustomValidators.patternType('macAddress');
+      });
+
+      it('should validate MAC address', () => {
+        formControl.setValue('01:23:45:ab:cd:ef');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should not validate MAC address [1]', () => {
+        formControl.setValue('bar');
+        expect(validator(formControl)).toEqual({
+          pattern: 'This field should be a MAC address, e.g. 00:80:41:ae:fd:7e.'
+        });
+      });
+
+      it('should not validate MAC address [2]', () => {
+        formControl.setValue('01:23:45:abc:d:ef');
+        expect(validator(formControl)).toEqual({
+          pattern: 'This field should be a MAC address, e.g. 00:80:41:ae:fd:7e.'
+        });
+      });
+
+      it('should not validate MAC address [3]', () => {
+        formControl.setValue('01:23:45:ab:cd');
+        expect(validator(formControl)).toEqual({
+          pattern: 'This field should be a MAC address, e.g. 00:80:41:ae:fd:7e.'
+        });
+      });
+
+      it('should not validate MAC address [4]', () => {
+        formControl.setValue('00-80-41-ae-fd-7e');
+        expect(validator(formControl)).toEqual({
+          pattern: 'This field should be a MAC address, e.g. 00:80:41:ae:fd:7e.'
+        });
+      });
+    });
+
     describe('ip', () => {
       let validator: ValidatorFn;
 

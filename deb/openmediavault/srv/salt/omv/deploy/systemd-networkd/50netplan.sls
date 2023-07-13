@@ -19,6 +19,7 @@
 
 # Documentation/Howto:
 # https://superuser.com/questions/1490670/does-systemd-networkd-systemd-resolved-add-search-domains-specified-in-dhcp
+# https://netplan.readthedocs.io/en/stable/netplan-yaml
 
 include:
   - .netplan

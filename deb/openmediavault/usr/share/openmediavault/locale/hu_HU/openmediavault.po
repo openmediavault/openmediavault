@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-25 22:05+0200\n"
+"POT-Creation-Date: 2023-07-13 16:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2023\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -1294,6 +1294,9 @@ msgstr "Zászlók"
 msgid "Force SSL/TLS"
 msgstr "SSL/TLS kényszerítés"
 
+msgid "Force a specific MAC address on this interface."
+msgstr "Egy bizonyos MAC-cím kényszerítése ezen az interfészen"
+
 msgid "Force secure connection only."
 msgstr "Csak biztonságos kapcsolat kényszerítése."
 
@@ -1820,6 +1823,9 @@ msgstr "Luxemburg"
 
 msgid "MAC"
 msgstr "MAC"
+
+msgid "MAC address"
+msgstr "MAC cím"
 
 msgid "MII monitoring frequency"
 msgstr "MII ellenőrzési gyakoriság"
@@ -3426,6 +3432,9 @@ msgstr "E mezőnek <hh:mm:ss>formátumúnak kell lennie."
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "E mezőnek egy IP hálózati címnek kell lennie CIDR jelölésben."
+
+msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
+msgstr "Ez a mező egy MAC-cím kell legyen, pl. 00:80:41:ae:fd:7e."
 
 msgid "This field should be a domain name or an IP address."
 msgstr "E mezőnek egy tartománynévnek vagy egy IP címnek kell lennie."
