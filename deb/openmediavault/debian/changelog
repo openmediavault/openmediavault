@@ -1,3 +1,10 @@
+openmediavault (6.5.0-1) stable; urgency=low
+
+  * Issue #1564: Add alternative MAC address support for wired,
+    wireless and VLAN network interfaces.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 13 Jul 2023 13:14:36 +0200
+
 openmediavault (6.4.9-1) stable; urgency=low
 
   * Improve `omv-btrfs-dfree` command which is used by Samba on

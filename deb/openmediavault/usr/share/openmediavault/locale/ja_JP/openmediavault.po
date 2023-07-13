@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-25 22:05+0200\n"
+"POT-Creation-Date: 2023-07-13 16:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -1288,6 +1288,9 @@ msgstr "フラグ"
 msgid "Force SSL/TLS"
 msgstr "Force SSL/TLS"
 
+msgid "Force a specific MAC address on this interface."
+msgstr ""
+
 msgid "Force secure connection only."
 msgstr "セキュアコネクションを強制します。"
 
@@ -1814,6 +1817,9 @@ msgstr "ルクセンブルク"
 
 msgid "MAC"
 msgstr "MAC"
+
+msgid "MAC address"
+msgstr "MACアドレス"
 
 msgid "MII monitoring frequency"
 msgstr "MII モニタリング頻度"
@@ -3420,6 +3426,9 @@ msgstr "このフィールドは <hh:mm:ss>のフォーマットで記述する�
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "このフィールドは、CIDR記法によるIPネットワークアドレスである必要があります。"
+
+msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
+msgstr ""
 
 msgid "This field should be a domain name or an IP address."
 msgstr "このフィールドは、ドメイン名またはIPアドレスである必要があります。"

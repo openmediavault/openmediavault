@@ -68,7 +68,8 @@ const regExp = {
     /^(128|192|224|24[08]|25[245].0.0.0)|(255.(0|128|192|224|24[08]|25[245]).0.0)|(255.255.(0|128|192|224|24[08]|25[245]).0)|(255.255.255.(0|128|192|224|24[08]|252))$/,
   // See https://www.w3schools.com/Jsref/jsref_regexp_wordchar.asp
   wordChars: /^[\w]+$/,
-  binaryUnit: /^\d+(.\d+)?\s?(b|[kmgtpezy]ib)$/i
+  binaryUnit: /^\d+(.\d+)?\s?(b|[kmgtpezy]ib)$/i,
+  macAddress: /^[a-fA-F0-9]{2}(:[a-fA-F0-9]{2}){5}$/
 };
 
 const isEmptyInputValue = (value: any): boolean => _.isNull(value) || value.length === 0;
@@ -270,11 +271,8 @@ export class CustomValidators {
         );
       case 'macAddress':
         return CustomValidators.pattern(
-          // .isMACAddress doesn't accept ":", so we can remove them for the check
-          // systemd *does* accept ":", so we don't have to edit the value in the config
-          // see https://manpages.debian.org/buster/systemd/systemd.network.5.en.html#%5BMATCH%5D_SECTION_OPTIONS
-          (value) => validator.isMACAddress(value.replace(":","-")),
-          gettext('This field should be an MAC address.')
+          regExp.macAddress,
+          gettext('This field should be a MAC address, e.g. 00:80:41:ae:fd:7e.')
         );
       case 'ipv4':
         return CustomValidators.pattern(

@@ -114,16 +114,6 @@ export class InterfaceWifiFormPageComponent extends BaseFormPageComponent {
         value: false
       },
       {
-        type: 'textInput',
-        name: 'forcedmac',
-        label: gettext('Forced MAC Address'),
-        hint: gettext('Force a specific MAC Address on this interface.'),
-        value: '',
-        validators: {
-          patternType: 'macAddress'
-        }
-      },
-      {
         type: 'tagInput',
         name: 'comment',
         label: gettext('Tags'),
@@ -315,6 +305,16 @@ export class InterfaceWifiFormPageComponent extends BaseFormPageComponent {
       {
         type: 'divider',
         title: gettext('Advanced settings')
+      },
+      {
+        type: 'textInput',
+        name: 'altmacaddress',
+        label: gettext('MAC address'),
+        hint: gettext('Force a specific MAC address on this interface.'),
+        value: '',
+        validators: {
+          patternType: 'macAddress'
+        }
       },
       {
         type: 'textInput',

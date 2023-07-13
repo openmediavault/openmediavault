@@ -2,8 +2,8 @@
 network:
   wifis:
     {{ interface.devicename }}:
-{%- if not interface.forcedmac == "" %}
-      macaddress: {{ interface.forcedmac }}
+{%- if interface.altmacaddress | length > 0 %}
+      macaddress: {{ interface.altmacaddress }}
 {%- endif %}
 {%- if interface.method == "static" or interface.method6 == "static" %}
       addresses:

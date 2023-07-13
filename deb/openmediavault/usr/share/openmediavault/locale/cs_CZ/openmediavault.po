@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-25 22:05+0200\n"
+"POT-Creation-Date: 2023-07-13 16:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -1289,6 +1289,9 @@ msgstr "Příznaky"
 msgid "Force SSL/TLS"
 msgstr "Vynucovat SSL/TLS"
 
+msgid "Force a specific MAC address on this interface."
+msgstr ""
+
 msgid "Force secure connection only."
 msgstr "Požadovat výhradně zabezpečené spojení."
 
@@ -1815,6 +1818,9 @@ msgstr "Lucembursko"
 
 msgid "MAC"
 msgstr "MAC"
+
+msgid "MAC address"
+msgstr "MAC adresa"
 
 msgid "MII monitoring frequency"
 msgstr "Četnost hlídání rozhraní MII"
@@ -3421,6 +3427,9 @@ msgstr "Je třeba, aby kolonka byla ve formátu <hh:mm:ss>."
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "Kolonka by měla obsahovat IP adresu sítě v CIDR zápisu."
+
+msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
+msgstr ""
 
 msgid "This field should be a domain name or an IP address."
 msgstr "Tato kolonka by měla obsahovat doménový název nebo IP adresu."

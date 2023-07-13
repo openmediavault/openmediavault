@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-25 22:05+0200\n"
+"POT-Creation-Date: 2023-07-13 16:26+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -1290,6 +1290,9 @@ msgstr "Прапори"
 msgid "Force SSL/TLS"
 msgstr "Примусово SSL/TLS"
 
+msgid "Force a specific MAC address on this interface."
+msgstr ""
+
 msgid "Force secure connection only."
 msgstr "Тільки захищене з'єднання."
 
@@ -1816,6 +1819,9 @@ msgstr "Люксембург"
 
 msgid "MAC"
 msgstr "MAC"
+
+msgid "MAC address"
+msgstr "MAC адреса"
 
 msgid "MII monitoring frequency"
 msgstr "MII моніторингу частоти"
@@ -3422,6 +3428,9 @@ msgstr "Це поле має мати формат <hh:mm:ss>."
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "Це поле повинне містити адресу мережі IP в нотації CIDR."
+
+msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
+msgstr ""
 
 msgid "This field should be a domain name or an IP address."
 msgstr "Це поле повинно бути доменне ім'я або IP-адреса."

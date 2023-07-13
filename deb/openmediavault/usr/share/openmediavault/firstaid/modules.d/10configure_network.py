@@ -397,6 +397,7 @@ class Module(openmediavault.firstaid.IModule):
                 "mtu": 0,
                 "wol": wol,
                 "comment": "",
+                "altmacaddress": "",
             }
         )
         # Do we process a wireless network interface?

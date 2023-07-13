@@ -567,8 +567,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.network.setethernetiface");
 		// Set the configuration object.
 		return $this->setInterfaceConfig($params, [
-			"type" => "ethernet",
-			"forcedmac" => preg_replace("/[ -.]/", ":", $params['forcedmac'])
+			"type" => "ethernet"
 		]);
 	}
 
@@ -835,8 +834,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		return $this->setInterfaceConfig($params, [
 			"type" => "vlan",
 			"vlanid" => $params['vlanid'],
-			"vlanrawdevice" => $params['vlanrawdevice'],
-			"forcedmac" => preg_replace("/[ -.]/", ":", $params['forcedmac'])
+			"vlanrawdevice" => $params['vlanrawdevice']
 		]);
 	}
 
@@ -913,8 +911,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 			"type" => "wifi",
 			"wpassid" => $params['wpassid'],
 			"wpapsk" => $params['wpapsk'],
-			"hidden" => $params['hidden'],
-			"forcedmac" => preg_replace("/[ -.]/", ":", $params['forcedmac'])
+			"hidden" => $params['hidden']
 		]);
     }
 
