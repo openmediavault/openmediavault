@@ -41,6 +41,26 @@ export class NfsSettingsFormPageComponent extends BaseFormPageComponent {
         name: 'enable',
         label: gettext('Enabled'),
         value: false
+      },
+      {
+        type: 'select',
+        name: 'versions',
+        label: gettext('Versions'),
+        hint: gettext('The NFS versions provided by the service.'),
+        value: [],
+        multiple: true,
+        validators: {
+          required: true
+        },
+        store: {
+          data: [
+            ['2', 'NFSv2'],
+            ['3', 'NFSv3'],
+            ['4', 'NFSv4'],
+            ['4.1', 'NFSv4.1'],
+            ['4.2', 'NFSv4.2']
+          ]
+        }
       }
     ],
     buttons: [

@@ -1,5 +1,6 @@
 openmediavault (6.5.0-1) stable; urgency=low
 
+  * Add ability to specify the supported NFS protocol versions.
   * Improve Debian security repository cleanup.
   * Issue #1564: Add alternative MAC address support for wired,
     wireless and VLAN network interfaces.

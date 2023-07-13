@@ -11,6 +11,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"versions": {
+			"type": "string",
+			"default": "3,4,4.1,4.2"
+		},
 		"shares": {
 			"type": "object",
 			"properties": {

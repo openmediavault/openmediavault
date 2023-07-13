@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-13 16:26+0200\n"
+"POT-Creation-Date: 2023-07-16 18:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3080,6 +3080,9 @@ msgstr ""
 msgid "Thailand"
 msgstr ""
 
+msgid "The NFS versions provided by the service."
+msgstr ""
+
 msgid "The NT description field."
 msgstr ""
 
@@ -3732,6 +3735,9 @@ msgid "Venezuela"
 msgstr ""
 
 msgid "Version"
+msgstr ""
+
+msgid "Versions"
 msgstr ""
 
 msgid "Vietnam"

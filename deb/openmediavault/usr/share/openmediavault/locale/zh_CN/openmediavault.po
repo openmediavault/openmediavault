@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-13 16:26+0200\n"
+"POT-Creation-Date: 2023-07-16 18:28+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2023\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -1295,7 +1295,7 @@ msgid "Force SSL/TLS"
 msgstr "强制使用 SSL/TLS"
 
 msgid "Force a specific MAC address on this interface."
-msgstr ""
+msgstr "強迫把一個特定的 MAC 地址用於此介面。"
 
 msgid "Force secure connection only."
 msgstr "强制只允许使用安全连接。"
@@ -3208,6 +3208,9 @@ msgstr "测试"
 msgid "Thailand"
 msgstr "泰国"
 
+msgid "The NFS versions provided by the service."
+msgstr "該服務所提供的 NFS 版本。"
+
 msgid "The NT description field."
 msgstr "NT 描述字段。"
 
@@ -3434,7 +3437,7 @@ msgid "This field should be a IP network address in CIDR notation."
 msgstr "此处应该是 CIDR 格式的 IP 地址。"
 
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
-msgstr ""
+msgstr "此欄位必須是一個 MAC 地址，例如：00:80:41:ae:fd:7e。"
 
 msgid "This field should be a domain name or an IP address."
 msgstr "此处应该是域名或者 IP 地址"
@@ -3954,6 +3957,9 @@ msgid "Venezuela"
 msgstr "委内瑞拉"
 
 msgid "Version"
+msgstr "版本"
+
+msgid "Versions"
 msgstr "版本"
 
 msgid "Vietnam"

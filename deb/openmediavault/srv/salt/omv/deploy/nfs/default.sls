@@ -18,6 +18,8 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
+# https://wiki.debian.org/NFSServerSetup
+# https://www.willhaley.com/blog/ubuntu-nfs-server
 # http://de.linwiki.org/wiki/Linuxfibel_-_Netzwerk_Server_-_NFS_Server
 # http://wiki.ubuntuusers.de/NFS
 # http://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-nfs-server-config-exports.html
@@ -28,10 +30,23 @@
 
 # Testing:
 # showmount -e <nfs-server>
+# cat /proc/fs/nfsd/versions
 
 {% set config = salt['omv_conf.get']('conf.service.nfs') %}
 
 {% if config.enable | to_bool %}
+
+configure_default_nfs-common:
+  file.managed:
+    - name: "/etc/default/nfs-common"
+    - source:
+      - salt://{{ tpldir }}/files/etc-default-nfs-common.j2
+    - template: jinja
+    - context:
+        config: {{ config | json }}
+    - user: root
+    - group: root
+    - mode: 644
 
 configure_default_nfs-kernel-server:
   file.managed:
@@ -55,10 +70,23 @@ configure_nfsd_exports:
     - group: root
     - mode: 644
 
+{% if ['2', '3'] | intersect(config.versions) | length > 0 %}
+
 start_rpc_statd_service:
   service.running:
     - name: rpc-statd
     - enable: True
+    - watch:
+      - file: "/etc/default/nfs-common"
+
+{% else %}
+
+stop_rpc_statd_service:
+  service.dead:
+    - name: rpc-statd
+    - enable: False
+
+{% endif %}
 
 start_nfs_server_service:
   service.running:

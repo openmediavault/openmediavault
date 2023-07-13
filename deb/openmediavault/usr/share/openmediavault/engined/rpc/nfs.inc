@@ -55,7 +55,9 @@ class Nfs extends \OMV\Rpc\ServiceAbstract {
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.nfs");
-		return $object->getAssoc();
+		$result = $object->getAssoc();
+		$result["versions"] = explode_safe(",", $result["versions"]);
+		return $result;
 	}
 
 	/**
@@ -71,6 +73,8 @@ class Nfs extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.nfs.setsettings");
+		// Modify 'versions' property.
+		$params["versions"] = implode(",", $params["versions"]);
 		// Get the existing configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.nfs");
