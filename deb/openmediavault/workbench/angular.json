@@ -34,7 +34,8 @@
               "bezier-easing",
               "dayjs",
               "@ngneat/transloco-keys-manager/marker",
-              "nunjucks"
+              "nunjucks",
+              "flat"
             ],
             "outputPath": "dist/openmediavault-workbench",
             "index": "src/index.html",
