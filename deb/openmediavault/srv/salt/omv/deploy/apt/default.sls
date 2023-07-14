@@ -26,7 +26,7 @@
 {% for value in salt['pkg.list_repos']().values() %}
 {% set _ = pkg_repos.extend(value) %}
 {% endfor %}
-{% set security_pkg_repos = pkg_repos | rejectattr('disabled') | selectattr('uri', 'match', '^https?://security.(debian.org|ubuntu.com)/.*-security$') | list %}
+{% set security_pkg_repos = pkg_repos | rejectattr('disabled') | selectattr('uri', 'match', '^https?://((deb|security).debian.org|security.ubuntu.com)/.*-security$') | list %}
 
 configure_apt_sources_list_openmediavault:
   file.managed:
