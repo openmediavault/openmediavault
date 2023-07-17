@@ -1,4 +1,4 @@
-openmediavault (6.5.0-1) stable; urgency=low
+openmediavault (6.5.0-2) stable; urgency=low
 
   * Add ability to specify the supported NFS protocol versions.
   * Improve Debian security repository cleanup.

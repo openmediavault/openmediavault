@@ -26,6 +26,9 @@ set -e
 # Convert the enabled NFS versions into a comma separated list.
 # E.g: +2 -3 +4 -4.1 -4.2 => 2,4
 versions=$(cat /proc/fs/nfsd/versions | sed -E 's/-([[:digit:]](.[[:digit:]])?)//g' | tr -d '+' | sed -e 's/[[:space:]]*$//' | tr -s ' ' ',')
+if [ -z "${versions}" ]; then
+    versions="3,4,4.1,4.2"
+fi
 omv_config_add_key "/config/services/nfs" "versions" "${versions}"
 
 exit 0
