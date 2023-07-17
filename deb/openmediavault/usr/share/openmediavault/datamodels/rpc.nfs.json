@@ -7,6 +7,20 @@
 			"enable": {
 				"type": "boolean",
 				"required": true
+			},
+			"versions": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"enum": [
+						"2",
+						"3",
+						"4",
+						"4.1",
+						"4.2"
+					]
+				},
+				"required": true
 			}
 		}
 	}

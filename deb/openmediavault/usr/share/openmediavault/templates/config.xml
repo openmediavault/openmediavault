@@ -392,6 +392,7 @@
 		</ssh>
 		<nfs>
 			<enable>0</enable>
+			<versions>3,4,4.1,4.2</versions>
 			<shares>
 				<!--
 				<share>

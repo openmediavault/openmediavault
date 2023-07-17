@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-13 16:26+0200\n"
+"POT-Creation-Date: 2023-07-16 18:28+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -3205,6 +3205,9 @@ msgstr ""
 msgid "Thailand"
 msgstr "태국"
 
+msgid "The NFS versions provided by the service."
+msgstr ""
+
 msgid "The NT description field."
 msgstr "NT 설명 항목"
 
@@ -3952,6 +3955,9 @@ msgstr "베네수엘라"
 
 msgid "Version"
 msgstr "버전"
+
+msgid "Versions"
+msgstr ""
 
 msgid "Vietnam"
 msgstr "베트남"

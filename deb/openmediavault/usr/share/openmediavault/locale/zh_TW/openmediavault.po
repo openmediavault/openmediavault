@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-13 16:26+0200\n"
+"POT-Creation-Date: 2023-07-16 18:28+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2023\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -702,7 +702,7 @@ msgid "Comoros"
 msgstr "科摩羅"
 
 msgid "Completion status"
-msgstr "完成狀態"
+msgstr "完成狀況"
 
 msgid "Compress"
 msgstr "壓縮"
@@ -1291,7 +1291,7 @@ msgid "Force SSL/TLS"
 msgstr "強制 SSL/TLS"
 
 msgid "Force a specific MAC address on this interface."
-msgstr ""
+msgstr "強迫把一個特定的 MAC 地址用於此介面。"
 
 msgid "Force secure connection only."
 msgstr "強制只能進行安全連線。"
@@ -3046,7 +3046,7 @@ msgstr "指定系統是否定期收集效能統計資料。"
 msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
-msgstr "指定是否監測系統狀態，並選擇最合適的 CPU 層級。"
+msgstr "指定是否監測系統狀況，並選擇最合適的 CPU 層級。"
 
 msgid "Specifies which slave is the primary device."
 msgstr "指定哪個隸屬介面是主要的裝置。"
@@ -3082,7 +3082,7 @@ msgid "Statistics collection and monitoring daemon."
 msgstr "统计信息收集和监视守护程序。"
 
 msgid "Status"
-msgstr "狀態"
+msgstr "狀況"
 
 msgid "Stop"
 msgstr "停止"
@@ -3203,6 +3203,9 @@ msgstr "測試"
 
 msgid "Thailand"
 msgstr "泰國"
+
+msgid "The NFS versions provided by the service."
+msgstr "該服務所提供的 NFS 版本。"
 
 msgid "The NT description field."
 msgstr "NT 的敘述欄位。"
@@ -3430,7 +3433,7 @@ msgid "This field should be a IP network address in CIDR notation."
 msgstr "此欄位應該是一個以 CIDR 表示法的 IP 網路位址。"
 
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
-msgstr ""
+msgstr "此欄位必須是一個 MAC 地址，例如：00:80:41:ae:fd:7e。"
 
 msgid "This field should be a domain name or an IP address."
 msgstr "此欄位應該是一個網域名稱或 IP 位址。"
@@ -3950,6 +3953,9 @@ msgid "Venezuela"
 msgstr "委內瑞拉"
 
 msgid "Version"
+msgstr "版本"
+
+msgid "Versions"
 msgstr "版本"
 
 msgid "Vietnam"

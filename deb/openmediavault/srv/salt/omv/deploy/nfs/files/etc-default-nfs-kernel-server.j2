@@ -4,17 +4,26 @@
 {%- set rpc_mountd_opts = salt['pillar.get']('default:OMV_NFSD_MOUNTDOPTS', '--manage-gids') -%}
 {%- set need_svcgssd = salt['pillar.get']('default:OMV_NFSD_NEEDSVCGSSD', '') -%}
 {%- set rpc_svcgssd_opts = salt['pillar.get']('default:OMV_NFSD_SVCGSSDOPTS', '') -%}
+{%- set rpc_nfsd_versions = config.versions.split(',') -%}
+{%- set no_rpc_nfsd_versions = ['2', '3', '4', '4.1', '4.2'] | difference(rpc_nfsd_versions) -%}
+{%- set rpc_mountd_versions = config.versions.split(',') | map('int') | unique -%}
+{%- set no_rpc_mountd_versions = [2, 3, 4] | difference(rpc_mountd_versions) -%}
 {{ pillar['headers']['multiline'] }}
 # Number of servers to start up
 RPCNFSDCOUNT="{{ rpc_nfsd_count }}"
+
 # Runtime priority of server (see nice(1))
 RPCNFSDPRIORITY="{{ rpc_nfsd_priority }}"
+
 # Options for rpc.nfsd.
-RPCNFSDOPTS="{{ rpc_nfsd_opts }}"
+RPCNFSDOPTS="{% for version in no_rpc_nfsd_versions %}--no-nfs-version {{ version }} {% endfor %}{% for version in rpc_nfsd_versions %}--nfs-version {{ version }} {% endfor %}{{ rpc_nfsd_opts }}"
+
 # Options for rpc.mountd.
-RPCMOUNTDOPTS="{{ rpc_mountd_opts }}"
+RPCMOUNTDOPTS="{% for version in no_rpc_mountd_versions %}--no-nfs-version {{ version }} {% endfor %}{% for version in rpc_mountd_versions %}--nfs-version {{ version }} {% endfor %}{{ rpc_mountd_opts }}"
+
 # Do you want to start the svcgssd daemon? It is only required for Kerberos
 # exports.
-NEED_SVCGSSD="{{ need_svcgssd }}"
+NEED_SVCGSSD={% if need_svcgssd | length > 0  %}"{{ need_svcgssd }}"{% endif %}
+
 # Options for rpc.svcgssd.
 RPCSVCGSSDOPTS="{{ rpc_svcgssd_opts }}"

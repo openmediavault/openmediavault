@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-13 16:26+0200\n"
+"POT-Creation-Date: 2023-07-16 18:28+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2023\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -3214,6 +3214,9 @@ msgstr "Test"
 msgid "Thailand"
 msgstr "Thailand"
 
+msgid "The NFS versions provided by the service."
+msgstr "Die vom Dienst bereitgestellten NFS-Versionen."
+
 msgid "The NT description field."
 msgstr "Feld für Beschreibung nach Windows NT."
 
@@ -3961,6 +3964,9 @@ msgstr "Venezuela"
 
 msgid "Version"
 msgstr "Version"
+
+msgid "Versions"
+msgstr "Versionen"
 
 msgid "Vietnam"
 msgstr "Vietnam"

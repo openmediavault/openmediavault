@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-13 16:26+0200\n"
+"POT-Creation-Date: 2023-07-16 18:28+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -3203,6 +3203,9 @@ msgstr "اختبار"
 msgid "Thailand"
 msgstr "تايلاند"
 
+msgid "The NFS versions provided by the service."
+msgstr ""
+
 msgid "The NT description field."
 msgstr "حقل وصف NT."
 
@@ -3950,6 +3953,9 @@ msgstr "فنزويلا"
 
 msgid "Version"
 msgstr "الإصدار"
+
+msgid "Versions"
+msgstr ""
 
 msgid "Vietnam"
 msgstr "فيتنام"

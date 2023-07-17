@@ -1,3 +1,5 @@
+#!/usr/bin/env dash
+#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -17,8 +19,13 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Make sure custom Jinja filters are registered.
-{% set _ = salt['omv_utils.register_jinja_filters']() %}
+set -e
 
-include:
-  - .{{ salt['pillar.get']('deploy_nfs', 'default') }}
+. /usr/share/openmediavault/scripts/helper-functions
+
+# Convert the enabled NFS versions into a comma separated list.
+# E.g: +2 -3 +4 -4.1 -4.2 => 2,4
+versions=$(cat /proc/fs/nfsd/versions | sed -E 's/-([[:digit:]](.[[:digit:]])?)//g' | tr -d '+' | sed -e 's/[[:space:]]*$//' | tr -s ' ' ',')
+omv_config_add_key "/config/services/nfs" "versions" "${versions}"
+
+exit 0

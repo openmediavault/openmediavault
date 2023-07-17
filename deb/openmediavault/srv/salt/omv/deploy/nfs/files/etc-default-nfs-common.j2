@@ -1,0 +1,19 @@
+{%- set rpc_statd_opts = salt['pillar.get']('default:OMV_NFSD_STATDOPTS', '') -%}
+{%- set need_gssd = salt['pillar.get']('default:OMV_NFSD_NEEDGSSD', '') -%}
+{%- set nfs_versions = config.versions.split(',') -%}
+{{ pillar['headers']['multiline'] }}
+# Do you want to start the statd daemon? It is not needed for NFSv4.
+NEED_STATD="{{ (['2', '3'] | intersect(config.versions) | length > 0) | yesno }}"
+
+# Options for rpc.statd.
+#   Should rpc.statd listen on a specific port? This is especially useful
+#   when you have a port-based firewall. To use a fixed port, set this
+#   this variable to a statd argument like: "--port 4000 --outgoing-port 4001".
+#   For more information, see rpc.statd(8) or http://wiki.debian.org/SecuringNFS
+STATDOPTS="{{ rpc_statd_opts }}"
+
+# Do you want to start the idmapd daemon? It is only needed for NFSv4.
+NEED_IDMAPD="{{ (['4', '4.1', '4.2'] | intersect(config.versions) | length > 0) | yesno }}"
+
+# Do you want to start the gssd daemon? It is required for Kerberos mounts.
+NEED_GSSD={% if need_gssd | length > 0  %}"{{ need_gssd }}"{% endif %}

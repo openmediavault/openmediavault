@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-13 16:26+0200\n"
+"POT-Creation-Date: 2023-07-16 18:28+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2023\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -1289,7 +1289,7 @@ msgid "Force SSL/TLS"
 msgstr "Επιβολή SSL/TLS"
 
 msgid "Force a specific MAC address on this interface."
-msgstr ""
+msgstr "Επιβολή συγκεκριμένης διεύθυνσης MAC σε αυτήν την διεπαφή."
 
 msgid "Force secure connection only."
 msgstr "Να απαιτείται μόνο ασφαλής σύνδεση."
@@ -3202,6 +3202,9 @@ msgstr "Δοκιμή"
 msgid "Thailand"
 msgstr "Thailand"
 
+msgid "The NFS versions provided by the service."
+msgstr ""
+
 msgid "The NT description field."
 msgstr "Το πεδίο περιγραφής ΝΤ."
 
@@ -3428,7 +3431,7 @@ msgid "This field should be a IP network address in CIDR notation."
 msgstr "Αυτό το πεδίο δέχεται διεύθυνση ΙΡ σε μορφή CIDR."
 
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
-msgstr ""
+msgstr "Αυτό το πεδίο δέχεται διεύθυνση MAC , π.χ. 00:80:41:ae:fd:7e."
 
 msgid "This field should be a domain name or an IP address."
 msgstr "Αυτό το πεδίο δέχεται όνομα τομέα ή διεύθυνση ΙΡ."
@@ -3949,6 +3952,9 @@ msgstr "Venezuela"
 
 msgid "Version"
 msgstr "Έκδοση"
+
+msgid "Versions"
+msgstr ""
 
 msgid "Vietnam"
 msgstr "Vietnam"
