@@ -185,7 +185,7 @@ export class UserFormPageComponent extends BaseFormPageComponent {
         name: 'disallowusermod',
         label: gettext('Disallow account modification'),
         value: false,
-        hint: gettext('Disallow the user to modify his own account.')
+        hint: gettext('Disallow the user to modify their own account.')
       },
       {
         type: 'tagInput',
