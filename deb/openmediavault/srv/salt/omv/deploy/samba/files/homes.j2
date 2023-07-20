@@ -45,6 +45,10 @@ recycle:subdir_mode = {{ recycle_subdir_mode }}
 recycle:exclude = {{ recycle_exclude }}
 recycle:exclude_dir = {{ recycle_exclude_dir }}
 {%- endif %}
+{%- if enable_timemachine_vfs | to_bool %}
+{%- set _ = vfs_objects.append('fruit') %}
+{%- set _ = vfs_objects.append('streams_xattr') %}
+{%- endif %}
 {%- if homedir_config.sharedfolderref | omv_conf_get_by_identifier('conf.system.sharedfolder') | attr('mntentref') | omv_conf_get_by_identifier('conf.system.filesystem.mountpoint') | attr('type') == 'btrfs' %}
 {%- set _ = vfs_objects.append('btrfs') %}
 {%- set _ = vfs_objects.append('shadow_copy2') %}

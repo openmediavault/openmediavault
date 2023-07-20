@@ -25,6 +25,10 @@
 
 {% if config.homesenable | to_bool and homedir_config.enable | to_bool %}
 
+{% set timemachine_shares = salt['omv_conf.get_by_filter'](
+  'conf.service.smb.share',
+  {'operator': 'equals', 'arg0': 'timemachine', 'arg1': '1'}) %}
+
 configure_samba_homes:
   file.append:
     - name: "/etc/samba/smb.conf"
@@ -34,6 +38,7 @@ configure_samba_homes:
     - context:
         config: {{ config | json }}
         homedir_config: {{ homedir_config | json }}
+        enable_timemachine_vfs: {{ timemachine_shares | length > 0 }}
 {% if config.enable | to_bool %}
     - watch_in:
       - service: start_samba_service

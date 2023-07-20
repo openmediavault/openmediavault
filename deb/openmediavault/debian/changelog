@@ -1,6 +1,7 @@
 openmediavault (6.5.1-1) stable; urgency=low
 
-  *
+  * Fix a home directory issue in Samba when a share has enabled
+    the `Time machine` option.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 20 Jul 2023 15:35:02 +0200
 
