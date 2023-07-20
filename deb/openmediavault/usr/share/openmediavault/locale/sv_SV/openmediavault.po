@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-16 18:28+0200\n"
+"POT-Creation-Date: 2023-07-17 15:11+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2023\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -960,7 +960,7 @@ msgstr "Inaktiverad"
 msgid "Disallow account modification"
 msgstr "Tillåt inte ändring av kontot"
 
-msgid "Disallow the user to modify his own account."
+msgid "Disallow the user to modify their own account."
 msgstr "Tillåt inte användaren att ändra sitt eget konto."
 
 msgid "Disk Usage"
@@ -1292,7 +1292,7 @@ msgid "Force SSL/TLS"
 msgstr "Tvinga SSL/TLS"
 
 msgid "Force a specific MAC address on this interface."
-msgstr ""
+msgstr "Tvinga fram en specifik MAC-adress på detta gränssnitt."
 
 msgid "Force secure connection only."
 msgstr "Tvinga endast säker anslutning."
@@ -3206,7 +3206,7 @@ msgid "Thailand"
 msgstr "Thailand"
 
 msgid "The NFS versions provided by the service."
-msgstr ""
+msgstr "NFS-versionerna som tillhandahålls av tjänsten."
 
 msgid "The NT description field."
 msgstr "NT-beskrivningsfältet."
@@ -3434,7 +3434,7 @@ msgid "This field should be a IP network address in CIDR notation."
 msgstr "Det här fältet ska vara en IP-nätverksadress i CIDR-notering."
 
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
-msgstr ""
+msgstr "Detta fält ska vara en MAC-adress, t.ex. 00:80:41:ae:fd:7e."
 
 msgid "This field should be a domain name or an IP address."
 msgstr "Det här fältet ska vara ett domännamn eller en IP-adress."
@@ -3957,7 +3957,7 @@ msgid "Version"
 msgstr "Version"
 
 msgid "Versions"
-msgstr ""
+msgstr "Versioner"
 
 msgid "Vietnam"
 msgstr "Vietnam"
