@@ -1,3 +1,9 @@
+openmediavault (6.5.1-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 20 Jul 2023 15:35:02 +0200
+
 openmediavault (6.5.0-3) stable; urgency=low
 
   * Add ability to specify the supported NFS protocol versions.
