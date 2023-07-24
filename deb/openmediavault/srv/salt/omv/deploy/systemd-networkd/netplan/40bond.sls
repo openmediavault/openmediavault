@@ -36,6 +36,6 @@ configure_netplan_bond_{{ interface.devicename }}:
         interface: {{ interface | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: 600
 
 {% endfor %}
