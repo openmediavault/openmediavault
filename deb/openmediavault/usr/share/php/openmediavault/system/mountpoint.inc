@@ -241,7 +241,7 @@ class MountPoint {
 		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
-		$output = json_decode_safe(implode($output, ""), TRUE);
+		$output = json_decode_safe(implode("", $output), TRUE);
 		// {
 		//   "filesystems": [{
 		//     "source":"/dev/sda",
