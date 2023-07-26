@@ -1,3 +1,10 @@
+openmediavault-photoprism (6.0.8-1) stable; urgency=low
+
+  * Update locale files.
+  * Update package dependency.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Jul 2023 21:27:51 +0200
+
 openmediavault-photoprism (6.0.7-1) stable; urgency=low
 
   * Make sure the container is started after the file systems of

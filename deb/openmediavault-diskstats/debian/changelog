@@ -1,3 +1,10 @@
+openmediavault-diskstats (6.0.4-1) stable; urgency=low
+
+  * Update locale files.
+  * Update package dependency.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Jul 2023 19:49:28 +0200
+
 openmediavault-diskstats (6.0.3-1) stable; urgency=low
 
   * Make sure that the same storage device is not displayed

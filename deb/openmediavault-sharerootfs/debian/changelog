@@ -1,3 +1,10 @@
+openmediavault-sharerootfs (6.0.3-1) stable; urgency=low
+
+  * Update locale files.
+  * Update package dependency.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Jul 2023 21:31:24 +0200
+
 openmediavault-sharerootfs (6.0.2-1) stable; urgency=low
 
   * Fix mount point configuration.
