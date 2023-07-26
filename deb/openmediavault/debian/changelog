@@ -1,5 +1,6 @@
 openmediavault (6.5.1-1) stable; urgency=low
 
+  * Update locale files.
   * Fix a home directory issue in Samba when a share has enabled
     the `Time machine` option.
 

@@ -964,7 +964,7 @@ msgid "Disallow account modification"
 msgstr "Fiók módosításának tiltása "
 
 msgid "Disallow the user to modify their own account."
-msgstr ""
+msgstr "Saját felhasználói fiók módosításának tiltása."
 
 msgid "Disk Usage"
 msgstr "Lemez használat"
@@ -3209,7 +3209,7 @@ msgid "Thailand"
 msgstr "Thaiföld"
 
 msgid "The NFS versions provided by the service."
-msgstr ""
+msgstr "A szolgálatatás által biztosított NFS verziók."
 
 msgid "The NT description field."
 msgstr "NT leírás mező."
@@ -3960,7 +3960,7 @@ msgid "Version"
 msgstr "Verzió"
 
 msgid "Versions"
-msgstr ""
+msgstr "Verziók"
 
 msgid "Vietnam"
 msgstr "Vietnám"
