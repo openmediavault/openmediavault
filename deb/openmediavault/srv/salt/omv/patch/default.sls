@@ -17,15 +17,6 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# https://github.com/saltstack/salt/pull/62952
-patch_utils_event_pr_62952:
-  file.patch:
-    - name: /lib/python3/dist-packages/salt/utils/event.py
-    - source:
-      - salt://{{ tpldir }}/files/salt-pr-62952.patch
-    - unless: test -e /var/lib/openmediavault/salt/patch_utils_event_pr_62952_stamp
-
-touch_utils_event_pr_62952_stamp:
-  file.touch:
-    - name: /var/lib/openmediavault/salt/patch_utils_event_pr_62952_stamp
-    - makedirs: true
+# Prevent empty rendering.
+patch_nop:
+  test.nop
