@@ -23,9 +23,12 @@ set -e
 
 . /usr/share/openmediavault/scripts/helper-functions
 
-# Convert the enabled NFS versions into a comma separated list.
-# E.g: +2 -3 +4 -4.1 -4.2 => 2,4
-versions=$(cat /proc/fs/nfsd/versions | sed -E 's/-([[:digit:]](.[[:digit:]])?)//g' | tr -d '+' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr -s '[:space:]' ',')
+versions=""
+if [ -e "/proc/fs/nfsd/versions" ]; then
+	# Convert the enabled NFS versions into a comma separated list.
+	# E.g: +2 -3 +4 -4.1 -4.2 => 2,4
+	versions=$(cat /proc/fs/nfsd/versions | sed -E 's/-([[:digit:]](.[[:digit:]])?)//g' | tr -d '+' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr -s '[:space:]' ',')
+fi
 if [ -z "${versions}" ]; then
     versions="3,4,4.1,4.2"
 fi
