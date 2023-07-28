@@ -126,7 +126,3 @@ configure_apt_sources_list_os_security:
     - mode: 644
 
 {% endif %}
-
-refresh_apt_database:
-  module.run:
-    - pkg.refresh_db:
