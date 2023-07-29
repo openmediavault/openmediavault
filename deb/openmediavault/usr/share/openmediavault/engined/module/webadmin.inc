@@ -21,7 +21,7 @@
  */
 namespace Engined\Module;
 
-class Webadmin extends \OMV\Engine\Module\ModuleAbstract
+class Webadmin extends \OMV\Engine\Module\ServiceAbstract
 		implements \OMV\Engine\Notify\IListener {
 	public function getName() {
 		return "webadmin";
