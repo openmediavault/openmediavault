@@ -66,8 +66,11 @@ class ProductInfo:
         Get the product version.
         """
         cache = apt.cache.Cache()
-        package = cache[self.package_name]
-        return package.candidate.version
+        try:
+            package = cache[self.package_name]
+            return package['candidate']['version']
+        except KeyError:
+            return 'n/a'
 
     @property
     def version_name(self):

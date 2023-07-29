@@ -17,6 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Testing:
+# resolvectl status
+
 unmask_systemd_resolved:
   service.unmasked:
     - name: systemd-resolved
