@@ -67,6 +67,12 @@ create_onedrive_systemd_conf:
     - makedirs: True
     - mode: 644
 
+onedrive_systemctl_daemon_reload:
+  module.run:
+    - service.systemctl_reload:
+    - onchanges:
+      - file: create_onedrive_systemd_conf
+
 start_onedrive_service:
   service.running:
     - name: onedrive
