@@ -23,6 +23,7 @@
 
 # Testing
 # onedrive --confdir /var/cache/onedrive --display-config
+# systemctl show onedrive.service
 
 {% set config = salt['omv_conf.get']('conf.service.onedrive') %}
 
