@@ -1,3 +1,10 @@
+openmediavault-onedrive (6.2.11-1) stable; urgency=low
+
+  * Make sure the onedrive systemd unit is started only after the
+    file systems of the shared folder is mounted.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 29 Jul 2023 13:20:56 +0200
+
 openmediavault-onedrive (6.2.10-1) stable; urgency=low
 
   * Update locale files.

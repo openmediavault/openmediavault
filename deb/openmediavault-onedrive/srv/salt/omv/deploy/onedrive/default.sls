@@ -28,6 +28,8 @@
 
 {% if config.enable | to_bool %}
 
+{% set sf_mnt_path = salt['omv_conf.get_sharedfolder_mount_path'](config.sharedfolderref) %}
+
 setup_onedrive_config_dir:
   file.directory:
     - name: "/var/cache/onedrive/"
@@ -57,6 +59,9 @@ create_onedrive_systemd_conf:
   file.managed:
     - name: "/etc/systemd/system/onedrive.service.d/openmediavault.conf"
     - contents: |
+        [Unit]
+        RequiresMountsFor="{{ sf_mnt_path }}"
+
         [Service]
         User={{ config.username }}
     - makedirs: True
