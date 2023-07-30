@@ -1,6 +1,6 @@
 openmediavault (6.5.4-1) stable; urgency=low
 
-  *
+  * Issue #1569: Shared folder references are not correctly queried.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 29 Jul 2023 14:51:43 +0200
 

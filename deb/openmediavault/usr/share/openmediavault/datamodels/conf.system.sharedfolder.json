@@ -6,7 +6,7 @@
 		"xpath": "//system/shares/sharedfolder",
 		"iterable": true,
 		"idproperty": "uuid",
-		"refproperty": "sharedfolderref"
+		"refproperty": "*[contains(name(), 'sharedfolderref')]"
 	},
 	"properties": {
 		"uuid": {
