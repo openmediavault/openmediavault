@@ -25,7 +25,7 @@ namespace OMV;
  * @ingroup api
  */
 class Uuid {
-	private function uuid($version) {
+	private function static uuid($version) {
 		$cmdArgs = [];
 		$cmdArgs[] = sprintf("-v %d", $version);
 		$cmd = new \OMV\System\Process("uuid", $cmdArgs);
