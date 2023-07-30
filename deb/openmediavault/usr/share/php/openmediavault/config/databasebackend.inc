@@ -427,7 +427,7 @@ class DatabaseBackend {
 	 * @param force Set to TRUE to force commit.
 	 * @return Returns TRUE on success, otherwise FALSE.
 	 */
-	final private function commit($force = FALSE) {
+	private function commit($force = FALSE) {
 		if (!((TRUE === $force) || (TRUE === $this->autoCommit)))
 			return TRUE;
 		// Create a revision of the XML document.
@@ -477,7 +477,7 @@ class DatabaseBackend {
 	 * @private
 	 * @return The error description if available, otherwise empty string.
 	 */
-	final private function getLibXmlError() {
+	private function getLibXmlError() {
 		$text = "";
 		$errLevels = [
 			LIBXML_ERR_WARNING => gettext("Warning"),
@@ -497,7 +497,7 @@ class DatabaseBackend {
 	/**
 	 * @private
 	 */
-	final private function reload() {
+	private function reload() {
 		if (TRUE === $this->forceReload) {
 			$this->domdoc = NULL;
 			return $this->load();
@@ -508,7 +508,7 @@ class DatabaseBackend {
 	/**
 	 * @private
 	 */
-	final private function deleteNode($node) {
+	private function deleteNode($node) {
 		$this->deleteChildren($node);
 		$parent = $node->parentNode;
 		$parent->removeChild($node);
@@ -517,7 +517,7 @@ class DatabaseBackend {
 	/**
 	 * @private
 	 */
-	final private function deleteChildren($node) {
+	private function deleteChildren($node) {
 		while (isset($node->firstChild)) {
 			$this->deleteChildren($node->firstChild);
 			$node->removeChild($node->firstChild);
@@ -528,7 +528,7 @@ class DatabaseBackend {
 	 * @private
 	 * Convert a PHP array to a DOMNode object.
 	 */
-	final private function nodeFromArray($mixed, \DOMNode $domNode) {
+	private function nodeFromArray($mixed, \DOMNode $domNode) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Is it an array/dictionary?
 		if (is_array($mixed)) {
@@ -562,7 +562,7 @@ class DatabaseBackend {
 	 * @private
 	 * Convert a DOMNode object to a PHP array.
 	 */
-	final private function nodeToArray(\DOMNode $domNode = null) {
+	private function nodeToArray(\DOMNode $domNode = null) {
 		$result = "";
 		if (is_null($domNode) && !$this->hasChildNodes()) {
 			return $result;

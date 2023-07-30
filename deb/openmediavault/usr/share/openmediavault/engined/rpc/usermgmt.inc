@@ -119,7 +119,7 @@ finish:
 	 * @return Returns an associative array with the user information
 	 *   or FALSE if the user does not exist.
 	 */
-	final private function getUserInfo($id) {
+	private function getUserInfo($id) {
 		$user = new \OMV\System\User($id);
 		if (!$user->exists())
 			return FALSE;
@@ -150,7 +150,7 @@ finish:
 	 *   last changed, minimum, maximum, warn, inactive, expire and
 	 *   reserved.
 	 */
-	final private function enumerateUsersByType($type) {
+	private function enumerateUsersByType($type) {
 		// Get list of user names.
 		$users = \OMV\System\User::getUsers();
 		// Iterate through all users to filter the requested ones.
@@ -235,7 +235,7 @@ finish:
 	 * @return Returns an associative array with the group information
 	 *   or FALSE if the group does not exist.
 	 */
-	final private function getGroupInfo($id) {
+	private function getGroupInfo($id) {
 		$group = new \OMV\System\Group($id);
 		if (!$group->exists())
 			return FALSE;

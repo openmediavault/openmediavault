@@ -51,7 +51,7 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
 	 * @param username The name of the user.
 	 * @return bool TRUE if the user exists, otherwise FALSE.
 	 */
-	final private function existsUser($username) {
+	private function existsUser($username) {
 		$cmdLine = sprintf("pdbedit --list | grep '%s:'", $username);
 		$cmd = new \OMV\System\Process($cmdLine);
 		$cmd->setQuiet(TRUE);
