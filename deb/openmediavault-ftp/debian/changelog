@@ -1,3 +1,10 @@
+openmediavault-ftp (6.0.4-1) stable; urgency=low
+
+  * Make sure the monit configuration is updated after the plugin
+    has been removed.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 31 Jul 2023 18:27:09 +0200
+
 openmediavault-ftp (6.0.3-1) stable; urgency=low
 
   * Update locale files.

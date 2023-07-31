@@ -25,6 +25,10 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 remove_action() {
+	# Force the creation of the monit service configuration files. This
+	# way we can simply purge this service configuration file. Finally
+	# reload the monit configuration.
+	omv-salt deploy run --no-color monit
 	# Activate trigger to rebuild workbench configuration files.
 	dpkg-trigger update-workbench
 }
