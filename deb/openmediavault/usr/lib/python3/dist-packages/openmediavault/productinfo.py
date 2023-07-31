@@ -68,7 +68,7 @@ class ProductInfo:
         cache = apt.cache.Cache()
         try:
             package = cache[self.package_name]
-            return package['candidate']['version']
+            return package.candidate.version
         except KeyError:
             return 'n/a'
 
