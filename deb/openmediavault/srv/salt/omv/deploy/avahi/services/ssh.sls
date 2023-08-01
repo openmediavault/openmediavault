@@ -21,13 +21,7 @@
 {% set ssh_zeroconf_enabled = salt['pillar.get']('default:OMV_SSHD_ZEROCONF_ENABLED', 1) %}
 {% set ssh_zeroconf_name = salt['pillar.get']('default:OMV_SSHD_ZEROCONF_NAME', '%h - SSH') %}
 
-{% if not (ssh_config.enable | to_bool and ssh_zeroconf_enabled | to_bool) %}
-
-remove_avahi_service_ssh:
-  file.absent:
-    - name: "/etc/avahi/services/ssh.service"
-
-{% else %}
+{% if (ssh_config.enable | to_bool) and (ssh_zeroconf_enabled | to_bool) %}
 
 configure_avahi_service_ssh:
   file.managed:

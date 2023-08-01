@@ -17,25 +17,5 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set config = salt['omv_conf.get']('conf.service.wetty') %}
-{% set ssl_enabled = config.sslcertificateref | length > 0 %}
-{% set zeroconf_enabled = salt['pillar.get']('default:OMV_WETTY_ZEROCONF_ENABLED', 1) %}
-{% set zeroconf_name = salt['pillar.get']('default:OMV_WETTY_ZEROCONF_NAME', '%h - WeTTY') %}
-
-{% if (config.enable | to_bool) and (zeroconf_enabled | to_bool) %}
-
-configure_avahi_service_wetty:
-  file.managed:
-    - name: "/etc/avahi/services/wetty.service"
-    - source:
-      - salt://{{ tpldir }}/files/template.j2
-    - template: jinja
-    - context:
-        type: "{{ ssl_enabled | yesno('_https,_http') }}._tcp"
-        port: {{ config.port }}
-        name: "{{ zeroconf_name }}"
-    - user: root
-    - group: root
-    - mode: 644
-
-{% endif %}
+include:
+  - .plugins

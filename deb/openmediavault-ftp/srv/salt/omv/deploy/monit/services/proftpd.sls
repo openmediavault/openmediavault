@@ -40,10 +40,4 @@ configure_monit_proftpd_service:
     - group: root
     - mode: 644
 
-{% else %}
-
-remove_monit_proftpd_service:
-  file.absent:
-    - name: "/etc/monit/conf.d/openmediavault-proftpd.conf"
-
 {% endif %}

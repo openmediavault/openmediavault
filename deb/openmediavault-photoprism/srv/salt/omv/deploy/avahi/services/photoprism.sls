@@ -22,13 +22,7 @@
 {% set zeroconf_enabled = salt['pillar.get']('default:OMV_PHOTOPRISM_ZEROCONF_ENABLED', 1) %}
 {% set zeroconf_name = salt['pillar.get']('default:OMV_PHOTOPRISM_ZEROCONF_NAME', '%h - PhotoPrism') %}
 
-{% if not (config.enable | to_bool and zeroconf_enabled | to_bool) %}
-
-remove_avahi_service_photoprism:
-  file.absent:
-    - name: "/etc/avahi/services/photoprism.service"
-
-{% else %}
+{% if (config.enable | to_bool) and (zeroconf_enabled | to_bool) %}
 
 configure_avahi_service_photoprism:
   file.managed:

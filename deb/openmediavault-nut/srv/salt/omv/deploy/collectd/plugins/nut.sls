@@ -35,10 +35,4 @@ configure_collectd_conf_nut_plugin:
             {%- endif %}
         </Plugin>
 
-{% else %}
-
-remove_collectd_conf_nut_plugin:
-  file.absent:
-    - name: "/etc/collectd/collectd.conf.d/nut.conf"
-
 {% endif %}

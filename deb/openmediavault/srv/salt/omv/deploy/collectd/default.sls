@@ -17,77 +17,11 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set mkrrdgraph = salt['pillar.get']('default:OMV_MKRRDGRAPH', '/usr/sbin/omv-mkrrdgraph') %}
-{% set mkrrdgraph_interval = salt['pillar.get']('default:OMV_MKRRDGRAPH_INTERVAL', '15') %}
-{% set config = salt['omv_conf.get']('conf.system.monitoring.perfstats') %}
-
-prereq_collectd_service_monit:
-  salt.state:
-    - tgt: '*'
-    - sls: omv.deploy.monit
-
-configure_collectd_conf:
-  file.managed:
-    - name: "/etc/collectd/collectd.conf"
-    - source:
-      - salt://{{ tpldir }}/files/etc-collectd_collectd.conf.j2
-    - template: jinja
-    - user: root
-    - group: root
-    - mode: 644
-
-divert_collectd_conf:
-  omv_dpkg.divert_add:
-    - name: "/etc/collectd/collectd.conf"
+{% set dirpath = '/srv/salt' | path_join(tpldir) %}
 
 include:
-  - .plugins
-
-{% if config.enable | to_bool %}
-
-start_collectd_service:
-  service.running:
-    - name: collectd
-    - enable: True
-    - watch:
-      - file: "/etc/collectd/collectd.conf"
-      - file: "/etc/collectd/collectd.conf.d/*.conf"
-
-monitor_collectd_service:
-  module.run:
-    - monit.monitor:
-      - name: collectd
-    - require:
-      - service: start_collectd_service
-
-install_mkrrdgraph_cron_job:
-  file.managed:
-    - name: "/etc/cron.d/openmediavault-mkrrdgraph"
-    - contents:
-      - "# Create graphs every {{ mkrrdgraph_interval }} minutes"
-      - "# m h dom mon dow user    command"
-      - "*/{{ mkrrdgraph_interval }} * * * * root {{ mkrrdgraph }} >/dev/null 2>&1"
-    - user: root
-    - group: root
-    - mode: 644
-
-generate_rrd_graphs:
-  cmd.run:
-    - name: "{{ mkrrdgraph }}"
-
-{% else %}
-
-remove_mkrrdgraph_cron_job:
-  file.absent:
-    - name: "/etc/cron.d/openmediavault-mkrrdgraph"
-
-unmonitor_collectd_service:
-  cmd.run:
-    - name: monit unmonitor collectd || true
-
-stop_collectd_service:
-  service.dead:
-    - name: collectd
-    - enable: False
-
+{% for file in salt['file.readdir'](dirpath) | sort %}
+{% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}
+  - .{{ file | replace('.sls', '') }}
 {% endif %}
+{% endfor %}

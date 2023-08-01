@@ -39,10 +39,4 @@ configure_monit_filesystem_service:
     - group: root
     - mode: 644
 
-{% else %}
-
-remove_monit_filesystem_service:
-  file.absent:
-    - name: "/etc/monit/conf.d/openmediavault-filesystem.conf"
-
 {% endif %}

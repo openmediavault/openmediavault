@@ -1,3 +1,9 @@
+openmediavault-forkeddaapd (6.0.3-1) stable; urgency=low
+
+  * Enhance cleanup after removing the plugin.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 01 Aug 2023 17:38:53 +0200
+
 openmediavault-forkeddaapd (6.0.2-1) stable; urgency=low
 
   * Update locale files.

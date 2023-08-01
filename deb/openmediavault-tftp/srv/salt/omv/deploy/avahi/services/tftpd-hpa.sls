@@ -21,13 +21,7 @@
 {% set tftp_zeroconf_enabled = salt['pillar.get']('default:OMV_TFTPDHPA_ZEROCONF_ENABLED', 1) %}
 {% set tftp_zeroconf_name = salt['pillar.get']('default:OMV_TFTPDHPA_ZEROCONF_NAME', '%h - TFTP') %}
 
-{% if not (tftp_config.enable | to_bool and tftp_zeroconf_enabled | to_bool) %}
-
-remove_avahi_service_tftpd-hpa:
-  file.absent:
-    - name: "/etc/avahi/services/tftp.service"
-
-{% else %}
+{% if (tftp_config.enable | to_bool) and (tftp_zeroconf_enabled | to_bool) %}
 
 configure_avahi_service_tftpd-hpa:
   file.managed:

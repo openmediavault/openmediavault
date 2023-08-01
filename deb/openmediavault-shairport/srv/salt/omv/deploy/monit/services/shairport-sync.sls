@@ -39,10 +39,4 @@ configure_monit_shairport_sync_service:
     - group: root
     - mode: 644
 
-{% else %}
-
-remove_monit_shairport_sync_service:
-  file.absent:
-    - name: "/etc/monit/conf.d/openmediavault-shairportsync.conf"
-
 {% endif %}

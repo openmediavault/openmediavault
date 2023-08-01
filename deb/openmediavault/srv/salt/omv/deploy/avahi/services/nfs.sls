@@ -22,14 +22,7 @@
 {% set nfs_zeroconf_enabled = salt['pillar.get']('default:OMV_NFSD_ZEROCONF_ENABLED', 1) %}
 {% set nfs_zeroconf_name = salt['pillar.get']('default:OMV_NFSD_ZEROCONF_NAME', '%h - NFS') %}
 
-remove_avahi_service_nfs:
-  module.run:
-    - file.find:
-      - path: "/etc/avahi/services"
-      - iname: "nfs-*.service"
-      - delete: "f"
-
-{% if nfs_config.enable | to_bool and nfs_zeroconf_enabled | to_bool %}
+{% if (nfs_config.enable | to_bool) and (nfs_zeroconf_enabled | to_bool) %}
 
 # Announce duplicate shares only once.
 {% set nfsshares = salt['omv_conf.get_by_filter'](

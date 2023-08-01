@@ -1,3 +1,9 @@
+openmediavault-filebrowser (6.0.6-1) stable; urgency=low
+
+  * Enhance cleanup after removing the plugin.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 01 Aug 2023 17:38:03 +0200
+
 openmediavault-filebrowser (6.0.5-1) stable; urgency=low
 
   * Update locale files.

@@ -29,9 +29,11 @@ case "$1" in
 	;;
 
 	remove)
-		LANG=C.UTF-8 omv-salt deploy run --no-color --quiet collectd
 		# Activate trigger to rebuild workbench configuration files.
 		dpkg-trigger update-workbench
+		# Mark modules as dirty.
+		echo "Mark modules as dirty ..."
+	  omv_module_set_dirty collectd
 	;;
 
 	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

@@ -21,13 +21,7 @@
 {% set rsync_zeroconf_enabled = salt['pillar.get']('default:OMV_RSYNC_ZEROCONF_ENABLED', 1) %}
 {% set rsync_zeroconf_name = salt['pillar.get']('default:OMV_RSYNC_ZEROCONF_NAME', '%h - Rsync') %}
 
-{% if not (rsync_config.enable | to_bool and rsync_zeroconf_enabled | to_bool) %}
-
-remove_avahi_service_rsync:
-  file.absent:
-    - name: "/etc/avahi/services/rsync.service"
-
-{% else %}
+{% if (rsync_config.enable | to_bool) and (rsync_zeroconf_enabled | to_bool) %}
 
 configure_avahi_service_rsync:
   file.managed:

@@ -21,13 +21,7 @@
 {% set webadmin_zeroconf_enabled = salt['pillar.get']('default:OMV_WEBGUI_ZEROCONF_ENABLED', 1) %}
 {% set webadmin_zeroconf_name = salt['pillar.get']('default:OMV_WEBGUI_ZEROCONF_NAME', '%h - Web control panel') %}
 
-{% if not (webadmin_zeroconf_enabled | to_bool) %}
-
-remove_avahi_service_webadmin:
-  file.absent:
-    - name: "/etc/avahi/services/website.service"
-
-{% else %}
+{% if (webadmin_zeroconf_enabled | to_bool) %}
 
 configure_avahi_service_webadmin:
   file.managed:

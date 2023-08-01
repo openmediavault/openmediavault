@@ -22,13 +22,7 @@
 {% set zeroconf_enabled = salt['pillar.get']('default:OMV_S3_ZEROCONF_ENABLED', 1) %}
 {% set zeroconf_name = salt['pillar.get']('default:OMV_S3_ZEROCONF_NAME', '%h - S3') %}
 
-{% if not (config.enable | to_bool and zeroconf_enabled | to_bool) %}
-
-remove_avahi_service_minio:
-  file.absent:
-    - name: "/etc/avahi/services/minio.service"
-
-{% else %}
+{% if (config.enable | to_bool) and (zeroconf_enabled | to_bool) %}
 
 configure_avahi_service_minio:
   file.managed:

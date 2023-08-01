@@ -36,33 +36,36 @@ remove_action() {
   systemctl --system daemon-reload || true
   # Remove container image.
   podman rmi "${OMV_FILEBROWSER_APP_CONTAINER_IMAGE}" || true
-	# Activate trigger to rebuild workbench configuration files.
-	dpkg-trigger update-workbench
+  # Activate trigger to rebuild workbench configuration files.
+  dpkg-trigger update-workbench
+  # Mark modules as dirty.
+  echo "Mark modules as dirty ..."
+  omv_module_set_dirty avahi
 }
 
 case "$1" in
-	purge)
-		remove_action
-		# Remove the configuration data. Sadly we can not use 'omv-confdbadm'
-		# here because the database model has been removed already in a
-		# previous stage, see https://wiki.debian.org/MaintainerScripts.
-		# Because of that we need to use the helper tools to remove the
-		# configuration.
-		echo "Cleaning up configuration database ..."
-		omv_config_delete "/config/services/filebrowser"
-	;;
+  purge)
+    remove_action
+    # Remove the configuration data. Sadly we can not use 'omv-confdbadm'
+    # here because the database model has been removed already in a
+    # previous stage, see https://wiki.debian.org/MaintainerScripts.
+    # Because of that we need to use the helper tools to remove the
+    # configuration.
+    echo "Cleaning up configuration database ..."
+    omv_config_delete "/config/services/filebrowser"
+  ;;
 
-	remove)
-		remove_action
-	;;
+  remove)
+    remove_action
+  ;;
 
-	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-	;;
+  upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+  ;;
 
-	*)
-		echo "postrm called with unknown argument '$1'" >&2
-		exit 1
-	;;
+  *)
+    echo "postrm called with unknown argument '$1'" >&2
+    exit 1
+  ;;
 esac
 
 exit 0

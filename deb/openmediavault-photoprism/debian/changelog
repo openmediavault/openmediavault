@@ -1,3 +1,9 @@
+openmediavault-photoprism (6.0.9-1) stable; urgency=low
+
+  * Enhance cleanup after removing the plugin.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 01 Aug 2023 17:41:07 +0200
+
 openmediavault-photoprism (6.0.8-1) stable; urgency=low
 
   * Update locale files.

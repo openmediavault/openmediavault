@@ -21,13 +21,7 @@
 {% set ftp_zeroconf_enabled = salt['pillar.get']('default:OMV_PROFTPD_ZEROCONF_ENABLED', 1) %}
 {% set ftp_zeroconf_name = salt['pillar.get']('default:OMV_PROFTPD_ZEROCONF_NAME', '%h - FTP') %}
 
-{% if not (ftp_config.enable | to_bool and ftp_zeroconf_enabled | to_bool) %}
-
-remove_avahi_service_ftp:
-  file.absent:
-    - name: "/etc/avahi/services/ftp.service"
-
-{% else %}
+{% if (ftp_config.enable | to_bool) and (ftp_zeroconf_enabled | to_bool) %}
 
 configure_avahi_service_ftp:
   file.managed:

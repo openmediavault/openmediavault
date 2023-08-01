@@ -39,10 +39,4 @@ configure_monit_forked_daapd_service:
     - group: root
     - mode: 644
 
-{% else %}
-
-remove_monit_forked_daapd_service:
-  file.absent:
-    - name: "/etc/monit/conf.d/openmediavault-forkeddaapd.conf"
-
 {% endif %}

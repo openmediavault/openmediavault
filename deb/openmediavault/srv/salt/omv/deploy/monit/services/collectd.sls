@@ -39,10 +39,4 @@ configure_monit_collectd_service:
     - group: root
     - mode: 644
 
-{% else %}
-
-remove_monit_collectd_service:
-  file.absent:
-    - name: "/etc/monit/conf.d/openmediavault-collectd.conf"
-
 {% endif %}
