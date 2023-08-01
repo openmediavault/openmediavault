@@ -3,8 +3,7 @@
   <button mat-icon-button
           matTooltip="{{ 'Show/Hide navigation' | transloco }}"
           (click)="onToggleNavigation($event)">
-    <mat-icon svgIcon="{{ icon.menu }}">
-    </mat-icon>
+    <mat-icon svgIcon="{{ icon.menu }}"></mat-icon>
   </button>
   <span fxFlex></span>
   <span class="hostname">{{ hostname }}</span>
@@ -26,20 +25,17 @@
   <button mat-icon-button
           matTooltip="{{ 'Help' | transloco }}"
           [matMenuTriggerFor]="helpMenu">
-    <mat-icon svgIcon="{{ icon.help }}">
-    </mat-icon>
+    <mat-icon svgIcon="{{ icon.help }}"></mat-icon>
   </button>
   <button mat-icon-button
           matTooltip="{{ 'User Settings' | transloco }}"
           [matMenuTriggerFor]="settingsMenu">
-    <mat-icon svgIcon="{{ icon.user }}">
-    </mat-icon>
+    <mat-icon svgIcon="{{ icon.user }}"></mat-icon>
   </button>
   <button mat-icon-button
           matTooltip="{{ 'Power' | transloco }}"
           [matMenuTriggerFor]="powerMenu">
-    <mat-icon svgIcon="{{ icon.power }}">
-    </mat-icon>
+    <mat-icon svgIcon="{{ icon.power }}"></mat-icon>
   </button>
 
   <mat-menu #settingsMenu="matMenu">
