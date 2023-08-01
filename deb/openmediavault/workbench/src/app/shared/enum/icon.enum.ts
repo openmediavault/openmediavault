@@ -98,5 +98,6 @@ export enum Icon {
   folder = 'mdi:folder',
   console = 'mdi:console',
   close = 'mdi:window-close',
-  restore = 'mdi:restore'
+  restore = 'mdi:restore',
+  link = 'mdi:link-variant'
 }

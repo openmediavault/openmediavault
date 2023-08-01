@@ -90,6 +90,10 @@
             [ngClass]="{'omv-cursor-pointer': notification.url}"
             (click)="onNavigate(notification.url)">
         {{ notification.message | transloco | truncate:100 }}
+        <mat-icon *ngIf="notification.url"
+                  class="omv-icon-sm"
+                  svgIcon="{{ icon.link }}">
+        </mat-icon>
       </span>
       <span *ngIf="notification.timestamp"
             mat-line
