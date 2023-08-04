@@ -61,7 +61,7 @@ shadow:sort = {{ shadow_sort }}
 shadow:format = _%Y%m%dT%H%M%S
 shadow:delimiter = _
 shadow:snapprefix = ^homes\(@hourly\)\{0,1\}\(@daily\)\{0,1\}\(@weekly\)\{0,1\}\(@monthly\)\{0,1\}\(@yearly\)\{0,1\}$
-shadow:localtime = {{ (salt['timezone.get_offset']() != '+0000') | yesno }}
+shadow:localtime = no
 dfree command = {{ dfree_command }}
 dfree cache time = {{ dfree_cache_time }}
 {%- endif %}

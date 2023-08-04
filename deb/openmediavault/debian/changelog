@@ -1,6 +1,9 @@
 openmediavault (6.5.5-1) stable; urgency=low
 
-  *
+  * Issue #1572: Set `shadow:localtime = no` in smb.conf because
+    several users reported that `Previous Versions` is not working
+    in Windows. Note, Windows will display `Date modified` in UTC,
+    but this is the compromise to get the them displayed at all.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 01 Aug 2023 20:06:33 +0200
 
