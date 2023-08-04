@@ -1,4 +1,3 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "peru/windows-10-enterprise-x64-eval"
-  config.vm.box_version = "20230201.01"
+  config.vm.box = "valengus/windows11-22h2-x64"
 end
