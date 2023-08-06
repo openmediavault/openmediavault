@@ -1,3 +1,9 @@
+openmediavault (6.5.6-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 06 Aug 2023 17:24:53 +0200
+
 openmediavault (6.5.5-1) stable; urgency=low
 
   * Issue #1572: Set `shadow:localtime = no` in smb.conf because
