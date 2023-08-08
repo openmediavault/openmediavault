@@ -1,6 +1,6 @@
 openmediavault (6.5.7-1) stable; urgency=low
 
-  *
+  * Remove useless Salt state `omv.setup.resolvconf`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 Aug 2023 16:52:37 +0200
 
