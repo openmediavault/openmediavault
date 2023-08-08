@@ -455,7 +455,9 @@ class Module(openmediavault.firstaid.IModule):
                 return 0
             rpc_params["hidden"] = True if code == d.OK else False
         # Update the interface configuration.
-        print("Configuring network interface. Please wait ...")
+        print("Configuring the network interface.")
+        print("Note, the IP address may change and therefore you may lose the connection.")
+        print("Please wait ...")
         # Delete all existing network interface configuration objects.
         interfaces = openmediavault.rpc.call(
             "Network", "enumerateConfiguredDevices"
@@ -469,7 +471,7 @@ class Module(openmediavault.firstaid.IModule):
         openmediavault.rpc.call(
             "Config", "applyChanges", {"modules": [], "force": False}
         )
-        print("The network interface configuration was successfully changed.")
+        print("The configuration of the network interface has been successfully changed.")
         return 0
 
 
