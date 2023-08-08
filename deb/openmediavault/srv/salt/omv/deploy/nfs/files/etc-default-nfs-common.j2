@@ -3,7 +3,7 @@
 {%- set nfs_versions = config.versions.split(',') -%}
 {{ pillar['headers']['multiline'] }}
 # Do you want to start the statd daemon? It is not needed for NFSv4.
-NEED_STATD="{{ (['2', '3'] | intersect(config.versions) | length > 0) | yesno }}"
+NEED_STATD="{{ (['2', '3'] | intersect(nfs_versions) | length > 0) | yesno }}"
 
 # Options for rpc.statd.
 #   Should rpc.statd listen on a specific port? This is especially useful
@@ -13,7 +13,7 @@ NEED_STATD="{{ (['2', '3'] | intersect(config.versions) | length > 0) | yesno }}
 STATDOPTS="{{ rpc_statd_opts }}"
 
 # Do you want to start the idmapd daemon? It is only needed for NFSv4.
-NEED_IDMAPD="{{ (['4', '4.1', '4.2'] | intersect(config.versions) | length > 0) | yesno }}"
+NEED_IDMAPD="{{ (['4', '4.1', '4.2'] | intersect(nfs_versions) | length > 0) | yesno }}"
 
 # Do you want to start the gssd daemon? It is required for Kerberos mounts.
 NEED_GSSD={% if need_gssd | length > 0  %}"{{ need_gssd }}"{% endif %}

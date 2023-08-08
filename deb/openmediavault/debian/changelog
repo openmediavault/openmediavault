@@ -2,6 +2,7 @@ openmediavault (6.5.7-1) stable; urgency=low
 
   * Various improvements.
   * Remove useless Salt state `omv.setup.resolvconf`.
+  * Fix bug in NFS configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 Aug 2023 16:52:37 +0200
 

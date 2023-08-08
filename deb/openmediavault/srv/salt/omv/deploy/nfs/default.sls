@@ -70,7 +70,7 @@ configure_nfsd_exports:
     - group: root
     - mode: 644
 
-{% if ['2', '3'] | intersect(config.versions) | length > 0 %}
+{% if ['2', '3'] | intersect(config.versions.split(',')) | length > 0 %}
 
 start_rpc_statd_service:
   service.running:
