@@ -27,33 +27,23 @@
 # http://jkossen.nl/2009/05/12/simple-nfsv4-configuration-for-debian-and-ubuntu.html
 # http://doc.opensuse.org/products/opensuse/openSUSE/opensuse-reference/cha.nfs.html
 # https://www.kernel.org/doc/Documentation/filesystems/nfs/nfs41-server.txt
+# https://ngelinux.com/difference-between-nfs-v2-v3-v4-v4-1-and-v4-2/
 # /usr/lib/systemd/scripts/nfs-utils_env.sh
 
 # Testing:
 # showmount -e <nfs-server>
 # cat /proc/fs/nfsd/versions
+# nfsconf --dump
 
 {% set config = salt['omv_conf.get']('conf.service.nfs') %}
 
 {% if config.enable | to_bool %}
 
-configure_default_nfs-common:
+configure_nfsd_conf:
   file.managed:
-    - name: "/etc/default/nfs-common"
+    - name: "/etc/nfs.conf.d/99-openmediavault-nfsd.conf"
     - source:
-      - salt://{{ tpldir }}/files/etc-default-nfs-common.j2
-    - template: jinja
-    - context:
-        config: {{ config | json }}
-    - user: root
-    - group: root
-    - mode: 644
-
-configure_default_nfs-kernel-server:
-  file.managed:
-    - name: "/etc/default/nfs-kernel-server"
-    - source:
-      - salt://{{ tpldir }}/files/etc-default-nfs-kernel-server.j2
+      - salt://{{ tpldir }}/files/etc-nfs_conf_d-openmediavault_nfsd_conf.j2
     - template: jinja
     - context:
         config: {{ config | json }}
@@ -71,42 +61,26 @@ configure_nfsd_exports:
     - group: root
     - mode: 644
 
-{% if ['2', '3'] | intersect(config.versions.split(',')) | length > 0 %}
-
-start_rpc_statd_service:
-  service.running:
-    - name: rpc-statd
-    - enable: True
-    - watch:
-      - file: "/etc/default/nfs-common"
-
-{% else %}
-
-stop_rpc_statd_service:
-  service.dead:
-    - name: rpc-statd
-    - enable: False
-
-{% endif %}
-
 start_nfs_server_service:
   service.running:
     - name: nfs-server
     - enable: True
     - watch:
-      - file: "/etc/default/nfs-kernel-server"
-      - file: "/etc/exports"
+      - file: configure_nfsd_conf
+      - file: configure_nfsd_exports
+
+restart_nfs_utils_service:
+  service.running:
+    - name: nfs-utils
+    - watch:
+      - file: configure_nfsd_conf
+      - file: configure_nfsd_exports
 
 {% else %}
 
 stop_nfs_server_service:
   service.dead:
     - name: nfs-server
-    - enable: False
-
-stop_rpc_statd_service:
-  service.dead:
-    - name: rpc-statd
     - enable: False
 
 {% endif %}
