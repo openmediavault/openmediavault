@@ -698,11 +698,6 @@ $omv-dark-theme: mat.define-dark-theme(
   z-index: cdk.$overlay-z-index + 1;
 }
 
-.omv-max-workbench-content-width {
-  max-width: 80rem;
-  margin-right: auto;
-}
-
 ////////////////////////////////////////////////////////////////////////////////
 // Customize HTML elements
 ////////////////////////////////////////////////////////////////////////////////
@@ -713,8 +708,8 @@ body {
 }
 
 body {
-  background-color: dc.$omv-color-corporate-light;
-  font-family: theme.$omv-font-family-default;
+  background-color: var(--mat-background-color-body);
+  font-family: var(--mat-font-family-body);
   margin: 0;
 }
 

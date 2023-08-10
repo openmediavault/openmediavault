@@ -15,9 +15,11 @@
 // GNU General Public License for more details.
 @use "sass:map";
 @use '@angular/material' as mat;
+@use 'scss/defaults/colors' as dc;
 
 @mixin theme($mode, $theme-config, $typography-config) {
   :root {
+    --mat-font-family-body: #{mat.font-family($typography-config)};
     --mat-font-size-body-1: #{mat.font-size($typography-config, body-1)};
     --mat-font-size-button: #{mat.font-size($typography-config, button)};
     --mat-font-size-caption: #{mat.font-size($typography-config, caption)};
@@ -31,53 +33,52 @@
 
     @if $mode == light {
       @include color($theme-config, $typography-config);
+
+      --mat-background-color-body: #{dc.$omv-color-corporate-default};
     }
   }
 
   @if $mode == dark {
     @include color($theme-config, $typography-config);
+
+    --mat-background-color-body: #{mat.get-color-from-palette(
+      map.get($theme-config, background),
+      card
+    )};
   }
 }
 
 @mixin color($theme-config, $typography-config) {
   --mat-color-text: #{mat.get-color-from-palette(map.get($theme-config, foreground), text)};
-  --mat-color-secondary-text:
-    #{mat.get-color-from-palette(
+  --mat-color-secondary-text: #{mat.get-color-from-palette(
       map.get($theme-config, foreground),
       secondary-text
     )};
-  --mat-color-disabled-text:
-    #{mat.get-color-from-palette(
+  --mat-color-disabled-text: #{mat.get-color-from-palette(
       map.get($theme-config, foreground),
       disabled-text
     )};
-  --mat-color-hint-text:
-    #{mat.get-color-from-palette(
+  --mat-color-hint-text: #{mat.get-color-from-palette(
       map.get($theme-config, foreground),
       hint-text
     )};
-  --mat-background-color-hover:
-    #{mat.get-color-from-palette(
+  --mat-background-color-hover: #{mat.get-color-from-palette(
       map.get($theme-config, background),
       hover
     )};
-  --mat-background-color-selected-button:
-    #{mat.get-color-from-palette(
+  --mat-background-color-selected-button: #{mat.get-color-from-palette(
       map.get($theme-config, background),
       selected-button
     )};
-  --mat-background-color-card:
-    #{mat.get-color-from-palette(
+  --mat-background-color-card: #{mat.get-color-from-palette(
       map.get($theme-config, background),
       card
     )};
-  --mat-background-color-background:
-    #{mat.get-color-from-palette(
+  --mat-background-color-background: #{mat.get-color-from-palette(
       map.get($theme-config, background),
       background
     )};
-  --mat-primary-color-text:
-    #{mat.get-color-from-palette(
+  --mat-primary-color-text: #{mat.get-color-from-palette(
       map.get($theme-config, primary),
       text
     )};
