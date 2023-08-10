@@ -76,7 +76,10 @@ export class LoginPageComponent implements OnInit {
           click: this.onLogin.bind(this)
         }
       }
-    ]
+    ],
+    styling: {
+      cardClasses: 'test'
+    }
   };
 
   constructor(

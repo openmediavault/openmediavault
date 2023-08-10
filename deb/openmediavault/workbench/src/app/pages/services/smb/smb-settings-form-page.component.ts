@@ -205,6 +205,9 @@ export class SmbSettingsFormPageComponent extends BaseFormPageComponent {
           url: '/services/smb'
         }
       }
-    ]
+    ],
+    styling: {
+      cardClasses: 'omv-w-xs'
+    }
   };
 }

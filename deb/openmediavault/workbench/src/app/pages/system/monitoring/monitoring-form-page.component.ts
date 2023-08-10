@@ -57,6 +57,9 @@ export class MonitoringFormPageComponent extends BaseFormPageComponent {
           url: '/system'
         }
       }
-    ]
+    ],
+    styling: {
+      cardClasses: 'omv-w-xs'
+    }
   };
 }

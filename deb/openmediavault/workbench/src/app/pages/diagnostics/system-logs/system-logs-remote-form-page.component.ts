@@ -89,6 +89,9 @@ export class SystemLogsRemoteFormPageComponent extends BaseFormPageComponent {
           url: '/diagnostics/system-logs'
         }
       }
-    ]
+    ],
+    styling: {
+      cardClasses: 'omv-w-xs'
+    }
   };
 }

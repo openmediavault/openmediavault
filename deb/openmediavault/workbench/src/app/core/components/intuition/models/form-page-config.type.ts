@@ -98,6 +98,7 @@ export type FormPageConfig = {
   // Form pages can have buttons in their footer.
   buttonAlign?: 'start' | 'center' | 'end';
   buttons?: Array<FormPageButtonConfig>;
+  styling?: FormPageStylingConfig;
 };
 
 export type FormPageButtonConfig = {
@@ -173,3 +174,7 @@ export type FormPageButtonExecute = {
   // A callback function. Internal only.
   click?: (buttonConfig: FormPageButtonConfig, values: FormValues) => void;
 };
+
+export interface FormPageStylingConfig {
+  cardClasses: string;
+}

@@ -8,7 +8,7 @@
                  type="error">
   {{ error | httpErrorResponse:'message' }}
 </omv-alert-panel>
-<mat-card [ngClass]="{'omv-display-none': loading || error}">
+<mat-card [class.omv-display-none]="loading || error" class="{{config.styling?.cardClasses}}">
   <ng-container *ngTemplateOutlet="renderCardHeader"></ng-container>
   <mat-card-content>
     <omv-intuition-form [id]="config.id"

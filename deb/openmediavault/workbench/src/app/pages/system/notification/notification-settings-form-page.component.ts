@@ -179,6 +179,9 @@ export class NotificationSettingsFormPageComponent extends BaseFormPageComponent
           }
         }
       }
-    ]
+    ],
+    styling: {
+      cardClasses: 'omv-w-xs'
+    }
   };
 }

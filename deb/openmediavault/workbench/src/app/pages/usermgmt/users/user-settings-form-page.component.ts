@@ -69,6 +69,9 @@ export class UserSettingsFormPageComponent extends BaseFormPageComponent {
           url: '/usermgmt'
         }
       }
-    ]
+    ],
+    styling: {
+      cardClasses: 'omv-w-xs'
+    }
   };
 }

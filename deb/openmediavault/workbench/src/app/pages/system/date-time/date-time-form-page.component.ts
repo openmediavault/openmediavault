@@ -103,6 +103,9 @@ export class DateTimeFormPageComponent extends BaseFormPageComponent {
           url: '/system'
         }
       }
-    ]
+    ],
+    styling: {
+      cardClasses: 'omv-w-xs'
+    }
   };
 }

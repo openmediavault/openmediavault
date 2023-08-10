@@ -75,6 +75,9 @@ export class RsyncModuleSettingsFormPageComponent extends BaseFormPageComponent 
           url: '/services/rsync/server'
         }
       }
-    ]
+    ],
+    styling: {
+      cardClasses: 'omv-w-xs'
+    }
   };
 }

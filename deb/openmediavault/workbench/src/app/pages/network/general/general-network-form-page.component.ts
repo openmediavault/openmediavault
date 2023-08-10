@@ -68,6 +68,9 @@ export class GeneralNetworkFormPageComponent extends BaseFormPageComponent {
           url: '/network'
         }
       }
-    ]
+    ],
+    styling: {
+      cardClasses: 'omv-w-xs'
+    }
   };
 }

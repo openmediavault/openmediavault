@@ -74,6 +74,9 @@ export class NfsSettingsFormPageComponent extends BaseFormPageComponent {
           url: '/services/nfs'
         }
       }
-    ]
+    ],
+    styling: {
+      cardClasses: 'omv-w-xs'
+    }
   };
 }

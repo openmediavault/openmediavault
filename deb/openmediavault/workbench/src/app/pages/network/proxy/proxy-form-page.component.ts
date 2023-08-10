@@ -264,6 +264,9 @@ export class ProxyFormPageComponent extends BaseFormPageComponent {
           url: '/network'
         }
       }
-    ]
+    ],
+    styling: {
+      cardClasses: 'omv-w-xs'
+    }
   };
 }

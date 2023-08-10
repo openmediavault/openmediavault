@@ -100,6 +100,9 @@ export class PowermgmtSettingsFormPageComponent extends BaseFormPageComponent {
           url: '/system/powermgmt'
         }
       }
-    ]
+    ],
+    styling: {
+      cardClasses: 'omv-w-xs'
+    }
   };
 }

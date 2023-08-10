@@ -82,6 +82,9 @@ export class UpdateSettingsFormPageComponent extends BaseFormPageComponent {
           url: '/system/updatemgmt'
         }
       }
-    ]
+    ],
+    styling: {
+      cardClasses: 'omv-w-xs'
+    }
   };
 }

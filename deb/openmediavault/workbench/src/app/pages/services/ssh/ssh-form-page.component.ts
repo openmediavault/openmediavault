@@ -120,6 +120,9 @@ export class SshFormPageComponent extends BaseFormPageComponent {
           url: '/services'
         }
       }
-    ]
+    ],
+    styling: {
+      cardClasses: 'omv-w-xs'
+    }
   };
 }

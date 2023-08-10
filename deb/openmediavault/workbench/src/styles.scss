@@ -99,6 +99,21 @@ $omv-dark-theme: mat.define-dark-theme(
   width: auto;
 }
 
+// center all cards with omv-w-* classes
+.mat-card[class^=omv-w-] {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.mat-card.omv-w-xs {
+  max-width: 450px;
+}
+.mat-card.omv-w-sm {
+  max-width: 768px;
+}
+.mat-card.omv-w-md {
+  max-width: 1280px;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Spacing
 //
