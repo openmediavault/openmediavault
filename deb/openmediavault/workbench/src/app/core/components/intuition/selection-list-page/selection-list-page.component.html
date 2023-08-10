@@ -8,7 +8,8 @@
                  type="error">
   {{ error | httpErrorResponse:'message' }}
 </omv-alert-panel>
-<mat-card [ngClass]="{'omv-display-none': loading || error}">
+<mat-card class="omv-max-workbench-content-width"
+          [ngClass]="{'omv-display-none': loading || error}">
   <mat-toolbar *ngIf="config.multiple && config.hasSelectAllButton"
                class="omv-sticky"
                fxLayout="row">
