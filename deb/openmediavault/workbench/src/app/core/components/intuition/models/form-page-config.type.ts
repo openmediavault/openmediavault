@@ -175,6 +175,6 @@ export type FormPageButtonExecute = {
   click?: (buttonConfig: FormPageButtonConfig, values: FormValues) => void;
 };
 
-export interface FormPageStylingConfig {
+export type FormPageStylingConfig {
   cardClasses: string;
 }
