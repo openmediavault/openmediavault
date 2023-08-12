@@ -73,7 +73,7 @@ class Nfs extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.nfs.setsettings");
-		// Modify 'versions' property.
+		// Sanitize and transform the 'versions' property.
 		if ((in_array("4.1", $params["versions"]) ||
 				in_array("4.2", $params["versions"])) &&
 			!in_array("4", $params["versions"])) {
