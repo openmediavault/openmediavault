@@ -344,7 +344,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// According to http://php.net/manual/en/timezones.others.php
 		// some of the time zones that the Debian installer supports are
-		// deprectated. To prevent errors we support them to (ALL_WITH_BC).
+		// deprecated. To prevent errors we support them to (ALL_WITH_BC).
 		$timezoneIdentifiers = \DateTimeZone::listIdentifiers(
 			\DateTimeZone::ALL_WITH_BC);
 		sort($timezoneIdentifiers, SORT_NATURAL);
