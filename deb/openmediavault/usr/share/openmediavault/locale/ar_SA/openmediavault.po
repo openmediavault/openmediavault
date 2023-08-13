@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-17 15:11+0200\n"
+"POT-Creation-Date: 2023-08-13 16:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -1115,6 +1115,9 @@ msgstr "البريد الإلكتروني"
 
 msgid "Empty now"
 msgstr "تفريغ الآن"
+
+msgid "Enable NetBIOS"
+msgstr ""
 
 msgid "Enable Time Machine support for this share."
 msgstr "تفعيل دعم آلة الزمن لهذه المشاركة."
@@ -3107,6 +3110,9 @@ msgstr "الخلاصة"
 msgid "Sunday"
 msgstr "الأحد"
 
+msgid "Support name resolution and network discovery for legacy systems."
+msgstr ""
+
 msgid "Suppress non-error messages"
 msgstr "منع الرسائل غير المتعلقة بالخطأ"
 
@@ -3962,9 +3968,6 @@ msgstr "فيتنام"
 
 msgid "VirtIO device"
 msgstr "جهاز VirtIO"
-
-msgid "WINS"
-msgstr "WINS"
 
 msgid "WINS server"
 msgstr "خادم WINS"

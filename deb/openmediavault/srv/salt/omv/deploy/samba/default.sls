@@ -24,7 +24,6 @@
 {% set config = salt['omv_conf.get']('conf.service.smb') %}
 {% set dirpath = '/srv/salt' | path_join(tpldir) %}
 {% set wsdd_enable = salt['pillar.get']('default:OMV_WSDD_ENABLED', 1) %}
-{% set nmbd_enable = salt['pillar.get']('default:OMV_SAMBA_NMBD_ENABLE', 'no') %}
 
 include:
 {% for file in salt['file.readdir'](dirpath) | sort %}
@@ -53,12 +52,19 @@ start_samba_service:
       - file: configure_samba_global
       - file: configure_samba_shares
 
-{% if nmbd_enable | to_bool %}
+{% if config.netbios | to_bool %}
 
 start_samba_service_nmbd:
   service.running:
     - name: nmbd
     - enable: True
+
+{% else %}
+
+stop_samba_service_nmbd:
+  service.dead:
+    - name: nmbd
+    - enable: False
 
 {% endif %}
 

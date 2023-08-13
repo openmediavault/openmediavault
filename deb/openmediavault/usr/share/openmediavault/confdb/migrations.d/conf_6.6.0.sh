@@ -1,3 +1,5 @@
+#!/usr/bin/env dash
+#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -17,23 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Documentation/Howto:
-# http://www.postfix.org/TLS_README.html
-# https://en.wikipedia.org/wiki/SMTPS
-# http://blog.mailgun.com/25-465-587-what-port-should-i-use/
+set -e
 
-{% set config = salt['omv_conf.get']('conf.service.smb') %}
-{% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
+. /usr/share/openmediavault/scripts/helper-functions
 
-configure_samba_global:
-  file.managed:
-    - name: "/etc/samba/smb.conf"
-    - source:
-      - salt://{{ tpldir }}/files/global.j2
-    - template: jinja
-    - context:
-        config: {{ config | json }}
-        dns_config: {{ dns_config | json }}
-    - user: root
-    - group: root
-    - mode: 644
+omv_config_add_key "/config/services/smb" "netbios" "0"
+
+exit 0

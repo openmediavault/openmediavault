@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-17 15:11+0200\n"
+"POT-Creation-Date: 2023-08-13 16:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -1128,6 +1128,9 @@ msgstr "Эл. почта"
 
 msgid "Empty now"
 msgstr "Очистить сейчас"
+
+msgid "Enable NetBIOS"
+msgstr ""
 
 msgid "Enable Time Machine support for this share."
 msgstr "Включить поддержку Time Machine для этого общего ресурса."
@@ -3120,6 +3123,9 @@ msgstr "Сводка"
 msgid "Sunday"
 msgstr "Воскресенье"
 
+msgid "Support name resolution and network discovery for legacy systems."
+msgstr ""
+
 msgid "Suppress non-error messages"
 msgstr "Подавлять сообщения без ошибок"
 
@@ -3975,9 +3981,6 @@ msgstr "Вьетнам"
 
 msgid "VirtIO device"
 msgstr "VirtIO устройство"
-
-msgid "WINS"
-msgstr "WINS"
 
 msgid "WINS server"
 msgstr "Сервер WINS"

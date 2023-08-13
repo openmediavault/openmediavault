@@ -458,6 +458,7 @@
 			<homesenable>0</homesenable>
 			<homesbrowseable>1</homesbrowseable>
 			<homesrecyclebin>0</homesrecyclebin>
+			<netbios>0</netbios>
 			<extraoptions></extraoptions>
 			<shares>
 				<!--

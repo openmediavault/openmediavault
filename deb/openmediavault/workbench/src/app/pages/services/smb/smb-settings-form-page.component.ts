@@ -100,7 +100,44 @@ export class SmbSettingsFormPageComponent extends BaseFormPageComponent {
       },
       {
         type: 'divider',
-        title: gettext('WINS')
+        title: gettext('Advanced settings')
+      },
+      {
+        type: 'select',
+        name: 'loglevel',
+        label: gettext('Log level'),
+        value: 0,
+        store: {
+          data: [
+            [0, gettext('None')],
+            [1, gettext('Minimum')],
+            [2, gettext('Normal')],
+            [3, gettext('Full')],
+            [10, gettext('Debug')]
+          ]
+        }
+      },
+      {
+        type: 'checkbox',
+        name: 'usesendfile',
+        label: gettext('Use sendfile'),
+        hint: gettext(
+          "Use the more efficient sendfile system call for files that are exclusively oplocked. This may make more efficient use of the system CPU's and cause Samba to be faster. Samba automatically turns this off for clients that use protocol levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
+        ),
+        value: true
+      },
+      {
+        type: 'checkbox',
+        name: 'aio',
+        label: gettext('Asynchronous I/O'),
+        value: true
+      },
+      {
+        type: 'checkbox',
+        name: 'netbios',
+        label: gettext('Enable NetBIOS'),
+        hint: gettext('Support name resolution and network discovery for legacy systems.'),
+        value: false
       },
       {
         type: 'checkbox',
@@ -149,40 +186,6 @@ export class SmbSettingsFormPageComponent extends BaseFormPageComponent {
             }
           ]
         }
-      },
-      {
-        type: 'divider',
-        title: gettext('Advanced settings')
-      },
-      {
-        type: 'select',
-        name: 'loglevel',
-        label: gettext('Log level'),
-        value: 0,
-        store: {
-          data: [
-            [0, gettext('None')],
-            [1, gettext('Minimum')],
-            [2, gettext('Normal')],
-            [3, gettext('Full')],
-            [10, gettext('Debug')]
-          ]
-        }
-      },
-      {
-        type: 'checkbox',
-        name: 'usesendfile',
-        label: gettext('Use sendfile'),
-        hint: gettext(
-          "Use the more efficient sendfile system call for files that are exclusively oplocked. This may make more efficient use of the system CPU's and cause Samba to be faster. Samba automatically turns this off for clients that use protocol levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
-        ),
-        value: true
-      },
-      {
-        type: 'checkbox',
-        name: 'aio',
-        label: gettext('Asynchronous I/O'),
-        value: true
       },
       {
         type: 'textarea',

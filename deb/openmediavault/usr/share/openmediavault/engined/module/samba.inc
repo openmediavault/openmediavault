@@ -236,5 +236,11 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
 			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 			"org.openmediavault.conf.service.smb.share",
 			[$moduleMngr->getModule("zeroconf"), "setDirty"]);
+		// If NetBIOS is enabled, changing the hostname requires a restart
+		// of the `nmbd.service` systemd unit.
+		$dispatcher->addListener(
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.network.dns",
+			[$this, "setDirty"]);
 	}
 }

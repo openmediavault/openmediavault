@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-17 15:11+0200\n"
+"POT-Creation-Date: 2023-08-13 16:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2023\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -1116,6 +1116,9 @@ msgstr "電子郵件"
 
 msgid "Empty now"
 msgstr "立即清空"
+
+msgid "Enable NetBIOS"
+msgstr ""
 
 msgid "Enable Time Machine support for this share."
 msgstr "為此共享啟動 Time Machine 的支援。"
@@ -3108,6 +3111,9 @@ msgstr "概述"
 msgid "Sunday"
 msgstr "星期日"
 
+msgid "Support name resolution and network discovery for legacy systems."
+msgstr ""
+
 msgid "Suppress non-error messages"
 msgstr "抑制非錯誤訊息"
 
@@ -3963,9 +3969,6 @@ msgstr "越南"
 
 msgid "VirtIO device"
 msgstr "VirtIO 裝置"
-
-msgid "WINS"
-msgstr "WINS"
 
 msgid "WINS server"
 msgstr "WINS 伺服器"

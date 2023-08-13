@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-17 15:11+0200\n"
+"POT-Creation-Date: 2023-08-13 16:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1083,6 +1083,9 @@ msgid "Email"
 msgstr ""
 
 msgid "Empty now"
+msgstr ""
+
+msgid "Enable NetBIOS"
 msgstr ""
 
 msgid "Enable Time Machine support for this share."
@@ -2990,6 +2993,9 @@ msgstr ""
 msgid "Sunday"
 msgstr ""
 
+msgid "Support name resolution and network discovery for legacy systems."
+msgstr ""
+
 msgid "Suppress non-error messages"
 msgstr ""
 
@@ -3744,9 +3750,6 @@ msgid "Vietnam"
 msgstr ""
 
 msgid "VirtIO device"
-msgstr ""
-
-msgid "WINS"
 msgstr ""
 
 msgid "WINS server"

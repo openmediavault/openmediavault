@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-17 15:11+0200\n"
+"POT-Creation-Date: 2023-08-13 16:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: M@T D., 2022-2023\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -1128,6 +1128,9 @@ msgstr "Adresse mail"
 
 msgid "Empty now"
 msgstr "Vider maintenant"
+
+msgid "Enable NetBIOS"
+msgstr ""
 
 msgid "Enable Time Machine support for this share."
 msgstr "Activer le support Time Machine pour ce partage"
@@ -3120,6 +3123,9 @@ msgstr "Sommaire"
 msgid "Sunday"
 msgstr "Dimanche"
 
+msgid "Support name resolution and network discovery for legacy systems."
+msgstr ""
+
 msgid "Suppress non-error messages"
 msgstr "Supprime les messages de non-erreur"
 
@@ -3975,9 +3981,6 @@ msgstr "Vietnam"
 
 msgid "VirtIO device"
 msgstr "Périphérique d'Entrées-Sorties Virtuelles"
-
-msgid "WINS"
-msgstr "WINS"
 
 msgid "WINS server"
 msgstr "Serveur WINS"
