@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-17 15:11+0200\n"
+"POT-Creation-Date: 2023-08-13 16:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2022\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -1116,6 +1116,9 @@ msgstr "Email"
 
 msgid "Empty now"
 msgstr "Buidant ara"
+
+msgid "Enable NetBIOS"
+msgstr ""
 
 msgid "Enable Time Machine support for this share."
 msgstr "Activa el suport de la màquina de temps per a aquest recurs."
@@ -3108,6 +3111,9 @@ msgstr "Resum "
 msgid "Sunday"
 msgstr "Diumenge"
 
+msgid "Support name resolution and network discovery for legacy systems."
+msgstr ""
+
 msgid "Suppress non-error messages"
 msgstr "Suprimeix missatges que no siguin d’error"
 
@@ -3963,9 +3969,6 @@ msgstr "Vietnam"
 
 msgid "VirtIO device"
 msgstr "Dispositiu VirtIO."
-
-msgid "WINS"
-msgstr "WINS"
 
 msgid "WINS server"
 msgstr "Servidor WINS"

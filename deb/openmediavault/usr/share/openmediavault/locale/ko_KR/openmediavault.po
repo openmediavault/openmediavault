@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-17 15:11+0200\n"
+"POT-Creation-Date: 2023-08-13 16:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -1117,6 +1117,9 @@ msgstr "전자우편"
 
 msgid "Empty now"
 msgstr "지금 비우기"
+
+msgid "Enable NetBIOS"
+msgstr ""
 
 msgid "Enable Time Machine support for this share."
 msgstr "이 공유에 대해 타임머신을 활성화합니다."
@@ -3109,6 +3112,9 @@ msgstr ""
 msgid "Sunday"
 msgstr "일요일"
 
+msgid "Support name resolution and network discovery for legacy systems."
+msgstr ""
+
 msgid "Suppress non-error messages"
 msgstr "오류가 아닌 메시지를 숨깁니다."
 
@@ -3964,9 +3970,6 @@ msgstr "베트남"
 
 msgid "VirtIO device"
 msgstr "VirtIO 장치"
-
-msgid "WINS"
-msgstr "WINS"
 
 msgid "WINS server"
 msgstr "WINS 서버"

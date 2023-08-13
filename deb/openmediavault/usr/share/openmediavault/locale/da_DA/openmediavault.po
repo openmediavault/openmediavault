@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-17 15:11+0200\n"
+"POT-Creation-Date: 2023-08-13 16:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Danish (http://app.transifex.com/openmediavault/openmediavault/language/da/)\n"
@@ -1114,6 +1114,9 @@ msgstr "Email"
 
 msgid "Empty now"
 msgstr "Tøm nu"
+
+msgid "Enable NetBIOS"
+msgstr ""
 
 msgid "Enable Time Machine support for this share."
 msgstr "Aktiver Time Machine understøttelse for denne delte mappe."
@@ -3106,6 +3109,9 @@ msgstr ""
 msgid "Sunday"
 msgstr "Søndag"
 
+msgid "Support name resolution and network discovery for legacy systems."
+msgstr ""
+
 msgid "Suppress non-error messages"
 msgstr "Undertryk beskeder uden fejl"
 
@@ -3961,9 +3967,6 @@ msgstr "Vietnam"
 
 msgid "VirtIO device"
 msgstr "VirtIO enhed"
-
-msgid "WINS"
-msgstr "WINS"
 
 msgid "WINS server"
 msgstr "WINS server"

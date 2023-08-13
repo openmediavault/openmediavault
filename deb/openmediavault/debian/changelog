@@ -1,8 +1,10 @@
-openmediavault (6.5.8-1) stable; urgency=low
+openmediavault (6.6.0-1) stable; urgency=low
 
   * Fix bug in NFS configuration.
   * Limit width of page body to 1900px. The page content will be
     centered for greater browser window sizes.
+  * Issue #1579: Add NetBIOS knob to SMB settings. This replaces
+    the `OMV_SAMBA_NMBD_ENABLE` environment variable.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 10 Aug 2023 21:57:35 +0200
 

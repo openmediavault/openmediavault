@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-17 15:11+0200\n"
+"POT-Creation-Date: 2023-08-13 16:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2012-2015,2017,2019\n"
 "Language-Team: Portuguese (Portugal) (http://app.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
@@ -1115,6 +1115,9 @@ msgstr "Email"
 
 msgid "Empty now"
 msgstr "Esvaziar agora"
+
+msgid "Enable NetBIOS"
+msgstr ""
 
 msgid "Enable Time Machine support for this share."
 msgstr "Ativar o suporte do Time Machine para esta partilha."
@@ -3107,6 +3110,9 @@ msgstr ""
 msgid "Sunday"
 msgstr "Domingo"
 
+msgid "Support name resolution and network discovery for legacy systems."
+msgstr ""
+
 msgid "Suppress non-error messages"
 msgstr "Suprimir mensagens de falsos erros"
 
@@ -3962,9 +3968,6 @@ msgstr "Vietname"
 
 msgid "VirtIO device"
 msgstr "Dispositivo VirtIO"
-
-msgid "WINS"
-msgstr "WINS"
 
 msgid "WINS server"
 msgstr "Servidor WINS"
