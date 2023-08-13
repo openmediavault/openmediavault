@@ -23,7 +23,6 @@
 # http://blog.mailgun.com/25-465-587-what-port-should-i-use/
 
 {% set config = salt['omv_conf.get']('conf.service.smb') %}
-{% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 
 configure_samba_global:
   file.managed:
@@ -33,7 +32,6 @@ configure_samba_global:
     - template: jinja
     - context:
         config: {{ config | json }}
-        dns_config: {{ dns_config | json }}
     - user: root
     - group: root
     - mode: 644
