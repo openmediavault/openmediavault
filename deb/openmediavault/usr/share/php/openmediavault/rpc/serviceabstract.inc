@@ -645,6 +645,9 @@ abstract class ServiceAbstract {
 	 * @param Closure $errorFn An anonymous function that is called in case
 	 *   of an exception within the \$childFn closure. The exception object
 	 *   will be passed as parameter to the function.
+	 *   Return `FALSE` to skip the process, otherwise return an array
+	 *   with the properties `result` and `error`. Check the source how
+	 *   the `error` array must be populated.
 	 * @param int $maxRunTime The maximum time the process should run.
 	 *   Defaults to 300 seconds.
 	 * @return array Returns an array containing process information.
