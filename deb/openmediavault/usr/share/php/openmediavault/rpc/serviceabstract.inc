@@ -621,6 +621,9 @@ abstract class ServiceAbstract {
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			$status = 0;
 		} catch (\Exception $e) {
+			syslog(LOG_ERR, sprintf("Executing background process failed: ".
+				"%s (file=%s, line=%d)",
+				$e->getMessage(), $e->getFile(), $e->getLine()));
 			if (is_closure($errorFn)) {
 				$errorFn($bgStatusFilename, $bgOutputFilename);
 			}
