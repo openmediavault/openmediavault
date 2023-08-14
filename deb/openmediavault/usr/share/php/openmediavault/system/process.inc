@@ -35,9 +35,18 @@ class Process {
 	private $quiet = FALSE;
 	private $background = FALSE;
 	private $env = [
-		"PATH" => "/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin",
-		"LANG" => "C.UTF-8",
-		"LANGUAGE" => ""
+		"PATH" => [
+			"value" => "/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin",
+			"obfuscate" => FALSE
+		],
+		"LANG" => [
+			"value" =>"C.UTF-8",
+			"obfuscate" => FALSE
+		],
+		"LANGUAGE" => [
+			"value" => "",
+			"obfuscate" => FALSE
+		]
 	];
 
 	/**
@@ -139,9 +148,12 @@ class Process {
 	 * simply set an empty string value.
 	 * @param string $name The name of the environment variable.
 	 * @param mixed $value The value of the environment variable.
+	 * @param bool $obfuscate Set to `TRUE` to obfuscate the value
+	 *   of the variable when an instance of this class is used in
+	 *   an exception. Defaults to `FALSE`.
 	 * @return void
 	 */
-	public function setEnv($name, $value) {
+	public function setEnv($name, $value, $obfuscate = FALSE) {
 		if (1 == func_num_args()) {
 			$parts = explode("=", $name);
 			$name = $parts[0];
@@ -151,7 +163,10 @@ class Process {
 			array_remove_key($this->env, $name);
 			return;
 		}
-		$this->env[$name] = $value;
+		$this->env[$name] = [
+			"value" => $value,
+			"obfuscate" => $obfuscate
+		];
 	}
 
 	/**
@@ -180,8 +195,10 @@ class Process {
 	 */
 	public function getCommandLine() {
 		$cmdArgs = [];
-		foreach ($this->env as $envk => $envv)
-			$cmdArgs[] = sprintf("export %s=%s;", $envk, strval($envv));
+		foreach ($this->env as $envk => $envv) {
+			$cmdArgs[] = sprintf("export %s=%s;", $envk, strval(
+				$envv['value']));
+		}
 		$cmdArgs = array_merge($cmdArgs, $this->cmdArgs);
 		if (FALSE === empty($this->redirect1toFile))
 			$cmdArgs[] = sprintf("1>%s", $this->redirect1toFile);
@@ -195,6 +212,10 @@ class Process {
 		if (TRUE === $this->background)
 			$cmdArgs[] = "&";
 		return implode(" ", $cmdArgs);
+	}
+
+	public function __toString(): string {
+		return $this->getCommandLine();
 	}
 
 	/**
@@ -219,5 +240,31 @@ class Process {
 		if ((FALSE === $this->quiet) && (0 !== $exitStatus))
 			throw new \OMV\ExecException($cmdLine, $output, $exitStatus);
 		return $result;
+	}
+
+	/**
+	 * Mark an environment variable to obfuscate.
+	 * @param string $name The name of the environment variable.
+	 * @param bool $obfuscate Set to `TRUE` to obfuscate the value
+	 *   of the variable. Defaults to `TRUE`.
+	 * @return void
+	 */
+	public function obfuscateEnv($name, $obfuscate = TRUE) {
+		if (array_key_exists($name, $this->env)) {
+			$this->env[$name]['obfuscate'] = $obfuscate;
+		}
+	}
+
+	/**
+	 * Obfuscate the values of all specified environment variables.
+	 * Note, the changes are irreversible.
+	 */
+	public function obfuscateEnvs() {
+		// Process all registered environment variables.
+		foreach ($this->env as $envk => &$envv) {
+			if ($envv['obfuscate']) {
+				$envv['value'] = str_repeat("x", rand(4, 8));
+			}
+		}
 	}
 }

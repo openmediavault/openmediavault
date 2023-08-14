@@ -36,8 +36,11 @@ class ExecException extends BaseException {
 	 * @param int $exitStatus The return status of the executed command.
 	 */
 	public function __construct($cmdLine, array $output = array(),
-	  $exitStatus = NULL) {
-		$this->cmdLine = $cmdLine;
+			$exitStatus = NULL) {
+	  	if ($cmdLine instanceof \OMV\System\Process) {
+			$cmdLine->obfuscateEnvs();
+	  	}
+		$this->cmdLine = strval($cmdLine);
 		$this->output = $output;
 		$this->exitStatus = $exitStatus;
 		$args = [];
