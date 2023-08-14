@@ -110,7 +110,7 @@ class PhysicalVolume {
 	 */
 	public function assertExists() {
 		if (FALSE === $this->exists()) {
-			throw new \OMV\AssertException("Physical volume '%s' not found.",
+			throw new \OMV\AssertException("Physical volume '%s' does not exist.",
 			  $this->getDeviceFile());
 		}
 	}
