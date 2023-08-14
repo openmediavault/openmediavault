@@ -1,5 +1,7 @@
 openmediavault (6.6.0-1) stable; urgency=low
 
+  * Various improvements.
+  * Do not forward error to UI from SMART device enumeration.
   * Fix bug in NFS configuration.
   * Limit width of page body to 1900px. The page content will be
     centered for greater browser window sizes.
