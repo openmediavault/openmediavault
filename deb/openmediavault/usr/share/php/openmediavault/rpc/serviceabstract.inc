@@ -580,22 +580,22 @@ abstract class ServiceAbstract {
 	}
 
 	/**
-	 * Execute the specified anonymous function as a background process by
-	 * forking the main process.
-	 * @param Closure $childProc An anonymous function that expects
+	 * Execute the specified anonymous function as a background process
+	 * by forking the main process.
+	 * @param Closure $childFn An anonymous function that expects
 	 *   the parameters \em $bgStatusFilename and \em $bgOutputFilename.
 	 *   It should return a string with the process output.
-	 * @param Closure $error An anonymous function that expects the
+	 * @param Closure $errorFn An anonymous function that expects the
 	 *   parameters \em $bgStatusFilename and \em $bgOutputFilename. It
-	 *   will be called in case of an exception within the \$childProc
+	 *   will be called in case of an exception within the \$childFn
 	 *   closure.
-	 * @param Closure $finally An anonymous function without arguments. It
-	 *   will always be executed after the background process has been
+	 * @param Closure $finallyFn An anonymous function without arguments.
+	 *   It will always be executed after the background process has been
 	 *   finished successfully or it has been failed.
 	 * @return The name of the background process status file.
 	 */
-	public function execBgProc(\Closure $childProc, \Closure $error = NULL,
-	  \Closure $finally = NULL) {
+	public function execBgProc(\Closure $childFn, \Closure $errorFn = NULL,
+	  \Closure $finallyFn = NULL) {
 		// Create the background process status file.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
@@ -616,32 +616,38 @@ abstract class ServiceAbstract {
 			  $bgOutputFilename);
 			// Execute the anonymous function that contains the code
 			// the be executed in the child process.
-			$output = $childProc($bgStatusFilename, $bgOutputFilename);
+			$output = $childFn($bgStatusFilename, $bgOutputFilename);
 			// Finalize the background process status file.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			$status = 0;
 		} catch (\Exception $e) {
-			if (is_closure($error))
-				$error($bgStatusFilename, $bgOutputFilename);
+			if (is_closure($errorFn)) {
+				$errorFn($bgStatusFilename, $bgOutputFilename);
+			}
 			// Finalize the background process status file.
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 		} finally {
-			if (is_closure($finally))
-				$finally();
+			if (is_closure($finallyFn)) {
+				$finallyFn();
+			}
 		}
 		exit($status);
 	}
 
 	/**
-	 * Execute the specified anonymous function as an asynchronous process by
-	 * forking the main process.
-	 * @param Closure $child An anonymous function that should return
+	 * Execute the specified anonymous function as an asynchronous process
+	 * by forking the main process.
+	 * @param Closure $childFn An anonymous function that should return
 	 *   the process output.
+	 * @param Closure $errorFn An anonymous function that is called in case
+	 *   of an exception within the \$childFn closure. The exception object
+	 *   will be passed as parameter to the function.
 	 * @param int $maxRunTime The maximum time the process should run.
 	 *   Defaults to 300 seconds.
 	 * @return array Returns an array containing process information.
 	 */
-	public function asyncProc(\Closure $child, $maxRunTime = 300) : array {
+	public function asyncProc(\Closure $childFn, \Closure $errorFn = NULL,
+	  $maxRunTime = 300) : array {
 		if (FALSE === @socket_create_pair(AF_UNIX, SOCK_STREAM, 0, $sockets)) {
 			throw new Exception("Failed to create socket: %s",
 				socket_strerror(socket_last_error()));
@@ -663,21 +669,28 @@ abstract class ServiceAbstract {
 		@socket_close($childSocket);
 		try {
 			$data = [
-				"result" => $child(),
+				"result" => $childFn(),
 				"error" => FALSE
 			];
 		} catch(\Exception $e) {
-			$data = [
-				"result" => NULL,
-				"error" => [
-					"code" => $e->getCode(),
-					"message" => $e->getMessage(),
-					"trace" => $e->__toString(),
-					"http_status_code" =>
-					    ($e instanceof \OMV\BaseException) ?
-					    $e->getHttpStatusCode() : 500
-				]
-			];
+			syslog(LOG_ERR, sprintf("Executing async process failed: ".
+				"%s (file=%s, line=%d)",
+				$e->getMessage(), $e->getFile(), $e->getLine()));
+			if (is_closure($errorFn)) {
+				$data = $errorFn($e);
+			} else {
+				$data = [
+					"result" => NULL,
+					"error" => [
+						"code" => $e->getCode(),
+						"message" => $e->getMessage(),
+						"trace" => $e->__toString(),
+						"http_status_code" =>
+							($e instanceof \OMV\BaseException) ?
+							$e->getHttpStatusCode() : 500
+					]
+				];
+			}
 		}
 		@socket_write($parentSocket, serialize($data));
 		@socket_close($parentSocket);
@@ -716,6 +729,14 @@ abstract class ServiceAbstract {
 					}
 					@socket_close($procv['socket']);
 					$data = unserialize($data);
+					// Skip processes that do not return valid data.
+					if (
+						!is_assoc_array($data) ||
+						!array_key_exists("result", $data) ||
+					  	!array_key_exists("error", $data)
+					) {
+						continue;
+					}
 					// Handle errors that may have occurred in the child
 					// process. Rethrow this exception again in this
 					// (the parent) process.

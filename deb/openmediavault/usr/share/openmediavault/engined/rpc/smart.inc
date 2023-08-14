@@ -110,12 +110,13 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 					"wwn" => $sd->getWorldWideName(),
 					"overallstatus" => $si->getOverallStatus()
 				];
+			}, function($e) {
+				// Note, this will hide ANY error from the caller. Because
+				// of that debugging problems becomes more difficult.
+				return FALSE;
 			});
 		}
-		// Remove elements that are no associative arrays (these are devices
-		// without S.M.A.R.T. support).
-		return array_values(array_filter($this->waitAsyncProcs($procs),
-			"is_assoc_array"));
+		return $this->waitAsyncProcs($procs);
 	}
 
 	/**
