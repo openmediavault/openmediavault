@@ -665,10 +665,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = escapeshellarg($sd->getDeviceFile());
 				$cmd = new \OMV\System\Process("sgdisk", $cmdArgs);
 				$cmd->setRedirect2to1();
-				if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
-					$output, $bgOutputFilename))) {
-					throw new \OMV\ExecException($cmd->getCommandLine(),
-						$output, $exitStatus);
+				if (0 !== ($exitStatus = $this->exec($cmd, $output,
+						$bgOutputFilename))) {
+					throw new \OMV\ExecException($cmd, $output, $exitStatus);
 				}
 				break;
 			}
@@ -677,10 +676,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = escapeshellarg($sd->getDeviceFile());
 			$cmd = new \OMV\System\Process("partprobe", $cmdArgs);
 			$cmd->setRedirect2to1();
-			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
-				$output, $bgOutputFilename))) {
-				throw new \OMV\ExecException($cmd->getCommandLine(),
-					$output, $exitStatus);
+			if (0 !== ($exitStatus = $this->exec($cmd, $output,
+					$bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd, $output, $exitStatus);
 			}
 			// We need to wait to give the kernel some time to re-read the
 			// partition table and until the device file exists. Abort if
@@ -695,10 +693,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = escapeshellarg($fsbd->getDeviceFile());
 			$cmd = new \OMV\System\Process("mkfs", $cmdArgs);
 			$cmd->setRedirect2to1();
-			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
-				$output, $bgOutputFilename))) {
-				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
-					$exitStatus);
+			if (0 !== ($exitStatus = $this->exec($cmd, $output,
+					$bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd, $output, $exitStatus);
 			}
 			// Notify configuration changes.
 			$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
@@ -761,10 +758,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs = array_merge($cmdArgs, $deviceFiles);
 			$cmd = new \OMV\System\Process("mkfs.btrfs", $cmdArgs);
 			$cmd->setRedirect2to1();
-			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
-				$output, $bgOutputFilename))) {
-				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
-					$exitStatus);
+			if (0 !== ($exitStatus = $this->exec($cmd, $output,
+					$bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd, $output, $exitStatus);
 			}
 		});
 	}

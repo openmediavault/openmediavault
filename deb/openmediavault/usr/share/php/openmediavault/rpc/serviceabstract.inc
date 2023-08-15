@@ -486,6 +486,7 @@ abstract class ServiceAbstract {
 			2 => [ "pipe", "w" ]  // STDERR
 		];
 		// Execute the command.
+		$command = strval($command);
 		$this->debug("Executing command '%s'", $command);
 		$process = proc_open($command, $descriptors, $pipes);
 		if ((FALSE === $process) || !is_resource($process))
@@ -592,7 +593,7 @@ abstract class ServiceAbstract {
 	 * @param Closure $finallyFn An anonymous function without arguments.
 	 *   It will always be executed after the background process has been
 	 *   finished successfully or it has been failed.
-	 * @return The name of the background process status file.
+	 * @return string The name of the background process status file.
 	 */
 	public function execBgProc(\Closure $childFn, \Closure $errorFn = NULL,
 	  \Closure $finallyFn = NULL) {

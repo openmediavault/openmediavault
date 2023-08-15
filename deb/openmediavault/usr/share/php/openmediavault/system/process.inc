@@ -77,7 +77,7 @@ class Process {
 	/**
 	 * Redirect STDOUT to the given file. Set to FALSE to do not redirect
 	 * STDOUT to a file.
-	 * @param file The file path, e.g. '/tmp/xyz'.
+	 * @param string $file The file path, e.g. '/tmp/xyz'.
 	 * @return void
 	 */
 	public function setRedirect1toFile($file) {
@@ -95,7 +95,7 @@ class Process {
 	/**
 	 * Redirect STDERR to the given file. Set to FALSE to do not redirect
 	 * STDERR to a file.
-	 * @param file The file path, e.g. '/dev/null' or '&1'.
+	 * @param string $file The file path, e.g. '/dev/null' or '&1'.
 	 * @return void
 	 */
 	public function setRedirect2toFile($file) {
@@ -105,7 +105,7 @@ class Process {
 	/**
 	 * Accept input from a file. Set to FALSE to do not accept input from
 	 * a file.
-	 * @param file The file path.
+	 * @param string $file The file path.
 	 * @return void
 	 */
 	public function setInputFromFile($file) {
@@ -115,7 +115,7 @@ class Process {
 	/**
 	 * Accept input from a 'here-string'. Set to FALSE to do not accept
 	 * input from 'here-string'.
-	 * @param data The input string.
+	 * @param string $data The input string.
 	 * @return void
 	 */
 	public function setInputFromHereString($data) {
@@ -124,7 +124,7 @@ class Process {
 
 	/**
 	 * Do not throw an error exception if the command execution fails.
-	 * @param quiet Set to TRUE to do not throw an exception.
+	 * @param bool $quiet Set to TRUE to do not throw an exception.
 	 *   Defaults to TRUE.
 	 * @return void
 	 */
@@ -135,7 +135,7 @@ class Process {
 	/**
 	 * Execute the command in background. The method \em execute immediately
 	 * returns in this case.
-	 * @param background Set to TRUE to do execute the command in background.
+	 * @param bool $background Set to TRUE to do execute the command in background.
 	 *   Defaults to TRUE.
 	 * @return void
 	 */
@@ -191,7 +191,7 @@ class Process {
 
 	/**
 	 * Get the command line to be executed.
-	 * @return The command line.
+	 * @return string The command line.
 	 */
 	public function getCommandLine() {
 		$cmdArgs = [];
@@ -220,16 +220,17 @@ class Process {
 
 	/**
 	 * Execute the command.
-	 * @param output If the output argument is present, then the specified
-	 *   array will be filled with every line of output from the command.
+	 * @param array | null $output If the output argument is present, then
+	 *   the specified array will be filled with every line of output from
+	 *   the command.
 	 *   Trailing whitespace, such as \n, is not included in this array.
 	 *   Note that if the array already contains some elements, execute()
 	 *   will append to the end of the array.
-	 * @param exitStatus If the argument is present along with the output
+	 * @param int $exitStatus If the argument is present along with the output
 	 *   argument, then the return status of the executed command will be
 	 *   written to this variable.
-	 * @return The last line from the result of the command.
-	 * @throw \OMV\ExecException
+	 * @return string The last line from the result of the command.
+	 * @throws \OMV\ExecException
 	 */
 	public function execute(array &$output = NULL, &$exitStatus = NULL): string {
 		// Build the command line.
@@ -258,6 +259,7 @@ class Process {
 	/**
 	 * Obfuscate the values of all specified environment variables.
 	 * Note, the changes are irreversible.
+	 * @return void
 	 */
 	public function obfuscateEnvs() {
 		// Process all registered environment variables.

@@ -337,8 +337,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		if (0 !== $exitStatus) {
 			unlink($keyFile);
 			unlink($crtFile);
-			throw new \OMV\ExecException($cmd->getCommandLine(), $output,
-				$exitStatus);
+			throw new \OMV\ExecException($cmd, $output, $exitStatus);
 		}
 		// Read certificate and key content, then unlink the temporary files.
 		$keyData = file_get_contents($keyFile);

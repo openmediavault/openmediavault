@@ -214,8 +214,7 @@ class Manager implements \IteratorAggregate {
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
 		if (!in_array($exitStatus, [0, 2])) {
-			throw new \OMV\ExecException($cmd->getCommandLine(), $output,
-				$exitStatus);
+			throw new \OMV\ExecException($cmd, $output, $exitStatus);
 		}
 		foreach ($output as $outputk => $outputv) {
 			// Parse command output:

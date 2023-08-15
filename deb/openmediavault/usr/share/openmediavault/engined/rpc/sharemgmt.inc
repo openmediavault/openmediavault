@@ -1074,10 +1074,8 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				// Execute command to set the file owner/group.
 				$cmd = new \OMV\System\Process("chown", $cmdArgs);
 				$cmd->setRedirect2to1();
-				if (0 !== $this->exec($cmd->getCommandLine(), $output,
-				  $bgOutputFilename)) {
-					throw new \OMV\ExecException($cmd->getCommandLine(),
-					  $output);
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+					throw new \OMV\ExecException($cmd, $output);
 				}
 			}
 			////////////////////////////////////////////////////////////////////
@@ -1133,10 +1131,9 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Execute command to set the file access control lists.
 			$cmd = new \OMV\System\Process("setfacl", $cmdArgs);
 			$cmd->setRedirect2to1();
-			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
-					$output, $bgOutputFilename))) {
-				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
-					$exitStatus);
+			if (0 !== ($exitStatus = $this->exec($cmd, $output,
+					$bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd, $output, $exitStatus);
 			}
 			return $output;
 		});

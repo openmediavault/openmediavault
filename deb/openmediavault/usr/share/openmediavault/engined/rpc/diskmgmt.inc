@@ -235,10 +235,9 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = escapeshellarg($bd->getDeviceFile());
 				$cmd = new \OMV\System\Process("shred", $cmdArgs);
 				$cmd->setRedirect2to1();
-				if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
-					$output, $bgOutputFilename))) {
-					throw new \OMV\ExecException($cmd->getCommandLine(),
-						$output, $exitStatus);
+				if (0 !== ($exitStatus = $this->exec($cmd, $output,
+						$bgOutputFilename))) {
+					throw new \OMV\ExecException($cmd, $output, $exitStatus);
 				}
 			} else {
 				// Quick wipe the device (see omv-initfs).
@@ -247,10 +246,9 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = escapeshellarg($bd->getDeviceFile());
 				$cmd = new \OMV\System\Process("sgdisk", $cmdArgs);
 				$cmd->setRedirect2to1();
-				if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
-					$output, $bgOutputFilename))) {
-					throw new \OMV\ExecException($cmd->getCommandLine(),
-						$output, $exitStatus);
+				if (0 !== ($exitStatus = $this->exec($cmd, $output,
+						$bgOutputFilename))) {
+					throw new \OMV\ExecException($cmd, $output, $exitStatus);
 				}
 				// To make sure really everything is wiped ...
 				$cmdArgs = [];
@@ -261,10 +259,9 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = "count=1";
 				$cmd = new \OMV\System\Process("dd", $cmdArgs);
 				$cmd->setRedirect2to1();
-				if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
-					$output, $bgOutputFilename))) {
-					throw new \OMV\ExecException($cmd->getCommandLine(),
-						$output, $exitStatus);
+				if (0 !== ($exitStatus = $this->exec($cmd, $output,
+						$bgOutputFilename))) {
+					throw new \OMV\ExecException($cmd, $output, $exitStatus);
 				}
 				// Erase the metadata/signatures at the end of the device.
 				// Note, we still need to support 32bit systems, so use
@@ -282,10 +279,9 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = sprintf("seek=%s", $seek);
 				$cmd = new \OMV\System\Process("dd", $cmdArgs);
 				$cmd->setRedirect2to1();
-				if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
-					$output, $bgOutputFilename))) {
-					throw new \OMV\ExecException($cmd->getCommandLine(),
-						$output, $exitStatus);
+				if (0 !== ($exitStatus = $this->exec($cmd, $output,
+						$bgOutputFilename))) {
+					throw new \OMV\ExecException($cmd, $output, $exitStatus);
 				}
 			}
 			// Reread partition table.
@@ -294,10 +290,9 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = escapeshellarg($bd->getDeviceFile());
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
 			$cmd->setRedirect2to1();
-			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
-				$output, $bgOutputFilename))) {
-				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
-					$exitStatus);
+			if (0 !== ($exitStatus = $this->exec($cmd, $output,
+					$bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd, $output, $exitStatus);
 			}
 			return $output;
 		});
