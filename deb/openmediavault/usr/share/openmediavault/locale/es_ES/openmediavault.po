@@ -1119,7 +1119,7 @@ msgid "Empty now"
 msgstr "Vaciando ahora"
 
 msgid "Enable NetBIOS"
-msgstr ""
+msgstr "Habilitar NetBIOS"
 
 msgid "Enable Time Machine support for this share."
 msgstr "Habilitar el soporte Time Machine para este compartido."
@@ -3113,7 +3113,7 @@ msgid "Sunday"
 msgstr "Domingo"
 
 msgid "Support name resolution and network discovery for legacy systems."
-msgstr ""
+msgstr "Soporta resolución de nombres y detección de redes para sistemas heredados."
 
 msgid "Suppress non-error messages"
 msgstr "Suprime mensajes que no sean de error"

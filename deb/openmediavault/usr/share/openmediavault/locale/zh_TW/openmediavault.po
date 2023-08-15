@@ -1118,7 +1118,7 @@ msgid "Empty now"
 msgstr "立即清空"
 
 msgid "Enable NetBIOS"
-msgstr ""
+msgstr "啟用 NetBIOS"
 
 msgid "Enable Time Machine support for this share."
 msgstr "為此共享啟動 Time Machine 的支援。"
@@ -3112,7 +3112,7 @@ msgid "Sunday"
 msgstr "星期日"
 
 msgid "Support name resolution and network discovery for legacy systems."
-msgstr ""
+msgstr "支援對舊式系統的名稱解析和網路探索。"
 
 msgid "Suppress non-error messages"
 msgstr "抑制非錯誤訊息"

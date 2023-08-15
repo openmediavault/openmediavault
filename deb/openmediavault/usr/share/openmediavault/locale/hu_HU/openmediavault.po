@@ -1122,7 +1122,7 @@ msgid "Empty now"
 msgstr "Ürítés most"
 
 msgid "Enable NetBIOS"
-msgstr ""
+msgstr "NetBIOS engedélyezése"
 
 msgid "Enable Time Machine support for this share."
 msgstr "Time Machine támogatás bekapcsolása ehhez a megosztáshoz."
@@ -3116,7 +3116,7 @@ msgid "Sunday"
 msgstr "Vasárnap"
 
 msgid "Support name resolution and network discovery for legacy systems."
-msgstr ""
+msgstr "Névfeloldás és hálózati felderítés támogatása régebbi rendszereken."
 
 msgid "Suppress non-error messages"
 msgstr "Nem hibaüzenetek kihagyása"
