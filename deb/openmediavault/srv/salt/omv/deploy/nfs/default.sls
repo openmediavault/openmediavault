@@ -26,6 +26,7 @@
 # https://help.ubuntu.com/community/NFSv4Howto
 # http://jkossen.nl/2009/05/12/simple-nfsv4-configuration-for-debian-and-ubuntu.html
 # http://doc.opensuse.org/products/opensuse/openSUSE/opensuse-reference/cha.nfs.html
+# https://www.kernel.org/doc/Documentation/filesystems/nfs/nfs41-server.txt
 # /usr/lib/systemd/scripts/nfs-utils_env.sh
 
 # Testing:

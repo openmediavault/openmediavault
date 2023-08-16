@@ -4,8 +4,8 @@
 {%- set rpc_mountd_opts = salt['pillar.get']('default:OMV_NFSD_MOUNTDOPTS', '--manage-gids') -%}
 {%- set need_svcgssd = salt['pillar.get']('default:OMV_NFSD_NEEDSVCGSSD', '') -%}
 {%- set rpc_svcgssd_opts = salt['pillar.get']('default:OMV_NFSD_SVCGSSDOPTS', '') -%}
-{%- set rpc_nfsd_versions = config.versions.split(',') -%}
-{%- set no_rpc_nfsd_versions = ['2', '3', '4', '4.1', '4.2'] | difference(rpc_nfsd_versions) -%}
+{%- set rpc_nfsd_versions = config.versions.split(',') | sort(reverse=True) -%}
+{%- set no_rpc_nfsd_versions = ['2', '3', '4', '4.1', '4.2'] | difference(rpc_nfsd_versions) | sort(reverse=True) -%}
 {%- set rpc_mountd_versions = config.versions.split(',') | map('int') | unique -%}
 {%- set no_rpc_mountd_versions = [2, 3, 4] | difference(rpc_mountd_versions) -%}
 {{ pillar['headers']['multiline'] }}

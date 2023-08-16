@@ -27,7 +27,7 @@ versions=""
 if [ -e "/proc/fs/nfsd/versions" ]; then
 	# Convert the enabled NFS versions into a comma separated list.
 	# Example: +2 -3 +4 -4.1 -4.2 => 2,4
-	versions=$(cat /proc/fs/nfsd/versions | sed -E 's/-([[:digit:]](.[[:digit:]])?)//g' | tr -d '+' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr -s '[:space:]' ',')
+	versions=$(cat /proc/fs/nfsd/versions | tr ' ' '\n' | grep '^+' | tr -d '+' | xargs | sed 's/ /,/g')
 fi
 if [ -n "${versions}" ]; then
     data=$(omv-confdbadm read "conf.service.nfs" | jq ".versions = \"${versions}\"")

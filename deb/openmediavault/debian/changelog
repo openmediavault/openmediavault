@@ -1,4 +1,4 @@
-openmediavault (6.6.0-1) stable; urgency=low
+openmediavault (6.6.0-2) stable; urgency=low
 
   * Various improvements.
   * Do not forward error to UI from SMART device enumeration.
