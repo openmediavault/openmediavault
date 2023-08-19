@@ -54,6 +54,10 @@ start_samba_service:
 
 {% if config.netbios | to_bool %}
 
+unmask_samba_service_nmbd:
+  service.unmasked:
+    - name: nmbd
+
 start_samba_service_nmbd:
   service.running:
     - name: nmbd
