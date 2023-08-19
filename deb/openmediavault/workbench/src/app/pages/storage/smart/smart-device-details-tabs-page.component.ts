@@ -273,6 +273,7 @@ export class SmartDeviceDetailsTabsPageComponent {
         label: gettext('Extended Information'),
         type: 'text',
         config: {
+          hasCopyToClipboardButton: true,
           hasReloadButton: true,
           request: {
             service: 'Smart',
