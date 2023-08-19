@@ -18,11 +18,11 @@
 {%- for share in shares %}
 {%- set sharedfolder = salt['omv_conf.get']('conf.system.sharedfolder', share.sharedfolderref) %}
 {%- if loop.first %}{{ export_dir | path_join(sharedfolder.name) }}{% endif -%}
-{{ separator }}{{ share.client | trim }}(fsid={{ share.uuid }},{{ share.options }}{% if share.extraoptions | length > 0 %},{{ share.extraoptions }}{% endif %})
+{{ separator }}{{ share.client | trim | default('*', true) }}(fsid={{ share.uuid }},{{ share.options }}{% if share.extraoptions | length > 0 %},{{ share.extraoptions }}{% endif %})
 {%- endfor %}
 {%- endfor %}
 
 # NFSv4 - pseudo filesystem root
 {%- for share_v4 in shares_v4 %}
-{{ export_dir }} {{ share_v4.client | trim }}({{ v4_default_options }})
+{{ export_dir }} {{ share_v4.client | trim | default('*', true) }}({{ v4_default_options }})
 {%- endfor %}
