@@ -1,14 +1,10 @@
 <omv-dashboard-widget [config]="config"
                       (dataChangedEvent)="dataChanged($event)">
-  <div class="widget-content"
-       fxLayout="row">
+  <div class="widget-content omv-display-flex omv-flex-row">
     <div class="chart"
-         [fxFlex]="chartWidth">
+         [ngClass]="{'omv-w-100': chartWidth === 100, 'omv-w-75': chartWidth === 75, 'omv-w-50': chartWidth === 50, 'omv-w-25': chartWidth === 25}">
       <div *ngIf="config.chart?.displayValue && data && chart && chartCtx"
-           class="gauge-label"
-           fxFlexFill
-           fxLayout="column"
-           fxLayoutAlign="end center">
+           class="gauge-label omv-display-flex omv-flex-column omv-flex-fill omv-align-content-center omv-justify-content-end omv-align-items-center">
         <span class="value">{{ labelFormatter(getMaxValue(), chartCtx) }}</span>
       </div>
       <canvas #chartCtx
@@ -24,22 +20,15 @@
   <ng-container [ngSwitch]="config.chart?.type">
     <ng-template [ngSwitchCase]="'advanced-doughnut'">
       <div *ngIf="data && chart && chartCtx"
-           class="advanced-label"
-           fxFlex="50"
-           fxLayout="column"
-           fxLayoutAlign="end start">
+           class="advanced-label omv-display-flex omv-flex-column omv-w-50 omv-align-content-start omv-justify-content-end omv-align-items-start">
         <div class="total">
           <div class="total-value omv-text-truncate">{{ labelFormatter(getTotal(), chartCtx) }}</div>
           <div class="total-label omv-text-truncate">{{ 'Total' | transloco }}</div>
         </div>
-        <div class="items"
-             gdGap="8px"
-             gdColumns="repeat(2, 1fr)">
+        <div class="items omv-grid omv-gap-2 omv-grid-cols-2">
           <div *ngFor="let item of config.chart?.dataConfig"
                [ngStyle]="{'border-left-color': item.backgroundColor}"
-               class="item"
-               fxLayout="column"
-               fxLayoutAlign="start start">
+               class="item omv-flex-column omv-align-content-start omv-justify-content-start omv-align-items-start">
             <div class="item-value omv-text-truncate">{{ labelFormatterByProp(data, item.prop, chartCtx) }}</div>
             <div class="item-percent">{{ calcPercent(item, chartCtx) }}%</div>
             <div class="item-label omv-text-truncate">{{ item.label }}</div>
@@ -50,18 +39,11 @@
 
     <ng-template [ngSwitchCase]="'advanced-gauge'">
       <div *ngIf="data && chart && chartCtx"
-           class="advanced-label"
-           fxFlex="50"
-           fxLayout="column"
-           fxLayoutAlign="end start">
-        <div class="items"
-             gdGap="8px"
-             gdColumns="repeat(3, 1fr)">
+           class="advanced-label omv-display-flex omv-flex-column omv-w-50 omv-align-content-start omv-justify-content-end omv-align-items-start">
+        <div class="items omv-grid omv-gap-2 omv-grid-cols-3">
           <div *ngFor="let item of config.chart?.dataConfig"
                [ngStyle]="{'border-left-color': item.backgroundColor}"
-               class="item"
-               fxLayout="column"
-               fxLayoutAlign="start start">
+               class="item omv-flex-column omv-align-content-start omv-justify-content-start omv-align-items-start">
             <div class="item-value omv-text-truncate">{{ labelFormatterByProp(data, item.prop, chartCtx) }}</div>
             <div class="item-label omv-text-truncate">{{ item.label }}</div>
           </div>

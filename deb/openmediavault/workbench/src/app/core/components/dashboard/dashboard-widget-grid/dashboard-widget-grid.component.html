@@ -2,9 +2,7 @@
                       [loadData]="loadData.bind(this)"
                       (dataChangedEvent)="dataChanged($event)">
   <div *ngIf="data"
-       class="widget-content"
-       gdGap="3px"
-       gdColumns="repeat(auto-fit, minmax({{ config.grid?.item.minWidth | defaultTo:'100px' }}, 1fr))">
+       class="widget-content omv-grid omv-gap-1">
     <div *ngFor="let item of data.data"
          class="item"
          [ngClass]="config.grid?.item.class | template:item"

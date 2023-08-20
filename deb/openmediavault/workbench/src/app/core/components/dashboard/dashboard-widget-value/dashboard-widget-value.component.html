@@ -1,17 +1,14 @@
 <omv-dashboard-widget [config]="config"
                       (dataChangedEvent)="dataChanged($event)">
   <div *ngIf="data"
-       class="widget-content"
-       fxLayout="row"
-       fxLayoutAlign="start center"
+       class="widget-content omv-display-flex omv-flex-row omv-justify-content-start omv-align-items-center"
        [ngClass]="{'omv-cursor-pointer': config.value?.url}"
        [routerLink]="config.value?.url | template:data">
     <mat-icon *ngIf="config.value?.icon"
               mat-card-avatar
               svgIcon="{{ config.value?.icon | mapIconEnum }}">
     </mat-icon>
-    <div fxLayout="column"
-         fxLayoutAlign="center stretch"
+    <div class="omv-flex-column omv-align-content-stretch omv-justify-content-center omv-align-items-stretch"
          [ngClass]="{'omv-ml-h': config.value?.icon}">
       <div class="omv-font-weight-bold">
         {{ config.value?.title | template:data | transloco }}

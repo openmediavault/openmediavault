@@ -1,8 +1,7 @@
 <omv-dashboard-widget [config]="config"
                       [loadData]="loadData.bind(this)"
                       (dataChangedEvent)="dataChanged($event)">
-  <div class="widget-content"
-       fxLayoutAlign="center">
+  <div class="widget-content omv-display-flex omv-align-content-stretch omv-align-content-center omv-align-items-stretch">
     <img src="rrd.php?name={{ config.rrd?.name }}&time={{ time }}"
          loading="lazy"
          loadingState

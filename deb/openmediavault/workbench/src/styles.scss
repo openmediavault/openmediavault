@@ -72,13 +72,13 @@ $omv-dark-theme: mat.define-dark-theme(
 ////////////////////////////////////////////////////////////////////////////////
 // Orientation
 .omv-vertical-align {
-  @extend .omv-flex;
-  @extend .omv-items-center;
+  @extend .omv-display-flex;
+  @extend .omv-align-items-center;
 }
 
 .omv-horizontal-align {
-  @extend .omv-flex;
-  @extend .omv-justify-center;
+  @extend .omv-display-flex;
+  @extend .omv-justify-content-center;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -89,6 +89,46 @@ $omv-dark-theme: mat.define-dark-theme(
 
 .omv-h-auto {
   height: auto;
+}
+
+.omv-w-10 {
+  width: 10% !important;
+}
+
+.omv-w-20 {
+  width: 20% !important;
+}
+
+.omv-w-25 {
+  width: 25% !important;
+}
+
+.omv-w-33 {
+  width: 33.3333% !important;
+}
+
+.omv-w-45 {
+  width: 45% !important;
+}
+
+.omv-w-50 {
+  width: 50% !important;
+}
+
+.omv-w-66 {
+  width: 66.6667% !important;
+}
+
+.omv-w-75 {
+  width: 75% !important;
+}
+
+.omv-w-80 {
+  width: 80% !important;
+}
+
+.omv-w-90 {
+  width: 90% !important;
 }
 
 .omv-w-100 {
@@ -362,7 +402,14 @@ $omv-dark-theme: mat.define-dark-theme(
 
 ////////////////////////////////////////////////////////////////////////////////
 // Flex
-.omv-flex {
+//
+// The following implementation is based on Angular flex-layout to make
+// the transition as easy as possible.
+//
+// References:
+// - https://github.com/angular/flex-layout/wiki/Declarative-API-Overview
+// - https://github.com/angular/flex-layout/wiki/Responsive-API
+.omv-display-flex {
   display: flex !important;
 }
 
@@ -370,8 +417,52 @@ $omv-dark-theme: mat.define-dark-theme(
   flex-direction: row;
 }
 
+.omv-flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
 .omv-flex-column {
   flex-direction: column;
+}
+
+.omv-flex-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.omv-flex-column-reverse-lt-sm {
+  @media only screen and (width <= 599px) {
+    flex-direction: column-reverse;
+  }
+}
+
+// Prevent a flex item from growing or shrinking.
+.omv-flex-none {
+  flex: none;
+}
+
+// Allow a flex item to grow and shrink as needed, ignoring its initial
+// size.
+.omv-flex-1 {
+  flex: 1 1 0%;
+}
+
+// Allow a flex item to shrink but not grow, taking into account its
+// initial size.
+.omv-flex-initial {
+  flex: 0 1 auto;
+}
+
+// Allow a flex item to grow and shrink, taking its initial size into
+// account.
+.omv-flex-auto {
+  flex: 1 1 auto;
+}
+
+.omv-flex-fill {
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
 }
 
 .omv-flex-grow {
@@ -382,28 +473,128 @@ $omv-dark-theme: mat.define-dark-theme(
   flex-grow: 0;
 }
 
-.omv-justify-start {
+.omv-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.omv-flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.omv-flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.omv-justify-content-start {
   justify-content: flex-start;
 }
 
-.omv-justify-end {
-  justify-content: flex-end;
-}
-
-.omv-justify-center {
+.omv-justify-content-center {
   justify-content: center;
 }
 
-.omv-items-start {
+.omv-justify-content-end {
+  justify-content: flex-end;
+}
+
+.omv-align-content-start {
+  align-content: flex-start;
+}
+
+.omv-align-content-center {
+  align-content: center;
+}
+
+.omv-align-content-end {
+  align-content: flex-end;
+}
+
+.omv-align-content-stretch {
+  align-content: stretch;
+}
+
+.omv-align-items-start {
   align-items: flex-start;
 }
 
-.omv-items-end {
+.omv-align-items-center {
+  align-items: center;
+}
+
+.omv-align-items-end {
   align-items: flex-end;
 }
 
-.omv-items-center {
-  align-items: center;
+.omv-align-items-stretch {
+  align-items: stretch;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Grid
+.omv-grid {
+  display: grid;
+}
+
+.omv-grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.omv-grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.omv-grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.omv-grid-cols-none {
+  grid-template-columns: none;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Gap
+.omv-gap-0 {
+  gap: 0;
+}
+
+/* stylelint-disable selector-class-pattern */
+.omv-gap-0\.5 {
+  gap: 0.125rem;
+}
+
+.omv-gap-1 {
+  gap: 0.25rem;
+}
+
+.omv-gap-1\.5 {
+  gap: 0.375rem;
+}
+
+.omv-gap-2 {
+  gap: 0.5rem;
+}
+
+.omv-gap-2\.5 {
+  gap: 0.625rem;
+}
+/* stylelint-enable selector-class-pattern */
+
+.omv-gap-3 {
+  gap: 0.75rem;
+}
+
+.omv-gap-4 {
+  gap: 1rem;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Box sizing
+.omv-box-border {
+  box-sizing: border-box;
+}
+
+.omv-box-content {
+  box-sizing: content-box;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -1,10 +1,7 @@
-<div class="omv-navigation-page"
-     gdGap="12px"
-     gdColumns="repeat(auto-fit, minmax(150px, 1fr))">
+<div class="omv-navigation-page omv-grid omv-gap-3">
   <mat-card *ngFor="let item of menuItems"
+            class="omv-box-border omv-display-flex omv-flex-column omv-align-content-center omv-justify-content-center omv-align-items-center"
             mat-ripple
-            fxLayout="column"
-            fxLayoutAlign="center center"
             tabindex="0"
             (keyup.space)="onClick(item)"
             (keyup.enter)="onClick(item)"
