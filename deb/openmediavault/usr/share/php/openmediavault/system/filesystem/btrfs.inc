@@ -172,8 +172,8 @@ class Btrfs extends Filesystem {
 		  "used=([0-9]+)$/i";
 		foreach (preg_filter($regex, "$1 $2 $3 $4", $output) as $rowv) {
 			list($type, $profile, $t, $u) = explode(" ", $rowv);
-			switch ($profile) {
-				case "single":
+			switch (strtoupper($profile)) {
+				case "SINGLE":
 				case "RAID0":
 					$factor = 1.0;
 					break;
@@ -297,6 +297,9 @@ class Btrfs extends Filesystem {
 		if (is_null($dataRatio)) {
 			$dataRatio = "1.0";
 		}
+		// Calculate the correct device size.
+		// https://github.com/digint/btrbk/commit/b69e9ebf349c5430fbfa8d1b31a80b254eda0441#diff-82762b70e27ed444b151409dbf03955775fe33e3231cc0ec8786062522b8b2aaR786
+		$totalBytes = bcdiv($totalBytes, $dataRatio, 0);
 
 		// Update the information.
 		// Raw disk(s) size.
@@ -309,7 +312,8 @@ class Btrfs extends Filesystem {
 			"available" => bcdiv($available, $dataRatio, 0),
 			// Raw disk usage, all profiles, divided by raw size.
 			"percentage" => intval(bcmul(
-				bcdiv(array_sum($usedRaw), $totalBytes, 3), 100, 0))
+				bcdiv(array_sum($usedRaw), $totalBytes, 3), 100, 0)),
+			"dataratio" => $dataRatio
 		]);
 
 		return $stats;
