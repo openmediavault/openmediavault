@@ -37,11 +37,18 @@ def main():
         ['btrfs', 'filesystem', 'usage', '--raw', path],
         stderr=subprocess.DEVNULL
     ).decode()
-    matches = re.match(r'.+Device size:\s+(\d+).+Free \(statfs, df\):\s+(\d+).+',
-                       output, re.DOTALL)
+    matches = re.match(
+        r'.+Device size:\s+(\d+).+Free \(statfs, df\):\s+(\d+).+Data ratio:\s+(\d+\.\d+).+',
+        output, re.DOTALL
+    )
     if matches is not None:
         total = int(matches.group(1)) // 1024
         available = int(matches.group(2)) // 1024
+        data_ratio = float(matches.group(3))
+
+        if data_ratio > 0.0:
+            # See https://github.com/digint/btrbk/commit/b69e9ebf349c5430fbfa8d1b31a80b254eda0441
+            total = round(total // data_ratio)
     else:
         output = openmediavault.procutils.check_output(
             ['df', '--portability', '--print-type', '--block-size=1K', path],
