@@ -78,6 +78,9 @@ class KeyValueFile {
 	 * @return Returns TRUE if the key exists, otherwise FALSE.
 	 */
 	final public function exists($key) {
+		if (FALSE === $this->keyCaseSensitiv) {
+			$key = mb_strtolower($key);
+		}
 		$dict = new \OMV\Dictionary($this->getAssoc());
 		return $dict->exists($key);
 	}
@@ -88,6 +91,9 @@ class KeyValueFile {
 	 * @return The value of the given key.
 	 */
 	final public function get($key) {
+		if (FALSE === $this->keyCaseSensitiv) {
+			$key = mb_strtolower($key);
+		}
 		$dict = new \OMV\Dictionary($this->getAssoc());
 		$dict->assertExists($key);
 		return $dict->get($key);
@@ -103,20 +109,23 @@ class KeyValueFile {
 		$rows = file($this->filename);
 		// Prepare regular expression.
 		$regex = sprintf('/^([^%s]+)[%s](.*)$/i', $this->keyValueDelimiter,
-		  $this->keyValueDelimiter);
+			$this->keyValueDelimiter);
 		// Process the rows.
 		foreach ($rows as $rowk => $rowv) {
 			// Skip comment lines.
-			if ($this->commentDelimiter == substr(ltrim($rowv), 0, 1))
+			if ($this->commentDelimiter == substr(ltrim($rowv), 0, 1)) {
 				continue;
+			}
 			// Extract key/value.
-			if (1 !== preg_match($regex, $rowv, $matches))
+			if (1 !== preg_match($regex, $rowv, $matches)) {
 				continue;
+			}
 			// Harmonize the key.
 			$key = trim($matches[1]);
 			$key = str_replace(" ", $this->keyNameDelimiter, $key);
-			if (FALSE === $this->keyCaseSensitiv)
+			if (FALSE === $this->keyCaseSensitiv) {
 				$key = mb_strtolower($key);
+			}
 			// Add key/value pair.
 			$map[$key] = trim($matches[2]);
 		}

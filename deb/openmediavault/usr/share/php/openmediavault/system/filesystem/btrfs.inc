@@ -172,7 +172,7 @@ class Btrfs extends Filesystem {
 		  "used=([0-9]+)$/i";
 		foreach (preg_filter($regex, "$1 $2 $3 $4", $output) as $rowv) {
 			list($type, $profile, $t, $u) = explode(" ", $rowv);
-			switch (strtoupper($profile)) {
+			switch (mb_strtoupper($profile)) {
 				case "SINGLE":
 				case "RAID0":
 					$factor = 1.0;
@@ -463,7 +463,7 @@ class Btrfs extends Filesystem {
 			if (1 !== preg_match($regex, $outputv, $matches)) {
 				continue;
 			}
-			$key = strtolower(str_replace(" ", "_", $matches[1]));
+			$key = mb_strtolower(str_replace(" ", "_", $matches[1]));
 			$result[$key] = $matches[2];
 		}
 		return $result;
