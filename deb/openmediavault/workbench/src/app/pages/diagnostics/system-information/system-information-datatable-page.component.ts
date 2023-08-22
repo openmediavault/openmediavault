@@ -23,7 +23,7 @@ import { Subscription } from 'rxjs';
 
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { Unsubscribe } from '~/app/decorators';
-import { format } from '~/app/functions.helper';
+import { format, notAvailable } from '~/app/functions.helper';
 import { BinaryUnitPipe } from '~/app/shared/pipes/binary-unit.pipe';
 import {
   SystemInformation,
@@ -83,21 +83,21 @@ export class SystemInformationDatatablePageComponent {
             name: gettext('Version'),
             value: {
               type: 'text',
-              value: _.get(res, 'version')
+              value: notAvailable(_.get(res, 'version'))
             }
           },
           cpuModelName: {
             name: gettext('Processor'),
             value: {
               type: 'text',
-              value: _.get(res, 'cpuModelName')
+              value: notAvailable(_.get(res, 'cpuModelName'))
             }
           },
           kernel: {
             name: gettext('Kernel'),
             value: {
               type: 'text',
-              value: _.get(res, 'kernel')
+              value: notAvailable(_.get(res, 'kernel'))
             }
           },
           time: {

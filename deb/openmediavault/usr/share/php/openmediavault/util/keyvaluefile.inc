@@ -88,15 +88,16 @@ class KeyValueFile {
 	/**
 	 * Get the value of the given key.
 	 * @param string $key The name of the key.
+	 * @param mixed $default The default value if key does not exist.
+	 *   Defaults to NULL.
 	 * @return The value of the given key.
 	 */
-	final public function get($key) {
+	final public function get($key, $default = NULL) {
 		if (FALSE === $this->keyCaseSensitiv) {
 			$key = mb_strtolower($key);
 		}
 		$dict = new \OMV\Dictionary($this->getAssoc());
-		$dict->assertExists($key);
-		return $dict->get($key);
+		return $dict->get($key, $default);
 	}
 
 	/**

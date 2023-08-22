@@ -147,6 +147,7 @@ class System {
 	 *   periods or FALSE on failure.
 	 */
 	public static function getLoadAverage() {
+		// https://scoutapm.com/blog/understanding-load-averages
 		$loadavg = explode(" ", trim(file_get_contents("/proc/loadavg")));
 		return [
 			"1min" => floatval($loadavg[0]),
@@ -372,6 +373,7 @@ class System {
 	 * @return The memory statistics as array or FALSE on failure.
 	 * array(
 	 *   cpumhz => "2792.999"
+	 *   cpucores => 4
 	 *   modelname => "Intel(R) Core(TM) i7 CPU         860  @ 2.80GHz",
 	 *   usage => 12
 	 * )
@@ -394,37 +396,51 @@ class System {
 		// BogoMIPS                : 663.55
 		// ...
 		$cpuInfo = new \OMV\Util\KeyValueFile("/proc/cpuinfo", ":");
-		$cpuInfo->setKeyNameDelimiter("");
-		$cpuInfo->setKeyCaseSensitiv(TRUE);
+		$cpuInfo->setKeyNameDelimiter("_");
 		// Get the current CPU statistics.
 		// Use the very first "cpu" line which aggregates the numbers in
 		// all of the other "cpuN" lines.
-		// cpu  2255 34 2290 22625563 6290 127 456
-		// * user: normal processes executing in user mode
-		// * nice: niced processes executing in user mode
-		// * system: processes executing in kernel mode
-		// * idle: twiddling thumbs
-		// * iowait: waiting for I/O to complete
-		// * irq: servicing interrupts
-		// * softirq: servicing softirqs
+		//
+		// Example:
+		// cpu  3163 4 2087 120087 470 0 33 15 0 0
+		// cpu0 3163 4 2087 120087 470 0 33 15 0 0
+		// ...
+		//
+		// * user: Time spent in user mode
+		// * nice: Time spent processing nice processes in user mode
+		// * system: Time spent executing kernel code
+		// * idle: Time spent idle
+		// * iowait: Time spent waiting for I/O
+		// * irq: Time spent servicing interrupts
+		// * softirq: Time spent servicing software interrupts
+		// * steal: Time stolen from a virtual machine
+		// * guest: Time spent running a virtual CPU for a guest operating system
+		// * guest_nice: Time spent running a virtual CPU for a “niced” guest operating system
 		//
 		// See also
-		// - https://serverfault.com/a/667250.
+		// - https://serverfault.com/a/667250
 		// - https://en.wikipedia.org/wiki/Load_(computing)
-		$tprev = file("/proc/stat");
+		// - https://rosettacode.org/wiki/Linux_CPU_utilization#Python
+		// - https://soltveit.org/cpu-idle-time-since-boot/
+		// - https://gist.github.com/pcolby/6558833
+		$lastStat = file("/proc/stat");
 		sleep(1);
-		$tnow = file("/proc/stat");
-		$tprev = explode(" ", $tprev[0]);
-		array_shift($tprev); array_shift($tprev);
-		$tnow = explode(" ", $tnow[0]);
-		array_shift($tnow); array_shift($tnow);
+		$stat = file("/proc/stat");
+		// Cleanup data for easier processing.
+		$lastStat = explode(" ", $lastStat[0]);
+		array_shift($lastStat); array_shift($lastStat);
+		$lastStat = array_map("intval", $lastStat);
+		$stat = explode(" ", $stat[0]);
+		array_shift($stat); array_shift($stat);
+		$stat = array_map("intval", $stat);
 		// Calculate the total CPU time.
-		$tprevTotal = array_sum($tprev);
-		$tnowTotal = array_sum($tnow);
+		$lastStatTotal = array_sum($lastStat);
+		$statTotal = array_sum($stat);
 		// Calculate the CPU usage since we last checked.
-		$diffIdle = $tnow[3] - $tprev[3];
-		$diffIowait = $tnow[4] - $tprev[4];
-		$diffTotal = $tnowTotal - $tprevTotal;
+		$diffIdle = $stat[3] - $lastStat[3];
+		$diffTotal = $statTotal - $lastStatTotal;
+		$usage = (0 == $diffTotal) ? 0 :
+			(($diffTotal - $diffIdle) / $diffTotal) * 100.0;
 		// Get the processor name.
 		// Parse output:
 		// ...
@@ -434,8 +450,8 @@ class System {
 		// Hardware		: Allwinnersun50iw2Family
 		// Revision		: 0000
 		// Serial		: 0000000000000000
-		$modelName = gettext("n/a");
-		foreach ([ "modelname", "cpumodel", "Processor", "Hardware" ] as $key) {
+		$modelName = NULL;
+		foreach ([ "model_name", "cpu_model", "hardware" ] as $key) {
 			if (TRUE === $cpuInfo->exists($key)) {
 				$modelName = $cpuInfo->get($key);
 				break;
@@ -443,10 +459,9 @@ class System {
 		}
 		return [
 			"modelname" => $modelName,
-			"cpumhz" => $cpuInfo->exists("cpumhz") ?
-				$cpuInfo->get("cpumhz") : gettext("n/a"),
-			"usage" => (0 == $diffTotal) ? 0 :
-				(($diffTotal - $diffIowait - $diffIdle) / $diffTotal) * 100
+			"cpumhz" => $cpuInfo->get("cpu_mhz"),
+			"cpucores" => $cpuInfo->get("cpu_cores"),
+			"usage" => $usage
 		];
 	}
 
