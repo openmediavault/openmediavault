@@ -82,7 +82,7 @@
     "@ngneat/transloco-keys-manager": "^3.8.0",
     "@types/jest": "^28.1.8",
     "@types/lodash": "^4.14.197",
-    "@types/node": "^16.18.41",
+    "@types/node": "^16.18.43",
     "@types/nunjucks": "^3.2.3",
     "@types/validator": "^13.11.1",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
