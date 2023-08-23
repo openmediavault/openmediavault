@@ -1,7 +1,7 @@
 <omv-dashboard-widget [config]="config"
                       (dataChangedEvent)="dataChanged($event)">
   <div class="widget-content omv-display-flex omv-flex-row">
-    <div class="chart"
+    <div class="chart omv-flex-1"
          [ngClass]="{'omv-w-100': chartWidth === 100, 'omv-w-75': chartWidth === 75, 'omv-w-50': chartWidth === 50, 'omv-w-25': chartWidth === 25}">
       <div *ngIf="config.chart?.displayValue && data && chart && chartCtx"
            class="gauge-label omv-display-flex omv-flex-column omv-flex-fill omv-align-content-center omv-justify-content-end omv-align-items-center">
