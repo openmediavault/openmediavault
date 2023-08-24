@@ -7,6 +7,7 @@ data:
       - admin
   title: _("CPU Utilization")
   type: chart
+  reloadPeriod: 5000
   chart:
     type: gauge
     maxHeight: "150px"
@@ -15,11 +16,11 @@ data:
     displayValue: true
     request:
       service: System
-      method: getInformation
+      method: getCpuStats
     label:
       formatter: template
       formatterConfig: "{{ value | tofixed(1) }}%"
     dataConfig:
-      - label: _("Usage")
-        prop: cpuUsage
+      - label: _("Utilization")
+        prop: utilization
         backgroundColor: "#5dacdf"

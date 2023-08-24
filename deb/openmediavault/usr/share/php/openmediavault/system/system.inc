@@ -372,10 +372,10 @@ class System {
 	 * Get CPU statistics.
 	 * @return The CPU statistics as an array.
 	 *   array(
-	 *     cpumhz => "2792.999"
-	 *     cpucores => 4
+	 *     mhz => "2792.999"
+	 *     cores => 4
 	 *     modelname => "Intel(R) Core(TM) i7 CPU         860  @ 2.80GHz",
-	 *     usage => 12
+	 *     utilization => 12
 	 *   )
 	 */
 	public static function getCpuStats() {
@@ -398,9 +398,9 @@ class System {
 		}
 		return [
 			"modelname" => $modelName,
-			"cpumhz" => $cpuInfo->get("cpu_mhz"),
-			"cpucores" => $cpuInfo->get("cpu_cores"),
-			"usage" => \OMV\System\Cpu::utilization()
+			"mhz" => $cpuInfo->get("cpu_mhz"),
+			"cores" => $cpuInfo->get("cpu_cores"),
+			"utilization" => \OMV\System\Cpu::utilization()
 		];
 	}
 

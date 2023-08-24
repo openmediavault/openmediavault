@@ -3,6 +3,8 @@ openmediavault (6.7.0-1) stable; urgency=low
   * Various improvements.
   * Display correct size of Btrfs file systems.
   * Improve calculation of CPU utilization.
+  * Rename properties in System::getInformation RPC response.
+  * Add System::getCpuStats RPC.
   * Issue #1576: Getting rid of `@angular/flex-layout`.
   * Issue #1584: omv-btrfs-dfree doesn't report the correct size.
 

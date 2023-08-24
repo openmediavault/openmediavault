@@ -47,6 +47,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getTimeZoneList");
 		$this->registerMethod("getInformation");
 		$this->registerMethod("getDiagnosticReport");
+		$this->registerMethod("getCpuStats");
 	}
 
 	/**
@@ -383,7 +384,9 @@ class System extends \OMV\Rpc\ServiceAbstract {
 				"version" => sprintf("%s (%s)", $prd->getVersion(),
 					$prd->getVersionName()),
 				"cpuModelName" => $cpuStats['modelname'],
-				"cpuUsage" => $cpuStats['usage'],
+				"cpuUtilization" => $cpuStats['utilization'],
+				"cpuCores" => $cpuStats['cores'],
+				"cpuMhz" => $cpuStats['mhz'],
 				"memTotal" => $memStats['mem']['total'],
 				"memFree" => $memStats['mem']['free'],
 				"memUsed" => $memStats['mem']['used'],
@@ -420,5 +423,20 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		return implode("\n", $output);
+	}
+
+	/**
+	 * Get CPU statistics.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An object containing the CPU statistics.
+	 */
+	public function getCpuStats($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$result = \OMV\System\System::getCpuStats();
+		return $result;
 	}
 }
