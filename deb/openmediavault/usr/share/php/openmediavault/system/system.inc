@@ -370,77 +370,16 @@ class System {
 
 	/**
 	 * Get CPU statistics.
-	 * @return The memory statistics as array or FALSE on failure.
-	 * array(
-	 *   cpumhz => "2792.999"
-	 *   cpucores => 4
-	 *   modelname => "Intel(R) Core(TM) i7 CPU         860  @ 2.80GHz",
-	 *   usage => 12
-	 * )
+	 * @return The CPU statistics as an array.
+	 *   array(
+	 *     cpumhz => "2792.999"
+	 *     cpucores => 4
+	 *     modelname => "Intel(R) Core(TM) i7 CPU         860  @ 2.80GHz",
+	 *     usage => 12
+	 *   )
 	 */
 	public static function getCpuStats() {
-		// Get the CPU information. Take care about CPUs with multiple cores.
-		// processor	: 0
-		// vendor_id	: GenuineIntel
-		// cpu family	: 6
-		// model		: 30
-		// model name	: Intel(R) Core(TM) i7 CPU         860  @ 2.80GHz
-		// stepping	    : 5
-		// microcode	: 0x3
-		// cpu MHz		: 2792.999
-		// ...
-		// system type             : MT7621
-		// machine                 : GnuBee
-		// processor               : 0
-		// cpu model               : MIPS 1004Kc V2.15
-		// BogoMIPS                : 663.55
-		// ...
-		$cpuInfo = new \OMV\Util\KeyValueFile("/proc/cpuinfo", ":");
-		$cpuInfo->setKeyNameDelimiter("_");
-		// Get the current CPU statistics.
-		// Use the very first "cpu" line which aggregates the numbers in
-		// all of the other "cpuN" lines.
-		//
-		// Example:
-		// cpu  3163 4 2087 120087 470 0 33 15 0 0
-		// cpu0 3163 4 2087 120087 470 0 33 15 0 0
-		// ...
-		//
-		// * user: Time spent in user mode
-		// * nice: Time spent processing nice processes in user mode
-		// * system: Time spent executing kernel code
-		// * idle: Time spent idle
-		// * iowait: Time spent waiting for I/O
-		// * irq: Time spent servicing interrupts
-		// * softirq: Time spent servicing software interrupts
-		// * steal: Time stolen from a virtual machine
-		// * guest: Time spent running a virtual CPU for a guest operating system
-		// * guest_nice: Time spent running a virtual CPU for a “niced” guest operating system
-		//
-		// See also
-		// - https://serverfault.com/a/667250
-		// - https://en.wikipedia.org/wiki/Load_(computing)
-		// - https://rosettacode.org/wiki/Linux_CPU_utilization#Python
-		// - https://soltveit.org/cpu-idle-time-since-boot/
-		// - https://gist.github.com/pcolby/6558833
-		$lastStat = file("/proc/stat");
-		sleep(1);
-		$stat = file("/proc/stat");
-		// Cleanup data for easier processing.
-		$lastStat = explode(" ", $lastStat[0]);
-		array_shift($lastStat); array_shift($lastStat);
-		$lastStat = array_map("intval", $lastStat);
-		$stat = explode(" ", $stat[0]);
-		array_shift($stat); array_shift($stat);
-		$stat = array_map("intval", $stat);
-		// Calculate the total CPU time.
-		$lastStatTotal = array_sum($lastStat);
-		$statTotal = array_sum($stat);
-		// Calculate the CPU usage since we last checked.
-		$diffIdle = $stat[3] - $lastStat[3];
-		$diffTotal = $statTotal - $lastStatTotal;
-		$usage = (0 == $diffTotal) ? 0 :
-			(($diffTotal - $diffIdle) / $diffTotal) * 100.0;
+		$cpuInfo = new \OMV\Dictionary(\OMV\System\Cpu::info());
 		// Get the processor name.
 		// Parse output:
 		// ...
@@ -461,7 +400,7 @@ class System {
 			"modelname" => $modelName,
 			"cpumhz" => $cpuInfo->get("cpu_mhz"),
 			"cpucores" => $cpuInfo->get("cpu_cores"),
-			"usage" => $usage
+			"usage" => \OMV\System\Cpu::utilization()
 		];
 	}
 
