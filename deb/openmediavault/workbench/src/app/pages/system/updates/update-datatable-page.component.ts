@@ -33,7 +33,7 @@ export class UpdateDatatablePageComponent {
         cellTemplateName: 'template',
         cellTemplateConfig:
           '<div>' +
-          '  <div class="omv-display-flex omv-flex-row">' +
+          '  <div class="omv-display-flex omv-flex-column">' +
           '    <div class="omv-font-weight-title omv-font-size-title">{{ name }} {{ version }}</div>' +
           '    <div class="omv-font-size-subheading-2">{{ summary }}</div>' +
           '  </div>' +
