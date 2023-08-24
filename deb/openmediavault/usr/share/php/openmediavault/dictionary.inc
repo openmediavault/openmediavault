@@ -108,7 +108,7 @@ class Dictionary {
 	 * @return The requested value.
 	 */
 	 public function get($key, $default = NULL) {
-		$this->assertExists($key);
+		$this->assertValidKey($key);
 		$node = $this->data;
 		$parts = explode(".", $key);
 		foreach ($parts as $partk => $partv) {
