@@ -144,9 +144,10 @@
     </ng-template>
 
     <ng-template [ngSwitchCase]="'container'">
-      <div class="omv-form-container omv-display-flex omv-flex-row">
+      <div class="omv-form-container omv-box-border omv-display-flex omv-flex-row omv-gap-3 omv-align-items-baseline">
         <div *ngFor="let innerField of field.fields"
-             class="omv-form-container-item omv-w-{{ innerField.flex ?? 100 }}">
+             class="omv-form-container-item omv-max-w-{{ innerField.flex ?? 'none' }}"
+             [ngClass]="{'omv-flex-grow': innerField.flex, 'omv-flex-1': !innerField.flex }">
           <ng-container [ngTemplateOutlet]="renderFormField"
                         [ngTemplateOutletContext]="{ $implicit: innerField }">
           </ng-container>

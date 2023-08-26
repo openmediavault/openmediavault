@@ -83,7 +83,7 @@ $omv-dark-theme: mat.define-dark-theme(
 
 ////////////////////////////////////////////////////////////////////////////////
 // Sizing
-.omv-h-100 {
+.omv-h-100, .omv-h-full {
   height: 100% !important;
 }
 
@@ -131,12 +131,60 @@ $omv-dark-theme: mat.define-dark-theme(
   width: 90% !important;
 }
 
-.omv-w-100 {
+.omv-w-100, .omv-w-full {
   width: 100% !important;
 }
 
 .omv-w-auto {
   width: auto;
+}
+
+.omv-max-w-10 {
+  max-width: 10%;
+}
+
+.omv-max-w-20 {
+  max-width: 20%;
+}
+
+.omv-max-w-25 {
+  max-width: 25%;
+}
+
+.omv-max-w-33 {
+  max-width: 33.3333%;
+}
+
+.omv-max-w-45 {
+  max-width: 45%;
+}
+
+.omv-max-w-50 {
+  max-width: 50%;
+}
+
+.omv-max-w-66 {
+  max-width: 66.6667%;
+}
+
+.omv-max-w-75 {
+  max-width: 75%;
+}
+
+.omv-max-w-80 {
+  max-width: 80%;
+}
+
+.omv-max-w-90 {
+  max-width: 90%;
+}
+
+.omv-max-w-100 {
+  max-width: 100%;
+}
+
+.omv-max-w-none {
+  max-width: none;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -446,10 +494,18 @@ $omv-dark-theme: mat.define-dark-theme(
   flex: 1 1 0%;
 }
 
+.omv-flex-grow {
+  flex: 1 1 100%;
+}
+
 // Allow a flex item to shrink but not grow, taking into account its
 // initial size.
-.omv-flex-initial {
+.omv-flex-initial, .omv-flex-nogrow {
   flex: 0 1 auto;
+}
+
+.omv-flex-noshrink {
+  flex: 1 0 auto;
 }
 
 // Allow a flex item to grow and shrink, taking its initial size into
@@ -465,7 +521,7 @@ $omv-dark-theme: mat.define-dark-theme(
   width: 100%;
 }
 
-.omv-flex-grow {
+.omv-flex-grow-1 {
   flex-grow: 1;
 }
 
@@ -523,6 +579,10 @@ $omv-dark-theme: mat.define-dark-theme(
 
 .omv-align-items-end {
   align-items: flex-end;
+}
+
+.omv-align-items-baseline {
+  align-items: baseline;
 }
 
 .omv-align-items-stretch {

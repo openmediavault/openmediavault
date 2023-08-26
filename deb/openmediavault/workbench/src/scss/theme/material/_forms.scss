@@ -59,4 +59,9 @@
     // Suffix/Prefix icons are aligned too high by default.
     vertical-align: bottom;
   }
+
+  // Move list items to the beginning of the line.
+  .mat-form-field .mat-hint > ul {
+    padding-left: 0.75rem;
+  }
 }
