@@ -1,3 +1,10 @@
+openmediavault-onedrive (6.2.12-1) stable; urgency=low
+
+  * Display a hint in the UI to use the omv-onedrive command as a
+    wrapper for the official OneDrive Linux client.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 27 Aug 2023 13:23:14 +0200
+
 openmediavault-onedrive (6.2.11-1) stable; urgency=low
 
   * Make sure the onedrive systemd unit is started only after the
