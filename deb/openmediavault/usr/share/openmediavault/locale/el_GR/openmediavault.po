@@ -1116,7 +1116,7 @@ msgid "Empty now"
 msgstr "Άδειασμα τώρα"
 
 msgid "Enable NetBIOS"
-msgstr ""
+msgstr "Ενεργοποίηση NetBIOS"
 
 msgid "Enable Time Machine support for this share."
 msgstr "Ενεργοποίηση της Χρονομηχανής για αυτό το κοινόχρηστο."
@@ -3110,7 +3110,7 @@ msgid "Sunday"
 msgstr "Κυριακή"
 
 msgid "Support name resolution and network discovery for legacy systems."
-msgstr ""
+msgstr "Υποστήριξη για επίλυση ονομάτων και δικτυακή ανακάλυψη σε παλαιότερα συστήματα."
 
 msgid "Suppress non-error messages"
 msgstr "Απόκρυψη μηνυμάτων που δεν αφορούν σφάλματα."

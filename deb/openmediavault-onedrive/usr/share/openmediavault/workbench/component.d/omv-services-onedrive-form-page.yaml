@@ -16,7 +16,7 @@ data:
         dismissible: true
         stateId: c563faed-4331-493b-937d-20489be8c203
       - type: hint
-        text: _("Use the <em>omv-onedrive</em> command in the CLI to perform additional actions according to the OneDrive Linux client documentation.")
+        text: _("Use the <em>omv-onedrive</em> command in the CLI to perform additional actions according to the documentation of the OneDrive Linux client.")
         dismissible: true
         stateId: 88ac9240-3e8a-4372-8a63-74baa4276cf2
       - type: checkbox
