@@ -46,7 +46,7 @@
     "@codemirror/search": "^6.5.2",
     "@codemirror/state": "^6.2.1",
     "@codemirror/theme-one-dark": "^6.1.2",
-    "@codemirror/view": "^6.16.0",
+    "@codemirror/view": "^6.17.0",
     "@fontsource/inter": "^4.5.15",
     "@fontsource/roboto-mono": "^4.5.10",
     "@mdi/angular-material": "^7.2.96",
