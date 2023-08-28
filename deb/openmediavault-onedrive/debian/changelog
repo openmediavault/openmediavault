@@ -1,4 +1,4 @@
-openmediavault-onedrive (6.2.12-1) stable; urgency=low
+openmediavault-onedrive (6.2.12-2) stable; urgency=low
 
   * Display a hint in the UI to use the omv-onedrive command as a
     wrapper for the official OneDrive Linux client.
