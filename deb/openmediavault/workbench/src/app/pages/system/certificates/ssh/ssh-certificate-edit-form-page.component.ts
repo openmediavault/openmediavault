@@ -53,10 +53,10 @@ export class SshCertificateEditFormPageComponent extends BaseFormPageComponent {
         disabled: true
       },
       {
-        type: 'textInput',
+        type: 'tagInput',
         name: 'comment',
         value: '',
-        label: gettext('Comment'),
+        label: gettext('Tags'),
         validators: {
           required: true
         }

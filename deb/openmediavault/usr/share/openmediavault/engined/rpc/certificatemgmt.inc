@@ -75,6 +75,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			$certificate = $objectv->get("certificate");
 			// Add additional properties.
 			$objectv->add("name", "string", "");
+			$objectv->add("validfrom", "integer", 0);
 			$objectv->add("validto", "integer", 0);
 			$objectv->add("_used", "boolean", FALSE);
 			// Remove the private key. It should not leave the system.
@@ -83,6 +84,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			if ($certinfo = openssl_x509_parse($certificate)) {
 				$objectv->setFlatAssoc([
 					"name" => $certinfo['name'],
+					"validfrom" => $certinfo['validFrom_time_t'],
 					"validto" => $certinfo['validTo_time_t']
 				]);
 			}
@@ -103,7 +105,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Filter the result.
 		return $this->applyFilter($result, $params['start'], $params['limit'],
-		  $params['sortfield'], $params['sortdir']);
+			$params['sortfield'], $params['sortdir']);
 	}
 
 	/**
@@ -346,11 +348,12 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		unlink($crtFile);
 		// Finally import generated certificate.
 		return $this->callMethod("set", [
-			  "uuid" => \OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID"),
-			  "certificate" => $crtData,
-			  "privatekey" => $keyData,
-			  "comment" => !empty($subject) ? $subject : ""
-		  ], $context);
+			"uuid" => \OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID"),
+			"certificate" => $crtData,
+			"privatekey" => $keyData,
+			"comment" => !empty($params['comment']) ?
+				$params['comment'] : $subject
+		], $context);
 	}
 
 	/**

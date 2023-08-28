@@ -483,6 +483,15 @@ export class SslCertificateFormPageComponent extends BaseFormPageComponent {
         validators: {
           patternType: 'email'
         }
+      },
+      {
+        type: 'tagInput',
+        name: 'comment',
+        value: '',
+        label: gettext('Tags'),
+        hint: gettext(
+          'This field is automatically filled with the subject of the certificate if left blank.'
+        )
       }
     ],
     buttons: [

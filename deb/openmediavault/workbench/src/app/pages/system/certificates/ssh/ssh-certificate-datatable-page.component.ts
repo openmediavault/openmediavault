@@ -28,9 +28,12 @@ export class SshCertificateDatatablePageComponent {
     stateId: '85efa226-1c32-11ea-8f7a-67b9a1e57494',
     columns: [
       {
-        name: gettext('Comment'),
+        name: gettext('Tags'),
         prop: 'comment',
-        cellTemplateName: 'text',
+        cellTemplateName: 'chip',
+        cellTemplateConfig: {
+          separator: ','
+        },
         flexGrow: 1,
         sortable: true
       }

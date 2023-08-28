@@ -34,9 +34,9 @@ export class SshCertificateCreateFormPageComponent extends BaseFormPageComponent
     },
     fields: [
       {
-        type: 'textInput',
+        type: 'tagInput',
         name: 'comment',
-        label: gettext('Comment'),
+        label: gettext('Tags'),
         validators: {
           required: true
         }

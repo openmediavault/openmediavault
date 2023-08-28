@@ -61,10 +61,10 @@ export class SslCertificateImportFormPageComponent extends BaseFormPageComponent
         }
       },
       {
-        type: 'textInput',
+        type: 'tagInput',
         name: 'comment',
         value: '',
-        label: gettext('Comment'),
+        label: gettext('Tags'),
         validators: {
           required: true
         }

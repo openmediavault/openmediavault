@@ -28,11 +28,11 @@ export class SslCertificateDatatablePageComponent {
     stateId: '9fe3e818-1c32-11ea-bde4-5f0ce98b6927',
     columns: [
       {
-        name: gettext('Comment'),
-        prop: 'comment',
-        cellTemplateName: 'text',
+        name: gettext('Valid from'),
+        prop: 'validfrom',
         flexGrow: 1,
-        sortable: true
+        sortable: true,
+        cellTemplateName: 'localeDateTime'
       },
       {
         name: gettext('Valid to'),
@@ -63,6 +63,16 @@ export class SslCertificateDatatablePageComponent {
         flexGrow: 1,
         sortable: true,
         cellTemplateName: 'checkIcon'
+      },
+      {
+        name: gettext('Tags'),
+        prop: 'comment',
+        cellTemplateName: 'chip',
+        cellTemplateConfig: {
+          separator: ','
+        },
+        flexGrow: 1,
+        sortable: true
       }
     ],
     sorters: [
