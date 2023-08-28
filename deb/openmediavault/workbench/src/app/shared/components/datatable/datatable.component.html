@@ -195,14 +195,15 @@
 
 <ng-template #copyToClipboardTpl
              let-value="value">
-  <ng-container *ngIf="value">
+  <div *ngIf="value"
+       class="omv-display-flex omv-flex-row omv-gap-1 omv-flex-wrap omv-align-items-center">
     <span [matTooltip]="value">{{ value | preventHtml }}</span>
-    <mat-icon class="omv-icon-sm omv-cursor-pointer omv-ml-q"
+    <mat-icon class="omv-display-flex omv-icon-sm omv-cursor-pointer"
               svgIcon="{{ icon.copy }}"
               matTooltip="{{ 'Copy to clipboard' | transloco }}"
               (click)="onCopyToClipboard($event, value)">
     </mat-icon>
-  </ng-container>
+  </div>
 </ng-template>
 
 <ng-template #templateTpl
