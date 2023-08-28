@@ -284,6 +284,7 @@ class Btrfs extends Filesystem {
 		if (1 == bccomp("0", $available)) {
 			$available = "0";
 		}
+
 		// Data ratio is calculated based only on Data (or Data+Metadata).
 		$dataRatio = bcdiv(
 			array_sum(array_filter($usedRaw, function($type) {
@@ -297,15 +298,16 @@ class Btrfs extends Filesystem {
 		if (is_null($dataRatio)) {
 			$dataRatio = "1.0";
 		}
+
 		// Calculate the correct device size.
 		// https://github.com/digint/btrbk/commit/b69e9ebf349c5430fbfa8d1b31a80b254eda0441#diff-82762b70e27ed444b151409dbf03955775fe33e3231cc0ec8786062522b8b2aaR786
-		$totalBytes = bcdiv($totalBytes, $dataRatio, 0);
+		$totalBytesRatio = bcdiv($totalBytes, $dataRatio, 0);
 
 		// Update the information.
 		// Raw disk(s) size.
-		$stats = array_merge($stats, [
-			"size" => $totalBytes,
-			"blocks" => bcdiv($totalBytes, "1024", 0),
+		return array_merge($stats, [
+			"size" => $totalBytesRatio,
+			"blocks" => bcdiv($totalBytesRatio, "1024", 0),
 			// Usage by all profiles (excluding redundancy).
 			"used" => array_sum($used),
 			// Space available for Data, adjusted for average data ratio.
@@ -315,8 +317,6 @@ class Btrfs extends Filesystem {
 				bcdiv(array_sum($usedRaw), $totalBytes, 3), 100, 0)),
 			"dataratio" => $dataRatio
 		]);
-
-		return $stats;
 	}
 
 	/**
