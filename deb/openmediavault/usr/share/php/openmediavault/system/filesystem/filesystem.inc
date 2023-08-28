@@ -612,10 +612,11 @@ class Filesystem extends \OMV\System\BlockDevice
 	}
 
 	/**
-	 * Get statistics from a mounted filesystem.
-	 * @return The filesystem statistics if successful, otherwise FALSE. The
-	 *   following fields are included: \em devicefile, \em type, \em blocks,
-	 *   \em size, \em used, \em available, \em percentage and \em mountpoint.
+	 * Get statistics about a mounted filesystem.
+	 * @return The filesystem statistics as an array if successful,
+	 *   otherwise FALSE. The following fields are included:
+	 *   \em devicefile, \em type, \em blocks, \em size, \em used,
+	 *   \em available, \em percentage and \em mountpoint.
 	 *   Please note, the fields \em size, \em used and \em available are
 	 *   strings and their unit is 'B' (bytes).
 	 * @throw \OMV\ExecException
