@@ -25,6 +25,7 @@
 {%- set fruit_aapl = salt['pillar.get']('default:OMV_SAMBA_FRUIT_AAPL', 'yes') -%}
 {%- set fruit_nfs_aces = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_NFSACES', 'no') -%}
 {%- set fruit_copyfile = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_COPYFILE', 'yes') -%}
+{%- set server_min_protocols = {'SMB1': 'NT1', 'SMB2': 'SMB2_02', 'SMB3': 'SMB3_00'} -%}
 {{ pillar['headers']['multiline'] -}}
 #======================= Global Settings =======================
 [global]
@@ -65,6 +66,10 @@ wins server = {{ config.winsserver }}
 {%- endif %}
 disable netbios = {{ config.netbios | to_bool | not | yesno }}
 multicast dns register = no
+server min protocol = {{ server_min_protocols | get(config.minprotocol) }}
+{%- if config.minprotocol == 'SMB1' %}
+ntlm auth = ntlmv1-permitted
+{%- endif %}
 # Special configuration for Apple's Time Machine
 fruit:aapl = {{ fruit_aapl }}
 fruit:copyfile = {{ fruit_copyfile }}

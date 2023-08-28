@@ -1,6 +1,8 @@
-openmediavault (6.7.2-1) stable; urgency=low
+openmediavault (6.8.0-1) stable; urgency=low
 
-  *
+  * Add setting to choose the minimum SMB protocol version. This
+    way SMB1 can be enabled to allow legacy systems to access your
+    SMB shares.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 28 Aug 2023 20:28:10 +0200
 
