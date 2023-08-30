@@ -103,6 +103,25 @@ export class SmbSettingsFormPageComponent extends BaseFormPageComponent {
         title: gettext('Advanced settings')
       },
       {
+        type: 'select',
+        name: 'minprotocol',
+        label: gettext('Minimum protocol version'),
+        hint:
+          gettext(
+            'This setting controls the minimum protocol version that the server will allow the client to use.'
+          ) +
+          ' ' +
+          gettext('Note that SMB1 is deprecated and should only be used in mandatory cases.'),
+        value: 'SMB2',
+        store: {
+          data: [
+            ['SMB1', 'SMB1'],
+            ['SMB2', 'SMB2'],
+            ['SMB3', 'SMB3']
+          ]
+        }
+      },
+      {
         type: 'checkbox',
         name: 'netbios',
         label: gettext('Enable NetBIOS'),

@@ -60,6 +60,11 @@
 			"type": "boolean",
 			"default": false
 		},
+		"minprotocol": {
+			"type": "string",
+			"enum": [ "SMB1", "SMB2", "SMB3" ],
+			"default": "SMB2"
+		},
 		"extraoptions": {
 			"type": "string"
 		},

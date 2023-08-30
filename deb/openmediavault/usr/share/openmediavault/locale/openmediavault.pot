@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 16:31+0200\n"
+"POT-Creation-Date: 2023-08-29 09:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1883,6 +1883,9 @@ msgstr ""
 msgid "Minimum performance, minimum acoustic output"
 msgstr ""
 
+msgid "Minimum protocol version"
+msgstr ""
+
 msgid "Minute"
 msgstr ""
 
@@ -2067,6 +2070,9 @@ msgid "Not mounted"
 msgstr ""
 
 msgid "Not running"
+msgstr ""
+
+msgid "Note that SMB1 is deprecated and should only be used in mandatory cases."
 msgstr ""
 
 msgid "Nothing"
@@ -3260,6 +3266,9 @@ msgstr ""
 msgid "This field contains invalid characters, only alphanumeric characters and underscore are allowed."
 msgstr ""
 
+msgid "This field is automatically filled with the subject of the certificate if left blank."
+msgstr ""
+
 msgid "This field is required."
 msgstr ""
 
@@ -3354,6 +3363,9 @@ msgid "This parameter can be used to ensure that if default acls exist on parent
 msgstr ""
 
 msgid "This parameter controls whether files starting with a dot appear as hidden files"
+msgstr ""
+
+msgid "This setting controls the minimum protocol version that the server will allow the client to use."
 msgstr ""
 
 msgid "This specifies what to do if the packet matches."
@@ -3659,9 +3671,6 @@ msgstr ""
 msgid "Uruguay"
 msgstr ""
 
-msgid "Usage"
-msgstr ""
-
 msgid "Usage Warning Threshold"
 msgstr ""
 
@@ -3713,6 +3722,9 @@ msgstr ""
 msgid "Users must be assigned to the <em>ssh</em> group to be able to log in via SSH."
 msgstr ""
 
+msgid "Utilization"
+msgstr ""
+
 msgid "Uzbekistan"
 msgstr ""
 
@@ -3720,6 +3732,9 @@ msgid "VLAN"
 msgstr ""
 
 msgid "VLAN id"
+msgstr ""
+
+msgid "Valid from"
 msgstr ""
 
 msgid "Valid to"

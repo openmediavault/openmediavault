@@ -446,6 +446,10 @@
 			</scheduledtests>
 		</smart>
 		<smb>
+			<!--
+			<enable>0|1</enable>
+			<minprotocol>SMB1|SMB2|SMB3</minprotocol>
+			-->
 			<enable>0</enable>
 			<workgroup>WORKGROUP</workgroup>
 			<serverstring>%h server</serverstring>
@@ -459,6 +463,7 @@
 			<homesbrowseable>1</homesbrowseable>
 			<homesrecyclebin>0</homesrecyclebin>
 			<netbios>0</netbios>
+			<minprotocol>SMB2</minprotocol>
 			<extraoptions></extraoptions>
 			<shares>
 				<!--
