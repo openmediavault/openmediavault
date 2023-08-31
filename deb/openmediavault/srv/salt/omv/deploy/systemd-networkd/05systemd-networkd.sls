@@ -17,6 +17,13 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Documentation/Howto:
+# https://www.freedesktop.org/software/systemd/man/systemd.link.html
+
+{% set set_mac_addr_policy = salt['omv_conf.get_by_filter'](
+  'conf.system.network.interface',
+  {'operator': 'stringNotEquals', 'arg0': 'altmacaddress', 'arg1': ''}) | length > 0 %}
+
 unmask_systemd_networkd:
   service.unmasked:
     - name: systemd-networkd
@@ -24,3 +31,31 @@ unmask_systemd_networkd:
 enable_systemd_networkd:
   service.enabled:
     - name: systemd-networkd
+
+{% if set_mac_addr_policy %}
+
+create_systemd_network_defaults:
+  file.managed:
+    - name: "/usr/lib/systemd/network/05-openmediavault-default.link"
+    - contents: |
+        #!/bin/sh -l
+        {{ pillar['headers']['auto_generated'] }}
+        {{ pillar['headers']['warning'] }}
+        [Match]
+        OriginalName=*
+
+        [Link]
+        # This is necessary otherwise the alternative MAC addresses are
+        # not applied.
+        MACAddressPolicy=none
+    - user: root
+    - group: root
+    - mode: 644
+
+{% else %}
+
+remove_systemd_network_defaults:
+  file.absent:
+    - name: "/usr/lib/systemd/network/05-openmediavault-default.link"
+
+{% endif %}
