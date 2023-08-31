@@ -36,7 +36,7 @@ enable_systemd_networkd:
 
 create_systemd_networkd_defaults:
   file.managed:
-    - name: "/usr/lib/systemd/network/05-openmediavault-default.link"
+    - name: "/etc/systemd/network/05-openmediavault-default.link"
     - contents: |
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
@@ -55,6 +55,6 @@ create_systemd_networkd_defaults:
 
 remove_systemd_networkd_defaults:
   file.absent:
-    - name: "/usr/lib/systemd/network/05-openmediavault-default.link"
+    - name: "/etc/systemd/network/05-openmediavault-default.link"
 
 {% endif %}
