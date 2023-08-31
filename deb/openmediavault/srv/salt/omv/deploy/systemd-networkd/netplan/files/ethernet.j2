@@ -2,15 +2,12 @@
 network:
   ethernets:
     {{ interface.devicename }}:
-{%- if interface.altmacaddress | length > 0 %}
-      match:
-        macaddress: {{ interface.altmacaddress }}
-      macaddress: {{ interface.altmacaddress }}
-{%- else %}
 {%- if salt['file.read']('/sys/class/net/' + interface.devicename + '/addr_assign_type') | int == 0 %}
       match:
         macaddress: {{ salt['grains.get']('hwaddr_interfaces:' + interface.devicename) }}
 {%- endif %}
+{%- if interface.altmacaddress | length > 0 %}
+      macaddress: {{ interface.altmacaddress }}
 {%- endif %}
 {%- if interface.method == "static" or interface.method6 == "static" %}
       addresses:

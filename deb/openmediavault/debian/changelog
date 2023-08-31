@@ -1,7 +1,5 @@
 openmediavault (6.8.0-1) stable; urgency=low
 
-  * Fix issue in netplan.io configuration when an alternative MAC
-    address is set for an network interface.
   * Add setting to choose the minimum SMB protocol version. This
     way SMB1 can be enabled to allow legacy systems to access your
     SMB shares.
