@@ -34,19 +34,18 @@ enable_systemd_networkd:
 
 {% if set_mac_addr_policy %}
 
-create_systemd_network_defaults:
+create_systemd_networkd_defaults:
   file.managed:
     - name: "/usr/lib/systemd/network/05-openmediavault-default.link"
     - contents: |
-        #!/bin/sh -l
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
         [Match]
         OriginalName=*
 
         [Link]
-        # This is necessary otherwise the alternative MAC addresses are
-        # not applied.
+        # This setting is necessary otherwise the alternative MAC addresses
+        # are not applied.
         MACAddressPolicy=none
     - user: root
     - group: root
@@ -54,7 +53,7 @@ create_systemd_network_defaults:
 
 {% else %}
 
-remove_systemd_network_defaults:
+remove_systemd_networkd_defaults:
   file.absent:
     - name: "/usr/lib/systemd/network/05-openmediavault-default.link"
 
