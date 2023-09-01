@@ -21,6 +21,8 @@
 # http://technowizah.com/2007/01/debian-how-to-cpu-frequency-management.html
 # http://wiki.hetzner.de/index.php/Cool%27n%27Quiet
 # http://wiki.ubuntuusers.de/powernowd
+# https://wiki.debian.org/CpuFrequencyScaling
+# https://kernel.org/doc/Documentation/cpu-freq/governors.txt
 
 {% set config = salt['omv_conf.get']('conf.system.powermngmnt') %}
 
