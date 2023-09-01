@@ -1,5 +1,8 @@
 openmediavault (6.8.0-1) stable; urgency=low
 
+  * Change default governor to `schedutil` on ARM systems. This can
+    be customized via the `OMV_CPUFREQUTILS_GOVERNOR` environment
+    variable.
   * Add setting to choose the minimum SMB protocol version. This
     way SMB1 can be enabled to allow legacy systems to access your
     SMB shares.

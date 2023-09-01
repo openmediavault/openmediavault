@@ -3,7 +3,10 @@
 {%- set governor = salt['pillar.get']('default:OMV_CPUFREQUTILS_GOVERNOR', salt['grains.filter_by']({
     "default": "ondemand",
     "amd64": "conservative",
-    "i386": "conservative"
+    "i386": "conservative",
+    "armhf": "schedutil",
+    "arm64": "schedutil",
+    "armel": "schedutil"
   }, grain="osarch")) -%}
 {%- if cpufreq -%}
 ENABLE="true"

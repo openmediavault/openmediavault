@@ -494,6 +494,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "6.5.7"; then
 			omv_module_set_dirty nfs
 		fi
+		if dpkg --compare-versions "$2" lt-nl "6.8.0"; then
+			omv_module_set_dirty cpufrequtils
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
