@@ -82,6 +82,12 @@ class StorageDeviceSD extends StorageDevice implements SmartInterface {
 				if (("174c" == $vendorId) && ("2362" == $modelId)) {
 					return "sntasmedia";
 				}
+				// Realtek RTL9210B-CG USB 3.1 GEN2 to PCI EXPRESS GEN3x2/SATA Gen3. BRIDGE
+				// https://www.realtek.com/en/products/connected-media-ics/item/rtl9210b-cg
+				// https://devicehunt.com/view/type/usb/vendor/0BDA/device/9210
+				if (("0bda" == $vendorId) && ("9210" == $modelId)) {
+					return "";
+				}
 			}
 			// Identify by ID_MODEL_ID or `/sys/block/<XXX>/device/model`.
 			$modelMap = [
