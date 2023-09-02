@@ -1,5 +1,6 @@
 openmediavault (6.8.0-1) stable; urgency=low
 
+  * Update locale files.
   * Change default governor to `schedutil` on ARM systems. This can
     be customized via the `OMV_CPUFREQUTILS_GOVERNOR` environment
     variable.

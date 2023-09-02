@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 16:31+0200\n"
+"POT-Creation-Date: 2023-08-29 09:40+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2023\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -1530,7 +1530,7 @@ msgid ""
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr "Om det här alternativet är inställt, kommer demonen att chroot till sökvägen av den delade mappen innan filöverföringen med klienten. Då är det inte möjligt att kartlägga användare och grupper efter namn och demonen kan inte följa symboliska länkar som är antingen absoluta eller utanför den nya root-sökvägen."
+msgstr "Om det här alternativet är inställt, kommer demonen att chroot till sökvägen av den delade mappen innan filöverföringen med klienten. Då är det inte möjligt att kartlägga användare och grupper efter namn och demonen kan inte följa symboliska länkar som är antingen absoluta eller utanför den nya rotsökvägen."
 
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr "Om det här alternativet är inställt, kommer alla försök till hämtningar att misslyckas."
@@ -1957,6 +1957,9 @@ msgstr "Minimum"
 msgid "Minimum performance, minimum acoustic output"
 msgstr "Minimum prestanda, minimum akustisk utmatning"
 
+msgid "Minimum protocol version"
+msgstr "Minimum protokollversion"
+
 msgid "Minute"
 msgstr "Minut"
 
@@ -2142,6 +2145,10 @@ msgstr "Inte monterad"
 
 msgid "Not running"
 msgstr "Körs inte"
+
+msgid ""
+"Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr "Observera att SMB1 är utfasad och bör endast användas i obligatoriska fall."
 
 msgid "Nothing"
 msgstr "Ingenting"
@@ -3430,6 +3437,11 @@ msgid ""
 "underscore are allowed."
 msgstr "Det här fältet innehåller ogiltiga tecken, endast alfanumeriska tecken och understrykning är tillåtna."
 
+msgid ""
+"This field is automatically filled with the subject of the certificate if "
+"left blank."
+msgstr "Detta fält fylls automatiskt med ämnet för certifikatet om det lämnas tomt."
+
 msgid "This field is required."
 msgstr "Det här fältet är obligatoriskt."
 
@@ -3564,6 +3576,11 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "Denna parameter styr om filer som börjar med en punkt visas som dolda filer"
+
+msgid ""
+"This setting controls the minimum protocol version that the server will "
+"allow the client to use."
+msgstr "Den här inställningen styr den lägsta protokollversion som servern tillåter klienten att använda."
 
 msgid "This specifies what to do if the packet matches."
 msgstr "Det här anger vad du ska göra om paketet matchar."
@@ -3871,9 +3888,6 @@ msgstr "Driftstid"
 msgid "Uruguay"
 msgstr "Uruguay"
 
-msgid "Usage"
-msgstr "Användning"
-
 msgid "Usage Warning Threshold"
 msgstr "Varningsgräns för användning"
 
@@ -3932,6 +3946,9 @@ msgid ""
 "SSH."
 msgstr "Användare måste vara tilldelade <em>ssh</em>-gruppen för att kunna logga in via SSH."
 
+msgid "Utilization"
+msgstr "Användning"
+
 msgid "Uzbekistan"
 msgstr "Uzbekistan"
 
@@ -3940,6 +3957,9 @@ msgstr "VLAN"
 
 msgid "VLAN id"
 msgstr "VLAN-id"
+
+msgid "Valid from"
+msgstr "Giltig från"
 
 msgid "Valid to"
 msgstr "Giltig till"

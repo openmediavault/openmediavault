@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 16:31+0200\n"
+"POT-Creation-Date: 2023-08-29 09:40+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -1955,6 +1955,9 @@ msgstr "الحد الأدنى"
 msgid "Minimum performance, minimum acoustic output"
 msgstr "الأداء الأدنى ، الحد الأدنى للإخراج الصوتي"
 
+msgid "Minimum protocol version"
+msgstr ""
+
 msgid "Minute"
 msgstr "دقيقة"
 
@@ -2140,6 +2143,10 @@ msgstr "غير مثبت"
 
 msgid "Not running"
 msgstr "لا يعمل"
+
+msgid ""
+"Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr ""
 
 msgid "Nothing"
 msgstr "لا شيء"
@@ -3428,6 +3435,11 @@ msgid ""
 "underscore are allowed."
 msgstr "يحتوي هذا الحقل على أحرف غير صالحة ، ويسمح فقط باستخدام الأحرف الأبجدية الرقمية والشرطة السفلية."
 
+msgid ""
+"This field is automatically filled with the subject of the certificate if "
+"left blank."
+msgstr ""
+
 msgid "This field is required."
 msgstr "هذا الحقل مطلوب"
 
@@ -3562,6 +3574,11 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "يتحكم هذا الخبار فيما إذا كانت الملفات التي تبدأ بنقطة تظهر كملفات مخفية"
+
+msgid ""
+"This setting controls the minimum protocol version that the server will "
+"allow the client to use."
+msgstr ""
 
 msgid "This specifies what to do if the packet matches."
 msgstr "يحدد هذا ما يجب القيام به إذا كانت الحزمة مطابقة."
@@ -3869,9 +3886,6 @@ msgstr "وقت التشغيل"
 msgid "Uruguay"
 msgstr "أوروجواي"
 
-msgid "Usage"
-msgstr "الاستخدام"
-
 msgid "Usage Warning Threshold"
 msgstr "تحذير حد الاستخدام"
 
@@ -3930,6 +3944,9 @@ msgid ""
 "SSH."
 msgstr "يجب تعيين المستخدمين لمجموعة <em> ssh </em> ليتمكنوا من تسجيل الدخول عبر SSH."
 
+msgid "Utilization"
+msgstr ""
+
 msgid "Uzbekistan"
 msgstr "أوزبكستان"
 
@@ -3938,6 +3955,9 @@ msgstr "VLAN"
 
 msgid "VLAN id"
 msgstr "معرف VLAN"
+
+msgid "Valid from"
+msgstr ""
 
 msgid "Valid to"
 msgstr "صالح إلى"

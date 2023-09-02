@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 16:31+0200\n"
+"POT-Creation-Date: 2023-08-29 09:40+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2023\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -1960,6 +1960,9 @@ msgstr "最小"
 msgid "Minimum performance, minimum acoustic output"
 msgstr "最低性能，噪音最小"
 
+msgid "Minimum protocol version"
+msgstr "最低协议版本"
+
 msgid "Minute"
 msgstr "分"
 
@@ -2145,6 +2148,10 @@ msgstr "未被挂载"
 
 msgid "Not running"
 msgstr "不在运行"
+
+msgid ""
+"Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr "注意 SMB1 已经弃用，仅在联机终端不支持高版本情况下使用。"
 
 msgid "Nothing"
 msgstr "没有"
@@ -3215,7 +3222,7 @@ msgid "Thailand"
 msgstr "泰国"
 
 msgid "The NFS versions provided by the service."
-msgstr "該服務所提供的 NFS 版本。"
+msgstr " NFS 服务版本。"
 
 msgid "The NT description field."
 msgstr "NT 描述字段。"
@@ -3433,6 +3440,11 @@ msgid ""
 "underscore are allowed."
 msgstr "含有非法字符！（只允许字母和下划线）"
 
+msgid ""
+"This field is automatically filled with the subject of the certificate if "
+"left blank."
+msgstr "如果留空，这个选项将自动填入证书。"
+
 msgid "This field is required."
 msgstr "此字段是必须的"
 
@@ -3567,6 +3579,11 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "此参数决定是否要把以点开头的文件显示为隐藏文件"
+
+msgid ""
+"This setting controls the minimum protocol version that the server will "
+"allow the client to use."
+msgstr "该选项控制服务端与客户端联机使用的最低协议版本。"
 
 msgid "This specifies what to do if the packet matches."
 msgstr "该规则是如果数据包匹配则做什么。"
@@ -3874,9 +3891,6 @@ msgstr "运行时间"
 msgid "Uruguay"
 msgstr "乌拉圭"
 
-msgid "Usage"
-msgstr "使用"
-
 msgid "Usage Warning Threshold"
 msgstr "用量警告阈值"
 
@@ -3935,6 +3949,9 @@ msgid ""
 "SSH."
 msgstr "用户必须被分配到 <em>ssh</em> 用户组才能够通过SSH 登陆。"
 
+msgid "Utilization"
+msgstr "利用率"
+
 msgid "Uzbekistan"
 msgstr "乌兹别克斯坦"
 
@@ -3943,6 +3960,9 @@ msgstr "VLAN"
 
 msgid "VLAN id"
 msgstr "VLAN id"
+
+msgid "Valid from"
+msgstr "有效期"
 
 msgid "Valid to"
 msgstr "有效期至"

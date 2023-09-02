@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 16:31+0200\n"
+"POT-Creation-Date: 2023-08-29 09:40+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2013-2019,2021\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -1959,6 +1959,9 @@ msgstr "Minimo"
 msgid "Minimum performance, minimum acoustic output"
 msgstr ""
 
+msgid "Minimum protocol version"
+msgstr ""
+
 msgid "Minute"
 msgstr "Minuto"
 
@@ -2143,6 +2146,10 @@ msgid "Not mounted"
 msgstr ""
 
 msgid "Not running"
+msgstr ""
+
+msgid ""
+"Note that SMB1 is deprecated and should only be used in mandatory cases."
 msgstr ""
 
 msgid "Nothing"
@@ -3432,6 +3439,11 @@ msgid ""
 "underscore are allowed."
 msgstr ""
 
+msgid ""
+"This field is automatically filled with the subject of the certificate if "
+"left blank."
+msgstr ""
+
 msgid "This field is required."
 msgstr ""
 
@@ -3566,6 +3578,11 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "Questo parametro controlla se i file che cominciano con un punto appaiono come file nascosti"
+
+msgid ""
+"This setting controls the minimum protocol version that the server will "
+"allow the client to use."
+msgstr ""
 
 msgid "This specifies what to do if the packet matches."
 msgstr "Questo specifica cosa fare se il pacchetto combacia."
@@ -3873,9 +3890,6 @@ msgstr "Tempo di attività"
 msgid "Uruguay"
 msgstr "Uruguay"
 
-msgid "Usage"
-msgstr ""
-
 msgid "Usage Warning Threshold"
 msgstr ""
 
@@ -3934,6 +3948,9 @@ msgid ""
 "SSH."
 msgstr ""
 
+msgid "Utilization"
+msgstr ""
+
 msgid "Uzbekistan"
 msgstr "Uzbekistan"
 
@@ -3942,6 +3959,9 @@ msgstr "VLAN"
 
 msgid "VLAN id"
 msgstr "VLAN id"
+
+msgid "Valid from"
+msgstr ""
 
 msgid "Valid to"
 msgstr "Valido fino a"

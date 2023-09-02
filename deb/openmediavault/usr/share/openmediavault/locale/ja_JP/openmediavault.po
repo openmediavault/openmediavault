@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 16:31+0200\n"
+"POT-Creation-Date: 2023-08-29 09:40+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -1954,6 +1954,9 @@ msgstr "最小"
 msgid "Minimum performance, minimum acoustic output"
 msgstr "最低限の性能、最小の音響出力"
 
+msgid "Minimum protocol version"
+msgstr ""
+
 msgid "Minute"
 msgstr "分"
 
@@ -2139,6 +2142,10 @@ msgstr "マウントされていません"
 
 msgid "Not running"
 msgstr "実行されていません"
+
+msgid ""
+"Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr ""
 
 msgid "Nothing"
 msgstr "何もしない"
@@ -3427,6 +3434,11 @@ msgid ""
 "underscore are allowed."
 msgstr "このフィールドには無効な文字が含まれています。英数字とアンダースコアのみが使用可能です。"
 
+msgid ""
+"This field is automatically filled with the subject of the certificate if "
+"left blank."
+msgstr ""
+
 msgid "This field is required."
 msgstr "このフィールドは必須です。"
 
@@ -3561,6 +3573,11 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "このパラメータは、ドットで始まるファイルは隠しファイルとして表示されるかどうかを制御します"
+
+msgid ""
+"This setting controls the minimum protocol version that the server will "
+"allow the client to use."
+msgstr ""
 
 msgid "This specifies what to do if the packet matches."
 msgstr "パケットが一致した場合にどうするかを指定します。"
@@ -3868,9 +3885,6 @@ msgstr "起動時間"
 msgid "Uruguay"
 msgstr "ウルグアイ"
 
-msgid "Usage"
-msgstr "使用率"
-
 msgid "Usage Warning Threshold"
 msgstr "使用量警告のしきい値"
 
@@ -3929,6 +3943,9 @@ msgid ""
 "SSH."
 msgstr "SSHでログインできるようにするには、<em>ssh</em>グループにユーザーを割り当てる必要があります。"
 
+msgid "Utilization"
+msgstr ""
+
 msgid "Uzbekistan"
 msgstr "ウズベキスタン"
 
@@ -3937,6 +3954,9 @@ msgstr "VLAN"
 
 msgid "VLAN id"
 msgstr "VLAN id"
+
+msgid "Valid from"
+msgstr ""
 
 msgid "Valid to"
 msgstr "有効期限"

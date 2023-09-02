@@ -65,10 +65,10 @@ msgstr ""
 "grupp<em>användare</em> kan komma åt filerna."
 
 msgid "The name of the root user."
-msgstr "Namnet på rootanvändaren."
+msgstr "Namnet på rotanvändaren."
 
 msgid "The password of the root user."
-msgstr "Lösenordet för rootanvändaren."
+msgstr "Lösenordet för rotanvändaren."
 
 msgid "Updated S3 settings."
 msgstr "Uppdaterade S3-inställningar."

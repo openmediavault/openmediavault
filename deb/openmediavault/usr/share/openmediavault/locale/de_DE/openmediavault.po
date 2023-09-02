@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 16:31+0200\n"
+"POT-Creation-Date: 2023-08-29 09:40+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2023\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -1966,6 +1966,9 @@ msgstr "Minimal"
 msgid "Minimum performance, minimum acoustic output"
 msgstr "Minimale Leistung, minimale akustische Geräuscherzeugung"
 
+msgid "Minimum protocol version"
+msgstr "Minimale Protokollversion"
+
 msgid "Minute"
 msgstr "Minute"
 
@@ -2151,6 +2154,10 @@ msgstr "Nicht eingehängt"
 
 msgid "Not running"
 msgstr "Läuft nicht"
+
+msgid ""
+"Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr "Beachten Sie, dass SMB1 veraltet ist und nur noch in zwingenden Fällen verwendet werden sollte."
 
 msgid "Nothing"
 msgstr "Nichts"
@@ -3439,6 +3446,11 @@ msgid ""
 "underscore are allowed."
 msgstr "Dieses Feld enthält ungültige Zeichen, es sind nur alphanumerische Zeichen und Unterstriche erlaubt."
 
+msgid ""
+"This field is automatically filled with the subject of the certificate if "
+"left blank."
+msgstr "Dieses Feld wird automatisch mit dem Betreff des Zertifikats ausgefüllt, wenn es leer bleibt."
+
 msgid "This field is required."
 msgstr "Dieses Feld wird benötigt."
 
@@ -3573,6 +3585,11 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "Dieser Parameter legt fest ob Dateien die mit einem Punkt beginnen als versteckte Dateien angezeigt werden."
+
+msgid ""
+"This setting controls the minimum protocol version that the server will "
+"allow the client to use."
+msgstr "Diese Einstellung steuert die minimale Protokollversion, die der Server dem Client erlaubt."
 
 msgid "This specifies what to do if the packet matches."
 msgstr "Dies legt fest, was zu tun ist, wenn das Paket passt."
@@ -3880,9 +3897,6 @@ msgstr "Laufzeit"
 msgid "Uruguay"
 msgstr "Uruguay"
 
-msgid "Usage"
-msgstr "Nutzung"
-
 msgid "Usage Warning Threshold"
 msgstr "Warnschwelle für die Nutzung"
 
@@ -3941,6 +3955,9 @@ msgid ""
 "SSH."
 msgstr "Benutzer müssen der Gruppe <em>ssh</em> zugeordnet sein, um sich über SSH anmelden zu können."
 
+msgid "Utilization"
+msgstr "Auslastung"
+
 msgid "Uzbekistan"
 msgstr "Usbekistan"
 
@@ -3949,6 +3966,9 @@ msgstr "VLAN"
 
 msgid "VLAN id"
 msgstr "VLAN Id"
+
+msgid "Valid from"
+msgstr "Gültig ab"
 
 msgid "Valid to"
 msgstr "Gültig bis"

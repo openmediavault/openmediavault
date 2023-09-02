@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 16:31+0200\n"
+"POT-Creation-Date: 2023-08-29 09:40+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2013-2023\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2023\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1956,6 +1956,9 @@ msgstr "最少"
 msgid "Minimum performance, minimum acoustic output"
 msgstr "最低性能，最小聲響輸出"
 
+msgid "Minimum protocol version"
+msgstr "最低協定版本"
+
 msgid "Minute"
 msgstr "分"
 
@@ -2141,6 +2144,10 @@ msgstr "未被掛載"
 
 msgid "Not running"
 msgstr "未執行中"
+
+msgid ""
+"Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr "請注意，SMB1 已棄用，僅應在絕對需要時使用。"
 
 msgid "Nothing"
 msgstr "無任何"
@@ -3429,6 +3436,11 @@ msgid ""
 "underscore are allowed."
 msgstr "此輸入欄含有無效字元，僅允許文數字元和底線。"
 
+msgid ""
+"This field is automatically filled with the subject of the certificate if "
+"left blank."
+msgstr "若留空，此欄位將自動填入憑證的主體。"
+
 msgid "This field is required."
 msgstr "此欄位是必須的"
 
@@ -3563,6 +3575,11 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "此參數控制是否要把名稱開頭是一點的檔案當成隱藏檔案"
+
+msgid ""
+"This setting controls the minimum protocol version that the server will "
+"allow the client to use."
+msgstr "此設定控制伺服器與客戶端連線使用的最低協定版本。"
 
 msgid "This specifies what to do if the packet matches."
 msgstr "這指明如果數據包符合時要做什麼。"
@@ -3870,9 +3887,6 @@ msgstr "運行時間"
 msgid "Uruguay"
 msgstr "烏拉圭"
 
-msgid "Usage"
-msgstr "使用"
-
 msgid "Usage Warning Threshold"
 msgstr "用量警告定限"
 
@@ -3931,6 +3945,9 @@ msgid ""
 "SSH."
 msgstr "用戶必須被指派到 <em>ssh</em> 群組才能夠經由 SSH 登入。"
 
+msgid "Utilization"
+msgstr "使用率"
+
 msgid "Uzbekistan"
 msgstr "烏茲別克斯坦"
 
@@ -3939,6 +3956,9 @@ msgstr "VLAN"
 
 msgid "VLAN id"
 msgstr "VLAN 識別碼"
+
+msgid "Valid from"
+msgstr "有效期"
 
 msgid "Valid to"
 msgstr "有效期到"

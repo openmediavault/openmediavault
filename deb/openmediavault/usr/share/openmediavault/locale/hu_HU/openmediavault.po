@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 16:31+0200\n"
+"POT-Creation-Date: 2023-08-29 09:40+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2023\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -1960,6 +1960,9 @@ msgstr "Minimum"
 msgid "Minimum performance, minimum acoustic output"
 msgstr "Minimális teljesítmény, minimális zajszint"
 
+msgid "Minimum protocol version"
+msgstr ""
+
 msgid "Minute"
 msgstr "Perc"
 
@@ -2145,6 +2148,10 @@ msgstr "Nincs csatlakoztatva"
 
 msgid "Not running"
 msgstr "Nem fut"
+
+msgid ""
+"Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr ""
 
 msgid "Nothing"
 msgstr "Semmi"
@@ -3433,6 +3440,11 @@ msgid ""
 "underscore are allowed."
 msgstr "E mező érvénytelen karaktereket tartalmaz, csak alfanumerikus karakterek és aláhúzások engedélyezettek. "
 
+msgid ""
+"This field is automatically filled with the subject of the certificate if "
+"left blank."
+msgstr ""
+
 msgid "This field is required."
 msgstr "A mező kitöltése kötelező."
 
@@ -3567,6 +3579,11 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "Ez a paraméter szabályozza, hogy a ponttal kezdődő fájlok rejtett fájlként jelenjenek meg."
+
+msgid ""
+"This setting controls the minimum protocol version that the server will "
+"allow the client to use."
+msgstr ""
 
 msgid "This specifies what to do if the packet matches."
 msgstr "Ez határozza meg, hogy mit kell tenni, ha a csomag megegyezik."
@@ -3874,9 +3891,6 @@ msgstr "Üzemidő"
 msgid "Uruguay"
 msgstr "Uruguay"
 
-msgid "Usage"
-msgstr "Használat"
-
 msgid "Usage Warning Threshold"
 msgstr "Figyelmeztetési küszöbérték használata"
 
@@ -3935,6 +3949,9 @@ msgid ""
 "SSH."
 msgstr "A felhasználóknak az <em>ssh</em> csoport tagjainak kell lenniük, hogy SSH-val be tudjanak lépni."
 
+msgid "Utilization"
+msgstr ""
+
 msgid "Uzbekistan"
 msgstr "Üzbegisztán"
 
@@ -3943,6 +3960,9 @@ msgstr "VLAN"
 
 msgid "VLAN id"
 msgstr "VLAN az."
+
+msgid "Valid from"
+msgstr ""
 
 msgid "Valid to"
 msgstr "Érvényes"

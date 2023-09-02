@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 16:31+0200\n"
+"POT-Creation-Date: 2023-08-29 09:40+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -1956,6 +1956,9 @@ msgstr "Мінімальне"
 msgid "Minimum performance, minimum acoustic output"
 msgstr "Мінімальна продуктивність, мінімальна акустична сила"
 
+msgid "Minimum protocol version"
+msgstr ""
+
 msgid "Minute"
 msgstr "Хвилина"
 
@@ -2141,6 +2144,10 @@ msgstr "Не змонтований"
 
 msgid "Not running"
 msgstr "Не виконується"
+
+msgid ""
+"Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr ""
 
 msgid "Nothing"
 msgstr "Нічого"
@@ -3429,6 +3436,11 @@ msgid ""
 "underscore are allowed."
 msgstr "У цьому полі є недійсні символи, дозволені лише буквено-цифрові символи та підкреслення."
 
+msgid ""
+"This field is automatically filled with the subject of the certificate if "
+"left blank."
+msgstr ""
+
 msgid "This field is required."
 msgstr "Це поле є обов'язковим."
 
@@ -3563,6 +3575,11 @@ msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
 msgstr "Цей параметр визначає, чи будуть файли, що починаються з точки відображатися, як приховані файли"
+
+msgid ""
+"This setting controls the minimum protocol version that the server will "
+"allow the client to use."
+msgstr ""
 
 msgid "This specifies what to do if the packet matches."
 msgstr "Вказує, що робити, якщо пакет відповідає."
@@ -3870,9 +3887,6 @@ msgstr "Час роботи"
 msgid "Uruguay"
 msgstr "Уругвай"
 
-msgid "Usage"
-msgstr "Використання"
-
 msgid "Usage Warning Threshold"
 msgstr "Поріг попередження про використання"
 
@@ -3931,6 +3945,9 @@ msgid ""
 "SSH."
 msgstr "Користувачі повинні бути призначені до групи <em>ssh</em>, щоб мати можливість ввійти через SSH."
 
+msgid "Utilization"
+msgstr ""
+
 msgid "Uzbekistan"
 msgstr "Узбекистан"
 
@@ -3939,6 +3956,9 @@ msgstr "VLAN"
 
 msgid "VLAN id"
 msgstr "VLAN id"
+
+msgid "Valid from"
+msgstr ""
 
 msgid "Valid to"
 msgstr "Дійсний до"
