@@ -19,6 +19,12 @@ nav {
     }
   }
 
+  a.loading {
+    .mat-icon {
+      animation: rotate-360 1s infinite linear;
+    }
+  }
+
   .mat-divider {
     border-color: inherit;
     display: unset;

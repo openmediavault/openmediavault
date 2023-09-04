@@ -9,12 +9,20 @@
     <mat-divider vertical="true"></mat-divider>
     <a *ngIf="!last"
        [routerLink]="breadcrumb.url"
-       class="mat-subheading-2">
-      <span>{{ breadcrumb.text | transloco }}</span>
+       class="mat-subheading-2"
+       [ngClass]="{'loading': breadcrumb.loading}">
+      <span *ngIf="!breadcrumb.loading">{{ breadcrumb.text | transloco }}</span>
+      <mat-icon *ngIf="breadcrumb.loading"
+                svgIcon="mdi:loading">
+      </mat-icon>
     </a>
     <a *ngIf="last"
-       class="mat-subheading-2 active">
-      <span>{{ breadcrumb.text | transloco }}</span>
+       class="mat-subheading-2 active"
+       [ngClass]="{'loading': breadcrumb.loading}">
+      <span *ngIf="!breadcrumb.loading">{{ breadcrumb.text | transloco }}</span>
+      <mat-icon *ngIf="breadcrumb.loading"
+                svgIcon="mdi:loading">
+      </mat-icon>
     </a>
   </div>
 </nav>

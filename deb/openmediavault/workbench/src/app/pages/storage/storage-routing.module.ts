@@ -173,7 +173,12 @@ const routes: Routes = [
         path: 'permissions/:uuid',
         component: SharedFolderPermissionsDatatablePageComponent,
         data: {
-          title: gettext('Permissions'),
+          title: {
+            service: 'ShareMgmt',
+            method: 'get',
+            params: { uuid: '{{ _routeParams.uuid }}' },
+            format: gettext('{{ "Permissions" | translate }} @ {{ name }}')
+          },
           notificationTitle: gettext('Updated permissions of shared folder.')
         }
       },
@@ -198,7 +203,12 @@ const routes: Routes = [
         path: 'snapshots/:uuid',
         component: SharedFolderSnapshotsTabsPageComponent,
         data: {
-          title: gettext('Snapshots')
+          title: {
+            service: 'ShareMgmt',
+            method: 'get',
+            params: { uuid: '{{ _routeParams.uuid }}' },
+            format: gettext('{{ "Snapshots" | translate }} @ {{ name }}')
+          }
         }
       }
     ]
