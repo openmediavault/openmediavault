@@ -63,8 +63,7 @@ type RouteConfig = {
 };
 
 const getSegments = (path: string): Array<string> => {
-  const result = _.split(_.trim(path, '/'), '/');
-  return result;
+  return _.split(_.trim(path, '/'), '/');
 };
 
 @Injectable({
@@ -92,7 +91,7 @@ export class RouteConfigService {
         // Convert the loaded route configuration into Angular
         // 'Route' objects.
         _.forEach(configs, (config) => {
-          const route = {
+          const route: Route = {
             path: config.url,
             component: componentMap[config.component.type],
             data: {
