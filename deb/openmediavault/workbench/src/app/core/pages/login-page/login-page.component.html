@@ -1,11 +1,12 @@
-<div class="omv-login-page">
-  <div class="background"></div>
-  <omv-green-rain delay="30000"
+<div class="omv-overflow-hidden omv-position-relative omv-display-flex omv-flex-fill">
+  <div class="background omv-position-absolute omv-flex-fill"></div>
+  <omv-green-rain class="omv-position-absolute omv-flex-fill"
+                  delay="30000"
                   primaryColor="#5dacdf"
                   secondaryColor="#f8d400">
   </omv-green-rain>
-  <div class="toolbar">
-    <mat-toolbar class="omv-display-flex omv-justify-content-end">
+  <div class="omv-position-absolute omv-w-100">
+    <mat-toolbar class="omv-background-color-transparent omv-display-flex omv-justify-content-end">
       <button mat-icon-button
               matTooltip="{{ 'Language' | transloco }}"
               [matMenuTriggerFor]="localeMenu">
@@ -15,11 +16,11 @@
       </button>
     </mat-toolbar>
   </div>
-  <div class="sidebar">
+  <div class="sidebar omv-position-absolute omv-h-100">
     <div class="logo"></div>
   </div>
-  <div class="content">
-    <omv-intuition-form-page class="omv-display-flex omv-justify-content-center omv-align-items-center"
+  <div class="content omv-flex-fill">
+    <omv-intuition-form-page class="omv-h-100 omv-display-flex omv-justify-content-center omv-align-items-center"
                              [config]="this.config">
     </omv-intuition-form-page>
   </div>

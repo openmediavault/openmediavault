@@ -82,6 +82,24 @@ $omv-dark-theme: mat.define-dark-theme(
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+// Overflow
+.omv-overflow-auto {
+  overflow: auto;
+}
+
+.omv-overflow-y-auto {
+  overflow-y: auto;
+}
+
+.omv-overflow-hidden {
+  overflow: hidden;
+}
+
+.omv-overflow-x-hidden {
+  overflow: hidden;
+}
+
+////////////////////////////////////////////////////////////////////////////////
 // Sizing
 .omv-h-100, .omv-h-full {
   height: 100% !important;
@@ -732,15 +750,19 @@ $omv-dark-theme: mat.define-dark-theme(
 }
 
 .omv-background-color-hover {
-  background: var(--mat-background-color-hover);
+  background-color: var(--mat-background-color-hover);
 }
 
 .omv-background-color-selected-button {
-  background: var(--mat-background-color-selected-button);
+  background-color: var(--mat-background-color-selected-button);
 }
 
 .omv-background-color-card {
-  background: var(--mat-background-color-card);
+  background-color: var(--mat-background-color-card);
+}
+
+.omv-background-color-transparent {
+  background-color: dc.$omv-color-transparent;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -933,16 +955,24 @@ $omv-dark-theme: mat.define-dark-theme(
 }
 
 .omv-scrollable-xy {
-  overflow: auto;
+  @extend .omv-overflow-auto;
 }
 
 .omv-scrollable-y {
-  overflow-x: hidden;
-  overflow-y: auto;
+  @extend .omv-overflow-x-hidden;
+  @extend .omv-overflow-y-auto;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Various
+// Position
+.omv-position-absolute {
+  position: absolute;
+}
+
+.omv-position-relative {
+  position: relative;
+}
+
 .omv-sticky {
   position: sticky;
   top: 0;

@@ -18,16 +18,8 @@
 @use 'scss/defaults/variables' as dv;
 @use 'scss/theme';
 
-.omv-login-page {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-
+:host {
   .background {
-    width: 100%;
-    height: 100%;
-    position: absolute;
     background-color: dc.$omv-color-corporate-light;
     content: url('^./assets/images/benjamin-lehman-GNyjCePVRs8-unsplash.jpg');
     mix-blend-mode: multiply;
@@ -40,28 +32,13 @@
   }
 
   omv-green-rain {
-    position: absolute;
     font-family: theme.$omv-font-family-monospace !important;
     font-size: 14px;
-    width: 100%;
-    height: 100%;
-  }
-
-  .toolbar {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-
-    mat-toolbar {
-      background-color: dc.$omv-color-transparent;
-    }
   }
 
   .sidebar {
     background-color: dc.$omv-color-black-translucent;
     width: 6rem;
-    height: 100%;
-    position: absolute;
 
     .logo {
       content: url('^./assets/images/openmediavault_logo.svg');
@@ -74,12 +51,7 @@
   }
 
   .content {
-    width: 100%;
-    height: 100%;
-
     omv-intuition-form-page {
-      height: 100%;
-
       ::ng-deep .mat-card {
         color: dc.$omv-color-white;
         backdrop-filter: blur(4px);
