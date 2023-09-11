@@ -56,6 +56,18 @@
 			"type": "boolean",
 			"default": false
 		},
+		"homesinheritacls": {
+			"type": "boolean",
+			"default": false
+		},
+		"homesinheritpermissions": {
+			"type": "boolean",
+			"default": false
+		},
+		"homesextraoptions": {
+			"type": "string",
+			"default": ""
+		},
 		"netbios": {
 			"type": "boolean",
 			"default": false
