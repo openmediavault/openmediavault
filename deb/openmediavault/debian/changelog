@@ -1,6 +1,6 @@
 openmediavault (6.8.1-1) stable; urgency=low
 
-  *
+  * Fix UI regression. Hide form fields that should be hidden.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 06 Sep 2023 21:52:10 +0200
 

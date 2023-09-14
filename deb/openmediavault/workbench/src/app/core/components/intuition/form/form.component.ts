@@ -379,20 +379,20 @@ export class FormComponent implements AfterViewInit, OnInit {
       case 'visible':
         if (!_.isUndefined(formFieldElement)) {
           if (fulfilled) {
-            (formFieldElement as HTMLElement).parentElement.style.display = 'flex';
+            (formFieldElement as HTMLElement).parentElement.classList.remove('omv-display-none');
           }
           if (!fulfilled && opposite) {
-            (formFieldElement as HTMLElement).parentElement.style.display = 'none';
+            (formFieldElement as HTMLElement).parentElement.classList.add('omv-display-none');
           }
         }
         break;
       case 'hidden':
         if (!_.isUndefined(formFieldElement)) {
           if (fulfilled) {
-            (formFieldElement as HTMLElement).parentElement.style.display = 'none';
+            (formFieldElement as HTMLElement).parentElement.classList.add('omv-display-none');
           }
           if (!fulfilled && opposite) {
-            (formFieldElement as HTMLElement).parentElement.style.display = 'flex';
+            (formFieldElement as HTMLElement).parentElement.classList.remove('omv-display-none');
           }
         }
         break;
