@@ -24,6 +24,8 @@
 [homes]
 comment = {{ comment }}
 browseable = {{ config.homesbrowseable | to_bool | yesno }}
+inherit acls = {{ config.homesinheritacls | to_bool | yesno }}
+inherit permissions = {{ config.homesinheritpermissions | to_bool | yesno }}
 writable = {{ writable }}
 create mask = {{ create_mask }}
 force create mode = {{ force_create_mode }}
@@ -66,3 +68,6 @@ dfree command = {{ dfree_command }}
 dfree cache time = {{ dfree_cache_time }}
 {%- endif %}
 vfs objects = {{ vfs_objects | unique | join(' ') }}
+{%- if config.homesextraoptions | length > 0 %}
+{{ config.homesextraoptions }}
+{%- endif %}

@@ -1,7 +1,8 @@
-openmediavault (6.8.1-1) stable; urgency=low
+openmediavault (6.9.0-1) stable; urgency=low
 
   * Update locale files.
   * Fix UI regression. Hide form fields that should be hidden.
+  * Issue #1592: Enhance SMB `Home directories` settings.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 06 Sep 2023 21:52:10 +0200
 

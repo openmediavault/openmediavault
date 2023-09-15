@@ -93,10 +93,37 @@ export class SmbSettingsFormPageComponent extends BaseFormPageComponent {
       },
       {
         type: 'checkbox',
+        name: 'homesinheritacls',
+        label: gettext('Inherit ACLs'),
+        hint: gettext(
+          'This parameter can be used to ensure that if default acls exist on parent directories, they are always honored when creating a new file or subdirectory in these parent directories.'
+        ),
+        value: false
+      },
+      {
+        type: 'checkbox',
+        name: 'homesinheritpermissions',
+        label: gettext('Inherit permissions'),
+        hint: gettext(
+          'The permissions on new files and directories are normally governed by create mask and directory mask but the inherit permissions parameter overrides this. This can be particularly useful on systems with many users to allow a single share to be used flexibly by each user.'
+        ),
+        value: false
+      },
+      {
+        type: 'checkbox',
         name: 'homesrecyclebin',
         label: gettext('Enable recycle bin'),
         hint: gettext('This will create a recycle bin for each user home directory.'),
         value: false
+      },
+      {
+        type: 'textarea',
+        name: 'homesextraoptions',
+        label: gettext('Extra options'),
+        hint: gettext(
+          "Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details." // eslint-disable-line @typescript-eslint/quotes
+        ),
+        value: ''
       },
       {
         type: 'divider',
