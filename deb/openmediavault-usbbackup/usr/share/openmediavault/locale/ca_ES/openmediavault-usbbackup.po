@@ -148,7 +148,7 @@ msgid "Synchronise from/to directory on external storage device"
 msgstr "Sincronitzar des del/cap al directori del dispositiu extern."
 
 msgid "Tags"
-msgstr ""
+msgstr "Etiquetes"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "

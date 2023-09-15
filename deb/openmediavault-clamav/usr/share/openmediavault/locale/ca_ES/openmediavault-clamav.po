@@ -259,7 +259,7 @@ msgid "Sunday"
 msgstr "Diumenge"
 
 msgid "Tags"
-msgstr ""
+msgstr "Etiquetes"
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "El camp només ha de contenir * o una llista de valors separats per comes."
