@@ -27,4 +27,10 @@ include:
   - .{{ file | replace('.sls', '') }}
 {% endfor %}
 
+{% else %}
+
+# Prevent empty rendering.
+pam_nop:
+  test.nop
+
 {% endif  %}
