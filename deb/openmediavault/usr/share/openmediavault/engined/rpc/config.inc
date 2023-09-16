@@ -90,21 +90,23 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.
 		$jsonFile = new \OMV\Json\File(\OMV\Environment::get(
-		  "OMV_ENGINED_DIRTY_MODULES_FILE"));
+			"OMV_ENGINED_DIRTY_MODULES_FILE"));
 		$jsonFile->open("c+");
 		// Make sure we have a valid JSON file. Keep in mind that the file
 		// is empty if it was created by the \OMV\Json\File::open method.
-		if ($jsonFile->isEmpty())
+		if ($jsonFile->isEmpty()) {
 			$jsonFile->write([]);
+		}
 		// Read the file content.
 		$dirtyModules = $jsonFile->read();
 		// Remove non-existing modules from list. It may happen that the
-		// list contains entries from already deinstalled plugins.
+		// list contains entries from already uninstalled plugins.
 		$removeDirtyModules = [];
 		$modules = array_keys($moduleMngr->getModules());
 		foreach ($dirtyModules as $dirtyModulek => $dirtyModulev) {
-			if (!in_array($dirtyModulev, $modules))
+			if (!in_array($dirtyModulev, $modules)) {
 				$removeDirtyModules[] = $dirtyModulev;
+			}
 		}
 		if (!empty($removeDirtyModules)) {
 			// Remove module name from list of dirty modules. Note, the
@@ -115,8 +117,9 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 		// Get list of modules to be processed. If the parameter 'modules'
 		// is empty, then process all registered modules.
 		$modules = $params['modules'];
-		if (empty($params['modules']))
+		if (empty($params['modules'])) {
 			$modules = array_keys($moduleMngr->getModules());
+		}
 		$processModules = [];
 		foreach ($modules as $modulek => $modulev) {
 			// Skip module if 'force' is disabled and module is not marked
@@ -163,8 +166,9 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 		}
 		foreach ($tsort->sort() as $name) {
 			// Skip modules that are not marked as dirty.
-			if (!array_key_exists($name, $processModules))
+			if (!array_key_exists($name, $processModules)) {
 				continue;
+			}
 			$this->debug("Deploying configuration for module '%s'", $name);
 			$inst = $processModules[$name];
 			$uri = "org.openmediavault.module.service.%s.%s";
