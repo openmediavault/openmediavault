@@ -29,12 +29,14 @@ import { Subscription } from 'rxjs';
 import { filter, startWith } from 'rxjs/operators';
 
 import { Unsubscribe } from '~/app/decorators';
-import { format } from '~/app/functions.helper';
+import { format, formatDeep } from '~/app/functions.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
+import { RpcService } from '~/app/shared/services/rpc.service';
 
 export type Breadcrumb = {
   text: string;
   url: string;
+  loading: boolean;
 };
 
 @Component({
@@ -53,7 +55,8 @@ export class BreadcrumbComponent {
   constructor(
     private activatedRoute: ActivatedRoute,
     private cd: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private rpcService: RpcService
   ) {
     this.subscriptions.add(
       this.router.events
@@ -80,11 +83,38 @@ export class BreadcrumbComponent {
       routeSnapshot.pathFromRoot.forEach((routerState: ActivatedRouteSnapshot) => {
         urlSegments = urlSegments.concat(routerState.url);
       });
-      const url = urlSegments.map((urlSegment) => encodeURIComponent(urlSegment.path)).join('/');
-      routeParts.push({
-        text: format(routeSnapshot.data.title, { _routeParams: routeSnapshot.params }),
-        url: '/' + url
-      });
+      const url: string = urlSegments
+        .map((urlSegment) => encodeURIComponent(urlSegment.path))
+        .join('/');
+      const isRequest: boolean = _.isPlainObject(routeSnapshot.data.title);
+      const formatData: Record<string, any> = { _routeParams: routeSnapshot.params };
+      const routePart: Breadcrumb = {
+        text: isRequest ? '...' : format(routeSnapshot.data.title, formatData),
+        url: '/' + url,
+        loading: isRequest
+      };
+      if (isRequest) {
+        const requestParams: Record<string, any> = formatDeep(
+          routeSnapshot.data.title.params,
+          formatData
+        );
+        this.rpcService
+          .request(routeSnapshot.data.title.service, routeSnapshot.data.title.method, requestParams)
+          .subscribe((resp: Record<string, any>) => {
+            routePart.text = format(
+              routeSnapshot.data.title.format,
+              _.merge(
+                {
+                  _routeParams: routeSnapshot.params
+                },
+                resp
+              )
+            );
+            routePart.loading = false;
+            this.cd.markForCheck();
+          });
+      }
+      routeParts.push(routePart);
     }
     if (routeSnapshot.firstChild) {
       routeParts = routeParts.concat(this.parseRoute(routeSnapshot.firstChild));
