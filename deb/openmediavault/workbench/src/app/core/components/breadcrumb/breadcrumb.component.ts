@@ -78,7 +78,8 @@ export class BreadcrumbComponent {
 
   private parseRoute(routeSnapshot: ActivatedRouteSnapshot): Breadcrumb[] {
     let routeParts: Breadcrumb[] = [];
-    if (routeSnapshot.data.title) {
+    if (routeSnapshot.data.title || routeSnapshot.data.breadcrumb) {
+      // Note, a `breadcrumb` configuration overrules `title`.
       let urlSegments: UrlSegment[] = [];
       routeSnapshot.pathFromRoot.forEach((routerState: ActivatedRouteSnapshot) => {
         urlSegments = urlSegments.concat(routerState.url);
@@ -86,23 +87,26 @@ export class BreadcrumbComponent {
       const url: string = urlSegments
         .map((urlSegment) => encodeURIComponent(urlSegment.path))
         .join('/');
-      const isRequest: boolean = _.isPlainObject(routeSnapshot.data.title);
+      const breadcrumbConfig = routeSnapshot.data?.breadcrumb;
+      const isRequest: boolean = _.isPlainObject(breadcrumbConfig?.request);
       const formatData: Record<string, any> = { _routeParams: routeSnapshot.params };
       const routePart: Breadcrumb = {
-        text: isRequest ? '...' : format(routeSnapshot.data.title, formatData),
+        text: isRequest
+          ? '...'
+          : format(breadcrumbConfig?.text || routeSnapshot.data.title, formatData),
         url: '/' + url,
         loading: isRequest
       };
       if (isRequest) {
         const requestParams: Record<string, any> = formatDeep(
-          routeSnapshot.data.title.params,
+          _.get(breadcrumbConfig.request, 'params', {}),
           formatData
         );
         this.rpcService
-          .request(routeSnapshot.data.title.service, routeSnapshot.data.title.method, requestParams)
+          .request(breadcrumbConfig.request.service, breadcrumbConfig.request.method, requestParams)
           .subscribe((resp: Record<string, any>) => {
             routePart.text = format(
-              routeSnapshot.data.title.format,
+              breadcrumbConfig.text,
               _.merge(
                 {
                   _routeParams: routeSnapshot.params

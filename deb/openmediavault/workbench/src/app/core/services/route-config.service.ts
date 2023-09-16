@@ -46,6 +46,14 @@ const componentMap: Record<string, Type<any>> = {
 type RouteConfig = {
   url: string;
   title?: string;
+  breadcrumb?: {
+    text: string;
+    request?: {
+      service: string;
+      method: string;
+      params?: Record<string, any>;
+    };
+  };
   editing?: boolean;
   notificationTitle?: string;
   component: {
@@ -96,6 +104,7 @@ export class RouteConfigService {
             component: componentMap[config.component.type],
             data: {
               title: config.title,
+              breadcrumb: config.breadcrumb,
               editing: config.editing,
               notificationTitle: config.notificationTitle,
               config: config.component.config
