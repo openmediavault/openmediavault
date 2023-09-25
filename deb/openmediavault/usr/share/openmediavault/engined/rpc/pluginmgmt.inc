@@ -147,7 +147,9 @@ class PluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = "--auto-remove";
 			$cmdArgs[] = "--purge";
 			$cmdArgs[] = "remove";
-			$cmdArgs[] = implode(" ", $params['packages']);
+			foreach ($params['packages'] as $packagek => $packagev) {
+				$cmdArgs[] = escapeshellarg($packagev);
+			}
 			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
 			$cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
 			$cmd->setRedirect2to1();
@@ -237,7 +239,9 @@ class PluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = "--allow-unauthenticated";
 			$cmdArgs[] = "--reinstall";
 			$cmdArgs[] = "install";
-			$cmdArgs[] = implode(" ", $params['packages']);
+			foreach ($params['packages'] as $packagek => $packagev) {
+				$cmdArgs[] = escapeshellarg($packagev);
+			}
 			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
 			$cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
 			$cmd->setRedirect2to1();

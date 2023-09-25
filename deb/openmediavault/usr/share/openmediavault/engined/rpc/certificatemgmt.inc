@@ -576,8 +576,9 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			\OMV\Environment::get("OMV_SSH_KEY_PREFIX", "openmediavault-"),
 			$params['uuid']));
 		$cmdArgs[] = "-p";
-		$cmdArgs[] = $params['port'];
-		$cmdArgs[] = sprintf("%s@%s", $params['username'], $params['hostname']);
+		$cmdArgs[] = escapeshellarg($params['port']);
+		$cmdArgs[] = escapeshellarg(sprintf("%s@%s", $params['username'],
+			$params['hostname']));
 		$cmd = new \OMV\System\Process("sshpass", $cmdArgs);
 		$cmd->setEnv("HOME", $user->getHomeDirectory());
 		$cmd->setRedirect2to1();

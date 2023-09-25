@@ -173,7 +173,9 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = "--show-upgraded";
 			$cmdArgs[] = "--option DPkg::Options::=\"--force-confold\"";
 			$cmdArgs[] = "install";
-			$cmdArgs = array_merge($cmdArgs, $params['packages']);
+			foreach ($params['packages'] as $packagek => $packagev) {
+				$cmdArgs[] = escapeshellarg($packagev);
+			}
 			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
 			$cmd->setRedirect2to1();
 			$cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");

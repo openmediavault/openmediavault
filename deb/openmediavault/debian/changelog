@@ -1,6 +1,6 @@
 openmediavault (6.9.1-1) stable; urgency=low
 
-  *
+  * Security related improvements.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 25 Sep 2023 18:02:27 +0200
 
