@@ -30,8 +30,10 @@ server {
     location / {
         try_files $uri $uri/ =404;
     }
-    location ~* \.json$ {
-        expires -1;
+    location ~* /index.html|\.json$ {
+        add_header Cache-Control "no-cache, must-revalidate";
+        add_header Pragma "no-cache";
+        expires 0;
     }
     location ~* \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
