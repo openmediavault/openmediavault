@@ -2,6 +2,8 @@ openmediavault (6.9.2-1) stable; urgency=low
 
   * Disable the caching of UI files to prevent annoying browser
     cache flushing.
+  * Remove support of venet and veth ethernet network devices
+    names. Predictable devices names are used instead nowadays.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 26 Sep 2023 17:24:48 +0200
 

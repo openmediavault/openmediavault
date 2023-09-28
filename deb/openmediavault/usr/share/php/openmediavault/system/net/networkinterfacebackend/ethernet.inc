@@ -28,8 +28,6 @@ namespace OMV\System\Net\NetworkInterfaceBackend;
 class Ethernet extends BackendAbstract {
 	// Examples:
 	// - eth0
-	// - venet2
-	// - vethb1
 	// - enp2s0
 	// - enp2s0f0
 	// - enx00259025963a
@@ -42,7 +40,7 @@ class Ethernet extends BackendAbstract {
 	//   c<bus_id>
 	// - on-board device index number
 	//   o<index>[n<phys_port_name>|d<dev_port>]
-	// - hotplug slot index number
+	// - hot-plug slot index number
 	//   s<slot>[f<function>][n<phys_port_name>|d<dev_port>]
 	// - MAC address
 	//   x<MAC>
@@ -54,7 +52,7 @@ class Ethernet extends BackendAbstract {
 	// Understanding systemd’s predictable network device names:
 	// - https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames
 	// - https://github.com/systemd/systemd/blob/v242/src/udev/udev-builtin-net_id.c
-	protected $regex = "/^(eth|venet)[0-9]+|veth[a-z0-9]+|".
+	protected $regex = "/^eth[0-9]+|".
 		"en(b\d+|c\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|".
 		"x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|".
 		"(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$/i";
