@@ -425,4 +425,10 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 		$this->assertFalse(array_remove_value($d, "c"));
 		$this->assertEquals($d, [0 => "a", 1 => "b"]);
 	}
+
+	public function test_array_remove_value_3() {
+		$d = ["a", "b", "c"];
+		$this->assertTrue(array_remove_value($d, "b"));
+		$this->assertEquals($d, [0 => "a", 1 => "c"]);
+	}
 }

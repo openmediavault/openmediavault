@@ -109,7 +109,8 @@ function array_remove_key(array &$array, $key): bool {
 }
 
 /**
- * Remove a value from the given array.
+ * Remove a value from the given array. The array will be re-indexed
+ * automatically.
  * @param array $array The array to process.
  * @param mixed $value The value to be removed.
  * @return Returns TRUE on success, otherwise FALSE.
@@ -118,9 +119,8 @@ function array_remove_value(array &$array, $value): bool {
 	$index = array_search($value, $array, TRUE);
 	if (FALSE === $index)
 		return FALSE;
-	unset($array[$index]);
-	// Re-index the array.
-	$array = array_values($array);
+	// Remove value and re-index the array.
+	$array = array_values(array_diff($array, [ $value ]));
 	return TRUE;
 }
 
