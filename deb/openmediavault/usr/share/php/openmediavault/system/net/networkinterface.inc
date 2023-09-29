@@ -167,7 +167,17 @@ class NetworkInterface {
 	 */
 	public function getIP() {
 		$this->getData();
-		$regex = sprintf("/inet\s+%s\s+.+\s+scope global/i",
+		// Example:
+		// 2: ens6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+		//     link/ether 52:54:00:6e:2d:3e brd ff:ff:ff:ff:ff:ff
+		//     altname enp0s6
+		//     inet 192.168.121.162/24 brd 192.168.121.255 scope global dynamic ens6
+		//        valid_lft 2192sec preferred_lft 2192sec
+		// 3: veth1078b035@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+		//     link/ether 36:74:9b:6f:5c:f6 brd ff:ff:ff:ff:ff:ff link-netns cni-2d9800f9-231e-5967-f6f3-e95249384417
+		//     inet 172.16.16.1/32 scope global veth1078b035
+		//        valid_lft forever preferred_lft forever
+		$regex = sprintf("/inet\s+%s\s+(.+\s+)?scope global/i",
 			$this->regex['ipv4cidr']);
 		if (1 !== preg_match($regex, $this->ip, $matches))
 			return FALSE;
@@ -181,7 +191,13 @@ class NetworkInterface {
 	 */
 	public function getIP6() {
 		$this->getData();
-		$regex = sprintf("/inet6\s+%s\s+scope global/i",
+		// Example:
+		// 3: veth1078b035@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+		//     link/ether 36:74:9b:6f:5c:f6 brd ff:ff:ff:ff:ff:ff link-netns cni-2d9800f9-231e-5967-f6f3-e95249384417
+		//     ...
+		//     inet6 fe80::3474:9bff:fe6f:5cf6/64 scope link
+		//        valid_lft forever preferred_lft forever
+		$regex = sprintf("/inet6\s+%s\s+scope (global|link)/i",
 			$this->regex['ipv6cidr']);
 		if (1 !== preg_match($regex, $this->ip, $matches))
 			return FALSE;
@@ -195,7 +211,16 @@ class NetworkInterface {
 	 */
 	public function getPrefix() {
 		$this->getData();
-		$regex = sprintf("/inet\s+%s\s+.+\s+scope global/i",
+		// Example:
+		// 2: ens6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+		//     ...
+		//     inet 192.168.121.162/24 brd 192.168.121.255 scope global dynamic ens6
+		//        valid_lft 2192sec preferred_lft 2192sec
+		// 3: veth1078b035@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+		//     ...
+		//     inet 172.16.16.1/32 scope global veth1078b035
+		//        valid_lft forever preferred_lft forever
+		$regex = sprintf("/inet\s+%s\s+(.+\s+)?scope global/i",
 			$this->regex['ipv4cidr']);
 		if (1 !== preg_match($regex, $this->ip, $matches))
 			return FALSE;
@@ -210,7 +235,13 @@ class NetworkInterface {
 	 */
 	public function getPrefix6() {
 		$this->getData();
-		$regex = sprintf("/inet6\s+%s\s+scope global/i",
+		// Example:
+		// 3: veth1078b035@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+		//     link/ether 36:74:9b:6f:5c:f6 brd ff:ff:ff:ff:ff:ff link-netns cni-2d9800f9-231e-5967-f6f3-e95249384417
+		//     ...
+		//     inet6 fe80::3474:9bff:fe6f:5cf6/64 scope link
+		//        valid_lft forever preferred_lft forever
+		$regex = sprintf("/inet6\s+%s\s+scope (global|link)/i",
 			$this->regex['ipv6cidr']);
 		if (1 !== preg_match($regex, $this->ip, $matches))
 			return FALSE;
