@@ -34,8 +34,6 @@ def is_ethernet(name):
         return False
     # Examples:
     # - eth0
-    # - venet2
-    # - vethb1
     # - enp2s0
     # - enp2s0f0
     # - enx00259025963a
@@ -48,7 +46,7 @@ def is_ethernet(name):
     #   c<bus_id>
     # - on-board device index number
     #   o<index>[n<phys_port_name>|d<dev_port>]
-    # - hotplug slot index number
+    # - hot-plug slot index number
     #   s<slot>[f<function>][n<phys_port_name>|d<dev_port>]
     # - MAC address
     #   x<MAC>
@@ -61,7 +59,7 @@ def is_ethernet(name):
     # https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
     return bool(
         re.match(
-            r'^(eth|venet)[0-9]+|veth[a-z0-9]+|'
+            r'^eth[0-9]+|'
             r'en(b\d+|c\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|'
             r'x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|'
             r'(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$',
@@ -92,7 +90,7 @@ def is_wifi(name):
     #   c<bus_id>
     # - on-board device index number
     #   o<index>[n<phys_port_name>|d<dev_port>]
-    # - hotplug slot index number
+    # - hot-plug slot index number
     #   s<slot>[f<function>][n<phys_port_name>|d<dev_port>]
     # - MAC address
     #   x<MAC>
