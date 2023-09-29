@@ -468,7 +468,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		// Other interface type related data must be modified separately.
 		$result = $object->getAssoc();
 		$result['dnsnameservers'] = str_replace(" ", ",",
-		  $result['dnsnameservers']);
+			$result['dnsnameservers']);
 		$result['dnssearch'] = str_replace(" ", ",", $result['dnssearch']);
 		$result['slaves'] = explode_safe(",", $result['slaves']);
 		return $result;
@@ -547,7 +547,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 	 * @return The requested configuration object.
 	 */
 	function getEthernetIface($params, $context) {
-			return $this->callMethod("getInterface", $params, $context);
+		return $this->callMethod("getInterface", $params, $context);
 	}
 
 	/**
