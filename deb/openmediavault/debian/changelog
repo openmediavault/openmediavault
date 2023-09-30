@@ -1,5 +1,6 @@
 openmediavault (6.9.2-1) stable; urgency=low
 
+  * Various improvements related to networking in the PHP backend.
   * Disable the caching of UI files to prevent annoying browser
     cache flushing.
   * Remove support of `venet` ethernet network devices names.
