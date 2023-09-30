@@ -86,11 +86,13 @@ abstract class BackendAbstract {
 		$dir = new \DirectoryIterator("/sys/class/net");
 		foreach ($dir as $item) {
 			// Skip everything that is not a symlink.
-			if ($item->isDot() || !$item->isLink())
+			if ($item->isDot() || !$item->isLink()) {
 				continue;
+			}
 			// Validate network interface name.
-			if (1 !== preg_match($regex, $item->getFilename()))
+			if (1 !== preg_match($regex, $item->getFilename())) {
 				continue;
+			}
 			$result[] = $item->getFilename();
 		}
 		return $result;

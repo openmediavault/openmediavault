@@ -272,11 +272,8 @@ class NetworkInterface {
 	 * @return The network interface MAC address, otherwise FALSE.
 	 */
 	public function getMAC() {
-		$filename = sprintf("/sys/class/net/%s/address",
-		  $this->getDeviceName());
-		if (!file_exists($filename))
-			return FALSE;
-		return trim(file_get_contents($filename));
+		return $this->getSysFsProperty($this->getDeviceName(),
+			"address");
 	}
 
 	/**
@@ -284,11 +281,8 @@ class NetworkInterface {
 	 * @return The network interface MTU, otherwise FALSE.
 	 */
 	public function getMTU() {
-		$filename = sprintf("/sys/class/net/%s/mtu",
-		  $this->getDeviceName());
-		if (!file_exists($filename))
-			return FALSE;
-		return trim(file_get_contents($filename));
+		return $this->getSysFsProperty($this->getDeviceName(),
+			"mtu");
 	}
 
 	/**
@@ -401,34 +395,48 @@ class NetworkInterface {
 	 */
 	public function getStatistics() {
 		// Parse command output:
+		// Example 1:
 		// Inter-|   Receive                                                |  Transmit
 		//  face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
 		//     lo:  156976     947    0    0    0     0          0         0   156976     947    0    0    0     0       0          0
 		//   eth0:162137708  168681    0    0    0     0          0         0 15969317  103565    0    0    0     0       0          0
 		//   eth1:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
+		//
+		// Example 2:
+		// Inter-|   Receive                                                |  Transmit
+		//  face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
+		//     lo:  814023     633    0    0    0     0          0         0   814023     633    0    0    0     0       0          0
+		//   eth0: 1697980   10474    0    0    0     0          0      4398   103460     588    0    0    0     0       0          0
+		//    wan: 1740240   11291    0    3    0     0          0      4740    84719     537    0    0    0     0       0          0
+		//   lan0:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
+		//   lan1:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
+		//   lan2:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
+		//   ext1:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
+		//   ext2:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
 		$regex = sprintf('/^\s*%s:(.*)$/im', $this->getDeviceName());
 		if (1 !== preg_match($regex, file_get_contents("/proc/net/dev"),
-		  $matches))
+				$matches)) {
 			return FALSE;
+		}
 		$data = preg_split("/[\s]+/", $matches[1]);
 		return [
-			  "rx_bytes" => $data[0],
-			  "rx_packets" => $data[1],
-			  "rx_errors" => $data[2],
-			  "rx_dropped" => $data[3],
-			  "rx_fifo_errors" => $data[4],
-			  "rx_frame_errors" => $data[5],
-			  "rx_compressed" => $data[6],
-			  "rx_multicast" => $data[7],
-			  "tx_bytes" => $data[8],
-			  "tx_packets" => $data[9],
-			  "tx_errors" => $data[10],
-			  "tx_dropped" => $data[11],
-			  "tx_fifo_errors" => $data[12],
-			  "tx_collisions" => $data[13],
-			  "tx_carrier_errors" => $data[14],
-			  "tx_compressed" => $data[15]
-		  ];
+			"rx_bytes" => $data[0],
+			"rx_packets" => $data[1],
+			"rx_errors" => $data[2],
+			"rx_dropped" => $data[3],
+			"rx_fifo_errors" => $data[4],
+			"rx_frame_errors" => $data[5],
+			"rx_compressed" => $data[6],
+			"rx_multicast" => $data[7],
+			"tx_bytes" => $data[8],
+			"tx_packets" => $data[9],
+			"tx_errors" => $data[10],
+			"tx_dropped" => $data[11],
+			"tx_fifo_errors" => $data[12],
+			"tx_collisions" => $data[13],
+			"tx_carrier_errors" => $data[14],
+			"tx_compressed" => $data[15]
+		];
 	}
 
 	/**
@@ -446,11 +454,8 @@ class NetworkInterface {
 	 * @return The network interface operation state, otherwise 'unknown'.
 	 */
 	public function getOperState() {
-		$filename = sprintf("/sys/class/net/%s/operstate",
-		  $this->getDeviceName());
-		if (!file_exists($filename))
-			return "unknown";
-		return trim(file_get_contents($filename));
+		return $this->getSysFsProperty($this->getDeviceName(),
+			"operstate", "unknown");
 	}
 
 	/**
@@ -459,11 +464,8 @@ class NetworkInterface {
 	 * @return The network interface duplex value as string, otherwise FALSE.
 	 */
 	public function getDuplex() {
-		$filename = sprintf("/sys/class/net/%s/duplex",
-		  $this->getDeviceName());
-		if (!file_exists($filename))
-			return FALSE;
-		return trim(file_get_contents($filename));
+		return $this->getSysFsProperty($this->getDeviceName(),
+			"duplex");
 	}
 
 	/**
@@ -473,11 +475,8 @@ class NetworkInterface {
 	 *   otherwise FALSE.
 	 */
 	public function getSpeed() {
-		$filename = sprintf("/sys/class/net/%s/speed",
-		  $this->getDeviceName());
-		if (!file_exists($filename))
-			return FALSE;
-		return intval(file_get_contents($filename));
+		return $this->getSysFsPropertyInt($this->getDeviceName(),
+			"speed");
 	}
 
 	/**
@@ -486,10 +485,55 @@ class NetworkInterface {
 	 * @return The network interface physical link state, otherwise FALSE.
 	 */
 	public function getCarrier() {
-		$filename = sprintf("/sys/class/net/%s/carrier",
-		  $this->getDeviceName());
-		if (!file_exists($filename))
-			return FALSE;
-		return intval(file_get_contents($filename));
+		return $this->getSysFsPropertyInt($this->getDeviceName(),
+			"carrier");
+	}
+
+	/**
+	 * Check if the network interface is physical.
+	 * @return Returns TRUE if it is a physical network interface,
+	 *   otherwise FALSE.
+	 */
+	public function isPhysical(): bool {
+		// Physical interfaces have the same 'ifindex' and 'iflink' values.
+		// See https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-net
+		$ifIndex = $this->getSysFsPropertyInt($this->getDeviceName(),
+			"ifindex");
+		$ifLink = $this->getSysFsPropertyInt($this->getDeviceName(),
+			"iflink");
+		return $ifIndex == $ifLink;
+	}
+
+	/**
+	 * Helper function to get a property from sysfs.
+	 * @param string $deviceName The device name, e.g. `eth0` or `ext1`.
+	 * @param string $propName The property name, e.g. `address`.
+     * @param mixed $default The default value. Defaults to FALSE.
+	 * @param bool $trim Trim the property value. Defaults to TRUE.
+	 * @return Returns the value as string, otherwise the specified
+	 *   default value.
+	 */
+	protected function getSysFsProperty($deviceName, $propName,
+			$default = FALSE, $trim = TRUE) {
+		$path = sprintf("/sys/class/net/%s/%s", $deviceName, $propName);
+		if (!file_exists($path)) {
+			return $default;
+		}
+		$result = file_get_contents($path);
+		if (FALSE === $result) {
+			return $default;
+		}
+		return (TRUE === $trim) ? trim($result) : $result;
+	}
+
+	/**
+	 * Helper function to get a property from sysfs.
+	 * @param string $deviceName The device name, e.g. `eth0` or `ext1`.
+	 * @param string $propName The property name, e.g. `speed`.
+	 * @return Returns the value as integer, otherwise FALSE.
+	 */
+	protected function getSysFsPropertyInt($deviceName, $propName) {
+		$result = $this->getSysFsProperty($deviceName, $propName);
+		return (FALSE === $result) ? FALSE : intval($result);
 	}
 }

@@ -67,7 +67,13 @@ export class InterfaceBridgeFormPageComponent extends BaseFormPageComponent {
         name: 'devicename',
         label: gettext('Device'),
         value: '',
-        disabled: true
+        disabled: true,
+        modifiers: [
+          {
+            type: 'hidden',
+            constraint: { operator: 'falsy', arg0: { prop: '_editing' } }
+          }
+        ]
       },
       {
         type: 'select',

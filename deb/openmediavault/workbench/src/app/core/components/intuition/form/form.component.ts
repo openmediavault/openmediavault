@@ -97,6 +97,11 @@ export class FormComponent implements AfterViewInit, OnInit {
       const control: AbstractControl = this.formGroup.get(name);
       control?.updateValueAndValidity({ onlySelf: true, emitEvent: true });
     });
+    // Trigger the modifiers to apply and display the current state.
+    // This is necessary because there are situations where a form
+    // does not trigger any `valueChanges` event during the whole
+    // initialization.
+    this.applyModifiers();
   }
 
   protected sanitizeConfig(): void {
@@ -311,10 +316,18 @@ export class FormComponent implements AfterViewInit, OnInit {
               })
             );
           });
-          // Trigger the modifier to apply and display the current state.
-          // This is necessary because there are situations where a form
-          // does not trigger any `valueChanges` event during the whole
-          // initialization.
+        });
+      }
+    );
+  }
+
+  private applyModifiers(): void {
+    const allFields: FormFieldConfig[] = flattenFormFieldConfig(this.config);
+    _.forEach(
+      _.filter(allFields, (field) => !_.isEmpty(field.modifiers)),
+      (field: FormFieldConfig) => {
+        const control: AbstractControl = this.formGroup.get(field.name);
+        _.forEach(field.modifiers, (modifier: FormFieldModifier) => {
           this.doModifier(control, modifier);
         });
       }

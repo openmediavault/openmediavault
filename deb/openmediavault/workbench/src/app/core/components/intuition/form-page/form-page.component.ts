@@ -23,7 +23,10 @@ import * as _ from 'lodash';
 import { EMPTY, Subscription } from 'rxjs';
 import { catchError, debounceTime, finalize } from 'rxjs/operators';
 
-import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
+import {
+  AbstractPageComponent,
+  PageContext
+} from '~/app/core/components/intuition/abstract-page-component';
 import { FormComponent } from '~/app/core/components/intuition/form/form.component';
 import {
   flattenFormFieldConfig,
@@ -103,6 +106,18 @@ export class FormPageComponent
     //   data: { title: gettext('Edit'), editing: true }
     // }
     this.editing = _.get(this.routeConfig, 'data.editing', false);
+  }
+
+  /**
+   * Append the current page mode. This can be editing or creating.
+   */
+  get pageContext(): PageContext {
+    return _.merge(
+      {
+        _editing: this.editing
+      },
+      super.pageContext
+    );
   }
 
   ngOnInit(): void {

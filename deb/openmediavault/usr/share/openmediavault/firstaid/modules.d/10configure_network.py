@@ -27,7 +27,6 @@ import openmediavault.firstaid
 import openmediavault.net
 import openmediavault.rpc
 import openmediavault.stringutils
-import pyudev
 
 import openmediavault
 
@@ -56,36 +55,18 @@ class Module(openmediavault.firstaid.IModule):
         rpc_method = "setEthernetIface"
         rpc_params = {}
         # Get the network interface device.
-        devices = []
-        context = pyudev.Context()
-        for device in context.list_devices(subsystem="net"):
-            # Skip unwanted network interface devices.
-            if device.sys_name in ["lo"]:
-                continue
-            if device.device_type and device.device_type in ["bond"]:
-                continue
-            # Append the network interface name for later use.
-            devices.append(device.sys_name)
-        devices = natsort.humansorted(devices)
+        devices = openmediavault.rpc.call(
+            "Network",
+            "enumerateDevices",
+        )
         choices = []
         # Get a description for each network interface to help the user to
         # choose the correct one.
-        for _, sys_name in enumerate(devices):
-            device = pyudev.Devices.from_name(context, "net", sys_name)
-            description = ""
-            # Use the following properties as description in the specified order:
-            for prop in [
-                "ID_MODEL_FROM_DATABASE",
-                "ID_VENDOR_FROM_DATABASE",
-                "ID_NET_NAME_MAC",
-            ]:
-                if prop not in device.properties:
-                    continue
-                description = device.properties.get(prop)
-                break
+        for device in devices:
+            if "ethernet" != device["type"]:
+                continue
             choices.append(
-                [sys_name, openmediavault.stringutils.truncate(
-                    description, 50)]
+                [device["devicename"], device["description"]]
             )
         if not choices:
             raise Exception("No network interfaces found.")
