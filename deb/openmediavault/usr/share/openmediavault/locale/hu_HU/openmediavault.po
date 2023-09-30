@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-29 09:40+0200\n"
+"POT-Creation-Date: 2023-09-30 15:48+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2023\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -2423,6 +2423,9 @@ msgstr "Kiadás előtt álló frissítések"
 
 msgid "Prefail"
 msgstr "Előzetes"
+
+msgid "Prefix address"
+msgstr ""
 
 msgid "Prefix length"
 msgstr "Előtag hossza"

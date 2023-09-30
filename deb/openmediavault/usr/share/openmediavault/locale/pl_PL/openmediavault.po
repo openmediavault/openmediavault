@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-29 09:40+0200\n"
+"POT-Creation-Date: 2023-09-30 15:48+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: jacekniedziolka71 <lucas71@interia.pl>, 2017,2022\n"
 "Language-Team: Polish (Poland) (http://app.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -2421,6 +2421,9 @@ msgid "Pre-release updates"
 msgstr "Aktualizacje przedpremierowe"
 
 msgid "Prefail"
+msgstr ""
+
+msgid "Prefix address"
 msgstr ""
 
 msgid "Prefix length"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-29 09:40+0200\n"
+"POT-Creation-Date: 2023-09-30 15:48+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2012-2015,2017,2019\n"
 "Language-Team: Portuguese (Portugal) (http://app.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
@@ -2417,6 +2417,9 @@ msgid "Pre-release updates"
 msgstr ""
 
 msgid "Prefail"
+msgstr ""
+
+msgid "Prefix address"
 msgstr ""
 
 msgid "Prefix length"
