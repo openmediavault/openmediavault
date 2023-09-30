@@ -441,9 +441,8 @@ class NetworkInterface {
 
 	/**
 	 * Get the network interface operation state.
-	 * @return The network interface state, e.g. 'UP', 'DOWN' or 'UNKNOWN',
-	 *   otherwise FALSE.
-	 * @throw \OMV\ExecException
+	 * @return The network interface state, e.g. 'NOTPRESENT', 'DOWN',
+	 *   'LOWERLAYERDOWN', 'TESTING', 'DORMANT', 'UP' or 'UNKNOWN'.
 	 */
 	public function getState() {
 		return mb_strtoupper($this->getOperState());
