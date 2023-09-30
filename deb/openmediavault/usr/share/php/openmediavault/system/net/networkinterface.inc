@@ -366,17 +366,6 @@ class NetworkInterface {
 	}
 
 	/**
-	 * Get the network interface operation state.
-	 * @return The network interface state, e.g. 'UP', 'DOWN' or 'UNKNOWN',
-	 *   otherwise FALSE.
-	 * @throw \OMV\ExecException
-	 */
-	public function getState() {
-		$this->getData();
-		return array_value($this->ip, "operstate", FALSE);
-	}
-
-	/**
 	 * Get the network interface link state.
 	 * @return TRUE if link is established, otherwise FALSE.
 	 */
@@ -444,13 +433,23 @@ class NetworkInterface {
 
 	/**
 	 * Get the network interface operation state.
-	 * @return The network interface operation state, otherwise FALSE.
+	 * @return The network interface state, e.g. 'UP', 'DOWN' or 'UNKNOWN',
+	 *   otherwise FALSE.
+	 * @throw \OMV\ExecException
+	 */
+	public function getState() {
+		return mb_strtoupper($this->getOperState());
+	}
+
+	/**
+	 * Get the network interface operation state.
+	 * @return The network interface operation state, otherwise 'unknown'.
 	 */
 	public function getOperState() {
 		$filename = sprintf("/sys/class/net/%s/operstate",
 		  $this->getDeviceName());
 		if (!file_exists($filename))
-			return FALSE;
+			return "unknown";
 		return trim(file_get_contents($filename));
 	}
 
