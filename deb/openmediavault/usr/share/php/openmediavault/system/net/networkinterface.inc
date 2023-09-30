@@ -185,6 +185,7 @@ class NetworkInterface {
 	 * @param string $family The address family, e.g. "inet" or "inet6".
 	 * @param string $scope The scope, e.g. "global" or "link".
 	 * @return The address info as array.
+	 * @throw \OMV\ExecException
 	 */
 	protected function getAddrInfo($family, $scope): array {
 		$this->getData();
