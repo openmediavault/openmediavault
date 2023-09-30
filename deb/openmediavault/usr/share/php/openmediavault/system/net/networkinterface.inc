@@ -263,8 +263,15 @@ class NetworkInterface {
 	 * @throw \OMV\ExecException
 	 */
 	public function getNetmask6() {
-		// ToDo: Return the real netmask and not the prefix length here.
-		return $this->getPrefix6();
+		if (FALSE === ($prefix = $this->getPrefix6()))
+			return FALSE;
+        $netmask = str_repeat("1", $prefix) . str_repeat("0", 128 - $prefix);
+        $netmaskOctets = str_split($netmask, 16);
+        $hexOctets = array_map(function($binaryOctet) {
+                return sprintf('%04x', bindec($binaryOctet));
+            },
+            $netmaskOctets);
+        return implode(':', $hexOctets);
 	}
 
 	/**

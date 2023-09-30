@@ -100,6 +100,12 @@ export class InterfaceDetailsFormPageComponent {
       },
       {
         type: 'textInput',
+        name: 'netmask',
+        label: gettext('Prefix address'),
+        disabled: true
+      },
+      {
+        type: 'textInput',
         name: 'gateway',
         label: gettext('Gateway'),
         disabled: true,
@@ -120,6 +126,12 @@ export class InterfaceDetailsFormPageComponent {
         type: 'textInput',
         name: 'prefix6',
         label: gettext('Prefix length'),
+        disabled: true
+      },
+      {
+        type: 'textInput',
+        name: 'netmask6',
+        label: gettext('Prefix address'),
         disabled: true
       },
       {
