@@ -142,6 +142,8 @@ class Manager implements \IteratorAggregate {
 				return FALSE;
 			if (empty($slaves))
 				continue;
+			// Remove slave devices. No need to re-index the array
+			// because it is sorted afterwards.
 			$result = array_diff($result, $slaves);
 		}
 		// Sort the devices using a "natural order" algorithm.
@@ -167,8 +169,10 @@ class Manager implements \IteratorAggregate {
 				return FALSE;
 			if (empty($slaves))
 				continue;
-			$result = array_unique(array_merge($result, $slaves));
+			$result = array_merge($result, $slaves);
 		}
+		// Remove duplicate values.
+		$result = array_unique($result);
 		// Sort the devices using a "natural order" algorithm.
 		if (!sort($result, SORT_NATURAL))
 			return FALSE;
