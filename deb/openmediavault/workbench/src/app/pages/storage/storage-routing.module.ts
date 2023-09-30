@@ -175,7 +175,7 @@ const routes: Routes = [
         data: {
           title: gettext('Permissions'),
           breadcrumb: {
-            text: gettext('{{ "Permissions" | translate }} @ {{ name }}'),
+            text: '{{ "Permissions" | translate }} @ {{ name }}',
             request: {
               service: 'ShareMgmt',
               method: 'get',
@@ -208,7 +208,7 @@ const routes: Routes = [
         data: {
           title: gettext('Snapshots'),
           breadcrumb: {
-            text: gettext('{{ "Snapshots" | translate }} @ {{ name }}'),
+            text: '{{ "Snapshots" | translate }} @ {{ name }}',
             request: {
               service: 'ShareMgmt',
               method: 'get',
