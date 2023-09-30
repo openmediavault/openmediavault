@@ -30,7 +30,7 @@ require_once("openmediavault/functions.inc");
 class NetworkInterface {
 	protected $name = "";
 	protected $ip = null;
-	protected $regex = [
+	protected $regex = [ // deprecated
 		"ipv4" => '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}',
 		"ipv4cidr" => '(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\/(\d{1,2})',
 		"ipv6" => '[a-f0-9:.]+',
@@ -41,7 +41,7 @@ class NetworkInterface {
 
 	/**
 	 * Constructor
-	 * @param name The network interface name, e.g. eth0, ethx, ...
+	 * @param name The network interface name, e.g. eth0, ethX, ...
 	 */
 	public function __construct($name) {
 		$this->name = $name;
@@ -65,6 +65,7 @@ class NetworkInterface {
 			return;
 
 		$cmdArgs = [];
+		$cmdArgs[] = "-json";
 		$cmdArgs[] = "addr";
 		$cmdArgs[] = "show";
 		$cmdArgs[] = "dev";
@@ -72,19 +73,37 @@ class NetworkInterface {
 		$cmd = new \OMV\System\Process("ip", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
-		// Process command output for easier parsing.
-		// 2: ens6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-		//     link/ether 52:54:00:a6:76:53 brd ff:ff:ff:ff:ff:ff
-		//     inet 192.168.121.38/24 brd 192.168.121.255 scope global dynamic ens6
-		//        valid_lft 3583sec preferred_lft 3583sec
-		//     inet6 ::ffff:192.168.121.38/64 scope global
-		//        valid_lft forever preferred_lft forever
-		//     inet6 fe80::5054:ff:fea6:7653/64 scope link
-		//        valid_lft forever preferred_lft forever
-		foreach ($output as $outputk => &$outputv)
-			$outputv = trim($outputv);
-		$this->ip = implode("|", $output);
-
+		// [{
+		//     "ifindex": 5,
+		//     "link_index": 3,
+		//     "ifname": "veth46f8a39b",
+		//     "flags": [ "BROADCAST","MULTICAST","UP","LOWER_UP" ],
+		//     "mtu": 1500,
+		//     "qdisc": "noqueue",
+		//     "operstate": "UP",
+		//     "group": "default",
+		//     "link_type": "ether",
+		//     "address": "b2:cc:f1:82:12:f8",
+		//     "broadcast": "ff:ff:ff:ff:ff:ff",
+		//     "link_netnsid": 0,
+		//     "addr_info": [{
+		//         "family": "inet",
+		//         "local": "172.16.16.1",
+		//         "prefixlen": 32,
+		//         "scope": "global",
+		//         "label": "veth46f8a39b",
+		//         "valid_life_time": 4294967295,
+		//         "preferred_life_time": 4294967295
+		//     },{
+		//         "family": "inet6",
+		//         "local": "fe80::b0cc:f1ff:fe82:12f8",
+		//         "prefixlen": 64,
+		//         "scope": "link",
+		//         "valid_life_time": 4294967295,
+		//         "preferred_life_time": 4294967295
+		//     }]
+		// }]
+		$this->ip = json_decode_safe(implode("", $output), TRUE)[0];
 		$this->setCached(TRUE);
 	}
 
@@ -161,27 +180,28 @@ class NetworkInterface {
 	}
 
 	/**
+	 * Helper method to get the first found address info matching the
+	 * specified family and scope.
+	 * @param string $family The address family, e.g. "inet" or "inet6".
+	 * @param string $scope The scope, e.g. "global" or "link".
+	 * @return The address info as array.
+	 */
+	protected function getAddrInfo($family, $scope): array {
+		$this->getData();
+		$addrInfo = array_value($this->ip, "addr_info", []);
+		return array_search_ex(
+			array_filter_ex($addrInfo, "family", $family, []),
+			"scope", $scope, []);
+	}
+
+	/**
 	 * Get the network interface IPv4 address.
 	 * @return The network interface IPv4 address, otherwise FALSE.
 	 * @throw \OMV\ExecException
 	 */
 	public function getIP() {
-		$this->getData();
-		// Example:
-		// 2: ens6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
-		//     link/ether 52:54:00:6e:2d:3e brd ff:ff:ff:ff:ff:ff
-		//     altname enp0s6
-		//     inet 192.168.121.162/24 brd 192.168.121.255 scope global dynamic ens6
-		//        valid_lft 2192sec preferred_lft 2192sec
-		// 3: veth1078b035@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
-		//     link/ether 36:74:9b:6f:5c:f6 brd ff:ff:ff:ff:ff:ff link-netns cni-2d9800f9-231e-5967-f6f3-e95249384417
-		//     inet 172.16.16.1/32 scope global veth1078b035
-		//        valid_lft forever preferred_lft forever
-		$regex = sprintf("/inet\s+%s\s+(.+\s+)?scope global/i",
-			$this->regex['ipv4cidr']);
-		if (1 !== preg_match($regex, $this->ip, $matches))
-			return FALSE;
-		return $matches[1];
+		$addrInfo = $this->getAddrInfo("inet", "global");
+		return array_value($addrInfo, "local", FALSE);
 	}
 
 	/**
@@ -190,18 +210,13 @@ class NetworkInterface {
 	 * @throw \OMV\ExecException
 	 */
 	public function getIP6() {
-		$this->getData();
-		// Example:
-		// 3: veth1078b035@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
-		//     link/ether 36:74:9b:6f:5c:f6 brd ff:ff:ff:ff:ff:ff link-netns cni-2d9800f9-231e-5967-f6f3-e95249384417
-		//     ...
-		//     inet6 fe80::3474:9bff:fe6f:5cf6/64 scope link
-		//        valid_lft forever preferred_lft forever
-		$regex = sprintf("/inet6\s+%s\s+scope (global|link)/i",
-			$this->regex['ipv6cidr']);
-		if (1 !== preg_match($regex, $this->ip, $matches))
-			return FALSE;
-		return $matches[1];
+		$addrInfo = $this->getAddrInfo("inet6", "global");
+		if (FALSE !== ($ipAddr = array_value(
+				$addrInfo, "local", FALSE))) {
+			return $ipAddr;
+		}
+		$addrInfo = $this->getAddrInfo("inet6", "link");
+		return array_value($addrInfo, "local", FALSE);
 	}
 
 	/**
@@ -210,21 +225,8 @@ class NetworkInterface {
 	 * @throw \OMV\ExecException
 	 */
 	public function getPrefix() {
-		$this->getData();
-		// Example:
-		// 2: ens6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
-		//     ...
-		//     inet 192.168.121.162/24 brd 192.168.121.255 scope global dynamic ens6
-		//        valid_lft 2192sec preferred_lft 2192sec
-		// 3: veth1078b035@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
-		//     ...
-		//     inet 172.16.16.1/32 scope global veth1078b035
-		//        valid_lft forever preferred_lft forever
-		$regex = sprintf("/inet\s+%s\s+(.+\s+)?scope global/i",
-			$this->regex['ipv4cidr']);
-		if (1 !== preg_match($regex, $this->ip, $matches))
-			return FALSE;
-		return intval($matches[2]);
+		$addrInfo = $this->getAddrInfo("inet", "global");
+		return array_value($addrInfo, "prefixlen", FALSE);
 	}
 
 	/**
@@ -234,18 +236,13 @@ class NetworkInterface {
 	 * @throw \OMV\ExecException
 	 */
 	public function getPrefix6() {
-		$this->getData();
-		// Example:
-		// 3: veth1078b035@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
-		//     link/ether 36:74:9b:6f:5c:f6 brd ff:ff:ff:ff:ff:ff link-netns cni-2d9800f9-231e-5967-f6f3-e95249384417
-		//     ...
-		//     inet6 fe80::3474:9bff:fe6f:5cf6/64 scope link
-		//        valid_lft forever preferred_lft forever
-		$regex = sprintf("/inet6\s+%s\s+scope (global|link)/i",
-			$this->regex['ipv6cidr']);
-		if (1 !== preg_match($regex, $this->ip, $matches))
-			return FALSE;
-		return intval($matches[2]);
+		$addrInfo = $this->getAddrInfo("inet6", "global");
+		if (FALSE !== ($ipAddr = array_value(
+				$addrInfo, "prefixlen", FALSE))) {
+			return $ipAddr;
+		}
+		$addrInfo = $this->getAddrInfo("inet6", "link");
+		return array_value($addrInfo, "prefixlen", FALSE);
 	}
 
 	/**
@@ -301,6 +298,7 @@ class NetworkInterface {
 	 */
 	public function getGateway() {
 		$cmdArgs = [];
+		$cmdArgs[] = "-j";
 		$cmdArgs[] = "-4";
 		$cmdArgs[] = "route";
 		$cmdArgs[] = "show";
@@ -309,14 +307,32 @@ class NetworkInterface {
 		$cmd = new \OMV\System\Process("ip", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
-		$output = implode("\n", $output);
+		$output = json_decode_safe(implode("", $output), TRUE);
 		// Parse command output:
-		// 192.168.178.0/24  proto kernel  scope link  src 192.168.178.21
-		// default via 192.168.178.1
-		$regex = sprintf('/default via\s+(%s)/im', $this->regex['ipv4']);
-		if (1 !== preg_match($regex, $output, $matches))
-			return FALSE;
-		return $matches[1];
+		// [{
+		//     "dst": "default",
+		//     "gateway": "192.168.121.1",
+		//     "protocol": "dhcp",
+		//     "prefsrc": "192.168.121.162",
+		//     "metric": 100,
+		//     "flags": []
+		// },{
+		//     "dst": "192.168.121.0/24",
+		//     "protocol": "kernel",
+		//     "scope": "link",
+		//     "prefsrc": "192.168.121.162",
+		//     "flags": []
+		// },{
+		//     "dst": "192.168.121.1",
+		//     "protocol": "dhcp",
+		//     "scope": "link",
+		//     "prefsrc": "192.168.121.162",
+		//     "metric": 100,
+		//     "flags": []
+		// }]
+		return array_value(
+			array_search_ex($output, "dst", "default", []),
+			"gateway", FALSE);
 	}
 
 	/**
@@ -326,6 +342,7 @@ class NetworkInterface {
 	 */
 	public function getGateway6() {
 		$cmdArgs = [];
+		$cmdArgs[] = "-j";
 		$cmdArgs[] = "-6";
 		$cmdArgs[] = "route";
 		$cmdArgs[] = "show";
@@ -334,28 +351,29 @@ class NetworkInterface {
 		$cmd = new \OMV\System\Process("ip", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
-		$output = implode("\n", $output);
+		$output = json_decode_safe(implode("", $output), TRUE);
 		// Parse command output:
-		// fe80::/64  proto kernel  metric 256  mtu 1500 advmss 1440 hoplimit 4294967295
-		// default via fe80::21e:13ff:fef9:af0  metric 1024  mtu 1500 advmss 1440 hoplimit 4294967295
-		$regex = sprintf('/default via\s+(%s)\s+/im', $this->regex['ipv6']);
-		if (1 !== preg_match($regex, $output, $matches))
-			return FALSE;
-		return $matches[1];
+		// [{
+		//     "dst": "fe80::/64",
+		//     "protocol": "kernel",
+		//     "metric": 256,
+		//     "flags": [ ],
+		//     "pref": "medium"
+		// }]
+		return array_value(
+			array_search_ex($output, "dst", "default", []),
+			"gateway", FALSE);
 	}
 
 	/**
-	 * Get the network interface state.
+	 * Get the network interface operation state.
 	 * @return The network interface state, e.g. 'UP', 'DOWN' or 'UNKNOWN',
 	 *   otherwise FALSE.
 	 * @throw \OMV\ExecException
 	 */
 	public function getState() {
 		$this->getData();
-		if (1 !== preg_match("/state ({$this->regex['state']})/i",
-		  $this->ip, $matches))
-			return FALSE;
-		return $matches[1];
+		return array_value($this->ip, "operstate", FALSE);
 	}
 
 	/**

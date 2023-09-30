@@ -125,9 +125,45 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 		$this->assertEmpty($d_filtered);
 	}
 
-	public function test_array_filter_ex_fail() {
+	public function test_array_filter_ex_fail_1() {
 		$d = array_filter_ex([1, 2, 3], "text", "b");
 		$this->assertNull($d);
+	}
+
+	public function test_array_filter_ex_fail_2() {
+		$d = array_filter_ex([1, 2, 3], "text", "b", TRUE);
+		$this->assertTrue($d);
+	}
+
+	public function test_array_search_ex_1() {
+		$d = [
+			['id' => 3, 'text' => 'c'],
+			['id' => 4, 'text' => 'a'],
+			['id' => 2, 'text' => 'b'],
+			['id' => 1, 'text' => 'a']
+		];
+		$d_searched = array_search_ex($d, "text", "a");
+		$this->assertEquals($d_searched, ['id' => 4, 'text' => 'a']);
+	}
+
+	public function test_array_search_ex_2() {
+		$d = array_search_ex([1, 2, 3], "foo", "bar", -2);
+		$this->assertEquals($d, -2);
+	}
+
+	public function test_array_search_ex_3() {
+		$d = array_search_ex([], "foo", "bar", TRUE);
+		$this->assertTrue($d);
+	}
+
+	public function test_array_search_ex_4() {
+		$d = [
+			['id' => 3, 'text' => 'c'],
+			['id' => 2, 'text' => 'b'],
+			['id' => 1, 'text' => 'a']
+		];
+		$d_searched = array_search_ex($d, "text", "d");
+		$this->assertFalse($d_searched);
 	}
 
 	public function test_boolvalEx() {
@@ -376,6 +412,18 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 		]);
 	}
 
+	public function test_is_multi_array_1() {
+		$this->assertTrue(is_multi_array([["a" => 1], ["b" => 2]]));
+	}
+
+	public function test_is_multi_array_2() {
+		$this->assertTrue(is_multi_array([]));
+	}
+
+	public function test_is_multi_array_3() {
+		$this->assertFalse(is_multi_array([1, 2, 3]));
+	}
+
 	public function test_is_assoc_array_1() {
 		$this->assertTrue(is_assoc_array([
 			'foo' => 1, 'bar' => 'test', 'baz' => ['id' => 1]
@@ -396,6 +444,10 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 
 	public function test_is_assoc_array_4() {
 		$this->assertFalse(is_assoc_array('foo'));
+	}
+
+	public function test_is_assoc_array_5() {
+		$this->assertTrue(is_assoc_array([]));
 	}
 
 	public function test_strpdate() {

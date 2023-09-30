@@ -26,16 +26,49 @@ require_once("openmediavault/globals.inc");
 class NetworkInterfaceMock extends \OMV\System\Net\NetworkInterface {
 	public function __construct() {
 		parent::__construct("ens6");
-		$this->ip = implode("|", [
-			"2: ens6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000",
-			"    link/ether 52:54:00:a6:76:53 brd ff:ff:ff:ff:ff:ff",
-			"    inet 192.168.121.38/24 brd 192.168.121.255 scope global dynamic ens6",
-			"       valid_lft 2325sec preferred_lft 2325sec",
-			"    inet6 ::ffff:192.168.121.38/64 scope global ",
-			"       valid_lft forever preferred_lft forever",
-			"    inet6 fe80::5054:ff:fea6:7653/64 scope link ",
-			"       valid_lft forever preferred_lft forever"
-		]);
+		$this->ip = [
+			"ifindex" => 2,
+			"ifname" => "ens6",
+			"flags" => ["BROADCAST", "MULTICAST", "UP", "LOWER_UP"],
+			"mtu" => 1500,
+			"qdisc" => "fq_codel",
+			"operstate" => "UP",
+			"group" => "default",
+			"txqlen" => 1000,
+			"link_type" => "ether",
+			"address" => "52:54:00:a6:76:53",
+			"broadcast" => "ff:ff:ff:ff:ff:ff",
+			"altnames" => ["enp0s6"],
+			"addr_info" => [
+				[
+					"family" => "inet",
+					"local" => "192.168.121.38",
+					"prefixlen" => 24,
+					"broadcast" => "192.168.121.255",
+					"scope" => "global",
+					"dynamic" => true,
+					"label" => "ens6",
+					"valid_life_time" => 2325,
+					"preferred_life_time" => 2325
+				],
+				[
+					"family" => "inet6",
+					"local" => "::ffff:192.168.121.38",
+					"prefixlen" => 64,
+					"scope" => "global",
+					"valid_life_time" => 4294967295,
+					"preferred_life_time" => 4294967295
+				],
+				[
+					"family" => "inet6",
+					"local" => "fe80::5054:ff:fea6:7653",
+					"prefixlen" => 64,
+					"scope" => "link",
+					"valid_life_time" => 4294967295,
+					"preferred_life_time" => 4294967295
+				]
+			]
+		];
 		$this->setCached(TRUE);
 	}
 }

@@ -128,14 +128,15 @@ function array_remove_value(array &$array, $value): bool {
  * Filter a multi-dimensional array by key and value.
  * @ingroup api
  * @param array $array The array to process.
- * @param string $key The key used as filter criteria.
- * @param string $value The value used as filter criteria.
+ * @param mixed $key The key used as filter criteria.
+ * @param mixed $value The value used as filter criteria.
+ * @param mixed $default The default value. Defaults to NULL.
  * @return Returns a new array containing only that elements that match
- *   the given filter arguments or NULL on failure.
+ *   the given filter arguments or the specified default on failure.
  */
-function array_filter_ex($array, $key, $value): ?array {
+function array_filter_ex($array, $key, $value, $default = NULL) {
 	if (!is_multi_array($array)) {
-		return NULL;
+		return $default;
 	}
 	// Re-index the filtered array.
 	return array_values(
@@ -145,6 +146,25 @@ function array_filter_ex($array, $key, $value): ?array {
 			}
 			return $v[$key] == $value;
 		}, ARRAY_FILTER_USE_BOTH));
+}
+
+/**
+ * Iterates over elements of a multi-dimensional array, returning
+ * the first element the key/value matches.
+ * @param array $array The multi-dimensional array.
+ * @param mixed $key The key of the element.
+ * @param mixed $value The value of the element.
+ * @param mixed $default The default value. Defaults to FALSE.
+ * @return The element the specified key/value matches, otherwise
+ *   the given default value.
+ */
+function array_search_ex(array $array, $key, $value, $default = FALSE) {
+	if (!is_multi_array($array)) {
+		return $default;
+	}
+	return array_value(
+		array_filter_ex($array, $key, $value),
+		0, $default);
 }
 
 /**
@@ -511,10 +531,15 @@ function is_ipaddr6($var): bool {
  *   otherwise FALSE.
  */
 function is_multi_array($var): bool {
-	if (FALSE === is_array($var))
+	if (FALSE === is_array($var)) {
 		return FALSE;
-	if (count($var, COUNT_RECURSIVE) !== count($var))
+	}
+	if (empty($var)) {
 		return TRUE;
+	}
+	if (count($var, COUNT_RECURSIVE) !== count($var)) {
+		return TRUE;
+	}
 	return FALSE;
 }
 
@@ -526,8 +551,12 @@ function is_multi_array($var): bool {
  * @return TRUE if the variable is an associative array, otherwise FALSE.
  */
 function is_assoc_array($var): bool {
-	if (FALSE === is_array($var))
+	if (FALSE === is_array($var)) {
 		return FALSE;
+	}
+	if (empty($var)) {
+		return TRUE;
+	}
 	$keys = array_keys($var);
 	return array_keys($keys) !== $keys;
 }
