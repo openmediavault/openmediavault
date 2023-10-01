@@ -7,6 +7,7 @@ openmediavault (6.9.2-1) stable; urgency=low
     Predictable devices names are used instead nowadays.
   * Add better support for `veth` virtual ethernet devices that
     are used by containers.
+  * Issue #1596: Support DSA network interfaces.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 26 Sep 2023 17:24:48 +0200
 
