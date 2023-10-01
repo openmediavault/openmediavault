@@ -2424,7 +2424,7 @@ msgid "Prefail"
 msgstr "Pre-Fallo"
 
 msgid "Prefix address"
-msgstr ""
+msgstr "Prefijo"
 
 msgid "Prefix length"
 msgstr "Longitud del prefijo"
