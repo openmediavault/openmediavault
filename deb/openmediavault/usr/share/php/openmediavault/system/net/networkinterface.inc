@@ -29,7 +29,7 @@ require_once("openmediavault/functions.inc");
  */
 class NetworkInterface {
 	protected $name = "";
-	protected $ip = null;
+	protected $ip = [];
 	protected $regex = [ // deprecated
 		"ipv4" => '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}',
 		"ipv4cidr" => '(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\/(\d{1,2})',
@@ -457,7 +457,10 @@ class NetworkInterface {
 	}
 
 	/**
-	 * Get the network interface operation state.
+	 * Get the network interface operation state, e.g. 'unknown',
+	 * 'notpresent', 'down', 'lowerlayerdown', 'testing', 'dormant'
+	 * or 'up'.
+	 * @see https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-net
 	 * @return The network interface operation state, otherwise 'unknown'.
 	 */
 	public function getOperState() {
@@ -497,6 +500,41 @@ class NetworkInterface {
 	}
 
 	/**
+	 * Get the system-wide interface unique index identifier as a
+	 * decimal number.
+	 * @see https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-net
+	 * @return Returns the unique index identifier or FALSE on failure.
+	 */
+	public function getIfIndex() {
+		if ($this->isCached()) {
+			$result = array_value($this->ip, "ifindex", FALSE);
+			if (FALSE !== $result) {
+				return $result;
+			}
+		}
+		return $this->getSysFsPropertyInt($this->getDeviceName(),
+			"ifindex");
+	}
+
+	/**
+	 * Get the system-wide interface unique index identifier the
+	 * interface is linked to.
+	 * @see https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-net
+	 * @return Returns the unique index identifier the interface is linked
+	 *   to or FALSE on failure.
+	 */
+	public function getIfLink() {
+		if ($this->isCached()) {
+			$result = array_value($this->ip, "link_index", FALSE);
+			if (FALSE !== $result) {
+				return $result;
+			}
+		}
+		return $this->getSysFsPropertyInt($this->getDeviceName(),
+			"iflink");
+	}
+
+	/**
 	 * Check if the network interface is physical.
 	 * @return Returns TRUE if it is a physical network interface,
 	 *   otherwise FALSE.
@@ -504,11 +542,7 @@ class NetworkInterface {
 	public function isPhysical(): bool {
 		// Physical interfaces have the same 'ifindex' and 'iflink' values.
 		// See https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-net
-		$ifIndex = $this->getSysFsPropertyInt($this->getDeviceName(),
-			"ifindex");
-		$ifLink = $this->getSysFsPropertyInt($this->getDeviceName(),
-			"iflink");
-		return $ifIndex == $ifLink;
+		return $this->getIfIndex() === $this->getIfLink();
 	}
 
 	/**
