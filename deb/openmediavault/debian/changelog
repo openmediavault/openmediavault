@@ -1,3 +1,9 @@
+openmediavault (6.9.3-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 01 Oct 2023 14:06:27 +0200
+
 openmediavault (6.9.2-1) stable; urgency=low
 
   * Various improvements related to networking in the PHP backend.
