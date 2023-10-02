@@ -1,6 +1,6 @@
 openmediavault (6.9.3-1) stable; urgency=low
 
-  *
+  * Relocate `Logout` option to user settings menu.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 01 Oct 2023 14:06:27 +0200
 

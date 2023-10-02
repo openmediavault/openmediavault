@@ -32,7 +32,8 @@
           [matMenuTriggerFor]="settingsMenu">
     <mat-icon svgIcon="{{ icon.user }}"></mat-icon>
   </button>
-  <button mat-icon-button
+  <button *ngIf="permissions?.role.includes(roles.admin)"
+          mat-icon-button
           matTooltip="{{ 'Power' | transloco }}"
           [matMenuTriggerFor]="powerMenu">
     <mat-icon svgIcon="{{ icon.power }}"></mat-icon>
@@ -55,6 +56,11 @@
               routerLink="/usermgmt/change-password">
         <mat-icon svgIcon="{{ icon.password }}"></mat-icon>
         <span>{{ 'Change Password' | transloco }}</span>
+      </button>
+      <button mat-menu-item
+              (click)="onLogout()">
+        <mat-icon svgIcon="{{ icon.logout }}"></mat-icon>
+        <span>{{ 'Logout' | transloco }}</span>
       </button>
       <mat-divider></mat-divider>
       <button mat-menu-item
@@ -85,24 +91,16 @@
   <mat-menu #powerMenu="matMenu">
     <ng-template matMenuContent>
       <button mat-menu-item
-              (click)="onLogout()">
-        <mat-icon svgIcon="{{ icon.logout }}"></mat-icon>
-        <span>{{ 'Logout' | transloco }}</span>
-      </button>
-      <button *ngIf="permissions?.role.includes(roles.admin)"
-              mat-menu-item
               (click)="onReboot()">
         <mat-icon svgIcon="{{ icon.reboot }}"></mat-icon>
         <span>{{ 'Reboot' | transloco }}</span>
       </button>
-      <button *ngIf="permissions?.role.includes(roles.admin)"
-              mat-menu-item
+      <button mat-menu-item
               (click)="onStandby()">
         <mat-icon svgIcon="{{ icon.standby }}"></mat-icon>
         <span>{{ 'Standby' | transloco }}</span>
       </button>
-      <button *ngIf="permissions?.role.includes(roles.admin)"
-              mat-menu-item
+      <button mat-menu-item
               (click)="onShutdown()">
         <mat-icon svgIcon="{{ icon.shutdown }}"></mat-icon>
         <span>{{ 'Shutdown' | transloco }}</span>
