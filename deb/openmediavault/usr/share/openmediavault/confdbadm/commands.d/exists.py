@@ -56,6 +56,7 @@ class Command(
 
 
 if __name__ == "__main__":
+    sys.argv.insert(1, "exists")
     command = Command()
     rc = command.execute(*sys.argv)
     sys.exit(rc)

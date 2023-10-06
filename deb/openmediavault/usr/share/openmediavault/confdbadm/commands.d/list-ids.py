@@ -56,6 +56,7 @@ class Command(
 
 
 if __name__ == "__main__":
+    sys.argv.insert(1, "list-ids")
     command = Command()
     rc = command.execute(*sys.argv)
     sys.exit(rc)

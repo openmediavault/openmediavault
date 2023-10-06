@@ -118,6 +118,7 @@ class Command(
 
 
 if __name__ == "__main__":
+    sys.argv.insert(1, "migrate")
     command = Command()
     rc = command.execute(*sys.argv)
     sys.exit(rc)
