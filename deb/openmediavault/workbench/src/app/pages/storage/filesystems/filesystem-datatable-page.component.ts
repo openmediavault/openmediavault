@@ -205,6 +205,16 @@ export class FilesystemDatatablePageComponent implements OnInit {
       },
       {
         template: 'edit',
+        enabledConstraints: {
+          minSelected: 1,
+          maxSelected: 1,
+          constraint: [
+            // Enable button if the file system has a `/etc/fstab` entry.
+            // This is because monitoring the warning threshold is only
+            // possible for mounted file systems.
+            { operator: 'truthy', arg0: { prop: 'propfstab' } }
+          ]
+        },
         execute: {
           type: 'url',
           url: '/storage/filesystems/edit/{{ _selected[0].canonicaldevicefile | encodeuricomponent }}'
