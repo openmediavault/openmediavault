@@ -48,7 +48,7 @@ inherit permissions = {{ share.inheritpermissions | to_bool | yesno }}
 ea support = {{ share.easupport | to_bool | yesno }}
 store dos attributes = {{ share.storedosattributes | to_bool | yesno }}
 {%- if share.transportencryption | to_bool %}
-server smb encrypt = required
+smb encrypt = required
 {%- endif %}
 {%- set vfs_objects = vfs_objects.split(' ') %}
 {%- if share.audit | to_bool %}
