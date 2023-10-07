@@ -32,7 +32,7 @@ msgid "Open UI"
 msgstr "Benutzeroberfläche öffnen"
 
 msgid "OwnTone"
-msgstr ""
+msgstr "OwnTone"
 
 msgid "Password"
 msgstr "Passwort"
@@ -47,12 +47,13 @@ msgid "Shared folder"
 msgstr "Freigegebene Ordner"
 
 msgid "The 'admin' password to access the web interface."
-msgstr ""
+msgstr "Das 'admin' Passwort für den Zugriff auf die Weboberfläche."
 
 msgid ""
 "The location of the media files to share. Make sure the user "
 "<em>owntone</em> or group <em>users</em> can access the files."
-msgstr ""
+msgstr "Der Speicherort der freizugebenden Mediendateien. Stellen Sie sicher, dass der Benutzer "
+"<em>owntone</em> oder Gruppe <em>users</em> auf die Daten zugreifen können."
 
 msgid "The name of the library as displayed by the clients."
 msgstr "Name der Bibliothek die den Clients angezeigt werden soll."
@@ -61,7 +62,7 @@ msgid "The password to access the library."
 msgstr "Das Passwort für den Zugriff auf die Bibliothek."
 
 msgid "Updated OwnTone settings."
-msgstr ""
+msgstr "OwnTone Einstellungen aktualisiert."
 
 msgid "Web interface"
 msgstr "Webschnittstelle"
