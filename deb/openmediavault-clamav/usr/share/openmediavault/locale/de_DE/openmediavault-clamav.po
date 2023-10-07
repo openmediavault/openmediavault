@@ -46,7 +46,7 @@ msgid "Create"
 msgstr "Erstellen"
 
 msgid "Created on-access scan."
-msgstr ""
+msgstr "On-access scan erstellt."
 
 msgid "Created scheduled scan."
 msgstr "Geplante Aufgabe erstellt."
@@ -285,7 +285,7 @@ msgid "Tuesday"
 msgstr "Dienstag"
 
 msgid "Updated on-access scan."
-msgstr ""
+msgstr "On-access scan aktualisiert."
 
 msgid "Updated scheduled scan."
 msgstr "Geplante Aufgabe aktualisiert."
