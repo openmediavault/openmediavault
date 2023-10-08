@@ -82,7 +82,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 			"prefix" => -1,
 			"prefix6" => -1,
 			"netmask" => "",
-			"netmask6" => -1,
+			"netmask6" => "",
 			"ether" => "",
 			"mtu" => "",
 			"state" => gettext("UNKNOWN"),
@@ -119,7 +119,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 			$obj['prefix'] = !$prefix ? -1 : $prefix;
 			$obj['prefix6'] = !$prefix6 ? -1 : $prefix6;
 			$obj['netmask'] = !$netmask ? "" : $netmask;
-			$obj['netmask6'] = !$netmask6 ? -1 : $netmask6;
+			$obj['netmask6'] = !$netmask6 ? "" : $netmask6;
 			$obj['ether'] = !$ether ? "" : $ether;
 			$obj['mtu'] = $iface->getMTU();
 			$obj['state'] = !$state ? gettext("UNKNOWN") : $state;
