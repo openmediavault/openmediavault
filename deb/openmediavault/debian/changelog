@@ -1,7 +1,7 @@
 openmediavault (6.9.3-1) stable; urgency=low
 
   * Relocate `Logout` option to user settings menu.
-  * Disable the `Edit` button for file systems without stab entry
+  * Disable the `Edit` button for file systems without fstab entry
     (e.g. mergerfs) on the `Storage | File Systems` page.
   * Issue #1605: Wrong syntax of SMB transport encryption option.
 
