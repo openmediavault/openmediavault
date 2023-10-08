@@ -2422,7 +2422,7 @@ msgid "Prefail"
 msgstr "Misslyckas i förtid"
 
 msgid "Prefix address"
-msgstr ""
+msgstr "Prefixadress"
 
 msgid "Prefix length"
 msgstr "Prefixlängd"

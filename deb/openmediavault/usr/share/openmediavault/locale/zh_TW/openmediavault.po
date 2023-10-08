@@ -2421,7 +2421,7 @@ msgid "Prefail"
 msgstr "故障前兆"
 
 msgid "Prefix address"
-msgstr ""
+msgstr "網路前綴"
 
 msgid "Prefix length"
 msgstr "前綴詞長度"
@@ -3582,7 +3582,7 @@ msgstr "此參數控制是否要把名稱開頭是一點的檔案當成隱藏檔
 msgid ""
 "This setting controls the minimum protocol version that the server will "
 "allow the client to use."
-msgstr "此設定控制伺服器與客戶端連線使用的最低協定版本。"
+msgstr "此設定控制伺服器與客戶端連線允許使用的最低協定版本。"
 
 msgid "This specifies what to do if the packet matches."
 msgstr "這指明如果數據包符合時要做什麼。"
@@ -3961,10 +3961,10 @@ msgid "VLAN id"
 msgstr "VLAN 識別碼"
 
 msgid "Valid from"
-msgstr "有效期"
+msgstr "有效期開始"
 
 msgid "Valid to"
-msgstr "有效期到"
+msgstr "有效期結束"
 
 msgid "Value"
 msgstr "數值"

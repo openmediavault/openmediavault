@@ -2425,7 +2425,7 @@ msgid "Prefail"
 msgstr "prefail"
 
 msgid "Prefix address"
-msgstr ""
+msgstr "網路前綴"
 
 msgid "Prefix length"
 msgstr "前缀长度"

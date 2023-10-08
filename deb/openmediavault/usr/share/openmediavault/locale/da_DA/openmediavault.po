@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2022
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2023
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-30 15:48+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2022\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2023\n"
 "Language-Team: Danish (http://app.transifex.com/openmediavault/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -325,7 +325,7 @@ msgid "All"
 msgstr "Alle"
 
 msgid "All Snapshots"
-msgstr ""
+msgstr "Alle Snapshots"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr ""
@@ -424,7 +424,7 @@ msgid "At reboot"
 msgstr "Ved genstart"
 
 msgid "Attach"
-msgstr ""
+msgstr "Tilføj"
 
 msgid "Attributes"
 msgstr "Attributter"
@@ -475,7 +475,7 @@ msgid "Back"
 msgstr "Tilbage"
 
 msgid "Background task"
-msgstr ""
+msgstr "Baggrundsopgave"
 
 msgid "Bad"
 msgstr "Dårlig"
@@ -574,7 +574,7 @@ msgid "CPU Usage"
 msgstr "CPU Forbrug"
 
 msgid "CPU Utilization"
-msgstr ""
+msgstr "CPU forbrug"
 
 msgid "CPU usage"
 msgstr "CPU forbrug"
@@ -1116,7 +1116,7 @@ msgid "Empty now"
 msgstr "Tøm nu"
 
 msgid "Enable NetBIOS"
-msgstr ""
+msgstr "Aktiver NetBIOS"
 
 msgid "Enable Time Machine support for this share."
 msgstr "Aktiver Time Machine understøttelse for denne delte mappe."
@@ -1558,10 +1558,10 @@ msgid "Imported SSL certificate."
 msgstr ""
 
 msgid "Imported groups."
-msgstr ""
+msgstr "Importerede grupper."
 
 msgid "Imported users."
-msgstr ""
+msgstr "Importerede brugere."
 
 msgid "India"
 msgstr "India"
@@ -1588,10 +1588,10 @@ msgid "Install"
 msgstr "Installer"
 
 msgid "Install plugin"
-msgstr ""
+msgstr "Installer plugin"
 
 msgid "Install updates"
-msgstr ""
+msgstr "Installer opdateringer"
 
 msgid "Install updates from"
 msgstr "Installer opdateringer fra"
@@ -1611,7 +1611,7 @@ msgid "Invalid IP address."
 msgstr "Ugyldig IP adresse."
 
 msgid "Invalid NetBIOS name."
-msgstr ""
+msgstr "Ugyldig NetBIOS navn."
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr ""
@@ -1626,7 +1626,7 @@ msgid "Invalid User-Agent."
 msgstr "Ugyldig Bruger-Agent."
 
 msgid "Invalid domain name."
-msgstr ""
+msgstr "Ugyldig domænenavn."
 
 msgid "Invalid group name."
 msgstr ""
@@ -1798,7 +1798,7 @@ msgid "Location"
 msgstr "Placering"
 
 msgid "Log in"
-msgstr ""
+msgstr "Log ind"
 
 msgid "Log level"
 msgstr "Log niveau"
@@ -1916,7 +1916,7 @@ msgid "Members"
 msgstr "Medlemmer"
 
 msgid "Memory"
-msgstr ""
+msgstr "Hukommelse"
 
 msgid "Memory Usage"
 msgstr ""
@@ -1934,7 +1934,7 @@ msgid "Method"
 msgstr "Metode"
 
 msgid "Metric"
-msgstr ""
+msgstr "Metriks"
 
 msgid "Metropolitan France"
 msgstr "Metropolitan France"
@@ -2977,7 +2977,7 @@ msgid "Slovenia"
 msgstr "Slovenia"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Snapshots"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr ""
@@ -3159,10 +3159,10 @@ msgid "System Logs"
 msgstr "System Logs"
 
 msgid "System Time"
-msgstr ""
+msgstr "System Tid"
 
 msgid "System account"
-msgstr ""
+msgstr "System konto"
 
 msgid "System clock synchronization client and server."
 msgstr ""
@@ -3179,7 +3179,7 @@ msgid "System time"
 msgstr "System tid"
 
 msgid "TCP"
-msgstr ""
+msgstr "TCP"
 
 msgid "TCP forwarding"
 msgstr "TCP forwarding"
@@ -3204,7 +3204,7 @@ msgid "Tanzania"
 msgstr "Tanzania"
 
 msgid "Tasks"
-msgstr ""
+msgstr "Opgaver"
 
 msgid "Temperature"
 msgstr "Temperatur"
@@ -3681,7 +3681,7 @@ msgid "U.S. Virgin Islands"
 msgstr "U.S. Virgin Islands"
 
 msgid "UDP"
-msgstr ""
+msgstr "UDP"
 
 msgid "UID"
 msgstr "UID"
@@ -3690,7 +3690,7 @@ msgid "UNKNOWN"
 msgstr "UKENDT"
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Uganda"
 msgstr "Uganda"
@@ -3699,13 +3699,13 @@ msgid "Ukraine"
 msgstr "Ukraine"
 
 msgid "Undo"
-msgstr ""
+msgstr "Fortryd"
 
 msgid "Uninstall"
 msgstr "Afinstaller"
 
 msgid "Uninstall plugin"
-msgstr ""
+msgstr "Afinstaller plugin"
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "Union of Soviet Socialist Republics"
@@ -3751,7 +3751,7 @@ msgid ""
 msgstr "Opdater destinationens udvidede attributter til at være de samme som de lokale."
 
 msgid "Updated NFS settings."
-msgstr ""
+msgstr "Opdater NFS indstillinger."
 
 msgid "Updated NFS share."
 msgstr ""
@@ -4022,7 +4022,7 @@ msgid "Weekly"
 msgstr "Ugenligt"
 
 msgid "Welcome to openmediavault"
-msgstr ""
+msgstr "Velkommen til openmediavault"
 
 msgid "Western Sahara"
 msgstr "Western Sahara"
@@ -4049,7 +4049,7 @@ msgid "Write only"
 msgstr "Skriv kun"
 
 msgid "Write-only"
-msgstr ""
+msgstr "Skrive-beskyttet"
 
 msgid "Write/Execute"
 msgstr "Skriv/Udfør"
@@ -4075,7 +4075,7 @@ msgid "You must apply these changes in order for them to take effect."
 msgstr ""
 
 msgid "Your profile"
-msgstr ""
+msgstr "Din profil"
 
 msgid "Zambia"
 msgstr "Zambia"
@@ -4084,25 +4084,25 @@ msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
 msgid "a day"
-msgstr ""
+msgstr "en dag"
 
 msgid "a few seconds"
-msgstr ""
+msgstr "om få sekunder"
 
 msgid "a minute"
-msgstr ""
+msgstr "et minut"
 
 msgid "a month"
-msgstr ""
+msgstr "en måned"
 
 msgid "a year"
-msgstr ""
+msgstr "et år"
 
 msgid "an hour"
-msgstr ""
+msgstr "en time"
 
 msgid "in %s"
-msgstr ""
+msgstr "om %s"
 
 msgid "n/a"
 msgstr "n/a"

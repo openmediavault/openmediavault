@@ -2419,7 +2419,7 @@ msgid "Prefail"
 msgstr "Prefail"
 
 msgid "Prefix address"
-msgstr ""
+msgstr "Διέυθυνση προθέματος"
 
 msgid "Prefix length"
 msgstr "Μήκος προθέματος"
