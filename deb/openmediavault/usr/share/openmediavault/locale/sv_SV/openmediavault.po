@@ -3132,7 +3132,7 @@ msgid "Suriname"
 msgstr "Surinam"
 
 msgid "Suspend"
-msgstr "Suspendera"
+msgstr "Vänteläge"
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Svalbard och Jan Mayen"

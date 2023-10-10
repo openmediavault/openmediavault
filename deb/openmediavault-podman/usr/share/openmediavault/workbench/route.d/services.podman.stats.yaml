@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/podman/stats"
+  title: _("Statistics")
+  component: omv-services-podman-stats-datatable-page

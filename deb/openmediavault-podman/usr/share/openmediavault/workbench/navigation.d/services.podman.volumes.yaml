@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.podman.volumes"
+  position: 20
+  text: _("Volumes")
+  icon: "mdi:database"
+  url: "/services/podman/volumes"

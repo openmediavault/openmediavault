@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-podman package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-podman\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-11 21:57+0200\n"
+"PO-Revision-Date: 2023-10-11 19:57+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2023\n"
+"Language-Team: Polish (Poland) (https://app.transifex.com/openmediavault/teams/14254/pl_PL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+msgid "Command"
+msgstr "Polecenie"
+
+msgid "Containers"
+msgstr "Kontenery"
+
+msgid "Created"
+msgstr "Utwórz"
+
+msgid "Digest"
+msgstr ""
+
+msgid "Do you really want to restart this container?"
+msgstr "Czy na pewno chcesz uruchomić ponownie ten kontener?"
+
+msgid "Do you really want to restart this pod?"
+msgstr "Czy na pewno chcesz uruchomić ponownie ten POD?"
+
+msgid "Driver"
+msgstr "Sterownik"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Image"
+msgstr "Obraz"
+
+msgid "Images"
+msgstr "Obrazy"
+
+msgid "Infra ID"
+msgstr "Infra ID"
+
+msgid "Inspect"
+msgstr "Sprawdź"
+
+msgid "Logs"
+msgstr "Logi"
+
+msgid "Mount Point"
+msgstr "Punkt montowania"
+
+msgid "Mounts"
+msgstr "Zamontowane"
+
+msgid "Name"
+msgstr "Nazwa"
+
+msgid "Names"
+msgstr "Nazwy"
+
+msgid "Networks"
+msgstr "Sieci"
+
+msgid "Podman"
+msgstr "Podman"
+
+msgid "Pods"
+msgstr "POD-y"
+
+msgid "Ports"
+msgstr "Porty"
+
+msgid "Pull latest"
+msgstr "Pobierz ostatnie"
+
+msgid "Pull latest image"
+msgstr "Pobierz ostatni obraz"
+
+msgid "Repository"
+msgstr "Repozytorium"
+
+msgid "Restart"
+msgstr "Uruchom ponownie"
+
+msgid "Size"
+msgstr "Rozmiar"
+
+msgid "Started"
+msgstr "Uruchomiony"
+
+msgid "State"
+msgstr "Stan"
+
+msgid "Statistics"
+msgstr "Statystyki"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Tag"
+msgstr "TAG"
+
+msgid "Updated Podman settings."
+msgstr "Zaktualizuj ustawienia Podman."
+
+msgid "Used"
+msgstr "Używany"
+
+msgid "Volumes"
+msgstr "Wolumeny"

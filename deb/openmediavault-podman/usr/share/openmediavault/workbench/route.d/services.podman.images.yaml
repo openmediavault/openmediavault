@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/podman/images"
+  title: _("Images")
+  component: omv-services-podman-images-datatable-page

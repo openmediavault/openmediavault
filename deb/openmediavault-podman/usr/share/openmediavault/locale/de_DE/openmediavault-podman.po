@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-podman package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-podman\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-11 21:57+0200\n"
+"PO-Revision-Date: 2023-10-11 19:57+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2023\n"
+"Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Command"
+msgstr "Befehl"
+
+msgid "Containers"
+msgstr "Container"
+
+msgid "Created"
+msgstr ""
+
+msgid "Digest"
+msgstr "Digest"
+
+msgid "Do you really want to restart this container?"
+msgstr "Wollen Sie diesen Container wirklich neu starten?"
+
+msgid "Do you really want to restart this pod?"
+msgstr "Wollen Sie diesen Pod wirklich neu starten?"
+
+msgid "Driver"
+msgstr "Treiber"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Image"
+msgstr "Abbild"
+
+msgid "Images"
+msgstr "Bilder"
+
+msgid "Infra ID"
+msgstr "Infra ID"
+
+msgid "Inspect"
+msgstr "Prüfen"
+
+msgid "Logs"
+msgstr "Protokolle"
+
+msgid "Mount Point"
+msgstr "Einhängepunkt"
+
+msgid "Mounts"
+msgstr "Einhängepunkte"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Names"
+msgstr "Namen"
+
+msgid "Networks"
+msgstr "Netzwerke"
+
+msgid "Podman"
+msgstr "Podman"
+
+msgid "Pods"
+msgstr "Pods"
+
+msgid "Ports"
+msgstr "Ports"
+
+msgid "Pull latest"
+msgstr ""
+
+msgid "Pull latest image"
+msgstr "Aktuelles Abbild ziehen"
+
+msgid "Repository"
+msgstr "Repository"
+
+msgid "Restart"
+msgstr "Neustart"
+
+msgid "Size"
+msgstr "Größe"
+
+msgid "Started"
+msgstr "Gestartet"
+
+msgid "State"
+msgstr "Zustand"
+
+msgid "Statistics"
+msgstr "Statistiken"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Tag"
+msgstr "Etikett"
+
+msgid "Updated Podman settings."
+msgstr "Aktualisierte Podman-Einstellungen."
+
+msgid "Used"
+msgstr "Benutzt"
+
+msgid "Volumes"
+msgstr "Volumes"

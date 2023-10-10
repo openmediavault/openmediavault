@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-podman package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Jonatan Nyberg, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-podman\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-11 21:57+0200\n"
+"PO-Revision-Date: 2023-10-11 19:57+0000\n"
+"Last-Translator: Jonatan Nyberg, 2023\n"
+"Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Command"
+msgstr "Kommando"
+
+msgid "Containers"
+msgstr "Behållare"
+
+msgid "Created"
+msgstr "Skapad"
+
+msgid "Digest"
+msgstr ""
+
+msgid "Do you really want to restart this container?"
+msgstr "Vill du verkligen starta om den här behållaren?"
+
+msgid "Do you really want to restart this pod?"
+msgstr "Vill du verkligen starta om den här podden?"
+
+msgid "Driver"
+msgstr "Drivrutin"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Image"
+msgstr "Bild"
+
+msgid "Images"
+msgstr "Bilder"
+
+msgid "Infra ID"
+msgstr "Infra ID"
+
+msgid "Inspect"
+msgstr "Inspektera"
+
+msgid "Logs"
+msgstr "Loggar"
+
+msgid "Mount Point"
+msgstr "Monteringspunkt"
+
+msgid "Mounts"
+msgstr "Monteringar"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "Names"
+msgstr "Namn"
+
+msgid "Networks"
+msgstr "Nätverk"
+
+msgid "Podman"
+msgstr "Podman"
+
+msgid "Pods"
+msgstr "Poddar"
+
+msgid "Ports"
+msgstr "Portar"
+
+msgid "Pull latest"
+msgstr "Hämta senaste"
+
+msgid "Pull latest image"
+msgstr "Hämta senaste bilden"
+
+msgid "Repository"
+msgstr "Förråd"
+
+msgid "Restart"
+msgstr "Starta om"
+
+msgid "Size"
+msgstr "Storlek"
+
+msgid "Started"
+msgstr "Startad"
+
+msgid "State"
+msgstr "Tillstånd"
+
+msgid "Statistics"
+msgstr "Statistik"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Tag"
+msgstr "Tagg"
+
+msgid "Updated Podman settings."
+msgstr "Uppdaterade Podman-inställningar."
+
+msgid "Used"
+msgstr "Använd"
+
+msgid "Volumes"
+msgstr "Volymer"

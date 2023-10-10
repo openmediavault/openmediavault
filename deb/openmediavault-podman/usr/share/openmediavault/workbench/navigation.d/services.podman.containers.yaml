@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.podman.containers"
+  position: 30
+  text: _("Containers")
+  icon: "mdi:train-car-container"
+  url: "/services/podman/containers"

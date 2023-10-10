@@ -1,0 +1,50 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-podman-volumes-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    stateId: 0392f0f6-6816-11ee-a99b-cf2ece8ab700
+    sorters:
+      - dir: asc
+        prop: Image
+    store:
+      proxy:
+        service: Podman
+        get:
+          method: volumeListBg
+          task: true
+    rowId: Name
+    rowEnumFmt: "{{ Name }}"
+    selectionType: multi
+    columns:
+      - name: _("Driver")
+        prop: Name
+        flexGrow: 1
+        hidden: true
+        sortable: true
+      - name: _("Name")
+        prop: Name
+        flexGrow: 1
+        sortable: true
+      - name: _("Mount Point")
+        prop: Mountpoint
+        cellTemplateName: copyToClipboard
+        flexGrow: 1
+        sortable: true
+      - name: _("Created")
+        prop: CreatedAt
+        flexGrow: 1
+        hidden: true
+        sortable: true
+    actions:
+      - type: iconButton
+        icon: search
+        tooltip: _("Inspect")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/podman/volumes/inspect/{{ _selected[0].Name }}"

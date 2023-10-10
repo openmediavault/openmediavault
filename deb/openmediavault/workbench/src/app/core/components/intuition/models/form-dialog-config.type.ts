@@ -16,6 +16,7 @@
  * GNU General Public License for more details.
  */
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
+import { TaskDialogConfig } from '~/app/shared/models/task-dialog-config.type';
 
 export type FormDialogConfig = {
   // Specifies a unique ID for the form.
@@ -50,7 +51,7 @@ export type FormDialogButtonConfig = {
 };
 
 export type FormDialogButtonExecute = {
-  type: 'url' | 'request';
+  type: 'url' | 'request' | 'taskDialog';
   // The URL of the route to be navigated to. This URL can
   // contain tokens that are replaced by the properties of
   // the selected row.
@@ -84,6 +85,15 @@ export type FormDialogButtonExecute = {
     successNotification?: string;
     // Navigate to this URL when the request was successful.
     // The URL will be formatted with the form field values.
+    successUrl?: string;
+  };
+  // Display a dialog that shows the output the given RPC.
+  taskDialog?: {
+    config: TaskDialogConfig;
+    // Navigate to this URL after the dialog has been closed, but only
+    // if the specified request was previously successfully completed.
+    // The URL is formatted with the page context (please see
+    // AbstractPageComponent::pageContext).
     successUrl?: string;
   };
 };

@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/podman/pods/logs/:id"
+  title: "{{ 'Logs' | translate }} @ {{ _routeParams.id | substr(0, 12) }}"
+  component: omv-services-podman-pods-logs-text-page
