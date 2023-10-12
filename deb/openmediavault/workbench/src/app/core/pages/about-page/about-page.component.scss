@@ -65,10 +65,11 @@
       .side-scroller {
         overflow: hidden;
         white-space: nowrap;
+        scroll-behavior: smooth;
 
         .text {
           padding-left: 100%;
-          animation: scroll-left 30s infinite linear;
+          animation: scroll-left 30s infinite linear forwards;
         }
       }
     }
