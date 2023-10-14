@@ -8,6 +8,7 @@
 # mattjes04 <mattjes04@googlemail.com>, 2013
 # mattjes04 <mattjes04@googlemail.com>, 2012
 # Pascal Tippelt <pascal.tippelt@go-eight.de>, 2021
+# Sönke Joppien <soenke.joppien@tutanota.de>, 2023
 # Stephan Steiner, 2014
 # Thomas Melka, 2022
 # Volker Theile <votdev@gmx.de>, 2021-2023
@@ -61,16 +62,16 @@ msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Minimaler Energieverbrauch mit Bereitschaft (Spindown)"
 
 msgid "1 GiB"
-msgstr "1 GiB"
+msgstr ""
 
 msgid "1 MiB"
-msgstr "1 MiB"
+msgstr ""
 
 msgid "1 day"
 msgstr "1 Tag"
 
 msgid "1 min"
-msgstr "1 min"
+msgstr ""
 
 msgid "1 minute"
 msgstr "1 Minute"
@@ -85,13 +86,13 @@ msgid "1 year"
 msgstr "1 Jahr"
 
 msgid "10 MiB"
-msgstr "10 MiB"
+msgstr ""
 
 msgid "10 minutes"
 msgstr "10 Minuten"
 
 msgid "10 years"
-msgstr "10 jahre"
+msgstr "10 Jahre"
 
 msgid "100 MiB"
 msgstr "100 MiB"
@@ -121,10 +122,10 @@ msgid "192 - Intermediate power usage without standby"
 msgstr "192 - Durchschnittlicher Energieverbrauch ohne Bereitschaft"
 
 msgid "2 GiB"
-msgstr "2 GiB"
+msgstr ""
 
 msgid "2 MiB"
-msgstr "2 MiB"
+msgstr ""
 
 msgid "2 days"
 msgstr "2 Tage"
@@ -148,13 +149,13 @@ msgid "240 minutes"
 msgstr "240 Minuten"
 
 msgid "25 MiB"
-msgstr "25 MiB"
+msgstr ""
 
 msgid "25 years"
 msgstr "25 Jahre"
 
 msgid "250 MiB"
-msgstr "250 MiB"
+msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maximale Leistung, maximaler Energieverbrauch"
@@ -187,7 +188,7 @@ msgid "330 minutes"
 msgstr "330 Minuten"
 
 msgid "4 GiB"
-msgstr "4 GiB"
+msgstr ""
 
 msgid "4 days"
 msgstr "4 Tage"
@@ -199,13 +200,13 @@ msgid "4 years"
 msgstr "4 Jahre"
 
 msgid "5 MiB"
-msgstr "5 MiB"
+msgstr ""
 
 msgid "5 days"
 msgstr "5 Tage"
 
 msgid "5 min"
-msgstr "5 min"
+msgstr ""
 
 msgid "5 minutes"
 msgstr "5 Minuten"
@@ -214,10 +215,10 @@ msgid "5 years"
 msgstr "5 Jahre"
 
 msgid "50 MiB"
-msgstr "50 MiB"
+msgstr ""
 
 msgid "500 MiB"
-msgstr "500 MiB"
+msgstr ""
 
 msgid "6 days"
 msgstr "6 Tage"
@@ -232,13 +233,13 @@ msgid "64 - Intermediate power usage with standby"
 msgstr "64 - Durchschnittlicher Energieverbrauch mit Bereitschaft"
 
 msgid "75 MiB"
-msgstr "75 MiB"
+msgstr ""
 
 msgid "750 MiB"
-msgstr "750 MiB"
+msgstr ""
 
 msgid "9 months"
-msgstr "9 Monate"
+msgstr ""
 
 msgid "A maximum of one device can be removed."
 msgstr "Es kann maximal ein Gerät entfernt werden."
@@ -279,7 +280,7 @@ msgid "Access mode"
 msgstr "Zugriffsmodus"
 
 msgid "Act as a WINS server."
-msgstr "Arbeite als WINS Server."
+msgstr "Arbeite als WINS-Server."
 
 msgid ""
 "Acting as a WINS server and using a WINS server are mutually exclusive."
@@ -322,7 +323,7 @@ msgid "Advanced settings"
 msgstr "Erweiterte Einstellungen"
 
 msgid "Afghanistan"
-msgstr "Afghanistan"
+msgstr ""
 
 msgid "Aland Islands"
 msgstr "Åland"
@@ -373,13 +374,13 @@ msgid ""
 msgstr "Eine E-Mail mit der Ausgabe des Befehls (wenn eine Ausgabe erzeugt wurde) wird an den Benutzer gesendet welcher den Job ausgeführt hat."
 
 msgid "Andorra"
-msgstr "Andorra"
+msgstr ""
 
 msgid "Angola"
-msgstr "Angola"
+msgstr ""
 
 msgid "Anguilla"
-msgstr "Anguilla"
+msgstr ""
 
 msgid "Antarctica"
 msgstr "Antarktika"
@@ -397,7 +398,7 @@ msgid "Apply permissions to files and subfolders."
 msgstr "Berechtigungen auf Dateien und Unterordner anwenden."
 
 msgid "April"
-msgstr "April"
+msgstr ""
 
 msgid "Architecture"
 msgstr "Architektur"
@@ -412,16 +413,16 @@ msgid "Armenia"
 msgstr "Armenien"
 
 msgid "Aruba"
-msgstr "Aruba"
+msgstr ""
 
 msgid "Asynchronous I/O"
-msgstr "Asynchrones I/O"
+msgstr "Asynchrone E/A"
 
 msgid "At least four devices are required."
 msgstr "Es werden mindestens vier Geräte benötigt."
 
 msgid "At least one device is required."
-msgstr "Es wird mindestens ein Geräte benötigt."
+msgstr "Es wird mindestens ein Gerät benötigt."
 
 msgid "At least one network interface is required."
 msgstr "Mindestens eine Netzwerkschnittstelle ist erforderlich."
@@ -445,7 +446,7 @@ msgid "Audit file operations"
 msgstr "Dateivorgänge prüfen"
 
 msgid "August"
-msgstr "August"
+msgstr ""
 
 msgid "Australia"
 msgstr "Australien"
@@ -469,7 +470,7 @@ msgid "Authentication required"
 msgstr "Authentifizierung erforderlich"
 
 msgid "Auto"
-msgstr "Auto"
+msgstr ""
 
 msgid "Auto logout"
 msgstr "Automatische Abmeldung"
@@ -493,16 +494,16 @@ msgid "Bad"
 msgstr "Schlecht"
 
 msgid "Bahamas"
-msgstr "Bahamas"
+msgstr ""
 
 msgid "Bahrain"
-msgstr "Bahrain"
+msgstr ""
 
 msgid "Bangladesh"
-msgstr "Bangladesch"
+msgstr ""
 
 msgid "Barbados"
-msgstr "Barbados"
+msgstr ""
 
 msgid "Base path"
 msgstr "Basispfad"
@@ -514,19 +515,19 @@ msgid "Belgium"
 msgstr "Belgien"
 
 msgid "Belize"
-msgstr "Belize"
+msgstr ""
 
 msgid "Benin"
-msgstr "Benin"
+msgstr ""
 
 msgid "Bermuda"
-msgstr "Bermuda"
+msgstr ""
 
 msgid "Bhutan"
-msgstr "Bhutan"
+msgstr ""
 
 msgid "Block layer cache [%s, %s]"
-msgstr "Block layer cache [%s, %s]"
+msgstr "Cache-Layer [%s, %s] blocken"
 
 msgid "Bolivia"
 msgstr "Bolivien"
@@ -568,28 +569,28 @@ msgid "Browseable"
 msgstr "Durchsuchbar"
 
 msgid "Brunei"
-msgstr "Brunei"
+msgstr ""
 
 msgid "Bulgaria"
 msgstr "Bulgarien"
 
 msgid "Burkina Faso"
-msgstr "Burkina Faso"
+msgstr ""
 
 msgid "Burundi"
-msgstr "Burundi"
+msgstr ""
 
 msgid "CPU"
-msgstr "CPU"
+msgstr ""
 
 msgid "CPU Usage"
-msgstr "CPU Auslastung"
+msgstr "CPU-Auslastung"
 
 msgid "CPU Utilization"
-msgstr "CPU Auslastung"
+msgstr "CPU-Auslastung"
 
 msgid "CPU usage"
-msgstr "CPU Auslastung"
+msgstr "CPU-Auslastung"
 
 msgid "Cambodia"
 msgstr "Kambodscha"
@@ -652,10 +653,10 @@ msgid "Checking for new plugins ..."
 msgstr "Prüfe auf neue Erweiterungen ..."
 
 msgid "Chile"
-msgstr "Chile"
+msgstr ""
 
 msgid "China"
-msgstr "China"
+msgstr ""
 
 msgid "Choose"
 msgstr "Wählen"
@@ -673,7 +674,7 @@ msgid "Clear"
 msgstr "Lösche"
 
 msgid "Client"
-msgstr "Client"
+msgstr ""
 
 msgid "Client NetBIOS name"
 msgstr "Client NetBIOS-Name"
@@ -778,7 +779,7 @@ msgid "Copy to clipboard"
 msgstr "In die Zwischenablage kopieren"
 
 msgid "Costa Rica"
-msgstr "Costa Rica"
+msgstr ""
 
 msgid "Country"
 msgstr "Land"
@@ -799,7 +800,7 @@ msgid "Created NFS share."
 msgstr "NFS-Freigabe erstellt."
 
 msgid "Created Rsync server module \"{{ name }}\"."
-msgstr "Rsync Server Modul \"{{ name }}\" erstellt."
+msgstr "Rsync-Server-Modul \"{{ name }}\" erstellt."
 
 msgid "Created Rsync task."
 msgstr "Rsync-Aufgabe erstellt."
@@ -862,10 +863,10 @@ msgid "DHCP"
 msgstr "DHCP"
 
 msgid "DNS servers"
-msgstr "DNS Server"
+msgstr "DNS-Server"
 
 msgid "Daemon"
-msgstr "Daemon"
+msgstr ""
 
 msgid "Daily"
 msgstr "Täglich"
@@ -886,7 +887,7 @@ msgid "Day of week"
 msgstr "Wochentag"
 
 msgid "Debug"
-msgstr "Debug"
+msgstr ""
 
 msgid "December"
 msgstr "Dezember"
@@ -1667,7 +1668,7 @@ msgstr "Israel"
 msgid ""
 "It may take a while to detect the new devices, thus it might be necessary to"
 " reload the table several times. Do you want to proceed?"
-msgstr "Es kann eine Weile dauern, bis die neuen Geräte erkannt werden, daher kann es erforderlich sein, die Tabelle mehrmals neu zu laden. Willst du fortfahren?"
+msgstr "Es kann eine Weile dauern, bis die neuen Geräte erkannt werden, daher kann es erforderlich sein, die Tabelle mehrmals neu zu laden. Wollen Sie fortfahren?"
 
 msgid "Italy"
 msgstr "Italien"
@@ -2398,10 +2399,10 @@ msgid "Poland"
 msgstr "Polen"
 
 msgid "Port"
-msgstr "Port"
+msgstr ""
 
 msgid "Portugal"
-msgstr "Portugal"
+msgstr ""
 
 msgid "Power"
 msgstr ""
@@ -2504,13 +2505,13 @@ msgid "Public key authentication"
 msgstr "Authentifizierung durch öffentliche Schlüssel"
 
 msgid "Puerto Rico"
-msgstr "Puerto Rico"
+msgstr ""
 
 msgid "Pull"
-msgstr "Pull"
+msgstr ""
 
 msgid "Push"
-msgstr "Push"
+msgstr ""
 
 msgid "Qatar"
 msgstr "Katar"
@@ -2519,28 +2520,28 @@ msgid "Quick"
 msgstr "Schnell"
 
 msgid "Quota"
-msgstr "Quota"
+msgstr ""
 
 msgid "RAID 10"
-msgstr "RAID 10"
+msgstr ""
 
 msgid "RAID 2"
-msgstr "RAID 2"
+msgstr ""
 
 msgid "RAID 3"
-msgstr "RAID 3"
+msgstr ""
 
 msgid "RAID 4"
-msgstr "RAID 4"
+msgstr ""
 
 msgid "RAID 5"
-msgstr "RAID 5"
+msgstr ""
 
 msgid "RAID 6"
-msgstr "RAID 6"
+msgstr ""
 
 msgid "RSync server"
-msgstr "Rsync Server"
+msgstr "Rsync-Server"
 
 msgid "Raw value"
 msgstr "Rohwert"
@@ -2561,7 +2562,7 @@ msgid "Read/Write/Execute"
 msgstr "Lesen/Schreiben/Ausführen"
 
 msgid "Reboot"
-msgstr "Neu starten"
+msgstr "Neustarten"
 
 msgid "Recipient"
 msgstr "Empfänger"
@@ -2585,7 +2586,7 @@ msgid "Relative path"
 msgstr "Relativer Pfad"
 
 msgid "Reload"
-msgstr "Neu laden"
+msgstr "Neuladen"
 
 msgid "Remaining"
 msgstr "Verbleibend"
@@ -2645,13 +2646,13 @@ msgid "Row No."
 msgstr "Zeilennummer"
 
 msgid "Rsync"
-msgstr "Rsync"
+msgstr ""
 
 msgid "Rsync - Jobs"
-msgstr "Rsync - Jobs"
+msgstr ""
 
 msgid "Rsync - Server"
-msgstr "Rsync - Server"
+msgstr ""
 
 msgid "Rules"
 msgstr "Regeln"
@@ -2675,7 +2676,7 @@ msgid "Rwanda"
 msgstr "Ruanda"
 
 msgid "S.M.A.R.T."
-msgstr "S.M.A.R.T."
+msgstr ""
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. Überwachung muss für das ausgewählte Laufwerk aktiviert werden."
@@ -2690,19 +2691,19 @@ msgid "SMB/CIFS file, print, and login server for Unix."
 msgstr "SMB/CIFS-Datei-, Druck- und Anmeldeserver für Unix."
 
 msgid "SMTP port"
-msgstr "SMTP Port"
+msgstr "SMTP-Port"
 
 msgid "SMTP server"
-msgstr "SMTP Server"
+msgstr "SMTP-Server"
 
 msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH certificate"
-msgstr "SSH Zertifikat"
+msgstr "SSH-Zertifikat"
 
 msgid "SSH port"
-msgstr "SSH Port"
+msgstr "SSH-Port"
 
 msgid "SSH public key"
 msgstr "Öffentlicher SSH-Schlüssel"
@@ -2711,19 +2712,19 @@ msgid "SSH public keys"
 msgstr "Öffentliche SSH-Schlüssel"
 
 msgid "SSID"
-msgstr "SSID"
+msgstr ""
 
 msgid "SSL"
-msgstr "SSL"
+msgstr ""
 
 msgid "SSL/TLS"
-msgstr "SSL/TLS"
+msgstr ""
 
 msgid "SSL/TLS enabled"
 msgstr "SSL/TLS aktiviert"
 
 msgid "STARTTLS"
-msgstr "STARTTLS"
+msgstr ""
 
 msgid "Saint Helena"
 msgstr "St. Helena"
@@ -2741,10 +2742,10 @@ msgid "Saint Vincent and the Grenadines"
 msgstr "St. Vincent und die Grenadinen"
 
 msgid "Samoa"
-msgstr "Samoa"
+msgstr ""
 
 msgid "San Marino"
-msgstr "San Marino"
+msgstr ""
 
 msgid "Sao Tome and Principe"
 msgstr "Sao Tome und Principe"
