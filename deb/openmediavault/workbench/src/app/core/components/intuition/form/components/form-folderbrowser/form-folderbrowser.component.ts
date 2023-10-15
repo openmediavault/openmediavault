@@ -167,9 +167,7 @@ export class FormFolderbrowserComponent
             );
           }),
           catchError((error) => {
-            if (_.isFunction(error.preventDefault)) {
-              error.preventDefault();
-            }
+            error.preventDefault?.();
             return EMPTY;
           }),
           toArray()

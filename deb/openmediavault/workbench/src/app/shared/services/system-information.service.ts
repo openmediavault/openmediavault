@@ -69,9 +69,7 @@ export class SystemInformationService implements OnDestroy {
             .pipe(
               catchError((error) => {
                 // Do not show an error notification.
-                if (_.isFunction(error.preventDefault)) {
-                  error.preventDefault();
-                }
+                error.preventDefault?.();
                 return EMPTY;
               })
             )

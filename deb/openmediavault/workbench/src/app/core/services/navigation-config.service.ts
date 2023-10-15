@@ -107,9 +107,7 @@ export class NavigationConfigService {
      */
     return this.http.get('./assets/navigation-config.json').pipe(
       catchError((error) => {
-        if (_.isFunction(error.preventDefault)) {
-          error.preventDefault();
-        }
+        error.preventDefault?.();
         return of([]);
       }),
       map((menuItemConfigs: Array<MenuItem>) => {

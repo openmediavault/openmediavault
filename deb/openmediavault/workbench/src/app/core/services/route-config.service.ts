@@ -89,9 +89,7 @@ export class RouteConfigService {
   public load(): Observable<Routes> {
     return this.http.get('./assets/route-config.json').pipe(
       catchError((error) => {
-        if (_.isFunction(error.preventDefault)) {
-          error.preventDefault();
-        }
+        error.preventDefault?.();
         return of([]);
       }),
       map((configs: Array<RouteConfig>) => {

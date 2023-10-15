@@ -17,7 +17,6 @@
  */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import * as _ from 'lodash';
 import { Observable, of, ReplaySubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
@@ -41,9 +40,7 @@ export class MkfsConfigService {
   public load(): Observable<MkfsConfig[]> {
     return this.http.get('./assets/mkfs-config.json').pipe(
       catchError((error) => {
-        if (_.isFunction(error.preventDefault)) {
-          error.preventDefault();
-        }
+        error.preventDefault?.();
         return of([]);
       }),
       tap((logs: Array<MkfsConfig>) => {

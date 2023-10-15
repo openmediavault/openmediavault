@@ -92,9 +92,7 @@ export class UserLocalStorageService {
       })
       .pipe(
         catchError((error) => {
-          if (_.isFunction(error.preventDefault)) {
-            error.preventDefault();
-          }
+          error.preventDefault?.();
           return of({});
         }),
         tap((items: Record<string, string>) => {

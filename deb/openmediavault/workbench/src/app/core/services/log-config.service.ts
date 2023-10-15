@@ -17,7 +17,6 @@
  */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import * as _ from 'lodash';
 import { Observable, of, ReplaySubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
@@ -56,9 +55,7 @@ export class LogConfigService {
   public load(): Observable<LogConfig[]> {
     return this.http.get('./assets/log-config.json').pipe(
       catchError((error) => {
-        if (_.isFunction(error.preventDefault)) {
-          error.preventDefault();
-        }
+        error.preventDefault?.();
         return of([]);
       }),
       tap((logs: Array<LogConfig>) => {

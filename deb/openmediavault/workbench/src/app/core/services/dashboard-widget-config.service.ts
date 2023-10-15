@@ -49,9 +49,7 @@ export class DashboardWidgetConfigService {
   public load(): Observable<DashboardWidgetConfig[]> {
     return this.http.get('./assets/dashboard-widget-config.json').pipe(
       catchError((error) => {
-        if (_.isFunction(error.preventDefault)) {
-          error.preventDefault();
-        }
+        error.preventDefault?.();
         return of([]);
       }),
       map((widgets: Array<DashboardWidgetConfig>) => {

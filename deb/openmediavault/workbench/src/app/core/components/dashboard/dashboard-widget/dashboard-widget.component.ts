@@ -85,9 +85,7 @@ export class DashboardWidgetComponent implements OnInit {
         .pipe(
           catchError((error) => {
             // Do not show an error notification.
-            if (_.isFunction(error.preventDefault)) {
-              error.preventDefault();
-            }
+            error.preventDefault?.();
             this.error = error;
             return EMPTY;
           }),

@@ -30,9 +30,7 @@ class CustomLoader implements TranslocoLoader {
       catchError((error) => {
         // Do not show an error notification and return an empty language
         // dictionary in case of the translation file does not exist.
-        if (_.isFunction(error.preventDefault)) {
-          error.preventDefault();
-        }
+        error.preventDefault?.();
         return of({});
       })
     );

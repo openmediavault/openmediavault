@@ -44,9 +44,7 @@ export function retryDelayed<T>(count?: number, period: number = 1000) {
               () => {
                 const result = i < count + 1;
                 if (result) {
-                  if (_.isFunction(error?.preventDefault)) {
-                    error.preventDefault();
-                  }
+                  error?.preventDefault?.();
                 }
                 return result;
               },

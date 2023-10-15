@@ -18,7 +18,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
-import * as _ from 'lodash';
 import { EMPTY, interval, Subscription } from 'rxjs';
 import { catchError, switchMap, take } from 'rxjs/operators';
 
@@ -137,9 +136,7 @@ export class TopBarComponent {
                 this.rpcService.request('System', 'noop').pipe(
                   catchError((error) => {
                     // Do not show an error notification.
-                    if (_.isFunction(error.preventDefault)) {
-                      error.preventDefault();
-                    }
+                    error.preventDefault?.();
                     // Check if we got a 'HTTP 401 Unauthorized status'.
                     // In that case the request was successful, but
                     // authentication failed => this means the system is
