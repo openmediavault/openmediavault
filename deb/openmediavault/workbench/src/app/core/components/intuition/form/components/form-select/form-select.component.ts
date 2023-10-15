@@ -28,13 +28,17 @@ import { DataStoreService } from '~/app/shared/services/data-store.service';
   styleUrls: ['./form-select.component.scss']
 })
 export class FormSelectComponent extends AbstractFormFieldComponent implements OnInit {
+  public loading = false;
+
   constructor(private dataStoreService: DataStoreService) {
     super();
   }
 
   ngOnInit(): void {
     super.ngOnInit();
+    this.loading = true;
     this.dataStoreService.load(this.config.store).subscribe(() => {
+      this.loading = false;
       if (this.config.hasEmptyOption) {
         const item = {};
         _.set(item, this.config.valueField, '');

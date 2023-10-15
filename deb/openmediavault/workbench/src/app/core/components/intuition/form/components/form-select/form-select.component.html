@@ -6,10 +6,23 @@
               [multiple]="config.multiple"
               [required]="config.validators?.required"
               (selectionChange)="onSelectionChange($event)">
-    <mat-option *ngFor="let option of config.store.data"
-                [value]="option[config.valueField]">
-      {{ option[config.textField] | transloco }}
-    </mat-option>
+    <ng-container *ngIf="!loading; else renderLoading">
+      <mat-option *ngFor="let option of config.store.data"
+                  [value]="option[config.valueField]">
+        {{ option[config.textField] | transloco }}
+      </mat-option>
+    </ng-container>
+    <ng-template #renderLoading>
+      <mat-option disabled>
+        <div class="omv-display-flex omv-flex-row omv-align-items-center omv-align-content-center omv-justify-content-between">
+          <span>{{ 'Loading ...' | transloco }}</span>
+          <mat-icon *ngIf="loading"
+                    class="omv-icon-rotate-360-infinite"
+                    svgIcon="mdi:loading">
+          </mat-icon>
+        </div>
+      </mat-option>
+    </ng-template>
   </mat-select>
   <mat-error *ngIf="formGroup.invalid">
     <span *ngIf="formGroup.hasError('required', config.name)">

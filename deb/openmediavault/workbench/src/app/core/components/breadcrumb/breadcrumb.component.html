@@ -13,6 +13,7 @@
        [ngClass]="{'loading': breadcrumb.loading}">
       <span *ngIf="!breadcrumb.loading">{{ breadcrumb.text | transloco }}</span>
       <mat-icon *ngIf="breadcrumb.loading"
+                class="omv-icon-rotate-360-infinite"
                 svgIcon="mdi:loading">
       </mat-icon>
     </a>
@@ -21,6 +22,7 @@
        [ngClass]="{'loading': breadcrumb.loading}">
       <span *ngIf="!breadcrumb.loading">{{ breadcrumb.text | transloco }}</span>
       <mat-icon *ngIf="breadcrumb.loading"
+                class="omv-icon-rotate-360-infinite"
                 svgIcon="mdi:loading">
       </mat-icon>
     </a>

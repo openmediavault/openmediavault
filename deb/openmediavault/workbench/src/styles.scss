@@ -567,6 +567,10 @@ $omv-dark-theme: mat.define-dark-theme(
   justify-content: center;
 }
 
+.omv-justify-content-between {
+  justify-content: space-between;
+}
+
 .omv-justify-content-end {
   justify-content: flex-end;
 }
@@ -933,6 +937,16 @@ $omv-dark-theme: mat.define-dark-theme(
   }
 }
 
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Icon
 .omv-icon-sm {
@@ -945,6 +959,10 @@ $omv-dark-theme: mat.define-dark-theme(
   height: 2.5rem !important;
   width: 2.5rem !important;
   flex-shrink: 0;
+}
+
+.omv-icon-rotate-360-infinite {
+  animation: rotate-360 1s infinite linear;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1029,14 +1047,4 @@ img.loading {
   animation-iteration-count: infinite;
   animation-name: loading-spinner;
   animation-timing-function: linear;
-}
-
-@keyframes loading-spinner {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
