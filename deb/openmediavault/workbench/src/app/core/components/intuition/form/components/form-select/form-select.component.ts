@@ -18,6 +18,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import * as _ from 'lodash';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
@@ -37,15 +39,23 @@ export class FormSelectComponent extends AbstractFormFieldComponent implements O
   ngOnInit(): void {
     super.ngOnInit();
     this.loading = true;
-    this.dataStoreService.load(this.config.store).subscribe(() => {
-      this.loading = false;
-      if (this.config.hasEmptyOption) {
-        const item = {};
-        _.set(item, this.config.valueField, '');
-        _.set(item, this.config.textField, this.config.emptyOptionText);
-        this.config.store.data.unshift(item);
-      }
-    });
+    this.dataStoreService
+      .load(this.config.store)
+      .pipe(
+        catchError((error) => {
+          this.loading = false;
+          return throwError(error);
+        })
+      )
+      .subscribe(() => {
+        this.loading = false;
+        if (this.config.hasEmptyOption) {
+          const item = {};
+          _.set(item, this.config.valueField, '');
+          _.set(item, this.config.textField, this.config.emptyOptionText);
+          this.config.store.data.unshift(item);
+        }
+      });
 
     const control = this.formGroup.get(this.config.name);
     control.valueChanges.subscribe((value) => {
