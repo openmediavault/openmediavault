@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.podman.images"
+  position: 10
+  text: _("Images")
+  icon: "mdi:image-multiple"
+  url: "/services/podman/images"

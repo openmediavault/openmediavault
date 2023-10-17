@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/podman/images/inspect/:id"
+  title: "{{ 'Inspect' | translate }} @ {{ _routeParams.id | substr(0, 12) }}"
+  component: omv-services-podman-images-inspect-text-page

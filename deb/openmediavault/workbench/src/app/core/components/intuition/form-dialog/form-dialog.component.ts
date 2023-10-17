@@ -29,10 +29,12 @@ import {
   FormDialogButtonConfig,
   FormDialogConfig
 } from '~/app/core/components/intuition/models/form-dialog-config.type';
-import { format, formatDeep } from '~/app/functions.helper';
+import { format, formatDeep, isFormatable } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
+import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
+import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
@@ -55,6 +57,7 @@ export class FormDialogComponent {
 
   constructor(
     private blockUiService: BlockUiService,
+    private dialogService: DialogService,
     private router: Router,
     private rpcService: RpcService,
     private notificationService: NotificationService,
@@ -69,6 +72,7 @@ export class FormDialogComponent {
    * Sets the form values.
    *
    * @param values The values to be set.
+   * @param markAsPristine Mark the form as pristine. Defaults to `true`.
    */
   setFormValues(values: FormValues, markAsPristine = true): void {
     this.form.formGroup.patchValue(values);
@@ -156,7 +160,7 @@ export class FormDialogComponent {
           .subscribe(() => {
             // Close dialog on success only, so the user can change the
             // data in case of an error without entering the form data
-            // from scratch.
+            // again from scratch.
             this.matDialogRef.close(dialogResult);
             // Display a notification?
             if (_.isString(request.successNotification)) {
@@ -172,6 +176,34 @@ export class FormDialogComponent {
               this.router.navigateByUrl(successUrl);
             }
           });
+        break;
+      case 'taskDialog':
+        const taskDialog = _.cloneDeep(buttonConfig.execute.taskDialog);
+        // Process tokenized configuration properties.
+        _.forEach(['request.params'], (path) => {
+          const value = _.get(taskDialog.config, path);
+          if (isFormatable(value)) {
+            _.set(taskDialog.config, path, formatDeep(value, values));
+          }
+        });
+        const dialog = this.dialogService.open(TaskDialogComponent, {
+          width: _.get(taskDialog.config, 'width', '75%'),
+          data: _.omit(taskDialog.config, ['width'])
+        });
+        // Navigate to the specified URL if pressed button returns `true`.
+        dialog.afterClosed().subscribe((res) => {
+          if (res) {
+            // Close dialog on success only, so the user can change the
+            // data in case of an error without entering the form data
+            // again from scratch.
+            this.matDialogRef.close(dialogResult);
+            // Navigate to a specified URL?
+            if (_.isString(taskDialog.successUrl)) {
+              const successUrl = format(taskDialog.successUrl, values);
+              this.router.navigateByUrl(successUrl);
+            }
+          }
+        });
         break;
       default:
         this.matDialogRef.close(dialogResult);

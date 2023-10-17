@@ -1,0 +1,16 @@
+Source: openmediavault-podman
+Section: admin
+XB-Plugin-Section: administration
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gettext
+Standards-Version: 3.9.6
+Homepage: http://www.openmediavault.org
+
+Package: openmediavault-podman
+Architecture: all
+Depends: openmediavault (>= 6.9.4), podman
+Priority: optional
+Description: openmediavault Podman plugin
+ Podman (the POD MANager) is a tool for managing containers and images, volumes
+ mounted into those containers, and pods made from groups of containers.

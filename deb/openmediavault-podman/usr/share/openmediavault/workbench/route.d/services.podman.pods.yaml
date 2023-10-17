@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/podman/pods"
+  title: _("Pods")
+  component: omv-services-podman-pods-datatable-page

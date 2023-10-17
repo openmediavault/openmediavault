@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-podman package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# songming <by@songming.me>, 2023
+# 黃柏諺 <s8321414@gmail.com>, 2023
+# kochin <kochinc@outlook.com>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-podman\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-11 21:57+0200\n"
+"PO-Revision-Date: 2023-10-11 19:57+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2023\n"
+"Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Command"
+msgstr "指令"
+
+msgid "Containers"
+msgstr "容器"
+
+msgid "Created"
+msgstr "建立於"
+
+msgid "Digest"
+msgstr "概要"
+
+msgid "Do you really want to restart this container?"
+msgstr "您確定要重新啟動此容器嗎？"
+
+msgid "Do you really want to restart this pod?"
+msgstr "您確定要重新啟動這個 pod 嗎？"
+
+msgid "Driver"
+msgstr "驅動程式"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Image"
+msgstr "鏡像"
+
+msgid "Images"
+msgstr "鏡像"
+
+msgid "Infra ID"
+msgstr "Infra ID"
+
+msgid "Inspect"
+msgstr "檢查"
+
+msgid "Logs"
+msgstr "日誌"
+
+msgid "Mount Point"
+msgstr "掛載點"
+
+msgid "Mounts"
+msgstr "掛載"
+
+msgid "Name"
+msgstr "名稱"
+
+msgid "Names"
+msgstr "名稱"
+
+msgid "Networks"
+msgstr "網路"
+
+msgid "Podman"
+msgstr "Podman"
+
+msgid "Pods"
+msgstr "Pods"
+
+msgid "Ports"
+msgstr "通訊埠"
+
+msgid "Pull latest"
+msgstr "拉取最新"
+
+msgid "Pull latest image"
+msgstr "拉取最新鏡像"
+
+msgid "Repository"
+msgstr "鏡像庫"
+
+msgid "Restart"
+msgstr "重新啟動"
+
+msgid "Size"
+msgstr "大小"
+
+msgid "Started"
+msgstr "啟動"
+
+msgid "State"
+msgstr "狀態"
+
+msgid "Statistics"
+msgstr "統計"
+
+msgid "Status"
+msgstr "狀況"
+
+msgid "Tag"
+msgstr "標籤"
+
+msgid "Updated Podman settings."
+msgstr "已更新 Podman 設定。"
+
+msgid "Used"
+msgstr "使用中"
+
+msgid "Volumes"
+msgstr "儲存卷"

@@ -1,0 +1,120 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-podman package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-podman\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-11 21:57+0200\n"
+"PO-Revision-Date: 2023-10-11 19:57+0000\n"
+"Language-Team: Russian (Russia) (https://app.transifex.com/openmediavault/teams/14254/ru_RU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+msgid "Command"
+msgstr ""
+
+msgid "Containers"
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "Digest"
+msgstr ""
+
+msgid "Do you really want to restart this container?"
+msgstr ""
+
+msgid "Do you really want to restart this pod?"
+msgstr ""
+
+msgid "Driver"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "Images"
+msgstr ""
+
+msgid "Infra ID"
+msgstr ""
+
+msgid "Inspect"
+msgstr ""
+
+msgid "Logs"
+msgstr ""
+
+msgid "Mount Point"
+msgstr ""
+
+msgid "Mounts"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Names"
+msgstr ""
+
+msgid "Networks"
+msgstr ""
+
+msgid "Podman"
+msgstr ""
+
+msgid "Pods"
+msgstr ""
+
+msgid "Ports"
+msgstr ""
+
+msgid "Pull latest"
+msgstr ""
+
+msgid "Pull latest image"
+msgstr ""
+
+msgid "Repository"
+msgstr ""
+
+msgid "Restart"
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Started"
+msgstr ""
+
+msgid "State"
+msgstr ""
+
+msgid "Statistics"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Tag"
+msgstr ""
+
+msgid "Updated Podman settings."
+msgstr ""
+
+msgid "Used"
+msgstr ""
+
+msgid "Volumes"
+msgstr ""

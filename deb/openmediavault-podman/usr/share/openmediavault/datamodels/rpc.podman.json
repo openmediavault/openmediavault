@@ -1,0 +1,61 @@
+[{
+	"type": "rpc",
+	"id": "rpc.podman.id",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.podman.source",
+	"params": {
+		"type": "object",
+		"properties": {
+			"source": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.podman.volume",
+	"params": {
+		"type": "object",
+		"properties": {
+			"volume": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.podman.name",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.podman.containerStats",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"required": false
+			}
+		}
+	}
+}]

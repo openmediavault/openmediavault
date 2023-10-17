@@ -1714,7 +1714,7 @@ msgid "LBA of first error"
 msgstr "第一個錯誤的 LBA"
 
 msgid "LVM logical volume %s [%s, %s]"
-msgstr "LVM 邏輯磁碟 %s [%s, %s]"
+msgstr "LVM 邏輯儲存卷 %s [%s, %s]"
 
 msgid "Label"
 msgstr "標號"

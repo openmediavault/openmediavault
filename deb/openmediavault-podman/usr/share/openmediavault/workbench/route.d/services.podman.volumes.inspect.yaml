@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/podman/volumes/inspect/:name"
+  title: "{{ 'Inspect' | translate }} @ {{ _routeParams.name }}"
+  component: omv-services-podman-volumes-inspect-text-page

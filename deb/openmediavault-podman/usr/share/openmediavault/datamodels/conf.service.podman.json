@@ -1,0 +1,11 @@
+{
+	"type": "config",
+	"id": "conf.service.podman",
+	"title": "Podman",
+	"queryinfo": {
+		"xpath": "//services/podman",
+		"iterable": false
+	},
+	"properties": {
+	}
+}

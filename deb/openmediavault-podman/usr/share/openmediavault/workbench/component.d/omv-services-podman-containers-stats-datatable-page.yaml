@@ -1,0 +1,18 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-podman-containers-stats-datatable-page
+  extends: omv-services-podman-stats-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 5000
+    stateId: a1c01d8e-6948-11ee-adb3-933bb78fd3a8
+    store:
+      proxy:
+        service: Podman
+        get:
+          method: containerStats
+          params:
+            id: "{{ _routeParams.id }}"
+    selectionType: none
+    actions:

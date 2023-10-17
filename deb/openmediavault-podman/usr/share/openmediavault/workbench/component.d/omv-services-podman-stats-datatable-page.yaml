@@ -1,0 +1,71 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-podman-stats-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 5000
+    stateId: 32eb4820-6939-11ee-8987-df50dd7570cc
+    sorters:
+      - dir: asc
+        prop: name
+    store:
+      proxy:
+        service: Podman
+        get:
+          method: containerStats
+    rowId: id
+    rowEnumFmt: "{{ name }}"
+    selectionType: single
+    columns:
+      - name: _("ID")
+        prop: id
+        flexGrow: 1
+        sortable: true
+      - name: _("Name")
+        prop: name
+        flexGrow: 1
+        sortable: true
+      - name: _("CPU %")
+        prop: cpu_percent
+        flexGrow: 1
+        sortable: true
+      - name: _("Mem Usage / Limit")
+        prop: mem_usage
+        flexGrow: 1
+        sortable: false
+      - name: _("Mem %")
+        prop: mem_percent
+        flexGrow: 1
+        sortable: true
+      - name: _("Network I/O")
+        prop: net_io
+        flexGrow: 1
+        sortable: false
+      - name: _("Block I/O")
+        prop: block_io
+        flexGrow: 1
+        sortable: false
+      - name: _("PIDs")
+        prop: pids
+        flexGrow: 1
+        sortable: true
+    actions:
+      - type: iconButton
+        icon: search
+        tooltip: _("Inspect")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/podman/containers/inspect/{{ _selected[0].id }}"
+      - type: iconButton
+        icon: "mdi:file-document-edit"
+        tooltip: _("Logs")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/podman/containers/logs/{{ _selected[0].id }}"

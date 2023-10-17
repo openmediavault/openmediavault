@@ -86,6 +86,12 @@ source_file = openmediavault-photoprism/usr/share/openmediavault/locale/openmedi
 source_lang = en
 type = PO
 
+[o:openmediavault:p:openmediavault:r:openmediavault-podman]
+file_filter = openmediavault-podman/usr/share/openmediavault/locale/<lang>/openmediavault-podman.po
+source_file = openmediavault-podman/usr/share/openmediavault/locale/openmediavault-podman.pot
+source_lang = en
+type = PO
+
 [o:openmediavault:p:openmediavault:r:openmediavault-route]
 file_filter = openmediavault-route/usr/share/openmediavault/locale/<lang>/openmediavault-route.po
 source_file = openmediavault-route/usr/share/openmediavault/locale/openmediavault-route.pot

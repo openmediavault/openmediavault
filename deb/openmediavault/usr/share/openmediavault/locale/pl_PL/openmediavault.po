@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Cyryl Sochacki <>, 2012
-# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2018,2022
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2018,2022-2023
 # Jacek Niedziółka <>, 2012
 # jacekniedziolka71 <lucas71@interia.pl>, 2012
 # Jakub Górny <jakub@world.pl>, 2012
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-30 15:48+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: jacekniedziolka71 <lucas71@interia.pl>, 2017,2022\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2018,2022-2023\n"
 "Language-Team: Polish (Poland) (http://app.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -762,7 +762,7 @@ msgid "Copy"
 msgstr "Kopiuj"
 
 msgid "Copy permissions"
-msgstr ""
+msgstr "Kopiuj uprawnienia"
 
 msgid "Copy public SSH key"
 msgstr "Kopiuj publiczny klucz SSH"
@@ -834,7 +834,7 @@ msgid "Created wireless network connection."
 msgstr "Utworzono połączenie sieci bezprzewodowej."
 
 msgid "Creation Time"
-msgstr ""
+msgstr "Czas utworzenia"
 
 msgid "Croatia"
 msgstr "Croatia"
@@ -864,7 +864,7 @@ msgid "Daily"
 msgstr "Codziennie"
 
 msgid "Dark mode"
-msgstr ""
+msgstr "Tryb ciemny"
 
 msgid "Dashboard"
 msgstr "Panel"
@@ -1188,7 +1188,7 @@ msgid "Ethiopia"
 msgstr "Ethiopia"
 
 msgid "Events"
-msgstr ""
+msgstr "Zdarzenia"
 
 msgid "Every N day of month"
 msgstr "Każdego N dnia miesiąca"
@@ -1426,7 +1426,7 @@ msgid "Help"
 msgstr "Pomoc"
 
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernacja"
 
 msgid "Hide"
 msgstr "Ukryj"
@@ -2403,7 +2403,7 @@ msgid "Power Management"
 msgstr "Zarządzanie zasilaniem"
 
 msgid "Power Off"
-msgstr ""
+msgstr "Wyłączony"
 
 msgid "Power button"
 msgstr "Przycisk zasilania"
@@ -2415,7 +2415,7 @@ msgid "Power mode"
 msgstr "Opcje zasilania"
 
 msgid "Powered on"
-msgstr ""
+msgstr "Włączony"
 
 msgid "Pre-release updates"
 msgstr "Aktualizacje przedpremierowe"
@@ -2916,7 +2916,7 @@ msgid "Seychelles"
 msgstr "Seychelles"
 
 msgid "Share"
-msgstr ""
+msgstr "Udostępnij"
 
 msgid "Shared Folders"
 msgstr "Katalogi współdzielone"
@@ -3184,13 +3184,13 @@ msgid "System time"
 msgstr "Czas systemowy"
 
 msgid "TCP"
-msgstr ""
+msgstr "TCP"
 
 msgid "TCP forwarding"
 msgstr "Przekazywanie TCP"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tagi"
 
 msgid "Taiwan"
 msgstr "Taiwan"
