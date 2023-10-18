@@ -1,6 +1,7 @@
 openmediavault (6.9.4-1) stable; urgency=low
 
-  * UI enhancements for plugins.
+  * Update locale files.
+  * Various UI enhancements.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 08 Oct 2023 15:35:47 +0200
 

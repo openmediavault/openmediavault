@@ -6,8 +6,8 @@
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
 # Jacek Niedziółka <>, 2022
-# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2022
 # jacekniedziolka71 <lucas71@interia.pl>, 2023
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2023
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: jacekniedziolka71 <lucas71@interia.pl>, 2023\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2023\n"
 "Language-Team: Polish (Poland) (https://app.transifex.com/openmediavault/teams/14254/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,56 +25,56 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 msgid "1 GB"
-msgstr ""
+msgstr "1 GB"
 
 msgid "1 MB"
-msgstr ""
+msgstr "1 MB"
 
 msgid "10 GB"
-msgstr ""
+msgstr "10 GB"
 
 msgid "10 MB"
-msgstr ""
+msgstr "10 MB"
 
 msgid "100 GB"
-msgstr ""
+msgstr "100 GB"
 
 msgid "100 MB"
-msgstr ""
+msgstr "100 MB"
 
 msgid "25 GB"
-msgstr ""
+msgstr "25 GB"
 
 msgid "25 MB"
-msgstr ""
+msgstr "25 MB"
 
 msgid "250 MB"
-msgstr ""
+msgstr "250 MB"
 
 msgid "5 GB"
-msgstr ""
+msgstr "5 GB"
 
 msgid "5 MB"
-msgstr ""
+msgstr "5 MB"
 
 msgid "50 GB"
-msgstr ""
+msgstr "50 GB"
 
 msgid "50 MB"
-msgstr ""
+msgstr "50 MB"
 
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 msgid "Application data"
-msgstr ""
+msgstr "Dane aplikacji"
 
 msgid "Certificate"
 msgstr "Certyfikat"
 
 msgid ""
 "Disable password authentication, WebDAV, and the advanced settings page."
-msgstr ""
+msgstr "Wyłącz uwierzytelnianie się hasłem do WebDAV i do strony ustawień."
 
 msgid "Disabled"
 msgstr "Wyłączony"
@@ -83,7 +83,7 @@ msgid "Enabled"
 msgstr "Właczony"
 
 msgid "Filesize limit"
-msgstr ""
+msgstr "Limit rozmiaru pliku"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -91,7 +91,7 @@ msgid ""
 msgstr ""
 
 msgid "Images"
-msgstr ""
+msgstr "Obrazy"
 
 msgid "Import"
 msgstr "Import"
@@ -100,7 +100,7 @@ msgid "Open UI"
 msgstr "Otwórz interfejs użytkownika"
 
 msgid "PhotoPrism"
-msgstr ""
+msgstr "PhotoPrism"
 
 msgid "Port"
 msgstr "Port"
@@ -123,13 +123,13 @@ msgid ""
 msgstr ""
 
 msgid "The location where to store the application data."
-msgstr ""
+msgstr "Lokalizacja gdzie będą przechowywane pliki."
 
 msgid "The maximum size of media files."
-msgstr ""
+msgstr "Maksymalny rozmiar plików"
 
 msgid "Updated PhotoPrism settings."
-msgstr ""
+msgstr "Zaktualizuj ustawienia PhotoPrism"
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."

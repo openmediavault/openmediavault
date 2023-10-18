@@ -259,7 +259,7 @@ msgid "Sunday"
 msgstr "Niedziela"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tagi"
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "Pole powinno zawierać * lub listę wartości oddzieloną przecinkami ."

@@ -2500,7 +2500,7 @@ msgid "Pull"
 msgstr "拉取"
 
 msgid "Push"
-msgstr "推給"
+msgstr "推送"
 
 msgid "Qatar"
 msgstr "卡達"
