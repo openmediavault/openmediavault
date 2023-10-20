@@ -2,6 +2,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -31,6 +32,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 @NgModule({
   exports: [
+    MatAutocompleteModule,
     MatBadgeModule,
     MatButtonModule,
     MatButtonToggleModule,

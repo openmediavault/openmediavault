@@ -17,7 +17,29 @@
          [autocomplete]="config.autocomplete"
          [required]="config.validators?.required"
          [minlength]="config.validators?.minLength"
-         [maxlength]="config.validators?.maxLength">
+         [maxlength]="config.validators?.maxLength"
+         [matAutocomplete]="autocomplete"
+         [matAutocompleteDisabled]="!config.suggestions">
+  <mat-autocomplete #autocomplete="matAutocomplete"
+                    autoActiveFirstOption>
+    <ng-container *ngIf="!loading; else renderLoading">
+      <mat-option *ngFor="let option of filteredOptions$ | async"
+                  [value]="option[config.valueField]">
+        {{ option[config.textField] | transloco }}
+      </mat-option>
+    </ng-container>
+    <ng-template #renderLoading>
+      <mat-option disabled>
+        <div class="omv-display-flex omv-flex-row omv-align-items-center omv-align-content-center omv-justify-content-between">
+          <span>{{ 'Loading ...' | transloco }}</span>
+          <mat-icon *ngIf="loading"
+                    class="omv-icon-rotate-360-infinite"
+                    svgIcon="mdi:loading">
+          </mat-icon>
+        </div>
+      </mat-option>
+    </ng-template>
+  </mat-autocomplete>
   <mat-icon *ngIf="config.hasCopyToClipboardButton"
             matSuffix
             matTooltip="{{ 'Copy to clipboard' | transloco }}"

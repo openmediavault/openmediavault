@@ -18,10 +18,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import * as _ from 'lodash';
-import { throwError } from 'rxjs';
+import { Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
+import { Unsubscribe } from '~/app/decorators';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 
 @Component({
@@ -30,6 +31,9 @@ import { DataStoreService } from '~/app/shared/services/data-store.service';
   styleUrls: ['./form-select.component.scss']
 })
 export class FormSelectComponent extends AbstractFormFieldComponent implements OnInit {
+  @Unsubscribe()
+  private subscriptions = new Subscription();
+
   public loading = false;
 
   constructor(private dataStoreService: DataStoreService) {
@@ -38,6 +42,24 @@ export class FormSelectComponent extends AbstractFormFieldComponent implements O
 
   ngOnInit(): void {
     super.ngOnInit();
+    this.doLoadStore();
+
+    const control = this.formGroup.get(this.config.name);
+    this.subscriptions.add(
+      control.valueChanges.subscribe((value) => {
+        this.config.value = value;
+      })
+    );
+  }
+
+  onSelectionChange(event: MatSelectChange): void {
+    if (_.isFunction(this.config.selectionChange)) {
+      const value = _.clone(event.value);
+      this.config.selectionChange(value);
+    }
+  }
+
+  private doLoadStore(): void {
     this.loading = true;
     this.dataStoreService
       .load(this.config.store)
@@ -56,17 +78,5 @@ export class FormSelectComponent extends AbstractFormFieldComponent implements O
           this.config.store.data.unshift(item);
         }
       });
-
-    const control = this.formGroup.get(this.config.name);
-    control.valueChanges.subscribe((value) => {
-      this.config.value = value;
-    });
-  }
-
-  onSelectionChange(event: MatSelectChange) {
-    if (_.isFunction(this.config.selectionChange)) {
-      const value = _.clone(event.value);
-      this.config.selectionChange(value);
-    }
   }
 }
