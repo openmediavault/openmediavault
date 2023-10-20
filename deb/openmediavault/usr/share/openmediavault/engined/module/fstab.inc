@@ -55,12 +55,18 @@ class FSTab extends \OMV\Engine\Module\ServiceAbstract
 		// already be wiped or the device is not accessible anymore, e.g.
 		// an unplugged USB device.
 		$mp = new \OMV\System\MountPoint($params['dir']);
-		if (FALSE === $mp->exists())
+		if ("/" == $mp->getPath()) {
+			throw new \OMV\Exception("Removing the root file system ".
+				"has been aborted");
+		}
+		if (FALSE === $mp->exists()) {
 			return;
+		}
 		// Check whether the file system is mounted and unmount it if
 		// necessary.
-		if (TRUE === $mp->isMounted())
+		if (TRUE === $mp->isMounted()) {
 			$mp->umount(TRUE, TRUE);
+		}
 		// Check whether the directory is still a mount point. If this is
 		// the case, then throw an error, otherwise unlinking the
 		// directory might delete the file systems data. This can happen
