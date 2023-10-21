@@ -22,103 +22,103 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Command"
-msgstr ""
+msgstr "Εντολή"
 
 msgid "Containers"
-msgstr ""
+msgstr "Δοχεία"
 
 msgid "Created"
-msgstr ""
+msgstr "Δημιουργία"
 
 msgid "Digest"
-msgstr ""
+msgstr "Σύνοψη"
 
 msgid "Do you really want to restart this container?"
-msgstr ""
+msgstr "Να γίνει επανεκκίνηση του δοχείου;"
 
 msgid "Do you really want to restart this pod?"
-msgstr ""
+msgstr "Να γίνει επανεκκίνηση της κάψουλας;"
 
 msgid "Driver"
-msgstr ""
+msgstr "Οδηγός"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Image"
-msgstr ""
+msgstr "Εικόνα"
 
 msgid "Images"
 msgstr "Εικόνες"
 
 msgid "Infra ID"
-msgstr ""
+msgstr "Infra ID"
 
 msgid "Inspect"
-msgstr ""
+msgstr "Επιθεώρηση"
 
 msgid "Logs"
-msgstr ""
+msgstr "Καταγραφές"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Σημείο Προσάρτησης"
 
 msgid "Mounts"
-msgstr ""
+msgstr "Προσαρτήσεις"
 
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgid "Names"
-msgstr ""
+msgstr "Ονόματα"
 
 msgid "Networks"
-msgstr ""
+msgstr "Δϊκτυα"
 
 msgid "Podman"
-msgstr ""
+msgstr "Podman"
 
 msgid "Pods"
-msgstr ""
+msgstr "Κάψουλες"
 
 msgid "Ports"
-msgstr ""
+msgstr "Θύρες"
 
 msgid "Pull latest"
-msgstr ""
+msgstr "Λήψη ενημέρωσης"
 
 msgid "Pull latest image"
-msgstr ""
+msgstr "Λήψη της πιο πρόσφατης εικόνας"
 
 msgid "Repository"
-msgstr ""
+msgstr "Αποθετήριο"
 
 msgid "Restart"
-msgstr ""
+msgstr "Επανεκκίνηση"
 
 msgid "Size"
-msgstr ""
+msgstr "Μέγεθος"
 
 msgid "Started"
-msgstr ""
+msgstr "Ξεκίνησε"
 
 msgid "State"
-msgstr ""
+msgstr "Καθεστώς"
 
 msgid "Statistics"
-msgstr ""
+msgstr "Στατιστικά"
 
 msgid "Status"
-msgstr ""
+msgstr "Κατάσταση"
 
 msgid "Tag"
-msgstr ""
+msgstr "Ετικέτα"
 
 msgid "Updated Podman settings."
-msgstr ""
+msgstr "Ενημέρωση ρυθμίσεων Podman."
 
 msgid "Used"
-msgstr ""
+msgstr "Χρήση"
 
 msgid "Volumes"
-msgstr ""
+msgstr "Τόμοι"
