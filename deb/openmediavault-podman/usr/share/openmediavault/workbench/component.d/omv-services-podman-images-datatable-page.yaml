@@ -16,7 +16,7 @@ data:
           method: imageListBg
           task: true
     rowId: Id
-    rowEnumFmt: "{{ Repository }}:{{ Tag }}"
+    rowEnumFmt: "{{ Repository | safe }}:{{ Tag | safe }}"
     selectionType: single
     columns:
       - name: _("ID")
@@ -80,7 +80,7 @@ data:
                 name: repository
                 label: _("Repository")
                 readonly: true
-                value: "{{ _selected[0].Repository }}"
+                value: "{{ _selected[0].Repository | safe }}"
               - type: textInput
                 name: tag
                 label: _("Tag")
