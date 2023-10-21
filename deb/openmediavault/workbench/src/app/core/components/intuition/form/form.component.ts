@@ -179,8 +179,19 @@ export class FormComponent implements AfterViewInit, OnInit {
           break;
         case 'textInput':
           _.defaultsDeep(field, {
-            autocapitalize: 'none'
+            autocapitalize: 'none',
+            valueField: 'value',
+            textField: 'text',
+            suggestions: false,
+            store: {
+              data: []
+            }
           });
+          if (_.isArray(field.store.data) && _.isUndefined(field.store.fields)) {
+            _.merge(field.store, {
+              fields: _.uniq([field.valueField, field.textField])
+            });
+          }
           break;
         case 'textarea':
           _.defaultsDeep(field, {

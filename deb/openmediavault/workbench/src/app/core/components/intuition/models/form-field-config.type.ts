@@ -268,13 +268,15 @@ export type FormFieldConfig = {
   // otherwise `false`.
   trim?: boolean;
 
-  // --- select ---
-  multiple?: boolean;
+  // --- select | textInput ---
   // Defaults to `value`.
   valueField?: string;
   // Defaults to `text`.
   textField?: string;
   store?: DataStore;
+
+  // --- select ---
+  multiple?: boolean;
   // Add an empty option to be able to clear the selection.
   // Defaults to `false`.
   hasEmptyOption?: boolean;
@@ -312,6 +314,11 @@ export type FormFieldConfig = {
 
   // --- tagInput ---
   separator?: string;
+
+  // --- textInput ---
+  // Display a dropdown box with suggestions. This requires
+  // the `store` property to be set. Defaults to `false`.
+  suggestions?: boolean;
 };
 
 export type FormFieldConstraintValidator = {

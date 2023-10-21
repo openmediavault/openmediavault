@@ -16,6 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
@@ -31,7 +32,7 @@ export class FormNumberInputComponent extends AbstractFormFieldComponent {
   }
 
   onCopyToClipboard(): void {
-    const control = this.formGroup.get(this.config.name);
+    const control: AbstractControl = this.formGroup.get(this.config.name);
     this.clipboardService.copy(control.value);
   }
 }

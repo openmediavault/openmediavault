@@ -81,11 +81,12 @@ data:
                 label: _("Repository")
                 readonly: true
                 value: "{{ _selected[0].Repository }}"
-              - type: select
+              - type: textInput
                 name: tag
                 label: _("Tag")
-                placeholder: _("Select tag ...")
+                hint: _("The tag of the image to pull.")
                 value: ""
+                suggestions: true
                 store:
                   proxy:
                     service: Podman
@@ -93,9 +94,9 @@ data:
                       method: imageTags
                       params:
                         name: "{{ _selected[0].Repository }}"
-                sorters:
-                  - dir: asc
-                    prop: value
+                  sorters:
+                    - dir: asc
+                      prop: value
                 validators:
                   required: true
             buttons:
