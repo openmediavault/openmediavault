@@ -1,3 +1,10 @@
+openmediavault-clamav (6.0.6-1) stable; urgency=low
+
+  * Update locale files.
+  * Fix AppArmor issue that prevents ClamAV from starting.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 27 Oct 2023 22:58:29 +0200
+
 openmediavault-clamav (6.0.5-1) stable; urgency=low
 
   * Update locale files.
