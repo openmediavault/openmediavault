@@ -77,6 +77,9 @@ configure_clamd_apparmor_local_profile:
         # execute mode.
         /usr/bin/dash muxr,
 
+        # Allow user clamav to access log files at /var/log/clamav
+        capability chown,
+
 # https://help.ubuntu.com/community/AppArmor#Reload_one_profile
 reload_clamd_apparmor_profile:
   cmd.run:
