@@ -21,13 +21,7 @@
 :host {
   .background {
     background-color: dc.$omv-color-corporate-light;
-    content: url('^./assets/images/benjamin-lehman-GNyjCePVRs8-unsplash.jpg');
-    mix-blend-mode: multiply;
-
-    // animation-name: ken-burns-top-left;
-    // animation-duration: 20s;
-    // animation-iteration-count: 3;
-    filter: hue-rotate(175deg);
+    content: url('^./assets/images/harddisk_on_circuit.jpg');
     object-fit: cover;
   }
 
@@ -108,26 +102,3 @@
     }
   }
 }
-
-// @keyframes ken-burns-top-left {
-//   0% {
-//     opacity: 0;
-//   }
-//
-//   5% {
-//     opacity: 1;
-//   }
-//
-//   95% {
-//     animation-timing-function: ease-in-out;
-//     opacity: 1;
-//     transform: scale3d(1.5, 1.5, 1) translate3d(-20px, -15px, 0);
-//     transform-origin: top left;
-//   }
-//
-//   100% {
-//     opacity: 0;
-//     transform: scale3d(2, 2, 1) translate3d(-20px, -15px, 0);
-//     transform-origin: top left;
-//   }
-// }
