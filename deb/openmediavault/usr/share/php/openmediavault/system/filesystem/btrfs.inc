@@ -292,10 +292,10 @@ class Btrfs extends Filesystem {
 			}, ARRAY_FILTER_USE_KEY)),
 			array_sum(array_filter($used, function($type) {
 				return in_array($type, [ 'Data', 'Data+Metadata' ]);
-			}, ARRAY_FILTER_USE_KEY)),
+			}, ARRAY_FILTER_USE_KEY)) || "1.0",
 			2);
 		// Catch and fix division-by-zero.
-		if (is_null($dataRatio)) {
+		if (is_null($dataRatio) || (0 == bccomp("0", $dataRatio, 2))) {
 			$dataRatio = "1.0";
 		}
 
