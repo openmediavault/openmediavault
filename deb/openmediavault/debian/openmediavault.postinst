@@ -31,6 +31,10 @@ OMV_WEBGUI_ADMINGROUP_NAME=${OMV_WEBGUI_ADMINGROUP_NAME:-"openmediavault-admin"}
 OMV_WEBGUI_FILE_OWNERGROUP_NAME=${OMV_WEBGUI_FILE_OWNERGROUP_NAME:-"openmediavault-webgui"}
 OMV_DPKGARCHIVE_DIR=${OMV_DPKGARCHIVE_DIR:-"/var/cache/openmediavault/archives"}
 
+# Disable the `DeprecationWarning` warnings temporary until SaltStack is
+# adapted to Debian 12.
+export PYTHONWARNINGS="ignore::DeprecationWarning"
+
 case "$1" in
 	configure)
 		########################################################################

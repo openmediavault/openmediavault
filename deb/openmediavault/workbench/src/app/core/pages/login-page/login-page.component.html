@@ -6,7 +6,9 @@
                   secondaryColor="#f8d400">
   </omv-green-rain>
   <div class="omv-position-absolute omv-w-100">
-    <mat-toolbar class="omv-background-color-transparent omv-display-flex omv-justify-content-end">
+    <mat-toolbar class="topbar omv-background-color-transparent omv-display-flex omv-justify-content-between">
+      <button mat-icon-button></button>
+      <div class="logo"></div>
       <button mat-icon-button
               matTooltip="{{ 'Language' | transloco }}"
               [matMenuTriggerFor]="localeMenu">
@@ -15,9 +17,6 @@
         </mat-icon>
       </button>
     </mat-toolbar>
-  </div>
-  <div class="sidebar omv-position-absolute omv-h-100">
-    <div class="logo"></div>
   </div>
   <div class="content omv-flex-fill">
     <omv-intuition-form-page class="omv-h-100 omv-display-flex omv-justify-content-center omv-align-items-center"

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <productinfo>
 	<name>openmediavault</name>
-	<versionname>Shaitan</versionname>
+	<versionname>Sandworm</versionname>
 	<url>https://www.openmediavault.org</url>
 	<copyright>Copyright (C) 2009-2023 by Volker Theile. All rights reserved.</copyright>
 	<packagename>openmediavault</packagename>
-	<distribution>shaitan</distribution>
+	<distribution>sandworm</distribution>
 </productinfo>

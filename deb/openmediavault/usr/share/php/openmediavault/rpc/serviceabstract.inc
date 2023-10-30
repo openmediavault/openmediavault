@@ -500,12 +500,14 @@ abstract class ServiceAbstract {
 		// Read the output from STDOUT/STDERR.
 		while (TRUE) {
 			$read = [];
+			$write = NULL;
+			$except = NULL;
 			// Collect the reading streams to monitor.
 			if (!is_null($pipes[1])) $read[] = $pipes[1];
 			if (!is_null($pipes[2])) $read[] = $pipes[2];
-			if (FALSE === ($r = stream_select($read, $write = NULL,
-			  $except = NULL, 1)))
+			if (FALSE === ($r = stream_select($read, $write, $except, 1))) {
 				break;
+			}
 			foreach ($read as $readk => $readv) {
 				if ($readv == $pipes[1]) { // STDOUT
 					// Read the STDOUT command output.

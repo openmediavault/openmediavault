@@ -17,14 +17,13 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Install before usage:
-# apt-get install pbuilder qemubuilder qemu-user-static
-
 # This packages need to be installed to fix a pbuilder issue.
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=878961
+# https://bugs.launchpad.net/ubuntu/+source/debootstrap/+bug/86536
 FIX_DEBOOTSTRAP_PKG_INSTALL=perl-openssl-defaults
 
-DISTRIBUTION=bullseye
-OMV_DISTRIBUTION=shaitan
+DISTRIBUTION=bookworm
+OMV_DISTRIBUTION=sandworm
 ARCHITECTURE?=amd64
 NAME=$(DISTRIBUTION)-$(ARCHITECTURE)
 MIRROR="http://deb.debian.org/debian/"
@@ -94,4 +93,11 @@ login:
 showresult:
 	xdg-open $(BUILDRESULT)
 
-.PHONY: build clean create login showresult list
+install_deps:
+	sudo apt-get install -y \
+		debian-archive-keyring \
+		pbuilder \
+		qemubuilder \
+		qemu-user-static
+
+.PHONY: build clean create login showresult list install_deps

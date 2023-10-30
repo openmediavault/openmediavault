@@ -26,7 +26,8 @@ sed -i '/-backports/s/^/#/' /etc/apt/sources.list
 
 # Append user 'vagrant' to group 'ssh', otherwise the user is not allowed
 # to log in via SSH.
-usermod --groups ssh --append vagrant
+# https://salsa.debian.org/ssh-team/openssh/-/commit/18da782ebe789d0cf107a550e474ba6352e68911
+# usermod --groups _ssh --append vagrant
 
 export LANG=C.UTF-8
 export DEBIAN_FRONTEND=noninteractive
@@ -39,15 +40,15 @@ wget --quiet --output-document=- https://packages.openmediavault.org/public/arch
 
 # Install openmediavault.
 cat <<EOF >> /etc/apt/sources.list.d/openmediavault.list
-deb http://packages.openmediavault.org/public shaitan main
-# deb http://downloads.sourceforge.net/project/openmediavault/packages shaitan main
+deb http://packages.openmediavault.org/public sandworm main
+# deb http://downloads.sourceforge.net/project/openmediavault/packages sandworm main
 ## Uncomment the following line to add software from the proposed repository.
-# deb http://packages.openmediavault.org/public shaitan-proposed main
-# deb http://downloads.sourceforge.net/project/openmediavault/packages shaitan-proposed main
+# deb http://packages.openmediavault.org/public sandworm-proposed main
+# deb http://downloads.sourceforge.net/project/openmediavault/packages sandworm-proposed main
 ## This software is not part of OpenMediaVault, but is offered by third-party
 ## developers as a service to OpenMediaVault users.
-# deb http://packages.openmediavault.org/public shaitan partner
-# deb http://downloads.sourceforge.net/project/openmediavault/packages shaitan partner
+# deb http://packages.openmediavault.org/public sandworm partner
+# deb http://downloads.sourceforge.net/project/openmediavault/packages sandworm partner
 EOF
 apt-get update
 apt-get --yes --auto-remove --show-upgraded \

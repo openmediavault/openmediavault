@@ -1,6 +1,6 @@
-check process php-fpm with pidfile /run/php/php7.4-fpm.pid
-    start program = "/bin/systemctl start php7.4-fpm"
-    stop program = "/bin/systemctl stop php7.4-fpm"
+check process php-fpm with pidfile /run/php/php8.2-fpm.pid
+    start program = "/bin/systemctl start php8.2-fpm"
+    stop program = "/bin/systemctl stop php8.2-fpm"
     mode active
 {%- if email_config.enable | to_bool and not notification_config.enable | to_bool %}
     noalert {{ email_config.primaryemail }}

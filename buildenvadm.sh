@@ -21,8 +21,8 @@
 
 set -e
 
-BASE_IMAGE=${BASE_IMAGE:-"docker.io/library/debian:bullseye"}
-IMAGE_NAME=${IMAGE_NAME:-"omv6-pkgbuildenv"}
+BASE_IMAGE=${BASE_IMAGE:-"docker.io/library/debian:bookworm"}
+IMAGE_NAME=${IMAGE_NAME:-"omv7-pkgbuildenv"}
 
 usage() {
 	cat <<EOF
@@ -87,18 +87,6 @@ start() {
 }
 
 install() {
-	. /etc/os-release
-
-	case ${ID} in
-	debian)
-		dirname=Debian_${VERSION_ID}
-		sudo echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/${dirname}/ /" | sudo tee /etc/apt/sources.list.d/opensuse_devel_kubic_libcontainers_stable.list
-		sudo curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/${dirname}/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/opensuse_devel_kubic_libcontainers_stable.gpg > /dev/null
-		;;
-	ubuntu)
-		;;
-	esac
-
 	sudo apt-get -y update
 	sudo apt-get -y install buildah podman
 }

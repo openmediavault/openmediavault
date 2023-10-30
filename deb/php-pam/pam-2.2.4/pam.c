@@ -289,6 +289,9 @@ static void php_pam_init_globals(zend_pam_globals *pam_globals)
  */
 PHP_MINIT_FUNCTION(pam)
 {
+#if defined(ZTS) && defined(COMPILE_DL_PAM)
+	ZEND_TSRMLS_CACHE_UPDATE();
+#endif
 	ZEND_INIT_MODULE_GLOBALS(pam, php_pam_init_globals, NULL);
 	REGISTER_INI_ENTRIES();
 	return SUCCESS;
@@ -300,6 +303,17 @@ PHP_MINIT_FUNCTION(pam)
 PHP_MSHUTDOWN_FUNCTION(pam)
 {
 	UNREGISTER_INI_ENTRIES();
+	return SUCCESS;
+}
+/* }}} */
+
+/* {{{ PHP_RINIT_FUNCTION
+ */
+PHP_RINIT_FUNCTION(pam)
+{
+#if defined(ZTS) && defined(COMPILE_DL_PAM)
+	ZEND_TSRMLS_CACHE_UPDATE();
+#endif
 	return SUCCESS;
 }
 /* }}} */
@@ -325,7 +339,7 @@ zend_module_entry pam_module_entry = {
 	ext_functions,
 	PHP_MINIT(pam),
 	PHP_MSHUTDOWN(pam),
-	NULL,	/* Replace with NULL if there's nothing to do at request start */
+	PHP_RINIT(pam),
 	NULL,	/* Replace with NULL if there's nothing to do at request end */
 	PHP_MINFO(pam),
 	PHP_PAM_VERSION,

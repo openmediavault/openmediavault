@@ -1,3 +1,9 @@
+openmediavault-photoprism (7.0-1) unstable; urgency=low
+
+  * Adapt to openmediavault 7 (Sandworm).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Jul 2023 17:08:59 +0200
+
 openmediavault-photoprism (6.0.9-1) stable; urgency=low
 
   * Enhance cleanup after removing the plugin.

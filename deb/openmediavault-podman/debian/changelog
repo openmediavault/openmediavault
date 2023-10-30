@@ -1,3 +1,9 @@
+openmediavault-podman (7.0-1) unstable; urgency=low
+
+  * Adapt to openmediavault 7 (Sandworm).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 27 Oct 2023 23:32:54 +0200
+
 openmediavault-podman (6.0-3) unstable; urgency=low
 
   * Initial release.

@@ -13,7 +13,7 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-@use "sass:color";
+@use 'sass:color';
 @use 'scss/defaults/colors' as dc;
 @use 'scss/defaults/variables' as dv;
 @use 'scss/theme';
@@ -36,17 +36,19 @@
     font-size: 14px;
   }
 
-  .sidebar {
-    background-color: dc.$omv-color-black-translucent;
-    width: 6rem;
+  .topbar {
+    background-color: hsla(
+      color.hue(dc.$omv-color-corporate-default),
+      color.saturation(dc.$omv-color-corporate-default),
+      color.lightness(dc.$omv-color-corporate-default),
+      54%
+    );
+    backdrop-filter: blur(4px);
 
     .logo {
       content: url('^./assets/images/openmediavault_logo.svg');
-      margin: dv.$omv-margin;
       width: auto;
       height: auto;
-      transform-origin: top right;
-      transform: translateX(-100%) rotate(-90deg);
     }
   }
 
@@ -55,13 +57,15 @@
       ::ng-deep .mat-card {
         color: dc.$omv-color-white;
         backdrop-filter: blur(4px);
-        background-color:
-          hsla(
-            color.hue(dc.$omv-color-corporate-default),
-            color.saturation(dc.$omv-color-corporate-default),
-            color.lightness(dc.$omv-color-corporate-default),
-            40%
-          );
+        background-color: dc.$omv-color-black-translucent;
+        border-color: hsla(
+          color.hue(dc.$omv-color-corporate-default),
+          color.saturation(dc.$omv-color-corporate-default),
+          color.lightness(dc.$omv-color-corporate-default),
+          54%
+        );
+        border-style: solid;
+        border-width: 1px;
 
         .mat-form-field {
           .mat-input-element {

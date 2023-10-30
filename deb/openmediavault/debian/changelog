@@ -1,3 +1,9 @@
+openmediavault (7.0-1) unstable; urgency=low
+
+  * Upgrade to Debian 12 (Bookworm).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jul 2023 13:17:39 +0200
+
 openmediavault (6.9.5-1) stable; urgency=low
 
   * Various improvements.
