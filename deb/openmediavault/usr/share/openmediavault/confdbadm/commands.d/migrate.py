@@ -23,11 +23,11 @@ import os
 import os.path
 import re
 import sys
-from distutils.version import LooseVersion
 
 import openmediavault.confdbadm
 import openmediavault.log
 import openmediavault.procutils
+import packaging.version
 
 import openmediavault
 
@@ -41,8 +41,8 @@ class Command(
 
     def argparse_is_version(self, arg):
         try:
-            _ = LooseVersion(arg)
-        except Exception:
+            _ = packaging.version.Version(arg)
+        except packaging.version.InvalidVersion:
             raise argparse.ArgumentTypeError("No valid version")
 
         # Extract the upstream version.
@@ -83,7 +83,7 @@ class Command(
                 continue
             if cmd_args.id != parts[0]:
                 continue
-            if LooseVersion(parts[1]) < LooseVersion(cmd_args.version):
+            if packaging.version.Version(parts[1]) < packaging.version.Version(cmd_args.version):
                 continue
             migrations[parts[1]] = name
         try:
@@ -91,7 +91,7 @@ class Command(
             self.create_backup()
             # Execute the configuration database migration scripts.
             for cmd_args.version in sorted(
-                migrations, key=lambda v: LooseVersion(v)
+                migrations, key=lambda v: packaging.version.Version(v)
             ):
                 name = "%s_%s" % (cmd_args.id, cmd_args.version)
                 path = os.path.join(
