@@ -1,18 +1,30 @@
-@use 'scss/defaults/variables' as dv;
-@use 'scss/theme';
+@use 'sass:color';
+@use 'scss/defaults/colors' as dc;
 
-.omv-shutdown-page {
-  @include theme.background-color-pair('primary');
+:host {
+  .background {
+    content: url('^./assets/images/server.jpg');
+    object-fit: cover;
+  }
 
-  background-image: url('^./assets/images/openmediavault_logo.svg');
-  background-attachment: scroll;
-  background-repeat: no-repeat;
-  background-position: center bottom dv.$omv-margin;
-  height: 100%;
+  .topbar {
+    background-color: hsla(
+      color.hue(dc.$omv-color-corporate-default),
+      color.saturation(dc.$omv-color-corporate-default),
+      color.lightness(dc.$omv-color-corporate-default),
+      54%
+    );
+    backdrop-filter: blur(4px);
 
-  .omv-shutdown-page-icon,
-  .omv-shutdown-page-icon-background {
-    position: absolute;
+    .logo {
+      content: url('^./assets/images/openmediavault_logo.svg');
+      width: auto;
+      height: auto;
+    }
+  }
+
+  .icon,
+  .icon-background {
     width: 4rem;
     height: 4rem;
     top: 50%;
@@ -20,7 +32,7 @@
     transform: translate(-50%, -50%);
   }
 
-  .omv-shutdown-page-icon-background {
+  .icon-background {
     width: 5rem;
     height: 5rem;
   }
