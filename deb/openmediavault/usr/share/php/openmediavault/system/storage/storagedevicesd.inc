@@ -71,24 +71,6 @@ class StorageDeviceSD extends StorageDevice implements SmartInterface {
 	 */
 	public function getSmartDeviceType() {
 		if (TRUE === $this->isUsb()) {
-			// Identify by ID_VENDOR_ID and ID_MODEL_ID.
-			if ($this->hasUdevProperty("ID_VENDOR_ID") &&
-					$this->hasUdevProperty("ID_MODEL_ID")) {
-				$vendorId = $this->getUdevProperty("ID_VENDOR_ID");
-				$modelId = $this->getUdevProperty("ID_MODEL_ID");
-				// ASMedia ASM2362 USB to NVMe bridge
-				// https://www.argon40.com/products/argon-one-m-2-expansion-board-nvme
-				// https://www.smartmontools.org/ticket/1221
-				if (("174c" == $vendorId) && ("2362" == $modelId)) {
-					return "sntasmedia";
-				}
-				// Realtek RTL9210B-CG USB 3.1 GEN2 to PCI EXPRESS GEN3x2/SATA Gen3. BRIDGE
-				// https://www.realtek.com/en/products/connected-media-ics/item/rtl9210b-cg
-				// https://devicehunt.com/view/type/usb/vendor/0BDA/device/9210
-				if (("0bda" == $vendorId) && ("9210" == $modelId)) {
-					return "";
-				}
-			}
 			// Identify by ID_MODEL_ID or `/sys/block/<XXX>/device/model`.
 			$modelMap = [
 				"TR-004 DISK00" => "jmb39x-q,0", // QNAP TR-004
@@ -96,7 +78,7 @@ class StorageDeviceSD extends StorageDevice implements SmartInterface {
 				"TR-004 DISK02" => "jmb39x-q,2",
 				"TR-004 DISK03" => "jmb39x-q,3"
 			];
-			return array_value($modelMap, $this->getModel(), "sat");
+			return array_value($modelMap, $this->getModel(), "");
 		}
 		return "";
 	}
