@@ -122,8 +122,9 @@ class SmartInformation {
 		// Get all available S.M.A.R.T. information.
 		$cmdArgs = [];
 		$cmdArgs[] = "--xall";
-		if (!empty($this->sd->getSmartDeviceType()))
+		if (!empty($this->sd->getSmartDeviceType())) {
 			$cmdArgs[] = sprintf("--device=%s", $this->sd->getSmartDeviceType());
+		}
 		$cmdArgs[] = $this->sd->getDeviceFile();
 		$cmd = new \OMV\System\Process("smartctl", $cmdArgs);
 		$cmd->setRedirect2to1();

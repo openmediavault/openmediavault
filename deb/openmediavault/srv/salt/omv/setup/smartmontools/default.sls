@@ -1,5 +1,3 @@
-#!/usr/bin/bash -l
-#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -18,22 +16,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-#
-# Documentation/Howto:
-# https://www.thomas-krenn.com/de/wiki/Smartmontools_Drive_Database_aktualisieren
-# https://www.endpointdev.com/blog/2013/05/login-shells-in-scripts-called-from-cron/
-MAILTO=""
 
-export LANG=C
-
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
-
-OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED=${OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED:-"yes"}
-
-set -e
-
-if omv_checkyesno "${OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED}"; then
-  omv_syslog_info "Updating smartmontools drive database."
-  update-smart-drivedb -v
-fi
+# Update the smartmontools drive database.
+update_smart_drivedb:
+  cmd.run:
+    - name: update-smart-drivedb -v || true

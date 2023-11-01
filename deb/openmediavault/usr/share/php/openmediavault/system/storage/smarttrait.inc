@@ -63,8 +63,9 @@ trait SmartTrait {
 		$cmdArgs = [];
 		$cmdArgs[] = "--xall";
 		$cmdArgs[] = sprintf("--test=%s", $test);
-		if (!empty($this->getSmartDeviceType()))
+		if (!empty($this->getSmartDeviceType())) {
 			$cmdArgs[] = sprintf("--device=%s", $this->getSmartDeviceType());
+		}
 		$cmdArgs[] = $this->getDeviceFile();
 		$cmd = new \OMV\System\Process("smartctl", $cmdArgs);
 		$cmd->setRedirect2to1();
