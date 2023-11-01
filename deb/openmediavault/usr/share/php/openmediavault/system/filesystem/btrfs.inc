@@ -286,17 +286,17 @@ class Btrfs extends Filesystem {
 		}
 
 		// Data ratio is calculated based only on Data (or Data+Metadata).
-		$dataRatio = bcdiv(
-			array_sum(array_filter($usedRaw, function($type) {
+		$dataRatio = "1.00";
+		$usedDataSum = array_sum(array_filter($used, function($type) {
 				return in_array($type, [ 'Data', 'Data+Metadata' ]);
-			}, ARRAY_FILTER_USE_KEY)),
-			array_sum(array_filter($used, function($type) {
-				return in_array($type, [ 'Data', 'Data+Metadata' ]);
-			}, ARRAY_FILTER_USE_KEY)) || "1.0",
-			2);
-		// Catch and fix division-by-zero.
-		if (is_null($dataRatio) || (0 == bccomp("0", $dataRatio, 2))) {
-			$dataRatio = "1.0";
+			}, ARRAY_FILTER_USE_KEY));
+		if (0 < $usedDataSum) {
+			$dataRatio = bcdiv(
+				array_sum(array_filter($usedRaw, function($type) {
+					return in_array($type, [ 'Data', 'Data+Metadata' ]);
+				}, ARRAY_FILTER_USE_KEY)),
+				$usedDataSum,
+				2);
 		}
 
 		// Calculate the correct device size.
