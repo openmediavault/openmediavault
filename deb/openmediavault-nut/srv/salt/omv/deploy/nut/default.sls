@@ -174,7 +174,7 @@ remove_nut_udev_serialups_rule:
 
 start_nut_driver_service:
   service.running:
-    - name: nut-driver
+    - name: nut-driver-enumerator
     - enable: True
     - watch:
       - file: configure_nut_ups_conf
@@ -232,7 +232,7 @@ stop_nut_server_service:
 
 stop_nut_driver_service:
   service.dead:
-    - name: nut-driver
+    - name: nut-driver-enumerator
     - enable: False
 
 {% endif %}
