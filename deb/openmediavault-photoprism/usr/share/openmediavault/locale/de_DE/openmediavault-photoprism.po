@@ -5,7 +5,7 @@
 # 
 # Translators:
 # warhog <warhog@gmx.de>, 2022
-# Volker Theile <votdev@gmx.de>, 2022
+# Volker Theile <votdev@gmx.de>, 2023
 # 
 #, fuzzy
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2022\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2023\n"
 "Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -133,6 +133,8 @@ msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
 " Please do not forget to change the password immediately."
 msgstr ""
+"Verwenden Sie die Anmeldedaten <em>admin:admin</em> wenn Sie sich zum ersten"
+" Mal anmelden. Bitte vergessen Sie nicht, das Passwort sofort zu ändern."
 
 msgid ""
 "You may optionally mount an import folder from which files can be "

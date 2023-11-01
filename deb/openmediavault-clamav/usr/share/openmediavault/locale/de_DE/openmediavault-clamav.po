@@ -46,7 +46,7 @@ msgid "Create"
 msgstr "Erstellen"
 
 msgid "Created on-access scan."
-msgstr ""
+msgstr "On-Access-Scan erstellt."
 
 msgid "Created scheduled scan."
 msgstr "Geplante Aufgabe erstellt."
@@ -207,7 +207,7 @@ msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
 "daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "Weitere Einzelheiten entnehmen Sie bitte der <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>Hilfeseite</a>."
 
 msgid "Quarantine"
 msgstr "Quarantäne"
@@ -285,7 +285,7 @@ msgid "Tuesday"
 msgstr "Dienstag"
 
 msgid "Updated on-access scan."
-msgstr ""
+msgstr "On-Access-Scan aktualisiert."
 
 msgid "Updated scheduled scan."
 msgstr "Geplante Aufgabe aktualisiert."

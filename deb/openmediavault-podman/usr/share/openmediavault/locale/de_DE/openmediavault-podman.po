@@ -28,7 +28,7 @@ msgid "Containers"
 msgstr "Container"
 
 msgid "Created"
-msgstr ""
+msgstr "Erstellt"
 
 msgid "Digest"
 msgstr "Digest"
@@ -85,7 +85,7 @@ msgid "Ports"
 msgstr "Ports"
 
 msgid "Pull latest"
-msgstr ""
+msgstr "'Latest' ziehen"
 
 msgid "Pull latest image"
 msgstr "Aktuelles Abbild ziehen"
@@ -115,7 +115,7 @@ msgid "Tag"
 msgstr "Etikett"
 
 msgid "Updated Podman settings."
-msgstr "Aktualisierte Podman-Einstellungen."
+msgstr "Podman-Einstellungen aktualisiert."
 
 msgid "Used"
 msgstr "Benutzt"
