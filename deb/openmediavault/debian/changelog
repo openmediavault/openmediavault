@@ -1,4 +1,4 @@
-openmediavault (6.9.6-1) stable; urgency=low
+openmediavault (6.9.6-2) stable; urgency=low
 
   * Issue #1619: Refactor SMART device type detection.
 
