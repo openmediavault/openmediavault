@@ -27,11 +27,6 @@
 {% set include_dir = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR', '/etc/nginx/openmediavault-webgui.d') %}
 {% set config = salt['omv_conf.get']('conf.webadmin') %}
 
-prereq_nginx_certificates:
-  salt.state:
-    - tgt: '*'
-    - sls: omv.deploy.certificates
-
 configure_nginx_site_webgui:
   file.managed:
     - name: "/etc/nginx/sites-available/openmediavault-webgui"

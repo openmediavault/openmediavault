@@ -24,11 +24,6 @@
 {% set script_prefix = salt['pillar.get']('default:OMV_RSYNC_CRONSCRIPT_PREFIX', 'rsync-') %}
 {% set jobs = salt['omv_conf.get']('conf.service.rsync.job') %}
 
-prereq_rsync_certificates:
-  salt.state:
-    - tgt: '*'
-    - sls: omv.deploy.certificates
-
 configure_rsync_cron:
   file.managed:
     - name: "/etc/cron.d/openmediavault-rsync"
