@@ -20,6 +20,7 @@
 {% set dirpath = '/srv/salt' | path_join(tpldir) %}
 
 include:
+  - omv.deploy.monit
 {% for file in salt['file.readdir'](dirpath) | sort %}
 {% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}
   - .{{ file | replace('.sls', '') }}

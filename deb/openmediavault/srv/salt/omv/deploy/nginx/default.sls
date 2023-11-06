@@ -19,12 +19,8 @@
 
 {% set dirpath = '/srv/salt' | path_join(tpldir) %}
 
-prereq_nginx_service_monit:
-  salt.state:
-    - tgt: '*'
-    - sls: omv.deploy.monit
-
 include:
+  - omv.deploy.monit
 {% for file in salt['file.find'](dirpath, iname='*.sls', print='name') | difference(['init.sls', 'default.sls']) | sort %}
   - .{{ file | replace('.sls', '') }}
 {% endfor %}
@@ -49,3 +45,4 @@ monitor_nginx_service:
       - name: nginx
     - require:
       - service: restart_nginx_service
+      - service: reload_monit_service

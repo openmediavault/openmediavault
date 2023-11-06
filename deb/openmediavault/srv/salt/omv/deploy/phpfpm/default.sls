@@ -19,12 +19,8 @@
 
 {% set dirpath = '/srv/salt' | path_join(tpldir) %}
 
-prereq_phpfpm_service_monit:
-  salt.state:
-    - tgt: '*'
-    - sls: omv.deploy.monit
-
 include:
+  - omv.deploy.monit
 {% for file in salt['file.find'](dirpath, iname='*.sls', print='name') | difference(['init.sls', 'default.sls']) | sort %}
   - .{{ file | replace('.sls', '') }}
 {% endfor %}
@@ -48,3 +44,4 @@ monitor_phpfpm_service:
       - name: php-fpm
     - require:
       - service: restart_phpfpm_service
+      - service: reload_monit_service

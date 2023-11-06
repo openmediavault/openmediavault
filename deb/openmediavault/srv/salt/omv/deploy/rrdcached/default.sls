@@ -30,10 +30,8 @@
 {% set flush_interval = salt['pillar.get']('default:OMV_RRDCACHED_FLUSHINTERVAL', '3600') %}
 {% set base_options = salt['pillar.get']('default:OMV_RRDCACHED_BASEOPTIONS', '-B -F -f ' ~ flush_interval) %}
 
-prereq_rrdcached_service_monit:
-  salt.state:
-    - tgt: '*'
-    - sls: omv.deploy.monit
+include:
+  - omv.deploy.monit
 
 configure_default_rrdcached:
   file.managed:
@@ -90,12 +88,15 @@ monitor_rrdcached_service:
       - name: rrdcached
     - require:
       - service: start_rrdcached_service
+      - service: reload_monit_service
 
 {% else %}
 
 unmonitor_rrdcached_service:
   cmd.run:
     - name: monit unmonitor rrdcached || true
+    - require:
+      - service: reload_monit_service
 
 stop_rrdcached_service:
   service.dead:
