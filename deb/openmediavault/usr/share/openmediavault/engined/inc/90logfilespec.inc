@@ -44,21 +44,21 @@ require_once("openmediavault/functions.inc");
   ]]);
 
 // /var/log/daemon.log:
-// Oct 19 04:25:07 openmediavault dhclient: Sending on   Socket/fallback
-// Oct 19 04:25:08 openmediavault wd_keepalive[1164]: stopping watchdog keepalive daemon (5.9)
+// 2023-11-06T20:29:32.934474+01:00 omv7box systemd[1]: Started rsyslog.service - System Logging Service.
+// 2023-11-06T20:31:29.434328+01:00 omv7box dhclient[347]: DHCPREQUEST for 192.168.121.118 on ens6 to 192.168.121.1 port 67
 \OMV\System\LogFileSpec::registerSpecification("daemon", [
   "filename" => "daemon.log",
   "filepath" => "/var/log/daemon.log",
-  "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}[+-]\d{2}:\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
+		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:s.uP"); }
 	  ],
 	  "date" => [
 		  "index" => 1,
 		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"M j G:i:s"));
+			  return strftime("%c", strpdate($v,"Y-m-d*H:i:s.uP"));
 		  }
 	  ],
 	  "hostname" => 2,
@@ -88,21 +88,21 @@ require_once("openmediavault/functions.inc");
   ]]);
 
 // /var/log/messages:
-// Oct 19 04:24:36 openmediavault shutdown[9419]: shutting down for system reboot
-// Oct 19 04:24:49 openmediavault kernel: Kernel logging (proc) stopped.
+// 2023-11-06T20:29:32.934294+01:00 omv7box rsyslogd: imuxsock: Acquired UNIX socket '/run/systemd/journal/syslog' (fd 3) from systemd.  [v8.2302.0]
+// 2023-11-06T20:29:32.934979+01:00 omv7box rsyslogd: [origin software="rsyslogd" swVersion="8.2302.0" x-pid="32556" x-info="https://www.rsyslog.com"] start
 \OMV\System\LogFileSpec::registerSpecification("messages", [
   "filename" => "messages",
   "filepath" => "/var/log/messages",
-  "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}[+-]\d{2}:\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
+		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:s.uP"); }
 	  ],
 	  "date" => [
 		  "index" => 1,
 		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"M j G:i:s"));
+			  return strftime("%c", strpdate($v,"Y-m-d*H:i:s.uP"));
 		  }
 	  ],
 	  "hostname" => 2,
