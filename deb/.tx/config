@@ -50,6 +50,12 @@ source_file = openmediavault-lvm2/usr/share/openmediavault/locale/openmediavault
 source_lang = en
 type = PO
 
+[o:openmediavault:p:openmediavault:r:openmediavault-md]
+file_filter = openmediavault-md/usr/share/openmediavault/locale/<lang>/openmediavault-md.po
+source_file = openmediavault-md/usr/share/openmediavault/locale/openmediavault-md.pot
+source_lang = en
+type = PO
+
 [o:openmediavault:p:openmediavault:r:openmediavault-netatalk]
 file_filter = openmediavault-netatalk/usr/share/openmediavault/locale/<lang>/openmediavault-netatalk.po
 source_file = openmediavault-netatalk/usr/share/openmediavault/locale/openmediavault-netatalk.pot

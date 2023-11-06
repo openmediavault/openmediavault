@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/md/remove/:devicefile"
+  title: _("Remove")
+  editing: true
+  component: omv-storage-md-remove-form-page

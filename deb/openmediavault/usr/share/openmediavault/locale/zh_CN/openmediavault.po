@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2023\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -234,12 +234,6 @@ msgstr "750 MiB"
 msgid "9 months"
 msgstr "9 月"
 
-msgid "A maximum of one device can be removed."
-msgstr "最多一个设备可被移除。"
-
-msgid "A maximum of two device can be removed."
-msgstr "最多两个设备可被移除。"
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -284,9 +278,6 @@ msgstr "动作"
 
 msgid "Add"
 msgstr "添加"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "添加热备/恢复 RAID 设备"
 
 msgid "Address"
 msgstr "地址"
@@ -419,9 +410,6 @@ msgstr "至少需要一個裝置。"
 
 msgid "At least one network interface is required."
 msgstr "至少需要一个网卡。"
-
-msgid "At least three devices are required."
-msgstr "至少需要三台设备。"
 
 msgid "At least two devices are required."
 msgstr "至少需要两台设备。"
@@ -1743,9 +1731,6 @@ msgstr "闪烁一个或多个在特定网口上的 LED，时间单位是秒。"
 msgid "Lesotho"
 msgstr "莱索托"
 
-msgid "Level"
-msgstr "级别"
-
 msgid "Liberia"
 msgstr "利比里亚"
 
@@ -1775,9 +1760,6 @@ msgstr "限制每週"
 
 msgid "Limit yearly"
 msgstr "限制每年"
-
-msgid "Linear"
-msgstr "线性"
 
 msgid "Link"
 msgstr "链接"
@@ -1965,9 +1947,6 @@ msgstr "最低协议版本"
 
 msgid "Minute"
 msgstr "分"
-
-msgid "Mirror"
-msgstr "镜像"
 
 msgid "Missing"
 msgstr "丢失"
@@ -2515,24 +2494,6 @@ msgstr "快速"
 msgid "Quota"
 msgstr "配额"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "RSync 服务器"
 
@@ -2560,9 +2521,6 @@ msgstr "重启"
 msgid "Recipient"
 msgstr "收件人"
 
-msgid "Recover"
-msgstr "恢复"
-
 msgid "Recurse into directories"
 msgstr "递归到目录"
 
@@ -2589,9 +2547,6 @@ msgstr "远程"
 
 msgid "Remote host"
 msgstr "远程主机"
-
-msgid "Remove"
-msgstr "移除"
 
 msgid "Replace"
 msgstr "取代"
@@ -2815,12 +2770,6 @@ msgstr "选择一个用户……"
 msgid "Select devices ..."
 msgstr "选择设备（可多选） ..."
 
-msgid "Select devices to be added to the RAID device."
-msgstr "选择被添加到 RAID 的设备"
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "选择要从 RAID 阵列中删除的设备。"
-
 msgid "Select groups ..."
 msgstr "选择组"
 
@@ -2838,11 +2787,6 @@ msgstr "选择从设备"
 
 msgid "Select the device that will be used to create the file system."
 msgstr "选择用于新建文件系统的设备。"
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "选择将要用于创建 RAID 的设备，通过 USB 接入的设备不会再列表中显示（USB接入不稳定）。"
 
 msgid "Select the devices that will be used to create the file system."
 msgstr "选择要创建文件系统的磁盘。"
@@ -3109,9 +3053,6 @@ msgstr "存储器"
 
 msgid "Store DOS attributes"
 msgstr "存储 DOS 属性"
-
-msgid "Stripe"
-msgstr "条带"
 
 msgid "Success"
 msgstr "成功"

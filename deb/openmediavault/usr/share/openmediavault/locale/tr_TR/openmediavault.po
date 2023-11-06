@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -228,12 +228,6 @@ msgstr "750 MiB"
 msgid "9 months"
 msgstr "9 ay"
 
-msgid "A maximum of one device can be removed."
-msgstr "En fazla bir cihaz kaldırılabilir."
-
-msgid "A maximum of two device can be removed."
-msgstr "En fazla iki cihaz kaldırılabilir."
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -278,9 +272,6 @@ msgstr "Aksiyon"
 
 msgid "Add"
 msgstr "Ekle"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "RAID aygıtına yedek ekle / kurtar"
 
 msgid "Address"
 msgstr "Adres"
@@ -413,9 +404,6 @@ msgstr ""
 
 msgid "At least one network interface is required."
 msgstr "En azından bir ağ arabirimi gereklidir."
-
-msgid "At least three devices are required."
-msgstr "En azından üç aygıt gereklidir."
 
 msgid "At least two devices are required."
 msgstr "En azından iki aygıt gereklidir."
@@ -1737,9 +1725,6 @@ msgstr "Belirli iletişim portunda bir ya da daha fazla LED in saniye cinsinden 
 msgid "Lesotho"
 msgstr "Lesotho"
 
-msgid "Level"
-msgstr "Seviye"
-
 msgid "Liberia"
 msgstr "Liberya"
 
@@ -1769,9 +1754,6 @@ msgstr ""
 
 msgid "Limit yearly"
 msgstr ""
-
-msgid "Linear"
-msgstr "Çizgisel"
 
 msgid "Link"
 msgstr "Link"
@@ -1959,9 +1941,6 @@ msgstr ""
 
 msgid "Minute"
 msgstr "Dakika"
-
-msgid "Mirror"
-msgstr "Yansı"
 
 msgid "Missing"
 msgstr "Kayıp"
@@ -2509,24 +2488,6 @@ msgstr "Hızlı"
 msgid "Quota"
 msgstr "Kota"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "Rsync sunucu"
 
@@ -2554,9 +2515,6 @@ msgstr "Yeniden başlat"
 msgid "Recipient"
 msgstr "Alıcı"
 
-msgid "Recover"
-msgstr "Kurtarma"
-
 msgid "Recurse into directories"
 msgstr "Dizinlere yinele"
 
@@ -2583,9 +2541,6 @@ msgstr "Uzak"
 
 msgid "Remote host"
 msgstr "Uzak sistem"
-
-msgid "Remove"
-msgstr "Kaldır"
 
 msgid "Replace"
 msgstr "Değiştir"
@@ -2809,12 +2764,6 @@ msgstr ""
 msgid "Select devices ..."
 msgstr "Aygıtları seçiniz ..."
 
-msgid "Select devices to be added to the RAID device."
-msgstr ""
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "RAID aygıtından kaldırılacak cihazları seçiniz."
-
 msgid "Select groups ..."
 msgstr ""
 
@@ -2832,11 +2781,6 @@ msgstr ""
 
 msgid "Select the device that will be used to create the file system."
 msgstr ""
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "RAID aygıtını oluşturmak için kulalnılacak aygıtları seçiniz. USB arabiriminden bağlanan aygıtlar listelenmeyecektir (oldukça güvensiz)."
 
 msgid "Select the devices that will be used to create the file system."
 msgstr ""
@@ -3103,9 +3047,6 @@ msgstr "Depo"
 
 msgid "Store DOS attributes"
 msgstr "DOS özelliklerini sakla"
-
-msgid "Stripe"
-msgstr "Şerit"
 
 msgid "Success"
 msgstr "Başarı"

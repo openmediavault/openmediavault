@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -231,12 +231,6 @@ msgstr ""
 msgid "9 months"
 msgstr "9개월"
 
-msgid "A maximum of one device can be removed."
-msgstr ""
-
-msgid "A maximum of two device can be removed."
-msgstr ""
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -281,9 +275,6 @@ msgstr "행동"
 
 msgid "Add"
 msgstr "추가"
-
-msgid "Add hot spares / recover RAID device."
-msgstr ""
 
 msgid "Address"
 msgstr "주소"
@@ -415,9 +406,6 @@ msgid "At least one device is required."
 msgstr ""
 
 msgid "At least one network interface is required."
-msgstr ""
-
-msgid "At least three devices are required."
 msgstr ""
 
 msgid "At least two devices are required."
@@ -1740,9 +1728,6 @@ msgstr "이더넷 포트에 있는 하나 이상의 LED가 깜박이는 지속 �
 msgid "Lesotho"
 msgstr "레소토"
 
-msgid "Level"
-msgstr "레벨"
-
 msgid "Liberia"
 msgstr "라이베리아"
 
@@ -1772,9 +1757,6 @@ msgstr ""
 
 msgid "Limit yearly"
 msgstr ""
-
-msgid "Linear"
-msgstr "선형"
 
 msgid "Link"
 msgstr "연결"
@@ -1962,9 +1944,6 @@ msgstr ""
 
 msgid "Minute"
 msgstr "분"
-
-msgid "Mirror"
-msgstr "미러"
 
 msgid "Missing"
 msgstr "누락"
@@ -2512,24 +2491,6 @@ msgstr "빠르게"
 msgid "Quota"
 msgstr "할당량"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "RSync 서버"
 
@@ -2557,9 +2518,6 @@ msgstr "재시작"
 msgid "Recipient"
 msgstr "수신자"
 
-msgid "Recover"
-msgstr "복구"
-
 msgid "Recurse into directories"
 msgstr "디렉터리로 재귀"
 
@@ -2586,9 +2544,6 @@ msgstr "원격"
 
 msgid "Remote host"
 msgstr "원격 호스트"
-
-msgid "Remove"
-msgstr "제거"
 
 msgid "Replace"
 msgstr "대체"
@@ -2812,12 +2767,6 @@ msgstr ""
 msgid "Select devices ..."
 msgstr ""
 
-msgid "Select devices to be added to the RAID device."
-msgstr ""
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "RAID 장치로부터 제거될 장치들을 선택하세요."
-
 msgid "Select groups ..."
 msgstr ""
 
@@ -2835,11 +2784,6 @@ msgstr ""
 
 msgid "Select the device that will be used to create the file system."
 msgstr ""
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "RAID 장치로 만들 장치들을 선택합니다. USB로 연결된 장치들은 신뢰할 수 없기에 목록에 나타나지 않습니다"
 
 msgid "Select the devices that will be used to create the file system."
 msgstr ""
@@ -3106,9 +3050,6 @@ msgstr "저장소"
 
 msgid "Store DOS attributes"
 msgstr "DOS 속성 저장"
-
-msgid "Stripe"
-msgstr "스트라이프"
 
 msgid "Success"
 msgstr "성공"

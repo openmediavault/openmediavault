@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -228,12 +228,6 @@ msgstr ""
 msgid "9 months"
 msgstr "9 mesecev"
 
-msgid "A maximum of one device can be removed."
-msgstr ""
-
-msgid "A maximum of two device can be removed."
-msgstr ""
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -278,9 +272,6 @@ msgstr "Dejanje"
 
 msgid "Add"
 msgstr "Dodaj"
-
-msgid "Add hot spares / recover RAID device."
-msgstr ""
 
 msgid "Address"
 msgstr "Naslov"
@@ -412,9 +403,6 @@ msgid "At least one device is required."
 msgstr ""
 
 msgid "At least one network interface is required."
-msgstr ""
-
-msgid "At least three devices are required."
 msgstr ""
 
 msgid "At least two devices are required."
@@ -1737,9 +1725,6 @@ msgstr ""
 msgid "Lesotho"
 msgstr "Lesoto"
 
-msgid "Level"
-msgstr ""
-
 msgid "Liberia"
 msgstr "Liberija"
 
@@ -1769,9 +1754,6 @@ msgstr ""
 
 msgid "Limit yearly"
 msgstr ""
-
-msgid "Linear"
-msgstr "Linearno"
 
 msgid "Link"
 msgstr "Povezava"
@@ -1959,9 +1941,6 @@ msgstr ""
 
 msgid "Minute"
 msgstr "Minuta"
-
-msgid "Mirror"
-msgstr "Ogledalo"
 
 msgid "Missing"
 msgstr "Manjka"
@@ -2509,24 +2488,6 @@ msgstr "Hitro"
 msgid "Quota"
 msgstr "vota"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "RSync strežnik"
 
@@ -2554,9 +2515,6 @@ msgstr "Ponovni zagon"
 msgid "Recipient"
 msgstr "Prejemnik"
 
-msgid "Recover"
-msgstr "Reši"
-
 msgid "Recurse into directories"
 msgstr "Rekurzivno v mape"
 
@@ -2583,9 +2541,6 @@ msgstr "Oddaljen"
 
 msgid "Remote host"
 msgstr "Oddaljen gostitelj"
-
-msgid "Remove"
-msgstr "Odstrani"
 
 msgid "Replace"
 msgstr "Zamenjaj"
@@ -2809,12 +2764,6 @@ msgstr ""
 msgid "Select devices ..."
 msgstr ""
 
-msgid "Select devices to be added to the RAID device."
-msgstr ""
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "Izberite naprave za odstranitev iz RAID polja."
-
 msgid "Select groups ..."
 msgstr ""
 
@@ -2831,11 +2780,6 @@ msgid "Select slave devices ..."
 msgstr ""
 
 msgid "Select the device that will be used to create the file system."
-msgstr ""
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
 msgstr ""
 
 msgid "Select the devices that will be used to create the file system."
@@ -3102,9 +3046,6 @@ msgid "Storage"
 msgstr ""
 
 msgid "Store DOS attributes"
-msgstr ""
-
-msgid "Stripe"
 msgstr ""
 
 msgid "Success"

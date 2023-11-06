@@ -1,0 +1,159 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-md-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 10000
+    stateId: a957d3fe-4e06-11ea-b0a8-e3ba560c9a42
+    sorters:
+      - dir: asc
+        prop: name
+    store:
+      proxy:
+        service: MdMgmt
+        get:
+          method: getList
+    rowEnumFmt: '{{ devicefile }}'
+    columns:
+      - name: _("Name")
+        prop: name
+        flexGrow: 1
+        hidden: true
+        sortable: true
+      - name: _("Device")
+        prop: devicefile
+        flexGrow: 1
+        sortable: true
+      - name: _("State")
+        prop: state
+        flexGrow: 1
+        sortable: true
+      - name: _("Level")
+        prop: level
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: chip
+        cellTemplateConfig:
+          map:
+            stripe:
+              value: _("Stripe")
+            raid0:
+              value: _("Stripe")
+            mirror:
+              value: _("Mirror")
+            raid1:
+              value: _("Mirror")
+            linear:
+              value: _("Linear")
+            raid2:
+              value: _("RAID 2")
+            raid3:
+              value: _("RAID 3")
+            raid4:
+              value: _("RAID 4")
+            raid5:
+              value: _("RAID 5")
+            raid6:
+              value: _("RAID 6")
+            raid10:
+              value: _("RAID 10")
+      - name: _("Capacity")
+        prop: size
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: binaryUnit
+      - name: _("Devices")
+        prop: devices
+        flexGrow: 2
+        sortable: false
+        cellTemplateName: unsortedList
+    actions:
+      - template: create
+        execute:
+          type: url
+          url: '/storage/md/create'
+      - type: iconButton
+        icon: expand
+        tooltip: _("Grow")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+          constraint:
+          - operator: in
+            arg0:
+              prop: level
+            arg1:
+            - raid1
+            - stripe
+            - raid4
+            - raid5
+            - raid6
+          - operator: in
+            arg0:
+              prop: state
+            arg1:
+            - clean
+            - active
+        execute:
+          type: url
+          url: '/storage/md/grow/{{ _selected[0].devicefile | encodeuricomponent }}'
+      - type: iconButton
+        icon: remove
+        tooltip: _("Remove")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+          constraint:
+          - operator: in
+            arg0:
+              prop: level
+            arg1:
+            - raid1
+            - mirror
+            - raid2
+            - raid3
+            - raid4
+            - raid5
+            - raid6
+            - raid10
+          - operator: in
+            arg0:
+              prop: state
+            arg1:
+            - clean
+            - active
+        execute:
+          type: url
+          url: '/storage/md/remove/{{ _selected[0].devicefile | encodeuricomponent }}'
+      - type: iconButton
+        icon: mdi:medical-bag
+        tooltip: _("Recover")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: '/storage/md/recover/{{ _selected[0].devicefile | encodeuricomponent }}'
+      - type: iconButton
+        icon: details
+        tooltip: _("Show details")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: '/storage/md/details/{{ _selected[0].devicefile | encodeuricomponent }}'
+      - template: delete
+        enabledConstraints:
+          constraint:
+          - operator: falsy
+            arg0:
+              prop: _used
+        execute:
+          type: request
+          request:
+            service: RaidMgmt
+            method: delete
+            params:
+              devicefile: '{{ devicefile }}'

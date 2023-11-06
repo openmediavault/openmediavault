@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Tim <co_ti@hotmail.com>, 2013-2014,2016-2017,2022\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -234,12 +234,6 @@ msgstr ""
 msgid "9 months"
 msgstr "9 maanden"
 
-msgid "A maximum of one device can be removed."
-msgstr "Maximaal 1 toestel kan verwijderd worden."
-
-msgid "A maximum of two device can be removed."
-msgstr "Maximaal 2 toestellen kunnen verwijderd worden."
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -284,9 +278,6 @@ msgstr "Handeling"
 
 msgid "Add"
 msgstr "Toevoegen"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "Hot spares toevoegen / RAID-apparaat herstellen"
 
 msgid "Address"
 msgstr "Adres"
@@ -419,9 +410,6 @@ msgstr ""
 
 msgid "At least one network interface is required."
 msgstr "Tenminste 1 netwerk interface is benodigd."
-
-msgid "At least three devices are required."
-msgstr "Ten minsten 3 apparaten nodig."
 
 msgid "At least two devices are required."
 msgstr "Ten minsten 2 apparaten nodig."
@@ -1743,9 +1731,6 @@ msgstr "Duur in seconden om een of meer LED's op de specifieke ethernet-poort te
 msgid "Lesotho"
 msgstr "Lesotho"
 
-msgid "Level"
-msgstr "Niveau"
-
 msgid "Liberia"
 msgstr "Liberia"
 
@@ -1775,9 +1760,6 @@ msgstr ""
 
 msgid "Limit yearly"
 msgstr ""
-
-msgid "Linear"
-msgstr "Lineair"
 
 msgid "Link"
 msgstr "Link"
@@ -1965,9 +1947,6 @@ msgstr ""
 
 msgid "Minute"
 msgstr "Minuut"
-
-msgid "Mirror"
-msgstr "Mirror"
 
 msgid "Missing"
 msgstr "Ontbrekend"
@@ -2515,24 +2494,6 @@ msgstr "Snel"
 msgid "Quota"
 msgstr "Quota"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "RSync-server"
 
@@ -2560,9 +2521,6 @@ msgstr "Herstarten"
 msgid "Recipient"
 msgstr "Ontvanger"
 
-msgid "Recover"
-msgstr "Herstellen"
-
 msgid "Recurse into directories"
 msgstr "Afdalen naar mappen"
 
@@ -2589,9 +2547,6 @@ msgstr "Op afstand"
 
 msgid "Remote host"
 msgstr "Externe host"
-
-msgid "Remove"
-msgstr "Verwijderen"
 
 msgid "Replace"
 msgstr "Vervang"
@@ -2815,12 +2770,6 @@ msgstr ""
 msgid "Select devices ..."
 msgstr ""
 
-msgid "Select devices to be added to the RAID device."
-msgstr ""
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "Selecteer apparaten die van het RAID-apparaat verwijderd moet worden."
-
 msgid "Select groups ..."
 msgstr ""
 
@@ -2838,11 +2787,6 @@ msgstr ""
 
 msgid "Select the device that will be used to create the file system."
 msgstr ""
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "Selecteer de apparaten die zullen worden gebruikt om de RAID aan te maken. Apparaten die via USB zijn aangesloten worden niet weergegeven (te onbetrouwbaar)"
 
 msgid "Select the devices that will be used to create the file system."
 msgstr ""
@@ -3109,9 +3053,6 @@ msgstr "Opslag"
 
 msgid "Store DOS attributes"
 msgstr "DOS-kenmerken opslaan"
-
-msgid "Stripe"
-msgstr "Stripe"
 
 msgid "Success"
 msgstr "Succes"

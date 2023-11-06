@@ -1,0 +1,99 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-md-remove-form-page
+  type: formPage
+  config:
+    request:
+      service: MdMgmt
+      get:
+        method: get
+        params:
+          devicefile: '{{ _routeParams.devicefile }}'
+        filter:
+          mode: pick
+          props:
+            - description
+            - devicefile
+            - level
+      post:
+        method: remove
+    fields:
+      - type: textInput
+        name: description
+        label: _("Device")
+        disabled: true
+        submitValue: false
+      - type: hidden
+        name: devicefile
+        value: '{{ _routeParams.devicefile }}'
+      - type: hidden
+        name: level
+        submitValue: false
+      - type: select
+        name: devices
+        label: _("Devices")
+        placeholder: _("Select devices ...")
+        hint: _("Select devices to be removed from the RAID device.")
+        multiple: true
+        valueField: devicefile
+        textField: description
+        store:
+          proxy:
+            service: MdMgmt
+            get:
+              method: getSlaves
+              params:
+                devicefile: '{{ _routeParams.devicefile }}'
+          sorters:
+            - dir: asc
+              prop: devicefile
+        validators:
+          required: true
+          custom:
+            - constraint:
+                operator: if
+                arg0:
+                  operator: in
+                  arg0:
+                    prop: level
+                  arg1:
+                    - mirror
+                    - raid1
+                    - raid2
+                    - raid3
+                    - raid4
+                    - raid5
+                    - raid10
+                arg1:
+                  operator: <=
+                  arg0:
+                    operator: length
+                    arg0:
+                      prop: devices
+                  arg1: 1
+              errorData: _("A maximum of one device can be removed.")
+            - constraint:
+                operator: if
+                arg0:
+                  operator: ===
+                  arg0:
+                    prop: level
+                  arg1: raid6
+                arg1:
+                  operator: <=
+                  arg0:
+                    operator: length
+                    arg0:
+                      prop: devices
+                  arg1: 2
+              errorData: _("A maximum of two device can be removed.")
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: '/storage/md'
+      - template: cancel
+        execute:
+          type: url
+          url: '/storage/md'

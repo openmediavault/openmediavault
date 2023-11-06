@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Francis Dhumes, 2023\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -243,12 +243,6 @@ msgstr "750 Mo"
 msgid "9 months"
 msgstr "9 mois"
 
-msgid "A maximum of one device can be removed."
-msgstr "Au maximum un seul périphérique peut être retiré."
-
-msgid "A maximum of two device can be removed."
-msgstr "Au maximum deux périphérique peuvent être retirés."
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -293,9 +287,6 @@ msgstr "Action"
 
 msgid "Add"
 msgstr "Ajouter"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "Ajouter un disque de secours à chaud / récupérer un périphérique RAID."
 
 msgid "Address"
 msgstr "Adresse"
@@ -428,9 +419,6 @@ msgstr "Au moins un périphérique est nécessaire."
 
 msgid "At least one network interface is required."
 msgstr "Au moins une interface réseau est nécessaire."
-
-msgid "At least three devices are required."
-msgstr "Au moins trois périphériques sont nécessaires."
 
 msgid "At least two devices are required."
 msgstr "Au moins deux périphériques sont nécessaires."
@@ -1752,9 +1740,6 @@ msgstr "Durée en secondes du clignotement d'une ou des LED(s) sur le port Ether
 msgid "Lesotho"
 msgstr "Lesotho"
 
-msgid "Level"
-msgstr "Niveau"
-
 msgid "Liberia"
 msgstr "Libéria"
 
@@ -1784,9 +1769,6 @@ msgstr "Limite hebdomadaire"
 
 msgid "Limit yearly"
 msgstr "Limite annuelle"
-
-msgid "Linear"
-msgstr "Linéaire"
 
 msgid "Link"
 msgstr "Lien"
@@ -1974,9 +1956,6 @@ msgstr "Version minimum de protocole"
 
 msgid "Minute"
 msgstr "Minute"
-
-msgid "Mirror"
-msgstr "Miroir"
 
 msgid "Missing"
 msgstr "Manquant"
@@ -2524,24 +2503,6 @@ msgstr "Rapide"
 msgid "Quota"
 msgstr "Quota"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "Serveur RSync"
 
@@ -2569,9 +2530,6 @@ msgstr "Redémarrer"
 msgid "Recipient"
 msgstr "Destinataire"
 
-msgid "Recover"
-msgstr "Récupérer"
-
 msgid "Recurse into directories"
 msgstr "Traitement récursif dans les répertoires"
 
@@ -2598,9 +2556,6 @@ msgstr "Distant"
 
 msgid "Remote host"
 msgstr "Hôte distant"
-
-msgid "Remove"
-msgstr "Supprimer"
 
 msgid "Replace"
 msgstr "Remplacer"
@@ -2824,12 +2779,6 @@ msgstr "Sélectionner un utilisateur ..."
 msgid "Select devices ..."
 msgstr "Sélectionner un périphérique ..."
 
-msgid "Select devices to be added to the RAID device."
-msgstr "Sélectionnez les périphériques à ajouter à la grappe RAID."
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "Sélectionnez le périphérique à retirer de la grappe RAID"
-
 msgid "Select groups ..."
 msgstr "Sélectionner les groupes ..."
 
@@ -2847,11 +2796,6 @@ msgstr "Sélectionner les périphériques esclaves ..."
 
 msgid "Select the device that will be used to create the file system."
 msgstr "Sélectionner le périphérique qui sera utilisé pour créer le système de fichier."
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "Sélectionner les périphériques qui seront utilisés pour créer la grappe RAID. Les périphériques USB ne sont pas affiché (pas assez fiable)"
 
 msgid "Select the devices that will be used to create the file system."
 msgstr "Sélectionner les périphériques qui seront utilisés pour créer le système de fichier."
@@ -3118,9 +3062,6 @@ msgstr "Stockage"
 
 msgid "Store DOS attributes"
 msgstr "Conserver les attributs DOS"
-
-msgid "Stripe"
-msgstr "Bande"
 
 msgid "Success"
 msgstr "Succès"

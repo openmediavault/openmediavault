@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-md package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-md\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-06 10:07+0100\n"
+"PO-Revision-Date: 2023-11-06 09:08+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2023\n"
+"Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A maximum of one device can be removed."
+msgstr "Es kann maximal ein Gerät entfernt werden."
+
+msgid "A maximum of two device can be removed."
+msgstr "Es können maximal zwei Geräte entfernt werden."
+
+msgid "Add hot spares / recover RAID device."
+msgstr "Hot-Spares hinzufügen / RAID-Gerät wiederherstellen."
+
+msgid "At least four devices are required."
+msgstr "Es werden mindestens vier Geräte benötigt."
+
+msgid "At least three devices are required."
+msgstr "Es werden mindestens drei Geräte benötigt."
+
+msgid "At least two devices are required."
+msgstr "Es werden mindestens zwei Geräte benötigt."
+
+msgid "Capacity"
+msgstr "Kapazität"
+
+msgid "Create"
+msgstr "Erstellen"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Device"
+msgstr "Gerät"
+
+msgid "Devices"
+msgstr "Geräte"
+
+msgid "Grow"
+msgstr "Vergrößern"
+
+msgid "Level"
+msgstr "Level"
+
+msgid "Linear"
+msgstr "Linear"
+
+msgid "Mirror"
+msgstr "Mirror"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "RAID 10"
+msgstr "RAID 10"
+
+msgid "RAID 2"
+msgstr "RAID 2"
+
+msgid "RAID 3"
+msgstr "RAID 3"
+
+msgid "RAID 4"
+msgstr "RAID 4"
+
+msgid "RAID 5"
+msgstr "RAID 5"
+
+msgid "RAID 6"
+msgstr "RAID 6"
+
+msgid "Recover"
+msgstr "Wiederherstellung"
+
+msgid "Remove"
+msgstr "Entfernen"
+
+msgid "Select devices ..."
+msgstr "Geräte auswählen ..."
+
+msgid "Select devices to be added to the RAID device."
+msgstr ""
+"Wählen Sie die Geräte aus, die dem RAID-Gerät hinzugefügt werden sollen."
+
+msgid "Select devices to be removed from the RAID device."
+msgstr ""
+"Wählen Sie die Geräte aus, die aus dem RAID-Gerät entfernt werden sollen."
+
+msgid ""
+"Select the devices that will be used to create the RAID device. Devices "
+"connected via USB will not be listed (too unreliable)."
+msgstr ""
+"Wählen Sie die Laufwerke aus, die zum Erstellen des RAID verwendet werden "
+"sollen. Geräte, die mittels USB angeschlossen sind, werden nicht aufgelistet"
+" (zu unzuverlässig)."
+
+msgid "Show details"
+msgstr "Details zeigen"
+
+msgid "Software RAID"
+msgstr "Software RAID"
+
+msgid "State"
+msgstr "Zustand"
+
+msgid "Stripe"
+msgstr "Stripe"

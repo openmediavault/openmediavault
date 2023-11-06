@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/md"
+  title: _("Software RAID")
+  component: omv-storage-md-datatable-page

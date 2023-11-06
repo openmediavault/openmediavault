@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -242,12 +242,6 @@ msgstr ""
 msgid "9 months"
 msgstr "9 месяц"
 
-msgid "A maximum of one device can be removed."
-msgstr "Можно удалить максимум одно устройство"
-
-msgid "A maximum of two device can be removed."
-msgstr "Можно удалить максимум два устройства"
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -292,9 +286,6 @@ msgstr "Действие"
 
 msgid "Add"
 msgstr "Добавить"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "Добавить устройство резервирования/восстанавления в RAID массив"
 
 msgid "Address"
 msgstr "Адрес"
@@ -427,9 +418,6 @@ msgstr "Необходимо хотя бы одно устройство"
 
 msgid "At least one network interface is required."
 msgstr "Необходим хотя бы один сетевой интерфейс"
-
-msgid "At least three devices are required."
-msgstr "Необходимо хотя бы три устройства"
 
 msgid "At least two devices are required."
 msgstr "Необходимо хотя бы два устройства"
@@ -1751,9 +1739,6 @@ msgstr "Длительность мигания одним или несколь
 msgid "Lesotho"
 msgstr "Лесото"
 
-msgid "Level"
-msgstr "Тип"
-
 msgid "Liberia"
 msgstr "Либерия"
 
@@ -1783,9 +1768,6 @@ msgstr ""
 
 msgid "Limit yearly"
 msgstr ""
-
-msgid "Linear"
-msgstr "Линейное"
 
 msgid "Link"
 msgstr "Линк"
@@ -1973,9 +1955,6 @@ msgstr ""
 
 msgid "Minute"
 msgstr "Минут"
-
-msgid "Mirror"
-msgstr "Зеркалирование"
 
 msgid "Missing"
 msgstr "Отсутствующий"
@@ -2523,24 +2502,6 @@ msgstr "Быстро"
 msgid "Quota"
 msgstr "Квота"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "Сервер RSync"
 
@@ -2568,9 +2529,6 @@ msgstr "Перезагрузка"
 msgid "Recipient"
 msgstr "Получатель"
 
-msgid "Recover"
-msgstr "Восстанавливать"
-
 msgid "Recurse into directories"
 msgstr "Рекурсивно по каталогам"
 
@@ -2597,9 +2555,6 @@ msgstr "Удаленный"
 
 msgid "Remote host"
 msgstr "Удаленный хост"
-
-msgid "Remove"
-msgstr "Удалить"
 
 msgid "Replace"
 msgstr "Заменить"
@@ -2823,12 +2778,6 @@ msgstr "Выберите пользователя ..."
 msgid "Select devices ..."
 msgstr "Выберите устройства ..."
 
-msgid "Select devices to be added to the RAID device."
-msgstr "Выберите устройства для добавления в RAID."
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "Выбранные устройства должны быть удалены из RAID массива."
-
 msgid "Select groups ..."
 msgstr "Выберите группы ..."
 
@@ -2846,11 +2795,6 @@ msgstr "Выберите ведомые устройства ..."
 
 msgid "Select the device that will be used to create the file system."
 msgstr "Выберите устройство, которое будет использоваться для создания файловой системы."
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "Выберите устройства, которые будут использоваться для создания устройства RAID. Устройства, подключенные через USB, не будут перечислены (слишком ненадежны)."
 
 msgid "Select the devices that will be used to create the file system."
 msgstr "Выберите устройства, которые будут использоваться для создания файловой системы."
@@ -3117,9 +3061,6 @@ msgstr "Хранилище"
 
 msgid "Store DOS attributes"
 msgstr "Хранить DOS атрибуты"
-
-msgid "Stripe"
-msgstr "Чередование"
 
 msgid "Success"
 msgstr "Успех"

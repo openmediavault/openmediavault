@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2023\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -230,12 +230,6 @@ msgstr "750 MiB"
 msgid "9 months"
 msgstr "9 月"
 
-msgid "A maximum of one device can be removed."
-msgstr "最多可移除一個裝置。"
-
-msgid "A maximum of two device can be removed."
-msgstr "最多可移除兩個裝置。"
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -280,9 +274,6 @@ msgstr "動作"
 
 msgid "Add"
 msgstr "新增"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "新增熱備用 / 復原 RAID 裝置"
 
 msgid "Address"
 msgstr "網址"
@@ -415,9 +406,6 @@ msgstr "至少需要一個裝置。"
 
 msgid "At least one network interface is required."
 msgstr "至少須要一個網路介面。"
-
-msgid "At least three devices are required."
-msgstr "至少須要三個裝置。"
 
 msgid "At least two devices are required."
 msgstr "至少須要兩個裝置。"
@@ -1739,9 +1727,6 @@ msgstr "閃爍一個或多個在特定以太網通訊埠上的 LED，時間是�
 msgid "Lesotho"
 msgstr "賴索托"
 
-msgid "Level"
-msgstr "層級"
-
 msgid "Liberia"
 msgstr "賴比瑞亞"
 
@@ -1771,9 +1756,6 @@ msgstr "限制每週"
 
 msgid "Limit yearly"
 msgstr "限制每年"
-
-msgid "Linear"
-msgstr "線性"
 
 msgid "Link"
 msgstr "連接"
@@ -1961,9 +1943,6 @@ msgstr "最低協定版本"
 
 msgid "Minute"
 msgstr "分"
-
-msgid "Mirror"
-msgstr "鏡像"
 
 msgid "Missing"
 msgstr "失踪"
@@ -2511,24 +2490,6 @@ msgstr "快速"
 msgid "Quota"
 msgstr "配額"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "RSync 伺服器"
 
@@ -2556,9 +2517,6 @@ msgstr "重新啟動"
 msgid "Recipient"
 msgstr "收件者"
 
-msgid "Recover"
-msgstr "復原"
-
 msgid "Recurse into directories"
 msgstr "遞歸進入目錄"
 
@@ -2585,9 +2543,6 @@ msgstr "遠端"
 
 msgid "Remote host"
 msgstr "遠端主機"
-
-msgid "Remove"
-msgstr "移除"
 
 msgid "Replace"
 msgstr "取代"
@@ -2811,12 +2766,6 @@ msgstr "選擇一個用戶 ..."
 msgid "Select devices ..."
 msgstr "選擇裝置 ..."
 
-msgid "Select devices to be added to the RAID device."
-msgstr "選擇將被添加到 RAID 的裝置。"
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "選擇將從 RAID 裝置上移除的裝置。"
-
 msgid "Select groups ..."
 msgstr "選擇群組 ..."
 
@@ -2834,11 +2783,6 @@ msgstr "選擇從屬裝置 ..."
 
 msgid "Select the device that will be used to create the file system."
 msgstr "選取將被用來建立檔案系統的裝置。"
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "選擇將被用來建立 RAID 的裝置。經由 USB 連接的裝置將不會被列出(太不可靠)。"
 
 msgid "Select the devices that will be used to create the file system."
 msgstr "選取要用來建立檔案系統的裝置。"
@@ -3105,9 +3049,6 @@ msgstr "儲存裝置"
 
 msgid "Store DOS attributes"
 msgstr "儲存 DOS 屬性"
-
-msgid "Stripe"
-msgstr "分條"
 
 msgid "Success"
 msgstr "成功"
