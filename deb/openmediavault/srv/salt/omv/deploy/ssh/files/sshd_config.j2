@@ -53,27 +53,13 @@ PermitRootLogin without-password
 {% if config.permitrootlogin | to_bool and config.passwordauthentication | to_bool -%}
 PermitRootLogin yes
 {% endif -%}
-{% if config.tcpforwarding | to_bool -%}
-AllowTcpForwarding yes
-{% else -%}
-AllowTcpForwarding no
-{% endif -%}
-{% if config.compression | to_bool -%}
-Compression yes
-{% else -%}
-Compression no
-{% endif -%}
-{% if config.passwordauthentication | to_bool -%}
-PasswordAuthentication yes
-{% else -%}
-PasswordAuthentication no
-{% endif -%}
+AllowTcpForwarding {{ config.tcpforwarding | to_bool | yesno }}
+Compression {{ config.compression | to_bool | yesno }}
+PasswordAuthentication {{ config.passwordauthentication | to_bool | yesno }}
 {% if config.pubkeyauthentication | to_bool -%}
 AuthorizedKeysFile {{ authorizedKeysFile }}
-PubkeyAuthentication yes
-{% else -%}
-PubkeyAuthentication no
 {% endif -%}
+PubkeyAuthentication {{ config.pubkeyauthentication | to_bool | yesno }}
 {% if config.extraoptions | length > 0 -%}
 {{ config.extraoptions }}
 {% endif -%}
