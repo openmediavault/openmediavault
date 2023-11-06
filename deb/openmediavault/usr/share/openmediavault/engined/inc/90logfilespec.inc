@@ -21,102 +21,12 @@
  */
 require_once("openmediavault/functions.inc");
 
-// /var/log/syslog:
-// 2023-11-06T20:33:21.622811+01:00 omv7box systemd[1]: Started anacron.service - Run anacron jobs.
-// 2023-11-06T20:33:21.624552+01:00 omv7box anacron[33733]: Anacron 2.3 started on 2023-11-06
+// 2023-11-06T23:11:43+0000 omv7box monit[602]: Awakened by User defined signal 1
 \OMV\System\LogFileSpec::registerSpecification("syslog", [
+  "command" => "export SYSTEMD_COLORS=0; journalctl ".
+	"--quiet --output=short-iso --no-pager",
   "filename" => "syslog",
-  "filepath" => "/var/log/syslog",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}[+-]\d{2}:\d{2})\s+(\S+)\s+(.+)$/",
-  "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:s.uP"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y-m-d*H:i:s.uP"));
-		  }
-	  ],
-	  "hostname" => 2,
-	  "message" => 3
-  ]]);
-
-// /var/log/daemon.log:
-// 2023-11-06T20:29:32.934474+01:00 omv7box systemd[1]: Started rsyslog.service - System Logging Service.
-// 2023-11-06T20:31:29.434328+01:00 omv7box dhclient[347]: DHCPREQUEST for 192.168.121.118 on ens6 to 192.168.121.1 port 67
-\OMV\System\LogFileSpec::registerSpecification("daemon", [
-  "filename" => "daemon.log",
-  "filepath" => "/var/log/daemon.log",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}[+-]\d{2}:\d{2})\s+(\S+)\s+(.+)$/",
-  "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:s.uP"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y-m-d*H:i:s.uP"));
-		  }
-	  ],
-	  "hostname" => 2,
-	  "message" => 3
-  ]]);
-
-// /var/log/auth.log:
-// 2023-11-06T18:20:44.481135+00:00 openmediavault sshd[568]: Server listening on 0.0.0.0 port 22.
-// 2023-11-06T19:30:01.887198+01:00 openmediavault CRON[33805]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
-\OMV\System\LogFileSpec::registerSpecification("auth", [
-  "filename" => "auth.log",
-  "filepath" => "/var/log/auth.log",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}[+-]\d{2}:\d{2})\s+(\S+)\s+(.+)$/",
-  "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:s.uP"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y-m-d*H:i:s.uP"));
-		  }
-	  ],
-	  "hostname" => 2,
-	  "message" => 3
-  ]]);
-
-// /var/log/messages:
-// 2023-11-06T20:29:32.934294+01:00 omv7box rsyslogd: imuxsock: Acquired UNIX socket '/run/systemd/journal/syslog' (fd 3) from systemd.  [v8.2302.0]
-// 2023-11-06T20:29:32.934979+01:00 omv7box rsyslogd: [origin software="rsyslogd" swVersion="8.2302.0" x-pid="32556" x-info="https://www.rsyslog.com"] start
-\OMV\System\LogFileSpec::registerSpecification("messages", [
-  "filename" => "messages",
-  "filepath" => "/var/log/messages",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}[+-]\d{2}:\d{2})\s+(\S+)\s+(.+)$/",
-  "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:s.uP"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y-m-d*H:i:s.uP"));
-		  }
-	  ],
-	  "hostname" => 2,
-	  "message" => 3
-  ]]);
-
-// Retrieved via journalctl.
-// 2016-06-26T21:24:08+0200 vmpc05 kernel: Booting paravirtualized kernel on bare hardware
-// 2016-06-26T21:24:08+0200 vmpc05 kernel: SCSI subsystem initialized
-\OMV\System\LogFileSpec::registerSpecification("boot", [
-  "command" => "export SYSTEMD_COLORS=0; journalctl --boot=-0 --quiet ".
-    "--output=short-iso --no-pager",
-  "filename" => "boot",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}([+-]\d{4})?)\s+(\S+)\s+(.+)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+(.+)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
@@ -128,8 +38,93 @@ require_once("openmediavault/functions.inc");
 			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
 		  }
 	  ],
-	  "hostname" => 3,
-	  "message" => 4
+	  "hostname" => 2,
+	  "message" => 3
+  ]]);
+
+\OMV\System\LogFileSpec::registerSpecification("daemon", [
+  "command" => "export SYSTEMD_COLORS=0; journalctl --facility=daemon ".
+	"--quiet --output=short-iso --no-pager",
+  "filename" => "daemon",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+(.+)$/",
+  "columns" => [
+	  "ts" => [
+		  "index" => 1,
+		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
+	  ],
+	  "date" => [
+		  "index" => 1,
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
+		  }
+	  ],
+	  "hostname" => 2,
+	  "message" => 3
+  ]]);
+
+\OMV\System\LogFileSpec::registerSpecification("auth", [
+  "command" => "export SYSTEMD_COLORS=0; journalctl ".
+  	"--facility=auth,authpriv ".
+	"--quiet --output=short-iso --no-pager",
+  "filename" => "auth",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+(.+)$/",
+  "columns" => [
+	  "ts" => [
+		  "index" => 1,
+		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
+	  ],
+	  "date" => [
+		  "index" => 1,
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
+		  }
+	  ],
+	  "hostname" => 2,
+	  "message" => 3
+  ]]);
+
+\OMV\System\LogFileSpec::registerSpecification("messages", [
+  "command" => "export SYSTEMD_COLORS=0; journalctl ".
+  	"--priority=warning..info ".
+  	"--facility=auth,authpriv,cron,daemon,mail ".
+	"--quiet --output=short-iso --no-pager",
+  "filename" => "messages",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+(.+)$/",
+  "columns" => [
+	  "ts" => [
+		  "index" => 1,
+		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
+	  ],
+	  "date" => [
+		  "index" => 1,
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
+		  }
+	  ],
+	  "hostname" => 2,
+	  "message" => 3
+  ]]);
+
+// 2016-06-26T21:24:08+0200 vmpc05 kernel: Booting paravirtualized kernel on bare hardware
+// 2016-06-26T21:24:08+0200 vmpc05 kernel: SCSI subsystem initialized
+\OMV\System\LogFileSpec::registerSpecification("boot", [
+  "command" => "export SYSTEMD_COLORS=0; journalctl --boot=-0 --quiet ".
+    "--output=short-iso --no-pager",
+  "filename" => "boot",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+(.+)$/",
+  "columns" => [
+	  "ts" => [
+		  "index" => 1,
+		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
+	  ],
+	  "date" => [
+		  "index" => 1,
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
+		  }
+	  ],
+	  "hostname" => 2,
+	  "message" => 3
   ]]);
 
 // /var/log/dpkg.log
@@ -282,4 +277,24 @@ require_once("openmediavault/functions.inc");
   "regex" => "/^(.+)$/",
   "columns" => [
 	  "message" => 1
+  ]]);
+
+\OMV\System\LogFileSpec::registerSpecification("dmesg", [
+  "command" => "export SYSTEMD_COLORS=0; journalctl --dmesg --quiet ".
+	"--output=short-iso --no-pager",
+  "filename" => "dmesg",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+(.+)$/",
+  "columns" => [
+	  "ts" => [
+		  "index" => 1,
+		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
+	  ],
+	  "date" => [
+		  "index" => 1,
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
+		  }
+	  ],
+	  "hostname" => 2,
+	  "message" => 3
   ]]);
