@@ -22,21 +22,21 @@
 require_once("openmediavault/functions.inc");
 
 // /var/log/syslog:
-// Oct 19 04:24:36 openmediavault init: Switching to runlevel: 6
-// Oct 19 04:24:38 openmediavault watchdog[1589]: stopping daemon (5.9)
+// 2023-11-06T20:33:21.622811+01:00 omv7box systemd[1]: Started anacron.service - Run anacron jobs.
+// 2023-11-06T20:33:21.624552+01:00 omv7box anacron[33733]: Anacron 2.3 started on 2023-11-06
 \OMV\System\LogFileSpec::registerSpecification("syslog", [
   "filename" => "syslog",
   "filepath" => "/var/log/syslog",
-  "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}[+-]\d{2}:\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
+		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:s.uP"); }
 	  ],
 	  "date" => [
 		  "index" => 1,
 		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"M j G:i:s"));
+			  return strftime("%c", strpdate($v,"Y-m-d*H:i:s.uP"));
 		  }
 	  ],
 	  "hostname" => 2,
