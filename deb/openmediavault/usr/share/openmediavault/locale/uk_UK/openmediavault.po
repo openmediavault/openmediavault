@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -230,12 +230,6 @@ msgstr "750 МБ"
 msgid "9 months"
 msgstr "9 місяців"
 
-msgid "A maximum of one device can be removed."
-msgstr "Можна вилучити максимум один пристрій."
-
-msgid "A maximum of two device can be removed."
-msgstr "Можна вилучити максимум два пристрої."
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -280,9 +274,6 @@ msgstr "Дія"
 
 msgid "Add"
 msgstr "Додати"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "Додати пристрій резервування/відновлення в RAID масив."
 
 msgid "Address"
 msgstr "Адреса"
@@ -415,9 +406,6 @@ msgstr ""
 
 msgid "At least one network interface is required."
 msgstr "Потрібен принаймні один мережевий інтерфейс. "
-
-msgid "At least three devices are required."
-msgstr "Потрібно не менше трьох пристроїв."
 
 msgid "At least two devices are required."
 msgstr "Необхідно принаймні два пристрої."
@@ -1739,9 +1727,6 @@ msgstr "Тривалість часу у секундах блимають од�
 msgid "Lesotho"
 msgstr "Лесото"
 
-msgid "Level"
-msgstr "Рівень"
-
 msgid "Liberia"
 msgstr "Ліберія"
 
@@ -1771,9 +1756,6 @@ msgstr ""
 
 msgid "Limit yearly"
 msgstr ""
-
-msgid "Linear"
-msgstr "Лінійний"
 
 msgid "Link"
 msgstr "Посилання"
@@ -1961,9 +1943,6 @@ msgstr ""
 
 msgid "Minute"
 msgstr "Хвилина"
-
-msgid "Mirror"
-msgstr "Зеркало"
 
 msgid "Missing"
 msgstr "Відсутній"
@@ -2511,24 +2490,6 @@ msgstr "Швидко"
 msgid "Quota"
 msgstr "Квота"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "RSync сервер"
 
@@ -2556,9 +2517,6 @@ msgstr "Перезавантажити"
 msgid "Recipient"
 msgstr "Отримувач"
 
-msgid "Recover"
-msgstr "Відновлювати"
-
 msgid "Recurse into directories"
 msgstr "Рекурсивно в каталогах"
 
@@ -2585,9 +2543,6 @@ msgstr "Віддалений"
 
 msgid "Remote host"
 msgstr "Віддалений хост"
-
-msgid "Remove"
-msgstr "Вилучити"
 
 msgid "Replace"
 msgstr "Замінити"
@@ -2811,12 +2766,6 @@ msgstr "Оберіть користувача ..."
 msgid "Select devices ..."
 msgstr "Оберіть пристрої ..."
 
-msgid "Select devices to be added to the RAID device."
-msgstr "Оберіть пристрої, які потрібно додати в RAID."
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "Оберіть пристрої, котрі будуть видалені з RAID."
-
 msgid "Select groups ..."
 msgstr "Оиберіть групи ..."
 
@@ -2834,11 +2783,6 @@ msgstr "Оберіть підпорядковані пристрої ..."
 
 msgid "Select the device that will be used to create the file system."
 msgstr "Оберіть пристрій, який буде використано для створення файлової системи."
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "Виберіть пристрої, які будуть використовуватися для створення пристрою RAID. Пристрої, підключені через USB, не будуть перераховані (надто ненадійні)."
 
 msgid "Select the devices that will be used to create the file system."
 msgstr ""
@@ -3105,9 +3049,6 @@ msgstr "Сховище"
 
 msgid "Store DOS attributes"
 msgstr "Зберігати атрибути DOS"
-
-msgid "Stripe"
-msgstr "Смуга"
 
 msgid "Success"
 msgstr "Вдало"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2023\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -231,12 +231,6 @@ msgstr "750 MiB"
 msgid "9 months"
 msgstr "9 månader"
 
-msgid "A maximum of one device can be removed."
-msgstr "Maximalt en enhet kan tas bort."
-
-msgid "A maximum of two device can be removed."
-msgstr "Maximalt två enheter kan tas bort."
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -281,9 +275,6 @@ msgstr "Åtgärd"
 
 msgid "Add"
 msgstr "Lägg till"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "Lägg till \"hot spares\" / återställ RAID-enhet."
 
 msgid "Address"
 msgstr "Adress"
@@ -416,9 +407,6 @@ msgstr "Minst en enhet krävs."
 
 msgid "At least one network interface is required."
 msgstr "Minst ett nätverksgränssnitt krävs."
-
-msgid "At least three devices are required."
-msgstr "Minst tre enheter krävs."
 
 msgid "At least two devices are required."
 msgstr "Minst två enheter krävs."
@@ -1740,9 +1728,6 @@ msgstr "Tid i sekunder för att blinka en eller flera lysdioder på den specifik
 msgid "Lesotho"
 msgstr "Lesotho"
 
-msgid "Level"
-msgstr "Nivå"
-
 msgid "Liberia"
 msgstr "Liberia"
 
@@ -1772,9 +1757,6 @@ msgstr "Begränsa veckovis"
 
 msgid "Limit yearly"
 msgstr "Begränsa årligen"
-
-msgid "Linear"
-msgstr "Linjär"
 
 msgid "Link"
 msgstr "Länk"
@@ -1962,9 +1944,6 @@ msgstr "Minimum protokollversion"
 
 msgid "Minute"
 msgstr "Minut"
-
-msgid "Mirror"
-msgstr "Spegel"
 
 msgid "Missing"
 msgstr "Saknas"
@@ -2512,24 +2491,6 @@ msgstr "Snabb"
 msgid "Quota"
 msgstr "Kvot"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "RSync-server"
 
@@ -2557,9 +2518,6 @@ msgstr "Starta om"
 msgid "Recipient"
 msgstr "Mottagare"
 
-msgid "Recover"
-msgstr "Reparera"
-
 msgid "Recurse into directories"
 msgstr "Rekursiv i mappar"
 
@@ -2586,9 +2544,6 @@ msgstr "Fjärr"
 
 msgid "Remote host"
 msgstr "Fjärrvärd"
-
-msgid "Remove"
-msgstr "Ta bort"
 
 msgid "Replace"
 msgstr "Ersätt"
@@ -2812,12 +2767,6 @@ msgstr "Välj en användare ..."
 msgid "Select devices ..."
 msgstr "Välj enheter ..."
 
-msgid "Select devices to be added to the RAID device."
-msgstr "Välj enheter som ska läggas till RAID-enheten."
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "Välj enheter som ska tas bort från RAID-enheten."
-
 msgid "Select groups ..."
 msgstr "Välj grupper ..."
 
@@ -2835,11 +2784,6 @@ msgstr "Välj slavenheter ..."
 
 msgid "Select the device that will be used to create the file system."
 msgstr "Välj den enhet som ska användas för att skapa filsystemet."
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "Välj de enheter som ska användas för att skapa RAID-enheten. Enheter som är anslutna via USB kommer inte att listas (för opålitliga)."
 
 msgid "Select the devices that will be used to create the file system."
 msgstr "Välj de enheter som ska användas för att skapa filsystemet."
@@ -3106,9 +3050,6 @@ msgstr "Lagring"
 
 msgid "Store DOS attributes"
 msgstr "Lagra DOS-attribut"
-
-msgid "Stripe"
-msgstr "Stripe"
 
 msgid "Success"
 msgstr "Lyckades"

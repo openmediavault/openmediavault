@@ -1,0 +1,55 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-md-grow-form-page
+  type: formPage
+  config:
+    request:
+      service: MdMgmt
+      post:
+        method: grow
+    fields:
+      - type: select
+        name: devicefile
+        label: _("Device")
+        valueField: devicefile
+        textField: description
+        disabled: true
+        value: '{{ _routeParams.devicefile }}'
+        store:
+          proxy:
+            service: MdMgmt
+            get:
+              method: enumerateDevices
+      - type: select
+        name: devices
+        label: _("Devices")
+        placeholder: _("Select devices ...")
+        hint: _("Select devices to be added to the RAID device.")
+        multiple: true
+        valueField: devicefile
+        textField: description
+        store:
+          proxy:
+            service: MdMgmt
+            get:
+              method: getCandidates
+          filters:
+            - operator: ne
+              arg0:
+                prop: devicefile
+              arg1: '{{ _routeParams.devicefile }}'
+          sorters:
+            - dir: asc
+              prop: devicefile
+        validators:
+          required: true
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: '/storage/md'
+      - template: cancel
+        execute:
+          type: url
+          url: '/storage/md'

@@ -1,6 +1,8 @@
 openmediavault (7.0-1) unstable; urgency=low
 
   * Upgrade to Debian 12 (Bookworm).
+  * Relocate Linux MD device (Software RAID) management into a
+    separate plugin.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jul 2023 13:17:39 +0200
 

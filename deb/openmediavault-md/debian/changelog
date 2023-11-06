@@ -1,0 +1,5 @@
+openmediavault-mdadm (7.0-1) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 06 Nov 2023 08:16:34 +0100

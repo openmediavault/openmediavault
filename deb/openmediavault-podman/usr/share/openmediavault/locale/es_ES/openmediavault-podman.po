@@ -22,103 +22,103 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Command"
-msgstr ""
+msgstr "Comando"
 
 msgid "Containers"
-msgstr ""
+msgstr "Contenedores"
 
 msgid "Created"
-msgstr ""
+msgstr "Creado"
 
 msgid "Digest"
-msgstr ""
+msgstr "Digest"
 
 msgid "Do you really want to restart this container?"
-msgstr ""
+msgstr "¿Realmente desea reiniciar el contenedor?"
 
 msgid "Do you really want to restart this pod?"
-msgstr ""
+msgstr "¿Realmente desea reiniciar el POD?"
 
 msgid "Driver"
-msgstr ""
+msgstr "Driver"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Image"
-msgstr ""
+msgstr "Imagen"
 
 msgid "Images"
 msgstr "Imagenes"
 
 msgid "Infra ID"
-msgstr ""
+msgstr "Infra ID"
 
 msgid "Inspect"
-msgstr ""
+msgstr "Inspeccionar"
 
 msgid "Logs"
-msgstr ""
+msgstr "Logs"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Punto de montaje"
 
 msgid "Mounts"
-msgstr ""
+msgstr "Montajes"
 
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 msgid "Names"
-msgstr ""
+msgstr "Nombres"
 
 msgid "Networks"
-msgstr ""
+msgstr "Redes"
 
 msgid "Podman"
-msgstr ""
+msgstr "Podman"
 
 msgid "Pods"
-msgstr ""
+msgstr "Pods"
 
 msgid "Ports"
-msgstr ""
+msgstr "Puertos"
 
 msgid "Pull latest"
-msgstr ""
+msgstr "Descargar último"
 
 msgid "Pull latest image"
-msgstr ""
+msgstr "Descargar última imagen"
 
 msgid "Repository"
-msgstr ""
+msgstr "Repositorio"
 
 msgid "Restart"
-msgstr ""
+msgstr "Reiniciar"
 
 msgid "Size"
-msgstr ""
+msgstr "Tamaño"
 
 msgid "Started"
-msgstr ""
+msgstr "Inicializados"
 
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 msgid "Statistics"
-msgstr ""
+msgstr "Estadisticas"
 
 msgid "Status"
-msgstr ""
+msgstr "Estado"
 
 msgid "Tag"
-msgstr ""
+msgstr "Etiqueta"
 
 msgid "Updated Podman settings."
-msgstr ""
+msgstr "Opciones Podman"
 
 msgid "Used"
-msgstr ""
+msgstr "Usados"
 
 msgid "Volumes"
-msgstr ""
+msgstr "Volúmenes"

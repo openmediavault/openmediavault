@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -229,12 +229,6 @@ msgstr "750 ميجابايت"
 msgid "9 months"
 msgstr "9 أشهر"
 
-msgid "A maximum of one device can be removed."
-msgstr "يمكن إزالة جهاز واحد كحد أقصى."
-
-msgid "A maximum of two device can be removed."
-msgstr "يمكن إزالة جهازين كحد أقصى."
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -279,9 +273,6 @@ msgstr "إجراء"
 
 msgid "Add"
 msgstr "أضف"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "أضف قطع غيار جديد / استرجع جهاز RAID."
 
 msgid "Address"
 msgstr "العنوان"
@@ -414,9 +405,6 @@ msgstr "مطلوب جهاز واحد على الأقل."
 
 msgid "At least one network interface is required."
 msgstr "مطلوب واجهة شبكة واحدة على الأقل."
-
-msgid "At least three devices are required."
-msgstr "مطلوب ثلاثة أجهزة على الأقل."
 
 msgid "At least two devices are required."
 msgstr "مطلوب جهازين على الأقل."
@@ -1738,9 +1726,6 @@ msgstr "طول الوقت بالثواني وميض مؤشر LED واحد أو �
 msgid "Lesotho"
 msgstr "ليسوتو"
 
-msgid "Level"
-msgstr "المستوى"
-
 msgid "Liberia"
 msgstr "ليبيريا"
 
@@ -1770,9 +1755,6 @@ msgstr "الحد أسبوعيا"
 
 msgid "Limit yearly"
 msgstr "الحد سنويا"
-
-msgid "Linear"
-msgstr "خطي"
 
 msgid "Link"
 msgstr "رابط"
@@ -1960,9 +1942,6 @@ msgstr ""
 
 msgid "Minute"
 msgstr "دقيقة"
-
-msgid "Mirror"
-msgstr "مرآة"
 
 msgid "Missing"
 msgstr "مفقود"
@@ -2510,24 +2489,6 @@ msgstr "سريع"
 msgid "Quota"
 msgstr "حصص المستخدمين"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "RSync خادم"
 
@@ -2555,9 +2516,6 @@ msgstr "إعادة التشغيل"
 msgid "Recipient"
 msgstr "مستلم"
 
-msgid "Recover"
-msgstr "استرداد"
-
 msgid "Recurse into directories"
 msgstr "تضمين المجلدات الفرعية"
 
@@ -2584,9 +2542,6 @@ msgstr "عن بعد"
 
 msgid "Remote host"
 msgstr "المضيف البعيد"
-
-msgid "Remove"
-msgstr "إزالة"
 
 msgid "Replace"
 msgstr "استبدال"
@@ -2810,12 +2765,6 @@ msgstr "تحديد مستخدم ..."
 msgid "Select devices ..."
 msgstr "تحديد أجهزة ..."
 
-msgid "Select devices to be added to the RAID device."
-msgstr "تحديد الأجهزة المراد إضافتها إلى مصفوفة RAID."
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "حدد الأجهزة المراد إزالتها من مصفوفة RAID."
-
 msgid "Select groups ..."
 msgstr "تحديد مجموعات ..."
 
@@ -2833,11 +2782,6 @@ msgstr "تحديد الأجهزة التابعة ..."
 
 msgid "Select the device that will be used to create the file system."
 msgstr "تحديد الجهاز الذي سيتم استخدامه لإنشاء نظام الملفات."
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "حدد الأجهزة التي سيتم استخدامها لإنشاء مصفوفة RAID. لن يتم سرد الأجهزة المتصلة عبر USB (غير موثوق بها للغاية)."
 
 msgid "Select the devices that will be used to create the file system."
 msgstr "حدد الأجهزة التي سيتم استخدامها لإنشاء نظام الملفات."
@@ -3104,9 +3048,6 @@ msgstr "التخزين"
 
 msgid "Store DOS attributes"
 msgstr "تخزين سمات DOS"
-
-msgid "Stripe"
-msgstr "شريط"
 
 msgid "Success"
 msgstr "نجاح"

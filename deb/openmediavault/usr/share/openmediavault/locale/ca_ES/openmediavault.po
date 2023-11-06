@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2023\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -230,12 +230,6 @@ msgstr "750 MiB"
 msgid "9 months"
 msgstr "9 mesos"
 
-msgid "A maximum of one device can be removed."
-msgstr "Es pot eliminar un màxim d'un dispositiu. "
-
-msgid "A maximum of two device can be removed."
-msgstr "Es pot eliminar un màxim de dos dispositius. "
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -280,9 +274,6 @@ msgstr "Acció"
 
 msgid "Add"
 msgstr "Afegir"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "Afegir Disc de recanvi / Restaurar RAID"
 
 msgid "Address"
 msgstr "Adreça"
@@ -415,9 +406,6 @@ msgstr "Es requereix almenys un dispositiu."
 
 msgid "At least one network interface is required."
 msgstr "Es requereix almenys una interfície de xarxa. "
-
-msgid "At least three devices are required."
-msgstr "Es requereixen almenys tres dispositius. "
 
 msgid "At least two devices are required."
 msgstr "Es requereixen almenys dos dispositius. "
@@ -1739,9 +1727,6 @@ msgstr "Durada del temps en segons que parpelleja un o més LEDs al port etherne
 msgid "Lesotho"
 msgstr "Lesotho"
 
-msgid "Level"
-msgstr "Nivell"
-
 msgid "Liberia"
 msgstr "Libèria"
 
@@ -1771,9 +1756,6 @@ msgstr "Límit a la setmana"
 
 msgid "Limit yearly"
 msgstr "Límit a l'any"
-
-msgid "Linear"
-msgstr "Lineal"
 
 msgid "Link"
 msgstr "Enllaç"
@@ -1961,9 +1943,6 @@ msgstr "Versió mínima del protocol"
 
 msgid "Minute"
 msgstr "Minuts"
-
-msgid "Mirror"
-msgstr "Mirall"
 
 msgid "Missing"
 msgstr "Perdut"
@@ -2511,24 +2490,6 @@ msgstr "Ràpid"
 msgid "Quota"
 msgstr "Quota"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "Servidor rsync"
 
@@ -2556,9 +2517,6 @@ msgstr "Reiniciar"
 msgid "Recipient"
 msgstr "Destinatari"
 
-msgid "Recover"
-msgstr "Recuperar"
-
 msgid "Recurse into directories"
 msgstr "Navegar recursivament entre els directoris"
 
@@ -2585,9 +2543,6 @@ msgstr "Remot"
 
 msgid "Remote host"
 msgstr "Host remot"
-
-msgid "Remove"
-msgstr "Eliminar"
 
 msgid "Replace"
 msgstr "Reemplaça"
@@ -2811,12 +2766,6 @@ msgstr "Selecciona un usuari ... "
 msgid "Select devices ..."
 msgstr "Selecciona dispositius ... "
 
-msgid "Select devices to be added to the RAID device."
-msgstr "Seleccioneu els dispositius que voleu afegir al dispositiu RAID. "
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "Seleccioni dispositius per eliminar del RAID."
-
 msgid "Select groups ..."
 msgstr "Selecciona grups ... "
 
@@ -2834,11 +2783,6 @@ msgstr "Selecciona dispositius esclaus ..."
 
 msgid "Select the device that will be used to create the file system."
 msgstr "Seleccioneu el dispositiu que s'utilitzarà per crear el sistema de fitxers. "
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "Seleccioneu els dispositius que s'utilitzaran per crear el dispositiu RAID. Els dispositius connectats mitjançant USB no es mostraran a la llista (massa poc fiables)."
 
 msgid "Select the devices that will be used to create the file system."
 msgstr "Seleccioneu els dispositius que s'utilitzaran per crear el sistema de fitxers."
@@ -3105,9 +3049,6 @@ msgstr "Emmagatzematge"
 
 msgid "Store DOS attributes"
 msgstr "Guardar atributs DOS"
-
-msgid "Stripe"
-msgstr "Bandes (stripe)"
 
 msgid "Success"
 msgstr "Èxit"

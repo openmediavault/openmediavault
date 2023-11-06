@@ -23,12 +23,12 @@ namespace Engined\Rpc;
 
 require_once("openmediavault/functions.inc");
 
-class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
+class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
 	 */
 	public function getName() {
-		return "RaidMgmt";
+		return "MdMgmt";
 	}
 
 	/**

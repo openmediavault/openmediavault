@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -228,12 +228,6 @@ msgstr "750 MiB"
 msgid "9 months"
 msgstr "9 か月"
 
-msgid "A maximum of one device can be removed."
-msgstr "最大1つのデバイスを取り外すことができます。"
-
-msgid "A maximum of two device can be removed."
-msgstr "最大2つのデバイスを取り外すことができます。"
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -278,9 +272,6 @@ msgstr "アクション"
 
 msgid "Add"
 msgstr "追加"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "ホットスペアの追加 / RAIDデバイスのリカバリー。"
 
 msgid "Address"
 msgstr "アドレス"
@@ -413,9 +404,6 @@ msgstr "最低1台は必要です。"
 
 msgid "At least one network interface is required."
 msgstr "少なくとも1つのネットワークインターフェイスが必要です。"
-
-msgid "At least three devices are required."
-msgstr "少なくとも3つのデバイスが必要です。"
 
 msgid "At least two devices are required."
 msgstr "少なくとも2つのデバイスが必要です。"
@@ -1737,9 +1725,6 @@ msgstr "特定のイーサネットポート上の1つまたは複数のLEDを�
 msgid "Lesotho"
 msgstr "レソト"
 
-msgid "Level"
-msgstr "レベル"
-
 msgid "Liberia"
 msgstr "リベリア"
 
@@ -1769,9 +1754,6 @@ msgstr ""
 
 msgid "Limit yearly"
 msgstr ""
-
-msgid "Linear"
-msgstr "リニア"
 
 msgid "Link"
 msgstr "リンク"
@@ -1959,9 +1941,6 @@ msgstr ""
 
 msgid "Minute"
 msgstr "分"
-
-msgid "Mirror"
-msgstr "ミラー"
 
 msgid "Missing"
 msgstr "欠落"
@@ -2509,24 +2488,6 @@ msgstr "クイック"
 msgid "Quota"
 msgstr "クォータ"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "RSyncサーバー"
 
@@ -2554,9 +2515,6 @@ msgstr "再起動"
 msgid "Recipient"
 msgstr "レシピエント"
 
-msgid "Recover"
-msgstr "リカバー"
-
 msgid "Recurse into directories"
 msgstr "ディレクトリを再帰的に"
 
@@ -2583,9 +2541,6 @@ msgstr "リモート"
 
 msgid "Remote host"
 msgstr "リモートホスト"
-
-msgid "Remove"
-msgstr "削除"
 
 msgid "Replace"
 msgstr "置換"
@@ -2809,12 +2764,6 @@ msgstr "ユーザーを選択する ..."
 msgid "Select devices ..."
 msgstr "デバイスを選択 ..."
 
-msgid "Select devices to be added to the RAID device."
-msgstr "RAIDデバイスに追加するデバイスを選択します。"
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "RAIDデバイスから削除するデバイスを選択"
-
 msgid "Select groups ..."
 msgstr "グループを選択 ..."
 
@@ -2832,11 +2781,6 @@ msgstr "スレーブデバイスの選択 ..."
 
 msgid "Select the device that will be used to create the file system."
 msgstr "ファイルシステムの作成に使用するデバイスを選択します。"
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "RAIDデバイスの作成に使用されるデバイスを選択してください。 USB経由で接続されているデバイスは表示されません。（信頼性が低いため）"
 
 msgid "Select the devices that will be used to create the file system."
 msgstr "ファイルシステムの作成に使用するデバイスを選択します。"
@@ -3103,9 +3047,6 @@ msgstr "ストレージ"
 
 msgid "Store DOS attributes"
 msgstr "DOS属性を書き込む"
-
-msgid "Stripe"
-msgstr "ストライプ"
 
 msgid "Success"
 msgstr "成功"

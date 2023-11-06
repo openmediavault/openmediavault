@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -229,12 +229,6 @@ msgstr ""
 msgid "9 months"
 msgstr "9 měsíců"
 
-msgid "A maximum of one device can be removed."
-msgstr "Odebrat je možné nejvýše jedno zařízení."
-
-msgid "A maximum of two device can be removed."
-msgstr "Odebrat je možné nejvýše dvě zařízení."
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -279,9 +273,6 @@ msgstr "Akce"
 
 msgid "Add"
 msgstr "Přidat"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "Přidat pohotovostní náhradní jednotku / opravit RAID pole."
 
 msgid "Address"
 msgstr "Adresa"
@@ -414,9 +405,6 @@ msgstr ""
 
 msgid "At least one network interface is required."
 msgstr "Je zapotřebí alespoň jedno síťové rozhraní."
-
-msgid "At least three devices are required."
-msgstr "Je zapotřebí přinejmenším tří zařízení."
 
 msgid "At least two devices are required."
 msgstr "Je zapotřebí přinejmenším dvou zařízení."
@@ -1738,9 +1726,6 @@ msgstr "Na kolik sekund rozblikat jednu nebo více kontrolek na určeném ethern
 msgid "Lesotho"
 msgstr "Lesotho"
 
-msgid "Level"
-msgstr "Druh"
-
 msgid "Liberia"
 msgstr "Libérie"
 
@@ -1770,9 +1755,6 @@ msgstr ""
 
 msgid "Limit yearly"
 msgstr ""
-
-msgid "Linear"
-msgstr "JBOD (pouze spojení kapacit)"
 
 msgid "Link"
 msgstr "Přip. / odpoj."
@@ -1960,9 +1942,6 @@ msgstr ""
 
 msgid "Minute"
 msgstr "Minuta"
-
-msgid "Mirror"
-msgstr "RAID 1 (zrcadlení)"
 
 msgid "Missing"
 msgstr "Chybějící"
@@ -2510,24 +2489,6 @@ msgstr "Rychlé"
 msgid "Quota"
 msgstr "Kvóta"
 
-msgid "RAID 10"
-msgstr "RAID 10 (zrcadlení a rozložení zápisů)"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "RSync server"
 
@@ -2555,9 +2516,6 @@ msgstr "Restartovat"
 msgid "Recipient"
 msgstr "Příjemce"
 
-msgid "Recover"
-msgstr "Opravit"
-
 msgid "Recurse into directories"
 msgstr "Včetně vnořených složek"
 
@@ -2584,9 +2542,6 @@ msgstr "Protějšek"
 
 msgid "Remote host"
 msgstr "Název protějšího stroje"
-
-msgid "Remove"
-msgstr "Odstranit"
 
 msgid "Replace"
 msgstr "Nahradit"
@@ -2810,12 +2765,6 @@ msgstr "Vyberte uživatele"
 msgid "Select devices ..."
 msgstr "Vyberte zařízení…"
 
-msgid "Select devices to be added to the RAID device."
-msgstr "Vyberte zařízení, která mají být přidána do RAID pole."
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "Vyberte zařízení, která mají být odebrána z RAID pole."
-
 msgid "Select groups ..."
 msgstr "Vybrat skupiny"
 
@@ -2833,11 +2782,6 @@ msgstr "Vyberte podřízené zařízení"
 
 msgid "Select the device that will be used to create the file system."
 msgstr "Vyberte zařízení, na kterém daný souborový systém vytvořit."
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "Vyberte zařízení která budou použita pro vytvoření RAID zařízení. Zařízení připojená prostřednictvím USB nebudou uvedena (příliš nespolehlivé)."
 
 msgid "Select the devices that will be used to create the file system."
 msgstr ""
@@ -3104,9 +3048,6 @@ msgstr "Úložiště"
 
 msgid "Store DOS attributes"
 msgstr "Uchovat (systému) DOS atributy"
-
-msgid "Stripe"
-msgstr "RAID 0 (jen rozložení zápisu)"
 
 msgid "Success"
 msgstr "Úspěch"

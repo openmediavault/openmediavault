@@ -12,12 +12,6 @@ import { FilesystemEditFormPageComponent } from '~/app/pages/storage/filesystems
 import { FilesystemMountFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-mount-form-page.component';
 import { FilesystemQuotaDatatablePageComponent } from '~/app/pages/storage/filesystems/filesystem-quota-datatable-page.component';
 import { FilesystemQuotaFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-quota-form-page.component';
-import { MdDatatablePageComponent } from '~/app/pages/storage/md/md-datatable-page.component';
-import { MdDetailsTextPageComponent } from '~/app/pages/storage/md/md-details-text-page.component';
-import { MdFormPageComponent } from '~/app/pages/storage/md/md-form-page.component';
-import { MdGrowFormPageComponent } from '~/app/pages/storage/md/md-grow-form-page.component';
-import { MdRecoverFormPageComponent } from '~/app/pages/storage/md/md-recover-form-page.component';
-import { MdRemoveFormPageComponent } from '~/app/pages/storage/md/md-remove-form-page.component';
 import { SharedFolderAclFormPageComponent } from '~/app/pages/storage/shared-folders/shared-folder-acl-form-page.component';
 import { SharedFolderAllSnapshotsTabsPageComponent } from '~/app/pages/storage/shared-folders/shared-folder-all-snapshots-tabs-page.component';
 import { SharedFolderDatatablePageComponent } from '~/app/pages/storage/shared-folders/shared-folder-datatable-page.component';
@@ -109,42 +103,6 @@ const routes: Routes = [
             data: { title: gettext('Edit'), editing: true }
           }
         ]
-      }
-    ]
-  },
-  {
-    path: 'md',
-    data: { title: gettext('Software RAID') },
-    children: [
-      { path: '', component: MdDatatablePageComponent },
-      {
-        path: 'create',
-        component: MdFormPageComponent,
-        canDeactivate: [IsDirtyGuardService],
-        data: { title: gettext('Create'), editing: false }
-      },
-      {
-        path: 'grow/:devicefile',
-        component: MdGrowFormPageComponent,
-        canDeactivate: [IsDirtyGuardService],
-        data: { title: gettext('Grow'), editing: false }
-      },
-      {
-        path: 'remove/:devicefile',
-        component: MdRemoveFormPageComponent,
-        canDeactivate: [IsDirtyGuardService],
-        data: { title: gettext('Remove'), editing: true }
-      },
-      {
-        path: 'recover/:devicefile',
-        component: MdRecoverFormPageComponent,
-        canDeactivate: [IsDirtyGuardService],
-        data: { title: gettext('Recover'), editing: false }
-      },
-      {
-        path: 'details/:devicefile',
-        component: MdDetailsTextPageComponent,
-        data: { title: gettext('Details') }
       }
     ]
   },

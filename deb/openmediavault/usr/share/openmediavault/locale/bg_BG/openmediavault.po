@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2017\n"
 "Language-Team: Bulgarian (Bulgaria) (http://app.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
@@ -228,12 +228,6 @@ msgstr ""
 msgid "9 months"
 msgstr "9 месеца"
 
-msgid "A maximum of one device can be removed."
-msgstr ""
-
-msgid "A maximum of two device can be removed."
-msgstr ""
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -278,9 +272,6 @@ msgstr "Действие"
 
 msgid "Add"
 msgstr "Добави"
-
-msgid "Add hot spares / recover RAID device."
-msgstr ""
 
 msgid "Address"
 msgstr ""
@@ -412,9 +403,6 @@ msgid "At least one device is required."
 msgstr ""
 
 msgid "At least one network interface is required."
-msgstr ""
-
-msgid "At least three devices are required."
 msgstr ""
 
 msgid "At least two devices are required."
@@ -1737,9 +1725,6 @@ msgstr ""
 msgid "Lesotho"
 msgstr ""
 
-msgid "Level"
-msgstr ""
-
 msgid "Liberia"
 msgstr ""
 
@@ -1768,9 +1753,6 @@ msgid "Limit weekly"
 msgstr ""
 
 msgid "Limit yearly"
-msgstr ""
-
-msgid "Linear"
 msgstr ""
 
 msgid "Link"
@@ -1959,9 +1941,6 @@ msgstr ""
 
 msgid "Minute"
 msgstr "Минута"
-
-msgid "Mirror"
-msgstr ""
 
 msgid "Missing"
 msgstr ""
@@ -2509,24 +2488,6 @@ msgstr ""
 msgid "Quota"
 msgstr ""
 
-msgid "RAID 10"
-msgstr ""
-
-msgid "RAID 2"
-msgstr ""
-
-msgid "RAID 3"
-msgstr ""
-
-msgid "RAID 4"
-msgstr ""
-
-msgid "RAID 5"
-msgstr ""
-
-msgid "RAID 6"
-msgstr ""
-
 msgid "RSync server"
 msgstr ""
 
@@ -2554,9 +2515,6 @@ msgstr "Рестарт"
 msgid "Recipient"
 msgstr ""
 
-msgid "Recover"
-msgstr ""
-
 msgid "Recurse into directories"
 msgstr ""
 
@@ -2582,9 +2540,6 @@ msgid "Remote"
 msgstr ""
 
 msgid "Remote host"
-msgstr ""
-
-msgid "Remove"
 msgstr ""
 
 msgid "Replace"
@@ -2809,12 +2764,6 @@ msgstr ""
 msgid "Select devices ..."
 msgstr ""
 
-msgid "Select devices to be added to the RAID device."
-msgstr ""
-
-msgid "Select devices to be removed from the RAID device."
-msgstr ""
-
 msgid "Select groups ..."
 msgstr ""
 
@@ -2831,11 +2780,6 @@ msgid "Select slave devices ..."
 msgstr ""
 
 msgid "Select the device that will be used to create the file system."
-msgstr ""
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
 msgstr ""
 
 msgid "Select the devices that will be used to create the file system."
@@ -3102,9 +3046,6 @@ msgid "Storage"
 msgstr "Масив"
 
 msgid "Store DOS attributes"
-msgstr ""
-
-msgid "Stripe"
 msgstr ""
 
 msgid "Success"

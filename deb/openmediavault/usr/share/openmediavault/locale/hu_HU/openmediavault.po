@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2023\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -234,12 +234,6 @@ msgstr "750 MiB"
 msgid "9 months"
 msgstr "9 hónap"
 
-msgid "A maximum of one device can be removed."
-msgstr "Legfeljebb egy eszköz távolítható el. "
-
-msgid "A maximum of two device can be removed."
-msgstr "Legfeljebb két eszköz távolítható el. "
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -284,9 +278,6 @@ msgstr "Művelet"
 
 msgid "Add"
 msgstr "Hozzáadás"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "Tartalék kapacitás hozzáadása / RAID tömb helyreállítása"
 
 msgid "Address"
 msgstr "Cím"
@@ -419,9 +410,6 @@ msgstr "Legalább egy eszköz szükséges."
 
 msgid "At least one network interface is required."
 msgstr "Legalább egy hálózati interfészre van szükség."
-
-msgid "At least three devices are required."
-msgstr "Legalább három eszközre van szükség."
 
 msgid "At least two devices are required."
 msgstr "Legalább két eszközre van szükség."
@@ -1743,9 +1731,6 @@ msgstr "A hálózati csatlakozó LED-jeinek egyszeri, vagy többszöri villogás
 msgid "Lesotho"
 msgstr "Lesothó"
 
-msgid "Level"
-msgstr "Szint"
-
 msgid "Liberia"
 msgstr "Libéria"
 
@@ -1775,9 +1760,6 @@ msgstr "Heti határérték"
 
 msgid "Limit yearly"
 msgstr "Éves határérték"
-
-msgid "Linear"
-msgstr "Lineáris"
 
 msgid "Link"
 msgstr "Link"
@@ -1965,9 +1947,6 @@ msgstr ""
 
 msgid "Minute"
 msgstr "Perc"
-
-msgid "Mirror"
-msgstr "Tükör"
 
 msgid "Missing"
 msgstr "Leválasztott"
@@ -2515,24 +2494,6 @@ msgstr "Gyors"
 msgid "Quota"
 msgstr "Kvóta"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "RSync szerver"
 
@@ -2560,9 +2521,6 @@ msgstr "Újraindítás"
 msgid "Recipient"
 msgstr "Címzett"
 
-msgid "Recover"
-msgstr "Helyreállítás"
-
 msgid "Recurse into directories"
 msgstr "Ismétlődés alkönyvtárakban"
 
@@ -2589,9 +2547,6 @@ msgstr "Távoli"
 
 msgid "Remote host"
 msgstr "Távoli állomás"
-
-msgid "Remove"
-msgstr "Eltávolítás"
 
 msgid "Replace"
 msgstr "Csere"
@@ -2815,12 +2770,6 @@ msgstr "Válasszon ki egy felhasználót…"
 msgid "Select devices ..."
 msgstr "Eszközök kiválasztása…"
 
-msgid "Select devices to be added to the RAID device."
-msgstr "Kiválasztott meghajtók hozzáadása a RAID tömbhöz."
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "Kiválasztott meghajtók eltávolítása a RAID tömbből."
-
 msgid "Select groups ..."
 msgstr "Csoportok kiválasztása…"
 
@@ -2838,11 +2787,6 @@ msgstr "Másodlagos eszközök kiválasztása…"
 
 msgid "Select the device that will be used to create the file system."
 msgstr "Jelölje ki a fájllendszer létrehozásához használt eszközt. "
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "Jelölje ki a RAID-eszköz létrehozásához használt eszközöket. Az USB-s eszközök nem szerepelnek a listán (túl megbízhatatlan)."
 
 msgid "Select the devices that will be used to create the file system."
 msgstr "Jelölje ki a fájlrendszer létrehozásához használt eszközt. "
@@ -3109,9 +3053,6 @@ msgstr "Tárolás"
 
 msgid "Store DOS attributes"
 msgstr "DOS attribútumok tárolása"
-
-msgid "Stripe"
-msgstr "Sáv"
 
 msgid "Success"
 msgstr "Sikeres"

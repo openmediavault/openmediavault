@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013,2015\n"
 "Language-Team: Galician (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
@@ -231,12 +231,6 @@ msgstr ""
 msgid "9 months"
 msgstr "9 meses"
 
-msgid "A maximum of one device can be removed."
-msgstr ""
-
-msgid "A maximum of two device can be removed."
-msgstr ""
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -281,9 +275,6 @@ msgstr "Acción"
 
 msgid "Add"
 msgstr "Engadir"
-
-msgid "Add hot spares / recover RAID device."
-msgstr ""
 
 msgid "Address"
 msgstr "Enderezo"
@@ -415,9 +406,6 @@ msgid "At least one device is required."
 msgstr ""
 
 msgid "At least one network interface is required."
-msgstr ""
-
-msgid "At least three devices are required."
 msgstr ""
 
 msgid "At least two devices are required."
@@ -1740,9 +1728,6 @@ msgstr "Período de tempo en segundos para escintilar un ou máis LED no porto e
 msgid "Lesotho"
 msgstr "Lesotho"
 
-msgid "Level"
-msgstr "Nivel"
-
 msgid "Liberia"
 msgstr "Liberia"
 
@@ -1772,9 +1757,6 @@ msgstr ""
 
 msgid "Limit yearly"
 msgstr ""
-
-msgid "Linear"
-msgstr "Lineal"
 
 msgid "Link"
 msgstr "Ligazón"
@@ -1962,9 +1944,6 @@ msgstr ""
 
 msgid "Minute"
 msgstr "Minuto"
-
-msgid "Mirror"
-msgstr "Espello"
 
 msgid "Missing"
 msgstr "Falta"
@@ -2512,24 +2491,6 @@ msgstr "Rápido"
 msgid "Quota"
 msgstr "Cota"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "Servidor RSync"
 
@@ -2557,9 +2518,6 @@ msgstr "Reiniciar"
 msgid "Recipient"
 msgstr "Destinatario"
 
-msgid "Recover"
-msgstr "Recuperar"
-
 msgid "Recurse into directories"
 msgstr "Recursivamente polos directorios"
 
@@ -2586,9 +2544,6 @@ msgstr "Remoto"
 
 msgid "Remote host"
 msgstr "Máquina remota"
-
-msgid "Remove"
-msgstr "Retirar"
 
 msgid "Replace"
 msgstr "Substituír"
@@ -2812,12 +2767,6 @@ msgstr ""
 msgid "Select devices ..."
 msgstr ""
 
-msgid "Select devices to be added to the RAID device."
-msgstr ""
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "Seleccione os dispositivos que retirar do dispositivo RAID"
-
 msgid "Select groups ..."
 msgstr ""
 
@@ -2834,11 +2783,6 @@ msgid "Select slave devices ..."
 msgstr ""
 
 msgid "Select the device that will be used to create the file system."
-msgstr ""
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
 msgstr ""
 
 msgid "Select the devices that will be used to create the file system."
@@ -3106,9 +3050,6 @@ msgstr "Almacenamento"
 
 msgid "Store DOS attributes"
 msgstr "Almacén de atributos DOS"
-
-msgid "Stripe"
-msgstr "Raia"
 
 msgid "Success"
 msgstr "Correcto"

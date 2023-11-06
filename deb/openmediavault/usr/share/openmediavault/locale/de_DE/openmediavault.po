@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2023\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -240,12 +240,6 @@ msgstr "750 MiB"
 msgid "9 months"
 msgstr "9 Monate"
 
-msgid "A maximum of one device can be removed."
-msgstr "Es kann maximal ein Gerät entfernt werden."
-
-msgid "A maximum of two device can be removed."
-msgstr "Es können maximal zwei Geräte entfernt werden."
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -290,9 +284,6 @@ msgstr "Aktion"
 
 msgid "Add"
 msgstr "Hinzufügen"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "Hot-Spares hinzufügen / RAID-Gerät wiederherstellen."
 
 msgid "Address"
 msgstr "Adresse"
@@ -425,9 +416,6 @@ msgstr "Es wird mindestens ein Geräte benötigt."
 
 msgid "At least one network interface is required."
 msgstr "Mindestens eine Netzwerkschnittstelle ist erforderlich."
-
-msgid "At least three devices are required."
-msgstr "Es werden mindestens drei Geräte benötigt."
 
 msgid "At least two devices are required."
 msgstr "Es werden mindestens zwei Geräte benötigt."
@@ -1749,9 +1737,6 @@ msgstr "Zeitangabe in Sekunden für das Blinken einer oder mehrere LEDs des gew�
 msgid "Lesotho"
 msgstr "Lesotho"
 
-msgid "Level"
-msgstr "Level"
-
 msgid "Liberia"
 msgstr "Liberia"
 
@@ -1781,9 +1766,6 @@ msgstr "Wöchentlich begrenzen"
 
 msgid "Limit yearly"
 msgstr "Jährlich begrenzen"
-
-msgid "Linear"
-msgstr "Linear"
 
 msgid "Link"
 msgstr "Link"
@@ -1971,9 +1953,6 @@ msgstr "Minimale Protokollversion"
 
 msgid "Minute"
 msgstr "Minute"
-
-msgid "Mirror"
-msgstr "Mirror"
 
 msgid "Missing"
 msgstr "Fehlend"
@@ -2521,24 +2500,6 @@ msgstr "Schnell"
 msgid "Quota"
 msgstr "Quota"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "Rsync Server"
 
@@ -2566,9 +2527,6 @@ msgstr "Neu starten"
 msgid "Recipient"
 msgstr "Empfänger"
 
-msgid "Recover"
-msgstr "Wiederherstellung"
-
 msgid "Recurse into directories"
 msgstr "Verzeichnisse rekursiv abarbeiten"
 
@@ -2595,9 +2553,6 @@ msgstr "Entfernt"
 
 msgid "Remote host"
 msgstr "Entfernter Host"
-
-msgid "Remove"
-msgstr "Entfernen"
 
 msgid "Replace"
 msgstr "Ersetzen"
@@ -2821,12 +2776,6 @@ msgstr "Wählen Sie einen Benutzer aus ..."
 msgid "Select devices ..."
 msgstr "Wählen Sie Geräte aus ..."
 
-msgid "Select devices to be added to the RAID device."
-msgstr "Wählen Sie Geräte aus, die dem RAID-Gerät hinzugefügt werden sollen."
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "Vom RAID zu entfernende Laufwerke auswählen."
-
 msgid "Select groups ..."
 msgstr "Wählen Sie Gruppen aus ..."
 
@@ -2844,11 +2793,6 @@ msgstr ""
 
 msgid "Select the device that will be used to create the file system."
 msgstr "Wählen Sie das Gerät aus, das zur Erstellung des Dateisystems verwendet werden soll."
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "Wählen Sie die Laufwerke aus, die zum Erstellen des RAID verwendet werden sollen. Geräte, die mittels USB angeschlossen sind, werden nicht aufgelistet (zu unzuverlässig)."
 
 msgid "Select the devices that will be used to create the file system."
 msgstr "Wählen Sie die Geräte aus, die zur Erstellung des Dateisystems verwendet werden sollen."
@@ -3115,9 +3059,6 @@ msgstr "Datenspeicher"
 
 msgid "Store DOS attributes"
 msgstr "DOS Attribute speichern"
-
-msgid "Stripe"
-msgstr "Stripe"
 
 msgid "Success"
 msgstr "Erfolg"

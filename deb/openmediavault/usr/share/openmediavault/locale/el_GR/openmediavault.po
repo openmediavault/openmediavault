@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-30 15:48+0200\n"
+"POT-Creation-Date: 2023-11-06 10:16+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2023\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -228,12 +228,6 @@ msgstr "750 MiB"
 msgid "9 months"
 msgstr "9 μήνες"
 
-msgid "A maximum of one device can be removed."
-msgstr "Μπορεί να αφαιρεθεί μία συσκευή το πολύ."
-
-msgid "A maximum of two device can be removed."
-msgstr "Μπορούν να αφαιρεθούν δύο συσκευές το πολύ."
-
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -278,9 +272,6 @@ msgstr "Ενέργεια"
 
 msgid "Add"
 msgstr "Προσθήκη"
-
-msgid "Add hot spares / recover RAID device."
-msgstr "Προσθήκη εφεδρείας / ανάρρωση συστοιχίας RAID"
 
 msgid "Address"
 msgstr "Διεύθυνση"
@@ -413,9 +404,6 @@ msgstr "Απαιτείται τουλάχιστον μία συσκευή."
 
 msgid "At least one network interface is required."
 msgstr "Απαιτείται τουλάχιστον μία διασύνδεση δικτύου."
-
-msgid "At least three devices are required."
-msgstr "Απαιτούνται τουλάχιστον τρεις συσκευές."
 
 msgid "At least two devices are required."
 msgstr "Απαιτούνται τουλάχιστον δύο συσκευές."
@@ -1737,9 +1725,6 @@ msgstr "Διάρκεια σε δευτερόλεπτα για αναβόσβημ
 msgid "Lesotho"
 msgstr "Lesotho"
 
-msgid "Level"
-msgstr "Επίπεδο"
-
 msgid "Liberia"
 msgstr "Liberia"
 
@@ -1769,9 +1754,6 @@ msgstr "Όριο εβδομαδιαίων"
 
 msgid "Limit yearly"
 msgstr "Όριο ετήσιων"
-
-msgid "Linear"
-msgstr "Γραμμική"
 
 msgid "Link"
 msgstr "Ζεύξη"
@@ -1959,9 +1941,6 @@ msgstr "Κατώτατη έκδοση πρωτοκόλλου"
 
 msgid "Minute"
 msgstr "Λεπτό"
-
-msgid "Mirror"
-msgstr "Καθρέφτης"
 
 msgid "Missing"
 msgstr "Απώλεια"
@@ -2509,24 +2488,6 @@ msgstr "Σύντομη"
 msgid "Quota"
 msgstr "Ποσοστό"
 
-msgid "RAID 10"
-msgstr "RAID 10"
-
-msgid "RAID 2"
-msgstr "RAID 2"
-
-msgid "RAID 3"
-msgstr "RAID 3"
-
-msgid "RAID 4"
-msgstr "RAID 4"
-
-msgid "RAID 5"
-msgstr "RAID 5"
-
-msgid "RAID 6"
-msgstr "RAID 6"
-
 msgid "RSync server"
 msgstr "Διακομιστής απομακρυσμένου συγχρονισμού"
 
@@ -2554,9 +2515,6 @@ msgstr "Επανεκκίνηση"
 msgid "Recipient"
 msgstr "Παραλήπτης"
 
-msgid "Recover"
-msgstr "Ανάκτηση"
-
 msgid "Recurse into directories"
 msgstr "Αναδρομή μέσα σε φακέλους"
 
@@ -2583,9 +2541,6 @@ msgstr "Απομακρυσμένος"
 
 msgid "Remote host"
 msgstr "Απομακρυσμένος υπολογιστής"
-
-msgid "Remove"
-msgstr "Αφαίρεση"
 
 msgid "Replace"
 msgstr "Αντικατάσταση"
@@ -2809,12 +2764,6 @@ msgstr "Επιλογή χρήστη ..."
 msgid "Select devices ..."
 msgstr "Επιλογή συσκευών ..."
 
-msgid "Select devices to be added to the RAID device."
-msgstr "Επιλογή συσκευών για προσθήκη σε συσκευή RAID."
-
-msgid "Select devices to be removed from the RAID device."
-msgstr "Επιλογή συσκευών για αφαίρεση από τη συστοιχία RAID."
-
 msgid "Select groups ..."
 msgstr "Επιλογή ομάδων ..."
 
@@ -2832,11 +2781,6 @@ msgstr "Επιλογή υποτελών συσκευών ..."
 
 msgid "Select the device that will be used to create the file system."
 msgstr "Επιλογή συσκευής για την δημιουργία συστήματος αρχείων."
-
-msgid ""
-"Select the devices that will be used to create the RAID device. Devices "
-"connected via USB will not be listed (too unreliable)."
-msgstr "Επιλογή συσκευών που θα χρησιμοποιηθούν για την δημιουργία της συσκευής RAID. Οι συσκευές που είναι συνδεδεμένες μέσω USB δεν θα εμφανίζονται (δεν είναι αξιόπιστες)."
 
 msgid "Select the devices that will be used to create the file system."
 msgstr "Επιλογή συσκευών για την δημιουργία συστήματος αρχείων."
@@ -3103,9 +3047,6 @@ msgstr "Αποθήκευση"
 
 msgid "Store DOS attributes"
 msgstr "Αποθήκευση ιδιοτήτων DOS"
-
-msgid "Stripe"
-msgstr "Λωρίδα"
 
 msgid "Success"
 msgstr "Επιτυχία"
