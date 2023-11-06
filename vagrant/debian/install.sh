@@ -36,7 +36,7 @@ export APT_LISTCHANGES_FRONTEND=none
 # Install the openmediavault keyring manually.
 apt-get install --yes gnupg
 wget --quiet --output-document=- https://packages.openmediavault.org/public/archive.key | \
-	gpg --dearmor | tee "/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.gpg"
+	gpg --dearmor --output "/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.gpg"
 
 # Install openmediavault.
 cat <<EOF >> /etc/apt/sources.list.d/openmediavault.list
