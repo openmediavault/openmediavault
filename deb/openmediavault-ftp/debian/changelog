@@ -4,6 +4,12 @@ openmediavault-ftp (7.0-2) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Jul 2023 17:08:11 +0200
 
+openmediavault-ftp (6.0.6-1) stable; urgency=low
+
+  * Add missing log file configuration files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 06 Nov 2023 20:04:24 +0100
+
 openmediavault-ftp (6.0.5-1) stable; urgency=low
 
   * Enhance cleanup after removing the plugin.

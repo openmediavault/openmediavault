@@ -6,7 +6,13 @@ openmediavault (7.0-2) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jul 2023 13:17:39 +0200
 
-openmediavault (6.9.6-1) stable; urgency=low
+openmediavault (6.9.7-1) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 06 Nov 2023 20:05:35 +0100
+
+openmediavault (6.9.6-2) stable; urgency=low
 
   * Issue #1619: Refactor SMART device type detection.
 
