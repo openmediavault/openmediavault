@@ -231,7 +231,7 @@ case "$1" in
 			# Deploy the configuration for various services.
 			echo "Deploying service configurations ..."
 			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet \
-				apt mdadm cpufrequtils chrony \
+				apt mdadm cpufrequtils chrony rsyslog \
 				cronapt watchdog monit rrdcached avahi ssh nginx collectd \
 				phpfpm issue sysctl systemd systemd-logind || :
 		fi

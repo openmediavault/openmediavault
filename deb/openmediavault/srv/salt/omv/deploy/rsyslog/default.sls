@@ -19,11 +19,25 @@
 
 {% set config = salt['omv_conf.get']('conf.system.syslog.remote') %}
 
-configure_rsyslog_service:
+configure_rsyslog_main:
+  file.managed:
+    - name: "/etc/rsyslog.conf"
+    - source:
+      - salt://{{ tpldir }}/files/etc_rsyslog.conf.j2
+    - template: jinja
+    - user: root
+    - group: root
+    - mode: 644
+
+divert_rsyslog_main:
+  omv_dpkg.divert_add:
+    - name: "/etc/rsyslog.conf"
+
+configure_rsyslog_remote:
   file.managed:
     - name: "/etc/rsyslog.d/openmediavault-remote.conf"
     - source:
-      - salt://{{ tpldir }}/files/openmediavault-remote.conf.j2
+      - salt://{{ tpldir }}/files/etc_rsyslog.d_openmediavault-remote.conf.j2
     - context:
         config: {{ config | json }}
     - template: jinja
@@ -36,4 +50,5 @@ restart_rsyslog_service:
     - name: rsyslog
     - enable: True
     - watch:
-      - file: "/etc/rsyslog.d/openmediavault-remote.conf"
+      - file: configure_rsyslog_main
+      - file: configure_rsyslog_remote
