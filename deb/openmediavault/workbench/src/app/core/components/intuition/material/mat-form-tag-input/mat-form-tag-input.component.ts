@@ -139,7 +139,7 @@ export class MatFormTagInputComponent implements ControlValueAccessor, MatFormFi
    * Implemented as part of MatFormFieldControl.
    */
   get errorState(): boolean {
-    return this.ngControl && !this.ngControl.pristine && !this.ngControl.valid;
+    return this.ngControl?.touched && this.ngControl?.invalid;
   }
 
   /**
@@ -223,5 +223,6 @@ export class MatFormTagInputComponent implements ControlValueAccessor, MatFormFi
 
   onBlur(event: Event): void {
     this.onTouched();
+    this.stateChanges.next();
   }
 }
