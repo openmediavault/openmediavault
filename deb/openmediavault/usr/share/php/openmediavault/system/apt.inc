@@ -33,7 +33,7 @@ class Apt {
 	 * @return void
 	 * @throw \OMV\AssertException
 	 */
-	public function assertNotLocked(): void {
+	public static function assertNotLocked(): void {
 		if (is_locked("/var/lib/dpkg/lock")) {
 			throw new \OMV\AssertException(
 				"The package database is held by another process. ".
