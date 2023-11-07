@@ -1,3 +1,11 @@
+openmediavault-filebrowser (6.0.8-1) stable; urgency=low
+
+  * Update locale files.
+  * Add catatonit as package dependency to prevent failures
+    when starting the pod.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Nov 2023 20:36:54 +0100
+
 openmediavault-filebrowser (6.0.7-1) stable; urgency=low
 
   * Add the `OMV_FILEBROWSER_APP_CONTAINER_START_OPTIONS`
