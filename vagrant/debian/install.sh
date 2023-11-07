@@ -27,7 +27,7 @@ sed -i '/-backports/s/^/#/' /etc/apt/sources.list
 # Append user 'vagrant' to group 'ssh', otherwise the user is not allowed
 # to log in via SSH.
 # https://salsa.debian.org/ssh-team/openssh/-/commit/18da782ebe789d0cf107a550e474ba6352e68911
-# usermod --groups _ssh --append vagrant
+usermod --groups _ssh --append vagrant
 
 # Set default password for the 'root' user. This is helpful if something
 # went wrong during the development.
