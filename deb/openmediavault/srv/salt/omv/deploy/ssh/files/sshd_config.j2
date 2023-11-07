@@ -16,7 +16,7 @@
 {% set acceptEnv = salt['pillar.get']('default:OMV_SSHD_ACCEPTENV', 'LANG LC_*') -%}
 {% set subsystemSftp = salt['pillar.get']('default:OMV_SSHD_SUBSYSTEM_SFTP', '/usr/lib/openssh/sftp-server') -%}
 {% set usePAM = salt['pillar.get']('default:OMV_SSHD_USEPAM', 'yes') -%}
-{% set allowGroups = salt['pillar.get']('default:OMV_SSHD_ALLOWGROUPS', 'root ssh') -%}
+{% set allowGroups = salt['pillar.get']('default:OMV_SSHD_ALLOWGROUPS', 'root _ssh') -%}
 {% set addressFamily = salt['pillar.get']('default:OMV_SSHD_ADDRESSFAMILY', 'any') -%}
 {% set authorizedKeysFileDir = salt['pillar.get']('default:OMV_SSHD_AUTHORIZEDKEYSFILE_DIR', '/var/lib/openmediavault/ssh/authorized_keys') -%}
 {% set authorizedKeysFile = salt['pillar.get']('default:OMV_SSHD_AUTHORIZEDKEYSFILE', '.ssh/authorized_keys .ssh/authorized_keys2 ' ~  authorizedKeysFileDir ~ '/%u') -%}
