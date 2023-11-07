@@ -23,6 +23,7 @@
 # https://www.thomas-krenn.com/de/wiki/Smartmontools_Drive_Database_aktualisieren
 # https://www.endpointdev.com/blog/2013/05/login-shells-in-scripts-called-from-cron/
 MAILTO=""
+TERM=dumb
 
 export LANG=C
 
@@ -35,5 +36,5 @@ set -e
 
 if omv_checkyesno "${OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED}"; then
   omv_syslog_info "Updating smartmontools drive database."
-  update-smart-drivedb >/dev/null
+  update-smart-drivedb --quiet >/dev/null
 fi
