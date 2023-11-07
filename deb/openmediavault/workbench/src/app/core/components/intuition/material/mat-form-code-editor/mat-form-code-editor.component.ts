@@ -206,7 +206,7 @@ export class MatFormCodeEditorComponent
    * Implemented as part of MatFormFieldControl.
    */
   get errorState(): boolean {
-    return this.ngControl && !this.ngControl.pristine && !this.ngControl.valid;
+    return this.ngControl?.touched && this.ngControl?.invalid;
   }
 
   /**
@@ -330,6 +330,7 @@ export class MatFormCodeEditorComponent
       EditorView.domEventHandlers({
         blur: () => {
           this.onTouched();
+          this.stateChanges.next();
         }
       }),
       this.getLineNumbersExtensions(),
