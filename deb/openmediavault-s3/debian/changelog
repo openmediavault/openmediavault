@@ -1,8 +1,16 @@
-openmediavault-s3 (7.0-1) unstable; urgency=low
+openmediavault-s3 (7.0-2) unstable; urgency=low
 
   * Adapt to openmediavault 7 (Sandworm).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Jul 2023 17:09:23 +0200
+
+openmediavault-s3 (6.0.8-1) stable; urgency=low
+
+  * Update locale files.
+  * Add catatonit as package dependency to prevent failures
+    when starting the pod.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Nov 2023 20:39:08 +0100
 
 openmediavault-s3 (6.0.7-1) stable; urgency=low
 
