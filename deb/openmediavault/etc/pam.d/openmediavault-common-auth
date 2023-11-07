@@ -3,5 +3,5 @@
 #
 
 # Deny user access after 3 failed login attempts.
-auth        required        pam_faillock.so preauth silent audit deny=3 unlock_time=180
-auth        required        pam_faillock.so authfail audit deny=3 fail_interval=300 unlock_time=180
+auth        required        pam_faillock.so preauth silent audit deny=3 unlock_time=0
+auth        required        pam_faillock.so authfail audit deny=3 fail_interval=300 unlock_time=0
