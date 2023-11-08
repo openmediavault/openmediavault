@@ -67,6 +67,10 @@ configure_idmapd_conf:
     - group: root
     - mode: 644
 
+divert_idmapd_conf:
+  omv_dpkg.divert_add:
+    - name: "/etc/idmapd.conf"
+
 configure_nfs_exports:
   file.managed:
     - name: "/etc/exports"
@@ -76,6 +80,10 @@ configure_nfs_exports:
     - user: root
     - group: root
     - mode: 644
+
+divert_nfs_exports:
+  omv_dpkg.divert_add:
+    - name: "/etc/exports"
 
 stop_nfs_blkmap_service:
   service.dead:
