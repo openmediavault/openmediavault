@@ -1,0 +1,13 @@
+{%- set verbosity = salt['pillar.get']('default:OMV_NFSD_IDMAPD_VERBOSITY', '0') -%}
+{%- set nobody_user = salt['pillar.get']('default:OMV_NFSD_IDMAPD_NOBODYUSER', 'nobody') -%}
+{%- set nobody_group = salt['pillar.get']('default:OMV_NFSD_IDMAPD_NOBODYGROUP', 'nogroup') -%}
+{{ pillar['headers']['multiline'] }}
+[General]
+Verbosity = {{ verbosity }}
+{%- if config.domainname | length > 0 and config.domainname != "local" %}
+Domain = {{ config.domainname }}
+{%- endif %}
+
+[Mapping]
+Nobody-User = {{ nobody_user }}
+Nobody-Group = {{ nobody_group }}

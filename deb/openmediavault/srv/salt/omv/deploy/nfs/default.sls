@@ -28,6 +28,7 @@
 # http://doc.opensuse.org/products/opensuse/openSUSE/opensuse-reference/cha.nfs.html
 # https://www.kernel.org/doc/Documentation/filesystems/nfs/nfs41-server.txt
 # https://ngelinux.com/difference-between-nfs-v2-v3-v4-v4-1-and-v4-2/
+# https://kifarunix.com/install-and-setup-nfs-server-on-debian-12/
 # /usr/lib/systemd/scripts/nfs-utils_env.sh
 
 # Testing:
@@ -35,9 +36,10 @@
 # cat /proc/fs/nfsd/versions
 # nfsconf --dump
 
-{% set config = salt['omv_conf.get']('conf.service.nfs') %}
+{% set nfs_config = salt['omv_conf.get']('conf.service.nfs') %}
+{% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 
-{% if config.enable | to_bool %}
+{% if nfs_config.enable | to_bool %}
 
 configure_nfsd_conf:
   file.managed:
@@ -46,7 +48,19 @@ configure_nfsd_conf:
       - salt://{{ tpldir }}/files/etc-nfs_conf_d-openmediavault_nfsd_conf.j2
     - template: jinja
     - context:
-        config: {{ config | json }}
+        config: {{ nfs_config | json }}
+    - user: root
+    - group: root
+    - mode: 644
+
+configure_idmapd_conf:
+  file.managed:
+    - name: "/etc/idmapd.conf"
+    - source:
+      - salt://{{ tpldir }}/files/etc-idmapd_conf.j2
+    - template: jinja
+    - context:
+        config: {{ dns_config | json }}
     - user: root
     - group: root
     - mode: 644
