@@ -71,6 +71,10 @@ configure_nfsd_exports:
     - group: root
     - mode: 644
 
+divert_nfsd_exports:
+  omv_dpkg.divert_add:
+    - name: "/etc/exports"
+
 {% if ['2', '3'] | intersect(config.versions.split(',')) | length > 0 %}
 
 start_rpc_statd_service:
