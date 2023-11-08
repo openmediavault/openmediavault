@@ -4,6 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
+# 王大山, 2023
 # kochin <kochinc@outlook.com>, 2023
 # 
 #, fuzzy
@@ -22,99 +23,99 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "最多可移除一個裝置。"
 
 msgid "A maximum of two device can be removed."
-msgstr ""
+msgstr "最多可移除兩個裝置。"
 
 msgid "Add hot spares / recover RAID device."
-msgstr ""
+msgstr "新增熱備用 / 復原 RAID 裝置"
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "至少須要四個裝置。"
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "至少須要三個裝置。"
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "至少須要兩個裝置。"
 
 msgid "Capacity"
-msgstr ""
+msgstr "容量"
 
 msgid "Create"
-msgstr ""
+msgstr "新建"
 
 msgid "Details"
-msgstr ""
+msgstr "詳細資料"
 
 msgid "Device"
-msgstr ""
+msgstr "裝置"
 
 msgid "Devices"
-msgstr ""
+msgstr "裝置"
 
 msgid "Grow"
-msgstr ""
+msgstr "增長"
 
 msgid "Level"
-msgstr ""
+msgstr "層級"
 
 msgid "Linear"
-msgstr ""
+msgstr "線性"
 
 msgid "Mirror"
-msgstr ""
+msgstr "鏡像"
 
 msgid "Name"
 msgstr "名稱"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "Recover"
-msgstr ""
+msgstr "復原"
 
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "選擇裝置 ..."
 
 msgid "Select devices to be added to the RAID device."
-msgstr ""
+msgstr "選擇將被添加到 RAID 的裝置。"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "選擇將從 RAID 裝置上移除的裝置。"
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
-msgstr ""
+msgstr "選擇將被用來建立 RAID 的裝置。經由 USB 連接的裝置將不會被列出 (它們太不可靠)。"
 
 msgid "Show details"
-msgstr ""
+msgstr "顯示詳細資料"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "軟體 RAID"
 
 msgid "State"
 msgstr "狀態"
 
 msgid "Stripe"
-msgstr ""
+msgstr "分條"

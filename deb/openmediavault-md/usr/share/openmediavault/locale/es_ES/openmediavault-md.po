@@ -22,99 +22,101 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "Se puede eliminar como máximo 1 disco."
 
 msgid "A maximum of two device can be removed."
-msgstr ""
+msgstr "Se puede eliminar como máximo 2 discos."
 
 msgid "Add hot spares / recover RAID device."
-msgstr ""
+msgstr "Añadir hot spares / Recuperar un RAID."
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "Se necesitan al menos 4 discos."
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "Se necesitan al menos 3 discos."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "Se necesitan al menos 2 discos."
 
 msgid "Capacity"
-msgstr ""
+msgstr "Capacidad"
 
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 msgid "Details"
-msgstr ""
+msgstr "Detalles"
 
 msgid "Device"
-msgstr ""
+msgstr "Disco"
 
 msgid "Devices"
-msgstr ""
+msgstr "Discos"
 
 msgid "Grow"
-msgstr ""
+msgstr "Crecer"
 
 msgid "Level"
-msgstr ""
+msgstr "Nivel"
 
 msgid "Linear"
-msgstr ""
+msgstr "lineal"
 
 msgid "Mirror"
-msgstr ""
+msgstr "Espejo"
 
 msgid "Name"
 msgstr "Nombre"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "Recover"
-msgstr ""
+msgstr "Recuperar"
 
 msgid "Remove"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Seleccionar Discos ..."
 
 msgid "Select devices to be added to the RAID device."
-msgstr ""
+msgstr "Seleccionar discos para añadir al RAID."
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Seleccionar discos para eliminar del RAID."
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr ""
+"Seleccionar discos para usar en la creación del RAID. Los discos USB, NO "
+"serán listados (demasiado inestables)"
 
 msgid "Show details"
-msgstr ""
+msgstr "Mostrar detalles"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "RAID por Software"
 
 msgid "State"
 msgstr "Estado"
 
 msgid "Stripe"
-msgstr ""
+msgstr "Bandas"

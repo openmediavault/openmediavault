@@ -2400,7 +2400,7 @@ msgid "Prefail"
 msgstr "故障前兆"
 
 msgid "Prefix address"
-msgstr "網路前綴"
+msgstr "網址前綴"
 
 msgid "Prefix length"
 msgstr "前綴詞長度"
