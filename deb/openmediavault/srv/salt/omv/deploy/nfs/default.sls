@@ -41,11 +41,11 @@
 
 {% if nfs_config.enable | to_bool %}
 
-configure_nfsd_conf:
+configure_nfs_conf:
   file.managed:
-    - name: "/etc/nfs.conf.d/99-openmediavault-nfsd.conf"
+    - name: "/etc/nfs.conf.d/99-openmediavault.conf"
     - source:
-      - salt://{{ tpldir }}/files/etc-nfs_conf_d-openmediavault_nfsd_conf.j2
+      - salt://{{ tpldir }}/files/etc-nfs_conf_d-openmediavault.conf.j2
     - template: jinja
     - context:
         config: {{ nfs_config | json }}
@@ -57,7 +57,7 @@ configure_idmapd_conf:
   file.managed:
     - name: "/etc/idmapd.conf"
     - source:
-      - salt://{{ tpldir }}/files/etc-idmapd_conf.j2
+      - salt://{{ tpldir }}/files/etc-idmapd.conf.j2
     - template: jinja
     - context:
         config: {{ dns_config | json }}
@@ -65,7 +65,7 @@ configure_idmapd_conf:
     - group: root
     - mode: 644
 
-configure_nfsd_exports:
+configure_nfs_exports:
   file.managed:
     - name: "/etc/exports"
     - source:
@@ -75,20 +75,29 @@ configure_nfsd_exports:
     - group: root
     - mode: 644
 
+stop_nfs_blkmap_service:
+  service.dead:
+    - name: nfs-blkmap
+    - enable: False
+
+mask_nfs_blkmap_service:
+  service.masked:
+    - name: nfs-blkmap
+
 start_nfs_server_service:
   service.running:
     - name: nfs-server
     - enable: True
     - watch:
-      - file: configure_nfsd_conf
-      - file: configure_nfsd_exports
+      - file: configure_nfs_conf
+      - file: configure_nfs_exports
 
 restart_nfs_utils_service:
   service.running:
     - name: nfs-utils
     - watch:
-      - file: configure_nfsd_conf
-      - file: configure_nfsd_exports
+      - file: configure_nfs_conf
+      - file: configure_nfs_exports
 
 {% else %}
 
