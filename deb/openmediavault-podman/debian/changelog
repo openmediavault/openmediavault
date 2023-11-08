@@ -1,3 +1,9 @@
+openmediavault-podman (6.0.1-1) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 08 Nov 2023 18:20:23 +0100
+
 openmediavault-podman (6.0-3) unstable; urgency=low
 
   * Initial release.
