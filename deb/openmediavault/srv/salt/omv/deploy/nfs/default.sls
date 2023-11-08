@@ -35,6 +35,8 @@
 # showmount -e <nfs-server>
 # cat /proc/fs/nfsd/versions
 # nfsconf --dump
+# rpcinfo -s
+# grep CONFIG_NFS /boot/config-$(uname -r)
 
 {% set nfs_config = salt['omv_conf.get']('conf.service.nfs') %}
 {% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
