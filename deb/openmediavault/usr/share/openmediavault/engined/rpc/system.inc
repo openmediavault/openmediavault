@@ -78,7 +78,8 @@ class System extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Get task overview.
-		$cmd = new \OMV\System\Process("top", "-b", "-n 1");
+		$cmd = new \OMV\System\Process("top", "--batch",
+			"--iterations=1", "--width=512");
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		return implode("\n", $output);
