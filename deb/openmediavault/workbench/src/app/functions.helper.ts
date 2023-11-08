@@ -485,7 +485,7 @@ nunjucksEnv.addFilter('notavailable', notAvailable);
  */
 nunjucksEnv.addFilter('toboolean', toBoolean);
 nunjucksEnv.addFilter('not', (value: any) => !value);
-nunjucksEnv.addFilter('yesNo', yesNo);
+nunjucksEnv.addFilter('yesno', yesNo);
 nunjucksEnv.addFilter('strip', (str: string, chars?: string) => _.trim(str, chars));
 nunjucksEnv.addFilter('lstrip', (str: string, chars?: string) => _.trimStart(str, chars));
 nunjucksEnv.addFilter('rstrip', (str: string, chars?: string) => _.trimEnd(str, chars));
