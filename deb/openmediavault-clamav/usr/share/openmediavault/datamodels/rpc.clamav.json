@@ -57,6 +57,10 @@
 				"type": "boolean",
 				"required": true
 			},
+			"alertbrokenmedia": {
+				"type": "boolean",
+				"required": true
+			},
 			"algorithmicdetection": {
 				"type": "boolean",
 				"required": true

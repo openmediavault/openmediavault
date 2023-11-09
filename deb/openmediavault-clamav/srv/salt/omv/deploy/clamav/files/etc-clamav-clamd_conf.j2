@@ -1,11 +1,13 @@
 {%- set localsocket = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOCALSOCKET', '/run/clamav/clamd.ctl') -%}
 {%- set localsocketgroup = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOCALSOCKETGROUP', 'clamav') -%}
 {%- set localsocketmode = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOCALSOCKETMODE', '666') -%}
-{%- set archiveblockencrypted = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ARCHIVEBLOCKENCRYPTED', 'false') -%}
+{%- set alertencrypted = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ALERTENCRYPTED', 'false') -%}
+{%- set alertencryptedarchive = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ALERTENCRYPTEDARCHIVE', 'false') -%}
+{%- set alertencrypteddoc = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ALERTENCRYPTEDDOC', 'false') -%}
 {%- set maxdirectoryrecursion = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXDIRECTORYRECURSION', '15') -%}
 {%- set readtimeout = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_READTIMEOUT', '120') -%}
 {%- set maxthreads = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXTHREADS', '12') -%}
-{%- set maxconnectionqueuelength = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXCONNECTIONQUEUELENGTH', '15') -%}
+{%- set maxconnectionqueuelength = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXCONNECTIONQUEUELENGTH', '30') -%}
 {%- set logsyslog = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOGSYSLOG', 'false') -%}
 {%- set logrotate = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOGROTATE', 'false') -%}
 {%- set logfacility = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOGFACILITY', 'LOG_LOCAL6') -%}
@@ -13,10 +15,10 @@
 {%- set databasedirectory = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_DATABASEDIRECTORY', '/var/lib/clamav') -%}
 {%- set selfcheck = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_SELFCHECK', '3600') -%}
 {%- set debug = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_DEBUG', 'false') -%}
-{%- set maxembeddedpe = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXEMBEDDEDPE', '10M') -%}
-{%- set maxhtmlnormalize = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXHTMLNORMALIZE', '10M') -%}
-{%- set maxhtmlnotags = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXHTMLNOTAGS', '2M') -%}
-{%- set maxscriptnormalize = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXSCRIPTNORMALIZE', '5M') -%}
+{%- set maxembeddedpe = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXEMBEDDEDPE', '40M') -%}
+{%- set maxhtmlnormalize = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXHTMLNORMALIZE', '40M') -%}
+{%- set maxhtmlnotags = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXHTMLNOTAGS', '8M') -%}
+{%- set maxscriptnormalize = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXSCRIPTNORMALIZE', '20M') -%}
 {%- set maxziptypercg = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXZIPTYPERCG', '1M') -%}
 {%- set scanswf = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_SCANSWF', 'true') -%}
 {%- set scanmail = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_SCANMAIL', 'false') -%}
@@ -25,9 +27,9 @@
 {%- set idletimeout = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_IDLETIMEOUT', '30') -%}
 {%- set phishingsignatures = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_PHISHINGSIGNATURES', 'true') -%}
 {%- set phishingscanurls = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_PHISHINGSCANURLS', 'false') -%}
-{%- set phishingalwaysblocksslmismatch = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_PHISHINGALWAYSBLOCKSSLMISMATCH', 'false') -%}
-{%- set phishingalwaysblockcloak = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_PHISHINGALWAYSBLOCKCLOAK', 'false') -%}
-{%- set partitionintersection = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_PARTITIONINTERSECTION', 'false') -%}
+{%- set alertphishingsslmismatch = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ALERTPHISHINGSSLMISMATCH', 'false') -%}
+{%- set alertphishingcloak = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ALERTPHISHINGCLOAK', 'false') -%}
+{%- set alertpartitionintersection = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ALERTPARTITIONINTERSECTION', 'false') -%}
 {%- set scanpartialmessages = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_SCANPARTIALMESSAGES', 'false') -%}
 {%- set heuristicscanprecedence = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_HEURISTICSCANPRECEDENCE', 'false') -%}
 {%- set structureddatadetection = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_STRUCTUREDDATADETECTION', 'false') -%}
@@ -35,24 +37,24 @@
 {%- set sendbuftimeout = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_SENDBUFTIMEOUT', '500') -%}
 {%- set maxqueue = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXQUEUE', '100') -%}
 {%- set extendeddetectioninfo = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_EXTENDEDDETECTIONINFO', 'true') -%}
-{%- set ole2blockmacros = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_OLE2BLOCKMACROS', 'false') -%}
+{%- set alertole2macros = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ALERTOLE2MACROS', 'false') -%}
 {%- set allowallmatchscan = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ALLOWALLMATCHSCAN', 'true') -%}
 {%- set forcetodisk = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_FORCETODISK', 'false') -%}
 {%- set disablecertcheck = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_DISABLECERTCHECK', 'false') -%}
 {%- set disablecache = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_DISABLECACHE', 'false') -%}
-{%- set maxscansize = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXSCANSIZE', '100M') -%}
-{%- set maxfilesize = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXFILESIZE', '25M') -%}
-{%- set maxrecursion = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXRECURSION', '16') -%}
+{%- set maxscansize = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXSCANSIZE', '400M') -%}
+{%- set maxfilesize = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXFILESIZE', '100M') -%}
+{%- set maxrecursion = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXRECURSION', '17') -%}
 {%- set maxfiles = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXFILES', '10000') -%}
 {%- set maxpartitions = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXPARTITIONS', '50') -%}
 {%- set maxiconspe = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXICONSPE', '100') -%}
-{%- set pcrematchlimit = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_PCREMATCHLIMIT', '10000') -%}
+{%- set pcrematchlimit = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_PCREMATCHLIMIT', '100000') -%}
 {%- set pcrerecmatchlimit = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_PCRERECMATCHLIMIT', '5000') -%}
-{%- set pcremaxfilesize = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_PCREMAXFILESIZE', '25M') -%}
+{%- set pcremaxfilesize = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_PCREMAXFILESIZE', '100M') -%}
 {%- set scanxmldocs = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_SCANXMLDOCS', 'true') -%}
 {%- set scanhwp3 = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_SCANHWP3', 'true') -%}
 {%- set maxrechwp3 = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXRECHWP3', '16') -%}
-{%- set streammaxlength = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_STREAMMAXLENGTH', '25M') -%}
+{%- set streammaxlength = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_STREAMMAXLENGTH', '100M') -%}
 {%- set logfile = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOGFILE', '/var/log/clamav/clamav.log') -%}
 {%- set logtime = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOGTIME', 'true') -%}
 {%- set logfileunlock = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOGFILEUNLOCK', 'false') -%}
@@ -70,14 +72,15 @@
 {%- set onaccessprevention = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ONACCESSPREVENTION', 'true') -%}
 {%- set onaccessextrascanning = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ONACCESSEXTRASCANNING', 'true') -%}
 {%- set onaccessretryattempts = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ONACCESSRETRYATTEMPTS', '3') -%}
+{%- set fixstalesocket = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_FIXSTALESOCKET', 'true') -%}
 {{ pillar['headers']['multiline'] }}
 LocalSocket {{ localsocket }}
-FixStaleSocket true
+FixStaleSocket {{ fixstalesocket }}
 LocalSocketGroup {{ localsocketgroup }}
 LocalSocketMode {{ localsocketmode }}
-AlertEncrypted {{ archiveblockencrypted }}
-AlertEncryptedArchive {{ archiveblockencrypted }}
-AlertEncryptedDoc {{ archiveblockencrypted }}
+AlertEncrypted {{ alertencrypted }}
+AlertEncryptedArchive {{ alertencryptedarchive }}
+AlertEncryptedDoc {{ alertencrypteddoc }}
 MaxDirectoryRecursion {{ maxdirectoryrecursion }}
 FollowDirectorySymlinks {{ config.clamd.followdirectorysymlinks }}
 FollowFileSymlinks {{ config.clamd.followfilesymlinks }}
@@ -107,15 +110,16 @@ ScanELF {{ config.clamd.scanelf }}
 ScanArchive {{ config.clamd.scanarchive }}
 ScanMail {{ scanmail }}
 AlertBrokenExecutables {{ config.clamd.detectbrokenexecutables }}
+AlertBrokenMedia {{ config.clamd.alertbrokenmedia }}
 ExitOnOOM {{ exitonoom }}
 LeaveTemporaryFiles {{ leavetemporaryfiles }}
 HeuristicAlerts {{ config.clamd.algorithmicdetection }}
 IdleTimeout {{ idletimeout }}
 PhishingSignatures {{ phishingsignatures }}
 PhishingScanURLs {{ phishingscanurls }}
-AlertPhishingSSLMismatch {{ phishingalwaysblocksslmismatch }}
-AlertPhishingCloak {{ phishingalwaysblockcloak }}
-AlertPartitionIntersection {{ partitionintersection }}
+AlertPhishingSSLMismatch {{ alertphishingsslmismatch }}
+AlertPhishingCloak {{ alertphishingcloak }}
+AlertPartitionIntersection {{ alertpartitionintersection }}
 DetectPUA {{ config.clamd.detectpua }}
 ScanPartialMessages {{ scanpartialmessages }}
 HeuristicScanPrecedence {{ heuristicscanprecedence }}
@@ -124,7 +128,7 @@ CommandReadTimeout {{ commandreadtimeout }}
 SendBufTimeout {{ sendbuftimeout }}
 MaxQueue {{ maxqueue }}
 ExtendedDetectionInfo {{ extendeddetectioninfo }}
-AlertOLE2Macros {{ ole2blockmacros }}
+AlertOLE2Macros {{ alertole2macros }}
 AllowAllMatchScan {{ allowallmatchscan }}
 ForceToDisk {{ forcetodisk }}
 DisableCertCheck {{ disablecertcheck }}

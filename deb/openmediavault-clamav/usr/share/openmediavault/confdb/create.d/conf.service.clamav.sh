@@ -41,6 +41,7 @@ set -e
 #         <scanelf>1</scanelf>
 #         <scanarchive>1</scanarchive>
 #         <detectbrokenexecutables>0</detectbrokenexecutables>
+#         <alertbrokenmedia>0</alertbrokenmedia>
 #         <algorithmicdetection>1</algorithmicdetection>
 #         <followdirectorysymlinks>0</followdirectorysymlinks>
 #         <followfilesymlinks>0</followfilesymlinks>

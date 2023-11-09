@@ -71,6 +71,11 @@ data:
         hint: _("Enable the detection of broken executables (both PE and ELF).")
         value: false
       - type: checkbox
+        name: alertbrokenmedia
+        label: _("Detect broken media")
+        hint: _("Enable the detection of broken media files (JPEG, TIFF, PNG, GIF).")
+        value: false
+      - type: checkbox
         name: detectpua
         label: _("Detect PUA")
         hint: _("Enable the detection of possibly unwanted applications.")

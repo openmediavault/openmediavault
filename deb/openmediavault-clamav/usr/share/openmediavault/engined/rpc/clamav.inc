@@ -97,6 +97,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 			"clamd.scanarchive" => $params['scanarchive'],
 			"clamd.detectbrokenexecutables" => $params[
 			  'detectbrokenexecutables'],
+			"clamd.alertbrokenmedia" => $params['alertbrokenmedia'],
 			"clamd.algorithmicdetection" => $params['algorithmicdetection'],
 			"clamd.followdirectorysymlinks" => $params[
 			  'followdirectorysymlinks'],
