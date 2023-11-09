@@ -1,24 +1,36 @@
 # Using VirtualBox
 
 1. Install
+```
 $ sudo apt-get install virtualbox
+```
 
 2. Install NFS kernel server
+```
 $ sudo apt-get install nfs-kernel-server
+```
 
 3. Download Vagrant from https://www.vagrantup.com/downloads.html
+```
 $ sudo apt-get install vagrant
+```
 
 # Using libvirt
 
 1. Install
+```
 $ sudo apt install qemu-kvm virt-manager
+```
 
 2. Install NFS kernel server
+```
 $ sudo apt-get install nfs-kernel-server
+```
 
 3. Download Vagrant from https://www.vagrantup.com/downloads.html
+```
 $ sudo apt-get install vagrant vagrant-libvirt
+```
 
 # Troubleshooting
 
