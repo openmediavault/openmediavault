@@ -98,7 +98,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Prepare result list.
 		$result = [
-			"/bin/false",
+			"/usr/bin/false",
 			"/usr/sbin/nologin"
 		];
 		// Get list of available shells.
