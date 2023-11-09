@@ -1,4 +1,4 @@
-{%- set compatibility_level = salt['pillar.get']('default:OMV_POSTFIX_MAIN_COMPATIBILITY_LEVEL', 2) -%}
+{%- set compatibility_level = salt['pillar.get']('default:OMV_POSTFIX_MAIN_COMPATIBILITY_LEVEL', '3.6') -%}
 {%- set mydestination = salt['pillar.get']('default:OMV_POSTFIX_MAIN_MYDESTINATION', '') -%}
 {%- set inet_interfaces = salt['pillar.get']('default:OMV_POSTFIX_MAIN_INET_INTERFACES', 'localhost') -%}
 {%- set sender_canonical_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS', '/etc/postfix/sender_canonical') -%}
