@@ -315,7 +315,10 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Remove elements that are no associative arrays (e.g. these are
 		// file systems that are not mounted).
-		return array_filter($this->waitAsyncProcs($procs), "is_assoc_array");
+		// Re-index the filtered array.
+		return array_values(array_filter(
+			$this->waitAsyncProcs($procs), "is_assoc_array")
+		);
 	}
 
 	/**
