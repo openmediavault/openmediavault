@@ -335,8 +335,8 @@ class SmartInformation {
 			$cmdOutputv = trim($cmdOutputv);
 			// Abort parsing, we are not interested in the information
 			// shown below this line.
-			if (in_array([ "=== START OF READ SMART DATA SECTION ===",
-					"=== START OF SMART DATA SECTION ===" ], $cmdOutputv)) {
+			if (in_array($cmdOutputv, [ "=== START OF READ SMART DATA SECTION ===",
+					"=== START OF SMART DATA SECTION ===" ])) {
 				break;
 			}
 			// Ignore everything that is not below this line.
