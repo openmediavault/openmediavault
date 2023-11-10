@@ -111,7 +111,7 @@ def delete_snapshot(snapshot: Snapshot, simulate: bool = False) -> None:
     output = openmediavault.procutils.check_output(
         ["btrfs", "subvolume", "list", "-o", abs_path]
     )
-    if not output:  # Skip if not empty
+    if output:  # Skip if not empty
         openmediavault.log.info(
             f'The snapshot "{abs_path}" has been skipped as it contains subordinate subvolumes.')
         return
