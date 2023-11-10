@@ -105,6 +105,16 @@ def list_snapshots(mount_dir: str, verbose: bool = False) -> Dict[SnapshotName, 
 
 def delete_snapshot(snapshot: Snapshot, simulate: bool = False) -> None:
     abs_path: str = os.path.join(snapshot.mount_dir, snapshot.path)
+    # Check if the subvolume has childs. In that case abort immediately
+    # otherwise the `btrfs` command will fail because it is not possible
+    # to delete those subvolumes.
+    output = openmediavault.procutils.check_output(
+        ["btrfs", "subvolume", "list", "-o", abs_path]
+    )
+    if not output:  # Skip if not empty
+        openmediavault.log.info(
+            f'The snapshot "{abs_path}" has been skipped as it contains subordinate subvolumes.')
+        return
     if not simulate:
         openmediavault.procutils.check_call(
             ['btrfs', 'subvolume', 'delete', abs_path],
@@ -241,7 +251,7 @@ def cleanup_cmd(ctx: Context, simulate: bool):
                     ):
                         abs_path: str = os.path.join(snapshot.mount_dir, snapshot.path)
                         openmediavault.log.info(
-                            f'Skipping the snapshot "{abs_path}" because it is used as a shared folder.',
+                            f'The snapshot "{abs_path}" has been skipped because it is used as a shared folder.',
                             verbose=ctx.verbose)
                         continue
                     # To check if a snapshot can be deleted, append the time
