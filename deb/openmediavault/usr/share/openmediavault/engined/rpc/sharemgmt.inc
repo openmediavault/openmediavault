@@ -205,10 +205,14 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				// Are snapshots supported?
 				$sfAbsPath = build_path(DIRECTORY_SEPARATOR,
 					$meObject->get("dir"), $objectv->get("reldirpath"));
-				if (("btrfs" == $meObject->get("type")) &&
-						(FALSE === is_null($fs)) &&
-						$fs->isSubvolume($sfAbsPath)) {
-					$objectDict->set("snapshots", TRUE);
+				if (("btrfs" == $meObject->get("type")) && !is_null($fs)) {
+					// Try to get the subvolume information.
+				 	$sfInfo = $fs->getSubvolumeInfo($sfAbsPath);
+				 	// Block the creation of snapshots if this is not a
+				 	// subvolume or if it is a snapshot itself.
+				 	$snapshotsSupported = !(!$sfInfo || is_uuid(
+				 		$sfInfo['parent_uuid']));
+					$objectDict->set("snapshots", $snapshotsSupported);
 				}
 			}
 			// Is the shared folder referenced by any object? Shared
