@@ -31,6 +31,7 @@ import click
 import openmediavault.config
 import openmediavault.log
 import openmediavault.procutils
+import openmediavault.stringutils
 
 import openmediavault
 
@@ -78,8 +79,9 @@ def list_snapshots(mount_dir: str, verbose: bool = False) -> Dict[SnapshotName, 
             # e.g. `custom` or `weekly`.
             name_parts: List[str] = name.rsplit('@', 1)
             sf_name: str = name_parts[0]
+            kind: SnapshotKind
             try:
-                kind = name_parts[1]
+                kind = name_parts[1]  # type: ignore
             except IndexError:
                 kind = 'custom'
             # Skip snapshots that do not match a shared folder.
@@ -200,7 +202,7 @@ def cleanup_cmd(ctx: Context, simulate: bool):
             {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'btrfs'}
         ))
     for obj in objs:
-        snapshots: Dict[str, Dict[int, Snapshot]] = list_snapshots(
+        snapshots: Dict[SnapshotName, Dict[SnapshotKind, Dict[UnixTimestamp, Snapshot]]] = list_snapshots(
             obj.get("dir"), verbose=ctx.verbose)
         for sf_name in sorted(snapshots.keys()):  # Sort by shared folder name.
             for kind in SNAPSHOT_KINDS:
@@ -214,11 +216,37 @@ def cleanup_cmd(ctx: Context, simulate: bool):
                     verbose=ctx.verbose)
 
                 # Determine the snapshot candidates to be deleted.
-                # To check if a snapshot can be deleted, append the time
-                # of the retention period to each timestamp and check if
-                # it has already expired.
                 candidates: List[UnixTimestamp] = []
                 for timestamp in timestamps:
+                    # Skip snapshot if it is used as a shared folder.
+                    snapshot: Snapshot = snapshots[sf_name][kind][timestamp]
+                    if db.exists(
+                        "conf.system.sharedfolder",
+                        openmediavault.config.DatabaseFilter(
+                            {
+                                "operator": "and",
+                                "arg0": {
+                                    "operator": "stringEquals",
+                                    "arg0": "mntentref",
+                                    "arg1": obj.get("uuid"),
+                                },
+                                "arg1": {
+                                    "operator": "stringEquals",
+                                    "arg0": "reldirpath",
+                                    "arg1": openmediavault.stringutils.path_prettify(
+                                        snapshot.path),
+                                },
+                            },
+                        )
+                    ):
+                        abs_path: str = os.path.join(snapshot.mount_dir, snapshot.path)
+                        openmediavault.log.info(
+                            f'Skipping the snapshot "{abs_path}" because it is used as a shared folder.',
+                            verbose=ctx.verbose)
+                        continue
+                    # To check if a snapshot can be deleted, append the time
+                    # of the retention period to each timestamp and check if
+                    # it has already expired.
                     withhold_until = datetime.datetime.fromtimestamp(
                         timestamp + lifecycle.get('retentionperiod'))
                     if datetime.datetime.now() > withhold_until:
