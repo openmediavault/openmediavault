@@ -1,8 +1,14 @@
-openmediavault-usbbackup (7.0-1) unstable; urgency=low
+openmediavault-usbbackup (7.0-2) unstable; urgency=low
 
   * Adapt to openmediavault 7 (Sandworm).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Jul 2023 17:10:02 +0200
+
+openmediavault-usbbackup (6.0.5-1) stable; urgency=low
+
+  * Make the 'Send email' and 'Quiet' options mutually exclusive.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Nov 2023 18:58:37 +0100
 
 openmediavault-usbbackup (6.0.4-1) stable; urgency=low
 
