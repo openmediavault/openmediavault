@@ -381,7 +381,7 @@ class System {
 	public static function getCpuStats() {
 		$cpuInfo = new \OMV\Dictionary(\OMV\System\Cpu::info());
 		// Get the processor name.
-		// Parse output:
+		// Example 1:
 		// ...
 		// CPU part	: 0xd03
 		// CPU revision	: 4
@@ -389,8 +389,24 @@ class System {
 		// Hardware		: Allwinnersun50iw2Family
 		// Revision		: 0000
 		// Serial		: 0000000000000000
+		// ...
+		//
+		// Example 2:
+		// processor	: 0
+		// vendor_id	: AuthenticAMD
+		// cpu family	: 23
+		// model		: 96
+		// model name	: AMD Ryzen 7 PRO 4750U with Radeon Graphics
+		//
+		// Example 3:
+		// processor    : 0
+		// BogoMIPS     : 108.00
+		//
+		// Revision     : d03141
+		// Serial       : xxxxxxxxxxxxxxxx
+		// Model        : Raspberry Pi Compute Module 4 Rev 1.1
 		$modelName = NULL;
-		foreach ([ "model_name", "cpu_model", "hardware" ] as $key) {
+		foreach ([ "model_name", "cpu_model", "hardware", "model" ] as $key) {
 			if (TRUE === $cpuInfo->exists($key)) {
 				$modelName = $cpuInfo->get($key);
 				break;
