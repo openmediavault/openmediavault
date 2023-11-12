@@ -1,3 +1,10 @@
+openmediavault-clamav (6.0.7-1) stable; urgency=low
+
+  * Make sure `/var/lib/clamav` exists to let freshclam download
+    the latest database files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Nov 2023 17:58:34 +0100
+
 openmediavault-clamav (6.0.6-1) stable; urgency=low
 
   * Update locale files.
