@@ -6,7 +6,13 @@ openmediavault (7.0-6) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jul 2023 13:17:39 +0200
 
-openmediavault (6.9.7-1) stable; urgency=low
+openmediavault (6.9.8-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Nov 2023 17:40:53 +0100
+
+openmediavault (6.9.7-3) stable; urgency=low
 
   * Various improvements.
   * Prevent the creation of Btrfs snapshots from snapshots.
