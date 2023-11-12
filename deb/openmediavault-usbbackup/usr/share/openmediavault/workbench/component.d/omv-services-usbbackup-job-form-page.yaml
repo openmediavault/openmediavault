@@ -63,11 +63,37 @@ data:
         label: _("Send email")
         value: true
         hint: _("An email message with the command output (if any produced) is send to the administrator.")
+        validators:
+          custom:
+            - constraint:
+                operator: or
+                arg0:
+                  operator: falsy
+                  arg0:
+                    prop: sendemail
+                arg1:
+                  operator: falsy
+                  arg0:
+                    prop: optionquiet
+              errorData: _("The 'Send email' and 'Quiet' options are mutually exclusive.")
       - type: checkbox
         name: optionquiet
         label: _("Quiet")
         hint: _("Suppress non-error messages.")
         value: false
+        validators:
+          custom:
+            - constraint:
+                operator: or
+                arg0:
+                  operator: falsy
+                  arg0:
+                    prop: sendemail
+                arg1:
+                  operator: falsy
+                  arg0:
+                    prop: optionquiet
+              errorData: _("The 'Send email' and 'Quiet' options are mutually exclusive.")
       - type: checkbox
         name: optionarchive
         label: _("Archive")

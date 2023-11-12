@@ -1,3 +1,9 @@
+openmediavault-usbbackup (6.0.5-1) stable; urgency=low
+
+  * Make the 'Send email' and 'Quiet' options mutually exclusive.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Nov 2023 18:58:37 +0100
+
 openmediavault-usbbackup (6.0.4-1) stable; urgency=low
 
   * Update locale files.
