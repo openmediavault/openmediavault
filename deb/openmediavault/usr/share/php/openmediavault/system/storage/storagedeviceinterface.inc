@@ -182,6 +182,12 @@ interface StorageDeviceInterface {
 	public function isAta();
 
 	/**
+	 * Check if the given device is an SD or MMC device.
+	 * @return boolean TRUE if device is SD or MMC, otherwise FALSE.
+	 */
+	public function isMmcblk();
+
+	/**
 	 * Check if the given device is read-only.
 	 * @return TRUE if the device is read-only, otherwise FALSE.
 	 */
