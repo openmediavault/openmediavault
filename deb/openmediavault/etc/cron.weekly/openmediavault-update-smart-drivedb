@@ -36,5 +36,5 @@ set -e
 
 if omv_checkyesno "${OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED}"; then
   omv_syslog_info "Updating smartmontools drive database."
-  update-smart-drivedb --quiet >/dev/null
+  update-smart-drivedb >/dev/null
 fi
