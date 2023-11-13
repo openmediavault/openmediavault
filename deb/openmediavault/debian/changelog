@@ -1,6 +1,8 @@
 openmediavault (6.9.8-1) stable; urgency=low
 
   * Display RPI CM4 CPU model in system information.
+  * Fix an error in the weekly cron job that is downloading the
+    SMART database.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Nov 2023 17:40:53 +0100
 
