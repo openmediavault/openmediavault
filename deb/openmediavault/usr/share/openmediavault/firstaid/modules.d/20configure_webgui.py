@@ -42,7 +42,7 @@ class Module(openmediavault.firstaid.IModule):
         d = dialog.Dialog(dialog="dialog")
         while not port:
             (code, port) = d.inputbox(
-                "Please enter the port to access the workbench via HTTP.",
+                "Please enter the port to access the Workbench via HTTP.",
                 backtitle=self.description,
                 clear=True,
                 height=8,
@@ -101,7 +101,7 @@ class Module(openmediavault.firstaid.IModule):
                 while not sslport:
                     (code, sslport) = d.inputbox(
                         "Please enter the port "
-                        "to access the workbench via HTTPS.",
+                        "to access the Workbench via HTTPS.",
                         backtitle=self.description,
                         clear=True,
                         height=8,
@@ -167,7 +167,7 @@ class Module(openmediavault.firstaid.IModule):
                 if code == d.OK:
                     forcesslonly = True
         # Update the configuration.
-        print("Updating workbench settings. Please wait ...")
+        print("Updating Workbench settings. Please wait ...")
         openmediavault.rpc.call(
             "WebGui",
             "setSettings",
@@ -184,9 +184,9 @@ class Module(openmediavault.firstaid.IModule):
         openmediavault.rpc.call(
             "Config", "applyChanges", {"modules": [], "force": False}
         )
-        print("The workbench settings were successfully changed.")
+        print("The Workbench settings were successfully changed.")
         # Display the URL's available to reach the web control panel.
-        print("\nThe workbench is reachable via URL:")
+        print("\nThe Workbench is reachable via URL:")
         for if_name in netifaces.interfaces():
             # Skip unwanted network interface devices.
             if if_name in ["lo"]:

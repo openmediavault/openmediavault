@@ -28,7 +28,7 @@ import openmediavault.rpc
 class Module(openmediavault.firstaid.IModule):
     @property
     def description(self):
-        return "Change workbench administrator password"
+        return "Change Workbench administrator password"
 
     def execute(self):
         d = dialog.Dialog(dialog="dialog")
@@ -78,14 +78,14 @@ class Module(openmediavault.firstaid.IModule):
                     height=5,
                     width=30,
                 )
-        print("Updating workbench administrator password. Please wait ...")
+        print("Updating Workbench administrator password. Please wait ...")
         openmediavault.rpc.call(
             "UserMgmt", "setPasswordByContext", {"password": password}
         )
         # openmediavault.rpc.call("Config", "applyChanges",
         # 	{ "modules": [], "force": False })
         print(
-            "The workbench administrator password was successfully "
+            "The Workbench administrator password was successfully "
             "changed."
         )
         return 0
