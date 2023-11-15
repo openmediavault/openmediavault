@@ -87,6 +87,9 @@ def list_snapshots(mount_dir: str, verbose: bool = False) -> Dict[SnapshotName, 
             # Skip snapshots that do not match a shared folder.
             if sf_name not in sf_names:
                 continue
+            # Skip snapshots whose `kind` is not supported.
+            if kind not in SNAPSHOT_KINDS:
+                continue
             if sf_name not in snapshots:
                 snapshots[sf_name] = {kind: {} for kind in SNAPSHOT_KINDS}
             timestamp: UnixTimestamp = int(datetime.datetime.timestamp(
