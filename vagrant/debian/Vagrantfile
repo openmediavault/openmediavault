@@ -25,7 +25,8 @@ hostname = "omv6box"
 Vagrant.configure("2") do |config|
 	config.vm.box = "debian/bullseye64"
 	config.vm.define hostname
-	config.vm.provision :shell, reboot: true, :path => "patch.sh"
+	config.vm.provision :shell, :path => "patch.sh"
+	config.vm.provision :reload
 	config.vm.provision :shell, :path => "install.sh"
 	config.vm.network "private_network", ip: "192.172.16.24", auto_config: false
 	config.vm.network "private_network", ip: "192.172.16.25"

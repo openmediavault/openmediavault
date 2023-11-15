@@ -35,19 +35,19 @@ export APT_LISTCHANGES_FRONTEND=none
 # Install the openmediavault keyring manually.
 apt-get install --yes gnupg
 wget --quiet --output-document=- https://packages.openmediavault.org/public/archive.key | \
-	gpg --dearmor | tee "/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.gpg"
+	gpg --dearmor --yes --output "/usr/share/keyrings/openmediavault-archive-keyring.gpg"
 
 # Install openmediavault.
 cat <<EOF >> /etc/apt/sources.list.d/openmediavault.list
-deb http://packages.openmediavault.org/public shaitan main
-# deb http://downloads.sourceforge.net/project/openmediavault/packages shaitan main
+deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public shaitan main
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages shaitan main
 ## Uncomment the following line to add software from the proposed repository.
-# deb http://packages.openmediavault.org/public shaitan-proposed main
-# deb http://downloads.sourceforge.net/project/openmediavault/packages shaitan-proposed main
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public shaitan-proposed main
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages shaitan-proposed main
 ## This software is not part of OpenMediaVault, but is offered by third-party
 ## developers as a service to OpenMediaVault users.
-# deb http://packages.openmediavault.org/public shaitan partner
-# deb http://downloads.sourceforge.net/project/openmediavault/packages shaitan partner
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public shaitan partner
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages shaitan partner
 EOF
 apt-get update
 apt-get --yes --auto-remove --show-upgraded \
