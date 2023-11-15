@@ -42,19 +42,19 @@ export APT_LISTCHANGES_FRONTEND=none
 # Install the openmediavault keyring manually.
 apt-get install --yes gnupg
 wget --quiet --output-document=- https://packages.openmediavault.org/public/archive.key | \
-	gpg --dearmor --output "/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.gpg"
+	gpg --dearmor --yes --output "/usr/share/keyrings/openmediavault-archive-keyring.gpg"
 
 # Install openmediavault.
 cat <<EOF >> /etc/apt/sources.list.d/openmediavault.list
-deb http://packages.openmediavault.org/public sandworm main
-# deb http://downloads.sourceforge.net/project/openmediavault/packages sandworm main
+deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public sandworm main
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages sandworm main
 ## Uncomment the following line to add software from the proposed repository.
-# deb http://packages.openmediavault.org/public sandworm-proposed main
-# deb http://downloads.sourceforge.net/project/openmediavault/packages sandworm-proposed main
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public sandworm-proposed main
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages sandworm-proposed main
 ## This software is not part of OpenMediaVault, but is offered by third-party
 ## developers as a service to OpenMediaVault users.
-# deb http://packages.openmediavault.org/public sandworm partner
-# deb http://downloads.sourceforge.net/project/openmediavault/packages sandworm partner
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public sandworm partner
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages sandworm partner
 EOF
 apt-get update
 apt-get --yes --auto-remove --show-upgraded \
