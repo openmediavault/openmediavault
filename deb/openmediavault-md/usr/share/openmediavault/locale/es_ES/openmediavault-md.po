@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:07+0100\n"
+"POT-Creation-Date: 2023-11-15 11:52+0100\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2023\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
@@ -65,6 +65,9 @@ msgstr "lineal"
 
 msgid "Mirror"
 msgstr "Espejo"
+
+msgid "Multiple Device"
+msgstr ""
 
 msgid "Name"
 msgstr "Nombre"

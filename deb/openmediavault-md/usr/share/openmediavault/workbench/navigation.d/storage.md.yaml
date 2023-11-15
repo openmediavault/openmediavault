@@ -3,6 +3,6 @@ type: navigation-item
 data:
   path: "storage.md"
   position: 30
-  text: _("Software RAID")
+  text: _("Multiple Device")
   icon: "mdi:database"
   url: "/storage/md"

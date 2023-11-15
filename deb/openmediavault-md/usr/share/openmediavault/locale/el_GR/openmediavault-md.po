@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:07+0100\n"
+"POT-Creation-Date: 2023-11-15 11:52+0100\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
 "Last-Translator: Kostas Moho, 2023\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
@@ -22,99 +22,104 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "Μπορεί να αφαιρεθεί μέχρι μία συσκευή."
 
 msgid "A maximum of two device can be removed."
-msgstr ""
+msgstr "Μπορούν να αφαιρεθούν μέχρι δύο συσκευές."
 
 msgid "Add hot spares / recover RAID device."
-msgstr ""
+msgstr "Προσθήκη εφεδρείας / ανάκτηση συσκευής RAID."
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "Απαιτούνται τουλάχιστον τέσσερις συσκευές."
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "Απαιτούνται τουλάχιστον τρείς συσκευές."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "Απαιτούνται τουλάχιστον δύο συσκευές."
 
 msgid "Capacity"
-msgstr ""
+msgstr "Χωρητικότητα"
 
 msgid "Create"
-msgstr ""
+msgstr "Δημιουργία"
 
 msgid "Details"
-msgstr ""
+msgstr "Λεπτομέρειες"
 
 msgid "Device"
-msgstr ""
+msgstr "Συσκευή"
 
 msgid "Devices"
-msgstr ""
+msgstr "Συσκευές"
 
 msgid "Grow"
-msgstr ""
+msgstr "Μεγέθυνση"
 
 msgid "Level"
-msgstr ""
+msgstr "Επίπεδο"
 
 msgid "Linear"
-msgstr ""
+msgstr "Γραμμικό"
 
 msgid "Mirror"
+msgstr "Καθρεφτισμός"
+
+msgid "Multiple Device"
 msgstr ""
 
 msgid "Name"
 msgstr "Όνομα"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "Recover"
-msgstr ""
+msgstr "Ανάκτηση"
 
 msgid "Remove"
-msgstr ""
+msgstr "Αφαίρεση"
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Επιλογή συσκευών"
 
 msgid "Select devices to be added to the RAID device."
-msgstr ""
+msgstr "Επιλογή συσκευών για προσθήκη στην συσκευή RAID."
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Επιλογή συσκευών για αφαίρεση από την συσκευή RAID."
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr ""
+"Επιλογή συσκευών για την δημιουργία της συσκευής RAID. Οι συσκευές που "
+"συνδέονται μέσω USB είναι αναξιόπιστες και δεν θα εμφανίζονται."
 
 msgid "Show details"
-msgstr ""
+msgstr "Εμφάνιση λεπτομερειών"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "RAID με λογισμικό"
 
 msgid "State"
 msgstr "Καθεστώς"
 
 msgid "Stripe"
-msgstr ""
+msgstr "Μοίρασμα"

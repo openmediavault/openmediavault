@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:07+0100\n"
+"POT-Creation-Date: 2023-11-15 11:52+0100\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
 "Last-Translator: Jonatan Nyberg, 2023\n"
 "Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
@@ -22,93 +22,98 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "Högst en enhet kan tas bort."
 
 msgid "A maximum of two device can be removed."
-msgstr ""
+msgstr "Högst två enheter kan tas bort."
 
 msgid "Add hot spares / recover RAID device."
 msgstr ""
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "Minst fyra enheter krävs."
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "Minst tre enheter krävs."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "Minst två enheter krävs."
 
 msgid "Capacity"
-msgstr ""
+msgstr "Kapacitet"
 
 msgid "Create"
-msgstr ""
+msgstr "Skapa"
 
 msgid "Details"
-msgstr ""
+msgstr "Detaljer"
 
 msgid "Device"
-msgstr ""
+msgstr "Enhet"
 
 msgid "Devices"
-msgstr ""
+msgstr "Enheter"
 
 msgid "Grow"
-msgstr ""
+msgstr "Växa"
 
 msgid "Level"
-msgstr ""
+msgstr "Nivå"
 
 msgid "Linear"
-msgstr ""
+msgstr "Linjär"
 
 msgid "Mirror"
+msgstr "Spegel"
+
+msgid "Multiple Device"
 msgstr ""
 
 msgid "Name"
 msgstr "Namn"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "Recover"
-msgstr ""
+msgstr "Reparera"
 
 msgid "Remove"
-msgstr ""
+msgstr "Ta bort"
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Välj enheter ..."
 
 msgid "Select devices to be added to the RAID device."
-msgstr ""
+msgstr "Välj enheter som ska läggas till RAID-enheten."
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Välj enheter som ska tas bort från RAID-enheten."
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr ""
+"Välj de enheter som ska användas för att skapa RAID-enheten. Enheter som är "
+"anslutna via USB kommer inte att listas (för opålitliga)."
 
 msgid "Show details"
-msgstr ""
+msgstr "Visa detaljer"
 
 msgid "Software RAID"
 msgstr ""

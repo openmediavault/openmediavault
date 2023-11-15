@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:07+0100\n"
+"POT-Creation-Date: 2023-11-15 11:52+0100\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
 "Last-Translator: 王大山, 2023\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
@@ -66,6 +66,9 @@ msgstr "线性"
 
 msgid "Mirror"
 msgstr "镜像"
+
+msgid "Multiple Device"
+msgstr ""
 
 msgid "Name"
 msgstr "名称"
