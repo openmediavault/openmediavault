@@ -55,7 +55,7 @@ msgstr ""
 "Dateien zugreifen kann."
 
 msgid "Updated File Browser settings."
-msgstr "Datei Browser Einstellung aktualisiert."
+msgstr "Datei Browser Einstellung wurden aktualisiert."
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."

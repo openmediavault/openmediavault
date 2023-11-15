@@ -40,7 +40,7 @@ msgid "The SSL certificate."
 msgstr "Das SSL-Zertifikat."
 
 msgid "Updated WeTTY settings."
-msgstr "WeTTY-Einstellungen aktualisiert."
+msgstr "WeTTY-Einstellungen wurden aktualisiert."
 
 msgid "WeTTY"
 msgstr "WeTTY"

@@ -3797,7 +3797,7 @@ msgid "Updated remote system-logs settings."
 msgstr "Remote-Systemprotokoll-Einstellungen wurden aktualisiert."
 
 msgid "Updated scheduled task."
-msgstr "Geplante Aufgabe aktualisiert."
+msgstr "Geplante Aufgabe wurde aktualisiert."
 
 msgid "Updated settings."
 msgstr "Einstellungen wurden aktualisiert."
@@ -3809,7 +3809,7 @@ msgid "Updated update management settings."
 msgstr "Aktualisierungseinstellungen wurden aktualisiert."
 
 msgid "Updated user \"{{ name }}\"."
-msgstr "Benutzer \"{{ name }}\" aktualisiert."
+msgstr "Benutzer \"{{ name }}\" wurde aktualisiert."
 
 msgid "Updated user profile."
 msgstr "Benutzerprofil wurde aktualisiert."

@@ -2400,7 +2400,7 @@ msgid "Prefail"
 msgstr "Prefalla "
 
 msgid "Prefix address"
-msgstr ""
+msgstr "Prefix d'adreça"
 
 msgid "Prefix length"
 msgstr "Longitud del prefix"

@@ -72,4 +72,4 @@ msgstr ""
 "erlaubt sind."
 
 msgid "Updated TFTP settings."
-msgstr "TFTP-Einstellungen aktualisiert."
+msgstr "TFTP-Einstellungen wurden aktualisiert."

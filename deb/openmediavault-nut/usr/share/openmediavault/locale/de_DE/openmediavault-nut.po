@@ -132,7 +132,7 @@ msgid "UPS reaches low battery"
 msgstr "USV erreicht niedrigen Batteriestand"
 
 msgid "Updated UPS settings."
-msgstr ""
+msgstr "UPS-Einstellungen wurden aktualisiert."
 
 msgid "Used for remote authentication."
 msgstr "Benutzt für Fernüberwachung."

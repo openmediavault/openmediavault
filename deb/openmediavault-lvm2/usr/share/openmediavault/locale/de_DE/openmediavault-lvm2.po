@@ -35,10 +35,10 @@ msgid "Create"
 msgstr "Erstellen"
 
 msgid "Created logical volume '{{ name }}'."
-msgstr ""
+msgstr "Logisches Volume '{{ name }}' erstellt."
 
 msgid "Created physical volume {{ devicefile }}."
-msgstr ""
+msgstr "Physikalisches Volume '{{ name }}' erstellt."
 
 msgid "Created snapshot of logical volume '{{ devicefile }}'."
 msgstr ""
@@ -135,10 +135,10 @@ msgid ""
 msgstr ""
 
 msgid "Updated logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "Logical Volume '{{ devicefile }}' wurde aktualisiert."
 
 msgid "Updated volume group '{{ devicefile }}'."
-msgstr "Volumegruppe '{{ devicefile }}' aktualisiert."
+msgstr "Volumegruppe '{{ devicefile }}' wurde aktualisiert."
 
 msgid "Used"
 msgstr "Benutzt"

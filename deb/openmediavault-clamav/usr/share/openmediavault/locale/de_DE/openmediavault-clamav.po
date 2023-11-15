@@ -285,10 +285,10 @@ msgid "Tuesday"
 msgstr "Dienstag"
 
 msgid "Updated on-access scan."
-msgstr "On-Access-Scan aktualisiert."
+msgstr "On-Access-Scan wurde aktualisiert."
 
 msgid "Updated scheduled scan."
-msgstr "Geplante Aufgabe aktualisiert."
+msgstr "Geplante Aufgabe wurde aktualisiert."
 
 msgid "Verbose"
 msgstr "Wortreich"

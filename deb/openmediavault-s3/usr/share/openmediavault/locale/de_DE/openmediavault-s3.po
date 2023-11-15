@@ -46,7 +46,7 @@ msgid "Port to listen on."
 msgstr "Port auf dem gelauscht wird."
 
 msgid "S3"
-msgstr ""
+msgstr "S3"
 
 msgid "Shared folder"
 msgstr "Freigegebene Ordner"
@@ -66,7 +66,7 @@ msgid "The password of the root user."
 msgstr "Das Passwort des Root-Benutzers."
 
 msgid "Updated S3 settings."
-msgstr ""
+msgstr "S3-Einstellungen wurden aktualisiert."
 
 msgid "Web interface"
 msgstr "Webschnittstelle"

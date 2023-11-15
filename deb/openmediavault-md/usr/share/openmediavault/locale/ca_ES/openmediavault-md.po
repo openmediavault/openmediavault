@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-md package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Quim Farriol <qfarriol@valette.cat>, 2023
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-15 11:52+0100\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
+"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2023\n"
 "Language-Team: Catalan (Spain) (https://app.transifex.com/openmediavault/teams/14254/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,102 +22,105 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "Es pot treure com a màxim un dispositiu."
 
 msgid "A maximum of two device can be removed."
-msgstr ""
+msgstr "Es pot treure com a màxim dos dispositius."
 
 msgid "Add hot spares / recover RAID device."
-msgstr ""
+msgstr "Afegiu recanvis calents / recupereu el dispositiu RAID."
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "Es requereixen almenys quatre dispositius."
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "Es requereixen almenys tres dispositius."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "Es requereixen almenys dos dispositius."
 
 msgid "Capacity"
-msgstr ""
+msgstr "Capacitat"
 
 msgid "Create"
-msgstr ""
+msgstr "Crea"
 
 msgid "Details"
-msgstr ""
+msgstr "Detalls"
 
 msgid "Device"
-msgstr ""
+msgstr "Dispositiu"
 
 msgid "Devices"
-msgstr ""
+msgstr "Dispositius"
 
 msgid "Grow"
-msgstr ""
+msgstr "Creix"
 
 msgid "Level"
-msgstr ""
+msgstr "Nivell"
 
 msgid "Linear"
-msgstr ""
+msgstr "Lineal"
 
 msgid "Mirror"
-msgstr ""
+msgstr "Mirall"
 
 msgid "Multiple Device"
-msgstr ""
+msgstr "Dispositiu múltiple"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "Recover"
-msgstr ""
+msgstr "Recuperar-se"
 
 msgid "Remove"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Seleccioneu dispositius..."
 
 msgid "Select devices to be added to the RAID device."
-msgstr ""
+msgstr "Seleccioneu els dispositius que voleu afegir al RAID."
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Seleccioneu els dispositius que voleu eliminar del RAID."
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr ""
+"Seleccioneu els dispositius que s'utilitzaran per crear el RAID. Els "
+"dispositius connectats mitjançant USB no apareixeran a la llista (massa poc "
+"fiables)."
 
 msgid "Show details"
-msgstr ""
+msgstr "Mostra els detalls"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "Software RAID"
 
 msgid "State"
-msgstr ""
+msgstr "Estat"
 
 msgid "Stripe"
-msgstr ""
+msgstr "Ratlla"
