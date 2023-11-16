@@ -55,7 +55,7 @@ apt-get --yes --auto-remove --show-upgraded \
 	--no-install-recommends \
 	--option DPkg::Options::="--force-confdef" \
 	--option DPkg::Options::="--force-confold" \
-	install openmediavault-keyring openmediavault
+	install openmediavault
 
 # Populate the database.
 omv-confdbadm populate
