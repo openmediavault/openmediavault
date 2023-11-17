@@ -1,6 +1,6 @@
 openmediavault (6.9.9-1) stable; urgency=low
 
-  *
+  * Configure exports only for enabled NFS versions.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 17 Nov 2023 23:53:24 +0100
 
