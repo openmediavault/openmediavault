@@ -77,6 +77,8 @@ configure_nfs_exports:
     - source:
       - salt://{{ tpldir }}/files/etc-exports.j2
     - template: jinja
+    - context:
+        config: {{ nfs_config | json }}
     - user: root
     - group: root
     - mode: 644
