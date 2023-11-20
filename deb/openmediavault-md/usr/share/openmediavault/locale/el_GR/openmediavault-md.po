@@ -67,7 +67,7 @@ msgid "Mirror"
 msgstr "Καθρεφτισμός"
 
 msgid "Multiple Device"
-msgstr ""
+msgstr "Πολλαπλή Συσκευή"
 
 msgid "Name"
 msgstr "Όνομα"
