@@ -16,4 +16,4 @@ Description: Regenerate SSH key for user 'root'
 
 Template: openmediavault-installer/finish-install/progress/info/init_database
 Type: text
-Description: Initialize database
+Description: Initialize openmediavault database
