@@ -617,12 +617,24 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$jobObject = $db->get("conf.service.smartmontools.job", $params['uuid']);
-		// Get the associated device configuration object.
-		$deviceObject = $db->getByFilter("conf.service.smartmontools.device", [
-			"operator" => "stringEquals",
+		// Build the filter to query the device settings.
+		$filter = [
+			"operator" => "stringEnum",
 			"arg0" => "devicefile",
-			"arg1" => $jobObject->get("devicefile")
-		], 1);
+			"arg1" => [ $jobObject->get("devicefile") ]
+		];
+		// If the given device file exists, then extend the filter by
+		// adding the all device files retrieved via UDEV. This will
+		// increase the probability that we will have a hit on the
+		// database query.
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+			$jobObject->get("devicefile"));
+		if (!is_null($sd) && $sd->exists()) {
+			array_push($filter["arg1"], ...$sd->getDeviceFileSymlinks());
+		}
+		// Get the associated device configuration object.
+		$deviceObject = $db->getByFilter("conf.service.smartmontools.device",
+			$filter, 1);
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($jobObject, $deviceObject) {
