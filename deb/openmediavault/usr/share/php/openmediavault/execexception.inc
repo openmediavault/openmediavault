@@ -31,7 +31,8 @@ class ExecException extends BaseException {
 	private $exitStatus = NULL;
 
 	/**
-	 * @param string $cmdLine The command line string.
+	 * @param string $cmdLine The command line string or a
+	 *   \OMV\System\Process instance.
 	 * @param array $output The output of the executed command.
 	 * @param int $exitStatus The return status of the executed command.
 	 */

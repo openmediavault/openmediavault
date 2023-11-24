@@ -200,17 +200,22 @@ class Process {
 				$envv['value']));
 		}
 		$cmdArgs = array_merge($cmdArgs, $this->cmdArgs);
-		if (FALSE === empty($this->redirect1toFile))
+		if (FALSE === empty($this->redirect1toFile)) {
 			$cmdArgs[] = sprintf("1>%s", $this->redirect1toFile);
-		if (FALSE === empty($this->redirect2toFile))
+		}
+		if (FALSE === empty($this->redirect2toFile)) {
 			$cmdArgs[] = sprintf("2>%s", $this->redirect2toFile);
-		if (FALSE === empty($this->inputFromFile))
+		}
+		if (FALSE === empty($this->inputFromFile)) {
 			$cmdArgs[] = sprintf("<%s", $this->inputFromFile);
+		}
 		// https://wiki.ubuntu.com/DashAsBinSh#A.3C.3C.3C
-		if (FALSE === empty($this->inputFromHereString))
+		if (FALSE === empty($this->inputFromHereString)) {
 			$cmdArgs[] = sprintf("<<EOF\n%s\nEOF", $this->inputFromHereString);
-		if (TRUE === $this->background)
+		}
+		if (TRUE === $this->background) {
 			$cmdArgs[] = "&";
+		}
 		return implode(" ", $cmdArgs);
 	}
 
@@ -238,8 +243,9 @@ class Process {
 		// Execute the command.
 		$this->debug("Executing command '%s'", $cmdLine);
 		$result = exec($cmdLine, $output, $exitStatus);
-		if ((FALSE === $this->quiet) && (0 !== $exitStatus))
+		if ((FALSE === $this->quiet) && (0 !== $exitStatus)) {
 			throw new \OMV\ExecException($cmdLine, $output, $exitStatus);
+		}
 		return $result;
 	}
 
