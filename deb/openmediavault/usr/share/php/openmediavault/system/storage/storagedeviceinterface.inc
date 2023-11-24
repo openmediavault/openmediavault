@@ -185,7 +185,7 @@ interface StorageDeviceInterface {
 	 * Check if the given device is an SD or MMC device.
 	 * @return boolean TRUE if device is SD or MMC, otherwise FALSE.
 	 */
-	public function isMmcblk();
+	public function isMmc();
 
 	/**
 	 * Check if the given device is read-only.

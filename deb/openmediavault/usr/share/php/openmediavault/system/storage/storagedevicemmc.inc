@@ -30,4 +30,8 @@ class StorageDeviceMMC extends StorageDevice {
 	public function isRotational() {
 		return FALSE;
 	}
+
+	public function isMmc() {
+		return TRUE;
+	}
 }

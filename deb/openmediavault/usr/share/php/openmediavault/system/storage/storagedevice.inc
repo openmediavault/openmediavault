@@ -204,16 +204,7 @@ class StorageDevice extends \OMV\System\BlockDevice
 	 * Check if the given device is an SD or MMC device.
 	 * @return boolean TRUE if device is SD or MMC, otherwise FALSE.
 	 */
-	public function isMmcblk() {
-		// Identify by device name
-		// Example:
-		// DEVNAME=/dev/mmcblk0
-		if (TRUE === $this->hasUdevProperty("DEVNAME")) {
-			$property = $this->getUdevProperty("DEVNAME");
-			if (1 == preg_match('/^\/dev\/mmcblk(0|[1-9]\d*)$/i', $property))
-				return TRUE;
-		}
-
+	public function isMmc() {
 		return FALSE;
 	}
 
