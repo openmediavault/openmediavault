@@ -22,8 +22,12 @@
 set -e
 
 # Get the current timezone and update the database.
-timezone=$(salt-call --local --retcode-passthrough --no-color --out=json timezone.get_zone | \
-    jq --raw-output '.[]')
+# https://unix.stackexchange.com/questions/451709/timedatectl-set-timezone-doesnt-update-etc-timezone/451714#451714
+if systemctl is-system-running --quiet; then
+	timezone=$(salt-call --local --retcode-passthrough --no-color --out=json timezone.get_zone | \
+		jq --raw-output '.[]')
+else
+	timezone=$(cat /etc/timezone)
 data=$(omv-confdbadm read "conf.system.time" | jq ".timezone = \"${timezone}\"")
 omv-confdbadm update "conf.system.time" "${data}"
 
