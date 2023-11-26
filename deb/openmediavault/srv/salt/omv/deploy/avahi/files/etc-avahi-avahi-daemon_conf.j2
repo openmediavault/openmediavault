@@ -6,8 +6,11 @@
 {%- set rlimit_nproc = salt['pillar.get']('default:OMV_AVAHIDAEMON_RLIMIT_NPROC', '3') -%}
 {%- set publish_hinfo = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_HINFO', 'no') -%}
 {%- set publish_workstation = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_WORKSTATION', 'no') -%}
-{%- set interfaces = salt['omv_conf.get_by_filter']('conf.system.network.interface',
-  {'operator': 'and', 'arg0': {'operator': 'stringEnum', 'arg0': 'type', 'arg1': ['ethernet', 'bond', 'bridge', 'wifi']}, 'arg1': {'operator': 'or', 'arg0': {'operator': 'stringNotEquals', 'arg0': 'method', 'arg1': 'manual'}, 'arg1': {'operator': 'stringNotEquals', 'arg0': 'method6', 'arg1': 'manual'}}}) -%}
+{%- if allow_interfaces | length == 0 %}
+{%- set allow_interfaces = salt['omv_conf.get_by_filter']('conf.system.network.interface',
+  {'operator': 'and', 'arg0': {'operator': 'stringEnum', 'arg0': 'type', 'arg1': ['ethernet', 'bond', 'bridge', 'wifi']}, 'arg1': {'operator': 'or', 'arg0': {'operator': 'stringNotEquals', 'arg0': 'method', 'arg1': 'manual'}, 'arg1': {'operator': 'stringNotEquals', 'arg0': 'method6', 'arg1': 'manual'}}}) |
+  map(attribute='devicename') | join(',') -%}
+{%- endif %}
 {{ pillar['headers']['multiline'] }}
 [server]
 #host-name=foo
@@ -18,7 +21,7 @@ use-ipv6={{ use_ipv6 }}
 {%- if allow_interfaces | length > 0 %}
 allow-interfaces={{ allow_interfaces }}
 {%- else %}
-allow-interfaces={{ interfaces | map(attribute='devicename') | join(',') }}
+#allow-interfaces=
 {%- endif %}
 #deny-interfaces=eth1
 #check-response-ttl=no
