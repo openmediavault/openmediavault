@@ -23,9 +23,24 @@
 
 set -e
 
-logger -t finish-install "Update grub"
+logger -t finish-install "Update system configuration"
 
-# Rebuild grub to convert device names to UUID.
-in-target update-grub
+db_progress START 0 2 openmediavault-installer/finish-install/progress/update_sys_conf
+
+# Regenerate SSH key for user 'root'. It was created during the build
+# process of the ISO image.
+logger -t finish-install "Update system configuration [1/2]"
+db_progress INFO openmediavault-installer/finish-install/progress/info/regen_ssh_keys
+in-target rm -f /root/.ssh/id_rsa
+in-target rm -f /root/.ssh/id_rsa.pub
+in-target ssh-keygen -t rsa -b 4096 -f /root/.ssh/id_rsa -N ''
+
+# Deploy imported network settings as systemd-networkd configuration.
+logger -t finish-install "Update system configuration [2/2]"
+db_progress STEP 1
+db_progress INFO openmediavault-installer/finish-install/progress/info/deploy_systemd_networkd
+in-target omv-salt deploy run systemd-networkd || true
+
+db_progress STOP
 
 exit 0
