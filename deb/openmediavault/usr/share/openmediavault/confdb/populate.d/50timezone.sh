@@ -28,6 +28,7 @@ if systemctl is-system-running --quiet; then
 		jq --raw-output '.[]')
 else
 	timezone=$(cat /etc/timezone)
+fi
 data=$(omv-confdbadm read "conf.system.time" | jq ".timezone = \"${timezone}\"")
 omv-confdbadm update "conf.system.time" "${data}"
 
