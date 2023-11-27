@@ -6,14 +6,22 @@ Description: More than one storage device has been detected
  storage device, then shutdown the system and unplug all storage devices
  except the one you want to use for the operating system.
 
-Template: openmediavault-installer/finish-install/progress/title
+Template: openmediavault-installer/finish-install/progress/import_sys_conf
 Type: text
-Description: Configure system environment
+Description: Import system configuration
 
-Template: openmediavault-installer/finish-install/progress/info/ssh_keygen
+Template: openmediavault-installer/finish-install/progress/update_sys_conf
 Type: text
-Description: Regenerate SSH key for user 'root'
+Description: Update system configuration
 
 Template: openmediavault-installer/finish-install/progress/info/init_database
 Type: text
 Description: Initialize openmediavault database
+
+Template: openmediavault-installer/finish-install/progress/info/regen_ssh_keys
+Type: text
+Description: Regenerate SSH key for user 'root'
+
+Template: openmediavault-installer/finish-install/progress/info/deploy_systemd_networkd
+Type: text
+Description: Deploy systemd-networkd configuration
