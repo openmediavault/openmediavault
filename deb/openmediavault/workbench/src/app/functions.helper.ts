@@ -126,6 +126,9 @@ export const isFormatable = (value: any): boolean =>
  * Allows you to define a tokenized string and pass an object
  * to replace the tokens.
  *
+ * Note, output with dangerous characters is escaped automatically.
+ * Use the `safe` filter to bypass this behaviour.
+ *
  * @param str The string to format.
  *   Examples:
  *     '/storage/disks/edit/{{ hdparm.uuid }}'
@@ -143,6 +146,9 @@ export const format = (str: string, data: Record<any, any>): string => renderTem
 /**
  * Format all tokenized string values recursively in the given
  * object.
+ *
+ * Note, output with dangerous characters is escaped automatically.
+ * Use the `safe` filter to bypass this behaviour.
  *
  * @param value The object to format.
  * @param data The object containing the data to replace.
@@ -166,6 +172,9 @@ export const formatDeep = (value: any, data: Record<any, any>): Record<any, any>
 /**
  * Allows you to define a tokenized URI and pass an object
  * to replace the tokens. The URI parameters will be encoded.
+ *
+ * Note, output with dangerous characters is escaped automatically.
+ * Use the `safe` filter to bypass this behaviour.
  *
  * @param uri The URI to format.
  * @param params The object containing the parameters to replace
