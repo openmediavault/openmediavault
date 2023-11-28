@@ -81,6 +81,7 @@ describe('functions.helper', () => {
     expect(format('{{ devicefile | encodeuricomponent }}', { devicefile: '/dev/sda' })).toBe(
       '%2Fdev%2Fsda'
     );
+    expect(format('{{ foo }}', { foo: 'at&t' })).toBe('at&amp;t');
   });
 
   it('should format string [4]', () => {
