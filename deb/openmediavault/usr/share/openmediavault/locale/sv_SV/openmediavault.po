@@ -2991,7 +2991,7 @@ msgstr "Anger tiden i millisekunder att vänta innan inaktivering av en slav eft
 msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
-msgstr "Anger tiden i millisekunder att vänta innan en slav aktiveras efter att en länkåterhämtning har upptäckts."
+msgstr "Anger tiden, i millisekunder, för att vänta innan en slav aktiveras efter att en länkåterställning har upptäckts."
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Anger om det är tillåtet att logga in som superanvändare."
