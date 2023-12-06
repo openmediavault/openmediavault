@@ -201,6 +201,14 @@ class StorageDevice extends \OMV\System\BlockDevice
 	}
 
 	/**
+	 * Check if the given device is an SD or MMC device.
+	 * @return boolean TRUE if device is SD or MMC, otherwise FALSE.
+	 */
+	public function isMmc() {
+		return FALSE;
+	}
+
+	/**
 	 * Check if the given device is read-only.
 	 * @return boolean TRUE if the device is read-only, otherwise FALSE.
 	 */

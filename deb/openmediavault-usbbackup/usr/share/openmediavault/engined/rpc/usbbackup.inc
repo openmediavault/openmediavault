@@ -86,10 +86,12 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			if (1 < count($sd->getPartitionDeviceNames())) {
 				continue;
 			}
-			// Skip everything which is not an USB or eSATA device or is a
-			// read-only medium.
-			if (!($sd->isUsb() || $sd->isAta()) || $sd->isReadOnly())
+			// Skip everything which is not an USB, eSATA, SD or eMMC
+			// device or is a read-only medium.
+			if (!($sd->isUsb() || $sd->isAta() || $sd->isMmc()) ||
+					$sd->isReadOnly()) {
 				continue;
+			}
 			// Prepare result object.
 			$result[] = [
 				"uuid" => $objectv['uuid'],
