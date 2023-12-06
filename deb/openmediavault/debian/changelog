@@ -1,4 +1,4 @@
-openmediavault (7.0-11) unstable; urgency=low
+openmediavault (7.0-12) unstable; urgency=low
 
   * Upgrade to Debian 12 (Bookworm).
   * Relocate Linux MD device (Software RAID) management into a
@@ -12,6 +12,8 @@ openmediavault (6.9.9-1) stable; urgency=low
   * Enhance database query to prevent an error when trying
     to run a SMART scheduled task via UI.
   * Fix bug in Avahi configuration.
+  * Issue #485: Display device temperatures in the SMART
+    dashboard widget.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 17 Nov 2023 23:53:24 +0100
 
