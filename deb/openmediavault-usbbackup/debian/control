@@ -11,8 +11,8 @@ Package: openmediavault-usbbackup
 Architecture: all
 Depends: hdparm, rsync, openmediavault (>= 7.0)
 Priority: optional
-Description: openmediavault USB/eSATA backup plugin
- Automatically synchronise a shared folder to an USB/eSATA device and vice
+Description: openmediavault USB/eSATA/SD backup plugin
+ Automatically synchronise a shared folder to an USB/eSATA/SD device and vice
  verse when it is plugged in.
  The device is put into sleep mode after synchronisation to signal that it
  can be removed safely.

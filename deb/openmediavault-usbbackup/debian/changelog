@@ -1,6 +1,7 @@
 openmediavault-usbbackup (7.0-3) unstable; urgency=low
 
   * Adapt to openmediavault 7 (Sandworm).
+  * Issue #1622: Add support for SD cards.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Jul 2023 17:10:02 +0200
 
