@@ -1,0 +1,95 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2023 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+
+OMV_UPGRADE_SCRIPTS_DIR=${OMV_UPGRADE_SCRIPTS_DIR:-"/usr/share/openmediavault/release-upgrade"}
+OMV_UPGRADE_RELEASEVERSION=${OMV_UPGRADE_RELEASEVERSION:-"7.0"}
+OMV_UPGRADE_RELEASENAME=${OMV_UPGRADE_RELEASENAME:-"Sandworm"}
+
+export LANG=C
+export DEBIAN_FRONTEND=noninteractive
+export APT_LISTCHANGES_FRONTEND=none
+
+export OMV_UPGRADE_RELEASEVERSION
+export OMV_UPGRADE_RELEASENAME
+export OMV_UPGRADE_PRODNAME=$(xmlstarlet sel -t -v "//name" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+export OMV_UPGRADE_PRODCOPYRIGHT=$(xmlstarlet sel -t -v "//copyright" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+
+whiptail --clear --backtitle "${OMV_UPGRADE_PRODNAME} - ${OMV_UPGRADE_PRODCOPYRIGHT}" \
+  --title "Release upgrade" \
+  --yesno "Do you really want to upgrade your system to release version ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME})? Please ensure that all your installed plugins are available for this release." \
+  9 56 6
+[ $? -ne 0 ] && exit 0
+echo "Upgrading system to ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME}) ..."
+
+# Immediately abort the upgrade process if there is a side-by-side installation
+# with a desktop environment.
+if dpkg -l | grep -Eqw "gdm3|sddm|lxdm|xdm|lightdm|slim|wdm"; then
+  echo "This system is running a desktop environment! This setup is not supported."
+  exit 1
+fi
+
+# Backup the release upgrade scripts to a temporary directory. This is
+# necessary because the scripts directory is removed when the package
+# openmediavault x.y.z is installed (which does not contain these files).
+tmpdir=$(mktemp --tmpdir=/var/tmp --directory)
+cp -r ${OMV_UPGRADE_SCRIPTS_DIR}/* ${tmpdir}
+
+# Ensure the latest packages of the current release are installed.
+echo "Ensure the system is up-to-date before doing the release upgrade ..."
+omv-upgrade
+
+# Execute scripts before upgrade.
+echo "Running pre-upgrade scripts ..."
+run-parts --exit-on-error ${tmpdir}/pre.d
+
+# Upgrade to latest distribution.
+echo "Starting release upgrade ..."
+apt-get update
+apt-get --yes --force-yes --fix-missing --auto-remove --allow-unauthenticated \
+  --show-upgraded --option Dpkg::Options::="--force-confdef" \
+  --option DPkg::Options::="--force-confold" --no-install-recommends \
+  dist-upgrade
+
+# Execute scripts after upgrade.
+echo "Running post-upgrade scripts ..."
+run-parts ${tmpdir}/post.d
+
+# Install the latest packages by using the new APT settings that were
+# deployed during the release upgrade. Do not fail here if something
+# is not working to do not abort the whole upgrade.
+echo "Ensure the latest packages are installed ..."
+omv-upgrade || :
+
+# Cleanup
+echo "Cleanup ..."
+rm -rf ${tmpdir}
+
+# Display final message.
+whiptail --clear --backtitle "${OMV_UPGRADE_PRODNAME} - ${OMV_UPGRADE_PRODCOPYRIGHT}" \
+  --title "Release upgrade" \
+  --msgbox "The upgrade has completed successfully. Please reboot the system." \
+  8 43
+
+exit 0
