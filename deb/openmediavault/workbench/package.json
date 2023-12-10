@@ -46,7 +46,7 @@
     "@codemirror/search": "^6.5.5",
     "@codemirror/state": "^6.3.3",
     "@codemirror/theme-one-dark": "^6.1.2",
-    "@codemirror/view": "^6.22.1",
+    "@codemirror/view": "^6.22.2",
     "@fontsource/inter": "^4.5.15",
     "@fontsource/roboto-mono": "^4.5.10",
     "@mdi/angular-material": "^7.2.96",
@@ -82,7 +82,7 @@
     "@types/chart.js": "^2.9.41",
     "@types/jest": "^28.1.8",
     "@types/lodash": "^4.14.202",
-    "@types/node": "^16.18.67",
+    "@types/node": "^16.18.68",
     "@types/nunjucks": "^3.2.6",
     "@types/validator": "^13.11.7",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
@@ -106,7 +106,7 @@
     "start-server-and-test": "^2.0.3",
     "stylelint": "^15.11.0",
     "stylelint-config-standard-scss": "~9.0.0",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "typescript": "~4.8.4"
   }
 }
