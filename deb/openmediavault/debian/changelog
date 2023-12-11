@@ -1,4 +1,4 @@
-openmediavault (6.9.10-1) stable; urgency=low
+openmediavault (6.9.10-2) stable; urgency=low
 
   * Add omv-release-upgrade to allow users to migrate their
     systems to OMV7 (Sandworm) which is based on Debian 12

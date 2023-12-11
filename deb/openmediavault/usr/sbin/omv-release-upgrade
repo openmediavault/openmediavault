@@ -23,18 +23,20 @@ set -e
 
 . /etc/default/openmediavault
 
-OMV_UPGRADE_SCRIPTS_DIR=${OMV_UPGRADE_SCRIPTS_DIR:-"/usr/share/openmediavault/release-upgrade"}
-OMV_UPGRADE_RELEASEVERSION=${OMV_UPGRADE_RELEASEVERSION:-"7.0"}
-OMV_UPGRADE_RELEASENAME=${OMV_UPGRADE_RELEASENAME:-"Sandworm"}
-
 export LANG=C
 export DEBIAN_FRONTEND=noninteractive
 export APT_LISTCHANGES_FRONTEND=none
 
+OMV_UPGRADE_SCRIPTS_DIR=${OMV_UPGRADE_SCRIPTS_DIR:-"/usr/share/openmediavault/release-upgrade"}
+OMV_UPGRADE_RELEASEVERSION=${OMV_UPGRADE_RELEASEVERSION:-"7.0"}
+OMV_UPGRADE_RELEASENAME=${OMV_UPGRADE_RELEASENAME:-"Sandworm"}
+OMV_UPGRADE_PRODNAME=$(xmlstarlet sel -t -v "//name" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+OMV_UPGRADE_PRODCOPYRIGHT=$(xmlstarlet sel -t -v "//copyright" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+
 export OMV_UPGRADE_RELEASEVERSION
 export OMV_UPGRADE_RELEASENAME
-export OMV_UPGRADE_PRODNAME=$(xmlstarlet sel -t -v "//name" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
-export OMV_UPGRADE_PRODCOPYRIGHT=$(xmlstarlet sel -t -v "//copyright" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+export OMV_UPGRADE_PRODNAME
+export OMV_UPGRADE_PRODCOPYRIGHT
 
 whiptail --clear --backtitle "${OMV_UPGRADE_PRODNAME} - ${OMV_UPGRADE_PRODCOPYRIGHT}" \
   --title "Release upgrade" \
@@ -54,7 +56,7 @@ fi
 # necessary because the scripts directory is removed when the package
 # openmediavault x.y.z is installed (which does not contain these files).
 tmpdir=$(mktemp --tmpdir=/var/tmp --directory)
-cp -r ${OMV_UPGRADE_SCRIPTS_DIR}/* ${tmpdir}
+cp -r "${OMV_UPGRADE_SCRIPTS_DIR}/*" "${tmpdir}"
 
 # Ensure the latest packages of the current release are installed.
 echo "Ensure the system is up-to-date before doing the release upgrade ..."
@@ -62,19 +64,21 @@ omv-upgrade
 
 # Execute scripts before upgrade.
 echo "Running pre-upgrade scripts ..."
-run-parts --exit-on-error ${tmpdir}/pre.d
+run-parts --exit-on-error "${tmpdir}/pre.d"
 
 # Upgrade to latest distribution.
 echo "Starting release upgrade ..."
 apt-get update
-apt-get --yes --force-yes --fix-missing --auto-remove --allow-unauthenticated \
-  --show-upgraded --option Dpkg::Options::="--force-confdef" \
+apt-get --yes --fix-missing \
+  --allow-downgrades --allow-change-held-packages \
+  --auto-remove --show-upgraded \
+  --option Dpkg::Options::="--force-confdef" \
   --option DPkg::Options::="--force-confold" --no-install-recommends \
   dist-upgrade
 
 # Execute scripts after upgrade.
 echo "Running post-upgrade scripts ..."
-run-parts ${tmpdir}/post.d
+run-parts "${tmpdir}/post.d"
 
 # Install the latest packages by using the new APT settings that were
 # deployed during the release upgrade. Do not fail here if something
@@ -84,7 +88,7 @@ omv-upgrade || :
 
 # Cleanup
 echo "Cleanup ..."
-rm -rf ${tmpdir}
+rm -rf "${tmpdir}"
 
 # Display final message.
 whiptail --clear --backtitle "${OMV_UPGRADE_PRODNAME} - ${OMV_UPGRADE_PRODCOPYRIGHT}" \
