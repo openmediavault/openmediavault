@@ -31,9 +31,12 @@ class Ethernet extends BackendAbstract {
 	// Examples:
 	// - eth0
 	// - enp2s0
-	// - enp2s0f0
+	// - enp2s0f0, enp5165p0s0
 	// - enx00259025963a
 	// - ens1
+	// - eno16777736
+	// - encf5f0, enx026d3c00000a
+	// - end0
 	//
 	// Predictable network interface device name types:
 	// - BCMA bus core number
@@ -50,12 +53,14 @@ class Ethernet extends BackendAbstract {
 	//   [P<domain>]p<bus>s<slot>[f<function>][n<phys_port_name>|d<dev_port>]
 	// - USB port number chain
 	//   [P<domain>]p<bus>s<slot>[f<function>][u<port>][..][c<config>][i<interface>]
+	// - Device tree
+	//   d<number>
 	//
 	// Understanding systemd’s predictable network device names:
 	// - https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames
 	// - https://github.com/systemd/systemd/blob/v242/src/udev/udev-builtin-net_id.c
 	protected $regex = "/^eth[0-9]+|".
-		"en(b\d+|c\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|".
+		"en(b\d+|c\d+|d\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|".
 		"x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|".
 		"(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$/i";
 

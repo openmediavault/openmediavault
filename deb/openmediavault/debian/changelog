@@ -3,6 +3,8 @@ openmediavault (7.0-13) unstable; urgency=low
   * Upgrade to Debian 12 (Bookworm).
   * Relocate Linux MD device (Software RAID) management into a
     separate plugin.
+  * Add support for network ethernet devices using device tree
+    aliases, e.g. `endX`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jul 2023 13:17:39 +0200
 
