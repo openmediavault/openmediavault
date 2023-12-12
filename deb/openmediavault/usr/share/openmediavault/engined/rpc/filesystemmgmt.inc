@@ -276,8 +276,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$procs = [];
 		foreach ($objects as $objectk => $objectv) {
 			// Process only the specified file system types?
-			if (array_key_exists('type', $params) && (array_value($params,
-					'type') !== $objectv->get("type"))) {
+			if (!is_null($params) && (array_value($params, 'type') !==
+					$objectv->get("type"))) {
 				continue;
 			}
 			// Collect the file system information asynchronous.
