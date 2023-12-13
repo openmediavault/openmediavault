@@ -56,7 +56,7 @@ fi
 # necessary because the scripts directory is removed when the package
 # openmediavault x.y.z is installed (which does not contain these files).
 tmpdir=$(mktemp --tmpdir=/var/tmp --directory)
-cp -r "${OMV_UPGRADE_SCRIPTS_DIR}/*" "${tmpdir}"
+cp -r "${OMV_UPGRADE_SCRIPTS_DIR}"/* "${tmpdir}"
 
 # Ensure the latest packages of the current release are installed.
 echo "Ensure the system is up-to-date before doing the release upgrade ..."
