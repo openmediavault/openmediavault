@@ -67,6 +67,9 @@ export class SmartDeviceFormPageComponent extends BaseFormPageComponent {
         type: 'checkbox',
         name: 'enable',
         label: gettext('Monitoring enabled'),
+        hint: gettext(
+          'Activate S.M.A.R.T. monitoring for this device. Note that only monitored devices are listed in the scheduled tasks. Monitoring cannot be switched off as long as there are scheduled tasks for this device.'
+        ),
         value: false,
         modifiers: [
           {
