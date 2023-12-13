@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:16+0100\n"
+"POT-Creation-Date: 2023-12-13 19:56+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2023\n"
 "Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -262,9 +262,6 @@ msgstr "Extracto"
 msgid "Access control list"
 msgstr "ACL Lista de Control de Acceso"
 
-msgid "Access mode"
-msgstr "Modo de acceso"
-
 msgid "Act as a WINS server."
 msgstr "Funcionar como servidor WINS."
 
@@ -274,6 +271,12 @@ msgstr "Actuar como un servidor WINS y usar un servidor WINS son mutuamente excl
 
 msgid "Action"
 msgstr "Acción"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr ""
 
 msgid "Add"
 msgstr "Añadir"
@@ -437,14 +440,8 @@ msgstr "Austria"
 msgid "Authenticate users"
 msgstr "Usuarios autenticados"
 
-msgid "Authenticated user ID"
-msgstr "ID del usuario autenticado"
-
 msgid "Authentication"
 msgstr "Autentificación"
-
-msgid "Authentication method"
-msgstr "Metodo de autenticación"
 
 msgid "Authentication required"
 msgstr "Se requiere autentificación"
@@ -691,9 +688,6 @@ msgstr "Actualizaciones Community-maintained"
 
 msgid "Comoros"
 msgstr "Comores"
-
-msgid "Completion status"
-msgstr "Estado"
 
 msgid "Compress"
 msgstr "Comprimir"
@@ -1202,12 +1196,6 @@ msgstr "Atributos extendidos"
 msgid "Extra options"
 msgstr "Opciones extra"
 
-msgid "FTP"
-msgstr "FTP"
-
-msgid "FTP - Transfer log"
-msgstr "Log de transferencias FTP"
-
 msgid "FTP-Proxy"
 msgstr "FTP-Proxy"
 
@@ -1259,9 +1247,6 @@ msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
 msgstr "Archivos de mayor tamaño que el numero especificado no serán mandados a la papelera de reciclaje."
-
-msgid "Filesize"
-msgstr "Tamaño del archivo"
 
 msgid "Fingerprint (SHA-1)"
 msgstr "Huella (SHA-1)"
@@ -2544,9 +2529,6 @@ msgstr "Pendiente"
 msgid "Remote"
 msgstr "Remoto"
 
-msgid "Remote host"
-msgstr "Host remoto"
-
 msgid "Replace"
 msgstr "Reemplazar"
 
@@ -2931,9 +2913,6 @@ msgstr "Snapshots"
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Fallo de software.  pulse botón izquierdo del ratón para continuar."
 
-msgid "Software RAID"
-msgstr "Software RAID"
-
 msgid "Software updates"
 msgstr "Actualizar el Software"
 
@@ -2972,9 +2951,6 @@ msgstr "Corea del Sur"
 
 msgid "Spain"
 msgstr "España"
-
-msgid "Special action flag"
-msgstr "Flag de acción especial"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Especifica la frecuencia de monitorización del enlace MII en milisegundos."
@@ -3578,12 +3554,6 @@ msgid ""
 "remote system."
 msgstr "Trasferir fecha de modificación a todos los archivos y actualizar en el sistema remoto."
 
-msgid "Transfer time"
-msgstr "Tiempo de transferencia"
-
-msgid "Transfer type"
-msgstr "Tipo de transferencia"
-
 msgid "Transmit Hash Policy"
 msgstr "Transmitir política de Hash"
 
@@ -3888,9 +3858,9 @@ msgid "Users"
 msgstr "Usuarios"
 
 msgid ""
-"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr "Los usuarios, deben asignarse al grupo <em>ssh</em> si quieren logarse vía SSH."
+msgstr ""
 
 msgid "Utilization"
 msgstr "Utilización"

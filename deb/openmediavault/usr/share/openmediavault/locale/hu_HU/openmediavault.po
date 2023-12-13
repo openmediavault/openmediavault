@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:16+0100\n"
+"POT-Creation-Date: 2023-12-13 19:56+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2023\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -263,9 +263,6 @@ msgstr "Absztrakt"
 msgid "Access control list"
 msgstr "Hozzáférési ellenőrzési lista "
 
-msgid "Access mode"
-msgstr "Hozzáférési mód"
-
 msgid "Act as a WINS server."
 msgstr "WINS szerverként való viselkedés"
 
@@ -275,6 +272,12 @@ msgstr "A WINS-kiszolgálóként való működés és a WINS-kiszolgáló haszn�
 
 msgid "Action"
 msgstr "Művelet"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr ""
 
 msgid "Add"
 msgstr "Hozzáadás"
@@ -438,14 +441,8 @@ msgstr "Ausztria"
 msgid "Authenticate users"
 msgstr "Felhasználók hitelesítése"
 
-msgid "Authenticated user ID"
-msgstr "Hitelesített felhasználói ID"
-
 msgid "Authentication"
 msgstr "Hitelesítés"
-
-msgid "Authentication method"
-msgstr "Hitelesítési módszer"
 
 msgid "Authentication required"
 msgstr "Hitelesítés szükséges"
@@ -692,9 +689,6 @@ msgstr "Közösségileg karbantartott frissítések."
 
 msgid "Comoros"
 msgstr "Comore-szigetek"
-
-msgid "Completion status"
-msgstr "Készültség állapota"
 
 msgid "Compress"
 msgstr "Tömörítés"
@@ -1203,12 +1197,6 @@ msgstr "Kiterjesztett attribútumok"
 msgid "Extra options"
 msgstr "További beállítások"
 
-msgid "FTP"
-msgstr "FTP"
-
-msgid "FTP - Transfer log"
-msgstr "FTP - átviteli napló"
-
 msgid "FTP-Proxy"
 msgstr "FTP-Proxy"
 
@@ -1260,9 +1248,6 @@ msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
 msgstr "A megadott bájtméretnél nagyobb fájlok nem helyezhetőek át a lomtárba."
-
-msgid "Filesize"
-msgstr "Fájlméret"
 
 msgid "Fingerprint (SHA-1)"
 msgstr "Ujjlenyomat (SHA-1)"
@@ -2545,9 +2530,6 @@ msgstr "Hátralévő"
 msgid "Remote"
 msgstr "Távoli"
 
-msgid "Remote host"
-msgstr "Távoli állomás"
-
 msgid "Replace"
 msgstr "Csere"
 
@@ -2932,9 +2914,6 @@ msgstr "Pillanatképek"
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Szoftver hiba.   A folytatáshoz nyomja meg a bal egérgombot."
 
-msgid "Software RAID"
-msgstr "Szoftveres RAID"
-
 msgid "Software updates"
 msgstr "Szoftverfrissítések"
 
@@ -2973,9 +2952,6 @@ msgstr "Dél Korea"
 
 msgid "Spain"
 msgstr "Spanyolország"
-
-msgid "Special action flag"
-msgstr "Különleges jelzés"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "MII link ellenőrzési gyakoriság meghatározása milliszekundumban."
@@ -3579,12 +3555,6 @@ msgid ""
 "remote system."
 msgstr "Módosítási idők áttöltése a fájlokkal és a távoli rendszeren való frissítésük."
 
-msgid "Transfer time"
-msgstr "Átviteli idő"
-
-msgid "Transfer type"
-msgstr "Átviteli típus"
-
 msgid "Transmit Hash Policy"
 msgstr "Átviteli hasítófüggvény-szabályzat"
 
@@ -3889,9 +3859,9 @@ msgid "Users"
 msgstr "Felhasználók"
 
 msgid ""
-"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr "A felhasználóknak az <em>ssh</em> csoport tagjainak kell lenniük, hogy SSH-val be tudjanak lépni."
+msgstr ""
 
 msgid "Utilization"
 msgstr ""

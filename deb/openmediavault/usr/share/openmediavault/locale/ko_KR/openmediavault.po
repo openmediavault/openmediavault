@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:16+0100\n"
+"POT-Creation-Date: 2023-12-13 19:56+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -260,9 +260,6 @@ msgstr "추상적인"
 msgid "Access control list"
 msgstr ""
 
-msgid "Access mode"
-msgstr "접근 모드"
-
 msgid "Act as a WINS server."
 msgstr "WINS 서버로 동작"
 
@@ -272,6 +269,12 @@ msgstr ""
 
 msgid "Action"
 msgstr "행동"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr ""
 
 msgid "Add"
 msgstr "추가"
@@ -435,14 +438,8 @@ msgstr "오스트리아"
 msgid "Authenticate users"
 msgstr "사용자 인증"
 
-msgid "Authenticated user ID"
-msgstr "인증된 사용자 식별자"
-
 msgid "Authentication"
 msgstr "인증"
-
-msgid "Authentication method"
-msgstr "인증 방법"
 
 msgid "Authentication required"
 msgstr "인증 요구"
@@ -689,9 +686,6 @@ msgstr ""
 
 msgid "Comoros"
 msgstr "코모로"
-
-msgid "Completion status"
-msgstr "완료 상태"
 
 msgid "Compress"
 msgstr "압축"
@@ -1200,12 +1194,6 @@ msgstr "확장 속성"
 msgid "Extra options"
 msgstr "추가 옵션"
 
-msgid "FTP"
-msgstr "FTP"
-
-msgid "FTP - Transfer log"
-msgstr "FTP - 전송 기록"
-
 msgid "FTP-Proxy"
 msgstr "FTP-프록시"
 
@@ -1257,9 +1245,6 @@ msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
 msgstr ""
-
-msgid "Filesize"
-msgstr "파일 크기"
 
 msgid "Fingerprint (SHA-1)"
 msgstr ""
@@ -2542,9 +2527,6 @@ msgstr "잔여"
 msgid "Remote"
 msgstr "원격"
 
-msgid "Remote host"
-msgstr "원격 호스트"
-
 msgid "Replace"
 msgstr "대체"
 
@@ -2929,9 +2911,6 @@ msgstr ""
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr ""
 
-msgid "Software RAID"
-msgstr "소프트웨어 RAID"
-
 msgid "Software updates"
 msgstr "소프트웨어 업데이트"
 
@@ -2970,9 +2949,6 @@ msgstr "대한민국"
 
 msgid "Spain"
 msgstr "스페인"
-
-msgid "Special action flag"
-msgstr "특수 행동 플래그"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "밀리 초 단위로 MII 링크 모니터링 주기를 지정합니다."
@@ -3576,12 +3552,6 @@ msgid ""
 "remote system."
 msgstr "파일의 수정 시간을 같이 동기화합니다."
 
-msgid "Transfer time"
-msgstr "전송 시간"
-
-msgid "Transfer type"
-msgstr "전송 유형"
-
 msgid "Transmit Hash Policy"
 msgstr ""
 
@@ -3886,7 +3856,7 @@ msgid "Users"
 msgstr "사용자"
 
 msgid ""
-"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
 msgstr ""
 

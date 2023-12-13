@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:16+0100\n"
+"POT-Creation-Date: 2023-12-13 19:56+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -271,9 +271,6 @@ msgstr "Абстрактный"
 msgid "Access control list"
 msgstr "Cписок управления доступом (ACL)"
 
-msgid "Access mode"
-msgstr "Режим доступа"
-
 msgid "Act as a WINS server."
 msgstr "Выступать в качестве сервера WINS."
 
@@ -283,6 +280,12 @@ msgstr "Работа в качестве WINS-сервера и использо
 
 msgid "Action"
 msgstr "Действие"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr ""
 
 msgid "Add"
 msgstr "Добавить"
@@ -446,14 +449,8 @@ msgstr "Австрия"
 msgid "Authenticate users"
 msgstr "Аутентификация пользователей"
 
-msgid "Authenticated user ID"
-msgstr "Аутентифицируемый идентификатор пользователя"
-
 msgid "Authentication"
 msgstr "Аутентификация"
-
-msgid "Authentication method"
-msgstr "Метод аутентификации"
 
 msgid "Authentication required"
 msgstr "Требуется аутентификация"
@@ -700,9 +697,6 @@ msgstr "Обновления, поддерживаемые сообщество�
 
 msgid "Comoros"
 msgstr "Коморские острова"
-
-msgid "Completion status"
-msgstr "Статус завершения"
 
 msgid "Compress"
 msgstr "Сжать"
@@ -1211,12 +1205,6 @@ msgstr "Расширенные атрибуты"
 msgid "Extra options"
 msgstr "Дополнительные опции"
 
-msgid "FTP"
-msgstr "FTP"
-
-msgid "FTP - Transfer log"
-msgstr "FTP - Протокол передачи"
-
 msgid "FTP-Proxy"
 msgstr "FTP-Прокси"
 
@@ -1268,9 +1256,6 @@ msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
 msgstr "Файлы, больше указанного размера, не будут помещены в корзину"
-
-msgid "Filesize"
-msgstr "Размер файла"
 
 msgid "Fingerprint (SHA-1)"
 msgstr ""
@@ -2553,9 +2538,6 @@ msgstr "Оставшееся"
 msgid "Remote"
 msgstr "Удаленный"
 
-msgid "Remote host"
-msgstr "Удаленный хост"
-
 msgid "Replace"
 msgstr "Заменить"
 
@@ -2940,9 +2922,6 @@ msgstr "Снапшоты"
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Сбой программного обеспечения.   Нажмите левую кнопку мыши, чтобы продолжить."
 
-msgid "Software RAID"
-msgstr "Software RAID"
-
 msgid "Software updates"
 msgstr "Обновления программного обеспечения"
 
@@ -2981,9 +2960,6 @@ msgstr "Южная Корея"
 
 msgid "Spain"
 msgstr "Испания"
-
-msgid "Special action flag"
-msgstr "Специальный флаг действия"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Определяет контрольную частоту ссылки MII в миллисекундах."
@@ -3587,12 +3563,6 @@ msgid ""
 "remote system."
 msgstr "Передать время модификации вместе с файлами и обновить их в удаленной системе."
 
-msgid "Transfer time"
-msgstr "Время передачи"
-
-msgid "Transfer type"
-msgstr "Тип передачи"
-
 msgid "Transmit Hash Policy"
 msgstr ""
 
@@ -3897,9 +3867,9 @@ msgid "Users"
 msgstr "Пользователи"
 
 msgid ""
-"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr "Пользователи должны быть включены в группу <em>ssh</em>, чтобы иметь возможность входить в систему через SSH."
+msgstr ""
 
 msgid "Utilization"
 msgstr ""

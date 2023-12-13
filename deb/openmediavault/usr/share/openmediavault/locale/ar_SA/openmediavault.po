@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:16+0100\n"
+"POT-Creation-Date: 2023-12-13 19:56+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -258,9 +258,6 @@ msgstr "الملخص"
 msgid "Access control list"
 msgstr "قائمة التحكم بالدخول"
 
-msgid "Access mode"
-msgstr "وضع الوصول"
-
 msgid "Act as a WINS server."
 msgstr "العمل كخادم WINS."
 
@@ -270,6 +267,12 @@ msgstr "يعمل كخادم WINS ويستخدم خادم WINS حصريًا و ب
 
 msgid "Action"
 msgstr "إجراء"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr ""
 
 msgid "Add"
 msgstr "أضف"
@@ -433,14 +436,8 @@ msgstr "النمسا"
 msgid "Authenticate users"
 msgstr "مصادقة المستخدمين"
 
-msgid "Authenticated user ID"
-msgstr "معرف المستخدم الذي تمت مصادقته"
-
 msgid "Authentication"
 msgstr "المصادقة"
-
-msgid "Authentication method"
-msgstr "طريقة المصادقة"
 
 msgid "Authentication required"
 msgstr "المصادقة مطلوبة"
@@ -687,9 +684,6 @@ msgstr "التحديثات التي تتم رعايتها من قبل المجت
 
 msgid "Comoros"
 msgstr "جزر القمر"
-
-msgid "Completion status"
-msgstr "حالة الإكمال"
 
 msgid "Compress"
 msgstr "ضغط"
@@ -1198,12 +1192,6 @@ msgstr "السمات الموسعة"
 msgid "Extra options"
 msgstr "خيارات إضافية"
 
-msgid "FTP"
-msgstr "FTP"
-
-msgid "FTP - Transfer log"
-msgstr "FTP - Transfer log"
-
 msgid "FTP-Proxy"
 msgstr "FTP-Proxy"
 
@@ -1255,9 +1243,6 @@ msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
 msgstr "الملفات التي تكون أكبر من العدد المحدد لن يتم وضعها في سلة المحذوفات."
-
-msgid "Filesize"
-msgstr "حجم الملف"
 
 msgid "Fingerprint (SHA-1)"
 msgstr "بصمة (SHA-1)"
@@ -2540,9 +2525,6 @@ msgstr "متبقي"
 msgid "Remote"
 msgstr "عن بعد"
 
-msgid "Remote host"
-msgstr "المضيف البعيد"
-
 msgid "Replace"
 msgstr "استبدال"
 
@@ -2927,9 +2909,6 @@ msgstr "النسخ Snapshots"
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "فشل في البرنامج. اضغط على زر الفأرة الأيسر للمتابعة."
 
-msgid "Software RAID"
-msgstr "RAID"
-
 msgid "Software updates"
 msgstr "تحديثات البرامج"
 
@@ -2968,9 +2947,6 @@ msgstr "كوريا الجنوبية"
 
 msgid "Spain"
 msgstr "أسبانيا"
-
-msgid "Special action flag"
-msgstr "علم الإجراء الخاص"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "تحديد تردد مراقبة ارتباط MII بالمللي ثانية."
@@ -3574,12 +3550,6 @@ msgid ""
 "remote system."
 msgstr "نقل أوقات التعديل مع الملفات وتحديثها على النظام البعيد."
 
-msgid "Transfer time"
-msgstr "وقت النقل"
-
-msgid "Transfer type"
-msgstr "نوع النقل"
-
 msgid "Transmit Hash Policy"
 msgstr "نقل سياسة التجزئة Hash Policy"
 
@@ -3884,9 +3854,9 @@ msgid "Users"
 msgstr "المستخدمون"
 
 msgid ""
-"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr "يجب تعيين المستخدمين لمجموعة <em> ssh </em> ليتمكنوا من تسجيل الدخول عبر SSH."
+msgstr ""
 
 msgid "Utilization"
 msgstr ""

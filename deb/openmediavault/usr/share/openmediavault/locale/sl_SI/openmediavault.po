@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:16+0100\n"
+"POT-Creation-Date: 2023-12-13 19:56+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -257,9 +257,6 @@ msgstr "Povzetek"
 msgid "Access control list"
 msgstr ""
 
-msgid "Access mode"
-msgstr ""
-
 msgid "Act as a WINS server."
 msgstr "Obnašaj se kot WINS strežnik"
 
@@ -269,6 +266,12 @@ msgstr ""
 
 msgid "Action"
 msgstr "Dejanje"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr ""
 
 msgid "Add"
 msgstr "Dodaj"
@@ -432,14 +435,8 @@ msgstr "Avstrija"
 msgid "Authenticate users"
 msgstr "Avtenticiraj uporabnike"
 
-msgid "Authenticated user ID"
-msgstr "Avtenticiran uporabniški ID"
-
 msgid "Authentication"
 msgstr "Avtentikacija"
-
-msgid "Authentication method"
-msgstr "Metoda avtentikacije"
 
 msgid "Authentication required"
 msgstr "Zahtevana je avtentikacija"
@@ -686,9 +683,6 @@ msgstr ""
 
 msgid "Comoros"
 msgstr "Komori"
-
-msgid "Completion status"
-msgstr "Status zaključka"
 
 msgid "Compress"
 msgstr "Stisni"
@@ -1197,12 +1191,6 @@ msgstr "Razširjeni atributi"
 msgid "Extra options"
 msgstr "Dodatne nastavitve"
 
-msgid "FTP"
-msgstr "FTP"
-
-msgid "FTP - Transfer log"
-msgstr "FTP - Dnevniška datoteka prenosov"
-
 msgid "FTP-Proxy"
 msgstr "FTP-Proxy"
 
@@ -1254,9 +1242,6 @@ msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
 msgstr ""
-
-msgid "Filesize"
-msgstr "Velikost datotek(e)"
 
 msgid "Fingerprint (SHA-1)"
 msgstr ""
@@ -2539,9 +2524,6 @@ msgstr "Ostaja"
 msgid "Remote"
 msgstr "Oddaljen"
 
-msgid "Remote host"
-msgstr "Oddaljen gostitelj"
-
 msgid "Replace"
 msgstr "Zamenjaj"
 
@@ -2926,9 +2908,6 @@ msgstr ""
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr ""
 
-msgid "Software RAID"
-msgstr "Programski RAID"
-
 msgid "Software updates"
 msgstr "Programske Posodobitve"
 
@@ -2967,9 +2946,6 @@ msgstr "Južna Koreja"
 
 msgid "Spain"
 msgstr "Španija"
-
-msgid "Special action flag"
-msgstr ""
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr ""
@@ -3573,12 +3549,6 @@ msgid ""
 "remote system."
 msgstr ""
 
-msgid "Transfer time"
-msgstr "Čas prenosa"
-
-msgid "Transfer type"
-msgstr "Tip prenosa"
-
 msgid "Transmit Hash Policy"
 msgstr ""
 
@@ -3883,7 +3853,7 @@ msgid "Users"
 msgstr "Uporabniki"
 
 msgid ""
-"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
 msgstr ""
 

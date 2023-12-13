@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:16+0100\n"
+"POT-Creation-Date: 2023-12-13 19:56+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2023\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -259,9 +259,6 @@ msgstr "摘要"
 msgid "Access control list"
 msgstr "存取控制列表"
 
-msgid "Access mode"
-msgstr "存取模式"
-
 msgid "Act as a WINS server."
 msgstr "作為一個 WINS 伺服器。"
 
@@ -271,6 +268,12 @@ msgstr "做為 WINS 伺服器和使用 WINS 伺服器只能二選一。"
 
 msgid "Action"
 msgstr "動作"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr ""
 
 msgid "Add"
 msgstr "新增"
@@ -434,14 +437,8 @@ msgstr "奧地利"
 msgid "Authenticate users"
 msgstr "驗證用戶"
 
-msgid "Authenticated user ID"
-msgstr "驗證過的用戶 ID"
-
 msgid "Authentication"
 msgstr "驗證"
-
-msgid "Authentication method"
-msgstr "驗證方式"
 
 msgid "Authentication required"
 msgstr "必須驗證"
@@ -688,9 +685,6 @@ msgstr "社群維護的更新"
 
 msgid "Comoros"
 msgstr "科摩羅"
-
-msgid "Completion status"
-msgstr "完成狀況"
 
 msgid "Compress"
 msgstr "壓縮"
@@ -1199,12 +1193,6 @@ msgstr "擴展屬性"
 msgid "Extra options"
 msgstr "額外選項"
 
-msgid "FTP"
-msgstr "FTP"
-
-msgid "FTP - Transfer log"
-msgstr "FTP - 傳輸日誌"
-
 msgid "FTP-Proxy"
 msgstr "FTP-代理"
 
@@ -1256,9 +1244,6 @@ msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
 msgstr "大於指定數量的檔案不會被放入回收桶。"
-
-msgid "Filesize"
-msgstr "檔案大小"
 
 msgid "Fingerprint (SHA-1)"
 msgstr "指紋 (SHA-1)"
@@ -2541,9 +2526,6 @@ msgstr "剩餘"
 msgid "Remote"
 msgstr "遠端"
 
-msgid "Remote host"
-msgstr "遠端主機"
-
 msgid "Replace"
 msgstr "取代"
 
@@ -2928,9 +2910,6 @@ msgstr "快照"
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "軟體錯誤。   按滑鼠左鍵繼續。"
 
-msgid "Software RAID"
-msgstr "軟體 RAID"
-
 msgid "Software updates"
 msgstr "軟體更新"
 
@@ -2969,9 +2948,6 @@ msgstr "南韓"
 
 msgid "Spain"
 msgstr "西班牙"
-
-msgid "Special action flag"
-msgstr "特殊動作旗標"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "指定 MII 連接的監測頻率，單位為毫秒。"
@@ -3575,12 +3551,6 @@ msgid ""
 "remote system."
 msgstr "將變更時間與檔案一同傳送，在遠端系統上做更新。"
 
-msgid "Transfer time"
-msgstr "傳輸時間"
-
-msgid "Transfer type"
-msgstr "傳輸型式"
-
 msgid "Transmit Hash Policy"
 msgstr "傳輸雜湊策略"
 
@@ -3885,9 +3855,9 @@ msgid "Users"
 msgstr "用戶"
 
 msgid ""
-"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr "用戶必須被指派到 <em>ssh</em> 群組才能夠經由 SSH 登入。"
+msgstr ""
 
 msgid "Utilization"
 msgstr "使用率"

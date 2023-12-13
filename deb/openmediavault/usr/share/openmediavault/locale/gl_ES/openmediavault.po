@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:16+0100\n"
+"POT-Creation-Date: 2023-12-13 19:56+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013,2015\n"
 "Language-Team: Galician (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
@@ -260,9 +260,6 @@ msgstr "Resumo"
 msgid "Access control list"
 msgstr ""
 
-msgid "Access mode"
-msgstr "Modo de acceso"
-
 msgid "Act as a WINS server."
 msgstr "Actuar como servidor WINS."
 
@@ -272,6 +269,12 @@ msgstr ""
 
 msgid "Action"
 msgstr "Acción"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr ""
 
 msgid "Add"
 msgstr "Engadir"
@@ -435,14 +438,8 @@ msgstr "Austria"
 msgid "Authenticate users"
 msgstr "Autenticar aos usuarios"
 
-msgid "Authenticated user ID"
-msgstr "ID de usuario autenticado"
-
 msgid "Authentication"
 msgstr "Autenticación"
-
-msgid "Authentication method"
-msgstr "Método de autenticación"
 
 msgid "Authentication required"
 msgstr "Precisa autenticarse"
@@ -689,9 +686,6 @@ msgstr ""
 
 msgid "Comoros"
 msgstr "Comores"
-
-msgid "Completion status"
-msgstr "Estado do completado"
 
 msgid "Compress"
 msgstr "Comprimir"
@@ -1200,12 +1194,6 @@ msgstr "Atributos estendidos"
 msgid "Extra options"
 msgstr "Opcións adicionais"
 
-msgid "FTP"
-msgstr "FTP"
-
-msgid "FTP - Transfer log"
-msgstr "Rexistro de transferencias FTP"
-
 msgid "FTP-Proxy"
 msgstr ""
 
@@ -1257,9 +1245,6 @@ msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
 msgstr ""
-
-msgid "Filesize"
-msgstr "Tamaño do ficheiro"
 
 msgid "Fingerprint (SHA-1)"
 msgstr ""
@@ -2542,9 +2527,6 @@ msgstr "Restante"
 msgid "Remote"
 msgstr "Remoto"
 
-msgid "Remote host"
-msgstr "Máquina remota"
-
 msgid "Replace"
 msgstr "Substituír"
 
@@ -2929,9 +2911,6 @@ msgstr ""
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr ""
 
-msgid "Software RAID"
-msgstr "RAID por software"
-
 msgid "Software updates"
 msgstr "Actualizacións do software"
 
@@ -2970,9 +2949,6 @@ msgstr "Corea do Sur"
 
 msgid "Spain"
 msgstr "España"
-
-msgid "Special action flag"
-msgstr "Marca de acción especial"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Especifica a supervisión da frecuencia MII en milisegundos."
@@ -3576,12 +3552,6 @@ msgid ""
 "remote system."
 msgstr ""
 
-msgid "Transfer time"
-msgstr "Hora da transferencia"
-
-msgid "Transfer type"
-msgstr "Tipo de transferencia"
-
 msgid "Transmit Hash Policy"
 msgstr ""
 
@@ -3886,7 +3856,7 @@ msgid "Users"
 msgstr "Usuarios"
 
 msgid ""
-"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
 msgstr ""
 

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:16+0100\n"
+"POT-Creation-Date: 2023-12-13 19:56+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Tim <co_ti@hotmail.com>, 2013-2014,2016-2017,2022\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -263,9 +263,6 @@ msgstr "Abstract"
 msgid "Access control list"
 msgstr "Toegangscontrole lijst"
 
-msgid "Access mode"
-msgstr "Toegangsmodus"
-
 msgid "Act as a WINS server."
 msgstr "Gedragen als een WINS server."
 
@@ -275,6 +272,12 @@ msgstr ""
 
 msgid "Action"
 msgstr "Handeling"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr ""
 
 msgid "Add"
 msgstr "Toevoegen"
@@ -438,14 +441,8 @@ msgstr "Oostenrijk"
 msgid "Authenticate users"
 msgstr "Authenticatie van gebruikers"
 
-msgid "Authenticated user ID"
-msgstr "Authenticated user ID"
-
 msgid "Authentication"
 msgstr "Authenticatie"
-
-msgid "Authentication method"
-msgstr "Authenticatiemethode"
 
 msgid "Authentication required"
 msgstr "Authenticatie vereist"
@@ -692,9 +689,6 @@ msgstr "Updates bijgehouden door de gemeenschap"
 
 msgid "Comoros"
 msgstr "Comoren"
-
-msgid "Completion status"
-msgstr "Voltooiingsstatus"
 
 msgid "Compress"
 msgstr "Comprimeren"
@@ -1203,12 +1197,6 @@ msgstr "Uitgebreide attributen"
 msgid "Extra options"
 msgstr "Extra opties"
 
-msgid "FTP"
-msgstr "FTP"
-
-msgid "FTP - Transfer log"
-msgstr "FTP -overdrachtslogbestand"
-
 msgid "FTP-Proxy"
 msgstr "FTP-proxy"
 
@@ -1260,9 +1248,6 @@ msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
 msgstr ""
-
-msgid "Filesize"
-msgstr "Bestandsgrootte"
 
 msgid "Fingerprint (SHA-1)"
 msgstr ""
@@ -2545,9 +2530,6 @@ msgstr "Resterend"
 msgid "Remote"
 msgstr "Op afstand"
 
-msgid "Remote host"
-msgstr "Externe host"
-
 msgid "Replace"
 msgstr "Vervang"
 
@@ -2932,9 +2914,6 @@ msgstr ""
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr ""
 
-msgid "Software RAID"
-msgstr "Software RAID"
-
 msgid "Software updates"
 msgstr "Software updates"
 
@@ -2973,9 +2952,6 @@ msgstr "Zuid-Korea"
 
 msgid "Spain"
 msgstr "Spanje"
-
-msgid "Special action flag"
-msgstr "Speciale actievlag"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Specifieert de MII link controlefrequentie in milliseconden."
@@ -3579,12 +3555,6 @@ msgid ""
 "remote system."
 msgstr "Breng wijzigingstijden samen met de bestanden over en werk ze bij op het externe systeem."
 
-msgid "Transfer time"
-msgstr "Overdrachtstijd"
-
-msgid "Transfer type"
-msgstr "Overdrachtstype"
-
 msgid "Transmit Hash Policy"
 msgstr ""
 
@@ -3889,7 +3859,7 @@ msgid "Users"
 msgstr "Gebruikers"
 
 msgid ""
-"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
 msgstr ""
 

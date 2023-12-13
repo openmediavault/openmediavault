@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:16+0100\n"
+"POT-Creation-Date: 2023-12-13 19:56+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -257,9 +257,6 @@ msgstr "アブストラクト"
 msgid "Access control list"
 msgstr "アクセスコントロールリスト"
 
-msgid "Access mode"
-msgstr "アクセスモード"
-
 msgid "Act as a WINS server."
 msgstr "WINSサーバとして機能します。"
 
@@ -269,6 +266,12 @@ msgstr "WINSサーバーとして動作させることと、WINSサーバーを�
 
 msgid "Action"
 msgstr "アクション"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr ""
 
 msgid "Add"
 msgstr "追加"
@@ -432,14 +435,8 @@ msgstr "オーストリア"
 msgid "Authenticate users"
 msgstr "ユーザー認証"
 
-msgid "Authenticated user ID"
-msgstr "認証されたユーザーID"
-
 msgid "Authentication"
 msgstr "認証"
-
-msgid "Authentication method"
-msgstr "認証方法"
 
 msgid "Authentication required"
 msgstr "認証の要求"
@@ -686,9 +683,6 @@ msgstr "コミュニティーによるメンテナンスアップデート"
 
 msgid "Comoros"
 msgstr "コモロ"
-
-msgid "Completion status"
-msgstr "完了ステータス"
 
 msgid "Compress"
 msgstr "圧縮"
@@ -1197,12 +1191,6 @@ msgstr "拡張属性"
 msgid "Extra options"
 msgstr "追加オプション"
 
-msgid "FTP"
-msgstr "FTP"
-
-msgid "FTP - Transfer log"
-msgstr "FTP - 転送ログ"
-
 msgid "FTP-Proxy"
 msgstr "FTP-プロキシ"
 
@@ -1254,9 +1242,6 @@ msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
 msgstr "指定された数よりも大きいファイルは、ごみ箱に入れられません。"
-
-msgid "Filesize"
-msgstr "ファイルサイズ"
 
 msgid "Fingerprint (SHA-1)"
 msgstr "フィンガープリント（SHA-1）"
@@ -2539,9 +2524,6 @@ msgstr "残り"
 msgid "Remote"
 msgstr "リモート"
 
-msgid "Remote host"
-msgstr "リモートホスト"
-
 msgid "Replace"
 msgstr "置換"
 
@@ -2926,9 +2908,6 @@ msgstr "スナップショット"
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "ソフトウェアの不具合。   マウスの左ボタンで続行します。"
 
-msgid "Software RAID"
-msgstr "ソフトウェアRAID"
-
 msgid "Software updates"
 msgstr "ソフトウェアアップデート"
 
@@ -2967,9 +2946,6 @@ msgstr "大韓民国"
 
 msgid "Spain"
 msgstr "スペイン"
-
-msgid "Special action flag"
-msgstr "特殊なアクションフラグ"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "ミリ秒単位でMIIリンク監視頻度を指定します。"
@@ -3573,12 +3549,6 @@ msgid ""
 "remote system."
 msgstr "変更時間をファイルとともに転送し、リモートシステムで更新します。"
 
-msgid "Transfer time"
-msgstr "転送時間"
-
-msgid "Transfer type"
-msgstr "転送タイプ"
-
 msgid "Transmit Hash Policy"
 msgstr ""
 
@@ -3883,9 +3853,9 @@ msgid "Users"
 msgstr "ユーザー"
 
 msgid ""
-"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr "SSHでログインできるようにするには、<em>ssh</em>グループにユーザーを割り当てる必要があります。"
+msgstr ""
 
 msgid "Utilization"
 msgstr ""

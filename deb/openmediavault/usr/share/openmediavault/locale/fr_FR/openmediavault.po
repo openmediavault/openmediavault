@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:16+0100\n"
+"POT-Creation-Date: 2023-12-13 19:56+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Francis Dhumes, 2023\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -272,9 +272,6 @@ msgstr "Résumé"
 msgid "Access control list"
 msgstr "Liste des droits avancés"
 
-msgid "Access mode"
-msgstr "Mode d'accès"
-
 msgid "Act as a WINS server."
 msgstr "Agir en tant que serveur WINS."
 
@@ -284,6 +281,12 @@ msgstr "Vous ne pouvez pas activer le serveur WINS et utiliser un serveur WINS e
 
 msgid "Action"
 msgstr "Action"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr ""
 
 msgid "Add"
 msgstr "Ajouter"
@@ -447,14 +450,8 @@ msgstr "Autriche"
 msgid "Authenticate users"
 msgstr "Authentifier les utilisateurs"
 
-msgid "Authenticated user ID"
-msgstr "ID d'utilisateur authentifié"
-
 msgid "Authentication"
 msgstr "Authentification"
-
-msgid "Authentication method"
-msgstr "Méthode d'authentification"
 
 msgid "Authentication required"
 msgstr "Authentification requise"
@@ -701,9 +698,6 @@ msgstr "Mises à jour maintenues par la communauté"
 
 msgid "Comoros"
 msgstr "Comores"
-
-msgid "Completion status"
-msgstr "État d'achèvement"
 
 msgid "Compress"
 msgstr "Compresser"
@@ -1212,12 +1206,6 @@ msgstr "Attributs étendus"
 msgid "Extra options"
 msgstr "Options supplémentaires"
 
-msgid "FTP"
-msgstr "FTP"
-
-msgid "FTP - Transfer log"
-msgstr "FTP - Journaux de transfert"
-
 msgid "FTP-Proxy"
 msgstr "Proxy FTP"
 
@@ -1269,9 +1257,6 @@ msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
 msgstr "Les fichiers dont la taille est supérieure au nombre spécifié ne seront pas placés dans la corbeille."
-
-msgid "Filesize"
-msgstr "Taille de fichier"
 
 msgid "Fingerprint (SHA-1)"
 msgstr "Empreinte (SHA-1)"
@@ -2554,9 +2539,6 @@ msgstr "Restant"
 msgid "Remote"
 msgstr "Distant"
 
-msgid "Remote host"
-msgstr "Hôte distant"
-
 msgid "Replace"
 msgstr "Remplacer"
 
@@ -2941,9 +2923,6 @@ msgstr "Instantanés"
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Erreur logicielle.   Cliquez sur le bouton gauche de la souris pour continuer."
 
-msgid "Software RAID"
-msgstr "RAID logiciel"
-
 msgid "Software updates"
 msgstr "Mises à jour logicielles"
 
@@ -2982,9 +2961,6 @@ msgstr "Corée du Sud"
 
 msgid "Spain"
 msgstr "Espagne"
-
-msgid "Special action flag"
-msgstr "Drapeau d'action spéciale"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Indique la fréquence de surveillance du lien MII en millisecondes."
@@ -3588,12 +3564,6 @@ msgid ""
 "remote system."
 msgstr "Transférer les heures de modification avec les fichiers et les mettre à jour sur le système distant."
 
-msgid "Transfer time"
-msgstr "Temps de transfert"
-
-msgid "Transfer type"
-msgstr "Type de transfert"
-
 msgid "Transmit Hash Policy"
 msgstr "Transmet la politique de hachage"
 
@@ -3898,9 +3868,9 @@ msgid "Users"
 msgstr "Utilisateurs"
 
 msgid ""
-"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr "Les utilisateurs devront être ajoutés au groupe <em>ssh</em> pour pouvoir se connecter via SSH."
+msgstr ""
 
 msgid "Utilization"
 msgstr "Utilisation"

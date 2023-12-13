@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:16+0100\n"
+"POT-Creation-Date: 2023-12-13 19:56+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2023\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -260,9 +260,6 @@ msgstr "Abstrakt"
 msgid "Access control list"
 msgstr "Åtkomstkontrollista"
 
-msgid "Access mode"
-msgstr "Åtkomstläge"
-
 msgid "Act as a WINS server."
 msgstr "Fungera som en WINS-server."
 
@@ -272,6 +269,12 @@ msgstr "Att agera som WINS-server och använda en WINS-server utesluter varandra
 
 msgid "Action"
 msgstr "Åtgärd"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr ""
 
 msgid "Add"
 msgstr "Lägg till"
@@ -435,14 +438,8 @@ msgstr "Österrike"
 msgid "Authenticate users"
 msgstr "Autentisera användare"
 
-msgid "Authenticated user ID"
-msgstr "Autentiserat användar-ID"
-
 msgid "Authentication"
 msgstr "Autentisering"
-
-msgid "Authentication method"
-msgstr "Autentiseringsmetod"
 
 msgid "Authentication required"
 msgstr "Autentisering krävs"
@@ -689,9 +686,6 @@ msgstr "Gemenskapsunderhållna uppdateringar"
 
 msgid "Comoros"
 msgstr "Komorerna"
-
-msgid "Completion status"
-msgstr "Slutförandestatus"
 
 msgid "Compress"
 msgstr "Komprimera"
@@ -1200,12 +1194,6 @@ msgstr "Utökade attribut"
 msgid "Extra options"
 msgstr "Extra inställningar"
 
-msgid "FTP"
-msgstr "FTP"
-
-msgid "FTP - Transfer log"
-msgstr "FTP - Överföringslogg"
-
 msgid "FTP-Proxy"
 msgstr "FTP-proxy"
 
@@ -1257,9 +1245,6 @@ msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
 msgstr "Filer som är större än det angivna antalet kommer inte att läggas i papperskorgen."
-
-msgid "Filesize"
-msgstr "Filstorlek"
 
 msgid "Fingerprint (SHA-1)"
 msgstr "Fingeravtryck (SHA-1)"
@@ -2542,9 +2527,6 @@ msgstr "Återstående"
 msgid "Remote"
 msgstr "Fjärr"
 
-msgid "Remote host"
-msgstr "Fjärrvärd"
-
 msgid "Replace"
 msgstr "Ersätt"
 
@@ -2929,9 +2911,6 @@ msgstr "Ögonblicksbilder"
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Programvarufel.   Tryck på vänster musknapp för att fortsätta."
 
-msgid "Software RAID"
-msgstr "Mjukvaru RAID"
-
 msgid "Software updates"
 msgstr "Mjukvaruuppdateringar"
 
@@ -2970,9 +2949,6 @@ msgstr "Sydkorea"
 
 msgid "Spain"
 msgstr "Spanien"
-
-msgid "Special action flag"
-msgstr "Särskild åtgärdsflagga"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Anger MII-länkövervakningsfrekvens i millisekunder."
@@ -3576,12 +3552,6 @@ msgid ""
 "remote system."
 msgstr "Överför ändringstider tillsammans med filerna och uppdatera dem på fjärrsystemet."
 
-msgid "Transfer time"
-msgstr "Överföringstid"
-
-msgid "Transfer type"
-msgstr "Överföringstyp"
-
 msgid "Transmit Hash Policy"
 msgstr "Överför hashpolicy"
 
@@ -3886,9 +3856,9 @@ msgid "Users"
 msgstr "Användare"
 
 msgid ""
-"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr "Användare måste vara tilldelade <em>ssh</em>-gruppen för att kunna logga in via SSH."
+msgstr ""
 
 msgid "Utilization"
 msgstr "Användning"

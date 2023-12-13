@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 10:16+0100\n"
+"POT-Creation-Date: 2023-12-13 19:56+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
 "Language-Team: Norwegian (http://app.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -258,9 +258,6 @@ msgstr ""
 msgid "Access control list"
 msgstr ""
 
-msgid "Access mode"
-msgstr "Tilgangsmodus"
-
 msgid "Act as a WINS server."
 msgstr "Funger som WINS server"
 
@@ -270,6 +267,12 @@ msgstr ""
 
 msgid "Action"
 msgstr "Handling"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr ""
 
 msgid "Add"
 msgstr "Legg til"
@@ -433,14 +436,8 @@ msgstr "Østerike"
 msgid "Authenticate users"
 msgstr "Godkjente brukere"
 
-msgid "Authenticated user ID"
-msgstr "Autentisert bruker ID"
-
 msgid "Authentication"
 msgstr "Godkjenning"
-
-msgid "Authentication method"
-msgstr "Autentiseringsmetode"
 
 msgid "Authentication required"
 msgstr "Autentisering kreves"
@@ -687,9 +684,6 @@ msgstr ""
 
 msgid "Comoros"
 msgstr "Komorene"
-
-msgid "Completion status"
-msgstr "Fullføringsstatus"
 
 msgid "Compress"
 msgstr "Komprimer"
@@ -1198,12 +1192,6 @@ msgstr "Utvidede attributter"
 msgid "Extra options"
 msgstr "Avanserte alternativer"
 
-msgid "FTP"
-msgstr "FTP"
-
-msgid "FTP - Transfer log"
-msgstr "FTP - Overføringslogg"
-
 msgid "FTP-Proxy"
 msgstr ""
 
@@ -1255,9 +1243,6 @@ msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
 msgstr ""
-
-msgid "Filesize"
-msgstr "Filstørrelse"
 
 msgid "Fingerprint (SHA-1)"
 msgstr ""
@@ -2540,9 +2525,6 @@ msgstr "Gjenstår"
 msgid "Remote"
 msgstr "Ekstern"
 
-msgid "Remote host"
-msgstr "Fjærnvært"
-
 msgid "Replace"
 msgstr "Erstatt"
 
@@ -2927,9 +2909,6 @@ msgstr ""
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr ""
 
-msgid "Software RAID"
-msgstr "Software RAID"
-
 msgid "Software updates"
 msgstr "Programvareoppdateringen"
 
@@ -2968,9 +2947,6 @@ msgstr "Sør-Korea"
 
 msgid "Spain"
 msgstr "Spania"
-
-msgid "Special action flag"
-msgstr "Spesiell handlingsflagg"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Angir MII link overvåkningsfrekvens i millisekunder."
@@ -3574,12 +3550,6 @@ msgid ""
 "remote system."
 msgstr ""
 
-msgid "Transfer time"
-msgstr "Overføringstid"
-
-msgid "Transfer type"
-msgstr "Overføringstype"
-
 msgid "Transmit Hash Policy"
 msgstr ""
 
@@ -3884,7 +3854,7 @@ msgid "Users"
 msgstr "Brukere"
 
 msgid ""
-"Users must be assigned to the <em>ssh</em> group to be able to log in via "
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
 msgstr ""
 
