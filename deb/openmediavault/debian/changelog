@@ -8,11 +8,12 @@ openmediavault (7.0-14) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jul 2023 13:17:39 +0200
 
-openmediavault (6.9.10-4) stable; urgency=low
+openmediavault (6.9.10-5) stable; urgency=low
 
   * Add omv-release-upgrade to allow users to migrate their
     systems to OMV7 (Sandworm) which is based on Debian 12
     (Bookworm).
+  * Add UTF8 support for creating SSL certs via UI.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 08 Dec 2023 11:48:57 +0100
 
