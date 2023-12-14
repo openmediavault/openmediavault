@@ -320,6 +320,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = "-nodes";
 		$cmdArgs[] = sprintf("-days %d", $params['days']);
 		$cmdArgs[] = "-sha256";
+		$cmdArgs[] = "-utf8";
 		$cmdArgs[] = "-batch";
 		$cmdArgs[] = sprintf("-newkey rsa:%d", $params['size']);
 		$cmdArgs[] = sprintf("-keyout %s", escapeshellarg($keyFile));
