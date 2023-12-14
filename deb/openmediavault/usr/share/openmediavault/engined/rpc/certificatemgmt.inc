@@ -241,7 +241,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			$params['uuid'])));
 		// Get certificate details.
 		$cmd = new \OMV\System\Process("openssl", array_merge($cmdArgs,
-			[ "-text" ]));
+			[ "-text", "-nameopt utf8" ]));
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Append the certificate fingerprints.
