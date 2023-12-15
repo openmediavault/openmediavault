@@ -23,5 +23,3 @@
 # Note, this files are also installed with an package update.
 rm -f /etc/monit/monit_delay
 rm -f /etc/cron.daily/mdadm
-rm -f /etc/cron.daily/cron-apt
-rm -f /etc/cron.d/cron-apt

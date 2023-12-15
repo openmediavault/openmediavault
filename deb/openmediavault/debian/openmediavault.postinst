@@ -165,6 +165,8 @@ case "$1" in
 			deb-systemd-invoke start systemd-journald.service || :
 			deb-systemd-helper enable rsyslog.service
 			deb-systemd-invoke start rsyslog.service || :
+			deb-systemd-helper enable unattended-upgrades.service
+			deb-systemd-invoke start unattended-upgrades.service || :
 		fi
 
 		# Create public/private SSH key pair for user root.
