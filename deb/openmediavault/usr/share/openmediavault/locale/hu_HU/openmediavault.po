@@ -277,7 +277,7 @@ msgid ""
 "Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
 "devices are listed in the scheduled tasks. Monitoring cannot be switched off"
 " as long as there are scheduled tasks for this device."
-msgstr ""
+msgstr "Aktiválja a S.M.A.R.T. monitorozást ezen az eszközön. Vegye figyelembe, hogy csak a monitorozott eszközök szerepelnek az ütemezett feladatok között. A monitorozást nem lehet kikapcsolni, amíg vannak ütemezett feladatok ehhez az eszközhöz."
 
 msgid "Add"
 msgstr "Hozzáadás"
@@ -1928,7 +1928,7 @@ msgid "Minimum performance, minimum acoustic output"
 msgstr "Minimális teljesítmény, minimális zajszint"
 
 msgid "Minimum protocol version"
-msgstr ""
+msgstr "Minimum protokoll verzió"
 
 msgid "Minute"
 msgstr "Perc"
@@ -2115,7 +2115,7 @@ msgstr "Nem fut"
 
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
-msgstr ""
+msgstr "Ne feledje, hogy az SMB1 elavult és csak feltétlenül szükséges esetekben használandó."
 
 msgid "Nothing"
 msgstr "Semmi"
@@ -2389,7 +2389,7 @@ msgid "Prefail"
 msgstr "Előzetes"
 
 msgid "Prefix address"
-msgstr ""
+msgstr "Előtag cím"
 
 msgid "Prefix length"
 msgstr "Előtag hossza"
@@ -3363,7 +3363,7 @@ msgstr "E mező érvénytelen karaktereket tartalmaz, csak alfanumerikus karakte
 msgid ""
 "This field is automatically filled with the subject of the certificate if "
 "left blank."
-msgstr ""
+msgstr "Ez a mező automatikusan a tanúsítvány tárgyával lesz kitöltve, ha üresen marad."
 
 msgid "This field is required."
 msgstr "A mező kitöltése kötelező."
@@ -3503,7 +3503,7 @@ msgstr "Ez a paraméter szabályozza, hogy a ponttal kezdődő fájlok rejtett f
 msgid ""
 "This setting controls the minimum protocol version that the server will "
 "allow the client to use."
-msgstr ""
+msgstr "Ez a beállítás szabályozza a minimális protokoll verziót, amit a kiszolgáló engedélyez a kliens használatára."
 
 msgid "This specifies what to do if the packet matches."
 msgstr "Ez határozza meg, hogy mit kell tenni, ha a csomag megegyezik."
@@ -3861,10 +3861,10 @@ msgstr "Felhasználók"
 msgid ""
 "Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr ""
+msgstr "A felhasználóknak hozzá kell rendelni az <em>_ssh</em> csoportot ahhoz, hogy be tudjanak jelentkezni SSH-n keresztül."
 
 msgid "Utilization"
-msgstr ""
+msgstr "Kihasználtság"
 
 msgid "Uzbekistan"
 msgstr "Üzbegisztán"
@@ -3876,7 +3876,7 @@ msgid "VLAN id"
 msgstr "VLAN az."
 
 msgid "Valid from"
-msgstr ""
+msgstr "Érvényes ettől"
 
 msgid "Valid to"
 msgstr "Érvényes"
