@@ -19,6 +19,11 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-rm -f /etc/cron-apt/refrain
+# Remove everything that is associated to cron-apt.
+# Some of these files should be removed by the APT package management,
+# but they are listed here to be ensure they are removed.
+rm -rf /etc/cron-apt/
+rm -f /etc/cron.d/cron-apt
+rm -f /etc/cron.daily/openmediavault-cron-apt
 
 exit 0
