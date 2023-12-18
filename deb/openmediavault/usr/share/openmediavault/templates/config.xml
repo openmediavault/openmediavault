@@ -105,11 +105,6 @@
 					<id>smartmontools</id>
 					<enable>1</enable>
 				</notification>
-				<notification>
-					<uuid>394cd565-e463-4094-a6ab-12e80270e9b4</uuid>
-					<id>cronapt</id>
-					<enable>1</enable>
-				</notification>
 			</notifications>
 		</notification>
 		<certificates>
