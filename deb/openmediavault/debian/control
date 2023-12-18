@@ -17,7 +17,7 @@ Depends: php-fpm, libpam-modules, php-json, dpkg, patch, dash, mawk | gawk,
  uuid, tzdata, nfs-kernel-server, lsb-release, sshpass, grep, zstd,
  wget, util-linux, samba, samba-common-bin, rsync, apt-utils, netplan.io,
  avahi-daemon, libnss-mdns, iptables, monit, beep, php-bcmath, sed,
- gdisk, rrdtool, collectd, cron, anacron, cron-apt, quota, php-xml,
+ gdisk, rrdtool, collectd, cron, anacron, quota, php-xml,
  quotatool, whiptail, lvm2, ca-certificates, libc-bin, findutils,
  coreutils, xmlstarlet, mount, parted, bash, diffutils, lsof,
  rrdcached, locales, nginx, bash-completion, python3, f2fs-tools,
@@ -26,7 +26,8 @@ Depends: php-fpm, libpam-modules, php-json, dpkg, patch, dash, mawk | gawk,
  python3-netifaces, udev, python3-lxml, salt-minion (>= 3006.0),
  libnss-myhostname, php-yaml, python3-click, python3-cached-property,
  python3-polib, libnss-systemd, libnss-resolve, debian-archive-keyring,
- openmediavault-keyring, systemd-resolved, python3-packaging, ${misc:Depends}
+ openmediavault-keyring, systemd-resolved, python3-packaging,
+ unattended-upgrades, apt-listchanges, ${misc:Depends}
 Description: openmediavault - The open network attached storage solution
  openmediavault is a small and simple to use network attached storage system
  with a smart WebGUI.

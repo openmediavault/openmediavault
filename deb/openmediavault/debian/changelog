@@ -5,6 +5,9 @@ openmediavault (7.0-15) unstable; urgency=low
     separate plugin.
   * Add support for network ethernet devices using device tree
     aliases, e.g. `endX`.
+  * Replace the cron-apt package with unattended-upgrades.
+    This will take care that security updates will be installed
+    automatically.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jul 2023 13:17:39 +0200
 
