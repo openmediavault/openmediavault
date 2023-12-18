@@ -4,6 +4,7 @@ openmediavault (6.9.10-5) stable; urgency=low
     systems to OMV7 (Sandworm) which is based on Debian 12
     (Bookworm).
   * Add UTF8 support for creating SSL certs via UI.
+  * Add email to SSL certificate's SAN in its own field.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 08 Dec 2023 11:48:57 +0100
 

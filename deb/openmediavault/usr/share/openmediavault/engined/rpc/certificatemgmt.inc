@@ -281,7 +281,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.certificatemgmt.create");
 		// Generate the certificate subject string.
-		$rdnFields = [ "c", "st", "l", "o", "ou", "cn" ];
+		$rdnFields = [ "c", "st", "l", "o", "ou", "cn", "email" ];
 		$subject = "";
 		foreach ($rdnFields as $rdnFieldk => $rdnFieldv) {
 			if (empty($params[$rdnFieldv]))
@@ -298,16 +298,24 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			$params[$rdnFieldv] = addcslashes($params[$rdnFieldv], '"\\');
 			// Append to subject.
 			switch ($rdnFieldv) {
-			case "cn":
+			case "email":
 				// Append the email address.
-				if (!empty($params['email'])) {
-					$params[$rdnFieldv] = sprintf("%s/emailAddress=%s",
-					  $params[$rdnFieldv], $params['email']);
-				}
+				$subject .= sprintf("/emailAddress=%s", $params['email']);
+				break;
 			default:
 				$subject .= sprintf("/%s=%s", mb_strtoupper($rdnFieldv),
 				  $params[$rdnFieldv]);
 			}
+		}
+		// Generate the certificate Subject Alternative Name (SAN) array.
+		$subjectAltName = [];
+		if (!empty($params['cn'])) {
+			$subjectAltName[] = sprintf("%s:%s",
+				is_ipaddr($params['cn']) ? "IP" : "DNS",
+				$params['cn']);
+		}
+		if (!empty($params['email'])) {
+			$subjectAltName[] = "email:copy";
 		}
 		// Create the requested certificate.
 		// http://www.zytrax.com/tech/survival/ssl.html
@@ -328,10 +336,9 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		if (!empty($subject)) {
 			$cmdArgs[] = sprintf("-subj %s", escapeshellarg($subject));
 		}
-		if (!empty($params['cn'])) {
-			$cmdArgs[] = sprintf("-addext 'subjectAltName=%s:%s'",
-				is_ipaddr($params['cn']) ? "IP" : "DNS",
-				$params['cn']);
+		if (!empty($subjectAltName)) {
+			$cmdArgs[] = sprintf("-addext 'subjectAltName=%s'",
+				join(",", $subjectAltName));
 		}
 		$cmd = new \OMV\System\Process("openssl", $cmdArgs);
 		$cmd->setRedirect2to1();
