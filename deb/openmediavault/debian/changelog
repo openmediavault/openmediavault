@@ -8,6 +8,9 @@ openmediavault (7.0-16) unstable; urgency=low
   * Replace the cron-apt package with unattended-upgrades.
     This will take care that security updates will be installed
     automatically.
+  * The `apt-listchanges` package will send you an email with
+    a summary of the latest changes whenever packages are
+    upgraded.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jul 2023 13:17:39 +0200
 
