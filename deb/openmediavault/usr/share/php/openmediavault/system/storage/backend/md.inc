@@ -22,11 +22,11 @@
 namespace OMV\System\Storage\Backend;
 
 /**
- * Implements the storage device backend for Linux Mdadm software RAID
- * devices.
+ * Implements the storage device backend for Linux MD (Multiple Device)
+ * software RAID devices.
  * @ingroup api
  */
-class Mdadm extends BackendAbstract {
+class Md extends BackendAbstract {
 	protected $regex = "md\d+(p\d+)*";
 
 	function getType() {
@@ -59,7 +59,7 @@ class Mdadm extends BackendAbstract {
 	}
 
 	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceMdadm($args);
+		return new \OMV\System\Storage\StorageDeviceMd($args);
 	}
 
 	function baseDeviceFile($deviceFile) {

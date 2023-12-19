@@ -153,7 +153,7 @@ data:
         execute:
           type: request
           request:
-            service: RaidMgmt
+            service: MdMgmt
             method: delete
             params:
               devicefile: '{{ devicefile }}'

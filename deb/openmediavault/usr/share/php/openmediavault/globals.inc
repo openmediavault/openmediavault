@@ -75,7 +75,7 @@ define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 \OMV\Environment::set("OMV_MKFS_OPTIONS_XFS", "-f");
 \OMV\Environment::set("OMV_MKFS_OPTIONS_BTRFS", "-O skinny-metadata,^mixed-bg");
 \OMV\Environment::set("OMV_MKFS_OPTIONS_F2FS", "");
-\OMV\Environment::set("OMV_MKFS_EXTRAOPTIONS_EXT4_MDADM", "-E lazy_itable_init=0,lazy_journal_init=0,stride=128,stripe-width=256");
+\OMV\Environment::set("OMV_MKFS_EXTRAOPTIONS_EXT4_MD", "-E lazy_itable_init=0,lazy_journal_init=0,stride=128,stripe-width=256");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_EXT2", "defaults,nofail,user_xattr");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_EXT3", "defaults,nofail,user_xattr,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_EXT4", "defaults,nofail,user_xattr,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0");

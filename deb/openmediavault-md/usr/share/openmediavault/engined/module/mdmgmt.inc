@@ -21,7 +21,7 @@
  */
 namespace Engined\Module;
 
-class MdAdm extends \OMV\Engine\Module\ServiceAbstract
+class MdMgmt extends \OMV\Engine\Module\ServiceAbstract
 		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\INotification {
 	public function getName() {
 		return "mdadm";
@@ -36,7 +36,8 @@ class MdAdm extends \OMV\Engine\Module\ServiceAbstract
 			[
 				"id" => "mdadm",
 				"type" => getText("Storage"),
-				"title" => gettext("Software RAID")
+				"title" => sprintf("%s (%s)", gettext("Multiple Device"),
+					gettext("Software RAID"))
 			]
 		];
 	}

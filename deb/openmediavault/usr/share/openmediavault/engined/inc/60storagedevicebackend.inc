@@ -25,7 +25,7 @@ namespace OMV\System\Storage\Backend;
 // Register default storage device backends.
 ///////////////////////////////////////////////////////////////////////////////
 $backends = [ "Bcache", "CCISS", "CDROM", "DM", "FIO", "HD", "I2O",
-  "Loop", "Mdadm", "MMC", "NVM", "RBD", "SD", "Virtio", "Xen" ];
+  "Loop", "Md", "MMC", "NVM", "RBD", "SD", "Virtio", "Xen" ];
 $mngr = Manager::getInstance();
 foreach ($backends as $backendk => $backendv) {
 	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);

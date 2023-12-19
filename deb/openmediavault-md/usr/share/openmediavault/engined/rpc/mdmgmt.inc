@@ -70,7 +70,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Prepare the result object.
 		$result = [];
 		foreach ($devs as $devk => $devv) {
-			$raid = new \OMV\System\Storage\StorageDeviceMdadm($devv);
+			$raid = new \OMV\System\Storage\StorageDeviceMd($devv);
 			if (!$raid->exists())
 				continue;
 			$used = FALSE;
@@ -143,7 +143,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Get the storage device.
-		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
+		$raid = new \OMV\System\Storage\StorageDeviceMd(
 			$params['devicefile']);
 		$raid->assertExists();
 		return [
@@ -176,8 +176,8 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
-		// Get the storage device.
-		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
+		// Get MD the storage device.
+		$raid = new \OMV\System\Storage\StorageDeviceMd(
 		  $params['devicefile']);
 		$raid->assertExists();
 		// Get the slave/component devices of the given RAID.
@@ -268,7 +268,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.raidmgmt.create");
+		$this->validateMethodParams($params, "rpc.mdmgmt.create");
 		// Check if name is unique.
 		if (!empty($params['name'])) {
 			// A name looks like: '<HOSTNAME>:<NAME>'
@@ -310,7 +310,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 		$object->set("devices", $devices); // Workaround
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  $object->getModel()->getNotificationId(), $object->getAssoc());
+			$object->getModel()->getNotificationId(), $object->getAssoc());
 		// Return the 'fake' configuration object.
 		return $object->getAssoc();
 	}
@@ -329,9 +329,9 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.raidmgmt.grow");
-		// Get software RAID device details to create notification message.
-		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
+		$this->validateMethodParams($params, "rpc.mdmgmt.grow");
+		// Get MD software RAID device details to create notification message.
+		$raid = new \OMV\System\Storage\StorageDeviceMd(
 		  $params['devicefile']);
 		$raid->assertExists();
 		$numDevices = $raid->getNumDevices();
@@ -379,7 +379,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 		$object->set("devices", array_merge($devices, $newDevices)); // Workaround
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  $object->getModel()->getNotificationId(), $object->getAssoc());
+			$object->getModel()->getNotificationId(), $object->getAssoc());
 		// Return the 'fake' configuration object.
 		return $object->getAssoc();
 	}
@@ -398,9 +398,9 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.raidmgmt.add");
-		// Get software RAID device details to create notification message.
-		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
+		$this->validateMethodParams($params, "rpc.mdmgmt.add");
+		// Get MD software RAID device details to create notification message.
+		$raid = new \OMV\System\Storage\StorageDeviceMd(
 		  $params['devicefile']);
 		$raid->assertExists();
 		$numDevices = $raid->getNumDevices();
@@ -429,7 +429,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 		$object->set("devices", array_merge($devices, $newDevices)); // Workaround
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  $object->getModel()->getNotificationId(), $object->getAssoc());
+			$object->getModel()->getNotificationId(), $object->getAssoc());
 		// Return the 'fake' configuration object.
 		return $object->getAssoc();
 	}
@@ -449,9 +449,9 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.raidmgmt.remove");
-		// Get software RAID device details to create notification message.
-		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
+		$this->validateMethodParams($params, "rpc.mdmgmt.remove");
+		// Get MD software RAID device details to create notification message.
+		$raid = new \OMV\System\Storage\StorageDeviceMd(
 		  $params['devicefile']);
 		$raid->assertExists();
 		$numDevices = $raid->getNumDevices();
@@ -493,7 +493,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 			$rmDevices))); // Workaround
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  $object->getModel()->getNotificationId(), $object->getAssoc());
+			$object->getModel()->getNotificationId(), $object->getAssoc());
 		// Return the 'fake' configuration object.
 		return $object->getAssoc();
 	}
@@ -512,8 +512,8 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
-		// Get software RAID device details to create notification message.
-		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
+		// Get MD software RAID device details to create notification message.
+		$raid = new \OMV\System\Storage\StorageDeviceMd(
 		  $params['devicefile']);
 		$raid->assertExists();
 		// Delete the RAID device.
@@ -534,7 +534,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 		$object->set("devices", $raid->getSlaves()); // Workaround
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  $object->getModel()->getNotificationId(), $object->getAssoc());
+			$object->getModel()->getNotificationId(), $object->getAssoc());
 		// Return the 'fake' configuration object.
 		return $object->getAssoc();
 	}
@@ -553,8 +553,8 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
-		// Get the software RAID device and make sure it exists.
-		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
+		// Get the MD software RAID device and make sure it exists.
+		$raid = new \OMV\System\Storage\StorageDeviceMd(
 		  $params['devicefile']);
 		$raid->assertExists();
 		// Get the software RAID details.

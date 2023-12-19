@@ -24,5 +24,6 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 omv_config_delete "/config/system/notification/notifications/notification[id='cronapt']"
+omv_config_delete "/config/system/notification/notifications/notification[id='mdadm']"
 
 exit 0

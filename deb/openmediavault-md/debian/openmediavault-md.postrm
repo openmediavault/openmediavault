@@ -24,13 +24,21 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+remove_action() {
+	# Activate trigger to rebuild workbench configuration files.
+	dpkg-trigger update-workbench
+}
+
 case "$1" in
 	purge)
+		remove_action
+		# Remove plugin related configuration data.
+		echo "Cleaning up configuration database ..."
+		omv_config_delete "/config/system/notification/notifications/notification[id='mdadm']"
 	;;
 
 	remove)
-		# Activate trigger to rebuild workbench configuration files.
-		dpkg-trigger update-workbench
+		remove_action
 	;;
 
 	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

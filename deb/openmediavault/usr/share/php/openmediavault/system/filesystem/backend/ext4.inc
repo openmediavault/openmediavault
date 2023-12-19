@@ -36,12 +36,13 @@ class Ext4 extends Ext3 {
 	public function getMkfsOptions(
 	  \OMV\System\Storage\StorageDevice $sd = null) {
 		$options = parent::getMkfsOptions($sd);
-		if (is_a($sd, "OMVStorageDeviceMdadm")) {
-			// Append extra options for mdadm software RAID devices.
+		if (is_a($sd, "StorageDeviceMd")) {
+			// Append extra options for MD (Multiple Device) software
+			// RAID devices.
 			// http://article.gmane.org/gmane.comp.file-systems.ext4/33938
 			// http://serverfault.com/a/419628
 			$options .= sprintf(" %s", \OMV\Environment::get(
-			  "OMV_MKFS_EXTRAOPTIONS_EXT4_MDADM"));
+				"OMV_MKFS_EXTRAOPTIONS_EXT4_MD", ""));
 		}
 		// Always use 64-bit support on 64bit systems.
 		if (TRUE === is_64bits())

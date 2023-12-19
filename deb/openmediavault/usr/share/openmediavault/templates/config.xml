@@ -96,11 +96,6 @@
 					<enable>1</enable>
 				</notification>
 				<notification>
-					<uuid>9be77408-d896-4bf5-9a4f-1adcc16381ec</uuid>
-					<id>mdadm</id>
-					<enable>1</enable>
-				</notification>
-				<notification>
 					<uuid>bd784490-a15c-47a9-9930-9f5897804654</uuid>
 					<id>smartmontools</id>
 					<enable>1</enable>
