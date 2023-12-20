@@ -20,12 +20,8 @@
 # Documentation/Howto:
 # https://wiki.debian.org/NFSServerSetup
 # https://www.willhaley.com/blog/ubuntu-nfs-server
-# http://de.linwiki.org/wiki/Linuxfibel_-_Netzwerk_Server_-_NFS_Server
 # http://wiki.ubuntuusers.de/NFS
-# http://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-nfs-server-config-exports.html
 # https://help.ubuntu.com/community/NFSv4Howto
-# http://jkossen.nl/2009/05/12/simple-nfsv4-configuration-for-debian-and-ubuntu.html
-# http://doc.opensuse.org/products/opensuse/openSUSE/opensuse-reference/cha.nfs.html
 # https://www.kernel.org/doc/Documentation/filesystems/nfs/nfs41-server.txt
 # https://ngelinux.com/difference-between-nfs-v2-v3-v4-v4-1-and-v4-2/
 # https://kifarunix.com/install-and-setup-nfs-server-on-debian-12/
