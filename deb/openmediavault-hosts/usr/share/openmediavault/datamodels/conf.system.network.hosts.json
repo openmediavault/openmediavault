@@ -1,0 +1,15 @@
+{
+	"type": "config",
+	"id": "conf.system.network.hosts",
+	"title": "Local hostname-to-IP mapping",
+	"queryinfo": {
+		"xpath": "//system/network/hosts",
+		"iterable": false
+	},
+	"properties": {
+		"extraoptions": {
+			"type": "string",
+			"default": "# IP_address canonical_hostname [aliases...]"
+		}
+	}
+}

@@ -1,0 +1,33 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-hosts package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-hosts\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-21 13:19+0100\n"
+"PO-Revision-Date: 2023-12-20 21:57+0000\n"
+"Language-Team: Korean (Korea) (https://app.transifex.com/openmediavault/teams/14254/ko_KR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"Add custom entries to the /etc/hosts file. Please check the <a "
+"href='https://manpages.debian.org/stable/manpages/hosts.5.en.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid "Custom entries"
+msgstr ""
+
+msgid "Hosts"
+msgstr ""
+
+msgid "Updated local hostname-to-IP mapping."
+msgstr ""

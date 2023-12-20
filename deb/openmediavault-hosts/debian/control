@@ -1,0 +1,15 @@
+Source: openmediavault-hosts
+Section: net
+XB-Plugin-Section: network
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gettext
+Standards-Version: 3.9.6
+Homepage: https://www.openmediavault.org
+
+Package: openmediavault-hosts
+Architecture: all
+Depends: openmediavault (>= 7.0)
+Priority: optional
+Description: openmediavault hosts plugin
+ Manage custom entries in the /etc/hosts file.

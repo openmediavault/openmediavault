@@ -1,3 +1,5 @@
+#!/usr/bin/env dash
+#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -17,8 +19,22 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Make sure custom Jinja filters are registered.
-{% set _ = salt['omv_utils.register_jinja_filters']() %}
+set -e
 
-include:
-  - .{{ salt['pillar.get']('deploy_hosts', 'default') }}
+########################################################################
+# Update the configuration.
+# <config>
+#   <system>
+#     <network>
+#       <hosts>
+#         <extraoptions># IP_address canonical_hostname [aliases...]</extraoptions>
+#       </hosts>
+#     </network>
+#   </system>
+# </config>
+########################################################################
+if ! omv-confdbadm exists "conf.system.network.hosts"; then
+	omv-confdbadm read --defaults "conf.system.network.hosts" | omv-confdbadm update "conf.system.network.hosts" -
+fi
+
+exit 0

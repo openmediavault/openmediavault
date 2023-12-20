@@ -38,9 +38,9 @@ source_file = openmediavault-ftp/usr/share/openmediavault/locale/openmediavault-
 source_lang = en
 type = PO
 
-[o:openmediavault:p:openmediavault:r:openmediavault-ldap]
-file_filter = openmediavault-ldap/usr/share/openmediavault/locale/<lang>/openmediavault-ldap.po
-source_file = openmediavault-ldap/usr/share/openmediavault/locale/openmediavault-ldap.pot
+[o:openmediavault:p:openmediavault:r:openmediavault-hosts]
+file_filter = openmediavault-hosts/usr/share/openmediavault/locale/<lang>/openmediavault-hosts.po
+source_file = openmediavault-hosts/usr/share/openmediavault/locale/openmediavault-hosts.pot
 source_lang = en
 type = PO
 
