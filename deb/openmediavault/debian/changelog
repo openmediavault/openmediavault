@@ -4,7 +4,7 @@ openmediavault (6.9.11-1) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Dec 2023 19:36:08 +0100
 
-openmediavault (6.9.10-6) stable; urgency=low
+openmediavault (6.9.10-5) stable; urgency=low
 
   * Add omv-release-upgrade to allow users to migrate their
     systems to OMV7 (Sandworm) which is based on Debian 12
