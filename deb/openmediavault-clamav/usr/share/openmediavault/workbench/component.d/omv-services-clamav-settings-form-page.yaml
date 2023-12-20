@@ -98,7 +98,7 @@ data:
       - type: textarea
         name: extraoptions
         label: _("Extra options")
-        hints: _("Please check the <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more details.")
+        hint: _("Please check the <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more details.")
         value: ""
         rows: 5
     buttons:
