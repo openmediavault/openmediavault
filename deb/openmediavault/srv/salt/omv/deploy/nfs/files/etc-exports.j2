@@ -1,33 +1,31 @@
 {%- set separator = ' ' %}
 {%- set export_dir = salt['pillar.get']('default:OMV_NFSD_EXPORT_DIR', '/export') -%}
-{%- set v4_default_options = salt['pillar.get']('default:OMV_NFSD_V4_DEFAULT_EXPORT_OPTIONS', 'ro,fsid=0,root_squash,no_subtree_check,hide') -%}
-{%- set shares_v3 = salt['omv_conf.get_by_filter'](
+{%- set pseudo_root_options = salt['pillar.get']('default:OMV_NFSD_V4_PSEUDO_ROOT_OPTIONS', 'rw,fsid=0,root_squash,no_subtree_check') -%}
+{%- set pseudo_root_enabled = salt['pillar.get']('default:OMV_NFSD_V4_PSEUDO_ROOT_ENABLED', 'yes') -%}
+{%- set shares_distinct_sfref = salt['omv_conf.get_by_filter'](
   'conf.service.nfs.share',
   {'operator': 'distinct', 'arg0': 'sharedfolderref'}) -%}
-{%- set shares_v4 = salt['omv_conf.get_by_filter'](
+{%- set shares_distinct_client = salt['omv_conf.get_by_filter'](
   'conf.service.nfs.share',
   {'operator': 'distinct', 'arg0': 'client'}) -%}
 {%- set nfs_versions = config.versions.split(',') -%}
 {{ pillar['headers']['multiline'] }}
 # /etc/exports: the access control list for filesystems which may be exported
 #               to NFS clients.  See exports(5).
-{%- if ['2', '3'] | intersect(nfs_versions) | length > 0 %}
-{%- for share_v3 in shares_v3 %}
+{%- for share_distinct_sfref in shares_distinct_sfref %}
 {% set v3_loop = loop %}
 {%- set shares = salt['omv_conf.get_by_filter'](
   'conf.service.nfs.share',
-  {'operator': 'stringEquals', 'arg0': 'sharedfolderref', 'arg1': share_v3.sharedfolderref}) %}
+  {'operator': 'stringEquals', 'arg0': 'sharedfolderref', 'arg1': share_distinct_sfref.sharedfolderref}) %}
 {%- for share in shares %}
 {%- set sharedfolder = salt['omv_conf.get']('conf.system.sharedfolder', share.sharedfolderref) %}
 {%- if loop.first %}{{ export_dir | path_join(sharedfolder.name) }}{% endif -%}
 {{ separator }}{{ share.client | trim | default('*', true) }}(fsid={{ share.uuid }},{{ share.options }}{% if share.extraoptions | length > 0 %},{{ share.extraoptions }}{% endif %})
 {%- endfor %}
 {%- endfor %}
-{%- endif %}
 
-{%- if ['4', '4.1', '4.2'] | intersect(nfs_versions) | length > 0 %}
-# NFSv4 - pseudo filesystem root
-{%- for share_v4 in shares_v4 %}
-{{ export_dir }} {{ share_v4.client | trim | default('*', true) }}({{ v4_default_options }})
+{%- if (pseudo_root_enabled | to_bool) and (['4', '4.1', '4.2'] | intersect(nfs_versions) | length > 0) %}
+{%- for share_distinct_client in shares_distinct_client %}
+{{ export_dir }} {{ share_distinct_client.client | trim | default('*', true) }}({{ pseudo_root_options }})
 {%- endfor %}
 {%- endif %}
