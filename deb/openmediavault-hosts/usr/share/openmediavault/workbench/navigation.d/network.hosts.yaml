@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "network.hosts"
+  position: 15
+  text: _("Hosts")
+  icon: "mdi:lan-connect"
+  url: "/network/hosts"

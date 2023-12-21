@@ -1,0 +1,25 @@
+version: "1.0"
+type: component
+data:
+  name: omv-network-hosts-form-page
+  type: formPage
+  config:
+    request:
+      service: NetworkHosts
+      get:
+        method: get
+      post:
+        method: set
+    fields:
+      - type: textarea
+        name: extraoptions
+        label: _("Custom entries")
+        hint: _("Add custom entries to the /etc/hosts file. Please check the <a href='https://manpages.debian.org/stable/manpages/hosts.5.en.html' target='_blank'>manual page</a> for more details.")
+        value: ""
+        rows: 7
+    buttons:
+      - template: submit
+      - template: cancel
+        execute:
+          type: url
+          url: "/network"

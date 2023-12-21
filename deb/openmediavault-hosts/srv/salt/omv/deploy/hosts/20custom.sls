@@ -17,8 +17,13 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Make sure custom Jinja filters are registered.
-{% set _ = salt['omv_utils.register_jinja_filters']() %}
+{% set config = salt['omv_conf.get']('conf.system.network.hosts') %}
 
-include:
-  - .{{ salt['pillar.get']('deploy_hosts', 'default') }}
+configure_hosts_append_custom:
+  file.append:
+    - name: "/etc/hosts"
+    - text: |
+        # User-defined entries.
+        {%- for line in (config.extraoptions.split('\n') | reject('match', '^#.*')) %}
+        {{ line }}
+        {%- endfor %}
