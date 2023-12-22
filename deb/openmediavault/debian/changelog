@@ -14,7 +14,7 @@ openmediavault (7.0-18) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jul 2023 13:17:39 +0200
 
-openmediavault (6.9.11-1) stable; urgency=low
+openmediavault (6.9.11-2) stable; urgency=low
 
   * Fix issue in NFS configuration.
 
