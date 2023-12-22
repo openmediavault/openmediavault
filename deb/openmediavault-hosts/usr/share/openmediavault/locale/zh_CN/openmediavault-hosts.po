@@ -31,7 +31,7 @@ msgstr ""
 "target='_blank'>手冊頁面</a>以取得更多資訊。"
 
 msgid "Custom entries"
-msgstr ""
+msgstr "自訂條目"
 
 msgid "Hosts"
 msgstr "主機"

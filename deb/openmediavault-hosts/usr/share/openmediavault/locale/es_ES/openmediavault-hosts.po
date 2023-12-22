@@ -31,7 +31,7 @@ msgstr ""
 "target='_blank'>página del manual</a> para obtener más detalles."
 
 msgid "Custom entries"
-msgstr ""
+msgstr "Entradas personalizadas"
 
 msgid "Hosts"
 msgstr "Hosts"
