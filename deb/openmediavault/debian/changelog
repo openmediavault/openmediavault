@@ -1,4 +1,4 @@
-openmediavault (6.9.11-1) stable; urgency=low
+openmediavault (6.9.11-2) stable; urgency=low
 
   * Fix issue in NFS configuration.
 
