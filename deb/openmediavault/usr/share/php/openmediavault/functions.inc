@@ -705,7 +705,7 @@ function binary_format($number, $options = NULL) {
 			$maxExp = array_search($options['maxPrefix'], $prefixes);
 	}
 
-	$number = strval($number);
+	$number = number_format(strval($number), 0, "", "");
 	while ((-1 != bccomp($number, "1024")) && ($exp < $maxExp)) {
 		$exp++;
 		$number = bcdiv($number, "1024", $decimalPlaces);
