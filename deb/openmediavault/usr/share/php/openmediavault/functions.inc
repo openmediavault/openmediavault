@@ -741,7 +741,7 @@ function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0): ?s
 		return FALSE;
 	// Convert number to string and ensure the correct number of decimal
 	// numbers is set (workaround for strange bcmul behaviour).
-	$number = bcadd(strval($number), "0", $decimalPlaces);
+	$number = number_format($number, 0, "", "");
 	// Convert the given number into the requested binary unit.
 	$steps = ($toIndex > $fromIndex) ? $toIndex - $fromIndex :
 	  $fromIndex - $toIndex;
