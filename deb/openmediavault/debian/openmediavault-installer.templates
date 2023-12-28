@@ -25,3 +25,7 @@ Description: Regenerate SSH key for user 'root'
 Template: openmediavault-installer/finish-install/progress/info/deploy_systemd_networkd
 Type: text
 Description: Deploy systemd-networkd configuration
+
+Template: openmediavault-installer/finish-install/progress/info/deploy_apt
+Type: text
+Description: Deploy APT configuration
