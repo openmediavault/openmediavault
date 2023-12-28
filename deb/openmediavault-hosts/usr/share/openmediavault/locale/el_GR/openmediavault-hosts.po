@@ -32,7 +32,7 @@ msgstr ""
 "target='_blank'>εγχειρίδιο</a>."
 
 msgid "Custom entries"
-msgstr ""
+msgstr "Προσαρμοσμένες καταχωρήσεις"
 
 msgid "Hosts"
 msgstr "Υπολογιστές"
