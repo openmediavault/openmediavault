@@ -78,6 +78,9 @@ const routes: Routes = [
         component: UserSharedFolderPermissionsDatatablePageComponent,
         data: {
           title: gettext('Permissions'),
+          breadcrumb: {
+            text: '{{ "Permissions" | translate }} @ {{ _routeParams.name }}'
+          },
           notificationTitle: gettext('Updated permissions of user "{{ name }}".')
         }
       }
@@ -119,6 +122,9 @@ const routes: Routes = [
         component: GroupSharedFolderPermissionsDatatablePageComponent,
         data: {
           title: gettext('Permissions'),
+          breadcrumb: {
+            text: '{{ "Permissions" | translate }} @ {{ _routeParams.name }}'
+          },
           notificationTitle: gettext('Updated permissions of group "{{ name }}".')
         }
       }

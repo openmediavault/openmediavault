@@ -445,6 +445,8 @@ export class FormPageComponent
       buttonAlign: 'end',
       buttons: []
     });
+    // Set the default hint properties.
+    this.sanitizeHints();
     // Populate the datamodel identifier field. This must be done here
     // in addition to the `FormComponent`, since the form has not yet
     // been initialized at this point in time and the fields have

@@ -10,11 +10,12 @@ data:
         method: get
       post:
         method: set
-    fields:
-      - type: hint
+    hints:
+      - type: info
         text: _("Use the <em>admin:admin</em> credentials when logging in for the first time. Please do not forget to change the password immediately.")
         dismissible: true
         stateId: 9853961a-41e8-471e-bc28-f81e995dae43
+    fields:
       - type: checkbox
         name: enable
         label: _("Enabled")

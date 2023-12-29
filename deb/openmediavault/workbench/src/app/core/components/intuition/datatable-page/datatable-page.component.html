@@ -1,3 +1,15 @@
+<div *ngIf="config.hints"
+     class="omv-display-flex omv-flex-column">
+  <omv-alert-panel *ngFor="let hint of config.hints"
+                   class="omv-flex-1 omv-m omv-mb-z"
+                   [type]="hint.type"
+                   [hasTitle]="false"
+                   [hasMargin]="false"
+                   [dismissible]="hint.dismissible"
+                   [stateId]="hint.stateId">
+    <span [innerHtml]="hint.text | transloco | nl2br | sanitizeHtml"></span>
+  </omv-alert-panel>
+</div>
 <mat-card>
   <ng-container *ngTemplateOutlet="renderCardHeader"></ng-container>
   <mat-card-content>

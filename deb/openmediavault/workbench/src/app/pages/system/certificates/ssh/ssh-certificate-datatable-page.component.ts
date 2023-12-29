@@ -95,11 +95,14 @@ export class SshCertificateDatatablePageComponent {
           type: 'formDialog',
           formDialog: {
             title: gettext('Copy public SSH key'),
-            subTitle: gettext(
-              // eslint-disable-next-line max-len
-              'Installs the public SSH key on a remote system as an authorized key. Make sure password authentication is enabled on that remote system.'
-            ),
             fields: [
+              {
+                type: 'hint',
+                hintType: 'info',
+                text: gettext(
+                  'Installs the public SSH key on a remote system as an authorized key. Make sure password authentication is enabled on that remote system.'
+                )
+              },
               {
                 type: 'hidden',
                 name: 'uuid',

@@ -31,6 +31,7 @@ import { DatatablePageActionConfig } from '~/app/core/components/intuition/model
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { DatatablePageButtonConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
+import { PageHintConfig } from '~/app/core/components/intuition/models/page-config.type';
 import { format, formatDeep, isFormatable } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import {
@@ -356,6 +357,8 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     this.config.icon = _.get(Icon, this.config.icon, this.config.icon);
     // Pre-setup actions based on the specified template type.
     this.sanitizeActions(this.config.actions);
+    // Set the default hint properties.
+    this.sanitizeHints();
     // Set the default values of the buttons.
     _.forEach(this.config.buttons, (button) => {
       const template = _.get(button, 'template');
@@ -396,9 +399,16 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
       'store.proxy.get.params',
       'store.filters'
     ]);
+    if (_.isArray(this.config.hints)) {
+      _.forEach(this.config.hints, (hintConfig: PageHintConfig) => {
+        if (isFormatable(hintConfig.text)) {
+          hintConfig.text = format(hintConfig.text, this.pageContext);
+        }
+      });
+    }
   }
 
-  private sanitizeActions(actions) {
+  private sanitizeActions(actions: DatatablePageActionConfig[]) {
     _.forEach(actions, (action: DatatablePageActionConfig) => {
       _.defaultsDeep(action, {
         click: this.onActionClick.bind(this)

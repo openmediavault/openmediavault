@@ -28,6 +28,7 @@ import { ActivatedRoute, Params, Route, Router } from '@angular/router';
 import * as _ from 'lodash';
 import { combineLatest, Subscription } from 'rxjs';
 
+import { PageHintConfig } from '~/app/core/components/intuition/models/page-config.type';
 import { decodeURIComponentDeep, formatDeep, isFormatable } from '~/app/functions.helper';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 
@@ -106,20 +107,33 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
    * Sanitize the configuration, e.g. set default values or convert
    * properties.
    */
-  protected sanitizeConfig() {}
+  protected sanitizeConfig(): void {}
+
+  /**
+   * Sanitize the hint configuration.
+   */
+  protected sanitizeHints(): void {
+    const hints: PageHintConfig[] = _.get(this.config, 'hints', []) as PageHintConfig[];
+    _.forEach(hints, (config: PageHintConfig) => {
+      _.defaultsDeep(config, {
+        type: 'info',
+        dismissible: false
+      });
+    });
+  }
 
   /**
    * A callback method that is invoked immediately after the observable
    * of the matrix parameters scoped to this route have been resolved.
    */
-  protected onRouteParams() {}
+  protected onRouteParams(): void {}
 
   /**
    * Format the given configuration properties.
    *
    * @param paths The paths of the properties to format.
    */
-  protected formatConfig(paths: Array<string>) {
+  protected formatConfig(paths: Array<string>): void {
     _.forEach(paths, (path) => {
       const value = _.get(this.config as Record<string, any>, path);
       if (isFormatable(value)) {
