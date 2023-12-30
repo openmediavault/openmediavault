@@ -518,4 +518,25 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 		$this->assertTrue(array_remove_value($d, "b"));
 		$this->assertEquals($d, [0 => "a", 1 => "c"]);
 	}
+
+	public function test_explode_csv_1() {
+		$str = " 8.8.8.8, 8.8.4.4  ";
+		$this->assertEquals(explode_csv($str), [
+		    0 => "8.8.8.8", 1 => "8.8.4.4"
+		]);
+	}
+
+	public function test_explode_csv_2() {
+		$str = " 8.8.8.8 |  8.8.4.4  ";
+		$this->assertEquals(explode_csv($str, "|", FALSE), [
+		    0 => " 8.8.8.8 ", 1 => "  8.8.4.4  "
+		]);
+	}
+
+	public function test_explode_csv_3() {
+		$str = " 8.8.8.8, 8.8.4.4,  ";
+		$this->assertEquals(explode_csv($str), [
+		    0 => "8.8.8.8", 1 => "8.8.4.4", 2 => ""
+		]);
+	}
 }

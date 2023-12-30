@@ -63,12 +63,12 @@
 			},
 			"dnsnameservers": {
 			   "type": "string",
-			   "pattern": "^((\\S+[,;])*\\S+)?$",
+			   "pattern": "^((\\S+[,;]\\s*)*\\S+)?$",
 			   "required": true
 			},
 			"dnssearch": {
 			   "type": "string",
-			   "pattern": "^((\\S+[,;])*\\S+)?$",
+			   "pattern": "^((\\S+[,;]\\s*)*\\S+)?$",
 			   "required": true
 			},
 			"mtu": {
@@ -157,12 +157,12 @@
 			},
 			"dnsnameservers": {
 			   "type": "string",
-			   "pattern": "^((\\S+[,;])*\\S+)?$",
+			   "pattern": "^((\\S+[,;]\\s*)*\\S+)?$",
 			   "required": true
 			},
 			"dnssearch": {
 			   "type": "string",
-			   "pattern": "^((\\S+[,;])*\\S+)?$",
+			   "pattern": "^((\\S+[,;]\\s*)*\\S+)?$",
 			   "required": true
 			},
 			"mtu": {
@@ -278,12 +278,12 @@
 			},
 			"dnsnameservers": {
 			   "type": "string",
-			   "pattern": "^((\\S+[,;])*\\S+)?$",
+			   "pattern": "^((\\S+[,;]\\s*)*\\S+)?$",
 			   "required": true
 			},
 			"dnssearch": {
 			   "type": "string",
-			   "pattern": "^((\\S+[,;])*\\S+)?$",
+			   "pattern": "^((\\S+[,;]\\s*)*\\S+)?$",
 			   "required": true
 			},
 			"mtu": {
@@ -382,12 +382,12 @@
 			},
 			"dnsnameservers": {
 			   "type": "string",
-			   "pattern": "^((\\S+[,;])*\\S+)?$",
+			   "pattern": "^((\\S+[,;]\\s*)*\\S+)?$",
 			   "required": true
 			},
 			"dnssearch": {
 			   "type": "string",
-			   "pattern": "^((\\S+[,;])*\\S+)?$",
+			   "pattern": "^((\\S+[,;]\\s*)*\\S+)?$",
 			   "required": true
 			},
 			"mtu": {
@@ -489,12 +489,12 @@
 			},
 			"dnsnameservers": {
 				"type": "string",
-				"pattern": "^((\\S+[,;])*\\S+)?$",
+				"pattern": "^((\\S+[,;]\\s*)*\\S+)?$",
 				"required": true
 			},
 			"dnssearch": {
 				"type": "string",
-				"pattern": "^((\\S+[,;])*\\S+)?$",
+				"pattern": "^((\\S+[,;]\\s*)*\\S+)?$",
 				"required": true
 			},
 			"mtu": {
