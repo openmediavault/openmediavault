@@ -10,15 +10,16 @@ data:
         method: get
       post:
         method: set
-    fields:
-      - type: hint
+    hints:
+      - type: info
         text: _("After enabling and deploying this service the first time please run the command <em>omv-onedrive-auth</em> as <em>root</em> user in the CLI to authenticate the application in Microsoft OneDrive.")
         dismissible: true
         stateId: c563faed-4331-493b-937d-20489be8c203
-      - type: hint
+      - type: info
         text: _("Use the <em>omv-onedrive</em> command in the CLI to perform additional actions according to the documentation of the OneDrive Linux client.")
         dismissible: true
         stateId: 88ac9240-3e8a-4372-8a63-74baa4276cf2
+    fields:
       - type: checkbox
         name: enable
         label: _("Enabled")

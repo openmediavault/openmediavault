@@ -35,15 +35,17 @@ export class SshFormPageComponent extends BaseFormPageComponent {
         method: 'set'
       }
     },
-    fields: [
+    hints: [
       {
-        type: 'hint',
+        type: 'info',
         text: gettext(
           'Users must be assigned to the <em>_ssh</em> group to be able to log in via SSH.'
         ),
         dismissible: true,
         stateId: '1f7e0754-e049-4578-9272-8cbb365fad97'
-      },
+      }
+    ],
+    fields: [
       {
         type: 'checkbox',
         name: 'enable',

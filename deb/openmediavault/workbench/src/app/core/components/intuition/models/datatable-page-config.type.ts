@@ -16,23 +16,26 @@
  * GNU General Public License for more details.
  */
 import { DatatablePageActionConfig } from '~/app/core/components/intuition/models/datatable-page-action-config.type';
+import { PageHintConfig } from '~/app/core/components/intuition/models/page-config.type';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { DatatableColumn } from '~/app/shared/models/datatable-column.type';
 import { Sorter } from '~/app/shared/models/sorter.type';
 
 export type DatatablePageConfig = {
-  // A title within the header.
+  // A list of hints to be displayed at the top of the page.
+  hints?: Array<PageHintConfig>;
+  // A title within the datatable header.
   title?: string;
-  // A subtitle within the header.
+  // A subtitle within the datatable header.
   subTitle?: string;
-  // An image used as an avatar within the header.
+  // An image used as an avatar within the datatable header.
   icon?: string;
   // An identifier which identifies this datatable uniquely.
   // This is used to store/restore the column state.
   stateId?: string;
   // The name of the property that identifies a row uniquely.
   rowId?: string;
-  // The format string that is used to generate a human readable
+  // The format string that is used to generate a human-readable
   // identifier of a row. This is used, for example, in the delete
   // dialog to enumerate the selected row(s).
   rowEnumFmt?: string;

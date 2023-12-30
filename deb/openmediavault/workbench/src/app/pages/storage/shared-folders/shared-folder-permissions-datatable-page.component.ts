@@ -40,11 +40,14 @@ export class SharedFolderPermissionsDatatablePageComponent {
     limit: 0,
     hasFooter: false,
     hasSearchField: true,
-    icon: 'information',
-    subTitle: gettext(
-      // eslint-disable-next-line max-len
-      'These settings are used by the services to configure the user and group access rights. Please note that these settings have no effect on file system permissions.'
-    ),
+    hints: [
+      {
+        type: 'info',
+        text: gettext(
+          'These settings are used by the services to configure the user and group access rights. Please note that these settings have no effect on file system permissions.'
+        )
+      }
+    ],
     selectionType: 'none',
     columns: [
       { name: gettext('Name'), prop: 'name', flexGrow: 2, sortable: true },
