@@ -1,6 +1,7 @@
 <div class="omv-dashboard-page-container">
   <omv-alert-panel *ngIf="!widgets.length"
-                   type="info">
+                   type="info"
+                   [hasMargin]="false">
     <span [innerHTML]="notConfiguredMessage | transloco | sanitizeHtml"></span>
   </omv-alert-panel>
   <div class="widgets-container">
