@@ -291,6 +291,9 @@ export class CustomValidators {
         );
       case 'ipList':
         return CustomValidators.pattern((value) => {
+          if (!/^((\S+[,;])*\S+)?$/.test(value)) {
+            return false;
+          }
           const parts = _.split(value, /[,;]/);
           return parts.every((part) => {
             part = _.trim(part);

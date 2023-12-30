@@ -97,7 +97,7 @@ describe('CustomValidators', () => {
   });
 
   describe('pattern', () => {
-    it('should validate patter [1]', () => {
+    it('should validate pattern [1]', () => {
       const validator = CustomValidators.pattern('^(\\d+,s*)?\\d+$', 'foo');
       formControl.setValue('*');
       expect(validator(formControl)).toEqual({
@@ -105,13 +105,13 @@ describe('CustomValidators', () => {
       });
     });
 
-    it('should validate patter [2]', () => {
+    it('should validate pattern [2]', () => {
       const validator = CustomValidators.pattern('^(\\d+,)*\\d+$', 'bar');
       formControl.setValue([1, 2, 3]);
       expect(validator(formControl)).toBeNull();
     });
 
-    it('should validate patter [3]', () => {
+    it('should validate pattern [3]', () => {
       const validator = CustomValidators.pattern('^(\\d+,)*\\d+$', 'baz');
       formControl.setValue(['1', '2', '3']);
       expect(validator(formControl)).toBeNull();
@@ -272,6 +272,86 @@ describe('CustomValidators', () => {
         formControl.setValue('192.168.0.1');
         expect(validator(formControl)).toEqual({
           pattern: 'This field should be an IPv6 address.'
+        });
+      });
+    });
+
+    describe('ipList', () => {
+      let validator: ValidatorFn;
+      const wantedPattern = 'This field should be a list of IP addresses separated by <,> or <;>.';
+
+      beforeEach(() => {
+        validator = CustomValidators.patternType('ipList');
+      });
+
+      it('should validate ipList (1)', () => {
+        formControl.setValue('');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate ipList (2)', () => {
+        formControl.setValue('8.8.8.8');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate ipList (3)', () => {
+        formControl.setValue('8.8.8.8,9.9.9.9');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should not validate ipList (1)', () => {
+        formControl.setValue('8.8.8.8,');
+        expect(validator(formControl)).toEqual({
+          pattern: wantedPattern
+        });
+      });
+
+      it('should not validate ipList (2)', () => {
+        formControl.setValue('8.8.8.8, 9.9.9.9');
+        expect(validator(formControl)).toEqual({
+          pattern: wantedPattern
+        });
+      });
+
+      it('should not validate ipList (3)', () => {
+        formControl.setValue('8.8.8.8#9.9.9.9');
+        expect(validator(formControl)).toEqual({
+          pattern: wantedPattern
+        });
+      });
+
+      it('should not validate ipList (4)', () => {
+        formControl.setValue('8.8.8.8|a.b.c.d');
+        expect(validator(formControl)).toEqual({
+          pattern: wantedPattern
+        });
+      });
+
+      it('should not validate ipList (5)', () => {
+        formControl.setValue('8.8.8.8,9.9.9.9,');
+        expect(validator(formControl)).toEqual({
+          pattern: wantedPattern
+        });
+      });
+
+      it('should not validate ipList (6)', () => {
+        formControl.setValue('8.8.8.8,,,,8.8.4.4');
+        expect(validator(formControl)).toEqual({
+          pattern: wantedPattern
+        });
+      });
+
+      it('should not validate ipList (7)', () => {
+        formControl.setValue('8.8.a.b');
+        expect(validator(formControl)).toEqual({
+          pattern: wantedPattern
+        });
+      });
+
+      it('should not validate ipList (8)', () => {
+        formControl.setValue('8.8.300.0');
+        expect(validator(formControl)).toEqual({
+          pattern: wantedPattern
         });
       });
     });
