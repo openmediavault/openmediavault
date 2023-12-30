@@ -116,7 +116,7 @@ msgid "Show details"
 msgstr "Visa detaljer"
 
 msgid "Software RAID"
-msgstr "Programvara RAID"
+msgstr "Programvara-RAID"
 
 msgid "State"
 msgstr "Tillstånd"
