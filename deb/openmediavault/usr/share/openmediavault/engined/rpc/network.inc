@@ -142,10 +142,10 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 	 */
     private function setInterfaceConfig($params, $ifaceParams) {
 		// Modify various configuration attributes.
-		$params['dnsnameservers'] = preg_replace("/[,;]/", " ",
-			$params['dnsnameservers']);
-		$params['dnssearch'] = preg_replace("/[,;]/", " ",
-			$params['dnssearch']);
+		$params['dnsnameservers'] = implode(" ", explode_csv(
+		    $params['dnsnameservers']));
+		$params['dnssearch'] = implode(" ", explode_csv(
+		    $params['dnssearch']));
 		// Prepare the configuration object.
 		$object = new \OMV\Config\ConfigObject("conf.system.network.interface");
 		$object->setAssoc($params);

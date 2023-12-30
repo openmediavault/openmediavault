@@ -944,7 +944,7 @@ function posix_kill_ex($pid, $sig): bool {
  * /srv/dev-disk-by-label-xx yy => /srv/dev-disk-by-label-xx\x20yy
  * /srv/dev-disk-by-label-xx yy => /srv/dev-disk-by-label-xx\040yy
  * @param string $var The variable that will be escaped.
- * @param boolean $octal If TRUE, convert octal values, otherwise hexadecimal.
+ * @param bool $octal If TRUE, convert octal values, otherwise hexadecimal.
  *   Defaults to FALSE.
  * @return string|array The escaped string.
  */
@@ -960,7 +960,7 @@ function escape_blank($var, $octal = FALSE) {
  * /srv/dev-disk-by-label-xx yy => /srv/dev-disk-by-label-xx\x20yy
  * /srv/dev-disk-by-label-xx yy => /srv/dev-disk-by-label-xx\040yy
  * @param string $var The variable that will be escaped.
- * @param boolean $octal If TRUE, convert octal values, otherwise hexadecimal.
+ * @param bool $octal If TRUE, convert octal values, otherwise hexadecimal.
  *   Defaults to FALSE.
  * @return string|array The escaped string.
  */
@@ -987,7 +987,7 @@ function escape_percent($var) {
  * /srv/dev-disk-by-label-xx\x20yy => /srv/dev-disk-by-label-xx yy
  * /srv/dev-disk-by-label-xx\040yy => /srv/dev-disk-by-label-xx yy
  * @param string $var The variable that will be unescaped.
- * @param boolean $octal If TRUE, convert octal values, otherwise hexadecimal.
+ * @param bool $octal If TRUE, convert octal values, otherwise hexadecimal.
  *   Defaults to FALSE.
  * @return string|array The unescaped string.
  */
@@ -1003,7 +1003,7 @@ function unescape_blank($var, $octal = FALSE) {
  * /srv/dev-disk-by-label-xx\x20yy => /srv/dev-disk-by-label-xx yy
  * /srv/dev-disk-by-label-xx\040yy => /srv/dev-disk-by-label-xx yy
  * @param string $var The variable that will be unescaped.
- * @param boolean $octal If TRUE, convert octal values, otherwise hexadecimal.
+ * @param bool $octal If TRUE, convert octal values, otherwise hexadecimal.
  *   Defaults to FALSE.
  * @return string|array The unescaped string.
  */
@@ -1024,6 +1024,28 @@ function explode_safe($delimiter, $string): array {
 		return [];
 	}
 	return explode($delimiter, $string);
+}
+
+/**
+ * Split a string into an array.
+ * @param string $string The string to parse.
+ * @param string $seperator The boundary string(s). Defaults to `,;`.
+ * @param bool $autoTrim Automatically strip whitespace and other
+ *   characters (check the `trim` function for more details) from the
+ *   beginning and end of the substrings. Defaults to TRUE.
+ * @return Returns an array of strings created by splitting the string
+ *   parameter on boundaries formed by the separator or FALSE on
+ *   failure.
+ */
+function explode_csv($string, $separator = ",;", $autoTrim = TRUE): ?array {
+    $parts = preg_split("/[".$separator."]+/", $string);
+    if (FALSE === $parts) {
+        return FALSE;
+    }
+    if ($autoTrim) {
+        $parts = array_map("trim", $parts);
+    }
+    return $parts;
 }
 
 /**
