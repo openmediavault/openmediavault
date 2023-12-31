@@ -446,7 +446,7 @@ export class FormPageComponent
       buttons: []
     });
     // Set the default hint properties.
-    this.sanitizeHints();
+    this.sanitizeHintsConfig();
     // Populate the datamodel identifier field. This must be done here
     // in addition to the `FormComponent`, since the form has not yet
     // been initialized at this point in time and the fields have
@@ -492,6 +492,7 @@ export class FormPageComponent
     const allFields = flattenFormFieldConfig(this.config.fields);
     // Format tokenized configuration properties.
     this.formatConfig(['title', 'subTitle', 'request.get.method', 'request.get.params']);
+    this.formatHintsConfig();
     // Load the content if form page is in 'editing' mode.
     if (this.editing) {
       this.loadData();

@@ -29,7 +29,7 @@ import * as _ from 'lodash';
 import { combineLatest, Subscription } from 'rxjs';
 
 import { PageHintConfig } from '~/app/core/components/intuition/models/page-config.type';
-import { decodeURIComponentDeep, formatDeep, isFormatable } from '~/app/functions.helper';
+import { decodeURIComponentDeep, format, formatDeep, isFormatable } from '~/app/functions.helper';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 
 export type PageContext = Record<string, any>;
@@ -112,10 +112,10 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
   /**
    * Sanitize the hint configuration.
    */
-  protected sanitizeHints(): void {
+  protected sanitizeHintsConfig(): void {
     const hints: PageHintConfig[] = _.get(this.config, 'hints', []) as PageHintConfig[];
-    _.forEach(hints, (config: PageHintConfig) => {
-      _.defaultsDeep(config, {
+    _.forEach(hints, (hintConfig: PageHintConfig) => {
+      _.defaultsDeep(hintConfig, {
         type: 'info',
         dismissible: false
       });
@@ -129,7 +129,7 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
   protected onRouteParams(): void {}
 
   /**
-   * Format the given configuration properties.
+   * Format the given configuration properties using the page context.
    *
    * @param paths The paths of the properties to format.
    */
@@ -138,6 +138,20 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
       const value = _.get(this.config as Record<string, any>, path);
       if (isFormatable(value)) {
         _.set(this.config as Record<string, any>, path, formatDeep(value, this.pageContext));
+      }
+    });
+  }
+
+  /**
+   * Format the hint configuration using the page context.
+   *
+   * @protected
+   */
+  protected formatHintsConfig(): void {
+    const hints: PageHintConfig[] = _.get(this.config, 'hints', []) as PageHintConfig[];
+    _.forEach(hints, (hintConfig: PageHintConfig) => {
+      if (isFormatable(hintConfig.text)) {
+        hintConfig.text = format(hintConfig.text, this.pageContext);
       }
     });
   }
