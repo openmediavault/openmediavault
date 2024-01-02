@@ -1,3 +1,11 @@
+openmediavault-ftp (6.0.7-1) stable; urgency=low
+
+  * Fix a bug in the log parser. Deleted files were not displayed
+    in the `FTP - Transfer log` on the `System logs` page in the
+    UI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 02 Jan 2024 17:36:02 +0100
+
 openmediavault-ftp (6.0.6-1) stable; urgency=low
 
   * Add missing log file configuration files.
