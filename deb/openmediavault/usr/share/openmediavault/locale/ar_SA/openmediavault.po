@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -447,9 +447,6 @@ msgstr "تلقائي"
 
 msgid "Auto logout"
 msgstr "تسجيل الخروج التلقائي"
-
-msgid "Automatic update and installation of packages."
-msgstr "التحديث التلقائي وتركيب الحزم."
 
 msgid "Available"
 msgstr "متاح"
@@ -1221,6 +1218,12 @@ msgstr "فيجي"
 
 msgid "File Systems"
 msgstr "أنظمة الملفات"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
 
 msgid "File path"
 msgstr "مسار الملف"
@@ -2908,9 +2911,6 @@ msgstr "النسخ Snapshots"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "فشل في البرنامج. اضغط على زر الفأرة الأيسر للمتابعة."
-
-msgid "Software updates"
-msgstr "تحديثات البرامج"
 
 msgid "Solomon Islands"
 msgstr "جزر سليمان"

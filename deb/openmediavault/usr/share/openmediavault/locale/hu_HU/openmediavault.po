@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2023\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -452,9 +452,6 @@ msgstr "Auto"
 
 msgid "Auto logout"
 msgstr "Automatikus kilépés"
-
-msgid "Automatic update and installation of packages."
-msgstr "Csomagok automatikus frissítése és telepítése."
 
 msgid "Available"
 msgstr "Elérhető"
@@ -1226,6 +1223,12 @@ msgstr "Fidzsi"
 
 msgid "File Systems"
 msgstr "Fájlrendszerek"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
 
 msgid "File path"
 msgstr "Fájl elérési út"
@@ -2913,9 +2916,6 @@ msgstr "Pillanatképek"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Szoftver hiba.   A folytatáshoz nyomja meg a bal egérgombot."
-
-msgid "Software updates"
-msgstr "Szoftverfrissítések"
 
 msgid "Solomon Islands"
 msgstr "Salamon-szigetek"

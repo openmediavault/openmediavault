@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -429,9 +429,6 @@ msgid "Auto"
 msgstr ""
 
 msgid "Auto logout"
-msgstr ""
-
-msgid "Automatic update and installation of packages."
 msgstr ""
 
 msgid "Available"
@@ -1182,6 +1179,12 @@ msgid "Fiji"
 msgstr ""
 
 msgid "File Systems"
+msgstr ""
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
 msgstr ""
 
 msgid "File path"
@@ -2799,9 +2802,6 @@ msgid "Snapshots"
 msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."
-msgstr ""
-
-msgid "Software updates"
 msgstr ""
 
 msgid "Solomon Islands"

@@ -11,7 +11,7 @@
 # Pascal Tippelt <pascal.tippelt@go-eight.de>, 2021
 # Stephan Steiner, 2014
 # Thomas Melka, 2022
-# Volker Theile <votdev@gmx.de>, 2021-2023
+# Volker Theile <votdev@gmx.de>, 2021-2024
 # Volker Theile <votdev@gmx.de>, 2013-2021
 # Volker Theile <votdev@gmx.de>, 2012
 # Volker Theile <votdev@gmx.de>, 2012
@@ -21,9 +21,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Dietmar Schultz, 2023\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2024\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -459,9 +459,6 @@ msgstr "Auto"
 
 msgid "Auto logout"
 msgstr "Automatische Abmeldung"
-
-msgid "Automatic update and installation of packages."
-msgstr "Automatische Aktualisierung und Installation von Paketen."
 
 msgid "Available"
 msgstr "Verfügbar"
@@ -1233,6 +1230,12 @@ msgstr "Fidschi"
 
 msgid "File Systems"
 msgstr "Dateisysteme"
+
+msgid "File access control lists"
+msgstr "Zugriffskontrolllisten für Dateien"
+
+msgid "File owner and group"
+msgstr "Dateieigentümer und -gruppe"
 
 msgid "File path"
 msgstr "Dateipfad"
@@ -2920,9 +2923,6 @@ msgstr "Schnappschüsse"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Software Failure.   Press left mouse button to continue."
-
-msgid "Software updates"
-msgstr "Softwareaktualisierungen"
 
 msgid "Solomon Islands"
 msgstr "Salomonen"

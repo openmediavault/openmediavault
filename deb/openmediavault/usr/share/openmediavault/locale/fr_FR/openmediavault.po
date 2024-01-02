@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Francis Dhumes, 2023\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -461,9 +461,6 @@ msgstr "Auto"
 
 msgid "Auto logout"
 msgstr "Déconnexion automatique"
-
-msgid "Automatic update and installation of packages."
-msgstr "Mise à jour automatique et installation de paquets"
 
 msgid "Available"
 msgstr "Disponible"
@@ -1235,6 +1232,12 @@ msgstr "Fidji"
 
 msgid "File Systems"
 msgstr "Systèmes de fichiers"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
 
 msgid "File path"
 msgstr "Chemin du fichier"
@@ -2922,9 +2925,6 @@ msgstr "Instantanés"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Erreur logicielle.   Cliquez sur le bouton gauche de la souris pour continuer."
-
-msgid "Software updates"
-msgstr "Mises à jour logicielles"
 
 msgid "Solomon Islands"
 msgstr "Îles Salomon"

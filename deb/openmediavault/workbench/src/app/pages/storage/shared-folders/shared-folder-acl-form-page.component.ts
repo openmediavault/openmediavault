@@ -61,77 +61,22 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
         value: '/'
       },
       {
-        type: 'datatable',
-        name: 'perms',
-        label: gettext('User/Group permissions'),
-        limit: 5,
-        hasActionBar: true,
-        hasSearchField: true,
-        selectionType: 'none',
-        columns: [
-          { name: gettext('Name'), prop: 'name', flexGrow: 2, sortable: true },
-          {
-            name: gettext('Type'),
-            prop: 'type',
-            flexGrow: 1,
-            sortable: true,
-            cellTemplateName: 'chip',
-            cellTemplateConfig: {
-              map: {
-                user: { value: gettext('User') },
-                group: { value: gettext('Group') }
-              }
-            }
-          },
-          {
-            name: gettext('System account'),
-            prop: 'system',
-            flexGrow: 1,
-            cellTemplateName: 'checkIcon',
-            sortable: true
-          },
-          {
-            name: gettext('Permissions'),
-            prop: 'perms',
-            flexGrow: 3,
-            sortable: true,
-            cellTemplateName: 'buttonToggle',
-            cellTemplateConfig: {
-              buttons: [
-                {
-                  value: '7',
-                  text: gettext('Read/Write')
-                },
-                {
-                  value: '5',
-                  text: gettext('Read-only')
-                },
-                {
-                  value: '0',
-                  text: gettext('No access')
-                }
-              ]
-            }
-          }
-        ],
-        actions: [
-          {
-            icon: 'mdi:transfer',
-            tooltip: gettext('Copy permissions'),
-            click: this.onCopyPermissions.bind(this)
-          }
-        ],
-        sorters: [
-          {
-            dir: 'asc',
-            prop: 'system'
-          },
-          {
-            dir: 'asc',
-            prop: 'name'
-          }
-        ],
-        value: []
+        type: 'checkbox',
+        name: 'replace',
+        label: gettext('Replace'),
+        hint: gettext('Replace all existing permissions.'),
+        value: true
+      },
+      {
+        type: 'checkbox',
+        name: 'recursive',
+        label: gettext('Recursive'),
+        hint: gettext('Apply permissions to files and subfolders.'),
+        value: false
+      },
+      {
+        type: 'divider',
+        title: gettext('File owner and group')
       },
       {
         type: 'container',
@@ -245,21 +190,81 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
         value: 0
       },
       {
-        type: 'divider'
+        type: 'divider',
+        title: gettext('File access control lists')
       },
       {
-        type: 'checkbox',
-        name: 'replace',
-        label: gettext('Replace'),
-        hint: gettext('Replace all existing permissions.'),
-        value: true
-      },
-      {
-        type: 'checkbox',
-        name: 'recursive',
-        label: gettext('Recursive'),
-        hint: gettext('Apply permissions to files and subfolders.'),
-        value: false
+        type: 'datatable',
+        name: 'perms',
+        label: gettext('User/Group permissions'),
+        limit: 5,
+        hasActionBar: true,
+        hasSearchField: true,
+        selectionType: 'none',
+        columns: [
+          { name: gettext('Name'), prop: 'name', flexGrow: 2, sortable: true },
+          {
+            name: gettext('Type'),
+            prop: 'type',
+            flexGrow: 1,
+            sortable: true,
+            cellTemplateName: 'chip',
+            cellTemplateConfig: {
+              map: {
+                user: { value: gettext('User') },
+                group: { value: gettext('Group') }
+              }
+            }
+          },
+          {
+            name: gettext('System account'),
+            prop: 'system',
+            flexGrow: 1,
+            cellTemplateName: 'checkIcon',
+            sortable: true
+          },
+          {
+            name: gettext('Permissions'),
+            prop: 'perms',
+            flexGrow: 3,
+            sortable: true,
+            cellTemplateName: 'buttonToggle',
+            cellTemplateConfig: {
+              buttons: [
+                {
+                  value: '7',
+                  text: gettext('Read/Write')
+                },
+                {
+                  value: '5',
+                  text: gettext('Read-only')
+                },
+                {
+                  value: '0',
+                  text: gettext('No access')
+                }
+              ]
+            }
+          }
+        ],
+        actions: [
+          {
+            icon: 'mdi:transfer',
+            tooltip: gettext('Copy permissions'),
+            click: this.onCopyPermissions.bind(this)
+          }
+        ],
+        sorters: [
+          {
+            dir: 'asc',
+            prop: 'system'
+          },
+          {
+            dir: 'asc',
+            prop: 'name'
+          }
+        ],
+        value: []
       }
     ],
     buttons: [

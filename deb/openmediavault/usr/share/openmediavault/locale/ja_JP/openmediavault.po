@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -446,9 +446,6 @@ msgstr "自動"
 
 msgid "Auto logout"
 msgstr "自動的にログアウト"
-
-msgid "Automatic update and installation of packages."
-msgstr "パッケージの自動アップデートとインストール。"
 
 msgid "Available"
 msgstr "利用可能"
@@ -1220,6 +1217,12 @@ msgstr "フィジー"
 
 msgid "File Systems"
 msgstr "ファイルシステム"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
 
 msgid "File path"
 msgstr "ファイルのパス"
@@ -2907,9 +2910,6 @@ msgstr "スナップショット"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "ソフトウェアの不具合。   マウスの左ボタンで続行します。"
-
-msgid "Software updates"
-msgstr "ソフトウェアアップデート"
 
 msgid "Solomon Islands"
 msgstr "ソロモン諸島"

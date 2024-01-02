@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -447,9 +447,6 @@ msgstr "Automatické"
 
 msgid "Auto logout"
 msgstr "Automatické odhlášení"
-
-msgid "Automatic update and installation of packages."
-msgstr ""
 
 msgid "Available"
 msgstr "K dispozici"
@@ -1221,6 +1218,12 @@ msgstr "Fidži"
 
 msgid "File Systems"
 msgstr "Souborové systémy"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
 
 msgid "File path"
 msgstr "Popis umístění souboru"
@@ -2908,9 +2911,6 @@ msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Selhání software.   Pokračujte kliknutím levým tlačítkem myši."
-
-msgid "Software updates"
-msgstr "Aktualizace softwaru"
 
 msgid "Solomon Islands"
 msgstr "Šalamounovy ostrovy"

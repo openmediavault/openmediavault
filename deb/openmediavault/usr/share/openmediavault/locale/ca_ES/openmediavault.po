@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2023\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -448,9 +448,6 @@ msgstr "Auto"
 
 msgid "Auto logout"
 msgstr "Sortida automàtica"
-
-msgid "Automatic update and installation of packages."
-msgstr "Actualització i instal·lació automàtica de paquets."
 
 msgid "Available"
 msgstr "Disponible"
@@ -1222,6 +1219,12 @@ msgstr "Fiji"
 
 msgid "File Systems"
 msgstr "Sistemes d'arxius"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
 
 msgid "File path"
 msgstr "Adreça del fitxer"
@@ -2909,9 +2912,6 @@ msgstr "Imatges instantànies"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Error de programari.    Premeu el botó esquerre del ratolí per continuar. "
-
-msgid "Software updates"
-msgstr "Actualitzar el Software"
 
 msgid "Solomon Islands"
 msgstr "Illes Salomó"

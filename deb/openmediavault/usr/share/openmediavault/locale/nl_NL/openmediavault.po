@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Tim <co_ti@hotmail.com>, 2013-2014,2016-2017,2022\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -452,9 +452,6 @@ msgstr "Auto"
 
 msgid "Auto logout"
 msgstr "Automatisch uitloggen"
-
-msgid "Automatic update and installation of packages."
-msgstr ""
 
 msgid "Available"
 msgstr "Beschikbaar"
@@ -1226,6 +1223,12 @@ msgstr "Fiji"
 
 msgid "File Systems"
 msgstr "Bestandssystemen"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
 
 msgid "File path"
 msgstr ""
@@ -2913,9 +2916,6 @@ msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr ""
-
-msgid "Software updates"
-msgstr "Software updates"
 
 msgid "Solomon Islands"
 msgstr "Salomonseilanden"

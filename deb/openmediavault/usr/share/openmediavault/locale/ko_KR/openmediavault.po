@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -449,9 +449,6 @@ msgstr "자동"
 
 msgid "Auto logout"
 msgstr "자동 로그아웃"
-
-msgid "Automatic update and installation of packages."
-msgstr ""
 
 msgid "Available"
 msgstr "사용 가능"
@@ -1223,6 +1220,12 @@ msgstr "피지"
 
 msgid "File Systems"
 msgstr "파일 시스템"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
 
 msgid "File path"
 msgstr ""
@@ -2910,9 +2913,6 @@ msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr ""
-
-msgid "Software updates"
-msgstr "소프트웨어 업데이트"
 
 msgid "Solomon Islands"
 msgstr "솔로몬 제도"

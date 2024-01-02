@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -460,9 +460,6 @@ msgstr "Автоматически"
 
 msgid "Auto logout"
 msgstr "Автовыход"
-
-msgid "Automatic update and installation of packages."
-msgstr "Автоматическое обновление и установка пакетов."
 
 msgid "Available"
 msgstr "Доступное"
@@ -1234,6 +1231,12 @@ msgstr "Фиджи"
 
 msgid "File Systems"
 msgstr "Файловые системы"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
 
 msgid "File path"
 msgstr "Путь к файлу"
@@ -2921,9 +2924,6 @@ msgstr "Снапшоты"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Сбой программного обеспечения.   Нажмите левую кнопку мыши, чтобы продолжить."
-
-msgid "Software updates"
-msgstr "Обновления программного обеспечения"
 
 msgid "Solomon Islands"
 msgstr "Соломоновы Острова"

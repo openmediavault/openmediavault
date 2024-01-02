@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2023\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -446,9 +446,6 @@ msgstr "Αυτόματο"
 
 msgid "Auto logout"
 msgstr "Αυτόματη αποσύνδεση"
-
-msgid "Automatic update and installation of packages."
-msgstr "Αυτόματη ενημέρωση και εγκατάσταση πακέτων."
 
 msgid "Available"
 msgstr "Διαθέσιμο"
@@ -1220,6 +1217,12 @@ msgstr "Fiji"
 
 msgid "File Systems"
 msgstr "Συστήματα Αρχείων"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
 
 msgid "File path"
 msgstr "Διαδρομή αρχείου"
@@ -2907,9 +2910,6 @@ msgstr "Στιγμιότυπα"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Σφάλμα Λογισμικού   Αριστερό κλικ για συνέχεια."
-
-msgid "Software updates"
-msgstr "Ενημερώσεις λογισμικού"
 
 msgid "Solomon Islands"
 msgstr "Solomon Islands"

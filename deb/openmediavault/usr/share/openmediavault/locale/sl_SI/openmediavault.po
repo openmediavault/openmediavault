@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -446,9 +446,6 @@ msgstr ""
 
 msgid "Auto logout"
 msgstr "Samodejna odjava"
-
-msgid "Automatic update and installation of packages."
-msgstr ""
 
 msgid "Available"
 msgstr "Na voljo"
@@ -1220,6 +1217,12 @@ msgstr "Fidži"
 
 msgid "File Systems"
 msgstr "Datotečni sistemi"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
 
 msgid "File path"
 msgstr ""
@@ -2907,9 +2910,6 @@ msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr ""
-
-msgid "Software updates"
-msgstr "Programske Posodobitve"
 
 msgid "Solomon Islands"
 msgstr "Salomonovi otoki"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2023\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -448,9 +448,6 @@ msgstr "自動"
 
 msgid "Auto logout"
 msgstr "自動登出"
-
-msgid "Automatic update and installation of packages."
-msgstr "自動更新並安裝套件。"
 
 msgid "Available"
 msgstr "可用"
@@ -1222,6 +1219,12 @@ msgstr "斐濟"
 
 msgid "File Systems"
 msgstr "檔案系統"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
 
 msgid "File path"
 msgstr "檔案路徑"
@@ -2909,9 +2912,6 @@ msgstr "快照"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "軟體錯誤。   按滑鼠左鍵繼續。"
-
-msgid "Software updates"
-msgstr "軟體更新"
 
 msgid "Solomon Islands"
 msgstr "索羅門群島"

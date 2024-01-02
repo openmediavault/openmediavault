@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 19:56+0100\n"
+"POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2023\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -449,9 +449,6 @@ msgstr "Automatisk"
 
 msgid "Auto logout"
 msgstr "Automatisk utloggning"
-
-msgid "Automatic update and installation of packages."
-msgstr "Automatisk uppdatering och installation av paket."
 
 msgid "Available"
 msgstr "Tillgänglig"
@@ -1223,6 +1220,12 @@ msgstr "Fiji"
 
 msgid "File Systems"
 msgstr "Filsystem"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
 
 msgid "File path"
 msgstr "Filsökväg"
@@ -2910,9 +2913,6 @@ msgstr "Ögonblicksbilder"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Programvarufel.   Tryck på vänster musknapp för att fortsätta."
-
-msgid "Software updates"
-msgstr "Mjukvaruuppdateringar"
 
 msgid "Solomon Islands"
 msgstr "Salomonöarna"
