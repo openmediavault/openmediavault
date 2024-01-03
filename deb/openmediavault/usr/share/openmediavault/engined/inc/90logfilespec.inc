@@ -151,21 +151,21 @@ require_once("openmediavault/functions.inc");
   ]]);
 
 // Retrieved via journalctl.
-// Oct  5 08:58:35 vmomv5 rsyncd[2645]: rsyncd version 3.1.1 starting, listening on port 873
+// 2023-10-05T08:58:35+0000 omv7box rsyncd[10731]: rsyncd version 3.2.7 starting, listening on port 873
 \OMV\System\LogFileSpec::registerSpecification("rsyncd", [
   "command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
-    "SYSLOG_IDENTIFIER='rsyncd' --output=short",
+    "SYSLOG_IDENTIFIER='rsyncd' --output=short-iso",
   "filename" => "rsyncd",
-  "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+rsyncd\[\d+\]:\s+(.*)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+rsyncd\[\d+\]:\s+(.*)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
+		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
 	  ],
 	  "date" => [
 		  "index" => 1,
 		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"M j G:i:s"));
+			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
 		  }
 	  ],
 	  "hostname" => 2,
@@ -173,45 +173,44 @@ require_once("openmediavault/functions.inc");
   ]]);
 
 // Retrieved via journalctl.
-// Oct  5 08:48:09 vmomv5 smartd[2094]: smartd 6.4 2014-10-07 r4002 [x86_64-linux-3.16.0-4-amd64] (local build)
-// Oct  5 08:48:09 vmomv5 smartd[2094]: Copyright (C) 2002-14, Bruce Allen, Christian Franke, www.smartmontools.org
-// Oct  5 08:48:09 vmomv5 smartd[2094]: Opened configuration file /etc/smartd.conf
+// 2023-12-26T15:47:55+0000 omv7box smartd[565]: smartd 7.3 2022-02-28 r5338 [x86_64-linux-6.1.0-16-amd64] (local build)
+// 2023-12-26T15:47:55+0000 omv7box smartd[565]: Copyright (C) 2002-22, Bruce Allen, Christian Franke, www.smartmontools.org
+// 2023-12-26T15:47:55+0000 omv7box smartd[565]: Opened configuration file /etc/smartd.conf
 \OMV\System\LogFileSpec::registerSpecification("smartd", [
   "command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
-    "SYSLOG_IDENTIFIER='smartd' --output=short",
+    "SYSLOG_IDENTIFIER='smartd' --output=short-iso",
   "filename" => "smartd.log",
-  "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\ssmartd\[\d+\]:\s+(.*)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\ssmartd\[\d+\]:\s+(.*)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
+		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
 	  ],
 	  "date" => [
 		  "index" => 1,
 		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"M j G:i:s"));
+			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
 		  }
 	  ],
 	  "message" => 3
   ]]);
 
 // Retrieved via journalctl.
-// Mar 13 23:50:48 vmomv5 smbd_audit[pid]: <username>|<ipaddr>|<clientnetbiosname>|<servicerootdir>|<servicename>|<operation>|<result>|<filename>
-// Mar 13 23:50:48 vmomv5 smbd_audit[4192]: test|192.168.178.30|pc01|/media/1622d31c-7f5d-4add-be13-20e382a9f5cb/test|download|pwrite|ok|xyz.tar.gz
+// 2024-01-03T09:56:51+0000 omv7box smbd_audit[17380]: testuser|192.168.121.1|foo|/srv/dev-disk-by-uuid-49453147-abb6-4939-9633-8a728c5b1a86/test|test|unlinkat|ok|/srv/dev-disk-by-uuid-49453147-abb6-4939-9633-8a728c5b1a86/test/baz.jpeg
 \OMV\System\LogFileSpec::registerSpecification("smbdaudit", [
   "command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
-    "--priority='notice' --identifier='smbd_audit' --output=short",
+    "--priority='notice' --identifier='smbd_audit' --output=short-iso",
   "filename" => "smbd_audit.log",
-  "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\ssmbd_audit\[\d+\]:\s+([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\ssmbd_audit\[\d+\]:\s+([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
+		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
 	  ],
 	  "date" => [
 		  "index" => 1,
 		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"M j G:i:s"));
+			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
 		  }
 	  ],
 	  "hostname" => 2,
