@@ -1225,10 +1225,10 @@ msgid "File Systems"
 msgstr "文件系统"
 
 msgid "File access control lists"
-msgstr ""
+msgstr "檔案存取控制列表"
 
 msgid "File owner and group"
-msgstr ""
+msgstr "檔案擁有者和群組"
 
 msgid "File path"
 msgstr "文件路径"
