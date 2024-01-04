@@ -172,12 +172,14 @@ remove_nut_udev_serialups_rule:
 
 {% if nut_config.mode != 'netclient' %}
 
-start_nut_driver_service:
-  service.running:
+enable_nut_driver_enumerator_service:
+  service.enabled:
     - name: nut-driver-enumerator
-    - enable: True
-    - watch:
-      - file: configure_nut_ups_conf
+
+restart_nut_driver_enumerator_service:
+  module.run:
+    - service.restart:
+      - name: nut-driver-enumerator
 
 start_nut_server_service:
   service.running:
@@ -230,9 +232,8 @@ stop_nut_server_service:
     - name: nut-server
     - enable: False
 
-stop_nut_driver_service:
-  service.dead:
+disable_nut_driver_enumerator_service:
+  service.disabled:
     - name: nut-driver-enumerator
-    - enable: False
 
 {% endif %}
