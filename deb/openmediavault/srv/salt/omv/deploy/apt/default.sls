@@ -126,3 +126,10 @@ configure_apt_sources_list_os_security:
     - mode: 644
 
 {% endif %}
+
+remove_cdrom_apt_sources_list:
+  file.line:
+    - name: "/etc/apt/sources.list"
+    - match: "deb cdrom:"
+    - mode: delete
+    - quiet: True
