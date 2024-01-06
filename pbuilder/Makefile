@@ -75,7 +75,7 @@ create: $(BUILDPLACE) $(BUILDRESULT) $(APTCACHE) install_keyring
 		--buildresult $(BUILDRESULT) \
 		--aptcache $(APTCACHE) \
 		--components $(COMPONENTS) \
-		--debootstrap qemu-debootstrap \
+		--debootstrap debootstrap \
 		--debootstrapopts --verbose \
 		--debootstrapopts --arch=$(ARCHITECTURE) \
 		--debootstrapopts --keyring=$(DEBOOTSTRAPOPTS_KEYRING) \
