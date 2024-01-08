@@ -13,6 +13,11 @@ openmediavault (7.0-24) unstable; urgency=low
     upgraded.
   * Issue #1649: Rearrange the `Storage | Shared Folders | ACL`
     page.
+  * Issue #1676: Add an UI endpoint to trigger a download via RPC.
+    Plugins can use `/download?service=xxx&method=xxx&params=xxx`
+    to start a download that is implemented in the specified RPC.
+    Note, the JSON content of the `params` argument may be encoded.
+    Check the `encodeURIComponent` JS function for more details.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jul 2023 13:17:39 +0200
 

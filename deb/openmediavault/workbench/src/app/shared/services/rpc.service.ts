@@ -157,7 +157,9 @@ export class RpcService {
       const body = new URLSearchParams();
       body.set('service', rpcService);
       body.set('method', rpcMethod);
-      body.set('params', JSON.stringify(rpcParams));
+      if (!(_.isUndefined(rpcParams) || _.isNull(rpcParams))) {
+        body.set('params', JSON.stringify(rpcParams));
+      }
       const request = new XMLHttpRequest();
       request.open('POST', 'download.php', true);
       request.responseType = 'blob';
