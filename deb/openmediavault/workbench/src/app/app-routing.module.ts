@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, inject, NgModule } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterModule, Routes } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
@@ -32,6 +32,7 @@ import { ShutdownPageComponent } from '~/app/core/pages/shutdown-page/shutdown-p
 import { StandbyPageComponent } from '~/app/core/pages/standby-page/standby-page.component';
 import { RouteConfigService } from '~/app/core/services/route-config.service';
 import { AuthGuardService } from '~/app/shared/services/auth-guard.service';
+import { RpcService } from '~/app/shared/services/rpc.service';
 
 const routes: Routes = [
   {
@@ -123,6 +124,13 @@ const routes: Routes = [
         component: BlankPageComponent
       },
       {
+        path: 'download',
+        resolve: {
+          url: 'downloadResolver'
+        },
+        component: BlankPageComponent
+      },
+      {
         path: 'guruMeditation',
         component: GuruMeditationPageComponent
       },
@@ -176,6 +184,23 @@ const routes: Routes = [
       useValue: () => {
         // Reload the whole page.
         document.location.replace('');
+        return EMPTY;
+      }
+    },
+    {
+      provide: 'downloadResolver',
+      useValue: (route: ActivatedRouteSnapshot) => {
+        // Example: /download?service=LogFile&method=getContent&params={"id":"syslog"}
+        // Note, it might be necessary to encode the JSON content of `params`, see
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent?retiredLocale=de
+        // for more information.
+        const rpcService: RpcService = inject(RpcService);
+        const params: string | null = route.queryParamMap.get('params');
+        rpcService.download(
+          route.queryParamMap.get('service'),
+          route.queryParamMap.get('method'),
+          _.isNull(params) ? undefined : JSON.parse(decodeURIComponent(params))
+        );
         return EMPTY;
       }
     }
