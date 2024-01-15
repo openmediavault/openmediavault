@@ -39,6 +39,17 @@ divert_sshd_config:
   omv_dpkg.divert_add:
     - name: "/etc/ssh/sshd_config"
 
+# Normally, the /run/sshd directory is created by the systemd unitfile
+# sshd.service via the "RuntimeDirectory" option, but since the
+# configuration file is tested before the service is started, the
+# directory does not yet exist. To prevent the error "Missing privilege
+# separation directory: /run/sshd", the directory is created if it does
+# not exist.
+create_sshd_runtime_dir:
+  file.directory:
+    - name: /run/sshd
+    - mode: 0755
+
 test_sshd_config:
   cmd.run:
     - name: "sshd -t"
