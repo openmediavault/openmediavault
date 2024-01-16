@@ -215,22 +215,25 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 	 * See interface definition.
 	 */
 	public function getDeviceFileSymlinks() {
-		if (FALSE === $this->hasUdevProperty("DEVLINKS"))
+		if (FALSE === $this->hasUdevProperty("DEVLINKS")) {
 			return [];
+		}
 		$property = $this->getUdevProperty("DEVLINKS");
 		// Parse the property value, e.g.:
 		// - disk/by-id/usb-Kingston_DataTraveler_G2_001CC0EC21ADF011C6A20E35-0:0-part1 disk/by-path/pci-0000:02:02.0-usb-0:1:1.0-scsi-0:0:0:0-part1 disk/by-uuid/3849-705A
 		// - /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 		// - /dev/disk/by-id/ata-ST1000DM003-1CH132_S2DF60PB /dev/disk/by-id/wwn-0x5000b5016caa4832
+		// - /dev/mapper/omv--lvm--vg-root /dev/omv-lvm-vg/root /dev/disk/by-id/dm-name-omv--lvm--vg-root /dev/disk/by-id/dm-uuid-LVM-qrB1zl0Sshr0gzosPHD4NeJC7D2aLNF50m40r7lb7304SjsnCw6V0hOOeMmByPrq /dev/disk/by-uuid/4a1aa5db-980b-43ac-a62a-a2b9eadcb34f
 		$parts = array_map("trim", explode(" ", $property));
 		sort($parts, SORT_NATURAL);
 		$result = [];
 		foreach ($parts as $partk => $partv) {
 			// Make sure that the device path is correct.
-			if (TRUE === is_devicefile_by($partv))
+			if (TRUE === is_devicefile($partv)) {
 				$result[] = $partv;
-			else
+			} else {
 				$result[] = sprintf("/dev/%s", $partv);
+			}
 		}
 		return $result;
 	}
@@ -241,7 +244,7 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 	public function getDeviceName($canonical = FALSE) {
 		// Get the device file and extract the name, e.g. /dev/sda => sda.
 		$deviceName = str_replace("/dev/", "", !$canonical ?
-		  $this->getDeviceFile() : $this->getCanonicalDeviceFile());
+			$this->getDeviceFile() : $this->getCanonicalDeviceFile());
 		return $deviceName;
 	}
 

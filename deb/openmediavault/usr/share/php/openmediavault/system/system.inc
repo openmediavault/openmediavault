@@ -33,8 +33,8 @@ class System {
 	 * /dev/sda1). To avoid further useless process calls to determine the
 	 * root device file the value is cached in a static variable when this
 	 * method is called the first time.
-	 * @return Returns the device file where the operating system is installed
-	 *   on.
+	 * @return Returns the canonical device file where the operating system
+	 *   is installed on.
 	 * @throw \OMV\ExecException
 	 */
 	public static function getRootDeviceFile() {
@@ -49,12 +49,14 @@ class System {
 		//if (is_block_device("/dev/root"))
 		//	return realpath("/dev/root");
 		$mp = new \OMV\System\MountPoint("/");
-		return $mp->getDeviceFile();
+		// Return the canonical device file to prevent future hiccups,
+		// e.g. `/dev/mapper/omv--lvm--vg-root` => `/dev/dm-0`.
+		return realpath($mp->getDeviceFile());
 	}
 
 	/**
 	 * Check if the given device file contains the operating system.
-	 * @param deviceFile The devicefile to check, e.g. /dev/sdb or /dev/sda1.
+	 * @param deviceFile The device file to check, e.g. /dev/sdb or /dev/sda1.
 	 * @param exact Set to FALSE to detect partitions, too. Defaults to TRUE.
 	 * @return Returns TRUE if the device file contains the operating system,
 	 *   otherwise FALSE.
