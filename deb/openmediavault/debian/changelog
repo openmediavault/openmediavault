@@ -1,4 +1,4 @@
-openmediavault (7.0-24) unstable; urgency=low
+openmediavault (7.0-25) unstable; urgency=low
 
   * Upgrade to Debian 12 (Bookworm).
   * Relocate Linux MD device (Software RAID) management into a
@@ -21,11 +21,13 @@ openmediavault (7.0-24) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jul 2023 13:17:39 +0200
 
-openmediavault (6.9.12-1) stable; urgency=low
+openmediavault (6.9.12-2) stable; urgency=low
 
   * Various improvements.
   * Create the missing SSH runtime directory so that testing
     the SSH configuration is successful.
+  * Fix a bug in root file system detection that allowed the
+    unmounting of the root file system in some situations.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 05 Jan 2024 21:00:15 +0100
 

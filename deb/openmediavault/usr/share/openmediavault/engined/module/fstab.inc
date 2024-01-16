@@ -56,8 +56,8 @@ class FSTab extends \OMV\Engine\Module\ServiceAbstract
 		// an unplugged USB device.
 		$mp = new \OMV\System\MountPoint($params['dir']);
 		if ("/" == $mp->getPath()) {
-			throw new \OMV\Exception("Removing the root file system ".
-				"has been aborted");
+			throw new \OMV\Exception("Unmounting the root file system ".
+				"has been aborted.");
 		}
 		if (FALSE === $mp->exists()) {
 			return;
@@ -72,7 +72,7 @@ class FSTab extends \OMV\Engine\Module\ServiceAbstract
 		// directory might delete the file systems data. This can happen
 		// when the file system is unmounted but busy (e.g. NFS exports).
 		if (TRUE === $mp->isMountPoint()) {
-			throw new \OMV\Exception("Removing the directory '%s' has ".
+			throw new \OMV\Exception("Removing the mount directory '%s' has ".
 				"been aborted, the resource is busy.", $params['dir']);
 		}
 		// Finally unlink the mount point.

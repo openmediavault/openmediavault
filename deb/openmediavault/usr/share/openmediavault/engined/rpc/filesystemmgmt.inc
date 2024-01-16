@@ -912,8 +912,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get the file system and unmount it.
 		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
 		if (!is_null($fs) && $fs->exists()) {
-			if (TRUE === $fs->isMounted())
+			if (TRUE === $fs->isMounted()) {
 				$fs->umount(TRUE);
+			}
 		}
 		// Delete the mount point configuration object. Unmount the file
 		// system and unlink the mount point. Changes to the fstab module
