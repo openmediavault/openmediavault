@@ -50,6 +50,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.session.login");
 		$authenticated = FALSE;
 		$permissions = [];
+		$sessionId = "";
 		// Strip whitespaces from the user name.
 		if (is_string($params['username'])) {
 			$params['username'] = trim($params['username']);
@@ -74,7 +75,8 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 				// Initialize session.
 				$role = ("admin" == $permissions['role']) ?
 					OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER;
-				$session->initialize($params['username'], $role);
+				$sessionId = $session->initialize($params['username'],
+					$role);
 			}
 			$authenticated = $session->isAuthenticated();
 			$session->commit();
@@ -83,7 +85,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		// and cookie name.
 		$prd = new \OMV\ProductInfo();
 		$ident = mb_strtolower(sprintf("%s-webgui", $prd->getName()));
-		$prefix = mb_strtoupper(sprintf("X-%s-LOGIN", $prd->getName()));
+		$prefix = mb_strtoupper(sprintf("%s-LOGIN", $prd->getName()));
 		// Open connection to system logger.
 		openlog($ident, LOG_PID | LOG_PERROR, LOG_AUTH);
 		if (TRUE === $authenticated) {
@@ -159,7 +161,8 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		return [
 			"authenticated" => $authenticated,
 			"username" => $params['username'],
-			"permissions" => $permissions
+			"permissions" => $permissions,
+			"sessionid" => $sessionId
 		];
 	}
 

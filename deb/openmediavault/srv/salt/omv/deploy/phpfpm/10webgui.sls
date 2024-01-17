@@ -60,7 +60,7 @@ configure_phpfpm_webgui:
 
         ; Name of the session (used as cookie name).
         ; http://php.net/session.name
-        php_value[session.name] = X-OPENMEDIAVAULT-SESSIONID
+        php_value[session.name] = OPENMEDIAVAULT-SESSIONID
 
         ; Whether or not to add the httpOnly flag to the cookie, which makes it
         ; inaccessible to browser scripting languages such as JavaScript.
