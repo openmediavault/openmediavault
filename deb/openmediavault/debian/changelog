@@ -11,6 +11,10 @@ openmediavault (7.0-25) unstable; urgency=low
   * The `apt-listchanges` package will send you an email with
     a summary of the latest changes whenever packages are
     upgraded.
+  * Add the ability to authenticate an RPC call by using the
+    `X-OPENMEDIAVAULT-SESSIONID` header instead of a cookie.
+    The session ID is returned with the response of the
+    `Session::login` RPC.
   * Issue #1649: Rearrange the `Storage | Shared Folders | ACL`
     page.
   * Issue #1676: Add an UI endpoint to trigger a download via RPC.
