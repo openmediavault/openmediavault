@@ -501,6 +501,60 @@ ENV{ID_VENDOR_ID}=="05e3", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
   SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
 
+# QNAP TR-002
+# https://www.qnap.com/en-us/product/tr-002
+# https://devicehunt.com/search/type/usb/vendor/1C04/device/0012
+# https://github.com/openmediavault/openmediavault/issues/1683
+#
+# DEVPATH=/devices/pci0000:00/0000:00:15.0/usb2/2-1/2-1.1/2-1.1:1.0/host1/target1:0:0/1:0:0:0/block/sdb
+# DEVNAME=/dev/sdb
+# DEVTYPE=disk
+# DISKSEQ=2
+# MAJOR=8
+# MINOR=16
+# ACTION=add
+# SUBSYSTEM=block
+# TAGS=:systemd:
+# ID_BUS=usb
+# ID_MODEL=TR-002_DISK00
+# ID_MODEL_ENC=TR-002\x20DISK00\x20\x20\x20
+# ID_MODEL_ID=0012
+# ID_SERIAL=QNAP_TR-002_DISK00_WW62NQRY-0:0
+# ID_SERIAL_SHORT=WW62NQRY
+# ID_VENDOR=QNAP
+# ID_VENDOR_ENC=QNAP\x20\x20\x20\x20
+# ID_VENDOR_ID=1c04
+# ID_REVISION=6109
+# ID_TYPE=disk
+# ID_INSTANCE=0:0
+# ID_USB_MODEL=TR-002_DISK00
+# ID_USB_MODEL_ENC=TR-002\x20DISK00\x20\x20\x20
+# ID_USB_MODEL_ID=0012
+# ID_USB_SERIAL=QNAP_TR-002_DISK00_51323341423030393130-0:0
+# ID_USB_SERIAL_SHORT=51323341423030393130
+# ID_USB_VENDOR=QNAP
+# ID_USB_VENDOR_ENC=QNAP\x20\x20\x20\x20
+# ID_USB_VENDOR_ID=1c04
+# ID_USB_REVISION=6109
+# ID_USB_TYPE=disk
+# ID_USB_INSTANCE=0:0
+# ID_USB_INTERFACES=:080650:
+# ID_USB_INTERFACE_NUM=00
+# ID_USB_DRIVER=usb-storage
+# DEVLINKS=/dev/disk/by-path/pci-0000:00:15.0-usb-0:1.1:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-QNAP_TR-002_DISK00_WW62NQRY-0:0
+# ID_PATH=pci-0000:00:15.0-usb-0:1.1:1.0-scsi-0:0:0:0
+# ID_PATH_TAG=pci-0000_00_15_0-usb-0_1_1_1_0-scsi-0_0_0_0
+# ID_PART_TABLE_UUID=a51e6e80-c2be-462b-90f9-3ac6681f854f
+# ID_PART_TABLE_TYPE=gpt
+# CURRENT_TAGS=:systemd:
+# USEC_INITIALIZED=6089547
+ENV{ID_VENDOR_ID}=="1c04", \
+  ENV{ID_MODEL_ID}=="0012", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
 # QNAP TR-004
 # https://www.qnap.com/en-us/product/tr-004
 # https://devicehunt.com/search/type/usb/vendor/1C04/device/0013
