@@ -5,9 +5,10 @@ openmediavault (7.0-26) unstable; urgency=low
     separate plugin.
   * Add support for network ethernet devices using device tree
     aliases, e.g. `endX`.
-  * Replace the cron-apt package with unattended-upgrades.
-    This will take care that security updates will be installed
-    automatically.
+  * Replace the `cron-apt` package with `unattended-upgrades`
+    and `apticron`. The former ensures that security updates
+    are installed automatically, and the latter ensures that
+    notifications are sent when new package updates are available.
   * The `apt-listchanges` package will send you an email with
     a summary of the latest changes whenever packages are
     upgraded.
