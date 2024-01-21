@@ -33,6 +33,9 @@
 {% if nut_config.enable | to_bool %}
 
 {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
+{% set notification_config = salt['omv_conf.get_by_filter'](
+  'conf.system.notification.notification',
+  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'nut'})[0] %}
 {% set admin_user = salt['pillar.get']('default:OMV_NUT_UPSDUSERS_ADMIN_USER', 'admin') %}
 {% set admin_passwd = salt['pillar.get']('default:OMV_NUT_UPSDUSERS_ADMIN_PASSWORD', salt['random.get_str'](16)) %}
 {% set monitor_user = salt['pillar.get']('default:OMV_NUT_UPSDUSERS_ADMIN_USER', 'monmaster') %}
@@ -136,6 +139,7 @@ configure_nut_default_upssched_cmd:
     - context:
         nut_config: {{ nut_config | json }}
         email_config: {{ email_config | json }}
+        notification_config: {{ notification_config | json }}
     - user: root
     - group: nut
     - mode: 640

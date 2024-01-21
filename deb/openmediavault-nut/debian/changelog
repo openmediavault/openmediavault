@@ -1,3 +1,9 @@
+openmediavault-nut (7.0.1-1) stable; urgency=low
+
+  * Issue #1681: Add ability to disable email notifications.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 21 Jan 2024 13:37:40 +0100
+
 openmediavault-nut (7.0-2) unstable; urgency=low
 
   * Adapt to openmediavault 7 (Sandworm).

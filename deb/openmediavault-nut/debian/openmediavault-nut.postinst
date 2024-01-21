@@ -69,6 +69,19 @@ case "$1" in
 		fi
 
 		########################################################################
+		# Append notification configuration.
+		# Note, we are not using the `omv-confdbadm create "conf.service.xxx"`
+		# mechanism here because data is added to an existing configuration.
+		########################################################################
+		if ! omv-confdbadm exists --filter "{\"operator\":\"stringEquals\",\"arg0\":\"id\",\"arg1\":\"nut\"}" \
+			  "conf.system.notification.notification"; then
+			echo "Append notification configuration ..."
+			omv-confdbadm read --defaults "conf.system.notification.notification" | \
+			  jq ".id = \"nut\"" | \
+			  omv-confdbadm update "conf.system.notification.notification" -
+		fi
+
+		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
