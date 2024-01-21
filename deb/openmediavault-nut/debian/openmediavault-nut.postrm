@@ -51,6 +51,7 @@ case "$1" in
 		# configuration.
 		echo "Cleaning up configuration database ..."
 		omv_config_delete "/config/services/nut"
+		omv_config_delete "/config/system/notification/notifications/notification[id='nut']"
 	;;
 
 	remove)
