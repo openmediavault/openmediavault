@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2024-01-24 19:17+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Артур Мудрых <arturmon82@gmail.com>, 2017,2019\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -113,6 +113,9 @@ msgstr "Рекурсивно в каталогах."
 msgid "Recursive"
 msgstr "Рекурсивно"
 
+msgid "Relative path"
+msgstr "Относительный путь"
+
 msgid "Run"
 msgstr "Запуск"
 
@@ -144,11 +147,11 @@ msgstr "Общая папка"
 msgid "Suppress non-error messages."
 msgstr "Не показывать сообщения в которых нет ошибок."
 
-msgid "Synchronise from/to directory on external storage device"
-msgstr ""
-
 msgid "Tags"
 msgstr "Теги"
+
+msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
+msgstr ""
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
@@ -156,10 +159,10 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The shared folder content is synchronised from/to the root of the external "
-"storage device if this option is not set. The name of the directory is taken"
-" from the shared folder."
-msgstr "Если эта опция не установлена, содержимое общей папки синхронизируются с/в корень внешнего запоминающего устройства​​.Имя каталога берется из общей папки."
+"The relative directory path on the external storage device from/to which the"
+" content of the shared folder is to be synchronized. The directory is "
+"created if it does not exist."
+msgstr ""
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "

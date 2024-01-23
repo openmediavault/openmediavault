@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2024-01-24 19:17+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Kostas Moho, 2013-2014,2017,2019,2021,2023\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -111,6 +111,9 @@ msgstr "Να περιληφθούν και οι υποφάκελοι."
 msgid "Recursive"
 msgstr "Αναδρομικά"
 
+msgid "Relative path"
+msgstr "Σχετική διαδρομή"
+
 msgid "Run"
 msgstr "Εκκίνηση"
 
@@ -142,11 +145,11 @@ msgstr "Κοινόχρηστος φάκελος"
 msgid "Suppress non-error messages."
 msgstr "Παράλειψη μηνυμάτων που δεν αφορούν σφάλματα."
 
-msgid "Synchronise from/to directory on external storage device"
-msgstr "Συγχρονισμός από/προς υποκατάλογο της εξωτερικής συσκευής αποθήκευσης."
-
 msgid "Tags"
 msgstr "Ετικέτες"
+
+msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
+msgstr ""
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
@@ -154,10 +157,10 @@ msgid ""
 msgstr "Η εξωτερική συσκευή αποθήκευσης. Βεβαιωθείτε πως η συσκευή έχει ένα μόνο σύστημα αρχείων."
 
 msgid ""
-"The shared folder content is synchronised from/to the root of the external "
-"storage device if this option is not set. The name of the directory is taken"
-" from the shared folder."
-msgstr "Αν αυτή η επιλογή είναι ανενεργή, τότε τα περιεχόμενα του κοινόχρηστου φακέλου συγχρονίζονται από/προς τον βασικό κατάλογο της εξωτερικής συσκευής αποθήκευσης. Ο υποκατάλογος ονομάζεται σύμφωνα με τον κοινόχρηστο φάκελο."
+"The relative directory path on the external storage device from/to which the"
+" content of the shared folder is to be synchronized. The directory is "
+"created if it does not exist."
+msgstr ""
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "

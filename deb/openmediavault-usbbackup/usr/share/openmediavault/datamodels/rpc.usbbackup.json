@@ -36,8 +36,8 @@
 				"format": "uuidv4",
 				"required": true
 			},
-			"usesubdir": {
-			    "type": "boolean",
+			"reldirpath": {
+			    "type": "string",
 				"required": true
 			},
 			"optionrecursive": {

@@ -53,11 +53,13 @@ data:
               prop: devicefile
         validators:
           required: true
-      - type: checkbox
-        name: usesubdir
-        label: _("Synchronise from/to directory on external storage device")
-        hint: _("The shared folder content is synchronised from/to the root of the external storage device if this option is not set. The name of the directory is taken from the shared folder.")
-        value: true
+      - type: textInput
+        name: reldirpath
+        label: _("Relative path")
+        hint: _("The relative directory path on the external storage device from/to which the content of the shared folder is to be synchronized. The directory is created if it does not exist.")
+        value: '/'
+        validators:
+          required: true
       - type: checkbox
         name: sendemail
         label: _("Send email")

@@ -37,7 +37,7 @@ set -e
 #           <comment>xxx</comment>
 #           <devicefile>xxx</devicefile>
 #           <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
-#           <usesubdir>0|1</usesubdir>
+#           <reldirpath>xxx</reldirpath>
 #           <optionrecursive>1</optionrecursive>
 #           <optiontimes>1</optiontimes>
 #           <optiongroup>1</optiongroup>

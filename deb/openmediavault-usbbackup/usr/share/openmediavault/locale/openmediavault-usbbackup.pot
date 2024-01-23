@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-usbbackup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2024-01-24 19:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,6 +104,9 @@ msgstr ""
 msgid "Recursive"
 msgstr ""
 
+msgid "Relative path"
+msgstr ""
+
 msgid "Run"
 msgstr ""
 
@@ -131,16 +134,16 @@ msgstr ""
 msgid "Suppress non-error messages."
 msgstr ""
 
-msgid "Synchronise from/to directory on external storage device"
+msgid "Tags"
 msgstr ""
 
-msgid "Tags"
+msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
 msgstr ""
 
 msgid "The external storage device. Please make sure that the device has only one file system."
 msgstr ""
 
-msgid "The shared folder content is synchronised from/to the root of the external storage device if this option is not set. The name of the directory is taken from the shared folder."
+msgid "The relative directory path on the external storage device from/to which the content of the shared folder is to be synchronized. The directory is created if it does not exist."
 msgstr ""
 
 msgid "The shared folder to synchronise when the external storage device is connected."

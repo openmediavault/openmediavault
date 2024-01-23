@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2024-01-24 19:17+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: M@T D., 2023\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -117,6 +117,9 @@ msgstr "Parcourir les dossiers récursivement"
 msgid "Recursive"
 msgstr "Récursif"
 
+msgid "Relative path"
+msgstr "Chemin relatif"
+
 msgid "Run"
 msgstr "Lancer"
 
@@ -148,11 +151,11 @@ msgstr "Dossier partagé"
 msgid "Suppress non-error messages."
 msgstr "Conserver uniquement les messages d'erreurs."
 
-msgid "Synchronise from/to directory on external storage device"
-msgstr "Synchroniser depuis/vers le répertoire sur le périphérique de stockage externe"
-
 msgid "Tags"
 msgstr "Étiquettes"
+
+msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
+msgstr ""
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
@@ -160,10 +163,10 @@ msgid ""
 msgstr "Périphérique de stockage externe. Merci de vous assurez que le périphérique n'a qu'une seule partition."
 
 msgid ""
-"The shared folder content is synchronised from/to the root of the external "
-"storage device if this option is not set. The name of the directory is taken"
-" from the shared folder."
-msgstr "Si cette option n'est pas activée, le contenu du dossier partagé est synchronisé depuis/vers la racine du périphérique externe de sauvegarde. Le nom du répertoire sera celui du dossier partagé."
+"The relative directory path on the external storage device from/to which the"
+" content of the shared folder is to be synchronized. The directory is "
+"created if it does not exist."
+msgstr ""
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "

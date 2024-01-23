@@ -6,9 +6,9 @@
 {%- set mount_path = id | make_mount_path -%}
 {%- if job.mode == 'push' -%}
   {%- set srcuri = salt['omv_conf.get_sharedfolder_path'](job.sharedfolderref) -%}
-  {%- set desturi = (mount_path ~ (salt['omv_conf.get_sharedfolder_name'](job.sharedfolderref) if job.usesubdir else '')) | path_prettify -%}
+  {%- set desturi = ((mount_path | rstrip('/')) ~ '/' ~ (job.reldirpath | strip('/'))) | path_prettify -%}
 {%- elif job.mode == 'pull' -%}
-  {%- set srcuri = (mount_path ~ (salt['omv_conf.get_sharedfolder_name'](job.sharedfolderref) if job.usesubdir else '')) | path_prettify -%}
+  {%- set srcuri = ((mount_path | rstrip('/')) ~ '/' ~ (job.reldirpath | strip('/'))) | path_prettify -%}
   {%- set desturi = salt['omv_conf.get_sharedfolder_path'](job.sharedfolderref) -%}
 {%- endif -%}
 #!/bin/sh
@@ -27,7 +27,7 @@ if ! omv_is_mounted "{{ mount_path }}" ; then
 fi
 trap cleanup 0 1 2 5 15
 touch "{{ runfile }}"
-{%- if job.mode == 'push' and job.usesubdir | to_bool %}
+{%- if job.mode == 'push' %}
 # Create target directory on external storage device.
 mkdir --mode 777 --parents "{{ desturi }}"
 {%- endif %}
