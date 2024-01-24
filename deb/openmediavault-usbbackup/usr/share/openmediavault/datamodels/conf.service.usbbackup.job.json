@@ -37,9 +37,9 @@
 			"type": "string",
 			"format": "uuidv4"
 		},
-		"usesubdir": {
-			"type": "boolean",
-			"default": false
+		"reldirpath": {
+			"type": "string",
+			"default": "/"
 		},
 		"optionrecursive": {
 			"type": "boolean",

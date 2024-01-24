@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2024-01-24 19:17+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2014,2016-2017,2019,2021\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -114,6 +114,9 @@ msgstr "递归到目录。"
 msgid "Recursive"
 msgstr "递归"
 
+msgid "Relative path"
+msgstr "相对路径"
+
 msgid "Run"
 msgstr "运行"
 
@@ -145,11 +148,11 @@ msgstr "共享文件夹"
 msgid "Suppress non-error messages."
 msgstr "抑制非错误信息。"
 
-msgid "Synchronise from/to directory on external storage device"
-msgstr "同步到外部存储设备上的目录或从外部设备目录同步。"
-
 msgid "Tags"
 msgstr "標籤"
+
+msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
+msgstr ""
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
@@ -157,10 +160,10 @@ msgid ""
 msgstr "外部存储设备，请确保该设备只有一个文件系统。"
 
 msgid ""
-"The shared folder content is synchronised from/to the root of the external "
-"storage device if this option is not set. The name of the directory is taken"
-" from the shared folder."
-msgstr "如果不勾选此选项，共享文件夹的内容将同步到外部存储的根目录（或将外部存储的根目录中的内容同步到共享文件夹），并以共享文件夹的名称作为目录名称。"
+"The relative directory path on the external storage device from/to which the"
+" content of the shared folder is to be synchronized. The directory is "
+"created if it does not exist."
+msgstr ""
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "

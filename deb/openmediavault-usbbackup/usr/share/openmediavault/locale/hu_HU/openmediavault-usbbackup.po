@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2024-01-24 19:17+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -116,6 +116,9 @@ msgstr "Ismétlődés könyvtárakban."
 msgid "Recursive"
 msgstr "Rekurziv"
 
+msgid "Relative path"
+msgstr "Relatív elérési út"
+
 msgid "Run"
 msgstr "Futtatás"
 
@@ -147,11 +150,11 @@ msgstr "Megosztott mappa"
 msgid "Suppress non-error messages."
 msgstr "Nem hibaüzenetek kihagyása."
 
-msgid "Synchronise from/to directory on external storage device"
-msgstr "Megosztott mappa szinkronizálása a külső tárolóval."
-
 msgid "Tags"
 msgstr "Címkék"
+
+msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
+msgstr ""
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
@@ -159,10 +162,10 @@ msgid ""
 msgstr "A külső tárolóeszköz. Ellenőrizze, hogy az eszközön csak egy fájlrendszer van-e."
 
 msgid ""
-"The shared folder content is synchronised from/to the root of the external "
-"storage device if this option is not set. The name of the directory is taken"
-" from the shared folder."
-msgstr "A megosztott mappa tartalmát a külső tárolóeszköz gyökerével szinkronizálja, ha ez az opció nincs beállítva. A könyvtár neve a megosztott mappa neve lesz."
+"The relative directory path on the external storage device from/to which the"
+" content of the shared folder is to be synchronized. The directory is "
+"created if it does not exist."
+msgstr ""
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "

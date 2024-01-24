@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2024-01-24 19:17+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2022\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -113,6 +113,9 @@ msgstr "Rekursivt in i mappar."
 msgid "Recursive"
 msgstr "Rekursiv"
 
+msgid "Relative path"
+msgstr "Relativ sökväg"
+
 msgid "Run"
 msgstr "Kör"
 
@@ -144,11 +147,11 @@ msgstr "Delad mapp"
 msgid "Suppress non-error messages."
 msgstr "Undertryck icke-felmeddelanden."
 
-msgid "Synchronise from/to directory on external storage device"
-msgstr "Synkronisera från/till mapp på extern lagringsenhet"
-
 msgid "Tags"
 msgstr "Taggar"
+
+msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
+msgstr ""
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
@@ -156,10 +159,10 @@ msgid ""
 msgstr "Den externa lagringsenheten. Se till att enheten bara har ett filsystem."
 
 msgid ""
-"The shared folder content is synchronised from/to the root of the external "
-"storage device if this option is not set. The name of the directory is taken"
-" from the shared folder."
-msgstr "Det delade mappinnehållet synkroniseras från/till rooten på den externa lagringsenheten om det här alternativet inte är inställt. Namnet på mappen tas från den delade mappen."
+"The relative directory path on the external storage device from/to which the"
+" content of the shared folder is to be synchronized. The directory is "
+"created if it does not exist."
+msgstr ""
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
