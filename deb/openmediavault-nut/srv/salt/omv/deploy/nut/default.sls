@@ -174,6 +174,11 @@ remove_nut_udev_serialups_rule:
 
 {% endif %}
 
+start_nut_target:
+  service.running:
+    - name: nut.target
+    - enable: True
+
 {% if nut_config.mode != 'netclient' %}
 
 enable_nut_driver_enumerator_service:
@@ -226,6 +231,11 @@ unmonitor_nut_server_service:
   cmd.run:
     - name: monit unmonitor nut-server || true
 
+stop_nut_target:
+  service.dead:
+    - name: nut.target
+    - enable: False
+    
 stop_nut_monitor_service:
   service.dead:
     - name: nut-monitor
