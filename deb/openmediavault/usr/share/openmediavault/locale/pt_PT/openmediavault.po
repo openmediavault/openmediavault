@@ -5,13 +5,14 @@
 # Translators:
 # Nelson Rosado <nelsontrosado@gmail.com>, 2012-2015,2017,2019
 # Nelson Rosado <nelsontrosado@gmail.com>, 2012
+# Renan Costa Alencar <renan.costaalencar@gmail.com>, 2024
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-02 18:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2012-2015,2017,2019\n"
+"Last-Translator: Renan Costa Alencar <renan.costaalencar@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Portugal) (http://app.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,46 +21,46 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "%d days"
-msgstr ""
+msgstr "%d dias"
 
 msgid "%d hours"
-msgstr ""
+msgstr "%d horas"
 
 msgid "%d minutes"
-msgstr ""
+msgstr "%d minutos"
 
 msgid "%d months"
-msgstr ""
+msgstr "%d meses"
 
 msgid "%d years"
-msgstr ""
+msgstr "%d anos"
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
-msgstr ""
+msgstr "%s [%s (%d%%) utilizados, %s disponível]"
 
 msgid "%s [%s]"
-msgstr ""
+msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [em %s, %s]"
 
 msgid "%s ago"
-msgstr ""
+msgstr "%s atrás"
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Minimo consumo de energia em espera (spindown)"
 
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 msgid "1 day"
 msgstr "1 dia"
 
 msgid "1 min"
-msgstr ""
+msgstr "1 min"
 
 msgid "1 minute"
 msgstr "1 minuto"
@@ -74,7 +75,7 @@ msgid "1 year"
 msgstr "1 ano"
 
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 msgid "10 minutes"
 msgstr "10 minutos"
@@ -83,7 +84,7 @@ msgid "10 years"
 msgstr "10 anos"
 
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 msgid "120 minutes"
 msgstr "120 minutos"
@@ -95,7 +96,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Minimo consumo de energia sem espera (sem spindown)"
 
 msgid "15 min"
-msgstr ""
+msgstr "15 min"
 
 msgid "15 minutes"
 msgstr "15 minutos"
@@ -110,10 +111,10 @@ msgid "192 - Intermediate power usage without standby"
 msgstr "192 - consumo de energia intermediária sem espera"
 
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 msgid "2 MiB"
-msgstr ""
+msgstr "2 MiB"
 
 msgid "2 days"
 msgstr "2 dias"
@@ -137,13 +138,13 @@ msgid "240 minutes"
 msgstr "240 minutos"
 
 msgid "25 MiB"
-msgstr ""
+msgstr "25 MiB"
 
 msgid "25 years"
 msgstr "25 anos"
 
 msgid "250 MiB"
-msgstr ""
+msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Performance máxima, máximo consumo de energia"
@@ -176,7 +177,7 @@ msgid "330 minutes"
 msgstr "330 minutos"
 
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 msgid "4 days"
 msgstr "4 dias"
@@ -188,13 +189,13 @@ msgid "4 years"
 msgstr "4 anos"
 
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 msgid "5 days"
 msgstr "5 dias"
 
 msgid "5 min"
-msgstr ""
+msgstr "5 min"
 
 msgid "5 minutes"
 msgstr "5 minutos"
@@ -203,10 +204,10 @@ msgid "5 years"
 msgstr "5 anos"
 
 msgid "50 MiB"
-msgstr ""
+msgstr "50 MiB"
 
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 msgid "6 days"
 msgstr "6 dias"
@@ -221,10 +222,10 @@ msgid "64 - Intermediate power usage with standby"
 msgstr "64 - Uso intermédio de energia em espera"
 
 msgid "75 MiB"
-msgstr ""
+msgstr "75 MiB"
 
 msgid "750 MiB"
-msgstr ""
+msgstr "750 MiB"
 
 msgid "9 months"
 msgstr "9 meses"
@@ -256,7 +257,7 @@ msgid "Abstract"
 msgstr "Abstrato"
 
 msgid "Access control list"
-msgstr ""
+msgstr "Lista de controle de acesso"
 
 msgid "Act as a WINS server."
 msgstr "Atuar como um servidor WINS"
@@ -334,7 +335,7 @@ msgid ""
 msgstr ""
 
 msgid "Allowed clients"
-msgstr ""
+msgstr "Clientes permitidos"
 
 msgid "American Samoa"
 msgstr "Samoa Americana"
@@ -383,10 +384,10 @@ msgid "April"
 msgstr "Abril"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Arquitetura"
 
 msgid "Archive mode"
-msgstr ""
+msgstr "Modo de arquivamento"
 
 msgid "Argentina"
 msgstr "Argentina"
@@ -401,22 +402,22 @@ msgid "Asynchronous I/O"
 msgstr "Assíncrono I/O"
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "Ao menos quatro dispositivos são necessários."
 
 msgid "At least one device is required."
-msgstr ""
+msgstr "Ao menos um dispositivo é necessário."
 
 msgid "At least one network interface is required."
-msgstr ""
+msgstr "Ao menos uma interface de rede é necessário."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "Ao menos dois dispositivos são necessários."
 
 msgid "At reboot"
 msgstr "Ao reiniciar"
 
 msgid "Attach"
-msgstr ""
+msgstr "Anexar"
 
 msgid "Attributes"
 msgstr "Atributo"
@@ -455,13 +456,13 @@ msgid "Azerbaijan"
 msgstr "Azerbeijão"
 
 msgid "Back"
-msgstr ""
+msgstr "Voltar"
 
 msgid "Background task"
 msgstr ""
 
 msgid "Bad"
-msgstr ""
+msgstr "Ruim"
 
 msgid "Bahamas"
 msgstr "Bahamas"
@@ -476,7 +477,7 @@ msgid "Barbados"
 msgstr "Barbádos"
 
 msgid "Base path"
-msgstr ""
+msgstr "Caminho base"
 
 msgid "Belarus"
 msgstr "Bielorussia"
@@ -551,13 +552,13 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 msgid "CPU Usage"
-msgstr ""
+msgstr "Uso de CPU"
 
 msgid "CPU Utilization"
-msgstr ""
+msgstr "Utilização de CPU"
 
 msgid "CPU usage"
 msgstr "Uso do CPU"
@@ -605,7 +606,7 @@ msgid "Chad"
 msgstr "Chad"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Alterar Senha"
 
 msgid "Changelog"
 msgstr "Log"
@@ -629,7 +630,7 @@ msgid "China"
 msgstr "China"
 
 msgid "Choose"
-msgstr ""
+msgstr "Escolher"
 
 msgid "Christmas Island"
 msgstr "Ilha Natal"
@@ -698,7 +699,7 @@ msgid ""
 msgstr "Compressão vale a pena usar se sua conexão for lenta. A eficiência da compressão depende do tipo do ficheiro, e varia amplamente. Útil para transferência internet somente."
 
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 msgid "Confirm password"
 msgstr "Confirmar senha de acesso"
@@ -734,10 +735,10 @@ msgid "Copied SSH certificate to {{ hostname }}."
 msgstr ""
 
 msgid "Copy"
-msgstr ""
+msgstr "Copiar"
 
 msgid "Copy permissions"
-msgstr ""
+msgstr "Copiar permissões"
 
 msgid "Copy public SSH key"
 msgstr ""
@@ -761,7 +762,7 @@ msgid "Create file system"
 msgstr "Criar sistema de ficheiros"
 
 msgid "Create | Import"
-msgstr ""
+msgstr "Criar | Importar"
 
 msgid "Created NFS share."
 msgstr ""
@@ -809,7 +810,7 @@ msgid "Created wireless network connection."
 msgstr ""
 
 msgid "Creation Time"
-msgstr ""
+msgstr "Tempo de Criação"
 
 msgid "Croatia"
 msgstr "Croácia"
@@ -839,7 +840,7 @@ msgid "Daily"
 msgstr "Diariamente"
 
 msgid "Dark mode"
-msgstr ""
+msgstr "Modo escuro"
 
 msgid "Dashboard"
 msgstr "Dashboard"
@@ -896,7 +897,7 @@ msgid "Device"
 msgstr "Dispositivo"
 
 msgid "Device Information"
-msgstr ""
+msgstr "Informação de Dispositivo"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Mapeamento de dispositivo %s [%s, %s]"
@@ -905,10 +906,10 @@ msgid "Device Symlinks"
 msgstr ""
 
 msgid "Device has a few bad sectors."
-msgstr ""
+msgstr "Dispositivo tem alguns sectores danificados"
 
 msgid "Device has many bad sectors."
-msgstr ""
+msgstr "Dispositivo tem demasiados sectores danificados"
 
 msgid "Device is being used outside design parameters."
 msgstr ""
@@ -941,10 +942,10 @@ msgid "Disallow the user to modify their own account."
 msgstr ""
 
 msgid "Disk Usage"
-msgstr ""
+msgstr "Uso de Disco"
 
 msgid "Disks"
-msgstr ""
+msgstr "Discos"
 
 msgid "Dismiss"
 msgstr ""
@@ -1040,7 +1041,7 @@ msgid ""
 msgstr ""
 
 msgid "Documentation"
-msgstr ""
+msgstr "Documentação"
 
 msgid "Domain name"
 msgstr "Nome de domínio"
@@ -1226,13 +1227,13 @@ msgid "File owner and group"
 msgstr ""
 
 msgid "File path"
-msgstr ""
+msgstr "Caminho do arquivo"
 
 msgid "File system"
 msgstr "Ficheiro de sistema"
 
 msgid "File systems"
-msgstr ""
+msgstr "Sistema de ficheiros"
 
 msgid "Filename"
 msgstr "Nome de ficheiro"
@@ -1275,7 +1276,7 @@ msgid "Force secure connection only."
 msgstr "Forçar ligações seguras apenas."
 
 msgid "Forum"
-msgstr ""
+msgstr "Fórum"
 
 msgid "Framework for Multicast DNS Service Discovery."
 msgstr ""
@@ -1368,7 +1369,7 @@ msgid "Guests allowed"
 msgstr "Permite convidados"
 
 msgid "Guests only"
-msgstr ""
+msgstr "Convidados somente"
 
 msgid "Guinea"
 msgstr "Guiné"
@@ -1395,7 +1396,7 @@ msgid "Heard Island and McDonald Islands"
 msgstr "Heard Island and McDonald Islands"
 
 msgid "Help"
-msgstr ""
+msgstr "Ajuda"
 
 msgid "Hibernate"
 msgstr ""

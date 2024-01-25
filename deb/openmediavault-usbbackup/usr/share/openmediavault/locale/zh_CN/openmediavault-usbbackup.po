@@ -152,7 +152,7 @@ msgid "Tags"
 msgstr "標籤"
 
 msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
-msgstr ""
+msgstr "'發送電子郵件' 與 '靜默' 選項是互斥的。"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
@@ -163,7 +163,7 @@ msgid ""
 "The relative directory path on the external storage device from/to which the"
 " content of the shared folder is to be synchronized. The directory is "
 "created if it does not exist."
-msgstr ""
+msgstr "位於外接儲存裝置的相對目錄路徑，將與共享檔案夾的內容做同步。若該目錄不存在，則會被建立。"
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
