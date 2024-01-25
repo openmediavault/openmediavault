@@ -25,6 +25,8 @@ openmediavault (7.0-28) unstable; urgency=low
     to start a download that is implemented in the specified RPC.
     Note, the JSON content of the `params` argument may be encoded.
     Check the `encodeURIComponent` JS function for more details.
+  * Issue #1690: Replace hdparm with smartctl for better hardware
+    support.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jul 2023 13:17:39 +0200
 
