@@ -16,6 +16,8 @@ openmediavault (7.0-26) unstable; urgency=low
     `X-OPENMEDIAVAULT-SESSIONID` header instead of a cookie.
     The session ID is returned with the response of the
     `Session::login` RPC.
+  * Reduce the query time when determining the SMART information
+    by reducing the query parameters to the minimum.
   * Issue #1649: Rearrange the `Storage | Shared Folders | ACL`
     page.
   * Issue #1676: Add an UI endpoint to trigger a download via RPC.
