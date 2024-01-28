@@ -1119,26 +1119,23 @@ finish:
 				  $userv['name']);
 				if (!file_exists($homeDirPath)) {
 					if (!mkdir($homeDirPath, 0700, TRUE)) {
-						$error = error_get_last();
 						throw new \OMV\Exception(
 						  "Failed to create home directory '%s': %s",
-						  $homeDirPath, $error['message']);
+						  $homeDirPath, last_error_msg());
 					}
 					if (!chown($homeDirPath, $userv['name'])) {
-						$error = error_get_last();
 						throw new \OMV\Exception(
 						  "Failed to change owner of the directory '%s' ".
 						  "to '%s': %s", $homeDirPath, $userv['name'],
-						  $error['message']);
+						  last_error_msg());
 					}
 					if (!chgrp($homeDirPath, \OMV\Environment::get(
 					  "OMV_USERMGMT_DEFAULT_GROUP"))) {
-						$error = error_get_last();
 						throw new \OMV\Exception(
 						  "Failed to change group of the directory '%s' ".
 						  "to '%s': %s", $homeDirPath,
 						  \OMV\Environment::get("OMV_USERMGMT_DEFAULT_GROUP"),
-						  $error['message']);
+						  last_error_msg());
 					}
 				}
 			}

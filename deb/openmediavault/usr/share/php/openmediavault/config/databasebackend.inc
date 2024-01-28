@@ -399,8 +399,7 @@ class DatabaseBackend {
 		// !!! Note, the file permissions of the target file will
 		// not be touched when using the copy operation.
 		if (!copy($filename, $this->filename)) {
-			$error = error_get_last();
-			throw new DatabaseException($error['message']);
+			throw new DatabaseException(last_error_msg());
 		}
 		// Unlink all revision files.
 		$this->unlinkRevisions();
@@ -456,8 +455,7 @@ class DatabaseBackend {
 			// on failure to do not corrupt the original file. Note, the
 			// current changes can get lost.
 			if (!copy($this->filename, $filename)) {
-				$error = error_get_last();
-				throw new DatabaseException($error['message']);
+				throw new DatabaseException(last_error_msg());
 			}
 			// Update file permissions.
 			chmod($filename, 0600);

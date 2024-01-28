@@ -376,10 +376,9 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				// subvolume can't be created.
 				if (FALSE === is_dir($parentDir)) {
 					if (FALSE === mkdir($parentDir, 0700, TRUE)) {
-						$error = error_get_last();
 						throw new \OMV\Exception(
 							"Failed to create the directory '%s': %s",
-							$parentDir, $error['message']);
+							$parentDir, last_error_msg());
 					}
 				}
 				// Create the Btrfs subvolume.
@@ -391,19 +390,17 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				// not create the correct permissions as expected, thus
 				// change the mode using chmod.
 				if (FALSE === mkdir($pathName, 0700, TRUE)) {
-					$error = error_get_last();
 					throw new \OMV\Exception(
 						"Failed to create the directory '%s': %s",
-						$pathName, $error['message']);
+						$pathName, last_error_msg());
 				}
 				break;
 			}
 			// Adapt the directory mode.
 			if (FALSE === chmod($pathName, octdec($object->get("mode")))) {
-				$error = error_get_last();
 				throw new \OMV\Exception(
 					"Failed to set file mode to '%s' for '%s': %s",
-					$object->get("mode"), $pathName, $error['message']);
+					$object->get("mode"), $pathName, last_error_msg());
 			}
 		}
 		// Change group owner of directory to the configured default
@@ -411,20 +408,18 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$defaultGroup = \OMV\Environment::get("OMV_USERMGMT_DEFAULT_GROUP",
 			"users");
 		if (FALSE === chgrp($pathName, $defaultGroup)) {
-			$error = error_get_last();
 			throw new \OMV\Exception(
 				"Failed to set file group to '%s' for '%s': %s",
-				$defaultGroup, $pathName, $error['message']);
+				$defaultGroup, $pathName, last_error_msg());
 		}
 		// Set the setgid bit. Setting this permission means that all files
 		// created in the folder will inherit the group of the folder rather
 		// than the primary group of the user who creates the file.
 		$mode = fileperms($pathName) | 02000;
 		if (FALSE === chmod($pathName, $mode)) {
-			$error = error_get_last();
 			throw new \OMV\Exception(
 				"Failed to set file mode to '%o' for '%s': %s",
-				$mode, $pathName, $error['message']);
+				$mode, $pathName, last_error_msg());
 		}
 		// Walk through the directory path to make sure group 'users' can
 		// access all subdirectories.
@@ -1302,10 +1297,9 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$defaultGroup = \OMV\Environment::get(
 			"OMV_USERMGMT_DEFAULT_GROUP", "users");
 		if (FALSE === chgrp($snapshotsDir, $defaultGroup)) {
-			$error = error_get_last();
 			throw new \OMV\Exception(
 				"Failed to set file group to '%s' for '%s': %s",
-				$defaultGroup, $snapshotsDir, $error['message']);
+				$defaultGroup, $snapshotsDir, last_error_msg());
 		}
 		$fs->createSnapshot($sfAbsPath, $snapshotPath);
 		return [
