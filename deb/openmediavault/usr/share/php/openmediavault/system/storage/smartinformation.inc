@@ -30,6 +30,7 @@ class SmartInformation {
 	protected $sd = NULL;
 	private $cmdOutput = NULL;
 	private $dataCached = FALSE;
+	private $dataCachedKind = NULL;
 	private $attrDesc = [
 		1 => "Frequency of errors while reading raw data from the disk",
 		2 => "Average efficiency of the disk",
@@ -95,6 +96,9 @@ class SmartInformation {
 	const SMART_ASSESSMENT_BAD_SECTOR_MANY = "BAD_SECTOR_MANY";
 	const SMART_ASSESSMENT_BAD_STATUS = "BAD_STATUS";
 
+	const SMART_INFO_KIND_DEFAULT = "default";
+	const SMART_INFO_KIND_ALL = "all";
+
 	/**
 	 * Constructor
 	 * @param sd The storage device object. Defaults to NULL.
@@ -107,21 +111,42 @@ class SmartInformation {
 	/**
 	 * Get S.M.A.R.T. information.
 	 * @private
+	 * @oaram string $kind The kind of SMART information. If set to
+	 *   `all`, SMART and non-SMART information are requested.
+	 *   Defaults to NULL (=> `default`) which requests only SMART
+	 *   information.
 	 * @return void
 	 * @throw \OMV\ExecException
 	 */
-	private function getData() {
-		if ($this->dataCached !== FALSE)
-			return;
+	private function getData($kind = NULL) {
+		if (is_null($kind)) {
+			$kind = self::SMART_INFO_KIND_DEFAULT;
+		}
+
+		if (FALSE !== $this->dataCached) {
+			if ($kind === $this->dataCachedKind) {
+				return;
+			}
+			if (self::SMART_INFO_KIND_ALL === $this->dataCachedKind &&
+					self::SMART_INFO_KIND_DEFAULT === $kind) {
+				return;
+			}
+		}
 
 		// Deny the parallel execution of the smartctl command for
 		// this device. This is necessary to prevent an increasing
 		// of the ATA error count of the device.
 		$mutex = new \OMV\Mutex(__CLASS__.__METHOD__.$this->sd->getDeviceFile());
 
-		// Get all available S.M.A.R.T. information.
+		// Get the SMART + non-SMART information?
 		$cmdArgs = [];
-		$cmdArgs[] = "--xall";
+		if (self::SMART_INFO_KIND_ALL === $kind) {
+			$cmdArgs[] = "--xall";
+		} else {
+			$cmdArgs[] = "--attributes";
+			$cmdArgs[] = "--info";
+			$cmdArgs[] = "--log=selftest";
+		}
 		if (!empty($this->sd->getSmartDeviceType())) {
 			$cmdArgs[] = sprintf("--device=%s", $this->sd->getSmartDeviceType());
 		}
@@ -141,6 +166,7 @@ class SmartInformation {
 
 		// Set flag to mark information has been successfully read.
 		$this->dataCached = TRUE;
+		$this->dataCachedKind = $kind;
 	}
 
 	/**
@@ -149,7 +175,7 @@ class SmartInformation {
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
-		$this->getData();
+		$this->getData($this->dataCachedKind);
 	}
 
 	/**
@@ -157,7 +183,7 @@ class SmartInformation {
 	 * @return string The command output.
 	 */
 	public function getExtendedInformation() {
-		$this->getData();
+		$this->getData(self::SMART_INFO_KIND_ALL);
 		return implode("\n", $this->cmdOutput);
 	}
 
