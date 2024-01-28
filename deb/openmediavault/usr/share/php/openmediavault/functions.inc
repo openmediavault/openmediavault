@@ -679,6 +679,17 @@ if (!function_exists('json_last_error_msg')) {
 }
 
 /**
+ * Get the message of the last occurred error.
+ * @ingroup api
+ * @return Returns the message of the last error if possible,
+ *   otherwise `Unknown error`.
+ */
+function last_error_msg(): string {
+	$error = error_get_last();
+	return isset($error['message']) ? $error['message'] : "Unknown error";
+}
+
+/**
  * Convert a number into the highest possible binary unit.
  * @ingroup api
  * @param mixed $number The number to convert (per default this is in Bytes).

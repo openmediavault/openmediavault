@@ -21,6 +21,8 @@
  */
 namespace OMV;
 
+require_once("openmediavault/functions.inc");
+
 /**
  * A mutex provides mutual exclusion. Create the mutex at the beginning
  * of the scope you want to protect. The mutex will be auto-released when
@@ -41,6 +43,9 @@ class Mutex {
 	public function __construct($key, $auto = TRUE) {
 		$this->auto = $auto;
 		$this->semIdentifier = sem_get(crc32($key));
+		if (FALSE === $this->semIdentifier) {
+			throw new \OMV\MutexLockException(last_error_msg());
+		}
 		if ($this->auto) {
 			$this->lock();
 		}
