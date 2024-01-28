@@ -24,4 +24,4 @@ namespace OMV;
 /**
  * @ingroup api
  */
-class MutexLockException extends BaseException {}
+class MutexException extends Exception {}

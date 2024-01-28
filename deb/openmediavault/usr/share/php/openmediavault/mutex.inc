@@ -44,7 +44,8 @@ class Mutex {
 		$this->auto = $auto;
 		$this->semIdentifier = sem_get(crc32($key));
 		if (FALSE === $this->semIdentifier) {
-			throw new \OMV\MutexLockException(last_error_msg());
+			throw new \OMV\MutexException("Failed to get semaphore ID: %s",
+				last_error_msg());
 		}
 		if ($this->auto) {
 			$this->lock();
@@ -62,14 +63,15 @@ class Mutex {
 	 */
 	function lock() {
 		if (!sem_acquire($this->semIdentifier)) {
-			throw new \OMV\MutexLockException();
+			throw new \OMV\MutexException("Failed to acquire semaphore: %s",
+				last_error_msg());
 		}
 	}
 
 	/**
 	 * Release the lock.
 	 */
-	function unlock() {
+	function unlock(): bool {
 		return sem_release($this->semIdentifier);
 	}
 }
