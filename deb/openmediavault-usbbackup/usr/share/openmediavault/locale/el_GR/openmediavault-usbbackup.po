@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# Kostas Moho, 2013-2014,2017,2019,2021,2023
+# Kostas Moho, 2013-2014,2017,2019,2021,2023-2024
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-24 19:17+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
-"Last-Translator: Kostas Moho, 2013-2014,2017,2019,2021,2023\n"
+"Last-Translator: Kostas Moho, 2013-2014,2017,2019,2021,2023-2024\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -149,7 +149,7 @@ msgid "Tags"
 msgstr "Ετικέτες"
 
 msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
-msgstr ""
+msgstr "Οι επιλογές \"Αποστολή μηνύματος\" και \"Αθόρυβα\" δεν μπορούν να συνδυαστούν.."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
@@ -160,7 +160,7 @@ msgid ""
 "The relative directory path on the external storage device from/to which the"
 " content of the shared folder is to be synchronized. The directory is "
 "created if it does not exist."
-msgstr ""
+msgstr "Η σχετική διαδρομή καταλόγου στην εξωτερική συσκευή από/προς την οποία θα συγχρονιστεί το περιεχόμενο του κοινόχρηστου φακέλου. Ο κατάλογος δημιουργείται αν δεν υπάρχει."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
