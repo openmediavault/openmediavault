@@ -145,6 +145,7 @@ class SmartInformation {
 		} else {
 			$cmdArgs[] = "--attributes";
 			$cmdArgs[] = "--info";
+			$cmdArgs[] = "--health";
 			$cmdArgs[] = "--log=selftest";
 		}
 		if (!empty($this->sd->getSmartDeviceType())) {
