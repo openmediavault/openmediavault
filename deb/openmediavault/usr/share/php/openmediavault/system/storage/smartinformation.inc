@@ -144,6 +144,7 @@ class SmartInformation {
 			$cmdArgs[] = "--xall";
 		} else {
 			$cmdArgs[] = "--attributes";
+			$cmdArgs[] = "--format=brief";
 			$cmdArgs[] = "--info";
 			$cmdArgs[] = "--health";
 			$cmdArgs[] = "--log=selftest";
