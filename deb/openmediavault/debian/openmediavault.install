@@ -2,6 +2,7 @@ usr/sbin/* usr/sbin/
 usr/share/openmediavault/* usr/share/openmediavault/
 usr/share/php/openmediavault/* usr/share/php/openmediavault/
 usr/lib/python3/dist-packages/openmediavault/* usr/lib/python3/dist-packages/openmediavault/
+usr/lib/systemd/system-sleep/* usr/lib/systemd/system-sleep/
 usr/lib/udev/* usr/lib/udev/
 etc/* etc/
 var/www/openmediavault var/www/

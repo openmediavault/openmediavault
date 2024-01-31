@@ -187,6 +187,10 @@ case "$1" in
 		deb-systemd-invoke stop nfs-blkmap.service || :
 		deb-systemd-invoke mask nfs-blkmap.service || :
 
+		# Enable and start various services that are necessary for
+		# openmediavault to work correct.
+		deb-systemd-helper enable smartctl-hdparm.service
+
 		# Ensure all openmediavault systemd units are enabled.
 		deb-systemd-helper enable openmediavault-beep-up.service
 		deb-systemd-helper enable openmediavault-beep-down.service
