@@ -7,6 +7,8 @@ openmediavault (6.9.12-3) stable; urgency=low
     unmounting of the root file system in some situations.
   * Add UDEV rule to fix the duplicate serial number issue on Qnap
     TR-002 devices.
+  * Issue #1698: Show only monitored devices in the SMART dashboard
+    widget
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 05 Jan 2024 21:00:15 +0100
 
