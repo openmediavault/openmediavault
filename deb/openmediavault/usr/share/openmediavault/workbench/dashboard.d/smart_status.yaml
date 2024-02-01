@@ -36,3 +36,7 @@ data:
       sorters:
         - prop: devicefile
           dir: asc
+      filters:
+        - operator: "truthy"
+          arg0:
+            prop: "monitor"
