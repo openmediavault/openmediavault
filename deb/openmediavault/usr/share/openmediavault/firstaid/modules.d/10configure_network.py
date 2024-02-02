@@ -63,7 +63,7 @@ class Module(openmediavault.firstaid.IModule):
         # Get a description for each network interface to help the user to
         # choose the correct one.
         for device in devices:
-            if "ethernet" != device["type"]:
+            if device["type"] not in ["ethernet", "wifi"]:
                 continue
             choices.append(
                 [device["devicename"], device["description"]]
