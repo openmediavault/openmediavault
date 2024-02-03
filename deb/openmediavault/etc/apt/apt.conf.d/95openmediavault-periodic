@@ -5,4 +5,4 @@ APT::Periodic::Unattended-Upgrade "1";
 APT::Periodic::Download-Upgradeable-Packages "1";
 APT::Periodic::CleanInterval "7";
 APT::Periodic::AutocleanInterval "7";
-APT::Periodic::Verbose "2";
+APT::Periodic::Verbose "1";
