@@ -110,10 +110,30 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 					"wwn" => $sd->getWorldWideName(),
 					"overallstatus" => $si->getOverallStatus()
 				];
-			}, function($e) {
-				// Note, this will hide ANY error from the caller. Because
-				// of that debugging problems becomes more difficult.
-				return FALSE;
+			}, function($e) use ($devv) {
+				// Try to get as much information as possible about this device.
+				// However, this will not contain any SMART information.
+				$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
+				if (is_null($sd) || !$sd->exists()) {
+					return FALSE;
+				}
+				return [
+					"result" => [
+						"devicename" => $sd->getDeviceName(),
+						"canonicaldevicefile" => $sd->getCanonicalDeviceFile(),
+						"devicefile" => $sd->getPredictableDeviceFile(),
+						"devicelinks" => $sd->getDeviceFileSymlinks(),
+						"model" => $sd->getModel(),
+						"size" => $sd->getSize(),
+						"temperature" => "",
+						"description" => $sd->getDescription(),
+						"vendor" => $sd->getVendor(),
+						"serialnumber" => $sd->getSerialNumber(),
+						"wwn" => $sd->getWorldWideName(),
+						"overallstatus" => \OMV\System\Storage\SmartInformation::SMART_ASSESSMENT_BAD_STATUS
+					],
+					"error" => FALSE
+				];
 			});
 		}
 		// Remove elements that are no associative arrays (those devices

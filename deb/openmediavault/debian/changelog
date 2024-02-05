@@ -1,6 +1,7 @@
 openmediavault (6.9.14-1) stable; urgency=low
 
-  *
+  * Issue #1703: Try to list devices in `SMART | Devices` page,
+    even if smartctl fails.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 05 Feb 2024 21:55:58 +0100
 
