@@ -1,3 +1,9 @@
+openmediavault (6.9.14-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 05 Feb 2024 21:55:58 +0100
+
 openmediavault (6.9.13-1) stable; urgency=low
 
   * Issue #1699: Fix problem with configuring WiFi network
