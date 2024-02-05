@@ -30,6 +30,13 @@ openmediavault (7.0-29) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jul 2023 13:17:39 +0200
 
+openmediavault (6.9.14-1) stable; urgency=low
+
+  * Issue #1703: Try to list devices in `SMART | Devices` page,
+    even if smartctl fails.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 05 Feb 2024 21:55:58 +0100
+
 openmediavault (6.9.13-1) stable; urgency=low
 
   * Issue #1699: Fix problem with configuring WiFi network
