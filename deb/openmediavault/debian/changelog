@@ -1,4 +1,4 @@
-openmediavault (7.0-29) unstable; urgency=low
+openmediavault (7.0-30) unstable; urgency=low
 
   * Upgrade to Debian 12 (Bookworm).
   * Relocate Linux MD device (Software RAID) management into a
