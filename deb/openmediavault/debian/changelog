@@ -18,6 +18,8 @@ openmediavault (7.0-29) unstable; urgency=low
     `Session::login` RPC.
   * Reduce the query time when determining the SMART information
     by reducing the query parameters to the minimum.
+  * Add a dashboard widget to display the temperatures of all
+    physical disks.
   * Issue #1649: Rearrange the `Storage | Shared Folders | ACL`
     page.
   * Issue #1676: Add an UI endpoint to trigger a download via RPC.
