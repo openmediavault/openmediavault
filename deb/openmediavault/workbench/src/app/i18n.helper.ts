@@ -34,6 +34,7 @@ export enum SupportedLocales {
   'el_GR' = 'ελληνικά', // Greek
   'en_GB' = 'English', // English
   'es_ES' = 'Español', // Spanish
+  'eu_ES' = 'Euskara', // Basque
   'fr_FR' = 'Français', // French
   'gl_ES' = 'Galego', // Galician
   'hu_HU' = 'Magyar', // Hungarian
