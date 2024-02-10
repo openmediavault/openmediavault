@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-02 18:22+0100\n"
+"POT-Creation-Date: 2024-02-10 23:03+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2023\n"
 "Language-Team: Danish (http://app.transifex.com/openmediavault/openmediavault/language/da/)\n"
@@ -939,6 +939,9 @@ msgstr ""
 msgid "Disallow the user to modify their own account."
 msgstr ""
 
+msgid "Disk Temperatures"
+msgstr ""
+
 msgid "Disk Usage"
 msgstr "Disk Forbrug"
 
@@ -969,13 +972,16 @@ msgstr ""
 msgid "Displays information about the services in a table."
 msgstr ""
 
-msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
+msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr ""
 
 msgid "Displays the system time."
 msgstr ""
 
 msgid "Displays the system uptime."
+msgstr ""
+
+msgid "Displays the temperature of all disk devices."
 msgstr ""
 
 msgid "Displays various system information."
@@ -1196,6 +1202,12 @@ msgstr "Fejlet"
 
 msgid "Failed to copy data to the clipboard."
 msgstr "Kunne ikke kopier data til udklipsholder."
+
+msgid "Failed to start session."
+msgstr ""
+
+msgid "Failed to write session data."
+msgstr ""
 
 msgid "Falkland Islands"
 msgstr "Falkland Islands"
@@ -2605,6 +2617,9 @@ msgstr "Rwanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
+msgid "S.M.A.R.T. Status"
+msgstr ""
+
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. overvågning skal være aktiveret for den valgte enhed."
 
@@ -2966,6 +2981,9 @@ msgid ""
 " link recovery has been detected."
 msgstr "Angiver tiden, i millisekunder, der skal ventes før aktivering af en slave, efter en link genopretning er blevet opdaget."
 
+msgid "Specifies the type of key to create."
+msgstr ""
+
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Angiver om det er tilladt at logge ind som superbruger"
 
@@ -3144,9 +3162,6 @@ msgstr "NT beskrivelses felt."
 msgid "The RSA key length."
 msgstr "RSA nøgle længde."
 
-msgid "The RSA public key in OpenSSH format."
-msgstr "Den offentlige RSA nøgle i OpenSSH format. "
-
 msgid "The SSH certificate used for authentication."
 msgstr "SSH certifikatet brugt til godkendelse."
 
@@ -3253,11 +3268,14 @@ msgstr "Rettighederne på nye filer og mapper er normalt styret af oprette-maske
 msgid "The port on which SSH is running on the remote system."
 msgstr "Porten som SSH kører på fjernsystemet."
 
-msgid "The private RSA key in X.509 PEM format."
-msgstr "Den private RSA nøgle i X.509 PEM format."
+msgid "The private key in PEM format."
+msgstr ""
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
+msgstr ""
+
+msgid "The public key in OpenSSH format."
 msgstr ""
 
 msgid ""
@@ -3563,9 +3581,6 @@ msgstr "Trinidad and Tobago"
 
 msgid "Tuesday"
 msgstr "Tirsdag"
-
-msgid "Tune hard disk parameters."
-msgstr ""
 
 msgid "Tunisia"
 msgstr "Tunisia"

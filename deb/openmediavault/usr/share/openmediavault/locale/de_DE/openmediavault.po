@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-02 18:22+0100\n"
+"POT-Creation-Date: 2024-02-10 23:03+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2024\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -952,6 +952,9 @@ msgstr "Kontoänderung nicht zulassen"
 msgid "Disallow the user to modify their own account."
 msgstr "Der Benutzer darf sein Konto nicht ändern."
 
+msgid "Disk Temperatures"
+msgstr "Festplatten-Temperaturen"
+
 msgid "Disk Usage"
 msgstr "Festplattennutzung"
 
@@ -982,14 +985,17 @@ msgstr "Zeigt Informationen über die Dienste in einem Raster an."
 msgid "Displays information about the services in a table."
 msgstr "Zeigt Informationen über die Dienste in einer Tabelle an."
 
-msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
-msgstr "Zeigt die S.M.A.R.T.-Informationen aller überwachten Festplattengeräte an."
+msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
+msgstr "Zeigt den S.M.A.R.T.-Status aller überwachten Laufwerke an."
 
 msgid "Displays the system time."
 msgstr "Zeigt die Systemzeit an."
 
 msgid "Displays the system uptime."
 msgstr "Zeigt die Systembetriebszeit an."
+
+msgid "Displays the temperature of all disk devices."
+msgstr "Zeigt die Temperatur aller Laufwerke an."
 
 msgid "Displays various system information."
 msgstr "Zeigt verschiedene Systeminformationen an."
@@ -1209,6 +1215,12 @@ msgstr "Fehlgeschlagen"
 
 msgid "Failed to copy data to the clipboard."
 msgstr "Fehler beim Kopieren der Daten in die Zwischenablage."
+
+msgid "Failed to start session."
+msgstr "Sitzung konnte nicht gestartet werden."
+
+msgid "Failed to write session data."
+msgstr "Sitzungsdaten konnten nicht geschrieben werden."
 
 msgid "Falkland Islands"
 msgstr "Falklandinseln"
@@ -2618,6 +2630,9 @@ msgstr "Ruanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
+msgid "S.M.A.R.T. Status"
+msgstr "S.M.A.R.T. Status"
+
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. Überwachung muss für das ausgewählte Laufwerk aktiviert werden."
 
@@ -2979,6 +2994,9 @@ msgid ""
 " link recovery has been detected."
 msgstr "Legt die Zeit in Millisekunden fest die gewartet wird bis der Slave wieder aktiviert wird falls der Link wiederhergestellt wurde."
 
+msgid "Specifies the type of key to create."
+msgstr "Gibt den Typ des zu erstellenden Schlüssels an."
+
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Legt fest ob ein Login als Superuser erlaubt ist."
 
@@ -3157,9 +3175,6 @@ msgstr "Feld für Beschreibung nach Windows NT."
 msgid "The RSA key length."
 msgstr "Die RSA Schlüssel-Länge."
 
-msgid "The RSA public key in OpenSSH format."
-msgstr "Der öffentliche RSA Schlüssel im OpenSSH Format."
-
 msgid "The SSH certificate used for authentication."
 msgstr "Das für die Authentifizierung zu verwendende SSH Zertifikat."
 
@@ -3266,12 +3281,15 @@ msgstr "Die Zugriffsrechte neuer Dateien und Verzeichnisse sind normalerweise du
 msgid "The port on which SSH is running on the remote system."
 msgstr "Der Port, auf dem SSH auf dem Remote-System ausgeführt wird."
 
-msgid "The private RSA key in X.509 PEM format."
-msgstr "Der private RSA Schlüssel im X.509 PEM Format."
+msgid "The private key in PEM format."
+msgstr "Der private Schlüssel im PEM-Format."
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
 msgstr "Das Protokoll wird in Verbindung mit einem Quell-/Zielport nicht unterstützt."
+
+msgid "The public key in OpenSSH format."
+msgstr "Der öffentliche Schlüssel im OpenSSH-Format."
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
@@ -3576,9 +3594,6 @@ msgstr "Trinidad und Tobago"
 
 msgid "Tuesday"
 msgstr "Dienstag"
-
-msgid "Tune hard disk parameters."
-msgstr "Einstellen der Festplattenparameter."
 
 msgid "Tunisia"
 msgstr "Tunesien"

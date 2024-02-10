@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-02 18:22+0100\n"
+"POT-Creation-Date: 2024-02-10 23:03+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: 王大山, 2022-2023\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -945,6 +945,9 @@ msgstr "不允许修改账户"
 msgid "Disallow the user to modify their own account."
 msgstr "不允許用戶修改自己的帳戶。"
 
+msgid "Disk Temperatures"
+msgstr ""
+
 msgid "Disk Usage"
 msgstr "磁盘用量"
 
@@ -975,14 +978,17 @@ msgstr "在网格中显示服务信息。"
 msgid "Displays information about the services in a table."
 msgstr "在标签中显示服务信息。"
 
-msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
-msgstr "显示所有监控磁盘  S.M.A.R.T. 信息。"
+msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
+msgstr ""
 
 msgid "Displays the system time."
 msgstr "显示系统时间。"
 
 msgid "Displays the system uptime."
 msgstr "显示系统运行时间。"
+
+msgid "Displays the temperature of all disk devices."
+msgstr ""
 
 msgid "Displays various system information."
 msgstr "显示各种系统信息。"
@@ -1202,6 +1208,12 @@ msgstr "失败"
 
 msgid "Failed to copy data to the clipboard."
 msgstr "复制数据到粘贴板失败"
+
+msgid "Failed to start session."
+msgstr ""
+
+msgid "Failed to write session data."
+msgstr ""
 
 msgid "Falkland Islands"
 msgstr "福克兰群岛"
@@ -2611,6 +2623,9 @@ msgstr "卢旺达"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
+msgid "S.M.A.R.T. Status"
+msgstr "S.M.A.R.T. 状态"
+
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. 监控必须激活所选设备。"
 
@@ -2972,6 +2987,9 @@ msgid ""
 " link recovery has been detected."
 msgstr "检测到正常后等多少毫秒再恢复链路。"
 
+msgid "Specifies the type of key to create."
+msgstr ""
+
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "指定是否允许以超级用户登录。"
 
@@ -3150,9 +3168,6 @@ msgstr "NT 描述字段。"
 msgid "The RSA key length."
 msgstr "RSA 密钥长度。"
 
-msgid "The RSA public key in OpenSSH format."
-msgstr "OpenSSH 格式的 RSA 公钥。"
-
 msgid "The SSH certificate used for authentication."
 msgstr "该 SSH 证书用于授权。"
 
@@ -3259,12 +3274,15 @@ msgstr "新文件和目录的权限一般是由创建掩码和目录掩码决定
 msgid "The port on which SSH is running on the remote system."
 msgstr "远程系统的 SSH 端口号。"
 
-msgid "The private RSA key in X.509 PEM format."
-msgstr "X.509 PEM 格式的 RSA 私钥。"
+msgid "The private key in PEM format."
+msgstr ""
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
 msgstr "该协议不支持源或目标端口。"
+
+msgid "The public key in OpenSSH format."
+msgstr ""
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
@@ -3569,9 +3587,6 @@ msgstr "特立尼达和多巴哥"
 
 msgid "Tuesday"
 msgstr "星期二"
-
-msgid "Tune hard disk parameters."
-msgstr "调整磁盘参数。"
 
 msgid "Tunisia"
 msgstr "突尼斯"

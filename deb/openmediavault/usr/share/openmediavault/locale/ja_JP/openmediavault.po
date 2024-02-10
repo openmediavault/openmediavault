@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-02 18:22+0100\n"
+"POT-Creation-Date: 2024-02-10 23:03+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -939,6 +939,9 @@ msgstr "アカウントの変更を禁止する"
 msgid "Disallow the user to modify their own account."
 msgstr ""
 
+msgid "Disk Temperatures"
+msgstr ""
+
 msgid "Disk Usage"
 msgstr "ディスク使用量"
 
@@ -969,14 +972,17 @@ msgstr "グリッド内のサービスに関する情報を表示します。"
 msgid "Displays information about the services in a table."
 msgstr "サービスに関する情報をテーブルで表示します。"
 
-msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
-msgstr "監視しているすべてのディスクデバイスの S.M.A.R.T. 情報を表示します。"
+msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
+msgstr ""
 
 msgid "Displays the system time."
 msgstr "システム時刻を表示します。"
 
 msgid "Displays the system uptime."
 msgstr "システムの稼働時間を表示します。"
+
+msgid "Displays the temperature of all disk devices."
+msgstr ""
 
 msgid "Displays various system information."
 msgstr "各種システム情報を表示します。"
@@ -1196,6 +1202,12 @@ msgstr "失敗"
 
 msgid "Failed to copy data to the clipboard."
 msgstr "データをクリップボードにコピーできませんでした。"
+
+msgid "Failed to start session."
+msgstr ""
+
+msgid "Failed to write session data."
+msgstr ""
 
 msgid "Falkland Islands"
 msgstr "フォークランド諸島"
@@ -2605,6 +2617,9 @@ msgstr "ルワンダ"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
+msgid "S.M.A.R.T. Status"
+msgstr "S.M.A.R.T. ステータス"
+
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.モニタリングは、選択したデバイスのために活性化されなければならない。"
 
@@ -2966,6 +2981,9 @@ msgid ""
 " link recovery has been detected."
 msgstr "リンクリカバリーが検出された後、スレーブを有効にする前に待機する時間をミリ秒単位で指定します。"
 
+msgid "Specifies the type of key to create."
+msgstr ""
+
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "スーパーユーザーとしてログインすることを許可するかを指定します。"
 
@@ -3144,9 +3162,6 @@ msgstr "NTの説明フィールド。"
 msgid "The RSA key length."
 msgstr "RSAキーの長さ。"
 
-msgid "The RSA public key in OpenSSH format."
-msgstr "OpenSSH形式でのRSA公開鍵。"
-
 msgid "The SSH certificate used for authentication."
 msgstr "SSH証明書が認証に使用されます。"
 
@@ -3253,12 +3268,15 @@ msgstr "新しいファイルとディレクトリのパーミッションは通
 msgid "The port on which SSH is running on the remote system."
 msgstr "リモートシステム上で実行されているSSHのポート。"
 
-msgid "The private RSA key in X.509 PEM format."
-msgstr "X.509 PEM形式でのプライベートRSA鍵。"
+msgid "The private key in PEM format."
+msgstr ""
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
 msgstr "ソース/デスティネーションポートと組み合わせたプロトコルはサポートされていません。"
+
+msgid "The public key in OpenSSH format."
+msgstr ""
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
@@ -3563,9 +3581,6 @@ msgstr "トリニダード·トバゴ"
 
 msgid "Tuesday"
 msgstr "火曜"
-
-msgid "Tune hard disk parameters."
-msgstr "ハードディスクのパラメータを調整する。"
 
 msgid "Tunisia"
 msgstr "チュニジア"

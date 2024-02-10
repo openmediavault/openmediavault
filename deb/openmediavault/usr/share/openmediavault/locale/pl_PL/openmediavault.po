@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-02 18:22+0100\n"
+"POT-Creation-Date: 2024-02-10 23:03+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2018,2022-2023\n"
 "Language-Team: Polish (Poland) (http://app.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -944,6 +944,9 @@ msgstr "Odbierz zezwolenie modyfikacji konta."
 msgid "Disallow the user to modify their own account."
 msgstr ""
 
+msgid "Disk Temperatures"
+msgstr ""
+
 msgid "Disk Usage"
 msgstr "Użycie dysku"
 
@@ -974,13 +977,16 @@ msgstr "Wyświetla informacje o usługach w siatce."
 msgid "Displays information about the services in a table."
 msgstr "Wyświetla informacje o usługach w tabeli."
 
-msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
-msgstr "Wyświetla dane S.M.A.R.T. wszystkich monitorowanych dysków."
+msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
+msgstr ""
 
 msgid "Displays the system time."
 msgstr ""
 
 msgid "Displays the system uptime."
+msgstr ""
+
+msgid "Displays the temperature of all disk devices."
 msgstr ""
 
 msgid "Displays various system information."
@@ -1201,6 +1207,12 @@ msgstr "Nieudane"
 
 msgid "Failed to copy data to the clipboard."
 msgstr "Nieudane kopiowanie do schowka."
+
+msgid "Failed to start session."
+msgstr ""
+
+msgid "Failed to write session data."
+msgstr ""
 
 msgid "Falkland Islands"
 msgstr "Falkland Islands"
@@ -2610,6 +2622,9 @@ msgstr "Rwanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
+msgid "S.M.A.R.T. Status"
+msgstr ""
+
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Monitoring S.M.A.R.T. musi być aktywny dla wybranego urządzenia"
 
@@ -2971,6 +2986,9 @@ msgid ""
 " link recovery has been detected."
 msgstr "Określa czas oczekiwania w milisekundach, przed włączeniem slave'a po wykryciu odzyskania łączności."
 
+msgid "Specifies the type of key to create."
+msgstr ""
+
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Określa, czy zezwala się na logowanie jako administrator."
 
@@ -3149,9 +3167,6 @@ msgstr "Pole opisu NT."
 msgid "The RSA key length."
 msgstr "Długość klucza RSA"
 
-msgid "The RSA public key in OpenSSH format."
-msgstr "Publiczny klucz SSH w formacie OpenSSH"
-
 msgid "The SSH certificate used for authentication."
 msgstr "Certyfikat SSH używany do autoryzacji."
 
@@ -3258,11 +3273,14 @@ msgstr "Uprawnienia na nowe pliki i katalogi są zazwyczaj regulowane przez twor
 msgid "The port on which SSH is running on the remote system."
 msgstr ""
 
-msgid "The private RSA key in X.509 PEM format."
-msgstr "Prywatny klucz RSA w formacie X.509 PEM"
+msgid "The private key in PEM format."
+msgstr ""
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
+msgstr ""
+
+msgid "The public key in OpenSSH format."
 msgstr ""
 
 msgid ""
@@ -3568,9 +3586,6 @@ msgstr "Trinidad and Tobago"
 
 msgid "Tuesday"
 msgstr "Wtorek"
-
-msgid "Tune hard disk parameters."
-msgstr ""
 
 msgid "Tunisia"
 msgstr "Tunisia"

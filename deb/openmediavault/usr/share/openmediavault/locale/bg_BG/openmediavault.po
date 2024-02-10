@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-02 18:22+0100\n"
+"POT-Creation-Date: 2024-02-10 23:03+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2017\n"
 "Language-Team: Bulgarian (Bulgaria) (http://app.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
@@ -939,6 +939,9 @@ msgstr ""
 msgid "Disallow the user to modify their own account."
 msgstr ""
 
+msgid "Disk Temperatures"
+msgstr ""
+
 msgid "Disk Usage"
 msgstr ""
 
@@ -969,13 +972,16 @@ msgstr ""
 msgid "Displays information about the services in a table."
 msgstr ""
 
-msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
+msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr ""
 
 msgid "Displays the system time."
 msgstr ""
 
 msgid "Displays the system uptime."
+msgstr ""
+
+msgid "Displays the temperature of all disk devices."
 msgstr ""
 
 msgid "Displays various system information."
@@ -1195,6 +1201,12 @@ msgid "Failed"
 msgstr ""
 
 msgid "Failed to copy data to the clipboard."
+msgstr ""
+
+msgid "Failed to start session."
+msgstr ""
+
+msgid "Failed to write session data."
 msgstr ""
 
 msgid "Falkland Islands"
@@ -2605,6 +2617,9 @@ msgstr ""
 msgid "S.M.A.R.T."
 msgstr ""
 
+msgid "S.M.A.R.T. Status"
+msgstr ""
+
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr ""
 
@@ -2966,6 +2981,9 @@ msgid ""
 " link recovery has been detected."
 msgstr ""
 
+msgid "Specifies the type of key to create."
+msgstr ""
+
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr ""
 
@@ -3144,9 +3162,6 @@ msgstr ""
 msgid "The RSA key length."
 msgstr ""
 
-msgid "The RSA public key in OpenSSH format."
-msgstr ""
-
 msgid "The SSH certificate used for authentication."
 msgstr ""
 
@@ -3253,11 +3268,14 @@ msgstr ""
 msgid "The port on which SSH is running on the remote system."
 msgstr ""
 
-msgid "The private RSA key in X.509 PEM format."
+msgid "The private key in PEM format."
 msgstr ""
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
+msgstr ""
+
+msgid "The public key in OpenSSH format."
 msgstr ""
 
 msgid ""
@@ -3563,9 +3581,6 @@ msgstr ""
 
 msgid "Tuesday"
 msgstr "Вторник"
-
-msgid "Tune hard disk parameters."
-msgstr ""
 
 msgid "Tunisia"
 msgstr ""

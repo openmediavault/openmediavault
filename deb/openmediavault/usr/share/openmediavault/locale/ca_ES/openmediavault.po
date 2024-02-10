@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-02 18:22+0100\n"
+"POT-Creation-Date: 2024-02-10 23:03+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2023\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -941,6 +941,9 @@ msgstr "No permetre la modificació del compte"
 msgid "Disallow the user to modify their own account."
 msgstr "No permetre que l'usuari modifiqui el seu propi compte."
 
+msgid "Disk Temperatures"
+msgstr ""
+
 msgid "Disk Usage"
 msgstr "Ús del disc "
 
@@ -971,14 +974,17 @@ msgstr "Mostra la informació sobre els serveis en una graella."
 msgid "Displays information about the services in a table."
 msgstr "Mostra la informació sobre els serveis en una taula."
 
-msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
-msgstr "Mostra la informació S.M.A.R.T. de tots els dispositius de disc supervisats."
+msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
+msgstr ""
 
 msgid "Displays the system time."
 msgstr "Mostra l'hora del sistema."
 
 msgid "Displays the system uptime."
 msgstr "Displays the system uptime."
+
+msgid "Displays the temperature of all disk devices."
+msgstr ""
 
 msgid "Displays various system information."
 msgstr "Mostra informació diversa del sistema."
@@ -1198,6 +1204,12 @@ msgstr "Ha fallat"
 
 msgid "Failed to copy data to the clipboard."
 msgstr "No s'han pogut copiar les dades al porta-retalls. "
+
+msgid "Failed to start session."
+msgstr ""
+
+msgid "Failed to write session data."
+msgstr ""
 
 msgid "Falkland Islands"
 msgstr "Illes Malvines"
@@ -2607,6 +2619,9 @@ msgstr "Ruanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
+msgid "S.M.A.R.T. Status"
+msgstr "S.M.A.R.T. Estat"
+
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "La monitoratge S.M.A.R.T. ha de ser activada per al dispositiu seleccionat."
 
@@ -2968,6 +2983,9 @@ msgid ""
 " link recovery has been detected."
 msgstr "Especifica el temps, en mil·lisegons, d’espera abans d’activar un esclau després que s’hagi detectat la recuperació d’un enllaç ."
 
+msgid "Specifies the type of key to create."
+msgstr ""
+
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Especifica si està permès el login com a superusuari"
 
@@ -3146,9 +3164,6 @@ msgstr "El camp NT de descripció"
 msgid "The RSA key length."
 msgstr "Longitud de la clau RSA"
 
-msgid "The RSA public key in OpenSSH format."
-msgstr "La clau pública RSA en format OpenSSH."
-
 msgid "The SSH certificate used for authentication."
 msgstr "El certificat SSH usat per a autentificació."
 
@@ -3255,12 +3270,15 @@ msgstr "Els permisos sobre els nous arxius i directoris s’estableixen per la m
 msgid "The port on which SSH is running on the remote system."
 msgstr "El port en el qual s’executa SSH al sistema remot."
 
-msgid "The private RSA key in X.509 PEM format."
-msgstr "La clau pública RSA en format X.509 PEM."
+msgid "The private key in PEM format."
+msgstr ""
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
 msgstr "El protocol no s'admet amb una conjunció de port d'origen / destinació. "
+
+msgid "The public key in OpenSSH format."
+msgstr ""
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
@@ -3565,9 +3583,6 @@ msgstr "Trinitat i Tobago"
 
 msgid "Tuesday"
 msgstr "Dimarts"
-
-msgid "Tune hard disk parameters."
-msgstr "Ajustar els paràmetres del disc dur."
 
 msgid "Tunisia"
 msgstr "Tunísia"

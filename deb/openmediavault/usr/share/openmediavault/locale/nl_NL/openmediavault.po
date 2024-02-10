@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-02 18:22+0100\n"
+"POT-Creation-Date: 2024-02-10 23:03+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Tim <co_ti@hotmail.com>, 2013-2014,2016-2017,2022\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -945,6 +945,9 @@ msgstr ""
 msgid "Disallow the user to modify their own account."
 msgstr ""
 
+msgid "Disk Temperatures"
+msgstr ""
+
 msgid "Disk Usage"
 msgstr "Schijfgebruik"
 
@@ -975,13 +978,16 @@ msgstr ""
 msgid "Displays information about the services in a table."
 msgstr ""
 
-msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
+msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr ""
 
 msgid "Displays the system time."
 msgstr ""
 
 msgid "Displays the system uptime."
+msgstr ""
+
+msgid "Displays the temperature of all disk devices."
 msgstr ""
 
 msgid "Displays various system information."
@@ -1201,6 +1207,12 @@ msgid "Failed"
 msgstr ""
 
 msgid "Failed to copy data to the clipboard."
+msgstr ""
+
+msgid "Failed to start session."
+msgstr ""
+
+msgid "Failed to write session data."
 msgstr ""
 
 msgid "Falkland Islands"
@@ -2611,6 +2623,9 @@ msgstr "Rwanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
+msgid "S.M.A.R.T. Status"
+msgstr ""
+
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.-controle moet worden geactiveerd op het geselecteerde apparaat."
 
@@ -2972,6 +2987,9 @@ msgid ""
 " link recovery has been detected."
 msgstr "De wachttijd, in milliseconden, alvorens een slaaf wordt ingeschakeld nadat een verbinding is hersteld."
 
+msgid "Specifies the type of key to create."
+msgstr ""
+
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Geeft aan of het toegestaan is als hoofdgebruiker aan te melden."
 
@@ -3150,9 +3168,6 @@ msgstr "Het veld met NT beschrijving."
 msgid "The RSA key length."
 msgstr "De RSA-sleutellengte."
 
-msgid "The RSA public key in OpenSSH format."
-msgstr "De RSA publieke sleutel in OpenSSH-opmaak"
-
 msgid "The SSH certificate used for authentication."
 msgstr "Het gebruikte SSH-certificaat voor authenticatie"
 
@@ -3259,11 +3274,14 @@ msgstr "De rechten op nieuwe bestanden en mappen worden normaal toegekend door h
 msgid "The port on which SSH is running on the remote system."
 msgstr "De poort waarop SSH wordt uitgevoerd op het externe systeem."
 
-msgid "The private RSA key in X.509 PEM format."
-msgstr "De privé RSA-sleutel in X.509 PEM-opmaak."
+msgid "The private key in PEM format."
+msgstr ""
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
+msgstr ""
+
+msgid "The public key in OpenSSH format."
 msgstr ""
 
 msgid ""
@@ -3569,9 +3587,6 @@ msgstr "Trinidad en Tobago"
 
 msgid "Tuesday"
 msgstr "Dinsdag"
-
-msgid "Tune hard disk parameters."
-msgstr ""
 
 msgid "Tunisia"
 msgstr "Tunesië"

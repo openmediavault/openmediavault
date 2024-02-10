@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-02 18:22+0100\n"
+"POT-Creation-Date: 2024-02-10 23:03+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -941,6 +941,9 @@ msgstr "Заборонити зміну облікового запису"
 msgid "Disallow the user to modify their own account."
 msgstr ""
 
+msgid "Disk Temperatures"
+msgstr ""
+
 msgid "Disk Usage"
 msgstr "Використання диска"
 
@@ -971,13 +974,16 @@ msgstr "Відображає інформацію про послуги в сі�
 msgid "Displays information about the services in a table."
 msgstr "Відображає інформацію про послуги в таблиці."
 
-msgid "Displays the S.M.A.R.T. information of all monitored disk devices."
-msgstr "Відображає S.M.A.R.T. інформація про всі контрольовані дискові пристрої."
+msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
+msgstr ""
 
 msgid "Displays the system time."
 msgstr ""
 
 msgid "Displays the system uptime."
+msgstr ""
+
+msgid "Displays the temperature of all disk devices."
 msgstr ""
 
 msgid "Displays various system information."
@@ -1198,6 +1204,12 @@ msgstr "Не вдалося"
 
 msgid "Failed to copy data to the clipboard."
 msgstr "Не вдалося скопіювати дані в буфер обміну."
+
+msgid "Failed to start session."
+msgstr ""
+
+msgid "Failed to write session data."
+msgstr ""
 
 msgid "Falkland Islands"
 msgstr "Фолклендські острови"
@@ -2607,6 +2619,9 @@ msgstr "Руанда"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
+msgid "S.M.A.R.T. Status"
+msgstr "Статус S.M.A.R.T."
+
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. моніторинг має бути активований для обраного пристрою."
 
@@ -2968,6 +2983,9 @@ msgid ""
 " link recovery has been detected."
 msgstr "Визначає час, в мілісекундах перед включенням пристрою після відновлення з'єднання."
 
+msgid "Specifies the type of key to create."
+msgstr ""
+
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Визначає чи дозволено увійти в систему, як адміністратор."
 
@@ -3146,9 +3164,6 @@ msgstr "Опис поля NT."
 msgid "The RSA key length."
 msgstr "Довжина ключа RSA."
 
-msgid "The RSA public key in OpenSSH format."
-msgstr "Відкритий ключ RSA у форматі OpenSSH."
-
 msgid "The SSH certificate used for authentication."
 msgstr "Сертифікат SSH використовується для перевірки автентичності."
 
@@ -3255,12 +3270,15 @@ msgstr "Дозволи на нові файли і каталоги зазвич
 msgid "The port on which SSH is running on the remote system."
 msgstr "Порт, на якому запущено SSH на віддаленій системі."
 
-msgid "The private RSA key in X.509 PEM format."
-msgstr "Секретний ключ RSA в форматі X.509 PEM."
+msgid "The private key in PEM format."
+msgstr ""
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
 msgstr "Протокол не підтримується разом із портом джерела/призначення."
+
+msgid "The public key in OpenSSH format."
+msgstr ""
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
@@ -3565,9 +3583,6 @@ msgstr "Тринідад і Тобаго"
 
 msgid "Tuesday"
 msgstr "Вівторок"
-
-msgid "Tune hard disk parameters."
-msgstr ""
 
 msgid "Tunisia"
 msgstr "Туніс"
