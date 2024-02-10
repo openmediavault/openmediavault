@@ -21,7 +21,7 @@ openmediavault (7.0-30) unstable; urgency=low
   * Add a dashboard widget to display the temperatures of all
     physical disks.
   * Add support for choosing between the RSA and Ed25519 types
-    when creating an SSH certificate in the UI.
+    when creating an SSH key in the UI.
   * Remove support of importing SSH DSA keys.
   * Issue #1649: Rearrange the `Storage | Shared Folders | ACL`
     page.
