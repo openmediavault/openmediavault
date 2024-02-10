@@ -420,7 +420,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Create the requested certificate.
 		$file = tempnam(sys_get_temp_dir(), "id_rsa");
 		$cmdArgs = [];
-		$cmdArgs[] = "-t rsa";
+		$cmdArgs[] = sprintf("-t %s", escapeshellarg($params['type']));
 		$cmdArgs[] = "-m PEM";
 		$cmdArgs[] = "-P ''";
 		$cmdArgs[] = sprintf("-C %s", escapeshellarg(trim(array_value(
@@ -491,19 +491,15 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$object->setAssoc($params);
 		// Validate the private key.
 		if (!$object->isEmpty("privatekey")) {
-			if (!($privatekey = openssl_pkey_get_private(
-			  $object->get("privatekey")))) {
-				throw new \OMV\Exception("Invalid private key: %s",
-				  openssl_error_string());
-			}
-			openssl_pkey_free($privatekey);
+			// ToDo...
 		}
 		// Set the configuration data.
 		$db = \OMV\Config\Database::getInstance();
 		if (TRUE === $object->isNew()) {
 			// The private key is required here.
-			if ($object->isEmpty("privatekey"))
+			if ($object->isEmpty("privatekey")) {
 				throw new \OMV\Exception("Private key does not exist.");
+			}
 		} else {
 			$oldObject = $db->get("conf.system.certificate.ssh",
 				$object->getIdentifier());

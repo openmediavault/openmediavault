@@ -21,7 +21,7 @@
 		},
 		"privatekey": {
 			"type": "string",
-			"format": "sshprivkey-rsa",
+			"format": "sshprivkey-pem",
 			"default": ""
 		},
 		"comment": {

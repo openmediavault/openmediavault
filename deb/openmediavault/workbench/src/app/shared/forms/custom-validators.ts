@@ -63,7 +63,7 @@ const regExp = {
   // See https://tools.ietf.org/html/rfc4716#section-3.4
   sshPubKeyRfc4716:
     /^---- BEGIN SSH2 PUBLIC KEY ----(\n|\r|\f)((.+)?((\n|\r|\f).+)*)(\n|\r|\f)---- END SSH2 PUBLIC KEY ----[\n\r\f]*$/,
-  sshPubKeyOpenSsh: /^ssh-(rsa|dss|ed25519) AAAA[0-9A-Za-z+/]+[=]{0,3}\s*(.+)?$/,
+  sshPubKeyOpenSsh: /^ssh-(rsa|ed25519) AAAA[0-9A-Za-z+/]+[=]{0,3}\s*(.+)?$/,
   netmask:
     /^(128|192|224|24[08]|25[245].0.0.0)|(255.(0|128|192|224|24[08]|25[245]).0.0)|(255.255.(0|128|192|224|24[08]|25[245]).0)|(255.255.255.(0|128|192|224|24[08]|252))$/,
   // See https://www.w3schools.com/Jsref/jsref_regexp_wordchar.asp

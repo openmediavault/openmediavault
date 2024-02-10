@@ -43,7 +43,7 @@ export class SshCertificateImportFormPageComponent extends BaseFormPageComponent
         monospace: true,
         accept: '.key,.pem',
         label: gettext('Private key'),
-        hint: gettext('The private RSA key in X.509 PEM format.'),
+        hint: gettext('The private key in PEM format.'),
         validators: {
           required: true
         }
@@ -56,7 +56,7 @@ export class SshCertificateImportFormPageComponent extends BaseFormPageComponent
         rows: 1,
         accept: '.pub',
         label: gettext('Public key'),
-        hint: gettext('The RSA public key in OpenSSH format.'),
+        hint: gettext('The public key in OpenSSH format.'),
         validators: {
           required: true,
           patternType: 'sshPubKeyOpenSsh'

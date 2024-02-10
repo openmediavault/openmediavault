@@ -34,6 +34,19 @@ export class SshCertificateCreateFormPageComponent extends BaseFormPageComponent
     },
     fields: [
       {
+        type: 'select',
+        name: 'type',
+        label: gettext('Type'),
+        hint: gettext('Specifies the type of key to create.'),
+        value: 'rsa',
+        store: {
+          data: [
+            ['rsa', 'RSA (3072b)'],
+            ['ed25519', 'Ed25519 (256b)']
+          ]
+        }
+      },
+      {
         type: 'tagInput',
         name: 'comment',
         label: gettext('Tags'),
