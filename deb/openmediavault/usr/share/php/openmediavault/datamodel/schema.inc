@@ -78,10 +78,19 @@ class Schema extends \OMV\Json\Schema {
 				}
 				break;
 			case "sshprivkey-rsa":
+				// Deprecated: Use "sshprivkey-pem" instead.
 				if (!preg_match('/^-----BEGIN RSA PRIVATE KEY-----(\n|\r|\f)(.+)'.
 				  '(\n|\r|\f)-----END RSA PRIVATE KEY-----$/sm', $value)) {
 					throw new \OMV\Json\SchemaValidationException(
-					  "%s: The value '%s' is not a SSH private key (RSA).",
+					  "%s: The value '%s' is not a SSH private key (PEM).",
+					  $name, $value);
+				}
+				break;
+			case "sshprivkey-pem":
+				if (!preg_match('/^-----BEGIN (OPENSSH|RSA) PRIVATE KEY-----(\n|\r|\f)(.+)'.
+				  '(\n|\r|\f)-----END (OPENSSH|RSA) PRIVATE KEY-----$/sm', $value)) {
+					throw new \OMV\Json\SchemaValidationException(
+					  "%s: The value '%s' is not a SSH private key (PEM).",
 					  $name, $value);
 				}
 				break;

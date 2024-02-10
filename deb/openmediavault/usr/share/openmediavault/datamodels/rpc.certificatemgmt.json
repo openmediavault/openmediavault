@@ -83,6 +83,11 @@
 	"params": {
 		"type": "object",
 		"properties": {
+			"type":{
+				"type": "string",
+				"enum": [ "rsa", "ed25519" ],
+				"required": true
+			},
 			"comment": {
 				"type": "string"
 			}
@@ -106,7 +111,7 @@
 			},
 			"privatekey": {
 				"type": "string",
-				"format": "sshprivkey-rsa",
+				"format": "sshprivkey-pem",
 				"required": false
 			},
 			"comment": {

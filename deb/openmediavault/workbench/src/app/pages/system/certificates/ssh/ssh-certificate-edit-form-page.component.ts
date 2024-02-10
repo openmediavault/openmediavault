@@ -49,7 +49,7 @@ export class SshCertificateEditFormPageComponent extends BaseFormPageComponent {
         monospace: true,
         hasCopyToClipboardButton: true,
         label: gettext('Public key'),
-        hint: gettext('The RSA public key in OpenSSH format.'),
+        hint: gettext('The public key in OpenSSH format.'),
         disabled: true
       },
       {

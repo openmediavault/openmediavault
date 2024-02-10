@@ -50,7 +50,7 @@ class PublicKey {
 	public static function isOpenSSH(string $data): bool {
 		// Format: <algorithm> <key> <comment>
 		if (!preg_match(
-				'/^ssh-(rsa|dss|ed25519) AAAA[0-9A-Za-z+\/]+[=]{0,3}\s*(.+)*$/',
+				'/^ssh-(rsa|ed25519) AAAA[0-9A-Za-z+\/]+[=]{0,3}\s*(.+)*$/',
 				$data)) {
 			return FALSE;
 		}
