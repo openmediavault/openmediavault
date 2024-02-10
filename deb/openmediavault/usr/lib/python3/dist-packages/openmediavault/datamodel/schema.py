@@ -65,7 +65,7 @@ class Schema(openmediavault.json.Schema):
                     ) from None
             elif "sshpubkey-openssh" == schema['format']:
                 if not re.match(
-                    r'^ssh-(rsa|ed25519) AAAA[0-9A-Za-z+\/]+[=]{0,3}\s*'
+                    r'^(sk-ssh-ed25519@openssh\.com|ssh-(rsa|ed25519)) AAAA[0-9A-Za-z+\/]+[=]{0,3}\s*'
                     r'([^@]+@[^@]+|.+)*$',
                     value,
                 ):
