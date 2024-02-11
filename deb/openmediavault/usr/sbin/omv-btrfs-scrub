@@ -1,4 +1,4 @@
-#!/usr/bin/env dash
+#!/bin/bash
 #
 # This file is part of OpenMediaVault.
 #
@@ -80,14 +80,15 @@ do
   fi
 
   stats=$(btrfs scrub start -B -d ${cmdargs} "${target}" | tail -n +2)
+  existatus=${PIPESTATUS[0]}
 
   # Write a success message to syslog because the report is only printed
   # on STDOUT.
   omv_syslog_info "Scrubbing the Btrfs file system mounted at ${target} [UUID=${uuid}] has been finished.";
   omv_print "${stats}"
 
-  # Send the report by email?
-  if [ "${mail}" -eq 1 ]; then
+  # Send the report by email, if the exit status is not zero?
+  if [ "${mail}" -eq 1 -a "${existatus}" -ne 0 ]; then
     omv_print "${stats}" | mail -E -s "Scrub report of the file system mounted at ${target} [UUID=${uuid}]" root
   fi
 done
