@@ -742,7 +742,7 @@ msgid "Copy permissions"
 msgstr "Kopiera behörigheter"
 
 msgid "Copy public SSH key"
-msgstr "Kopiera offentlig SSH-nyckel"
+msgstr "Kopiera publik SSH-nyckel"
 
 msgid "Copy to clipboard"
 msgstr "Kopiera till urklipp"
@@ -943,7 +943,7 @@ msgid "Disallow the user to modify their own account."
 msgstr "Tillåt inte användaren att ändra sitt eget konto."
 
 msgid "Disk Temperatures"
-msgstr ""
+msgstr "Disktemperaturer"
 
 msgid "Disk Usage"
 msgstr "Diskanvändning"
@@ -976,7 +976,7 @@ msgid "Displays information about the services in a table."
 msgstr "Visar information om tjänsterna i en tabell."
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
-msgstr ""
+msgstr "Visar S.M.A.R.T.-status för alla övervakade diskenheter."
 
 msgid "Displays the system time."
 msgstr "Visar systemets tid."
@@ -985,7 +985,7 @@ msgid "Displays the system uptime."
 msgstr "Visar systemets driftstid."
 
 msgid "Displays the temperature of all disk devices."
-msgstr ""
+msgstr "Visar temperaturen för alla diskenheter."
 
 msgid "Displays various system information."
 msgstr "Visar olika systeminformation."
@@ -1119,7 +1119,7 @@ msgid "Enable keyboard-interactive authentication."
 msgstr "Aktivera tangentbord-interaktiv autentisering."
 
 msgid "Enable public key authentication."
-msgstr "Aktivera autentisering av offentlig nyckel."
+msgstr "Aktivera autentisering av publik nyckel."
 
 msgid "Enable recycle bin"
 msgstr "Aktivera papperskorg"
@@ -1207,10 +1207,10 @@ msgid "Failed to copy data to the clipboard."
 msgstr "Det gick inte att kopiera data till urklipp."
 
 msgid "Failed to start session."
-msgstr ""
+msgstr "Det gick inte att starta sessionen."
 
 msgid "Failed to write session data."
-msgstr ""
+msgstr "Det gick inte att skriva sessionsdata."
 
 msgid "Falkland Islands"
 msgstr "Falklandsöarna"
@@ -1593,7 +1593,7 @@ msgstr "Installerad"
 msgid ""
 "Installs the public SSH key on a remote system as an authorized key. Make "
 "sure password authentication is enabled on that remote system."
-msgstr "Installerar den offentliga SSH-nyckeln på ett fjärrsystem som en auktoriserad nyckel. Se till att lösenordsautentisering är aktiverad på det fjärrsystemet."
+msgstr "Installerar den publika SSH-nyckeln på ett fjärrsystem som en auktoriserad nyckel. Se till att lösenordsautentisering är aktiverad på det fjärrsystemet."
 
 msgid "Interfaces"
 msgstr "Gränssnitt"
@@ -1605,13 +1605,13 @@ msgid "Invalid NetBIOS name."
 msgstr "Ogiltigt NetBIOS-namn."
 
 msgid "Invalid SSH public key (OpenSSH format)."
-msgstr "Ogiltig offentlig SSH-nyckel (OpenSSH-format)."
+msgstr "Ogiltig publik SSH-nyckel (OpenSSH-format)."
 
 msgid "Invalid SSH public key (OpenSSH or RFC 4716 format)"
-msgstr "Ogiltig SSH offentlig nyckel (OpenSSH- eller RFC 4716-format)"
+msgstr "Ogiltig SSH publik nyckel (OpenSSH- eller RFC 4716-format)"
 
 msgid "Invalid SSH public key (RFC 4716 format)."
-msgstr "Ogiltig offentlig SSH-nyckel (RFC 4716-format)."
+msgstr "Ogiltig publik SSH-nyckel (RFC 4716-format)."
 
 msgid "Invalid User-Agent."
 msgstr "Ogiltig användaragent."
@@ -2332,7 +2332,7 @@ msgid "Please wait, identifying network device ..."
 msgstr "Vänta, identifierar nätverksenhet ..."
 
 msgid "Please wait, installing public SSH key on remote system ..."
-msgstr "Vänta, installerar en offentlig SSH-nyckel på fjärrsystemet ..."
+msgstr "Vänta, installerar en publik SSH-nyckel på fjärrsystemet ..."
 
 msgid "Please wait, processing selected item(s) ..."
 msgstr "Vänta, bearbetar valda objekt ..."
@@ -2465,13 +2465,13 @@ msgid "Proxy"
 msgstr "Proxy"
 
 msgid "Public"
-msgstr "Offentlig"
+msgstr "Publik"
 
 msgid "Public key"
-msgstr "Offentlig nyckel"
+msgstr "Publik nyckel"
 
 msgid "Public key authentication"
-msgstr "Offentlig nyckelautentisering"
+msgstr "Publik nyckelautentisering"
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"
@@ -2651,10 +2651,10 @@ msgid "SSH port"
 msgstr "SSH-porten"
 
 msgid "SSH public key"
-msgstr "SSH offentlig nyckel"
+msgstr "SSH publik nyckel"
 
 msgid "SSH public keys"
-msgstr "SSH offentliga nycklar"
+msgstr "SSH publika nycklar"
 
 msgid "SSID"
 msgstr "SSID"
@@ -2985,7 +2985,7 @@ msgid ""
 msgstr "Anger tiden, i millisekunder, för att vänta innan en slav aktiveras efter att en länkåterställning har upptäckts."
 
 msgid "Specifies the type of key to create."
-msgstr ""
+msgstr "Anger vilken typ av nyckel som ska skapas."
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Anger om det är tillåtet att logga in som superanvändare."
@@ -3169,7 +3169,7 @@ msgid "The SSH certificate used for authentication."
 msgstr "SSH-certifikatet används för autentisering."
 
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
-msgstr "Den offentliga SSH-nyckeln i OpenSSH- eller RFC 4716-format."
+msgstr "Den publika SSH-nyckeln i OpenSSH- eller RFC 4716-format."
 
 msgid "The action to be done when pressing the power button."
 msgstr "Åtgärden som ska göras när du trycker på strömbrytaren."
@@ -3272,14 +3272,14 @@ msgid "The port on which SSH is running on the remote system."
 msgstr "Porten på vilken SSH körs på fjärrsystemet."
 
 msgid "The private key in PEM format."
-msgstr ""
+msgstr "Den privata nyckeln i PEM-format."
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
 msgstr "Protokollet stöds inte tillsammans med en käll-/destinationsport."
 
 msgid "The public key in OpenSSH format."
-msgstr ""
+msgstr "Den publika nyckeln i OpenSSH-format."
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "

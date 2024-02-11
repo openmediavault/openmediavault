@@ -3,1505 +3,1499 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Herald Yu <yuhr123@gmail.com>, 2018-2019
-# LeeYang <150183966@qq.com>, 2021
-# songming <by@songming.me>, 2013-2023
-# Volker Theile <votdev@gmx.de>, 2022
-# Wei Ding <dyw.net@gmail.com>, 2014-2015
-# LeeYang <150183966@qq.com>, 2021
-# 王大山, 2022-2023
+# Aitor Salaberria <trslbrr@gmail.com>, 2024
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-10 23:03+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: 王大山, 2022-2023\n"
-"Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
+"Last-Translator: Aitor Salaberria <trslbrr@gmail.com>, 2024\n"
+"Language-Team: Basque (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/eu_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: eu_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "%d days"
-msgstr "%d天"
+msgstr "%d egun"
 
 msgid "%d hours"
-msgstr "%d小时"
+msgstr "%d ordu"
 
 msgid "%d minutes"
-msgstr "%d分钟"
+msgstr "%d minutu"
 
 msgid "%d months"
-msgstr "%d月"
+msgstr "%d hilabete"
 
 msgid "%d years"
-msgstr "%d年"
+msgstr "%d urte"
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
-msgstr "%s[%s,%s(%d%%)已用，%s可用]"
+msgstr "%s [%s, %s (%d%%) erabilita, %s erabilgarri]"
 
 msgid "%s [%s]"
-msgstr "%s[%s]"
+msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
-msgstr "%s [on %s, %s]"
+msgstr "%s [hemen: %s, %s]"
 
 msgid "%s ago"
-msgstr "%s以前"
+msgstr "Duela %s"
 
 msgid "1 - Minimum power usage with standby (spindown)"
-msgstr "1 - 待机状态时最低功耗(磁头停转)"
+msgstr ""
 
 msgid "1 GiB"
-msgstr "1 GiB"
+msgstr ""
 
 msgid "1 MiB"
-msgstr "1 MiB"
+msgstr ""
 
 msgid "1 day"
-msgstr "1 天"
+msgstr ""
 
 msgid "1 min"
-msgstr "1分钟"
+msgstr ""
 
 msgid "1 minute"
-msgstr "1 分钟"
+msgstr ""
 
 msgid "1 month"
-msgstr "1 月"
+msgstr ""
 
 msgid "1 week"
-msgstr "1 周"
+msgstr ""
 
 msgid "1 year"
-msgstr "1 年"
+msgstr ""
 
 msgid "10 MiB"
-msgstr "10 MiB"
+msgstr ""
 
 msgid "10 minutes"
-msgstr "10 分钟"
+msgstr ""
 
 msgid "10 years"
-msgstr "10 年"
+msgstr ""
 
 msgid "100 MiB"
-msgstr "100 MiB"
+msgstr ""
 
 msgid "120 minutes"
-msgstr "120 分钟"
+msgstr ""
 
 msgid "127 - Intermediate power usage with standby"
-msgstr "127 - 待机状态时中等功耗"
+msgstr ""
 
 msgid "128 - Minimum power usage without standby (no spindown)"
-msgstr "128 - 非待机状态时最低功耗(磁头不停转)"
+msgstr ""
 
 msgid "15 min"
-msgstr "15 分钟"
+msgstr ""
 
 msgid "15 minutes"
-msgstr "15 分钟"
+msgstr ""
 
 msgid "15 years"
-msgstr "15 年"
+msgstr ""
 
 msgid "180 minutes"
-msgstr "180 分钟"
+msgstr ""
 
 msgid "192 - Intermediate power usage without standby"
-msgstr "192 - 非待机状态时中等功耗"
+msgstr ""
 
 msgid "2 GiB"
-msgstr "2 GiB"
+msgstr ""
 
 msgid "2 MiB"
-msgstr "2 MiB"
+msgstr ""
 
 msgid "2 days"
-msgstr "2 天"
+msgstr ""
 
 msgid "2 minutes"
-msgstr "2 分钟"
+msgstr ""
 
 msgid "2 weeks"
-msgstr "2 周"
+msgstr ""
 
 msgid "2 years"
-msgstr "2 年"
+msgstr ""
 
 msgid "20 minutes"
-msgstr "20 分钟"
+msgstr ""
 
 msgid "20 years"
-msgstr "20 年"
+msgstr ""
 
 msgid "240 minutes"
-msgstr "240 分钟"
+msgstr ""
 
 msgid "25 MiB"
-msgstr "25 MiB"
+msgstr ""
 
 msgid "25 years"
-msgstr "25 年"
+msgstr ""
 
 msgid "250 MiB"
-msgstr "250 MiB"
+msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
-msgstr "254 - 最高性能，最大功耗"
+msgstr ""
 
 msgid "255 - Disabled"
-msgstr "255 - 已禁用"
+msgstr ""
 
 msgid "3 days"
-msgstr "3 天"
+msgstr ""
 
 msgid "3 minutes"
-msgstr "3 分钟"
+msgstr ""
 
 msgid "3 months"
-msgstr "3 月"
+msgstr ""
 
 msgid "3 weeks"
-msgstr "3 周"
+msgstr ""
 
 msgid "3 years"
-msgstr "3 年"
+msgstr ""
 
 msgid "30 minutes"
-msgstr "30 分钟"
+msgstr ""
 
 msgid "300 minutes"
-msgstr "300 分钟"
+msgstr ""
 
 msgid "330 minutes"
-msgstr "330 分钟"
+msgstr ""
 
 msgid "4 GiB"
-msgstr "4 GiB"
+msgstr ""
 
 msgid "4 days"
-msgstr "4 天"
+msgstr ""
 
 msgid "4 minutes"
-msgstr "4 分钟"
+msgstr ""
 
 msgid "4 years"
-msgstr "4 年"
+msgstr ""
 
 msgid "5 MiB"
-msgstr "5 MiB"
+msgstr ""
 
 msgid "5 days"
-msgstr "5 天"
+msgstr ""
 
 msgid "5 min"
-msgstr "5 分钟"
+msgstr ""
 
 msgid "5 minutes"
-msgstr "5 分钟"
+msgstr ""
 
 msgid "5 years"
-msgstr "5 年"
+msgstr ""
 
 msgid "50 MiB"
-msgstr "50 MiB"
+msgstr ""
 
 msgid "500 MiB"
-msgstr "500 MiB"
+msgstr ""
 
 msgid "6 days"
-msgstr "6 天"
+msgstr ""
 
 msgid "6 months"
-msgstr "6 月"
+msgstr ""
 
 msgid "60 minutes"
-msgstr "60 分钟"
+msgstr ""
 
 msgid "64 - Intermediate power usage with standby"
-msgstr "64 - 待机状态时中等功耗"
+msgstr ""
 
 msgid "75 MiB"
-msgstr "75 MiB"
+msgstr ""
 
 msgid "750 MiB"
-msgstr "750 MiB"
+msgstr ""
 
 msgid "9 months"
-msgstr "9 月"
+msgstr ""
 
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr "需要重启系统才能完全应用软件包安装或升级带来的变更。"
+msgstr ""
 
 msgid "A running background task was detected."
-msgstr "检测到有后台任务正在运行。"
+msgstr ""
 
 msgid "A scheduled task to create a snapshot has been created."
-msgstr "快照计划任务已创建。"
+msgstr ""
 
 msgid "A secure shell (SSH) server."
-msgstr "一个安全 shell (SSH) 服务。"
+msgstr ""
 
 msgid "ACL"
-msgstr "ACL"
+msgstr ""
 
 msgid "About"
-msgstr "关于"
+msgstr ""
 
 msgid "Absolute Path"
-msgstr "绝对路径"
+msgstr ""
 
 msgid "Abstract"
-msgstr "摘要"
+msgstr ""
 
 msgid "Access control list"
-msgstr "访问控制列表"
+msgstr ""
 
 msgid "Act as a WINS server."
-msgstr "作为一个 WINS 服务器"
+msgstr ""
 
 msgid ""
 "Acting as a WINS server and using a WINS server are mutually exclusive."
-msgstr "启用 WINS 服务器和使用 WINS 服务器只能二选一。"
+msgstr ""
 
 msgid "Action"
-msgstr "动作"
+msgstr ""
 
 msgid ""
 "Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
 "devices are listed in the scheduled tasks. Monitoring cannot be switched off"
 " as long as there are scheduled tasks for this device."
-msgstr "對此裝置啟動 S.M.A.R.T. 監測。請注意唯有被監測的裝置才會列在預訂工作中。只要該裝置仍存在有預訂工作，就無法將監測關閉。"
+msgstr ""
 
 msgid "Add"
-msgstr "添加"
+msgstr ""
 
 msgid "Address"
-msgstr "地址"
+msgstr ""
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
-msgstr "管理员：读/写，用户：无权限，其它：无权限"
+msgstr ""
 
 msgid "Administrator: read/write, Users: read-only, Others: no access"
-msgstr "管理员：读/写，用户：只读，其它：无权限"
+msgstr ""
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
-msgstr "管理员：读/写，用户：只读，其它：只读"
+msgstr ""
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
-msgstr "管理员：读/写，用户：读/写，其它：无权限"
+msgstr ""
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr "管理员：读/写，用户：读/写，其它：只读"
+msgstr ""
 
 msgid "Advanced Acoustic Management"
-msgstr "自动声音管理"
+msgstr ""
 
 msgid "Advanced Power Management"
-msgstr "高级电源管理"
+msgstr ""
 
 msgid "Advanced settings"
-msgstr "高级设置"
+msgstr ""
 
 msgid "Afghanistan"
-msgstr "阿富汗"
+msgstr ""
 
 msgid "Aland Islands"
-msgstr "奥兰群岛"
+msgstr ""
 
 msgid "Albania"
-msgstr "阿尔巴尼亚"
+msgstr ""
 
 msgid "Algeria"
-msgstr "阿尔及利亚"
+msgstr ""
 
 msgid "All"
-msgstr "全部"
+msgstr ""
 
 msgid "All Snapshots"
-msgstr "所有快照"
+msgstr ""
 
 msgid "All packages will be upgraded. Do you want to proceed?"
-msgstr "所有软件包将升级，您确定要继续？"
+msgstr ""
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
-msgstr "允许客户端尝试在共享上存储 OS / 2 风格的扩展属性。"
+msgstr ""
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
-msgstr "允许此服务器作为 Windows 客户端的时间服务器."
+msgstr ""
 
 msgid "Allowed clients"
-msgstr "允许的客户端"
+msgstr ""
 
 msgid "American Samoa"
-msgstr "美属萨摩亚"
+msgstr ""
 
 msgid ""
 "An attempt to send the test email has been made. Please check your mailbox. "
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
-msgstr "尝试发送测试邮件到你邮箱，请检查你的邮箱，如果收件箱没有检查一下垃圾邮件夹，同时检查 Postfix 系统日志是否有错误信息。"
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr "一封包含命令输出 (如果有) 的邮件将发送给管理员。"
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr "一封包含命令输出 (如果有) 的邮件将发送给执行该任务的用户。"
+msgstr ""
 
 msgid "Andorra"
-msgstr "安道尔"
+msgstr ""
 
 msgid "Angola"
-msgstr "安哥拉"
+msgstr ""
 
 msgid "Anguilla"
-msgstr "安圭拉"
+msgstr ""
 
 msgid "Antarctica"
-msgstr "南极洲"
+msgstr ""
 
 msgid "Antigua and Barbuda"
-msgstr "安提瓜和巴布达"
+msgstr ""
 
 msgid "Applied the configuration changes."
-msgstr "应用已变更的配置"
+msgstr ""
 
 msgid "Apply"
-msgstr "应用"
+msgstr ""
 
 msgid "Apply permissions to files and subfolders."
-msgstr "将权限应用到文件与子文件夹"
+msgstr ""
 
 msgid "April"
-msgstr "四月"
+msgstr ""
 
 msgid "Architecture"
-msgstr "结构"
+msgstr ""
 
 msgid "Archive mode"
-msgstr "打包模式"
+msgstr ""
 
 msgid "Argentina"
-msgstr "阿根廷"
+msgstr ""
 
 msgid "Armenia"
-msgstr "亚美尼亚"
+msgstr ""
 
 msgid "Aruba"
-msgstr "阿鲁巴"
+msgstr ""
 
 msgid "Asynchronous I/O"
-msgstr "异步 I/O"
+msgstr ""
 
 msgid "At least four devices are required."
-msgstr "至少需要四台设备。"
+msgstr ""
 
 msgid "At least one device is required."
-msgstr "至少需要一個裝置。"
+msgstr ""
 
 msgid "At least one network interface is required."
-msgstr "至少需要一个网卡。"
+msgstr ""
 
 msgid "At least two devices are required."
-msgstr "至少需要两台设备。"
+msgstr ""
 
 msgid "At reboot"
-msgstr "在重启时"
+msgstr ""
 
 msgid "Attach"
-msgstr "相关"
+msgstr ""
 
 msgid "Attributes"
-msgstr "属性"
+msgstr ""
 
 msgid "Audit file operations"
-msgstr "审核文件操作。"
+msgstr ""
 
 msgid "August"
-msgstr "八月"
+msgstr ""
 
 msgid "Australia"
-msgstr "澳大利亚"
+msgstr ""
 
 msgid "Austria"
-msgstr "奥地利"
+msgstr ""
 
 msgid "Authenticate users"
-msgstr "验证用户"
+msgstr ""
 
 msgid "Authentication"
-msgstr "验证"
+msgstr ""
 
 msgid "Authentication required"
-msgstr "需要验证"
+msgstr ""
 
 msgid "Auto"
-msgstr "自动"
+msgstr ""
 
 msgid "Auto logout"
-msgstr "自动登出"
+msgstr ""
 
 msgid "Available"
-msgstr "可用"
+msgstr ""
 
 msgid "Azerbaijan"
-msgstr "阿塞拜疆"
+msgstr ""
 
 msgid "Back"
-msgstr "返回"
+msgstr ""
 
 msgid "Background task"
-msgstr "后台任务"
+msgstr ""
 
 msgid "Bad"
-msgstr "损坏"
+msgstr ""
 
 msgid "Bahamas"
-msgstr "巴哈马"
+msgstr ""
 
 msgid "Bahrain"
-msgstr "巴林"
+msgstr ""
 
 msgid "Bangladesh"
-msgstr "孟加拉"
+msgstr ""
 
 msgid "Barbados"
-msgstr "巴巴多斯"
+msgstr ""
 
 msgid "Base path"
-msgstr "基路径"
+msgstr ""
 
 msgid "Belarus"
-msgstr "白俄罗斯"
+msgstr ""
 
 msgid "Belgium"
-msgstr "比利时"
+msgstr ""
 
 msgid "Belize"
-msgstr "伯利兹"
+msgstr ""
 
 msgid "Benin"
-msgstr "贝宁"
+msgstr ""
 
 msgid "Bermuda"
-msgstr "百慕达"
+msgstr ""
 
 msgid "Bhutan"
-msgstr "不丹"
+msgstr ""
 
 msgid "Block layer cache [%s, %s]"
-msgstr "区块层缓存 [%s, %s]"
+msgstr ""
 
 msgid "Bolivia"
-msgstr "玻利维亚"
+msgstr ""
 
 msgid "Bond"
-msgstr "汇聚"
+msgstr ""
 
 msgid "Boot"
-msgstr "启动"
+msgstr ""
 
 msgid "Bosnia and Herzegovina"
-msgstr "波斯尼亚和黑塞哥维那"
+msgstr ""
 
 msgid "Botswana"
-msgstr "博茨瓦那"
+msgstr ""
 
 msgid "Bouvet Island"
-msgstr "布维岛"
+msgstr ""
 
 msgid "Brazil"
-msgstr "巴西"
+msgstr ""
 
 msgid "Bridge"
-msgstr "桥接"
+msgstr ""
 
 msgid "British Antarctic Territory"
-msgstr "英属南极领地"
+msgstr ""
 
 msgid "British Indian Ocean Territory"
-msgstr "英属印度洋领地"
+msgstr ""
 
 msgid "British Virgin Islands"
-msgstr "英属维尔京群岛"
+msgstr ""
 
 msgid "Browse directory"
-msgstr "浏览目录"
+msgstr ""
 
 msgid "Browseable"
-msgstr "可浏览"
+msgstr ""
 
 msgid "Brunei"
-msgstr "文莱"
+msgstr ""
 
 msgid "Bulgaria"
-msgstr "保加利亚"
+msgstr ""
 
 msgid "Burkina Faso"
-msgstr "布基纳法索"
+msgstr ""
 
 msgid "Burundi"
-msgstr "布隆迪"
+msgstr ""
 
 msgid "CPU"
-msgstr "中央处理器"
+msgstr ""
 
 msgid "CPU Usage"
-msgstr "CPU 使用率"
+msgstr ""
 
 msgid "CPU Utilization"
-msgstr "CPU 使用率"
+msgstr ""
 
 msgid "CPU usage"
-msgstr "CPU 使用率"
+msgstr ""
 
 msgid "Cambodia"
-msgstr "柬埔寨"
+msgstr ""
 
 msgid "Cameroon"
-msgstr "喀麦隆"
+msgstr ""
 
 msgid "Canada"
-msgstr "加拿大"
+msgstr ""
 
 msgid "Cancel"
-msgstr "取消"
+msgstr ""
 
 msgid "Canton and Enderbury Islands"
-msgstr "坎吞与恩德伯里岛屿"
+msgstr ""
 
 msgid "Capacity"
-msgstr "容量"
+msgstr ""
 
 msgid "Cape Verde"
-msgstr "佛得角"
+msgstr ""
 
 msgid "Cayman Islands"
-msgstr "开曼群岛"
+msgstr ""
 
 msgid "Central African Republic"
-msgstr "中非共和国"
+msgstr ""
 
 msgid "Certain date"
-msgstr "特定日期"
+msgstr ""
 
 msgid "Certificate"
-msgstr "证书"
+msgstr ""
 
 msgid "Certificate management."
-msgstr "憑證管理。"
+msgstr ""
 
 msgid "Certificates"
-msgstr "证书"
+msgstr ""
 
 msgid "Chad"
-msgstr "乍得"
+msgstr ""
 
 msgid "Change Password"
-msgstr "更改密码"
+msgstr ""
 
 msgid "Changelog"
-msgstr "变更日志"
+msgstr ""
 
 msgid "Check for new plugins"
-msgstr "检查是否有新插件..."
+msgstr ""
 
 msgid "Check for new updates"
-msgstr "检测是否有更新..."
+msgstr ""
 
 msgid "Check interval"
-msgstr "检查间隔时间"
+msgstr ""
 
 msgid "Checking for new plugins ..."
-msgstr "检查是否有新插件..."
+msgstr ""
 
 msgid "Chile"
-msgstr "智利"
+msgstr ""
 
 msgid "China"
-msgstr "中国"
+msgstr ""
 
 msgid "Choose"
-msgstr "选择"
+msgstr ""
 
 msgid "Christmas Island"
-msgstr "圣诞岛"
+msgstr ""
 
 msgid "City"
-msgstr "城市"
+msgstr ""
 
 msgid "Cleaning up recycle bin on the share."
-msgstr "在共享上清空回收站。"
+msgstr ""
 
 msgid "Clear"
-msgstr "清除"
+msgstr ""
 
 msgid "Client"
-msgstr "客户端"
+msgstr ""
 
 msgid "Client NetBIOS name"
-msgstr "客户端 NetBIOS 名称"
+msgstr ""
 
 msgid "Client address"
-msgstr "客户端地址"
+msgstr ""
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "允许挂载文件系统的客户端，如 192.168.178.0/24。"
+msgstr ""
 
 msgid "Close"
-msgstr "关闭"
+msgstr ""
 
 msgid "Close the session on inactivity after the specified time."
-msgstr "在指定时间后关闭非活动状态会话。"
+msgstr ""
 
 msgid "Cocos (Keeling) Islands"
-msgstr "科科斯(基林)群岛"
+msgstr ""
 
 msgid "Colombia"
-msgstr "哥伦比亚"
+msgstr ""
 
 msgid "Command"
-msgstr "命令"
+msgstr ""
 
 msgid "Comment"
-msgstr "注释"
+msgstr ""
 
 msgid "Common Name"
-msgstr "通用名"
+msgstr ""
 
 msgid "Community-maintained updates"
-msgstr "由社区维护的更新。"
+msgstr ""
 
 msgid "Comoros"
-msgstr "科摩罗"
+msgstr ""
 
 msgid "Compress"
-msgstr "压缩"
+msgstr ""
 
 msgid "Compress file data during the transfer."
-msgstr "在传输时压缩文件数据"
+msgstr ""
 
 msgid "Compression"
-msgstr "压缩"
+msgstr ""
 
 msgid ""
 "Compression is worth using if your connection is slow. The efficiency of the"
 " compression depends on the type of the file, and varies widely. Useful for "
 "internet transfer only."
-msgstr "如果你互联网网速比较慢建议开启压缩，不同类型的文件压缩率不一样，差别很大。压缩对局域网传输提升不大。"
+msgstr ""
 
 msgid "Confirm"
-msgstr "确认"
+msgstr ""
 
 msgid "Confirm password"
-msgstr "确认密码"
+msgstr ""
 
 msgid "Confirmation"
-msgstr "确认"
+msgstr ""
 
 msgid "Congo (Brazzaville)"
-msgstr "刚果(布拉柴维尔)"
+msgstr ""
 
 msgid "Congo (Kinshasa)"
-msgstr "刚果(金沙萨)"
+msgstr ""
 
 msgid "Connect even if the network is not broadcasting its SSID name."
-msgstr "即便網路未廣播其 SSID 名稱也要連線。"
+msgstr ""
 
 msgid "Connect to hidden network"
-msgstr "連結至隱藏的網路"
+msgstr ""
 
 msgid "Connections"
-msgstr "连接"
+msgstr ""
 
 msgid "Control and monitor storage systems using S.M.A.R.T."
-msgstr "使用 S.M.A.R.T 监控存储系统。"
+msgstr ""
 
 msgid "Conveyance self-test"
-msgstr "传输时自检"
+msgstr ""
 
 msgid "Cook Islands"
-msgstr "库克群岛"
+msgstr ""
 
 msgid "Copied SSH certificate to {{ hostname }}."
-msgstr "复制SSH证书到{{ hostname }}。"
+msgstr ""
 
 msgid "Copy"
-msgstr "复制"
+msgstr ""
 
 msgid "Copy permissions"
-msgstr "複製權限"
+msgstr ""
 
 msgid "Copy public SSH key"
-msgstr "复制 SSH 公钥"
+msgstr ""
 
 msgid "Copy to clipboard"
-msgstr "复制到剪贴板"
+msgstr ""
 
 msgid "Costa Rica"
-msgstr "哥斯达黎加"
+msgstr ""
 
 msgid "Country"
-msgstr "国家"
+msgstr ""
 
 msgid "Create"
-msgstr "创建"
+msgstr ""
 
 msgid "Create and mount a file system."
-msgstr "建立並挂载文件系统。"
+msgstr ""
 
 msgid "Create file system"
-msgstr "创建文件系统"
+msgstr ""
 
 msgid "Create | Import"
-msgstr "新建 | 导入"
+msgstr ""
 
 msgid "Created NFS share."
-msgstr "已建NFS共享"
+msgstr ""
 
 msgid "Created Rsync server module \"{{ name }}\"."
-msgstr "已新建rsync服务器模块“{{ name }}”。"
+msgstr ""
 
 msgid "Created Rsync task."
-msgstr "已建Rsync任务。"
+msgstr ""
 
 msgid "Created SMB/CIFS share."
-msgstr "已建SMB/CIFS共享"
+msgstr ""
 
 msgid "Created SSH certificate."
-msgstr "已建SSH证书。"
+msgstr ""
 
 msgid "Created SSL certificate."
-msgstr "已建SSL 证书。"
+msgstr ""
 
 msgid "Created VLAN network connection."
-msgstr "已建VLAN连接"
+msgstr ""
 
 msgid "Created bond network connection."
-msgstr "创建的网络绑定连接"
+msgstr ""
 
 msgid "Created bridge network connection."
-msgstr "已建桥接式网络连接"
+msgstr ""
 
 msgid "Created firewall rule."
-msgstr "已建的防火墙规则。"
+msgstr ""
 
 msgid "Created group \"{{ name }}\"."
-msgstr "已建卷组“{{ name }}”。"
+msgstr ""
 
 msgid "Created scheduled task."
-msgstr "已建计划任务。"
+msgstr ""
 
 msgid "Created user \"{{ name }}\"."
-msgstr "已新建用户“{{ name }}”。"
+msgstr ""
 
 msgid "Created wired network connection."
-msgstr "已建有线网络连接。"
+msgstr ""
 
 msgid "Created wireless network connection."
-msgstr "已建无线网络连接。"
+msgstr ""
 
 msgid "Creation Time"
-msgstr "建立時間"
+msgstr ""
 
 msgid "Croatia"
-msgstr "克罗地亚"
+msgstr ""
 
 msgid "Cuba"
-msgstr "古巴"
+msgstr ""
 
 msgid "Currently logged in users"
-msgstr "当前登录用户"
+msgstr ""
 
 msgid "Cyprus"
-msgstr "塞浦路斯"
+msgstr ""
 
 msgid "Czech Republic"
-msgstr "捷克共和国"
+msgstr ""
 
 msgid "DHCP"
-msgstr "DHCP"
+msgstr ""
 
 msgid "DNS servers"
-msgstr "DNS 服务器"
+msgstr ""
 
 msgid "Daemon"
-msgstr "守护进程"
+msgstr ""
 
 msgid "Daily"
-msgstr "每天"
+msgstr ""
 
 msgid "Dark mode"
-msgstr "暗黑模式"
+msgstr ""
 
 msgid "Dashboard"
-msgstr "仪表盘"
+msgstr ""
 
 msgid "Date & Time"
-msgstr "日期和时间"
+msgstr ""
 
 msgid "Day of month"
-msgstr "月内第几天"
+msgstr ""
 
 msgid "Day of week"
-msgstr "周内第几天"
+msgstr ""
 
 msgid "Debug"
-msgstr "调试"
+msgstr ""
 
 msgid "December"
-msgstr "十二月"
+msgstr ""
 
 msgid "Delete"
-msgstr "删除"
+msgstr ""
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr "删除接收端存在而发送端不存在的文件。"
+msgstr ""
 
 msgid "Denmark"
-msgstr "丹麦"
+msgstr ""
 
 msgid "Description"
-msgstr "描述"
+msgstr ""
 
 msgid "Destination"
-msgstr "目标"
+msgstr ""
 
 msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr "目标地址可以是网络 IP 地址(包含 /子网掩码)、IP 段或单个 IP 地址。地址前可以用 “!” 来表示“非”。"
+msgstr ""
 
 msgid "Destination port"
-msgstr "目标端口"
+msgstr ""
 
 msgid "Destination server"
-msgstr "目标服务器"
+msgstr ""
 
 msgid "Destination shared folder"
-msgstr "目标共享文件夹"
+msgstr ""
 
 msgid "Details"
-msgstr "详细信息"
+msgstr ""
 
 msgid "Device"
-msgstr "设备"
+msgstr ""
 
 msgid "Device Information"
-msgstr "设备信息"
+msgstr ""
 
 msgid "Device Mapper %s [%s, %s]"
-msgstr "设备图 %s [%s, %s]"
+msgstr ""
 
 msgid "Device Symlinks"
-msgstr "设备符号链接"
+msgstr ""
 
 msgid "Device has a few bad sectors."
-msgstr "设备有少许物理坏块。"
+msgstr ""
 
 msgid "Device has many bad sectors."
-msgstr "设备有许多物理坏块。"
+msgstr ""
 
 msgid "Device is being used outside design parameters."
-msgstr "设备使用已超出设计参数。"
+msgstr ""
 
 msgid "Device was used outside of design parameters in the past."
-msgstr "设备曾超出设计参数使用。"
+msgstr ""
 
 msgid "Device(s)"
-msgstr "设备(可复选)"
+msgstr ""
 
 msgid "Devices"
-msgstr "设备"
+msgstr ""
 
 msgid "Diagnostics"
-msgstr "诊断"
+msgstr ""
 
 msgid "Difference"
-msgstr "差异"
+msgstr ""
 
 msgid "Direction"
-msgstr "方向"
+msgstr ""
 
 msgid "Disabled"
-msgstr "禁用"
+msgstr ""
 
 msgid "Disallow account modification"
-msgstr "不允许修改账户"
+msgstr ""
 
 msgid "Disallow the user to modify their own account."
-msgstr "不允許用戶修改自己的帳戶。"
+msgstr ""
 
 msgid "Disk Temperatures"
-msgstr "磁碟溫度"
+msgstr ""
 
 msgid "Disk Usage"
-msgstr "磁盘用量"
+msgstr ""
 
 msgid "Disks"
-msgstr "磁盘"
+msgstr ""
 
 msgid "Dismiss"
-msgstr "撤销"
+msgstr ""
 
 msgid "Dismiss all"
-msgstr "撤销全部"
+msgstr ""
 
 msgid "Displays information about the file systems in a grid."
-msgstr "在网格中显示文件系统信息。"
+msgstr ""
 
 msgid "Displays information about the file systems in a table."
-msgstr "在标签中显示文件系统信息。"
+msgstr ""
 
 msgid "Displays information about the network interfaces in a grid."
-msgstr "在网格中显示网络接口信息。"
+msgstr ""
 
 msgid "Displays information about the network interfaces in a table."
-msgstr "在标签中显示网络接口信息。"
+msgstr ""
 
 msgid "Displays information about the services in a grid."
-msgstr "在网格中显示服务信息。"
+msgstr ""
 
 msgid "Displays information about the services in a table."
-msgstr "在标签中显示服务信息。"
+msgstr ""
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
-msgstr "顯示 S.M.A.R.T. 所有被監測磁碟裝置的狀況。"
+msgstr ""
 
 msgid "Displays the system time."
-msgstr "显示系统时间。"
+msgstr ""
 
 msgid "Displays the system uptime."
-msgstr "显示系统运行时间。"
+msgstr ""
 
 msgid "Displays the temperature of all disk devices."
-msgstr "顯示全部磁碟裝置的溫度。"
+msgstr ""
 
 msgid "Displays various system information."
-msgstr "显示各种系统信息。"
+msgstr ""
 
 msgid "Djibouti"
-msgstr "吉布提"
+msgstr ""
 
 msgid "Do you really want to apply the configuration changes?"
-msgstr "确定要应用变更配置？"
+msgstr ""
 
 msgid "Do you really want to copy the permissions from the shared folder?"
-msgstr "您真的要從分享資料夾複製權限嗎？"
+msgstr ""
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
 "join(\", \") }}</strong>?"
-msgstr "您确定要删除选中项（可多选）<strong>{{ items | join(\", \") }}</strong>？"
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
-msgstr "确定删除选中项(可复选)？"
+msgstr ""
 
 msgid "Do you really want to install the plugin?"
-msgstr "是否要安装选中的插件？"
+msgstr ""
 
 msgid "Do you really want to logout?"
-msgstr "是否要退出登录？"
+msgstr ""
 
 msgid "Do you really want to put the system into standby?"
-msgstr "确定要让系统进入待机状态？"
+msgstr ""
 
 msgid "Do you really want to reboot the system?"
-msgstr "是否要重启系统？"
+msgstr ""
 
 msgid "Do you really want to reset the UI settings to their default values?"
-msgstr "确认要重置 UI 设置？"
+msgstr ""
 
 msgid ""
 "Do you really want to resize the file system? You have to do that after a "
 "RAID has been grown for example."
-msgstr "确定要调整文件系统大小？比如，扩充 RAID 后通常要进行调整。"
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
-msgstr "确定关闭系统？"
+msgstr ""
 
 msgid "Do you really want to undo the configuration changes?"
-msgstr "确定要撤销配置变更？"
+msgstr ""
 
 msgid "Do you really want to uninstall the plugin?"
-msgstr "确定卸载该插件？"
+msgstr ""
 
 msgid ""
 "Do you really want to unmount this file system? Please make sure that the "
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
-msgstr "确定要卸载该文件系统？卸载前请确保无设备在用本文件系统。注意，该操作并不能删除文件系统。"
+msgstr ""
 
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
 "will be lost."
-msgstr "确定要擦除“{{ canonicaldevicefile }}”？所有数据将丢失。"
+msgstr ""
 
 msgid "Documentation"
-msgstr "文档"
+msgstr ""
 
 msgid "Domain name"
-msgstr "域名"
+msgstr ""
 
 msgid "Domains used when resolving host names."
-msgstr "解析主机名时候使用的域。"
+msgstr ""
 
 msgid "Dominica"
-msgstr "多米尼加"
+msgstr ""
 
 msgid "Dominican Republic"
-msgstr "多明尼加共和国"
+msgstr ""
 
 msgid "Down"
-msgstr "下移"
+msgstr ""
 
 msgid "Down delay"
-msgstr "停用延迟"
+msgstr ""
 
 msgid "Download"
-msgstr "下载"
+msgstr ""
 
 msgid "Dronning Maud Land"
-msgstr "毛德皇后地"
+msgstr ""
 
 msgid "Each line represents a group."
-msgstr "每行代表一个组。"
+msgstr ""
 
 msgid ""
 "Each line represents a user. Note, the password must be entered in plain "
 "text."
-msgstr "每行代表一个用户，注意密码必须是纯文字。"
+msgstr ""
 
 msgid "East Timor"
-msgstr "东帝汶"
+msgstr ""
 
 msgid "Ecuador"
-msgstr "厄瓜多尔"
+msgstr ""
 
 msgid "Edit"
-msgstr "编辑"
+msgstr ""
 
 msgid "Egypt"
-msgstr "埃及"
+msgstr ""
 
 msgid "El Salvador"
-msgstr "萨尔瓦多"
+msgstr ""
 
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 msgid "Empty now"
-msgstr "立即清空"
+msgstr ""
 
 msgid "Enable NetBIOS"
-msgstr "啟用 NetBIOS"
+msgstr ""
 
 msgid "Enable Time Machine support for this share."
-msgstr "在这个共享文件夹启用时间胶囊 Time Machine 支持。"
+msgstr ""
 
 msgid "Enable WINS server"
-msgstr "启用 WINS 服务器"
+msgstr ""
 
 msgid "Enable automatic snapshot clean up."
-msgstr "啟用自動快照清理。"
+msgstr ""
 
 msgid "Enable keyboard-interactive authentication."
-msgstr "启用键盘交互认证"
+msgstr ""
 
 msgid "Enable public key authentication."
-msgstr "启用公钥认证"
+msgstr ""
 
 msgid "Enable recycle bin"
-msgstr "启用回收站"
+msgstr ""
 
 msgid "Enable remote logging of syslog to the specified host."
-msgstr "启用 syslog 远程日志到指定的主机。"
+msgstr ""
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr "启用此选项来保留部分传输的文件，否则传输中断的文件将删除不予保存。"
+msgstr ""
 
 msgid "Enable user home directories."
-msgstr "启用用户 Home 目录."
+msgstr ""
 
 msgid "Enable write-cache"
-msgstr "启用写缓存"
+msgstr ""
 
 msgid "Enabled"
-msgstr "已启动"
+msgstr ""
 
 msgid "Enabled widgets"
-msgstr "已启用的组件"
+msgstr ""
 
 msgid "Encryption mode"
-msgstr "加密模式"
+msgstr ""
 
 msgid ""
 "Enforce transport encryption for this share. Clients that do not support "
 "encryption will be denied access to the share."
-msgstr "對此共享強制使用傳輸加密。不支援加密的客戶端將被拒絕存取此共享。"
+msgstr ""
 
 msgid "Equatorial Guinea"
-msgstr "赤道几内亚"
+msgstr ""
 
 msgid "Eritrea"
-msgstr "厄立特里亚"
+msgstr ""
 
 msgid "Error"
-msgstr "错误"
+msgstr ""
 
 msgid "Estonia"
-msgstr "爱沙尼亚"
+msgstr ""
 
 msgid "Ethernet"
-msgstr "以太网"
+msgstr ""
 
 msgid "Ethiopia"
-msgstr "埃塞俄比亚"
+msgstr ""
 
 msgid "Events"
-msgstr "事件"
+msgstr ""
 
 msgid "Every N day of month"
-msgstr "每月每N天"
+msgstr ""
 
 msgid "Every N hour"
-msgstr "每 N 小时"
+msgstr ""
 
 msgid "Every N minute"
-msgstr "每 N 分钟"
+msgstr ""
 
 msgid "Everyone: read/write"
-msgstr "每个人：读/写"
+msgstr ""
 
 msgid "Execute only"
-msgstr "仅执行"
+msgstr ""
 
 msgid "Extended Information"
-msgstr "扩展信息"
+msgstr ""
 
 msgid "Extended attributes"
-msgstr "扩展属性"
+msgstr ""
 
 msgid "Extra options"
-msgstr "扩展选项"
+msgstr ""
 
 msgid "FTP-Proxy"
-msgstr "FTP - 代理"
+msgstr ""
 
 msgid "Failed"
-msgstr "失败"
+msgstr ""
 
 msgid "Failed to copy data to the clipboard."
-msgstr "复制数据到粘贴板失败"
+msgstr ""
 
 msgid "Failed to start session."
-msgstr "啟動作業階段失敗。"
+msgstr ""
 
 msgid "Failed to write session data."
-msgstr "寫出作業階段資料失敗。"
+msgstr ""
 
 msgid "Falkland Islands"
-msgstr "福克兰群岛"
+msgstr ""
 
 msgid "Family"
-msgstr "系列"
+msgstr ""
 
 msgid "Faroe Islands"
-msgstr "法罗群岛"
+msgstr ""
 
 msgid "Fatal error"
-msgstr "致命错误"
+msgstr ""
 
 msgid "February"
-msgstr "二月"
+msgstr ""
 
 msgid "Fiji"
-msgstr "斐济"
+msgstr ""
 
 msgid "File Systems"
-msgstr "文件系统"
+msgstr ""
 
 msgid "File access control lists"
-msgstr "檔案存取控制列表"
+msgstr ""
 
 msgid "File owner and group"
-msgstr "檔案擁有者和群組"
+msgstr ""
 
 msgid "File path"
-msgstr "文件路径"
+msgstr ""
 
 msgid "File system"
-msgstr "文件系统"
+msgstr ""
 
 msgid "File systems"
-msgstr "文件系统"
+msgstr ""
 
 msgid "Filename"
-msgstr "文件名"
+msgstr ""
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
-msgstr "在回收站的文件过了指定天后将自动删除，该项设为 0 则为手动删除。"
+msgstr ""
 
 msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
-msgstr "大于设置大小的文件不会放到回收站。"
+msgstr ""
 
 msgid "Fingerprint (SHA-1)"
-msgstr "指紋 (SHA-1)"
+msgstr ""
 
 msgid "Fingerprint (SHA-256)"
-msgstr "指紋 (SHA-256)"
+msgstr ""
 
 msgid "Finland"
-msgstr "芬兰"
+msgstr ""
 
 msgid "Firewall"
-msgstr "防火墙"
+msgstr ""
 
 msgid "Firmware version"
-msgstr "固件版本"
+msgstr ""
 
 msgid "Flags"
-msgstr "标签"
+msgstr ""
 
 msgid "Force SSL/TLS"
-msgstr "强制使用 SSL/TLS"
+msgstr ""
 
 msgid "Force a specific MAC address on this interface."
-msgstr "強迫把一個特定的 MAC 地址用於此介面。"
+msgstr ""
 
 msgid "Force secure connection only."
-msgstr "强制只允许使用安全连接。"
+msgstr ""
 
 msgid "Forum"
-msgstr "论坛"
+msgstr ""
 
 msgid "Framework for Multicast DNS Service Discovery."
-msgstr "多播 DNS 发现服务框架。"
+msgstr ""
 
 msgid "France"
-msgstr "法国"
+msgstr ""
 
 msgid "Free"
-msgstr "空闲"
+msgstr ""
 
 msgid "French Guiana"
-msgstr "法属圭亚那"
+msgstr ""
 
 msgid "French Polynesia"
-msgstr "法属波利尼西亚"
+msgstr ""
 
 msgid "French Southern Territories"
-msgstr "法国南方的领土"
+msgstr ""
 
 msgid "French Southern and Antarctic Territories"
-msgstr "法国南部和南极领地"
+msgstr ""
 
 msgid "Friday"
-msgstr "星期五"
+msgstr ""
 
 msgid "Full"
-msgstr "全部"
+msgstr ""
 
 msgid "GID"
-msgstr "GID"
+msgstr ""
 
 msgid "Gabon"
-msgstr "加蓬"
+msgstr ""
 
 msgid "Gambia"
-msgstr " 冈比亚"
+msgstr ""
 
 msgid "Gateway"
-msgstr "网关"
+msgstr ""
 
 msgid "General"
-msgstr "常规"
+msgstr ""
 
 msgid "Georgia"
-msgstr "乔治亚"
+msgstr ""
 
 msgid "Germany"
-msgstr "德国"
+msgstr ""
 
 msgid "Ghana"
-msgstr "加纳"
+msgstr ""
 
 msgid "Gibraltar"
-msgstr "直布罗陀"
+msgstr ""
 
 msgid "Go to the notification sidebar to attach to it."
-msgstr "转到通知侧栏查看相关信息。"
+msgstr ""
 
 msgid "Good"
-msgstr "好"
+msgstr ""
 
 msgid "Greece"
-msgstr "希腊"
+msgstr ""
 
 msgid "Greenland"
-msgstr "格陵兰岛"
+msgstr ""
 
 msgid "Grenada"
-msgstr "格林纳达"
+msgstr ""
 
 msgid "Group"
-msgstr "用户组"
+msgstr ""
 
 msgid "Groups"
-msgstr "用户组"
+msgstr ""
 
 msgid "Grow"
-msgstr "扩充"
+msgstr ""
 
 msgid "Guadeloupe"
-msgstr "瓜德罗普"
+msgstr ""
 
 msgid "Guam"
-msgstr "关岛"
+msgstr ""
 
 msgid "Guatemala"
-msgstr "瓜地马拉"
+msgstr ""
 
 msgid "Guests allowed"
-msgstr "允许访客"
+msgstr ""
 
 msgid "Guests only"
-msgstr "仅访客"
+msgstr ""
 
 msgid "Guinea"
-msgstr "几内亚"
+msgstr ""
 
 msgid "Guinea-Bissau"
-msgstr "几内亚比绍"
+msgstr ""
 
 msgid "Guyana"
-msgstr "圭亚那"
+msgstr ""
 
 msgid "HTTP-Proxy"
-msgstr "HTTP - 代理"
+msgstr ""
 
 msgid "HTTPS-Proxy"
-msgstr "HTTPS - 代理"
+msgstr ""
 
 msgid "Haiti"
-msgstr "海地"
+msgstr ""
 
 msgid "Hardware Address"
-msgstr "邮件地址"
+msgstr ""
 
 msgid "Heard Island and McDonald Islands"
-msgstr "赫德岛和麦克唐纳群岛"
+msgstr ""
 
 msgid "Help"
-msgstr "帮助"
+msgstr ""
 
 msgid "Hibernate"
-msgstr "冬眠"
+msgstr ""
 
 msgid "Hide"
-msgstr "隐藏"
+msgstr ""
 
 msgid "Hide dot files"
-msgstr "隐藏点文件"
+msgstr ""
 
 msgid "High-performance mail transport agent."
-msgstr "高性能邮件代理传输服务。"
+msgstr ""
 
 msgid "Home"
-msgstr "Home"
+msgstr ""
 
 msgid "Home directories"
-msgstr "主目录"
+msgstr ""
 
 msgid "Homepage"
-msgstr "主页"
+msgstr ""
 
 msgid "Honduras"
-msgstr "洪都拉斯"
+msgstr ""
 
 msgid "Hong Kong S.A.R., China"
-msgstr "香港特别行政区，中国"
+msgstr ""
 
 msgid "Host"
-msgstr "主机"
+msgstr ""
 
 msgid "Hostname"
-msgstr "主机名"
+msgstr ""
 
 msgid "Hosts allow"
-msgstr "允许主机"
+msgstr ""
 
 msgid "Hosts deny"
-msgstr "拒绝主机"
+msgstr ""
 
 msgid "Hour"
-msgstr "小时"
+msgstr ""
 
 msgid "Hourly"
-msgstr "每小时"
+msgstr ""
 
 msgid "Hungary"
-msgstr "匈牙利"
+msgstr ""
 
 msgid "Hybrid sleep"
-msgstr "休眠"
+msgstr ""
 
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgid ""
 "IP addresses in CIDR notation or host names of clients that are allowed to "
 "access the NTP server."
-msgstr "符合 CIDR 规范的IP地址或客户端主机名允许连接该 NTP 服务器。"
+msgstr ""
 
 msgid "IP addresses of domain name servers used to resolve host names."
-msgstr "解析域名服务器的 IP 地址为主机名。"
+msgstr ""
 
 msgid "IPv4"
-msgstr "IPv4"
+msgstr ""
 
 msgid "IPv6"
-msgstr "IPv6"
+msgstr ""
 
 msgid "Iceland"
-msgstr "冰岛"
+msgstr ""
 
 msgid "Identify"
-msgstr "识别"
+msgstr ""
 
 msgid "Identify As"
-msgstr "识别"
+msgstr ""
 
 msgid "Identify network interface"
-msgstr "识别网络接口设备"
+msgstr ""
 
 msgid "Idle"
-msgstr "闲置"
+msgstr ""
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Guests only' is selecting; in "
 "this case no password is required to connect to the share."
-msgstr "如果选择“允许访客”，用户没有提供登录凭证，那么让其以访客权限读写。如果选择“仅访客”，则全部用户以访客读写，用户不需要密码便可以连接共享。"
+msgstr ""
 
 msgid ""
 "If a device is not listed here, it is usually because the device already "
@@ -1509,25 +1503,25 @@ msgid ""
 "be mounted <a href='#/storage/filesystems/mount'>here<a>. For the latter, "
 "please <a href='#/storage/disks'>wipe<a> the device as partitions are not "
 "supported."
-msgstr "若裝置沒在此被列出，通常是因為該裝置上已經含有一個檔案系統或分割。在前者狀況時，該檔案系統可以被掛載入<a href='#/storage/filesystems/mount'>於此<a>。在後者狀況時，請<a href='#/storage/disks'>抹除<a>該裝置，因為分割未被支援。"
+msgstr ""
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
 "to connect to the module."
-msgstr "如果设置，则客户端需提供用户名和密码才能访问该模块."
+msgstr ""
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr "如果设置此项，守护进程会在客户端开始传输前chroot到共享文件夹目录。那么将无法用名字来映射用户和用户组，并且守护进程无法追随绝对路径或者新根目录之外的符号链接。"
+msgstr ""
 
 msgid "If this option is set, then any attempted downloads will fail."
-msgstr "如果设定那么任何下载将失败。"
+msgstr ""
 
 msgid "If this option is set, then any attempted uploads will fail."
-msgstr "如果设定那么任何上传将失败。"
+msgstr ""
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
@@ -1535,897 +1529,897 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr "如果设置此参数，Samba 在映射 DOS 属性到 UNIX 系统前，首先会读取 DOS 文件系统扩展属性(系统、隐藏、存档或只读)。设置这项参数可以保存 DOS 文件系统中文件和文件夹的扩展属性到 UNIX 文件系统。"
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
 "share."
-msgstr "如果设定，那么用户将无法创建或修改共享中的文件。"
+msgstr ""
 
 msgid "Import"
-msgstr "导入"
+msgstr ""
 
 msgid "Imported SSH certificate."
-msgstr "导入 SSL 证书"
+msgstr ""
 
 msgid "Imported SSL certificate."
-msgstr "导入 SSL 证书"
+msgstr ""
 
 msgid "Imported groups."
-msgstr "已导入的用户组。"
+msgstr ""
 
 msgid "Imported users."
-msgstr "已导入用户。"
+msgstr ""
 
 msgid "India"
-msgstr "印度"
+msgstr ""
 
 msgid "Indicates whether updates are available."
-msgstr "標示是否有可用更新。"
+msgstr ""
 
 msgid "Indonesia"
-msgstr "印度尼西亚"
+msgstr ""
 
 msgid "Information"
-msgstr "信息"
+msgstr ""
 
 msgid "Inherit ACLs"
-msgstr "继承 ACLs"
+msgstr ""
 
 msgid "Inherit permissions"
-msgstr "继承权限"
+msgstr ""
 
 msgid "Initializing"
-msgstr "初始化中"
+msgstr ""
 
 msgid "Install"
-msgstr "安装"
+msgstr ""
 
 msgid "Install plugin"
-msgstr "安装插件 ..."
+msgstr ""
 
 msgid "Install updates"
-msgstr "安装更新 ..."
+msgstr ""
 
 msgid "Install updates from"
-msgstr "安装更新来源"
+msgstr ""
 
 msgid "Installed"
-msgstr "已安装"
+msgstr ""
 
 msgid ""
 "Installs the public SSH key on a remote system as an authorized key. Make "
 "sure password authentication is enabled on that remote system."
-msgstr "将 SSH 公钥作为授权秘钥添加到远程系统。请确保远程系统启用了密码认证。"
+msgstr ""
 
 msgid "Interfaces"
-msgstr "接口"
+msgstr ""
 
 msgid "Invalid IP address."
-msgstr "无效的 IP 地址"
+msgstr ""
 
 msgid "Invalid NetBIOS name."
-msgstr "无效 NetBIOS 名称。"
+msgstr ""
 
 msgid "Invalid SSH public key (OpenSSH format)."
-msgstr "无效 SSH 公钥 (OpenSSH格式)"
+msgstr ""
 
 msgid "Invalid SSH public key (OpenSSH or RFC 4716 format)"
-msgstr "无效 SSH 公钥 (OpenSSH格式或RFC4716格式)"
+msgstr ""
 
 msgid "Invalid SSH public key (RFC 4716 format)."
-msgstr "无效 SSH 公钥 (RFC 4716格式)"
+msgstr ""
 
 msgid "Invalid User-Agent."
-msgstr "无效的 User-Agent。"
+msgstr ""
 
 msgid "Invalid domain name."
-msgstr "无效域名"
+msgstr ""
 
 msgid "Invalid group name."
-msgstr "无效组名"
+msgstr ""
 
 msgid "Invalid host name."
-msgstr "无效主机名"
+msgstr ""
 
 msgid "Invalid user name."
-msgstr "无效用户名"
+msgstr ""
 
 msgid "Invalid user."
-msgstr "无效的用户名。"
+msgstr ""
 
 msgid "Iran"
-msgstr "伊朗"
+msgstr ""
 
 msgid "Iraq"
-msgstr "伊拉克"
+msgstr ""
 
 msgid "Ireland"
-msgstr "爱尔兰"
+msgstr ""
 
 msgid "Israel"
-msgstr "以色列"
+msgstr ""
 
 msgid ""
 "It may take a while to detect the new devices, thus it might be necessary to"
 " reload the table several times. Do you want to proceed?"
-msgstr "侦测新设备将花费少许时间，也可能会多次加载该表。确定继续？"
+msgstr ""
 
 msgid "Italy"
-msgstr "意大利"
+msgstr ""
 
 msgid "Ivory Coast"
-msgstr "象牙海岸"
+msgstr ""
 
 msgid "Jamaica"
-msgstr "牙买加"
+msgstr ""
 
 msgid "January"
-msgstr "一月"
+msgstr ""
 
 msgid "Japan"
-msgstr "日本"
+msgstr ""
 
 msgid "Johnston Island"
-msgstr "约翰斯顿岛"
+msgstr ""
 
 msgid "Jordan"
-msgstr "约旦"
+msgstr ""
 
 msgid "July"
-msgstr "七月"
+msgstr ""
 
 msgid "June"
-msgstr "六月"
+msgstr ""
 
 msgid "Kazakhstan"
-msgstr "哈萨克斯坦"
+msgstr ""
 
 msgid "Keep partially transferred files"
-msgstr "保留传输了一部分的文件"
+msgstr ""
 
 msgid "Kenya"
-msgstr "肯尼亚"
+msgstr ""
 
 msgid "Kernel"
-msgstr "内核"
+msgstr ""
 
 msgid "Key size"
-msgstr "密钥长度"
+msgstr ""
 
 msgid "Kiribati"
-msgstr "基里巴斯"
+msgstr ""
 
 msgid "Kuwait"
-msgstr "科威特"
+msgstr ""
 
 msgid "Kyrgyzstan"
-msgstr "吉尔吉斯斯坦"
+msgstr ""
 
 msgid "LBA of first error"
-msgstr "第一个错误的 LBA"
+msgstr ""
 
 msgid "LVM logical volume %s [%s, %s]"
-msgstr "LVM 逻辑卷 %s [%s, %s]"
+msgstr ""
 
 msgid "Label"
-msgstr "标签"
+msgstr ""
 
 msgid "Language"
-msgstr "语言"
+msgstr ""
 
 msgid "Laos"
-msgstr "老挝"
+msgstr ""
 
 msgid "Latvia"
-msgstr " 拉脱维亚"
+msgstr ""
 
 msgid "Lebanon"
-msgstr "黎巴嫩"
+msgstr ""
 
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
 " port."
-msgstr "闪烁一个或多个在特定网口上的 LED，时间单位是秒。"
+msgstr ""
 
 msgid "Lesotho"
-msgstr "莱索托"
+msgstr ""
 
 msgid "Liberia"
-msgstr "利比里亚"
+msgstr ""
 
 msgid "Libya"
-msgstr "利比亚"
+msgstr ""
 
 msgid "Liechtenstein"
-msgstr "列支敦士登"
+msgstr ""
 
 msgid "Lifetime"
-msgstr "寿命"
+msgstr ""
 
 msgid "Limit custom"
-msgstr "限制自訂"
+msgstr ""
 
 msgid "Limit daily"
-msgstr "限制每天"
+msgstr ""
 
 msgid "Limit hourly"
-msgstr "限制每小時"
+msgstr ""
 
 msgid "Limit monthly"
-msgstr "限制每月"
+msgstr ""
 
 msgid "Limit weekly"
-msgstr "限制每週"
+msgstr ""
 
 msgid "Limit yearly"
-msgstr "限制每年"
+msgstr ""
 
 msgid "Link"
-msgstr "链接"
+msgstr ""
 
 msgid "List module"
-msgstr "列出模块"
+msgstr ""
 
 msgid "Lithuania"
-msgstr "立陶宛"
+msgstr ""
 
 msgid "Load Average"
-msgstr "平均负载"
+msgstr ""
 
 msgid "Load average"
-msgstr "平均负载"
+msgstr ""
 
 msgid "Loading ..."
-msgstr "载入中 ..."
+msgstr ""
 
 msgid "Local"
-msgstr "本地"
+msgstr ""
 
 msgid "Location"
-msgstr "位置"
+msgstr ""
 
 msgid "Log in"
-msgstr "登录"
+msgstr ""
 
 msgid "Log level"
-msgstr "日志级别"
+msgstr ""
 
 msgid "Logout"
-msgstr "注销"
+msgstr ""
 
 msgid "Logs"
-msgstr "日志"
+msgstr ""
 
 msgid "Long self-test"
-msgstr "长时自检"
+msgstr ""
 
 msgid "Loop device [%s, %s]"
-msgstr "Loop device [%s, %s]"
+msgstr ""
 
 msgid "Luxembourg"
-msgstr "卢森堡"
+msgstr ""
 
 msgid "MAC"
-msgstr "MAC"
+msgstr ""
 
 msgid "MAC address"
-msgstr "MAC 位址"
+msgstr ""
 
 msgid "MII monitoring frequency"
-msgstr "MII 监测频率"
+msgstr ""
 
 msgid "MTU"
-msgstr "MTU"
+msgstr ""
 
 msgid "Macao S.A.R., China"
-msgstr "澳门特别行政区，中国"
+msgstr ""
 
 msgid "Macedonia"
-msgstr "马其顿"
+msgstr ""
 
 msgid "Madagascar"
-msgstr "马达加斯加"
+msgstr ""
 
 msgid "Maintainer"
-msgstr "维护者"
+msgstr ""
 
 msgid "Make sure that the guest user <em>nobody</em> can access the files."
-msgstr "请确定访客用戶 <em>nobody</em> 有文件的对应权限。"
+msgstr ""
 
 msgid "Malawi"
-msgstr "马拉维"
+msgstr ""
 
 msgid "Malaysia"
-msgstr "马来西亚"
+msgstr ""
 
 msgid "Maldives"
-msgstr "马尔代夫"
+msgstr ""
 
 msgid "Mali"
-msgstr "马里"
+msgstr ""
 
 msgid "Malta"
-msgstr "马耳他"
+msgstr ""
 
 msgid "Management of CPUfreq settings."
-msgstr "管理设置 CPU 频率。"
+msgstr ""
 
 msgid "Management of scheduled tasks."
-msgstr "管理计划任务。"
+msgstr ""
 
 msgid "Management of the file systems to be mounted."
-msgstr "管理要挂载的文件系统。"
+msgstr ""
 
 msgid "March"
-msgstr "三月"
+msgstr ""
 
 msgid "Marshall Islands"
-msgstr "马绍尔群岛"
+msgstr ""
 
 msgid "Martinique"
-msgstr "马提尼克白胸打谷鸟"
+msgstr ""
 
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr "若是 21 或1024-65535并且非443号端口之一，则匹配。"
+msgstr ""
 
 msgid ""
 "Match if the source port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr "若是 21 或1024-65535并且非443号端口之一，则匹配。"
+msgstr ""
 
 msgid "Mauritania"
-msgstr "毛里塔尼亚"
+msgstr ""
 
 msgid "Mauritius"
-msgstr "毛里求斯"
+msgstr ""
 
 msgid "Max. connections"
-msgstr "最大连接数"
+msgstr ""
 
 msgid "Maximum"
-msgstr "最大"
+msgstr ""
 
 msgid "Maximum file size"
-msgstr "文件大小限制"
+msgstr ""
 
 msgid "Maximum performance, maximum acoustic output"
-msgstr "最高性能，噪音最大"
+msgstr ""
 
 msgid "May"
-msgstr "五月"
+msgstr ""
 
 msgid "Mayotte"
-msgstr "马约特"
+msgstr ""
 
 msgid "Members"
-msgstr "成员"
+msgstr ""
 
 msgid "Memory"
-msgstr "内存"
+msgstr ""
 
 msgid "Memory Usage"
-msgstr "内存用量"
+msgstr ""
 
 msgid "Memory usage"
-msgstr "内存使用"
+msgstr ""
 
 msgid "Message"
-msgstr "消息"
+msgstr ""
 
 msgid "Messages"
-msgstr "消息"
+msgstr ""
 
 msgid "Method"
-msgstr "方式"
+msgstr ""
 
 msgid "Metric"
-msgstr "指標"
+msgstr ""
 
 msgid "Metropolitan France"
-msgstr "法国本土"
+msgstr ""
 
 msgid "Mexico"
-msgstr "墨西哥"
+msgstr ""
 
 msgid "Micronesia"
-msgstr "密克罗尼西亚"
+msgstr ""
 
 msgid "Midway Islands"
-msgstr "中途岛"
+msgstr ""
 
 msgid "Minimum"
-msgstr "最小"
+msgstr ""
 
 msgid "Minimum performance, minimum acoustic output"
-msgstr "最低性能，噪音最小"
+msgstr ""
 
 msgid "Minimum protocol version"
-msgstr "最低协议版本"
+msgstr ""
 
 msgid "Minute"
-msgstr "分"
+msgstr ""
 
 msgid "Missing"
-msgstr "丢失"
+msgstr ""
 
 msgid "Mode"
-msgstr "模式"
+msgstr ""
 
 msgid "Model"
-msgstr "型号"
+msgstr ""
 
 msgid "Modules"
-msgstr "模块"
+msgstr ""
 
 msgid "Moldova"
-msgstr "摩尔多瓦"
+msgstr ""
 
 msgid "Monaco"
-msgstr "摩纳哥"
+msgstr ""
 
 msgid "Monday"
-msgstr "星期一"
+msgstr ""
 
 msgid "Mongolia"
-msgstr "蒙古"
+msgstr ""
 
 msgid "Monitored"
-msgstr "已监听"
+msgstr ""
 
 msgid "Monitoring"
-msgstr "监测"
+msgstr ""
 
 msgid "Monitoring enabled"
-msgstr "监控已启用"
+msgstr ""
 
 msgid "Month"
-msgstr "月"
+msgstr ""
 
 msgid "Monthly"
-msgstr "每月"
+msgstr ""
 
 msgid "Montserrat"
-msgstr "蒙塞拉特岛"
+msgstr ""
 
 msgid "Morocco"
-msgstr "摩洛哥"
+msgstr ""
 
 msgid "Mount"
-msgstr "挂载"
+msgstr ""
 
 msgid "Mount Options"
-msgstr "挂载选项"
+msgstr ""
 
 msgid "Mount Point"
-msgstr "挂载点"
+msgstr ""
 
 msgid "Mount an existing file system."
-msgstr "挂载现有文件系统。"
+msgstr ""
 
 msgid "Mounted"
-msgstr "已挂载"
+msgstr ""
 
 msgid "Mozambique"
-msgstr "莫桑比克"
+msgstr ""
 
 msgid "Myanmar"
-msgstr "缅甸"
+msgstr ""
 
 msgid "NFS"
-msgstr "NFS"
+msgstr ""
 
 msgid "Name"
-msgstr "名称"
+msgstr ""
 
 msgid "Namibia"
-msgstr "纳米比亚"
+msgstr ""
 
 msgid "Nauru"
-msgstr "瑙鲁"
+msgstr ""
 
 msgid "Nepal"
-msgstr "尼泊尔"
+msgstr ""
 
 msgid "Netherlands"
-msgstr "荷兰"
+msgstr ""
 
 msgid "Netherlands Antilles"
-msgstr "荷属安的列斯"
+msgstr ""
 
 msgid "Netmask"
-msgstr "子网掩码"
+msgstr ""
 
 msgid "Network"
-msgstr "网络"
+msgstr ""
 
 msgid "Network Interfaces"
-msgstr "网络接口"
+msgstr ""
 
 msgid "Neutral Zone"
-msgstr "中立区"
+msgstr ""
 
 msgid "Never"
-msgstr "永不"
+msgstr ""
 
 msgid "New Caledonia"
-msgstr "新喀里多尼亚"
+msgstr ""
 
 msgid "New Zealand"
-msgstr "新西兰"
+msgstr ""
 
 msgid "New package updates are available for installation."
-msgstr "新的软件包更新已可安裝。"
+msgstr ""
 
 msgid "New password"
-msgstr "新密码"
+msgstr ""
 
 msgid "Nicaragua"
-msgstr "尼加拉瓜"
+msgstr ""
 
 msgid "Niger"
-msgstr "尼日尔"
+msgstr ""
 
 msgid "Nigeria"
-msgstr "尼日利亚"
+msgstr ""
 
 msgid "Niue"
-msgstr "纽埃"
+msgstr ""
 
 msgid "No"
-msgstr "否"
+msgstr ""
 
 msgid "No access"
-msgstr "禁止读写"
+msgstr ""
 
 msgid "No connections"
-msgstr "无连接"
+msgstr ""
 
 msgid "No data to display."
-msgstr "无数据可显示"
+msgstr ""
 
 msgid "No users connected"
-msgstr "无用户连接"
+msgstr ""
 
 msgid "None"
-msgstr "无"
+msgstr ""
 
 msgid "Norfolk Island"
-msgstr "诺福克岛"
+msgstr ""
 
 msgid "Normal"
-msgstr "正常"
+msgstr ""
 
 msgid "North Korea"
-msgstr "朝鲜"
+msgstr ""
 
 msgid "North Vietnam"
-msgstr "北越"
+msgstr ""
 
 msgid "Northern Mariana Islands"
-msgstr "北马里亚纳群岛"
+msgstr ""
 
 msgid "Norway"
-msgstr "挪威"
+msgstr ""
 
 msgid "Not ICMP"
-msgstr "非 ICMP"
+msgstr ""
 
 msgid "Not ICMPv6"
-msgstr "非 ICMPv6"
+msgstr ""
 
 msgid "Not TCP"
-msgstr "非 TCP"
+msgstr ""
 
 msgid "Not UDP"
-msgstr "非 UDP"
+msgstr ""
 
 msgid "Not mounted"
-msgstr "未被挂载"
+msgstr ""
 
 msgid "Not running"
-msgstr "不在运行"
+msgstr ""
 
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
-msgstr "注意 SMB1 已经弃用，仅在联机终端不支持高版本情况下使用。"
+msgstr ""
 
 msgid "Nothing"
-msgstr "没有"
+msgstr ""
 
 msgid "Notification"
-msgstr "通知"
+msgstr ""
 
 msgid "Notifications"
-msgstr "通知"
+msgstr ""
 
 msgid "November"
-msgstr "十一月"
+msgstr ""
 
 msgid "Num"
-msgstr "号码"
+msgstr ""
 
 msgid "OK"
-msgstr "是"
+msgstr ""
 
 msgid ""
 "Obsolete cached data found. Page will be reloaded. If the problem persists, "
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
-msgstr "发现过期的缓存，页面将刷新，如果还有问题，请按 Ctrl-Shift-R 或 Ctrl-F5 强制刷新页面。"
+msgstr ""
 
 msgid "October"
-msgstr "十月"
+msgstr ""
 
 msgid "Offline immediate test"
-msgstr "离线即使测试"
+msgstr ""
 
 msgid "Old-age"
-msgstr "Old-age"
+msgstr ""
 
 msgid "Oman"
-msgstr "阿曼"
+msgstr ""
 
 msgid "Online"
-msgstr "在线"
+msgstr ""
 
 msgid "Operation"
-msgstr "操作"
+msgstr ""
 
 msgid "Options"
-msgstr "选项"
+msgstr ""
 
 msgid "Organization Name"
-msgstr "组织名称"
+msgstr ""
 
 msgid "Organization Unit"
-msgstr "组织单位"
+msgstr ""
 
 msgid "Others"
-msgstr "其它"
+msgstr ""
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
-msgstr "发送 SMTP 服务器地址，例如：smtp.mycorp.com。"
+msgstr ""
 
 msgid "Outlying Oceania"
-msgstr "离岛大洋洲"
+msgstr ""
 
 msgid "Owner"
-msgstr "所有者"
+msgstr ""
 
 msgid "Pacific Islands Trust Territory"
-msgstr "太平洋岛屿托管领土"
+msgstr ""
 
 msgid "Package Information"
-msgstr "软件包信息"
+msgstr ""
 
 msgid "Package management."
-msgstr "套件管理。"
+msgstr ""
 
 msgid "Pakistan"
-msgstr "巴基斯坦"
+msgstr ""
 
 msgid "Palau"
-msgstr "帕劳"
+msgstr ""
 
 msgid "Palestinian Territory"
-msgstr "巴勒斯坦"
+msgstr ""
 
 msgid "Panama"
-msgstr "巴拿马"
+msgstr ""
 
 msgid "Panama Canal Zone"
-msgstr "巴拿马运河区"
+msgstr ""
 
 msgid "Papua New Guinea"
-msgstr "巴布亚新几内亚"
+msgstr ""
 
 msgid "Paraguay"
-msgstr "巴拉圭"
+msgstr ""
 
 msgid "Parent Device"
-msgstr "父设备"
+msgstr ""
 
 msgid "Parent UUID"
-msgstr "上層 UUID"
+msgstr ""
 
 msgid "Parent device"
-msgstr "父设备"
+msgstr ""
 
 msgid "Password"
-msgstr "密码"
+msgstr ""
 
 msgid "Password authentication"
-msgstr "密码验证"
+msgstr ""
 
 msgid "Password does not match."
-msgstr "密码不匹配"
+msgstr ""
 
 msgid "Password doesn't match."
-msgstr "密码不匹配"
+msgstr ""
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
-msgstr "在这粘贴 X.509 格式的 RSA 或 ECC 证书。"
+msgstr ""
 
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
-msgstr "在这粘贴 X.509 格式的 RSA 或 ECC 私钥。"
+msgstr ""
 
 msgid "Pending configuration changes"
-msgstr "待应用的配置更改"
+msgstr ""
 
 msgid "People's Democratic Republic of Yemen"
-msgstr "也门人民民主共和国"
+msgstr ""
 
 msgid "Perform a trial run with no changes made"
-msgstr "执行试运行而不做改变"
+msgstr ""
 
 msgid "Performance Statistics"
-msgstr "性能统计"
+msgstr ""
 
 msgid "Period of validity"
-msgstr "有效时间"
+msgstr ""
 
 msgid "Permission"
-msgstr "權限"
+msgstr ""
 
 msgid "Permissions"
-msgstr "权限"
+msgstr ""
 
 msgid "Permissions of group."
-msgstr "用户组权限。"
+msgstr ""
 
 msgid "Permissions of others (e.g. anonymous FTP users)."
-msgstr "其它权限 (例如：匿名 FTP 用户)"
+msgstr ""
 
 msgid "Permissions of owner."
-msgstr "所有者权限"
+msgstr ""
 
 msgid "Permit root login"
-msgstr "允许 root 登录"
+msgstr ""
 
 msgid "Permit to do SSH tunneling."
-msgstr "允许走 SSH 隧道。"
+msgstr ""
 
 msgid "Peru"
-msgstr "秘鲁"
+msgstr ""
 
 msgid "Philippines"
-msgstr "菲律宾"
+msgstr ""
 
 msgid "Pitcairn"
-msgstr "皮特凯恩群岛"
+msgstr ""
 
 msgid ""
 "Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr "详情请看<a href=\"http://www.samba.org/ftp/rsync/rsync.html\" target=\"_blank\"> 手册  </a> 。"
+msgstr ""
 
 msgid ""
 "Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
 " target=\"_blank\">manual page</a> for more details."
-msgstr "详情请看<a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\" target=\"_blank\">手册</a> 。"
+msgstr ""
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr "详情请看<a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\">手册</a>。"
+msgstr ""
 
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "详情请看 <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'> 手册 </a> 。"
+msgstr ""
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/nfs-kernel-"
 "server/exports.5.html' target='_blank'>manual page</a> for more details."
-msgstr "详情请看 <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>手冊</a>。"
+msgstr ""
 
 msgid "Please choose the method to wipe the device."
-msgstr "请选择该设备的擦除方式。"
+msgstr ""
 
 msgid "Please wait ..."
-msgstr "请稍等 ..."
+msgstr ""
 
 msgid "Please wait, deleting selected item(s) ..."
-msgstr "请稍等，正在删除选中的项（可多选）……"
+msgstr ""
 
 msgid "Please wait, identifying network device ..."
-msgstr "请稍等，正在识别网络设备……"
+msgstr ""
 
 msgid "Please wait, installing public SSH key on remote system ..."
-msgstr "请稍等，正在远程主机上安装SSH公钥……"
+msgstr ""
 
 msgid "Please wait, processing selected item(s) ..."
-msgstr "请稍等，正在执行选中项（可多选）..."
+msgstr ""
 
 msgid "Please wait, reverting configuration changes ..."
-msgstr "请稍等，正在还原配置变更 ..."
+msgstr ""
 
 msgid "Please wait, sending a test email ..."
-msgstr "请稍等，正在发送测试邮件……"
+msgstr ""
 
 msgid "Please wait, the configuration changes are being applied ..."
-msgstr "请稍等，正在应用变更后的配置……"
+msgstr ""
 
 msgid "Please wait, the data is being loaded ..."
-msgstr "请稍等，正在加载数据……"
+msgstr ""
 
 msgid "Please wait, the statistic graphs will be regenerated ..."
-msgstr "请稍等，马上生成统计图……"
+msgstr ""
 
 msgid "Please wait, unmounting the file system ..."
-msgstr "请稍等，正在卸载文件系统……"
+msgstr ""
 
 msgid "Please wait, updating access control lists ..."
-msgstr "请稍等，正在更新访问控制列表……"
+msgstr ""
 
 msgid "Please wait, updating the permissions ..."
-msgstr "请稍等，更新权限中 ..."
+msgstr ""
 
 msgid "Plugins"
-msgstr "插件"
+msgstr ""
 
 msgid "Poland"
-msgstr "波兰"
+msgstr ""
 
 msgid "Port"
-msgstr "端口"
+msgstr ""
 
 msgid "Portugal"
-msgstr "葡萄牙"
+msgstr ""
 
 msgid "Power"
-msgstr "电源"
+msgstr ""
 
 msgid "Power Management"
-msgstr "电源管理"
+msgstr ""
 
 msgid "Power Off"
-msgstr "关机"
+msgstr ""
 
 msgid "Power button"
-msgstr "电源按键"
+msgstr ""
 
 msgid "Power cycle count"
-msgstr "电源循环计数"
+msgstr ""
 
 msgid "Power mode"
-msgstr "电源模式"
+msgstr ""
 
 msgid "Powered on"
-msgstr "开机"
+msgstr ""
 
 msgid "Pre-release updates"
-msgstr "预发布更新。"
+msgstr ""
 
 msgid "Prefail"
-msgstr "prefail"
+msgstr ""
 
 msgid "Prefix address"
-msgstr "前缀地址"
+msgstr ""
 
 msgid "Prefix length"
-msgstr "前缀长度"
+msgstr ""
 
 msgid "Preserve ACLs"
-msgstr "保存 ACLs"
+msgstr ""
 
 msgid "Preserve extended attributes"
-msgstr "保留扩展属性"
+msgstr ""
 
 msgid "Preserve group"
-msgstr "保存用户组"
+msgstr ""
 
 msgid "Preserve modification times"
-msgstr "保存修改时间"
+msgstr ""
 
 msgid "Preserve owner"
-msgstr "保存拥有者"
+msgstr ""
 
 msgid "Preserve permissions"
-msgstr "保存权限"
+msgstr ""
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
@@ -2438,1029 +2432,1029 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr "测试时磁盘会转动，请选择合适的模式来控制磁盘转动。<ul><li>永远-无论是什么功耗模式下都测试(检查)磁盘，当检查时，这可能会使停转的磁盘开始转动。</li><li>睡眠-处于睡眠模式下不检查设备。</li><li>待机-处于待机和睡眠模式下不检查设备。此模式下磁盘一般不旋转，如果你不想每次检查都转动磁盘，那么这个模式比较适合。</li><li>闲置-处于待机、睡眠、闲置模式下不检查设备，在闲置状态下，大多数磁盘还在转动，所以这可能不适合你。</li></ul>"
+msgstr ""
 
 msgid "Primary"
-msgstr "主要"
+msgstr ""
 
 msgid "Primary email"
-msgstr "主要 Email"
+msgstr ""
 
 msgid "Private key"
-msgstr "私钥"
+msgstr ""
 
 msgid "Process monitoring"
-msgstr "进程监控"
+msgstr ""
 
 msgid "Processes"
-msgstr "进程"
+msgstr ""
 
 msgid "Processor"
-msgstr "处理器"
+msgstr ""
 
 msgid "Profile"
-msgstr "介绍"
+msgstr ""
 
 msgid "Protocol"
-msgstr "协议"
+msgstr ""
 
 msgid "Proxy"
-msgstr "代理"
+msgstr ""
 
 msgid "Public"
-msgstr "公开"
+msgstr ""
 
 msgid "Public key"
-msgstr "公钥"
+msgstr ""
 
 msgid "Public key authentication"
-msgstr "公钥认证"
+msgstr ""
 
 msgid "Puerto Rico"
-msgstr "波多黎各"
+msgstr ""
 
 msgid "Pull"
-msgstr "拉取"
+msgstr ""
 
 msgid "Push"
-msgstr "推送"
+msgstr ""
 
 msgid "Qatar"
-msgstr "卡塔尔"
+msgstr ""
 
 msgid "Quick"
-msgstr "快速"
+msgstr ""
 
 msgid "Quota"
-msgstr "配额"
+msgstr ""
 
 msgid "RSync server"
-msgstr "RSync 服务器"
+msgstr ""
 
 msgid "Raw value"
-msgstr "实测值"
+msgstr ""
 
 msgid "Read only"
-msgstr "只读"
+msgstr ""
 
 msgid "Read-only"
-msgstr "只读"
+msgstr ""
 
 msgid "Read/Execute"
-msgstr "读/执行"
+msgstr ""
 
 msgid "Read/Write"
-msgstr "读/写"
+msgstr ""
 
 msgid "Read/Write/Execute"
-msgstr "读/写/执行"
+msgstr ""
 
 msgid "Reboot"
-msgstr "重启"
+msgstr ""
 
 msgid "Recipient"
-msgstr "收件人"
+msgstr ""
 
 msgid "Recurse into directories"
-msgstr "递归到目录"
+msgstr ""
 
 msgid "Recursive"
-msgstr "递归"
+msgstr ""
 
 msgid "Referenced"
-msgstr "引用"
+msgstr ""
 
 msgid "Relative Path"
-msgstr "相对路径"
+msgstr ""
 
 msgid "Relative path"
-msgstr "相对路径"
+msgstr ""
 
 msgid "Reload"
-msgstr "刷新"
+msgstr ""
 
 msgid "Remaining"
-msgstr "剩余"
+msgstr ""
 
 msgid "Remote"
-msgstr "远程"
+msgstr ""
 
 msgid "Replace"
-msgstr "取代"
+msgstr ""
 
 msgid "Replace all existing permissions."
-msgstr "取代现存所有权限"
+msgstr ""
 
 msgid "Report"
-msgstr "报告"
+msgstr ""
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report."
-msgstr "自上次报告以来温度变化至少 N 度，则需报告."
+msgstr ""
 
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius."
-msgstr "如果温度大于或等于 N 摄氏度则报告."
+msgstr ""
 
 msgid "Repository"
-msgstr "软件源"
+msgstr ""
 
 msgid "Reset UI to defaults"
-msgstr "恢复默认 UI 状态"
+msgstr ""
 
 msgid "Result"
-msgstr "结果"
+msgstr ""
 
 msgid "Retention period"
-msgstr "保留時間"
+msgstr ""
 
 msgid "Retention time"
-msgstr "保留时间"
+msgstr ""
 
 msgid "Reunion"
-msgstr "留尼汪"
+msgstr ""
 
 msgid "Reverted the configuration changes."
-msgstr "恢复配置变更"
+msgstr ""
 
 msgid "Romania"
-msgstr "罗马尼亚"
+msgstr ""
 
 msgid "Row No."
-msgstr "Row No."
+msgstr ""
 
 msgid "Rsync"
-msgstr "Rsync"
+msgstr ""
 
 msgid "Rsync - Jobs"
-msgstr "Rsync - 任务"
+msgstr ""
 
 msgid "Rsync - Server"
-msgstr "Rsync - 服务器"
+msgstr ""
 
 msgid "Rules"
-msgstr "规则"
+msgstr ""
 
 msgid "Run"
-msgstr "运行"
+msgstr ""
 
 msgid "Run rsync task"
-msgstr "运行rsync任务"
+msgstr ""
 
 msgid "Run scheduled task"
-msgstr "运行计划任务"
+msgstr ""
 
 msgid "Running"
-msgstr "运行中"
+msgstr ""
 
 msgid "Russia"
-msgstr "俄罗斯"
+msgstr ""
 
 msgid "Rwanda"
-msgstr "卢旺达"
+msgstr ""
 
 msgid "S.M.A.R.T."
-msgstr "S.M.A.R.T."
+msgstr ""
 
 msgid "S.M.A.R.T. Status"
-msgstr "S.M.A.R.T. 状态"
+msgstr ""
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr "S.M.A.R.T. 监控必须激活所选设备。"
+msgstr ""
 
 msgid "SMB/CIFS"
-msgstr "SMB/CIFS"
+msgstr ""
 
 msgid "SMB/CIFS - Audit"
-msgstr "SMB/CIFS - 审核"
+msgstr ""
 
 msgid "SMB/CIFS file, print, and login server for Unix."
-msgstr "SMB/CIFS 文件、打印、和登录服务。"
+msgstr ""
 
 msgid "SMTP port"
-msgstr "SMTP 端口"
+msgstr ""
 
 msgid "SMTP server"
-msgstr "SMTP 服务器"
+msgstr ""
 
 msgid "SSH"
-msgstr "SSH"
+msgstr ""
 
 msgid "SSH certificate"
-msgstr "SSH 证书"
+msgstr ""
 
 msgid "SSH port"
-msgstr "SSH 端口"
+msgstr ""
 
 msgid "SSH public key"
-msgstr "SSH公钥"
+msgstr ""
 
 msgid "SSH public keys"
-msgstr "SSH公钥"
+msgstr ""
 
 msgid "SSID"
-msgstr " SSID"
+msgstr ""
 
 msgid "SSL"
-msgstr "SSL"
+msgstr ""
 
 msgid "SSL/TLS"
-msgstr "SSL/TLS"
+msgstr ""
 
 msgid "SSL/TLS enabled"
-msgstr "已启用SSL/TLS"
+msgstr ""
 
 msgid "STARTTLS"
-msgstr "启用 TLS"
+msgstr ""
 
 msgid "Saint Helena"
-msgstr "圣赫勒拿"
+msgstr ""
 
 msgid "Saint Kitts and Nevis"
-msgstr "圣基茨和尼维斯"
+msgstr ""
 
 msgid "Saint Lucia"
-msgstr "圣卢西亚"
+msgstr ""
 
 msgid "Saint Pierre and Miquelon"
-msgstr "圣皮埃尔和密克隆"
+msgstr ""
 
 msgid "Saint Vincent and the Grenadines"
-msgstr "圣文森特和格林纳丁斯"
+msgstr ""
 
 msgid "Samoa"
-msgstr "萨摩亚"
+msgstr ""
 
 msgid "San Marino"
-msgstr "圣马力诺"
+msgstr ""
 
 msgid "Sao Tome and Principe"
-msgstr "圣多美和普林西比"
+msgstr ""
 
 msgid "Saturday"
-msgstr "星期六"
+msgstr ""
 
 msgid "Saudi Arabia"
-msgstr "沙特阿拉伯"
+msgstr ""
 
 msgid "Save"
-msgstr "保存"
+msgstr ""
 
 msgid "Scan for new devices"
-msgstr "扫描新设备"
+msgstr ""
 
 msgid "Scanning for new devices ..."
-msgstr "正在扫描新设备..."
+msgstr ""
 
 msgid "Scheduled Tasks"
-msgstr "计划任务"
+msgstr ""
 
 msgid "Scheduling"
-msgstr "调度"
+msgstr ""
 
 msgid "Search domains"
-msgstr "搜索域名"
+msgstr ""
 
 msgid "Secondary email"
-msgstr "次要 Email"
+msgstr ""
 
 msgid "Seconds"
-msgstr "秒"
+msgstr ""
 
 msgid "Section"
-msgstr "类别"
+msgstr ""
 
 msgid "Secure"
-msgstr "安全"
+msgstr ""
 
 msgid "Secure connection"
-msgstr "安全连接"
+msgstr ""
 
 msgid "Select a country ..."
-msgstr "选择国家 ..."
+msgstr ""
 
 msgid "Select a device ..."
-msgstr "选择设备 ..."
+msgstr ""
 
 msgid "Select a file system ..."
-msgstr "选择文件系统 ..."
+msgstr ""
 
 msgid "Select a group ..."
-msgstr "选择一个组……"
+msgstr ""
 
 msgid "Select a shared folder ..."
-msgstr "选择共享文件夹 ..."
+msgstr ""
 
 msgid "Select a shell ..."
-msgstr "选择 shell ..."
+msgstr ""
 
 msgid "Select a system log ..."
-msgstr "选择一个系统日志……"
+msgstr ""
 
 msgid "Select all"
-msgstr "选择全部"
+msgstr ""
 
 msgid "Select an authentication mode ..."
-msgstr "选择授权模式 ..."
+msgstr ""
 
 msgid "Select an user ..."
-msgstr "选择一个用户……"
+msgstr ""
 
 msgid "Select devices ..."
-msgstr "选择设备（可多选） ..."
+msgstr ""
 
 msgid "Select groups ..."
-msgstr "选择组"
+msgstr ""
 
 msgid "Select interface devices ..."
-msgstr "选择接口设备……"
+msgstr ""
 
 msgid "Select members ..."
-msgstr "选择成员……"
+msgstr ""
 
 msgid "Select permissions ..."
-msgstr "选择权限"
+msgstr ""
 
 msgid "Select slave devices ..."
-msgstr "选择从设备"
+msgstr ""
 
 msgid "Select the device that will be used to create the file system."
-msgstr "选择用于新建文件系统的设备。"
+msgstr ""
 
 msgid "Select the devices that will be used to create the file system."
-msgstr "选择要创建文件系统的磁盘。"
+msgstr ""
 
 msgid "Self-Test Logs"
-msgstr "自检日志"
+msgstr ""
 
 msgid ""
 "Send a notification when the used file system capacity exceeds the specified"
 " threshold."
-msgstr "文件系统已用空间超过指定阈值时发出通知消息。"
+msgstr ""
 
 msgid "Send command output via email"
-msgstr "命令输出用 Email 发送"
+msgstr ""
 
 msgid "Sender email"
-msgstr "发送 Email "
+msgstr ""
 
 msgid "Senegal"
-msgstr "塞内加尔"
+msgstr ""
 
 msgid "September"
-msgstr "九月"
+msgstr ""
 
 msgid "Serbia And Montenegro"
-msgstr "塞尔维亚和黑山"
+msgstr ""
 
 msgid "Serial Number"
-msgstr "序号"
+msgstr ""
 
 msgid "Serial number"
-msgstr "序号"
+msgstr ""
 
 msgid "Server"
-msgstr "服务器"
+msgstr ""
 
 msgid "Service"
-msgstr "服务"
+msgstr ""
 
 msgid "Service disabled"
-msgstr "服务被禁用"
+msgstr ""
 
 msgid "Services"
-msgstr "服务"
+msgstr ""
 
 msgid "Session expired."
-msgstr "会话过期。"
+msgstr ""
 
 msgid "Session not authenticated."
-msgstr "会话未通过验证。"
+msgstr ""
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr "设置目标权限和源权限一致。"
+msgstr ""
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr "设置目标用户组与源文件一致。"
+msgstr ""
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr "仅超级用户运行 rsync 接受文件时，设置目标拥有者与源文件一致。"
+msgstr ""
 
 msgid "Sets the interval between disk checks to N seconds."
-msgstr "设定磁盘检查间隔时间为 N 秒"
+msgstr ""
 
 msgid "Settings"
-msgstr "设置"
+msgstr ""
 
 msgid "Seychelles"
-msgstr "塞舌尔群岛"
+msgstr ""
 
 msgid "Share"
-msgstr "分享"
+msgstr ""
 
 msgid "Shared Folders"
-msgstr "共享文件夹"
+msgstr ""
 
 msgid "Shared folder"
-msgstr "共享文件夹"
+msgstr ""
 
 msgid "Shared folder name"
-msgstr "共享文件夹名称"
+msgstr ""
 
 msgid "Shared folder path"
-msgstr "共享文件夹路径"
+msgstr ""
 
 msgid "Shared folder permissions"
-msgstr "共享檔案夾權限"
+msgstr ""
 
 msgid "Shared folder permissions have been copied."
-msgstr "共享檔案夾的權限已被複製。"
+msgstr ""
 
 msgid "Shares"
-msgstr "共享"
+msgstr ""
 
 msgid "Shell"
-msgstr "Shell"
+msgstr ""
 
 msgid "Short self-test"
-msgstr "短暂自检"
+msgstr ""
 
 msgid "Show changelog"
-msgstr "显示变更日志"
+msgstr ""
 
 msgid "Show details"
-msgstr "显示详情"
+msgstr ""
 
 msgid "Show/Hide columns"
-msgstr "显示/隐藏栏目"
+msgstr ""
 
 msgid "Show/Hide navigation"
-msgstr "显示/隐藏导航"
+msgstr ""
 
 msgid "Shutdown"
-msgstr "关机"
+msgstr ""
 
 msgid "Sierra Leone"
-msgstr "塞拉利昂"
+msgstr ""
 
 msgid "Singapore"
-msgstr "新加坡"
+msgstr ""
 
 msgid "Size"
-msgstr "大小"
+msgstr ""
 
 msgid "Slaves"
-msgstr "隶属"
+msgstr ""
 
 msgid "Sleep"
-msgstr "睡眠"
+msgstr ""
 
 msgid "Slovakia"
-msgstr "斯洛伐克"
+msgstr ""
 
 msgid "Slovenia"
-msgstr "斯罗文尼亚"
+msgstr ""
 
 msgid "Snapshots"
-msgstr "快照"
+msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."
-msgstr "软件错误。   按鼠标左键继续。"
+msgstr ""
 
 msgid "Solomon Islands"
-msgstr "所罗门群岛"
+msgstr ""
 
 msgid "Somalia"
-msgstr "索马里"
+msgstr ""
 
 msgid "Source"
-msgstr "来源"
+msgstr ""
 
 msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
 "or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
-msgstr "源地址可以是 IP 地址(包含/子网掩码)，IP 范围或者单个 IP，地址前可以加 '!' 表示“非”。"
+msgstr ""
 
 msgid "Source port"
-msgstr "源端口"
+msgstr ""
 
 msgid "Source server"
-msgstr "源服务器"
+msgstr ""
 
 msgid "Source shared folder"
-msgstr "源共享文件夹"
+msgstr ""
 
 msgid "South Africa"
-msgstr "南非"
+msgstr ""
 
 msgid "South Georgia and the South Sandwich Islands"
-msgstr "南乔治亚岛和南桑威奇群岛"
+msgstr ""
 
 msgid "South Korea"
-msgstr "韩国"
+msgstr ""
 
 msgid "Spain"
-msgstr "西班牙"
+msgstr ""
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
-msgstr "指定 MII 连接的监控频率，单位是毫秒。"
+msgstr ""
 
 msgid "Specifies the interface devices."
-msgstr "指定接口设备"
+msgstr ""
 
 msgid "Specifies the slave devices."
-msgstr "指定从设备"
+msgstr ""
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
 "a link failure has been detected."
-msgstr "检测到故障后等待多少毫秒再停用链路。"
+msgstr ""
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
-msgstr "检测到正常后等多少毫秒再恢复链路。"
+msgstr ""
 
 msgid "Specifies the type of key to create."
-msgstr "指定所要產生之金鑰的類型。"
+msgstr ""
 
 msgid "Specifies whether it is allowed to login as superuser."
-msgstr "指定是否允许以超级用户登录。"
+msgstr ""
 
 msgid ""
 "Specifies whether the system performance statistics are collected "
 "periodically."
-msgstr "指定系统是否定期收集性能统计信息。"
+msgstr ""
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
-msgstr "指定是否监控系统状态并选择最适合的 CPU 级别。"
+msgstr ""
 
 msgid "Specifies which slave is the primary device."
-msgstr "指定主从设备。"
+msgstr ""
 
 msgid "Speed"
-msgstr "速度"
+msgstr ""
 
 msgid "Spindown time"
-msgstr "停转时间"
+msgstr ""
 
 msgid "Sri Lanka"
-msgstr "斯里兰卡"
+msgstr ""
 
 msgid "Standby"
-msgstr "待机"
+msgstr ""
 
 msgid "Standby mode"
-msgstr "待机模式"
+msgstr ""
 
 msgid "Start"
-msgstr "开始"
+msgstr ""
 
 msgid "State"
-msgstr "状态"
+msgstr ""
 
 msgid "State/Province"
-msgstr "州/省"
+msgstr ""
 
 msgid "Static"
-msgstr "静态"
+msgstr ""
 
 msgid "Statistics collection and monitoring daemon."
-msgstr "统计信息收集和监视守护程序。"
+msgstr ""
 
 msgid "Status"
-msgstr "状态"
+msgstr ""
 
 msgid "Stop"
-msgstr "停止"
+msgstr ""
 
 msgid "Storage"
-msgstr "存储器"
+msgstr ""
 
 msgid "Store DOS attributes"
-msgstr "存储 DOS 属性"
+msgstr ""
 
 msgid "Success"
-msgstr "成功"
+msgstr ""
 
 msgid "Sudan"
-msgstr "苏丹"
+msgstr ""
 
 msgid "Summary"
-msgstr "概述"
+msgstr ""
 
 msgid "Sunday"
-msgstr " 星期日"
+msgstr ""
 
 msgid "Support name resolution and network discovery for legacy systems."
-msgstr "支援對舊有系統的名稱解析和網路探索。"
+msgstr ""
 
 msgid "Suppress non-error messages"
-msgstr "抑制非错误信息"
+msgstr ""
 
 msgid "Suriname"
-msgstr "苏里南河"
+msgstr ""
 
 msgid "Suspend"
-msgstr "暫停"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
-msgstr "斯瓦尔巴群岛和扬马延岛"
+msgstr ""
 
 msgid "Swaziland"
-msgstr "斯威士兰"
+msgstr ""
 
 msgid "Sweden"
-msgstr "瑞典"
+msgstr ""
 
 msgid "Switzerland"
-msgstr "瑞士"
+msgstr ""
 
 msgid "Syria"
-msgstr "叙利亚"
+msgstr ""
 
 msgid "Syslog"
-msgstr "系统日志"
+msgstr ""
 
 msgid "System"
-msgstr "系统"
+msgstr ""
 
 msgid "System Information"
-msgstr "系统信息"
+msgstr ""
 
 msgid "System Logs"
-msgstr "系统日志"
+msgstr ""
 
 msgid "System Time"
-msgstr "系统时间"
+msgstr ""
 
 msgid "System account"
-msgstr "系统账户"
+msgstr ""
 
 msgid "System clock synchronization client and server."
-msgstr "系统时间与客户方和服务端同步。"
+msgstr ""
 
 msgid ""
 "System monitoring is disabled. To enable it, please go to the <a "
 "href='#/system/monitoring'>settings page</a>."
-msgstr "系統监测被停用。若要启用它，请前往 <a href='#/system/monitoring'>设置页</a>。"
+msgstr ""
 
 msgid "System restart required"
-msgstr "需要重启系統"
+msgstr ""
 
 msgid "System time"
-msgstr "系统时间"
+msgstr ""
 
 msgid "TCP"
-msgstr "TCP"
+msgstr ""
 
 msgid "TCP forwarding"
-msgstr "TCP 转发"
+msgstr ""
 
 msgid "Tags"
-msgstr "标签"
+msgstr ""
 
 msgid "Taiwan"
-msgstr "中国台湾"
+msgstr ""
 
 msgid "Tajikistan"
-msgstr "塔吉克斯坦斯坦"
+msgstr ""
 
 msgid ""
 "Take caution when setting this polling interval to more than sixty minutes. "
 "The poll times may fail to coincide with any of the scheduled test that have"
 " been specified. In this case the scheduled test will be run following the "
 "next device polling."
-msgstr "将此周期间隔设置为 60 分钟以上时要注意。周期时间可能无法与指定的任何计划测试一致。这种情况下，计划的测试将在下一周期运行。"
+msgstr ""
 
 msgid "Tanzania"
-msgstr "坦桑尼亚"
+msgstr ""
 
 msgid "Tasks"
-msgstr "任务"
+msgstr ""
 
 msgid "Temperature"
-msgstr "温度"
+msgstr ""
 
 msgid "Temperature monitoring"
-msgstr "温度监测"
+msgstr ""
 
 msgid "Test"
-msgstr "测试"
+msgstr ""
 
 msgid "Thailand"
-msgstr "泰国"
+msgstr ""
 
 msgid "The NFS versions provided by the service."
-msgstr " NFS 服务版本。"
+msgstr ""
 
 msgid "The NT description field."
-msgstr "NT 描述字段。"
+msgstr ""
 
 msgid "The RSA key length."
-msgstr "RSA 密钥长度。"
+msgstr ""
 
 msgid "The SSH certificate used for authentication."
-msgstr "该 SSH 证书用于授权。"
+msgstr ""
 
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
-msgstr "OpenSSH或 RFC 4716 格式的SSH公钥"
+msgstr ""
 
 msgid "The action to be done when pressing the power button."
-msgstr "按下电源时要执行的动作。"
+msgstr ""
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
 "the <a href='#/dashboard/settings'>settings page</a>."
-msgstr "仪表盘未配置。如要个性化，请前往 <a href='#/dashboard/settings'>设置页</a>。"
+msgstr ""
 
 msgid "The data has been copied to the clipboard."
-msgstr "数据已复制到粘贴板"
+msgstr ""
 
 msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
-msgstr "SMTP 服务器默认端口，例如：25、465 或者 587。"
+msgstr ""
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
 "rsync://[USER@]HOST[:PORT]/DEST."
-msgstr "目标远程服务器，例如：[USER@]HOST:DEST, [USER@]HOST::DEST 或 rsync://[USER@]HOST[:PORT]/DEST。"
+msgstr ""
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr "此处仅包含 * 或逗号分割的值列表。"
+msgstr ""
 
 msgid "The file mode of the shared folder path."
-msgstr "共享文件夹路径的文件模式。"
+msgstr ""
 
 msgid "The file system on which the shared folder is to be created."
-msgstr "将在该文件系统上新建共享文件夹。"
+msgstr ""
 
 msgid "The file system to mount."
-msgstr "要挂载的文件系统。"
+msgstr ""
 
 msgid "The following modules will be updated:"
-msgstr "将更新以下模块："
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
-msgstr "主机名可以作为网络上识别系统的标签。"
+msgstr ""
 
 msgid "The hostname of the remote system."
-msgstr "远程系统主机名"
+msgstr ""
 
 msgid ""
 "The information about available software is out-of-date. Do you want to "
 "reload this information?"
-msgstr "可用软件信息已过期。你需要重新加载相关信息吗？"
+msgstr ""
 
 msgid "The location of the files to share."
-msgstr "共享文件的位置。"
+msgstr ""
 
 msgid ""
 "The location of the files to share. The share will be accessible at "
 "/export/<name>."
-msgstr "共享文件的位置，该位置可以在 /export/<name> 获取。"
+msgstr ""
 
 msgid "The location of the user home directories."
-msgstr "用户主目录位置。"
+msgstr ""
 
 msgid ""
 "The maximum transmission unit in bytes to set for the device. Set to 0 to "
 "use the default value."
-msgstr "为该设备设置最大传输值，以字节b为单位，0 为默认值。"
+msgstr ""
 
 msgid "The name of the share."
-msgstr "共享名称。"
+msgstr ""
 
 msgid "The number of custom snapshots to keep."
-msgstr "自訂要保留的快照數量。"
+msgstr ""
 
 msgid "The number of daily snapshots to keep."
-msgstr "要保留的每日快照數量。"
+msgstr ""
 
 msgid "The number of days the certificate is valid for."
-msgstr "证书有效期天数。"
+msgstr ""
 
 msgid "The number of hourly snapshots to keep."
-msgstr "要保留的每小時快照數量。"
+msgstr ""
 
 msgid "The number of monthly snapshots to keep."
-msgstr "要保留的每月快照數量。"
+msgstr ""
 
 msgid "The number of weekly snapshots to keep."
-msgstr "要保留的每週快照數量。"
+msgstr ""
 
 msgid "The number of yearly snapshots to keep."
-msgstr "要保留的每年快照數量。"
+msgstr ""
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
 "used for remote shell transport such as SSH."
-msgstr "该密码用于访问 rsync守护进程，不用于诸如ssh之类的远程 shell 传输."
+msgstr ""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create"
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
-msgstr "新文件和目录的权限一般是由创建掩码和目录掩码决定，但权限继承会复写它们。当系统有许多用户使用单一共享时这种方案会很灵活。"
+msgstr ""
 
 msgid "The port on which SSH is running on the remote system."
-msgstr "远程系统的 SSH 端口号。"
+msgstr ""
 
 msgid "The private key in PEM format."
-msgstr "PEM 格式的私密金鑰。"
+msgstr ""
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
-msgstr "该协议不支持源或目标端口。"
+msgstr ""
 
 msgid "The public key in OpenSSH format."
-msgstr "OpenSSH 格式的公開金鑰。"
+msgstr ""
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
 "created if it does not exist."
-msgstr "欲共享文件夹的相对路径，如该文件夹不存在则新建。"
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "软件源将检查是否有删除或更新的软件包信息。"
+msgstr ""
 
 msgid "The requested page was not found."
-msgstr "未找到请求的页面。"
+msgstr ""
 
 msgid ""
 "The retention period (in seconds) before a snapshot can be deleted. This "
 "ensures that a snapshot that has just been created cannot be deleted again "
 "immediately."
-msgstr "可以刪除快照之前的保留期（以秒為單位）。這確保了剛建立的快照不能立即再次刪除。"
+msgstr ""
 
 msgid "The server is unavailable to handle this request right now."
-msgstr "该请求当前无可用服务器资源。"
+msgstr ""
 
 msgid "The shared folder from which the permissions are copied."
-msgstr "權限是由此共享檔案夾複製來的。"
+msgstr ""
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
-msgstr "共享文件夹 {{ _selected[0].name }} 已成功建立。"
+msgstr ""
 
 msgid ""
 "The snapshot '{{ _response.name }}' has been created for the shared folder "
 "'{{ _response.sharedfolder }}'."
-msgstr " 共享文件夹 '{{ _response.sharedfolder }}' 的快照 '{{ _response.name }}' 已创建。"
+msgstr ""
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
-msgstr "源远程服务器，例如 [USER@]HOST:SRC, [USER@]HOST::SRC 或  rsync://[USER@]HOST[:PORT]/SRC。"
+msgstr ""
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr "系统将要重启，这需要一些时间 ..."
+msgstr ""
 
 msgid "The users that are allowed to access this module."
-msgstr "允许访问该模块的用户。"
+msgstr ""
 
 msgid "The value does not match the pattern /{{ pattern }}/."
-msgstr "该值不符合规则/{{ pattern }}/。"
+msgstr ""
 
 msgid ""
 "The value must be on of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "这里必须使用从网络接口 {{ slaves | join(\", \") }}。"
+msgstr ""
 
 msgid "The value must be on of the slave network interfaces."
-msgstr "该值必须是从网络接口。"
+msgstr ""
 
 msgid "The workgroup the server will appear to be in when queried by clients."
-msgstr "当客户端查询时，服务器会出现在该工作组。"
+msgstr ""
 
 msgid "There are no notifications."
-msgstr "无通知消息。"
+msgstr ""
 
 msgid ""
 "These settings are used by the services to configure the access rights for "
 "the group \"{{ _routeParams.name }}\". Please note that these settings have "
 "no effect on file system permissions."
-msgstr "这些设置用来配置用户组 “{{ _routeParams.name }}” 访问服务器的权限，不会对文件系统权限有影响。"
+msgstr ""
 
 msgid ""
 "These settings are used by the services to configure the access rights for "
 "the user \"{{ _routeParams.name }}\". Please note that these settings have "
 "no effect on file system permissions."
-msgstr "这些设置用来配置用户 “{{ _routeParams.name }}” 访问服务器的权限，不会对文件系统权限有影响。"
+msgstr ""
 
 msgid ""
 "These settings are used by the services to configure the user and group "
 "access rights. Please note that these settings have no effect on file system"
 " permissions."
-msgstr "这些设置用来配置用户和用户组访问服务器的权限，不会对文件系统的权限有影响。"
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
-msgstr "设置后共享会出现在网络的共享列表中。"
+msgstr ""
 
 msgid ""
 "This field contains invalid characters, e.g. a blank or \"/[]:+|<>=;,*? "
 "character."
-msgstr "此字段包含无效字符，例如空白或 \"/[]:+|<>=;,*? 字符。"
+msgstr ""
 
 msgid ""
 "This field contains invalid characters, only alphanumeric characters and "
 "underscore are allowed."
-msgstr "含有非法字符！（只允许字母和下划线）"
+msgstr ""
 
 msgid ""
 "This field is automatically filled with the subject of the certificate if "
 "left blank."
-msgstr "如果留空，这个选项将自动填入证书。"
+msgstr ""
 
 msgid "This field is required."
-msgstr "此字段是必须的"
+msgstr ""
 
 msgid "This field must have the format <hh:mm:ss>."
-msgstr "此字段的格式必须为 <hh:mm:ss>"
+msgstr ""
 
 msgid "This field should be a IP network address in CIDR notation."
-msgstr "此处应该是 CIDR 格式的 IP 地址。"
+msgstr ""
 
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
-msgstr "此欄位必須是一個 MAC 地址，例如：00:80:41:ae:fd:7e。"
+msgstr ""
 
 msgid "This field should be a domain name or an IP address."
-msgstr "此处应该是域名或者 IP 地址"
+msgstr ""
 
 msgid "This field should be a host name or an IP address in CIDR notation."
-msgstr "此字段是主机名或符合 CIDR 规范的 IP 地址"
+msgstr ""
 
 msgid "This field should be a list of IP addresses separated by <,> or <;>."
-msgstr "此字段是 IP 地址列表，使用 <,> 或 <;> 隔开。"
+msgstr ""
 
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>."
-msgstr "此字段是域名或者 IP 地址列表，使用 <,> 或 <;> 隔开。"
+msgstr ""
 
 msgid "This field should be a list of domain names or IP addresses."
-msgstr "此字段是域名或者 IP 地址列表。"
+msgstr ""
 
 msgid ""
 "This field should be a list of host names or IP addresses in CIDR notation "
 "separated by <,> or <;>."
-msgstr "此字段是主机名或符合 CIDR 规范的 IP 地址列表，使用 <,> 或<;>隔开。"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
-msgstr "此处应填128.0.0.0 - 255.255.255.252内的子网掩码。"
+msgstr ""
 
 msgid "This field should be a network port in the range of 1 to 65535."
-msgstr "此处填写端口范围是1-65535."
+msgstr ""
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
-msgstr "此处端口或端口范围 (例如：21 或 !443 或 1024-65535)。"
+msgstr ""
 
 msgid "This field should be an IP address."
-msgstr "此处应该是 IP 地址"
+msgstr ""
 
 msgid "This field should be an IPv4 address."
-msgstr "此处应该是 IPv4 地址"
+msgstr ""
 
 msgid "This field should be an IPv6 address."
-msgstr "此处应该是 IPv6 地址"
+msgstr ""
 
 msgid "This field should be an email address."
-msgstr "此处应该是电子邮箱地址。"
+msgstr ""
 
 msgid "This field should contain a decimal value."
-msgstr "此处应包含一个十进制值。"
+msgstr ""
 
 msgid "This field should contain a number with a binary prefix."
-msgstr "此字段应该包含二进制前缀的数字。"
+msgstr ""
 
 msgid "This field should contain a numeric value."
-msgstr "此处应包含一个数值。"
+msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."
-msgstr "如果磁盘支持此功能才有效。"
+msgstr ""
 
 msgid ""
 "This is a text field that is seen next to a share when a client queries the "
 "server."
-msgstr "这段字符会在客户端向服务器发送请求时显示。"
+msgstr ""
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
-msgstr "此选项决定当客户端请求一份可用模块列表时，是否将这个模块列出。"
+msgstr ""
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3469,7 +3463,7 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "此选项是以逗号、空格或制表符分开的一组主机，这些主机不允许读写这个共享，当不同列表有冲突时允许列表有优先权。如果要预设拒绝所有主机，则使用关键字 ALL (或者掩码 0.0.0.0/0)，然后在允许列表明确指定哪些主机有访问权限。此位置空则使用默认设置。"
+msgstr ""
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3478,362 +3472,362 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "此选项是以逗号、空格或制表符分开的一组主机，这些主机不允许读写这个共享，当不同列表有冲突时允许列表有优先权。如果要预设拒绝所有主机，则使用关键字 ALL (或者掩码 0.0.0.0/0)，然后在允许列表明确指定哪些主机有访问权限。此位置空则使用默认设置。"
+msgstr ""
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this module. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr "此选项是以逗号、空格或制表符分开的一组主机，这些主机允许读写这个共享，可以使用主机名或者 IP 地址来指定主机，此位置空则使用默认设置。"
+msgstr ""
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this share. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr "此选项是以逗号、空格或制表符分开的一组主机，这些主机允许读写这个共享，可以使用主机名或者 IP 地址来指定主机，此位置空则使用默认设置。"
+msgstr ""
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
-msgstr "此选项指定文件传输时的用户组名称。"
+msgstr ""
 
 msgid ""
 "This option specifies the maximum number of simultaneous connections. 0 "
 "means no limit."
-msgstr "此选项指定最大在线数，0 表示不限制。"
+msgstr ""
 
 msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
-msgstr "此选项指定文件传输时的用户组名称。"
+msgstr ""
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr "此参数可以用来确保在上层目录创建的文件或文件夹遵循上层目录已经存在的 ACLs。"
+msgstr ""
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
-msgstr "此参数决定是否要把以点开头的文件显示为隐藏文件"
+msgstr ""
 
 msgid ""
 "This setting controls the minimum protocol version that the server will "
 "allow the client to use."
-msgstr "该选项控制服务端与客户端联机使用的最低协议版本。"
+msgstr ""
 
 msgid "This specifies what to do if the packet matches."
-msgstr "该规则是如果数据包匹配则做什么。"
+msgstr ""
 
 msgid "This will create a recycle bin for each user home directory."
-msgstr "这将在每位用户的家目录创建回收站。"
+msgstr ""
 
 msgid "This will create a recycle bin for the share."
-msgstr "这将在共享上创建回收站。"
+msgstr ""
 
 msgid "Threshold"
-msgstr "阈值"
+msgstr ""
 
 msgid "Thursday"
-msgstr "星期四"
+msgstr ""
 
 msgid "Time Machine support"
-msgstr "支持时间胶囊 Time Machine"
+msgstr ""
 
 msgid "Time of execution"
-msgstr "执行的时间"
+msgstr ""
 
 msgid "Time server"
-msgstr "时间服务器"
+msgstr ""
 
 msgid "Time servers"
-msgstr "时间服务器"
+msgstr ""
 
 msgid "Time zone"
-msgstr "时区"
+msgstr ""
 
 msgid "Tip"
-msgstr "提示"
+msgstr ""
 
 msgid "Togo"
-msgstr "多哥"
+msgstr ""
 
 msgid "Tokelau"
-msgstr "托克劳群岛"
+msgstr ""
 
 msgid "Tonga"
-msgstr "汤加"
+msgstr ""
 
 msgid "Total"
-msgstr "总计"
+msgstr ""
 
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr "传输并在远程文件系统更新文件修改时间。"
+msgstr ""
 
 msgid "Transmit Hash Policy"
-msgstr "传输哈希策略"
+msgstr ""
 
 msgid "Transport encryption"
-msgstr "傳輸加密"
+msgstr ""
 
 msgid "Trial run"
-msgstr "试运行"
+msgstr ""
 
 msgid "Trinidad and Tobago"
-msgstr "特立尼达和多巴哥"
+msgstr ""
 
 msgid "Tuesday"
-msgstr "星期二"
+msgstr ""
 
 msgid "Tunisia"
-msgstr "突尼斯"
+msgstr ""
 
 msgid "Turkey"
-msgstr "土耳其"
+msgstr ""
 
 msgid "Turkmenistan"
-msgstr "土库曼尼斯坦"
+msgstr ""
 
 msgid "Turks and Caicos Islands"
-msgstr "特克斯和凯科斯群岛"
+msgstr ""
 
 msgid "Tuvalu"
-msgstr "图瓦卢"
+msgstr ""
 
 msgid "Type"
-msgstr "类型"
+msgstr ""
 
 msgid "U.S. Miscellaneous Pacific Islands"
-msgstr "美国其他太平洋岛屿"
+msgstr ""
 
 msgid "U.S. Virgin Islands"
-msgstr "美属维尔京群岛"
+msgstr ""
 
 msgid "UDP"
-msgstr "UDP"
+msgstr ""
 
 msgid "UID"
-msgstr "UID"
+msgstr ""
 
 msgid "UNKNOWN"
-msgstr "未知"
+msgstr ""
 
 msgid "UUID"
-msgstr "UUID"
+msgstr ""
 
 msgid "Uganda"
-msgstr "乌干达"
+msgstr ""
 
 msgid "Ukraine"
-msgstr "乌克兰"
+msgstr ""
 
 msgid "Undo"
-msgstr "撤销"
+msgstr ""
 
 msgid "Uninstall"
-msgstr "卸载"
+msgstr ""
 
 msgid "Uninstall plugin"
-msgstr "卸载插件 "
+msgstr ""
 
 msgid "Union of Soviet Socialist Republics"
-msgstr "苏维埃社会主义共和国联盟"
+msgstr ""
 
 msgid "Unit"
-msgstr "单位"
+msgstr ""
 
 msgid "United Arab Emirates"
-msgstr "阿联酋"
+msgstr ""
 
 msgid "United Kingdom"
-msgstr "英国"
+msgstr ""
 
 msgid "United States"
-msgstr "美国"
+msgstr ""
 
 msgid "United States Minor Outlying Islands"
-msgstr "美国本土外小岛屿"
+msgstr ""
 
 msgid "Unknown"
-msgstr "未知"
+msgstr ""
 
 msgid "Unmount"
-msgstr "卸载"
+msgstr ""
 
 msgid "Unrestricted"
-msgstr "不限"
+msgstr ""
 
 msgid "Up"
-msgstr "上移"
+msgstr ""
 
 msgid "Up delay"
-msgstr "延时"
+msgstr ""
 
 msgid "Update Management"
-msgstr "更新管理"
+msgstr ""
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr "更新目标 ACLs 和源 ACLs 一致。"
+msgstr ""
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr "更新目标扩展属性与本地的一致。"
+msgstr ""
 
 msgid "Updated NFS settings."
-msgstr "已更新NFS设置"
+msgstr ""
 
 msgid "Updated NFS share."
-msgstr "已更新NFS共享。"
+msgstr ""
 
 msgid "Updated Rsync Server settings."
-msgstr "已更新rsync服务器设置。"
+msgstr ""
 
 msgid "Updated Rsync server module \"{{ name }}\"."
-msgstr "更新 Rsync 服务端模块 “{{ name }}”。"
+msgstr ""
 
 msgid "Updated Rsync task."
-msgstr "已更新rsync任务。"
+msgstr ""
 
 msgid "Updated SMB/CIFS settings."
-msgstr "已更新SMB/CIFS共享。"
+msgstr ""
 
 msgid "Updated SMB/CIFS share."
-msgstr "已更新的SMB/CIFS共享。"
+msgstr ""
 
 msgid "Updated SSH certificate."
-msgstr "已更新SSH证书。"
+msgstr ""
 
 msgid "Updated SSH settings."
-msgstr "已更新的SSH设置。"
+msgstr ""
 
 msgid "Updated VLAN network connection \"{{ devicename }}\"."
-msgstr "已更新VLAN连接“{{ devicename }}”。"
+msgstr ""
 
 msgid "Updated access control list of shared folder."
-msgstr "已更新共享文件夹的访问控制列表。"
+msgstr ""
 
 msgid "Updated bond network connection \"{{ devicename }}\"."
-msgstr "更新绑定网络连接 “{{ devicename }}”。"
+msgstr ""
 
 msgid "Updated bridge network connection \"{{ devicename }}\"."
-msgstr "已更新桥接网络连接“{{ devicename }}”。"
+msgstr ""
 
 msgid "Updated dashboard settings."
-msgstr "仪表盘设置已更新。"
+msgstr ""
 
 msgid "Updated date & time settings."
-msgstr "日期和时间设置已更新。"
+msgstr ""
 
 msgid "Updated file system settings."
-msgstr "文件系统设置已更新。"
+msgstr ""
 
 msgid "Updated firewall rule."
-msgstr "已更新的防火墙规则。"
+msgstr ""
 
 msgid "Updated firewall rules."
-msgstr "已更新的防火墙规则。"
+msgstr ""
 
 msgid "Updated group \"{{ name }}\"."
-msgstr "已更新组“{{ name }}”。"
+msgstr ""
 
 msgid "Updated monitoring settings."
-msgstr "已更新监测设置。"
+msgstr ""
 
 msgid "Updated network settings."
-msgstr "已更新的网络设置。"
+msgstr ""
 
 msgid "Updated notification event settings."
-msgstr "已更新通知事件設定。"
+msgstr ""
 
 msgid "Updated notification settings."
-msgstr "已更新通知消息设置。"
+msgstr ""
 
 msgid "Updated password."
-msgstr "密码已更新。"
+msgstr ""
 
 msgid "Updated permissions of group \"{{ name }}\"."
-msgstr "已更新群組 \"{{ name }}\" 的權限。"
+msgstr ""
 
 msgid "Updated permissions of shared folder."
-msgstr "已更新共享檔案夾的權限。"
+msgstr ""
 
 msgid "Updated permissions of user \"{{ name }}\"."
-msgstr "已更新用戶 \"{{ name }}\" 的權限。"
+msgstr ""
 
 msgid "Updated power management settings."
-msgstr "已更新电源管理设置"
+msgstr ""
 
 msgid "Updated proxy settings."
-msgstr "已更新的代理设置。"
+msgstr ""
 
 msgid "Updated quota."
-msgstr "已更新的配额。"
+msgstr ""
 
 msgid "Updated remote system-logs settings."
-msgstr "已更新远程系统日志设定。"
+msgstr ""
 
 msgid "Updated scheduled task."
-msgstr "已更新的计划任务。"
+msgstr ""
 
 msgid "Updated settings."
-msgstr "已更新的设置。"
+msgstr ""
 
 msgid "Updated shared folder."
-msgstr "更新共享文件夹。"
+msgstr ""
 
 msgid "Updated update management settings."
-msgstr "已更新更新管理设置"
+msgstr ""
 
 msgid "Updated user \"{{ name }}\"."
-msgstr "已更新用户“{{ name }}”。"
+msgstr ""
 
 msgid "Updated user profile."
-msgstr "已更新用户描述。"
+msgstr ""
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
-msgstr "已更新有线网络连接“{{ devicename }}”。"
+msgstr ""
 
 msgid "Updated wireless network connection \"{{ devicename }}\"."
-msgstr "已更新无线网络连接“{{ devicename }}”。"
+msgstr ""
 
 msgid "Updated workbench settings."
-msgstr "已更新工作台设置。"
+msgstr ""
 
 msgid "Updates"
-msgstr "更新"
+msgstr ""
 
 msgid "Updates Available"
-msgstr "有可用更新"
+msgstr ""
 
 msgid "Updates available"
-msgstr "有更新可用"
+msgstr ""
 
 msgid "Upgrade system"
-msgstr "升级系统"
+msgstr ""
 
 msgid "Uptime"
-msgstr "运行时间"
+msgstr ""
 
 msgid "Uruguay"
-msgstr "乌拉圭"
+msgstr ""
 
 msgid "Usage Warning Threshold"
-msgstr "用量警告阈值"
+msgstr ""
 
 msgid "Use NTP server"
-msgstr "使用 NTP 服务器"
+msgstr ""
 
 msgid "Use chroot"
-msgstr "使用 chroot"
+msgstr ""
 
 msgid "Use global settings"
-msgstr "使用全局设置"
+msgstr ""
 
 msgid "Use sendfile"
-msgstr "使用 sendfile"
+msgstr ""
 
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
@@ -3841,206 +3835,206 @@ msgid ""
 "Samba to be faster. Samba automatically turns this off for clients that use "
 "protocol levels lower than NT LM 0.12 and when it detects a client is "
 "Windows 9x."
-msgstr "对独占 oplocked 锁文件使用 sendfile 函数系统会更高效。系统 CPU 使用效率更高，Samba 速度也更快。如果客户端使用比 NT LM 0.12 还低的协议或者是 Windows 9X 时 Samba 会自动关闭该功能。"
+msgstr ""
 
 msgid "Use the specified WINS server."
-msgstr "使用指定 WINS 服务器。"
+msgstr ""
 
 msgid "Used"
-msgstr "已使用"
+msgstr ""
 
 msgid "Used capacity"
-msgstr "已用容量"
+msgstr ""
 
 msgid "User"
-msgstr "用户"
+msgstr ""
 
 msgid "User Management"
-msgstr "用户管理"
+msgstr ""
 
 msgid "User Settings"
-msgstr "用户设置"
+msgstr ""
 
 msgid "User home directory"
-msgstr "使用主目录"
+msgstr ""
 
 msgid "User name"
-msgstr "用户名"
+msgstr ""
 
 msgid "User/Group permissions"
-msgstr "用户/组 权限"
+msgstr ""
 
 msgid "Users"
-msgstr "用户"
+msgstr ""
 
 msgid ""
 "Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr "用戶必須被指派到 <em>_ssh</em> 群組才能夠經由 SSH 登入。"
+msgstr ""
 
 msgid "Utilization"
-msgstr "利用率"
+msgstr ""
 
 msgid "Uzbekistan"
-msgstr "乌兹别克斯坦"
+msgstr ""
 
 msgid "VLAN"
-msgstr "VLAN"
+msgstr ""
 
 msgid "VLAN id"
-msgstr "VLAN id"
+msgstr ""
 
 msgid "Valid from"
-msgstr "有效期"
+msgstr ""
 
 msgid "Valid to"
-msgstr "有效期至"
+msgstr ""
 
 msgid "Value"
-msgstr "数值"
+msgstr ""
 
 msgid "Vanuatu"
-msgstr "南太平洋的岛国"
+msgstr ""
 
 msgid "Vatican"
-msgstr "梵蒂冈"
+msgstr ""
 
 msgid "Vendor"
-msgstr "供应商"
+msgstr ""
 
 msgid "Venezuela"
-msgstr "委内瑞拉"
+msgstr ""
 
 msgid "Version"
-msgstr "版本"
+msgstr ""
 
 msgid "Versions"
-msgstr "版本"
+msgstr ""
 
 msgid "Vietnam"
-msgstr "越南"
+msgstr ""
 
 msgid "VirtIO device"
-msgstr "VirtIO 设备"
+msgstr ""
 
 msgid "WINS server"
-msgstr "WINS 服务器"
+msgstr ""
 
 msgid "WOL"
-msgstr "网络唤醒"
+msgstr ""
 
 msgid "WWN"
-msgstr "WWN"
+msgstr ""
 
 msgid "Wake Island"
-msgstr "威克岛"
+msgstr ""
 
 msgid "Wake-on-LAN"
-msgstr "网络唤醒 WOL"
+msgstr ""
 
 msgid "Wallis and Futuna"
-msgstr "瓦利斯和富图纳群岛"
+msgstr ""
 
 msgid "Warning"
-msgstr "警告"
+msgstr ""
 
 msgid "Web control panel"
-msgstr "Web 控制面板"
+msgstr ""
 
 msgid "Wednesday"
-msgstr "星期三"
+msgstr ""
 
 msgid "Weekly"
-msgstr "每周"
+msgstr ""
 
 msgid "Welcome to openmediavault"
-msgstr "欢迎使用 openmediavault"
+msgstr ""
 
 msgid "Western Sahara"
-msgstr "西撒哈拉"
+msgstr ""
 
 msgid "Wi-Fi"
-msgstr "Wi-Fi"
+msgstr ""
 
 msgid "Wipe"
-msgstr "擦除"
+msgstr ""
 
 msgid "Wiping device"
-msgstr "擦除设备"
+msgstr ""
 
 msgid "Workbench"
-msgstr "工作台"
+msgstr ""
 
 msgid "Workgroup"
-msgstr "工作组"
+msgstr ""
 
 msgid "Worst"
-msgstr "最差"
+msgstr ""
 
 msgid "Write only"
-msgstr "只写"
+msgstr ""
 
 msgid "Write-only"
-msgstr "只写"
+msgstr ""
 
 msgid "Write/Execute"
-msgstr "写/执行"
+msgstr ""
 
 msgid "Xen virtual disk device"
-msgstr "Xen 虚拟磁盘设备"
+msgstr ""
 
 msgid "Yearly"
-msgstr "每年"
+msgstr ""
 
 msgid "Yemen"
-msgstr "也门"
+msgstr ""
 
 msgid "Yes"
-msgstr "是"
+msgstr ""
 
 msgid ""
 "You have made changes that have not yet been saved. Do you want to discard "
 "them?"
-msgstr "您所更改的配置还未保存。您想放弃更改吗？"
+msgstr ""
 
 msgid "You must apply these changes in order for them to take effect."
-msgstr "您必须应用配置变更才会使他们生效。"
+msgstr ""
 
 msgid "Your profile"
-msgstr "你的介绍"
+msgstr ""
 
 msgid "Zambia"
-msgstr "赞比亚"
+msgstr ""
 
 msgid "Zimbabwe"
-msgstr "津巴布韦"
+msgstr ""
 
 msgid "a day"
-msgstr "1 天"
+msgstr ""
 
 msgid "a few seconds"
-msgstr "几秒"
+msgstr ""
 
 msgid "a minute"
-msgstr "1 分钟"
+msgstr ""
 
 msgid "a month"
-msgstr "1个月"
+msgstr ""
 
 msgid "a year"
-msgstr "1 年"
+msgstr ""
 
 msgid "an hour"
-msgstr "1小时"
+msgstr ""
 
 msgid "in %s"
-msgstr "在%s内"
+msgstr ""
 
 msgid "n/a"
-msgstr "n/a"
+msgstr ""
 
 msgid "selected"
-msgstr "已选中"
+msgstr ""
 
 msgid "total"
-msgstr "总计"
+msgstr ""

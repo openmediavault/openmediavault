@@ -1,0 +1,157 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-onedrive package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-onedrive\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-27 13:38+0200\n"
+"PO-Revision-Date: 2022-04-13 15:28+0000\n"
+"Language-Team: Basque (Spain) (https://app.transifex.com/openmediavault/teams/14254/eu_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: eu_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "1 MiB/s"
+msgstr ""
+
+msgid "1 minute"
+msgstr ""
+
+msgid "10 MiB/s"
+msgstr ""
+
+msgid "10 minutes"
+msgstr ""
+
+msgid "100 MiB/s"
+msgstr ""
+
+msgid "12 hours"
+msgstr ""
+
+msgid "128 KiB/s"
+msgstr ""
+
+msgid "15 minutes"
+msgstr ""
+
+msgid "2 minutes"
+msgstr ""
+
+msgid "24 hours"
+msgstr ""
+
+msgid "256 KiB/s"
+msgstr ""
+
+msgid "3 minutes"
+msgstr ""
+
+msgid "30 minutes"
+msgstr ""
+
+msgid "4 minutes"
+msgstr ""
+
+msgid "5 minutes"
+msgstr ""
+
+msgid "512 KiB/s"
+msgstr ""
+
+msgid "6 hours"
+msgstr ""
+
+msgid "60 minutes"
+msgstr ""
+
+msgid ""
+"<ul><li>Full - Replicate changes from and to OneDrive.</li><li>Download only"
+" - Replicate the OneDrive online state locally, by only downloading changes "
+"from OneDrive. Do not upload local changes to OneDrive.</li><li>Upload only "
+"- Replicate the local state to OneDrive, by only uploading local changes to "
+"OneDrive. Do not download changes from OneDrive.</li></ul>"
+msgstr ""
+
+msgid ""
+"After enabling and deploying this service the first time please run the "
+"command <em>omv-onedrive-auth</em> as <em>root</em> user in the CLI to "
+"authenticate the application in Microsoft OneDrive."
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Do not delete local file deletions from OneDrive."
+msgstr ""
+
+msgid "Download only"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Full"
+msgstr ""
+
+msgid "Local first"
+msgstr ""
+
+msgid "Monitor interval"
+msgstr ""
+
+msgid "No remote delete"
+msgstr ""
+
+msgid "OneDrive"
+msgstr ""
+
+msgid "Rate limit"
+msgstr ""
+
+msgid "Replicate local state first, before downloading changes from OneDrive."
+msgstr ""
+
+msgid "Replication mode"
+msgstr ""
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "Skip dot files and folders from syncing."
+msgstr ""
+
+msgid "Skip dotfiles"
+msgstr ""
+
+msgid "The location to which the files are synchronised."
+msgstr ""
+
+msgid "The synchronised files and directories are owned by this user."
+msgstr ""
+
+msgid "The wait time between each sync operation."
+msgstr ""
+
+msgid "Updated OneDrive settings."
+msgstr ""
+
+msgid "Upload only"
+msgstr ""
+
+msgid "Upload/Download rate limit."
+msgstr ""
+
+msgid ""
+"Use the <em>omv-onedrive</em> command in the CLI to perform additional "
+"actions according to the documentation of the OneDrive Linux client."
+msgstr ""
+
+msgid "User"
+msgstr ""

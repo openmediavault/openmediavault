@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-owntone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-owntone\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Language-Team: Basque (Spain) (https://app.transifex.com/openmediavault/teams/14254/eu_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: eu_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Library name"
+msgstr ""
+
+msgid "Open UI"
+msgstr ""
+
+msgid "OwnTone"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Port"
+msgstr ""
+
+msgid "Port to listen on."
+msgstr ""
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "The 'admin' password to access the web interface."
+msgstr ""
+
+msgid ""
+"The location of the media files to share. Make sure the user "
+"<em>owntone</em> or group <em>users</em> can access the files."
+msgstr ""
+
+msgid "The name of the library as displayed by the clients."
+msgstr ""
+
+msgid "The password to access the library."
+msgstr ""
+
+msgid "Updated OwnTone settings."
+msgstr ""
+
+msgid "Web interface"
+msgstr ""

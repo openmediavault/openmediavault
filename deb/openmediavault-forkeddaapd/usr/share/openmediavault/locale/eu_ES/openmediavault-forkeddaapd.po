@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-forkeddaapd package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"PO-Revision-Date: 2012-03-17 01:49+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Basque (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/eu_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: eu_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A password is required to access the library."
+msgstr ""
+
+msgid "Authentication"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Library name"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Port"
+msgstr ""
+
+msgid "Port to listen on."
+msgstr ""
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "The location of the media files to share."
+msgstr ""
+
+msgid "The name of the library as displayed by the clients."
+msgstr ""
+
+msgid "Updated iTunes/DAAP settings."
+msgstr ""
+
+msgid "iTunes/DAAP"
+msgstr ""

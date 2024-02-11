@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-s3 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-s3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"PO-Revision-Date: 2022-03-25 19:15+0000\n"
+"Language-Team: Basque (Spain) (https://app.transifex.com/openmediavault/teams/14254/eu_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: eu_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Address"
+msgstr ""
+
+msgid "Certificate"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Open UI"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Port"
+msgstr ""
+
+msgid "Port to listen on."
+msgstr ""
+
+msgid "S3"
+msgstr ""
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "The SSL certificate."
+msgstr ""
+
+msgid ""
+"The location where the object data is stored. Make sure the user <em>s3</em>"
+" or group <em>users</em> can access the files."
+msgstr ""
+
+msgid "The name of the root user."
+msgstr ""
+
+msgid "The password of the root user."
+msgstr ""
+
+msgid "Updated S3 settings."
+msgstr ""
+
+msgid "Web interface"
+msgstr ""

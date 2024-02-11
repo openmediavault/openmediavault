@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-nut package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Basque (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/eu_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: eu_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr ""
+
+msgid "Charge"
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid "Date & Time"
+msgstr ""
+
+msgid "Defines when the shutdown is initiated."
+msgstr ""
+
+msgid "Driver configuration directives"
+msgstr ""
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Identifier"
+msgstr ""
+
+msgid "Invalid identifier"
+msgstr ""
+
+msgid "Load"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Mode"
+msgstr ""
+
+msgid "Netclient"
+msgstr ""
+
+msgid "Netclient hostname"
+msgstr ""
+
+msgid "Netclient password"
+msgstr ""
+
+msgid "Netclient user name"
+msgstr ""
+
+msgid "PID"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Powervalue"
+msgstr ""
+
+msgid "Program"
+msgstr ""
+
+msgid "Remote monitoring"
+msgstr ""
+
+msgid "Service disabled"
+msgstr ""
+
+msgid "Shutdown mode"
+msgstr ""
+
+msgid "Shutdown timer"
+msgstr ""
+
+msgid "Standalone"
+msgstr ""
+
+msgid "Temperature"
+msgstr ""
+
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr ""
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr ""
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr ""
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr ""
+
+msgid "UPS"
+msgstr ""
+
+msgid "UPS goes on battery"
+msgstr ""
+
+msgid "UPS reaches low battery"
+msgstr ""
+
+msgid "Updated UPS settings."
+msgstr ""
+
+msgid "Used for remote authentication."
+msgstr ""
+
+msgid "User name"
+msgstr ""
+
+msgid "Voltage"
+msgstr ""

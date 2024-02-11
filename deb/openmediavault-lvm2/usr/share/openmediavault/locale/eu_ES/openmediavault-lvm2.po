@@ -1,0 +1,148 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-lvm2 package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"PO-Revision-Date: 2012-03-17 01:49+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Basque (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/eu_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: eu_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Active"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
+msgid "Capacity"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "Created logical volume '{{ name }}'."
+msgstr ""
+
+msgid "Created physical volume {{ devicefile }}."
+msgstr ""
+
+msgid "Created snapshot of logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Created volume group '{{ name }}'."
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
+msgstr ""
+
+msgid "Do you really want to resize the selected physical volume?"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Extend"
+msgstr ""
+
+msgid "Extended logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Extended volume group '{{ devicefile }}'."
+msgstr ""
+
+msgid "Free"
+msgstr ""
+
+msgid "Invalid name"
+msgstr ""
+
+msgid "Logical Volume Management"
+msgstr ""
+
+msgid "Logical Volumes"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Physical Volumes"
+msgstr ""
+
+msgid "Reduce"
+msgstr ""
+
+msgid "Reduced volume group '{{ devicefile }}'."
+msgstr ""
+
+msgid "Resize"
+msgstr ""
+
+msgid "Select a device ..."
+msgstr ""
+
+msgid "Select a volume group ..."
+msgstr ""
+
+msgid "Select devices ..."
+msgstr ""
+
+msgid "Select the devices used to extend the volume group."
+msgstr ""
+
+msgid "Select the devices used to reduce from the volume group."
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Snapshot"
+msgstr ""
+
+msgid "The name of the logical volume."
+msgstr ""
+
+msgid "The name of the volume group."
+msgstr ""
+
+msgid ""
+"The percentage of the total space in the volume group to allocate for the "
+"new logical volume."
+msgstr ""
+
+msgid ""
+"The percentage of the total space in the volume group to use by the logical "
+"volume."
+msgstr ""
+
+msgid "Updated logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Updated volume group '{{ devicefile }}'."
+msgstr ""
+
+msgid "Used"
+msgstr ""
+
+msgid "Volume Group"
+msgstr ""
+
+msgid "Volume Groups"
+msgstr ""
+
+msgid "Volume group"
+msgstr ""

@@ -3,12 +3,6 @@
 # This file is distributed under the same license as the openmediavault-photoprism package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Volker Theile <votdev@gmx.de>, 2022
-# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2022
-# d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2022
-# Jonatan Nyberg, 2024
-# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -16,133 +10,124 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: Jonatan Nyberg, 2024\n"
-"Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
+"Language-Team: Basque (Spain) (https://app.transifex.com/openmediavault/teams/14254/eu_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
+"Language: eu_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "1 GB"
-msgstr "1 GB"
+msgstr ""
 
 msgid "1 MB"
-msgstr "1 MB"
+msgstr ""
 
 msgid "10 GB"
-msgstr "10 GB"
+msgstr ""
 
 msgid "10 MB"
-msgstr "10 MB"
+msgstr ""
 
 msgid "100 GB"
-msgstr "100 GB"
+msgstr ""
 
 msgid "100 MB"
-msgstr "100 MB"
+msgstr ""
 
 msgid "25 GB"
-msgstr "25 GB"
+msgstr ""
 
 msgid "25 MB"
-msgstr "25 MB"
+msgstr ""
 
 msgid "250 MB"
-msgstr "250 MB"
+msgstr ""
 
 msgid "5 GB"
-msgstr "5 GB"
+msgstr ""
 
 msgid "5 MB"
-msgstr "5 MB"
+msgstr ""
 
 msgid "50 GB"
-msgstr "50 GB"
+msgstr ""
 
 msgid "50 MB"
-msgstr "50 MB"
+msgstr ""
 
 msgid "500 MB"
-msgstr "500 MB"
+msgstr ""
 
 msgid "Application data"
-msgstr "Applikationsdata"
+msgstr ""
 
 msgid "Certificate"
-msgstr "Certifikat"
+msgstr ""
 
 msgid ""
 "Disable password authentication, WebDAV, and the advanced settings page."
 msgstr ""
-"Inaktivera lösenordsautentisering, WebDAV och sidan för avancerade "
-"inställningar."
 
 msgid "Disabled"
-msgstr "Inaktiverad"
+msgstr ""
 
 msgid "Enabled"
-msgstr "Aktiverad"
+msgstr ""
 
 msgid "Filesize limit"
-msgstr "Filstorleksgräns"
+msgstr ""
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
 "are disabled, in particular import, upload, and delete."
 msgstr ""
-"Om den är aktiverad inaktiveras alla funktioner som kräver skrivbehörighet "
-"till mappen bilder, särskilt import, ladda upp och borttagning."
 
 msgid "Images"
-msgstr "Bilder"
+msgstr ""
 
 msgid "Import"
-msgstr "Importera"
+msgstr ""
 
 msgid "Open UI"
-msgstr "Öppna användargränssnittet"
+msgstr ""
 
 msgid "PhotoPrism"
-msgstr "PhotoPrism"
+msgstr ""
 
 msgid "Port"
-msgstr "Port"
+msgstr ""
 
 msgid "Port to listen on."
-msgstr "Port att lyssna på."
+msgstr ""
 
 msgid "Public"
-msgstr "Publik"
+msgstr ""
 
 msgid "Read-only"
-msgstr "Skrivskydd"
+msgstr ""
 
 msgid "The SSL certificate."
-msgstr "SSL-certifikatet."
+msgstr ""
 
 msgid ""
 "The location of the media files. Make sure the user <em>photoprism</em> or "
 "group <em>users</em> can access the files."
 msgstr ""
-"Platsen för mediafilerna. Se till att användaren <em>photoprism</em> eller "
-"gruppen <em>users</em> har åtkomst till filerna."
 
 msgid "The location where to store the application data."
-msgstr "Platsen där applikationsdata ska lagras."
+msgstr ""
 
 msgid "The maximum size of media files."
-msgstr "Den maximala storleken på mediefiler."
+msgstr ""
 
 msgid "Updated PhotoPrism settings."
-msgstr "Uppdaterade PhotoPrism-inställningar."
+msgstr ""
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
 " Please do not forget to change the password immediately."
 msgstr ""
-"Använd <em>admin:admin</em>-uppgifterna när du loggar in för första gången. "
-"Glöm inte att byta lösenord omedelbart."
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
@@ -150,7 +135,3 @@ msgid ""
 "duplicates. Make sure the user <em>photoprism</em> or group <em>users</em> "
 "can access the files."
 msgstr ""
-"Du kan valfritt montera en importmapp från vilken filer kan överföras till "
-"originalmappen på ett strukturerat sätt som undviker dubbletter. Se till att"
-" användaren <em>photoprism</em> eller gruppen<em>users</em> har åtkomst till"
-" filerna."

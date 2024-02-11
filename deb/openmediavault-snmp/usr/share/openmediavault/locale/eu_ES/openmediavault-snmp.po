@@ -1,0 +1,92 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-snmp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-snmp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"PO-Revision-Date: 2017-09-24 18:47+0000\n"
+"Language-Team: Basque (Spain) (https://app.transifex.com/openmediavault/teams/14254/eu_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: eu_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Authentication and no privacy"
+msgstr ""
+
+msgid "Authentication and privacy"
+msgstr ""
+
+msgid "Authentication passphrase"
+msgstr ""
+
+msgid "Authentication type"
+msgstr ""
+
+msgid "Community"
+msgstr ""
+
+msgid "Contact"
+msgstr ""
+
+msgid ""
+"Contact information, e.g. name or email address of the person responsible "
+"for this system."
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Extra options"
+msgstr ""
+
+msgid "Host"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Location information, e.g. physical location of this system."
+msgstr ""
+
+msgid "No authentication and no privacy"
+msgstr ""
+
+msgid "Port"
+msgstr ""
+
+msgid "Privacy passphrase"
+msgstr ""
+
+msgid "Privacy type"
+msgstr ""
+
+msgid "SNMP"
+msgstr ""
+
+msgid "SNMP version 1/2c"
+msgstr ""
+
+msgid "SNMP version 3"
+msgstr ""
+
+msgid "Security level"
+msgstr ""
+
+msgid "Traps"
+msgstr ""
+
+msgid "Updated SNMP settings."
+msgstr ""
+
+msgid "User name"
+msgstr ""
+
+msgid "Version"
+msgstr ""

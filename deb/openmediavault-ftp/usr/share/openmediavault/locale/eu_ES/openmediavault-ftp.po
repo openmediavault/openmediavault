@@ -3,11 +3,6 @@
 # This file is distributed under the same license as the openmediavault-ftp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2023
-# d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2023
-# Jonatan Nyberg, 2024
-# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -15,106 +10,101 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-30 12:27+0100\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
-"Last-Translator: Jonatan Nyberg, 2024\n"
-"Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
+"Language-Team: Basque (Spain) (https://app.transifex.com/openmediavault/teams/14254/eu_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
+"Language: eu_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "0 KiB/s means unlimited."
-msgstr "0 KiB/s betyder obegränsat."
+msgstr ""
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr "En kraftfull modulär FTP/SFTP/FTPS-server."
+msgstr ""
 
 msgid "Advanced settings"
-msgstr "Avancerade inställningar"
+msgstr ""
 
 msgid "Allow clients to resume interrupted uploads and downloads."
-msgstr "Tillåt klienter att återuppta avbrutna uppladdningar och hämtningar."
+msgstr ""
 
 msgid "Anonymous FTP"
-msgstr "Anonym FTP"
+msgstr ""
 
 msgid "Ban Rules"
-msgstr "Regler för uteslutning"
+msgstr ""
 
 msgid "Ban statistics:"
-msgstr "Statistik för uteslutning:"
+msgstr ""
 
 msgid "Bandwidth restriction"
-msgstr "Bandbreddsbegränsning"
+msgstr ""
 
 msgid "Certificate"
-msgstr "Certifikat"
+msgstr ""
 
 msgid "Create"
-msgstr "Skapa"
+msgstr ""
 
 msgid "Created FTP ban rule."
-msgstr "Skapade FTP-uteslutningsregel."
+msgstr ""
 
 msgid "Created FTP share."
-msgstr "Skapade FTP-delning."
+msgstr ""
 
 msgid "Currently logged in users:"
-msgstr "För närvarande inloggade användare:"
+msgstr ""
 
 msgid "Deny logins which do not have a valid shell."
-msgstr "Neka inloggningar som inte har ett giltigt skal."
+msgstr ""
 
 msgid "Display the home directory of the user in the browse list."
-msgstr "Visa användarens hemmapp i bläddringslistan."
+msgstr ""
 
 msgid "Edit"
-msgstr "Redigera"
+msgstr ""
 
 msgid "Enable SSL/TLS connections."
-msgstr "Aktivera SSL/TLS-anslutningar."
+msgstr ""
 
 msgid "Enable file transfer logging."
-msgstr "Aktivera filöverföringsloggning."
+msgstr ""
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
 "connections."
 msgstr ""
-"Aktivera omvänd DNS-uppslagning som utförs mot fjärrvärdens IP-adress för "
-"inkommande aktiva dataanslutningar och utgående passiva dataanslutningar."
 
 msgid "Enabled"
-msgstr "Aktiverad"
+msgstr ""
 
 msgid "Event"
-msgstr "Händelse"
+msgstr ""
 
 msgid "Expire"
-msgstr "Upphör"
+msgstr ""
 
 msgid "Extra options"
-msgstr "Extra alternativ"
+msgstr ""
 
 msgid "FTP"
-msgstr "FTP"
+msgstr ""
 
 msgid "FXP"
-msgstr "FXP"
+msgstr ""
 
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
 msgstr ""
-"FXP tillåter överföringar mellan två fjärrservrar utan att någon fildata går"
-" till klienten som begär överföringen."
 
 msgid "Home directories"
-msgstr "Hemmappar"
+msgstr ""
 
 msgid "Ident protocol"
-msgstr "\"Ident\"-protokoll"
+msgstr ""
 
 msgid ""
 "If your host is acting as a NAT gateway or port forwarder for the server, "
@@ -122,13 +112,9 @@ msgid ""
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
 msgstr ""
-"Om din värd agerar som en NAT-nätverksnod eller portvidarebefodring för "
-"servern, är det här alternativet användbart för att passiva överföringar ska"
-" fungera. Du måste även använda din publika adress och öppna passiva portar "
-"som används i din brandvägg."
 
 msgid "Implicit SSL"
-msgstr "Implicit SSL"
+msgstr ""
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -140,162 +126,137 @@ msgid ""
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr ""
-"I vissa fall måste du ange passiva portars spann för att gå förbi "
-"brandväggens begränsningar. Passiva portar begränsar portintervallet som "
-"servern kommer att välja när PASV-kommandon skickas från en klient. Servern "
-"kommer att slumpmässigt välja ett nummer från inom det angivna intervallet "
-"tills en öppen port hittas. Det portintervall som väljs måste vara i det "
-"icke-privilegierade område (t.ex. större än eller lika med 1024). Det "
-"rekommenderas starkt att det valda området är tillräckligt stort för att "
-"hantera många samtidiga passiva anslutningar (till exempel 49152-65534, "
-"IANA-registrerade efemära portintervallet)."
 
 msgid "Masquerade address"
-msgstr "Maskerad adress"
+msgstr ""
 
 msgid "Max. clients"
-msgstr "Max. klienter"
+msgstr ""
 
 msgid "Max. connections per host"
-msgstr "Max. anslutningar per värd"
+msgstr ""
 
 msgid "Max. login attempts"
-msgstr "Max. inloggningsförsök"
+msgstr ""
 
 msgid "Max. passive port"
-msgstr "Max. passiv port"
+msgstr ""
 
 msgid "Maximum download rate (KiB/s)"
-msgstr "Maximal hämtningshastighet (KiB/s)"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
 "timer completely (clients can stay connected for ever, without sending "
 "data)."
 msgstr ""
-"Maximal vilotid i sekunder. Om du ställer in tidsgränsen för vilotid till 0 "
-"inaktiveras tidtagaren för vilotid helt (klienter kan hålla kontakten för "
-"alltid utan att skicka data)."
 
 msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "Maximalt antal tillåtna lösenordsförsök före frånkoppling."
+msgstr ""
 
 msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "Maximalt antal anslutningar per IP (0 = obegränsat)."
+msgstr ""
 
 msgid "Maximum number of simultaneous clients."
-msgstr "Maximalt antal klienter samtidigt."
+msgstr ""
 
 msgid "Maximum upload rate (KiB/s)"
-msgstr "Maximal uppladdningshastighet (KiB/s)"
+msgstr ""
 
 msgid "Min. passive port"
-msgstr "Min. passiv port"
+msgstr ""
 
 msgid "No session reuse required"
-msgstr "Ingen återanvändning av sessionen erfordras"
+msgstr ""
 
 msgid "Occurrence"
-msgstr "Händelse"
+msgstr ""
 
 msgid "Passive FTP"
-msgstr "Passiv FTP"
+msgstr ""
 
 msgid "Permit root login"
-msgstr "Tillåt rootinloggning"
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr ""
-"Se <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
-"target='_blank'>manualsidan</a> för mer information."
 
 msgid ""
 "Please check the <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr ""
-"Se <a href='http://www.proftpd.org/docs/directives/configuration_full.html' "
-"target='_blank'>manualsidan</a> för mer information."
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
 "name.html' target='_blank'>manual page</a> for more details."
 msgstr ""
-"Se <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' "
-"target='_blank'>manualsidan</a> för mer information."
 
 msgid "Port"
-msgstr "Port"
+msgstr ""
 
 msgid "Refresh time"
-msgstr "Uppdateringstid"
+msgstr ""
 
 msgid "Require valid shell"
-msgstr "Kräv giltigt skal"
+msgstr ""
 
 msgid "Required"
-msgstr "Krävs"
+msgstr ""
 
 msgid "Resume"
-msgstr "Återuppta"
+msgstr ""
 
 msgid "Reverse DNS lookup"
-msgstr "Omvänd DNS-förfrågan"
+msgstr ""
 
 msgid "SSL/TLS Settings"
-msgstr "SSL/TLS-inställningar"
+msgstr ""
 
 msgid "Service disabled"
-msgstr "Tjänst inaktiverad"
+msgstr ""
 
 msgid "Settings"
-msgstr "Inställningar"
+msgstr ""
 
 msgid "Shared folder"
-msgstr "Delad mapp"
+msgstr ""
 
 msgid "Shares"
-msgstr "Delningar"
+msgstr ""
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
 "masquerade address by resolving the IP address. Set this value to 0 to "
 "disable this option."
 msgstr ""
-"Anger hur lång tid, i sekunder, mellan kontroll och uppdatering av den "
-"maskerade adressen genom att lösa IP-adressen. Ställ in det här värdet på 0 "
-"för att inaktivera det här alternativet."
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "Anger tiden i hh:mm:ss varefter uteslutningen löper ut."
+msgstr ""
 
 msgid ""
 "Specifies the time interval in hh:mm:ss in which the given number of "
 "occurrences must happen to add the ban."
 msgstr ""
-"Anger tidsintervall i hh:mm:ss där det givna antalet förekomster måste ske "
-"för att lägga till uteslutningen."
 
 msgid "Specifies whether it is allowed to login as superuser directly."
-msgstr "Anger om det är tillåtet att logga in som superanvändare direkt."
+msgstr ""
 
 msgid "Tags"
-msgstr "Taggar"
+msgstr ""
 
 msgid "The SSL certificate."
-msgstr "SSL-certifikatet."
+msgstr ""
 
 msgid "The location of the files to share."
-msgstr "Platsen för filerna som ska delas."
+msgstr ""
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
 "for data connections is not required."
 msgstr ""
-"Kravet på att SSL-sessionen från kontrollanslutningen återanvänds för "
-"dataanslutningar krävs inte."
 
 msgid ""
 "The welcome message will be displayed to the user at login. Please check the"
@@ -303,62 +264,50 @@ msgid ""
 "target='_blank'>manual page</a> how to use variables. Leave this field empty"
 " to disable the welcome message."
 msgstr ""
-"Välkomstmeddelandet kommer att visas för användaren vid inloggning. "
-"Kontrollera <a href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
-"target='_blank'>manualsidan</a> om hur man använder variabler. Lämna detta "
-"fält tomt för att inaktivera välkomstmeddelandet."
 
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
 "server."
 msgstr ""
-"Det här alternativet kräver klienter att använda FTP över TLS när man pratar"
-" med den här servern."
 
 msgid ""
 "This option will handle all connections as if they are SSL connections "
 "implicitly."
 msgstr ""
-"Det här alternativet hanterar alla anslutningar som om de implicit är SSL-"
-"anslutningar."
 
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
 "given time interval, then a ban is automatically added."
 msgstr ""
-"Denna parameter betyder att om N förekomster av händelsen sker inom givet "
-"tidsintervall, då skapas en uteslutning automatiskt."
 
 msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr "Denna regel utlöses när det valda händelse-direktivet inträffar."
+msgstr ""
 
 msgid "Time interval"
-msgstr "Tidsintervall"
+msgstr ""
 
 msgid "Timeout"
-msgstr "Timeout"
+msgstr ""
 
 msgid "Transfer log"
-msgstr "Överföringslogg"
+msgstr ""
 
 msgid "Updated FTP ban rule."
-msgstr "Uppdaterade FTP-uteslutningsregel."
+msgstr ""
 
 msgid "Updated FTP share."
-msgstr "Uppdaterade FTP-delning."
+msgstr ""
 
 msgid "Use the following bandwidth restriction."
-msgstr "Använd följande begränsning av bandbredd."
+msgstr ""
 
 msgid "Welcome message"
-msgstr "Välkomstmeddelande"
+msgstr ""
 
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote user name."
 msgstr ""
-"När en klient initialt ansluter till servern används identprotokollet för "
-"att försöka identifiera fjärranvändarnamnet."
 
 msgid "n/a"
-msgstr "ingen uppgift"
+msgstr ""
