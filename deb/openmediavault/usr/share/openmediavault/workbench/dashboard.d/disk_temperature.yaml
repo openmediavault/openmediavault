@@ -14,6 +14,7 @@ data:
   grid:
     item:
       content: '{{ canonicaldevicefile }}<br>{{ temperature | notavailable }}{% if temperature %}°C{% endif %}'
+      tooltip: '{{ devicefile }}'
       class: 'omv-text-center omv-text-nowrap omv-background-color-selected-button'
     store:
       proxy:
