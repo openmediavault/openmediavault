@@ -418,7 +418,11 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.certificatemgmt.createssh");
 		// Create the requested certificate.
-		$file = tempnam(sys_get_temp_dir(), "id_rsa");
+		$file = tempnam(sys_get_temp_dir(), "id_".$params['type']);
+		$_ = defer(function() use ($file) {
+			@unlink($file);
+			@unlink($file.".pub");
+		});
 		$cmdArgs = [];
 		$cmdArgs[] = sprintf("-t %s", escapeshellarg($params['type']));
 		$cmdArgs[] = "-m PEM";
@@ -429,16 +433,11 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmd = sprintf("export LANG=C; (echo y) | ssh-keygen %s 2>&1",
 			implode(" ", $cmdArgs));
 		if (0 !== ($exitStatus = $this->exec($cmd, $output))) {
-			// Unlink the temporary files.
-			unlink($file);
-			unlink($file.".pub");
 			throw new \OMV\ExecException($cmd, $output, $exitStatus);
 		}
 		// Read certificate and key content, then unlink the temporary files.
 		$privateKey = file_get_contents($file);
 		$publicKey = file_get_contents($file.".pub");
-		unlink($file);
-		unlink($file.".pub");
 		// Finally import generated certificate.
 		return $this->callMethod("setSsh", [
 			"uuid" => \OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID"),

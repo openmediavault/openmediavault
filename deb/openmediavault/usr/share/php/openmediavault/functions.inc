@@ -1101,3 +1101,29 @@ function is_locked($filename): bool {
 	}
 	return $locked;
 }
+
+class __Defer {
+    private $callback;
+
+    public function __construct(callable $callback) {
+        $this->callback = $callback;
+    }
+
+    public function __destruct() {
+        call_user_func($this->callback);
+    }
+}
+
+/**
+ * Schedule a function call to be executed when the surrounding function
+ * exits.
+ * Note, the function result MUST be assigned to a variable, otherwise
+ * the callback function is immediately executed. You may use $_ for that.
+ * @param callable $callback The function to be called.
+ * @return The instance of the wrapper class that is executing the
+ *   callback function when the variable that it is assigned to goes
+ *   out of scope.
+ */
+function defer(callable $callback) {
+    return new __Defer($callback);
+}
