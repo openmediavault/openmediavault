@@ -14,8 +14,9 @@ data:
   grid:
     item:
       content: '{{ canonicaldevicefile }}<br>{{ temperature | notavailable }}{% if temperature %}°C{% endif %}'
+      class: 'omv-cursor-pointer omv-text-center omv-text-nowrap omv-background-color-selected-button'
       tooltip: '{{ devicefile }}'
-      class: 'omv-text-center omv-text-nowrap omv-background-color-selected-button'
+      url: '/storage/smart/devices/details/{{ devicefile | encodeuricomponent }}'
     store:
       proxy:
         service: Smart
