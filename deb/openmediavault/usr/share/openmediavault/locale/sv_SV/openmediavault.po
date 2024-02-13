@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-10 23:03+0100\n"
+"POT-Creation-Date: 2024-02-13 20:50+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2024\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -2082,6 +2082,9 @@ msgstr "Inga anslutningar"
 
 msgid "No data to display."
 msgstr "Inga data att visa."
+
+msgid "No monitored devices."
+msgstr ""
 
 msgid "No users connected"
 msgstr "Inga användare anslutna"

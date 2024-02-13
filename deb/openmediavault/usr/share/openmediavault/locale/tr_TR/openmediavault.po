@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-10 23:03+0100\n"
+"POT-Creation-Date: 2024-02-13 20:50+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -2079,6 +2079,9 @@ msgstr "Baülantı yok"
 
 msgid "No data to display."
 msgstr "Gösterilecek bilgi yok."
+
+msgid "No monitored devices."
+msgstr ""
 
 msgid "No users connected"
 msgstr "Herhangi bir kullanıcı bağlı değil"

@@ -65,7 +65,7 @@ export class DashboardWidgetGridComponent implements OnInit {
           minWidth: '100px'
         },
         hasEmptyMessage: true,
-        emptyMessage: gettext('No data to display'),
+        emptyMessage: gettext('No data to display.'),
         store: {
           data: []
         }

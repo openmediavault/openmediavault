@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-10 23:03+0100\n"
+"POT-Creation-Date: 2024-02-13 20:50+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2024\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -946,7 +946,7 @@ msgid "Disallow the user to modify their own account."
 msgstr "Saját felhasználói fiók módosításának tiltása."
 
 msgid "Disk Temperatures"
-msgstr ""
+msgstr "Lemezhőmérséglet"
 
 msgid "Disk Usage"
 msgstr "Lemez használat"
@@ -979,7 +979,7 @@ msgid "Displays information about the services in a table."
 msgstr "Táblázatos formában jeleníti meg a szolgáltatások információt."
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
-msgstr ""
+msgstr "Megjeleníti az összes megfigyelt lemez S.M.A.R.T. állapotát."
 
 msgid "Displays the system time."
 msgstr "Megjeleníti a rendszeridőt."
@@ -988,7 +988,7 @@ msgid "Displays the system uptime."
 msgstr "Megjeleníti a rendszer működési idejét."
 
 msgid "Displays the temperature of all disk devices."
-msgstr ""
+msgstr "Megjeleníti az összes lemez hőmérsékletét."
 
 msgid "Displays various system information."
 msgstr "Különböző rendszer-információk megjelenítése."
@@ -1210,10 +1210,10 @@ msgid "Failed to copy data to the clipboard."
 msgstr "Nem sikerült átmásolni az adatokat a vágólapra."
 
 msgid "Failed to start session."
-msgstr ""
+msgstr "A munkamenet indítása nem sikerült."
 
 msgid "Failed to write session data."
-msgstr ""
+msgstr "Nem sikerült a munkamenet adatainak írása."
 
 msgid "Falkland Islands"
 msgstr "Falkland-szigetek"
@@ -2085,6 +2085,9 @@ msgstr "Nincsenek kapcsolatok"
 
 msgid "No data to display."
 msgstr "Nincs megjeleníthető adat."
+
+msgid "No monitored devices."
+msgstr ""
 
 msgid "No users connected"
 msgstr "Nincsenek kapcsolódó felhasználók"
@@ -2988,7 +2991,7 @@ msgid ""
 msgstr "Az idő meghatározása milliszekundumban, hogy mennyit várjon, mielőtt engedélyez egy megjavított linket az észlelése után."
 
 msgid "Specifies the type of key to create."
-msgstr ""
+msgstr "Meghatározza a létrehozandó kulcs típusát."
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Rendszergazdaként való bejelentkezés engedélyezése."
@@ -3275,14 +3278,14 @@ msgid "The port on which SSH is running on the remote system."
 msgstr "A portszám, amelyen az SSH fut a távoli rendszeren."
 
 msgid "The private key in PEM format."
-msgstr ""
+msgstr "A privát kulcs PEM formátumban."
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
 msgstr "A protokoll nem támogatott egy egy forrás/cél porttal kapcsolatban."
 
 msgid "The public key in OpenSSH format."
-msgstr ""
+msgstr "A nyilvános kulcs OpenSSH formátumban."
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "

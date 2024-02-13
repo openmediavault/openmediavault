@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-10 23:03+0100\n"
+"POT-Creation-Date: 2024-02-13 20:50+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2018,2022-2023\n"
 "Language-Team: Polish (Poland) (http://app.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -2084,6 +2084,9 @@ msgstr "Brak połączeń"
 
 msgid "No data to display."
 msgstr "Brak danych do wyświetlenia"
+
+msgid "No monitored devices."
+msgstr ""
 
 msgid "No users connected"
 msgstr "Brak podłączonych użytkowników"

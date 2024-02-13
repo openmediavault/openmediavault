@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-10 23:03+0100\n"
+"POT-Creation-Date: 2024-02-13 20:50+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -2093,6 +2093,9 @@ msgstr "Нет соединения"
 
 msgid "No data to display."
 msgstr "Нет данных для отображения."
+
+msgid "No monitored devices."
+msgstr ""
 
 msgid "No users connected"
 msgstr "Нет подключенных пользователей"

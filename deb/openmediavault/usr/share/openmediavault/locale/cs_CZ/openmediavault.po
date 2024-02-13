@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-10 23:03+0100\n"
+"POT-Creation-Date: 2024-02-13 20:50+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -2080,6 +2080,9 @@ msgstr "Žádná spojení"
 
 msgid "No data to display."
 msgstr "Chybí data – není co zobrazovat."
+
+msgid "No monitored devices."
+msgstr ""
 
 msgid "No users connected"
 msgstr "Žádní připojení uživatelé"
