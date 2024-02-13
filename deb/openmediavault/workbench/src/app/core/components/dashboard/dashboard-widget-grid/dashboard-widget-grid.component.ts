@@ -17,6 +17,7 @@
  */
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 
@@ -63,6 +64,8 @@ export class DashboardWidgetGridComponent implements OnInit {
         item: {
           minWidth: '100px'
         },
+        hasEmptyMessage: true,
+        emptyMessage: gettext('No data to display'),
         store: {
           data: []
         }
