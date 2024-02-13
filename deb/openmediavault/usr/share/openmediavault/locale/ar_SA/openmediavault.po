@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-10 23:03+0100\n"
+"POT-Creation-Date: 2024-02-13 20:50+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -2080,6 +2080,9 @@ msgstr "لا اتصالات"
 
 msgid "No data to display."
 msgstr "لا توجد بيانات لعرضها"
+
+msgid "No monitored devices."
+msgstr ""
 
 msgid "No users connected"
 msgstr "لا يوجد مستخدمين متصلين"

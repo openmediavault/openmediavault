@@ -24,7 +24,7 @@ data:
       class: 'omv-cursor-pointer omv-text-center omv-text-nowrap {% set overallStatusColor = { "BAD_ATTRIBUTE_NOW": "omv-background-color-pair-error", "BAD_ATTRIBUTE_IN_THE_PAST": "omv-background-color-pair-error", "BAD_SECTOR_MANY": "omv-background-color-pair-error", "BAD_SECTOR": "omv-background-color-pair-warning", "BAD_STATUS": "omv-background-color-pair-gray", "GOOD": "omv-background-color-pair-success" } %}{{ overallStatusColor[overallstatus] }}'
       tooltip: '{% set overallStatusText = { "GOOD": "Good", "BAD_STATUS": "Unknown", "BAD_ATTRIBUTE_NOW": "Device is being used outside design parameters.", "BAD_ATTRIBUTE_IN_THE_PAST": "Device was used outside of design parameters in the past.", "BAD_SECTOR": "Device has a few bad sectors.", "BAD_SECTOR_MANY": "Device has many bad sectors." } %}{{ overallStatusText[overallstatus] | translate }}'
       url: '/storage/smart/devices/details/{{ devicefile | encodeuricomponent }}'
-    emptyMessage: _("No monitored devices")
+    emptyMessage: _("No monitored devices.")
     store:
       proxy:
         service: Smart

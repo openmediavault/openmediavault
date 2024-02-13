@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-10 23:03+0100\n"
+"POT-Creation-Date: 2024-02-13 20:50+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2023\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -2081,6 +2081,9 @@ msgstr "Sense connexions"
 
 msgid "No data to display."
 msgstr "No hi ha dades per mostrar. "
+
+msgid "No monitored devices."
+msgstr ""
 
 msgid "No users connected"
 msgstr "No hi ha usuaris connectats"
