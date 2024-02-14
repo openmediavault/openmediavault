@@ -5,7 +5,7 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
-# Артур Мудрых <arturmon82@gmail.com>, 2022
+# Artur Mudrykh <arturmon82@gmail.com>, 2022
 # Alexander Savchenko, 2022
 # 
 #, fuzzy

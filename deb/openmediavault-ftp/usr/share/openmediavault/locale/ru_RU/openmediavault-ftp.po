@@ -6,7 +6,7 @@
 # Translators:
 # Alex Pecherskiy <pechorsky@mail.ru>, 2023
 # Volker Theile <votdev@gmx.de>, 2023
-# Артур Мудрых <arturmon82@gmail.com>, 2023
+# Artur Mudrykh <arturmon82@gmail.com>, 2023
 # Alexander Savchenko, 2023
 # Artem Raspopov <raspopov@gmail.com>, 2023
 # 

@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Артур Мудрых <arturmon82@gmail.com>, 2022
+# Artur Mudrykh <arturmon82@gmail.com>, 2022
 # Artem Raspopov <raspopov@gmail.com>, 2022
 # 
 #, fuzzy
