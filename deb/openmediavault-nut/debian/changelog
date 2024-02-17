@@ -1,4 +1,4 @@
-openmediavault-nut (7.0.2-1) stable; urgency=low
+openmediavault-nut (7.0.2-2) stable; urgency=low
 
   * Make sure all systemd services are disabled when the
     plugin is disabled.
