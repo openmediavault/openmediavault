@@ -940,7 +940,7 @@ msgid "Disallow the user to modify their own account."
 msgstr "Να μην επιτρέπεται στον χρήστη να τροποποιήσει τον λογαριασμό του."
 
 msgid "Disk Temperatures"
-msgstr ""
+msgstr "Θερμοκρασίες Δίσκων"
 
 msgid "Disk Usage"
 msgstr "Χρήση Δίσκου"
@@ -973,7 +973,7 @@ msgid "Displays information about the services in a table."
 msgstr "Εμφάνιση πληροφοριών για τις υπηρεσίες σε πίνακα."
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
-msgstr ""
+msgstr "Εμφάνιση πληροφοριών S.M.A.R.T. όλων των παρακολουθούμενων συσκευών (δίσκων)."
 
 msgid "Displays the system time."
 msgstr "Εμφανίζει την ώρα του συστήματος."
@@ -982,7 +982,7 @@ msgid "Displays the system uptime."
 msgstr "Εμφανίζει τον χρόνο λειτουργίας του συστήματος."
 
 msgid "Displays the temperature of all disk devices."
-msgstr ""
+msgstr "Εμφανίζει τη θερμοκρασία όλων των συσκευών (δίσκων)."
 
 msgid "Displays various system information."
 msgstr "Εμφανίζει διάφορες πληροφορίες του συστήματος."
@@ -1204,10 +1204,10 @@ msgid "Failed to copy data to the clipboard."
 msgstr "Αποτυχία αντιγραφής δεδομένων στο πρόχειρο."
 
 msgid "Failed to start session."
-msgstr ""
+msgstr "Αποτυχία έναρξης συνεδρίας."
 
 msgid "Failed to write session data."
-msgstr ""
+msgstr "Αποτυχία εγγραφής δεδομένων συνεδρίας."
 
 msgid "Falkland Islands"
 msgstr "Falkland Islands"
@@ -2081,7 +2081,7 @@ msgid "No data to display."
 msgstr "Δεν υπάρχουν δεδομένα προς εμφάνιση."
 
 msgid "No monitored devices."
-msgstr ""
+msgstr "Καμία παρακολουθούμενη συσκευή."
 
 msgid "No users connected"
 msgstr "Δεν υπάρχουν συνδεδεμένοι χρήστες"
@@ -2985,7 +2985,7 @@ msgid ""
 msgstr "Ορίζει τον χρόνο αναμονής, σε χιλιοστά του δευτερολέπτου, πριν την ενεργοποίηση του - εφόσον ανιχνευθεί επαναφορά της ζεύξης."
 
 msgid "Specifies the type of key to create."
-msgstr ""
+msgstr "Καθορίζει τον τύπο του κλειδιού που θα δημιουργηθεί."
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Ορίζει το αν επιτρέπεται η είσοδος ως υπερχρήστης"
@@ -3272,14 +3272,14 @@ msgid "The port on which SSH is running on the remote system."
 msgstr "Η θύρα στην οποία ακούει το SSH του απομακρυσμένου συστήματος."
 
 msgid "The private key in PEM format."
-msgstr ""
+msgstr "Το ιδιωτικό κλειδί σε μορφή PEM."
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
 msgstr "Το πρωτόκολλο δεν υποστηρίζεται σε συνδυασμό με θύρα πηγής/προορισμού."
 
 msgid "The public key in OpenSSH format."
-msgstr ""
+msgstr "Το δημόσιο κλειδί σε μορφή OpenSSH."
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
