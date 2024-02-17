@@ -22,5 +22,11 @@
            [innerHTML]="config.grid?.item.content | template:item | sanitizeHtml">
       </div>
     </div>
+    <div *ngIf="!data.data.length && config.grid.hasEmptyMessage"
+         class="item omv-text-center omv-background-color-pair-info">
+      <div class="content">
+        {{ config.grid.emptyMessage | transloco }}
+      </div>
+    </div>
   </div>
 </omv-dashboard-widget>

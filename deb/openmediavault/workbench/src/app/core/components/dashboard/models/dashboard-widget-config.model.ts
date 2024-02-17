@@ -80,6 +80,10 @@ export type DashboardWidgetConfig = {
       // The minimum width of an item. Defaults to `100px`.
       minWidth?: string;
     };
+    // The empty message. Defaults to `No data to display`.
+    emptyMessage?: string;
+    // Show an empty message if there is no data. Defaults to `true`.
+    hasEmptyMessage?: boolean;
     // The data to be displayed.
     store: DataStore;
   };
