@@ -2084,7 +2084,7 @@ msgid "No data to display."
 msgstr "Inga data att visa."
 
 msgid "No monitored devices."
-msgstr ""
+msgstr "Inga övervakade enheter."
 
 msgid "No users connected"
 msgstr "Inga användare anslutna"

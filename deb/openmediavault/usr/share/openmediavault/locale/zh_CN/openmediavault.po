@@ -2087,7 +2087,7 @@ msgid "No data to display."
 msgstr "无数据可显示"
 
 msgid "No monitored devices."
-msgstr ""
+msgstr "沒有受監控的裝置。"
 
 msgid "No users connected"
 msgstr "无用户连接"
