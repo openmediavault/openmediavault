@@ -1,0 +1,80 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-resources-helmchart-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 10000
+    stateId: 6f8a35fe-09cf-44b1-a20d-215b4e94d9b2
+    sorters:
+      - dir: asc
+        prop: metadata.namespace
+      - dir: asc
+        prop: metadata.name
+    store:
+      proxy:
+        service: Kubectl
+        get:
+          method: getList
+          params:
+            type: helmcharts
+    rowId: metadata.name
+    rowEnumFmt: "{{ metadata.namespace }}/{{ metadata.name }}"
+    selectionType: single
+    hasSearchField: true
+    columns:
+      - name: _("Namespace")
+        prop: metadata.namespace
+        flexGrow: 1
+        sortable: true
+      - name: _("Name")
+        prop: metadata.name
+        flexGrow: 1
+        sortable: true
+      - name: _("Job")
+        prop: status.jobName
+        flexGrow: 1
+        sortable: true
+        hidden: true
+      - name: _("Chart")
+        prop: spec.chart
+        flexGrow: 1
+        sortable: true
+      - name: _("Target Namespace")
+        prop: spec.targetNamespace
+        flexGrow: 1
+        sortable: true
+      - name: _("Repository")
+        prop: spec.repo
+        flexGrow: 1
+        sortable: true
+        hidden: true
+    actions:
+      - type: iconButton
+        icon: show
+        tooltip: _("View")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/helmchart/get/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=helmchart"
+      - type: iconButton
+        icon: "mdi:text-box-edit"
+        tooltip: _("Describe")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/helmchart/describe/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=helmchart"
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: Kubectl
+            method: delete
+            params:
+              type: helmchart
+              name: "{{ metadata.name }}"
+              namespace: "{{ metadata.namespace }}"

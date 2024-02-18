@@ -1,0 +1,15 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-logs-text-page
+  type: textPage
+  config:
+    hasCopyToClipboardButton: true
+    hasReloadButton: true
+    request:
+      service: Kubectl
+      get:
+        method: logs
+        params:
+          namespace: "{{ _routeQueryParams.namespace }}"
+          name: "{{ _routeParams.name }}"

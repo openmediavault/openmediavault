@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/k8s/resources/pod"
+  title: _("Pods")
+  component: omv-services-k8s-resources-pod-datatable-page

@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/k8s/resources"
+  title: _("Resources")
+  component: omv-services-k8s-navigation-page

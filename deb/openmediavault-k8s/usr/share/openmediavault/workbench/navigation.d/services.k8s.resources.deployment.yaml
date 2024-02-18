@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.k8s.resources.deployment"
+  text: _("Deployments")
+  icon: "mdi:reload"
+  url: "/services/k8s/resources/deployment"

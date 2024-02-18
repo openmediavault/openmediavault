@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/k8s/apply"
+  title: _("Recipe")
+  editing: true
+  notificationTitle: _('Configuration change to a resource applied.')
+  component: omv-services-k8s-apply-tabs-page

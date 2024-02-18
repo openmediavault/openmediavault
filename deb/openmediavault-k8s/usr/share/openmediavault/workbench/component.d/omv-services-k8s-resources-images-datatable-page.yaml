@@ -1,0 +1,52 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-resources-images-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    stateId: 75474732-d80b-11ee-93c1-1bc22ad51bc3
+    sorters:
+      - dir: asc
+        prop: image
+    store:
+      proxy:
+        service: Crictl
+        get:
+          method: images
+      transform:
+        id: '{{ id | split(":") | get(1) }}'
+        image: '{{ repoTags | get(0) | split(":") | get(0) }}'
+        tag: '{{ repoTags | get(0) | split(":") | get(1) }}'
+    rowId: id
+    rowEnumFmt: "{{ repoTags | get(0) }}"
+    selectionType: multi
+    hasSearchField: true
+    columns:
+      - name: _("Image")
+        prop: image
+        flexGrow: 1
+        sortable: true
+      - name: _("Tag")
+        prop: tag
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: chip
+      - name: _("ID")
+        prop: id
+        flexGrow: 1
+        sortable: true
+      - name: _("Size")
+        prop: size
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: binaryUnit
+    actions:
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: Crictl
+            method: rmi
+            params:
+              id: "{{ id }}"

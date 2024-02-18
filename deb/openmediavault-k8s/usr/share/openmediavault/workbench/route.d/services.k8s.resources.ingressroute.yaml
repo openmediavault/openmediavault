@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/k8s/resources/ingressroute"
+  title: _("Ingress Routes")
+  component: omv-services-k8s-resources-ingressroute-datatable-page

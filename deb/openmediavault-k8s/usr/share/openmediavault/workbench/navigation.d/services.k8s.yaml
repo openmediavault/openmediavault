@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.k8s"
+  text: _("Kubernetes")
+  icon: "mdi:ship-wheel"
+  url: "/services/k8s"
