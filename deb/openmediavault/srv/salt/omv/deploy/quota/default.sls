@@ -23,7 +23,7 @@
 
 {% set mountpoints = salt['omv_conf.get_by_filter'](
   'conf.system.filesystem.mountpoint',
-  {'operator': 'and', 'arg0': {'operator': 'equals', 'arg0': 'hidden', 'arg1': '0'}, 'arg1': {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'quota'}}) %}
+  {'operator': 'equals', 'arg0': 'hidden', 'arg1': '0'}) %}
 
 # Workaround for Jinja2 variables can't be modified from an inner block scope.
 {% set ns = namespace(enable_service=False) %}
@@ -38,12 +38,22 @@
 {% set device = mountpoint.fsname %}
 {% endif %}
 
+# Proceed only if the device exists.
+{% if device | is_block_device %}
+
+{% if 'quota' not in mountpoint.opts %}
+
+# The filesystem is not mounted with quota support, so remove the useless
+# quota files.
+remove_quota_files:
+  cmd.run:
+    - name: "find '{{ mountpoint.dir }}/' -maxdepth 1 -type f \\( -name 'aquota.group' -o -name 'aquota.user' \\) -delete"
+
+{% else %}
+
 {% set quotas = salt['omv_conf.get_by_filter'](
   'conf.system.filesystem.quota',
   {'operator': 'stringEquals', 'arg0': 'fsuuid', 'arg1': fsuuid}) %}
-
-# Proceed only if the device exists.
-{% if device | is_block_device %}
 
 {% if quotas | length == 0 %}
 
@@ -105,6 +115,8 @@ quota_set_group_{{ fsuuid }}_{{ grpquota.name }}:
     - name: setquota --group '{{ grpquota.name }}' {{ grpquota.bsoftlimit }} {{ grpquota.bhardlimit }} {{ grpquota.isoftlimit }} {{ grpquota.ihardlimit }} {{ device }}
 {% endif %}
 {% endfor %}
+
+{% endif %}
 
 {% endif %}
 
