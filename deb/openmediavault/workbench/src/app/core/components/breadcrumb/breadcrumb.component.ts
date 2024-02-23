@@ -89,7 +89,10 @@ export class BreadcrumbComponent {
         .join('/');
       const breadcrumbConfig = routeSnapshot.data?.breadcrumb;
       const isRequest: boolean = _.isPlainObject(breadcrumbConfig?.request);
-      const formatData: Record<string, any> = { _routeParams: routeSnapshot.params };
+      const formatData: Record<string, any> = {
+        _routeParams: routeSnapshot.params,
+        _routeQueryParams: routeSnapshot.queryParams
+      };
       const routePart: Breadcrumb = {
         text: isRequest
           ? '...'
