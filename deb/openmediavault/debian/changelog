@@ -23,6 +23,7 @@ openmediavault (7.0-32) unstable; urgency=low
   * Add support for choosing between the RSA and Ed25519 types
     when creating an SSH key in the UI.
   * Remove support of importing SSH DSA keys.
+  * Enhance file system quota deployment.
   * Issue #1649: Rearrange the `Storage | Shared Folders | ACL`
     page.
   * Issue #1676: Add an UI endpoint to trigger a download via RPC.
