@@ -308,7 +308,7 @@ export type FormFieldConfig = {
   valueType?: 'string' | 'integer' | 'number' | 'object';
 
   // --- hint ---
-  hintType?: 'info' | 'warning';
+  hintType?: 'info' | 'warning' | 'tip';
   dismissible?: boolean;
   stateId?: string;
 
