@@ -34,7 +34,7 @@ data:
             arg0:
               prop: enable
       - type: divider
-        title: Advanced settings
+        title: _("Advanced settings")
       - type: checkbox
         name: required
         label: _("Required")
