@@ -59,7 +59,7 @@ export class SystemLogsListPageComponent implements OnInit {
       },
       {
         type: 'iconButton',
-        icon: 'mdi:download',
+        icon: 'download',
         tooltip: gettext('Download'),
         click: this.onDownload.bind(this),
         enabledConstraints: {

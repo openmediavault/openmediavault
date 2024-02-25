@@ -99,5 +99,6 @@ export enum Icon {
   console = 'mdi:console',
   close = 'mdi:window-close',
   restore = 'mdi:restore',
-  link = 'mdi:link-variant'
+  link = 'mdi:link-variant',
+  download = 'mdi:download'
 }
