@@ -34,3 +34,7 @@ include:
   - .{{ file | replace('.sls', '') }}
 {% endif %}
 {% endfor %}
+
+systemd-reload:
+  cmd.run:
+   - name: systemctl --system daemon-reload
