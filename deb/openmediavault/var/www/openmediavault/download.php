@@ -19,55 +19,46 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/autoloader.inc");
-require_once("openmediavault/env.inc");
-require_once("openmediavault/functions.inc");
+try {
+    require_once("openmediavault/autoloader.inc");
+    require_once("openmediavault/env.inc");
+    require_once("openmediavault/functions.inc");
 
-if (array_keys_exists(array("service", "method"), $_POST)) {
-	try {
-		function exception_error_handler($errno, $errstr, $errfile,
-		  $errline) {
-			switch ($errno) {
-			case E_STRICT:
-				break;
-			default:
-				throw new \ErrorException($errstr, 0, $errno, $errfile,
-				  $errline);
-				break;
-			}
-		}
-		set_error_handler("exception_error_handler");
+    function exception_error_handler($errno, $errstr, $errfile,
+      $errline) {
+        switch ($errno) {
+        case E_STRICT:
+            break;
+        default:
+            throw new \ErrorException($errstr, 0, $errno, $errfile,
+              $errline);
+            break;
+        }
+    }
+    set_error_handler("exception_error_handler");
 
-		$session = &\OMV\Session::getInstance();
-		$session->start();
-		$session->validate();
-		// Do not update last access time.
-		//$session->updateLastAccess();
+    $session = &\OMV\Session::getInstance();
+    $session->start();
+    $session->validate();
+    // Do not update last access time.
+    //$session->updateLastAccess();
 
-		$server = new \OMV\Rpc\Proxy\Download();
-		$server->handle();
+    $server = new \OMV\Rpc\Proxy\Download();
+    $server->handle();
+    $server->cleanup();
+} catch(\Exception $e) {
+	if (isset($server))
 		$server->cleanup();
-	} catch(\Exception $e) {
-		if (isset($server))
-			$server->cleanup();
-		header("Content-Type: text/html");
-		http_response_code(($e instanceof \OMV\BaseException) ?
-			$e->getHttpStatusCode() : 500);
-		printf("Error #%s:<br/>%s", strval($e->getCode()),
-			str_replace("\n", "<br/>", htmlentities($e->__toString())));
-	}
-} else {
-	// Return the HTML code of the form containing the fields required
-	// to process the download request.
-	print <<<EOF
-<html>
-	<head></head>
-	<form method="post">
-		<input type="hidden" name="service" value=""/>
-		<input type="hidden" name="method" value=""/>
-		<input type="hidden" name="params" value=""/>
-	</form>
-</html>
-EOF;
+	header("Content-Type: application/json");
+	http_response_code(($e instanceof \OMV\BaseException) ?
+		$e->getHttpStatusCode() : 500);
+	print json_encode_safe([
+		"response" => null,
+		"error" => [
+			"code" => $e->getCode(),
+			"message" => $e->getMessage(),
+			"trace" => $e->__toString()
+		]
+	]);
 }
 ?>
