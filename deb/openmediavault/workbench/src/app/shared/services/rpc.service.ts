@@ -22,6 +22,8 @@ import { interval, Observable } from 'rxjs';
 import { concatMap, map, mergeMap, takeWhile } from 'rxjs/operators';
 
 import { retryDelayed, takeWhen } from '~/app/rxjs.helper';
+import { NotificationType } from '~/app/shared/enum/notification-type.enum';
+import { NotificationService } from '~/app/shared/services/notification.service';
 
 type RpcResponse = {
   error?: any;
@@ -42,7 +44,11 @@ export type RpcBgResponse = {
 export class RpcService {
   private url = 'rpc.php';
 
-  constructor(private http: HttpClient, private ngZone: NgZone) {}
+  constructor(
+    private http: HttpClient,
+    private ngZone: NgZone,
+    private notificationService: NotificationService
+  ) {}
 
   /**
    * Execute the specified RPC.
@@ -176,6 +182,17 @@ export class RpcService {
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
+        }
+        if (request.readyState === 4 && request.status !== 200) {
+          const reader = new FileReader();
+          reader.onload = (e: any) => {
+            const err = JSON.parse(e.target.result);
+            const title = `${request.status} - ${request.statusText}`;
+            const message = _.defaultTo(err.error.message, '');
+            const traceback = _.defaultTo(err.error.traceback, '');
+            this.notificationService.show(NotificationType.error, title, message, traceback);
+          };
+          reader.readAsText(request.response);
         }
       };
       request.send(body);
