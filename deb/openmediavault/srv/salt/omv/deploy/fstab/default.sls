@@ -35,6 +35,8 @@ include:
 {% endif %}
 {% endfor %}
 
-systemd-reload:
-  cmd.run:
-   - name: systemctl --system daemon-reload
+fstab_systemctl_daemon_reload:
+  module.run:
+    - service.systemctl_reload:
+    - onchanges:
+      - file: append_fstab_entries
