@@ -9,6 +9,7 @@ import {
   TranslocoMissingHandler,
   TranslocoTestingModule
 } from '@ngneat/transloco';
+import { ToastrModule } from 'ngx-toastr';
 
 export class TestingTranslocoMissingHandler implements TranslocoMissingHandler {
   handle(key: string, config: TranslocoConfig) {
@@ -21,7 +22,8 @@ export class TestingTranslocoMissingHandler implements TranslocoMissingHandler {
     HttpClientTestingModule,
     NoopAnimationsModule,
     RouterTestingModule,
-    TranslocoTestingModule
+    TranslocoTestingModule,
+    ToastrModule.forRoot()
   ],
   exports: [RouterTestingModule],
   providers: [
