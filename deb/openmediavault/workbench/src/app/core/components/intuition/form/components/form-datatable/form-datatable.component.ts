@@ -30,6 +30,9 @@ import { Icon } from '~/app/shared/enum/icon.enum';
 export class FormDatatableComponent extends AbstractFormFieldComponent {
   protected sanitizeConfig(): void {
     super.sanitizeConfig();
+    if (this.config.hasSearchField || this.config.actions.length) {
+      this.config.hasActionBar = true;
+    }
     _.forEach(this.config.actions, (action) => {
       switch (action.template) {
         case 'add':
