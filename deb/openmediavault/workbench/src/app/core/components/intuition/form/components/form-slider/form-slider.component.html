@@ -10,7 +10,8 @@
          hidden
          type="number"
          [formControlName]="config.name">
-  <mat-slider [value]="sliderInput.value"
+  <mat-slider class="omv-w-100"
+              [value]="sliderInput.value"
               (change)="onChange($event)"
               [max]="config?.validators?.max"
               [min]="config?.validators?.min"

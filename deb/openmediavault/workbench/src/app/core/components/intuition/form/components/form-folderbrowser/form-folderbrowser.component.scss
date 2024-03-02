@@ -13,19 +13,17 @@
   padding-left: 12px;
 }
 
-::ng-deep .mat-toolbar.omv-selection-header {
-  .mat-form-field {
-    font-size: var(--mat-font-size-body-1);
+.cdk-overlay-pane {
+  .mat-toolbar.omv-selection-header {
+    .mat-form-field {
+      font-size: var(--mat-font-size-body-1);
 
-    &.mat-focused {
-      color: theme.$omv-color-primary;
-    }
+      &.mat-focused {
+        color: theme.$omv-color-primary;
+      }
 
-    .mat-form-field-infix {
-      padding-bottom: unset;
-
-      .mat-input-element {
-        color: var(--mat-color-text);
+      .mat-form-field-infix {
+        padding-bottom: unset;
       }
     }
   }

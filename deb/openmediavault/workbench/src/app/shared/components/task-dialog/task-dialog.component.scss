@@ -2,19 +2,21 @@
 @use 'scss/defaults/colors' as dc;
 @use 'scss/theme';
 
-.mat-dialog-content {
-  .omv-task-dialog-content {
-    height: 300px;
-    white-space: break-spaces;
-  }
-}
-
-:host ::ng-deep .mat-progress-bar {
-  .mat-progress-bar-buffer {
-    background-color: map.get(theme.$omv-color-pairs, terminal, color);
+omv-task-dialog {
+  .mat-dialog-content {
+    .omv-task-dialog-content {
+      height: 300px;
+      white-space: break-spaces;
+    }
   }
 
-  .mat-progress-bar-fill::after {
-    background-color: dc.$omv-color-black-translucent;
+  .mat-progress-bar {
+    .mat-progress-bar-buffer {
+      background-color: map.get(theme.$omv-color-pairs, terminal, color);
+    }
+
+    .mat-progress-bar-fill::after {
+      background-color: dc.$omv-color-black-translucent;
+    }
   }
 }

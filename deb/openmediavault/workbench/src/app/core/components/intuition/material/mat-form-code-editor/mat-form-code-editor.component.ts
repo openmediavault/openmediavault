@@ -26,7 +26,8 @@ import {
   OnInit,
   Optional,
   Self,
-  ViewChild
+  ViewChild,
+  ViewEncapsulation
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { MatFormFieldControl } from '@angular/material/form-field';
@@ -84,7 +85,8 @@ let nextUniqueId = 0;
       provide: MatFormFieldControl,
       useExisting: MatFormCodeEditorComponent
     }
-  ]
+  ],
+  encapsulation: ViewEncapsulation.None
 })
 export class MatFormCodeEditorComponent
   implements OnInit, AfterViewInit, ControlValueAccessor, MatFormFieldControl<string>
