@@ -1,4 +1,10 @@
-openmediavault (7.0-33) unstable; urgency=low
+openmediavault (7.0.1-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 03 Mar 2024 12:51:23 +0100
+
+openmediavault (7.0-32) unstable; urgency=low
 
   * Upgrade to Debian 12 (Bookworm).
   * Relocate Linux MD device (Software RAID) management into a
