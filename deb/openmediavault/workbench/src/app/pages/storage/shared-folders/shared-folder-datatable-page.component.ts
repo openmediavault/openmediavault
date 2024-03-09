@@ -27,6 +27,7 @@ export class SharedFolderDatatablePageComponent {
   public config: DatatablePageConfig = {
     stateId: 'c0a05d92-2d72-11ea-9b29-33dda9c523cc',
     autoReload: false,
+    hasSearchField: true,
     remoteSorting: true,
     remotePaging: true,
     sorters: [
