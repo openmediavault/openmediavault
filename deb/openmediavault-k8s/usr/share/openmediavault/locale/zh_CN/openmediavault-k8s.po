@@ -7,6 +7,7 @@
 # 黃柏諺 <s8321414@gmail.com>, 2024
 # 王大山, 2024
 # songming <by@songming.me>, 2024
+# kochin <kochinc@outlook.com>, 2024
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-09 12:14+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: songming <by@songming.me>, 2024\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2024\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,22 +25,22 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Access Modes"
-msgstr ""
+msgstr "存取模式"
 
 msgid "Apply"
-msgstr ""
+msgstr "套用"
 
 msgid "Available"
-msgstr ""
+msgstr "可用"
 
 msgid "Capacity"
 msgstr "容量"
 
 msgid "Certificate"
-msgstr ""
+msgstr "憑證"
 
 msgid "Certificates"
-msgstr ""
+msgstr "憑證"
 
 msgid "Chart"
 msgstr ""
@@ -51,16 +52,16 @@ msgid "Cluster IP"
 msgstr ""
 
 msgid "Compressed"
-msgstr ""
+msgstr "經過壓縮"
 
 msgid "Config Maps"
 msgstr ""
 
 msgid "Configuration"
-msgstr ""
+msgstr "配置"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "複製到剪貼板"
 
 msgid "Copy token"
 msgstr ""
@@ -69,25 +70,25 @@ msgid "Created"
 msgstr "创建"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "儀表板"
 
 msgid "Data"
-msgstr ""
+msgstr "資料"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "日期與時間"
 
 msgid "Deployments"
 msgstr ""
 
 msgid "Describe"
-msgstr ""
+msgstr "描述"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "下載"
 
 msgid ""
 "Downloading the kubeconfig file to the local system enables secure remote "
@@ -95,25 +96,25 @@ msgid ""
 msgstr ""
 
 msgid "Enabled"
-msgstr ""
+msgstr "已啟用"
 
 msgid "Etcd Snapshots"
-msgstr ""
+msgstr "Etcd 快照"
 
 msgid "External IP"
-msgstr ""
+msgstr "外部 IP"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Groups"
-msgstr ""
+msgstr "群組"
 
 msgid "HTTP port"
-msgstr ""
+msgstr "HTTP 通訊埠"
 
 msgid "HTTPS port"
-msgstr ""
+msgstr "HTTPS 通訊埠"
 
 msgid "Helm Charts"
 msgstr ""
@@ -143,19 +144,19 @@ msgid "Invalid namespace"
 msgstr ""
 
 msgid "Job"
-msgstr ""
+msgstr "工作"
 
 msgid "Kubeconfig"
 msgstr ""
 
 msgid "Kubernetes"
-msgstr ""
+msgstr "Kubernetes"
 
 msgid "Labels"
-msgstr ""
+msgstr "標號"
 
 msgid "Load Balancer"
-msgstr ""
+msgstr "負載平衡器"
 
 msgid "Logs"
 msgstr "日志"
@@ -164,7 +165,7 @@ msgid "Manifest"
 msgstr ""
 
 msgid "Message"
-msgstr ""
+msgstr "訊息"
 
 msgid "Name"
 msgstr "名称"
@@ -176,16 +177,16 @@ msgid "Namespaces"
 msgstr ""
 
 msgid "NodePort IP"
-msgstr ""
+msgstr "NodePort IP"
 
 msgid "Open UI"
 msgstr "打开 UI"
 
 msgid "PV"
-msgstr ""
+msgstr "PV"
 
 msgid "PVC"
-msgstr ""
+msgstr "PVC"
 
 msgid "Persistent Volume Claims"
 msgstr ""
@@ -221,22 +222,22 @@ msgid "Resources"
 msgstr ""
 
 msgid "Restore"
-msgstr ""
+msgstr "還原"
 
 msgid "Secrets"
 msgstr ""
 
 msgid "Services"
-msgstr ""
+msgstr "服務"
 
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 msgid "Size"
 msgstr "大小"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "快照"
 
 msgid "Status"
 msgstr "状态"
@@ -248,7 +249,7 @@ msgid "Tag"
 msgstr "标签"
 
 msgid "Tags"
-msgstr ""
+msgstr "標籤"
 
 msgid "Target Namespace"
 msgstr ""
@@ -280,19 +281,19 @@ msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "類型"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "Up-to-date"
 msgstr ""
 
 msgid "Updated Kubernetes settings."
-msgstr ""
+msgstr "已更新 Kubernetes 設定。"
 
 msgid "Users"
-msgstr ""
+msgstr "用戶"
 
 msgid "View"
 msgstr ""

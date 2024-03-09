@@ -22,96 +22,99 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Access Modes"
-msgstr ""
+msgstr "Åtkomstlägen"
 
 msgid "Apply"
-msgstr ""
+msgstr "Tillämpa"
 
 msgid "Available"
-msgstr ""
+msgstr "Tillgänglig"
 
 msgid "Capacity"
 msgstr "Kapacitet"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Certifikat"
 
 msgid "Certificates"
-msgstr ""
+msgstr "Certifikat"
 
 msgid "Chart"
-msgstr ""
+msgstr "Diagram"
 
 msgid "Class"
-msgstr ""
+msgstr "Klass"
 
 msgid "Cluster IP"
-msgstr ""
+msgstr "Klustret-IP"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Komprimerad"
 
 msgid "Config Maps"
 msgstr ""
 
 msgid "Configuration"
-msgstr ""
+msgstr "Konfiguration"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopiera till urklipp"
 
 msgid "Copy token"
-msgstr ""
+msgstr "Kopiera token"
 
 msgid "Created"
 msgstr "Skapad"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Instrumentbräda"
 
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum & tid"
 
 msgid "Deployments"
 msgstr ""
 
 msgid "Describe"
-msgstr ""
+msgstr "Beskriv"
 
 msgid "Do you really want to restore this snapshot?"
-msgstr ""
+msgstr "Vill du verkligen återställa denna ögonblicksbild?"
 
 msgid "Download"
-msgstr ""
+msgstr "Hämta"
 
 msgid ""
 "Downloading the kubeconfig file to the local system enables secure remote "
 "management of the Kubernetes cluster using command-line tools like kubectl."
 msgstr ""
+"Att hämta kubeconfig-filen till det lokala systemet möjliggör säker "
+"fjärrhantering av Kubernetes-klustret med hjälp av kommandoradsverktyg som "
+"kubectl."
 
 msgid "Enabled"
 msgstr "Aktiverad"
 
 msgid "Etcd Snapshots"
-msgstr ""
+msgstr "Etcd ögonblicksbilder"
 
 msgid "External IP"
-msgstr ""
+msgstr "Extern IP"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Groups"
-msgstr ""
+msgstr "Grupper"
 
 msgid "HTTP port"
-msgstr ""
+msgstr "HTTP-port"
 
 msgid "HTTPS port"
-msgstr ""
+msgstr "HTTPS-port"
 
 msgid "Helm Charts"
 msgstr ""
@@ -129,28 +132,28 @@ msgid "Images"
 msgstr "Bilder"
 
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredienser"
 
 msgid "Ingress Routes"
-msgstr ""
+msgstr "Ingressrutter"
 
 msgid "Ingresses"
-msgstr ""
+msgstr "Ingresser"
 
 msgid "Invalid namespace"
 msgstr ""
 
 msgid "Job"
-msgstr ""
+msgstr "Jobb"
 
 msgid "Kubeconfig"
-msgstr ""
+msgstr "Kubeconfig"
 
 msgid "Kubernetes"
-msgstr ""
+msgstr "Kubernetes"
 
 msgid "Labels"
-msgstr ""
+msgstr "Etiketter"
 
 msgid "Load Balancer"
 msgstr ""
@@ -159,10 +162,10 @@ msgid "Logs"
 msgstr "Loggar"
 
 msgid "Manifest"
-msgstr ""
+msgstr "Manifestera"
 
 msgid "Message"
-msgstr ""
+msgstr "Meddelande"
 
 msgid "Name"
 msgstr "Namn"
@@ -174,7 +177,7 @@ msgid "Namespaces"
 msgstr ""
 
 msgid "NodePort IP"
-msgstr ""
+msgstr "NodePort-IP"
 
 msgid "Open UI"
 msgstr "Öppna användargränssnittet"
@@ -186,67 +189,67 @@ msgid "PVC"
 msgstr ""
 
 msgid "Persistent Volume Claims"
-msgstr ""
+msgstr "Beständiga volymanspråk"
 
 msgid "Persistent Volumes"
-msgstr ""
+msgstr "Beständiga volymer"
 
 msgid "Persistent Volumes of Shared Folders"
-msgstr ""
+msgstr "Beständiga volymer av delade mappar"
 
 msgid "Pods"
 msgstr "Poddar"
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Ports"
 msgstr "Portar"
 
 msgid "Ready"
-msgstr ""
+msgstr "Redo"
 
 msgid "Recipe"
-msgstr ""
+msgstr "Recept"
 
 msgid "Reclaim policy"
-msgstr ""
+msgstr "Återkrävningspolicy "
 
 msgid "Repository"
 msgstr "Förråd"
 
 msgid "Resources"
-msgstr ""
+msgstr "Resurser"
 
 msgid "Restore"
-msgstr ""
+msgstr "Återställ"
 
 msgid "Secrets"
-msgstr ""
+msgstr "Hemligheter"
 
 msgid "Services"
-msgstr ""
+msgstr "Tjänster"
 
 msgid "Settings"
-msgstr ""
+msgstr "Inställningar"
 
 msgid "Size"
 msgstr "Storlek"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Ögonblicksbilder"
 
 msgid "Status"
 msgstr "Status"
 
 msgid "Storage Class"
-msgstr ""
+msgstr "Förvaringsklass"
 
 msgid "Tag"
 msgstr "Tagg"
 
 msgid "Tags"
-msgstr ""
+msgstr "Taggar"
 
 msgid "Target Namespace"
 msgstr ""
@@ -255,12 +258,14 @@ msgid ""
 "The SSL certificate used by the Dashboard and the LoadBalancer service. If "
 "not set, a self-signed certificate from cert-manager is used."
 msgstr ""
+"SSL-certifikatet som används av instrumentbrädan och LoadBalancer-tjänsten. "
+"Om inte inställt används ett självsignerat certifikat från cert-manager."
 
 msgid "The location where to store etcd on-demand snapshots."
-msgstr ""
+msgstr "Platsen där man lagrar etcd-on-demand ögonblicksbilder."
 
 msgid "The manifest to apply."
-msgstr ""
+msgstr "Manifestet som ska tillämpas."
 
 msgid "The port on which the Kubernetes Dashboard is listening."
 msgstr ""
@@ -269,7 +274,7 @@ msgid "The port on which the LoadBalancer service is listening."
 msgstr ""
 
 msgid "The snapshot was created successfully."
-msgstr ""
+msgstr "Ögonblicksbilden skapades."
 
 msgid "The snapshot {{ name }} has been successfully restored."
 msgstr ""
@@ -278,22 +283,22 @@ msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "Up-to-date"
-msgstr ""
+msgstr "Uppdaterad"
 
 msgid "Updated Kubernetes settings."
-msgstr ""
+msgstr "Uppdaterade Kubernetes-inställningar."
 
 msgid "Users"
-msgstr ""
+msgstr "Användare"
 
 msgid "View"
-msgstr ""
+msgstr "Visa"
 
 msgid "Volume"
-msgstr ""
+msgstr "Volym"
