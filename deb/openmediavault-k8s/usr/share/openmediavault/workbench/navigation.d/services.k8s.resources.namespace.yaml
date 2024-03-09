@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.k8s.resources.namespace"
+  text: _("Namespaces")
+  icon: "mdi:border-none-variant"
+  url: "/services/k8s/resources/namespace"

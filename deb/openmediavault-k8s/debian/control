@@ -1,0 +1,23 @@
+Source: openmediavault-k8s
+Section: net
+XB-Plugin-Section: sharing
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gettext
+Standards-Version: 3.9.6
+Homepage: https://www.openmediavault.org
+
+Package: openmediavault-k8s
+Architecture: all
+Depends: openmediavault (>= 7.0.1)
+Priority: optional
+Description: openmediavault Kubernetes plugin
+ Kubernetes is an open-source platform for orchestrating and
+ managing containerized applications in an automated, scalable,
+ and resource-efficient environment.
+ The plugin is intended to implement a single-node Kubernetes
+ environment using SUSE K3s.
+ The plugin comes with preinstalled Traefik, Cert-Manager and
+ Kubernetes Dashboard.
+ By default the LoadBalancer resource is listening on port 8080
+ (HTTP) and 8443 (HTTPS).

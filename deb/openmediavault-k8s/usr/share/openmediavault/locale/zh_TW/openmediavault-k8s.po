@@ -1,0 +1,302 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-k8s package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# 黃柏諺 <s8321414@gmail.com>, 2024
+# 王大山, 2024
+# songming <by@songming.me>, 2024
+# kochin <kochinc@outlook.com>, 2024
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-k8s\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-09 12:14+0100\n"
+"PO-Revision-Date: 2024-03-09 09:44+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2024\n"
+"Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Access Modes"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
+msgid "Capacity"
+msgstr "容量"
+
+msgid "Certificate"
+msgstr ""
+
+msgid "Certificates"
+msgstr ""
+
+msgid "Chart"
+msgstr ""
+
+msgid "Class"
+msgstr ""
+
+msgid "Cluster IP"
+msgstr ""
+
+msgid "Compressed"
+msgstr ""
+
+msgid "Config Maps"
+msgstr ""
+
+msgid "Configuration"
+msgstr ""
+
+msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Copy token"
+msgstr ""
+
+msgid "Created"
+msgstr "建立於"
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Data"
+msgstr ""
+
+msgid "Date & Time"
+msgstr ""
+
+msgid "Deployments"
+msgstr ""
+
+msgid "Describe"
+msgstr ""
+
+msgid "Do you really want to restore this snapshot?"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid ""
+"Downloading the kubeconfig file to the local system enables secure remote "
+"management of the Kubernetes cluster using command-line tools like kubectl."
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Etcd Snapshots"
+msgstr ""
+
+msgid "External IP"
+msgstr ""
+
+msgid "GID"
+msgstr ""
+
+msgid "Groups"
+msgstr ""
+
+msgid "HTTP port"
+msgstr ""
+
+msgid "HTTPS port"
+msgstr ""
+
+msgid "Helm Charts"
+msgstr ""
+
+msgid "ID"
+msgstr "ID"
+
+msgid "If present, the namespace scope for this request."
+msgstr ""
+
+msgid "Image"
+msgstr "鏡像"
+
+msgid "Images"
+msgstr "鏡像"
+
+msgid "Ingredients"
+msgstr ""
+
+msgid "Ingress Routes"
+msgstr ""
+
+msgid "Ingresses"
+msgstr ""
+
+msgid "Invalid namespace"
+msgstr ""
+
+msgid "Job"
+msgstr ""
+
+msgid "Kubeconfig"
+msgstr ""
+
+msgid "Kubernetes"
+msgstr ""
+
+msgid "Labels"
+msgstr ""
+
+msgid "Load Balancer"
+msgstr ""
+
+msgid "Logs"
+msgstr "日誌"
+
+msgid "Manifest"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Name"
+msgstr "名稱"
+
+msgid "Namespace"
+msgstr ""
+
+msgid "Namespaces"
+msgstr ""
+
+msgid "NodePort IP"
+msgstr ""
+
+msgid "Open UI"
+msgstr "開啟使用者介面"
+
+msgid "PV"
+msgstr ""
+
+msgid "PVC"
+msgstr ""
+
+msgid "Persistent Volume Claims"
+msgstr ""
+
+msgid "Persistent Volumes"
+msgstr ""
+
+msgid "Persistent Volumes of Shared Folders"
+msgstr ""
+
+msgid "Pods"
+msgstr "Pods"
+
+msgid "Port"
+msgstr "端口"
+
+msgid "Ports"
+msgstr "通訊埠"
+
+msgid "Ready"
+msgstr ""
+
+msgid "Recipe"
+msgstr ""
+
+msgid "Reclaim policy"
+msgstr ""
+
+msgid "Repository"
+msgstr "鏡像庫"
+
+msgid "Resources"
+msgstr ""
+
+msgid "Restore"
+msgstr ""
+
+msgid "Secrets"
+msgstr ""
+
+msgid "Services"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Size"
+msgstr "大小"
+
+msgid "Snapshots"
+msgstr ""
+
+msgid "Status"
+msgstr "狀況"
+
+msgid "Storage Class"
+msgstr ""
+
+msgid "Tag"
+msgstr "標籤"
+
+msgid "Tags"
+msgstr ""
+
+msgid "Target Namespace"
+msgstr ""
+
+msgid ""
+"The SSL certificate used by the Dashboard and the LoadBalancer service. If "
+"not set, a self-signed certificate from cert-manager is used."
+msgstr ""
+
+msgid "The location where to store etcd on-demand snapshots."
+msgstr ""
+
+msgid "The manifest to apply."
+msgstr ""
+
+msgid "The port on which the Kubernetes Dashboard is listening."
+msgstr ""
+
+msgid "The port on which the LoadBalancer service is listening."
+msgstr ""
+
+msgid "The snapshot was created successfully."
+msgstr ""
+
+msgid "The snapshot {{ name }} has been successfully restored."
+msgstr ""
+
+msgid "The token to authenticate to the Kubernetes Dashboard."
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "UID"
+msgstr ""
+
+msgid "Up-to-date"
+msgstr ""
+
+msgid "Updated Kubernetes settings."
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "Volume"
+msgstr ""

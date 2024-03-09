@@ -25,6 +25,7 @@ import { format, formatDeep } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
+import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
@@ -36,6 +37,7 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 export class FormButtonComponent extends AbstractFormFieldComponent {
   constructor(
     private blockUiService: BlockUiService,
+    private clipboardService: ClipboardService,
     private notificationService: NotificationService,
     private rpcService: RpcService,
     private router: Router
@@ -72,26 +74,21 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
           })
         )
         .subscribe((res: any) => {
+          const data: Record<any, any> = _.merge({ _response: res }, formValues);
           // Display a notification?
           if (_.isString(request.successNotification)) {
-            this.notificationService.show(
-              NotificationType.success,
-              undefined,
-              format(request.successNotification, _.merge({ _response: res }, formValues))
-            );
+            const successNotification: string = format(request.successNotification, data);
+            this.notificationService.show(NotificationType.success, undefined, successNotification);
+          }
+          // Copy the response to the clipboard?
+          if (_.isString(request.successCopyToClipboard)) {
+            const successCopyToClipboard: string = format(request.successCopyToClipboard, data);
+            this.clipboardService.copy(successCopyToClipboard);
           }
           // Navigate to a specified URL?
           if (_.isString(request.successUrl)) {
-            const url = format(
-              request.successUrl,
-              _.merge(
-                {
-                  _response: res
-                },
-                formValues
-              )
-            );
-            this.router.navigateByUrl(url);
+            const successUrl: string = format(request.successUrl, data);
+            this.router.navigateByUrl(successUrl);
           }
         });
     }

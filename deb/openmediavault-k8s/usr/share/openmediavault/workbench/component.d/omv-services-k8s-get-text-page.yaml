@@ -1,0 +1,17 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-get-text-page
+  type: textPage
+  config:
+    hasCopyToClipboardButton: true
+    hasReloadButton: true
+    request:
+      service: Kubectl
+      get:
+        method: get
+        params:
+          namespace: "{{ _routeQueryParams.namespace }}"
+          type: "{{ _routeQueryParams.type }}"
+          name: "{{ _routeParams.name }}"
+          format: yaml

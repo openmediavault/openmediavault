@@ -18,6 +18,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import base64
 import os
 import re
 import urllib.parse
@@ -491,3 +492,10 @@ def _urlparse(value):
       given URL.
     """
     return urllib.parse.urlparse(value)._asdict()  # pylint: disable=protected-access
+
+
+@jinja_filter('file_base64_encode')
+def _file_base64_encode(file):
+    with open(file, 'rb') as f:
+        content = f.read()
+    return base64.b64encode(content).decode('utf-8')

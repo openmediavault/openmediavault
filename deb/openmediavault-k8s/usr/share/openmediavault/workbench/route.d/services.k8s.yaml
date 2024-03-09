@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/k8s"
+  title: _("Kubernetes")
+  editing: true
+  notificationTitle: _("Updated Kubernetes settings.")
+  component: omv-services-k8s-navigation-page

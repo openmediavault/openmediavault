@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/k8s/resources/namespace"
+  title: _("Namespaces")
+  component: omv-services-k8s-resources-namespace-datatable-page

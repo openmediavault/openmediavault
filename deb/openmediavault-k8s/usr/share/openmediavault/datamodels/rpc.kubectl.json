@@ -1,0 +1,115 @@
+[{
+	"type": "rpc",
+	"id": "rpc.kubectl.logs",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			},
+			"namespace": {
+				"type": "string",
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.kubectl.describe",
+	"params": {
+		"type": "object",
+		"properties": {
+			"type": {
+				"type": "string",
+				"required": true
+			},
+			"name": {
+				"type": "string",
+				"required": true
+			},
+			"namespace": {
+				"type": "string",
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.kubectl.getList",
+	"params": {
+		"type": "object",
+		"properties": {
+			"type": {
+				"type": "string",
+				"required": true
+			},
+			"namespace": {
+				"type": "string",
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.kubectl.get",
+	"params": {
+		"type": "object",
+		"properties": {
+			"type": {
+				"type": "string",
+				"required": true
+			},
+			"name": {
+				"type": "string",
+				"required": true
+			},
+			"namespace": {
+				"type": "string",
+				"required": false
+			},
+			"format": {
+				"type": "string",
+				"enum": [ "json", "yaml" ],
+				"default": "yaml",
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.kubectl.delete",
+	"params": {
+		"type": "object",
+		"properties": {
+			"type": {
+				"type": "string",
+				"required": true
+			},
+			"name": {
+				"type": "string",
+				"required": true
+			},
+			"namespace": {
+				"type": "string",
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.kubectl.apply",
+	"params": {
+		"type": "object",
+		"properties": {
+			"configuration": {
+				"type": "string",
+				"required": true
+			},
+			"namespace": {
+				"type": "string",
+				"required": false
+			}
+		}
+	}
+}]

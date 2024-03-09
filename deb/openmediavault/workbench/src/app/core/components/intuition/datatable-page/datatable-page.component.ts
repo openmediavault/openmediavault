@@ -46,6 +46,7 @@ import { DatatableSelection } from '~/app/shared/models/datatable-selection.mode
 import { RpcListResponse } from '~/app/shared/models/rpc.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
+import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
@@ -69,6 +70,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
     @Inject(Router) router: Router,
     private blockUiService: BlockUiService,
+    private clipboardService: ClipboardService,
     private dataStoreService: DataStoreService,
     private rpcService: RpcService,
     private dialogService: DialogService,
@@ -156,7 +158,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     const postConfirmFn = () => {
       switch (action?.execute?.type) {
         case 'url':
-          const url = format(
+          const url: string = format(
             action.execute.url,
             _.merge(
               {},
@@ -204,21 +206,29 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
               })
             )
             .subscribe((res: any) => {
+              const data: Record<any, any> = _.merge(
+                {},
+                this.pageContext,
+                isFormatable(res) ? { _response: res } : {}
+              );
               // Display a notification?
               if (_.isString(request.successNotification)) {
-                const message = format(
-                  request.successNotification,
-                  _.merge({}, this.pageContext, isFormatable(res) ? { _response: res } : {})
+                const successNotification: string = format(request.successNotification, data);
+                this.notificationService.show(
+                  NotificationType.success,
+                  undefined,
+                  successNotification
                 );
-                this.notificationService.show(NotificationType.success, undefined, message);
+              }
+              // Copy the response to the clipboard?
+              if (_.isString(request.successCopyToClipboard)) {
+                const successCopyToClipboard: string = format(request.successCopyToClipboard, data);
+                this.clipboardService.copy(successCopyToClipboard);
               }
               // Navigate to the specified URL or reload the datatable
               // content.
               if (_.isString(request.successUrl)) {
-                const successUrl = format(
-                  request.successUrl,
-                  _.merge({}, this.pageContext, isFormatable(res) ? { _response: res } : {})
-                );
+                const successUrl: string = format(request.successUrl, data);
                 this.router.navigateByUrl(successUrl);
               } else {
                 this.reloadData();
@@ -267,6 +277,17 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           });
           // Reload datatable if pressed button returns `true`.
           formDialog.afterClosed().subscribe((res) => res && this.reloadData());
+          break;
+        case 'copyToClipboard':
+          const copyToClipboard: string = format(
+            action.execute.copyToClipboard,
+            _.merge(
+              {},
+              this.pageContext,
+              this.selection.hasSingleSelection ? this.selection.first() : {}
+            )
+          );
+          this.clipboardService.copy(copyToClipboard);
           break;
       }
     };

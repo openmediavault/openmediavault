@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/k8s/resources/pod/logs/:name"
+  title: "{{ 'Logs' | translate }} @ {{ _routeQueryParams.namespace }}/{{ _routeParams.name }}"
+  component: omv-services-k8s-logs-text-page

@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/k8s/resources/persistentvolumeclaim"
+  title: _("Persistent Volume Claims")
+  component: omv-services-k8s-resources-persistentvolumeclaim-datatable-page

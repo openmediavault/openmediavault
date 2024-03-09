@@ -1,0 +1,78 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-resources-ingress-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 10000
+    stateId: f8eea272-d6dc-11ee-8e1d-2fe6c2c060b0
+    sorters:
+      - dir: asc
+        prop: metadata.namespace
+      - dir: asc
+        prop: metadata.name
+    store:
+      proxy:
+        service: Kubectl
+        get:
+          method: getList
+          params:
+            type: ingresses
+      transform:
+        spec.externalIPs: '{{ status | get("loadBalancer.ingress") | join(",", "ip") }}'
+    rowId: metadata.name
+    rowEnumFmt: "{{ metadata.namespace }}/{{ metadata.name }}"
+    selectionType: single
+    hasSearchField: true
+    columns:
+      - name: _("Namespace")
+        prop: metadata.namespace
+        flexGrow: 1
+        sortable: true
+      - name: _("Name")
+        prop: metadata.name
+        flexGrow: 1
+        sortable: true
+      - name: _("Class")
+        prop: spec.ingressClassName
+        flexGrow: 1
+        sortable: true
+      - name: _("External IP")
+        prop: spec.externalIPs
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: copyToClipboard
+      - name: _("Created")
+        prop: metadata.creationTimestamp
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: relativeTime
+    actions:
+      - type: iconButton
+        icon: show
+        tooltip: _("View")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/ingress/get/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=ingress"
+      - type: iconButton
+        icon: "mdi:text-box-edit"
+        tooltip: _("Describe")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/ingress/describe/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=ingress"
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: Kubectl
+            method: delete
+            params:
+              type: ingress
+              name: "{{ metadata.name }}"
+              namespace: "{{ metadata.namespace }}"

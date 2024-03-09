@@ -26,6 +26,7 @@ import { Subject } from 'rxjs';
 
 import { FormDialogComponent } from '~/app/core/components/intuition/form-dialog/form-dialog.component';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
+import { CoerceBoolean } from '~/app/decorators';
 import { formatDeep } from '~/app/functions.helper';
 import { DataTableCellChanged } from '~/app/shared/components/datatable/datatable.component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
@@ -171,15 +172,19 @@ export class MatFormDatatableComponent
   @Input()
   actions: MatFormDatatableAction[] = [];
 
+  @CoerceBoolean()
   @Input()
   hasActionBar? = true;
 
+  @CoerceBoolean()
   @Input()
   hasSearchField? = false;
 
+  @CoerceBoolean()
   @Input()
   hasHeader? = true;
 
+  @CoerceBoolean()
   @Input()
   hasFooter? = true;
 
