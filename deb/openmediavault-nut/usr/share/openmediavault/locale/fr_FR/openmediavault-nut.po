@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Christophe Lherieau <skimpax@gmail.com>, 2013-2014
-# kevin LECLERCQ <nuklearstriker@gmail.com>, 2020
+# Kevin Leclercq <nuklearstriker@gmail.com>, 2020
 # Pierre Girard <pierre4012@hotmail.com>, 2021
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
 msgid ""

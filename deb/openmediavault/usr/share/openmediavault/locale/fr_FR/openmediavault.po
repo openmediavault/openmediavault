@@ -10,7 +10,7 @@
 # Francis Dhumes, 2023
 # Jérémy D <bxt@mondedie.fr>, 2018
 # Jonathan Tasseroul <jonathan.tasseroul@gmail.com>, 2021
-# kevin LECLERCQ <nuklearstriker@gmail.com>, 2020
+# Kevin Leclercq <nuklearstriker@gmail.com>, 2020
 # M@T D., 2022
 # M@T D., 2022-2023
 # Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2012-2013

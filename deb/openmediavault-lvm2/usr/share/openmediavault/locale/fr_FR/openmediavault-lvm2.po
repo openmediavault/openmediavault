@@ -5,7 +5,7 @@
 # Translators:
 # Benoit Maliar <maliarbenoit@msn.com>, 2015
 # Christophe Lherieau <skimpax@gmail.com>, 2012-2014
-# kevin LECLERCQ <nuklearstriker@gmail.com>, 2020
+# Kevin Leclercq <nuklearstriker@gmail.com>, 2020
 # M@T D., 2022
 # Pierre Girard <pierre4012@hotmail.com>, 2021
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
