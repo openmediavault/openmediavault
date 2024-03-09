@@ -8,7 +8,7 @@
 # Volker Theile <votdev@gmx.de>, 2022
 # Pierre Girard <pierre4012@hotmail.com>, 2022
 # Axel Cantenys, 2022
-# kevin LECLERCQ <nuklearstriker@gmail.com>, 2022
+# Kevin Leclercq <nuklearstriker@gmail.com>, 2022
 # Christophe Lherieau <skimpax@gmail.com>, 2022
 # M@T D., 2023
 # 

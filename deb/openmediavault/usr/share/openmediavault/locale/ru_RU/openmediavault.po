@@ -15,8 +15,8 @@
 # Volker Theile <votdev@gmx.de>, 2018,2020
 # Volker Theile <votdev@gmx.de>, 2018,2020
 # azlk azlk <phg.azlk@gmail.com>, 2012
-# Артур Мудрых <arturmon82@gmail.com>, 2012-2013,2015-2016
-# Артур Мудрых <arturmon82@gmail.com>, 2017-2021
+# Artur Mudrykh <arturmon82@gmail.com>, 2012-2013,2015-2016
+# Artur Mudrykh <arturmon82@gmail.com>, 2017-2021
 # Никита Геннадьевич <ex-er-sis@ya.ru>, 2023
 msgid ""
 msgstr ""

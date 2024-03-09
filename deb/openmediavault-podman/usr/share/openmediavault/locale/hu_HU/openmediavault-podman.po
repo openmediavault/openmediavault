@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Sári Gábor <sari.gabor@gmail.com>, 2023
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-11 21:57+0200\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
-"Last-Translator: Sári Gábor <sari.gabor@gmail.com>, 2023\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,103 +22,103 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Command"
-msgstr ""
+msgstr "Parancs"
 
 msgid "Containers"
-msgstr ""
+msgstr "Konténerek"
 
 msgid "Created"
-msgstr ""
+msgstr "Létrehozva"
 
 msgid "Digest"
-msgstr ""
+msgstr "Kivonat"
 
 msgid "Do you really want to restart this container?"
-msgstr ""
+msgstr "Valóban újra szeretné indítani a konténert?"
 
 msgid "Do you really want to restart this pod?"
-msgstr ""
+msgstr "Valóban újra szeretné indítani a hüvelyt?"
 
 msgid "Driver"
-msgstr ""
+msgstr "Illesztőprogram"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Image"
-msgstr ""
+msgstr "Kép"
 
 msgid "Images"
 msgstr "Képek"
 
 msgid "Infra ID"
-msgstr ""
+msgstr "Infra ID"
 
 msgid "Inspect"
-msgstr ""
+msgstr "Vizsgálat"
 
 msgid "Logs"
-msgstr ""
+msgstr "Napló"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Csatolási pont"
 
 msgid "Mounts"
-msgstr ""
+msgstr "Csatolások"
 
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 msgid "Names"
-msgstr ""
+msgstr "Nevek"
 
 msgid "Networks"
-msgstr ""
+msgstr "Hálózatok"
 
 msgid "Podman"
-msgstr ""
+msgstr "Podman"
 
 msgid "Pods"
-msgstr ""
+msgstr "Hüvelyek"
 
 msgid "Ports"
-msgstr ""
+msgstr "Portok"
 
 msgid "Pull latest"
-msgstr ""
+msgstr "Legutolsó lekérése"
 
 msgid "Pull latest image"
-msgstr ""
+msgstr "Legutolsó kép lekérése"
 
 msgid "Repository"
-msgstr ""
+msgstr "Tároló"
 
 msgid "Restart"
-msgstr ""
+msgstr "Újraindítás"
 
 msgid "Size"
-msgstr ""
+msgstr "Méret"
 
 msgid "Started"
-msgstr ""
+msgstr "Elkezdve"
 
 msgid "State"
-msgstr ""
+msgstr "Állapot"
 
 msgid "Statistics"
-msgstr ""
+msgstr "Statisztika"
 
 msgid "Status"
-msgstr ""
+msgstr "Állapot"
 
 msgid "Tag"
-msgstr ""
+msgstr "Címke"
 
 msgid "Updated Podman settings."
-msgstr ""
+msgstr "Podman beállítások frissítve."
 
 msgid "Used"
-msgstr ""
+msgstr "Alkalmazva"
 
 msgid "Volumes"
-msgstr ""
+msgstr "Kötetek"
