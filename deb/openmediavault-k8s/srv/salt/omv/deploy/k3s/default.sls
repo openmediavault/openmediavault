@@ -354,12 +354,14 @@ create_k3s_local_storage_manifest:
 install_k3s:
   cmd.run:
     - name: set -o pipefail; wget -O - https://get.k3s.io | INSTALL_K3S_SKIP_ENABLE=true sh -
+    - shell: /usr/bin/bash
     - onlyif: "! which k3s || test -e /etc/openmediavault/upgrade_k3s"
     - failhard: True
 
 # install_k3s_helm:
 #   cmd.run:
 #     - name: set -o pipefail; wget -O - https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+#     - shell: /usr/bin/bash
 #     - onlyif: "! which helm || test -e /etc/openmediavault/upgrade_helm"
 #     - failhard: True
 
