@@ -1,6 +1,7 @@
 openmediavault (7.0.1-1) stable; urgency=low
 
-  *
+  * Several improvements.
+  * Add UI functionality required by plugins.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 03 Mar 2024 12:51:23 +0100
 
