@@ -203,6 +203,16 @@ monitor_nut_server_service:
     - monit.monitor:
       - name: nut-server
 
+{% else %}
+
+disable_nut_driver_enumerator_service:
+  service.disabled:
+    - name: nut-driver-enumerator
+
+stop_all_nut_driver_service_instances:
+  cmd.run:
+    - name: "systemctl stop 'nut-driver@*'"
+
 {% endif %}
 
 start_nut_monitor_service:
@@ -235,7 +245,7 @@ stop_nut_target:
   service.dead:
     - name: nut.target
     - enable: False
-    
+
 stop_nut_monitor_service:
   service.dead:
     - name: nut-monitor
@@ -249,5 +259,9 @@ stop_nut_server_service:
 disable_nut_driver_enumerator_service:
   service.disabled:
     - name: nut-driver-enumerator
+
+stop_all_nut_driver_service_instances:
+  cmd.run:
+    - name: "systemctl stop 'nut-driver@*'"
 
 {% endif %}
