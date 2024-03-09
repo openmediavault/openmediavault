@@ -1,0 +1,109 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-resources-pod-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 10000
+    stateId: 94c699fe-d0be-11ee-a230-cba2d5f23eef
+    sorters:
+      - dir: asc
+        prop: metadata.namespace
+      - dir: asc
+        prop: metadata.name
+    store:
+      proxy:
+        service: Kubectl
+        get:
+          method: getList
+          params:
+            type: pods
+      transform:
+        metadata.labels: '{{ metadata.labels | entries | map("join", ":") }}'
+    rowId: metadata.name
+    rowEnumFmt: "{{ metadata.namespace }}/{{ metadata.name }}"
+    selectionType: single
+    hasSearchField: true
+    columns:
+      - name: _("Namespace")
+        prop: metadata.namespace
+        flexGrow: 1
+        sortable: true
+      - name: _("Name")
+        prop: metadata.name
+        flexGrow: 1
+        sortable: true
+      - name: _("Labels")
+        prop: metadata.labels
+        flexGrow: 2
+        sortable: false
+        hidden: true
+        cellTemplateName: chip
+        cellTemplateConfig:
+          separator: ','
+      - name: _("Status")
+        prop: status.phase
+        cellTemplateName: chip
+        cellTemplateConfig:
+          map:
+            Running:
+              class: omv-background-color-pair-success
+            Pending:
+              class: omv-background-color-pair-orange
+        flexGrow: 1
+        sortable: true
+      - name: _("NodePort IP")
+        prop: status.hostIP
+        flexGrow: 1
+        sortable: true
+        hidden: true
+        cellTemplateName: copyToClipboard
+      - name: _("Cluster IP")
+        prop: status.podIP
+        flexGrow: 1
+        sortable: true
+        hidden: true
+        cellTemplateName: copyToClipboard
+      - name: _("Created")
+        prop: status.startTime
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: relativeTime
+    actions:
+      - type: iconButton
+        icon: show
+        tooltip: _("View")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/pod/get/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=pod"
+      - type: iconButton
+        icon: "mdi:text-box-edit"
+        tooltip: _("Describe")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/pod/describe/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=pod"
+      - type: iconButton
+        icon: "mdi:file-document-edit"
+        tooltip: _("Logs")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/pod/logs/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}"
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: Kubectl
+            method: delete
+            params:
+              type: pod
+              name: "{{ metadata.name }}"
+              namespace: "{{ metadata.namespace }}"

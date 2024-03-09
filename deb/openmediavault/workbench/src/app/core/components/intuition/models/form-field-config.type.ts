@@ -194,6 +194,10 @@ export type FormFieldConfig = {
     progressMessage?: string;
     // Display a notification when the request was successful.
     successNotification?: string;
+    // Copy the specified template to the clipboard.
+    // Example:
+    // "{{ _response['token'] }}"
+    successCopyToClipboard?: string;
     // Navigate to this URL when the request was successful.
     // The URL will be formatted using the values from the parent
     // form. The RPC response is accessible via '_response'.

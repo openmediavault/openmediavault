@@ -498,7 +498,9 @@ nunjucksEnv.addFilter('yesno', yesNo);
 nunjucksEnv.addFilter('strip', (str: string, chars?: string) => _.trim(str, chars));
 nunjucksEnv.addFilter('lstrip', (str: string, chars?: string) => _.trimStart(str, chars));
 nunjucksEnv.addFilter('rstrip', (str: string, chars?: string) => _.trimEnd(str, chars));
-nunjucksEnv.addFilter('get', (data: any, path: number) => _.get(data, path));
+nunjucksEnv.addFilter('get', (data: any, path: number, defaultValue?: any) =>
+  _.get(data, path, defaultValue)
+);
 nunjucksEnv.addFilter('repeat', (str: string, n: number = 1) => _.repeat(str, n));
 nunjucksEnv.addFilter('split', (str: string, separator?: string, limit?: number) =>
   str.split(separator, limit)
@@ -518,6 +520,13 @@ nunjucksEnv.addFilter('uniq', (value: Array<any>) => _.uniq(value));
 nunjucksEnv.addFilter('map', (value: Array<any>, filter: string, ...filterArgs: any) => {
   const filterFn = nunjucksEnv.getFilter(filter);
   return _.map(value, (part) => filterFn.apply(this, [part, ...filterArgs]));
+});
+/**
+ * Creates an array of own enumerable string keyed-value pairs.
+ */
+nunjucksEnv.addFilter('entries', (value: Record<string, any>) => {
+  const x = _.entries(value);
+  return x;
 });
 /**
  * Creates an array with all falsey values removed. The values false, null,

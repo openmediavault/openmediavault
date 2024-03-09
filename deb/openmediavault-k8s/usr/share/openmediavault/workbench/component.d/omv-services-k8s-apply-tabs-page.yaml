@@ -1,0 +1,96 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-apply-tabs-page
+  type: tabsPage
+  config:
+    tabs:
+      - type: form
+        label: _("Manifest")
+        config:
+          request:
+            service: Kubectl
+            post:
+              method: apply
+          fields:
+            - type: textInput
+              name: namespace
+              label: _("Namespace")
+              hint: _("If present, the namespace scope for this request.")
+              value: ""
+              validators:
+                pattern:
+                  pattern: "^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9]){0,1}$"
+                  errorData: _("Invalid namespace")
+            - type: codeEditor
+              name: configuration
+              label: _("Configuration")
+              hint: _("The manifest to apply.")
+              value: ""
+              lineNumbers: true
+              language: yaml
+              validators:
+                required: true
+          buttons:
+            - template: submit
+              text: _("Apply")
+            - template: cancel
+              execute:
+                type: url
+                url: "/services/k8s"
+      - type: form
+        label: _("Ingredients")
+        config:
+          request:
+            service: k8s
+            get:
+              method: getManifestIngredients
+          fields:
+            - type: datatable
+              name: pvs
+              label: _("Persistent Volumes of Shared Folders")
+              hasSearchField: true
+              limit: 5
+              columns:
+                - name: _("Name")
+                  prop: name
+                  flexGrow: 1
+                  cellTemplateName: copyToClipboard
+                - name: _("Tags")
+                  prop: comment
+                  cellTemplateName: chip
+                  cellTemplateConfig:
+                    separator: ','
+                  flexGrow: 1
+                  sortable: true
+            - type: datatable
+              name: users
+              label: _("Users")
+              hasSearchField: true
+              limit: 5
+              columns:
+                - name: _("Name")
+                  prop: name
+                  flexGrow: 1
+                - name: _("UID")
+                  prop: uid
+                  flexGrow: 1
+                  cellTemplateName: copyToClipboard
+            - type: datatable
+              name: groups
+              label: _("Groups")
+              hasSearchField: true
+              limit: 5
+              columns:
+                - name: _("Name")
+                  prop: name
+                  flexGrow: 1
+                - name: _("GID")
+                  prop: gid
+                  flexGrow: 1
+                  cellTemplateName: copyToClipboard
+          buttons:
+            - template: cancel
+              execute:
+                type: url
+                url: "/services/k8s"

@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.k8s.apply"
+  position: 20
+  text: _("Recipe")
+  icon: "mdi:text-box-edit"
+  url: "/services/k8s/apply"

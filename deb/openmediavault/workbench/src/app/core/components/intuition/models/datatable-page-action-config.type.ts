@@ -47,15 +47,16 @@ export type DatatablePageActionConfig = DatatableAction & {
 };
 
 export type DatatablePageActionExecute = {
-  // .-------------------------------------------------.
-  // |            | single selection | multi selection |
-  // |------------|------------------|-----------------|
-  // | url        |        x         |                 |
-  // | request    |        x         |       x         |
-  // | taskDialog |        x         |                 |
-  // | formDialog |        x         |                 |
-  // '-------------------------------------------------'
-  type: 'url' | 'request' | 'taskDialog' | 'formDialog';
+  // .------------------------------------------------------.
+  // |                 | single selection | multi selection |
+  // |-----------------|------------------|-----------------|
+  // | url             |        x         |                 |
+  // | request         |        x         |       x         |
+  // | taskDialog      |        x         |                 |
+  // | formDialog      |        x         |                 |
+  // | copyToClipboard |        x         |                 |
+  // '------------------------------------------------------'
+  type: 'url' | 'request' | 'taskDialog' | 'formDialog' | 'copyToClipboard';
   // An URL can contain "interpolate" delimiters that are
   // interpolated with the properties of the selected row.
   // Example: /certificate/ssh/{{ uuid }}
@@ -79,6 +80,10 @@ export type DatatablePageActionExecute = {
     // Display a notification when the request was successful.
     // The notification can contain route config/params tokens.
     successNotification?: string;
+    // Copy the specified template to the clipboard.
+    // Example:
+    // "{{ _response['token'] }}"
+    successCopyToClipboard?: string;
     // Navigate to this URL when the request was successful.
     // The URL is formatted with the page context (please see
     // AbstractPageComponent::pageContext).
@@ -95,4 +100,7 @@ export type DatatablePageActionExecute = {
   };
   // Display a dialog with the specified form fields.
   formDialog?: FormDialogConfig;
+  // Copy the specified template to the clipboard.
+  // Example: "foo bar {{ id }}"
+  copyToClipboard?: string;
 };

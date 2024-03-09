@@ -1,0 +1,6 @@
+write-kubeconfig-mode: "0644"
+cluster-init: true
+kube-controller-manager-arg:
+  # Removing leader election can reduce CPU usage on a single-node setup.
+  - "leader-elect=false"
+  - "node-monitor-period=60s"

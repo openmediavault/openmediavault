@@ -1,0 +1,295 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-k8s package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-k8s\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-09 12:14+0100\n"
+"PO-Revision-Date: 2024-03-09 09:44+0000\n"
+"Language-Team: Slovenian (Slovenia) (https://app.transifex.com/openmediavault/teams/14254/sl_SI/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sl_SI\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+msgid "Access Modes"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
+msgid "Capacity"
+msgstr ""
+
+msgid "Certificate"
+msgstr ""
+
+msgid "Certificates"
+msgstr ""
+
+msgid "Chart"
+msgstr ""
+
+msgid "Class"
+msgstr ""
+
+msgid "Cluster IP"
+msgstr ""
+
+msgid "Compressed"
+msgstr ""
+
+msgid "Config Maps"
+msgstr ""
+
+msgid "Configuration"
+msgstr ""
+
+msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Copy token"
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Data"
+msgstr ""
+
+msgid "Date & Time"
+msgstr ""
+
+msgid "Deployments"
+msgstr ""
+
+msgid "Describe"
+msgstr ""
+
+msgid "Do you really want to restore this snapshot?"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid ""
+"Downloading the kubeconfig file to the local system enables secure remote "
+"management of the Kubernetes cluster using command-line tools like kubectl."
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Etcd Snapshots"
+msgstr ""
+
+msgid "External IP"
+msgstr ""
+
+msgid "GID"
+msgstr ""
+
+msgid "Groups"
+msgstr ""
+
+msgid "HTTP port"
+msgstr ""
+
+msgid "HTTPS port"
+msgstr ""
+
+msgid "Helm Charts"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "If present, the namespace scope for this request."
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "Images"
+msgstr ""
+
+msgid "Ingredients"
+msgstr ""
+
+msgid "Ingress Routes"
+msgstr ""
+
+msgid "Ingresses"
+msgstr ""
+
+msgid "Invalid namespace"
+msgstr ""
+
+msgid "Job"
+msgstr ""
+
+msgid "Kubeconfig"
+msgstr ""
+
+msgid "Kubernetes"
+msgstr ""
+
+msgid "Labels"
+msgstr ""
+
+msgid "Load Balancer"
+msgstr ""
+
+msgid "Logs"
+msgstr ""
+
+msgid "Manifest"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Namespace"
+msgstr ""
+
+msgid "Namespaces"
+msgstr ""
+
+msgid "NodePort IP"
+msgstr ""
+
+msgid "Open UI"
+msgstr ""
+
+msgid "PV"
+msgstr ""
+
+msgid "PVC"
+msgstr ""
+
+msgid "Persistent Volume Claims"
+msgstr ""
+
+msgid "Persistent Volumes"
+msgstr ""
+
+msgid "Persistent Volumes of Shared Folders"
+msgstr ""
+
+msgid "Pods"
+msgstr ""
+
+msgid "Port"
+msgstr ""
+
+msgid "Ports"
+msgstr ""
+
+msgid "Ready"
+msgstr ""
+
+msgid "Recipe"
+msgstr ""
+
+msgid "Reclaim policy"
+msgstr ""
+
+msgid "Repository"
+msgstr ""
+
+msgid "Resources"
+msgstr ""
+
+msgid "Restore"
+msgstr ""
+
+msgid "Secrets"
+msgstr ""
+
+msgid "Services"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Snapshots"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Storage Class"
+msgstr ""
+
+msgid "Tag"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "Target Namespace"
+msgstr ""
+
+msgid ""
+"The SSL certificate used by the Dashboard and the LoadBalancer service. If "
+"not set, a self-signed certificate from cert-manager is used."
+msgstr ""
+
+msgid "The location where to store etcd on-demand snapshots."
+msgstr ""
+
+msgid "The manifest to apply."
+msgstr ""
+
+msgid "The port on which the Kubernetes Dashboard is listening."
+msgstr ""
+
+msgid "The port on which the LoadBalancer service is listening."
+msgstr ""
+
+msgid "The snapshot was created successfully."
+msgstr ""
+
+msgid "The snapshot {{ name }} has been successfully restored."
+msgstr ""
+
+msgid "The token to authenticate to the Kubernetes Dashboard."
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "UID"
+msgstr ""
+
+msgid "Up-to-date"
+msgstr ""
+
+msgid "Updated Kubernetes settings."
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "Volume"
+msgstr ""

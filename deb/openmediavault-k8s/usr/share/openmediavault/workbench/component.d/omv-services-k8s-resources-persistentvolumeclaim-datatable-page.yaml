@@ -1,0 +1,96 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-resources-persistentvolumeclaim-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 10000
+    stateId: 71d6f258-d6f5-11ee-88a0-eb2f9476c195
+    sorters:
+      - dir: asc
+        prop: metadata.namespace
+      - dir: asc
+        prop: metadata.name
+    store:
+      proxy:
+        service: Kubectl
+        get:
+          method: getList
+          params:
+            type: persistentvolumeclaims
+    rowId: metadata.name
+    rowEnumFmt: "{{ metadata.namespace }}/{{ metadata.name }}"
+    selectionType: single
+    hasSearchField: true
+    columns:
+      - name: _("Namespace")
+        prop: metadata.namespace
+        flexGrow: 1
+        sortable: true
+      - name: _("Name")
+        prop: metadata.name
+        flexGrow: 1
+        sortable: true
+      - name: _("Status")
+        prop: status.phase
+        flexGrow: 1
+        sortable: false
+        cellTemplateName: chip
+      - name: _("Volume")
+        prop: spec.volumeName
+        flexGrow: 1
+        sortable: true
+      - name: _("Capacity")
+        prop: status.capacity.storage
+        flexGrow: 1
+        sortable: false
+      - name: _("Access Modes")
+        prop: spec.accessModes
+        flexGrow: 1
+        sortable: false
+        cellTemplateName: chip
+      - name: _("Storage Class")
+        prop: spec.storageClassName
+        flexGrow: 1
+        hidden: true
+        sortable: true
+      - name: _("Created")
+        prop: metadata.creationTimestamp
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: relativeTime
+    actions:
+      - type: iconButton
+        icon: show
+        tooltip: _("View")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/persistentvolumeclaim/get/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=persistentvolumeclaim"
+      - type: iconButton
+        icon: "mdi:text-box-edit"
+        tooltip: _("Describe")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/persistentvolumeclaim/describe/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=persistentvolumeclaim"
+      - template: delete
+        enabledConstraints:
+          constraint:
+            - operator: in
+              arg0:
+                prop: "status.phase"
+              arg1: ["Available", "Released"]
+        execute:
+          type: request
+          request:
+            service: Kubectl
+            method: delete
+            params:
+              type: persistentvolumeclaim
+              name: "{{ metadata.name }}"
+              namespace: "{{ metadata.namespace }}"

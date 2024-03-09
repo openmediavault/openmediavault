@@ -1,0 +1,86 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-resources-persistentvolume-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 10000
+    stateId: 71d6f258-d6f5-11ee-88a0-eb2f9476c195
+    sorters:
+      - dir: asc
+        prop: metadata.name
+    store:
+      proxy:
+        service: Kubectl
+        get:
+          method: getList
+          params:
+            type: persistentvolumes
+    rowId: metadata.name
+    rowEnumFmt: "{{ metadata.namespace }}/{{ metadata.name }}"
+    selectionType: single
+    hasSearchField: true
+    columns:
+      - name: _("Name")
+        prop: metadata.name
+        flexGrow: 1
+        sortable: true
+      - name: _("Capacity")
+        prop: spec.capacity.storage
+        flexGrow: 1
+        sortable: true
+      - name: _("Access Modes")
+        prop: spec.accessModes
+        flexGrow: 1
+        sortable: false
+        cellTemplateName: chip
+      - name: _("Reclaim policy")
+        prop: spec.persistentVolumeReclaimPolicy
+        flexGrow: 1
+        sortable: true
+      - name: _("Status")
+        prop: status.phase
+        cellTemplateName: chip
+        cellTemplateConfig:
+          map:
+            Available:
+              class: omv-background-color-pair-success
+            Bound:
+              class: omv-background-color-pair-warning
+        flexGrow: 1
+        sortable: true
+    actions:
+      - type: iconButton
+        icon: show
+        tooltip: _("View")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/persistentvolume/get/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=persistentvolume"
+      - type: iconButton
+        icon: "mdi:text-box-edit"
+        tooltip: _("Describe")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/persistentvolume/describe/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=persistentvolume"
+      - template: delete
+        enabledConstraints:
+          constraint:
+            - operator: in
+              arg0:
+                prop: "status.phase"
+              arg1: ["Available", "Released"]
+        execute:
+          type: request
+          request:
+            service: Kubectl
+            method: delete
+            params:
+              type: persistentvolume
+              name: "{{ metadata.name }}"
+              namespace: "{{ metadata.namespace }}"

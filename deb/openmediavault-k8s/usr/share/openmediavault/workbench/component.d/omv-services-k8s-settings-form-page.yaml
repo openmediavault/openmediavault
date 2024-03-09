@@ -1,0 +1,117 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-settings-form-page
+  type: formPage
+  config:
+    request:
+      service: k8s
+      get:
+        method: get
+      post:
+        method: set
+    fields:
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: sharedFolderSelect
+        name: etcdsnapshots_sharedfolderref
+        label: _("Snapshots")
+        hint: _("The location where to store etcd on-demand snapshots.")
+        hasEmptyOption: true
+        value: ""
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+      - type: sslCertSelect
+        name: sslcertificateref
+        label: _("Certificate")
+        hint: _("The SSL certificate used by the Dashboard and the LoadBalancer service. If not set, a self-signed certificate from cert-manager is used.")
+        hasEmptyOption: true
+        value: ""
+      - type: divider
+        title: _("Load Balancer")
+      - type: numberInput
+        name: webport
+        label: _("HTTP port")
+        hint: _("The port on which the LoadBalancer service is listening.")
+        value: 8080
+        validators:
+          min: 1
+          max: 65535
+          patternType: port
+          required: true
+      - type: numberInput
+        name: websecureport
+        label: _("HTTPS port")
+        hint: _("The port on which the LoadBalancer service is listening.")
+        value: 8443
+        validators:
+          min: 1
+          max: 65535
+          patternType: port
+          required: true
+      - type: divider
+        title: _("Dashboard")
+      - type: numberInput
+        name: dashboardport
+        label: _("Port")
+        hint: _("The port on which the Kubernetes Dashboard is listening.")
+        value: 4443
+        validators:
+          min: 1
+          max: 65535
+          patternType: port
+          required: true
+      - type: button
+        name: token
+        text: _("Copy token")
+        tooltip: _("Copy to clipboard")
+        hint: _("The token to authenticate to the Kubernetes Dashboard.")
+        submitValue: false
+        modifiers:
+          - type: enabled
+            constraint:
+              operator: truthy
+              arg0:
+                prop: enable
+        request:
+          service: k8s
+          method: getToken
+          successCopyToClipboard: "{{ _response['token'] }}"
+      - type: button
+        name: opendashboard
+        text: _("Open UI")
+        submitValue: false
+        modifiers:
+          - type: enabled
+            constraint:
+              operator: truthy
+              arg0:
+                prop: enable
+        url: "/externalRedirect/https{{ ['://', location() | get('hostname'), ':', dashboardport] | join | encodeuricomponent }}"
+      - type: divider
+        title: _("Kubeconfig")
+      - type: hint
+        hintType: tip
+        text: _("Downloading the kubeconfig file to the local system enables secure remote management of the Kubernetes cluster using command-line tools like kubectl.")
+      - type: button
+        name: kubeconfig
+        text: _("Download")
+        submitValue: false
+        modifiers:
+          - type: enabled
+            constraint:
+              operator: truthy
+              arg0:
+                prop: enable
+        url: "/download?service=k8s&method=getKubeConfig&params={}"
+    buttons:
+      - template: submit
+      - template: cancel
+        execute:
+          type: url
+          url: "/services/k8s"

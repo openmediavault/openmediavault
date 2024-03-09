@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.k8s.resources.persistentvolumeclaim"
+  text: _("PVC")
+  icon: "mdi:database-outline"
+  url: "/services/k8s/resources/persistentvolumeclaim"

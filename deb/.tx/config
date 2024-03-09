@@ -44,6 +44,12 @@ source_file = openmediavault-hosts/usr/share/openmediavault/locale/openmediavaul
 source_lang = en
 type = PO
 
+[o:openmediavault:p:openmediavault:r:openmediavault-k8s]
+file_filter = openmediavault-k8s/usr/share/openmediavault/locale/<lang>/openmediavault-k8s.po
+source_file = openmediavault-k8s/usr/share/openmediavault/locale/openmediavault-k8s.pot
+source_lang = en
+type = PO
+
 [o:openmediavault:p:openmediavault:r:openmediavault-lvm2]
 file_filter = openmediavault-lvm2/usr/share/openmediavault/locale/<lang>/openmediavault-lvm2.po
 source_file = openmediavault-lvm2/usr/share/openmediavault/locale/openmediavault-lvm2.pot

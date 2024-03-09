@@ -1,0 +1,91 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-resources-deployment-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 10000
+    stateId: d3e05768-d35e-11ee-81b4-3fd59629d9ff
+    sorters:
+      - dir: asc
+        prop: metadata.namespace
+      - dir: asc
+        prop: metadata.name
+    store:
+      proxy:
+        service: Kubectl
+        get:
+          method: getList
+          params:
+            type: deployments
+      transform:
+        metadata.labels: '{{ metadata.labels | entries | map("join", ":") }}'
+    rowId: metadata.name
+    rowEnumFmt: "{{ metadata.namespace }}/{{ metadata.name }}"
+    selectionType: single
+    hasSearchField: true
+    columns:
+      - name: _("Namespace")
+        prop: metadata.namespace
+        flexGrow: 1
+        sortable: true
+      - name: _("Name")
+        prop: metadata.name
+        flexGrow: 1
+        sortable: true
+      - name: _("Labels")
+        prop: metadata.labels
+        flexGrow: 2
+        sortable: false
+        hidden: true
+        cellTemplateName: chip
+        cellTemplateConfig:
+          separator: ','
+      - name: _("Ready")
+        prop: status.readyReplicas
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: template
+        cellTemplateConfig: '{{ status.readyReplicas }}/{{ status.replicas }}'
+      - name: _("Up-to-date")
+        prop: status.updatedReplicas
+        flexGrow: 1
+        sortable: true
+      - name: _("Available")
+        prop: status.availableReplicas
+        flexGrow: 1
+        sortable: true
+      - name: _("Created")
+        prop: metadata.creationTimestamp
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: relativeTime
+    actions:
+      - type: iconButton
+        icon: show
+        tooltip: _("View")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/deployment/get/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=deployment"
+      - type: iconButton
+        icon: "mdi:text-box-edit"
+        tooltip: _("Describe")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/deployment/describe/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=deployment"
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: Kubectl
+            method: delete
+            params:
+              type: deployment
+              name: "{{ metadata.name }}"
+              namespace: "{{ metadata.namespace }}"

@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.k8s.settings"
+  position: 10
+  text: _("Settings")
+  icon: tune
+  url: "/services/k8s/settings"

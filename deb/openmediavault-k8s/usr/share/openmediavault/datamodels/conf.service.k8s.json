@@ -1,0 +1,53 @@
+{
+	"type": "config",
+	"id": "conf.service.k8s",
+	"title": "Kubernetes",
+	"queryinfo": {
+		"xpath": "//services/k8s",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"webport": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 8080
+		},
+		"websecureport": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 8443
+		},
+		"dashboardport": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 4443
+		},
+		"etcdsnapshots_sharedfolderref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		},
+		"sslcertificateref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		}
+	}
+}
