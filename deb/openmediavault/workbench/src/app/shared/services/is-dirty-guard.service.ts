@@ -38,7 +38,10 @@ export class IsDirtyGuardService implements CanDeactivate<Dirty> {
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    if (['/404', '/503', '/guruMeditation', '/login', '/reload'].includes(nextState.url)) {
+    if (
+      ['/404', '/503', '/guruMeditation', '/login', '/reload'].includes(nextState.url) ||
+      nextState.url.startsWith('/externalRedirect/')
+    ) {
       return true;
     }
     return !_.isFunction(component.isDirty) ? true : component.isDirty() ? this.showDialog() : true;
