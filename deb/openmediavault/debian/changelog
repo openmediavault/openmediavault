@@ -1,6 +1,6 @@
 openmediavault (7.0.2-1) stable; urgency=low
 
-  *
+  * Issue #1725: Add search field to shared folder page.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 09 Mar 2024 16:48:27 +0100
 
