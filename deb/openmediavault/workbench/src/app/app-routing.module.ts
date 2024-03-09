@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, inject, NgModule } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterModule, Routes } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
@@ -31,7 +31,10 @@ import { NavigationPageComponent } from '~/app/core/pages/navigation-page/naviga
 import { ShutdownPageComponent } from '~/app/core/pages/shutdown-page/shutdown-page.component';
 import { StandbyPageComponent } from '~/app/core/pages/standby-page/standby-page.component';
 import { RouteConfigService } from '~/app/core/services/route-config.service';
+import { format } from '~/app/functions.helper';
+import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { AuthGuardService } from '~/app/shared/services/auth-guard.service';
+import { NotificationService } from '~/app/shared/services/notification.service';
 
 const routes: Routes = [
   {
@@ -166,7 +169,14 @@ const routes: Routes = [
         // Example: /externalRedirect/https%3A%2F%2Fwww.openmediavault.org
         const url = decodeURIComponent(route.paramMap.get('url'));
         if (_.isString(url)) {
-          window.open(url, '_blank', 'noopener');
+          if (null === window.open(url, '_blank', 'noopener')) {
+            const notificationService: NotificationService = inject(NotificationService);
+            const message: string = format(
+              gettext('Failed to open URL {{ url }} in a new window.'),
+              { url }
+            );
+            notificationService.show(NotificationType.error, undefined, message);
+          }
         }
         return EMPTY;
       }
