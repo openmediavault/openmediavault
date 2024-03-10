@@ -31,6 +31,7 @@ class OMVRpcServiceEtcd extends \OMV\Rpc\ServiceAbstract {
 	public function initialize() {
 		$this->registerMethod("getSnapshots");
 		$this->registerMethod("createSnapshot");
+		$this->registerMethod("deleteSnapshot");
 		$this->registerMethod("restoreSnapshot");
 	}
 
@@ -88,6 +89,22 @@ class OMVRpcServiceEtcd extends \OMV\Rpc\ServiceAbstract {
 		$cmd = new \OMV\System\Process("k3s", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
+	}
+
+	function deleteSnapshot($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$this->validateMethodParams($params, "rpc.etcd.deleteSnapshot");
+		$snapshots = \OMV\Rpc\Rpc::call("Etcd", "getSnapshots",
+			[ "start" => 0, "limit" => -1 ], $context);
+		$snapshot = array_search_ex($snapshots['data'], "name",
+			$params['name']);
+		if (FALSE === $snapshot) {
+			throw new \OMV\Exception("The snapshot '%s' does not exist",
+				$params['name']);
+		}
+		unlink($snapshot['location']);
 	}
 
 	function restoreSnapshot($params, $context) {
