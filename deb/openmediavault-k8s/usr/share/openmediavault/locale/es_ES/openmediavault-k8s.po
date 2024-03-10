@@ -22,96 +22,99 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Access Modes"
-msgstr ""
+msgstr "Modos de acceso"
 
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 msgid "Available"
-msgstr ""
+msgstr "Disponible"
 
 msgid "Capacity"
 msgstr "Capacidad"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Certificado"
 
 msgid "Certificates"
-msgstr ""
+msgstr "Certificados"
 
 msgid "Chart"
-msgstr ""
+msgstr "Grafica"
 
 msgid "Class"
-msgstr ""
+msgstr "Clase"
 
 msgid "Cluster IP"
-msgstr ""
+msgstr "Cluster IP"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Comprimido"
 
 msgid "Config Maps"
-msgstr ""
+msgstr "Mapa de Configuración"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Comfiguración"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copiar al portapapeles"
 
 msgid "Copy token"
-msgstr ""
+msgstr "Copiar token"
 
 msgid "Created"
 msgstr "Creado"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Panel"
 
 msgid "Data"
-msgstr ""
+msgstr "Datos"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Fecha y Hora"
 
 msgid "Deployments"
-msgstr ""
+msgstr "Implementaciones"
 
 msgid "Describe"
-msgstr ""
+msgstr "Describir"
 
 msgid "Do you really want to restore this snapshot?"
-msgstr ""
+msgstr "¿Realmente quieres restaurar esta instantánea?"
 
 msgid "Download"
-msgstr ""
+msgstr "Descargas"
 
 msgid ""
 "Downloading the kubeconfig file to the local system enables secure remote "
 "management of the Kubernetes cluster using command-line tools like kubectl."
 msgstr ""
+"La descarga del archivo kubeconfig al sistema local permite la "
+"administración remota segura del clúster de Kubernetes mediante herramientas"
+" de línea de comandos como kubectl."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Habilitado"
 
 msgid "Etcd Snapshots"
-msgstr ""
+msgstr "Instantánea etcd"
 
 msgid "External IP"
-msgstr ""
+msgstr "IP Externa"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Groups"
-msgstr ""
+msgstr "Grupos"
 
 msgid "HTTP port"
-msgstr ""
+msgstr "Puerto HTTP"
 
 msgid "HTTPS port"
-msgstr ""
+msgstr "puerto HTTPS"
 
 msgid "Helm Charts"
 msgstr ""
@@ -121,6 +124,7 @@ msgstr "ID"
 
 msgid "If present, the namespace scope for this request."
 msgstr ""
+"Si está presente, el alcance del espacio de nombres para esta solicitud."
 
 msgid "Image"
 msgstr "Imagen"
@@ -129,171 +133,173 @@ msgid "Images"
 msgstr "Imagenes"
 
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredientes"
 
 msgid "Ingress Routes"
-msgstr ""
+msgstr "Ruta de ingreso"
 
 msgid "Ingresses"
-msgstr ""
+msgstr "Ingreso"
 
 msgid "Invalid namespace"
-msgstr ""
+msgstr "espacio de nombres inválido."
 
 msgid "Job"
-msgstr ""
+msgstr "Trabajo"
 
 msgid "Kubeconfig"
-msgstr ""
+msgstr "Kubeconfig"
 
 msgid "Kubernetes"
-msgstr ""
+msgstr "Kubernetes"
 
 msgid "Labels"
-msgstr ""
+msgstr "Etiquetas"
 
 msgid "Load Balancer"
-msgstr ""
+msgstr "Balance de carga"
 
 msgid "Logs"
 msgstr "Logs"
 
 msgid "Manifest"
-msgstr ""
+msgstr "Manifiesto"
 
 msgid "Message"
-msgstr ""
+msgstr "Mensaje"
 
 msgid "Name"
 msgstr "Nombre"
 
 msgid "Namespace"
-msgstr ""
+msgstr "Espacio de nombres"
 
 msgid "Namespaces"
-msgstr ""
+msgstr "Espacios de nombres"
 
 msgid "NodePort IP"
-msgstr ""
+msgstr "IP del NodePort"
 
 msgid "Open UI"
 msgstr "Abrir UI"
 
 msgid "PV"
-msgstr ""
+msgstr "PV"
 
 msgid "PVC"
-msgstr ""
+msgstr "PVC"
 
 msgid "Persistent Volume Claims"
-msgstr ""
+msgstr "Reclamaciones de volumen persistente"
 
 msgid "Persistent Volumes"
-msgstr ""
+msgstr "Volúmenes persistentes"
 
 msgid "Persistent Volumes of Shared Folders"
-msgstr ""
+msgstr "Volúmenes persistentes de carpetas compartidas."
 
 msgid "Pods"
 msgstr "Pods"
 
 msgid "Port"
-msgstr ""
+msgstr "Puerto"
 
 msgid "Ports"
 msgstr "Puertos"
 
 msgid "Ready"
-msgstr ""
+msgstr "Listo"
 
 msgid "Recipe"
-msgstr ""
+msgstr "Receta"
 
 msgid "Reclaim policy"
-msgstr ""
+msgstr "Política de reclamaciones"
 
 msgid "Repository"
 msgstr "Repositorio"
 
 msgid "Resources"
-msgstr ""
+msgstr "Recursos"
 
 msgid "Restore"
-msgstr ""
+msgstr "Restaurar"
 
 msgid "Secrets"
-msgstr ""
+msgstr "Secretos"
 
 msgid "Services"
-msgstr ""
+msgstr "Servicios"
 
 msgid "Settings"
-msgstr ""
+msgstr "Opciones"
 
 msgid "Size"
 msgstr "Tamaño"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Instantáneas"
 
 msgid "Status"
 msgstr "Estado"
 
 msgid "Storage Class"
-msgstr ""
+msgstr "Clases de almacenamiento"
 
 msgid "Tag"
 msgstr "Etiqueta"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 msgid "Target Namespace"
-msgstr ""
+msgstr "Espacio de nombres de destino"
 
 msgid ""
 "The SSL certificate used by the Dashboard and the LoadBalancer service. If "
 "not set, a self-signed certificate from cert-manager is used."
 msgstr ""
+"El certificado SSL utilizado por el Panel y el servicio LoadBalancer. Si no "
+"se establece, se utiliza un certificado autofirmado de cert-manager."
 
 msgid "The location where to store etcd on-demand snapshots."
-msgstr ""
+msgstr "La ubicación donde almacenar instantáneas bajo demanda de etcd."
 
 msgid "The manifest to apply."
-msgstr ""
+msgstr "El manifiesto a aplicar"
 
 msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr ""
+msgstr "El puerto en el que escucha el panel de Kubernetes."
 
 msgid "The port on which the LoadBalancer service is listening."
-msgstr ""
+msgstr "El puerto en el que escucha el servicio LoadBalancer."
 
 msgid "The snapshot was created successfully."
-msgstr ""
+msgstr "La instantánea ha sido creada satisfactoriamente."
 
 msgid "The snapshot {{ name }} has been successfully restored."
-msgstr ""
+msgstr "La instantánea {{ name }} se ha restaurado correctamente."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr ""
+msgstr "El token para autenticarse en el panel de Kubernetes."
 
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "Up-to-date"
-msgstr ""
+msgstr "Hasta hoy"
 
 msgid "Updated Kubernetes settings."
-msgstr ""
+msgstr "Actualizar las opciones de Kubernetes."
 
 msgid "Users"
-msgstr ""
+msgstr "Usuarios"
 
 msgid "View"
-msgstr ""
+msgstr "Vista"
 
 msgid "Volume"
-msgstr ""
+msgstr "Volumen"
