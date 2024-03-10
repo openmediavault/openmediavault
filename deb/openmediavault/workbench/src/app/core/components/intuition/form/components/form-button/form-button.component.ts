@@ -16,6 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as _ from 'lodash';
 import { finalize } from 'rxjs/operators';
@@ -56,11 +57,13 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
       this.router.navigateByUrl(url);
     } else if (_.isPlainObject(this.config.request)) {
       // Execute the specified request.
+      const control: AbstractControl = this.formGroup.get(this.config.name);
       const request = this.config.request;
       const params = formatDeep(request.params, formValues);
       if (_.isString(request.progressMessage)) {
         this.blockUiService.start(translate(request.progressMessage));
       }
+      control.disable();
       this.rpcService[request.task ? 'requestTask' : 'request'](
         request.service,
         request.method,
@@ -68,6 +71,7 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
       )
         .pipe(
           finalize(() => {
+            control.enable();
             if (_.isString(request.progressMessage)) {
               this.blockUiService.stop();
             }
