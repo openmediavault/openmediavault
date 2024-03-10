@@ -92,7 +92,10 @@ data:
               operator: truthy
               arg0:
                 prop: enable
-        url: "/externalRedirect/https{{ ['://', location() | get('hostname'), ':', dashboardport] | join | encodeuricomponent }}"
+        request:
+          service: K8s
+          method: isConfigApplicable
+          successUrl: "/externalRedirect/https{{ ['://', location() | get('hostname'), ':', dashboardport] | join | encodeuricomponent }}"
       - type: divider
         title: _("Kubeconfig")
       - type: hint
@@ -108,7 +111,10 @@ data:
               operator: truthy
               arg0:
                 prop: enable
-        url: "/download?service=k8s&method=getKubeConfig&params={}"
+        request:
+          service: K8s
+          method: isConfigApplicable
+          successUrl: "/download?service=k8s&method=getKubeConfig&params={}"
     buttons:
       - template: submit
       - template: cancel

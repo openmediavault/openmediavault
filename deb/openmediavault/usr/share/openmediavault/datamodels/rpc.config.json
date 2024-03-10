@@ -1,5 +1,20 @@
 [{
 	"type": "rpc",
+	"id": "rpc.config.isDirty",
+	"params": {
+		"type": "object",
+		"properties": {
+			"modules": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				},
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
 	"id": "rpc.config.applychanges",
 	"params": {
 		"type": "object",

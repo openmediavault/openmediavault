@@ -1,5 +1,17 @@
 [{
 	"type": "rpc",
+	"id": "rpc.etcd.deleteSnapshot",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
 	"id": "rpc.etcd.restoreSnapshot",
 	"params": {
 		"type": "object",

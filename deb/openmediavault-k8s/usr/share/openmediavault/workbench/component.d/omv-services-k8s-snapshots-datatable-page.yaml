@@ -63,3 +63,11 @@ data:
             params:
               name: "{{ name }}"
             successNotification: _("The snapshot {{ name }} has been successfully restored.")
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: Etcd
+            method: deleteSnapshot
+            params:
+              name: "{{ name }}"

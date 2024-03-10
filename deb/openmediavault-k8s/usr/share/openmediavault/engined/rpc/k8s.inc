@@ -31,11 +31,30 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 	 * Initialize the RPC service.
 	 */
 	public function initialize() {
+		$this->registerMethod("isConfigApplicable");
 		$this->registerMethod("get");
 		$this->registerMethod("set");
 		$this->registerMethod("getToken");
 		$this->registerMethod("getKubeConfig");
 		$this->registerMethod("getManifestIngredients");
+	}
+
+    /**
+     * Checks whether the service is activated and the corresponding
+     * module is not marked as dirty.
+     */
+	function isConfigApplicable($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+	    $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.k8s");
+		if (FALSE === $object->get("enable")) {
+			throw new \OMV\Exception("The service is disabled.");
+		}
+		if ($this->isModuleDirty("k3s")) {
+			throw new \OMV\Config\ConfigDirtyException();
+		}
 	}
 
 	/**
@@ -64,6 +83,7 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	function getToken($params, $context) {
+		\OMV\Rpc\Rpc::call("K8s", "isConfigApplicable", NULL, $context);
 		$secret = \OMV\Rpc\Rpc::call("Kubectl", "get", [
 			"type" => "secret",
 			"name" => "admin-user",

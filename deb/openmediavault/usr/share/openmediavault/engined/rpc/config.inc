@@ -45,6 +45,9 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 
 	/**
 	 * Check if the configuration has been modified.
+	 * @param params An array containing the following fields:
+	 *   \em modules The list of modules that should be checked. If empty,
+	 *   all modules will be checked.
 	 * @return TRUE if the configuration is modified and the changes have
 	 *   not been applied until now, otherwise FALSE.
 	 */
@@ -53,9 +56,14 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
+		$this->validateMethodParams($params, "rpc.config.isDirty");
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
-		$modules = $moduleMngr->getDirtyModules();
-		return !empty($modules);
+		$dirtyModules = $moduleMngr->getDirtyModules();
+		$checkModules = array_value($params, "modules", []);
+		if (!empty($checkModules)) {
+			return !empty(array_intersect($dirtyModules, $checkModules));
+		}
+		return !empty($dirtyModules);
 	}
 
 	/**
@@ -66,7 +74,7 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 	 * \li org.openmediavault.module.service.<module>.applyconfig
 	 * </ul>
 	 * @param params An array containing the following fields:
-	 *   \em modules The list of modules that should be applied. If empty
+	 *   \em modules The list of modules that should be applied. If empty,
 	 *   all dirty modules will be processed.
 	 *   \em force Set to TRUE to update all modules, regardless if marked
 	 *   as dirty or not.
