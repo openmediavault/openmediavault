@@ -31,10 +31,7 @@ import { NavigationPageComponent } from '~/app/core/pages/navigation-page/naviga
 import { ShutdownPageComponent } from '~/app/core/pages/shutdown-page/shutdown-page.component';
 import { StandbyPageComponent } from '~/app/core/pages/standby-page/standby-page.component';
 import { RouteConfigService } from '~/app/core/services/route-config.service';
-import { format } from '~/app/functions.helper';
-import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { AuthGuardService } from '~/app/shared/services/auth-guard.service';
-import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 const routes: Routes = [
@@ -177,14 +174,7 @@ const routes: Routes = [
         // Example: /externalRedirect/https%3A%2F%2Fwww.openmediavault.org
         const url = decodeURIComponent(route.paramMap.get('url'));
         if (_.isString(url)) {
-          if (null === window.open(url, '_blank', 'noopener')) {
-            const notificationService: NotificationService = inject(NotificationService);
-            const message: string = format(
-              gettext('Failed to open URL {{ url }} in a new window.'),
-              { url }
-            );
-            notificationService.show(NotificationType.error, undefined, message);
-          }
+          window.open(url, '_blank', 'noopener');
         }
         return EMPTY;
       }
