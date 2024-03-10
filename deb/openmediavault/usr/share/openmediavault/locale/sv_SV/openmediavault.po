@@ -844,7 +844,7 @@ msgid "Dark mode"
 msgstr "Mörkt läge"
 
 msgid "Dashboard"
-msgstr "Instrumentbräda"
+msgstr "Instrumentpanel"
 
 msgid "Date & Time"
 msgstr "Datum & tid"

@@ -52,7 +52,7 @@ msgid "Compressed"
 msgstr "Komprimerad"
 
 msgid "Config Maps"
-msgstr ""
+msgstr "Konfigurera kartor"
 
 msgid "Configuration"
 msgstr "Konfiguration"
@@ -67,7 +67,7 @@ msgid "Created"
 msgstr "Skapad"
 
 msgid "Dashboard"
-msgstr "Instrumentbräda"
+msgstr "Instrumentpanel"
 
 msgid "Data"
 msgstr "Data"
@@ -156,7 +156,7 @@ msgid "Labels"
 msgstr "Etiketter"
 
 msgid "Load Balancer"
-msgstr ""
+msgstr "Load Balancer"
 
 msgid "Logs"
 msgstr "Loggar"
@@ -183,10 +183,10 @@ msgid "Open UI"
 msgstr "Öppna användargränssnittet"
 
 msgid "PV"
-msgstr ""
+msgstr "PV"
 
 msgid "PVC"
-msgstr ""
+msgstr "PVC"
 
 msgid "Persistent Volume Claims"
 msgstr "Beständiga volymanspråk"
@@ -258,8 +258,8 @@ msgid ""
 "The SSL certificate used by the Dashboard and the LoadBalancer service. If "
 "not set, a self-signed certificate from cert-manager is used."
 msgstr ""
-"SSL-certifikatet som används av instrumentbrädan och LoadBalancer-tjänsten. "
-"Om inte inställt används ett självsignerat certifikat från cert-manager."
+"SSL-certifikatet som används av instrumentpanelen och LoadBalancer-tjänsten."
+" Om inte inställt används ett självsignerat certifikat från cert-manager."
 
 msgid "The location where to store etcd on-demand snapshots."
 msgstr "Platsen där man lagrar etcd-on-demand ögonblicksbilder."
@@ -268,19 +268,19 @@ msgid "The manifest to apply."
 msgstr "Manifestet som ska tillämpas."
 
 msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr ""
+msgstr "Porten som Kubernetes-instrumentpanel lyssnar på."
 
 msgid "The port on which the LoadBalancer service is listening."
-msgstr ""
+msgstr "Porten som LoadBalancer-tjänsten lyssnar på."
 
 msgid "The snapshot was created successfully."
 msgstr "Ögonblicksbilden skapades."
 
 msgid "The snapshot {{ name }} has been successfully restored."
-msgstr ""
+msgstr "Ögonblicksbilden {{ name }} har återställts."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr ""
+msgstr "Token för att autentisera till Kubernetes-instrumentpanel."
 
 msgid "Type"
 msgstr "Typ"
