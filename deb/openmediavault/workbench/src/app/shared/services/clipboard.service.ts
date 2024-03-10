@@ -46,6 +46,6 @@ export class ClipboardService {
       success: gettext('The data has been copied to the clipboard.'),
       error: gettext('Failed to copy data to the clipboard.')
     };
-    this.notificationService.show(NotificationType.success, messages[type]);
+    this.notificationService.show(NotificationType[type], messages[type]);
   }
 }
