@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-09 12:14+0100\n"
+"POT-Creation-Date: 2024-03-16 11:53+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2024\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
@@ -23,6 +23,9 @@ msgstr ""
 
 msgid "Access Modes"
 msgstr "Modos de acceso"
+
+msgid "App Version"
+msgstr ""
 
 msgid "Apply"
 msgstr "Aplicar"
@@ -42,6 +45,9 @@ msgstr "Certificados"
 msgid "Chart"
 msgstr "Grafica"
 
+msgid "Check for new recipes"
+msgstr ""
+
 msgid "Class"
 msgstr "Clase"
 
@@ -53,9 +59,6 @@ msgstr "Comprimido"
 
 msgid "Config Maps"
 msgstr "Mapa de Configuración"
-
-msgid "Configuration"
-msgstr "Comfiguración"
 
 msgid "Copy to clipboard"
 msgstr "Copiar al portapapeles"
@@ -80,6 +83,9 @@ msgstr "Implementaciones"
 
 msgid "Describe"
 msgstr "Describir"
+
+msgid "Description"
+msgstr ""
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "¿Realmente quieres restaurar esta instantánea?"
@@ -119,6 +125,9 @@ msgstr "puerto HTTPS"
 msgid "Helm Charts"
 msgstr ""
 
+msgid "Homepage"
+msgstr ""
+
 msgid "ID"
 msgstr "ID"
 
@@ -131,6 +140,9 @@ msgstr "Imagen"
 
 msgid "Images"
 msgstr "Imagenes"
+
+msgid "Import"
+msgstr ""
 
 msgid "Ingredients"
 msgstr "Ingredientes"
@@ -212,6 +224,15 @@ msgstr "Listo"
 
 msgid "Recipe"
 msgstr "Receta"
+
+msgid "Recipe Information"
+msgstr ""
+
+msgid "Recipe Version"
+msgstr ""
+
+msgid "Recipes"
+msgstr ""
 
 msgid "Reclaim policy"
 msgstr "Política de reclamaciones"

@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/k8s/recipes"
+  title: _("Recipes")
+  component: omv-services-k8s-recipes-datatable-page

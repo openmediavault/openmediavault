@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-09 12:14+0100\n"
+"POT-Creation-Date: 2024-03-16 11:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Access Modes"
+msgstr ""
+
+msgid "App Version"
 msgstr ""
 
 msgid "Apply"
@@ -38,6 +41,9 @@ msgstr ""
 msgid "Chart"
 msgstr ""
 
+msgid "Check for new recipes"
+msgstr ""
+
 msgid "Class"
 msgstr ""
 
@@ -48,9 +54,6 @@ msgid "Compressed"
 msgstr ""
 
 msgid "Config Maps"
-msgstr ""
-
-msgid "Configuration"
 msgstr ""
 
 msgid "Copy to clipboard"
@@ -75,6 +78,9 @@ msgid "Deployments"
 msgstr ""
 
 msgid "Describe"
+msgstr ""
+
+msgid "Description"
 msgstr ""
 
 msgid "Do you really want to restore this snapshot?"
@@ -110,6 +116,9 @@ msgstr ""
 msgid "Helm Charts"
 msgstr ""
 
+msgid "Homepage"
+msgstr ""
+
 msgid "ID"
 msgstr ""
 
@@ -120,6 +129,9 @@ msgid "Image"
 msgstr ""
 
 msgid "Images"
+msgstr ""
+
+msgid "Import"
 msgstr ""
 
 msgid "Ingredients"
@@ -201,6 +213,15 @@ msgid "Ready"
 msgstr ""
 
 msgid "Recipe"
+msgstr ""
+
+msgid "Recipe Information"
+msgstr ""
+
+msgid "Recipe Version"
+msgstr ""
+
+msgid "Recipes"
 msgstr ""
 
 msgid "Reclaim policy"

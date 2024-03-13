@@ -102,7 +102,7 @@
 	"params": {
 		"type": "object",
 		"properties": {
-			"configuration": {
+			"manifest": {
 				"type": "string",
 				"required": true
 			},

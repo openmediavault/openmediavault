@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-09 12:14+0100\n"
+"POT-Creation-Date: 2024-03-16 11:53+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Kostas Moho, 2024\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
@@ -22,105 +22,117 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Access Modes"
+msgstr "Καταστάσεις Πρόσβασης"
+
+msgid "App Version"
 msgstr ""
 
 msgid "Apply"
-msgstr ""
+msgstr "Εφαρμογή"
 
 msgid "Available"
-msgstr ""
+msgstr "Διαθέσιμο"
 
 msgid "Capacity"
 msgstr "Χωρητικότητα"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Πιστοποιητικό"
 
 msgid "Certificates"
-msgstr ""
+msgstr "Πιστοποιητικά"
 
 msgid "Chart"
+msgstr "Διάγραμμα"
+
+msgid "Check for new recipes"
 msgstr ""
 
 msgid "Class"
-msgstr ""
+msgstr "Τάξη"
 
 msgid "Cluster IP"
-msgstr ""
+msgstr "ΙΡ Συστάδας"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Συμπιεσμένο"
 
 msgid "Config Maps"
-msgstr ""
-
-msgid "Configuration"
-msgstr ""
+msgstr "Χάρτες Ρυθμίσεων"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Αντιγραφή στο πρόχειρο"
 
 msgid "Copy token"
-msgstr ""
+msgstr "Αντιγραφή τεκμηρίου."
 
 msgid "Created"
 msgstr "Δημιουργία"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Ταμπλό"
 
 msgid "Data"
-msgstr ""
+msgstr "Δεδομένα"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Ημερομηνία & Ώρα"
 
 msgid "Deployments"
-msgstr ""
+msgstr "Ενεργοποιήσεις"
 
 msgid "Describe"
+msgstr "Περιγραφή"
+
+msgid "Description"
 msgstr ""
 
 msgid "Do you really want to restore this snapshot?"
-msgstr ""
+msgstr "Να αποκατασταθεί αυτό το στιγμιότυπο;"
 
 msgid "Download"
-msgstr ""
+msgstr "Λήψη"
 
 msgid ""
 "Downloading the kubeconfig file to the local system enables secure remote "
 "management of the Kubernetes cluster using command-line tools like kubectl."
 msgstr ""
+"Η λήψη του αρχείου kubeconfig στο τοπικό σύστημα επιτρέπει την ασφαλή "
+"απομακρυσμένη διαχείριση της συστάδας Kubernetes με την χρήση εργαλείων της "
+"γραμμής εντολών όπως το kubectl."
 
 msgid "Enabled"
 msgstr "Ενεργό"
 
 msgid "Etcd Snapshots"
-msgstr ""
+msgstr "Στιγμιότυπα Etcd"
 
 msgid "External IP"
-msgstr ""
+msgstr "Εξωτερική ΙΡ"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Groups"
-msgstr ""
+msgstr "Ομάδες"
 
 msgid "HTTP port"
-msgstr ""
+msgstr "Θύρα HTTP"
 
 msgid "HTTPS port"
-msgstr ""
+msgstr "Θύρα HTTPS"
 
 msgid "Helm Charts"
+msgstr "Διαγράμματα Πλοήγησης"
+
+msgid "Homepage"
 msgstr ""
 
 msgid "ID"
 msgstr "ID"
 
 msgid "If present, the namespace scope for this request."
-msgstr ""
+msgstr "Εφόσον υπάρχει, η εμβέλεια του χώρου ονομάτων για αυτό το αίτημα."
 
 msgid "Image"
 msgstr "Εικόνα"
@@ -128,172 +140,187 @@ msgstr "Εικόνα"
 msgid "Images"
 msgstr "Εικόνες"
 
-msgid "Ingredients"
+msgid "Import"
 msgstr ""
+
+msgid "Ingredients"
+msgstr "Συστατικά"
 
 msgid "Ingress Routes"
-msgstr ""
+msgstr "Διαδρομές Εισόδου"
 
 msgid "Ingresses"
-msgstr ""
+msgstr "Είσοδοι"
 
 msgid "Invalid namespace"
-msgstr ""
+msgstr "Άκυρος χώρος ονομάτων"
 
 msgid "Job"
-msgstr ""
+msgstr "Εργασία"
 
 msgid "Kubeconfig"
-msgstr ""
+msgstr "Kubeconfig"
 
 msgid "Kubernetes"
-msgstr ""
+msgstr "Kubernetes"
 
 msgid "Labels"
-msgstr ""
+msgstr "Ετικέτες"
 
 msgid "Load Balancer"
-msgstr ""
+msgstr "Εξισορροπητής Φόρτου"
 
 msgid "Logs"
 msgstr "Καταγραφές"
 
 msgid "Manifest"
-msgstr ""
+msgstr "Δήλωση"
 
 msgid "Message"
-msgstr ""
+msgstr "Μήνυμα"
 
 msgid "Name"
 msgstr "Όνομα"
 
 msgid "Namespace"
-msgstr ""
+msgstr "Χώρος ονομάτων"
 
 msgid "Namespaces"
-msgstr ""
+msgstr "Χώροι ονομάτων"
 
 msgid "NodePort IP"
-msgstr ""
+msgstr "NodePort IP"
 
 msgid "Open UI"
 msgstr "Open UI"
 
 msgid "PV"
-msgstr ""
+msgstr "PV"
 
 msgid "PVC"
-msgstr ""
+msgstr "PVC"
 
 msgid "Persistent Volume Claims"
-msgstr ""
+msgstr "Αξιώσεις Μόνιμων Τόμων"
 
 msgid "Persistent Volumes"
-msgstr ""
+msgstr "Μόνιμοι Τόμοι"
 
 msgid "Persistent Volumes of Shared Folders"
-msgstr ""
+msgstr "Μόνιμοι Τόμοι Κοινόχρηστων Φακέλων"
 
 msgid "Pods"
 msgstr "Κάψουλες"
 
 msgid "Port"
-msgstr ""
+msgstr "Θύρα"
 
 msgid "Ports"
 msgstr "Θύρες"
 
 msgid "Ready"
-msgstr ""
+msgstr "Έτοιμο"
 
 msgid "Recipe"
+msgstr "Συνταγή"
+
+msgid "Recipe Information"
+msgstr ""
+
+msgid "Recipe Version"
+msgstr ""
+
+msgid "Recipes"
 msgstr ""
 
 msgid "Reclaim policy"
-msgstr ""
+msgstr "Πολιτική επανάκτησης"
 
 msgid "Repository"
 msgstr "Αποθετήριο"
 
 msgid "Resources"
-msgstr ""
+msgstr "Πόροι"
 
 msgid "Restore"
-msgstr ""
+msgstr "Αποκατάσταση"
 
 msgid "Secrets"
-msgstr ""
+msgstr "Μυστικά"
 
 msgid "Services"
-msgstr ""
+msgstr "Υπηρεσίες"
 
 msgid "Settings"
-msgstr ""
+msgstr "Ρυθμίσεις"
 
 msgid "Size"
 msgstr "Μέγεθος"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Στιγμιότυπα"
 
 msgid "Status"
 msgstr "Κατάσταση"
 
 msgid "Storage Class"
-msgstr ""
+msgstr "Τάξη Αποθήκευσης"
 
 msgid "Tag"
 msgstr "Ετικέτα"
 
 msgid "Tags"
-msgstr ""
+msgstr "Ετικέτες"
 
 msgid "Target Namespace"
-msgstr ""
+msgstr "Σκοπούμενος Χώρος Ονομάτων"
 
 msgid ""
 "The SSL certificate used by the Dashboard and the LoadBalancer service. If "
 "not set, a self-signed certificate from cert-manager is used."
 msgstr ""
+"Το πιστοποιητικό SSL που χρησιμοποιείται από το Ταμπλώ και την υπηρεσία του "
+"Εξισορροπητή Φόρτου. Αν δεν οριστεί, τότε θα χρησιμοποιείται ένα αυτοσχέδιο "
+"πιστοποιητικό από τον cert-manager."
 
 msgid "The location where to store etcd on-demand snapshots."
-msgstr ""
+msgstr "Η θέση αποθήκευσης των αιτούμενων στιγμιοτύπων etcd."
 
 msgid "The manifest to apply."
-msgstr ""
+msgstr "Η δήλωση προς εφαρμογή."
 
 msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr ""
+msgstr "Η θύρα στην οποία ακούει το Ταμπλό του Kubernetes."
 
 msgid "The port on which the LoadBalancer service is listening."
-msgstr ""
+msgstr "Η θύρα στην οποία ακούει η υπηρεσία του Εξισορροπητή Φόρτου."
 
 msgid "The snapshot was created successfully."
-msgstr ""
+msgstr "Το στιγμιότυπο δημιουργήθηκε επιτυχώς"
 
 msgid "The snapshot {{ name }} has been successfully restored."
-msgstr ""
+msgstr "Το στιγμιότυπο {{ name }} αποκαταστάθηκε επιτυχώς."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr ""
+msgstr "Το τεκμήριο για την πιστοποίηση στο Ταμπλώ του Kubernetes."
 
 msgid "Type"
-msgstr ""
+msgstr "Τύπος"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "Up-to-date"
-msgstr ""
+msgstr "Ενημερωμένο"
 
 msgid "Updated Kubernetes settings."
-msgstr ""
+msgstr "Ενημέρωση ρυθμίσεων Kubernetes."
 
 msgid "Users"
-msgstr ""
+msgstr "Χρήστες"
 
 msgid "View"
-msgstr ""
+msgstr "Προβολή"
 
 msgid "Volume"
-msgstr ""
+msgstr "Τόμος"

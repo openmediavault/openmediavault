@@ -1,0 +1,81 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-recipes-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    stateId: 722d002c-e15d-11ee-a015-bb47bb9f8b37
+    sorters:
+      - dir: asc
+        prop: name
+    store:
+      proxy:
+        service: K8s
+        get:
+          method: listRecipes
+    rowId: name
+    rowEnumFmt: "{{ name }}"
+    selectionType: single
+    hasSearchField: true
+    columns:
+      - name: _("Recipe Information")
+        prop: ""
+        sortable: false
+        flexGrow: 1
+        cellTemplateName: template
+        cellTemplateConfig: |
+          <div>
+            <div class="omv-display-flex omv-flex-column">
+              <div class="omv-font-weight-title omv-font-size-title">{{ name }}</div>
+              <div class="omv-font-size-subheading-2">{{ description }}</div>
+            </div>
+            <br>
+            {% if recipeVersion %}<span>{{ "Recipe Version" | translate }}: {{ recipeVersion }}</span><br>{% endif %}
+            {% if appVersion %}<span>{{ "App Version" | translate }}: {{ appVersion }}</span><br>{% endif %}
+            {% if maintainers %}<span>{{ "Maintainers" | translate }}: {{ maintainers | join(", ") }}</span><br>{% endif %}
+            {% if url %}<span>{{ "Homepage" | translate }}: <a href="{{ url }}">{{ url }}</a></span><br>{% endif %}
+          </div>
+      - name: _("Name")
+        prop: name
+        flexGrow: 1
+        sortable: true
+        hidden: true
+      - name: _("Description")
+        prop: description
+        flexGrow: 1
+        sortable: true
+        hidden: true
+      - name: _("Recipe Version")
+        prop: recipeVersion
+        flexGrow: 1
+        sortable: false
+        hidden: true
+      - name: _("App Version")
+        prop: appVersion
+        flexGrow: 1
+        sortable: false
+        hidden: true
+      - name: _("Homepage")
+        prop: url
+        flexGrow: 1
+        sortable: true
+        hidden: true
+    actions:
+      - type: iconButton
+        icon: search
+        tooltip: _("Check for new recipes")
+        execute:
+          type: request
+          request:
+            service: K8s
+            method: refreshRecipes
+      - type: iconButton
+        icon: import
+        tooltip: _("Import")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/apply/{{ name }}"

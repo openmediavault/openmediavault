@@ -175,6 +175,12 @@ export class FormPageComponent
   loadData(): void {
     const request = this.config.request;
     if (_.isString(request?.service) && _.isPlainObject(request?.get)) {
+      if (_.isString(request.get.onlyIf)) {
+        const result: string = format(request.get.onlyIf, this.pageContext);
+        if (false === toBoolean(result)) {
+          return;
+        }
+      }
       this.loading = true;
       // noinspection DuplicatedCode
       this.rpcService[request.get.task ? 'requestTask' : 'request'](

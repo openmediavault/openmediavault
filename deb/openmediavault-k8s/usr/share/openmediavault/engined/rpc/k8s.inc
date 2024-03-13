@@ -19,7 +19,13 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+namespace Engined\Rpc;
+
+require_once("openmediavault/functions.inc");
+
 class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
+	private $recipesRepoDir = "/var/lib/openmediavault/k8s-recipes/";
+
 	/**
 	 * Get the RPC service name.
 	 */
@@ -37,6 +43,10 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getToken");
 		$this->registerMethod("getKubeConfig");
 		$this->registerMethod("getManifestIngredients");
+		$this->registerMethod("refreshRecipes");
+		$this->registerMethod("listRecipes");
+		$this->registerMethod("getRecipe");
+		$this->registerMethod("applyRecipe");
 	}
 
     /**
@@ -137,5 +147,72 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 			"users" => $users,
 			"groups" => $groups
 		];
+	}
+
+	function refreshRecipes($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$cmdArgs = [];
+		$cmdArgs[] = sprintf("-C %s", escapeshellarg($this->recipesRepoDir));
+		$cmdArgs[] = "pull";
+		$cmdArgs[] = "origin";
+		$cmdArgs[] = "main";
+		$cmd = new \OMV\System\Process("git", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+	}
+
+	function listRecipes($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$this->validateMethodParams($params, "rpc.common.getList");
+		$result = [];
+		if (is_dir($this->recipesRepoDir)) {
+			$recipesDir = build_path(DIRECTORY_SEPARATOR, $this->recipesRepoDir,
+				"recipes");
+			foreach (new \DirectoryIterator($recipesDir) as $file) {
+				if ($file->isDot()) {
+					continue;
+				}
+				if (!$file->isDir()) {
+					continue;
+				}
+				$path = build_path(DIRECTORY_SEPARATOR, $this->recipesRepoDir,
+					"recipes", $file->getBasename(), "metadata.yaml");
+				if (!file_exists($path)) {
+					continue;
+				}
+				$result[] = yaml_parse_file($path);
+			}
+		}
+		return $this->applyFilter($result, $params['start'],
+			$params['limit'], $params['sortfield'], $params['sortdir']);
+	}
+
+	function getRecipe($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$this->validateMethodParams($params, "rpc.k8s.getRecipe");
+		if (1 == preg_match("/\.\./", $params['name'])) {
+			throw new \OMV\Exception(
+			  "The field 'name' contains forbidden two-dot symbols.");
+		}
+		$path = build_path(DIRECTORY_SEPARATOR, $this->recipesRepoDir,
+			"recipes", mb_strtolower($params['name']), "recipe.yaml");
+		if (!file_exists($path)) {
+			throw new \OMV\Exception(
+				"The requested recipe does not exist.");
+		}
+		return [
+			"namespace" => "",
+			"manifest" => file_get_contents($path)
+		];
+	}
+
+	function applyRecipe($params, $context) {
+		return \OMV\Rpc\Rpc::call("Kubectl", "apply", $params, $context);
 	}
 }

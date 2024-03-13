@@ -1,0 +1,13 @@
+[{
+	"type": "rpc",
+	"id": "rpc.k8s.getRecipe",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

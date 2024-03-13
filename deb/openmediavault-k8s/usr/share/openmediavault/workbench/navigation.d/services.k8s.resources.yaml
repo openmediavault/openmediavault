@@ -2,7 +2,7 @@ version: "1.0"
 type: navigation-item
 data:
   path: "services.k8s.resources"
-  position: 30
+  position: 40
   text: _("Resources")
-  icon: tune
+  icon: apps
   url: "/services/k8s/resources"
