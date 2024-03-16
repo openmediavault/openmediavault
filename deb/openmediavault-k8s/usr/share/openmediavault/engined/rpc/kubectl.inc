@@ -170,7 +170,7 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 		]);
 		$this->validateMethodParams($params, "rpc.kubectl.apply");
 		$tmpFile = new \OMV\System\TmpFile();
-		$tmpFile->write($params['configuration']);
+		$tmpFile->write($params['manifest']);
 		$cmdArgs = [];
 		$cmdArgs[] = "apply";
 		if (!empty($params['namespace'])) {

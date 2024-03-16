@@ -1,3 +1,9 @@
+openmediavault (7.0.3-1) stable; urgency=low
+
+  * Add functionality required by plugins.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 16 Mar 2024 11:05:17 +0100
+
 openmediavault (7.0.2-2) stable; urgency=low
 
   * Fix problem when deploying file system quota.

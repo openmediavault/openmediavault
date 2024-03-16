@@ -48,7 +48,12 @@ export type FormPageConfig = {
       // URL = '/usermgmt/users/edit/test01'
       // params = { username: '{{ name }}', foo: 2 } => { username: 'test01', foo: 2 }
       params?: Record<string, any>;
-      // Set `true` if the RPC is a long running background task.
+      // Execute the request only if the given predicate returns
+      // a boolean `true`.
+      // Example:
+      // "{{ _routeParams | length > 0 }}"
+      onlyIf?: string;
+      // Set `true` if the RPC is a long-running background task.
       task?: boolean;
       // Transform the given parameters in the request response.
       // The given parameters can be tokenized strings that will be

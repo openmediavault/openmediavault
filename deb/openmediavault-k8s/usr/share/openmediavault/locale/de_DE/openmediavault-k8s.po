@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-09 12:14+0100\n"
+"POT-Creation-Date: 2024-03-16 11:53+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2024\n"
 "Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
@@ -23,6 +23,9 @@ msgstr ""
 
 msgid "Access Modes"
 msgstr "Zugriffsmodi"
+
+msgid "App Version"
+msgstr ""
 
 msgid "Apply"
 msgstr "Anwenden"
@@ -42,6 +45,9 @@ msgstr "Zertifikate"
 msgid "Chart"
 msgstr "Chart"
 
+msgid "Check for new recipes"
+msgstr ""
+
 msgid "Class"
 msgstr "Klasse"
 
@@ -53,9 +59,6 @@ msgstr "Komprimiert"
 
 msgid "Config Maps"
 msgstr "Config Maps"
-
-msgid "Configuration"
-msgstr "Konfiguration"
 
 msgid "Copy to clipboard"
 msgstr "In die Zwischenablage kopieren"
@@ -80,6 +83,9 @@ msgstr "Deployments"
 
 msgid "Describe"
 msgstr "Beschreibe"
+
+msgid "Description"
+msgstr "Beschreibung"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "Wollen Sie diesen Schnappschuss wirklich wiederherstellen?"
@@ -108,7 +114,7 @@ msgid "GID"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Gruppen"
 
 msgid "HTTP port"
 msgstr ""
@@ -118,6 +124,9 @@ msgstr ""
 
 msgid "Helm Charts"
 msgstr ""
+
+msgid "Homepage"
+msgstr "Homepage"
 
 msgid "ID"
 msgstr "ID"
@@ -131,6 +140,9 @@ msgstr "Abbild"
 msgid "Images"
 msgstr "Bilder"
 
+msgid "Import"
+msgstr "Importieren"
+
 msgid "Ingredients"
 msgstr "Zutaten"
 
@@ -141,7 +153,7 @@ msgid "Ingresses"
 msgstr ""
 
 msgid "Invalid namespace"
-msgstr ""
+msgstr "Ungültiger Namensraum"
 
 msgid "Job"
 msgstr ""
@@ -165,16 +177,16 @@ msgid "Manifest"
 msgstr ""
 
 msgid "Message"
-msgstr ""
+msgstr "Nachricht"
 
 msgid "Name"
 msgstr "Name"
 
 msgid "Namespace"
-msgstr ""
+msgstr "Namensraum"
 
 msgid "Namespaces"
-msgstr ""
+msgstr "Namensräume"
 
 msgid "NodePort IP"
 msgstr ""
@@ -207,10 +219,19 @@ msgid "Ports"
 msgstr "Ports"
 
 msgid "Ready"
-msgstr ""
+msgstr "Bereit"
 
 msgid "Recipe"
-msgstr ""
+msgstr "Rezept"
+
+msgid "Recipe Information"
+msgstr "Rezept Informationen"
+
+msgid "Recipe Version"
+msgstr "Rezept Version"
+
+msgid "Recipes"
+msgstr "Rezepte"
 
 msgid "Reclaim policy"
 msgstr ""
@@ -225,13 +246,13 @@ msgid "Restore"
 msgstr ""
 
 msgid "Secrets"
-msgstr ""
+msgstr "Geheimnisse"
 
 msgid "Services"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 msgid "Size"
 msgstr "Größe"
@@ -297,7 +318,7 @@ msgid "Updated Kubernetes settings."
 msgstr ""
 
 msgid "Users"
-msgstr ""
+msgstr "Benutzer"
 
 msgid "View"
 msgstr ""

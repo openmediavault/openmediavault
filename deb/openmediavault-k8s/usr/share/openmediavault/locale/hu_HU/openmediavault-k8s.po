@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-09 12:14+0100\n"
+"POT-Creation-Date: 2024-03-16 11:53+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
@@ -23,6 +23,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Access Modes"
+msgstr ""
+
+msgid "App Version"
 msgstr ""
 
 msgid "Apply"
@@ -43,6 +46,9 @@ msgstr ""
 msgid "Chart"
 msgstr ""
 
+msgid "Check for new recipes"
+msgstr ""
+
 msgid "Class"
 msgstr ""
 
@@ -53,9 +59,6 @@ msgid "Compressed"
 msgstr ""
 
 msgid "Config Maps"
-msgstr ""
-
-msgid "Configuration"
 msgstr ""
 
 msgid "Copy to clipboard"
@@ -80,6 +83,9 @@ msgid "Deployments"
 msgstr ""
 
 msgid "Describe"
+msgstr ""
+
+msgid "Description"
 msgstr ""
 
 msgid "Do you really want to restore this snapshot?"
@@ -117,6 +123,9 @@ msgstr ""
 msgid "Helm Charts"
 msgstr ""
 
+msgid "Homepage"
+msgstr ""
+
 msgid "ID"
 msgstr "ID"
 
@@ -128,6 +137,9 @@ msgstr "Kép"
 
 msgid "Images"
 msgstr "Képek"
+
+msgid "Import"
+msgstr ""
 
 msgid "Ingredients"
 msgstr ""
@@ -208,6 +220,15 @@ msgid "Ready"
 msgstr ""
 
 msgid "Recipe"
+msgstr ""
+
+msgid "Recipe Information"
+msgstr ""
+
+msgid "Recipe Version"
+msgstr ""
+
+msgid "Recipes"
 msgstr ""
 
 msgid "Reclaim policy"

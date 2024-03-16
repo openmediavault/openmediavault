@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.k8s.recipes"
+  position: 30
+  text: _("Recipes")
+  icon: "mdi:book-open-page-variant"
+  url: "/services/k8s/recipes"
