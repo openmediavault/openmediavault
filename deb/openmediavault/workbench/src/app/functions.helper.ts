@@ -512,8 +512,11 @@ nunjucksEnv.addFilter('basename', (str: string) => {
   const parts = str.split('/');
   return _.last(parts);
 });
+nunjucksEnv.addFilter('keys', (value: Record<string, any>) => _.keys(value));
 nunjucksEnv.addFilter('array', (value: any) => (!_.isArray(value) ? [value] : value));
-nunjucksEnv.addFilter('includes', (array: Array<any>, value: any) => _.includes(array, value));
+nunjucksEnv.addFilter('includes', (collection: Array<any>, value: any) =>
+  _.includes(collection, value)
+);
 nunjucksEnv.addFilter('isequal', (value: any, other: any) => _.isEqual(value, other));
 nunjucksEnv.addFilter('union', (value: Array<any>, other: Array<any>) => _.union(value, other));
 nunjucksEnv.addFilter('uniq', (value: Array<any>) => _.uniq(value));

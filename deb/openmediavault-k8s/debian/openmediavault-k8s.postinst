@@ -45,8 +45,16 @@ case "$1" in
 		# installation.
 		########################################################################
 		if [ -z "$2" ]; then
-		  echo "Installing k3s ..."
-		  LANG=C.UTF-8 omv-salt deploy run --no-color --quiet k3s || :
+			echo "Installing k3s ..."
+			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet k3s || :
+		fi
+
+		########################################################################
+		# Install the recipes from the GitHub repository.
+		########################################################################
+		if [ ! -d "/var/lib/openmediavault/k8s-recipes" ]; then
+			mkdir -p "/var/lib/openmediavault/k8s-recipes"
+			git clone https://github.com/openmediavault/openmediavault-k8s-recipes.git "/var/lib/openmediavault/k8s-recipes"
 		fi
 
 		########################################################################

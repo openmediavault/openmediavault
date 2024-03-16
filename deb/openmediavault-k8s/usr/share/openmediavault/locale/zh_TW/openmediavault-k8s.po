@@ -4,19 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# 黃柏諺 <s8321414@gmail.com>, 2024
 # 王大山, 2024
 # songming <by@songming.me>, 2024
 # kochin <kochinc@outlook.com>, 2024
+# 黃柏諺 <s8321414@gmail.com>, 2024
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-09 12:14+0100\n"
+"POT-Creation-Date: 2024-03-16 11:53+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2024\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2024\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,6 +26,9 @@ msgstr ""
 
 msgid "Access Modes"
 msgstr "存取模式"
+
+msgid "App Version"
+msgstr ""
 
 msgid "Apply"
 msgstr "套用"
@@ -43,28 +46,28 @@ msgid "Certificates"
 msgstr "憑證"
 
 msgid "Chart"
+msgstr "Chart"
+
+msgid "Check for new recipes"
 msgstr ""
 
 msgid "Class"
-msgstr ""
+msgstr "類別"
 
 msgid "Cluster IP"
-msgstr ""
+msgstr "叢集 IP"
 
 msgid "Compressed"
 msgstr "經過壓縮"
 
 msgid "Config Maps"
-msgstr ""
-
-msgid "Configuration"
-msgstr "配置"
+msgstr "設定地圖"
 
 msgid "Copy to clipboard"
 msgstr "複製到剪貼板"
 
 msgid "Copy token"
-msgstr ""
+msgstr "複製權杖"
 
 msgid "Created"
 msgstr "建立於"
@@ -79,13 +82,16 @@ msgid "Date & Time"
 msgstr "日期與時間"
 
 msgid "Deployments"
-msgstr ""
+msgstr "部署"
 
 msgid "Describe"
 msgstr "描述"
 
-msgid "Do you really want to restore this snapshot?"
+msgid "Description"
 msgstr ""
+
+msgid "Do you really want to restore this snapshot?"
+msgstr "您確定要還原此快照嗎？"
 
 msgid "Download"
 msgstr "下載"
@@ -93,7 +99,7 @@ msgstr "下載"
 msgid ""
 "Downloading the kubeconfig file to the local system enables secure remote "
 "management of the Kubernetes cluster using command-line tools like kubectl."
-msgstr ""
+msgstr "將 kubeconfig 檔案下載到本機系統可以使用 kubectl 等命令列工具對 Kubernetes 叢集進行安全遠端管理。"
 
 msgid "Enabled"
 msgstr "已啟用"
@@ -117,13 +123,16 @@ msgid "HTTPS port"
 msgstr "HTTPS 通訊埠"
 
 msgid "Helm Charts"
+msgstr "Helm Charts"
+
+msgid "Homepage"
 msgstr ""
 
 msgid "ID"
 msgstr "ID"
 
 msgid "If present, the namespace scope for this request."
-msgstr ""
+msgstr "若存在，則為此請求的命名空間範圍。"
 
 msgid "Image"
 msgstr "鏡像"
@@ -131,23 +140,26 @@ msgstr "鏡像"
 msgid "Images"
 msgstr "鏡像"
 
-msgid "Ingredients"
+msgid "Import"
 msgstr ""
+
+msgid "Ingredients"
+msgstr "Ingredients"
 
 msgid "Ingress Routes"
-msgstr ""
+msgstr "Ingress 路由"
 
 msgid "Ingresses"
-msgstr ""
+msgstr "Ingresses"
 
 msgid "Invalid namespace"
-msgstr ""
+msgstr "無效的命名空間"
 
 msgid "Job"
 msgstr "工作"
 
 msgid "Kubeconfig"
-msgstr ""
+msgstr "Kubeconfig"
 
 msgid "Kubernetes"
 msgstr "Kubernetes"
@@ -162,7 +174,7 @@ msgid "Logs"
 msgstr "日誌"
 
 msgid "Manifest"
-msgstr ""
+msgstr "Manifest"
 
 msgid "Message"
 msgstr "訊息"
@@ -171,10 +183,10 @@ msgid "Name"
 msgstr "名稱"
 
 msgid "Namespace"
-msgstr ""
+msgstr "命名空間"
 
 msgid "Namespaces"
-msgstr ""
+msgstr "命名空間"
 
 msgid "NodePort IP"
 msgstr "NodePort IP"
@@ -189,13 +201,13 @@ msgid "PVC"
 msgstr "PVC"
 
 msgid "Persistent Volume Claims"
-msgstr ""
+msgstr "持久卷宗聲明"
 
 msgid "Persistent Volumes"
-msgstr ""
+msgstr "持久卷宗"
 
 msgid "Persistent Volumes of Shared Folders"
-msgstr ""
+msgstr "分享資料夾的持久卷宗"
 
 msgid "Pods"
 msgstr "Pods"
@@ -207,25 +219,34 @@ msgid "Ports"
 msgstr "通訊埠"
 
 msgid "Ready"
-msgstr ""
+msgstr "準備好"
 
 msgid "Recipe"
+msgstr "食譜"
+
+msgid "Recipe Information"
+msgstr ""
+
+msgid "Recipe Version"
+msgstr ""
+
+msgid "Recipes"
 msgstr ""
 
 msgid "Reclaim policy"
-msgstr ""
+msgstr "回收政策"
 
 msgid "Repository"
 msgstr "鏡像庫"
 
 msgid "Resources"
-msgstr ""
+msgstr "資源"
 
 msgid "Restore"
 msgstr "還原"
 
 msgid "Secrets"
-msgstr ""
+msgstr "祕密"
 
 msgid "Services"
 msgstr "服務"
@@ -243,7 +264,7 @@ msgid "Status"
 msgstr "狀況"
 
 msgid "Storage Class"
-msgstr ""
+msgstr "儲存類別"
 
 msgid "Tag"
 msgstr "標籤"
@@ -252,33 +273,33 @@ msgid "Tags"
 msgstr "標籤"
 
 msgid "Target Namespace"
-msgstr ""
+msgstr "目標命名空間"
 
 msgid ""
 "The SSL certificate used by the Dashboard and the LoadBalancer service. If "
 "not set, a self-signed certificate from cert-manager is used."
-msgstr ""
+msgstr "儀表板與負載平衡服務使用的 SSL 憑證。若未設定，則使用來自 cert-manager 的自行簽署憑證。"
 
 msgid "The location where to store etcd on-demand snapshots."
-msgstr ""
+msgstr "儲存 etcd 隨選快照的位置。"
 
 msgid "The manifest to apply."
-msgstr ""
+msgstr "要套用的 manifest。"
 
 msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr ""
+msgstr "Kubernetes 儀表板正在監聽的連接埠。"
 
 msgid "The port on which the LoadBalancer service is listening."
-msgstr ""
+msgstr "負載平衡服務正在監聽的連接埠。"
 
 msgid "The snapshot was created successfully."
-msgstr ""
+msgstr "快照建立成功。"
 
 msgid "The snapshot {{ name }} has been successfully restored."
-msgstr ""
+msgstr "已成功還原快照 {{ name }}。"
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr ""
+msgstr "用於向 Kubernetes 儀表板進行身份驗證的權杖。"
 
 msgid "Type"
 msgstr "類型"
@@ -287,7 +308,7 @@ msgid "UID"
 msgstr "UID"
 
 msgid "Up-to-date"
-msgstr ""
+msgstr "最新"
 
 msgid "Updated Kubernetes settings."
 msgstr "已更新 Kubernetes 設定。"
@@ -296,7 +317,7 @@ msgid "Users"
 msgstr "用戶"
 
 msgid "View"
-msgstr ""
+msgstr "檢視"
 
 msgid "Volume"
-msgstr ""
+msgstr "卷宗"

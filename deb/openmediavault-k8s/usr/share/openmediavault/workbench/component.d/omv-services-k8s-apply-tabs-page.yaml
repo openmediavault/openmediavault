@@ -9,9 +9,14 @@ data:
         label: _("Manifest")
         config:
           request:
-            service: Kubectl
+            service: K8s
+            get:
+              method: getRecipe
+              params:
+                name: "{{ _routeParams.name }}"
+              onlyIf: "{{ _routeParams | keys | includes('name') }}"
             post:
-              method: apply
+              method: applyRecipe
           fields:
             - type: textInput
               name: namespace
@@ -23,8 +28,8 @@ data:
                   pattern: "^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9]){0,1}$"
                   errorData: _("Invalid namespace")
             - type: codeEditor
-              name: configuration
-              label: _("Configuration")
+              name: manifest
+              label: _("Manifest")
               hint: _("The manifest to apply.")
               value: ""
               lineNumbers: true

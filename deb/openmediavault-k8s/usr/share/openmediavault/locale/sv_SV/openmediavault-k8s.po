@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-09 12:14+0100\n"
+"POT-Creation-Date: 2024-03-16 11:53+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Jonatan Nyberg, 2024\n"
 "Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
@@ -23,6 +23,9 @@ msgstr ""
 
 msgid "Access Modes"
 msgstr "Åtkomstlägen"
+
+msgid "App Version"
+msgstr ""
 
 msgid "Apply"
 msgstr "Tillämpa"
@@ -42,6 +45,9 @@ msgstr "Certifikat"
 msgid "Chart"
 msgstr "Diagram"
 
+msgid "Check for new recipes"
+msgstr ""
+
 msgid "Class"
 msgstr "Klass"
 
@@ -53,9 +59,6 @@ msgstr "Komprimerad"
 
 msgid "Config Maps"
 msgstr "Konfigurera kartor"
-
-msgid "Configuration"
-msgstr "Konfiguration"
 
 msgid "Copy to clipboard"
 msgstr "Kopiera till urklipp"
@@ -80,6 +83,9 @@ msgstr ""
 
 msgid "Describe"
 msgstr "Beskriv"
+
+msgid "Description"
+msgstr ""
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "Vill du verkligen återställa denna ögonblicksbild?"
@@ -119,6 +125,9 @@ msgstr "HTTPS-port"
 msgid "Helm Charts"
 msgstr ""
 
+msgid "Homepage"
+msgstr ""
+
 msgid "ID"
 msgstr "ID"
 
@@ -130,6 +139,9 @@ msgstr "Bild"
 
 msgid "Images"
 msgstr "Bilder"
+
+msgid "Import"
+msgstr ""
 
 msgid "Ingredients"
 msgstr "Ingredienser"
@@ -211,6 +223,15 @@ msgstr "Redo"
 
 msgid "Recipe"
 msgstr "Recept"
+
+msgid "Recipe Information"
+msgstr ""
+
+msgid "Recipe Version"
+msgstr ""
+
+msgid "Recipes"
+msgstr ""
 
 msgid "Reclaim policy"
 msgstr "Återkrävningspolicy "
