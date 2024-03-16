@@ -1,3 +1,9 @@
+openmediavault (7.0.4-1) stable; urgency=low
+
+  * 
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 16 Mar 2024 12:33:17 +0100
+
 openmediavault (7.0.3-1) stable; urgency=low
 
   * Add functionality required by plugins.
