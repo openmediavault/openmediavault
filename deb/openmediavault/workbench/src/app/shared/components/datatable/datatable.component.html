@@ -195,7 +195,7 @@
 
 <ng-template #copyToClipboardTpl
              let-value="value">
-  <div *ngIf="value !== null || value !== undefined || value !== ''"
+  <div *ngIf="value !== null && value !== undefined && value !== ''"
        class="omv-display-flex omv-flex-row omv-gap-1 omv-flex-wrap omv-align-items-center">
     <span [matTooltip]="value">{{ value | preventHtml }}</span>
     <mat-icon class="omv-display-flex omv-icon-sm omv-cursor-pointer"
