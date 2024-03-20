@@ -53,9 +53,5 @@ class K3s extends \OMV\Engine\Module\ServiceAbstract implements
 			OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.system.network.dns",
 			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.sharedfolder",
-			[$this, "setDirty"]);
 	}
 }

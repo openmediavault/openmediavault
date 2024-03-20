@@ -129,12 +129,14 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 		]);
 		$db = \OMV\Config\Database::getInstance();
 		$sfObjects = $db->get("conf.system.sharedfolder");
-		$pvs = [];
+		$sfs = [];
 		foreach ($sfObjects as $sfObjectk => $sfObjectv) {
-			$name = sprintf("shared-folder-%s", mb_strtolower(str_replace(
-				"_", "-", $sfObjectv->get("name"))));
-			$pvs[] = [
-				"name" => $name,
+			$meObject = $db->get("conf.system.filesystem.mountpoint",
+				  $sfObjectv->get("mntentref"));
+			$sfs[] = [
+				"name" => $sfObjectv->get("name"),
+				"absdirpath" => build_path(DIRECTORY_SEPARATOR,
+					$meObject->get("dir"), $sfObjectv->get("reldirpath")),
 				"comment" => $sfObjectv->get("comment")
 			];
 		}
@@ -143,7 +145,7 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateAllGroups",
 			null, $context);
 		return [
-			"pvs" => $pvs,
+			"sharedfolders" => $sfs,
 			"users" => $users,
 			"groups" => $groups
 		];

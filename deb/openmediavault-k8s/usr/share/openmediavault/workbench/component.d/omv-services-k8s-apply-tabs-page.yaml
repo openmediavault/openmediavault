@@ -52,13 +52,16 @@ data:
               method: getManifestIngredients
           fields:
             - type: datatable
-              name: pvs
-              label: _("Persistent Volumes of Shared Folders")
+              name: sharedfolders
+              label: _("Shared Folders")
               hasSearchField: true
               limit: 5
               columns:
                 - name: _("Name")
                   prop: name
+                  flexGrow: 1
+                - name: _("Absolute Path")
+                  prop: absdirpath
                   flexGrow: 1
                   cellTemplateName: copyToClipboard
                 - name: _("Tags")

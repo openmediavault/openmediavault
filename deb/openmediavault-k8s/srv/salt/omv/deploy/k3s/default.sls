@@ -29,7 +29,6 @@
 {% set k8s_config = salt['omv_conf.get']('conf.service.k8s') %}
 {% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 # {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
-{% set sharedfolder_config = salt['omv_conf.get']('conf.system.sharedfolder') %}
 
 {% set fqdn = dns_config.hostname | lower %}
 {% if dns_config.domainname | length > 0 %}
@@ -324,27 +323,6 @@ create_k3s_local_storage_manifest:
         provisioner: rancher.io/local-path
         reclaimPolicy: Retain
         volumeBindingMode: WaitForFirstConsumer
-{%- for sharedfolder in sharedfolder_config %}
-        ---
-        apiVersion: v1
-        kind: PersistentVolume
-        metadata:
-          name: shared-folder-{{ sharedfolder.name | replace('_', '-') | lower }}
-          annotations:
-            conf.openmediavault.org/id: {{ sharedfolder.uuid }}
-            conf.openmediavault.org/model-id: conf.system.sharedfolder
-          labels:
-            app.kubernetes.io/part-of: openmediavault
-        spec:
-          storageClassName: shared-folder
-          capacity:
-            storage: 100Gi
-          hostPath:
-            path: {{ salt['omv_conf.get_sharedfolder_path'](sharedfolder.uuid) }}
-            type: Directory
-          accessModes:
-            - ReadWriteMany
-{%- endfor %}
     - user: root
     - group: root
     - mode: 600
@@ -357,13 +335,6 @@ install_k3s:
     - shell: /usr/bin/bash
     - onlyif: "! which k3s || test -e /var/lib/openmediavault/upgrade_k3s"
     - failhard: True
-
-# install_k3s_helm:
-#   cmd.run:
-#     - name: set -o pipefail; wget -O - https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-#     - shell: /usr/bin/bash
-#     - onlyif: "! which helm || test -e /var/lib/openmediavault/upgrade_helm"
-#     - failhard: True
 
 remove_k3s_upgrade_flag:
   file.absent:
