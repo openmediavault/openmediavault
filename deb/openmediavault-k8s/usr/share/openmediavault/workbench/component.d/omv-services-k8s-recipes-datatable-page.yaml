@@ -36,6 +36,11 @@ data:
             {% if maintainers %}<span>{{ "Maintainers" | translate }}: {{ maintainers | join(", ") }}</span><br>{% endif %}
             {% if url %}<span>{{ "Homepage" | translate }}: <a href="{{ url }}">{{ url }}</a></span><br>{% endif %}
           </div>
+      - name: _("ID")
+        prop: id
+        flexGrow: 1
+        sortable: true
+        hidden: true
       - name: _("Name")
         prop: name
         flexGrow: 1
@@ -78,4 +83,4 @@ data:
           maxSelected: 1
         execute:
           type: url
-          url: "/services/k8s/apply/{{ name }}"
+          url: "/services/k8s/apply/{{ id }}"

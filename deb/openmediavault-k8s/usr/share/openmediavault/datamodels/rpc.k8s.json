@@ -4,8 +4,9 @@
 	"params": {
 		"type": "object",
 		"properties": {
-			"name": {
+			"id": {
 				"type": "string",
+				"pattern": "^[\\w-]+$",
 				"required": true
 			}
 		}

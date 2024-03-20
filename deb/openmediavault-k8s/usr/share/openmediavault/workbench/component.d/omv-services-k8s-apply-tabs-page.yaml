@@ -13,7 +13,7 @@ data:
             get:
               method: getRecipe
               params:
-                name: "{{ _routeParams.name }}"
+                id: "{{ _routeParams.name }}"
               onlyIf: "{{ _routeParams | keys | includes('name') }}"
             post:
               method: applyRecipe

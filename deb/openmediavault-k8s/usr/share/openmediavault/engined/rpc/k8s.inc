@@ -186,7 +186,8 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 				if (!file_exists($path)) {
 					continue;
 				}
-				$result[] = yaml_parse_file($path);
+				$result[] = array_merge([ "id" => $file->getBasename() ],
+					yaml_parse_file($path));
 			}
 		}
 		return $this->applyFilter($result, $params['start'],
@@ -198,17 +199,14 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		$this->validateMethodParams($params, "rpc.k8s.getRecipe");
-		if (1 == preg_match("/\.\./", $params['name'])) {
-			throw new \OMV\Exception(
-			  "The field 'name' contains forbidden two-dot symbols.");
-		}
 		$path = build_path(DIRECTORY_SEPARATOR, $this->recipesRepoDir,
-			"recipes", mb_strtolower($params['name']), "recipe.yaml");
+			"recipes", $params['id'], "recipe.yaml");
 		if (!file_exists($path)) {
 			throw new \OMV\Exception(
 				"The requested recipe does not exist.");
 		}
 		return [
+			"id" => $params['id'],
 			"namespace" => "",
 			"manifest" => file_get_contents($path)
 		];
