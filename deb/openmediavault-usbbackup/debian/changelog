@@ -1,3 +1,10 @@
+openmediavault-usbbackup (7.0.2-1) stable; urgency=low
+
+  * Replace hdparm with smartctl to spin down hard disks after
+    the backup job is done.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Mar 2024 06:15:19 +0100
+
 openmediavault-usbbackup (7.0.1-2) stable; urgency=low
 
   * Issue #1687: Support relative directory on USB device.

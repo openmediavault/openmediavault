@@ -1,7 +1,7 @@
 {%- set usbbackup_scripts_dir = salt['pillar.get']('default:OMV_USBBACKUP_SCRIPTS_DIR', '/var/lib/openmediavault/usbbackup.d') -%}
 {%- set usbbackup_rsync_script_prefix = salt['pillar.get']('default:OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX', 'rsync-') -%}
 {%- set usbbackup_systemd_unitfile_prefix = salt['pillar.get']('default:OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX', 'openmediavault-usbbackup-') -%}
-{%- set usbbackup_cleanup_hdparm_args = salt['pillar.get']('default:OMV_USBBACKUP_CLEANUP_HDPARM_ARGS', '-y') -%}
+{%- set usbbackup_cleanup_smartctl_args = salt['pillar.get']('default:OMV_USBBACKUP_CLEANUP_SMARTCTL_ARGS', '-s standby,now') -%}
 {%- set id = devicefile | md5 -%}
 {%- set mount_path = id | make_mount_path -%}
 {%- set runfile = '/run' | path_join(usbbackup_systemd_unitfile_prefix ~ id) -%}
@@ -22,7 +22,7 @@ cleanup() {
     umount "{{ devicefile }}" || true
     rmdir "{{ mount_path }}" || true
     # Spin down the disk.
-    hdparm {{ usbbackup_cleanup_hdparm_args }} "{{ devicefile }}" || true
+    smartctl {{ usbbackup_cleanup_smartctl_args }} "{{ devicefile }}" || true
     exit
 }
 if [ -e "{{ runfile }}" ]; then
