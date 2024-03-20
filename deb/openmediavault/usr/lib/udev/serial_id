@@ -21,7 +21,7 @@
 
 set -e
 
-serial_number=$(/sbin/hdparm -I $1 2>/dev/null | grep 'Serial\ Number' | awk '{print $3}' | tr -d '[:blank:]')
+serial_number=$(/usr/sbin/smartctl --info $1 2>/dev/null | grep 'Serial\ Number' | awk '{print $3}' | tr -d '[:blank:]')
 if [ -n "${serial_number}" ]; then
   echo "ID_SERIAL_SHORT=${serial_number}"
 fi
