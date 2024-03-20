@@ -28,7 +28,7 @@ msgid "Access Modes"
 msgstr "存取模式"
 
 msgid "App Version"
-msgstr ""
+msgstr "App 版本"
 
 msgid "Apply"
 msgstr "套用"
@@ -49,7 +49,7 @@ msgid "Chart"
 msgstr "Chart"
 
 msgid "Check for new recipes"
-msgstr ""
+msgstr "檢查新食譜"
 
 msgid "Class"
 msgstr "類別"
@@ -88,7 +88,7 @@ msgid "Describe"
 msgstr "描述"
 
 msgid "Description"
-msgstr ""
+msgstr "敘述"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "您確定要還原此快照嗎？"
@@ -126,7 +126,7 @@ msgid "Helm Charts"
 msgstr "Helm Charts"
 
 msgid "Homepage"
-msgstr ""
+msgstr "首頁"
 
 msgid "ID"
 msgstr "ID"
@@ -141,7 +141,7 @@ msgid "Images"
 msgstr "鏡像"
 
 msgid "Import"
-msgstr ""
+msgstr "匯入"
 
 msgid "Ingredients"
 msgstr "Ingredients"
@@ -225,13 +225,13 @@ msgid "Recipe"
 msgstr "食譜"
 
 msgid "Recipe Information"
-msgstr ""
+msgstr "食譜資訊"
 
 msgid "Recipe Version"
-msgstr ""
+msgstr "食譜版本"
 
 msgid "Recipes"
-msgstr ""
+msgstr "食譜"
 
 msgid "Reclaim policy"
 msgstr "回收政策"

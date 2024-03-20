@@ -23,76 +23,76 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Access Modes"
-msgstr ""
+msgstr "Hozzáférési módok"
 
 msgid "App Version"
-msgstr ""
+msgstr "Alkalmazásverzió"
 
 msgid "Apply"
-msgstr ""
+msgstr "Alkalmaz"
 
 msgid "Available"
-msgstr ""
+msgstr "Elérhető"
 
 msgid "Capacity"
 msgstr "Kapacitás"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Tanúsítvány"
 
 msgid "Certificates"
-msgstr ""
+msgstr "Tanúsítványok"
 
 msgid "Chart"
-msgstr ""
+msgstr "Diagram"
 
 msgid "Check for new recipes"
-msgstr ""
+msgstr "Új receptek ellenőrzése"
 
 msgid "Class"
-msgstr ""
+msgstr "Osztály"
 
 msgid "Cluster IP"
-msgstr ""
+msgstr "Klaszter IP"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Tömörített"
 
 msgid "Config Maps"
-msgstr ""
+msgstr "Beállítástérkép"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Másolás vágólapra"
 
 msgid "Copy token"
-msgstr ""
+msgstr "Token másolása"
 
 msgid "Created"
 msgstr "Létrehozva"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Műszerfal"
 
 msgid "Data"
-msgstr ""
+msgstr "Adatok"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Dátum és idő"
 
 msgid "Deployments"
-msgstr ""
+msgstr "Telepítések"
 
 msgid "Describe"
-msgstr ""
+msgstr "Leírás"
 
 msgid "Description"
-msgstr ""
+msgstr "Leírás"
 
 msgid "Do you really want to restore this snapshot?"
-msgstr ""
+msgstr "Valóban vissza szeretné állítani ezt a pillanatképet?"
 
 msgid "Download"
-msgstr ""
+msgstr "Letöltés"
 
 msgid ""
 "Downloading the kubeconfig file to the local system enables secure remote "
@@ -100,37 +100,37 @@ msgid ""
 msgstr ""
 
 msgid "Enabled"
-msgstr ""
+msgstr "Engedélyezve"
 
 msgid "Etcd Snapshots"
-msgstr ""
+msgstr "Etcd pilllanatkép"
 
 msgid "External IP"
-msgstr ""
+msgstr "Külső IP"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Groups"
-msgstr ""
+msgstr "Csoportok"
 
 msgid "HTTP port"
-msgstr ""
+msgstr "HTTP-port"
 
 msgid "HTTPS port"
-msgstr ""
+msgstr "HTTPS-port"
 
 msgid "Helm Charts"
-msgstr ""
+msgstr "Helm diagramok"
 
 msgid "Homepage"
-msgstr ""
+msgstr "Főoldal"
 
 msgid "ID"
 msgstr "ID"
 
 msgid "If present, the namespace scope for this request."
-msgstr ""
+msgstr "Ha van, a kérés névterének hatóköre."
 
 msgid "Image"
 msgstr "Kép"
@@ -139,7 +139,7 @@ msgid "Images"
 msgstr "Képek"
 
 msgid "Import"
-msgstr ""
+msgstr "Importálás"
 
 msgid "Ingredients"
 msgstr ""
@@ -151,22 +151,22 @@ msgid "Ingresses"
 msgstr ""
 
 msgid "Invalid namespace"
-msgstr ""
+msgstr "Érvénytelen névtér"
 
 msgid "Job"
-msgstr ""
+msgstr "Feladat"
 
 msgid "Kubeconfig"
-msgstr ""
+msgstr "Kubeconfig"
 
 msgid "Kubernetes"
-msgstr ""
+msgstr "Kubernetes"
 
 msgid "Labels"
-msgstr ""
+msgstr "Címkék"
 
 msgid "Load Balancer"
-msgstr ""
+msgstr "Terheléselosztó"
 
 msgid "Logs"
 msgstr "Napló"
@@ -175,16 +175,16 @@ msgid "Manifest"
 msgstr ""
 
 msgid "Message"
-msgstr ""
+msgstr "Üzenet"
 
 msgid "Name"
 msgstr "Név"
 
 msgid "Namespace"
-msgstr ""
+msgstr "Névtér"
 
 msgid "Namespaces"
-msgstr ""
+msgstr "Névterek"
 
 msgid "NodePort IP"
 msgstr ""
@@ -211,25 +211,25 @@ msgid "Pods"
 msgstr "Hüvelyek"
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Ports"
 msgstr "Portok"
 
 msgid "Ready"
-msgstr ""
+msgstr "Kész"
 
 msgid "Recipe"
-msgstr ""
+msgstr "Recept"
 
 msgid "Recipe Information"
-msgstr ""
+msgstr "Receptinformáció"
 
 msgid "Recipe Version"
-msgstr ""
+msgstr "Receptverzió"
 
 msgid "Recipes"
-msgstr ""
+msgstr "Receptek"
 
 msgid "Reclaim policy"
 msgstr ""
@@ -238,45 +238,48 @@ msgid "Repository"
 msgstr "Tároló"
 
 msgid "Resources"
-msgstr ""
+msgstr "Erőforrások"
 
 msgid "Restore"
-msgstr ""
+msgstr "Visszaállítás"
 
 msgid "Secrets"
 msgstr ""
 
 msgid "Services"
-msgstr ""
+msgstr "Szolgáltatások"
 
 msgid "Settings"
-msgstr ""
+msgstr "Beállítások"
 
 msgid "Size"
 msgstr "Méret"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Pillanatképek"
 
 msgid "Status"
 msgstr "Állapot"
 
 msgid "Storage Class"
-msgstr ""
+msgstr "Tárolási osztály"
 
 msgid "Tag"
 msgstr "Címke"
 
 msgid "Tags"
-msgstr ""
+msgstr "Címkék"
 
 msgid "Target Namespace"
-msgstr ""
+msgstr "Célnévtér"
 
 msgid ""
 "The SSL certificate used by the Dashboard and the LoadBalancer service. If "
 "not set, a self-signed certificate from cert-manager is used."
 msgstr ""
+"A Műszerfal és a Terheléselosztó szolgáltatás által használt SSL-"
+"tanúsítvány. Ha nincs beállítva, akkor a tanúsítványkezelő saját aláírású "
+"tanúsítványát használja."
 
 msgid "The location where to store etcd on-demand snapshots."
 msgstr ""
@@ -285,37 +288,37 @@ msgid "The manifest to apply."
 msgstr ""
 
 msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr ""
+msgstr "A port, amelyen a Kubernetes Műszerfal hallgat."
 
 msgid "The port on which the LoadBalancer service is listening."
-msgstr ""
+msgstr "A port, amelyen a Terheléselosztó szolgáltatás hallgat."
 
 msgid "The snapshot was created successfully."
-msgstr ""
+msgstr "A pillanatfelvétel sikeresen létrejött."
 
 msgid "The snapshot {{ name }} has been successfully restored."
-msgstr ""
+msgstr "A(z) {{ name }} pillanatfelvétel sikeres vissza lett állítva."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr ""
+msgstr "A Kubernetes Műszerfalon való hitelesítéshez szükséges token."
 
 msgid "Type"
-msgstr ""
+msgstr "Típus"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "Up-to-date"
-msgstr ""
+msgstr "Friss"
 
 msgid "Updated Kubernetes settings."
-msgstr ""
+msgstr "Kubernetes beállítások frissítve."
 
 msgid "Users"
-msgstr ""
+msgstr "Felhasználók"
 
 msgid "View"
-msgstr ""
+msgstr "Nézet"
 
 msgid "Volume"
-msgstr ""
+msgstr "Kötet"

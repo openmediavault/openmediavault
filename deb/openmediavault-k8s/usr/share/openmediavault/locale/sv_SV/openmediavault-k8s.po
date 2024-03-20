@@ -25,7 +25,7 @@ msgid "Access Modes"
 msgstr "Åtkomstlägen"
 
 msgid "App Version"
-msgstr ""
+msgstr "Appversion"
 
 msgid "Apply"
 msgstr "Tillämpa"
@@ -46,7 +46,7 @@ msgid "Chart"
 msgstr "Diagram"
 
 msgid "Check for new recipes"
-msgstr ""
+msgstr "Sök efter nya recept"
 
 msgid "Class"
 msgstr "Klass"
@@ -85,7 +85,7 @@ msgid "Describe"
 msgstr "Beskriv"
 
 msgid "Description"
-msgstr ""
+msgstr "Beskrivning"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "Vill du verkligen återställa denna ögonblicksbild?"
@@ -126,7 +126,7 @@ msgid "Helm Charts"
 msgstr ""
 
 msgid "Homepage"
-msgstr ""
+msgstr "Webbplats"
 
 msgid "ID"
 msgstr "ID"
@@ -141,7 +141,7 @@ msgid "Images"
 msgstr "Bilder"
 
 msgid "Import"
-msgstr ""
+msgstr "Importera"
 
 msgid "Ingredients"
 msgstr "Ingredienser"
@@ -225,13 +225,13 @@ msgid "Recipe"
 msgstr "Recept"
 
 msgid "Recipe Information"
-msgstr ""
+msgstr "Receptinformation"
 
 msgid "Recipe Version"
-msgstr ""
+msgstr "Receptversion"
 
 msgid "Recipes"
-msgstr ""
+msgstr "Recept"
 
 msgid "Reclaim policy"
 msgstr "Återkrävningspolicy "
