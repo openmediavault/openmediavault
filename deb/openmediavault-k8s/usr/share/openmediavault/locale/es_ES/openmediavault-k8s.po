@@ -25,7 +25,7 @@ msgid "Access Modes"
 msgstr "Modos de acceso"
 
 msgid "App Version"
-msgstr ""
+msgstr "Versión"
 
 msgid "Apply"
 msgstr "Aplicar"
@@ -46,7 +46,7 @@ msgid "Chart"
 msgstr "Grafica"
 
 msgid "Check for new recipes"
-msgstr ""
+msgstr "Buscar nuevas recetas"
 
 msgid "Class"
 msgstr "Clase"
@@ -85,7 +85,7 @@ msgid "Describe"
 msgstr "Describir"
 
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "¿Realmente quieres restaurar esta instantánea?"
@@ -123,10 +123,10 @@ msgid "HTTPS port"
 msgstr "puerto HTTPS"
 
 msgid "Helm Charts"
-msgstr ""
+msgstr "Helm Charts"
 
 msgid "Homepage"
-msgstr ""
+msgstr "Homepage"
 
 msgid "ID"
 msgstr "ID"
@@ -142,7 +142,7 @@ msgid "Images"
 msgstr "Imagenes"
 
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 msgid "Ingredients"
 msgstr "Ingredientes"
@@ -226,13 +226,13 @@ msgid "Recipe"
 msgstr "Receta"
 
 msgid "Recipe Information"
-msgstr ""
+msgstr "Información de la receta"
 
 msgid "Recipe Version"
-msgstr ""
+msgstr "Versión de la receta"
 
 msgid "Recipes"
-msgstr ""
+msgstr "Recetas"
 
 msgid "Reclaim policy"
 msgstr "Política de reclamaciones"

@@ -1427,7 +1427,7 @@ msgid "Home directories"
 msgstr "Φάκελοι χρηστών"
 
 msgid "Homepage"
-msgstr "Σελίδα"
+msgstr "Αρχική Σελίδα"
 
 msgid "Honduras"
 msgstr "Honduras"

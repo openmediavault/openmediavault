@@ -25,7 +25,7 @@ msgid "Access Modes"
 msgstr "Καταστάσεις Πρόσβασης"
 
 msgid "App Version"
-msgstr ""
+msgstr "Έκδοση Εφαρμογής"
 
 msgid "Apply"
 msgstr "Εφαρμογή"
@@ -46,7 +46,7 @@ msgid "Chart"
 msgstr "Διάγραμμα"
 
 msgid "Check for new recipes"
-msgstr ""
+msgstr "Έλεγχος για νέες συνταγές"
 
 msgid "Class"
 msgstr "Τάξη"
@@ -85,7 +85,7 @@ msgid "Describe"
 msgstr "Περιγραφή"
 
 msgid "Description"
-msgstr ""
+msgstr "Περιγραφή"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "Να αποκατασταθεί αυτό το στιγμιότυπο;"
@@ -126,7 +126,7 @@ msgid "Helm Charts"
 msgstr "Διαγράμματα Πλοήγησης"
 
 msgid "Homepage"
-msgstr ""
+msgstr "Αρχική Σελίδα"
 
 msgid "ID"
 msgstr "ID"
@@ -141,7 +141,7 @@ msgid "Images"
 msgstr "Εικόνες"
 
 msgid "Import"
-msgstr ""
+msgstr "Εισαγωγή"
 
 msgid "Ingredients"
 msgstr "Συστατικά"
@@ -225,13 +225,13 @@ msgid "Recipe"
 msgstr "Συνταγή"
 
 msgid "Recipe Information"
-msgstr ""
+msgstr "Πληροφορίες Συνταγής"
 
 msgid "Recipe Version"
-msgstr ""
+msgstr "Έκδοση Συνταγής"
 
 msgid "Recipes"
-msgstr ""
+msgstr "Συνταγές"
 
 msgid "Reclaim policy"
 msgstr "Πολιτική επανάκτησης"
