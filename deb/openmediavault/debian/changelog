@@ -1,3 +1,9 @@
+openmediavault (7.0.5-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Mar 2024 20:49:15 +0100
+
 openmediavault (7.0.4-1) stable; urgency=low
 
   * Replace hdparm with smartctl in UDEV helper script.
