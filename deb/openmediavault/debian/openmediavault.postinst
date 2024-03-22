@@ -127,6 +127,9 @@ case "$1" in
 			# Setup all services.
 			####################################################################
 			echo "Updating service units ..."
+			# Reload systemd unit files.
+			deb-systemd-helper daemon-reload || :
+
 			# Stop and disable various services that are disabled by default.
 			deb-systemd-helper disable smartmontools.service
 			deb-systemd-invoke stop smartmontools.service || :
