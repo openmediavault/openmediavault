@@ -1,6 +1,6 @@
 openmediavault (7.0.5-1) stable; urgency=low
 
-  *
+  * Replace rsyslog by sec to react for events in syslog.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Mar 2024 20:49:15 +0100
 

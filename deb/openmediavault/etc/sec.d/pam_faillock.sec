@@ -1,0 +1,6 @@
+# May 11 16:30:37 omv6box omv-engined[71484]: pam_faillock(openmediavault:auth): Consecutive login failures for user admin account temporarily locked
+type=Single
+ptype=RegExp
+pattern=pam_faillock\(.*:auth\): Consecutive login failures for user (.+) account temporarily locked
+desc=After consecutive failed login attempts user $1 has been banned
+action=pipe '%s at %t. Access is denied for 3 minutes. After that time, the user is able to log in again with the correct password.' /usr/bin/mail -s "Too many failed login attempts by user $1" root

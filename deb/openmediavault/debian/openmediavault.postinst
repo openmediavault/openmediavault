@@ -127,6 +127,10 @@ case "$1" in
 			# Setup all services.
 			####################################################################
 			echo "Updating service units ..."
+
+			# Reload systemd unit files.
+			deb-systemd-helper daemon-reload || :
+
 			# Stop and disable various services that are disabled by default.
 			deb-systemd-helper disable smartmontools.service
 			deb-systemd-invoke stop smartmontools.service || :
@@ -163,8 +167,8 @@ case "$1" in
 			deb-systemd-invoke start systemd-resolved.service || :
 			deb-systemd-helper enable systemd-journald.service
 			deb-systemd-invoke start systemd-journald.service || :
-			deb-systemd-helper enable rsyslog.service
-			deb-systemd-invoke start rsyslog.service || :
+			deb-systemd-helper enable sec.service
+			deb-systemd-invoke restart sec.service || :
 			deb-systemd-helper enable unattended-upgrades.service
 			deb-systemd-invoke start unattended-upgrades.service || :
 		fi
@@ -241,7 +245,7 @@ case "$1" in
 			# Deploy the configuration for various services.
 			echo "Deploying service configurations ..."
 			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet \
-				apt cpufrequtils chrony rsyslog \
+				apt cpufrequtils chrony \
 				watchdog monit rrdcached avahi ssh nginx collectd \
 				phpfpm issue sysctl systemd systemd-logind || :
 		fi
@@ -519,6 +523,15 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.9.11"; then
 			omv_module_set_dirty nfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.0.5"; then
+			# Stop rsyslog which is not used anymore. It has been replaced by
+			# sec (simple event correlator).
+			deb-systemd-helper daemon-reload || :
+			deb-systemd-helper disable rsyslog.service
+			deb-systemd-invoke stop rsyslog.service || :
+			deb-systemd-helper enable sec.service
+			deb-systemd-invoke restart sec.service || :
 		fi
 
 		########################################################################
