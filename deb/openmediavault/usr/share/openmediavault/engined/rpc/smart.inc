@@ -86,6 +86,9 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 				if (FALSE === $sd->hasSmartSupport()) {
 					return FALSE;
 				}
+				if (TRUE === $sd->IsPartition()) {
+					return FALSE;
+				}
 				// Get the S.M.A.R.T. information about the given device.
 				$si = $sd->getSmartInformation();
 				// Try to get the device temperature via S.M.A.R.T.
