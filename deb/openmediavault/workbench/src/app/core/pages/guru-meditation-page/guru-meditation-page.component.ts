@@ -19,6 +19,7 @@ import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';
 
+import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 
 @Component({
@@ -35,6 +36,7 @@ export class GuruMeditationPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private blockUiService: BlockUiService,
     private dialogService: DialogService,
     private elementRef: ElementRef,
     private router: Router
@@ -51,6 +53,7 @@ export class GuruMeditationPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.blockUiService.resetGlobal();
     // Ensure all currently opened dialogs are closed.
     this.dialogService.closeAll();
     this.elementRef.nativeElement.addEventListener('click', this.onClick.bind(this));
