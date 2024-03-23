@@ -234,7 +234,7 @@ msgstr "9 månader"
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr "En omstart krävs för att fullt ut tillämpa ändringarna som infördes genom paketinstallation eller uppgradering."
+msgstr "En omstart krävs för att fullt ut verkställa ändringarna som infördes genom paketinstallation eller uppgradering."
 
 msgid "A running background task was detected."
 msgstr "En pågående bakgrundsuppgift upptäcktes."
@@ -4004,7 +4004,7 @@ msgid ""
 msgstr "Du har gjort ändringar som ännu inte har sparats. Vill du kassera dem?"
 
 msgid "You must apply these changes in order for them to take effect."
-msgstr "Du måste tillämpa dessa ändringar för att de ska träda i kraft."
+msgstr "Du måste verkställa dessa ändringar för att de ska träda i kraft."
 
 msgid "Your profile"
 msgstr "Din profil"
