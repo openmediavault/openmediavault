@@ -28,7 +28,7 @@ msgid "App Version"
 msgstr "Appversion"
 
 msgid "Apply"
-msgstr "Tillämpa"
+msgstr "Verkställ"
 
 msgid "Available"
 msgstr "Tillgänglig"
@@ -174,7 +174,7 @@ msgid "Logs"
 msgstr "Loggar"
 
 msgid "Manifest"
-msgstr "Manifestera"
+msgstr "Manifest"
 
 msgid "Message"
 msgstr "Meddelande"
@@ -286,7 +286,7 @@ msgid "The location where to store etcd on-demand snapshots."
 msgstr "Platsen där man lagrar etcd-on-demand ögonblicksbilder."
 
 msgid "The manifest to apply."
-msgstr "Manifestet som ska tillämpas."
+msgstr "Manifestet som ska verkställas."
 
 msgid "The port on which the Kubernetes Dashboard is listening."
 msgstr "Porten som Kubernetes-instrumentpanel lyssnar på."
