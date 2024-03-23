@@ -99,4 +99,4 @@ data:
           maxSelected: 1
         execute:
           type: url
-          url: "/services/k8s/apply/{{ id }}"
+          url: "/services/k8s/apply?recipe={{ id }}"
