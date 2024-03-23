@@ -1,3 +1,9 @@
+openmediavault (6.9.15-1) stable; urgency=low
+
+  * Several improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 23 Mar 2024 19:19:07 +0100
+
 openmediavault (6.9.14-1) stable; urgency=low
 
   * Issue #1703: Try to list devices in `SMART | Devices` page,
