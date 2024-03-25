@@ -22,6 +22,7 @@
 namespace Engined\Rpc;
 
 require_once("openmediavault/functions.inc");
+require_once("openmediavault/vendor/autoload.php");
 
 class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 	private $recipesRepoDir = "/var/lib/openmediavault/k8s-recipes/";
@@ -213,6 +214,73 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	function applyRecipe($params, $context) {
+		// Replace placeholders in the recipe.
+		$db = \OMV\Config\Database::getInstance();
+		$functions = [
+			"hostname" => function() use($db) {
+				$obj = $db->get("conf.system.network.dns");
+				return $obj->get("hostname");
+			},
+			"domain" => function() use($db) {
+				$obj = $db->get("conf.system.network.dns");
+				return $obj->get("domainname");
+			},
+			"fqdn" => function() use($db) {
+				$obj = $db->get("conf.system.network.dns");
+				if (!$obj->isEmpty("domainname")) {
+					$result = sprintf("%s.%s", $obj->get("hostname"),
+						$obj->get("domainname"));
+				} else {
+					$result = $obj->get("hostname");
+				}
+				return $result;
+			},
+			"uid" => function($name) use($context) {
+				$result = \OMV\Rpc\Rpc::call("UserMgmt", "getUser", [
+					"name" => $name
+				], $context);
+				return $result['uid'];
+			},
+			"gid" => function($name) use($context) {
+				$result = \OMV\Rpc\Rpc::call("UserMgmt", "getGroup", [
+					"name" => $name
+				], $context);
+				return $result['gid'];
+			},
+			"sharedfolder_path" => function($name) use($db) {
+				$sfObject = $db->getByFilter("conf.system.sharedfolder", [
+					"operator" => "stringEquals",
+					"arg0" => "name",
+					"arg1" => $name
+				], 1);
+				$meObject = $db->get("conf.system.filesystem.mountpoint",
+					$sfObject->get("mntentref"));
+				return build_path(DIRECTORY_SEPARATOR, $meObject->get("dir"),
+					$sfObject->get("reldirpath"));
+			},
+			"config" => function($id, $uuid = NULL) use($db) {
+				return $db->getAssoc($id, $uuid);
+			}
+		];
+		$filters = [
+			"get" => function($value, $key, $default = NULL) {
+				$dict = new \OMV\Dictionary($value);
+				return $dict->get($key, $default);
+			}
+		];
+		$loader = new \Twig\Loader\ArrayLoader([
+			'manifest' => $params['manifest']
+		]);
+		$twig = new \Twig\Environment($loader);
+		foreach ($functions as $name => $callback) {
+			$function = new \Twig\TwigFunction($name, $callback);
+			$twig->addFunction($function);
+		}
+		foreach ($filters as $name => $callback) {
+			$filter = new \Twig\TwigFilter($name, $callback);
+			$twig->addFilter($filter);
+		}
+		$params['manifest'] = $twig->render("manifest");
 		return \OMV\Rpc\Rpc::call("Kubectl", "apply", $params, $context);
 	}
 }
