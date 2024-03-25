@@ -5,3 +5,23 @@ Source: http://www.openmediavault.org
 Files: *
 Copyright: 2009-2024 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
+
+Files: usr/share/php/openmediavault/vendor/composer/*
+Copyright: Copyright (c) Nils Adermann, Jordi Boggiano
+License: MIT
+
+Files: usr/share/php/openmediavault/vendor/symfony/polyfill-ctype/*
+Copyright: 2018-present Fabien Potencier
+License: MIT
+
+Files: usr/share/php/openmediavault/vendor/symfony/polyfill-mbstring/*
+Copyright: 2015-present Fabien Potencier
+License: MIT
+
+Files: usr/share/php/openmediavault/vendor/symfony/polyfill-php80/*
+Copyright: 2020-present Fabien Potencier
+License: MIT
+
+Files: usr/share/php/openmediavault/vendor/twig/twig/*
+Copyright: 2009-present by the Twig Team
+License: BSD-3-Clause
