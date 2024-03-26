@@ -1,3 +1,9 @@
+openmediavault-k8s (7.1.-1) unstable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 26 Mar 2024 19:03:57 +0100
+
 openmediavault-k8s (7.1.0-1) unstable; urgency=low
 
   * Use a PHP template engine to implement a DSL that allows users
