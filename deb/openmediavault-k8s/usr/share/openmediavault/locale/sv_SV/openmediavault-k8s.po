@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-16 11:53+0100\n"
+"POT-Creation-Date: 2024-03-26 18:29+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Jonatan Nyberg, 2024\n"
 "Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
@@ -21,6 +21,9 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "Absolute Path"
+msgstr ""
+
 msgid "Access Modes"
 msgstr "Åtkomstlägen"
 
@@ -29,6 +32,9 @@ msgstr "Appversion"
 
 msgid "Apply"
 msgstr "Verkställ"
+
+msgid "Architecture"
+msgstr ""
 
 msgid "Available"
 msgstr "Tillgänglig"
@@ -206,9 +212,6 @@ msgstr "Beständiga volymanspråk"
 msgid "Persistent Volumes"
 msgstr "Beständiga volymer"
 
-msgid "Persistent Volumes of Shared Folders"
-msgstr "Beständiga volymer av delade mappar"
-
 msgid "Pods"
 msgstr "Poddar"
 
@@ -248,11 +251,17 @@ msgstr "Återställ"
 msgid "Secrets"
 msgstr "Hemligheter"
 
+msgid "Section"
+msgstr ""
+
 msgid "Services"
 msgstr "Tjänster"
 
 msgid "Settings"
 msgstr "Inställningar"
+
+msgid "Shared Folders"
+msgstr ""
 
 msgid "Size"
 msgstr "Storlek"
@@ -281,6 +290,16 @@ msgid ""
 msgstr ""
 "SSL-certifikatet som används av instrumentpanelen och LoadBalancer-tjänsten."
 " Om inte inställt används ett självsignerat certifikat från cert-manager."
+
+msgid ""
+"The following placeholders can be used in recipes to get access to global "
+"system information and the configuration "
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
+"braces. An overview of additional available filters can be found <a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>here</a>."
+msgstr ""
 
 msgid "The location where to store etcd on-demand snapshots."
 msgstr "Platsen där man lagrar etcd-on-demand ögonblicksbilder."

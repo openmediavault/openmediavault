@@ -258,7 +258,7 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 				return build_path(DIRECTORY_SEPARATOR, $meObject->get("dir"),
 					$sfObject->get("reldirpath"));
 			},
-			"config" => function($id, $uuid = NULL) use($db) {
+			"conf_get" => function($id, $uuid = NULL) use($db) {
 				return $db->getAssoc($id, $uuid);
 			}
 		];

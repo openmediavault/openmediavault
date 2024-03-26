@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-16 11:53+0100\n"
+"POT-Creation-Date: 2024-03-26 18:29+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2024\n"
 "Language-Team: Korean (Korea) (https://app.transifex.com/openmediavault/teams/14254/ko_KR/)\n"
@@ -21,6 +21,9 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+msgid "Absolute Path"
+msgstr ""
+
 msgid "Access Modes"
 msgstr ""
 
@@ -28,6 +31,9 @@ msgid "App Version"
 msgstr ""
 
 msgid "Apply"
+msgstr ""
+
+msgid "Architecture"
 msgstr ""
 
 msgid "Available"
@@ -203,9 +209,6 @@ msgstr ""
 msgid "Persistent Volumes"
 msgstr ""
 
-msgid "Persistent Volumes of Shared Folders"
-msgstr ""
-
 msgid "Pods"
 msgstr ""
 
@@ -245,10 +248,16 @@ msgstr ""
 msgid "Secrets"
 msgstr ""
 
+msgid "Section"
+msgstr ""
+
 msgid "Services"
 msgstr ""
 
 msgid "Settings"
+msgstr ""
+
+msgid "Shared Folders"
 msgstr ""
 
 msgid "Size"
@@ -275,6 +284,16 @@ msgstr ""
 msgid ""
 "The SSL certificate used by the Dashboard and the LoadBalancer service. If "
 "not set, a self-signed certificate from cert-manager is used."
+msgstr ""
+
+msgid ""
+"The following placeholders can be used in recipes to get access to global "
+"system information and the configuration "
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
+"braces. An overview of additional available filters can be found <a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>here</a>."
 msgstr ""
 
 msgid "The location where to store etcd on-demand snapshots."
