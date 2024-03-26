@@ -1,12 +1,11 @@
 openmediavault-k8s (7.0.1-1) unstable; urgency=low
 
-  * Use Twig template engine to implement a DSL that allows users
+  * Use a PHP template engine to implement a DSL that allows users
     to access data from the configuration database and other system
     information inside their recipes.
     Right at the moment the following functions are supported:
     `hostname`, `domain`, `fqdn`, `uid`, `gid`, `sharedfolder_path`,
-    `config`. The following filters are added to those shipped with
-    Twig: `get`.
+    `conf_get`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 25 Mar 2024 19:44:24 +0100
 

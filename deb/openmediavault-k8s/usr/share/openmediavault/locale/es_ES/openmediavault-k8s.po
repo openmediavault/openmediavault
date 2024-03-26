@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-16 11:53+0100\n"
+"POT-Creation-Date: 2024-03-26 18:29+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2024\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
@@ -21,6 +21,9 @@ msgstr ""
 "Language: es_ES\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
+msgid "Absolute Path"
+msgstr ""
+
 msgid "Access Modes"
 msgstr "Modos de acceso"
 
@@ -29,6 +32,9 @@ msgstr "Versión"
 
 msgid "Apply"
 msgstr "Aplicar"
+
+msgid "Architecture"
+msgstr ""
 
 msgid "Available"
 msgstr "Disponible"
@@ -207,9 +213,6 @@ msgstr "Reclamaciones de volumen persistente"
 msgid "Persistent Volumes"
 msgstr "Volúmenes persistentes"
 
-msgid "Persistent Volumes of Shared Folders"
-msgstr "Volúmenes persistentes de carpetas compartidas."
-
 msgid "Pods"
 msgstr "Pods"
 
@@ -249,11 +252,17 @@ msgstr "Restaurar"
 msgid "Secrets"
 msgstr "Secretos"
 
+msgid "Section"
+msgstr ""
+
 msgid "Services"
 msgstr "Servicios"
 
 msgid "Settings"
 msgstr "Opciones"
+
+msgid "Shared Folders"
+msgstr ""
 
 msgid "Size"
 msgstr "Tamaño"
@@ -282,6 +291,16 @@ msgid ""
 msgstr ""
 "El certificado SSL utilizado por el Panel y el servicio LoadBalancer. Si no "
 "se establece, se utiliza un certificado autofirmado de cert-manager."
+
+msgid ""
+"The following placeholders can be used in recipes to get access to global "
+"system information and the configuration "
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
+"braces. An overview of additional available filters can be found <a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>here</a>."
+msgstr ""
 
 msgid "The location where to store etcd on-demand snapshots."
 msgstr "La ubicación donde almacenar instantáneas bajo demanda de etcd."

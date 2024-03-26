@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-16 11:53+0100\n"
+"POT-Creation-Date: 2024-03-26 18:29+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2024\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
@@ -24,6 +24,9 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+msgid "Absolute Path"
+msgstr ""
+
 msgid "Access Modes"
 msgstr "存取模式"
 
@@ -32,6 +35,9 @@ msgstr "App 版本"
 
 msgid "Apply"
 msgstr "套用"
+
+msgid "Architecture"
+msgstr ""
 
 msgid "Available"
 msgstr "可用"
@@ -206,9 +212,6 @@ msgstr "持久卷冊聲明"
 msgid "Persistent Volumes"
 msgstr "持久卷冊"
 
-msgid "Persistent Volumes of Shared Folders"
-msgstr "分享資料夾的持久卷宗"
-
 msgid "Pods"
 msgstr "Pods"
 
@@ -248,11 +251,17 @@ msgstr "還原"
 msgid "Secrets"
 msgstr "祕密"
 
+msgid "Section"
+msgstr ""
+
 msgid "Services"
 msgstr "服務"
 
 msgid "Settings"
 msgstr "設定"
+
+msgid "Shared Folders"
+msgstr ""
 
 msgid "Size"
 msgstr "大小"
@@ -279,6 +288,16 @@ msgid ""
 "The SSL certificate used by the Dashboard and the LoadBalancer service. If "
 "not set, a self-signed certificate from cert-manager is used."
 msgstr "儀表板與負載平衡服務使用的 SSL 憑證。若未設定，則使用來自 cert-manager 的自行簽署憑證。"
+
+msgid ""
+"The following placeholders can be used in recipes to get access to global "
+"system information and the configuration "
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
+"braces. An overview of additional available filters can be found <a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>here</a>."
+msgstr ""
 
 msgid "The location where to store etcd on-demand snapshots."
 msgstr "儲存 etcd 隨選快照的位置。"
