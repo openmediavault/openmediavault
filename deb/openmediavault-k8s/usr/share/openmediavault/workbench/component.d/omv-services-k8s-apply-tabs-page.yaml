@@ -63,6 +63,7 @@ data:
                 - name: _("Name")
                   prop: name
                   flexGrow: 1
+                  cellTemplateName: copyToClipboard
                 - name: _("Absolute Path")
                   prop: absdirpath
                   flexGrow: 1
@@ -83,6 +84,7 @@ data:
                 - name: _("Name")
                   prop: name
                   flexGrow: 1
+                  cellTemplateName: copyToClipboard
                 - name: _("UID")
                   prop: uid
                   flexGrow: 1
@@ -96,6 +98,7 @@ data:
                 - name: _("Name")
                   prop: name
                   flexGrow: 1
+                  cellTemplateName: copyToClipboard
                 - name: _("GID")
                   prop: gid
                   flexGrow: 1
