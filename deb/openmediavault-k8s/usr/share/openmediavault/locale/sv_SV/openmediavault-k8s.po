@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "Absolut sökväg"
 
 msgid "Access Modes"
 msgstr "Åtkomstlägen"
@@ -34,7 +34,7 @@ msgid "Apply"
 msgstr "Verkställ"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Arkitektur"
 
 msgid "Available"
 msgstr "Tillgänglig"
@@ -252,7 +252,7 @@ msgid "Secrets"
 msgstr "Hemligheter"
 
 msgid "Section"
-msgstr ""
+msgstr "Sektion"
 
 msgid "Services"
 msgstr "Tjänster"
@@ -261,7 +261,7 @@ msgid "Settings"
 msgstr "Inställningar"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "Delade mappar"
 
 msgid "Size"
 msgstr "Storlek"
