@@ -25,7 +25,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "絕對路徑"
 
 msgid "Access Modes"
 msgstr "存取模式"
@@ -37,7 +37,7 @@ msgid "Apply"
 msgstr "套用"
 
 msgid "Architecture"
-msgstr ""
+msgstr "架構"
 
 msgid "Available"
 msgstr "可用"
@@ -55,7 +55,7 @@ msgid "Chart"
 msgstr "Chart"
 
 msgid "Check for new recipes"
-msgstr "檢查新食譜"
+msgstr "檢查新配方"
 
 msgid "Class"
 msgstr "類別"
@@ -225,16 +225,16 @@ msgid "Ready"
 msgstr "準備好"
 
 msgid "Recipe"
-msgstr "食譜"
+msgstr "配方"
 
 msgid "Recipe Information"
-msgstr "食譜資訊"
+msgstr "配方資訊"
 
 msgid "Recipe Version"
-msgstr "食譜版本"
+msgstr "配方版本"
 
 msgid "Recipes"
-msgstr "食譜"
+msgstr "配方"
 
 msgid "Reclaim policy"
 msgstr "回收政策"
@@ -252,7 +252,7 @@ msgid "Secrets"
 msgstr "祕密"
 
 msgid "Section"
-msgstr ""
+msgstr "區塊"
 
 msgid "Services"
 msgstr "服務"
@@ -261,7 +261,7 @@ msgid "Settings"
 msgstr "設定"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "共享資料夾"
 
 msgid "Size"
 msgstr "大小"
@@ -298,6 +298,10 @@ msgid ""
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
+"可以在配方中使用以下佔位字串來存取全域系統資訊與設定資料庫：<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>您必須用雙大括號表示佔位字串。可以在<a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>此處</a>找到其他可用篩選條件的概覽。"
 
 msgid "The location where to store etcd on-demand snapshots."
 msgstr "儲存 etcd 隨選快照的位置。"
