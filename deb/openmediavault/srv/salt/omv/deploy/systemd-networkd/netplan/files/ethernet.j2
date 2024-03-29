@@ -1,9 +1,10 @@
 {%- set dns_config = salt['omv_conf.get']('conf.system.network.dns') -%}
+{%- set addr_assign_type_path = '/sys/class/net/' ~ interface.devicename ~ '/addr_assign_type' -%}
 network:
   ethernets:
     {{ interface.devicename }}:
       match:
-{%- if salt['file.read']('/sys/class/net/' + interface.devicename + '/addr_assign_type') | int == 0 %}
+{%- if salt['file.file_exists'](addr_assign_type_path) and (salt['file.read'](addr_assign_type_path) | int == 0) %}
         macaddress: {{ salt['grains.get']('hwaddr_interfaces:' + interface.devicename) }}
 {%- else %}
         name: {{ interface.devicename }}
