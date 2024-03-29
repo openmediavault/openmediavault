@@ -225,7 +225,7 @@ omv_error() {
 # omv_msg <message>
 # Print a one-liner the message to standard out (STDOUT).
 omv_msg() {
-	echo $@
+	echo "$@"
 }
 
 # omv_print <message>
