@@ -235,6 +235,10 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 				}
 				return $result;
 			},
+			"tz" => function() use($db) {
+				$obj = $db->get("conf.system.time");
+				return $obj->get("timezone");
+			},
 			"uid" => function($name) use($context) {
 				$result = \OMV\Rpc\Rpc::call("UserMgmt", "getUser", [
 					"name" => $name
