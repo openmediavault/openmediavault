@@ -349,6 +349,23 @@ export class SharedFolderSnapshotsTabsPageComponent {
                       )
                     }
                   }
+                },
+                {
+                  text: gettext('Yearly'),
+                  execute: {
+                    type: 'request',
+                    request: {
+                      service: 'ShareMgmt',
+                      method: 'createScheduledSnapshotTask',
+                      params: {
+                        uuid: '{{ _routeParams.uuid }}',
+                        execution: 'yearly'
+                      },
+                      successNotification: gettext(
+                        'A scheduled task to create a snapshot has been created.'
+                      )
+                    }
+                  }
                 }
               ]
             },
