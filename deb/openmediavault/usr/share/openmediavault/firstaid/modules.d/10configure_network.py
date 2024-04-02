@@ -404,10 +404,24 @@ class Module(openmediavault.firstaid.IModule):
                         width=32,
                     )
             rpc_params["wpassid"] = wpa_ssid
-            # Get the pre-shared key.
+            # Get the key management mode.
+            choices = [["psk", "WPA2-Personal"], ["sae", "WPA3-Personal"]]
+            (code, tag) = d.menu(
+                "Please select the key management mode.",
+                backtitle=self.description,
+                clear=True,
+                height=18,
+                width=65,
+                menu_height=8,
+                choices=choices,
+            )
+            if code in (d.CANCEL, d.ESC):
+                return 0
+            rpc_params["keymanagement"] = tag
+            # Get the password.
             while not wpa_psk:
                 (code, wpa_psk) = d.inputbox(
-                    "Please enter the pre-shared key (PSK).",
+                    "Please enter the password.",
                     backtitle=self.description,
                     clear=True,
                     height=8,

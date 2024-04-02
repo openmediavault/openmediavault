@@ -162,6 +162,7 @@
 					# - wifi
 					<wpassid>xxx</wpassid>
 					<wpapsk>xxx</wpapsk>
+					<keymanagement>psk|sae</keymanagement>
 					<hidden>0|1</hidden>
 					# - bridge
 					<slaves>(((eth|venet|wlan)\d+|(en|veth|wl)\S+),)*((eth|venet|wlan)\d+|(en|veth|wl)\S+)</slaves>
