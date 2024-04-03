@@ -23,6 +23,18 @@ namespace OMV\System\Filesystem;
 
 class Ext extends Filesystem {
 	/**
+	 * See parent class definition.
+	 */
+	public function getDetails() {
+		$cmdArgs = [];
+		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		$cmd = new \OMV\System\Process("dumpe2fs", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+		return implode("\n", $output);
+	}
+
+	/**
 	 * Grow the filesystem.
 	 * @return void
 	 * @throw \OMV\ExecException

@@ -232,6 +232,14 @@ interface FilesystemInterface {
 	public function getStatistics();
 
 	/**
+	 * Get details about the filesystem, e.g. the health status.
+	 * @return A string that contains information and details about the
+	 *   filesystem.
+	 * @throw \OMV\ExecException
+	 */
+	public function getDetails();
+
+	/**
 	 * Check if a filesystem is mounted.
 	 * @return TRUE if the filesystem is mounted, otherwise FALSE.
 	 * @throw \OMV\Exception

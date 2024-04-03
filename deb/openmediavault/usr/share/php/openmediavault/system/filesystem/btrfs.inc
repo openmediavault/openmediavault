@@ -320,6 +320,44 @@ class Btrfs extends Filesystem {
 	}
 
 	/**
+	 * See parent class definition.
+	 */
+	public function getDetails() {
+		$result = "";
+
+		$cmdArgs = [];
+		$cmdArgs[] = "filesystem";
+		$cmdArgs[] = "show";
+		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+		$result = implode("\n", $output);
+
+		$output = [];
+		$cmdArgs = [];
+		$cmdArgs[] = "filesystem";
+		$cmdArgs[] = "df";
+		$cmdArgs[] = escapeshellarg($this->getMountPoint());
+		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+		$result = $result . "\n" . implode("\n", $output);
+
+		$output = [];
+		$cmdArgs = [];
+		$cmdArgs[] = "device";
+		$cmdArgs[] = "stats";
+		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+		$result = $result . "\n\n" . implode("\n", $output);
+
+		return $result;
+	}
+
+	/**
 	 * Remove the filesystem.
 	 * @return void
 	 */

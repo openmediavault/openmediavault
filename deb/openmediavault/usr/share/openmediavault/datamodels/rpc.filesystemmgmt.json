@@ -126,4 +126,17 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.getdetails",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			}
+		}
+	}
 }]

@@ -277,6 +277,19 @@ export class FilesystemDatatablePageComponent implements OnInit {
         }
       },
       {
+        type: 'iconButton',
+        icon: 'details',
+        tooltip: gettext('Show details'),
+        enabledConstraints: {
+          minSelected: 1,
+          maxSelected: 1
+        },
+        execute: {
+          type: 'url',
+          url: '/storage/filesystems/details/{{ _selected[0].canonicaldevicefile | encodeuricomponent }}'
+        }
+      },
+      {
         template: 'delete',
         icon: 'stop',
         tooltip: gettext('Unmount'),

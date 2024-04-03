@@ -8,6 +8,7 @@ import { RouteConfigService } from '~/app/core/services/route-config.service';
 import { DiskDatatablePageComponent } from '~/app/pages/storage/disks/disk-datatable-page.component';
 import { DiskFormPageComponent } from '~/app/pages/storage/disks/disk-form-page.component';
 import { FilesystemDatatablePageComponent } from '~/app/pages/storage/filesystems/filesystem-datatable-page.component';
+import { FilesystemDetailsTextPageComponent } from '~/app/pages/storage/filesystems/filesystem-details-text-page.component';
 import { FilesystemEditFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-edit-form-page.component';
 import { FilesystemMountFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-mount-form-page.component';
 import { FilesystemQuotaDatatablePageComponent } from '~/app/pages/storage/filesystems/filesystem-quota-datatable-page.component';
@@ -214,6 +215,16 @@ const routes: Routes = [
             }
           }
         ]
+      },
+      {
+        path: 'details/:devicefile',
+        component: FilesystemDetailsTextPageComponent,
+        data: {
+          title: gettext('Details'),
+          breadcrumb: {
+            text: '{{ "Details" | translate }} @ {{ _routeParams.devicefile }}'
+          }
+        }
       }
     ]
   }

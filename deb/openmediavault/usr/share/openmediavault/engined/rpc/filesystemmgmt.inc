@@ -48,6 +48,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("setMountPoint");
 		$this->registerMethod("umount");
 		$this->registerMethod("hasFilesystem");
+		$this->registerMethod("getDetails");
 	}
 
 	/**
@@ -952,5 +953,22 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Check if the given device file contains a file system.
 		return (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem(
 			$params['devicefile']));
+	}
+
+	/**
+	 * Get details about the filesystem, e.g. the health status.
+	 * @param params An array containing the following fields:
+	 *   \em devicefile The device file to check.
+	 * @param context The context of the caller.
+	 * @return A string that contains the details about the given device.
+	 */
+	public function getDetails($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$this->validateMethodParams($params, "rpc.filesystemmgmt.getdetails");
+		$fs = \OMV\System\Filesystem\Filesystem::assertGetImpl(
+			$params['devicefile']);
+		return $fs->getDetails();
 	}
 }

@@ -666,6 +666,18 @@ class Filesystem extends \OMV\System\BlockDevice
 	}
 
 	/**
+	 * Get details about the filesystem, e.g. the health status.
+	 * @return A string that contains information and details about the
+	 *   filesystem. If the filesystem does not provide details, an
+	 *   \OMV\NotSupportedException exception is thrown.
+	 * @throw \OMV\ExecException
+	 * @throw \OMV\NotSupportedException
+	 */
+	public function getDetails() {
+		throw new \OMV\NotSupportedException("File system does not provide details.");
+	}
+
+	/**
 	 * Check if a filesystem is mounted.
 	 * @return TRUE if the filesystem is mounted, otherwise FALSE.
 	 * @throw \OMV\ExecException
