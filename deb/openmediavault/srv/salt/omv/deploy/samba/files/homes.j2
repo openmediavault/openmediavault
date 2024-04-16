@@ -4,7 +4,7 @@
 {%- set force_create_mode = salt['pillar.get']('default:OMV_SAMBA_HOMES_FORCECREATEMODE', '0600') -%}
 {%- set directory_mask = salt['pillar.get']('default:OMV_SAMBA_HOMES_DIRECTORYMASK', '0700') -%}
 {%- set force_directory_mode = salt['pillar.get']('default:OMV_SAMBA_HOMES_FORCEDIRECTORYMODE', '0700') -%}
-{%- set valid_users = salt['pillar.get']('default:OMV_SAMBA_HOMES_VALIDUSERS', '%S') -%}
+{%- set valid_users = salt['pillar.get']('default:OMV_SAMBA_HOMES_VALIDUSERS', '%U') -%}
 {%- set hide_special_files = salt['pillar.get']('default:OMV_SAMBA_HOMES_HIDESPECIALFILES', 'yes') -%}
 {%- set follow_symlinks = salt['pillar.get']('default:OMV_SAMBA_HOMES_FOLLOWSYMLINKS', 'yes') -%}
 {%- set vfs_objects = salt['pillar.get']('default:OMV_SAMBA_HOMES_VFSOBJECTS', '') -%}
