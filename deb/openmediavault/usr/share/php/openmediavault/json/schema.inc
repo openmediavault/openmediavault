@@ -391,7 +391,7 @@ class Schema {
 	}
 
 	protected function validateObject($value, $schema, $name) {
-		if (!is_object($value)) {
+		if (!empty($value) && !is_object($value)) {
 			throw new SchemaValidationException(
 				"%s: The value %s is not an object.",
 				$name, json_encode_safe($value));
@@ -612,7 +612,10 @@ class Schema {
 			  "%s: No 'properties' attribute defined.",
 			  $name);
 		}
-		$valueProps = get_object_vars($value);
+		// Note, this is a workaround to process empty objects
+		// correctly that are submitted as arrays because of
+		// historical reasons.
+		$valueProps = !empty($value) ? get_object_vars($value) : [];
 		foreach ($schema['properties'] as $propk => $propv) {
 			// Build the new path. Strip empty parts.
 			$parts = [ $name, $propk ];

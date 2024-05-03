@@ -46,22 +46,22 @@ class Rpc {
 
 	/**
 	 * Execute the given RPC.
-	 * @param service The name of the service.
-	 * @param method The name of the method.
-	 * @param params The parameters hash object to be passed to the method
-	 *   of the given service.
-	 * @param context The context hash object of the caller containing the
-	 *   fields \em username and \em role.
-	 * @param mode The mode how to execute this RPC. The following modes
-	 *   are available:<ul>
+	 * @param string $service The name of the service.
+	 * @param string $method The name of the method.
+	 * @param array $params The parameters to be passed to the method of
+	 *   the given service.
+	 * @param array $context The context of the caller containing the keys
+	 *   \em username and \em role.
+	 * @param int $mode The mode how to execute this RPC. The following
+	 *   modes are available:<ul>
 	 *   \li MODE_LOCAL
 	 *   \li MODE_REMOTE
 	 *   </ul>
 	 *   Defaults to MODE_LOCAL.
-	 * @param restoreSrvEnv Restore various web server and execution
+	 * @param bool $restoreSrvEnv Restore various web server and execution
 	 *   environment information. This might be helpful in some cases if
 	 *   these information are required in the engine backend. Note, this
-	 *   only takes action when mode is MODE_REMOTE. Defauts to FALSE.
+	 *   only takes action when mode is MODE_REMOTE. Defaults to FALSE.
 	 * @return The RPC response.
 	 */
 	public static function call($service, $method, $params, $context,

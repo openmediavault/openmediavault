@@ -91,13 +91,13 @@ $service = $argv[1];
 $method = $argv[2];
 $params = null;
 
-// Decode RPC method parameters from JSON to a PHP array.
+// Decode RPC method parameters from JSON to a PHP object.
 if($argc > 3) {
 	if(!is_json($argv[3])) {
 		print gettext("ERROR: The params argument is no valid JSON\n");
 		exit(1);
 	}
-	$params = json_decode($argv[3], TRUE);
+	$params = json_decode_safe($argv[3]);
 }
 
 // Execute the RPC and print the response.
