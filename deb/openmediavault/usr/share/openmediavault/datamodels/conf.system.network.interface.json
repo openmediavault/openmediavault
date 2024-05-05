@@ -143,6 +143,11 @@
 		"wpapsk": {
 			"type": "string"
 		},
+		"keymanagement": {
+			"type": "string",
+			"enum": [ "psk", "sae" ],
+			"default": "psk"
+		},
 		"hidden": {
 			"type": "boolean",
 			"default": false

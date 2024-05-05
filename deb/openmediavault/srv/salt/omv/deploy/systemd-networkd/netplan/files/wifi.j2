@@ -80,5 +80,7 @@ network:
 {%- endif %}
       access-points:
         "{{ interface.wpassid }}":
-          password: "{{ interface.wpapsk }}"
+          auth:
+            key-management: {{ interface.keymanagement }}
+            password: "{{ interface.wpapsk }}"
           hidden: {{ interface.hidden | to_bool | yesno('true,false') }}

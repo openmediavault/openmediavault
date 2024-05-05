@@ -97,6 +97,21 @@ export class InterfaceWifiFormPageComponent extends BaseFormPageComponent {
         }
       },
       {
+        type: 'select',
+        name: 'keymanagement',
+        label: gettext('Security'),
+        value: 'psk',
+        store: {
+          data: [
+            ['psk', gettext('WPA2-Personal')],
+            ['sae', gettext('WPA3-Personal')]
+          ]
+        },
+        validators: {
+          required: true
+        }
+      },
+      {
         type: 'passwordInput',
         name: 'wpapsk',
         label: gettext('Password'),

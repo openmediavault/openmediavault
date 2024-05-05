@@ -910,6 +910,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 			"type" => "wifi",
 			"wpassid" => $params['wpassid'],
 			"wpapsk" => $params['wpapsk'],
+			"keymanagement" => $params['keymanagement'],
 			"hidden" => $params['hidden']
 		]);
     }

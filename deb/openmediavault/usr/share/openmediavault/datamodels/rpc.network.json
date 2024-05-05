@@ -417,6 +417,11 @@
 			   "type": "string",
 			   "required": true
 		   },
+		   "keymanagement": {
+			   "type": "string",
+			   "enum": [ "psk", "sae" ],
+			   "required": true
+		   },
 		   "hidden": {
 			   "type": "boolean",
 			   "required": true
