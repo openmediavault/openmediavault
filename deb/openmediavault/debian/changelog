@@ -1,5 +1,6 @@
 openmediavault (7.1.0-1) stable; urgency=low
 
+  * Issue #1731: Display file system details.
   * Issue #1736: Add support to create yearly scheduled shared
     folder snapshots.
   * Issue #1737: Add support for WPA3 authentication for wireless

@@ -19,34 +19,9 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Filesystem;
+namespace OMV;
 
-class Jfs extends Filesystem {
-	/**
-	 * See parent class definition.
-	 */
-	public function getDetails() {
-		$cmdArgs = [];
-		$cmdArgs[] = "-l";
-		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
-		$cmd = new \OMV\System\Process("jfs_tune", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		return implode("\n", $output);
-	}
-
-	/**
-	 * Grow the filesystem.
-	 * @return void
-	 * @throw \OMV\ExecException
-	 */
-	final public function grow() {
-		$this->getData();
-		$cmdArgs = [];
-		$cmdArgs[] = "-o remount,resize";
-		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
-		$cmd = new \OMV\System\Process("mount", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
-}
+/**
+ * @ingroup api
+ */
+class NotSupportedException extends Exception {}
