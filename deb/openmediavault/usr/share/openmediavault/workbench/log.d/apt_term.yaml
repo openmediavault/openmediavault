@@ -13,6 +13,7 @@ data:
     sortable: true
     prop: message
     flexGrow: 2
+    cellTemplateName: text
   sorters:
   - dir: desc
     prop: rownum

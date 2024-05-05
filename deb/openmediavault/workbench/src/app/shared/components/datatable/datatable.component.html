@@ -82,6 +82,11 @@
 
 <ng-template #textTpl
              let-value="value">
+  <span [innerHTML]="value | escapeHtml"></span>
+</ng-template>
+
+<ng-template #htmlTpl
+             let-value="value">
   <span [innerHTML]="value | sanitizeHtml"></span>
 </ng-template>
 
