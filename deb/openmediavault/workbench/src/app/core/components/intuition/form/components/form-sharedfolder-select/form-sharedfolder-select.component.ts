@@ -42,7 +42,7 @@ export class FormSharedfolderSelectComponent extends FormSelectComponent {
     });
   }
 
-  protected sanitizeConfig(): void {
+  protected override sanitizeConfig(): void {
     super.sanitizeConfig();
     _.merge(this.config, {
       valueField: 'uuid',

@@ -70,7 +70,7 @@ export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> imple
     });
   }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
     super.ngOnInit();
     this.time = unixTimeStamp();
     if (this.config?.store) {

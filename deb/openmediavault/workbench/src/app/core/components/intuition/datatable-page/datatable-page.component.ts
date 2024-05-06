@@ -82,7 +82,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   /**
    * Append the current selection to the page context.
    */
-  get pageContext(): PageContext {
+  override get pageContext(): PageContext {
     const result = _.merge(
       {
         _selected: this.selection.selected
@@ -351,7 +351,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     }
   }
 
-  protected sanitizeConfig() {
+  protected override sanitizeConfig() {
     _.defaultsDeep(this.config, {
       columnMode: 'flex',
       hasActionBar: true,
@@ -409,7 +409,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     }
   }
 
-  protected onRouteParams() {
+  protected override onRouteParams() {
     // Format tokenized configuration properties.
     this.formatConfig([
       'title',

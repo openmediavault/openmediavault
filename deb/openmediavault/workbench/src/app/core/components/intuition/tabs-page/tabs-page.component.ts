@@ -40,7 +40,7 @@ export class TabsPageComponent extends AbstractPageComponent<TabsPageConfig> {
     super(activatedRoute, authSessionService, router);
   }
 
-  protected sanitizeConfig() {
+  protected override sanitizeConfig() {
     _.defaultsDeep(this.config, {
       singleRoute: true,
       tabs: []
