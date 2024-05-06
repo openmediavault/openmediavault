@@ -38,6 +38,7 @@ import {
 } from '@codemirror/autocomplete';
 import { defaultKeymap, history, historyKeymap } from '@codemirror/commands';
 import { json } from '@codemirror/lang-json';
+import { python } from '@codemirror/lang-python';
 import { xml } from '@codemirror/lang-xml';
 import {
   bracketMatching,
@@ -131,7 +132,7 @@ export class MatFormCodeEditorComponent
   lineNumbers?: boolean = true;
 
   @Input()
-  language?: 'json' | 'shell' | 'xml' | 'yaml';
+  language?: 'json' | 'python' | 'shell' | 'xml' | 'yaml';
 
   @Input()
   get value(): string {
@@ -346,9 +347,10 @@ export class MatFormCodeEditorComponent
   private getLanguageExtensions(): Extension {
     return _.isString(this.language)
       ? {
-          xml: xml(),
           json: json(),
+          python: python(),
           shell: StreamLanguage.define(shell),
+          xml: xml(),
           yaml: StreamLanguage.define(yaml)
         }[this.language]
       : [];

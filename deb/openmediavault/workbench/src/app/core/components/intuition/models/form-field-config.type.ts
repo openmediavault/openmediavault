@@ -258,7 +258,7 @@ export type FormFieldConfig = {
 
   // --- codeEditor ---
   lineNumbers?: boolean;
-  language?: 'json' | 'shell' | 'xml' | 'yaml';
+  language?: 'json' | 'python' | 'shell' | 'xml' | 'yaml';
 
   // --- fileInput ---
   // Takes a comma-separated list of one or more file types, or
