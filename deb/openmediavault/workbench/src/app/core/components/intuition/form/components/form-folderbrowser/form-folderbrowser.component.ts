@@ -27,7 +27,6 @@ import { catchError, concatMap, map, startWith, takeUntil, tap, toArray } from '
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 import { Unsubscribe } from '~/app/decorators';
-import { Icon } from '~/app/shared/enum/icon.enum';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
@@ -45,7 +44,6 @@ export class FormFolderbrowserComponent
   @Unsubscribe()
   private subscriptions = new Subscription();
 
-  icon = Icon;
   isOpen = false;
   folders: string[] = [];
   filteredFolders$: Observable<string[]>;
@@ -83,7 +81,7 @@ export class FormFolderbrowserComponent
     return this.joinPaths(this.currentPaths);
   }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
     super.ngOnInit();
     this.viewportRuler
       .change()

@@ -40,7 +40,7 @@ export class FormSelectComponent extends AbstractFormFieldComponent implements O
     super();
   }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
     super.ngOnInit();
     this.doLoadStore();
 

@@ -47,7 +47,7 @@ export class FormTextInputComponent extends AbstractFormFieldComponent implement
     super();
   }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
     super.ngOnInit();
     this.abstractControl = this.formGroup.get(this.config.name);
     this.filteredOptions$ = this.abstractControl.valueChanges.pipe(

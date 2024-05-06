@@ -62,7 +62,7 @@ export class TextPageComponent
     super(activatedRoute, authSessionService, router);
   }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
     super.ngOnInit();
     this.reloadSubscription = timer(
       0,
@@ -72,7 +72,7 @@ export class TextPageComponent
     });
   }
 
-  ngOnDestroy(): void {
+  override ngOnDestroy(): void {
     this.reloadSubscription?.unsubscribe();
     super.ngOnDestroy();
   }
@@ -117,7 +117,7 @@ export class TextPageComponent
     }
   }
 
-  protected sanitizeConfig() {
+  protected override sanitizeConfig() {
     _.defaultsDeep(this.config, {
       autoReload: false,
       hasReloadButton: false,
@@ -143,7 +143,7 @@ export class TextPageComponent
     });
   }
 
-  protected onRouteParams() {
+  protected override onRouteParams() {
     // Format tokenized configuration properties.
     this.formatConfig(['title', 'subTitle', 'request.get.method', 'request.get.params']);
   }

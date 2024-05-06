@@ -28,7 +28,7 @@ import { Icon } from '~/app/shared/enum/icon.enum';
   styleUrls: ['./form-datatable.component.scss']
 })
 export class FormDatatableComponent extends AbstractFormFieldComponent {
-  protected sanitizeConfig(): void {
+  protected override sanitizeConfig(): void {
     super.sanitizeConfig();
     if (this.config.hasSearchField || this.config.actions.length) {
       this.config.hasActionBar = true;

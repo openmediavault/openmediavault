@@ -64,7 +64,7 @@ export class SelectionListPageComponent
     super(activatedRoute, authSessionService, router);
   }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
     super.ngOnInit();
     this.loadData();
   }
@@ -156,7 +156,7 @@ export class SelectionListPageComponent
       });
   }
 
-  protected sanitizeConfig() {
+  protected override sanitizeConfig() {
     _.defaultsDeep(this.config, {
       hasSelectAllButton: false,
       buttonAlign: 'end',

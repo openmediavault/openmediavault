@@ -111,7 +111,7 @@ export class FormPageComponent
   /**
    * Append the current page mode. This can be editing or creating.
    */
-  get pageContext(): PageContext {
+  override get pageContext(): PageContext {
     return _.merge(
       {
         _editing: this.editing
@@ -120,7 +120,7 @@ export class FormPageComponent
     );
   }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
     super.ngOnInit();
     // Flatten all form field configurations into an array to be able to
     // iterate over them easily.
@@ -144,7 +144,7 @@ export class FormPageComponent
     });
   }
 
-  ngAfterViewInit(): void {
+  override ngAfterViewInit(): void {
     super.ngAfterViewInit();
     // Process all specified constraints per button.
     if (_.some(this.config.buttons, (button) => _.isPlainObject(button.enabledConstraint))) {
@@ -446,7 +446,7 @@ export class FormPageComponent
     }
   }
 
-  protected sanitizeConfig() {
+  protected override sanitizeConfig() {
     _.defaultsDeep(this.config, {
       buttonAlign: 'end',
       buttons: []
@@ -494,7 +494,7 @@ export class FormPageComponent
     this.config.icon = _.get(Icon, this.config.icon, this.config.icon);
   }
 
-  protected onRouteParams() {
+  protected override onRouteParams() {
     const allFields = flattenFormFieldConfig(this.config.fields);
     // Format tokenized configuration properties.
     this.formatConfig(['title', 'subTitle', 'request.get.method', 'request.get.params']);
