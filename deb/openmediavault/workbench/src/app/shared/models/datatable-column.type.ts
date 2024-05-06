@@ -22,7 +22,9 @@ export type DatatableColumn = TableColumn & {
   hidden?: boolean;
   /**
    * The name of the template.
-   * text - Renders plain text.
+   * text - Renders plain text. HTML special characters like "&", "<",
+   *        ">", '"', or "'" will be escaped.
+   * html - Renders HTML code.
    * buttonToggle - Renders on/off toggles with the appearance of a button.
    *                {
    *                  ...
@@ -93,6 +95,7 @@ export type DatatableColumn = TableColumn & {
    */
   cellTemplateName?:
     | 'text'
+    | 'html'
     | 'buttonToggle'
     | 'checkIcon'
     | 'placeholder'

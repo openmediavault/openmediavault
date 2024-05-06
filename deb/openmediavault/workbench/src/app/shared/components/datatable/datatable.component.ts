@@ -70,6 +70,8 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   table: NgxDatatableComponent;
   @ViewChild('textTpl', { static: true })
   textTpl: TemplateRef<any>;
+  @ViewChild('htmlTpl', { static: true })
+  htmlTpl: TemplateRef<any>;
   @ViewChild('checkIconTpl', { static: true })
   checkIconTpl: TemplateRef<any>;
   @ViewChild('checkBoxTpl', { static: true })
@@ -472,6 +474,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   protected initTemplates(): void {
     this.cellTemplates = {
       text: this.textTpl,
+      html: this.htmlTpl,
       checkIcon: this.checkIconTpl,
       checkBox: this.checkBoxTpl,
       join: this.joinTpl,

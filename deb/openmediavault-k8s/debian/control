@@ -9,7 +9,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-k8s
 Architecture: all
-Depends: openmediavault (>= 7.0.4), bash, git
+Depends: openmediavault (>= 7.1), bash, git
 Priority: optional
 Description: openmediavault Kubernetes plugin
  Kubernetes is an open-source platform for orchestrating and
