@@ -1,6 +1,6 @@
 Source: openmediavault-k8s
-Section: net
-XB-Plugin-Section: sharing
+Section: admin
+XB-Plugin-Section: administration
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>= 12), gettext
@@ -13,8 +13,8 @@ Depends: openmediavault (>= 7.1), bash, git
 Priority: optional
 Description: openmediavault Kubernetes plugin
  Kubernetes is an open-source platform for orchestrating and
- managing containerized applications in an automated, scalable,
- and resource-efficient environment.
+ managing containerized/dockerized applications in an automated,
+ scalable, and resource-efficient environment.
  The plugin is intended to implement a single-node Kubernetes
  environment using SUSE K3s.
  The plugin comes with preinstalled Traefik, Cert-Manager and
