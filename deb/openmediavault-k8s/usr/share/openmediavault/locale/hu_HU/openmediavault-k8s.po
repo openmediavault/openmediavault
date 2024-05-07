@@ -23,7 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "Abszolút elérési út"
 
 msgid "Access Modes"
 msgstr "Hozzáférési módok"
@@ -35,7 +35,7 @@ msgid "Apply"
 msgstr "Alkalmaz"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Architektúra"
 
 msgid "Available"
 msgstr "Elérhető"
@@ -104,6 +104,9 @@ msgid ""
 "Downloading the kubeconfig file to the local system enables secure remote "
 "management of the Kubernetes cluster using command-line tools like kubectl."
 msgstr ""
+"A kubeconfig fájl letöltése a helyi rendszerre lehetővé teszi a Kubernetes "
+"fürt biztonságos távoli kezelését olyan parancssori eszközökkel, mint a "
+"kubectl."
 
 msgid "Enabled"
 msgstr "Engedélyezve"
@@ -148,13 +151,13 @@ msgid "Import"
 msgstr "Importálás"
 
 msgid "Ingredients"
-msgstr ""
+msgstr "Összetevők"
 
 msgid "Ingress Routes"
-msgstr ""
+msgstr "Behatolási útvonalak"
 
 msgid "Ingresses"
-msgstr ""
+msgstr "Behatolások"
 
 msgid "Invalid namespace"
 msgstr "Érvénytelen névtér"
@@ -178,7 +181,7 @@ msgid "Logs"
 msgstr "Napló"
 
 msgid "Manifest"
-msgstr ""
+msgstr "Manifesztum"
 
 msgid "Message"
 msgstr "Üzenet"
@@ -193,22 +196,22 @@ msgid "Namespaces"
 msgstr "Névterek"
 
 msgid "NodePort IP"
-msgstr ""
+msgstr "NodePort IP"
 
 msgid "Open UI"
 msgstr "UI megnyitása"
 
 msgid "PV"
-msgstr ""
+msgstr "PV"
 
 msgid "PVC"
-msgstr ""
+msgstr "PVC"
 
 msgid "Persistent Volume Claims"
-msgstr ""
+msgstr "Megmaradókötet-kérés"
 
 msgid "Persistent Volumes"
-msgstr ""
+msgstr "Megmaradó kötetek"
 
 msgid "Pods"
 msgstr "Hüvelyek"
@@ -235,7 +238,7 @@ msgid "Recipes"
 msgstr "Receptek"
 
 msgid "Reclaim policy"
-msgstr ""
+msgstr "Visszaigénylési irányelv"
 
 msgid "Repository"
 msgstr "Tároló"
@@ -247,10 +250,10 @@ msgid "Restore"
 msgstr "Visszaállítás"
 
 msgid "Secrets"
-msgstr ""
+msgstr "Titkok"
 
 msgid "Section"
-msgstr ""
+msgstr "Rész"
 
 msgid "Services"
 msgstr "Szolgáltatások"
@@ -259,7 +262,7 @@ msgid "Settings"
 msgstr "Beállítások"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "Megosztott mappák"
 
 msgid "Size"
 msgstr "Méret"
@@ -299,12 +302,19 @@ msgid ""
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
+"A következő helyőrzők használhatóak a receptekben a globális "
+"rendszerinformációk és a konfigurációs adatbázis "
+"eléréséhez:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>A helyőrzőket dupla szögletes zárójelekkel kell "
+"jelölni. A további lehetséges szűrők áttekintése <a "
+"href='https://twig.symfony.com/doc/filters/index.html' target='_blank'>itt "
+"található</a>."
 
 msgid "The location where to store etcd on-demand snapshots."
-msgstr ""
+msgstr "Az etcd igény szerinti pillanatképek tárolási helye."
 
 msgid "The manifest to apply."
-msgstr ""
+msgstr "Az alkalmazandó manifesztum. "
 
 msgid "The port on which the Kubernetes Dashboard is listening."
 msgstr "A port, amelyen a Kubernetes Műszerfal hallgat."

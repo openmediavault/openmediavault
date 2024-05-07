@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Antonio Pelaez Redondo <antorayman@gmail.com>, 2012
-# jmcainzos <jmcainzos@vodafone.es>, 2012
+# José Manuel Caínzos <josem.cainzos@gmail.com>, 2012
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2013-2014,2020-2021
 msgid ""
 msgstr ""

@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Quim Farriol <qfarriol@valette.cat>, 2020-2023
+# Quim Farriol <qfarriol@valette.cat>, 2020-2024
 # Quim Farriol <qfarriol@valette.cat>, 2017-2018,2020
 # Quim Farriol <qfarriol@valette.cat>, 2016
 msgid ""
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-13 20:50+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2023\n"
+"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2024\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -942,7 +942,7 @@ msgid "Disallow the user to modify their own account."
 msgstr "No permetre que l'usuari modifiqui el seu propi compte."
 
 msgid "Disk Temperatures"
-msgstr ""
+msgstr "Temperatures del disc"
 
 msgid "Disk Usage"
 msgstr "Ús del disc "
@@ -975,7 +975,7 @@ msgid "Displays information about the services in a table."
 msgstr "Mostra la informació sobre els serveis en una taula."
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
-msgstr ""
+msgstr "Mostra l'estat S.M.A.R.T. de tots els dispositius de disc supervisats."
 
 msgid "Displays the system time."
 msgstr "Mostra l'hora del sistema."
@@ -984,7 +984,7 @@ msgid "Displays the system uptime."
 msgstr "Displays the system uptime."
 
 msgid "Displays the temperature of all disk devices."
-msgstr ""
+msgstr "Mostra la temperatura de tots els dispositius de disc."
 
 msgid "Displays various system information."
 msgstr "Mostra informació diversa del sistema."
@@ -1206,10 +1206,10 @@ msgid "Failed to copy data to the clipboard."
 msgstr "No s'han pogut copiar les dades al porta-retalls. "
 
 msgid "Failed to start session."
-msgstr ""
+msgstr "No s'ha pogut iniciar la sessió."
 
 msgid "Failed to write session data."
-msgstr ""
+msgstr "No s'han pogut escriure les dades de la sessió."
 
 msgid "Falkland Islands"
 msgstr "Illes Malvines"
@@ -1233,10 +1233,10 @@ msgid "File Systems"
 msgstr "Sistemes d'arxius"
 
 msgid "File access control lists"
-msgstr ""
+msgstr "Llistes de control d'accés a fitxers"
 
 msgid "File owner and group"
-msgstr ""
+msgstr "Propietari i grup del fitxer"
 
 msgid "File path"
 msgstr "Adreça del fitxer"
@@ -2083,7 +2083,7 @@ msgid "No data to display."
 msgstr "No hi ha dades per mostrar. "
 
 msgid "No monitored devices."
-msgstr ""
+msgstr "No hi ha dispositius monitoritzats."
 
 msgid "No users connected"
 msgstr "No hi ha usuaris connectats"
@@ -2987,7 +2987,7 @@ msgid ""
 msgstr "Especifica el temps, en mil·lisegons, d’espera abans d’activar un esclau després que s’hagi detectat la recuperació d’un enllaç ."
 
 msgid "Specifies the type of key to create."
-msgstr ""
+msgstr "Especifica el tipus de clau que cal crear."
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Especifica si està permès el login com a superusuari"
@@ -3274,14 +3274,14 @@ msgid "The port on which SSH is running on the remote system."
 msgstr "El port en el qual s’executa SSH al sistema remot."
 
 msgid "The private key in PEM format."
-msgstr ""
+msgstr "La clau privada en format PEM."
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
 msgstr "El protocol no s'admet amb una conjunció de port d'origen / destinació. "
 
 msgid "The public key in OpenSSH format."
-msgstr ""
+msgstr "La clau pública en format OpenSSH."
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "

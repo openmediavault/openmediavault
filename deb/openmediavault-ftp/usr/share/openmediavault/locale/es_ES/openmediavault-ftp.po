@@ -6,7 +6,7 @@
 # Translators:
 # XoN <gigaxon@gmail.com>, 2023
 # Volker Theile <votdev@gmx.de>, 2023
-# jmcainzos <jmcainzos@vodafone.es>, 2023
+# José Manuel Caínzos <josem.cainzos@gmail.com>, 2023
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2023
 # 
 #, fuzzy

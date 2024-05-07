@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# jmcainzos <jmcainzos@vodafone.es>, 2013
+# José Manuel Caínzos <josem.cainzos@gmail.com>, 2013
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2013-2014,2017,2019,2021,2024
 msgid ""
 msgstr ""

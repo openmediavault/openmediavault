@@ -22,120 +22,123 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "Camí absolut"
 
 msgid "Access Modes"
-msgstr ""
+msgstr "Modes d'accés"
 
 msgid "App Version"
-msgstr ""
+msgstr "Versió de l'aplicació"
 
 msgid "Apply"
-msgstr ""
+msgstr "Aplicació"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Arquitectura"
 
 msgid "Available"
-msgstr ""
+msgstr "Disponible"
 
 msgid "Capacity"
 msgstr "Capacitat"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Certificat"
 
 msgid "Certificates"
-msgstr ""
+msgstr "Certificats"
 
 msgid "Chart"
-msgstr ""
+msgstr "Gràfic"
 
 msgid "Check for new recipes"
-msgstr ""
+msgstr "Comproveu noves receptes"
 
 msgid "Class"
-msgstr ""
+msgstr "Classe"
 
 msgid "Cluster IP"
-msgstr ""
+msgstr "IP del clúster"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Comprimit"
 
 msgid "Config Maps"
-msgstr ""
+msgstr "Configuració de mapes"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copiar al portapapers"
 
 msgid "Copy token"
-msgstr ""
+msgstr "Copia el testimoni"
 
 msgid "Created"
 msgstr "Creat"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Panell"
 
 msgid "Data"
-msgstr ""
+msgstr "Dada"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Data i hora"
 
 msgid "Deployments"
-msgstr ""
+msgstr "Desplegaments"
 
 msgid "Describe"
-msgstr ""
+msgstr "Descriu"
 
 msgid "Description"
-msgstr ""
+msgstr "Descripció"
 
 msgid "Do you really want to restore this snapshot?"
-msgstr ""
+msgstr "Realment voleu restaurar aquesta instantània?"
 
 msgid "Download"
-msgstr ""
+msgstr "Descarregar"
 
 msgid ""
 "Downloading the kubeconfig file to the local system enables secure remote "
 "management of the Kubernetes cluster using command-line tools like kubectl."
 msgstr ""
+"La descàrrega del fitxer kubeconfig al sistema local permet una gestió "
+"remota segura del clúster Kubernetes mitjançant eines de línia d'ordres com "
+"ara kubectl."
 
 msgid "Enabled"
 msgstr "Activat"
 
 msgid "Etcd Snapshots"
-msgstr ""
+msgstr "Imatges Etcd"
 
 msgid "External IP"
-msgstr ""
+msgstr "IP externa"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Groups"
-msgstr ""
+msgstr "Grups"
 
 msgid "HTTP port"
-msgstr ""
+msgstr "Port HTTP"
 
 msgid "HTTPS port"
-msgstr ""
+msgstr "Port HTTPS"
 
 msgid "Helm Charts"
-msgstr ""
+msgstr "Gràfics Helm"
 
 msgid "Homepage"
-msgstr ""
+msgstr "Pàgina d'inici"
 
 msgid "ID"
 msgstr "ID"
 
 msgid "If present, the namespace scope for this request."
-msgstr ""
+msgstr "Si està present, l'àmbit de l'espai de noms d'aquesta sol·licitud."
 
 msgid "Image"
 msgstr "Imatge"
@@ -144,70 +147,70 @@ msgid "Images"
 msgstr "Imatges"
 
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredients"
 
 msgid "Ingress Routes"
-msgstr ""
+msgstr "Rutes d'entrada"
 
 msgid "Ingresses"
-msgstr ""
+msgstr "Ingresses"
 
 msgid "Invalid namespace"
-msgstr ""
+msgstr "Espai de noms no vàlid"
 
 msgid "Job"
-msgstr ""
+msgstr "Treball"
 
 msgid "Kubeconfig"
-msgstr ""
+msgstr "Kubeconfig"
 
 msgid "Kubernetes"
-msgstr ""
+msgstr "Kubernetes"
 
 msgid "Labels"
-msgstr ""
+msgstr "Etiquetes"
 
 msgid "Load Balancer"
-msgstr ""
+msgstr "Equilibrador de càrrega"
 
 msgid "Logs"
 msgstr "Logs"
 
 msgid "Manifest"
-msgstr ""
+msgstr "Manifest"
 
 msgid "Message"
-msgstr ""
+msgstr "Missatge"
 
 msgid "Name"
 msgstr "Nom"
 
 msgid "Namespace"
-msgstr ""
+msgstr "Espai de noms"
 
 msgid "Namespaces"
-msgstr ""
+msgstr "Espais de noms"
 
 msgid "NodePort IP"
-msgstr ""
+msgstr "NodePort IP"
 
 msgid "Open UI"
 msgstr "Open UI"
 
 msgid "PV"
-msgstr ""
+msgstr "PV"
 
 msgid "PVC"
-msgstr ""
+msgstr "PVC"
 
 msgid "Persistent Volume Claims"
-msgstr ""
+msgstr "Reclamacions de volum persistents"
 
 msgid "Persistent Volumes"
-msgstr ""
+msgstr "Volums persistents"
 
 msgid "Pods"
 msgstr "Pods"
@@ -219,58 +222,58 @@ msgid "Ports"
 msgstr "Ports"
 
 msgid "Ready"
-msgstr ""
+msgstr "A punt"
 
 msgid "Recipe"
-msgstr ""
+msgstr "Recepta"
 
 msgid "Recipe Information"
-msgstr ""
+msgstr "Informació de la recepta"
 
 msgid "Recipe Version"
-msgstr ""
+msgstr "Versió de la recepta"
 
 msgid "Recipes"
-msgstr ""
+msgstr "Receptes"
 
 msgid "Reclaim policy"
-msgstr ""
+msgstr "Política de reclamació"
 
 msgid "Repository"
 msgstr "Repository"
 
 msgid "Resources"
-msgstr ""
+msgstr "Recursos"
 
 msgid "Restore"
-msgstr ""
+msgstr "Restaurar"
 
 msgid "Secrets"
-msgstr ""
+msgstr "Secrets"
 
 msgid "Section"
-msgstr ""
+msgstr "Secció"
 
 msgid "Services"
-msgstr ""
+msgstr "Serveis"
 
 msgid "Settings"
-msgstr ""
+msgstr "Configuració"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "Carpetes compartides"
 
 msgid "Size"
 msgstr "Talla"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Imatges instantànies"
 
 msgid "Status"
 msgstr "Estat"
 
 msgid "Storage Class"
-msgstr ""
+msgstr "Classe d'emmagatzematge"
 
 msgid "Tag"
 msgstr "Etiqueta"
@@ -279,12 +282,14 @@ msgid "Tags"
 msgstr "Etiquetes"
 
 msgid "Target Namespace"
-msgstr ""
+msgstr "Espai de noms de destinació"
 
 msgid ""
 "The SSL certificate used by the Dashboard and the LoadBalancer service. If "
 "not set, a self-signed certificate from cert-manager is used."
 msgstr ""
+"El certificat SSL utilitzat pel Dashboard i el servei LoadBalancer. Si no "
+"s'estableix, s'utilitza un certificat autofirmat de cert-manager."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -295,45 +300,47 @@ msgid ""
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
+"Els següents marcadors de posició es poden utilitzar a les receptes per accedir a la informació global del sistema i a la base de dades de configuració:\n"
+"<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id, uuid=NULL)</li></ul>YHeu de denotar marcadors de posició amb claus dobles. Podeu trobar una visió general dels filtres addicionals disponibles <a href='https://twig.symfony.com/doc/filters/index.html' target='_blank'>aquí</a>."
 
 msgid "The location where to store etcd on-demand snapshots."
-msgstr ""
+msgstr "La ubicació on s'emmagatzemen les instantànies sota demanda etcd."
 
 msgid "The manifest to apply."
-msgstr ""
+msgstr "El manifest a aplicar."
 
 msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr ""
+msgstr "El port on escolta el tauler de control de Kubernetes."
 
 msgid "The port on which the LoadBalancer service is listening."
-msgstr ""
+msgstr "El port on està escoltant el servei LoadBalancer."
 
 msgid "The snapshot was created successfully."
-msgstr ""
+msgstr "La instantània s'ha creat correctament."
 
 msgid "The snapshot {{ name }} has been successfully restored."
-msgstr ""
+msgstr "La instantània {{ name }} s'ha restaurat correctament."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr ""
+msgstr "El testimoni per autenticar-se al tauler de control de Kubernetes."
 
 msgid "Type"
-msgstr ""
+msgstr "Tipus"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "Up-to-date"
-msgstr ""
+msgstr "Actualitzat"
 
 msgid "Updated Kubernetes settings."
-msgstr ""
+msgstr "Configuració de Kubernetes actualitzada."
 
 msgid "Users"
-msgstr ""
+msgstr "Usuaris"
 
 msgid "View"
-msgstr ""
+msgstr "Vista"
 
 msgid "Volume"
-msgstr ""
+msgstr "Volum"

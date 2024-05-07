@@ -3,9 +3,9 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# jmcainzos <jmcainzos@vodafone.es>, 2012-2013
-# jmcainzos <jmcainzos@vodafone.es>, 2013
-# jmcainzos <jmcainzos@vodafone.es>, 2012
+# José Manuel Caínzos <josem.cainzos@gmail.com>, 2012-2013
+# José Manuel Caínzos <josem.cainzos@gmail.com>, 2013
+# José Manuel Caínzos <josem.cainzos@gmail.com>, 2012
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2024
 # Volker Theile <votdev@gmx.de>, 2012
 # Volker Theile <votdev@gmx.de>, 2012
