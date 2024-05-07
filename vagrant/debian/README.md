@@ -15,11 +15,6 @@ $ sudo apt-get install nfs-kernel-server
 $ sudo apt-get install vagrant
 ```
 
-4. Install vagrant-reload plugin (https://github.com/aidanns/vagrant-reload/tree/master)
-```
-$ vagrant plugin install vagrant-reload
-```
-
 # Using libvirt
 
 1. Install
