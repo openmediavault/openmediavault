@@ -1,4 +1,4 @@
-openmediavault-k8s (7.1.0-3) unstable; urgency=low
+openmediavault-k8s (7.1.0-4) unstable; urgency=low
 
   * Use a PHP template engine to implement a DSL that allows users
     to access data from the configuration database and other system

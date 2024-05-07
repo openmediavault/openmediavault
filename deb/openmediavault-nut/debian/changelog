@@ -1,4 +1,4 @@
-openmediavault-nut (7.0.3-1) stable; urgency=low
+openmediavault-nut (7.0.3-2) stable; urgency=low
 
   * Issue #1721: nut-driver systemd service is not stopped in
     'Netclient' mode.
