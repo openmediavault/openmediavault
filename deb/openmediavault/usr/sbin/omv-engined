@@ -532,8 +532,8 @@ while(FALSE === $sigTerm) {
 				$request = [
 					"service" => $request->service,
 					"method" => $request->method,
-					"params" => (array)$request->params,
-					"context" => (array)$request->context
+					"params" => toArray($request->params),
+					"context" => toArray($request->context)
 				];
 
 				////////////////////////////////////////////////////////////////

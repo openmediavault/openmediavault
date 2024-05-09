@@ -208,12 +208,18 @@ function array_unique_key(array $array, $key): ?array {
  * @ingroup api
  * @param object $object The object instance.
  * @return Returns an associative array of defined object accessible
- *   non-static properties for the specified object  in scope.
+ *   non-static properties for the specified object in scope.
  */
 function toArray($object): array {
-	if (is_object($object))
+	if (is_null($object)) {
+		return [];
+	}
+	if (is_object($object)) {
 		$object = get_object_vars($object);
-	return is_array($object) ? array_map(__FUNCTION__, $object) : $object;
+	}
+	return array_map(function($value) {
+		return (is_array($value) || is_object($value)) ? toArray($value) : $value;
+	}, $object);
 }
 
 /**
