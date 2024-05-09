@@ -517,24 +517,21 @@ while(FALSE === $sigTerm) {
 			require_once("openmediavault/env.inc");
 
 			try {
-				// Decode JSON string to a PHP object.
-				if (NULL === ($request = json_decode_safe($request))) {
+				// Decode JSON string to an associative array.
+				// !!! Note !!!
+				// Actually the JSON string should not be converted into an
+				// associative array because the information is lost whether an
+				// empty array was an object without properties or an empty array
+				// before the conversion.
+				// If it were done correctly this will break existing code in core
+				// and all plugins, so the current implementation which is doing
+				// the conversion to an associative array instead an PHP object
+				// will be kept for compatibility reasons.
+				if (NULL === ($request = json_decode_safe($request, TRUE))) {
 					throw new \OMV\Exception(
 						"Failed to decode JSON string: %s",
 						json_last_error_msg());
 				}
-
-				// Bring the variable into the expected form.
-				// Note, `params` shouldn't be converted to an array here,
-				// but this will break existing code in core and all plugins, so
-				// the current implementation will be kept for compatibility
-				// reasons.
-				$request = [
-					"service" => $request->service,
-					"method" => $request->method,
-					"params" => toArray($request->params),
-					"context" => toArray($request->context)
-				];
 
 				////////////////////////////////////////////////////////////////
 				// Execute RPC.
