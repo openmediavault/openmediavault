@@ -71,6 +71,9 @@ configure_hosts_localhost_ipv6:
     - name: "/etc/hosts"
     - text: |
 {%- if static_ipv6_interfaces | length == 0 %}
+        # Add hostname to ::1 if there is no other IPv6 interface. This is
+        # necessary to properly resolve the hostname, otherwise building the Salt
+        # grains (core.fqdns and core.ip_fqdn) will take a very long time.
         ::1 localhost ip6-localhost ip6-loopback {{ fqdn }} {{ alias }}
 {% else %}
         ::1 localhost ip6-localhost ip6-loopback
