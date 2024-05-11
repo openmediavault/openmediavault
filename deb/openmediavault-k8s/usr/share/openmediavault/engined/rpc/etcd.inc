@@ -35,33 +35,42 @@ class OMVRpcServiceEtcd extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("restoreSnapshot");
 	}
 
-	function getSnapshots($params, $context) {
-		$this->validateMethodContext($context, [
-			"role" => OMV_ROLE_ADMINISTRATOR
-		]);
-		$this->validateMethodParams($params, "rpc.common.getlist");
+    private function getSnapshotDir(): string {
 		$db = \OMV\Config\Database::getInstance();
         $object = $db->get("conf.service.k8s");
         $sfObject = $db->get("conf.system.sharedfolder",
         	$object->get("etcdsnapshots_sharedfolderref"));
 		$meObject = $db->get("conf.system.filesystem.mountpoint",
 			$sfObject->get("mntentref"));
-		$snapshotDir = build_path(DIRECTORY_SEPARATOR,
+		return build_path(DIRECTORY_SEPARATOR,
 			$meObject->get("dir"), $sfObject->get("reldirpath"));
+    }
+
+	function getSnapshots($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$this->validateMethodParams($params, "rpc.common.getlist");
 		$cmdArgs = [];
 		$cmdArgs[] = "etcd-snapshot";
 		$cmdArgs[] = "ls";
 		$cmdArgs[] = sprintf("--etcd-snapshot-dir %s", escapeshellarg(
-			$snapshotDir));
+			$this->getSnapshotDir()));
 		$cmdArgs[] = "--output json";
 		$cmd = new \OMV\System\Process("k3s", $cmdArgs);
 		$cmd->setRedirect2toFile("/dev/null");
 		$cmd->execute($output);
 		$output = json_decode_safe(implode("", $output), TRUE);
+		$output = array_value($output, "items", []);
 		$result = [];
 		foreach($output as $outputk => $outputv) {
-			$outputv['createdAtTs'] = strpdate($outputv['createdAt'],
-				"Y-m-d*H:i:sT");
+			$outputv['status']['compressed'] = str_ends_with(
+				$outputv['spec']['snapshotName'], ".zip");
+			if (is_null($outputv['metadata']['creationTimestamp'])) {
+				$outputv['metadata']['creationTimestamp'] = strpdate(
+					$outputv['status']['creationTime'],
+					"Y-m-d*H:i:sT");
+			}
 			$result[] = $outputv;
 		}
 		return $this->applyFilter($result, $params['start'],
@@ -72,23 +81,15 @@ class OMVRpcServiceEtcd extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		$db = \OMV\Config\Database::getInstance();
-        $object = $db->get("conf.service.k8s");
-        $sfObject = $db->get("conf.system.sharedfolder",
-        	$object->get("etcdsnapshots_sharedfolderref"));
-		$meObject = $db->get("conf.system.filesystem.mountpoint",
-			$sfObject->get("mntentref"));
-		$snapshotDir = build_path(DIRECTORY_SEPARATOR,
-			$meObject->get("dir"), $sfObject->get("reldirpath"));
 		$cmdArgs = [];
 		$cmdArgs[] = "etcd-snapshot";
 		$cmdArgs[] = "save";
 		$cmdArgs[] = sprintf("--etcd-snapshot-dir %s", escapeshellarg(
-			$snapshotDir));
+			$this->getSnapshotDir()));
 		$cmdArgs[] = "--snapshot-compress";
 		$cmd = new \OMV\System\Process("k3s", $cmdArgs);
 		$cmd->setRedirect2to1();
-		$cmd->execute($output);
+		$cmd->execute();
 	}
 
 	function deleteSnapshot($params, $context) {
@@ -96,15 +97,24 @@ class OMVRpcServiceEtcd extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		$this->validateMethodParams($params, "rpc.etcd.deleteSnapshot");
-		$snapshots = \OMV\Rpc\Rpc::call("Etcd", "getSnapshots",
+		$response = \OMV\Rpc\Rpc::call("Etcd", "getSnapshots",
 			[ "start" => 0, "limit" => -1 ], $context);
-		$snapshot = array_search_ex($snapshots['data'], "name",
+		$snapshots = array_map("array_flatten", $response['data']);
+		$snapshot = array_search_ex($snapshots, "spec.snapshotName",
 			$params['name']);
 		if (FALSE === $snapshot) {
 			throw new \OMV\Exception("The snapshot '%s' does not exist",
 				$params['name']);
 		}
-		unlink($snapshot['location']);
+		$cmdArgs = [];
+		$cmdArgs[] = "etcd-snapshot";
+		$cmdArgs[] = "delete";
+		$cmdArgs[] = sprintf("--etcd-snapshot-dir %s", escapeshellarg(
+			$this->getSnapshotDir()));
+		$cmdArgs[] = escapeshellarg($params['name']);
+		$cmd = new \OMV\System\Process("k3s", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
 	}
 
 	function restoreSnapshot($params, $context) {
@@ -112,9 +122,10 @@ class OMVRpcServiceEtcd extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		$this->validateMethodParams($params, "rpc.etcd.restoreSnapshot");
-		$snapshots = \OMV\Rpc\Rpc::call("Etcd", "getSnapshots",
+		$response = \OMV\Rpc\Rpc::call("Etcd", "getSnapshots",
 			[ "start" => 0, "limit" => -1 ], $context);
-		$snapshot = array_search_ex($snapshots['data'], "name",
+		$snapshots = array_map("array_flatten", $response['data']);
+		$snapshot = array_search_ex($snapshots, "spec.snapshotName",
 			$params['name']);
 		if (FALSE === $snapshot) {
 			throw new \OMV\Exception("The snapshot '%s' does not exist",
@@ -122,7 +133,7 @@ class OMVRpcServiceEtcd extends \OMV\Rpc\ServiceAbstract {
 		}
 		$systemCtl = new \OMV\System\SystemCtl("k3s");
 		$systemCtl->stop();
-		$location = str_replace("file://", "", $snapshot['location']);
+		$location = str_replace("file://", "", $snapshot['spec']['location']);
 		$cmdArgs = [];
 		$cmdArgs[] = "server";
 		$cmdArgs[] = "--cluster-reset";
@@ -130,7 +141,7 @@ class OMVRpcServiceEtcd extends \OMV\Rpc\ServiceAbstract {
 			escapeshellarg($location));
 		$cmd = new \OMV\System\Process("k3s", $cmdArgs);
 		$cmd->setRedirect2to1();
-		$cmd->execute($output);
+		$cmd->execute();
 		$systemCtl->start();
 	}
 }

@@ -1,3 +1,11 @@
+openmediavault-k8s (7.1.1-1) unstable; urgency=low
+
+  * Upgrade K3S to v1.29.4+k3s1.
+  * Adapt code to changes to the `k3s etcd-snapshot` sub-command
+    introduced in v1.29.4+k3s1.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 11 May 2024 21:17:22 +0200
+
 openmediavault-k8s (7.1.0-4) unstable; urgency=low
 
   * Use a PHP template engine to implement a DSL that allows users
