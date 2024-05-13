@@ -61,6 +61,10 @@ case "$1" in
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "7.1.1"; then
+			touch /var/lib/openmediavault/upgrade_k3s || :
+			omv_module_set_dirty k3s
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

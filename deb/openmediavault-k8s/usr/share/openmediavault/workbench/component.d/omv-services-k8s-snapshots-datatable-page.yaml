@@ -19,21 +19,27 @@ data:
     selectionType: single
     columns:
       - name: _("Name")
-        prop: name
+        prop: spec.snapshotName
         flexGrow: 1
         sortable: true
       - name: _("Created")
-        prop: createdAtTs
+        prop: metadata.creationTimestamp
         flexGrow: 1
         sortable: true
         cellTemplateName: localeDateTime
       - name: _("Size")
-        prop: size
+        prop: status.size
         flexGrow: 1
         sortable: true
         cellTemplateName: binaryUnit
       - name: _("Compressed")
-        prop: compressed
+        prop: status.compressed
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: checkIcon
+        hidden: true
+      - name: _("Ready")
+        prop: status.readyToUse
         flexGrow: 1
         sortable: true
         cellTemplateName: checkIcon
@@ -61,8 +67,8 @@ data:
             service: Etcd
             method: restoreSnapshot
             params:
-              name: "{{ name }}"
-            successNotification: _("The snapshot {{ name }} has been successfully restored.")
+              name: "{{ spec.snapshotName }}"
+            successNotification: _("The snapshot {{ spec.snapshotName }} has been successfully restored.")
       - template: delete
         execute:
           type: request
@@ -70,4 +76,4 @@ data:
             service: Etcd
             method: deleteSnapshot
             params:
-              name: "{{ name }}"
+              name: "{{ spec.snapshotName }}"

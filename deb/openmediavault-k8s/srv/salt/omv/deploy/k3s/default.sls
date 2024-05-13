@@ -26,6 +26,7 @@
 # https://kubernetes.io/docs/concepts/storage/volumes/#hostpath-volume-types
 # https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes
 
+{% set k3s_version = salt['pillar.get']('default:OMV_K8S_K3S_VERSION', 'v1.29.4+k3s1') %}
 {% set k8s_config = salt['omv_conf.get']('conf.service.k8s') %}
 {% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 # {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
@@ -331,7 +332,7 @@ create_k3s_local_storage_manifest:
 
 install_k3s:
   cmd.run:
-    - name: set -o pipefail; wget -O - https://get.k3s.io | INSTALL_K3S_SKIP_ENABLE=true sh -
+    - name: set -o pipefail; wget -O - https://get.k3s.io | INSTALL_K3S_SKIP_ENABLE=true INSTALL_K3S_VERSION='{{ k3s_version }}' sh -
     - shell: /usr/bin/bash
     - onlyif: "! which k3s || test -e /var/lib/openmediavault/upgrade_k3s"
     - failhard: True
