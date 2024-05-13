@@ -1,3 +1,10 @@
+openmediavault (7.1.1-1) stable; urgency=low
+
+  * Issue #1763: Allow creating logical volumes even if a file
+    system signature is detected.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 13 May 2024 19:09:22 +0200
+
 openmediavault (7.1.0-2) stable; urgency=low
 
   * Update locale files.

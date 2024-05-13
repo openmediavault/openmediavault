@@ -275,6 +275,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 */
 	public static function create($name, $size, $vgName) {
 		$cmdArgs = [];
+		$cmdArgs[] = "--yes";
 		$cmdArgs[] = sprintf("--name %s", escapeshellarg($name));
 		$cmdArgs[] = sprintf("--extents %d%%VG", $size);
 		$cmdArgs[] = escapeshellarg($vgName);
