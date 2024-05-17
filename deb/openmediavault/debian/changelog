@@ -1,5 +1,7 @@
 openmediavault (7.1.1-1) stable; urgency=low
 
+  * Remove NFS configuration file that is generated on upgrade to
+    Debian 12.
   * Issue #1763: Allow creating logical volumes even if a file
     system signature is detected.
 

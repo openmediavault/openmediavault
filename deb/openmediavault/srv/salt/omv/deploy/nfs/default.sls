@@ -39,6 +39,11 @@
 
 {% if nfs_config.enable | to_bool %}
 
+# This file is generated on upgrade to Debian 12.
+remove_upgrade_debian12_conf:
+  file.absent:
+    - name: /etc/nfs.conf.d/local.conf
+
 configure_nfs_conf:
   file.managed:
     - name: "/etc/nfs.conf.d/99-openmediavault.conf"
