@@ -1,3 +1,9 @@
+openmediavault (6.9.16-1) stable; urgency=low
+
+  * Several improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 17 May 2024 18:23:55 +0200
+
 openmediavault (6.9.15-2) stable; urgency=low
 
   * Several improvements.
