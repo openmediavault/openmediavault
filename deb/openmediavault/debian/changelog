@@ -1,6 +1,6 @@
 openmediavault (7.1.2-1) stable; urgency=low
 
-  *
+  * Issue #1748: Enable TCP for NFS v2 and v3.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 24 May 2024 17:46:40 +0200
 

@@ -3,7 +3,7 @@
 [nfsd]
 threads={{ grains['num_cpus'] * 4 }}
 udp={{ (['2', '3'] | intersect(nfs_versions) | length > 0) | yesno }}
-tcp={{ (nfs_versions | difference(['2', '3']) | length > 0) | yesno }}
+tcp=yes
 vers2={{ ('2' in nfs_versions) | yesno }}
 vers3={{ ('3' in nfs_versions) | yesno }}
 vers4={{ (['4', '4.1', '4.2'] | intersect(nfs_versions) | length > 0) | yesno }}
