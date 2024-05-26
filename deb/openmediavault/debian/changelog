@@ -1,6 +1,6 @@
 openmediavault (6.9.17-1) stable; urgency=low
 
-  *
+  * Issue #1766: Harden the daily SSL certificate expiration cron job.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 26 May 2024 10:29:19 +0200
 

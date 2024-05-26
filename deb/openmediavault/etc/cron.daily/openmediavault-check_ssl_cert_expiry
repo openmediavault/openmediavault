@@ -36,7 +36,7 @@ set -e
 
 omv_syslog_info "Perform a check for expired SSL certificates."
 for f in /etc/ssl/certs/"${OMV_SSL_CERTIFICATE_PREFIX}"*.crt ; do
-  [ -e "${f}" ] || continue
+  [ -f "${f}" ] || continue
 
   omv_syslog_info "Validating the SSL certificate ${f} ..."
 
