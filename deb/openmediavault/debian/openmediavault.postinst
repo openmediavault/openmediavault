@@ -153,8 +153,8 @@ case "$1" in
 			deb-systemd-invoke stop salt-minion.service || :
 
 			# Enable and start various services that are enabled by default.
-			deb-systemd-helper enable sshd.service
-			deb-systemd-invoke start sshd.service || :
+			deb-systemd-helper enable ssh.service
+			deb-systemd-invoke start ssh.service || :
 
 			# Enable and start various services that are necessary for
 			# openmediavault to work correct.
