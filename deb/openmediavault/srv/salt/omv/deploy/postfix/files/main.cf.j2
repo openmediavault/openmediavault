@@ -34,7 +34,11 @@ inet_interfaces = {{ inet_interfaces }}
 {%- if not salt['omv_utils.is_ipv6_enabled']() %}
 inet_protocols = ipv4
 {%- endif %}
+{%- if config.server in ["127.0.0.1", "localhost"] %}
+relayhost =
+{%- else %}
 relayhost = {% if not relayhost_mxlookup_enable | to_bool %}[{% endif %}{{ config.server }}{% if not relayhost_mxlookup_enable | to_bool %}]{% endif %}:{{ config.port }}
+{%- endif %}
 sender_canonical_maps = regexp:{{ sender_canonical_maps }}
 sender_bcc_maps = hash:{{ sender_bcc_maps }}
 recipient_canonical_maps = hash:{{ recipient_canonical_maps }}
