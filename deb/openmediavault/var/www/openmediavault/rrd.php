@@ -42,9 +42,14 @@ try {
 		"OMV_RRDGRAPH_DIR"), $_GET['name']);
 	if (!file_exists($pathName))
 		$pathName = \OMV\Environment::get("OMV_RRDGRAPH_ERROR_IMAGE");
-	$contentLength = filesize($pathName);
-	header("Content-Type: image/png");
-	header("Content-Length: {$contentLength}");
+	$contentLength = @filesize($pathName);
+	if (FALSE !== $contentLength) {
+		header("Content-Length: {$contentLength}");
+	}
+	$contentType = @mime_content_type($pathName);
+	if (FALSE !== $contentType) {
+		header("Content-Type: {$contentType}");
+	}
 	@readfile($pathName);
 } catch(\Exception $e) {
 	header("Content-Type: text/html");
