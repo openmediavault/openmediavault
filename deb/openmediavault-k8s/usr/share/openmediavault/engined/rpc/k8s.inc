@@ -119,8 +119,10 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 		return [
 			"filename" => "kubeconfig.yaml",
 			"filepath" => $filePath,
-			"contenttype" => "text/yaml",
-			"unlink" => FALSE
+			"unlink" => FALSE,
+			"headers" => [
+				"Content-Disposition" => "text/yaml"
+			],
 		];
 	}
 
