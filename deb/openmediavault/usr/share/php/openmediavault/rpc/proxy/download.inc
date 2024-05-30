@@ -69,6 +69,8 @@ class Download extends Json {
 			header("Content-Length: {$contentLength}");
 			print($response['content']);
 		} else {
+			$contentLength = filesize($response['filepath']);
+			header("Content-Length: {$contentLength}");
 			@readfile($response['filepath']);
 			// Unlink the file containing the content to be downloaded?
 			if (array_key_exists("unlink", $response) &&
