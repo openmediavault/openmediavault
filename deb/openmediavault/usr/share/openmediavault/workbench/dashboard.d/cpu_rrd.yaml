@@ -8,4 +8,5 @@ data:
     role:
     - admin
   rrd:
-    name: cpu-0-hour.png
+    kind: cpu-0
+    period: hour

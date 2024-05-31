@@ -61,31 +61,31 @@
     </mat-toolbar>
     <mat-card-content class="omv-display-flex omv-flex-column omv-justify-content-start omv-align-items-center">
       <div>
-        <img src="rrd.php?name={{ name }}-hour.png&time={{ time }}"
+        <img src="download.php?service=Rrd&method=getGraph&params={%22kind%22:%22{{ name }}%22,%22period%22:%22hour%22}&time={{ time }}"
              loading="lazy"
              loadingState
              alt="RRD graph - by hour"/>
       </div>
       <div>
-        <img src="rrd.php?name={{ name }}-day.png&time={{ time }}"
+        <img src="download.php?service=Rrd&method=getGraph&params={%22kind%22:%22{{ name }}%22,%22period%22:%22day%22}&time={{ time }}"
              loading="lazy"
              loadingState
              alt="RRD graph - by day"/>
       </div>
       <div>
-        <img src="rrd.php?name={{ name }}-week.png&time={{ time }}"
+        <img src="download.php?service=Rrd&method=getGraph&params={%22kind%22:%22{{ name }}%22,%22period%22:%22week%22}&time={{ time }}"
              loading="lazy"
              loadingState
              alt="RRD graph - by week"/>
       </div>
       <div>
-        <img src="rrd.php?name={{ name }}-month.png&time={{ time }}"
+        <img src="download.php?service=Rrd&method=getGraph&params={%22kind%22:%22{{ name }}%22,%22period%22:%22month%22}&time={{ time }}"
              loading="lazy"
              loadingState
              alt="RRD graph - by month"/>
       </div>
       <div>
-        <img src="rrd.php?name={{ name }}-year.png&time={{ time }}"
+        <img src="download.php?service=Rrd&method=getGraph&params={%22kind%22:%22{{ name }}%22,%22period%22:%22year%22}&time={{ time }}"
              loading="lazy"
              loadingState
              alt="RRD graph - by year"/>

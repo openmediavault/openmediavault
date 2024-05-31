@@ -1,0 +1,18 @@
+{
+	"type": "rpc",
+	"id": "rpc.rrd.getgraph",
+	"params": {
+		"type": "object",
+		"properties": {
+			"kind": {
+				"type": "string",
+				"required": true
+			},
+			"period": {
+				"type": "string",
+				"enum": ["hour" ,"day", "week", "month", "year"],
+				"required": true
+			}
+		}
+	}
+}
