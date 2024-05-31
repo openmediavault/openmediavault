@@ -34,6 +34,7 @@ class RRD extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function initialize() {
 		$this->registerMethod("generate");
+		$this->registerMethod("getGraph");
 	}
 
 	/**
@@ -56,5 +57,31 @@ class RRD extends \OMV\Rpc\ServiceAbstract {
 			$cmd->execute($output);
 			return $output;
 		});
+	}
+
+	function getGraph($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$this->validateMethodParams($params, "rpc.rrd.getgraph");
+		if (1 == preg_match("/\.\./", $params["kind"])) {
+			throw new \OMV\Exception(
+				"The field 'kind' contains forbidden two-dot symbols.");
+		}
+		// Build the image file path. If it does not exist, then return an
+		// error image by default.
+		$fileName = sprintf("%s-%s.png", $params["kind"], $params["period"]);
+		$filePath = build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
+			"OMV_RRDGRAPH_DIR"), $fileName);
+		if (!file_exists($filePath)) {
+			$filePath = \OMV\Environment::get("OMV_RRDGRAPH_ERROR_IMAGE");
+		}
+		return [
+			"filepath" => $filePath,
+			"headers" => [
+				"Cache-Control" => "no-store"
+			]
+		];
 	}
 }

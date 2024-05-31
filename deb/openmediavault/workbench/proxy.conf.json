@@ -9,11 +9,6 @@
     "secure": false,
     "logLevel": "debug"
   },
-  "/rrd.php": {
-    "target": "http://omv7box.local/",
-    "secure": false,
-    "logLevel": "debug"
-  },
   "/assets/**/*.json": {
     "target": "http://omv7box.local/",
     "secure": false,

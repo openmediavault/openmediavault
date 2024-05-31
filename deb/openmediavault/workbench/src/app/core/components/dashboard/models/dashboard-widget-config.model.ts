@@ -100,7 +100,8 @@ export type DashboardWidgetConfig = {
   };
 
   rrd?: {
-    name: string;
+    kind: string;
+    period: 'hour' | 'day' | 'week' | 'month' | 'year';
   };
 
   chart?: {

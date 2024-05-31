@@ -32,17 +32,17 @@ class Upload extends Json {
 			return FALSE;
 		}
 		// Decode the `params` field.
-		$params = array_value($this->params, "params");
-		if (empty($params)) {
+		$paramsProp = array_value($this->params, "params");
+		if (empty($paramsProp)) {
 			$this->params['params'] = [];
 		} else {
-			if (is_string($params)) {
-				$params = htmlspecialchars_decode($params);
+			if (is_string($paramsProp)) {
+				$paramsProp = htmlspecialchars_decode($paramsProp);
 			}
-			if (is_json($params)) {
-				$params = json_decode($params, TRUE);
+			if (is_json($paramsProp)) {
+				$paramsProp = json_decode($paramsProp, TRUE);
 			}
-			$this->params['params'] = $params;
+			$this->params['params'] = $paramsProp;
 		}
 		return TRUE;
 	}
