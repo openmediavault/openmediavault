@@ -72,6 +72,8 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   textTpl: TemplateRef<any>;
   @ViewChild('htmlTpl', { static: true })
   htmlTpl: TemplateRef<any>;
+  @ViewChild('imageTpl', { static: true })
+  imageTpl: TemplateRef<any>;
   @ViewChild('checkIconTpl', { static: true })
   checkIconTpl: TemplateRef<any>;
   @ViewChild('checkBoxTpl', { static: true })
@@ -475,6 +477,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     this.cellTemplates = {
       text: this.textTpl,
       html: this.htmlTpl,
+      image: this.imageTpl,
       checkIcon: this.checkIconTpl,
       checkBox: this.checkBoxTpl,
       join: this.joinTpl,
