@@ -44,14 +44,6 @@ class Upload extends Json {
 			}
 			$this->params['params'] = $params;
 		}
-
-
-		$this->params['params'] = empty($this->params['params']) ?
-		  	[] : json_decode(htmlspecialchars_decode(
-		  	$this->params['params']), TRUE);
-
-
-
 		return TRUE;
 	}
 
