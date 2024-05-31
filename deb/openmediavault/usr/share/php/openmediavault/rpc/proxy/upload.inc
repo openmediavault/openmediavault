@@ -28,11 +28,30 @@ namespace OMV\Rpc\Proxy;
 class Upload extends Json {
 	protected function getParams() {
 		$this->params = $_POST;
-		if (empty($this->params))
+		if (empty($this->params)) {
 			return FALSE;
+		}
+		// Decode the `params` field.
+		$params = array_value($this->params, "params");
+		if (empty($params)) {
+			$this->params['params'] = [];
+		} else {
+			if (is_string($params)) {
+				$params = htmlspecialchars_decode($params);
+			}
+			if (is_json($params)) {
+				$params = json_decode($params, TRUE);
+			}
+			$this->params['params'] = $params;
+		}
+
+
 		$this->params['params'] = empty($this->params['params']) ?
-		  array() : json_decode(htmlspecialchars_decode(
-		  $this->params['params']), TRUE);
+		  	[] : json_decode(htmlspecialchars_decode(
+		  	$this->params['params']), TRUE);
+
+
+
 		return TRUE;
 	}
 

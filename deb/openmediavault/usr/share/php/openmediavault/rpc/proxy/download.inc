@@ -28,6 +28,9 @@ namespace OMV\Rpc\Proxy;
 class Download extends Json {
 	protected function getParams() {
 		$this->params = $_POST;
+		if (empty($this->params)) {
+			return FALSE;
+		}
 		// Decode the `params` field.
 		$params = array_value($this->params, "params");
 		if (is_string($params) && !empty($params)) {
