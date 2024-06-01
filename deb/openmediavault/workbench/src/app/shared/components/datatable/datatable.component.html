@@ -91,9 +91,10 @@
 </ng-template>
 
 <ng-template #imageTpl
+             let-value="value"
              let-column="column"
              let-row="row">
-  <img src="{{ column?.cellTemplateConfig?.src | template:row }}"
+  <img src="{{ !column?.cellTemplateConfig?.src ? value : column.cellTemplateConfig.src | template:row }}"
        [alt]="column?.cellTemplateConfig?.alt"
        [ngClass]="column?.cellTemplateConfig?.class ? column.cellTemplateConfig.class : 'omv-max-w-100'">
 </ng-template>
