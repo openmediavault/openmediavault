@@ -25,14 +25,18 @@ export type DatatableColumn = TableColumn & {
    * text - Render plain text. HTML special characters like "&", "<",
    *        ">", '"', or "'" will be escaped.
    * html - Render HTML code.
-   * image - Render an image.
+   * image - Render an image. By default, the value of the configured
+   *         column property is used as the image source. The `src`
+   *         can be overwritten via the `cellTemplateConfig`. The
+   *         `src` can be a tokenized string that will be formatted
+   *         using the row values, e.g. `{{ foo }}`.
    *         {
    *           ...
    *           cellTemplateName: 'image',
    *           cellTemplateConfig: {
    *             class?: string;
    *             alt?: string;
-   *             src: string;
+   *             src?: string;
    *           }
    *         }
    * buttonToggle - Renders on/off toggles with the appearance of a button.
