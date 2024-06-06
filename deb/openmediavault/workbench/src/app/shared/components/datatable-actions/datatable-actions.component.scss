@@ -1,13 +1,5 @@
 .mat-form-field {
   vertical-align: middle;
-
-  ::ng-deep .mat-select {
-    font-size: var(--mat-font-size-button);
-
-    .mat-select-placeholder {
-      color: inherit;
-    }
-  }
 }
 
 .mat-divider {
