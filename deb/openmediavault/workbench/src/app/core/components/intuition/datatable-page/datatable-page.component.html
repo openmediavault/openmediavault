@@ -10,7 +10,7 @@
     <span [innerHtml]="hint.text | transloco | nl2br | sanitizeHtml"></span>
   </omv-alert-panel>
 </div>
-<mat-card>
+<mat-card class="omv-overflow-hidden">
   <ng-container *ngTemplateOutlet="renderCardHeader"></ng-container>
   <mat-card-content>
     <omv-datatable #table

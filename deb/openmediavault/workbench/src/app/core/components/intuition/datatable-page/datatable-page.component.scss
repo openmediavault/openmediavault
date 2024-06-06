@@ -15,15 +15,6 @@
 
   .mat-card-content {
     margin-bottom: unset;
-
-    :host ::ng-deep &:not(.has-card-header) {
-      background-color: transparent;
-
-      .mat-toolbar {
-        border-top-left-radius: dv.$omv-radius;
-        border-top-right-radius: dv.$omv-radius;
-      }
-    }
   }
 
   .mat-card-actions {

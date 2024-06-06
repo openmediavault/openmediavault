@@ -21,7 +21,8 @@
     <span [innerHtml]="hint.text | transloco | nl2br | sanitizeHtml"></span>
   </omv-alert-panel>
 </div>
-<mat-card [ngClass]="{'omv-display-none': loading || error}">
+<mat-card class="omv-overflow-hidden"
+          [ngClass]="{'omv-display-none': loading || error}">
   <ng-container *ngTemplateOutlet="renderCardHeader"></ng-container>
   <mat-card-content>
     <omv-intuition-form [id]="config.id"

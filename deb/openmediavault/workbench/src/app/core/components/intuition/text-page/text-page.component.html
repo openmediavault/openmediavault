@@ -8,7 +8,8 @@
                  type="error">
   {{ error | httpErrorResponse:'message' }}
 </omv-alert-panel>
-<mat-card [ngClass]="{'omv-display-none': loading || error}">
+<mat-card class="omv-overflow-hidden"
+          [ngClass]="{'omv-display-none': loading || error}">
   <mat-toolbar *ngIf="config.hasCopyToClipboardButton || (config.hasReloadButton && !config.autoReload)"
                class="omv-display-flex omv-flex-row omv-sticky">
     <button *ngIf="config.hasCopyToClipboardButton"
