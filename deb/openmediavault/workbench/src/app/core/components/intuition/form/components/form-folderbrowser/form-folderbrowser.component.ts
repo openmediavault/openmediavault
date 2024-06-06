@@ -48,7 +48,7 @@ export class FormFolderbrowserComponent
   folders: string[] = [];
   filteredFolders$: Observable<string[]>;
   searchFilter = new FormControl('');
-  triggerRect: ClientRect;
+  triggerRect: DOMRect;
   positions: ConnectedPosition[] = [
     {
       originX: 'start',
