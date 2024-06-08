@@ -25,6 +25,7 @@
 @use 'select';
 @use 'sidenav';
 @use 'tab';
+@use 'toolbar';
 
 @mixin all-component-themes($mode, $theme-config, $typography-config) {
   @include button.theme($mode, $theme-config, $typography-config);
@@ -39,4 +40,5 @@
   @include select.theme($mode, $theme-config, $typography-config);
   @include sidenav.theme($mode, $theme-config, $typography-config);
   @include tab.theme($mode, $theme-config, $typography-config);
+  @include toolbar.theme($mode, $theme-config, $typography-config);
 }
