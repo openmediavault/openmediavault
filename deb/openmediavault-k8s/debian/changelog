@@ -1,3 +1,9 @@
+openmediavault-k8s (7.1.2-1) stable; urgency=low
+
+  * Several improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Jun 2024 14:07:24 +0200
+
 openmediavault-k8s (7.1.1-1) unstable; urgency=low
 
   * Upgrade K3S to v1.29.4+k3s1.
