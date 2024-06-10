@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 19:39+0200\n"
+"POT-Creation-Date: 2024-06-16 08:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2024\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -1602,6 +1602,9 @@ msgstr "Adreça IP no vàlida."
 
 msgid "Invalid NetBIOS name."
 msgstr "Nom NetBIOS no vàlid."
+
+msgid "Invalid PGP public key."
+msgstr ""
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Clau pública SSH no vàlida (format OpenSSH). "

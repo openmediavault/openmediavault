@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.updatemgmt.sources"
+  position: 30
+  text: _("Other Software")
+  icon: mdi:source-repository
+  url: "/system/updatemgmt/sources"

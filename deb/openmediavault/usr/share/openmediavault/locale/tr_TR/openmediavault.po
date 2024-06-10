@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 19:39+0200\n"
+"POT-Creation-Date: 2024-06-16 08:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -1600,6 +1600,9 @@ msgstr "Geçersiz IP adresi."
 
 msgid "Invalid NetBIOS name."
 msgstr "Geçersiz NetBIOS adı."
+
+msgid "Invalid PGP public key."
+msgstr ""
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Geçersiz SSH açık anahtarı (OpenSSH formatı)"

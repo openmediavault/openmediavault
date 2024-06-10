@@ -94,6 +94,14 @@ class Schema extends \OMV\Json\Schema {
 					  $name, $value);
 				}
 				break;
+			case "pgppubkey":
+				if (!preg_match('/^-----BEGIN PGP PUBLIC KEY BLOCK-----(\n|\r|\f)(.+)'.
+				  '(\n|\r|\f)-----END PGP PUBLIC KEY BLOCK-----$/sm', $value)) {
+					throw new \OMV\Json\SchemaValidationException(
+					  "%s: The value '%s' is not a PGP public key.",
+					  $name, $value);
+				}
+				break;
 			case "sharename":
 				// We are using the SMB/CIFS file/directory naming convention
 				// for this:

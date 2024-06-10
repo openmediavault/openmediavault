@@ -1,3 +1,9 @@
+openmediavault (7.3.0-1) stable; urgency=low
+
+  * Issue #1774: Improve foundation for plugins.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 11 Jun 2024 17:45:42 +0200
+
 openmediavault (7.2.1-1) stable; urgency=low
 
   * Issue #1748: Enable TCP for NFS v2 and v3.

@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-apt package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kostas Moho, 2024
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-apt\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-16 13:19+0200\n"
+"PO-Revision-Date: 2024-06-14 17:38+0000\n"
+"Last-Translator: Kostas Moho, 2024\n"
+"Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Check for new packages"
+msgstr "Έλεγχος για νέα πακέτα"
+
+msgid "Components"
+msgstr "Συστατικά"
+
+msgid ""
+"Components specify different sections of one distribution version present in"
+" a suite, e.g. 'main', 'contrib' or 'non-free'. Configure multiple "
+"components at once by separating them with a blank."
+msgstr ""
+"Τα Συστατικά προσδιορίζουν διάφορα τμήματα της έκδοσης της διανομής που "
+"περιέχεται σε κάποια ακολουθία, π.χ.  'main', 'contrib' ή 'non-free'. "
+"Πολλαπλά συστατικά μπορούν να οριστούν διαχωρίζοντάς τα με ένα κενό."
+
+msgid "Create"
+msgstr "Δημιουργία"
+
+msgid "Created APT source."
+msgstr "Δημιουργία πηγής ΑΡΤ."
+
+msgid ""
+"Defines which types of packages to look for from a given source, e.g. 'deb' "
+"or 'deb-src'."
+msgstr ""
+"Ορίζει ποιοι τύποι πακέτων θα ανακτηθούν από την δεδομένη πηγή, π.χ. 'deb' ή"
+" 'deb-src'."
+
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+msgid "Enabled"
+msgstr "Ενεργό"
+
+msgid "Other Software"
+msgstr "Λοιπό Λογισμικό"
+
+msgid "Signed-By"
+msgstr "Υπογεγραμμένο από"
+
+msgid "Suites"
+msgstr "Ακολουθίες"
+
+msgid "Tags"
+msgstr "Ετικέτες"
+
+msgid ""
+"The GPG/PGP key used to verify packages and repository metadata. This "
+"increases security by ensuring that only packages signed with a specific key"
+" are accepted."
+msgstr ""
+"Το κλειδί GPG/PGP που χρησιμεύει στην επαλήθευση των δεδομένων του "
+"αποθετηρίου και των πακέτων. Αυτό αυξάνει την ασφάλεια, επιβεβαιώνοντας πως "
+"γίνονται αποδεκτά μόνο πακέτα υπογεγραμμένα με το κλειδί."
+
+msgid ""
+"The URI must specify the base of the package repository, e.g. "
+"'https://ftp.debian.org/debian'. Configure multiple URIs at once by "
+"separating them with a blank."
+msgstr ""
+"Τα URI πρέπει να προσδιορίζουν την βάση του αποθετηρίου πακέτων, π.χ. "
+"'https://ftp.debian.org/debian'. Πολλαπλά URIs μπορούν να οριστούν "
+"διαχωρίζοντάς τα με ένα κενό."
+
+msgid ""
+"The package index files from the sources are downloaded and updated to get "
+"the latest information about available packages and their versions."
+msgstr ""
+"Οι λίστες ευρετηρίων των πακέτων ανακτώνται και ενημερώνονται από τις πηγές,"
+" για την λήψη των πιο πρόσφατων πληροφοριών για τα διαθέσιμα πακέτα και τις "
+"εκδόσεις τους."
+
+msgid ""
+"The suite is the name of the release, e.g. 'stable', 'testing', 'unstable' "
+"or 'sandworm'."
+msgstr ""
+"Η Ακολουθία είναι το όνομα της κυκλοφορίας, π.χ.  'stable', 'testing', "
+"'unstable' ή 'sandworm'."
+
+msgid "Types"
+msgstr "Τύποι"
+
+msgid "URIs"
+msgstr "URIs"
+
+msgid "Updated APT source."
+msgstr "Ενημέρωση πηγής ΑΡΤ."

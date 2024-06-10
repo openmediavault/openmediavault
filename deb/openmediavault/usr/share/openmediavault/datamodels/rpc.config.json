@@ -46,6 +46,36 @@
 	}
 },{
 	"type": "rpc",
+	"id": "rpc.config.getlist",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"required": true
+			},
+			"start": {
+				"type": "integer",
+				"required": true
+			},
+			"limit": {
+				"type": [ "integer", "null" ],
+				"required": true
+			},
+			"sortfield": {
+				"type": [ "string", "null" ]
+			},
+			"sortdir": {
+				"type": [ "string", "null" ],
+				"enum": [ "asc", "ASC", "desc", "DESC" ]
+			},
+			"search": {
+				"type": [ "string", "integer", "null" ]
+			}
+		}
+	}
+},{
+	"type": "rpc",
 	"id": "rpc.config.get",
 	"params": {
 		"type": "object",

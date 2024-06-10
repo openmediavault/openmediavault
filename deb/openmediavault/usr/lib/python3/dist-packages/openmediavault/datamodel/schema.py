@@ -112,6 +112,18 @@ class Schema(openmediavault.json.Schema):
                         name,
                         "The value '%s' is no SSH private key (PEM)." % value,
                     ) from None
+            elif "pgppubkey" == schema['format']:
+                if not re.match(
+                    r'^-----BEGIN PGP PUBLIC KEY BLOCK-----'
+                    r'(\n|\r|\f)(.+)(\n|\r|\f)'
+                    r'-----END PGP PUBLIC KEY BLOCK-----$',
+                    value,
+                    flags=re.DOTALL | re.MULTILINE,
+                ):
+                    raise openmediavault.json.SchemaValidationException(
+                        name,
+                        "The value '%s' is no PGP public key." % value,
+                    ) from None
             elif "sharename" == schema['format']:
                 # We are using the SMB/CIFS file/directory naming convention
                 # for this:

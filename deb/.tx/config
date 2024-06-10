@@ -8,6 +8,12 @@ source_file = openmediavault/usr/share/openmediavault/locale/openmediavault.pot
 source_lang = en
 type = PO
 
+[o:openmediavault:p:openmediavault:r:openmediavault-apt]
+file_filter = openmediavault-apt/usr/share/openmediavault/locale/<lang>/openmediavault-apt.po
+source_file = openmediavault-apt/usr/share/openmediavault/locale/openmediavault-apt.pot
+source_lang = en
+type = PO
+
 [o:openmediavault:p:openmediavault:r:openmediavault-clamav]
 file_filter = openmediavault-clamav/usr/share/openmediavault/locale/<lang>/openmediavault-clamav.po
 source_file = openmediavault-clamav/usr/share/openmediavault/locale/openmediavault-clamav.pot

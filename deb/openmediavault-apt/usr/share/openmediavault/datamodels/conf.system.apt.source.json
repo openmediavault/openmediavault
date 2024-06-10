@@ -1,0 +1,52 @@
+{
+	"type": "config",
+	"id": "conf.system.apt.source",
+	"title": "APT source",
+	"queryinfo": {
+		"xpath": "//system/apt/sources/item",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4",
+			"default": ""
+		},
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"types": {
+			"type": "string",
+			"default": ""
+		},
+		"uris": {
+			"type": "string",
+			"default": ""
+		},
+		"suites": {
+			"type": "string",
+			"default": ""
+		},
+		"components": {
+			"type": "string",
+			"default": ""
+		},
+		"signedby": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "pgppubkey"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}],
+			"default": ""
+		},
+		"comment": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}
