@@ -39,11 +39,6 @@ case "$1" in
 		if [ -n "$2" ]; then
 			omv-confdbadm migrate "conf.system.network.hosts" "${2}"
 		fi
-
-		########################################################################
-		# Action to be done depending on the previous version.
-		########################################################################
-		echo "Updating configuration ..."
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
