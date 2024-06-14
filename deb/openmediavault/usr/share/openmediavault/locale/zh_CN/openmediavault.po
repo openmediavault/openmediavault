@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 20:50+0100\n"
+"POT-Creation-Date: 2024-06-14 19:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: 王大山, 2022-2023\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -2017,6 +2017,9 @@ msgstr "缅甸"
 msgid "NFS"
 msgstr "NFS"
 
+msgid "NTP time servers, separated by comma."
+msgstr ""
+
 msgid "Name"
 msgstr "名称"
 
@@ -2739,6 +2742,9 @@ msgstr "安全"
 
 msgid "Secure connection"
 msgstr "安全连接"
+
+msgid "Security"
+msgstr ""
 
 msgid "Select a country ..."
 msgstr "选择国家 ..."
@@ -3931,6 +3937,12 @@ msgstr "WINS 服务器"
 
 msgid "WOL"
 msgstr "网络唤醒"
+
+msgid "WPA2-Personal"
+msgstr ""
+
+msgid "WPA3-Personal"
+msgstr ""
 
 msgid "WWN"
 msgstr "WWN"

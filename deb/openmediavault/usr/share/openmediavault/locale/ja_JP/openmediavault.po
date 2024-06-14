@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 20:50+0100\n"
+"POT-Creation-Date: 2024-06-14 19:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -2011,6 +2011,9 @@ msgstr "ミャンマー"
 msgid "NFS"
 msgstr "NFS"
 
+msgid "NTP time servers, separated by comma."
+msgstr ""
+
 msgid "Name"
 msgstr "名前"
 
@@ -2733,6 +2736,9 @@ msgstr "セキュア"
 
 msgid "Secure connection"
 msgstr "セキュアコネクション"
+
+msgid "Security"
+msgstr ""
 
 msgid "Select a country ..."
 msgstr "国を選択 ..."
@@ -3925,6 +3931,12 @@ msgstr "WINSサーバー"
 
 msgid "WOL"
 msgstr "WOL"
+
+msgid "WPA2-Personal"
+msgstr ""
+
+msgid "WPA3-Personal"
+msgstr ""
 
 msgid "WWN"
 msgstr "WWN"

@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 20:50+0100\n"
+"POT-Creation-Date: 2024-06-14 19:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -2025,6 +2025,9 @@ msgstr "Мьянма"
 msgid "NFS"
 msgstr "NFS"
 
+msgid "NTP time servers, separated by comma."
+msgstr ""
+
 msgid "Name"
 msgstr "Имя"
 
@@ -2747,6 +2750,9 @@ msgstr "Безопасный"
 
 msgid "Secure connection"
 msgstr "Безопасное соединение"
+
+msgid "Security"
+msgstr ""
 
 msgid "Select a country ..."
 msgstr "Выберите страну..."
@@ -3939,6 +3945,12 @@ msgstr "Сервер WINS"
 
 msgid "WOL"
 msgstr "WOL"
+
+msgid "WPA2-Personal"
+msgstr ""
+
+msgid "WPA3-Personal"
+msgstr ""
 
 msgid "WWN"
 msgstr ""

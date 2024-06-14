@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 20:50+0100\n"
+"POT-Creation-Date: 2024-06-14 19:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2024\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -2014,6 +2014,9 @@ msgstr "Myanmar"
 msgid "NFS"
 msgstr "NFS"
 
+msgid "NTP time servers, separated by comma."
+msgstr ""
+
 msgid "Name"
 msgstr "Namn"
 
@@ -2736,6 +2739,9 @@ msgstr "Säker"
 
 msgid "Secure connection"
 msgstr "Säker anslutning"
+
+msgid "Security"
+msgstr ""
 
 msgid "Select a country ..."
 msgstr "Välj ett land ..."
@@ -3928,6 +3934,12 @@ msgstr "WINS-server"
 
 msgid "WOL"
 msgstr "WOL (Wake on LAN)"
+
+msgid "WPA2-Personal"
+msgstr ""
+
+msgid "WPA3-Personal"
+msgstr ""
 
 msgid "WWN"
 msgstr "WWN"

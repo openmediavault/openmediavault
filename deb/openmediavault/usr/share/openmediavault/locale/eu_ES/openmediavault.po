@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 20:50+0100\n"
+"POT-Creation-Date: 2024-06-14 19:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Aitor Salaberria <trslbrr@gmail.com>, 2024\n"
 "Language-Team: Basque (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/eu_ES/)\n"
@@ -2011,6 +2011,9 @@ msgstr ""
 msgid "NFS"
 msgstr ""
 
+msgid "NTP time servers, separated by comma."
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
@@ -2732,6 +2735,9 @@ msgid "Secure"
 msgstr ""
 
 msgid "Secure connection"
+msgstr ""
+
+msgid "Security"
 msgstr ""
 
 msgid "Select a country ..."
@@ -3924,6 +3930,12 @@ msgid "WINS server"
 msgstr ""
 
 msgid "WOL"
+msgstr ""
+
+msgid "WPA2-Personal"
+msgstr ""
+
+msgid "WPA3-Personal"
 msgstr ""
 
 msgid "WWN"
