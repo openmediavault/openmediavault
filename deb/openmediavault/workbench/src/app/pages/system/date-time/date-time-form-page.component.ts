@@ -61,6 +61,7 @@ export class DateTimeFormPageComponent extends BaseFormPageComponent {
         type: 'textInput',
         name: 'ntptimeservers',
         label: gettext('Time servers'),
+        hint: gettext('NTP time servers, separated by comma.'),
         value: 'pool.ntp.org',
         modifiers: [
           {
