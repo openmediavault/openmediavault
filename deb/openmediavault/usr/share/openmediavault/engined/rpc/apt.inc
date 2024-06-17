@@ -242,6 +242,9 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
+		if ($this->isModuleDirty("apt")) {
+			throw new \OMV\Config\ConfigDirtyException();
+		}
 		// Check if the package database is locked.
 		\OMV\System\Apt::assertNotLocked();
 		// Create the background process.

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 19:39+0200\n"
+"POT-Creation-Date: 2024-06-16 08:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2024\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -1601,6 +1601,9 @@ msgstr "Άκυρη διεύθυνση ΙΡ."
 msgid "Invalid NetBIOS name."
 msgstr "Άκυρο όνομα NetBIOS."
 
+msgid "Invalid PGP public key."
+msgstr "Άκυρο δημόσιο κλειδί PGP."
+
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Μη αποδεκτό δημόσιο κλειδί SSH (μορφή OpenSSH)."
 
@@ -2012,7 +2015,7 @@ msgid "NFS"
 msgstr "NFS"
 
 msgid "NTP time servers, separated by comma."
-msgstr ""
+msgstr "Διακομιστές ώρας ΝΤΡ, διαχωρισμένοι με κόμμα."
 
 msgid "Name"
 msgstr "Όνομα"
@@ -2738,7 +2741,7 @@ msgid "Secure connection"
 msgstr "Ασφαλής σύνδεση"
 
 msgid "Security"
-msgstr ""
+msgstr "Ασφάλεια"
 
 msgid "Select a country ..."
 msgstr "Επιλογή χώρας ..."
@@ -3933,10 +3936,10 @@ msgid "WOL"
 msgstr "WOL"
 
 msgid "WPA2-Personal"
-msgstr ""
+msgstr "WPA2-Personal"
 
 msgid "WPA3-Personal"
-msgstr ""
+msgstr "WPA3-Personal"
 
 msgid "WWN"
 msgstr "WWN"

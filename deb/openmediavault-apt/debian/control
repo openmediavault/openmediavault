@@ -1,0 +1,15 @@
+Source: openmediavault-apt
+Section: admin
+XB-Plugin-Section: utilities
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gettext
+Standards-Version: 3.9.6
+Homepage: https://www.openmediavault.org
+
+Package: openmediavault-apt
+Architecture: all
+Depends: openmediavault (>= 7.3)
+Priority: optional
+Description: openmediavault APT management plugin
+ Manage APT (Advanced Package Tool) repositories easily.

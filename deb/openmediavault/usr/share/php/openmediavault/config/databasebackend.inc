@@ -54,7 +54,10 @@ class DatabaseBackend {
 		"sharedfolder", "privilege", "share",
 		// Miscellaneous
 		"job", "module", "sslcertificate", "sshcertificate",
-		"service", "device"
+		"service", "device",
+		// If none of the names already listed fits, then the following
+		// generally used name should be used.
+		"item"
 	];
 
 	/**

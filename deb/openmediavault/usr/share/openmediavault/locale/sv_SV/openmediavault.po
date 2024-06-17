@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 19:39+0200\n"
+"POT-Creation-Date: 2024-06-16 08:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2024\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -1603,6 +1603,9 @@ msgstr "Ogiltig IP-adress."
 
 msgid "Invalid NetBIOS name."
 msgstr "Ogiltigt NetBIOS-namn."
+
+msgid "Invalid PGP public key."
+msgstr ""
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Ogiltig publik SSH-nyckel (OpenSSH-format)."

@@ -65,6 +65,8 @@ const regExp = {
     /^---- BEGIN SSH2 PUBLIC KEY ----(\n|\r|\f)((.+)?((\n|\r|\f).+)*)(\n|\r|\f)---- END SSH2 PUBLIC KEY ----[\n\r\f]*$/,
   sshPubKeyOpenSsh:
     /^(sk-ssh-ed25519@openssh\.com|ssh-(rsa|ed25519)) AAAA[0-9A-Za-z+/]+[=]{0,3}\s*(.+)?$/,
+  pgpPubKey:
+    /^-----BEGIN PGP PUBLIC KEY BLOCK-----(\n|\r|\f)((.+)?((\n|\r|\f).+)*)(\n|\r|\f)-----END PGP PUBLIC KEY BLOCK-----[\n\r\f]*$/,
   netmask:
     /^(128|192|224|24[08]|25[245].0.0.0)|(255.(0|128|192|224|24[08]|25[245]).0.0)|(255.255.(0|128|192|224|24[08]|25[245]).0)|(255.255.255.(0|128|192|224|24[08]|252))$/,
   // See https://www.w3schools.com/Jsref/jsref_regexp_wordchar.asp
@@ -387,6 +389,8 @@ export class CustomValidators {
           regExp.sshPubKeyOpenSsh,
           gettext('Invalid SSH public key (OpenSSH format).')
         );
+      case 'pgpPubKey':
+        return CustomValidators.pattern(regExp.pgpPubKey, gettext('Invalid PGP public key.'));
       case 'netmask':
         return CustomValidators.pattern(
           regExp.netmask,

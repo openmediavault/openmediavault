@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 19:39+0200\n"
+"POT-Creation-Date: 2024-06-16 08:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: 王大山, 2022-2023\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -1607,6 +1607,9 @@ msgstr "无效的 IP 地址"
 msgid "Invalid NetBIOS name."
 msgstr "无效 NetBIOS 名称。"
 
+msgid "Invalid PGP public key."
+msgstr "公開金鑰無效。"
+
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "无效 SSH 公钥 (OpenSSH格式)"
 
@@ -2018,7 +2021,7 @@ msgid "NFS"
 msgstr "NFS"
 
 msgid "NTP time servers, separated by comma."
-msgstr ""
+msgstr "NTP 時間伺服器，以逗號分開。"
 
 msgid "Name"
 msgstr "名称"
@@ -2744,7 +2747,7 @@ msgid "Secure connection"
 msgstr "安全连接"
 
 msgid "Security"
-msgstr ""
+msgstr "安全性"
 
 msgid "Select a country ..."
 msgstr "选择国家 ..."
@@ -3939,10 +3942,10 @@ msgid "WOL"
 msgstr "网络唤醒"
 
 msgid "WPA2-Personal"
-msgstr ""
+msgstr "WPA2-Personal"
 
 msgid "WPA3-Personal"
-msgstr ""
+msgstr "WPA3-Personal"
 
 msgid "WWN"
 msgstr "WWN"

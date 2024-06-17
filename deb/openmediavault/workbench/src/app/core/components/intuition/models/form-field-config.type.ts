@@ -158,6 +158,7 @@ export type FormFieldConfig = {
       | 'sshPubKey'
       | 'sshPubKeyRfc4716'
       | 'sshPubKeyOpenSsh'
+      | 'pgpPubKey'
       | 'netmask'
       | 'wordChars'
       | 'binaryUnit';

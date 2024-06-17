@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 19:39+0200\n"
+"POT-Creation-Date: 2024-06-16 08:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2024\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -1607,6 +1607,9 @@ msgstr "Érvénytelen IP-cím."
 msgid "Invalid NetBIOS name."
 msgstr "Érvénytelen NetBIOS név."
 
+msgid "Invalid PGP public key."
+msgstr "Érvénytelen PGP nyilvános kulcs."
+
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Érvénytelen SSH nyilvános kulcs (OpenSSH formátum)."
 
@@ -2018,7 +2021,7 @@ msgid "NFS"
 msgstr "NFS"
 
 msgid "NTP time servers, separated by comma."
-msgstr ""
+msgstr "NTP időkiszolgálók, vesszővel elválasztva."
 
 msgid "Name"
 msgstr "Név"
@@ -2744,7 +2747,7 @@ msgid "Secure connection"
 msgstr "Biztonságos kapcsolat"
 
 msgid "Security"
-msgstr ""
+msgstr "Biztonság"
 
 msgid "Select a country ..."
 msgstr "Válasszon ki egy országot…"
@@ -3939,10 +3942,10 @@ msgid "WOL"
 msgstr "WOL"
 
 msgid "WPA2-Personal"
-msgstr ""
+msgstr "WPA2-Personal"
 
 msgid "WPA3-Personal"
-msgstr ""
+msgstr "WPA3-Personal"
 
 msgid "WWN"
 msgstr "WWN"

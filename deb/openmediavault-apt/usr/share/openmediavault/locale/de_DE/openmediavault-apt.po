@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-apt package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2024
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-apt\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-16 13:19+0200\n"
+"PO-Revision-Date: 2024-06-14 17:38+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2024\n"
+"Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Check for new packages"
+msgstr "Suche nach neuen Paketen"
+
+msgid "Components"
+msgstr "Komponenten"
+
+msgid ""
+"Components specify different sections of one distribution version present in"
+" a suite, e.g. 'main', 'contrib' or 'non-free'. Configure multiple "
+"components at once by separating them with a blank."
+msgstr ""
+"Komponenten spezifizieren verschiedene Teile einer Distributionsversion in "
+"einer Suite, z.B. \"main\", \"contrib\" oder \"non-free\". Sie können "
+"mehrere Komponenten auf einmal konfigurieren, indem Sie sie durch ein "
+"Leerzeichen trennen."
+
+msgid "Create"
+msgstr "Erstellen"
+
+msgid "Created APT source."
+msgstr "APT Quelle erstellt."
+
+msgid ""
+"Defines which types of packages to look for from a given source, e.g. 'deb' "
+"or 'deb-src'."
+msgstr ""
+"Legt fest, nach welchen Arten von Paketen aus einer bestimmten Quelle "
+"gesucht werden soll, z.B. 'deb' oder 'deb-src'."
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Enabled"
+msgstr "Aktiviert"
+
+msgid "Other Software"
+msgstr "Andere Programme"
+
+msgid "Signed-By"
+msgstr "Unterzeichnet von"
+
+msgid "Suites"
+msgstr "Suites"
+
+msgid "Tags"
+msgstr "Etikett"
+
+msgid ""
+"The GPG/PGP key used to verify packages and repository metadata. This "
+"increases security by ensuring that only packages signed with a specific key"
+" are accepted."
+msgstr ""
+"Der GPG/PGP-Schlüssel, der zur Verifizierung von Paketen und Repository-"
+"Metadaten verwendet wird. Dies erhöht die Sicherheit, indem sichergestellt "
+"wird, dass nur mit einem bestimmten Schlüssel signierte Pakete akzeptiert "
+"werden."
+
+msgid ""
+"The URI must specify the base of the package repository, e.g. "
+"'https://ftp.debian.org/debian'. Configure multiple URIs at once by "
+"separating them with a blank."
+msgstr ""
+"Der URI muss die Basis des Paket-Repositorys angeben, z. B. "
+"\"https://ftp.debian.org/debian\". Konfigurieren Sie mehrere URIs auf "
+"einmal, indem Sie sie durch ein Leerzeichen trennen."
+
+msgid ""
+"The package index files from the sources are downloaded and updated to get "
+"the latest information about available packages and their versions."
+msgstr ""
+"Die Paketindexdateien aus den Quellen werden heruntergeladen und "
+"aktualisiert, um die neuesten Informationen über verfügbare Pakete und deren"
+" Versionen zu erhalten."
+
+msgid ""
+"The suite is the name of the release, e.g. 'stable', 'testing', 'unstable' "
+"or 'sandworm'."
+msgstr ""
+"Die Suite ist der Name der Version, z. B. 'stable', 'testing', 'unstable' "
+"oder 'sandworm'."
+
+msgid "Types"
+msgstr "Typen"
+
+msgid "URIs"
+msgstr "URIs"
+
+msgid "Updated APT source."
+msgstr "APT Quelle wurde aktualisiert."

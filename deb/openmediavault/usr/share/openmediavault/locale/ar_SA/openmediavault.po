@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 20:50+0100\n"
+"POT-Creation-Date: 2024-06-16 08:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -1602,6 +1602,9 @@ msgstr "عنوان IP غير صالح."
 msgid "Invalid NetBIOS name."
 msgstr "اسم NetBIOS غير صالح."
 
+msgid "Invalid PGP public key."
+msgstr ""
+
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "مفتاح SSH العام غير صالح (تنسيق OpenSSH)"
 
@@ -2011,6 +2014,9 @@ msgstr "ميانمار"
 
 msgid "NFS"
 msgstr "NFS"
+
+msgid "NTP time servers, separated by comma."
+msgstr ""
 
 msgid "Name"
 msgstr "الاسم"
@@ -2734,6 +2740,9 @@ msgstr "آمن"
 
 msgid "Secure connection"
 msgstr "اتصال آمن"
+
+msgid "Security"
+msgstr ""
 
 msgid "Select a country ..."
 msgstr "اختر دولة ..."
@@ -3926,6 +3935,12 @@ msgstr "خادم WINS"
 
 msgid "WOL"
 msgstr "WOL"
+
+msgid "WPA2-Personal"
+msgstr ""
+
+msgid "WPA3-Personal"
+msgstr ""
 
 msgid "WWN"
 msgstr "WWN"

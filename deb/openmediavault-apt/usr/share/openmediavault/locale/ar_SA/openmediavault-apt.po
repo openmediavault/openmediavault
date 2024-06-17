@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-apt package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# omv nas <myomv100@gmail.com>, 2024
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-apt\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-16 13:19+0200\n"
+"PO-Revision-Date: 2024-06-14 17:38+0000\n"
+"Last-Translator: omv nas <myomv100@gmail.com>, 2024\n"
+"Language-Team: Arabic (Saudi Arabia) (https://app.transifex.com/openmediavault/teams/14254/ar_SA/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar_SA\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Check for new packages"
+msgstr ""
+
+msgid "Components"
+msgstr ""
+
+msgid ""
+"Components specify different sections of one distribution version present in"
+" a suite, e.g. 'main', 'contrib' or 'non-free'. Configure multiple "
+"components at once by separating them with a blank."
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "Created APT source."
+msgstr ""
+
+msgid ""
+"Defines which types of packages to look for from a given source, e.g. 'deb' "
+"or 'deb-src'."
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Other Software"
+msgstr ""
+
+msgid "Signed-By"
+msgstr ""
+
+msgid "Suites"
+msgstr ""
+
+msgid "Tags"
+msgstr "العلامات"
+
+msgid ""
+"The GPG/PGP key used to verify packages and repository metadata. This "
+"increases security by ensuring that only packages signed with a specific key"
+" are accepted."
+msgstr ""
+
+msgid ""
+"The URI must specify the base of the package repository, e.g. "
+"'https://ftp.debian.org/debian'. Configure multiple URIs at once by "
+"separating them with a blank."
+msgstr ""
+
+msgid ""
+"The package index files from the sources are downloaded and updated to get "
+"the latest information about available packages and their versions."
+msgstr ""
+
+msgid ""
+"The suite is the name of the release, e.g. 'stable', 'testing', 'unstable' "
+"or 'sandworm'."
+msgstr ""
+
+msgid "Types"
+msgstr ""
+
+msgid "URIs"
+msgstr ""
+
+msgid "Updated APT source."
+msgstr ""

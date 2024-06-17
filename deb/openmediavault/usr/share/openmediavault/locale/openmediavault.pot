@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 19:39+0200\n"
+"POT-Creation-Date: 2024-06-16 08:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1533,6 +1533,9 @@ msgid "Invalid IP address."
 msgstr ""
 
 msgid "Invalid NetBIOS name."
+msgstr ""
+
+msgid "Invalid PGP public key."
 msgstr ""
 
 msgid "Invalid SSH public key (OpenSSH format)."

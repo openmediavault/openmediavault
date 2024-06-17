@@ -38,6 +38,7 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("applyChangesBg");
 		$this->registerMethod("revertChanges");
 		$this->registerMethod("revertChangesBg");
+		$this->registerMethod("getlist");
 		$this->registerMethod("get");
 		$this->registerMethod("set");
 		$this->registerMethod("delete");
@@ -248,6 +249,41 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
+	 * Get list of configuration objects.
+	 * @param params An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @param context The context of the caller.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array.
+	 */
+	public function getlist($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.config.getlist");
+		// Get the configuration objects.
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get(array_value($params, "id"));
+		$objectsAssoc = [];
+		foreach ($objects as $objectk => &$objectv) {
+			$objectsAssoc[] = $objectv->getAssoc();
+		}
+		// Filter the result.
+		return $this->applyFilter($objectsAssoc,
+			array_value($params, "start"),
+			array_value($params, "limit"),
+			array_value($params, "sortfield"),
+			array_value($params, "sortdir"),
+			array_value($params, "search"));
+	}
+
+	/**
 	 * Get a configuration object.
 	 * @param params An array containing the following fields:
 	 *   \em id The data model identifier, e.g. 'conf.service.ftp'.
@@ -281,8 +317,14 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 		]);
 		$this->validateMethodParams($params, "rpc.config.set");
 		$db = \OMV\Config\Database::getInstance();
+		$id = array_value($params, "id");
 		$uuid = array_value($params['data'], "uuid");
-		$object = $db->get(array_value($params, "id"), $uuid);
+		if (\OMV\Uuid::isUuid4($uuid) && $uuid == \OMV\Environment::get(
+				"OMV_CONFIGOBJECT_NEW_UUID")) {
+			$object = new \OMV\Config\ConfigObject($id);
+		} else {
+			$object = $db->get($id, $uuid);
+		}
 		$object->setAssoc(array_value($params, "data"));
 		$db->set($object);
 		return $object->getAssoc();
