@@ -41,7 +41,7 @@ def call_rrdtool_graph(args):
     """
     Call the rrdtool command line executable with the given arguments.
     """
-    # The command below does not work because the RRD tool synatx is escaped
+    # The command below does not work because the RRD tool syntax is escaped
     # and the graph legend is not rendered as expected.
     # return openmediavault.subprocess.check_output(['rrdtool', 'graph', *args])
     return os.system(' '.join(['rrdtool', 'graph', *args, '>/dev/null']))
