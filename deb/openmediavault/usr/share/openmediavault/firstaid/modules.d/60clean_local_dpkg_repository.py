@@ -41,12 +41,15 @@ class Module(openmediavault.firstaid.IModule):
         path = openmediavault.getenv(
             "OMV_DPKGARCHIVE_DIR", "/var/cache/openmediavault/archives"
         )
+        # Remove existing Debian package files.
         for f in glob.glob("{}/*.deb".format(path)):
             os.remove(f)
-        openmediavault.procutils.check_call(
-            "cd {} && apt-ftparchive packages . > Packages".format(path),
-            shell=True,
-        )
+        # Rebuild the "Package" file.
+        with open(os.path.join(path, "Packages"), "w") as f:
+            openmediavault.procutils.check_call(
+                ["apt-ftparchive", "packages", path],
+                stdout=f
+            )
         openmediavault.procutils.check_call(["apt-get", "update"])
         return 0
 
