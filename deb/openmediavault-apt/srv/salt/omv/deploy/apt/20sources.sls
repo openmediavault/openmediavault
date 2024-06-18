@@ -20,7 +20,7 @@
 # Documentation/Howto:
 # https://repolib.readthedocs.io/en/latest/deb822-format.html#deb822-style-format
 
-{% set sources_prefix = salt['pillar.get']('default:OMV_APT_SOURCES_LIST_DEB822_PREFIX', 'openmediavault-') %}
+{% set sources_prefix = salt['pillar.get']('default:OMV_APT_CUSTOM_SOURCES_LIST_PREFIX', 'openmediavault-custom-') %}
 {% set sources = salt['omv_conf.get']('conf.system.apt.source') %}
 
 cleanup_apt_sources_list_deb822:
