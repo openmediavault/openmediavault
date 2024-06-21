@@ -84,6 +84,46 @@ export class DiskDatatablePageComponent {
         flexGrow: 1,
         sortable: true,
         cellTemplateName: 'binaryUnit'
+      },
+      {
+        name: gettext('Power Mode'),
+        prop: 'powermode',
+        flexGrow: 1,
+        sortable: true,
+        hidden: true,
+        cellTemplateName: 'chip',
+        cellTemplateConfig: {
+          /* eslint-disable @typescript-eslint/naming-convention */
+          map: {
+            ACTIVE: {
+              value: gettext('Active'),
+              class: 'omv-background-color-pair-orange'
+            },
+            IDLE: {
+              value: gettext('Idle'),
+              class: 'omv-background-color-pair-yellow'
+            },
+            STANDBY: {
+              value: gettext('Standby'),
+              class: 'omv-background-color-pair-blue'
+            },
+            SLEEP: {
+              value: gettext('Sleep'),
+              class: 'omv-background-color-pair-green'
+            },
+            UNKNOWN: {
+              value: gettext('Unknown'),
+              class: 'omv-background-color-pair-gray'
+            }
+          }
+        }
+      },
+      {
+        name: gettext('Temperature'),
+        prop: 'temperature',
+        flexGrow: 1,
+        sortable: true,
+        hidden: true
       }
     ],
     store: {
@@ -93,6 +133,9 @@ export class DiskDatatablePageComponent {
           method: 'getListBg',
           task: true
         }
+      },
+      transform: {
+        temperature: '{% if temperature %}{{ temperature }} °C{% endif %}'
       }
     },
     actions: [
