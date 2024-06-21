@@ -1,5 +1,6 @@
 openmediavault (7.3.0-1) stable; urgency=low
 
+  * Refactor the RPC parameter handling.
   * Issue #1774: Improve foundation for plugins.
   * Refactor UI to get rid of `::ng-deep`, which was an obstacle to
     migrating to Angular >= 15.
@@ -8,11 +9,11 @@ openmediavault (7.3.0-1) stable; urgency=low
 
 openmediavault (7.2.1-1) stable; urgency=low
 
+  * Refactor the `download.php` RPC infrastructure.
   * Issue #1748: Enable TCP for NFS v2 and v3.
   * Issue #1766: Harden the daily SSL certificate expiration cron job.
   * Issue #1769: Add support for setting SMTP server to `localhost` in
     notification settings page.
-  * Refactor the `download.php` RPC infrastructure.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 24 May 2024 17:46:40 +0200
 
