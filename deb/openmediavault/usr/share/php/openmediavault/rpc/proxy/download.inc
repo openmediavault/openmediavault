@@ -26,33 +26,6 @@ namespace OMV\Rpc\Proxy;
  * @ingroup api
  */
 class Download extends Json {
-	protected function getParams() {
-		// Get the RPC parameters from the body or the query string.
-		if (!empty($_POST)) {
-			$this->params = $_POST;
-		} else {
-			$this->params = [];
-			foreach ($_GET as $key => $value) {
-				$this->params[$key] = $value;
-			}
-		}
-		if (empty($this->params)) {
-			return FALSE;
-		}
-		// Decode the `params` field.
-		$paramsProp = array_value($this->params, "params");
-		if (!empty($paramsProp)) {
-			if (is_string($paramsProp)) {
-				$paramsProp = htmlspecialchars_decode($paramsProp);
-			}
-			if (is_json($paramsProp)) {
-				$paramsProp = json_decode($paramsProp, TRUE);
-			}
-			$this->params['params'] = $paramsProp;
-		}
-		return TRUE;
-	}
-
 	/**
 	 * @param response The response must contain the fields \em content or
 	 *   \em filepath. The field \em filename and \em headers are optional.

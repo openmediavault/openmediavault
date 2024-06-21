@@ -26,27 +26,6 @@ namespace OMV\Rpc\Proxy;
  * @ingroup api
  */
 class Upload extends Json {
-	protected function getParams() {
-		$this->params = $_POST;
-		if (empty($this->params)) {
-			return FALSE;
-		}
-		// Decode the `params` field.
-		$paramsProp = array_value($this->params, "params");
-		if (empty($paramsProp)) {
-			$this->params['params'] = [];
-		} else {
-			if (is_string($paramsProp)) {
-				$paramsProp = htmlspecialchars_decode($paramsProp);
-			}
-			if (is_json($paramsProp)) {
-				$paramsProp = json_decode($paramsProp, TRUE);
-			}
-			$this->params['params'] = $paramsProp;
-		}
-		return TRUE;
-	}
-
 	/**
 	 * Copy the uploaded file to a temporary location. Modify this
 	 * filename to allow the RPC service method to process the correct

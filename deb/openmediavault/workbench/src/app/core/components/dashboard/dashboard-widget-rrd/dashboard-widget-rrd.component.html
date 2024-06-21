@@ -2,7 +2,7 @@
                       [loadData]="loadData.bind(this)"
                       (dataChangedEvent)="dataChanged($event)">
   <div class="widget-content omv-display-flex omv-justify-content-center omv-align-content-stretch omv-align-content-center omv-align-items-stretch">
-    <img src="download.php?service=Rrd&method=getGraph&params={%22kind%22:%22{{ config.rrd?.kind }}%22,%22period%22:%22{{ config.rrd?.period }}%22}&time={{ time }}"
+    <img src="download.php?service=Rrd&method=getGraph&params=%7B%22kind%22:%22{{ config.rrd?.kind }}%22,%22period%22:%22{{ config.rrd?.period }}%22%7D&time={{ time }}"
          loading="lazy"
          loadingState
          alt="RRD graph"/>
