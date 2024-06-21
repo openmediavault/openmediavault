@@ -84,6 +84,33 @@ export class DiskDatatablePageComponent {
         flexGrow: 1,
         sortable: true,
         cellTemplateName: 'binaryUnit'
+      },
+      {
+        name: gettext('Power State'),
+        prop: 'powerstate',
+        flexGrow: 1,
+        sortable: true,
+        cellTemplateName: 'chip',
+        cellTemplateConfig: {
+          map: {
+            "unknown": {
+              value: gettext("Unknown"),
+              class: 'omv-background-color-pair-gray'
+            },
+            "active/idle": {
+              value: gettext("Active/Idle"),
+              class: 'omv-background-color-pair-green'
+            },
+            "standby": {
+              value: gettext("Standby"),
+              class: 'omv-background-color-pair-blue'
+            },
+            "sleeping": {
+              value: gettext("Sleeping"),
+              class: 'omv-background-color-pair-dark'
+            }
+          }
+        }
       }
     ],
     store: {

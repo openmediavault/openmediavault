@@ -84,6 +84,7 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				"devicefile" => $sd->getPredictableDeviceFile(),
 				"devicelinks" => $sd->getDeviceFileSymlinks(),
 				"model" => $sd->getModel(),
+				"powerstate" => (($sd instanceof \OMV\System\Storage\StorageDeviceSD) ? $sd->getPowerModeState() : "unknown"),
 				"size" => $sd->getSize(),
 				"description" => $sd->getDescription(),
 				"vendor" => $sd->getVendor(),
