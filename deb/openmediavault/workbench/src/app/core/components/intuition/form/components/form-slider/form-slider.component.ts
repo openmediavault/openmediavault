@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
@@ -23,7 +23,8 @@ import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form
 @Component({
   selector: 'omv-form-slider',
   templateUrl: './form-slider.component.html',
-  styleUrls: ['./form-slider.component.scss']
+  styleUrls: ['./form-slider.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FormSliderComponent extends AbstractFormFieldComponent {
   onChange(event: MatSliderChange) {

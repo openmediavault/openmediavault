@@ -1,219 +1,221 @@
-@use "sass:map";
+@use 'sass:map';
 @use 'scss/defaults/colors' as dc;
 @use 'scss/theme';
 
-// Toolbar
-:host ::ng-deep .mat-toolbar {
-  .mat-button:not(.mat-button-disabled),
-  .mat-icon-button:not(.mat-button-disabled) {
-    color: var(--mat-primary-color-text);
-  }
-
-  .mat-form-field {
-    font-size: var(--mat-font-size-body-1);
-
-    &.mat-focused {
-      .mat-form-field-ripple {
-        background-color: var(--mat-primary-color-text);
-      }
+omv-datatable {
+  // Toolbar
+  .mat-toolbar {
+    .mat-button:not(.mat-button-disabled),
+    .mat-icon-button:not(.mat-button-disabled) {
+      color: var(--mat-primary-color-text);
     }
 
-    .mat-form-field-infix {
-      padding-bottom: unset;
+    .mat-form-field {
+      font-size: var(--mat-font-size-body-1);
 
-      .mat-input-element {
-        caret-color: var(--mat-primary-color-text);
-        color: currentcolor;
-      }
-    }
-  }
-}
-
-// Progress bar
-.omv-datatable-progress-bar {
-  position: relative;
-
-  .mat-progress-bar {
-    position: absolute;
-  }
-}
-
-// Templates
-.omv-datatable-template-unsorted-list {
-  margin: unset;
-  padding-left: 20px;
-}
-
-// Datatable
-:host ::ng-deep .ngx-datatable {
-  /* stylelint-disable no-descending-specificity */
-  box-shadow: none;
-
-  &.single-selection,
-  &.multi-selection,
-  &.multi-click-selection {
-    .datatable-body-row {
-      &.active,
-      &.active .datatable-row-group {
-        @include theme.background-color-pair('accent');
-      }
-
-      &.active:hover,
-      &.active:hover .datatable-row-group {
-        @include theme.background-color-pair('accent');
-
-        background-color: map.get(theme.$omv-color-accent-palette, 800) !important;
-        transition-property: background;
-        transition-duration: 0.3s;
-        transition-timing-function: linear;
-      }
-
-      &.active:focus,
-      &.active:focus .datatable-row-group {
-        @include theme.background-color-pair('accent');
-
-        background-color: map.get(theme.$omv-color-accent-palette, 700) !important;
-      }
-    }
-  }
-
-  &:not(.cell-selection) {
-    .datatable-body-row {
-      &:hover,
-      &:hover .datatable-row-group {
-        @include theme.background-color-pair('primary');
-
-        transition-property: background;
-        transition-duration: 0.3s;
-        transition-timing-function: linear;
-      }
-
-      &:focus,
-      &:focus .datatable-row-group {
-        @include theme.background-color-pair('primary');
-
-        background-color: map.get(theme.$omv-color-primary-palette, 700);
-      }
-    }
-  }
-
-  /**
-   * Header Styles
-   */
-  .datatable-header {
-    border-bottom: 1px solid rgb(0 0 0 / 12%);
-
-    .datatable-header-cell {
-      text-align: left;
-      padding: 0.9rem 1.2rem;
-      vertical-align: bottom;
-
-      .datatable-header-cell-wrapper {
-        position: relative;
-      }
-    }
-
-    .resize-handle {
-      border-right: solid 1px #eeeeee;
-    }
-  }
-
-  /**
-   * Body Styles
-   */
-  .datatable-body {
-    .datatable-row-detail {
-      background: dc.$omv-color-whitesmoke;
-      padding: 10px;
-    }
-
-    .datatable-group-header {
-      background: dc.$omv-color-whitesmoke;
-      border-bottom: solid 1px #d9d8d9;
-      border-top: solid 1px #d9d8d9;
-    }
-
-    .empty-row {
-      border-top: 0;
-      border-bottom: 1px solid rgb(0 0 0 / 12%);
-      text-align: left;
-      padding: 0.5rem 1.2rem;
-      vertical-align: top;
-    }
-
-    .datatable-body-row {
-      border-bottom: 1px solid rgb(0 0 0 / 12%);
-
-      .datatable-body-cell {
-        text-align: left;
-        padding: 0.9rem 1.2rem;
-        vertical-align: top;
-        border-top: 0;
-      }
-
-      .datatable-body-group-cell {
-        text-align: left;
-        padding: 0.9rem 1.2rem;
-        vertical-align: top;
-        border-top: 0;
-      }
-    }
-  }
-
-  /**
-   * Footer Styles
-   */
-  .datatable-footer {
-    .page-count {
-      line-height: 50px;
-      height: 50px;
-      padding: 0 1.2rem;
-    }
-
-    .datatable-pager {
-      margin: 0 10px;
-
-      li {
-        vertical-align: middle;
-
-        &.disabled a {
-          color: var(--mat-color-disabled-text);
-          background-color: transparent !important;
-        }
-
-        &.active a {
-          background: var(--mat-background-color-hover);
-          font-weight: bold;
+      &.mat-focused {
+        .mat-form-field-ripple {
+          background-color: var(--mat-primary-color-text);
         }
       }
 
-      a {
-        color: var(--mat-color-text);
-        height: 22px;
-        min-width: 24px;
-        line-height: 22px;
-        padding: 0 6px;
-        border-radius: 3px;
-        margin: 6px 3px;
-        text-align: center;
-        text-decoration: none;
+      .mat-form-field-infix {
+        padding-bottom: unset;
+
+        .mat-input-element {
+          caret-color: var(--mat-primary-color-text);
+          color: currentcolor;
+        }
+      }
+    }
+  }
+
+  // Progress bar
+  .omv-datatable-progress-bar {
+    position: relative;
+
+    .mat-progress-bar {
+      position: absolute;
+    }
+  }
+
+  // Templates
+  .omv-datatable-template-unsorted-list {
+    margin: unset;
+    padding-left: 20px;
+  }
+
+  // Datatable
+  .ngx-datatable {
+    /* stylelint-disable no-descending-specificity */
+    box-shadow: none;
+
+    &.single-selection,
+    &.multi-selection,
+    &.multi-click-selection {
+      .datatable-body-row {
+        &.active,
+        &.active .datatable-row-group {
+          @include theme.background-color-pair('accent');
+        }
+
+        &.active:hover,
+        &.active:hover .datatable-row-group {
+          @include theme.background-color-pair('accent');
+
+          background-color: map.get(theme.$omv-color-accent-palette, 800) !important;
+          transition-property: background;
+          transition-duration: 0.3s;
+          transition-timing-function: linear;
+        }
+
+        &.active:focus,
+        &.active:focus .datatable-row-group {
+          @include theme.background-color-pair('accent');
+
+          background-color: map.get(theme.$omv-color-accent-palette, 700) !important;
+        }
+      }
+    }
+
+    &:not(.cell-selection) {
+      .datatable-body-row {
+        &:hover,
+        &:hover .datatable-row-group {
+          @include theme.background-color-pair('primary');
+
+          transition-property: background;
+          transition-duration: 0.3s;
+          transition-timing-function: linear;
+        }
+
+        &:focus,
+        &:focus .datatable-row-group {
+          @include theme.background-color-pair('primary');
+
+          background-color: map.get(theme.$omv-color-primary-palette, 700);
+        }
+      }
+    }
+
+    /**
+     * Header Styles
+     */
+    .datatable-header {
+      border-bottom: 1px solid rgb(0 0 0 / 12%);
+
+      .datatable-header-cell {
+        text-align: left;
+        padding: 0.9rem 1.2rem;
         vertical-align: bottom;
 
-        &:hover {
-          background: var(--mat-background-color-hover);
-          color: theme.$omv-color-primary;
+        .datatable-header-cell-wrapper {
+          position: relative;
         }
       }
 
-      .datatable-icon-left,
-      .datatable-icon-skip,
-      .datatable-icon-right,
-      .datatable-icon-prev {
-        font-size: 20px;
-        line-height: 20px;
-        padding: 0 3px;
+      .resize-handle {
+        border-right: solid 1px #eeeeee;
       }
     }
+
+    /**
+     * Body Styles
+     */
+    .datatable-body {
+      .datatable-row-detail {
+        background: dc.$omv-color-whitesmoke;
+        padding: 10px;
+      }
+
+      .datatable-group-header {
+        background: dc.$omv-color-whitesmoke;
+        border-bottom: solid 1px #d9d8d9;
+        border-top: solid 1px #d9d8d9;
+      }
+
+      .empty-row {
+        border-top: 0;
+        border-bottom: 1px solid rgb(0 0 0 / 12%);
+        text-align: left;
+        padding: 0.5rem 1.2rem;
+        vertical-align: top;
+      }
+
+      .datatable-body-row {
+        border-bottom: 1px solid rgb(0 0 0 / 12%);
+
+        .datatable-body-cell {
+          text-align: left;
+          padding: 0.9rem 1.2rem;
+          vertical-align: top;
+          border-top: 0;
+        }
+
+        .datatable-body-group-cell {
+          text-align: left;
+          padding: 0.9rem 1.2rem;
+          vertical-align: top;
+          border-top: 0;
+        }
+      }
+    }
+
+    /**
+     * Footer Styles
+     */
+    .datatable-footer {
+      .page-count {
+        line-height: 50px;
+        height: 50px;
+        padding: 0 1.2rem;
+      }
+
+      .datatable-pager {
+        margin: 0 10px;
+
+        li {
+          vertical-align: middle;
+
+          &.disabled a {
+            color: var(--mat-color-disabled-text);
+            background-color: transparent !important;
+          }
+
+          &.active a {
+            background: var(--mat-background-color-hover);
+            font-weight: bold;
+          }
+        }
+
+        a {
+          color: var(--mat-color-text);
+          height: 22px;
+          min-width: 24px;
+          line-height: 22px;
+          padding: 0 6px;
+          border-radius: 3px;
+          margin: 6px 3px;
+          text-align: center;
+          text-decoration: none;
+          vertical-align: bottom;
+
+          &:hover {
+            background: var(--mat-background-color-hover);
+            color: theme.$omv-color-primary;
+          }
+        }
+
+        .datatable-icon-left,
+        .datatable-icon-skip,
+        .datatable-icon-right,
+        .datatable-icon-prev {
+          font-size: 20px;
+          line-height: 20px;
+          padding: 0 3px;
+        }
+      }
+    }
+    /* stylelint-enable no-descending-specificity */
   }
-  /* stylelint-enable no-descending-specificity */
 }

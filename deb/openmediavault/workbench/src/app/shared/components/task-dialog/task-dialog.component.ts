@@ -23,7 +23,8 @@ import {
   OnDestroy,
   OnInit,
   Output,
-  ViewChild
+  ViewChild,
+  ViewEncapsulation
 } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
@@ -45,7 +46,8 @@ import { RpcBgResponse, RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   selector: 'omv-task-dialog',
   templateUrl: './task-dialog.component.html',
-  styleUrls: ['./task-dialog.component.scss']
+  styleUrls: ['./task-dialog.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TaskDialogComponent implements OnInit, OnDestroy {
   @Output()

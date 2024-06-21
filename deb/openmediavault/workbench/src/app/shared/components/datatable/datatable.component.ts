@@ -26,7 +26,8 @@ import {
   SimpleChange,
   SimpleChanges,
   TemplateRef,
-  ViewChild
+  ViewChild,
+  ViewEncapsulation
 } from '@angular/core';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
@@ -63,7 +64,8 @@ export type DataTableCellChanged = {
 @Component({
   selector: 'omv-datatable',
   templateUrl: './datatable.component.html',
-  styleUrls: ['./datatable.component.scss']
+  styleUrls: ['./datatable.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChanges {
   @ViewChild('table', { static: true })
