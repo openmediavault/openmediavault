@@ -78,6 +78,15 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			// without an inserted media.
 			if (FALSE === $sd->IsMediaAvailable())
 				continue;
+			$powerMode = "UNKNOWN";
+			$temperature = FALSE;
+			if (TRUE === $sd->hasSmartSupport()) {
+				$si = $sd->getSmartInformation();
+				$si->setPowerMode("standby");
+				$info = $si->getInformation();
+				$powerMode = array_value($info, "powermodeis", "UNKNOWN");
+				$temperature = $si->getTemperature();
+			}
 			$objects[] = [
 				"devicename" => $sd->getDeviceName(),
 				"canonicaldevicefile" => $sd->getCanonicalDeviceFile(),
@@ -92,7 +101,10 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				"israid" => $sd->isRaid(),
 				"isroot" => \OMV\System\System::isRootDeviceFile(
 					$sd->getCanonicalDeviceFile(), FALSE),
-				"isreadonly" => $sd->isReadOnly()
+				"isreadonly" => $sd->isReadOnly(),
+				"powermode" => $powerMode,
+				"temperature" => (FALSE === $temperature) ?
+					"" : $temperature,
 			];
 		}
 		return $objects;

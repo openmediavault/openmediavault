@@ -1,6 +1,7 @@
 openmediavault (7.3.0-1) stable; urgency=low
 
   * Refactor the RPC parameter handling.
+  * Display `Power Mode` of disks in the `Storage | Disks` page.
   * Issue #1774: Improve foundation for plugins.
   * Refactor UI to get rid of `::ng-deep`, which was an obstacle to
     migrating to Angular >= 15.

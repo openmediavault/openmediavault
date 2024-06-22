@@ -31,42 +31,6 @@ class StorageDeviceSD extends StorageDevice implements SmartInterface {
 	use SmartTrait;
 
 	/**
-	 * Get the current power mode status.
-	 * @return string The current power mode status which can be
-	 *   <ul>
-	 *   \li unknown
-	 *   \li active/idle
-	 *   \li standby
-	 *   \li sleeping
-	 *   </ul>
-	 * @throw \OMV\ExecException
-	 */
-	public function getPowerModeState() {
-		$result = "unknown";
-		// Get the current power mode status.
-		$cmdArgs = [];
-		$cmdArgs[] = "-C";
-		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
-		$cmd = new \OMV\System\Process("hdparm", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		// Parse command output:
-		// /dev/sda:
-		//  drive state is:  active/idle
-		//
-		// /dev/sdb:
-		//  drive state is:  standby
-		foreach ($output as $outputk => $outputv) {
-			$regex = "/^\s+drive state is:\s+(\S+)$/i";
-			if (1 == preg_match($regex, $outputv, $matches)) {
-				$result = $matches[1];
-				break;
-			}
-		}
-		return $result;
-	}
-
-	/**
 	 * See \OMV\System\Storage\SmartInterface interface definition.
 	 */
 	public function getSmartDeviceType() {

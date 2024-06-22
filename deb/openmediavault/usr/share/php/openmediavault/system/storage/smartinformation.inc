@@ -28,6 +28,7 @@ namespace OMV\System\Storage;
  */
 class SmartInformation {
 	protected $sd = NULL;
+	protected $powerMode = NULL;
 	private $cmdOutput = NULL;
 	private $dataCached = FALSE;
 	private $dataCachedKind = NULL;
@@ -149,6 +150,10 @@ class SmartInformation {
 			$cmdArgs[] = "--health";
 			$cmdArgs[] = "--log=selftest";
 		}
+		if (!is_null($this->powerMode)) {
+			$cmdArgs[] = sprintf("--nocheck=%s", escapeshellarg(
+				$this->powerMode));
+		}
 		if (!empty($this->sd->getSmartDeviceType())) {
 			$cmdArgs[] = sprintf("--device=%s", $this->sd->getSmartDeviceType());
 		}
@@ -178,6 +183,18 @@ class SmartInformation {
 	public function refresh() {
 		$this->dataCached = FALSE;
 		$this->getData($this->dataCachedKind);
+	}
+
+	/**
+	 * Set the power mode that is used for the `--nocheck=POWERMODE` smartctl
+	 * command line option.
+	 * @see https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in#n
+	 * @param string $powerMode The power mode, e.g. `never`, `sleep`,
+	 *   `standby` or `idle`. Defaults to NULL.
+	 * @return void
+	 */
+	public function setPowerMode($powerMode = NULL) {
+		$this->powerMode = $powerMode;
 	}
 
 	/**
@@ -355,6 +372,7 @@ class SmartInformation {
 		// Local Time is:    Tue Mar 11 10:18:42 2014 CET
 		// SMART support is: Available - device has SMART capability.
 		// SMART support is: Enabled
+		// Power mode is:    ACTIVE
 		//
 		// === START OF READ SMART DATA SECTION ===
 		// ...

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-16 08:34+0200\n"
+"POT-Creation-Date: 2024-06-21 22:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -264,6 +264,9 @@ msgid "Action"
 msgstr ""
 
 msgid "Activate S.M.A.R.T. monitoring for this device. Note that only monitored devices are listed in the scheduled tasks. Monitoring cannot be switched off as long as there are scheduled tasks for this device."
+msgstr ""
+
+msgid "Active"
 msgstr ""
 
 msgid "Add"
@@ -2295,6 +2298,9 @@ msgid "Power"
 msgstr ""
 
 msgid "Power Management"
+msgstr ""
+
+msgid "Power Mode"
 msgstr ""
 
 msgid "Power Off"
