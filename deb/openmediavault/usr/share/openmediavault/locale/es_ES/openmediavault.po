@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-16 08:34+0200\n"
+"POT-Creation-Date: 2024-06-21 22:16+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2024\n"
 "Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -277,6 +277,9 @@ msgid ""
 "devices are listed in the scheduled tasks. Monitoring cannot be switched off"
 " as long as there are scheduled tasks for this device."
 msgstr "Activar monitoreo S.M.A.R.T. de este dispositivo. Tenga en cuenta que solo los dispositivos monitoreados aparecen en las tareas programadas. La monitorización no se puede desactivar mientras haya tareas programadas para este dispositivo."
+
+msgid "Active"
+msgstr "Activo"
 
 msgid "Add"
 msgstr "Añadir"
@@ -1607,7 +1610,7 @@ msgid "Invalid NetBIOS name."
 msgstr "Nombre NetBIOS no válido."
 
 msgid "Invalid PGP public key."
-msgstr ""
+msgstr "Clave pública PGP inválida."
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Clave publica SSH inválida (Formato OpenSSH)"
@@ -2020,7 +2023,7 @@ msgid "NFS"
 msgstr "NFS"
 
 msgid "NTP time servers, separated by comma."
-msgstr ""
+msgstr "Servidores de hora NTP, separados por coma \",\""
 
 msgid "Name"
 msgstr "Nombre"
@@ -2390,6 +2393,9 @@ msgstr "Energia"
 msgid "Power Management"
 msgstr "Gestión de energía"
 
+msgid "Power Mode"
+msgstr "Modo de energía"
+
 msgid "Power Off"
 msgstr "Apagar"
 
@@ -2746,7 +2752,7 @@ msgid "Secure connection"
 msgstr "Conexión segura"
 
 msgid "Security"
-msgstr ""
+msgstr "Seguridad"
 
 msgid "Select a country ..."
 msgstr "Seleccionar un pais ..."
@@ -3941,10 +3947,10 @@ msgid "WOL"
 msgstr "WOL"
 
 msgid "WPA2-Personal"
-msgstr ""
+msgstr "WPA2-Personal"
 
 msgid "WPA3-Personal"
-msgstr ""
+msgstr "WPA3-Personal"
 
 msgid "WWN"
 msgstr "WWN"

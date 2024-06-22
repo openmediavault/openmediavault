@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-16 08:34+0200\n"
+"POT-Creation-Date: 2024-06-21 22:16+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2024\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -274,6 +274,9 @@ msgid ""
 "devices are listed in the scheduled tasks. Monitoring cannot be switched off"
 " as long as there are scheduled tasks for this device."
 msgstr "對此裝置啟動 S.M.A.R.T. 監測。請注意唯有被監測的裝置才會列在預定工作中。只要該裝置仍存在有預定工作，就無法將監測關閉。"
+
+msgid "Active"
+msgstr "現用"
 
 msgid "Add"
 msgstr "新增"
@@ -2386,6 +2389,9 @@ msgstr "電源"
 
 msgid "Power Management"
 msgstr "電源管理"
+
+msgid "Power Mode"
+msgstr ""
 
 msgid "Power Off"
 msgstr "關機"

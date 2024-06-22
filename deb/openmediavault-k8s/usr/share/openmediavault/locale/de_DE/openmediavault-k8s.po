@@ -279,7 +279,7 @@ msgid "Tag"
 msgstr "Etikett"
 
 msgid "Tags"
-msgstr ""
+msgstr "Etikett"
 
 msgid "Target Namespace"
 msgstr ""

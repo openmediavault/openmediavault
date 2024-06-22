@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-16 08:34+0200\n"
+"POT-Creation-Date: 2024-06-21 22:16+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2024\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -272,6 +272,9 @@ msgid ""
 "devices are listed in the scheduled tasks. Monitoring cannot be switched off"
 " as long as there are scheduled tasks for this device."
 msgstr "Ενεργοποίηση παρακολούθησης S.M.A.R.T. για αυτήν τη συσκευή. Μόνο οι παρακολουθούμενες συσκευές εμφανίζονται στις προγραμματισμένες εργασίες. Η παρακολούθηση δεν μπορεί να απενεργοποιηθεί εφόσον υπάρχουν προγραμματισμένες εργασίες για αυτήν τη συσκευή."
+
+msgid "Active"
+msgstr "Ενεργό"
 
 msgid "Add"
 msgstr "Προσθήκη"
@@ -2384,6 +2387,9 @@ msgstr "Ισχύς"
 
 msgid "Power Management"
 msgstr "Διαχείριση ενέργειας"
+
+msgid "Power Mode"
+msgstr ""
 
 msgid "Power Off"
 msgstr "Απενεργοποίηση"

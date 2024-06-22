@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-16 08:34+0200\n"
+"POT-Creation-Date: 2024-06-21 22:16+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2024\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -285,6 +285,9 @@ msgid ""
 "devices are listed in the scheduled tasks. Monitoring cannot be switched off"
 " as long as there are scheduled tasks for this device."
 msgstr "Aktiviert die S.M.A.R.T. Überwachung für dieses Gerät. Beachten Sie, dass nur überwachte Geräte in der Liste der geplanten Aufgaben aufgeführt werden. Die Überwachung kann nicht ausgeschaltet werden, solange es geplante Aufgaben für dieses Gerät gibt."
+
+msgid "Active"
+msgstr "Aktiv"
 
 msgid "Add"
 msgstr "Hinzufügen"
@@ -2397,6 +2400,9 @@ msgstr ""
 
 msgid "Power Management"
 msgstr "Energieverwaltung"
+
+msgid "Power Mode"
+msgstr "Leistungsmodus"
 
 msgid "Power Off"
 msgstr "Ausschalten"

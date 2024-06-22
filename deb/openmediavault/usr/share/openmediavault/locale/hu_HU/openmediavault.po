@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-16 08:34+0200\n"
+"POT-Creation-Date: 2024-06-21 22:16+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2024\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -278,6 +278,9 @@ msgid ""
 "devices are listed in the scheduled tasks. Monitoring cannot be switched off"
 " as long as there are scheduled tasks for this device."
 msgstr "Aktiválja a S.M.A.R.T. monitorozást ezen az eszközön. Vegye figyelembe, hogy csak a monitorozott eszközök szerepelnek az ütemezett feladatok között. A monitorozást nem lehet kikapcsolni, amíg vannak ütemezett feladatok ehhez az eszközhöz."
+
+msgid "Active"
+msgstr "Aktív"
 
 msgid "Add"
 msgstr "Hozzáadás"
@@ -2390,6 +2393,9 @@ msgstr "Be- és kikapcsolás"
 
 msgid "Power Management"
 msgstr "Energiagazdálkodás"
+
+msgid "Power Mode"
+msgstr "Energia mód"
 
 msgid "Power Off"
 msgstr "Kikapcsolás"

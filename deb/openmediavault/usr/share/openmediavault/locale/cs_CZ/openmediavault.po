@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-16 08:34+0200\n"
+"POT-Creation-Date: 2024-06-21 22:16+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -273,6 +273,9 @@ msgid ""
 "devices are listed in the scheduled tasks. Monitoring cannot be switched off"
 " as long as there are scheduled tasks for this device."
 msgstr ""
+
+msgid "Active"
+msgstr "Aktivní"
 
 msgid "Add"
 msgstr "Přidat"
@@ -2385,6 +2388,9 @@ msgstr "Napájení"
 
 msgid "Power Management"
 msgstr "Správa napájení"
+
+msgid "Power Mode"
+msgstr ""
 
 msgid "Power Off"
 msgstr ""
