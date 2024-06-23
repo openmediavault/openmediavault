@@ -68,7 +68,7 @@ data:
             params:
               uuid: "{{ uuid }}"
       - type: iconButton
-        icon: reload
+        icon: search
         tooltip: _("Check for new packages")
         execute:
           type: request
