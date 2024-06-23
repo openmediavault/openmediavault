@@ -21,7 +21,7 @@
  */
 namespace Engined\Rpc;
 
-class NetworkHosts extends \OMV\Rpc\ServiceAbstract {
+class AptMgmt extends \OMV\Rpc\ServiceAbstract {
 	public function getName() {
 		return "AptMgmt";
 	}
