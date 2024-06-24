@@ -2391,7 +2391,7 @@ msgid "Power Management"
 msgstr "電源管理"
 
 msgid "Power Mode"
-msgstr ""
+msgstr "耗電模式"
 
 msgid "Power Off"
 msgstr "關機"
