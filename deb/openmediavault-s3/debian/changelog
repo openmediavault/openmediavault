@@ -1,8 +1,6 @@
 openmediavault-s3 (7.0.1-1) stable; urgency=low
 
-  * Issue #1782: Rename the environment variable `OMV_S3_APP_CONTAINER_CMD_ARGS`
-    to `OMV_S3_APP_CONTAINER_START_OPTIONS` to adapt it to the other container
-    based plugins.
+  * Issue #1782: Add the environment variable `OMV_S3_APP_CONTAINER_START_OPTIONS`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jun 2024 11:30:59 +0200
 
@@ -15,7 +13,7 @@ openmediavault-s3 (7.0-3) unstable; urgency=low
 openmediavault-s3 (6.0.8-1) stable; urgency=low
 
   * Update locale files.
-  * Add catatonit as package dependency to prevent failures
+  * Add `catatonit` as package dependency to prevent failures
     when starting the pod.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Nov 2023 20:39:08 +0100
