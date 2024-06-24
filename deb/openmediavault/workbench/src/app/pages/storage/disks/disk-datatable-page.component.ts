@@ -99,6 +99,10 @@ export class DiskDatatablePageComponent {
               value: gettext('Active'),
               class: 'omv-background-color-pair-orange'
             },
+            'ACTIVE or IDLE': {
+              value: gettext('Active or Idle'),
+              class: 'omv-background-color-pair-orange'
+            },
             IDLE: {
               value: gettext('Idle'),
               class: 'omv-background-color-pair-yellow'
@@ -114,6 +118,10 @@ export class DiskDatatablePageComponent {
             UNKNOWN: {
               value: gettext('Unknown'),
               class: 'omv-background-color-pair-gray'
+            },
+            ERROR: {
+              value: gettext('Error'),
+              class: 'omv-background-color-pair-red'
             }
           }
         }
