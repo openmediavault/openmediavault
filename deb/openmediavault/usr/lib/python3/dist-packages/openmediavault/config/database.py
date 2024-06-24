@@ -445,8 +445,13 @@ class DatabaseQuery(abc.ABC):
                     # Convert existing entry into a list.
                     result[tag] = [result[tag], value]
                 except KeyError:
-                    # Add a new entry.
-                    result[tag] = [value]
+                    if value == "":
+                        # Create an empty list if the value is an empty string.
+                        result[tag] = []
+                    else:
+                        # Add a new entry.
+                        result[tag] = [value]
+
             elif tag in self._force_dict_tags and value == "":
                 # Create an empty dictionary if value is an empty string.
                 result[tag] = {}
