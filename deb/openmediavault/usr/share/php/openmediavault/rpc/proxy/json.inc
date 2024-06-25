@@ -101,10 +101,23 @@ class Json {
 	}
 
 	/**
+	 * Set the RPC parameters.
+	 * Note, this is only for internal use.
+	 */
+	public function setParams($params) {
+		if (is_assoc_array($params)) {
+			$this->params = $params;
+		}
+	}
+
+	/**
 	 * Get the RPC parameters from POST or GET.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	protected function getParams() {
+		if (is_assoc_array($this->params)) {
+			return TRUE;
+		}
 		if (!empty($_GET)) {
 			$this->params = [];
 		 	foreach ($_GET as $key => $value) {
