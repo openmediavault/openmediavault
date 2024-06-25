@@ -54,6 +54,15 @@ class Session {
 	 * Destroy session.
 	 */
 	public function destroy() {
+		// Destroy the session cookie.
+		$params = session_get_cookie_params();
+		if (is_assoc_array($cookieParams)) {
+			setcookie(session_name(), "", time() - 3600,
+				$params["path"], $params["domain"],
+				$params["secure"], $params["httponly"]
+			);
+		}
+		// Destroy all data registered to this session.
 		session_destroy();
 	}
 
@@ -214,7 +223,7 @@ class Session {
 	 * Dump the current session informations.
 	 */
 	public function dump() {
-		$this->debug(var_export([
+		syslog(LOG_DEBUG, var_export([
 			"id" => session_id(),
 			"data" => $_SESSION
 		], TRUE));
