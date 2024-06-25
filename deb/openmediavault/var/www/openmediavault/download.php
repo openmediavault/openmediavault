@@ -45,10 +45,7 @@ try {
 
     $server = new \OMV\Rpc\Proxy\Download();
     $server->handle();
-    $server->cleanup();
 } catch(\Exception $e) {
-	if (isset($server))
-		$server->cleanup();
 	header("Content-Type: application/json");
 	http_response_code(($e instanceof \OMV\BaseException) ?
 		$e->getHttpStatusCode() : 500);
@@ -60,5 +57,9 @@ try {
 			"trace" => $e->__toString()
 		]
 	]);
+} finally {
+	if (isset($server)) {
+		$server->cleanup();
+	}
 }
 ?>
