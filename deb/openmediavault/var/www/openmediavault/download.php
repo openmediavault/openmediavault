@@ -46,15 +46,16 @@ if (array_keys_exists(array("service", "method"), $_POST)) {
 
 		$server = new \OMV\Rpc\Proxy\Download();
 		$server->handle();
-		$server->cleanup();
 	} catch(\Exception $e) {
-		if (isset($server))
-			$server->cleanup();
 		header("Content-Type: text/html");
 		http_response_code(($e instanceof \OMV\BaseException) ?
 			$e->getHttpStatusCode() : 500);
 		printf("Error #%s:<br/>%s", strval($e->getCode()),
 			str_replace("\n", "<br/>", htmlentities($e->__toString())));
+	} finally {
+		if (isset($server)) {
+			$server->cleanup();
+		}
 	}
 } else {
 	// Return the HTML code of the form containing the fields required
