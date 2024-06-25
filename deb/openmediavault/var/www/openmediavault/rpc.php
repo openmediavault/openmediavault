@@ -45,8 +45,9 @@ try {
 	$server->handle();
 	$server->cleanup();
 } catch(\Exception $e) {
-	if (isset($server))
+	if (isset($server)) {
 		$server->cleanup();
+	}
 	header("Content-Type: application/json");
 	http_response_code(($e instanceof \OMV\BaseException) ?
 		$e->getHttpStatusCode() : 500);
