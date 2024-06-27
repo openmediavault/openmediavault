@@ -83,7 +83,7 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (TRUE === $sd->hasSmartSupport()) {
 				try {
 					$si = $sd->getSmartInformation();
-					$si->setPowerMode("standby");
+					$si->setPowerMode("standby,0");
 					$info = $si->getInformation();
 					$powerMode = array_value($info, "powermodeis", "UNKNOWN");
 					$temperature = $si->getTemperature();
