@@ -29,6 +29,7 @@ class Download extends Json {
 	/**
 	 * @param response The response must contain the fields \em content or
 	 *   \em filepath. The field \em filename and \em headers are optional.
+	 *   Use Train-Case for the keys of the \em headers array.
 	 *   The field \em content contains the content to be returned whereas
 	 *   \em filepath contains the name of the file which content should be
 	 *   returned. Please note that the file must be readable for everyone.
@@ -54,15 +55,21 @@ class Download extends Json {
 		// Prepare the headers.
 		$headers = [];
 		if (array_key_exists("content", $response)) {
-			$contentType = @mime_content_type($response['content']);
-			if (FALSE !== $contentType) {
-				$headers["Content-Type"] = $contentType;
+			if (!(array_key_exists("headers", $response) && array_key_exists(
+					"Content-Type", $response['headers']))) {
+				$contentType = @mime_content_type($response['content']);
+				if (FALSE !== $contentType) {
+					$headers["Content-Type"] = $contentType;
+				}
 			}
 			$headers["Content-Length"] = strlen($response['content']);
 		} else {
-			$contentType = @mime_content_type($response['filepath']);
-			if (FALSE !== $contentType) {
-				$headers["Content-Type"] = $contentType;
+			if (!(array_key_exists("headers", $response) && array_key_exists(
+					"Content-Type", $response['headers']))) {
+				$contentType = @mime_content_type($response['filepath']);
+				if (FALSE !== $contentType) {
+					$headers["Content-Type"] = $contentType;
+				}
 			}
 			$contentLength = @filesize($response['filepath']);
 			if (FALSE !== $contentLength) {
