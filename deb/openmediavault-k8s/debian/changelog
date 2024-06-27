@@ -1,3 +1,11 @@
+openmediavault-k8s (7.2.0-1) stable; urgency=low
+
+  * Issue #1775: Add ability to choose between etcd or SQLite as
+    datastore. SQlite is now used by default, as this is better
+    suited to installations on SBCs.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Jun 2024 07:33:42 +0200
+
 openmediavault-k8s (7.1.2-1) stable; urgency=low
 
   * Several improvements.

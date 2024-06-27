@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 18:29+0100\n"
+"POT-Creation-Date: 2024-06-28 17:36+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2024\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
@@ -81,6 +81,9 @@ msgstr "Panel"
 msgid "Data"
 msgstr "Datos"
 
+msgid "Datastore"
+msgstr ""
+
 msgid "Date & Time"
 msgstr "Fecha y Hora"
 
@@ -109,9 +112,6 @@ msgstr ""
 
 msgid "Enabled"
 msgstr "Habilitado"
-
-msgid "Etcd Snapshots"
-msgstr "Instantánea etcd"
 
 msgid "External IP"
 msgstr "IP Externa"
@@ -213,6 +213,12 @@ msgstr "Reclamaciones de volumen persistente"
 msgid "Persistent Volumes"
 msgstr "Volúmenes persistentes"
 
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
+
+msgid "Please wait, the snapshot will be restored ..."
+msgstr ""
+
 msgid "Pods"
 msgstr "Pods"
 
@@ -248,6 +254,9 @@ msgstr "Recursos"
 
 msgid "Restore"
 msgstr "Restaurar"
+
+msgid "SQLite"
+msgstr ""
 
 msgid "Secrets"
 msgstr "Secretos"
@@ -293,6 +302,12 @@ msgstr ""
 "se establece, se utiliza un certificado autofirmado de cert-manager."
 
 msgid ""
+"The datastore used by the Kubernetes cluster. SQLite is recommended for "
+"single-node setups and SBCs with slow disks, while etcd is recommended for "
+"high-availability setups with multiple nodes."
+msgstr ""
+
+msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
 "database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
@@ -326,8 +341,8 @@ msgstr "El puerto en el que escucha el servicio LoadBalancer."
 msgid "The snapshot was created successfully."
 msgstr "La instantánea ha sido creada satisfactoriamente."
 
-msgid "The snapshot {{ name }} has been successfully restored."
-msgstr "La instantánea {{ name }} se ha restaurado correctamente."
+msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
+msgstr ""
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr "El token para autenticarse en el panel de Kubernetes."
@@ -352,3 +367,6 @@ msgstr "Vista"
 
 msgid "Volume"
 msgstr "Volumen"
+
+msgid "etcd"
+msgstr ""

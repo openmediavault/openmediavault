@@ -11,12 +11,37 @@ data:
       post:
         method: set
     fields:
+      - type: hidden
+        name: installed
+        submitValue: false
       - type: checkbox
         name: enable
         label: _("Enabled")
         value: false
+      - type: select
+        name: datastore
+        label: _("Datastore")
+        hint: _("The datastore used by the Kubernetes cluster. SQLite is recommended for single-node setups and SBCs with slow disks, while etcd is recommended for high-availability setups with multiple nodes.")
+        value: "sqlite"
+        store:
+          data:
+            - - "sqlite"
+              - _("SQLite")
+            - - "etcd"
+              - _("etcd")
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+        modifiers:
+          - type: disabled
+            constraint:
+              operator: truthy
+              arg0:
+                prop: installed
       - type: sharedFolderSelect
-        name: etcdsnapshots_sharedfolderref
+        name: snapshots_sharedfolderref
         label: _("Snapshots")
         hint: _("The location where to store etcd on-demand snapshots.")
         hasEmptyOption: true
@@ -75,9 +100,15 @@ data:
         modifiers:
           - type: enabled
             constraint:
-              operator: truthy
+              operator: and
               arg0:
-                prop: enable
+                operator: truthy
+                arg0:
+                  prop: enable
+              arg1:
+                operator: truthy
+                arg0:
+                  prop: installed
         request:
           service: k8s
           method: getToken
@@ -89,9 +120,15 @@ data:
         modifiers:
           - type: enabled
             constraint:
-              operator: truthy
+              operator: and
               arg0:
-                prop: enable
+                operator: truthy
+                arg0:
+                  prop: enable
+              arg1:
+                operator: truthy
+                arg0:
+                  prop: installed
         request:
           service: K8s
           method: isConfigApplicable
@@ -108,9 +145,15 @@ data:
         modifiers:
           - type: enabled
             constraint:
-              operator: truthy
+              operator: and
               arg0:
-                prop: enable
+                operator: truthy
+                arg0:
+                  prop: enable
+              arg1:
+                operator: truthy
+                arg0:
+                  prop: installed
         request:
           service: K8s
           method: isConfigApplicable

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 18:29+0100\n"
+"POT-Creation-Date: 2024-06-28 17:36+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2024\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
@@ -84,6 +84,9 @@ msgstr "儀表板"
 msgid "Data"
 msgstr "資料"
 
+msgid "Datastore"
+msgstr "資料儲存"
+
 msgid "Date & Time"
 msgstr "日期與時間"
 
@@ -109,9 +112,6 @@ msgstr "將 kubeconfig 檔案下載到本機系統可以使用 kubectl 等命令
 
 msgid "Enabled"
 msgstr "已啟用"
-
-msgid "Etcd Snapshots"
-msgstr "Etcd 快照"
 
 msgid "External IP"
 msgstr "外部 IP"
@@ -212,6 +212,12 @@ msgstr "持久卷冊聲明"
 msgid "Persistent Volumes"
 msgstr "持久卷冊"
 
+msgid "Please wait, a snapshot will be created ..."
+msgstr "請稍候，將會建立一份快照"
+
+msgid "Please wait, the snapshot will be restored ..."
+msgstr "請稍候，將會還原快照……"
+
 msgid "Pods"
 msgstr "Pods"
 
@@ -247,6 +253,9 @@ msgstr "資源"
 
 msgid "Restore"
 msgstr "還原"
+
+msgid "SQLite"
+msgstr "SQLite"
 
 msgid "Secrets"
 msgstr "祕密"
@@ -290,6 +299,12 @@ msgid ""
 msgstr "儀表板與負載平衡服務使用的 SSL 憑證。若未設定，則使用來自 cert-manager 的自行簽署憑證。"
 
 msgid ""
+"The datastore used by the Kubernetes cluster. SQLite is recommended for "
+"single-node setups and SBCs with slow disks, while etcd is recommended for "
+"high-availability setups with multiple nodes."
+msgstr ""
+
+msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
 "database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
@@ -318,8 +333,8 @@ msgstr "負載平衡服務正在監聽的連接埠。"
 msgid "The snapshot was created successfully."
 msgstr "快照建立成功。"
 
-msgid "The snapshot {{ name }} has been successfully restored."
-msgstr "已成功還原快照 {{ name }}。"
+msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
+msgstr "已成功還原快照 {{ spec.snapshotName }}。"
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr "用於向 Kubernetes 儀表板進行身份驗證的權杖。"
@@ -344,3 +359,6 @@ msgstr "檢視"
 
 msgid "Volume"
 msgstr "卷宗"
+
+msgid "etcd"
+msgstr "etcd"

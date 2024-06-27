@@ -50,6 +50,10 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("applyRecipe");
 	}
 
+	private function isK3sInstalled(): bool {
+		return is_executable("/usr/local/bin/k3s");
+	}
+
     /**
      * Checks whether the service is activated and the corresponding
      * module is not marked as dirty.
@@ -75,9 +79,11 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 	 * @return The requested configuration object.
 	 */
 	function get($params, $context) {
-		return \OMV\Rpc\Rpc::call("Config", "get", [
+		$response = \OMV\Rpc\Rpc::call("Config", "get", [
 			"id" => "conf.service.k8s"
 		], $context);
+		$response['installed'] = $this->isK3sInstalled();
+		return $response;
 	}
 
 	/**

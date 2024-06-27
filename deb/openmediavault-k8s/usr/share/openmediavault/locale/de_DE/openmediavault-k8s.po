@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 18:29+0100\n"
+"POT-Creation-Date: 2024-06-28 17:36+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2024\n"
 "Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "Absoluter Pfad"
 
 msgid "Access Modes"
 msgstr "Zugriffsmodi"
@@ -34,7 +34,7 @@ msgid "Apply"
 msgstr "Anwenden"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Architektur"
 
 msgid "Available"
 msgstr "Verfügbar"
@@ -81,6 +81,9 @@ msgstr "Dashboard"
 msgid "Data"
 msgstr ""
 
+msgid "Datastore"
+msgstr ""
+
 msgid "Date & Time"
 msgstr "Datum & Zeit"
 
@@ -109,9 +112,6 @@ msgstr ""
 
 msgid "Enabled"
 msgstr "Aktiviert"
-
-msgid "Etcd Snapshots"
-msgstr ""
 
 msgid "External IP"
 msgstr "External IP"
@@ -165,10 +165,10 @@ msgid "Job"
 msgstr ""
 
 msgid "Kubeconfig"
-msgstr ""
+msgstr "Kubeconfig"
 
 msgid "Kubernetes"
-msgstr ""
+msgstr "Kubernetes"
 
 msgid "Labels"
 msgstr ""
@@ -180,7 +180,7 @@ msgid "Logs"
 msgstr "Protokolle"
 
 msgid "Manifest"
-msgstr ""
+msgstr "Manifest"
 
 msgid "Message"
 msgstr "Nachricht"
@@ -201,22 +201,28 @@ msgid "Open UI"
 msgstr "Benutzeroberfläche öffnen"
 
 msgid "PV"
-msgstr ""
+msgstr "PV"
 
 msgid "PVC"
-msgstr ""
+msgstr "PVC"
 
 msgid "Persistent Volume Claims"
-msgstr ""
+msgstr "Persistent Volume Claims"
 
 msgid "Persistent Volumes"
-msgstr ""
+msgstr "Persistent Volumes"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr "Bitte warten, es wird ein Snapshot erstellt ..."
+
+msgid "Please wait, the snapshot will be restored ..."
+msgstr "Bitte warten, der Snapshot wird wiederhergestellt ..."
 
 msgid "Pods"
 msgstr "Pods"
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Ports"
 msgstr "Ports"
@@ -246,7 +252,10 @@ msgid "Resources"
 msgstr ""
 
 msgid "Restore"
-msgstr ""
+msgstr "Wiederherstellen"
+
+msgid "SQLite"
+msgstr "SQLite"
 
 msgid "Secrets"
 msgstr "Geheimnisse"
@@ -261,19 +270,19 @@ msgid "Settings"
 msgstr "Einstellungen"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "Freigegebene Ordner"
 
 msgid "Size"
 msgstr "Größe"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Schnappschüsse"
 
 msgid "Status"
 msgstr "Status"
 
 msgid "Storage Class"
-msgstr ""
+msgstr "Storage Class"
 
 msgid "Tag"
 msgstr "Etikett"
@@ -291,6 +300,15 @@ msgstr ""
 "Das vom Dashboard und dem LoadBalancer-Dienst verwendete SSL-Zertifikat. "
 "Wenn es nicht gesetzt ist, wird ein selbstsigniertes Zertifikat von cert-"
 "manager verwendet."
+
+msgid ""
+"The datastore used by the Kubernetes cluster. SQLite is recommended for "
+"single-node setups and SBCs with slow disks, while etcd is recommended for "
+"high-availability setups with multiple nodes."
+msgstr ""
+"Der vom Kubernetes-Cluster verwendete Datenspeicher. SQLite wird für Single-"
+"Node-Setups und SBCs mit langsamen Festplatten empfohlen, während etcd für "
+"Hochverfügbarkeits-Setups mit mehreren Nodes empfohlen wird."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -318,17 +336,17 @@ msgstr "Der Port, an dem der LoadBalancer-Dienst lauscht."
 msgid "The snapshot was created successfully."
 msgstr "Der Schnappschuss wurde erfolgreich erstellt."
 
-msgid "The snapshot {{ name }} has been successfully restored."
+msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
 msgstr ""
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr "Das Token zur Authentifizierung beim Kubernetes Dashboard."
 
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "Up-to-date"
 msgstr ""
@@ -344,3 +362,6 @@ msgstr ""
 
 msgid "Volume"
 msgstr ""
+
+msgid "etcd"
+msgstr "etcd"

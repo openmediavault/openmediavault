@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 18:29+0100\n"
+"POT-Creation-Date: 2024-06-28 17:36+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Kostas Moho, 2024\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
@@ -81,6 +81,9 @@ msgstr "Ταμπλό"
 msgid "Data"
 msgstr "Δεδομένα"
 
+msgid "Datastore"
+msgstr ""
+
 msgid "Date & Time"
 msgstr "Ημερομηνία & Ώρα"
 
@@ -109,9 +112,6 @@ msgstr ""
 
 msgid "Enabled"
 msgstr "Ενεργό"
-
-msgid "Etcd Snapshots"
-msgstr "Στιγμιότυπα Etcd"
 
 msgid "External IP"
 msgstr "Εξωτερική ΙΡ"
@@ -212,6 +212,12 @@ msgstr "Αξιώσεις Μόνιμων Τόμων"
 msgid "Persistent Volumes"
 msgstr "Μόνιμοι Τόμοι"
 
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
+
+msgid "Please wait, the snapshot will be restored ..."
+msgstr ""
+
 msgid "Pods"
 msgstr "Κάψουλες"
 
@@ -247,6 +253,9 @@ msgstr "Πόροι"
 
 msgid "Restore"
 msgstr "Αποκατάσταση"
+
+msgid "SQLite"
+msgstr ""
 
 msgid "Secrets"
 msgstr "Μυστικά"
@@ -293,6 +302,12 @@ msgstr ""
 "πιστοποιητικό από τον cert-manager."
 
 msgid ""
+"The datastore used by the Kubernetes cluster. SQLite is recommended for "
+"single-node setups and SBCs with slow disks, while etcd is recommended for "
+"high-availability setups with multiple nodes."
+msgstr ""
+
+msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
 "database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
@@ -324,8 +339,8 @@ msgstr "Η θύρα στην οποία ακούει η υπηρεσία του 
 msgid "The snapshot was created successfully."
 msgstr "Το στιγμιότυπο δημιουργήθηκε επιτυχώς"
 
-msgid "The snapshot {{ name }} has been successfully restored."
-msgstr "Το στιγμιότυπο {{ name }} αποκαταστάθηκε επιτυχώς."
+msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
+msgstr ""
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr "Το τεκμήριο για την πιστοποίηση στο Ταμπλώ του Kubernetes."
@@ -350,3 +365,6 @@ msgstr "Προβολή"
 
 msgid "Volume"
 msgstr "Τόμος"
+
+msgid "etcd"
+msgstr ""
