@@ -121,7 +121,7 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 			"filepath" => $filePath,
 			"unlink" => FALSE,
 			"headers" => [
-				"Content-Disposition" => "text/yaml"
+				"Content-Type" => "text/yaml"
 			],
 		];
 	}
