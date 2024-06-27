@@ -33,7 +33,9 @@ smartmontools_hdparm_{{ filename }}:
         #!/bin/sh
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
-        smartctl{% if device.aam > 0 %} --set=aam,{{ device.aam }}{% endif %}{% if device.apm > 0 %} --set=apm,{{ device.apm }}{% endif %}{% if device.spindowntime > 0 %} --set=standby,{{ device.spindowntime }}{% endif %}{% if device.writecache | to_bool %} --set=wcache,on{% else %} --set=wcache,off{% endif %} {{ device.devicefile }}
+        if [ -b '{{ device.devicefile }}' ]; then
+          smartctl{% if device.aam > 0 %} --set=aam,{{ device.aam }}{% endif %}{% if device.apm > 0 %} --set=apm,{{ device.apm }}{% endif %}{% if device.spindowntime > 0 %} --set=standby,{{ device.spindowntime }}{% endif %}{% if device.writecache | to_bool %} --set=wcache,on{% else %} --set=wcache,off{% endif %} {{ device.devicefile }}
+        fi
     - user: root
     - group: root
     - mode: 744
