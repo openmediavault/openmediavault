@@ -151,7 +151,7 @@ class SmartInformation {
 			$cmdArgs[] = "--log=selftest";
 		}
 		if (!is_null($this->powerMode)) {
-			$cmdArgs[] = sprintf("--nocheck=%s", escapeshellarg(
+			$cmdArgs[] = sprintf("--nocheck=%s,0", escapeshellarg(
 				$this->powerMode));
 		}
 		if (!empty($this->sd->getSmartDeviceType())) {
