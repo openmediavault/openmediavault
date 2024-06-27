@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 22:16+0200\n"
+"POT-Creation-Date: 2024-06-27 14:32+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -278,6 +278,9 @@ msgstr ""
 
 msgid "Active"
 msgstr "활성화"
+
+msgid "Active or Idle"
+msgstr ""
 
 msgid "Add"
 msgstr "추가"
@@ -2336,6 +2339,12 @@ msgstr ""
 
 msgid "Please wait ..."
 msgstr "잠시 기다려주십시오 ..."
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr ""

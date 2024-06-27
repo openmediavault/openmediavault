@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 22:16+0200\n"
+"POT-Creation-Date: 2024-06-27 14:32+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -276,6 +276,9 @@ msgstr ""
 
 msgid "Active"
 msgstr "نشط"
+
+msgid "Active or Idle"
+msgstr ""
 
 msgid "Add"
 msgstr "أضف"
@@ -2334,6 +2337,12 @@ msgstr "الرجاء اختيار طريقة محو الجهاز."
 
 msgid "Please wait ..."
 msgstr "يرجى الانتظار ..."
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "الرجاء الانتظار، يتم الان حذف العنصر (العناصر) المحددة ..."

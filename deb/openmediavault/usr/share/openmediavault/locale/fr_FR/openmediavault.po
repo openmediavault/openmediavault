@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 22:16+0200\n"
+"POT-Creation-Date: 2024-06-27 14:32+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Francis Dhumes, 2023\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -290,6 +290,9 @@ msgstr ""
 
 msgid "Active"
 msgstr "Actif"
+
+msgid "Active or Idle"
+msgstr ""
 
 msgid "Add"
 msgstr "Ajouter"
@@ -2348,6 +2351,12 @@ msgstr "Veuillez choisir la méthode pour effacer le périphérique."
 
 msgid "Please wait ..."
 msgstr "Veuillez patienter SVP ..."
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "Veuillez patienter, suppression de l'objet ou des objets sélectionnés ..."

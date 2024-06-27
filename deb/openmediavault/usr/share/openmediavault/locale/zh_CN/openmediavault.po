@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 22:16+0200\n"
+"POT-Creation-Date: 2024-06-27 14:32+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: 王大山, 2022-2023\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -281,6 +281,9 @@ msgstr "對此裝置啟動 S.M.A.R.T. 監測。請注意唯有被監測的裝置
 
 msgid "Active"
 msgstr "激活"
+
+msgid "Active or Idle"
+msgstr ""
 
 msgid "Add"
 msgstr "添加"
@@ -2339,6 +2342,12 @@ msgstr "请选择该设备的擦除方式。"
 
 msgid "Please wait ..."
 msgstr "请稍等 ..."
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "请稍等，正在删除选中的项（可多选）……"

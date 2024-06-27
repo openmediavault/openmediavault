@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2024-06-27 14:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: M@T D., 2022\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -77,6 +77,9 @@ msgstr "Libérer"
 msgid "Invalid name"
 msgstr "Nom invalide"
 
+msgid "LVM"
+msgstr ""
+
 msgid "Logical Volume Management"
 msgstr "Gestion des volumes logiques"
 
@@ -88,6 +91,9 @@ msgstr "Nom"
 
 msgid "Physical Volumes"
 msgstr "Volumes Physiques"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Reduce"
 msgstr "Réduire"

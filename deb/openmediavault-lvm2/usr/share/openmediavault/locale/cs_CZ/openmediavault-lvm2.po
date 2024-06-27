@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2024-06-27 14:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2017,2021\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -72,6 +72,9 @@ msgstr "Volné"
 msgid "Invalid name"
 msgstr "Neplatný název"
 
+msgid "LVM"
+msgstr ""
+
 msgid "Logical Volume Management"
 msgstr "Správa logických svazků (LVM)"
 
@@ -83,6 +86,9 @@ msgstr "Název"
 
 msgid "Physical Volumes"
 msgstr "Fyzické svazky"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Reduce"
 msgstr "Zmenšit"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 22:16+0200\n"
+"POT-Creation-Date: 2024-06-27 14:32+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2024\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -281,6 +281,9 @@ msgstr "Aktiválja a S.M.A.R.T. monitorozást ezen az eszközön. Vegye figyelem
 
 msgid "Active"
 msgstr "Aktív"
+
+msgid "Active or Idle"
+msgstr ""
 
 msgid "Add"
 msgstr "Hozzáadás"
@@ -2339,6 +2342,12 @@ msgstr "Kérjük, válassza ki az eszköz törlésének módját. "
 
 msgid "Please wait ..."
 msgstr "Kis türelmet…"
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "Kijelölt elem(ek) törlése, kérjük várjon…"

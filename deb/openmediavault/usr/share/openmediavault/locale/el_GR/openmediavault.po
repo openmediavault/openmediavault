@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 22:16+0200\n"
+"POT-Creation-Date: 2024-06-27 14:32+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2024\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -275,6 +275,9 @@ msgstr "Ενεργοποίηση παρακολούθησης S.M.A.R.T. για 
 
 msgid "Active"
 msgstr "Ενεργό"
+
+msgid "Active or Idle"
+msgstr ""
 
 msgid "Add"
 msgstr "Προσθήκη"
@@ -2334,6 +2337,12 @@ msgstr "Επιλογή μεθόδου εκκένωσης της συσκευής
 msgid "Please wait ..."
 msgstr "Παρακαλώ περιμένετε ..."
 
+msgid "Please wait, a shared folder will be created ..."
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
+
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "Αναμείνατε για διαγραφή των επιλεγμένων ..."
 
@@ -2389,7 +2398,7 @@ msgid "Power Management"
 msgstr "Διαχείριση ενέργειας"
 
 msgid "Power Mode"
-msgstr ""
+msgstr "Κατάστασης Ενέργειας"
 
 msgid "Power Off"
 msgstr "Απενεργοποίηση"

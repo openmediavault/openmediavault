@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 22:16+0200\n"
+"POT-Creation-Date: 2024-06-27 14:32+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -276,6 +276,9 @@ msgstr ""
 
 msgid "Active"
 msgstr "Aktivní"
+
+msgid "Active or Idle"
+msgstr ""
 
 msgid "Add"
 msgstr "Přidat"
@@ -2334,6 +2337,12 @@ msgstr "Zvolte způsob kompletního smazání zařízení."
 
 msgid "Please wait ..."
 msgstr "Čekejte prosím…"
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "Vyčkejte, mazání označení položek"

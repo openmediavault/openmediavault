@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 22:16+0200\n"
+"POT-Creation-Date: 2024-06-27 14:32+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -275,6 +275,9 @@ msgstr ""
 
 msgid "Active"
 msgstr "Aktif"
+
+msgid "Active or Idle"
+msgstr ""
 
 msgid "Add"
 msgstr "Ekle"
@@ -2333,6 +2336,12 @@ msgstr "Cihazı silmek için bir metod seçiniz."
 
 msgid "Please wait ..."
 msgstr "Lütfen bekleyiniz..."
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr ""

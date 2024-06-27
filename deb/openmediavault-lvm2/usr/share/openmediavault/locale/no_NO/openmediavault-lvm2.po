@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2024-06-27 14:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
 "Language-Team: Norwegian (http://app.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -73,6 +73,9 @@ msgstr "Ledig"
 msgid "Invalid name"
 msgstr "Ugyldig navn"
 
+msgid "LVM"
+msgstr ""
+
 msgid "Logical Volume Management"
 msgstr "LVM Administrasjon"
 
@@ -83,6 +86,9 @@ msgid "Name"
 msgstr "Navn"
 
 msgid "Physical Volumes"
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
 msgstr ""
 
 msgid "Reduce"

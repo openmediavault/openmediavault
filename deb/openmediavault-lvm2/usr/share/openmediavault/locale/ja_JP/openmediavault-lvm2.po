@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2024-06-27 14:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2015,2017,2021-2022\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -72,6 +72,9 @@ msgstr "空き"
 msgid "Invalid name"
 msgstr "不正な名前"
 
+msgid "LVM"
+msgstr ""
+
 msgid "Logical Volume Management"
 msgstr "論理ボリュームの管理(LVM)"
 
@@ -83,6 +86,9 @@ msgstr "名前"
 
 msgid "Physical Volumes"
 msgstr "物理ボリューム"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Reduce"
 msgstr "縮小"

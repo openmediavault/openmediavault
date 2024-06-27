@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2024-06-27 14:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2022-2023\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -76,6 +76,9 @@ msgstr "Frei"
 msgid "Invalid name"
 msgstr "Name ungültig"
 
+msgid "LVM"
+msgstr ""
+
 msgid "Logical Volume Management"
 msgstr "Logical Volume Management"
 
@@ -87,6 +90,9 @@ msgstr "Name"
 
 msgid "Physical Volumes"
 msgstr "Physical Volumes"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr "Bitte warten, es wird ein Snapshot erstellt ..."
 
 msgid "Reduce"
 msgstr "Reduzieren"

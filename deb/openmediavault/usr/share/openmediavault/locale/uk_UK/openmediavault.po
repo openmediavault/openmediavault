@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 22:16+0200\n"
+"POT-Creation-Date: 2024-06-27 14:32+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -277,6 +277,9 @@ msgstr ""
 
 msgid "Active"
 msgstr "Активний"
+
+msgid "Active or Idle"
+msgstr ""
 
 msgid "Add"
 msgstr "Додати"
@@ -2335,6 +2338,12 @@ msgstr "Виберіть спосіб очищення пристрою."
 
 msgid "Please wait ..."
 msgstr "Зачекайте..."
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "Будь ласка, зачекайте, видалення обраних елементів ..."

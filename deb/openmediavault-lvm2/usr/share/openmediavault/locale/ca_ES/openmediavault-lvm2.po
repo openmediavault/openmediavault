@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2024-06-27 14:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2021-2022\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -74,6 +74,9 @@ msgstr "Lliure"
 msgid "Invalid name"
 msgstr "Nom inválid"
 
+msgid "LVM"
+msgstr ""
+
 msgid "Logical Volume Management"
 msgstr "Gestió de volums lògics"
 
@@ -85,6 +88,9 @@ msgstr "Nom"
 
 msgid "Physical Volumes"
 msgstr "Volums físics"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Reduce"
 msgstr "Reduir"

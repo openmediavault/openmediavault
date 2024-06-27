@@ -125,6 +125,7 @@ export class SharedFolderSnapshotsTabsPageComponent {
                   params: {
                     uuid: '{{ _routeParams.uuid }}'
                   },
+                  progressMessage: gettext('Please wait, a snapshot will be created ...'),
                   successNotification: gettext(
                     "The snapshot '{{ _response.name }}' has been created for the shared folder '{{ _response.sharedfolder }}'."
                   )
@@ -149,6 +150,7 @@ export class SharedFolderSnapshotsTabsPageComponent {
                     uuid: '{{ _routeParams.uuid }}',
                     id: '{{ id }}'
                   },
+                  progressMessage: gettext('Please wait, a shared folder will be created ...'),
                   successNotification: gettext(
                     'The shared folder {{ _selected[0].name }} was successfully created.'
                   )

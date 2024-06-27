@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2024-06-27 14:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -74,6 +74,9 @@ msgstr "未用"
 msgid "Invalid name"
 msgstr "不合法的名稱"
 
+msgid "LVM"
+msgstr ""
+
 msgid "Logical Volume Management"
 msgstr "邏輯磁碟管理"
 
@@ -85,6 +88,9 @@ msgstr "名稱"
 
 msgid "Physical Volumes"
 msgstr "實體碟卷"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Reduce"
 msgstr "縮減"

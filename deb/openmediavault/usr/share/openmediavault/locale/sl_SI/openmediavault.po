@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 22:16+0200\n"
+"POT-Creation-Date: 2024-06-27 14:32+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -275,6 +275,9 @@ msgstr ""
 
 msgid "Active"
 msgstr "Aktivno"
+
+msgid "Active or Idle"
+msgstr ""
 
 msgid "Add"
 msgstr "Dodaj"
@@ -2333,6 +2336,12 @@ msgstr ""
 
 msgid "Please wait ..."
 msgstr "Prosimo počakajte ..."
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr ""

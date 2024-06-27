@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 22:16+0200\n"
+"POT-Creation-Date: 2024-06-27 14:32+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -275,6 +275,9 @@ msgstr ""
 
 msgid "Active"
 msgstr "アクティブ"
+
+msgid "Active or Idle"
+msgstr ""
 
 msgid "Add"
 msgstr "追加"
@@ -2333,6 +2336,12 @@ msgstr "端末のワイプ方法を選択してください。"
 
 msgid "Please wait ..."
 msgstr "お待ちください ..."
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "選択した項目を削除しているため、しばらくお待ちください ..."

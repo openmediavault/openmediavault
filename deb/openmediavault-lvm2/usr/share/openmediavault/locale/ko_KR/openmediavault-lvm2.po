@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2024-06-27 14:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -73,6 +73,9 @@ msgstr "여유"
 msgid "Invalid name"
 msgstr "잘못된 이름"
 
+msgid "LVM"
+msgstr ""
+
 msgid "Logical Volume Management"
 msgstr "논리 볼륨 관리"
 
@@ -83,6 +86,9 @@ msgid "Name"
 msgstr "이름"
 
 msgid "Physical Volumes"
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
 msgstr ""
 
 msgid "Reduce"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 22:16+0200\n"
+"POT-Creation-Date: 2024-06-27 14:32+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013,2015\n"
 "Language-Team: Galician (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
@@ -277,6 +277,9 @@ msgid ""
 msgstr ""
 
 msgid "Active"
+msgstr ""
+
+msgid "Active or Idle"
 msgstr ""
 
 msgid "Add"
@@ -2336,6 +2339,12 @@ msgstr ""
 
 msgid "Please wait ..."
 msgstr "Agarde ..."
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr ""

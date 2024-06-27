@@ -65,6 +65,7 @@ data:
             method: createLogicalVolumeSnapshot
             params:
               devicefile: "{{ devicefile }}"
+            progressMessage: _("Please wait, a snapshot will be created ...")
             successNotification: _("Created snapshot of logical volume '{{ devicefile }}'.")
       - type: iconButton
         icon: collapse

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2024-06-27 14:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: zubr139, 2013,2016-2017,2021\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -72,6 +72,9 @@ msgstr "Вільно"
 msgid "Invalid name"
 msgstr "Неправильна назва"
 
+msgid "LVM"
+msgstr ""
+
 msgid "Logical Volume Management"
 msgstr "Керування логічними розділами"
 
@@ -83,6 +86,9 @@ msgstr "Ім'я"
 
 msgid "Physical Volumes"
 msgstr "Фізичні томи"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
 
 msgid "Reduce"
 msgstr "Зменшити"

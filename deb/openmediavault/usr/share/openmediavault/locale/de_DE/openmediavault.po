@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 22:16+0200\n"
+"POT-Creation-Date: 2024-06-27 14:32+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2024\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -288,6 +288,9 @@ msgstr "Aktiviert die S.M.A.R.T. Überwachung für dieses Gerät. Beachten Sie, 
 
 msgid "Active"
 msgstr "Aktiv"
+
+msgid "Active or Idle"
+msgstr "Aktiv oder Untätig"
 
 msgid "Add"
 msgstr "Hinzufügen"
@@ -2346,6 +2349,12 @@ msgstr "Bitte wählen Sie die Methode zum Löschen des Geräts."
 
 msgid "Please wait ..."
 msgstr "Bitte warten ..."
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr "Bitte warten Sie, es wird ein freigegebener Ordner erstellt ..."
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr "Bitte warten, es wird ein Snapshot erstellt ..."
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "Bitte warten, die ausgewählten Elemente werden gelöscht ..."
