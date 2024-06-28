@@ -283,7 +283,7 @@ msgid "Active"
 msgstr "激活"
 
 msgid "Active or Idle"
-msgstr ""
+msgstr "運作或閒置"
 
 msgid "Add"
 msgstr "添加"
@@ -2344,10 +2344,10 @@ msgid "Please wait ..."
 msgstr "请稍等 ..."
 
 msgid "Please wait, a shared folder will be created ..."
-msgstr ""
+msgstr "請稍待，一個共享檔案夾將被創建 ..."
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "請稍待，一份快照將被創建 ..."
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "请稍等，正在删除选中的项（可多选）……"

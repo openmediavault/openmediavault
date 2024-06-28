@@ -276,10 +276,10 @@ msgid ""
 msgstr "對此裝置啟動 S.M.A.R.T. 監測。請注意唯有被監測的裝置才會列在預定工作中。只要該裝置仍存在有預定工作，就無法將監測關閉。"
 
 msgid "Active"
-msgstr "現用"
+msgstr "運作"
 
 msgid "Active or Idle"
-msgstr ""
+msgstr "運作或閒置"
 
 msgid "Add"
 msgstr "新增"
@@ -2340,10 +2340,10 @@ msgid "Please wait ..."
 msgstr "請稍候 ..."
 
 msgid "Please wait, a shared folder will be created ..."
-msgstr ""
+msgstr "請稍待，一個共享檔案夾將被創建 ..."
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "請稍待，一份快照將被創建 ..."
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "請稍待，正在刪除所選項目中 ..."
