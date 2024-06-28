@@ -6,6 +6,7 @@ openmediavault (7.3.0-4) stable; urgency=low
     migrating to Angular >= 15.
   * Add `Power Mode` and `Temperature` datatable column to the
     `Storage | Disks` page. Note, the columns are hidden by default.
+    If the device is in standby mode, no temperature is displayed.
   * Issue #1774: Improve foundation for plugins.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 11 Jun 2024 17:45:42 +0200
