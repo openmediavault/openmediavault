@@ -11,9 +11,9 @@ data:
         prop: createdAtTs
     store:
       proxy:
-        service: Etcd
+        service: K3s
         get:
-          method: getSnapshots
+          method: getSnapshotList
     rowId: name
     rowEnumFmt: "{{ name }}"
     selectionType: single
@@ -49,8 +49,9 @@ data:
         execute:
           type: request
           request:
-            service: Etcd
+            service: K3s
             method: createSnapshot
+            progressMessage: _("Please wait, a snapshot will be created ...")
             successNotification: _("The snapshot was created successfully.")
       - type: iconButton
         icon: restore
@@ -64,16 +65,17 @@ data:
         execute:
           type: request
           request:
-            service: Etcd
+            service: K3s
             method: restoreSnapshot
             params:
               name: "{{ spec.snapshotName }}"
+            progressMessage: _("Please wait, the snapshot will be restored ...")
             successNotification: _("The snapshot {{ spec.snapshotName }} has been successfully restored.")
       - template: delete
         execute:
           type: request
           request:
-            service: Etcd
+            service: K3s
             method: deleteSnapshot
             params:
               name: "{{ spec.snapshotName }}"

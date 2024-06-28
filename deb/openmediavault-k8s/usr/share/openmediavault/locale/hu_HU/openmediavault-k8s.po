@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 18:29+0100\n"
+"POT-Creation-Date: 2024-06-28 17:36+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
@@ -82,6 +82,9 @@ msgstr "Műszerfal"
 msgid "Data"
 msgstr "Adatok"
 
+msgid "Datastore"
+msgstr "Adattároló"
+
 msgid "Date & Time"
 msgstr "Dátum és idő"
 
@@ -110,9 +113,6 @@ msgstr ""
 
 msgid "Enabled"
 msgstr "Engedélyezve"
-
-msgid "Etcd Snapshots"
-msgstr "Etcd pilllanatkép"
 
 msgid "External IP"
 msgstr "Külső IP"
@@ -213,6 +213,12 @@ msgstr "Megmaradókötet-kérés"
 msgid "Persistent Volumes"
 msgstr "Megmaradó kötetek"
 
+msgid "Please wait, a snapshot will be created ..."
+msgstr "Kérjük várjon, amíg a pillanatkép elkészül…"
+
+msgid "Please wait, the snapshot will be restored ..."
+msgstr "Kérjük várjon, amíg a pillanatkép vissza lesz állítva…"
+
 msgid "Pods"
 msgstr "Hüvelyek"
 
@@ -248,6 +254,9 @@ msgstr "Erőforrások"
 
 msgid "Restore"
 msgstr "Visszaállítás"
+
+msgid "SQLite"
+msgstr "SQLite"
 
 msgid "Secrets"
 msgstr "Titkok"
@@ -294,6 +303,12 @@ msgstr ""
 "tanúsítványát használja."
 
 msgid ""
+"The datastore used by the Kubernetes cluster. SQLite is recommended for "
+"single-node setups and SBCs with slow disks, while etcd is recommended for "
+"high-availability setups with multiple nodes."
+msgstr ""
+
+msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
 "database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
@@ -325,8 +340,9 @@ msgstr "A port, amelyen a Terheléselosztó szolgáltatás hallgat."
 msgid "The snapshot was created successfully."
 msgstr "A pillanatfelvétel sikeresen létrejött."
 
-msgid "The snapshot {{ name }} has been successfully restored."
-msgstr "A(z) {{ name }} pillanatfelvétel sikeres vissza lett állítva."
+msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
+msgstr ""
+"A(z) {{ spec.snapshotName}} pillanatkép sikeresen vissza lett állítva."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr "A Kubernetes Műszerfalon való hitelesítéshez szükséges token."
@@ -351,3 +367,6 @@ msgstr "Nézet"
 
 msgid "Volume"
 msgstr "Kötet"
+
+msgid "etcd"
+msgstr "etcd"

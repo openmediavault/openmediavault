@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 18:29+0100\n"
+"POT-Creation-Date: 2024-06-28 17:36+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Jonatan Nyberg, 2024\n"
 "Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
@@ -81,6 +81,9 @@ msgstr "Instrumentpanel"
 msgid "Data"
 msgstr "Data"
 
+msgid "Datastore"
+msgstr ""
+
 msgid "Date & Time"
 msgstr "Datum & tid"
 
@@ -109,9 +112,6 @@ msgstr ""
 
 msgid "Enabled"
 msgstr "Aktiverad"
-
-msgid "Etcd Snapshots"
-msgstr "Etcd ögonblicksbilder"
 
 msgid "External IP"
 msgstr "Extern IP"
@@ -212,6 +212,12 @@ msgstr "Beständiga volymanspråk"
 msgid "Persistent Volumes"
 msgstr "Beständiga volymer"
 
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
+
+msgid "Please wait, the snapshot will be restored ..."
+msgstr ""
+
 msgid "Pods"
 msgstr "Poddar"
 
@@ -247,6 +253,9 @@ msgstr "Resurser"
 
 msgid "Restore"
 msgstr "Återställ"
+
+msgid "SQLite"
+msgstr ""
 
 msgid "Secrets"
 msgstr "Hemligheter"
@@ -292,6 +301,12 @@ msgstr ""
 " Om inte inställt används ett självsignerat certifikat från cert-manager."
 
 msgid ""
+"The datastore used by the Kubernetes cluster. SQLite is recommended for "
+"single-node setups and SBCs with slow disks, while etcd is recommended for "
+"high-availability setups with multiple nodes."
+msgstr ""
+
+msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
 "database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
@@ -323,8 +338,8 @@ msgstr "Porten som LoadBalancer-tjänsten lyssnar på."
 msgid "The snapshot was created successfully."
 msgstr "Ögonblicksbilden skapades."
 
-msgid "The snapshot {{ name }} has been successfully restored."
-msgstr "Ögonblicksbilden {{ name }} har återställts."
+msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
+msgstr ""
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr "Token för att autentisera till Kubernetes-instrumentpanel."
@@ -349,3 +364,6 @@ msgstr "Visa"
 
 msgid "Volume"
 msgstr "Volym"
+
+msgid "etcd"
+msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 18:29+0100\n"
+"POT-Creation-Date: 2024-06-28 17:36+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Language-Team: Basque (Spain) (https://app.transifex.com/openmediavault/teams/14254/eu_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -77,6 +77,9 @@ msgstr ""
 msgid "Data"
 msgstr ""
 
+msgid "Datastore"
+msgstr ""
+
 msgid "Date & Time"
 msgstr ""
 
@@ -101,9 +104,6 @@ msgid ""
 msgstr ""
 
 msgid "Enabled"
-msgstr ""
-
-msgid "Etcd Snapshots"
 msgstr ""
 
 msgid "External IP"
@@ -205,6 +205,12 @@ msgstr ""
 msgid "Persistent Volumes"
 msgstr ""
 
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
+
+msgid "Please wait, the snapshot will be restored ..."
+msgstr ""
+
 msgid "Pods"
 msgstr ""
 
@@ -239,6 +245,9 @@ msgid "Resources"
 msgstr ""
 
 msgid "Restore"
+msgstr ""
+
+msgid "SQLite"
 msgstr ""
 
 msgid "Secrets"
@@ -283,6 +292,12 @@ msgid ""
 msgstr ""
 
 msgid ""
+"The datastore used by the Kubernetes cluster. SQLite is recommended for "
+"single-node setups and SBCs with slow disks, while etcd is recommended for "
+"high-availability setups with multiple nodes."
+msgstr ""
+
+msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
 "database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
@@ -307,7 +322,7 @@ msgstr ""
 msgid "The snapshot was created successfully."
 msgstr ""
 
-msgid "The snapshot {{ name }} has been successfully restored."
+msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
 msgstr ""
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
@@ -332,4 +347,7 @@ msgid "View"
 msgstr ""
 
 msgid "Volume"
+msgstr ""
+
+msgid "etcd"
 msgstr ""

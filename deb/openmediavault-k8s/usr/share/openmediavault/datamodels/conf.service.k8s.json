@@ -11,6 +11,11 @@
 			"type": "boolean",
 			"default": false
 		},
+		"datastore": {
+			"type": "string",
+			"enum": [ "etcd", "sqlite" ],
+			"default": "sqlite"
+		},
 		"webport": {
 			"type": "integer",
 			"minimum": 1,
@@ -29,7 +34,7 @@
 			"maximum": 65535,
 			"default": 4443
 		},
-		"etcdsnapshots_sharedfolderref": {
+		"snapshots_sharedfolderref": {
 			"type": "string",
 			"oneOf": [{
 				"type": "string",

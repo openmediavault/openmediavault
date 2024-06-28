@@ -1,4 +1,4 @@
-#!/usr/bin/env dash
+#!/bin/sh
 #
 # This file is part of OpenMediaVault.
 #
@@ -23,24 +23,7 @@ set -e
 
 . /usr/share/openmediavault/scripts/helper-functions
 
-########################################################################
-# Update the configuration.
-# <config>
-#   <services>
-#     <k8s>
-#     	<enable>0</enable>
-#     	<datastore>etcd|sqlite</datastore>
-#     	<webport>8080</webport>
-#     	<websecureport>8443</websecureport>
-#     	<dashboardport>4443</dashboardport>
-#       <sslcertificateref></sslcertificateref>
-#       <snapshots_sharedfolderref></snapshots_sharedfolderref>
-#     </k8s>
-#   </services>
-# </config>
-########################################################################
-if ! omv_config_exists "/config/services/k8s"; then
-    omv-confdbadm read --defaults "conf.service.k8s" | omv-confdbadm update "conf.service.k8s" -
-fi
+omv_config_add_key "/config/services/k8s" "datastore" "etcd"
+omv_config_rename "/config/services/k8s/etcdsnapshots_sharedfolderref" "snapshots_sharedfolderref"
 
 exit 0
