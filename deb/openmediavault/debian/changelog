@@ -1,10 +1,4 @@
-openmediavault (7.3.1-1) stable; urgency=low
-
-  *
-
- -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Jun 2024 16:39:15 +0200
-
-openmediavault (7.3.0-3) stable; urgency=low
+openmediavault (7.3.0-4) stable; urgency=low
 
   * Update locale files.
   * Refactor the RPC parameter handling.

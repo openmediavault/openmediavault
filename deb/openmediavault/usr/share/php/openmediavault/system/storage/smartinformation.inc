@@ -28,7 +28,7 @@ namespace OMV\System\Storage;
  */
 class SmartInformation {
 	protected $sd = NULL;
-	protected $powerMode = NULL;
+	protected $noCheck = NULL;
 	private $cmdOutput = NULL;
 	private $dataCached = FALSE;
 	private $dataCachedKind = NULL;
@@ -150,9 +150,9 @@ class SmartInformation {
 			$cmdArgs[] = "--health";
 			$cmdArgs[] = "--log=selftest";
 		}
-		if (!is_null($this->powerMode)) {
+		if (!is_null($this->noCheck)) {
 			$cmdArgs[] = sprintf("--nocheck=%s", escapeshellarg(
-				$this->powerMode));
+				$this->noCheck));
 		}
 		if (!empty($this->sd->getSmartDeviceType())) {
 			$cmdArgs[] = sprintf("--device=%s", $this->sd->getSmartDeviceType());
@@ -186,15 +186,14 @@ class SmartInformation {
 	}
 
 	/**
-	 * Set the power mode that is used for the `--nocheck=POWERMODE` smartctl
-	 * command line option.
+	 * Set the `smartctl` `--noCheck` option.
 	 * @see https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in#n
-	 * @param string $powerMode The power mode, e.g. `never`, `sleep`,
-	 *   `standby` or `idle`. Defaults to NULL.
+	 * @param string $noCheck The `--nocheck` option, e.g. `never`, `sleep`,
+	 *   `standby`, `standby,0` or `idle`. Defaults to NULL.
 	 * @return void
 	 */
-	public function setPowerMode($powerMode = NULL) {
-		$this->powerMode = $powerMode;
+	public function setNoCheck($noCheck = NULL) {
+		$this->noCheck = $noCheck;
 	}
 
 	/**
@@ -657,5 +656,42 @@ class SmartInformation {
 			return self::SMART_ASSESSMENT_BAD_SECTOR;
 		// There's really nothing to complain about, so give it a pass.
 		return self::SMART_ASSESSMENT_GOOD;
+	}
+
+	/**
+	 * Get the power mode of the device.
+	 * @return string Returns the power mode, e.g. `ACTIVE`, `STANDBY`,
+	 *   `IDLE`, `ACTIVE or IDLE`, `UNKNOWN` or `ERROR`.
+	 * @see https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in#n
+	 */
+	public function getPowerMode(): string {
+		try {
+			$info = $this->getInformation();
+			// smartctl 7.3 2022-02-28 r5338 [x86_64-linux-6.1.0-0.deb11.21-amd64] (local build)
+			// Copyright (C) 2002-22, Bruce Allen, Christian Franke, www.smartmontools.org
+			//
+			// === START OF INFORMATION SECTION ===
+			// Model Family:     Western Digital Caviar Green (AF)
+			// ...
+			// SMART support is: Available - device has SMART capability.
+			// SMART support is: Enabled
+			// Power mode is:    ACTIVE or IDLE
+			if (array_key_exists("powermodeis", $info)) {
+				return $info['powermodeis'];
+			}
+		} catch (\Exception $e) {
+			syslog(LOG_ERR, sprintf("Failed to fetch SMART information: %s",
+				$e->getMessage()));
+			return "ERROR";
+		}
+		// smartctl 7.3 2022-02-28 r5338 [x86_64-linux-6.1.0-0.deb11.21-amd64] (local build)
+		// Copyright (C) 2002-22, Bruce Allen, Christian Franke, www.smartmontools.org
+		//
+		// Device is in STANDBY mode, exit(2)
+		$regex = '/^Device is in (\S+) mode, exit\((\d+)\)$/i';
+		if (1 == preg_match($regex, end($this->cmdOutput), $matches)) {
+			return $matches[1];
+		}
+		return "UNKNOWN";
 	}
 }
