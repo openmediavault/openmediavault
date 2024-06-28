@@ -81,17 +81,12 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			$powerMode = "UNKNOWN";
 			$temperature = FALSE;
 			if (TRUE === $sd->hasSmartSupport()) {
-				try {
-					$si = $sd->getSmartInformation();
-					$si->setPowerMode("standby,0");
-					$info = $si->getInformation();
-					$powerMode = array_value($info, "powermodeis", "UNKNOWN");
-					$temperature = $si->getTemperature();
-				} catch (\Exception $e) {
-					$powerMode = "ERROR";
-					syslog(LOG_ERR, sprintf("Failed to fetch SMART ".
-						"information: %s", $e->getMessage()));
-				}
+				$si = $sd->getSmartInformation();
+				$si->setNoCheck("standby");
+				$powerMode = $si->getPowerMode();
+				// Note, if the disk is in standby mode, `smartctl` does
+				// not return any temperature value.
+				$temperature = $si->getTemperature();
 			}
 			$objects[] = [
 				"devicename" => $sd->getDeviceName(),
