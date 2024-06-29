@@ -282,7 +282,7 @@ msgid "Active"
 msgstr "Activo"
 
 msgid "Active or Idle"
-msgstr ""
+msgstr "Activo o inactivo"
 
 msgid "Add"
 msgstr "Añadir"
@@ -2343,10 +2343,10 @@ msgid "Please wait ..."
 msgstr "Por favor espere ..."
 
 msgid "Please wait, a shared folder will be created ..."
-msgstr ""
+msgstr "Por favor, espere, se está creando una carpeta compartida..."
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Por favor, espere, se está creando una instantánea..."
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "Espere, borrando elemento(s) seleccionado(s) ..."
