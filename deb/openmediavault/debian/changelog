@@ -1,4 +1,4 @@
-openmediavault (7.3.0-4) stable; urgency=low
+openmediavault (7.3.0-5) stable; urgency=low
 
   * Update locale files.
   * Refactor the RPC parameter handling.
