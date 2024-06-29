@@ -84,9 +84,12 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				$si = $sd->getSmartInformation();
 				$si->setNoCheck("standby");
 				$powerMode = $si->getPowerMode();
-				// Note, if the disk is in standby mode, `smartctl` does
-				// not return any temperature value.
-				$temperature = $si->getTemperature();
+				// Get the temperature if the SMART information is
+				// available. Note, if the disk is in standby mode,
+				// `smartctl` does not return any temperature value.
+				if (TRUE === $si->isCached()) {
+					$temperature = $si->getTemperature();
+				}
 			}
 			$objects[] = [
 				"devicename" => $sd->getDeviceName(),

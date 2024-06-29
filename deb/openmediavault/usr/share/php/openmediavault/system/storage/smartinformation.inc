@@ -124,7 +124,7 @@ class SmartInformation {
 			$kind = self::SMART_INFO_KIND_DEFAULT;
 		}
 
-		if (FALSE !== $this->dataCached) {
+		if (FALSE !== $this->isCached()) {
 			if ($kind === $this->dataCachedKind) {
 				return;
 			}
@@ -174,6 +174,15 @@ class SmartInformation {
 		// Set flag to mark information has been successfully read.
 		$this->dataCached = TRUE;
 		$this->dataCachedKind = $kind;
+	}
+
+	/**
+	 * Check if the SMART information is cached.
+	 * @return boolean Returns TRUE if the SMART information is cached,
+	 *   otherwise FALSE.
+	 */
+	public function isCached() {
+		return $this->dataCached;
 	}
 
 	/**
