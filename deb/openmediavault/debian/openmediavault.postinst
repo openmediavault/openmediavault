@@ -532,6 +532,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "7.3.0"; then
 			omv_module_set_dirty smartmontools
 		fi
+		if dpkg --compare-versions "$2" lt-nl "7.3.1"; then
+			rm -f /etc/apt/apt.conf.d/50unattended-upgrades
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
