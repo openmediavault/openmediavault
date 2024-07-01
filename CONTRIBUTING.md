@@ -7,7 +7,7 @@ Code contributions must satisfy the following conditions. Contributions that do 
 - The [coding guidelines][1] outlined in the reference manual must be followed.
 - The feature/improvement must be implemented as generic as possible.
 - The code/feature/improvement must not affect existing functionality.
-- Each commit message in a GitHub pull request must be signed via `Signed-off-by: Frank Mustermann <frank.mustermann@xxx.yyy>`. See [Developer Certificate of Origin](https://developercertificate.org/) and [GitHub DCO App](https://github.com/apps/dco) for more information.
+- Each commit message in a GitHub pull request must be signed via `Signed-off-by: Frank Mustermann <frank.mustermann@xxx.yyy>`. A Developer Certificate of Origin (DCO) is necessary to legally ensure that code contributions are original or authorized, maintaining clear, trustworthy, and compliant open-source project contributions. See [Developer Certificate of Origin](https://developercertificate.org/) and [GitHub DCO App](https://github.com/apps/dco) for more information.
 - If possible, [sign your commits][2] with a GPG key.
 - If the PR fixes a GitHub issue, then the line `Fixes: https://github.com/openmediavault/openmediavault/issues/<ISSUE_NR>` must be included.
 - Make sure your PR has only one commit.
