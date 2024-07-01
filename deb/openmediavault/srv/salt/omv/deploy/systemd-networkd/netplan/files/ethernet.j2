@@ -44,9 +44,6 @@ network:
 {%- if interface.method6 == "static" %}
       accept-ra: false
 {%- endif %}
-{%- if interface.method6 in ["static", "auto"] %}
-      ipv6-privacy: true
-{%- endif %}
 {%- if interface.method == "manual" and interface.method6 == "manual" %}
       addresses: []
 {%- endif %}
