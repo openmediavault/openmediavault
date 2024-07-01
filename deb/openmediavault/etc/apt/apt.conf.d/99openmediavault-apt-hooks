@@ -1,5 +1,7 @@
 APT::Update::Pre-Invoke { "if [ -d /etc/apt/update-pre-invoke.d/ ]; then run-parts /etc/apt/update-pre-invoke.d || true; fi"; };
 APT::Update::Post-Invoke { "if [ -d /etc/apt/update-post-invoke.d/ ]; then run-parts /etc/apt/update-post-invoke.d || true; fi"; };
 APT::Update::Post-Invoke-Success { "if [ -d /etc/apt/update-post-invoke-success.d/ ]; then run-parts /etc/apt/update-post-invoke-success.d || true; fi"; };
+// Note, the DPkg hooks are only triggered by `apt` tools, not when running `dpkg` manually.
+// See https://wiki.debian.org/AptConfiguration#apt.conf
 DPkg::Pre-Invoke { "if [ -d /etc/apt/pre-invoke.d/ ]; then run-parts /etc/apt/pre-invoke.d || true; fi"; };
 DPkg::Post-Invoke { "if [ -d /etc/apt/post-invoke.d/ ]; then run-parts /etc/apt/post-invoke.d || true; fi"; };
