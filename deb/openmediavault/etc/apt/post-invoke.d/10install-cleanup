@@ -23,3 +23,5 @@
 # Note, this files are also installed with an package update.
 rm -f /etc/monit/monit_delay
 rm -f /etc/cron.daily/mdadm
+# Workaround for https://github.com/mvo5/unattended-upgrades/issues/366
+rm -f /etc/apt/apt.conf.d/50unattended-upgrades
