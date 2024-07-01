@@ -181,10 +181,10 @@ class Json {
 		header("Cache-Control: max-age=0, no-cache, no-store, must-revalidate");
 		header("Pragma: no-cache");
 		header("Expires: 0");
-		print json_encode_safe(array(
+		print json_encode_safe([
 			"response" => $response,
 			"error" => null
-		));
+		]);
 	}
 
 	/**

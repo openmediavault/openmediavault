@@ -54,10 +54,10 @@ class Upload extends Json {
 	 */
 	protected function handleResponse($response) {
 		header("Content-Type: text/html");
-		print json_encode_safe(array(
+		print json_encode_safe([
 			"success" => true, // required by ExtJS
 			"responseText" => $response // required by ExtJS
-		));
+		]);
 	}
 
 	/**
