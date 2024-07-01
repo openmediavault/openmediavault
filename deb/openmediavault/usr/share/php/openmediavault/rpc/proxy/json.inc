@@ -164,7 +164,7 @@ class Json {
 
 	/**
 	 * Do additional stuff after RPC has been executed.
-	 * @param response The RPC response
+	 * @param response The RPC response.
 	 * @return void
 	 */
 	protected function postExecute(&$response) {
@@ -172,8 +172,8 @@ class Json {
 	}
 
 	/**
-	 * Print the RPC responce.
-	 * @param response The RPC response
+	 * Print the RPC response.
+	 * @param response The RPC response.
 	 * @return void
 	 */
 	protected function handleResponse($response) {
