@@ -28,7 +28,7 @@ set -e
 # Force predictable network device files.
 # Note, a reboot is required to take this changes into account.
 echo "Patching network configuration ..."
-sed --in-place --expression='s/eth0/ens6/' --expression='s/eth2/ens8/' /etc/network/interfaces
+sed --in-place --expression='s/eth0/'"$1"'/' --expression='s/eth2/'"$2"'/' /etc/network/interfaces
 echo "Patching & rebuilding grub configuration ..."
 sed --in-place --expression='s/net.ifnames=0/net.ifnames=1/' --expression='s/biosdevname=0/biosdevname=1/' /etc/default/grub
 update-grub

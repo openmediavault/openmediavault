@@ -25,34 +25,36 @@ hostname = "omv7box"
 Vagrant.configure("2") do |config|
 	config.vm.box = "debian/bookworm64"
 	config.vm.define hostname
-	config.vm.provision :shell, :path => "patch.sh"
-	config.vm.provision :reload
+
 	config.vm.provision :shell, :path => "install.sh"
 	config.vm.network "private_network", ip: "192.172.16.24", auto_config: false
 	config.vm.network "private_network", ip: "192.172.16.25"
 	config.vm.hostname = hostname
-	config.vm.provider :virtualbox do |prov|
+	
+	config.vm.provider :virtualbox do |prov, overwrite|
+		overwrite.vm.provision :shell, :path => "patch.sh", :args => ["enp0s3", "enp0s9"], reboot: true
+		
 		prov.name = hostname
 		prov.memory = "4096"
+		
 		# Add some disks.
-		for i in 0..2 do
-			filename = "./disks/#{hostname}-disk#{i}.vmdk"
-			unless File.exist?(filename)
-				prov.customize ["createmedium", "disk", "--filename", filename,
-					"--size", 1000 * 1024]
-				prov.customize ["storageattach", :id, "--storagectl",
-					"SATA Controller", "--port", i + 1, "--device", 0,
-					"--type", "hdd", "--medium", filename]
-			end
+		(0..2).each do |i|
+			overwrite.vm.disk :disk, size: "100GB", name: "#{hostname}-disk-#{i}"
 		end
 	end
-	config.vm.provider :libvirt do |prov|
+	
+	config.vm.provider :libvirt do |prov, overwrite|
+		overwrite.vm.provision :shell, :path => "patch.sh", :args => ["ens6", "ens8"]
+		overwrite.vm.provision :reload
+		
 		prov.memory = "4096"
+		
 		# Add some disks.
 		for i in 0..2 do
 			prov.storage :file, :size => "1G", :bus => "scsi"
 		end
 	end
+	
 	config.vm.synced_folder "../../deb", "/home/vagrant/openmediavault",
 		type: "nfs",
 		nfs_version: 4
