@@ -1,5 +1,6 @@
 openmediavault (7.3.1-1) stable; urgency=low
 
+  * Update locale files.
   * Fix the error of automatic reloading of several dashboard widgets,
     e.g. the system time widget.
   * Fixed a bug in unattended-upgrades that causes all new packages to

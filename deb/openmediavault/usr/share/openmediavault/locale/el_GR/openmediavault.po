@@ -277,7 +277,7 @@ msgid "Active"
 msgstr "Ενεργό"
 
 msgid "Active or Idle"
-msgstr ""
+msgstr "Ενεργό ή Αδρανές"
 
 msgid "Add"
 msgstr "Προσθήκη"
@@ -2338,10 +2338,10 @@ msgid "Please wait ..."
 msgstr "Παρακαλώ περιμένετε ..."
 
 msgid "Please wait, a shared folder will be created ..."
-msgstr ""
+msgstr "Αναμείνατε για δημιουργία του κοινόχρηστου φακέλου ..."
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Αναμείνατε για δημιουργία του στιγμιότυπου ..."
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "Αναμείνατε για διαγραφή των επιλεγμένων ..."
