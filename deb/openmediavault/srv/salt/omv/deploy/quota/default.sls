@@ -45,7 +45,7 @@
 
 # The filesystem is not mounted with quota support, so remove the useless
 # quota files.
-remove_quota_files_{{ fsuuid }}:
+remove_quota_files_{{ mountpoint.uuid }}:
   cmd.run:
     - name: "find '{{ mountpoint.dir }}/' -maxdepth 1 -type f \\( -name 'aquota.group' -o -name 'aquota.user' \\) -delete"
 

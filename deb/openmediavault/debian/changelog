@@ -4,6 +4,8 @@ openmediavault (7.3.1-1) stable; urgency=low
     e.g. the system time widget.
   * Fixed a bug in unattended-upgrades that causes all new packages to
     be installed instead of just security updates.
+  * Hardening of the quote Salt state to cope with situations where
+    there are multiple mount points for a device.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 29 Jun 2024 18:37:56 +0200
 
