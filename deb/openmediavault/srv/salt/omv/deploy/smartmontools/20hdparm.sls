@@ -25,10 +25,9 @@
 
 {% for device in config %}
 
-{% set filename = salt['cmd.run']('systemd-escape --path ' ~ device.devicefile) %}
-smartmontools_hdparm_{{ filename }}:
+smartmontools_hdparm_{{ device.uuid }}:
   file.managed:
-    - name: "/etc/smartmontools/hdparm.d/openmediavault-{{ filename }}"
+    - name: "/etc/smartmontools/hdparm.d/openmediavault-{{ device.uuid }}"
     - contents: |
         #!/bin/sh
         {{ pillar['headers']['auto_generated'] }}
