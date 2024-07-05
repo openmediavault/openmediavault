@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-27 14:32+0200\n"
+"POT-Creation-Date: 2024-07-07 20:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1410,6 +1410,9 @@ msgid "Hosts allow"
 msgstr ""
 
 msgid "Hosts deny"
+msgstr ""
+
+msgid "Hot-Pluggable"
 msgstr ""
 
 msgid "Hour"

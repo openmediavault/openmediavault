@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-27 14:32+0200\n"
+"POT-Creation-Date: 2024-07-07 20:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -1452,6 +1452,9 @@ msgstr "許可するホスト"
 
 msgid "Hosts deny"
 msgstr "拒否するホスト"
+
+msgid "Hot-Pluggable"
+msgstr ""
 
 msgid "Hour"
 msgstr "時"

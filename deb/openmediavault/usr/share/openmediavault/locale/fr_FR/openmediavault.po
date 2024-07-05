@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-27 14:32+0200\n"
+"POT-Creation-Date: 2024-07-07 20:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Francis Dhumes, 2023\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -1467,6 +1467,9 @@ msgstr "Hôtes autorisés"
 
 msgid "Hosts deny"
 msgstr "Hôtes interdits"
+
+msgid "Hot-Pluggable"
+msgstr ""
 
 msgid "Hour"
 msgstr "Heure"

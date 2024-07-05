@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-27 14:32+0200\n"
+"POT-Creation-Date: 2024-07-07 20:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2017\n"
 "Language-Team: Bulgarian (Bulgaria) (http://app.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
@@ -1451,6 +1451,9 @@ msgid "Hosts allow"
 msgstr ""
 
 msgid "Hosts deny"
+msgstr ""
+
+msgid "Hot-Pluggable"
 msgstr ""
 
 msgid "Hour"

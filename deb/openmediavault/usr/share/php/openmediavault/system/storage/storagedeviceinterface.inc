@@ -201,6 +201,12 @@ interface StorageDeviceInterface {
 	public function isMediaAvailable();
 
 	/**
+	 * Check if the given device is hot pluggable.
+	 * @return boolean TRUE if the device is hot pluggable, otherwise FALSE.
+	 */
+	public function isHotPluggable(): bool;
+
+	/**
 	 * Check if the given device has S.M.A.R.T. support.
 	 * @return Returns TRUE if the device supports S.M.A.R.T.,
 	 *   otherwise FALSE.

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-27 14:32+0200\n"
+"POT-Creation-Date: 2024-07-07 20:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2013-2019,2021\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -1457,6 +1457,9 @@ msgstr "Host consentiti"
 
 msgid "Hosts deny"
 msgstr "Host negati"
+
+msgid "Hot-Pluggable"
+msgstr ""
 
 msgid "Hour"
 msgstr "Ora"
