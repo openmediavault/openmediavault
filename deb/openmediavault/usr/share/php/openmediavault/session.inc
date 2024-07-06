@@ -71,7 +71,7 @@ class Session {
 		// Destroy the session cookie.
 		$params = session_get_cookie_params();
 		if (is_assoc_array($params)) {
-			setcookie(session_name(), "", time() - 3600,
+			setcookie(session_name(), "", time() - (60 * 60 * 24),
 				$params["path"], $params["domain"],
 				$params["secure"], $params["httponly"]
 			);
