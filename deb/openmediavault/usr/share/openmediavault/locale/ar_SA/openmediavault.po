@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-27 14:32+0200\n"
+"POT-Creation-Date: 2024-07-07 20:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -1453,6 +1453,9 @@ msgstr "الضيوف - سماح"
 
 msgid "Hosts deny"
 msgstr "الضيوف -  منع"
+
+msgid "Hot-Pluggable"
+msgstr ""
 
 msgid "Hour"
 msgstr "ساعة"

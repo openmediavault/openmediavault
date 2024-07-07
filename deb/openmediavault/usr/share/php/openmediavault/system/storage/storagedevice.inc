@@ -226,6 +226,14 @@ class StorageDevice extends \OMV\System\BlockDevice
 	}
 
 	/**
+	 * Check if the given device is hot pluggable.
+	 * @return boolean TRUE if the device is hot pluggable, otherwise FALSE.
+	 */
+	public function isHotPluggable(): bool {
+		return $this->isUsb();
+	}
+
+	/**
 	 * Check if the given device has S.M.A.R.T. support.
 	 * @return boolean Returns TRUE if the device supports S.M.A.R.T.,
 	 *   otherwise FALSE.

@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-27 14:32+0200\n"
+"POT-Creation-Date: 2024-07-07 20:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2024\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -1465,6 +1465,9 @@ msgstr "Erlaubte Hosts"
 
 msgid "Hosts deny"
 msgstr "Verweigerte Hosts"
+
+msgid "Hot-Pluggable"
+msgstr "Hot-Plug-Fähig"
 
 msgid "Hour"
 msgstr "Stunde"

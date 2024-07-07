@@ -132,6 +132,14 @@ export class DiskDatatablePageComponent {
         flexGrow: 1,
         sortable: true,
         hidden: true
+      },
+      {
+        name: gettext('Hot-Pluggable'),
+        prop: 'hotpluggable',
+        flexGrow: 1,
+        sortable: true,
+        hidden: true,
+        cellTemplateName: 'checkIcon'
       }
     ],
     store: {

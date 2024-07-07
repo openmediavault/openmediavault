@@ -169,6 +169,47 @@ class StorageDevice(openmediavault.device.StorageDevice):
             pass
         return None
 
+    @cached_property
+    def _is_sas(self) -> bool:
+        # drwxr-xr-x 8 root root    0 Jul  1 17:15 .
+        # drwxr-xr-x 4 root root    0 Jul  1 17:15 ..
+        # -r--r--r-- 1 root root 4.0K Jul  4 08:49 access_state
+        # -r--r--r-- 1 root root 4.0K Jul  4 08:49 blacklist
+        # drwxr-xr-x 3 root root    0 Jul  1 17:15 block
+        # drwxr-xr-x 3 root root    0 Jul  1 17:15 bsg
+        # --w------- 1 root root 4.0K Jul  4 08:49 delete
+        # -r--r--r-- 1 root root 4.0K Jul  4 08:49 device_blocked
+        # -r--r--r-- 1 root root 4.0K Jul  4 08:49 device_busy
+        # -rw-r--r-- 1 root root 4.0K Jul  4 08:49 dh_state
+        # lrwxrwxrwx 1 root root    0 Jul  4 08:49 driver -> ../../../../../../../../../..                                                                                                  /bus/scsi/drivers/sd
+        # ...
+        # -r--r--r-- 1 root root 4.0K Jul  4 08:49 modalias
+        # -r--r--r-- 1 root root 4.0K Jul  4 08:49 model
+        # ...
+        # --w------- 1 root root 4.0K Jul  4 08:49 rescan
+        # -r--r--r-- 1 root root 4.0K Jul  4 08:49 rev
+        # -r--r--r-- 1 root root 4.0K Jul  4 08:49 sas_address
+        # -r--r--r-- 1 root root 4.0K Jul  4 08:49 sas_device_handle
+        # -rw-r--r-- 1 root root 4.0K Jul  4 08:49 sas_ncq_prio_enable
+        # -r--r--r-- 1 root root 4.0K Jul  4 08:49 sas_ncq_prio_supported
+        # drwxr-xr-x 3 root root    0 Jul  1 17:15 scsi_device
+        # drwxr-xr-x 3 root root    0 Jul  1 17:15 scsi_disk
+        # drwxr-xr-x 3 root root    0 Jul  1 17:15 scsi_generic
+        # -r--r--r-- 1 root root 4.0K Jul  4 08:49 scsi_level
+        file = '/sys/block/{}/device/sas_address'.format(
+            self.device_name(True))
+        if os.path.exists(file):
+            return True
+        # E: ID_PATH=pci-0000:00:10.0-sas-exp0x5001438035ab31bd-phy18-lun-0
+        if self.has_udev_property('ID_PATH'):
+            value = self.udev_property('ID_PATH')
+            return re.match(r'^.+-sas-.+$', value) is not None
+        return False
+
+    @cached_property
+    def is_hot_pluggable(self) -> bool:
+        return self._is_sas or super().is_hot_pluggable
+
 
 class StorageDeviceARCMSR(StorageDevice):
     """

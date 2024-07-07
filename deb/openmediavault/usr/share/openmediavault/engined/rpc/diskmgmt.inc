@@ -109,6 +109,7 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				"powermode" => $powerMode,
 				"temperature" => (FALSE === $temperature) ?
 					"" : $temperature,
+				"hotpluggable" => $sd->isHotPluggable()
 			];
 		}
 		return $objects;

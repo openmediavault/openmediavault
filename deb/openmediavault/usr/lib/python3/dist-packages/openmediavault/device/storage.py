@@ -27,6 +27,7 @@ from typing import List, Optional
 
 import openmediavault.stringutils
 import pyudev
+from cached_property import cached_property
 
 from .block import BlockDevice
 
@@ -183,7 +184,7 @@ class StorageDevice(BlockDevice):
         # ID_PATH=pci-0000:00:12.2-usb-0:3:1.0-scsi-0:0:0:0
         if self.has_udev_property('ID_PATH'):
             value = self.udev_property('ID_PATH')
-            return re.match(r'^.+-usb-.+$', value)
+            return re.match(r'^.+-usb-.+$', value) is not None
         return False
 
     @property
@@ -215,6 +216,16 @@ class StorageDevice(BlockDevice):
         :rtype: bool
         """
         return False
+
+    @cached_property
+    def is_hot_pluggable(self) -> bool:
+        """
+        Check if the given device is hot pluggable.
+        :return: Returns ``True`` if the device is hot pluggable,
+            otherwise ``False``.
+        :rtype: bool
+        """
+        return self.is_usb
 
     @property
     def has_smart_support(self) -> bool:

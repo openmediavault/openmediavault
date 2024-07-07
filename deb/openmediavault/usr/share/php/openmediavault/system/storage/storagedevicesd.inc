@@ -104,4 +104,49 @@ class StorageDeviceSD extends StorageDevice implements SmartInterface {
 		}
 		return "";
 	}
+
+	private function isSAS(): bool {
+		// drwxr-xr-x 8 root root    0 Jul  1 17:15 .
+		// drwxr-xr-x 4 root root    0 Jul  1 17:15 ..
+		// -r--r--r-- 1 root root 4.0K Jul  4 08:49 access_state
+		// -r--r--r-- 1 root root 4.0K Jul  4 08:49 blacklist
+		// drwxr-xr-x 3 root root    0 Jul  1 17:15 block
+		// drwxr-xr-x 3 root root    0 Jul  1 17:15 bsg
+		// --w------- 1 root root 4.0K Jul  4 08:49 delete
+		// -r--r--r-- 1 root root 4.0K Jul  4 08:49 device_blocked
+		// -r--r--r-- 1 root root 4.0K Jul  4 08:49 device_busy
+		// -rw-r--r-- 1 root root 4.0K Jul  4 08:49 dh_state
+		// lrwxrwxrwx 1 root root    0 Jul  4 08:49 driver -> ../../../../../../../../../..                                                                                                  /bus/scsi/drivers/sd
+		// ...
+		// -r--r--r-- 1 root root 4.0K Jul  4 08:49 modalias
+		// -r--r--r-- 1 root root 4.0K Jul  4 08:49 model
+		// ...
+		// --w------- 1 root root 4.0K Jul  4 08:49 rescan
+		// -r--r--r-- 1 root root 4.0K Jul  4 08:49 rev
+		// -r--r--r-- 1 root root 4.0K Jul  4 08:49 sas_address
+		// -r--r--r-- 1 root root 4.0K Jul  4 08:49 sas_device_handle
+		// -rw-r--r-- 1 root root 4.0K Jul  4 08:49 sas_ncq_prio_enable
+		// -r--r--r-- 1 root root 4.0K Jul  4 08:49 sas_ncq_prio_supported
+		// drwxr-xr-x 3 root root    0 Jul  1 17:15 scsi_device
+		// drwxr-xr-x 3 root root    0 Jul  1 17:15 scsi_disk
+		// drwxr-xr-x 3 root root    0 Jul  1 17:15 scsi_generic
+		// -r--r--r-- 1 root root 4.0K Jul  4 08:49 scsi_level
+		$filename = sprintf("/sys/block/%s/device/sas_address",
+			$this->getDeviceName());
+		if (file_exists($filename)) {
+			return TRUE;
+		}
+		// E: ID_PATH=pci-0000:00:10.0-sas-exp0x5001438035ab31bd-phy18-lun-0
+		if (TRUE === $this->hasUdevProperty("ID_PATH")) {
+			$property = $this->getUdevProperty("ID_PATH");
+			if (1 == preg_match('/^.+-sas-.+$/i', $property)) {
+				return TRUE;
+			}
+		}
+		return FALSE;
+	}
+
+	public function isHotPluggable(): bool {
+		return $this->isSAS() || parent::isHotPluggable();
+	}
 }
