@@ -252,7 +252,8 @@ def cleanup_cmd(ctx: Context, simulate: bool):
                             },
                         )
                     ):
-                        abs_path: str = os.path.join(snapshot.mount_dir, snapshot.path)
+                        abs_path: str = os.path.join(
+                            snapshot.mount_dir, snapshot.path)
                         openmediavault.log.info(
                             f'The snapshot "{abs_path}" has been skipped because it is used as a shared folder.',
                             verbose=ctx.verbose)
