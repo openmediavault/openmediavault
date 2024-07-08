@@ -39,6 +39,7 @@ class Nfs extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getShare");
 		$this->registerMethod("setShare");
 		$this->registerMethod("deleteShare");
+		$this->registerMethod("getStats");
 	}
 
 	/**
@@ -259,5 +260,34 @@ class Nfs extends \OMV\Rpc\ServiceAbstract {
 		  }
 		// Return the deleted configuration object.
 		return $object;
+	}
+
+	/**
+	 * Get statistics.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return A string containing the requested statistics.
+	 */
+	public function getStats($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		if ($this->isModuleDirty("nfs")) {
+			throw new \OMV\Config\ConfigDirtyException();
+		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.nfs");
+		if (FALSE === $object->get("enable")) {
+			$stats = gettext("Service disabled");
+		} else {
+			$cmdArgs = [];
+			$cmdArgs[] = "-v";
+			$cmd = new \OMV\System\Process("exportfs", $cmdArgs);
+			$cmd->setRedirect2to1();
+			$cmd->execute($output);
+			$stats = implode("\n", $output);
+		}
+		return $stats;
 	}
 }

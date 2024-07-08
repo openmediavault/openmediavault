@@ -1,6 +1,7 @@
 openmediavault (7.4.0-1) stable; urgency=low
 
   * Add StorageDeviceInterface::isHotPluggable() method.
+  * Add `Diagnostics | Services | NFS` page.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 05 Jul 2024 21:49:41 +0200
 

@@ -1,7 +1,7 @@
 version: "1.0"
 type: navigation-item
 data:
-  path: "services.nfs"
+  path: "diagnostics.services.nfs"
   text: _("NFS")
   icon: nfs
-  url: "/services/nfs"
+  url: "/diagnostics/services/nfs"

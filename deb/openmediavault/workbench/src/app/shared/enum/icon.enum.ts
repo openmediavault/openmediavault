@@ -87,6 +87,7 @@ export enum Icon {
   ssh = 'mdi:ssh',
   ftp = 'mdi:server-network',
   smb = 'mdi:microsoft-windows',
+  nfs = 'mdi:folder-network',
   plugin = 'mdi:puzzle',
   search = 'mdi:magnify',
   eraser = 'mdi:eraser',

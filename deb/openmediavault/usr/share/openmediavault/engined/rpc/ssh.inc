@@ -89,6 +89,9 @@ class Ssh extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
+		if ($this->isModuleDirty("ssh")) {
+			throw new \OMV\Config\ConfigDirtyException();
+		}
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.ssh");
