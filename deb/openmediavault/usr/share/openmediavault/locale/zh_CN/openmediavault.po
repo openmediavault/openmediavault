@@ -1460,7 +1460,7 @@ msgid "Hosts deny"
 msgstr "拒绝主机"
 
 msgid "Hot-Pluggable"
-msgstr ""
+msgstr "可熱插拔"
 
 msgid "Hour"
 msgstr "小时"

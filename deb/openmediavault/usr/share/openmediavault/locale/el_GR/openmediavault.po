@@ -1454,7 +1454,7 @@ msgid "Hosts deny"
 msgstr "Αποκλεισμένα συστήματα"
 
 msgid "Hot-Pluggable"
-msgstr ""
+msgstr "Hot-Pluggable"
 
 msgid "Hour"
 msgstr "Ώρα"

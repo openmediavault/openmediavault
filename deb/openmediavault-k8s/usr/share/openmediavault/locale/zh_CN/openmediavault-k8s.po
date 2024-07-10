@@ -303,6 +303,8 @@ msgid ""
 "single-node setups and SBCs with slow disks, while etcd is recommended for "
 "high-availability setups with multiple nodes."
 msgstr ""
+"Kubernetes 叢集使用的資料儲存。建議將 SQLite 用於單節點設定與磁碟速度較慢的 SBC，而建議將 etcd "
+"用於具有多個節點的高可用性設定。"
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "

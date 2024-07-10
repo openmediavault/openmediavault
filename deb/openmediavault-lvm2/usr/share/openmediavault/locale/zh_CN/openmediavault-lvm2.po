@@ -75,7 +75,7 @@ msgid "Invalid name"
 msgstr "无效名称"
 
 msgid "LVM"
-msgstr ""
+msgstr "LVM"
 
 msgid "Logical Volume Management"
 msgstr "逻辑卷管理"
@@ -90,7 +90,7 @@ msgid "Physical Volumes"
 msgstr "多个物理卷"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "請稍待，一份快照將被創建 ..."
 
 msgid "Reduce"
 msgstr "缩容"

@@ -213,10 +213,10 @@ msgid "Persistent Volumes"
 msgstr "Beständiga volymer"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Vänta, en ögonblicksbild kommer att skapas ..."
 
 msgid "Please wait, the snapshot will be restored ..."
-msgstr ""
+msgstr "Vänta, ögonblicksbilden kommer att återställas ..."
 
 msgid "Pods"
 msgstr "Poddar"
@@ -255,7 +255,7 @@ msgid "Restore"
 msgstr "Återställ"
 
 msgid "SQLite"
-msgstr ""
+msgstr "SQLite"
 
 msgid "Secrets"
 msgstr "Hemligheter"
@@ -339,7 +339,7 @@ msgid "The snapshot was created successfully."
 msgstr "Ögonblicksbilden skapades."
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
-msgstr ""
+msgstr "Ögonblicksbilden {{ spec.snapshotName }} har återställts."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr "Token för att autentisera till Kubernetes-instrumentpanel."
@@ -366,4 +366,4 @@ msgid "Volume"
 msgstr "Volym"
 
 msgid "etcd"
-msgstr ""
+msgstr "etcd"

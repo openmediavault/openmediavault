@@ -283,7 +283,7 @@ msgid "Active"
 msgstr "Aktív"
 
 msgid "Active or Idle"
-msgstr ""
+msgstr "Aktív vagy tétlen"
 
 msgid "Add"
 msgstr "Hozzáadás"
@@ -1460,7 +1460,7 @@ msgid "Hosts deny"
 msgstr "Hosztok tiltása"
 
 msgid "Hot-Pluggable"
-msgstr ""
+msgstr "Gyorsan csatlakoztatható"
 
 msgid "Hour"
 msgstr "Óra"
@@ -2347,10 +2347,10 @@ msgid "Please wait ..."
 msgstr "Kis türelmet…"
 
 msgid "Please wait, a shared folder will be created ..."
-msgstr ""
+msgstr "Kérjük várjon, amíg a megosztott mappa létrejön…"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Kérjük várjon, amíg a pillanatkép elkészül…"
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "Kijelölt elem(ek) törlése, kérjük várjon…"

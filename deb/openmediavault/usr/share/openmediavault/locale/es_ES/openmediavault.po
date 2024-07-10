@@ -1459,7 +1459,7 @@ msgid "Hosts deny"
 msgstr "Equipos denegados"
 
 msgid "Hot-Pluggable"
-msgstr ""
+msgstr "Hot-Pluggable"
 
 msgid "Hour"
 msgstr "Hora"

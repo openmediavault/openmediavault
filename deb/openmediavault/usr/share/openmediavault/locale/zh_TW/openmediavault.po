@@ -1456,7 +1456,7 @@ msgid "Hosts deny"
 msgstr "拒絕主機"
 
 msgid "Hot-Pluggable"
-msgstr ""
+msgstr "可熱插拔"
 
 msgid "Hour"
 msgstr "時"

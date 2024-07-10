@@ -82,7 +82,7 @@ msgid "Data"
 msgstr "Δεδομένα"
 
 msgid "Datastore"
-msgstr ""
+msgstr "Αποθετήριο"
 
 msgid "Date & Time"
 msgstr "Ημερομηνία & Ώρα"
@@ -213,10 +213,10 @@ msgid "Persistent Volumes"
 msgstr "Μόνιμοι Τόμοι"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Αναμείνατε για δημιουργία του στιγμιότυπου ..."
 
 msgid "Please wait, the snapshot will be restored ..."
-msgstr ""
+msgstr "Αναμείνατε για επαναφορά του στιγμιότυπου ..."
 
 msgid "Pods"
 msgstr "Κάψουλες"
@@ -255,7 +255,7 @@ msgid "Restore"
 msgstr "Αποκατάσταση"
 
 msgid "SQLite"
-msgstr ""
+msgstr "SQLite"
 
 msgid "Secrets"
 msgstr "Μυστικά"
@@ -306,6 +306,9 @@ msgid ""
 "single-node setups and SBCs with slow disks, while etcd is recommended for "
 "high-availability setups with multiple nodes."
 msgstr ""
+"Το αποθετήριο της συστάδας Kubernetes. Το SQLite προτείνεται για μεμονωμένες"
+" υλοποιήσεις και αργούς δίσκους, ενώ το etcd προτείνεται για υλοποιήσεις "
+"πολλαπλών κόμβων υψηλής διαθεσιμότητας."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -340,7 +343,7 @@ msgid "The snapshot was created successfully."
 msgstr "Το στιγμιότυπο δημιουργήθηκε επιτυχώς"
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
-msgstr ""
+msgstr "Το στιγμιότυπο {{ spec.snapshotName }} αποκαταστάθηκε επιτυχώς."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr "Το τεκμήριο για την πιστοποίηση στο Ταμπλώ του Kubernetes."
@@ -367,4 +370,4 @@ msgid "Volume"
 msgstr "Τόμος"
 
 msgid "etcd"
-msgstr ""
+msgstr "etcd"
