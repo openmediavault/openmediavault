@@ -65,10 +65,9 @@ divert_smartd_conf:
 # Note, this is not necessary anymore, because SMART is enabled by default
 # on modern disks; but since we also support old hardware, it still makes
 # sense.
-{% set filename = salt['cmd.run']('systemd-escape --path ' ~ device.devicefile) %}
-smartmontools_hdparm_enable_smart_{{ filename }}:
+smartmontools_hdparm_enable_smart_{{ device.uuid }}:
   file.managed:
-    - name: "/etc/smartmontools/hdparm.d/openmediavault-enable-smart-{{ filename }}"
+    - name: "/etc/smartmontools/hdparm.d/openmediavault-enable-smart-{{ device.uuid }}"
     - contents: |
         #!/bin/sh
         {{ pillar['headers']['auto_generated'] }}
