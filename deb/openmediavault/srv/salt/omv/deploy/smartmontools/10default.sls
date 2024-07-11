@@ -56,30 +56,6 @@ divert_smartd_conf:
 
 {% if config.enable | to_bool %}
 
-{% set smart_devices = salt['omv_conf.get_by_filter'](
-  'conf.service.smartmontools.device',
-  {'operator': 'equals', 'arg0': 'enable', 'arg1': '1'}) %}
-
-{% for device in smart_devices %}
-
-# Note, this is not necessary anymore, because SMART is enabled by default
-# on modern disks; but since we also support old hardware, it still makes
-# sense.
-smartmontools_hdparm_enable_smart_{{ device.uuid }}:
-  file.managed:
-    - name: "/etc/smartmontools/hdparm.d/openmediavault-enable-smart-{{ device.uuid }}"
-    - contents: |
-        #!/bin/sh
-        {{ pillar['headers']['auto_generated'] }}
-        {{ pillar['headers']['warning'] }}
-        smartctl -s on {{ device.devicefile }}
-    - user: root
-    - group: root
-    - mode: 744
-    - onlyif: "export LANG=C; smartctl -i '{{ device.devicefile }}' | grep -q 'SMART support is: Disabled'"
-
-{% endfor %}
-
 start_smartmontools_service:
   service.running:
     - name: smartmontools

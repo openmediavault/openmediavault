@@ -18,14 +18,54 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
+# https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in
 # https://wiki.archlinux.org/title/hdparm
 # https://lukas.zapletalovi.com/posts/2020/configuring-hdd-to-spin-down-in-linux-via-smart/
 
-{% set config = salt['omv_conf.get']('conf.system.hdparm') %}
+{% set smartmontools_config = salt['omv_conf.get']('conf.service.smartmontools') %}
+{% set hdparm_config = salt['omv_conf.get']('conf.system.hdparm') %}
 
-{% for device in config %}
+cleanup_smartmontools_hdparm_dir:
+  module.run:
+    - file.find:
+      - path: "/etc/smartmontools/hdparm.d/"
+      - iname: "openmediavault-*"
+      - delete: "f"
 
-smartmontools_hdparm_{{ device.uuid }}:
+{% if smartmontools_config.enable | to_bool %}
+
+# Do not use a distinct filter on the `devicefile`, because this will hide
+# duplicate database entries. In the worst case, the correct configuration
+# for the device is filtered out.
+{% set monitored_devices = salt['omv_conf.get_by_filter'](
+  'conf.service.smartmontools.device',
+  {'operator': 'equals', 'arg0': 'enable', 'arg1': '1'}) %}
+
+{% for device in monitored_devices %}
+
+# Note, this is not necessary anymore, because SMART is enabled by default
+# on modern disks; but since we also support old hardware, it still makes
+# sense.
+smartmontools_hdparm_enable_smart_{{ device.uuid }}:
+  file.managed:
+    - name: "/etc/smartmontools/hdparm.d/openmediavault-enable-smart-{{ device.uuid }}"
+    - contents: |
+        #!/bin/sh
+        {{ pillar['headers']['auto_generated'] }}
+        {{ pillar['headers']['warning'] }}
+        smartctl -s on {{ device.devicefile }}
+    - user: root
+    - group: root
+    - mode: 744
+    - onlyif: "export LANG=C; smartctl -i '{{ device.devicefile }}' | grep -q 'SMART support is: Disabled'"
+
+{% endfor %}
+
+{% endif %}
+
+{% for device in hdparm_config %}
+
+smartmontools_hdparm_non_smart_settings_{{ device.uuid }}:
   file.managed:
     - name: "/etc/smartmontools/hdparm.d/openmediavault-{{ device.uuid }}"
     - contents: |
