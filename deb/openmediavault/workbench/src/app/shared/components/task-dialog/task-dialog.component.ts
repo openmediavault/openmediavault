@@ -186,6 +186,8 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
 
   private print(text: string, escape: boolean = false): void {
     const nativeEl = this.content.nativeElement;
+    const doScroll: boolean =
+      nativeEl.scrollHeight - nativeEl.clientHeight <= nativeEl.scrollTop + 1;
     // Make sure we do not exceed a max. size of displayed
     // content to keep the memory consumption low.
     // Allow displaying up to 100.000 lines (80 char per line) of
@@ -204,7 +206,7 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
     // Strip ASCII escape codes and escape characters to
     // HTML-safe sequences if necessary.
     nativeEl.innerHTML += stripAnsi(escape ? format('{{ text | escape }}', { text }) : text);
-    if (this.config.autoScroll && _.isFunction(nativeEl.scroll)) {
+    if (this.config.autoScroll && _.isFunction(nativeEl.scroll) && doScroll) {
       nativeEl.scroll({ behavior: 'auto', top: nativeEl.scrollHeight });
     }
   }
