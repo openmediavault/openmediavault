@@ -1,3 +1,9 @@
+openmediavault (7.4.1-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 14 Jul 2024 10:50:41 +0200
+
 openmediavault (7.4.0-2) stable; urgency=low
 
   * Add StorageDeviceInterface::isHotPluggable() method.
