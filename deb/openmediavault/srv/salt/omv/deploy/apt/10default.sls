@@ -17,6 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Documentation/Howto:
+# https://wiki.debian.org/AptConfiguration#Be_careful_with_APT::Default-Release
+
 {% set config = salt['omv_conf.get']('conf.system.apt.distribution') %}
 {% set use_kernel_backports = salt['pillar.get']('default:OMV_APT_USE_KERNEL_BACKPORTS', True) -%}
 {% set proxy_config = salt['omv_conf.get']('conf.system.network.proxy') %}
@@ -40,6 +43,15 @@ configure_apt_sources_list_openmediavault:
     - group: root
     - mode: 644
 
+configure_apt_default_release:
+  file.managed:
+    - name: "/etc/apt/apt.conf.d/99openmediavault-default-release"
+    - contents: |
+        APT::Default-Release "/^{{ grains['oscodename'] }}(|-security|-updates)$/";
+    - user: root
+    - group: root
+    - mode: 644
+
 {% if proxy_config.http.enable | to_bool or proxy_config.https.enable |
    to_bool or proxy_config.ftp.enable | to_bool %}
 
@@ -53,7 +65,7 @@ configure_apt_proxy:
     - template: jinja
     - user: root
     - group: root
-    - mode: 640
+    - mode: 644
 
 {% else %}
 

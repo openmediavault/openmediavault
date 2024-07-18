@@ -1,6 +1,7 @@
 openmediavault (7.4.1-1) stable; urgency=low
 
-  *
+  * Make sure security packages are not hold back on several Debian
+    derivatives.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 14 Jul 2024 10:50:41 +0200
 
