@@ -9,7 +9,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-md
 Architecture: all
-Depends: openmediavault (>= 7.0), mdadm
+Depends: openmediavault (>= 7.4.1), mdadm
 Priority: optional
 Description: openmediavault Linux MD (Multiple Device) plugin
  This plugin is used to create, manage, and monitor Linux MD (Multiple

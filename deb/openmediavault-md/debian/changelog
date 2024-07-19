@@ -1,3 +1,9 @@
+openmediavault-md (7.0.1-1) stable; urgency=low
+
+  * Relocate module listeners.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 19 Jul 2024 10:03:15 +0200
+
 openmediavault-md (7.0-7) stable; urgency=low
 
   * Initial release

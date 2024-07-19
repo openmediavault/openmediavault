@@ -26,15 +26,4 @@ class Initramfs extends \OMV\Engine\Module\ServiceAbstract
 	public function getName() {
 		return "initramfs";
 	}
-
-	public function deployAfter(): array {
-		return ["mdadm"];
-	}
-
-	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-			"org.openmediavault.conf.system.mdadm.device",
-			[$this, "setDirty"]);
-	}
 }

@@ -27,6 +27,10 @@ class MdMgmt extends \OMV\Engine\Module\ServiceAbstract
 		return "mdadm";
 	}
 
+	public function deployBefore(): array {
+		return ["initramfs"];
+	}
+
 	public function deployAfter(): array {
 		return ["email"];
 	}
@@ -55,5 +59,10 @@ class MdMgmt extends \OMV\Engine\Module\ServiceAbstract
 			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.system.notification.notification",
 			[$this, "setDirty"]);
+		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
+		$dispatcher->addListener(
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.system.mdadm.device",
+			[$moduleMngr->getModule("initramfs"), "setDirty"]);
 	}
 }
