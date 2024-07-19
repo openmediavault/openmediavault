@@ -49,6 +49,7 @@ export type DatatablePageConfig = {
   selectionType?: 'none' | 'single' | 'multi';
   updateSelectionOnReload?: 'always' | 'onChange' | 'never';
   // Page size to show. To disable paging, set the limit to 0.
+  // Defaults to 25.
   limit?: number;
   // If set to `true`, the parameters `start` and `limit` from the data
   // table paging component are added to the RPC request parameters.

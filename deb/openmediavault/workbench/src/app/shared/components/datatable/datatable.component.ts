@@ -194,6 +194,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   autoReload?: boolean | number = false;
 
   // Page size to show. To disable paging, set the limit to 0.
+  // Defaults to 25.
   @Input()
   limit? = 25;
 
