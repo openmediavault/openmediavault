@@ -21,8 +21,7 @@
  */
 namespace Engined\Module;
 
-class Initramfs extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener {
+class Initramfs extends \OMV\Engine\Module\ServiceAbstract {
 	public function getName() {
 		return "initramfs";
 	}
