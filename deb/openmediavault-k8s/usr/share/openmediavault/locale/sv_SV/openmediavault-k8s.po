@@ -82,7 +82,7 @@ msgid "Data"
 msgstr "Data"
 
 msgid "Datastore"
-msgstr ""
+msgstr "Datalagring"
 
 msgid "Date & Time"
 msgstr "Datum & tid"
@@ -305,6 +305,9 @@ msgid ""
 "single-node setups and SBCs with slow disks, while etcd is recommended for "
 "high-availability setups with multiple nodes."
 msgstr ""
+"Datalagringen som används av Kubernetes-klustret. SQLite rekommenderas för "
+"inställningar med en nod och SBC:er med långsamma diskar, medan etcd "
+"rekommenderas för inställningar med hög tillgänglighet med flera noder."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
