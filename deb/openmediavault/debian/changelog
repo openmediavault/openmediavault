@@ -1,4 +1,4 @@
-openmediavault (7.4.2-1) stable; urgency=low
+openmediavault (7.4.2-2) stable; urgency=low
 
   * Make sure security packages are not hold back on several Debian
     derivatives. Remove the "APT::Default-Release" setting from all
