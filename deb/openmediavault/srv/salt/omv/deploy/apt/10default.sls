@@ -43,14 +43,16 @@ configure_apt_sources_list_openmediavault:
     - group: root
     - mode: 644
 
-configure_apt_default_release:
-  file.managed:
-    - name: "/etc/apt/apt.conf.d/99openmediavault-default-release"
-    - contents: |
-        APT::Default-Release "/^{{ grains['oscodename'] }}(|-security|-updates)$/";
-    - user: root
-    - group: root
-    - mode: 644
+unset_apt_default_release:
+  file.replace:
+    - name: "/etc/apt/apt.conf"
+    - pattern: "^APT::Default-Release.+\n?"
+    - flags:
+      - "IGNORECASE"
+      - "MULTILINE"
+    - repl: ""
+    - ignore_if_missing: True
+    - backup: False
 
 {% if proxy_config.http.enable | to_bool or proxy_config.https.enable |
    to_bool or proxy_config.ftp.enable | to_bool %}

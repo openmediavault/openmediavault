@@ -536,6 +536,7 @@ case "$1" in
 			rm -f /etc/apt/apt.conf.d/50unattended-upgrades
 		fi
 		if dpkg --compare-versions "$2" lt-nl "7.4.1"; then
+			rm -f /etc/apt/apt.conf.d/99openmediavault-default-release
 			omv_module_set_dirty apt
 		fi
 
