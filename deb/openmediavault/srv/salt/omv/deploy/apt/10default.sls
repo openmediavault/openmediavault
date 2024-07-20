@@ -43,9 +43,11 @@ configure_apt_sources_list_openmediavault:
     - group: root
     - mode: 644
 
-unset_apt_default_release:
+{% set apt_conf_files = salt['cmd.run']('grep --recursive --files-with-matches --regexp="^APT::Default-Release.*" --ignore-case "/etc/apt/apt.conf" "/etc/apt/apt.conf.d/"', ignore_retcode=True) %}
+{% for file in (apt_conf_files.split('\n') if apt_conf_files else []) %}
+unset_apt_default_release_{{ file | path_basename }}:
   file.replace:
-    - name: "/etc/apt/apt.conf"
+    - name: "{{ file }}"
     - pattern: "^APT::Default-Release.+\n?"
     - flags:
       - "IGNORECASE"
@@ -53,6 +55,7 @@ unset_apt_default_release:
     - repl: ""
     - ignore_if_missing: True
     - backup: False
+{% endfor %}
 
 {% if proxy_config.http.enable | to_bool or proxy_config.https.enable |
    to_bool or proxy_config.ftp.enable | to_bool %}
