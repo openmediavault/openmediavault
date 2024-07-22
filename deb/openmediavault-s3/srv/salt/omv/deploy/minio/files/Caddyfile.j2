@@ -11,3 +11,12 @@
     header_down X-XSS-Protection "1; mode=block"
   }
 }
+:9000 {
+  tls /data/cert.crt /data/cert.key
+  header -Server
+  reverse_proxy http://minio-app:8081 {
+    header_down X-Frame-Options "SAMEORIGIN"
+    header_down X-Content-Type-Options "nosniff"
+    header_down X-XSS-Protection "1; mode=block"
+  }
+}
