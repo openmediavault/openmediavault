@@ -1,3 +1,9 @@
+openmediavault-s3 (7.0.2-1) stable; urgency=low
+
+  * Enable TLS encryption for MinIO's API endpoint.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 23 Jul 2024 12:26:13 +0200
+
 openmediavault-s3 (7.0.1-1) stable; urgency=low
 
   * Issue #1782: Add the environment variable `OMV_S3_APP_CONTAINER_START_OPTIONS`.
