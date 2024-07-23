@@ -31,6 +31,10 @@ class Avahi extends \OMV\Engine\Module\ServiceAbstract
 		return "zeroconf";
 	}
 
+	public function deployAfter(): array {
+		return ["systemd-networkd"];
+	}
+
 	public function getDescription() {
 		return gettext("Framework for Multicast DNS Service Discovery.");
 	}

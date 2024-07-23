@@ -2,6 +2,8 @@ openmediavault (7.4.3-1) stable; urgency=low
 
   * Make sure the Armbian default netplan configuration file
     does not break our netplan configuration.
+  * Make the system accessible again via mDNS/Zeroconf after
+    changing the system's hostname.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 23 Jul 2024 19:40:18 +0200
 
