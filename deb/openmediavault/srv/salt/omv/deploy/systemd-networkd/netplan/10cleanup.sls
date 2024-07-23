@@ -40,3 +40,8 @@ remove_netplan_config_files:
       - path: "/etc/netplan/"
       - iname: "^(*-)?openmediavault-*.yaml"
       - delete: "f"
+
+# https://docs.armbian.com/User-Guide_Networking/
+remove_netplan_default_armbian_config_file:
+  file.absent:
+    - name: "/etc/netplan/10-dhcp-all-interfaces.yaml"
