@@ -1,3 +1,9 @@
+openmediavault (7.4.4-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 25 Jul 2024 11:37:57 +0200
+
 openmediavault (7.4.3-1) stable; urgency=low
 
   * Make sure the Armbian default netplan configuration file
