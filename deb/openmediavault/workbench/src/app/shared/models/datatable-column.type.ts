@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { TableColumn } from '@swimlane/ngx-datatable';
+import { TableColumn } from '@siemens/ngx-datatable';
 
 export type DatatableColumn = TableColumn & {
   // Is the column to be hidden?

@@ -52,7 +52,7 @@
     "@fontsource/roboto-mono": "^4.5.10",
     "@mdi/angular-material": "^7.2.96",
     "@ngneat/transloco": "^3.2.0",
-    "@swimlane/ngx-datatable": "~20.1.0",
+    "@siemens/ngx-datatable": "~21.5.0",
     "chart.js": "^4.4.3",
     "chartjs-plugin-datalabels": "^2.2.0",
     "core-js": "~3.37.1",
