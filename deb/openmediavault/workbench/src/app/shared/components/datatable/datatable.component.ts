@@ -31,7 +31,7 @@ import {
 } from '@angular/core';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
-import { DatatableComponent as NgxDatatableComponent } from '@swimlane/ngx-datatable';
+import { DatatableComponent as NgxDatatableComponent } from '@siemens/ngx-datatable';
 import * as _ from 'lodash';
 import { Subscription, timer } from 'rxjs';
 

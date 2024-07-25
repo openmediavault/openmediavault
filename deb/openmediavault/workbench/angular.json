@@ -57,8 +57,8 @@
             "styles": [
               "node_modules/@fontsource/inter/index.css",
               "node_modules/@fontsource/roboto-mono/index.css",
-              "node_modules/@swimlane/ngx-datatable/index.scss",
-              "node_modules/@swimlane/ngx-datatable/assets/icons.css",
+              "node_modules/@siemens/ngx-datatable/index.scss",
+              "node_modules/@siemens/ngx-datatable/assets/icons.css",
               "node_modules/ngx-toastr/toastr.css",
               "src/styles.scss"
             ],
