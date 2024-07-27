@@ -9,5 +9,5 @@ export HTTPS_PROXY="${https_proxy}"
 {%- endif %}
 {%- if config.ftp.enable | to_bool and config.ftp.host | length > 0 %}
 export ftp_proxy="{{ config.ftp.host | urlparse | get('scheme') | default('ftp', true) }}://{% if config.ftp.username | length > 0 %}{{ config.ftp.username }}:{{ config.ftp.password }}@{% endif %}{{ config.ftp.host | regex_replace('^.+://', '') }}:{{ config.ftp.port }}"
-export ftp_PROXY="${ftp_proxy}"
+export FTP_PROXY="${ftp_proxy}"
 {%- endif %}
