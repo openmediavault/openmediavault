@@ -1,4 +1,4 @@
-#!/usr/bin/bash -l
+#!/usr/bin/env dash
 #
 # This file is part of OpenMediaVault.
 #
@@ -22,6 +22,10 @@
 # Documentation/Howto:
 # https://www.thomas-krenn.com/de/wiki/Smartmontools_Drive_Database_aktualisieren
 # https://www.endpointdev.com/blog/2013/05/login-shells-in-scripts-called-from-cron/
+
+# Import the configured proxy settings, but do not output anything to stdout.
+. /etc/profile 1>/dev/null
+
 MAILTO=""
 TERM=dumb
 
