@@ -1,6 +1,8 @@
 openmediavault (7.4.4-1) stable; urgency=low
 
   * Issue #1635: Switch to `@siemens/ngx-datatable` component.
+  * Issue #1799: Do not use a login shell in the cron script
+    `openmediavault-update-smart-drivedb`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 25 Jul 2024 11:37:57 +0200
 
