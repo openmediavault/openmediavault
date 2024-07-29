@@ -74,7 +74,17 @@ rsync --verbose --log-file="{{ logfile }}"
 {%- if job.optionxattrs | to_bool %}{{ separator }}--xattrs{%- endif %}
 {%- if job.optionpartial | to_bool %}{{ separator }}--partial{%- endif %}
 {%- if job.extraoptions | length > 0 %}{{ separator }}{{ job.extraoptions }}{%- endif -%}
-{{ separator }}"{{ srcuri }}" "{{ desturi }}" & wait $!
+{%- if job.type == 'local' -%}
+  {%- set srcuri = srcuri | quote -%}
+  {%- set desturi = desturi | quote -%}
+{%- elif job.type == 'remote' -%}
+  {%- if job.mode == 'push' -%}
+    {%- set srcuri = srcuri | quote -%}
+  {%- elif job.mode == 'pull' -%}
+    {%- set desturi = desturi | quote -%}
+  {%- endif -%}
+{%- endif -%}
+{{ separator }}{{ srcuri }}{{ separator }}{{ desturi }} & wait $!
 {%- if not job.optionquiet | to_bool %}
 if [ $? -eq 0 ]; then
     omv_log "The synchronisation has completed successfully."
