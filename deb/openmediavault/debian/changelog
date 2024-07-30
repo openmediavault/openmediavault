@@ -3,6 +3,8 @@ openmediavault (7.4.4-1) stable; urgency=low
   * Issue #1635: Switch to `@siemens/ngx-datatable` component.
   * Issue #1799: Do not use a login shell in the cron script
     `openmediavault-update-smart-drivedb`.
+  * Issue #1801: Support requesting multiple files from a remote
+    host, e.g. `user@host:/dir1 :/dir2 :/dir3`, in rsync jobs.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 25 Jul 2024 11:37:57 +0200
 
