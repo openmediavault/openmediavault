@@ -6,7 +6,7 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import { NavigationPageComponent } from '~/app/core/pages/navigation-page/navigation-page.component';
 import { RouteConfigService } from '~/app/core/services/route-config.service';
 import { PerformanceStatisticCpuRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-cpu-rrd-page.component';
-import { PerformanceStatisticDuRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-du-rrd-page.component';
+import { PerformanceStatisticDfRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-df-rrd-page.component';
 import { PerformanceStatisticLoadRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-load-rrd-page.component';
 import { PerformanceStatisticMemoryRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-memory-rrd-page.component';
 import { PerformanceStatisticNetworkRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-network-rrd-page.component';
@@ -74,9 +74,9 @@ const routes: Routes = [
         data: { title: gettext('CPU') }
       },
       {
-        path: 'disk-usage',
-        component: PerformanceStatisticDuRrdPageComponent,
-        data: { title: gettext('Disk Usage') }
+        path: 'df',
+        component: PerformanceStatisticDfRrdPageComponent,
+        data: { title: gettext('File System Usage') }
       },
       {
         path: 'load',

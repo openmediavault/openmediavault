@@ -1,7 +1,0 @@
-version: "1.0"
-type: navigation-item
-data:
-  path: "diagnostics.performance-statistics.diskusage"
-  text: _("Disk Usage")
-  icon: harddisk
-  url: "/diagnostics/performance-statistics/disk-usage"
