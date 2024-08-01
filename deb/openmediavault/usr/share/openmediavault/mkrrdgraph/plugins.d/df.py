@@ -26,7 +26,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
         # http://paletton.com/#uid=33r0-0kwi++bu++hX++++rd++kX
         config.update(
             {
-                'title_df': 'Disk usage',
+                'title_df': 'File system usage',
                 'color_line_df_free': '#0bb6ff',  # blue
                 'color_line_df_used': '#ff1300',  # red
                 'color_area_df_free': '#76d6ff',  # blue

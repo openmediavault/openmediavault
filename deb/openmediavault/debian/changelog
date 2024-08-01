@@ -1,5 +1,7 @@
 openmediavault (7.4.4-1) stable; urgency=low
 
+  * Rename `Diagnostics | Performance Statistics | Disk Usage` to
+    `File System Usage` to differentiate with `Disk I/O`.
   * Issue #1635: Switch to `@siemens/ngx-datatable` component.
   * Issue #1799: Do not use a login shell in the cron script
     `openmediavault-update-smart-drivedb`.

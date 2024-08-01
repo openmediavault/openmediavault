@@ -22,7 +22,7 @@ import { RrdPageConfig } from '~/app/core/components/intuition/models/rrd-page-c
 @Component({
   template: '<omv-intuition-rrd-page [config]="this.config"></omv-intuition-rrd-page>'
 })
-export class PerformanceStatisticDuRrdPageComponent {
+export class PerformanceStatisticDfRrdPageComponent {
   public config: RrdPageConfig = {
     graphs: [
       {

@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.performance-statistics.df"
+  text: _("File System Usage")
+  icon: harddisk
+  url: "/diagnostics/performance-statistics/df"

@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from '~/app/core/core.module';
 import { DiagnosticsRoutingModule } from '~/app/pages/diagnostics/diagnostics-routing.module';
 import { PerformanceStatisticCpuRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-cpu-rrd-page.component';
-import { PerformanceStatisticDuRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-du-rrd-page.component';
+import { PerformanceStatisticDfRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-df-rrd-page.component';
 import { PerformanceStatisticLoadRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-load-rrd-page.component';
 import { PerformanceStatisticMemoryRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-memory-rrd-page.component';
 import { PerformanceStatisticNetworkRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-network-rrd-page.component';
@@ -27,7 +27,7 @@ import { SystemLogsRemoteFormPageComponent } from '~/app/pages/diagnostics/syste
     ProcessesTextPageComponent,
     ReportTextPageComponent,
     PerformanceStatisticCpuRrdPageComponent,
-    PerformanceStatisticDuRrdPageComponent,
+    PerformanceStatisticDfRrdPageComponent,
     PerformanceStatisticLoadRrdPageComponent,
     PerformanceStatisticMemoryRrdPageComponent,
     PerformanceStatisticNetworkRrdPageComponent,
