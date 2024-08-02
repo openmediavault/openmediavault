@@ -1133,36 +1133,3 @@ class __Defer {
 function defer(callable $callback) {
     return new __Defer($callback);
 }
-
-/**
- * Get the IP address from a client request by extracting it from a given
- * list of headers. Those headers that are typically set by reverse proxies
- * are also taken into account.
- * @param array $array The array with the request headers, e.g. `$_SERVER`
- *   (see https://www.php.net/manual/en/reserved.variables.server.php)
- * @return Returns the IP address of the client.
- */
-function getClientIP($array): string {
-	$requestHeaders = [
-		// https://developers.cloudflare.com/fundamentals/reference/http-request-headers/#cf-connecting-ip
-		'HTTP_CF_CONNECTING_IP',
-		'HTTP_CLIENT_IP',
-		'HTTP_FORWARDED',
-		// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For
-		'HTTP_FORWARDED_FOR',
-		'HTTP_X_CLUSTER_CLIENT_IP',
-		'HTTP_X_FORWARDED',
-		'HTTP_X_FORWARDED_FOR',
-		'HTTP_X_REAL_IP'
-	];
-	foreach ($requestHeaders as $headerk => $headerv) {
-		if (TRUE === array_key_exists($headerv, $array)) {
-			$parts = explode(",", $array[$headerv]);
-			$ip = trim($parts[0]);
-			if (FALSE !== filter_var($ip, FILTER_VALIDATE_IP)) {
-				return $ip;
-			}
-		}
-	}
-	return $array['REMOTE_ADDR'];
-}

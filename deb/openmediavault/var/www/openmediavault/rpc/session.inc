@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/functions.inc");
-
 class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -53,6 +51,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		$authenticated = FALSE;
 		$permissions = [];
 		$sessionId = "";
+		$server = new \OMV\SuperGlobalServer();
 		// Strip whitespaces from the user name.
 		if (is_string($params['username'])) {
 			$params['username'] = trim($params['username']);
@@ -93,8 +92,8 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		if (TRUE === $authenticated) {
 			// Log the successful login attempt via syslog.
 			syslog(LOG_ALERT, sprintf("Authorized login from %s ".
-				"[username=%s, user-agent=%s]", getClientIP($_SERVER),
-				$params['username'], $_SERVER['HTTP_USER_AGENT']));
+				"[username=%s, user-agent=%s]", $server->getClientIP(),
+				$params['username'], $server->getUserAgent()));
 			// Send an email to the user if a new web browser is used to log
 			// in to the control panel. If no special cookie is detected,
 			// then it is assumed that the web browser has not been used to
@@ -129,8 +128,8 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 					"Sincerely,\n".
 					"your %s system",
 					$params['username'], \OMV\System\Net\Dns::getFqdn(),
-					$_SERVER['SERVER_ADDR'], date('r'), getClientIP($_SERVER),
-					$_SERVER['HTTP_USER_AGENT'], $prd->getName());
+					$server->getServerAddr(), date('r'), $server->getClientIP(),
+					$server->getUserAgent(), $prd->getName());
 				$mail = new \OMV\Email("root", $params['username'],
 					$subject, $message);
 				$mail->send();
@@ -153,8 +152,8 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		} else {
 			// Log the unauthorized login attempt via syslog.
 			syslog(LOG_ALERT, sprintf("Unauthorized login attempt from %s ".
-				"[username=%s, user-agent=%s]", getClientIP($_SERVER),
-				$params['username'], $_SERVER['HTTP_USER_AGENT']));
+				"[username=%s, user-agent=%s]", $server->getClientIP(),
+				$params['username'], $server->getUserAgent()));
 			closelog();
 			throw new \OMV\HttpErrorException(400,
 				_("Incorrect username or password."));
