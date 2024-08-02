@@ -19,6 +19,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/functions.inc");
+
 class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -91,7 +93,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		if (TRUE === $authenticated) {
 			// Log the successful login attempt via syslog.
 			syslog(LOG_ALERT, sprintf("Authorized login from %s ".
-				"[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],
+				"[username=%s, user-agent=%s]", getClientIP($_SERVER),
 				$params['username'], $_SERVER['HTTP_USER_AGENT']));
 			// Send an email to the user if a new web browser is used to log
 			// in to the control panel. If no special cookie is detected,
@@ -127,7 +129,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 					"Sincerely,\n".
 					"your %s system",
 					$params['username'], \OMV\System\Net\Dns::getFqdn(),
-					$_SERVER['SERVER_ADDR'], date('r'), $_SERVER['REMOTE_ADDR'],
+					$_SERVER['SERVER_ADDR'], date('r'), getClientIP($_SERVER),
 					$_SERVER['HTTP_USER_AGENT'], $prd->getName());
 				$mail = new \OMV\Email("root", $params['username'],
 					$subject, $message);
@@ -151,7 +153,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		} else {
 			// Log the unauthorized login attempt via syslog.
 			syslog(LOG_ALERT, sprintf("Unauthorized login attempt from %s ".
-				"[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],
+				"[username=%s, user-agent=%s]", getClientIP($_SERVER),
 				$params['username'], $_SERVER['HTTP_USER_AGENT']));
 			closelog();
 			throw new \OMV\HttpErrorException(400,
