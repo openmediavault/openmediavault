@@ -1,5 +1,6 @@
 openmediavault (7.4.4-1) stable; urgency=low
 
+  * Update locale files.
   * Get correct client IP in login message when system is behind
     a reverse proxy.
   * Rename `Diagnostics | Performance Statistics | Disk Usage` to
