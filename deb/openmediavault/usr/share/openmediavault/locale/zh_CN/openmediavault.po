@@ -5,7 +5,7 @@
 # Translators:
 # Herald Yu <yuhr123@gmail.com>, 2018-2019
 # LeeYang <150183966@qq.com>, 2021
-# songming <by@songming.me>, 2013-2023
+# songming <by@songming.me>, 2013-2024
 # Volker Theile <votdev@gmx.de>, 2022
 # Wei Ding <dyw.net@gmail.com>, 2014-2015
 # LeeYang <150183966@qq.com>, 2021
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-07 20:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: 王大山, 2022-2023\n"
+"Last-Translator: songming <by@songming.me>, 2013-2024\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -277,13 +277,13 @@ msgid ""
 "Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
 "devices are listed in the scheduled tasks. Monitoring cannot be switched off"
 " as long as there are scheduled tasks for this device."
-msgstr "對此裝置啟動 S.M.A.R.T. 監測。請注意唯有被監測的裝置才會列在預訂工作中。只要該裝置仍存在有預訂工作，就無法將監測關閉。"
+msgstr "对此设备激活 S.M.A.R.T. 监测。请注意只有被监测的设备才会在计划任务列表中。在计划任务中监测的设备不能关闭监测。"
 
 msgid "Active"
 msgstr "激活"
 
 msgid "Active or Idle"
-msgstr "運作或閒置"
+msgstr "激活或闲置"
 
 msgid "Add"
 msgstr "添加"
@@ -952,7 +952,7 @@ msgid "Disallow the user to modify their own account."
 msgstr "不允許用戶修改自己的帳戶。"
 
 msgid "Disk Temperatures"
-msgstr "磁碟溫度"
+msgstr "硬盘温度"
 
 msgid "Disk Usage"
 msgstr "磁盘用量"
@@ -985,7 +985,7 @@ msgid "Displays information about the services in a table."
 msgstr "在标签中显示服务信息。"
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
-msgstr "顯示 S.M.A.R.T. 所有被監測磁碟裝置的狀況。"
+msgstr "显示所有被监测磁盘的 S.M.A.R.T. 状态。"
 
 msgid "Displays the system time."
 msgstr "显示系统时间。"
@@ -994,7 +994,7 @@ msgid "Displays the system uptime."
 msgstr "显示系统运行时间。"
 
 msgid "Displays the temperature of all disk devices."
-msgstr "顯示全部磁碟裝置的溫度。"
+msgstr "显示全部硬盘温度。"
 
 msgid "Displays various system information."
 msgstr "显示各种系统信息。"
@@ -1216,10 +1216,10 @@ msgid "Failed to copy data to the clipboard."
 msgstr "复制数据到粘贴板失败"
 
 msgid "Failed to start session."
-msgstr "啟動作業階段失敗。"
+msgstr "启动会话失败。"
 
 msgid "Failed to write session data."
-msgstr "寫出作業階段資料失敗。"
+msgstr "无法写入会话数据。"
 
 msgid "Falkland Islands"
 msgstr "福克兰群岛"
@@ -1243,10 +1243,10 @@ msgid "File Systems"
 msgstr "文件系统"
 
 msgid "File access control lists"
-msgstr "檔案存取控制列表"
+msgstr "文件访问控制列表。"
 
 msgid "File owner and group"
-msgstr "檔案擁有者和群組"
+msgstr "文件的所有者和组。"
 
 msgid "File path"
 msgstr "文件路径"
@@ -1271,10 +1271,10 @@ msgid ""
 msgstr "大于设置大小的文件不会放到回收站。"
 
 msgid "Fingerprint (SHA-1)"
-msgstr "指紋 (SHA-1)"
+msgstr "指纹 (SHA-1)"
 
 msgid "Fingerprint (SHA-256)"
-msgstr "指紋 (SHA-256)"
+msgstr "指纹 (SHA-256)"
 
 msgid "Finland"
 msgstr "芬兰"
@@ -1292,7 +1292,7 @@ msgid "Force SSL/TLS"
 msgstr "强制使用 SSL/TLS"
 
 msgid "Force a specific MAC address on this interface."
-msgstr "強迫把一個特定的 MAC 地址用於此介面。"
+msgstr "在这个接口强制使用特定的 MAC 地址。"
 
 msgid "Force secure connection only."
 msgstr "强制只允许使用安全连接。"
@@ -1460,7 +1460,7 @@ msgid "Hosts deny"
 msgstr "拒绝主机"
 
 msgid "Hot-Pluggable"
-msgstr "可熱插拔"
+msgstr "可热插拔"
 
 msgid "Hour"
 msgstr "小时"
@@ -1518,7 +1518,7 @@ msgid ""
 "be mounted <a href='#/storage/filesystems/mount'>here<a>. For the latter, "
 "please <a href='#/storage/disks'>wipe<a> the device as partitions are not "
 "supported."
-msgstr "若裝置沒在此被列出，通常是因為該裝置上已經含有一個檔案系統或分割。在前者狀況時，該檔案系統可以被掛載入<a href='#/storage/filesystems/mount'>於此<a>。在後者狀況時，請<a href='#/storage/disks'>抹除<a>該裝置，因為分割未被支援。"
+msgstr "如果这里没有列出的设备，通常是因为这个设备已经包含文件系统或分区。这时，这个文件系统可以被挂载<a href='#/storage/filesystems/mount'>这里<a>。对于后者，请<a href='#/storage/disks'>擦除<a>該设备，因为分区不被支持。"
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -1570,7 +1570,7 @@ msgid "India"
 msgstr "印度"
 
 msgid "Indicates whether updates are available."
-msgstr "標示是否有可用更新。"
+msgstr "表示是否有可用更新。"
 
 msgid "Indonesia"
 msgstr "印度尼西亚"
@@ -1617,7 +1617,7 @@ msgid "Invalid NetBIOS name."
 msgstr "无效 NetBIOS 名称。"
 
 msgid "Invalid PGP public key."
-msgstr "公開金鑰無效。"
+msgstr "PGP 公钥无效。"
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "无效 SSH 公钥 (OpenSSH格式)"
@@ -1756,19 +1756,19 @@ msgid "Lifetime"
 msgstr "寿命"
 
 msgid "Limit custom"
-msgstr "限制自訂"
+msgstr "限制自定义"
 
 msgid "Limit daily"
 msgstr "限制每天"
 
 msgid "Limit hourly"
-msgstr "限制每小時"
+msgstr "限制每小时"
 
 msgid "Limit monthly"
 msgstr "限制每月"
 
 msgid "Limit weekly"
-msgstr "限制每週"
+msgstr "限制每周"
 
 msgid "Limit yearly"
 msgstr "限制每年"
@@ -1934,7 +1934,7 @@ msgid "Method"
 msgstr "方式"
 
 msgid "Metric"
-msgstr "指標"
+msgstr "指标"
 
 msgid "Metropolitan France"
 msgstr "法国本土"
@@ -2030,7 +2030,7 @@ msgid "NFS"
 msgstr "NFS"
 
 msgid "NTP time servers, separated by comma."
-msgstr "NTP 時間伺服器，以逗號分開。"
+msgstr "NTP 时间服务器，以逗号分隔。"
 
 msgid "Name"
 msgstr "名称"
@@ -2102,7 +2102,7 @@ msgid "No data to display."
 msgstr "无数据可显示"
 
 msgid "No monitored devices."
-msgstr "沒有受監控的裝置。"
+msgstr "没有被监测的设备。"
 
 msgid "No users connected"
 msgstr "无用户连接"
@@ -2246,7 +2246,7 @@ msgid "Parent Device"
 msgstr "父设备"
 
 msgid "Parent UUID"
-msgstr "上層 UUID"
+msgstr "父 UUID"
 
 msgid "Parent device"
 msgstr "父设备"
@@ -2285,7 +2285,7 @@ msgid "Period of validity"
 msgstr "有效时间"
 
 msgid "Permission"
-msgstr "權限"
+msgstr "权限"
 
 msgid "Permissions"
 msgstr "权限"
@@ -2347,10 +2347,10 @@ msgid "Please wait ..."
 msgstr "请稍等 ..."
 
 msgid "Please wait, a shared folder will be created ..."
-msgstr "請稍待，一個共享檔案夾將被創建 ..."
+msgstr "请稍等，一个共享文件夹将会被创建 ..."
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr "請稍待，一份快照將被創建 ..."
+msgstr "请稍等，一个快照将会被创建 ..."
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "请稍等，正在删除选中的项（可多选）……"
@@ -2407,7 +2407,7 @@ msgid "Power Management"
 msgstr "电源管理"
 
 msgid "Power Mode"
-msgstr "耗電模式"
+msgstr "电源模式"
 
 msgid "Power Off"
 msgstr "关机"
@@ -2798,7 +2798,7 @@ msgid "Select an user ..."
 msgstr "选择一个用户……"
 
 msgid "Select devices ..."
-msgstr "选择设备（可多选） ..."
+msgstr "选择设备 ..."
 
 msgid "Select groups ..."
 msgstr "选择组"
@@ -2906,10 +2906,10 @@ msgid "Shared folder path"
 msgstr "共享文件夹路径"
 
 msgid "Shared folder permissions"
-msgstr "共享檔案夾權限"
+msgstr "共享文件夹权限"
 
 msgid "Shared folder permissions have been copied."
-msgstr "共享檔案夾的權限已被複製。"
+msgstr "共享文件夹权限已被复制。"
 
 msgid "Shares"
 msgstr "共享"
@@ -3018,7 +3018,7 @@ msgid ""
 msgstr "检测到正常后等多少毫秒再恢复链路。"
 
 msgid "Specifies the type of key to create."
-msgstr "指定所要產生之金鑰的類型。"
+msgstr "制定要创建的密钥类型。"
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "指定是否允许以超级用户登录。"
@@ -3091,7 +3091,7 @@ msgid "Sunday"
 msgstr " 星期日"
 
 msgid "Support name resolution and network discovery for legacy systems."
-msgstr "支援對舊有系統的名稱解析和網路探索。"
+msgstr "支持旧系统的名称解析和网络发现。"
 
 msgid "Suppress non-error messages"
 msgstr "抑制非错误信息"
@@ -3305,14 +3305,14 @@ msgid "The port on which SSH is running on the remote system."
 msgstr "远程系统的 SSH 端口号。"
 
 msgid "The private key in PEM format."
-msgstr "PEM 格式的私密金鑰。"
+msgstr "PEM 格式的私钥。"
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
 msgstr "该协议不支持源或目标端口。"
 
 msgid "The public key in OpenSSH format."
-msgstr "OpenSSH 格式的公開金鑰。"
+msgstr "OpenSSH 格式的公钥。"
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
@@ -3337,7 +3337,7 @@ msgid "The server is unavailable to handle this request right now."
 msgstr "该请求当前无可用服务器资源。"
 
 msgid "The shared folder from which the permissions are copied."
-msgstr "權限是由此共享檔案夾複製來的。"
+msgstr "共享文件夹的权限来自于被复制的。"
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr "共享文件夹 {{ _selected[0].name }} 已成功建立。"
@@ -3406,7 +3406,7 @@ msgstr "此字段包含无效字符，例如空白或 \"/[]:+|<>=;,*? 字符。"
 msgid ""
 "This field contains invalid characters, only alphanumeric characters and "
 "underscore are allowed."
-msgstr "含有非法字符！（只允许字母和下划线）"
+msgstr "含有非法字符！只允许字母和下划线"
 
 msgid ""
 "This field is automatically filled with the subject of the certificate if "
@@ -3420,39 +3420,39 @@ msgid "This field must have the format <hh:mm:ss>."
 msgstr "此字段的格式必须为 <hh:mm:ss>"
 
 msgid "This field should be a IP network address in CIDR notation."
-msgstr "此处应该是 CIDR 格式的 IP 地址。"
+msgstr "此字段应该是 CIDR 格式的 IP 地址。"
 
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
-msgstr "此欄位必須是一個 MAC 地址，例如：00:80:41:ae:fd:7e。"
+msgstr "此字段应该是一个 MAC 地址，例如：00:80:41:ae:fd:7e。"
 
 msgid "This field should be a domain name or an IP address."
-msgstr "此处应该是域名或者 IP 地址"
+msgstr "此字段应该是域名或者 IP 地址"
 
 msgid "This field should be a host name or an IP address in CIDR notation."
-msgstr "此字段是主机名或符合 CIDR 规范的 IP 地址"
+msgstr "此字段应该是主机名或符合 CIDR 规范的 IP 地址"
 
 msgid "This field should be a list of IP addresses separated by <,> or <;>."
-msgstr "此字段是 IP 地址列表，使用 <,> 或 <;> 隔开。"
+msgstr "此字段应该是 IP 地址列表，使用 <,> 或 <;> 隔开。"
 
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>."
-msgstr "此字段是域名或者 IP 地址列表，使用 <,> 或 <;> 隔开。"
+msgstr "此字段应该是域名或者 IP 地址列表，使用 <,> 或 <;> 隔开。"
 
 msgid "This field should be a list of domain names or IP addresses."
-msgstr "此字段是域名或者 IP 地址列表。"
+msgstr "此字段应该是域名或者 IP 地址列表。"
 
 msgid ""
 "This field should be a list of host names or IP addresses in CIDR notation "
 "separated by <,> or <;>."
-msgstr "此字段是主机名或符合 CIDR 规范的 IP 地址列表，使用 <,> 或<;>隔开。"
+msgstr "此字段应该是主机名或符合 CIDR 规范的 IP 地址列表，使用 <,> 或<;>隔开。"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
-msgstr "此处应填128.0.0.0 - 255.255.255.252内的子网掩码。"
+msgstr "此字段应填128.0.0.0 - 255.255.255.252内的子网掩码。"
 
 msgid "This field should be a network port in the range of 1 to 65535."
-msgstr "此处填写端口范围是1-65535."
+msgstr "此字段应该填写端口范围是1-65535."
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
@@ -3607,7 +3607,7 @@ msgid "Transmit Hash Policy"
 msgstr "传输哈希策略"
 
 msgid "Transport encryption"
-msgstr "傳輸加密"
+msgstr "传输加密"
 
 msgid "Trial run"
 msgstr "试运行"
@@ -3906,7 +3906,7 @@ msgstr "用户"
 msgid ""
 "Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr "用戶必須被指派到 <em>_ssh</em> 群組才能夠經由 SSH 登入。"
+msgstr "用户必须被分配到 <em>_ssh</em>用户组才能通过 SHH 登录。"
 
 msgid "Utilization"
 msgstr "利用率"

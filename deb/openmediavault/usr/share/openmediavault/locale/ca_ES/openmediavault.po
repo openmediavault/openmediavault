@@ -279,7 +279,7 @@ msgid "Active"
 msgstr "Actiu"
 
 msgid "Active or Idle"
-msgstr ""
+msgstr "Activa o inactiva"
 
 msgid "Add"
 msgstr "Afegir"
@@ -1456,7 +1456,7 @@ msgid "Hosts deny"
 msgstr "Equips no permesos"
 
 msgid "Hot-Pluggable"
-msgstr ""
+msgstr "Connectable en calent"
 
 msgid "Hour"
 msgstr "Hora"
@@ -1613,7 +1613,7 @@ msgid "Invalid NetBIOS name."
 msgstr "Nom NetBIOS no vàlid."
 
 msgid "Invalid PGP public key."
-msgstr ""
+msgstr "Clau pública PGP no vàlida."
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Clau pública SSH no vàlida (format OpenSSH). "
@@ -2026,7 +2026,7 @@ msgid "NFS"
 msgstr "NFS"
 
 msgid "NTP time servers, separated by comma."
-msgstr ""
+msgstr "Servidors de temps NTP, separats per comes."
 
 msgid "Name"
 msgstr "Nom"
@@ -2343,10 +2343,10 @@ msgid "Please wait ..."
 msgstr "Per favor esperis ..."
 
 msgid "Please wait, a shared folder will be created ..."
-msgstr ""
+msgstr "Espereu, es crearà una carpeta compartida..."
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Espereu, es crearà una instantània..."
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "Espereu, suprimint els element(s) seleccionats ... "
@@ -2403,7 +2403,7 @@ msgid "Power Management"
 msgstr "Maneig d'energia."
 
 msgid "Power Mode"
-msgstr ""
+msgstr "Mode d'alimentació"
 
 msgid "Power Off"
 msgstr "Apagar"
@@ -2761,7 +2761,7 @@ msgid "Secure connection"
 msgstr "Connexió segura"
 
 msgid "Security"
-msgstr ""
+msgstr "Seguretat"
 
 msgid "Select a country ..."
 msgstr "Seleccionar un país ..."
@@ -3956,10 +3956,10 @@ msgid "WOL"
 msgstr "WOL"
 
 msgid "WPA2-Personal"
-msgstr ""
+msgstr "WPA2-Personal"
 
 msgid "WPA3-Personal"
-msgstr ""
+msgstr "WPA3-Personal"
 
 msgid "WWN"
 msgstr "WWN"

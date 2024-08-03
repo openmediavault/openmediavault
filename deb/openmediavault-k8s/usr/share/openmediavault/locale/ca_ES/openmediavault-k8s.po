@@ -82,7 +82,7 @@ msgid "Data"
 msgstr "Dada"
 
 msgid "Datastore"
-msgstr ""
+msgstr "Magatzem de dades"
 
 msgid "Date & Time"
 msgstr "Data i hora"
@@ -213,10 +213,10 @@ msgid "Persistent Volumes"
 msgstr "Volums persistents"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Espereu, es crearà una instantània..."
 
 msgid "Please wait, the snapshot will be restored ..."
-msgstr ""
+msgstr "Espereu, la instantània es restaurarà..."
 
 msgid "Pods"
 msgstr "Pods"
@@ -255,7 +255,7 @@ msgid "Restore"
 msgstr "Restaurar"
 
 msgid "SQLite"
-msgstr ""
+msgstr "SQLite"
 
 msgid "Secrets"
 msgstr "Secrets"
@@ -305,6 +305,9 @@ msgid ""
 "single-node setups and SBCs with slow disks, while etcd is recommended for "
 "high-availability setups with multiple nodes."
 msgstr ""
+"El magatzem de dades utilitzat pel clúster de Kubernetes. Es recomana SQLite"
+" per a configuracions d'un sol node i SBC amb discs lents, mentre que etcd "
+"es recomana per a configuracions d'alta disponibilitat amb diversos nodes."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -334,7 +337,7 @@ msgid "The snapshot was created successfully."
 msgstr "La instantània s'ha creat correctament."
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
-msgstr ""
+msgstr "La instantània {{ spec.snapshotName }} s'ha restaurat correctament."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr "El testimoni per autenticar-se al tauler de control de Kubernetes."
@@ -361,4 +364,4 @@ msgid "Volume"
 msgstr "Volum"
 
 msgid "etcd"
-msgstr ""
+msgstr "etcd"
