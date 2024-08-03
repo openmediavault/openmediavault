@@ -1,5 +1,7 @@
 openmediavault (7.4.4-1) stable; urgency=low
 
+  * Get correct client IP in login message when system is behind
+    a reverse proxy.
   * Rename `Diagnostics | Performance Statistics | Disk Usage` to
     `File System Usage` to differentiate with `Disk I/O`.
   * Issue #1635: Switch to `@siemens/ngx-datatable` component.
