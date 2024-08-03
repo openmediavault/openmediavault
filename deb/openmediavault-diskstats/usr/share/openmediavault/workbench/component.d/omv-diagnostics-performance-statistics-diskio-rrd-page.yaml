@@ -1,30 +1,23 @@
 version: "1.0"
-type: component
+type: "component"
 data:
-  name: omv-diagnostics-performance-statistics-diskio-rrd-page
-  type: rrdPage
+  name: "omv-diagnostics-performance-statistics-diskio-rrd-page"
+  type: "rrdPage"
   config:
     graphs:
-      - name: "disk-octets-{{ parentdevicefile | replace('/dev/', '') }}"
+      - name: "disk-octets-{{ canonicaldevicefile | replace('/dev/', '') }}"
         label: _("Traffic")
-      - name: "disk-ops-{{ parentdevicefile | replace('/dev/', '') }}"
+      - name: "disk-ops-{{ canonicaldevicefile | replace('/dev/', '') }}"
         label: _("Operations")
-      - name: "disk-time-{{ parentdevicefile | replace('/dev/', '') }}"
+      - name: "disk-time-{{ canonicaldevicefile | replace('/dev/', '') }}"
         label: _("Time per operation")
-    label: '{{ parentdevicefile }}'
+    label: '{{ predictabledevicefile }}{{ " [" + "System" | translate + "]" if root === true }}'
     store:
       proxy:
-        service: FileSystemMgmt
+        service: "CollectdDisk"
         get:
-          method: enumerateMountedFilesystems
-          params:
-            includeroot: true
+          method: "enumerate"
       sorters:
-        - prop: parentdevicefile
-          dir: asc
-      filters:
-        - operator: "startsWith"
-          arg0:
-            prop: "parentdevicefile"
-          arg1: "/dev/"
-      uniqBy: "parentdevicefile"
+        - prop: "predictabledevicefile"
+          dir: "asc"
+      uniqBy: "canonicaldevicefile"
