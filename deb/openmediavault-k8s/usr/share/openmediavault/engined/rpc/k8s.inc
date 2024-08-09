@@ -222,6 +222,9 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	function applyRecipe($params, $context) {
+		// Remove commented lines.
+		$params['manifest'] = preg_replace("/^\s*#.*$/m", "",
+			$params['manifest']);
 		// Replace placeholders in the recipe.
 		$db = \OMV\Config\Database::getInstance();
 		$functions = [

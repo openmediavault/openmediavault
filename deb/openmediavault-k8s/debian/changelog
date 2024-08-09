@@ -1,3 +1,10 @@
+openmediavault-k8s (7.2.1-1) stable; urgency=low
+
+  * Issue #7: Remove commented lines to avoid processing incorrectly
+    filled placeholders.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 09 Aug 2024 18:58:29 +0200
+
 openmediavault-k8s (7.2.0-1) stable; urgency=low
 
   * Issue #1775: Add ability to choose between etcd or SQLite as
