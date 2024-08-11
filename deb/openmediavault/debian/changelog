@@ -1,6 +1,7 @@
 openmediavault (7.4.5-1) stable; urgency=low
 
-  * 
+  * Issue #1809: Add the ability to customize the apticron
+    configuration file via environment variables.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 11 Aug 2024 19:34:56 +0200
 
