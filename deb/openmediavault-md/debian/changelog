@@ -1,3 +1,9 @@
+openmediavault-md (7.0.2-1) stable; urgency=low
+
+  * Relocate mdadm cron job into this plugin.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 12 Aug 2024 18:14:45 +0200
+
 openmediavault-md (7.0.1-1) stable; urgency=low
 
   * Relocate module listeners.
