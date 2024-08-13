@@ -244,7 +244,7 @@ case "$1" in
 			# Deploy the configuration for various services.
 			echo "Deploying service configurations ..."
 			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet \
-				apt cpufrequtils chrony rsyslog \
+				apt apticron cpufrequtils chrony rsyslog \
 				watchdog monit rrdcached avahi ssh nginx collectd \
 				phpfpm issue sysctl systemd systemd-logind || :
 		fi
@@ -541,6 +541,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "7.4.2"; then
 			rm -f /etc/apt/apt.conf.d/99openmediavault-default-release
 			omv_module_set_dirty apt
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.5"; then
+			omv_module_set_dirty apticron
 		fi
 
 		########################################################################
