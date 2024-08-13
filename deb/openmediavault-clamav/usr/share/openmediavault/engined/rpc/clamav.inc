@@ -42,6 +42,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getOnAccessPath");
 		$this->registerMethod("setOnAccessPath");
 		$this->registerMethod("deleteOnAccessPath");
+		$this->registerMethod("getStats");
 	}
 
 	/**
@@ -400,5 +401,31 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		$db->delete($object);
 		// Return the deleted configuration object.
 		return $object->getAssoc();
+	}
+
+	/**
+	 * Get statistics.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return A string containing the requested statistics.
+	 */
+	public function getStats($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.clamav");
+		if (FALSE === $object->get("enable")) {
+			$stats = gettext("Service disabled");
+		} else {
+			$cmdArgs = [];
+			$cmd = new \OMV\System\Process("clamconf", $cmdArgs);
+			$cmd->setRedirect2to1();
+			$cmd->execute($output);
+			array_shift($output);
+			array_shift($output);
+			$stats = implode("\n", $output);
+		}
+		return $stats;
 	}
 }

@@ -1,3 +1,10 @@
+openmediavault-clamav (7.0.1-1) stable; urgency=low
+
+  * Issue #1811: Display clamav diagnostic information in the
+    `Diagnostics | Services | Antivirus` page.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 13 Aug 2024 18:01:35 +0200
+
 openmediavault-clamav (7.0-7) unstable; urgency=low
 
   * Adapt to openmediavault 7 (Sandworm).
