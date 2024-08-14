@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# M@T D., 2023
+# M@T D., 2024
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-11 21:57+0200\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
-"Last-Translator: M@T D., 2023\n"
+"Last-Translator: M@T D., 2024\n"
 "Language-Team: French (France) (https://app.transifex.com/openmediavault/teams/14254/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,31 +22,31 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Command"
-msgstr ""
+msgstr "Commande"
 
 msgid "Containers"
-msgstr ""
+msgstr "Conteneur"
 
 msgid "Created"
-msgstr ""
+msgstr "Créé"
 
 msgid "Digest"
 msgstr ""
 
 msgid "Do you really want to restart this container?"
-msgstr ""
+msgstr "Voulez-vous vraiment redémarrer ce conteneur ?"
 
 msgid "Do you really want to restart this pod?"
-msgstr ""
+msgstr "Voulez-vous vraiment redémarrer ce pod ?"
 
 msgid "Driver"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 msgid "Images"
 msgstr "Images"
@@ -58,31 +58,31 @@ msgid "Inspect"
 msgstr ""
 
 msgid "Logs"
-msgstr ""
+msgstr "Journaux"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Point de montage"
 
 msgid "Mounts"
-msgstr ""
+msgstr "Montages"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "Names"
-msgstr ""
+msgstr "Noms"
 
 msgid "Networks"
-msgstr ""
+msgstr "Réseaux"
 
 msgid "Podman"
 msgstr ""
 
 msgid "Pods"
-msgstr ""
+msgstr "Pods"
 
 msgid "Ports"
-msgstr ""
+msgstr "Ports"
 
 msgid "Pull latest"
 msgstr ""
@@ -91,34 +91,34 @@ msgid "Pull latest image"
 msgstr ""
 
 msgid "Repository"
-msgstr ""
+msgstr "Dépôt"
 
 msgid "Restart"
-msgstr ""
+msgstr "Redémarrer"
 
 msgid "Size"
-msgstr ""
+msgstr "Taille"
 
 msgid "Started"
-msgstr ""
+msgstr "Démarré"
 
 msgid "State"
-msgstr ""
+msgstr "État"
 
 msgid "Statistics"
-msgstr ""
+msgstr "Statistiques"
 
 msgid "Status"
-msgstr ""
+msgstr "Etat"
 
 msgid "Tag"
-msgstr ""
+msgstr "Étiquette"
 
 msgid "Updated Podman settings."
 msgstr ""
 
 msgid "Used"
-msgstr ""
+msgstr "Utilisé"
 
 msgid "Volumes"
-msgstr ""
+msgstr "Volume"

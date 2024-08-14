@@ -23,7 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "Chemin absolu"
 
 msgid "Access Modes"
 msgstr ""
@@ -32,22 +32,22 @@ msgid "App Version"
 msgstr ""
 
 msgid "Apply"
-msgstr ""
+msgstr "Appliquer"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Architecture"
 
 msgid "Available"
-msgstr ""
+msgstr "Disponible"
 
 msgid "Capacity"
-msgstr ""
+msgstr "Capacité"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Certificat"
 
 msgid "Certificates"
-msgstr ""
+msgstr "Certificats"
 
 msgid "Chart"
 msgstr ""
@@ -68,16 +68,16 @@ msgid "Config Maps"
 msgstr ""
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copier vers le presse-papier"
 
 msgid "Copy token"
-msgstr ""
+msgstr "Copier le jeton"
 
 msgid "Created"
-msgstr ""
+msgstr "Créé"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Tableau de bord"
 
 msgid "Data"
 msgstr ""
@@ -86,7 +86,7 @@ msgid "Datastore"
 msgstr ""
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Date & Heure"
 
 msgid "Deployments"
 msgstr ""
@@ -95,10 +95,10 @@ msgid "Describe"
 msgstr ""
 
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 msgid "Do you really want to restore this snapshot?"
-msgstr ""
+msgstr "Voulez-vous vraiment restaurer cet instantané ?"
 
 msgid "Download"
 msgstr ""
@@ -115,37 +115,37 @@ msgid "External IP"
 msgstr ""
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Groups"
-msgstr ""
+msgstr "Groupes"
 
 msgid "HTTP port"
-msgstr ""
+msgstr "Port HTTP"
 
 msgid "HTTPS port"
-msgstr ""
+msgstr "Port HTTPS"
 
 msgid "Helm Charts"
 msgstr ""
 
 msgid "Homepage"
-msgstr ""
+msgstr "Page d'accueil"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "If present, the namespace scope for this request."
 msgstr ""
 
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 msgid "Images"
 msgstr "Images"
 
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 msgid "Ingredients"
 msgstr ""
@@ -160,7 +160,7 @@ msgid "Invalid namespace"
 msgstr ""
 
 msgid "Job"
-msgstr ""
+msgstr "Tâche"
 
 msgid "Kubeconfig"
 msgstr ""
@@ -169,22 +169,22 @@ msgid "Kubernetes"
 msgstr ""
 
 msgid "Labels"
-msgstr ""
+msgstr "Étiquettes"
 
 msgid "Load Balancer"
 msgstr ""
 
 msgid "Logs"
-msgstr ""
+msgstr "Journaux"
 
 msgid "Manifest"
 msgstr ""
 
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "Namespace"
 msgstr ""
@@ -211,19 +211,19 @@ msgid "Persistent Volumes"
 msgstr ""
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Veuillez patienter, instantané en création..."
 
 msgid "Please wait, the snapshot will be restored ..."
-msgstr ""
+msgstr "Veuillez patienter, restauration en cours..."
 
 msgid "Pods"
-msgstr ""
+msgstr "Pods"
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Ports"
-msgstr ""
+msgstr "Ports"
 
 msgid "Ready"
 msgstr ""
@@ -244,7 +244,7 @@ msgid "Reclaim policy"
 msgstr ""
 
 msgid "Repository"
-msgstr ""
+msgstr "Dépôt"
 
 msgid "Resources"
 msgstr ""
@@ -253,40 +253,40 @@ msgid "Restore"
 msgstr ""
 
 msgid "SQLite"
-msgstr ""
+msgstr "SQLite"
 
 msgid "Secrets"
-msgstr ""
+msgstr "Secrets"
 
 msgid "Section"
-msgstr ""
+msgstr "Section"
 
 msgid "Services"
-msgstr ""
+msgstr "Services"
 
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "Dossiers partagés"
 
 msgid "Size"
-msgstr ""
+msgstr "Taille"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Instantanés"
 
 msgid "Status"
-msgstr ""
+msgstr "Etat"
 
 msgid "Storage Class"
 msgstr ""
 
 msgid "Tag"
-msgstr ""
+msgstr "Étiquette"
 
 msgid "Tags"
-msgstr ""
+msgstr "Étiquettes"
 
 msgid "Target Namespace"
 msgstr ""
@@ -325,19 +325,19 @@ msgid "The port on which the LoadBalancer service is listening."
 msgstr ""
 
 msgid "The snapshot was created successfully."
-msgstr ""
+msgstr "Instantané créé avec succès."
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
-msgstr ""
+msgstr "L'instantané {{ spec.snapshotName }} a été restauré avec succès."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "Up-to-date"
 msgstr ""
@@ -346,13 +346,13 @@ msgid "Updated Kubernetes settings."
 msgstr ""
 
 msgid "Users"
-msgstr ""
+msgstr "Utilisateurs"
 
 msgid "View"
 msgstr ""
 
 msgid "Volume"
-msgstr ""
+msgstr "Volume"
 
 msgid "etcd"
 msgstr ""

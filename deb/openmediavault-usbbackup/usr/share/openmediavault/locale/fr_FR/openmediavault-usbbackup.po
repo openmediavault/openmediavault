@@ -7,7 +7,7 @@
 # Christophe Lherieau <skimpax@gmail.com>, 2013-2014
 # Kevin Leclercq <nuklearstriker@gmail.com>, 2020
 # M@T D., 2022
-# M@T D., 2023
+# M@T D., 2023-2024
 # Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2013
 # Pierre Girard <pierre4012@hotmail.com>, 2021
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-24 19:17+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
-"Last-Translator: M@T D., 2023\n"
+"Last-Translator: M@T D., 2023-2024\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -155,7 +155,7 @@ msgid "Tags"
 msgstr "Étiquettes"
 
 msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
-msgstr ""
+msgstr "Les options \"Envoyer un email\" et \"Silencieux\" sont mutuellement exclusives."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
@@ -166,7 +166,7 @@ msgid ""
 "The relative directory path on the external storage device from/to which the"
 " content of the shared folder is to be synchronized. The directory is "
 "created if it does not exist."
-msgstr ""
+msgstr "Le chemin d'accès relatif au répertoire sur le périphérique de stockage externe depuis/vers lequel le contenu du dossier partagé doit être synchronisé. Le répertoire est créé s'il n'existe pas."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "

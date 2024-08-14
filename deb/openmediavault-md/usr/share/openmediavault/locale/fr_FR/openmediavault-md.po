@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-md package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# M@T D., 2024
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-15 11:52+0100\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
+"Last-Translator: M@T D., 2024\n"
 "Language-Team: French (France) (https://app.transifex.com/openmediavault/teams/14254/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,102 +22,105 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "Un maximum de un disque peut être supprimé."
 
 msgid "A maximum of two device can be removed."
-msgstr ""
+msgstr "Un maximum de deux disques peut être supprimé."
 
 msgid "Add hot spares / recover RAID device."
 msgstr ""
+"Ajouter un disque de secours à chaud / de récupération sur le volume RAID."
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "Un minimum de 4 disques est requis."
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "Un minimum de 3 disques est requis."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "Un minimum de 2 disques est requis."
 
 msgid "Capacity"
-msgstr ""
+msgstr "Capacité"
 
 msgid "Create"
-msgstr ""
+msgstr "Créer"
 
 msgid "Details"
-msgstr ""
+msgstr "Détails"
 
 msgid "Device"
-msgstr ""
+msgstr "Volume"
 
 msgid "Devices"
-msgstr ""
+msgstr "Périphériques"
 
 msgid "Grow"
-msgstr ""
+msgstr "Agrandir"
 
 msgid "Level"
-msgstr ""
+msgstr "Configuration"
 
 msgid "Linear"
-msgstr ""
+msgstr "Linéaire"
 
 msgid "Mirror"
-msgstr ""
+msgstr "Miroir"
 
 msgid "Multiple Device"
-msgstr ""
+msgstr "Volumes RAID"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "Recover"
-msgstr ""
+msgstr "Récupérer"
 
 msgid "Remove"
-msgstr ""
+msgstr "Supprimer"
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Sélectionnez les périphériques ..."
 
 msgid "Select devices to be added to the RAID device."
-msgstr ""
+msgstr "Sélectionnez les périphériques à ajouter au volume RAID."
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Sélectionnez le périphérique à retirer au volume RAID"
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr ""
+"Sélectionner les périphériques qui seront utilisés pour créer le volume "
+"RAID. Les périphériques USB ne sont pas affichés (pas assez fiables)."
 
 msgid "Show details"
-msgstr ""
+msgstr "Voir les détails"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "RAID logiciel"
 
 msgid "State"
-msgstr ""
+msgstr "État"
 
 msgid "Stripe"
-msgstr ""
+msgstr "Bande"

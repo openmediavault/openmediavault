@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Pierre Girard <pierre4012@hotmail.com>, 2024
+# M@T D., 2024
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-16 13:19+0200\n"
 "PO-Revision-Date: 2024-06-14 17:38+0000\n"
-"Last-Translator: Pierre Girard <pierre4012@hotmail.com>, 2024\n"
+"Last-Translator: M@T D., 2024\n"
 "Language-Team: French (France) (https://app.transifex.com/openmediavault/teams/14254/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,73 +23,89 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Check for new packages"
-msgstr ""
+msgstr "Vérifier les nouveaux paquets"
 
 msgid "Components"
-msgstr ""
+msgstr "Composants"
 
 msgid ""
 "Components specify different sections of one distribution version present in"
 " a suite, e.g. 'main', 'contrib' or 'non-free'. Configure multiple "
 "components at once by separating them with a blank."
 msgstr ""
+"Les composants spécifient différentes sections d'une version de distribution"
+" présente sur une branche, ex: 'main', 'contrib' ou 'non-free'. Configurez "
+"plusieurs composants en les séparant par un espace."
 
 msgid "Create"
-msgstr ""
+msgstr "Créer"
 
 msgid "Created APT source."
-msgstr ""
+msgstr "Source APT créée."
 
 msgid ""
 "Defines which types of packages to look for from a given source, e.g. 'deb' "
 "or 'deb-src'."
 msgstr ""
+"Définit les types de paquets à rechercher à partir d'une source donnée, ex: "
+"'deb' ou 'deb-src'."
 
 msgid "Edit"
-msgstr ""
+msgstr "Éditer"
 
 msgid "Enabled"
 msgstr "Activé"
 
 msgid "Other Software"
-msgstr ""
+msgstr "Autre logiciel"
 
 msgid "Signed-By"
-msgstr ""
+msgstr "Signé par"
 
 msgid "Suites"
-msgstr ""
+msgstr "Branches"
 
 msgid "Tags"
-msgstr ""
+msgstr "Étiquettes"
 
 msgid ""
 "The GPG/PGP key used to verify packages and repository metadata. This "
 "increases security by ensuring that only packages signed with a specific key"
 " are accepted."
 msgstr ""
+"La clef GPG/PGP est utilisée pour vérifier les paquets et les métadonnées du"
+" dépot. Cela augmente la sécurité en garantissant que seuls les paquets "
+"signés avec une clé spécifique sont acceptés."
 
 msgid ""
 "The URI must specify the base of the package repository, e.g. "
 "'https://ftp.debian.org/debian'. Configure multiple URIs at once by "
 "separating them with a blank."
 msgstr ""
+"L'URI doit spécifier la racine du dépôt, ex: "
+"'https://ftp.debian.org/debian'. Configurez plusieurs URIs en les séparant "
+"par un espace."
 
 msgid ""
 "The package index files from the sources are downloaded and updated to get "
 "the latest information about available packages and their versions."
 msgstr ""
+"Les fichiers d'index sont téléchargés à partir des sources et mis à jour "
+"pour obtenir les dernières informations sur les paquets disponibles et leurs"
+" versions."
 
 msgid ""
 "The suite is the name of the release, e.g. 'stable', 'testing', 'unstable' "
 "or 'sandworm'."
 msgstr ""
+"La branche est le nom de la version, ex: 'stable', 'testing', 'unstable' ou "
+"'sandworm'."
 
 msgid "Types"
-msgstr ""
+msgstr "Types"
 
 msgid "URIs"
-msgstr ""
+msgstr "URIs"
 
 msgid "Updated APT source."
-msgstr ""
+msgstr "Source APT mise à jour."

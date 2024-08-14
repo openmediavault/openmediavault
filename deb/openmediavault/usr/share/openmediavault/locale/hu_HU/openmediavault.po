@@ -8,7 +8,7 @@
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2018-2020
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2017
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2024
-# Sári Gábor <sari.gabor@gmail.com>, 2018,2022
+# Sári Gábor <sari.gabor@gmail.com>, 2018,2022,2024
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2023
 msgid ""
 msgstr ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-07 20:46+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2024\n"
+"Last-Translator: Sári Gábor <sari.gabor@gmail.com>, 2018,2022,2024\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -952,7 +952,7 @@ msgid "Disallow the user to modify their own account."
 msgstr "Saját felhasználói fiók módosításának tiltása."
 
 msgid "Disk Temperatures"
-msgstr "Lemezhőmérséglet"
+msgstr "Lemezhőmérséklet"
 
 msgid "Disk Usage"
 msgstr "Lemez használat"
