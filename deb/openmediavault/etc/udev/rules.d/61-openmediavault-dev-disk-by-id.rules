@@ -213,6 +213,68 @@ ENV{ID_VENDOR_ID}=="152d", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
   SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
 
+# JMicron JMS576 USB 3.1 Gen 1 to SATA 6Gb/s with Integrated USB Type-C
+# JMicron JMS580 USB 3.1 Gen 2 to SATA 6Gb/s with Integrated USB Type-C
+#
+# Congdi 2.5-Inch USB 3.1 Type-C Hard Drive Enclosure
+# https://www.aliexpress.com/item/1005006038604901.html
+#
+# P: /devices/pci0000:00/0000:00:1e.0/0000:02:1b.0/usb3/3-2/3-2:1.0/host4/target4:0:0/4:0:0:0/block/sdc
+# M: sdc
+# U: block
+# T: disk
+# D: b 8:32
+# N: sdc
+# L: 0
+# S: disk/by-id/usb-JMicron_Generic_W38012HV-0:0
+# S: disk/by-path/pci-0000:02:1b.0-usb-0:2:1.0-scsi-0:0:0:0
+# Q: 13
+# E: DEVPATH=/devices/pci0000:00/0000:00:1e.0/0000:02:1b.0/usb3/3-2/3-2:1.0/host4/target4:0:0/4:0:0:0/block/sdc
+# E: DEVNAME=/dev/sdc
+# E: DEVTYPE=disk
+# E: DISKSEQ=13
+# E: MAJOR=8
+# E: MINOR=32
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=1755150019
+# E: ID_BUS=usb
+# E: ID_MODEL=Generic
+# E: ID_MODEL_ENC=Generic\x20\x20\x20\x20\x20\x20\x20\x20\x20
+# E: ID_MODEL_ID=0580
+# E: ID_SERIAL=JMicron_Generic_W38012HV-0:0
+# E: ID_SERIAL_SHORT=W38012HV
+# E: ID_VENDOR=JMicron
+# E: ID_VENDOR_ENC=JMicron\x20
+# E: ID_VENDOR_ID=152d
+# E: ID_REVISION=0202
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_USB_MODEL=Generic
+# E: ID_USB_MODEL_ENC=Generic\x20\x20\x20\x20\x20\x20\x20\x20\x20
+# E: ID_USB_MODEL_ID=0580
+# E: ID_USB_SERIAL=JMicron_Generic_0123456789ABCDEF-0:0
+# E: ID_USB_SERIAL_SHORT=0123456789ABCDEF
+# E: ID_USB_VENDOR=JMicron
+# E: ID_USB_VENDOR_ENC=JMicron\x20
+# E: ID_USB_VENDOR_ID=152d
+# E: ID_USB_REVISION=0202
+# E: ID_USB_TYPE=disk
+# E: ID_USB_INSTANCE=0:0
+# E: ID_USB_INTERFACES=:080650:080662:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=uas
+# E: ID_PATH=pci-0000:02:1b.0-usb-0:2:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=pci-0000_02_1b_0-usb-0_2_1_0-scsi-0_0_0_0
+# E: DEVLINKS=/dev/disk/by-id/usb-JMicron_Generic_W38012HV-0:0 /dev/disk/by-path/pci-0000:02:1b.0-usb-0:2:1.0-scsi-0:0:0:0
+# E: TAGS=:systemd:
+# E: CURRENT_TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="152d", \
+  ENV{ID_MODEL_ID}=="0580", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
 # QUAD SATA HAT KIT for your Raspberry Pi 4
 # https://shop.allnetchina.cn/products/quad-sata-hat-case-for-raspberry-pi-4?_pos=4&_sid=8298cd20c&_ss=r
 # https://wiki.radxa.com/Dual_Quad_SATA_HAT
