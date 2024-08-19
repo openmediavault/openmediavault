@@ -71,7 +71,7 @@
              (backdropClick)="close()"
              (detach)="close()">
   <div class="mat-select-panel-wrap">
-    <div class="mat-select-panel mat-primary">
+    <div class="mat-select-panel mat-primary omv-display-flex omv-flex-column">
       <mat-toolbar class="omv-selection-header omv-display-flex omv-flex-row omv-justify-content-end">
         <mat-form-field>
           <button mat-icon-button
@@ -89,7 +89,7 @@
           </button>
         </mat-form-field>
       </mat-toolbar>
-      <div class="omv-scrollable-y">
+      <div class="omv-scrollable-y omv-flex-1">
         <mat-selection-list [multiple]="false"
                             (selectionChange)="onSelectionChange($event)">
           <mat-list-option *ngIf="!folders.length"
