@@ -1,3 +1,9 @@
+openmediavault (7.4.6-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>   Mon, 19 Aug 2024 19:26:45 +0200
+
 openmediavault (7.4.5-1) stable; urgency=low
 
   * Issue #1809: Add the ability to customize the apticron
