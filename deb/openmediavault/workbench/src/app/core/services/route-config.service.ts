@@ -190,6 +190,9 @@ export class RouteConfigService {
                 component: NavigationPageComponent
               });
             }
+            if (segments.length) {
+              return getParentNode(node.children, segments);
+            }
           }
           return node.children;
         };
