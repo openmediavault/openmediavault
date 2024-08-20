@@ -663,6 +663,48 @@ ENV{ID_VENDOR_ID}=="1c04", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
   SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
 
+# Insignia 2-Bay HDD docking station NS-PCHDEDS19
+# https://www.bestbuy.com/site/insignia-2-bay-hdd-docking-station/6153102.p?skuId=6153102
+# https://devicehunt.com/view/type/usb/vendor/0578/device/0578
+# https://github.com/openmediavault/openmediavault/issues/1816
+# https://forum.openmediavault.org/index.php?thread/47388-qnap-tr-004-usb-raid-enclosure-duplicate-serial-number-fix/&postID=398618#post398618
+#
+# DEVPATH=/devices/pci0000:00/0000:00:14.0/usb2/2-2/2-2.1/2-2.1:1.0/host2/target2:0:0/2:0:0:0/block/sda
+# DEVNAME=/dev/sda
+# DEVTYPE=disk
+# DISKSEQ=2
+# MAJOR=8
+# MINOR=0
+# SUBSYSTEM=block
+# USEC_INITIALIZED=6790221
+# ID_VENDOR=WDC_WD14
+# ID_VENDOR_ENC=WDC\x20WD14
+# ID_VENDOR_ID=0578
+# ID_MODEL=0EDGZ-11B2DA2
+# ID_MODEL_ENC=0EDGZ-11B2DA2\x20\x20\x20
+# ID_MODEL_ID=0578
+# ID_REVISION=7101
+# ID_SERIAL=WDC_WD14_0EDGZ-11B2DA2_DD564198838DA-0:0
+# ID_SERIAL_SHORT=DD564198838DA
+# ID_TYPE=disk
+# ID_INSTANCE=0:0
+# ID_BUS=usb
+# ID_USB_INTERFACES=:080650:080662:
+# ID_USB_INTERFACE_NUM=00
+# ID_USB_DRIVER=uas
+# ID_PATH=pci-0000:00:14.0-usb-0:2.1:1.0-scsi-0:0:0:0
+# ID_PATH_TAG=pci-0000_00_14_0-usb-0_2_1_1_0-scsi-0_0_0_0
+# ID_PART_TABLE_UUID=d0461568-446e-bf46-b956-ded8ccffa411
+# ID_PART_TABLE_TYPE=gpt
+# DEVLINKS=/dev/disk/by-id/usb-WDC_WD14_0EDGZ-11B2DA2_DD564198838DA-0:0 /dev/disk/by-path/pci-0000:00:14.0-usb-0:2.1:1.0-scsi-0:0:0:0
+# TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="0578", \
+  ENV{ID_MODEL_ID}=="0578", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
 # by-uuid links (filesystem metadata)
 # Skip bcache backing devices, handled in `/lib/udev/rules.d/69-bcache.rules`.
 ENV{ID_FS_TYPE}=="bcache", GOTO="omv_skip_by_uuid"

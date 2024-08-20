@@ -2,6 +2,8 @@ openmediavault (7.4.6-1) stable; urgency=low
 
   * Add UDEV rule to fix the duplicate serial number issue for
     Congdi 2.5-Inch USB 3.1 Type-C hard drive enclosures.
+  * Add UDEV rule to fix the duplicate serial number issue for
+    Insignia 2-Bay HDD docking stations.
 
  -- Volker Theile <volker.theile@openmediavault.org>   Mon, 19 Aug 2024 19:26:45 +0200
 
