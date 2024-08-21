@@ -311,6 +311,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				return array_merge($this->getFsInfo($fs, $fsb), [
 					"comment" => $objectv->get("comment"),
 					"usagewarnthreshold" => $objectv->get("usagewarnthreshold"),
+					// Override the dynamically determined mount point with the
+					// configured one.
+					"mountpoint" => $objectv->get("dir")
 				]);
 			});
 		}

@@ -7,6 +7,9 @@ openmediavault (7.4.6-1) stable; urgency=low
   * Use `subtree_check` to reduce subtree attacks in the NFSv4
     pseudo file system export. This can be modified via the
     `OMV_NFSD_V4_PSEUDO_ROOT_OPTIONS` environment variable.
+  * Issue #1813: Return the configured mount point for each file
+    system in the `FileSystemMgmt::enumerateMountedFilesystems`
+    RPC instead of the dynamically determined one.
 
  -- Volker Theile <volker.theile@openmediavault.org>   Mon, 19 Aug 2024 19:26:45 +0200
 
