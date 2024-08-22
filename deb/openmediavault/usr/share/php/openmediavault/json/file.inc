@@ -46,7 +46,7 @@ class File {
 	 */
 	function __destruct() {
 		// Always ensure the file is unlocked.
-		if (!is_null($this->fh)) {
+		if (is_resource($this->fh)) {
 			flock($this->fh, LOCK_UN);
 		}
 	}
@@ -74,11 +74,12 @@ class File {
 	 * @throw \OMV\Exception
 	 */
 	public function open($accessMode = "w+", $lockMode = LOCK_EX) {
-		if (FALSE === ($this->fh = fopen($this->filename, $accessMode))) {
+		if (FALSE === ($fh = fopen($this->filename, $accessMode))) {
 			throw new \OMV\Exception(
 			  "Failed to open file (filename=%s, mode=%s).",
 			  $this->filename, $accessMode);
 		}
+		$this->fh = $fh;
 		if (FALSE === flock($this->fh, $lockMode, $wouldBlock)) {
 			throw new \OMV\Exception(
 			  "Failed to lock file (filename=%s, mode=%d)%s.",
@@ -93,7 +94,7 @@ class File {
 	 * @return TRUE if the file is opened, otherwise FALSE.
 	 */
 	public function isOpen() {
-		return !is_null($this->fh);
+		return is_resource($this->fh);
 	}
 
 	/**
@@ -257,8 +258,9 @@ class File {
 	 * @return Returns TRUE on success or FALSE on failure.
 	 */
 	public function unlink() {
-		if ($this->isOpen())
+		if ($this->isOpen()) {
 			$this->close();
+		}
 		$result = @unlink($this->filename);
 		clearstatcache(TRUE, $this->filename);
 		return $result;
