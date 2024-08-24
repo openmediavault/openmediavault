@@ -66,9 +66,12 @@ quota_off_no_quotas_{{ fsuuid }}:
 # Make sure the files 'aquota.group' and 'aquota.user' are created,
 # though no quotas are configured.
 {% if mountpoint.type | check_whitelist_blacklist(blacklist=['xfs']) %}
+# Check if quota database files are used.
+{% if 'usrjquota=aquota.user' in mountpoint.opts and 'grpjquota=aquota.group' in mountpoint.opts %}
 quota_check_no_quotas_{{ fsuuid }}:
   cmd.run:
     - name: quotacheck --user --group --create-files --no-remount --verbose {{ device }}
+{% endif %}
 {% endif %}
 
 {% else %}
@@ -91,9 +94,12 @@ quota_off_{{ fsuuid }}:
 {% set ns.enable_service = True %}
 
 {% if mountpoint.type | check_whitelist_blacklist(blacklist=['xfs']) %}
+# Check if quota database files are used.
+{% if 'usrjquota=aquota.user' in mountpoint.opts and 'grpjquota=aquota.group' in mountpoint.opts %}
 quota_check_{{ fsuuid }}:
   cmd.run:
     - name: quotacheck --user --group --create-files --try-remount --use-first-dquot --verbose {{ device }}
+{% endif %}
 {% endif %}
 
 quota_on_{{ fsuuid }}:

@@ -77,8 +77,8 @@ define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 \OMV\Environment::set("OMV_MKFS_OPTIONS_F2FS", "");
 \OMV\Environment::set("OMV_MKFS_EXTRAOPTIONS_EXT4_MD", "-E lazy_itable_init=0,lazy_journal_init=0,stride=128,stripe-width=256");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_EXT2", "defaults,nofail,user_xattr");
-\OMV\Environment::set("OMV_FSTAB_MNTOPS_EXT3", "defaults,nofail,user_xattr,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0");
-\OMV\Environment::set("OMV_FSTAB_MNTOPS_EXT4", "defaults,nofail,user_xattr,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_EXT3", "defaults,nofail,user_xattr,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv1");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_EXT4", "defaults,nofail,user_xattr,usrquota,grpquota");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_JFS", "defaults,nofail,usrquota,grpquota");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_XFS", "defaults,nofail,usrquota,grpquota");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_EXFAT", "defaults,nofail");
@@ -89,7 +89,7 @@ define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_ISO9660", "ro");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_UDF", "ro");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_BIND", "nofail");
-\OMV\Environment::set("OMV_FSTAB_MNTOPS_F2FS", "defaults,nofail,user_xattr,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0"); // https://www.kernel.org/doc/Documentation/filesystems/f2fs.txt
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_F2FS", "defaults,nofail,user_xattr,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv1"); // https://www.kernel.org/doc/Documentation/filesystems/f2fs.txt
 \OMV\Environment::set("OMV_APT_PLUGINS_INDEX_FILE", "/var/lib/openmediavault/apt/pluginsindex.json");
 \OMV\Environment::set("OMV_APT_UPGRADE_INDEX_FILE", "/var/lib/openmediavault/apt/upgradeindex.json");
 \OMV\Environment::set("OMV_DUNE_QUOTES", [ // http://www.nightsolo.net/dune/god.html
