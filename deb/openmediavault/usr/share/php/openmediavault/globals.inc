@@ -70,7 +70,7 @@ define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 \OMV\Environment::set("OMV_USERMGMT_ENUMERATE_USER_ROOT", TRUE);
 \OMV\Environment::set("OMV_PLUGIN_ENUMERATE_GET_REPOSITORY", TRUE);
 \OMV\Environment::set("OMV_MKFS_OPTIONS_EXT3", "-b 4096 -m 0");
-\OMV\Environment::set("OMV_MKFS_OPTIONS_EXT4", "-b 4096 -m 0 -E lazy_itable_init=0,lazy_journal_init=0");
+\OMV\Environment::set("OMV_MKFS_OPTIONS_EXT4", "-b 4096 -m 0 -E lazy_itable_init=0,lazy_journal_init=0 -O quota");
 \OMV\Environment::set("OMV_MKFS_OPTIONS_JFS", "-q");
 \OMV\Environment::set("OMV_MKFS_OPTIONS_XFS", "-f");
 \OMV\Environment::set("OMV_MKFS_OPTIONS_BTRFS", "-O skinny-metadata,^mixed-bg");
