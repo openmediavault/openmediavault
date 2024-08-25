@@ -8,8 +8,9 @@ openmediavault (7.4.6-1) stable; urgency=low
     pseudo file system export. This can be modified via the
     `OMV_NFSD_V4_PSEUDO_ROOT_OPTIONS` environment variable.
   * Remove support to create Ext3 file systems from the UI.
+  * Use of the internal quotas of Ext4 for new file systems to
+    be created.
   * Improve file system quota Salt state.
-  * Make use of Ext4 internal quotas.
   * Issue #1813: Return the configured mount point for each file
     system in the `FileSystemMgmt::enumerateMountedFilesystems`
     RPC instead of the dynamically determined one.
