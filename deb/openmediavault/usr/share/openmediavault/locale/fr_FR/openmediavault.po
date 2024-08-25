@@ -970,10 +970,10 @@ msgid "Disks"
 msgstr "Disques"
 
 msgid "Dismiss"
-msgstr "Rejeter"
+msgstr "Acquitter"
 
 msgid "Dismiss all"
-msgstr "Tout rejeter"
+msgstr "Tout acquitter"
 
 msgid "Displays information about the file systems in a grid."
 msgstr "Affiche les informations du système de fichier dans une grille."
