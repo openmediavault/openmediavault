@@ -415,7 +415,7 @@ class Schema:
                 )
         elif schema['format'] in ["host-name", "hostname"]:
             if not re.match(
-                r'^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?$', value
+                r'^[a-zA-Z0-9]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?$', value
             ):
                 raise SchemaValidationException(
                     name, "The value '%s' is not a valid hostname." % value
