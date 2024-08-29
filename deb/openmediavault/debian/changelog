@@ -1,6 +1,6 @@
 openmediavault (7.4.7-1) stable; urgency=low
 
-  *
+  * Support host names according to RFC1123.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 29 Aug 2024 15:45:46 +0200
 

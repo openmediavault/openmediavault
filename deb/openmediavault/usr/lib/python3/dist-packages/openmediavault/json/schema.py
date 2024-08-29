@@ -414,8 +414,9 @@ class Schema:
                     name, "The value '%s' does not match to hh:mm:ss." % value
                 )
         elif schema['format'] in ["host-name", "hostname"]:
+            # See https://datatracker.ietf.org/doc/html/rfc1123#section-2
             if not re.match(
-                r'^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?$', value
+                r'^[a-zA-Z0-9]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?$', value
             ):
                 raise SchemaValidationException(
                     name, "The value '%s' is not a valid hostname." % value
