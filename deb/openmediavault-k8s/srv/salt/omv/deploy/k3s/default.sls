@@ -26,7 +26,7 @@
 # https://kubernetes.io/docs/concepts/storage/volumes/#hostpath-volume-types
 # https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes
 
-{% set k3s_version = salt['pillar.get']('default:OMV_K8S_K3S_VERSION', 'v1.29.4+k3s1') %}
+{% set k3s_version = salt['pillar.get']('default:OMV_K8S_K3S_VERSION', 'v1.30.4+k3s1') %}
 {% set k8s_config = salt['omv_conf.get']('conf.service.k8s') %}
 {% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 # {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
@@ -133,7 +133,6 @@ create_k3s_cert_manager_manifest:
         kind: ClusterIssuer
         metadata:
           name: selfsigned
-          namespace: kube-system
           labels:
             app.kubernetes.io/part-of: openmediavault
         spec:
@@ -157,6 +156,7 @@ create_k3s_cert_manager_manifest:
         #         ingress:
         #           class: traefik
         ---
+        # See https://cert-manager.io/docs/usage/certificate/
         apiVersion: cert-manager.io/v1
         kind: Certificate
         metadata:
@@ -165,7 +165,10 @@ create_k3s_cert_manager_manifest:
           labels:
             app.kubernetes.io/part-of: openmediavault
         spec:
-          commonName: {{ fqdn }}
+          duration: 8760h # 1 year
+          dnsNames:
+            - "{{ fqdn }}"
+            - "*.{{ fqdn }}"
           secretName: host-selfsigned-cert
           issuerRef:
             name: selfsigned
