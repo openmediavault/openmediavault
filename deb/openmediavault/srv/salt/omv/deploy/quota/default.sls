@@ -136,13 +136,15 @@ quota_set_group_{{ fsuuid }}_{{ grpquota.name }}:
 {% if ns.enable_service | to_bool %}
 
 enable_quota_service:
-  service.enabled:
+  service.running:
     - name: quota
+    - enable: True
 
 {% else %}
 
 disable_quota_service:
-  service.disabled:
+  service.dead:
     - name: quota
+    - enable: False
 
 {% endif %}
