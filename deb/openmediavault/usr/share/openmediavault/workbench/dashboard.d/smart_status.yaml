@@ -35,7 +35,7 @@ data:
             limit: -1
           task: true
       sorters:
-        - prop: devicefile
+        - prop: canonicaldevicefile
           dir: asc
       filters:
         - operator: "truthy"
