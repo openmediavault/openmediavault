@@ -37,9 +37,9 @@
   'conf.system.notification.notification',
   {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'nut'})[0] %}
 {% set admin_user = salt['pillar.get']('default:OMV_NUT_UPSDUSERS_ADMIN_USER', 'admin') %}
-{% set admin_passwd = salt['pillar.get']('default:OMV_NUT_UPSDUSERS_ADMIN_PASSWORD', salt['random.get_str'](16)) %}
+{% set admin_passwd = salt['pillar.get']('default:OMV_NUT_UPSDUSERS_ADMIN_PASSWORD', salt['random.get_str'](16)) | replace('#', '\#') %}
 {% set monitor_user = salt['pillar.get']('default:OMV_NUT_UPSDUSERS_ADMIN_USER', 'monmaster') %}
-{% set monitor_passwd = salt['pillar.get']('default:OMV_NUT_UPSDUSERS_MONITOR_PASSWORD', salt['random.get_str'](16)) %}
+{% set monitor_passwd = salt['pillar.get']('default:OMV_NUT_UPSDUSERS_MONITOR_PASSWORD', salt['random.get_str'](16)) | replace('#', '\#') %}
 
 configure_nut_nut_conf:
   file.managed:
