@@ -1,7 +1,7 @@
 openmediavault-nut (7.0.5-1) stable; urgency=low
 
-  * Make sure the NUT config parser is not irritated by a `#` character
-    in a password.
+  * Make sure the NUT config parser is not irritated by the characters
+    `#` and `=` in a password.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 04 Sep 2024 19:31:57 +0200
 
