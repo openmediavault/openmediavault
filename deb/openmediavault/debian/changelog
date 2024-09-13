@@ -3,6 +3,7 @@ openmediavault (7.4.8-1) stable; urgency=low
   * Unify the sorting order of displayed data in the `Disk Temperatures`
     and `S.M.A.R.T. Status` dashboard widgets for a consistent user
     experience.
+  * Issue #1825: Support Xen predictive network interface naming.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Sep 2024 22:43:45 +0200
 

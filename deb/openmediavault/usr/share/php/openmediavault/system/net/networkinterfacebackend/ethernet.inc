@@ -37,6 +37,7 @@ class Ethernet extends BackendAbstract {
 	// - eno16777736
 	// - encf5f0, enx026d3c00000a
 	// - end0
+	// - enX0
 	//
 	// Predictable network interface device name types:
 	// - BCMA bus core number
@@ -55,14 +56,18 @@ class Ethernet extends BackendAbstract {
 	//   [P<domain>]p<bus>s<slot>[f<function>][u<port>][..][c<config>][i<interface>]
 	// - Device tree
 	//   d<number>
+	// - VIF interface number (Xen)
+	//   X<number>
 	//
 	// Understanding systemd’s predictable network device names:
+	// - https://systemd.io/PREDICTABLE_INTERFACE_NAMES
 	// - https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames
 	// - https://github.com/systemd/systemd/blob/v242/src/udev/udev-builtin-net_id.c
+	// - https://www.freedesktop.org/software/systemd/man/latest/systemd.net-naming-scheme.html
 	protected $regex = "/^eth[0-9]+|".
 		"en(b\d+|c\d+|d\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|".
 		"x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|".
-		"(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$/i";
+		"(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?|X\d+)$/i";
 
 	// Distributed Switch Architecture (DSA)
 	//
