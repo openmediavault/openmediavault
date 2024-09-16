@@ -1,4 +1,4 @@
-openmediavault-diskstats (7.0.1-1) stable; urgency=low
+openmediavault-diskstats (7.0.1-2) stable; urgency=low
 
   * Issue #1805: Show predictable device file in Disk I/O performance
     statistics tabs.
