@@ -1,3 +1,13 @@
+openmediavault-k8s (7.3.1-1) stable; urgency=low
+
+  * Add the `ipaddr` and `ipaddr6` functions to the recipe DSL (Domain
+    Specific Language). These functions allow users to retrieve the IP
+    address of the specified network interface, e.g. `ipaddr('ens6')`.
+    If no network interface name is specified, the IP address of the
+    network interface used for the default route is returned.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 17 Sep 2024 20:37:30 +0200
+
 openmediavault-k8s (7.3.0-1) stable; urgency=low
 
   * Upgrade K3S to v1.30.4+k3s1.

@@ -246,6 +246,44 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 				}
 				return $result;
 			},
+			"ipaddr" => function($deviceName = NULL) {
+				if (empty($deviceName)) {
+					$cmdArgs = [];
+					$cmdArgs[] = "-4";
+					$cmdArgs[] = "-json";
+					$cmdArgs[] = "route";
+					$cmdArgs[] = "show";
+					$cmdArgs[] = "default";
+					$cmd = new \OMV\System\Process("ip", $cmdArgs);
+					$cmd->setRedirect2to1();
+					$cmd->execute($output);
+					$output = json_decode_safe(implode("", $output), TRUE);
+					return $output[0]['prefsrc'];
+				} else {
+					$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
+					$iface = $mngr->assertGetImpl($deviceName);
+					return $iface->getIP();
+				}
+			},
+			"ipaddr6" => function($deviceName = NULL) {
+				if (empty($deviceName)) {
+					$cmdArgs = [];
+					$cmdArgs[] = "-6";
+					$cmdArgs[] = "-json";
+					$cmdArgs[] = "route";
+					$cmdArgs[] = "show";
+					$cmdArgs[] = "default";
+					$cmd = new \OMV\System\Process("ip", $cmdArgs);
+					$cmd->setRedirect2to1();
+					$cmd->execute($output);
+					$output = json_decode_safe(implode("", $output), TRUE);
+					return $output[0]['prefsrc'];
+				} else {
+					$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
+					$iface = $mngr->assertGetImpl($deviceName);
+					return $iface->getIP6();
+				}
+			},
 			"tz" => function() use($db) {
 				$obj = $db->get("conf.system.time");
 				return $obj->get("timezone");

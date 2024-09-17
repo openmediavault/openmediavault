@@ -209,7 +209,8 @@ class Manager implements \IteratorAggregate {
 	}
 
 	/**
-	 * Get the object of the class implementing the given filesystem.
+	 * Get the object of the class that is implementing the given network
+	 * interface.
 	 * @param deviceName Specifies the device name, e.g.
 	 *   <ul>
 	 *   \li eth0
@@ -217,12 +218,27 @@ class Manager implements \IteratorAggregate {
 	 *   \li eth2.1
 	 *   \li bond0
 	 *   </ul>
-	 * @return The object of the class implementing the given network
-	 *   interface, otherwise NULL.
+	 * @return object The object of the class that is implementing the given
+	 *   network interface, otherwise NULL.
 	 */
 	final public function getImpl($deviceName) {
 		if (NULL == ($backend = $this->getBackend($deviceName)))
 			return NULL;
 		return $backend->getImpl($deviceName);
+	}
+
+	/**
+	 * @see Manager::getImpl()
+	 * @return object The object of the class that is implementing the given
+	 *   network interface.
+	 * @throw \OMV\AssertException
+	 */
+	final public function assertGetImpl($deviceName) {
+		$result = self::getImpl($id);
+		if (is_null($result) || !$result->exists()) {
+			throw new \OMV\AssertException("Device '%s' does not exist.",
+				$deviceName);
+		}
+		return $result;
 	}
 }
