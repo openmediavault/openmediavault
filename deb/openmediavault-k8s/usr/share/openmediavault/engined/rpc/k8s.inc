@@ -258,11 +258,19 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 					$cmd->setRedirect2to1();
 					$cmd->execute($output);
 					$output = json_decode_safe(implode("", $output), TRUE);
+					if (empty($output)) {
+						throw new \OMV\Exception("No default routes found.");
+					}
 					return $output[0]['prefsrc'];
 				} else {
 					$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 					$iface = $mngr->assertGetImpl($deviceName);
-					return $iface->getIP();
+					if (FALSE === ($ipAddr = $iface->getIP())) {
+						throw new \OMV\Exception(
+							"The network interface does not have an assigned ".
+							"IPv4 address (name=%s).", $deviceName);
+					}
+					return $ipAddr;
 				}
 			},
 			"ipaddr6" => function($deviceName = NULL) {
@@ -277,11 +285,19 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 					$cmd->setRedirect2to1();
 					$cmd->execute($output);
 					$output = json_decode_safe(implode("", $output), TRUE);
+					if (empty($output)) {
+						throw new \OMV\Exception("No default routes found.");
+					}
 					return $output[0]['prefsrc'];
 				} else {
 					$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 					$iface = $mngr->assertGetImpl($deviceName);
-					return $iface->getIP6();
+					if (FALSE === ($ipAddr6 = $iface->getIP6())) {
+						throw new \OMV\Exception(
+							"The network interface does not have an assigned ".
+							"IPv6 address (name=%s).", $deviceName);
+					}
+					return $ipAddr6;
 				}
 			},
 			"tz" => function() use($db) {
