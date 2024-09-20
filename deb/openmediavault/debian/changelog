@@ -1,5 +1,6 @@
 openmediavault (7.4.8-1) stable; urgency=low
 
+  * Update locale files.
   * Unify the sorting order of displayed data in the `Disk Temperatures`
     and `S.M.A.R.T. Status` dashboard widgets for a consistent user
     experience.

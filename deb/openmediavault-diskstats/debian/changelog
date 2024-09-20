@@ -1,5 +1,6 @@
 openmediavault-diskstats (7.0.1-2) stable; urgency=low
 
+  * Update locale files.
   * Issue #1805: Show predictable device file in Disk I/O performance
     statistics tabs.
 

@@ -1,5 +1,6 @@
 openmediavault-k8s (7.3.1-1) stable; urgency=low
 
+  * Update locale files.
   * Add the `ipaddr` and `ipaddr6` functions to the recipe DSL (Domain
     Specific Language). These functions allow users to retrieve the IP
     address of the specified network interface, e.g. `ipaddr('ens6')`.

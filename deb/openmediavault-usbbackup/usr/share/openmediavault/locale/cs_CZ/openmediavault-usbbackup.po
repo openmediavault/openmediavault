@@ -146,7 +146,7 @@ msgid "Suppress non-error messages."
 msgstr "Hlásit pouze chyby, ostatní potlačit."
 
 msgid "Tags"
-msgstr ""
+msgstr "Štítky"
 
 msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
 msgstr ""

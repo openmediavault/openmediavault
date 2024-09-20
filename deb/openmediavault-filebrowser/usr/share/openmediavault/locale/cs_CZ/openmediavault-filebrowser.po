@@ -4,9 +4,10 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Pavel Borecki <pavel.borecki@gmail.com>, 2022
 # Volker Theile <votdev@gmx.de>, 2022
+# Pavel Borecki <pavel.borecki@gmail.com>, 2022
 # Jan Štourač <wormsik666@gmail.com>, 2022
+# Marek Pavelka, 2024
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2022-04-13 15:40+0000\n"
-"Last-Translator: Jan Štourač <wormsik666@gmail.com>, 2022\n"
+"Last-Translator: Marek Pavelka, 2024\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,35 +28,39 @@ msgid "Certificate"
 msgstr "Certifikát"
 
 msgid "Enabled"
-msgstr "Zapnuto"
+msgstr "Povoleno"
 
 msgid "File Browser"
-msgstr ""
+msgstr "Prohlížeč souborů"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Otevřít uživatelské rozhraní"
 
 msgid "Port"
 msgstr "Port"
 
 msgid "Port to listen on."
-msgstr "Port, na kterém očekávat spojení."
+msgstr "Port pro naslouchání."
 
 msgid "Shared folder"
 msgstr "Sdílená složka"
 
 msgid "The SSL certificate."
-msgstr "SSL certifikát."
+msgstr "Certifikát SSL."
 
 msgid ""
 "The location of the media files. Make sure the user <em>filebrowser</em> or "
 "group <em>users</em> can access the files."
 msgstr ""
+"Umístění mediálních souborů. Ujistěte se, že uživatel <em>filebrowser</em> "
+"nebo skupina <em>users</em> má k souborům přístup."
 
 msgid "Updated File Browser settings."
-msgstr ""
+msgstr "Aktualizována nastavení Prohlížeče souborů."
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
 " Please do not forget to change the password immediately."
 msgstr ""
+"Při prvním přihlášení použijte přihlašovací údaje <em>admin:admin</em>. "
+"Nezapomeňte si ihned změnit heslo."

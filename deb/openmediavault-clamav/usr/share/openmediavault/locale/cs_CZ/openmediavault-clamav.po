@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Jan Štourač <wormsik666@gmail.com>, 2014
+# Marek Pavelka, 2024
 # Pavel Borecki <pavel.borecki@gmail.com>, 2014-2017,2021
 msgid ""
 msgstr ""
@@ -11,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2017,2021\n"
+"Last-Translator: Marek Pavelka, 2024\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,12 +21,12 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "Algorithmic detection"
-msgstr "Rozpoznávat dle algoritmu"
+msgstr "Algoritmické rozpoznávání"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr "Výstup z příkazu (pokud nějaký vznikne) bude e-mailem odeslán správci systému."
+msgstr "Správci je odeslána e-mailová zpráva s výstupem příkazu (pokud byl vytvořen)."
 
 msgid "Antivirus"
 msgstr "Antivirus"
@@ -37,19 +38,19 @@ msgid "August"
 msgstr "srpen"
 
 msgid "Be verbose."
-msgstr "Uvádět ve výstupu více podrobností."
+msgstr "Více podrobností."
 
 msgid "Create"
 msgstr "Vytvořit"
 
 msgid "Created on-access scan."
-msgstr "Vytvořena kontrola, spouštěná přístupem."
+msgstr "Vytvořeno skenování při přístupu."
 
 msgid "Created scheduled scan."
 msgstr "Vytvořeno naplánované skenování."
 
 msgid "Database checks"
-msgstr "Četnost aktualizací definic virů"
+msgstr "Kontroly databáze"
 
 msgid "Date & Time"
 msgstr "Datum a čas"
@@ -64,10 +65,10 @@ msgid "December"
 msgstr "prosinec"
 
 msgid "Delete immediately"
-msgstr "Okamžitě smazat"
+msgstr "Okamžitě odstranit"
 
 msgid "Detect PUA"
-msgstr "Zjišťovat potenciálně nežádoucí aplikace"
+msgstr "Zjišťovat možné nežádoucí aplikace"
 
 msgid "Detect broken executables"
 msgstr "Zjišťovat poškozené spustitelné"
@@ -76,36 +77,36 @@ msgid "Edit"
 msgstr "Upravit"
 
 msgid "Enable HTML detection and normalisation."
-msgstr "Zapnout zjišťování a normalizaci HTML značek."
+msgstr "Povolit zjišťování a normalizaci HTML."
 
 msgid "Enable archive scanning."
-msgstr "Zapnout kontrolu uvnitř archivů."
+msgstr "Povolit skenování archivů."
 
 msgid "Enable scanning of ELF files."
-msgstr "Zapnout kontrolu souborů ve formátu ELF."
+msgstr "Povolit skenování souborů ELF."
 
 msgid ""
 "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
 "files."
-msgstr "Zapnout kontrolu OLE2 souborů, jako jsou dokumenty Microsoft Office a .msi soubory."
+msgstr "Povolit skenování souborů OLE2, jako jsou dokumenty Microsoft Office a soubory .msi."
 
 msgid "Enable scanning within PDF files."
-msgstr "Zapnout kontrolu PDF dokumentů."
+msgstr "Povolení skenování v souborech PDF."
 
 msgid "Enable the algorithmic detection."
-msgstr "Zapnout rozpoznání na základě nechvalně známých částí kódu."
+msgstr "Povolit algoritmické rozpoznávání."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
-msgstr "Zapnout rozpoznávání poškozených spustitelných souborů (PE i ELF)."
+msgstr "Povolit rozpoznávání poškozených spustitelných souborů (PE i ELF)."
 
 msgid "Enable the detection of possibly unwanted applications."
-msgstr "Zapnout zjišťování aplikací, ohrožujících soukromí a zabezpečení, podvodně přidávaných do legitimních aplikací či za ně vydávané (PUA/PUP)."
+msgstr "Povolit rozpoznávání možných nežádoucích aplikací."
 
 msgid "Enabled"
-msgstr "Zapnuté"
+msgstr "Povoleno"
 
 msgid "Every N day of month"
-msgstr "Každý N-tý den v měsíci"
+msgstr "Každý N. den v měsíci"
 
 msgid "Every N hour"
 msgstr "Každých N hodin"
@@ -114,25 +115,25 @@ msgid "Every N minute"
 msgstr "Každých N minut"
 
 msgid "Execute scheduled scan"
-msgstr "Vykonat naplánované skenování"
+msgstr "Spustit naplánované skenování"
 
 msgid "Extra options"
-msgstr "Rozšířené předvolby"
+msgstr "Dodatečné volby"
 
 msgid "February"
 msgstr "únor"
 
 msgid "Follow directory symlinks"
-msgstr "Následovat odkazy na složky"
+msgstr "Sledovat symbolické odkazy na adresáře"
 
 msgid "Follow directory symlinks."
-msgstr "Když při skenování přijde na symbolické odkazy (symlink), pokračovat na obsah odkazovaných složek."
+msgstr "Sledovat symbolické odkazy na adresáře."
 
 msgid "Follow file symlinks"
-msgstr "Následovat odkazy na soubory"
+msgstr "Sledovat symbolické odkazy na soubory"
 
 msgid "Follow regular file symlinks."
-msgstr "Když při skenování přijde na symbolické odkazy (symlink), pokračovat odkazovanými soubory."
+msgstr "Sledovat symbolické odkazy na běžné soubory."
 
 msgid "Friday"
 msgstr "pátek"
@@ -141,7 +142,7 @@ msgid "Hour"
 msgstr "Hodina"
 
 msgid "Infected files"
-msgstr "S infikovanými soubory"
+msgstr "Infikované soubory"
 
 msgid "January"
 msgstr "leden"
@@ -153,10 +154,10 @@ msgid "June"
 msgstr "červen"
 
 msgid "Log clean files"
-msgstr "Zaznamenávat i nenakažené"
+msgstr "Zaznamenávat i nenakažené soubory"
 
 msgid "Log clean files. This drastically increases the log size."
-msgstr "Do protokolu o kontrole zaznamenávat i soubory, které jsou v pořádku. Pozor – opravdu výrazně zvětší jeho velikost!"
+msgstr "Zaznamenávat i nenakažené soubory. Tím se výrazně zvětší velikost protokolu."
 
 msgid "March"
 msgstr "březen"
@@ -180,31 +181,31 @@ msgid "Move to quarantine"
 msgstr "Přesunout do karantény"
 
 msgid "Multiscan"
-msgstr "Skenovat paralelně"
+msgstr "Vícenásobné skenování"
 
 msgid "November"
 msgstr "listopad"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr "Kolikrát za den zjišťovat případné aktualizace pro databázi virů. Nastavení na 0 (nula) automatickou aktualizaci vypne."
+msgstr "Počet kontrol aktualizace databáze za den. Nastavením na 0 se vypne."
 
 msgid "October"
 msgstr "říjen"
 
 msgid "On Access Scans"
-msgstr "Skenování spouštěné přístupem"
+msgstr "Skenování při přístupu"
 
 msgid "Perform a deeper analysis of executable files."
-msgstr "Provádět hloubkovou analýzu souborů ve formátu PE, včetně rozbalování jejich vnitřku."
+msgstr "Provádět hlubší analýzu spustitelných souborů."
 
 msgid "Perform nothing"
-msgstr "Nic nedělat"
+msgstr "Nic neprovádět"
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
 "daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr "Podrobnosti naleznete v0 <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>manuálové stránce</a> (v angličtině)."
+msgstr "Další podrobnosti naleznete na <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>stránce s příručkou</a>."
 
 msgid "Quarantine"
 msgstr "Karanténa"
@@ -216,31 +217,31 @@ msgid "Saturday"
 msgstr "sobota"
 
 msgid "Scan ELF"
-msgstr "Kontrolovat unixové spustitelné"
+msgstr "Skenovat ELF"
 
 msgid "Scan HTML"
-msgstr "Kontrolovat HTML"
+msgstr "Skenovat HTML"
 
 msgid "Scan OLE2"
-msgstr "Kontrolovat OLE2"
+msgstr "Skenovat OLE2"
 
 msgid "Scan PDF"
-msgstr "Kontrolovat PDF"
+msgstr "Skenovat PDF"
 
 msgid "Scan Portable Executable"
-msgstr "Spustitelné pro Windows podrobněji"
+msgstr "Skenovat přenosné spustitelné soubory"
 
 msgid "Scan archives"
-msgstr "Kontrolovat archivy"
+msgstr "Skenovat archivy"
 
 msgid "Scan the directory contents in parallel using available threads."
-msgstr "Kontrolovat vícero položek obsahu složky naráz, využitím dostupných výpočetních vláken."
+msgstr "Paralelní skenování obsahu adresáře pomocí dostupných vláken."
 
 msgid "Scheduled Scans"
 msgstr "Naplánovaná skenování"
 
 msgid "Scheduling"
-msgstr "Naplánování"
+msgstr "Plánování"
 
 msgid "Send email"
 msgstr "Poslat e-mail"
@@ -258,19 +259,19 @@ msgid "Sunday"
 msgstr "neděle"
 
 msgid "Tags"
-msgstr ""
+msgstr "Štítky"
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "Pole by mělo obsahovat pouze * nebo seznam hodnot oddělených čárkou."
 
 msgid "The location of the files to scan on-access."
-msgstr "Umístění souborů které skenovat při přístupu."
+msgstr "Umístění souborů, které skenovat při přístupu."
 
 msgid "The location of the files to scan."
-msgstr "Kde se nacházejí soubory, které zkontrolovat."
+msgstr "Umístění souborů, které se mají skenovat."
 
 msgid "The location which is used as quarantine."
-msgstr "Umístění do kterého přesouvat soubory, se kterými něco není v pořádku."
+msgstr "Umístění, které se používá jako karanténa."
 
 msgid "The option, how to handle infected files."
 msgstr "Volba způsobu, jakým zacházet s nakaženými soubory."
@@ -282,16 +283,16 @@ msgid "Tuesday"
 msgstr "úterý"
 
 msgid "Updated on-access scan."
-msgstr "Aktualizována kontrola spouštěná přístupem."
+msgstr "Aktualizováno skenování při přístupu."
 
 msgid "Updated scheduled scan."
 msgstr "Aktualizováno naplánované skenování."
 
 msgid "Verbose"
-msgstr "Obsáhlejší výstup"
+msgstr "Podrobnější"
 
 msgid "Wednesday"
 msgstr "středa"
 
 msgid "n/a"
-msgstr "n/a"
+msgstr "neuvedeno"

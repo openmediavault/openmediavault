@@ -1,5 +1,6 @@
 openmediavault-nut (7.0.5-1) stable; urgency=low
 
+  * Update locale files.
   * Make sure the NUT config parser is not irritated by the characters
     `#` and `=` in a password.
 

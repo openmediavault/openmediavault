@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Pavel Borecki <pavel.borecki@gmail.com>, 2024
+# Marek Pavelka, 2024
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-16 13:19+0200\n"
 "PO-Revision-Date: 2024-06-14 17:38+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2024\n"
+"Last-Translator: Marek Pavelka, 2024\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,73 +22,87 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "Check for new packages"
-msgstr ""
+msgstr "Zkontrolovat nové balíčky"
 
 msgid "Components"
-msgstr ""
+msgstr "Komponenty"
 
 msgid ""
 "Components specify different sections of one distribution version present in"
 " a suite, e.g. 'main', 'contrib' or 'non-free'. Configure multiple "
 "components at once by separating them with a blank."
 msgstr ""
+"Komponenty určují různé části jedné verze distribuce přítomné v sadě, např. "
+"'main', 'contrib' nebo 'non-free'. Více komponent najednou nakonfigurujete "
+"tak, že je oddělíte mezerou."
 
 msgid "Create"
-msgstr ""
+msgstr "Vytvořit"
 
 msgid "Created APT source."
-msgstr ""
+msgstr "Vytvořen zdroj APT."
 
 msgid ""
 "Defines which types of packages to look for from a given source, e.g. 'deb' "
 "or 'deb-src'."
 msgstr ""
+"Definuje, které typy balíčků se mají hledat z daného zdroje, např. 'deb' "
+"nebo 'deb-src'."
 
 msgid "Edit"
-msgstr ""
+msgstr "Upravit"
 
 msgid "Enabled"
-msgstr "Zapnuto"
+msgstr "Povoleno"
 
 msgid "Other Software"
-msgstr ""
+msgstr "Ostatní software"
 
 msgid "Signed-By"
-msgstr ""
+msgstr "Podepsáno"
 
 msgid "Suites"
-msgstr ""
+msgstr "Sady"
 
 msgid "Tags"
-msgstr ""
+msgstr "Štítky"
 
 msgid ""
 "The GPG/PGP key used to verify packages and repository metadata. This "
 "increases security by ensuring that only packages signed with a specific key"
 " are accepted."
 msgstr ""
+"Klíč GPG/PGP používaný k ověření balíčků a metadat úložiště. To zvyšuje "
+"bezpečnost tím, že je zajištěno, že budou přijaty pouze balíčky podepsané "
+"konkrétním klíčem."
 
 msgid ""
 "The URI must specify the base of the package repository, e.g. "
 "'https://ftp.debian.org/debian'. Configure multiple URIs at once by "
 "separating them with a blank."
 msgstr ""
+"URI musí specifikovat základnu úložiště balíčků, např. "
+"‚https://ftp.debian.org/debian‘. Více URI najednou nakonfigurujete tak, že "
+"je oddělíte mezerou."
 
 msgid ""
 "The package index files from the sources are downloaded and updated to get "
 "the latest information about available packages and their versions."
 msgstr ""
+"Soubory indexu balíčků ze zdrojů se stahují a aktualizují, aby se získaly "
+"nejnovější informace o dostupných balíčcích a jejich verzích."
 
 msgid ""
 "The suite is the name of the release, e.g. 'stable', 'testing', 'unstable' "
 "or 'sandworm'."
 msgstr ""
+"Sada je název verze, např. ‚stable‘, ‚testing‘, ‚unstable‘ nebo ‚sandworm‘."
 
 msgid "Types"
-msgstr ""
+msgstr "Typy"
 
 msgid "URIs"
-msgstr ""
+msgstr "URI"
 
 msgid "Updated APT source."
-msgstr ""
+msgstr "Aktualizován zdroj APT."
