@@ -13,7 +13,7 @@ Depends: openmediavault (>= 7.0)
 Priority: optional
 Description: openmediavault disk monitoring plugin
  The disk monitoring plugin collects performance statistics of hard-disks.
-
+ .
  !!! Attention !!!
  For the statistics to function correctly, stable kernel device name
  assignment for the drives to be monitored must be ensured across reboots.
