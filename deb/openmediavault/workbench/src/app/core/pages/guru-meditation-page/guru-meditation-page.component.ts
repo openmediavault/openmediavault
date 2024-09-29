@@ -64,6 +64,11 @@ export class GuruMeditationPageComponent implements OnInit, OnDestroy {
   }
 
   private onClick() {
-    this.router.navigate([this.url]);
+    let url = this.url;
+    // Sanitize the URL so that it does not refer to itself.
+    if (['/404', '/503'].includes(url)) {
+      url = '/';
+    }
+    this.router.navigate([url]);
   }
 }
