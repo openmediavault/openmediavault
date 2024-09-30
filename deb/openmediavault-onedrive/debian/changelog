@@ -1,3 +1,11 @@
+openmediavault-onedrive (7.1.0-1) stable; urgency=low
+
+  * Update locale files.
+  * Add `Cleanup local files` and `Extra options` configuration
+    settings to the UI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 01 Oct 2024 00:46:26 +0200
+
 openmediavault-onedrive (7.0-3) unstable; urgency=low
 
   * Adapt to openmediavault 7 (Sandworm).

@@ -13,9 +13,13 @@ sync_file_permissions = "{{ sync_file_permissions }}"
 disable_notifications = "true"
 local_first = "{{ ((config.replicationmode == 'updown') and config.localfirst) | to_bool | yesno('true,false') }}"
 no_remote_delete = "{{ ((config.replicationmode == 'up') and config.noremotedelete) | to_bool | yesno('true,false') }}"
+cleanup_local_files = "{{ ((config.replicationmode == 'down') and config.cleanuplocalfiles) | to_bool | yesno('true,false') }}"
 download_only = "{{ (config.replicationmode == 'down') | to_bool | yesno('true,false') }}"
 upload_only = "{{ (config.replicationmode == 'up') | to_bool | yesno('true,false') }}"
 skip_dotfiles = "{{ config.skipdotfiles | to_bool | yesno('true,false') }}"
 monitor_interval = "{{ config.monitorinterval }}"
 monitor_fullscan_frequency = "{{ monitor_fullscan_frequency }}"
 rate_limit = "{{ config.ratelimit }}"
+{%- if config.extraoptions | length > 0 %}
+{{ config.extraoptions }}
+{%- endif %}
