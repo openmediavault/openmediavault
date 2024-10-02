@@ -34,6 +34,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"cleanuplocalfiles": {
+			"type": "boolean",
+			"default": false
+		},
 		"skipdotfiles": {
 			"type": "boolean",
 			"default": false
@@ -51,6 +55,9 @@
 		"username": {
 			"type": "string",
 			"default": "onedrive"
+		},
+		"extraoptions": {
+			"type": "string"
 		}
 	}
 }

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-27 13:38+0200\n"
+"POT-Creation-Date: 2024-10-01 20:04+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: Kostas Moho, 2023\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
@@ -99,6 +99,12 @@ msgstr ""
 "εντολή <em>omv-onedrive-auth</em> ως χρήστης <em>root</em> στη γραμμή "
 "εντολών, για την πιστοποίηση της εφαρμογής στο Microsoft OneDrive."
 
+msgid "Clean up local files"
+msgstr ""
+
+msgid "Clean up local files that have been removed online."
+msgstr ""
+
 msgid "Disabled"
 msgstr "Ανενεργό"
 
@@ -110,6 +116,9 @@ msgstr "Μόνο Λήψη"
 
 msgid "Enabled"
 msgstr "Ενεργό"
+
+msgid "Extra options"
+msgstr ""
 
 msgid "Full"
 msgstr "Πλήρες"

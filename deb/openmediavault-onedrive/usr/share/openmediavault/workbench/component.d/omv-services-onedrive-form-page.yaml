@@ -132,6 +132,17 @@ data:
           }
         ]
       - type: checkbox
+        name: cleanuplocalfiles
+        label: _("Clean up local files")
+        hint: _("Clean up local files that have been removed online.")
+        value: false
+        modifiers: [
+          {
+            type: 'disabled',
+            constraint: { operator: 'ne', arg0: { prop: 'replicationmode' }, arg1: 'down' }
+          }
+        ]
+      - type: checkbox
         name: noremotedelete
         label: _("No remote delete")
         hint: _("Do not delete local file deletions from OneDrive.")
@@ -147,6 +158,10 @@ data:
         label: _("Skip dotfiles")
         hint: _("Skip dot files and folders from syncing.")
         value: false
+      - type: textInput
+        name: extraoptions
+        label: _("Extra options")
+        value: ""
     buttons:
       - template: cancel
         execute:
