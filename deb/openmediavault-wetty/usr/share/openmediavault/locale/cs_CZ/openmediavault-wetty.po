@@ -4,7 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Volker Theile <votdev@gmx.de>, 2022
 # Jan Štourač <wormsik666@gmail.com>, 2022
 # Pavel Borecki <pavel.borecki@gmail.com>, 2022
 # Marek Pavelka, 2024
@@ -28,7 +27,7 @@ msgid "Certificate"
 msgstr "Certifikát"
 
 msgid "Enabled"
-msgstr "Zapnuto"
+msgstr "Povoleno"
 
 msgid "Open UI"
 msgstr "Otevřít uživatelské rozhraní"
@@ -37,13 +36,13 @@ msgid "Port"
 msgstr "Port"
 
 msgid "Port to listen on."
-msgstr "Port, na kterém očekávat spojení."
+msgstr "Port pro naslouchání."
 
 msgid "The SSL certificate."
-msgstr "SSL certifikát."
+msgstr "Certifikát SSL."
 
 msgid "Updated WeTTY settings."
-msgstr ""
+msgstr "Aktualizována nastavení WeTTY."
 
 msgid "WeTTY"
-msgstr ""
+msgstr "WeTTY"

@@ -627,7 +627,7 @@ msgid "Check interval"
 msgstr "Interval kontrol"
 
 msgid "Checking for new plugins ..."
-msgstr "Kontrola nových zásuvných modulů"
+msgstr "Kontrola nových zásuvných modulů…"
 
 msgid "Chile"
 msgstr "Chile"
@@ -948,7 +948,7 @@ msgid "Disallow the user to modify their own account."
 msgstr "Neumožnit uživateli upravovat vlastní účet."
 
 msgid "Disk Temperatures"
-msgstr "Teploty disku"
+msgstr "Teploty disků"
 
 msgid "Disk Usage"
 msgstr "Využití disku"
@@ -3349,7 +3349,7 @@ msgid ""
 msgstr "Zdrojový vzdálený server, např. [UZIVATEL@]HOSTITEL:ZDROJ, [UZIVATEL@]HOSTITEL::ZDROJ nebo rsync://[UZIVATEL@]HOSTITEL[:PORT]/ZDROJ."
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr "Systém se nyní restartuje. To může nějakou dobu trvat…"
+msgstr "Systém bude nyní restartován. To může nějakou dobu trvat…"
 
 msgid "The users that are allowed to access this module."
 msgstr "Uživatelé, kteří mají povolen přístup k tomuto modulu."

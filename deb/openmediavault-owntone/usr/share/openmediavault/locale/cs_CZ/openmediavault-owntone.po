@@ -65,4 +65,4 @@ msgid "Updated OwnTone settings."
 msgstr ""
 
 msgid "Web interface"
-msgstr ""
+msgstr "Webové rozhraní"
