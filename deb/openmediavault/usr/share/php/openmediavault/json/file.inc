@@ -204,9 +204,12 @@ class File {
 			  $this->filename);
 		}
 		// Get the whole file contents.
-		if (FALSE === ($contents = fread($this->fh, $fstats['size']))) {
-			throw new \OMV\Exception("Failed to read file '%s' (size=%d).",
-			  $this->filename, $fstats['size']);
+		$contents = "";
+		if (0 < $fstats['size']) {
+			if (FALSE === ($contents = fread($this->fh, $fstats['size']))) {
+				throw new \OMV\Exception("Failed to read file '%s' (size=%d).",
+					$this->filename, $fstats['size']);
+			}
 		}
 		return $contents;
 	}
