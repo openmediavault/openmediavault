@@ -196,20 +196,23 @@ class File {
 		// Seek to the beginning of the file.
 		if (FALSE === rewind($this->fh)) {
 			throw new \OMV\Exception("Failed to rewind file '%s'.",
-			  $this->filename);
+				$this->filename);
 		}
 		// Get the information about the file.
 		if (FALSE === ($fstats = fstat($this->fh))) {
 			throw new \OMV\Exception("Failed to get file stats from '%s'.",
-			  $this->filename);
+				$this->filename);
+		}
+		// A JSON string can not be empty because this is not valid JSON,
+		// only `{}` or `[]` are a valid "empty".
+		if (0 == $fstats['size']) {
+			throw new \OMV\Exception("The file '%s' is erroneously empty.",
+				$this->filename);
 		}
 		// Get the whole file contents.
-		$contents = "";
-		if (0 < $fstats['size']) {
-			if (FALSE === ($contents = fread($this->fh, $fstats['size']))) {
-				throw new \OMV\Exception("Failed to read file '%s' (size=%d).",
-					$this->filename, $fstats['size']);
-			}
+		if (FALSE === ($contents = fread($this->fh, $fstats['size']))) {
+			throw new \OMV\Exception("Failed to read file '%s' (size=%d).",
+				$this->filename, $fstats['size']);
 		}
 		return $contents;
 	}
