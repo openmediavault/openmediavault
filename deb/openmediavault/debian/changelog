@@ -1,10 +1,4 @@
-openmediavault (7.4.10-1) stable; urgency=low
-
-  *
-
- -- Volker Theile <volker.theile@openmediavault.org>  Fri, 04 Oct 2024 22:18:22 +0200
-
-openmediavault (7.4.9-1) stable; urgency=low
+openmediavault (7.4.9-2) stable; urgency=low
 
   * Update locale files.
   * Several improvements.
