@@ -158,7 +158,7 @@ data:
         label: _("Skip dotfiles")
         hint: _("Skip dot files and folders from syncing.")
         value: false
-      - type: textInput
+      - type: textarea
         name: extraoptions
         label: _("Extra options")
         value: ""
