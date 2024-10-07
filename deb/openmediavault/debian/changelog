@@ -1,6 +1,7 @@
 openmediavault (7.4.10-1) stable; urgency=low
 
-  *
+  * Issue #1830: Add alternative MAC address support for bridge
+    network interfaces.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Oct 2024 20:21:44 +0200
 
