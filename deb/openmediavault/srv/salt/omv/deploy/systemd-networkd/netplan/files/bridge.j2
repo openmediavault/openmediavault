@@ -19,6 +19,9 @@ network:
 {%- endfor %}
   bridges:
     {{ interface.devicename }}:
+{%- if interface.altmacaddress | length > 0 %}
+      macaddress: {{ interface.altmacaddress }}
+{%- endif %}
 {%- if interface.method == "static" or interface.method6 == "static" %}
       addresses:
 {%- if interface.method == "static" %}
