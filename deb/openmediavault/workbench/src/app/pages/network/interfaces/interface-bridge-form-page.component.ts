@@ -299,6 +299,16 @@ export class InterfaceBridgeFormPageComponent extends BaseFormPageComponent {
       },
       {
         type: 'textInput',
+        name: 'altmacaddress',
+        label: gettext('MAC address'),
+        hint: gettext('Force a specific MAC address on this interface.'),
+        value: '',
+        validators: {
+          patternType: 'macAddress'
+        }
+      },
+      {
+        type: 'textInput',
         name: 'dnsnameservers',
         label: gettext('DNS servers'),
         hint: gettext('IP addresses of domain name servers used to resolve host names.'),
