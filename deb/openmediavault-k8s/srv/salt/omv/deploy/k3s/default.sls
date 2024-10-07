@@ -41,6 +41,13 @@ create_k3s_manifest_dir:
     - name: "/var/lib/rancher/k3s/server/manifests/"
     - makedirs: True
 
+cleanup_k3s_manifest_dir:
+  module.run:
+    - file.find:
+      - path: "/var/lib/rancher/k3s/server/manifests/"
+      - iname: "openmediavault-*.yaml"
+      - delete: "f"
+
 create_k3s_traefik_manifest:
   file.managed:
     - name: "/var/lib/rancher/k3s/server/manifests/openmediavault-traefik.yaml"
@@ -88,17 +95,10 @@ create_k3s_traefik_manifest:
           labels:
             app.kubernetes.io/part-of: openmediavault
         spec:
-{%- if k8s_config.sslcertificateref | length > 0 %}
           certificates:
-            - secretName: host-imported-cert
+            - secretName: default-tls-cert
           defaultCertificate:
-            secretName: host-imported-cert
-{%- else %}
-          certificates:
-            - secretName: host-selfsigned-cert
-          defaultCertificate:
-            secretName: host-selfsigned-cert
-{%- endif %}
+            secretName: default-tls-cert
     - user: root
     - group: root
     - mode: 600
@@ -160,7 +160,7 @@ create_k3s_cert_manager_manifest:
         apiVersion: cert-manager.io/v1
         kind: Certificate
         metadata:
-          name: host-selfsigned
+          name: default-tls-cert
           namespace: kube-system
           labels:
             app.kubernetes.io/part-of: openmediavault
@@ -169,7 +169,7 @@ create_k3s_cert_manager_manifest:
           dnsNames:
             - "{{ fqdn }}"
             - "*.{{ fqdn }}"
-          secretName: host-selfsigned-cert
+          secretName: default-tls-cert
           issuerRef:
             name: selfsigned
             kind: ClusterIssuer
@@ -300,7 +300,7 @@ create_k3s_misc_manifest:
         apiVersion: v1
         kind: Secret
         metadata:
-          name: host-imported-cert
+          name: default-tls-cert
           namespace: kube-system
           labels:
             app.kubernetes.io/part-of: openmediavault
