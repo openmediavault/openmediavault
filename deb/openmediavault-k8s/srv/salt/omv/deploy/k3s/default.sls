@@ -25,6 +25,7 @@
 # https://community.traefik.io/t/adding-entrypoints-to-a-helm-deployed-traefik-on-k3s/14813/5
 # https://kubernetes.io/docs/concepts/storage/volumes/#hostpath-volume-types
 # https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes
+# https://docs.k3s.io/installation/requirements?os=pi
 
 {% set k3s_version = salt['pillar.get']('default:OMV_K8S_K3S_VERSION', 'v1.30.4+k3s1') %}
 {% set k8s_config = salt['omv_conf.get']('conf.service.k8s') %}
@@ -34,6 +35,17 @@
 {% set fqdn = dns_config.hostname | lower %}
 {% if dns_config.domainname | length > 0 %}
 {% set fqdn = [dns_config.hostname, dns_config.domainname] | join('.') | lower %}
+{% endif %}
+
+{% if grains['raspberrypi'] %}
+k3s_enable_cgroups_raspi:
+  file.replace:
+    - name: "/boot/cmdline.txt"
+    - pattern: "^(.*)$"
+    - repl: "\\1 cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory"
+    - backup: False
+    - count: 1
+    - unless: "grep -q 'cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory' /boot/cmdline.txt"
 {% endif %}
 
 create_k3s_manifest_dir:

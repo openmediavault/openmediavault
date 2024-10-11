@@ -1,6 +1,7 @@
 openmediavault-k8s (7.4.0-1) stable; urgency=low
 
   * Improve installation and certificate handling.
+  * Make sure cgroups are enabled on Raspberry Pi.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 Oct 2024 20:06:09 +0200
 
