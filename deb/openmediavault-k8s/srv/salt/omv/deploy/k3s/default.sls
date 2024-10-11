@@ -38,7 +38,7 @@
 {% endif %}
 
 {% if grains['raspberrypi'] %}
-k3s_enable_cgroups_raspi:
+k3s_enable_cgroup_raspi:
   file.replace:
     - name: "/boot/cmdline.txt"
     - pattern: "^(.*)$"
@@ -46,6 +46,12 @@ k3s_enable_cgroups_raspi:
     - backup: False
     - count: 1
     - unless: "grep -q 'cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory' /boot/cmdline.txt"
+
+k3s_cgroups_reboot_required:
+  file.touch:
+    - name: "/run/reboot-required"
+    - onchanges:
+      - file: k3s_enable_cgroup_raspi
 {% endif %}
 
 create_k3s_manifest_dir:
