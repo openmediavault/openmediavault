@@ -1,5 +1,6 @@
 openmediavault-k8s (7.4.0-1) stable; urgency=low
 
+  * Upgrade K3S to v1.31.1+k3s1.
   * Improve installation and certificate handling.
   * Make sure cgroups are enabled on Raspberry Pi.
 
