@@ -1,4 +1,4 @@
-openmediavault-k8s (7.4.0-2) stable; urgency=low
+openmediavault-k8s (7.4.0-3) stable; urgency=low
 
   * Upgrade K3S to v1.31.1+k3s1.
   * Improve installation and certificate handling.
