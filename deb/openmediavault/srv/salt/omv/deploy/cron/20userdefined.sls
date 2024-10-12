@@ -28,6 +28,11 @@
 {% set scripts_dir = salt['pillar.get']('default:OMV_CRONSCRIPTS_DIR', '/var/lib/openmediavault/cron.d') %}
 {% set script_prefix = salt['pillar.get']('default:OMV_CRONTAB_USERDEFINED_PREFIX', 'userdefined-') %}
 
+cron_create_cron_scripts_dir:
+  file.directory:
+    - name: "{{ scripts_dir }}"
+    - makedirs: True
+
 remove_cron_userdefined_scripts:
   module.run:
     - file.find:

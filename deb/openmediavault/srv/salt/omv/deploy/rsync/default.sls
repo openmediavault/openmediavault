@@ -36,6 +36,11 @@ configure_rsync_cron:
     - group: root
     - mode: 644
 
+rsync_create_cron_scripts_dir:
+  file.directory:
+    - name: "{{ scripts_dir }}"
+    - makedirs: True
+
 remove_rsync_cron_scripts:
   module.run:
     - file.find:
