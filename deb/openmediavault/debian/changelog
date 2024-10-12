@@ -1,3 +1,9 @@
+openmediavault (7.4.11-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 12 Oct 2024 12:13:43 +0200
+
 openmediavault (7.4.10-1) stable; urgency=low
 
   * Issue #1830: Add alternative MAC address support for bridge
