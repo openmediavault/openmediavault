@@ -41,6 +41,7 @@ import { defaultKeymap, history, historyKeymap } from '@codemirror/commands';
 import { json } from '@codemirror/lang-json';
 import { python } from '@codemirror/lang-python';
 import { xml } from '@codemirror/lang-xml';
+import { yaml } from '@codemirror/lang-yaml';
 import {
   bracketMatching,
   defaultHighlightStyle,
@@ -51,7 +52,6 @@ import {
   syntaxHighlighting
 } from '@codemirror/language';
 import { shell } from '@codemirror/legacy-modes/mode/shell';
-import { yaml } from '@codemirror/legacy-modes/mode/yaml';
 import { highlightSelectionMatches, searchKeymap } from '@codemirror/search';
 import { Compartment, EditorState, Extension, StateEffect } from '@codemirror/state';
 import { oneDark } from '@codemirror/theme-one-dark';
@@ -353,7 +353,7 @@ export class MatFormCodeEditorComponent
           python: python(),
           shell: StreamLanguage.define(shell),
           xml: xml(),
-          yaml: StreamLanguage.define(yaml)
+          yaml: yaml()
         }[this.language]
       : [];
   }
