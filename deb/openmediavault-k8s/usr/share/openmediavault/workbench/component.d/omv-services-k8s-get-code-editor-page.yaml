@@ -1,11 +1,13 @@
 version: "1.0"
 type: component
 data:
-  name: omv-services-k8s-get-text-page
-  type: textPage
+  name: omv-services-k8s-get-code-editor-page
+  type: codeEditorPage
   config:
     hasCopyToClipboardButton: true
     hasReloadButton: true
+    language: yaml
+    lineNumbers: true
     request:
       service: Kubectl
       get:
@@ -15,3 +17,4 @@ data:
           type: "{{ _routeQueryParams.type }}"
           name: "{{ _routeParams.name }}"
           format: yaml
+        format: "{{ manifest | safe }}"
