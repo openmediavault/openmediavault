@@ -524,6 +524,8 @@ nunjucksEnv.addFilter('map', (value: Array<any>, filter: string, ...filterArgs: 
   const filterFn = nunjucksEnv.getFilter(filter);
   return _.map(value, (part) => filterFn.apply(this, [part, ...filterArgs]));
 });
+nunjucksEnv.addFilter('pop', (value: Array<any>) => value.slice(0, -1));
+nunjucksEnv.addFilter('shift', (value: Array<any>) => value.slice(1));
 /**
  * Creates an array of own enumerable string keyed-value pairs.
  */
