@@ -934,7 +934,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// directory when the file system is still mounted.
 		$mp = new \OMV\System\MountPoint($meObject['dir']);
 		if (FALSE === $mp->isMountPoint()) {
-			$mp->unlink();
+			// Unlink if the mount point is empty (which should be the
+			// normal case).
+			$mp->unlink(FALSE, TRUE);
 		}
 	}
 
