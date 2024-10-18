@@ -24,7 +24,14 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { ActivatedRoute, Params, Route, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  Params,
+  Route,
+  Router,
+  UrlSegment,
+  UrlSegmentGroup
+} from '@angular/router';
 import * as _ from 'lodash';
 import { combineLatest, Subscription } from 'rxjs';
 
@@ -57,7 +64,10 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
     protected router: Router
   ) {
     this.routeConfig = this.activatedRoute.routeConfig;
-    this.routeUrlSegments = _.trim(this.router.url, '/').split('/');
+
+    const urlTree = this.router.parseUrl(this.router.url);
+    this.routeUrlSegments = this.getUrlSegments(urlTree.root.children);
+
     // Is the component configured via route data?
     if (_.has(this.routeConfig, 'data.config')) {
       this.config = _.cloneDeep(_.get(this.routeConfig, 'data.config')) as T;
@@ -154,5 +164,19 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
         hintConfig.text = format(hintConfig.text, this.pageContext);
       }
     });
+  }
+
+  /**
+   * @private
+   */
+  private getUrlSegments(children: { [key: string]: UrlSegmentGroup }): string[] {
+    let segments: string[] = [];
+    _.forEach(_.keys(children), (key: string) => {
+      const urlSegmentGroup: UrlSegmentGroup = children[key];
+      segments = segments
+        .concat(urlSegmentGroup.segments.map((segment: UrlSegment) => segment.path))
+        .concat(this.getUrlSegments(urlSegmentGroup.children));
+    });
+    return segments;
   }
 }
