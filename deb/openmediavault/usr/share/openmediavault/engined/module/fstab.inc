@@ -75,8 +75,9 @@ class FSTab extends \OMV\Engine\Module\ServiceAbstract
 			throw new \OMV\Exception("Removing the mount directory '%s' has ".
 				"been aborted, the resource is busy.", $params['dir']);
 		}
-		// Finally unlink the mount point.
-		$mp->unlink();
+		// Finally unlink the mount point if it is empty (which should be
+		// the normal case).
+		$mp->unlink(FALSE, TRUE);
 	}
 
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {

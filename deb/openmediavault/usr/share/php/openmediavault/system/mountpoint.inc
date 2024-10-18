@@ -100,22 +100,29 @@ class MountPoint {
 
 	/**
 	 * Unlink the mountpoint of the file system.
-	 * @param force Set to TRUE to ignore nonexistent files. Defaults to TRUE.
+	 * @param force Set to TRUE to ignore nonexistent files and remove all
+	 *   files recursively. Defaults to FALSE.
+	 * @param quiet Set to TRUE to do not throw an exception in case of an
+	 *   error, e.g. the directory is not empty. Defaults to FALSE.
 	 * @return void
 	 * @throw \OMV\ExecException
 	 */
-	public function unlink($force = TRUE) {
+	public function unlink($force = FALSE, $quiet = FALSE) {
 		// Exit immediately if the directory doesn't exists.
 		if (FALSE === $this->exists())
 			return;
 		$cmdArgs = [];
-		$cmdArgs[] = "--recursive";
 		if (TRUE === $force) {
+			$cmdArgs[] = "rm";
 			$cmdArgs[] = "--force";
+			$cmdArgs[] = "--recursive";
+		} else {
+			$cmdArgs[] = "rmdir";
 		}
 		$cmdArgs[] = escapeshellarg($this->getPath());
-		$cmd = new \OMV\System\Process("rm", $cmdArgs);
+		$cmd = new \OMV\System\Process($cmdArgs);
 		$cmd->setRedirect2to1();
+		$cmd->setQuiet($quiet);
 		$cmd->execute();
 	}
 
