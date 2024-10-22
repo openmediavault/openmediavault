@@ -54,7 +54,7 @@ export const RpcObjectResponse = {
     return response;
   },
 
-  toString: (str: string, response: RpcObjectResponse): string => {
+  format: (str: string, response: RpcObjectResponse): string => {
     return format(str, response);
   }
 };

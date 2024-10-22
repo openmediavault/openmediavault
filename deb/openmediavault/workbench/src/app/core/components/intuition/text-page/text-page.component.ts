@@ -110,8 +110,8 @@ export class TextPageComponent
           })
         )
         .subscribe((res: any) => {
-          if (_.isString(request.get.toString) && RpcObjectResponse.isType(res)) {
-            res = RpcObjectResponse.toString(request.get.toString, res);
+          if (_.isString(request.get.format) && RpcObjectResponse.isType(res)) {
+            res = RpcObjectResponse.format(request.get.format, res);
           }
           this.text = res;
         });

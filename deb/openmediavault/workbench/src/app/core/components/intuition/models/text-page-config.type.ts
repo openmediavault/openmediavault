@@ -42,9 +42,9 @@ export type TextPageConfig = {
       // Convert the response object into a string.
       // Example:
       // Response = { foo: 'hello', bar: 'world' }
-      // toString = '{{ foo }} {{ bar }}'
+      // format = '{{ foo }} {{ bar }}'
       // Result = 'hello world'
-      toString?: string;
+      format?: string;
     };
   };
   buttonAlign?: 'start' | 'center' | 'end';
