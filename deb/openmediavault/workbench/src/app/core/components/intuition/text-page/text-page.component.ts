@@ -29,6 +29,7 @@ import {
   TextPageConfig
 } from '~/app/core/components/intuition/models/text-page-config.type';
 import { Icon } from '~/app/shared/enum/icon.enum';
+import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
@@ -90,17 +91,14 @@ export class TextPageComponent
   }
 
   loadData() {
-    if (
-      _.isPlainObject(this.config.request) &&
-      _.isString(this.config.request.service) &&
-      _.isPlainObject(this.config.request.get)
-    ) {
+    const request = this.config.request;
+    if (_.isPlainObject(request) && _.isString(request.service) && _.isPlainObject(request.get)) {
       this.loading = true;
       // noinspection DuplicatedCode
-      this.rpcService[this.config.request.get.task ? 'requestTask' : 'request'](
-        this.config.request.service,
-        this.config.request.get.method,
-        this.config.request.get.params
+      this.rpcService[request.get.task ? 'requestTask' : 'request'](
+        request.service,
+        request.get.method,
+        request.get.params
       )
         .pipe(
           catchError((error) => {
@@ -112,6 +110,9 @@ export class TextPageComponent
           })
         )
         .subscribe((res: any) => {
+          if (_.isString(request.get.toString) && RpcObjectResponse.isType(res)) {
+            res = RpcObjectResponse.toString(request.get.toString, res);
+          }
           this.text = res;
         });
     }

@@ -17,7 +17,7 @@
  */
 import * as _ from 'lodash';
 
-import { formatDeep } from '~/app/functions.helper';
+import { format, formatDeep } from '~/app/functions.helper';
 
 export type RpcListResponse = {
   data: Array<any>;
@@ -28,6 +28,10 @@ export type RpcObjectResponse = Record<string, any>;
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export const RpcObjectResponse = {
+  isType: (value: any): boolean => {
+    return _.isPlainObject(value);
+  },
+
   transform: (response: RpcObjectResponse, config: Record<string, string>): RpcObjectResponse => {
     const tmp = formatDeep(config, response);
     _.merge(response, tmp);
@@ -48,5 +52,9 @@ export const RpcObjectResponse = {
         break;
     }
     return response;
+  },
+
+  toString: (str: string, response: RpcObjectResponse): string => {
+    return format(str, response);
   }
 };

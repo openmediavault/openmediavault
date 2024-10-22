@@ -39,6 +39,12 @@ export type TextPageConfig = {
       params?: Record<string, any>;
       // Set `true` if the RPC is a long-running background task.
       task?: boolean;
+      // Convert the response object into a string.
+      // Example:
+      // Response = { foo: 'hello', bar: 'world' }
+      // toString = '{{ foo }} {{ bar }}'
+      // Result = 'hello world'
+      toString?: string;
     };
   };
   buttonAlign?: 'start' | 'center' | 'end';
