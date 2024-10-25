@@ -379,6 +379,7 @@ class User {
 		$tmpFile->write(sprintf("%s:%s", $this->getName(), $password));
 		$cmd = new \OMV\System\Process("chpasswd");
 		$cmd->setInputFromFile($tmpFile->getFilename());
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
