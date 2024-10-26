@@ -1,6 +1,8 @@
 openmediavault (7.4.11-1) stable; urgency=low
 
   * Several improvements.
+  * Update the DNS setting to be a mandatory configuration for
+    both Ethernet and WiFi network interfaces.
   * Issue #1835: Unlink mount directory only if empty.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 12 Oct 2024 12:13:43 +0200

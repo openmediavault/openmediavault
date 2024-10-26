@@ -338,7 +338,20 @@ export class InterfaceWifiFormPageComponent extends BaseFormPageComponent {
         hint: gettext('IP addresses of domain name servers used to resolve host names.'),
         value: '',
         validators: {
-          patternType: 'ipList'
+          patternType: 'ipList',
+          requiredIf: {
+            operator: 'or',
+            arg0: {
+              operator: 'and',
+              arg0: { operator: 'eq', arg0: { prop: 'method' }, arg1: 'static' },
+              arg1: { operator: 'n', arg0: { prop: 'gateway' } }
+            },
+            arg1: {
+              operator: 'and',
+              arg0: { operator: 'eq', arg0: { prop: 'method6' }, arg1: 'static' },
+              arg1: { operator: 'n', arg0: { prop: 'gateway6' } }
+            }
+          }
         }
       },
       {
