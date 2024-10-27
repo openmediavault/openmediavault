@@ -19,26 +19,26 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-enabled=$(systemctl is-enabled onedrive.service)
+enabled=$(systemctl is-enabled onedrive@onedrive.service)
 username=$(omv-confdbadm read 'conf.service.onedrive' | jq --raw-output '.username')
 
 stop_onedrive_service() {
   if [ ${enabled} ]; then
     echo "Please wait, stopping service ..."
-    systemctl stop onedrive.service || true
+    systemctl stop onedrive@onedrive.service || true
   fi
 }
 
 start_onedrive_service() {
   if [ ${enabled} ]; then
     echo "Please wait, starting service ..."
-    systemctl start onedrive.service || true
+    systemctl start onedrive@onedrive.service || true
   fi
 }
 
 stop_onedrive_service
 trap start_onedrive_service 2
-sudo -u "${username}" onedrive --confdir /var/cache/onedrive $@
+sudo -u "${username}" onedrive --confdir /var/cache/onedrive/ $@
 trap - 2
 start_onedrive_service
 

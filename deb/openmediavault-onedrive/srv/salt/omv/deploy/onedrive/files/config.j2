@@ -10,7 +10,6 @@ verbose = "{{ verbose }}"
 sync_dir = "{{ sf_path }}"
 sync_dir_permissions = "{{ sync_dir_permissions }}"
 sync_file_permissions = "{{ sync_file_permissions }}"
-disable_notifications = "true"
 local_first = "{{ ((config.replicationmode == 'updown') and config.localfirst) | to_bool | yesno('true,false') }}"
 no_remote_delete = "{{ ((config.replicationmode == 'up') and config.noremotedelete) | to_bool | yesno('true,false') }}"
 cleanup_local_files = "{{ ((config.replicationmode == 'down') and config.cleanuplocalfiles) | to_bool | yesno('true,false') }}"
@@ -23,3 +22,9 @@ rate_limit = "{{ config.ratelimit }}"
 {%- if config.extraoptions | length > 0 %}
 {{ config.extraoptions }}
 {%- endif %}
+# Fix issues related to curl that is installed by Debian.
+# https://github.com/abraunegg/onedrive/blob/master/docs/usage.md#compatibility-with-curl
+force_http_11 = "true"
+ip_protocol_version = "1"
+# Do not display the warning message on startup.
+disable_notifications = "true"
