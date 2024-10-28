@@ -27,6 +27,12 @@
 
 {% set config = salt['omv_conf.get']('conf.service.onedrive') %}
 
+# Cleaning up incorrect systemd user target.
+# https://github.com/abraunegg/onedrive/blob/master/docs/ubuntu-package-install.md#step-1b-remove-errant-systemd-service-file-installed-by-ppa-or-distribution-package
+remove_onedrive_errant_systemd_user_target:
+  file.absent:
+    - name: /etc/systemd/user/default.target.wants/onedrive.service
+
 {% if config.enable | to_bool %}
 
 {% set sf_mnt_path = salt['omv_conf.get_sharedfolder_mount_path'](config.sharedfolderref) %}
@@ -54,16 +60,19 @@ create_onedrive_config_file:
     - context:
         config: {{ config | json }}
     - user: "{{ config.username }}"
+    - group: "users"
     - mode: 644
 
 create_onedrive_systemd_conf:
   file.managed:
-    - name: "/etc/systemd/system/onedrive.service.d/openmediavault.conf"
+    - name: "/etc/systemd/system/onedrive@onedrive.service.d/openmediavault.conf"
     - contents: |
         [Unit]
         RequiresMountsFor="{{ sf_mnt_path }}"
 
         [Service]
+        ExecStart=
+        ExecStart=/usr/bin/onedrive --monitor --confdir=/var/cache/onedrive/
         User={{ config.username }}
     - makedirs: True
     - mode: 644
@@ -76,7 +85,7 @@ onedrive_systemctl_daemon_reload:
 
 start_onedrive_service:
   service.running:
-    - name: onedrive
+    - name: onedrive@onedrive
     - enable: True
     - watch:
       - file: create_onedrive_config_file
@@ -86,7 +95,7 @@ start_onedrive_service:
 
 stop_onedrive_service:
   service.dead:
-    - name: onedrive
+    - name: onedrive@onedrive
     - enable: False
 
 {% endif %}
