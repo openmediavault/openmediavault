@@ -116,7 +116,8 @@ def load_components(skip_invalid: bool = True, verbose: bool = False) -> Dict:
                     'textPage',
                     'tabsPage',
                     'datatablePage',
-                    'rrdPage'
+                    'rrdPage',
+                    'codeEditorPage',
                 ], 'required': True},
                 'extends': {'type': 'string'},
                 'config': {'type': 'object', 'properties': {}}

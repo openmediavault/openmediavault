@@ -1,0 +1,51 @@
+<ng-container *ngIf="loading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <omv-alert-panel type="info">
+    {{ "Please wait, the data is being loaded ..." | transloco }}
+  </omv-alert-panel>
+</ng-container>
+<omv-alert-panel *ngIf="error && !loading"
+                 type="error">
+  {{ error | httpErrorResponse:'message' }}
+</omv-alert-panel>
+<mat-card [ngClass]="{'omv-display-none': loading || error}">
+  <mat-toolbar *ngIf="config.hasCopyToClipboardButton || (config.hasReloadButton && !config.autoReload)"
+               class="omv-display-flex omv-flex-row omv-sticky">
+    <button *ngIf="config.hasCopyToClipboardButton"
+            mat-icon-button
+            matTooltip="{{ 'Copy to clipboard' | transloco }}"
+            (click)="onCopyToClipboard()">
+      <mat-icon svgIcon="{{ icon.copy }}"></mat-icon>
+    </button>
+    <div class="omv-flex-1"></div>
+    <button *ngIf="config.hasReloadButton && !config.autoReload"
+            mat-icon-button
+            matTooltip="{{ 'Reload' | transloco }}"
+            (click)="loadData()">
+      <mat-icon svgIcon="{{ icon.reload }}"></mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-card-title-group *ngIf="config.title || config.subTitle">
+    <mat-card-title *ngIf="config.title">
+      {{ config.title | transloco }}
+    </mat-card-title>
+    <mat-card-subtitle *ngIf="config.subTitle">
+      {{ config.subTitle | transloco }}
+    </mat-card-subtitle>
+  </mat-card-title-group>
+  <mat-card-content class="omv-scrollable-xy">
+    <div #editorContainer
+         class="editor-container">
+    </div>
+  </mat-card-content>
+  <mat-card-actions *ngIf="config.buttons.length"
+                    class="omv-display-flex omv-flex-row"
+                    [ngClass]="{'omv-justify-content-start': config.buttonAlign === 'start', 'omv-justify-content-center': config.buttonAlign === 'center', 'omv-justify-content-end': config.buttonAlign === 'end'}">
+    <button *ngFor="let button of config.buttons"
+            mat-flat-button
+            [class]="button.class"
+            (click)="onButtonClick(button)">
+      {{ button.text | transloco }}
+    </button>
+  </mat-card-actions>
+</mat-card>
