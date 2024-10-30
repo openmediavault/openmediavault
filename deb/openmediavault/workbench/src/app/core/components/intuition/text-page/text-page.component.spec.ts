@@ -5,7 +5,7 @@ import { IntuitionModule } from '~/app/core/components/intuition/intuition.modul
 import { TextPageComponent } from '~/app/core/components/intuition/text-page/text-page.component';
 import { TestingModule } from '~/app/testing.module';
 
-describe('TextareaPageComponent', () => {
+describe('TextPageComponent', () => {
   let component: TextPageComponent;
   let fixture: ComponentFixture<TextPageComponent>;
 
