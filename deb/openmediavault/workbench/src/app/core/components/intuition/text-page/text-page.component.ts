@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
@@ -28,6 +28,7 @@ import {
   TextPageButtonConfig,
   TextPageConfig
 } from '~/app/core/components/intuition/models/text-page-config.type';
+import { Unsubscribe } from '~/app/decorators';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
@@ -42,16 +43,14 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   templateUrl: './text-page.component.html',
   styleUrls: ['./text-page.component.scss']
 })
-export class TextPageComponent
-  extends AbstractPageComponent<TextPageConfig>
-  implements OnInit, OnDestroy
-{
+export class TextPageComponent extends AbstractPageComponent<TextPageConfig> implements OnInit {
+  @Unsubscribe()
+  private subscriptions: Subscription = new Subscription();
+
   public error: HttpErrorResponse;
   public icon = Icon;
   public loading = false;
   public text = '';
-
-  private reloadSubscription: Subscription;
 
   constructor(
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
@@ -65,17 +64,14 @@ export class TextPageComponent
 
   override ngOnInit(): void {
     super.ngOnInit();
-    this.reloadSubscription = timer(
-      0,
-      _.isNumber(this.config.autoReload) ? (this.config.autoReload as number) : null
-    ).subscribe(() => {
-      this.loadData();
-    });
-  }
-
-  override ngOnDestroy(): void {
-    this.reloadSubscription?.unsubscribe();
-    super.ngOnDestroy();
+    this.subscriptions.add(
+      timer(
+        0,
+        _.isNumber(this.config.autoReload) ? (this.config.autoReload as number) : null
+      ).subscribe(() => {
+        this.loadData();
+      })
+    );
   }
 
   onCopyToClipboard() {
