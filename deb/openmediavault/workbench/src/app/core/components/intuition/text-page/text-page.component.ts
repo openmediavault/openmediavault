@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
@@ -44,19 +44,22 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   styleUrls: ['./text-page.component.scss']
 })
 export class TextPageComponent extends AbstractPageComponent<TextPageConfig> implements OnInit {
+  @ViewChild('textContainer', { static: true })
+  _textContainer: ElementRef;
+
   @Unsubscribe()
   private subscriptions: Subscription = new Subscription();
 
   public error: HttpErrorResponse;
   public icon = Icon;
   public loading = false;
-  public text = '';
 
   constructor(
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
     @Inject(Router) router: Router,
     private clipboardService: ClipboardService,
+    private renderer2: Renderer2,
     private rpcService: RpcService
   ) {
     super(activatedRoute, authSessionService, router);
@@ -75,7 +78,8 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
   }
 
   onCopyToClipboard() {
-    this.clipboardService.copy(this.text);
+    const content = this._textContainer.nativeElement.textContent;
+    this.clipboardService.copy(content);
   }
 
   onButtonClick(buttonConfig: TextPageButtonConfig) {
@@ -109,7 +113,7 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
           if (_.isString(request.get.format) && RpcObjectResponse.isType(res)) {
             res = RpcObjectResponse.format(request.get.format, res);
           }
-          this.text = res;
+          this.renderer2.setProperty(this._textContainer.nativeElement, 'textContent', res);
         });
     }
   }

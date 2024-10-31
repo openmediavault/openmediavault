@@ -34,7 +34,9 @@
     </mat-card-subtitle>
   </mat-card-title-group>
   <mat-card-content class="omv-scrollable-xy">
-    <div class="omv-text-wrap omv-text-monospace">{{ text }}</div>
+    <div #textContainer
+         class="omv-text-wrap omv-text-monospace">
+    </div>
   </mat-card-content>
   <mat-card-actions *ngIf="config.buttons.length"
                     class="omv-display-flex omv-flex-row"
