@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslocoModule } from '@ngneat/transloco';
 
+import { CodeEditorPageComponent } from '~/app/core/components/intuition/code-editor-page/code-editor-page.component';
 import { DatatablePageComponent } from '~/app/core/components/intuition/datatable-page/datatable-page.component';
 import { FormBinaryUnitInputComponent } from '~/app/core/components/intuition/form/components/form-binary-unit-input/form-binary-unit-input.component';
 import { FormButtonComponent } from '~/app/core/components/intuition/form/components/form-button/form-button.component';
@@ -77,7 +78,8 @@ import { SharedModule } from '~/app/shared/shared.module';
     SelectionListPageComponent,
     RrdPageComponent,
     FormCodeEditorComponent,
-    FormTagInputComponent
+    FormTagInputComponent,
+    CodeEditorPageComponent
   ],
   exports: [
     DatatablePageComponent,
@@ -86,7 +88,8 @@ import { SharedModule } from '~/app/shared/shared.module';
     TabsPageComponent,
     TextPageComponent,
     SelectionListPageComponent,
-    RrdPageComponent
+    RrdPageComponent,
+    CodeEditorPageComponent
   ],
   imports: [
     CommonModule,

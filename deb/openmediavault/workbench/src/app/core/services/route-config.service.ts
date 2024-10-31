@@ -22,6 +22,7 @@ import * as _ from 'lodash';
 import { Observable, of, ReplaySubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
+import { CodeEditorPageComponent } from '~/app/core/components/intuition/code-editor-page/code-editor-page.component';
 import { DatatablePageComponent } from '~/app/core/components/intuition/datatable-page/datatable-page.component';
 import { FormPageComponent } from '~/app/core/components/intuition/form-page/form-page.component';
 import { RrdPageComponent } from '~/app/core/components/intuition/rrd-page/rrd-page.component';
@@ -40,7 +41,8 @@ const componentMap: Record<string, Type<any>> = {
   textPage: TextPageComponent,
   tabsPage: TabsPageComponent,
   datatablePage: DatatablePageComponent,
-  rrdPage: RrdPageComponent
+  rrdPage: RrdPageComponent,
+  codeEditorPage: CodeEditorPageComponent
 };
 
 type RouteConfig = {
@@ -65,7 +67,8 @@ type RouteConfig = {
       | 'textPage'
       | 'tabsPage'
       | 'datatablePage'
-      | 'rrdPage';
+      | 'rrdPage'
+      | 'codeEditorPage';
     config: Record<string, any>;
   };
 };
