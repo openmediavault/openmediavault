@@ -98,26 +98,33 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		$this->validateMethodParams($params, "rpc.kubectl.get");
+		$result = [
+			"type" => $params['type']
+		];
 		$cmdArgs = [];
 		$cmdArgs[] = "get";
 		$cmdArgs[] = escapeshellarg($params['type']);
 		if (!empty($params['name'])) {
 			$cmdArgs[] = escapeshellarg($params['name']);
+			$result['name'] = $params['name'];
 		}
 		if (!empty($params['namespace'])) {
 			$cmdArgs[] = sprintf("-n %s", escapeshellarg(
 				$params['namespace']));
+			$result['namespace'] = $params['namespace'];
 		} else {
 			$cmdArgs[] = "--all-namespaces";
 		}
 		if (!empty($params['format'])) {
 			$cmdArgs[] = sprintf("-o %s", escapeshellarg(
 				$params['format']));
+			$result['format'] = $params['format'];
 		}
 		$cmd = new \OMV\System\Process("kubectl", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
-		return implode("\n", $output);
+		$result['manifest'] = implode("\n", $output);
+		return $result;
 	}
 
 	function delete($params, $context) {

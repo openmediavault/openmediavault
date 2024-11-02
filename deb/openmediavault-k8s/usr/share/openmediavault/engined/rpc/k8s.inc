@@ -101,13 +101,13 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 
 	function getToken($params, $context) {
 		\OMV\Rpc\Rpc::call("K8s", "isConfigApplicable", NULL, $context);
-		$secret = \OMV\Rpc\Rpc::call("Kubectl", "get", [
+		$response = \OMV\Rpc\Rpc::call("Kubectl", "get", [
 			"type" => "secret",
 			"name" => "admin-user",
 			"namespace" => "kubernetes-dashboard",
 			"format" => "json"
 		], $context);
-		$secret = json_decode_safe($secret, TRUE);
+		$secret = json_decode_safe($response['manifest'], TRUE);
 		return [
 			"token" => base64_decode($secret['data']['token'])
 		];
