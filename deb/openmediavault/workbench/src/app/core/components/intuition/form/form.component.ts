@@ -208,6 +208,7 @@ export class FormComponent implements AfterViewInit, OnInit {
           break;
         case 'codeEditor':
           _.defaultsDeep(field, {
+            language: 'none',
             lineNumbers: true
           });
           break;

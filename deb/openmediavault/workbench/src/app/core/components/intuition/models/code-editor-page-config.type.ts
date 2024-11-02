@@ -24,7 +24,9 @@ export type CodeEditorPageConfig = {
   autoReload?: boolean | number;
   hasReloadButton?: boolean;
   hasCopyToClipboardButton?: boolean;
-  language?: 'json' | 'python' | 'shell' | 'xml' | 'yaml';
+  // The language of the code editor. Defaults to `none`.
+  language?: 'json' | 'python' | 'shell' | 'xml' | 'yaml' | 'none';
+  // Display line numbers in the code editor? Defaults to `true`.
   lineNumbers?: boolean;
   request?: {
     // The name of the RPC service.

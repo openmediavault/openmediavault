@@ -183,7 +183,7 @@ export class CodeEditorPageComponent
       autoReload: false,
       hasReloadButton: false,
       hasCopyToClipboardButton: false,
-      language: 'yaml',
+      language: 'none',
       lineNumbers: true,
       buttonAlign: 'end',
       buttons: []
@@ -253,7 +253,7 @@ export class CodeEditorPageComponent
   }
 
   private getLanguageExtensions(): Extension {
-    return _.isString(this.config.language)
+    return _.isString(this.config.language) && this.config.language !== 'none'
       ? {
           json: json(),
           python: python(),

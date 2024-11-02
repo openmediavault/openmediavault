@@ -134,7 +134,7 @@ export class MatFormCodeEditorComponent
   lineNumbers?: boolean = true;
 
   @Input()
-  language?: 'json' | 'python' | 'shell' | 'xml' | 'yaml';
+  language?: 'json' | 'python' | 'shell' | 'xml' | 'yaml' | 'none';
 
   @Input()
   get value(): string {
@@ -347,7 +347,7 @@ export class MatFormCodeEditorComponent
   }
 
   private getLanguageExtensions(): Extension {
-    return _.isString(this.language)
+    return _.isString(this.language) && this.language !== 'none'
       ? {
           json: json(),
           python: python(),
