@@ -349,7 +349,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				continue;
 			}
 			// Skip some specific file systems.
-			if (in_array($objectv['type'], ['swap'])) {
+			if (in_array($objectv['type'], ['swap', 'bcache'])) {
 				continue;
 			}
 			// Is there already an mount point configuration object?
