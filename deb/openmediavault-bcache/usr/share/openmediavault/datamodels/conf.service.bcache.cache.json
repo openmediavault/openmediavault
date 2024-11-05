@@ -1,0 +1,30 @@
+{
+	"type": "config",
+	"id": "conf.service.bcache.cache",
+	"title": "Bcache Cache Device",
+	"queryinfo": {
+		"xpath": "//services/bcache/caches/cache",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"csetuuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"devicefile": {
+			"type": "string",
+			"format": "devicefile"
+		},
+		"congestedreadthreshold": {
+			"type": "integer"
+		},
+		"congestedwritethreshold": {
+			"type": "integer"
+		}
+	}
+}

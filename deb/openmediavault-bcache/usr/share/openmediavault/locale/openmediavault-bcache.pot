@@ -1,0 +1,201 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-bcache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-bcache\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-14 20:45+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "5 Minutes"
+msgstr ""
+
+msgid "A sequential IO will bypass the cache once it passes this threshold. (default:4.0M, max:3.9G)"
+msgstr ""
+
+msgid "Allow bcache go around the cache when there's read / write congestion. (default:true)"
+msgstr ""
+
+msgid "Backing Devices"
+msgstr ""
+
+msgid "Bcache"
+msgstr ""
+
+msgid "Bcache Device"
+msgstr ""
+
+msgid "Cache Device"
+msgstr ""
+
+msgid "Cache Devices"
+msgstr ""
+
+msgid "Cache Mode"
+msgstr ""
+
+msgid "Capacity"
+msgstr ""
+
+msgid "Clean"
+msgstr ""
+
+msgid "Clear total statistics"
+msgstr ""
+
+msgid "Configuration"
+msgstr ""
+
+msgid "Congest Tracking"
+msgstr ""
+
+msgid "Congested Read Threshold (us)"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "Day"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Dirty"
+msgstr ""
+
+msgid "Dirty Data"
+msgstr ""
+
+msgid "Docs"
+msgstr ""
+
+msgid "Hour"
+msgstr ""
+
+msgid "If nonzero, bcache tries to keep around this percentage of the cache dirty by throttling background writeback and using a PD controller to smoothly adjust the rate. (default:10)"
+msgstr ""
+
+msgid "Inconsistent"
+msgstr ""
+
+msgid "Metadata"
+msgstr ""
+
+msgid "Missing"
+msgstr ""
+
+msgid "Missing Cache"
+msgstr ""
+
+msgid "Mounted"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "No Cache"
+msgstr ""
+
+msgid "Online"
+msgstr ""
+
+msgid "Recovery Actions"
+msgstr ""
+
+msgid "Register"
+msgstr ""
+
+msgid "Select a cache device ..."
+msgstr ""
+
+msgid "Select a device ..."
+msgstr ""
+
+msgid "Select the device that will be formatted as bcache backing device."
+msgstr ""
+
+msgid "Select the device that will be formatted as bcache cache device."
+msgstr ""
+
+msgid "Select the device that will be used as cache device."
+msgstr ""
+
+msgid "Sequential Cutoff"
+msgstr ""
+
+msgid "Show details"
+msgstr ""
+
+msgid "Start without cache"
+msgstr ""
+
+msgid "State"
+msgstr ""
+
+msgid "Statistics"
+msgstr ""
+
+msgid "Superblock"
+msgstr ""
+
+msgid "The default is 2000 us (2 milliseconds)"
+msgstr ""
+
+msgid "The default is 20000 us (20 milliseconds)"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Unit"
+msgstr ""
+
+msgid "Unregister"
+msgstr ""
+
+msgid "Unregistered"
+msgstr ""
+
+msgid "Unused"
+msgstr ""
+
+msgid "Updated backing device '{{ devicefile }}'."
+msgstr ""
+
+msgid "Updated cache device '{{ devicefile }}'."
+msgstr ""
+
+msgid "When dirty data is written to the cache and it previously did not contain any, waits some number of seconds before initiating writeback. (default:30)"
+msgstr ""
+
+msgid "Writeback Delay"
+msgstr ""
+
+msgid "Writeback Percent"
+msgstr ""
+
+msgid "bcache"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "writearound"
+msgstr ""
+
+msgid "writeback"
+msgstr ""
+
+msgid "writethrough"
+msgstr ""

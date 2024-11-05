@@ -1,0 +1,46 @@
+{
+	"type": "config",
+	"id": "conf.service.bcache.backing",
+	"title": "Bcache Backing Device",
+	"queryinfo": {
+		"xpath": "//services/bcache/backings/backing",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"devicefile": {
+			"type": "string",
+			"format": "devicefile"
+		},
+		"csetuuid": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		},
+		"bindex" : {
+			"type": "string",
+			"pattern": "^\\d*$"
+		},
+		"cachemode": {
+			"type": "string"
+		},
+		"sequentialcutoff": {
+			"type": "integer"
+		},
+		"writebackdelay": {
+			"type": "integer"
+		},
+		"writebackpercent": {
+			"type": "integer"
+		}
+	}
+}

@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "storage.bcache.cache"
+  text: _("Cache Devices")
+  icon: "mdi:database-clock"
+  url: "/storage/bcache/cache"
+  position: 10

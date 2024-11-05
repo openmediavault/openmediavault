@@ -1,0 +1,89 @@
+{
+	"type": "config",
+	"id": "conf.service.bcache",
+	"title": "Bcache",
+	"queryinfo": {
+		"xpath": "//services/bcache",
+		"iterable": false
+	},
+	"properties": {
+		"caches": {
+			"type": "object",
+			"properties": {
+				"cache": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"csetuuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"devicefile": {
+								"type": "string",
+								"format": "devicefile"
+							},
+							"congestedreadthreshold": {
+								"type": "integer"
+							},
+							"congestedwritethreshold": {
+								"type": "integer"
+							}
+						}
+					}
+				}
+			}
+		},
+		"backings": {
+			"type": "object",
+			"properties": {
+				"backing": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"devicefile": {
+								"type": "string",
+								"format": "devicefile"
+							},
+							"csetuuid": {
+								"type": "string",
+								"oneOf": [{
+									"type": "string",
+									"format": "uuidv4"
+								},{
+									"type": "string",
+									"maxLength": 0
+								}]
+							},
+							"bindex" : {
+								"type": "string",
+								"pattern": "^\\d*$"
+							},
+							"cachemode": {
+								"type": "string"
+							},
+							"sequentialcutoff": {
+								"type": "integer"
+							},
+							"writebackdelay": {
+								"type": "integer"
+							},
+							"writebackpercent": {
+								"type": "integer"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

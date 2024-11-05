@@ -1,0 +1,5 @@
+openmediavault-bcache (7.0-1) stable; urgency=low
+
+  * Initial release
+
+ -- Michael Myrcik <michael.myrcik@web.de>  Mon, 18 Nov 2024 15:44:31 +0100

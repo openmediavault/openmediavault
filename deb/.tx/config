@@ -14,6 +14,12 @@ source_file = openmediavault-apt/usr/share/openmediavault/locale/openmediavault-
 source_lang = en
 type = PO
 
+[o:openmediavault:p:openmediavault:r:openmediavault-bcache]
+file_filter = openmediavault-bcache/usr/share/openmediavault/locale/<lang>/openmediavault-bcache.po
+source_file = openmediavault-bcache/usr/share/openmediavault/locale/openmediavault-bcache.pot
+source_lang = en
+type = PO
+
 [o:openmediavault:p:openmediavault:r:openmediavault-clamav]
 file_filter = openmediavault-clamav/usr/share/openmediavault/locale/<lang>/openmediavault-clamav.po
 source_file = openmediavault-clamav/usr/share/openmediavault/locale/openmediavault-clamav.pot
