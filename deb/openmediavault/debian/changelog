@@ -1,6 +1,6 @@
 openmediavault (7.4.12-1) stable; urgency=low
 
-  *
+  * Add APT notification settings.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 02 Nov 2024 18:12:21 +0100
 

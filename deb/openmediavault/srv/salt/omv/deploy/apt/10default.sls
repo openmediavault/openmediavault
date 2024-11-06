@@ -31,6 +31,16 @@
 {% endfor %}
 {% set security_pkg_repos = pkg_repos | rejectattr('disabled') | selectattr('uri', 'match', '^https?://((deb|security).debian.org|security.ubuntu.com)/.*-security$') | list %}
 
+# Workaround for https://github.com/mvo5/unattended-upgrades/issues/366
+remove_apt_default_unattended_upgrades_conf:
+  file.absent:
+    - name: "/etc/apt/apt.conf.d/50unattended-upgrades"
+
+# Workaround for https://github.com/mvo5/unattended-upgrades/issues/366
+divert_apt_default_unattended_upgrades_conf:
+  omv_dpkg.divert_add:
+    - name: "/etc/apt/apt.conf.d/50unattended-upgrades"
+
 configure_apt_sources_list_openmediavault:
   file.managed:
     - name: "/etc/apt/sources.list.d/openmediavault.list"

@@ -31,7 +31,7 @@ interface INotification {
 	 * @return An array of arrays containing the following fields:
 	 *   \em id (string) The identifier of the notification.
 	 *   \em type (string) The type that is displayed in the WebGUI.
-     *     This should be one of the  following values:
+     *     This should be one of the following values:
      *     - Administration
      *     - Backup
      *     - Downloaders
@@ -43,6 +43,7 @@ interface INotification {
      *     - Sharing
      *     - Utilities
      *     - Virtualization
+     *     - System
 	 *   \em title (string) A title displayed in the WebGUI.
 	 */
 	public function getNotificationConfig();

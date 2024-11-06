@@ -17,11 +17,17 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set dirpath = '/srv/salt' | path_join(tpldir) %}
+configure_apticron_conf:
+  file.managed:
+    - name: "/etc/apticron/apticron.conf"
+    - source:
+      - salt://{{ tpldir }}/files/etc-apticron-apticron_conf.j2
+    - template: jinja
+    - user: root
+    - group: root
+    - mode: 644
+    - makedirs: True
 
-include:
-{% for file in salt['file.readdir'](dirpath) | sort %}
-{% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}
-  - .{{ file | replace('.sls', '') }}
-{% endif %}
-{% endfor %}
+divert_apticron_conf:
+  omv_dpkg.divert_add:
+    - name: "/etc/apticron/apticron.conf"

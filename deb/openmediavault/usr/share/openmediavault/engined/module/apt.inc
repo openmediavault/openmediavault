@@ -22,13 +22,23 @@
 namespace Engined\Module;
 
 class Apt extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener {
+		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\INotification {
 	public function getName() {
 		return "apt";
 	}
 
 	public function getDescription() {
 		return gettext("Package management.");
+	}
+
+	public function getNotificationConfig() {
+		return [
+			[
+				"id" => "apt",
+				"type" => getText("System"),
+				"title" => gettext("Package management")
+			]
+		];
 	}
 
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
@@ -39,6 +49,10 @@ class Apt extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 			OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.system.network.proxy",
+			[$this, "setDirty"]);
+		$dispatcher->addListener(
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.notification.notification",
 			[$this, "setDirty"]);
 	}
 }
