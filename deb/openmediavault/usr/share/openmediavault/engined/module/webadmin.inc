@@ -31,13 +31,6 @@ class Webadmin extends \OMV\Engine\Module\ServiceAbstract
 		// Nothing to do here.
 	}
 
-	public function getZeroconfConfig() {
-		return [
-			"id" => "webadmin",
-			"title" => gettext("Web control panel")
-		];
-	}
-
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
