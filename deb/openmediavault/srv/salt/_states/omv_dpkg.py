@@ -18,7 +18,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-import hashlib
 import os.path
 import subprocess
 
@@ -42,7 +41,7 @@ def divert_add(name):
         'comment': ''
     }
     try:
-        divert_to = os.path.join('/tmp', hashlib.md5(name.encode()).hexdigest())
+        divert_to = os.path.join('/tmp', name.replace(os.path.sep, '_'))
         ret['comment'] = openmediavault.procutils.check_output(
             [
                 'dpkg-divert', '--add', '--local', '--no-rename', '--divert',
