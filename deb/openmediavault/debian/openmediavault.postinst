@@ -548,6 +548,14 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "7.4.6"; then
 			omv_module_set_dirty nfs
 		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.12"; then
+			# Convert existing diversions created by the `divert_add` Salt state.
+			for file in $(dpkg-divert --list | grep -oP '(?<=local diversion of )[^\s]+'); do
+				dpkg-divert --no-rename --remove "${file}" || :
+				_divert_to="/tmp/$(echo "${file}" | sed 's|/|_|g')"
+				dpkg-divert --add --local --no-rename --divert "${_divert_to}" "${file}" || :
+			done
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
