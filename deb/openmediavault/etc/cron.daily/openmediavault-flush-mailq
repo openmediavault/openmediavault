@@ -37,5 +37,5 @@ set -e
 if [ "$(omv_config_get "//system/email/enable")" = "0" ]; then
   omv_syslog_info "Purging all messages in mail queue."
   postfix set-permissions || true
-  postsuper -d ALL
+  postsuper -d ALL >/dev/null 2>&1
 fi
