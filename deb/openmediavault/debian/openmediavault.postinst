@@ -557,6 +557,7 @@ case "$1" in
 			done
 			omv_module_set_dirty apt
 			omv_module_set_dirty apticron
+			omv_module_set_dirty monit
 		fi
 
 		########################################################################

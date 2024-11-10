@@ -23,3 +23,11 @@ cleanup_monit_conf_dir:
       - path: "/etc/monit/conf.d/"
       - iname: "openmediavault-*.conf"
       - delete: "f"
+
+remove_monit_delay_file:
+  file.absent:
+    - name: "/etc/monit/monit_delay"
+
+divert_monit_delay_file:
+  omv_dpkg.divert_add:
+    - name: "/etc/monit/monit_delay"

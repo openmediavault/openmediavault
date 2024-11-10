@@ -21,5 +21,4 @@
 
 # Cleanup various files that are installed by other packages.
 # Note, this files are also installed with an package update.
-rm -f /etc/monit/monit_delay
 rm -f /etc/cron.daily/mdadm
