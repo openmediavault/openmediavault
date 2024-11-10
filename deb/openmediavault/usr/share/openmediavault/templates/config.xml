@@ -100,6 +100,11 @@
 					<id>smartmontools</id>
 					<enable>1</enable>
 				</notification>
+				<notification>
+					<uuid>5334afb5-b66d-4719-a3ce-6a6a2d574816</uuid>
+					<id>apt</id>
+					<enable>1</enable>
+				</notification>
 			</notifications>
 		</notification>
 		<certificates>

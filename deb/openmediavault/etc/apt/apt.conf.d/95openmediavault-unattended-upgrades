@@ -6,7 +6,7 @@ Unattended-Upgrade::Origins-Pattern {
 };
 Unattended-Upgrade::AutoFixInterruptedDpkg "true";
 Unattended-Upgrade::InstallOnShutdown "false";
-Unattended-Upgrade::Mail "root";
+Unattended-Upgrade::Mail "";
 Unattended-Upgrade::MailReport "on-change";
 Unattended-Upgrade::Sender "root";
 Unattended-Upgrade::Remove-Unused-Kernel-Packages "false";

@@ -17,11 +17,35 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set dirpath = '/srv/salt' | path_join(tpldir) %}
+{% set notification_config = salt['omv_conf.get_by_filter'](
+  'conf.system.notification.notification',
+  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'apt'})[0] %}
 
-include:
-{% for file in salt['file.readdir'](dirpath) | sort %}
-{% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}
-  - .{{ file | replace('.sls', '') }}
+remove_apticron_default_daily_cron:
+  file.absent:
+    - name: "/etc/cron.d/apticron"
+
+divert_apticron_default_daily_cron:
+  omv_dpkg.divert_add:
+    - name: "/etc/cron.d/apticron"
+
+{% if notification_config.enable %}
+
+create_apticron_cron_daily:
+  file.managed:
+    - name: "/etc/cron.daily/openmediavault-apticron"
+    - contents: |
+        {{ pillar['headers']['auto_generated'] }}
+        {{ pillar['headers']['warning'] }}
+        if test -x /usr/sbin/apticron; then /usr/sbin/apticron --cron; fi
+    - user: root
+    - group: root
+    - mode: 755
+
+{% else %}
+
+remove_apticron_cron_daily:
+  file.absent:
+    - name: "/etc/cron.daily/openmediavault-apticron"
+
 {% endif %}
-{% endfor %}

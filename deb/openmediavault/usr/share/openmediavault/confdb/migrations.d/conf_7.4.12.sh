@@ -1,3 +1,5 @@
+#!/usr/bin/env dash
+#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -17,11 +19,13 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set dirpath = '/srv/salt' | path_join(tpldir) %}
+set -e
 
-include:
-{% for file in salt['file.readdir'](dirpath) | sort %}
-{% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}
-  - .{{ file | replace('.sls', '') }}
-{% endif %}
-{% endfor %}
+. /usr/share/openmediavault/scripts/helper-functions
+
+if ! omv_config_exists "/config/system/notification/notifications/notification[id='apt']"; then
+	omv_config_add_node_data "/config/system/notification/notifications" "notification" \
+		"<uuid>5334afb5-b66d-4719-a3ce-6a6a2d574816</uuid><id>apt</id><enable>1</enable>"
+fi
+
+exit 0
