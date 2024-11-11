@@ -36,7 +36,7 @@ class Apt extends \OMV\Engine\Module\ServiceAbstract
 			[
 				"id" => "apt",
 				"type" => getText("System"),
-				"title" => gettext("Package management")
+				"title" => gettext("Update management")
 			]
 		];
 	}
