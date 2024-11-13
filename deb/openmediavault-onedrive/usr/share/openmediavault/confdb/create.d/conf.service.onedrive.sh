@@ -34,7 +34,7 @@ set -e
 #       <localfirst>0|1</localfirst>
 #       <noremotedelete>0|1</noremotedelete>
 #       <skipdotfiles>0|1</skipdotfiles>
-#       <monitorinterval>60|120|180|240|300|600|900|1800|3600</monitorinterval>
+#       <monitorinterval>300|600|900|1800|3600</monitorinterval>
 #       <ratelimit>0|131072|262144|524288|1048576|10485760|104857600</ratelimit>
 #       <username>onedrive</username>
 #     </onedrive>

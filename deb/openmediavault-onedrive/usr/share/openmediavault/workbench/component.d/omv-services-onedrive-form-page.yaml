@@ -75,14 +75,6 @@ data:
         value: 300
         store:
           data:
-            - - 60
-              - _("1 minute")
-            - - 120
-              - _("2 minutes")
-            - - 180
-              - _("3 minutes")
-            - - 240
-              - _("4 minutes")
             - - 300
               - _("5 minutes")
             - - 600
