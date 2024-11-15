@@ -551,7 +551,7 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "7.4.12"; then
 			# Convert existing diversions created by the `divert_add` Salt state.
 			for file in $(LANG=C dpkg-divert --list | grep -oP '(?<=local diversion of )[^\s]+'); do
-				dpkg-divert --no-rename --remove "${file}" || :
+				dpkg-divert --local --no-rename --remove "${file}" || :
 				_divert_to="/tmp/$(echo "${file}" | sed 's|/|_|g')"
 				dpkg-divert --add --local --no-rename --divert "${_divert_to}" "${file}" || :
 			done

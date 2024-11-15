@@ -1,4 +1,4 @@
-openmediavault (7.4.12-2) stable; urgency=low
+openmediavault (7.4.12-3) stable; urgency=low
 
   * Update locale files.
   * Add APT notification settings.
