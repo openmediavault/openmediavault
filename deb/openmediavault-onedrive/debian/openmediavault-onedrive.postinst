@@ -84,6 +84,9 @@ case "$1" in
 			# Stop the old service.
 			deb-systemd-invoke stop onedrive || :
 			deb-systemd-helper disable onedrive || :
+			# Remove old configuration.
+			rm -f /etc/systemd/user/default.target.wants/onedrive.service
+			rm -rf /etc/systemd/system/onedrive.service.d/
 		fi
 	;;
 
