@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2024\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -954,9 +954,6 @@ msgstr "不允許用戶修改自己的帳戶。"
 msgid "Disk Temperatures"
 msgstr "硬盘温度"
 
-msgid "Disk Usage"
-msgstr "磁盘用量"
-
 msgid "Disks"
 msgstr "磁盘"
 
@@ -1238,6 +1235,9 @@ msgstr "二月"
 
 msgid "Fiji"
 msgstr "斐济"
+
+msgid "File System Usage"
+msgstr "檔案系統用量"
 
 msgid "File Systems"
 msgstr "文件系统"
@@ -2832,6 +2832,9 @@ msgstr "文件系统已用空间超过指定阈值时发出通知消息。"
 msgid "Send command output via email"
 msgstr "命令输出用 Email 发送"
 
+msgid "Send notifications about pending package updates."
+msgstr "傳送關於擱置中軟體包更新的通知。"
+
 msgid "Sender email"
 msgstr "发送 Email "
 
@@ -3705,6 +3708,9 @@ msgstr "延时"
 msgid "Update Management"
 msgstr "更新管理"
 
+msgid "Update management"
+msgstr "更新管理"
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "更新目标 ACLs 和源 ACLs 一致。"
 
@@ -3979,9 +3985,6 @@ msgstr "瓦利斯和富图纳群岛"
 
 msgid "Warning"
 msgstr "警告"
-
-msgid "Web control panel"
-msgstr "Web 控制面板"
 
 msgid "Wednesday"
 msgstr "星期三"

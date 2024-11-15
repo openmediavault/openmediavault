@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Sári Gábor <sari.gabor@gmail.com>, 2018,2022,2024\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -954,9 +954,6 @@ msgstr "Saját felhasználói fiók módosításának tiltása."
 msgid "Disk Temperatures"
 msgstr "Lemezhőmérséklet"
 
-msgid "Disk Usage"
-msgstr "Lemez használat"
-
 msgid "Disks"
 msgstr "Lemezek"
 
@@ -1238,6 +1235,9 @@ msgstr "Február"
 
 msgid "Fiji"
 msgstr "Fidzsi"
+
+msgid "File System Usage"
+msgstr ""
 
 msgid "File Systems"
 msgstr "Fájlrendszerek"
@@ -2832,6 +2832,9 @@ msgstr "Értesítést küld, ha a használt fájlrendszer kapacitása meghaladja
 msgid "Send command output via email"
 msgstr "Parancs kimenet elküldése e-mailben"
 
+msgid "Send notifications about pending package updates."
+msgstr ""
+
 msgid "Sender email"
 msgstr "Feladó e-mail"
 
@@ -3705,6 +3708,9 @@ msgstr "Engedélyezés késleltetése"
 msgid "Update Management"
 msgstr "Frissítéskezelő"
 
+msgid "Update management"
+msgstr ""
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "A célállomás ACL-ek frissítése, hogy megegyezzen a forrás ACL-ekkel."
 
@@ -3979,9 +3985,6 @@ msgstr "Wallis és Futuna"
 
 msgid "Warning"
 msgstr "Figyelmeztetés"
-
-msgid "Web control panel"
-msgstr "Webes vezérlőpult"
 
 msgid "Wednesday"
 msgstr "Szerda"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Aitor Salaberria <amento@ni.eus>, 2024\n"
 "Language-Team: Basque (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/eu_ES/)\n"
@@ -948,9 +948,6 @@ msgstr ""
 msgid "Disk Temperatures"
 msgstr ""
 
-msgid "Disk Usage"
-msgstr ""
-
 msgid "Disks"
 msgstr ""
 
@@ -1231,6 +1228,9 @@ msgid "February"
 msgstr ""
 
 msgid "Fiji"
+msgstr ""
+
+msgid "File System Usage"
 msgstr ""
 
 msgid "File Systems"
@@ -2826,6 +2826,9 @@ msgstr ""
 msgid "Send command output via email"
 msgstr ""
 
+msgid "Send notifications about pending package updates."
+msgstr ""
+
 msgid "Sender email"
 msgstr ""
 
@@ -3699,6 +3702,9 @@ msgstr ""
 msgid "Update Management"
 msgstr ""
 
+msgid "Update management"
+msgstr ""
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr ""
 
@@ -3972,9 +3978,6 @@ msgid "Wallis and Futuna"
 msgstr ""
 
 msgid "Warning"
-msgstr ""
-
-msgid "Web control panel"
 msgstr ""
 
 msgid "Wednesday"

@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2024\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -961,9 +961,6 @@ msgstr "Der Benutzer darf sein Konto nicht ändern."
 msgid "Disk Temperatures"
 msgstr "Festplatten-Temperaturen"
 
-msgid "Disk Usage"
-msgstr "Festplattennutzung"
-
 msgid "Disks"
 msgstr "Laufwerke"
 
@@ -1245,6 +1242,9 @@ msgstr "Februar"
 
 msgid "Fiji"
 msgstr "Fidschi"
+
+msgid "File System Usage"
+msgstr "Dateisystemnutzung"
 
 msgid "File Systems"
 msgstr "Dateisysteme"
@@ -2839,6 +2839,9 @@ msgstr "Sende eine Benachrichtigung, wenn die verwendete Dateisystemkapazität d
 msgid "Send command output via email"
 msgstr "Sende Kommandoausgabe per E-Mail"
 
+msgid "Send notifications about pending package updates."
+msgstr "Benachrichtigungen über anstehende Paketaktualisierungen senden."
+
 msgid "Sender email"
 msgstr "E-Mail Absender"
 
@@ -3712,6 +3715,9 @@ msgstr "Zeit bis Wiederherstellung"
 msgid "Update Management"
 msgstr "Aktualisierungsverwaltung"
 
+msgid "Update management"
+msgstr "Aktualisierungsverwaltung"
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Aktualisiere die Ziel-ACLs so, dass sie mit den Quell-ACLs übereinstimmen."
 
@@ -3986,9 +3992,6 @@ msgstr "Wallis und Futuna"
 
 msgid "Warning"
 msgstr "Warnung"
-
-msgid "Web control panel"
-msgstr "Web Administrationsoberfläche"
 
 msgid "Wednesday"
 msgstr "Mittwoch"

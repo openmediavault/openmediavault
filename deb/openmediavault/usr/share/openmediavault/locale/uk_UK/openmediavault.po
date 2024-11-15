@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -950,9 +950,6 @@ msgstr ""
 msgid "Disk Temperatures"
 msgstr ""
 
-msgid "Disk Usage"
-msgstr "Використання диска"
-
 msgid "Disks"
 msgstr "Диски"
 
@@ -1234,6 +1231,9 @@ msgstr "Лютий"
 
 msgid "Fiji"
 msgstr "Фіджі"
+
+msgid "File System Usage"
+msgstr ""
 
 msgid "File Systems"
 msgstr "Файлові системи"
@@ -2828,6 +2828,9 @@ msgstr "Надсилати сповіщення, коли обєм файлов�
 msgid "Send command output via email"
 msgstr "Надіслати команду виведення електронною поштою"
 
+msgid "Send notifications about pending package updates."
+msgstr ""
+
 msgid "Sender email"
 msgstr "Надіслати email"
 
@@ -3701,6 +3704,9 @@ msgstr "Затримка"
 msgid "Update Management"
 msgstr "Керування оновленнями"
 
+msgid "Update management"
+msgstr ""
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Оновіть цільові списки керування доступом, щоб вони були такими ж, як і вихідні списки керування доступом."
 
@@ -3975,9 +3981,6 @@ msgstr "Волліс і Футуна"
 
 msgid "Warning"
 msgstr "Попередження"
-
-msgid "Web control panel"
-msgstr "Web панель керування"
 
 msgid "Wednesday"
 msgstr "Середа"

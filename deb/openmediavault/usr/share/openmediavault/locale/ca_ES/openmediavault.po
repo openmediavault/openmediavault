@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2024\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -950,9 +950,6 @@ msgstr "No permetre que l'usuari modifiqui el seu propi compte."
 msgid "Disk Temperatures"
 msgstr "Temperatures del disc"
 
-msgid "Disk Usage"
-msgstr "Ús del disc "
-
 msgid "Disks"
 msgstr "Discs"
 
@@ -1234,6 +1231,9 @@ msgstr "Febrer"
 
 msgid "Fiji"
 msgstr "Fiji"
+
+msgid "File System Usage"
+msgstr ""
 
 msgid "File Systems"
 msgstr "Sistemes d'arxius"
@@ -2828,6 +2828,9 @@ msgstr "Envieu una notificació quan la capacitat del sistema de fitxers utilitz
 msgid "Send command output via email"
 msgstr "Enviar la sortida de la comanda per email"
 
+msgid "Send notifications about pending package updates."
+msgstr ""
+
 msgid "Sender email"
 msgstr "E-mail enviat"
 
@@ -3701,6 +3704,9 @@ msgstr "Retard de pujada"
 msgid "Update Management"
 msgstr "Gestió d’actualitzacions"
 
+msgid "Update management"
+msgstr ""
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Actualitzeu les ACL de destinació perquè siguin les mateixes que les ACL d'origen. "
 
@@ -3975,9 +3981,6 @@ msgstr "Wallis i Futuna"
 
 msgid "Warning"
 msgstr "Advertència"
-
-msgid "Web control panel"
-msgstr "Panell de control Web"
 
 msgid "Wednesday"
 msgstr "Dimecres"

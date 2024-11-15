@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2023\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -271,13 +271,13 @@ msgid ""
 "Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
 "devices are listed in the scheduled tasks. Monitoring cannot be switched off"
 " as long as there are scheduled tasks for this device."
-msgstr ""
+msgstr "このデバイスのS.M.A.R.T.モニタリングを有効にします。 スケジュールされたタスクには、モニターされたデバイスのみが表示されます。 このデバイスのスケジュールタスクがある限り、監視をオフにすることはできません。"
 
 msgid "Active"
 msgstr "アクティブ"
 
 msgid "Active or Idle"
-msgstr ""
+msgstr "アクティブまたはアイドル"
 
 msgid "Add"
 msgstr "追加"
@@ -943,13 +943,10 @@ msgid "Disallow account modification"
 msgstr "アカウントの変更を禁止する"
 
 msgid "Disallow the user to modify their own account."
-msgstr ""
+msgstr "ユーザーが自分のアカウントを変更することを禁止します。"
 
 msgid "Disk Temperatures"
-msgstr ""
-
-msgid "Disk Usage"
-msgstr "ディスク使用量"
+msgstr "ディスク温度"
 
 msgid "Disks"
 msgstr "ディスク"
@@ -979,7 +976,7 @@ msgid "Displays information about the services in a table."
 msgstr "サービスに関する情報をテーブルで表示します。"
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
-msgstr ""
+msgstr "監視しているすべてのディスクデバイスの S.M.A.R.T. 情報を表示します。"
 
 msgid "Displays the system time."
 msgstr "システム時刻を表示します。"
@@ -988,7 +985,7 @@ msgid "Displays the system uptime."
 msgstr "システムの稼働時間を表示します。"
 
 msgid "Displays the temperature of all disk devices."
-msgstr ""
+msgstr "すべてのディスクデバイスの温度を表示します。"
 
 msgid "Displays various system information."
 msgstr "各種システム情報を表示します。"
@@ -1107,7 +1104,7 @@ msgid "Empty now"
 msgstr "今すぐ空にする"
 
 msgid "Enable NetBIOS"
-msgstr ""
+msgstr "NetBIOSを有効化"
 
 msgid "Enable Time Machine support for this share."
 msgstr "この共有でTime Machineサポートを有効にします。"
@@ -1116,7 +1113,7 @@ msgid "Enable WINS server"
 msgstr "WINSサーバーを有効化"
 
 msgid "Enable automatic snapshot clean up."
-msgstr ""
+msgstr "スナップショットの自動クリーンアップを有効にする。"
 
 msgid "Enable keyboard-interactive authentication."
 msgstr "キーボードインタラクティブ認証を有効化します。"
@@ -1153,7 +1150,7 @@ msgstr "暗号化モード"
 msgid ""
 "Enforce transport encryption for this share. Clients that do not support "
 "encryption will be denied access to the share."
-msgstr ""
+msgstr "この共有のトランスポート暗号化を強制します。 暗号化に対応していないクライアントは、共有へのアクセスを拒否されます。"
 
 msgid "Equatorial Guinea"
 msgstr "赤道ギニア"
@@ -1232,6 +1229,9 @@ msgstr "2月"
 
 msgid "Fiji"
 msgstr "フィジー"
+
+msgid "File System Usage"
+msgstr ""
 
 msgid "File Systems"
 msgstr "ファイルシステム"
@@ -2826,6 +2826,9 @@ msgstr "ファイルシステムの使用容量が指定した閾値を超えた
 msgid "Send command output via email"
 msgstr "電子メールを介してコマンドの出力を送る"
 
+msgid "Send notifications about pending package updates."
+msgstr ""
+
 msgid "Sender email"
 msgstr "送信者のメールアドレス"
 
@@ -3699,6 +3702,9 @@ msgstr "Up delay"
 msgid "Update Management"
 msgstr "アップデート管理"
 
+msgid "Update management"
+msgstr ""
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "元のACLと同じになるように先のACLを更新します。"
 
@@ -3903,7 +3909,7 @@ msgid ""
 msgstr ""
 
 msgid "Utilization"
-msgstr ""
+msgstr "使用率"
 
 msgid "Uzbekistan"
 msgstr "ウズベキスタン"
@@ -3915,7 +3921,7 @@ msgid "VLAN id"
 msgstr "VLAN id"
 
 msgid "Valid from"
-msgstr ""
+msgstr "有効期限"
 
 msgid "Valid to"
 msgstr "有効期限"
@@ -3939,7 +3945,7 @@ msgid "Version"
 msgstr "バージョン"
 
 msgid "Versions"
-msgstr ""
+msgstr "バージョン"
 
 msgid "Vietnam"
 msgstr "ベトナム"
@@ -3954,10 +3960,10 @@ msgid "WOL"
 msgstr "WOL"
 
 msgid "WPA2-Personal"
-msgstr ""
+msgstr "WPA2-Personal"
 
 msgid "WPA3-Personal"
-msgstr ""
+msgstr "WPA3-Personal"
 
 msgid "WWN"
 msgstr "WWN"
@@ -3973,9 +3979,6 @@ msgstr "ウォリス・フツナ"
 
 msgid "Warning"
 msgstr "警告"
-
-msgid "Web control panel"
-msgstr "Web コントロールパネル"
 
 msgid "Wednesday"
 msgstr "水曜"

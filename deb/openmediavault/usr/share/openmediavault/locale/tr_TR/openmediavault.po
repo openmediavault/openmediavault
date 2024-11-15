@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -948,9 +948,6 @@ msgstr ""
 msgid "Disk Temperatures"
 msgstr ""
 
-msgid "Disk Usage"
-msgstr "Disk Kullanımı"
-
 msgid "Disks"
 msgstr "Diskler"
 
@@ -1232,6 +1229,9 @@ msgstr "Şubat"
 
 msgid "Fiji"
 msgstr "Fiji"
+
+msgid "File System Usage"
+msgstr ""
 
 msgid "File Systems"
 msgstr "Dosya sistemleri"
@@ -2826,6 +2826,9 @@ msgstr ""
 msgid "Send command output via email"
 msgstr "Komut çıktısını e-posta ile gönder"
 
+msgid "Send notifications about pending package updates."
+msgstr ""
+
 msgid "Sender email"
 msgstr "Göndericinin e-maili"
 
@@ -3699,6 +3702,9 @@ msgstr "Çalışma gecikmesi"
 msgid "Update Management"
 msgstr "Yönetimi Güncelle"
 
+msgid "Update management"
+msgstr ""
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Hedef ACL lerini kaynak ACL leri ile aynı olacak biçimde güncelleştir."
 
@@ -3973,9 +3979,6 @@ msgstr "Wallis ve Futuna"
 
 msgid "Warning"
 msgstr "Uyarı"
-
-msgid "Web control panel"
-msgstr "Web kontrol paneli"
 
 msgid "Wednesday"
 msgstr "Çarşamba"

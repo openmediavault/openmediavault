@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -949,9 +949,6 @@ msgstr ""
 msgid "Disk Temperatures"
 msgstr ""
 
-msgid "Disk Usage"
-msgstr "استخدام القرص"
-
 msgid "Disks"
 msgstr "الأقراص"
 
@@ -1233,6 +1230,9 @@ msgstr "فبراير"
 
 msgid "Fiji"
 msgstr "فيجي"
+
+msgid "File System Usage"
+msgstr ""
 
 msgid "File Systems"
 msgstr "أنظمة الملفات"
@@ -2827,6 +2827,9 @@ msgstr "إرسال تنبيه عندما تتجاوز سعة نظام الملف
 msgid "Send command output via email"
 msgstr "إرسال مخرجات الأمر عبر البريد الإلكتروني"
 
+msgid "Send notifications about pending package updates."
+msgstr ""
+
 msgid "Sender email"
 msgstr "البريد الإلكتروني للمرسل"
 
@@ -3700,6 +3703,9 @@ msgstr "Up delay"
 msgid "Update Management"
 msgstr "إدارة التحديث"
 
+msgid "Update management"
+msgstr ""
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "قم بتحديث قوائم ACL الوجهة لتكون هي نفس قوائم ACL المصدر."
 
@@ -3974,9 +3980,6 @@ msgstr "واليس وفوتونا"
 
 msgid "Warning"
 msgstr "تحذير"
-
-msgid "Web control panel"
-msgstr "لوحة تحكم الويب"
 
 msgid "Wednesday"
 msgstr "الأربعاء"

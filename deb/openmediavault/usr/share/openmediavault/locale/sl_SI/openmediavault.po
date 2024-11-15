@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -948,9 +948,6 @@ msgstr ""
 msgid "Disk Temperatures"
 msgstr ""
 
-msgid "Disk Usage"
-msgstr ""
-
 msgid "Disks"
 msgstr ""
 
@@ -1232,6 +1229,9 @@ msgstr "Februar"
 
 msgid "Fiji"
 msgstr "Fidži"
+
+msgid "File System Usage"
+msgstr ""
 
 msgid "File Systems"
 msgstr "Datotečni sistemi"
@@ -2826,6 +2826,9 @@ msgstr ""
 msgid "Send command output via email"
 msgstr "Pošlji rezultat ukaza preko elektronske pošte"
 
+msgid "Send notifications about pending package updates."
+msgstr ""
+
 msgid "Sender email"
 msgstr "Pošiljatelj elektronskega sporočila"
 
@@ -3699,6 +3702,9 @@ msgstr ""
 msgid "Update Management"
 msgstr "Upravljanje posodobitev"
 
+msgid "Update management"
+msgstr ""
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Posodobi ACL-je na cilju na enake kot so ACL-ji na izvorni strani."
 
@@ -3973,9 +3979,6 @@ msgstr "Wallis in Futuna"
 
 msgid "Warning"
 msgstr "Opozorilo"
-
-msgid "Web control panel"
-msgstr "Spletna nadzorna plošča"
 
 msgid "Wednesday"
 msgstr "Sreda"

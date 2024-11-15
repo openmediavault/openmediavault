@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2024\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -951,9 +951,6 @@ msgstr "Tillåt inte användaren att ändra sitt eget konto."
 msgid "Disk Temperatures"
 msgstr "Disktemperaturer"
 
-msgid "Disk Usage"
-msgstr "Diskanvändning"
-
 msgid "Disks"
 msgstr "Diskar"
 
@@ -1235,6 +1232,9 @@ msgstr "Februari"
 
 msgid "Fiji"
 msgstr "Fiji"
+
+msgid "File System Usage"
+msgstr ""
 
 msgid "File Systems"
 msgstr "Filsystem"
@@ -2829,6 +2829,9 @@ msgstr "Skicka en avisering när den använda filsystemkapaciteten överskrider 
 msgid "Send command output via email"
 msgstr "Skicka kommandoutmatning via e-post"
 
+msgid "Send notifications about pending package updates."
+msgstr ""
+
 msgid "Sender email"
 msgstr "Avsändarens e-post"
 
@@ -3702,6 +3705,9 @@ msgstr "Fördröjningstiden för på"
 msgid "Update Management"
 msgstr "Uppdateringshantering"
 
+msgid "Update management"
+msgstr ""
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Uppdatera destinationens åtkomstkontrollistor så att de är desamma som källans åtkomstkontrollistor."
 
@@ -3976,9 +3982,6 @@ msgstr "Wallis och Futunaöarna"
 
 msgid "Warning"
 msgstr "Varning"
-
-msgid "Web control panel"
-msgstr "Webbkontrollpanel"
 
 msgid "Wednesday"
 msgstr "Onsdag"

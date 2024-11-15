@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2013-2024\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2024\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -950,9 +950,6 @@ msgstr "不允許用戶修改他們自己的帳戶。"
 msgid "Disk Temperatures"
 msgstr "磁碟溫度"
 
-msgid "Disk Usage"
-msgstr "磁碟使用量"
-
 msgid "Disks"
 msgstr "磁碟"
 
@@ -1234,6 +1231,9 @@ msgstr "二月"
 
 msgid "Fiji"
 msgstr "斐濟"
+
+msgid "File System Usage"
+msgstr "檔案系統用量"
 
 msgid "File Systems"
 msgstr "檔案系統"
@@ -2828,6 +2828,9 @@ msgstr "當所使用檔案系統容量超過指定的定限值時，發出通知
 msgid "Send command output via email"
 msgstr "經由電子郵件發送指令執行結果輸出"
 
+msgid "Send notifications about pending package updates."
+msgstr "傳送關於擱置中軟體包更新的通知。"
+
 msgid "Sender email"
 msgstr "寄件者電子郵件"
 
@@ -3701,6 +3704,9 @@ msgstr "啟用延遲"
 msgid "Update Management"
 msgstr "更新管理"
 
+msgid "Update management"
+msgstr "更新管理"
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "更新目的地的 ACLs 成為與來源的 ACLs 相同。"
 
@@ -3975,9 +3981,6 @@ msgstr "瓦利斯與富圖納群島"
 
 msgid "Warning"
 msgstr "警告"
-
-msgid "Web control panel"
-msgstr "網站控制台"
 
 msgid "Wednesday"
 msgstr "星期三"

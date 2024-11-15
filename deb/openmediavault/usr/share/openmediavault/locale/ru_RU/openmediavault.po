@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -962,9 +962,6 @@ msgstr ""
 msgid "Disk Temperatures"
 msgstr ""
 
-msgid "Disk Usage"
-msgstr "Использование диска"
-
 msgid "Disks"
 msgstr "Диски"
 
@@ -1246,6 +1243,9 @@ msgstr "Февраль"
 
 msgid "Fiji"
 msgstr "Фиджи"
+
+msgid "File System Usage"
+msgstr ""
 
 msgid "File Systems"
 msgstr "Файловые системы"
@@ -2840,6 +2840,9 @@ msgstr "Отправлять уведомления, когда объем ис�
 msgid "Send command output via email"
 msgstr "Отправить вывод команды по электронной почте"
 
+msgid "Send notifications about pending package updates."
+msgstr ""
+
 msgid "Sender email"
 msgstr "Отправитель email"
 
@@ -3713,6 +3716,9 @@ msgstr "Задержка"
 msgid "Update Management"
 msgstr "Управление Обновлениями"
 
+msgid "Update management"
+msgstr ""
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Обновлять ACL назначения, чтобы были такими же, как источник ACL."
 
@@ -3987,9 +3993,6 @@ msgstr "Уоллис и Футуна"
 
 msgid "Warning"
 msgstr "Предупреждение"
-
-msgid "Web control panel"
-msgstr "Веб панель управления"
 
 msgid "Wednesday"
 msgstr "Среда"

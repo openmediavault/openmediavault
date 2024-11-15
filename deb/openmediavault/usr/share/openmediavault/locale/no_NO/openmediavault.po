@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
 "Language-Team: Norwegian (http://app.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -949,9 +949,6 @@ msgstr ""
 msgid "Disk Temperatures"
 msgstr ""
 
-msgid "Disk Usage"
-msgstr ""
-
 msgid "Disks"
 msgstr ""
 
@@ -1233,6 +1230,9 @@ msgstr "Februar"
 
 msgid "Fiji"
 msgstr "Fiji"
+
+msgid "File System Usage"
+msgstr ""
 
 msgid "File Systems"
 msgstr ""
@@ -2827,6 +2827,9 @@ msgstr ""
 msgid "Send command output via email"
 msgstr "Send kommandoens utput via epost"
 
+msgid "Send notifications about pending package updates."
+msgstr ""
+
 msgid "Sender email"
 msgstr "Sender epost"
 
@@ -3700,6 +3703,9 @@ msgstr "Tid til gjenopprettelse"
 msgid "Update Management"
 msgstr ""
 
+msgid "Update management"
+msgstr ""
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Oppdater målets ACL til de samme som kildens ACL."
 
@@ -3974,9 +3980,6 @@ msgstr "Wallis- og Futunaøyene"
 
 msgid "Warning"
 msgstr "Advarsel"
-
-msgid "Web control panel"
-msgstr ""
 
 msgid "Wednesday"
 msgstr "Onsdag"

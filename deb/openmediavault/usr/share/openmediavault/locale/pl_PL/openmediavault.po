@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2018,2022-2023\n"
 "Language-Team: Polish (Poland) (http://app.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -953,9 +953,6 @@ msgstr ""
 msgid "Disk Temperatures"
 msgstr ""
 
-msgid "Disk Usage"
-msgstr "Użycie dysku"
-
 msgid "Disks"
 msgstr "Dyski"
 
@@ -1237,6 +1234,9 @@ msgstr "Luty"
 
 msgid "Fiji"
 msgstr "Fiji"
+
+msgid "File System Usage"
+msgstr ""
 
 msgid "File Systems"
 msgstr "Systemy plików"
@@ -2831,6 +2831,9 @@ msgstr "Wyślij powiadomienie jeśli pojemność używanego systemu plików prze
 msgid "Send command output via email"
 msgstr "Wyślij wynik polecenia przez e-mail"
 
+msgid "Send notifications about pending package updates."
+msgstr ""
+
 msgid "Sender email"
 msgstr "E-mail nadawcy"
 
@@ -3704,6 +3707,9 @@ msgstr "Górne opóźnienie"
 msgid "Update Management"
 msgstr "Aktualizacje"
 
+msgid "Update management"
+msgstr ""
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Aktualizuje przeznaczenia ACL aby były takie same jak źródła listy ACL"
 
@@ -3978,9 +3984,6 @@ msgstr "Wallis and Futuna"
 
 msgid "Warning"
 msgstr "Ostrzeżenie"
-
-msgid "Web control panel"
-msgstr "Panel sterowania"
 
 msgid "Wednesday"
 msgstr "Środa"

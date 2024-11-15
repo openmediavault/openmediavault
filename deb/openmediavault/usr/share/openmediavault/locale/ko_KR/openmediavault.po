@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -951,9 +951,6 @@ msgstr ""
 msgid "Disk Temperatures"
 msgstr ""
 
-msgid "Disk Usage"
-msgstr ""
-
 msgid "Disks"
 msgstr "디스크"
 
@@ -1235,6 +1232,9 @@ msgstr "2월"
 
 msgid "Fiji"
 msgstr "피지"
+
+msgid "File System Usage"
+msgstr ""
 
 msgid "File Systems"
 msgstr "파일 시스템"
@@ -2829,6 +2829,9 @@ msgstr ""
 msgid "Send command output via email"
 msgstr "전자우편으로 명령 결과 전송"
 
+msgid "Send notifications about pending package updates."
+msgstr ""
+
 msgid "Sender email"
 msgstr "송신자 전자우편 주소"
 
@@ -3702,6 +3705,9 @@ msgstr "활성화 지연"
 msgid "Update Management"
 msgstr "업데이트 관리"
 
+msgid "Update management"
+msgstr ""
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "대상 ACL을 원본 ACL과 같게 업데이트"
 
@@ -3976,9 +3982,6 @@ msgstr "월리스푸투나제도"
 
 msgid "Warning"
 msgstr "경고"
-
-msgid "Web control panel"
-msgstr "웹 제어 패널"
 
 msgid "Wednesday"
 msgstr "수요일"

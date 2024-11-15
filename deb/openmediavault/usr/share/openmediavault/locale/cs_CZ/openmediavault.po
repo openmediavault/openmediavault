@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-07 20:46+0200\n"
+"POT-Creation-Date: 2024-11-11 20:01+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Marek Pavelka, 2024\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -950,9 +950,6 @@ msgstr "Neumožnit uživateli upravovat vlastní účet."
 msgid "Disk Temperatures"
 msgstr "Teploty disků"
 
-msgid "Disk Usage"
-msgstr "Využití disku"
-
 msgid "Disks"
 msgstr "Disky"
 
@@ -1234,6 +1231,9 @@ msgstr "únor"
 
 msgid "Fiji"
 msgstr "Fidži"
+
+msgid "File System Usage"
+msgstr ""
 
 msgid "File Systems"
 msgstr "Souborové systémy"
@@ -2828,6 +2828,9 @@ msgstr "Odeslat oznámení, když využitá kapacita souborového systému přek
 msgid "Send command output via email"
 msgstr "Odeslat výstup příkazu prostřednictvím e-mailu"
 
+msgid "Send notifications about pending package updates."
+msgstr ""
+
 msgid "Sender email"
 msgstr "E-mail odesílatele"
 
@@ -3701,6 +3704,9 @@ msgstr "Zpoždění zapnutí"
 msgid "Update Management"
 msgstr "Správa aktualizací"
 
+msgid "Update management"
+msgstr ""
+
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Aktualizovat cílové seznamy ACL tak, aby byly stejné jako zdrojové seznamy ACL."
 
@@ -3975,9 +3981,6 @@ msgstr "Wallis a Futuna"
 
 msgid "Warning"
 msgstr "Varování"
-
-msgid "Web control panel"
-msgstr "Webový ovládací panel"
 
 msgid "Wednesday"
 msgstr "středa"
