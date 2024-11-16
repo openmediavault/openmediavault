@@ -559,6 +559,9 @@ case "$1" in
 			omv_module_set_dirty apticron
 			omv_module_set_dirty monit
 		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.13"; then
+			omv_module_set_dirty apticron
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the

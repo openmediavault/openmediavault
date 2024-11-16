@@ -1,3 +1,9 @@
+openmediavault (7.4.13-1) stable; urgency=low
+
+  * Fix apticron cron script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 16 Nov 2024 10:13:25 +0100
+
 openmediavault (7.4.12-3) stable; urgency=low
 
   * Update locale files.

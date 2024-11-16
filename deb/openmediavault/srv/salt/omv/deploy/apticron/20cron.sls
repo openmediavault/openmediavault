@@ -35,6 +35,7 @@ create_apticron_cron_daily:
   file.managed:
     - name: "/etc/cron.daily/openmediavault-apticron"
     - contents: |
+        #!/usr/bin/env dash
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
         if test -x /usr/sbin/apticron; then /usr/sbin/apticron --cron; fi
