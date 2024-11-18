@@ -19,18 +19,18 @@
     "noImplicitThis": true,
     "noImplicitReturns": true,
     "noImplicitAny": false,
-    "module": "es2020",
+    "module": "es2022",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "ES2022",
+    "target": "es2022",
     "esModuleInterop": true,
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "es2020",
+      "es2022",
       "dom",
       "dom.iterable"
     ],
