@@ -177,7 +177,10 @@ export class FirewallRuleInet6DatatablePageComponent extends BaseDatatablePageCo
     ]
   };
 
-  constructor(private rpcService: RpcService, private notificationService: NotificationService) {
+  constructor(
+    private rpcService: RpcService,
+    private notificationService: NotificationService
+  ) {
     super();
   }
 

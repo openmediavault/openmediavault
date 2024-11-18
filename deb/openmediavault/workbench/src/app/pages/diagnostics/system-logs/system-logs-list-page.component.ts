@@ -73,7 +73,10 @@ export class SystemLogsListPageComponent implements OnInit {
 
   private logId: string;
 
-  constructor(private rpcService: RpcService, private logConfigService: LogConfigService) {}
+  constructor(
+    private rpcService: RpcService,
+    private logConfigService: LogConfigService
+  ) {}
 
   ngOnInit(): void {
     this.logConfigService.configs$.subscribe((logConfigs: Array<LogConfig>) => {

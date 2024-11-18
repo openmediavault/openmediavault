@@ -199,7 +199,10 @@ export class DiskDatatablePageComponent {
     ]
   };
 
-  constructor(private dialogService: DialogService, private router: Router) {}
+  constructor(
+    private dialogService: DialogService,
+    private router: Router
+  ) {}
 
   onEdit(action: DatatablePageActionConfig, table: Datatable) {
     const selected = table.selection.first();

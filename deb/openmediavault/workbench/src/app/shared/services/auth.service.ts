@@ -33,7 +33,10 @@ export type SessionData = {
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private authSessionService: AuthSessionService, private rpcService: RpcService) {}
+  constructor(
+    private authSessionService: AuthSessionService,
+    private rpcService: RpcService
+  ) {}
 
   login(username: string, password: string): Observable<SessionData> {
     return this.rpcService

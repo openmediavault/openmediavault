@@ -26,7 +26,10 @@ import { NotificationService } from '~/app/shared/services/notification.service'
   providedIn: 'root'
 })
 export class ClipboardService {
-  constructor(private notificationService: NotificationService, private clipboard: Clipboard) {}
+  constructor(
+    private notificationService: NotificationService,
+    private clipboard: Clipboard
+  ) {}
 
   /**
    * Copy the given text to the clipboard.

@@ -35,7 +35,10 @@ export type RunningTasks = {
   providedIn: 'root'
 })
 export class TaskRunnerService {
-  constructor(private blockUiService: BlockUiService, private rpcService: RpcService) {}
+  constructor(
+    private blockUiService: BlockUiService,
+    private rpcService: RpcService
+  ) {}
 
   /**
    * Run a task and block the UI in the meanwhile.

@@ -45,7 +45,8 @@
           }
         ],
         "arrow-parens": ["off", "always"],
-        "import/order": "error"
+        "import/order": "error",
+        "jsdoc/newline-after-description": "off"
       }
     },
     {

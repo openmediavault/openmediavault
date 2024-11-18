@@ -21,7 +21,10 @@ export class BinaryUnitDirective implements OnInit {
 
   private el: HTMLInputElement;
 
-  constructor(private elementRef: ElementRef, private ngControl: NgControl) {
+  constructor(
+    private elementRef: ElementRef,
+    private ngControl: NgControl
+  ) {
     this.el = this.elementRef.nativeElement;
   }
 

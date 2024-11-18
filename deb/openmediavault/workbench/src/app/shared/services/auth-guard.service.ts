@@ -30,7 +30,10 @@ import { AuthService } from '~/app/shared/services/auth.service';
   providedIn: 'root'
 })
 export class AuthGuardService implements CanActivate, CanActivateChild {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.authService.isLoggedIn()) {

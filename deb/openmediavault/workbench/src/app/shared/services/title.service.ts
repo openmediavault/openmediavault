@@ -18,7 +18,10 @@ export class TitleService {
   @Unsubscribe()
   private subscriptions = new Subscription();
 
-  constructor(private systemInformationService: SystemInformationService, private title: Title) {
+  constructor(
+    private systemInformationService: SystemInformationService,
+    private title: Title
+  ) {
     this.subscriptions.add(
       this.systemInformationService.systemInfo$
         .pipe(

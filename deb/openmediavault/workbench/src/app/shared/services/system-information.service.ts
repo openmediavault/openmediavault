@@ -52,7 +52,10 @@ export class SystemInformationService implements OnDestroy {
   private subscription: Subscription;
   private systemInfoSource = new ReplaySubject<SystemInformation>(1);
 
-  constructor(private authService: AuthService, private rpcService: RpcService) {
+  constructor(
+    private authService: AuthService,
+    private rpcService: RpcService
+  ) {
     this.systemInfo$ = this.systemInfoSource.asObservable();
     // Poll the system system-information every 5 seconds. Continue, even
     // if there is a connection problem AND do not display an error

@@ -36,7 +36,10 @@ export class DashboardWidgetGridComponent implements OnInit {
 
   public data: DataStoreResponse;
 
-  constructor(private dataStoreService: DataStoreService, private router: Router) {}
+  constructor(
+    private dataStoreService: DataStoreService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.sanitizeConfig();
