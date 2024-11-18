@@ -101,5 +101,6 @@ export enum Icon {
   close = 'mdi:window-close',
   restore = 'mdi:restore',
   link = 'mdi:link-variant',
-  download = 'mdi:download'
+  download = 'mdi:download',
+  docs = 'mdi:file-document'
 }
