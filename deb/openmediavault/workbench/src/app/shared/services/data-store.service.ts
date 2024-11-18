@@ -37,7 +37,10 @@ export type DataStoreResponse = {
   providedIn: 'root'
 })
 export class DataStoreService {
-  constructor(private http: HttpClient, private rpcService: RpcService) {}
+  constructor(
+    private http: HttpClient,
+    private rpcService: RpcService
+  ) {}
 
   /**
    * Load the data. If a proxy is defined, then the RPC is called and the

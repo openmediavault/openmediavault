@@ -70,7 +70,10 @@ export class NavigationConfigService {
 
   private configsSource = new BehaviorSubject<NavigationMenuItem[]>([]);
 
-  constructor(private authSessionService: AuthSessionService, private http: HttpClient) {
+  constructor(
+    private authSessionService: AuthSessionService,
+    private http: HttpClient
+  ) {
     this.configs$ = this.configsSource.asObservable().pipe(
       map((configs: NavigationMenuItem[]) => {
         const permissions: Permissions = this.authSessionService.getPermissions();

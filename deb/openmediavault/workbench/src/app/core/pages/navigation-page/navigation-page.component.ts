@@ -33,7 +33,10 @@ import { Icon } from '~/app/shared/enum/icon.enum';
 export class NavigationPageComponent implements OnInit {
   public menuItems: NavigationMenuItem[] = [];
 
-  constructor(private router: Router, private navigationConfig: NavigationConfigService) {}
+  constructor(
+    private router: Router,
+    private navigationConfig: NavigationConfigService
+  ) {}
 
   ngOnInit(): void {
     this.navigationConfig

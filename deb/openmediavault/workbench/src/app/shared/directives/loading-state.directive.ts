@@ -9,7 +9,10 @@ import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
   selector: 'img[loadingState]'
 })
 export class LoadingStateDirective {
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
+  constructor(
+    private elementRef: ElementRef,
+    private renderer: Renderer2
+  ) {}
 
   @HostListener('loadstart') onLoadStart() {
     this.renderer.addClass(this.elementRef.nativeElement, 'loading');

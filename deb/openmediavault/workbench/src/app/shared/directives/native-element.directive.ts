@@ -24,7 +24,10 @@ import * as _ from 'lodash';
   selector: '[formControlName]'
 })
 export class NativeElementDirective implements OnInit {
-  constructor(private elementRef: ElementRef, private control: NgControl) {}
+  constructor(
+    private elementRef: ElementRef,
+    private control: NgControl
+  ) {}
 
   ngOnInit(): void {
     if (this.control.control) {
