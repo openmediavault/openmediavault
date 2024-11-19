@@ -90,6 +90,8 @@ define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_UDF", "ro");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_BIND", "nofail");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_F2FS", "defaults,nofail,user_xattr,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv1"); // https://www.kernel.org/doc/Documentation/filesystems/f2fs.txt
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_REISERFS", "defaults,nofail,user_xattr,acl");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_REISER4", "defaults,nofail,txmod=journal");
 \OMV\Environment::set("OMV_APT_PLUGINS_INDEX_FILE", "/var/lib/openmediavault/apt/pluginsindex.json");
 \OMV\Environment::set("OMV_APT_UPGRADE_INDEX_FILE", "/var/lib/openmediavault/apt/upgradeindex.json");
 \OMV\Environment::set("OMV_DUNE_QUOTES", [ // http://www.nightsolo.net/dune/god.html
