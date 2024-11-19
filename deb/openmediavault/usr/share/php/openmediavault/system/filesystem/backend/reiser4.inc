@@ -23,13 +23,15 @@ namespace OMV\System\Filesystem\Backend;
 
 /**
  * References:
- * - https://en.wikipedia.org/wiki/ReiserFS
+ * - https://en.wikipedia.org/wiki/Reiser4
+ * - https://archive.kernel.org/oldwiki/reiser4.wiki.kernel.org/
+ * - https://wiki.archlinux.org/title/Reiser4/
  */
-class Reiserfs extends BackendAbstract {
+class Reiser4 extends BackendAbstract {
 	public function __construct() {
-		$this->type = "reiserfs";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+		$this->type = "reiser4";
+		$this->properties = self::PROP_MNTENT;
 		$this->mntOptions = explode(",", \OMV\Environment::get(
-			"OMV_FSTAB_MNTOPS_REISERFS"));
+			"OMV_FSTAB_MNTOPS_REISER4"));
 	}
 }
