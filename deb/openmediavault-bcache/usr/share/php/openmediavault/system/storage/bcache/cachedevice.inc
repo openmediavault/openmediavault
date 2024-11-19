@@ -25,7 +25,6 @@ namespace OMV\System\Storage\Bcache;
  * Class to handle a bcache cache device.
  */
 class CacheDevice extends BcacheDevice {
-
 	/**
 	 * Creates a backing device.
 	 * @return void
@@ -38,9 +37,8 @@ class CacheDevice extends BcacheDevice {
 		$cmd = new \OMV\System\Process("make-bcache", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
-		while(!$this->isRegistered()) {
-			sleep(1);
-		}
+		// Wait some time to get the device registered.
+		waitUntil(10, [$this, "isRegistered"]);
 	}
 
 	/**
@@ -49,9 +47,7 @@ class CacheDevice extends BcacheDevice {
 	 * @throw \OMV\ExecException
 	 */
 	public function getState() {
-		if ($this->isRegistered())
-			return 1;
-		return 2;
+		return $this->isRegistered() ? 1 : 2;
 	}
 
 	/**
@@ -61,10 +57,9 @@ class CacheDevice extends BcacheDevice {
 	 * @throw \OMV\ExecException
 	 */
 	public function stop() {
-		while ($this->isRegistered()) {
-			$this->setValue("stop", 1);
-			sleep(1);
-		}
+		$this->setValue("stop", 1);
+		// Wait some time to get the device unregistered.
+		waitUntil(10, function() { return !$this->isRegistered(); });
 	}
 
 	/**
@@ -85,8 +80,9 @@ class CacheDevice extends BcacheDevice {
 		$cmd->setRedirect2to1();
 		$cmd->execute($output, $exitStatus);
 		$result = [];
-		if ($exitStatus !== 0)
+		if ($exitStatus !== 0) {
 			return $result;
+		}
 		foreach($output as $outputk => $outputv) {
 			$result[] = sprintf("/dev/%s", trim($outputv));
 		}
@@ -102,15 +98,18 @@ class CacheDevice extends BcacheDevice {
 		// /sys/fs/bcache/<cset-uuid>/bdev*
 		$path = sprintf("/sys/fs/bcache/%s", $this->getCsetUuid());
 		foreach (new \DirectoryIterator($path) as $file) {
-			if ($file->isDot() || !$file->isLink())
+			if ($file->isDot() || !$file->isLink()) {
 				continue;
-			if (1 !== preg_match("/^bdev[0-9]+$/", $file->getFilename()))
+			}
+			if (1 !== preg_match("/^bdev[0-9]+$/", $file->getFilename())) {
 				continue;
+			}
 			// .... /target8:0:0/8:0:0:0/block/sdg/bcache
 			$linkTarget = $file->getLinkTarget();
 			$arr = explode(DIRECTORY_SEPARATOR, $linkTarget);
-			if ($arr[count($arr) - 2] !== $deviceName)
+			if ($arr[count($arr) - 2] !== $deviceName) {
 				continue;
+			}
 			return substr($file->getFilename(), 4);
 		}
 		return "";
@@ -128,9 +127,7 @@ class CacheDevice extends BcacheDevice {
 		$cmd = new \OMV\System\Process("cat", $filename);
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output);
-		if ($firstValue)
-			return $output[0];
-		return $output;
+		return $firstValue ? $output[0] : $output;
 	}
 
 	/**
@@ -192,8 +189,9 @@ class CacheDevice extends BcacheDevice {
 		$attributes = [];
 		foreach ($output as $outputk => $outputv) {
 			$keyValue = preg_split('/:/', $outputv);
-			if (count($keyValue) != 2)
+			if (count($keyValue) != 2) {
 				continue;
+			}
 			$key = mb_strtolower(trim($keyValue[0]));
 			$value = trim($keyValue[1]);
 			$attributes[$key] = $value;
@@ -210,8 +208,9 @@ class CacheDevice extends BcacheDevice {
 		$objects = BcacheDevice::enumerateBcache();
 		$result = [];
 		foreach ($objects as $objectk => $objectv) {
-			if ($objectv['bcachetype'] !== 'cache')
+			if ($objectv['bcachetype'] !== 'cache') {
 				continue;
+			}
 			$result[] = $objectv;
 		}
 		return $result;

@@ -25,7 +25,6 @@ namespace OMV\System\Storage\Bcache;
  * This class provides a simple interface to handle a Bcache devices.
  */
 class BcacheDevice extends \OMV\System\Storage\StorageDevice {
-
 	private $csetUuid = "";
 	private $superBlock = [];
 	private $dataCached = FALSE;
@@ -37,8 +36,9 @@ class BcacheDevice extends \OMV\System\Storage\StorageDevice {
 	 * @throw \OMV\ExecException
 	 */
 	private function getData() {
-		if ($this->dataCached !== FALSE)
+		if ($this->dataCached !== FALSE) {
 			return;
+		}
 
 		$cmdArgs = [];
 		$cmdArgs[] = "-f";
@@ -50,8 +50,9 @@ class BcacheDevice extends \OMV\System\Storage\StorageDevice {
 		$attributes = [];
 		foreach ($output as $outputk => $outputv) {
 			$keyValue = preg_split('/\s+/', $outputv);
-			if (count($keyValue) != 2)
+			if (count($keyValue) != 2) {
 				continue;
+			}
 			$key = mb_strtolower(trim($keyValue[0]));
 			$value = trim($keyValue[1]);
 			$attributes[$key] = $value;
@@ -107,8 +108,9 @@ class BcacheDevice extends \OMV\System\Storage\StorageDevice {
 		$result = [];
 		foreach ($objects as $objectk => $objectv) {
 			// Skip none bcache filesystem
-			if ($objectv['type'] !== 'bcache')
+			if ($objectv['type'] !== 'bcache') {
 				continue;
+			}
 			$devicefile = $objectv['devicefile'];
 			// Prepare result object.
 			$cmdLine = sprintf("bcache-super-show -f %s ".
@@ -117,9 +119,9 @@ class BcacheDevice extends \OMV\System\Storage\StorageDevice {
 			$cmd->setRedirect2to1();
 			$output = [];
 			$cmd->execute($output, $exitStatus);
-			if (0 !== $exitStatus)
+			if (0 !== $exitStatus) {
 				continue;
-
+			}
 			$sd = \OMV\System\Storage\StorageDevice::assertGetStorageDevice(
 				$devicefile);
 			$result[] = [

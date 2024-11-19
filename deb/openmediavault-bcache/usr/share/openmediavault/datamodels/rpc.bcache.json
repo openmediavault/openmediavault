@@ -11,7 +11,7 @@
 			}
 		}
 	}
-}, {
+},{
 	"type": "rpc",
 	"id": "rpc.bcache.setCacheConfiguration",
 	"params": {
@@ -39,7 +39,7 @@
 			}
 		}
 	}
-}, {
+},{
 	"type": "rpc",
 	"id": "rpc.bcache.setBacking",
 	"params": {
@@ -63,7 +63,7 @@
 			}
 		}
 	}
-}, {
+},{
 	"type": "rpc",
 	"id": "rpc.bcache.setBackingConfiguration",
 	"params": {

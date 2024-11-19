@@ -22,18 +22,15 @@
 namespace Engined\Module;
 
 class Bcache extends \OMV\Engine\Module\ServiceAbstract
-	implements \OMV\Engine\Notify\IListener
-{
+	implements \OMV\Engine\Notify\IListener {
 	/**
 	 * Get the module service name.
 	 */
-	public function getName()
-	{
+	public function getName() {
 		return "bcache";
 	}
 
-	public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
-	{
+	public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 			"org.openmediavault.conf.service.bcache.cache",

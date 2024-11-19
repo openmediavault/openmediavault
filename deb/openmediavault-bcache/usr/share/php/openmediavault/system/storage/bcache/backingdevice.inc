@@ -21,11 +21,12 @@
  */
 namespace OMV\System\Storage\Bcache;
 
+require_once("openmediavault/functions.inc");
+
 /**
  * Class to handle a bcache backing device.
  */
 class BackingDevice extends BcacheDevice {
-
 	/**
 	 * Creates a backing device.
 	 * @return void
@@ -38,9 +39,8 @@ class BackingDevice extends BcacheDevice {
 		$cmd = new \OMV\System\Process("make-bcache", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
-		while(!$this->isRegistered()) {
-			sleep(1);
-		}
+		// Wait some time to get the device registered.
+		waitUntil(10, [$this, "isRegistered"]);
 	}
 
 	/**
@@ -59,8 +59,9 @@ class BackingDevice extends BcacheDevice {
 	 */
 	public function getBcacheDeviceFile() {
 		$path = "/sys/block/{$this->getDeviceName(TRUE)}/bcache/dev";
-		if (!file_exists($path))
+		if (!file_exists($path)) {
 			return "";
+		}
 		$file = new \SplFileInfo($path);
 		// link target: ../../../../../../../../../../../virtual/block/bcache0
 		$linkTarget = $file->getLinkTarget();
@@ -76,8 +77,9 @@ class BackingDevice extends BcacheDevice {
 	public function getCacheDeviceFile() {
 		$path = sprintf("/sys/block/%s/bcache/cache/cache0",
 			$this->getDeviceName(TRUE));
-		if (!file_exists($path))
+		if (!file_exists($path)) {
 			return "";
+		}
 		$file = new \SplFileInfo($path);
 		// link target: ../../../devices/virtual/block/<device name>/bcache
 		$linkTarget = $file->getLinkTarget();
@@ -123,10 +125,9 @@ class BackingDevice extends BcacheDevice {
 	 * @throw \OMV\ExecException
 	 */
 	public function stop() {
-		while ($this->isRegistered()) {
-			$this->setValue("stop", 1);
-			sleep(1);
-		}
+		$this->setValue("stop", 1);
+		// Wait some time to get the device unregistered.
+		waitUntil(10, function() { return !$this->isRegistered(); });
 	}
 
 	/**
@@ -141,9 +142,7 @@ class BackingDevice extends BcacheDevice {
 		$cmd = new \OMV\System\Process("cat", $filename);
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output);
-		if ($firstValue)
-			return $output[0];
-		return $output;
+		return $firstValue ? $output[0] : $output;
 	}
 
 	/**
@@ -246,8 +245,9 @@ class BackingDevice extends BcacheDevice {
 		$objects = BcacheDevice::enumerateBcache();
 		$result = [];
 		foreach ($objects as $objectk => $objectv) {
-			if ($objectv['bcachetype'] !== 'backing')
+			if ($objectv['bcachetype'] !== 'backing') {
 				continue;
+			}
 			$result[] = $objectv;
 		}
 		return $result;
