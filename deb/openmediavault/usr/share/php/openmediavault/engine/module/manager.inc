@@ -117,7 +117,8 @@ class Manager {
 		$modules = array_unique($jsonFile->read());
 		$jsonFile->close();
 		natsort($modules);
-		return $modules;
+		// Re-index array.
+		return array_values($modules);
 	}
 
 	/**
@@ -154,7 +155,7 @@ class Manager {
 			$modules = $jsonFile->read();
 		// Append the specified dirty module.
 		$modules[] = mb_strtolower($name);
-		$modules = array_unique($modules);
+		$modules = array_values(array_unique($modules));
 		$jsonFile->write($modules);
 		$jsonFile->close();
 		return $modules;

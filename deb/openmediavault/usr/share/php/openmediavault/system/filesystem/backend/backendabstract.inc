@@ -284,8 +284,8 @@ abstract class BackendAbstract {
 				array_push($options, "nofail");
 			}
 		}
-		// Remove duplicate entries.
-		return array_unique($options);
+		// Remove duplicates and re-index the array.
+		return array_values(array_unique($options));
 	}
 
 	/**

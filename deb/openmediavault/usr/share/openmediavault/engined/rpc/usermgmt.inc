@@ -491,7 +491,8 @@ finish:
 			$pubKey = new \OMV\Ssh\PublicKey($sshPubKeyv);
 			$sshPubKeyv = $pubKey->toRfc4716();
 		}
-		$params['sshpubkeys'] = array_unique($params['sshpubkeys']);
+		$params['sshpubkeys'] = array_values(array_unique(
+			$params['sshpubkeys']));
 		// Try to get existing configuration object.
 		$filter = [
 			"operator" => "stringEquals",
