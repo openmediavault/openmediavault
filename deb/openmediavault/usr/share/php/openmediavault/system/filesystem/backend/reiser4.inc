@@ -34,4 +34,18 @@ class Reiser4 extends BackendAbstract {
 		$this->mntOptions = explode(",", \OMV\Environment::get(
 			"OMV_FSTAB_MNTOPS_REISER4"));
 	}
+
+	/**
+	 * See parent class definition.
+	 */
+	public function getFstabMntOptions(
+			\OMV\System\Storage\StorageDevice $sd = null) {
+		$options = parent::getFstabMntOptions($sd);
+		if (!is_null($sd)) {
+			if (FALSE === $sd->isRotational()) {
+				$options[] = "txmod=wa";
+			}
+		}
+		return $options;
+	}
 }
