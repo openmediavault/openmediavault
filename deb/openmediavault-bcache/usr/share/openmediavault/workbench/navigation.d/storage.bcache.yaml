@@ -2,7 +2,7 @@ version: "1.0"
 type: navigation-item
 data:
   path: "storage.bcache"
-  position: 40
+  position: 15
   text: _("Bcache")
   icon: "mdi:database-clock"
   url: "/storage/bcache"
