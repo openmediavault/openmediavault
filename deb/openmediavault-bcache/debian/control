@@ -11,5 +11,5 @@ Package: openmediavault-bcache
 Architecture: all
 Depends: openmediavault (>= 7.4.14), bcache-tools
 Priority: optional
-Description: bcache plugin for openmediavault.
+Description: openmediavault Bcache plugin
  Makes it possible to use an SSD as a read/write cache for another block device.

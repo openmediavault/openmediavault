@@ -22,7 +22,7 @@
 namespace Engined\Module;
 
 class Bcache extends \OMV\Engine\Module\ServiceAbstract
-	implements \OMV\Engine\Notify\IListener {
+		implements \OMV\Engine\Notify\IListener {
 	/**
 	 * Get the module service name.
 	 */
