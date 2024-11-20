@@ -1,0 +1,104 @@
+[{
+	"type": "rpc",
+	"id": "rpc.bcache.createCache",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.bcache.setCacheConfiguration",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"congesttracking": {
+				"type": "boolean",
+				"required": true
+			},
+			"congestedreadthreshold": {
+				"type": "integer"
+			},
+			"congestedwritethreshold": {
+				"type": "integer"
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.bcache.setBacking",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"cachedevicefile": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "devicefile"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"default": ""
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.bcache.setBackingConfiguration",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"cachemode": {
+				"type": "string",
+				"required": true
+			},
+			"sequentialcutoffvalue": {
+				"type": "number",
+				"required": true
+			},
+			"sequentialcutoffunit": {
+				"type": "string",
+				"required": true
+			},
+			"writebackdelay": {
+				"type": "integer",
+				"required": true
+			},
+			"writebackpercent": {
+				"type": "integer",
+				"required": true
+			}
+		}
+	}
+}]

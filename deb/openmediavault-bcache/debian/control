@@ -1,0 +1,15 @@
+Source: openmediavault-bcache
+Section: admin
+XB-Plugin-Section: filesystems
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 13), gettext
+Standards-Version: 4.3.0
+Homepage: https://www.openmediavault.org
+
+Package: openmediavault-bcache
+Architecture: all
+Depends: openmediavault (>= 7.4.14), bcache-tools
+Priority: optional
+Description: bcache plugin for openmediavault.
+ Makes it possible to use an SSD as a read/write cache for another block device.

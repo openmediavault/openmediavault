@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/bcache/backing"
+  title: _("Backing Devices")
+  component: omv-storage-bcache-backing-datatable-page

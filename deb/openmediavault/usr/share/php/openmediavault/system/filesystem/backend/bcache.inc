@@ -21,18 +21,12 @@
  */
 namespace OMV\System\Filesystem\Backend;
 
-///////////////////////////////////////////////////////////////////////////////
-// Register default filesystem backends.
-///////////////////////////////////////////////////////////////////////////////
-$backends = [ "Bcache", "Btrfs", "Ext", "Ext2", "Ext3", "Ext4", "Hfsplus",
-  "Iso9660", "Jfs", "Msdos", "None", "Ntfs", "Reiserfs", "Udf", "Ufs",
-  "Umsdos", "Exfat", "Vfat", "Xfs", "Fuseblk", "Swap", "F2fs",
-  "Reiser4" ];
-$mngr = Manager::getInstance();
-foreach ($backends as $backendk => $backendv) {
-	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);
-	$mngr->registerBackend(new $className());
-}
-if (TRUE === $debug) {
-	$mngr->dump();
+/**
+ * Bcache is not a real filesystem, but it's the type of device that is
+ * formatted for bcache.
+ */
+class Bcache extends BackendAbstract {
+	public function __construct() {
+		$this->type = "bcache";
+	}
 }

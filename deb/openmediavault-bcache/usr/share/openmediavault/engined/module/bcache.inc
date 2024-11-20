@@ -3,7 +3,7 @@
  * This file is part of OpenMediaVault.
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
- * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @author    Michael Myrcik <michael.myrcik@web.de>
  * @copyright Copyright (c) 2009-2024 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
@@ -19,20 +19,25 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Filesystem\Backend;
+namespace Engined\Module;
 
-///////////////////////////////////////////////////////////////////////////////
-// Register default filesystem backends.
-///////////////////////////////////////////////////////////////////////////////
-$backends = [ "Bcache", "Btrfs", "Ext", "Ext2", "Ext3", "Ext4", "Hfsplus",
-  "Iso9660", "Jfs", "Msdos", "None", "Ntfs", "Reiserfs", "Udf", "Ufs",
-  "Umsdos", "Exfat", "Vfat", "Xfs", "Fuseblk", "Swap", "F2fs",
-  "Reiser4" ];
-$mngr = Manager::getInstance();
-foreach ($backends as $backendk => $backendv) {
-	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);
-	$mngr->registerBackend(new $className());
-}
-if (TRUE === $debug) {
-	$mngr->dump();
+class Bcache extends \OMV\Engine\Module\ServiceAbstract
+	implements \OMV\Engine\Notify\IListener {
+	/**
+	 * Get the module service name.
+	 */
+	public function getName() {
+		return "bcache";
+	}
+
+	public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
+		$dispatcher->addListener(
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.service.bcache.cache",
+			[$this, "setDirty"]);
+		$dispatcher->addListener(
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.service.bcache.backing",
+			[$this, "setDirty"]);
+	}
 }

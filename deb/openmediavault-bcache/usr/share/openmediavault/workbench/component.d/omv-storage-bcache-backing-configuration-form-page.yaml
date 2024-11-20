@@ -1,0 +1,85 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-bcache-backing-configuration-form-page
+  type: formPage
+  config:
+    request:
+      service: Bcache
+      get:
+        method: getBackingConfiguration
+        params:
+          devicefile: "{{ _routeParams.devicefile }}"
+      post:
+        method: setBackingConfiguration
+    fields:
+      - type: confObjUuid
+      - type: hidden
+        name: devicefile
+      - type: textInput
+        name: description
+        label: _("Device")
+        disabled: true
+      - type: select
+        name: cachemode
+        label: _("Cache Mode")
+        store:
+          data:
+            - ["writethrough", _("writethrough")]
+            - ["writeback", _("writeback")]
+            - ["writearound", _("writearound")]
+            - ["none", _("none")]
+        validators:
+          required: true
+      - type: container
+        fields:
+          - type: numberInput
+            name: sequentialcutoffvalue
+            label: _("Sequential Cutoff")
+            hint: _("A sequential IO will bypass the cache once it passes this threshold. (default:4.0M, max:3.9G)")
+            value: 4
+            validators:
+              min: 0
+              patternType: "float"
+              required: true
+            flex: 75
+          - type: select
+            name: sequentialcutoffunit
+            label: _("Unit")
+            store:
+              data:
+                - ['B', 'B']
+                - ['KiB', 'KiB']
+                - ['MiB', 'MiB']
+                - ['GiB', 'GiB']
+            validators:
+              required: true
+            flex: 25
+      - type: numberInput
+        name: writebackdelay
+        label: _("Writeback Delay")
+        hint: _("When dirty data is written to the cache and it previously did not contain any, waits some number of seconds before initiating writeback. (default:30)")
+        value: 30
+        validators:
+          min: 0
+          patternType: "integer"
+          required: true
+      - type: numberInput
+        name: writebackpercent
+        label: _("Writeback Percent")
+        hint: _("If nonzero, bcache tries to keep around this percentage of the cache dirty by throttling background writeback and using a PD controller to smoothly adjust the rate. (default:10)")
+        value: 10
+        validators:
+          min: 0
+          max: 100
+          patternType: "integer"
+          required: true
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: '/storage/bcache/backing'
+      - template: cancel
+        execute:
+          type: url
+          url: '/storage/bcache/backing'
