@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-bcache\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-20 13:25+0100\n"
+"POT-Creation-Date: 2024-11-20 14:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,6 +108,9 @@ msgid "No Cache"
 msgstr ""
 
 msgid "Online"
+msgstr ""
+
+msgid "Please note that creating a file system can take longer. It is therefore possible that the file system is not immediately available for mounting."
 msgstr ""
 
 msgid "Recovery Actions"
