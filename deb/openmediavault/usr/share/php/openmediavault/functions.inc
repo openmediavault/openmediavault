@@ -1133,3 +1133,22 @@ class __Defer {
 function defer(callable $callback) {
     return new __Defer($callback);
 }
+
+/**
+ * Wait until the given condition is met or the timeout is reached.
+ * @param int $timeout The maximum time to wait in seconds.
+ * @param callable $callback The function to be called.
+ * @param string $message The optional message to be thrown if the
+ *   timeout is reached.
+ * @throws RuntimeException If the timeout is reached.
+ */
+function waitUntil($timeout, callable $callback, $message = NULL): void {
+	for ($i = 0; $i < $timeout; $i++) {
+		sleep(1);
+		if (TRUE === $callback()) {
+			return;
+		}
+	}
+	throw new \RuntimeException(is_null($message) ? sprintf(
+		"Timeout reached after %d seconds.", $timeout) : $message);
+}

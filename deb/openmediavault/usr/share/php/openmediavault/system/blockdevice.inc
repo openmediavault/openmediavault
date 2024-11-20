@@ -342,15 +342,8 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 	 * See interface definition.
 	 */
 	public function waitForDevice($timeout) {
-		for ($i = 0; $i < $timeout; $i++) {
-			sleep(1);
-			// Check whether the device file exists.
-			if (TRUE === $this->exists())
-				return;
-		}
-		// Finally throw an exception if the device file does not exist.
-		throw new \OMV\Exception(
-		  "Device '%s' is not available after a waiting period of %d seconds.",
-		  $this->getDeviceFile(), $timeout);
+		waitUntil($timeout, [$this, "exists"], sprintf(
+			"Device '%s' is not available after a waiting period of %d seconds.",
+		  	$this->getDeviceFile(), $timeout));
 	}
 }
