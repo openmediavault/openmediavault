@@ -366,6 +366,14 @@ remove_k3s_upgrade_flag:
 #   file.absent:
 #     - name: "/var/lib/openmediavault/upgrade_helm"
 
+# It seems K3s does not respect the `write-kubeconfig-mode` option when
+# K3s is redeployed a second time.
+update_k3s_kubeconf_perms:
+  module.run:
+    - file.set_mode:
+      - path: "/etc/rancher/k3s/k3s.yaml"
+      - mode: 644
+
 start_k3s_service:
   service.running:
     - name: k3s
