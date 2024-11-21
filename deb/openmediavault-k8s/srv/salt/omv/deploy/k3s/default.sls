@@ -349,6 +349,24 @@ create_k3s_local_storage_manifest:
     - group: root
     - mode: 600
 
+create_k3s_config_dir:
+  file.directory:
+    - name: "/etc/rancher/k3s/"
+    - makedirs: True
+
+create_k3s_config:
+  file.managed:
+    - name: "/etc/rancher/k3s/config.yaml"
+    - contents: |
+        write-kubeconfig-mode: "0644"
+        kube-controller-manager-arg:
+          # Removing leader election can reduce CPU usage on a single-node setup.
+          - "leader-elect=false"
+          - "node-monitor-period=60s"
+    - user: root
+    - group: root
+    - mode: 600
+
 {% if k8s_config.enable | to_bool %}
 
 install_k3s:
@@ -365,14 +383,6 @@ remove_k3s_upgrade_flag:
 # remove_k3s_helm_upgrade_flag:
 #   file.absent:
 #     - name: "/var/lib/openmediavault/upgrade_helm"
-
-# It seems K3s does not respect the `write-kubeconfig-mode` option when
-# K3s is redeployed a second time.
-update_k3s_kubeconf_perms:
-  module.run:
-    - file.set_mode:
-      - path: "/etc/rancher/k3s/k3s.yaml"
-      - mode: 644
 
 start_k3s_service:
   service.running:
