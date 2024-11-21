@@ -88,7 +88,8 @@ create_k3s_traefik_manifest:
               dashboard:
                 port: {{ k8s_config.dashboardport }}
                 protocol: TCP
-                expose: true
+                expose:
+                  default: true
                 exposedPort: {{ k8s_config.dashboardport }}
                 tls:
                   enabled: true

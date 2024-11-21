@@ -4,6 +4,7 @@ openmediavault-k8s (7.4.2-1) stable; urgency=low
     Existing installations won't be upgraded automatically. To force
     an upgrade, create the file `/var/lib/openmediavault/upgrade_k3s`
     and run `omv-salt deploy run k3s`.
+  * Fix Traefik port configuration issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 19 Nov 2024 10:43:47 +0100
 
