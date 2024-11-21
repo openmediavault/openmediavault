@@ -756,18 +756,19 @@ function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0): ?s
 	$toIndex = array_search($toPrefix, $prefixes);
 	if ((FALSE === $fromIndex) || (FALSE === $toIndex))
 		return FALSE;
-	// Convert number to string and ensure the correct number of decimal
-	// numbers is set (workaround for strange bcmul behaviour).
-	$number = number_format($number, 0, "", "");
+	if (preg_match("/E[\+-]\d+$/", strval($number))) {
+		// Convert number to string and ensure the correct number of decimal
+		// numbers is set (workaround for float numbers that are otherwise
+		// converted to exponential notation, which bcmul cannot handle).
+		$number = number_format($number, 32, ".", "");
+	}
 	// Convert the given number into the requested binary unit.
-	$steps = ($toIndex > $fromIndex) ? $toIndex - $fromIndex :
-	  $fromIndex - $toIndex;
-	for ($i = 0; $i < $steps; $i++) {
-		if ($fromIndex < $toIndex) {
-			$number = bcdiv($number, "1024", $decimalPlaces);
-		} else {
-			$number = bcmul($number, "1024", $decimalPlaces);
-		}
+	$steps = abs($toIndex - $fromIndex);
+	$factor = bcpow("1024", $steps);
+	if ($fromIndex < $toIndex) {
+		$number = bcdiv($number, $factor, $decimalPlaces);
+	} else {
+		$number = bcmul($number, $factor, $decimalPlaces);
 	}
 	return $number;
 }
