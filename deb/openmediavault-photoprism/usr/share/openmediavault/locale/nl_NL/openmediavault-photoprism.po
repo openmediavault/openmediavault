@@ -5,7 +5,7 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
-# sebak <seba.kerckhof@gmail.com>, 2022
+# Seba Kerckhof <seba.kerckhof@gmail.com>, 2022
 # Tim <co_ti@hotmail.com>, 2022
 # Milan Toet <milantoet@gmail.com>, 2022
 # 

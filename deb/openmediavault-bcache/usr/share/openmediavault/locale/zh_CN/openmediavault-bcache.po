@@ -4,9 +4,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# songming <by@songming.me>, 2024
-# kochin <kochinc@outlook.com>, 2024
 # 王大山, 2024
+# 黃柏諺 <s8321414@gmail.com>, 2024
+# songming <by@songming.me>, 2024
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-20 14:04+0100\n"
 "PO-Revision-Date: 2024-11-20 12:26+0000\n"
-"Last-Translator: 王大山, 2024\n"
+"Last-Translator: songming <by@songming.me>, 2024\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,139 +24,139 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "5 Minutes"
-msgstr ""
+msgstr "5分钟"
 
 msgid ""
 "A sequential IO will bypass the cache once it passes this threshold. "
 "(default:4.0M, max:3.9G)"
-msgstr ""
+msgstr "一旦超过此阈值，连续 IO 将会绕过缓存。（默认值：4.0M，最大：3.9G）"
 
 msgid ""
 "Allow bcache go around the cache when there's read / write congestion. "
 "(default:true)"
-msgstr ""
+msgstr "允许 bcache 在读写阻塞时绕过缓存。（默认值：true）"
 
 msgid "Backing Devices"
-msgstr ""
+msgstr "后备设备"
 
 msgid "Bcache"
-msgstr ""
+msgstr "Bcache"
 
 msgid "Bcache Device"
-msgstr ""
+msgstr "Bcache 设备"
 
 msgid "Cache Device"
-msgstr ""
+msgstr "缓存设备"
 
 msgid "Cache Devices"
-msgstr ""
+msgstr "缓存设备"
 
 msgid "Cache Mode"
-msgstr ""
+msgstr "缓存模式"
 
 msgid "Capacity"
 msgstr "容量"
 
 msgid "Clean"
-msgstr ""
+msgstr "清除"
 
 msgid "Clear total statistics"
-msgstr ""
+msgstr "清除统计资料"
 
 msgid "Configuration"
-msgstr "配置"
+msgstr "配置·"
 
 msgid "Congest Tracking"
-msgstr ""
+msgstr "阻塞追踪"
 
 msgid "Congested Read Threshold (us)"
-msgstr ""
+msgstr "读取阻塞阈值（微秒）"
 
 msgid "Create"
-msgstr "新建"
+msgstr "创建"
 
 msgid "Day"
-msgstr ""
+msgstr "天"
 
 msgid "Device"
 msgstr "设备"
 
 msgid "Dirty"
-msgstr ""
+msgstr "不完整"
 
 msgid "Dirty Data"
-msgstr ""
+msgstr "不完整的资料"
 
 msgid "Docs"
-msgstr ""
+msgstr "文件"
 
 msgid "Hour"
-msgstr ""
+msgstr "小时"
 
 msgid ""
 "If nonzero, bcache tries to keep around this percentage of the cache dirty "
 "by throttling background writeback and using a PD controller to smoothly "
 "adjust the rate. (default:10)"
-msgstr ""
+msgstr "如果不是零，bcache 会尝试通过限制后台回写并使用 PD 控制器平滑调整速率来保持缓存不被写入脏数据。（默认值：10）"
 
 msgid "Inconsistent"
-msgstr ""
+msgstr "不一致"
 
 msgid "Metadata"
-msgstr ""
+msgstr "元数据"
 
 msgid "Missing"
-msgstr ""
+msgstr "丢失"
 
 msgid "Missing Cache"
-msgstr ""
+msgstr "缓存丢失"
 
 msgid "Mounted"
-msgstr ""
+msgstr "已挂载"
 
 msgid "Name"
 msgstr "名称"
 
 msgid "No Cache"
-msgstr ""
+msgstr "无缓存"
 
 msgid "Online"
-msgstr ""
+msgstr "在线"
 
 msgid ""
 "Please note that creating a file system can take longer. It is therefore "
 "possible that the file system is not immediately available for mounting."
-msgstr ""
+msgstr "请注意，创建文件系统需要较长的时间，所以文件系统可能无法马上挂载。"
 
 msgid "Recovery Actions"
-msgstr ""
+msgstr "还原动作"
 
 msgid "Register"
-msgstr ""
+msgstr "注册"
 
 msgid "Select a cache device ..."
-msgstr ""
+msgstr "选择一个缓存设备 …"
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "选择一个设备 ..."
 
 msgid "Select the device that will be formatted as bcache backing device."
-msgstr ""
+msgstr "选择要格式化的设备作为 bcache 后备存储设备。"
 
 msgid "Select the device that will be formatted as bcache cache device."
-msgstr ""
+msgstr "选择要格式化的设备作为 bcache 缓存设备"
 
 msgid "Select the device that will be used as cache device."
-msgstr ""
+msgstr "选择要作为缓存设备的设备。"
 
 msgid "Sequential Cutoff"
-msgstr ""
+msgstr "顺序截止"
 
 msgid "Show details"
 msgstr "显示详情"
 
 msgid "Start without cache"
-msgstr ""
+msgstr "从无缓存开始"
 
 msgid "State"
 msgstr "状态"
@@ -165,54 +165,54 @@ msgid "Statistics"
 msgstr "统计"
 
 msgid "Superblock"
-msgstr ""
+msgstr "Superblock"
 
 msgid "The default is 2000 us (2 milliseconds)"
-msgstr ""
+msgstr "默认值为 2000 微秒（2毫秒）"
 
 msgid "The default is 20000 us (20 milliseconds)"
-msgstr ""
+msgstr "默认值为 20000 微秒（20毫秒）"
 
 msgid "Total"
-msgstr ""
+msgstr "统计"
 
 msgid "Unit"
-msgstr ""
+msgstr "单位"
 
 msgid "Unregister"
-msgstr ""
+msgstr "未注册"
 
 msgid "Unregistered"
-msgstr ""
+msgstr "未注册"
 
 msgid "Unused"
-msgstr ""
+msgstr "未使用"
 
 msgid "Updated backing device '{{ devicefile }}'."
-msgstr ""
+msgstr "已更新后备设备 '{{ devicefile }}'。"
 
 msgid "Updated cache device '{{ devicefile }}'."
-msgstr ""
+msgstr "已更新缓存设备 '{{ devicefile }}'。"
 
 msgid ""
 "When dirty data is written to the cache and it previously did not contain "
 "any, waits some number of seconds before initiating writeback. (default:30)"
-msgstr ""
+msgstr "当脏数据写入缓存而且以前不包含任何脏数据时，请等待几秒钟，然后再启动回写。（默认：30）"
 
 msgid "Writeback Delay"
-msgstr ""
+msgstr "回写延迟"
 
 msgid "Writeback Percent"
-msgstr ""
+msgstr "回写百分比"
 
 msgid "none"
-msgstr ""
+msgstr "无"
 
 msgid "writearound"
-msgstr ""
+msgstr "直接写入后备存储设备"
 
 msgid "writeback"
-msgstr ""
+msgstr "先写入缓存"
 
 msgid "writethrough"
-msgstr ""
+msgstr "同时写入缓存与后备存储设备"

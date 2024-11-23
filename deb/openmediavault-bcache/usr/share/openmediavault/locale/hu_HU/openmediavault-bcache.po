@@ -74,7 +74,7 @@ msgid "Create"
 msgstr "Létrehozás"
 
 msgid "Day"
-msgstr ""
+msgstr "Nap"
 
 msgid "Device"
 msgstr "Eszköz"
@@ -89,7 +89,7 @@ msgid "Docs"
 msgstr ""
 
 msgid "Hour"
-msgstr ""
+msgstr "Óra"
 
 msgid ""
 "If nonzero, bcache tries to keep around this percentage of the cache dirty "

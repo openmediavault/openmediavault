@@ -1233,7 +1233,7 @@ msgid "Fiji"
 msgstr "Fiji"
 
 msgid "File System Usage"
-msgstr ""
+msgstr "Ús del sistema de fitxers"
 
 msgid "File Systems"
 msgstr "Sistemes d'arxius"
@@ -2829,7 +2829,7 @@ msgid "Send command output via email"
 msgstr "Enviar la sortida de la comanda per email"
 
 msgid "Send notifications about pending package updates."
-msgstr ""
+msgstr "Envia notificacions sobre actualitzacions de paquets pendents."
 
 msgid "Sender email"
 msgstr "E-mail enviat"
@@ -3705,7 +3705,7 @@ msgid "Update Management"
 msgstr "Gestió d’actualitzacions"
 
 msgid "Update management"
-msgstr ""
+msgstr "Gestió d'actualitzacions"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Actualitzeu les ACL de destinació perquè siguin les mateixes que les ACL d'origen. "

@@ -1234,7 +1234,7 @@ msgid "Fiji"
 msgstr "Fiji"
 
 msgid "File System Usage"
-msgstr ""
+msgstr "Filsystemanvändning"
 
 msgid "File Systems"
 msgstr "Filsystem"
@@ -2830,7 +2830,7 @@ msgid "Send command output via email"
 msgstr "Skicka kommandoutmatning via e-post"
 
 msgid "Send notifications about pending package updates."
-msgstr ""
+msgstr "Skicka aviseringar om väntande paketuppdateringar. "
 
 msgid "Sender email"
 msgstr "Avsändarens e-post"
@@ -3706,7 +3706,7 @@ msgid "Update Management"
 msgstr "Uppdateringshantering"
 
 msgid "Update management"
-msgstr ""
+msgstr "Uppdateringshantering"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Uppdatera destinationens åtkomstkontrollistor så att de är desamma som källans åtkomstkontrollistor."

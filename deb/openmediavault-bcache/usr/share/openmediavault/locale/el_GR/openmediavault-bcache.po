@@ -22,139 +22,149 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "5 Minutes"
-msgstr ""
+msgstr "5 Λεπτά"
 
 msgid ""
 "A sequential IO will bypass the cache once it passes this threshold. "
 "(default:4.0M, max:3.9G)"
 msgstr ""
+"Μια επακόλουθη μεταφορά θα παρακάμπτει την cache άπαξ και υπερβαίνει αυτό το"
+" όριο. (προεπιλογή : 4.0M, μέγιστο : 3.9G)"
 
 msgid ""
 "Allow bcache go around the cache when there's read / write congestion. "
 "(default:true)"
 msgstr ""
+"Να επιτρέπεται στην bcache να παρακάμπτει την cache όταν υπάρχει συμφόρηση "
+"αναγνώσεων / εγγραφών. (προεπιλογή: ενεργό)"
 
 msgid "Backing Devices"
-msgstr ""
+msgstr "Συσκευές Υποστήριξης"
 
 msgid "Bcache"
-msgstr ""
+msgstr "Bcache"
 
 msgid "Bcache Device"
-msgstr ""
+msgstr "Συσκευή Bcache"
 
 msgid "Cache Device"
-msgstr ""
+msgstr "Συσκευή Cache"
 
 msgid "Cache Devices"
-msgstr ""
+msgstr "Συσκευές Cache"
 
 msgid "Cache Mode"
-msgstr ""
+msgstr "Λειτουργία Cache"
 
 msgid "Capacity"
 msgstr "Χωρητικότητα"
 
 msgid "Clean"
-msgstr ""
+msgstr "Καθαρισμός"
 
 msgid "Clear total statistics"
-msgstr ""
+msgstr "Καθισμός συνολικών στατιστικών"
 
 msgid "Configuration"
 msgstr "Διαμόρφωση"
 
 msgid "Congest Tracking"
-msgstr ""
+msgstr "Παρακολούθηση Συμφόρησης"
 
 msgid "Congested Read Threshold (us)"
-msgstr ""
+msgstr "Όριο Συμφόρησης Αναγνώσεων (us)"
 
 msgid "Create"
 msgstr "Δημιουργία"
 
 msgid "Day"
-msgstr ""
+msgstr "Ημέρα"
 
 msgid "Device"
 msgstr "Συσκευή"
 
 msgid "Dirty"
-msgstr ""
+msgstr "Ακάθαρτα"
 
 msgid "Dirty Data"
-msgstr ""
+msgstr "Ακάθαρτα Δεδομένα"
 
 msgid "Docs"
-msgstr ""
+msgstr "Έγγραφα"
 
 msgid "Hour"
-msgstr ""
+msgstr "Ώρα"
 
 msgid ""
 "If nonzero, bcache tries to keep around this percentage of the cache dirty "
 "by throttling background writeback and using a PD controller to smoothly "
 "adjust the rate. (default:10)"
 msgstr ""
+"Αν δεν τεθεί σε μηδέν, τότε η bcache θα προσπαθεί να διατηρεί αυτό το "
+"ποσοστό της cache ως ακάθαρτο περιορίζοντας το παρασκηνιακό writeback με τη "
+"χρήση ενός ελεγκτή PD για την ομαλή προσαρμογή του ρυθμού. (προεπιλογή : 10)"
 
 msgid "Inconsistent"
-msgstr ""
+msgstr "Ασυνεπή"
 
 msgid "Metadata"
-msgstr ""
+msgstr "Μεταδεδομένα"
 
 msgid "Missing"
-msgstr ""
+msgstr "Απόντα"
 
 msgid "Missing Cache"
-msgstr ""
+msgstr "Αστοχία Cache"
 
 msgid "Mounted"
-msgstr ""
+msgstr "Προσαρτημένο"
 
 msgid "Name"
 msgstr "Όνομα"
 
 msgid "No Cache"
-msgstr ""
+msgstr "Χωρίς cache"
 
 msgid "Online"
-msgstr ""
+msgstr "Συνδεδεμένο"
 
 msgid ""
 "Please note that creating a file system can take longer. It is therefore "
 "possible that the file system is not immediately available for mounting."
 msgstr ""
+"Η δημιουργία ενός συστήματος αρχείων παίρνει κάποιο χρόνο. Συνεπώς ενδέχεται"
+" το σύστημα αρχείων να μην είναι άμεσα διαθέσιμο για προσάρτηση."
 
 msgid "Recovery Actions"
-msgstr ""
+msgstr "Δράσεις Ανάκτησης"
 
 msgid "Register"
-msgstr ""
+msgstr "Καταχώρηση"
 
 msgid "Select a cache device ..."
-msgstr ""
+msgstr "Επιλογή συσκευής cache ..."
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Επιλογή συσκευής ..."
 
 msgid "Select the device that will be formatted as bcache backing device."
 msgstr ""
+"Επιλογή συσκευής που θα διαμορφωθεί ως συσκευή υποστήριξης της bcache."
 
 msgid "Select the device that will be formatted as bcache cache device."
-msgstr ""
+msgstr "Επιλογή συσκευής που θα διαμορφωθεί ως συσκευή cache της bcache."
 
 msgid "Select the device that will be used as cache device."
-msgstr ""
+msgstr "Επιλογή συσκευής που θα χρησιμοποιηθεί ως συσκευή cache."
 
 msgid "Sequential Cutoff"
-msgstr ""
+msgstr "Επακόλουθη Αποκοπή"
 
 msgid "Show details"
 msgstr "Εμφάνιση λεπτομερειών"
 
 msgid "Start without cache"
-msgstr ""
+msgstr "Εκκίνηση χωρίς cache"
 
 msgid "State"
 msgstr "Καθεστώς"
@@ -163,54 +173,57 @@ msgid "Statistics"
 msgstr "Στατιστικά"
 
 msgid "Superblock"
-msgstr ""
+msgstr "Superblock"
 
 msgid "The default is 2000 us (2 milliseconds)"
-msgstr ""
+msgstr "Η προεπιλογή είναι στα 2000 us (2 milliseconds)"
 
 msgid "The default is 20000 us (20 milliseconds)"
-msgstr ""
+msgstr "Η προεπιλογή είναι στα 20000 us (20 milliseconds)"
 
 msgid "Total"
-msgstr ""
+msgstr "Σύνολο"
 
 msgid "Unit"
-msgstr ""
+msgstr "Μονάδα"
 
 msgid "Unregister"
-msgstr ""
+msgstr "Απεγγραφή"
 
 msgid "Unregistered"
-msgstr ""
+msgstr "Αδήλωτα"
 
 msgid "Unused"
-msgstr ""
+msgstr "Αχρησιμοποίητα"
 
 msgid "Updated backing device '{{ devicefile }}'."
-msgstr ""
+msgstr "Ενημέρωση συσκευής υποστήριξης '{{ devicefile }}'."
 
 msgid "Updated cache device '{{ devicefile }}'."
-msgstr ""
+msgstr "Ενημέρωση συσκευής cache '{{ devicefile }}'."
 
 msgid ""
 "When dirty data is written to the cache and it previously did not contain "
 "any, waits some number of seconds before initiating writeback. (default:30)"
 msgstr ""
+"Όταν γράφονται στην cache ακάθαρτα δεδομένα ενώ πριν δεν περιείχε τίποτα, να"
+" περιμένει για κάποια δευτερόλεπτα πριν ξεκινήσει το writeback. (προεπιλογή "
+": 30)"
 
 msgid "Writeback Delay"
-msgstr ""
+msgstr "Καθυστέρηση Writeback"
 
 msgid "Writeback Percent"
-msgstr ""
+msgstr "Ποσοστό Writeback"
 
 msgid "none"
-msgstr ""
+msgstr "ουδέν"
 
 msgid "writearound"
-msgstr ""
+msgstr "writearound"
 
 msgid "writeback"
-msgstr ""
+msgstr "writeback"
 
 msgid "writethrough"
-msgstr ""
+msgstr "writethrough"
