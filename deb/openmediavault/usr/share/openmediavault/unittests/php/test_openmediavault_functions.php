@@ -501,6 +501,26 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals($str, "2097152");
 	}
 
+	public function test_binary_convert_4() {
+		$str = binary_convert("1.5", "KiB", "B");
+		$this->assertEquals($str, "1536");
+	}
+
+	public function test_binary_convert_5() {
+		$str = binary_convert("1536", "B", "KiB", 1);
+		$this->assertEquals($str, "1.5");
+	}
+
+	public function test_binary_convert_6() {
+		$str = binary_convert(1.25, "TiB", "B");
+		$this->assertEquals($str, "1374389534720");
+	}
+
+	public function test_binary_convert_7() {
+		$str = binary_convert("1374389534720", "B", "TiB", 2);
+		$this->assertEquals($str, "1.25");
+	}
+
 	public function test_array_remove_value_1() {
 		$d = ["a", "b"];
 		$this->assertTrue(array_remove_value($d, "a"));
