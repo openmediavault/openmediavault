@@ -1087,12 +1087,14 @@ finish:
 		}
 		// Update the non-system user.
 		$users = $this->enumerateUsersByType("normal");
+		$ld = \OMV\System\System::getLoginDefs();
 		foreach ($users as $userk => $userv) {
 			// Only process users that are in group 'users'.
 			$defaultGroup = \OMV\Environment::get(
 				"OMV_USERMGMT_DEFAULT_GROUP", "users");
-			if (!in_array($defaultGroup, $userv['groups']))
+			if (!in_array($defaultGroup, $userv['groups'])) {
 				continue;
+			}
 			$cmdArgs = [];
 			if (!empty($sfPath)) {
 				$homeDirPath = build_path(DIRECTORY_SEPARATOR, $sfPath,
@@ -1101,14 +1103,20 @@ finish:
 				// the new home directory if this does not exist.
 				// Note, the usermod command throws an error when calling
 				// with --move-home and the home directory already exists.
-				if (!file_exists($homeDirPath))
+				if (!file_exists($homeDirPath)) {
 					$cmdArgs[] = "--move-home";
+				}
 				$cmdArgs[] = "--home";
 				$cmdArgs[] = escapeshellarg($homeDirPath);
 			} else {
+				// Skip the user if they do not yet have a home directory.
+				if (empty($userv['dir'])) {
+					continue;
+				}
 				// Unset home directory.
+				// See https://unix.stackexchange.com/a/617552
 				$cmdArgs[] = "--home";
-				$cmdArgs[] = escapeshellarg("");
+				$cmdArgs[] = array_value($ld, "NONEXISTENT", "/nonexistent");
 			}
 			$cmdArgs[] = escapeshellarg($userv['name']);
 			$cmd = new \OMV\System\Process("usermod", $cmdArgs);

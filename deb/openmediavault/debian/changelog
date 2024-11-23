@@ -3,6 +3,7 @@ openmediavault (7.4.14-1) stable; urgency=low
   * Add rudimentary support for the obsolete file systems `reiserfs`
     and `reiser4`. The userland apps must be installed manually via
     the Debian packages `reiserfsprogs` and `reiser4progs`.
+  * Issue #1859: Fix a problem when disabling the user home directory.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 18 Nov 2024 15:02:55 +0100
 
