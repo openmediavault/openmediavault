@@ -1,3 +1,9 @@
+openmediavault-diskstats (7.0.2-1) stable; urgency=low
+
+  * Issue #1862: Use LC_ALL environment variable instead of LANG.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 25 Nov 2024 13:25:35 +0100
+
 openmediavault-diskstats (7.0.1-2) stable; urgency=low
 
   * Update locale files.

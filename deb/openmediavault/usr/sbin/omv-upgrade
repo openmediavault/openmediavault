@@ -21,7 +21,7 @@
 
 set -e
 
-export LANG=C
+export LC_ALL=C.UTF-8
 export DEBIAN_FRONTEND=noninteractive
 
 # Update package database and update distribution. This is done via

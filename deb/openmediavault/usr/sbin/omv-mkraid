@@ -21,7 +21,7 @@
 
 # Documentation/Howto:
 # https://www.thomas-krenn.com/de/wiki/Software_RAID_mit_MDADM_verwalten#RAID_0_mit_MDADM
-export LANG=C
+export LC_ALL=C.UTF-8
 
 . /etc/default/openmediavault
 

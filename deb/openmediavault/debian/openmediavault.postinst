@@ -243,7 +243,7 @@ case "$1" in
 
 			# Deploy the configuration for various services.
 			echo "Deploying service configurations ..."
-			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet \
+			LC_ALL=C.UTF-8 omv-salt deploy run --no-color --quiet \
 				apt apticron cpufrequtils chrony rsyslog \
 				watchdog monit rrdcached avahi ssh nginx collectd \
 				phpfpm issue sysctl systemd systemd-logind || :
@@ -266,7 +266,7 @@ case "$1" in
 			# - collectd: uptime plugin has been added
 			# - chrony: The ntp replacement
 			# - postfix: Config must be recreated
-			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet collectd chrony postfix || :
+			LC_ALL=C.UTF-8 omv-salt deploy run --no-color --quiet collectd chrony postfix || :
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.1.3"; then
 			omv_module_set_dirty monit
@@ -329,7 +329,7 @@ case "$1" in
 			omv_module_set_dirty samba
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.6.3"; then
-			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet apt cronapt || :
+			LC_ALL=C.UTF-8 omv-salt deploy run --no-color --quiet apt cronapt || :
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.6.6"; then
 			useradd --system --user-group --no-create-home \
@@ -366,7 +366,7 @@ case "$1" in
 			omv_module_set_dirty samba
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.0"; then
-			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet nginx rsyslog phpfpm || :
+			LC_ALL=C.UTF-8 omv-salt deploy run --no-color --quiet nginx rsyslog phpfpm || :
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.0.1"; then
 			omv_module_set_dirty nfs
@@ -550,7 +550,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "7.4.12"; then
 			# Convert existing diversions created by the `divert_add` Salt state.
-			for file in $(LANG=C dpkg-divert --list | grep -oP '(?<=local diversion of )[^\s]+'); do
+			for file in $(LC_ALL=C.UTF-8 dpkg-divert --list | grep -oP '(?<=local diversion of )[^\s]+'); do
 				dpkg-divert --local --no-rename --remove "${file}" || :
 				_divert_to="/tmp/$(echo "${file}" | sed 's|/|_|g')"
 				dpkg-divert --add --local --no-rename --divert "${_divert_to}" "${file}" || :

@@ -5,6 +5,7 @@ openmediavault-k8s (7.4.2-1) stable; urgency=low
     an upgrade, create the file `/var/lib/openmediavault/upgrade_k3s`
     and run `omv-salt deploy run k3s`.
   * Fix Traefik port configuration issue.
+  * Issue #1862: Use LC_ALL environment variable instead of LANG.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 19 Nov 2024 10:43:47 +0100
 

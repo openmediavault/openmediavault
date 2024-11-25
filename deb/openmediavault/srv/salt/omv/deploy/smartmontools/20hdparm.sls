@@ -57,7 +57,7 @@ smartmontools_hdparm_enable_smart_{{ device.uuid }}:
     - user: root
     - group: root
     - mode: 744
-    - onlyif: "export LANG=C; smartctl -i '{{ device.devicefile }}' | grep -q 'SMART support is: Disabled'"
+    - onlyif: "export LC_ALL=C.UTF-8; smartctl -i '{{ device.devicefile }}' | grep -q 'SMART support is: Disabled'"
 
 {% endfor %}
 

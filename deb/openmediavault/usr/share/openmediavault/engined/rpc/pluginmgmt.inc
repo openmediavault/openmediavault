@@ -179,7 +179,7 @@ class PluginMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.plugin.upload");
 		// Extract the package name.
-		$cmd = sprintf("export LANG=C; dpkg --field %s | ".
+		$cmd = sprintf("export LC_ALL=C.UTF-8; dpkg --field %s | ".
 		  "grep 'Package: ' | awk '{print \$2}'", escapeshellarg(
 		  $params['filepath']));
 		if (0 !== $this->exec($cmd, $output))

@@ -39,7 +39,7 @@ class Process {
 			"value" => "/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin",
 			"obfuscate" => FALSE
 		],
-		"LANG" => [
+		"LC_ALL" => [
 			"value" =>"C.UTF-8",
 			"obfuscate" => FALSE
 		],

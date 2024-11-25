@@ -328,28 +328,28 @@ omv_get_if() {
 # omv_get_ipaddr <interface>
 # Get the IPv4 address from the given network interface.
 omv_get_ipaddr() {
-	export LANG=C;
+	export LC_ALL=C.UTF-8;
 	ip -4 addr show "$1" 2>/dev/null | sed -n 's/^\s\+inet \([0-9\.]\+\)\/[0-9]\+ brd.\+/\1/p'
 }
 
 # omv_get_ipaddr6 <interface>
 # Get the IPv6 address from the given network interface.
 omv_get_ipaddr6() {
-	export LANG=C;
+	export LC_ALL=C.UTF-8;
 	ip -6 addr show "$1" 2>/dev/null | sed -n 's/^\s\+inet6 \([a-f0-9:]\+\)\/[0-9]\+ scope global/\1/p'
 }
 
 # omv_get_gateway <interface>
 # Get the default IPv4 gateway for the given network interface.
 omv_get_gateway() {
-	export LANG=C;
+	export LC_ALL=C.UTF-8;
 	ip -4 route show dev "$1" 2>/dev/null | sed -n 's/default via \([0-9\.]\+\)/\1/p'
 }
 
 # omv_get_gateway6 <interface>
 # Get the default IPv6 gateway for the given network interface.
 omv_get_gateway6() {
-	export LANG=C;
+	export LC_ALL=C.UTF-8;
 	ip -6 route show dev "$1" 2>/dev/null | sed -n 's/default via \([a-f0-9:]\+\)/\1/p'
 }
 
