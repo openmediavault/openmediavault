@@ -294,7 +294,7 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Create the 'Packages' file required by local APT archives.
 		// The 'packages' command should be run in the root of the tree.
-		$cmd = sprintf("export LANG=C; cd %s && apt-ftparchive " .
+		$cmd = sprintf("export LC_ALL=C.UTF-8; cd %s && apt-ftparchive " .
 		  "packages . > Packages", \OMV\Environment::get(
 		  "OMV_DPKGARCHIVE_DIR"));
 		if (0 !== $this->exec($cmd, $output))
@@ -377,7 +377,7 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 				throw new \OMV\Exception(
 				  "Failed to created a temporary directory.");
 			}
-			$cmd = sprintf("export LANG=C; dpkg-deb --fsys-tarfile %s | ".
+			$cmd = sprintf("export LC_ALL=C.UTF-8; dpkg-deb --fsys-tarfile %s | ".
 			  "tar --extract --wildcards --directory=%s ".
 			  "./usr/share/doc/%s/changelog\* 2>&1",
 			  escapeshellarg($packagePath), escapeshellarg($tmpDir),

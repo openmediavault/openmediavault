@@ -21,7 +21,7 @@
 MAILTO=""
 MDADM=/usr/sbin/mdadm
 
-export LANG=C
+export LC_ALL=C.UTF-8
 
 set -eu
 

@@ -430,7 +430,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = sprintf("-C %s", escapeshellarg(trim(array_value(
 			$params, "comment", ""))));
 		$cmdArgs[] = sprintf("-f %s", escapeshellarg($file));
-		$cmd = sprintf("export LANG=C; (echo y) | ssh-keygen %s 2>&1",
+		$cmd = sprintf("export LC_ALL=C.UTF-8; (echo y) | ssh-keygen %s 2>&1",
 			implode(" ", $cmdArgs));
 		if (0 !== ($exitStatus = $this->exec($cmd, $output))) {
 			throw new \OMV\ExecException($cmd, $output, $exitStatus);

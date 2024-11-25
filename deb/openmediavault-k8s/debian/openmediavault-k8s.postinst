@@ -46,7 +46,7 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Installing k3s ..."
-			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet k3s || :
+			LC_ALL=C.UTF-8 omv-salt deploy run --no-color --quiet k3s || :
 		fi
 
 		########################################################################

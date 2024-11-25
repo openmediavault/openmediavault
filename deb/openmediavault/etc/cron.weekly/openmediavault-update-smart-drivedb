@@ -29,7 +29,7 @@
 MAILTO=""
 TERM=dumb
 
-export LANG=C
+export LC_ALL=C.UTF-8
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
