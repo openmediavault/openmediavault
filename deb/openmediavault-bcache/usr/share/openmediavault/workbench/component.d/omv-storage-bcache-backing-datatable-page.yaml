@@ -6,7 +6,7 @@ data:
   config:
     hints:
       - type: info
-        text: _("Please note that creating a file system can take longer. It is therefore possible that the file system is not immediately available for mounting.")
+        text: _("Please note that creating a file system on a Bcache device can take longer. It is therefore possible that the file system is not immediately available for mounting.")
         dismissible: true
         stateId: 839ff718-a73e-11ef-9b7d-5feaca4263bf
     autoReload: false

@@ -13,7 +13,7 @@ data:
         name: devicefile
         label: _("Device")
         placeholder: _("Select a device ...")
-        hint: _("Select the device that will be formatted as bcache cache device.")
+        hint: _("Select the device that will be formatted as Bcache cache device.")
         value: ""
         valueField: devicefile
         textField: description
