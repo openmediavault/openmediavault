@@ -33,6 +33,7 @@ data:
       cellTemplateConfig:
         text: '{{ used | tobytes | binaryunit | notavailable("-") }}'
         warningThreshold: '{{ usagewarnthreshold | default(0) }}'
+        decimalPlaces: 0
     store:
       proxy:
         service: FileSystemMgmt

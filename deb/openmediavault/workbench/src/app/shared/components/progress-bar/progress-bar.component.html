@@ -1,14 +1,14 @@
 <div class="omv-progress-bar">
   <div class="omv-progress-bar-text">
     <span *ngIf="text">{{ text }}</span>
-    <span *ngIf="!text">{{ value.toFixed(fractionDigits) }}%</span>
+    <span *ngIf="!text">{{ value.toFixed(decimalPlaces | defaultTo:1) }}%</span>
   </div>
   <div class="omv-progress-bar-fill"
        [ngClass]="{'warning': warningThreshold && warningThreshold > 0 && value > warningThreshold}"
        [style.width]="(value | max:0)  + '%'">
     <div class="omv-progress-bar-text">
       <span *ngIf="text">{{ text }}</span>
-      <span *ngIf="!text">{{ value.toFixed(fractionDigits) }}%</span>
+      <span *ngIf="!text">{{ value.toFixed(decimalPlaces | defaultTo:1) }}%</span>
     </div>
   </div>
 </div>

@@ -135,7 +135,8 @@ export class FilesystemDatatablePageComponent implements OnInit {
         cellTemplateName: 'progressBar',
         cellTemplateConfig: {
           text: '{{ used | tobytes | binaryunit | notavailable("-") }}',
-          warningThreshold: '{{ usagewarnthreshold | default(0) }}'
+          warningThreshold: '{{ usagewarnthreshold | default(0) }}',
+          decimalPlaces: 0
         }
       },
       {
