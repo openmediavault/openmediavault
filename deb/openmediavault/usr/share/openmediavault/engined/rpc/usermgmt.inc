@@ -1115,6 +1115,11 @@ finish:
 				}
 				// Unset home directory.
 				// See https://unix.stackexchange.com/a/617552
+				//
+				// ToDo:
+				// Make use of an empty dir path again when the fix at
+				// https://github.com/shadow-maint/shadow/pull/1133 is
+				// available in Debian.
 				$cmdArgs[] = "--home";
 				$cmdArgs[] = array_value($ld, "NONEXISTENT", "/nonexistent");
 			}
