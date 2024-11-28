@@ -27,7 +27,7 @@ export class ProgressBarComponent {
   value = 0.0; // The value in percent [0...100]
 
   @Input()
-  fractionDigits = 1;
+  decimalPlaces: number; // Defaults to 1.
 
   @Input()
   text?: string;

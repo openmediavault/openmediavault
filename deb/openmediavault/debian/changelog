@@ -1,3 +1,9 @@
+openmediavault (7.4.15-1) stable; urgency=low
+
+  * 
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 26 Nov 2024 19:58:29 +0100
+
 openmediavault (7.4.14-1) stable; urgency=low
 
   * Add rudimentary support for the obsolete file systems `reiserfs`
