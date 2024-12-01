@@ -2,7 +2,7 @@
 Description=Cleanup PHP session files
 DefaultDependencies=no
 After=local-fs.target
-Before=nginx.service php7.0-fpm.service
+Before=nginx.service php8.2-fpm.service
 
 [Service]
 Type=oneshot
