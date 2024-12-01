@@ -96,7 +96,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Prepare result list.
+		// Prepare the result list.
 		$result = [
 			"/usr/bin/false",
 			"/usr/sbin/nologin"
@@ -105,9 +105,23 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		$shells = file("/etc/shells");
 		foreach ($shells as $shellk => $shellv) {
 			$shellv = trim($shellv);
-			if (is_executable($shellv))
+			if (is_executable($shellv)) {
 				$result[] = $shellv;
+			}
 		}
+		// Filter duplicates. Remove `/bin/xxx` if `/usr/bin/xxx` exists.
+		foreach ($result as $shellk => $shellv) {
+			foreach (['bin', 'sbin'] as $origin) {
+				if (str_starts_with($shellv, sprintf("/%s/", $origin))) {
+					$shellPath = sprintf("/usr/%s/%s", $origin,
+						basename($shellv));
+					if (in_array($shellPath, $result)) {
+						unset($result[$shellk]);
+					}
+				}
+			}
+		}
+		sort($result, SORT_NATURAL);
 		return $result;
 	}
 
