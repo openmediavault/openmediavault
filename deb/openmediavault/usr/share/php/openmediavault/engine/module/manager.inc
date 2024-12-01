@@ -116,9 +116,8 @@ class Manager {
 		$jsonFile->open("r", LOCK_SH);
 		$modules = array_unique($jsonFile->read());
 		$jsonFile->close();
-		natsort($modules);
-		// Re-index array.
-		return array_values($modules);
+		sort($modules, SORT_NATURAL);
+		return $modules;
 	}
 
 	/**
