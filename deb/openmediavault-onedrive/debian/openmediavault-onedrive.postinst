@@ -89,8 +89,8 @@ case "$1" in
 			rm -rf /etc/systemd/system/onedrive.service.d/
 		fi
 		if dpkg --compare-versions "$2" lt-nl "7.1.4"; then
-		  # Stop and disable the service previously installed by the plugin
-		  # itself.
+			# Stop and disable the service previously installed by the plugin
+			# itself.
 			deb-systemd-invoke stop onedrive || :
 			deb-systemd-helper disable onedrive || :
 			systemctl --system daemon-reload || true
