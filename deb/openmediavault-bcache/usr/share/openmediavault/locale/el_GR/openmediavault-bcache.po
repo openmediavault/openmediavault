@@ -133,6 +133,9 @@ msgid ""
 "It is therefore possible that the file system is not immediately available "
 "for mounting."
 msgstr ""
+"Η δημιουργία ενός συστήματος αρχείων σε συσκευή Bcache παίρνει κάποιο χρόνο."
+" Συνεπώς ενδέχεται το σύστημα αρχείων να μην είναι άμεσα διαθέσιμο για "
+"προσάρτηση."
 
 msgid "Recovery Actions"
 msgstr "Δράσεις Ανάκτησης"
@@ -148,9 +151,10 @@ msgstr "Επιλογή συσκευής ..."
 
 msgid "Select the device that will be formatted as Bcache backing device."
 msgstr ""
+"Επιλογή συσκευής που θα διαμορφωθεί ως συσκευή υποστήριξης της Bcache."
 
 msgid "Select the device that will be formatted as Bcache cache device."
-msgstr ""
+msgstr "Επιλογή συσκευής που θα διαμορφωθεί ως συσκευή cache της Bcache."
 
 msgid "Select the device that will be used as cache device."
 msgstr "Επιλογή συσκευής που θα χρησιμοποιηθεί ως συσκευή cache."
