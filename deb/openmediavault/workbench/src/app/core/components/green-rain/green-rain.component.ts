@@ -87,13 +87,8 @@ export class GreenRainComponent implements OnInit, OnDestroy {
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    if (this.prefersReducedMotion) {
-      return;
-    }
-    if (this.initialDelayComplete) {
-      this.stop();
-      this.init();
-      this.start(200);
+    if (!this.prefersReducedMotion && this.initialDelayComplete) {
+      this.restart(200);
     }
   }
 
@@ -149,6 +144,12 @@ export class GreenRainComponent implements OnInit, OnDestroy {
     if (this.timerSubscription) {
       this.timerSubscription.unsubscribe();
     }
+  }
+
+  private restart(delay: number = 0) {
+    this.stop();
+    this.init();
+    this.start(delay);
   }
 
   private draw(): void {
