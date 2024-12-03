@@ -6,11 +6,11 @@ Files: *
 Copyright: 2009-2024 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
 
-Files: /workbench/src/assets/images/harddisk_on_circuit.jpg
+Files: /workbench/src/assets/images/login.jpg
 Source: https://www.bing.com/create
 
-Files: /workbench/src/assets/images/server.jpg
+Files: /workbench/src/assets/images/shutdown.jpg
 Source: https://www.bing.com/create
 
-Files: /workbench/src/assets/images/desert_scape.jpg
+Files: /workbench/src/assets/images/standby.jpg
 Source: https://www.bing.com/create
