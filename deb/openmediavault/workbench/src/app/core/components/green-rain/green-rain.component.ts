@@ -85,6 +85,13 @@ export class GreenRainComponent implements OnInit, OnDestroy {
     this.prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   }
 
+  @HostListener('click', ['$event'])
+  onClick() {
+    if (!this.prefersReducedMotion && this.initialDelayComplete) {
+      this.restart(this.delay);
+    }
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize() {
     if (!this.prefersReducedMotion && this.initialDelayComplete) {
