@@ -1,3 +1,10 @@
+openmediavault (7.4.15-1) stable; urgency=low
+
+  * Issue #1865: Remove support for WPA3 authentication for wireless
+    connections. netplan does not support that in Debian 12.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 05 Dec 2024 19:28:18 +0100
+
 openmediavault (7.4.15-2) stable; urgency=low
 
   * Several improvements.
