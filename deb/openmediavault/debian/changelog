@@ -1,10 +1,4 @@
-openmediavault (7.4.16-1) stable; urgency=low
-
-  *
-
- -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Dec 2024 15:57:11 +0100
-
-openmediavault (7.4.15-1) stable; urgency=low
+openmediavault (7.4.15-2) stable; urgency=low
 
   * Several improvements.
 
