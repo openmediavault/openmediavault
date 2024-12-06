@@ -47,6 +47,7 @@
               "src/favicon.ico",
               "src/favicon.svg",
               "src/favicon_180x180.png",
+              "src/manifest.webmanifest",
               "src/assets",
               {
                 "glob": "mdi.svg",
@@ -71,6 +72,8 @@
             "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json",
             "namedChunks": true
           },
           "configurations": {
