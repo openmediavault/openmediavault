@@ -465,8 +465,8 @@ finish:
 	 *   \em password The plain password to use.
 	 *   \em email The users email address.
 	 *   \em comment Any text string. This field is optional.
-	 *   \em disallowusermod Set to FALSE to disallow the user to modify their
-	 *     account.
+	 *   \em disallowusermod Set to TRUE to disallow the user from modifying
+	 *     their account from within the web interface.
 	 *   \em sshpubkeys The users SSH public keys.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
