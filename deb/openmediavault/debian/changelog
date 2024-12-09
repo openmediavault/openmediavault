@@ -1,3 +1,9 @@
+openmediavault (7.4.16-1) stable; urgency=low
+
+  * Several improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Dec 2024 19:55:12 +0100
+
 openmediavault (7.4.15-1) stable; urgency=low
 
   * Issue #1865: Remove support for WPA3 authentication for wireless
