@@ -36,6 +36,7 @@ import { HttpErrorInterceptorService } from '~/app/shared/services/http-error-in
 import { TitleService } from '~/app/shared/services/title.service';
 import { SharedModule } from '~/app/shared/shared.module';
 import { TranslocoRootModule } from '~/app/transloco-root.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [AppComponent],
@@ -51,6 +52,10 @@ import { TranslocoRootModule } from '~/app/transloco-root.module';
     }),
     TranslocoRootModule,
     MaterialModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: true,
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
     AppRoutingModule
   ],
   providers: [
