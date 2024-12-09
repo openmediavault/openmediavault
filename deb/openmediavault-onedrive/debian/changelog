@@ -1,5 +1,6 @@
-openmediavault-onedrive (7.1.4-1) stable; urgency=low
+openmediavault-onedrive (7.1.4-2) stable; urgency=low
 
+  * Several improvements.
   * Remove package owned onedrive systemd unit file.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 01 Dec 2024 10:07:47 +0100

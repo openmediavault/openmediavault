@@ -1,5 +1,6 @@
-openmediavault-k8s (7.4.2-1) stable; urgency=low
+openmediavault-k8s (7.4.2-2) stable; urgency=low
 
+  * Several improvements.
   * Use K3S v1.31.2+k3s1 by default.
     Existing installations won't be upgraded automatically. To force
     an upgrade, create the file `/var/lib/openmediavault/upgrade_k3s`
