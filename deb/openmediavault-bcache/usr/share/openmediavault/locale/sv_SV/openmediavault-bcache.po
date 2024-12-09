@@ -22,44 +22,48 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "5 Minutes"
-msgstr ""
+msgstr "5 minuter"
 
 msgid ""
 "A sequential IO will bypass the cache once it passes this threshold. "
 "(default:4.0M, max:3.9G)"
 msgstr ""
+"En sekventiell IO kommer att kringgå cachen när den passerar denna tröskel. "
+"(standard: 4,0 M, max: 3,9 G)"
 
 msgid ""
 "Allow bcache go around the cache when there's read / write congestion. "
 "(default:true)"
 msgstr ""
+"Tillåt bcache att kringgå cachen när det finns läs-/skrivstockningar. "
+"(standard: true)"
 
 msgid "Backing Devices"
-msgstr ""
+msgstr "Uppbackningsenheter"
 
 msgid "Bcache"
-msgstr ""
+msgstr "Bcache"
 
 msgid "Bcache Device"
-msgstr ""
+msgstr "Bcache-enhet"
 
 msgid "Cache Device"
-msgstr ""
+msgstr "Cache-enhet"
 
 msgid "Cache Devices"
-msgstr ""
+msgstr "Cache-enheter"
 
 msgid "Cache Mode"
-msgstr ""
+msgstr "Cacheläge"
 
 msgid "Capacity"
 msgstr "Kapacitet"
 
 msgid "Clean"
-msgstr ""
+msgstr "Städa"
 
 msgid "Clear total statistics"
-msgstr ""
+msgstr "Rensa totalstatistik"
 
 msgid "Configuration"
 msgstr "Konfiguration"
@@ -74,13 +78,13 @@ msgid "Create"
 msgstr "Skapa"
 
 msgid "Day"
-msgstr ""
+msgstr "Dag"
 
 msgid "Device"
 msgstr "Enhet"
 
 msgid "Dirty"
-msgstr ""
+msgstr "Smutsig"
 
 msgid "Dirty Data"
 msgstr ""
@@ -89,7 +93,7 @@ msgid "Docs"
 msgstr ""
 
 msgid "Hour"
-msgstr ""
+msgstr "Timme"
 
 msgid ""
 "If nonzero, bcache tries to keep around this percentage of the cache dirty "
@@ -98,25 +102,25 @@ msgid ""
 msgstr ""
 
 msgid "Inconsistent"
-msgstr ""
+msgstr "Inkonsekvent"
 
 msgid "Metadata"
-msgstr ""
+msgstr "Metadata"
 
 msgid "Missing"
-msgstr ""
+msgstr "Saknad"
 
 msgid "Missing Cache"
-msgstr ""
+msgstr "Saknad cache"
 
 msgid "Mounted"
-msgstr ""
+msgstr "Monterad"
 
 msgid "Name"
 msgstr "Namn"
 
 msgid "No Cache"
-msgstr ""
+msgstr "Ingen cache"
 
 msgid "Online"
 msgstr ""
@@ -126,36 +130,39 @@ msgid ""
 "It is therefore possible that the file system is not immediately available "
 "for mounting."
 msgstr ""
+"Observera att det kan ta längre tid att skapa ett filsystem på en Bcache-"
+"enhet. Det är därför möjligt att filsystemet inte är omedelbart tillgängligt"
+" för montering."
 
 msgid "Recovery Actions"
-msgstr ""
+msgstr "Återställningsåtgärder"
 
 msgid "Register"
-msgstr ""
+msgstr "Registrera"
 
 msgid "Select a cache device ..."
-msgstr ""
+msgstr "Välj en cache-enhet ..."
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Välj en enhet ..."
 
 msgid "Select the device that will be formatted as Bcache backing device."
-msgstr ""
+msgstr "Välj den enhet som ska formateras som Bcache-uppbackningsenhet."
 
 msgid "Select the device that will be formatted as Bcache cache device."
-msgstr ""
+msgstr "Välj den enhet som ska formateras som Bcache-cache-enhet."
 
 msgid "Select the device that will be used as cache device."
-msgstr ""
+msgstr "Välj den enhet som ska användas som cache-enhet."
 
 msgid "Sequential Cutoff"
-msgstr ""
+msgstr "Sekventiell avskärning"
 
 msgid "Show details"
 msgstr "Visa detaljer"
 
 msgid "Start without cache"
-msgstr ""
+msgstr "Starta utan cache"
 
 msgid "State"
 msgstr "Tillstånd"
@@ -167,51 +174,53 @@ msgid "Superblock"
 msgstr ""
 
 msgid "The default is 2000 us (2 milliseconds)"
-msgstr ""
+msgstr "Standard är 2000 us (2 millisekunder)"
 
 msgid "The default is 20000 us (20 milliseconds)"
-msgstr ""
+msgstr "Standard är 20 000 us (20 millisekunder)"
 
 msgid "Total"
-msgstr ""
+msgstr "Totalt"
 
 msgid "Unit"
-msgstr ""
+msgstr "Enhet"
 
 msgid "Unregister"
-msgstr ""
+msgstr "Avregistrera"
 
 msgid "Unregistered"
-msgstr ""
+msgstr "Oregistrerad"
 
 msgid "Unused"
-msgstr ""
+msgstr "Oanvänd"
 
 msgid "Updated backing device '{{ devicefile }}'."
-msgstr ""
+msgstr "Uppdaterad uppbackningsenhet '{{ devicefile }}'."
 
 msgid "Updated cache device '{{ devicefile }}'."
-msgstr ""
+msgstr "Uppdaterad cache-enhet '{{ devicefile }}'."
 
 msgid ""
 "When dirty data is written to the cache and it previously did not contain "
 "any, waits some number of seconds before initiating writeback. (default:30)"
 msgstr ""
+"När smutsiga data skrivs till cachen och den tidigare inte innehöll någon, "
+"väntar ett antal sekunder innan återskrivning påbörjas. (standard:30)"
 
 msgid "Writeback Delay"
-msgstr ""
+msgstr "Återskrivningsfördröjning"
 
 msgid "Writeback Percent"
-msgstr ""
+msgstr "Återskrivningsprocent"
 
 msgid "none"
-msgstr ""
+msgstr "ingen"
 
 msgid "writearound"
-msgstr ""
+msgstr "omskrivning"
 
 msgid "writeback"
-msgstr ""
+msgstr "återskrivning"
 
 msgid "writethrough"
-msgstr ""
+msgstr "genomskrivning"
