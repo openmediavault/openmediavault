@@ -157,13 +157,6 @@ class PluginMgmt extends \OMV\Rpc\ServiceAbstract {
 					$bgOutputFilename))) {
 				throw new \OMV\ExecException($cmd, $output, $exitStatus);
 			}
-
-			// Wait until the omv-engined daemon is running again. This is
-			// automatically restarted by most plugin packages using the
-			// Dpkg trigger `restart-engined`.
-			$sc = new \OMV\System\SystemCtl("openmediavault-engined.service");
-			$sc->waitUntilActive(10);
-
 			return $output;
 		});
 	}
@@ -256,13 +249,6 @@ class PluginMgmt extends \OMV\Rpc\ServiceAbstract {
 					$bgOutputFilename))) {
 				throw new \OMV\ExecException($cmd, $output, $exitStatus);
 			}
-
-			// Wait until the omv-engined daemon is running again. This is
-			// automatically restarted by most plugin packages using the
-			// Dpkg trigger `restart-engined`.
-			$sc = new \OMV\System\SystemCtl("openmediavault-engined.service");
-			$sc->waitUntilActive(10);
-
 			return $output;
 		});
 	}
