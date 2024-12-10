@@ -3,7 +3,7 @@
 {%- set script_prefix = salt['pillar.get']('default:OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_PREFIX', 'clamdscan-') -%}
 {%- set separator = ' ' -%}
 {{ pillar['headers']['multiline'] -}}
-SHELL=/bin/sh
+SHELL=/usr/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 # m h dom mon dow user    command
 {%- for job in jobs | selectattr('enable') %}

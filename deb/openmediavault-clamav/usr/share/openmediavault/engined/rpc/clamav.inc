@@ -287,14 +287,15 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 				\OMV\Environment::get("OMV_CRONSCRIPTS_DIR"),
 				sprintf("clamdscan-%s", $params['uuid']));
 			$cmd = new \OMV\System\Process("sudo", $cmdArgs);
-			$cmd->setEnv("SHELL", "/bin/sh");
+			$cmd->setEnv("SHELL", "/usr/bin/dash");
 			$cmd->setRedirect2to1();
 			$cmdLine = $cmd->getCommandLine();
 			// Execute the command.
 			$exitStatus = $this->exec($cmdLine, $output, $bgOutputFilename);
 			// Check the exit status.
-			if (0 !== $exitStatus)
+			if (0 !== $exitStatus) {
 				throw new \OMV\ExecException($cmdLine, $output, $exitStatus);
+			}
 			return $output;
 		});
 	}

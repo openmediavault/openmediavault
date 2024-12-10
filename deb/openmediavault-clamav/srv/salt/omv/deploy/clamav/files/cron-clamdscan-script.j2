@@ -2,7 +2,7 @@
 {%- set script_prefix = salt['pillar.get']('default:OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_PREFIX', 'clamdscan-') -%}
 {%- set cmd_args = salt['pillar.get']('default:OMV_CLAMAV_CLAMDSCAN_CMDARGS', '--fdpass --stdout') -%}
 {%- set runfile = '/run' | path_join(script_prefix ~ job.uuid) -%}
-#!/bin/sh
+#!/usr/bin/env dash
 {{ pillar['headers']['multiline'] -}}
 . /usr/share/openmediavault/scripts/helper-functions
 cleanup() {

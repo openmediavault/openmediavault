@@ -10,7 +10,7 @@ ExecStartPre=-/sbin/sysctl fs.inotify.max_user_watches=524288
 ExecStart=/usr/sbin/clamonacc --fdpass --foreground=true ${CLAMONACC_OPTIONS}
 Restart=on-failure
 RestartSec=5s
-StandardOutput=syslog
+StandardOutput=journal
 
 [Install]
 WantedBy=multi-user.target

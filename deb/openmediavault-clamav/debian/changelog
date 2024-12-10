@@ -1,3 +1,10 @@
+openmediavault-clamav (7.0.2-1) stable; urgency=low
+
+  * Update locale files.
+  * Several improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 10 Dec 2024 12:05:40 +0100
+
 openmediavault-clamav (7.0.1-1) stable; urgency=low
 
   * Issue #1811: Display clamav diagnostic information in the
