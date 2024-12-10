@@ -63,6 +63,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "7.0.2"; then
 		  omv_module_set_dirty usbbackup
 		fi
+		if dpkg --compare-versions "$2" lt-nl "7.1.1"; then
+		  omv_module_set_dirty usbbackup
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

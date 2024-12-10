@@ -3,7 +3,7 @@
 {%- set lock_file = '/run' | path_join(cron_scripts_prefix ~ share.uuid ~ '.lock') -%}
 {%- set sf_path = salt['omv_conf.get_sharedfolder_path'](share.sharedfolderref) -%}
 {%- set sf_recycle_repository = sf_path | path_join(recycle_repository) -%}
-#!/bin/sh
+#!/usr/bin/env dash
 {{ pillar['headers']['multiline'] -}}
 . /usr/share/openmediavault/scripts/helper-functions
 

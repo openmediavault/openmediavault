@@ -20,7 +20,7 @@
     {%- set destmntdir = salt['omv_conf.get_sharedfolder_mount_path'](job.dest.sharedfolderref) -%}
   {%- endif -%}
 {%- endif -%}
-#!/bin/sh
+#!/usr/bin/env dash
 {{ pillar['headers']['multiline'] -}}
 . /usr/share/openmediavault/scripts/helper-functions
 cleanup() {

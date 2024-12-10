@@ -562,6 +562,13 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "7.4.13"; then
 			omv_module_set_dirty apticron
 		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.16"; then
+			omv_module_set_dirty iptables
+			omv_module_set_dirty postfix
+			omv_module_set_dirty rsync
+			omv_module_set_dirty samba
+			omv_module_set_dirty smartmontools
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the

@@ -31,7 +31,7 @@ configure_postfix_cron:
   file.managed:
     - name: "/etc/cron.hourly/openmediavault-flushmailq"
     - contents: |
-        #!/bin/sh
+        #!/usr/bin/env dash
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
         # Flush the mail queue every hour if email notification is disabled.

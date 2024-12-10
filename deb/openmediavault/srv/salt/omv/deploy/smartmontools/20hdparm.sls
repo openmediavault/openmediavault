@@ -50,7 +50,7 @@ smartmontools_hdparm_enable_smart_{{ device.uuid }}:
   file.managed:
     - name: "/etc/smartmontools/hdparm.d/openmediavault-enable-smart-{{ device.uuid }}"
     - contents: |
-        #!/bin/sh
+        #!/usr/bin/env dash
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
         smartctl -s on {{ device.devicefile }}
@@ -69,7 +69,7 @@ smartmontools_hdparm_non_smart_settings_{{ device.uuid }}:
   file.managed:
     - name: "/etc/smartmontools/hdparm.d/openmediavault-{{ device.uuid }}"
     - contents: |
-        #!/bin/sh
+        #!/usr/bin/env dash
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
         if [ -b '{{ device.devicefile }}' ]; then
