@@ -6,7 +6,7 @@ data:
   config:
     hints:
       - type: info
-        text: _("If a device is not listed here, it is usually because the device already contains a file system or partitions. With the former, the file system can be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, please <a href='#/storage/disks'>wipe<a> the device as partitions are not supported.")
+        text: _("If a device is not listed here, it is usually because the device already contains a file system or partitions. With the former, the file system can be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, please <a href='#/storage/disks'>wipe</a> the device as partitions are not supported.")
         dismissible: true
         stateId: 199e8c7a-ee3b-11ed-9fb1-2750842abc68
     fields:
