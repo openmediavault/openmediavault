@@ -56,7 +56,8 @@ export class GeneralNetworkFormPageComponent extends BaseFormPageComponent {
         ),
         value: '',
         validators: {
-          patternType: 'domainName'
+          patternType: 'domainName',
+          required: true
         }
       }
     ],
