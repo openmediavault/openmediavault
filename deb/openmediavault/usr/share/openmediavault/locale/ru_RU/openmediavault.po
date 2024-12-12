@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-11 20:01+0100\n"
+"POT-Creation-Date: 2024-12-12 10:32+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -1523,8 +1523,8 @@ msgstr "Если выбрано «Разрешены гости» и учетн�
 msgid ""
 "If a device is not listed here, it is usually because the device already "
 "contains a file system or partitions. With the former, the file system can "
-"be mounted <a href='#/storage/filesystems/mount'>here<a>. For the latter, "
-"please <a href='#/storage/disks'>wipe<a> the device as partitions are not "
+"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
+"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
 "supported."
 msgstr ""
 
@@ -3234,6 +3234,13 @@ msgid ""
 "rsync://[USER@]HOST[:PORT]/DEST."
 msgstr "Целевой удаленный сервер, например [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST."
 
+msgid ""
+"The domain name of the system. If your system is part of a private network "
+"without a registered domain, use <em>internal</em> as suggested by <a "
+"href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
+"target=\"_blank\">ICANN</a>."
+msgstr ""
+
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "Поле должно содержать только * или список значений, разделенных запятыми."
 
@@ -3974,9 +3981,6 @@ msgid "WOL"
 msgstr "WOL"
 
 msgid "WPA2-Personal"
-msgstr ""
-
-msgid "WPA3-Personal"
 msgstr ""
 
 msgid "WWN"
