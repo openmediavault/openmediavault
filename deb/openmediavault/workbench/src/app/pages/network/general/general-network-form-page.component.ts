@@ -51,6 +51,9 @@ export class GeneralNetworkFormPageComponent extends BaseFormPageComponent {
         type: 'textInput',
         name: 'domainname',
         label: gettext('Domain name'),
+        hint: gettext(
+          'The domain name of the system. If your system is part of a private network without a registered domain, use <em>internal</em> as suggested by <a href="https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01" target="_blank">ICANN</a>.'
+        ),
         value: '',
         validators: {
           patternType: 'domainName'
