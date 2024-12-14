@@ -96,7 +96,7 @@ export class UserFormPageComponent extends BaseFormPageComponent {
         name: 'shell',
         label: gettext('Shell'),
         placeholder: gettext('Select a shell ...'),
-        value: '/bin/sh',
+        value: '/usr/bin/sh',
         store: {
           proxy: {
             service: 'System',
