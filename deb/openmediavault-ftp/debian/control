@@ -12,4 +12,4 @@ Architecture: all
 Depends: openmediavault (>= 7.1), proftpd-basic, proftpd-mod-vroot
 Priority: optional
 Description: openmediavault FTP-Server plugin
- ProFTPD is a powerful modular FTP/SFTP/FTPS server.
+ ProFTPD is a powerful modular FTP/FTPS server.
