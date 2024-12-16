@@ -90,7 +90,7 @@ msgid "Dirty Data"
 msgstr ""
 
 msgid "Docs"
-msgstr ""
+msgstr "Dokument"
 
 msgid "Hour"
 msgstr "Timme"

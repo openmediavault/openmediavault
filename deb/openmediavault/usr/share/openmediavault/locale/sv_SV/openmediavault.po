@@ -1457,7 +1457,7 @@ msgid "Hosts deny"
 msgstr "Nekade värdar"
 
 msgid "Hot-Pluggable"
-msgstr ""
+msgstr "Hot-pluggbara"
 
 msgid "Hour"
 msgstr "Timme"
@@ -3228,7 +3228,7 @@ msgid ""
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
 "target=\"_blank\">ICANN</a>."
-msgstr ""
+msgstr "Domännamnet för systemet. Om ditt system är en del av ett privat nätverk utan en registrerad domän, använd <em>intern</em> enligt <a href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" target=\"_blank\">ICANN</a>s förslag."
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "Fältet ska bara innehålla * eller en kommaseparerad lista över värden."
