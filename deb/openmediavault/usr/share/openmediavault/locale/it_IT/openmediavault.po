@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-12 10:32+0100\n"
+"POT-Creation-Date: 2024-12-18 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2013-2019,2021\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -337,6 +337,18 @@ msgstr ""
 
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
+msgstr ""
+
+msgid "Allow following symbolic links in the home directories."
+msgstr ""
+
+msgid "Allow following symbolic links in the share."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the home directories."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the share."
 msgstr ""
 
 msgid ""
@@ -1286,6 +1298,9 @@ msgstr "Versione del firmware"
 
 msgid "Flags"
 msgstr "Flag"
+
+msgid "Follow symlinks"
+msgstr ""
 
 msgid "Force SSL/TLS"
 msgstr "Forza SSL/TLS"
@@ -4003,6 +4018,9 @@ msgstr "Sahara Occidentale"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
+
+msgid "Wide links"
+msgstr ""
 
 msgid "Wipe"
 msgstr "Ripristino dati di fabbrica"

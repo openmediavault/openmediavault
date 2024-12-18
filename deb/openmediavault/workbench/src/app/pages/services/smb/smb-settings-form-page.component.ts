@@ -117,6 +117,34 @@ export class SmbSettingsFormPageComponent extends BaseFormPageComponent {
         value: false
       },
       {
+        type: 'checkbox',
+        name: 'homesfollowsymlinks',
+        label: gettext('Follow symlinks'),
+        hint: gettext('Allow following symbolic links in the home directories.'),
+        value: true,
+        modifiers: [
+          {
+            type: 'checked',
+            opposite: false,
+            constraint: { operator: 'truthy', arg0: { prop: 'homeswidelinks' } }
+          }
+        ]
+      },
+      {
+        type: 'checkbox',
+        name: 'homeswidelinks',
+        label: gettext('Wide links'),
+        hint: gettext('Allow symbolic links to areas that are outside the home directories.'),
+        value: false,
+        modifiers: [
+          {
+            type: 'unchecked',
+            opposite: false,
+            constraint: { operator: 'falsy', arg0: { prop: 'homesfollowsymlinks' } }
+          }
+        ]
+      },
+      {
         type: 'textarea',
         name: 'homesextraoptions',
         label: gettext('Extra options'),

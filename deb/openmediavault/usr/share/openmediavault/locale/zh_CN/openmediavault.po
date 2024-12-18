@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-12 10:32+0100\n"
+"POT-Creation-Date: 2024-12-18 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2024\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -339,6 +339,18 @@ msgstr "所有软件包将升级，您确定要继续？"
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr "允许客户端尝试在共享上存储 OS / 2 风格的扩展属性。"
+
+msgid "Allow following symbolic links in the home directories."
+msgstr "允許在家目錄中使用以下符號連結。"
+
+msgid "Allow following symbolic links in the share."
+msgstr "允許在分享中使用以下符號連結。"
+
+msgid "Allow symbolic links to areas that are outside the home directories."
+msgstr "允許符號連結到家目錄以外的區域。"
+
+msgid "Allow symbolic links to areas that are outside the share."
+msgstr "允許符號連結到分享以外的區域。"
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
@@ -1287,6 +1299,9 @@ msgstr "固件版本"
 
 msgid "Flags"
 msgstr "标签"
+
+msgid "Follow symlinks"
+msgstr "跟隨符號連結"
 
 msgid "Force SSL/TLS"
 msgstr "强制使用 SSL/TLS"
@@ -4004,6 +4019,9 @@ msgstr "西撒哈拉"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
+
+msgid "Wide links"
+msgstr "寬連結"
 
 msgid "Wipe"
 msgstr "擦除"

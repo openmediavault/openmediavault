@@ -68,6 +68,14 @@
 			"type": "string",
 			"default": ""
 		},
+		"homesfollowsymlinks": {
+			"type": "boolean",
+			"default": true
+		},
+		"homeswidelinks": {
+			"type": "boolean",
+			"default": false
+		},
 		"netbios": {
 			"type": "boolean",
 			"default": false
@@ -165,6 +173,14 @@
 								"default": false
 							},
 							"transportencryption": {
+								"type": "boolean",
+								"default": false
+							},
+							"followsymlinks": {
+								"type": "boolean",
+								"default": true
+							},
+							"widelinks": {
 								"type": "boolean",
 								"default": false
 							},

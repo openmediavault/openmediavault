@@ -19,7 +19,6 @@
 {%- set directory_mask = salt['pillar.get']('default:OMV_SAMBA_SHARE_DIRECTORYMASK', '0775') -%}
 {%- set force_directory_mode = salt['pillar.get']('default:OMV_SAMBA_SHARE_FORCEDIRECTORYMODE', '0775') -%}
 {%- set hide_special_files = salt['pillar.get']('default:OMV_SAMBA_SHARE_HIDESPECIALFILES', 'yes') -%}
-{%- set follow_symlinks = salt['pillar.get']('default:OMV_SAMBA_SHARE_FOLLOWSYMLINKS', 'yes') -%}
 {%- set fruit_locking = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_LOCKING', 'none') -%}
 {%- set fruit_encoding = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_ENCODING', 'private') -%}
 {%- set fruit_metadata = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_METADATA', 'stream') -%}
@@ -108,7 +107,8 @@ force create mode = {{ force_create_mode }}
 directory mask = {{ directory_mask }}
 force directory mode = {{ force_directory_mode }}
 hide special files = {{ hide_special_files }}
-follow symlinks = {{ follow_symlinks }}
+follow symlinks = {{ share.followsymlinks | to_bool | yesno }}
+wide links = {{ share.widelinks | to_bool | yesno }}
 {%- if share.hostsallow | length > 0 %}
 hosts allow = {{ share.hostsallow }}
 {%- endif %}

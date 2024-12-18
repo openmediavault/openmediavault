@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-12 10:32+0100\n"
+"POT-Creation-Date: 2024-12-18 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2024\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -346,6 +346,18 @@ msgstr "Alle Pakete werden aktualisiert. Möchten Sie fortfahren?"
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr "Erlaube den Clients, erweitere OS/2 Datei-Attribute bei einer Freigabe zu speichern."
+
+msgid "Allow following symbolic links in the home directories."
+msgstr "Erlaube das folgen von symbolischen Links in den Home-Verzeichnissen."
+
+msgid "Allow following symbolic links in the share."
+msgstr "Erlaube das folgen von symbolischen Links in der Freigabe."
+
+msgid "Allow symbolic links to areas that are outside the home directories."
+msgstr "Erlaube symbolische Links zu Bereichen, die außerhalb der Heimatverzeichnisse liegen."
+
+msgid "Allow symbolic links to areas that are outside the share."
+msgstr "Erlaube symbolische Links zu Bereichen, die außerhalb der Freigabe liegen."
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
@@ -1294,6 +1306,9 @@ msgstr "Firmware Version"
 
 msgid "Flags"
 msgstr "Flags"
+
+msgid "Follow symlinks"
+msgstr "Symlinks folgen"
 
 msgid "Force SSL/TLS"
 msgstr "Erzwinge SSL/TLS"
@@ -4011,6 +4026,9 @@ msgstr "Westsahara"
 
 msgid "Wi-Fi"
 msgstr "Funknetzwerk"
+
+msgid "Wide links"
+msgstr "Weite Links"
 
 msgid "Wipe"
 msgstr "Löschen"

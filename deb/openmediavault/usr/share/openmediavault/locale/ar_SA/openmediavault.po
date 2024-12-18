@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-12 10:32+0100\n"
+"POT-Creation-Date: 2024-12-18 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -334,6 +334,18 @@ msgstr "سيتم ترقية جميع الحزم. هل تريد المتابعة�
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr "اسمح للمستخدمين بمحاولة تخزين سمات نظام OS/2 الموسعة على مجلد الذي تتم مشاركته."
+
+msgid "Allow following symbolic links in the home directories."
+msgstr ""
+
+msgid "Allow following symbolic links in the share."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the home directories."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the share."
+msgstr ""
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
@@ -1282,6 +1294,9 @@ msgstr "إصدار البرنامج الثابت"
 
 msgid "Flags"
 msgstr "الأعلام"
+
+msgid "Follow symlinks"
+msgstr ""
 
 msgid "Force SSL/TLS"
 msgstr "فرض SSL / TLS"
@@ -3999,6 +4014,9 @@ msgstr "الصحراء الغربية"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
+
+msgid "Wide links"
+msgstr ""
 
 msgid "Wipe"
 msgstr "مسح"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-12 10:32+0100\n"
+"POT-Creation-Date: 2024-12-18 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Tim <co_ti@hotmail.com>, 2013-2014,2016-2017,2022\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -339,6 +339,18 @@ msgstr "Alle pakketten worden bijgewerkt. Wilt u doorgaan?"
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr "Clients toestaan om OS/2 state extended attributes op een share op te slaan "
+
+msgid "Allow following symbolic links in the home directories."
+msgstr ""
+
+msgid "Allow following symbolic links in the share."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the home directories."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the share."
+msgstr ""
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
@@ -1287,6 +1299,9 @@ msgstr "Firmware versie"
 
 msgid "Flags"
 msgstr "Vlaggen"
+
+msgid "Follow symlinks"
+msgstr ""
 
 msgid "Force SSL/TLS"
 msgstr "Forceer SSL/TLS"
@@ -4004,6 +4019,9 @@ msgstr "Westelijke Sahara"
 
 msgid "Wi-Fi"
 msgstr "Wifi"
+
+msgid "Wide links"
+msgstr ""
 
 msgid "Wipe"
 msgstr "Wissen"

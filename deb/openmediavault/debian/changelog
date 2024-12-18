@@ -1,6 +1,8 @@
 openmediavault (7.4.17-1) stable; urgency=low
 
   * Fix a translation problem with several form fields.
+  * Add the `Follow symlinks` and `Wide links` options to SMB shares
+    and home directories.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 16 Dec 2024 09:36:39 +0100
 
