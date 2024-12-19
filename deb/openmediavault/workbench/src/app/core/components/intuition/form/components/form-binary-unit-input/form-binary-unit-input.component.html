@@ -4,7 +4,7 @@
        matPrefix>
     <mat-icon [svgIcon]="config.icon"></mat-icon>&nbsp;
   </div>
-  <mat-label>{{ config.label }}</mat-label>
+  <mat-label>{{ config.label | transloco }}</mat-label>
   <input matInput
          type="text"
          [formControlName]="config.name"
@@ -36,6 +36,6 @@
     </span>
   </mat-error>
   <mat-hint *ngIf="config.hint?.length > 0"
-            [innerHTML]="config.hint | sanitizeHtml">
+            [innerHTML]="config.hint | transloco | sanitizeHtml">
   </mat-hint>
 </mat-form-field>

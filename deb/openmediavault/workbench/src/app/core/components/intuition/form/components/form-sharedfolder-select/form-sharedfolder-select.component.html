@@ -1,6 +1,6 @@
 <mat-form-field class="omv-flex-1"
                 [formGroup]="formGroup">
-  <mat-label>{{ config.label }}</mat-label>
+  <mat-label>{{ config.label | transloco }}</mat-label>
   <mat-select [formControlName]="config.name"
               [placeholder]="config.placeholder | transloco"
               [required]="config.validators?.required">
@@ -21,6 +21,6 @@
     </span>
   </mat-error>
   <mat-hint *ngIf="config.hint?.length > 0"
-            [innerHTML]="config.hint | sanitizeHtml">
+            [innerHTML]="config.hint | transloco | sanitizeHtml">
   </mat-hint>
 </mat-form-field>
