@@ -1,3 +1,9 @@
+openmediavault (7.4.18-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 19 Dec 2024 09:56:14 +0100
+
 openmediavault (7.4.17-1) stable; urgency=low
 
   * Fix a translation problem with several form fields.
