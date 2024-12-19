@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-12 10:32+0100\n"
+"POT-Creation-Date: 2024-12-18 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2024\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -336,6 +336,18 @@ msgstr "Alla paket kommer att uppgraderas. Vill du fortsätta?"
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr "Tillåt klienter att försöka lagra OS/2-tillståndsutökade attribut på en delad resurs."
+
+msgid "Allow following symbolic links in the home directories."
+msgstr ""
+
+msgid "Allow following symbolic links in the share."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the home directories."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the share."
+msgstr ""
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
@@ -1005,7 +1017,7 @@ msgstr "Vill du verkligen kopiera behörigheterna från den delade mappen?"
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
 "join(\", \") }}</strong>?"
-msgstr "Vill du verkligen ta bort det eller de valda objekten <strong>{{ items | join(\", \") }}</strong>?"
+msgstr "Vill du verkligen ta bort de valda objekten <strong>{{ items | join(\", \") }}</strong>?"
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Vill du verkligen ta bort valda objekt?"
@@ -1285,6 +1297,9 @@ msgstr "Firmware-version"
 msgid "Flags"
 msgstr "Flaggor"
 
+msgid "Follow symlinks"
+msgstr ""
+
 msgid "Force SSL/TLS"
 msgstr "Tvinga SSL/TLS"
 
@@ -1515,7 +1530,7 @@ msgid ""
 "be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
 "please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
 "supported."
-msgstr ""
+msgstr "Om en enhet inte är listad här beror det vanligtvis på att enheten redan innehåller ett filsystem eller partitioner. Med den förstnämnda kan filsystemet monteras <a href='#/storage/filesystems/mount'>här</a>. För det sistnämnda, <a href='#/storage/disks'>rensa</a> enheten eftersom partitioner inte stöds."
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -4001,6 +4016,9 @@ msgstr "Västsahara"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
+
+msgid "Wide links"
+msgstr ""
 
 msgid "Wipe"
 msgstr "Rensa"

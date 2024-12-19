@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-12 10:32+0100\n"
+"POT-Creation-Date: 2024-12-18 20:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -324,6 +324,18 @@ msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr ""
 
 msgid "Allow clients to attempt to store OS/2 state extended attributes on a share."
+msgstr ""
+
+msgid "Allow following symbolic links in the home directories."
+msgstr ""
+
+msgid "Allow following symbolic links in the share."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the home directories."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the share."
 msgstr ""
 
 msgid "Allow this server to advertise itself as a time server to Windows clients."
@@ -1239,6 +1251,9 @@ msgid "Firmware version"
 msgstr ""
 
 msgid "Flags"
+msgstr ""
+
+msgid "Follow symlinks"
 msgstr ""
 
 msgid "Force SSL/TLS"
@@ -3771,6 +3786,9 @@ msgid "Western Sahara"
 msgstr ""
 
 msgid "Wi-Fi"
+msgstr ""
+
+msgid "Wide links"
 msgstr ""
 
 msgid "Wipe"

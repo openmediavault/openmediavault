@@ -6,7 +6,6 @@
 {%- set force_directory_mode = salt['pillar.get']('default:OMV_SAMBA_HOMES_FORCEDIRECTORYMODE', '0700') -%}
 {%- set valid_users = salt['pillar.get']('default:OMV_SAMBA_HOMES_VALIDUSERS', '%S') -%}
 {%- set hide_special_files = salt['pillar.get']('default:OMV_SAMBA_HOMES_HIDESPECIALFILES', 'yes') -%}
-{%- set follow_symlinks = salt['pillar.get']('default:OMV_SAMBA_HOMES_FOLLOWSYMLINKS', 'yes') -%}
 {%- set vfs_objects = salt['pillar.get']('default:OMV_SAMBA_HOMES_VFSOBJECTS', '') -%}
 {%- set recycle_repository = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_REPOSITORY', '.recycle/%U') -%}
 {%- set recycle_keeptree = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_KEEPTREE', 'yes') -%}
@@ -33,7 +32,8 @@ directory mask = {{ directory_mask }}
 force directory mode = {{ force_directory_mode }}
 valid users = {{ valid_users }}
 hide special files = {{ hide_special_files }}
-follow symlinks = {{ follow_symlinks }}
+follow symlinks = {{ config.homesfollowsymlinks | to_bool | yesno }}
+wide links = {{ config.homeswidelinks | to_bool | yesno }}
 {%- set vfs_objects = vfs_objects.split(' ') %}
 {%- if config.homesrecyclebin | to_bool %}
 {%- set _ = vfs_objects.append('recycle') %}

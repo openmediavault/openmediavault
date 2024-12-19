@@ -16,7 +16,6 @@
 {%- set printing = salt['pillar.get']('default:OMV_SAMBA_PRINTING', 'bsd') -%}
 {%- set printcap_name = salt['pillar.get']('default:OMV_SAMBA_PRINTCAPNAME', '/dev/null') -%}
 {%- set unix_extensions = salt['pillar.get']('default:OMV_SAMBA_UNIXEXTENSIONS', 'yes') -%}
-{%- set wide_links = salt['pillar.get']('default:OMV_SAMBA_WIDELINKS', 'no') -%}
 {%- set create_mask = salt['pillar.get']('default:OMV_SAMBA_CREATEMASK', '0777') -%}
 {%- set directory_mask = salt['pillar.get']('default:OMV_SAMBA_DIRECTORYMASK', '0777') -%}
 {%- set map_to_guest = salt['pillar.get']('default:OMV_SAMBA_MAPTOGUEST', 'Bad User') -%}
@@ -50,7 +49,9 @@ disable spoolss = {{ disable_spoolss }}
 printing = {{ printing }}
 printcap name = {{ printcap_name }}
 unix extensions = {{ unix_extensions }}
-wide links = {{ wide_links }}
+{%- if config.shares.share | selectattr('widelinks') | list | length > 0 or config.homeswidelinks %}
+allow insecure wide links = true
+{%- endif %}
 create mask = {{ create_mask }}
 directory mask = {{ directory_mask }}
 {%- if config.shares.share | rejectattr('guest', 'equalto', 'no') | list | length > 0 %}

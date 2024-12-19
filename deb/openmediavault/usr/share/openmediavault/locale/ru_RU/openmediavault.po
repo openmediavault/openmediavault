@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-12 10:32+0100\n"
+"POT-Creation-Date: 2024-12-18 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -347,6 +347,18 @@ msgstr "Все пакеты будут обновлены. Вы хотите п�
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr "Позволять клиентам пытаться сохранять в общей папке расширенные атрибуты файлов OS/2."
+
+msgid "Allow following symbolic links in the home directories."
+msgstr ""
+
+msgid "Allow following symbolic links in the share."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the home directories."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the share."
+msgstr ""
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
@@ -1295,6 +1307,9 @@ msgstr "Версия прошивки"
 
 msgid "Flags"
 msgstr "Флаг"
+
+msgid "Follow symlinks"
+msgstr ""
 
 msgid "Force SSL/TLS"
 msgstr "Принудительно SSL/TLS"
@@ -4012,6 +4027,9 @@ msgstr "Западная Сахара"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
+
+msgid "Wide links"
+msgstr ""
 
 msgid "Wipe"
 msgstr "Очистить"

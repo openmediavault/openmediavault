@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-12 10:32+0100\n"
+"POT-Creation-Date: 2024-12-18 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Sári Gábor <sari.gabor@gmail.com>, 2018,2022,2024\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2024\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -339,6 +339,18 @@ msgstr "Minden csomag frissítésre kerül. Szeretné folytatni?"
 msgid ""
 "Allow clients to attempt to store OS/2 state extended attributes on a share."
 msgstr "Az engedélyezett kliensek megpróbálják tárolni az OS/2 állapotú kiterjesztett attribútumokat a megosztásban."
+
+msgid "Allow following symbolic links in the home directories."
+msgstr ""
+
+msgid "Allow following symbolic links in the share."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the home directories."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the share."
+msgstr ""
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
@@ -1237,7 +1249,7 @@ msgid "Fiji"
 msgstr "Fidzsi"
 
 msgid "File System Usage"
-msgstr ""
+msgstr "Fájlrendszer használata"
 
 msgid "File Systems"
 msgstr "Fájlrendszerek"
@@ -1287,6 +1299,9 @@ msgstr "Firmware verzió"
 
 msgid "Flags"
 msgstr "Zászlók"
+
+msgid "Follow symlinks"
+msgstr ""
 
 msgid "Force SSL/TLS"
 msgstr "SSL/TLS kényszerítés"
@@ -1518,7 +1533,7 @@ msgid ""
 "be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
 "please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
 "supported."
-msgstr ""
+msgstr "Ha egy eszköz nem szerepel itt, az általában azért van, mert az eszköz már tartalmaz fájlrendszert vagy partíciókat. Az előbbiek esetében a fájlrendszer <a href='#/storage/filesystems/mount'>itt csatolható</a>. Utóbbi esetében <a href='#/storage/disks'>törölje</a> az eszközt, mivel a partíciók nem támogatottak."
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -2833,7 +2848,7 @@ msgid "Send command output via email"
 msgstr "Parancs kimenet elküldése e-mailben"
 
 msgid "Send notifications about pending package updates."
-msgstr ""
+msgstr "Értesítések küldése a függőben lévő csomagfrissítésekről."
 
 msgid "Sender email"
 msgstr "Feladó e-mail"
@@ -3231,7 +3246,7 @@ msgid ""
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
 "target=\"_blank\">ICANN</a>."
-msgstr ""
+msgstr "A rendszer tartományneve. Ha a rendszer regisztrált domain nélküli magánhálózat része, használja az <a href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" target=\"_blank\">ICANN</a> által javasolt <em>internal</em> nevet."
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "A mezőnek csak * karaktert vagy vesszővel elválasztott értékeket szabad tartalmazni."
@@ -3716,7 +3731,7 @@ msgid "Update Management"
 msgstr "Frissítéskezelő"
 
 msgid "Update management"
-msgstr ""
+msgstr "Frissítéskezelés"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "A célállomás ACL-ek frissítése, hogy megegyezzen a forrás ACL-ekkel."
@@ -4004,6 +4019,9 @@ msgstr "Nyugat-Szahara"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
+
+msgid "Wide links"
+msgstr ""
 
 msgid "Wipe"
 msgstr "Törlés"

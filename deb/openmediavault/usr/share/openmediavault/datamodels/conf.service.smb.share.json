@@ -86,6 +86,14 @@
 			"type": "boolean",
 			"default": false
 		},
+		"followsymlinks": {
+			"type": "boolean",
+			"default": true
+		},
+		"widelinks": {
+			"type": "boolean",
+			"default": false
+		},
 		"extraoptions": {
 			"type": "string"
 		}

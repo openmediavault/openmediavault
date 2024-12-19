@@ -460,6 +460,8 @@
 			<homesrecyclebin>0</homesrecyclebin>
 			<homesinheritacls>0</homesinheritacls>
 			<homesinheritpermissions>0</homesinheritpermissions>
+			<homesfollowsymlinks>0|1</homesfollowsymlinks>
+			<homeswidelinks>0|1</homeswidelinks>
 			<homesextraoptions></homesextraoptions>
 			<netbios>0</netbios>
 			<minprotocol>SMB2</minprotocol>
@@ -486,6 +488,8 @@
 					<hostsdeny></hostsdeny>
 					<audit>0|1</audit>
 					<transportencryption>0|1</transportencryption>
+					<followsymlinks>0|1</followsymlinks>
+					<widelinks>0|1</widelinks>
 					<extraoptions></extraoptions>
 				</share>
 				-->

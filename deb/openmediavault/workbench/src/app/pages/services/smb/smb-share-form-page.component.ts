@@ -250,6 +250,34 @@ export class SmbShareFormPageComponent extends BaseFormPageComponent {
       },
       {
         type: 'checkbox',
+        name: 'followsymlinks',
+        label: gettext('Follow symlinks'),
+        hint: gettext('Allow following symbolic links in the share.'),
+        value: true,
+        modifiers: [
+          {
+            type: 'checked',
+            opposite: false,
+            constraint: { operator: 'truthy', arg0: { prop: 'widelinks' } }
+          }
+        ]
+      },
+      {
+        type: 'checkbox',
+        name: 'widelinks',
+        label: gettext('Wide links'),
+        hint: gettext('Allow symbolic links to areas that are outside the share.'),
+        value: false,
+        modifiers: [
+          {
+            type: 'unchecked',
+            opposite: false,
+            constraint: { operator: 'falsy', arg0: { prop: 'followsymlinks' } }
+          }
+        ]
+      },
+      {
+        type: 'checkbox',
         name: 'easupport',
         label: gettext('Extended attributes'),
         hint: gettext(
