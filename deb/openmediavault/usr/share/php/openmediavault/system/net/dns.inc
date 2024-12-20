@@ -51,7 +51,7 @@ class Dns {
 	/**
 	 * Get the system's fully qualified domain name (FQDN), e.g.
 	 * 'leto.example.com'. It is usually the hostname followed by
-         * the DNS domain name (the part after the first dot).
+     * the DNS domain name (the part after the first dot).
 	 * @return string The system's fully qualified domain name.
 	 */
 	final public static function getFqdn() {
