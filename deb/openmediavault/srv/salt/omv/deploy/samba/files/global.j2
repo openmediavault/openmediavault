@@ -50,7 +50,7 @@ printing = {{ printing }}
 printcap name = {{ printcap_name }}
 unix extensions = {{ unix_extensions }}
 {%- if config.shares.share | selectattr('widelinks') | list | length > 0 or config.homeswidelinks %}
-allow insecure wide links = true
+allow insecure wide links = yes
 {%- endif %}
 create mask = {{ create_mask }}
 directory mask = {{ directory_mask }}
