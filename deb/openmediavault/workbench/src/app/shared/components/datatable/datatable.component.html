@@ -164,7 +164,7 @@
              let-row="row">
   <omv-progress-bar [value]="value"
                     [text]="column?.cellTemplateConfig?.text | template:row"
-                    [warningThreshold]="column?.cellTemplateConfig?.warningThreshold"
+                    [warningThreshold]="column?.cellTemplateConfig?.warningThreshold | template:row"
                     [decimalPlaces]="column?.cellTemplateConfig?.decimalPlaces">
   </omv-progress-bar>
 </ng-template>
