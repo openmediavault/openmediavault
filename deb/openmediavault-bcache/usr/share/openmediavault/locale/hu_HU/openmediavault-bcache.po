@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "5 Minutes"
-msgstr ""
+msgstr "5 perc"
 
 msgid ""
 "A sequential IO will bypass the cache once it passes this threshold. "
@@ -38,7 +38,7 @@ msgid "Backing Devices"
 msgstr ""
 
 msgid "Bcache"
-msgstr ""
+msgstr "Bcache"
 
 msgid "Bcache Device"
 msgstr ""
@@ -56,13 +56,13 @@ msgid "Capacity"
 msgstr "Kapacitás"
 
 msgid "Clean"
-msgstr ""
+msgstr "Tiszta"
 
 msgid "Clear total statistics"
-msgstr ""
+msgstr "Teljes statisztika törlése"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Beállítás"
 
 msgid "Congest Tracking"
 msgstr ""
@@ -80,13 +80,13 @@ msgid "Device"
 msgstr "Eszköz"
 
 msgid "Dirty"
-msgstr ""
+msgstr "Piszkos"
 
 msgid "Dirty Data"
-msgstr ""
+msgstr "Piszkos adatok"
 
 msgid "Docs"
-msgstr ""
+msgstr "Dokumentáció"
 
 msgid "Hour"
 msgstr "Óra"
@@ -98,13 +98,13 @@ msgid ""
 msgstr ""
 
 msgid "Inconsistent"
-msgstr ""
+msgstr "Inkonzisztens"
 
 msgid "Metadata"
-msgstr ""
+msgstr "Metaadat"
 
 msgid "Missing"
-msgstr ""
+msgstr "Hiányzik"
 
 msgid "Missing Cache"
 msgstr ""
@@ -173,19 +173,19 @@ msgid "The default is 20000 us (20 milliseconds)"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Teljes"
 
 msgid "Unit"
-msgstr ""
+msgstr "Egység"
 
 msgid "Unregister"
 msgstr ""
 
 msgid "Unregistered"
-msgstr ""
+msgstr "Regisztrálatlan"
 
 msgid "Unused"
-msgstr ""
+msgstr "Használaton kívül"
 
 msgid "Updated backing device '{{ devicefile }}'."
 msgstr ""

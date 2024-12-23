@@ -341,7 +341,7 @@ msgid ""
 msgstr "Az engedélyezett kliensek megpróbálják tárolni az OS/2 állapotú kiterjesztett attribútumokat a megosztásban."
 
 msgid "Allow following symbolic links in the home directories."
-msgstr ""
+msgstr "Szimbolikus linkek követése a saját könyvtárakban."
 
 msgid "Allow following symbolic links in the share."
 msgstr ""
