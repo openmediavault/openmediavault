@@ -145,7 +145,8 @@ export class UpdateDatatablePageComponent {
               },
               request: {
                 service: 'Apt',
-                method: 'upgrade'
+                method: 'upgrade',
+                maxRetries: 5
               }
             },
             successUrl: '/reload'

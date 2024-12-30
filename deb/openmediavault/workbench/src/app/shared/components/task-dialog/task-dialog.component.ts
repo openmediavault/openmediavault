@@ -104,7 +104,10 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
       .requestTaskOutput(
         this.config.request.service,
         this.config.request.method,
-        this.config.request.params
+        this.config.request.params,
+        undefined,
+        undefined,
+        this.config.request.maxRetries
       )
       .pipe(
         tap((res: RpcBgResponse) => (this.filename = res.filename)),
