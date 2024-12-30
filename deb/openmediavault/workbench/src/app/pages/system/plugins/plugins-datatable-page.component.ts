@@ -168,7 +168,8 @@ export class PluginsDatatablePageComponent implements OnInit {
                 method: 'install',
                 params: {
                   packages: ['{{ _selected[0].name }}']
-                }
+                },
+                maxRetries: 5
               }
             },
             successUrl: '/reload'

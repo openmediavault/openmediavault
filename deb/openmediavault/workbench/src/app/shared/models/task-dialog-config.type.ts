@@ -66,6 +66,8 @@ export type TaskDialogConfig = {
     method: string;
     // Additional parameters.
     params?: Record<string, any>;
+    // Number of retry attempts before failing.
+    maxRetries?: number;
   };
 };
 
