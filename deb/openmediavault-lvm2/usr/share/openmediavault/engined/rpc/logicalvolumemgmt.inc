@@ -606,6 +606,9 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			$lv = new \OMV\System\Storage\Lvm\LogicalVolume($lvv);
 			if (FALSE === $lv->exists())
 				continue;
+			$used = false;
+			if ($this->checkForMountedFilesystem($lv->getPreferredDeviceFile()))
+				$used = true;
 			$result[] = [
 				"devicefile" => $lv->getPreferredDeviceFile(),
 				"uuid" => $lv->getUuid(),
@@ -614,10 +617,72 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 				"vgname" => $lv->getVGName(),
 				"attributes" => $lv->getAttributes(),
 				"vgattributes" => $lv->getVGAttributes(),
-				"isavailable" => $lv->IsMediaAvailable()
+				"isavailable" => $lv->IsMediaAvailable(),
+				"_used" => $used
 			];
 		}
 		return $result;
+	}
+
+	/**
+	 * Checks /proc/mount for a mount point for a given LVM logical volume path.
+	 *
+	 * @param string $lvPath The full path of the LVM logical volume (can be /dev/dm-0, /dev/vgname/lvname, or /dev/mapper/vgname-lvname).
+	 * @return boolean true if a mount point is found
+	 */
+	private function checkForMountedFilesystem($lvPath) {
+		// Read the /proc/mounts file
+		$mounts = file('/proc/mounts', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+		// Get all paths for the logical volume
+		$paths = $this->getLvmPaths($lvPath);
+		// Iterate through each line of /proc/mounts
+		foreach ($mounts as $line) {
+			$columns = preg_split('/\s+/', $line);
+			if (count($columns) < 1) {
+				continue;
+			}
+			$device = $columns[0];
+			// Check if the device is in the array of volumes
+			if (in_array($device, $paths, true)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+        /**
+         * Get paths for logical volume
+         * @param string $path any logical volume path
+         * @return An array containing three logical volume paths.
+         */
+	private function getLvmPaths($path) {
+		$cmdArgs = [];
+                $cmdArgs[] = "--noheadings";
+                $cmdArgs[] = "--output TYPE,NAME,PKNAME";
+		$cmdArgs[] = escapeshellarg($path);
+		$cmd = new \OMV\System\Process("lsblk", $cmdArgs);
+		$cmd->setRedirect2toFile("/dev/null");
+		$cmd->setQuiet(true);
+		$cmd->execute($output);
+		if (!$output) return [];
+		$parts = preg_split('/\s+/', trim($output[0]));
+		if (count($parts) < 2) return [];
+		$type = $parts[0];
+		$name = $parts[1];
+		if ($type !== 'lvm') return [];
+		if (preg_match('/^([^-]+)-([^-]+)$/', $name, $matches)) {
+			$vg = $matches[1];
+			$lv = $matches[2];
+			$mapPath = sprintf("/dev/mapper/%s-%s", $vg, $lv);
+			$dmPath = readlink($mapPath);
+			$dmNumber = preg_replace('/^.*dm-(\d+).*$/', '$1', $dmPath);
+			return [
+				sprintf("/dev/%s/%s", $vg, $lv),
+				$mapPath,
+				sprintf("/dev/dm-%d", $dmNumber)
+			];
+		}
+		return [];
 	}
 
 	/**
