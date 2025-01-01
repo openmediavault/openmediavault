@@ -76,7 +76,7 @@ export class NotificationSettingsFormPageComponent extends BaseFormPageComponent
             ['none', gettext('None')],
             ['ssl', gettext('SSL/TLS')],
             ['starttls', gettext('STARTTLS')],
-            ['auto', gettext('Auto')]
+            ['auto', gettext('Automatic')]
           ]
         }
       },

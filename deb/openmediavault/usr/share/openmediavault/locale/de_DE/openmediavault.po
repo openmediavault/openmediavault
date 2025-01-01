@@ -11,7 +11,7 @@
 # Pascal Tippelt <pascal.tippelt@go-eight.de>, 2021
 # Stephan Steiner, 2014
 # Thomas Melka, 2022
-# Volker Theile <votdev@gmx.de>, 2021-2024
+# Volker Theile <votdev@gmx.de>, 2021-2025
 # Volker Theile <votdev@gmx.de>, 2013-2021
 # Volker Theile <votdev@gmx.de>, 2012
 # Volker Theile <votdev@gmx.de>, 2012
@@ -21,9 +21,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-18 20:41+0100\n"
+"POT-Creation-Date: 2025-01-01 14:14+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2024\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2025\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -472,10 +472,10 @@ msgstr "Authentifizierung"
 msgid "Authentication required"
 msgstr "Authentifizierung erforderlich"
 
-msgid "Auto"
-msgstr "Auto"
+msgid "Automatic"
+msgstr "Automatisch"
 
-msgid "Auto logout"
+msgid "Automatic logout"
 msgstr "Automatische Abmeldung"
 
 msgid "Available"

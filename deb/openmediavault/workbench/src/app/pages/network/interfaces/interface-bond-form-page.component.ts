@@ -412,7 +412,7 @@ export class InterfaceBondFormPageComponent extends BaseFormPageComponent {
           data: [
             ['manual', gettext('Disabled')],
             ['dhcp', gettext('DHCP')],
-            ['auto', gettext('Auto')],
+            ['auto', gettext('Automatic')],
             ['static', gettext('Static')]
           ]
         },
