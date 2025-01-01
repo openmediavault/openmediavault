@@ -572,7 +572,7 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "7.4.17"; then
 			omv_module_set_dirty samba
 		fi
-		if dpkg --compare-versions "$2" lt-nl "7.4.18"; then
+		if dpkg --compare-versions "$2" lt-nl "7.5.0"; then
 			omv_module_set_dirty systemd-networkd
 		fi
 

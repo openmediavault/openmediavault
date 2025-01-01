@@ -403,29 +403,34 @@
 			"comment": {
 			   "type": "string",
 			   "required": true
-		   },
-		   "altmacaddress": {
-			   "type": "string",
-			   "pattern": "^([a-fA-F0-9]{2}(:[a-fA-F0-9]{2}){5})?$",
-			   "required": true
-		   },
-		   "wpassid": {
-			   "type": "string",
-			   "required": true
-		   },
-		   "wpapsk": {
-			   "type": "string",
-			   "required": true
-		   },
-		   "keymanagement": {
-			   "type": "string",
-			   "enum": [ "psk", "sae" ],
-			   "required": true
-		   },
-		   "hidden": {
-			   "type": "boolean",
-			   "required": true
-		   }
+			},
+			"altmacaddress": {
+				"type": "string",
+				"pattern": "^([a-fA-F0-9]{2}(:[a-fA-F0-9]{2}){5})?$",
+				"required": true
+			},
+			"band": {
+				"type": "string",
+				"enum": [ "auto", "2.4GHz", "5GHz" ],
+				"required": true
+			},
+			"wpassid": {
+				"type": "string",
+				"required": true
+			},
+			"wpapsk": {
+				"type": "string",
+				"required": true
+			},
+			"keymanagement": {
+				"type": "string",
+				"enum": [ "psk", "sae" ],
+				"required": true
+			},
+			"hidden": {
+				"type": "boolean",
+				"required": true
+			}
 		}
 	}
 },{

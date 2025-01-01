@@ -165,6 +165,7 @@
 					<vlanid>1-4095</vlanid>
 					<vlanrawdevice>xxx</vlanrawdevice>
 					# - wifi
+					<band>auto|2.4GHz|5GHz</band>
 					<wpassid>xxx</wpassid>
 					<wpapsk>xxx</wpapsk>
 					<keymanagement>psk|sae</keymanagement>

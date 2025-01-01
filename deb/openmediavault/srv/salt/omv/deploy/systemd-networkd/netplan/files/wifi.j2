@@ -81,3 +81,6 @@ network:
             key-management: {{ interface.keymanagement }}
             password: "{{ interface.wpapsk }}"
           hidden: {{ interface.hidden | to_bool | yesno('true,false') }}
+{%- if interface.band != 'auto' %}
+          band: {{ interface.band }}
+{%- endif %}

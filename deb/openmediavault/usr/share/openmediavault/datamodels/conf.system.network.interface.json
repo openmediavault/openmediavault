@@ -137,6 +137,11 @@
 		"vlanrawdevice": {
 			"type": "string"
 		},
+		"band": {
+			"type": "string",
+			"enum": [ "auto", "2.4GHz", "5GHz" ],
+			"default": "auto"
+		},
 		"wpassid": {
 			"type": "string"
 		},
