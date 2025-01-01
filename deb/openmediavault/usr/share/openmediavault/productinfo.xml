@@ -3,7 +3,7 @@
 	<name>openmediavault</name>
 	<versionname>Sandworm</versionname>
 	<url>https://www.openmediavault.org</url>
-	<copyright>Copyright (C) 2009-2024 by Volker Theile. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2009-2025 by Volker Theile. All rights reserved.</copyright>
 	<packagename>openmediavault</packagename>
 	<distribution>sandworm</distribution>
 </productinfo>
