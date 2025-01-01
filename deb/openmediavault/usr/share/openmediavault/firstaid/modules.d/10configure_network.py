@@ -404,6 +404,24 @@ class Module(openmediavault.firstaid.IModule):
                         width=32,
                     )
             rpc_params["wpassid"] = wpa_ssid
+            # Get the frequency band.
+            choices = [
+                ["auto", "Automatic"],
+                ["2.4GHz", "B/G (2.4 GHz)"],
+                ["5GHz", "A (5 GHz)"],
+            ]
+            (code, tag) = d.menu(
+                "Please select the frequency band.",
+                backtitle=self.description,
+                clear=True,
+                height=11,
+                width=65,
+                menu_height=8,
+                choices=choices,
+            )
+            if code in (d.CANCEL, d.ESC):
+                return 0
+            rpc_params["band"] = tag
             # Get the key management mode.
             choices = [
                 ["psk", "WPA2-Personal"],

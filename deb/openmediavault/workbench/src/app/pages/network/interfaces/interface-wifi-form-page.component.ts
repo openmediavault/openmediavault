@@ -98,6 +98,22 @@ export class InterfaceWifiFormPageComponent extends BaseFormPageComponent {
       },
       {
         type: 'select',
+        name: 'band',
+        label: gettext('Band'),
+        value: 'auto',
+        store: {
+          data: [
+            ['auto', gettext('Automatic')],
+            ['2.4GHz', gettext('B/G (2.4 GHz)')],
+            ['5GHz', gettext('A (5 GHz)')]
+          ]
+        },
+        validators: {
+          required: true
+        }
+      },
+      {
+        type: 'select',
         name: 'keymanagement',
         label: gettext('Security'),
         value: 'psk',

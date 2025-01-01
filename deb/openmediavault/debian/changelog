@@ -1,7 +1,8 @@
-openmediavault (7.4.18-1) stable; urgency=low
+openmediavault (7.5.0-1) stable; urgency=low
 
   * Try to prevent connection errors when installing plugins
     or package updates via UI.
+  * Issue #1875: Add option to select the Wi-Fi frequency band.
   * Issue #1878: Fix netplan config parsing errors.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Dec 2024 13:10:58 +0100
