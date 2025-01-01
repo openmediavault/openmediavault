@@ -38,8 +38,8 @@ network:
 {%- endif %}
 {%- endif %}
 {%- if interface.method6 == "static" and interface.gateway6 | is_ipv6 %}
-      - to: ::/0
-        via: {{ interface.gateway6 }}
+      - to: "::/0"
+        via: "{{ interface.gateway6 }}"
 {%- if interface.routemetric6 != 1 %}
         metric: {{ interface.routemetric6 }}
 {%- endif %}

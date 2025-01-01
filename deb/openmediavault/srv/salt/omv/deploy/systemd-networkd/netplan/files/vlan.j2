@@ -3,7 +3,7 @@ network:
   vlans:
     {{ interface.devicename }}:
 {%- if interface.altmacaddress | length > 0 %}
-      macaddress: {{ interface.altmacaddress }}
+      macaddress: "{{ interface.altmacaddress }}"
 {%- endif %}
 {%- if interface.method == "static" or interface.method6 == "static" %}
       addresses:
@@ -24,8 +24,8 @@ network:
 {%- endif %}
 {%- endif %}
 {%- if interface.method6 == "static" and interface.gateway6 | is_ipv6 %}
-      - to: ::/0
-        via: {{ interface.gateway6 }}
+      - to: "::/0"
+        via: "{{ interface.gateway6 }}"
 {%- if interface.routemetric6 != 1 %}
         metric: {{ interface.routemetric6 }}
 {%- endif %}
