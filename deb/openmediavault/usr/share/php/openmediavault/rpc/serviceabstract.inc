@@ -31,7 +31,7 @@ abstract class ServiceAbstract {
 	use \OMV\DebugTrait;
 
 	private $registeredMethods = [];
-	private $registeredMethodSequences = [];
+	private $registeredMutatingMethods = [];
 
 	/**
 	 * Get the name of the RPC service.
@@ -65,32 +65,33 @@ abstract class ServiceAbstract {
 	}
 
 	/**
-	 * Create a combined RPC service method call sequence of the original
-	 * method and the passed method. The passed method is called with the
-	 * parameters of the original RPC service method.
-	 * @param service The name of the RPC service.
-	 * @param method The name of the original RPC service method.
-	 * @param method2 The name of the method that should be called after
-	 *   the original RPC service method.
+	 * Registers a method that can mutate the return of another RPC.
+	 * The passed method is called with the parameters of the origin RPC,
+	 * it's context and the result of it. The function header should look
+	 * like:
+	 * ```
+	 * myMutatingMethod($params, $context, $result)
+	 * ```
+	 * @param method The name of the method that should be called after
+	 *   the origin RPC service method.
+	 * @param origService The name of the origin RPC service.
+	 * @param origMethod The name of the origin RPC method.
 	 * @return TRUE on success, otherwise an exception is thrown.
 	 */
-	final protected function registerMethodSequence($service, $method,
-	  $method2) {
+	final protected function registerMutatingMethod($method, $origService, $origMethod) {
 		$rpcServiceMngr = &\OMV\Rpc\ServiceManager::getInstance();
 		if (FALSE === ($rpcService = $rpcServiceMngr->getService(
-		  $service))) {
+		  $origService))) {
 			throw new Exception("RPC service '%s' not found.",
-			  $service);
+			  $origService);
 		}
-		if (FALSE === $rpcService->hasMethod($method)) {
-			throw new Exception(
-			  "The method '%s' does not exist for RPC service '%s'.",
-			  $method, $service);
-		}
-		$rpcService->registeredMethodSequences[$method] = [
+		// Do not test whether the method of the specified service exists.
+		// It is possible that it is not yet registered at this time.
+		$rpcService->registeredMutatingMethods[$origMethod][] = [
 			"service" => $this->getName(),
-			"method" => $method2
+			"method" => $method
 		];
+		return TRUE;
 	}
 
 	/**
@@ -107,9 +108,10 @@ abstract class ServiceAbstract {
 	 * @param name The name of the method.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
+	 * @param args Additional arguments passed to the method.
 	 * @return Returns the return value of the RPC service method.
 	 */
-	final public function callMethod($name, $params, $context) {
+	final public function callMethod($name, $params, $context, ...$args) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Do not check if the method is registered, but ensure that the
 		// class implements the given method. Thus we can call other public
@@ -120,14 +122,18 @@ abstract class ServiceAbstract {
 				$name, $this->getName());
 		}
 		$result = call_user_func_array(array($this, $name), [
-			$params, $context
+			$params, $context, ...$args
 		]);
 		// Process registered RPC service method hooks.
-		if (array_key_exists($name, $this->registeredMethodSequences)) {
-			foreach ($this->registeredMethodSequences[$name] as
+		if (array_key_exists($name, $this->registeredMutatingMethods)) {
+			foreach ($this->registeredMutatingMethods[$name] as
 					$hookk => $hookv) {
-				\OMV\Rpc\Rpc::call($hookv['service'], $hookv['method'],
-					$params, $context);
+				$rpcServiceMngr = &\OMV\Rpc\ServiceManager::getInstance();
+				if (FALSE !== ($rpcService = $rpcServiceMngr->getService(
+						$hookv['service']))) {
+					$result = $rpcService->callMethod($hookv['method'],
+						$params, $context, $result);
+				}
 			}
 		}
 		return $result;
