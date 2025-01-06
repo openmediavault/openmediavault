@@ -53,6 +53,10 @@ case "$1" in
 		# Install the recipes from the GitHub repository.
 		########################################################################
 		if [ ! -d "/var/lib/openmediavault/k8s-recipes" ]; then
+			# Import the configured proxy settings, but do not output anything to stdout.
+			. /etc/profile 1>/dev/null
+
+			echo "Cloning recipes repository ..."
 			mkdir -p "/var/lib/openmediavault/k8s-recipes"
 			git clone https://github.com/openmediavault/openmediavault-k8s-recipes.git "/var/lib/openmediavault/k8s-recipes"
 		fi
