@@ -152,7 +152,7 @@
 							},
 							"easupport": {
 								"type": "boolean",
-								"default": false
+								"default": true
 							},
 							"storedosattributes": {
 								"type": "boolean",
