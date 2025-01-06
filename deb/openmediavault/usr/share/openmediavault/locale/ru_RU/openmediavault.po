@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-01 14:14+0100\n"
+"POT-Creation-Date: 2025-01-06 10:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -242,6 +242,9 @@ msgstr ""
 msgid "9 months"
 msgstr "9 месяц"
 
+msgid "A (5 GHz)"
+msgstr ""
+
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -345,8 +348,9 @@ msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr "Все пакеты будут обновлены. Вы хотите продолжить?"
 
 msgid ""
-"Allow clients to attempt to store OS/2 state extended attributes on a share."
-msgstr "Позволять клиентам пытаться сохранять в общей папке расширенные атрибуты файлов OS/2."
+"Allow clients to attempt to access extended attributes on a share. The "
+"underlying filesystem exposed by the share must support extended attributes."
+msgstr ""
 
 msgid "Allow following symbolic links in the home directories."
 msgstr ""
@@ -485,6 +489,9 @@ msgstr "Доступное"
 msgid "Azerbaijan"
 msgstr "Азербайджан"
 
+msgid "B/G (2.4 GHz)"
+msgstr ""
+
 msgid "Back"
 msgstr "Назад"
 
@@ -499,6 +506,9 @@ msgstr "Багамские острова"
 
 msgid "Bahrain"
 msgstr "Бахрейн"
+
+msgid "Band"
+msgstr ""
 
 msgid "Bangladesh"
 msgstr "Бангладеш"

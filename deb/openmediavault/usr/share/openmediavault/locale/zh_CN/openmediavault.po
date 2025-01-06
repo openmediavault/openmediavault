@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-01 14:14+0100\n"
+"POT-Creation-Date: 2025-01-06 10:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2024\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -234,6 +234,9 @@ msgstr "750 MiB"
 msgid "9 months"
 msgstr "9 月"
 
+msgid "A (5 GHz)"
+msgstr ""
+
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
@@ -337,8 +340,9 @@ msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr "所有软件包将升级，您确定要继续？"
 
 msgid ""
-"Allow clients to attempt to store OS/2 state extended attributes on a share."
-msgstr "允许客户端尝试在共享上存储 OS / 2 风格的扩展属性。"
+"Allow clients to attempt to access extended attributes on a share. The "
+"underlying filesystem exposed by the share must support extended attributes."
+msgstr ""
 
 msgid "Allow following symbolic links in the home directories."
 msgstr "允許在家目錄中使用以下符號連結。"
@@ -466,16 +470,19 @@ msgid "Authentication required"
 msgstr "需要验证"
 
 msgid "Automatic"
-msgstr ""
+msgstr "自動"
 
 msgid "Automatic logout"
-msgstr ""
+msgstr "自動登出"
 
 msgid "Available"
 msgstr "可用"
 
 msgid "Azerbaijan"
 msgstr "阿塞拜疆"
+
+msgid "B/G (2.4 GHz)"
+msgstr ""
 
 msgid "Back"
 msgstr "返回"
@@ -491,6 +498,9 @@ msgstr "巴哈马"
 
 msgid "Bahrain"
 msgstr "巴林"
+
+msgid "Band"
+msgstr ""
 
 msgid "Bangladesh"
 msgstr "孟加拉"
