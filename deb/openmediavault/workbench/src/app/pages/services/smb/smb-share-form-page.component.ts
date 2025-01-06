@@ -281,9 +281,9 @@ export class SmbShareFormPageComponent extends BaseFormPageComponent {
         name: 'easupport',
         label: gettext('Extended attributes'),
         hint: gettext(
-          'Allow clients to attempt to store OS/2 state extended attributes on a share.'
+          'Allow clients to attempt to access extended attributes on a share. The underlying filesystem exposed by the share must support extended attributes.'
         ),
-        value: false
+        value: true
       },
       {
         type: 'checkbox',

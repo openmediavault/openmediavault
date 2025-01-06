@@ -4,6 +4,8 @@ openmediavault (7.5.0-1) stable; urgency=low
     or package updates via UI.
   * Issue #1875: Add option to select the Wi-Fi frequency band.
   * Issue #1878: Fix netplan config parsing errors.
+  * Issue #1883: Modify the hint for the extended attributes
+    setting in the SMB share form. Enable them by default.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Dec 2024 13:10:58 +0100
 

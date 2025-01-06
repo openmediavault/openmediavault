@@ -869,7 +869,7 @@ iSrj/B/KRCZkkrDdYcDAvqRs6dA+ScRZ
           <hidedotfiles>1</hidedotfiles>
           <inheritacls>1</inheritacls>
           <inheritpermissions>0</inheritpermissions>
-          <easupport>0</easupport>
+          <easupport>1</easupport>
           <storedosattributes>0</storedosattributes>
           <hostsallow></hostsallow>
           <hostsdeny></hostsdeny>
