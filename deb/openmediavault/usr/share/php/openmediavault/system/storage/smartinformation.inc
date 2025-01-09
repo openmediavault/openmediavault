@@ -151,9 +151,19 @@ class SmartInformation {
 			$cmdArgs[] = "--log=selftest";
 		}
 		if (!is_null($this->noCheck)) {
-			$cmdArgs[] = sprintf("--nocheck=%s", escapeshellarg(
-				$this->noCheck));
+			$cmdArgs[] = sprintf("--nocheck=%s", escapeshellarg($this->noCheck));
 		}
+
+		// Check if the device is a USB device or a USB-to-SATA bridge
+		$deviceFile = $this->sd->getDeviceFile();
+		if (strpos($deviceFile, 'usb') !== false) {
+			// For Prolific-based USB-to-SATA bridges
+			$cmdArgs[] = '-d usbprolific';
+		} else {
+			// Use 'sat' for other types of USB-to-SATA or SATA devices
+			$cmdArgs[] = '-d sat';
+		}
+
 		if (!empty($this->sd->getSmartDeviceType())) {
 			$cmdArgs[] = sprintf("--device=%s", $this->sd->getSmartDeviceType());
 		}
