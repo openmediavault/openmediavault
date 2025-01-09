@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2013-2024
+# kochin <kochinc@outlook.com>, 2013-2025
 # kochin <kochinc@outlook.com>, 2012-2013
 # 黃柏諺 <s8321414@gmail.com>, 2021-2025
 msgid ""
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-06 10:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2025\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2013-2025\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -231,7 +231,7 @@ msgid "9 months"
 msgstr "9 月"
 
 msgid "A (5 GHz)"
-msgstr ""
+msgstr "A (5 GHz)"
 
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
@@ -338,7 +338,7 @@ msgstr "所有套件都將被升級，您確定要繼續嗎？"
 msgid ""
 "Allow clients to attempt to access extended attributes on a share. The "
 "underlying filesystem exposed by the share must support extended attributes."
-msgstr ""
+msgstr "允許客戶端嘗試存取共享上的擴展屬性。共享所暴露的底層檔案系統必須支援擴展屬性。"
 
 msgid "Allow following symbolic links in the home directories."
 msgstr "允許在家目錄中使用以下符號連結。"
@@ -478,7 +478,7 @@ msgid "Azerbaijan"
 msgstr "阿塞拜疆"
 
 msgid "B/G (2.4 GHz)"
-msgstr ""
+msgstr "B/G (2.4 GHz)"
 
 msgid "Back"
 msgstr "返回"
@@ -496,7 +496,7 @@ msgid "Bahrain"
 msgstr "巴林"
 
 msgid "Band"
-msgstr ""
+msgstr "頻帶"
 
 msgid "Bangladesh"
 msgstr "孟加拉"

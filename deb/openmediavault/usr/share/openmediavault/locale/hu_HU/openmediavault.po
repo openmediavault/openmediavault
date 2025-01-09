@@ -7,7 +7,7 @@
 # Sári Gábor <sari.gabor@gmail.com>, 2017
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2018-2020
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2017
-# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2024
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2025
 # Sári Gábor <sari.gabor@gmail.com>, 2018,2022,2024
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2023
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-06 10:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2024\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2025\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -235,7 +235,7 @@ msgid "9 months"
 msgstr "9 hónap"
 
 msgid "A (5 GHz)"
-msgstr ""
+msgstr "A (5 GHz)"
 
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
@@ -342,7 +342,7 @@ msgstr "Minden csomag frissítésre kerül. Szeretné folytatni?"
 msgid ""
 "Allow clients to attempt to access extended attributes on a share. The "
 "underlying filesystem exposed by the share must support extended attributes."
-msgstr ""
+msgstr "Engedélyezi, hogy az ügyfelek megpróbálkozhassanak hozzáférni egy megosztás kiterjesztett attribútumaihoz. A megosztás által használt fájlrendszernek támogatnia kell a kiterjesztett attribútumokat."
 
 msgid "Allow following symbolic links in the home directories."
 msgstr "Szimbolikus linkek követése a saját könyvtárakban."
@@ -470,10 +470,10 @@ msgid "Authentication required"
 msgstr "Hitelesítés szükséges"
 
 msgid "Automatic"
-msgstr ""
+msgstr "Automatikus"
 
 msgid "Automatic logout"
-msgstr ""
+msgstr "Automatikus kilépés"
 
 msgid "Available"
 msgstr "Elérhető"
@@ -482,7 +482,7 @@ msgid "Azerbaijan"
 msgstr "Azerbajdzsán"
 
 msgid "B/G (2.4 GHz)"
-msgstr ""
+msgstr "B/G (2.4 GHz)"
 
 msgid "Back"
 msgstr "Vissza"
@@ -500,7 +500,7 @@ msgid "Bahrain"
 msgstr "Bahrein "
 
 msgid "Band"
-msgstr ""
+msgstr "Sáv"
 
 msgid "Bangladesh"
 msgstr "Banglades"

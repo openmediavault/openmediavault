@@ -235,7 +235,7 @@ msgid "9 months"
 msgstr "9 月"
 
 msgid "A (5 GHz)"
-msgstr ""
+msgstr "A (5 GHz)"
 
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
@@ -342,7 +342,7 @@ msgstr "所有软件包将升级，您确定要继续？"
 msgid ""
 "Allow clients to attempt to access extended attributes on a share. The "
 "underlying filesystem exposed by the share must support extended attributes."
-msgstr ""
+msgstr "允許客戶端嘗試存取共享上的擴展屬性。共享所暴露的底層檔案系統必須支援擴展屬性。"
 
 msgid "Allow following symbolic links in the home directories."
 msgstr "允許在家目錄中使用以下符號連結。"
@@ -482,7 +482,7 @@ msgid "Azerbaijan"
 msgstr "阿塞拜疆"
 
 msgid "B/G (2.4 GHz)"
-msgstr ""
+msgstr "B/G (2.4 GHz)"
 
 msgid "Back"
 msgstr "返回"
@@ -500,7 +500,7 @@ msgid "Bahrain"
 msgstr "巴林"
 
 msgid "Band"
-msgstr ""
+msgstr "頻帶"
 
 msgid "Bangladesh"
 msgstr "孟加拉"

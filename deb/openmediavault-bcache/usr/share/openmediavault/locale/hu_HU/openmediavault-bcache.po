@@ -28,29 +28,33 @@ msgid ""
 "A sequential IO will bypass the cache once it passes this threshold. "
 "(default:4.0M, max:3.9G)"
 msgstr ""
+"A szekvenciális IO megkerüli a gyorsítótárat, amint átlépi ezt a "
+"küszöbértéket. (alapértelmezett: 4.0M, max: 3.9G)"
 
 msgid ""
 "Allow bcache go around the cache when there's read / write congestion. "
 "(default:true)"
 msgstr ""
+"Engedélyezi, hogy a bcache megkerülje a gyorsítótárat, ha olvasási/írási "
+"torlódás van. (alapértelmezett: igaz)"
 
 msgid "Backing Devices"
-msgstr ""
+msgstr "Háttéreszközök"
 
 msgid "Bcache"
 msgstr "Bcache"
 
 msgid "Bcache Device"
-msgstr ""
+msgstr "Bcache eszköz"
 
 msgid "Cache Device"
-msgstr ""
+msgstr "Gyorsítótáreszköz"
 
 msgid "Cache Devices"
-msgstr ""
+msgstr "Gyorsítótáreszközök"
 
 msgid "Cache Mode"
-msgstr ""
+msgstr "Gyorsítótárazás módja"
 
 msgid "Capacity"
 msgstr "Kapacitás"
@@ -65,10 +69,10 @@ msgid "Configuration"
 msgstr "Beállítás"
 
 msgid "Congest Tracking"
-msgstr ""
+msgstr "Torlódáskövetés"
 
 msgid "Congested Read Threshold (us)"
-msgstr ""
+msgstr "Olvasási torlódásküszöb (µs)"
 
 msgid "Create"
 msgstr "Létrehozás"
@@ -96,6 +100,10 @@ msgid ""
 "by throttling background writeback and using a PD controller to smoothly "
 "adjust the rate. (default:10)"
 msgstr ""
+"Ha nem nulla, a bcache megpróbálja a gyorsítótárnak körülbelül ezt a "
+"százalékát szennyezettként tartani a háttérben történő visszaírás "
+"korlátozásával és a PD-vezérlő használatával, hogy a sebességet simán "
+"beállítsa. (alapértelmezett: 10)"
 
 msgid "Inconsistent"
 msgstr "Inkonzisztens"
@@ -107,55 +115,58 @@ msgid "Missing"
 msgstr "Hiányzik"
 
 msgid "Missing Cache"
-msgstr ""
+msgstr "Hiányzó gyorsítótár"
 
 msgid "Mounted"
-msgstr ""
+msgstr "Csatolva"
 
 msgid "Name"
 msgstr "Név"
 
 msgid "No Cache"
-msgstr ""
+msgstr "Nincs gyorsítótár"
 
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 msgid ""
 "Please note that creating a file system on a Bcache device can take longer. "
 "It is therefore possible that the file system is not immediately available "
 "for mounting."
 msgstr ""
+"Vegye figyelembe, hogy a Bcache eszközön egy fájlrendszer létrehozása "
+"hosszabb időt vehet igénybe. Előfordulhat, hogy a fájlrendszer nem lesz "
+"azonnal elérhető a csatoláshoz."
 
 msgid "Recovery Actions"
-msgstr ""
+msgstr "Helyreállítási művelet"
 
 msgid "Register"
-msgstr ""
+msgstr "Regisztrálás"
 
 msgid "Select a cache device ..."
-msgstr ""
+msgstr "Gyorsítótár eszköz kijelölése…"
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Eszköz kijelölése…"
 
 msgid "Select the device that will be formatted as Bcache backing device."
-msgstr ""
+msgstr "Jelölje ki a formázandó Bcache háttértáreszközt."
 
 msgid "Select the device that will be formatted as Bcache cache device."
-msgstr ""
+msgstr "Jelölje ki a formázandó Bcache gyorsítótáreszközt."
 
 msgid "Select the device that will be used as cache device."
-msgstr ""
+msgstr "Jelölje ki a gyorsítótárként használt eszközt."
 
 msgid "Sequential Cutoff"
-msgstr ""
+msgstr "Szekvenciális lezárás"
 
 msgid "Show details"
 msgstr "Részletek megjelenítése"
 
 msgid "Start without cache"
-msgstr ""
+msgstr "Indulás gyorsítótár nélkül"
 
 msgid "State"
 msgstr "Állapot"
@@ -164,13 +175,13 @@ msgid "Statistics"
 msgstr "Statisztika"
 
 msgid "Superblock"
-msgstr ""
+msgstr "Szuper blokk"
 
 msgid "The default is 2000 us (2 milliseconds)"
-msgstr ""
+msgstr "Az alapértelmezett érték 2000 µs (2 milliszekundum)"
 
 msgid "The default is 20000 us (20 milliseconds)"
-msgstr ""
+msgstr "Az alapértelmezett érték 20000 µs (20 milliszekundum)"
 
 msgid "Total"
 msgstr "Teljes"
@@ -179,7 +190,7 @@ msgid "Unit"
 msgstr "Egység"
 
 msgid "Unregister"
-msgstr ""
+msgstr "Regisztráció törlése"
 
 msgid "Unregistered"
 msgstr "Regisztrálatlan"
@@ -188,30 +199,33 @@ msgid "Unused"
 msgstr "Használaton kívül"
 
 msgid "Updated backing device '{{ devicefile }}'."
-msgstr ""
+msgstr "'{{ devicefile }}' háttéreszköz frissítve."
 
 msgid "Updated cache device '{{ devicefile }}'."
-msgstr ""
+msgstr "'{{ devicefile }}' gyorsítótáreszköz frissítve."
 
 msgid ""
 "When dirty data is written to the cache and it previously did not contain "
 "any, waits some number of seconds before initiating writeback. (default:30)"
 msgstr ""
+"Amikor piszkos adatok íródnak a gyorsítótárba, melyeket az korábban nem "
+"tartalmazott, néhány másodperc várakozás után kezdődik csak a visszaírás. "
+"(alapértelmezett: 30)"
 
 msgid "Writeback Delay"
-msgstr ""
+msgstr "Visszaírási késleltetés"
 
 msgid "Writeback Percent"
-msgstr ""
+msgstr "Visszaírási százalék"
 
 msgid "none"
-msgstr ""
+msgstr "nincs"
 
 msgid "writearound"
-msgstr ""
+msgstr "körbeírás"
 
 msgid "writeback"
-msgstr ""
+msgstr "visszaírás"
 
 msgid "writethrough"
-msgstr ""
+msgstr "átírás"
