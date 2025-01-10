@@ -232,8 +232,10 @@ class SmartInformation {
 			//   4 Start_Stop_Count        -O--CK   100   100   000    -    795
 			//   5 Reallocated_Sector_Ct   PO--CK   252   252   010    -    0
 			//   7 Seek_Error_Rate         -OSR-K   252   252   051    -    0
+			//  12 Power_Cycle_Count       ------+  100   100   000    -    25
 			// 187 Reported_Uncorrect      -O--CK   100   100   ---    -    0
-			$regex = '/^\s*(\d+)\s+(\S+)\s+([POSRCK-]+)\s+(\d+)\s+(\d+)\s+'.
+			// 194 Temperature_Celsius     ------+  036   036   000    -    36 (Min/Max 19/45)
+			$regex = '/^\s*(\d+)\s+(\S+)\s+([POSRCK-]+[+]?)\s+(\d+)\s+(\d+)\s+'.
 				'(\d+|---)\s+(\S+)\s+(.+)$/i';
 			if (1 == preg_match($regex, $cmdOutputv, $matches)) {
 				$id = intval($matches[1]);

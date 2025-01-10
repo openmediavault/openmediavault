@@ -1,6 +1,8 @@
 openmediavault (7.5.1-1) stable; urgency=low
 
-  *
+  * Issue #1890: Improve parsing of the SMART attribute flags
+    field. This will fix the display of the temperature for
+    some devices.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 10 Jan 2025 14:20:09 +0100
 
