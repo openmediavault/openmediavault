@@ -3,6 +3,7 @@
 Code contributions must satisfy the following conditions. Contributions that do not fulfill these conditions will not be accepted.
 
 - Before jumping into a PR, be sure to search existing PRs or issues for an open or closed item that relates to your submission.
+- If there is no related issue, create one.
 - You have to sign the CLA online via GitHub.
 - The [coding guidelines][1] outlined in the reference manual must be followed.
 - The feature/improvement must be implemented as generic as possible.
