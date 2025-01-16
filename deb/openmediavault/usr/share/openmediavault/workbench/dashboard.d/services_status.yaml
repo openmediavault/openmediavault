@@ -19,6 +19,7 @@ data:
       content: '{{ title }}'
       tooltip: '{% if running %}{{ "Running" | translate }}{% else %}{{ "Not running" | translate }}{% endif %}'
       class: 'omv-text-center omv-text-nowrap {% if running %}omv-background-color-pair-success{% else %}omv-background-color-pair-error{% endif %}'
+      contentClass: 'omv-text-truncate'
     store:
       proxy:
         service: Services
