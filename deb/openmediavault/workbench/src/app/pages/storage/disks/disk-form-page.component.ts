@@ -63,6 +63,7 @@ export class DiskFormPageComponent extends BaseFormPageComponent {
         type: 'select',
         name: 'apm',
         label: gettext('Advanced Power Management'),
+        hint: gettext('Please note that values >= 128 do not permit the disk to spin down.'),
         value: 0,
         store: {
           data: [
