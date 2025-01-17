@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-06 10:27+0100\n"
+"POT-Creation-Date: 2025-01-17 14:55+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2025\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -2363,6 +2363,9 @@ msgstr "詳情請查閱 <a href='https://manpages.debian.org/nfs-kernel-server/e
 
 msgid "Please choose the method to wipe the device."
 msgstr "請選擇抹除該裝置的方式。"
+
+msgid "Please note that values >= 128 do not permit the disk to spin down."
+msgstr ""
 
 msgid "Please wait ..."
 msgstr "請稍候 ..."

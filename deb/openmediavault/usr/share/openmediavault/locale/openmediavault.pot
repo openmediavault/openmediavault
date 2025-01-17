@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-06 10:27+0100\n"
+"POT-Creation-Date: 2025-01-17 14:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2271,6 +2271,9 @@ msgid "Please check the <a href='https://manpages.debian.org/nfs-kernel-server/e
 msgstr ""
 
 msgid "Please choose the method to wipe the device."
+msgstr ""
+
+msgid "Please note that values >= 128 do not permit the disk to spin down."
 msgstr ""
 
 msgid "Please wait ..."
