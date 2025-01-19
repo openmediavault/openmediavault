@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-06 10:27+0100\n"
+"POT-Creation-Date: 2025-01-17 14:55+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2025\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -2374,6 +2374,9 @@ msgstr "Weitere Einzelheiten entnehmen Sie bitte der <a href='https://manpages.d
 
 msgid "Please choose the method to wipe the device."
 msgstr "Bitte wählen Sie die Methode zum Löschen des Geräts."
+
+msgid "Please note that values >= 128 do not permit the disk to spin down."
+msgstr "Bitte beachten Sie, dass Werte >= 128 kein Herunterfahren der Festplatte zulassen."
 
 msgid "Please wait ..."
 msgstr "Bitte warten ..."

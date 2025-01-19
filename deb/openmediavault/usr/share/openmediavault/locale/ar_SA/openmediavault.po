@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-06 10:27+0100\n"
+"POT-Creation-Date: 2025-01-17 14:55+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -2362,6 +2362,9 @@ msgstr "الرجاء التحقق من <a href='https://manpages.debian.org/nfs-
 
 msgid "Please choose the method to wipe the device."
 msgstr "الرجاء اختيار طريقة محو الجهاز."
+
+msgid "Please note that values >= 128 do not permit the disk to spin down."
+msgstr ""
 
 msgid "Please wait ..."
 msgstr "يرجى الانتظار ..."

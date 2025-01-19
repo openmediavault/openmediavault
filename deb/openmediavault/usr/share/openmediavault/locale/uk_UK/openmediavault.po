@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-06 10:27+0100\n"
+"POT-Creation-Date: 2025-01-17 14:55+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -2363,6 +2363,9 @@ msgstr ""
 
 msgid "Please choose the method to wipe the device."
 msgstr "Виберіть спосіб очищення пристрою."
+
+msgid "Please note that values >= 128 do not permit the disk to spin down."
+msgstr ""
 
 msgid "Please wait ..."
 msgstr "Зачекайте..."
