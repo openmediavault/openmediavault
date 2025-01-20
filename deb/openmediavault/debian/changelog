@@ -1,6 +1,6 @@
 openmediavault (7.5.2-1) stable; urgency=low
 
-  *
+  * Fix database migration issue introduced by issue #1875.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 17 Jan 2025 15:18:02 +0100
 
