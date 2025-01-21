@@ -50,7 +50,7 @@ server {
     listen {{ listen_ipv4_addr }}:{{ config.port }} {{ listen_params }};
     listen [{{ listen_ipv6_addr }}]:{{ config.port }} {{ listen_params }};
 {%- else %}
-    listen {{ config.port }} {{ listen_params }};
+    listen {{ listen_ipv4_addr }}:{{ config.port }} {{ listen_params }};
 {%- endif %}
 {%- if config.enablessl | to_bool and config.forcesslonly | to_bool %}
       if ($scheme = http) {
@@ -63,7 +63,7 @@ server {
     listen {{ listen_ipv4_addr }}:{{ config.sslport }} {{ listen_params }} {{ listen_http2_param }} ssl deferred;
     listen [{{ listen_ipv6_addr }}]:{{ config.sslport }} {{ listen_params }} {{ listen_http2_param }} ssl deferred;
 {%- else %}
-    listen {{ config.sslport }} {{ listen_params }} {{ listen_http2_param }} ssl deferred;
+    listen {{ listen_ipv4_addr }}:{{ config.sslport }} {{ listen_params }} {{ listen_http2_param }} ssl deferred;
 {%- endif %}
     ssl_certificate {{ ssl_cert_dir | path_join('certs', ssl_cert_prefix ~ config.sslcertificateref ~ '.crt') }};
     ssl_certificate_key {{ ssl_cert_dir | path_join('private', ssl_cert_prefix ~ config.sslcertificateref ~ '.key') }};
