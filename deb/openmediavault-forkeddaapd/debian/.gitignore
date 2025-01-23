@@ -1,8 +1,0 @@
-/openmediavault-forkeddaapd/
-/files
-/*.debhelper.log
-/*.postinst.debhelper
-/*.postrm.debhelper
-/*.substvars
-/*-stamp
-/.debhelper/

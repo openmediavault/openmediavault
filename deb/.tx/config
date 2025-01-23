@@ -38,12 +38,6 @@ source_file = openmediavault-filebrowser/usr/share/openmediavault/locale/openmed
 source_lang = en
 type = PO
 
-[o:openmediavault:p:openmediavault:r:openmediavault-forkeddaapd]
-file_filter = openmediavault-forkeddaapd/usr/share/openmediavault/locale/<lang>/openmediavault-forkeddaapd.po
-source_file = openmediavault-forkeddaapd/usr/share/openmediavault/locale/openmediavault-forkeddaapd.pot
-source_lang = en
-type = PO
-
 [o:openmediavault:p:openmediavault:r:openmediavault-ftp]
 file_filter = openmediavault-ftp/usr/share/openmediavault/locale/<lang>/openmediavault-ftp.po
 source_file = openmediavault-ftp/usr/share/openmediavault/locale/openmediavault-ftp.pot

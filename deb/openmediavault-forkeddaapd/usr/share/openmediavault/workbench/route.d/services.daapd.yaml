@@ -1,8 +1,0 @@
-version: "1.0"
-type: route
-data:
-  url: "/services/daapd"
-  title: _("iTunes/DAAP")
-  editing: true
-  notificationTitle: _("Updated iTunes/DAAP settings.")
-  component: omv-services-daapd-form-page
