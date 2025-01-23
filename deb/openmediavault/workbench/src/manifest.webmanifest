@@ -1,7 +1,7 @@
 {
   "name": "openmediavault",
   "short_name": "openmediavault",
-  "theme_color": "#1976d2",
+  "theme_color": "#5dacdf",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
