@@ -1,7 +1,0 @@
-version: "1.0"
-type: navigation-item
-data:
-  path: "services.daapd"
-  text: _("iTunes/DAAP")
-  icon: "mdi:volume-high"
-  url: "/services/daapd"

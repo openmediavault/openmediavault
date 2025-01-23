@@ -1,7 +1,0 @@
-check process forked-daapd matching forked-daapd
-    start program = "/bin/systemctl start forked-daapd"
-    stop program = "/bin/systemctl stop forked-daapd"
-    mode active
-{%- if email_config.enable | to_bool and not notification_config.enable | to_bool %}
-    noalert {{ email_config.primaryemail }}
-{%- endif %}
