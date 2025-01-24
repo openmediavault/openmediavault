@@ -1,5 +1,6 @@
 openmediavault (7.5.2-1) stable; urgency=low
 
+  * Update locale files.
   * Fix database migration issue introduced by issue #1875.
   * Issue #1898: When IPv6 is deactivated, the environment
     variable OMV_NGINX_SITE_WEBGUI_LISTEN_IPV4_ADDRESS isn't

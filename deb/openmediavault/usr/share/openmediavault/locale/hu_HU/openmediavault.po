@@ -2369,7 +2369,7 @@ msgid "Please choose the method to wipe the device."
 msgstr "Kérjük, válassza ki az eszköz törlésének módját. "
 
 msgid "Please note that values >= 128 do not permit the disk to spin down."
-msgstr ""
+msgstr "Kérjük, vegye figyelembe, hogy a 128 vagy annál nagyobb értékek nem teszik lehetővé a lemez leállását."
 
 msgid "Please wait ..."
 msgstr "Kis türelmet…"

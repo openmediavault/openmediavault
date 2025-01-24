@@ -2365,7 +2365,7 @@ msgid "Please choose the method to wipe the device."
 msgstr "請選擇抹除該裝置的方式。"
 
 msgid "Please note that values >= 128 do not permit the disk to spin down."
-msgstr ""
+msgstr "請注意當值 >= 128 時，將不允許磁碟停止轉動。"
 
 msgid "Please wait ..."
 msgstr "請稍候 ..."

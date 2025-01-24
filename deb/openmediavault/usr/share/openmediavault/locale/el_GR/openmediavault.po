@@ -2363,7 +2363,7 @@ msgid "Please choose the method to wipe the device."
 msgstr "Επιλογή μεθόδου εκκένωσης της συσκευής."
 
 msgid "Please note that values >= 128 do not permit the disk to spin down."
-msgstr ""
+msgstr "Υπόψιν πως με τιμές >=128 δεν θα επιτρέπεται στον δίσκο να σταματήσει."
 
 msgid "Please wait ..."
 msgstr "Παρακαλώ περιμένετε ..."
