@@ -1,0 +1,14 @@
+{
+	"type": "config",
+	"id": "conf.system.apt.updates",
+	"queryinfo": {
+		"xpath": "//system/apt/updates",
+		"iterable": false
+	},
+	"properties": {
+		"unattendedupgrade": {
+			"type": "boolean",
+			"default": true
+		}
+	}
+}

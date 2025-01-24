@@ -9,7 +9,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-apt
 Architecture: all
-Depends: openmediavault (>= 7.3)
+Depends: openmediavault (>= 7.6)
 Priority: optional
 Description: openmediavault APT management plugin
  Manage APT (Advanced Package Tool) repositories easily.

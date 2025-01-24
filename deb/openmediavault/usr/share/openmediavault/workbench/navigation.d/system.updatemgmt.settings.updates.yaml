@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.updatemgmt.settings.updates"
+  position: 20
+  text: _("Updates")
+  icon: mdi:update
+  url: "/system/updatemgmt/settings/updates"

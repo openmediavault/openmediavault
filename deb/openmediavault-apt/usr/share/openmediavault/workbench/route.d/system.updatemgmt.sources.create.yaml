@@ -1,7 +1,0 @@
-version: "1.0"
-type: route
-data:
-  url: "/system/updatemgmt/sources/create"
-  title: _("Create")
-  notificationTitle: _("Created APT source.")
-  component: omv-system-updatemgmt-sources-form-page

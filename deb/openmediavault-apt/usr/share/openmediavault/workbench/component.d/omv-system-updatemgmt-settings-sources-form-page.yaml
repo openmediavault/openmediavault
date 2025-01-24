@@ -1,7 +1,7 @@
 version: "1.0"
 type: component
 data:
-  name: omv-system-updatemgmt-sources-form-page
+  name: omv-system-updatemgmt-settings-sources-form-page
   type: formPage
   config:
     request:
@@ -64,8 +64,8 @@ data:
       - template: submit
         execute:
           type: url
-          url: "/system/updatemgmt/sources"
+          url: "/system/updatemgmt/settings/sources"
       - template: cancel
         execute:
           type: url
-          url: "/system/updatemgmt/sources"
+          url: "/system/updatemgmt/settings/sources"

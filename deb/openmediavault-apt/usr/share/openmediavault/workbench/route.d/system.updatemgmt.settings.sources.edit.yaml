@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/system/updatemgmt/settings/sources/edit/:uuid"
+  title: _("Edit")
+  editing: true
+  notificationTitle: _("Updated APT source.")
+  component: omv-system-updatemgmt-settings-sources-form-page

@@ -31,22 +31,6 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.apt.setsettings",
-	"params": {
-		"type": "object",
-		"properties": {
-			"proposed": {
-				"type": "boolean",
-				"required": true
-			},
-			"partner": {
-				"type": "boolean",
-				"required": true
-			}
-		}
-	}
-},{
-	"type": "rpc",
 	"id": "rpc.apt.getchangelog",
 	"params": {
 		"type": "object",

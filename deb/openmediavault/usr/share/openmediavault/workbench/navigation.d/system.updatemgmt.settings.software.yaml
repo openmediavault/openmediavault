@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.updatemgmt.settings.software"
+  position: 10
+  text: _("Software")
+  icon: mdi:source-repository
+  url: "/system/updatemgmt/settings/software"
