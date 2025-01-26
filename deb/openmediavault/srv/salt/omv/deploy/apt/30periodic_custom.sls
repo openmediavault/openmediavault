@@ -17,33 +17,20 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set notification_config = salt['omv_conf.get_by_filter'](
-  'conf.system.notification.notification',
-  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'apt'})[0] %}
+{% set config = salt['omv_conf.get']('conf.system.apt.updates') %}
 
-{% if notification_config.enable %}
+{% if config.unattendedupgrade %}
 
-create_apt_listchanges_mail:
+create_apt_periodic_custom:
   file.managed:
-    - name: "/etc/apt/listchanges.conf.d/98openmediavault-mail.conf"
+    - name: "/etc/apt/apt.conf.d/98openmediavault-periodic-custom"
     - contents: |
-        [apt]
-        email_address=root
-
-create_apt_unattended_upgrade_mail:
-  file.managed:
-    - name: "/etc/apt/apt.conf.d/98openmediavault-unattended-upgrade-mail"
-    - contents: |
-        Unattended-Upgrade::Mail "root";
+        APT::Periodic::Unattended-Upgrade "1";
 
 {% else %}
 
-remove_apt_listchanges_mail:
+remove_apt_periodic_custom:
   file.absent:
-    - name: "/etc/apt/listchanges.conf.d/98openmediavault-mail.conf"
-
-remove_apt_unattended_upgrade_mail:
-  file.absent:
-    - name: "/etc/apt/apt.conf.d/98openmediavault-unattended-upgrade-mail"
+    - name: "/etc/apt/apt.conf.d/98openmediavault-periodic-custom"
 
 {% endif %}

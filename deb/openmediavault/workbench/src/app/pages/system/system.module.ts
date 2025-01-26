@@ -24,7 +24,8 @@ import { PowermgmtTaskDatatablePageComponent } from '~/app/pages/system/powermgm
 import { PowermgmtTaskFormPageComponent } from '~/app/pages/system/powermgmt/powermgmt-task-form-page.component';
 import { SystemRoutingModule } from '~/app/pages/system/system-routing.module';
 import { UpdateDatatablePageComponent } from '~/app/pages/system/updates/update-datatable-page.component';
-import { UpdateSettingsFormPageComponent } from '~/app/pages/system/updates/update-settings-form-page.component';
+import { UpdateSettingsSoftwareFormPageComponent } from '~/app/pages/system/updates/update-settings-software-form-page.component';
+import { UpdateSettingsUpdatesFormPageComponent } from '~/app/pages/system/updates/update-settings-updates-form-page.component';
 import { WorkbenchFormPageComponent } from '~/app/pages/system/workbench/workbench-form-page.component';
 import { SharedModule } from '~/app/shared/shared.module';
 
@@ -45,7 +46,8 @@ import { SharedModule } from '~/app/shared/shared.module';
     NotificationSelectionListPageComponent,
     UpdateDatatablePageComponent,
     PluginsDatatablePageComponent,
-    UpdateSettingsFormPageComponent,
+    UpdateSettingsSoftwareFormPageComponent,
+    UpdateSettingsUpdatesFormPageComponent,
     PowermgmtSettingsFormPageComponent,
     PowermgmtTaskDatatablePageComponent,
     PowermgmtTaskFormPageComponent,

@@ -23,7 +23,8 @@ import { PowermgmtSettingsFormPageComponent } from '~/app/pages/system/powermgmt
 import { PowermgmtTaskDatatablePageComponent } from '~/app/pages/system/powermgmt/powermgmt-task-datatable-page.component';
 import { PowermgmtTaskFormPageComponent } from '~/app/pages/system/powermgmt/powermgmt-task-form-page.component';
 import { UpdateDatatablePageComponent } from '~/app/pages/system/updates/update-datatable-page.component';
-import { UpdateSettingsFormPageComponent } from '~/app/pages/system/updates/update-settings-form-page.component';
+import { UpdateSettingsSoftwareFormPageComponent } from '~/app/pages/system/updates/update-settings-software-form-page.component';
+import { UpdateSettingsUpdatesFormPageComponent } from '~/app/pages/system/updates/update-settings-updates-form-page.component';
 import { WorkbenchFormPageComponent } from '~/app/pages/system/workbench/workbench-form-page.component';
 import { IsDirtyGuardService } from '~/app/shared/services/is-dirty-guard.service';
 
@@ -255,13 +256,33 @@ const routes: Routes = [
       },
       {
         path: 'settings',
-        component: UpdateSettingsFormPageComponent,
-        canDeactivate: [IsDirtyGuardService],
-        data: {
-          title: gettext('Settings'),
-          notificationTitle: gettext('Updated update management settings.'),
-          editing: true
-        }
+        data: { title: gettext('Settings') },
+        children: [
+          {
+            path: '',
+            component: NavigationPageComponent
+          },
+          {
+            path: 'software',
+            component: UpdateSettingsSoftwareFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
+            data: {
+              title: gettext('Software'),
+              notificationTitle: gettext('Updated update management settings.'),
+              editing: true
+            }
+          },
+          {
+            path: 'updates',
+            component: UpdateSettingsUpdatesFormPageComponent,
+            canDeactivate: [IsDirtyGuardService],
+            data: {
+              title: gettext('Updates'),
+              notificationTitle: gettext('Updated update management settings.'),
+              editing: true
+            }
+          }
+        ]
       }
     ]
   },

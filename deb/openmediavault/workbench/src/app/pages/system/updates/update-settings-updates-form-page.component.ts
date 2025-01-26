@@ -24,62 +24,34 @@ import { BaseFormPageComponent } from '~/app/pages/base-page-component';
 @Component({
   template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
 })
-export class UpdateSettingsFormPageComponent extends BaseFormPageComponent {
+export class UpdateSettingsUpdatesFormPageComponent extends BaseFormPageComponent {
   public config: FormPageConfig = {
     request: {
       service: 'Apt',
       get: {
-        method: 'getSettings'
+        method: 'getUpdatesSettings'
       },
       post: {
-        method: 'setSettings'
+        method: 'setUpdatesSettings'
       }
     },
     fields: [
       {
-        type: 'paragraph',
-        title: gettext('Install updates from')
-      },
-      {
         type: 'checkbox',
-        name: 'proposed',
-        label: gettext('Pre-release updates'),
-        value: false
-      },
-      {
-        type: 'checkbox',
-        name: 'partner',
-        label: gettext('Community-maintained updates'),
-        value: false
+        name: 'unattendedupgrade',
+        label: gettext('Install security updates unattended.'),
+        value: true
       }
     ],
     buttons: [
       {
-        template: 'submit',
-        confirmationDialogConfig: {
-          template: 'confirmation',
-          message: gettext(
-            'The information about available software is out-of-date. Do you want to reload this information?'
-          )
-        },
-        execute: {
-          type: 'request',
-          request: {
-            service: 'Apt',
-            method: 'update',
-            task: true,
-            progressMessage: gettext(
-              'The repository will be checked for new, removed or upgraded software packages.'
-            ),
-            successUrl: '/system/updatemgmt/updates'
-          }
-        }
+        template: 'submit'
       },
       {
         template: 'cancel',
         execute: {
           type: 'url',
-          url: '/system/updatemgmt'
+          url: '/system/updatemgmt/settings'
         }
       }
     ]

@@ -48,6 +48,10 @@ class Apt extends \OMV\Engine\Module\ServiceAbstract
 			[$this, "setDirty"]);
 		$dispatcher->addListener(
 			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.apt.updates",
+			[$this, "setDirty"]);
+		$dispatcher->addListener(
+			OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.system.network.proxy",
 			[$this, "setDirty"]);
 		$dispatcher->addListener(

@@ -1,7 +1,7 @@
 version: "1.0"
 type: component
 data:
-  name: omv-system-updatemgmt-sources-datatable-page
+  name: omv-system-updatemgmt-settings-sources-datatable-page
   type: datatablePage
   config:
     autoReload: false
@@ -54,11 +54,11 @@ data:
       - template: create
         execute:
           type: url
-          url: "/system/updatemgmt/sources/create"
+          url: "/system/updatemgmt/settings/sources/create"
       - template: edit
         execute:
           type: url
-          url: "/system/updatemgmt/sources/edit/{{ _selected[0].uuid }}"
+          url: "/system/updatemgmt/settings/sources/edit/{{ _selected[0].uuid }}"
       - template: delete
         execute:
           type: request

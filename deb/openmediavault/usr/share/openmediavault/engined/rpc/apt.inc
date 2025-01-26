@@ -33,8 +33,10 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 	 * Initialize the RPC service.
 	 */
 	public function initialize() {
-		$this->registerMethod("getSettings");
-		$this->registerMethod("setSettings");
+		$this->registerMethod("getSoftwareSettings");
+		$this->registerMethod("setSoftwareSettings");
+		$this->registerMethod("getUpdatesSettings");
+		$this->registerMethod("setUpdatesSettings");
 		$this->registerMethod("enumerateUpgraded");
 		$this->registerMethod("getUpgradedList");
 		$this->registerMethod("install");
@@ -45,48 +47,60 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
-	 * Get settings.
+	 * Get software settings.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
 	 */
-	function getSettings($params, $context) {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, [
-			"role" => OMV_ROLE_ADMINISTRATOR
-		]);
-		// Get the configuration object.
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.system.apt.distribution");
-		return $object->getAssoc();
+	function getSoftwareSettings($params, $context) {
+		return \OMV\Rpc\Rpc::call("Config", "get", [
+			"id" => "conf.system.apt.distribution"
+		], $context);
 	}
 
 	/**
-	 * Set settings.
+	 * Set software settings.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
 	 */
-	function setSettings($params, $context) {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, [
-			"role" => OMV_ROLE_ADMINISTRATOR
-		]);
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.apt.setsettings");
-		// Prepare the configuration object.
-		$object = new \OMV\Config\ConfigObject("conf.system.apt.distribution");
-		$object->setAssoc($params);
-		// Update the configuration object.
-		$db = \OMV\Config\Database::getInstance();
-		$db->set($object);
+	function setSoftwareSettings($params, $context) {
+		$object = \OMV\Rpc\Rpc::call("Config", "set", [
+			"id" => "conf.system.apt.distribution",
+			"data" => $params
+		], $context);
 		// Apply the changes immediately (no user interaction is wanted).
 		\OMV\Rpc\Rpc::call("Config", "applyChanges", [
 			"modules" => [ "apt" ],
 			"force" => TRUE
 		], $context);
 		// Return the configuration object.
-		return $object->getAssoc();
+		return $object;
+	}
+
+	/**
+	 * Get updates settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The requested configuration object.
+	 */
+	function getUpdatesSettings($params, $context) {
+		return \OMV\Rpc\Rpc::call("Config", "get", [
+			"id" => "conf.system.apt.updates"
+		], $context);
+	}
+
+	/**
+	 * Set updates settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 */
+	function setUpdatesSettings($params, $context) {
+		return \OMV\Rpc\Rpc::call("Config", "set", [
+			"id" => "conf.system.apt.updates",
+			"data" => $params
+		], $context);
 	}
 
 	/**

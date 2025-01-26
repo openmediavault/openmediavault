@@ -1,3 +1,5 @@
+#!/usr/bin/env dash
+#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -17,33 +19,11 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set notification_config = salt['omv_conf.get_by_filter'](
-  'conf.system.notification.notification',
-  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'apt'})[0] %}
+set -e
 
-{% if notification_config.enable %}
+. /usr/share/openmediavault/scripts/helper-functions
 
-create_apt_listchanges_mail:
-  file.managed:
-    - name: "/etc/apt/listchanges.conf.d/98openmediavault-mail.conf"
-    - contents: |
-        [apt]
-        email_address=root
+omv_config_add_node "/config/system/apt" "updates"
+omv_config_add_key "/config/system/apt/updates" "unattendedupgrade" "1"
 
-create_apt_unattended_upgrade_mail:
-  file.managed:
-    - name: "/etc/apt/apt.conf.d/98openmediavault-unattended-upgrade-mail"
-    - contents: |
-        Unattended-Upgrade::Mail "root";
-
-{% else %}
-
-remove_apt_listchanges_mail:
-  file.absent:
-    - name: "/etc/apt/listchanges.conf.d/98openmediavault-mail.conf"
-
-remove_apt_unattended_upgrade_mail:
-  file.absent:
-    - name: "/etc/apt/apt.conf.d/98openmediavault-unattended-upgrade-mail"
-
-{% endif %}
+exit 0

@@ -13,6 +13,12 @@
 				<proposed>0</proposed>
 				<partner>0</partner>
 			</distribution>
+			<updates>
+				<!--
+				<unattendedupgrade>0|1</unattendedupgrade>
+				-->
+				<unattendedupgrade>1</unattendedupgrade>
+			</updates>
 		</apt>
 		<powermanagement>
 			<!--
