@@ -1,4 +1,4 @@
-{%- set image = salt['pillar.get']('default:OMV_OWNTONE_APP_CONTAINER_IMAGE', 'lscr.io/linuxserver/daapd:latest') -%}
+{%- set image = salt['pillar.get']('default:OMV_OWNTONE_APP_CONTAINER_IMAGE', 'docker.io/owntone/owntone:latest') -%}
 {%- set uname = salt['pillar.get']('default:OMV_OWNTONE_APP_CONTAINER_UNAME', 'owntone') -%}
 {%- set gname = salt['pillar.get']('default:OMV_OWNTONE_APP_CONTAINER_GNAME', 'users') -%}
 {%- set options = salt['pillar.get']('default:OMV_OWNTONE_APP_CONTAINER_START_OPTIONS', '') -%}
@@ -18,7 +18,7 @@ Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/container-owntone.pid %t/container-owntone.ctr-id
-ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-owntone.pid --cidfile %t/container-owntone.ctr-id --cgroups=no-conmon -d --replace --pull=never --name=owntone --net=host -e PUID={{ uid }} -e PGID={{ gid }} -e TZ="{{ timezone }}" -v /var/cache/owntone/:/config/ -v "{{ sf_path }}":/music/ {{ options }} {{ image }}
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-owntone.pid --cidfile %t/container-owntone.ctr-id --cgroups=no-conmon -d --replace --pull=never --name=owntone --net=host -e UID={{ uid }} -e GID={{ gid }} -v /var/cache/owntone/config/:/etc/owntone/ -v /var/cache/owntone/db/:/var/cache/owntone/ -v "{{ sf_path }}":/srv/media/ {{ options }} {{ image }}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-owntone.ctr-id
 ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-owntone.ctr-id
 PIDFile=%t/container-owntone.pid

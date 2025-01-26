@@ -18,18 +18,34 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# https://fleet.linuxserver.io/image?name=linuxserver/daapd
+# https://owntone.github.io/owntone-server/configuration/
+# https://github.com/owntone/owntone-container
 
 # Testing:
 # podman exec -it owntone /bin/bash
 # podman logs -f owntone
 
 {% set config = salt['omv_conf.get']('conf.service.owntone') %}
-{% set time_config = salt['omv_conf.get']('conf.system.time') %}
+
+setup_owntone_config_dir:
+  file.directory:
+    - name: "/var/cache/owntone/config"
+    - makedirs: True
+    - user: "owntone"
+    - recurse:
+      - user
+
+setup_owntone_db_dir:
+  file.directory:
+    - name: "/var/cache/owntone/db"
+    - makedirs: True
+    - user: "owntone"
+    - recurse:
+      - user
 
 {% if config.enable | to_bool %}
 
-{% set image = salt['pillar.get']('default:OMV_OWNTONE_APP_CONTAINER_IMAGE', 'lscr.io/linuxserver/daapd:latest') %}
+{% set image = salt['pillar.get']('default:OMV_OWNTONE_APP_CONTAINER_IMAGE', 'docker.io/owntone/owntone:latest') %}
 
 create_owntone_container_systemd_unit_file:
   file.managed:
@@ -39,7 +55,6 @@ create_owntone_container_systemd_unit_file:
     - template: jinja
     - context:
         config: {{ config | json }}
-        timezone: {{ time_config.timezone }}
     - user: root
     - group: root
     - mode: 644
@@ -61,7 +76,7 @@ owntone_app_image_exists:
 
 configure_owntone:
   file.managed:
-    - name: "/var/cache/owntone/owntone.conf"
+    - name: "/var/cache/owntone/config/owntone.conf"
     - source:
       - salt://{{ tpldir }}/files/owntone.conf.j2
     - template: jinja
