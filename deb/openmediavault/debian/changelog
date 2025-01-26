@@ -2,6 +2,9 @@ openmediavault (7.6.0-1) stable; urgency=low
 
   * Add option to disable the automatic installation of security
     updates.
+  * Issue #1694: Add PWA manifest to the UI. Note, Note, PWA only
+    works with HTTPS enabled and self-signed SSL certificates need
+    to be imported into the browser as accepted authorities.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 17 Jan 2025 15:18:02 +0100
 
