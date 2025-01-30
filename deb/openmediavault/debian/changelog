@@ -1,5 +1,6 @@
 openmediavault (7.6.0-1) stable; urgency=low
 
+  * Update locale files.
   * Add option to disable the automatic installation of security
     updates.
 

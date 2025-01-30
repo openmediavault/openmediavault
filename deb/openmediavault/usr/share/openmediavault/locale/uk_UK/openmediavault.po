@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Андрей Чапалда <ansilent@gmail.com>, 2012
-# zubr139, 2013-2019,2021-2022
+# zubr139, 2013-2019,2021-2022,2025
 # Андрей Чапалда <ansilent@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 14:55+0100\n"
+"POT-Creation-Date: 2025-01-30 16:42+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: zubr139, 2013-2019,2021-2022\n"
+"Last-Translator: zubr139, 2013-2019,2021-2022,2025\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -236,16 +236,16 @@ msgstr ""
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr ""
+msgstr "Щоб повністю застосувати зміни, внесені під час інсталяції або оновлення пакета, потрібне перезавантаження."
 
 msgid "A running background task was detected."
-msgstr ""
+msgstr "Виявлено запущене фонове завдання."
 
 msgid "A scheduled task to create a snapshot has been created."
-msgstr ""
+msgstr "Створено заплановане завдання для створення знімка."
 
 msgid "A secure shell (SSH) server."
-msgstr ""
+msgstr "Сервер безпечної оболонки (SSH)."
 
 msgid "ACL"
 msgstr "Список контролю доступа"
@@ -276,13 +276,13 @@ msgid ""
 "Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
 "devices are listed in the scheduled tasks. Monitoring cannot be switched off"
 " as long as there are scheduled tasks for this device."
-msgstr ""
+msgstr "Активуйте S.M.A.R.T. моніторинг для цього пристрою. Зауважте, що в запланованих завданнях указано лише контрольовані пристрої. Моніторинг не можна вимкнути, поки для цього пристрою є заплановані завдання."
 
 msgid "Active"
 msgstr "Активний"
 
 msgid "Active or Idle"
-msgstr ""
+msgstr "Активний або неактивний"
 
 msgid "Add"
 msgstr "Додати"
@@ -1614,6 +1614,9 @@ msgstr "Встановити"
 msgid "Install plugin"
 msgstr "Встановити плагін"
 
+msgid "Install security updates unattended."
+msgstr ""
+
 msgid "Install updates"
 msgstr "Встановити оновлення"
 
@@ -2374,7 +2377,7 @@ msgid "Please wait, a shared folder will be created ..."
 msgstr ""
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Зачекайте, створюється знімок..."
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "Будь ласка, зачекайте, видалення обраних елементів ..."
@@ -2933,7 +2936,7 @@ msgid "Shared folder path"
 msgstr "Шлях до спільної теки"
 
 msgid "Shared folder permissions"
-msgstr ""
+msgstr "Дозволи для спільної теки"
 
 msgid "Shared folder permissions have been copied."
 msgstr ""
@@ -2984,6 +2987,9 @@ msgid "Slovenia"
 msgstr "Словенія"
 
 msgid "Snapshots"
+msgstr ""
+
+msgid "Software"
 msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."
@@ -3183,7 +3189,7 @@ msgid "TCP forwarding"
 msgstr "TCP переадресація"
 
 msgid "Tags"
-msgstr ""
+msgstr "Теги"
 
 msgid "Taiwan"
 msgstr "Тайвань"
@@ -3946,7 +3952,7 @@ msgid ""
 msgstr ""
 
 msgid "Utilization"
-msgstr ""
+msgstr "Утилізація"
 
 msgid "Uzbekistan"
 msgstr "Узбекистан"
@@ -3982,7 +3988,7 @@ msgid "Version"
 msgstr "Версія"
 
 msgid "Versions"
-msgstr ""
+msgstr "Версії"
 
 msgid "Vietnam"
 msgstr "В'єтнам"
