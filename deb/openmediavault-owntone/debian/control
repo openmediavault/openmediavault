@@ -10,6 +10,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-owntone
 Architecture: all
+Conflicts: openmediavault-owntone (< 7.1.0)
 Depends: openmediavault (>= 7.6), podman
 Priority: optional
 Description: openmediavault OwnTone plugin
