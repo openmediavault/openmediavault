@@ -8,6 +8,7 @@
 # Mario Varelli <mvarelli@biologia.unipi.it>, 2023
 # Paolo Velati <paolo.velati@gmail.com>, 2023
 # maurorulli <mauro.rulli@gmail.com>, 2023
+# Roberto Bellingeri <bellingeri@netguru.it>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-30 12:27+0100\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
-"Last-Translator: maurorulli <mauro.rulli@gmail.com>, 2023\n"
+"Last-Translator: Roberto Bellingeri <bellingeri@netguru.it>, 2025\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,19 +29,20 @@ msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s significa illimitato."
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
+msgstr "Un potente server FTP/SFTP/FTPS modulare."
 
 msgid "Advanced settings"
 msgstr "Impostazioni avanzate"
 
 msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
+"Consentire ai client di riprendere i caricamenti e i download interrotti."
 
 msgid "Anonymous FTP"
 msgstr "FTP Anonimo"
 
 msgid "Ban Rules"
-msgstr ""
+msgstr "Regole di ban"
 
 msgid "Ban statistics:"
 msgstr "Statistiche di ban:"
@@ -55,28 +57,28 @@ msgid "Create"
 msgstr "Crea"
 
 msgid "Created FTP ban rule."
-msgstr ""
+msgstr "Regola di ban FTP creata."
 
 msgid "Created FTP share."
-msgstr ""
+msgstr "Condivisione FTP creata."
 
 msgid "Currently logged in users:"
 msgstr "Utenti attualmente collegati:"
 
 msgid "Deny logins which do not have a valid shell."
-msgstr ""
+msgstr "Nega gli accessi che non hanno una shell valida."
 
 msgid "Display the home directory of the user in the browse list."
-msgstr ""
+msgstr "Visualizza la directory home dell'utente nell'elenco di navigazione."
 
 msgid "Edit"
 msgstr "Modifica"
 
 msgid "Enable SSL/TLS connections."
-msgstr ""
+msgstr "Abilitare le connessioni SSL/TLS."
 
 msgid "Enable file transfer logging."
-msgstr ""
+msgstr "Abilita il log del trasferimento dei file."
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
@@ -91,7 +93,7 @@ msgid "Enabled"
 msgstr "Abilitato"
 
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 msgid "Expire"
 msgstr "Scadere"
@@ -166,7 +168,7 @@ msgid "Max. login attempts"
 msgstr "Max. tentativi di login"
 
 msgid "Max. passive port"
-msgstr ""
+msgstr "Porta passiva massima"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Massima velocità di download (KiB/s)"
@@ -195,7 +197,7 @@ msgid "Maximum upload rate (KiB/s)"
 msgstr "Massima velocità di upload (KiB/s)"
 
 msgid "Min. passive port"
-msgstr ""
+msgstr "Porta passiva minima"
 
 msgid "No session reuse required"
 msgstr "Riuso della sessione non obbligatorio"
@@ -238,7 +240,7 @@ msgid "Port"
 msgstr "Porta"
 
 msgid "Refresh time"
-msgstr ""
+msgstr "Tempo di aggiornamento"
 
 msgid "Require valid shell"
 msgstr "Richiede una shell valida"
@@ -287,10 +289,10 @@ msgstr ""
 "numero di occorrenze devono verificarsi per aggiungere il ban."
 
 msgid "Specifies whether it is allowed to login as superuser directly."
-msgstr ""
+msgstr "Specifica se è consentito l'accesso diretto come superutente."
 
 msgid "Tags"
-msgstr ""
+msgstr "Tag"
 
 msgid "The SSL certificate."
 msgstr "Il certificato SSL."
@@ -311,6 +313,11 @@ msgid ""
 "target='_blank'>manual page</a> how to use variables. Leave this field empty"
 " to disable the welcome message."
 msgstr ""
+"Il messaggio di benvenuto verrà visualizzato all'utente al momento del "
+"login. Controlla la <a "
+"href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
+"target='_blank'>pagina del manuale</a> su come usare le variabili. Lasciare "
+"vuoto questo campo per disabilitare il messaggio di benvenuto."
 
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
@@ -347,13 +354,13 @@ msgid "Transfer log"
 msgstr "Log di trasferimento"
 
 msgid "Updated FTP ban rule."
-msgstr ""
+msgstr "Regola di ban FTP aggiornata."
 
 msgid "Updated FTP share."
-msgstr ""
+msgstr "Condivisione FTP aggiornata."
 
 msgid "Use the following bandwidth restriction."
-msgstr ""
+msgstr "Usa la seguente restrizione di larghezza di banda."
 
 msgid "Welcome message"
 msgstr "Messaggio di benvenuto"
@@ -362,6 +369,8 @@ msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote user name."
 msgstr ""
+"Quando un client si connette inizialmente al server, viene utilizzato il "
+"protocollo ident per tentare di identificare il nome utente remoto."
 
 msgid "n/a"
 msgstr "n/d"

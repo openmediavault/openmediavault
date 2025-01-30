@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-apt package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Roberto Bellingeri <bellingeri@netguru.it>, 2025
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-16 13:19+0200\n"
 "PO-Revision-Date: 2024-06-14 17:38+0000\n"
+"Last-Translator: Roberto Bellingeri <bellingeri@netguru.it>, 2025\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,73 +22,89 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Check for new packages"
-msgstr ""
+msgstr "Controlla i nuovi pacchetti"
 
 msgid "Components"
-msgstr ""
+msgstr "Componenti"
 
 msgid ""
 "Components specify different sections of one distribution version present in"
 " a suite, e.g. 'main', 'contrib' or 'non-free'. Configure multiple "
 "components at once by separating them with a blank."
 msgstr ""
+"I componenti specificano sezioni diverse di una versione di distribuzione "
+"presente in una suite, ad esempio 'main', 'contrib' o 'non-free'. Configura "
+"più componenti contemporaneamente separandoli con uno spazio vuoto."
 
 msgid "Create"
-msgstr ""
+msgstr "Crea"
 
 msgid "Created APT source."
-msgstr ""
+msgstr "Sorgente APT creata."
 
 msgid ""
 "Defines which types of packages to look for from a given source, e.g. 'deb' "
 "or 'deb-src'."
 msgstr ""
+"Definisce quali tipi di pacchetti cercare da una determinata fonte, ad "
+"esempio 'deb' o 'deb-src'."
 
 msgid "Edit"
-msgstr ""
+msgstr "Modifica"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Abilitato"
 
 msgid "Other Software"
-msgstr ""
+msgstr "Altri software"
 
 msgid "Signed-By"
-msgstr ""
+msgstr "Firmato da"
 
 msgid "Suites"
-msgstr ""
+msgstr "Suite"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tag"
 
 msgid ""
 "The GPG/PGP key used to verify packages and repository metadata. This "
 "increases security by ensuring that only packages signed with a specific key"
 " are accepted."
 msgstr ""
+"Chiave GPG/PGP utilizzata per verificare i pacchetti e i metadati del "
+"repository. Ciò aumenta la sicurezza assicurando che vengano accettati solo "
+"i pacchetti firmati con una chiave specifica."
 
 msgid ""
 "The URI must specify the base of the package repository, e.g. "
 "'https://ftp.debian.org/debian'. Configure multiple URIs at once by "
 "separating them with a blank."
 msgstr ""
+"L'URI deve specificare la base del repository del pacchetto, ad esempio "
+"'https://ftp.debian.org/debian'. Configura più URI contemporaneamente "
+"separandoli con uno spazio vuoto."
 
 msgid ""
 "The package index files from the sources are downloaded and updated to get "
 "the latest information about available packages and their versions."
 msgstr ""
+"I file di indice dei pacchetti dalle fonti vengono scaricati e aggiornati "
+"per ottenere le informazioni più recenti sui pacchetti disponibili e sulle "
+"loro versioni."
 
 msgid ""
 "The suite is the name of the release, e.g. 'stable', 'testing', 'unstable' "
 "or 'sandworm'."
 msgstr ""
+"La suite è il nome della versione, ad esempio \"stable\", \"testing\", "
+"\"unstable\" o \"sandworm\"."
 
 msgid "Types"
-msgstr ""
+msgstr "Tipi"
 
 msgid "URIs"
-msgstr ""
+msgstr "URI"
 
 msgid "Updated APT source."
-msgstr ""
+msgstr "Sorgente APT aggiornata."

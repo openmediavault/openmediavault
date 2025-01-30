@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# zubr139, 2023
+# zubr139, 2025
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-11 21:57+0200\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
-"Last-Translator: zubr139, 2023\n"
+"Last-Translator: zubr139, 2025\n"
 "Language-Team: Ukrainian (https://app.transifex.com/openmediavault/teams/14254/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,31 +22,31 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
 msgid "Command"
-msgstr ""
+msgstr "Команда"
 
 msgid "Containers"
-msgstr ""
+msgstr "Containers"
 
 msgid "Created"
-msgstr ""
+msgstr "Створено"
 
 msgid "Digest"
-msgstr ""
+msgstr "Дайджест"
 
 msgid "Do you really want to restart this container?"
-msgstr ""
+msgstr "Ви дійсно хочете перезапустити цей контейнер?"
 
 msgid "Do you really want to restart this pod?"
-msgstr ""
+msgstr "Ви дійсно хочете перезапустити цей пакет?"
 
 msgid "Driver"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Image"
-msgstr ""
+msgstr "Зображення"
 
 msgid "Images"
 msgstr "Зображення"
@@ -55,34 +55,34 @@ msgid "Infra ID"
 msgstr ""
 
 msgid "Inspect"
-msgstr ""
+msgstr "Оглянути"
 
 msgid "Logs"
-msgstr ""
+msgstr "Журнали"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Точка монтування"
 
 msgid "Mounts"
-msgstr ""
+msgstr "Монтувати"
 
 msgid "Name"
-msgstr ""
+msgstr "Ім'я"
 
 msgid "Names"
-msgstr ""
+msgstr "Імена"
 
 msgid "Networks"
-msgstr ""
+msgstr "Мережі"
 
 msgid "Podman"
-msgstr ""
+msgstr "Podman"
 
 msgid "Pods"
 msgstr ""
 
 msgid "Ports"
-msgstr ""
+msgstr "Порти"
 
 msgid "Pull latest"
 msgstr ""
@@ -91,34 +91,34 @@ msgid "Pull latest image"
 msgstr ""
 
 msgid "Repository"
-msgstr ""
+msgstr "Репозиторій"
 
 msgid "Restart"
-msgstr ""
+msgstr "Перезапустити"
 
 msgid "Size"
-msgstr ""
+msgstr "Розмір"
 
 msgid "Started"
-msgstr ""
+msgstr "Розпочати"
 
 msgid "State"
-msgstr ""
+msgstr "Стан"
 
 msgid "Statistics"
-msgstr ""
+msgstr "Статистика"
 
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 msgid "Tag"
-msgstr ""
+msgstr "Тег"
 
 msgid "Updated Podman settings."
-msgstr ""
+msgstr "Оновлені налаштування Podman."
 
 msgid "Used"
-msgstr ""
+msgstr "Використано"
 
 msgid "Volumes"
-msgstr ""
+msgstr "Обсяги"

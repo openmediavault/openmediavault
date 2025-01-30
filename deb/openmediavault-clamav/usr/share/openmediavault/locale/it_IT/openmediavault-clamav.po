@@ -5,13 +5,14 @@
 # Translators:
 # maurorulli <mauro.rulli@gmail.com>, 2012
 # Paolo Velati <paolo.velati@gmail.com>, 2013-2015,2017
+# Roberto Bellingeri <bellingeri@netguru.it>, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2013-2015,2017\n"
+"Last-Translator: Roberto Bellingeri <bellingeri@netguru.it>, 2025\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,10 +44,10 @@ msgid "Create"
 msgstr "Crea"
 
 msgid "Created on-access scan."
-msgstr ""
+msgstr "Scansione all'accesso creata."
 
 msgid "Created scheduled scan."
-msgstr ""
+msgstr "Scansione pianificata creata."
 
 msgid "Database checks"
 msgstr "Verifiche al database"
@@ -64,7 +65,7 @@ msgid "December"
 msgstr "Dicembre"
 
 msgid "Delete immediately"
-msgstr ""
+msgstr "Eliminare immediatamente"
 
 msgid "Detect PUA"
 msgstr "Rileva PUA"
@@ -114,7 +115,7 @@ msgid "Every N minute"
 msgstr "Ogni N minuti"
 
 msgid "Execute scheduled scan"
-msgstr ""
+msgstr "Esegui scansione pianificata"
 
 msgid "Extra options"
 msgstr "Opzioni extra"
@@ -177,7 +178,7 @@ msgid "Month"
 msgstr "Mese"
 
 msgid "Move to quarantine"
-msgstr ""
+msgstr "Sposta in quarantena"
 
 msgid "Multiscan"
 msgstr "Multiscansione"
@@ -198,13 +199,13 @@ msgid "Perform a deeper analysis of executable files."
 msgstr "Esegui un'analisi approfondita dei file eseguibili."
 
 msgid "Perform nothing"
-msgstr ""
+msgstr "Non fare nulla"
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
 "daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "Per maggiori dettagli consultare la <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>pagina del manuale</a>."
 
 msgid "Quarantine"
 msgstr "Quarantena"
@@ -237,7 +238,7 @@ msgid "Scan the directory contents in parallel using available threads."
 msgstr "Scansione del contenuto della directory in parallelo utilizzando i thread disponibili."
 
 msgid "Scheduled Scans"
-msgstr ""
+msgstr "Scansioni pianificate"
 
 msgid "Scheduling"
 msgstr "Programmazione"
@@ -258,10 +259,10 @@ msgid "Sunday"
 msgstr "Domenica"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tag"
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "Il campo deve contenere solo * o un elenco di valori separati da virgole."
 
 msgid "The location of the files to scan on-access."
 msgstr "Il percorso dei file da controllare all'accesso."
@@ -282,10 +283,10 @@ msgid "Tuesday"
 msgstr "Martedì"
 
 msgid "Updated on-access scan."
-msgstr ""
+msgstr "Scansione all'accesso aggiornata."
 
 msgid "Updated scheduled scan."
-msgstr ""
+msgstr "Scansione pianificata aggiornata."
 
 msgid "Verbose"
 msgstr "Verboso"

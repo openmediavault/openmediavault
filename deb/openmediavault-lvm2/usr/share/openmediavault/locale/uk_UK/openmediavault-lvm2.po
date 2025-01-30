@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-lvm2 package.
 # 
 # Translators:
-# zubr139, 2013,2016-2017,2021
+# zubr139, 2013,2016-2017,2021,2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-27 14:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
-"Last-Translator: zubr139, 2013,2016-2017,2021\n"
+"Last-Translator: zubr139, 2013,2016-2017,2021,2025\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,7 +73,7 @@ msgid "Invalid name"
 msgstr "Неправильна назва"
 
 msgid "LVM"
-msgstr ""
+msgstr "LVM"
 
 msgid "Logical Volume Management"
 msgstr "Керування логічними розділами"
@@ -88,7 +88,7 @@ msgid "Physical Volumes"
 msgstr "Фізичні томи"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Зачекайте, створюється знімок..."
 
 msgid "Reduce"
 msgstr "Зменшити"
