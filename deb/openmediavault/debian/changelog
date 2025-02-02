@@ -1,6 +1,6 @@
 openmediavault (7.6.1-1) stable; urgency=low
 
-  *
+  * Issue #1912: Fix pinning of backports repository.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 30 Jan 2025 18:07:22 +0100
 
