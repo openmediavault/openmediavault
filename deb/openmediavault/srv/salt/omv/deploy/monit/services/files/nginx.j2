@@ -1,5 +1,6 @@
 {%- set conn_test_enabled = salt['pillar.get']('default:OMV_MONIT_SERVICE_NGINX_CONN_TEST_ENABLED', '1') -%}
 {%- set conn_test_args = salt['pillar.get']('default:OMV_MONIT_SERVICE_NGINX_CONN_TEST_ARGS', 'timeout 15 seconds for 2 times within 3 cycles') -%}
+{%- set listen_ipv4_addr = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_LISTEN_IPV4_ADDRESS', '*') -%}
 check process nginx with pidfile /run/nginx.pid
     start program = "/bin/systemctl start nginx"
     stop program = "/bin/systemctl stop nginx"
@@ -7,12 +8,10 @@ check process nginx with pidfile /run/nginx.pid
     if cpu is greater than 40% for 2 cycles then alert
     if cpu is greater than 80% for 5 cycles then restart
 {%- if conn_test_enabled | to_bool %}
-    # https://mmonit.com/monit/documentation/monit.html#CONNECTION-TESTS
-    # https://mmonit.com/monit/documentation/monit.html#FAULT-TOLERANCE
 {%- if not webadmin_config.forcesslonly | to_bool %}
-    if failed host 127.0.0.1 port {{ webadmin_config.port }} protocol http {{ conn_test_args }} then restart
-{% endif -%}
+    if failed host {{ listen_ipv4_addr if (listen_ipv4_addr | is_ipv4) else "127.0.0.1" }} port {{ webadmin_config.port }} protocol http {{ conn_test_args }} then restart
+{%- endif -%}
 {%- if webadmin_config.enablessl | to_bool %}
-    if failed host 127.0.0.1 port {{ webadmin_config.sslport }} type tcpssl protocol http {{ conn_test_args }} then restart
-{% endif -%}
+    if failed host {{ listen_ipv4_addr if (listen_ipv4_addr | is_ipv4) else "127.0.0.1" }} port {{ webadmin_config.sslport }} type tcpssl protocol http {{ conn_test_args }} then restart
+{%- endif -%}
 {% endif -%}
