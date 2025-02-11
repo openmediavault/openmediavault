@@ -210,6 +210,7 @@ export class FilesystemDatatablePageComponent implements OnInit {
           minSelected: 1,
           maxSelected: 1,
           constraint: [
+            { operator: 'n', arg0: { prop: 'canonicaldevicefile' } },
             // Enable button if the file system has a `/etc/fstab` entry.
             // This is because monitoring the warning threshold is only
             // possible for mounted file systems.
@@ -283,7 +284,8 @@ export class FilesystemDatatablePageComponent implements OnInit {
         tooltip: gettext('Show details'),
         enabledConstraints: {
           minSelected: 1,
-          maxSelected: 1
+          maxSelected: 1,
+          constraint: [{ operator: 'n', arg0: { prop: 'canonicaldevicefile' } }]
         },
         execute: {
           type: 'url',
