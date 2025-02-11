@@ -80,6 +80,9 @@ export class SystemInformationService implements OnDestroy {
       )
       .subscribe({
         next: (res: SystemInformation) => {
+          if (!_.isPlainObject(res)) {
+            return;
+          }
           // We need to convert some properties to numbers because
           // they are strings due to the 32bit compatibility of the
           // PHP backend.
