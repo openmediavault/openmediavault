@@ -53,7 +53,7 @@ data:
           fields:
             - type: hint
               hintType: tip
-              text: _("The following placeholders can be used in recipes to get access to global system information and the configuration database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id, uuid=NULL)</li></ul>You have to denote placeholders with double-curly braces. An overview of additional available filters can be found <a href='https://twig.symfony.com/doc/filters/index.html' target='_blank'>here</a>.")
+              text: _("The following placeholders can be used in recipes to get access to global system information and the configuration database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id, uuid=NULL)</li></ul>You have to denote placeholders with double-curly braces. An overview of additional available filters can be found <a href='https://twig.symfony.com/doc/filters/index.html' target='_blank'>here</a>.")
             - type: datatable
               name: sharedfolders
               label: _("Shared Folders")

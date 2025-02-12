@@ -1,3 +1,9 @@
+openmediavault-k8s (7.4.4-1) stable; urgency=low
+
+  * Update the recipe ingredients.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Feb 2025 19:43:45 +0100
+
 openmediavault-k8s (7.4.3-1) stable; urgency=low
 
   * Take the proxy settings into account when cloning the recipes
