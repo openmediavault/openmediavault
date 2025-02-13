@@ -102,5 +102,6 @@ export enum Icon {
   restore = 'mdi:restore',
   link = 'mdi:link-variant',
   download = 'mdi:download',
+  upload = 'mdi:upload',
   docs = 'mdi:file-document'
 }
