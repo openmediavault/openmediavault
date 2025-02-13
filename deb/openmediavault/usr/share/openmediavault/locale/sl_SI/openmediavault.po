@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 16:42+0100\n"
+"POT-Creation-Date: 2025-02-14 00:18+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -764,9 +764,6 @@ msgid "Copy"
 msgstr ""
 
 msgid "Copy permissions"
-msgstr ""
-
-msgid "Copy public SSH key"
 msgstr ""
 
 msgid "Copy to clipboard"
@@ -1610,6 +1607,9 @@ msgid "Install"
 msgstr "Namesti"
 
 msgid "Install plugin"
+msgstr ""
+
+msgid "Install public key to remote machine"
 msgstr ""
 
 msgid "Install security updates unattended."

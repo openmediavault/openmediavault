@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 16:42+0100\n"
+"POT-Creation-Date: 2025-02-14 00:18+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2024\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -767,9 +767,6 @@ msgstr "Còpia"
 
 msgid "Copy permissions"
 msgstr "Permisos de còpia"
-
-msgid "Copy public SSH key"
-msgstr "Copieu la clau pública SSH"
 
 msgid "Copy to clipboard"
 msgstr "Copiar al porta-papers"
@@ -1613,6 +1610,9 @@ msgstr "Instal·lar"
 
 msgid "Install plugin"
 msgstr "Instal·la el connector "
+
+msgid "Install public key to remote machine"
+msgstr ""
 
 msgid "Install security updates unattended."
 msgstr ""

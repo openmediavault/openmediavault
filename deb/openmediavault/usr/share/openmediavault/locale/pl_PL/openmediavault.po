@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 16:42+0100\n"
+"POT-Creation-Date: 2025-02-14 00:18+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2025\n"
 "Language-Team: Polish (Poland) (http://app.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -771,9 +771,6 @@ msgstr "Kopiuj"
 
 msgid "Copy permissions"
 msgstr "Kopiuj uprawnienia"
-
-msgid "Copy public SSH key"
-msgstr "Kopiuj publiczny klucz SSH"
 
 msgid "Copy to clipboard"
 msgstr "Skopiuj do schowka"
@@ -1617,6 +1614,9 @@ msgstr "Instaluj"
 
 msgid "Install plugin"
 msgstr "Zainstaluj wtyczkę."
+
+msgid "Install public key to remote machine"
+msgstr ""
 
 msgid "Install security updates unattended."
 msgstr ""

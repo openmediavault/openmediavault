@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 16:42+0100\n"
+"POT-Creation-Date: 2025-02-14 00:18+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -766,9 +766,6 @@ msgstr "نسخ"
 
 msgid "Copy permissions"
 msgstr "نسخ الصلاحيات"
-
-msgid "Copy public SSH key"
-msgstr "نسخ مفتاح SSH العمومي"
 
 msgid "Copy to clipboard"
 msgstr "نسخ إلى الحافظة"
@@ -1612,6 +1609,9 @@ msgstr "تثبيت"
 
 msgid "Install plugin"
 msgstr "تثبيت المكون الإضافي"
+
+msgid "Install public key to remote machine"
+msgstr ""
 
 msgid "Install security updates unattended."
 msgstr ""

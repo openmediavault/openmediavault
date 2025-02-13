@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 16:42+0100\n"
+"POT-Creation-Date: 2025-02-14 00:18+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2025\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -765,9 +765,6 @@ msgstr "Αντιγραφή"
 
 msgid "Copy permissions"
 msgstr "Αντιγραφή δικαιωμάτων"
-
-msgid "Copy public SSH key"
-msgstr "Αντιγραφή δημόσιου κλειδιού SSH"
 
 msgid "Copy to clipboard"
 msgstr "Αντιγραφή στο πρόχειρο"
@@ -1611,6 +1608,9 @@ msgstr "Εγκατάσταση"
 
 msgid "Install plugin"
 msgstr "Εγκατάσταση πρόσθετου"
+
+msgid "Install public key to remote machine"
+msgstr ""
 
 msgid "Install security updates unattended."
 msgstr "Εγκατάσταση ενημερώσεων ασφαλείας χωρίς εποπτεία."

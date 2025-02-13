@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 16:42+0100\n"
+"POT-Creation-Date: 2025-02-14 00:18+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2025\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -768,9 +768,6 @@ msgstr "Kopiera"
 
 msgid "Copy permissions"
 msgstr "Kopiera behörigheter"
-
-msgid "Copy public SSH key"
-msgstr "Kopiera publik SSH-nyckel"
 
 msgid "Copy to clipboard"
 msgstr "Kopiera till urklipp"
@@ -1614,6 +1611,9 @@ msgstr "Installera"
 
 msgid "Install plugin"
 msgstr "Installera insticksmodul"
+
+msgid "Install public key to remote machine"
+msgstr ""
 
 msgid "Install security updates unattended."
 msgstr "Installera säkerhetsuppdateringar utan uppsikt."

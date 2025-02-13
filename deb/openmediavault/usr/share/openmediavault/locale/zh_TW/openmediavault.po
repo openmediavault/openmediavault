@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 16:42+0100\n"
+"POT-Creation-Date: 2025-02-14 00:18+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2025\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -767,9 +767,6 @@ msgstr "複製"
 
 msgid "Copy permissions"
 msgstr "複製權限"
-
-msgid "Copy public SSH key"
-msgstr "複製公開 SSH 金鑰"
 
 msgid "Copy to clipboard"
 msgstr "複製到剪貼板"
@@ -1613,6 +1610,9 @@ msgstr "安裝"
 
 msgid "Install plugin"
 msgstr "安裝插件"
+
+msgid "Install public key to remote machine"
+msgstr ""
 
 msgid "Install security updates unattended."
 msgstr "無人管顧安裝安全更新。"

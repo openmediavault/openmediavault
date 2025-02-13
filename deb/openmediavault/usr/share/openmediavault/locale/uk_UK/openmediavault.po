@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 16:42+0100\n"
+"POT-Creation-Date: 2025-02-14 00:18+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022,2025\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -767,9 +767,6 @@ msgstr "Копіювати"
 
 msgid "Copy permissions"
 msgstr ""
-
-msgid "Copy public SSH key"
-msgstr "Копіювати загальнодоступний ключ SSH"
 
 msgid "Copy to clipboard"
 msgstr "Копіювати в буфер обміну"
@@ -1613,6 +1610,9 @@ msgstr "Встановити"
 
 msgid "Install plugin"
 msgstr "Встановити плагін"
+
+msgid "Install public key to remote machine"
+msgstr ""
 
 msgid "Install security updates unattended."
 msgstr ""

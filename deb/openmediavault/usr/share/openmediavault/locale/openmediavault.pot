@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 16:42+0100\n"
+"POT-Creation-Date: 2025-02-14 00:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -744,9 +744,6 @@ msgid "Copy"
 msgstr ""
 
 msgid "Copy permissions"
-msgstr ""
-
-msgid "Copy public SSH key"
 msgstr ""
 
 msgid "Copy to clipboard"
@@ -1545,6 +1542,9 @@ msgid "Install"
 msgstr ""
 
 msgid "Install plugin"
+msgstr ""
+
+msgid "Install public key to remote machine"
 msgstr ""
 
 msgid "Install security updates unattended."
