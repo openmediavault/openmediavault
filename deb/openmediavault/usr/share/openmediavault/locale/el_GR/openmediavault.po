@@ -1613,7 +1613,7 @@ msgid "Install plugin"
 msgstr "Εγκατάσταση πρόσθετου"
 
 msgid "Install security updates unattended."
-msgstr ""
+msgstr "Εγκατάσταση ενημερώσεων ασφαλείας χωρίς εποπτεία."
 
 msgid "Install updates"
 msgstr "Εγκατάσταση ενημερώσεων"
@@ -2988,7 +2988,7 @@ msgid "Snapshots"
 msgstr "Στιγμιότυπα"
 
 msgid "Software"
-msgstr ""
+msgstr "Λογισμικό"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Σφάλμα Λογισμικού   Αριστερό κλικ για συνέχεια."

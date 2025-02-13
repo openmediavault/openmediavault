@@ -1619,7 +1619,7 @@ msgid "Install plugin"
 msgstr "Bővítmény telepítése"
 
 msgid "Install security updates unattended."
-msgstr ""
+msgstr "Biztonsági frissítések telepítése felügyelet nélkül."
 
 msgid "Install updates"
 msgstr "Frissítések telepítése"
@@ -2994,7 +2994,7 @@ msgid "Snapshots"
 msgstr "Pillanatképek"
 
 msgid "Software"
-msgstr ""
+msgstr "Szoftver"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Szoftver hiba.   A folytatáshoz nyomja meg a bal egérgombot."

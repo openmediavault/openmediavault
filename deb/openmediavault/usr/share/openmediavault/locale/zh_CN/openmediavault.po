@@ -1619,7 +1619,7 @@ msgid "Install plugin"
 msgstr "安装插件 ..."
 
 msgid "Install security updates unattended."
-msgstr ""
+msgstr "無人管顧安裝安全更新。"
 
 msgid "Install updates"
 msgstr "安装更新 ..."
@@ -2994,7 +2994,7 @@ msgid "Snapshots"
 msgstr "快照"
 
 msgid "Software"
-msgstr ""
+msgstr "軟體"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "软件错误。   按鼠标左键继续。"

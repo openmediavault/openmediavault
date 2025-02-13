@@ -1616,7 +1616,7 @@ msgid "Install plugin"
 msgstr "Installera insticksmodul"
 
 msgid "Install security updates unattended."
-msgstr ""
+msgstr "Installera säkerhetsuppdateringar utan uppsikt."
 
 msgid "Install updates"
 msgstr "Installera uppdateringar"
@@ -2369,7 +2369,7 @@ msgid "Please choose the method to wipe the device."
 msgstr "Välj metoden för att rensa enheten."
 
 msgid "Please note that values >= 128 do not permit the disk to spin down."
-msgstr ""
+msgstr "Observera att värden >= 128 inte tillåter att disken snurrar ner."
 
 msgid "Please wait ..."
 msgstr "Vänta ..."
@@ -2991,7 +2991,7 @@ msgid "Snapshots"
 msgstr "Ögonblicksbilder"
 
 msgid "Software"
-msgstr ""
+msgstr "Programvara"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Programvarufel.   Tryck på vänster musknapp för att fortsätta."

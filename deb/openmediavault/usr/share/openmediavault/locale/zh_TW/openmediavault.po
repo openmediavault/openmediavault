@@ -1615,7 +1615,7 @@ msgid "Install plugin"
 msgstr "安裝插件"
 
 msgid "Install security updates unattended."
-msgstr ""
+msgstr "無人管顧安裝安全更新。"
 
 msgid "Install updates"
 msgstr "安裝更新"
@@ -2990,7 +2990,7 @@ msgid "Snapshots"
 msgstr "快照"
 
 msgid "Software"
-msgstr ""
+msgstr "軟體"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "軟體錯誤。   按滑鼠左鍵繼續。"
