@@ -298,6 +298,7 @@ export class FilesystemDatatablePageComponent implements OnInit {
         tooltip: gettext('Unmount'),
         enabledConstraints: {
           constraint: [
+            { operator: 'n', arg0: { prop: 'mountpoint' } },
             // Disable button if file system is in use or read-only.
             {
               operator: 'if',
@@ -328,10 +329,9 @@ export class FilesystemDatatablePageComponent implements OnInit {
           type: 'request',
           request: {
             service: 'FileSystemMgmt',
-            method: 'umount',
+            method: 'umountByDir',
             params: {
-              id: '{{ devicefile }}',
-              fstab: true
+              dir: '{{ mountpoint }}'
             },
             progressMessage: gettext('Please wait, unmounting the file system ...')
           }
