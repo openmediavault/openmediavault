@@ -57,6 +57,14 @@ export class SystemInformationService implements OnDestroy {
     private rpcService: RpcService
   ) {
     this.systemInfo$ = this.systemInfoSource.asObservable();
+    this.start();
+  }
+
+  ngOnDestroy(): void {
+    this.stop();
+  }
+
+  public start(): void {
     // Poll the system system-information every 5 seconds. Continue, even
     // if there is a connection problem AND do not display an error
     // notification.
@@ -103,7 +111,7 @@ export class SystemInformationService implements OnDestroy {
       });
   }
 
-  ngOnDestroy(): void {
+  public stop(): void {
     this.subscription.unsubscribe();
   }
 }
