@@ -579,7 +579,7 @@ case "$1" in
 			omv_module_set_dirty apt
 			rm -rf /etc/apt/apt.conf.d/98openmediavault-unattended-upgrades-mail
 		fi
-		if dpkg --compare-versions "$2" lt-nl "7.6.1"; then
+		if dpkg --compare-versions "$2" lt-nl "7.7.0"; then
 			omv_module_set_dirty apt
 		fi
 

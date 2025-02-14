@@ -1,5 +1,7 @@
-openmediavault (7.6.1-1) stable; urgency=low
+openmediavault (7.7.0-1) stable; urgency=low
 
+  * Refactor the RPC to umnount file systems to be able to get
+    rid of non-existing file systems.
   * Issue #1912: Fix pinning of backports repository.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 30 Jan 2025 18:07:22 +0100
