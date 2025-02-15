@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { DatatablePageActionConfig } from '~/app/core/components/intuition/models/datatable-page-action-config.type';
-import { PageHintConfig } from '~/app/core/components/intuition/models/page-config.type';
+import { PageHintConfig } from '~/app/core/components/intuition/models/page.type';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { DatatableColumn } from '~/app/shared/models/datatable-column.type';
 import { Sorter } from '~/app/shared/models/sorter.type';

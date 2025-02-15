@@ -35,11 +35,9 @@ import {
 import * as _ from 'lodash';
 import { combineLatest, Subscription } from 'rxjs';
 
-import { PageHintConfig } from '~/app/core/components/intuition/models/page-config.type';
+import { PageContext, PageHintConfig } from '~/app/core/components/intuition/models/page.type';
 import { decodeURIComponentDeep, format, formatDeep, isFormatable } from '~/app/functions.helper';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
-
-export type PageContext = Record<string, any>;
 
 @Directive()
 // eslint-disable-next-line @angular-eslint/directive-class-suffix

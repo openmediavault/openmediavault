@@ -28,7 +28,6 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
 
-import { PageContext } from '~/app/core/components/intuition/abstract-page-component';
 import {
   flattenFormFieldConfig,
   setupConfObjUuidFields
@@ -39,6 +38,7 @@ import {
   FormFieldConstraintValidator,
   FormFieldModifier
 } from '~/app/core/components/intuition/models/form-field-config.type';
+import { PageContext } from '~/app/core/components/intuition/models/page.type';
 import { Unsubscribe } from '~/app/decorators';
 import { format, formatDeep } from '~/app/functions.helper';
 import { CustomValidators } from '~/app/shared/forms/custom-validators';

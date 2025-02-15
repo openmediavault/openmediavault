@@ -23,10 +23,7 @@ import * as _ from 'lodash';
 import { EMPTY, Subscription } from 'rxjs';
 import { catchError, debounceTime, finalize } from 'rxjs/operators';
 
-import {
-  AbstractPageComponent,
-  PageContext
-} from '~/app/core/components/intuition/abstract-page-component';
+import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import { FormComponent } from '~/app/core/components/intuition/form/form.component';
 import {
   flattenFormFieldConfig,
@@ -39,6 +36,7 @@ import {
   FormPageButtonConfig,
   FormPageConfig
 } from '~/app/core/components/intuition/models/form-page-config.type';
+import { PageContext } from '~/app/core/components/intuition/models/page.type';
 import { Unsubscribe } from '~/app/decorators';
 import { format, formatDeep, isFormatable, toBoolean } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';

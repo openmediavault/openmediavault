@@ -22,15 +22,13 @@ import * as _ from 'lodash';
 import { concat } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
-import {
-  AbstractPageComponent,
-  PageContext
-} from '~/app/core/components/intuition/abstract-page-component';
+import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import { FormDialogComponent } from '~/app/core/components/intuition/form-dialog/form-dialog.component';
 import { DatatablePageActionConfig } from '~/app/core/components/intuition/models/datatable-page-action-config.type';
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { DatatablePageButtonConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
+import { PageContext } from '~/app/core/components/intuition/models/page.type';
 import { format, formatDeep, isFormatable } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import {
