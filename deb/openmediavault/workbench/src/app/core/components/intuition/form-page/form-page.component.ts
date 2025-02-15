@@ -222,11 +222,13 @@ export class FormPageComponent
    * Sets the form values.
    *
    * @param values The values to be set.
+   * @param markAsPristine Mark the form as pristine after patching the
+   *   values. Defaults to `true`.
    */
   setFormValues(values: FormValues, markAsPristine = true): void {
     this.form.formGroup.patchValue(values);
     if (markAsPristine) {
-      this.form.formGroup.markAsPristine();
+      this.markAsPristine();
     }
   }
 
