@@ -27,6 +27,7 @@ import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-
 import { FormComponent } from '~/app/core/components/intuition/form/form.component';
 import {
   flattenFormFieldConfig,
+  formatFormFieldConfig,
   setupConfObjUuidFields
 } from '~/app/core/components/intuition/functions.helper';
 import { FormFieldName } from '~/app/core/components/intuition/models/form.type';
@@ -513,13 +514,11 @@ export class FormPageComponent
     }
     // Inject the route configuration and parameters into various form
     // field configuration properties.
-    _.forEach(allFields, (fieldConfig: FormFieldConfig) => {
-      _.forEach(['store.proxy', 'store.filters', 'value', 'request.params'], (path) => {
-        const value = _.get(fieldConfig, path);
-        if (isFormatable(value)) {
-          _.set(fieldConfig, path, formatDeep(value, this.pageContext));
-        }
-      });
-    });
+    formatFormFieldConfig(allFields, this.pageContext, [
+      'store.proxy',
+      'store.filters',
+      'value',
+      'request.params'
+    ]);
   }
 }
