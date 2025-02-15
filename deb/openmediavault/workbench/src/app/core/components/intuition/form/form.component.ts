@@ -286,8 +286,8 @@ export class FormComponent implements AfterViewInit, OnInit {
       }
       let value = _.defaultTo(field.value, null);
       if (_.isString(value)) {
-        // Evaluate filters.
-        value = format(value, {});
+        // Evaluate filters and apply page context.
+        value = format(value, this.pageContext);
       }
       // Create the form control.
       controlsConfig[field.name] = new FormControl(
