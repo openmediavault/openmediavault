@@ -3,5 +3,5 @@
                  [hasTitle]="false"
                  [dismissible]="config.dismissible"
                  [stateId]="config.stateId">
-  <span [innerHtml]="config.text | transloco | nl2br | sanitizeHtml"></span>
+  <span [innerHtml]="config.text | transloco | template:pageContext | nl2br | sanitizeHtml"></span>
 </omv-alert-panel>

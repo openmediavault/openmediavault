@@ -18,7 +18,7 @@
                    [hasMargin]="false"
                    [dismissible]="hint.dismissible"
                    [stateId]="hint.stateId">
-    <span [innerHtml]="hint.text | transloco | nl2br | sanitizeHtml"></span>
+    <span [innerHtml]="hint.text | transloco | template:pageContext | nl2br | sanitizeHtml"></span>
   </omv-alert-panel>
 </div>
 <mat-card [ngClass]="{'omv-display-none': loading || error}">
@@ -38,14 +38,14 @@
                          [formGroup]="form.formGroup"
                          [disabled]="button.disabled || (editing && form.formGroup.pristine)"
                          (buttonClick)="onButtonClick(button)">
-        {{ button.text | transloco }}
+        {{ button.text | transloco | template:pageContext }}
       </omv-submit-button>
       <button *ngIf="button.template !== 'submit'"
               mat-flat-button
               [class]="button.class"
               [disabled]="button.disabled"
               (click)="onButtonClick(button)">
-        {{ button.text | transloco }}
+        {{ button.text | transloco | template:pageContext }}
       </button>
     </ng-container>
   </mat-card-actions>
@@ -59,20 +59,20 @@
                   svgIcon="{{ config.icon }}">
         </mat-icon>
         <mat-card-title *ngIf="config.title">
-          {{ config.title }}
+          {{ config.title | transloco | template:pageContext }}
         </mat-card-title>
         <mat-card-subtitle *ngIf="config.subTitle">
-          {{ config.subTitle }}
+          {{ config.subTitle | transloco | template:pageContext }}
         </mat-card-subtitle>
       </mat-card-header>
     </ng-container>
     <ng-container *ngIf="!config.icon">
       <mat-card-title-group>
         <mat-card-title *ngIf="config.title">
-          {{ config.title }}
+          {{ config.title | transloco | template:pageContext }}
         </mat-card-title>
         <mat-card-subtitle *ngIf="config.subTitle">
-          {{ config.subTitle }}
+          {{ config.subTitle | transloco | template:pageContext }}
         </mat-card-subtitle>
       </mat-card-title-group>
     </ng-container>
