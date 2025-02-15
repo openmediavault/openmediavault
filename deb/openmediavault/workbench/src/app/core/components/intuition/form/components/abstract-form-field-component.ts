@@ -19,6 +19,7 @@ import { Directive, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import * as _ from 'lodash';
 
+import { PageContext } from '~/app/core/components/intuition/abstract-page-component';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
 import { Icon } from '~/app/shared/enum/icon.enum';
 
@@ -30,6 +31,9 @@ export abstract class AbstractFormFieldComponent implements OnInit {
 
   @Input()
   formGroup: FormGroup;
+
+  @Input()
+  pageContext: PageContext = {};
 
   public icon = Icon;
 

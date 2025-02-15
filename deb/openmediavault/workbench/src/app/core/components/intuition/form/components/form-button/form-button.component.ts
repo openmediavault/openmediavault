@@ -79,7 +79,7 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
           })
         )
         .subscribe((res: any) => {
-          const data: Record<any, any> = _.merge({ _response: res }, formValues);
+          const data: Record<any, any> = _.merge({ _response: res }, formValues, this.pageContext);
           // Display a notification?
           if (_.isString(request.successNotification)) {
             const successNotification: string = format(request.successNotification, data);
