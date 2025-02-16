@@ -239,7 +239,14 @@ export type FormFieldConfig = {
     // this will be done automatically.
     successUrl?: string;
   };
-  // The URL will be formatted using the parent form field values.
+  // The URL will be formatted using the parent form field values
+  // and the following tokens:
+  // - _editing: Boolean value whether the form is in editing mode.
+  // - _session: Session information, e.g. `username` or `permissions`.
+  // - _routeConfig: The current route configuration.
+  // - _routeParams: The route parameters.
+  // - _routeQueryParams: The route query parameters.
+  // - _routeUrlSegments: The URL segments.
   url?: string;
 
   // --- folderBrowser ---

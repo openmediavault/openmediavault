@@ -121,26 +121,15 @@ export class FormPageComponent
 
   override ngOnInit(): void {
     super.ngOnInit();
-    // Flatten all form field configurations into an array to be able to
-    // iterate over them easily.
-    const allFields = flattenFormFieldConfig(this.config.fields);
-    // Process the 'disabled' attribute in all form field configurations.
-    _.forEach(allFields, (fieldConfig: FormFieldConfig) => {
-      if (_.has(fieldConfig, 'disabled') && isFormatable(fieldConfig.disabled)) {
-        fieldConfig.disabled = toBoolean(format(String(fieldConfig.disabled), this.pageContext));
-      }
-    });
-    // Process the 'required' validator in all form field configurations.
-    _.forEach(allFields, (fieldConfig: FormFieldConfig) => {
-      if (
-        _.has(fieldConfig, 'validators.required') &&
-        isFormatable(fieldConfig.validators.required)
-      ) {
-        fieldConfig.validators.required = toBoolean(
-          format(String(fieldConfig.validators.required), this.pageContext)
-        );
-      }
-    });
+    // Note, the following properties need to be handled before the function
+    // `FormComponent::createForm` is called.
+    const allFields: FormFieldConfig[] = flattenFormFieldConfig(this.config.fields);
+    formatFormFieldConfig(
+      allFields,
+      this.pageContext,
+      ['disabled', 'validators.required'],
+      toBoolean
+    );
   }
 
   override ngAfterViewInit(): void {
@@ -238,7 +227,7 @@ export class FormPageComponent
    * @return Returns an object containing the form field values.
    */
   getFormValues(): FormValues {
-    const allFields: Array<FormFieldConfig> = flattenFormFieldConfig(this.config.fields);
+    const allFields: FormFieldConfig[] = flattenFormFieldConfig(this.config.fields);
     const values: FormValues = _.pickBy(
       this.form.formGroup.getRawValue(),
       (value: any, key: FormFieldName) => {
@@ -303,7 +292,7 @@ export class FormPageComponent
                     undefined,
                     format(
                       request.successNotification,
-                      _.merge({ _response: res }, this.pageContext, values)
+                      _.merge({ _response: res }, values, this.pageContext)
                     )
                   );
                 }
@@ -311,7 +300,7 @@ export class FormPageComponent
                 if (_.isString(request.successUrl)) {
                   const url = format(
                     request.successUrl,
-                    _.merge({ _response: res }, this.pageContext, values)
+                    _.merge({ _response: res }, values, this.pageContext)
                   );
                   this.router.navigateByUrl(url);
                 }
@@ -413,7 +402,7 @@ export class FormPageComponent
                 this.notificationService.show(
                   NotificationType.success,
                   undefined,
-                  format(notificationTitle, _.merge({}, this.pageContext, values))
+                  format(notificationTitle, _.merge({}, values, this.pageContext))
                 );
               }
               doPreButtonActionFn();
@@ -423,7 +412,7 @@ export class FormPageComponent
         if (_.isPlainObject(request.post.confirmationDialogConfig)) {
           const data = _.cloneDeep(request.post.confirmationDialogConfig);
           if (_.isString(data.message)) {
-            data.message = format(data.message, values);
+            data.message = format(data.message, _.merge({}, values, this.pageContext));
           }
           const dialogRef = this.dialogService.open(ModalDialogComponent, {
             width: _.get(data, 'width'),
@@ -496,29 +485,25 @@ export class FormPageComponent
   }
 
   protected override onRouteParams() {
-    const allFields = flattenFormFieldConfig(this.config.fields);
     // Format tokenized configuration properties.
-    this.formatConfig(['title', 'subTitle', 'request.get.method', 'request.get.params']);
-    this.formatHintsConfig();
+    this.formatConfig([
+      'request.get.method',
+      'request.get.params',
+      'request.post.method',
+      'request.post.params'
+    ]);
     // Load the content if form page is in 'editing' mode.
     if (this.editing) {
       this.loadData();
     } else {
       // Inject the query parameters of the route into the form fields.
       // This will override the configured form field values.
+      const allFields: FormFieldConfig[] = flattenFormFieldConfig(this.config.fields);
       _.forEach(allFields, (fieldConfig: FormFieldConfig) => {
         if (_.has(this.routeQueryParams, fieldConfig.name)) {
           fieldConfig.value = _.get(this.routeQueryParams, fieldConfig.name);
         }
       });
     }
-    // Inject the route configuration and parameters into various form
-    // field configuration properties.
-    formatFormFieldConfig(allFields, this.pageContext, [
-      'store.proxy',
-      'store.filters',
-      'value',
-      'request.params'
-    ]);
   }
 }

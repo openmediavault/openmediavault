@@ -1,7 +1,7 @@
 <mat-form-field *ngIf="config.dirVisible"
                 class="omv-flex-initial omv-w-25"
                 [formGroup]="formGroup">
-  <mat-label>{{ 'Base path' | transloco }}</mat-label>
+  <mat-label>{{ 'Base path' | transloco | template:pageContext }}</mat-label>
   <input *ngIf="config.dirVisible"
          matInput
          type="text"
@@ -20,7 +20,7 @@
        matPrefix>
     <mat-icon [svgIcon]="config.icon"></mat-icon>&nbsp;
   </div>
-  <mat-label>{{ config.label | transloco }}</mat-label>
+  <mat-label>{{ config.label | transloco | template:pageContext }}</mat-label>
   <input matInput
          type="text"
          [ngClass]="{'omv-text-monospace': config.monospace}"
@@ -56,7 +56,7 @@
     </span>
   </mat-error>
   <mat-hint *ngIf="config.hint?.length > 0"
-            [innerHTML]="config.hint | transloco | sanitizeHtml">
+            [innerHTML]="config.hint | transloco | template:pageContext | sanitizeHtml">
   </mat-hint>
 </mat-form-field>
 

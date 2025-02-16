@@ -410,14 +410,13 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   protected override onRouteParams() {
     // Format tokenized configuration properties.
     this.formatConfig([
-      'title',
-      'subTitle',
       'store.proxy.service',
       'store.proxy.get.method',
       'store.proxy.get.params',
+      'store.proxy.post.method',
+      'store.proxy.post.params',
       'store.filters'
     ]);
-    this.formatHintsConfig();
   }
 
   private sanitizeActionsConfig(actions: DatatablePageActionConfig[]) {

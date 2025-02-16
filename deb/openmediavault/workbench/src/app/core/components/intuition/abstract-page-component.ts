@@ -36,7 +36,7 @@ import * as _ from 'lodash';
 import { combineLatest, Subscription } from 'rxjs';
 
 import { PageContext, PageHintConfig } from '~/app/core/components/intuition/models/page.type';
-import { decodeURIComponentDeep, format, formatDeep, isFormatable } from '~/app/functions.helper';
+import { decodeURIComponentDeep, formatDeep, isFormatable } from '~/app/functions.helper';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 
 @Directive()
@@ -138,28 +138,13 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
 
   /**
    * Format the given configuration properties using the page context.
-   *
-   * @param paths The paths of the properties to format.
+   * @param props The list of tokenized properties to format.
    */
-  protected formatConfig(paths: Array<string>): void {
-    _.forEach(paths, (path) => {
-      const value = _.get(this.config as Record<string, any>, path);
+  protected formatConfig(props: Array<string>): void {
+    _.forEach(props, (prop) => {
+      const value = _.get(this.config as Record<string, any>, prop);
       if (isFormatable(value)) {
-        _.set(this.config as Record<string, any>, path, formatDeep(value, this.pageContext));
-      }
-    });
-  }
-
-  /**
-   * Format the hint configuration using the page context.
-   *
-   * @protected
-   */
-  protected formatHintsConfig(): void {
-    const hints: PageHintConfig[] = _.get(this.config, 'hints', []) as PageHintConfig[];
-    _.forEach(hints, (hintConfig: PageHintConfig) => {
-      if (isFormatable(hintConfig.text)) {
-        hintConfig.text = format(hintConfig.text, this.pageContext);
+        _.set(this.config as Record<string, any>, prop, formatDeep(value, this.pageContext));
       }
     });
   }

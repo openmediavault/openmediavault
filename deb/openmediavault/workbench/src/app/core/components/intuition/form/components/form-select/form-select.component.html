@@ -1,6 +1,6 @@
 <mat-form-field class="omv-flex-1"
                 [formGroup]="formGroup">
-  <mat-label>{{ config.label | transloco }}</mat-label>
+  <mat-label>{{ config.label | transloco | template:pageContext }}</mat-label>
   <mat-select [formControlName]="config.name"
               [placeholder]="config.placeholder | transloco"
               [multiple]="config.multiple"
@@ -36,6 +36,6 @@
     </span>
   </mat-error>
   <mat-hint *ngIf="config.hint?.length > 0"
-            [innerHTML]="config.hint | transloco | sanitizeHtml">
+            [innerHTML]="config.hint | transloco | template:pageContext | sanitizeHtml">
   </mat-hint>
 </mat-form-field>
