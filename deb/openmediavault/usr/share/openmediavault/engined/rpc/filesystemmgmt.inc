@@ -494,6 +494,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				}
 				if (in_array($mntentv->get("fsname"), $fsNames)) {
 					$result[] = array_merge($fsObjectv, [
+						"mountpoint" => $mntentv->get("dir"),
 						"comment" => $mntentv->get("comment"),
 						"usagewarnthreshold" => $mntentv->get("usagewarnthreshold"),
 						"mountopts" => $mntentv->get("opts"),
