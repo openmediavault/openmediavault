@@ -1,3 +1,9 @@
+openmediavault-usbbackup (7.1.2-1) stable; urgency=low
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Feb 2025 13:02:27 +0100
+
 openmediavault-usbbackup (7.1.1-1) stable; urgency=low
 
   * Update locale files.
