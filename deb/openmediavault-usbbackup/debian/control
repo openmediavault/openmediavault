@@ -9,7 +9,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-usbbackup
 Architecture: all
-Depends: smartmontools, rsync, openmediavault (>= 7.4.0)
+Depends: smartmontools, rsync, openmediavault (>= 7.7)
 Priority: optional
 Description: openmediavault USB/eSATA/SAS/SD backup plugin
  Automatically synchronise a shared folder to an USB/eSATA/SAS/SD device
