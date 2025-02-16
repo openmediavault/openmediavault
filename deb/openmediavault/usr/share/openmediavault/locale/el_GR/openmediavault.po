@@ -1610,7 +1610,7 @@ msgid "Install plugin"
 msgstr "Εγκατάσταση πρόσθετου"
 
 msgid "Install public key to remote machine"
-msgstr ""
+msgstr "Εγκατάσταση δημόσιου κλειδιού για το απομακρυσμένο μηχάνημα"
 
 msgid "Install security updates unattended."
 msgstr "Εγκατάσταση ενημερώσεων ασφαλείας χωρίς εποπτεία."

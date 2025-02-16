@@ -1616,7 +1616,7 @@ msgid "Install plugin"
 msgstr "安装插件 ..."
 
 msgid "Install public key to remote machine"
-msgstr ""
+msgstr "安裝公鑰到遠端機器"
 
 msgid "Install security updates unattended."
 msgstr "無人管顧安裝安全更新。"

@@ -1,5 +1,6 @@
 openmediavault (7.7.0-1) stable; urgency=low
 
+  * Update locale files.
   * Several UI improvements.
   * Refactor the RPC to umnount file systems to be able to get
     rid of non-existing file systems.
