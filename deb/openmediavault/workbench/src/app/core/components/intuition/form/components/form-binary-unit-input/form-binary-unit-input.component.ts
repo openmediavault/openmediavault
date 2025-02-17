@@ -19,18 +19,20 @@ import { Component } from '@angular/core';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
+import { PageContextService } from '~/app/shared/services/pagecontext-service';
 
 @Component({
   selector: 'omv-form-binary-unit-input',
   templateUrl: './form-binary-unit-input.component.html',
-  styleUrls: ['./form-binary-unit-input.component.scss']
+  styleUrls: ['./form-binary-unit-input.component.scss'],
+  providers: [PageContextService]
 })
 export class FormBinaryUnitInputComponent extends AbstractFormFieldComponent {
   constructor(private clipboardService: ClipboardService) {
     super();
   }
 
-  onCopyToClipboard(): void {
+  public onCopyToClipboard(): void {
     const control = this.formGroup.get(this.config.name);
     this.clipboardService.copy(control.value);
   }

@@ -33,6 +33,7 @@ import { Icon } from '~/app/shared/enum/icon.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
+import { PageContextService } from '~/app/shared/services/pagecontext-service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 /**
@@ -41,7 +42,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   selector: 'omv-intuition-text-page',
   templateUrl: './text-page.component.html',
-  styleUrls: ['./text-page.component.scss']
+  styleUrls: ['./text-page.component.scss'],
+  providers: [PageContextService]
 })
 export class TextPageComponent extends AbstractPageComponent<TextPageConfig> implements OnInit {
   @ViewChild('textContainer', { static: true })
@@ -58,11 +60,12 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
     @Inject(Router) router: Router,
+    @Inject(PageContextService) pageContextService: PageContextService,
     private clipboardService: ClipboardService,
     private renderer2: Renderer2,
     private rpcService: RpcService
   ) {
-    super(activatedRoute, authSessionService, router);
+    super(activatedRoute, authSessionService, router, pageContextService);
   }
 
   override ngOnInit(): void {

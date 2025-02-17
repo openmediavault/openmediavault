@@ -37,7 +37,6 @@ import {
   FormPageButtonConfig,
   FormPageConfig
 } from '~/app/core/components/intuition/models/form-page-config.type';
-import { PageContext } from '~/app/core/components/intuition/models/page.type';
 import { Unsubscribe } from '~/app/decorators';
 import { format, formatDeep, isFormatable, toBoolean } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
@@ -52,6 +51,7 @@ import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
+import { PageContextService } from '~/app/shared/services/pagecontext-service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 /**
@@ -63,7 +63,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   selector: 'omv-intuition-form-page',
   templateUrl: './form-page.component.html',
-  styleUrls: ['./form-page.component.scss']
+  styleUrls: ['./form-page.component.scss'],
+  providers: [PageContextService]
 })
 export class FormPageComponent
   extends AbstractPageComponent<FormPageConfig>
@@ -76,7 +77,6 @@ export class FormPageComponent
   private subscriptions = new Subscription();
 
   // Internal
-  public editing = false;
   public loading = false;
   public error: HttpErrorResponse;
 
@@ -84,39 +84,13 @@ export class FormPageComponent
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
     @Inject(Router) router: Router,
+    @Inject(PageContextService) pageContextService: PageContextService,
     private blockUiService: BlockUiService,
     private rpcService: RpcService,
     private dialogService: DialogService,
     private notificationService: NotificationService
   ) {
-    super(activatedRoute, authSessionService, router);
-    // Set the form mode to 'Create' (default) or 'Edit'.
-    // This depends on the component configuration that is done via the
-    // router config.
-    // Examples:
-    // {
-    //   path: 'hdparm/create',
-    //   component: DiskFormPageComponent,
-    //   data: { title: gettext('Create'), editing: false }
-    // }
-    // {
-    //   path: 'hdparm/edit/:devicefile',
-    //   component: DiskFormPageComponent,
-    //   data: { title: gettext('Edit'), editing: true }
-    // }
-    this.editing = _.get(this.routeConfig, 'data.editing', false);
-  }
-
-  /**
-   * Append the current page mode. This can be editing or creating.
-   */
-  override get pageContext(): PageContext {
-    return _.merge(
-      {
-        _editing: this.editing
-      },
-      super.pageContext
-    );
+    super(activatedRoute, authSessionService, router, pageContextService);
   }
 
   override ngOnInit(): void {
@@ -397,7 +371,10 @@ export class FormPageComponent
               // pristine again.
               this.markAsPristine();
               // Display a success notification?
-              const notificationTitle = _.get(this.routeConfig, 'data.notificationTitle');
+              const notificationTitle = _.get(
+                this.pageContext._routeConfig,
+                'data.notificationTitle'
+              );
               if (!_.isEmpty(notificationTitle)) {
                 this.notificationService.show(
                   NotificationType.success,
@@ -493,15 +470,15 @@ export class FormPageComponent
       'request.post.params'
     ]);
     // Load the content if form page is in 'editing' mode.
-    if (this.editing) {
+    if (this.pageContext._editing) {
       this.loadData();
     } else {
       // Inject the query parameters of the route into the form fields.
       // This will override the configured form field values.
       const allFields: FormFieldConfig[] = flattenFormFieldConfig(this.config.fields);
       _.forEach(allFields, (fieldConfig: FormFieldConfig) => {
-        if (_.has(this.routeQueryParams, fieldConfig.name)) {
-          fieldConfig.value = _.get(this.routeQueryParams, fieldConfig.name);
+        if (_.has(this.pageContext._routeQueryParams, fieldConfig.name)) {
+          fieldConfig.value = _.get(this.pageContext._routeQueryParams, fieldConfig.name);
         }
       });
     }

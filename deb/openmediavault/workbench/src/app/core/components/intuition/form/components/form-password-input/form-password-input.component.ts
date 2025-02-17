@@ -20,11 +20,13 @@ import { AbstractControl } from '@angular/forms';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
+import { PageContextService } from '~/app/shared/services/pagecontext-service';
 
 @Component({
   selector: 'omv-form-password-input',
   templateUrl: './form-password-input.component.html',
-  styleUrls: ['./form-password-input.component.scss']
+  styleUrls: ['./form-password-input.component.scss'],
+  providers: [PageContextService]
 })
 export class FormPasswordInputComponent extends AbstractFormFieldComponent {
   constructor(private clipboardService: ClipboardService) {

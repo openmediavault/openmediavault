@@ -18,8 +18,8 @@
 import * as _ from 'lodash';
 
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
-import { PageContext } from '~/app/core/components/intuition/models/page.type';
 import { formatDeep, isFormatable } from '~/app/functions.helper';
+import { PageContext } from '~/app/shared/services/pagecontext-service';
 
 /**
  * Flatten the configuration the get all fields, including the ones used

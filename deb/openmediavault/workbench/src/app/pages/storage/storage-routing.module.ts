@@ -150,6 +150,7 @@ const routes: Routes = [
         canDeactivate: [IsDirtyGuardService],
         data: {
           title: gettext('ACL'),
+          editing: true,
           notificationTitle: gettext('Updated access control list of shared folder.')
         }
       },

@@ -19,12 +19,14 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
+import { PageContextService } from '~/app/shared/services/pagecontext-service';
 
 @Component({
   selector: 'omv-form-slider',
   templateUrl: './form-slider.component.html',
   styleUrls: ['./form-slider.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  providers: [PageContextService]
 })
 export class FormSliderComponent extends AbstractFormFieldComponent {
   onChange(event: MatSliderChange) {

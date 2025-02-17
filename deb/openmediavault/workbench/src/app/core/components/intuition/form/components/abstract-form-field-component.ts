@@ -15,14 +15,14 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Directive, Input, OnInit } from '@angular/core';
+import { Directive, inject, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import * as _ from 'lodash';
 
 import { formatFormFieldConfig } from '~/app/core/components/intuition/functions.helper';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
-import { PageContext } from '~/app/core/components/intuition/models/page.type';
 import { Icon } from '~/app/shared/enum/icon.enum';
+import { PageContextService } from '~/app/shared/services/pagecontext-service';
 
 @Directive()
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
@@ -33,10 +33,9 @@ export abstract class AbstractFormFieldComponent implements OnInit {
   @Input()
   formGroup: FormGroup;
 
-  @Input()
-  pageContext: PageContext = {};
-
   public icon = Icon;
+
+  protected pageContext = inject(PageContextService).getContext();
 
   ngOnInit(): void {
     this.sanitizeConfig();

@@ -25,11 +25,13 @@ import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form
 import { formatFormFieldConfig } from '~/app/core/components/intuition/functions.helper';
 import { Unsubscribe } from '~/app/decorators';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
+import { PageContextService } from '~/app/shared/services/pagecontext-service';
 
 @Component({
   selector: 'omv-form-select',
   templateUrl: './form-select.component.html',
-  styleUrls: ['./form-select.component.scss']
+  styleUrls: ['./form-select.component.scss'],
+  providers: [PageContextService]
 })
 export class FormSelectComponent extends AbstractFormFieldComponent implements OnInit {
   @Unsubscribe()

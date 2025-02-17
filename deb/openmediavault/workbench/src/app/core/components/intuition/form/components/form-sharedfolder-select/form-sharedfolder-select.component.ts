@@ -22,11 +22,13 @@ import * as _ from 'lodash';
 
 import { FormSelectComponent } from '~/app/core/components/intuition/form/components/form-select/form-select.component';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
+import { PageContextService } from '~/app/shared/services/pagecontext-service';
 
 @Component({
   selector: 'omv-form-sharedfolder-select',
   templateUrl: './form-sharedfolder-select.component.html',
-  styleUrls: ['./form-sharedfolder-select.component.scss']
+  styleUrls: ['./form-sharedfolder-select.component.scss'],
+  providers: [PageContextService]
 })
 export class FormSharedfolderSelectComponent extends FormSelectComponent {
   constructor(

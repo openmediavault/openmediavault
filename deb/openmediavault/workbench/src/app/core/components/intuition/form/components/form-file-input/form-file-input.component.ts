@@ -20,11 +20,13 @@ import { AbstractControl } from '@angular/forms';
 import * as _ from 'lodash';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
+import { PageContextService } from '~/app/shared/services/pagecontext-service';
 
 @Component({
   selector: 'omv-form-file-input',
   templateUrl: './form-file-input.component.html',
-  styleUrls: ['./form-file-input.component.scss']
+  styleUrls: ['./form-file-input.component.scss'],
+  providers: [PageContextService]
 })
 export class FormFileInputComponent extends AbstractFormFieldComponent {
   onChange(event: Event) {

@@ -296,7 +296,6 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
 
   ngOnInit(): void {
     const self = this.page;
-    self.editing = true;
     self.loadData = () => this.loadData('/');
     self.afterViewInitEvent.subscribe(() => {
       const control: AbstractControl = self.form.formGroup.get('file');
@@ -305,7 +304,7 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
   }
 
   onCopyPermissions() {
-    const uuid: string = _.get(this.page.routeParams, 'uuid');
+    const uuid: string = _.get(this.page.pageContext._routeParams, 'uuid');
     const values: FormValues = this.page.getFormValues();
     this.dialogService
       .open(ModalDialogComponent, {
@@ -368,13 +367,13 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
         this.page.markAsPristine();
         this.notificationService.show(
           NotificationType.success,
-          _.get(this.page.routeConfig, 'data.notificationTitle')
+          _.get(this.page.pageContext._routeConfig, 'data.notificationTitle')
         );
       });
   }
 
   protected loadData(file: string) {
-    const uuid: string = _.get(this.page.routeParams, 'uuid');
+    const uuid: string = _.get(this.page.pageContext._routeParams, 'uuid');
     this.page.loading = true;
     this.rpcService
       .request('ShareMgmt', 'getFileACL', {

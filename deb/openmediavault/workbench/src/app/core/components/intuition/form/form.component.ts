@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, inject, Input, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -38,11 +38,11 @@ import {
   FormFieldConstraintValidator,
   FormFieldModifier
 } from '~/app/core/components/intuition/models/form-field-config.type';
-import { PageContext } from '~/app/core/components/intuition/models/page.type';
 import { Unsubscribe } from '~/app/decorators';
 import { format, formatDeep } from '~/app/functions.helper';
 import { CustomValidators } from '~/app/shared/forms/custom-validators';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
+import { PageContextService } from '~/app/shared/services/pagecontext-service';
 
 let nextUniqueId = 0;
 
@@ -58,13 +58,12 @@ export class FormComponent implements AfterViewInit, OnInit {
   @Input()
   config: FormFieldConfig[];
 
-  @Input()
-  pageContext: PageContext = {};
-
   @Unsubscribe()
   private subscriptions: Subscription = new Subscription();
 
   public formGroup: FormGroup;
+
+  protected pageContext = inject(PageContextService).getContext();
 
   constructor(private formBuilder: FormBuilder) {}
 

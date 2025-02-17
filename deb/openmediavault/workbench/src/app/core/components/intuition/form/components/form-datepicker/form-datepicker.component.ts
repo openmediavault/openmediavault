@@ -18,10 +18,12 @@
 import { Component } from '@angular/core';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
+import { PageContextService } from '~/app/shared/services/pagecontext-service';
 
 @Component({
   selector: 'omv-form-datepicker',
   templateUrl: './form-datepicker.component.html',
-  styleUrls: ['./form-datepicker.component.scss']
+  styleUrls: ['./form-datepicker.component.scss'],
+  providers: [PageContextService]
 })
 export class FormDatepickerComponent extends AbstractFormFieldComponent {}

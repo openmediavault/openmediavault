@@ -18,10 +18,12 @@
 import { Component } from '@angular/core';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
+import { PageContextService } from '~/app/shared/services/pagecontext-service';
 
 @Component({
   selector: 'omv-form-checkbox',
   templateUrl: './form-checkbox.component.html',
-  styleUrls: ['./form-checkbox.component.scss']
+  styleUrls: ['./form-checkbox.component.scss'],
+  providers: [PageContextService]
 })
 export class FormCheckboxComponent extends AbstractFormFieldComponent {}

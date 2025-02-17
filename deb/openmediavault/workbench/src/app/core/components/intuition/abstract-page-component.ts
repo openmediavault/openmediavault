@@ -24,20 +24,14 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import {
-  ActivatedRoute,
-  Params,
-  Route,
-  Router,
-  UrlSegment,
-  UrlSegmentGroup
-} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';
-import { combineLatest, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
-import { PageContext, PageHintConfig } from '~/app/core/components/intuition/models/page.type';
-import { decodeURIComponentDeep, formatDeep, isFormatable } from '~/app/functions.helper';
+import { PageHintConfig } from '~/app/core/components/intuition/models/page.type';
+import { formatDeep, isFormatable } from '~/app/functions.helper';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
+import { PageContext, PageContextService } from '~/app/shared/services/pagecontext-service';
 
 @Directive()
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
@@ -49,58 +43,27 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
   @Output()
   readonly afterViewInitEvent = new EventEmitter();
 
-  readonly routeUrlSegments: string[];
-  readonly routeConfig: Route;
-  routeParams: Params = {};
-  routeQueryParams: Params = {};
+  pageContext: PageContext;
 
   private activatedRouteSubscription: Subscription;
 
   protected constructor(
     protected activatedRoute: ActivatedRoute,
     protected authSessionService: AuthSessionService,
-    protected router: Router
+    protected router: Router,
+    protected pageContextService: PageContextService
   ) {
-    this.routeConfig = this.activatedRoute.routeConfig;
-
-    const urlTree = this.router.parseUrl(this.router.url);
-    this.routeUrlSegments = this.getUrlSegments(urlTree.root.children);
+    this.pageContext = pageContextService.getContext();
 
     // Is the component configured via route data?
-    if (_.has(this.routeConfig, 'data.config')) {
-      this.config = _.cloneDeep(_.get(this.routeConfig, 'data.config')) as T;
+    if (_.has(this.pageContext._routeConfig, 'data.config')) {
+      this.config = _.cloneDeep(_.get(this.pageContext._routeConfig, 'data.config')) as T;
     }
-  }
-
-  /**
-   * Helper method to get the page related configuration that can be
-   * used in tokenized strings. It contains the route configuration and
-   * parameters. Note, to do not collide with form field values, the
-   * property names start with underscores.
-   */
-  get pageContext(): PageContext {
-    return {
-      _session: {
-        username: this.authSessionService.getUsername(),
-        permissions: this.authSessionService.getPermissions()
-      },
-      _routeConfig: this.routeConfig,
-      _routeParams: this.routeParams,
-      _routeQueryParams: this.routeQueryParams,
-      _routeUrlSegments: this.routeUrlSegments
-    };
   }
 
   ngOnInit(): void {
     this.sanitizeConfig();
-    this.activatedRouteSubscription = combineLatest([
-      this.activatedRoute.params,
-      this.activatedRoute.queryParams
-    ]).subscribe(([params, queryParams]: Params[]) => {
-      this.routeParams = decodeURIComponentDeep(params);
-      this.routeQueryParams = decodeURIComponentDeep(queryParams);
-      this.onRouteParams();
-    });
+    this.onRouteParams();
   }
 
   ngOnDestroy(): void {
@@ -147,19 +110,5 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
         _.set(this.config as Record<string, any>, prop, formatDeep(value, this.pageContext));
       }
     });
-  }
-
-  /**
-   * @private
-   */
-  private getUrlSegments(children: { [key: string]: UrlSegmentGroup }): string[] {
-    let segments: string[] = [];
-    _.forEach(_.keys(children), (key: string) => {
-      const urlSegmentGroup: UrlSegmentGroup = children[key];
-      segments = segments
-        .concat(urlSegmentGroup.segments.map((segment: UrlSegment) => segment.path))
-        .concat(this.getUrlSegments(urlSegmentGroup.children));
-    });
-    return segments;
   }
 }

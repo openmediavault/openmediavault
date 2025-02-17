@@ -26,11 +26,13 @@ import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form
 import { formatFormFieldConfig } from '~/app/core/components/intuition/functions.helper';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
+import { PageContextService } from '~/app/shared/services/pagecontext-service';
 
 @Component({
   selector: 'omv-form-text-input',
   templateUrl: './form-text-input.component.html',
-  styleUrls: ['./form-text-input.component.scss']
+  styleUrls: ['./form-text-input.component.scss'],
+  providers: [PageContextService]
 })
 export class FormTextInputComponent extends AbstractFormFieldComponent implements OnInit {
   @ViewChild(MatAutocompleteTrigger)

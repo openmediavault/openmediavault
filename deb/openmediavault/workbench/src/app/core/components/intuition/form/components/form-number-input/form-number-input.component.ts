@@ -20,11 +20,13 @@ import { AbstractControl } from '@angular/forms';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
+import { PageContextService } from '~/app/shared/services/pagecontext-service';
 
 @Component({
   selector: 'omv-form-number-input',
   templateUrl: './form-number-input.component.html',
-  styleUrls: ['./form-number-input.component.scss']
+  styleUrls: ['./form-number-input.component.scss'],
+  providers: [PageContextService]
 })
 export class FormNumberInputComponent extends AbstractFormFieldComponent {
   constructor(private clipboardService: ClipboardService) {
