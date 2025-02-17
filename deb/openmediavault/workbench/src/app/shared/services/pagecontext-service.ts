@@ -36,7 +36,7 @@ export class PageContextService {
     const urlSegments = this.getUrlSegments(urlTree.root.children);
 
     const config = {
-      path: this.activatedRoute.routeConfig.path,
+      path: this.activatedRoute.routeConfig?.path ?? '',
       data: this.activatedRoute.routeConfig?.data ?? {}
     };
 
