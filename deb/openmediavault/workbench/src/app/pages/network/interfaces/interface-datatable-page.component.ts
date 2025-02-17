@@ -209,7 +209,7 @@ export class InterfaceDatatablePageComponent extends BaseFormPageComponent {
                 name: 'devicename',
                 label: gettext('Name'),
                 readonly: true,
-                value: '{{ devicename }}'
+                value: '{{ _selected[0].devicename }}'
               },
               {
                 type: 'numberInput',
