@@ -33,7 +33,6 @@ import { Icon } from '~/app/shared/enum/icon.enum';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
-
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({

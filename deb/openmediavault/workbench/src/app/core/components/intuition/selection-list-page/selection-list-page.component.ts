@@ -37,7 +37,6 @@ import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 
-
 @Component({
   selector: 'omv-intuition-selection-list-page',
   templateUrl: './selection-list-page.component.html',

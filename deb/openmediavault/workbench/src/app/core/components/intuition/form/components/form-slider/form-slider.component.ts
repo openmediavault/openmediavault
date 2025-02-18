@@ -20,7 +20,6 @@ import { MatSliderChange } from '@angular/material/slider';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 
-
 @Component({
   selector: 'omv-form-slider',
   templateUrl: './form-slider.component.html',

@@ -33,7 +33,6 @@ import { Icon } from '~/app/shared/enum/icon.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
-
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 /**

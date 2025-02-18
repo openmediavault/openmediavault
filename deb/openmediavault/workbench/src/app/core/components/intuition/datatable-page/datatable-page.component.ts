@@ -52,7 +52,6 @@ import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
-
 @Component({
   selector: 'omv-intuition-datatable-page',
   templateUrl: './datatable-page.component.html',

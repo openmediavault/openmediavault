@@ -23,7 +23,6 @@ import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-
 import { TabsPageConfig } from '~/app/core/components/intuition/models/tabs-page-config.type';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 
-
 /**
  * This component will render a page containing tabs.
  */

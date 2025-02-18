@@ -23,7 +23,6 @@ import * as _ from 'lodash';
 import { FormSelectComponent } from '~/app/core/components/intuition/form/components/form-select/form-select.component';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 
-
 @Component({
   selector: 'omv-form-sharedfolder-select',
   templateUrl: './form-sharedfolder-select.component.html',

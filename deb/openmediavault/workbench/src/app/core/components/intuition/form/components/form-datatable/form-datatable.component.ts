@@ -27,7 +27,6 @@ import {
 import { MatFormDatatableAction } from '~/app/core/components/intuition/material/mat-form-datatable/mat-form-datatable.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
 
-
 @Component({
   selector: 'omv-form-datatable',
   templateUrl: './form-datatable.component.html',

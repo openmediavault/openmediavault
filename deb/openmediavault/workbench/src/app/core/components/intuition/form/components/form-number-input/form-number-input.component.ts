@@ -21,7 +21,6 @@ import { AbstractControl } from '@angular/forms';
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 
-
 @Component({
   selector: 'omv-form-number-input',
   templateUrl: './form-number-input.component.html',

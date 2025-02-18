@@ -21,7 +21,6 @@ import * as _ from 'lodash';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 
-
 @Component({
   selector: 'omv-form-file-input',
   templateUrl: './form-file-input.component.html',

@@ -27,7 +27,6 @@ import { formatFormFieldConfig } from '~/app/core/components/intuition/functions
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 
-
 @Component({
   selector: 'omv-form-text-input',
   templateUrl: './form-text-input.component.html',

@@ -24,7 +24,6 @@ import { FormFieldConfig } from '~/app/core/components/intuition/models/form-fie
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { PageContextService } from '~/app/shared/services/page-context-service';
 
-
 @Directive()
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export abstract class AbstractFormFieldComponent implements OnInit {

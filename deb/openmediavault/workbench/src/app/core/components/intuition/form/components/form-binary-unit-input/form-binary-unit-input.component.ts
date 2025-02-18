@@ -20,7 +20,6 @@ import { Component } from '@angular/core';
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 
-
 @Component({
   selector: 'omv-form-binary-unit-input',
   templateUrl: './form-binary-unit-input.component.html',

@@ -26,7 +26,6 @@ import { formatFormFieldConfig } from '~/app/core/components/intuition/functions
 import { Unsubscribe } from '~/app/decorators';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 
-
 @Component({
   selector: 'omv-form-select',
   templateUrl: './form-select.component.html',
