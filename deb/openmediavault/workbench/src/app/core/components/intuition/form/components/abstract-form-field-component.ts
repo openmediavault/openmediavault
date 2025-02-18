@@ -22,7 +22,7 @@ import * as _ from 'lodash';
 import { formatFormFieldConfig } from '~/app/core/components/intuition/functions.helper';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
 import { Icon } from '~/app/shared/enum/icon.enum';
-import { PageContextService } from '~/app/shared/services/page-context-service';
+import { PageContextService } from '~/app/shared/services/page-context.service';
 
 @Directive()
 // eslint-disable-next-line @angular-eslint/directive-class-suffix

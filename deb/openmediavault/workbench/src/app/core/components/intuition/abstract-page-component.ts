@@ -32,7 +32,7 @@ import { Subscription } from 'rxjs';
 import { PageHintConfig } from '~/app/core/components/intuition/models/page.type';
 import { formatDeep, isFormatable } from '~/app/functions.helper';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
-import { PageContext, PageContextService } from '~/app/shared/services/page-context-service';
+import { PageContext, PageContextService } from '~/app/shared/services/page-context.service';
 
 @Directive()
 // eslint-disable-next-line @angular-eslint/directive-class-suffix

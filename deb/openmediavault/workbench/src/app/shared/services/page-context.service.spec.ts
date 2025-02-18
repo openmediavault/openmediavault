@@ -7,7 +7,7 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 
 import { BlankLayoutComponent } from '~/app/core/components/layouts/blank-layout/blank-layout.component';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
-import { PageContextService } from '~/app/shared/services/page-context-service';
+import { PageContextService } from '~/app/shared/services/page-context.service';
 
 // Test the correct working of the page context service
 describe('PageContextService', () => {

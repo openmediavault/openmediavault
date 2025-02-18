@@ -50,6 +50,15 @@ export class PageContextService {
       });
   }
 
+  public getContext(): PageContext {
+    const contextWithUser = this.pageContext;
+
+    contextWithUser._session.username = this.authSessionService.getUsername();
+    contextWithUser._session.permissions = this.authSessionService.getPermissions();
+
+    return contextWithUser;
+  }
+
   private fillPageContext(newUrl?: string, snapshot?: ActivatedRouteSnapshot) {
     const urlTree = this.router.parseUrl(newUrl === undefined ? this.router.url : newUrl);
     this.pageContext._routeUrlSegments = this.getUrlSegments(urlTree.root.children);
@@ -97,16 +106,6 @@ export class PageContextService {
       _editing: false,
       _selected: undefined
     };
-  }
-
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  public getContext(): PageContext {
-    const contextWithUser = this.pageContext;
-
-    contextWithUser._session.username = this.authSessionService.getUsername();
-    contextWithUser._session.permissions = this.authSessionService.getPermissions();
-
-    return contextWithUser;
   }
 
   private getUrlSegments(children: { [key: string]: UrlSegmentGroup }): string[] {
