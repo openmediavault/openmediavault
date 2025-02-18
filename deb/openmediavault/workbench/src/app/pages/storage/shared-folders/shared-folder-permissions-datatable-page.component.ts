@@ -184,13 +184,16 @@ export class SharedFolderPermissionsDatatablePageComponent {
     }));
     this.rpcService
       .request('ShareMgmt', 'setPrivileges', {
-        uuid: _.get(this.page.routeParams, 'uuid'),
+        uuid: _.get(this.page.pageContext._routeParams, 'uuid'),
         privileges
       })
       .subscribe(() => {
         this.notificationService.show(
           NotificationType.success,
-          format(_.get(this.page.routeConfig, 'data.notificationTitle'), this.page.routeParams)
+          format(
+            _.get(this.page.pageContext._routeConfig, 'data.notificationTitle'),
+            this.page.pageContext._routeParams
+          )
         );
         this.router.navigate(['/storage/shared-folders']);
       });

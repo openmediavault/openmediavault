@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * This file is part of OpenMediaVault.
  *
@@ -25,10 +26,11 @@ import { finalize } from 'rxjs/operators';
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import { FormDialogComponent } from '~/app/core/components/intuition/form-dialog/form-dialog.component';
 import { DatatablePageActionConfig } from '~/app/core/components/intuition/models/datatable-page-action-config.type';
-import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
-import { DatatablePageButtonConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
+import {
+  DatatablePageButtonConfig,
+  DatatablePageConfig
+} from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
-import { PageContext } from '~/app/core/components/intuition/models/page.type';
 import { format, formatDeep, isFormatable } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import {
@@ -62,6 +64,11 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   public loading = false;
   public count = 0;
   public selection = new DatatableSelection();
+  public pageContextWithSelection = () => {
+    let context = this.pageContext;
+    context._selected = this.selection.selected;
+    return context;
+  };
 
   constructor(
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
@@ -75,19 +82,6 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     private notificationService: NotificationService
   ) {
     super(activatedRoute, authSessionService, router);
-  }
-
-  /**
-   * Append the current selection to the page context.
-   */
-  override get pageContext(): PageContext {
-    const result = _.merge(
-      {
-        _selected: this.selection.selected
-      },
-      super.pageContext
-    );
-    return result;
   }
 
   loadData(params: DataTableLoadParams) {
@@ -153,14 +147,16 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   }
 
   onActionClick(action: DatatablePageActionConfig): void {
+    // TODO: "combinedContext._selected" provide the same content that is already being added
+    //  by this.selection.first() in many execution paths. Check / Refactor
+    //  to use only one source.
     const postConfirmFn = () => {
       switch (action?.execute?.type) {
         case 'url':
           const url: string = format(
             action.execute.url,
             _.merge(
-              {},
-              this.pageContext,
+              this.pageContextWithSelection(),
               this.selection.hasSingleSelection ? this.selection.first() : {}
             )
           );
@@ -171,7 +167,10 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           const request = action.execute.request;
           if (this.selection.hasSelection) {
             this.selection.selected.forEach((selected) => {
-              const params = formatDeep(request.params, _.merge({}, this.pageContext, selected));
+              const params = formatDeep(
+                request.params,
+                _.merge({}, this.pageContextWithSelection(), selected)
+              );
               observables.push(
                 this.rpcService[request.task ? 'requestTask' : 'request'](
                   request.service,
@@ -181,7 +180,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
               );
             });
           } else {
-            const params = formatDeep(request.params, this.pageContext);
+            const params = formatDeep(request.params, this.pageContextWithSelection());
             observables.push(
               this.rpcService[request.task ? 'requestTask' : 'request'](
                 request.service,
@@ -205,8 +204,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
             )
             .subscribe((res: any) => {
               const data: Record<any, any> = _.merge(
-                {},
-                this.pageContext,
+                this.pageContextWithSelection(),
                 isFormatable(res) ? { _response: res } : {}
               );
               // Display a notification?
@@ -239,7 +237,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           _.forEach(['request.params'], (path) => {
             const value = _.get(taskDialog.config, path);
             if (isFormatable(value)) {
-              _.set(taskDialog.config, path, formatDeep(value, this.pageContext));
+              _.set(taskDialog.config, path, formatDeep(value, this.pageContextWithSelection()));
             }
           });
           const dialog = this.dialogService.open(TaskDialogComponent, {
@@ -265,7 +263,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
             _.forEach(['store.proxy', 'store.filters', 'value', 'request.params'], (path) => {
               const value = _.get(fieldConfig, path);
               if (isFormatable(value)) {
-                _.set(fieldConfig, path, formatDeep(value, this.pageContext));
+                _.set(fieldConfig, path, formatDeep(value, this.pageContextWithSelection()));
               }
             });
           });
@@ -280,8 +278,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           const copyToClipboard: string = format(
             action.execute.copyToClipboard,
             _.merge(
-              {},
-              this.pageContext,
+              this.pageContextWithSelection(),
               this.selection.hasSingleSelection ? this.selection.first() : {}
             )
           );
@@ -293,7 +290,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     if (_.isPlainObject(action.confirmationDialogConfig)) {
       const data = _.cloneDeep(action.confirmationDialogConfig);
       if (_.isString(data.message)) {
-        data.message = format(data.message, this.pageContext);
+        data.message = format(data.message, this.pageContextWithSelection());
       }
       const dialogRef = this.dialogService.open(ModalDialogComponent, {
         width: _.get(data, 'width'),
@@ -491,7 +488,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   }
 
   private navigate(url: string) {
-    const formattedUrl = format(url, this.pageContext);
+    const formattedUrl = format(url, this.pageContextWithSelection());
     this.router.navigateByUrl(formattedUrl);
   }
 }

@@ -102,8 +102,10 @@ export class ConstraintService {
       let result;
       if (_.isPlainObject(node)) {
         if (_.has(node, 'prop')) {
+          const containsToken =
+            node.prop.toString().includes('{{') && node.prop.toString().includes('}}');
           node = node as ConstraintProperty;
-          result = _.get(data, node.prop);
+          result = containsToken ? format(node.prop, data) : _.get(data, node.prop);
         } else if (_.has(node, 'value')) {
           node = node as ConstraintValue;
           result = isFormatable(node.value) ? format(node.value, data) : node.value;

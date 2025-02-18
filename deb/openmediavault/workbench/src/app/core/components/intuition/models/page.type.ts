@@ -16,8 +16,6 @@
  * GNU General Public License for more details.
  */
 
-export type PageContext = Record<string, any>;
-
 export type PageHintConfig = {
   // Depending on the type, different icons and colors are used.
   type?: 'info' | 'warning';

@@ -141,7 +141,7 @@ export class SelectionListPageComponent
       .subscribe(() => {
         this.markAsPristine();
         // Display the configured notification message.
-        const notificationTitle = _.get(this.routeConfig, 'data.notificationTitle');
+        const notificationTitle = _.get(this.pageContext._routeConfig, 'data.notificationTitle');
         if (!_.isEmpty(notificationTitle)) {
           this.notificationService.show(
             NotificationType.success,
