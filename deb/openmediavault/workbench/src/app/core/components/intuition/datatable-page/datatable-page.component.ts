@@ -65,7 +65,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   public loading = false;
   public count = 0;
   public selection = new DatatableSelection();
-  public combinedContext = () => {
+  public pageContextWithSelection = () => {
     let context = this.pageContext;
     context._selected = this.selection.selected;
     return context;
@@ -157,7 +157,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           const url: string = format(
             action.execute.url,
             _.merge(
-              this.combinedContext(),
+              this.pageContextWithSelection(),
               this.selection.hasSingleSelection ? this.selection.first() : {}
             )
           );
@@ -170,7 +170,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
             this.selection.selected.forEach((selected) => {
               const params = formatDeep(
                 request.params,
-                _.merge({}, this.combinedContext(), selected)
+                _.merge({}, this.pageContextWithSelection(), selected)
               );
               observables.push(
                 this.rpcService[request.task ? 'requestTask' : 'request'](
@@ -181,7 +181,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
               );
             });
           } else {
-            const params = formatDeep(request.params, this.combinedContext());
+            const params = formatDeep(request.params, this.pageContextWithSelection());
             observables.push(
               this.rpcService[request.task ? 'requestTask' : 'request'](
                 request.service,
@@ -205,7 +205,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
             )
             .subscribe((res: any) => {
               const data: Record<any, any> = _.merge(
-                this.combinedContext(),
+                this.pageContextWithSelection(),
                 isFormatable(res) ? { _response: res } : {}
               );
               // Display a notification?
@@ -238,7 +238,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           _.forEach(['request.params'], (path) => {
             const value = _.get(taskDialog.config, path);
             if (isFormatable(value)) {
-              _.set(taskDialog.config, path, formatDeep(value, this.combinedContext()));
+              _.set(taskDialog.config, path, formatDeep(value, this.pageContextWithSelection()));
             }
           });
           const dialog = this.dialogService.open(TaskDialogComponent, {
@@ -264,7 +264,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
             _.forEach(['store.proxy', 'store.filters', 'value', 'request.params'], (path) => {
               const value = _.get(fieldConfig, path);
               if (isFormatable(value)) {
-                _.set(fieldConfig, path, formatDeep(value, this.combinedContext()));
+                _.set(fieldConfig, path, formatDeep(value, this.pageContextWithSelection()));
               }
             });
           });
@@ -279,7 +279,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           const copyToClipboard: string = format(
             action.execute.copyToClipboard,
             _.merge(
-              this.combinedContext(),
+              this.pageContextWithSelection(),
               this.selection.hasSingleSelection ? this.selection.first() : {}
             )
           );
@@ -291,7 +291,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     if (_.isPlainObject(action.confirmationDialogConfig)) {
       const data = _.cloneDeep(action.confirmationDialogConfig);
       if (_.isString(data.message)) {
-        data.message = format(data.message, this.combinedContext());
+        data.message = format(data.message, this.pageContextWithSelection());
       }
       const dialogRef = this.dialogService.open(ModalDialogComponent, {
         width: _.get(data, 'width'),
@@ -489,7 +489,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   }
 
   private navigate(url: string) {
-    const formattedUrl = format(url, this.combinedContext());
+    const formattedUrl = format(url, this.pageContextWithSelection());
     this.router.navigateByUrl(formattedUrl);
   }
 }
