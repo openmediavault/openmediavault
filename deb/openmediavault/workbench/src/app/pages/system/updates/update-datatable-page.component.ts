@@ -162,30 +162,8 @@ export class UpdateDatatablePageComponent {
           maxSelected: 1
         },
         execute: {
-          type: 'taskDialog',
-          taskDialog: {
-            config: {
-              title: gettext('Changelog'),
-              autoScroll: false,
-              startOnInit: true,
-              showCompletion: false,
-              buttons: {
-                start: {
-                  hidden: true
-                },
-                stop: {
-                  hidden: true
-                }
-              },
-              request: {
-                service: 'Apt',
-                method: 'getChangeLog',
-                params: {
-                  filename: '{{ _selected[0].filename }}'
-                }
-              }
-            }
-          }
+          type: 'url',
+          url: '/system/updatemgmt/updates/changelog/{{ _selected[0].filename | encodeuricomponent }}'
         }
       }
     ]
