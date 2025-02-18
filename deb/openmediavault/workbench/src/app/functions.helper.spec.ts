@@ -2,8 +2,6 @@ import * as _ from 'lodash';
 
 import {
   binaryUnit,
-  decodeURIComponentDeep,
-  encodeURIComponentDeep,
   format,
   formatDeep,
   isFormatable,
@@ -15,31 +13,6 @@ import {
 } from '~/app/functions.helper';
 
 describe('functions.helper', () => {
-  it('should decode object [1]', () => {
-    const result = decodeURIComponentDeep({
-      foo: encodeURIComponent('/dev/sda'),
-      bar: { xyz: encodeURIComponent('/dev/vdb'), abc: 1 }
-    });
-    expect(_.get(result, 'foo')).toBe('/dev/sda');
-    expect(_.get(result, 'bar.xyz')).toBe('/dev/vdb');
-    expect(_.get(result, 'bar.abc')).toBe(1);
-  });
-
-  it('should decode object [2]', () => {
-    expect(decodeURIComponentDeep(undefined)).toBeUndefined();
-  });
-
-  it('should encode object [1]', () => {
-    const result = encodeURIComponentDeep({ foo: '/dev/sda', bar: { xyz: '/dev/vdb', abc: 1 } });
-    expect(result.foo).toBe(encodeURIComponent('/dev/sda'));
-    expect(result.bar.xyz).toBe(encodeURIComponent('/dev/vdb'));
-    expect(result.bar.abc).toBe(1);
-  });
-
-  it('should encode object [2]', () => {
-    expect(encodeURIComponentDeep(undefined)).toBeUndefined();
-  });
-
   it('should check if value is formatable', () => {
     expect(isFormatable('foo')).toBeTruthy();
     expect(isFormatable({ foo: 'bar', xyz: 3 })).toBeTruthy();

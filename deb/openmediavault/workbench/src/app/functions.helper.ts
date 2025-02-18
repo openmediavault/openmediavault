@@ -170,63 +170,6 @@ export const formatDeep = (value: any, data: Record<any, any>): Record<any, any>
 };
 
 /**
- * Allows you to define a tokenized URI and pass an object
- * to replace the tokens. The URI parameters will be encoded.
- *
- * Note, output with dangerous characters is escaped automatically.
- * Use the `safe` filter to bypass this behaviour.
- *
- * @param uri The URI to format.
- * @param params The object containing the parameters to replace
- *   the tokens.
- * @return Returns the formatted URI.
- */
-export const formatURI = (uri: string, params: Record<any, any>): string =>
-  format(uri, encodeURIComponentDeep(params));
-
-/**
- * Encode all string values recursively in the given object.
- *
- * @param o The object to be processed.
- * @return Returns a deep copy of the given object with the
- *   modified encoded values.
- */
-export const encodeURIComponentDeep = (o: Record<any, any> | undefined): Record<any, any> => {
-  const fn = (m) => {
-    if (_.isPlainObject(m) || _.isArray(m)) {
-      _.forEach(m, (v, k) => {
-        m[k] = fn(v);
-      });
-    } else if (_.isString(m)) {
-      m = encodeURIComponent(m);
-    }
-    return m;
-  };
-  return fn(_.cloneDeep(o));
-};
-
-/**
- * Decode all string values recursively in the given object.
- *
- * @param o The object to be processed.
- * @return Returns a deep copy of the given object with the
- *   modified decoded values.
- */
-export const decodeURIComponentDeep = (o: Record<any, any> | undefined): Record<any, any> => {
-  const fn = (m) => {
-    if (_.isPlainObject(m) || _.isArray(m)) {
-      _.forEach(m, (v, k) => {
-        m[k] = fn(v);
-      });
-    } else if (_.isString(m)) {
-      m = decodeURIComponent(m);
-    }
-    return m;
-  };
-  return fn(_.cloneDeep(o));
-};
-
-/**
  * Check whether a variable is an UUIDv4.
  *
  * @deprecated
