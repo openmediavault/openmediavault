@@ -51,13 +51,12 @@ import { DataStoreService } from '~/app/shared/services/data-store.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
-import { PageContextService } from '~/app/shared/services/pagecontext-service';
+
 
 @Component({
   selector: 'omv-intuition-datatable-page',
   templateUrl: './datatable-page.component.html',
-  styleUrls: ['./datatable-page.component.scss'],
-  providers: [PageContextService]
+  styleUrls: ['./datatable-page.component.scss']
 })
 export class DatatablePageComponent extends AbstractPageComponent<DatatablePageConfig> {
   @ViewChild('table', { static: true })
@@ -76,7 +75,6 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
     @Inject(Router) router: Router,
-    @Inject(PageContextService) pageContextService: PageContextService,
     private blockUiService: BlockUiService,
     private clipboardService: ClipboardService,
     private dataStoreService: DataStoreService,
@@ -84,7 +82,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     private dialogService: DialogService,
     private notificationService: NotificationService
   ) {
-    super(activatedRoute, authSessionService, router, pageContextService);
+    super(activatedRoute, authSessionService, router);
   }
 
   loadData(params: DataTableLoadParams) {

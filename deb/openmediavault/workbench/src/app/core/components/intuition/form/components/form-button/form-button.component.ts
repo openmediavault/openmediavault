@@ -28,15 +28,14 @@ import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
-import { PageContextService } from '~/app/shared/services/pagecontext-service';
+
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
   selector: 'omv-form-button',
   templateUrl: './form-button.component.html',
   styleUrls: ['./form-button.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  providers: [PageContextService]
+  encapsulation: ViewEncapsulation.None
 })
 export class FormButtonComponent extends AbstractFormFieldComponent {
   constructor(

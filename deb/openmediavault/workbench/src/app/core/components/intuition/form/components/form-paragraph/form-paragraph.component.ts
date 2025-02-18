@@ -18,12 +18,11 @@
 import { Component } from '@angular/core';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
-import { PageContextService } from '~/app/shared/services/pagecontext-service';
+
 
 @Component({
   selector: 'omv-form-paragraph',
   templateUrl: './form-paragraph.component.html',
-  styleUrls: ['./form-paragraph.component.scss'],
-  providers: [PageContextService]
+  styleUrls: ['./form-paragraph.component.scss']
 })
 export class FormParagraphComponent extends AbstractFormFieldComponent {}

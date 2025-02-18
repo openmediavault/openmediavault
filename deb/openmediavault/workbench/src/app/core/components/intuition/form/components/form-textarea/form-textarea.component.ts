@@ -18,12 +18,11 @@
 import { Component } from '@angular/core';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
-import { PageContextService } from '~/app/shared/services/pagecontext-service';
+
 
 @Component({
   selector: 'omv-form-textarea',
   templateUrl: './form-textarea.component.html',
-  styleUrls: ['./form-textarea.component.scss'],
-  providers: [PageContextService]
+  styleUrls: ['./form-textarea.component.scss']
 })
 export class FormTextareaComponent extends AbstractFormFieldComponent {}

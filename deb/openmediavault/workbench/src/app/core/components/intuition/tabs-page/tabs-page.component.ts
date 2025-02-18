@@ -22,7 +22,7 @@ import * as _ from 'lodash';
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import { TabsPageConfig } from '~/app/core/components/intuition/models/tabs-page-config.type';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
-import { PageContextService } from '~/app/shared/services/pagecontext-service';
+
 
 /**
  * This component will render a page containing tabs.
@@ -30,17 +30,15 @@ import { PageContextService } from '~/app/shared/services/pagecontext-service';
 @Component({
   selector: 'omv-intuition-tabs-page',
   templateUrl: './tabs-page.component.html',
-  styleUrls: ['./tabs-page.component.scss'],
-  providers: [PageContextService]
+  styleUrls: ['./tabs-page.component.scss']
 })
 export class TabsPageComponent extends AbstractPageComponent<TabsPageConfig> {
   constructor(
     @Inject(ActivatedRoute) activatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
-    @Inject(Router) router: Router,
-    @Inject(PageContextService) pageContextService: PageContextService
+    @Inject(Router) router: Router
   ) {
-    super(activatedRoute, authSessionService, router, pageContextService);
+    super(activatedRoute, authSessionService, router);
   }
 
   protected override sanitizeConfig() {

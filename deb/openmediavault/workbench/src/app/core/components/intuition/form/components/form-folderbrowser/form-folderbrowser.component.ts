@@ -34,15 +34,14 @@ import { catchError, concatMap, map, startWith, takeUntil, tap, toArray } from '
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 import { Unsubscribe } from '~/app/decorators';
-import { PageContextService } from '~/app/shared/services/pagecontext-service';
+
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
   selector: 'omv-form-folderbrowser',
   templateUrl: './form-folderbrowser.component.html',
   styleUrls: ['./form-folderbrowser.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  providers: [PageContextService]
+  encapsulation: ViewEncapsulation.None
 })
 export class FormFolderbrowserComponent
   extends AbstractFormFieldComponent

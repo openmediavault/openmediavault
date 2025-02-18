@@ -18,12 +18,11 @@
 import { Component } from '@angular/core';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
-import { PageContextService } from '~/app/shared/services/pagecontext-service';
+
 
 @Component({
   selector: 'omv-form-tag-input',
   templateUrl: './form-tag-input.component.html',
-  styleUrls: ['./form-tag-input.component.scss'],
-  providers: [PageContextService]
+  styleUrls: ['./form-tag-input.component.scss']
 })
 export class FormTagInputComponent extends AbstractFormFieldComponent {}

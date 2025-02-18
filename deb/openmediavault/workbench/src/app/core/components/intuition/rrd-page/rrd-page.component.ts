@@ -33,7 +33,7 @@ import { Icon } from '~/app/shared/enum/icon.enum';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
-import { PageContextService } from '~/app/shared/services/pagecontext-service';
+
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
@@ -60,12 +60,11 @@ export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> imple
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
     @Inject(Router) router: Router,
-    @Inject(PageContextService) pageContextService: PageContextService,
     private blockUiService: BlockUiService,
     private dataStoreService: DataStoreService,
     private rpcService: RpcService
   ) {
-    super(activatedRoute, authSessionService, router, pageContextService);
+    super(activatedRoute, authSessionService, router);
     // Check if monitoring is enabled.
     this.rpcService.request('PerfStats', 'get').subscribe((resp) => {
       this.monitoringEnabled = _.get(resp, 'enable', false);

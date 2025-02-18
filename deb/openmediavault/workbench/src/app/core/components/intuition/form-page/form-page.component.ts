@@ -51,7 +51,7 @@ import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
-import { PageContextService } from '~/app/shared/services/pagecontext-service';
+
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 /**
@@ -63,8 +63,7 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   selector: 'omv-intuition-form-page',
   templateUrl: './form-page.component.html',
-  styleUrls: ['./form-page.component.scss'],
-  providers: [PageContextService]
+  styleUrls: ['./form-page.component.scss']
 })
 export class FormPageComponent
   extends AbstractPageComponent<FormPageConfig>
@@ -84,13 +83,12 @@ export class FormPageComponent
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
     @Inject(Router) router: Router,
-    @Inject(PageContextService) pageContextService: PageContextService,
     private blockUiService: BlockUiService,
     private rpcService: RpcService,
     private dialogService: DialogService,
     private notificationService: NotificationService
   ) {
-    super(activatedRoute, authSessionService, router, pageContextService);
+    super(activatedRoute, authSessionService, router);
   }
 
   override ngOnInit(): void {

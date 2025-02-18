@@ -36,13 +36,12 @@ import { Dirty } from '~/app/shared/models/dirty.interface';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
-import { PageContextService } from '~/app/shared/services/pagecontext-service';
+
 
 @Component({
   selector: 'omv-intuition-selection-list-page',
   templateUrl: './selection-list-page.component.html',
-  styleUrls: ['./selection-list-page.component.scss'],
-  providers: [PageContextService]
+  styleUrls: ['./selection-list-page.component.scss']
 })
 export class SelectionListPageComponent
   extends AbstractPageComponent<SelectionListPageConfig>
@@ -60,11 +59,10 @@ export class SelectionListPageComponent
     @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
     @Inject(Router) router: Router,
-    @Inject(PageContextService) pageContextService: PageContextService,
     private dataStoreService: DataStoreService,
     private notificationService: NotificationService
   ) {
-    super(activatedRoute, authSessionService, router, pageContextService);
+    super(activatedRoute, authSessionService, router);
   }
 
   override ngOnInit(): void {

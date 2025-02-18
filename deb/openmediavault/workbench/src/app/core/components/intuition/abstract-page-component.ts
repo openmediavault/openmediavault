@@ -19,6 +19,7 @@ import {
   AfterViewInit,
   Directive,
   EventEmitter,
+  inject,
   Input,
   OnDestroy,
   OnInit,
@@ -31,7 +32,7 @@ import { Subscription } from 'rxjs';
 import { PageHintConfig } from '~/app/core/components/intuition/models/page.type';
 import { formatDeep, isFormatable } from '~/app/functions.helper';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
-import { PageContext, PageContextService } from '~/app/shared/services/pagecontext-service';
+import { PageContext, PageContextService } from '~/app/shared/services/page-context-service';
 
 @Directive()
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
@@ -43,18 +44,15 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit,
   @Output()
   readonly afterViewInitEvent = new EventEmitter();
 
-  pageContext: PageContext;
+  public pageContext: PageContext = inject(PageContextService).getContext();
 
   private activatedRouteSubscription: Subscription;
 
   protected constructor(
     protected activatedRoute: ActivatedRoute,
     protected authSessionService: AuthSessionService,
-    protected router: Router,
-    protected pageContextService: PageContextService
+    protected router: Router
   ) {
-    this.pageContext = pageContextService.getContext();
-
     // Is the component configured via route data?
     if (_.has(this.pageContext._routeConfig, 'data.config')) {
       this.config = _.cloneDeep(_.get(this.pageContext._routeConfig, 'data.config')) as T;

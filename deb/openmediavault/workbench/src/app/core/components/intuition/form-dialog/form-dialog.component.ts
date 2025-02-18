@@ -36,7 +36,7 @@ import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
-import { PageContextService } from '~/app/shared/services/pagecontext-service';
+
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 /**
@@ -47,8 +47,7 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   selector: 'omv-intuition-form-dialog',
   templateUrl: './form-dialog.component.html',
-  styleUrls: ['./form-dialog.component.scss'],
-  providers: [PageContextService]
+  styleUrls: ['./form-dialog.component.scss']
 })
 export class FormDialogComponent {
   @ViewChild(FormComponent, { static: true })

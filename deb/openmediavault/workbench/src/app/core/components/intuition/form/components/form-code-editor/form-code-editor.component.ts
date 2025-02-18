@@ -18,12 +18,11 @@
 import { Component } from '@angular/core';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
-import { PageContextService } from '~/app/shared/services/pagecontext-service';
+
 
 @Component({
   selector: 'omv-form-code-editor',
   templateUrl: './form-code-editor.component.html',
-  styleUrls: ['./form-code-editor.component.scss'],
-  providers: [PageContextService]
+  styleUrls: ['./form-code-editor.component.scss']
 })
 export class FormCodeEditorComponent extends AbstractFormFieldComponent {}

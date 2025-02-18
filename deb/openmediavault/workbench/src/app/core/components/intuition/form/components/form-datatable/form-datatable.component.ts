@@ -26,13 +26,12 @@ import {
 } from '~/app/core/components/intuition/functions.helper';
 import { MatFormDatatableAction } from '~/app/core/components/intuition/material/mat-form-datatable/mat-form-datatable.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
-import { PageContextService } from '~/app/shared/services/pagecontext-service';
+
 
 @Component({
   selector: 'omv-form-datatable',
   templateUrl: './form-datatable.component.html',
-  styleUrls: ['./form-datatable.component.scss'],
-  providers: [PageContextService]
+  styleUrls: ['./form-datatable.component.scss']
 })
 export class FormDatatableComponent extends AbstractFormFieldComponent {
   protected override sanitizeConfig(): void {
