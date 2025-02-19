@@ -88,6 +88,7 @@ export class FormDatatableComponent extends AbstractFormFieldComponent {
         const allFields = flattenFormFieldConfig(action.formDialogConfig.fields);
         formatFormFieldConfig(allFields, this.pageContext, [
           'value',
+          'modifiers',
           'store.proxy',
           'store.filters'
         ]);
