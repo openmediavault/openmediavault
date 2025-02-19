@@ -86,7 +86,11 @@ export class FormDatatableComponent extends AbstractFormFieldComponent {
     _.forEach(this.config.actions, (action: MatFormDatatableAction) => {
       if (action.formDialogConfig?.fields) {
         const allFields = flattenFormFieldConfig(action.formDialogConfig.fields);
-        formatFormFieldConfig(allFields, this.pageContext, ['store.proxy', 'store.filters']);
+        formatFormFieldConfig(allFields, this.pageContext, [
+          'value',
+          'store.proxy',
+          'store.filters'
+        ]);
       }
     });
   }
