@@ -19,6 +19,7 @@ import { FormDialogConfig } from '~/app/core/components/intuition/models/form-di
 import { DatatableAction } from '~/app/shared/models/datatable-action.type';
 import { ModalDialogConfig } from '~/app/shared/models/modal-dialog-config.type';
 import { TaskDialogConfig } from '~/app/shared/models/task-dialog-config.type';
+import { TaskDialogSshConfig } from '~/app/shared/models/task-dialog-ssh-config.type';
 
 export type DatatablePageActionConfig = DatatableAction & {
   // Specifies a template that pre-configures the datatable action:
@@ -53,10 +54,11 @@ export type DatatablePageActionExecute = {
   // | url             |        x         |                 |
   // | request         |        x         |       x         |
   // | taskDialog      |        x         |                 |
+  // | taskDialogSsh   |        x         |                 |
   // | formDialog      |        x         |                 |
   // | copyToClipboard |        x         |                 |
   // '------------------------------------------------------'
-  type: 'url' | 'request' | 'taskDialog' | 'formDialog' | 'copyToClipboard';
+  type: 'url' | 'request' | 'taskDialog' | 'taskDialogSsh' | 'formDialog' | 'copyToClipboard';
   // An URL can contain "interpolate" delimiters that are
   // interpolated with the properties of the selected row.
   // Example: /certificate/ssh/{{ uuid }}
@@ -92,6 +94,14 @@ export type DatatablePageActionExecute = {
   // Display a dialog that shows the output the given RPC.
   taskDialog?: {
     config: TaskDialogConfig;
+    // Navigate to this URL after the dialog has been closed, but only
+    // if the specified request was previously successfully completed.
+    // The URL is formatted with the page context (please see
+    // AbstractPageComponent::pageContext).
+    successUrl?: string;
+  };
+  taskDialogSsh?: {
+    config: TaskDialogSshConfig;
     // Navigate to this URL after the dialog has been closed, but only
     // if the specified request was previously successfully completed.
     // The URL is formatted with the page context (please see

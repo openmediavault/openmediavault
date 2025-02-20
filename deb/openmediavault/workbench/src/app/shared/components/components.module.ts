@@ -13,6 +13,7 @@ import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal
 import { ProgressBarComponent } from '~/app/shared/components/progress-bar/progress-bar.component';
 import { SubmitButtonComponent } from '~/app/shared/components/submit-button/submit-button.component';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
+import { TaskDialogSshComponent } from '~/app/shared/components/task-dialog-ssh/task-dialog-ssh.component';
 import { DirectivesModule } from '~/app/shared/directives/directives.module';
 import { PipesModule } from '~/app/shared/pipes/pipes.module';
 
@@ -23,6 +24,7 @@ import { PipesModule } from '~/app/shared/pipes/pipes.module';
     DatatableComponent,
     SubmitButtonComponent,
     TaskDialogComponent,
+    TaskDialogSshComponent,
     DatatableActionsComponent,
     ProgressBarComponent,
     BlockUiComponent

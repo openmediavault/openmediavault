@@ -37,6 +37,7 @@ import {
 } from '~/app/shared/components/datatable/datatable.component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
+import { TaskDialogSshComponent } from '~/app/shared/components/task-dialog-ssh/task-dialog-ssh.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DatatableAction } from '~/app/shared/models/datatable-action.type';
@@ -252,6 +253,31 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
             if (res) {
               if (_.isString(taskDialog.successUrl)) {
                 this.navigate(taskDialog.successUrl);
+              } else {
+                this.reloadData();
+              }
+            }
+          });
+          break;
+        case 'taskDialogSsh':
+          const taskDialogSsh = _.cloneDeep(action.execute.taskDialogSsh);
+          // Process tokenized configuration properties.
+          _.forEach(['request.params'], (path) => {
+            const value = _.get(taskDialogSsh.config, path);
+            if (isFormatable(value)) {
+              _.set(taskDialogSsh.config, path, formatDeep(value, this.pageContext));
+            }
+          });
+          const dialog_ssh = this.dialogService.open(TaskDialogSshComponent, {
+            width: _.get(taskDialogSsh.config, 'width', '75%'),
+            data: _.omit(taskDialogSsh.config, ['width'])
+          });
+          dialog_ssh.afterClosed().subscribe((res) => {
+            // Navigate to the configured URL or reload the datatable,
+            // but only if the dialog close input is `true`.
+            if (res) {
+              if (_.isString(taskDialogSsh.successUrl)) {
+                this.navigate(taskDialogSsh.successUrl);
               } else {
                 this.reloadData();
               }

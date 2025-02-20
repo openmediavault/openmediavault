@@ -1,0 +1,67 @@
+@use "sass:map";
+@use 'scss/defaults/colors' as dc;
+@use 'scss/theme';
+@use 'scss/mixins';
+
+omv-task-dialog-ssh {
+  .mat-mdc-dialog-content {
+    .omv-task-dialog-content {
+      height: 300px;
+      white-space: break-spaces;
+    }
+  }
+
+  .mat-progress-bar {
+    .mat-progress-bar-buffer {
+      background-color: map.get(theme.$omv-color-pairs, terminal, color);
+    }
+
+    .mat-progress-bar-fill::after {
+      background-color: dc.$omv-color-black-translucent;
+    }
+  }
+}
+
+
+.omv-overflow-auto {
+  overflow: auto;
+}
+
+.omv-overflow-y-auto {
+  overflow-y: auto;
+}
+
+.omv-overflow-hidden {
+  overflow: hidden;
+}
+
+.omv-overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.omv-scrollable-xy,
+.omv-scrollable-y {
+  @include mixins.omv-scrollbar;
+}
+
+.omv-scrollable-xy {
+  @extend .omv-overflow-auto;
+}
+
+.omv-scrollable-y {
+  @extend .omv-overflow-x-hidden;
+  @extend .omv-overflow-y-auto;
+}
+
+@each $name in map-keys(theme.$omv-color-pairs) {
+  // Deprecated, use `.omv-background-color-pair-xxx`.
+  .omv-background-color-theme-#{$name} {
+    @include theme.background-color-pair($name);
+  }
+  .omv-background-color-pair-#{$name} {
+    @include theme.background-color-pair($name);
+  }
+}
+
+.omv-background-color-pair-tip {
+}
