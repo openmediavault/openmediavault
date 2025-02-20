@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component, Inject, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { concat } from 'rxjs';
@@ -48,6 +48,7 @@ import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
+import { RouteContextService } from '~/app/shared/services/route-context.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
@@ -64,30 +65,29 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   public selection = new DatatableSelection();
 
   constructor(
-    @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
-    @Inject(Router) router: Router,
+    @Inject(RouteContextService) routeContextService: RouteContextService,
     private blockUiService: BlockUiService,
     private clipboardService: ClipboardService,
     private dataStoreService: DataStoreService,
+    private router: Router,
     private rpcService: RpcService,
     private dialogService: DialogService,
     private notificationService: NotificationService
   ) {
-    super(activatedRoute, authSessionService, router);
+    super(authSessionService, routeContextService);
   }
 
   /**
    * Append the current selection to the page context.
    */
   override get pageContext(): PageContext {
-    const result = _.merge(
+    return _.merge(
       {
         _selected: this.selection.selected
       },
       super.pageContext
     );
-    return result;
   }
 
   loadData(params: DataTableLoadParams) {
@@ -407,7 +407,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     }
   }
 
-  protected override onRouteParams() {
+  protected override onPageInit() {
     // Format tokenized configuration properties.
     this.formatConfig([
       'store.proxy.service',

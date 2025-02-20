@@ -36,7 +36,7 @@
       <omv-submit-button *ngIf="button.template === 'submit'"
                          [form]="config.id"
                          [formGroup]="form.formGroup"
-                         [disabled]="button.disabled || (editing && form.formGroup.pristine)"
+                         [disabled]="button.disabled || (pageContext._editing && form.formGroup.pristine)"
                          (buttonClick)="onButtonClick(button)">
         {{ button.text | transloco | template:pageContext }}
       </omv-submit-button>

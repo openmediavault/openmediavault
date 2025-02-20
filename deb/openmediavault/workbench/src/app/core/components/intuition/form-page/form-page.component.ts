@@ -52,6 +52,7 @@ import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
+import { RouteContextService } from '~/app/shared/services/route-context.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 /**
@@ -76,46 +77,46 @@ export class FormPageComponent
   private subscriptions = new Subscription();
 
   // Internal
-  public editing = false;
   public loading = false;
   public error: HttpErrorResponse;
 
   constructor(
-    @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
-    @Inject(Router) router: Router,
+    @Inject(RouteContextService) routeContextService: RouteContextService,
+    private activatedRoute: ActivatedRoute,
     private blockUiService: BlockUiService,
+    private router: Router,
     private rpcService: RpcService,
     private dialogService: DialogService,
     private notificationService: NotificationService
   ) {
-    super(activatedRoute, authSessionService, router);
-    // Set the form mode to 'Create' (default) or 'Edit'.
-    // This depends on the component configuration that is done via the
-    // router config.
-    // Examples:
-    // {
-    //   path: 'hdparm/create',
-    //   component: DiskFormPageComponent,
-    //   data: { title: gettext('Create'), editing: false }
-    // }
-    // {
-    //   path: 'hdparm/edit/:devicefile',
-    //   component: DiskFormPageComponent,
-    //   data: { title: gettext('Edit'), editing: true }
-    // }
-    this.editing = _.get(this.routeConfig, 'data.editing', false);
+    super(authSessionService, routeContextService);
   }
 
   /**
    * Append the current page mode. This can be editing or creating.
    */
   override get pageContext(): PageContext {
+    const ctx: PageContext = super.pageContext;
     return _.merge(
       {
-        _editing: this.editing
+        // Set the form mode to 'Create' (default) or 'Edit'.
+        // This depends on the component configuration that is done via the
+        // router config.
+        // Examples:
+        // {
+        //   path: 'hdparm/create',
+        //   component: DiskFormPageComponent,
+        //   data: { title: gettext('Create'), editing: false }
+        // }
+        // {
+        //   path: 'hdparm/edit/:devicefile',
+        //   component: DiskFormPageComponent,
+        //   data: { title: gettext('Edit'), editing: true }
+        // }
+        _editing: _.get(ctx._routeConfig, 'data.editing', false)
       },
-      super.pageContext
+      ctx
     );
   }
 
@@ -397,7 +398,10 @@ export class FormPageComponent
               // pristine again.
               this.markAsPristine();
               // Display a success notification?
-              const notificationTitle = _.get(this.routeConfig, 'data.notificationTitle');
+              const notificationTitle = _.get(
+                this.pageContext._routeConfig,
+                'data.notificationTitle'
+              );
               if (!_.isEmpty(notificationTitle)) {
                 this.notificationService.show(
                   NotificationType.success,
@@ -484,7 +488,7 @@ export class FormPageComponent
     this.config.icon = _.get(Icon, this.config.icon, this.config.icon);
   }
 
-  protected override onRouteParams() {
+  protected override onPageInit() {
     // Format tokenized configuration properties.
     this.formatConfig([
       'request.get.method',
@@ -493,15 +497,15 @@ export class FormPageComponent
       'request.post.params'
     ]);
     // Load the content if form page is in 'editing' mode.
-    if (this.editing) {
+    if (this.pageContext._editing) {
       this.loadData();
     } else {
       // Inject the query parameters of the route into the form fields.
       // This will override the configured form field values.
       const allFields: FormFieldConfig[] = flattenFormFieldConfig(this.config.fields);
       _.forEach(allFields, (fieldConfig: FormFieldConfig) => {
-        if (_.has(this.routeQueryParams, fieldConfig.name)) {
-          fieldConfig.value = _.get(this.routeQueryParams, fieldConfig.name);
+        if (_.has(this.pageContext._routeQueryParams, fieldConfig.name)) {
+          fieldConfig.value = _.get(this.pageContext._routeQueryParams, fieldConfig.name);
         }
       });
     }

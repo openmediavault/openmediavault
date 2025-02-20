@@ -18,7 +18,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatSelectionList, MatSelectionListChange } from '@angular/material/list';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { EMPTY } from 'rxjs';
@@ -36,6 +36,7 @@ import { Dirty } from '~/app/shared/models/dirty.interface';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
+import { RouteContextService } from '~/app/shared/services/route-context.service';
 
 @Component({
   selector: 'omv-intuition-selection-list-page',
@@ -55,13 +56,13 @@ export class SelectionListPageComponent
   public data: Record<string, any>[] = [];
 
   constructor(
-    @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
-    @Inject(Router) router: Router,
+    @Inject(RouteContextService) routeContextService: RouteContextService,
     private dataStoreService: DataStoreService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private router: Router
   ) {
-    super(activatedRoute, authSessionService, router);
+    super(authSessionService, routeContextService);
   }
 
   override ngOnInit(): void {
@@ -141,7 +142,7 @@ export class SelectionListPageComponent
       .subscribe(() => {
         this.markAsPristine();
         // Display the configured notification message.
-        const notificationTitle = _.get(this.routeConfig, 'data.notificationTitle');
+        const notificationTitle = _.get(this.pageContext._routeConfig, 'data.notificationTitle');
         if (!_.isEmpty(notificationTitle)) {
           this.notificationService.show(
             NotificationType.success,

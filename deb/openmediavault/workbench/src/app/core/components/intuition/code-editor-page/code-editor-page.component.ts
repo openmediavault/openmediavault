@@ -17,7 +17,7 @@
  */
 import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import {
   autocompletion,
   closeBrackets,
@@ -68,6 +68,7 @@ import {
   PrefersColorScheme,
   PrefersColorSchemeService
 } from '~/app/shared/services/prefers-color-scheme.service';
+import { RouteContextService } from '~/app/shared/services/route-context.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 /**
@@ -97,14 +98,14 @@ export class CodeEditorPageComponent
   private _useDarkTheme = false;
 
   constructor(
-    @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
-    @Inject(Router) router: Router,
+    @Inject(RouteContextService) routeContextService: RouteContextService,
     private clipboardService: ClipboardService,
     private prefersColorSchemeService: PrefersColorSchemeService,
+    private router: Router,
     private rpcService: RpcService
   ) {
-    super(activatedRoute, authSessionService, router);
+    super(authSessionService, routeContextService);
   }
 
   override ngOnInit(): void {
@@ -206,7 +207,7 @@ export class CodeEditorPageComponent
     });
   }
 
-  protected override onRouteParams() {
+  protected override onPageInit() {
     // Format tokenized configuration properties.
     this.formatConfig(['title', 'subTitle', 'request.get.method', 'request.get.params']);
   }
