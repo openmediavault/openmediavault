@@ -37,7 +37,7 @@ import {
   FormPageButtonConfig,
   FormPageConfig
 } from '~/app/core/components/intuition/models/form-page-config.type';
-import { PageContext } from '~/app/core/components/intuition/models/page.type';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { Unsubscribe } from '~/app/decorators';
 import { format, formatDeep, isFormatable, toBoolean } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
@@ -47,12 +47,10 @@ import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { Dirty } from '~/app/shared/models/dirty.interface';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
-import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
-import { RouteContextService } from '~/app/shared/services/route-context.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 /**
@@ -64,7 +62,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   selector: 'omv-intuition-form-page',
   templateUrl: './form-page.component.html',
-  styleUrls: ['./form-page.component.scss']
+  styleUrls: ['./form-page.component.scss'],
+  providers: [PageContextService]
 })
 export class FormPageComponent
   extends AbstractPageComponent<FormPageConfig>
@@ -81,8 +80,7 @@ export class FormPageComponent
   public error: HttpErrorResponse;
 
   constructor(
-    @Inject(AuthSessionService) authSessionService: AuthSessionService,
-    @Inject(RouteContextService) routeContextService: RouteContextService,
+    @Inject(PageContextService) pageContextService: PageContextService,
     private activatedRoute: ActivatedRoute,
     private blockUiService: BlockUiService,
     private router: Router,
@@ -90,34 +88,24 @@ export class FormPageComponent
     private dialogService: DialogService,
     private notificationService: NotificationService
   ) {
-    super(authSessionService, routeContextService);
-  }
-
-  /**
-   * Append the current page mode. This can be editing or creating.
-   */
-  override get pageContext(): PageContext {
-    const ctx: PageContext = super.pageContext;
-    return _.merge(
-      {
-        // Set the form mode to 'Create' (default) or 'Edit'.
-        // This depends on the component configuration that is done via the
-        // router config.
-        // Examples:
-        // {
-        //   path: 'hdparm/create',
-        //   component: DiskFormPageComponent,
-        //   data: { title: gettext('Create'), editing: false }
-        // }
-        // {
-        //   path: 'hdparm/edit/:devicefile',
-        //   component: DiskFormPageComponent,
-        //   data: { title: gettext('Edit'), editing: true }
-        // }
-        _editing: _.get(ctx._routeConfig, 'data.editing', false)
-      },
-      ctx
-    );
+    super(pageContextService);
+    // Set the form mode to 'Create' (default) or 'Edit'.
+    // This depends on the component configuration that is done via the
+    // router config.
+    // Examples:
+    // {
+    //   path: 'hdparm/create',
+    //   component: DiskFormPageComponent,
+    //   data: { title: gettext('Create'), editing: false }
+    // }
+    // {
+    //   path: 'hdparm/edit/:devicefile',
+    //   component: DiskFormPageComponent,
+    //   data: { title: gettext('Edit'), editing: true }
+    // }
+    this.pageContextService.set({
+      _editing: _.get(this.pageContext._routeConfig, 'data.editing', false)
+    });
   }
 
   override ngOnInit(): void {

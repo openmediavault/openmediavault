@@ -28,7 +28,7 @@ import { DatatablePageActionConfig } from '~/app/core/components/intuition/model
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { DatatablePageButtonConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
-import { PageContext } from '~/app/core/components/intuition/models/page.type';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { format, formatDeep, isFormatable } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import {
@@ -42,19 +42,18 @@ import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DatatableAction } from '~/app/shared/models/datatable-action.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { RpcListResponse } from '~/app/shared/models/rpc.model';
-import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
-import { RouteContextService } from '~/app/shared/services/route-context.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
   selector: 'omv-intuition-datatable-page',
   templateUrl: './datatable-page.component.html',
-  styleUrls: ['./datatable-page.component.scss']
+  styleUrls: ['./datatable-page.component.scss'],
+  providers: [PageContextService]
 })
 export class DatatablePageComponent extends AbstractPageComponent<DatatablePageConfig> {
   @ViewChild('table', { static: true })
@@ -65,8 +64,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   public selection = new DatatableSelection();
 
   constructor(
-    @Inject(AuthSessionService) authSessionService: AuthSessionService,
-    @Inject(RouteContextService) routeContextService: RouteContextService,
+    @Inject(PageContextService) pageContextService: PageContextService,
     private blockUiService: BlockUiService,
     private clipboardService: ClipboardService,
     private dataStoreService: DataStoreService,
@@ -75,19 +73,10 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     private dialogService: DialogService,
     private notificationService: NotificationService
   ) {
-    super(authSessionService, routeContextService);
-  }
-
-  /**
-   * Append the current selection to the page context.
-   */
-  override get pageContext(): PageContext {
-    return _.merge(
-      {
-        _selected: this.selection.selected
-      },
-      super.pageContext
-    );
+    super(pageContextService);
+    this.pageContextService.set({
+      _selected: this.selection.selected
+    });
   }
 
   loadData(params: DataTableLoadParams) {
@@ -150,6 +139,9 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
 
   onSelectionChange(selection: DatatableSelection) {
     this.selection = selection;
+    this.pageContextService.set({
+      _selected: this.selection.selected
+    });
   }
 
   onActionClick(action: DatatablePageActionConfig): void {

@@ -17,7 +17,7 @@
  */
 import { FormValues } from '~/app/core/components/intuition/models/form.type';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
-import { PageHintConfig } from '~/app/core/components/intuition/models/page.type';
+import { PageHintConfig } from '~/app/core/components/intuition/models/page-config.type';
 import { Constraint } from '~/app/shared/models/constraint.type';
 import { ModalDialogConfig } from '~/app/shared/models/modal-dialog-config.type';
 import { TaskDialogConfig } from '~/app/shared/models/task-dialog-config.type';

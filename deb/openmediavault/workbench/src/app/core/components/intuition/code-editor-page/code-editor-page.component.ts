@@ -59,16 +59,15 @@ import {
   CodeEditorPageButtonConfig,
   CodeEditorPageConfig
 } from '~/app/core/components/intuition/models/code-editor-page-config.type';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { Unsubscribe } from '~/app/decorators';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
-import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import {
   PrefersColorScheme,
   PrefersColorSchemeService
 } from '~/app/shared/services/prefers-color-scheme.service';
-import { RouteContextService } from '~/app/shared/services/route-context.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 /**
@@ -77,7 +76,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   selector: 'omv-intuition-code-editor-page',
   templateUrl: './code-editor-page.component.html',
-  styleUrls: ['./code-editor-page.component.scss']
+  styleUrls: ['./code-editor-page.component.scss'],
+  providers: [PageContextService]
 })
 export class CodeEditorPageComponent
   extends AbstractPageComponent<CodeEditorPageConfig>
@@ -98,14 +98,13 @@ export class CodeEditorPageComponent
   private _useDarkTheme = false;
 
   constructor(
-    @Inject(AuthSessionService) authSessionService: AuthSessionService,
-    @Inject(RouteContextService) routeContextService: RouteContextService,
+    @Inject(PageContextService) pageContextService: PageContextService,
     private clipboardService: ClipboardService,
     private prefersColorSchemeService: PrefersColorSchemeService,
     private router: Router,
     private rpcService: RpcService
   ) {
-    super(authSessionService, routeContextService);
+    super(pageContextService);
   }
 
   override ngOnInit(): void {

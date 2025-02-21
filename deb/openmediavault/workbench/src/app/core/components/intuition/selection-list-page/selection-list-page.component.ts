@@ -29,19 +29,19 @@ import {
   SelectionListPageButtonConfig,
   SelectionListPageConfig
 } from '~/app/core/components/intuition/models/selection-list-page-config.type';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { format, toBoolean } from '~/app/functions.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { Dirty } from '~/app/shared/models/dirty.interface';
-import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
-import { RouteContextService } from '~/app/shared/services/route-context.service';
 
 @Component({
   selector: 'omv-intuition-selection-list-page',
   templateUrl: './selection-list-page.component.html',
-  styleUrls: ['./selection-list-page.component.scss']
+  styleUrls: ['./selection-list-page.component.scss'],
+  providers: [PageContextService]
 })
 export class SelectionListPageComponent
   extends AbstractPageComponent<SelectionListPageConfig>
@@ -56,13 +56,12 @@ export class SelectionListPageComponent
   public data: Record<string, any>[] = [];
 
   constructor(
-    @Inject(AuthSessionService) authSessionService: AuthSessionService,
-    @Inject(RouteContextService) routeContextService: RouteContextService,
+    @Inject(PageContextService) pageContextService: PageContextService,
     private dataStoreService: DataStoreService,
     private notificationService: NotificationService,
     private router: Router
   ) {
-    super(authSessionService, routeContextService);
+    super(pageContextService);
   }
 
   override ngOnInit(): void {

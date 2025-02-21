@@ -5,6 +5,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { FormBinaryUnitInputComponent } from '~/app/core/components/intuition/form/components/form-binary-unit-input/form-binary-unit-input.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { TestingModule } from '~/app/testing.module';
 
 describe('FormBinaryUnitInputComponent', () => {
@@ -13,7 +14,8 @@ describe('FormBinaryUnitInputComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()]
+      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()],
+      providers: [PageContextService]
     }).compileComponents();
   }));
 

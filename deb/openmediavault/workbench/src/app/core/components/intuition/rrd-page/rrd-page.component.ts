@@ -27,18 +27,18 @@ import {
   RrdPageConfig,
   RrdPageGraphConfig
 } from '~/app/core/components/intuition/models/rrd-page-config.type';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { format, formatDeep, unixTimeStamp } from '~/app/functions.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
-import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
-import { RouteContextService } from '~/app/shared/services/route-context.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
   selector: 'omv-intuition-rrd-page',
   templateUrl: './rrd-page.component.html',
-  styleUrls: ['./rrd-page.component.scss']
+  styleUrls: ['./rrd-page.component.scss'],
+  providers: [PageContextService]
 })
 export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> implements OnInit {
   public monitoringEnabled = true;
@@ -56,13 +56,12 @@ export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> imple
   );
 
   constructor(
-    @Inject(AuthSessionService) authSessionService: AuthSessionService,
-    @Inject(RouteContextService) routeContextService: RouteContextService,
+    @Inject(PageContextService) pageContextService: PageContextService,
     private blockUiService: BlockUiService,
     private dataStoreService: DataStoreService,
     private rpcService: RpcService
   ) {
-    super(authSessionService, routeContextService);
+    super(pageContextService);
     // Check if monitoring is enabled.
     this.rpcService.request('PerfStats', 'get').subscribe((resp) => {
       this.monitoringEnabled = _.get(resp, 'enable', false);

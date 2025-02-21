@@ -25,8 +25,7 @@
   <ng-container *ngTemplateOutlet="renderCardHeader"></ng-container>
   <mat-card-content>
     <omv-intuition-form [id]="config.id"
-                        [config]="config.fields"
-                        [pageContext]="pageContext">
+                        [config]="config.fields">
     </omv-intuition-form>
   </mat-card-content>
   <mat-card-actions *ngIf="config.buttons.length"

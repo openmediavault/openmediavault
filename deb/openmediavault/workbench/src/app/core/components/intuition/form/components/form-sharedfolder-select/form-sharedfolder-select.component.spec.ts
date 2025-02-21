@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 
 import { FormSharedfolderSelectComponent } from '~/app/core/components/intuition/form/components/form-sharedfolder-select/form-sharedfolder-select.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { TestingModule } from '~/app/testing.module';
 
 describe('FormSharedfolderSelectComponent', () => {
@@ -12,7 +13,8 @@ describe('FormSharedfolderSelectComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [IntuitionModule, TestingModule]
+      imports: [IntuitionModule, TestingModule],
+      providers: [PageContextService]
     }).compileComponents();
   }));
 

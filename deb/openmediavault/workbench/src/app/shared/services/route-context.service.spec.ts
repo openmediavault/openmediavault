@@ -3,7 +3,6 @@ import { TestBed } from '@angular/core/testing';
 import { RouteContextService } from '~/app/shared/services/route-context.service';
 import { TestingModule } from '~/app/testing.module';
 
-
 describe('RouteContextService', () => {
   let service: RouteContextService;
 

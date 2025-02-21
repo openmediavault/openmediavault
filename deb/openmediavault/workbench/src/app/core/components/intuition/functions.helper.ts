@@ -18,7 +18,7 @@
 import * as _ from 'lodash';
 
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
-import { PageContext } from '~/app/core/components/intuition/models/page.type';
+import { PageContext } from '~/app/core/models/page-context.type';
 import { formatDeep, isFormatable } from '~/app/functions.helper';
 
 /**

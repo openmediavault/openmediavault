@@ -17,18 +17,4 @@
  */
 import { RouteContext } from '~/app/shared/models/route.model';
 
-export type PageContext = Partial<RouteContext> & Record<string, any>;
-
-export type PageHintConfig = {
-  // Depending on the type, different icons and colors are used.
-  type?: 'info' | 'warning';
-  // Display a close icon to allow the user to hide the hint.
-  // The state is stored in the browser local storage.
-  dismissible?: boolean;
-  // A unique identifier, e.g. an UUIDv4, that is used to store
-  // the of the hint in the browser local storage. This property
-  // is required when `dismissible` is `true`.
-  stateId?: string;
-  // The text that is displayed.
-  text: string;
-};
+export type PageContext = RouteContext & Record<string, any>;

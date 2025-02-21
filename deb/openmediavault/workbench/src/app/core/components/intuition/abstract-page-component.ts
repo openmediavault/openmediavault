@@ -18,10 +18,10 @@
 import { AfterViewInit, Directive, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as _ from 'lodash';
 
-import { PageContext, PageHintConfig } from '~/app/core/components/intuition/models/page.type';
+import { PageHintConfig } from '~/app/core/components/intuition/models/page-config.type';
+import { PageContext } from '~/app/core/models/page-context.type';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { formatDeep, isFormatable } from '~/app/functions.helper';
-import { AuthSessionService } from '~/app/shared/services/auth-session.service';
-import { RouteContextService } from '~/app/shared/services/route-context.service';
 
 @Directive()
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
@@ -33,14 +33,10 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit 
   @Output()
   readonly afterViewInitEvent = new EventEmitter();
 
-  protected constructor(
-    protected authSessionService: AuthSessionService,
-    protected routeContextService: RouteContextService
-  ) {
+  protected constructor(protected pageContextService: PageContextService) {
     // Is the component configured via route data?
-    const routeCtx = this.routeContextService.get();
-    if (_.has(routeCtx._routeConfig, 'data.config')) {
-      this.config = _.cloneDeep(_.get(routeCtx, 'data.config')) as T;
+    if (_.has(this.pageContext._routeConfig, 'data.config')) {
+      this.config = _.cloneDeep(_.get(this.pageContext._routeConfig, 'data.config')) as T;
     }
   }
 
@@ -51,15 +47,7 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit 
    * property names start with underscores.
    */
   get pageContext(): PageContext {
-    return _.merge(
-      {
-        _session: {
-          username: this.authSessionService.getUsername(),
-          permissions: this.authSessionService.getPermissions()
-        }
-      },
-      this.routeContextService.get()
-    );
+    return this.pageContextService.get();
   }
 
   ngOnInit(): void {
