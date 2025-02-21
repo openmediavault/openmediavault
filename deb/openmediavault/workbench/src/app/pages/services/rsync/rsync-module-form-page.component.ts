@@ -258,7 +258,7 @@ export class RsyncModuleFormPageComponent extends BaseFormPageComponent {
         name: 'extraoptions',
         label: gettext('Extra options'),
         hint: gettext(
-          'Please check the <a href="http://www.samba.org/ftp/rsync/rsyncd.conf.html" target="_blank">manual page</a> for more details.'
+          'Please check the <a href="https://download.samba.org/pub/rsync/rsyncd.conf.5" target="_blank">manual page</a> for more details.'
         ),
         value: ''
       },
