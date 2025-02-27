@@ -121,13 +121,16 @@ export class GroupSharedFolderPermissionsDatatablePageComponent {
     this.rpcService
       .request('ShareMgmt', 'setPrivilegesByRole', {
         role: 'group',
-        name: _.get(this.page.routeParams, 'name'),
+        name: _.get(this.page.pageContext._routeParams, 'name'),
         privileges
       })
       .subscribe(() => {
         this.notificationService.show(
           NotificationType.success,
-          format(_.get(this.page.routeConfig, 'data.notificationTitle'), this.page.routeParams)
+          format(
+            _.get(this.page.pageContext._routeConfig, 'data.notificationTitle'),
+            this.page.pageContext._routeParams
+          )
         );
         this.router.navigate(['/usermgmt/groups']);
       });

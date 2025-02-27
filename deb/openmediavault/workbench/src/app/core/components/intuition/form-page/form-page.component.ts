@@ -37,7 +37,7 @@ import {
   FormPageButtonConfig,
   FormPageConfig
 } from '~/app/core/components/intuition/models/form-page-config.type';
-import { PageContext } from '~/app/core/components/intuition/models/page.type';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { Unsubscribe } from '~/app/decorators';
 import { format, formatDeep, isFormatable, toBoolean } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
@@ -47,7 +47,6 @@ import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { Dirty } from '~/app/shared/models/dirty.interface';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
-import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
@@ -63,7 +62,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   selector: 'omv-intuition-form-page',
   templateUrl: './form-page.component.html',
-  styleUrls: ['./form-page.component.scss']
+  styleUrls: ['./form-page.component.scss'],
+  providers: [PageContextService]
 })
 export class FormPageComponent
   extends AbstractPageComponent<FormPageConfig>
@@ -76,20 +76,19 @@ export class FormPageComponent
   private subscriptions = new Subscription();
 
   // Internal
-  public editing = false;
   public loading = false;
   public error: HttpErrorResponse;
 
   constructor(
-    @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
-    @Inject(AuthSessionService) authSessionService: AuthSessionService,
-    @Inject(Router) router: Router,
+    @Inject(PageContextService) pageContextService: PageContextService,
+    private activatedRoute: ActivatedRoute,
     private blockUiService: BlockUiService,
+    private router: Router,
     private rpcService: RpcService,
     private dialogService: DialogService,
     private notificationService: NotificationService
   ) {
-    super(activatedRoute, authSessionService, router);
+    super(pageContextService);
     // Set the form mode to 'Create' (default) or 'Edit'.
     // This depends on the component configuration that is done via the
     // router config.
@@ -104,19 +103,9 @@ export class FormPageComponent
     //   component: DiskFormPageComponent,
     //   data: { title: gettext('Edit'), editing: true }
     // }
-    this.editing = _.get(this.routeConfig, 'data.editing', false);
-  }
-
-  /**
-   * Append the current page mode. This can be editing or creating.
-   */
-  override get pageContext(): PageContext {
-    return _.merge(
-      {
-        _editing: this.editing
-      },
-      super.pageContext
-    );
+    this.pageContextService.set({
+      _editing: _.get(this.pageContext._routeConfig, 'data.editing', false)
+    });
   }
 
   override ngOnInit(): void {
@@ -397,7 +386,10 @@ export class FormPageComponent
               // pristine again.
               this.markAsPristine();
               // Display a success notification?
-              const notificationTitle = _.get(this.routeConfig, 'data.notificationTitle');
+              const notificationTitle = _.get(
+                this.pageContext._routeConfig,
+                'data.notificationTitle'
+              );
               if (!_.isEmpty(notificationTitle)) {
                 this.notificationService.show(
                   NotificationType.success,
@@ -484,7 +476,7 @@ export class FormPageComponent
     this.config.icon = _.get(Icon, this.config.icon, this.config.icon);
   }
 
-  protected override onRouteParams() {
+  protected override onPageInit() {
     // Format tokenized configuration properties.
     this.formatConfig([
       'request.get.method',
@@ -493,15 +485,15 @@ export class FormPageComponent
       'request.post.params'
     ]);
     // Load the content if form page is in 'editing' mode.
-    if (this.editing) {
+    if (this.pageContext._editing) {
       this.loadData();
     } else {
       // Inject the query parameters of the route into the form fields.
       // This will override the configured form field values.
       const allFields: FormFieldConfig[] = flattenFormFieldConfig(this.config.fields);
       _.forEach(allFields, (fieldConfig: FormFieldConfig) => {
-        if (_.has(this.routeQueryParams, fieldConfig.name)) {
-          fieldConfig.value = _.get(this.routeQueryParams, fieldConfig.name);
+        if (_.has(this.pageContext._routeQueryParams, fieldConfig.name)) {
+          fieldConfig.value = _.get(this.pageContext._routeQueryParams, fieldConfig.name);
         }
       });
     }

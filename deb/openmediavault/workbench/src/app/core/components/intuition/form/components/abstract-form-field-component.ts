@@ -15,13 +15,14 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Directive, Input, OnInit } from '@angular/core';
+import { Directive, inject, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import * as _ from 'lodash';
 
 import { formatFormFieldConfig } from '~/app/core/components/intuition/functions.helper';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
-import { PageContext } from '~/app/core/components/intuition/models/page.type';
+import { PageContext } from '~/app/core/models/page-context.type';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { Icon } from '~/app/shared/enum/icon.enum';
 
 @Directive()
@@ -33,10 +34,9 @@ export abstract class AbstractFormFieldComponent implements OnInit {
   @Input()
   formGroup: FormGroup;
 
-  @Input()
-  pageContext: PageContext = {};
-
   public icon = Icon;
+
+  protected pageContext: PageContext = inject(PageContextService).get();
 
   ngOnInit(): void {
     this.sanitizeConfig();

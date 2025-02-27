@@ -15,19 +15,16 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
+import { Params } from '@angular/router';
 
-export type PageContext = Record<string, any>;
-
-export type PageHintConfig = {
-  // Depending on the type, different icons and colors are used.
-  type?: 'info' | 'warning';
-  // Display a close icon to allow the user to hide the hint.
-  // The state is stored in the browser local storage.
-  dismissible?: boolean;
-  // A unique identifier, e.g. an UUIDv4, that is used to store
-  // the of the hint in the browser local storage. This property
-  // is required when `dismissible` is `true`.
-  stateId?: string;
-  // The text that is displayed.
-  text: string;
+// Please note that the properties have an underscore as this type is
+// mainly used to format tokenized strings.
+export type RouteContext = {
+  _routeConfig: {
+    path: string;
+    data: object;
+  };
+  _routeParams: Params;
+  _routeQueryParams: Params;
+  _routeUrlSegments: string[];
 };

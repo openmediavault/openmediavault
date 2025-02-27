@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component, Inject, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { concat } from 'rxjs';
@@ -28,7 +28,7 @@ import { DatatablePageActionConfig } from '~/app/core/components/intuition/model
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { DatatablePageButtonConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
-import { PageContext } from '~/app/core/components/intuition/models/page.type';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { format, formatDeep, isFormatable } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import {
@@ -42,7 +42,6 @@ import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DatatableAction } from '~/app/shared/models/datatable-action.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { RpcListResponse } from '~/app/shared/models/rpc.model';
-import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
@@ -53,7 +52,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   selector: 'omv-intuition-datatable-page',
   templateUrl: './datatable-page.component.html',
-  styleUrls: ['./datatable-page.component.scss']
+  styleUrls: ['./datatable-page.component.scss'],
+  providers: [PageContextService]
 })
 export class DatatablePageComponent extends AbstractPageComponent<DatatablePageConfig> {
   @ViewChild('table', { static: true })
@@ -64,30 +64,19 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   public selection = new DatatableSelection();
 
   constructor(
-    @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
-    @Inject(AuthSessionService) authSessionService: AuthSessionService,
-    @Inject(Router) router: Router,
+    @Inject(PageContextService) pageContextService: PageContextService,
     private blockUiService: BlockUiService,
     private clipboardService: ClipboardService,
     private dataStoreService: DataStoreService,
+    private router: Router,
     private rpcService: RpcService,
     private dialogService: DialogService,
     private notificationService: NotificationService
   ) {
-    super(activatedRoute, authSessionService, router);
-  }
-
-  /**
-   * Append the current selection to the page context.
-   */
-  override get pageContext(): PageContext {
-    const result = _.merge(
-      {
-        _selected: this.selection.selected
-      },
-      super.pageContext
-    );
-    return result;
+    super(pageContextService);
+    this.pageContextService.set({
+      _selected: this.selection.selected
+    });
   }
 
   loadData(params: DataTableLoadParams) {
@@ -150,6 +139,9 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
 
   onSelectionChange(selection: DatatableSelection) {
     this.selection = selection;
+    this.pageContextService.set({
+      _selected: this.selection.selected
+    });
   }
 
   onActionClick(action: DatatablePageActionConfig): void {
@@ -407,7 +399,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     }
   }
 
-  protected override onRouteParams() {
+  protected override onPageInit() {
     // Format tokenized configuration properties.
     this.formatConfig([
       'store.proxy.service',

@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 
 import { FormFileInputComponent } from '~/app/core/components/intuition/form/components/form-file-input/form-file-input.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { TestingModule } from '~/app/testing.module';
 
 describe('FormFileInputComponent', () => {
@@ -11,7 +12,8 @@ describe('FormFileInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [IntuitionModule, TestingModule]
+      imports: [IntuitionModule, TestingModule],
+      providers: [PageContextService]
     }).compileComponents();
   });
 

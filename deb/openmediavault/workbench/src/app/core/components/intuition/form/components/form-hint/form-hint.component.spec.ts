@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormHintComponent } from '~/app/core/components/intuition/form/components/form-hint/form-hint.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { TestingModule } from '~/app/testing.module';
 
 describe('FormHintComponent', () => {
@@ -10,7 +11,8 @@ describe('FormHintComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [IntuitionModule, TestingModule]
+      imports: [IntuitionModule, TestingModule],
+      providers: [PageContextService]
     }).compileComponents();
   });
 

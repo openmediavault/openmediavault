@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 
 import { FormTagInputComponent } from '~/app/core/components/intuition/form/components/form-tag-input/form-tag-input.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { TestingModule } from '~/app/testing.module';
 
 describe('FormTagInputComponent', () => {
@@ -12,7 +13,8 @@ describe('FormTagInputComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [FormTagInputComponent],
-      imports: [IntuitionModule, TestingModule]
+      imports: [IntuitionModule, TestingModule],
+      providers: [PageContextService]
     }).compileComponents();
   });
 
