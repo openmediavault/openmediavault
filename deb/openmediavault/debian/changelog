@@ -1,6 +1,8 @@
 openmediavault (7.7.1-1) stable; urgency=low
 
-  *
+  * Issue #1694: Add PWA manifest to the UI. Note, PWA only works
+    with HTTPS enabled and self-signed SSL certificates need to be
+    imported into the browser as accepted authorities.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Feb 2025 20:18:37 +0100
 

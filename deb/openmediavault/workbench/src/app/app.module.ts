@@ -19,6 +19,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { TranslocoService } from '@ngneat/transloco';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import dayjs from 'dayjs';
@@ -36,6 +37,7 @@ import { HttpErrorInterceptorService } from '~/app/shared/services/http-error-in
 import { TitleService } from '~/app/shared/services/title.service';
 import { SharedModule } from '~/app/shared/shared.module';
 import { TranslocoRootModule } from '~/app/transloco-root.module';
+import { environment } from '~/environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -51,6 +53,9 @@ import { TranslocoRootModule } from '~/app/transloco-root.module';
     }),
     TranslocoRootModule,
     MaterialModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.serviceWorker
+    }),
     AppRoutingModule
   ],
   providers: [
