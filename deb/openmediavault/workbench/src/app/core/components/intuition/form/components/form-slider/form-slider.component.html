@@ -4,7 +4,7 @@
        matPrefix>
     <mat-icon [svgIcon]="config.icon"></mat-icon>&nbsp;
   </div>
-  <mat-label>{{ config.label | transloco }}</mat-label>
+  <mat-label>{{ config.label | transloco | template:pageContext }}</mat-label>
   <input #sliderInput
          matInput
          hidden
@@ -30,6 +30,6 @@
     </span>
   </mat-error>
   <mat-hint *ngIf="config.hint?.length > 0"
-            [innerHTML]="config.hint | transloco | sanitizeHtml">
+            [innerHTML]="config.hint | transloco | template:pageContext | sanitizeHtml">
   </mat-hint>
 </mat-form-field>

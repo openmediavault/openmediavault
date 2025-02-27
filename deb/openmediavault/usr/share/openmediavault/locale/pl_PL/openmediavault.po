@@ -9,13 +9,14 @@
 # jacekniedziolka71 <lucas71@interia.pl>, 2012
 # Jakub Górny <jakub@world.pl>, 2012
 # jacekniedziolka71 <lucas71@interia.pl>, 2017,2022
+# Volker Theile <votdev@gmx.de>, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 14:55+0100\n"
+"POT-Creation-Date: 2025-02-21 10:04+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2018,2022-2023\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2025\n"
 "Language-Team: Polish (Poland) (http://app.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -770,9 +771,6 @@ msgstr "Kopiuj"
 
 msgid "Copy permissions"
 msgstr "Kopiuj uprawnienia"
-
-msgid "Copy public SSH key"
-msgstr "Kopiuj publiczny klucz SSH"
 
 msgid "Copy to clipboard"
 msgstr "Skopiuj do schowka"
@@ -1617,6 +1615,12 @@ msgstr "Instaluj"
 msgid "Install plugin"
 msgstr "Zainstaluj wtyczkę."
 
+msgid "Install public key to remote machine"
+msgstr ""
+
+msgid "Install security updates unattended."
+msgstr ""
+
 msgid "Install updates"
 msgstr "Zainstaluj aktualizacje."
 
@@ -2339,14 +2343,15 @@ msgid "Pitcairn"
 msgstr "Pitcairn"
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
+"Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr "Więcej szczegółów - sprawdź <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" target=\"_blank\">stronę instrukcji</a>."
+msgstr ""
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
-" target=\"_blank\">manual page</a> for more details."
-msgstr "Więcej szczegółów - sprawdź <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\" target=\"_blank\">stronę instrukcji</a>. "
+"Please check the <a "
+"href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr ""
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
@@ -2579,7 +2584,7 @@ msgid "Recurse into directories"
 msgstr "Przejście do katalogów"
 
 msgid "Recursive"
-msgstr "Cykliczne"
+msgstr "Rekurencyjne"
 
 msgid "Referenced"
 msgstr "Odwołanie"
@@ -2987,6 +2992,9 @@ msgid "Slovenia"
 msgstr "Slovenia"
 
 msgid "Snapshots"
+msgstr ""
+
+msgid "Software"
 msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."

@@ -17,7 +17,7 @@
  */
 import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import {
   autocompletion,
   closeBrackets,
@@ -59,10 +59,10 @@ import {
   CodeEditorPageButtonConfig,
   CodeEditorPageConfig
 } from '~/app/core/components/intuition/models/code-editor-page-config.type';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { Unsubscribe } from '~/app/decorators';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
-import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import {
   PrefersColorScheme,
@@ -76,7 +76,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   selector: 'omv-intuition-code-editor-page',
   templateUrl: './code-editor-page.component.html',
-  styleUrls: ['./code-editor-page.component.scss']
+  styleUrls: ['./code-editor-page.component.scss'],
+  providers: [PageContextService]
 })
 export class CodeEditorPageComponent
   extends AbstractPageComponent<CodeEditorPageConfig>
@@ -97,14 +98,13 @@ export class CodeEditorPageComponent
   private _useDarkTheme = false;
 
   constructor(
-    @Inject(ActivatedRoute) activatedRoute: ActivatedRoute,
-    @Inject(AuthSessionService) authSessionService: AuthSessionService,
-    @Inject(Router) router: Router,
+    @Inject(PageContextService) pageContextService: PageContextService,
     private clipboardService: ClipboardService,
     private prefersColorSchemeService: PrefersColorSchemeService,
+    private router: Router,
     private rpcService: RpcService
   ) {
-    super(activatedRoute, authSessionService, router);
+    super(pageContextService);
   }
 
   override ngOnInit(): void {
@@ -206,7 +206,7 @@ export class CodeEditorPageComponent
     });
   }
 
-  protected override onRouteParams() {
+  protected override onPageInit() {
     // Format tokenized configuration properties.
     this.formatConfig(['title', 'subTitle', 'request.get.method', 'request.get.params']);
   }

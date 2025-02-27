@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 14:55+0100\n"
+"POT-Creation-Date: 2025-02-21 10:04+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2025\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -778,9 +778,6 @@ msgstr "Kopieren"
 
 msgid "Copy permissions"
 msgstr "Berechtigungen kopieren"
-
-msgid "Copy public SSH key"
-msgstr "Kopiere öffentlichen SSH Schlüssel"
 
 msgid "Copy to clipboard"
 msgstr "In die Zwischenablage kopieren"
@@ -1625,6 +1622,12 @@ msgstr "Installieren"
 msgid "Install plugin"
 msgstr "Erweiterung installieren"
 
+msgid "Install public key to remote machine"
+msgstr "Installiere öffentlichen Schlüssel auf entferntem Rechner"
+
+msgid "Install security updates unattended."
+msgstr "Installiere Sicherheitsupdates unbeaufsichtigt."
+
 msgid "Install updates"
 msgstr "Aktualisierungen installieren"
 
@@ -2347,14 +2350,15 @@ msgid "Pitcairn"
 msgstr "Pitcairninseln"
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
+"Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr "Bitte die <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" target=\"_blank\">Hilfeseiten</a> für weitere Details lesen."
+msgstr "Weitere Einzelheiten entnehmen Sie bitte der <a href=\"https://download.samba.org/pub/rsync/rsync.1\" target=\"_blank\">Handbuchseite</a>."
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
-" target=\"_blank\">manual page</a> for more details."
-msgstr "Weitere Informationen finden Sie auf der <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\" target=\"_blank\">Handbuchseite</a>."
+"Please check the <a "
+"href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr "Weitere Einzelheiten entnehmen Sie bitte der <a href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" target=\"_blank\">Handbuchseite</a>."
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
@@ -2365,12 +2369,12 @@ msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Bitte die <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
+msgstr "Weitere Einzelheiten entnehmen Sie bitte der <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>Handbuchseite</a>."
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/nfs-kernel-"
 "server/exports.5.html' target='_blank'>manual page</a> for more details."
-msgstr "Weitere Einzelheiten entnehmen Sie bitte der <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>Hilfeseite</a>."
+msgstr "Weitere Einzelheiten entnehmen Sie bitte der <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>Handbuchseite</a>."
 
 msgid "Please choose the method to wipe the device."
 msgstr "Bitte wählen Sie die Methode zum Löschen des Geräts."
@@ -2996,6 +3000,9 @@ msgstr "Slowenien"
 
 msgid "Snapshots"
 msgstr "Schnappschüsse"
+
+msgid "Software"
+msgstr "Software"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Software Failure.   Press left mouse button to continue."

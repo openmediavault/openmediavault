@@ -85,8 +85,8 @@ export class SshCertificateDatatablePageComponent {
       },
       {
         type: 'iconButton',
-        icon: 'copy',
-        tooltip: gettext('Copy'),
+        icon: 'upload',
+        tooltip: gettext('Install'),
         enabledConstraints: {
           minSelected: 1,
           maxSelected: 1
@@ -94,7 +94,7 @@ export class SshCertificateDatatablePageComponent {
         execute: {
           type: 'formDialog',
           formDialog: {
-            title: gettext('Copy public SSH key'),
+            title: gettext('Install public key to remote machine'),
             fields: [
               {
                 type: 'hint',

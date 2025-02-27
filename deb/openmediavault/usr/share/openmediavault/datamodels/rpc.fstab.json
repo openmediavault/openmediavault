@@ -68,9 +68,6 @@
 				},{
 					"type": "string",
 					"format": "devicefile"
-				},{
-					"type": "string",
-					"format": "dirpath"
 				}],
 				"required": true
 			}
@@ -84,6 +81,7 @@
 		"properties": {
 			"dir": {
 				"type": "string",
+				"format": "dirpath",
 				"required": true
 			}
 		}

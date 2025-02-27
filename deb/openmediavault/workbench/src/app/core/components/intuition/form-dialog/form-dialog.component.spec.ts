@@ -4,6 +4,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { FormDialogComponent } from '~/app/core/components/intuition/form-dialog/form-dialog.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { TestingModule } from '~/app/testing.module';
 
 describe('FormDialogComponent', () => {
@@ -14,6 +15,7 @@ describe('FormDialogComponent', () => {
     TestBed.configureTestingModule({
       imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()],
       providers: [
+        PageContextService,
         { provide: MAT_DIALOG_DATA, useValue: {} },
         {
           provide: MatDialogRef,

@@ -66,16 +66,10 @@ class FsTab extends \OMV\Rpc\ServiceAbstract {
 	 * @return The requested configuration object.
 	 */
 	function get($params, $context) {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, [
-			"role" => OMV_ROLE_ADMINISTRATOR
-		]);
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.common.objectuuid");
-		// Get the configuration object.
-		$db = \OMV\Config\Database::getInstance();
-		return $db->getAssoc("conf.system.filesystem.mountpoint",
-			$params['uuid']);
+		return \OMV\Rpc\Rpc::call("Config", "get", [
+			"id" => "conf.system.filesystem.mountpoint",
+			"uuid" => $params['uuid']
+		], $context);
 	}
 
 	/**

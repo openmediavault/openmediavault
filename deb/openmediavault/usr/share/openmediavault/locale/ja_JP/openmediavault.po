@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 14:55+0100\n"
+"POT-Creation-Date: 2025-02-21 10:04+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -765,9 +765,6 @@ msgstr "コピー"
 
 msgid "Copy permissions"
 msgstr "パーミッションのコピー"
-
-msgid "Copy public SSH key"
-msgstr "公開SSHキーをコピー"
 
 msgid "Copy to clipboard"
 msgstr "クリップボードへコピー"
@@ -1612,6 +1609,12 @@ msgstr "インストール"
 msgid "Install plugin"
 msgstr "プラグインのインストール"
 
+msgid "Install public key to remote machine"
+msgstr ""
+
+msgid "Install security updates unattended."
+msgstr ""
+
 msgid "Install updates"
 msgstr "アップデートのインストール"
 
@@ -2334,14 +2337,15 @@ msgid "Pitcairn"
 msgstr "ピトケアン諸島"
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
+"Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr "詳しくは、<a href=\"http://www.samba.org/ftp/rsync/rsync.html\" target=\"_blank\">マニュアルページ</a>をご覧ください。"
+msgstr ""
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
-" target=\"_blank\">manual page</a> for more details."
-msgstr "詳しくは、<a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\" target=\"_blank\">マニュアルページ</a>をご覧ください。"
+"Please check the <a "
+"href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr ""
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
@@ -2983,6 +2987,9 @@ msgstr "スロベニア"
 
 msgid "Snapshots"
 msgstr "スナップショット"
+
+msgid "Software"
+msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "ソフトウェアの不具合。   マウスの左ボタンで続行します。"

@@ -17,6 +17,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Documentation/Howto:
+# https://mmonit.com/monit/documentation/monit.html#CONNECTION-TESTS
+# https://mmonit.com/monit/documentation/monit.html#FAULT-TOLERANCE
+
 {% set webadmin_config = salt['omv_conf.get']('conf.webadmin') %}
 {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
 {% set notification_config = salt['omv_conf.get_by_filter'](

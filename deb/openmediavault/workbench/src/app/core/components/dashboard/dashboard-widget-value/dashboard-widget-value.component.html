@@ -11,10 +11,10 @@
     <div class="omv-flex-column omv-align-content-stretch omv-justify-content-center omv-align-items-stretch"
          [ngClass]="{'omv-ml-h': config.value?.icon}">
       <div class="omv-font-weight-bold">
-        {{ config.value?.title | template:data | transloco }}
+        {{ config.value?.title | transloco | template:data }}
       </div>
       <div>
-        {{ config.value?.value | template:data | transloco }}
+        {{ config.value?.value | transloco | template:data }}
       </div>
     </div>
   </div>

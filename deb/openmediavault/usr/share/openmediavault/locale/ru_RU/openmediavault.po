@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 14:55+0100\n"
+"POT-Creation-Date: 2025-02-21 10:04+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -779,9 +779,6 @@ msgstr "Копировать"
 
 msgid "Copy permissions"
 msgstr "Копировать разрешения"
-
-msgid "Copy public SSH key"
-msgstr "Копировать публичный ключ SSH"
 
 msgid "Copy to clipboard"
 msgstr "Скопировать в буфер обмена"
@@ -1626,6 +1623,12 @@ msgstr "Установить"
 msgid "Install plugin"
 msgstr "Установить плагин"
 
+msgid "Install public key to remote machine"
+msgstr ""
+
+msgid "Install security updates unattended."
+msgstr ""
+
 msgid "Install updates"
 msgstr "Установить обновления"
 
@@ -2348,14 +2351,15 @@ msgid "Pitcairn"
 msgstr "Питкэрн"
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
+"Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr "Для получения более подробной информации пожалуйста ознакомьтесь с <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" target=\"_blank\">руководством использования</a>. "
+msgstr ""
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
-" target=\"_blank\">manual page</a> for more details."
-msgstr "Для получения более подробной информации пожалуйста ознакомьтесь с <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\" target=\"_blank\">руководством использования</a>. "
+"Please check the <a "
+"href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr ""
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
@@ -2997,6 +3001,9 @@ msgstr "Словения"
 
 msgid "Snapshots"
 msgstr "Снапшоты"
+
+msgid "Software"
+msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Сбой программного обеспечения.   Нажмите левую кнопку мыши, чтобы продолжить."

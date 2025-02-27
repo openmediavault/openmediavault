@@ -2,6 +2,6 @@
   <mat-divider></mat-divider>
   <div *ngIf="config.title"
        class="title">
-    {{ config.title | transloco }}
+    {{ config.title | transloco | template:pageContext }}
   </div>
 </div>

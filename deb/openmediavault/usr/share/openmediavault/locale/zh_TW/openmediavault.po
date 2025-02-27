@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 14:55+0100\n"
+"POT-Creation-Date: 2025-02-21 10:04+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2025\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -767,9 +767,6 @@ msgstr "複製"
 
 msgid "Copy permissions"
 msgstr "複製權限"
-
-msgid "Copy public SSH key"
-msgstr "複製公開 SSH 金鑰"
 
 msgid "Copy to clipboard"
 msgstr "複製到剪貼板"
@@ -1614,6 +1611,12 @@ msgstr "安裝"
 msgid "Install plugin"
 msgstr "安裝插件"
 
+msgid "Install public key to remote machine"
+msgstr "安裝公鑰到遠端機器"
+
+msgid "Install security updates unattended."
+msgstr "無人管顧安裝安全更新。"
+
 msgid "Install updates"
 msgstr "安裝更新"
 
@@ -2336,14 +2339,15 @@ msgid "Pitcairn"
 msgstr "皮特凱恩"
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
+"Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr "詳情請查看 <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" target=\"_blank\">手冊頁</a> 。"
+msgstr "詳情請查看 <a href=\"https://download.samba.org/pub/rsync/rsync.1\" target=\"_blank\">手冊頁</a>。"
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
-" target=\"_blank\">manual page</a> for more details."
-msgstr "詳情請查看 <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\" target=\"_blank\">手冊頁</a> 。"
+"Please check the <a "
+"href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr "詳情請查看 <a href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" target=\"_blank\">手冊頁</a>。"
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
@@ -2985,6 +2989,9 @@ msgstr "斯洛維尼亞"
 
 msgid "Snapshots"
 msgstr "快照"
+
+msgid "Software"
+msgstr "軟體"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "軟體錯誤。   按滑鼠左鍵繼續。"

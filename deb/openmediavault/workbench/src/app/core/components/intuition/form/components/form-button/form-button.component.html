@@ -1,13 +1,13 @@
 <mat-form-field class="omv-flex-1"
                 [formGroup]="formGroup">
-  <mat-label>{{ config.label | transloco }}</mat-label>
+  <mat-label>{{ config.label | transloco | template:pageContext }}</mat-label>
   <mat-form-button [formControlName]="config.name"
                    [autofocus]="config.autofocus"
                    matTooltip="{{ config.tooltip | transloco }}"
                    (click)="onClick()">
-    {{ config.text | transloco }}
+    {{ config.text | transloco | template:pageContext }}
   </mat-form-button>
   <mat-hint *ngIf="config.hint?.length > 0"
-            [innerHTML]="config.hint | transloco | sanitizeHtml">
+            [innerHTML]="config.hint | transloco | template:pageContext | sanitizeHtml">
   </mat-hint>
 </mat-form-field>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 14:55+0100\n"
+"POT-Creation-Date: 2025-02-21 10:04+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2025\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -765,9 +765,6 @@ msgstr "Αντιγραφή"
 
 msgid "Copy permissions"
 msgstr "Αντιγραφή δικαιωμάτων"
-
-msgid "Copy public SSH key"
-msgstr "Αντιγραφή δημόσιου κλειδιού SSH"
 
 msgid "Copy to clipboard"
 msgstr "Αντιγραφή στο πρόχειρο"
@@ -1612,6 +1609,12 @@ msgstr "Εγκατάσταση"
 msgid "Install plugin"
 msgstr "Εγκατάσταση πρόσθετου"
 
+msgid "Install public key to remote machine"
+msgstr "Εγκατάσταση δημόσιου κλειδιού για το απομακρυσμένο μηχάνημα"
+
+msgid "Install security updates unattended."
+msgstr "Εγκατάσταση ενημερώσεων ασφαλείας χωρίς εποπτεία."
+
 msgid "Install updates"
 msgstr "Εγκατάσταση ενημερώσεων"
 
@@ -2334,14 +2337,15 @@ msgid "Pitcairn"
 msgstr "Pitcairn"
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
+"Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr "Διαβάστε το <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" target=\"_blank\">εγχειρίδιο</a> για περισσότερες πληροφορίες."
+msgstr ""
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
-" target=\"_blank\">manual page</a> for more details."
-msgstr "Διαβάστε το <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\" target=\"_blank\">εγχειρίδιο</a> για περισσότερες πληροφορίες."
+"Please check the <a "
+"href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr ""
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
@@ -2983,6 +2987,9 @@ msgstr "Slovenia"
 
 msgid "Snapshots"
 msgstr "Στιγμιότυπα"
+
+msgid "Software"
+msgstr "Λογισμικό"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Σφάλμα Λογισμικού   Αριστερό κλικ για συνέχεια."

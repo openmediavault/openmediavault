@@ -6,13 +6,14 @@
 # maurorulli <mauro.rulli@gmail.com>, 2012
 # maurorulli <mauro.rulli@gmail.com>, 2012
 # Paolo Velati <paolo.velati@gmail.com>, 2013-2015,2017
+# Roberto Bellingeri <bellingeri@netguru.it>, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-27 14:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2013-2015,2017\n"
+"Last-Translator: Roberto Bellingeri <bellingeri@netguru.it>, 2025\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,16 +34,16 @@ msgid "Create"
 msgstr "Crea"
 
 msgid "Created logical volume '{{ name }}'."
-msgstr ""
+msgstr "Volume logico '{{ name }}' creato."
 
 msgid "Created physical volume {{ devicefile }}."
-msgstr ""
+msgstr "Volume fisico {{ devicefile }} creato."
 
 msgid "Created snapshot of logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "Snapshot del volume logico '{{ devicefile }}' creato."
 
 msgid "Created volume group '{{ name }}'."
-msgstr ""
+msgstr "Gruppo di volumi '{{ name }}' creato."
 
 msgid "Device"
 msgstr "Dispositivo"
@@ -51,7 +52,7 @@ msgid "Devices"
 msgstr "Dispositivi"
 
 msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
-msgstr ""
+msgstr "Sicuro di voler creare un volume fisico su '{{ devicefile }}'?"
 
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "Sei sicuro di voler ridimensionare il volume fisico selezionato?"
@@ -63,10 +64,10 @@ msgid "Extend"
 msgstr "Amplia"
 
 msgid "Extended logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "Volume logico '{{ devicefile }}' esteso."
 
 msgid "Extended volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "Gruppo di volumi '{{ devicefile }}' esteso."
 
 msgid "Free"
 msgstr "Libero"
@@ -75,28 +76,28 @@ msgid "Invalid name"
 msgstr "Nome non valido"
 
 msgid "LVM"
-msgstr ""
+msgstr "LVM"
 
 msgid "Logical Volume Management"
 msgstr "Gestione Volume Logico"
 
 msgid "Logical Volumes"
-msgstr ""
+msgstr "Volumi Logici"
 
 msgid "Name"
 msgstr "Nome"
 
 msgid "Physical Volumes"
-msgstr ""
+msgstr "Volumi Fisici"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Attendi, verrà creato uno snapshot..."
 
 msgid "Reduce"
 msgstr "Riduci"
 
 msgid "Reduced volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "Gruppo di volumi '{{ devicefile }}' ridotto."
 
 msgid "Resize"
 msgstr "Ridimensiona"
@@ -108,13 +109,13 @@ msgid "Select a volume group ..."
 msgstr "Seleziona un gruppo di volumi ..."
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Seleziona i dispositivi..."
 
 msgid "Select the devices used to extend the volume group."
-msgstr ""
+msgstr "Seleziona i dispositivi utilizzati per estendere il gruppo di volumi."
 
 msgid "Select the devices used to reduce from the volume group."
-msgstr ""
+msgstr "Seleziona i dispositivi utilizzati per la riduzione dal gruppo di volumi."
 
 msgid "Size"
 msgstr "Dimensione"
@@ -123,35 +124,35 @@ msgid "Snapshot"
 msgstr "Istantanea"
 
 msgid "The name of the logical volume."
-msgstr ""
+msgstr "Il nome del volume logico."
 
 msgid "The name of the volume group."
-msgstr ""
+msgstr "Nome del gruppo di volumi."
 
 msgid ""
 "The percentage of the total space in the volume group to allocate for the "
 "new logical volume."
-msgstr ""
+msgstr "Percentuale dello spazio totale nel gruppo di volumi da allocare al nuovo volume logico."
 
 msgid ""
 "The percentage of the total space in the volume group to use by the logical "
 "volume."
-msgstr ""
+msgstr "Percentuale dello spazio totale nel gruppo di volumi da utilizzare per il volume logico."
 
 msgid "Updated logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "Volume logico '{{ devicefile }}' aggiornato."
 
 msgid "Updated volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "Gruppo di volumi '{{ devicefile }}' aggiornato."
 
 msgid "Used"
 msgstr "Usato"
 
 msgid "Volume Group"
-msgstr ""
+msgstr "Gruppo di Volumi."
 
 msgid "Volume Groups"
-msgstr ""
+msgstr "Gruppi di Volumi"
 
 msgid "Volume group"
 msgstr "Gruppo di volumi"

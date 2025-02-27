@@ -1,16 +1,16 @@
 {% set pin_priority = salt['pillar.get']('default:OMV_APT_KERNEL_BACKPORTS_PINPRIORITY', '500') -%}
 Package: linux-base
-Pin: release a={{ grains['oscodename'] }}-backports
+Pin: release n={{ grains['oscodename'] }}-backports
 Pin-Priority: {{ pin_priority }}
 
 Package: linux-headers-*
-Pin: release a={{ grains['oscodename'] }}-backports
+Pin: release n={{ grains['oscodename'] }}-backports
 Pin-Priority: {{ pin_priority }}
 
 Package: linux-image-*
-Pin: release a={{ grains['oscodename'] }}-backports
+Pin: release n={{ grains['oscodename'] }}-backports
 Pin-Priority: {{ pin_priority }}
 
 Package: firmware-*
-Pin: release a={{ grains['oscodename'] }}-backports
+Pin: release n={{ grains['oscodename'] }}-backports
 Pin-Priority: {{ pin_priority }}

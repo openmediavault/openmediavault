@@ -46,7 +46,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("createBtrfs");
 		$this->registerMethod("grow");
 		$this->registerMethod("setMountPoint");
-		$this->registerMethod("umount");
+		$this->registerMethod("umountByFsName");
+		$this->registerMethod("umountByDir");
 		$this->registerMethod("hasFilesystem");
 		$this->registerMethod("getDetails");
 	}
@@ -493,6 +494,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				}
 				if (in_array($mntentv->get("fsname"), $fsNames)) {
 					$result[] = array_merge($fsObjectv, [
+						"mountpoint" => $mntentv->get("dir"),
 						"comment" => $mntentv->get("comment"),
 						"usagewarnthreshold" => $mntentv->get("usagewarnthreshold"),
 						"mountopts" => $mntentv->get("opts"),
@@ -888,33 +890,66 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
-	 * Unmount a file system.
-	 * The file system will be unmounted and the mount point database
-	 * configuration object will be deleted.
+	 * Unmount a file system by the given file system name, which may be
+	 * an UUID or block special device. The file system will be unmounted
+	 * and the mount point database configuration object will be deleted.
 	 * @param params An array containing the following fields:
-	 *   \em id The UUID or block special device of the file system to release.
+	 *   \em fsname The UUID or block special device of the file system to release.
 	 * @param context The context of the caller.
 	 * @return void
 	 * @throw \OMV\Exception
 	 */
-	public function umount($params, $context) {
+	public function umountByFsName($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.filesystemmgmt.umount");
+		$this->validateMethodParams($params, "rpc.filesystemmgmt.umountbyfsname");
 		// Try to obtain the mount point configuration object if this exists.
 		$meObject = \OMV\Rpc\Rpc::call("FsTab", "getByFsName", [
-			"fsname" => $params['id']
+			"fsname" => $params['fsname']
 		], $context);
 		if (FALSE === $meObject) {
 			throw new \OMV\Exception(
 				"No mount point database configuration object exists for the file system '%s'.",
-				$params['id']);
+				$params['fsname']);
 		}
+		self::umount($meObject, $context);
+	}
+
+	/**
+	 * Unmount a file system by the given mount point. The file system will
+	 * be unmounted and the mount point database configuration object will
+	 * be deleted.
+	 * @param params An array containing the following fields:
+	 *   \em dir The mount point of the file system to release.
+	 * @param context The context of the caller.
+	 * @return void
+	 * @throw \OMV\Exception
+	 */
+	public function umountByDir($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.filesystemmgmt.umountbydir");
+		// Try to obtain the mount point configuration object if this exists.
+		$meObject = \OMV\Rpc\Rpc::call("FsTab", "getByDir", [
+			"dir" => $params['dir']
+		], $context);
+		if (FALSE === $meObject) {
+			throw new \OMV\Exception(
+				"No mount point database configuration object exists for the mount point '%s'.",
+				$params['dir']);
+		}
+		self::umount($meObject, $context);
+	}
+
+	private static function umount($meObject, $context): void {
 		// Get the file system and unmount it.
-		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
+		$fs = \OMV\System\Filesystem\Filesystem::getImpl($meObject['fsname']);
 		if (!is_null($fs) && $fs->exists()) {
 			if (TRUE === $fs->isMounted()) {
 				$fs->umount(TRUE);

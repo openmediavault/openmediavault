@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 14:55+0100\n"
+"POT-Creation-Date: 2025-02-21 10:04+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2025\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -768,9 +768,6 @@ msgstr "Kopiera"
 
 msgid "Copy permissions"
 msgstr "Kopiera behörigheter"
-
-msgid "Copy public SSH key"
-msgstr "Kopiera publik SSH-nyckel"
 
 msgid "Copy to clipboard"
 msgstr "Kopiera till urklipp"
@@ -1615,6 +1612,12 @@ msgstr "Installera"
 msgid "Install plugin"
 msgstr "Installera insticksmodul"
 
+msgid "Install public key to remote machine"
+msgstr "Installera publik nyckel till fjärrmaskin"
+
+msgid "Install security updates unattended."
+msgstr "Installera säkerhetsuppdateringar utan uppsikt."
+
 msgid "Install updates"
 msgstr "Installera uppdateringar"
 
@@ -2337,14 +2340,15 @@ msgid "Pitcairn"
 msgstr "Pitcairnöarna"
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
+"Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr "Se <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" target=\"_blank\">manualsidan</a> för mer information."
+msgstr ""
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
-" target=\"_blank\">manual page</a> for more details."
-msgstr "Se <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\" target=\"_blank\">manualsidan</a> för mer information."
+"Please check the <a "
+"href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr ""
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
@@ -2366,7 +2370,7 @@ msgid "Please choose the method to wipe the device."
 msgstr "Välj metoden för att rensa enheten."
 
 msgid "Please note that values >= 128 do not permit the disk to spin down."
-msgstr ""
+msgstr "Observera att värden >= 128 inte tillåter att disken snurrar ner."
 
 msgid "Please wait ..."
 msgstr "Vänta ..."
@@ -2986,6 +2990,9 @@ msgstr "Slovenien"
 
 msgid "Snapshots"
 msgstr "Ögonblicksbilder"
+
+msgid "Software"
+msgstr "Programvara"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Programvarufel.   Tryck på vänster musknapp för att fortsätta."

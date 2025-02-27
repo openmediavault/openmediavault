@@ -1,5 +1,25 @@
+openmediavault (7.7.1-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Feb 2025 20:18:37 +0100
+
+openmediavault (7.7.0-2) stable; urgency=low
+
+  * Update locale files.
+  * Several UI improvements.
+  * Refactor the RPC to umnount file systems to be able to get
+    rid of non-existing file systems. The RPC `FileSystemMgmt::umount`
+    has been renamed to `umountByFsName` and `umountByDir` has been
+    added.
+  * Issue #1912: Fix pinning of backports repository.
+  * Issue #1918: Improve processing of tokenized strings.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 30 Jan 2025 18:07:22 +0100
+
 openmediavault (7.6.0-1) stable; urgency=low
 
+  * Update locale files.
   * Add option to disable the automatic installation of security
     updates.
   * Issue #1694: Add PWA manifest to the UI. Note, Note, PWA only

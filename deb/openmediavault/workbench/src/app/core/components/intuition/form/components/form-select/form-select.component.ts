@@ -22,6 +22,7 @@ import { Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
+import { formatFormFieldConfig } from '~/app/core/components/intuition/functions.helper';
 import { Unsubscribe } from '~/app/decorators';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 
@@ -57,6 +58,11 @@ export class FormSelectComponent extends AbstractFormFieldComponent implements O
       const value = _.clone(event.value);
       this.config.selectionChange(value);
     }
+  }
+
+  protected override formatConfig(): void {
+    super.formatConfig();
+    formatFormFieldConfig([this.config], this.pageContext, ['store.proxy', 'store.filters']);
   }
 
   private doLoadStore(): void {

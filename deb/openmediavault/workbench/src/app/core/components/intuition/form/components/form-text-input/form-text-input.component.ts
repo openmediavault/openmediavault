@@ -23,6 +23,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map, skipWhile, startWith } from 'rxjs/operators';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
+import { formatFormFieldConfig } from '~/app/core/components/intuition/functions.helper';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 
@@ -64,6 +65,11 @@ export class FormTextInputComponent extends AbstractFormFieldComponent implement
 
   onCopyToClipboard(): void {
     this.clipboardService.copy(this.abstractControl.value);
+  }
+
+  protected override formatConfig(): void {
+    super.formatConfig();
+    formatFormFieldConfig([this.config], this.pageContext, ['store.proxy', 'store.filters']);
   }
 
   private doLoadStore(): void {

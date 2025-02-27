@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 14:55+0100\n"
+"POT-Creation-Date: 2025-02-21 10:04+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2017\n"
 "Language-Team: Bulgarian (Bulgaria) (http://app.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
@@ -764,9 +764,6 @@ msgid "Copy"
 msgstr ""
 
 msgid "Copy permissions"
-msgstr ""
-
-msgid "Copy public SSH key"
 msgstr ""
 
 msgid "Copy to clipboard"
@@ -1612,6 +1609,12 @@ msgstr ""
 msgid "Install plugin"
 msgstr ""
 
+msgid "Install public key to remote machine"
+msgstr ""
+
+msgid "Install security updates unattended."
+msgstr ""
+
 msgid "Install updates"
 msgstr ""
 
@@ -2334,13 +2337,14 @@ msgid "Pitcairn"
 msgstr ""
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
+"Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
 "target=\"_blank\">manual page</a> for more details."
 msgstr ""
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
-" target=\"_blank\">manual page</a> for more details."
+"Please check the <a "
+"href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
+"target=\"_blank\">manual page</a> for more details."
 msgstr ""
 
 msgid ""
@@ -2982,6 +2986,9 @@ msgid "Slovenia"
 msgstr ""
 
 msgid "Snapshots"
+msgstr ""
+
+msgid "Software"
 msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."

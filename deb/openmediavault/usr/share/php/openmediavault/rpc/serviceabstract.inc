@@ -65,9 +65,9 @@ abstract class ServiceAbstract {
 	}
 
 	/**
-	 * Registers a method that can mutate the return of another RPC.
+	 * Registers a method that can mutate the response of another RPC.
 	 * The passed method is called with the parameters of the origin RPC,
-	 * it's context and the result of it. The function header should look
+	 * it's context and the response of it. The function header should look
 	 * like:
 	 * ```
 	 * myMutatingMethod($params, $context, $result)

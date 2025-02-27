@@ -15,7 +15,6 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-
 export type PageHintConfig = {
   // Depending on the type, different icons and colors are used.
   type?: 'info' | 'warning';

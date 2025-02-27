@@ -164,6 +164,7 @@ export class TopBarComponent {
       () => {
         this.rpcService.request('System', 'standby', { delay: 0 }).subscribe(() => {
           this.router.navigate(['/standby']);
+          this.systemInformationService.stop();
         });
       }
     );
@@ -177,6 +178,7 @@ export class TopBarComponent {
       () => {
         this.rpcService.request('System', 'shutdown', { delay: 0 }).subscribe(() => {
           this.router.navigate(['/shutdown']);
+          this.systemInformationService.stop();
         });
       }
     );

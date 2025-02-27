@@ -1,9 +1,10 @@
 {%- set ipv6_enabled = salt['omv_utils.is_ipv6_enabled']() -%}
-{%- set general_uid = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_UID', 'abc') -%}
-{%- set general_logfile = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_LOGFILE', '/config/dbase_and_logs/owntone.log') -%}
+{%- set general_uid = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_UID', 'owntone') -%}
+{%- set general_logfile = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_LOGFILE', '/dev/stderr') -%}
 {%- set general_loglevel = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_LOGLEVEL', 'log') -%}
-{%- set general_db_path = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_DBPATH', '/config/dbase_and_logs/songs3.db') -%}
-{%- set general_cache_path = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_DBPATH', '/config/dbase_and_logs/cache.db') -%}
+{%- set general_db_path = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_DBPATH', '/var/cache/owntone/database.db') -%}
+{%- set general_db_backup_path = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_DBBACKUPPATH', '/var/cache/owntone/database.bak') -%}
+{%- set general_cache_path = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_CACHEPATH', '/var/cache/owntone') -%}
 {%- set general_trusted_networks = salt['pillar.get']('default:OMV_OWNTONE_GENERAL_TRUSTEDNETWORKS', '{localhost,192.168,fd}') -%}
 {%- set library_filescan_disable = salt['pillar.get']('default:OMV_OWNTONE_LIBRARY_FILESCANDISABLE', 'false') -%}
 {%- set library_itunes_overrides = salt['pillar.get']('default:OMV_OWNTONE_LIBRARY_ITUNESOVERRIDES', 'false') -%}
@@ -18,6 +19,11 @@ general {
 
   # Database location
   db_path = "{{ general_db_path }}"
+
+  # Database backup location
+  # Uncomment and specify a full path to enable abilty to use REST endpoint
+  # to initiate backup of songs3.db
+  db_backup_path = "{{ general_db_backup_path }}"
 
   # Log file and level
   # Available levels: fatal, log, warning, info, debug, spam
@@ -51,7 +57,7 @@ general {
 # bind_address = "::"
 
   # Location of cache database
-  cache_path = "{{ general_cache_path }}"
+  cache_dir = "{{ general_cache_path }}"
 
   # DAAP requests that take longer than this threshold (in msec) get their
   # replies cached for next time. Set to 0 to disable caching.
@@ -82,7 +88,7 @@ library {
 {%- endif %}
 
   # Directories to index
-  directories = { "/music" }
+  directories = { "/srv/media" }
 
   # Follow symlinks. Default: true.
 # follow_symlinks = true
@@ -168,6 +174,12 @@ library {
   # to trigger a full rescan.
   filescan_disable = {{ library_filescan_disable }}
 
+  # Only use the first genre found in metadata
+  # Some tracks have multiple genres semicolon-separated in the same tag,
+  # e.g. 'Pop;Rock'. If you don't want them listed like this, you can
+  # enable this option and only the first genre will be used (i.e. 'Pop').
+#	only_first_genre = false
+
   # Should metadata from m3u playlists, e.g. artist and title in EXTINF,
   # override the metadata we get from radio streams?
 # m3u_overrides = false
@@ -192,6 +204,17 @@ library {
   # Formats that should always be decoded
 # force_decode = { "format", "format" }
 
+  # Prefer transcode to wav (default), alac or mpeg (mp3 with the bit rate
+  # configured below in the streaming section). Note that alac requires
+  # precomputing and caching mp4 headers, which takes both cpu and disk.
+#	prefer_format = "format"
+
+  # Set ffmpeg filters (similar to 'ffmpeg -af xxx') that you want the
+  # server to use when decoding files from your library. Examples:
+  #  { 'volume=replaygain=track' } -> use REPLAYGAIN_TRACK_GAIN metadata
+  #  { 'loudnorm=I=-16:LRA=11:TP=-1.5' } -> normalize volume
+#	decode_audio_filters = { }
+
   # Watch named pipes in the library for data and autostart playback when
   # there is data to be read. To exclude specific pipes from watching,
   # consider using the above _ignore options.
@@ -208,6 +231,16 @@ library {
   # new rating = 0.75 * stable rating + 0.25 * rolling rating)
 # rating_updates = false
 
+  # By default, ratings are only saved in the server's database. Enable
+  # the below to make the server also read ratings from file metadata and
+  # write on update (requires write access). To avoid excessive writing to
+  # the library, automatic rating updates are not written, even with the
+  # write_rating option enabled.
+#	read_rating = false
+#	write_rating = false
+  # The scale used when reading/writing ratings to files
+#	max_rating = 100
+
   # Allows creating, deleting and modifying m3u playlists in the library directories.
   # Only supported by the player web interface and some mpd clients
   # Defaults to being disabled.
@@ -217,12 +250,18 @@ library {
   # playlist directory. OwnTone creates new playlists in this directory if only
   # a playlist name is provided (requires "allow_modify_stored_playlists" set to true).
 #	default_playlist_directory = ""
+
+  # By default OwnTone will - like iTunes - clear the playqueue if
+  # playback stops. Setting clear_queue_on_stop_disable to true will keep
+  # the playlist like MPD does. Note that some dacp clients do not show
+  # the playqueue if playback is stopped.
+#	clear_queue_on_stop_disable = false
 }
 
 # Local audio output
 audio {
   # Name - used in the speaker list in Remote
-# nickname = "{{ audio_nickname }}"
+  nickname = "{{ audio_nickname }}"
 
   # Type of the output (alsa, pulseaudio or dummy)
   type = "{{ audio_type }}"
@@ -294,6 +333,10 @@ audio {
   # OwnTone behind a firewall)
 # control_port = 0
 # timing_port = 0
+
+  # Switch Airplay 1 streams to uncompressed ALAC (as opposed to regular,
+  # compressed ALAC). Reduces CPU use at the cost of network bandwidth.
+#	uncompressed_alac = false
 #}
 
 # AirPlay per device settings
@@ -386,11 +429,9 @@ mpd {
   # work). Set to 0 to disable serving artwork over http.
 # http_port = 0
 
-  # By default owntone will - like iTunes - clear the playqueue if
-  # playback stops. Setting clear_queue_on_stop_disable to true will keep
-  # the playlist like MPD does. Note that some dacp clients do not show
-  # the playqueue if playback is stopped.
-# clear_queue_on_stop_disable = false
+  # Whether to emit an output with plugin type "httpd" to tell clients
+  # that a stream is available for local playback.
+#	enable_httpd_plugin = false
 }
 
 # SQLite configuration (allows to modify the operation of the SQLite databases)
@@ -417,4 +458,13 @@ mpd {
   # Should the database be vacuumed on startup? (increases startup time,
   # but may reduce database size). Default is yes.
 # vacuum = yes
+#}
+
+# Streaming audio settings for remote connections (ie stream.mp3)
+# streaming {
+  # Sample rate, typically 44100 or 48000
+#	sample_rate = 44100
+
+  # Set the MP3 streaming bit rate (in kbps), valid options: 64 / 96 / 128 / 192 / 320
+#	bit_rate = 192
 #}

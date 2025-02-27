@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-md package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# zubr139, 2025
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-15 11:52+0100\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
+"Last-Translator: zubr139, 2025\n"
 "Language-Team: Ukrainian (https://app.transifex.com/openmediavault/teams/14254/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,102 +22,104 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "Можна видалити максимум один пристрій."
 
 msgid "A maximum of two device can be removed."
-msgstr ""
+msgstr "Можна видалити максимум два пристрої."
 
 msgid "Add hot spares / recover RAID device."
-msgstr ""
+msgstr "Додати пристрій резервування/відновлення в RAID масив."
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "Необхідно принаймні чотири пристрої."
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "Потрібно принаймні три пристрої."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "Потрібно принаймні два пристрої."
 
 msgid "Capacity"
-msgstr ""
+msgstr "Ємкість"
 
 msgid "Create"
-msgstr ""
+msgstr "Створити"
 
 msgid "Details"
-msgstr ""
+msgstr "Деталі"
 
 msgid "Device"
-msgstr ""
+msgstr "Пристрій"
 
 msgid "Devices"
-msgstr ""
+msgstr "Пристрої"
 
 msgid "Grow"
-msgstr ""
+msgstr "Розширити"
 
 msgid "Level"
-msgstr ""
+msgstr "Рівень"
 
 msgid "Linear"
-msgstr ""
+msgstr "Лінійний"
 
 msgid "Mirror"
-msgstr ""
+msgstr "Зеркало"
 
 msgid "Multiple Device"
-msgstr ""
+msgstr "Кілька пристроїв"
 
 msgid "Name"
-msgstr ""
+msgstr "Ім'я"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "Recover"
-msgstr ""
+msgstr "Відновити"
 
 msgid "Remove"
-msgstr ""
+msgstr "Вилучити"
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Оберіть пристрої ..."
 
 msgid "Select devices to be added to the RAID device."
-msgstr ""
+msgstr "Оберіть пристрої, які потрібно додати в RAID."
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Оберіть пристрої, котрі будуть видалені з RAID."
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr ""
+"Виберіть пристрої, які будуть використовуватися для створення пристрою RAID."
+" Пристрої, підключені через USB, не будуть перераховані (надто ненадійні)."
 
 msgid "Show details"
-msgstr ""
+msgstr "Показати деталі"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "Програмний RAID"
 
 msgid "State"
-msgstr ""
+msgstr "Стан"
 
 msgid "Stripe"
-msgstr ""
+msgstr "Смуга"

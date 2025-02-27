@@ -24,7 +24,7 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_OWNTONE_APP_CONTAINER_IMAGE=${OMV_OWNTONE_APP_CONTAINER_IMAGE:-"lscr.io/linuxserver/daapd:latest"}
+OMV_OWNTONE_APP_CONTAINER_IMAGE=${OMV_OWNTONE_APP_CONTAINER_IMAGE:-"docker.io/owntone/owntone:latest"}
 
 remove_action() {
   # Remove systemd unit file.

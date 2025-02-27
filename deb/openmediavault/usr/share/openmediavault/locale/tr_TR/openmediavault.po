@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 14:55+0100\n"
+"POT-Creation-Date: 2025-02-21 10:04+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022,2025\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -765,9 +765,6 @@ msgstr "Kopya"
 
 msgid "Copy permissions"
 msgstr "Kopyalama yetkileri"
-
-msgid "Copy public SSH key"
-msgstr "Açık SSH anahtarını kopyala"
 
 msgid "Copy to clipboard"
 msgstr "Panoya kopyala"
@@ -1612,6 +1609,12 @@ msgstr "Kur"
 msgid "Install plugin"
 msgstr "Eklentileri kur"
 
+msgid "Install public key to remote machine"
+msgstr ""
+
+msgid "Install security updates unattended."
+msgstr ""
+
 msgid "Install updates"
 msgstr "Güncelleştirmeleri kur"
 
@@ -2334,14 +2337,15 @@ msgid "Pitcairn"
 msgstr "Pitcairn"
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
+"Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr "Daha fazla bilgi için lütfen <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" target=\"_blank\">kullanıcı kılavuzu</a> adresini ziyaret ediniz."
+msgstr ""
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
-" target=\"_blank\">manual page</a> for more details."
-msgstr "Daha fazla bilgi için lütfen <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\" target=\"_blank\">kullanıcı kılavuzu</a> adresini ziyaret ediniz."
+"Please check the <a "
+"href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr ""
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
@@ -2982,6 +2986,9 @@ msgid "Slovenia"
 msgstr "Slovenya"
 
 msgid "Snapshots"
+msgstr ""
+
+msgid "Software"
 msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."

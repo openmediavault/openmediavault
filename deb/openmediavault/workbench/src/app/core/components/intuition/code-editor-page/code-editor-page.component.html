@@ -27,10 +27,10 @@
   </mat-toolbar>
   <mat-card-title-group *ngIf="config.title || config.subTitle">
     <mat-card-title *ngIf="config.title">
-      {{ config.title | transloco }}
+      {{ config.title | transloco | template:pageContext }}
     </mat-card-title>
     <mat-card-subtitle *ngIf="config.subTitle">
-      {{ config.subTitle | transloco }}
+      {{ config.subTitle | transloco | template:pageContext }}
     </mat-card-subtitle>
   </mat-card-title-group>
   <mat-card-content class="omv-scrollable-xy">
@@ -45,7 +45,7 @@
             mat-flat-button
             [class]="button.class"
             (click)="onButtonClick(button)">
-      {{ button.text | transloco }}
+      {{ button.text | transloco | template:pageContext }}
     </button>
   </mat-card-actions>
 </mat-card>

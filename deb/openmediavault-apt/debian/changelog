@@ -1,5 +1,12 @@
+openmediavault-apt (7.0.2-1) stable; urgency=low
+
+  * Issue #1912: Fix Bookworm backports example.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 02 Feb 2025 08:58:45 +0100
+
 openmediavault-apt (7.0.1-1) stable; urgency=low
 
+  * Update locale files.
   * Relocate page to "System | Update Management | Settings" section.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 24 Jan 2025 11:24:24 +0100

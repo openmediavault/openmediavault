@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 14:55+0100\n"
+"POT-Creation-Date: 2025-02-21 10:04+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: M@T D., 2022-2024\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -780,9 +780,6 @@ msgstr "Copie"
 
 msgid "Copy permissions"
 msgstr "Autorisations de copie"
-
-msgid "Copy public SSH key"
-msgstr "Copier la clé publique SSH"
 
 msgid "Copy to clipboard"
 msgstr "Copier vers le presse-papier"
@@ -1627,6 +1624,12 @@ msgstr "Installer"
 msgid "Install plugin"
 msgstr "Installer l'extension"
 
+msgid "Install public key to remote machine"
+msgstr ""
+
+msgid "Install security updates unattended."
+msgstr ""
+
 msgid "Install updates"
 msgstr "Installer les mises à jour"
 
@@ -2349,14 +2352,15 @@ msgid "Pitcairn"
 msgstr "Île Pitcairn"
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
+"Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr "Veuillez vous référer aux <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" target=\"_blank\">pages du manuel</a> pour plus de détails."
+msgstr ""
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
-" target=\"_blank\">manual page</a> for more details."
-msgstr "Veuillez vous référer aux <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\" target=\"_blank\">pages du manuel</a> pour plus de détails."
+"Please check the <a "
+"href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr ""
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
@@ -2998,6 +3002,9 @@ msgstr "Slovénie"
 
 msgid "Snapshots"
 msgstr "Instantanés"
+
+msgid "Software"
+msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Erreur logicielle.   Cliquez sur le bouton gauche de la souris pour continuer."

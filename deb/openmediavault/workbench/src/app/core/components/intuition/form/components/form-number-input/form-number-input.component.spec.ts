@@ -4,6 +4,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { FormNumberInputComponent } from '~/app/core/components/intuition/form/components/form-number-input/form-number-input.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { TestingModule } from '~/app/testing.module';
 
 describe('FormNumberInputComponent', () => {
@@ -13,7 +14,8 @@ describe('FormNumberInputComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [FormNumberInputComponent],
-      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()]
+      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()],
+      providers: [PageContextService]
     }).compileComponents();
   }));
 

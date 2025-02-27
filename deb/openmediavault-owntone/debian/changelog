@@ -1,3 +1,10 @@
+openmediavault-owntone (7.1.0-1) stable; urgency=low
+
+  * Update locale files.
+  * Make use of the official container image.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 26 Jan 2025 19:50:22 +0100
+
 openmediavault-owntone (7.0-2) unstable; urgency=low
 
   * Adapt to openmediavault 7 (Sandworm).

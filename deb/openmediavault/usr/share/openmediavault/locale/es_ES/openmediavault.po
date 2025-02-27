@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 14:55+0100\n"
+"POT-Creation-Date: 2025-02-21 10:04+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2024\n"
 "Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -770,9 +770,6 @@ msgstr "Copiar"
 
 msgid "Copy permissions"
 msgstr "Copiar permisos"
-
-msgid "Copy public SSH key"
-msgstr "Copiar clave pública SSH"
 
 msgid "Copy to clipboard"
 msgstr "Copiar al portapapeles"
@@ -1617,6 +1614,12 @@ msgstr "Instalar"
 msgid "Install plugin"
 msgstr "Instalar plugin"
 
+msgid "Install public key to remote machine"
+msgstr ""
+
+msgid "Install security updates unattended."
+msgstr ""
+
 msgid "Install updates"
 msgstr "Instalar actualizaciones"
 
@@ -2339,14 +2342,15 @@ msgid "Pitcairn"
 msgstr "Isla Pitcairn"
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" "
+"Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr "Por favor revise la pagina <a href=\"http://www.samba.org/ftp/rsync/rsync.html\" target=\"_blank\"> del manual</a> para más detalles."
+msgstr ""
 
 msgid ""
-"Please check the <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\""
-" target=\"_blank\">manual page</a> for more details."
-msgstr "Por favor revise la página <a href=\"http://www.samba.org/ftp/rsync/rsyncd.conf.html\" target=\"_blank\"> del manual</a> para más detalles."
+"Please check the <a "
+"href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr ""
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
@@ -2988,6 +2992,9 @@ msgstr "Eslovenia"
 
 msgid "Snapshots"
 msgstr "Snapshots"
+
+msgid "Software"
+msgstr ""
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Fallo de software.  pulse botón izquierdo del ratón para continuar."

@@ -5,6 +5,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { FormPasswordInputComponent } from '~/app/core/components/intuition/form/components/form-password-input/form-password-input.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { TestingModule } from '~/app/testing.module';
 
 describe('FormPasswordInputComponent', () => {
@@ -13,7 +14,8 @@ describe('FormPasswordInputComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()]
+      imports: [IntuitionModule, TestingModule, ToastrModule.forRoot()],
+      providers: [PageContextService]
     }).compileComponents();
   }));
 
