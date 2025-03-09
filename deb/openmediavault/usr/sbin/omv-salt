@@ -138,6 +138,17 @@ def deploy_list():
     sys.exit(0)
 
 
+@deploy.command(name='list-dirty', help='List states that are marked as dirty and exit.')
+def deploy_list_dirty():
+    names = get_dirty_modules()
+    names.sort()
+    if len(names) == 0:
+        print("No dirty states found.")
+    else:
+        print('\n'.join(names))
+    sys.exit(0)
+
+
 @deploy.command(name='run', help='Run the specified state(s).')
 @click.argument('names', nargs=-1, callback=process_names)
 @click.option(

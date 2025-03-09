@@ -36,6 +36,9 @@ _omv-salt()
 		list)
 			return 0
 			;;
+		list-dirty)
+			return 0
+			;;
 		*)
 			COMPREPLY=( $( compgen -W "list run" -- "$cur" ) )
 			return 0
