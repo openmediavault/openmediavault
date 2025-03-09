@@ -1,6 +1,6 @@
 openmediavault (7.7.1-1) stable; urgency=low
 
-  *
+  * Add `omv-salt deploy list-dirty` command to list dirty modules.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Feb 2025 20:18:37 +0100
 
