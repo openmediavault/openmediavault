@@ -41,7 +41,7 @@ import {
 import { PageContext } from '~/app/core/models/page-context.type';
 import { PageContextService } from '~/app/core/services/page-context.service';
 import { Unsubscribe } from '~/app/decorators';
-import { format, formatDeep } from '~/app/functions.helper';
+import { formatDeep, isFormatable } from '~/app/functions.helper';
 import { CustomValidators } from '~/app/shared/forms/custom-validators';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
 
@@ -290,9 +290,9 @@ export class FormComponent implements AfterViewInit, OnInit {
         }
       }
       let value = _.defaultTo(field.value, null);
-      if (_.isString(value)) {
+      if (isFormatable(value)) {
         // Evaluate filters and apply page context.
-        value = format(value, this.pageContext);
+        value = formatDeep(value, this.pageContext);
       }
       // Create the form control.
       controlsConfig[field.name] = new FormControl(
