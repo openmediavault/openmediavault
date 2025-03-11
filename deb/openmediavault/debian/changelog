@@ -1,5 +1,6 @@
 openmediavault (7.7.1-2) stable; urgency=low
 
+  * Update locale files.
   * Add `omv-salt deploy list-dirty` command to list dirty modules.
   * Fix bug in scheduled task pages when a value other than
     `Specific date` is selected for `Execution time`.
