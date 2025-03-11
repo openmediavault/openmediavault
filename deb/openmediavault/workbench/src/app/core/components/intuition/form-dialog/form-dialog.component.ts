@@ -37,6 +37,7 @@ import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
+import { PageContextService } from '~/app/core/services/page-context.service';
 
 /**
  * A dialog that renders the specified form fields. On clicking the
@@ -46,7 +47,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   selector: 'omv-intuition-form-dialog',
   templateUrl: './form-dialog.component.html',
-  styleUrls: ['./form-dialog.component.scss']
+  styleUrls: ['./form-dialog.component.scss'],
+  providers: [PageContextService]
 })
 export class FormDialogComponent {
   @ViewChild(FormComponent, { static: true })
