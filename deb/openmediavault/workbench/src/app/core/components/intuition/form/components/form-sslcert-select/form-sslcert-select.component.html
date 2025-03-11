@@ -4,10 +4,23 @@
   <mat-select [formControlName]="config.name"
               [placeholder]="config.placeholder"
               [required]="config.validators?.required">
-    <mat-option *ngFor="let option of config.store.data"
-                [value]="option[config.valueField]">
-      {{ option[config.textField] }}<ng-container *ngIf="option['validto']"> [{{ 'Valid to' | transloco }} {{ option['validto'] | localeDate:'datetime' }}]</ng-container>
-    </mat-option>
+    <ng-container *ngIf="!loading; else renderLoading">
+      <mat-option *ngFor="let option of config.store.data"
+                  [value]="option[config.valueField]">
+        {{ option[config.textField] }}<ng-container *ngIf="option['validto']"> [{{ 'Valid to' | transloco }} {{ option['validto'] | localeDate:'datetime' }}]</ng-container>
+      </mat-option>
+    </ng-container>
+    <ng-template #renderLoading>
+      <mat-option disabled>
+        <div class="omv-display-flex omv-flex-row omv-align-items-center omv-align-content-center omv-justify-content-between">
+          <span>{{ 'Loading ...' | transloco }}</span>
+          <mat-icon *ngIf="loading"
+                    class="omv-icon-rotate-360-infinite"
+                    svgIcon="mdi:loading">
+          </mat-icon>
+        </div>
+      </mat-option>
+    </ng-template>
   </mat-select>
   <mat-icon *ngIf="config.hasCreateButton"
             matSuffix
