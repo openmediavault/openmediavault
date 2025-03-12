@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault-nut package.
 # 
 # Translators:
+# Marek Pavelka, 2025
 # Pavel Borecki <pavel.borecki@gmail.com>, 2014-2016,2020-2021
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2016,2020-2021\n"
+"Last-Translator: Marek Pavelka, 2025\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,10 +21,10 @@ msgstr ""
 
 msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
-msgstr "„Samostatné“ pro UPS zdroj, komunikující přímo s tímto strojem; „Síťový klient“ pro UPS zdroj, kterého stav je zprostředkováván přes prostředníka (NUT server)"
+msgstr "„Samostatné“ pro místní UPS, „Síťový klient“ pro vzdálený UPS na serveru NUT."
 
 msgid "Charge"
-msgstr "Stupeň nabití"
+msgstr "Nabití"
 
 msgid "Comment"
 msgstr "Komentář"
@@ -32,16 +33,16 @@ msgid "Date & Time"
 msgstr "Datum a čas"
 
 msgid "Defines when the shutdown is initiated."
-msgstr "Určuje za jakých okolností zahájit vypínání serveru."
+msgstr "Určuje, kdy je zahájeno vypnutí."
 
 msgid "Driver configuration directives"
 msgstr "Pokyny nastavení ovladače"
 
 msgid "Enable remote monitoring of the local connected UPS."
-msgstr "Umožnit zjišťování stavu UPS (propojené přímo s tímto) i ostatním strojům (užitečné v případě, že je také napájí a mají nainstalovaného NUT klienta)."
+msgstr "Povolit vzdálené monitorování místně připojeného UPS."
 
 msgid "Enabled"
-msgstr "Zapnuto"
+msgstr "Povoleno"
 
 msgid "Identifier"
 msgstr "Identifikátor"
@@ -62,37 +63,37 @@ msgid "Netclient"
 msgstr "Síťový klient"
 
 msgid "Netclient hostname"
-msgstr "Název stroje síťového klienta"
+msgstr "Název hostitele síťového klienta"
 
 msgid "Netclient password"
-msgstr "Heslo pro síťového klienta"
+msgstr "Heslo síťového klienta"
 
 msgid "Netclient user name"
-msgstr "Uživatelské jméno pro netclient"
+msgstr "Uživatelské jméno síťového klienta"
 
 msgid "PID"
-msgstr "Identif. procesu (PID)"
+msgstr "PID"
 
 msgid "Password"
 msgstr "Heslo"
 
 msgid "Powervalue"
-msgstr "Powervalue"
+msgstr ""
 
 msgid "Program"
 msgstr "Program"
 
 msgid "Remote monitoring"
-msgstr "Zpřístupnění stavu ostatním strojům"
+msgstr "Vzdálené monitorování"
 
 msgid "Service disabled"
-msgstr "Poskytování služby je vypnuté"
+msgstr "Služba zakázána"
 
 msgid "Shutdown mode"
-msgstr "Vypínat když"
+msgstr "Režim vypnutí"
 
 msgid "Shutdown timer"
-msgstr "Zpoždění vypínání"
+msgstr "Časovač vypnutí"
 
 msgid "Standalone"
 msgstr "Samostatné"
@@ -101,39 +102,39 @@ msgid "Temperature"
 msgstr "Teplota"
 
 msgid "The name used to uniquely identify your UPS on local or remote system."
-msgstr "Název který slouží pro jednoznačnou identifikaci UPS zdroje (komunikujícím napřímo nebo přes prostředníka)."
+msgstr "Název používaný k jednoznačné identifikaci UPS v místním nebo vzdáleném systému."
 
 msgid ""
 "The number of power supplies that the UPS feeds on this system (usually 1), "
 "refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
 "target='_blank'>upsmon.conf(5)</a> for more information."
-msgstr "Počet napájecích zdrojů tohoto počítače, které jsou napájené z UPS (obvykle 1) – podrobnosti viz <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a>."
+msgstr "Počet napájecích zdrojů, které UPS napájí tento systém (obvykle 1), další informace naleznete v souboru <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a>."
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
 "back before the time is up the shutdown is canceled."
-msgstr "Prodleva (v sekundách) zahájení vypínání. Pokud je do uplynutí této lhůty obnoveno napájení z rozvodné sítě, vypínat se nebude."
+msgstr "Doba v sekundách do zahájení vypnutí. Pokud se UPS náhodou vrátí před uplynutím času, vypnutí se zruší."
 
 msgid ""
 "To get more information how to configure your UPS please check the Network "
 "UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
 "target='_blank'>documentation</a>."
-msgstr "Informace k nastavování zdrojů nepřerušovaného napájení naleznete v <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>dokumentaci</a> k nástroji Network UPS Tools (v angličtině)."
+msgstr "Další informace o konfiguraci UPS naleznete v <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>dokumentaci</a> Network UPS Tools."
 
 msgid "UPS"
-msgstr "Zdroj nepřeruš. napájení (UPS)"
+msgstr "UPS"
 
 msgid "UPS goes on battery"
-msgstr "je UPS v provozu na akumulátory"
+msgstr "UPS jede na baterii"
 
 msgid "UPS reaches low battery"
-msgstr "jsou akumulátory v UPS už téměř vybité"
+msgstr "UPS dosáhlo nízkého stavu baterie"
 
 msgid "Updated UPS settings."
-msgstr "Aktualizována nastavení pro zdroj nepřerušovaného napájení."
+msgstr "Aktualizována nastavení UPS."
 
 msgid "Used for remote authentication."
-msgstr "Slouží pro ověřování oprávněnosti přístupu z jiného stroje."
+msgstr "Slouží ke vzdálenému ověřování."
 
 msgid "User name"
 msgstr "Uživatelské jméno"

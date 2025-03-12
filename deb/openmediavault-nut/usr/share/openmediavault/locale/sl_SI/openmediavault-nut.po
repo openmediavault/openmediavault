@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Miha Bezjak <miha@bezjak.info>, 2017
+# Valentin Korenjak <valentin@korenjak.si>, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
-"Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
+"Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
-msgstr ""
+msgstr "\"Samostojen\" za lokalni UPS, \"Netclient\" za oddaljeni UPS na strežniku NUT."
 
 msgid "Charge"
 msgstr "Napolnjenost"
@@ -47,7 +48,7 @@ msgid "Identifier"
 msgstr "Identifikator"
 
 msgid "Invalid identifier"
-msgstr ""
+msgstr "Neveljaven identifikator"
 
 msgid "Load"
 msgstr "Obremenitev"
@@ -59,16 +60,16 @@ msgid "Mode"
 msgstr "Način"
 
 msgid "Netclient"
-msgstr ""
+msgstr "Netclient"
 
 msgid "Netclient hostname"
-msgstr ""
+msgstr "Ime gostitelja Netclient"
 
 msgid "Netclient password"
-msgstr ""
+msgstr "Netclient geslo"
 
 msgid "Netclient user name"
-msgstr ""
+msgstr "Netclient uporabniško ime"
 
 msgid "PID"
 msgstr "PID"
@@ -77,7 +78,7 @@ msgid "Password"
 msgstr "Geslo"
 
 msgid "Powervalue"
-msgstr ""
+msgstr "Moč napajanja"
 
 msgid "Program"
 msgstr "Program"
@@ -95,19 +96,19 @@ msgid "Shutdown timer"
 msgstr "Časovnik za izklo"
 
 msgid "Standalone"
-msgstr ""
+msgstr "Samostojen"
 
 msgid "Temperature"
 msgstr "Temperatura"
 
 msgid "The name used to uniquely identify your UPS on local or remote system."
-msgstr ""
+msgstr "Ime, ki se uporablja za enolično identifikacijo vašega UPS v lokalnem ali oddaljenem sistemu."
 
 msgid ""
 "The number of power supplies that the UPS feeds on this system (usually 1), "
 "refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
 "target='_blank'>upsmon.conf(5)</a> for more information."
-msgstr ""
+msgstr "Število napajalnikov, ki jih UPS napaja v tem sistemu (običajno 1), za več informacij glejte <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a>."
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
@@ -130,13 +131,13 @@ msgid "UPS reaches low battery"
 msgstr "UPS doseže nizko stanje baterije"
 
 msgid "Updated UPS settings."
-msgstr ""
+msgstr "Posodobljene nastavitve UPS."
 
 msgid "Used for remote authentication."
 msgstr "Uporabljeno za oddaljeno avtentikacijo."
 
 msgid "User name"
-msgstr ""
+msgstr "Uporabniško ime"
 
 msgid "Voltage"
 msgstr "Napetost"

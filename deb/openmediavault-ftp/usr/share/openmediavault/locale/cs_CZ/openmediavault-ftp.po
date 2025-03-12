@@ -7,7 +7,7 @@
 # Volker Theile <votdev@gmx.de>, 2023
 # Jan Štourač <wormsik666@gmail.com>, 2023
 # Pavel Borecki <pavel.borecki@gmail.com>, 2023
-# Marek Pavelka, 2024
+# Marek Pavelka, 2025
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-30 12:27+0100\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
-"Last-Translator: Marek Pavelka, 2024\n"
+"Last-Translator: Marek Pavelka, 2025\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -351,7 +351,7 @@ msgid "Updated FTP share."
 msgstr "Aktualizováno sdílení FTP."
 
 msgid "Use the following bandwidth restriction."
-msgstr "Použijte následující omezení šířky pásma."
+msgstr "Použít následující omezení šířky pásma."
 
 msgid "Welcome message"
 msgstr "Uvítací zpráva"

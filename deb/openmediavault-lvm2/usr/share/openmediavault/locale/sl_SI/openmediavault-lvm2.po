@@ -88,7 +88,7 @@ msgid "Physical Volumes"
 msgstr ""
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Počakajte, posnetek bo ustvarjen ..."
 
 msgid "Reduce"
 msgstr ""
@@ -106,7 +106,7 @@ msgid "Select a volume group ..."
 msgstr ""
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Izberi naprave ..."
 
 msgid "Select the devices used to extend the volume group."
 msgstr ""

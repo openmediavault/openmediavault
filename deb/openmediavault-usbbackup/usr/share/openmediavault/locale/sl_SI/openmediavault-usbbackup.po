@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Miha Bezjak <miha@bezjak.info>, 2017
+# Valentin Korenjak <valentin@korenjak.si>, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-24 19:17+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
-"Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
+"Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +37,7 @@ msgid "Create"
 msgstr "Ustvari"
 
 msgid "Created USB backup job."
-msgstr ""
+msgstr "Ustvarjeno opravilo varnostnega kopiranja USB."
 
 msgid "Delete"
 msgstr "Izbriši"
@@ -62,7 +63,7 @@ msgid "Enabled"
 msgstr "Omogočeno"
 
 msgid "External Storage Device"
-msgstr ""
+msgstr "Zunanja naprava za shranjevanje"
 
 msgid "Extra options"
 msgstr "Dodatne nastavitve"
@@ -91,13 +92,13 @@ msgid "Preserve extended attributes"
 msgstr "Ohrani razširjene atribute"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "Ohrani skupino"
 
 msgid "Preserve modification times"
-msgstr ""
+msgstr "Ohrani čas spreminjanja"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "Ohrani lastnika"
 
 msgid "Preserve permissions"
 msgstr "Ohrani pravice"
@@ -112,13 +113,13 @@ msgid "Recursive"
 msgstr "Rekurzivno"
 
 msgid "Relative path"
-msgstr ""
+msgstr "Relativna pot"
 
 msgid "Run"
 msgstr "Zaženi"
 
 msgid "Run backup job"
-msgstr ""
+msgstr "Zaženi opravilo varnostnega kopiranja"
 
 msgid "Select a device ..."
 msgstr "Izberi napravo ..."
@@ -132,12 +133,12 @@ msgstr "Nastavi dovoljenja na cilju na enaka, kot so na izvorni strani."
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "Skupina ciljne datoteke mora biti enaka skupini izvorne datoteke."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "Nastavi lastnika ciljne datoteke, da je enak lastniku izvorne datoteke, vendar le, če je prejemni rsync zagnan kot super-uporabnik."
 
 msgid "Shared folder"
 msgstr "Deljena mapa"
@@ -146,21 +147,21 @@ msgid "Suppress non-error messages."
 msgstr "Ne prikaži sporočil, ki niso napake."
 
 msgid "Tags"
-msgstr ""
+msgstr "Oznake"
 
 msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
-msgstr ""
+msgstr "Možnosti \"Pošlji e-pošto\" in \"Tiho\" se med seboj izključujeta."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
 "file system."
-msgstr ""
+msgstr "Zunanja pomnilniška naprava. Prepričajte se, da ima naprava samo en datotečni sistem."
 
 msgid ""
 "The relative directory path on the external storage device from/to which the"
 " content of the shared folder is to be synchronized. The directory is "
 "created if it does not exist."
-msgstr ""
+msgstr "Relativna pot do mape na zunanji pomnilniški napravi, iz katere ali v katero se bo sinhronizirala vsebina deljene mape. Mapa bo ustvarjena, če ne obstaja."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
@@ -170,7 +171,7 @@ msgstr "Deljena mapa, ki se sinhronizira, ko je priklopljena zunanja naprava za 
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "Skupaj z datotekami prenesite čase spreminjanja in jih posodobite v oddaljenem sistemu."
 
 msgid "USB Backup"
 msgstr "USB Varnostna kopija"
@@ -183,7 +184,7 @@ msgid ""
 msgstr "Posodobi zunanje atribute na cilju na enake, kot so na lokalni strani."
 
 msgid "Updated USB backup job."
-msgstr ""
+msgstr "Posodobljeno opravilo varnostnega kopiranja USB."
 
 msgid "n/a"
 msgstr "n/a"
