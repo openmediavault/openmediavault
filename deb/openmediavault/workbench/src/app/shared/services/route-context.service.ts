@@ -26,6 +26,7 @@ import {
 import _ from 'lodash';
 import { filter } from 'rxjs/operators';
 
+import { decodeURIComponentDeep } from '~/app/functions.helper';
 import { RouteContext } from '~/app/shared/models/route.model';
 
 @Injectable({
@@ -67,10 +68,10 @@ export class RouteContextService {
         };
       }
 
-      this.ctx._routeParams = { ...this.ctx._routeParams, ...route.params };
+      this.ctx._routeParams = { ...this.ctx._routeParams, ...decodeURIComponentDeep(route.params) };
       this.ctx._routeQueryParams = {
         ...this.ctx._routeQueryParams,
-        ...route.queryParams
+        ...decodeURIComponentDeep(route.queryParams)
       };
 
       routeStack.push(...route.children);
