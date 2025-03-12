@@ -29,6 +29,7 @@ import {
   FormDialogButtonConfig,
   FormDialogConfig
 } from '~/app/core/components/intuition/models/form-dialog-config.type';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { format, formatDeep, isFormatable } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
@@ -37,7 +38,6 @@ import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
-import { PageContextService } from '~/app/core/services/page-context.service';
 
 /**
  * A dialog that renders the specified form fields. On clicking the
