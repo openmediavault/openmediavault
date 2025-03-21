@@ -79,10 +79,6 @@ data:
         enabledConstraints:
           minSelected: 1
           maxSelected: 1
-          constraint:
-            - operator: falsy
-              arg0:
-                prop: inuse
         execute:
           type: url
           url: "/storage/lvm/lvs/reduce/{{ _selected[0].devicefile | encodeuricomponent }}"
@@ -96,6 +92,11 @@ data:
           type: url
           url: "/storage/lvm/lvs/extend/{{ _selected[0].devicefile | encodeuricomponent }}"
       - template: delete
+        enabledConstraints:
+          constraint:
+          - operator: falsy
+            arg0:
+              prop: _used
         execute:
           type: request
           request:
