@@ -71,17 +71,18 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 		$result = [];
 		foreach ($devs as $devk => $devv) {
 			$raid = new \OMV\System\Storage\StorageDeviceMd($devv);
-			if (!$raid->exists())
+			if (!$raid->exists()) {
 				continue;
+			}
+			// Check if the RAID device is in use:
+			// - Does it contain a file system?
+			// - Is it used by another storage device?
 			$used = FALSE;
-			// Is this RAID device used by another storage device?
-			if (\OMV\System\Storage\StorageDevice::isUsed(
-			  $raid->getDeviceFile())) {
+			if (FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName",
+					[ "fsname" => $raid->getDeviceFile() ], $context)) {
 				$used = TRUE;
-			// Does the RAID device contain a filesystem and is it used?
-			} else if (FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName", [
-				"fsname" => $raid->getDeviceFile()
-			], $context)) {
+			} else if (\OMV\System\Storage\StorageDevice::isUsed(
+					$raid->getDeviceFile())) {
 				$used = TRUE;
 			}
 			$result[] = [
