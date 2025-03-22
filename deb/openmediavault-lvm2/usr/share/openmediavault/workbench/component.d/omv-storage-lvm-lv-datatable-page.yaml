@@ -39,6 +39,12 @@ data:
         flexGrow: 1
         sortable: true
         cellTemplateName: checkIcon
+      - name: _("Referenced")
+        prop: _used
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: checkIcon
+        hidden: true
     actions:
       - template: create
         execute:
@@ -86,6 +92,11 @@ data:
           type: url
           url: "/storage/lvm/lvs/extend/{{ _selected[0].devicefile | encodeuricomponent }}"
       - template: delete
+        enabledConstraints:
+          constraint:
+          - operator: falsy
+            arg0:
+              prop: _used
         execute:
           type: request
           request:

@@ -602,10 +602,22 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		$lvs = \OMV\System\Storage\Lvm\LogicalVolume::enumerate();
 		$result = [];
 		foreach ($lvs as $lvk => $lvv) {
-			// Get the physical volume details.
+			// Get the logical volume details.
 			$lv = new \OMV\System\Storage\Lvm\LogicalVolume($lvv);
-			if (FALSE === $lv->exists())
+			if (FALSE === $lv->exists()) {
 				continue;
+			}
+			$used = FALSE;
+			// Check if the logical volume is in use:
+			// - Does it contain a file system?
+			// - Is it used by another storage device?
+			if (FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName",
+					[ "fsname" => $lv->getDeviceFile() ], $context)) {
+				$used = TRUE;
+			} else if (\OMV\System\Storage\StorageDevice::isUsed(
+					$lv->getDeviceFile())) {
+				$used = TRUE;
+			}
 			$result[] = [
 				"devicefile" => $lv->getPreferredDeviceFile(),
 				"uuid" => $lv->getUuid(),
@@ -614,7 +626,8 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 				"vgname" => $lv->getVGName(),
 				"attributes" => $lv->getAttributes(),
 				"vgattributes" => $lv->getVGAttributes(),
-				"isavailable" => $lv->IsMediaAvailable()
+				"isavailable" => $lv->IsMediaAvailable(),
+				"_used" => $used
 			];
 		}
 		return $result;
@@ -639,17 +652,8 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
-		// Enumerate all volume groups on the system.
+		// Enumerate all logical volumes on the system.
 		$lvs = $this->callMethod("enumerateLogicalVolumes", NULL, $context);
-		foreach($lvs as $lvk => &$lvv) {
-			$lvv['_used'] = FALSE;
-			// Does the logical volume contain a filesystem and is it used?
-			if(FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName", [
-				"fsname" => $lvv['devicefile']
-			], $context)) {
-				$lvv['_used'] = TRUE;
-			}
-		}
 		// Filter result.
 		return $this->applyFilter($lvs, $params['start'], $params['limit'],
 		  $params['sortfield'], $params['sortdir']);
