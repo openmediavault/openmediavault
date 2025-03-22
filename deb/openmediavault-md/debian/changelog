@@ -1,7 +1,7 @@
-openmediavault-md (7.0.3-1ubuntu1) UNRELEASED; urgency=medium
+openmediavault-md (7.0.4-1) stable; urgency=low
 
   * Update locale files.
-  * Several improvements.
+  * Add `Referenced` column to the `Logical Volumes` page.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 22 Mar 2025 07:07:45 +0100
 

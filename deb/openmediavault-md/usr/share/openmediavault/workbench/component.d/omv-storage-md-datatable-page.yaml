@@ -68,6 +68,12 @@ data:
         flexGrow: 2
         sortable: false
         cellTemplateName: unsortedList
+      - name: _("Referenced")
+        prop: _used
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: checkIcon
+        hidden: true
     actions:
       - template: create
         execute:
