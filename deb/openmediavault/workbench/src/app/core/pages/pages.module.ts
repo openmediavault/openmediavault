@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { TranslocoModule } from '@jsverse/transloco';
+import { TranslocoModule } from '@ngneat/transloco';
 
 import { ComponentsModule } from '~/app/core/components/components.module';
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';

@@ -23,7 +23,7 @@ import {
   ValidatorFn,
   Validators
 } from '@angular/forms';
-import { marker as gettext } from '@jsverse/transloco-keys-manager/marker';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { debounceTime } from 'rxjs/operators';
 import validator from 'validator';

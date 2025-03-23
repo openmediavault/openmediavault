@@ -8,7 +8,7 @@ import {
   TranslocoConfig,
   TranslocoMissingHandler,
   TranslocoTestingModule
-} from '@jsverse/transloco';
+} from '@ngneat/transloco';
 import { ToastrModule } from 'ngx-toastr';
 
 export class TestingTranslocoMissingHandler implements TranslocoMissingHandler {

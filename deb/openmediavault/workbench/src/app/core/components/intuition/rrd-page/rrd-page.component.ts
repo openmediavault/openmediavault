@@ -17,7 +17,7 @@
  */
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
-import { marker as gettext } from '@jsverse/transloco-keys-manager/marker';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { EMPTY } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';

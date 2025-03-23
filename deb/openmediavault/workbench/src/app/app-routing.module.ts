@@ -17,7 +17,7 @@
  */
 import { APP_INITIALIZER, inject, NgModule } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterModule, Routes } from '@angular/router';
-import { marker as gettext } from '@jsverse/transloco-keys-manager/marker';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { EMPTY } from 'rxjs';
 

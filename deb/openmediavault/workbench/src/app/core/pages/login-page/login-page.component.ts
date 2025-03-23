@@ -17,7 +17,7 @@
  */
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { marker as gettext } from '@jsverse/transloco-keys-manager/marker';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { finalize } from 'rxjs/operators';
 

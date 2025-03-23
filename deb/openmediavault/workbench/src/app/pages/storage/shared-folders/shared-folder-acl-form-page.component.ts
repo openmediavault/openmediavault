@@ -17,7 +17,7 @@
  */
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
-import { marker as gettext } from '@jsverse/transloco-keys-manager/marker';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { EMPTY } from 'rxjs';
 import { catchError, distinctUntilChanged, finalize } from 'rxjs/operators';

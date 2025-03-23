@@ -37,7 +37,7 @@ import 'cronstrue/locales/ja';
 import 'cronstrue/locales/ko';
 import 'cronstrue/locales/ar';
 
-import { marker as gettext } from '@jsverse/transloco-keys-manager/marker';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import cronstrue from 'cronstrue';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';

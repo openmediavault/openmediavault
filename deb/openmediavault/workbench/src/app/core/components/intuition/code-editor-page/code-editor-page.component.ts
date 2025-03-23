@@ -49,7 +49,7 @@ import {
   keymap,
   lineNumbers
 } from '@codemirror/view';
-import { marker as gettext } from '@jsverse/transloco-keys-manager/marker';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { EMPTY, Subscription, timer } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';

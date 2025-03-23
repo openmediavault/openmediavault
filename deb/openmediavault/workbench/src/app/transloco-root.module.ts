@@ -9,8 +9,8 @@ import {
   translocoConfig,
   TranslocoLoader,
   TranslocoModule
-} from '@jsverse/transloco';
-import { HashMap } from '@jsverse/transloco/lib/types';
+} from '@ngneat/transloco';
+import { HashMap } from '@ngneat/transloco/lib/types';
 import * as _ from 'lodash';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';

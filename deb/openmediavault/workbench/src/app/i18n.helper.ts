@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { TranslocoService } from '@jsverse/transloco';
+import { TranslocoService } from '@ngneat/transloco';
 import * as _ from 'lodash';
 
 let translocoService: TranslocoService;

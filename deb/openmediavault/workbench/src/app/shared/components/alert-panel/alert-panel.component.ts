@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
-import { marker as gettext } from '@jsverse/transloco-keys-manager/marker';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 
 import { CoerceBoolean } from '~/app/decorators';

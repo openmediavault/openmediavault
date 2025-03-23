@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { TranslocoModule } from '@jsverse/transloco';
+import { TranslocoModule } from '@ngneat/transloco';
 
 import { CoreModule } from '~/app/core/core.module';
 import { MaterialModule } from '~/app/material.module';
