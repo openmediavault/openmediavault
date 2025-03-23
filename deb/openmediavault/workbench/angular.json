@@ -33,7 +33,7 @@
               "validator",
               "bezier-easing",
               "dayjs",
-              "@ngneat/transloco-keys-manager/marker",
+              "@jsverse/transloco-keys-manager/marker",
               "nunjucks",
               "flat"
             ],

@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component } from '@angular/core';
-import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
+import { marker as gettext } from '@jsverse/transloco-keys-manager/marker';
 import dayjs from 'dayjs';
 import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
