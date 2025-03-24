@@ -387,14 +387,28 @@ class StorageDevice extends \OMV\System\BlockDevice
 	public static function isUsed($deviceFile, $type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = FALSE;
 		$mngr = Backend\Manager::getInstance();
+		$canonicalDeviceFile = realpath($deviceFile);
 		foreach ($mngr as $backendk => $backendv) {
-			if (!($type & $backendv->getType()))
+			if (!($type & $backendv->getType())) {
 				continue;
-			if (FALSE === ($slaves = $backendv->enumerateSlaves()))
+			}
+			if (FALSE === ($slaves = $backendv->enumerateSlaves())) {
 				return FALSE;
-			if (in_array($deviceFile, $slaves)) {
-				$result = TRUE;
-				break;
+			}
+			// Search with the canonical device file first as most backends
+			// return a list of these device files.
+			if (FALSE !== $canonicalDeviceFile) {
+				if (in_array($canonicalDeviceFile, $slaves)) {
+					$result = TRUE;
+					break;
+				}
+			}
+			// Finally use the specified device file to complete the search.
+			if ($deviceFile !== $canonicalDeviceFile) {
+				if (in_array($deviceFile, $slaves)) {
+					$result = TRUE;
+					break;
+				}
 			}
 		}
 		return $result;
