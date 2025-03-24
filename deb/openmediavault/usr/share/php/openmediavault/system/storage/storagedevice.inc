@@ -368,7 +368,8 @@ class StorageDevice extends \OMV\System\BlockDevice
 	}
 
 	/**
-	 * Check if the given device is used/consumed by another storage device.
+	 * Check if the given device (and it's canonical device file) is
+	 * used/consumed by another storage device.
 	 * @param string deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb

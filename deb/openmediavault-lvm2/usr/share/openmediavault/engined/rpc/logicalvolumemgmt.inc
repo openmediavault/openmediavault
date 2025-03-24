@@ -615,7 +615,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 					[ "fsname" => $lv->getDeviceFile() ], $context)) {
 				$used = TRUE;
 			} else if (\OMV\System\Storage\StorageDevice::isUsed(
-					$lv->getCanonicalDeviceFile())) {
+					$lv->getDeviceFile())) {
 				$used = TRUE;
 			}
 			$result[] = [
