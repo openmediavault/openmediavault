@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, ROUTES, Routes } from '@angular/router';
-import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
+import { marker as gettext } from '@jsverse/transloco-keys-manager/marker';
 
 import { NavigationPageComponent } from '~/app/core/pages/navigation-page/navigation-page.component';
 import { RouteConfigService } from '~/app/core/services/route-config.service';

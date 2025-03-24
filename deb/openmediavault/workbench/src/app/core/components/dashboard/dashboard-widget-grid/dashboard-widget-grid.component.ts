@@ -17,7 +17,7 @@
  */
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
+import { marker as gettext } from '@jsverse/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 
