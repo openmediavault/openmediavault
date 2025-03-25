@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Marek Pavelka, 2024
+# Marek Pavelka, 2025
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-15 11:52+0100\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
-"Last-Translator: Marek Pavelka, 2024\n"
+"Last-Translator: Marek Pavelka, 2025\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,102 +22,105 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "Odebrat lze maximálně jedno zařízení."
 
 msgid "A maximum of two device can be removed."
-msgstr ""
+msgstr "Odebrat lze maximálně dvě zařízení."
 
 msgid "Add hot spares / recover RAID device."
 msgstr ""
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "Jsou vyžadována alespoň čtyři zařízení."
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "Jsou vyžadována alespoň tři zařízení."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "Jsou vyžadována alespoň dvě zařízení."
 
 msgid "Capacity"
-msgstr ""
+msgstr "Kapacita"
 
 msgid "Create"
 msgstr "Vytvořit"
 
 msgid "Details"
-msgstr ""
+msgstr "Podrobnosti"
 
 msgid "Device"
-msgstr ""
+msgstr "Zařízení"
 
 msgid "Devices"
-msgstr ""
+msgstr "Zařízení"
 
 msgid "Grow"
-msgstr ""
+msgstr "Zvětšit"
 
 msgid "Level"
-msgstr ""
+msgstr "Úroveň"
 
 msgid "Linear"
-msgstr ""
+msgstr "Lineární"
 
 msgid "Mirror"
-msgstr ""
+msgstr "Zrcadlo"
 
 msgid "Multiple Device"
-msgstr ""
+msgstr "Vícenásobné zařízení"
 
 msgid "Name"
-msgstr ""
+msgstr "Název"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "Recover"
-msgstr ""
+msgstr "Obnvit"
 
 msgid "Remove"
-msgstr ""
+msgstr "Odebrat"
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Vyberte zařízení"
 
 msgid "Select devices to be added to the RAID device."
-msgstr ""
+msgstr "Vyberte zařízení, která mají být přidána do zařízení RAID."
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Vyberte zařízení, která mají být odebrána ze zařízení RAID."
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr ""
+"Vyberte zařízení, která budou použita k vytvoření zařízení RAID. Zařízení "
+"připojená prostřednictvím USB nebudou v seznamu uvedena (příliš "
+"nespolehlivé)."
 
 msgid "Show details"
-msgstr ""
+msgstr "Zobrazit podobnosti"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "Softwarové RAID"
 
 msgid "State"
-msgstr ""
+msgstr "Stav"
 
 msgid "Stripe"
 msgstr ""
