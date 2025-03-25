@@ -1,6 +1,6 @@
 openmediavault (7.7.2-1) stable; urgency=medium
 
-  *
+  * Several improvements in the storage handling code.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Mar 2025 19:55:29 +0100
 
