@@ -6,7 +6,7 @@
 # Herald Yu <yuhr123@gmail.com>, 2018-2019
 # LeeYang <150183966@qq.com>, 2021
 # songming <by@songming.me>, 2013-2024
-# Volker Theile <votdev@gmx.de>, 2022
+# Volker Theile <votdev@gmx.de>, 2022,2025
 # Wei Ding <dyw.net@gmail.com>, 2014-2015
 # LeeYang <150183966@qq.com>, 2021
 # 王大山, 2022-2023
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-21 10:04+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: songming <by@songming.me>, 2013-2024\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2022,2025\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3954,7 +3954,7 @@ msgstr "用户"
 msgid ""
 "Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr "用户必须被分配到 <em>_ssh</em>用户组才能通过 SHH 登录。"
+msgstr "用户必须被分配到 <em>_ssh</em>用户组才能通过 SSH 登录。"
 
 msgid "Utilization"
 msgstr "利用率"
