@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Herald Yu <yuhr123@gmail.com>, 2018-2019
 # LeeYang <150183966@qq.com>, 2021
@@ -10,6 +10,7 @@
 # Wei Ding <dyw.net@gmail.com>, 2014-2015
 # LeeYang <150183966@qq.com>, 2021
 # 王大山, 2022-2023
+# WangYuli <wangyuli@uniontech.com>, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
@@ -3954,7 +3955,7 @@ msgstr "用户"
 msgid ""
 "Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr "用户必须被分配到 <em>_ssh</em>用户组才能通过 SHH 登录。"
+msgstr "用户必须被分配到 <em>_ssh</em>用户组才能通过 SSH 登录。"
 
 msgid "Utilization"
 msgstr "利用率"
