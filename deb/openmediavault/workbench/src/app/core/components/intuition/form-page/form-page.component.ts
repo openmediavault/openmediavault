@@ -18,7 +18,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
+import { marker as gettext } from '@jsverse/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { EMPTY, Subscription } from 'rxjs';
 import { catchError, debounceTime, finalize } from 'rxjs/operators';
