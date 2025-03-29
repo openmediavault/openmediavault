@@ -27,7 +27,7 @@
 # https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes
 # https://docs.k3s.io/installation/requirements?os=pi
 
-{% set k3s_version = salt['pillar.get']('default:OMV_K8S_K3S_VERSION', 'v1.31.2+k3s1') %}
+{% set k3s_version = salt['pillar.get']('default:OMV_K8S_K3S_VERSION', 'v1.32.3+k3s1') %}
 {% set k8s_config = salt['omv_conf.get']('conf.service.k8s') %}
 {% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 # {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
@@ -94,7 +94,7 @@ create_k3s_traefik_manifest:
                 tls:
                   enabled: true
         ---
-        apiVersion: traefik.containo.us/v1alpha1
+        apiVersion: traefik.io/v1alpha1
         kind: Middleware
         metadata:
           name: https-redirect
@@ -106,7 +106,7 @@ create_k3s_traefik_manifest:
             permanent: true
             port: "{{ k8s_config.websecureport }}"
         ---
-        apiVersion: traefik.containo.us/v1alpha1
+        apiVersion: traefik.io/v1alpha1
         kind: TLSStore
         metadata:
           name: default
@@ -243,7 +243,7 @@ create_k3s_k8s_dashboard_manifest:
               ingress:
                 enabled: false
         ---
-        apiVersion: traefik.containo.us/v1alpha1
+        apiVersion: traefik.io/v1alpha1
         kind: ServersTransport
         metadata:
           name: no-verify-tls
@@ -253,7 +253,7 @@ create_k3s_k8s_dashboard_manifest:
         spec:
           insecureSkipVerify: true
         ---
-        apiVersion: traefik.containo.us/v1alpha1
+        apiVersion: traefik.io/v1alpha1
         kind: IngressRoute
         metadata:
           name: kubernetes-dashboard
