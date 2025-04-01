@@ -582,6 +582,10 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "7.7.0"; then
 			omv_module_set_dirty apt
 		fi
+		if dpkg --compare-versions "$2" lt-nl "7.7.3"; then
+			udevadm control --reload-rules || :
+			udevadm trigger || :
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
