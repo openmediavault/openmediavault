@@ -1,12 +1,7 @@
-@use 'scss/theme';
+@use 'scss/defaults/variables' as dv;
 
 .omv-form-divider {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-
-  .title {
-    font-weight: var(--mat-font-weight-headline);
-    font-size: var(--mat-font-size-headline);
-    padding-top: 1rem;
+  .mat-headline {
+    padding-top: dv.$omv-padding;
   }
 }
