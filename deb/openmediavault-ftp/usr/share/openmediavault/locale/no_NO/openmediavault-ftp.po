@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-ftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"POT-Creation-Date: 2025-04-04 00:41+0200\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2023\n"
 "Language-Team: Norwegian (https://app.transifex.com/openmediavault/teams/14254/no/)\n"
@@ -28,14 +28,28 @@ msgstr "0 KiB/s betyr ubegrenset"
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr ""
 
+msgid "Access mode"
+msgstr ""
+
 msgid "Advanced settings"
 msgstr "Avanserte instillinger"
 
 msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
 
+msgid ""
+"Allow users to log in without a password. Make sure the user <em>ftp</em> or"
+" group <em>nogroup</em> can access the files."
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "Anonym FTP"
+
+msgid "Authenticated user ID"
+msgstr ""
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Ban Rules"
 msgstr ""
@@ -49,6 +63,9 @@ msgstr "Båndbreddebegrensning"
 msgid "Certificate"
 msgstr "Sertifikat"
 
+msgid "Completion status"
+msgstr ""
+
 msgid "Create"
 msgstr "Opprett"
 
@@ -61,7 +78,13 @@ msgstr ""
 msgid "Currently logged in users:"
 msgstr "Inloggede brukere:"
 
+msgid "Date & Time"
+msgstr ""
+
 msgid "Deny logins which do not have a valid shell."
+msgstr ""
+
+msgid "Direction"
 msgstr ""
 
 msgid "Display the home directory of the user in the browse list."
@@ -100,6 +123,9 @@ msgstr "Avanserte alternativer"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -109,6 +135,12 @@ msgid ""
 msgstr ""
 "FXP muliggjør overføring mellom to destinasjonsservere uten at fildata går "
 "via klienten som ber om overføringen."
+
+msgid "Filename"
+msgstr ""
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Home directories"
 msgstr "Hjemmemapper"
@@ -188,6 +220,9 @@ msgstr "Maximalt antall samtidige tilkoblinger"
 msgid "Maximum upload rate (KiB/s)"
 msgstr "Maksimal opplastningshastighet (KiB/s)"
 
+msgid "Message"
+msgstr ""
+
 msgid "Min. passive port"
 msgstr ""
 
@@ -230,6 +265,9 @@ msgstr "Port"
 msgid "Refresh time"
 msgstr ""
 
+msgid "Remote host"
+msgstr ""
+
 msgid "Require valid shell"
 msgstr "Krev gyldig shell"
 
@@ -256,6 +294,9 @@ msgstr "Delt mappe"
 
 msgid "Shares"
 msgstr "Delte områder"
+
+msgid "Special action flag"
+msgstr ""
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -336,6 +377,12 @@ msgstr "Tidsavbrudd"
 msgid "Transfer log"
 msgstr "Overføringslogg"
 
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Updated FTP ban rule."
 msgstr ""
 
@@ -343,6 +390,9 @@ msgid "Updated FTP share."
 msgstr ""
 
 msgid "Use the following bandwidth restriction."
+msgstr ""
+
+msgid "User name"
 msgstr ""
 
 msgid "Welcome message"

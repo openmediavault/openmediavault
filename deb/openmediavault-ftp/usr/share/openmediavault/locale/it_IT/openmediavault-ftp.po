@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-ftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"POT-Creation-Date: 2025-04-04 00:41+0200\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
 "Last-Translator: Roberto Bellingeri <bellingeri@netguru.it>, 2025\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
@@ -31,6 +31,9 @@ msgstr "0 KiB/s significa illimitato."
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "Un potente server FTP/SFTP/FTPS modulare."
 
+msgid "Access mode"
+msgstr ""
+
 msgid "Advanced settings"
 msgstr "Impostazioni avanzate"
 
@@ -38,8 +41,19 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
 "Consentire ai client di riprendere i caricamenti e i download interrotti."
 
+msgid ""
+"Allow users to log in without a password. Make sure the user <em>ftp</em> or"
+" group <em>nogroup</em> can access the files."
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "FTP Anonimo"
+
+msgid "Authenticated user ID"
+msgstr ""
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Ban Rules"
 msgstr "Regole di ban"
@@ -53,6 +67,9 @@ msgstr "Limitazione banda"
 msgid "Certificate"
 msgstr "Certificato"
 
+msgid "Completion status"
+msgstr ""
+
 msgid "Create"
 msgstr "Crea"
 
@@ -65,8 +82,14 @@ msgstr "Condivisione FTP creata."
 msgid "Currently logged in users:"
 msgstr "Utenti attualmente collegati:"
 
+msgid "Date & Time"
+msgstr "Data & Ora"
+
 msgid "Deny logins which do not have a valid shell."
 msgstr "Nega gli accessi che non hanno una shell valida."
+
+msgid "Direction"
+msgstr ""
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "Visualizza la directory home dell'utente nell'elenco di navigazione."
@@ -104,6 +127,9 @@ msgstr "Opzioni aggiuntive"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -113,6 +139,12 @@ msgid ""
 msgstr ""
 "FXP permette trasferimenti di files tra due server remoti direttamente senza"
 " che i dati passino dal client che ha richiesto il trasferimento."
+
+msgid "Filename"
+msgstr ""
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Home directories"
 msgstr "Directory Home"
@@ -196,6 +228,9 @@ msgstr "Numero massimo di clients simultanei."
 msgid "Maximum upload rate (KiB/s)"
 msgstr "Massima velocità di upload (KiB/s)"
 
+msgid "Message"
+msgstr "Messaggio"
+
 msgid "Min. passive port"
 msgstr "Porta passiva minima"
 
@@ -242,6 +277,9 @@ msgstr "Porta"
 msgid "Refresh time"
 msgstr "Tempo di aggiornamento"
 
+msgid "Remote host"
+msgstr ""
+
 msgid "Require valid shell"
 msgstr "Richiede una shell valida"
 
@@ -268,6 +306,9 @@ msgstr "Cartella condivisa"
 
 msgid "Shares"
 msgstr "Condivisioni"
+
+msgid "Special action flag"
+msgstr ""
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -353,6 +394,12 @@ msgstr "Timeout"
 msgid "Transfer log"
 msgstr "Log di trasferimento"
 
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Updated FTP ban rule."
 msgstr "Regola di ban FTP aggiornata."
 
@@ -361,6 +408,9 @@ msgstr "Condivisione FTP aggiornata."
 
 msgid "Use the following bandwidth restriction."
 msgstr "Usa la seguente restrizione di larghezza di banda."
+
+msgid "User name"
+msgstr ""
 
 msgid "Welcome message"
 msgstr "Messaggio di benvenuto"

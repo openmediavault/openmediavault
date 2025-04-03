@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-ftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"POT-Creation-Date: 2025-04-04 00:41+0200\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
 "Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>, 2023\n"
 "Language-Team: Korean (Korea) (https://app.transifex.com/openmediavault/teams/14254/ko_KR/)\n"
@@ -29,14 +29,28 @@ msgstr "0 KiB/s는 제한이 없음을 뜻합니다."
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr ""
 
+msgid "Access mode"
+msgstr ""
+
 msgid "Advanced settings"
 msgstr "고급 설정"
 
 msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
 
+msgid ""
+"Allow users to log in without a password. Make sure the user <em>ftp</em> or"
+" group <em>nogroup</em> can access the files."
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "익명 FTP"
+
+msgid "Authenticated user ID"
+msgstr ""
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Ban Rules"
 msgstr ""
@@ -50,6 +64,9 @@ msgstr "대역폭 제한"
 msgid "Certificate"
 msgstr "인증"
 
+msgid "Completion status"
+msgstr ""
+
 msgid "Create"
 msgstr "생성"
 
@@ -62,7 +79,13 @@ msgstr ""
 msgid "Currently logged in users:"
 msgstr "현재 로그인 된 사용자:"
 
+msgid "Date & Time"
+msgstr ""
+
 msgid "Deny logins which do not have a valid shell."
+msgstr ""
+
+msgid "Direction"
 msgstr ""
 
 msgid "Display the home directory of the user in the browse list."
@@ -100,6 +123,9 @@ msgstr "추가 옵션"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -107,6 +133,12 @@ msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
 msgstr "FXP는 전송을 요청하는 클라이언트로 가는 어떤 파일 데이터 없이 두 원격 서버 간에 파일 데이터를 전송할 수 있습니다."
+
+msgid "Filename"
+msgstr ""
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Home directories"
 msgstr "홈 경로"
@@ -179,6 +211,9 @@ msgstr "최대 동시 접속 클라이언트의 수"
 msgid "Maximum upload rate (KiB/s)"
 msgstr "최대 올리기 속도 (KiB/s)"
 
+msgid "Message"
+msgstr ""
+
 msgid "Min. passive port"
 msgstr ""
 
@@ -223,6 +258,9 @@ msgstr "포트"
 msgid "Refresh time"
 msgstr ""
 
+msgid "Remote host"
+msgstr ""
+
 msgid "Require valid shell"
 msgstr "유효한 쉘이 필요합니다."
 
@@ -249,6 +287,9 @@ msgstr "공유 폴더"
 
 msgid "Shares"
 msgstr "공유"
+
+msgid "Special action flag"
+msgstr ""
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -317,6 +358,12 @@ msgstr "만료"
 msgid "Transfer log"
 msgstr "전송 기록"
 
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Updated FTP ban rule."
 msgstr ""
 
@@ -324,6 +371,9 @@ msgid "Updated FTP share."
 msgstr ""
 
 msgid "Use the following bandwidth restriction."
+msgstr ""
+
+msgid "User name"
 msgstr ""
 
 msgid "Welcome message"

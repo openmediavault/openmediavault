@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-ftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"POT-Creation-Date: 2025-04-04 00:41+0200\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
 "Last-Translator: zubr139, 2025\n"
 "Language-Team: Ukrainian (https://app.transifex.com/openmediavault/teams/14254/uk/)\n"
@@ -29,14 +29,28 @@ msgstr "0 Кб/с - необмежено."
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr ""
 
+msgid "Access mode"
+msgstr ""
+
 msgid "Advanced settings"
 msgstr "Розширенні налаштування"
 
 msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr "Дозволити клієнтам відновити перервані відвантаження та завантаження."
 
+msgid ""
+"Allow users to log in without a password. Make sure the user <em>ftp</em> or"
+" group <em>nogroup</em> can access the files."
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "Анонімний FTP"
+
+msgid "Authenticated user ID"
+msgstr ""
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Ban Rules"
 msgstr "Правила заборони"
@@ -50,6 +64,9 @@ msgstr "Обмеження смуги пропускання"
 msgid "Certificate"
 msgstr "Сертифікат"
 
+msgid "Completion status"
+msgstr ""
+
 msgid "Create"
 msgstr "Створити"
 
@@ -62,8 +79,14 @@ msgstr "Створено спільну теку FTP."
 msgid "Currently logged in users:"
 msgstr "Поточні користувачі в системі:"
 
+msgid "Date & Time"
+msgstr ""
+
 msgid "Deny logins which do not have a valid shell."
 msgstr "Заборонити вхід у систему, якщо немає дійсної оболонки."
+
+msgid "Direction"
+msgstr ""
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "Відобразити домашній каталог користувача у списку перегляду."
@@ -101,6 +124,9 @@ msgstr "Додаткові опції"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -110,6 +136,12 @@ msgid ""
 msgstr ""
 "FXP дозволяє передавати дані між двома серверами без запиту передачі до "
 "клієнта."
+
+msgid "Filename"
+msgstr ""
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Home directories"
 msgstr "Домашній каталог"
@@ -190,6 +222,9 @@ msgstr "Максимальна кількість одночасних кліє�
 msgid "Maximum upload rate (KiB/s)"
 msgstr "Максимальна швидкість віддачі  (КіБ/с)"
 
+msgid "Message"
+msgstr "Повідомлення"
+
 msgid "Min. passive port"
 msgstr "Мінімальний пасивний порт"
 
@@ -235,6 +270,9 @@ msgstr "Порт"
 msgid "Refresh time"
 msgstr "Час оновлення"
 
+msgid "Remote host"
+msgstr ""
+
 msgid "Require valid shell"
 msgstr "Вимагати надання оболонки"
 
@@ -261,6 +299,9 @@ msgstr "Спільна тека"
 
 msgid "Shares"
 msgstr "Спільні ресурси"
+
+msgid "Special action flag"
+msgstr ""
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -339,6 +380,12 @@ msgstr "Тайм-аут"
 msgid "Transfer log"
 msgstr "Протокол передачі"
 
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Updated FTP ban rule."
 msgstr "Оновлено правило блокування FTP."
 
@@ -347,6 +394,9 @@ msgstr "Оновлено спільний ресурс FTP."
 
 msgid "Use the following bandwidth restriction."
 msgstr "Використовувати наступне обмеження пропускної здатності."
+
+msgid "User name"
+msgstr ""
 
 msgid "Welcome message"
 msgstr "Вітаємо повідомлення"
