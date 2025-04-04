@@ -29,7 +29,7 @@ msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "Ένας πανίσχυρος αρθρωτός διακομιστής FTP/SFTP/FTPS."
 
 msgid "Access mode"
-msgstr ""
+msgstr "Κατάσταση πρόσβασης"
 
 msgid "Advanced settings"
 msgstr "Προχωρημένες ρυθμίσεις"
@@ -41,15 +41,17 @@ msgid ""
 "Allow users to log in without a password. Make sure the user <em>ftp</em> or"
 " group <em>nogroup</em> can access the files."
 msgstr ""
+"Να επιτρέπεται στους χρήστες η σύνδεση χωρίς κωδικό. Πρέπει να έχουν "
+"πρόσβαση στα αρχεία ο χρήστης <em>ftp</em> ή η ομάδα <em>nogroup</em>."
 
 msgid "Anonymous FTP"
 msgstr "Ανόνυμη πρόσβαση FTP"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "Πιστοποιημένο αναγνωριστικό χρήστη"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Μέθοδος πιστοποίησης"
 
 msgid "Ban Rules"
 msgstr "Κανόνες Αποκλεισμού"
@@ -64,7 +66,7 @@ msgid "Certificate"
 msgstr "Πιστοποιητικό"
 
 msgid "Completion status"
-msgstr ""
+msgstr "Κατάσταση ολοκλήρωσης"
 
 msgid "Create"
 msgstr "Δημιουργία"
@@ -85,7 +87,7 @@ msgid "Deny logins which do not have a valid shell."
 msgstr "Απόρριψη συνδέσεων χωρίς έγκυρο κέλυφος."
 
 msgid "Direction"
-msgstr ""
+msgstr "Κατεύθυνση"
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "Εμφάνιση του οικείου φακέλου στην λίστα αναζήτησης."
@@ -124,7 +126,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "Καταγραφή μεταφορών FTP"
 
 msgid "FXP"
 msgstr "FXP"
@@ -137,10 +139,10 @@ msgstr ""
 "δεδομένα να περνάνε από τον πελάτη που ζήτησε την μεταφορά."
 
 msgid "Filename"
-msgstr ""
+msgstr "Όνομα αρχείου"
 
 msgid "Filesize"
-msgstr ""
+msgstr "Μέγεθος αρχείου"
 
 msgid "Home directories"
 msgstr "Φάκελοι χρηστών"
@@ -267,7 +269,7 @@ msgid "Refresh time"
 msgstr "Χρόνος ανανέωσης"
 
 msgid "Remote host"
-msgstr ""
+msgstr "Απομακρυσμένος υπολογιστής"
 
 msgid "Require valid shell"
 msgstr "Να απαιτείται ισχύον κέλυφος"
@@ -297,7 +299,7 @@ msgid "Shares"
 msgstr "Μερίδια"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "Σημαία ειδικής δράσης"
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -379,10 +381,10 @@ msgid "Transfer log"
 msgstr "Καταγραφή μεταφορών"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "Χρόνος μεταφοράς"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "Είδος μεταφοράς"
 
 msgid "Updated FTP ban rule."
 msgstr "Ενημέρωση κανόνα αποκλεισμού FTP."
@@ -394,7 +396,7 @@ msgid "Use the following bandwidth restriction."
 msgstr "Χρήση του ακόλουθου περιορισμού ταχύτητας."
 
 msgid "User name"
-msgstr ""
+msgstr "Όνομα χρήστη"
 
 msgid "Welcome message"
 msgstr "Μήνυμα καλωσορίσματος"
