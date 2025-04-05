@@ -1,3 +1,9 @@
+openmediavault (7.7.4-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 05 Apr 2025 12:50:50 +0200
+
 openmediavault (7.7.3-1) stable; urgency=medium
 
   * Improve form layout.
