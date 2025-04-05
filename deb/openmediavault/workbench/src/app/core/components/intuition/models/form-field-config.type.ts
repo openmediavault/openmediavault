@@ -380,10 +380,17 @@ export type FormFieldModifier = {
     | 'focused'
     | 'visible'
     | 'hidden'
-    | 'value';
-  // Optional configuration used by modifiers. This is required by
-  // the 'value' modifier, e.g. '{{ <NAME> }}' to set the value
-  // of the given field.
+    | 'value'
+    | 'reload';
+  // Optional configuration used by modifiers.
+  // Examples:
+  // - value:
+  //   Specify the new value of the form field. This can be a tokenized
+  //   string.
+  //   `{{ name | rstrip("/") }}/`
+  // - reload:
+  //   Specify the DataStore object that is used to reload the content
+  //   of the `select` form field.
   typeConfig?: any;
   // Apply the opposite type, e.g. `disabled` for `enabled`, if the
   // constraint is falsy. Defaults to `true`.
