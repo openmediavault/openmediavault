@@ -53,7 +53,7 @@ omv_build_pot:
 	cat /dev/null > $(OMV_POT_DIR)/$(OMV_POT_FILE)
 	# Extract strings from Angular project.
 	if [ -e "$(CURDIR)/workbench/package.json" ]; then \
-		cd $(CURDIR)/workbench && npm ci && \
+		cd $(CURDIR)/workbench && npm --verbose ci && \
 			npm run i18n:extract && \
 			mv src/assets/i18n/openmediavault-workbench.pot $(OMV_POT_DIR)/$(OMV_POT_FILE); \
 	fi
