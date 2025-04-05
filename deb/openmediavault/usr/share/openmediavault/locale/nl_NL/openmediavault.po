@@ -6,6 +6,7 @@
 # Milan Toet <milantoet@gmail.com>, 2012-2014,2016-2017
 # Seba Kerckhof <seba.kerckhof@gmail.com>, 2012
 # Seba Kerckhof <seba.kerckhof@gmail.com>, 2012
+# Stephan Paternotte <stephan@paternottes.net>, 2025
 # stokerh <stoker.pc@home.nl>, 2012
 # stokerh <stoker.pc@home.nl>, 2012
 # Tim <co_ti@hotmail.com>, 2013-2014,2016-2017,2022
@@ -14,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-21 10:04+0100\n"
+"POT-Creation-Date: 2025-04-05 13:40+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Tim <co_ti@hotmail.com>, 2013-2014,2016-2017,2022\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -115,10 +116,10 @@ msgid "192 - Intermediate power usage without standby"
 msgstr "192 - Gemiddeld stroomverbruik zonder stand-by"
 
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 msgid "2 MiB"
-msgstr ""
+msgstr "2 MiB"
 
 msgid "2 days"
 msgstr "2 dagen"
@@ -142,13 +143,13 @@ msgid "240 minutes"
 msgstr "240 minuten"
 
 msgid "25 MiB"
-msgstr ""
+msgstr "25 MiB"
 
 msgid "25 years"
 msgstr "25 jaren"
 
 msgid "250 MiB"
-msgstr ""
+msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maximale prestaties, maximaal stroomverbruik"
@@ -181,7 +182,7 @@ msgid "330 minutes"
 msgstr "330 minuten"
 
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 msgid "4 days"
 msgstr "4 dagen"
@@ -193,7 +194,7 @@ msgid "4 years"
 msgstr "4 jaren"
 
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 msgid "5 days"
 msgstr "5 dagen"
@@ -208,10 +209,10 @@ msgid "5 years"
 msgstr "5 jaren"
 
 msgid "50 MiB"
-msgstr ""
+msgstr "50 MiB"
 
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 msgid "6 days"
 msgstr "6 dagen"
@@ -226,30 +227,30 @@ msgid "64 - Intermediate power usage with standby"
 msgstr "64 - Gemiddeld stroomgebruik met stand-by"
 
 msgid "75 MiB"
-msgstr ""
+msgstr "75 MiB"
 
 msgid "750 MiB"
-msgstr ""
+msgstr "750 MiB"
 
 msgid "9 months"
 msgstr "9 maanden"
 
 msgid "A (5 GHz)"
-msgstr ""
+msgstr "A (5 GHz)"
 
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr ""
+msgstr "Het systeem moet opnieuw opstarten om de wijzigingen die zijn geïntroduceerd door de installatie of bijwerking van het pakket volledig toe te passen."
 
 msgid "A running background task was detected."
-msgstr ""
+msgstr "Er werd een lopende achtergrondtaak gedetecteerd."
 
 msgid "A scheduled task to create a snapshot has been created."
-msgstr ""
+msgstr "Er is een geplande taak voor een momentopname aangemaakt."
 
 msgid "A secure shell (SSH) server."
-msgstr ""
+msgstr "Een secure shell (SSH)-server."
 
 msgid "ACL"
 msgstr "ACL"
@@ -271,7 +272,7 @@ msgstr "Gedragen als een WINS server."
 
 msgid ""
 "Acting as a WINS server and using a WINS server are mutually exclusive."
-msgstr ""
+msgstr "Het optreden als WINS-server en het gebruik van een WINS-server is tegenstrijdig."
 
 msgid "Action"
 msgstr "Handeling"
@@ -280,13 +281,13 @@ msgid ""
 "Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
 "devices are listed in the scheduled tasks. Monitoring cannot be switched off"
 " as long as there are scheduled tasks for this device."
-msgstr ""
+msgstr "SMART-monitoring inschakelen voor dit apparaat. Houd er rekening mee dat alleen apparaten onder observatie worden vermeld in de geplande taken. Observatie kan niet worden uitgeschakeld zolang er geplande taken voor dit apparaat zijn."
 
 msgid "Active"
-msgstr "Actief"
+msgstr "Ingeschakeld"
 
 msgid "Active or Idle"
-msgstr ""
+msgstr "Actief of inactief"
 
 msgid "Add"
 msgstr "Toevoegen"
@@ -310,7 +311,7 @@ msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Administrator: lezen/schrijven, Gebruikers: lezen/schrijven, Anderen: alleen lezen."
 
 msgid "Advanced Acoustic Management"
-msgstr ""
+msgstr "Geavanceerd akoestisch beheer"
 
 msgid "Advanced Power Management"
 msgstr "Geavanceerd energiebeheer"
@@ -334,7 +335,7 @@ msgid "All"
 msgstr "Alle"
 
 msgid "All Snapshots"
-msgstr ""
+msgstr "Alle momentopnamen"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
 msgstr "Alle pakketten worden bijgewerkt. Wilt u doorgaan?"
@@ -342,19 +343,19 @@ msgstr "Alle pakketten worden bijgewerkt. Wilt u doorgaan?"
 msgid ""
 "Allow clients to attempt to access extended attributes on a share. The "
 "underlying filesystem exposed by the share must support extended attributes."
-msgstr ""
+msgstr "Toestaan dat clients proberen toegang te krijgen tot uitgebreide attributen op een share. Het onderliggende bestandssysteem dat door het aandeel wordt blootgesteld, moet uitgebreide attributen ondersteunen."
 
 msgid "Allow following symbolic links in the home directories."
-msgstr ""
+msgstr "Het volgen van symbolische koppelingen toestaan in de thuismappen."
 
 msgid "Allow following symbolic links in the share."
-msgstr ""
+msgstr "Het volgen van symbolische koppelingen toestaan in de share."
 
 msgid "Allow symbolic links to areas that are outside the home directories."
-msgstr ""
+msgstr "Symbolische links toestaan naar gebieden buiten de thuismappen."
 
 msgid "Allow symbolic links to areas that are outside the share."
-msgstr ""
+msgstr "Symbolische links toestaan naar gebieden buiten de share."
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
@@ -410,7 +411,7 @@ msgid "April"
 msgstr "april"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Architectuur"
 
 msgid "Archive mode"
 msgstr "Archief modus"
@@ -428,28 +429,28 @@ msgid "Asynchronous I/O"
 msgstr "Asynchrone I/O"
 
 msgid "At least four devices are required."
-msgstr "Ten minsten 4 apparaten nodig."
+msgstr "Er zijn minimaal vier apparaten nodig."
 
 msgid "At least one device is required."
-msgstr ""
+msgstr "Er is minimaal één apparaat nodig."
 
 msgid "At least one network interface is required."
-msgstr "Tenminste 1 netwerk interface is benodigd."
+msgstr "Er is minimaal één netwerkinterface vereist."
 
 msgid "At least two devices are required."
-msgstr "Ten minsten 2 apparaten nodig."
+msgstr "Er zijn minimaal twee apparaten nodig."
 
 msgid "At reboot"
 msgstr "Bij herstart"
 
 msgid "Attach"
-msgstr ""
+msgstr "Bijvoegen"
 
 msgid "Attributes"
 msgstr "Attributen"
 
 msgid "Audit file operations"
-msgstr ""
+msgstr "Bestandsbewerking controleren"
 
 msgid "August"
 msgstr "augustus"
@@ -470,10 +471,10 @@ msgid "Authentication required"
 msgstr "Authenticatie vereist"
 
 msgid "Automatic"
-msgstr ""
+msgstr "Automatisch"
 
 msgid "Automatic logout"
-msgstr ""
+msgstr "Automatisch uitloggen"
 
 msgid "Available"
 msgstr "Beschikbaar"
@@ -482,13 +483,13 @@ msgid "Azerbaijan"
 msgstr "Azerbeidzjan"
 
 msgid "B/G (2.4 GHz)"
-msgstr ""
+msgstr "B/G (2.4 GHz)"
 
 msgid "Back"
 msgstr "Terug"
 
 msgid "Background task"
-msgstr ""
+msgstr "Achtergrondtaak"
 
 msgid "Bad"
 msgstr "Slecht"
@@ -500,7 +501,7 @@ msgid "Bahrain"
 msgstr "Bahrein"
 
 msgid "Band"
-msgstr ""
+msgstr "Band"
 
 msgid "Bangladesh"
 msgstr "Bangladesh"
@@ -509,7 +510,7 @@ msgid "Barbados"
 msgstr "Barbados"
 
 msgid "Base path"
-msgstr ""
+msgstr "Basispad"
 
 msgid "Belarus"
 msgstr "Wit-Rusland"
@@ -566,7 +567,7 @@ msgid "British Virgin Islands"
 msgstr "Britse Maagdeneilanden"
 
 msgid "Browse directory"
-msgstr ""
+msgstr "Map verkennen"
 
 msgid "Browseable"
 msgstr "Doorzoekbaar"
@@ -587,10 +588,10 @@ msgid "CPU"
 msgstr "CPU"
 
 msgid "CPU Usage"
-msgstr "CPU gebruik"
+msgstr "CPU-gebruik"
 
 msgid "CPU Utilization"
-msgstr ""
+msgstr "CPU-benutting"
 
 msgid "CPU usage"
 msgstr "CPU-gebruik"
@@ -629,7 +630,7 @@ msgid "Certificate"
 msgstr "Certificaat"
 
 msgid "Certificate management."
-msgstr ""
+msgstr "Certificaatbeheer"
 
 msgid "Certificates"
 msgstr "Certificaten"
@@ -692,10 +693,10 @@ msgid "Close"
 msgstr "Sluiten"
 
 msgid "Close the session on inactivity after the specified time."
-msgstr ""
+msgstr "Sluit de sessie bij inactiviteit na de opgegeven tijd."
 
 msgid "Cocos (Keeling) Islands"
-msgstr "Cocoseilanden"
+msgstr "Cocos (Keeling) eilanden"
 
 msgid "Colombia"
 msgstr "Colombia"
@@ -734,28 +735,28 @@ msgid "Confirm"
 msgstr "Bevestigen"
 
 msgid "Confirm password"
-msgstr "Bevestig wachtwoord"
+msgstr "Wachtwoord bevestigen"
 
 msgid "Confirmation"
 msgstr "Bevestiging"
 
 msgid "Congo (Brazzaville)"
-msgstr "Congo-Brazzaville"
+msgstr "Congo (Brazzaville)"
 
 msgid "Congo (Kinshasa)"
-msgstr "Congo-Kinshasa"
+msgstr "Congo (Kinshasa)"
 
 msgid "Connect even if the network is not broadcasting its SSID name."
-msgstr ""
+msgstr "Verbinding maken, zelfs als het netwerk zijn SSID-naam niet uitzendt."
 
 msgid "Connect to hidden network"
-msgstr ""
+msgstr "Verbinden met verborgen netwerk"
 
 msgid "Connections"
 msgstr "Verbindingen"
 
 msgid "Control and monitor storage systems using S.M.A.R.T."
-msgstr ""
+msgstr "Opslagsystemen observeren en beheren met behulp van SMART."
 
 msgid "Conveyance self-test"
 msgstr "Overdrachtszelftest"
@@ -770,10 +771,10 @@ msgid "Copy"
 msgstr "Kopieer"
 
 msgid "Copy permissions"
-msgstr ""
+msgstr "Kopieerrechten"
 
 msgid "Copy to clipboard"
-msgstr "Kopieer naar het klembord"
+msgstr "Kopiëren naar klembord"
 
 msgid "Costa Rica"
 msgstr "Costa Rica"
@@ -785,25 +786,25 @@ msgid "Create"
 msgstr "Aanmaken"
 
 msgid "Create and mount a file system."
-msgstr ""
+msgstr "Bestandssysteem aanmaken en aankoppelen."
 
 msgid "Create file system"
 msgstr "Bestandssysteem aanmaken"
 
 msgid "Create | Import"
-msgstr "Aanmaken | Import"
+msgstr "Aanmaken | Importeren"
 
 msgid "Created NFS share."
-msgstr ""
+msgstr "NFS-share aangemaakt."
 
 msgid "Created Rsync server module \"{{ name }}\"."
-msgstr ""
+msgstr "Rsync servermodule \"{{ name }}\" aangemaakt."
 
 msgid "Created Rsync task."
-msgstr "Rsync-taak aangemaakt"
+msgstr "Rsync-taak aangemaakt."
 
 msgid "Created SMB/CIFS share."
-msgstr "SMB/CIFS-share aangemaakt"
+msgstr "SMB/CIFS-share aangemaakt."
 
 msgid "Created SSH certificate."
 msgstr "SSH-certificaat aangemaakt."
@@ -815,22 +816,22 @@ msgid "Created VLAN network connection."
 msgstr "VLAN-netwerkverbinding aangemaakt."
 
 msgid "Created bond network connection."
-msgstr ""
+msgstr "Bond-netwerkverbinding aangemaakt."
 
 msgid "Created bridge network connection."
-msgstr ""
+msgstr "Bridge-netwerkverbinding aangemaakt."
 
 msgid "Created firewall rule."
-msgstr "Firewall regel aangemaakt."
+msgstr "Firewall-regel aangemaakt."
 
 msgid "Created group \"{{ name }}\"."
-msgstr ""
+msgstr "Groep \"{{ name }}\" aangemaakt."
 
 msgid "Created scheduled task."
-msgstr ""
+msgstr "Geplande scan aangemaakt."
 
 msgid "Created user \"{{ name }}\"."
-msgstr ""
+msgstr "Gebruiker \"{{ name }}\" aangemaakt."
 
 msgid "Created wired network connection."
 msgstr "Bekabelde netwerkverbinding aangemaakt."
@@ -839,7 +840,7 @@ msgid "Created wireless network connection."
 msgstr "Draadloze netwerkverbinding aangemaakt."
 
 msgid "Creation Time"
-msgstr ""
+msgstr "Tijdstip van aanmaken"
 
 msgid "Croatia"
 msgstr "Kroatië"
@@ -869,7 +870,7 @@ msgid "Daily"
 msgstr "Dagelijks"
 
 msgid "Dark mode"
-msgstr ""
+msgstr "Donkere modus"
 
 msgid "Dashboard"
 msgstr "Bedieningspaneel"
@@ -908,7 +909,7 @@ msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr ""
+msgstr "Het bestemmingsadres kan een netwerk-IP-adres zijn (met /masker), een IP-bereik of een gewoon IP-adres. Een \"!\" argument vóór de adresspecificatie keert de betekenis van het adres om."
 
 msgid "Destination port"
 msgstr "Doelpoort"
@@ -920,7 +921,7 @@ msgid "Destination shared folder"
 msgstr "Doel gedeelde map"
 
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 msgid "Device"
 msgstr "Apparaat"
@@ -932,7 +933,7 @@ msgid "Device Mapper %s [%s, %s]"
 msgstr "Apparaatmapper %s [%s, %s]"
 
 msgid "Device Symlinks"
-msgstr "Apparaat symlinks"
+msgstr "Apparaat-symlinks"
 
 msgid "Device has a few bad sectors."
 msgstr "Apparaat heeft een aantal bad sectors"
@@ -941,10 +942,10 @@ msgid "Device has many bad sectors."
 msgstr "Apparaat heeft vele bad sectors"
 
 msgid "Device is being used outside design parameters."
-msgstr ""
+msgstr "Apparaat wordt gebruikt buiten de ontwerpparameters."
 
 msgid "Device was used outside of design parameters in the past."
-msgstr ""
+msgstr "Apparaat werd in het verleden buiten de ontwerpparameters gebruikt."
 
 msgid "Device(s)"
 msgstr "Apparaat(en)"
@@ -965,55 +966,55 @@ msgid "Disabled"
 msgstr "Uitgeschakeld"
 
 msgid "Disallow account modification"
-msgstr ""
+msgstr "Accountwijziging niet toestaan"
 
 msgid "Disallow the user to modify their own account."
-msgstr ""
+msgstr "De gebruiker niet toestaan zijn eigen account te wijzigen."
 
 msgid "Disk Temperatures"
-msgstr ""
+msgstr "Temperaturen van de schijf"
 
 msgid "Disks"
 msgstr "Schijven"
 
 msgid "Dismiss"
-msgstr ""
+msgstr "Negeren"
 
 msgid "Dismiss all"
-msgstr ""
+msgstr "Alles negeren"
 
 msgid "Displays information about the file systems in a grid."
-msgstr ""
+msgstr "Toont informatie over de bestandssystemen in een raster."
 
 msgid "Displays information about the file systems in a table."
-msgstr ""
+msgstr "Toont informatie over de bestandssystemen in een tabel."
 
 msgid "Displays information about the network interfaces in a grid."
-msgstr ""
+msgstr "Toont informatie over de netwerkinterfaces in een raster."
 
 msgid "Displays information about the network interfaces in a table."
-msgstr ""
+msgstr "Toont informatie over de netwerkinterfaces in een tabel."
 
 msgid "Displays information about the services in a grid."
-msgstr ""
+msgstr "Toont informatie over de diensten in een raster."
 
 msgid "Displays information about the services in a table."
-msgstr ""
+msgstr "Toont informatie over de diensten in een tabel."
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
-msgstr ""
+msgstr "Toont de SMART-status van alle schijfapparaten onder observatie."
 
 msgid "Displays the system time."
-msgstr ""
+msgstr "Toont de systeemtijd."
 
 msgid "Displays the system uptime."
-msgstr ""
+msgstr "Toont de tijd dat het systeem actief is."
 
 msgid "Displays the temperature of all disk devices."
-msgstr ""
+msgstr "Toont de temperatuur van alle schijfapparaten."
 
 msgid "Displays various system information."
-msgstr ""
+msgstr "Toont diverse systeeminformatie."
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1022,18 +1023,18 @@ msgid "Do you really want to apply the configuration changes?"
 msgstr "Wilt u de aanpassingen in de configuratie toepassen?"
 
 msgid "Do you really want to copy the permissions from the shared folder?"
-msgstr ""
+msgstr "Wilt u echt de machtigingen kopiëren vanuit de gedeelde map?"
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
 "join(\", \") }}</strong>?"
-msgstr ""
+msgstr "Wilt u de geselecteerde item(s) echt verwijderen <strong>{{ items | join(\", \") }}</strong>?"
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Weet u zeker dat u het/de geselecteerde bestand(en) wilt verwijderen?"
 
 msgid "Do you really want to install the plugin?"
-msgstr ""
+msgstr "Weet u zeker dat u de plug-in wilt installeren?"
 
 msgid "Do you really want to logout?"
 msgstr "Weet u zeker dat u zich wil afmelden?"
@@ -1045,35 +1046,35 @@ msgid "Do you really want to reboot the system?"
 msgstr "Weet u zeker dat u het systeem wil herstarten?"
 
 msgid "Do you really want to reset the UI settings to their default values?"
-msgstr ""
+msgstr "Weet u zeker dat u de UI-instellingen wilt herstellen naar de standaardwaarden?"
 
 msgid ""
 "Do you really want to resize the file system? You have to do that after a "
 "RAID has been grown for example."
-msgstr ""
+msgstr "Weet u zeker dat u de grootte van het geselcteerde bestandssysteem wilt aanpassen? U moet dat bijvoorbeeld doen nadat een RAID is aangepast."
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Weet u zeker dat u het systeem wil afsluiten?"
 
 msgid "Do you really want to undo the configuration changes?"
-msgstr ""
+msgstr "Weet u zeker dat u de aanpassingen aan de configuratie wilt terugdraaien?"
 
 msgid "Do you really want to uninstall the plugin?"
-msgstr ""
+msgstr "Weet u zeker dat u de plug-in wil verwijderen?"
 
 msgid ""
 "Do you really want to unmount this file system? Please make sure that the "
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
-msgstr ""
+msgstr "Weet u zeker dat u bestandssysteem wil ontkoppelen? Zorg ervoor dat het bestandssysteem door geen enkele dienst wordt gebruikt voordat u het ontkoppelt. Let op: het bestandssysteem wordt door deze actie niet verwijderd."
 
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
 "will be lost."
-msgstr ""
+msgstr "Weet u zeker dat u het apparaat {{ canonicaldevicefile }} wil wissen? Alle gegevens gaan verloren."
 
 msgid "Documentation"
-msgstr ""
+msgstr "Documentatie"
 
 msgid "Domain name"
 msgstr "Domeinnaam"
@@ -1100,12 +1101,12 @@ msgid "Dronning Maud Land"
 msgstr "Koningin Maudland"
 
 msgid "Each line represents a group."
-msgstr ""
+msgstr "Elke regel vertegenwoordigt een groep."
 
 msgid ""
 "Each line represents a user. Note, the password must be entered in plain "
 "text."
-msgstr ""
+msgstr "Elke regel vertegenwoordigt een gebruiker. Let op, het wachtwoord moet worden ingevoerd als gewone tekst."
 
 msgid "East Timor"
 msgstr "Oost-Timor"
@@ -1129,28 +1130,28 @@ msgid "Empty now"
 msgstr "Nu leegmaken"
 
 msgid "Enable NetBIOS"
-msgstr ""
+msgstr "NetBIOS inschakelen"
 
 msgid "Enable Time Machine support for this share."
-msgstr "Schakel Time Machine-ondersteuning in voor deze share."
+msgstr "Ondersteuning voor Time Machine inschakelen voor deze share."
 
 msgid "Enable WINS server"
-msgstr "WINS server inschakelen"
+msgstr "WINS-server inschakelen"
 
 msgid "Enable automatic snapshot clean up."
-msgstr ""
+msgstr "Automatische opruiming van momentopnames inschakelen."
 
 msgid "Enable keyboard-interactive authentication."
-msgstr ""
+msgstr "Toetsenbord-interactieve authenticatie inschakelen"
 
 msgid "Enable public key authentication."
-msgstr ""
+msgstr "Public key authentication inschakelen"
 
 msgid "Enable recycle bin"
 msgstr "Prullenbak inschakelen"
 
 msgid "Enable remote logging of syslog to the specified host."
-msgstr ""
+msgstr "Logboekregistratie op afstand van syslog naar de opgegeven host inschakelen."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -1161,21 +1162,21 @@ msgid "Enable user home directories."
 msgstr "Gebruikersthuismappen inschakelen"
 
 msgid "Enable write-cache"
-msgstr ""
+msgstr "Schrijf-cache inschakelen"
 
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
 msgid "Enabled widgets"
-msgstr ""
+msgstr "Widgets inschakelen"
 
 msgid "Encryption mode"
-msgstr "Encryptie modus"
+msgstr "Versleutelingsmodus"
 
 msgid ""
 "Enforce transport encryption for this share. Clients that do not support "
 "encryption will be denied access to the share."
-msgstr ""
+msgstr "Transportversleuteling voor dit aandeel afdwingen. Gebruikers die geen versleuteling ondersteunen, wordt de toegang tot de share ontzegd."
 
 msgid "Equatorial Guinea"
 msgstr "Equatoriaal-Guinea"
@@ -1196,7 +1197,7 @@ msgid "Ethiopia"
 msgstr "Ethiopië"
 
 msgid "Events"
-msgstr ""
+msgstr "Gebeurtenissen"
 
 msgid "Every N day of month"
 msgstr "Iedere N dagen van de maand"
@@ -1211,10 +1212,10 @@ msgid "Everyone: read/write"
 msgstr "Iedereen: lezen/schrijven"
 
 msgid "Execute only"
-msgstr "Execute only"
+msgstr "Alleen uitvoeren"
 
 msgid "Extended Information"
-msgstr ""
+msgstr "Uitgebreide informatie"
 
 msgid "Extended attributes"
 msgstr "Uitgebreide attributen"
@@ -1226,16 +1227,16 @@ msgid "FTP-Proxy"
 msgstr "FTP-proxy"
 
 msgid "Failed"
-msgstr ""
+msgstr "Mislukt"
 
 msgid "Failed to copy data to the clipboard."
-msgstr ""
+msgstr "Kopiëren van gegevens naar het klembord is mislukt."
 
 msgid "Failed to start session."
-msgstr ""
+msgstr "Startsessie mislukt."
 
 msgid "Failed to write session data."
-msgstr ""
+msgstr "Schrijven van sessiegegevens is mislukt."
 
 msgid "Falkland Islands"
 msgstr "Falklandeilanden"
@@ -1256,19 +1257,19 @@ msgid "Fiji"
 msgstr "Fiji"
 
 msgid "File System Usage"
-msgstr ""
+msgstr "Bestandssysteemgebruik"
 
 msgid "File Systems"
 msgstr "Bestandssystemen"
 
 msgid "File access control lists"
-msgstr ""
+msgstr "Bestandstoegangscontrolelijsten"
 
 msgid "File owner and group"
-msgstr ""
+msgstr "Bestandseigenaar en groep"
 
 msgid "File path"
-msgstr ""
+msgstr "Bestandspad"
 
 msgid "File system"
 msgstr "Bestandssysteem"
@@ -1287,13 +1288,13 @@ msgstr "Bestanden in de prullenbak zullen automatisch worden gewist na het opgeg
 msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
-msgstr ""
+msgstr "Bestanden die groter zijn dan het opgegeven getal worden niet in de prullenbak gezet."
 
 msgid "Fingerprint (SHA-1)"
-msgstr ""
+msgstr "Vingerafdruk (SHA-1)"
 
 msgid "Fingerprint (SHA-256)"
-msgstr ""
+msgstr "Vingerafdruk (SHA-256)"
 
 msgid "Finland"
 msgstr "Finland"
@@ -1308,22 +1309,22 @@ msgid "Flags"
 msgstr "Vlaggen"
 
 msgid "Follow symlinks"
-msgstr ""
+msgstr "Symlinks volgen"
 
 msgid "Force SSL/TLS"
 msgstr "Forceer SSL/TLS"
 
 msgid "Force a specific MAC address on this interface."
-msgstr ""
+msgstr "Forceer een specifiek MAC-adres op deze interface."
 
 msgid "Force secure connection only."
 msgstr "Alleen beveiligde verbindingen toestaan."
 
 msgid "Forum"
-msgstr ""
+msgstr "Forum"
 
 msgid "Framework for Multicast DNS Service Discovery."
-msgstr ""
+msgstr "Ondersteuning voor de detectie van multicast-DNS-services."
 
 msgid "France"
 msgstr "Frankrijk"
@@ -1377,7 +1378,7 @@ msgid "Gibraltar"
 msgstr "Gibraltar"
 
 msgid "Go to the notification sidebar to attach to it."
-msgstr ""
+msgstr "Ga naar de zijbalk met meldingen om deze bij te voegen."
 
 msgid "Good"
 msgstr "Goed"
@@ -1413,7 +1414,7 @@ msgid "Guests allowed"
 msgstr "Gasten toestaan"
 
 msgid "Guests only"
-msgstr ""
+msgstr "Alleen gasten"
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1434,34 +1435,34 @@ msgid "Haiti"
 msgstr "Haïti"
 
 msgid "Hardware Address"
-msgstr ""
+msgstr "Hardware-adres"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard Eilanden en McDonald Eilanden"
 
 msgid "Help"
-msgstr ""
+msgstr "Hulp"
 
 msgid "Hibernate"
-msgstr ""
+msgstr "Sluimerstand"
 
 msgid "Hide"
-msgstr ""
+msgstr "Verbergen"
 
 msgid "Hide dot files"
 msgstr "Verberg punt bestanden"
 
 msgid "High-performance mail transport agent."
-msgstr ""
+msgstr "Hoogwaardige agent voor mailtransport."
 
 msgid "Home"
-msgstr ""
+msgstr "Thuis"
 
 msgid "Home directories"
 msgstr "Thuismappen"
 
 msgid "Homepage"
-msgstr "Thuispagina"
+msgstr "Homepage"
 
 msgid "Honduras"
 msgstr "Honduras"
@@ -1482,7 +1483,7 @@ msgid "Hosts deny"
 msgstr "Hosts weigeren"
 
 msgid "Hot-Pluggable"
-msgstr ""
+msgstr "Hot-Pluggable"
 
 msgid "Hour"
 msgstr "Uur"
@@ -1494,7 +1495,7 @@ msgid "Hungary"
 msgstr "Hongarije"
 
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Hybride slaapstand"
 
 msgid "ID"
 msgstr "ID"
@@ -1523,7 +1524,7 @@ msgid "Identify As"
 msgstr "Geïdentificeerd als"
 
 msgid "Identify network interface"
-msgstr ""
+msgstr "Netwerkinterface identificeren"
 
 msgid "Idle"
 msgstr "Pauzestand"
@@ -1532,7 +1533,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Guests only' is selecting; in "
 "this case no password is required to connect to the share."
-msgstr ""
+msgstr "Als 'Gasten toestaan' is geselecteerd en er geen inloggegevens worden verstrekt, dan toegang als gast. Altijd toegang als gast wanneer 'Alleen gasten' is geselecteerd; in dit geval is er geen wachtwoord nodig om verbinding te maken met de share."
 
 msgid ""
 "If a device is not listed here, it is usually because the device already "
@@ -1540,19 +1541,19 @@ msgid ""
 "be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
 "please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
 "supported."
-msgstr ""
+msgstr "Als een apparaat hier niet wordt vermeld, komt dat meestal omdat het apparaat al een bestandssysteem of partities bevat. In het eerste geval kan het bestandssysteem <a href='#/storage/filesystems/mount'>hier</a> worden aangekoppeld. In het tweede geval, <a href='#/storage/disks'>wis</a> het apparaat aangezien partities niet worden ondersteund."
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
 "to connect to the module."
-msgstr ""
+msgstr "Indien ingesteld, wordt de client gevraagd een gebruikersnaam en wachtwoord op te geven om verbinding te maken met de module."
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr "Als deze optie is ingesteld, zal de daemon chroot-en naar het pad van de gedeelde map voordat de bestandsoverdracht met de client wordt gestart. Dan is het niet mogelijk om gebruikers en groepen op naam toe te wijzen en de daemon is niet in staat om symbolische verwijzingen te volgen die absoluut zijn of buiten het nieuwe rootpad."
+msgstr "Als deze optie is ingesteld, zal de daemon chroot-en naar het pad van de gedeelde map voordat de bestandsoverdracht met de client wordt gestart. Dan is het niet mogelijk om gebruikers en groepen op naam toe te wijzen en de daemon is niet in staat om symbolische links te volgen die absoluut zijn of buiten het nieuwe rootpad."
 
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr "Als deze optie is ingesteld, zullen alle downloadpogingen falen."
@@ -1577,22 +1578,22 @@ msgid "Import"
 msgstr "Importeren"
 
 msgid "Imported SSH certificate."
-msgstr ""
+msgstr "Geïmporteerd SSH-certificaat."
 
 msgid "Imported SSL certificate."
-msgstr ""
+msgstr "Geïmporteerd SSL-certificaat."
 
 msgid "Imported groups."
-msgstr ""
+msgstr "Geïmporteerde groepen."
 
 msgid "Imported users."
-msgstr ""
+msgstr "Geïmporteerde gebruikers."
 
 msgid "India"
 msgstr "India"
 
 msgid "Indicates whether updates are available."
-msgstr ""
+msgstr "Geeft aan of er updates beschikbaar zijn."
 
 msgid "Indonesia"
 msgstr "Indonesië"
@@ -1613,16 +1614,16 @@ msgid "Install"
 msgstr "Installeren"
 
 msgid "Install plugin"
-msgstr ""
+msgstr "Plug-in installeren"
 
 msgid "Install public key to remote machine"
-msgstr ""
+msgstr "Publieke sleutel naar externe machine installeren"
 
 msgid "Install security updates unattended."
-msgstr ""
+msgstr "Beveiligingsupdates onbeheerd installeren."
 
 msgid "Install updates"
-msgstr ""
+msgstr "Updates installeren"
 
 msgid "Install updates from"
 msgstr "Updates installeren van"
@@ -1642,34 +1643,34 @@ msgid "Invalid IP address."
 msgstr "Ongeldig IP-adres."
 
 msgid "Invalid NetBIOS name."
-msgstr ""
+msgstr "Ongeldige NetBIOS-naam."
 
 msgid "Invalid PGP public key."
-msgstr ""
+msgstr "Ongeldige PGP-publieke sleutel."
 
 msgid "Invalid SSH public key (OpenSSH format)."
-msgstr ""
+msgstr "Ongeldige SSH-publieke sleutel (OpenSSH-formaat)."
 
 msgid "Invalid SSH public key (OpenSSH or RFC 4716 format)"
-msgstr ""
+msgstr "Ongeldige SSH-publieke sleutel (OpenSSH- of RFC 4716-formaat)"
 
 msgid "Invalid SSH public key (RFC 4716 format)."
-msgstr ""
+msgstr "Ongeldige SSH-publieke sleutel (RFC 4716-formaat)."
 
 msgid "Invalid User-Agent."
 msgstr "Ongeldige user-agent."
 
 msgid "Invalid domain name."
-msgstr ""
+msgstr "Ongeldige domeinnaam."
 
 msgid "Invalid group name."
-msgstr ""
+msgstr "Ongeldige groepsnaam"
 
 msgid "Invalid host name."
-msgstr ""
+msgstr "Ongeldige hostnaam."
 
 msgid "Invalid user name."
-msgstr ""
+msgstr "Ongeldige gebruikersnaam."
 
 msgid "Invalid user."
 msgstr "Ongeldige gebruiker."
@@ -1689,7 +1690,7 @@ msgstr "Israël"
 msgid ""
 "It may take a while to detect the new devices, thus it might be necessary to"
 " reload the table several times. Do you want to proceed?"
-msgstr ""
+msgstr "Het kan even duren om de nieuwe apparaten te detecteren, dus het kan nodig zijn om de tabel meerdere keren opnieuw te laden. Wilt u doorgaan?"
 
 msgid "Italy"
 msgstr "Italië"
@@ -1746,7 +1747,7 @@ msgid "LBA of first error"
 msgstr "LBA van de eerste fout"
 
 msgid "LVM logical volume %s [%s, %s]"
-msgstr "LVM logical volume %s [%s, %s]"
+msgstr "LVM logisch volume %s [%s, %s]"
 
 msgid "Label"
 msgstr "Label"
@@ -1784,40 +1785,40 @@ msgid "Lifetime"
 msgstr "Levensduur"
 
 msgid "Limit custom"
-msgstr ""
+msgstr "Aangepast beperken"
 
 msgid "Limit daily"
-msgstr ""
+msgstr "Dagelijks beperken"
 
 msgid "Limit hourly"
-msgstr ""
+msgstr "Elk uur beperken"
 
 msgid "Limit monthly"
-msgstr ""
+msgstr "Maandelijks beperken"
 
 msgid "Limit weekly"
-msgstr ""
+msgstr "Wekelijks beperken"
 
 msgid "Limit yearly"
-msgstr ""
+msgstr "Jaarlijks beperken"
 
 msgid "Link"
 msgstr "Link"
 
 msgid "List module"
-msgstr ""
+msgstr "Lijstmodule"
 
 msgid "Lithuania"
 msgstr "Litouwen"
 
 msgid "Load Average"
-msgstr ""
+msgstr "Gemiddelde belasting"
 
 msgid "Load average"
 msgstr "Gemiddelde belasting"
 
 msgid "Loading ..."
-msgstr "Laden ..."
+msgstr "Laden…"
 
 msgid "Local"
 msgstr "Lokaal"
@@ -1826,10 +1827,10 @@ msgid "Location"
 msgstr "Locatie"
 
 msgid "Log in"
-msgstr ""
+msgstr "Inloggen"
 
 msgid "Log level"
-msgstr "Logniveau"
+msgstr "Logboekniveau"
 
 msgid "Logout"
 msgstr "Afmelden"
@@ -1847,13 +1848,13 @@ msgid "Luxembourg"
 msgstr "Luxemburg"
 
 msgid "MAC"
-msgstr ""
+msgstr "MAC"
 
 msgid "MAC address"
 msgstr "MAC-adres"
 
 msgid "MII monitoring frequency"
-msgstr "MII monitor frequentie"
+msgstr "MII observatiefrequentie"
 
 msgid "MTU"
 msgstr "MTU"
@@ -1871,7 +1872,7 @@ msgid "Maintainer"
 msgstr "Onderhouder"
 
 msgid "Make sure that the guest user <em>nobody</em> can access the files."
-msgstr ""
+msgstr "Zorg ervoor dat de gastgebruiker <em>niemand</em> toegang heeft tot de bestanden."
 
 msgid "Malawi"
 msgstr "Malawi"
@@ -1889,13 +1890,13 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Management of CPUfreq settings."
-msgstr ""
+msgstr "CPUfreq-instellingen beheren."
 
 msgid "Management of scheduled tasks."
-msgstr ""
+msgstr "Geplande taken beheren."
 
 msgid "Management of the file systems to be mounted."
-msgstr ""
+msgstr "Aan te koppelen bestandssystemen beheren."
 
 msgid "March"
 msgstr "maart"
@@ -1909,12 +1910,12 @@ msgstr "Martinique"
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "Overeenstemming wanneer de poort van het doel een van de opgegeven poorten is, bijv. 21 of !443 of 1024-65535."
 
 msgid ""
 "Match if the source port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "Overeenstemming wanneer de poort van de bron een van de opgegeven poorten is, bijv. 21 of !443 of 1024-65535."
 
 msgid "Mauritania"
 msgstr "Mauritanië"
@@ -1926,10 +1927,10 @@ msgid "Max. connections"
 msgstr "Max. verbindingen"
 
 msgid "Maximum"
-msgstr ""
+msgstr "Maximum"
 
 msgid "Maximum file size"
-msgstr ""
+msgstr "Maximale bestandsgrootte"
 
 msgid "Maximum performance, maximum acoustic output"
 msgstr "Maximale prestatie, maximale geluidsproductie"
@@ -1944,10 +1945,10 @@ msgid "Members"
 msgstr "Leden"
 
 msgid "Memory"
-msgstr ""
+msgstr "Geheugen"
 
 msgid "Memory Usage"
-msgstr ""
+msgstr "Geheugengebruik"
 
 msgid "Memory usage"
 msgstr "Geheugengebruik"
@@ -1962,10 +1963,10 @@ msgid "Method"
 msgstr "Methode"
 
 msgid "Metric"
-msgstr ""
+msgstr "Metrisch"
 
 msgid "Metropolitan France"
-msgstr "Metropolitaans Frankrijk"
+msgstr "Franse metropool"
 
 msgid "Mexico"
 msgstr "Mexico"
@@ -1980,10 +1981,10 @@ msgid "Minimum"
 msgstr "Minimum"
 
 msgid "Minimum performance, minimum acoustic output"
-msgstr ""
+msgstr "Minimale prestaties, minimale akoestische output"
 
 msgid "Minimum protocol version"
-msgstr ""
+msgstr "Minimum protocolversie"
 
 msgid "Minute"
 msgstr "Minuut"
@@ -2013,13 +2014,13 @@ msgid "Mongolia"
 msgstr "Mongolië"
 
 msgid "Monitored"
-msgstr ""
+msgstr "Geobserveerd"
 
 msgid "Monitoring"
-msgstr "Monitoren"
+msgstr "Observatie"
 
 msgid "Monitoring enabled"
-msgstr ""
+msgstr "Observatie ingeschakeld"
 
 msgid "Month"
 msgstr "Maand"
@@ -2034,19 +2035,19 @@ msgid "Morocco"
 msgstr "Marokko"
 
 msgid "Mount"
-msgstr "Koppelen"
+msgstr "Aankoppelen"
 
 msgid "Mount Options"
-msgstr ""
+msgstr "Aankoppelingsopties"
 
 msgid "Mount Point"
-msgstr "Koppelpunt"
+msgstr "Aankoppelpunt"
 
 msgid "Mount an existing file system."
-msgstr ""
+msgstr "Een bestaand bestandssysteem aankoppelen."
 
 msgid "Mounted"
-msgstr "Gekoppeld"
+msgstr "Aangekoppeld"
 
 msgid "Mozambique"
 msgstr "Mozambique"
@@ -2058,7 +2059,7 @@ msgid "NFS"
 msgstr "NFS"
 
 msgid "NTP time servers, separated by comma."
-msgstr ""
+msgstr "NTP-tijdservers, gescheiden door komma."
 
 msgid "Name"
 msgstr "Naam"
@@ -2085,7 +2086,7 @@ msgid "Network"
 msgstr "Netwerk"
 
 msgid "Network Interfaces"
-msgstr "Netwerk Interfaces"
+msgstr "Netwerkinterfaces"
 
 msgid "Neutral Zone"
 msgstr "Neutrale Zone"
@@ -2100,7 +2101,7 @@ msgid "New Zealand"
 msgstr "Nieuw-Zeeland"
 
 msgid "New package updates are available for installation."
-msgstr ""
+msgstr "Nieuwe pakketupdates zijn beschikbaar voor installatie."
 
 msgid "New password"
 msgstr "Nieuw wachtwoord"
@@ -2127,10 +2128,10 @@ msgid "No connections"
 msgstr "Geen verbindingen"
 
 msgid "No data to display."
-msgstr ""
+msgstr "Geen gegevens om weer te geven."
 
 msgid "No monitored devices."
-msgstr ""
+msgstr "Geen apparaten onder observatie."
 
 msgid "No users connected"
 msgstr "Geen verbonden gebruikers"
@@ -2139,7 +2140,7 @@ msgid "None"
 msgstr "Geen"
 
 msgid "Norfolk Island"
-msgstr "Norfolk"
+msgstr "Norfolk-eiland"
 
 msgid "Normal"
 msgstr "Normaal"
@@ -2169,14 +2170,14 @@ msgid "Not UDP"
 msgstr "Geen UDP"
 
 msgid "Not mounted"
-msgstr ""
+msgstr "Niet aangekoppeld"
 
 msgid "Not running"
-msgstr ""
+msgstr "Niet actief"
 
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
-msgstr ""
+msgstr "Houd er rekening mee dat SMB1 verouderd is en alleen in verplichte gevallen mag worden gebruikt."
 
 msgid "Nothing"
 msgstr "Niets"
@@ -2199,7 +2200,7 @@ msgstr "Ok"
 msgid ""
 "Obsolete cached data found. Page will be reloaded. If the problem persists, "
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
-msgstr ""
+msgstr "Verouderde gegevens in de cache gevonden. Pagina wordt opnieuw geladen. Als het probleem aanhoudt, drukt u op Ctrl-Shift-R of Ctrl-F5 om opniuew laden van de pagina te forceren."
 
 msgid "October"
 msgstr "oktober"
@@ -2208,10 +2209,10 @@ msgid "Offline immediate test"
 msgstr "Offline directe test"
 
 msgid "Old-age"
-msgstr ""
+msgstr "Ouderdom"
 
 msgid "Oman"
-msgstr "Omaan"
+msgstr "Oman"
 
 msgid "Online"
 msgstr "Online"
@@ -2226,10 +2227,10 @@ msgid "Organization Name"
 msgstr "Naam van de organisatie"
 
 msgid "Organization Unit"
-msgstr ""
+msgstr "Afdeling van de organisatie"
 
 msgid "Others"
-msgstr "Anderen"
+msgstr "Overig"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Uitgaande SMTP mailserveradres, b.v. smtp.mycorp.com."
@@ -2244,7 +2245,7 @@ msgid "Pacific Islands Trust Territory"
 msgstr "Trustschap van de Pacifische Eilanden"
 
 msgid "Package Information"
-msgstr ""
+msgstr "Pakketinformatie"
 
 msgid "Package management."
 msgstr ""
@@ -2362,7 +2363,7 @@ msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Raadpleeg de <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>handleidingspagina</a> voor meer details."
+msgstr "Raadpleeg de <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>handleiding</a> voor meer details."
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/nfs-kernel-"
@@ -2382,7 +2383,7 @@ msgid "Please wait, a shared folder will be created ..."
 msgstr ""
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Een ogenbik geduld, er wordt een momentopname aangemaakt…"
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr ""
@@ -2593,7 +2594,7 @@ msgid "Relative Path"
 msgstr "Relatief pad"
 
 msgid "Relative path"
-msgstr ""
+msgstr "Relatief pad"
 
 msgid "Reload"
 msgstr "Herladen"
@@ -2668,7 +2669,7 @@ msgid "Run rsync task"
 msgstr ""
 
 msgid "Run scheduled task"
-msgstr ""
+msgstr "Geplande taak uitvoeren"
 
 msgid "Running"
 msgstr "Gestart"
@@ -2683,7 +2684,7 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. Status"
-msgstr ""
+msgstr "S.M.A.R.T.-status"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.-controle moet worden geactiveerd op het geselecteerde apparaat."
@@ -2716,7 +2717,7 @@ msgid "SSH public key"
 msgstr "SSH public key"
 
 msgid "SSH public keys"
-msgstr ""
+msgstr "SSH public keys"
 
 msgid "SSID"
 msgstr "SSID"
@@ -2728,7 +2729,7 @@ msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
 msgid "SSL/TLS enabled"
-msgstr ""
+msgstr "SSL/TLS ingeschakeld"
 
 msgid "STARTTLS"
 msgstr "STARTTLS"
@@ -2767,13 +2768,13 @@ msgid "Save"
 msgstr "Opslaan"
 
 msgid "Scan for new devices"
-msgstr ""
+msgstr "Zoeken naar nieuwe apparaten"
 
 msgid "Scanning for new devices ..."
-msgstr "Zoeken naar nieuwe apparaten ..."
+msgstr "Zoeken naar nieuwe apparaten…"
 
 msgid "Scheduled Tasks"
-msgstr ""
+msgstr "Geplande taken"
 
 msgid "Scheduling"
 msgstr "Inplannen"
@@ -2788,7 +2789,7 @@ msgid "Seconds"
 msgstr "Seconden"
 
 msgid "Section"
-msgstr "Onderdeel"
+msgstr "Sectie"
 
 msgid "Secure"
 msgstr "Veilig"
@@ -2797,7 +2798,7 @@ msgid "Secure connection"
 msgstr "Veilige verbinding"
 
 msgid "Security"
-msgstr ""
+msgstr "Beveiliging"
 
 msgid "Select a country ..."
 msgstr "Selecteer een land ..."
@@ -2830,7 +2831,7 @@ msgid "Select an user ..."
 msgstr ""
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Apparaten selecteren…"
 
 msgid "Select groups ..."
 msgstr ""
@@ -3194,7 +3195,7 @@ msgid "TCP forwarding"
 msgstr "TCP-forwarden"
 
 msgid "Tags"
-msgstr ""
+msgstr "Labels"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -3269,7 +3270,7 @@ msgid ""
 msgstr ""
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "Het veld mag alleen * of een door komma's gescheiden lijst met waarden bevatten."
 
 msgid "The file mode of the shared folder path."
 msgstr "De bestandsmodus van het pad van de gedeelde map."
@@ -3385,12 +3386,12 @@ msgid "The shared folder from which the permissions are copied."
 msgstr ""
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
-msgstr ""
+msgstr "De gedeelde map {{ _selected[0].name }} is met succes aangemaakt."
 
 msgid ""
 "The snapshot '{{ _response.name }}' has been created for the shared folder "
 "'{{ _response.sharedfolder }}'."
-msgstr ""
+msgstr "De momentopname '{{ _response.name }}' voor de gedeelde map '{{ _response.sharedfolder }}' is aangemaakt."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3404,14 +3405,14 @@ msgid "The users that are allowed to access this module."
 msgstr ""
 
 msgid "The value does not match the pattern /{{ pattern }}/."
-msgstr ""
+msgstr "De waarde komt niet overeen met het patroon /{{ pattern }}/."
 
 msgid ""
 "The value must be on of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr ""
+msgstr "De waarde moet een van de slaaf-netwerk-interfaces zijn {{ slaves | join(\", \") }}."
 
-msgid "The value must be on of the slave network interfaces."
+msgid "The value must be one of the slave network interfaces."
 msgstr ""
 
 msgid "The workgroup the server will appear to be in when queried by clients."
@@ -3424,13 +3425,13 @@ msgid ""
 "These settings are used by the services to configure the access rights for "
 "the group \"{{ _routeParams.name }}\". Please note that these settings have "
 "no effect on file system permissions."
-msgstr ""
+msgstr "Deze instellingen worden door de services gebruikt om de toegangsrechten te configureren voor de groep \"{{ _routeParams.name }}\". Houd er rekening mee dat deze instellingen geen effect hebben op de machtigingen van het bestandssysteem."
 
 msgid ""
 "These settings are used by the services to configure the access rights for "
 "the user \"{{ _routeParams.name }}\". Please note that these settings have "
 "no effect on file system permissions."
-msgstr ""
+msgstr "Deze instellingen worden door de services gebruikt om de toegangsrechten te configureren voor de gebruiker \"{{ _routeParams.name }}\". Houd er rekening mee dat deze instellingen geen effect hebben op de machtigingen van het bestandssysteem."
 
 msgid ""
 "These settings are used by the services to configure the user and group "
@@ -3451,7 +3452,7 @@ msgstr ""
 msgid ""
 "This field contains invalid characters, only alphanumeric characters and "
 "underscore are allowed."
-msgstr ""
+msgstr "Dit veld bevat ongeldige tekens, alleen alfanumerieke tekens en onderstrepingstekens zijn toegestaan."
 
 msgid ""
 "This field is automatically filled with the subject of the certificate if "
@@ -3652,7 +3653,7 @@ msgid "Transmit Hash Policy"
 msgstr ""
 
 msgid "Transport encryption"
-msgstr ""
+msgstr "Transportversleuteling"
 
 msgid "Trial run"
 msgstr "Test"
@@ -3770,7 +3771,7 @@ msgid "Updated Rsync Server settings."
 msgstr ""
 
 msgid "Updated Rsync server module \"{{ name }}\"."
-msgstr ""
+msgstr "Rsync-servermodule \"{{ name }}\" bijgewerkt."
 
 msgid "Updated Rsync task."
 msgstr ""
@@ -3788,16 +3789,16 @@ msgid "Updated SSH settings."
 msgstr ""
 
 msgid "Updated VLAN network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "VLAN-netwerkverbinding \"{{ devicename }}\" bijgewerkt."
 
 msgid "Updated access control list of shared folder."
 msgstr ""
 
 msgid "Updated bond network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "Bond-netwerkverbinding \"{{ devicename }}\" bijgewerkt."
 
 msgid "Updated bridge network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "Bridge-netwerkverbinding \"{{ devicename }}\" bijgewerkt."
 
 msgid "Updated dashboard settings."
 msgstr ""
@@ -3815,7 +3816,7 @@ msgid "Updated firewall rules."
 msgstr ""
 
 msgid "Updated group \"{{ name }}\"."
-msgstr ""
+msgstr "Groep \"{{ name }}\" bijgewerkt."
 
 msgid "Updated monitoring settings."
 msgstr ""
@@ -3833,13 +3834,13 @@ msgid "Updated password."
 msgstr ""
 
 msgid "Updated permissions of group \"{{ name }}\"."
-msgstr ""
+msgstr "Machtigingen van groep \"{{ name }}\" bijgewerkt."
 
 msgid "Updated permissions of shared folder."
 msgstr ""
 
 msgid "Updated permissions of user \"{{ name }}\"."
-msgstr ""
+msgstr "Machtigingen van gebruiker \"{{ name }}\" bijgewerkt."
 
 msgid "Updated power management settings."
 msgstr ""
@@ -3866,16 +3867,16 @@ msgid "Updated update management settings."
 msgstr ""
 
 msgid "Updated user \"{{ name }}\"."
-msgstr ""
+msgstr "Gebruiker \"{{ name }}\" bijgewerkt."
 
 msgid "Updated user profile."
 msgstr ""
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "Bekabelde netwerkverbinding \"{{ devicename }}\" bijgewerkt."
 
 msgid "Updated wireless network connection \"{{ devicename }}\"."
-msgstr ""
+msgstr "Draadloze netwerkverbinding \"{{ devicename }}\" bijgewerkt."
 
 msgid "Updated workbench settings."
 msgstr ""
@@ -3943,7 +3944,7 @@ msgid "User home directory"
 msgstr "Gebruikersthuismap"
 
 msgid "User name"
-msgstr ""
+msgstr "Gebruikersnaam"
 
 msgid "User/Group permissions"
 msgstr "Gebruiker/Groepsrechten"
@@ -4041,7 +4042,7 @@ msgid "Wi-Fi"
 msgstr "Wifi"
 
 msgid "Wide links"
-msgstr ""
+msgstr "Brede links"
 
 msgid "Wipe"
 msgstr "Wissen"
@@ -4059,10 +4060,10 @@ msgid "Worst"
 msgstr "Slechtst"
 
 msgid "Write only"
-msgstr "Alleen lezen"
+msgstr "Alleen schrijven"
 
 msgid "Write-only"
-msgstr ""
+msgstr "Alleen schrijven"
 
 msgid "Write/Execute"
 msgstr "Schrijven/Uitvoeren"
