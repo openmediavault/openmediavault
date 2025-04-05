@@ -261,7 +261,7 @@ export class InterfaceBondFormPageComponent extends BaseFormPageComponent {
                   arg1: { prop: 'slaves' }
                 }
               },
-              errorData: gettext('The value must be on of the slave network interfaces.')
+              errorData: gettext('The value must be one of the slave network interfaces.')
             }
           ]
         }
