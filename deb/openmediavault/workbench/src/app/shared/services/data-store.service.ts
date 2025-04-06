@@ -132,11 +132,11 @@ export class DataStoreService {
     // We need to create a new array, otherwise Angular won't
     // detect changes if we modify the original one only.
     let data = [];
+    if (_.isUndefined(store.fields) || !_.isArray(store.fields)) {
+      store.fields = ['key', 'value'];
+    }
     if (_.isPlainObject(store.data)) {
       // Convert simple objects to an array.
-      if (_.isUndefined(store.fields) || !_.isArray(store.fields)) {
-        store.fields = ['key', 'value'];
-      }
       _.forEach(store.data, (value, key) => {
         const newItem = {};
         _.set(newItem, store.fields[0], key);

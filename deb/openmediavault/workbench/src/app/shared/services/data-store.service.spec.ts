@@ -128,6 +128,22 @@ describe('DataStoreService', () => {
     });
   });
 
+  it('should load inline data (8)', (done) => {
+    const store: DataStore = {
+      data: ['foo', 'bar']
+    };
+    service.load(store).subscribe((res) => {
+      expect(store.fields).toEqual(['key', 'value']);
+      expect(store.data).toEqual([
+        { key: 'foo', value: 'foo' },
+        { key: 'bar', value: 'bar' }
+      ]);
+      expect(_.has(res, 'data')).toBeTruthy();
+      expect(_.has(res, 'total')).toBeTruthy();
+      done();
+    });
+  });
+
   it('should assign additional sources', (done) => {
     const store: DataStore = {
       data: ['poweroff', 'hybrid', 'suspendhybrid'],
