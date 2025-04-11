@@ -3412,7 +3412,7 @@ msgid ""
 msgstr "这里必须使用从网络接口 {{ slaves | join(\", \") }}。"
 
 msgid "The value must be one of the slave network interfaces."
-msgstr ""
+msgstr "此值必須是一個從屬網路界面。"
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "当客户端查询时，服务器会出现在该工作组。"

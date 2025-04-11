@@ -3408,7 +3408,7 @@ msgid ""
 msgstr "此值必須是一個從屬網路界面 {{ slaves | join(\", \") }}。"
 
 msgid "The value must be one of the slave network interfaces."
-msgstr ""
+msgstr "此值必須是一個從屬網路界面。"
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "當客戶端查詢時，伺服器將會顯現所在的工作群組。"

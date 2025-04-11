@@ -3406,7 +3406,7 @@ msgid ""
 msgstr "Πρέπει να οριστεί μία από τις υποτελείς διασυνδέσεις δικτύου {{ slaves | join(\", \") }}."
 
 msgid "The value must be one of the slave network interfaces."
-msgstr ""
+msgstr "Πρέπει να οριστεί μία από τις υποτελείς διασυνδέσεις δικτύου."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Ο διακομιστής θα αναφέρει οτι ανήκει σε αυτήν την ομάδα εργασίας όταν ρωτάνε οι πελάτες."
