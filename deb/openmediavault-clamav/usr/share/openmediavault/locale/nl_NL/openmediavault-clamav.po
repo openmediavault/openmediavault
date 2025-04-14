@@ -6,6 +6,7 @@
 # Milan Toet <milantoet@gmail.com>, 2012-2013,2017
 # Varkentjes, 2020
 # Seba Kerckhof <seba.kerckhof@gmail.com>, 2012
+# Stephan Paternotte <stephan@paternottes.net>, 2025
 # Tim <co_ti@hotmail.com>, 2013-2014
 msgid ""
 msgstr ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
-"Last-Translator: Varkentjes, 2020\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,10 +46,10 @@ msgid "Create"
 msgstr "Aanmaken"
 
 msgid "Created on-access scan."
-msgstr ""
+msgstr "On-access scan aangemaakt."
 
 msgid "Created scheduled scan."
-msgstr ""
+msgstr "Geplande scan aangemaakt."
 
 msgid "Database checks"
 msgstr "Databasecontroles"
@@ -66,7 +67,7 @@ msgid "December"
 msgstr "december"
 
 msgid "Delete immediately"
-msgstr ""
+msgstr "Onmiddellijk verwijderen"
 
 msgid "Detect PUA"
 msgstr "PUA waarnemen"
@@ -116,7 +117,7 @@ msgid "Every N minute"
 msgstr "Iedere N minuten"
 
 msgid "Execute scheduled scan"
-msgstr ""
+msgstr "Geplande scan uitvoeren"
 
 msgid "Extra options"
 msgstr "Extra opties"
@@ -179,7 +180,7 @@ msgid "Month"
 msgstr "Maand"
 
 msgid "Move to quarantine"
-msgstr ""
+msgstr "In quarantaine plaatsen"
 
 msgid "Multiscan"
 msgstr "Meervoudig aftasten"
@@ -200,13 +201,13 @@ msgid "Perform a deeper analysis of executable files."
 msgstr "Uitvoerbare bestanden grondiger analyseren."
 
 msgid "Perform nothing"
-msgstr ""
+msgstr "Doe niets"
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
 "daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "Raadlpeeg de <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>handleiding</a> voor meer details."
 
 msgid "Quarantine"
 msgstr "Quarantaine"
@@ -239,7 +240,7 @@ msgid "Scan the directory contents in parallel using available threads."
 msgstr "De inhoud van de map parallel aftasten door meerdere ingangen te gebruiken."
 
 msgid "Scheduled Scans"
-msgstr ""
+msgstr "Geplande scans"
 
 msgid "Scheduling"
 msgstr "Inplannen"
@@ -260,10 +261,10 @@ msgid "Sunday"
 msgstr "Zondag"
 
 msgid "Tags"
-msgstr ""
+msgstr "Labels"
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "Het veld mag alleen * of een door komma's gescheiden lijst met waarden bevatten."
 
 msgid "The location of the files to scan on-access."
 msgstr "De locatie van de bestanden die bij toegang moeten worden gescand."
@@ -284,10 +285,10 @@ msgid "Tuesday"
 msgstr "Dinsdag"
 
 msgid "Updated on-access scan."
-msgstr ""
+msgstr "On-access scan bijgewerkt."
 
 msgid "Updated scheduled scan."
-msgstr ""
+msgstr "Geplande scan bijgewerkt."
 
 msgid "Verbose"
 msgstr "Uitgebreide informatie"

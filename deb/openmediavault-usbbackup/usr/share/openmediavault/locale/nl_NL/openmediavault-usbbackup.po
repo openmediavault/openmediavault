@@ -5,6 +5,7 @@
 # Translators:
 # Milan Toet <milantoet@gmail.com>, 2013
 # Varkentjes, 2020
+# Stephan Paternotte <stephan@paternottes.net>, 2025
 # Tim <co_ti@hotmail.com>, 2013-2014
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-24 19:17+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
-"Last-Translator: Varkentjes, 2020\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,13 +33,13 @@ msgid "Compress"
 msgstr "Comprimeren"
 
 msgid "Compress file data during the transfer."
-msgstr "Comprimeer bestandsgegevens tijdens de overdracht"
+msgstr "Bestandsgegevens comprimeren tijdens de overdracht."
 
 msgid "Create"
 msgstr "Aanmaken"
 
 msgid "Created USB backup job."
-msgstr ""
+msgstr "Taak voor USB-back-up aangemaakt."
 
 msgid "Delete"
 msgstr "Verwijderen"
@@ -53,7 +54,7 @@ msgid "Edit"
 msgstr "Aanpassen"
 
 msgid "Enable archive mode."
-msgstr "Archief modus inschakelen"
+msgstr "Archief-modus inschakelen"
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -64,7 +65,7 @@ msgid "Enabled"
 msgstr "Ingeschakeld"
 
 msgid "External Storage Device"
-msgstr ""
+msgstr "Apparaat voor externe opslag"
 
 msgid "Extra options"
 msgstr "Extra opties"
@@ -84,7 +85,7 @@ msgstr "Modus"
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Raadpleeg de <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>handleidingspagina</a> voor meer details."
+msgstr "Raadpleeg de <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>handleiding</a> voor meer details."
 
 msgid "Preserve ACLs"
 msgstr "ACL's behouden"
@@ -108,25 +109,25 @@ msgid "Quiet"
 msgstr "Stil"
 
 msgid "Recurse into directories."
-msgstr "Afdalen in mappen"
+msgstr "Onderliggende mappen"
 
 msgid "Recursive"
 msgstr "Recursief"
 
 msgid "Relative path"
-msgstr ""
+msgstr "Relatief pad"
 
 msgid "Run"
 msgstr "Uitvoeren"
 
 msgid "Run backup job"
-msgstr ""
+msgstr "Taak voor back-up uitvoeren"
 
 msgid "Select a device ..."
 msgstr "Selecteer een apparaat ..."
 
 msgid "Send email"
-msgstr "E-mail versturen"
+msgstr "E-mail verzenden"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
@@ -148,21 +149,21 @@ msgid "Suppress non-error messages."
 msgstr "Non-foutmeldingen onderdrukken."
 
 msgid "Tags"
-msgstr ""
+msgstr "Labels"
 
 msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
-msgstr ""
+msgstr "De opties 'E-mail verzenden' en 'Stil' zijn tegenstrijdig."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
 "file system."
-msgstr ""
+msgstr "Het apparaat voor externe opslag. Zorg ervoor dat het apparaat slechts één bestandssysteem heeft."
 
 msgid ""
 "The relative directory path on the external storage device from/to which the"
 " content of the shared folder is to be synchronized. The directory is "
 "created if it does not exist."
-msgstr ""
+msgstr "Het relatieve pad naar een map op het externe opslagapparaat van/waarnaar de inhoud van de gedeelde map moet worden gesynchroniseerd. De map wordt aangemaakt als deze niet bestaat."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
@@ -185,7 +186,7 @@ msgid ""
 msgstr "De uitgebreide attributen op de bestemming bijwerken zodat ze overeenkomen met de lokale attributen."
 
 msgid "Updated USB backup job."
-msgstr ""
+msgstr "Taak voor USB-back-up bijgewerkt."
 
 msgid "n/a"
 msgstr "n.v.t."

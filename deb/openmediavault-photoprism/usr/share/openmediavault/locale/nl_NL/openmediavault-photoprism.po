@@ -8,6 +8,7 @@
 # Seba Kerckhof <seba.kerckhof@gmail.com>, 2022
 # Tim <co_ti@hotmail.com>, 2022
 # Milan Toet <milantoet@gmail.com>, 2022
+# Stephan Paternotte <stephan@paternottes.net>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: Milan Toet <milantoet@gmail.com>, 2022\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,49 +26,49 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "1 GB"
-msgstr ""
+msgstr "1 GB"
 
 msgid "1 MB"
-msgstr ""
+msgstr "1 MB"
 
 msgid "10 GB"
-msgstr ""
+msgstr "10 GB"
 
 msgid "10 MB"
-msgstr ""
+msgstr "10 MB"
 
 msgid "100 GB"
-msgstr ""
+msgstr "100 GB"
 
 msgid "100 MB"
-msgstr ""
+msgstr "100 MB"
 
 msgid "25 GB"
-msgstr ""
+msgstr "25 GB"
 
 msgid "25 MB"
-msgstr ""
+msgstr "25 MB"
 
 msgid "250 MB"
-msgstr ""
+msgstr "250 MB"
 
 msgid "5 GB"
-msgstr ""
+msgstr "5 GB"
 
 msgid "5 MB"
-msgstr ""
+msgstr "5 MB"
 
 msgid "50 GB"
-msgstr ""
+msgstr "50 GB"
 
 msgid "50 MB"
-msgstr ""
+msgstr "50 MB"
 
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 msgid "Application data"
-msgstr ""
+msgstr "Applicatiegegevens"
 
 msgid "Certificate"
 msgstr "Certificaat"
@@ -75,6 +76,8 @@ msgstr "Certificaat"
 msgid ""
 "Disable password authentication, WebDAV, and the advanced settings page."
 msgstr ""
+"Wachtwoordverificatie, WebDAV en de pagina met geavanceerde instellingen "
+"uitschakelen."
 
 msgid "Disabled"
 msgstr "Uitgeschakeld"
@@ -83,24 +86,27 @@ msgid "Enabled"
 msgstr "Ingeschakeld"
 
 msgid "Filesize limit"
-msgstr ""
+msgstr "Bestandsgrootte-limiet"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
 "are disabled, in particular import, upload, and delete."
 msgstr ""
+"Indien ingeschakeld, worden alle functies waarvoor schrijfrechten op de "
+"afbeeldingsmap vereist zijn uitgeschakeld, met name importeren, uploaden en "
+"verwijderen."
 
 msgid "Images"
-msgstr ""
+msgstr "Afbeeldingen"
 
 msgid "Import"
 msgstr "Importeren"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Gebruikersinterface openen"
 
 msgid "PhotoPrism"
-msgstr ""
+msgstr "PhotoPrism"
 
 msgid "Port"
 msgstr "Poort"
@@ -121,20 +127,25 @@ msgid ""
 "The location of the media files. Make sure the user <em>photoprism</em> or "
 "group <em>users</em> can access the files."
 msgstr ""
+"De locatie van de mediabestanden. Zorg ervoor dat de gebruiker "
+"<em>photoprism</em> of de groep <em>gebruikers</em> toegang heeft tot de "
+"bestanden."
 
 msgid "The location where to store the application data."
-msgstr ""
+msgstr "De locatie waar de applicatiegegevens moeten worden opgeslagen."
 
 msgid "The maximum size of media files."
-msgstr ""
+msgstr "De maximale grootte van mediabestanden."
 
 msgid "Updated PhotoPrism settings."
-msgstr ""
+msgstr "PhotoPrism-instellingen bijgewerkt."
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
 " Please do not forget to change the password immediately."
 msgstr ""
+"Gebruik de referenties van <em>admin:admin</em> bij het voor de eerste keer "
+"inloggen. Vergeet niet om het wachtwoord onmiddellijk te wijzigen."
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
@@ -142,3 +153,8 @@ msgid ""
 "duplicates. Make sure the user <em>photoprism</em> or group <em>users</em> "
 "can access the files."
 msgstr ""
+"Optioneel kunt u een importmap aankoppelen van waaruit bestanden op een "
+"gestructureerde manier naar de originelenmap kunnen worden overgebracht, "
+"waarbij duplicaten worden vermeden. Zorg ervoor dat de gebruiker "
+"<em>photoprism</em> of de groep <em>gebruikers</em> toegang heeft tot de "
+"bestanden."

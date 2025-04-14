@@ -29,7 +29,7 @@ msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "Un potent servidor FTP/SFTP/FTPS modular."
 
 msgid "Access mode"
-msgstr ""
+msgstr "Mode d'accés"
 
 msgid "Advanced settings"
 msgstr "Propietats avançades"
@@ -41,15 +41,17 @@ msgid ""
 "Allow users to log in without a password. Make sure the user <em>ftp</em> or"
 " group <em>nogroup</em> can access the files."
 msgstr ""
+"Permet als usuaris iniciar sessió sense contrasenya. Assegureu-vos que "
+"l'usuari <em>ftp</em> or grup <em>nogrup</em> pugui accedir als fitxers."
 
 msgid "Anonymous FTP"
 msgstr "FTP Anònim"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "ID d'usuari autenticat"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Mètode d'autenticació"
 
 msgid "Ban Rules"
 msgstr "Normes excloses"
@@ -64,7 +66,7 @@ msgid "Certificate"
 msgstr "Certificat"
 
 msgid "Completion status"
-msgstr ""
+msgstr "Estat de finalització"
 
 msgid "Create"
 msgstr "Crea"
@@ -85,7 +87,7 @@ msgid "Deny logins which do not have a valid shell."
 msgstr "Denegueu els inicis de sessió que no tinguin un shell vàlid."
 
 msgid "Direction"
-msgstr ""
+msgstr "Direcció"
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "Mostra el directori inicial de l'usuari a la llista de navegació."
@@ -123,7 +125,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - Registre de transferència"
 
 msgid "FXP"
 msgstr "FXP"
@@ -136,10 +138,10 @@ msgstr ""
 "pel client que executa la transferència."
 
 msgid "Filename"
-msgstr ""
+msgstr "Nom del fitxer"
 
 msgid "Filesize"
-msgstr ""
+msgstr "Mida del fitxer"
 
 msgid "Home directories"
 msgstr "Directoris Home"
@@ -268,7 +270,7 @@ msgid "Refresh time"
 msgstr "Temps d’actualització "
 
 msgid "Remote host"
-msgstr ""
+msgstr "Amfitrió remot"
 
 msgid "Require valid shell"
 msgstr "Cal una Shell vàlida"
@@ -298,7 +300,7 @@ msgid "Shares"
 msgstr "Compartits"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "Bandera d'acció especial"
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -385,10 +387,10 @@ msgid "Transfer log"
 msgstr "Log de transferència"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "Temps de transferència"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "Tipus de transferència"
 
 msgid "Updated FTP ban rule."
 msgstr "Actualització de la norma d'exclusió  FTP."

@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the openmediavault-md package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Stephan Paternotte <stephan@paternottes.net>, 2025
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-15 11:52+0100\n"
+"POT-Creation-Date: 2025-04-05 10:24+0200\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,102 +22,107 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "Er kan maximaal één apparaat worden verwijderd."
 
-msgid "A maximum of two device can be removed."
-msgstr ""
+msgid "A maximum of two devices can be removed."
+msgstr "Er kunnen maximaal twee apparaten worden verwijderd."
 
 msgid "Add hot spares / recover RAID device."
-msgstr ""
+msgstr "Hot spares / herstel RAID-apparaat toevoegen."
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "Er zijn minimaal vier apparaten nodig."
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "Er zijn minimaal drie apparaten nodig."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "Er zijn minimaal twee apparaten nodig."
 
 msgid "Capacity"
-msgstr ""
+msgstr "Capaciteit"
 
 msgid "Create"
-msgstr ""
-
-msgid "Details"
-msgstr ""
+msgstr "Aanmaken"
 
 msgid "Device"
-msgstr ""
+msgstr "Apparaat"
 
 msgid "Devices"
-msgstr ""
+msgstr "Apparaten"
 
 msgid "Grow"
-msgstr ""
+msgstr "Laten toenemen"
 
 msgid "Level"
-msgstr ""
+msgstr "Niveau"
 
 msgid "Linear"
-msgstr ""
+msgstr "Lineair"
 
 msgid "Mirror"
-msgstr ""
+msgstr "Mirror"
 
 msgid "Multiple Device"
-msgstr ""
+msgstr "Meerdere apparaten"
 
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "Recover"
-msgstr ""
+msgstr "Herstellen"
+
+msgid "Referenced"
+msgstr "Met verwijzing"
 
 msgid "Remove"
-msgstr ""
+msgstr "Verwijderen"
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Apparaten selecteren…"
 
 msgid "Select devices to be added to the RAID device."
 msgstr ""
+"Selecteer apparaten die aan het RAID-apparaat moeten worden toegevoegd."
 
 msgid "Select devices to be removed from the RAID device."
 msgstr ""
+"Selecteer apparaten die van het RAID-apparaat moeten worden verwijderd."
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr ""
+"Selecteer de apparaten die zullen worden gebruikt om het RAID-apparaat te "
+"maken. Apparaten die via USB zijn aangesloten, worden niet vermeld (te "
+"onbetrouwbaar)."
 
 msgid "Show details"
-msgstr ""
+msgstr "Details tonen"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "Software RAID"
 
 msgid "State"
-msgstr ""
+msgstr "Toestand"
 
 msgid "Stripe"
-msgstr ""
+msgstr "Stripe"

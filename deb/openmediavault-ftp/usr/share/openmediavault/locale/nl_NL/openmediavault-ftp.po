@@ -10,6 +10,7 @@
 # Tim <co_ti@hotmail.com>, 2023
 # Milan Toet <milantoet@gmail.com>, 2023
 # Seba Kerckhof <seba.kerckhof@gmail.com>, 2023
+# Stephan Paternotte <stephan@paternottes.net>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -18,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-04 00:41+0200\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
-"Last-Translator: Seba Kerckhof <seba.kerckhof@gmail.com>, 2023\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,10 +31,10 @@ msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s betekent ongelimiteerd."
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr ""
+msgstr "Een krachtige modulaire FTP/SFTP/FTPS-server."
 
 msgid "Access mode"
-msgstr ""
+msgstr "Toegangsmodus"
 
 msgid "Advanced settings"
 msgstr "Geavanceerde instellingen"
@@ -45,21 +46,24 @@ msgid ""
 "Allow users to log in without a password. Make sure the user <em>ftp</em> or"
 " group <em>nogroup</em> can access the files."
 msgstr ""
+"Gebruikers toestaan om in te loggen zonder wachtwoord. Zorg ervoor dat de "
+"gebruiker <em>ftp</em> of de groep <em>geengroep</em> toegang heeft tot de "
+"bestanden."
 
 msgid "Anonymous FTP"
 msgstr "Anonieme FTP"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "Geauthenticeerde gebruikers-ID"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Authenticatiemethode"
 
 msgid "Ban Rules"
-msgstr ""
+msgstr "Regels voor verbanning"
 
 msgid "Ban statistics:"
-msgstr "Banstatistieken:"
+msgstr "Verbanningsstatistieken:"
 
 msgid "Bandwidth restriction"
 msgstr "Bandbreedtebeperking"
@@ -68,40 +72,40 @@ msgid "Certificate"
 msgstr "Certificaat"
 
 msgid "Completion status"
-msgstr ""
+msgstr "Voltooiingsstatus"
 
 msgid "Create"
 msgstr "Aanmaken"
 
 msgid "Created FTP ban rule."
-msgstr ""
+msgstr "Verbanningsregel aangemaakt."
 
 msgid "Created FTP share."
-msgstr ""
+msgstr "FTP-share aangemaakt."
 
 msgid "Currently logged in users:"
 msgstr "Huidige ingelogde gebruikers:"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum en tijd"
 
 msgid "Deny logins which do not have a valid shell."
-msgstr ""
+msgstr "Logins zonder geldige geldige shell afwijzen."
 
 msgid "Direction"
-msgstr ""
+msgstr "Richting"
 
 msgid "Display the home directory of the user in the browse list."
-msgstr ""
+msgstr "De basismap van de gebruiker weergeven in de bladerlijst."
 
 msgid "Edit"
-msgstr "Aanpassen"
+msgstr "Bewerken"
 
 msgid "Enable SSL/TLS connections."
-msgstr ""
+msgstr "SSL/TLS-verbindingen inschakelen."
 
 msgid "Enable file transfer logging."
-msgstr ""
+msgstr "Logboekregistratie van bestandsoverdracht inschakelen."
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
@@ -128,7 +132,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - Overdrachtslogboek"
 
 msgid "FXP"
 msgstr "FXP"
@@ -142,10 +146,10 @@ msgstr ""
 "overdrachtstoestemming.,"
 
 msgid "Filename"
-msgstr ""
+msgstr "Bestandsnaam"
 
 msgid "Filesize"
-msgstr ""
+msgstr "Bestandsgrootte"
 
 msgid "Home directories"
 msgstr "Thuismappen"
@@ -200,7 +204,7 @@ msgid "Max. login attempts"
 msgstr "Max. aanmeldpogingen"
 
 msgid "Max. passive port"
-msgstr ""
+msgstr "Max. passieve poort"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maximum downloadsnelheid (KiB/s)"
@@ -229,10 +233,10 @@ msgid "Maximum upload rate (KiB/s)"
 msgstr "Maximale uploadsnelheid (KiB/s)"
 
 msgid "Message"
-msgstr ""
+msgstr "Bericht"
 
 msgid "Min. passive port"
-msgstr ""
+msgstr "Min. passieve poort"
 
 msgid "No session reuse required"
 msgstr "Geen sessiehergebruik vereist"
@@ -273,10 +277,10 @@ msgid "Port"
 msgstr "Poort"
 
 msgid "Refresh time"
-msgstr ""
+msgstr "Vernieuwingsinterval"
 
 msgid "Remote host"
-msgstr ""
+msgstr "Externe host"
 
 msgid "Require valid shell"
 msgstr "Vereis een geldige shell"
@@ -291,7 +295,7 @@ msgid "Reverse DNS lookup"
 msgstr "Reverse DNS-lookup"
 
 msgid "SSL/TLS Settings"
-msgstr ""
+msgstr "SSL/TLS-instellingen"
 
 msgid "Service disabled"
 msgstr "Dienst uitgeschakeld"
@@ -306,7 +310,7 @@ msgid "Shares"
 msgstr "Gedeelde bronnen"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "Speciale actievlag"
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -330,9 +334,10 @@ msgstr ""
 
 msgid "Specifies whether it is allowed to login as superuser directly."
 msgstr ""
+"Geeft aan of het toegestaan is direct als hoofdgebruiker aan te melden."
 
 msgid "Tags"
-msgstr ""
+msgstr "Labels"
 
 msgid "The SSL certificate."
 msgstr "Het SSL-certificaat"
@@ -353,6 +358,10 @@ msgid ""
 "target='_blank'>manual page</a> how to use variables. Leave this field empty"
 " to disable the welcome message."
 msgstr ""
+"Het welkomstbericht wordt bij het inloggen aan de gebruiker weergegeven. "
+"Bestudeer de <a href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
+"target='_blank'>handleiding</a> over het gebruik van variabelen. Laat dit "
+"veld leeg om het welkomstbericht uit te schakelen."
 
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
@@ -391,22 +400,22 @@ msgid "Transfer log"
 msgstr "Overdrachtslogbestand"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "Overdrachtstijd"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "Overdrachtstype"
 
 msgid "Updated FTP ban rule."
-msgstr ""
+msgstr "FTP-verbanningsregel bijgewerkt."
 
 msgid "Updated FTP share."
-msgstr ""
+msgstr "FTP-share bijgewerkt."
 
 msgid "Use the following bandwidth restriction."
-msgstr ""
+msgstr "Gebruik de volgende bandbreedtebeperking."
 
 msgid "User name"
-msgstr ""
+msgstr "Gebruikersnaam"
 
 msgid "Welcome message"
 msgstr "Welkomstbericht"
@@ -415,6 +424,9 @@ msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote user name."
 msgstr ""
+"Wanneer een client in eerste instantie verbinding maakt met de server, wordt"
+" het ident-protocol gebruikt om te proberen de externe gebruikersnaam te "
+"identificeren."
 
 msgid "n/a"
 msgstr "n.v.t."

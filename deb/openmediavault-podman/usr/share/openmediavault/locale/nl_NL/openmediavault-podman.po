@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-podman package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Stephan Paternotte <stephan@paternottes.net>, 2025
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-11 21:57+0200\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,103 +22,103 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Command"
-msgstr ""
+msgstr "Opdracht"
 
 msgid "Containers"
-msgstr ""
+msgstr "Containers"
 
 msgid "Created"
-msgstr ""
+msgstr "Aangemaakt"
 
 msgid "Digest"
-msgstr ""
+msgstr "Samenvatting"
 
 msgid "Do you really want to restart this container?"
-msgstr ""
+msgstr "Wilt u deze container echt opnieuw opstarten?"
 
 msgid "Do you really want to restart this pod?"
-msgstr ""
+msgstr "Wilt u deze pod echt opnieuw opstarten?"
 
 msgid "Driver"
-msgstr ""
+msgstr "Stuurprogramma"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 msgid "Images"
-msgstr ""
+msgstr "Images"
 
 msgid "Infra ID"
-msgstr ""
+msgstr "Infra-ID"
 
 msgid "Inspect"
-msgstr ""
+msgstr "Inspecteren"
 
 msgid "Logs"
-msgstr ""
+msgstr "Logboeken"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Aankoppelpunt"
 
 msgid "Mounts"
-msgstr ""
+msgstr "Aankoppelingen"
 
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 msgid "Names"
-msgstr ""
+msgstr "Namen"
 
 msgid "Networks"
-msgstr ""
+msgstr "Netwerken"
 
 msgid "Podman"
-msgstr ""
+msgstr "Podman"
 
 msgid "Pods"
-msgstr ""
+msgstr "Pods"
 
 msgid "Ports"
-msgstr ""
+msgstr "Poorten"
 
 msgid "Pull latest"
-msgstr ""
+msgstr "Nieuwste binnenhalen"
 
 msgid "Pull latest image"
-msgstr ""
+msgstr "Nieuwste image binnenhalen"
 
 msgid "Repository"
-msgstr ""
+msgstr "Opslagplaats"
 
 msgid "Restart"
-msgstr ""
+msgstr "Opnieuw starten"
 
 msgid "Size"
-msgstr ""
+msgstr "Grootte"
 
 msgid "Started"
-msgstr ""
+msgstr "Gestart"
 
 msgid "State"
-msgstr ""
+msgstr "Toestand"
 
 msgid "Statistics"
-msgstr ""
+msgstr "Statistieken"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Tag"
-msgstr ""
+msgstr "Label"
 
 msgid "Updated Podman settings."
-msgstr ""
+msgstr "Podman-instellingen bijgewerkt."
 
 msgid "Used"
-msgstr ""
+msgstr "Gebruikt"
 
 msgid "Volumes"
-msgstr ""
+msgstr "Volumes"

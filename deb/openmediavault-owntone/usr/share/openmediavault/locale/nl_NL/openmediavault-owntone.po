@@ -7,6 +7,7 @@
 # Volker Theile <votdev@gmx.de>, 2022
 # Tim <co_ti@hotmail.com>, 2022
 # Milan Toet <milantoet@gmail.com>, 2022
+# Stephan Paternotte <stephan@paternottes.net>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: Milan Toet <milantoet@gmail.com>, 2022\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,13 +28,13 @@ msgid "Enabled"
 msgstr "Ingeschakeld"
 
 msgid "Library name"
-msgstr "Bibliotheek naam"
+msgstr "Bibliotheeknaam"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Gebruikersinterface openen"
 
 msgid "OwnTone"
-msgstr ""
+msgstr "OwnTone"
 
 msgid "Password"
 msgstr "Wachtwoord"
@@ -48,21 +49,24 @@ msgid "Shared folder"
 msgstr "Gedeelde map"
 
 msgid "The 'admin' password to access the web interface."
-msgstr ""
+msgstr "Het 'admin' wachtwoord om toegang te krijgen tot de webinterface."
 
 msgid ""
 "The location of the media files to share. Make sure the user "
 "<em>owntone</em> or group <em>users</em> can access the files."
 msgstr ""
+"De locatie van de te delen mediabestanden. Zorg ervoor dat de gebruiker "
+"<em>owntone</em> of de groep <em>gebruikers</em> toegang hebben tot de "
+"bestanden."
 
 msgid "The name of the library as displayed by the clients."
 msgstr "De naam van de bibliotheek zoals deze aan gebruikers wordt getoond."
 
 msgid "The password to access the library."
-msgstr ""
+msgstr "Het wachtwoord om toegang te krijgen tot de bibliotheek."
 
 msgid "Updated OwnTone settings."
-msgstr ""
+msgstr "OwnTone-instellingen bijgewerkt."
 
 msgid "Web interface"
-msgstr ""
+msgstr "Web-interface"

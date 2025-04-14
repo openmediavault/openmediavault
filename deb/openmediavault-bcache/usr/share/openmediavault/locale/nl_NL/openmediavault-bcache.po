@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-bcache package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Stephan Paternotte <stephan@paternottes.net>, 2025
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-25 13:40+0100\n"
 "PO-Revision-Date: 2024-11-20 12:26+0000\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,196 +22,211 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "5 Minutes"
-msgstr ""
+msgstr "5 minuten"
 
 msgid ""
 "A sequential IO will bypass the cache once it passes this threshold. "
 "(default:4.0M, max:3.9G)"
 msgstr ""
+"Een sequentiële IO zal de cache omzeilen zodra deze drempelwaarde wordt "
+"overschreden. (standaard: 4.0M, max: 3.9G)"
 
 msgid ""
 "Allow bcache go around the cache when there's read / write congestion. "
 "(default:true)"
 msgstr ""
+"Toestaan dat bcache bij overbelasting de cache omzeild. (standaard: waar)"
 
 msgid "Backing Devices"
-msgstr ""
+msgstr "Ondersteunende apparaten"
 
 msgid "Bcache"
-msgstr ""
+msgstr "Bcache"
 
 msgid "Bcache Device"
-msgstr ""
+msgstr "Bcache-apparaat"
 
 msgid "Cache Device"
-msgstr ""
+msgstr "Cache-apparaat"
 
 msgid "Cache Devices"
-msgstr ""
+msgstr "Cache-apparaten"
 
 msgid "Cache Mode"
-msgstr ""
+msgstr "Cache-modus"
 
 msgid "Capacity"
-msgstr ""
+msgstr "Capaciteit"
 
 msgid "Clean"
-msgstr ""
+msgstr "Wissen"
 
 msgid "Clear total statistics"
-msgstr ""
+msgstr "Alle statistieken wissen"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Configuratie"
 
 msgid "Congest Tracking"
-msgstr ""
+msgstr "Overbelasting bijhouden"
 
 msgid "Congested Read Threshold (us)"
-msgstr ""
+msgstr "Drempelwaarde overbelasting (us)"
 
 msgid "Create"
-msgstr ""
+msgstr "Aanmaken"
 
 msgid "Day"
-msgstr ""
+msgstr "Dag"
 
 msgid "Device"
-msgstr ""
+msgstr "Apparaat"
 
 msgid "Dirty"
-msgstr ""
+msgstr "Vuil"
 
 msgid "Dirty Data"
-msgstr ""
+msgstr "Vuile gegevens"
 
 msgid "Docs"
-msgstr ""
+msgstr "Docs"
 
 msgid "Hour"
-msgstr ""
+msgstr "Uur"
 
 msgid ""
 "If nonzero, bcache tries to keep around this percentage of the cache dirty "
 "by throttling background writeback and using a PD controller to smoothly "
 "adjust the rate. (default:10)"
 msgstr ""
+"Voor waarden ≠ 0, probeert bcache dit percentage van de cache vuil te houden"
+" door het terugschrijven op de achtergrond te beperken en een PD-controller "
+"te gebruiken om de snelheid soepel aan te passen. (standaard: 10)"
 
 msgid "Inconsistent"
-msgstr ""
+msgstr "Inconsistent"
 
 msgid "Metadata"
-msgstr ""
+msgstr "Metagegevens"
 
 msgid "Missing"
-msgstr ""
+msgstr "Ontbrekend"
 
 msgid "Missing Cache"
-msgstr ""
+msgstr "Cache ontbreekt"
 
 msgid "Mounted"
-msgstr ""
+msgstr "Aangekoppeld"
 
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 msgid "No Cache"
-msgstr ""
+msgstr "Geen cache"
 
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 msgid ""
 "Please note that creating a file system on a Bcache device can take longer. "
 "It is therefore possible that the file system is not immediately available "
 "for mounting."
 msgstr ""
+"Houd er rekening mee dat het aanmaken van een bestandssysteem op een Bcache-"
+"apparaat langer kan duren. Het is dus mogelijk dat het bestandssysteem niet "
+"direct beschikbaar is voor aankoppelen."
 
 msgid "Recovery Actions"
-msgstr ""
+msgstr "Herstelacties"
 
 msgid "Register"
-msgstr ""
+msgstr "Inschrijven"
 
 msgid "Select a cache device ..."
-msgstr ""
+msgstr "Selecteer een cache-apparaat…"
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Selecteer een apparaat…"
 
 msgid "Select the device that will be formatted as Bcache backing device."
 msgstr ""
+"Selecteer het apparaat dat zal worden geformatteerd als Bcache-ondersteunend"
+" apparaat."
 
 msgid "Select the device that will be formatted as Bcache cache device."
 msgstr ""
+"Selecteer het apparaat dat wordt geformatteerd als Bcache-cacheapparaat."
 
 msgid "Select the device that will be used as cache device."
-msgstr ""
+msgstr "Selecteer het apparaat dat als cacheapparaat zal worden gebruikt."
 
 msgid "Sequential Cutoff"
-msgstr ""
+msgstr "Sequentiële afsluiting"
 
 msgid "Show details"
-msgstr ""
+msgstr "Details tonen"
 
 msgid "Start without cache"
-msgstr ""
+msgstr "Starten zonder cache"
 
 msgid "State"
-msgstr ""
+msgstr "Toestand"
 
 msgid "Statistics"
-msgstr ""
+msgstr "Statistieken"
 
 msgid "Superblock"
-msgstr ""
+msgstr "Superblok"
 
 msgid "The default is 2000 us (2 milliseconds)"
-msgstr ""
+msgstr "Standaard is 2000 us (2 milliseconden)"
 
 msgid "The default is 20000 us (20 milliseconds)"
-msgstr ""
+msgstr "Standaard is 20000 us (20 milliseconden)"
 
 msgid "Total"
-msgstr ""
+msgstr "Totaal"
 
 msgid "Unit"
-msgstr ""
+msgstr "Eenheid"
 
 msgid "Unregister"
-msgstr ""
+msgstr "Uitschrijven"
 
 msgid "Unregistered"
-msgstr ""
+msgstr "Uitgeschreven"
 
 msgid "Unused"
-msgstr ""
+msgstr "Ongebruikt"
 
 msgid "Updated backing device '{{ devicefile }}'."
-msgstr ""
+msgstr "Ondersteunend apparaat '{{ devicefile }}' bijgewerkt."
 
 msgid "Updated cache device '{{ devicefile }}'."
-msgstr ""
+msgstr "Cache-apparaat '{{ devicefile }}' bijgewerkt."
 
 msgid ""
 "When dirty data is written to the cache and it previously did not contain "
 "any, waits some number of seconds before initiating writeback. (default:30)"
 msgstr ""
+"Wanneer vuile gegevens naar de cache worden geschreven en deze voorheen geen"
+" gegevens bevatte, wacht een aantal seconden voordat het terugschrijven "
+"wordt gestart. (standaard: 30)"
 
 msgid "Writeback Delay"
-msgstr ""
+msgstr "Writeback-vertraging"
 
 msgid "Writeback Percent"
-msgstr ""
+msgstr "Writeback-percentage"
 
 msgid "none"
-msgstr ""
+msgstr "geen"
 
 msgid "writearound"
-msgstr ""
+msgstr "writearound"
 
 msgid "writeback"
-msgstr ""
+msgstr "writeback"
 
 msgid "writethrough"
-msgstr ""
+msgstr "writethrough"

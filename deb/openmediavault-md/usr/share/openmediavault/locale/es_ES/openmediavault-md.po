@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-15 11:52+0100\n"
+"POT-Creation-Date: 2025-04-05 10:24+0200\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2023\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
@@ -24,8 +24,8 @@ msgstr ""
 msgid "A maximum of one device can be removed."
 msgstr "Se puede eliminar como máximo 1 disco."
 
-msgid "A maximum of two device can be removed."
-msgstr "Se puede eliminar como máximo 2 discos."
+msgid "A maximum of two devices can be removed."
+msgstr ""
 
 msgid "Add hot spares / recover RAID device."
 msgstr "Añadir hot spares / Recuperar un RAID."
@@ -44,9 +44,6 @@ msgstr "Capacidad"
 
 msgid "Create"
 msgstr "Crear"
-
-msgid "Details"
-msgstr "Detalles"
 
 msgid "Device"
 msgstr "Disco"
@@ -92,6 +89,9 @@ msgstr "RAID 6"
 
 msgid "Recover"
 msgstr "Recuperar"
+
+msgid "Referenced"
+msgstr ""
 
 msgid "Remove"
 msgstr "Eliminar"
