@@ -558,3 +558,16 @@ nunjucksEnv.addFilter('localedate', toLocaleDate);
  * Convert a Cron expression into a human-readable description.
  */
 nunjucksEnv.addFilter('cron2human', cron2human);
+/**
+ * Override a variable value with the given value if the specified cognition
+ * is truthy. Otherwise, the passed value is passed.
+ * See https://github.com/mozilla/nunjucks/blob/master/nunjucks/src/tests.js
+ * to get a list of available tests.
+ */
+nunjucksEnv.addFilter('override', (value: any, newValue: any, testName: string, ...args: any) => {
+  // @ts-ignore
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  const testFn: Function = nunjucksEnv.getTest(testName);
+  const testRes: boolean = testFn.call(this, ...args);
+  return testRes ? newValue : value;
+});
