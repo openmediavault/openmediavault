@@ -1,3 +1,14 @@
+openmediavault-k8s (7.4.6-1) stable; urgency=medium
+
+  * Update locale files.
+  * Issue #1940: Add `OMV_K8S_TRAEFIK_PORTS` environment variable to
+    append additional Traefik port configurations to the Helm chart.
+    The configuration must be specified in minified YAML format
+    Check the Traefik Helm chart documentation for more information
+    about the available port configuration properties.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 17 Apr 2025 21:16:51 +0200
+
 openmediavault-k8s (7.4.5-1) stable; urgency=medium
 
   * Update locale files.
