@@ -354,6 +354,68 @@ class Btrfs extends Filesystem {
 		$cmd->execute($output);
 		$result = $result . "\n\n" . implode("\n", $output);
 
+		$output = [];
+		$cmdArgs = [];
+		$cmdArgs[] = "--no-pager";
+		$cmdArgs[] = "--system";
+		$cmdArgs[] = "--lines=1";
+		$cmdArgs[] = "--output=json";
+		$cmdArgs[] = sprintf("--grep='BTRFS info \(device %s\): scrub: started'",
+			$this->getDeviceName());
+		$cmd = new \OMV\System\Process("journalctl", $cmdArgs);
+		$cmd->setQuiet(TRUE);
+		$cmd->execute($output, $exitStatus);
+		if ($exitStatus == 0) {
+			$output = json_decode_safe($output[0], TRUE);
+
+			$tsStart = $output['__REALTIME_TIMESTAMP'] / 1000000;
+			$tsFinish = 0;
+
+			$output = [];
+			$cmdArgs = [];
+			$cmdArgs[] = "--no-pager";
+			$cmdArgs[] = "--system";
+			$cmdArgs[] = "--lines=1";
+			$cmdArgs[] = "--output=json";
+			$cmdArgs[] = sprintf("--grep='BTRFS info \(device %s\): scrub: finished'",
+				$this->getDeviceName());
+			$cmd = new \OMV\System\Process("journalctl", $cmdArgs);
+			$cmd->setQuiet(TRUE);
+			$cmd->execute($output, $exitStatus);
+			if ($exitStatus == 0) {
+				$output = json_decode_safe($output[0], TRUE);
+				$tsFinish = $output['__REALTIME_TIMESTAMP'] / 1000000;
+			}
+
+			$dtStart = new \DateTime(sprintf("@%d", $tsStart));
+			$dtFinish = new \DateTime(sprintf("@%d", $tsFinish));
+
+			if ($dtFinish >= $dtStart) {
+				$status = "n/a";
+
+				// Parse the message, e.g. "BTRFS info (device sda): scrub: finished on devid 1 with status: 0".
+				if (1 == preg_match("/status:\s+(\d+)$/", $output['MESSAGE'],
+						$matches)) {
+					$status = $matches[1];
+				}
+
+				// $message = sprintf("Last scrub run was started on %s and finished on %s with status %s.",
+				//     $dtStart->format(\DateTime::RFC3339),
+				//     $dtFinish->format(\DateTime::RFC3339),
+				//     $status);
+				$message = sprintf("Last scrub run was started on %s and finished after %d minutes with status %s.",
+					$dtStart->format(\DateTime::RFC3339),
+					$dtFinish->i, $status);
+			} else {
+				$message = sprintf("Last scrub run was started on %s and is still in progress.",
+					$dtStart->format(\DateTime::RFC3339));
+			}
+
+			$result = $result . "\n\n" . $message;
+		} else {
+			$result = $result . "\n\n" . "No scrub run has been started yet.";
+		}
+
 		return $result;
 	}
 
