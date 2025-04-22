@@ -392,6 +392,7 @@ class Btrfs extends Filesystem {
 
 			if ($dtFinish >= $dtStart) {
 				$status = "n/a";
+				$dInterval = $dtStart->diff($dtFinish);
 
 				// Parse the message, e.g. "BTRFS info (device sda): scrub: finished on devid 1 with status: 0".
 				if (1 == preg_match("/status:\s+(\d+)$/", $output['MESSAGE'],
@@ -399,13 +400,9 @@ class Btrfs extends Filesystem {
 					$status = $matches[1];
 				}
 
-				// $message = sprintf("Last scrub run was started on %s and finished on %s with status %s.",
-				//     $dtStart->format(\DateTime::RFC3339),
-				//     $dtFinish->format(\DateTime::RFC3339),
-				//     $status);
-				$message = sprintf("Last scrub run was started on %s and finished after %d minutes with status %s.",
+				$message = sprintf("Last scrub run was started on %s and finished in %s with status %s.",
 					$dtStart->format(\DateTime::RFC3339),
-					$dtFinish->i, $status);
+					$dInterval->format("%hh %im %ss"), $status);
 			} else {
 				$message = sprintf("Last scrub run was started on %s and is still in progress.",
 					$dtStart->format(\DateTime::RFC3339));
