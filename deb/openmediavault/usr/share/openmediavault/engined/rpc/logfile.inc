@@ -113,7 +113,8 @@ class LogFile extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
-		  $params['limit'], $params['sortfield'], $params['sortdir']);
+		  $params['limit'], $params['sortfield'], $params['sortdir'],
+		  $params['search']);
 	}
 
 	/**
