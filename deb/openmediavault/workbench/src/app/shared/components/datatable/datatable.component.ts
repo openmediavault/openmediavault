@@ -431,6 +431,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     } else {
       this.reloadData();
     }
+    this.offset = 0;
   }
 
   applySearchFilter(): void {
