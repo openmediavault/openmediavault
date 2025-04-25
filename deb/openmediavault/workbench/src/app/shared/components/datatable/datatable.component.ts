@@ -286,6 +286,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
 
   @Throttle(1000)
   onSearchFilterChange(): void {
+    this.offset = 0;
     if (!this.remoteSearching) {
       this.applySearchFilter();
     } else {
@@ -425,13 +426,13 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   }
 
   clearSearchFilter(): void {
+    this.offset = 0;
     this.searchFilter = '';
     if (!this.remoteSearching) {
       this.rows = [...this.data];
     } else {
       this.reloadData();
     }
-    this.offset = 0;
   }
 
   applySearchFilter(): void {
@@ -454,7 +455,6 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
         return _.includes(_.lowerCase(value), _.lowerCase(this.searchFilter));
       })
     );
-    this.offset = 0;
   }
 
   onButtonToggleChange(
