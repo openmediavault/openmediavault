@@ -1,5 +1,6 @@
 openmediavault (7.7.5-1) stable; urgency=medium
 
+  * Update locale files.
   * Display the date of the last scrub run on the BTRFS details
     page.
 
