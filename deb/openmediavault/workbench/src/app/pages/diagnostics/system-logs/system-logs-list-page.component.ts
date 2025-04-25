@@ -36,6 +36,8 @@ export class SystemLogsListPageComponent implements OnInit {
   public config: DatatablePageConfig = {
     autoLoad: false,
     autoReload: false,
+    hasSearchField: true,
+    remoteSearching: true,
     remoteSorting: true,
     remotePaging: true,
     limit: 15,
