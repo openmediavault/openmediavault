@@ -70,7 +70,7 @@ do
   omv_log "Scrubbing the file system mounted at ${target} [UUID=${uuid}] ..."
 
   if is_running "${target}"; then
-    omv_info "Abort, ${target} is already being processed."
+    omv_info "Aborting scrub, ${target} is already being processed."
     break
   fi
 
