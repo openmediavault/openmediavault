@@ -156,4 +156,20 @@ class test_openmediavault_datamodel_schema extends \PHPUnit\Framework\TestCase {
 		$schema->checkFormat("FOO]BAR",
 			[ "format" => "netbiosname" ], "field1");
 	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testCheckFormatNoMultiLine1() {
+		$schema = $this->getSchema();
+		$schema->checkFormat("foo123",
+			[ "format" => "no-multi-line" ], "field1");
+	}
+
+	public function testCheckFormatNoMultiLine2() {
+		$schema = $this->getSchema();
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$schema->checkFormat("foo\r\nbar",
+			[ "format" => "no-multi-line" ], "field1");
+	}
 }

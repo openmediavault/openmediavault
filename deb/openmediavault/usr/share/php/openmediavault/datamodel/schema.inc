@@ -149,6 +149,13 @@ class Schema extends \OMV\Json\Schema {
 					  $name, $value);
 				}
 				break;
+			case "no-multi-line":
+				if (!preg_match('/^[^\r\n]*$/', $value)) {
+					throw new \OMV\Json\SchemaValidationException(
+					  "%s: The value contains a multi-line content.",
+					  $name);
+				}
+				break;
 			default:
 				throw new \OMV\Json\SchemaException(
 				  "%s: The format '%s' is not defined.",

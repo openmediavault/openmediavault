@@ -10,6 +10,7 @@
 			},
 			"password": {
 				"type": "string",
+				"format": "no-multi-line",
 				"required": true
 			}
 		}
@@ -54,6 +55,7 @@
 	        },
 	        "password": {
 	            "type": "string",
+				"format": "no-multi-line",
 				"required": true
 	        },
 	        "email": {
@@ -99,6 +101,7 @@
 		"properties": {
 			"password": {
 				"type": "string",
+				"format": "no-multi-line",
 				"required": false
 			},
 			"email": {
@@ -236,6 +239,7 @@
 		"properties": {
 			"password":{
 				"type": "string",
+				"format": "no-multi-line",
 				"required": true
 			}
 		}

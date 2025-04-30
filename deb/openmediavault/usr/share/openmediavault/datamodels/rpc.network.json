@@ -633,6 +633,7 @@
 			},
 			"httppassword": {
 			   "type": "string",
+				"format": "no-multi-line",
 			   "required": true
 			},
 			"httpsenable": {
@@ -655,6 +656,7 @@
 			},
 			"httpspassword": {
 			   "type": "string",
+				"format": "no-multi-line",
 			   "required": true
 			},
 			"ftpenable": {
@@ -677,6 +679,7 @@
 			},
 			"ftppassword": {
 			   "type": "string",
+				"format": "no-multi-line",
 			   "required": true
 			}
 		}
