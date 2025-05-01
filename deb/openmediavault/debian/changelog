@@ -1,4 +1,4 @@
-openmediavault (7.7.6-1) stable; urgency=medium
+openmediavault (7.7.6-1) stable; urgency=security
 
   * Add search field to the `Diagnostics | System Logs | Logs` page.
   * Display more information about the last/current scrub run on the
