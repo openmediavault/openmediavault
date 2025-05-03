@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MATERIAL_SANITY_CHECKS } from '@angular/material/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import {
   TRANSLOCO_MISSING_HANDLER,
   TranslocoConfig,
@@ -23,6 +24,9 @@ export class TestingTranslocoMissingHandler implements TranslocoMissingHandler {
     NoopAnimationsModule,
     RouterTestingModule,
     TranslocoTestingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: false
+    }),
     ToastrModule.forRoot()
   ],
   exports: [RouterTestingModule],
