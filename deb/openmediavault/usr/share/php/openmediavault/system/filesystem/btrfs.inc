@@ -133,8 +133,9 @@ class Btrfs extends Filesystem {
 	 *                         current ratio will fit only 75 GiB of data)
 	 */
 	public function getStatistics() {
-		if (FALSE === ($stats = parent::getStatistics()))
+		if (FALSE === ($stats = parent::getStatistics())) {
 			return FALSE;
+		}
 
 		$cmdArgs = [];
 		$cmdArgs[] = "fi";
@@ -323,6 +324,11 @@ class Btrfs extends Filesystem {
 	 * See parent class definition.
 	 */
 	public function getDetails() {
+		if (FALSE === ($mountPoint = $this->getMountPoint())) {
+			throw new \OMV\Exception("Failed to get mountpoint of '%s'.",
+				$this->getDeviceFile());
+		}
+
 		$result = "";
 
 		$cmdArgs = [];
@@ -338,7 +344,7 @@ class Btrfs extends Filesystem {
 		$cmdArgs = [];
 		$cmdArgs[] = "filesystem";
 		$cmdArgs[] = "df";
-		$cmdArgs[] = escapeshellarg($this->getMountPoint());
+		$cmdArgs[] = escapeshellarg($mountPoint);
 		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
@@ -348,7 +354,7 @@ class Btrfs extends Filesystem {
 		$cmdArgs = [];
 		$cmdArgs[] = "device";
 		$cmdArgs[] = "stats";
-		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		$cmdArgs[] = escapeshellarg($mountPoint);
 		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
@@ -358,7 +364,8 @@ class Btrfs extends Filesystem {
 		$cmdArgs = [];
 		$cmdArgs[] = "scrub";
 		$cmdArgs[] = "status";
-		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		$cmdArgs[] = "-d";
+		$cmdArgs[] = escapeshellarg($mountPoint);
 		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);

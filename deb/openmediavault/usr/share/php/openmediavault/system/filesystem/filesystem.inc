@@ -623,9 +623,12 @@ class Filesystem extends \OMV\System\BlockDevice
 	 */
 	public function getStatistics() {
 		$this->getData();
+
 		// Get the mount point of the filesystem.
-		if (FALSE === ($mountPoint = $this->getMountPoint()))
+		if (FALSE === ($mountPoint = $this->getMountPoint())) {
 			return FALSE;
+		}
+
 		$cmdArgs = [];
 		$cmdArgs[] = "-PT";
 		$cmdArgs[] = escapeshellarg($mountPoint);

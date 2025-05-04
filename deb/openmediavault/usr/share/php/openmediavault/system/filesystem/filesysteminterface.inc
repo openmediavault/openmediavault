@@ -235,7 +235,9 @@ interface FilesystemInterface {
 	 * Get details about the filesystem, e.g. the health status.
 	 * @return A string that contains information and details about the
 	 *   filesystem.
+	 * @throw \OMV\Exception
 	 * @throw \OMV\ExecException
+	 * @throw \OMV\NotSupportedException
 	 */
 	public function getDetails();
 
