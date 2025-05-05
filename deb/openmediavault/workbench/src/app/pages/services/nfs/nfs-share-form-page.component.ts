@@ -69,7 +69,9 @@ export class NfsShareFormPageComponent extends BaseFormPageComponent {
           gettext(
             // eslint-disable-next-line max-len
             "Please check the <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>manual page</a> for more details."
-          ),
+          ) +
+          ' ' +
+          gettext("WARNING: UI only supports a single client entry per share."),
         value: '',
         validators: {
           required: true
