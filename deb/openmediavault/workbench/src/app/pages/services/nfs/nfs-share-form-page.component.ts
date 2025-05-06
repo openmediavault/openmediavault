@@ -64,7 +64,9 @@ export class NfsShareFormPageComponent extends BaseFormPageComponent {
         name: 'client',
         label: gettext('Client'),
         hint:
-          gettext('Clients allowed to mount the file system, e.g. 192.168.178.0/24.') +
+          gettext('Hosts allowed to mount the file system, e.g. 192.168.178.0/24.') +
+          ' ' +
+          gettext('Note, only one client can be configured per share.') +
           ' ' +
           gettext(
             // eslint-disable-next-line max-len
