@@ -23,14 +23,14 @@ enabled=$(systemctl is-enabled onedrive@onedrive.service)
 username=$(omv-confdbadm read 'conf.service.onedrive' | jq --raw-output '.username')
 
 stop_onedrive_service() {
-  if [ ${enabled} ]; then
+  if [ "${enabled}" == "enabled" ]; then
     echo "Please wait, stopping service ..."
     systemctl stop onedrive@onedrive.service || true
   fi
 }
 
 start_onedrive_service() {
-  if [ ${enabled} ]; then
+  if [ "${enabled}" == "enabled" ]; then
     echo "Please wait, starting service ..."
     systemctl start onedrive@onedrive.service || true
   fi

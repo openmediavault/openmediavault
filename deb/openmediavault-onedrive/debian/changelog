@@ -1,3 +1,10 @@
+openmediavault-onedrive (7.1.5-1) stable; urgency=low
+
+  * Issue #1955: Fix issue in `omv-onedrive` script that caused the onedrive
+    service to be stopped and started even if the service was not enabled.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 07 May 2025 10:37:42 +0200
+
 openmediavault-onedrive (7.1.4-3) stable; urgency=low
 
   * Several improvements.
