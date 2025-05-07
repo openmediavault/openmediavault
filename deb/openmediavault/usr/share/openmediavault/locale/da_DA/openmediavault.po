@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 13:40+0200\n"
+"POT-Creation-Date: 2025-05-07 17:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2023,2025\n"
 "Language-Team: Danish (http://app.transifex.com/openmediavault/openmediavault/language/da/)\n"
@@ -678,9 +678,6 @@ msgstr "Klient NetBIOS navn"
 
 msgid "Client address"
 msgstr "Klient adresse"
-
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "Klienter har tilladelse til at montere filsystemet, f.eks. 192.168.178.0/24"
 
 msgid "Close"
 msgstr "Luk"
@@ -1472,6 +1469,9 @@ msgstr "Værtsnavn"
 msgid "Hosts allow"
 msgstr "Tillad værter"
 
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
+
 msgid "Hosts deny"
 msgstr "Nægt værter"
 
@@ -2170,6 +2170,9 @@ msgstr ""
 
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr ""
+
+msgid "Note, only one client can be configured per share."
 msgstr ""
 
 msgid "Nothing"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 13:40+0200\n"
+"POT-Creation-Date: 2025-05-07 17:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -678,9 +678,6 @@ msgstr "クライアントNetBIOS名"
 
 msgid "Client address"
 msgstr "クライアントアドレス"
-
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "クライアントからのファイルシステムのマウントを許可 例） 192.168.178.0/24"
 
 msgid "Close"
 msgstr "閉じる"
@@ -1472,6 +1469,9 @@ msgstr "ホスト名"
 msgid "Hosts allow"
 msgstr "許可するホスト"
 
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
+
 msgid "Hosts deny"
 msgstr "拒否するホスト"
 
@@ -2170,6 +2170,9 @@ msgstr "実行されていません"
 
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr ""
+
+msgid "Note, only one client can be configured per share."
 msgstr ""
 
 msgid "Nothing"

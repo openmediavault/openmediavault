@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 13:40+0200\n"
+"POT-Creation-Date: 2025-05-07 17:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Wouter VE <vaneenoo.wouter@gmail.com>, 2021\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -686,9 +686,6 @@ msgstr "NetBIOS-naam van de client"
 
 msgid "Client address"
 msgstr "Clientadres"
-
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "Clients die het bestandssysteem mogen koppelen bijv 192.168.178.0/24"
 
 msgid "Close"
 msgstr "Sluiten"
@@ -1480,6 +1477,9 @@ msgstr "Hostnaam"
 msgid "Hosts allow"
 msgstr "Hosts toestaan"
 
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
+
 msgid "Hosts deny"
 msgstr "Hosts weigeren"
 
@@ -2179,6 +2179,9 @@ msgstr "Niet actief"
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
 msgstr "Houd er rekening mee dat SMB1 verouderd is en alleen in verplichte gevallen mag worden gebruikt."
+
+msgid "Note, only one client can be configured per share."
+msgstr ""
 
 msgid "Nothing"
 msgstr "Niets"

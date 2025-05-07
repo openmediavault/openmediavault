@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 13:40+0200\n"
+"POT-Creation-Date: 2025-05-07 17:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -679,9 +679,6 @@ msgstr "djemalčevo NetBIOS ime"
 
 msgid "Client address"
 msgstr "Naslov odjemalca"
-
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "Odjemalci, ki jim je dovoljeno priklopiti datotečni sistem, npr. 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Zapri"
@@ -1473,6 +1470,9 @@ msgstr "Ime gostitelja"
 msgid "Hosts allow"
 msgstr "Dovoli gostitelje"
 
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
+
 msgid "Hosts deny"
 msgstr "Ne dovoli gostitelje"
 
@@ -2172,6 +2172,9 @@ msgstr "Ne teče"
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
 msgstr "Upoštevajte, da je protokol SMB1 zastarel in naj se uporablja le v izjemnih primerih."
+
+msgid "Note, only one client can be configured per share."
+msgstr ""
 
 msgid "Nothing"
 msgstr "Nič"

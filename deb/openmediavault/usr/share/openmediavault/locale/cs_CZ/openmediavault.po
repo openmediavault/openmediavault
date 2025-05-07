@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 13:40+0200\n"
+"POT-Creation-Date: 2025-05-07 17:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Marek Pavelka, 2024-2025\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -680,9 +680,6 @@ msgstr "Název klienta NetBIOS"
 
 msgid "Client address"
 msgstr "Adresa klienta"
-
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "Klienti s povolením připojení souborového systému, např. 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Zavřít"
@@ -1474,6 +1471,9 @@ msgstr "Název hostitele"
 msgid "Hosts allow"
 msgstr "Povolení hostitelé"
 
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
+
 msgid "Hosts deny"
 msgstr "Odmítnutí hostitelé"
 
@@ -2173,6 +2173,9 @@ msgstr "Nespuštěno"
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
 msgstr "Pamatujte, že SMB1 je zastaralé a mělo by se používat pouze, pokud je to povinné."
+
+msgid "Note, only one client can be configured per share."
+msgstr ""
 
 msgid "Nothing"
 msgstr "Nic"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 13:40+0200\n"
+"POT-Creation-Date: 2025-05-07 17:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -681,9 +681,6 @@ msgstr "클라이언트 NetBIOS 이름"
 
 msgid "Client address"
 msgstr "클라이언트 주소"
-
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "파일 시스템 마운트를 허용할 클라이언트들. 예를 들어, 192.168.178.0/24."
 
 msgid "Close"
 msgstr "닫기"
@@ -1475,6 +1472,9 @@ msgstr "호스트 이름"
 msgid "Hosts allow"
 msgstr "호스트 허용"
 
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
+
 msgid "Hosts deny"
 msgstr "호스트 거부"
 
@@ -2173,6 +2173,9 @@ msgstr ""
 
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr ""
+
+msgid "Note, only one client can be configured per share."
 msgstr ""
 
 msgid "Nothing"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 13:40+0200\n"
+"POT-Creation-Date: 2025-05-07 17:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2025\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -681,9 +681,6 @@ msgstr "NetBIOS-namn för klient"
 
 msgid "Client address"
 msgstr "Adress för klient"
-
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "Klienter får montera filsystemet, t.ex. 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Stäng"
@@ -1475,6 +1472,9 @@ msgstr "Värdnamn"
 msgid "Hosts allow"
 msgstr "Tillåtna värdar"
 
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
+
 msgid "Hosts deny"
 msgstr "Nekade värdar"
 
@@ -2174,6 +2174,9 @@ msgstr "Körs inte"
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
 msgstr "Observera att SMB1 är utfasad och bör endast användas i obligatoriska fall."
+
+msgid "Note, only one client can be configured per share."
+msgstr ""
 
 msgid "Nothing"
 msgstr "Ingenting"
