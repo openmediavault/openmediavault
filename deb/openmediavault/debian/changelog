@@ -1,6 +1,8 @@
 openmediavault (7.7.7-1) stable; urgency=medium
 
   * Display BTRFS details for each device of the filesystem.
+  * Issue #1952: Fix bug in `openmediavault.fs.Filesystem.parent_device_file`
+    Python method. This affects NVMe devices, for example.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 01 May 2025 08:19:33 +0200
 
