@@ -26,6 +26,7 @@
 # systemctl show onedrive.service
 
 {% set config = salt['omv_conf.get']('conf.service.onedrive') %}
+{% set systemd_execstart_args = salt['pillar.get']('default:OMV_ONEDRIVE_SYSTEMD_EXECSTART_ARGS', '') %}
 
 # Cleaning up incorrect systemd user target.
 # https://github.com/abraunegg/onedrive/blob/master/docs/ubuntu-package-install.md#step-1b-remove-errant-systemd-service-file-installed-by-ppa-or-distribution-package
@@ -72,7 +73,7 @@ create_onedrive_systemd_conf:
 
         [Service]
         ExecStart=
-        ExecStart=/usr/bin/onedrive --monitor --confdir=/var/cache/onedrive/
+        ExecStart=/usr/bin/onedrive {{ systemd_execstart_args }} --monitor --confdir=/var/cache/onedrive/
         User={{ config.username }}
     - makedirs: True
     - mode: 644
