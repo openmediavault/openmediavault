@@ -95,6 +95,9 @@ case "$1" in
 			deb-systemd-helper disable onedrive || :
 			systemctl --system daemon-reload || true
 		fi
+		if dpkg --compare-versions "$2" lt-nl "7.1.5"; then
+			omv_module_set_dirty onedrive
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
