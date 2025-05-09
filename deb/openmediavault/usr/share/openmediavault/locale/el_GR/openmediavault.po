@@ -1470,7 +1470,7 @@ msgid "Hosts allow"
 msgstr "Επιτρεπόμενα συστήματα"
 
 msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Οι προελεύσεις που επιτρέπεται να προσαρτίσουν το σύστημα αρχείων, π.χ. 192.168.178.0/24."
 
 msgid "Hosts deny"
 msgstr "Αποκλεισμένα συστήματα"
@@ -2173,7 +2173,7 @@ msgid ""
 msgstr "Το πρωτόκολλο SMB1 έχει καταργηθεί και πρέπει να χρησιμοποιείται μόνο όταν είναι επιβεβλημένο."
 
 msgid "Note, only one client can be configured per share."
-msgstr ""
+msgstr "Μόνο ένας πελάτης μπορεί να ρυθμιστεί ανά μερίδιο."
 
 msgid "Nothing"
 msgstr "Τίποτα"

@@ -1476,7 +1476,7 @@ msgid "Hosts allow"
 msgstr "Hosztok engedélyezése"
 
 msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "A fájlrendszert csatolni engedélyezett kiszolgálók, pl. 192.168.178.0/24."
 
 msgid "Hosts deny"
 msgstr "Hosztok tiltása"
@@ -2179,7 +2179,7 @@ msgid ""
 msgstr "Ne feledje, hogy az SMB1 elavult és csak feltétlenül szükséges esetekben használandó."
 
 msgid "Note, only one client can be configured per share."
-msgstr ""
+msgstr "Megjegyzés: megosztásonként csak egy ügyfél adható meg."
 
 msgid "Nothing"
 msgstr "Semmi"
@@ -3415,7 +3415,7 @@ msgid ""
 msgstr "Az értéknek a másodlagos hálózati eszközön kell lennie {{ slaves | join(\", \") }}."
 
 msgid "The value must be one of the slave network interfaces."
-msgstr ""
+msgstr "Az érték a szolga hálózati interfészek egyike kell legyen."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "A munkacsoport a szerver részéről látszani fog, mikor a kliensek lekérdezik azt."

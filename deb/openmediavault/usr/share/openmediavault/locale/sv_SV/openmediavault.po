@@ -1473,7 +1473,7 @@ msgid "Hosts allow"
 msgstr "Tillåtna värdar"
 
 msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Värdar som har behörighet att montera filsystemet, t.ex. 192.168.178.0/24."
 
 msgid "Hosts deny"
 msgstr "Nekade värdar"
@@ -2176,7 +2176,7 @@ msgid ""
 msgstr "Observera att SMB1 är utfasad och bör endast användas i obligatoriska fall."
 
 msgid "Note, only one client can be configured per share."
-msgstr ""
+msgstr "Observera att endast en klient kan konfigureras per delning."
 
 msgid "Nothing"
 msgstr "Ingenting"
@@ -3412,7 +3412,7 @@ msgid ""
 msgstr "Värdet måste vara på slavnätverksgränssnittet {{ slaves | join(\", \") }}."
 
 msgid "The value must be one of the slave network interfaces."
-msgstr ""
+msgstr "Värdet måste vara ett av slavnätverksgränssnitten."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Arbetsgruppen som servern utger sig för att vara i när klienterna frågar."

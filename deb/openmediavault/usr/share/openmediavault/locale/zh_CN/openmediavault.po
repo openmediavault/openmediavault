@@ -1476,7 +1476,7 @@ msgid "Hosts allow"
 msgstr "允许主机"
 
 msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "允許掛載檔案系統的主機，例如 192.168.178.0/24。"
 
 msgid "Hosts deny"
 msgstr "拒绝主机"
@@ -2179,7 +2179,7 @@ msgid ""
 msgstr "注意 SMB1 已经弃用，仅在联机终端不支持高版本情况下使用。"
 
 msgid "Note, only one client can be configured per share."
-msgstr ""
+msgstr "請注意，每個分享只能設定一個客戶端。"
 
 msgid "Nothing"
 msgstr "没有"

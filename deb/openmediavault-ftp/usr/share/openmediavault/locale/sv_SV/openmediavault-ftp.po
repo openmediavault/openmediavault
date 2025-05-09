@@ -30,7 +30,7 @@ msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "En kraftfull modulär FTP/SFTP/FTPS-server."
 
 msgid "Access mode"
-msgstr ""
+msgstr "Åtkomstläge"
 
 msgid "Advanced settings"
 msgstr "Avancerade inställningar"
@@ -42,15 +42,17 @@ msgid ""
 "Allow users to log in without a password. Make sure the user <em>ftp</em> or"
 " group <em>nogroup</em> can access the files."
 msgstr ""
+"Tillåt användare att logga in utan lösenord. Se till att användaren "
+"<em>ftp</em> eller gruppen <em>nogroup</em> har åtkomst till filerna."
 
 msgid "Anonymous FTP"
 msgstr "Anonym FTP"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "Autentiserat användar-ID"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Autentiseringsmetod"
 
 msgid "Ban Rules"
 msgstr "Regler för uteslutning"
@@ -65,7 +67,7 @@ msgid "Certificate"
 msgstr "Certifikat"
 
 msgid "Completion status"
-msgstr ""
+msgstr "Slutförandestatus"
 
 msgid "Create"
 msgstr "Skapa"
@@ -86,7 +88,7 @@ msgid "Deny logins which do not have a valid shell."
 msgstr "Neka inloggningar som inte har ett giltigt skal."
 
 msgid "Direction"
-msgstr ""
+msgstr "Riktning"
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "Visa användarens hemmapp i bläddringslistan."
@@ -124,7 +126,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - Överföringslogg"
 
 msgid "FXP"
 msgstr "FXP"
@@ -137,10 +139,10 @@ msgstr ""
 " till klienten som begär överföringen."
 
 msgid "Filename"
-msgstr ""
+msgstr "Filnamn"
 
 msgid "Filesize"
-msgstr ""
+msgstr "Filstorlek"
 
 msgid "Home directories"
 msgstr "Hemmappar"
@@ -268,7 +270,7 @@ msgid "Refresh time"
 msgstr "Uppdateringstid"
 
 msgid "Remote host"
-msgstr ""
+msgstr "Fjärrvärd"
 
 msgid "Require valid shell"
 msgstr "Kräv giltigt skal"
@@ -298,7 +300,7 @@ msgid "Shares"
 msgstr "Delningar"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "Specialåtgärdsflagga"
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -383,10 +385,10 @@ msgid "Transfer log"
 msgstr "Överföringslogg"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "Överföringstid"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "Överföringstyp"
 
 msgid "Updated FTP ban rule."
 msgstr "Uppdaterade FTP-uteslutningsregel."
@@ -398,7 +400,7 @@ msgid "Use the following bandwidth restriction."
 msgstr "Använd följande begränsning av bandbredd."
 
 msgid "User name"
-msgstr ""
+msgstr "Användarnamn"
 
 msgid "Welcome message"
 msgstr "Välkomstmeddelande"
