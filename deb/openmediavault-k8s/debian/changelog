@@ -6,6 +6,14 @@ openmediavault-k8s (7.4.6-1) stable; urgency=medium
     The configuration must be specified in minified YAML format
     Check the Traefik Helm chart documentation for more information
     about the available port configuration properties.
+  * Add `OMV_K8S_DEFAULT_TLS_CERT_ISSUER` environment variable to
+    allow a custom certificate issuer instead of selfsigned.
+    Check the cert-manager documentation for more information on how
+    to create and configure ClusterIssuers to acquire certificates.
+  * Add `OMV_K8S_FQDN` environment variable to allow a custom domain
+    name different from the one configured in OMV Network config. It
+    may be used when using Traefik as an external-facing server with
+    a public domain name, e.g. with a LetsEncrypt certificate.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 17 Apr 2025 21:16:51 +0200
 

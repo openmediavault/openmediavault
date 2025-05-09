@@ -34,11 +34,13 @@
 {% set traefik_default_ports = "{web: {exposedPort: %s}, websecure: {exposedPort: %s}, dashboard: {port: %s, protocol: TCP, expose: {default: true}, exposedPort: %s, tls: {enabled: true}}}" | format(k8s_config.webport, k8s_config.websecureport, k8s_config.dashboardport, k8s_config.dashboardport) | load_yaml %}
 {% set traefik_ports = salt['pillar.get']('default:OMV_K8S_TRAEFIK_PORTS', "{}") | load_yaml %}
 {% set _ = traefik_ports.update(traefik_default_ports) %}
+{% set default_cert_issuer = salt['pillar.get']('default:OMV_K8S_DEFAULT_TLS_CERT_ISSUER', 'selfsigned') %}
 
-{% set fqdn = dns_config.hostname | lower %}
+{% set dns_fqdn = dns_config.hostname | lower %}
 {% if dns_config.domainname | length > 0 %}
-{% set fqdn = [dns_config.hostname, dns_config.domainname] | join('.') | lower %}
+{% set dns_fqdn = [dns_config.hostname, dns_config.domainname] | join('.') | lower %}
 {% endif %}
+{% set fqdn = salt['pillar.get']('default:OMV_K8S_FQDN', dns_fqdn) %}
 
 {% if grains['raspberrypi'] %}
 k3s_enable_cgroup_raspi:
@@ -182,7 +184,7 @@ create_k3s_cert_manager_manifest:
             - "*.{{ fqdn }}"
           secretName: default-tls-cert
           issuerRef:
-            name: selfsigned
+            name: "{{ default_cert_issuer }}"
             kind: ClusterIssuer
         # ---
         # apiVersion: cert-manager.io/v1

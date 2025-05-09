@@ -237,6 +237,10 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 				return $obj->get("domainname");
 			},
 			"fqdn" => function() use($db) {
+				$result = \OMV\Environment::get("OMV_K8S_FQDN");
+				if (!empty($result)) {
+					return $result;
+				}
 				$obj = $db->get("conf.system.network.dns");
 				if (!$obj->isEmpty("domainname")) {
 					$result = sprintf("%s.%s", $obj->get("hostname"),
