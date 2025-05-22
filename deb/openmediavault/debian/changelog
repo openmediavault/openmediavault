@@ -1,3 +1,9 @@
+openmediavault (7.7.8-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 22 May 2025 12:43:55 +0200
+
 openmediavault (7.7.7-1) stable; urgency=medium
 
   * Display BTRFS details for each device of the filesystem.
