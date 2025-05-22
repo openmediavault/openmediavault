@@ -145,7 +145,7 @@ configure_clamav_freshclam_logrotate:
             systemctl -q is-active clamav-freshclam && systemctl kill --signal=SIGHUP clamav-freshclam || true
             endscript
         }
-    - user: {{ clamav_freshclam_user }}
+    - user: root
     - group: root
     - mode: 644
 
@@ -236,7 +236,7 @@ configure_clamav_daemon_logrotate:
             systemctl -q is-active clamav-daemon && systemctl kill --signal=SIGHUP clamav-daemon || true
             endscript
         }
-    - user: {{ clamav_clamd_user }}
+    - user: root
     - group: root
     - mode: 644
 
