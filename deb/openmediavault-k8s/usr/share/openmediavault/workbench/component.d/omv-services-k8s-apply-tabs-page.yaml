@@ -6,7 +6,7 @@ data:
   config:
     tabs:
       - type: form
-        label: _("Manifest")
+        label: _("YAML")
         config:
           request:
             service: K8s

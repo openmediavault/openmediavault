@@ -2,7 +2,7 @@ version: "1.0"
 type: route
 data:
   url: "/services/k8s/apply"
-  title: _("Recipe")
+  title: _("Manifest")
   editing: true
-  notificationTitle: _('Applied Kubernetes recipe.')
+  notificationTitle: _('Applied Kubernetes manifest.')
   component: omv-services-k8s-apply-tabs-page
