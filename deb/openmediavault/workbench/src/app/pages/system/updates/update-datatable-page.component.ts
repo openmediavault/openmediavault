@@ -81,6 +81,8 @@ export class UpdateDatatablePageComponent {
       { name: gettext('Homepage'), prop: 'homepage', flexGrow: 1, sortable: true, hidden: true }
     ],
     selectionType: 'single',
+    remoteSearching: false,
+    hasSearchField: true,
     limit: 0,
     sorters: [
       {
