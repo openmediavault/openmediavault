@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-05-23 12:43+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
@@ -138,9 +138,6 @@ msgstr "Homepage"
 msgid "ID"
 msgstr "ID"
 
-msgid "If present, the namespace scope for this request."
-msgstr "Indien aanwezig, het bereik van de naamruimte voor dit verzoek."
-
 msgid "Image"
 msgstr "Image"
 
@@ -158,9 +155,6 @@ msgstr "Ingress-routes"
 
 msgid "Ingresses"
 msgstr "Ingresses"
-
-msgid "Invalid namespace"
-msgstr "Ongeldige naamruimte"
 
 msgid "Job"
 msgstr "Taak"
@@ -228,11 +222,11 @@ msgstr "Poort"
 msgid "Ports"
 msgstr "Poorten"
 
+msgid "README"
+msgstr ""
+
 msgid "Ready"
 msgstr "Klaar"
-
-msgid "Recipe"
-msgstr "Recept"
 
 msgid "Recipe Information"
 msgstr "Receptinformatie"
@@ -272,6 +266,9 @@ msgstr "Instellingen"
 
 msgid "Shared Folders"
 msgstr "Gedeelde mappen"
+
+msgid "Show README"
+msgstr ""
 
 msgid "Size"
 msgstr "Grootte"
@@ -315,19 +312,12 @@ msgstr ""
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
-"De volgende tijdelijke aanduidingen kunnen worden gebruikt in recepten om "
-"toegang te krijgen tot wereldwijde systeeminformatie en de "
-"configuratiedatabase:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
-" uuid=NULL)</li></ul>U moet tijdelijke aanduidingen aanduiden met dubbele "
-"accoladehaakjes. Een overzicht van extra beschikbare filters is <a "
-"href='https://twig.symfony.com/doc/filters/index.html' "
-"target='_blank'>hier</a> te vinden."
 
 msgid "The location where to store etcd on-demand snapshots."
 msgstr "De locatie waar etcd momentopnames op aanvraag worden opgeslagen."
@@ -370,6 +360,9 @@ msgstr "Weergeven"
 
 msgid "Volume"
 msgstr "Volume"
+
+msgid "YAML"
+msgstr ""
 
 msgid "etcd"
 msgstr "etcd"

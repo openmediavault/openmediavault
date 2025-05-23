@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-05-23 12:43+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2024\n"
 "Language-Team: Catalan (Spain) (https://app.transifex.com/openmediavault/teams/14254/ca_ES/)\n"
@@ -137,9 +137,6 @@ msgstr "Pàgina d'inici"
 msgid "ID"
 msgstr "ID"
 
-msgid "If present, the namespace scope for this request."
-msgstr "Si està present, l'àmbit de l'espai de noms d'aquesta sol·licitud."
-
 msgid "Image"
 msgstr "Imatge"
 
@@ -157,9 +154,6 @@ msgstr "Rutes d'entrada"
 
 msgid "Ingresses"
 msgstr "Ingresses"
-
-msgid "Invalid namespace"
-msgstr "Espai de noms no vàlid"
 
 msgid "Job"
 msgstr "Treball"
@@ -227,11 +221,11 @@ msgstr "Port"
 msgid "Ports"
 msgstr "Ports"
 
+msgid "README"
+msgstr ""
+
 msgid "Ready"
 msgstr "A punt"
-
-msgid "Recipe"
-msgstr "Recepta"
 
 msgid "Recipe Information"
 msgstr "Informació de la recepta"
@@ -271,6 +265,9 @@ msgstr "Configuració"
 
 msgid "Shared Folders"
 msgstr "Carpetes compartides"
+
+msgid "Show README"
+msgstr ""
 
 msgid "Size"
 msgstr "Talla"
@@ -312,14 +309,12 @@ msgstr ""
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
-"Els següents marcadors de posició es poden utilitzar a les receptes per accedir a la informació global del sistema i a la base de dades de configuració:\n"
-"<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id, uuid=NULL)</li></ul>YHeu de denotar marcadors de posició amb claus dobles. Podeu trobar una visió general dels filtres addicionals disponibles <a href='https://twig.symfony.com/doc/filters/index.html' target='_blank'>aquí</a>."
 
 msgid "The location where to store etcd on-demand snapshots."
 msgstr "La ubicació on s'emmagatzemen les instantànies sota demanda etcd."
@@ -362,6 +357,9 @@ msgstr "Vista"
 
 msgid "Volume"
 msgstr "Volum"
+
+msgid "YAML"
+msgstr ""
 
 msgid "etcd"
 msgstr "etcd"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-05-23 12:43+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
@@ -138,9 +138,6 @@ msgstr "Főoldal"
 msgid "ID"
 msgstr "ID"
 
-msgid "If present, the namespace scope for this request."
-msgstr "Ha van, a kérés névterének hatóköre."
-
 msgid "Image"
 msgstr "Kép"
 
@@ -158,9 +155,6 @@ msgstr "Behatolási útvonalak"
 
 msgid "Ingresses"
 msgstr "Behatolások"
-
-msgid "Invalid namespace"
-msgstr "Érvénytelen névtér"
 
 msgid "Job"
 msgstr "Feladat"
@@ -228,11 +222,11 @@ msgstr "Port"
 msgid "Ports"
 msgstr "Portok"
 
+msgid "README"
+msgstr ""
+
 msgid "Ready"
 msgstr "Kész"
-
-msgid "Recipe"
-msgstr "Recept"
 
 msgid "Recipe Information"
 msgstr "Receptinformáció"
@@ -272,6 +266,9 @@ msgstr "Beállítások"
 
 msgid "Shared Folders"
 msgstr "Megosztott mappák"
+
+msgid "Show README"
+msgstr ""
 
 msgid "Size"
 msgstr "Méret"
@@ -314,19 +311,12 @@ msgstr ""
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
-"A következő helyőrzők használhatóak a receptekben a globális "
-"rendszerinformációk és a konfigurációs adatbázis "
-"eléréséhez:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
-" uuid=NULL)</li></ul>A helyőrzőket dupla szögletes zárójelekkel kell "
-"jelölni. A további lehetséges szűrők áttekintése <a "
-"href='https://twig.symfony.com/doc/filters/index.html' target='_blank'>itt "
-"található</a>."
 
 msgid "The location where to store etcd on-demand snapshots."
 msgstr "Az etcd igény szerinti pillanatképek tárolási helye."
@@ -370,6 +360,9 @@ msgstr "Nézet"
 
 msgid "Volume"
 msgstr "Kötet"
+
+msgid "YAML"
+msgstr ""
 
 msgid "etcd"
 msgstr "etcd"
