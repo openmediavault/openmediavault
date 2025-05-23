@@ -208,16 +208,27 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		$this->validateMethodParams($params, "rpc.k8s.getRecipe");
-		$path = build_path(DIRECTORY_SEPARATOR, $this->recipesRepoDir,
+		$manifestPath = build_path(DIRECTORY_SEPARATOR, $this->recipesRepoDir,
 			"recipes", $params['id'], "recipe.yaml");
-		if (!file_exists($path)) {
+		$manifestContent = "";
+		if (!file_exists($manifestPath)) {
 			throw new \OMV\Exception(
-				"The requested recipe does not exist.");
+				"The requested recipe '%s' does not exist.",
+				$params['id']);
+		} else {
+			$manifestContent = file_get_contents($manifestPath);
+		}
+		$readmePath = build_path(DIRECTORY_SEPARATOR, $this->recipesRepoDir,
+			"recipes", $params['id'], "README.md");
+		$readmeContent = "";
+		if (file_exists($readmePath)) {
+			$readmeContent = file_get_contents($readmePath);
 		}
 		return [
 			"id" => $params['id'],
 			"namespace" => "",
-			"manifest" => file_get_contents($path)
+			"manifest" => $manifestContent,
+			"readme" => $readmeContent
 		];
 	}
 

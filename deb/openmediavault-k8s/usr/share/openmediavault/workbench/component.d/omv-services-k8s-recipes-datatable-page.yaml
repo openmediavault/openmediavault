@@ -100,3 +100,12 @@ data:
         execute:
           type: url
           url: "/services/k8s/apply?recipe={{ id }}"
+      - type: iconButton
+        icon: details
+        tooltip: _("Show README")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/recipes/readme/{{ id }}"

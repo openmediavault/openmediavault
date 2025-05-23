@@ -1,3 +1,9 @@
+openmediavault-k8s (7.4.7-1) stable; urgency=medium
+
+  * Add button to display the recipe README.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 23 May 2025 10:01:51 +0200
+
 openmediavault-k8s (7.4.6-1) stable; urgency=medium
 
   * Update locale files.
