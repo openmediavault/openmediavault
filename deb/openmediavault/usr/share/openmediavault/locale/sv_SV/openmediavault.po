@@ -2214,7 +2214,7 @@ msgid "Oman"
 msgstr "Oman"
 
 msgid "Online"
-msgstr "Tillgänglig"
+msgstr "Uppkopplad"
 
 msgid "Operation"
 msgstr "Operation"

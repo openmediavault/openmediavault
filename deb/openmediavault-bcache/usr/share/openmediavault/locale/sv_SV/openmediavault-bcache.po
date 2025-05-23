@@ -123,7 +123,7 @@ msgid "No Cache"
 msgstr "Ingen cache"
 
 msgid "Online"
-msgstr ""
+msgstr "Uppkopplad"
 
 msgid ""
 "Please note that creating a file system on a Bcache device can take longer. "
