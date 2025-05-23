@@ -1,0 +1,17 @@
+{
+  "name": "openmediavault Workbench",
+  "short_name": "openmediavault WB",
+  "theme_color": "#5dacdf",
+  "background_color": "#5dacdf",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "assets/icons/openmediavault.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable any"
+    }
+  ]
+}
