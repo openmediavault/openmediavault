@@ -31,6 +31,7 @@ data:
               <div class="omv-font-size-subheading-2">{{ description }}</div>
             </div>
             <br>
+            {% if depends | length > 0 %}<span>{{ "Depends" | translate }}: {{ depends | join(", ") }}</span><br>{% endif %}
             {% if section %}<span>{{ "Section" | translate }}: {{ section | title }}</span><br>{% endif %}
             {% if architecture | length > 0 %}<span>{{ "Architecture" | translate }}: {{ architecture | join(", ") }}</span><br>{% endif %}
             {% if recipeVersion %}<span>{{ "Recipe Version" | translate }}: {{ recipeVersion }}</span><br>{% endif %}
@@ -43,6 +44,12 @@ data:
         flexGrow: 1
         sortable: true
         hidden: true
+      - name: _("Depends")
+        prop: depends
+        flexGrow: 1
+        sortable: false
+        hidden: true
+        cellTemplateName: chip
       - name: _("Section")
         prop: section
         flexGrow: 1
