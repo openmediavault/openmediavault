@@ -226,7 +226,6 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 		}
 		return [
 			"id" => $params['id'],
-			"namespace" => "",
 			"manifest" => $manifestContent,
 			"readme" => $readmeContent
 		];
