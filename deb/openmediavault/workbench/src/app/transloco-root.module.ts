@@ -1,16 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, NgModule } from '@angular/core';
 import {
-  DefaultTranspiler,
   Translation,
-  TRANSLOCO_CONFIG,
   TRANSLOCO_LOADER,
-  TRANSLOCO_TRANSPILER,
-  translocoConfig,
   TranslocoLoader,
+  FunctionalTranspiler, provideTranslocoTranspiler,
+  provideTransloco,
   TranslocoModule
-} from '@ngneat/transloco';
-import { HashMap } from '@ngneat/transloco/lib/types';
+} from '@jsverse/transloco';
 import * as _ from 'lodash';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -37,33 +34,20 @@ class CustomLoader implements TranslocoLoader {
   }
 }
 
-/**
- * Disable the build-in transpiler. String interpolation is done by
- * Nunjucks internally. Another reason is that missing keys are not
- * transpiled.
- */
-@Injectable({ providedIn: 'root' })
-class CustomTranspiler extends DefaultTranspiler {
-  public override transpile(value: any, params: HashMap, translation: Translation): any {
-    return value;
-  }
-}
-
 @NgModule({
   exports: [TranslocoModule],
   providers: [
-    {
-      provide: TRANSLOCO_CONFIG,
-      useValue: translocoConfig({
+    provideTranslocoTranspiler(FunctionalTranspiler),
+    provideTransloco({
+      config: {
         availableLangs: _.keys(SupportedLocales),
         defaultLang: 'en_GB',
         missingHandler: { allowEmpty: true, logMissingKey: false },
         prodMode: environment.production,
         reRenderOnLangChange: true
-      })
-    },
-    { provide: TRANSLOCO_LOADER, useClass: CustomLoader },
-    { provide: TRANSLOCO_TRANSPILER, useClass: CustomTranspiler }
+       }
+      }),
+    { provide: TRANSLOCO_LOADER, useClass: CustomLoader }
   ]
 })
 export class TranslocoRootModule {}
