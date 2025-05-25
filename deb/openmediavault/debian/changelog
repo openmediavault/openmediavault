@@ -1,6 +1,6 @@
 openmediavault (7.7.8-1) stable; urgency=medium
 
-  *
+  * Issue #1965: Hardening of the `omv-btrfs-dfree` command.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 22 May 2025 12:43:55 +0200
 
