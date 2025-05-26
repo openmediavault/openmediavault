@@ -43,6 +43,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getCandidatesBg");
 		$this->registerMethod("getMountCandidates");
 		$this->registerMethod("create");
+		$this->registerMethod("createBcachefs");
 		$this->registerMethod("createBtrfs");
 		$this->registerMethod("grow");
 		$this->registerMethod("setMountPoint");
@@ -718,6 +719,55 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		}, NULL, function() use($jsonFile) {
 			// Cleanup
 			$jsonFile->unlink();
+		});
+	}
+
+	/**
+ 	 * Create a Bcachefs volume.
+ 	 * @param params The method parameters.
+ 	 * @param context The context of the caller.
+ 	 * @return The requested configuration object.
+ 	 */
+	function createBcachefs($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.filesystemmgmt.createbcachefs");
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename) use ($params) {
+			$deviceFiles = explode(",", $params['devicefiles']);
+			// Wipe all existing data on the storage devices.
+			foreach ($deviceFiles as $deviceFile) {
+				$sd = \OMV\System\Storage\StorageDevice::assertGetStorageDevice($deviceFile);
+				$sd->wipe();
+			}
+			// Create the bcachefs volume.
+			// https://bcachefs.org/
+			$cmdArgs = [];
+			$cmdArgs[] = "--force";
+			if (!empty($params['label'])) {
+				$cmdArgs[] = "--label";
+				$cmdArgs[] = escapeshellarg($params['label']);
+			}
+			// bcachefs specific options
+			if (isset($params['replicas'])) {
+				$cmdArgs[] = "--replicas=" . intval($params['replicas']);
+			}
+			if (isset($params['compression'])) {
+				$cmdArgs[] = "--compression=" . escapeshellarg($params['compression']);
+			}
+			if (isset($params['encrypted']) && $params['encrypted']) {
+				$cmdArgs[] = "--encrypted";
+			}
+			// Add devices to the end of the command
+			$cmdArgs = array_merge($cmdArgs, $deviceFiles);
+			$cmd = new \OMV\System\Process("bcachefs format", $cmdArgs);
+			$cmd->setRedirect2to1();
+			if (0 !== ($exitStatus = $this->exec($cmd, $output, $bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd, $output, $exitStatus);
+			}
 		});
 	}
 
