@@ -1471,7 +1471,7 @@ msgid "Hosts allow"
 msgstr "Dovoli gostitelje"
 
 msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Gostitelji, ki jim je dovoljeno priklopiti datotečni sistem, npr. 192.168.178.0/24."
 
 msgid "Hosts deny"
 msgstr "Ne dovoli gostitelje"
@@ -2174,7 +2174,7 @@ msgid ""
 msgstr "Upoštevajte, da je protokol SMB1 zastarel in naj se uporablja le v izjemnih primerih."
 
 msgid "Note, only one client can be configured per share."
-msgstr ""
+msgstr "Upoštevajte, da je za posamezno deljeno mapo lahko konfiguriran samo en odjemalec."
 
 msgid "Nothing"
 msgstr "Nič"
@@ -3407,10 +3407,10 @@ msgstr "Vrednost se ne ujema z vzorcem /{{ pattern }}/."
 msgid ""
 "The value must be on of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "Vrednost mora biti na podrejenem omrežnem vmesniku {{ slaves | join(\", \") }}."
+msgstr "Vrednost mora ustrezati enemu izmed podrejenih omrežnih vmesnikov {{ slaves | join(\", \") }}."
 
 msgid "The value must be one of the slave network interfaces."
-msgstr ""
+msgstr "Vrednost mora biti eden od podrejenih omrežnih vmesnikov."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Delovna skupina, v kateri bo videti strežnik, ko ga bodo poizvedovali odjemalci."

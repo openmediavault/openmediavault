@@ -32,7 +32,7 @@ msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "Nagy teljesítményű moduláris FTP/SFTP/FTPS kiszolgáló."
 
 msgid "Access mode"
-msgstr ""
+msgstr "Elérési mód"
 
 msgid "Advanced settings"
 msgstr "Haladó beállítások"
@@ -46,15 +46,18 @@ msgid ""
 "Allow users to log in without a password. Make sure the user <em>ftp</em> or"
 " group <em>nogroup</em> can access the files."
 msgstr ""
+"Jelszó nélküli bejelentkezés engedélyezése a felhasználók számára. Győződjön"
+" meg róla, hogy az <em>ftp</em> felhasználó vagy a <em>nogroup</em> csoport "
+"hozzáférhet a fájlokhoz."
 
 msgid "Anonymous FTP"
 msgstr "Névtelen FTP"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "Hitelesített felhasználói azonosító"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Hitelesítési mód"
 
 msgid "Ban Rules"
 msgstr "Tiltási szabályok"
@@ -69,7 +72,7 @@ msgid "Certificate"
 msgstr "Tanúsítvány"
 
 msgid "Completion status"
-msgstr ""
+msgstr "Befejezettségi állapot"
 
 msgid "Create"
 msgstr "Létrehozás"
@@ -90,7 +93,7 @@ msgid "Deny logins which do not have a valid shell."
 msgstr "Bejelentkezések tiltása, ha nincs érvényes parancsértelmező"
 
 msgid "Direction"
-msgstr ""
+msgstr "Irány"
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "Felhasználó saját könyvtárának megjelenítése a böngészési listában."
@@ -129,7 +132,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - átviteli napló"
 
 msgid "FXP"
 msgstr "FXP"
@@ -142,10 +145,10 @@ msgstr ""
 "adatfájl átvitelét a kliensnek is kérnie kellene."
 
 msgid "Filename"
-msgstr ""
+msgstr "Fájlnév"
 
 msgid "Filesize"
-msgstr ""
+msgstr "Fájlméret"
 
 msgid "Home directories"
 msgstr "Saját könyvtárak"
@@ -275,7 +278,7 @@ msgid "Refresh time"
 msgstr "Frissítési idő"
 
 msgid "Remote host"
-msgstr ""
+msgstr "Távoli kiszolgáló"
 
 msgid "Require valid shell"
 msgstr "Érvényes parancsértelmező szükséges"
@@ -305,7 +308,7 @@ msgid "Shares"
 msgstr "Megosztások"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "Különleges műveletjelző"
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -391,10 +394,10 @@ msgid "Transfer log"
 msgstr "Átviteli napló"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "Átviteli idő"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "Átvitel típusa"
 
 msgid "Updated FTP ban rule."
 msgstr "FTP tiltási szabály frissítve."
