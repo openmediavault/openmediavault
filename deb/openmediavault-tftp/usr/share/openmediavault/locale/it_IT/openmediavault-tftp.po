@@ -6,6 +6,7 @@
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2017
 # Paolo Velati <paolo.velati@gmail.com>, 2021
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2017-03-31 07:22+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2021\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,19 +27,19 @@ msgid "Allow new files to be created."
 msgstr "Consenti la creazione di nuovi file."
 
 msgid "Blocksize"
-msgstr "Dimensione blocco"
+msgstr "Dimensione del blocco"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
 msgstr ""
-"Per impostazione predefinita, solo i file già esistenti possono essere "
-"caricati."
+"Per impostazione predefinita, è consentito caricare solo i file già "
+"esistenti."
 
 msgid ""
 "Determine the default timeout, in microseconds, before the first packet is "
 "retransmitted."
 msgstr ""
-"Determina il timeout di default, in microsecondi, prima di ritrasmettere il "
-"primo pacchetto."
+"Specifica il timeout predefinito, in microsecondi, prima di ritrasmettere il"
+" primo pacchetto."
 
 msgid "Enabled"
 msgstr "Abilitato"
@@ -50,7 +51,7 @@ msgid "Port"
 msgstr "Porta"
 
 msgid "Retry timeout"
-msgstr "Timeout riesecuzione"
+msgstr "Timeout di ritrasmissione"
 
 msgid "Shared folder"
 msgstr "Cartella condivisa"
@@ -59,8 +60,8 @@ msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "
 "parameter is from 512 to 65464."
 msgstr ""
-"Specifica la massima dimensione permessa per un block. Il range ammesso per "
-"questo parametro va da 512 a 65464."
+"Specifica la dimensione massima consentita del blocco. L’intervallo permesso"
+" per questo parametro va da 512 a 65464."
 
 msgid "TFTP"
 msgstr "TFTP"
@@ -69,8 +70,8 @@ msgid ""
 "The location of the files to share. Please make sure that the shared folder "
 "is publicly writable if new files are allowed."
 msgstr ""
-"La posizione dei file da condividere. Assicurarsi che la cartella condivisa "
-"sia scrivibile pubblicamente se sono consentiti nuovi file."
+"La posizione dei file da condividere. Assicurati che la cartella condivisa "
+"sia scrivibile pubblicamente se è consentita la creazione di nuovi file."
 
 msgid "Updated TFTP settings."
-msgstr "Impostazioni TFTP aggiornate."
+msgstr "Le impostazioni di TFTP sono state aggiornate."

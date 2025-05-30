@@ -2213,7 +2213,7 @@ msgid "Offline immediate test"
 msgstr "Offline directe test"
 
 msgid "Old-age"
-msgstr "Ouderdom"
+msgstr "Old-age"
 
 msgid "Oman"
 msgstr "Oman"

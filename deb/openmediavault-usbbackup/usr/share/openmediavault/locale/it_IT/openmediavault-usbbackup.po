@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
 # Paolo Velati <paolo.velati@gmail.com>, 2013-2015,2017,2021
 # Roberto Bellingeri <bellingeri@netguru.it>, 2025
 msgid ""
@@ -11,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-24 19:17+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
-"Last-Translator: Roberto Bellingeri <bellingeri@netguru.it>, 2025\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr "Una email con il comando di output (se prodotto) è spedita all'amministratore."
+msgstr "Un messaggio email con l’output del comando (se prodotto) viene inviato all’amministratore."
 
 msgid "Archive"
 msgstr "Archivia"
@@ -37,13 +38,13 @@ msgid "Create"
 msgstr "Crea"
 
 msgid "Created USB backup job."
-msgstr "Processo USB backup creato."
+msgstr "È stata creata l’attività di backup USB."
 
 msgid "Delete"
 msgstr "Elimina"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr "Elimina i file dalla cartella di destinazione se non esistono nella cartella del mittente."
+msgstr "Elimina i file dalla cartella di destinazione se non presenti nella cartella del mittente."
 
 msgid "Device"
 msgstr "Dispositivo"
@@ -57,25 +58,25 @@ msgstr "Abilita la modalità di archiviazione."
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr "Abilita questa opzione per mantenere i file parzialmente trasferiti, altrimenti saranno eliminati se il trasferimento viene interrotto."
+msgstr "Abilita questa opzione per mantenere i file parzialmente trasferiti, altrimenti verranno eliminati se il trasferimento viene interrotto."
 
 msgid "Enabled"
 msgstr "Abilitato"
 
 msgid "External Storage Device"
-msgstr "Periferica di archiviazione esterna"
+msgstr "Dispositivo di archiviazione esterno"
 
 msgid "Extra options"
 msgstr "Opzioni extra"
 
 msgid "From external storage to shared folder"
-msgstr "Da dispositivo esterno a cartella condivisa"
+msgstr "Dal dispositivo di archiviazione esterno alla cartella condivisa"
 
 msgid "From shared folder to external storage"
-msgstr "Da cartella condivisa a dispositivo esterno"
+msgstr "Dalla cartella condivisa al dispositivo di archiviazione esterno"
 
 msgid "Keep partially transferred files"
-msgstr "Mantieni i file parzialmente trasferiti"
+msgstr "Mantieni i i file parzialmente trasferiti"
 
 msgid "Mode"
 msgstr "Modalità"
@@ -86,19 +87,19 @@ msgid ""
 msgstr "Controlla il <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manuale</a> per maggiori dettagli."
 
 msgid "Preserve ACLs"
-msgstr "Mantieni la Lista di Controllo degli Accessi (ACL)"
+msgstr "Mantieni le ACL"
 
 msgid "Preserve extended attributes"
 msgstr "Mantieni gli attributi estesi"
 
 msgid "Preserve group"
-msgstr "Preserva il gruppo"
+msgstr "Mantieni il gruppo"
 
 msgid "Preserve modification times"
 msgstr "Mantieni l'orario delle modifiche"
 
 msgid "Preserve owner"
-msgstr "Preserva il proprietario"
+msgstr "Mantieni il proprietario"
 
 msgid "Preserve permissions"
 msgstr "Mantieni i permessi"
@@ -107,7 +108,7 @@ msgid "Quiet"
 msgstr "Silenzioso"
 
 msgid "Recurse into directories."
-msgstr "Esegui ricorsivamente all'interno delle cartelle."
+msgstr "Esegui la ricorsione nelle directory."
 
 msgid "Recursive"
 msgstr "Ricorsivo"
@@ -119,26 +120,26 @@ msgid "Run"
 msgstr "Esegui adesso"
 
 msgid "Run backup job"
-msgstr "Esegui un backup job"
+msgstr "Esegui attività di backup"
 
 msgid "Select a device ..."
-msgstr "Scegli un dispositivo ..."
+msgstr "Seleziona un dispositivo ..."
 
 msgid "Send email"
 msgstr "Invia email"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr "Imposta i permessi di destinazione allo stesso modo dei permessi della sorgente."
+msgstr "Imposta i permessi di destinazione uguali a quelli di origine."
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr "Imposta il gruppo del file di destinazione in modo che sia lo stesso del file di origine."
+msgstr "Imposta il gruppo del file di destinazione uguale a quello del file di origine."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr "Imposta il proprietario del file di destinazione in modo che sia lo stesso del file di origine, ma solo se l'rsync ricevente viene eseguito come superutente."
+msgstr "Imposta il proprietario del file di destinazione uguale a quello del file di origine, ma solo se rsync in ricezione viene eseguito con i privilegi di superutente."
 
 msgid "Shared folder"
 msgstr "Cartella condivisa"
@@ -150,7 +151,7 @@ msgid "Tags"
 msgstr "Tag"
 
 msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
-msgstr "Le opzioni \"Send email\" e \"Quiet\" si escludono a vicenda."
+msgstr "Le opzioni 'Invia email' e 'Silenzioso' si escludono a vicenda."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
@@ -161,7 +162,7 @@ msgid ""
 "The relative directory path on the external storage device from/to which the"
 " content of the shared folder is to be synchronized. The directory is "
 "created if it does not exist."
-msgstr "Il percorso della directory relativa sul dispositivo di archiviazione esterno da/verso cui deve essere sincronizzato il contenuto della cartella condivisa. La directory viene creata se non esiste."
+msgstr "Il percorso relativo della directory sul dispositivo di archiviazione esterno da cui o verso cui sincronizzare il contenuto della cartella condivisa. La directory viene creata se non esiste."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
@@ -171,20 +172,20 @@ msgstr "La cartella condivisa da sincronizzare quando la periferica di archiviaz
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr "Trasferisci gli orari di modifica insieme ai file e aggiornarli sul sistema remoto."
+msgstr "Trasferisci le date di modifica con i file e aggiornale sul sistema remoto."
 
 msgid "USB Backup"
-msgstr "USB Backup"
+msgstr "Backup USB"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr "Aggiorna la Lista di Controllo degli Accessi (ACL) di destinazione in modo che siano uguali agli ACL della sorgente."
+msgstr "Aggiorna le ACL di destinazione per renderle uguali a quelle di origine."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr "Aggiorna i permessi estesi di destinazione in modo tale che siano uguali a quelli locali."
+msgstr "Aggiorna gli attributi estesi di destinazione per renderli uguali a quelli locali."
 
 msgid "Updated USB backup job."
-msgstr "Aggiorna il processo USB backup."
+msgstr "L'attività di backup USB è stata aggiornata."
 
 msgid "n/a"
-msgstr "n/d"
+msgstr "non disponibile"

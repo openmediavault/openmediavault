@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault-shairport package.
 # 
 # Translators:
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
 # Paolo Velati <paolo.velati@gmail.com>, 2014-2016,2021
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2014-06-23 16:18+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2014-2016,2021\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +40,7 @@ msgstr "Shairport"
 msgid ""
 "The name the service will advertise to clients. Leave this field empty to "
 "use the hostname by default."
-msgstr "Il nome del servizio verrà annunciato ai client. Lascia questo campo vuoto per usare l'hostname come predefinito."
+msgstr "Il nome con cui il servizio sarà visibile ai client. Lascia questo campo vuoto per usare il nome host predefinito."
 
 msgid "Updated Shairport settings."
-msgstr "Impostazioni Shairport aggiornate."
+msgstr "Le impostazioni di Shairport sono state aggiornate."

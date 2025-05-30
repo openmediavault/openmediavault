@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Roberto Bellingeri <bellingeri@netguru.it>, 2025
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-16 13:19+0200\n"
 "PO-Revision-Date: 2024-06-14 17:38+0000\n"
-"Last-Translator: Roberto Bellingeri <bellingeri@netguru.it>, 2025\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,7 +41,7 @@ msgid "Create"
 msgstr "Crea"
 
 msgid "Created APT source."
-msgstr "Sorgente APT creata."
+msgstr "La sorgente APT è stata creata."
 
 msgid ""
 "Defines which types of packages to look for from a given source, e.g. 'deb' "
@@ -89,16 +90,16 @@ msgid ""
 "The package index files from the sources are downloaded and updated to get "
 "the latest information about available packages and their versions."
 msgstr ""
-"I file di indice dei pacchetti dalle fonti vengono scaricati e aggiornati "
-"per ottenere le informazioni più recenti sui pacchetti disponibili e sulle "
-"loro versioni."
+"I file indice dei pacchetti provenienti dalle sorgenti vengono scaricati e "
+"aggiornati per ottenere le informazioni più recenti sui pacchetti "
+"disponibili e le loro versioni."
 
 msgid ""
 "The suite is the name of the release, e.g. 'stable', 'testing', 'unstable' "
 "or 'sandworm'."
 msgstr ""
-"La suite è il nome della versione, ad esempio \"stable\", \"testing\", "
-"\"unstable\" o \"sandworm\"."
+"La suite è il nome della release, ad esempio 'stable', 'testing', 'unstable'"
+" o 'sandworm'."
 
 msgid "Types"
 msgstr "Tipi"
@@ -107,4 +108,4 @@ msgid "URIs"
 msgstr "URI"
 
 msgid "Updated APT source."
-msgstr "Sorgente APT aggiornata."
+msgstr "La sorgente APT è stata aggiornata."
