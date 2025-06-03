@@ -55,7 +55,7 @@ msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
 msgstr "Weet u zeker dat u een fysiek volume wilt aanmaken op '{{ devicefile }}'?"
 
 msgid "Do you really want to resize the selected physical volume?"
-msgstr "Weet u zeker dat u de grootte van de fysieke schijf wilt aanpassen?"
+msgstr "Weet u zeker dat u de grootte van het fysiek volume wilt aanpassen?"
 
 msgid "Edit"
 msgstr "Aanpassen"
@@ -79,7 +79,7 @@ msgid "LVM"
 msgstr "LVM"
 
 msgid "Logical Volume Management"
-msgstr "Logische schijfbeheer"
+msgstr "Beheer van logische volumes"
 
 msgid "Logical Volumes"
 msgstr "Logische volumes"
@@ -91,7 +91,7 @@ msgid "Physical Volumes"
 msgstr "Fysieke volumes"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr "Een ogenbik geduld, er wordt een momentopname aangemaakt…"
+msgstr "Even geduld, er wordt een momentopname aangemaakt…"
 
 msgid "Reduce"
 msgstr "Verkleinen"
@@ -109,7 +109,7 @@ msgid "Select a volume group ..."
 msgstr "Selecteer een volume-groep…"
 
 msgid "Select devices ..."
-msgstr "Apparaten selecteren…"
+msgstr "Selecteer apparaten…"
 
 msgid "Select the devices used to extend the volume group."
 msgstr "Selecteer de apparaten die worden gebruikt om de volume-groep uit te breiden."

@@ -64,7 +64,7 @@ msgid "Clean"
 msgstr "Pulito"
 
 msgid "Clear total statistics"
-msgstr "Cancella le statistiche totali"
+msgstr "Azzera le statistiche totali"
 
 msgid "Configuration"
 msgstr "Configurazione"
@@ -146,10 +146,10 @@ msgid "Register"
 msgstr "Registra"
 
 msgid "Select a cache device ..."
-msgstr "Seleziona un dispositivo per la cache ..."
+msgstr "Seleziona un dispositivo per la cache..."
 
 msgid "Select a device ..."
-msgstr "Seleziona un dispositivo ..."
+msgstr "Seleziona un dispositivo..."
 
 msgid "Select the device that will be formatted as Bcache backing device."
 msgstr ""
@@ -167,7 +167,7 @@ msgid "Sequential Cutoff"
 msgstr "Taglio sequenziale"
 
 msgid "Show details"
-msgstr "Mostra dettagli"
+msgstr "Mostra i dettagli"
 
 msgid "Start without cache"
 msgstr "Avvia senza cache"

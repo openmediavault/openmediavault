@@ -11,7 +11,7 @@ Homepage: https://www.openmediavault.org
 Package: openmediavault-owntone
 Architecture: all
 Conflicts: openmediavault-owntone (<< 7.1.0)
-Depends: openmediavault (>= 7.6), podman
+Depends: openmediavault (>= 7.7.9), podman
 Priority: optional
 Description: openmediavault OwnTone plugin
  OwnTone is a DAAP (iTunes), MPD (Music Player Daemon) and RSP (Roku)

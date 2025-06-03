@@ -121,7 +121,7 @@ msgid "Read-only"
 msgstr "Alleen lezen"
 
 msgid "The SSL certificate."
-msgstr "Het SSL-certificaat"
+msgstr "Het SSL-certificaat."
 
 msgid ""
 "The location of the media files. Make sure the user <em>photoprism</em> or "

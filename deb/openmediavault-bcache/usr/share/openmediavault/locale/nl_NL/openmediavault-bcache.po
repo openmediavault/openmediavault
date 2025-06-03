@@ -28,7 +28,7 @@ msgid ""
 "A sequential IO will bypass the cache once it passes this threshold. "
 "(default:4.0M, max:3.9G)"
 msgstr ""
-"Een sequentiële IO zal de cache omzeilen zodra deze drempelwaarde wordt "
+"Een sequentiële I/O zal de cache omzeilen zodra deze drempelwaarde wordt "
 "overschreden. (standaard: 4.0M, max: 3.9G)"
 
 msgid ""

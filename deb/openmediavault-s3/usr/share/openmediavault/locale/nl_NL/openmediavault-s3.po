@@ -55,7 +55,7 @@ msgid "Shared folder"
 msgstr "Gedeelde map"
 
 msgid "The SSL certificate."
-msgstr "Het SSL-certificaat"
+msgstr "Het SSL-certificaat."
 
 msgid ""
 "The location where the object data is stored. Make sure the user <em>s3</em>"

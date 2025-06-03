@@ -5,8 +5,8 @@
 # 
 # Translators:
 # stokerh <stoker.pc@home.nl>, 2023
-# Varkentjes, 2023
 # Volker Theile <votdev@gmx.de>, 2023
+# Varkentjes, 2023
 # Tim <co_ti@hotmail.com>, 2023
 # Milan Toet <milantoet@gmail.com>, 2023
 # Seba Kerckhof <seba.kerckhof@gmail.com>, 2023
@@ -84,13 +84,13 @@ msgid "Created FTP share."
 msgstr "FTP-share aangemaakt."
 
 msgid "Currently logged in users:"
-msgstr "Huidige ingelogde gebruikers:"
+msgstr "Momenteel ingelogde gebruikers:"
 
 msgid "Date & Time"
-msgstr "Datum en tijd"
+msgstr "Datum & tijd"
 
 msgid "Deny logins which do not have a valid shell."
-msgstr "Logins zonder geldige geldige shell afwijzen."
+msgstr "Logins zonder geldige shell afwijzen."
 
 msgid "Direction"
 msgstr "Richting"
@@ -99,7 +99,7 @@ msgid "Display the home directory of the user in the browse list."
 msgstr "De basismap van de gebruiker weergeven in de bladerlijst."
 
 msgid "Edit"
-msgstr "Bewerken"
+msgstr "Aanpassen"
 
 msgid "Enable SSL/TLS connections."
 msgstr "SSL/TLS-verbindingen inschakelen."
@@ -155,7 +155,7 @@ msgid "Home directories"
 msgstr "Thuismappen"
 
 msgid "Ident protocol"
-msgstr "Ident protocol"
+msgstr "Ident-protocol"
 
 msgid ""
 "If your host is acting as a NAT gateway or port forwarder for the server, "
@@ -192,7 +192,7 @@ msgstr ""
 "handelen (b.v. 49152-65534, het IANA-geregistreerde tijdelijke poortbereik)."
 
 msgid "Masquerade address"
-msgstr "Masquerade address"
+msgstr "Masquerade-address"
 
 msgid "Max. clients"
 msgstr "Max. cliënten"
@@ -214,9 +214,9 @@ msgid ""
 "timer completely (clients can stay connected for ever, without sending "
 "data)."
 msgstr ""
-"Maximale idle tijd in seconden. Door de idle timer op 0 in te stellen wordt "
-"deze uitgeschakeld (Client verbindingen worden in stand gehouden, zonder "
-"data te versturen)."
+"Maximale duur van de pauzestand in seconden. Door de time-out op 0 in te "
+"stellen wordt deze uitgeschakeld (Client verbindingen worden in stand "
+"gehouden, zonder data te versturen)."
 
 msgid "Maximum number of allowed password attempts before disconnection."
 msgstr ""
@@ -283,7 +283,7 @@ msgid "Remote host"
 msgstr "Externe host"
 
 msgid "Require valid shell"
-msgstr "Vereis een geldige shell"
+msgstr "Een geldige shell vereisen"
 
 msgid "Required"
 msgstr "Vereist"
@@ -340,7 +340,7 @@ msgid "Tags"
 msgstr "Labels"
 
 msgid "The SSL certificate."
-msgstr "Het SSL-certificaat"
+msgstr "Het SSL-certificaat."
 
 msgid "The location of the files to share."
 msgstr "De locatie van te delen bestanden."
@@ -394,7 +394,7 @@ msgid "Time interval"
 msgstr "Tijdinterval"
 
 msgid "Timeout"
-msgstr "Timeout"
+msgstr "Time-out"
 
 msgid "Transfer log"
 msgstr "Overdrachtslogbestand"

@@ -61,7 +61,7 @@ msgid "Location"
 msgstr "Locatie"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr "Locatieinformatie, bijv. fysieke locatie van dit systeem "
+msgstr "Locatieinformatie, bijv. fysieke locatie van dit systeem ."
 
 msgid "No authentication and no privacy"
 msgstr "Geen authenticatie en geen privacy"

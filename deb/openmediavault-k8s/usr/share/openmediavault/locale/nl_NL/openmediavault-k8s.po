@@ -50,10 +50,10 @@ msgid "Certificates"
 msgstr "Certificaten"
 
 msgid "Chart"
-msgstr "Grafiek"
+msgstr "Diagram"
 
 msgid "Check for new recipes"
-msgstr "Controleren op nieuwe recepten"
+msgstr "Zoeken naar nieuwe recepten"
 
 msgid "Class"
 msgstr "Klasse"
@@ -86,7 +86,7 @@ msgid "Datastore"
 msgstr "Gegevensopslag"
 
 msgid "Date & Time"
-msgstr "Datum en tijd"
+msgstr "Datum & tijd"
 
 msgid "Deployments"
 msgstr "Inzet"
@@ -130,7 +130,7 @@ msgid "HTTPS port"
 msgstr "HTTPS-poort"
 
 msgid "Helm Charts"
-msgstr "Helm-grafieken"
+msgstr "Helm-diagrammen"
 
 msgid "Homepage"
 msgstr "Homepage"
@@ -208,10 +208,10 @@ msgid "Persistent Volumes"
 msgstr "Aanhoudende volumes"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr "Een ogenbik geduld, er wordt een momentopname aangemaakt…"
+msgstr "Even geduld, er wordt een momentopname aangemaakt…"
 
 msgid "Please wait, the snapshot will be restored ..."
-msgstr "Een ogenbik geduld, de momentopname wordt hersteld…"
+msgstr "Even geduld, de momentopname wordt hersteld…"
 
 msgid "Pods"
 msgstr "Pods"
@@ -296,7 +296,7 @@ msgid ""
 "not set, a self-signed certificate from cert-manager is used."
 msgstr ""
 "Het SSL-certificaat dat wordt gebruikt door het bedieningspaneel en de "
-"LoadBalancer-service. Indien niet ingesteld, wordt een zelfondertekend "
+"LoadBalancer-dienst. Indien niet ingesteld, wordt een zelfondertekend "
 "certificaat van cert-manager gebruikt."
 
 msgid ""
@@ -336,13 +336,13 @@ msgid "The port on which the Kubernetes Dashboard is listening."
 msgstr "De poort waarop het Kubernetes bedieningspaneel luistert."
 
 msgid "The port on which the LoadBalancer service is listening."
-msgstr "De poort waarop de LoadBalancer-service luistert."
+msgstr "De poort waarop de LoadBalancer-dienst luistert."
 
 msgid "The snapshot was created successfully."
 msgstr "De momentopname is met succes aangemaakt."
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
-msgstr "De momentopname {{ spec.snapshotName }} is succesvol teruggezet."
+msgstr "De momentopname {{ spec.snapshotName }} is met succes teruggezet."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr "Het token om te authenticeren op het Kubernetes bedieningspaneel."
@@ -363,7 +363,7 @@ msgid "Users"
 msgstr "Gebruikers"
 
 msgid "View"
-msgstr "Weergeven"
+msgstr "Weergave"
 
 msgid "Volume"
 msgstr "Volume"

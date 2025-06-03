@@ -92,7 +92,7 @@ msgid "Physical Volumes"
 msgstr "Volumi fisici"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr "Attendi, verrà creato uno snapshot ..."
+msgstr "Attendi, verrà creato uno snapshot..."
 
 msgid "Reduce"
 msgstr "Riduci"
@@ -104,13 +104,13 @@ msgid "Resize"
 msgstr "Ridimensiona"
 
 msgid "Select a device ..."
-msgstr "Scegli un dispositivo ..."
+msgstr "Seleziona un dispositivo..."
 
 msgid "Select a volume group ..."
-msgstr "Seleziona un gruppo di volumi ..."
+msgstr "Seleziona un gruppo di volumi..."
 
 msgid "Select devices ..."
-msgstr "Seleziona i dispositivi ..."
+msgstr "Seleziona i dispositivi..."
 
 msgid "Select the devices used to extend the volume group."
 msgstr "Seleziona i dispositivi da utilizzare per estendere il gruppo di volumi."
@@ -147,7 +147,7 @@ msgid "Updated volume group '{{ devicefile }}'."
 msgstr "Il gruppo di volumi '{{ devicefile }}' è stato aggiornato."
 
 msgid "Used"
-msgstr "Usato"
+msgstr "Utilizzato"
 
 msgid "Volume Group"
 msgstr "Gruppo di volumi"

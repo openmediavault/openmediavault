@@ -1,3 +1,9 @@
+openmediavault-md (7.0.5-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:43:34 +0200
+
 openmediavault-md (7.0.4-1) stable; urgency=medium
 
   * Update locale files.

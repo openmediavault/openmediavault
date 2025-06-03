@@ -1,3 +1,9 @@
+openmediavault-shairport (7.0.1-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:46:16 +0200
+
 openmediavault-shairport (7.0-2) unstable; urgency=low
 
   * Adapt to openmediavault 7 (Sandworm).

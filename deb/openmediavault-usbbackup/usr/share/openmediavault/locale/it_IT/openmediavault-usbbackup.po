@@ -123,7 +123,7 @@ msgid "Run backup job"
 msgstr "Esegui attività di backup"
 
 msgid "Select a device ..."
-msgstr "Seleziona un dispositivo ..."
+msgstr "Seleziona un dispositivo..."
 
 msgid "Send email"
 msgstr "Invia email"

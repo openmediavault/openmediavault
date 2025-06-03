@@ -115,7 +115,7 @@ msgid "Tag"
 msgstr "Label"
 
 msgid "Updated Podman settings."
-msgstr "Podman-instellingen bijgewerkt."
+msgstr "Instellingen voor Podman bijgewerkt."
 
 msgid "Used"
 msgstr "Gebruikt"

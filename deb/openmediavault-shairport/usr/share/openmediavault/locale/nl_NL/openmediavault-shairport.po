@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "A password is required to stream audio."
-msgstr "Een wachtwoord is vereist om audio te streamen"
+msgstr "Een wachtwoord is vereist om audio te streamen."
 
 msgid "Authentication"
 msgstr "Authenticatie"
@@ -41,7 +41,7 @@ msgstr "Shairport"
 msgid ""
 "The name the service will advertise to clients. Leave this field empty to "
 "use the hostname by default."
-msgstr "De service zal de naam aan cliënten adverteren. Laat dit gedeelte leeg om standaard de hostnaam te gebruiken."
+msgstr "De dienst zal de naam aanbieden aan cliënten. Laat dit gedeelte leeg om standaard de hostnaam te gebruiken."
 
 msgid "Updated Shairport settings."
 msgstr "Shairport-instellingen bijgewerkt."

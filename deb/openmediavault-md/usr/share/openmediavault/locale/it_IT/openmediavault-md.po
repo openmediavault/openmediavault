@@ -98,7 +98,7 @@ msgid "Remove"
 msgstr "Rimuovi"
 
 msgid "Select devices ..."
-msgstr "Seleziona i dispositivi ..."
+msgstr "Seleziona i dispositivi..."
 
 msgid "Select devices to be added to the RAID device."
 msgstr "Seleziona i dispositivi da aggiungere al dispositivo RAID."
@@ -115,7 +115,7 @@ msgstr ""
 "inaffidabili)."
 
 msgid "Show details"
-msgstr "Mostra dettagli"
+msgstr "Mostra i dettagli"
 
 msgid "Software RAID"
 msgstr "RAID software"

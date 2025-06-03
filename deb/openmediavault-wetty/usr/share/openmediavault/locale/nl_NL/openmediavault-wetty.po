@@ -4,8 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Volker Theile <votdev@gmx.de>, 2022
 # Tim <co_ti@hotmail.com>, 2022
+# Volker Theile <votdev@gmx.de>, 2022
 # Milan Toet <milantoet@gmail.com>, 2022
 # Stephan Paternotte <stephan@paternottes.net>, 2025
 # 
@@ -40,10 +40,10 @@ msgid "Port to listen on."
 msgstr "Poort om te beluisteren."
 
 msgid "The SSL certificate."
-msgstr "Het SSL-certificaat"
+msgstr "Het SSL-certificaat."
 
 msgid "Updated WeTTY settings."
-msgstr "WeTTY-instellingen bijgewerkt."
+msgstr "Instellingen voor WeTTY bijgewerkt."
 
 msgid "WeTTY"
 msgstr "WeTTY"

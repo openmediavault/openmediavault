@@ -1,3 +1,9 @@
+openmediavault-hosts (7.0.1-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:38:10 +0200
+
 openmediavault-hosts (7.0-3) stable; urgency=low
 
   * Initial release.

@@ -257,7 +257,7 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "About"
-msgstr "Informazioni su"
+msgstr "Informazioni"
 
 msgid "Absolute Path"
 msgstr "Percorso assoluto"
@@ -300,16 +300,16 @@ msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Amministratore: lettura/scrittura, Utenti:accesso negato, Altri: accesso negato"
 
 msgid "Administrator: read/write, Users: read-only, Others: no access"
-msgstr "Amministratore: lettura/scrittura, Utenti:solo lettura, Altri: accesso negato"
+msgstr "Amministratore: lettura/scrittura, Utenti:sola lettura, Altri: accesso negato"
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
-msgstr "Amministratore: lettura/scrittura, Utenti:solo lettura, Altri: solo lettura"
+msgstr "Amministratore: lettura/scrittura, Utenti:sola lettura, Altri: sola lettura"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
 msgstr "Amministratore: lettura/scrittura, Utenti: lettura/scrittura, Altri: accesso negato"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr "Amministratore: lettura/scrittura, Utenti:lettura/scrittura, Altri: solo lettura"
+msgstr "Amministratore: lettura/scrittura, Utenti:lettura/scrittura, Altri: sola lettura"
 
 msgid "Advanced Acoustic Management"
 msgstr "Gestione acustica avanzata"
@@ -493,7 +493,7 @@ msgid "Background task"
 msgstr "Attività in background"
 
 msgid "Bad"
-msgstr "In cattivo stato"
+msgstr "In cattive condizioni"
 
 msgid "Bahamas"
 msgstr "Bahamas"
@@ -655,7 +655,7 @@ msgid "Check interval"
 msgstr "Intervallo di verifica"
 
 msgid "Checking for new plugins ..."
-msgstr "Sto verificando la presenza di nuovi plugin ..."
+msgstr "Verifica di nuovi plugin in corso..."
 
 msgid "Chile"
 msgstr "Cile"
@@ -673,10 +673,10 @@ msgid "City"
 msgstr "Città"
 
 msgid "Cleaning up recycle bin on the share."
-msgstr "Svuota il cestino nella condivisione."
+msgstr "Sto svuotando il cestino nella condivisione."
 
 msgid "Clear"
-msgstr "Cancella"
+msgstr "Elimina"
 
 msgid "Client"
 msgstr "Client"
@@ -925,7 +925,7 @@ msgid "Device"
 msgstr "Dispositivo"
 
 msgid "Device Information"
-msgstr "Informazione dispositivo"
+msgstr "Informazioni sul dispositivo"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Device Mapper %s [%s, %s]"
@@ -934,10 +934,10 @@ msgid "Device Symlinks"
 msgstr "Link simbolici del dispositivo"
 
 msgid "Device has a few bad sectors."
-msgstr "Il dispositivo ha alcuni settori danneggiati."
+msgstr "Il dispositivo presenta alcuni settori danneggiati."
 
 msgid "Device has many bad sectors."
-msgstr "Il dispositivo ha molti settori danneggiati."
+msgstr "Il dispositivo presenta molti settori danneggiati."
 
 msgid "Device is being used outside design parameters."
 msgstr "Il dispositivo viene utilizzato al di fuori dei parametri di progettazione."
@@ -970,10 +970,10 @@ msgid "Disallow the user to modify their own account."
 msgstr "Non consentire all'utente di modificare il proprio account."
 
 msgid "Disk Temperatures"
-msgstr "Temperature del disco"
+msgstr "Temperature dei dispositivi"
 
 msgid "Disks"
-msgstr "Dischi"
+msgstr "Dispositivi di archiviazione"
 
 msgid "Dismiss"
 msgstr "Rimuovi"
@@ -1000,7 +1000,7 @@ msgid "Displays information about the services in a table."
 msgstr "Visualizza informazioni sui servizi in una tabella."
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
-msgstr "Visualizza lo stato S.M.A.R.T. di tutti i dispositivi monitorati."
+msgstr "Visualizza lo stato S.M.A.R.T. di tutti i dispositivi di archiviazione monitorati."
 
 msgid "Displays the system time."
 msgstr "Visualizza l'ora di sistema."
@@ -1009,7 +1009,7 @@ msgid "Displays the system uptime."
 msgstr "Visualizza il tempo di attività del sistema."
 
 msgid "Displays the temperature of all disk devices."
-msgstr "Visualizza la temperatura di tutti i dispositivi."
+msgstr "Visualizza la temperatura di tutti i dispositivi di archiviazione."
 
 msgid "Displays various system information."
 msgstr "Visualizza varie informazioni di sistema."
@@ -1210,7 +1210,7 @@ msgid "Everyone: read/write"
 msgstr "Tutti: lettura/scrittura"
 
 msgid "Execute only"
-msgstr "Esegui solamente"
+msgstr "Sola esecuzione"
 
 msgid "Extended Information"
 msgstr "Informazioni estese"
@@ -1379,7 +1379,7 @@ msgid "Go to the notification sidebar to attach to it."
 msgstr "Vai alla barra laterale delle notifiche per allegarle."
 
 msgid "Good"
-msgstr "In ottimo stato"
+msgstr "In ottime condizioni"
 
 msgid "Greece"
 msgstr "Grecia"
@@ -1397,7 +1397,7 @@ msgid "Groups"
 msgstr "Gruppi"
 
 msgid "Grow"
-msgstr "Espandi"
+msgstr "Estendi"
 
 msgid "Guadeloupe"
 msgstr "Guadalupe"
@@ -1542,7 +1542,7 @@ msgid ""
 "be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
 "please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
 "supported."
-msgstr "Se un dispositivo non è elencato qui, di solito è perché contiene già un file system o delle partizioni. Nel primo caso, il file system può essere montato <a href='#/storage/filesystems/mount'>qui</a>. Nel secondo caso, <a href='#/storage/disks'>pulire</a> il dispositivo perché le partizioni non sono supportate."
+msgstr "Se un dispositivo non è elencato qui, di solito è perché contiene già un file system o delle partizioni. Nel primo caso, è possibile montare il file system da <a href='#/storage/filesystems/mount'>qui</a>. Nel secondo caso, è necessario <a href='#/storage/disks'>inizializzare</a> il dispositivo, poiché le partizioni non sono supportate."
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -1600,7 +1600,7 @@ msgid "Indonesia"
 msgstr "Indonesia"
 
 msgid "Information"
-msgstr "Informazione"
+msgstr "Informazioni"
 
 msgid "Inherit ACLs"
 msgstr "ACL ereditate"
@@ -1624,10 +1624,10 @@ msgid "Install security updates unattended."
 msgstr "Installa automaticamente gli aggiornamenti di sicurezza."
 
 msgid "Install updates"
-msgstr "Installa aggiornamenti"
+msgstr "Installa gli aggiornamenti"
 
 msgid "Install updates from"
-msgstr "Installa aggiornamenti da"
+msgstr "Installa gli aggiornamenti da"
 
 msgid "Installed"
 msgstr "Installato"
@@ -1819,7 +1819,7 @@ msgid "Load average"
 msgstr "Carico medio"
 
 msgid "Loading ..."
-msgstr "Caricamento ..."
+msgstr "Caricamento in corso..."
 
 msgid "Local"
 msgstr "Locale"
@@ -2378,52 +2378,52 @@ msgid "Please choose the method to wipe the device."
 msgstr "Seleziona il metodo di cancellazione sicura del dispositivo."
 
 msgid "Please note that values >= 128 do not permit the disk to spin down."
-msgstr "Si noti che i valori >= 128 non consentono la riduzione della velocità del disco."
+msgstr "Nota che i valori pari o superiori a 128 impediscono al disco di entrare in modalità di arresto."
 
 msgid "Please wait ..."
-msgstr "Attendi ..."
+msgstr "Attendi..."
 
 msgid "Please wait, a shared folder will be created ..."
-msgstr "Attendi, verrà creata una cartella condivisa ..."
+msgstr "Attendi, verrà creata una cartella condivisa..."
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr "Attendi, verrà creato uno snapshot ..."
+msgstr "Attendi, verrà creato uno snapshot..."
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "Attendi, sto eliminando gli elementi selezionati..."
 
 msgid "Please wait, identifying network device ..."
-msgstr "Attendi, identificazione del dispositivo di rete in corso ..."
+msgstr "Attendi, identificazione del dispositivo di rete in corso..."
 
 msgid "Please wait, installing public SSH key on remote system ..."
-msgstr "Attendi, installazione della chiave SSH pubblica sul sistema remoto ..."
+msgstr "Attendi, installazione della chiave SSH pubblica sul sistema remoto in corso..."
 
 msgid "Please wait, processing selected item(s) ..."
-msgstr "Attendi, elaborazione degli elementi selezionati in corso ..."
+msgstr "Attendi, elaborazione degli elementi selezionati in corso..."
 
 msgid "Please wait, reverting configuration changes ..."
-msgstr "Attendi, ripristino delle modifiche alla configurazione in corso ..."
+msgstr "Attendi, ripristino delle modifiche alla configurazione in corso..."
 
 msgid "Please wait, sending a test email ..."
-msgstr "Attendi, invio di una mail di prova in corso ..."
+msgstr "Attendi, invio di una mail di prova in corso..."
 
 msgid "Please wait, the configuration changes are being applied ..."
-msgstr "Attendi, le modifiche alla configurazione verranno applicate ..."
+msgstr "Attendi, le modifiche alla configurazione verranno applicate..."
 
 msgid "Please wait, the data is being loaded ..."
-msgstr "Attendi, i dati vengono caricati ..."
+msgstr "Attendi, caricamento dei dati in corso..."
 
 msgid "Please wait, the statistic graphs will be regenerated ..."
-msgstr "Attendi, i grafici statistici verranno rigenerati ..."
+msgstr "Attendi, i grafici statistici verranno rigenerati..."
 
 msgid "Please wait, unmounting the file system ..."
-msgstr "Attendi, smontaggio del file system in corso ..."
+msgstr "Attendi, smontaggio del file system in corso..."
 
 msgid "Please wait, updating access control lists ..."
-msgstr "Attendi, aggiornamento in corso delle liste di controllo degli accessi ..."
+msgstr "Attendi, aggiornamento delle liste di controllo degli accessi in corso..."
 
 msgid "Please wait, updating the permissions ..."
-msgstr "Attendi, aggiornamento dei permessi in corso ..."
+msgstr "Attendi, aggiornamento dei permessi in corso..."
 
 msgid "Plugins"
 msgstr "Plugin"
@@ -2502,7 +2502,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr "Impedisci a un disco di essere avviato quando viene interrogato periodicamente.<ul><li>Mai - Esegui l'interrogazione (controllo) del dispositivo, indipendentemente dalla sua modalità di alimentazione. Ciò potrebbe causare l'avvio di un disco che è stato arrestato quando viene controllato.</li><li>Sospensione - Controlla il dispositivo a meno che non sia in modalità SOSPENSIONE.</li><li>Standby - Controlla il dispositivo a meno che non sia in modalità SOSPENSIONE o STANDBY. In queste modalità la maggior parte dei dischi non gira, quindi se vuoi impedire a un disco di avviarsi a ogni interrogazione, questo è probabilmente ciò che desideri.</li><li>Inattivo - Controlla il dispositivo a meno che non sia in modalità SOSPENSIONE, STANDBY o INATTIVO. Nello stato INATTIVO, la maggior parte dei dischi sta ancora girando, quindi questo probabilmente non è ciò che desideri.</li></ul>"
+msgstr "Impedisce che un disco venga riattivato durante le interrogazioni periodiche.<ul><li>Mai - Interroga (controlla) il dispositivo indipendentemente dalla sua modalità di risparmio energetico. Ciò può causare la riattivazione di un disco arrestato nel momento in cui viene controllato.</li><li>Sospensione - Controlla il dispositivo, a meno che non si trovi in modalità SOSPENSIONE.</li><li>Standby - Controlla il dispositivo, a meno che non si trovi in modalità SOSPENSIONE o STANDBY. In queste modalità, la maggior parte dei dischi non è in rotazione, quindi, se desideri evitare che un disco si riattivi ad ogni interrogazione, probabilmente questa è l’opzione più adatta.</li><li>Inattivo - Controlla il dispositivo, a meno che non si trovi in modalità SOSPENSIONE, STANDBY o INATTIVO. Nello stato INATTIVO, la maggior parte dei dischi è ancora in rotazione, quindi probabilmente questa non è l’opzione desiderata.</li></ul>"
 
 msgid "Primary"
 msgstr "Primario"
@@ -2556,7 +2556,7 @@ msgid "Quick"
 msgstr "Rapido"
 
 msgid "Quota"
-msgstr "Quota disco"
+msgstr "Quota"
 
 msgid "RSync server"
 msgstr "Server rsync"
@@ -2580,7 +2580,7 @@ msgid "Read/Write/Execute"
 msgstr "Lettura/Scrittura/Esecuzione"
 
 msgid "Reboot"
-msgstr "Riavvio"
+msgstr "Riavvia"
 
 msgid "Recipient"
 msgstr "Destinatario"
@@ -2775,7 +2775,7 @@ msgid "Scan for new devices"
 msgstr "Cerca nuovi dispositivi"
 
 msgid "Scanning for new devices ..."
-msgstr "Ricerca di nuovi dispositivi in corso ..."
+msgstr "Ricerca di nuovi dispositivi in corso..."
 
 msgid "Scheduled Tasks"
 msgstr "Attività pianificate"
@@ -2805,52 +2805,52 @@ msgid "Security"
 msgstr "Sicurezza"
 
 msgid "Select a country ..."
-msgstr "Scegli una nazione ..."
+msgstr "Seleziona una nazione..."
 
 msgid "Select a device ..."
-msgstr "Scegli un dispositivo ..."
+msgstr "Seleziona un dispositivo..."
 
 msgid "Select a file system ..."
-msgstr "Seleziona un file system ..."
+msgstr "Seleziona un file system..."
 
 msgid "Select a group ..."
-msgstr "Scegli un gruppo ..."
+msgstr "Seleziona un gruppo..."
 
 msgid "Select a shared folder ..."
-msgstr "Scegli una cartella condivisa ..."
+msgstr "Seleziona una cartella condivisa..."
 
 msgid "Select a shell ..."
-msgstr "Scegli una shell ..."
+msgstr "Seleziona una shell..."
 
 msgid "Select a system log ..."
-msgstr "Seleziona un log di sistema ..."
+msgstr "Seleziona un log di sistema..."
 
 msgid "Select all"
 msgstr "Seleziona tutto"
 
 msgid "Select an authentication mode ..."
-msgstr "Seleziona una modalità di autenticazione ..."
+msgstr "Seleziona una modalità di autenticazione..."
 
 msgid "Select an user ..."
-msgstr "Seleziona un utente ..."
+msgstr "Seleziona un utente..."
 
 msgid "Select devices ..."
-msgstr "Seleziona i dispositivi ..."
+msgstr "Seleziona i dispositivi..."
 
 msgid "Select groups ..."
-msgstr "Seleziona i gruppi ..."
+msgstr "Seleziona i gruppi..."
 
 msgid "Select interface devices ..."
-msgstr "Seleziona i dispositivi dell'interfaccia ..."
+msgstr "Seleziona i dispositivi dell'interfaccia..."
 
 msgid "Select members ..."
-msgstr "Seleziona i membri ..."
+msgstr "Seleziona i membri..."
 
 msgid "Select permissions ..."
-msgstr "Seleziona i permessi ..."
+msgstr "Seleziona i permessi..."
 
 msgid "Select slave devices ..."
-msgstr "Seleziona i dispositivi slave ..."
+msgstr "Seleziona i dispositivi slave..."
 
 msgid "Select the device that will be used to create the file system."
 msgstr "Seleziona il dispositivo che verrà utilizzato per creare il file system."
@@ -2961,7 +2961,7 @@ msgid "Short self-test"
 msgstr "Autotest breve"
 
 msgid "Show changelog"
-msgstr "Visualizza il changelog"
+msgstr "Mostra il changelog"
 
 msgid "Show details"
 msgstr "Mostra i dettagli"
@@ -2970,7 +2970,7 @@ msgid "Show/Hide columns"
 msgstr "Mostra/Nascondi le colonne"
 
 msgid "Show/Hide navigation"
-msgstr "Mostra/Nascondi la navigazione"
+msgstr "Mostra/Nascondi il menu di navigazione"
 
 msgid "Shutdown"
 msgstr "Spegni"
@@ -3403,7 +3403,7 @@ msgid ""
 msgstr "Il server remoto di origine, ad esempio [USER@]HOST:SRC, [USER@]HOST::SRC o rsync://[USER@]HOST[:PORT]/SRC."
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr "Il sistema verrà riavviato adesso. Il riavvio può impiegare qualche tempo..."
+msgstr "Il sistema verrà riavviato. L’operazione potrebbe richiedere qualche istante..."
 
 msgid "The users that are allowed to access this module."
 msgstr "Gli utenti autorizzati ad accedere a questo modulo."
@@ -4064,16 +4064,16 @@ msgid "Worst"
 msgstr "Peggiore"
 
 msgid "Write only"
-msgstr "Solo scrittura"
+msgstr "Sola scrittura"
 
 msgid "Write-only"
-msgstr "Solo scrittura"
+msgstr "Sola scrittura"
 
 msgid "Write/Execute"
 msgstr "Scrittura/Esecuzione"
 
 msgid "Xen virtual disk device"
-msgstr "Dispositivo disco virtuale Xen"
+msgstr "Dispositivo di archiviazione virtuale Xen"
 
 msgid "Yearly"
 msgstr "Annuale"
@@ -4117,7 +4117,7 @@ msgid "a year"
 msgstr "un anno"
 
 msgid "an hour"
-msgstr "un'ora"
+msgstr "1 ora"
 
 msgid "in %s"
 msgstr "in %s"

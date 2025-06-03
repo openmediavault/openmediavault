@@ -208,10 +208,10 @@ msgid "Persistent Volumes"
 msgstr "Volumi persistenti"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr "Attendi, verrà creato uno snapshot ..."
+msgstr "Attendi, verrà creato uno snapshot..."
 
 msgid "Please wait, the snapshot will be restored ..."
-msgstr "Attendi, lo snapshot verrà ripristinato ..."
+msgstr "Attendi, lo snapshot verrà ripristinato..."
 
 msgid "Pods"
 msgstr "Pod"
@@ -268,7 +268,7 @@ msgid "Shared Folders"
 msgstr "Cartelle condivise"
 
 msgid "Show README"
-msgstr "Mostra README"
+msgstr "Mostra il README"
 
 msgid "Size"
 msgstr "Dimensione"
@@ -363,7 +363,7 @@ msgid "Users"
 msgstr "Utenti"
 
 msgid "View"
-msgstr "Vista"
+msgstr "Visualizza"
 
 msgid "Volume"
 msgstr "Volume"

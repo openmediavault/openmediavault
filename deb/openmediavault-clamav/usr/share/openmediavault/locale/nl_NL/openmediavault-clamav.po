@@ -40,13 +40,13 @@ msgid "August"
 msgstr "augustus"
 
 msgid "Be verbose."
-msgstr "Uitgebreide informatie geven."
+msgstr "Uitvoerige informatie leveren."
 
 msgid "Create"
 msgstr "Aanmaken"
 
 msgid "Created on-access scan."
-msgstr "On-access scan aangemaakt."
+msgstr "Scan-bij-toegang aangemaakt."
 
 msgid "Created scheduled scan."
 msgstr "Geplande scan aangemaakt."
@@ -55,7 +55,7 @@ msgid "Database checks"
 msgstr "Databasecontroles"
 
 msgid "Date & Time"
-msgstr "Datum en tijd"
+msgstr "Datum & tijd"
 
 msgid "Day of month"
 msgstr "Dag van de maand"
@@ -73,33 +73,33 @@ msgid "Detect PUA"
 msgstr "PUA waarnemen"
 
 msgid "Detect broken executables"
-msgstr "Detecteer defecte uitvoerbare bestanden"
+msgstr "Defecte uitvoerbare bestanden detecteren"
 
 msgid "Edit"
 msgstr "Aanpassen"
 
 msgid "Enable HTML detection and normalisation."
-msgstr "HTML-detectie en normalisatie inschakelen"
+msgstr "HTML-detectie en -normalisatie inschakelen"
 
 msgid "Enable archive scanning."
-msgstr "Schakel archief scannen in."
+msgstr "Archief-scannen inschakelen."
 
 msgid "Enable scanning of ELF files."
-msgstr "Aftasten van ELF-bestanden inschakelen."
+msgstr "Scannen van ELF-bestanden inschakelen."
 
 msgid ""
 "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
 "files."
-msgstr "OLE2-bestanden, zoals Microsoft Office documenten en .msi bestanden, aftasten."
+msgstr "OLE2-bestanden, zoals Microsoft Office documenten en .msi bestanden, scannen."
 
 msgid "Enable scanning within PDF files."
-msgstr "Aftasten van de inhoud van PDF-bestanden inschakelen."
+msgstr "Scannen in PDF-bestanden inschakelen."
 
 msgid "Enable the algorithmic detection."
 msgstr "Algoritmische detectie inschakelen"
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
-msgstr "De detectie van defecte uitvoerbare bestanden (beide PE en ELF) inschakelen."
+msgstr "De detectie van defecte uitvoerbare bestanden (zowel PE en ELF) inschakelen."
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Waarneming van mogelijk ongewenste toepassingen inschakelen."
@@ -108,13 +108,13 @@ msgid "Enabled"
 msgstr "Ingeschakeld"
 
 msgid "Every N day of month"
-msgstr "Iedere N dagen van de maand"
+msgstr "Elke N dagen van de maand"
 
 msgid "Every N hour"
-msgstr "Iedere N uren"
+msgstr "Elke N uren"
 
 msgid "Every N minute"
-msgstr "Iedere N minuten"
+msgstr "Elke N minuten"
 
 msgid "Execute scheduled scan"
 msgstr "Geplande scan uitvoeren"
@@ -183,13 +183,13 @@ msgid "Move to quarantine"
 msgstr "In quarantaine plaatsen"
 
 msgid "Multiscan"
-msgstr "Meervoudig aftasten"
+msgstr "Meervoudige scan"
 
 msgid "November"
 msgstr "november"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr "Aantal database updatecontroles per dag. Zet op 0 om te deactiveren."
+msgstr "Aantal database updatecontroles per dag. Stel in op 0 om te deactiveren."
 
 msgid "October"
 msgstr "oktober"
@@ -219,25 +219,25 @@ msgid "Saturday"
 msgstr "Zaterdag"
 
 msgid "Scan ELF"
-msgstr "ELF aftasten"
+msgstr "ELF scannen"
 
 msgid "Scan HTML"
-msgstr "HTML aftasten"
+msgstr "HTML scannen"
 
 msgid "Scan OLE2"
-msgstr "OLE2 aftasten"
+msgstr "OLE2 scannen"
 
 msgid "Scan PDF"
-msgstr "PDF aftasten"
+msgstr "PDF scannen"
 
 msgid "Scan Portable Executable"
-msgstr "Draagbare uitvoerbare bestanden aftasten"
+msgstr "Draagbare uitvoerbare bestanden scannen"
 
 msgid "Scan archives"
-msgstr "Archieven aftasten"
+msgstr "Archieven scannen"
 
 msgid "Scan the directory contents in parallel using available threads."
-msgstr "De inhoud van de map parallel aftasten door meerdere ingangen te gebruiken."
+msgstr "De inhoud van de map parallel scannen door meerdere ingangen te gebruiken."
 
 msgid "Scheduled Scans"
 msgstr "Geplande scans"
@@ -270,7 +270,7 @@ msgid "The location of the files to scan on-access."
 msgstr "De locatie van de bestanden die bij toegang moeten worden gescand."
 
 msgid "The location of the files to scan."
-msgstr "De locatie van de af te tasten bestanden"
+msgstr "De locatie van de te scannen bestanden"
 
 msgid "The location which is used as quarantine."
 msgstr "De locatie die als quarantaine wordt gebruikt."
@@ -285,13 +285,13 @@ msgid "Tuesday"
 msgstr "Dinsdag"
 
 msgid "Updated on-access scan."
-msgstr "On-access scan bijgewerkt."
+msgstr "Scan-bij-toegang bijgewerkt."
 
 msgid "Updated scheduled scan."
 msgstr "Geplande scan bijgewerkt."
 
 msgid "Verbose"
-msgstr "Uitgebreide informatie"
+msgstr "Uitvoerige informatie"
 
 msgid "Wednesday"
 msgstr "Woensdag"

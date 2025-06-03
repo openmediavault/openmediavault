@@ -45,7 +45,7 @@ msgid "Delete"
 msgstr "Verwijderen"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr "Verwijder bestanden aan de ontvangende kant die niet bestaan bij de verzender"
+msgstr "Bestanden die niet bestaan bij de verzender verwijderen bij de ontvanger."
 
 msgid "Device"
 msgstr "Apparaat"
@@ -54,7 +54,7 @@ msgid "Edit"
 msgstr "Aanpassen"
 
 msgid "Enable archive mode."
-msgstr "Archief-modus inschakelen"
+msgstr "Archief-modus inschakelen."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -91,19 +91,19 @@ msgid "Preserve ACLs"
 msgstr "ACL's behouden"
 
 msgid "Preserve extended attributes"
-msgstr "Uitgebreide kenmerken behouden"
+msgstr "Uitgebreide attributen behouden"
 
 msgid "Preserve group"
-msgstr "Behoud groep"
+msgstr "Groep behouden"
 
 msgid "Preserve modification times"
-msgstr "Behoud aanpassingstijden"
+msgstr "Aanpassingstijden behouden"
 
 msgid "Preserve owner"
 msgstr "Eigenaar behouden"
 
 msgid "Preserve permissions"
-msgstr "Rechten behouden"
+msgstr "Machtigingen behouden"
 
 msgid "Quiet"
 msgstr "Stil"
@@ -124,29 +124,29 @@ msgid "Run backup job"
 msgstr "Taak voor back-up uitvoeren"
 
 msgid "Select a device ..."
-msgstr "Selecteer een apparaat ..."
+msgstr "Selecteer een apparaat…"
 
 msgid "Send email"
 msgstr "E-mail verzenden"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr "Stel de rechten van het doel hetzelfde in als de rechten van de bron"
+msgstr "De machtigingen van de bestemming hetzelfde instellen als die van de bron."
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr "Stel de groep van het doelbestand in op hetzelfde als het bronbestand."
+msgstr "De groep van het bestemmingsbestand hetzelfde instellen als van het bronbestand."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr "Stel in dat de eigenaar van het bestemmingsbestand hetzelfde is als het bronbestand, maar alleen als de ontvangende rsync wordt uitgevoerd als de super-user."
+msgstr "Stel de eigenaar van het bestemmingsbestand hetzelfde in als van het bronbestand, maar alleen als de ontvangende rsync wordt uitgevoerd als super-user."
 
 msgid "Shared folder"
 msgstr "Gedeelde map"
 
 msgid "Suppress non-error messages."
-msgstr "Non-foutmeldingen onderdrukken."
+msgstr "Niet-foutmeldingen onderdrukken."
 
 msgid "Tags"
 msgstr "Labels"
@@ -179,7 +179,7 @@ msgid "USB Backup"
 msgstr "USB Backup"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr "De doel-ACL's bijwerken zodat ze overeenkomen met de bron-ACL's."
+msgstr "De ACL's van de bestemming bijwerken zodat deze overeenkomen met die van de bron."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."

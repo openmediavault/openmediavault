@@ -29,10 +29,10 @@ msgid "Charge"
 msgstr "Opladen"
 
 msgid "Comment"
-msgstr "Opmerking"
+msgstr "Commentaar"
 
 msgid "Date & Time"
-msgstr "Datum en tijd"
+msgstr "Datum & tijd"
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Bepaalt wanneer het afsluiten van het systeem wordt gestart."
@@ -50,7 +50,7 @@ msgid "Identifier"
 msgstr "Identificatie"
 
 msgid "Invalid identifier"
-msgstr "Ongeldige identifier"
+msgstr "Ongeldige identificatie"
 
 msgid "Load"
 msgstr "Belasting"
@@ -80,7 +80,7 @@ msgid "Password"
 msgstr "Wachtwoord"
 
 msgid "Powervalue"
-msgstr "Vermogenswaarde"
+msgstr "Energiewaarde"
 
 msgid "Program"
 msgstr "Toepassing"
@@ -136,7 +136,7 @@ msgid "Updated UPS settings."
 msgstr "UPS-instellingen bijgewerkt."
 
 msgid "Used for remote authentication."
-msgstr "Gebruikt voor authenticatie op afstand"
+msgstr "Gebruikt voor authenticatie op afstand."
 
 msgid "User name"
 msgstr "Gebruikersnaam"

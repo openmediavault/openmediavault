@@ -97,7 +97,7 @@ msgid ""
 "command <em>omv-onedrive-auth</em> as <em>root</em> user in the CLI to "
 "authenticate the application in Microsoft OneDrive."
 msgstr ""
-"Nadat u deze service de eerste keer hebt ingeschakeld en geïmplementeerd, "
+"Nadat u deze dienst de eerste keer hebt ingeschakeld en geïmplementeerd, "
 "dient u de opdracht <em>omv-onedrive-auth</em> als <em>root</em>gebruiker "
 "uit te voeren in de CLI om de applicatie te authenticeren in Microsoft "
 "OneDrive."
@@ -106,7 +106,7 @@ msgid "Clean up local files"
 msgstr "Lokale bestanden opruimen"
 
 msgid "Clean up local files that have been removed online."
-msgstr "Lokale bestanden opruimen op die online zijn verwijderd."
+msgstr "Lokale bestanden opruimen die online zijn verwijderd."
 
 msgid "Disabled"
 msgstr "Uitgeschakeld"
@@ -124,13 +124,13 @@ msgid "Extra options"
 msgstr "Extra opties"
 
 msgid "Full"
-msgstr "Vol"
+msgstr "Volledig"
 
 msgid "Local first"
 msgstr "Lokaal eerst"
 
 msgid "Monitor interval"
-msgstr "Monitoring-interval"
+msgstr "Observatie-interval"
 
 msgid "No remote delete"
 msgstr "Niet verwijderen op afstand"
@@ -143,7 +143,7 @@ msgstr "Snelheidslimiet"
 
 msgid "Replicate local state first, before downloading changes from OneDrive."
 msgstr ""
-"Eerst de lokale staat repliceren, alvorens wijzigingen van OneDrive te "
+"Eerst de lokale staat repliceren, alvorens wijzigingen van OneDrive "
 "downloaden."
 
 msgid "Replication mode"
@@ -153,10 +153,10 @@ msgid "Shared folder"
 msgstr "Gedeelde map"
 
 msgid "Skip dot files and folders from syncing."
-msgstr "Dotbestanden en -mappen bij synchronisatie overslaan."
+msgstr "Puntbestanden en -mappen bij synchronisatie overslaan."
 
 msgid "Skip dotfiles"
-msgstr "Dotbestanden overslaan"
+msgstr "Puntbestanden overslaan"
 
 msgid "The location to which the files are synchronised."
 msgstr "De locatie waarnaar de bestanden worden gesynchroniseerd."
@@ -169,7 +169,7 @@ msgid "The wait time between each sync operation."
 msgstr "De wachttijd tussen synchronisatiebewerkingen."
 
 msgid "Updated OneDrive settings."
-msgstr "OneDrive-instellingen bijgewerkt."
+msgstr "Instellingen voor OneDrive bijgewerkt."
 
 msgid "Upload only"
 msgstr "Alleen uploaden"

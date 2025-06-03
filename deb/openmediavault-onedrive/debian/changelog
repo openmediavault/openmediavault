@@ -1,3 +1,9 @@
+openmediavault-onedrive (7.1.6-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:44:04 +0200
+
 openmediavault-onedrive (7.1.5-1) stable; urgency=low
 
   * Add the `OMV_ONEDRIVE_SYSTEMD_EXECSTART_ARGS` environment variable to

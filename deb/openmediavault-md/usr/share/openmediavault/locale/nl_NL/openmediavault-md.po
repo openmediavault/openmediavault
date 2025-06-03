@@ -52,7 +52,7 @@ msgid "Devices"
 msgstr "Apparaten"
 
 msgid "Grow"
-msgstr "Laten toenemen"
+msgstr "Uitbreiden"
 
 msgid "Level"
 msgstr "Niveau"
@@ -97,7 +97,7 @@ msgid "Remove"
 msgstr "Verwijderen"
 
 msgid "Select devices ..."
-msgstr "Apparaten selecteren…"
+msgstr "Selecteer apparaten…"
 
 msgid "Select devices to be added to the RAID device."
 msgstr ""

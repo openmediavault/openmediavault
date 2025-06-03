@@ -66,7 +66,7 @@ msgid "The password to access the library."
 msgstr "Het wachtwoord om toegang te krijgen tot de bibliotheek."
 
 msgid "Updated OwnTone settings."
-msgstr "OwnTone-instellingen bijgewerkt."
+msgstr "Instellingen voor OwnTone bijgewerkt."
 
 msgid "Web interface"
 msgstr "Web-interface"
