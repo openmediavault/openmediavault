@@ -1,0 +1,92 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-filesystem-bcachefs-create-form-page
+  type: formPage
+  config:
+    hints:
+      - type: info
+        text: _("If a device is not listed here, it is usually because the device already contains a file system or partitions. With the former, the file system can be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, please <a href='#/storage/disks'>wipe</a> the device as partitions are not supported.")
+        dismissible: true
+        stateId: 199e8c7a-ee3b-11ed-9fb1-2750842abc68
+    fields:
+      - type: textInput
+        name: type
+        label: _("Type")
+        disabled: true
+        value: BCACHEFS
+        submitValue: false
+      - type: numberInput
+        name: replicas
+        label: _("Number of replicas")
+        value: 1
+        min: 1
+        max: 10
+        step: 1
+      - type: select
+        name: compression
+        label: _("Compression")
+        value: "none"
+        store:
+          data:
+            - - "none"
+              - "None"
+            - - "gzip"
+              - "GZIP"
+            - - "lz4"
+              - "LZ4"
+            - - "zstd"
+              - "Zstd"
+      - type: select
+        name: devicefiles
+        label: _("Devices")
+        placeholder: _("Select devices ...")
+        hint: _("Select the devices that will be used to create the file system.")
+        multiple: true
+        valueField: devicefile
+        textField: description
+        store:
+          proxy:
+            service: FileSystemMgmt
+            get:
+              method: getCandidatesBg
+              task: true
+          sorters:
+            - dir: asc
+              prop: devicefile
+        validators:
+          required: true
+          custom:
+            - constraint:
+                operator: '>='
+                arg0:
+                  operator: length
+                  arg0:
+                    prop: devicefiles
+                arg1:
+                  prop: replicas
+              errorData: _("The number of devices must be at least equal to the number of replicas.")
+    buttons:
+      - template: submit
+        execute:
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("Create file system")
+              width: 75%
+              startOnInit: true
+              request:
+                service: FileSystemMgmt
+                method: createBcachefs
+                params:
+                  replicas: '{{ replicas }}'
+                  compression: '{{ compression }}'
+                  devicefiles: '{{ devicefiles }}'
+              buttons:
+                stop:
+                  hidden: true
+            successUrl: /storage/filesystems/mount
+      - template: cancel
+        execute:
+          type: url
+          url: /storage/filesystems
