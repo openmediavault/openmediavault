@@ -162,8 +162,8 @@ export class SelectionListPageComponent
       buttonAlign: 'end',
       buttons: [],
       multiple: false,
-      valueField: 'value',
-      textField: 'text',
+      valueProp: 'value',
+      textProp: 'text',
       selectedField: undefined,
       updateInline: false,
       value: []
