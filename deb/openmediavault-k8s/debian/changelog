@@ -1,3 +1,9 @@
+openmediavault-k8s (7.4.10-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Jun 2025 15:04:01 +0200
+
 openmediavault-k8s (7.4.9-1) stable; urgency=medium
 
   * Update locale files.
