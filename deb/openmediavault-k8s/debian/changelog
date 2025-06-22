@@ -1,6 +1,8 @@
 openmediavault-k8s (7.4.10-1) stable; urgency=medium
 
   * Allow the deletion of PVs and PVCs in `Failed` phase.
+  * Fix the file mode bits of the systemd unit file k3s.service to prevent
+    "is marked world-writable" warnings.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Jun 2025 15:04:01 +0200
 

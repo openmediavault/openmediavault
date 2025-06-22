@@ -377,6 +377,13 @@ remove_k3s_upgrade_flag:
 #   file.absent:
 #     - name: "/var/lib/openmediavault/upgrade_helm"
 
+fix_k3s_systemd_unit_file_mode_bits:
+  file.managed:
+    - name: /etc/systemd/system/k3s.service
+    - replace: False
+    - create: False
+    - mode: 644
+
 start_k3s_service:
   service.running:
     - name: k3s
