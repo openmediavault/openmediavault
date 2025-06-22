@@ -272,7 +272,7 @@ export class FormComponent implements AfterViewInit, OnInit {
           validators.push(Validators.email);
         }
         if (_.isPlainObject(field.validators.requiredIf)) {
-          validators.push(CustomValidators.requiredIf(field.validators.requiredIf));
+          validators.push(CustomValidators.requiredIf(field.validators));
         }
         if (_.isArray(field.validators.custom)) {
           _.forEach(field.validators.custom, (custom: FormFieldConstraintValidator) => {
