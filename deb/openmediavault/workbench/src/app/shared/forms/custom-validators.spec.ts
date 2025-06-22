@@ -10,9 +10,11 @@ describe('CustomValidators', () => {
     let emailControl: AbstractControl;
     let enabledControl: AbstractControl;
     const validator = CustomValidators.requiredIf({
-      operator: 'eq',
-      arg0: { prop: 'enabled' },
-      arg1: true
+      requiredIf: {
+        operator: 'eq',
+        arg0: { prop: 'enabled' },
+        arg1: true
+      }
     });
 
     beforeEach(() => {
