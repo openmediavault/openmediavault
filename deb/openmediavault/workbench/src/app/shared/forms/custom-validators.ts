@@ -138,13 +138,15 @@ export class CustomValidators {
         });
         hasSubscribed = true;
       }
-      const fulfilled = ConstraintService.test(validators.requiredIf, getFormValues(control));
+      const fulfilled: any = ConstraintService.test(validators.requiredIf, getFormValues(control));
       // Update the form field's `required` validator configuration to let
       // the UI reflect the status by adding or removing the `*` flag of the
       // form field label.
-      validators.required = fulfilled as boolean;
+      if (_.isBoolean(fulfilled)) {
+        validators.required = fulfilled;
+      }
       // Return the validator response as usual.
-      return !fulfilled && isEmptyInputValue(control.value) ? { required: true } : null;
+      return fulfilled && isEmptyInputValue(control.value) ? { required: true } : null;
     };
   }
 
