@@ -234,13 +234,16 @@ create_k3s_k8s_dashboard_manifest:
             app:
               ingress:
                 enabled: false
-            # Disable Kong admin UI as it is not required.
-            # - https://github.com/kubernetes/dashboard/issues/8765
-            # - https://github.com/Kong/charts/blob/main/charts/kong/values.yaml
+            # https://github.com/Kong/charts/blob/main/charts/kong/values.yaml
             kong:
+              # Disable Kong admin UI as it is not required.
+              # https://github.com/kubernetes/dashboard/issues/8765
               admin:
                 tls:
                   enabled: false
+              proxy:
+                tls:
+                  containerPort: 9443
         ---
         apiVersion: traefik.io/v1alpha1
         kind: ServersTransport
