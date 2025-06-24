@@ -4,6 +4,7 @@ openmediavault-k8s (7.4.10-1) stable; urgency=medium
   * Fix the file mode bits of the systemd unit file k3s.service to prevent
     "is marked world-writable" warnings.
   * Disable Kong admin UI which is part of the Kubernetes Dashboard.
+  * Prevent Kong container from crashing due `Address already in use`.
   * Issue #1972: Fix bug when using user defined SSL certificates.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Jun 2025 15:04:01 +0200
