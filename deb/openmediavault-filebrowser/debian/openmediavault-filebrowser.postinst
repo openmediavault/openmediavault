@@ -24,7 +24,7 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_FILEBROWSER_APP_CONTAINER_IMAGE=${OMV_FILEBROWSER_APP_CONTAINER_IMAGE:-"docker.io/filebrowser/filebrowser:latest"}
+OMV_FILEBROWSER_APP_CONTAINER_IMAGE=${OMV_FILEBROWSER_APP_CONTAINER_IMAGE:-"docker.io/filebrowser/filebrowser:v2.32.0"}
 OMV_FILEBROWSER_PROXY_CONTAINER_IMAGE=${OMV_FILEBROWSER_PROXY_CONTAINER_IMAGE:-"docker.io/library/caddy:latest"}
 
 case "$1" in

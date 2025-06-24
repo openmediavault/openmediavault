@@ -29,7 +29,7 @@
 # podman logs -f filebrowser-proxy
 
 {% set config = salt['omv_conf.get']('conf.service.filebrowser') %}
-{% set app_image = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_IMAGE', 'docker.io/filebrowser/filebrowser:latest') %}
+{% set app_image = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_IMAGE', 'docker.io/filebrowser/filebrowser:v2.32.0') %}
 {% set proxy_image = salt['pillar.get']('default:OMV_FILEBROWSER_PROXY_CONTAINER_IMAGE', 'docker.io/library/caddy:latest') %}
 {% set uname = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_UNAME', 'filebrowser') %}
 {% set gname = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_GNAME', 'users') %}
