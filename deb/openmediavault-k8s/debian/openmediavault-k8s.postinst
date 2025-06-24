@@ -69,6 +69,9 @@ case "$1" in
 			touch /var/lib/openmediavault/upgrade_k3s || :
 			omv_module_set_dirty k3s
 		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.10"; then
+			omv_module_set_dirty k3s
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
