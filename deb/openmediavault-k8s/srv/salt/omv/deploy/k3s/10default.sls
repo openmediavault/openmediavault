@@ -106,10 +106,17 @@ create_k3s_traefik_manifest:
           labels:
             app.kubernetes.io/part-of: openmediavault
         spec:
+{%- if k8s_config.sslcertificateref | length > 0 %}
+          certificates:
+            - secretName: userdefined-tls-cert
+          defaultCertificate:
+            secretName: userdefined-tls-cert
+{%- else %}
           certificates:
             - secretName: default-tls-cert
           defaultCertificate:
             secretName: default-tls-cert
+{%- endif %}
     - user: root
     - group: root
     - mode: 600
@@ -321,7 +328,7 @@ create_k3s_misc_manifest:
         apiVersion: v1
         kind: Secret
         metadata:
-          name: default-tls-cert
+          name: userdefined-tls-cert
           namespace: kube-system
           labels:
             app.kubernetes.io/part-of: openmediavault
