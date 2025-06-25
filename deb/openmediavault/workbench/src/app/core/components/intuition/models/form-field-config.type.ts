@@ -306,9 +306,11 @@ export type FormFieldConfig = {
   // otherwise `false`.
   trim?: boolean;
 
-  // --- select | textInput ---
+  // --- select | sharedFolderSelect | sshCertSelect | sslCertSelect | textInput ---
+  // The name of the property to display the option value.
   // Defaults to `value`.
   valueField?: string;
+  // The name of the property to display the option text.
   // Defaults to `text`.
   textField?: string;
   store?: DataStore;
