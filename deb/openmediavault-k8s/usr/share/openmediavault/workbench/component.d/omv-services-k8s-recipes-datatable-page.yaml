@@ -35,7 +35,7 @@ data:
             {% if section %}<span>{{ "Section" | translate }}: {{ section | title }}</span><br>{% endif %}
             {% if architecture | length > 0 %}<span>{{ "Architecture" | translate }}: {{ architecture | join(", ") }}</span><br>{% endif %}
             {% if recipeVersion %}<span>{{ "Recipe Version" | translate }}: {{ recipeVersion }}</span><br>{% endif %}
-            {% if appVersion %}<span>{{ "App Version" | translate }}: {{ appVersion | notavailable }}</span><br>{% endif %}
+            {% if appVersion %}<span>{{ "App Version" | translate }}: {{ appVersion }}</span><br>{% endif %}
             {% if maintainers %}<span>{{ "Maintainers" | translate }}: {{ maintainers | join(", ") }}</span><br>{% endif %}
             {% if url %}<span>{{ "Homepage" | translate }}: <a href="{{ url }}">{{ url }}</a></span><br>{% endif %}
           </div>
