@@ -164,6 +164,9 @@ export class MatFormDatatableComponent
   }
 
   @Input()
+  stateId?: string;
+
+  @Input()
   columns: DatatableColumn[] = [];
 
   @Input()

@@ -201,8 +201,16 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
         hasActionBar: true,
         hasSearchField: true,
         selectionType: 'none',
+        stateId: 'e949380a-52b4-11f0-94b6-37aaf1d214ed',
         columns: [
           { name: gettext('Name'), prop: 'name', flexGrow: 2, sortable: true },
+          {
+            name: gettext('ID'),
+            prop: 'id',
+            flexGrow: 1,
+            sortable: true,
+            hidden: true
+          },
           {
             name: gettext('Type'),
             prop: 'type',
@@ -390,8 +398,18 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
         })
       )
       .subscribe((res: RpcObjectResponse) => {
-        _.map(res.acl.users, (user: Record<string, any>) => _.set(user, 'type', 'user'));
-        _.map(res.acl.groups, (group: Record<string, any>) => _.set(group, 'type', 'group'));
+        _.map(res.acl.users, (user: Record<string, any>) =>
+          _.merge(user, {
+            id: _.get(user, 'uid'),
+            type: 'user'
+          })
+        );
+        _.map(res.acl.groups, (group: Record<string, any>) =>
+          _.merge(group, {
+            id: _.get(group, 'gid'),
+            type: 'group'
+          })
+        );
         this.page.setFormValues({
           owner: res.owner,
           group: res.group,

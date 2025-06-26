@@ -350,6 +350,8 @@ export type FormFieldConfig = {
   // --- hint ---
   hintType?: 'info' | 'warning' | 'tip';
   dismissible?: boolean;
+
+  // --- datatable | hint ---
   stateId?: string;
 
   // --- tagInput ---
