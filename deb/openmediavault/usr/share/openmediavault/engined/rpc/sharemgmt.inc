@@ -616,6 +616,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Set default values.
 			$privilege = new \OMV\Dictionary([
 				"type" => "user",
+				"id" => $userv['uid'],
 				"name" => $userv['name'],
 				"perms" => NULL
 			]);
@@ -639,6 +640,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Set default values.
 			$privilege = new \OMV\Dictionary([
 				"type" => "group",
+				"id" => $groupv['gid'],
 				"name" => $groupv['name'],
 				"perms" => NULL
 			]);
