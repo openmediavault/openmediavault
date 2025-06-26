@@ -1,11 +1,11 @@
 version: "1.0"
 type: component
 data:
-  name: omv-services-k8s-resources-deployment-datatable-page
+  name: omv-services-k8s-resources-statefulset-datatable-page
   type: datatablePage
   config:
     autoReload: 10000
-    stateId: d3e05768-d35e-11ee-81b4-3fd59629d9ff
+    stateId: 7c53f2e2-52bb-11f0-a6de-bb28d73e9063
     sorters:
       - dir: asc
         prop: metadata.namespace
@@ -17,7 +17,7 @@ data:
         get:
           method: getList
           params:
-            type: deployments
+            type: statefulsets
       transform:
         metadata.labels: '{{ metadata.labels | entries | map("join", ":") }}'
     rowId: metadata.name
@@ -69,7 +69,7 @@ data:
           maxSelected: 1
         execute:
           type: url
-          url: "/services/k8s/resources/deployment/get/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=deployment"
+          url: "/services/k8s/resources/statefulset/get/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=statefulset"
       - type: iconButton
         icon: "mdi:text-box-edit"
         tooltip: _("Describe")
@@ -78,7 +78,7 @@ data:
           maxSelected: 1
         execute:
           type: url
-          url: "/services/k8s/resources/deployment/describe/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=deployment"
+          url: "/services/k8s/resources/statefulset/describe/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=statefulset"
       - template: delete
         execute:
           type: request
@@ -86,6 +86,6 @@ data:
             service: Kubectl
             method: delete
             params:
-              type: deployment
+              type: statefulset
               name: "{{ metadata.name }}"
               namespace: "{{ metadata.namespace }}"

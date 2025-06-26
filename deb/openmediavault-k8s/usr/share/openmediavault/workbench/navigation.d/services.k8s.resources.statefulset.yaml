@@ -1,7 +1,7 @@
 version: "1.0"
 type: navigation-item
 data:
-  path: "services.k8s.resources.deployment"
-  text: _("Deployments")
+  path: "services.k8s.resources.statefulset"
+  text: _("Stateful Sets")
   icon: "mdi:reload"
-  url: "/services/k8s/resources/deployment"
+  url: "/services/k8s/resources/statefulset"
