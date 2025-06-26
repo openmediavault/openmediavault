@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/k8s/resources/deployment"
+  title: _("Deployments")
+  component: omv-services-k8s-resources-deployment-datatable-page

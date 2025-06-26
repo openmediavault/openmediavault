@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/k8s/resources/deployment/describe/:name"
+  title: "{{ 'Describe' | translate }} @ {{ _routeParams.name }}"
+  component: omv-services-k8s-describe-text-page
