@@ -3,5 +3,5 @@ type: navigation-item
 data:
   path: "services.k8s.resources.statefulset"
   text: _("Stateful Sets")
-  icon: "mdi:reload"
+  icon: "mdi:collapse-all-outline"
   url: "/services/k8s/resources/statefulset"
