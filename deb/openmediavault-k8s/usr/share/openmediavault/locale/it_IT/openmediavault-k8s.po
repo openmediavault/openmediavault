@@ -5,15 +5,16 @@
 # 
 # Translators:
 # Roberto Bellingeri <bellingeri@netguru.it>, 2025
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-05-23 12:43+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Roberto Bellingeri <bellingeri@netguru.it>, 2025\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,10 +29,10 @@ msgid "Access Modes"
 msgstr "Modalità di accesso"
 
 msgid "App Version"
-msgstr "Versione App"
+msgstr "Versione dell'app"
 
 msgid "Apply"
-msgstr ""
+msgstr "Applica"
 
 msgid "Architecture"
 msgstr "Architettura"
@@ -52,19 +53,19 @@ msgid "Chart"
 msgstr "Grafico"
 
 msgid "Check for new recipes"
-msgstr ""
+msgstr "Verifica la presenza di nuove ricette"
 
 msgid "Class"
-msgstr ""
+msgstr "Classe"
 
 msgid "Cluster IP"
-msgstr ""
+msgstr "IP del cluster"
 
 msgid "Compressed"
 msgstr "Compresso"
 
 msgid "Config Maps"
-msgstr ""
+msgstr "Mappe di configurazione"
 
 msgid "Copy to clipboard"
 msgstr "Copia negli appunti"
@@ -79,25 +80,25 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 msgid "Data"
-msgstr ""
+msgstr "Dati"
 
 msgid "Datastore"
-msgstr ""
+msgstr "Archivio dati"
 
 msgid "Date & Time"
-msgstr "Data & Ora"
+msgstr "Data e ora"
 
 msgid "Deployments"
-msgstr ""
+msgstr "Distribuzioni"
 
 msgid "Describe"
-msgstr ""
+msgstr "Descrivi"
 
 msgid "Description"
 msgstr "Descrizione"
 
 msgid "Do you really want to restore this snapshot?"
-msgstr "Vuoi davvero ripristinare questa istantanea?"
+msgstr "Vuoi davvero ripristinare questo snapshot?"
 
 msgid "Download"
 msgstr "Download"
@@ -129,16 +130,13 @@ msgid "HTTPS port"
 msgstr "Porta HTTPS"
 
 msgid "Helm Charts"
-msgstr ""
+msgstr "Grafici Helm"
 
 msgid "Homepage"
-msgstr ""
+msgstr "Homepage"
 
 msgid "ID"
 msgstr "ID"
-
-msgid "If present, the namespace scope for this request."
-msgstr ""
 
 msgid "Image"
 msgstr "Immagine"
@@ -150,19 +148,16 @@ msgid "Import"
 msgstr "Importa"
 
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredienti"
 
 msgid "Ingress Routes"
-msgstr ""
+msgstr "Rotte Ingress"
 
 msgid "Ingresses"
-msgstr ""
-
-msgid "Invalid namespace"
-msgstr ""
+msgstr "Ingressi"
 
 msgid "Job"
-msgstr ""
+msgstr "Attività"
 
 msgid "Kubeconfig"
 msgstr "Kubeconfig"
@@ -174,13 +169,13 @@ msgid "Labels"
 msgstr "Etichette"
 
 msgid "Load Balancer"
-msgstr ""
+msgstr "Bilanciatore del carico"
 
 msgid "Logs"
 msgstr "Log"
 
 msgid "Manifest"
-msgstr ""
+msgstr "Manifesto"
 
 msgid "Message"
 msgstr "Messaggio"
@@ -189,34 +184,34 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "Namespace"
-msgstr ""
+msgstr "Namespace"
 
 msgid "Namespaces"
-msgstr ""
+msgstr "Namespace"
 
 msgid "NodePort IP"
-msgstr ""
+msgstr "IP di NodePort"
 
 msgid "Open UI"
-msgstr "Apri interfaccia utente"
+msgstr "Apri l'interfaccia utente"
 
 msgid "PV"
-msgstr ""
+msgstr "PV"
 
 msgid "PVC"
-msgstr ""
+msgstr "PVC"
 
 msgid "Persistent Volume Claims"
-msgstr ""
+msgstr "Richieste di volume persistente"
 
 msgid "Persistent Volumes"
 msgstr "Volumi persistenti"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr "Attendere prego, verrà creato uno snapshot..."
+msgstr "Attendi, verrà creato uno snapshot..."
 
 msgid "Please wait, the snapshot will be restored ..."
-msgstr "Attendere prego, lo snapshot verrà ripristinato..."
+msgstr "Attendi, lo snapshot verrà ripristinato..."
 
 msgid "Pods"
 msgstr "Pod"
@@ -227,23 +222,23 @@ msgstr "Porta"
 msgid "Ports"
 msgstr "Porte"
 
+msgid "README"
+msgstr "README"
+
 msgid "Ready"
 msgstr "Pronto"
 
-msgid "Recipe"
-msgstr ""
-
 msgid "Recipe Information"
-msgstr ""
+msgstr "Informazioni sulla ricetta"
 
 msgid "Recipe Version"
-msgstr ""
+msgstr "Versione della ricetta"
 
 msgid "Recipes"
-msgstr ""
+msgstr "Ricette"
 
 msgid "Reclaim policy"
-msgstr ""
+msgstr "Politica di recupero"
 
 msgid "Repository"
 msgstr "Repository"
@@ -252,13 +247,13 @@ msgid "Resources"
 msgstr "Risorse"
 
 msgid "Restore"
-msgstr ""
+msgstr "Ripristina"
 
 msgid "SQLite"
 msgstr "SQLite"
 
 msgid "Secrets"
-msgstr ""
+msgstr "Secrets"
 
 msgid "Section"
 msgstr "Sezione"
@@ -272,8 +267,11 @@ msgstr "Impostazioni"
 msgid "Shared Folders"
 msgstr "Cartelle condivise"
 
+msgid "Show README"
+msgstr "Mostra il README"
+
 msgid "Size"
-msgstr ""
+msgstr "Dimensione"
 
 msgid "Snapshots"
 msgstr "Snapshot"
@@ -282,7 +280,7 @@ msgid "Status"
 msgstr "Stato"
 
 msgid "Storage Class"
-msgstr ""
+msgstr "Classe di archiviazione"
 
 msgid "Tag"
 msgstr "Tag"
@@ -291,13 +289,13 @@ msgid "Tags"
 msgstr "Tag"
 
 msgid "Target Namespace"
-msgstr ""
+msgstr "Namespace di destinazione"
 
 msgid ""
 "The SSL certificate used by the Dashboard and the LoadBalancer service. If "
 "not set, a self-signed certificate from cert-manager is used."
 msgstr ""
-"Il certificato SSL utilizzato dalla Dashboard e dal servizio LoadBalancer. "
+"Il certificato SSL utilizzato dalla dashboard e dal servizio LoadBalancer. "
 "Se non impostato, viene utilizzato un certificato autofirmato da cert-"
 "manager."
 
@@ -307,27 +305,34 @@ msgid ""
 "high-availability setups with multiple nodes."
 msgstr ""
 "Il datastore utilizzato dal cluster Kubernetes. SQLite è consigliato per "
-"configurazioni a singolo nodo e SBC con dischi lenti, mentre etcd è "
-"consigliato per configurazioni ad alta disponibilità con più nodi."
+"configurazioni a nodo singolo e per SBC con dischi lenti, mentre etcd è "
+"raccomandato per configurazioni ad alta disponibilità con più nodi."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
+"I seguenti segnaposto possono essere utilizzati nelle ricette per accedere "
+"alle informazioni globali del sistema e al database di "
+"configurazione:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>È necessario indicare i segnaposto con doppie parentesi"
+" graffe. È disponibile una panoramica degli altri filtri disponibili.<a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>qui</a>."
 
 msgid "The location where to store etcd on-demand snapshots."
-msgstr "Posizione in cui archiviare gli snapshot etcd su richiesta."
+msgstr "La posizione in cui archiviare gli snapshot etcd su richiesta."
 
 msgid "The manifest to apply."
-msgstr ""
+msgstr "Il manifesto da applicare."
 
 msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr "La porta su cui è in ascolto la Dashboard di Kubernetes."
+msgstr "La porta su cui è in ascolto la dashboard di Kubernetes."
 
 msgid "The port on which the LoadBalancer service is listening."
 msgstr "La porta su cui è in ascolto il servizio LoadBalancer."
@@ -340,7 +345,7 @@ msgstr ""
 "Lo snapshot {{ spec.snapshotName }} è stato ripristinato correttamente."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr "Il token per l'autenticazione alla Dashboard di Kubernetes."
+msgstr "Il token per l'autenticazione alla dashboard di Kubernetes."
 
 msgid "Type"
 msgstr "Tipo"
@@ -349,19 +354,22 @@ msgid "UID"
 msgstr "UID"
 
 msgid "Up-to-date"
-msgstr ""
+msgstr "Aggiornato"
 
 msgid "Updated Kubernetes settings."
-msgstr "Impostazioni Kubernetes aggiornate."
+msgstr "Le impostazioni di Kubernetes sono state aggiornate."
 
 msgid "Users"
 msgstr "Utenti"
 
 msgid "View"
-msgstr ""
+msgstr "Visualizza"
 
 msgid "Volume"
-msgstr ""
+msgstr "Volume"
+
+msgid "YAML"
+msgstr "YAML"
 
 msgid "etcd"
 msgstr "etcd"

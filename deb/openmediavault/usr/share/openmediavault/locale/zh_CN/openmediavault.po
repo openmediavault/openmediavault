@@ -6,7 +6,7 @@
 # Herald Yu <yuhr123@gmail.com>, 2018-2019
 # LeeYang <150183966@qq.com>, 2021
 # songming <by@songming.me>, 2013-2024
-# Volker Theile <votdev@gmx.de>, 2022
+# Volker Theile <votdev@gmx.de>, 2022,2025
 # Wei Ding <dyw.net@gmail.com>, 2014-2015
 # LeeYang <150183966@qq.com>, 2021
 # 王大山, 2022-2023
@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-21 10:04+0100\n"
+"POT-Creation-Date: 2025-05-07 17:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: songming <by@songming.me>, 2013-2024\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2022,2025\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -684,9 +684,6 @@ msgstr "客户端 NetBIOS 名称"
 
 msgid "Client address"
 msgstr "客户端地址"
-
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "允许挂载文件系统的客户端，如 192.168.178.0/24。"
 
 msgid "Close"
 msgstr "关闭"
@@ -1478,6 +1475,9 @@ msgstr "主机名"
 msgid "Hosts allow"
 msgstr "允许主机"
 
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr "允許掛載檔案系統的主機，例如 192.168.178.0/24。"
+
 msgid "Hosts deny"
 msgstr "拒绝主机"
 
@@ -2177,6 +2177,9 @@ msgstr "不在运行"
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
 msgstr "注意 SMB1 已经弃用，仅在联机终端不支持高版本情况下使用。"
+
+msgid "Note, only one client can be configured per share."
+msgstr "請注意，每個分享只能設定一個客戶端。"
 
 msgid "Nothing"
 msgstr "没有"
@@ -3411,8 +3414,8 @@ msgid ""
 "\") }}."
 msgstr "这里必须使用从网络接口 {{ slaves | join(\", \") }}。"
 
-msgid "The value must be on of the slave network interfaces."
-msgstr "该值必须是从网络接口。"
+msgid "The value must be one of the slave network interfaces."
+msgstr "此值必須是一個從屬網路界面。"
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "当客户端查询时，服务器会出现在该工作组。"
@@ -3954,7 +3957,7 @@ msgstr "用户"
 msgid ""
 "Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr "用户必须被分配到 <em>_ssh</em>用户组才能通过 SHH 登录。"
+msgstr "用户必须被分配到 <em>_ssh</em>用户组才能通过 SSH 登录。"
 
 msgid "Utilization"
 msgstr "利用率"

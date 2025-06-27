@@ -1,0 +1,16 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-recipes-readme-text-page
+  type: textPage
+  config:
+    request:
+      service: K8s
+      get:
+        method: getRecipe
+        params:
+          id: "{{ _routeParams.id }}"
+        format: "{{ readme | notavailable | safe }}"
+    buttons:
+      - template: back
+        url: "/services/k8s/recipes"

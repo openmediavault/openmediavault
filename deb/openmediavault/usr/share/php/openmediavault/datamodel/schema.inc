@@ -2,7 +2,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -17,7 +17,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
 namespace OMV\DataModel;
 
@@ -147,6 +147,13 @@ class Schema extends \OMV\Json\Schema {
 					throw new \OMV\Json\SchemaValidationException(
 					  "%s: The value '%s' is not a valid NetBIOS name.",
 					  $name, $value);
+				}
+				break;
+			case "no-multi-line":
+				if (!preg_match('/^[^\r\n]*$/', $value)) {
+					throw new \OMV\Json\SchemaValidationException(
+					  "%s: The value contains a multi-line content.",
+					  $name);
 				}
 				break;
 			default:

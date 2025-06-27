@@ -44,6 +44,10 @@ data:
         prop: spec.targetNamespace
         flexGrow: 1
         sortable: true
+      - name: _("Version")
+        prop: spec.version
+        flexGrow: 1
+        sortable: true
       - name: _("Repository")
         prop: spec.repo
         flexGrow: 1

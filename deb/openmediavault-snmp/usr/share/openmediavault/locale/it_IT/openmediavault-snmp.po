@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Paolo Velati <paolo.velati@gmail.com>, 2021
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2021\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,14 +44,14 @@ msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
 msgstr ""
-"Informazioni sul contatto, es. nome o indirizzo email del responsabile di "
-"questo sistema."
+"Informazioni di contatto, ad esempio nome o indirizzo email della persona "
+"responsabile di questo sistema."
 
 msgid "Enabled"
 msgstr "Abilitato"
 
 msgid "Extra options"
-msgstr "Opzioni aggiuntive"
+msgstr "Opzioni extra"
 
 msgid "Host"
 msgstr "Host"
@@ -59,7 +60,9 @@ msgid "Location"
 msgstr "Posizione"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr "Informazioni sulla posizione, es. posizione fisica di questo sistema."
+msgstr ""
+"Informazioni sulla posizione, ad esempio la posizione fisica di questo "
+"sistema."
 
 msgid "No authentication and no privacy"
 msgstr "Nessuna autenticazione e nessuna privacy"
@@ -68,7 +71,7 @@ msgid "Port"
 msgstr "Porta"
 
 msgid "Privacy passphrase"
-msgstr "Privacy passphrase"
+msgstr "Passphrase di privacy"
 
 msgid "Privacy type"
 msgstr "Tipo di privacy"
@@ -86,10 +89,10 @@ msgid "Security level"
 msgstr "Livello di sicurezza"
 
 msgid "Traps"
-msgstr "Trappole"
+msgstr "Trap"
 
 msgid "Updated SNMP settings."
-msgstr "Impostazioni SNMP aggiornate."
+msgstr "Le impostazioni di SNMP sono state aggiornate."
 
 msgid "User name"
 msgstr "Nome utente"

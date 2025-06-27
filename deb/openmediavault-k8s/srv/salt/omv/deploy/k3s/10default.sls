@@ -1,6 +1,6 @@
 # This file is part of OpenMediaVault.
 #
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @copyright Copyright (c) 2009-2025 Volker Theile
 #
@@ -15,7 +15,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
 # https://docs.k3s.io/installation/packaged-components
@@ -27,10 +27,13 @@
 # https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes
 # https://docs.k3s.io/installation/requirements?os=pi
 
-{% set k3s_version = salt['pillar.get']('default:OMV_K8S_K3S_VERSION', 'v1.31.2+k3s1') %}
+{% set k3s_version = salt['pillar.get']('default:OMV_K8S_K3S_VERSION', 'v1.32.5+k3s1') %}
 {% set k8s_config = salt['omv_conf.get']('conf.service.k8s') %}
 {% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 # {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
+{% set traefik_default_ports = "{web: {exposedPort: %s}, websecure: {exposedPort: %s}, dashboard: {port: %s, protocol: TCP, expose: {default: true}, exposedPort: %s, tls: {enabled: true}}}" | format(k8s_config.webport, k8s_config.websecureport, k8s_config.dashboardport, k8s_config.dashboardport) | load_yaml %}
+{% set traefik_ports = salt['pillar.get']('default:OMV_K8S_TRAEFIK_PORTS', "{}") | load_yaml %}
+{% set _ = traefik_ports.update(traefik_default_ports) %}
 
 {% set fqdn = dns_config.hostname | lower %}
 {% if dns_config.domainname | length > 0 %}
@@ -81,20 +84,9 @@ create_k3s_traefik_manifest:
         spec:
           valuesContent: |-
             ports:
-              web:
-                exposedPort: {{ k8s_config.webport }}
-              websecure:
-                exposedPort: {{ k8s_config.websecureport }}
-              dashboard:
-                port: {{ k8s_config.dashboardport }}
-                protocol: TCP
-                expose:
-                  default: true
-                exposedPort: {{ k8s_config.dashboardport }}
-                tls:
-                  enabled: true
+              {{ traefik_ports | yaml(False) | indent(14) }}
         ---
-        apiVersion: traefik.containo.us/v1alpha1
+        apiVersion: traefik.io/v1alpha1
         kind: Middleware
         metadata:
           name: https-redirect
@@ -106,7 +98,7 @@ create_k3s_traefik_manifest:
             permanent: true
             port: "{{ k8s_config.websecureport }}"
         ---
-        apiVersion: traefik.containo.us/v1alpha1
+        apiVersion: traefik.io/v1alpha1
         kind: TLSStore
         metadata:
           name: default
@@ -114,10 +106,17 @@ create_k3s_traefik_manifest:
           labels:
             app.kubernetes.io/part-of: openmediavault
         spec:
+{%- if k8s_config.sslcertificateref | length > 0 %}
+          certificates:
+            - secretName: userdefined-tls-cert
+          defaultCertificate:
+            secretName: userdefined-tls-cert
+{%- else %}
           certificates:
             - secretName: default-tls-cert
           defaultCertificate:
             secretName: default-tls-cert
+{%- endif %}
     - user: root
     - group: root
     - mode: 600
@@ -242,8 +241,18 @@ create_k3s_k8s_dashboard_manifest:
             app:
               ingress:
                 enabled: false
+            # https://github.com/Kong/charts/blob/main/charts/kong/values.yaml
+            kong:
+              # Disable Kong admin UI as it is not required.
+              # https://github.com/kubernetes/dashboard/issues/8765
+              admin:
+                tls:
+                  enabled: false
+              proxy:
+                tls:
+                  containerPort: 9443
         ---
-        apiVersion: traefik.containo.us/v1alpha1
+        apiVersion: traefik.io/v1alpha1
         kind: ServersTransport
         metadata:
           name: no-verify-tls
@@ -253,7 +262,7 @@ create_k3s_k8s_dashboard_manifest:
         spec:
           insecureSkipVerify: true
         ---
-        apiVersion: traefik.containo.us/v1alpha1
+        apiVersion: traefik.io/v1alpha1
         kind: IngressRoute
         metadata:
           name: kubernetes-dashboard
@@ -319,7 +328,7 @@ create_k3s_misc_manifest:
         apiVersion: v1
         kind: Secret
         metadata:
-          name: default-tls-cert
+          name: userdefined-tls-cert
           namespace: kube-system
           labels:
             app.kubernetes.io/part-of: openmediavault
@@ -384,6 +393,13 @@ remove_k3s_upgrade_flag:
 # remove_k3s_helm_upgrade_flag:
 #   file.absent:
 #     - name: "/var/lib/openmediavault/upgrade_helm"
+
+fix_k3s_systemd_unit_file_mode_bits:
+  file.managed:
+    - name: /etc/systemd/system/k3s.service
+    - replace: False
+    - create: False
+    - mode: 644
 
 start_k3s_service:
   service.running:

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-21 10:04+0100\n"
+"POT-Creation-Date: 2025-05-07 17:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2025\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -678,9 +678,6 @@ msgstr "Όνομα πελάτη NetBIOS"
 
 msgid "Client address"
 msgstr "Διεύθυνση πελάτη"
-
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "Πελάτες που επιτρέπεται να συνδεθούν στο σύστημα αρχείων, π.χ. 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Κλείσιμο"
@@ -1472,6 +1469,9 @@ msgstr "Όνομα συστήματος"
 msgid "Hosts allow"
 msgstr "Επιτρεπόμενα συστήματα"
 
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr "Οι προελεύσεις που επιτρέπεται να προσαρτίσουν το σύστημα αρχείων, π.χ. 192.168.178.0/24."
+
 msgid "Hosts deny"
 msgstr "Αποκλεισμένα συστήματα"
 
@@ -2171,6 +2171,9 @@ msgstr "Δεν εκτελείται"
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
 msgstr "Το πρωτόκολλο SMB1 έχει καταργηθεί και πρέπει να χρησιμοποιείται μόνο όταν είναι επιβεβλημένο."
+
+msgid "Note, only one client can be configured per share."
+msgstr "Μόνο ένας πελάτης μπορεί να ρυθμιστεί ανά μερίδιο."
 
 msgid "Nothing"
 msgstr "Τίποτα"
@@ -3405,7 +3408,7 @@ msgid ""
 "\") }}."
 msgstr "Πρέπει να οριστεί μία από τις υποτελείς διασυνδέσεις δικτύου {{ slaves | join(\", \") }}."
 
-msgid "The value must be on of the slave network interfaces."
+msgid "The value must be one of the slave network interfaces."
 msgstr "Πρέπει να οριστεί μία από τις υποτελείς διασυνδέσεις δικτύου."
 
 msgid "The workgroup the server will appear to be in when queried by clients."

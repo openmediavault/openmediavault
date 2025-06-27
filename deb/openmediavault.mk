@@ -2,7 +2,7 @@
 #
 # This file is part of OpenMediaVault.
 #
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @copyright Copyright (c) 2009-2025 Volker Theile
 #
@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 NUM_PROCESSORS := $(shell nproc)
 
@@ -53,7 +53,7 @@ omv_build_pot:
 	cat /dev/null > $(OMV_POT_DIR)/$(OMV_POT_FILE)
 	# Extract strings from Angular project.
 	if [ -e "$(CURDIR)/workbench/package.json" ]; then \
-		cd $(CURDIR)/workbench && npm ci && \
+		cd $(CURDIR)/workbench && npm --verbose ci && \
 			npm run i18n:extract && \
 			mv src/assets/i18n/openmediavault-workbench.pot $(OMV_POT_DIR)/$(OMV_POT_FILE); \
 	fi

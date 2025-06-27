@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Kostas Moho, 2023
+# Kostas Moho, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-15 11:52+0100\n"
+"POT-Creation-Date: 2025-04-05 10:24+0200\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
-"Last-Translator: Kostas Moho, 2023\n"
+"Last-Translator: Kostas Moho, 2025\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "A maximum of one device can be removed."
 msgstr "Μπορεί να αφαιρεθεί μέχρι μία συσκευή."
 
-msgid "A maximum of two device can be removed."
+msgid "A maximum of two devices can be removed."
 msgstr "Μπορούν να αφαιρεθούν μέχρι δύο συσκευές."
 
 msgid "Add hot spares / recover RAID device."
@@ -44,9 +44,6 @@ msgstr "Χωρητικότητα"
 
 msgid "Create"
 msgstr "Δημιουργία"
-
-msgid "Details"
-msgstr "Λεπτομέρειες"
 
 msgid "Device"
 msgstr "Συσκευή"
@@ -92,6 +89,9 @@ msgstr "RAID 6"
 
 msgid "Recover"
 msgstr "Ανάκτηση"
+
+msgid "Referenced"
+msgstr "Αναφερόμενα"
 
 msgid "Remove"
 msgstr "Αφαίρεση"

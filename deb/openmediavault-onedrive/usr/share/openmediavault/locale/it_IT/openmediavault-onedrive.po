@@ -8,6 +8,7 @@
 # Paolo Velati <paolo.velati@gmail.com>, 2022
 # maurorulli <mauro.rulli@gmail.com>, 2022
 # Roberto Bellingeri <bellingeri@netguru.it>, 2025
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-01 20:04+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
-"Last-Translator: Roberto Bellingeri <bellingeri@netguru.it>, 2025\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,31 +88,31 @@ msgid ""
 msgstr ""
 "<ul><li>Completo - Replica le modifiche da e verso OneDrive.</li><li>Solo "
 "download - Replica lo stato online di OneDrive localmente, scaricando solo "
-"le modifiche da OneDrive. Non caricare le modifiche locali su "
+"le modifiche da OneDrive. Non carica le modifiche locali su "
 "OneDrive.</li><li>Solo upload - Replica lo stato locale su OneDrive, "
-"caricando solo le modifiche locali su OneDrive. Non scaricare le modifiche "
-"da OneDrive.</li></ul>"
+"caricando solo le modifiche locali su OneDrive. Non scarica le modifiche da "
+"OneDrive.</li></ul>"
 
 msgid ""
 "After enabling and deploying this service the first time please run the "
 "command <em>omv-onedrive-auth</em> as <em>root</em> user in the CLI to "
 "authenticate the application in Microsoft OneDrive."
 msgstr ""
-"Dopo aver abilitato e distribuito questo servizio per la prima volta, "
-"eseguire il comando <em>omv-onedrive-auth</em> come utente <em>root</em> "
-"nella CLI per autenticare l'applicazione in Microsoft OneDrive."
+"Dopo aver abilitato e distribuito questo servizio per la prima volta, esegui"
+" il comando <em>omv-onedrive-auth</em> come utente <em>root</em> nella CLI "
+"per autenticare l'applicazione in Microsoft OneDrive."
 
 msgid "Clean up local files"
-msgstr "Pulisci i file locali"
+msgstr "Rimuovi i file locali"
 
 msgid "Clean up local files that have been removed online."
-msgstr "Pulisci i file locali rimossi online."
+msgstr "Rimuovi i file locali che sono stati eliminati online."
 
 msgid "Disabled"
 msgstr "Disabilitato"
 
 msgid "Do not delete local file deletions from OneDrive."
-msgstr "Non eliminare i file locali eliminati da OneDrive."
+msgstr "Non elimina i file locali quando vengono rimossi da OneDrive."
 
 msgid "Download only"
 msgstr "Solo download"
@@ -123,10 +124,10 @@ msgid "Extra options"
 msgstr "Opzioni extra"
 
 msgid "Full"
-msgstr "Pieno"
+msgstr "Completo"
 
 msgid "Local first"
-msgstr "Prima il locale"
+msgstr "Priorità ai file locali"
 
 msgid "Monitor interval"
 msgstr "Intervallo di monitoraggio"
@@ -141,9 +142,7 @@ msgid "Rate limit"
 msgstr "Limite di velocità"
 
 msgid "Replicate local state first, before downloading changes from OneDrive."
-msgstr ""
-"Replicare prima lo stato locale, prima di scaricare le modifiche da "
-"OneDrive."
+msgstr "Replica lo stato locale, prima di scaricare le modifiche da OneDrive."
 
 msgid "Replication mode"
 msgstr "Modalità di replicazione"
@@ -152,36 +151,37 @@ msgid "Shared folder"
 msgstr "Cartella condivisa"
 
 msgid "Skip dot files and folders from syncing."
-msgstr "Ignora la sincronizzazione di file e cartelle dot."
+msgstr "Ignora i file e le cartelle nascosti durante la sincronizzazione."
 
 msgid "Skip dotfiles"
-msgstr "Salta i file dot"
+msgstr "Ignora i file nascosti"
 
 msgid "The location to which the files are synchronised."
-msgstr "Posizione in cui vengono sincronizzati i file."
+msgstr "La posizione in cui vengono sincronizzati i file."
 
 msgid "The synchronised files and directories are owned by this user."
 msgstr ""
 "I file e le directory sincronizzati sono di proprietà di questo utente."
 
 msgid "The wait time between each sync operation."
-msgstr "Tempo di attesa tra ogni operazione di sincronizzazione."
+msgstr "Il tempo di attesa tra ogni operazione di sincronizzazione."
 
 msgid "Updated OneDrive settings."
-msgstr "Impostazioni OneDrive aggiornate."
+msgstr "Le impostazioni di OneDrive sono state aggiornate."
 
 msgid "Upload only"
 msgstr "Solo upload"
 
 msgid "Upload/Download rate limit."
-msgstr "Limite di velocità di Upload/Download."
+msgstr "Limite della velocità di upload/download."
 
 msgid ""
 "Use the <em>omv-onedrive</em> command in the CLI to perform additional "
 "actions according to the documentation of the OneDrive Linux client."
 msgstr ""
-"Utilizzare il comando <em>omv-onedrive</em> nella CLI per eseguire azioni "
-"aggiuntive in base alla documentazione del client OneDrive Linux."
+"Utilizza il comando <em>omv-onedrive</em> nella CLI per eseguire azioni "
+"aggiuntive come descritto nella documentazione del client OneDrive per "
+"Linux."
 
 msgid "User"
 msgstr "Utente"

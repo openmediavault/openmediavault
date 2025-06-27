@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -36,6 +36,8 @@ export class SystemLogsListPageComponent implements OnInit {
   public config: DatatablePageConfig = {
     autoLoad: false,
     autoReload: false,
+    hasSearchField: true,
+    remoteSearching: true,
     remoteSorting: true,
     remotePaging: true,
     limit: 15,

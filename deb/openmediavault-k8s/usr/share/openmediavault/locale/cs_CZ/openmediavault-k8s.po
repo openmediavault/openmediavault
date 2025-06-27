@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-05-23 12:43+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Marek Pavelka, 2025\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
@@ -135,9 +135,6 @@ msgstr "Domovská stránka"
 msgid "ID"
 msgstr "ID"
 
-msgid "If present, the namespace scope for this request."
-msgstr ""
-
 msgid "Image"
 msgstr "Obrázek"
 
@@ -155,9 +152,6 @@ msgstr ""
 
 msgid "Ingresses"
 msgstr ""
-
-msgid "Invalid namespace"
-msgstr "Neplatný jmenný prostor"
 
 msgid "Job"
 msgstr "Úloha"
@@ -225,11 +219,11 @@ msgstr "Port"
 msgid "Ports"
 msgstr "Porty"
 
+msgid "README"
+msgstr ""
+
 msgid "Ready"
 msgstr "Připraveno"
-
-msgid "Recipe"
-msgstr "Předpis"
 
 msgid "Recipe Information"
 msgstr "Informace o předpisu"
@@ -270,6 +264,9 @@ msgstr "Nastavení"
 msgid "Shared Folders"
 msgstr "Sdílené složky"
 
+msgid "Show README"
+msgstr ""
+
 msgid "Size"
 msgstr "Velikost"
 
@@ -305,7 +302,7 @@ msgstr ""
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
@@ -353,6 +350,9 @@ msgstr "Zobrazení"
 
 msgid "Volume"
 msgstr "Svazek"
+
+msgid "YAML"
+msgstr ""
 
 msgid "etcd"
 msgstr ""

@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
 # maurorulli <mauro.rulli@gmail.com>, 2012
 # Paolo Velati <paolo.velati@gmail.com>, 2013-2015,2017
 # Roberto Bellingeri <bellingeri@netguru.it>, 2025
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
-"Last-Translator: Roberto Bellingeri <bellingeri@netguru.it>, 2025\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,16 +45,16 @@ msgid "Create"
 msgstr "Crea"
 
 msgid "Created on-access scan."
-msgstr "Scansione all'accesso creata."
+msgstr "La scansione all'accesso è stata creata."
 
 msgid "Created scheduled scan."
-msgstr "Scansione pianificata creata."
+msgstr "La scansione pianificata è stata creata."
 
 msgid "Database checks"
 msgstr "Verifiche al database"
 
 msgid "Date & Time"
-msgstr "Data & Ora"
+msgstr "Data e ora"
 
 msgid "Day of month"
 msgstr "Giorno del mese"
@@ -65,7 +66,7 @@ msgid "December"
 msgstr "Dicembre"
 
 msgid "Delete immediately"
-msgstr "Eliminare immediatamente"
+msgstr "Elimina immediatamente"
 
 msgid "Detect PUA"
 msgstr "Rileva PUA"
@@ -124,16 +125,16 @@ msgid "February"
 msgstr "Febbraio"
 
 msgid "Follow directory symlinks"
-msgstr "Segui link simbolici di cartelle"
+msgstr "Segui i link simbolici delle cartelle"
 
 msgid "Follow directory symlinks."
-msgstr "Segui link simbolici di cartelle."
+msgstr "Segui i link simbolici delle cartelle."
 
 msgid "Follow file symlinks"
-msgstr "Segui link simbolici di file"
+msgstr "Segui link simbolici dei file"
 
 msgid "Follow regular file symlinks."
-msgstr "Segui link simbolici di file regolari."
+msgstr "Segui link simbolici dei file regolari."
 
 msgid "Friday"
 msgstr "Venerdì"
@@ -154,10 +155,10 @@ msgid "June"
 msgstr "Giugno"
 
 msgid "Log clean files"
-msgstr "Logga i file puliti"
+msgstr "File di log puliti"
 
 msgid "Log clean files. This drastically increases the log size."
-msgstr "Logga i file puliti. Questa operazione aumenterà drasticamente la dimensione del file di log."
+msgstr "File di log puliti. Questa operazione aumenterà drasticamente la dimensione del file di log."
 
 msgid "March"
 msgstr "Marzo"
@@ -217,22 +218,22 @@ msgid "Saturday"
 msgstr "Sabato"
 
 msgid "Scan ELF"
-msgstr "Scan ELF"
+msgstr "Scansiona file ELF"
 
 msgid "Scan HTML"
-msgstr "Scan HTML"
+msgstr "Scansiona file HTML"
 
 msgid "Scan OLE2"
-msgstr "Scan OLE2"
+msgstr "Scansiona file OLE2"
 
 msgid "Scan PDF"
-msgstr "Scan PDF"
+msgstr "Scansiona file PDF"
 
 msgid "Scan Portable Executable"
-msgstr "Scan Portable Executable"
+msgstr "Scansiona file Portable Executable"
 
 msgid "Scan archives"
-msgstr "Scan archivi"
+msgstr "Scansiona archivi"
 
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "Scansione del contenuto della directory in parallelo utilizzando i thread disponibili."
@@ -241,7 +242,7 @@ msgid "Scheduled Scans"
 msgstr "Scansioni pianificate"
 
 msgid "Scheduling"
-msgstr "Programmazione"
+msgstr "Pianificazione"
 
 msgid "Send email"
 msgstr "Invia email"
@@ -265,13 +266,13 @@ msgid "The field should only contain * or a comma separated list of values."
 msgstr "Il campo deve contenere solo * o un elenco di valori separati da virgole."
 
 msgid "The location of the files to scan on-access."
-msgstr "Il percorso dei file da controllare all'accesso."
+msgstr "La posizione dei file da controllare all'accesso."
 
 msgid "The location of the files to scan."
-msgstr "Il percorso dei file da controllare."
+msgstr "La posizione dei file da controllare."
 
 msgid "The location which is used as quarantine."
-msgstr "Il percorso usato come quarantena."
+msgstr "La posizione utilizzata come quarantena."
 
 msgid "The option, how to handle infected files."
 msgstr "L'opzione, come gestire i file infetti."
@@ -283,10 +284,10 @@ msgid "Tuesday"
 msgstr "Martedì"
 
 msgid "Updated on-access scan."
-msgstr "Scansione all'accesso aggiornata."
+msgstr "La scansione all'accesso è stata aggiornata."
 
 msgid "Updated scheduled scan."
-msgstr "Scansione pianificata aggiornata."
+msgstr "La scansione pianificata è stata aggiornata."
 
 msgid "Verbose"
 msgstr "Verboso"
@@ -295,4 +296,4 @@ msgid "Wednesday"
 msgstr "Mercoledì"
 
 msgid "n/a"
-msgstr "n/d"
+msgstr "non disponibile"

@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Volker Theile <votdev@gmx.de>, 2024
+# Volker Theile <votdev@gmx.de>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-05-23 12:43+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2024\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2025\n"
 "Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +52,7 @@ msgid "Chart"
 msgstr "Chart"
 
 msgid "Check for new recipes"
-msgstr ""
+msgstr "Suche nach neuen Rezepten"
 
 msgid "Class"
 msgstr "Klasse"
@@ -79,7 +79,7 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgid "Datastore"
 msgstr ""
@@ -117,28 +117,25 @@ msgid "External IP"
 msgstr "External IP"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Groups"
 msgstr "Gruppen"
 
 msgid "HTTP port"
-msgstr ""
+msgstr "HTTP Port"
 
 msgid "HTTPS port"
-msgstr ""
+msgstr "HTTPS Port"
 
 msgid "Helm Charts"
-msgstr ""
+msgstr "Helm Charts"
 
 msgid "Homepage"
 msgstr "Homepage"
 
 msgid "ID"
 msgstr "ID"
-
-msgid "If present, the namespace scope for this request."
-msgstr ""
 
 msgid "Image"
 msgstr "Abbild"
@@ -156,13 +153,10 @@ msgid "Ingress Routes"
 msgstr "Ingress Routes"
 
 msgid "Ingresses"
-msgstr ""
-
-msgid "Invalid namespace"
-msgstr "Ungültiger Namensraum"
+msgstr "Ingresses"
 
 msgid "Job"
-msgstr ""
+msgstr "Job"
 
 msgid "Kubeconfig"
 msgstr "Kubeconfig"
@@ -171,10 +165,10 @@ msgid "Kubernetes"
 msgstr "Kubernetes"
 
 msgid "Labels"
-msgstr ""
+msgstr "Labels"
 
 msgid "Load Balancer"
-msgstr ""
+msgstr "Load Balancer"
 
 msgid "Logs"
 msgstr "Protokolle"
@@ -195,7 +189,7 @@ msgid "Namespaces"
 msgstr "Namensräume"
 
 msgid "NodePort IP"
-msgstr ""
+msgstr "NodePort IP"
 
 msgid "Open UI"
 msgstr "Benutzeroberfläche öffnen"
@@ -227,11 +221,11 @@ msgstr "Port"
 msgid "Ports"
 msgstr "Ports"
 
+msgid "README"
+msgstr "README"
+
 msgid "Ready"
 msgstr "Bereit"
-
-msgid "Recipe"
-msgstr "Rezept"
 
 msgid "Recipe Information"
 msgstr "Rezept Informationen"
@@ -271,6 +265,9 @@ msgstr "Einstellungen"
 
 msgid "Shared Folders"
 msgstr "Freigegebene Ordner"
+
+msgid "Show README"
+msgstr "README anzeigen"
 
 msgid "Size"
 msgstr "Größe"
@@ -313,7 +310,7 @@ msgstr ""
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
@@ -325,7 +322,7 @@ msgstr ""
 "Der Ort, an dem On-Demand-Snapshots von etcd gespeichert werden sollen."
 
 msgid "The manifest to apply."
-msgstr ""
+msgstr "Das anzuwendende Manifest."
 
 msgid "The port on which the Kubernetes Dashboard is listening."
 msgstr "Der Port, auf dem das Kubernetes Dashboard lauscht."
@@ -352,7 +349,7 @@ msgid "Up-to-date"
 msgstr ""
 
 msgid "Updated Kubernetes settings."
-msgstr ""
+msgstr "Kubernetes-Einstellungen wurden aktualisiert."
 
 msgid "Users"
 msgstr "Benutzer"
@@ -361,7 +358,10 @@ msgid "View"
 msgstr ""
 
 msgid "Volume"
-msgstr ""
+msgstr "Volume"
+
+msgid "YAML"
+msgstr "YAML"
 
 msgid "etcd"
 msgstr "etcd"

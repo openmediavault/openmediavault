@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -261,7 +261,7 @@ export class InterfaceBondFormPageComponent extends BaseFormPageComponent {
                   arg1: { prop: 'slaves' }
                 }
               },
-              errorData: gettext('The value must be on of the slave network interfaces.')
+              errorData: gettext('The value must be one of the slave network interfaces.')
             }
           ]
         }

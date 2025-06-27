@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -107,17 +107,19 @@ const getFormValues = (control: AbstractControl): Array<any> => {
 export class CustomValidators {
   /**
    * Validator that requires the control have a non-empty value if the
-   * specified constraint succeeds.
+   * specified constraint succeeds. The form field's validator configuration
+   * is updated automatically to let the UI reflect the status by adding or
+   * removing the `*` flag of the form field label.
    *
-   * @param constraint The constraint to process.
+   * @param validators The form field validators.
    * @returns A validator function that returns an error map with the
    *   `required` property if the validation constraint succeeds and
    *   the control's value is empty, otherwise `null`.
    */
-  static requiredIf(constraint: Constraint): ValidatorFn {
+  static requiredIf(validators: Record<string, any>): ValidatorFn {
     let hasSubscribed = false;
     // Determine the properties involved in the constraint.
-    const props = ConstraintService.getProps(constraint);
+    const props = ConstraintService.getProps(validators.requiredIf);
     return (control: AbstractControl): ValidationErrors | null => {
       if (!control.parent) {
         return null;
@@ -136,11 +138,15 @@ export class CustomValidators {
         });
         hasSubscribed = true;
       }
-      const fulfilled = ConstraintService.test(constraint, getFormValues(control));
-      if (!fulfilled) {
-        return null;
+      const fulfilled: any = ConstraintService.test(validators.requiredIf, getFormValues(control));
+      // Update the form field's `required` validator configuration to let
+      // the UI reflect the status by adding or removing the `*` flag of the
+      // form field label.
+      if (_.isBoolean(fulfilled)) {
+        validators.required = fulfilled;
       }
-      return isEmptyInputValue(control.value) ? { required: true } : null;
+      // Return the validator response as usual.
+      return fulfilled && isEmptyInputValue(control.value) ? { required: true } : null;
     };
   }
 

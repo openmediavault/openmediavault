@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Kostas Moho, 2024
+# Kostas Moho, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-05-23 12:43+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Kostas Moho, 2024\n"
+"Last-Translator: Kostas Moho, 2025\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -137,9 +137,6 @@ msgstr "Αρχική Σελίδα"
 msgid "ID"
 msgstr "ID"
 
-msgid "If present, the namespace scope for this request."
-msgstr "Εφόσον υπάρχει, η εμβέλεια του χώρου ονομάτων για αυτό το αίτημα."
-
 msgid "Image"
 msgstr "Εικόνα"
 
@@ -157,9 +154,6 @@ msgstr "Διαδρομές Εισόδου"
 
 msgid "Ingresses"
 msgstr "Είσοδοι"
-
-msgid "Invalid namespace"
-msgstr "Άκυρος χώρος ονομάτων"
 
 msgid "Job"
 msgstr "Εργασία"
@@ -227,11 +221,11 @@ msgstr "Θύρα"
 msgid "Ports"
 msgstr "Θύρες"
 
+msgid "README"
+msgstr "README"
+
 msgid "Ready"
 msgstr "Έτοιμο"
-
-msgid "Recipe"
-msgstr "Συνταγή"
 
 msgid "Recipe Information"
 msgstr "Πληροφορίες Συνταγής"
@@ -271,6 +265,9 @@ msgstr "Ρυθμίσεις"
 
 msgid "Shared Folders"
 msgstr "Κοινόχρηστοι Φάκελοι"
+
+msgid "Show README"
+msgstr "Εμφάνιση README"
 
 msgid "Size"
 msgstr "Μέγεθος"
@@ -313,17 +310,17 @@ msgstr ""
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
 "Οι ακόλουθοι συμβολισμοί μπορούν να χρησιμοποιηθούν σε συνταγές για να "
-"δώσουν πρόσβαση σε γενικές πληροφορίες συστήματος και διαμόρφωσης "
-":<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"δώσουν πρόσβαση σε γενικές πληροφορίες συστήματος και διαμόρφωσης : "
+"<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>Οι συμβολισμοί πρέπει να υποδηλώνονται με διπλές "
-"αγκύλες.  Μια σύνοψη των επιπλέον διαθέσιμων φίλτρων βρίσκεται<a "
+"αγκύλες. Μια σύνοψη των επιπλέον διαθέσιμων φίλτρων βρίσκεται <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>εδώ</a>."
 
@@ -368,6 +365,9 @@ msgstr "Προβολή"
 
 msgid "Volume"
 msgstr "Τόμος"
+
+msgid "YAML"
+msgstr "YAML"
 
 msgid "etcd"
 msgstr "etcd"

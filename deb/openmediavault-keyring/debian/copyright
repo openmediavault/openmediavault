@@ -1,6 +1,6 @@
-Format: http://dep.debian.net/deps/dep5
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Contact: Volker Theile <volker.theile@openmediavault.org>
-Source: http://www.openmediavault.org
+Source: https://www.openmediavault.org
 
 Copyright: 2009-2025 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3

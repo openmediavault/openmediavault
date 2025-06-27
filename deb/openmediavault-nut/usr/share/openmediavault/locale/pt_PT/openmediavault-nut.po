@@ -137,7 +137,7 @@ msgid "Used for remote authentication."
 msgstr "Utilizador para autenticação remota."
 
 msgid "User name"
-msgstr ""
+msgstr "Utilizador"
 
 msgid "Voltage"
 msgstr "Voltagem"

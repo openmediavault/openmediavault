@@ -5,15 +5,16 @@
 # 
 # Translators:
 # Varkentjes, 2024
+# Stephan Paternotte <stephan@paternottes.net>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-05-23 12:43+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Varkentjes, 2024\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,336 +23,353 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "Absoluut pad"
 
 msgid "Access Modes"
-msgstr ""
+msgstr "Toegangsmodi"
 
 msgid "App Version"
-msgstr ""
+msgstr "App-versie"
 
 msgid "Apply"
-msgstr ""
+msgstr "Toepassen"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Architectuur"
 
 msgid "Available"
-msgstr ""
+msgstr "Beschikbaar"
 
 msgid "Capacity"
-msgstr ""
+msgstr "Capaciteit"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Certificaat"
 
 msgid "Certificates"
-msgstr ""
+msgstr "Certificaten"
 
 msgid "Chart"
-msgstr ""
+msgstr "Diagram"
 
 msgid "Check for new recipes"
-msgstr ""
+msgstr "Zoeken naar nieuwe recepten"
 
 msgid "Class"
-msgstr ""
+msgstr "Klasse"
 
 msgid "Cluster IP"
-msgstr ""
+msgstr "Cluster-IP"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Gecomprimeerd"
 
 msgid "Config Maps"
-msgstr ""
+msgstr "Config Maps"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopiëren naar klembord"
 
 msgid "Copy token"
-msgstr ""
+msgstr "Token kopiëren"
 
 msgid "Created"
-msgstr ""
+msgstr "Aangemaakt"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Bedieningspaneel"
 
 msgid "Data"
-msgstr ""
+msgstr "Gegevens"
 
 msgid "Datastore"
-msgstr ""
+msgstr "Gegevensopslag"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum & tijd"
 
 msgid "Deployments"
-msgstr ""
+msgstr "Inzet"
 
 msgid "Describe"
-msgstr ""
+msgstr "Beschrijven"
 
 msgid "Description"
-msgstr ""
+msgstr "Beschrijving"
 
 msgid "Do you really want to restore this snapshot?"
-msgstr ""
+msgstr "Weet u zeker dat u deze momentopname wilt herstellen?"
 
 msgid "Download"
-msgstr ""
+msgstr "Downloaden"
 
 msgid ""
 "Downloading the kubeconfig file to the local system enables secure remote "
 "management of the Kubernetes cluster using command-line tools like kubectl."
 msgstr ""
+"Door het kubeconfig-bestand naar het lokale systeem te downloaden, wordt "
+"veilig beheer op afstand van het Kubernetes-cluster mogelijk met behulp van "
+"opdrachtregelprogramma's zoals kubectl."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Ingeschakeld"
 
 msgid "External IP"
-msgstr ""
+msgstr "Externe IP"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Groups"
-msgstr ""
+msgstr "Groepen"
 
 msgid "HTTP port"
-msgstr ""
+msgstr "HTTP-poort"
 
 msgid "HTTPS port"
-msgstr ""
+msgstr "HTTPS-poort"
 
 msgid "Helm Charts"
-msgstr ""
+msgstr "Helm-diagrammen"
 
 msgid "Homepage"
-msgstr ""
+msgstr "Homepage"
 
 msgid "ID"
-msgstr ""
-
-msgid "If present, the namespace scope for this request."
-msgstr ""
+msgstr "ID"
 
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 msgid "Images"
-msgstr ""
+msgstr "Images"
 
 msgid "Import"
-msgstr ""
+msgstr "Importeren"
 
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingrediënten"
 
 msgid "Ingress Routes"
-msgstr ""
+msgstr "Ingress-routes"
 
 msgid "Ingresses"
-msgstr ""
-
-msgid "Invalid namespace"
-msgstr ""
+msgstr "Ingresses"
 
 msgid "Job"
-msgstr ""
+msgstr "Taak"
 
 msgid "Kubeconfig"
-msgstr ""
+msgstr "Kubeconfig"
 
 msgid "Kubernetes"
-msgstr ""
+msgstr "Kubernetes"
 
 msgid "Labels"
-msgstr ""
+msgstr "Labels"
 
 msgid "Load Balancer"
-msgstr ""
+msgstr "Load Balancer"
 
 msgid "Logs"
-msgstr ""
+msgstr "Logboeken"
 
 msgid "Manifest"
-msgstr ""
+msgstr "Manifest"
 
 msgid "Message"
-msgstr ""
+msgstr "Bericht"
 
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 msgid "Namespace"
-msgstr ""
+msgstr "Naamruimte"
 
 msgid "Namespaces"
-msgstr ""
+msgstr "Naamruimtes"
 
 msgid "NodePort IP"
-msgstr ""
+msgstr "NodePort-IP"
 
 msgid "Open UI"
-msgstr ""
+msgstr "Gebruikersinterface openen"
 
 msgid "PV"
-msgstr ""
+msgstr "PV"
 
 msgid "PVC"
-msgstr ""
+msgstr "PVC"
 
 msgid "Persistent Volume Claims"
-msgstr ""
+msgstr "Aanspraken van aanhoudende volumes"
 
 msgid "Persistent Volumes"
-msgstr ""
+msgstr "Aanhoudende volumes"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Even geduld, er wordt een momentopname aangemaakt…"
 
 msgid "Please wait, the snapshot will be restored ..."
-msgstr ""
+msgstr "Even geduld, de momentopname wordt hersteld…"
 
 msgid "Pods"
-msgstr ""
+msgstr "Pods"
 
 msgid "Port"
-msgstr ""
+msgstr "Poort"
 
 msgid "Ports"
-msgstr ""
+msgstr "Poorten"
+
+msgid "README"
+msgstr "README"
 
 msgid "Ready"
-msgstr ""
-
-msgid "Recipe"
-msgstr ""
+msgstr "Klaar"
 
 msgid "Recipe Information"
-msgstr ""
+msgstr "Receptinformatie"
 
 msgid "Recipe Version"
-msgstr ""
+msgstr "Receptversie"
 
 msgid "Recipes"
-msgstr ""
+msgstr "Recepten"
 
 msgid "Reclaim policy"
-msgstr ""
+msgstr "Terugvorderingsbeleid"
 
 msgid "Repository"
-msgstr ""
+msgstr "Opslagplaats"
 
 msgid "Resources"
-msgstr ""
+msgstr "Bronnen"
 
 msgid "Restore"
-msgstr ""
+msgstr "Herstellen"
 
 msgid "SQLite"
-msgstr ""
+msgstr "SQLite"
 
 msgid "Secrets"
-msgstr ""
+msgstr "Geheimen"
 
 msgid "Section"
-msgstr ""
+msgstr "Sectie"
 
 msgid "Services"
-msgstr ""
+msgstr "Diensten"
 
 msgid "Settings"
 msgstr "Instellingen"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "Gedeelde mappen"
+
+msgid "Show README"
+msgstr "README weergeven"
 
 msgid "Size"
-msgstr ""
+msgstr "Grootte"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Momentopnamen"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Storage Class"
-msgstr ""
+msgstr "Opslagklasse"
 
 msgid "Tag"
-msgstr ""
+msgstr "Label"
 
 msgid "Tags"
-msgstr ""
+msgstr "Labels"
 
 msgid "Target Namespace"
-msgstr ""
+msgstr "Doel-naamruimte"
 
 msgid ""
 "The SSL certificate used by the Dashboard and the LoadBalancer service. If "
 "not set, a self-signed certificate from cert-manager is used."
 msgstr ""
+"Het SSL-certificaat dat wordt gebruikt door het bedieningspaneel en de "
+"LoadBalancer-dienst. Indien niet ingesteld, wordt een zelfondertekend "
+"certificaat van cert-manager gebruikt."
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
 "single-node setups and SBCs with slow disks, while etcd is recommended for "
 "high-availability setups with multiple nodes."
 msgstr ""
+"De gegevensopslag die wordt gebruikt door de Kubernetes-cluster. SQLite "
+"wordt aanbevolen voor setups met één knooppunt en SBC's met langzame "
+"schijven, terwijl etcd wordt aanbevolen voor instellingen met hoge "
+"beschikbaarheid en meerdere knooppunten."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
+"De volgende plaatsaanduidingen kunnen worden gebruikt in recepten om toegang"
+" te krijgen tot globale systeeminformatie en de "
+"configuratiedatabase:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>Plaatsaanduidingen moeten met dubbele accolades worden "
+"aangeven. Een overzicht van meer beschikbare filters is <a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>hier</a> te lezen."
 
 msgid "The location where to store etcd on-demand snapshots."
-msgstr ""
+msgstr "De locatie waar etcd momentopnames op aanvraag worden opgeslagen."
 
 msgid "The manifest to apply."
-msgstr ""
+msgstr "Het manifest dat moet worden toegepast."
 
 msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr ""
+msgstr "De poort waarop het Kubernetes bedieningspaneel luistert."
 
 msgid "The port on which the LoadBalancer service is listening."
-msgstr ""
+msgstr "De poort waarop de LoadBalancer-dienst luistert."
 
 msgid "The snapshot was created successfully."
-msgstr ""
+msgstr "De momentopname is met succes aangemaakt."
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
-msgstr ""
+msgstr "De momentopname {{ spec.snapshotName }} is met succes teruggezet."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr ""
+msgstr "Het token om te authenticeren op het Kubernetes bedieningspaneel."
 
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "Up-to-date"
-msgstr ""
+msgstr "Bijgewerkt"
 
 msgid "Updated Kubernetes settings."
-msgstr ""
+msgstr "Kubernetes-instellingen bijgewerkt."
 
 msgid "Users"
-msgstr ""
+msgstr "Gebruikers"
 
 msgid "View"
-msgstr ""
+msgstr "Weergave"
 
 msgid "Volume"
-msgstr ""
+msgstr "Volume"
+
+msgid "YAML"
+msgstr "YAML"
 
 msgid "etcd"
-msgstr ""
+msgstr "etcd"

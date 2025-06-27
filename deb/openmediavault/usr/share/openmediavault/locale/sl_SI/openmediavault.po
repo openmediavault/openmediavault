@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-21 10:04+0100\n"
+"POT-Creation-Date: 2025-05-07 17:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -340,13 +340,13 @@ msgid ""
 msgstr "Dovolite odjemalcem, da poskušajo dostopati do razširjenih atributov v skupni rabi. Osnovni datotečni sistem, ki je izpostavljen v skupni rabi, mora podpirati razširjene atribute."
 
 msgid "Allow following symbolic links in the home directories."
-msgstr "V domačih imenikih dovolite sledenje simbolni povezavi."
+msgstr "V domačih mapah dovolite sledenje simbolni povezavi."
 
 msgid "Allow following symbolic links in the share."
 msgstr "V skupni rabi dovolite sledenje simbolni povezavi."
 
 msgid "Allow symbolic links to areas that are outside the home directories."
-msgstr "Dovolite simbolne povezave do področij, ki so zunaj domačih imenikov."
+msgstr "Dovolite simbolne povezave do področij, ki so zunaj domačih map."
 
 msgid "Allow symbolic links to areas that are outside the share."
 msgstr "Dovolite simbolne povezave do področij, ki so zunaj deljenega prostora."
@@ -396,7 +396,7 @@ msgid "Applied the configuration changes."
 msgstr "Spremembe konfiguracije so bile uveljavljene."
 
 msgid "Apply"
-msgstr "Uporabi"
+msgstr "Uveljavi"
 
 msgid "Apply permissions to files and subfolders."
 msgstr "Uporabi dovoljenja za datoteke in podmape."
@@ -679,9 +679,6 @@ msgstr "djemalčevo NetBIOS ime"
 
 msgid "Client address"
 msgstr "Naslov odjemalca"
-
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "Odjemalci, ki jim je dovoljeno priklopiti datotečni sistem, npr. 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Zapri"
@@ -966,7 +963,7 @@ msgid "Disallow the user to modify their own account."
 msgstr "Uporabniku onemogoči spreminjanje lastnega računa."
 
 msgid "Disk Temperatures"
-msgstr "Temperature diska"
+msgstr "Temperature diskov"
 
 msgid "Disks"
 msgstr "Diski"
@@ -1153,7 +1150,7 @@ msgid ""
 msgstr "Omogočite to možnost, da shranite delno prenesene datoteke, sicer bodo v primeru prekinjenega prenosa izbrisane."
 
 msgid "Enable user home directories."
-msgstr "Omogočite domače imenike uporabnikov."
+msgstr "Omogočite domače mape uporabnikov."
 
 msgid "Enable write-cache"
 msgstr "Omogočanje predpomnilnika za pisanje"
@@ -1473,6 +1470,9 @@ msgstr "Ime gostitelja"
 msgid "Hosts allow"
 msgstr "Dovoli gostitelje"
 
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr "Gostitelji, ki jim je dovoljeno priklopiti datotečni sistem, npr. 192.168.178.0/24."
+
 msgid "Hosts deny"
 msgstr "Ne dovoli gostitelje"
 
@@ -1561,7 +1561,7 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr "Če je ta parameter nastavljen, poskuša Samba najprej prebrati atribute DOS (SYSTEM, HIDDEN, ARCHIVE ali READ-ONLY) iz razširjenega atributa datotečnega sistema, preden atribute DOS preslika v bite dovoljenj UNIX. Če je nastavljeno, se atributi DOS shranijo v razširjeni atribut v datotečnem sistemu UNIX, ki je povezan z datoteko ali imenikom."
+msgstr "Če je ta parameter nastavljen, poskuša Samba najprej prebrati atribute DOS (SYSTEM, HIDDEN, ARCHIVE ali READ-ONLY) iz razširjenega atributa datotečnega sistema, preden atribute DOS preslika v bite dovoljenj UNIX. Če je nastavljeno, se atributi DOS shranijo v razširjeni atribut v datotečnem sistemu UNIX, ki je povezan z datoteko ali mapo."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -2173,6 +2173,9 @@ msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
 msgstr "Upoštevajte, da je protokol SMB1 zastarel in naj se uporablja le v izjemnih primerih."
 
+msgid "Note, only one client can be configured per share."
+msgstr "Upoštevajte, da je za posamezno deljeno mapo lahko konfiguriran samo en odjemalec."
+
 msgid "Nothing"
 msgstr "Nič"
 
@@ -2771,7 +2774,7 @@ msgid "Scheduled Tasks"
 msgstr "Načrtovana opravila"
 
 msgid "Scheduling"
-msgstr "Načrtovanje opravil"
+msgstr "Urnik"
 
 msgid "Search domains"
 msgstr "Išči domene"
@@ -3059,7 +3062,7 @@ msgstr "Določa, ali se je dovoljeno prijaviti kot superuporabnik."
 msgid ""
 "Specifies whether the system performance statistics are collected "
 "periodically."
-msgstr "Določa, ali se statistika zmogljivosti sistema zbira periodično."
+msgstr "Določa, ali naj se periodično zbirajo statistični podatki o delovanju sistema."
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
@@ -3298,7 +3301,7 @@ msgid ""
 msgstr "Lokacija datotek, ki jih želite dati v skupno rabo. Skupna raba bo dostopna na naslovu /export/<name>."
 
 msgid "The location of the user home directories."
-msgstr "Lokacija uporabniških domačih imenikov."
+msgstr "Lokacija uporabniških domačih map."
 
 msgid ""
 "The maximum transmission unit in bytes to set for the device. Set to 0 to "
@@ -3339,7 +3342,7 @@ msgid ""
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
-msgstr "Dovoljenja za nove datoteke in imenike so običajno urejena z masko ustvarjanja in masko imenika, vendar parameter podedovanih dovoljenj to preglasi. To je lahko še posebej uporabno v sistemih z več uporabniki, saj omogoča, da lahko vsak uporabnik prožno uporablja isto deljeno mapo."
+msgstr "Dovoljenja za nove datoteke in mape so običajno urejena z masko ustvarjanja in masko mape, vendar parameter podedovanih dovoljenj to preglasi. To je lahko še posebej uporabno v sistemih z več uporabniki, saj omogoča, da lahko vsak uporabnik prožno uporablja isto deljeno mapo."
 
 msgid "The port on which SSH is running on the remote system."
 msgstr "Vrata, na katerih se izvaja SSH v oddaljenem sistemu."
@@ -3404,10 +3407,10 @@ msgstr "Vrednost se ne ujema z vzorcem /{{ pattern }}/."
 msgid ""
 "The value must be on of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "Vrednost mora biti na podrejenem omrežnem vmesniku {{ slaves | join(\", \") }}."
+msgstr "Vrednost mora ustrezati enemu izmed podrejenih omrežnih vmesnikov {{ slaves | join(\", \") }}."
 
-msgid "The value must be on of the slave network interfaces."
-msgstr "Vrednost mora biti na podrejenem omrežnem vmesniku."
+msgid "The value must be one of the slave network interfaces."
+msgstr "Vrednost mora biti eden od podrejenih omrežnih vmesnikov."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Delovna skupina, v kateri bo videti strežnik, ko ga bodo poizvedovali odjemalci."
@@ -3581,7 +3584,7 @@ msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr "S tem parametrom lahko zagotovite, da se pri ustvarjanju nove datoteke ali podimenikov v nadrejenih imenikih upoštevajo privzeti ACL-ji, če obstajajo v nadrejenih imenikih."
+msgstr "Ta parameter zagotavlja, da se obstoječi privzeti ACL-ji v nadrejenih mapah vedno upoštevajo pri ustvarjanju nove datoteke ali podmape v teh mapah."
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
@@ -3597,7 +3600,7 @@ msgid "This specifies what to do if the packet matches."
 msgstr "To določa, kaj storiti, če se paket ujema."
 
 msgid "This will create a recycle bin for each user home directory."
-msgstr "To bo ustvarilo koš za smeti za vsak uporabniški domači imenik."
+msgstr "To bo ustvarilo koš za smeti za vsako uporabniško domačo mapo."
 
 msgid "This will create a recycle bin for the share."
 msgstr "To bo ustvarilo koš za smeti za deljeno mapo."
@@ -3935,7 +3938,7 @@ msgid "User Settings"
 msgstr "Uporabniške nastavitve"
 
 msgid "User home directory"
-msgstr "Domača mapa uporabnika"
+msgstr "Domače mape uporabnikov"
 
 msgid "User name"
 msgstr "Uporabniško ime"

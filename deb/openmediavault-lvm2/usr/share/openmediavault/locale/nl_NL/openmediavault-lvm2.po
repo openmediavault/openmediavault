@@ -5,6 +5,7 @@
 # Translators:
 # Milan Toet <milantoet@gmail.com>, 2012-2013,2017
 # Varkentjes, 2020
+# Stephan Paternotte <stephan@paternottes.net>, 2025
 # Tim <co_ti@hotmail.com>, 2013-2014,2016
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-27 14:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
-"Last-Translator: Varkentjes, 2020\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Active"
-msgstr "Actief"
+msgstr "Ingeschakeld"
 
 msgid "Available"
 msgstr "Beschikbaar"
@@ -33,16 +34,16 @@ msgid "Create"
 msgstr "Aanmaken"
 
 msgid "Created logical volume '{{ name }}'."
-msgstr ""
+msgstr "Logisch volume '{{ name }}' aangemaakt."
 
 msgid "Created physical volume {{ devicefile }}."
-msgstr ""
+msgstr "Fysiek volume {{ devicefile }} aangemaakt."
 
 msgid "Created snapshot of logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "Momentopname van logisch volume '{{ devicefile }}' aangemaakt."
 
 msgid "Created volume group '{{ name }}'."
-msgstr ""
+msgstr "Volume-groep '{{ name }}' aangemaakt."
 
 msgid "Device"
 msgstr "Apparaat"
@@ -51,10 +52,10 @@ msgid "Devices"
 msgstr "Apparaten"
 
 msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
-msgstr ""
+msgstr "Weet u zeker dat u een fysiek volume wilt aanmaken op '{{ devicefile }}'?"
 
 msgid "Do you really want to resize the selected physical volume?"
-msgstr "Weet u zeker dat u de grootte van de fysieke schijf wilt aanpassen?"
+msgstr "Weet u zeker dat u de grootte van het fysiek volume wilt aanpassen?"
 
 msgid "Edit"
 msgstr "Aanpassen"
@@ -63,10 +64,10 @@ msgid "Extend"
 msgstr "Uitbreiden"
 
 msgid "Extended logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "Uitgebreid logisch volume '{{ devicefile }}'."
 
 msgid "Extended volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "Uitgebreide volume-groep '{{ devicefile }}'."
 
 msgid "Free"
 msgstr "Vrij"
@@ -75,46 +76,46 @@ msgid "Invalid name"
 msgstr "Ongeldige naam"
 
 msgid "LVM"
-msgstr ""
+msgstr "LVM"
 
 msgid "Logical Volume Management"
-msgstr "Logische schijfbeheer"
+msgstr "Beheer van logische volumes"
 
 msgid "Logical Volumes"
-msgstr ""
+msgstr "Logische volumes"
 
 msgid "Name"
 msgstr "Naam"
 
 msgid "Physical Volumes"
-msgstr ""
+msgstr "Fysieke volumes"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Even geduld, er wordt een momentopname aangemaakt…"
 
 msgid "Reduce"
 msgstr "Verkleinen"
 
 msgid "Reduced volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "Gereduceerde volume-groep '{{ devicefile }}'."
 
 msgid "Resize"
 msgstr "Grootte aanpassen"
 
 msgid "Select a device ..."
-msgstr "Selecteer een apparaat ..."
+msgstr "Selecteer een apparaat…"
 
 msgid "Select a volume group ..."
-msgstr "Kies een schijfgroep ..."
+msgstr "Selecteer een volume-groep…"
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Selecteer apparaten…"
 
 msgid "Select the devices used to extend the volume group."
-msgstr ""
+msgstr "Selecteer de apparaten die worden gebruikt om de volume-groep uit te breiden."
 
 msgid "Select the devices used to reduce from the volume group."
-msgstr ""
+msgstr "Selecteer de apparaten die worden gebruikt om de volume-groep te verkleinen."
 
 msgid "Size"
 msgstr "Grootte"
@@ -123,35 +124,35 @@ msgid "Snapshot"
 msgstr "Momentopname"
 
 msgid "The name of the logical volume."
-msgstr ""
+msgstr "De naam van het logische volume."
 
 msgid "The name of the volume group."
-msgstr ""
+msgstr "De naam van de volume-groep."
 
 msgid ""
 "The percentage of the total space in the volume group to allocate for the "
 "new logical volume."
-msgstr ""
+msgstr "Het percentage van de totale ruimte in de volume-groep dat moet worden toegewezen voor het nieuwe logische volume."
 
 msgid ""
 "The percentage of the total space in the volume group to use by the logical "
 "volume."
-msgstr ""
+msgstr "Het percentage van de totale ruimte in de volume-groep dat moet worden gebruikt door het logische volume."
 
 msgid "Updated logical volume '{{ devicefile }}'."
-msgstr ""
+msgstr "Logisch volume '{{ devicefile }}' bijgewerkt."
 
 msgid "Updated volume group '{{ devicefile }}'."
-msgstr ""
+msgstr "Volume-groep '{{ devicefile }}' bijgewerkt."
 
 msgid "Used"
 msgstr "Gebruikt"
 
 msgid "Volume Group"
-msgstr ""
+msgstr "Volume-groep"
 
 msgid "Volume Groups"
-msgstr ""
+msgstr "Volume-groepen"
 
 msgid "Volume group"
-msgstr "Schijfgroep"
+msgstr "Volume-groep"

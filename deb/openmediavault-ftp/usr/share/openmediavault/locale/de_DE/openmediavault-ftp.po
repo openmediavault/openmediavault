@@ -5,16 +5,16 @@
 # 
 # Translators:
 # warhog <warhog@gmx.de>, 2023
-# Volker Theile <votdev@gmx.de>, 2023
+# Volker Theile <votdev@gmx.de>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-ftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"POT-Creation-Date: 2025-04-04 00:41+0200\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2023\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2025\n"
 "Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,6 +28,9 @@ msgstr "0 KiB/s bedeutet unbegrenzt."
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "Ein leistungsstarker modularer FTP/SFTP/FTPS-Server."
 
+msgid "Access mode"
+msgstr "Zugriffsmodus"
+
 msgid "Advanced settings"
 msgstr "Erweiterte Einstellungen"
 
@@ -35,8 +38,22 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
 "Erlaube den Cleints unterbrochende Uploads und Downloads wieder aufzunehmen."
 
+msgid ""
+"Allow users to log in without a password. Make sure the user <em>ftp</em> or"
+" group <em>nogroup</em> can access the files."
+msgstr ""
+"Erlaube Benutzern, sich ohne Passwort anzumelden. Stellen Sie sicher, dass "
+"der Benutzer <em>ftp</em> oder die Gruppe <em>nogroup</em> auf die Dateien "
+"zugreifen kann."
+
 msgid "Anonymous FTP"
 msgstr "Anonymes FTP "
+
+msgid "Authenticated user ID"
+msgstr "Authentifizierte Benutzer-ID"
+
+msgid "Authentication method"
+msgstr "Authentifizierungsmethode"
 
 msgid "Ban Rules"
 msgstr "Verbotsregeln"
@@ -50,6 +67,9 @@ msgstr "Bandbreiten-beschränkung"
 msgid "Certificate"
 msgstr "Zertifikat"
 
+msgid "Completion status"
+msgstr "Abschlussstatus"
+
 msgid "Create"
 msgstr "Erstellen"
 
@@ -62,8 +82,14 @@ msgstr "FTP-Freigabe erstellt."
 msgid "Currently logged in users:"
 msgstr "Aktuell eingeloggte Benutzer:"
 
+msgid "Date & Time"
+msgstr "Datum & Zeit"
+
 msgid "Deny logins which do not have a valid shell."
 msgstr "Verweigere Anmeldungen, die keine gültige Shell haben."
+
+msgid "Direction"
+msgstr "Richtung"
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "Zeigt das Heimatverzeichnis des Benutzers in der Suchliste an."
@@ -100,6 +126,9 @@ msgstr "Erweiterte Optionen"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr "FTP - Übertragungsprotokoll"
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -109,6 +138,12 @@ msgid ""
 msgstr ""
 "FXP erlaubt Übertragungen zwischen zwei entfernten Servern ohne das dabei "
 "Daten über den anfragenden Client fließen."
+
+msgid "Filename"
+msgstr "Dateiname"
+
+msgid "Filesize"
+msgstr "Dateigröße"
 
 msgid "Home directories"
 msgstr "Heimatverzeichnisse"
@@ -190,6 +225,9 @@ msgstr "Maximale Anzahl simultaner Clients."
 msgid "Maximum upload rate (KiB/s)"
 msgstr "Maximale Upload-Rate (KiB/s)"
 
+msgid "Message"
+msgstr "Nachricht"
+
 msgid "Min. passive port"
 msgstr "Niedrigster passiver Port"
 
@@ -234,6 +272,9 @@ msgstr "Port"
 msgid "Refresh time"
 msgstr "Aktualisierungszeit"
 
+msgid "Remote host"
+msgstr "Entfernter Host"
+
 msgid "Require valid shell"
 msgstr "Gültige Shell benötigt"
 
@@ -260,6 +301,9 @@ msgstr "Freigegebene Ordner"
 
 msgid "Shares"
 msgstr "Freigaben"
+
+msgid "Special action flag"
+msgstr "Spezielles Aktionsignal"
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -344,6 +388,12 @@ msgstr "Zeitüberschreitung"
 msgid "Transfer log"
 msgstr "Übertragungsprotokoll"
 
+msgid "Transfer time"
+msgstr "Übertragungszeit"
+
+msgid "Transfer type"
+msgstr "Übertragungsart"
+
 msgid "Updated FTP ban rule."
 msgstr "FTP-Sperrregel wurde aktualisiert."
 
@@ -352,6 +402,9 @@ msgstr "FTP-Freigabe wurde aktualisiert."
 
 msgid "Use the following bandwidth restriction."
 msgstr "Verwenden Sie die folgende Bandbreitenbeschränkung."
+
+msgid "User name"
+msgstr "Benutzername"
 
 msgid "Welcome message"
 msgstr "Willkommens-nachricht"

@@ -7,16 +7,16 @@
 # 王大山, 2024
 # songming <by@songming.me>, 2024
 # kochin <kochinc@outlook.com>, 2024
-# 黃柏諺 <s8321414@gmail.com>, 2024
+# 黃柏諺 <s8321414@gmail.com>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-05-23 12:43+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2024\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2025\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -137,9 +137,6 @@ msgstr "首頁"
 msgid "ID"
 msgstr "ID"
 
-msgid "If present, the namespace scope for this request."
-msgstr "若存在，則為此請求的命名空間範圍。"
-
 msgid "Image"
 msgstr "鏡像"
 
@@ -157,9 +154,6 @@ msgstr "Ingress 路由"
 
 msgid "Ingresses"
 msgstr "Ingresses"
-
-msgid "Invalid namespace"
-msgstr "無效的命名空間"
 
 msgid "Job"
 msgstr "工作"
@@ -227,11 +221,11 @@ msgstr "通訊埠"
 msgid "Ports"
 msgstr "通訊埠"
 
+msgid "README"
+msgstr "讀我檔案"
+
 msgid "Ready"
 msgstr "準備好"
-
-msgid "Recipe"
-msgstr "配方"
 
 msgid "Recipe Information"
 msgstr "配方資訊"
@@ -272,6 +266,9 @@ msgstr "設定"
 msgid "Shared Folders"
 msgstr "共享資料夾"
 
+msgid "Show README"
+msgstr "顯示讀我檔案"
+
 msgid "Size"
 msgstr "大小"
 
@@ -309,14 +306,14 @@ msgstr ""
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
-"可以在配方中使用以下佔位字串來存取全域系統資訊與設定資料庫：<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
-" uuid=NULL)</li></ul>您必須用雙大括號表示佔位字串。可以在<a "
+"可以在配方中使用以下佔位字串來存取全域系統資訊與組態資料庫：<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>您必須用一對大括號來表示佔位字串。可以在<a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>此處</a>找到其他可用篩選條件的概覽。"
 
@@ -361,6 +358,9 @@ msgstr "檢視"
 
 msgid "Volume"
 msgstr "卷宗"
+
+msgid "YAML"
+msgstr "YAML"
 
 msgid "etcd"
 msgstr "etcd"

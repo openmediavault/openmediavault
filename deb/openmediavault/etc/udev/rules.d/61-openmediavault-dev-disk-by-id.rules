@@ -1,6 +1,6 @@
 # This file is part of OpenMediaVault.
 #
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @copyright Copyright (c) 2009-2025 Volker Theile
 #
@@ -15,7 +15,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # These UDEV rules are used to workaround a bug of external USB enclosures
 # (mostly based on JMicron controllers) that are reporting the same serial
@@ -700,6 +700,143 @@ ENV{ID_VENDOR_ID}=="1c04", \
 # TAGS=:systemd:
 ENV{ID_VENDOR_ID}=="0578", \
   ENV{ID_MODEL_ID}=="0578", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# JMicron Gen1 SATA 6Gb/s Bridge
+# https://devicehunt.com/view/type/usb/vendor/152D/device/0576
+#
+# TerraMaster D5-300
+# https://www.terra-master.com/global/d5-300.html
+#
+# P: /devices/pci0000:00/0000:00:0a.0/usb4/4-1/4-1:1.0/host1/target1:0:0/1:0:0:0/block/sdb
+# M: sdb
+# U: block
+# T: disk
+# D: b 8:16
+# N: sdb
+# L: 0
+# S: disk/by-id/usb-WDC_WD20EFRX-68EUZN0_202207153AB6-0:0
+# S: disk/by-path/pci-0000:00:0a.0-usb-0:1:1.0-scsi-0:0:0:0
+# S: disk/by-diskseq/2
+# Q: 2
+# E: DEVPATH=/devices/pci0000:00/0000:00:0a.0/usb4/4-1/4-1:1.0/host1/target1:0:0/1:0:0:0/block/sdb
+# E: DEVNAME=/dev/sdb
+# E: DEVTYPE=disk
+# E: DISKSEQ=2
+# E: MAJOR=8
+# E: MINOR=16
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=3771886
+# E: ID_BUS=usb
+# E: ID_MODEL=WD20EFRX-68EUZN0
+# E: ID_MODEL_ENC=WD20EFRX-68EUZN0
+# E: ID_MODEL_ID=0576
+# E: ID_SERIAL=WDC_WD20EFRX-68EUZN0_202207153AB6-0:0
+# E: ID_SERIAL_SHORT=202207153AB6
+# E: ID_VENDOR=WDC
+# E: ID_VENDOR_ENC=WDC\x20\x20\x20\x20\x20
+# E: ID_VENDOR_ID=152d
+# E: ID_REVISION=7102
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_USB_MODEL=WD20EFRX-68EUZN0
+# E: ID_USB_MODEL_ENC=WD20EFRX-68EUZN0
+# E: ID_USB_MODEL_ID=0576
+# E: ID_USB_SERIAL=WDC_WD20EFRX-68EUZN0_202207153AB6-0:0
+# E: ID_USB_SERIAL_SHORT=202207153AB6
+# E: ID_USB_VENDOR=WDC
+# E: ID_USB_VENDOR_ENC=WDC\x20\x20\x20\x20\x20
+# E: ID_USB_VENDOR_ID=152d
+# E: ID_USB_REVISION=7102
+# E: ID_USB_TYPE=disk
+# E: ID_USB_INSTANCE=0:0
+# E: ID_USB_INTERFACES=:080650:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=usb-storage
+# E: ID_PATH=pci-0000:00:0a.0-usb-0:1:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=pci-0000_00_0a_0-usb-0_1_1_0-scsi-0_0_0_0
+# E: ID_PART_TABLE_UUID=4420bc5c-7c13-4829-8b87-c1841902125e
+# E: ID_PART_TABLE_TYPE=gpt
+# E: DEVLINKS=/dev/disk/by-id/usb-WDC_WD20EFRX-68EUZN0_202207153AB6-0:0 /dev/disk/by-path/pci-0000:00:0a.0-usb-0:1:1.0-scsi-0:0:0:0 /dev/disk/by-diskse...
+# E: TAGS=:systemd:
+# E: CURRENT_TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="152d", \
+  ENV{ID_MODEL_ID}=="0576", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# External SATA Hard Drive Adapter cable PA023U3
+# https://devicehunt.com/view/type/usb/vendor/7825/device/a2a4
+#
+# P: /devices/pci0000:00/0000:00:14.0/usb2/2-3/2-3:1.0/host0/target0:0:0/0:0:0:0/block/sdb
+# M: sdb
+# U: block
+# T: disk
+# D: b 8:16
+# N: sdb
+# L: 0
+# S: disk/by-diskseq/3
+# S: disk/by-label/disk
+# S: disk/by-uuid/7067644550817850007
+# S: disk/by-id/usb-ST2000DM_008-2FR102_235678C218CA-0:0
+# S: disk/by-path/pci-0000:00:14.0-usb-0:3:1.0-scsi-0:0:0:0
+# Q: 3
+# E: DEVPATH=/devices/pci0000:00/0000:00:14.0/usb2/2-3/2-3:1.0/host0/target0:0:0/0:0:0:0/block/sdb
+# E: DEVNAME=/dev/sdb
+# E: DEVTYPE=disk
+# E: DISKSEQ=3
+# E: MAJOR=8
+# E: MINOR=16
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=3298176
+# E: ID_BUS=usb
+# E: ID_MODEL=008-2FR102
+# E: ID_MODEL_ENC=008-2FR102\x20\x20\x20\x20\x20\x20
+# E: ID_MODEL_ID=a2a4
+# E: ID_SERIAL=ST2000DM_008-2FR102_235678C218CA-0:0
+# E: ID_SERIAL_SHORT=235678C218CA
+# E: ID_VENDOR=ST2000DM
+# E: ID_VENDOR_ENC=ST2000DM
+# E: ID_VENDOR_ID=7825
+# E: ID_REVISION=4101
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_USB_MODEL=008-2FR102
+# E: ID_USB_MODEL_ENC=008-2FR102\x20\x20\x20\x20\x20\x20
+# E: ID_USB_MODEL_ID=a2a4
+# E: ID_USB_SERIAL=ST2000DM_008-2FR102_235678C218CA-0:0
+# E: ID_USB_SERIAL_SHORT=235678C218CA
+# E: ID_USB_VENDOR=ST2000DM
+# E: ID_USB_VENDOR_ENC=ST2000DM
+# E: ID_USB_VENDOR_ID=7825
+# E: ID_USB_REVISION=4101
+# E: ID_USB_TYPE=disk
+# E: ID_USB_INSTANCE=0:0
+# E: ID_USB_INTERFACES=:080650:080662:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=uas
+# E: ID_PATH=pci-0000:00:14.0-usb-0:3:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=pci-0000_00_14_0-usb-0_3_1_0-scsi-0_0_0_0
+# E: ID_FS_VERSION=5000
+# E: ID_FS_LABEL=disk
+# E: ID_FS_LABEL_ENC=disk
+# E: ID_FS_UUID=7067644550817850007
+# E: ID_FS_UUID_ENC=7067644550817850007
+# E: ID_FS_UUID_SUB=9552983788758719893
+# E: ID_FS_UUID_SUB_ENC=9552983788758719893
+# E: ID_FS_TYPE=zfs_member
+# E: ID_FS_USAGE=filesystem
+# E: NVME_HOST_IFACE=none
+# E: DEVLINKS=/dev/disk/by-diskseq/3 /dev/disk/by-label/disk /dev/disk/by-uuid/7067644550817850007
+# E: TAGS=:systemd:
+# E: CURRENT_TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="7825", \
+  ENV{ID_MODEL_ID}=="a2a4", \
   IMPORT{program}="serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \

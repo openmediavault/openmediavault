@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault-nut package.
 # 
 # Translators:
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
 # maurorulli <mauro.rulli@gmail.com>, 2012
 # Paolo Velati <paolo.velati@gmail.com>, 2013-2015,2021
 # Volker Theile <votdev@gmx.de>, 2012
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2013-2015,2021\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 
 msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
-msgstr "'Standalone' per UPS locale, 'Netclient' per UPS remoto su un server NUT."
+msgstr "‘Standalone’ per UPS locale, ‘Netclient’ per UPS remoto su un server NUT."
 
 msgid "Charge"
 msgstr "Carica"
@@ -31,7 +32,7 @@ msgid "Comment"
 msgstr "Commento"
 
 msgid "Date & Time"
-msgstr "Data & Ora"
+msgstr "Data e ora"
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Definisce quando viene avviato lo spegnimento."
@@ -46,7 +47,7 @@ msgid "Enabled"
 msgstr "Abilitato"
 
 msgid "Identifier"
-msgstr "Identificativo"
+msgstr "Identificatore"
 
 msgid "Invalid identifier"
 msgstr "Identificatore non valido"
@@ -64,13 +65,13 @@ msgid "Netclient"
 msgstr "Netclient"
 
 msgid "Netclient hostname"
-msgstr "Nome host Netclient"
+msgstr "Nome host del Netclient"
 
 msgid "Netclient password"
-msgstr "Password Netclient"
+msgstr "Password del Netclient"
 
 msgid "Netclient user name"
-msgstr "Nome utente Netclient"
+msgstr "Nome utente del Netclient"
 
 msgid "PID"
 msgstr "PID"
@@ -97,45 +98,45 @@ msgid "Shutdown timer"
 msgstr "Timer di spegnimento"
 
 msgid "Standalone"
-msgstr "Standalone"
+msgstr "Autonomo"
 
 msgid "Temperature"
 msgstr "Temperatura"
 
 msgid "The name used to uniquely identify your UPS on local or remote system."
-msgstr "Il nome utilizzato per identificare in modo univoco l'UPS sul sistema locale o remoto."
+msgstr "Il nome utilizzato per identificare univocamente il tuo UPS sul sistema locale o remoto."
 
 msgid ""
 "The number of power supplies that the UPS feeds on this system (usually 1), "
 "refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
 "target='_blank'>upsmon.conf(5)</a> for more information."
-msgstr "Il numero di alimentatori che l'UPS alimenta su questo sistema (di solito 1), fare riferimento a <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a> per maggiori informazioni."
+msgstr "Il numero di alimentatori che l’UPS alimenta su questo sistema (di solito 1). Consulta <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a> per maggiori informazioni."
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
 "back before the time is up the shutdown is canceled."
-msgstr "Tempo in secondi all'avvio dello spegnimento. Se l'UPS viene ripristinato prima che il tempo sia trascorso allora lo spegnimentoverrà annullato."
+msgstr "Il tempo in secondi fino all’avvio dello spegnimento. Se l’UPS si ripristina prima della scadenza, lo spegnimento viene annullato."
 
 msgid ""
 "To get more information how to configure your UPS please check the Network "
 "UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
 "target='_blank'>documentation</a>."
-msgstr "Per ottenere maggiori informazioni su come configurare il tuo UPS consulta la <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentazione</a> Network UPS Tools."
+msgstr "Per maggiori informazioni su come configurare il tuo UPS, consulta la <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentazione</a> di Network UPS Tools."
 
 msgid "UPS"
 msgstr "UPS"
 
 msgid "UPS goes on battery"
-msgstr "L'UPS lavora a batteria"
+msgstr "L’UPS passa alla batteria"
 
 msgid "UPS reaches low battery"
-msgstr "Batteria dell'UPS scarica"
+msgstr "L’UPS segnala che la batteria è quasi scarica"
 
 msgid "Updated UPS settings."
-msgstr "Impostazioni UPS aggiornate."
+msgstr "Le impostazioni dell'UPS sono state aggiornate."
 
 msgid "Used for remote authentication."
-msgstr "Usato per autenticazione remota."
+msgstr "Utilizzato per l’autenticazione remota."
 
 msgid "User name"
 msgstr "Nome utente"

@@ -158,6 +158,18 @@ describe('functions.helper', () => {
     expect(formatDeep('{{ foo | get("bar.xyz", "abc") }}', data)).toEqual('abc');
   });
 
+  it('should format string [12]', () => {
+    const data = { method: 'static', address: '172.16.0.10', netmask: '255.255.255.0', metric: 15 };
+    expect(format('{{ address | override(undefined, "ne", method, "static") }}', data)).toEqual(
+      '172.16.0.10'
+    );
+    expect(
+      format('{{ address | override(undefined, "equalto", "static", method) }}', data)
+    ).toEqual('');
+    expect(format('{{ "foo" | override("bar", "lessthan", metric, 10) }}', data)).toEqual('foo');
+    expect(format('{{ "bar" | override("baz", "truthy", metric > 10) }}', data)).toEqual('baz');
+  });
+
   it('should format deep [1]', () => {
     const data = { foo: { bar: 'xyz' } };
     expect(formatDeep('My name is {{ foo.bar }}', data)).toEqual('My name is xyz');

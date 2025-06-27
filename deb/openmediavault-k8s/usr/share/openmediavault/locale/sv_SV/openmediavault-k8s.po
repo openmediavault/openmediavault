@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Jonatan Nyberg, 2024
+# Jonatan Nyberg, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-05-23 12:43+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Jonatan Nyberg, 2024\n"
+"Last-Translator: Jonatan Nyberg, 2025\n"
 "Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -137,9 +137,6 @@ msgstr "Webbplats"
 msgid "ID"
 msgstr "ID"
 
-msgid "If present, the namespace scope for this request."
-msgstr ""
-
 msgid "Image"
 msgstr "Bild"
 
@@ -157,9 +154,6 @@ msgstr "Ingressrutter"
 
 msgid "Ingresses"
 msgstr "Ingresser"
-
-msgid "Invalid namespace"
-msgstr ""
 
 msgid "Job"
 msgstr "Jobb"
@@ -227,11 +221,11 @@ msgstr "Port"
 msgid "Ports"
 msgstr "Portar"
 
+msgid "README"
+msgstr "README"
+
 msgid "Ready"
 msgstr "Redo"
-
-msgid "Recipe"
-msgstr "Recept"
 
 msgid "Recipe Information"
 msgstr "Receptinformation"
@@ -271,6 +265,9 @@ msgstr "Inställningar"
 
 msgid "Shared Folders"
 msgstr "Delade mappar"
+
+msgid "Show README"
+msgstr "Visa README"
 
 msgid "Size"
 msgstr "Storlek"
@@ -312,19 +309,12 @@ msgstr ""
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
-"Följande platshållare kan användas i recept för att få tillgång till global "
-"systeminformation och "
-"konfigurationsdatabasen:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
-" uuid=NULL)</li></ul>Du måste beteckna platshållare med dubbelkrökta "
-"klammerparenteser. En översikt över ytterligare tillgängliga filter finns <a"
-" href='https://twig.symfony.com/doc/filters/index.html' "
-"target='_blank'>här</a>."
 
 msgid "The location where to store etcd on-demand snapshots."
 msgstr "Platsen där man lagrar etcd-on-demand ögonblicksbilder."
@@ -367,6 +357,9 @@ msgstr "Visa"
 
 msgid "Volume"
 msgstr "Volym"
+
+msgid "YAML"
+msgstr "YAML"
 
 msgid "etcd"
 msgstr "etcd"

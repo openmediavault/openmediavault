@@ -1,3 +1,15 @@
+openmediavault-clamav (7.0.4-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:36:06 +0200
+
+openmediavault-clamav (7.0.3-1) stable; urgency=low
+
+  * Issue #1961: Fix logrotate configuration issue.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 22 May 2025 12:48:17 +0200
+
 openmediavault-clamav (7.0.2-1) stable; urgency=low
 
   * Update locale files.

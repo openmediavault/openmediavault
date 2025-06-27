@@ -1,3 +1,9 @@
+openmediavault-s3 (7.0.3-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:45:18 +0200
+
 openmediavault-s3 (7.0.2-1) stable; urgency=low
 
   * Enable TLS encryption for MinIO's API endpoint.

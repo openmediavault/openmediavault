@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-21 10:04+0100\n"
+"POT-Creation-Date: 2025-05-07 17:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022,2025\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -680,9 +680,6 @@ msgstr "Ім’я клієнта NetBIOS"
 
 msgid "Client address"
 msgstr "Адреса клієнта"
-
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "Клієнтам дозволено монтувати файлову систему, наприклад 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Закрити"
@@ -1474,6 +1471,9 @@ msgstr "Ім'я хоста"
 msgid "Hosts allow"
 msgstr "Дозволені хости"
 
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
+
 msgid "Hosts deny"
 msgstr "Заборонені хости"
 
@@ -2172,6 +2172,9 @@ msgstr "Не виконується"
 
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr ""
+
+msgid "Note, only one client can be configured per share."
 msgstr ""
 
 msgid "Nothing"
@@ -3407,8 +3410,8 @@ msgid ""
 "\") }}."
 msgstr "Значення має бути одним із підлеглих мережевих інтерфейсів {{ slaves | join(\", \") }}."
 
-msgid "The value must be on of the slave network interfaces."
-msgstr "Значення має бути одним із підлеглих мережевих інтерфейсів."
+msgid "The value must be one of the slave network interfaces."
+msgstr ""
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Робоча група, в якій відображається сервер при запиті клієнтами."

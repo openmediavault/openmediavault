@@ -2,7 +2,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -17,7 +17,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
 namespace Engined\Rpc;
 
@@ -616,6 +616,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Set default values.
 			$privilege = new \OMV\Dictionary([
 				"type" => "user",
+				"id" => $userv['uid'],
 				"name" => $userv['name'],
 				"perms" => NULL
 			]);
@@ -639,6 +640,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Set default values.
 			$privilege = new \OMV\Dictionary([
 				"type" => "group",
+				"id" => $groupv['gid'],
 				"name" => $groupv['name'],
 				"perms" => NULL
 			]);

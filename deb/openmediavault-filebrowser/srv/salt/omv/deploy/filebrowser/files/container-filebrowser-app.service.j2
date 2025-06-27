@@ -1,4 +1,4 @@
-{%- set image = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_IMAGE', 'docker.io/filebrowser/filebrowser:latest') -%}
+{%- set image = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_IMAGE', 'docker.io/filebrowser/filebrowser:v2.32.0') -%}
 {%- set options = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_START_OPTIONS', '') -%}
 {%- set uname = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_UNAME', 'filebrowser') -%}
 {%- set gname = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_GNAME', 'users') -%}

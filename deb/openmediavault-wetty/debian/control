@@ -10,7 +10,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-wetty
 Architecture: all
-Depends: openmediavault (>= 7.0), podman
+Depends: openmediavault (>= 7.7.9), podman
 Priority: optional
 Description: openmediavault WeTTY (Web + TTY) plugin
  Terminal access in browser over HTTP/HTTPS.

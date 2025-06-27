@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -69,7 +69,7 @@ export class InterfaceDatatablePageComponent extends BaseFormPageComponent {
         sortable: true,
         cellTemplateName: 'template',
         cellTemplateConfig:
-          'IPv4: {{ address | default("-", true) }}<br>IPv6: {{ address6 | default("-", true) }}'
+          'IPv4: {{ address | override(undefined, "ne", method, "static") | default("-", true) }}<br>IPv6: {{ address6 | override(undefined, "ne", method6, "static") | default("-", true) }}'
       },
       {
         name: gettext('Netmask'),
@@ -78,7 +78,7 @@ export class InterfaceDatatablePageComponent extends BaseFormPageComponent {
         sortable: true,
         cellTemplateName: 'template',
         cellTemplateConfig:
-          'IPv4: {{ netmask | default("-", true) }}<br>IPv6: {{ netmask6 | default("-", true) }}'
+          'IPv4: {{ netmask | override(undefined, "ne", method, "static") | default("-", true) }}<br>IPv6: {{ netmask6 | override(undefined, "ne", method6, "static") | default("-", true) }}'
       },
       {
         name: gettext('Gateway'),
@@ -87,7 +87,7 @@ export class InterfaceDatatablePageComponent extends BaseFormPageComponent {
         sortable: true,
         cellTemplateName: 'template',
         cellTemplateConfig:
-          'IPv4: {{ gateway | default("-", true) }}<br>IPv6: {{ gateway6 | default("-", true) }}'
+          'IPv4: {{ gateway | override(undefined, "ne", method, "static") | default("-", true) }}<br>IPv6: {{ gateway6 | override(undefined, "ne", method6, "static") | default("-", true) }}'
       },
       { name: gettext('MTU'), prop: 'mtu', flexGrow: 1, sortable: true },
       {
