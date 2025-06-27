@@ -1472,7 +1472,7 @@ msgid "Hosts allow"
 msgstr "Povolení hostitelé"
 
 msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Hostitelé s povolením připojení souborového systému, např. 192.168.178.0/24."
 
 msgid "Hosts deny"
 msgstr "Odmítnutí hostitelé"
@@ -2175,7 +2175,7 @@ msgid ""
 msgstr "Pamatujte, že SMB1 je zastaralé a mělo by se používat pouze, pokud je to povinné."
 
 msgid "Note, only one client can be configured per share."
-msgstr ""
+msgstr "Pamatujte, že pro jednu sdílenou složku lze nakonfigurovat pouze jednoho klienta."
 
 msgid "Nothing"
 msgstr "Nic"
@@ -3411,7 +3411,7 @@ msgid ""
 msgstr "Hodnota musí být na podřízeném síťovém rozhraní {{ slaves | join(“, “) }}."
 
 msgid "The value must be one of the slave network interfaces."
-msgstr ""
+msgstr "Hodnota musí být jedno z podřízených síťových rozhraní."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Pracovní skupina, ve které se bude server zobrazovat při dotazování klienty."

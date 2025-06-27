@@ -3414,7 +3414,7 @@ msgstr "Il valore non corrisponde al pattern /{{ pattern }}/."
 msgid ""
 "The value must be on of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "Il valore deve corrispondere ad una delle interfacce di rete slave: {{ slaves | join(\", \") }}."
+msgstr "Il valore deve corrispondere ad una delle interfacce di rete slave {{ slaves | join(\", \") }}."
 
 msgid "The value must be one of the slave network interfaces."
 msgstr "Il valore deve corrispondere ad una delle interfacce di rete slave."
