@@ -6,6 +6,8 @@ openmediavault-k8s (7.4.10-1) stable; urgency=medium
   * Disable Kong admin UI which is part of the Kubernetes Dashboard.
   * Prevent Kong container from crashing due `Address already in use`.
   * Add `Services | Kubernetes | Resources | Stateful Sets` page.
+  * Add `Version` column to `Services | Kubernetes | Resources | Helm Charts`
+    page.
   * Issue #1972: Fix bug when using user defined SSL certificates.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Jun 2025 15:04:01 +0200
