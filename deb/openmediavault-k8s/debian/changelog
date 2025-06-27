@@ -2,7 +2,7 @@ openmediavault-k8s (7.4.10-1) stable; urgency=medium
 
   * Allow the deletion of PVs and PVCs in `Failed` phase.
   * Fix the file mode bits of the systemd unit file k3s.service to prevent
-    "is marked world-writable" warnings.
+    `is marked world-writable` warnings.
   * Disable Kong admin UI which is part of the Kubernetes Dashboard.
   * Prevent Kong container from crashing due `Address already in use`.
   * Add `Services | Kubernetes | Resources | Stateful Sets` page.
