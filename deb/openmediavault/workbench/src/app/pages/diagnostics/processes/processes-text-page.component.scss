@@ -1,0 +1,289 @@
+@use '@angular/material' as mat;
+
+.processes-container {
+  padding: 16px;
+  
+  mat-card {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    
+    mat-card-header {
+      padding: 16px 16px 0;
+      
+      mat-card-title {
+        font-size: 20px;
+        font-weight: 500;
+      }
+      
+      mat-card-subtitle {
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
+    
+    mat-card-content {
+      padding: 0px, 16px,0px,16px;
+    }
+  }
+}
+
+.system-stats {
+  margin-bottom: 16px;
+  max-height: 120px;
+
+  .stat-card {
+    padding: 12px;
+    height: 100%;
+    width: 100%;
+    
+    h3 {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.6);
+
+    mat-icon {
+      font-size: 16px;
+      height: 16px;
+      width: 16px;
+      margin-right: 4px;
+    }
+
+   }
+    
+    .load-average {
+      .load-value {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        
+        .label {
+          color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .value {
+          font-weight: 500;
+          
+          &.high-load {
+            color: #d32f2f;
+            font-weight: bold;
+          }
+        }
+      }
+
+    .no-swap-message {
+      color: rgba(0, 0, 0, 0.54);
+      font-style: italic;
+      padding: 8px 0;
+      font-size: 14px;
+    }
+
+    }
+    
+    .memory-usage, .swap-usage {
+      mat-progress-bar {
+        height: 8px;
+        border-radius: 4px;
+        margin-bottom: 4px;
+      }
+      
+      .memory-details, .swap-details {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        
+        .percentage {
+          font-weight: 500;
+        }
+      }
+    }
+    
+    .tasks-info {
+      .task-count {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        
+        .label {
+          color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .value {
+          font-weight: 500;
+          
+          &.warning {
+            color: #ff5722;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  
+  button {
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+  
+  .uptime {
+    margin-left: auto;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    
+    mat-icon {
+      font-size: 16px;
+      height: 16px;
+      width: 16px;
+      margin-right: 4px;
+    }
+  }
+}
+
+.table-container {
+  position: relative;
+  min-height: 300px;
+  
+  .loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+  }
+  
+  .no-processes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+table {
+  width: 100%;
+  
+  th {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  
+  td {
+    vertical-align: middle;
+  }
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  span {
+    min-width: 50px;
+    text-align: right;
+  }
+  
+  mat-progress-bar {
+    height: 8px;
+    border-radius: 4px;
+    flex-grow: 1;
+  }
+}
+
+.command-cell {
+  max-width: 300px;
+  
+  .command-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .system-stats {
+    mat-grid-list {
+      cols: 1;
+    }
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+    
+    .uptime {
+      margin-left: 0;
+      margin-top: 8px;
+    }
+  }
+  
+  .command-cell {
+    max-width: 200px;
+  }
+}
+
+.usage-bar {
+  margin-bottom: 8px;
+  
+  mat-progress-bar {
+    height: 10px;
+    border-radius: 5px;
+  }
+}
+
+.usage-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  margin-top: 4px;
+  
+  span {
+    display: flex;
+    align-items: center;
+    
+    &:before {
+      content: '•';
+      margin-right: 4px;
+      color: rgba(0, 0, 0, 0.54);
+    }
+  }
+}
+
+.memory-details, .swap-details {
+  .memory-row, .swap-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    
+    .memory-label, .swap-label {
+      color: rgba(0, 0, 0, 0.6);
+      flex: 1;
+    }
+    
+    .memory-value, .swap-value {
+      font-weight: 500;
+      flex: 1;
+      text-align: right;
+      padding-right: 8px;
+    }
+    
+    .memory-percent, .swap-percent {
+      color: rgba(0, 0, 0, 0.8);
+      font-weight: 500;
+      flex: 0 0 50px;
+      text-align: right;
+    }
+  }
+}

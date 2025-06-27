@@ -1,0 +1,219 @@
+<div class="processes-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ 'System Processes Monitor' | transloco }}</mat-card-title>
+      <mat-card-subtitle>{{ 'Real-time system monitoring (similar to top command)' | transloco }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+
+    <!-- Controls -->
+      <div class="controls">
+        <button mat-raised-button color="primary" (click)="loadData()" [disabled]="isLoading">
+          <mat-icon>refresh</mat-icon>
+          {{ 'Refresh' | transloco }}
+        </button>
+
+        <button mat-raised-button [color]="autoRefresh ? 'accent' : 'primary'"
+                (click)="toggleAutoRefresh()">
+          <mat-icon>{{ autoRefresh ? 'pause' : 'play_arrow' }}</mat-icon>
+          {{ 'Auto-refresh' | transloco }} ({{ refreshInterval/1000 }}s)
+        </button>
+
+        <span class="uptime" *ngIf="systemStats">
+          <mat-icon>schedule</mat-icon>
+          {{ 'Uptime' | transloco }}: {{ systemStats.uptime }}
+        </span>
+      </div>
+
+
+      <!-- System Stats Section -->
+      <div class="system-stats" *ngIf="systemStats">
+        <mat-grid-list cols="4" rowHeight="125px">
+          <!-- Load Average -->
+          <mat-grid-tile colspan="1">
+            <div class="stat-card">
+              <h3>{{ 'Load Average' | transloco }}</h3>
+              <div class="load-average">
+                <div class="load-value">
+                  <span class="label">1 min:</span>
+                  <span class="value" [class.high-load]="systemStats.loadAverage.oneMin > 1">{{ systemStats.loadAverage.oneMin.toFixed(2) }}</span>
+                </div>
+                <div class="load-value">
+                  <span class="label">5 min:</span>
+                  <span class="value" [class.high-load]="systemStats.loadAverage.fiveMin > 1">{{ systemStats.loadAverage.fiveMin.toFixed(2) }}</span>
+                </div>
+                <div class="load-value">
+                  <span class="label">15 min:</span>
+                  <span class="value" [class.high-load]="systemStats.loadAverage.fifteenMin > 1">{{ systemStats.loadAverage.fifteenMin.toFixed(2) }}</span>
+                </div>
+              </div>
+            </div>
+          </mat-grid-tile>
+
+<!-- Memory Tile -->
+<mat-grid-tile colspan="1">
+  <div class="stat-card">
+    <h3>
+      <mat-icon>memory</mat-icon>
+      {{ 'Memory' | transloco }}
+    </h3>
+    <div class="memory-stats">
+      <mat-progress-bar mode="determinate"
+                       [value]="calculatePercentage(systemStats.memory.used, systemStats.memory.total)"
+                       color="primary">
+      </mat-progress-bar>
+
+      <div class="memory-details">
+        <div class="memory-row">
+          <span class="memory-label">{{ 'Total' | transloco }}:</span>
+          <span class="memory-value">{{ formatBytes(systemStats.memory.total) }}</span>
+        </div>
+        <div class="memory-row">
+          <span class="memory-label">{{ 'Used' | transloco }}:</span>
+          <span class="memory-value">{{ formatBytes(systemStats.memory.used) }}</span>
+          <span class="memory-percent">{{ calculatePercentage(systemStats.memory.used, systemStats.memory.total).toFixed(1) }}%</span>
+        </div>
+        <div class="memory-row">
+          <span class="memory-label">{{ 'Free' | transloco }}:</span>
+          <span class="memory-value">{{ formatBytes(systemStats.memory.free) }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-grid-tile>
+
+<!-- Swap Tile -->
+<mat-grid-tile colspan="1">
+  <div class="stat-card">
+    <h3>
+      <mat-icon>swap_horiz</mat-icon>
+      {{ 'Swap' | transloco }}
+    </h3>
+    <div *ngIf="systemStats.swap.total > 0; else noSwap" class="swap-stats">
+      <mat-progress-bar mode="determinate"
+                       [value]="calculatePercentage(systemStats.swap.used, systemStats.swap.total)"
+                       color="accent">
+      </mat-progress-bar>
+
+      <div class="swap-details">
+        <div class="swap-row">
+          <span class="swap-label">{{ 'Total' | transloco }}:</span>
+          <span class="swap-value">{{ formatBytes(systemStats.swap.total) }}</span>
+        </div>
+        <div class="swap-row">
+          <span class="swap-label">{{ 'Used' | transloco }}:</span>
+          <span class="swap-value">{{ formatBytes(systemStats.swap.used) }}</span>
+          <span class="swap-percent">{{ calculatePercentage(systemStats.swap.used, systemStats.swap.total).toFixed(1) }}%</span>
+        </div>
+        <div class="swap-row">
+          <span class="swap-label">{{ 'Free' | transloco }}:</span>
+          <span class="swap-value">{{ formatBytes(systemStats.swap.free) }}</span>
+        </div>
+      </div>
+    </div>
+    <ng-template #noSwap>
+      <div class="no-swap-message">
+        {{ 'Swap space not configured' | transloco }}
+      </div>
+    </ng-template>
+  </div>
+</mat-grid-tile>
+
+          <!-- Tasks -->
+          <mat-grid-tile colspan="1">
+            <div class="stat-card">
+              <h3>{{ 'Tasks' | transloco }}</h3>
+              <div class="tasks-info">
+                <div class="task-count">
+                  <span class="label">{{ 'Total' | transloco }}:</span>
+                  <span class="value">{{ systemStats.tasks.total }}</span>
+                </div>
+                <div class="task-count">
+                  <span class="label">{{ 'Running' | transloco }}:</span>
+                  <span class="value">{{ systemStats.tasks.running }}</span>
+                </div>
+                <div class="task-count">
+                  <span class="label">{{ 'Sleeping' | transloco }}:</span>
+                  <span class="value">{{ systemStats.tasks.sleeping }}</span>
+                </div>
+                <div class="task-count">
+                  <span class="label">{{ 'Zombie' | transloco }}:</span>
+                  <span class="value" [class.warning]="systemStats.tasks.zombie > 0">{{ systemStats.tasks.zombie }}</span>
+                </div>
+              </div>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <!-- Processes Table -->
+      <div class="table-container">
+        <div *ngIf="isLoading" class="loading-spinner">
+          <mat-spinner diameter="40"></mat-spinner>
+        </div>
+
+        <table mat-table [dataSource]="processes" *ngIf="!isLoading && processes.length > 0">
+          <!-- PID Column -->
+          <ng-container matColumnDef="pid">
+            <th mat-header-cell *matHeaderCellDef matTooltip="Process ID">{{ 'PID' | transloco }}</th>
+            <td mat-cell *matCellDef="let process">{{ process.pid }}</td>
+          </ng-container>
+
+          <!-- User Column -->
+          <ng-container matColumnDef="user">
+            <th mat-header-cell *matHeaderCellDef>{{ 'User' | transloco }}</th>
+            <td mat-cell *matCellDef="let process">{{ process.user }}</td>
+          </ng-container>
+
+          <!-- CPU Column -->
+          <ng-container matColumnDef="cpu">
+            <th mat-header-cell *matHeaderCellDef matTooltip="CPU Usage">{{ 'CPU%' | transloco }}</th>
+            <td mat-cell *matCellDef="let process">
+              <div class="progress-container">
+                <span>{{ process.cpu.toFixed(1) }}%</span>
+                <mat-progress-bar mode="determinate" [value]="process.cpu" color="warn">
+                </mat-progress-bar>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Memory Column -->
+          <ng-container matColumnDef="mem">
+            <th mat-header-cell *matHeaderCellDef matTooltip="Memory Usage">{{ 'MEM%' | transloco }}</th>
+            <td mat-cell *matCellDef="let process">
+              <div class="progress-container">
+                <span>{{ process.mem.toFixed(1) }}%</span>
+                <mat-progress-bar mode="determinate" [value]="process.mem" color="primary">
+                </mat-progress-bar>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Time Column -->
+          <ng-container matColumnDef="time">
+            <th mat-header-cell *matHeaderCellDef matTooltip="CPU Time">{{ 'Time' | transloco }}</th>
+            <td mat-cell *matCellDef="let process">{{ process.time }}</td>
+          </ng-container>
+
+          <!-- Command Column -->
+          <ng-container matColumnDef="command">
+            <th mat-header-cell *matHeaderCellDef>{{ 'Command' | transloco }}</th>
+            <td mat-cell *matCellDef="let process" class="command-cell">
+              <span class="command-text" matTooltip="{{ process.command }}">{{ process.command | truncate:50 }}</span>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <div *ngIf="!isLoading && processes.length === 0" class="no-processes">
+          {{ 'No processes found' | transloco }}
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
