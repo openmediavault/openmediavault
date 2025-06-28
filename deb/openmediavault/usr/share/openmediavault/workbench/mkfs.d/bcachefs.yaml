@@ -1,0 +1,5 @@
+version: "1.0"
+type: mkfs
+data:
+  text: "BCACHEFS"
+  url: /storage/filesystems/bcachefs/create
