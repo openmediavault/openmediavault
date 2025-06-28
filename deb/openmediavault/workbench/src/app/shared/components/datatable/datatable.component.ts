@@ -45,6 +45,7 @@ import { DatatableSelection } from '~/app/shared/models/datatable-selection.mode
 import { Sorter } from '~/app/shared/models/sorter.type';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { UserLocalStorageService } from '~/app/shared/services/user-local-storage.service';
+import { PrefersPageSizeService } from '~/app/shared/services/prefers-page-size.service';
 
 export type DataTableLoadParams = {
   dir?: 'asc' | 'desc';
@@ -265,6 +266,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
 
   constructor(
     private clipboardService: ClipboardService,
+    private prefersPageSizeService: PrefersPageSizeService,
     private userLocalStorageService: UserLocalStorageService
   ) {
     this.messages = {
@@ -294,7 +296,13 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     }
   }
 
+  @Throttle(1000)
+  onPageSizeChange(): void {
+    this.prefersPageSizeService.set(this.limit);
+  }
+
   ngOnInit(): void {
+    this.limit = this.prefersPageSizeService.get();
     // Init cell templates.
     this.initTemplates();
     // Sanitize configuration.

@@ -4,6 +4,10 @@
   <!-- Custom action buttons -->
   <ng-content select="omv-datatable-actions"></ng-content>
   <span class="omv-flex-1"></span>
+  <mat-form-field>
+    <mat-hint>{{ 'Items per page' | transloco }}</mat-hint>
+    <input matInput type="number" min="0" [(ngModel)]="limit" (ngModelChange)="onPageSizeChange()">
+  </mat-form-field>
   <!-- Default action buttons -->
   <button *ngIf="stateId"
           mat-icon-button
