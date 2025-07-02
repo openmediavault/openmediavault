@@ -16,6 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component, Input } from '@angular/core';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'omv-progress-bar',
@@ -34,4 +35,10 @@ export class ProgressBarComponent {
 
   @Input()
   warningThreshold?: number;
+
+  get valueToText(): string {
+    const value = _.toNumber(this.value);
+    const decimalPlaces = _.defaultTo(this.decimalPlaces, 1);
+    return `${value.toFixed(decimalPlaces)}%`;
+  }
 }
