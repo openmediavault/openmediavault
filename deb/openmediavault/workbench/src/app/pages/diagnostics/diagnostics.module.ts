@@ -10,7 +10,7 @@ import { PerformanceStatisticLoadRrdPageComponent } from '~/app/pages/diagnostic
 import { PerformanceStatisticMemoryRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-memory-rrd-page.component';
 import { PerformanceStatisticNetworkRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-network-rrd-page.component';
 import { PerformanceStatisticUptimeRrdPageComponent } from '~/app/pages/diagnostics/performance-statistics/performance-statistic-uptime-rrd-page.component';
-import { ProcessesTextPageComponent } from '~/app/pages/diagnostics/processes/processes-text-page.component';
+import { ProcessesFormPageComponent } from '~/app/pages/diagnostics/processes/processes-form-page.component';
 import { ReportTextPageComponent } from '~/app/pages/diagnostics/report/report-text-page.component';
 import { ServiceNfsTextPageComponent } from '~/app/pages/diagnostics/services/service-nfs-text-page.component';
 import { ServiceSmbTextPageComponent } from '~/app/pages/diagnostics/services/service-smb-text-page.component';
@@ -24,7 +24,7 @@ import { SystemLogsRemoteFormPageComponent } from '~/app/pages/diagnostics/syste
     SystemInformationDatatablePageComponent,
     SystemLogsListPageComponent,
     SystemLogsRemoteFormPageComponent,
-    ProcessesTextPageComponent,
+    ProcessesFormPageComponent,
     ReportTextPageComponent,
     PerformanceStatisticCpuRrdPageComponent,
     PerformanceStatisticDfRrdPageComponent,

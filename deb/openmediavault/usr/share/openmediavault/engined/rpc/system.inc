@@ -68,7 +68,9 @@ class System extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the list of running processes and a system summary information
 	 * as well.
-	 * @param params The method parameters.
+	 * @param params An array containing the following fields:
+	 *   \em format The format of the response. This can be `text` or `json`.
+	 *   Defaults to `text`.
 	 * @param context The context of the caller.
 	 * @return The 'top' console command output.
 	 */
@@ -77,12 +79,50 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get task overview.
-		$cmd = new \OMV\System\Process("top", "--batch",
-			"--iterations=1", "--width=512");
+		$this->validateMethodParams($params, "rpc.system.gettopinfo");
+		$format = array_value($params, "format", "text");
+		$cmdArgs = [];
+		if ("json" == $format) {
+			$cmdArgs[] = "jc";
+			$cmdArgs[] = "--quiet";
+			$cmdArgs[] = "--raw";
+		}
+		$cmdArgs[] = "top";
+		$cmdArgs[] = "-b";
+		$cmdArgs[] = "-n=1";
+		$cmdArgs[] = "-w=512";
+		$cmd = new \OMV\System\Process($cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
-		return implode("\n", $output);
+		if ("json" == $format) {
+			$prefixMap = [
+				"k" => "KiB",
+				"m" => "MiB",
+				"g" => "GiB",
+				"t" => "TiB",
+				"p" => "PiB",
+				"e" => "EiB",
+			];
+			$result = json_decode_safe(implode("", $output), TRUE);
+			$result = $result[0];
+			foreach ($result['processes'] as $psk => &$psv) {
+				// Convert the memory values to bytes.
+				foreach (['VIRT', 'RES', 'SHR'] as $key) {
+					// Workaround for https://github.com/kellyjonbrazil/jc/issues/661
+					$prefix = substr($psv[$key], -1);
+					if (array_key_exists($prefix, $prefixMap)) {
+						$value = substr($psv[$key], 0, -1);
+						$psv[$key] = binary_convert($value,
+							$prefixMap[$prefix], "B");
+					} else {
+						$psv[$key] = binary_convert($psv[$key], "KiB", "B");
+					}
+				}
+			}
+		} else {
+			$result = implode("\n", $output);
+		}
+		return $result;
 	}
 
 	/**

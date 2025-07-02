@@ -177,5 +177,12 @@
                             [formGroup]="formGroup">
       </omv-form-code-editor>
     </ng-template>
+
+    <ng-template [ngSwitchCase]="'card'">
+      <omv-form-card class="omv-display-flex omv-flex-fill"
+                     [config]="field"
+                     [formGroup]="formGroup">
+      </omv-form-card>
+    </ng-template>
   </ng-container>
 </ng-template>
