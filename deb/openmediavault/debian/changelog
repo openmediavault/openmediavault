@@ -1,3 +1,9 @@
+openmediavault (7.7.11-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 02 Jul 2025 15:28:20 +0200
+
 openmediavault (7.7.10-1) stable; urgency=medium
 
   * Add `ID` column, hidden by default, to the `User/Group Permissions` table
