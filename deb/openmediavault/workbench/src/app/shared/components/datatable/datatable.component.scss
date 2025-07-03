@@ -3,36 +3,32 @@
 @use 'scss/theme';
 
 omv-datatable {
-  // Toolbar
-  .mat-toolbar {
-    .mat-button:not(.mat-button-disabled),
-    .mat-icon-button:not(.mat-button-disabled) {
-      color: var(--mat-primary-color-text);
-    }
-
-    .mat-form-field {
-      font-size: var(--mat-font-size-body-1);
-
-      &.mat-focused {
-        .mat-form-field-ripple {
-          background-color: var(--mat-primary-color-text);
-        }
+  .action-toolbar {
+    .mat-toolbar {
+      .mat-button:not(.mat-button-disabled),
+      .mat-icon-button:not(.mat-button-disabled) {
+        color: var(--mat-primary-color-text);
       }
 
-      .mat-form-field-infix {
-        padding-bottom: unset;
+      .mat-form-field {
+        font-size: var(--mat-font-size-body-1);
 
-        .mat-input-element {
-          caret-color: var(--mat-primary-color-text);
-          color: currentcolor;
+        &.mat-focused {
+          .mat-form-field-ripple {
+            background-color: var(--mat-primary-color-text);
+          }
+        }
+
+        .mat-form-field-infix {
+          padding-bottom: unset;
+
+          .mat-input-element {
+            caret-color: var(--mat-primary-color-text);
+            color: currentcolor;
+          }
         }
       }
     }
-  }
-
-  // Progress bar
-  .omv-datatable-progress-bar {
-    position: relative;
 
     .mat-progress-bar {
       position: absolute;

@@ -1,43 +1,43 @@
-<mat-toolbar *ngIf="hasActionBar"
-             class="omv-display-flex"
-             [ngClass]="{'omv-sticky': hasStickyActionBar}">
-  <!-- Custom action buttons -->
-  <ng-content select="omv-datatable-actions"></ng-content>
-  <span class="omv-flex-1"></span>
-  <!-- Default action buttons -->
-  <button *ngIf="stateId"
-          mat-icon-button
-          matTooltip="{{ 'Show/Hide columns' | transloco }}"
-          [matMenuTriggerFor]="columnMenu">
-    <mat-icon svgIcon="{{ icon.table }}"></mat-icon>
-  </button>
-  <div *ngIf="hasSearchField">
-    <mat-form-field>
-      <button mat-icon-button
-              matPrefix>
-        <mat-icon svgIcon="{{ icon.search }}"></mat-icon>
-      </button>
-      <input matInput
-             type="search"
-             [(ngModel)]="searchFilter"
-             (ngModelChange)="onSearchFilterChange()">
-      <button mat-icon-button
-              matSuffix
-              matTooltip="{{ 'Clear' | transloco }}"
-              [disabled]="!searchFilter"
-              (click)="clearSearchFilter()">
-        <mat-icon svgIcon="{{ icon.clear }}"></mat-icon>
-      </button>
-    </mat-form-field>
-  </div>
-  <button *ngIf="hasReloadButton"
-          mat-icon-button
-          matTooltip="{{ 'Reload' | transloco }}"
-          (click)="reloadData()">
-    <mat-icon svgIcon="{{ icon.reload }}"></mat-icon>
-  </button>
-</mat-toolbar>
-<div class="omv-datatable-progress-bar">
+<div class="action-toolbar"
+     [ngClass]="{'omv-sticky': hasStickyActionBar}">
+  <mat-toolbar *ngIf="hasActionBar"
+               class="omv-display-flex">
+    <!-- Custom action buttons -->
+    <ng-content select="omv-datatable-actions"></ng-content>
+    <span class="omv-flex-1"></span>
+    <!-- Default action buttons -->
+    <button *ngIf="stateId"
+            mat-icon-button
+            matTooltip="{{ 'Show/Hide columns' | transloco }}"
+            [matMenuTriggerFor]="columnMenu">
+      <mat-icon svgIcon="{{ icon.table }}"></mat-icon>
+    </button>
+    <div *ngIf="hasSearchField">
+      <mat-form-field>
+        <button mat-icon-button
+                matPrefix>
+          <mat-icon svgIcon="{{ icon.search }}"></mat-icon>
+        </button>
+        <input matInput
+               type="search"
+               [(ngModel)]="searchFilter"
+               (ngModelChange)="onSearchFilterChange()">
+        <button mat-icon-button
+                matSuffix
+                matTooltip="{{ 'Clear' | transloco }}"
+                [disabled]="!searchFilter"
+                (click)="clearSearchFilter()">
+          <mat-icon svgIcon="{{ icon.clear }}"></mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <button *ngIf="hasReloadButton"
+            mat-icon-button
+            matTooltip="{{ 'Reload' | transloco }}"
+            (click)="reloadData()">
+      <mat-icon svgIcon="{{ icon.reload }}"></mat-icon>
+    </button>
+  </mat-toolbar>
   <mat-progress-bar *ngIf="loadingIndicator"
                     mode="indeterminate">
   </mat-progress-bar>
