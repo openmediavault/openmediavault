@@ -1,9 +1,9 @@
-<div class="omv-progress-bar">
+<div class="omv-progress-bar omv-rounded">
   <div class="omv-progress-bar-text">
     <span *ngIf="text">{{ text }}</span>
     <span *ngIf="!text">{{ generatedText }}</span>
   </div>
-  <div class="omv-progress-bar-fill"
+  <div class="omv-progress-bar-fill omv-rounded"
        [ngClass]="{'warning': isWarning}"
        [style.width]="(value | max:0)  + '%'">
     <div class="omv-progress-bar-text">
