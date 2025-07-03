@@ -36,9 +36,14 @@ export class ProgressBarComponent {
   @Input()
   warningThreshold?: number;
 
-  get valueToText(): string {
+  get generatedText(): string {
     const value = _.toNumber(this.value);
     const decimalPlaces = _.defaultTo(this.decimalPlaces, 1);
     return `${value.toFixed(decimalPlaces)}%`;
+  }
+
+  get isWarning(): boolean {
+    const value = _.toNumber(this.value);
+    return this.warningThreshold && this.warningThreshold > 0 && value >= this.warningThreshold;
   }
 }
