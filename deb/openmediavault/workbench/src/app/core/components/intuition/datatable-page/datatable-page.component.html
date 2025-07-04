@@ -1,3 +1,4 @@
+<omv-intuition-page-header [showLoadingMessage]="false"></omv-intuition-page-header>
 <div *ngIf="config.hints"
      class="omv-display-flex omv-flex-column">
   <omv-alert-panel *ngFor="let hint of config.hints"
@@ -16,7 +17,6 @@
     <omv-datatable #table
                    [ngClass]="{'has-card-header': config.title || config.subTitle }"
                    [stateId]="config.stateId"
-                   [loadingIndicator]="loading"
                    [rowId]="config.rowId"
                    [data]="config.store.data"
                    [autoLoad]="config.autoLoad"

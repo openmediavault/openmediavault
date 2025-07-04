@@ -10,17 +10,8 @@
 </ng-container>
 
 <ng-container *ngIf="monitoringEnabled && config.store">
-  <ng-container *ngIf="loading">
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-    <omv-alert-panel type="info">
-      {{ "Please wait, the data is being loaded ..." | transloco }}
-    </omv-alert-panel>
-  </ng-container>
-  <omv-alert-panel *ngIf="error && !loading"
-                   type="error">
-    {{ error | httpErrorResponse:'message' }}
-  </omv-alert-panel>
-  <mat-tab-group [ngClass]="{'omv-display-none': loading || error}">
+  <omv-intuition-page-header></omv-intuition-page-header>
+  <mat-tab-group [ngClass]="{'omv-display-none': (pageStatus?.loading && pageStatus?.initialLoad) || pageStatus?.error}">
     <mat-tab *ngFor="let tab of tabs"
              [label]="tab.label">
       <ng-container [ngTemplateOutlet]="renderRrdGraphs"

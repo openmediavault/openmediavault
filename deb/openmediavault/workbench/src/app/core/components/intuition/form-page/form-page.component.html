@@ -1,16 +1,7 @@
-<ng-container *ngIf="loading">
-  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-  <omv-alert-panel type="info">
-    {{ "Please wait, the data is being loaded ..." | transloco }}
-  </omv-alert-panel>
-</ng-container>
-<omv-alert-panel *ngIf="error && !loading"
-                 type="error">
-  {{ error | httpErrorResponse:'message' }}
-</omv-alert-panel>
+<omv-intuition-page-header></omv-intuition-page-header>
 <div *ngIf="config.hints"
-     [ngClass]="{'omv-display-none': loading || error}"
-     class="omv-display-flex omv-flex-column">
+     class="omv-display-flex omv-flex-column"
+     [ngClass]="{'omv-display-none': (pageStatus?.loading && pageStatus?.initialLoad) || pageStatus?.error}">
   <omv-alert-panel *ngFor="let hint of config.hints"
                    class="omv-flex-1 omv-m omv-mb-z"
                    [type]="hint.type"
@@ -21,7 +12,7 @@
     <span [innerHtml]="hint.text | transloco | template:pageContext | nl2br | sanitizeHtml"></span>
   </omv-alert-panel>
 </div>
-<mat-card [ngClass]="{'omv-display-none': loading || error}">
+<mat-card [ngClass]="{'omv-display-none': (pageStatus?.loading && pageStatus?.initialLoad) || pageStatus?.error}">
   <ng-container *ngTemplateOutlet="renderCardHeader"></ng-container>
   <mat-card-content>
     <omv-intuition-form [id]="config.id"

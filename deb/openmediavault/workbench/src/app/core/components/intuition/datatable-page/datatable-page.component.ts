@@ -59,9 +59,8 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   @ViewChild('table', { static: true })
   table: DatatableComponent;
 
-  public loading = false;
-  public count = 0;
-  public selection = new DatatableSelection();
+  protected count = 0;
+  protected selection = new DatatableSelection();
 
   constructor(
     @Inject(PageContextService) pageContextService: PageContextService,
@@ -107,12 +106,12 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
         });
       }
     }
-    this.loading = true;
+    this.pageContextService.startLoading();
     this.dataStoreService
       .load(store)
       .pipe(
         finalize(() => {
-          this.loading = false;
+          this.pageContextService.stopLoading();
         })
       )
       .subscribe(

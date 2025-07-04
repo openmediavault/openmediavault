@@ -1,0 +1,16 @@
+<div class="omv-page-header omv-display-flex omv-flex-column">
+  <mat-progress-bar *ngIf="status.loading"
+                    mode="indeterminate">
+  </mat-progress-bar>
+
+  <ng-container *ngIf="showLoadingMessage && status.loading && status.initialLoad">
+    <omv-alert-panel type="info">
+      {{ "Please wait, the data is being loaded ..." | transloco }}
+    </omv-alert-panel>
+  </ng-container>
+
+  <omv-alert-panel *ngIf="status.error && !status.loading"
+                   type="error">
+    {{ status.error | httpErrorResponse:'message' }}
+  </omv-alert-panel>
+</div>

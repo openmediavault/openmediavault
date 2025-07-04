@@ -36,6 +36,7 @@ import { MatFormButtonComponent } from '~/app/core/components/intuition/material
 import { MatFormCodeEditorComponent } from '~/app/core/components/intuition/material/mat-form-code-editor/mat-form-code-editor.component';
 import { MatFormDatatableComponent } from '~/app/core/components/intuition/material/mat-form-datatable/mat-form-datatable.component';
 import { MatFormTagInputComponent } from '~/app/core/components/intuition/material/mat-form-tag-input/mat-form-tag-input.component';
+import { PageHeaderComponent } from '~/app/core/components/intuition/page-header/page-header.component';
 import { RrdPageComponent } from '~/app/core/components/intuition/rrd-page/rrd-page.component';
 import { SelectionListPageComponent } from '~/app/core/components/intuition/selection-list-page/selection-list-page.component';
 import { TabsPageComponent } from '~/app/core/components/intuition/tabs-page/tabs-page.component';
@@ -79,7 +80,8 @@ import { SharedModule } from '~/app/shared/shared.module';
     RrdPageComponent,
     FormCodeEditorComponent,
     FormTagInputComponent,
-    CodeEditorPageComponent
+    CodeEditorPageComponent,
+    PageHeaderComponent
   ],
   exports: [
     DatatablePageComponent,

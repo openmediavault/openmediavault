@@ -15,7 +15,6 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import {
@@ -59,7 +58,7 @@ import {
   CodeEditorPageButtonConfig,
   CodeEditorPageConfig
 } from '~/app/core/components/intuition/models/code-editor-page-config.type';
-import { PageContextService } from '~/app/core/services/page-context.service';
+import { PageContextService, PageStatus } from '~/app/core/services/page-context.service';
 import { Unsubscribe } from '~/app/decorators';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
@@ -89,9 +88,8 @@ export class CodeEditorPageComponent
   @Unsubscribe()
   private subscriptions: Subscription = new Subscription();
 
-  public error: HttpErrorResponse;
-  public icon = Icon;
-  public loading = false;
+  protected icon = Icon;
+  protected pageStatus: PageStatus;
 
   private _editorState: EditorState;
   private _editorView: EditorView;
@@ -127,6 +125,11 @@ export class CodeEditorPageComponent
         }
       )
     );
+    this.subscriptions.add(
+      this.pageContextService.status$.subscribe((status: PageStatus): void => {
+        this.pageStatus = status;
+      })
+    );
   }
 
   override ngAfterViewInit(): void {
@@ -149,7 +152,7 @@ export class CodeEditorPageComponent
   loadData() {
     const request = this.config.request;
     if (_.isPlainObject(request) && _.isString(request.service) && _.isPlainObject(request.get)) {
-      this.loading = true;
+      this.pageContextService.startLoading();
       // noinspection DuplicatedCode
       this.rpcService[request.get.task ? 'requestTask' : 'request'](
         request.service,
@@ -158,11 +161,11 @@ export class CodeEditorPageComponent
       )
         .pipe(
           catchError((error) => {
-            this.error = error;
+            this.pageContextService.setError(error);
             return EMPTY;
           }),
           finalize(() => {
-            this.loading = false;
+            this.pageContextService.stopLoading();
           })
         )
         .subscribe((res: any) => {

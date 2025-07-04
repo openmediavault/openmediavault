@@ -33,7 +33,7 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit 
   @Output()
   readonly afterViewInitEvent = new EventEmitter();
 
-  protected constructor(protected pageContextService: PageContextService) {
+  protected constructor(public pageContextService: PageContextService) {
     // Is the component configured via route data?
     if (_.has(this.pageContext._routeConfig, 'data.config')) {
       this.config = _.cloneDeep(_.get(this.pageContext._routeConfig, 'data.config')) as T;
