@@ -387,7 +387,7 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
 
   protected loadData(file: string) {
     const uuid: string = _.get(this.page.pageContext._routeParams, 'uuid');
-    this.page.loading = true;
+    this.page.pageContextService.startLoading();
     this.rpcService
       .request('ShareMgmt', 'getFileACL', {
         uuid,
@@ -395,11 +395,11 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
       })
       .pipe(
         catchError((error) => {
-          this.page.error = error;
+          this.page.pageContextService.setError(error);
           return EMPTY;
         }),
         finalize(() => {
-          this.page.loading = false;
+          this.page.pageContextService.stopLoading();
         })
       )
       .subscribe((res: RpcObjectResponse) => {

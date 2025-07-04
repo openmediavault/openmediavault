@@ -15,7 +15,6 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
@@ -37,7 +36,7 @@ import {
   FormPageButtonConfig,
   FormPageConfig
 } from '~/app/core/components/intuition/models/form-page-config.type';
-import { PageContextService } from '~/app/core/services/page-context.service';
+import { PageContextService, PageStatus } from '~/app/core/services/page-context.service';
 import { Unsubscribe } from '~/app/decorators';
 import { format, formatDeep, isFormatable, toBoolean } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
@@ -75,9 +74,7 @@ export class FormPageComponent
   @Unsubscribe()
   private subscriptions = new Subscription();
 
-  // Internal
-  public loading = false;
-  public error: HttpErrorResponse;
+  protected pageStatus: PageStatus;
 
   constructor(
     @Inject(PageContextService) pageContextService: PageContextService,
@@ -119,6 +116,11 @@ export class FormPageComponent
       ['disabled', 'validators.required'],
       toBoolean
     );
+    this.subscriptions.add(
+      this.pageContextService.status$.subscribe((status: PageStatus): void => {
+        this.pageStatus = status;
+      })
+    );
   }
 
   override ngAfterViewInit(): void {
@@ -158,7 +160,7 @@ export class FormPageComponent
           return;
         }
       }
-      this.loading = true;
+      this.pageContextService.startLoading();
       // noinspection DuplicatedCode
       this.rpcService[request.get.task ? 'requestTask' : 'request'](
         request.service,
@@ -167,11 +169,11 @@ export class FormPageComponent
       )
         .pipe(
           catchError((error) => {
-            this.error = error;
+            this.pageContextService.setError(error);
             return EMPTY;
           }),
           finalize(() => {
-            this.loading = false;
+            this.pageContextService.stopLoading();
           })
         )
         .subscribe((res: RpcObjectResponse) => {
