@@ -24,7 +24,7 @@ namespace OMV\System\Filesystem\Backend;
 ///////////////////////////////////////////////////////////////////////////////
 // Register default filesystem backends.
 ///////////////////////////////////////////////////////////////////////////////
-$backends = [ "Bcache", "Btrfs", "Ext", "Ext2", "Ext3", "Ext4", "Hfsplus",
+$backends = [ "Bcache", "Bcachefs", "Btrfs", "Ext", "Ext2", "Ext3", "Ext4", "Hfsplus",
   "Iso9660", "Jfs", "Msdos", "None", "Ntfs", "Reiserfs", "Udf", "Ufs",
   "Umsdos", "Exfat", "Vfat", "Xfs", "Fuseblk", "Swap", "F2fs",
   "Reiser4" ];
