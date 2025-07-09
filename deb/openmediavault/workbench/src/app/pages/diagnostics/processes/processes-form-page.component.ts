@@ -42,7 +42,7 @@ export class ProcessesFormPageComponent {
           {
             type: 'textInput',
             name: 'time',
-            label: gettext('Time'),
+            label: gettext('System Time'),
             value: '',
             flex: 33,
             readonly: true

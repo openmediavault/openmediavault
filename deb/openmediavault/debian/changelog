@@ -1,6 +1,7 @@
 openmediavault (7.7.11-1) stable; urgency=medium
 
-  *
+  * Several UI improvements.
+  * Improve the `Diagnostics | Processes` page.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 02 Jul 2025 15:28:20 +0200
 
