@@ -19,7 +19,7 @@ import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/co
 import { ActivatedRoute, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { EMPTY, Subscription } from 'rxjs';
+import { EMPTY, Subscription, timer } from 'rxjs';
 import { catchError, debounceTime, finalize } from 'rxjs/operators';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
@@ -432,6 +432,7 @@ export class FormPageComponent
 
   protected override sanitizeConfig() {
     _.defaultsDeep(this.config, {
+      autoReload: false,
       buttonAlign: 'end',
       buttons: []
     });
@@ -489,6 +490,13 @@ export class FormPageComponent
     // Load the content if form page is in 'editing' mode.
     if (this.pageContext._editing) {
       this.loadData();
+      if (_.isNumber(this.config.autoReload) && this.config.autoReload > 0) {
+        this.subscriptions.add(
+          timer(this.config.autoReload, this.config.autoReload).subscribe(() => {
+            this.loadData();
+          })
+        );
+      }
     } else {
       // Inject the query parameters of the route into the form fields.
       // This will override the configured form field values.

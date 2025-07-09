@@ -101,6 +101,9 @@ export type FormPageConfig = {
       progressMessage?: string;
     };
   };
+  // The frequency in milliseconds with which the data
+  // should be reloaded. Defaults to `false`.
+  autoReload?: boolean | number;
   // The configuration of the form field controls.
   fields: Array<FormFieldConfig>;
   // Form pages can have buttons in their footer.
