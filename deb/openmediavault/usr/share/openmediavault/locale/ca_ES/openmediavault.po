@@ -1472,7 +1472,7 @@ msgid "Hosts allow"
 msgstr "Equips permesos"
 
 msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Amfitrions amb permís per muntar el sistema de fitxers, p. ex. 192.168.178.0/24."
 
 msgid "Hosts deny"
 msgstr "Equips no permesos"
@@ -2175,7 +2175,7 @@ msgid ""
 msgstr "Tingueu en compte que SMB1 està obsolet i només s'ha d'utilitzar en casos obligatoris."
 
 msgid "Note, only one client can be configured per share."
-msgstr ""
+msgstr "Tingueu en compte que només es pot configurar un client per recurs compartit."
 
 msgid "Nothing"
 msgstr "Res"

@@ -1,5 +1,6 @@
 openmediavault (7.7.11-1) stable; urgency=medium
 
+  * Update locale files.
   * Several UI improvements.
   * Improve the `Diagnostics | Processes` page.
 

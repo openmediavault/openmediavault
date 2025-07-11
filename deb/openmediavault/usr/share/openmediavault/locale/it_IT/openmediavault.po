@@ -242,7 +242,7 @@ msgstr "A (5 GHz)"
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr "È necessario un riavvio per applicare completamente le modifiche introdotte dall'installazione o dall'aggiornamento del pacchetto."
+msgstr "È necessario un riavvio per applicare completamente le modifiche introdotte dall'installazione o dall'aggiornamento dei pacchetti."
 
 msgid "A running background task was detected."
 msgstr "È stata rilevata un'attività in esecuzione in background."
@@ -1828,13 +1828,13 @@ msgid "Location"
 msgstr "Posizione"
 
 msgid "Log in"
-msgstr "Accesso"
+msgstr "Accedi"
 
 msgid "Log level"
 msgstr "Livello di log"
 
 msgid "Logout"
-msgstr "Disconnetti"
+msgstr "Disconnettiti"
 
 msgid "Logs"
 msgstr "Log"
@@ -3372,7 +3372,7 @@ msgstr "Il percorso relativo della cartella da condividere. La cartella specific
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "Il repository sarà controllato per la presenza di pacchetti nuovi, rimossi o aggiornati."
+msgstr "Il repository verrà controllato per individuare la presenza di nuovi pacchetti software, pacchetti rimossi o aggiornati."
 
 msgid "The requested page was not found."
 msgstr "La pagina richiesta non è stata trovata."
