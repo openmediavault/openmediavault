@@ -1,4 +1,6 @@
-<omv-intuition-page-header [showLoadingMessage]="false"></omv-intuition-page-header>
+<omv-intuition-page-header class="omv-sticky omv-z-10"
+                           [showLoadingMessage]="false">
+</omv-intuition-page-header>
 <div *ngIf="config.hints"
      class="omv-display-flex omv-flex-column">
   <omv-alert-panel *ngFor="let hint of config.hints"

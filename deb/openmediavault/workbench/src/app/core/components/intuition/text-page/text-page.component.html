@@ -1,4 +1,4 @@
-<omv-intuition-page-header></omv-intuition-page-header>
+<omv-intuition-page-header class="omv-sticky omv-z-10"></omv-intuition-page-header>
 <mat-card [ngClass]="{'omv-display-none': (pageStatus?.loading && pageStatus?.initialLoad) || pageStatus?.error}">
   <mat-toolbar *ngIf="config.hasCopyToClipboardButton || (config.hasReloadButton && !config.autoReload)"
                class="omv-display-flex omv-flex-row omv-sticky">
