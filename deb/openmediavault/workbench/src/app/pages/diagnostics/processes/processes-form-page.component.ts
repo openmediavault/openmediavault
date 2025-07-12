@@ -44,7 +44,6 @@ export class ProcessesFormPageComponent {
             name: 'time',
             label: gettext('System Time'),
             value: '',
-            flex: 33,
             readonly: true
           },
           {
@@ -52,7 +51,6 @@ export class ProcessesFormPageComponent {
             name: 'uptime',
             label: gettext('Uptime'),
             value: '',
-            flex: 33,
             readonly: true
           },
           {
@@ -60,7 +58,6 @@ export class ProcessesFormPageComponent {
             name: 'users',
             label: gettext('Users'),
             value: '',
-            flex: 33,
             readonly: true
           }
         ]
