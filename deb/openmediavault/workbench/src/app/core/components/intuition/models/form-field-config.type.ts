@@ -176,9 +176,6 @@ export type FormFieldConfig = {
 
   // --- container ---
   fields?: Array<FormFieldConfig>;
-  // Fields in a container will respect the 'flex' configuration.
-  // Specifies the size of the field in percent.
-  flex?: 10 | 20 | 25 | 33 | 45 | 50 | 66 | 75 | 80 | 90 | 100;
 
   // --- button | card | hint ---
   text?: string;

@@ -218,8 +218,7 @@ export class InterfaceWifiFormPageComponent extends BaseFormPageComponent {
                 type: 'disabled',
                 constraint: { operator: 'ne', arg0: { prop: 'method' }, arg1: 'static' }
               }
-            ],
-            flex: 75
+            ]
           },
           {
             type: 'numberInput',
@@ -311,8 +310,7 @@ export class InterfaceWifiFormPageComponent extends BaseFormPageComponent {
                 type: 'disabled',
                 constraint: { operator: 'ne', arg0: { prop: 'method6' }, arg1: 'static' }
               }
-            ],
-            flex: 75
+            ]
           },
           {
             type: 'numberInput',
