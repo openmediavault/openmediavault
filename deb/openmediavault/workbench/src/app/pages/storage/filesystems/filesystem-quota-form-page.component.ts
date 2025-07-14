@@ -75,8 +75,7 @@ export class FilesystemQuotaFormPageComponent extends BaseFormPageComponent {
               min: 0,
               patternType: 'integer',
               required: true
-            },
-            flex: 75
+            }
           },
           {
             type: 'select',
@@ -93,8 +92,7 @@ export class FilesystemQuotaFormPageComponent extends BaseFormPageComponent {
             },
             validators: {
               required: true
-            },
-            flex: 25
+            }
           }
         ]
       }

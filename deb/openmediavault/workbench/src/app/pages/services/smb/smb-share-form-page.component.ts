@@ -185,8 +185,7 @@ export class SmbShareFormPageComponent extends BaseFormPageComponent {
               min: 0,
               patternType: 'integer',
               required: true
-            },
-            flex: 45
+            }
           },
           {
             type: 'numberInput',
@@ -206,8 +205,7 @@ export class SmbShareFormPageComponent extends BaseFormPageComponent {
               min: 0,
               patternType: 'integer',
               required: true
-            },
-            flex: 45
+            }
           },
           {
             type: 'iconButton',

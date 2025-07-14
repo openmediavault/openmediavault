@@ -42,7 +42,6 @@ data:
               min: 0
               patternType: "float"
               required: true
-            flex: 75
           - type: select
             name: sequentialcutoffunit
             label: _("Unit")
@@ -54,7 +53,6 @@ data:
                 - ['GiB', 'GiB']
             validators:
               required: true
-            flex: 25
       - type: numberInput
         name: writebackdelay
         label: _("Writeback Delay")
