@@ -73,6 +73,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 	 *   Defaults to `text`.
 	 * @param context The context of the caller.
 	 * @return The 'top' console command output.
+	 * @throw \OMV\Exception
 	 */
 	public function getTopInfo($params, $context) {
 		// Validate the RPC caller context.
