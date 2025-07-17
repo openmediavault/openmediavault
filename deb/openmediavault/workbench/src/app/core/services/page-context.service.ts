@@ -71,6 +71,10 @@ export class PageContextService {
     this.status.next({ ...this.status.value, initialLoad: false, loading: false });
   }
 
+  public isLoading(): boolean {
+    return this.status.value.loading;
+  }
+
   public setError(error: HttpErrorResponse): void {
     this.status.next({ ...this.status.value, error });
   }

@@ -493,7 +493,9 @@ export class FormPageComponent
       if (_.isNumber(this.config.autoReload) && this.config.autoReload > 0) {
         this.subscriptions.add(
           timer(this.config.autoReload, this.config.autoReload).subscribe(() => {
-            this.loadData();
+            if (!this.pageContextService.isLoading()) {
+              this.loadData();
+            }
           })
         );
       }
