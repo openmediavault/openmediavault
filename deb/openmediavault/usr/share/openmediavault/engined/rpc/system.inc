@@ -83,17 +83,15 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.system.gettopinfo");
 		$format = array_value($params, "format", "text");
 		$cmdArgs = [];
+		if ("json" == $format) {
+			$cmdArgs[] = "jc";
+			$cmdArgs[] = "--quiet";
+			$cmdArgs[] = "--raw";
+		}
 		$cmdArgs[] = "top";
 		$cmdArgs[] = "-b";
 		$cmdArgs[] = "-n=1";
 		$cmdArgs[] = "-w=512";
-		if ("json" == $format) {
-			$cmdArgs[] = "|";
-			$cmdArgs[] = "jc";
-			$cmdArgs[] = "--quiet";
-			$cmdArgs[] = "--raw";
-			$cmdArgs[] = "--top";
-		}
 		$cmd = new \OMV\System\Process($cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
