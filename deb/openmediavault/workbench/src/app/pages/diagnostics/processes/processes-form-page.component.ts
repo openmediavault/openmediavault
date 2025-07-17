@@ -156,7 +156,7 @@ export class ProcessesFormPageComponent {
         name: 'processes',
         hasFooter: true,
         hasSearchField: true,
-        limit: 0,
+        limit: 50,
         stateId: '7b7fe8fe-5788-11f0-b8d6-b37d1ff753c3',
         selectionType: 'none',
         sorters: [
