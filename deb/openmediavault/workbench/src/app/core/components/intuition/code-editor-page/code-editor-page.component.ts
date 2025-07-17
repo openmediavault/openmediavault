@@ -149,9 +149,12 @@ export class CodeEditorPageComponent
     }
   }
 
-  loadData() {
+  loadData(): void {
     const request = this.config.request;
     if (_.isPlainObject(request) && _.isString(request.service) && _.isPlainObject(request.get)) {
+      if (this.pageContextService.isLoading()) {
+        return;
+      }
       this.pageContextService.startLoading();
       // noinspection DuplicatedCode
       this.rpcService[request.get.task ? 'requestTask' : 'request'](

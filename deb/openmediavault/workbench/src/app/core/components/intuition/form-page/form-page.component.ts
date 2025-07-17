@@ -154,6 +154,9 @@ export class FormPageComponent
   loadData(): void {
     const request = this.config.request;
     if (_.isString(request?.service) && _.isPlainObject(request?.get)) {
+      if (this.pageContextService.isLoading()) {
+        return;
+      }
       if (_.isString(request.get.onlyIf)) {
         const result: string = format(request.get.onlyIf, this.pageContext);
         if (false === toBoolean(result)) {
@@ -495,9 +498,7 @@ export class FormPageComponent
           : null;
       this.subscriptions.add(
         timer(0, intervalDuration).subscribe(() => {
-          if (!this.pageContextService.isLoading()) {
-            this.loadData();
-          }
+          this.loadData();
         })
       );
     } else {
