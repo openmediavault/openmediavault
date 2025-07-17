@@ -25,7 +25,7 @@ import { FormPageConfig } from '~/app/core/components/intuition/models/form-page
 })
 export class ProcessesFormPageComponent {
   public config: FormPageConfig = {
-    autoReload: 5000,
+    autoReload: 10000,
     request: {
       service: 'System',
       get: {
