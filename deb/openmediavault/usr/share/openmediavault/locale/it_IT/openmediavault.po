@@ -3372,7 +3372,7 @@ msgstr "Il percorso relativo della cartella da condividere. La cartella specific
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "Il repository verrà controllato per individuare la presenza di nuovi pacchetti software, pacchetti rimossi o aggiornati."
+msgstr "Il repository verrà controllato per individuare pacchetti nuovi, rimossi o aggiornati."
 
 msgid "The requested page was not found."
 msgstr "La pagina richiesta non è stata trovata."

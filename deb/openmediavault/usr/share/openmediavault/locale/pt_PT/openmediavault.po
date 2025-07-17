@@ -2097,7 +2097,7 @@ msgid "New Zealand"
 msgstr "Nova Zelândia"
 
 msgid "New package updates are available for installation."
-msgstr ""
+msgstr "Novas atualizações de pacotes estão disponíveis para instalação."
 
 msgid "New password"
 msgstr ""
