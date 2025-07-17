@@ -516,6 +516,8 @@ while(FALSE === $sigTerm) {
 			// for the moment because it only applies to the timezone.
 			require_once("openmediavault/env.inc");
 
+			$startTime = hrtime(true);
+
 			try {
 				// Decode JSON string to an associative array.
 				// !!! Note !!!
@@ -563,8 +565,10 @@ while(FALSE === $sigTerm) {
 				]);
 			}
 
-			debug("RPC response (service=%s, method=%s): %s\n",
-			  $request['service'], $request['method'], $response);
+			debug("RPC response (service=%s, method=%s, time=%.0fms): %s\n",
+			  $request['service'], $request['method'],
+			  (hrtime(true) - $startTime) / 1000000,
+			  $response);
 
 			///////////////////////////////////////////////////////////////////
 			// Write RPC response.
