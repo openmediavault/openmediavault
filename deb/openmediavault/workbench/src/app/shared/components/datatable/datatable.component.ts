@@ -304,9 +304,9 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     // that's because this will prevent us from getting an 'Expression has
     // changed after it was checked' error.
     if (this.autoLoad) {
-      const period = _.isNumber(this.autoReload) ? (this.autoReload as number) : null;
+      const intervalDuration = _.isNumber(this.autoReload) ? (this.autoReload as number) : null;
       this.subscriptions.add(
-        timer(0, period).subscribe(() => {
+        timer(0, intervalDuration).subscribe(() => {
           this.reloadData();
         })
       );

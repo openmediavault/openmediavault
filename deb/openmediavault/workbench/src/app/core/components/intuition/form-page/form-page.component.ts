@@ -489,16 +489,17 @@ export class FormPageComponent
     ]);
     // Load the content if form page is in 'editing' mode.
     if (this.pageContext._editing) {
-      this.loadData();
-      if (_.isNumber(this.config.autoReload) && this.config.autoReload > 0) {
-        this.subscriptions.add(
-          timer(this.config.autoReload, this.config.autoReload).subscribe(() => {
-            if (!this.pageContextService.isLoading()) {
-              this.loadData();
-            }
-          })
-        );
-      }
+      const intervalDuration =
+        _.isNumber(this.config.autoReload) && this.config.autoReload > 0
+          ? this.config.autoReload
+          : null;
+      this.subscriptions.add(
+        timer(0, intervalDuration).subscribe(() => {
+          if (!this.pageContextService.isLoading()) {
+            this.loadData();
+          }
+        })
+      );
     } else {
       // Inject the query parameters of the route into the form fields.
       // This will override the configured form field values.
