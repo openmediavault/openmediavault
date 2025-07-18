@@ -50,8 +50,7 @@ import {
 } from '@codemirror/view';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { EMPTY, Subscription, timer } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { exhaustMap, Observable, Subscription, throwError, timer } from 'rxjs';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import {
@@ -107,13 +106,14 @@ export class CodeEditorPageComponent
 
   override ngOnInit(): void {
     super.ngOnInit();
+    const intervalDuration =
+      _.isNumber(this.config.autoReload) && this.config.autoReload > 0
+        ? this.config.autoReload
+        : null;
     this.subscriptions.add(
-      timer(
-        0,
-        _.isNumber(this.config.autoReload) ? (this.config.autoReload as number) : null
-      ).subscribe(() => {
-        this.loadData();
-      })
+      timer(0, intervalDuration)
+        .pipe(exhaustMap(() => this.loadData()))
+        .subscribe((res: any) => this.onLoadData(res))
     );
     this.subscriptions.add(
       this.prefersColorSchemeService.change$.subscribe(
@@ -149,39 +149,33 @@ export class CodeEditorPageComponent
     }
   }
 
-  loadData(): void {
+  onReload() {
+    this.subscriptions.add(this.loadData().subscribe((res: any) => this.onLoadData(res)));
+  }
+
+  protected override doLoadData(): Observable<any> {
     const request = this.config.request;
-    if (_.isPlainObject(request) && _.isString(request.service) && _.isPlainObject(request.get)) {
-      if (this.pageContextService.isLoading()) {
-        return;
-      }
-      this.pageContextService.startLoading();
-      // noinspection DuplicatedCode
-      this.rpcService[request.get.task ? 'requestTask' : 'request'](
-        request.service,
-        request.get.method,
-        request.get.params
-      )
-        .pipe(
-          catchError((error) => {
-            this.pageContextService.setError(error);
-            return EMPTY;
-          }),
-          finalize(() => {
-            this.pageContextService.stopLoading();
-          })
-        )
-        .subscribe((res: any) => {
-          if (_.isString(request.get.format) && RpcObjectResponse.isType(res)) {
-            res = RpcObjectResponse.format(request.get.format, res);
-          }
-          const state: EditorState = this._editorView.state;
-          const transaction = state.update({
-            changes: { from: 0, to: state.doc.length, insert: res }
-          });
-          this._editorView.dispatch(transaction);
-        });
+    if (!(_.isString(request?.service) && _.isPlainObject(request?.get))) {
+      return throwError(() => new Error('Invalid request configuration.'));
     }
+    return this.rpcService[request.get.task ? 'requestTask' : 'request'](
+      request.service,
+      request.get.method,
+      request.get.params
+    );
+  }
+
+  protected override onLoadData(res: any): void {
+    const request = this.config.request;
+    const state: EditorState = this._editorView.state;
+    let text: string = res as string;
+    if (_.isString(request.get.format) && RpcObjectResponse.isType(res)) {
+      text = RpcObjectResponse.format(request.get.format, res);
+    }
+    const transaction = state.update({
+      changes: { from: 0, to: state.doc.length, insert: text }
+    });
+    this._editorView.dispatch(transaction);
   }
 
   protected override sanitizeConfig() {

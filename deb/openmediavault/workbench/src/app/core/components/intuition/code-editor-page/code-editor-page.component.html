@@ -12,7 +12,7 @@
     <button *ngIf="config.hasReloadButton && !config.autoReload"
             mat-icon-button
             matTooltip="{{ 'Reload' | transloco }}"
-            (click)="loadData()">
+            (click)="onReload()">
       <mat-icon svgIcon="{{ icon.reload }}"></mat-icon>
     </button>
   </mat-toolbar>

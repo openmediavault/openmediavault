@@ -19,8 +19,7 @@ import { Component, ElementRef, Inject, OnInit, Renderer2, ViewChild } from '@an
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { EMPTY, Subscription, timer } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { exhaustMap, Observable, Subscription, throwError, timer } from 'rxjs';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import {
@@ -65,13 +64,14 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
 
   override ngOnInit(): void {
     super.ngOnInit();
+    const intervalDuration =
+      _.isNumber(this.config.autoReload) && this.config.autoReload > 0
+        ? this.config.autoReload
+        : null;
     this.subscriptions.add(
-      timer(
-        0,
-        _.isNumber(this.config.autoReload) ? (this.config.autoReload as number) : null
-      ).subscribe(() => {
-        this.loadData();
-      })
+      timer(0, intervalDuration)
+        .pipe(exhaustMap(() => this.loadData()))
+        .subscribe((res: any) => this.onLoadData(res))
     );
     this.subscriptions.add(
       this.pageContextService.status$.subscribe((status: PageStatus): void => {
@@ -93,35 +93,29 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
     }
   }
 
-  loadData(): void {
+  onReload() {
+    this.subscriptions.add(this.loadData().subscribe((res: any) => this.onLoadData(res)));
+  }
+
+  protected override doLoadData(): Observable<any> {
     const request = this.config.request;
-    if (_.isPlainObject(request) && _.isString(request.service) && _.isPlainObject(request.get)) {
-      if (this.pageContextService.isLoading()) {
-        return;
-      }
-      this.pageContextService.startLoading();
-      // noinspection DuplicatedCode
-      this.rpcService[request.get.task ? 'requestTask' : 'request'](
-        request.service,
-        request.get.method,
-        request.get.params
-      )
-        .pipe(
-          catchError((error) => {
-            this.pageContextService.setError(error);
-            return EMPTY;
-          }),
-          finalize(() => {
-            this.pageContextService.stopLoading();
-          })
-        )
-        .subscribe((res: any) => {
-          if (_.isString(request.get.format) && RpcObjectResponse.isType(res)) {
-            res = RpcObjectResponse.format(request.get.format, res);
-          }
-          this.renderer2.setProperty(this._textContainer.nativeElement, 'textContent', res);
-        });
+    if (!(_.isString(request?.service) && _.isPlainObject(request?.get))) {
+      return throwError(() => new Error('Invalid request configuration.'));
     }
+    return this.rpcService[request.get.task ? 'requestTask' : 'request'](
+      request.service,
+      request.get.method,
+      request.get.params
+    );
+  }
+
+  protected override onLoadData(res: any): void {
+    const request = this.config.request;
+    let value: any = res;
+    if (_.isString(request.get.format) && RpcObjectResponse.isType(res)) {
+      value = RpcObjectResponse.format(request.get.format, res);
+    }
+    this.renderer2.setProperty(this._textContainer.nativeElement, 'textContent', value);
   }
 
   protected override sanitizeConfig() {

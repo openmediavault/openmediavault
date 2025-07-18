@@ -19,8 +19,8 @@ import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/co
 import { ActivatedRoute, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { EMPTY, Subscription, timer } from 'rxjs';
-import { catchError, debounceTime, finalize } from 'rxjs/operators';
+import { EMPTY, exhaustMap, Observable, Subscription, throwError, timer } from 'rxjs';
+import { debounceTime, finalize } from 'rxjs/operators';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import { FormComponent } from '~/app/core/components/intuition/form/form.component';
@@ -149,55 +149,6 @@ export class FormPageComponent
 
   markAsPristine(): void {
     this.form.formGroup.markAsPristine();
-  }
-
-  loadData(): void {
-    const request = this.config.request;
-    if (_.isString(request?.service) && _.isPlainObject(request?.get)) {
-      if (this.pageContextService.isLoading()) {
-        return;
-      }
-      if (_.isString(request.get.onlyIf)) {
-        const result: string = format(request.get.onlyIf, this.pageContext);
-        if (false === toBoolean(result)) {
-          return;
-        }
-      }
-      this.pageContextService.startLoading();
-      // noinspection DuplicatedCode
-      this.rpcService[request.get.task ? 'requestTask' : 'request'](
-        request.service,
-        request.get.method,
-        request.get.params
-      )
-        .pipe(
-          catchError((error) => {
-            this.pageContextService.setError(error);
-            return EMPTY;
-          }),
-          finalize(() => {
-            this.pageContextService.stopLoading();
-          })
-        )
-        .subscribe((res: RpcObjectResponse) => {
-          this.onLoadData(res);
-        });
-    }
-  }
-
-  onLoadData(res: RpcObjectResponse): void {
-    const request = this.config.request;
-    // Transform the request response?
-    if (_.isPlainObject(request?.get?.transform)) {
-      res = RpcObjectResponse.transform(res, request.get.transform);
-    }
-    // Filter the request response?
-    if (_.isPlainObject(request?.get?.filter)) {
-      const filterConfig = request.get.filter;
-      res = RpcObjectResponse.filter(res, filterConfig.props, filterConfig.mode);
-    }
-    // Update the form field values.
-    this.setFormValues(res);
   }
 
   /**
@@ -497,9 +448,9 @@ export class FormPageComponent
           ? this.config.autoReload
           : null;
       this.subscriptions.add(
-        timer(0, intervalDuration).subscribe(() => {
-          this.loadData();
-        })
+        timer(0, intervalDuration)
+          .pipe(exhaustMap(() => this.loadData()))
+          .subscribe((res: RpcObjectResponse) => this.onLoadData(res))
       );
     } else {
       // Inject the query parameters of the route into the form fields.
@@ -511,5 +462,38 @@ export class FormPageComponent
         }
       });
     }
+  }
+
+  protected override doLoadData(): Observable<RpcObjectResponse> {
+    const request = this.config.request;
+    if (!(_.isString(request?.service) && _.isPlainObject(request?.get))) {
+      return throwError(() => new Error('Invalid request configuration.'));
+    }
+    if (_.isString(request.get.onlyIf)) {
+      const result: string = format(request.get.onlyIf, this.pageContext);
+      if (false === toBoolean(result)) {
+        return EMPTY;
+      }
+    }
+    return this.rpcService[request.get.task ? 'requestTask' : 'request'](
+      request.service,
+      request.get.method,
+      request.get.params
+    );
+  }
+
+  protected override onLoadData(res: RpcObjectResponse): void {
+    const request = this.config.request;
+    // Transform the request response?
+    if (_.isPlainObject(request?.get?.transform)) {
+      res = RpcObjectResponse.transform(res, request.get.transform);
+    }
+    // Filter the request response?
+    if (_.isPlainObject(request?.get?.filter)) {
+      const filterConfig = request.get.filter;
+      res = RpcObjectResponse.filter(res, filterConfig.props, filterConfig.mode);
+    }
+    // Update the form field values.
+    this.setFormValues(res);
   }
 }

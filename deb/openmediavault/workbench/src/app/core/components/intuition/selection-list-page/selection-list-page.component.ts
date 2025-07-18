@@ -20,8 +20,8 @@ import { MatSelectionList, MatSelectionListChange } from '@angular/material/list
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { EMPTY, Subscription } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { EMPTY, Observable, Subscription } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import {
@@ -34,7 +34,7 @@ import { format, toBoolean } from '~/app/functions.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { Dirty } from '~/app/shared/models/dirty.interface';
-import { DataStoreService } from '~/app/shared/services/data-store.service';
+import { DataStoreResponse, DataStoreService } from '~/app/shared/services/data-store.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 
 @Component({
@@ -73,7 +73,26 @@ export class SelectionListPageComponent
         this.pageStatus = status;
       })
     );
-    this.loadData();
+    this.subscriptions.add(
+      this.loadData().subscribe(
+        () => {
+          // Extract the selected values from the loaded data.
+          if (!_.isEmpty(this.config.selectedProp)) {
+            const value = [];
+            _.forEach(this.config.store.data, (item) => {
+              const selectedFieldValue = _.get(item, this.config.selectedProp, false);
+              if (toBoolean(selectedFieldValue)) {
+                value.push(_.get(item, this.config.valueProp));
+              }
+            });
+            this.config.value = value;
+          }
+        },
+        () => {
+          this.config.store.data = [];
+        }
+      )
+    );
   }
 
   isDirty(): boolean {
@@ -209,37 +228,7 @@ export class SelectionListPageComponent
     }
   }
 
-  private loadData() {
-    const store = this.config.store;
-    this.pageContextService.startLoading();
-    this.dataStoreService
-      .load(store)
-      .pipe(
-        catchError((error) => {
-          this.pageContextService.setError(error);
-          return EMPTY;
-        }),
-        finalize(() => {
-          this.pageContextService.stopLoading();
-        })
-      )
-      .subscribe(
-        () => {
-          // Extract the selected values from the loaded data.
-          if (!_.isEmpty(this.config.selectedProp)) {
-            const value = [];
-            _.forEach(this.config.store.data, (item) => {
-              const selectedFieldValue = _.get(item, this.config.selectedProp, false);
-              if (toBoolean(selectedFieldValue)) {
-                value.push(_.get(item, this.config.valueProp));
-              }
-            });
-            this.config.value = value;
-          }
-        },
-        () => {
-          store.data = [];
-        }
-      );
+  protected override doLoadData(): Observable<DataStoreResponse> {
+    return this.dataStoreService.load(this.config.store);
   }
 }
