@@ -19,8 +19,8 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { EMPTY } from 'rxjs';
-import { catchError, distinctUntilChanged, finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { distinctUntilChanged, finalize } from 'rxjs/operators';
 
 import { FormValues } from '~/app/core/components/intuition/models/form.type';
 import {
@@ -309,10 +309,15 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
 
   ngOnInit(): void {
     const self = this.page;
-    self.loadData = () => this.loadData('/');
+    // @ts-ignore
+    self.doLoadData = (): Observable<RpcObjectResponse> => this.doLoadData('/');
+    // @ts-ignore
+    self.onLoadData = (res: RpcObjectResponse): void => this.onLoadData(res);
     self.afterViewInitEvent.subscribe(() => {
       const control: AbstractControl = self.form.formGroup.get('file');
-      control?.valueChanges.pipe(distinctUntilChanged()).subscribe((value) => this.loadData(value));
+      control?.valueChanges.pipe(distinctUntilChanged()).subscribe((value) => {
+        this.doLoadData(value).subscribe();
+      });
     });
   }
 
@@ -385,44 +390,34 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
       });
   }
 
-  protected loadData(file: string) {
+  protected doLoadData(file: string): Observable<RpcObjectResponse> {
     const uuid: string = _.get(this.page.pageContext._routeParams, 'uuid');
-    this.page.pageContextService.startLoading();
-    this.rpcService
-      .request('ShareMgmt', 'getFileACL', {
-        uuid,
-        file
+    return this.rpcService.request('ShareMgmt', 'getFileACL', {
+      uuid,
+      file
+    });
+  }
+
+  protected onLoadData(res: RpcObjectResponse): void {
+    _.map(res.acl.users, (user: Record<string, any>) =>
+      _.merge(user, {
+        id: _.get(user, 'uid'),
+        type: 'user'
       })
-      .pipe(
-        catchError((error) => {
-          this.page.pageContextService.setError(error);
-          return EMPTY;
-        }),
-        finalize(() => {
-          this.page.pageContextService.stopLoading();
-        })
-      )
-      .subscribe((res: RpcObjectResponse) => {
-        _.map(res.acl.users, (user: Record<string, any>) =>
-          _.merge(user, {
-            id: _.get(user, 'uid'),
-            type: 'user'
-          })
-        );
-        _.map(res.acl.groups, (group: Record<string, any>) =>
-          _.merge(group, {
-            id: _.get(group, 'gid'),
-            type: 'group'
-          })
-        );
-        this.page.setFormValues({
-          owner: res.owner,
-          group: res.group,
-          userperms: res.acl.user,
-          groupperms: res.acl.group,
-          otherperms: res.acl.other,
-          perms: _.concat(res.acl.users, res.acl.groups)
-        });
-      });
+    );
+    _.map(res.acl.groups, (group: Record<string, any>) =>
+      _.merge(group, {
+        id: _.get(group, 'gid'),
+        type: 'group'
+      })
+    );
+    this.page.setFormValues({
+      owner: res.owner,
+      group: res.group,
+      userperms: res.acl.user,
+      groupperms: res.acl.group,
+      otherperms: res.acl.other,
+      perms: _.concat(res.acl.users, res.acl.groups)
+    });
   }
 }

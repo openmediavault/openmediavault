@@ -18,8 +18,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { EMPTY, Subscription } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import {
@@ -31,7 +31,7 @@ import { Unsubscribe } from '~/app/decorators';
 import { format, formatDeep, unixTimeStamp } from '~/app/functions.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
-import { DataStoreService } from '~/app/shared/services/data-store.service';
+import { DataStoreResponse, DataStoreService } from '~/app/shared/services/data-store.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
@@ -79,19 +79,8 @@ export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> imple
       })
     );
     if (this.config?.store) {
-      this.pageContextService.startLoading();
-      this.dataStoreService
-        .load(this.config.store)
-        .pipe(
-          catchError((error) => {
-            this.pageContextService.setError(error);
-            return EMPTY;
-          }),
-          finalize(() => {
-            this.pageContextService.stopLoading();
-          })
-        )
-        .subscribe(() => {
+      this.subscriptions.add(
+        this.loadData().subscribe(() => {
           _.forEach(this.config.store.data, (item: Record<any, any>) => {
             const label = format(this.config.label, item);
             const graphs: RrdPageGraphConfig[] = _.map(
@@ -100,7 +89,8 @@ export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> imple
             );
             this.tabs.push({ label, graphs });
           });
-        });
+        })
+      );
     }
   }
 
@@ -117,5 +107,9 @@ export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> imple
         // Force redrawing the images.
         this.time = unixTimeStamp();
       });
+  }
+
+  protected override doLoadData(): Observable<DataStoreResponse> {
+    return this.dataStoreService.load(this.config.store);
   }
 }

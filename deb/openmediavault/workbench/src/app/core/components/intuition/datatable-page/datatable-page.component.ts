@@ -19,7 +19,7 @@ import { Component, Inject, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { concat } from 'rxjs';
+import { concat, Observable, Subscription } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
@@ -29,6 +29,7 @@ import { DatatablePageConfig } from '~/app/core/components/intuition/models/data
 import { DatatablePageButtonConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { FormFieldConfig } from '~/app/core/components/intuition/models/form-field-config.type';
 import { PageContextService } from '~/app/core/services/page-context.service';
+import { Unsubscribe } from '~/app/decorators';
 import { format, formatDeep, isFormatable } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import {
@@ -41,10 +42,9 @@ import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DatatableAction } from '~/app/shared/models/datatable-action.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
-import { RpcListResponse } from '~/app/shared/models/rpc.model';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
-import { DataStoreService } from '~/app/shared/services/data-store.service';
+import { DataStoreResponse, DataStoreService } from '~/app/shared/services/data-store.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
@@ -58,6 +58,9 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 export class DatatablePageComponent extends AbstractPageComponent<DatatablePageConfig> {
   @ViewChild('table', { static: true })
   table: DatatableComponent;
+
+  @Unsubscribe()
+  private subscriptions = new Subscription();
 
   protected count = 0;
   protected selection = new DatatableSelection();
@@ -78,55 +81,22 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     });
   }
 
-  loadData(params: DataTableLoadParams) {
-    const store = this.config.store;
-    if (_.isPlainObject(store.proxy)) {
-      _.defaultsDeep(store.proxy.get, {
-        params: {
-          start: 0,
-          limit: -1
-        }
-      });
-      // Convert paging and sorting parameters.
-      if (_.isNumber(params.offset) && _.isNumber(params.limit)) {
-        _.merge(store.proxy.get.params, {
-          start: params.offset * params.limit,
-          limit: params.limit
-        });
-      }
-      if (_.isString(params.dir) && _.isString(params.prop)) {
-        _.merge(store.proxy.get.params, {
-          sortdir: params.dir,
-          sortfield: params.prop
-        });
-      }
-      if (!_.isUndefined(params.search)) {
-        _.merge(store.proxy.get.params, {
-          search: params.search
-        });
-      }
-    }
-    this.pageContextService.startLoading();
-    this.dataStoreService
-      .load(store)
-      .pipe(
-        finalize(() => {
-          this.pageContextService.stopLoading();
-        })
-      )
-      .subscribe(
-        (res: RpcListResponse) => {
+  onLoadDataEvent(params: DataTableLoadParams) {
+    this.subscriptions.add(
+      this.loadData(params).subscribe(
+        (res: DataStoreResponse) => {
           // Update the total count of all rows.
-          if (_.isPlainObject(store.proxy)) {
+          if (_.isPlainObject(this.config.store.proxy)) {
             this.count = res.total;
           }
         },
         () => {
           // Reset store and table in case of an error.
-          store.data = [];
+          this.config.store.data = [];
           this.count = 0;
         }
-      );
+      )
+    );
   }
 
   /**
@@ -408,6 +378,37 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
       'store.proxy.post.params',
       'store.filters'
     ]);
+  }
+
+  protected override doLoadData(params: DataTableLoadParams): Observable<DataStoreResponse> {
+    const store = this.config.store;
+    if (_.isPlainObject(store.proxy)) {
+      _.defaultsDeep(store.proxy.get, {
+        params: {
+          start: 0,
+          limit: -1
+        }
+      });
+      // Convert paging and sorting parameters.
+      if (_.isNumber(params.offset) && _.isNumber(params.limit)) {
+        _.merge(store.proxy.get.params, {
+          start: params.offset * params.limit,
+          limit: params.limit
+        });
+      }
+      if (_.isString(params.dir) && _.isString(params.prop)) {
+        _.merge(store.proxy.get.params, {
+          sortdir: params.dir,
+          sortfield: params.prop
+        });
+      }
+      if (!_.isUndefined(params.search)) {
+        _.merge(store.proxy.get.params, {
+          search: params.search
+        });
+      }
+    }
+    return this.dataStoreService.load(store);
   }
 
   private sanitizeActionsConfig(actions: DatatablePageActionConfig[]) {

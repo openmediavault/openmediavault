@@ -19,11 +19,6 @@ import * as _ from 'lodash';
 
 import { format, formatDeep } from '~/app/functions.helper';
 
-export type RpcListResponse = {
-  data: Array<any>;
-  total: number;
-};
-
 export type RpcObjectResponse = Record<string, any>;
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
