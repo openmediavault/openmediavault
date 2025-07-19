@@ -19,7 +19,7 @@ import { Component, ElementRef, Inject, OnInit, Renderer2, ViewChild } from '@an
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { exhaustMap, Observable, Subscription, throwError, timer } from 'rxjs';
+import { EMPTY, exhaustMap, Observable, Subscription, timer } from 'rxjs';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import {
@@ -100,7 +100,7 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
   protected override doLoadData(): Observable<any> {
     const request = this.config.request;
     if (!(_.isString(request?.service) && _.isPlainObject(request?.get))) {
-      return throwError(() => new Error('Invalid request configuration.'));
+      return EMPTY;
     }
     return this.rpcService[request.get.task ? 'requestTask' : 'request'](
       request.service,

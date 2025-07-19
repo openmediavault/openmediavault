@@ -19,7 +19,7 @@ import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/co
 import { ActivatedRoute, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { EMPTY, exhaustMap, Observable, Subscription, throwError, timer } from 'rxjs';
+import { EMPTY, exhaustMap, Observable, Subscription, timer } from 'rxjs';
 import { debounceTime, finalize } from 'rxjs/operators';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
@@ -467,7 +467,7 @@ export class FormPageComponent
   protected override doLoadData(): Observable<RpcObjectResponse> {
     const request = this.config.request;
     if (!(_.isString(request?.service) && _.isPlainObject(request?.get))) {
-      return throwError(() => new Error('Invalid request configuration.'));
+      return EMPTY;
     }
     if (_.isString(request.get.onlyIf)) {
       const result: string = format(request.get.onlyIf, this.pageContext);
