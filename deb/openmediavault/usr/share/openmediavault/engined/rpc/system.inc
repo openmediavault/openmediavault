@@ -94,6 +94,10 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = "-w=512";
 		$cmd = new \OMV\System\Process($cmdArgs);
 		$cmd->setRedirect2to1();
+		if ("json" == $format) {
+			// Ignore the `~/.toprc` file.
+			$cmd->setEnv("HOME", "/nonexistent");
+		}
 		$cmd->execute($output);
 		if ("json" == $format) {
 			$prefixMap = [
