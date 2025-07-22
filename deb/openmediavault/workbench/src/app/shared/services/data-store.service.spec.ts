@@ -25,12 +25,13 @@ describe('DataStoreService', () => {
       fields: ['a', 'b']
     };
     service.load(store).subscribe((res) => {
-      expect(store.data).toEqual([
+      expect(res.data).toEqual([
         { a: 'foo', b: 'foo' },
         { a: 'bar', b: 'bar' }
       ]);
       expect(_.has(res, 'data')).toBeTruthy();
       expect(_.has(res, 'total')).toBeTruthy();
+      expect(res.total).toEqual(2);
       done();
     });
   });
