@@ -50,6 +50,8 @@ data:
               class: omv-background-color-pair-success
             Pending:
               class: omv-background-color-pair-orange
+            Failed:
+              class: omv-background-color-pair-error
         flexGrow: 1
         sortable: true
       - name: _("NodePort IP")
