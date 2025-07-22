@@ -63,7 +63,7 @@ export class DataStoreService {
             total = res.total;
           } else {
             store.data = res;
-            total = store.data.length;
+            total = _.size(res);
           }
           this.onLoad(store);
           return {
@@ -79,7 +79,7 @@ export class DataStoreService {
           this.onLoad(store);
           return {
             data: store.data,
-            total: store.data.length
+            total: _.size(store.data)
           };
         })
       );
@@ -87,7 +87,7 @@ export class DataStoreService {
       this.onLoad(store);
       return of({
         data: store.data,
-        total: store.data.length
+        total: _.size(store.data)
       });
     }
   }
