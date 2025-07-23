@@ -57,7 +57,7 @@ export class DataStoreService {
       ).pipe(
         map((res: any) => {
           let total = 0;
-          if (_.isPlainObject(res) && _.has(res, 'data')) {
+          if (_.isPlainObject(res) && _.has(res, 'data') && _.has(res, 'total')) {
             res = res as DataStoreResponse;
             store.data = res.data;
             total = res.total;
