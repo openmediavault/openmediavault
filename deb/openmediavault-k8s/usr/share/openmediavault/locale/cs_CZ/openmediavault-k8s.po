@@ -4,17 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Pavel Borecki <pavel.borecki@gmail.com>, 2024
 # Marek Pavelka, 2025
+# Pavel Borecki <pavel.borecki@gmail.com>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 12:43+0200\n"
+"POT-Creation-Date: 2025-07-24 21:12+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Marek Pavelka, 2025\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2025\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,6 +88,9 @@ msgstr "Úložiště dat"
 msgid "Date & Time"
 msgstr "Datum a čas"
 
+msgid "Depends"
+msgstr ""
+
 msgid "Deployments"
 msgstr "Nasazení"
 
@@ -113,6 +116,9 @@ msgstr "Povoleno"
 
 msgid "External IP"
 msgstr "Externí IP"
+
+msgid "Failed"
+msgstr ""
 
 msgid "GID"
 msgstr "GID"
@@ -162,6 +168,12 @@ msgstr ""
 msgid "Kubernetes"
 msgstr ""
 
+msgid "Kubernetes - Pods"
+msgstr ""
+
+msgid "Kubernetes - Resources"
+msgstr ""
+
 msgid "Labels"
 msgstr "Popisky"
 
@@ -196,6 +208,9 @@ msgid "PV"
 msgstr ""
 
 msgid "PVC"
+msgstr ""
+
+msgid "Pending"
 msgstr ""
 
 msgid "Persistent Volume Claims"
@@ -246,6 +261,9 @@ msgstr "Zdroje"
 msgid "Restore"
 msgstr "Obnovit"
 
+msgid "Running"
+msgstr ""
+
 msgid "SQLite"
 msgstr "SQLite"
 
@@ -267,17 +285,29 @@ msgstr "Sdílené složky"
 msgid "Show README"
 msgstr ""
 
+msgid "Show the number of pods per status phase."
+msgstr ""
+
+msgid "Show the total number of several resources."
+msgstr ""
+
 msgid "Size"
 msgstr "Velikost"
 
 msgid "Snapshots"
 msgstr "Snímky"
 
+msgid "Stateful Sets"
+msgstr ""
+
 msgid "Status"
 msgstr "Stav"
 
 msgid "Storage Class"
 msgstr "Třída úložiště"
+
+msgid "Succeeded"
+msgstr ""
 
 msgid "Tag"
 msgstr "Štítek"
@@ -336,6 +366,9 @@ msgstr "Typ"
 msgid "UID"
 msgstr "UID"
 
+msgid "Unknown"
+msgstr ""
+
 msgid "Up-to-date"
 msgstr "Aktuální"
 
@@ -344,6 +377,9 @@ msgstr ""
 
 msgid "Users"
 msgstr "Uživatelé"
+
+msgid "Version"
+msgstr " Verze"
 
 msgid "View"
 msgstr "Zobrazení"

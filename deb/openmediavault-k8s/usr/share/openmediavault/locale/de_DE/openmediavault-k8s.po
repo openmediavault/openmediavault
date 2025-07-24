@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 12:43+0200\n"
+"POT-Creation-Date: 2025-07-24 21:12+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2025\n"
 "Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
@@ -28,7 +28,7 @@ msgid "Access Modes"
 msgstr "Zugriffsmodi"
 
 msgid "App Version"
-msgstr ""
+msgstr "App Version"
 
 msgid "Apply"
 msgstr "Anwenden"
@@ -87,6 +87,9 @@ msgstr ""
 msgid "Date & Time"
 msgstr "Datum & Zeit"
 
+msgid "Depends"
+msgstr ""
+
 msgid "Deployments"
 msgstr "Deployments"
 
@@ -115,6 +118,9 @@ msgstr "Aktiviert"
 
 msgid "External IP"
 msgstr "External IP"
+
+msgid "Failed"
+msgstr "Fehlgeschlagen"
 
 msgid "GID"
 msgstr "GID"
@@ -164,6 +170,12 @@ msgstr "Kubeconfig"
 msgid "Kubernetes"
 msgstr "Kubernetes"
 
+msgid "Kubernetes - Pods"
+msgstr "Kubernetes - Pods"
+
+msgid "Kubernetes - Resources"
+msgstr "Kubernetes - Resources"
+
 msgid "Labels"
 msgstr "Labels"
 
@@ -199,6 +211,9 @@ msgstr "PV"
 
 msgid "PVC"
 msgstr "PVC"
+
+msgid "Pending"
+msgstr ""
 
 msgid "Persistent Volume Claims"
 msgstr "Persistent Volume Claims"
@@ -243,10 +258,13 @@ msgid "Repository"
 msgstr "Repository"
 
 msgid "Resources"
-msgstr ""
+msgstr "Resources"
 
 msgid "Restore"
 msgstr "Wiederherstellen"
+
+msgid "Running"
+msgstr ""
 
 msgid "SQLite"
 msgstr "SQLite"
@@ -269,17 +287,29 @@ msgstr "Freigegebene Ordner"
 msgid "Show README"
 msgstr "README anzeigen"
 
+msgid "Show the number of pods per status phase."
+msgstr ""
+
+msgid "Show the total number of several resources."
+msgstr ""
+
 msgid "Size"
 msgstr "Größe"
 
 msgid "Snapshots"
 msgstr "Schnappschüsse"
 
+msgid "Stateful Sets"
+msgstr ""
+
 msgid "Status"
 msgstr "Status"
 
 msgid "Storage Class"
 msgstr "Storage Class"
+
+msgid "Succeeded"
+msgstr ""
 
 msgid "Tag"
 msgstr "Etikett"
@@ -345,6 +375,9 @@ msgstr "Typ"
 msgid "UID"
 msgstr "UID"
 
+msgid "Unknown"
+msgstr ""
+
 msgid "Up-to-date"
 msgstr ""
 
@@ -353,6 +386,9 @@ msgstr "Kubernetes-Einstellungen wurden aktualisiert."
 
 msgid "Users"
 msgstr "Benutzer"
+
+msgid "Version"
+msgstr "Version"
 
 msgid "View"
 msgstr ""

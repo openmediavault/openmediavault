@@ -5,15 +5,16 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2024
+# Nelson Rosado <nelsontrosado@gmail.com>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 12:43+0200\n"
+"POT-Creation-Date: 2025-07-24 21:12+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2024\n"
+"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Portugal) (https://app.transifex.com/openmediavault/teams/14254/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,6 +88,9 @@ msgstr ""
 msgid "Date & Time"
 msgstr ""
 
+msgid "Depends"
+msgstr ""
+
 msgid "Deployments"
 msgstr ""
 
@@ -111,6 +115,9 @@ msgid "Enabled"
 msgstr ""
 
 msgid "External IP"
+msgstr ""
+
+msgid "Failed"
 msgstr ""
 
 msgid "GID"
@@ -161,6 +168,12 @@ msgstr ""
 msgid "Kubernetes"
 msgstr ""
 
+msgid "Kubernetes - Pods"
+msgstr ""
+
+msgid "Kubernetes - Resources"
+msgstr ""
+
 msgid "Labels"
 msgstr ""
 
@@ -195,6 +208,9 @@ msgid "PV"
 msgstr ""
 
 msgid "PVC"
+msgstr ""
+
+msgid "Pending"
 msgstr ""
 
 msgid "Persistent Volume Claims"
@@ -245,6 +261,9 @@ msgstr ""
 msgid "Restore"
 msgstr ""
 
+msgid "Running"
+msgstr ""
+
 msgid "SQLite"
 msgstr ""
 
@@ -266,16 +285,28 @@ msgstr ""
 msgid "Show README"
 msgstr ""
 
+msgid "Show the number of pods per status phase."
+msgstr ""
+
+msgid "Show the total number of several resources."
+msgstr ""
+
 msgid "Size"
 msgstr ""
 
 msgid "Snapshots"
 msgstr ""
 
+msgid "Stateful Sets"
+msgstr ""
+
 msgid "Status"
 msgstr ""
 
 msgid "Storage Class"
+msgstr ""
+
+msgid "Succeeded"
 msgstr ""
 
 msgid "Tag"
@@ -335,6 +366,9 @@ msgstr ""
 msgid "UID"
 msgstr ""
 
+msgid "Unknown"
+msgstr ""
+
 msgid "Up-to-date"
 msgstr ""
 
@@ -343,6 +377,9 @@ msgstr ""
 
 msgid "Users"
 msgstr ""
+
+msgid "Version"
+msgstr "Versão"
 
 msgid "View"
 msgstr ""

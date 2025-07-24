@@ -9,15 +9,6 @@ data:
       - admin
   title: _("Kubernetes - Resources")
   description: _("Show the total number of several resources.")
-  i18n:
-    - _("Config Maps")
-    - _("Deployments")
-    - _("Namespaces")
-    - _("Persistent Volumes")
-    - _("Pods")
-    - _("Secrets")
-    - _("Services")
-    - _("Stateful Sets")
   grid:
     item:
       class: 'omv-text-center omv-text-nowrap omv-background-color-selected-button'

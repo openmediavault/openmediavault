@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 12:43+0200\n"
+"POT-Creation-Date: 2025-07-24 21:12+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2025\n"
 "Language-Team: Catalan (Spain) (https://app.transifex.com/openmediavault/teams/14254/ca_ES/)\n"
@@ -87,6 +87,9 @@ msgstr "Magatzem de dades"
 msgid "Date & Time"
 msgstr "Data i hora"
 
+msgid "Depends"
+msgstr ""
+
 msgid "Deployments"
 msgstr "Desplegaments"
 
@@ -115,6 +118,9 @@ msgstr "Activat"
 
 msgid "External IP"
 msgstr "IP externa"
+
+msgid "Failed"
+msgstr ""
 
 msgid "GID"
 msgstr "GID"
@@ -164,6 +170,12 @@ msgstr "Kubeconfig"
 msgid "Kubernetes"
 msgstr "Kubernetes"
 
+msgid "Kubernetes - Pods"
+msgstr ""
+
+msgid "Kubernetes - Resources"
+msgstr ""
+
 msgid "Labels"
 msgstr "Etiquetes"
 
@@ -199,6 +211,9 @@ msgstr "PV"
 
 msgid "PVC"
 msgstr "PVC"
+
+msgid "Pending"
+msgstr ""
 
 msgid "Persistent Volume Claims"
 msgstr "Reclamacions de volum persistents"
@@ -248,6 +263,9 @@ msgstr "Recursos"
 msgid "Restore"
 msgstr "Restaurar"
 
+msgid "Running"
+msgstr ""
+
 msgid "SQLite"
 msgstr "SQLite"
 
@@ -269,17 +287,29 @@ msgstr "Carpetes compartides"
 msgid "Show README"
 msgstr "Mostra LLEGEIX-ME"
 
+msgid "Show the number of pods per status phase."
+msgstr ""
+
+msgid "Show the total number of several resources."
+msgstr ""
+
 msgid "Size"
 msgstr "Talla"
 
 msgid "Snapshots"
 msgstr "Imatges instantànies"
 
+msgid "Stateful Sets"
+msgstr ""
+
 msgid "Status"
 msgstr "Estat"
 
 msgid "Storage Class"
 msgstr "Classe d'emmagatzematge"
+
+msgid "Succeeded"
+msgstr ""
 
 msgid "Tag"
 msgstr "Etiqueta"
@@ -351,6 +381,9 @@ msgstr "Tipus"
 msgid "UID"
 msgstr "UID"
 
+msgid "Unknown"
+msgstr ""
+
 msgid "Up-to-date"
 msgstr "Actualitzat"
 
@@ -359,6 +392,9 @@ msgstr "Configuració de Kubernetes actualitzada."
 
 msgid "Users"
 msgstr "Usuaris"
+
+msgid "Version"
+msgstr "Versió"
 
 msgid "View"
 msgstr "Vista"

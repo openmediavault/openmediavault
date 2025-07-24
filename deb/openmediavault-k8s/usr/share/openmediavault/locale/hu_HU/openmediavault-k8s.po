@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 12:43+0200\n"
+"POT-Creation-Date: 2025-07-24 21:12+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
@@ -88,6 +88,9 @@ msgstr "Adattároló"
 msgid "Date & Time"
 msgstr "Dátum és idő"
 
+msgid "Depends"
+msgstr ""
+
 msgid "Deployments"
 msgstr "Telepítések"
 
@@ -116,6 +119,9 @@ msgstr "Engedélyezve"
 
 msgid "External IP"
 msgstr "Külső IP"
+
+msgid "Failed"
+msgstr ""
 
 msgid "GID"
 msgstr "GID"
@@ -165,6 +171,12 @@ msgstr "Kubeconfig"
 msgid "Kubernetes"
 msgstr "Kubernetes"
 
+msgid "Kubernetes - Pods"
+msgstr ""
+
+msgid "Kubernetes - Resources"
+msgstr ""
+
 msgid "Labels"
 msgstr "Címkék"
 
@@ -200,6 +212,9 @@ msgstr "PV"
 
 msgid "PVC"
 msgstr "PVC"
+
+msgid "Pending"
+msgstr ""
 
 msgid "Persistent Volume Claims"
 msgstr "Megmaradókötet-kérés"
@@ -249,6 +264,9 @@ msgstr "Erőforrások"
 msgid "Restore"
 msgstr "Visszaállítás"
 
+msgid "Running"
+msgstr ""
+
 msgid "SQLite"
 msgstr "SQLite"
 
@@ -270,17 +288,29 @@ msgstr "Megosztott mappák"
 msgid "Show README"
 msgstr "OLVASSEL megjelenítése"
 
+msgid "Show the number of pods per status phase."
+msgstr ""
+
+msgid "Show the total number of several resources."
+msgstr ""
+
 msgid "Size"
 msgstr "Méret"
 
 msgid "Snapshots"
 msgstr "Pillanatképek"
 
+msgid "Stateful Sets"
+msgstr ""
+
 msgid "Status"
 msgstr "Állapot"
 
 msgid "Storage Class"
 msgstr "Tárolási osztály"
+
+msgid "Succeeded"
+msgstr ""
 
 msgid "Tag"
 msgstr "Címke"
@@ -355,6 +385,9 @@ msgstr "Típus"
 msgid "UID"
 msgstr "UID"
 
+msgid "Unknown"
+msgstr ""
+
 msgid "Up-to-date"
 msgstr "Friss"
 
@@ -363,6 +396,9 @@ msgstr "Kubernetes beállítások frissítve."
 
 msgid "Users"
 msgstr "Felhasználók"
+
+msgid "Version"
+msgstr ""
 
 msgid "View"
 msgstr "Nézet"

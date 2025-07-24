@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 12:43+0200\n"
+"POT-Creation-Date: 2025-07-24 21:12+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2024\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
@@ -87,6 +87,9 @@ msgstr "Almacén"
 msgid "Date & Time"
 msgstr "Fecha y Hora"
 
+msgid "Depends"
+msgstr ""
+
 msgid "Deployments"
 msgstr "Implementaciones"
 
@@ -115,6 +118,9 @@ msgstr "Habilitado"
 
 msgid "External IP"
 msgstr "IP Externa"
+
+msgid "Failed"
+msgstr ""
 
 msgid "GID"
 msgstr "GID"
@@ -164,6 +170,12 @@ msgstr "Kubeconfig"
 msgid "Kubernetes"
 msgstr "Kubernetes"
 
+msgid "Kubernetes - Pods"
+msgstr ""
+
+msgid "Kubernetes - Resources"
+msgstr ""
+
 msgid "Labels"
 msgstr "Etiquetas"
 
@@ -199,6 +211,9 @@ msgstr "PV"
 
 msgid "PVC"
 msgstr "PVC"
+
+msgid "Pending"
+msgstr ""
 
 msgid "Persistent Volume Claims"
 msgstr "Reclamaciones de volumen persistente"
@@ -248,6 +263,9 @@ msgstr "Recursos"
 msgid "Restore"
 msgstr "Restaurar"
 
+msgid "Running"
+msgstr ""
+
 msgid "SQLite"
 msgstr "SQLite"
 
@@ -269,17 +287,29 @@ msgstr "Carpetas compartidas"
 msgid "Show README"
 msgstr ""
 
+msgid "Show the number of pods per status phase."
+msgstr ""
+
+msgid "Show the total number of several resources."
+msgstr ""
+
 msgid "Size"
 msgstr "Tamaño"
 
 msgid "Snapshots"
 msgstr "Instantáneas"
 
+msgid "Stateful Sets"
+msgstr ""
+
 msgid "Status"
 msgstr "Estado"
 
 msgid "Storage Class"
 msgstr "Clases de almacenamiento"
+
+msgid "Succeeded"
+msgstr ""
 
 msgid "Tag"
 msgstr "Etiqueta"
@@ -345,6 +375,9 @@ msgstr "Tipo"
 msgid "UID"
 msgstr "UID"
 
+msgid "Unknown"
+msgstr ""
+
 msgid "Up-to-date"
 msgstr "Hasta hoy"
 
@@ -353,6 +386,9 @@ msgstr "Actualizar las opciones de Kubernetes."
 
 msgid "Users"
 msgstr "Usuarios"
+
+msgid "Version"
+msgstr ""
 
 msgid "View"
 msgstr "Vista"
