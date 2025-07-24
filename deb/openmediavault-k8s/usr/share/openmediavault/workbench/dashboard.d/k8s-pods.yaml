@@ -8,7 +8,7 @@ data:
   reloadPeriod: 30000
   permissions:
     role:
-    - admin
+      - admin
   chart:
     type: advanced-doughnut
     maxHeight: "150px"
@@ -18,21 +18,23 @@ data:
       method: getStats
       params:
         associative: true
+        resources:
+          - pods
     label:
       display: true
     dataConfig:
-    - label: _("Running")
-      prop: "pods.running"
-      backgroundColor: "#4cd964"
-    - label: _("Pending")
-      prop: "pods.pending"
-      backgroundColor: "#f78f00"
-    - label: _("Unknown")
-      prop: "pods.unknown"
-      backgroundColor: "#656c72"
-    - label: _("Succeeded")
-      prop: "pods.succeeded"
-      backgroundColor: "#656c72"
-    - label: _("Failed")
-      prop: "pods.failed"
-      backgroundColor: "#ff3b30"
+      - label: _("Running")
+        prop: "pods.running"
+        backgroundColor: "#4cd964"
+      - label: _("Pending")
+        prop: "pods.pending"
+        backgroundColor: "#f78f00"
+      - label: _("Unknown")
+        prop: "pods.unknown"
+        backgroundColor: "#656c72"
+      - label: _("Succeeded")
+        prop: "pods.succeeded"
+        backgroundColor: "#656c72"
+      - label: _("Failed")
+        prop: "pods.failed"
+        backgroundColor: "#ff3b30"

@@ -197,10 +197,10 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		$result = [];
-		$resources = [
+		$resources = array_value($params, "resources", [
 			"configmaps", "deployments", "namespaces", "persistentvolumes",
 			"pods", "secrets", "services", "statefulsets"
-		];
+		]);
 		foreach ($resources as $resourcek => $resourcev) {
 			$response = \OMV\Rpc\Rpc::call("Kubectl", "getList", [
 				"type" => $resourcev

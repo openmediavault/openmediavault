@@ -121,6 +121,13 @@
 			"associative": {
 				"type": "boolean",
 				"required": false
+			},
+			"resources": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				},
+				"required": false
 			}
 		}
 	}
