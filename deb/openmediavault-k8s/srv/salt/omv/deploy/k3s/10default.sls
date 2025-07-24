@@ -243,6 +243,8 @@ create_k3s_k8s_dashboard_manifest:
                 enabled: false
             # https://github.com/Kong/charts/blob/main/charts/kong/values.yaml
             kong:
+              image:
+                tag: "3.9"
               # Disable Kong admin UI as it is not required.
               # https://github.com/kubernetes/dashboard/issues/8765
               admin:

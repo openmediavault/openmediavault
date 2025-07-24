@@ -1,6 +1,7 @@
 openmediavault-k8s (7.4.11-1) stable; urgency=medium
 
   * Add dashboard widgets.
+  * Upgrade Kong to 3.9 to fix crashing due `Address already in use`.
   * Use K3S v1.33.2+k3s1 by default.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 24 Jul 2025 23:46:54 +0200
