@@ -54,10 +54,10 @@ export type DashboardWidgetConfig = {
   permissions?: Permissions;
   // The frequency in milliseconds with which the data
   // should be reloaded. Defaults are:
-  // - chart: 10000
+  // - chart: 10000 (10 s)
   // - datatable: 10000
   // - grid: 10000
-  // - rrd: 60000
+  // - rrd: 60000 (60 s)
   // - text: 10000
   // - value: 10000
   reloadPeriod?: number;
