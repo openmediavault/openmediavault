@@ -4,8 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Stephan Paternotte <stephan@paternottes.net>, 2025
 # Varkentjes, 2025
+# Stephan Paternotte <stephan@paternottes.net>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-24 21:12+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Varkentjes, 2025\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -89,7 +89,7 @@ msgid "Date & Time"
 msgstr "Datum & tijd"
 
 msgid "Depends"
-msgstr ""
+msgstr "Afhankelijkheid"
 
 msgid "Deployments"
 msgstr "Inzet"
@@ -121,7 +121,7 @@ msgid "External IP"
 msgstr "Externe IP"
 
 msgid "Failed"
-msgstr ""
+msgstr "Mislukt"
 
 msgid "GID"
 msgstr "GID"
@@ -172,10 +172,10 @@ msgid "Kubernetes"
 msgstr "Kubernetes"
 
 msgid "Kubernetes - Pods"
-msgstr ""
+msgstr "Kubernetes - Pods"
 
 msgid "Kubernetes - Resources"
-msgstr ""
+msgstr "Kubernetes - Bronnen"
 
 msgid "Labels"
 msgstr "Labels"
@@ -214,7 +214,7 @@ msgid "PVC"
 msgstr "PVC"
 
 msgid "Pending"
-msgstr ""
+msgstr "In behandeling"
 
 msgid "Persistent Volume Claims"
 msgstr "Aanspraken van aanhoudende volumes"
@@ -265,7 +265,7 @@ msgid "Restore"
 msgstr "Herstellen"
 
 msgid "Running"
-msgstr ""
+msgstr "Loopt"
 
 msgid "SQLite"
 msgstr "SQLite"
@@ -289,10 +289,10 @@ msgid "Show README"
 msgstr "README weergeven"
 
 msgid "Show the number of pods per status phase."
-msgstr ""
+msgstr "Het aantal pods per statusfase weergeven."
 
 msgid "Show the total number of several resources."
-msgstr ""
+msgstr "Het totale aantal verschillende bronnen weergeven."
 
 msgid "Size"
 msgstr "Grootte"
@@ -301,7 +301,7 @@ msgid "Snapshots"
 msgstr "Momentopnamen"
 
 msgid "Stateful Sets"
-msgstr ""
+msgstr "Stateful Sets"
 
 msgid "Status"
 msgstr "Status"
@@ -310,7 +310,7 @@ msgid "Storage Class"
 msgstr "Opslagklasse"
 
 msgid "Succeeded"
-msgstr ""
+msgstr "Geslaagd"
 
 msgid "Tag"
 msgstr "Label"
@@ -384,7 +384,7 @@ msgid "UID"
 msgstr "UID"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Onbekend"
 
 msgid "Up-to-date"
 msgstr "Bijgewerkt"

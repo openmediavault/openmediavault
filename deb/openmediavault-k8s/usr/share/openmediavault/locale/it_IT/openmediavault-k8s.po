@@ -89,7 +89,7 @@ msgid "Date & Time"
 msgstr "Data e ora"
 
 msgid "Depends"
-msgstr ""
+msgstr "Dipendenze"
 
 msgid "Deployments"
 msgstr "Distribuzioni"
@@ -121,7 +121,7 @@ msgid "External IP"
 msgstr "IP esterno"
 
 msgid "Failed"
-msgstr ""
+msgstr "Operazione non riuscita"
 
 msgid "GID"
 msgstr "GID"
@@ -172,10 +172,10 @@ msgid "Kubernetes"
 msgstr "Kubernetes"
 
 msgid "Kubernetes - Pods"
-msgstr ""
+msgstr "Kubernetes - Pod"
 
 msgid "Kubernetes - Resources"
-msgstr ""
+msgstr "Kubernetes - Risorse"
 
 msgid "Labels"
 msgstr "Etichette"
@@ -214,7 +214,7 @@ msgid "PVC"
 msgstr "PVC"
 
 msgid "Pending"
-msgstr ""
+msgstr "In attesa"
 
 msgid "Persistent Volume Claims"
 msgstr "Richieste di volume persistente"
@@ -265,7 +265,7 @@ msgid "Restore"
 msgstr "Ripristina"
 
 msgid "Running"
-msgstr ""
+msgstr "In esecuzione"
 
 msgid "SQLite"
 msgstr "SQLite"
@@ -289,10 +289,10 @@ msgid "Show README"
 msgstr "Mostra il README"
 
 msgid "Show the number of pods per status phase."
-msgstr ""
+msgstr "Mostra il numero di pod per fase di stato."
 
 msgid "Show the total number of several resources."
-msgstr ""
+msgstr "Mostra il numero totale delle risorse."
 
 msgid "Size"
 msgstr "Dimensione"
@@ -301,7 +301,7 @@ msgid "Snapshots"
 msgstr "Snapshot"
 
 msgid "Stateful Sets"
-msgstr ""
+msgstr "Set con stato"
 
 msgid "Status"
 msgstr "Stato"
@@ -310,7 +310,7 @@ msgid "Storage Class"
 msgstr "Classe di archiviazione"
 
 msgid "Succeeded"
-msgstr ""
+msgstr "Completato"
 
 msgid "Tag"
 msgstr "Tag"
@@ -384,7 +384,7 @@ msgid "UID"
 msgstr "UID"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Sconosciuto"
 
 msgid "Up-to-date"
 msgstr "Aggiornato"
@@ -396,7 +396,7 @@ msgid "Users"
 msgstr "Utenti"
 
 msgid "Version"
-msgstr ""
+msgstr "Versione"
 
 msgid "View"
 msgstr "Visualizza"

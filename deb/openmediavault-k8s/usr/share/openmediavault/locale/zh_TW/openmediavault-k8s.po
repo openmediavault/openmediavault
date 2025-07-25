@@ -91,7 +91,7 @@ msgid "Date & Time"
 msgstr "日期與時間"
 
 msgid "Depends"
-msgstr ""
+msgstr "依賴"
 
 msgid "Deployments"
 msgstr "部署"
@@ -120,7 +120,7 @@ msgid "External IP"
 msgstr "外部 IP"
 
 msgid "Failed"
-msgstr ""
+msgstr "失敗"
 
 msgid "GID"
 msgstr "GID"
@@ -171,10 +171,10 @@ msgid "Kubernetes"
 msgstr "Kubernetes"
 
 msgid "Kubernetes - Pods"
-msgstr ""
+msgstr "Kubernetes - 艙莢"
 
 msgid "Kubernetes - Resources"
-msgstr ""
+msgstr "Kubernetes - 資源"
 
 msgid "Labels"
 msgstr "標號"
@@ -213,7 +213,7 @@ msgid "PVC"
 msgstr "PVC"
 
 msgid "Pending"
-msgstr ""
+msgstr "待處理中"
 
 msgid "Persistent Volume Claims"
 msgstr "持久卷宗聲明"
@@ -228,7 +228,7 @@ msgid "Please wait, the snapshot will be restored ..."
 msgstr "請稍候，將會還原快照……"
 
 msgid "Pods"
-msgstr "Pods"
+msgstr "艙莢"
 
 msgid "Port"
 msgstr "通訊埠"
@@ -264,7 +264,7 @@ msgid "Restore"
 msgstr "還原"
 
 msgid "Running"
-msgstr ""
+msgstr "運行中"
 
 msgid "SQLite"
 msgstr "SQLite"
@@ -288,10 +288,10 @@ msgid "Show README"
 msgstr "顯示讀我檔案"
 
 msgid "Show the number of pods per status phase."
-msgstr ""
+msgstr "顯示各狀態中的艙莢個數。"
 
 msgid "Show the total number of several resources."
-msgstr ""
+msgstr "顯示幾項資源的總數。"
 
 msgid "Size"
 msgstr "大小"
@@ -300,7 +300,7 @@ msgid "Snapshots"
 msgstr "快照"
 
 msgid "Stateful Sets"
-msgstr ""
+msgstr "有狀態組合"
 
 msgid "Status"
 msgstr "狀況"
@@ -309,7 +309,7 @@ msgid "Storage Class"
 msgstr "儲存類別"
 
 msgid "Succeeded"
-msgstr ""
+msgstr "成功"
 
 msgid "Tag"
 msgstr "標籤"
@@ -375,7 +375,7 @@ msgid "UID"
 msgstr "UID"
 
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 msgid "Up-to-date"
 msgstr "最新"
