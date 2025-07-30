@@ -27,7 +27,7 @@
 # https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes
 # https://docs.k3s.io/installation/requirements?os=pi
 
-{% set k3s_version = salt['pillar.get']('default:OMV_K8S_K3S_VERSION', 'v1.33.2+k3s1') %}
+{% set k3s_version = salt['pillar.get']('default:OMV_K8S_K3S_VERSION', 'v1.32.7+k3s1') %}
 {% set k8s_config = salt['omv_conf.get']('conf.service.k8s') %}
 {% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 # {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
