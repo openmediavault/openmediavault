@@ -1,7 +1,7 @@
 openmediavault (7.7.13-2) stable; urgency=medium
 
   * Ignore `~/.toprc` when fetching `top` stats.
-  * Several UI improvements for plugins.
+  * Several UI improvements.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 21 Jul 2025 19:30:29 +0200
 

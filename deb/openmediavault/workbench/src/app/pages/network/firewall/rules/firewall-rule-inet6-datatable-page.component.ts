@@ -119,7 +119,7 @@ export class FirewallRuleInet6DatatablePageComponent extends BaseDatatablePageCo
         type: 'iconButton',
         icon: 'save',
         tooltip: gettext('Save'),
-        click: this.onSave.bind(this),
+        click: this.onSaveClick.bind(this),
         enabledConstraints: {
           callback: () => this.dirty
         }
@@ -145,7 +145,7 @@ export class FirewallRuleInet6DatatablePageComponent extends BaseDatatablePageCo
         type: 'iconButton',
         icon: 'arrowUp',
         tooltip: gettext('Up'),
-        click: this.onUp.bind(this),
+        click: this.onUpClick.bind(this),
         enabledConstraints: {
           minSelected: 1,
           maxSelected: 1
@@ -155,23 +155,19 @@ export class FirewallRuleInet6DatatablePageComponent extends BaseDatatablePageCo
         type: 'iconButton',
         icon: 'arrowDown',
         tooltip: gettext('Down'),
-        click: this.onDown.bind(this),
+        click: this.onDownClick.bind(this),
         enabledConstraints: {
           minSelected: 1,
           maxSelected: 1
         }
       },
       {
-        template: 'delete',
-        execute: {
-          type: 'request',
-          request: {
-            service: 'Iptables',
-            method: 'deleteRule',
-            params: {
-              uuid: '{{ uuid }}'
-            }
-          }
+        type: 'iconButton',
+        icon: 'delete',
+        tooltip: gettext('Down'),
+        click: this.onDeleteClick.bind(this),
+        enabledConstraints: {
+          minSelected: 1
         }
       }
     ]
@@ -184,14 +180,14 @@ export class FirewallRuleInet6DatatablePageComponent extends BaseDatatablePageCo
     super();
   }
 
-  onSave(action: DatatablePageActionConfig, table: Datatable) {
+  onSaveClick(action: DatatablePageActionConfig, table: Datatable) {
     this.rpcService.request('Iptables', 'setRules6', table.data).subscribe(() => {
       this.dirty = false;
       this.notificationService.show(NotificationType.success, gettext('Updated firewall rules.'));
     });
   }
 
-  onUp(action: DatatablePageActionConfig, table: Datatable) {
+  onUpClick(action: DatatablePageActionConfig, table: Datatable) {
     const selected = table.selection.first();
     const index = _.findIndex(table.data, selected);
     if (index <= 0) {
@@ -209,7 +205,7 @@ export class FirewallRuleInet6DatatablePageComponent extends BaseDatatablePageCo
     this.dirty = true;
   }
 
-  onDown(action: DatatablePageActionConfig, table: Datatable) {
+  onDownClick(action: DatatablePageActionConfig, table: Datatable) {
     const selected = table.selection.first();
     const index = _.findIndex(table.data, selected);
     if (index + 1 >= table.data.length) {
@@ -220,6 +216,25 @@ export class FirewallRuleInet6DatatablePageComponent extends BaseDatatablePageCo
     // Relocate rule.
     _.pullAt(modifiedData, index);
     modifiedData.splice(index + 1, 0, selected);
+    this.updateRuleNumbers(modifiedData);
+    // Update the table data and redraw table content.
+    table.updateData(modifiedData);
+    // Mark the data as dirty.
+    this.dirty = true;
+  }
+
+  onDeleteClick(action: DatatablePageActionConfig, table: Datatable) {
+    const delRowNums: Array<number> = _.chain(table.selection.selected)
+      .map((row: Record<string, any>) => row.rulenum)
+      .sortBy(['rulenum'])
+      .value();
+    if (!(0 <= _.min(delRowNums) && table.data.length > _.max(delRowNums))) {
+      return;
+    }
+    // Create a working copy by removing the selected rules.
+    const modifiedData = _.filter(table.data, (row: Record<string, any>) => {
+      return !_.includes(delRowNums, _.get(row, 'rulenum', -1));
+    });
     this.updateRuleNumbers(modifiedData);
     // Update the table data and redraw table content.
     table.updateData(modifiedData);
