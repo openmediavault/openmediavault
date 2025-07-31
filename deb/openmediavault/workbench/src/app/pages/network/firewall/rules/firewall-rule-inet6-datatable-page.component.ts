@@ -15,12 +15,14 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
+import { Subscription } from 'rxjs';
 
 import { DatatablePageActionConfig } from '~/app/core/components/intuition/models/datatable-page-action-config.type';
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
+import { Unsubscribe } from '~/app/decorators';
 import { BaseDatatablePageComponent } from '~/app/pages/base-page-component';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { Datatable } from '~/app/shared/models/datatable.interface';
@@ -30,7 +32,13 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
 })
-export class FirewallRuleInet6DatatablePageComponent extends BaseDatatablePageComponent {
+export class FirewallRuleInet6DatatablePageComponent
+  extends BaseDatatablePageComponent
+  implements OnInit
+{
+  @Unsubscribe()
+  private subscriptions = new Subscription();
+
   public config: DatatablePageConfig = {
     stateId: 'da278886-7c09-11ea-a477-a7d7e6d13d1d',
     autoReload: false,
@@ -178,6 +186,14 @@ export class FirewallRuleInet6DatatablePageComponent extends BaseDatatablePageCo
     private notificationService: NotificationService
   ) {
     super();
+  }
+
+  ngOnInit(): void {
+    this.subscriptions.add(
+      this.page.table.loadDataEvent.subscribe(() => {
+        this.dirty = false;
+      })
+    );
   }
 
   onSaveClick(action: DatatablePageActionConfig, table: Datatable) {
