@@ -19,7 +19,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { distinctUntilChanged, finalize } from 'rxjs/operators';
 
 import { FormValues } from '~/app/core/components/intuition/models/form.type';
@@ -27,6 +27,7 @@ import {
   FormPageButtonConfig,
   FormPageConfig
 } from '~/app/core/components/intuition/models/form-page-config.type';
+import { Unsubscribe } from '~/app/decorators';
 import { translate } from '~/app/i18n.helper';
 import { BaseFormPageComponent } from '~/app/pages/base-page-component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
@@ -41,6 +42,9 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
 })
 export class SharedFolderAclFormPageComponent extends BaseFormPageComponent implements OnInit {
+  @Unsubscribe()
+  private subscriptions = new Subscription();
+
   public config: FormPageConfig = {
     fields: [
       {
@@ -313,12 +317,14 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
     self.doLoadData = (): Observable<RpcObjectResponse> => this.doLoadData('/');
     // @ts-ignore
     self.onLoadData = (res: RpcObjectResponse): void => this.onLoadData(res);
-    self.afterViewInitEvent.subscribe(() => {
-      const control: AbstractControl = self.form.formGroup.get('file');
-      control?.valueChanges.pipe(distinctUntilChanged()).subscribe((value) => {
-        this.doLoadData(value).subscribe();
-      });
-    });
+    this.subscriptions.add(
+      self.afterViewInitEvent.subscribe(() => {
+        const control: AbstractControl = self.form.formGroup.get('file');
+        control?.valueChanges.pipe(distinctUntilChanged()).subscribe((value) => {
+          this.doLoadData(value).subscribe();
+        });
+      })
+    );
   }
 
   onCopyPermissions() {
