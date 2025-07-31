@@ -4,6 +4,7 @@ data:
   name: omv-services-k8s-recipes-readme-text-page
   type: textPage
   config:
+    wrapText: true
     request:
       service: K8s
       get:

@@ -47,6 +47,8 @@ export type TextPageConfig = {
       format?: string;
     };
   };
+  // Wrap overflowing text onto multiple lines at logical points in the text.
+  wrapText?: boolean;
   buttonAlign?: 'start' | 'center' | 'end';
   buttons?: Array<TextPageButtonConfig>;
 };

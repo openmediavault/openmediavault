@@ -26,7 +26,8 @@
   </mat-card-title-group>
   <mat-card-content class="omv-scrollable-xy">
     <div #textContainer
-         class="omv-text-wrap omv-text-monospace">
+         class="omv-text-monospace"
+         [ngClass]="{'omv-text-wrap': !config.wrapText, 'omv-text-wrap-line': config.wrapText}">
     </div>
   </mat-card-content>
   <mat-card-actions *ngIf="config.buttons.length"
