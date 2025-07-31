@@ -88,7 +88,7 @@ msgid "Date & Time"
 msgstr "Data i hora"
 
 msgid "Depends"
-msgstr ""
+msgstr "Depèn"
 
 msgid "Deployments"
 msgstr "Desplegaments"
@@ -120,7 +120,7 @@ msgid "External IP"
 msgstr "IP externa"
 
 msgid "Failed"
-msgstr ""
+msgstr "Fallat"
 
 msgid "GID"
 msgstr "GID"
@@ -171,10 +171,10 @@ msgid "Kubernetes"
 msgstr "Kubernetes"
 
 msgid "Kubernetes - Pods"
-msgstr ""
+msgstr "Kubernetes - Pods"
 
 msgid "Kubernetes - Resources"
-msgstr ""
+msgstr "Kubernetes - Recursos"
 
 msgid "Labels"
 msgstr "Etiquetes"
@@ -213,7 +213,7 @@ msgid "PVC"
 msgstr "PVC"
 
 msgid "Pending"
-msgstr ""
+msgstr "Pendent"
 
 msgid "Persistent Volume Claims"
 msgstr "Reclamacions de volum persistents"
@@ -264,7 +264,7 @@ msgid "Restore"
 msgstr "Restaurar"
 
 msgid "Running"
-msgstr ""
+msgstr "Corrent"
 
 msgid "SQLite"
 msgstr "SQLite"
@@ -288,10 +288,10 @@ msgid "Show README"
 msgstr "Mostra LLEGEIX-ME"
 
 msgid "Show the number of pods per status phase."
-msgstr ""
+msgstr "Mostra el nombre de pods per fase d'estat."
 
 msgid "Show the total number of several resources."
-msgstr ""
+msgstr "Mostra el nombre total de diversos recursos."
 
 msgid "Size"
 msgstr "Talla"
@@ -300,7 +300,7 @@ msgid "Snapshots"
 msgstr "Imatges instantànies"
 
 msgid "Stateful Sets"
-msgstr ""
+msgstr "Conjunt d'estats"
 
 msgid "Status"
 msgstr "Estat"
@@ -309,7 +309,7 @@ msgid "Storage Class"
 msgstr "Classe d'emmagatzematge"
 
 msgid "Succeeded"
-msgstr ""
+msgstr "Ha tingut èxit"
 
 msgid "Tag"
 msgstr "Etiqueta"
@@ -382,7 +382,7 @@ msgid "UID"
 msgstr "UID"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Desconegut"
 
 msgid "Up-to-date"
 msgstr "Actualitzat"

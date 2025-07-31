@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Absolute Path"
-msgstr "Απόλυτη Διαδρομή"
+msgstr "Πλήρης Διαδρομή"
 
 msgid "Access Modes"
 msgstr "Καταστάσεις Πρόσβασης"
@@ -88,7 +88,7 @@ msgid "Date & Time"
 msgstr "Ημερομηνία & Ώρα"
 
 msgid "Depends"
-msgstr ""
+msgstr "Εξαρτήσεις"
 
 msgid "Deployments"
 msgstr "Ενεργοποιήσεις"
@@ -120,7 +120,7 @@ msgid "External IP"
 msgstr "Εξωτερική ΙΡ"
 
 msgid "Failed"
-msgstr ""
+msgstr "Απέτυχε"
 
 msgid "GID"
 msgstr "GID"
@@ -171,10 +171,10 @@ msgid "Kubernetes"
 msgstr "Kubernetes"
 
 msgid "Kubernetes - Pods"
-msgstr ""
+msgstr "Kubernetes - Κάψουλες"
 
 msgid "Kubernetes - Resources"
-msgstr ""
+msgstr "Kubernetes - Πόροι"
 
 msgid "Labels"
 msgstr "Ετικέτες"
@@ -213,7 +213,7 @@ msgid "PVC"
 msgstr "PVC"
 
 msgid "Pending"
-msgstr ""
+msgstr "Εκκρεμότητες"
 
 msgid "Persistent Volume Claims"
 msgstr "Αξιώσεις Μόνιμων Τόμων"
@@ -264,7 +264,7 @@ msgid "Restore"
 msgstr "Αποκατάσταση"
 
 msgid "Running"
-msgstr ""
+msgstr "Εκτελείται"
 
 msgid "SQLite"
 msgstr "SQLite"
@@ -288,10 +288,10 @@ msgid "Show README"
 msgstr "Εμφάνιση README"
 
 msgid "Show the number of pods per status phase."
-msgstr ""
+msgstr "Εμφάνιση του αριθμού των καψουλών ανά φάση κατάστασης"
 
 msgid "Show the total number of several resources."
-msgstr ""
+msgstr "Εμφάνιση του συνολικού αριθμού διάφορων πόρων"
 
 msgid "Size"
 msgstr "Μέγεθος"
@@ -300,7 +300,7 @@ msgid "Snapshots"
 msgstr "Στιγμιότυπα"
 
 msgid "Stateful Sets"
-msgstr ""
+msgstr "Ομάδες Καταστάσεων"
 
 msgid "Status"
 msgstr "Κατάσταση"
@@ -309,7 +309,7 @@ msgid "Storage Class"
 msgstr "Τάξη Αποθήκευσης"
 
 msgid "Succeeded"
-msgstr ""
+msgstr "Επιτυχημένο"
 
 msgid "Tag"
 msgstr "Ετικέτα"
@@ -382,7 +382,7 @@ msgid "UID"
 msgstr "UID"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Άγνωστο"
 
 msgid "Up-to-date"
 msgstr "Ενημερωμένο"
@@ -394,7 +394,7 @@ msgid "Users"
 msgstr "Χρήστες"
 
 msgid "Version"
-msgstr ""
+msgstr "Έκδοση"
 
 msgid "View"
 msgstr "Προβολή"
