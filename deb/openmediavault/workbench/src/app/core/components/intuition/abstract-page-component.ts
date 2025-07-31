@@ -32,7 +32,9 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit 
   @Input()
   config: T;
 
-  // Event emitted when the form has been created.
+  // Event emitted immediately after Angular has completed initialization
+  // of a component's view. It is invoked only once when the view is
+  // instantiated.
   @Output()
   readonly afterViewInitEvent = new EventEmitter();
 
