@@ -588,7 +588,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "7.7.14"; then
 			salt-call --local --retcode-passthrough --no-color state.orchestrate \
-				omv.setup.shell >/dev/null
+				omv.setup.shell >/dev/null || :
 		fi
 
 		########################################################################
