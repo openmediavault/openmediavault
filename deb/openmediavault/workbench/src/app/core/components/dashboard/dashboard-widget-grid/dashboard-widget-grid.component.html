@@ -6,7 +6,7 @@
     <div *ngFor="let item of data.data"
          class="item omv-rounded"
          [ngClass]="config.grid?.item.class | template:item"
-         matTooltipClass="omv-text-wrap-line"
+         matTooltipClass="omv-text-wrap"
          [matTooltip]="config.grid?.item.tooltip | template:item | br2nl | preventHtml"
          [tabIndex]="config.grid?.item.url ? '0' : '-1'"
          (keyup.space)="onClick(item)"

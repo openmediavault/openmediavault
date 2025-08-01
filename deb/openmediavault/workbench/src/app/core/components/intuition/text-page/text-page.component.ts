@@ -123,7 +123,7 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
       autoReload: false,
       hasReloadButton: false,
       hasCopyToClipboardButton: false,
-      wrapText: false,
+      wrapText: true,
       buttonAlign: 'end',
       buttons: []
     });

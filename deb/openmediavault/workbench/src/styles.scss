@@ -884,15 +884,11 @@ $omv-dark-theme: mat.define-dark-theme(
 }
 
 .omv-text-wrap {
-  white-space: pre;
-}
-
-.omv-text-wrap-line {
   white-space: pre-wrap;
 }
 
 .omv-text-nowrap {
-  white-space: nowrap;
+  white-space: pre;
 }
 
 .omv-text-decoration-none {

@@ -225,7 +225,7 @@
 <ng-template #templateTpl
              let-column="column"
              let-row="row">
-  <span matTooltipClass="omv-text-wrap-line"
+  <span matTooltipClass="omv-text-wrap"
         [matTooltip]="column.cellTemplateConfig | template:row | br2nl | preventHtml"
         [innerHTML]="column.cellTemplateConfig | template:row | sanitizeHtml">
   </span>
