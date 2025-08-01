@@ -24,6 +24,8 @@ configure_root_inputrc:
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
 
+        $include /etc/inputrc
+
         "\C-[OA": history-search-backward
         "\C-[[A": history-search-backward
         "\C-[OB": history-search-forward

@@ -586,6 +586,10 @@ case "$1" in
 			udevadm control --reload-rules || :
 			udevadm trigger || :
 		fi
+		if dpkg --compare-versions "$2" lt-nl "7.7.14"; then
+			salt-call --local --retcode-passthrough --no-color state.orchestrate \
+				omv.setup.shell >/dev/null
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
