@@ -297,4 +297,80 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 		$this->expectException(\OMV\Json\SchemaValidationException::class);
 		$schema->validate("xyz");
 	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testValidateNot1() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "string",
+			"not" => [
+				"enum" => [ "local", "example", "invalid", "test" ]
+			]
+		]);
+		$schema->validate("foo");
+	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testValidateNot2() {
+		$schema = new \OMV\Json\Schema([
+			"not" => [
+				"type" => "string"
+			]
+		]);
+		$schema->validate(123);
+	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testValidateNot3() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "array",
+			"not" => [
+				"items" => [
+					"type" => "string",
+					"format" => "ipv4"
+				]
+			]
+		]);
+		$schema->validate([ "foo", "bar" ]);
+	}
+
+	public function testValidateNotFail1() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "string",
+			"not" => [
+				"enum" => [ "local", "example", "invalid", "test" ]
+			]
+		]);
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$schema->validate("local");
+	}
+
+	public function testValidateNotFail2() {
+		$schema = new \OMV\Json\Schema([
+			"not" => [
+				"type" => "string"
+			]
+		]);
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$schema->validate("bar");
+	}
+
+	public function testValidateNotFail3() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "array",
+			"not" => [
+				"items" => [
+					"type" => "string",
+					"format" => "ipv4"
+				]
+			]
+		]);
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$schema->validate([ "192.168.10.101", "192.168.10.102" ]);
+	}
 }
