@@ -19,7 +19,10 @@
 			},{
 				"type": "string",
 				"maxLength": 0
-			}]
+			}],
+			"not": {
+				"enum": [ "local", "example", "invalid", "test" ]
+			}
 		}
 	}
 }
