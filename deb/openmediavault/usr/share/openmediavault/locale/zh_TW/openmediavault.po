@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-21 10:04+0100\n"
+"POT-Creation-Date: 2025-05-07 17:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2013-2025\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2025\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -680,9 +680,6 @@ msgstr "客戶端 NetBIOS 名稱"
 
 msgid "Client address"
 msgstr "客戶端網址"
-
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "允許裝載檔案系統的客戶端，例如 192.168.178.0/24。"
 
 msgid "Close"
 msgstr "關閉"
@@ -1474,6 +1471,9 @@ msgstr "主機名稱"
 msgid "Hosts allow"
 msgstr "允許主機"
 
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr "允許掛載檔案系統的主機，例如 192.168.178.0/24。"
+
 msgid "Hosts deny"
 msgstr "拒絕主機"
 
@@ -2173,6 +2173,9 @@ msgstr "未執行中"
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
 msgstr "請注意，SMB1 已棄用，僅應在絕對需要時使用。"
+
+msgid "Note, only one client can be configured per share."
+msgstr "請注意，每個分享只能設定一個客戶端。"
 
 msgid "Nothing"
 msgstr "無任何"
@@ -3407,7 +3410,7 @@ msgid ""
 "\") }}."
 msgstr "此值必須是一個從屬網路界面 {{ slaves | join(\", \") }}。"
 
-msgid "The value must be on of the slave network interfaces."
+msgid "The value must be one of the slave network interfaces."
 msgstr "此值必須是一個從屬網路界面。"
 
 msgid "The workgroup the server will appear to be in when queried by clients."

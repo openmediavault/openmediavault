@@ -25,12 +25,13 @@ describe('DataStoreService', () => {
       fields: ['a', 'b']
     };
     service.load(store).subscribe((res) => {
-      expect(store.data).toEqual([
+      expect(res.data).toEqual([
         { a: 'foo', b: 'foo' },
         { a: 'bar', b: 'bar' }
       ]);
       expect(_.has(res, 'data')).toBeTruthy();
       expect(_.has(res, 'total')).toBeTruthy();
+      expect(res.total).toEqual(2);
       done();
     });
   });
@@ -124,6 +125,22 @@ describe('DataStoreService', () => {
     service.load(store).subscribe(() => {
       expect(store.data).toEqual([{ foo: 'a1' }, { foo: 'a2' }, { foo: 'a3' }]);
       expect(store.data.length).toEqual(3);
+      done();
+    });
+  });
+
+  it('should load inline data (8)', (done) => {
+    const store: DataStore = {
+      data: ['foo', 'bar']
+    };
+    service.load(store).subscribe((res) => {
+      expect(store.fields).toEqual(['key', 'value']);
+      expect(store.data).toEqual([
+        { key: 'foo', value: 'foo' },
+        { key: 'bar', value: 'bar' }
+      ]);
+      expect(_.has(res, 'data')).toBeTruthy();
+      expect(_.has(res, 'total')).toBeTruthy();
       done();
     });
   });

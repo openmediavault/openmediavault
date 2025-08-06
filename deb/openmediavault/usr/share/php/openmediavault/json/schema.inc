@@ -2,7 +2,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -17,7 +17,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
 namespace OMV\Json;
 
@@ -327,6 +327,7 @@ class Schema {
 	}
 
 	protected function validateAny($value, $schema, $name) {
+		$this->checkNot($value, $schema, $name);
 	}
 
 	protected function validateBoolean($value, $schema, $name) {
@@ -335,6 +336,7 @@ class Schema {
 				"%s: The value '%s' is not a boolean.",
 				$name, json_encode_safe($value));
 		}
+		$this->checkNot($value, $schema, $name);
 	}
 
 	protected function validateInteger($value, $schema, $name) {
@@ -349,6 +351,7 @@ class Schema {
 		$this->checkExclusiveMaximum($value, $schema, $name);
 		$this->checkEnum($value, $schema, $name);
 		$this->checkOneOf($value, $schema, $name);
+		$this->checkNot($value, $schema, $name);
 	}
 
 	protected function validateNumber($value, $schema, $name) {
@@ -363,6 +366,7 @@ class Schema {
 		$this->checkExclusiveMaximum($value, $schema, $name);
 		$this->checkEnum($value, $schema, $name);
 		$this->checkOneOf($value, $schema, $name);
+		$this->checkNot($value, $schema, $name);
 	}
 
 	protected function validateString($value, $schema, $name) {
@@ -377,6 +381,7 @@ class Schema {
 		$this->checkFormat($value, $schema, $name);
 		$this->checkEnum($value, $schema, $name);
 		$this->checkOneOf($value, $schema, $name);
+		$this->checkNot($value, $schema, $name);
 	}
 
 	protected function validateArray($value, $schema, $name) {
@@ -388,6 +393,7 @@ class Schema {
 		$this->checkMinItems($value, $schema, $name);
 		$this->checkMaxItems($value, $schema, $name);
 		$this->checkItems($value, $schema, $name);
+		$this->checkNot($value, $schema, $name);
 	}
 
 	protected function validateObject($value, $schema, $name) {
@@ -397,6 +403,7 @@ class Schema {
 				$name, json_encode_safe($value));
 		}
 		$this->checkProperties($value, $schema, $name);
+		$this->checkNot($value, $schema, $name);
 	}
 
 	protected function validateNull($value, $schema, $name) {
@@ -405,6 +412,7 @@ class Schema {
 				"%s: The value %s is not NULL.",
 				$name, json_encode_safe($value));
 		}
+		$this->checkNot($value, $schema, $name);
 	}
 
 	protected function checkMinimum($value, $schema, $name) {
@@ -638,9 +646,7 @@ class Schema {
 
 	protected function checkItems($value, $schema, $name) {
 		if (!isset($schema['items'])) {
-			throw new SchemaException(
-			  "%s: No 'items' attribute defined.",
-			  $name);
+			return;
 		}
 		if (is_assoc_array($schema['items'])) {
 			foreach ($value as $itemk => $itemv) {
@@ -702,6 +708,33 @@ class Schema {
 				"%s: The value %s does not match exactly one schema of %s.",
 				$name, json_encode_safe($value),
 				json_encode_safe($schema['oneOf']));
+		}
+	}
+
+	protected function checkNot($value, $schema, $name) {
+		if (!isset($schema['not'])) {
+			return;
+		}
+		if (!is_assoc_array($schema['not'])) {
+			throw new SchemaException(
+				"%s: The 'not' attribute is not an associative array.",
+				$name);
+		}
+		$valid = FALSE;
+		try {
+			$this->validateType($value, array_merge(
+				[ "type" => array_value($schema, "type", "any") ],
+				$schema['not']
+			), $name);
+			$valid = TRUE;
+		} catch (SchemaValidationException $e) {
+			// Nothing to do here.
+		}
+		if ($valid) {
+			throw new SchemaValidationException(
+				"%s: The value %s must not match the schema %s.",
+				$name, json_encode_safe($value),
+				json_encode_safe($schema['not']));
 		}
 	}
 }

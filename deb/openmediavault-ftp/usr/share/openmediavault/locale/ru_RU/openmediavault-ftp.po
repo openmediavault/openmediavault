@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-ftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"POT-Creation-Date: 2025-04-04 00:41+0200\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
 "Last-Translator: Artem Raspopov <raspopov@gmail.com>, 2023\n"
 "Language-Team: Russian (Russia) (https://app.transifex.com/openmediavault/teams/14254/ru_RU/)\n"
@@ -31,14 +31,28 @@ msgstr "0 КБ/с означает неограниченную."
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr ""
 
+msgid "Access mode"
+msgstr ""
+
 msgid "Advanced settings"
 msgstr "Расширенные настройки"
 
 msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr "Разрешить клиентам возобновлять прерванные загрузки и скачивания."
 
+msgid ""
+"Allow users to log in without a password. Make sure the user <em>ftp</em> or"
+" group <em>nogroup</em> can access the files."
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "Анонимный FTP"
+
+msgid "Authenticated user ID"
+msgstr ""
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Ban Rules"
 msgstr "Правила блокировки"
@@ -52,6 +66,9 @@ msgstr "Ограничение полосы пропускания"
 msgid "Certificate"
 msgstr "Сертификат"
 
+msgid "Completion status"
+msgstr ""
+
 msgid "Create"
 msgstr "Создать"
 
@@ -64,8 +81,14 @@ msgstr "Создан общий ресурс FTP."
 msgid "Currently logged in users:"
 msgstr "Зарегистрированные пользователи:"
 
+msgid "Date & Time"
+msgstr ""
+
 msgid "Deny logins which do not have a valid shell."
 msgstr "Запретить вход в систему без действующей оболочки."
+
+msgid "Direction"
+msgstr ""
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "Отобразить домашний каталог пользователя в списке просмотра."
@@ -103,6 +126,9 @@ msgstr "Дополнительные опции"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -112,6 +138,12 @@ msgid ""
 msgstr ""
 "FXP позволяет передавать данные между двумя серверами без запроса передачи "
 "данных к клиенту."
+
+msgid "Filename"
+msgstr ""
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Home directories"
 msgstr "Домашние каталоги"
@@ -191,6 +223,9 @@ msgstr "Максимальное число одновременных клие�
 msgid "Maximum upload rate (KiB/s)"
 msgstr "Максимальная скорость отдачи (КБ/с)"
 
+msgid "Message"
+msgstr ""
+
 msgid "Min. passive port"
 msgstr "Минимальный пассивный порт"
 
@@ -236,6 +271,9 @@ msgstr "Порт"
 msgid "Refresh time"
 msgstr "Период обновления"
 
+msgid "Remote host"
+msgstr ""
+
 msgid "Require valid shell"
 msgstr "Требовать допустимую оболочку"
 
@@ -262,6 +300,9 @@ msgstr "Общий каталог"
 
 msgid "Shares"
 msgstr "Общие ресурсы"
+
+msgid "Special action flag"
+msgstr ""
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -341,6 +382,12 @@ msgstr "Таймаут"
 msgid "Transfer log"
 msgstr "Протокол передачи"
 
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Updated FTP ban rule."
 msgstr "Правило блокировки FTP изменено."
 
@@ -349,6 +396,9 @@ msgstr "Общая папка FTP изменена."
 
 msgid "Use the following bandwidth restriction."
 msgstr "Использовать данное ограничение пропускной способности."
+
+msgid "User name"
+msgstr ""
 
 msgid "Welcome message"
 msgstr "Приветственное сообщение"

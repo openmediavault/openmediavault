@@ -9,7 +9,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-podman
 Architecture: all
-Depends: openmediavault (>= 7.0), podman, catatonit
+Depends: openmediavault (>= 7.7.9), podman, catatonit
 Priority: optional
 Description: openmediavault Podman plugin
  Podman (the POD MANager) is a tool for managing containers and images, volumes

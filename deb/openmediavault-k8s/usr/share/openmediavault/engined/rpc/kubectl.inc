@@ -2,7 +2,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -17,7 +17,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
 namespace Engined\Rpc;
 
@@ -35,6 +35,7 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("delete");
 		$this->registerMethod("logs");
 		$this->registerMethod("apply");
+		$this->registerMethod("getStats");
 	}
 
     private function isEnabled(): bool {
@@ -189,5 +190,43 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 		$cmd = new \OMV\System\Process("kubectl", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
+	}
+
+	public function getStats($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$result = [];
+		$resources = array_value($params, "resources", [
+			"configmaps", "deployments", "namespaces", "persistentvolumes",
+			"pods", "secrets", "services", "statefulsets"
+		]);
+		foreach ($resources as $resourcek => $resourcev) {
+			$response = \OMV\Rpc\Rpc::call("Kubectl", "getList", [
+				"type" => $resourcev
+			], $context);
+
+			$result[$resourcev] = [
+				"name" => $resourcev,
+				"total" => $response['total']
+			];
+
+			if ("pods" == $resourcev) {
+				$result["pods"] = array_merge($result["pods"], [
+					"running" => 0,
+					"pending" => 0,
+					"unknown" => 0,
+					"failed" => 0,
+					"succeeded" => 0
+				]);
+				foreach ($response['data'] as $podk => $podv) {
+					$podDict = new \OMV\Dictionary($podv);
+					$phase = mb_strtolower($podDict->get("status.phase", "Unknown"));
+					$result["pods"][$phase]++;
+				}
+			}
+		}
+		return array_value($params, "associative", FALSE) ?
+			$result : array_values($result);
 	}
 }

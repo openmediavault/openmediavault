@@ -4,16 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Jonatan Nyberg, 2024
+# Jonatan, 2025
+# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-07-24 21:12+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Jonatan Nyberg, 2024\n"
+"Last-Translator: efef6ec5b435a041fce803c7f8af77d2_2341d43, 2025\n"
 "Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,6 +88,9 @@ msgstr "Datalagring"
 msgid "Date & Time"
 msgstr "Datum & tid"
 
+msgid "Depends"
+msgstr ""
+
 msgid "Deployments"
 msgstr ""
 
@@ -116,6 +120,9 @@ msgstr "Aktiverad"
 msgid "External IP"
 msgstr "Extern IP"
 
+msgid "Failed"
+msgstr ""
+
 msgid "GID"
 msgstr "GID"
 
@@ -137,9 +144,6 @@ msgstr "Webbplats"
 msgid "ID"
 msgstr "ID"
 
-msgid "If present, the namespace scope for this request."
-msgstr ""
-
 msgid "Image"
 msgstr "Bild"
 
@@ -158,9 +162,6 @@ msgstr "Ingressrutter"
 msgid "Ingresses"
 msgstr "Ingresser"
 
-msgid "Invalid namespace"
-msgstr ""
-
 msgid "Job"
 msgstr "Jobb"
 
@@ -169,6 +170,12 @@ msgstr "Kubeconfig"
 
 msgid "Kubernetes"
 msgstr "Kubernetes"
+
+msgid "Kubernetes - Pods"
+msgstr ""
+
+msgid "Kubernetes - Resources"
+msgstr ""
 
 msgid "Labels"
 msgstr "Etiketter"
@@ -206,6 +213,9 @@ msgstr "PV"
 msgid "PVC"
 msgstr "PVC"
 
+msgid "Pending"
+msgstr ""
+
 msgid "Persistent Volume Claims"
 msgstr "Beständiga volymanspråk"
 
@@ -227,11 +237,11 @@ msgstr "Port"
 msgid "Ports"
 msgstr "Portar"
 
+msgid "README"
+msgstr "README"
+
 msgid "Ready"
 msgstr "Redo"
-
-msgid "Recipe"
-msgstr "Recept"
 
 msgid "Recipe Information"
 msgstr "Receptinformation"
@@ -254,6 +264,9 @@ msgstr "Resurser"
 msgid "Restore"
 msgstr "Återställ"
 
+msgid "Running"
+msgstr ""
+
 msgid "SQLite"
 msgstr "SQLite"
 
@@ -272,17 +285,32 @@ msgstr "Inställningar"
 msgid "Shared Folders"
 msgstr "Delade mappar"
 
+msgid "Show README"
+msgstr "Visa README"
+
+msgid "Show the number of pods per status phase."
+msgstr ""
+
+msgid "Show the total number of several resources."
+msgstr ""
+
 msgid "Size"
 msgstr "Storlek"
 
 msgid "Snapshots"
 msgstr "Ögonblicksbilder"
 
+msgid "Stateful Sets"
+msgstr ""
+
 msgid "Status"
 msgstr "Status"
 
 msgid "Storage Class"
 msgstr "Förvaringsklass"
+
+msgid "Succeeded"
+msgstr ""
 
 msgid "Tag"
 msgstr "Tagg"
@@ -312,16 +340,16 @@ msgstr ""
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
-"Följande platshållare kan användas i recept för att få tillgång till global "
+"Följande platshållare kan användas i recept för att få åtkomst till global "
 "systeminformation och "
-"konfigurationsdatabasen:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
-" uuid=NULL)</li></ul>Du måste beteckna platshållare med dubbelkrökta "
+"konfigurationsdatabasen:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>Du måste beteckna platshållare med dubbla "
 "klammerparenteser. En översikt över ytterligare tillgängliga filter finns <a"
 " href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>här</a>."
@@ -353,6 +381,9 @@ msgstr "Typ"
 msgid "UID"
 msgstr "UID"
 
+msgid "Unknown"
+msgstr ""
+
 msgid "Up-to-date"
 msgstr "Uppdaterad"
 
@@ -362,11 +393,17 @@ msgstr "Uppdaterade Kubernetes-inställningar."
 msgid "Users"
 msgstr "Användare"
 
+msgid "Version"
+msgstr "Version"
+
 msgid "View"
 msgstr "Visa"
 
 msgid "Volume"
 msgstr "Volym"
+
+msgid "YAML"
+msgstr "YAML"
 
 msgid "etcd"
 msgstr "etcd"

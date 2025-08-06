@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -27,6 +27,10 @@ export type FormFieldConfig = {
   // .--------------------------------------------------------------------.
   // | Type        | Description                                          |
   // |-------------|------------------------------------------------------|
+  // | card        | A card that renders tokenized strings. Note, fields  |
+  // |             | that are used here must exist in the form; use the   |
+  // |             | `hidden` type if you do not want to display them in  |
+  // |             | the form.                                            |
   // | confObjUuid | This is a hidden field that contains a UUID. By      |
   // |             | default it is set to the UUID that tells the backend |
   // |             | that it should handle the data to create a new       |
@@ -43,6 +47,7 @@ export type FormFieldConfig = {
   // | container   | Align child fields in horizontal order.              |
   // '--------------------------------------------------------------------'
   type:
+    | 'card'
     | 'confObjUuid'
     | 'hidden'
     | 'divider'
@@ -171,11 +176,8 @@ export type FormFieldConfig = {
 
   // --- container ---
   fields?: Array<FormFieldConfig>;
-  // Fields in a container will respect the 'flex' configuration.
-  // Specifies the size of the field in percent.
-  flex?: 10 | 20 | 25 | 33 | 45 | 50 | 66 | 75 | 80 | 90 | 100;
 
-  // --- button | hint ---
+  // --- button | card | hint ---
   text?: string;
 
   // --- button | iconButton ---
@@ -306,9 +308,11 @@ export type FormFieldConfig = {
   // otherwise `false`.
   trim?: boolean;
 
-  // --- select | textInput ---
+  // --- select | sharedFolderSelect | sshCertSelect | sslCertSelect | textInput ---
+  // The name of the property to display the option value.
   // Defaults to `value`.
   valueField?: string;
+  // The name of the property to display the option text.
   // Defaults to `text`.
   textField?: string;
   store?: DataStore;
@@ -348,6 +352,8 @@ export type FormFieldConfig = {
   // --- hint ---
   hintType?: 'info' | 'warning' | 'tip';
   dismissible?: boolean;
+
+  // --- datatable | hint ---
   stateId?: string;
 
   // --- tagInput ---
@@ -380,10 +386,17 @@ export type FormFieldModifier = {
     | 'focused'
     | 'visible'
     | 'hidden'
-    | 'value';
-  // Optional configuration used by modifiers. This is required by
-  // the 'value' modifier, e.g. '{{ <NAME> }}' to set the value
-  // of the given field.
+    | 'value'
+    | 'reload';
+  // Optional configuration used by modifiers.
+  // Examples:
+  // - value:
+  //   Specify the new value of the form field. This can be a tokenized
+  //   string.
+  //   `{{ name | rstrip("/") }}/`
+  // - reload:
+  //   Specify the DataStore object that is used to reload the content
+  //   of the `select` form field.
   typeConfig?: any;
   // Apply the opposite type, e.g. `disabled` for `enabled`, if the
   // constraint is falsy. Defaults to `true`.

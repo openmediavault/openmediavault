@@ -2,7 +2,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -17,7 +17,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
 namespace OMV\System\Storage;
 
@@ -368,7 +368,8 @@ class StorageDevice extends \OMV\System\BlockDevice
 	}
 
 	/**
-	 * Check if the given device is used/consumed by another storage device.
+	 * Check if the given device (and it's canonical device file) is
+	 * used/consumed by another storage device.
 	 * @param string deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb
@@ -387,14 +388,28 @@ class StorageDevice extends \OMV\System\BlockDevice
 	public static function isUsed($deviceFile, $type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = FALSE;
 		$mngr = Backend\Manager::getInstance();
+		$canonicalDeviceFile = realpath($deviceFile);
 		foreach ($mngr as $backendk => $backendv) {
-			if (!($type & $backendv->getType()))
+			if (!($type & $backendv->getType())) {
 				continue;
-			if (FALSE === ($slaves = $backendv->enumerateSlaves()))
+			}
+			if (FALSE === ($slaves = $backendv->enumerateSlaves())) {
 				return FALSE;
-			if (in_array($deviceFile, $slaves)) {
-				$result = TRUE;
-				break;
+			}
+			// Search with the canonical device file first as most backends
+			// return a list of these device files.
+			if (FALSE !== $canonicalDeviceFile) {
+				if (in_array($canonicalDeviceFile, $slaves)) {
+					$result = TRUE;
+					break;
+				}
+			}
+			// Finally use the specified device file to complete the search.
+			if ($deviceFile !== $canonicalDeviceFile) {
+				if (in_array($deviceFile, $slaves)) {
+					$result = TRUE;
+					break;
+				}
 			}
 		}
 		return $result;

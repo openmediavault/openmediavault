@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-podman package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Marek Pavelka, 2025
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-11 21:57+0200\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
+"Last-Translator: Marek Pavelka, 2025\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +28,7 @@ msgid "Containers"
 msgstr ""
 
 msgid "Created"
-msgstr ""
+msgstr "Vytvořeno"
 
 msgid "Digest"
 msgstr ""
@@ -39,13 +43,13 @@ msgid "Driver"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Image"
-msgstr ""
+msgstr "Obrázek"
 
 msgid "Images"
-msgstr ""
+msgstr "Obrázky"
 
 msgid "Infra ID"
 msgstr ""
@@ -54,7 +58,7 @@ msgid "Inspect"
 msgstr ""
 
 msgid "Logs"
-msgstr ""
+msgstr "Protokoly"
 
 msgid "Mount Point"
 msgstr ""
@@ -63,7 +67,7 @@ msgid "Mounts"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Název"
 
 msgid "Names"
 msgstr ""
@@ -78,7 +82,7 @@ msgid "Pods"
 msgstr ""
 
 msgid "Ports"
-msgstr ""
+msgstr "Porty"
 
 msgid "Pull latest"
 msgstr ""
@@ -87,28 +91,28 @@ msgid "Pull latest image"
 msgstr ""
 
 msgid "Repository"
-msgstr ""
+msgstr "Repozitář"
 
 msgid "Restart"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Velikost"
 
 msgid "Started"
 msgstr ""
 
 msgid "State"
-msgstr ""
+msgstr "Stav"
 
 msgid "Statistics"
 msgstr ""
 
 msgid "Status"
-msgstr ""
+msgstr "Stav"
 
 msgid "Tag"
-msgstr ""
+msgstr "Štítek"
 
 msgid "Updated Podman settings."
 msgstr ""

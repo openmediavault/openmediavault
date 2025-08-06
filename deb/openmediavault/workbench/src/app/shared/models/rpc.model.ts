@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -18,11 +18,6 @@
 import * as _ from 'lodash';
 
 import { format, formatDeep } from '~/app/functions.helper';
-
-export type RpcListResponse = {
-  data: Array<any>;
-  total: number;
-};
 
 export type RpcObjectResponse = Record<string, any>;
 

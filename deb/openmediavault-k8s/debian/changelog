@@ -1,3 +1,70 @@
+openmediavault-k8s (7.4.11-2) stable; urgency=medium
+
+  * Update locale files.
+  * Add dashboard widgets.
+  * Upgrade Kong to 3.9 to fix crashing due `Address already in use`.
+  * Use K3S v1.32.7+k3s1 by default.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 24 Jul 2025 23:46:54 +0200
+
+openmediavault-k8s (7.4.10-1) stable; urgency=medium
+
+  * Allow the deletion of PVs and PVCs in `Failed` phase.
+  * Fix the file mode bits of the systemd unit file k3s.service to prevent
+    `is marked world-writable` warnings.
+  * Disable Kong admin UI which is part of the Kubernetes Dashboard.
+  * Prevent Kong container from crashing due `Address already in use`.
+  * Add `Services | Kubernetes | Resources | Stateful Sets` page.
+  * Add `Version` column to `Services | Kubernetes | Resources | Helm Charts`
+    page.
+  * Issue #1972: Fix bug when using user defined SSL certificates.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Jun 2025 15:04:01 +0200
+
+openmediavault-k8s (7.4.9-1) stable; urgency=medium
+
+  * Update locale files.
+  * Use K3S v1.32.5+k3s1 by default.
+    Existing installations won't be upgraded automatically. To force
+    an upgrade, create the file `/var/lib/openmediavault/upgrade_k3s`
+    and run `omv-salt deploy run k3s`.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:38:44 +0200
+
+openmediavault-k8s (7.4.8-1) stable; urgency=medium
+
+  * Update locale files.
+  * Several improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 23 May 2025 12:39:38 +0200
+
+openmediavault-k8s (7.4.7-1) stable; urgency=medium
+
+  * Add button to display the recipe README.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 23 May 2025 10:01:51 +0200
+
+openmediavault-k8s (7.4.6-1) stable; urgency=medium
+
+  * Update locale files.
+  * Issue #1940: Add `OMV_K8S_TRAEFIK_PORTS` environment variable to
+    append additional Traefik port configurations to the Helm chart.
+    The configuration must be specified in minified YAML format
+    Check the Traefik Helm chart documentation for more information
+    about the available port configuration properties.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 17 Apr 2025 21:16:51 +0200
+
+openmediavault-k8s (7.4.5-1) stable; urgency=medium
+
+  * Update locale files.
+  * Use K3S v1.32.3+k3s1 by default.
+    Existing installations won't be upgraded automatically. To force
+    an upgrade, create the file `/var/lib/openmediavault/upgrade_k3s`
+    and run `omv-salt deploy run k3s`.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 29 Mar 2025 12:05:08 +0100
+
 openmediavault-k8s (7.4.4-1) stable; urgency=low
 
   * Update the recipe ingredients.

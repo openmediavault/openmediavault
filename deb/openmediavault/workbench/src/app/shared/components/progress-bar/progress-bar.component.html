@@ -1,14 +1,14 @@
-<div class="omv-progress-bar">
+<div class="omv-progress-bar omv-rounded">
   <div class="omv-progress-bar-text">
     <span *ngIf="text">{{ text }}</span>
-    <span *ngIf="!text">{{ value.toFixed(decimalPlaces | defaultTo:1) }}%</span>
+    <span *ngIf="!text">{{ generatedText }}</span>
   </div>
-  <div class="omv-progress-bar-fill"
-       [ngClass]="{'warning': warningThreshold && warningThreshold > 0 && value > warningThreshold}"
+  <div class="omv-progress-bar-fill omv-rounded"
+       [ngClass]="{'warning': isWarning}"
        [style.width]="(value | max:0)  + '%'">
     <div class="omv-progress-bar-text">
       <span *ngIf="text">{{ text }}</span>
-      <span *ngIf="!text">{{ value.toFixed(decimalPlaces | defaultTo:1) }}%</span>
+      <span *ngIf="!text">{{ generatedText }}</span>
     </div>
   </div>
 </div>

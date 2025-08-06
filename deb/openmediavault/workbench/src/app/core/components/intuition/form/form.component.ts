@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -41,8 +41,9 @@ import {
 import { PageContext } from '~/app/core/models/page-context.type';
 import { PageContextService } from '~/app/core/services/page-context.service';
 import { Unsubscribe } from '~/app/decorators';
-import { format, formatDeep } from '~/app/functions.helper';
+import { formatDeep, isFormatable } from '~/app/functions.helper';
 import { CustomValidators } from '~/app/shared/forms/custom-validators';
+import { DataStore } from '~/app/shared/models/data-store.type';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
 
 let nextUniqueId = 0;
@@ -271,7 +272,7 @@ export class FormComponent implements AfterViewInit, OnInit {
           validators.push(Validators.email);
         }
         if (_.isPlainObject(field.validators.requiredIf)) {
-          validators.push(CustomValidators.requiredIf(field.validators.requiredIf));
+          validators.push(CustomValidators.requiredIf(field.validators));
         }
         if (_.isArray(field.validators.custom)) {
           _.forEach(field.validators.custom, (custom: FormFieldConstraintValidator) => {
@@ -290,9 +291,9 @@ export class FormComponent implements AfterViewInit, OnInit {
         }
       }
       let value = _.defaultTo(field.value, null);
-      if (_.isString(value)) {
+      if (isFormatable(value)) {
         // Evaluate filters and apply page context.
-        value = format(value, this.pageContext);
+        value = formatDeep(value, this.pageContext);
       }
       // Create the form control.
       controlsConfig[field.name] = new FormControl(
@@ -431,6 +432,16 @@ export class FormComponent implements AfterViewInit, OnInit {
         if (fulfilled) {
           const value = formatDeep(modifier.typeConfig, values);
           control.setValue(value);
+        }
+        break;
+      case 'reload':
+        if (fulfilled) {
+          // eslint-disable-next-line @typescript-eslint/ban-types
+          const reloadFn: Function = _.get(control, 'reload');
+          if (_.isFunction(reloadFn)) {
+            const store: DataStore = formatDeep(modifier.typeConfig, values);
+            reloadFn.call(control, store);
+          }
         }
         break;
     }

@@ -5,16 +5,16 @@
 # 
 # Translators:
 # Sári Gábor <sari.gabor@gmail.com>, 2024
-# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-07-24 21:12+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,6 +88,9 @@ msgstr "Adattároló"
 msgid "Date & Time"
 msgstr "Dátum és idő"
 
+msgid "Depends"
+msgstr ""
+
 msgid "Deployments"
 msgstr "Telepítések"
 
@@ -117,6 +120,9 @@ msgstr "Engedélyezve"
 msgid "External IP"
 msgstr "Külső IP"
 
+msgid "Failed"
+msgstr ""
+
 msgid "GID"
 msgstr "GID"
 
@@ -138,9 +144,6 @@ msgstr "Főoldal"
 msgid "ID"
 msgstr "ID"
 
-msgid "If present, the namespace scope for this request."
-msgstr "Ha van, a kérés névterének hatóköre."
-
 msgid "Image"
 msgstr "Kép"
 
@@ -159,9 +162,6 @@ msgstr "Behatolási útvonalak"
 msgid "Ingresses"
 msgstr "Behatolások"
 
-msgid "Invalid namespace"
-msgstr "Érvénytelen névtér"
-
 msgid "Job"
 msgstr "Feladat"
 
@@ -170,6 +170,12 @@ msgstr "Kubeconfig"
 
 msgid "Kubernetes"
 msgstr "Kubernetes"
+
+msgid "Kubernetes - Pods"
+msgstr ""
+
+msgid "Kubernetes - Resources"
+msgstr ""
 
 msgid "Labels"
 msgstr "Címkék"
@@ -207,6 +213,9 @@ msgstr "PV"
 msgid "PVC"
 msgstr "PVC"
 
+msgid "Pending"
+msgstr ""
+
 msgid "Persistent Volume Claims"
 msgstr "Megmaradókötet-kérés"
 
@@ -228,11 +237,11 @@ msgstr "Port"
 msgid "Ports"
 msgstr "Portok"
 
+msgid "README"
+msgstr "OLVASSEL"
+
 msgid "Ready"
 msgstr "Kész"
-
-msgid "Recipe"
-msgstr "Recept"
 
 msgid "Recipe Information"
 msgstr "Receptinformáció"
@@ -255,6 +264,9 @@ msgstr "Erőforrások"
 msgid "Restore"
 msgstr "Visszaállítás"
 
+msgid "Running"
+msgstr ""
+
 msgid "SQLite"
 msgstr "SQLite"
 
@@ -273,17 +285,32 @@ msgstr "Beállítások"
 msgid "Shared Folders"
 msgstr "Megosztott mappák"
 
+msgid "Show README"
+msgstr "OLVASSEL megjelenítése"
+
+msgid "Show the number of pods per status phase."
+msgstr ""
+
+msgid "Show the total number of several resources."
+msgstr ""
+
 msgid "Size"
 msgstr "Méret"
 
 msgid "Snapshots"
 msgstr "Pillanatképek"
 
+msgid "Stateful Sets"
+msgstr ""
+
 msgid "Status"
 msgstr "Állapot"
 
 msgid "Storage Class"
 msgstr "Tárolási osztály"
+
+msgid "Succeeded"
+msgstr ""
 
 msgid "Tag"
 msgstr "Címke"
@@ -314,17 +341,19 @@ msgstr ""
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
 "A következő helyőrzők használhatóak a receptekben a globális "
-"rendszerinformációk és a konfigurációs adatbázis "
-"eléréséhez:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
-" uuid=NULL)</li></ul>A helyőrzőket dupla szögletes zárójelekkel kell "
-"jelölni. A további lehetséges szűrők áttekintése <a "
+"rendszerinformációk és a konfigurációs adatbázis eléréséhez: "
+"<br><ul><li>hostname()</li> <li>domain()</li> <li>fqdn()</li> <li>tz()</li> "
+"<li>ipaddr(name=NULL)</li> <li>ipaddr6(name=NULL)</li> <li>uid(name)</li> "
+"<li>gid(name)</li> <li>sharedfolder_path(name)</li> <li>conf_get(id, "
+"uuid=NULL)</li> </ul>A helyőrzőket dupla szögletes zárójelekkel kell "
+"jelölni. A további elérhető szűrők áttekintése <a "
 "href='https://twig.symfony.com/doc/filters/index.html' target='_blank'>itt "
 "található</a>."
 
@@ -356,6 +385,9 @@ msgstr "Típus"
 msgid "UID"
 msgstr "UID"
 
+msgid "Unknown"
+msgstr ""
+
 msgid "Up-to-date"
 msgstr "Friss"
 
@@ -365,11 +397,17 @@ msgstr "Kubernetes beállítások frissítve."
 msgid "Users"
 msgstr "Felhasználók"
 
+msgid "Version"
+msgstr ""
+
 msgid "View"
 msgstr "Nézet"
 
 msgid "Volume"
 msgstr "Kötet"
+
+msgid "YAML"
+msgstr "YAML"
 
 msgid "etcd"
 msgstr "etcd"

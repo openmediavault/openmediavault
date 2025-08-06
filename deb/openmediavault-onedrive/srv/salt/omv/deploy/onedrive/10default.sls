@@ -1,6 +1,6 @@
 # This file is part of OpenMediaVault.
 #
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @copyright Copyright (c) 2009-2025 Volker Theile
 #
@@ -15,7 +15,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
 # https://github.com/abraunegg/onedrive
@@ -26,6 +26,7 @@
 # systemctl show onedrive.service
 
 {% set config = salt['omv_conf.get']('conf.service.onedrive') %}
+{% set systemd_execstart_args = salt['pillar.get']('default:OMV_ONEDRIVE_SYSTEMD_EXECSTART_ARGS', '') %}
 
 # Cleaning up incorrect systemd user target.
 # https://github.com/abraunegg/onedrive/blob/master/docs/ubuntu-package-install.md#step-1b-remove-errant-systemd-service-file-installed-by-ppa-or-distribution-package
@@ -72,7 +73,7 @@ create_onedrive_systemd_conf:
 
         [Service]
         ExecStart=
-        ExecStart=/usr/bin/onedrive --monitor --confdir=/var/cache/onedrive/
+        ExecStart=/usr/bin/onedrive {{ systemd_execstart_args }} --monitor --confdir=/var/cache/onedrive/
         User={{ config.username }}
     - makedirs: True
     - mode: 644

@@ -1,3 +1,4 @@
+*.dch*
 *.deb
 *.udeb
 .idea/

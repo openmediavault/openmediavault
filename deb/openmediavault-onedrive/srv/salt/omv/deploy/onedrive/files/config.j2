@@ -1,12 +1,10 @@
 {%- set enable_logging = salt['pillar.get']('default:OMV_ONEDRIVE_ENABLELOGGING', 'false') -%}
-{%- set verbose = salt['pillar.get']('default:OMV_ONEDRIVE_VERBOSE', '0') -%}
 {%- set sync_dir_permissions = salt['pillar.get']('default:OMV_ONEDRIVE_SYNCDIRPERMISSIONS', '750') -%}
 {%- set sync_file_permissions = salt['pillar.get']('default:OMV_ONEDRIVE_SYNCFILEPERMISSIONS', '640') -%}
 {%- set monitor_fullscan_frequency = salt['pillar.get']('default:OMV_ONEDRIVE_MONITORFULLSCANFREQUENCY', '12') -%}
 {%- set sf_path = salt['omv_conf.get_sharedfolder_path'](config.sharedfolderref) -%}
 {{ pillar['headers']['multiline'] -}}
 enable_logging = "{{ enable_logging | to_bool | yesno('true,false') }}"
-verbose = "{{ verbose }}"
 sync_dir = "{{ sf_path }}"
 sync_dir_permissions = "{{ sync_dir_permissions }}"
 sync_file_permissions = "{{ sync_file_permissions }}"

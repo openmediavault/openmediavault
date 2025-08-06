@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -29,6 +29,7 @@ import {
   FormDialogButtonConfig,
   FormDialogConfig
 } from '~/app/core/components/intuition/models/form-dialog-config.type';
+import { PageContextService } from '~/app/core/services/page-context.service';
 import { format, formatDeep, isFormatable } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
@@ -46,7 +47,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 @Component({
   selector: 'omv-intuition-form-dialog',
   templateUrl: './form-dialog.component.html',
-  styleUrls: ['./form-dialog.component.scss']
+  styleUrls: ['./form-dialog.component.scss'],
+  providers: [PageContextService]
 })
 export class FormDialogComponent {
   @ViewChild(FormComponent, { static: true })

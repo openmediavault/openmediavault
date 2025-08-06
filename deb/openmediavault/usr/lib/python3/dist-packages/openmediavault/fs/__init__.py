@@ -2,7 +2,7 @@
 #
 # This file is part of OpenMediaVault.
 #
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @copyright Copyright (c) 2009-2025 Volker Theile
 #
@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 import os
 import subprocess
 from typing import List, Optional
@@ -220,6 +220,7 @@ class Filesystem(openmediavault.device.BlockDevice):
         * /dev/cciss/c0d0p2 => /dev/cciss/c0d0
         * /dev/md0 => /dev/md0
         * /dev/dm-0 => /dev/dm-0
+        * /dev/nvme0n1p1 => /dev/nvme0n1
 
         :return: Returns the device file of the underlying storage device
             or ``None`` in case of an error.
@@ -229,9 +230,13 @@ class Filesystem(openmediavault.device.BlockDevice):
             context = pyudev.Context()
             device = pyudev.Devices.from_device_file(context, self.device_file)
             if device and device.parent:
-                if device.parent.device_node is not None:
+                parent = device.parent
+                # NOTE: nvme0n1p1 => nvme0n1 is a block device but
+                #   nvme0n1 => nvme0 is not a block device, even if it also
+                #   has a device node.
+                if parent.device_node is not None and parent.subsystem == 'block':
                     # /dev/sdb1 => /dev/sdb
-                    return device.parent.device_node
+                    return parent.device_node
                 else:
                     # /dev/sdb => /dev/sdb
                     return self.device_file

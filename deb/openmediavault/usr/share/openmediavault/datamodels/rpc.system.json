@@ -71,4 +71,17 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.system.gettopinfo",
+	"params": {
+		"type": "object",
+		"properties": {
+			"format": {
+				"type": "string",
+				"enum": ["text" ,"json"],
+				"required": false
+			}
+		}
+	}
 }]

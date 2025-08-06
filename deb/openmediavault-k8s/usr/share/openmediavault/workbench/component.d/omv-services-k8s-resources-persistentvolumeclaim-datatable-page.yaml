@@ -84,7 +84,7 @@ data:
             - operator: in
               arg0:
                 prop: "status.phase"
-              arg1: ["Available", "Released"]
+              arg1: ["Available", "Released", "Failed"]
         execute:
           type: request
           request:

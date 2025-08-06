@@ -1,6 +1,6 @@
 // This file is part of OpenMediaVault.
 //
-// @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+// @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
 // @author    Volker Theile <volker.theile@openmediavault.org>
 // @copyright Copyright (c) 2009-2025 Volker Theile
 //
@@ -884,15 +884,11 @@ $omv-dark-theme: mat.define-dark-theme(
 }
 
 .omv-text-wrap {
-  white-space: pre;
-}
-
-.omv-text-wrap-line {
-  white-space: pre-line;
+  white-space: pre-wrap;
 }
 
 .omv-text-nowrap {
-  white-space: nowrap;
+  white-space: pre;
 }
 
 .omv-text-decoration-none {
@@ -995,6 +991,22 @@ $omv-dark-theme: mat.define-dark-theme(
   position: sticky;
   top: 0;
   z-index: cdk.$overlay-z-index + 1;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Borders
+.omv-rounded {
+  border-radius: 4px;
+}
+
+.omv-rounded-none {
+  border-radius: 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// z-index
+.omv-z-10 {
+  z-index: cdk.$overlay-z-index + 10;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -7,16 +7,16 @@
 # Volker Theile <votdev@gmx.de>, 2023
 # Jan Štourač <wormsik666@gmail.com>, 2023
 # Pavel Borecki <pavel.borecki@gmail.com>, 2023
-# Marek Pavelka, 2024
+# Marek Pavelka, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-ftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"POT-Creation-Date: 2025-04-04 00:41+0200\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
-"Last-Translator: Marek Pavelka, 2024\n"
+"Last-Translator: Marek Pavelka, 2025\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,14 +30,28 @@ msgstr "0 KiB/s znamená neomezené."
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "Výkonný modulární server FTP/SFTP/FTPS."
 
+msgid "Access mode"
+msgstr ""
+
 msgid "Advanced settings"
 msgstr "Pokročilá nastavení"
 
 msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr "Umožnit klientům obnovit přerušené nahrávání nebo stahování."
 
+msgid ""
+"Allow users to log in without a password. Make sure the user <em>ftp</em> or"
+" group <em>nogroup</em> can access the files."
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "Anonymní FTP"
+
+msgid "Authenticated user ID"
+msgstr ""
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Ban Rules"
 msgstr "Pravidla vyloučení"
@@ -51,6 +65,9 @@ msgstr "Omezení šířky pásma"
 msgid "Certificate"
 msgstr "Certifikát"
 
+msgid "Completion status"
+msgstr ""
+
 msgid "Create"
 msgstr "Vytvořit"
 
@@ -63,8 +80,14 @@ msgstr "Vytvořena sdílená složka FTP."
 msgid "Currently logged in users:"
 msgstr "Aktuálně přihlášení uživatelé:"
 
+msgid "Date & Time"
+msgstr "Datum a čas"
+
 msgid "Deny logins which do not have a valid shell."
 msgstr "Odmítnout přihlášení, která nemají platný shell."
+
+msgid "Direction"
+msgstr ""
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "Zobrazit domovský adresář uživatele v seznamu procházení."
@@ -102,6 +125,9 @@ msgstr "Dodatečné volby"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -111,6 +137,12 @@ msgid ""
 msgstr ""
 "FXP umožňuje přenosy mezi dvěma vzdálenými servery, aniž by se data souborů "
 "dostala ke klientovi, který o přenos žádá."
+
+msgid "Filename"
+msgstr ""
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Home directories"
 msgstr "Domovské adresáře"
@@ -190,6 +222,9 @@ msgstr "Maximální počet souběžně připojených klientů."
 msgid "Maximum upload rate (KiB/s)"
 msgstr "Maximální rychlost nahrávání (KiB/s)"
 
+msgid "Message"
+msgstr "Zpráva"
+
 msgid "Min. passive port"
 msgstr "Minimální pasivní port"
 
@@ -236,6 +271,9 @@ msgstr "Port"
 msgid "Refresh time"
 msgstr "Čas obnovení"
 
+msgid "Remote host"
+msgstr ""
+
 msgid "Require valid shell"
 msgstr "Vyžadovat platný shell"
 
@@ -262,6 +300,9 @@ msgstr "Sdílená složka"
 
 msgid "Shares"
 msgstr "Sdílení"
+
+msgid "Special action flag"
+msgstr ""
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -344,6 +385,12 @@ msgstr "Časový limit"
 msgid "Transfer log"
 msgstr "Protokol přenosu"
 
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Updated FTP ban rule."
 msgstr "Aktualizováno pravidlo vyloučení z FTP."
 
@@ -351,7 +398,10 @@ msgid "Updated FTP share."
 msgstr "Aktualizováno sdílení FTP."
 
 msgid "Use the following bandwidth restriction."
-msgstr "Použijte následující omezení šířky pásma."
+msgstr "Použít následující omezení šířky pásma."
+
+msgid "User name"
+msgstr ""
 
 msgid "Welcome message"
 msgstr "Uvítací zpráva"

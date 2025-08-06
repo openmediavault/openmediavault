@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
+# André Fernandes, 2025
 # Nelson Rosado <nelsontrosado@gmail.com>, 2012-2015,2017,2019
 # Nelson Rosado <nelsontrosado@gmail.com>, 2012
 # Renan Costa Alencar <renan.costaalencar@gmail.com>, 2024
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-21 10:04+0100\n"
+"POT-Creation-Date: 2025-05-07 17:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Renan Costa Alencar <renan.costaalencar@gmail.com>, 2024\n"
+"Last-Translator: André Fernandes, 2025\n"
 "Language-Team: Portuguese (Portugal) (http://app.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -681,9 +682,6 @@ msgstr "Nome do cliente NetBIOS"
 msgid "Client address"
 msgstr "Endereço do cliente"
 
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "Cliente com permissão para montar sistemas de ficheiros, ex. 192.168.178.0/24."
-
 msgid "Close"
 msgstr "Fechar"
 
@@ -967,7 +965,7 @@ msgid "Disallow the user to modify their own account."
 msgstr ""
 
 msgid "Disk Temperatures"
-msgstr ""
+msgstr "Temperatura dos Discos"
 
 msgid "Disks"
 msgstr "Discos"
@@ -1474,6 +1472,9 @@ msgstr "Nome do anfitrião"
 msgid "Hosts allow"
 msgstr "Anfitriões permitem"
 
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
+
 msgid "Hosts deny"
 msgstr "Anfitriões negam"
 
@@ -1807,7 +1808,7 @@ msgid "Lithuania"
 msgstr "Lituânia"
 
 msgid "Load Average"
-msgstr ""
+msgstr "Carga Média"
 
 msgid "Load average"
 msgstr "Carga média"
@@ -1940,10 +1941,10 @@ msgid "Members"
 msgstr "Membros"
 
 msgid "Memory"
-msgstr ""
+msgstr "Memória"
 
 msgid "Memory Usage"
-msgstr ""
+msgstr "Uso de Memória"
 
 msgid "Memory usage"
 msgstr "Uso de memória"
@@ -2096,7 +2097,7 @@ msgid "New Zealand"
 msgstr "Nova Zelândia"
 
 msgid "New package updates are available for installation."
-msgstr ""
+msgstr "Novas atualizações de pacotes estão disponíveis para instalação."
 
 msgid "New password"
 msgstr ""
@@ -2172,6 +2173,9 @@ msgstr ""
 
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr ""
+
+msgid "Note, only one client can be configured per share."
 msgstr ""
 
 msgid "Nothing"
@@ -2303,7 +2307,7 @@ msgid "Perform a trial run with no changes made"
 msgstr "Execute um teste sem alterações"
 
 msgid "Performance Statistics"
-msgstr ""
+msgstr "Desempenho"
 
 msgid "Period of validity"
 msgstr "Período de validade"
@@ -2769,7 +2773,7 @@ msgid "Scanning for new devices ..."
 msgstr "Pesquisar por novos dispositivos..."
 
 msgid "Scheduled Tasks"
-msgstr ""
+msgstr "Tarefas agendadas"
 
 msgid "Scheduling"
 msgstr "Agendamento"
@@ -3164,7 +3168,7 @@ msgid "System Logs"
 msgstr "Logs do sistema"
 
 msgid "System Time"
-msgstr ""
+msgstr "Hora do Sistema"
 
 msgid "System account"
 msgstr ""
@@ -3407,7 +3411,7 @@ msgid ""
 "\") }}."
 msgstr ""
 
-msgid "The value must be on of the slave network interfaces."
+msgid "The value must be one of the slave network interfaces."
 msgstr ""
 
 msgid "The workgroup the server will appear to be in when queried by clients."
@@ -3744,10 +3748,10 @@ msgid "Up delay"
 msgstr "Retardar"
 
 msgid "Update Management"
-msgstr ""
+msgstr "Gestão de Atualizações"
 
 msgid "Update management"
-msgstr ""
+msgstr "Gestão de atualizações"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Atualizar os destinos ACLs para serem os mesmo que as origens ACLs"
@@ -3880,10 +3884,10 @@ msgid "Updates"
 msgstr "Actualizações"
 
 msgid "Updates Available"
-msgstr ""
+msgstr "Atualizações Disponíveis"
 
 msgid "Updates available"
-msgstr ""
+msgstr "Atualizações disponíveis"
 
 msgid "Upgrade system"
 msgstr ""
@@ -3939,7 +3943,7 @@ msgid "User home directory"
 msgstr "Diretório de raiz do utilizador"
 
 msgid "User name"
-msgstr ""
+msgstr "Utilizador"
 
 msgid "User/Group permissions"
 msgstr "Permissões Utilizador/Grupo"

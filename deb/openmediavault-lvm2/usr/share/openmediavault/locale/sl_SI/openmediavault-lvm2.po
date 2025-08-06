@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Miha Bezjak <miha@bezjak.info>, 2017
+# Valentin Korenjak <valentin@korenjak.si>, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-27 14:31+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
-"Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
+"Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,7 +89,7 @@ msgid "Physical Volumes"
 msgstr ""
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Počakajte, posnetek bo ustvarjen ..."
 
 msgid "Reduce"
 msgstr ""
@@ -106,7 +107,7 @@ msgid "Select a volume group ..."
 msgstr ""
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Izberi naprave ..."
 
 msgid "Select the devices used to extend the volume group."
 msgstr ""
@@ -118,7 +119,7 @@ msgid "Size"
 msgstr "Velikost"
 
 msgid "Snapshot"
-msgstr "Snapshot"
+msgstr "Posnetek"
 
 msgid "The name of the logical volume."
 msgstr ""

@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -57,13 +57,13 @@ export class DataStoreService {
       ).pipe(
         map((res: any) => {
           let total = 0;
-          if (_.isPlainObject(res) && _.has(res, 'data')) {
+          if (_.isPlainObject(res) && _.has(res, 'data') && _.has(res, 'total')) {
             res = res as DataStoreResponse;
             store.data = res.data;
             total = res.total;
           } else {
             store.data = res;
-            total = store.data.length;
+            total = _.size(res);
           }
           this.onLoad(store);
           return {
@@ -79,7 +79,7 @@ export class DataStoreService {
           this.onLoad(store);
           return {
             data: store.data,
-            total: store.data.length
+            total: _.size(store.data)
           };
         })
       );
@@ -87,7 +87,7 @@ export class DataStoreService {
       this.onLoad(store);
       return of({
         data: store.data,
-        total: store.data.length
+        total: _.size(store.data)
       });
     }
   }
@@ -132,11 +132,11 @@ export class DataStoreService {
     // We need to create a new array, otherwise Angular won't
     // detect changes if we modify the original one only.
     let data = [];
+    if (_.isUndefined(store.fields) || !_.isArray(store.fields)) {
+      store.fields = ['key', 'value'];
+    }
     if (_.isPlainObject(store.data)) {
       // Convert simple objects to an array.
-      if (_.isUndefined(store.fields) || !_.isArray(store.fields)) {
-        store.fields = ['key', 'value'];
-      }
       _.forEach(store.data, (value, key) => {
         const newItem = {};
         _.set(newItem, store.fields[0], key);

@@ -8,6 +8,7 @@
 # Paolo Velati <paolo.velati@gmail.com>, 2022
 # maurorulli <mauro.rulli@gmail.com>, 2022
 # Roberto Bellingeri <bellingeri@netguru.it>, 2025
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:25+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: Roberto Bellingeri <bellingeri@netguru.it>, 2025\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,7 +76,7 @@ msgstr "Certificato"
 msgid ""
 "Disable password authentication, WebDAV, and the advanced settings page."
 msgstr ""
-"Disattivare l'autenticazione tramite password, WebDAV e la pagina delle "
+"Disattiva l'autenticazione tramite password, WebDAV e la pagina delle "
 "impostazioni avanzate."
 
 msgid "Disabled"
@@ -85,7 +86,7 @@ msgid "Enabled"
 msgstr "Abilitato"
 
 msgid "Filesize limit"
-msgstr "Limite dimensione file"
+msgstr "Limite di dimensione del file"
 
 msgid ""
 "If enabled, all features that require write permission to the images folder "
@@ -102,7 +103,7 @@ msgid "Import"
 msgstr "Importa"
 
 msgid "Open UI"
-msgstr "Apri interfaccia utente"
+msgstr "Apri l'interfaccia utente"
 
 msgid "PhotoPrism"
 msgstr "PhotoPrism"
@@ -117,7 +118,7 @@ msgid "Public"
 msgstr "Pubblico"
 
 msgid "Read-only"
-msgstr "Sola lettura"
+msgstr "Solo lettura"
 
 msgid "The SSL certificate."
 msgstr "Il certificato SSL."
@@ -130,20 +131,20 @@ msgstr ""
 "<em>photoprism</em> o il gruppo <em>users</em> possano accedere ai file."
 
 msgid "The location where to store the application data."
-msgstr "Posizione in cui archiviare i dati dell'applicazione."
+msgstr "La posizione in cui archiviare i dati dell'applicazione."
 
 msgid "The maximum size of media files."
 msgstr "Dimensione massima dei file multimediali."
 
 msgid "Updated PhotoPrism settings."
-msgstr "Impostazioni PhotoPrism aggiornate."
+msgstr "Le impostazioni di PhotoPrism sono state aggiornate."
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."
 " Please do not forget to change the password immediately."
 msgstr ""
 "Usa le credenziali <em>admin:admin</em> quando accedi per la prima volta. "
-"Non dimenticare di cambiare subito la password."
+"Ricordati di cambiare subito la password."
 
 msgid ""
 "You may optionally mount an import folder from which files can be "
@@ -151,7 +152,7 @@ msgid ""
 "duplicates. Make sure the user <em>photoprism</em> or group <em>users</em> "
 "can access the files."
 msgstr ""
-"Facoltativamente, puoi montare una cartella di importazione da cui i file "
-"possono essere trasferiti alla cartella originale in modo strutturato, "
+"È possibile montare facoltativamente una cartella di importazione da cui "
+"trasferire i file nella cartella degli originali in modo strutturato, "
 "evitando duplicati. Assicurati che l'utente <em>photoprism</em> o il gruppo "
 "<em>users</em> possano accedere ai file."

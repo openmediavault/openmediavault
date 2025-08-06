@@ -4,17 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Pavel Borecki <pavel.borecki@gmail.com>, 2024
-# Marek Pavelka, 2024
+# Marek Pavelka, 2025
+# Pavel Borecki <pavel.borecki@gmail.com>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-07-24 21:12+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Marek Pavelka, 2024\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2025\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,85 +23,88 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "Úplná cesta"
 
 msgid "Access Modes"
-msgstr ""
+msgstr "Režimy přístupu"
 
 msgid "App Version"
-msgstr ""
+msgstr "Verze aplikace"
 
 msgid "Apply"
-msgstr ""
+msgstr "Použít"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Architektura"
 
 msgid "Available"
-msgstr ""
+msgstr "Dostupné"
 
 msgid "Capacity"
-msgstr ""
+msgstr "Kapacita"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Certifikát"
 
 msgid "Certificates"
-msgstr ""
+msgstr "Certifikáty"
 
 msgid "Chart"
-msgstr ""
+msgstr "Graf"
 
 msgid "Check for new recipes"
-msgstr ""
+msgstr "Zkontrolovat nové recepty"
 
 msgid "Class"
-msgstr ""
+msgstr "Třída"
 
 msgid "Cluster IP"
-msgstr ""
+msgstr "IP clusteru"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Komprimováno"
 
 msgid "Config Maps"
 msgstr ""
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopírovat do schránky"
 
 msgid "Copy token"
-msgstr ""
+msgstr "Kopírovat token"
 
 msgid "Created"
-msgstr ""
+msgstr "Vytvořeno"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Přehled"
 
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgid "Datastore"
-msgstr ""
+msgstr "Úložiště dat"
 
 msgid "Date & Time"
+msgstr "Datum a čas"
+
+msgid "Depends"
 msgstr ""
 
 msgid "Deployments"
-msgstr ""
+msgstr "Nasazení"
 
 msgid "Describe"
-msgstr ""
+msgstr "Popsat"
 
 msgid "Description"
-msgstr ""
+msgstr "Popis"
 
 msgid "Do you really want to restore this snapshot?"
-msgstr ""
+msgstr "Opravdu chcete tento snímek obnovit?"
 
 msgid "Download"
-msgstr ""
+msgstr "Stáhnout"
 
 msgid ""
 "Downloading the kubeconfig file to the local system enables secure remote "
@@ -109,46 +112,46 @@ msgid ""
 msgstr ""
 
 msgid "Enabled"
-msgstr "Zapnuto"
+msgstr "Povoleno"
 
 msgid "External IP"
+msgstr "Externí IP"
+
+msgid "Failed"
 msgstr ""
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Groups"
-msgstr ""
+msgstr "Skupiny"
 
 msgid "HTTP port"
-msgstr ""
+msgstr "Port HTTP"
 
 msgid "HTTPS port"
-msgstr ""
+msgstr "Port HTTPS"
 
 msgid "Helm Charts"
 msgstr ""
 
 msgid "Homepage"
-msgstr ""
+msgstr "Domovská stránka"
 
 msgid "ID"
-msgstr ""
-
-msgid "If present, the namespace scope for this request."
-msgstr ""
+msgstr "ID"
 
 msgid "Image"
-msgstr ""
+msgstr "Obrázek"
 
 msgid "Images"
-msgstr ""
+msgstr "Obrázky"
 
 msgid "Import"
-msgstr ""
+msgstr "Importovat"
 
 msgid "Ingredients"
-msgstr ""
+msgstr "Složení"
 
 msgid "Ingress Routes"
 msgstr ""
@@ -156,11 +159,8 @@ msgstr ""
 msgid "Ingresses"
 msgstr ""
 
-msgid "Invalid namespace"
-msgstr ""
-
 msgid "Job"
-msgstr ""
+msgstr "Úloha"
 
 msgid "Kubeconfig"
 msgstr ""
@@ -168,29 +168,35 @@ msgstr ""
 msgid "Kubernetes"
 msgstr ""
 
-msgid "Labels"
+msgid "Kubernetes - Pods"
 msgstr ""
+
+msgid "Kubernetes - Resources"
+msgstr ""
+
+msgid "Labels"
+msgstr "Popisky"
 
 msgid "Load Balancer"
-msgstr ""
+msgstr "Vyvažovač zátěže"
 
 msgid "Logs"
-msgstr ""
+msgstr "Protokoly"
 
 msgid "Manifest"
-msgstr ""
+msgstr "Manifest"
 
 msgid "Message"
-msgstr ""
+msgstr "Zpráva"
 
 msgid "Name"
-msgstr ""
+msgstr "Název"
 
 msgid "Namespace"
-msgstr ""
+msgstr "Jmenný prostor"
 
 msgid "Namespaces"
-msgstr ""
+msgstr "Jmenné prostory"
 
 msgid "NodePort IP"
 msgstr ""
@@ -204,17 +210,20 @@ msgstr ""
 msgid "PVC"
 msgstr ""
 
+msgid "Pending"
+msgstr ""
+
 msgid "Persistent Volume Claims"
 msgstr ""
 
 msgid "Persistent Volumes"
-msgstr ""
+msgstr "Trvalé svazky"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Čekejte prosím, snímek bude vytvořen…"
 
 msgid "Please wait, the snapshot will be restored ..."
-msgstr ""
+msgstr "Čekejte prosím, snímek bude obnoven…"
 
 msgid "Pods"
 msgstr ""
@@ -223,73 +232,91 @@ msgid "Port"
 msgstr "Port"
 
 msgid "Ports"
+msgstr "Porty"
+
+msgid "README"
 msgstr ""
 
 msgid "Ready"
-msgstr ""
-
-msgid "Recipe"
-msgstr ""
+msgstr "Připraveno"
 
 msgid "Recipe Information"
-msgstr ""
+msgstr "Informace o předpisu"
 
 msgid "Recipe Version"
-msgstr ""
+msgstr "Verze předpisu"
 
 msgid "Recipes"
-msgstr ""
+msgstr "Předpisy"
 
 msgid "Reclaim policy"
 msgstr ""
 
 msgid "Repository"
-msgstr ""
+msgstr "Repozitář"
 
 msgid "Resources"
-msgstr ""
+msgstr "Zdroje"
 
 msgid "Restore"
+msgstr "Obnovit"
+
+msgid "Running"
 msgstr ""
 
 msgid "SQLite"
-msgstr ""
+msgstr "SQLite"
 
 msgid "Secrets"
 msgstr ""
 
 msgid "Section"
-msgstr ""
+msgstr "Sekce"
 
 msgid "Services"
-msgstr ""
+msgstr "Služby"
 
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 msgid "Shared Folders"
+msgstr "Sdílené složky"
+
+msgid "Show README"
+msgstr ""
+
+msgid "Show the number of pods per status phase."
+msgstr ""
+
+msgid "Show the total number of several resources."
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Velikost"
 
 msgid "Snapshots"
+msgstr "Snímky"
+
+msgid "Stateful Sets"
 msgstr ""
 
 msgid "Status"
-msgstr ""
+msgstr "Stav"
 
 msgid "Storage Class"
+msgstr "Třída úložiště"
+
+msgid "Succeeded"
 msgstr ""
 
 msgid "Tag"
-msgstr ""
+msgstr "Štítek"
 
 msgid "Tags"
 msgstr "Štítky"
 
 msgid "Target Namespace"
-msgstr ""
+msgstr "Cílový jmenný prostor"
 
 msgid ""
 "The SSL certificate used by the Dashboard and the LoadBalancer service. If "
@@ -305,7 +332,7 @@ msgstr ""
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
@@ -316,7 +343,7 @@ msgid "The location where to store etcd on-demand snapshots."
 msgstr ""
 
 msgid "The manifest to apply."
-msgstr ""
+msgstr "Použitý manifest."
 
 msgid "The port on which the Kubernetes Dashboard is listening."
 msgstr ""
@@ -334,24 +361,33 @@ msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 msgid "UID"
+msgstr "UID"
+
+msgid "Unknown"
 msgstr ""
 
 msgid "Up-to-date"
-msgstr ""
+msgstr "Aktuální"
 
 msgid "Updated Kubernetes settings."
 msgstr ""
 
 msgid "Users"
-msgstr ""
+msgstr "Uživatelé"
+
+msgid "Version"
+msgstr " Verze"
 
 msgid "View"
-msgstr ""
+msgstr "Zobrazení"
 
 msgid "Volume"
+msgstr "Svazek"
+
+msgid "YAML"
 msgstr ""
 
 msgid "etcd"

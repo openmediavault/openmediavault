@@ -2,7 +2,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -17,7 +17,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
 namespace Engined\Rpc;
 
@@ -113,7 +113,8 @@ class LogFile extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
-		  $params['limit'], $params['sortfield'], $params['sortdir']);
+		  $params['limit'], $params['sortfield'], $params['sortdir'],
+		  $params['search']);
 	}
 
 	/**

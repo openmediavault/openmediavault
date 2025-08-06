@@ -257,10 +257,10 @@ msgid "Sunday"
 msgstr "Nedelja"
 
 msgid "Tags"
-msgstr ""
+msgstr "Oznake"
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "Polje lahko vsebuje samo * ali seznam vrednosti, ločenih z vejico."
 
 msgid "The location of the files to scan on-access."
 msgstr ""

@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Quim Farriol <qfarriol@valette.cat>, 2024
+# Quim Farriol <qfarriol@valette.cat>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-25 13:40+0100\n"
 "PO-Revision-Date: 2024-11-20 12:26+0000\n"
-"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2024\n"
+"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2025\n"
 "Language-Team: Catalan (Spain) (https://app.transifex.com/openmediavault/teams/14254/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -133,6 +133,9 @@ msgid ""
 "It is therefore possible that the file system is not immediately available "
 "for mounting."
 msgstr ""
+"Tingueu en compte que la creació d'un sistema de fitxers en un dispositiu "
+"Bcache pot trigar més temps. Per tant, és possible que el sistema de fitxers"
+" no estigui disponible immediatament per al muntatge."
 
 msgid "Recovery Actions"
 msgstr "Accions de recuperació"
@@ -148,9 +151,13 @@ msgstr "Seleccioneu un dispositiu..."
 
 msgid "Select the device that will be formatted as Bcache backing device."
 msgstr ""
+"Seleccioneu el dispositiu que es formatarà com a dispositiu de còpia de "
+"seguretat de Bcache."
 
 msgid "Select the device that will be formatted as Bcache cache device."
 msgstr ""
+"Seleccioneu el dispositiu que es formatarà com a dispositiu de memòria cau "
+"Bcache."
 
 msgid "Select the device that will be used as cache device."
 msgstr ""

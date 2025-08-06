@@ -2,7 +2,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -17,7 +17,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
 namespace OMV\System\Filesystem;
 
@@ -133,8 +133,9 @@ class Btrfs extends Filesystem {
 	 *                         current ratio will fit only 75 GiB of data)
 	 */
 	public function getStatistics() {
-		if (FALSE === ($stats = parent::getStatistics()))
+		if (FALSE === ($stats = parent::getStatistics())) {
 			return FALSE;
+		}
 
 		$cmdArgs = [];
 		$cmdArgs[] = "fi";
@@ -323,6 +324,11 @@ class Btrfs extends Filesystem {
 	 * See parent class definition.
 	 */
 	public function getDetails() {
+		if (FALSE === ($mountPoint = $this->getMountPoint())) {
+			throw new \OMV\Exception("Failed to get mountpoint of '%s'.",
+				$this->getDeviceFile());
+		}
+
 		$result = "";
 
 		$cmdArgs = [];
@@ -338,7 +344,7 @@ class Btrfs extends Filesystem {
 		$cmdArgs = [];
 		$cmdArgs[] = "filesystem";
 		$cmdArgs[] = "df";
-		$cmdArgs[] = escapeshellarg($this->getMountPoint());
+		$cmdArgs[] = escapeshellarg($mountPoint);
 		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
@@ -348,11 +354,22 @@ class Btrfs extends Filesystem {
 		$cmdArgs = [];
 		$cmdArgs[] = "device";
 		$cmdArgs[] = "stats";
-		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		$cmdArgs[] = escapeshellarg($mountPoint);
 		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
-		$result = $result . "\n\n" . implode("\n", $output);
+		$result = $result . "\n\n# I/O  error  statistics\n" . implode("\n", $output);
+
+		$output = [];
+		$cmdArgs = [];
+		$cmdArgs[] = "scrub";
+		$cmdArgs[] = "status";
+		$cmdArgs[] = "-d";
+		$cmdArgs[] = escapeshellarg($mountPoint);
+		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+		$result = $result . "\n\n# Scrub status\n" . implode("\n", $output);
 
 		return $result;
 	}

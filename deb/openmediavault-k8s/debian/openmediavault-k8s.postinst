@@ -2,7 +2,7 @@
 #
 # This file is part of OpenMediaVault.
 #
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @copyright Copyright (c) 2009-2025 Volker Theile
 #
@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 set -e
 
@@ -67,6 +67,12 @@ case "$1" in
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "7.1.1"; then
 			touch /var/lib/openmediavault/upgrade_k3s || :
+			omv_module_set_dirty k3s
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.10"; then
+			omv_module_set_dirty k3s
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.11"; then
 			omv_module_set_dirty k3s
 		fi
 	;;

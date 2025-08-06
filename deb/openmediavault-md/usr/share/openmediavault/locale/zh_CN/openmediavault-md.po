@@ -6,15 +6,16 @@
 # Translators:
 # 王大山, 2023
 # songming <by@songming.me>, 2024
+# kochin <kochinc@outlook.com>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-15 11:52+0100\n"
+"POT-Creation-Date: 2025-04-05 10:24+0200\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
-"Last-Translator: songming <by@songming.me>, 2024\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,8 +26,8 @@ msgstr ""
 msgid "A maximum of one device can be removed."
 msgstr "最多一个设备可被移除。"
 
-msgid "A maximum of two device can be removed."
-msgstr "最多两个设备可被移除。"
+msgid "A maximum of two devices can be removed."
+msgstr "最多可移除兩個裝置。"
 
 msgid "Add hot spares / recover RAID device."
 msgstr "添加热备/恢复 RAID 设备"
@@ -45,9 +46,6 @@ msgstr "容量"
 
 msgid "Create"
 msgstr "新建"
-
-msgid "Details"
-msgstr "详细信息"
 
 msgid "Device"
 msgstr "设备"
@@ -93,6 +91,9 @@ msgstr "RAID 6"
 
 msgid "Recover"
 msgstr "恢复"
+
+msgid "Referenced"
+msgstr "被引用"
 
 msgid "Remove"
 msgstr "移除"

@@ -63,6 +63,7 @@ data:
       - type: checkbox
         name: anonymous
         label: _("Anonymous FTP")
+        hint: _("Allow users to log in without a password. Make sure the user <em>ftp</em> or group <em>nogroup</em> can access the files.")
         value: false
       - type: textarea
         name: displaylogin

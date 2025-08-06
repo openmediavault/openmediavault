@@ -10,7 +10,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-s3
 Architecture: all
-Depends: openmediavault (>= 7.0), podman, catatonit
+Depends: openmediavault (>= 7.7.9), podman, catatonit
 Priority: optional
 Description: openmediavault S3 plugin
  A standalone high performance object storage based on MinIO.

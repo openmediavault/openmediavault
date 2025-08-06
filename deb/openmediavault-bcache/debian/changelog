@@ -1,3 +1,9 @@
+openmediavault-bcache (7.0.1-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:33:04 +0200
+
 openmediavault-bcache (7.0-2) stable; urgency=low
 
   * Initial release

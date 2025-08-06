@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Quim Farriol <qfarriol@valette.cat>, 2024
+# Quim Farriol <qfarriol@valette.cat>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-07-24 21:12+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2024\n"
+"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2025\n"
 "Language-Team: Catalan (Spain) (https://app.transifex.com/openmediavault/teams/14254/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,6 +87,9 @@ msgstr "Magatzem de dades"
 msgid "Date & Time"
 msgstr "Data i hora"
 
+msgid "Depends"
+msgstr "Depèn"
+
 msgid "Deployments"
 msgstr "Desplegaments"
 
@@ -116,6 +119,9 @@ msgstr "Activat"
 msgid "External IP"
 msgstr "IP externa"
 
+msgid "Failed"
+msgstr "Fallat"
+
 msgid "GID"
 msgstr "GID"
 
@@ -137,9 +143,6 @@ msgstr "Pàgina d'inici"
 msgid "ID"
 msgstr "ID"
 
-msgid "If present, the namespace scope for this request."
-msgstr "Si està present, l'àmbit de l'espai de noms d'aquesta sol·licitud."
-
 msgid "Image"
 msgstr "Imatge"
 
@@ -158,9 +161,6 @@ msgstr "Rutes d'entrada"
 msgid "Ingresses"
 msgstr "Ingresses"
 
-msgid "Invalid namespace"
-msgstr "Espai de noms no vàlid"
-
 msgid "Job"
 msgstr "Treball"
 
@@ -169,6 +169,12 @@ msgstr "Kubeconfig"
 
 msgid "Kubernetes"
 msgstr "Kubernetes"
+
+msgid "Kubernetes - Pods"
+msgstr "Kubernetes - Pods"
+
+msgid "Kubernetes - Resources"
+msgstr "Kubernetes - Recursos"
 
 msgid "Labels"
 msgstr "Etiquetes"
@@ -206,6 +212,9 @@ msgstr "PV"
 msgid "PVC"
 msgstr "PVC"
 
+msgid "Pending"
+msgstr "Pendent"
+
 msgid "Persistent Volume Claims"
 msgstr "Reclamacions de volum persistents"
 
@@ -227,11 +236,11 @@ msgstr "Port"
 msgid "Ports"
 msgstr "Ports"
 
+msgid "README"
+msgstr "LLEGEIX-ME"
+
 msgid "Ready"
 msgstr "A punt"
-
-msgid "Recipe"
-msgstr "Recepta"
 
 msgid "Recipe Information"
 msgstr "Informació de la recepta"
@@ -254,6 +263,9 @@ msgstr "Recursos"
 msgid "Restore"
 msgstr "Restaurar"
 
+msgid "Running"
+msgstr "Corrent"
+
 msgid "SQLite"
 msgstr "SQLite"
 
@@ -272,17 +284,32 @@ msgstr "Configuració"
 msgid "Shared Folders"
 msgstr "Carpetes compartides"
 
+msgid "Show README"
+msgstr "Mostra LLEGEIX-ME"
+
+msgid "Show the number of pods per status phase."
+msgstr "Mostra el nombre de pods per fase d'estat."
+
+msgid "Show the total number of several resources."
+msgstr "Mostra el nombre total de diversos recursos."
+
 msgid "Size"
 msgstr "Talla"
 
 msgid "Snapshots"
 msgstr "Imatges instantànies"
 
+msgid "Stateful Sets"
+msgstr "Conjunt d'estats"
+
 msgid "Status"
 msgstr "Estat"
 
 msgid "Storage Class"
 msgstr "Classe d'emmagatzematge"
+
+msgid "Succeeded"
+msgstr "Ha tingut èxit"
 
 msgid "Tag"
 msgstr "Etiqueta"
@@ -312,14 +339,20 @@ msgstr ""
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
-"Els següents marcadors de posició es poden utilitzar a les receptes per accedir a la informació global del sistema i a la base de dades de configuració:\n"
-"<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id, uuid=NULL)</li></ul>YHeu de denotar marcadors de posició amb claus dobles. Podeu trobar una visió general dels filtres addicionals disponibles <a href='https://twig.symfony.com/doc/filters/index.html' target='_blank'>aquí</a>."
+"Els següents marcadors de posició es poden utilitzar a les receptes per "
+"accedir a la informació global del sistema i a la base de dades de "
+"configuració: "
+"<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>Heu de denotar els marcadors de posició amb dobles "
+"claus. Podeu trobar una visió general dels filtres addicionals disponibles "
+"<a href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>aquí</a>."
 
 msgid "The location where to store etcd on-demand snapshots."
 msgstr "La ubicació on s'emmagatzemen les instantànies sota demanda etcd."
@@ -348,6 +381,9 @@ msgstr "Tipus"
 msgid "UID"
 msgstr "UID"
 
+msgid "Unknown"
+msgstr "Desconegut"
+
 msgid "Up-to-date"
 msgstr "Actualitzat"
 
@@ -357,11 +393,17 @@ msgstr "Configuració de Kubernetes actualitzada."
 msgid "Users"
 msgstr "Usuaris"
 
+msgid "Version"
+msgstr "Versió"
+
 msgid "View"
 msgstr "Vista"
 
 msgid "Volume"
 msgstr "Volum"
+
+msgid "YAML"
+msgstr "YAML"
 
 msgid "etcd"
 msgstr "etcd"

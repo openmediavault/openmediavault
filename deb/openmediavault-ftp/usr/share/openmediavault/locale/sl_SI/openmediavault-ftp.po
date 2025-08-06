@@ -5,15 +5,16 @@
 # 
 # Translators:
 # Miha Bezjak <miha@bezjak.info>, 2023
+# Valentin Korenjak <valentin@korenjak.si>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-ftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"POT-Creation-Date: 2025-04-04 00:41+0200\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
-"Last-Translator: Miha Bezjak <miha@bezjak.info>, 2023\n"
+"Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (https://app.transifex.com/openmediavault/teams/14254/sl_SI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,14 +28,28 @@ msgstr "0 KiB/s pomeni neomejeno."
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr ""
 
+msgid "Access mode"
+msgstr ""
+
 msgid "Advanced settings"
 msgstr "Napredne nastavitve"
 
 msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
 
+msgid ""
+"Allow users to log in without a password. Make sure the user <em>ftp</em> or"
+" group <em>nogroup</em> can access the files."
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "Anonimno FTP"
+
+msgid "Authenticated user ID"
+msgstr ""
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Ban Rules"
 msgstr ""
@@ -48,6 +63,9 @@ msgstr "Omejitev pasovne širine"
 msgid "Certificate"
 msgstr "Potrdilo"
 
+msgid "Completion status"
+msgstr ""
+
 msgid "Create"
 msgstr "Ustvari"
 
@@ -60,7 +78,13 @@ msgstr ""
 msgid "Currently logged in users:"
 msgstr "Trenutno prijavljeni uporabniki:"
 
+msgid "Date & Time"
+msgstr ""
+
 msgid "Deny logins which do not have a valid shell."
+msgstr ""
+
+msgid "Direction"
 msgstr ""
 
 msgid "Display the home directory of the user in the browse list."
@@ -96,12 +120,21 @@ msgstr "Dodatne nastavitve"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
+msgstr ""
+
+msgid "Filename"
+msgstr ""
+
+msgid "Filesize"
 msgstr ""
 
 msgid "Home directories"
@@ -167,6 +200,9 @@ msgstr "Največje število trenutvo priavljenih odjemalcev."
 msgid "Maximum upload rate (KiB/s)"
 msgstr "Največja hitrost oddajanja (KiB/s)"
 
+msgid "Message"
+msgstr ""
+
 msgid "Min. passive port"
 msgstr ""
 
@@ -204,6 +240,9 @@ msgstr "Vrata"
 msgid "Refresh time"
 msgstr ""
 
+msgid "Remote host"
+msgstr ""
+
 msgid "Require valid shell"
 msgstr "Zahtevaj veljavno lupino"
 
@@ -230,6 +269,9 @@ msgstr "Deljena mapa"
 
 msgid "Shares"
 msgstr "Vse deljene mape"
+
+msgid "Special action flag"
+msgstr ""
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -296,6 +338,12 @@ msgstr "Časovna omejitev"
 msgid "Transfer log"
 msgstr ""
 
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Updated FTP ban rule."
 msgstr ""
 
@@ -304,6 +352,9 @@ msgstr ""
 
 msgid "Use the following bandwidth restriction."
 msgstr ""
+
+msgid "User name"
+msgstr "Uporabniško ime"
 
 msgid "Welcome message"
 msgstr "Pozdravno sporočilo"

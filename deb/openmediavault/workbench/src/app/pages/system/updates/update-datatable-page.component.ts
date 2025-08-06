@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -81,6 +81,8 @@ export class UpdateDatatablePageComponent {
       { name: gettext('Homepage'), prop: 'homepage', flexGrow: 1, sortable: true, hidden: true }
     ],
     selectionType: 'single',
+    remoteSearching: false,
+    hasSearchField: true,
     limit: 0,
     sorters: [
       {

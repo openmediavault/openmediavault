@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -17,11 +17,14 @@
  */
 import { AfterViewInit, Directive, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as _ from 'lodash';
+import { EMPTY, Observable } from 'rxjs';
+import { catchError, finalize } from 'rxjs/operators';
 
 import { PageHintConfig } from '~/app/core/components/intuition/models/page-config.type';
 import { PageContext } from '~/app/core/models/page-context.type';
 import { PageContextService } from '~/app/core/services/page-context.service';
 import { formatDeep, isFormatable } from '~/app/functions.helper';
+import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
 
 @Directive()
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
@@ -29,11 +32,13 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit 
   @Input()
   config: T;
 
-  // Event emitted when the form has been created.
+  // Event emitted immediately after Angular has completed initialization
+  // of a component's view. It is invoked only once when the view is
+  // instantiated.
   @Output()
   readonly afterViewInitEvent = new EventEmitter();
 
-  protected constructor(protected pageContextService: PageContextService) {
+  protected constructor(public pageContextService: PageContextService) {
     // Is the component configured via route data?
     if (_.has(this.pageContext._routeConfig, 'data.config')) {
       this.config = _.cloneDeep(_.get(this.pageContext._routeConfig, 'data.config')) as T;
@@ -57,6 +62,19 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit 
 
   ngAfterViewInit(): void {
     this.afterViewInitEvent.emit();
+  }
+
+  loadData(...args: any): Observable<RpcObjectResponse> {
+    this.pageContextService.startLoading();
+    return this.doLoadData(...args).pipe(
+      catchError((error: any) => {
+        this.pageContextService.setError(error);
+        return EMPTY;
+      }),
+      finalize(() => {
+        this.pageContextService.stopLoading();
+      })
+    );
   }
 
   /**
@@ -96,4 +114,19 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit 
       }
     });
   }
+
+  /**
+   * Load the data for this page. Override this method to load the data.
+   * @returns An observable that emits the loaded data.
+   */
+  protected doLoadData(...args: any): Observable<any> {
+    return EMPTY;
+  }
+
+  /**
+   * Use this function body as a template for processing the data loaded using
+   * `doLoadData`. Override this method in your code.
+   * @param res The response data.
+   */
+  protected onLoadData(res: any): void {}
 }

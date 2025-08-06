@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -19,14 +19,15 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { EMPTY } from 'rxjs';
-import { catchError, distinctUntilChanged, finalize } from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
+import { distinctUntilChanged, finalize } from 'rxjs/operators';
 
 import { FormValues } from '~/app/core/components/intuition/models/form.type';
 import {
   FormPageButtonConfig,
   FormPageConfig
 } from '~/app/core/components/intuition/models/form-page-config.type';
+import { Unsubscribe } from '~/app/decorators';
 import { translate } from '~/app/i18n.helper';
 import { BaseFormPageComponent } from '~/app/pages/base-page-component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
@@ -41,6 +42,9 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
 })
 export class SharedFolderAclFormPageComponent extends BaseFormPageComponent implements OnInit {
+  @Unsubscribe()
+  private subscriptions = new Subscription();
+
   public config: FormPageConfig = {
     fields: [
       {
@@ -87,7 +91,7 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
             label: gettext('Owner'),
             hint: gettext('Permissions of owner.'),
             valueField: 'name',
-            textField: 'name',
+            textField: 'description',
             store: {
               proxy: {
                 service: 'UserMgmt',
@@ -100,7 +104,10 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
                   dir: 'asc',
                   prop: 'name'
                 }
-              ]
+              ],
+              transform: {
+                description: '{{ name }} [{{ uid }}]'
+              }
             },
             value: 'root'
           },
@@ -133,7 +140,7 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
             label: gettext('Group'),
             hint: gettext('Permissions of group.'),
             valueField: 'name',
-            textField: 'name',
+            textField: 'description',
             store: {
               proxy: {
                 service: 'UserMgmt',
@@ -146,7 +153,10 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
                   dir: 'asc',
                   prop: 'name'
                 }
-              ]
+              ],
+              transform: {
+                description: '{{ name }} [{{ gid }}]'
+              }
             },
             value: 'users'
           },
@@ -201,8 +211,15 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
         hasActionBar: true,
         hasSearchField: true,
         selectionType: 'none',
+        stateId: 'e949380a-52b4-11f0-94b6-37aaf1d214ed',
         columns: [
           { name: gettext('Name'), prop: 'name', flexGrow: 2, sortable: true },
+          {
+            name: gettext('ID'),
+            prop: 'id',
+            flexGrow: 1,
+            sortable: true
+          },
           {
             name: gettext('Type'),
             prop: 'type',
@@ -296,11 +313,18 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
 
   ngOnInit(): void {
     const self = this.page;
-    self.loadData = () => this.loadData('/');
-    self.afterViewInitEvent.subscribe(() => {
-      const control: AbstractControl = self.form.formGroup.get('file');
-      control?.valueChanges.pipe(distinctUntilChanged()).subscribe((value) => this.loadData(value));
-    });
+    // @ts-ignore
+    self.doLoadData = (): Observable<RpcObjectResponse> => this.doLoadData('/');
+    // @ts-ignore
+    self.onLoadData = (res: RpcObjectResponse): void => this.onLoadData(res);
+    this.subscriptions.add(
+      self.afterViewInitEvent.subscribe(() => {
+        const control: AbstractControl = self.form.formGroup.get('file');
+        control?.valueChanges.pipe(distinctUntilChanged()).subscribe((value) => {
+          this.doLoadData(value).subscribe();
+        });
+      })
+    );
   }
 
   onCopyPermissions() {
@@ -372,34 +396,34 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
       });
   }
 
-  protected loadData(file: string) {
+  protected doLoadData(file: string): Observable<RpcObjectResponse> {
     const uuid: string = _.get(this.page.pageContext._routeParams, 'uuid');
-    this.page.loading = true;
-    this.rpcService
-      .request('ShareMgmt', 'getFileACL', {
-        uuid,
-        file
+    return this.rpcService.request('ShareMgmt', 'getFileACL', {
+      uuid,
+      file
+    });
+  }
+
+  protected onLoadData(res: RpcObjectResponse): void {
+    _.map(res.acl.users, (user: Record<string, any>) =>
+      _.merge(user, {
+        id: _.get(user, 'uid'),
+        type: 'user'
       })
-      .pipe(
-        catchError((error) => {
-          this.page.error = error;
-          return EMPTY;
-        }),
-        finalize(() => {
-          this.page.loading = false;
-        })
-      )
-      .subscribe((res: RpcObjectResponse) => {
-        _.map(res.acl.users, (user: Record<string, any>) => _.set(user, 'type', 'user'));
-        _.map(res.acl.groups, (group: Record<string, any>) => _.set(group, 'type', 'group'));
-        this.page.setFormValues({
-          owner: res.owner,
-          group: res.group,
-          userperms: res.acl.user,
-          groupperms: res.acl.group,
-          otherperms: res.acl.other,
-          perms: _.concat(res.acl.users, res.acl.groups)
-        });
-      });
+    );
+    _.map(res.acl.groups, (group: Record<string, any>) =>
+      _.merge(group, {
+        id: _.get(group, 'gid'),
+        type: 'group'
+      })
+    );
+    this.page.setFormValues({
+      owner: res.owner,
+      group: res.group,
+      userperms: res.acl.user,
+      groupperms: res.acl.group,
+      otherperms: res.acl.other,
+      perms: _.concat(res.acl.users, res.acl.groups)
+    });
   }
 }

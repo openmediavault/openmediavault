@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -16,6 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component, Input } from '@angular/core';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'omv-progress-bar',
@@ -34,4 +35,15 @@ export class ProgressBarComponent {
 
   @Input()
   warningThreshold?: number;
+
+  get generatedText(): string {
+    const value = _.toNumber(this.value);
+    const decimalPlaces = _.defaultTo(this.decimalPlaces, 1);
+    return `${value.toFixed(decimalPlaces)}%`;
+  }
+
+  get isWarning(): boolean {
+    const value = _.toNumber(this.value);
+    return this.warningThreshold && this.warningThreshold > 0 && value >= this.warningThreshold;
+  }
 }

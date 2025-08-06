@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-21 10:04+0100\n"
+"POT-Creation-Date: 2025-05-07 17:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022,2025\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -678,9 +678,6 @@ msgstr "İstemci NetBIOS adı"
 
 msgid "Client address"
 msgstr "İstemci adresi"
-
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "Dosya sistemine bağlanmasına izin verilen kullanıcılar, örneğin 192.168.178.0/24"
 
 msgid "Close"
 msgstr "Kapat"
@@ -1472,6 +1469,9 @@ msgstr "Sistem adı"
 msgid "Hosts allow"
 msgstr "İzin verilen sistemler"
 
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
+
 msgid "Hosts deny"
 msgstr "Yasaklanan sistemler"
 
@@ -2170,6 +2170,9 @@ msgstr "Çalışmıyor"
 
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr ""
+
+msgid "Note, only one client can be configured per share."
 msgstr ""
 
 msgid "Nothing"
@@ -3405,7 +3408,7 @@ msgid ""
 "\") }}."
 msgstr ""
 
-msgid "The value must be on of the slave network interfaces."
+msgid "The value must be one of the slave network interfaces."
 msgstr ""
 
 msgid "The workgroup the server will appear to be in when queried by clients."

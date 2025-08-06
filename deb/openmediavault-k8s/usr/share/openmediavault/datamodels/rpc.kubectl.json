@@ -112,4 +112,23 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.kubectl.getstats",
+	"params": {
+		"type": "object",
+		"properties": {
+			"associative": {
+				"type": "boolean",
+				"required": false
+			},
+			"resources": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				},
+				"required": false
+			}
+		}
+	}
 }]

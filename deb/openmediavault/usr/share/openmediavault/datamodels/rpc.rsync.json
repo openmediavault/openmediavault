@@ -206,6 +206,7 @@
 			},
 			"password": {
 				"type": "string",
+				"format": "no-multi-line",
 				"required": true
 			},
 			"sshcertificateref": {

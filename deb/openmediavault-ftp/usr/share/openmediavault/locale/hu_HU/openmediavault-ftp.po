@@ -7,17 +7,17 @@
 # Volker Theile <votdev@gmx.de>, 2023
 # Ádám Balajti <balajtiadam@gmail.com>, 2023
 # Sári Gábor <sari.gabor@gmail.com>, 2023
-# Grawens <szabolcs.szanyi@gmail.com>, 2023
-# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2023
+# Grawens <szabolcs.szanyi@gmail.com>, 2025
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-ftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"POT-Creation-Date: 2025-04-04 00:41+0200\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2023\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,6 +31,9 @@ msgstr "0 kB/s korlátlan."
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "Nagy teljesítményű moduláris FTP/SFTP/FTPS kiszolgáló."
 
+msgid "Access mode"
+msgstr "Elérési mód"
+
 msgid "Advanced settings"
 msgstr "Haladó beállítások"
 
@@ -39,8 +42,22 @@ msgstr ""
 "Megszakadt feltöltések és letöltések folytatásának engedélyezése a kliensek "
 "számára."
 
+msgid ""
+"Allow users to log in without a password. Make sure the user <em>ftp</em> or"
+" group <em>nogroup</em> can access the files."
+msgstr ""
+"Jelszó nélküli bejelentkezés engedélyezése a felhasználók számára. Győződjön"
+" meg róla, hogy az <em>ftp</em> felhasználó vagy a <em>nogroup</em> csoport "
+"hozzáférhet a fájlokhoz."
+
 msgid "Anonymous FTP"
 msgstr "Névtelen FTP"
+
+msgid "Authenticated user ID"
+msgstr "Hitelesített felhasználói azonosító"
+
+msgid "Authentication method"
+msgstr "Hitelesítési mód"
 
 msgid "Ban Rules"
 msgstr "Tiltási szabályok"
@@ -54,6 +71,9 @@ msgstr "Sávszélesség korlátozás"
 msgid "Certificate"
 msgstr "Tanúsítvány"
 
+msgid "Completion status"
+msgstr "Befejezettségi állapot"
+
 msgid "Create"
 msgstr "Létrehozás"
 
@@ -66,8 +86,14 @@ msgstr "FTP megosztás létrehozva."
 msgid "Currently logged in users:"
 msgstr "Jelenleg bejelentkezett felhasználók:"
 
+msgid "Date & Time"
+msgstr "Dátum és idő"
+
 msgid "Deny logins which do not have a valid shell."
 msgstr "Bejelentkezések tiltása, ha nincs érvényes parancsértelmező"
+
+msgid "Direction"
+msgstr "Irány"
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "Felhasználó saját könyvtárának megjelenítése a böngészési listában."
@@ -105,6 +131,9 @@ msgstr "További beállítások"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr "FTP - átviteli napló"
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -114,6 +143,12 @@ msgid ""
 msgstr ""
 "FXP lehetővé teszi az átvitelt két távoli szerver között anélkül, hogy az "
 "adatfájl átvitelét a kliensnek is kérnie kellene."
+
+msgid "Filename"
+msgstr "Fájlnév"
+
+msgid "Filesize"
+msgstr "Fájlméret"
 
 msgid "Home directories"
 msgstr "Saját könyvtárak"
@@ -195,6 +230,9 @@ msgstr "Egyidejűleg bejelentkezett kliensek maximális száma."
 msgid "Maximum upload rate (KiB/s)"
 msgstr "Maximális feltöltési sebesség (KB/s)"
 
+msgid "Message"
+msgstr "Üzenet"
+
 msgid "Min. passive port"
 msgstr "Min. passzív port"
 
@@ -239,6 +277,9 @@ msgstr "Port"
 msgid "Refresh time"
 msgstr "Frissítési idő"
 
+msgid "Remote host"
+msgstr "Távoli kiszolgáló"
+
 msgid "Require valid shell"
 msgstr "Érvényes parancsértelmező szükséges"
 
@@ -265,6 +306,9 @@ msgstr "Megosztott mappa"
 
 msgid "Shares"
 msgstr "Megosztások"
+
+msgid "Special action flag"
+msgstr "Különleges műveletjelző"
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -349,6 +393,12 @@ msgstr "Időtúllépés"
 msgid "Transfer log"
 msgstr "Átviteli napló"
 
+msgid "Transfer time"
+msgstr "Átviteli idő"
+
+msgid "Transfer type"
+msgstr "Átvitel típusa"
+
 msgid "Updated FTP ban rule."
 msgstr "FTP tiltási szabály frissítve."
 
@@ -357,6 +407,9 @@ msgstr "FTP megosztás frissítve."
 
 msgid "Use the following bandwidth restriction."
 msgstr "A következő sávszélesség-korlátozás használata."
+
+msgid "User name"
+msgstr "Felhasználó neve"
 
 msgid "Welcome message"
 msgstr "Üdvözlő üzenet"

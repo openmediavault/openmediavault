@@ -5,6 +5,7 @@
 # Translators:
 # Milan Toet <milantoet@gmail.com>, 2012-2013
 # Varkentjes, 2020
+# Stephan Paternotte <stephan@paternottes.net>, 2025
 # Tim <co_ti@hotmail.com>, 2013-2014
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-03 12:24+0100\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
-"Last-Translator: Varkentjes, 2020\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,10 +29,10 @@ msgid "Charge"
 msgstr "Opladen"
 
 msgid "Comment"
-msgstr "Opmerking"
+msgstr "Commentaar"
 
 msgid "Date & Time"
-msgstr "Datum en tijd"
+msgstr "Datum & tijd"
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Bepaalt wanneer het afsluiten van het systeem wordt gestart."
@@ -49,7 +50,7 @@ msgid "Identifier"
 msgstr "Identificatie"
 
 msgid "Invalid identifier"
-msgstr ""
+msgstr "Ongeldige identificatie"
 
 msgid "Load"
 msgstr "Belasting"
@@ -70,7 +71,7 @@ msgid "Netclient password"
 msgstr "Netclient wachtwoord"
 
 msgid "Netclient user name"
-msgstr ""
+msgstr "Netclient gebruikersnaam"
 
 msgid "PID"
 msgstr "PID"
@@ -79,13 +80,13 @@ msgid "Password"
 msgstr "Wachtwoord"
 
 msgid "Powervalue"
-msgstr "Vermogenswaarde"
+msgstr "Energiewaarde"
 
 msgid "Program"
 msgstr "Toepassing"
 
 msgid "Remote monitoring"
-msgstr "Op afstand observeren"
+msgstr "Observatie op afstand"
 
 msgid "Service disabled"
 msgstr "Dienst uitgeschakeld"
@@ -132,13 +133,13 @@ msgid "UPS reaches low battery"
 msgstr "UPS heeft een laag spanningsniveau bereikt"
 
 msgid "Updated UPS settings."
-msgstr ""
+msgstr "UPS-instellingen bijgewerkt."
 
 msgid "Used for remote authentication."
-msgstr "Gebruikt voor authenticatie op afstand"
+msgstr "Gebruikt voor authenticatie op afstand."
 
 msgid "User name"
-msgstr ""
+msgstr "Gebruikersnaam"
 
 msgid "Voltage"
 msgstr "Spanning"

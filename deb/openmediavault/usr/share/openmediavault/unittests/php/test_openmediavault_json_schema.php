@@ -3,7 +3,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -18,7 +18,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/autoloader.inc");
 require_once("openmediavault/globals.inc");
@@ -296,5 +296,81 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 		]);
 		$this->expectException(\OMV\Json\SchemaValidationException::class);
 		$schema->validate("xyz");
+	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testValidateNot1() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "string",
+			"not" => [
+				"enum" => [ "local", "example", "invalid", "test" ]
+			]
+		]);
+		$schema->validate("foo");
+	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testValidateNot2() {
+		$schema = new \OMV\Json\Schema([
+			"not" => [
+				"type" => "string"
+			]
+		]);
+		$schema->validate(123);
+	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testValidateNot3() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "array",
+			"not" => [
+				"items" => [
+					"type" => "string",
+					"format" => "ipv4"
+				]
+			]
+		]);
+		$schema->validate([ "foo", "bar" ]);
+	}
+
+	public function testValidateNotFail1() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "string",
+			"not" => [
+				"enum" => [ "local", "example", "invalid", "test" ]
+			]
+		]);
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$schema->validate("local");
+	}
+
+	public function testValidateNotFail2() {
+		$schema = new \OMV\Json\Schema([
+			"not" => [
+				"type" => "string"
+			]
+		]);
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$schema->validate("bar");
+	}
+
+	public function testValidateNotFail3() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "array",
+			"not" => [
+				"items" => [
+					"type" => "string",
+					"format" => "ipv4"
+				]
+			]
+		]);
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$schema->validate([ "192.168.10.101", "192.168.10.102" ]);
 	}
 }

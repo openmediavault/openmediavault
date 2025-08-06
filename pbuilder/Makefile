@@ -1,6 +1,6 @@
 # This file is part of OpenMediaVault.
 #
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <votdev@gmx.de>
 # @copyright Copyright (c) 2009-2025 Volker Theile
 #
@@ -15,7 +15,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # This packages need to be installed to fix a pbuilder issue.
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=878961

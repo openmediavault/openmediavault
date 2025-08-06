@@ -1,14 +1,5 @@
-<ng-container *ngIf="loading">
-  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-  <omv-alert-panel type="info">
-    {{ "Please wait, the data is being loaded ..." | transloco }}
-  </omv-alert-panel>
-</ng-container>
-<omv-alert-panel *ngIf="error && !loading"
-                 type="error">
-  {{ error | httpErrorResponse:'message' }}
-</omv-alert-panel>
-<mat-card [ngClass]="{'omv-display-none': loading || error}">
+<omv-intuition-page-header></omv-intuition-page-header>
+<mat-card [ngClass]="{'omv-display-none': (pageStatus?.loading && pageStatus?.initialLoad) || pageStatus?.error}">
   <mat-toolbar *ngIf="config.multiple && config.hasSelectAllButton"
                class="omv-sticky">
     <button mat-icon-button

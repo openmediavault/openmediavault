@@ -8,16 +8,16 @@
 # Volker Theile <votdev@gmx.de>, 2023
 # Jacek Niedziółka <>, 2023
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2023
-# jacekniedziolka71 <lucas71@interia.pl>, 2023
+# jacekniedziolka71 <lucas71@interia.pl>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-ftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"POT-Creation-Date: 2025-04-04 00:41+0200\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
-"Last-Translator: jacekniedziolka71 <lucas71@interia.pl>, 2023\n"
+"Last-Translator: jacekniedziolka71 <lucas71@interia.pl>, 2025\n"
 "Language-Team: Polish (Poland) (https://app.transifex.com/openmediavault/teams/14254/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,14 +31,28 @@ msgstr "0 KiB/s oznacza nielimitowny."
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr ""
 
+msgid "Access mode"
+msgstr ""
+
 msgid "Advanced settings"
 msgstr "Zaawansowana konfiguracja"
 
 msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr "Zezwól klientom na dokończenie przerwanego wysyłania i pobierania."
 
+msgid ""
+"Allow users to log in without a password. Make sure the user <em>ftp</em> or"
+" group <em>nogroup</em> can access the files."
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "Anonimowy FTP"
+
+msgid "Authenticated user ID"
+msgstr ""
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Ban Rules"
 msgstr "Reguły wykluczenia"
@@ -52,6 +66,9 @@ msgstr "Ograniczenia łącza"
 msgid "Certificate"
 msgstr "Certyfikat"
 
+msgid "Completion status"
+msgstr ""
+
 msgid "Create"
 msgstr "Utwórz"
 
@@ -64,8 +81,14 @@ msgstr "Utworzono udział FTP."
 msgid "Currently logged in users:"
 msgstr "Aktualnie zalogowani użytkownicy:"
 
+msgid "Date & Time"
+msgstr ""
+
 msgid "Deny logins which do not have a valid shell."
 msgstr "Odrzuć loginy bez prawidłowej powłoki."
+
+msgid "Direction"
+msgstr ""
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "Wyświetl katalog domowy użytkownika na liście."
@@ -103,6 +126,9 @@ msgstr "Dodatkowe opcje"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -112,6 +138,12 @@ msgid ""
 msgstr ""
 "FXP pozwala na transfery między dwoma zdalnymi serwerami bez danych pliku do"
 " klienta z prośbą o przeniesienie."
+
+msgid "Filename"
+msgstr ""
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Home directories"
 msgstr "Katalog domowy"
@@ -190,6 +222,9 @@ msgstr "Maksymalna ilość jednocześnie podłązonych klientów."
 msgid "Maximum upload rate (KiB/s)"
 msgstr "Maksymalna szybkość wysyłania (KiB/s)"
 
+msgid "Message"
+msgstr ""
+
 msgid "Min. passive port"
 msgstr "Min. port pasywny"
 
@@ -234,6 +269,9 @@ msgstr "Port"
 msgid "Refresh time"
 msgstr "Czas odświeżania"
 
+msgid "Remote host"
+msgstr ""
+
 msgid "Require valid shell"
 msgstr "Wymagana odpowiednia powłoka."
 
@@ -260,6 +298,9 @@ msgstr "Katalog współdzielony"
 
 msgid "Shares"
 msgstr "Zasoby"
+
+msgid "Special action flag"
+msgstr ""
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -341,6 +382,12 @@ msgstr "Limit czasu"
 msgid "Transfer log"
 msgstr "Logi transferu"
 
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Updated FTP ban rule."
 msgstr "Zaktualizowano reguły wykluczenia FTP."
 
@@ -349,6 +396,9 @@ msgstr "Zaktualizowano udział FTP."
 
 msgid "Use the following bandwidth restriction."
 msgstr "Używaj następujących ograniczeń pasma."
+
+msgid "User name"
+msgstr "Nazwa użytkownika"
 
 msgid "Welcome message"
 msgstr "Wiadomość powitalna"

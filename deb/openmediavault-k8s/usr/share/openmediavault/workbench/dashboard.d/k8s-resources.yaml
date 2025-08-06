@@ -1,0 +1,24 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 74691730-6722-11f0-9273-6f65363ce93d
+  type: grid
+  reloadPeriod: 45000
+  permissions:
+    role:
+      - admin
+  title: _("Kubernetes - Resources")
+  description: _("Show the total number of several resources.")
+  grid:
+    item:
+      class: 'omv-text-center omv-text-nowrap omv-background-color-selected-button'
+      content: '{% set resourceText = { "configmaps": "Config Maps", "deployments": "Deployments", "namespaces": "Namespaces", "persistentvolumes": "PV", "pods": "Pods", "secrets": "Secrets", "services": "Services", "statefulsets": "Stateful Sets" } %}{{ resourceText[name] | translate }}<br>{{ total }}'
+      contentClass: 'omv-text-truncate'
+    store:
+      proxy:
+        service: Kubectl
+        get:
+          method: getStats
+      sorters:
+        - prop: name
+          dir: asc

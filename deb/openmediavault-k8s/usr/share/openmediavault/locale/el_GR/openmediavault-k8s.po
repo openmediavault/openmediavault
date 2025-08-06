@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Kostas Moho, 2024
+# Kostas Moho, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-07-24 21:12+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Kostas Moho, 2024\n"
+"Last-Translator: Kostas Moho, 2025\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Absolute Path"
-msgstr "Απόλυτη Διαδρομή"
+msgstr "Πλήρης Διαδρομή"
 
 msgid "Access Modes"
 msgstr "Καταστάσεις Πρόσβασης"
@@ -87,6 +87,9 @@ msgstr "Αποθετήριο"
 msgid "Date & Time"
 msgstr "Ημερομηνία & Ώρα"
 
+msgid "Depends"
+msgstr "Εξαρτήσεις"
+
 msgid "Deployments"
 msgstr "Ενεργοποιήσεις"
 
@@ -116,6 +119,9 @@ msgstr "Ενεργό"
 msgid "External IP"
 msgstr "Εξωτερική ΙΡ"
 
+msgid "Failed"
+msgstr "Απέτυχε"
+
 msgid "GID"
 msgstr "GID"
 
@@ -137,9 +143,6 @@ msgstr "Αρχική Σελίδα"
 msgid "ID"
 msgstr "ID"
 
-msgid "If present, the namespace scope for this request."
-msgstr "Εφόσον υπάρχει, η εμβέλεια του χώρου ονομάτων για αυτό το αίτημα."
-
 msgid "Image"
 msgstr "Εικόνα"
 
@@ -158,9 +161,6 @@ msgstr "Διαδρομές Εισόδου"
 msgid "Ingresses"
 msgstr "Είσοδοι"
 
-msgid "Invalid namespace"
-msgstr "Άκυρος χώρος ονομάτων"
-
 msgid "Job"
 msgstr "Εργασία"
 
@@ -169,6 +169,12 @@ msgstr "Kubeconfig"
 
 msgid "Kubernetes"
 msgstr "Kubernetes"
+
+msgid "Kubernetes - Pods"
+msgstr "Kubernetes - Κάψουλες"
+
+msgid "Kubernetes - Resources"
+msgstr "Kubernetes - Πόροι"
 
 msgid "Labels"
 msgstr "Ετικέτες"
@@ -206,6 +212,9 @@ msgstr "PV"
 msgid "PVC"
 msgstr "PVC"
 
+msgid "Pending"
+msgstr "Εκκρεμότητες"
+
 msgid "Persistent Volume Claims"
 msgstr "Αξιώσεις Μόνιμων Τόμων"
 
@@ -227,11 +236,11 @@ msgstr "Θύρα"
 msgid "Ports"
 msgstr "Θύρες"
 
+msgid "README"
+msgstr "README"
+
 msgid "Ready"
 msgstr "Έτοιμο"
-
-msgid "Recipe"
-msgstr "Συνταγή"
 
 msgid "Recipe Information"
 msgstr "Πληροφορίες Συνταγής"
@@ -254,6 +263,9 @@ msgstr "Πόροι"
 msgid "Restore"
 msgstr "Αποκατάσταση"
 
+msgid "Running"
+msgstr "Εκτελείται"
+
 msgid "SQLite"
 msgstr "SQLite"
 
@@ -272,17 +284,32 @@ msgstr "Ρυθμίσεις"
 msgid "Shared Folders"
 msgstr "Κοινόχρηστοι Φάκελοι"
 
+msgid "Show README"
+msgstr "Εμφάνιση README"
+
+msgid "Show the number of pods per status phase."
+msgstr "Εμφάνιση του αριθμού των καψουλών ανά φάση κατάστασης"
+
+msgid "Show the total number of several resources."
+msgstr "Εμφάνιση του συνολικού αριθμού διάφορων πόρων"
+
 msgid "Size"
 msgstr "Μέγεθος"
 
 msgid "Snapshots"
 msgstr "Στιγμιότυπα"
 
+msgid "Stateful Sets"
+msgstr "Ομάδες Καταστάσεων"
+
 msgid "Status"
 msgstr "Κατάσταση"
 
 msgid "Storage Class"
 msgstr "Τάξη Αποθήκευσης"
+
+msgid "Succeeded"
+msgstr "Επιτυχημένο"
 
 msgid "Tag"
 msgstr "Ετικέτα"
@@ -313,17 +340,17 @@ msgstr ""
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
 "Οι ακόλουθοι συμβολισμοί μπορούν να χρησιμοποιηθούν σε συνταγές για να "
-"δώσουν πρόσβαση σε γενικές πληροφορίες συστήματος και διαμόρφωσης "
-":<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"δώσουν πρόσβαση σε γενικές πληροφορίες συστήματος και διαμόρφωσης : "
+"<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>Οι συμβολισμοί πρέπει να υποδηλώνονται με διπλές "
-"αγκύλες.  Μια σύνοψη των επιπλέον διαθέσιμων φίλτρων βρίσκεται<a "
+"αγκύλες. Μια σύνοψη των επιπλέον διαθέσιμων φίλτρων βρίσκεται <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>εδώ</a>."
 
@@ -354,6 +381,9 @@ msgstr "Τύπος"
 msgid "UID"
 msgstr "UID"
 
+msgid "Unknown"
+msgstr "Άγνωστο"
+
 msgid "Up-to-date"
 msgstr "Ενημερωμένο"
 
@@ -363,11 +393,17 @@ msgstr "Ενημέρωση ρυθμίσεων Kubernetes."
 msgid "Users"
 msgstr "Χρήστες"
 
+msgid "Version"
+msgstr "Έκδοση"
+
 msgid "View"
 msgstr "Προβολή"
 
 msgid "Volume"
 msgstr "Τόμος"
+
+msgid "YAML"
+msgstr "YAML"
 
 msgid "etcd"
 msgstr "etcd"

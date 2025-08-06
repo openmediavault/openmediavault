@@ -87,7 +87,7 @@ data:
                     arg0:
                       prop: devices
                   arg1: 2
-              errorData: _("A maximum of two device can be removed.")
+              errorData: _("A maximum of two devices can be removed.")
     buttons:
       - template: submit
         execute:

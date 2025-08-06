@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -15,20 +15,18 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { EMPTY, Subscription, timer } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { EMPTY, exhaustMap, Observable, Subscription, timer } from 'rxjs';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import {
   TextPageButtonConfig,
   TextPageConfig
 } from '~/app/core/components/intuition/models/text-page-config.type';
-import { PageContextService } from '~/app/core/services/page-context.service';
+import { PageContextService, PageStatus } from '~/app/core/services/page-context.service';
 import { Unsubscribe } from '~/app/decorators';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
@@ -51,9 +49,8 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
   @Unsubscribe()
   private subscriptions: Subscription = new Subscription();
 
-  public error: HttpErrorResponse;
-  public icon = Icon;
-  public loading = false;
+  protected icon = Icon;
+  protected pageStatus: PageStatus;
 
   constructor(
     @Inject(PageContextService) pageContextService: PageContextService,
@@ -67,12 +64,18 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
 
   override ngOnInit(): void {
     super.ngOnInit();
+    const intervalDuration =
+      _.isNumber(this.config.autoReload) && this.config.autoReload > 0
+        ? this.config.autoReload
+        : null;
     this.subscriptions.add(
-      timer(
-        0,
-        _.isNumber(this.config.autoReload) ? (this.config.autoReload as number) : null
-      ).subscribe(() => {
-        this.loadData();
+      timer(0, intervalDuration)
+        .pipe(exhaustMap(() => this.loadData()))
+        .subscribe((res: any) => this.onLoadData(res))
+    );
+    this.subscriptions.add(
+      this.pageContextService.status$.subscribe((status: PageStatus): void => {
+        this.pageStatus = status;
       })
     );
   }
@@ -90,32 +93,29 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
     }
   }
 
-  loadData() {
+  onReload() {
+    this.subscriptions.add(this.loadData().subscribe((res: any) => this.onLoadData(res)));
+  }
+
+  protected override doLoadData(): Observable<any> {
     const request = this.config.request;
-    if (_.isPlainObject(request) && _.isString(request.service) && _.isPlainObject(request.get)) {
-      this.loading = true;
-      // noinspection DuplicatedCode
-      this.rpcService[request.get.task ? 'requestTask' : 'request'](
-        request.service,
-        request.get.method,
-        request.get.params
-      )
-        .pipe(
-          catchError((error) => {
-            this.error = error;
-            return EMPTY;
-          }),
-          finalize(() => {
-            this.loading = false;
-          })
-        )
-        .subscribe((res: any) => {
-          if (_.isString(request.get.format) && RpcObjectResponse.isType(res)) {
-            res = RpcObjectResponse.format(request.get.format, res);
-          }
-          this.renderer2.setProperty(this._textContainer.nativeElement, 'textContent', res);
-        });
+    if (!(_.isString(request?.service) && _.isPlainObject(request?.get))) {
+      return EMPTY;
     }
+    return this.rpcService[request.get.task ? 'requestTask' : 'request'](
+      request.service,
+      request.get.method,
+      request.get.params
+    );
+  }
+
+  protected override onLoadData(res: any): void {
+    const request = this.config.request;
+    let value: any = res;
+    if (_.isString(request.get.format) && RpcObjectResponse.isType(res)) {
+      value = RpcObjectResponse.format(request.get.format, res);
+    }
+    this.renderer2.setProperty(this._textContainer.nativeElement, 'textContent', value);
   }
 
   protected override sanitizeConfig() {
@@ -123,6 +123,7 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
       autoReload: false,
       hasReloadButton: false,
       hasCopyToClipboardButton: false,
+      wrapText: true,
       buttonAlign: 'end',
       buttons: []
     });

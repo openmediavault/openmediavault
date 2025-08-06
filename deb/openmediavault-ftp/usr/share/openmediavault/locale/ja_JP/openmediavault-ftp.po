@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-ftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 12:27+0100\n"
+"POT-Creation-Date: 2025-04-04 00:41+0200\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2023\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/openmediavault/teams/14254/ja_JP/)\n"
@@ -28,14 +28,28 @@ msgstr "0 KiB/s は無制限となります。"
 msgid "A powerful modular FTP/SFTP/FTPS server."
 msgstr "強力なモジュール式FTP/SFTP/FTPSサーバーです。"
 
+msgid "Access mode"
+msgstr ""
+
 msgid "Advanced settings"
 msgstr "高度な設定"
 
 msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr "アップロードとダウンロードの中断時のレジュームをクライアントに許可します。"
 
+msgid ""
+"Allow users to log in without a password. Make sure the user <em>ftp</em> or"
+" group <em>nogroup</em> can access the files."
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "Anonymous FTP"
+
+msgid "Authenticated user ID"
+msgstr ""
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Ban Rules"
 msgstr "禁止ルール"
@@ -49,6 +63,9 @@ msgstr "帯域幅の制限"
 msgid "Certificate"
 msgstr "証明書"
 
+msgid "Completion status"
+msgstr ""
+
 msgid "Create"
 msgstr "作成"
 
@@ -61,8 +78,14 @@ msgstr "FTP共有を作成しました。"
 msgid "Currently logged in users:"
 msgstr "現在のログインユーザー:"
 
+msgid "Date & Time"
+msgstr ""
+
 msgid "Deny logins which do not have a valid shell."
 msgstr "有効なシェルを持っていないログインを拒否します。"
+
+msgid "Direction"
+msgstr ""
 
 msgid "Display the home directory of the user in the browse list."
 msgstr "参照リストにユーザーのホームディレクトリを表示します。"
@@ -98,6 +121,9 @@ msgstr "その他のオプション"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -105,6 +131,12 @@ msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
 msgstr "FXPはクライアントを経由しなくても２つのリモートサーバ間でデータ転送を行えます。"
+
+msgid "Filename"
+msgstr ""
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Home directories"
 msgstr "ホームディレクトリ"
@@ -173,6 +205,9 @@ msgstr "クライアントの同時接続最大数。"
 msgid "Maximum upload rate (KiB/s)"
 msgstr "最大アップロード速度 (KiB/s)"
 
+msgid "Message"
+msgstr ""
+
 msgid "Min. passive port"
 msgstr "最小パッシブポート"
 
@@ -217,6 +252,9 @@ msgstr "ポート"
 msgid "Refresh time"
 msgstr "リフレッシュ時間"
 
+msgid "Remote host"
+msgstr ""
+
 msgid "Require valid shell"
 msgstr "有効なシェルが必要です"
 
@@ -243,6 +281,9 @@ msgstr "共有フォルダ"
 
 msgid "Shares"
 msgstr "共有"
+
+msgid "Special action flag"
+msgstr ""
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -312,6 +353,12 @@ msgstr "タイムアウト"
 msgid "Transfer log"
 msgstr "転送ログ"
 
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Updated FTP ban rule."
 msgstr "FTP禁止ルールを更新しました。"
 
@@ -320,6 +367,9 @@ msgstr "FTP共有を更新しました。"
 
 msgid "Use the following bandwidth restriction."
 msgstr "以下の帯域制限を利用してください。"
+
+msgid "User name"
+msgstr ""
 
 msgid "Welcome message"
 msgstr "ウェルカムメッセージ"

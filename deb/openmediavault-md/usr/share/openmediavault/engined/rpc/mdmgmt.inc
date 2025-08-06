@@ -2,7 +2,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -17,7 +17,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
 namespace Engined\Rpc;
 
@@ -71,17 +71,18 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 		$result = [];
 		foreach ($devs as $devk => $devv) {
 			$raid = new \OMV\System\Storage\StorageDeviceMd($devv);
-			if (!$raid->exists())
+			if (!$raid->exists()) {
 				continue;
+			}
+			// Check if the RAID device is in use:
+			// - Does it contain a file system?
+			// - Is it used by another storage device?
 			$used = FALSE;
-			// Is this RAID device used by another storage device?
-			if (\OMV\System\Storage\StorageDevice::isUsed(
-			  $raid->getDeviceFile())) {
+			if (FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName",
+					[ "fsname" => $raid->getDeviceFile() ], $context)) {
 				$used = TRUE;
-			// Does the RAID device contain a filesystem and is it used?
-			} else if (FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName", [
-				"fsname" => $raid->getDeviceFile()
-			], $context)) {
+			} else if (\OMV\System\Storage\StorageDevice::isUsed(
+					$raid->getDeviceFile())) {
 				$used = TRUE;
 			}
 			$result[] = [

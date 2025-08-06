@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -15,26 +15,26 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatSelectionList, MatSelectionListChange } from '@angular/material/list';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { EMPTY } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { EMPTY, Observable, Subscription } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import {
   SelectionListPageButtonConfig,
   SelectionListPageConfig
 } from '~/app/core/components/intuition/models/selection-list-page-config.type';
-import { PageContextService } from '~/app/core/services/page-context.service';
+import { PageContextService, PageStatus } from '~/app/core/services/page-context.service';
+import { Unsubscribe } from '~/app/decorators';
 import { format, toBoolean } from '~/app/functions.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { Dirty } from '~/app/shared/models/dirty.interface';
-import { DataStoreService } from '~/app/shared/services/data-store.service';
+import { DataStoreResponse, DataStoreService } from '~/app/shared/services/data-store.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 
 @Component({
@@ -50,10 +50,12 @@ export class SelectionListPageComponent
   @ViewChild('list', { static: true })
   list: MatSelectionList;
 
-  public error: HttpErrorResponse;
-  public loading = false;
-  public dirty = false;
-  public data: Record<string, any>[] = [];
+  @Unsubscribe()
+  private subscriptions = new Subscription();
+
+  protected dirty = false;
+  protected data: Record<string, any>[] = [];
+  protected pageStatus: PageStatus;
 
   constructor(
     @Inject(PageContextService) pageContextService: PageContextService,
@@ -66,7 +68,31 @@ export class SelectionListPageComponent
 
   override ngOnInit(): void {
     super.ngOnInit();
-    this.loadData();
+    this.subscriptions.add(
+      this.pageContextService.status$.subscribe((status: PageStatus): void => {
+        this.pageStatus = status;
+      })
+    );
+    this.subscriptions.add(
+      this.loadData().subscribe(
+        () => {
+          // Extract the selected values from the loaded data.
+          if (!_.isEmpty(this.config.selectedProp)) {
+            const value = [];
+            _.forEach(this.config.store.data, (item) => {
+              const selectedFieldValue = _.get(item, this.config.selectedProp, false);
+              if (toBoolean(selectedFieldValue)) {
+                value.push(_.get(item, this.config.valueProp));
+              }
+            });
+            this.config.value = value;
+          }
+        },
+        () => {
+          this.config.store.data = [];
+        }
+      )
+    );
   }
 
   isDirty(): boolean {
@@ -134,7 +160,7 @@ export class SelectionListPageComponent
       .save(store)
       .pipe(
         catchError((error) => {
-          this.error = error;
+          this.pageContextService.setError(error);
           return EMPTY;
         })
       )
@@ -162,8 +188,8 @@ export class SelectionListPageComponent
       buttonAlign: 'end',
       buttons: [],
       multiple: false,
-      valueField: 'value',
-      textField: 'text',
+      valueProp: 'value',
+      textProp: 'text',
       selectedField: undefined,
       updateInline: false,
       value: []
@@ -202,37 +228,7 @@ export class SelectionListPageComponent
     }
   }
 
-  private loadData() {
-    const store = this.config.store;
-    this.loading = true;
-    this.dataStoreService
-      .load(store)
-      .pipe(
-        catchError((error) => {
-          this.error = error;
-          return EMPTY;
-        }),
-        finalize(() => {
-          this.loading = false;
-        })
-      )
-      .subscribe(
-        () => {
-          // Extract the selected values from the loaded data.
-          if (!_.isEmpty(this.config.selectedProp)) {
-            const value = [];
-            _.forEach(this.config.store.data, (item) => {
-              const selectedFieldValue = _.get(item, this.config.selectedProp, false);
-              if (toBoolean(selectedFieldValue)) {
-                value.push(_.get(item, this.config.valueProp));
-              }
-            });
-            this.config.value = value;
-          }
-        },
-        () => {
-          store.data = [];
-        }
-      );
+  protected override doLoadData(): Observable<DataStoreResponse> {
+    return this.dataStoreService.load(this.config.store);
   }
 }

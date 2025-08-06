@@ -1,9 +1,11 @@
 <form [attr.id]="id"
       [formGroup]="formGroup">
   <ng-container *ngFor="let field of config">
-    <ng-container [ngTemplateOutlet]="renderFormField"
-                  [ngTemplateOutletContext]="{ $implicit: field }">
-    </ng-container>
+    <p>
+      <ng-container [ngTemplateOutlet]="renderFormField"
+                    [ngTemplateOutletContext]="{ $implicit: field }">
+      </ng-container>
+    </p>
   </ng-container>
 </form>
 
@@ -144,10 +146,9 @@
     </ng-template>
 
     <ng-template [ngSwitchCase]="'container'">
-      <div class="omv-form-container omv-box-border omv-display-flex omv-flex-row omv-gap-3 omv-align-items-baseline">
+      <div class="omv-form-container omv-box-border omv-display-flex omv-flex-row omv-flex-wrap omv-gap-3 omv-align-items-stretch">
         <div *ngFor="let innerField of field.fields"
-             class="omv-form-container-item omv-max-w-{{ innerField.flex ?? 'none' }}"
-             [ngClass]="{'omv-flex-grow': innerField.flex, 'omv-flex-1': !innerField.flex }">
+             class="omv-form-container-item omv-flex-1">
           <ng-container [ngTemplateOutlet]="renderFormField"
                         [ngTemplateOutletContext]="{ $implicit: innerField }">
           </ng-container>
@@ -174,6 +175,13 @@
                             [config]="field"
                             [formGroup]="formGroup">
       </omv-form-code-editor>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'card'">
+      <omv-form-card class="omv-display-flex omv-flex-fill"
+                     [config]="field"
+                     [formGroup]="formGroup">
+      </omv-form-card>
     </ng-template>
   </ng-container>
 </ng-template>

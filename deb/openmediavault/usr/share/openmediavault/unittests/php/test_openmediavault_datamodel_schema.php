@@ -3,7 +3,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -18,7 +18,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/autoloader.inc");
 require_once("openmediavault/globals.inc");
@@ -155,5 +155,21 @@ class test_openmediavault_datamodel_schema extends \PHPUnit\Framework\TestCase {
 		$this->expectException(\OMV\Json\SchemaValidationException::class);
 		$schema->checkFormat("FOO]BAR",
 			[ "format" => "netbiosname" ], "field1");
+	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testCheckFormatNoMultiLine1() {
+		$schema = $this->getSchema();
+		$schema->checkFormat("foo123",
+			[ "format" => "no-multi-line" ], "field1");
+	}
+
+	public function testCheckFormatNoMultiLine2() {
+		$schema = $this->getSchema();
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$schema->checkFormat("foo\r\nbar",
+			[ "format" => "no-multi-line" ], "field1");
 	}
 }

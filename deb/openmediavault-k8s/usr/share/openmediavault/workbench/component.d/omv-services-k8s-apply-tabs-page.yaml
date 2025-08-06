@@ -6,7 +6,7 @@ data:
   config:
     tabs:
       - type: form
-        label: _("Manifest")
+        label: _("YAML")
         config:
           request:
             service: K8s
@@ -18,15 +18,6 @@ data:
             post:
               method: applyRecipe
           fields:
-            - type: textInput
-              name: namespace
-              label: _("Namespace")
-              hint: _("If present, the namespace scope for this request.")
-              value: ""
-              validators:
-                pattern:
-                  pattern: "^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9]){0,1}$"
-                  errorData: _("Invalid namespace")
             - type: codeEditor
               name: manifest
               label: _("Manifest")

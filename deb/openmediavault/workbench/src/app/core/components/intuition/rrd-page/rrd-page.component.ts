@@ -1,7 +1,7 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2025 Volker Theile
  *
@@ -15,23 +15,23 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
-import { EMPTY } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import {
   RrdPageConfig,
   RrdPageGraphConfig
 } from '~/app/core/components/intuition/models/rrd-page-config.type';
-import { PageContextService } from '~/app/core/services/page-context.service';
+import { PageContextService, PageStatus } from '~/app/core/services/page-context.service';
+import { Unsubscribe } from '~/app/decorators';
 import { format, formatDeep, unixTimeStamp } from '~/app/functions.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
-import { DataStoreService } from '~/app/shared/services/data-store.service';
+import { DataStoreResponse, DataStoreService } from '~/app/shared/services/data-store.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
@@ -41,17 +41,19 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   providers: [PageContextService]
 })
 export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> implements OnInit {
-  public monitoringEnabled = true;
-  public error: HttpErrorResponse;
-  public icon = Icon;
-  public loading = false;
-  public time: number;
-  public tabs: Array<{
+  @Unsubscribe()
+  private subscriptions = new Subscription();
+
+  protected monitoringEnabled = true;
+  protected icon = Icon;
+  protected time: number;
+  protected tabs: Array<{
     label: string;
     graphs: Array<RrdPageGraphConfig>;
   }> = [];
+  protected pageStatus: PageStatus;
 
-  public monitoringDisabledMessage: string = gettext(
+  protected monitoringDisabledMessage: string = gettext(
     "System monitoring is disabled. To enable it, please go to the <a href='#/system/monitoring'>settings page</a>."
   );
 
@@ -71,20 +73,14 @@ export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> imple
   override ngOnInit(): void {
     super.ngOnInit();
     this.time = unixTimeStamp();
+    this.subscriptions.add(
+      this.pageContextService.status$.subscribe((status: PageStatus): void => {
+        this.pageStatus = status;
+      })
+    );
     if (this.config?.store) {
-      this.loading = true;
-      this.dataStoreService
-        .load(this.config.store)
-        .pipe(
-          catchError((error) => {
-            this.error = error;
-            return EMPTY;
-          }),
-          finalize(() => {
-            this.loading = false;
-          })
-        )
-        .subscribe(() => {
+      this.subscriptions.add(
+        this.loadData().subscribe(() => {
           _.forEach(this.config.store.data, (item: Record<any, any>) => {
             const label = format(this.config.label, item);
             const graphs: RrdPageGraphConfig[] = _.map(
@@ -93,7 +89,8 @@ export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> imple
             );
             this.tabs.push({ label, graphs });
           });
-        });
+        })
+      );
     }
   }
 
@@ -110,5 +107,9 @@ export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> imple
         // Force redrawing the images.
         this.time = unixTimeStamp();
       });
+  }
+
+  protected override doLoadData(): Observable<DataStoreResponse> {
+    return this.dataStoreService.load(this.config.store);
   }
 }

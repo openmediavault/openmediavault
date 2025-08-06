@@ -4,9 +4,9 @@
   <div *ngIf="data"
        class="widget-content omv-grid omv-gap-1">
     <div *ngFor="let item of data.data"
-         class="item"
+         class="item omv-rounded"
          [ngClass]="config.grid?.item.class | template:item"
-         matTooltipClass="omv-text-wrap-line"
+         matTooltipClass="omv-text-wrap"
          [matTooltip]="config.grid?.item.tooltip | template:item | br2nl | preventHtml"
          [tabIndex]="config.grid?.item.url ? '0' : '-1'"
          (keyup.space)="onClick(item)"
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div *ngIf="!data.data.length && config.grid.hasEmptyMessage"
-         class="item omv-text-center omv-background-color-pair-info">
+         class="item omv-rounded omv-text-center omv-background-color-pair-info">
       <div class="content">
         {{ config.grid.emptyMessage | transloco }}
       </div>

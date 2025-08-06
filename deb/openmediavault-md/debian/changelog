@@ -1,3 +1,16 @@
+openmediavault-md (7.0.5-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:43:34 +0200
+
+openmediavault-md (7.0.4-1) stable; urgency=medium
+
+  * Update locale files.
+  * Add `Referenced` column to the `Multiple Device` page.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 22 Mar 2025 07:07:45 +0100
+
 openmediavault-md (7.0.3-1) stable; urgency=low
 
   * Issue #1862: Use LC_ALL environment variable instead of LANG.

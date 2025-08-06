@@ -6,17 +6,17 @@
 # Translators:
 # 王大山, 2024
 # songming <by@songming.me>, 2024
-# kochin <kochinc@outlook.com>, 2024
-# 黃柏諺 <s8321414@gmail.com>, 2024
+# 黃柏諺 <s8321414@gmail.com>, 2025
+# kochin <kochinc@outlook.com>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 17:36+0200\n"
+"POT-Creation-Date: 2025-07-24 21:12+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2024\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -90,6 +90,9 @@ msgstr "資料儲存"
 msgid "Date & Time"
 msgstr "日期與時間"
 
+msgid "Depends"
+msgstr "依賴"
+
 msgid "Deployments"
 msgstr "部署"
 
@@ -116,6 +119,9 @@ msgstr "已啟用"
 msgid "External IP"
 msgstr "外部 IP"
 
+msgid "Failed"
+msgstr "失敗"
+
 msgid "GID"
 msgstr "GID"
 
@@ -137,9 +143,6 @@ msgstr "首頁"
 msgid "ID"
 msgstr "ID"
 
-msgid "If present, the namespace scope for this request."
-msgstr "若存在，則為此請求的命名空間範圍。"
-
 msgid "Image"
 msgstr "镜像"
 
@@ -158,9 +161,6 @@ msgstr "Ingress 路由"
 msgid "Ingresses"
 msgstr "Ingresses"
 
-msgid "Invalid namespace"
-msgstr "無效的命名空間"
-
 msgid "Job"
 msgstr "工作"
 
@@ -169,6 +169,12 @@ msgstr "Kubeconfig"
 
 msgid "Kubernetes"
 msgstr "Kubernetes"
+
+msgid "Kubernetes - Pods"
+msgstr "Kubernetes - 艙莢"
+
+msgid "Kubernetes - Resources"
+msgstr "Kubernetes - 資源"
 
 msgid "Labels"
 msgstr "標號"
@@ -206,6 +212,9 @@ msgstr "PV"
 msgid "PVC"
 msgstr "PVC"
 
+msgid "Pending"
+msgstr "待處理中"
+
 msgid "Persistent Volume Claims"
 msgstr "持久卷冊聲明"
 
@@ -227,11 +236,11 @@ msgstr "端口"
 msgid "Ports"
 msgstr "端口"
 
+msgid "README"
+msgstr "讀我檔案"
+
 msgid "Ready"
 msgstr "準備好"
-
-msgid "Recipe"
-msgstr "食譜"
 
 msgid "Recipe Information"
 msgstr "食譜資訊"
@@ -254,6 +263,9 @@ msgstr "資源"
 msgid "Restore"
 msgstr "還原"
 
+msgid "Running"
+msgstr "執行中"
+
 msgid "SQLite"
 msgstr "SQLite"
 
@@ -272,17 +284,32 @@ msgstr "設定"
 msgid "Shared Folders"
 msgstr "共享資料夾"
 
+msgid "Show README"
+msgstr "顯示讀我檔案"
+
+msgid "Show the number of pods per status phase."
+msgstr "顯示各狀態中的艙莢個數。"
+
+msgid "Show the total number of several resources."
+msgstr "顯示幾項資源的總數。"
+
 msgid "Size"
 msgstr "大小"
 
 msgid "Snapshots"
 msgstr "快照"
 
+msgid "Stateful Sets"
+msgstr "有狀態組合"
+
 msgid "Status"
 msgstr "状态"
 
 msgid "Storage Class"
 msgstr "儲存類別"
+
+msgid "Succeeded"
+msgstr "成功"
 
 msgid "Tag"
 msgstr "标签"
@@ -309,14 +336,14 @@ msgstr ""
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
 "system information and the configuration "
-"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
 " uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
 "braces. An overview of additional available filters can be found <a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
-"可以在配方中使用以下佔位字串來存取全域系統資訊與設定資料庫：<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
-" uuid=NULL)</li></ul>您必須用雙大括號表示佔位字串。可以在<a "
+"可以在配方中使用以下佔位字串來存取全域系統資訊與組態資料庫：<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>您必須用一對大括號來表示佔位字串。可以在<a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>此處</a>找到其他可用篩選條件的概覽。"
 
@@ -347,6 +374,9 @@ msgstr "類型"
 msgid "UID"
 msgstr "UID"
 
+msgid "Unknown"
+msgstr "未知"
+
 msgid "Up-to-date"
 msgstr "最新"
 
@@ -356,11 +386,17 @@ msgstr "已更新 Kubernetes 設定。"
 msgid "Users"
 msgstr "用戶"
 
+msgid "Version"
+msgstr "版本"
+
 msgid "View"
 msgstr "檢視"
 
 msgid "Volume"
 msgstr "卷宗"
+
+msgid "YAML"
+msgstr "YAML"
 
 msgid "etcd"
 msgstr "etcd"
