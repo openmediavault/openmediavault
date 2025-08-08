@@ -6,8 +6,9 @@
 {%- set recycle_touch_mtime = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_TOUCH_MTIME', 'no') -%}
 {%- set recycle_directory_mode = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_DIRECTORYMODE', '0777') -%}
 {%- set recycle_subdir_mode = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_SUBDIRMODE', '0700') -%}
-{%- set recycle_exclude = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_EXCLUDE', '') -%}
-{%- set recycle_exclude_dir = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_EXCLUDEDIR', '') -%}
+{%- set recycle_exclude = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_EXCLUDE', '*.tmp, *.TMP, *.temp, *.TEMP, *.~lock*, *.o, *.obj, ~$*, ~*.*') -%}
+{%- set recycle_exclude_dir = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_EXCLUDEDIR', '/cache, /CACHE, /recycle, /RECYCLE, /tmp, /TMP, /temp, /TEMP') -%}
+{%- set recycle_noversions = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_NOVERSIONS', '*.tmp, *.TMP, *.temp, *.TEMP, *.o, *.obj, ~*.*') -%}
 {%- set full_audit_prefix = salt['pillar.get']('default:OMV_SAMBA_SHARE_AUDIT_PREFIX', '%u|%I|%m|%P|%S') -%}
 {%- set full_audit_success = salt['pillar.get']('default:OMV_SAMBA_SHARE_AUDIT_SUCCESS', 'mkdirat renameat unlinkat pwrite') -%}
 {%- set full_audit_failure = salt['pillar.get']('default:OMV_SAMBA_SHARE_AUDIT_FAILURE', 'connect') -%}
@@ -83,6 +84,7 @@ recycle:directory_mode = {{ recycle_directory_mode }}
 recycle:subdir_mode = {{ recycle_subdir_mode }}
 recycle:exclude = {{ recycle_exclude }}
 recycle:exclude_dir = {{ recycle_exclude_dir }}
+recycle:noversions = {{ recycle_noversions }}
 recycle:maxsize = {{ share.recyclemaxsize }}
 {%- endif %}
 {%- if share.sharedfolderref | omv_conf_get_by_identifier('conf.system.sharedfolder') | attr('mntentref') | omv_conf_get_by_identifier('conf.system.filesystem.mountpoint') | attr('type') == 'btrfs' %}
