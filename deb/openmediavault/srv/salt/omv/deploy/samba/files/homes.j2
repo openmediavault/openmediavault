@@ -14,8 +14,9 @@
 {%- set recycle_touch_mtime = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_TOUCH_MTIME', 'no') -%}
 {%- set recycle_directory_mode = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_DIRECTORYMODE', '0777') -%}
 {%- set recycle_subdir_mode = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_SUBDIRMODE', '0700') -%}
-{%- set recycle_exclude = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_EXCLUDE', '') -%}
-{%- set recycle_exclude_dir = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_EXCLUDEDIR', '.recycle') -%}
+{%- set recycle_exclude = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_EXCLUDE', '*.tmp, *.TMP, *.temp, *.TEMP, *.~lock*, *.o, *.obj, ~$*, ~*.*') -%}
+{%- set recycle_exclude_dir = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_EXCLUDEDIR', '/cache, /CACHE, /recycle, /RECYCLE, /tmp, /TMP, /temp, /TEMP') -%}
+{%- set recycle_noversions = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_NOVERSIONS', '*.tmp, *.TMP, *.temp, *.TEMP, *.o, *.obj, ~*.*') -%}
 {%- set shadow_sort = salt['pillar.get']('default:OMV_SAMBA_HOMES_SHADOW_SORT', 'desc') -%}
 {%- set dfree_command = salt['pillar.get']('default:OMV_SAMBA_HOMES_DFREECOMMAND', '/usr/sbin/omv-btrfs-dfree') -%}
 {%- set dfree_cache_time = salt['pillar.get']('default:OMV_SAMBA_HOMES_DFREECACHETIME', '30') -%}
@@ -46,6 +47,7 @@ recycle:directory_mode = {{ recycle_directory_mode }}
 recycle:subdir_mode = {{ recycle_subdir_mode }}
 recycle:exclude = {{ recycle_exclude }}
 recycle:exclude_dir = {{ recycle_exclude_dir }}
+recycle:noversions = {{ recycle_noversions }}
 {%- endif %}
 {%- if enable_timemachine_vfs | to_bool %}
 {%- set _ = vfs_objects.append('fruit') %}

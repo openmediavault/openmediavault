@@ -590,6 +590,7 @@ case "$1" in
 			deb-systemd-invoke restart chrony.service || :
 			salt-call --local --retcode-passthrough --no-color state.orchestrate \
 				omv.setup.shell >/dev/null || :
+			omv_module_set_dirty samba
 		fi
 
 		########################################################################
