@@ -16,7 +16,7 @@
 {%- set recycle_subdir_mode = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_SUBDIRMODE', '0700') -%}
 {%- set recycle_exclude = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_EXCLUDE', '') -%}
 {%- set recycle_exclude_dir = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_EXCLUDEDIR', '.recycle') -%}
-{%- set shadow_sort = salt['pillar.get']('default:OMV_SAMBA_SHARE_SHADOW_SORT', 'desc') -%}
+{%- set shadow_sort = salt['pillar.get']('default:OMV_SAMBA_HOMES_SHADOW_SORT', 'desc') -%}
 {%- set dfree_command = salt['pillar.get']('default:OMV_SAMBA_HOMES_DFREECOMMAND', '/usr/sbin/omv-btrfs-dfree') -%}
 {%- set dfree_cache_time = salt['pillar.get']('default:OMV_SAMBA_HOMES_DFREECACHETIME', '30') -%}
 #======================= Home Directories =======================
