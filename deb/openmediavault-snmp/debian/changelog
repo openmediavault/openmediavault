@@ -1,3 +1,9 @@
+openmediavault-snmp (8.0-1) stable; urgency=medium
+
+  * Adapt to openmediavault 8.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:50:30 +0200
+
 openmediavault-snmp (7.0.1-1) stable; urgency=medium
 
   * Update locale files.
