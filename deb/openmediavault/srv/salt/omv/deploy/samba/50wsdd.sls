@@ -22,7 +22,7 @@
 
 configure_default_wsdd:
   file.managed:
-    - name: "/etc/default/wsdd"
+    - name: "/etc/wsdd-server/defaults"
     - contents: |
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
@@ -33,4 +33,4 @@ configure_default_wsdd:
 
 divert_default_wsdd:
   omv_dpkg.divert_add:
-    - name: "/etc/default/wsdd"
+    - name: "/etc/wsdd-server/defaults"
