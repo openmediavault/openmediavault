@@ -421,7 +421,7 @@ class NetworkInterface {
 		//   lan2:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
 		//   ext1:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
 		//   ext2:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
-		$regex = sprintf('/^\s*%s:(.*)$/im', $this->getDeviceName());
+		$regex = sprintf('/^\s*%s:[\s]?(.*)$/im', $this->getDeviceName());
 		if (1 !== preg_match($regex, file_get_contents("/proc/net/dev"),
 				$matches)) {
 			return FALSE;
