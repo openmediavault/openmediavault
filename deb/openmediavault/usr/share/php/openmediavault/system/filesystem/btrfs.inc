@@ -199,6 +199,9 @@ class Btrfs extends Filesystem {
 					$efficiency = 1 - (2 / $numDevices);
 					$factor = 1 / $efficiency;
 					break;
+				default:
+					$factor = 1.0;
+					break;
 			}
 
 			// Allocated extents size.

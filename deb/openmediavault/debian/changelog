@@ -1,5 +1,8 @@
 openmediavault (7.7.15-1) stable; urgency=medium
 
+  * Improve BTRFS backend implementation to handle RAID1C3 and RAID1C4
+    profiles. Additionally unknown RAID profiles will not break the
+    code anymore.
   * Issue #2001: Fix bug in network statistics.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 09 Aug 2025 14:06:01 +0200
