@@ -608,7 +608,7 @@ function json_validate($data, $schema, &$errors = NULL): bool {
 		$jsonSchema->validate($data);
 		$result = TRUE;
 	} catch(\Exception $e) {
-		$errors = array($e->getMessage());
+		$errors = [$e->getMessage()];
 	}
 	return $result;
 }
