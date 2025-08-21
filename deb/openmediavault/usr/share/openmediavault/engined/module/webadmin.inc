@@ -22,13 +22,23 @@
 namespace Engined\Module;
 
 class Webadmin extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener {
+		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\INotification {
 	public function getName() {
 		return "webadmin";
 	}
 
 	public function deploy() {
 		// Nothing to do here.
+	}
+
+	public function getNotificationConfig() {
+		return [
+			[
+				"id" => "authentication",
+				"type" => getText("System"),
+				"title" => gettext("Authentication"),
+			]
+		];
 	}
 
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {

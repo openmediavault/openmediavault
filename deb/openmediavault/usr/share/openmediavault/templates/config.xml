@@ -111,6 +111,11 @@
 					<id>apt</id>
 					<enable>1</enable>
 				</notification>
+				<notification>
+					<uuid>ce287478-5429-46c7-9e06-438a2aba8499</uuid>
+					<id>authentication</id>
+					<enable>1</enable>
+				</notification>
 			</notifications>
 		</notification>
 		<certificates>

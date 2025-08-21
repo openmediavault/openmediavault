@@ -115,25 +115,36 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 				}
 			}
 			if (TRUE === $firstLogIn) {
-				// Send the notification email to the user.
-				$subject = sprintf("Your user account was used to log in to ".
-					"the %s control panel via a web browser.", $prd->getName());
-				$message = sprintf("Dear %s,\n\n".
-					"your user account was used to log in to %s (%s) via a web browser.\n\n".
-					"Date and time: %s\n".
-					"Remote address: %s\n".
-					"User agent: %s\n\n".
-					"If you recently logged in to the control panel, you can disregard this email. ".
-					"If you have not logged in recently and believe someone may have accessed ".
-					"your account, you should reset your password.\n\n".
-					"Sincerely,\n".
-					"your %s system",
-					$params['username'], \OMV\System\Net\Dns::getFqdn(),
-					$server->getServerAddr(), date('r'), $server->getClientIP(),
-					$server->getUserAgent(), $prd->getName());
-				$mail = new \OMV\Email("root", $params['username'],
-					$subject, $message);
-				$mail->send();
+				// Send the notification email to the user?
+				try {
+					$notificationEnabled = \OMV\Rpc\Rpc::call("Notification",
+						"isEnabled", ["id" => "authentication"],
+						$this->getAdminContext(), \OMV\Rpc\Rpc::MODE_REMOTE);
+				} catch (\Exception $e) {
+					// Force the sending of the notification email if the
+					// RPC fails.
+					$notificationEnabled = TRUE;
+				}
+				if (TRUE == $notificationEnabled) {
+					$subject = sprintf("Your user account was used to log in to ".
+						"the %s control panel via a web browser.", $prd->getName());
+					$message = sprintf("Dear %s,\n\n".
+						"your user account was used to log in to %s (%s) via a web browser.\n\n".
+						"Date and time: %s\n".
+						"Remote address: %s\n".
+						"User agent: %s\n\n".
+						"If you recently logged in to the control panel, you can disregard this email. ".
+						"If you have not logged in recently and believe someone may have accessed ".
+						"your account, you should reset your password.\n\n".
+						"Sincerely,\n".
+						"your %s system",
+						$params['username'], \OMV\System\Net\Dns::getFqdn(),
+						$server->getServerAddr(), date('r'), $server->getClientIP(),
+						$server->getUserAgent(), $prd->getName());
+					$mail = new \OMV\Email("root", $params['username'],
+						$subject, $message);
+					$mail->send();
+				}
 				// Set a cookie. It will expire after 60 days. The user name
 				// is crypted/hashed to be unable to reverse engineer the
 				// account names from the cookie. Finally encode the hashed
