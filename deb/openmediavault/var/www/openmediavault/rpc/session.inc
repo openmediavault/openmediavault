@@ -89,6 +89,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		$prefix = mb_strtoupper(sprintf("%s-LOGIN", $prd->getName()));
 		// Open connection to system logger.
 		openlog($ident, LOG_PID | LOG_PERROR, LOG_AUTH);
+		$_ = defer("closelog");
 		if (TRUE === $authenticated) {
 			// Log the successful login attempt via syslog.
 			syslog(LOG_ALERT, sprintf("Authorized login from %s ".
@@ -154,11 +155,9 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 			syslog(LOG_ALERT, sprintf("Unauthorized login attempt from %s ".
 				"[username=%s, user-agent=%s]", $server->getClientIP(),
 				$params['username'], $server->getUserAgent()));
-			closelog();
 			throw new \OMV\HttpErrorException(400,
 				_("Incorrect username or password."));
 		}
-		closelog();
 		return [
 			"authenticated" => $authenticated,
 			"username" => $params['username'],
