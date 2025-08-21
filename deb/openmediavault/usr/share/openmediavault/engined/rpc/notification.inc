@@ -211,7 +211,7 @@ class Notification extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em id The notification identifier.
 	 * @param context The context of the caller.
-	 * @return TRUE if the serice is enabled, otherwise FALSE.
+	 * @return TRUE if the service is enabled, otherwise FALSE.
 	 */
 	function isEnabled($params, $context) {
 		// Validate the RPC caller context.
