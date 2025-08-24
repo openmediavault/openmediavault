@@ -43,13 +43,15 @@ do
   stats=$(btrfs device stats ${OMV_BTRFS_ERROR_CHECK_CMD_ARGS} "${target}")
   if [ $? -ne 0 ]; then
     omv_syslog_warning "Errors were detected on the file system mounted at ${target} [UUID=${uuid}]."
-    # Ignore the file system notification settings because of the
-    # importance of this message.
-    (
-      echo "Errors were detected on the Btrfs file system with UUID ${uuid}.";
-      echo ""
-      echo "${stats}"
-    ) | mail -E -s "Errors were detected on the file system mounted at ${target} [UUID=${uuid}]" root
+
+    # Send a notification by email?
+    if omv_is_notifications_enabled && omv_is_notification_enabled_by_id "misc"; then
+      (
+        echo "Errors were detected on the Btrfs file system with UUID ${uuid}.";
+        echo ""
+        echo "${stats}"
+      ) | mail -E -s "Errors were detected on the file system mounted at ${target} [UUID=${uuid}]" root
+    fi
   else
     omv_syslog_info "No errors found on file system mounted at ${target} [UUID=${uuid}]."
   fi
