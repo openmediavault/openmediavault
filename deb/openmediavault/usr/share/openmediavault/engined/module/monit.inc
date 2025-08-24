@@ -40,23 +40,23 @@ class Monit extends \OMV\Engine\Module\ServiceAbstract
 			[
 				"id" => "monitprocevents",
 				"type" => getText("System"),
-				"title" => gettext("Process monitoring")
+				"title" => gettext("Monitoring - Processes")
 			],[
 				"id" => "monitloadavg",
 				"type" => getText("System"),
-				"title" => gettext("Load average")
+				"title" => gettext("Monitoring - Load average")
 			],[
 				"id" => "monitcpuusage",
 				"type" => getText("System"),
-				"title" => gettext("CPU usage")
+				"title" => gettext("Monitoring - CPU usage")
 			],[
 				"id" => "monitmemoryusage",
 				"type" => getText("System"),
-				"title" => gettext("Memory usage")
+				"title" => gettext("Monitoring - Memory usage")
 			],[
 				"id" => "monitfilesystems",
 				"type" => getText("Storage"),
-				"title" => gettext("File systems")
+				"title" => gettext("Monitoring - File systems")
 			]
 		];
 	}
