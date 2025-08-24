@@ -76,7 +76,7 @@ openmediavault (7.7.6-1) stable; urgency=security
   * Add search field to the `Diagnostics | System Logs | Logs` page.
   * Display more information about the last/current scrub run on the
     BTRFS details page.
-  * Improve validation of RPCs that contain passwords.
+  * Improve validation of RPCs that contain passwords (CVE-2025-50674).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 25 Apr 2025 10:22:31 +0200
 
