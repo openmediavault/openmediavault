@@ -51,7 +51,7 @@ class Notification extends \OMV\Rpc\ServiceAbstract {
 				"title" => gettext("Authentication"),
 			], [
 				"id" => "misc",
-				"type" => getText("System"),
+				"type" => getText("General"),
 				"title" => gettext("Miscellaneous"),
 			]
 		];
