@@ -44,7 +44,17 @@ class Notification extends \OMV\Rpc\ServiceAbstract {
 	 * Get the notification configuration of all registered modules.
 	 */
 	private function getNotificationConfig() {
-		$result = [];
+		$result = [
+			[
+				"id" => "authentication",
+				"type" => getText("System"),
+				"title" => gettext("Authentication"),
+			], [
+				"id" => "misc",
+				"type" => getText("System"),
+				"title" => gettext("Miscellaneous"),
+			]
+		];
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
 		foreach ($modules as $modulev) {

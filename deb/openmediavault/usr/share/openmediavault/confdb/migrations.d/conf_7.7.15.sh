@@ -23,9 +23,16 @@ set -e
 
 . /usr/share/openmediavault/scripts/helper-functions
 
-if ! omv_config_exists "/config/system/notification/notifications/notification[id='authentication']"; then
+if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"id","arg1":"authentication"}' \
+		"conf.system.notification.notification"; then
 	omv_config_add_node_data "/config/system/notification/notifications" "notification" \
 		"<uuid>ce287478-5429-46c7-9e06-438a2aba8499</uuid><id>authentication</id><enable>1</enable>"
+fi
+
+if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"id","arg1":"misc"}' \
+		"conf.system.notification.notification"; then
+	omv_config_add_node_data "/config/system/notification/notifications" "notification" \
+		"<uuid>6a0ca6b0-81a5-11f0-a77e-e72b7329fa76</uuid><id>misc</id><enable>1</enable>"
 fi
 
 exit 0

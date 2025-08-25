@@ -116,6 +116,11 @@
 					<id>authentication</id>
 					<enable>1</enable>
 				</notification>
+				<notification>
+					<uuid>6a0ca6b0-81a5-11f0-a77e-e72b7329fa76</uuid>
+					<id>misc</id>
+					<enable>1</enable>
+				</notification>
 			</notifications>
 		</notification>
 		<certificates>
