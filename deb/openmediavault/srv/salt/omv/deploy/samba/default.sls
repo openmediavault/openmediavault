@@ -76,7 +76,7 @@ stop_samba_service_nmbd:
 
 start_wsdd_service:
   service.running:
-    - name: wsdd
+    - name: wsdd-server
     - enable: True
 
 {% endif %}
@@ -95,7 +95,7 @@ stop_samba_service_nmbd:
 
 stop_wsdd_service:
   service.dead:
-    - name: wsdd
+    - name: wsdd-server
     - enable: False
 
 {% endif %}
