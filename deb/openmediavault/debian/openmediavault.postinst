@@ -166,8 +166,6 @@ case "$1" in
 			deb-systemd-invoke start systemd-resolved.service || :
 			deb-systemd-helper enable systemd-journald.service
 			deb-systemd-invoke start systemd-journald.service || :
-			deb-systemd-helper enable rsyslog.service
-			deb-systemd-invoke start rsyslog.service || :
 			deb-systemd-helper enable unattended-upgrades.service
 			deb-systemd-invoke start unattended-upgrades.service || :
 		fi
@@ -591,6 +589,9 @@ case "$1" in
 			salt-call --local --retcode-passthrough --no-color state.orchestrate \
 				omv.setup.shell >/dev/null || :
 			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.7.15"; then
+			omv_module_set_dirty rsyslog
 		fi
 
 		########################################################################

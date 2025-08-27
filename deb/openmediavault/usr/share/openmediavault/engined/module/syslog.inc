@@ -27,10 +27,18 @@ class Syslog extends \OMV\Engine\Module\ServiceAbstract
 		return "rsyslog";
 	}
 
+	public function getDescription() {
+		return gettext("Reliable system and kernel logging daemon.");
+	}
+
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 			OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.system.syslog.remote",
+			[$this, "setDirty"]);
+		$dispatcher->addListener(
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.notification.notification",
 			[$this, "setDirty"]);
 	}
 }
