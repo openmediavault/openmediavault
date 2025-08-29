@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 17:34+0200\n"
+"POT-Creation-Date: 2025-08-26 18:11+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -20,6 +20,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "%CPU"
+msgstr ""
+
+msgid "%MEM"
+msgstr ""
 
 msgid "%d days"
 msgstr ""
@@ -580,6 +586,9 @@ msgstr "브루키나 파소"
 msgid "Burundi"
 msgstr "부룬디"
 
+msgid "COMMAND"
+msgstr ""
+
 msgid "CPU"
 msgstr ""
 
@@ -588,9 +597,6 @@ msgstr ""
 
 msgid "CPU Utilization"
 msgstr ""
-
-msgid "CPU usage"
-msgstr "CPU 사용량"
 
 msgid "Cambodia"
 msgstr "캄보디아"
@@ -1267,9 +1273,6 @@ msgstr ""
 msgid "File system"
 msgstr "파일 시스템"
 
-msgid "File systems"
-msgstr ""
-
 msgid "Filename"
 msgstr "파일 이름"
 
@@ -1810,9 +1813,6 @@ msgstr "리투아니아"
 msgid "Load Average"
 msgstr ""
 
-msgid "Load average"
-msgstr "평균 부하량"
-
 msgid "Loading ..."
 msgstr "로딩 중 ..."
 
@@ -1946,9 +1946,6 @@ msgstr ""
 msgid "Memory Usage"
 msgstr ""
 
-msgid "Memory usage"
-msgstr "메모리 사용량"
-
 msgid "Message"
 msgstr "메시지"
 
@@ -1967,6 +1964,12 @@ msgstr "프랑스 본국"
 msgid "Mexico"
 msgstr "멕시코"
 
+msgid "MiB Mem"
+msgstr ""
+
+msgid "MiB Swap"
+msgstr ""
+
 msgid "Micronesia"
 msgstr "미크로네시아"
 
@@ -1984,6 +1987,9 @@ msgstr ""
 
 msgid "Minute"
 msgstr "분"
+
+msgid "Miscellaneous"
+msgstr ""
 
 msgid "Missing"
 msgstr "누락"
@@ -2014,6 +2020,21 @@ msgstr ""
 
 msgid "Monitoring"
 msgstr "감시"
+
+msgid "Monitoring - CPU usage"
+msgstr ""
+
+msgid "Monitoring - File systems"
+msgstr ""
+
+msgid "Monitoring - Load average"
+msgstr ""
+
+msgid "Monitoring - Memory usage"
+msgstr ""
+
+msgid "Monitoring - Processes"
+msgstr ""
 
 msgid "Monitoring enabled"
 msgstr ""
@@ -2053,6 +2074,9 @@ msgstr "미얀마"
 
 msgid "NFS"
 msgstr "NFS"
+
+msgid "NI"
+msgstr ""
 
 msgid "NTP time servers, separated by comma."
 msgstr ""
@@ -2239,6 +2263,12 @@ msgstr "오세아니아 외곽"
 
 msgid "Owner"
 msgstr "소유자"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "PR"
+msgstr ""
 
 msgid "Pacific Islands Trust Territory"
 msgstr "태평양 제도 신탁통치령"
@@ -2508,9 +2538,6 @@ msgstr "주 전자우편"
 msgid "Private key"
 msgstr "개인 키"
 
-msgid "Process monitoring"
-msgstr "프로세스 감시"
-
 msgid "Processes"
 msgstr "프로세스"
 
@@ -2552,6 +2579,9 @@ msgstr "빠르게"
 
 msgid "Quota"
 msgstr "할당량"
+
+msgid "RES"
+msgstr ""
 
 msgid "RSync server"
 msgstr "RSync 서버"
@@ -2679,6 +2709,9 @@ msgstr "러시아"
 msgid "Rwanda"
 msgstr "르완다"
 
+msgid "S"
+msgstr ""
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T"
 
@@ -2687,6 +2720,9 @@ msgstr ""
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "선택된 장치에 대해 S.M.A.R.T 모니터링이 반드시 활성화되어야 합니다."
+
+msgid "SHR"
+msgstr ""
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2985,6 +3021,9 @@ msgstr "보조"
 msgid "Sleep"
 msgstr "휴면"
 
+msgid "Sleeping"
+msgstr ""
+
 msgid "Slovakia"
 msgstr "슬로바키아"
 
@@ -3110,6 +3149,12 @@ msgstr "상태"
 msgid "Stop"
 msgstr "정지"
 
+msgid "Stopped by debugger during trace"
+msgstr ""
+
+msgid "Stopped by job control signal"
+msgstr ""
+
 msgid "Storage"
 msgstr "저장소"
 
@@ -3192,6 +3237,9 @@ msgstr ""
 
 msgid "TCP forwarding"
 msgstr "TCP 포워드"
+
+msgid "TIME+"
+msgstr ""
 
 msgid "Tags"
 msgstr ""
@@ -3696,6 +3744,9 @@ msgstr "UID"
 msgid "UNKNOWN"
 msgstr "알 수 없는"
 
+msgid "USER"
+msgstr ""
+
 msgid "UUID"
 msgstr ""
 
@@ -3712,6 +3763,9 @@ msgid "Uninstall"
 msgstr "제거"
 
 msgid "Uninstall plugin"
+msgstr ""
+
+msgid "Uninterruptible sleep"
 msgstr ""
 
 msgid "Union of Soviet Socialist Republics"
@@ -3962,6 +4016,9 @@ msgstr ""
 msgid "Uzbekistan"
 msgstr "우즈베키스탄"
 
+msgid "VIRT"
+msgstr ""
+
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -4095,6 +4152,9 @@ msgstr "잠비아"
 
 msgid "Zimbabwe"
 msgstr "짐바브웨"
+
+msgid "Zombie"
+msgstr ""
 
 msgid "a day"
 msgstr ""

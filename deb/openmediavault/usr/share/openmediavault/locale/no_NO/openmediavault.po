@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 17:34+0200\n"
+"POT-Creation-Date: 2025-08-26 18:11+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
 "Language-Team: Norwegian (http://app.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -18,6 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: no\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%CPU"
+msgstr ""
+
+msgid "%MEM"
+msgstr ""
 
 msgid "%d days"
 msgstr ""
@@ -578,6 +584,9 @@ msgstr "Burkina Faso"
 msgid "Burundi"
 msgstr "Burundi"
 
+msgid "COMMAND"
+msgstr ""
+
 msgid "CPU"
 msgstr ""
 
@@ -586,9 +595,6 @@ msgstr ""
 
 msgid "CPU Utilization"
 msgstr ""
-
-msgid "CPU usage"
-msgstr "CPU belastning"
 
 msgid "Cambodia"
 msgstr "Kambodsja"
@@ -1265,9 +1271,6 @@ msgstr ""
 msgid "File system"
 msgstr ""
 
-msgid "File systems"
-msgstr ""
-
 msgid "Filename"
 msgstr "Filnavn"
 
@@ -1808,9 +1811,6 @@ msgstr "Lithauen"
 msgid "Load Average"
 msgstr ""
 
-msgid "Load average"
-msgstr "Snittlast"
-
 msgid "Loading ..."
 msgstr "Laster ..."
 
@@ -1944,9 +1944,6 @@ msgstr ""
 msgid "Memory Usage"
 msgstr ""
 
-msgid "Memory usage"
-msgstr "Minnebruk"
-
 msgid "Message"
 msgstr ""
 
@@ -1965,6 +1962,12 @@ msgstr "France métropolitaine"
 msgid "Mexico"
 msgstr "Mexico"
 
+msgid "MiB Mem"
+msgstr ""
+
+msgid "MiB Swap"
+msgstr ""
+
 msgid "Micronesia"
 msgstr "Mikronesia"
 
@@ -1982,6 +1985,9 @@ msgstr ""
 
 msgid "Minute"
 msgstr "Minutt"
+
+msgid "Miscellaneous"
+msgstr ""
 
 msgid "Missing"
 msgstr "Mangler"
@@ -2012,6 +2018,21 @@ msgstr ""
 
 msgid "Monitoring"
 msgstr "Overvåkning"
+
+msgid "Monitoring - CPU usage"
+msgstr ""
+
+msgid "Monitoring - File systems"
+msgstr ""
+
+msgid "Monitoring - Load average"
+msgstr ""
+
+msgid "Monitoring - Memory usage"
+msgstr ""
+
+msgid "Monitoring - Processes"
+msgstr ""
 
 msgid "Monitoring enabled"
 msgstr ""
@@ -2051,6 +2072,9 @@ msgstr "Myanmar"
 
 msgid "NFS"
 msgstr "NFS"
+
+msgid "NI"
+msgstr ""
 
 msgid "NTP time servers, separated by comma."
 msgstr ""
@@ -2237,6 +2261,12 @@ msgstr "Outlying Oceania"
 
 msgid "Owner"
 msgstr "Eier"
+
+msgid "PID"
+msgstr ""
+
+msgid "PR"
+msgstr ""
 
 msgid "Pacific Islands Trust Territory"
 msgstr "USAs stillehavsprotektorat"
@@ -2506,9 +2536,6 @@ msgstr "Primær epost"
 msgid "Private key"
 msgstr "Privat nøkkel"
 
-msgid "Process monitoring"
-msgstr "Prosess overvåkning"
-
 msgid "Processes"
 msgstr "Prosesser"
 
@@ -2550,6 +2577,9 @@ msgstr "Hurtig"
 
 msgid "Quota"
 msgstr "Kvote"
+
+msgid "RES"
+msgstr ""
 
 msgid "RSync server"
 msgstr "RSync server"
@@ -2677,6 +2707,9 @@ msgstr "Russland"
 msgid "Rwanda"
 msgstr "Rwanda"
 
+msgid "S"
+msgstr ""
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
@@ -2685,6 +2718,9 @@ msgstr ""
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. overvåkning må aktiveres for den gjeldende enheten."
+
+msgid "SHR"
+msgstr ""
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2983,6 +3019,9 @@ msgstr "Slaver"
 msgid "Sleep"
 msgstr "Dvale"
 
+msgid "Sleeping"
+msgstr ""
+
 msgid "Slovakia"
 msgstr "Slovakia"
 
@@ -3108,6 +3147,12 @@ msgstr "Status"
 msgid "Stop"
 msgstr "Stopp"
 
+msgid "Stopped by debugger during trace"
+msgstr ""
+
+msgid "Stopped by job control signal"
+msgstr ""
+
 msgid "Storage"
 msgstr "Lagring"
 
@@ -3190,6 +3235,9 @@ msgstr ""
 
 msgid "TCP forwarding"
 msgstr "TCP videresending"
+
+msgid "TIME+"
+msgstr ""
 
 msgid "Tags"
 msgstr ""
@@ -3694,6 +3742,9 @@ msgstr ""
 msgid "UNKNOWN"
 msgstr "UKJENT"
 
+msgid "USER"
+msgstr ""
+
 msgid "UUID"
 msgstr ""
 
@@ -3710,6 +3761,9 @@ msgid "Uninstall"
 msgstr "Avinstaller"
 
 msgid "Uninstall plugin"
+msgstr ""
+
+msgid "Uninterruptible sleep"
 msgstr ""
 
 msgid "Union of Soviet Socialist Republics"
@@ -3960,6 +4014,9 @@ msgstr ""
 msgid "Uzbekistan"
 msgstr "Usbekistan"
 
+msgid "VIRT"
+msgstr ""
+
 msgid "VLAN"
 msgstr ""
 
@@ -4093,6 +4150,9 @@ msgstr "Sambia"
 
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
+
+msgid "Zombie"
+msgstr ""
 
 msgid "a day"
 msgstr ""

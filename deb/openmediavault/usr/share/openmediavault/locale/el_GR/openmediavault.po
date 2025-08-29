@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 17:34+0200\n"
+"POT-Creation-Date: 2025-08-26 18:11+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2025\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -17,6 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: el_GR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%CPU"
+msgstr "%CPU"
+
+msgid "%MEM"
+msgstr "%MEM"
 
 msgid "%d days"
 msgstr "%d ημέρες"
@@ -577,6 +583,9 @@ msgstr "Burkina Faso"
 msgid "Burundi"
 msgstr "Burundi"
 
+msgid "COMMAND"
+msgstr "ΕΝΤΟΛΗ"
+
 msgid "CPU"
 msgstr "Επεξεργαστής"
 
@@ -585,9 +594,6 @@ msgstr "Χρήση επεξεργαστή"
 
 msgid "CPU Utilization"
 msgstr "Χρήση CPU"
-
-msgid "CPU usage"
-msgstr "Χρήση επεξεργαστή"
 
 msgid "Cambodia"
 msgstr "Cambodia"
@@ -1264,9 +1270,6 @@ msgstr "Διαδρομή αρχείου"
 msgid "File system"
 msgstr "Σύστημα αρχείων"
 
-msgid "File systems"
-msgstr "Συστήματα αρχείων"
-
 msgid "Filename"
 msgstr "Όνομα αρχείου"
 
@@ -1807,9 +1810,6 @@ msgstr "Lithuania"
 msgid "Load Average"
 msgstr "Μέσος Φόρτος"
 
-msgid "Load average"
-msgstr "Μέσος φόρτος"
-
 msgid "Loading ..."
 msgstr "Φόρτωση ..."
 
@@ -1943,9 +1943,6 @@ msgstr "Μνήμη"
 msgid "Memory Usage"
 msgstr "Χρήση Μνήμης"
 
-msgid "Memory usage"
-msgstr "Χρήση μνήμης"
-
 msgid "Message"
 msgstr "Μήνυμα"
 
@@ -1964,6 +1961,12 @@ msgstr "Metropolitan France"
 msgid "Mexico"
 msgstr "Mexico"
 
+msgid "MiB Mem"
+msgstr "MiB Mem"
+
+msgid "MiB Swap"
+msgstr "MiB Swap"
+
 msgid "Micronesia"
 msgstr "Micronesia"
 
@@ -1981,6 +1984,9 @@ msgstr "Κατώτατη έκδοση πρωτοκόλλου"
 
 msgid "Minute"
 msgstr "Λεπτό"
+
+msgid "Miscellaneous"
+msgstr "Διάφορα"
 
 msgid "Missing"
 msgstr "Απώλεια"
@@ -2011,6 +2017,21 @@ msgstr "Παρακολουθείται"
 
 msgid "Monitoring"
 msgstr "Παρακολούθηση"
+
+msgid "Monitoring - CPU usage"
+msgstr "Επίβλεψη - χρήση επεξεργαστή"
+
+msgid "Monitoring - File systems"
+msgstr "Επίβλεψη - συστήματα αρχείων"
+
+msgid "Monitoring - Load average"
+msgstr "Επίβλεψη - μέσος φόρτος"
+
+msgid "Monitoring - Memory usage"
+msgstr "Επίβλεψη - χρήση μνήμης"
+
+msgid "Monitoring - Processes"
+msgstr "Επίβλεψη - διεργασίες"
 
 msgid "Monitoring enabled"
 msgstr "Επίβλεψη ενεργοποιημένη"
@@ -2050,6 +2071,9 @@ msgstr "Myanmar"
 
 msgid "NFS"
 msgstr "NFS"
+
+msgid "NI"
+msgstr "NI"
 
 msgid "NTP time servers, separated by comma."
 msgstr "Διακομιστές ώρας ΝΤΡ, διαχωρισμένοι με κόμμα."
@@ -2236,6 +2260,12 @@ msgstr "Outlying Oceania"
 
 msgid "Owner"
 msgstr "Ιδιοκτήτης"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "PR"
+msgstr "PR"
 
 msgid "Pacific Islands Trust Territory"
 msgstr "Pacific Islands Trust Territory"
@@ -2505,9 +2535,6 @@ msgstr "Κύρια διεύθυνση ηλεκτρονικού ταχυδρομ�
 msgid "Private key"
 msgstr "Ιδιωτικό κλειδί"
 
-msgid "Process monitoring"
-msgstr "Παρακολούθηση διεργασιών"
-
 msgid "Processes"
 msgstr "Διεργασίες"
 
@@ -2549,6 +2576,9 @@ msgstr "Σύντομη"
 
 msgid "Quota"
 msgstr "Ποσοστό"
+
+msgid "RES"
+msgstr "RES"
 
 msgid "RSync server"
 msgstr "Διακομιστής απομακρυσμένου συγχρονισμού"
@@ -2676,6 +2706,9 @@ msgstr "Russia"
 msgid "Rwanda"
 msgstr "Rwanda"
 
+msgid "S"
+msgstr "S"
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
@@ -2684,6 +2717,9 @@ msgstr "Κατάσταση S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Η παρακολούθηση S.M.A.R.T. πρέπει να είναι ενεργοποιημένη για την επιλεγμένη συσκευή."
+
+msgid "SHR"
+msgstr "SHR"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2982,6 +3018,9 @@ msgstr "Υποτελείς"
 msgid "Sleep"
 msgstr "Ύπνος"
 
+msgid "Sleeping"
+msgstr "Σε ύπνο"
+
 msgid "Slovakia"
 msgstr "Συνέχιση"
 
@@ -3107,6 +3146,12 @@ msgstr "Κατάσταση"
 msgid "Stop"
 msgstr "Λήξη"
 
+msgid "Stopped by debugger during trace"
+msgstr "Διεκόπη από πρόγραμμα εντοπισμού σφαλμάτων"
+
+msgid "Stopped by job control signal"
+msgstr "Διεκόπη από σήμα ελέγχου διεργασίας"
+
 msgid "Storage"
 msgstr "Αποθήκευση"
 
@@ -3189,6 +3234,9 @@ msgstr "TCP"
 
 msgid "TCP forwarding"
 msgstr "Προώθηση TCP"
+
+msgid "TIME+"
+msgstr "TIME+"
 
 msgid "Tags"
 msgstr "Ετικέτες"
@@ -3693,6 +3741,9 @@ msgstr "Αναγνωριστικό χρήστη"
 msgid "UNKNOWN"
 msgstr "ΑΓΝΩΣΤΟΝ"
 
+msgid "USER"
+msgstr "USER"
+
 msgid "UUID"
 msgstr "UUID"
 
@@ -3710,6 +3761,9 @@ msgstr "Απεγκατάσταση"
 
 msgid "Uninstall plugin"
 msgstr "Απεγκατάσταση πρόσθετου"
+
+msgid "Uninterruptible sleep"
+msgstr "Αδιάλειπτος ύπνος"
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "Union of Soviet Socialist Republics"
@@ -3959,6 +4013,9 @@ msgstr "Χρήση"
 msgid "Uzbekistan"
 msgstr "Uzbekistan"
 
+msgid "VIRT"
+msgstr "VIRT"
+
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -4092,6 +4149,9 @@ msgstr "Zambia"
 
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
+
+msgid "Zombie"
+msgstr "Zombie"
 
 msgid "a day"
 msgstr "μια ημέρα"

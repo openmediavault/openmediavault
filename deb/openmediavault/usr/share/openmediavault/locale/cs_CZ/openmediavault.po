@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 17:34+0200\n"
+"POT-Creation-Date: 2025-08-26 18:11+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Marek Pavelka, 2024-2025\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -19,6 +19,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+msgid "%CPU"
+msgstr ""
+
+msgid "%MEM"
+msgstr ""
 
 msgid "%d days"
 msgstr "%d dnů"
@@ -579,6 +585,9 @@ msgstr "Burkina Faso"
 msgid "Burundi"
 msgstr "Burundi"
 
+msgid "COMMAND"
+msgstr ""
+
 msgid "CPU"
 msgstr "Procesor"
 
@@ -587,9 +596,6 @@ msgstr "Využití procesoru"
 
 msgid "CPU Utilization"
 msgstr "Vytížení procesoru"
-
-msgid "CPU usage"
-msgstr "Využití procesoru"
 
 msgid "Cambodia"
 msgstr "Kambodža"
@@ -1266,9 +1272,6 @@ msgstr "Cesta k souboru"
 msgid "File system"
 msgstr "Souborový systém"
 
-msgid "File systems"
-msgstr "Souborové systémy"
-
 msgid "Filename"
 msgstr "Název souboru"
 
@@ -1809,9 +1812,6 @@ msgstr "Litva"
 msgid "Load Average"
 msgstr "Průměrné vytížení"
 
-msgid "Load average"
-msgstr "Průměrné vytížení"
-
 msgid "Loading ..."
 msgstr "Načítání…"
 
@@ -1945,9 +1945,6 @@ msgstr "Paměť"
 msgid "Memory Usage"
 msgstr "Využití paměti"
 
-msgid "Memory usage"
-msgstr "Využití paměti"
-
 msgid "Message"
 msgstr "Zpráva"
 
@@ -1966,6 +1963,12 @@ msgstr "Metropolitní Francie"
 msgid "Mexico"
 msgstr "Mexiko"
 
+msgid "MiB Mem"
+msgstr ""
+
+msgid "MiB Swap"
+msgstr ""
+
 msgid "Micronesia"
 msgstr "Mikronésie"
 
@@ -1983,6 +1986,9 @@ msgstr "Minimální verze protokolu"
 
 msgid "Minute"
 msgstr "Minuta"
+
+msgid "Miscellaneous"
+msgstr ""
 
 msgid "Missing"
 msgstr "Chybějící"
@@ -2013,6 +2019,21 @@ msgstr "Monitorováno"
 
 msgid "Monitoring"
 msgstr "Monitorování"
+
+msgid "Monitoring - CPU usage"
+msgstr ""
+
+msgid "Monitoring - File systems"
+msgstr ""
+
+msgid "Monitoring - Load average"
+msgstr ""
+
+msgid "Monitoring - Memory usage"
+msgstr ""
+
+msgid "Monitoring - Processes"
+msgstr ""
 
 msgid "Monitoring enabled"
 msgstr "Monitorování povoleno"
@@ -2052,6 +2073,9 @@ msgstr "Barma"
 
 msgid "NFS"
 msgstr "NFS"
+
+msgid "NI"
+msgstr ""
 
 msgid "NTP time servers, separated by comma."
 msgstr "Časové servery NTP oddělené čárkou."
@@ -2238,6 +2262,12 @@ msgstr "Vzdálené oblasti Oceánie"
 
 msgid "Owner"
 msgstr "Vlastník"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "PR"
+msgstr ""
 
 msgid "Pacific Islands Trust Territory"
 msgstr "Poručenské území Tichomořské ostrovy"
@@ -2507,9 +2537,6 @@ msgstr "Hlavní e-mail"
 msgid "Private key"
 msgstr "Soukromý klíč"
 
-msgid "Process monitoring"
-msgstr "Monitorování procesů"
-
 msgid "Processes"
 msgstr "Procesy"
 
@@ -2551,6 +2578,9 @@ msgstr "Rychlé"
 
 msgid "Quota"
 msgstr "Kvóta"
+
+msgid "RES"
+msgstr ""
 
 msgid "RSync server"
 msgstr "Server RSync"
@@ -2678,6 +2708,9 @@ msgstr "Rusko"
 msgid "Rwanda"
 msgstr "Rwanda"
 
+msgid "S"
+msgstr ""
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
@@ -2686,6 +2719,9 @@ msgstr "Stav S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Pro vybrané zařízení musí být aktivováno monitorování S.M.A.R.T."
+
+msgid "SHR"
+msgstr ""
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2984,6 +3020,9 @@ msgstr "Podřízená rozhraní"
 msgid "Sleep"
 msgstr "Spánek"
 
+msgid "Sleeping"
+msgstr ""
+
 msgid "Slovakia"
 msgstr "Slovensko"
 
@@ -3109,6 +3148,12 @@ msgstr "Stav"
 msgid "Stop"
 msgstr "Zastavit"
 
+msgid "Stopped by debugger during trace"
+msgstr ""
+
+msgid "Stopped by job control signal"
+msgstr ""
+
 msgid "Storage"
 msgstr "Úložiště"
 
@@ -3191,6 +3236,9 @@ msgstr "TCP"
 
 msgid "TCP forwarding"
 msgstr "Přeposílání TCP"
+
+msgid "TIME+"
+msgstr ""
 
 msgid "Tags"
 msgstr "Štítky"
@@ -3695,6 +3743,9 @@ msgstr "UID"
 msgid "UNKNOWN"
 msgstr "NEZNÁMÉ"
 
+msgid "USER"
+msgstr ""
+
 msgid "UUID"
 msgstr "UUID"
 
@@ -3712,6 +3763,9 @@ msgstr "Odinstalovat"
 
 msgid "Uninstall plugin"
 msgstr "Odinstalovat zásuvný modul"
+
+msgid "Uninterruptible sleep"
+msgstr ""
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "Sovětský svaz"
@@ -3961,6 +4015,9 @@ msgstr "Využití"
 msgid "Uzbekistan"
 msgstr "Uzbekistán"
 
+msgid "VIRT"
+msgstr ""
+
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -4094,6 +4151,9 @@ msgstr "Zambie"
 
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
+
+msgid "Zombie"
+msgstr ""
 
 msgid "a day"
 msgstr "den"

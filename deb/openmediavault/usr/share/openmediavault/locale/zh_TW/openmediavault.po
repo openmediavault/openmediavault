@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 17:34+0200\n"
+"POT-Creation-Date: 2025-08-26 18:11+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2025\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -19,6 +19,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "%CPU"
+msgstr "%CPU"
+
+msgid "%MEM"
+msgstr "%記憶體"
 
 msgid "%d days"
 msgstr "%d 天"
@@ -579,6 +585,9 @@ msgstr "布基納法索"
 msgid "Burundi"
 msgstr "布隆迪"
 
+msgid "COMMAND"
+msgstr "命令"
+
 msgid "CPU"
 msgstr "CPU"
 
@@ -587,9 +596,6 @@ msgstr "CPU 使用率"
 
 msgid "CPU Utilization"
 msgstr "CPU 使用率"
-
-msgid "CPU usage"
-msgstr "處理器使用量"
 
 msgid "Cambodia"
 msgstr "柬埔寨"
@@ -1266,9 +1272,6 @@ msgstr "檔案路徑"
 msgid "File system"
 msgstr "檔案系統"
 
-msgid "File systems"
-msgstr "檔案系統"
-
 msgid "Filename"
 msgstr "檔案名稱"
 
@@ -1809,9 +1812,6 @@ msgstr "立陶宛"
 msgid "Load Average"
 msgstr "平均負載"
 
-msgid "Load average"
-msgstr "平均負載"
-
 msgid "Loading ..."
 msgstr "載入中 ..."
 
@@ -1945,9 +1945,6 @@ msgstr "記憶體"
 msgid "Memory Usage"
 msgstr "記憶體使用量"
 
-msgid "Memory usage"
-msgstr "記憶體使用量"
-
 msgid "Message"
 msgstr "訊息"
 
@@ -1966,6 +1963,12 @@ msgstr "法國本土"
 msgid "Mexico"
 msgstr "墨西哥"
 
+msgid "MiB Mem"
+msgstr "MiB 記憶體"
+
+msgid "MiB Swap"
+msgstr "MiB Swap"
+
 msgid "Micronesia"
 msgstr "密克羅尼西亞"
 
@@ -1983,6 +1986,9 @@ msgstr "最低協定版本"
 
 msgid "Minute"
 msgstr "分"
+
+msgid "Miscellaneous"
+msgstr "雜項"
 
 msgid "Missing"
 msgstr "失踪"
@@ -2013,6 +2019,21 @@ msgstr "被監測"
 
 msgid "Monitoring"
 msgstr "監測"
+
+msgid "Monitoring - CPU usage"
+msgstr "監控 - CPU 使用量"
+
+msgid "Monitoring - File systems"
+msgstr "監控 - 檔案系統"
+
+msgid "Monitoring - Load average"
+msgstr "監控 - 平均負載"
+
+msgid "Monitoring - Memory usage"
+msgstr "監控 - 記憶體使用量"
+
+msgid "Monitoring - Processes"
+msgstr "監控 - 處理程序"
 
 msgid "Monitoring enabled"
 msgstr "監測已啟用"
@@ -2052,6 +2073,9 @@ msgstr "緬甸"
 
 msgid "NFS"
 msgstr "NFS"
+
+msgid "NI"
+msgstr "NI"
 
 msgid "NTP time servers, separated by comma."
 msgstr "NTP 時間伺服器，以逗號分開。"
@@ -2238,6 +2262,12 @@ msgstr "外圍大洋洲"
 
 msgid "Owner"
 msgstr "擁有者"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "PR"
+msgstr "PR"
 
 msgid "Pacific Islands Trust Territory"
 msgstr "太平洋島嶼託管領地"
@@ -2507,9 +2537,6 @@ msgstr "主要電子郵件"
 msgid "Private key"
 msgstr "私有密鑰"
 
-msgid "Process monitoring"
-msgstr "程序監測"
-
 msgid "Processes"
 msgstr "程序"
 
@@ -2551,6 +2578,9 @@ msgstr "快速"
 
 msgid "Quota"
 msgstr "配額"
+
+msgid "RES"
+msgstr "RES"
 
 msgid "RSync server"
 msgstr "RSync 伺服器"
@@ -2678,6 +2708,9 @@ msgstr "俄國"
 msgid "Rwanda"
 msgstr "盧安達"
 
+msgid "S"
+msgstr "S"
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
@@ -2686,6 +2719,9 @@ msgstr "S.M.A.R.T. 狀態"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "必須先啟動所選裝置的 S.M.A.R.T. 監測。"
+
+msgid "SHR"
+msgstr "SHR"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2984,6 +3020,9 @@ msgstr "隸屬"
 msgid "Sleep"
 msgstr "睡眠"
 
+msgid "Sleeping"
+msgstr "睡眠"
+
 msgid "Slovakia"
 msgstr "斯洛伐克"
 
@@ -3109,6 +3148,12 @@ msgstr "狀況"
 msgid "Stop"
 msgstr "停止"
 
+msgid "Stopped by debugger during trace"
+msgstr "在追蹤過程中被除錯程式停止"
+
+msgid "Stopped by job control signal"
+msgstr "被作業控制訊號停止"
+
 msgid "Storage"
 msgstr "儲存裝置"
 
@@ -3191,6 +3236,9 @@ msgstr "TCP"
 
 msgid "TCP forwarding"
 msgstr "TCP 轉送"
+
+msgid "TIME+"
+msgstr "TIME+"
 
 msgid "Tags"
 msgstr "標籤"
@@ -3695,6 +3743,9 @@ msgstr "UID"
 msgid "UNKNOWN"
 msgstr "未知"
 
+msgid "USER"
+msgstr "使用者"
+
 msgid "UUID"
 msgstr "UUID"
 
@@ -3712,6 +3763,9 @@ msgstr "移除安裝"
 
 msgid "Uninstall plugin"
 msgstr "移除插件"
+
+msgid "Uninterruptible sleep"
+msgstr "不間斷睡眠"
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "蘇維埃社會主義共和國聯盟"
@@ -3961,6 +4015,9 @@ msgstr "使用率"
 msgid "Uzbekistan"
 msgstr "烏茲別克斯坦"
 
+msgid "VIRT"
+msgstr "VIRT"
+
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -4094,6 +4151,9 @@ msgstr "尚比亞"
 
 msgid "Zimbabwe"
 msgstr "辛巴威"
+
+msgid "Zombie"
+msgstr "殭屍處理程序"
 
 msgid "a day"
 msgstr "一天"
