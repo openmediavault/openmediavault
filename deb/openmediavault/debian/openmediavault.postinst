@@ -597,6 +597,7 @@ case "$1" in
 			rm -rf /etc/systemd/system/wsdd.service.d/
 			deb-systemd-invoke stop wsdd.service || :
 			omv_module_set_dirty samba
+			rm -f /etc/rsyslog.d/openmediavault-pamtally2.conf
 			omv_module_set_dirty rsyslog
 		fi
 
