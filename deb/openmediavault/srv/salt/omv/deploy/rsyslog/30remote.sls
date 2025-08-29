@@ -18,34 +18,15 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 {% set config = salt['omv_conf.get']('conf.system.syslog.remote') %}
-{% set notification_config = salt['omv_conf.get_by_filter'](
-  'conf.system.notification.notification',
-  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'authentication'})[0] %}
-{% set dirpath = '/srv/salt' | path_join(tpldir) %}
 
-include:
-{% for file in salt['file.readdir'](dirpath) | sort %}
-{% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}
-  - .{{ file | replace('.sls', '') }}
-{% endif %}
-{% endfor %}
-
-{% if config.enable | to_bool or notification_config.enable | to_bool %}
-
-test_rsyslog_config:
-  cmd.run:
-    - name: "rsyslogd -N1"
-
-start_rsyslog_service:
-  module.run:
-    - service.restart:
-      - name: rsyslog
-
-{% else %}
-
-stop_rsyslog_service:
-  service.dead:
-    - name: rsyslog
-    - enable: False
-
-{% endif %}
+configure_rsyslog_remote:
+  file.managed:
+    - name: "/etc/rsyslog.d/openmediavault-remote.conf"
+    - source:
+      - salt://{{ tpldir }}/files/etc_rsyslog.d_openmediavault-remote.conf.j2
+    - context:
+        config: {{ config | json }}
+    - template: jinja
+    - user: root
+    - group: root
+    - mode: 644

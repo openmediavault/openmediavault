@@ -1,3 +1,6 @@
+{{ pillar['headers']['multiline'] -}}
+{%- if notification_config.enable | to_bool -%}
+#
 # https://www.rsyslog.com/regex/
 # May 11 16:30:37 omv6box omv-engined[71484]: pam_faillock(openmediavault:auth): Consecutive login failures for user admin account temporarily locked
 $template pamfaillockMailSubject,"Too many failed login attempts from user '%msg:R,ERE,1,DFLT:user (.+) account--end%'"
@@ -8,3 +11,4 @@ $ActionMailTo root
 $ActionMailSubject pamfaillockMailSubject
 :msg, regex, "pam_faillock\(.*:auth\): Consecutive login failures for user .* account temporarily locked" :ommail:;pamfaillockMailBody
 & stop
+{%- endif -%}

@@ -17,35 +17,16 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
-{% set config = salt['omv_conf.get']('conf.system.syslog.remote') %}
-{% set notification_config = salt['omv_conf.get_by_filter'](
-  'conf.system.notification.notification',
-  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'authentication'})[0] %}
-{% set dirpath = '/srv/salt' | path_join(tpldir) %}
+configure_rsyslog_main:
+  file.managed:
+    - name: "/etc/rsyslog.conf"
+    - source:
+      - salt://{{ tpldir }}/files/etc_rsyslog.conf.j2
+    - template: jinja
+    - user: root
+    - group: root
+    - mode: 644
 
-include:
-{% for file in salt['file.readdir'](dirpath) | sort %}
-{% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}
-  - .{{ file | replace('.sls', '') }}
-{% endif %}
-{% endfor %}
-
-{% if config.enable | to_bool or notification_config.enable | to_bool %}
-
-test_rsyslog_config:
-  cmd.run:
-    - name: "rsyslogd -N1"
-
-start_rsyslog_service:
-  module.run:
-    - service.restart:
-      - name: rsyslog
-
-{% else %}
-
-stop_rsyslog_service:
-  service.dead:
-    - name: rsyslog
-    - enable: False
-
-{% endif %}
+divert_rsyslog_main:
+  omv_dpkg.divert_add:
+    - name: "/etc/rsyslog.conf"
