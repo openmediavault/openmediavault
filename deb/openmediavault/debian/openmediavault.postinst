@@ -141,6 +141,8 @@ case "$1" in
 			deb-systemd-invoke stop smbd.service || :
 			deb-systemd-helper disable nmbd.service
 			deb-systemd-invoke stop nmbd.service || :
+			deb-systemd-helper disable wsdd-server.service
+			deb-systemd-invoke stop wsdd-server.service || :
 			deb-systemd-helper disable postfix.service
 			deb-systemd-invoke stop postfix.service || :
 
@@ -591,6 +593,10 @@ case "$1" in
 			omv_module_set_dirty samba
 		fi
 		if dpkg --compare-versions "$2" lt-nl "7.7.15"; then
+			rm -f /etc/default/wsdd
+			rm -rf /etc/systemd/system/wsdd.service.d/
+			deb-systemd-invoke stop wsdd.service || :
+			omv_module_set_dirty samba
 			omv_module_set_dirty rsyslog
 		fi
 
