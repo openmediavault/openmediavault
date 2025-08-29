@@ -33,6 +33,33 @@
 	}
 },{
 	"type": "rpc",
+	"id": "rpc.filesystemmgmt.createbcachefs",
+	"params": {
+		"type": "object",
+		"properties": {
+			"label": {
+				"type": "string",
+				"required": false
+			},
+			"compression": {
+				"type": "string",
+				"enum": ["none", "lz4", "gzip", "zstd"],
+				"required": false
+			},
+			"replicas": {
+				"type": "number",
+				"minimum": 1,
+				"maximum": 10,
+				"required": false
+			},
+			"devicefiles": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
 	"id": "rpc.filesystemmgmt.createbtrfs",
 	"params": {
 		"type": "object",
