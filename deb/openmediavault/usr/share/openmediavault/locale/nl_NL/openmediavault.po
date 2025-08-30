@@ -592,7 +592,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "COMMAND"
-msgstr ""
+msgstr "COMMAND"
 
 msgid "CPU"
 msgstr "CPU"
@@ -2081,7 +2081,7 @@ msgid "NFS"
 msgstr "NFS"
 
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 msgid "NTP time servers, separated by comma."
 msgstr "NTP-tijdservers, gescheiden door komma."
@@ -2273,7 +2273,7 @@ msgid "PID"
 msgstr "PID"
 
 msgid "PR"
-msgstr ""
+msgstr "PR"
 
 msgid "Pacific Islands Trust Territory"
 msgstr "Trustschap van de Pacifische Eilanden"
@@ -2586,7 +2586,7 @@ msgid "Quota"
 msgstr "Quota"
 
 msgid "RES"
-msgstr ""
+msgstr "RES"
 
 msgid "RSync server"
 msgstr "RSync-server"
@@ -2715,7 +2715,7 @@ msgid "Rwanda"
 msgstr "Rwanda"
 
 msgid "S"
-msgstr ""
+msgstr "S"
 
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
@@ -2727,7 +2727,7 @@ msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.-bewaking moet worden geactiveerd op het geselecteerde apparaat."
 
 msgid "SHR"
-msgstr ""
+msgstr "SHR"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -3244,7 +3244,7 @@ msgid "TCP forwarding"
 msgstr "TCP-forwarden"
 
 msgid "TIME+"
-msgstr ""
+msgstr "TIME+"
 
 msgid "Tags"
 msgstr "Labels"
@@ -3750,7 +3750,7 @@ msgid "UNKNOWN"
 msgstr "ONBEKEND"
 
 msgid "USER"
-msgstr ""
+msgstr "USER"
 
 msgid "UUID"
 msgstr "UUID"
@@ -4022,7 +4022,7 @@ msgid "Uzbekistan"
 msgstr "Oezbekistan"
 
 msgid "VIRT"
-msgstr ""
+msgstr "VIRT"
 
 msgid "VLAN"
 msgstr "VLAN"
