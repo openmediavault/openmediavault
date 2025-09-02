@@ -11,6 +11,6 @@ Package: openmediavault-md
 Architecture: all
 Depends: openmediavault (>= 7.7.9), mdadm
 Priority: optional
-Description: openmediavault Linux MD (Multiple Device) plugin
+Description: openmediavault Linux MD (Software RAID) plugin
  This plugin is used to create, manage, and monitor Linux MD (Multiple
  Device) devices.
