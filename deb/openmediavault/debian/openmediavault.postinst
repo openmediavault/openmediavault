@@ -600,6 +600,9 @@ case "$1" in
 			rm -f /etc/rsyslog.d/openmediavault-pamtally2.conf
 			omv_module_set_dirty rsyslog
 		fi
+		if dpkg --compare-versions "$2" lt-nl "7.7.16"; then
+			omv_module_set_dirty nfs
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
