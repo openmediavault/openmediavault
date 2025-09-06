@@ -12,7 +12,9 @@ data:
   grid:
     item:
       class: 'omv-text-center omv-text-nowrap omv-background-color-selected-button'
-      content: '{% set resourceText = { "configmaps": "Config Maps", "deployments": "Deployments", "namespaces": "Namespaces", "persistentvolumes": "PV", "pods": "Pods", "secrets": "Secrets", "services": "Services", "statefulsets": "Stateful Sets" } %}{{ resourceText[name] | translate }}<br>{{ total }}'
+      title: '{% set resourceText = { "configmaps": "Config Maps", "deployments": "Deployments", "namespaces": "Namespaces", "persistentvolumes": "PV", "pods": "Pods", "secrets": "Secrets", "services": "Services", "statefulsets": "Stateful Sets" } %}{{ resourceText[name] | translate }}'
+      titleClass: 'omv-text-truncate'
+      content: '{{ total }}'
       contentClass: 'omv-text-truncate'
     store:
       proxy:
