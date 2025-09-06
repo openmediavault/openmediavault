@@ -16,6 +16,7 @@ data:
       titleClass: 'omv-text-truncate'
       content: '{{ state }}'
       contentClass: 'omv-text-truncate'
+      tooltip: '{{ name }} [{{ level }}]<br>{{ state }}'
       url: '/storage/md/details/{{ devicefile | encodeuricomponent }}'
     store:
       proxy:
