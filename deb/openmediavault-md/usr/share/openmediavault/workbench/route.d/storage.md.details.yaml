@@ -2,5 +2,5 @@ version: "1.0"
 type: route
 data:
   url: "/storage/md/details/:devicefile"
-  title: "{{ 'Details' | translate }} @ {{ _routeParams.devicefile }}"
+  title: "{{ 'Details' | translate }} @ {{ _routeParams.devicefile | decodeuricomponent }}"
   component: omv-storage-md-details-text-page
