@@ -19,10 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "%CPU"
-msgstr ""
+msgstr "%CPU"
 
 msgid "%MEM"
-msgstr ""
+msgstr "%MEM"
 
 msgid "%d days"
 msgstr "%d gün"
@@ -584,7 +584,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "COMMAND"
-msgstr ""
+msgstr "KOMUT"
 
 msgid "CPU"
 msgstr "CPU"
@@ -1193,7 +1193,7 @@ msgid "Ethiopia"
 msgstr "Etiyopya"
 
 msgid "Events"
-msgstr ""
+msgstr "Olaylar"
 
 msgid "Every N day of month"
 msgstr "Ayın her N günü"
@@ -1253,13 +1253,13 @@ msgid "Fiji"
 msgstr "Fiji"
 
 msgid "File System Usage"
-msgstr ""
+msgstr "Dosya Sistemi Kullanımı"
 
 msgid "File Systems"
 msgstr "Dosya sistemleri"
 
 msgid "File access control lists"
-msgstr ""
+msgstr "Dosya Erişim Kontrol Listeleri"
 
 msgid "File owner and group"
 msgstr ""
@@ -3239,7 +3239,7 @@ msgid "TIME+"
 msgstr ""
 
 msgid "Tags"
-msgstr ""
+msgstr "Etiketler"
 
 msgid "Taiwan"
 msgstr "Tayvan"

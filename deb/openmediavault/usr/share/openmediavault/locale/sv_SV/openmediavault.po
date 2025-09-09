@@ -3,9 +3,10 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
+# Daniel, 2025
 # d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2012
-# Jonatan, 2021-2025
-# Jonatan, 2018-2021
+# Daniel, 2021-2025
+# Daniel, 2018-2021
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017-2018
 msgid ""
 msgstr ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-26 18:11+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Jonatan, 2021-2025\n"
+"Last-Translator: Daniel, 2025\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "%CPU"
-msgstr ""
+msgstr "%CPU"
 
 msgid "%MEM"
 msgstr ""
@@ -587,7 +588,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "COMMAND"
-msgstr ""
+msgstr "KOMMANDO"
 
 msgid "CPU"
 msgstr "CPU"
@@ -1989,7 +1990,7 @@ msgid "Minute"
 msgstr "Minut"
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Diverse"
 
 msgid "Missing"
 msgstr "Saknas"
@@ -2022,19 +2023,19 @@ msgid "Monitoring"
 msgstr "Övervakning"
 
 msgid "Monitoring - CPU usage"
-msgstr ""
+msgstr "Övervakning - CPU-användning"
 
 msgid "Monitoring - File systems"
-msgstr ""
+msgstr "Övervakning - Filsystem"
 
 msgid "Monitoring - Load average"
-msgstr ""
+msgstr "Övervakning - Genomsnittlig belastning"
 
 msgid "Monitoring - Memory usage"
-msgstr ""
+msgstr "Övervakning - Minnesanvändning"
 
 msgid "Monitoring - Processes"
-msgstr ""
+msgstr "Övervakning - Processer"
 
 msgid "Monitoring enabled"
 msgstr "Övervakning aktiverad"
@@ -3022,7 +3023,7 @@ msgid "Sleep"
 msgstr "Viloläge"
 
 msgid "Sleeping"
-msgstr ""
+msgstr "Sover"
 
 msgid "Slovakia"
 msgstr "Slovakien"
@@ -3150,10 +3151,10 @@ msgid "Stop"
 msgstr "Stoppa"
 
 msgid "Stopped by debugger during trace"
-msgstr ""
+msgstr "Stoppad av felsökaren under spårning"
 
 msgid "Stopped by job control signal"
-msgstr ""
+msgstr "Stoppad av jobbkontrollsignal"
 
 msgid "Storage"
 msgstr "Lagring"
@@ -3745,7 +3746,7 @@ msgid "UNKNOWN"
 msgstr "OKÄND"
 
 msgid "USER"
-msgstr ""
+msgstr "ANVÄNDARE"
 
 msgid "UUID"
 msgstr "UUID"
@@ -3766,7 +3767,7 @@ msgid "Uninstall plugin"
 msgstr "Avinstallera insticksmodul"
 
 msgid "Uninterruptible sleep"
-msgstr ""
+msgstr "Oavbruten sömn"
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "Sovjetunionens socialistiska republiker"

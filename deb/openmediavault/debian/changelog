@@ -1,5 +1,6 @@
 openmediavault (7.7.16-1) stable; urgency=medium
 
+  * Update locale files.
   * Append the `insecure` option to the NFSv4 pseudo root export when at least
     one share for the same client has the `insecure` option set.
 
