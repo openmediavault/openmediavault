@@ -321,7 +321,7 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
       self.afterViewInitEvent.subscribe(() => {
         const control: AbstractControl = self.form.formGroup.get('file');
         control?.valueChanges.pipe(distinctUntilChanged()).subscribe((value) => {
-          this.doLoadData(value).subscribe();
+          this.doLoadData(value).subscribe((res: RpcObjectResponse) => this.onLoadData(res));
         });
       })
     );
