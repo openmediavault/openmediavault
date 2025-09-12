@@ -25,10 +25,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "%CPU"
-msgstr ""
+msgstr "%PROC"
 
 msgid "%MEM"
-msgstr ""
+msgstr "%MEM"
 
 msgid "%d days"
 msgstr "%d nap"
@@ -590,7 +590,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "COMMAND"
-msgstr ""
+msgstr "PARANCS"
 
 msgid "CPU"
 msgstr "CPU"
@@ -1968,10 +1968,10 @@ msgid "Mexico"
 msgstr "Mexikó"
 
 msgid "MiB Mem"
-msgstr ""
+msgstr "MiB Memória"
 
 msgid "MiB Swap"
-msgstr ""
+msgstr "MiB Cserehely"
 
 msgid "Micronesia"
 msgstr "Mikronézia"
@@ -1992,7 +1992,7 @@ msgid "Minute"
 msgstr "Perc"
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Vegyes"
 
 msgid "Missing"
 msgstr "Leválasztott"
@@ -2025,19 +2025,19 @@ msgid "Monitoring"
 msgstr "Megfigyelés"
 
 msgid "Monitoring - CPU usage"
-msgstr ""
+msgstr "Felügyelet – CPU-használat"
 
 msgid "Monitoring - File systems"
-msgstr ""
+msgstr "Felügyelet – Fájlrendszerek"
 
 msgid "Monitoring - Load average"
-msgstr ""
+msgstr "Felügyelet – Terhelési átlag"
 
 msgid "Monitoring - Memory usage"
-msgstr ""
+msgstr "Felügyelet – Memóriahasználat"
 
 msgid "Monitoring - Processes"
-msgstr ""
+msgstr "Felügyelet – Folyamatok"
 
 msgid "Monitoring enabled"
 msgstr "Megfigyelés engedélyezve"
@@ -2079,7 +2079,7 @@ msgid "NFS"
 msgstr "NFS"
 
 msgid "NI"
-msgstr ""
+msgstr "ÉRT"
 
 msgid "NTP time servers, separated by comma."
 msgstr "NTP időkiszolgálók, vesszővel elválasztva."
@@ -2268,10 +2268,10 @@ msgid "Owner"
 msgstr "Tulajdonos"
 
 msgid "PID"
-msgstr "PID"
+msgstr "FAZ"
 
 msgid "PR"
-msgstr ""
+msgstr "PRI"
 
 msgid "Pacific Islands Trust Territory"
 msgstr "Csendes-óceáni terület"
@@ -2584,7 +2584,7 @@ msgid "Quota"
 msgstr "Kvóta"
 
 msgid "RES"
-msgstr ""
+msgstr "REZ"
 
 msgid "RSync server"
 msgstr "RSync szerver"
@@ -2713,7 +2713,7 @@ msgid "Rwanda"
 msgstr "Ruanda"
 
 msgid "S"
-msgstr ""
+msgstr "A"
 
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
@@ -2725,7 +2725,7 @@ msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "A S.M.A.R.T. ellenőrzésnek aktívnak kell lennie a kiválasztott meghajtón."
 
 msgid "SHR"
-msgstr ""
+msgstr "MEGO"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -3025,7 +3025,7 @@ msgid "Sleep"
 msgstr "Alvó állapot"
 
 msgid "Sleeping"
-msgstr ""
+msgstr "Alvó"
 
 msgid "Slovakia"
 msgstr "Szlovákia"
@@ -3153,10 +3153,10 @@ msgid "Stop"
 msgstr "Leállítás"
 
 msgid "Stopped by debugger during trace"
-msgstr ""
+msgstr "Leállítva a hibakereső nyomkövetése során "
 
 msgid "Stopped by job control signal"
-msgstr ""
+msgstr "Leállítva a munkavezérlő jel által "
 
 msgid "Storage"
 msgstr "Tárolás"
@@ -3242,7 +3242,7 @@ msgid "TCP forwarding"
 msgstr "TCP továbbítás"
 
 msgid "TIME+"
-msgstr ""
+msgstr "IDŐ+"
 
 msgid "Tags"
 msgstr "Címkék"
@@ -3748,7 +3748,7 @@ msgid "UNKNOWN"
 msgstr "ISMERETLEN"
 
 msgid "USER"
-msgstr ""
+msgstr "FELHASZ"
 
 msgid "UUID"
 msgstr "UUID"
@@ -3769,7 +3769,7 @@ msgid "Uninstall plugin"
 msgstr "Bővítmény eltávolítása"
 
 msgid "Uninterruptible sleep"
-msgstr ""
+msgstr "Megszakíthatatlan alvás"
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "Szovjet Szocialista Köztársaságok Szövetsége"
@@ -4020,7 +4020,7 @@ msgid "Uzbekistan"
 msgstr "Üzbegisztán"
 
 msgid "VIRT"
-msgstr ""
+msgstr "VIRT"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -4157,7 +4157,7 @@ msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
 msgid "Zombie"
-msgstr ""
+msgstr "Zombi"
 
 msgid "a day"
 msgstr "egy nap"

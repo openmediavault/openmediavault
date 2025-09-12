@@ -1,5 +1,6 @@
 openmediavault (7.7.17-1) stable; urgency=medium
 
+  * Update locale files.
   * Issue #2013: ACLs aren't loaded correctly when changing the relative path.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 10 Sep 2025 06:37:39 +0200
