@@ -18,4 +18,4 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 include:
-  - .{{ salt['pillar.get']('deploy_cpufrequtils', 'default') }}
+  - .{{ salt['pillar.get']('deploy_cpupower', 'default') }}

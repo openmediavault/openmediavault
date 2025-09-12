@@ -21,14 +21,14 @@
  */
 namespace Engined\Module;
 
-class CpuFreqUtils extends \OMV\Engine\Module\ServiceAbstract
+class CpuPower extends \OMV\Engine\Module\ServiceAbstract
 		implements \OMV\Engine\Notify\IListener {
 	public function getName() {
-		return "cpufrequtils";
+		return "cpupower";
 	}
 
 	public function getDescription() {
-		return gettext("Management of CPUfreq settings.");
+		return gettext("Management of cpufreq and cpuidle tunables.");
 	}
 
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
