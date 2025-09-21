@@ -22,7 +22,7 @@ __all__ = ["ProductInfo"]
 
 import xml.etree.ElementTree
 
-import apt
+import openmediavault.procutils
 
 import openmediavault
 
@@ -65,10 +65,11 @@ class ProductInfo:
         """
         Get the product version.
         """
-        cache = apt.cache.Cache()
         try:
-            package = cache[self.package_name]
-            return package.candidate.version
+            return openmediavault.procutils.check_output(
+                ['dpkg-query', '-W', '-f=${Version}', self.package_name],
+                text=True
+            )
         except KeyError:
             return 'n/a'
 
