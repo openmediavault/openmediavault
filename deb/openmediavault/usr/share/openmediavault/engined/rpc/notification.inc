@@ -44,7 +44,17 @@ class Notification extends \OMV\Rpc\ServiceAbstract {
 	 * Get the notification configuration of all registered modules.
 	 */
 	private function getNotificationConfig() {
-		$result = [];
+		$result = [
+			[
+				"id" => "authentication",
+				"type" => getText("System"),
+				"title" => gettext("Authentication"),
+			], [
+				"id" => "misc",
+				"type" => getText("General"),
+				"title" => gettext("Miscellaneous"),
+			]
+		];
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
 		foreach ($modules as $modulev) {
@@ -211,7 +221,7 @@ class Notification extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em id The notification identifier.
 	 * @param context The context of the caller.
-	 * @return TRUE if the serice is enabled, otherwise FALSE.
+	 * @return TRUE if the service is enabled, otherwise FALSE.
 	 */
 	function isEnabled($params, $context) {
 		// Validate the RPC caller context.

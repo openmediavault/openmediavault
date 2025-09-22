@@ -5,7 +5,7 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
-# Jonatan Nyberg, 2022
+# Jonatan, 2022
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2022
 # 
 #, fuzzy

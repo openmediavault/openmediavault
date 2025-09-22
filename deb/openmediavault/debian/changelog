@@ -1,7 +1,44 @@
+openmediavault (7.7.18-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 12 Sep 2025 12:52:44 +0200
+
+openmediavault (7.7.17-1) stable; urgency=medium
+
+  * Update locale files.
+  * Issue #2013: ACLs aren't loaded correctly when changing the relative path.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 10 Sep 2025 06:37:39 +0200
+
+openmediavault (7.7.16-1) stable; urgency=medium
+
+  * Update locale files.
+  * Append the `insecure` option to the NFSv4 pseudo root export when at least
+    one share for the same client has the `insecure` option set.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 05 Sep 2025 20:54:33 +0200
+
+openmediavault (7.7.15-2) stable; urgency=medium
+
+  * Update locale files.
+  * Adapt to wsdd-server 0.8 package.
+  * Improve BTRFS backend implementation to handle RAID1C3 and RAID1C4
+    profiles. Additionally unknown RAID profiles will not break the
+    code anymore.
+  * Issue #1778: Add support to disable authentication and other miscellaneous
+    notifications.
+  * Issue #2001: Fix bug in network statistics.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 09 Aug 2025 14:06:01 +0200
+
 openmediavault (7.7.14-1) stable; urgency=medium
 
+  * Update locale files.
   * Make sure specific domain names, e.g. `local` or `test`, can't be
     applied via RPC.
+  * Improve chrony systemd service configuration.
+  * Issue #1994: Improve the list of exclusions for the SMB recycle bin.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 01 Aug 2025 12:40:01 +0200
 
@@ -63,7 +100,7 @@ openmediavault (7.7.6-1) stable; urgency=security
   * Add search field to the `Diagnostics | System Logs | Logs` page.
   * Display more information about the last/current scrub run on the
     BTRFS details page.
-  * Improve validation of RPCs that contain passwords.
+  * Improve validation of RPCs that contain passwords (CVE-2025-50674).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 25 Apr 2025 10:22:31 +0200
 

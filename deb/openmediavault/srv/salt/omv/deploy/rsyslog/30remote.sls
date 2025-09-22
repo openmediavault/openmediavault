@@ -17,20 +17,16 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
-{% set options = salt['pillar.get']('default:OMV_WSDD_PARAMS', '') %}
-{% set config = salt['omv_conf.get']('conf.service.smb') %}
+{% set config = salt['omv_conf.get']('conf.system.syslog.remote') %}
 
-configure_default_wsdd:
+configure_rsyslog_remote:
   file.managed:
-    - name: "/etc/wsdd-server/defaults"
-    - contents: |
-        {{ pillar['headers']['auto_generated'] }}
-        {{ pillar['headers']['warning'] }}
-        WSDD_PARAMS="--workgroup='{{ config.workgroup }}' {{ options }}"
+    - name: "/etc/rsyslog.d/openmediavault-remote.conf"
+    - source:
+      - salt://{{ tpldir }}/files/etc_rsyslog.d_openmediavault-remote.conf.j2
+    - context:
+        config: {{ config | json }}
+    - template: jinja
     - user: root
     - group: root
     - mode: 644
-
-divert_default_wsdd:
-  omv_dpkg.divert_add:
-    - name: "/etc/wsdd-server/defaults"

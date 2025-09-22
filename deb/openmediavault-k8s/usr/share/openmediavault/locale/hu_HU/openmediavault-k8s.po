@@ -89,7 +89,7 @@ msgid "Date & Time"
 msgstr "Dátum és idő"
 
 msgid "Depends"
-msgstr ""
+msgstr "Függés"
 
 msgid "Deployments"
 msgstr "Telepítések"
@@ -121,7 +121,7 @@ msgid "External IP"
 msgstr "Külső IP"
 
 msgid "Failed"
-msgstr ""
+msgstr "Sikertelen"
 
 msgid "GID"
 msgstr "GID"
@@ -172,10 +172,10 @@ msgid "Kubernetes"
 msgstr "Kubernetes"
 
 msgid "Kubernetes - Pods"
-msgstr ""
+msgstr "Kubernetes – Hüvelyek"
 
 msgid "Kubernetes - Resources"
-msgstr ""
+msgstr "Kubernetes - Erőforrások"
 
 msgid "Labels"
 msgstr "Címkék"
@@ -214,7 +214,7 @@ msgid "PVC"
 msgstr "PVC"
 
 msgid "Pending"
-msgstr ""
+msgstr "Függőben"
 
 msgid "Persistent Volume Claims"
 msgstr "Megmaradókötet-kérés"
@@ -265,7 +265,7 @@ msgid "Restore"
 msgstr "Visszaállítás"
 
 msgid "Running"
-msgstr ""
+msgstr "Fut"
 
 msgid "SQLite"
 msgstr "SQLite"
@@ -289,10 +289,10 @@ msgid "Show README"
 msgstr "OLVASSEL megjelenítése"
 
 msgid "Show the number of pods per status phase."
-msgstr ""
+msgstr "Hüvelyek számának megjelenítése állapotfázisonként."
 
 msgid "Show the total number of several resources."
-msgstr ""
+msgstr "Több erőforrás teljes számának megjelenítése."
 
 msgid "Size"
 msgstr "Méret"
@@ -301,7 +301,7 @@ msgid "Snapshots"
 msgstr "Pillanatképek"
 
 msgid "Stateful Sets"
-msgstr ""
+msgstr "Állapotfüggő beállítások"
 
 msgid "Status"
 msgstr "Állapot"
@@ -310,7 +310,7 @@ msgid "Storage Class"
 msgstr "Tárolási osztály"
 
 msgid "Succeeded"
-msgstr ""
+msgstr "Sikerült"
 
 msgid "Tag"
 msgstr "Címke"
@@ -386,7 +386,7 @@ msgid "UID"
 msgstr "UID"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Ismeretlen"
 
 msgid "Up-to-date"
 msgstr "Friss"
@@ -398,7 +398,7 @@ msgid "Users"
 msgstr "Felhasználók"
 
 msgid "Version"
-msgstr ""
+msgstr "Verzió"
 
 msgid "View"
 msgstr "Nézet"

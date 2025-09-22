@@ -141,6 +141,8 @@ case "$1" in
 			deb-systemd-invoke stop smbd.service || :
 			deb-systemd-helper disable nmbd.service
 			deb-systemd-invoke stop nmbd.service || :
+			deb-systemd-helper disable wsdd-server.service
+			deb-systemd-invoke stop wsdd-server.service || :
 			deb-systemd-helper disable postfix.service
 			deb-systemd-invoke stop postfix.service || :
 
@@ -166,8 +168,6 @@ case "$1" in
 			deb-systemd-invoke start systemd-resolved.service || :
 			deb-systemd-helper enable systemd-journald.service
 			deb-systemd-invoke start systemd-journald.service || :
-			deb-systemd-helper enable rsyslog.service
-			deb-systemd-invoke start rsyslog.service || :
 			deb-systemd-helper enable unattended-upgrades.service
 			deb-systemd-invoke start unattended-upgrades.service || :
 		fi
@@ -587,8 +587,21 @@ case "$1" in
 			udevadm trigger || :
 		fi
 		if dpkg --compare-versions "$2" lt-nl "7.7.14"; then
+			deb-systemd-invoke restart chrony.service || :
 			salt-call --local --retcode-passthrough --no-color state.orchestrate \
 				omv.setup.shell >/dev/null || :
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.7.15"; then
+			rm -f /etc/default/wsdd
+			rm -rf /etc/systemd/system/wsdd.service.d/
+			deb-systemd-invoke stop wsdd.service || :
+			omv_module_set_dirty samba
+			rm -f /etc/rsyslog.d/openmediavault-pamtally2.conf
+			omv_module_set_dirty rsyslog
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.7.16"; then
+			omv_module_set_dirty nfs
 		fi
 
 		########################################################################

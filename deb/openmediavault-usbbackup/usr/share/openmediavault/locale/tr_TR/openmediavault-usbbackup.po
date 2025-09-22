@@ -146,7 +146,7 @@ msgid "Suppress non-error messages."
 msgstr "Hata belirtlemeyen mesajları gizle"
 
 msgid "Tags"
-msgstr ""
+msgstr "Etiketler"
 
 msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
 msgstr ""

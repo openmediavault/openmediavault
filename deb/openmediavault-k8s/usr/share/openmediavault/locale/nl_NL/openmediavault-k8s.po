@@ -175,7 +175,7 @@ msgid "Kubernetes - Pods"
 msgstr "Kubernetes - Pods"
 
 msgid "Kubernetes - Resources"
-msgstr "Kubernetes - Bronnen"
+msgstr "Kubernetes - Hulpbronnen"
 
 msgid "Labels"
 msgstr "Labels"
@@ -259,7 +259,7 @@ msgid "Repository"
 msgstr "Opslagplaats"
 
 msgid "Resources"
-msgstr "Bronnen"
+msgstr "Hulpbronnen"
 
 msgid "Restore"
 msgstr "Herstellen"
@@ -292,7 +292,7 @@ msgid "Show the number of pods per status phase."
 msgstr "Het aantal pods per statusfase weergeven."
 
 msgid "Show the total number of several resources."
-msgstr "Het totale aantal verschillende bronnen weergeven."
+msgstr "Het totale aantal verschillende hulpbronnen weergeven."
 
 msgid "Size"
 msgstr "Grootte"

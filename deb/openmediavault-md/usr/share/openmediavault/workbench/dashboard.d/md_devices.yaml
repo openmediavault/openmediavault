@@ -1,0 +1,31 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 280e5026-8b12-11f0-949b-4b55460d8152
+  type: grid
+  reloadPeriod: 60000
+  permissions:
+    role:
+      - admin
+  title: _("MD Devices")
+  description: _("Displays information about MD (Software RAID) devices.")
+  grid:
+    item:
+      class: 'omv-cursor-pointer omv-text-center omv-text-nowrap omv-background-color-selected-button'
+      title: '{{ name }} [{{ level }}]'
+      titleClass: 'omv-text-truncate'
+      content: '{{ state }}'
+      contentClass: 'omv-text-truncate'
+      tooltip: '{{ name }} [{{ level }}]<br>{{ state }}'
+      url: '/storage/md/details/{{ devicefile | encodeuricomponent }}'
+    store:
+      proxy:
+        service: MdMgmt
+        get:
+          method: getList
+          params:
+            start: 0
+            limit: -1
+      sorters:
+        - prop: name
+          dir: asc

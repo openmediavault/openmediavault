@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 17:34+0200\n"
+"POT-Creation-Date: 2025-08-26 18:11+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2025\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -23,6 +23,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%CPU"
+msgstr "%PROC"
+
+msgid "%MEM"
+msgstr "%MEM"
 
 msgid "%d days"
 msgstr "%d nap"
@@ -583,6 +589,9 @@ msgstr "Burkina Faso"
 msgid "Burundi"
 msgstr "Burundi"
 
+msgid "COMMAND"
+msgstr "PARANCS"
+
 msgid "CPU"
 msgstr "CPU"
 
@@ -591,9 +600,6 @@ msgstr "CPU használat"
 
 msgid "CPU Utilization"
 msgstr "CPU-kihasználtság"
-
-msgid "CPU usage"
-msgstr "CPU használat"
 
 msgid "Cambodia"
 msgstr "Kambodzsa"
@@ -1270,9 +1276,6 @@ msgstr "Fájl elérési út"
 msgid "File system"
 msgstr "Fájlrendszer"
 
-msgid "File systems"
-msgstr "Fájlrendszerek"
-
 msgid "Filename"
 msgstr "Fájlnév"
 
@@ -1813,9 +1816,6 @@ msgstr "Litvánia"
 msgid "Load Average"
 msgstr "Terhelési átlag"
 
-msgid "Load average"
-msgstr "Terhelési átlag"
-
 msgid "Loading ..."
 msgstr "Betöltés…"
 
@@ -1949,9 +1949,6 @@ msgstr "Memória"
 msgid "Memory Usage"
 msgstr "Memória használat"
 
-msgid "Memory usage"
-msgstr "Memória használat"
-
 msgid "Message"
 msgstr "Üzenet"
 
@@ -1970,6 +1967,12 @@ msgstr "Francia főváros"
 msgid "Mexico"
 msgstr "Mexikó"
 
+msgid "MiB Mem"
+msgstr "MiB Memória"
+
+msgid "MiB Swap"
+msgstr "MiB Cserehely"
+
 msgid "Micronesia"
 msgstr "Mikronézia"
 
@@ -1987,6 +1990,9 @@ msgstr "Minimum protokoll verzió"
 
 msgid "Minute"
 msgstr "Perc"
+
+msgid "Miscellaneous"
+msgstr "Vegyes"
 
 msgid "Missing"
 msgstr "Leválasztott"
@@ -2017,6 +2023,21 @@ msgstr "Megfigyelt"
 
 msgid "Monitoring"
 msgstr "Megfigyelés"
+
+msgid "Monitoring - CPU usage"
+msgstr "Felügyelet – CPU-használat"
+
+msgid "Monitoring - File systems"
+msgstr "Felügyelet – Fájlrendszerek"
+
+msgid "Monitoring - Load average"
+msgstr "Felügyelet – Terhelési átlag"
+
+msgid "Monitoring - Memory usage"
+msgstr "Felügyelet – Memóriahasználat"
+
+msgid "Monitoring - Processes"
+msgstr "Felügyelet – Folyamatok"
 
 msgid "Monitoring enabled"
 msgstr "Megfigyelés engedélyezve"
@@ -2056,6 +2077,9 @@ msgstr "Mianmar"
 
 msgid "NFS"
 msgstr "NFS"
+
+msgid "NI"
+msgstr "ÉRT"
 
 msgid "NTP time servers, separated by comma."
 msgstr "NTP időkiszolgálók, vesszővel elválasztva."
@@ -2242,6 +2266,12 @@ msgstr "Óceánia"
 
 msgid "Owner"
 msgstr "Tulajdonos"
+
+msgid "PID"
+msgstr "FAZ"
+
+msgid "PR"
+msgstr "PRI"
 
 msgid "Pacific Islands Trust Territory"
 msgstr "Csendes-óceáni terület"
@@ -2511,9 +2541,6 @@ msgstr "Elsődleges e-mail cím"
 msgid "Private key"
 msgstr "Privát kulcs"
 
-msgid "Process monitoring"
-msgstr "Folyamatmegfigyelés"
-
 msgid "Processes"
 msgstr "Folyamatok"
 
@@ -2555,6 +2582,9 @@ msgstr "Gyors"
 
 msgid "Quota"
 msgstr "Kvóta"
+
+msgid "RES"
+msgstr "REZ"
 
 msgid "RSync server"
 msgstr "RSync szerver"
@@ -2682,6 +2712,9 @@ msgstr "Oroszország"
 msgid "Rwanda"
 msgstr "Ruanda"
 
+msgid "S"
+msgstr "A"
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
@@ -2690,6 +2723,9 @@ msgstr "S.M.A.R.T. állapot"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "A S.M.A.R.T. ellenőrzésnek aktívnak kell lennie a kiválasztott meghajtón."
+
+msgid "SHR"
+msgstr "MEGO"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2988,6 +3024,9 @@ msgstr "Kiszolgálók"
 msgid "Sleep"
 msgstr "Alvó állapot"
 
+msgid "Sleeping"
+msgstr "Alvó"
+
 msgid "Slovakia"
 msgstr "Szlovákia"
 
@@ -3113,6 +3152,12 @@ msgstr "Állapot"
 msgid "Stop"
 msgstr "Leállítás"
 
+msgid "Stopped by debugger during trace"
+msgstr "Leállítva a hibakereső nyomkövetése során "
+
+msgid "Stopped by job control signal"
+msgstr "Leállítva a munkavezérlő jel által "
+
 msgid "Storage"
 msgstr "Tárolás"
 
@@ -3195,6 +3240,9 @@ msgstr "TCP"
 
 msgid "TCP forwarding"
 msgstr "TCP továbbítás"
+
+msgid "TIME+"
+msgstr "IDŐ+"
 
 msgid "Tags"
 msgstr "Címkék"
@@ -3699,6 +3747,9 @@ msgstr "UID"
 msgid "UNKNOWN"
 msgstr "ISMERETLEN"
 
+msgid "USER"
+msgstr "FELHASZ"
+
 msgid "UUID"
 msgstr "UUID"
 
@@ -3716,6 +3767,9 @@ msgstr "Eltávolítás"
 
 msgid "Uninstall plugin"
 msgstr "Bővítmény eltávolítása"
+
+msgid "Uninterruptible sleep"
+msgstr "Megszakíthatatlan alvás"
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "Szovjet Szocialista Köztársaságok Szövetsége"
@@ -3965,6 +4019,9 @@ msgstr "Kihasználtság"
 msgid "Uzbekistan"
 msgstr "Üzbegisztán"
 
+msgid "VIRT"
+msgstr "VIRT"
+
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -4098,6 +4155,9 @@ msgstr "Zambia"
 
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
+
+msgid "Zombie"
+msgstr "Zombi"
 
 msgid "a day"
 msgstr "egy nap"

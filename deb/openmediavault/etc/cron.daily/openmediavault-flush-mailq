@@ -34,7 +34,7 @@ export LC_ALL=C.UTF-8
 set -e
 
 # Purge all outstanding messages if notifications are disabled.
-if [ "$(omv_config_get "//system/email/enable")" = "0" ]; then
+if ! omv_is_notifications_enabled; then
   omv_syslog_info "Purging all messages in mail queue."
   postfix set-permissions || true
   postsuper -d ALL >/dev/null 2>&1

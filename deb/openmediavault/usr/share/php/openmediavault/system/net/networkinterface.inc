@@ -426,7 +426,7 @@ class NetworkInterface {
 				$matches)) {
 			return FALSE;
 		}
-		$data = preg_split("/[\s]+/", $matches[1]);
+		$data = preg_split("/[\s]+/", trim($matches[1]));
 		return [
 			"rx_bytes" => $data[0],
 			"rx_packets" => $data[1],

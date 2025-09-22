@@ -48,12 +48,16 @@ for f in /etc/ssl/certs/"${OMV_SSL_CERTIFICATE_PREFIX}"*.crt ; do
   if [ "${datediff_days}" -le "${OMV_SSL_CERTIFICATE_CHECK_EXPIRY_DAYS}" ] && [ "${datediff_days}" -gt 0 ]; then
     omv_syslog_warning "The SSL certificate ${f} expires in ${datediff_days} days."
     subject=$(openssl x509 -subject -noout -in "${f}" | sed "s/subject=\(.*\)/\1/")
-    (
-      echo "The SSL certificate ${f} expires in ${datediff_days} days.";
-      echo ""
-      echo "Subject: ${subject}"
-      echo "Expiration date: ${enddate}"
-    ) | mail -E -s "A SSL certificate expires in ${datediff_days} days" root
+
+    # Send a notification by email?
+    if omv_is_notifications_enabled && omv_is_notification_enabled_by_id "misc"; then
+      (
+        echo "The SSL certificate ${f} expires in ${datediff_days} days.";
+        echo ""
+        echo "Subject: ${subject}"
+        echo "Expiration date: ${enddate}"
+      ) | mail -E -s "A SSL certificate expires in ${datediff_days} days" root
+    fi
   else
     omv_syslog_info "The SSL certificate $(basename ${f}) is valid."
   fi

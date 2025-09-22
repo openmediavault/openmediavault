@@ -1,3 +1,5 @@
+#!/usr/bin/env dash
+#
 # This file is part of OpenMediaVault.
 #
 # @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -17,20 +19,20 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
-{% set options = salt['pillar.get']('default:OMV_WSDD_PARAMS', '') %}
-{% set config = salt['omv_conf.get']('conf.service.smb') %}
+set -e
 
-configure_default_wsdd:
-  file.managed:
-    - name: "/etc/wsdd-server/defaults"
-    - contents: |
-        {{ pillar['headers']['auto_generated'] }}
-        {{ pillar['headers']['warning'] }}
-        WSDD_PARAMS="--workgroup='{{ config.workgroup }}' {{ options }}"
-    - user: root
-    - group: root
-    - mode: 644
+. /usr/share/openmediavault/scripts/helper-functions
 
-divert_default_wsdd:
-  omv_dpkg.divert_add:
-    - name: "/etc/wsdd-server/defaults"
+if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"id","arg1":"authentication"}' \
+		"conf.system.notification.notification"; then
+	omv_config_add_node_data "/config/system/notification/notifications" "notification" \
+		"<uuid>ce287478-5429-46c7-9e06-438a2aba8499</uuid><id>authentication</id><enable>1</enable>"
+fi
+
+if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"id","arg1":"misc"}' \
+		"conf.system.notification.notification"; then
+	omv_config_add_node_data "/config/system/notification/notifications" "notification" \
+		"<uuid>6a0ca6b0-81a5-11f0-a77e-e72b7329fa76</uuid><id>misc</id><enable>1</enable>"
+fi
+
+exit 0

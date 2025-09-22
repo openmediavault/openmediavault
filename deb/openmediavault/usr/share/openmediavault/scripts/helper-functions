@@ -1079,3 +1079,25 @@ omv_pwgen() {
 	RANDFILE="${tmpfile}" openssl rand -hex "${num}"
 	rm -f "${tmpfile}"
 }
+
+# omv_is_notifications_enabled
+# Check whether notifications are enabled.
+# @return Returns 0 if notifications are enabled, otherwise 1.
+omv_is_notifications_enabled() {
+  local _enabled
+  _enabled=$(omv_config_get "/config/system/email/enable")
+  [ "${_enabled}" != "1" ] && return 1
+  return 0
+}
+
+# omv_is_notification_enabled_by_id <id>
+# Check whether notifications are enabled for the given ID.
+# @return Returns 0 if the specified notification is enabled, otherwise 1.
+omv_is_notification_enabled_by_id() {
+  local _id _enabled
+  _id=$1
+  [ -z "${_id}" ] && return 1
+  _enabled=$(omv_config_get "/config/system/notification/notifications/notification[id='${_id}']/enable")
+  [ "${_enabled}" != "1" ] && return 1
+  return 0
+}

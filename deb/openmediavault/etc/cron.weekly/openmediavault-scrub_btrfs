@@ -28,6 +28,7 @@ MAILTO=""
 
 OMV_BTRFS_SCRUB_ENABLED=${OMV_BTRFS_SCRUB_ENABLED:-"yes"}
 OMV_BTRFS_SCRUB_PERIOD=${OMV_BTRFS_SCRUB_PERIOD:-"monthly"}
+OMV_BTRFS_SCRUB_ARGS=${OMV_BTRFS_SCRUB_ARGS:-""}
 
 # Exit immediately if Btrfs scrubbing is disabled.
 ! omv_checkyesno "${OMV_BTRFS_SCRUB_ENABLED}" && exit 0
@@ -35,4 +36,9 @@ OMV_BTRFS_SCRUB_PERIOD=${OMV_BTRFS_SCRUB_PERIOD:-"monthly"}
 # Exit immediately if Btrfs scrubbing period is not 'weekly'.
 [ "${OMV_BTRFS_SCRUB_PERIOD}" != "weekly" ] && exit 0
 
-omv-btrfs-scrub -e >/dev/null 2>&1
+# Send a notification by email?
+if omv_is_notifications_enabled && omv_is_notification_enabled_by_id "misc"; then
+  OMV_BTRFS_SCRUB_ARGS="${OMV_BTRFS_SCRUB_ARGS} -e"
+fi
+
+omv-btrfs-scrub ${OMV_BTRFS_SCRUB_ARGS} >/dev/null 2>&1

@@ -44,6 +44,7 @@ interface INotification {
      *     - Utilities
      *     - Virtualization
      *     - System
+     *	   - General
 	 *   \em title (string) A title displayed in the WebGUI.
 	 */
 	public function getNotificationConfig();

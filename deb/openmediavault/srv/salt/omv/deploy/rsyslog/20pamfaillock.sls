@@ -17,20 +17,18 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
-{% set options = salt['pillar.get']('default:OMV_WSDD_PARAMS', '') %}
-{% set config = salt['omv_conf.get']('conf.service.smb') %}
+{% set notification_config = salt['omv_conf.get_by_filter'](
+  'conf.system.notification.notification',
+  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'authentication'})[0] %}
 
-configure_default_wsdd:
+configure_rsyslog_pamfaillock:
   file.managed:
-    - name: "/etc/wsdd-server/defaults"
-    - contents: |
-        {{ pillar['headers']['auto_generated'] }}
-        {{ pillar['headers']['warning'] }}
-        WSDD_PARAMS="--workgroup='{{ config.workgroup }}' {{ options }}"
+    - name: "/etc/rsyslog.d/openmediavault-pamfaillock.conf"
+    - source:
+      - salt://{{ tpldir }}/files/etc_rsyslog.d_openmediavault-pamfaillock.conf.j2
+    - context:
+        notification_config: {{ notification_config | json }}
+    - template: jinja
     - user: root
     - group: root
     - mode: 644
-
-divert_default_wsdd:
-  omv_dpkg.divert_add:
-    - name: "/etc/wsdd-server/defaults"

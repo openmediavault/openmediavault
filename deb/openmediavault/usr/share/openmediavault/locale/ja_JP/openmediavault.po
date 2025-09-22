@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 17:34+0200\n"
+"POT-Creation-Date: 2025-08-26 18:11+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -17,6 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "%CPU"
+msgstr ""
+
+msgid "%MEM"
+msgstr ""
 
 msgid "%d days"
 msgstr "%d 日"
@@ -577,6 +583,9 @@ msgstr "ブルキナファソ"
 msgid "Burundi"
 msgstr "ブルンジ"
 
+msgid "COMMAND"
+msgstr ""
+
 msgid "CPU"
 msgstr "CPU"
 
@@ -585,9 +594,6 @@ msgstr "CPU使用率"
 
 msgid "CPU Utilization"
 msgstr "CPU 使用率"
-
-msgid "CPU usage"
-msgstr "CPU使用率"
 
 msgid "Cambodia"
 msgstr "カンボジア"
@@ -1264,9 +1270,6 @@ msgstr "ファイルのパス"
 msgid "File system"
 msgstr "ファイルシステム"
 
-msgid "File systems"
-msgstr "ファイルシステム"
-
 msgid "Filename"
 msgstr "ファイル名"
 
@@ -1807,9 +1810,6 @@ msgstr "リトアニア"
 msgid "Load Average"
 msgstr "ロードアベレージ"
 
-msgid "Load average"
-msgstr "ロードアベレージ"
-
 msgid "Loading ..."
 msgstr "読み込み中 ..."
 
@@ -1943,9 +1943,6 @@ msgstr "メモリ"
 msgid "Memory Usage"
 msgstr "メモリ使用量"
 
-msgid "Memory usage"
-msgstr "メモリ使用率"
-
 msgid "Message"
 msgstr "メッセージ"
 
@@ -1964,6 +1961,12 @@ msgstr "フランス・メトロポリテーヌ"
 msgid "Mexico"
 msgstr "メキシコ"
 
+msgid "MiB Mem"
+msgstr ""
+
+msgid "MiB Swap"
+msgstr ""
+
 msgid "Micronesia"
 msgstr "ミクロネシア"
 
@@ -1981,6 +1984,9 @@ msgstr ""
 
 msgid "Minute"
 msgstr "分"
+
+msgid "Miscellaneous"
+msgstr ""
 
 msgid "Missing"
 msgstr "欠落"
@@ -2011,6 +2017,21 @@ msgstr "モニタ中"
 
 msgid "Monitoring"
 msgstr "モニタリング"
+
+msgid "Monitoring - CPU usage"
+msgstr ""
+
+msgid "Monitoring - File systems"
+msgstr ""
+
+msgid "Monitoring - Load average"
+msgstr ""
+
+msgid "Monitoring - Memory usage"
+msgstr ""
+
+msgid "Monitoring - Processes"
+msgstr ""
 
 msgid "Monitoring enabled"
 msgstr "モリタリング有効"
@@ -2050,6 +2071,9 @@ msgstr "ミャンマー"
 
 msgid "NFS"
 msgstr "NFS"
+
+msgid "NI"
+msgstr ""
 
 msgid "NTP time servers, separated by comma."
 msgstr ""
@@ -2236,6 +2260,12 @@ msgstr "離島オセアニア"
 
 msgid "Owner"
 msgstr "オーナー"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "PR"
+msgstr ""
 
 msgid "Pacific Islands Trust Territory"
 msgstr "太平洋諸島信託統治領"
@@ -2505,9 +2535,6 @@ msgstr "プライマリメール"
 msgid "Private key"
 msgstr "プライベートキー"
 
-msgid "Process monitoring"
-msgstr "プロセスモニタリング"
-
 msgid "Processes"
 msgstr "プロセス"
 
@@ -2549,6 +2576,9 @@ msgstr "クイック"
 
 msgid "Quota"
 msgstr "クォータ"
+
+msgid "RES"
+msgstr ""
 
 msgid "RSync server"
 msgstr "RSyncサーバー"
@@ -2676,6 +2706,9 @@ msgstr "ロシア"
 msgid "Rwanda"
 msgstr "ルワンダ"
 
+msgid "S"
+msgstr ""
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
@@ -2684,6 +2717,9 @@ msgstr "S.M.A.R.T. ステータス"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.モニタリングは、選択したデバイスのために活性化されなければならない。"
+
+msgid "SHR"
+msgstr ""
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2982,6 +3018,9 @@ msgstr "スレーブ"
 msgid "Sleep"
 msgstr "Sleep"
 
+msgid "Sleeping"
+msgstr ""
+
 msgid "Slovakia"
 msgstr "スロバキア"
 
@@ -3107,6 +3146,12 @@ msgstr "ステータス"
 msgid "Stop"
 msgstr "ストップ"
 
+msgid "Stopped by debugger during trace"
+msgstr ""
+
+msgid "Stopped by job control signal"
+msgstr ""
+
 msgid "Storage"
 msgstr "ストレージ"
 
@@ -3189,6 +3234,9 @@ msgstr "TCP"
 
 msgid "TCP forwarding"
 msgstr "TCP転送"
+
+msgid "TIME+"
+msgstr ""
 
 msgid "Tags"
 msgstr "Tags"
@@ -3693,6 +3741,9 @@ msgstr "UID"
 msgid "UNKNOWN"
 msgstr "UNKNOWN"
 
+msgid "USER"
+msgstr ""
+
 msgid "UUID"
 msgstr "UUID"
 
@@ -3710,6 +3761,9 @@ msgstr "アンインストール"
 
 msgid "Uninstall plugin"
 msgstr "プラグインのアンインストール"
+
+msgid "Uninterruptible sleep"
+msgstr ""
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "ソビエト連邦"
@@ -3959,6 +4013,9 @@ msgstr "使用率"
 msgid "Uzbekistan"
 msgstr "ウズベキスタン"
 
+msgid "VIRT"
+msgstr ""
+
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -4092,6 +4149,9 @@ msgstr "ザンビア"
 
 msgid "Zimbabwe"
 msgstr "ジンバブエ"
+
+msgid "Zombie"
+msgstr ""
 
 msgid "a day"
 msgstr "日"

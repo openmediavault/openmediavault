@@ -550,6 +550,11 @@ nunjucksEnv.addFilter('encodeuricomponent', (value: string | number | boolean): 
   encodeURIComponent(value)
 );
 /**
+ * Decodes a Uniform Resource Identifier (URI) component previously created by
+ * the `encodeuricomponent` filter or by a similar routine.
+ */
+nunjucksEnv.addFilter('decodeuricomponent', (value: string): string => decodeURIComponent(value));
+/**
  * Convert the value to the host environment's current locale or
  * into relative time.
  */

@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Serhat SUT <serhat.sut@gmail.com>, 2024
+# Serhat SUT <serhat.sut@gmail.com>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-24 21:12+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2024\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2025\n"
 "Language-Team: Turkish (Turkey) (https://app.transifex.com/openmediavault/teams/14254/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -111,7 +111,7 @@ msgid ""
 msgstr ""
 
 msgid "Enabled"
-msgstr ""
+msgstr "Geçerli"
 
 msgid "External IP"
 msgstr ""
@@ -312,7 +312,7 @@ msgid "Tag"
 msgstr ""
 
 msgid "Tags"
-msgstr ""
+msgstr "Etiketler"
 
 msgid "Target Namespace"
 msgstr ""

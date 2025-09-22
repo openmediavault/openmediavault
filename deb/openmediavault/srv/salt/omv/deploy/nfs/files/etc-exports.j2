@@ -1,6 +1,6 @@
 {%- set separator = ' ' %}
 {%- set export_dir = salt['pillar.get']('default:OMV_NFSD_EXPORT_DIR', '/export') -%}
-{%- set pseudo_root_options = salt['pillar.get']('default:OMV_NFSD_V4_PSEUDO_ROOT_OPTIONS', 'ro,fsid=0,root_squash,subtree_check') -%}
+{%- set pseudo_root_options = salt['pillar.get']('default:OMV_NFSD_V4_PSEUDO_ROOT_OPTIONS', 'ro,fsid=0,root_squash,subtree_check,secure') -%}
 {%- set pseudo_root_enabled = salt['pillar.get']('default:OMV_NFSD_V4_PSEUDO_ROOT_ENABLED', 'yes') -%}
 {%- set shares_distinct_sfref = salt['omv_conf.get_by_filter'](
   'conf.service.nfs.share',
@@ -26,6 +26,12 @@
 
 {%- if (pseudo_root_enabled | to_bool) and (['4', '4.1', '4.2'] | intersect(nfs_versions) | length > 0) %}
 {%- for share_distinct_client in shares_distinct_client %}
-{{ export_dir }} {{ share_distinct_client.client | trim | default('*', true) }}({{ pseudo_root_options }})
+{%- set insecure = salt['omv_conf.get_by_filter'](
+  'conf.service.nfs.share',
+  {'operator': 'and',
+  'arg0': {'operator': 'stringEquals', 'arg0': 'client', 'arg1': share_distinct_client.client},
+  'arg1': {'operator': 'stringContains', 'arg0': 'extraoptions', 'arg1': 'insecure'}
+  }) | length > 0 %}
+{{ export_dir }} {{ share_distinct_client.client | trim | default('*', true) }}({{ (pseudo_root_options | replace('secure', 'insecure')) if insecure else pseudo_root_options }})
 {%- endfor %}
 {%- endif %}

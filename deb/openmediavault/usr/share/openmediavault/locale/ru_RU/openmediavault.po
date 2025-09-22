@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 17:34+0200\n"
+"POT-Creation-Date: 2025-08-26 18:11+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -31,6 +31,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru_RU\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+msgid "%CPU"
+msgstr ""
+
+msgid "%MEM"
+msgstr ""
 
 msgid "%d days"
 msgstr "%d дней"
@@ -591,6 +597,9 @@ msgstr "Буркина-Фасо"
 msgid "Burundi"
 msgstr "Бурунди"
 
+msgid "COMMAND"
+msgstr ""
+
 msgid "CPU"
 msgstr "Процессор"
 
@@ -599,9 +608,6 @@ msgstr "Использование процессора"
 
 msgid "CPU Utilization"
 msgstr ""
-
-msgid "CPU usage"
-msgstr "Использование процессора"
 
 msgid "Cambodia"
 msgstr "Камбоджа"
@@ -1278,9 +1284,6 @@ msgstr "Путь к файлу"
 msgid "File system"
 msgstr "Файловая система"
 
-msgid "File systems"
-msgstr "Файловые системы"
-
 msgid "Filename"
 msgstr "Имя файла"
 
@@ -1821,9 +1824,6 @@ msgstr "Литва"
 msgid "Load Average"
 msgstr "Средняя загрузка"
 
-msgid "Load average"
-msgstr "Средняя загрузка"
-
 msgid "Loading ..."
 msgstr "Загрузка ..."
 
@@ -1957,9 +1957,6 @@ msgstr "Память"
 msgid "Memory Usage"
 msgstr "Использование памяти"
 
-msgid "Memory usage"
-msgstr "Использование памяти"
-
 msgid "Message"
 msgstr "сообщение"
 
@@ -1978,6 +1975,12 @@ msgstr "Столичная Франция"
 msgid "Mexico"
 msgstr "Мексика"
 
+msgid "MiB Mem"
+msgstr ""
+
+msgid "MiB Swap"
+msgstr ""
+
 msgid "Micronesia"
 msgstr "Микронезия"
 
@@ -1995,6 +1998,9 @@ msgstr ""
 
 msgid "Minute"
 msgstr "Минут"
+
+msgid "Miscellaneous"
+msgstr ""
 
 msgid "Missing"
 msgstr "Отсутствующий"
@@ -2025,6 +2031,21 @@ msgstr "Отслеживается"
 
 msgid "Monitoring"
 msgstr "Мониторинг"
+
+msgid "Monitoring - CPU usage"
+msgstr ""
+
+msgid "Monitoring - File systems"
+msgstr ""
+
+msgid "Monitoring - Load average"
+msgstr ""
+
+msgid "Monitoring - Memory usage"
+msgstr ""
+
+msgid "Monitoring - Processes"
+msgstr ""
 
 msgid "Monitoring enabled"
 msgstr "Мониторинг включен"
@@ -2064,6 +2085,9 @@ msgstr "Мьянма"
 
 msgid "NFS"
 msgstr "NFS"
+
+msgid "NI"
+msgstr ""
 
 msgid "NTP time servers, separated by comma."
 msgstr ""
@@ -2250,6 +2274,12 @@ msgstr "Отдаленная Океания"
 
 msgid "Owner"
 msgstr "Владелец"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "PR"
+msgstr ""
 
 msgid "Pacific Islands Trust Territory"
 msgstr "Тихоокеанские острова подопечной территории"
@@ -2519,9 +2549,6 @@ msgstr "Основной e-mail"
 msgid "Private key"
 msgstr "Секретный ключ"
 
-msgid "Process monitoring"
-msgstr "Мониторинг процессов"
-
 msgid "Processes"
 msgstr "Процессы"
 
@@ -2563,6 +2590,9 @@ msgstr "Быстро"
 
 msgid "Quota"
 msgstr "Квота"
+
+msgid "RES"
+msgstr ""
 
 msgid "RSync server"
 msgstr "Сервер RSync"
@@ -2690,6 +2720,9 @@ msgstr "Россия"
 msgid "Rwanda"
 msgstr "Руанда"
 
+msgid "S"
+msgstr ""
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
@@ -2698,6 +2731,9 @@ msgstr ""
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. должен быть включен для выбранного устройства."
+
+msgid "SHR"
+msgstr ""
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2996,6 +3032,9 @@ msgstr "Подчиненные"
 msgid "Sleep"
 msgstr "Спать"
 
+msgid "Sleeping"
+msgstr ""
+
 msgid "Slovakia"
 msgstr "Словакия"
 
@@ -3121,6 +3160,12 @@ msgstr "Статус"
 msgid "Stop"
 msgstr "Стоп"
 
+msgid "Stopped by debugger during trace"
+msgstr ""
+
+msgid "Stopped by job control signal"
+msgstr ""
+
 msgid "Storage"
 msgstr "Хранилище"
 
@@ -3203,6 +3248,9 @@ msgstr ""
 
 msgid "TCP forwarding"
 msgstr "Перенаправление TCP"
+
+msgid "TIME+"
+msgstr ""
 
 msgid "Tags"
 msgstr "Теги"
@@ -3707,6 +3755,9 @@ msgstr "UID (идентификатор пользователя)"
 msgid "UNKNOWN"
 msgstr "НЕИЗВЕСТНЫЙ"
 
+msgid "USER"
+msgstr ""
+
 msgid "UUID"
 msgstr ""
 
@@ -3724,6 +3775,9 @@ msgstr "Удалить"
 
 msgid "Uninstall plugin"
 msgstr "Удалить плагин"
+
+msgid "Uninterruptible sleep"
+msgstr ""
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "Союз Советских Социалистических Республик"
@@ -3973,6 +4027,9 @@ msgstr ""
 msgid "Uzbekistan"
 msgstr "Узбекистан"
 
+msgid "VIRT"
+msgstr ""
+
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -4106,6 +4163,9 @@ msgstr "Замбия"
 
 msgid "Zimbabwe"
 msgstr "Зимбабве"
+
+msgid "Zombie"
+msgstr ""
 
 msgid "a day"
 msgstr "день"

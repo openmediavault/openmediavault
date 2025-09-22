@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 17:34+0200\n"
+"POT-Creation-Date: 2025-08-26 18:11+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2025\n"
 "Language-Team: Polish (Poland) (http://app.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -23,6 +23,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+msgid "%CPU"
+msgstr ""
+
+msgid "%MEM"
+msgstr ""
 
 msgid "%d days"
 msgstr "%d dni"
@@ -583,6 +589,9 @@ msgstr "Burkina Faso"
 msgid "Burundi"
 msgstr "Burundi"
 
+msgid "COMMAND"
+msgstr ""
+
 msgid "CPU"
 msgstr "CPU"
 
@@ -591,9 +600,6 @@ msgstr "Użycie CPU"
 
 msgid "CPU Utilization"
 msgstr "Wykorzystanie CPU"
-
-msgid "CPU usage"
-msgstr "użycie CPU"
 
 msgid "Cambodia"
 msgstr "Cambodia"
@@ -1270,9 +1276,6 @@ msgstr "Ścieżka pliku"
 msgid "File system"
 msgstr "System plików"
 
-msgid "File systems"
-msgstr "Systemy plików"
-
 msgid "Filename"
 msgstr "Nazwa pliku"
 
@@ -1813,9 +1816,6 @@ msgstr "Lithuania"
 msgid "Load Average"
 msgstr "Średnie obciążenie"
 
-msgid "Load average"
-msgstr "Średnie obciążenie"
-
 msgid "Loading ..."
 msgstr "Ładowanie ..."
 
@@ -1949,9 +1949,6 @@ msgstr "Pamięć"
 msgid "Memory Usage"
 msgstr "Użycie pamięci"
 
-msgid "Memory usage"
-msgstr "Użycie pamięci"
-
 msgid "Message"
 msgstr "Wiadomość"
 
@@ -1970,6 +1967,12 @@ msgstr "Metropolitan France"
 msgid "Mexico"
 msgstr "Mexico"
 
+msgid "MiB Mem"
+msgstr ""
+
+msgid "MiB Swap"
+msgstr ""
+
 msgid "Micronesia"
 msgstr "Micronesia"
 
@@ -1987,6 +1990,9 @@ msgstr ""
 
 msgid "Minute"
 msgstr "Minuta"
+
+msgid "Miscellaneous"
+msgstr ""
 
 msgid "Missing"
 msgstr "Brak"
@@ -2017,6 +2023,21 @@ msgstr "Monitorowane"
 
 msgid "Monitoring"
 msgstr "Monitoring"
+
+msgid "Monitoring - CPU usage"
+msgstr ""
+
+msgid "Monitoring - File systems"
+msgstr ""
+
+msgid "Monitoring - Load average"
+msgstr ""
+
+msgid "Monitoring - Memory usage"
+msgstr ""
+
+msgid "Monitoring - Processes"
+msgstr ""
 
 msgid "Monitoring enabled"
 msgstr "Monitorowanie włączone"
@@ -2056,6 +2077,9 @@ msgstr "Myanmar"
 
 msgid "NFS"
 msgstr "NFS"
+
+msgid "NI"
+msgstr ""
 
 msgid "NTP time servers, separated by comma."
 msgstr ""
@@ -2242,6 +2266,12 @@ msgstr "Outlying Oceania"
 
 msgid "Owner"
 msgstr "Właściciel"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "PR"
+msgstr ""
 
 msgid "Pacific Islands Trust Territory"
 msgstr "Pacific Islands Trust Territory"
@@ -2511,9 +2541,6 @@ msgstr "Podstawowy email"
 msgid "Private key"
 msgstr "Klucz prywatny"
 
-msgid "Process monitoring"
-msgstr "Monitoring proscesów"
-
 msgid "Processes"
 msgstr "Procesy"
 
@@ -2555,6 +2582,9 @@ msgstr "Szybkie"
 
 msgid "Quota"
 msgstr "Przydział"
+
+msgid "RES"
+msgstr ""
 
 msgid "RSync server"
 msgstr "Serwer RSync"
@@ -2682,6 +2712,9 @@ msgstr "Russia"
 msgid "Rwanda"
 msgstr "Rwanda"
 
+msgid "S"
+msgstr ""
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
@@ -2690,6 +2723,9 @@ msgstr ""
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Monitoring S.M.A.R.T. musi być aktywny dla wybranego urządzenia"
+
+msgid "SHR"
+msgstr ""
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2988,6 +3024,9 @@ msgstr "Niewolnicy"
 msgid "Sleep"
 msgstr "Uśpij"
 
+msgid "Sleeping"
+msgstr ""
+
 msgid "Slovakia"
 msgstr "Slovakia"
 
@@ -3113,6 +3152,12 @@ msgstr "Status"
 msgid "Stop"
 msgstr "Stop"
 
+msgid "Stopped by debugger during trace"
+msgstr ""
+
+msgid "Stopped by job control signal"
+msgstr ""
+
 msgid "Storage"
 msgstr "Magazyn"
 
@@ -3195,6 +3240,9 @@ msgstr "TCP"
 
 msgid "TCP forwarding"
 msgstr "Przekazywanie TCP"
+
+msgid "TIME+"
+msgstr ""
 
 msgid "Tags"
 msgstr "Tagi"
@@ -3699,6 +3747,9 @@ msgstr "UID"
 msgid "UNKNOWN"
 msgstr "NIEZNANY"
 
+msgid "USER"
+msgstr ""
+
 msgid "UUID"
 msgstr ""
 
@@ -3716,6 +3767,9 @@ msgstr "Odinstaluj"
 
 msgid "Uninstall plugin"
 msgstr "Odinstaluj wtyczkę"
+
+msgid "Uninterruptible sleep"
+msgstr ""
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "Union of Soviet Socialist Republics"
@@ -3965,6 +4019,9 @@ msgstr ""
 msgid "Uzbekistan"
 msgstr "Uzbekistan"
 
+msgid "VIRT"
+msgstr ""
+
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -4098,6 +4155,9 @@ msgstr "Zambia"
 
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
+
+msgid "Zombie"
+msgstr ""
 
 msgid "a day"
 msgstr "dzień"

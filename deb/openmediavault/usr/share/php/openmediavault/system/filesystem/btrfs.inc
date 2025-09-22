@@ -169,8 +169,8 @@ class Btrfs extends Filesystem {
 		// System, DUP: total=8388608, used=16384
 		// Metadata, DUP: total=171048960, used=1458176
 		// GlobalReserve, single: total=3407872, used=0
-		$regex = "/^([\w\+]+), ([a-zA-Z0156]+): total=([0-9]+), ".
-		  "used=([0-9]+)$/i";
+		$regex = "/^([\w\+]+), (single|mixed|dup|raid0|raid1|raid10|raid5|".
+		  "raid6|raid1c3|raid1c4): total=([0-9]+), used=([0-9]+)$/i";
 		foreach (preg_filter($regex, "$1 $2 $3 $4", $output) as $rowv) {
 			list($type, $profile, $t, $u) = explode(" ", $rowv);
 			switch (mb_strtoupper($profile)) {
@@ -183,6 +183,12 @@ class Btrfs extends Filesystem {
 				case "RAID10":
 					$factor = 2.0;
 					break;
+				case "RAID1C3":
+					$factor = 3.0;
+					break;
+				case "RAID1C4":
+					$factor = 4.0;
+					break;
 				case "RAID5":
 					$numDevices = $this->getNumTotalDeviceFiles();
 					$efficiency = 1 - (1 / $numDevices);
@@ -192,6 +198,9 @@ class Btrfs extends Filesystem {
 					$numDevices = $this->getNumTotalDeviceFiles();
 					$efficiency = 1 - (2 / $numDevices);
 					$factor = 1 / $efficiency;
+					break;
+				default:
+					$factor = 1.0;
 					break;
 			}
 

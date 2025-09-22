@@ -28,5 +28,9 @@ export LC_ALL=C.UTF-8
 if [ -e "/run/reboot-required" ]; then
   msg="A reboot of the system is required to complete a package upgrade."
   omv_syslog_info "${msg}"
-  echo "${msg}" | mail -E -s "Reboot required" root
+
+  # Send a notification by email?
+  if omv_is_notifications_enabled && omv_is_notification_enabled_by_id "apt"; then
+    echo "${msg}" | mail -E -s "Reboot required" root
+  fi
 fi
