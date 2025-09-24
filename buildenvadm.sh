@@ -21,8 +21,8 @@
 
 set -e
 
-BASE_IMAGE=${BASE_IMAGE:-"docker.io/library/debian:bookworm"}
-IMAGE_NAME=${IMAGE_NAME:-"omv7-pkgbuildenv"}
+BASE_IMAGE=${BASE_IMAGE:-"docker.io/library/debian:trixie"}
+IMAGE_NAME=${IMAGE_NAME:-"omv8-pkgbuildenv"}
 
 usage() {
 	cat <<EOF

@@ -592,28 +592,6 @@ function is_closure($var): bool {
 }
 
 /**
- * Validate JSON data via JSON schema.
- * @ingroup api
- * @param string $data The JSON string to validate.
- * @param mixed $schema The JSON schema to use for validation. This can be a
- *   string or an associative array.
- * @param mixed $errors Optional parameter which will contain the error
- *   messages if validation fails. Defaults to NULL.
- * @return TRUE if successful, otherwise FALSE.
- */
-function json_validate($data, $schema, &$errors = NULL): bool {
-	$result = FALSE;
-	try {
-		$jsonSchema = new \OMV\Json\Schema($schema);
-		$jsonSchema->validate($data);
-		$result = TRUE;
-	} catch(\Exception $e) {
-		$errors = [$e->getMessage()];
-	}
-	return $result;
-}
-
-/**
  * Encode the specified expression to UTF-8.
  * @param expression The variable you want to convert.
  * @return Returns the UTF-8 encoded value.

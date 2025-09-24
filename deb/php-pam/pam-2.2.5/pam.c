@@ -260,7 +260,7 @@ PHP_FUNCTION(pam_chpass)
 		RETURN_FALSE;
 	}
 
-	if ((result = pam_chauthtok(pamh, PAM_DISALLOW_NULL_AUTHTOK)) != PAM_SUCCESS) {
+	if ((result = pam_chauthtok(pamh, 0)) != PAM_SUCCESS) {
 		if (status) {
 			spprintf(&error_msg, 0, "%s (in %s)", (char *) pam_strerror(pamh, result), "pam_chauthtok");
 			zval_dtor(status);

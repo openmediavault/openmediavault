@@ -17,6 +17,25 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
+# Install additional Python modules into the SaltStack onedir installation
+# that are required by the openmediavault Python module which is used by
+# various Salt runners and execution modules.
+# https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-dependencies.html
+install_python_modules_pip:
+  pip.installed:
+    - pkgs:
+      - cached-property
+      - click
+      - lxml
+      - natsort
+      - pyudev
+
+install_python_module_openmediavault:
+  file.symlink:
+    - name: /opt/saltstack/salt/lib/python3.10/site-packages/openmediavault
+    - target: /usr/lib/python3/dist-packages/openmediavault
+    - force: True
+
 run_state_patch:
   salt.state:
     - tgt: '*'

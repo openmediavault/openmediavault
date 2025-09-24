@@ -27,13 +27,14 @@ PHPIZE=/usr/bin/phpize
 PHPCONFIG=/usr/bin/php-config
 EXT_DIR=$(shell $(PHPCONFIG) --extension-dir | sed -e "s-/--")
 SOURCE_DIR=$(shell ls -d $(PECL_PKG_REALNAME)-*)
-BINARYTARGETS=binary-arch-v8.2
-BUILDTARGETS=build-v8.2
-CLEANTARGETS=clean-v8.2
+BINARYTARGETS=binary-arch-v8.4
+BUILDTARGETS=build-v8.4
+CLEANTARGETS=clean-v8.4
 PHPAPIVER=$(shell /usr/bin/php-config --phpapi)
-PHPCONFD=$(shell echo "/etc/php/8.2/mods-available" | sed -e "s-/--")
+PHPCONFD=$(shell echo "/etc/php/8.4/mods-available" | sed -e "s-/--")
 
 %:
+	cp -r $(SOURCE_DIR)/* .
 	dh $@
 
 override_dh_auto_configure:

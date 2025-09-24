@@ -27,11 +27,11 @@ include:
 
 test_phpfpm_service_config:
   cmd.run:
-    - name: "php-fpm8.2 --test"
+    - name: "php-fpm8.4 --test"
 
 restart_phpfpm_service:
   service.running:
-    - name: php8.2-fpm
+    - name: php8.4-fpm
     - enable: True
     - require:
       - cmd: test_phpfpm_service_config

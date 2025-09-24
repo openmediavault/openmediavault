@@ -22,8 +22,8 @@
 # https://bugs.launchpad.net/ubuntu/+source/debootstrap/+bug/86536
 FIX_DEBOOTSTRAP_PKG_INSTALL=perl-openssl-defaults
 
-DISTRIBUTION=bookworm
-OMV_DISTRIBUTION=sandworm
+DISTRIBUTION=trixie
+OMV_DISTRIBUTION=synchrony
 ARCHITECTURE?=amd64
 NAME=$(DISTRIBUTION)-$(ARCHITECTURE)
 MIRROR="http://deb.debian.org/debian/"
@@ -35,7 +35,7 @@ BUILDRESULT="$(BASEDIR)/$(NAME)/result/"
 APTCACHE="$(BASEDIR)/$(NAME)/aptcache/"
 COMPONENTS="main contrib non-free"
 DEBOOTSTRAPOPTS_KEYRING=/usr/share/keyrings/debian-archive-keyring.gpg
-DEBOOTSTRAPOPTS_INCLUDE=python3,devscripts,fakeroot,debhelper,php-dev,nano,quilt,equivs,gnupg,$(FIX_DEBOOTSTRAP_PKG_INSTALL)
+DEBOOTSTRAPOPTS_INCLUDE=python3,devscripts,fakeroot,debhelper,php-dev,nano,quilt,equivs,gnupg,gpgv,$(FIX_DEBOOTSTRAP_PKG_INSTALL)
 KEYRING=/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.gpg
 DSCFILE?=""
 

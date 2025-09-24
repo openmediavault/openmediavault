@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/opt/saltstack/salt/bin/python3
 #
 # This file is part of OpenMediaVault.
 #
