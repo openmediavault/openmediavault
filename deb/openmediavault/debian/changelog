@@ -2,8 +2,8 @@ openmediavault (8.0-1) stable; urgency=medium
 
   * Upgrade to Debian 13 (Trixie).
   * Replace `cpufrequtils` with `linux-cpupower`.
-  * Issue #1737 && #1866: Add support for WPA3 authentication for wireless
-    connections.
+  * Issue #1737 && #1866: Add support for WPA3 (SAE) authentication for
+    wireless connections.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:40:50 +0200
 
