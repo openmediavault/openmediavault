@@ -119,8 +119,8 @@ export class InterfaceWifiFormPageComponent extends BaseFormPageComponent {
         value: 'psk',
         store: {
           data: [
-            ['psk', gettext('WPA2-Personal')]
-            // ['sae', gettext('WPA3-Personal')]
+            ['psk', gettext('WPA2-Personal')],
+            ['sae', gettext('WPA3-Personal')]
           ]
         },
         validators: {
