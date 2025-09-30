@@ -53,7 +53,7 @@ msgid "Chart"
 msgstr "Grafico"
 
 msgid "Check for new recipes"
-msgstr "Verifica la presenza di nuove ricette"
+msgstr "Verifica la disponibilità di nuove ricette"
 
 msgid "Class"
 msgstr "Classe"

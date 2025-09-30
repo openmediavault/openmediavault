@@ -175,7 +175,7 @@ msgid "Kubernetes - Pods"
 msgstr ""
 
 msgid "Kubernetes - Resources"
-msgstr ""
+msgstr "Kubernetes - Resurser"
 
 msgid "Labels"
 msgstr "Etiketter"
