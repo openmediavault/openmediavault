@@ -72,7 +72,7 @@ def main():
             'OMV_COLLECTD_RRDTOOL_GRAPH_IMGDIR',
             '/var/lib/openmediavault/rrd'),
         'last_update': 'Last update: {}\\r'.format(
-            time.ctime()).replace(':', '\:')
+            time.ctime()).replace(':', '\\:')
     }  # yapf: disable
     period_config = {
         'hour': {

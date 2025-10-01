@@ -66,7 +66,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
         args.append('AREA:softirq{color_cpu_softirq}:"Soft-IRQ":STACK'.format(**config))
         args.append('AREA:interrupt{color_cpu_irq}:"IRQ":STACK'.format(**config))
         args.append('AREA:idle{color_cpu_idle}:"Idle":STACK'.format(**config))
-        args.append('COMMENT:"\c"')
+        args.append('COMMENT:"\\c"')
         args.append('COMMENT:"{last_update}"'.format(**config))
         # autopep8: on
         # yapf: enable
