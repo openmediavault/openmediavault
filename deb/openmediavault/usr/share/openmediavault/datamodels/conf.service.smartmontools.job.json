@@ -3,7 +3,7 @@
 	"id": "conf.service.smartmontools.job",
 	"title": "S.M.A.R.T. self test job",
 	"queryinfo": {
-		"xpath": "//services/smart/scheduledtests/job",
+		"xpath": ".//services/smart/scheduledtests/job",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

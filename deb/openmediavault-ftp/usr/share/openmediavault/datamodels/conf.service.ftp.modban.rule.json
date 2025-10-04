@@ -3,7 +3,7 @@
 	"id": "conf.service.ftp.modban.rule",
 	"title": "FTP modban rule",
 	"queryinfo": {
-		"xpath": "//services/ftp/modules/mod_ban/rule",
+		"xpath": ".//services/ftp/modules/mod_ban/rule",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

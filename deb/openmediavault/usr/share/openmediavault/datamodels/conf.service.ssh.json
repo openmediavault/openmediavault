@@ -3,7 +3,7 @@
 	"id": "conf.service.ssh",
 	"title": "SSH",
 	"queryinfo": {
-		"xpath": "//services/ssh",
+		"xpath": ".//services/ssh",
 		"iterable": false
 	},
 	"properties": {

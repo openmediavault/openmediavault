@@ -3,7 +3,7 @@
 	"id": "conf.service.k8s",
 	"title": "Kubernetes",
 	"queryinfo": {
-		"xpath": "//services/k8s",
+		"xpath": ".//services/k8s",
 		"iterable": false
 	},
 	"properties": {

@@ -3,7 +3,7 @@
 	"id": "conf.service.smartmontools.device",
 	"title": "S.M.A.R.T. monitored device",
 	"queryinfo": {
-		"xpath": "//services/smart/monitor/device",
+		"xpath": ".//services/smart/monitor/device",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

@@ -3,7 +3,7 @@
 	"id": "conf.service.minio",
 	"title": "MinIO - high-performance, S3 compatible object storage",
 	"queryinfo": {
-		"xpath": "//services/minio",
+		"xpath": ".//services/minio",
 		"iterable": false
 	},
 	"properties": {

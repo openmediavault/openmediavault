@@ -3,7 +3,7 @@
 	"id": "conf.service.clamav.job",
 	"title": "ClamAV Antivirus scan job",
 	"queryinfo": {
-		"xpath": "//services/clamav/jobs/job",
+		"xpath": ".//services/clamav/jobs/job",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

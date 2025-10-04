@@ -3,7 +3,7 @@
 	"id": "conf.system.apt.source",
 	"title": "APT source",
 	"queryinfo": {
-		"xpath": "//system/apt/sources/item",
+		"xpath": ".//system/apt/sources/item",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

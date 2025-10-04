@@ -3,7 +3,7 @@
 	"id": "conf.service.usbbackup.job",
 	"title": "USB backup job",
 	"queryinfo": {
-		"xpath": "//services/usbbackup/jobs/job",
+		"xpath": ".//services/usbbackup/jobs/job",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

@@ -3,7 +3,7 @@
 	"id": "conf.service.ftp.modtls",
 	"title": "FTP modtls settings",
 	"queryinfo": {
-		"xpath": "//services/ftp/modules/mod_tls",
+		"xpath": ".//services/ftp/modules/mod_tls",
 		"iterable": false
 	},
 	"properties": {

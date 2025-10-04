@@ -3,7 +3,7 @@
 	"id": "conf.service.wetty",
 	"title": "WeTTY (Web + TTY)",
 	"queryinfo": {
-		"xpath": "//services/wetty",
+		"xpath": ".//services/wetty",
 		"iterable": false
 	},
 	"properties": {

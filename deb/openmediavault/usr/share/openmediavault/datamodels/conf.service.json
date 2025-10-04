@@ -4,7 +4,7 @@
 	"description": "The root of all service configuration objects",
 	"persistent": false,
 	"queryinfo": {
-		"xpath": "//services//*",
+		"xpath": ".//services//*",
 		"iterable": true
 	},
 	"properties": {

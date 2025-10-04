@@ -3,7 +3,7 @@
 	"id": "conf.service.snmp",
 	"title": "SNMP",
 	"queryinfo": {
-		"xpath": "//services/snmp",
+		"xpath": ".//services/snmp",
 		"iterable": false
 	},
 	"properties": {

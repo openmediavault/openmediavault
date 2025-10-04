@@ -3,7 +3,7 @@
 	"id": "conf.service.smb.share",
 	"title": "SMB/CIFS share",
 	"queryinfo": {
-		"xpath": "//services/smb/shares/share",
+		"xpath": ".//services/smb/shares/share",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

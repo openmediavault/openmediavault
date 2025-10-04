@@ -3,7 +3,7 @@
 	"id": "conf.service.bcache",
 	"title": "Bcache",
 	"queryinfo": {
-		"xpath": "//services/bcache",
+		"xpath": ".//services/bcache",
 		"iterable": false
 	},
 	"properties": {

@@ -3,7 +3,7 @@
 	"id": "conf.service.smb",
 	"title": "SMB/CIFS",
 	"queryinfo": {
-		"xpath": "//services/smb",
+		"xpath": ".//services/smb",
 		"iterable": false
 	},
 	"properties": {

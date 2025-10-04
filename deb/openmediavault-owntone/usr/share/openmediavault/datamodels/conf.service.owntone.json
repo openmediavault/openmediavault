@@ -3,7 +3,7 @@
 	"id": "conf.service.owntone",
 	"title": "OwnTone DAAP media server",
 	"queryinfo": {
-		"xpath": "//services/owntone",
+		"xpath": ".//services/owntone",
 		"iterable": false
 	},
 	"properties": {

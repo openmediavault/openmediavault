@@ -3,7 +3,7 @@
 	"id": "conf.service.rsyncd.module",
 	"title": "Rsync server module",
 	"queryinfo": {
-		"xpath": "//services/rsync/server/modules/module",
+		"xpath": ".//services/rsync/server/modules/module",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

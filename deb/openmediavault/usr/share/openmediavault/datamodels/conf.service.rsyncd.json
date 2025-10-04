@@ -3,7 +3,7 @@
 	"id": "conf.service.rsyncd",
 	"title": "Rsync server",
 	"queryinfo": {
-		"xpath": "//services/rsync/server",
+		"xpath": ".//services/rsync/server",
 		"iterable": false
 	},
 	"properties": {

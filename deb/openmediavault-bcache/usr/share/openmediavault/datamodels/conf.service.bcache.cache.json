@@ -3,7 +3,7 @@
 	"id": "conf.service.bcache.cache",
 	"title": "Bcache Cache Device",
 	"queryinfo": {
-		"xpath": "//services/bcache/caches/cache",
+		"xpath": ".//services/bcache/caches/cache",
 		"iterable": true,
 		"idproperty": "uuid"
 	},
