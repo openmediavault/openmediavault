@@ -129,5 +129,9 @@ class Proftpd extends \OMV\Engine\Module\ServiceAbstract implements
 			OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.service.ftp.modtls",
 			[$moduleMngr->getModule("monit"), "setDirty"]);
+		$dispatcher->addListener(
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.time",
+			[$this, "setDirty"]);
 	}
 }
