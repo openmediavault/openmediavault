@@ -1,6 +1,7 @@
 {% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 {% set ftp_config = salt['omv_conf.get']('conf.service.ftp') %}
 {% set homedir_config = salt['omv_conf.get']('conf.system.usermngmnt.homedir') %}
+{% set time_config = salt['omv_conf.get']('conf.system.time') %}
 {% set display_login = salt['pillar.get']('default:OMV_PROFTPD_DISPLAYLOGIN', '/etc/proftpd/welcome.msg') %}
 
 configure_proftpd_mod_core:
@@ -13,6 +14,7 @@ configure_proftpd_mod_core:
         dns_config: {{ dns_config | json }}
         ftp_config: {{ ftp_config | json }}
         homedir_config: {{ homedir_config | json }}
+        time_config: {{ time_config | json }}
     - user: root
     - group: root
     - mode: 644
