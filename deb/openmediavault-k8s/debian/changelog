@@ -4,6 +4,12 @@ openmediavault-k8s (8.0-1) stable; urgency=medium
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:47:23 +0200
 
+openmediavault-k8s (7.4.13-1) stable; urgency=medium
+
+  * Use K3S v1.33.5+k3s1 by default.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 04 Oct 2025 19:52:18 +0200
+
 openmediavault-k8s (7.4.12-1) stable; urgency=medium
 
   * Update locale files.
