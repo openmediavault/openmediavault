@@ -447,7 +447,7 @@ export const cron2human = (value: string): string => {
     pt_PT: 'pt_PT', // Portuguese
     ru_RU: 'ru', // Russian
     sl_SI: 'sl', // Slovenian
-    sv_SV: 'sv', // Swedish
+    sv_SE: 'sv', // Swedish
     tr_TR: 'tr', // Turkish
     uk_UK: 'uk', // Ukrainian
     zh_CN: 'zh_CN', // Chinese (Simplified Chinese)
