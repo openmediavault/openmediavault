@@ -46,7 +46,7 @@ export enum SupportedLocales {
   'pt_PT' = 'Português', // Portuguese
   'ru_RU' = 'Русский', // Russian
   'sl_SI' = 'Slovenski', // Slovenian
-  'sv_SV' = 'Svenska', // Swedish
+  'sv_SE' = 'Svenska', // Swedish
   'tr_TR' = 'Türkçe', // Turkish
   'uk_UK' = 'Українська', // Ukrainian
   'zh_CN' = '简体中文', // Chinese (Simplified Chinese)
