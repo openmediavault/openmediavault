@@ -143,6 +143,13 @@ finish:
 	}
 
 	/**
+	 *  Detect if system is using SSSD for user authentication
+	 */
+	private function isUsingSSSD() {
+		return \OMV\System\SystemCtl::isActive("sssd");
+	}
+
+	/**
 	 * Enumerate users.
 	 * @param type The user type, e.g. system, normal or all.
 	 * @return An array containing user objects with following fields:
@@ -151,27 +158,99 @@ finish:
 	 *   reserved.
 	 */
 	private function enumerateUsersByType($type) {
-		// Get list of user names.
-		$users = \OMV\System\User::getUsers();
-		// Iterate through all users to filter the requested ones.
 		$result = [];
-		foreach ($users as $userk => $userv) {
-			// Get the user information about the user.
-			if (FALSE === ($userInfo = $this->getUserInfo($userv)))
-				continue;
+
+		// Get all user data in one system call
+		$cmd = new \OMV\System\Process("getent", "passwd");
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+
+		$ld = \OMV\System\System::getLoginDefs();
+		if ($this->isUsingSSSD()) {
+			// using SSSD for user authentication
+			// the default UID_MIN and UID_MAX values are different, not rid,
+			// so they are much higher. Limit is 2^32
+			$uidMin = intval(array_value($ld, "SSSD_UID_MIN", 1000));
+			$uidMax = intval(array_value($ld, "SSSD_UID_MAX", 900000000));
+		} else {
+			$uidMin = intval(array_value($ld, "UID_MIN", 1000));
+			$uidMax = intval(array_value($ld, "UID_MAX", 60000));
+		}
+
+		// Get all user-group memberships in bulk
+		$userGroups = [];
+		$gidToName = []; // Build GID-to-name mapping for efficiency
+		$cmd2 = new \OMV\System\Process("getent", "group");
+		$cmd2->setRedirect2to1();
+		$cmd2->execute($groupOutput);
+
+		// Parse group memberships and build GID mapping
+		foreach ($groupOutput as $line) {
+			$line = trim($line); // Remove trailing whitespace
+			if (empty($line)) continue; // Skip empty lines
+
+			$parts = explode(":", $line);
+			if (count($parts) < 3) continue; // Validate group entry format
+
+			$groupName = trim($parts[0]); // Clean group name
+			$gid = intval($parts[2]);
+
+			// Fix: Validate required fields
+			if (empty($groupName) || $gid < 0) continue;
+
+			// Build GID-to-name mapping
+			$gidToName[$gid] = $groupName;
+
+			// Parse group members (if any)
+			if (count($parts) >= 4 && !empty($parts[3])) {
+				$members = explode(",", $parts[3]);
+				foreach ($members as $member) {
+					$member = trim($member); // Remove whitespace
+					if (empty($member)) continue;
+
+					if (!isset($userGroups[$member])) {
+						$userGroups[$member] = [];
+					}
+					$userGroups[$member][] = $groupName;
+
+				}
+			}
+		}
+
+		foreach ($output as $line) {
+			$line = trim($line); // Fix: Remove any trailing whitespace
+			if (empty($line)) continue; // Fix: Skip empty lines
+
+			$parts = explode(":", $line);
+			if (count($parts) < 7) continue;
+
+			$name = trim($parts[0]); // Fix: Ensure clean username
+			$uid = intval($parts[2]);
+			$gid = intval($parts[3]);
+			$comment = $parts[4];
+			$dir = $parts[5];
+			$shell = $parts[6];
+
+			// Fix: Validate required fields
+			if (empty($name)) continue;
+
+			// Determine if system account
+			$isSystem = !in_range($uid, $uidMin, $uidMax);
+
 			// Append user 'root'?
-			if ((0 == strcasecmp("root", $userInfo['name'])) &&
+			if ((0 == strcasecmp("root", $name)) &&
 			  (FALSE == \OMV\Environment::getBoolean(
 			  "OMV_USERMGMT_ENUMERATE_USER_ROOT", TRUE)))
 				continue;
+
 			// Check if the current user is requested.
 			$append = FALSE;
 			switch ($type) {
 			case "system":
-				$append = $userInfo['system'];
+				$append = $isSystem;
 				break;
 			case "normal":
-				$append = !$userInfo['system'];
+				$append = !$isSystem;
 				break;
 			case "all":
 				$append = TRUE;
@@ -179,7 +258,33 @@ finish:
 			}
 			if (FALSE === $append)
 				continue;
-			$result[] = $userInfo;
+
+			// Get groups for this user (includes primary group)
+			$groups = array_value($userGroups, $name, []);
+
+			// Add primary group if not already included (using GID mapping instead of system call)
+			$primaryGroupName = array_value(gidToName, $gid, null);
+			if ($primaryGroupName && !in_array($primaryGroupName, $groups)) {
+				array_unshift($groups, $primaryGroupName);
+			}
+
+			$result[] = [
+				"name" => $name,
+				"uid" => $uid,
+				"gid" => $gid,
+				"comment" => $comment,
+				"dir" => $dir,
+				"shell" => $shell,
+				"lastchanged" => NULL, // Skipping shadow data for performance
+				"minimum" => NULL,
+				"maximum" => NULL,
+				"warn" => NULL,
+				"inactive" => NULL,
+				"expire" => NULL,
+				"reserved" => NULL,
+				"groups" => $groups,
+				"system" => $isSystem
+			];
 		}
 		return $result;
 	}
@@ -254,22 +359,61 @@ finish:
 	 *   name, GID and group members (array of user names).
 	 */
 	private function enumerateGroupsByType($type) {
-		// Get list of group names.
-		$groups = \OMV\System\Group::getGroups();
-		// Get group information.
 		$result = [];
-		foreach ($groups as $groupk => $groupv) {
-			// Get the user information about the group.
-			if (FALSE === ($groupInfo = $this->getGroupInfo($groupv)))
-				continue;
-			// Check if the current group is requested.
+
+		// Get all group data in one system call instead of N+1 calls
+		$cmd = new \OMV\System\Process("getent", "group");
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+
+		// Get system group ID thresholds
+		$ld = \OMV\System\System::getLoginDefs();
+		if ($this->isUsingSSSD()) {
+			// Using SSSD for group authentication
+			$gidMin = intval(array_value($ld, "SSSD_GID_MIN", 1000));
+			$gidMax = intval(array_value($ld, "SSSD_GID_MAX", 900000000));
+		} else {
+			$gidMin = intval(array_value($ld, "GID_MIN", 1000));
+			$gidMax = intval(array_value($ld, "GID_MAX", 60000));
+		}
+
+		foreach ($output as $line) {
+			$line = trim($line); // Remove trailing whitespace
+			if (empty($line)) continue; // Skip empty lines
+
+			$parts = explode(":", $line);
+			if (count($parts) < 4) continue; // Validate group entry format (name:password:gid:members)
+
+			$name = trim(array_value($parts, 0, "")); // Clean group name
+			$gid = intval(array_value($parts, 2, 0));
+			$membersStr = trim(array_value($parts, 3, ""));
+
+			// Validate required fields
+			if (empty($name) || $gid < 0) continue;
+
+			// Parse group members
+			$members = [];
+			if (!empty($membersStr)) {
+				$membersList = explode(",", $membersStr);
+				foreach ($membersList as $member) {
+					$member = trim($member);
+					if (!empty($member)) {
+						$members[] = $member;
+					}
+				}
+			}
+
+			// Determine if system account using GID range
+			$isSystem = !in_range($gid, $gidMin, $gidMax);
+
+			// Check if the current group is requested
 			$append = FALSE;
 			switch ($type) {
 			case "system":
-				$append = $groupInfo['system'];
+				$append = $isSystem;
 				break;
 			case "normal":
-				$append = !$groupInfo['system'];
+				$append = !$isSystem;
 				break;
 			case "all":
 				$append = TRUE;
@@ -277,7 +421,13 @@ finish:
 			}
 			if (FALSE === $append)
 				continue;
-			$result[] = $groupInfo;
+
+			$result[] = [
+				"name" => $name,
+				"gid" => $gid,
+				"members" => $members,
+				"system" => $isSystem
+			];
 		}
 		return $result;
 	}
@@ -348,6 +498,19 @@ finish:
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the list of non-system user.
 		$users = $this->enumerateUsersByType("normal");
+
+		// Get all user configurations in a single query
+		$db = \OMV\Config\Database::getInstance();
+		$userConfigs = [];
+
+		// Fetch all user configurations at once to avoid N+1 query problem
+		$allUserConfigs = $db->get("conf.system.usermngmnt.user");
+
+		// Create a lookup map for O(1) access by username
+		foreach ($allUserConfigs as $config) {
+			$userConfigs[$config->get("name")] = $config;
+		}
+
 		// Process users and append additional information stored in
 		// the database.
 		foreach ($users as $userk => &$userv) {
@@ -357,17 +520,10 @@ finish:
 				"disallowusermod" => FALSE,
 				"sshpubkeys" => []
 			]);
-			// Get additional information stored in database.
-			$db = \OMV\Config\Database::getInstance();
-			$objects = $db->getByFilter("conf.system.usermngmnt.user", [
-				"operator" => "stringEquals",
-				"arg0" => "name",
-				"arg1" => $userv['name']
-			]);
-			if (0 < count($objects)) {
-				// Get the user configuration object. Due the fact that a user
-				// name is unique, we can simply use the first found object.
-				$object = $objects[0];
+
+			// Use lookup map instead of database query
+			if (isset($userConfigs[$userv['name']])) {
+				$object = $userConfigs[$userv['name']];
 				// Append additional information.
 				$userv['email'] = $object->get("email");
 				$userv['disallowusermod'] = $object->get("disallowusermod");
