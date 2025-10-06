@@ -146,7 +146,9 @@ finish:
 	 *  Detect if system is using SSSD for user authentication
 	 */
 	private function isUsingSSSD() {
-		return \OMV\System\SystemCtl::isActive("sssd");
+		//instance of systemctl wrapper
+		$systemCtl = new \OMV\System\SystemCtl("sssd");
+		return $systemCtl->isActive();
 	}
 
 	/**
@@ -263,7 +265,7 @@ finish:
 			$groups = array_value($userGroups, $name, []);
 
 			// Add primary group if not already included (using GID mapping instead of system call)
-			$primaryGroupName = array_value(gidToName, $gid, null);
+			$primaryGroupName = array_value($gidToName, $gid, null);
 			if ($primaryGroupName && !in_array($primaryGroupName, $groups)) {
 				array_unshift($groups, $primaryGroupName);
 			}
