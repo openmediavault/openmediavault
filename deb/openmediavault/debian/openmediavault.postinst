@@ -606,8 +606,10 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "8.0"; then
 			deb-systemd-invoke stop cpufrequtils.service || :
 			deb-systemd-invoke stop loadcpufreq.service || :
-			deb-systemd-helper enable cpufrequtils.service
-			deb-systemd-helper enable loadcpufreq.service
+			deb-systemd-helper disable cpufrequtils.service || :
+			deb-systemd-helper disable loadcpufreq.service || :
+			deb-systemd-invoke mask cpufrequtils.service || :
+			deb-systemd-invoke mask loadcpufreq.service || :
 			rm -rf /etc/default/cpufrequtils
 			rm -rf /etc/default/loadcpufreq
 			omv_module_set_dirty cpupower
