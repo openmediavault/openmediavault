@@ -19,6 +19,7 @@
 
 # Documentation/Howto:
 # https://docs.k3s.io/installation/packaged-components
+# https://docs.k3s.io/installation/private-registry#rewrites
 # https://docs.k3s.io/helm
 # https://github.com/k3s-io/k3s/issues/1086#issuecomment-1342838441
 # https://qdnqn.com/how-to-configure-traefik-on-k3s/
@@ -375,6 +376,20 @@ create_k3s_config:
           # Removing leader election can reduce CPU usage on a single-node setup.
           - "leader-elect=false"
           - "node-monitor-period=60s"
+    - user: root
+    - group: root
+    - mode: 600
+
+create_k3s_registries:
+  file.managed:
+    - name: "/etc/rancher/k3s/registries.yaml"
+    - contents: |
+        mirrors:
+          docker.io:
+            endpoint:
+              - "https://index.docker.io:443/v2"
+            rewrite:
+              "^bitnami/(.*)": "bitnamilegacy/$1"
     - user: root
     - group: root
     - mode: 600
