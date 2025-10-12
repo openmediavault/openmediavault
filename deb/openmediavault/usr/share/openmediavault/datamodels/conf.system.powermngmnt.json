@@ -3,7 +3,7 @@
 	"id": "conf.system.powermngmnt",
 	"title": "Powermanagement",
 	"queryinfo": {
-		"xpath": "//system/powermanagement",
+		"xpath": ".//system/powermanagement",
 		"iterable": false
 	},
 	"properties": {

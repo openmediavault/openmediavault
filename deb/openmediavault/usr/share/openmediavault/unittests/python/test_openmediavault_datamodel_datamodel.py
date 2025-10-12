@@ -33,7 +33,7 @@ class DatamodelTestCase(unittest.TestCase):
                 "description": "abc",
                 "title": "xyz",
                 "queryinfo": {
-                    "xpath": "//system/apt/distribution",
+                    "xpath": ".//system/apt/distribution",
                     "iterable": False,
                 },
                 "properties": {

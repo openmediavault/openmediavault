@@ -3,7 +3,7 @@
 	"id": "conf.system.usermngmnt.group",
 	"title": "System group",
 	"queryinfo": {
-		"xpath": "//system/usermanagement/groups/group",
+		"xpath": ".//system/usermanagement/groups/group",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

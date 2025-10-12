@@ -3,7 +3,7 @@
 	"id": "conf.system.sharedfolder.snapshot.lifecycle",
 	"title": "Shared folder snapshot lifecycle settings",
 	"queryinfo": {
-		"xpath": "//system/sharedfoldersnapshotlifecycle",
+		"xpath": ".//system/sharedfoldersnapshotlifecycle",
 		"iterable": false
 	},
 	"properties": {

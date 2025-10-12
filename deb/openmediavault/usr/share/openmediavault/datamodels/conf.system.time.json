@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.system.time",
 	"queryinfo": {
-		"xpath": "//system/time",
+		"xpath": ".//system/time",
 		"iterable": false
 	},
 	"properties": {

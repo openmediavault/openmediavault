@@ -3,7 +3,7 @@
 	"id": "conf.system.network.interface",
 	"title": "Network interface",
 	"queryinfo": {
-		"xpath": "//system/network/interfaces/interface",
+		"xpath": ".//system/network/interfaces/interface",
 		"iterable": true,
 		"idproperty": "uuid",
 		"refproperty": "interfaceref"

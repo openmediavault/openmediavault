@@ -3,7 +3,7 @@
 	"id": "conf.system.usermngmnt.user",
 	"title": "System user",
 	"queryinfo": {
-		"xpath": "//system/usermanagement/users/user",
+		"xpath": ".//system/usermanagement/users/user",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

@@ -3,7 +3,7 @@
 	"id": "conf.system.network.iptables.rule",
 	"title": "IPtables rule",
 	"queryinfo": {
-		"xpath": "//system/network/iptables/rule",
+		"xpath": ".//system/network/iptables/rule",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

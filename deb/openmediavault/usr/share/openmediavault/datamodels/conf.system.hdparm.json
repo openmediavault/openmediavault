@@ -3,7 +3,7 @@
 	"id": "conf.system.hdparm",
 	"title": "Harddisk settings",
 	"queryinfo": {
-		"xpath": "//system/storage/hdparm",
+		"xpath": ".//system/storage/hdparm",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

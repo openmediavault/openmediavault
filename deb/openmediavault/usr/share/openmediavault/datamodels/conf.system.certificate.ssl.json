@@ -3,7 +3,7 @@
 	"id": "conf.system.certificate.ssl",
 	"title": "SSL certificate",
 	"queryinfo": {
-		"xpath": "//system/certificates/sslcertificate",
+		"xpath": ".//system/certificates/sslcertificate",
 		"iterable": true,
 		"idproperty": "uuid",
 		"refproperty": "sslcertificateref"

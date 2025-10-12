@@ -3,7 +3,7 @@
 	"id": "conf.system.network.proxy",
 	"title": "Network proxy configuration",
 	"queryinfo": {
-		"xpath": "//system/network/proxy",
+		"xpath": ".//system/network/proxy",
 		"iterable": false
 	},
 	"properties": {

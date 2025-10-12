@@ -3,7 +3,7 @@
 	"id": "conf.system.syslog.remote",
 	"title": "Remote syslog settings",
 	"queryinfo": {
-		"xpath": "//system/syslog/remote",
+		"xpath": ".//system/syslog/remote",
 		"iterable": false
 	},
 	"properties": {

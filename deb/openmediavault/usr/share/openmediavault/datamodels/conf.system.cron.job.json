@@ -3,7 +3,7 @@
 	"id": "conf.system.cron.job",
 	"title": "Cron job",
 	"queryinfo": {
-		"xpath": "//system/crontab/job",
+		"xpath": ".//system/crontab/job",
 		"iterable": true,
 		"idproperty": "uuid"
 	},
