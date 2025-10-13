@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-13 20:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1754,6 +1754,9 @@ msgstr ""
 msgid "Log level"
 msgstr ""
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
 msgid "Logout"
 msgstr ""
 
@@ -2520,6 +2523,9 @@ msgid "Relative Path"
 msgstr ""
 
 msgid "Relative path"
+msgstr ""
+
+msgid "Reliable system and kernel logging daemon."
 msgstr ""
 
 msgid "Reload"
