@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-13 20:29+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -1828,6 +1828,9 @@ msgstr ""
 msgid "Log level"
 msgstr "기록 수준"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
 msgid "Logout"
 msgstr "로그아웃"
 
@@ -2623,6 +2626,9 @@ msgid "Relative Path"
 msgstr "상대 경로"
 
 msgid "Relative path"
+msgstr ""
+
+msgid "Reliable system and kernel logging daemon."
 msgstr ""
 
 msgid "Reload"

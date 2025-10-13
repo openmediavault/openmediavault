@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-13 20:29+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -1833,6 +1833,9 @@ msgstr "Inloggen"
 msgid "Log level"
 msgstr "Logboekniveau"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr "Ingelogd als <strong>{{ username }}</strong>"
+
 msgid "Logout"
 msgstr "Afmelden"
 
@@ -2211,7 +2214,7 @@ msgid "Nothing"
 msgstr "Niets"
 
 msgid "Notification"
-msgstr "Melding"
+msgstr "Meldingen"
 
 msgid "Notifications"
 msgstr "Meldingen"
@@ -2468,7 +2471,7 @@ msgid "Portugal"
 msgstr "Portugal"
 
 msgid "Power"
-msgstr "Vermogen"
+msgstr "Aan/Uit"
 
 msgid "Power Management"
 msgstr "Energiebeheer"
@@ -2630,6 +2633,9 @@ msgstr "Relatief pad"
 msgid "Relative path"
 msgstr "Relatief pad"
 
+msgid "Reliable system and kernel logging daemon."
+msgstr "Logboekregistratie van systeem- en kernelbetrouwbaarheid."
+
 msgid "Reload"
 msgstr "Opnieuw laden"
 
@@ -2661,7 +2667,7 @@ msgid "Repository"
 msgstr "Opslagplaats"
 
 msgid "Reset UI to defaults"
-msgstr "Gebruikersinterface terugzetten naar standaardwaarden"
+msgstr "UI-instellingen herstellen naar standaard"
 
 msgid "Result"
 msgstr "Uitslag"
@@ -3420,7 +3426,7 @@ msgstr "Het relatieve pad van de te delen map. De opgegeven map wordt aangemaakt
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "De opslagplaats zal worden gecontroleerd op nieuwe, verwijderde of opgewaardeerde pakketten."
+msgstr "De opslagplaats wordt gecontroleerd op nieuwe, verwijderde of bijgewerkte pakketten."
 
 msgid "The requested page was not found."
 msgstr "De opgevraagde pagina is niet gevonden."
