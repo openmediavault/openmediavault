@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-13 20:29+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Marek Pavelka, 2024-2025\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -1827,6 +1827,9 @@ msgstr "Přihlásit se"
 msgid "Log level"
 msgstr "Úroveň protokolování"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
 msgid "Logout"
 msgstr "Odhlásit"
 
@@ -2623,6 +2626,9 @@ msgstr "Relativní cesta"
 
 msgid "Relative path"
 msgstr "Relativní cesta"
+
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
 
 msgid "Reload"
 msgstr "Znovu načíst"

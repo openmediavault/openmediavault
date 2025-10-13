@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-13 20:29+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2025\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -1838,6 +1838,9 @@ msgstr "Anmelden"
 msgid "Log level"
 msgstr "Log Level"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr "Angemeldet als <strong>{{ username }}</strong>"
+
 msgid "Logout"
 msgstr "Abmelden"
 
@@ -2634,6 +2637,9 @@ msgstr "Relativer Pfad"
 
 msgid "Relative path"
 msgstr "Relativer Pfad"
+
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
 
 msgid "Reload"
 msgstr "Neu laden"

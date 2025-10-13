@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-13 20:29+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022,2025\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -1825,6 +1825,9 @@ msgstr "Giriş"
 msgid "Log level"
 msgstr "Kayıt seviyesi"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
 msgid "Logout"
 msgstr "Çıkış"
 
@@ -2621,6 +2624,9 @@ msgstr "Bağlantılı Dizin"
 
 msgid "Relative path"
 msgstr "Bağlantılı dizin"
+
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
 
 msgid "Reload"
 msgstr "Yeniden yükle"

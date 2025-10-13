@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-13 20:29+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Daniel, 2025\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -1829,6 +1829,9 @@ msgstr "Logga in"
 msgid "Log level"
 msgstr "Loggnivå"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
 msgid "Logout"
 msgstr "Logga ut"
 
@@ -2625,6 +2628,9 @@ msgstr "Relativ sökväg"
 
 msgid "Relative path"
 msgstr "Relativ sökväg"
+
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
 
 msgid "Reload"
 msgstr "Ladda om"

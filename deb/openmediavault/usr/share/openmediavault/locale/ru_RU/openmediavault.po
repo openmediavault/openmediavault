@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-13 20:29+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -1839,6 +1839,9 @@ msgstr "Войти"
 msgid "Log level"
 msgstr "Уровень журналирования"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
 msgid "Logout"
 msgstr "Выход"
 
@@ -2635,6 +2638,9 @@ msgstr "Относительный путь"
 
 msgid "Relative path"
 msgstr "Относительный путь"
+
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
 
 msgid "Reload"
 msgstr "Перезагрузить"
