@@ -157,6 +157,7 @@ data:
             method: deleteCache
             params:
               devicefile: '{{ devicefile }}'
+      - type: divider
       - type: iconButton
         icon: docs
         tooltip: _("Docs")
