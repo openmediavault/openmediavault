@@ -24,7 +24,7 @@ hostname = "omv8box"
 
 Vagrant.configure("2") do |config|
 	# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1110834
-	# https://portal.cloud.hashicorp.com/vagrant/discover/boxen
+	# https://portal.cloud.hashicorp.com/vagrant/discover/aalmenar
 	config.vm.box = "aalmenar/debian-13"
 	config.vm.define hostname
 	config.vm.provision :shell, :path => "patch.sh"
