@@ -82,9 +82,9 @@ export class TopBarComponent {
     this.currentLocale = LocaleService.getCurrentLocale();
     this.locales = LocaleService.getSupportedLocales();
     this.username = this.authSessionService.getUsername();
-    this.loggedInAs = gettext(
-      format('Logged in as <strong>{{ username }}</strong>', { username: this.username })
-    );
+    this.loggedInAs = format(gettext('Logged in as <strong>{{ username }}</strong>'), {
+      username: this.username
+    });
     this.permissions = this.authSessionService.getPermissions();
     this.darkModeEnabled = this.prefersColorSchemeService.current === 'dark';
     this.subscriptions.add(
