@@ -22,7 +22,6 @@ import { EMPTY, interval, Subscription } from 'rxjs';
 import { catchError, switchMap, take } from 'rxjs/operators';
 
 import { Unsubscribe } from '~/app/decorators';
-import { format } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
@@ -65,7 +64,6 @@ export class TopBarComponent {
   public readonly roles = Roles;
   public numNotifications: undefined | number;
   public darkModeEnabled: boolean;
-  public loggedInAs: string;
 
   constructor(
     private blockUiService: BlockUiService,
@@ -82,9 +80,6 @@ export class TopBarComponent {
     this.currentLocale = LocaleService.getCurrentLocale();
     this.locales = LocaleService.getSupportedLocales();
     this.username = this.authSessionService.getUsername();
-    this.loggedInAs = format(gettext('Logged in as <strong>{{ username }}</strong>'), {
-      username: this.username
-    });
     this.permissions = this.authSessionService.getPermissions();
     this.darkModeEnabled = this.prefersColorSchemeService.current === 'dark';
     this.subscriptions.add(
