@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 20:29+0200\n"
+"POT-Creation-Date: 2025-10-14 21:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2846,7 +2846,7 @@ msgstr ""
 msgid "Set the owner of the destination file to be the same as the source file, but only if the receiving rsync is being run as the super-user."
 msgstr ""
 
-msgid "Sets the interval between disk checks to N seconds."
+msgid "Sets the interval between disk checks to N seconds. Take caution when setting this polling interval to more than sixty minutes. The poll times may fail to coincide with any of the scheduled test that have been specified. In this case the scheduled test will be run following the next device polling."
 msgstr ""
 
 msgid "Settings"
@@ -3129,9 +3129,6 @@ msgid "Taiwan"
 msgstr ""
 
 msgid "Tajikistan"
-msgstr ""
-
-msgid "Take caution when setting this polling interval to more than sixty minutes. The poll times may fail to coincide with any of the scheduled test that have been specified. In this case the scheduled test will be run following the next device polling."
 msgstr ""
 
 msgid "Tanzania"
