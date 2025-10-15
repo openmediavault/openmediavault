@@ -12,7 +12,7 @@ data:
   value:
     icon: "mdi:download"
     title: _("Updates available")
-    value: "{{ availablePkgUpdates | isequal(0) | not | yesno }}"
+    value: "{{ availablePkgUpdates | isequal(0) | not | yesno | translate}}"
     url: "/system/updatemgmt/updates"
     request:
       service: System
