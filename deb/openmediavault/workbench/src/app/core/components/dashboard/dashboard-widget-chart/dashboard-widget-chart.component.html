@@ -31,7 +31,7 @@
                class="item omv-flex-column omv-align-content-start omv-justify-content-start omv-align-items-start">
             <div class="item-value omv-text-truncate">{{ labelFormatterByProp(data, item.prop, chartCtx) }}</div>
             <div class="item-percent">{{ calcPercent(item, chartCtx) }}%</div>
-            <div class="item-label omv-text-truncate">{{ item.label }}</div>
+            <div class="item-label omv-text-truncate">{{ item.label | transloco }}</div>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
                [ngStyle]="{'border-left-color': item.backgroundColor}"
                class="item omv-flex-column omv-align-content-start omv-justify-content-start omv-align-items-start">
             <div class="item-value omv-text-truncate">{{ labelFormatterByProp(data, item.prop, chartCtx) }}</div>
-            <div class="item-label omv-text-truncate">{{ item.label }}</div>
+            <div class="item-label omv-text-truncate">{{ item.label | transloco }}</div>
           </div>
         </div>
       </div>
