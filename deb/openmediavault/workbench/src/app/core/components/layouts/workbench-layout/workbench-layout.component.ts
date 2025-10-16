@@ -157,7 +157,9 @@ export class WorkbenchLayoutComponent implements OnInit {
           this.notificationService.show(
             NotificationType.info,
             gettext('A running background task was detected.'),
-            gettext('Go to the notification sidebar to attach to it.')
+            gettext(
+              'While the background task is still running, you can attach the Workbench terminal dialog to it in the notification bar.'
+            )
           );
         }
       });
