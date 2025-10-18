@@ -7,24 +7,25 @@ data:
   title: _("Help")
   description: _("Displays links to help and support pages.")
   grid:
+    class: "omv-grid-cols-1"
     item:
       class: "omv-cursor-pointer omv-background-color-pair-whitesmoke"
       contentClass: "omv-text-wrap"
       icon: "{{ icon }}"
-      tooltip: "{{ tooltip }}"
+      title: "{{ title }}"
       content: "{{ content }}"
       url: "/externalRedirect/{{ url | encodeuricomponent }}"
     store:
       data:
-        - tooltip: _("Documentation")
+        - title: _("Documentation")
           content: _("The documentation page provides helpful information about your storage system.")
           url: "https://docs.openmediavault.org"
           icon: "docs"
-        - tooltip: _("Forum")
+        - title: _("Forum")
           content: _("The forum page is the best place to ask questions and find answers.")
           url: "https://forum.openmediavault.org"
           icon: "mdi:forum"
-        - tooltip: _("Homepage")
+        - title: _("Homepage")
           content: _("The home of the project and source of news and updates.")
           url: "https://www.openmediavault.org"
           icon: "mdi:web"
