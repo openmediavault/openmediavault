@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-14 20:37+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: M@T D., 2022-2024\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -1011,6 +1011,9 @@ msgstr "Affiche les informations des services dans une grille."
 
 msgid "Displays information about the services in a table."
 msgstr "Affiche les informations des services dans une table."
+
+msgid "Displays links to help and support pages."
+msgstr ""
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Affiche l'état S.M.A.R.T. de tous les disques surveillés."
@@ -3326,6 +3329,11 @@ msgid ""
 msgstr "Le serveur distant de destination (ex. [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST)."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3346,6 +3354,12 @@ msgstr "Le système de fichier à monter."
 
 msgid "The following modules will be updated:"
 msgstr "Les modules suivant vont être mis à jour:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Le nom de l'hôte est un libellé qui identifie le système sur le réseau."
@@ -4201,3 +4215,6 @@ msgstr "sélectionné"
 
 msgid "total"
 msgstr "total"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""

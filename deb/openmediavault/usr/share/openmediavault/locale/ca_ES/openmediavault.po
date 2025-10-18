@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-14 20:37+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2025\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -998,6 +998,9 @@ msgstr "Mostra la informació sobre els serveis en una graella."
 
 msgid "Displays information about the services in a table."
 msgstr "Mostra la informació sobre els serveis en una taula."
+
+msgid "Displays links to help and support pages."
+msgstr ""
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Mostra l'estat S.M.A.R.T. de tots els dispositius de disc supervisats."
@@ -3313,6 +3316,11 @@ msgid ""
 msgstr "El servidor remot de destí, p.e. [USER@]HOST:DEST, [USER@]HOST::DEST o rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3333,6 +3341,12 @@ msgstr "El sistema de fitxers a muntar. "
 
 msgid "The following modules will be updated:"
 msgstr "S'actualitzaran els mòduls següents:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "El nom de host es una etiqueta que identifica al sistema a la xarxa."
@@ -4188,3 +4202,6 @@ msgstr "seleccionat"
 
 msgid "total"
 msgstr "total"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""

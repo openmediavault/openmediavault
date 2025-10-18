@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-14 20:37+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -1004,6 +1004,9 @@ msgstr "Visualizza informazioni sui servizi in una griglia."
 
 msgid "Displays information about the services in a table."
 msgstr "Visualizza informazioni sui servizi in una tabella."
+
+msgid "Displays links to help and support pages."
+msgstr ""
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Visualizza lo stato S.M.A.R.T. di tutti i dispositivi di archiviazione monitorati."
@@ -2969,7 +2972,7 @@ msgid ""
 " fail to coincide with any of the scheduled test that have been specified. "
 "In this case the scheduled test will be run following the next device "
 "polling."
-msgstr ""
+msgstr "Imposta l’intervallo tra i controlli del disco a N secondi. Presta attenzione quando imposti un intervallo di polling superiore a sessanta minuti. I tempi di interrogazione potrebbero non coincidere con i test pianificati specificati. In tal caso, il test pianificato verrà eseguito al successivo polling del dispositivo."
 
 msgid "Settings"
 msgstr "Impostazioni"
@@ -3319,6 +3322,11 @@ msgid ""
 msgstr "Il server remoto di destinazione, ad esempio [USER@]HOST:DEST, [USER@]HOST::DEST oppure rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3339,6 +3347,12 @@ msgstr "Il file system da montare."
 
 msgid "The following modules will be updated:"
 msgstr "I seguenti moduli saranno aggiornati:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Il nome host è un'etichetta che identifica il sistema nella rete."
@@ -4194,3 +4208,6 @@ msgstr "selezionato"
 
 msgid "total"
 msgstr "totale"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""

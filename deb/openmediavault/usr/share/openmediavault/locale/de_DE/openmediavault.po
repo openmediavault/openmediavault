@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-14 20:37+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2025\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -1009,6 +1009,9 @@ msgstr "Zeigt Informationen über die Dienste in einem Raster an."
 
 msgid "Displays information about the services in a table."
 msgstr "Zeigt Informationen über die Dienste in einer Tabelle an."
+
+msgid "Displays links to help and support pages."
+msgstr "Zeigt Links zu Hilfe- und Support-Seiten an."
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Zeigt den S.M.A.R.T.-Status aller überwachten Laufwerke an."
@@ -2639,7 +2642,7 @@ msgid "Relative path"
 msgstr "Relativer Pfad"
 
 msgid "Reliable system and kernel logging daemon."
-msgstr ""
+msgstr "Zuverlässiger System- und Kernel-Logging-Daemon."
 
 msgid "Reload"
 msgstr "Neu laden"
@@ -3324,6 +3327,11 @@ msgid ""
 msgstr "Der entfernte Ziel Server, z.B. [USER@]HOST:DEST, [USER@]HOST::DEST oder rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr "Die Dokumentationsseite enthält hilfreiche Informationen zu Ihrem Speichersystem."
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3344,6 +3352,12 @@ msgstr "Das einzuhängende Dateisystem."
 
 msgid "The following modules will be updated:"
 msgstr "Die folgenden Module werden aktualisiert:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr "Die Forumseite ist der beste Ort, um Fragen zu stellen und Antworten zu finden."
+
+msgid "The home of the project and source of news and updates."
+msgstr "Die Heimat des Projekts und Quelle für Neuigkeiten und Updates."
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Der Hostname identifiziert das System im Netzwerk."
@@ -4199,3 +4213,6 @@ msgstr "ausgewählt"
 
 msgid "total"
 msgstr "gesamt"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr "{{ percent }}% von {{ total }}"

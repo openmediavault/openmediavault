@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-14 20:37+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2025\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -997,6 +997,9 @@ msgstr "Εμφάνιση πληροφοριών για τις υπηρεσίες
 msgid "Displays information about the services in a table."
 msgstr "Εμφάνιση πληροφοριών για τις υπηρεσίες σε πίνακα."
 
+msgid "Displays links to help and support pages."
+msgstr ""
+
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Εμφάνιση πληροφοριών S.M.A.R.T. όλων των παρακολουθούμενων συσκευών (δίσκων)."
 
@@ -1826,7 +1829,7 @@ msgid "Log level"
 msgstr "Επίπεδο καταγραφής"
 
 msgid "Logged in as <strong>{{ username }}</strong>"
-msgstr ""
+msgstr "Συνδεδεμένος ως <strong>{{ username }}</strong>"
 
 msgid "Logout"
 msgstr "Έξοδος"
@@ -2626,7 +2629,7 @@ msgid "Relative path"
 msgstr "Σχετική διαδρομή"
 
 msgid "Reliable system and kernel logging daemon."
-msgstr ""
+msgstr "Αξιόπιστη υπηρεσία καταγραφής για σύστημα & πυρήνα."
 
 msgid "Reload"
 msgstr "Επαναφόρτωση"
@@ -2961,7 +2964,7 @@ msgid ""
 " fail to coincide with any of the scheduled test that have been specified. "
 "In this case the scheduled test will be run following the next device "
 "polling."
-msgstr ""
+msgstr "Θέτει το διάστημα ανάμεσα στους ελέγχους των δίσκων σε Ν δευτερόλεπτα. Συνίσταται προσοχή όταν ρυθμίζετε αυτό το διάστημα σφυγμομέτρησης σε περισσότερο από εξήντα λεπτά. Οι χρόνοι σφυγμομέτρησης ίσως να μην συμπίπτουν με τους προγραμματισμένους ελέγχους που έχουν ορισθεί. Σε τέτοια περίπτωση, ο προγραμματισμένος έλεγχος θα εκτελείται μετά από την επόμενη σφυγμομέτρηση της συσκευής."
 
 msgid "Settings"
 msgstr "Ρυθμίσεις"
@@ -3311,6 +3314,11 @@ msgid ""
 msgstr "Ο απομακρυσμένος διακομιστής προορισμού, π.χ. [USER@]HOST:DEST, [USER@]HOST::DEST ή rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3331,6 +3339,12 @@ msgstr "Το σύστημα αρχείων προς προσάρτηση."
 
 msgid "The following modules will be updated:"
 msgstr "Θα αναβαθμιστούν οι ακόλουθες μονάδες :"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Το όνομα συστήματος είναι μια ετικέτα που χαρακτηρίζει το σύστημα στο δίκτυο."
@@ -4186,3 +4200,6 @@ msgstr "επιλεγμένα"
 
 msgid "total"
 msgstr "σύνολο"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""
