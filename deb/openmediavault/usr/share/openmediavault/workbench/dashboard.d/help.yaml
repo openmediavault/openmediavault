@@ -9,7 +9,7 @@ data:
   grid:
     class: "omv-grid-cols-1"
     item:
-      class: "omv-cursor-pointer omv-background-color-pair-whitesmoke"
+      class: "omv-cursor-pointer omv-background-color-selected-button"
       contentClass: "omv-text-wrap"
       icon: "{{ icon }}"
       title: "{{ title }}"
