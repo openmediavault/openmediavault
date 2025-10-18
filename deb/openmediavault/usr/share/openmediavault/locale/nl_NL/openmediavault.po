@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-14 20:37+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -601,7 +601,7 @@ msgid "CPU Usage"
 msgstr "CPU-gebruik"
 
 msgid "CPU Utilization"
-msgstr "CPU-benutting"
+msgstr "CPU-gebruik"
 
 msgid "Cambodia"
 msgstr "Cambodja"
@@ -1004,6 +1004,9 @@ msgstr "Toont informatie over de diensten in een raster."
 
 msgid "Displays information about the services in a table."
 msgstr "Toont informatie over de diensten in een tabel."
+
+msgid "Displays links to help and support pages."
+msgstr ""
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Toont de S.M.A.R.T.-status van alle schijfapparaten onder observatie."
@@ -2652,7 +2655,7 @@ msgid "Replace all existing permissions."
 msgstr "Alle bestaande machtigingen vervangen."
 
 msgid "Report"
-msgstr "Rapporteren"
+msgstr "Rapportage"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2969,7 +2972,7 @@ msgid ""
 " fail to coincide with any of the scheduled test that have been specified. "
 "In this case the scheduled test will be run following the next device "
 "polling."
-msgstr ""
+msgstr "Stelt het interval tussen schijfcontroles in op N seconden. Wees voorzichtig wanneer u dit interval op meer dan zestig minuten instelt. Het kan zijn dat de tijden niet samenvallen met de geplande test die is gespecificeerd. In dit geval wordt de geplande test uitgevoerd na de volgende apparaatcontrole."
 
 msgid "Settings"
 msgstr "Instellingen"
@@ -3319,6 +3322,11 @@ msgid ""
 msgstr "De bestemmingsserver, bijv. [GEBRUIKER@]HOST:BESTEMMING, [USER@]HOST::DOEL of rsync://[GEBRUIKER@]HOST[:POORT]/BESTEMMING."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3339,6 +3347,12 @@ msgstr "Het bestandssyteem om aan te koppelen."
 
 msgid "The following modules will be updated:"
 msgstr "De volgende modules worden bijgewerkt"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "De hostnaam is een naam waarmee het systeem zich kenbaar maakt aan het netwerk."
@@ -3956,7 +3970,7 @@ msgid "Upgrade system"
 msgstr "Systeem opwaarderen"
 
 msgid "Uptime"
-msgstr "Uptime"
+msgstr "Bedrijfstijd"
 
 msgid "Uruguay"
 msgstr "Uruguay"
@@ -4020,7 +4034,7 @@ msgid ""
 msgstr "Gebruikers moeten worden toegewezen aan de <em>_ssh</em>-groep om via SSH te kunnen inloggen."
 
 msgid "Utilization"
-msgstr "Benutting"
+msgstr "Gebruik"
 
 msgid "Uzbekistan"
 msgstr "Oezbekistan"
@@ -4194,3 +4208,6 @@ msgstr "geselecteerd"
 
 msgid "total"
 msgstr "totaal"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""
