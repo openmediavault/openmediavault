@@ -63,6 +63,7 @@ export type DashboardWidgetConfig = {
   reloadPeriod?: number;
 
   grid?: {
+    // The grid item configuration.
     item: {
       // Custom CSS class. This can be a template, too.
       class?: string;
@@ -84,6 +85,8 @@ export type DashboardWidgetConfig = {
       // The minimum width of an item. Defaults to `100px`.
       minWidth?: string;
     };
+    // Custom CSS class applied to the grid container.
+    class?: string;
     // The empty message. Defaults to `No data to display`.
     emptyMessage?: string;
     // Show an empty message if there is no data. Defaults to `true`.
