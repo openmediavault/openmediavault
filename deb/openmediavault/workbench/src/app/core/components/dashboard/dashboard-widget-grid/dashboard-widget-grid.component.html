@@ -2,7 +2,8 @@
                       [loadData]="loadData.bind(this)"
                       (dataChangedEvent)="dataChanged($event)">
   <div *ngIf="data"
-       class="widget-content omv-grid omv-gap-1">
+       class="widget-content omv-grid omv-gap-1"
+       [ngClass]="config.grid?.class">
     <div *ngFor="let item of data.data"
          class="item omv-rounded"
          [ngClass]="config.grid?.item.class | template:item"
