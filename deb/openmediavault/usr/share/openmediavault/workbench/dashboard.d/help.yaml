@@ -1,0 +1,30 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 6e7938a4-ab2f-11f0-be37-5b8808634934
+  type: grid
+  reloadPeriod: 0
+  title: _("Help")
+  description: _("Displays links to help and support pages.")
+  grid:
+    item:
+      class: "omv-cursor-pointer"
+      contentClass: "omv-text-wrap"
+      icon: "{{ icon }}"
+      tooltip: "{{ tooltip }}"
+      content: "{{ content }}"
+      url: "/externalRedirect/{{ url | encodeuricomponent }}"
+    store:
+      data:
+        - tooltip: _("Documentation")
+          content: _("The documentation page provides helpful information about your storage system.")
+          url: "https://docs.openmediavault.org"
+          icon: "docs"
+        - tooltip: _("Forum")
+          content: _("The forum page is the best place to ask questions and find answers.")
+          url: "https://forum.openmediavault.org"
+          icon: "mdi:forum"
+        - tooltip: _("Homepage")
+          content: _("The home of the project and source of news and updates.")
+          url: "https://www.openmediavault.org"
+          icon: "mdi:web"
