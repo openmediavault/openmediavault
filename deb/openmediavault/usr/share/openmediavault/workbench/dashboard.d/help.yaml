@@ -8,7 +8,7 @@ data:
   description: _("Displays links to help and support pages.")
   grid:
     item:
-      class: "omv-cursor-pointer"
+      class: "omv-cursor-pointer omv-background-color-pair-whitesmoke"
       contentClass: "omv-text-wrap"
       icon: "{{ icon }}"
       tooltip: "{{ tooltip }}"
