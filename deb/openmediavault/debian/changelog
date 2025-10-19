@@ -1,6 +1,7 @@
 openmediavault (7.7.19-1) stable; urgency=medium
 
   * Several improvements, e.g. missing translations in the Workbench UI.
+  * Issue #2012: Fix resizing issue of Dashboard chart widgets.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 01 Oct 2025 20:40:41 +0200
 
