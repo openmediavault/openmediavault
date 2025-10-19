@@ -65,13 +65,12 @@ export type DashboardWidgetConfig = {
   grid?: {
     // The grid item configuration.
     item: {
-      // Custom CSS class. This can be a template, too.
+      // Custom CSS class applied to the grid item.
+      // This can be a template, too.
       class?: string;
       // The icon that is displayed on the left side of the grid item.
-      // The icon and title properties are mutually exclusive.
       icon?: string;
       // The template that generates the grid item title.
-      // The title and icon properties are mutually exclusive.
       title?: string;
       titleClass?: string;
       // The template that generates the grid item content.
