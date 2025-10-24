@@ -1,3 +1,9 @@
+openmediavault-k8s (7.4.14-1) stable; urgency=medium
+
+  * 
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 25 Oct 2025 00:36:09 +0200
+
 openmediavault-k8s (7.4.13-1) stable; urgency=medium
 
   * Use K3S v1.33.5+k3s1 by default.
