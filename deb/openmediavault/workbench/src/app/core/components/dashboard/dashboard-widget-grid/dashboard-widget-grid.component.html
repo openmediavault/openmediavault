@@ -20,7 +20,7 @@
                   svgIcon="{{ config.grid?.item.icon | template:item | mapIconEnum }}">
         </mat-icon>
         <div *ngIf="config.grid?.item.title"
-             class="title omv-text-truncate omv-font-weight-bold"
+             class="title omv-flex-1 omv-text-truncate omv-font-weight-bold"
              [ngClass]="config.grid?.item.titleClass | template:item"
              [innerHTML]="config.grid?.item.title | template:item | sanitizeHtml">
         </div>
