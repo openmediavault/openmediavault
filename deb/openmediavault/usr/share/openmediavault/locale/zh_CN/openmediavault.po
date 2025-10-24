@@ -1004,7 +1004,7 @@ msgid "Displays information about the services in a table."
 msgstr "在标签中显示服务信息。"
 
 msgid "Displays links to help and support pages."
-msgstr ""
+msgstr "顯示輔助和支援網頁的連結。"
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "显示所有被监测磁盘的 S.M.A.R.T. 状态。"
@@ -3322,7 +3322,7 @@ msgstr "目标远程服务器，例如：[USER@]HOST:DEST, [USER@]HOST::DEST 或
 msgid ""
 "The documentation page provides helpful information about your storage "
 "system."
-msgstr ""
+msgstr "這文件網頁提供有關您的儲存系統之有用資訊。"
 
 msgid ""
 "The domain name of the system. If your system is part of a private network "
@@ -3347,10 +3347,10 @@ msgid "The following modules will be updated:"
 msgstr "将更新以下模块："
 
 msgid "The forum page is the best place to ask questions and find answers."
-msgstr ""
+msgstr "論壇網頁是提出問題和尋找答案的最佳場所。"
 
 msgid "The home of the project and source of news and updates."
-msgstr ""
+msgstr "專案網站與新聞與更新的來源。"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "主机名可以作为网络上识别系统的标签。"
@@ -4208,4 +4208,4 @@ msgid "total"
 msgstr "总计"
 
 msgid "{{ percent }}% of {{ total }}"
-msgstr ""
+msgstr "{{ total }} 的 {{ percent }}%"

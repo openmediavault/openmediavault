@@ -1004,7 +1004,7 @@ msgid "Displays information about the services in a table."
 msgstr "Táblázatos formában jeleníti meg a szolgáltatások információt."
 
 msgid "Displays links to help and support pages."
-msgstr ""
+msgstr "Megjeleníti a súgó és a támogatás oldalakra mutató linkeket."
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Megjeleníti az összes megfigyelt lemez S.M.A.R.T. állapotát."
@@ -3322,7 +3322,7 @@ msgstr "A távoli cél szerver, pl. [FELHASZNÁLÓ@]HOSZT:CÉL, [FELHASZNÁLÓ@]
 msgid ""
 "The documentation page provides helpful information about your storage "
 "system."
-msgstr ""
+msgstr "A dokumentációs oldal hasznos információkat tartalmaz a tárolórendszerről."
 
 msgid ""
 "The domain name of the system. If your system is part of a private network "
@@ -3347,10 +3347,10 @@ msgid "The following modules will be updated:"
 msgstr "A következő modulok frissítve lesznek:"
 
 msgid "The forum page is the best place to ask questions and find answers."
-msgstr ""
+msgstr "A fórum oldal a legjobb hely kérdések feltevésére és válaszok keresésére."
 
 msgid "The home of the project and source of news and updates."
-msgstr ""
+msgstr "A projekt otthona, valamint a hírek és frissítések forrása."
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "A gépnév egy címke, ami azonosítja a rendszert a hálózaton."
@@ -4208,4 +4208,4 @@ msgid "total"
 msgstr "kapacitás"
 
 msgid "{{ percent }}% of {{ total }}"
-msgstr ""
+msgstr "{{ percent }}%-a of {{ total }}"
