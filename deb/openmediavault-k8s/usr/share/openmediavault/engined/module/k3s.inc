@@ -20,7 +20,8 @@
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
 class K3s extends \OMV\Engine\Module\ServiceAbstract implements
-		\OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
+		\OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
+		\OMV\Engine\Module\INotification {
 	public function getName() {
 		return "k3s";
 	}
@@ -41,6 +42,16 @@ class K3s extends \OMV\Engine\Module\ServiceAbstract implements
 			"title" => gettext("Kubernetes"),
 			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
+		];
+	}
+
+	public function getNotificationConfig() {
+		return [
+			[
+				"id" => "monitk8s",
+				"type" => getText("System"),
+				"title" => gettext("Monitoring - Kubernetes")
+			]
 		];
 	}
 
