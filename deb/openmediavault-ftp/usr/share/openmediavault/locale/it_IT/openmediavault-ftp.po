@@ -83,7 +83,7 @@ msgid "Created FTP share."
 msgstr "La condivisione FTP è stata creata."
 
 msgid "Currently logged in users:"
-msgstr "Utenti attualmente collegati:"
+msgstr "Utenti attualmente connessi:"
 
 msgid "Date & Time"
 msgstr "Data e ora"

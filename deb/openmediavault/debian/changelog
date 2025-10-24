@@ -9,6 +9,7 @@ openmediavault (8.0-3) stable; urgency=medium
 
 openmediavault (7.7.19-1) stable; urgency=medium
 
+  * Update locale files.
   * Several improvements, e.g. missing translations in the Workbench UI.
   * Issue #2012: Fix resizing issue of Dashboard chart widgets.
 
