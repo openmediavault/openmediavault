@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-10-26 01:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1331,9 +1331,6 @@ msgstr ""
 msgid "Gibraltar"
 msgstr ""
 
-msgid "Go to the notification sidebar to attach to it."
-msgstr ""
-
 msgid "Good"
 msgstr ""
 
@@ -1817,7 +1814,7 @@ msgstr ""
 msgid "Malta"
 msgstr ""
 
-msgid "Management of CPUfreq settings."
+msgid "Management of cpufreq and cpuidle tunables."
 msgstr ""
 
 msgid "Management of scheduled tasks."
@@ -3851,6 +3848,9 @@ msgstr ""
 msgid "WPA2-Personal"
 msgstr ""
 
+msgid "WPA3-Personal"
+msgstr ""
+
 msgid "WWN"
 msgstr ""
 
@@ -3876,6 +3876,9 @@ msgid "Welcome to openmediavault"
 msgstr ""
 
 msgid "Western Sahara"
+msgstr ""
+
+msgid "While the background task is still running, you can attach the Workbench terminal dialog to it in the notification bar."
 msgstr ""
 
 msgid "Wi-Fi"
