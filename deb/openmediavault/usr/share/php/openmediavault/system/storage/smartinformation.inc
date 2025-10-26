@@ -472,16 +472,16 @@ class SmartInformation {
 				// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
 				// 231 Temperature_Celsius     0x0013   100   100   010    Pre-fail  Always       -       0
 				if (FALSE === stripos($attrv['attrname'], "temp")) {
-					break;
+					continue;
 				}
 				$regex = '/^(\d+)(\s+(.+))*$/';
 				if (1 !== preg_match($regex, $attrv['rawvalue'], $matches)) {
-					break;
+					continue;
 				}
 				// Verify temperature.
 				$temp = intval($matches[1]);
 				if ((-15 > $temp) || (100 < $temp)) {
-					break;
+					continue;
 				}
 				if (!$found || ($temp > $result)) {
 					$result = $temp;
