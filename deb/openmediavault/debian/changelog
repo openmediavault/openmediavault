@@ -1,6 +1,7 @@
 openmediavault (7.7.20-1) stable; urgency=medium
 
-  * 
+  * Fixing a bug when retrieving the temperature value via SMART on SSD
+    devices that do not have any temperature sensors. Thanks to robNice.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 26 Oct 2025 01:55:43 +0200
 
