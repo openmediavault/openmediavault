@@ -37,8 +37,17 @@ data:
         prop: type
         flexGrow: 1
         sortable: true
+        hidden: true
       - name: _("Reason")
-        prop: reason
+        prop: type
+        cellTemplateName: chip
+        cellTemplateConfig:
+          template: '{{ reason }}'
+          map:
+            Normal:
+              class: omv-background-color-pair-success
+            Warning:
+              class: omv-background-color-pair-error
         flexGrow: 1
         sortable: true
       - name: _("Object")
