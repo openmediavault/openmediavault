@@ -1,6 +1,6 @@
 openmediavault (7.7.20-1) stable; urgency=medium
 
-  * Improve the temperature detected via SMART. Thanks to robNice.
+  * Improve the temperature detection via SMART. Thanks to robNice.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 26 Oct 2025 01:55:43 +0200
 
