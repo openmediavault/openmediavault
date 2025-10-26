@@ -471,20 +471,24 @@ class SmartInformation {
 			case 231: // temperature-celsius
 				// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
 				// 231 Temperature_Celsius     0x0013   100   100   010    Pre-fail  Always       -       0
-				$regex = '/^(\d+)(\s+(.+))*$/';
-				if (1 !== preg_match($regex, $attrv['rawvalue'], $matches))
+				if (FALSE === stripos($attrv['attrname'], "temp")) {
 					break;
+				}
+				$regex = '/^(\d+)(\s+(.+))*$/';
+				if (1 !== preg_match($regex, $attrv['rawvalue'], $matches)) {
+					break;
+				}
 				// Verify temperature.
 				$temp = intval($matches[1]);
-				if ((-15 > $temp) || (100 < $temp))
+				if ((-15 > $temp) || (100 < $temp)) {
 					break;
-				if (!$found || ($temp > $result))
+				}
+				if (!$found || ($temp > $result)) {
 					$result = $temp;
+				}
 				$found = TRUE;
 				break;
 			}
-			if (TRUE === $found)
-				break;
 		}
 		// If the SMART attributes are not present then it may be a SAS
 		// or older SCSI device. Then the command output looks like:
