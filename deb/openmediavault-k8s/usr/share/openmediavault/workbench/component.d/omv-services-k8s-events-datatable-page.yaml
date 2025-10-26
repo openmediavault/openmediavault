@@ -1,0 +1,52 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-events-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 10000
+    stateId: 4f52aa39-b264-11f0-b612-525400ba5059
+    store:
+      proxy:
+        service: Kubectl
+        get:
+          method: getList
+          params:
+            type: events
+      transform:
+        lastSeen: '{{ lastTimestamp | default(metadata.creationTimestamp, true) }}'
+        lastSeenTs: '{{ lastTimestamp | default(metadata.creationTimestamp, true) | date2unix }}'
+        involvedObjectKN: '{{ involvedObject.kind }}/{{ involvedObject.name }}'
+    sorters:
+      - dir: desc
+        prop: lastSeenTs
+    rowId: metadata.uid
+    selectionType: none
+    hasSearchField: true
+    columns:
+      - name: _("Namespace")
+        prop: metadata.namespace
+        flexGrow: 1
+        sortable: true
+      - name: _("Last seen")
+        prop: lastSeen
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: relativeTime
+      - name: _("Type")
+        prop: type
+        flexGrow: 1
+        sortable: true
+      - name: _("Reason")
+        prop: reason
+        flexGrow: 1
+        sortable: true
+      - name: _("Object")
+        prop: involvedObjectKN
+        flexGrow: 1
+        sortable: true
+        hidden: true
+      - name: _("Message")
+        prop: message
+        flexGrow: 3
+        sortable: true

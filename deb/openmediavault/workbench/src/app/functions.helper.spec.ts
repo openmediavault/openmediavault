@@ -170,6 +170,13 @@ describe('functions.helper', () => {
     expect(format('{{ "bar" | override("baz", "truthy", metric > 10) }}', data)).toEqual('baz');
   });
 
+  it('should format string [13]', () => {
+    expect(format('{{ "Sun Oct 26 2025 12:45:04 GMT+0000" | date2unix }}', {})).toEqual(
+      '1761482704'
+    );
+    expect(format('{{ "2025-10-26T11:40:48Z" | date2unix }}', {})).toEqual('1761478848');
+  });
+
   it('should format deep [1]', () => {
     const data = { foo: { bar: 'xyz' } };
     expect(formatDeep('My name is {{ foo.bar }}', data)).toEqual('My name is xyz');
