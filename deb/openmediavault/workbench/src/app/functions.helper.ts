@@ -560,6 +560,24 @@ nunjucksEnv.addFilter('decodeuricomponent', (value: string): string => decodeURI
  */
 nunjucksEnv.addFilter('localedate', toLocaleDate);
 /**
+ * Returns the Unix timestamp (the number of seconds since the Unix Epoch)  the given date value.
+ */
+nunjucksEnv.addFilter('date2unix', (value: Date | string | number): number => {
+  if (!(_.isString(value) || _.isDate(value) || _.isNumber(value))) {
+    return -1;
+  }
+  let date: dayjs.Dayjs;
+  if (_.isNumber(value)) {
+    date = dayjs.unix(value);
+  } else {
+    date = dayjs(value);
+  }
+  if (!date.isValid()) {
+    return -1;
+  }
+  return date.unix();
+});
+/**
  * Convert a Cron expression into a human-readable description.
  */
 nunjucksEnv.addFilter('cron2human', cron2human);
