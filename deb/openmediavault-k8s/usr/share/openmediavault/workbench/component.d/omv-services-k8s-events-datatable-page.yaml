@@ -4,7 +4,11 @@ data:
   name: omv-services-k8s-events-datatable-page
   type: datatablePage
   config:
-    autoReload: 10000
+    autoReload: false
+    hasSearchField: true
+    remoteSearching: true
+    remoteSorting: true
+    remotePaging: true
     stateId: 4f52aa39-b264-11f0-b612-525400ba5059
     store:
       proxy:
