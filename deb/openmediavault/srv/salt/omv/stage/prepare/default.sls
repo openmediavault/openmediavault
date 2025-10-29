@@ -17,6 +17,16 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
+# Set up fallback DNS servers if none are configured. This can happen if the
+# systemd-resolved package is installed as a dependency of openmediavault.
+setup_fallback_dns_servers:
+  cmd.run:
+    - name: |
+        iface=$(ip route show default 0.0.0.0/0 | awk '/default/ {print $5; exit}')
+        [ -n "$iface" ] && resolvectl dns "$iface" 1.1.1.2 9.9.9.9
+    - unless: resolvectl query openmediavault.org >/dev/null 2>&1
+    - shell: /bin/bash
+
 # Install additional Python modules into the SaltStack onedir installation
 # that are required by the openmediavault Python module which is used by
 # various Salt runners and execution modules.
