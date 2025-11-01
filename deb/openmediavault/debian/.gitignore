@@ -1,8 +1,9 @@
-/openmediavault/
-/openmediavault-installer/
-/files
-/*.debhelper.log
-/*.debhelper
-/*.substvars
-/*-stamp
-/doxygen/
+openmediavault/
+openmediavault-installer/
+openmediavault-salt/
+files
+*.debhelper.log
+*.debhelper
+*.substvars
+*-stamp
+doxygen/

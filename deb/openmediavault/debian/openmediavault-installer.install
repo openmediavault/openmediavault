@@ -1,2 +1,2 @@
-lib/partman/* lib/partman/
-usr/lib/finish-install.d/* usr/lib/finish-install.d/
+lib/partman/* lib/partman
+usr/lib/finish-install.d/* usr/lib/finish-install.d
