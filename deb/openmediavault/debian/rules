@@ -3,7 +3,11 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+export DH_OPTIONS=-Nopenmediavault-salt
+
 include ../openmediavault.mk
+
+SALT_EXTRAS_DIR := opt/saltstack/salt/extras-3.10
 
 %:
 	dh $@
@@ -11,9 +15,15 @@ include ../openmediavault.mk
 override_dh_auto_clean:
 	rm -rf workbench/node_modules/
 	rm -rf workbench/dist/
+	rm -rf opt/
 
 override_dh_auto_build:
+  # Build the Angular application.
 	cd workbench && npm ci && npm run build:prod
+	# Install extra Python dependencies for SaltStack.
+	pip3 install --target=$(SALT_EXTRAS_DIR) \
+		--python-version=3.10 --no-compile --only-binary=:all: \
+		-r salt-requirements.txt
 
 override_dh_auto_install:
 	dh_install --verbose workbench/dist/openmediavault-workbench/* var/www/openmediavault
@@ -29,3 +39,6 @@ override_dh_installsystemd:
 	dh_installsystemd -r --no-start --name=openmediavault-cleanup-php
 	dh_installsystemd -r --no-start --name=openmediavault-engined
 	dh_installsystemd -r --no-start --name=openmediavault-issue
+
+override_dh_shlibdeps:
+	dh_shlibdeps --exclude=$(SALT_EXTRAS_DIR)
