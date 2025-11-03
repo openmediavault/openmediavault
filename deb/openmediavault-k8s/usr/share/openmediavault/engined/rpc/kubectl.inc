@@ -36,6 +36,7 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("logs");
 		$this->registerMethod("apply");
 		$this->registerMethod("getStats");
+		$this->registerMethod("getEvents");
 	}
 
     private function isEnabled(): bool {
@@ -228,5 +229,28 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 		}
 		return array_value($params, "associative", FALSE) ?
 			$result : array_values($result);
+	}
+
+	public function getEvents($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$response = \OMV\Rpc\Rpc::call("Kubectl", "getList",
+			[ "type" => "events", "start" => 0, "limit" => -1 ],
+			$context);
+		foreach ($response['data'] as $eventk => &$eventv) {
+			$firstTimestamp = array_value($eventv, "firstTimestamp",
+				array_value($eventv, "eventTime",
+				array_value($eventv, "lastTimestamp")));
+			$lastTimestamp = array_value($eventv, "lastTimestamp",
+				array_value($eventv, "eventTime",
+				array_value($eventv, "firstTimestamp")));
+			$eventv = array_merge($eventv, [
+				"firstUnixTimestamp" => strpdate($firstTimestamp, "Y-m-d*H:i:sT"),
+				"lastUnixTimestamp" => strpdate($lastTimestamp, "Y-m-d*H:i:sT")
+			]);
+		}
+		return $this->applyFilter($response['data'], $params['start'],
+			$params['limit']);
 	}
 }
