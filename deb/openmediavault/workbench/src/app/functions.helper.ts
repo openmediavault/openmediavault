@@ -378,8 +378,8 @@ export const toLocaleDate = (
     return '';
   }
   let date: dayjs.Dayjs;
-  if (_.isNumber(value)) {
-    date = dayjs.unix(value);
+  if (_.isFinite(_.toNumber(value))) {
+    date = dayjs.unix(_.toNumber(value));
   } else {
     date = dayjs(value);
   }
