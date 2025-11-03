@@ -6,24 +6,22 @@ data:
   config:
     autoReload: false
     hasSearchField: true
-    remoteSearching: true
-    remoteSorting: true
+    remoteSearching: false
+    remoteSorting: false
     remotePaging: true
     stateId: 4f52aa39-b264-11f0-b612-525400ba5059
     store:
       proxy:
         service: Kubectl
         get:
-          method: getList
-          params:
-            type: events
+          method: getEvents
       transform:
-        lastSeen: '{{ lastTimestamp | default(metadata.creationTimestamp, true) }}'
-        lastSeenTs: '{{ lastTimestamp | default(metadata.creationTimestamp, true) | date2unix }}'
         involvedObjectKN: '{{ involvedObject.kind }}/{{ involvedObject.name }}'
     sorters:
-      - dir: desc
-        prop: lastSeenTs
+      - dir: "desc"
+        prop: "name"
+      - dir: "desc"
+        prop: "lastUnixTimestamp"
     rowId: metadata.uid
     selectionType: none
     hasSearchField: true
@@ -71,13 +69,13 @@ data:
         sortable: true
         hidden: true
       - name: _("First seen")
-        prop: firstTimestamp
+        prop: firstUnixTimestamp
         flexGrow: 1
         sortable: true
         cellTemplateName: relativeTime
         hidden: true
       - name: _("Last seen")
-        prop: lastSeen
+        prop: lastUnixTimestamp
         flexGrow: 1
         sortable: true
         cellTemplateName: relativeTime
