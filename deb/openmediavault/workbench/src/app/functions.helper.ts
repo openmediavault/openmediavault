@@ -378,7 +378,9 @@ export const toLocaleDate = (
     return '';
   }
   let date: dayjs.Dayjs;
-  if (_.isFinite(_.toNumber(value))) {
+  if (_.isNumber(value)) {
+    date = dayjs.unix(value);
+  } else if (_.isString(value) && /^\d+$/.test(value)) {
     date = dayjs.unix(_.toNumber(value));
   } else {
     date = dayjs(value);
