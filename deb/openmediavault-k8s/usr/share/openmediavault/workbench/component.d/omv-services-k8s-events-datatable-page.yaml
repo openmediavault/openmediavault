@@ -18,8 +18,8 @@ data:
           params:
             type: events
       transform:
-        lastSeen: '{{ lastTimestamp | default(metadata.creationTimestamp, true) }}'
-        lastSeenTs: '{{ lastTimestamp | default(metadata.creationTimestamp, true) | date2unix }}'
+        lastSeen: '{{ lastTimestamp | default(eventTime, true) | default(firstTimestamp, true) }}'
+        lastSeenTs: '{{ lastTimestamp | default(eventTime, true) | default(firstTimestamp, true) | date2unix }}'
         involvedObjectKN: '{{ involvedObject.kind }}/{{ involvedObject.name }}'
     sorters:
       - dir: desc
