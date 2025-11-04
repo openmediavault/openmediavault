@@ -3,7 +3,7 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-include ../openmediavault.mk
+-include ../openmediavault.mk
 
 SALT_EXTRAS_DIR := opt/saltstack/salt/extras-3.10
 
