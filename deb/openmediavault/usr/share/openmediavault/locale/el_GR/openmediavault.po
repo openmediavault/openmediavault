@@ -998,7 +998,7 @@ msgid "Displays information about the services in a table."
 msgstr "Εμφάνιση πληροφοριών για τις υπηρεσίες σε πίνακα."
 
 msgid "Displays links to help and support pages."
-msgstr ""
+msgstr "Εμφανίζει συνδέσμους για σελίδες βοήθειας και υποστήριξης."
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Εμφάνιση πληροφοριών S.M.A.R.T. όλων των παρακολουθούμενων συσκευών (δίσκων)."
@@ -3316,7 +3316,7 @@ msgstr "Ο απομακρυσμένος διακομιστής προορισμ�
 msgid ""
 "The documentation page provides helpful information about your storage "
 "system."
-msgstr ""
+msgstr "Η σελίδα τεκμηρίωσης παρέχει χρήσιμες πληροφορίες για το αποθηκευτικό σου σύστημα."
 
 msgid ""
 "The domain name of the system. If your system is part of a private network "
@@ -3341,10 +3341,10 @@ msgid "The following modules will be updated:"
 msgstr "Θα αναβαθμιστούν οι ακόλουθες μονάδες :"
 
 msgid "The forum page is the best place to ask questions and find answers."
-msgstr ""
+msgstr "Η σελίδα συζήτησης είναι το ιδανικό μέρος για κάνεις ερωτήσεις και να βρίσκεις απαντήσεις."
 
 msgid "The home of the project and source of news and updates."
-msgstr ""
+msgstr "Η αρχική μας σελίδα αποτελεί πηγή ειδήσεων και ενημερώσεων."
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Το όνομα συστήματος είναι μια ετικέτα που χαρακτηρίζει το σύστημα στο δίκτυο."
@@ -4202,4 +4202,4 @@ msgid "total"
 msgstr "σύνολο"
 
 msgid "{{ percent }}% of {{ total }}"
-msgstr ""
+msgstr "{{ percent }}% από {{ total }}"

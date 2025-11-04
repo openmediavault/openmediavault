@@ -272,7 +272,7 @@ msgid "Abstract"
 msgstr "Samenvatting"
 
 msgid "Access control list"
-msgstr "Toegangscontrolelijst"
+msgstr "Toegangscontrolelijst (ACL)"
 
 msgid "Act as a WINS server."
 msgstr "Optreden als een WINS server."
@@ -451,7 +451,7 @@ msgid "At reboot"
 msgstr "Bij opnieuw starten"
 
 msgid "Attach"
-msgstr "Bijvoegen"
+msgstr "Bijlage"
 
 msgid "Attributes"
 msgstr "Attributen"
@@ -976,7 +976,7 @@ msgid "Disallow the user to modify their own account."
 msgstr "De gebruiker niet toestaan zijn eigen account aan te passen."
 
 msgid "Disk Temperatures"
-msgstr "Temperaturen van de schijf"
+msgstr "Schijftemperaturen"
 
 msgid "Disks"
 msgstr "Schijven"
@@ -1270,7 +1270,7 @@ msgid "File Systems"
 msgstr "Bestandssystemen"
 
 msgid "File access control lists"
-msgstr "Bestandstoegangscontrolelijsten"
+msgstr "Bestandstoegangscontrolelijsten (ACL)"
 
 msgid "File owner and group"
 msgstr "Bestandseigenaar en groep"
@@ -1382,7 +1382,7 @@ msgid "Gibraltar"
 msgstr "Gibraltar"
 
 msgid "Go to the notification sidebar to attach to it."
-msgstr "Ga naar de zijbalk met meldingen om deze bij te voegen."
+msgstr "Ga naar Meldingen om daar de bijlage te openen."
 
 msgid "Good"
 msgstr "Goed"
@@ -2456,7 +2456,7 @@ msgid "Please wait, unmounting the file system ..."
 msgstr "Even geduld, het bestandssysteem ontkoppelen..."
 
 msgid "Please wait, updating access control lists ..."
-msgstr "Even geduld, toegangscontrolelijsten bijwerken…"
+msgstr "Even geduld, toegangscontrolelijsten (ACL) bijwerken…"
 
 msgid "Please wait, updating the permissions ..."
 msgstr "Even geduld, machtigingen bijwerken…"
@@ -3657,7 +3657,7 @@ msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr "Deze parameter wordt gebruikt om te zorgen dat indien standaard acls bestaan op mappen, deze gebruikt worden bij het aanmaken van een nieuw bestand of submap in deze hoofdmappen."
+msgstr "Deze parameter wordt gebruikt om te zorgen dat indien standaard ACL's bestaan op mappen, deze gebruikt worden bij het aanmaken van een nieuw bestand of submap in deze hoofdmappen."
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
@@ -3868,7 +3868,7 @@ msgid "Updated VLAN network connection \"{{ devicename }}\"."
 msgstr "VLAN-netwerkverbinding \"{{ devicename }}\" bijgewerkt."
 
 msgid "Updated access control list of shared folder."
-msgstr "Toegangscontrolelijst van gedeelde map bijgewerkt."
+msgstr "Toegangscontrolelijst (ACL) van gedeelde map bijgewerkt."
 
 msgid "Updated bond network connection \"{{ devicename }}\"."
 msgstr "Bond-netwerkverbinding \"{{ devicename }}\" bijgewerkt."

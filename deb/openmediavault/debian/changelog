@@ -9,6 +9,7 @@ openmediavault (8.0-4) stable; urgency=medium
 
 openmediavault (7.7.20-1) stable; urgency=medium
 
+  * Update locale files.
   * Improve the temperature detection via SMART. Thanks to robNice.
   * Fix bug in configuring APM/AAM/spindown for disk.
 
