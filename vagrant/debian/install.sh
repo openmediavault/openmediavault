@@ -39,11 +39,6 @@ export LANG=C.UTF-8
 export DEBIAN_FRONTEND=noninteractive
 export APT_LISTCHANGES_FRONTEND=none
 
-# Replace the cloud-optimized kernel with the Debian standard kernel.
-apt-get install --yes linux-image-amd64
-apt-get remove --yes --purge linux-image-cloud-amd64
-apt-get autoremove --yes
-
 # Install the openmediavault keyring manually.
 apt-get install --yes gnupg
 wget --quiet --output-document=- https://packages.openmediavault.org/public/archive.key | \
