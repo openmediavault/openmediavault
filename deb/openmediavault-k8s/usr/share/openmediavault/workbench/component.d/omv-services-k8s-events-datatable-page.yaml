@@ -18,9 +18,9 @@ data:
       transform:
         involvedObjectKN: '{{ involvedObject.kind }}/{{ involvedObject.name }}'
     sorters:
-      - dir: "desc"
+      - dir: "asc"
         prop: "name"
-      - dir: "desc"
+      - dir: "asc"
         prop: "lastUnixTimestamp"
     rowId: metadata.uid
     selectionType: none

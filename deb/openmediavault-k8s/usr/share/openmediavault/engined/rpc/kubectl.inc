@@ -239,15 +239,22 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 			[ "type" => "events", "start" => 0, "limit" => -1 ],
 			$context);
 		foreach ($response['data'] as $eventk => &$eventv) {
-			$firstTimestamp = array_value($eventv, "firstTimestamp",
-				array_value($eventv, "eventTime",
-				array_value($eventv, "lastTimestamp")));
-			$lastTimestamp = array_value($eventv, "lastTimestamp",
-				array_value($eventv, "eventTime",
-				array_value($eventv, "firstTimestamp")));
+			$firstTimestamp = $eventv['firstTimestamp'];
+			foreach ([ "eventTime", "lastTimestamp" ] as $key) {
+				if (empty($firstTimestamp) || is_null($firstTimestamp)) {
+					$firstTimestamp = $eventv[$key];
+				}
+			}
+			$lastTimestamp = $eventv['lastTimestamp'];
+			foreach ([ "eventTime", "firstTimestamp" ] as $key) {
+				if (empty($lastTimestamp) || is_null($lastTimestamp)) {
+					$lastTimestamp = $eventv[$key];
+				}
+			}
+			// Parse a timestamp like "2025-11-03T23:51:04Z" or "2025-11-03T23:51:04.390262Z".
 			$eventv = array_merge($eventv, [
-				"firstUnixTimestamp" => strpdate($firstTimestamp, "Y-m-d*H:i:sT"),
-				"lastUnixTimestamp" => strpdate($lastTimestamp, "Y-m-d*H:i:sT")
+				"firstUnixTimestamp" => strtotime($firstTimestamp),
+				"lastUnixTimestamp" => strtotime($lastTimestamp)
 			]);
 		}
 		return $this->applyFilter($response['data'], $params['start'],
