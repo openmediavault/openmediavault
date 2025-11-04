@@ -41,7 +41,7 @@ Description: openmediavault scripts for debian-installer
  This package contains scripts that are for use in debian-installer.
 
 Package: openmediavault-salt
-Architecture: amd64 arm64
+Architecture: any
 Depends: salt-minion (>= 3006.0)
 Description: openmediavault - Package for SaltStack
  This package is responsible for installing SaltStack and extra Python
