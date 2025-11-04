@@ -722,7 +722,7 @@ msgid "Compress file data during the transfer."
 msgstr "Comprimir ficheiro durante transferência"
 
 msgid "Compression"
-msgstr "COmpressão"
+msgstr "Compressão"
 
 msgid ""
 "Compression is worth using if your connection is slow. The efficiency of the"
