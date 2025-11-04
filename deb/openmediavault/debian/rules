@@ -3,8 +3,6 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-export DH_OPTIONS=-Nopenmediavault-salt
-
 include ../openmediavault.mk
 
 SALT_EXTRAS_DIR := opt/saltstack/salt/extras-3.10
@@ -42,3 +40,6 @@ override_dh_installsystemd:
 
 override_dh_shlibdeps:
 	dh_shlibdeps --exclude=$(SALT_EXTRAS_DIR)
+
+override_dh_dwz:
+	dh_dwz -Nopenmediavault-salt
