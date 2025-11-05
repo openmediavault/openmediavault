@@ -52,6 +52,7 @@ build:
 		--basetgz $(BASETGZ) \
 		--buildresult $(BUILDRESULT) \
 		--aptcache $(APTCACHE) \
+		--use-network yes \
 		$(DSCFILE)
 
 update:
