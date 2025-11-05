@@ -15,7 +15,7 @@ override_dh_auto_clean:
 	rm -rf opt/
 
 override_dh_auto_build:
-  # Build the Angular application.
+	# Build the Angular application.
 	cd workbench && npm ci && npm run build:prod
 	# Install extra Python dependencies for SaltStack.
 	pip3 install --target=$(SALT_EXTRAS_DIR) \
