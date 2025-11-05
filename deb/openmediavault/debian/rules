@@ -11,10 +11,7 @@ SALT_EXTRAS_DIR := opt/saltstack/salt/extras-3.10
 	dh $@
 
 override_dh_auto_clean:
-	rm -rf workbench/.angular/
-	rm -rf workbench/dist/
-	rm -rf workbench/node_modules/
-	rm -rf workbench/out-tsc/
+	cd workbench && npm run clean
 	rm -rf opt/
 
 override_dh_auto_build:
