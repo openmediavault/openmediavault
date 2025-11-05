@@ -22,7 +22,8 @@
     "i18n": "npm run i18n:extract",
     "i18n:extract": "transloco-keys-manager extract --sort --replace",
     "e2e": "start-test http://localhost:4201 'cypress open'",
-    "e2e:ci": "start-test http://localhost:4201 'cypress run -b chrome --headless'"
+    "e2e:ci": "start-test http://localhost:4201 'cypress run -b chrome --headless'",
+    "clean": "rm -rf ./.angular/ ./dist/ ./node_modules/ ./out-tsc/"
   },
   "private": true,
   "dependencies": {
