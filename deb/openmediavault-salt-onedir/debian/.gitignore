@@ -1,0 +1,6 @@
+openmediavault-salt-onedir/
+files
+*.debhelper.log
+*.debhelper
+*.substvars
+*-stamp

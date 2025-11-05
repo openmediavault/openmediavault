@@ -2,7 +2,7 @@ Source: openmediavault
 Section: admin
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
-Build-Depends: debhelper (>= 12), gettext, doxygen, make, npm, python3-pip
+Build-Depends: debhelper (>= 12), gettext, doxygen, make, npm
 Standards-Version: 3.9.6
 Homepage: https://www.openmediavault.org
 
@@ -23,7 +23,7 @@ Depends: php-fpm, libpam-modules, php-json, dpkg, patch, dash, mawk | gawk,
  rrdcached, locales, nginx, bash-completion, python3, f2fs-tools,
  python3-apt, wpasupplicant, systemd, systemd-sysv, btrfs-progs, jc,
  samba-vfs-modules, pciutils, python3-pyudev, python3-natsort, jq, chrony,
- python3-netifaces, udev, python3-lxml, openmediavault-salt,
+ python3-netifaces, udev, python3-lxml, openmediavault-salt-onedir,
  libnss-myhostname, php-yaml, python3-click, python3-cached-property,
  python3-polib, libnss-systemd, libnss-resolve, debian-archive-keyring,
  openmediavault-keyring, systemd-resolved, python3-packaging,
@@ -39,10 +39,3 @@ Section: debian-installer
 Depends: ${misc:Depends}, partman-base, finish-install
 Description: openmediavault scripts for debian-installer
  This package contains scripts that are for use in debian-installer.
-
-Package: openmediavault-salt
-Architecture: any
-Depends: salt-minion (>= 3006.0)
-Description: openmediavault - Package for SaltStack
- This package is responsible for installing SaltStack and extra Python
- packages.
