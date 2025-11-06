@@ -1,4 +1,4 @@
-openmediavault-salt-onedir/
+openmediavault-salt/
 files
 *.debhelper.log
 *.debhelper

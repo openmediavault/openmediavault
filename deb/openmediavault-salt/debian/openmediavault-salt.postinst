@@ -25,7 +25,7 @@ case "$1" in
 	configure)
 	  # Create symlink for openmediavault Python package here, otherwise
 	  # the dpkg-source command will fail during cross building the package:
-	  # dpkg-source: error: pathname 'openmediavault-salt-onedir-x.</debian/openmediavault-salt-onedir/opt/saltstack/salt/extras-3.10/openmediavault' points outside source root (to '/usr/lib/python3/dist-packages/openmediavault')
+	  # dpkg-source: error: pathname 'openmediavault-salt-x.</debian/openmediavault-salt/opt/saltstack/salt/extras-3.10/openmediavault' points outside source root (to '/usr/lib/python3/dist-packages/openmediavault')
 	  ln -sfn /usr/lib/python3/dist-packages/openmediavault \
 	    /opt/saltstack/salt/extras-3.10/openmediavault
 	;;

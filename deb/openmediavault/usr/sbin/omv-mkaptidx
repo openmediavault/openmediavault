@@ -56,7 +56,7 @@ class OpenMediaVaultPluginsFilter(apt.cache.Filter):
         m = re.match(r"^%s-(\S+)$" % pi.package_name, pkg.name)
         if not m:
             return False
-        if m.group(1) in ["keyring", "salt-onedir"]:
+        if m.group(1) in ["keyring", "salt"]:
             return False
         if pkg.candidate is not None:
             # The 'Plugin-Architecture' is mostly used by plugins that are

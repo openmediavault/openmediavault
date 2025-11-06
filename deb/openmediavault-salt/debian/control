@@ -1,4 +1,4 @@
-Source: openmediavault-salt-onedir
+Source: openmediavault-salt
 Section: admin
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 12), make, python3-pip
 Standards-Version: 3.9.6
 Homepage: https://www.openmediavault.org
 
-Package: openmediavault-salt-onedir
+Package: openmediavault-salt
 Architecture: any
 Depends: salt-minion (>= 3007.7)
 Description: Extra Python packages required by Salt on openmediavault
