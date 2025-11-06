@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+#
+# This file is part of OpenMediaVault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2025 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+
+PODS=$(kubectl get pods --all-namespaces -o jsonpath='{range .items[*]}{.metadata.namespace}{"\t"}{.metadata.name}{"\t"}{.status.phase}{"\t"}{range .status.containerStatuses[*]}{.state.waiting.reason}{.state.terminated.reason}{"\t"}{end}{"\n"}{end}' 2>/dev/null || true)
+if [ -z "${PODS}" ]; then
+  echo "Unable to fetch pod data. Check kubectl context or permissions."
+  exit 2
+fi
+
+BAD_PODS=$(echo "${PODS}" | grep -E "CrashLoopBackOff|Error|Failed|Evicted|ImagePullBackOff|CreateContainerError|Terminating" || true)
+if [ -n "${BAD_PODS}" ]; then
+  echo "Unhealthy pods detected:"
+  echo "----------------------------------------"
+  echo -e "NAMESPACE\tPOD\tPHASE\tREASON"
+  echo "----------------------------------------"
+  echo "${BAD_PODS}"
+  echo "----------------------------------------"
+  COUNT=$(echo "${BAD_PODS}" | wc -l)
+  echo "${COUNT} pods are in bad state."
+  exit 1
+else
+  echo "All pods are healthy."
+  exit 0
+fi
