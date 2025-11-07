@@ -70,7 +70,8 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 		]);
 		$this->validateMethodParams($params, "rpc.kubectl.getList");
 		if (!$this->isEnabled()) {
-		    return [];
+		    return $this->applyFilter([], $params['start'], $params['limit'],
+		    	$params['sortfield'], $params['sortdir']);
 		}
 		$cmdArgs = [];
 		$cmdArgs[] = "get";
