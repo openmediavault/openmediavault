@@ -17,5 +17,21 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
-include:
-  - .{{ salt['pillar.get']('deploy_cpufrequtils', 'default') }}
+{% set k8s_config = salt['omv_conf.get']('conf.service.k8s') %}
+{% set notification_config = salt['omv_conf.get_by_filter'](
+  'conf.system.notification.notification',
+  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'monitk8s'})[0] %}
+
+{% if k8s_config.enable | to_bool and notification_config.enable | to_bool %}
+
+configure_monit_k8s_service:
+  file.managed:
+    - name: "/etc/monit/conf.d/openmediavault-k8s.conf"
+    - contents: |
+        check program k8s-health-check with path "/usr/sbin/omv-k8s-health-check"
+            if status != 0 for 2 cycles then alert
+    - user: root
+    - group: root
+    - mode: 644
+
+{% endif %}

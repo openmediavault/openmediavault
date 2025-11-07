@@ -1,6 +1,6 @@
 [main]
 host = https://www.transifex.com
-lang_map = sv: sv_SV, de: de_DE, it: it_IT, ru: ru_RU, uk: uk_UK, da: da_DA, no: no_NO
+lang_map = sv: sv_SE, de: de_DE, it: it_IT, ru: ru_RU, uk: uk_UK, da: da_DA, no: no_NO
 
 [o:openmediavault:p:openmediavault:r:openmediavault]
 file_filter = openmediavault/usr/share/openmediavault/locale/<lang>/openmediavault.po

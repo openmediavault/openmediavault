@@ -3,7 +3,7 @@
 	"id": "conf.system.certificate.ssh",
 	"title": "SSH certificate",
 	"queryinfo": {
-		"xpath": "//system/certificates/sshcertificate",
+		"xpath": ".//system/certificates/sshcertificate",
 		"iterable": true,
 		"idproperty": "uuid",
 		"refproperty": "sshcertificateref"

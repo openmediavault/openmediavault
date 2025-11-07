@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -272,7 +272,7 @@ msgid "Abstract"
 msgstr "Samenvatting"
 
 msgid "Access control list"
-msgstr "Toegangscontrolelijst"
+msgstr "Toegangscontrolelijst (ACL)"
 
 msgid "Act as a WINS server."
 msgstr "Optreden als een WINS server."
@@ -451,7 +451,7 @@ msgid "At reboot"
 msgstr "Bij opnieuw starten"
 
 msgid "Attach"
-msgstr "Bijvoegen"
+msgstr "Bijlage"
 
 msgid "Attributes"
 msgstr "Attributen"
@@ -601,7 +601,7 @@ msgid "CPU Usage"
 msgstr "CPU-gebruik"
 
 msgid "CPU Utilization"
-msgstr "CPU-benutting"
+msgstr "CPU-gebruik"
 
 msgid "Cambodia"
 msgstr "Cambodja"
@@ -976,7 +976,7 @@ msgid "Disallow the user to modify their own account."
 msgstr "De gebruiker niet toestaan zijn eigen account aan te passen."
 
 msgid "Disk Temperatures"
-msgstr "Temperaturen van de schijf"
+msgstr "Schijftemperaturen"
 
 msgid "Disks"
 msgstr "Schijven"
@@ -1004,6 +1004,9 @@ msgstr "Toont informatie over de diensten in een raster."
 
 msgid "Displays information about the services in a table."
 msgstr "Toont informatie over de diensten in een tabel."
+
+msgid "Displays links to help and support pages."
+msgstr "Toont links naar hulp- en ondersteuningspagina's."
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Toont de S.M.A.R.T.-status van alle schijfapparaten onder observatie."
@@ -1267,7 +1270,7 @@ msgid "File Systems"
 msgstr "Bestandssystemen"
 
 msgid "File access control lists"
-msgstr "Bestandstoegangscontrolelijsten"
+msgstr "Bestandstoegangscontrolelijsten (ACL)"
 
 msgid "File owner and group"
 msgstr "Bestandseigenaar en groep"
@@ -1379,7 +1382,7 @@ msgid "Gibraltar"
 msgstr "Gibraltar"
 
 msgid "Go to the notification sidebar to attach to it."
-msgstr "Ga naar de zijbalk met meldingen om deze bij te voegen."
+msgstr "Ga naar Meldingen om daar de bijlage te openen."
 
 msgid "Good"
 msgstr "Goed"
@@ -1833,6 +1836,9 @@ msgstr "Inloggen"
 msgid "Log level"
 msgstr "Logboekniveau"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr "Ingelogd als <strong>{{ username }}</strong>"
+
 msgid "Logout"
 msgstr "Afmelden"
 
@@ -2211,7 +2217,7 @@ msgid "Nothing"
 msgstr "Niets"
 
 msgid "Notification"
-msgstr "Melding"
+msgstr "Meldingen"
 
 msgid "Notifications"
 msgstr "Meldingen"
@@ -2450,10 +2456,10 @@ msgid "Please wait, unmounting the file system ..."
 msgstr "Even geduld, het bestandssysteem ontkoppelen..."
 
 msgid "Please wait, updating access control lists ..."
-msgstr "Even geduld, toegangscontrolelijsten bijwerken…"
+msgstr "Even geduld, toegangscontrolelijsten (ACL) bijwerken…"
 
 msgid "Please wait, updating the permissions ..."
-msgstr "Even geduld, de machtigingen bijwerken…"
+msgstr "Even geduld, machtigingen bijwerken…"
 
 msgid "Plugins"
 msgstr "Plug-ins"
@@ -2468,7 +2474,7 @@ msgid "Portugal"
 msgstr "Portugal"
 
 msgid "Power"
-msgstr "Vermogen"
+msgstr "Aan/Uit"
 
 msgid "Power Management"
 msgstr "Energiebeheer"
@@ -2532,7 +2538,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr "Voorkom dat een schijf wordt opgestart wanneer deze periodiek wordt gepolled.<ul><li>Nooit - Poll (controleer) het apparaat, ongeacht de energiemodus. Dit kan ertoe leiden dat een schijf die is uitgeschakeld, wordt opgestart wanneer deze wordt gecontroleerd.</li><li>Slaapstand - Controleer het apparaat tenzij het in de SLAAP-stand staat.</li><li>Stand-by - Controleer het apparaat tenzij het in de SLAAP- of STAND-BY-stand staat. In deze modi draaien de meeste schijven niet, dus als u wilt voorkomen dat een schijf bij elke poll opstart, is dit waarschijnlijk wat u wilt.</li><li>Pauzestand - Controleer het apparaat tenzij het in de SLAAP-, STAND-BY- of PAUZESTAND staat. In de PAUZESTAND draaien de meeste schijven nog steeds, dus dit is waarschijnlijk niet wat u wilt.</li></ul>"
+msgstr "Voorkomen dat een schijf wordt opgestart wanneer deze periodiek wordt gepolst.<ul><li>Nooit - Het apparaat wordt ongeacht de energiemodus gepolst (gecontroleerd). Dit kan ertoe leiden dat een schijf die is uitgeschakeld, wordt opgestart wanneer deze wordt gecontroleerd.</li><li>Slaapstand - Het apparaat wordt gecontroleerd tenzij het in de SLAAP-stand staat.</li><li>Stand-by - Het apparaat wordt gecontroleerd tenzij het in de SLAAP- of STAND-BY-stand staat. In deze modi draaien de meeste schijven niet, dus als u wilt voorkomen dat een schijf bij elke polsing opstart, is dit waarschijnlijk wat u wilt.</li><li>Pauzestand - Het apparaat wordt gecontroleerd tenzij het in de SLAAP-, STAND-BY- of PAUZESTAND staat. In de PAUZESTAND draaien de meeste schijven nog steeds, dus dit is waarschijnlijk niet wat u wilt.</li></ul>"
 
 msgid "Primary"
 msgstr "Primair"
@@ -2630,6 +2636,9 @@ msgstr "Relatief pad"
 msgid "Relative path"
 msgstr "Relatief pad"
 
+msgid "Reliable system and kernel logging daemon."
+msgstr "Logboekregistratie van systeem- en kernelbetrouwbaarheid."
+
 msgid "Reload"
 msgstr "Opnieuw laden"
 
@@ -2646,7 +2655,7 @@ msgid "Replace all existing permissions."
 msgstr "Alle bestaande machtigingen vervangen."
 
 msgid "Report"
-msgstr "Rapporteren"
+msgstr "Rapportage"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2661,7 +2670,7 @@ msgid "Repository"
 msgstr "Opslagplaats"
 
 msgid "Reset UI to defaults"
-msgstr "Gebruikersinterface terugzetten naar standaardwaarden"
+msgstr "UI-instellingen herstellen naar standaard"
 
 msgid "Result"
 msgstr "Uitslag"
@@ -2957,8 +2966,13 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "Stel de eigenaar van het bestemmingsbestand hetzelfde in als van het bronbestand, maar alleen als de ontvangende rsync wordt uitgevoerd als super-user."
 
-msgid "Sets the interval between disk checks to N seconds."
-msgstr "Stelt de tijd tussen schijfcontroles in op N seconden."
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr "Stelt het interval tussen schijfcontroles in op N seconden. Wees voorzichtig wanneer u dit interval op meer dan zestig minuten instelt. Het kan zijn dat de tijden niet samenvallen met de geplande test die is gespecificeerd. In dit geval wordt de geplande test uitgevoerd na de volgende apparaatcontrole."
 
 msgid "Settings"
 msgstr "Instellingen"
@@ -2982,10 +2996,10 @@ msgid "Shared folder path"
 msgstr "Pad van gedeelde map"
 
 msgid "Shared folder permissions"
-msgstr "Machtigingen voor gedeelde map"
+msgstr "Machtigingen voor gedeelde mappen"
 
 msgid "Shared folder permissions have been copied."
-msgstr "De machtigingen voor gedeelde map zijn gekopieerd."
+msgstr "De machtigingen voor gedeelde mappen zijn gekopieerd."
 
 msgid "Shares"
 msgstr "Gedeelde bronnen"
@@ -3255,13 +3269,6 @@ msgstr "Taiwan"
 msgid "Tajikistan"
 msgstr "Tadzjikistan"
 
-msgid ""
-"Take caution when setting this polling interval to more than sixty minutes. "
-"The poll times may fail to coincide with any of the scheduled test that have"
-" been specified. In this case the scheduled test will be run following the "
-"next device polling."
-msgstr "Wees voorzichtig wanneer u dit interval op meer dan zestig minuten instelt. Het kan zijn dat de tijden niet samenvallen met de geplande test die is gespecificeerd. In dit geval wordt de geplande test uitgevoerd na de volgende apparaatpeiling."
-
 msgid "Tanzania"
 msgstr "Tanzania"
 
@@ -3315,6 +3322,11 @@ msgid ""
 msgstr "De bestemmingsserver, bijv. [GEBRUIKER@]HOST:BESTEMMING, [USER@]HOST::DOEL of rsync://[GEBRUIKER@]HOST[:POORT]/BESTEMMING."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr "De documentatiepagina biedt nuttige informatie over uw opslagsysteem."
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3335,6 +3347,12 @@ msgstr "Het bestandssyteem om aan te koppelen."
 
 msgid "The following modules will be updated:"
 msgstr "De volgende modules worden bijgewerkt"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr "De forumpagina is de beste plek om vragen te stellen en antwoorden te krijgen."
+
+msgid "The home of the project and source of news and updates."
+msgstr "De thuisbasis van het project en bron van nieuws en updates."
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "De hostnaam is een naam waarmee het systeem zich kenbaar maakt aan het netwerk."
@@ -3420,7 +3438,7 @@ msgstr "Het relatieve pad van de te delen map. De opgegeven map wordt aangemaakt
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "De opslagplaats zal worden gecontroleerd op nieuwe, verwijderde of opgewaardeerde pakketten."
+msgstr "De opslagplaats wordt gecontroleerd op nieuwe, verwijderde of bijgewerkte pakketten."
 
 msgid "The requested page was not found."
 msgstr "De opgevraagde pagina is niet gevonden."
@@ -3639,7 +3657,7 @@ msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr "Deze parameter wordt gebruikt om te zorgen dat indien standaard acls bestaan op mappen, deze gebruikt worden bij het aanmaken van een nieuw bestand of submap in deze hoofdmappen."
+msgstr "Deze parameter wordt gebruikt om te zorgen dat indien standaard ACL's bestaan op mappen, deze gebruikt worden bij het aanmaken van een nieuw bestand of submap in deze hoofdmappen."
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
@@ -3850,7 +3868,7 @@ msgid "Updated VLAN network connection \"{{ devicename }}\"."
 msgstr "VLAN-netwerkverbinding \"{{ devicename }}\" bijgewerkt."
 
 msgid "Updated access control list of shared folder."
-msgstr "Toegangscontrolelijst van gedeelde map bijgewerkt."
+msgstr "Toegangscontrolelijst (ACL) van gedeelde map bijgewerkt."
 
 msgid "Updated bond network connection \"{{ devicename }}\"."
 msgstr "Bond-netwerkverbinding \"{{ devicename }}\" bijgewerkt."
@@ -3952,7 +3970,7 @@ msgid "Upgrade system"
 msgstr "Systeem opwaarderen"
 
 msgid "Uptime"
-msgstr "Uptime"
+msgstr "Bedrijfstijd"
 
 msgid "Uruguay"
 msgstr "Uruguay"
@@ -4016,7 +4034,7 @@ msgid ""
 msgstr "Gebruikers moeten worden toegewezen aan de <em>_ssh</em>-groep om via SSH te kunnen inloggen."
 
 msgid "Utilization"
-msgstr "Benutting"
+msgstr "Gebruik"
 
 msgid "Uzbekistan"
 msgstr "Oezbekistan"
@@ -4190,3 +4208,6 @@ msgstr "geselecteerd"
 
 msgid "total"
 msgstr "totaal"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr "{{ percent }}% van {{ total }}"

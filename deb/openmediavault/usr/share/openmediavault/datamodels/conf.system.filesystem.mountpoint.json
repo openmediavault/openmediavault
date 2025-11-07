@@ -3,7 +3,7 @@
 	"id": "conf.system.filesystem.mountpoint",
 	"title": "Mount point",
 	"queryinfo": {
-		"xpath": "//system/fstab/mntent",
+		"xpath": ".//system/fstab/mntent",
 		"iterable": true,
 		"idproperty": "uuid",
 		"refproperty": "mntentref"

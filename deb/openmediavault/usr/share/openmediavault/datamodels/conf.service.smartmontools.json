@@ -3,7 +3,7 @@
 	"id": "conf.service.smartmontools",
 	"title": "S.M.A.R.T.",
 	"queryinfo": {
-		"xpath": "//services/smart",
+		"xpath": ".//services/smart",
 		"iterable": false
 	},
 	"properties": {

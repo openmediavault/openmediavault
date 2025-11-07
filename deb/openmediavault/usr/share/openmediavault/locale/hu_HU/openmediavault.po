@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2025\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -1003,6 +1003,9 @@ msgstr "Rácsos formában jeleníti meg a szolgáltatások információt."
 msgid "Displays information about the services in a table."
 msgstr "Táblázatos formában jeleníti meg a szolgáltatások információt."
 
+msgid "Displays links to help and support pages."
+msgstr "Megjeleníti a súgó és a támogatás oldalakra mutató linkeket."
+
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Megjeleníti az összes megfigyelt lemez S.M.A.R.T. állapotát."
 
@@ -1831,6 +1834,9 @@ msgstr "Belépés"
 msgid "Log level"
 msgstr "Naplózási szint"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr "Bejelentkezve <strong>{{ username }}</strong> felhasználóval"
+
 msgid "Logout"
 msgstr "Kijelentkezés"
 
@@ -2628,6 +2634,9 @@ msgstr "Relatív elérési út"
 msgid "Relative path"
 msgstr "Relatív elérési út"
 
+msgid "Reliable system and kernel logging daemon."
+msgstr "Megbízható rendszer- és kernel-naplózó démon."
+
 msgid "Reload"
 msgstr "Újratöltés"
 
@@ -2955,8 +2964,13 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "A célfájl tulajdonosának beállítása a forrásfájllal megegyezőre abban az esetben ha a fogadó rsync szuperfelhasználóként fut."
 
-msgid "Sets the interval between disk checks to N seconds."
-msgstr "Lemez ellenőrzések közti N másodperces intervallum beállítása."
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr "A lemezellenőrzések közötti intervallum beállítása N másodpercre. Legyen óvatos, ha ezt a lekérdezési intervallumot hatvan percnél hosszabbra állítja be. Előfordulhat, hogy a lekérdezési időpontok nem esnek egybe a megadott ütemezett tesztekkel. Ebben az esetben az ütemezett teszt a következő eszközlekérdezést követően fog lefutni."
 
 msgid "Settings"
 msgstr "Beállítások"
@@ -3253,13 +3267,6 @@ msgstr "Tajvan"
 msgid "Tajikistan"
 msgstr "Tádzsikisztán"
 
-msgid ""
-"Take caution when setting this polling interval to more than sixty minutes. "
-"The poll times may fail to coincide with any of the scheduled test that have"
-" been specified. In this case the scheduled test will be run following the "
-"next device polling."
-msgstr "Legyen óvatos, ha ezt a lekérdezési intervallumot hatvan percnél hosszabbra állítja be. Előfordulhat, hogy a lekérdezési időpontok nem esnek egybe a megadott ütemezett tesztekkel. Ebben az esetben az ütemezett teszt a következő eszközlekérdezést követően fog lefutni."
-
 msgid "Tanzania"
 msgstr "Tanzánia"
 
@@ -3313,6 +3320,11 @@ msgid ""
 msgstr "A távoli cél szerver, pl. [FELHASZNÁLÓ@]HOSZT:CÉL, [FELHASZNÁLÓ@]HOSZT::CÉL vagy rsync://[FELHASZNÁLÓ@]HOSZT[:PORT]/CÉL."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr "A dokumentációs oldal hasznos információkat tartalmaz a tárolórendszerről."
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3333,6 +3345,12 @@ msgstr "A csatlakoztatni kívánt fájlrendszer. "
 
 msgid "The following modules will be updated:"
 msgstr "A következő modulok frissítve lesznek:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr "A fórum oldal a legjobb hely kérdések feltevésére és válaszok keresésére."
+
+msgid "The home of the project and source of news and updates."
+msgstr "A projekt otthona, valamint a hírek és frissítések forrása."
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "A gépnév egy címke, ami azonosítja a rendszert a hálózaton."
@@ -4188,3 +4206,6 @@ msgstr "kiválasztva"
 
 msgid "total"
 msgstr "kapacitás"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr "{{ percent }}%-a of {{ total }}"

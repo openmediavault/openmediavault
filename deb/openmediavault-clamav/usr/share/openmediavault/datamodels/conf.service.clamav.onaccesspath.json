@@ -3,7 +3,7 @@
 	"id": "conf.service.clamav.onaccesspath",
 	"title": "ClamAV Antivirus on-access scanning path",
 	"queryinfo": {
-		"xpath": "//services/clamav/onaccesspaths/onaccesspath",
+		"xpath": ".//services/clamav/onaccesspaths/onaccesspath",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

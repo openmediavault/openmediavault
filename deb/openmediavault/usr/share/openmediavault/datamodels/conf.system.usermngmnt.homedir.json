@@ -3,7 +3,7 @@
 	"id": "conf.system.usermngmnt.homedir",
 	"title": "User home directory",
 	"queryinfo": {
-		"xpath": "//system/usermanagement/homedirectory",
+		"xpath": ".//system/usermanagement/homedirectory",
 		"iterable": false
 	},
 	"properties": {

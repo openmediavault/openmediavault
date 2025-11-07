@@ -299,9 +299,9 @@
 			<hdparm>
 				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 				<devicefile>/dev/xxx</devicefile>
-				<apm>0 = disable|1-255<apm>
-				<aam>0|128|254</aam>
-				<spindowntime>0 = disabled|1-254</spindowntime>
+				<apm>0 = off|1-254<apm>
+				<aam>0 = off|128|254</aam>
+				<spindowntime>0 = off|1-255</spindowntime>
 				<writecache>0|1</writecache>
 			</hdparm>
 			-->

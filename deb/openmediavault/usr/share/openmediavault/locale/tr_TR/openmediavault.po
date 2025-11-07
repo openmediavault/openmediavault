@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022,2025\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -997,6 +997,9 @@ msgstr "Servislere ait bilgileri kareli düzende göster."
 msgid "Displays information about the services in a table."
 msgstr "Servislere ait bilgileri tablo düzeninde göster."
 
+msgid "Displays links to help and support pages."
+msgstr ""
+
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "İzlenen tüm disk cihazlarının S.M.A.R.T. durumunu gösterir."
 
@@ -1825,6 +1828,9 @@ msgstr "Giriş"
 msgid "Log level"
 msgstr "Kayıt seviyesi"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
 msgid "Logout"
 msgstr "Çıkış"
 
@@ -2622,6 +2628,9 @@ msgstr "Bağlantılı Dizin"
 msgid "Relative path"
 msgstr "Bağlantılı dizin"
 
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
+
 msgid "Reload"
 msgstr "Yeniden yükle"
 
@@ -2949,8 +2958,13 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "Sadece super-user tarafından çalıştırılan rsync ile alındığında hedef dosya sahiplik bilgisini kaynak dosya ile aynı olacak şekilde ayarla."
 
-msgid "Sets the interval between disk checks to N seconds."
-msgstr "Disk kontrol aralığını N saniye olarak ayarla."
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr ""
 
 msgid "Settings"
 msgstr "Ayarlar"
@@ -3247,13 +3261,6 @@ msgstr "Tayvan"
 msgid "Tajikistan"
 msgstr "Tacikistan"
 
-msgid ""
-"Take caution when setting this polling interval to more than sixty minutes. "
-"The poll times may fail to coincide with any of the scheduled test that have"
-" been specified. In this case the scheduled test will be run following the "
-"next device polling."
-msgstr ""
-
 msgid "Tanzania"
 msgstr "Tanzanya"
 
@@ -3307,6 +3314,11 @@ msgid ""
 msgstr "Hedef uzak sunucu, örn. [USER@]HOST:DEST, [USER@]HOST::DEST veya rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3326,6 +3338,12 @@ msgid "The file system to mount."
 msgstr ""
 
 msgid "The following modules will be updated:"
+msgstr ""
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
 msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
@@ -4182,3 +4200,6 @@ msgstr "seçili"
 
 msgid "total"
 msgstr "total"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""

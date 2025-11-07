@@ -24,6 +24,7 @@ import { Subscription } from 'rxjs';
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { Unsubscribe } from '~/app/decorators';
 import { format, notAvailable } from '~/app/functions.helper';
+import { translate } from '~/app/i18n.helper';
 import { BinaryUnitPipe } from '~/app/shared/pipes/binary-unit.pipe';
 import {
   SystemInformation,
@@ -136,9 +137,10 @@ export class SystemInformationDatatablePageComponent {
             name: gettext('Memory Usage'),
             value: {
               type: 'progressBar',
-              text: `${(res.memUtilization * 100).toFixed(1)}% of ${this.binaryUnitPipe.transform(
-                res.memTotal
-              )}`,
+              text: format(translate(gettext('{{ percent }}% of {{ total }}')), {
+                percent: (res.memUtilization * 100).toFixed(1),
+                total: this.binaryUnitPipe.transform(res.memTotal)
+              }),
               value: (res.memUtilization * 100).toFixed(1)
             }
           }

@@ -1,0 +1,81 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-events-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    hasSearchField: true
+    remoteSearching: false
+    remoteSorting: false
+    remotePaging: true
+    stateId: 4f52aa39-b264-11f0-b612-525400ba5059
+    store:
+      proxy:
+        service: Kubectl
+        get:
+          method: getEvents
+      transform:
+        involvedObjectKN: '{{ involvedObject.kind }}/{{ involvedObject.name }}'
+    sorters:
+      - dir: "asc"
+        prop: "name"
+      - dir: "asc"
+        prop: "lastUnixTimestamp"
+    rowId: metadata.uid
+    selectionType: none
+    hasSearchField: true
+    columns:
+      - name: _("Namespace")
+        prop: metadata.namespace
+        flexGrow: 1
+        sortable: true
+      - name: _("Type")
+        prop: type
+        flexGrow: 1
+        sortable: true
+        hidden: true
+      - name: _("Reason")
+        prop: type
+        cellTemplateName: chip
+        cellTemplateConfig:
+          template: '{{ reason }}'
+          map:
+            Normal:
+              class: omv-background-color-pair-success
+              tooltip: _("Normal")
+            Warning:
+              class: omv-background-color-pair-warning
+              tooltip: _("Warning")
+        flexGrow: 1
+        sortable: true
+      - name: _("Message")
+        prop: message
+        flexGrow: 3
+        sortable: true
+      - name: _("Source")
+        prop: source.component
+        flexGrow: 1
+        sortable: true
+        hidden: true
+      - name: _("Object")
+        prop: involvedObjectKN
+        flexGrow: 1
+        sortable: true
+        hidden: true
+      - name: _("Count")
+        prop: count
+        flexGrow: 1
+        sortable: true
+        hidden: true
+      - name: _("First seen")
+        prop: firstUnixTimestamp
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: relativeTime
+        hidden: true
+      - name: _("Last seen")
+        prop: lastUnixTimestamp
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: relativeTime

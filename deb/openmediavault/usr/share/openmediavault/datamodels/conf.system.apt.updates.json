@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.system.apt.updates",
 	"queryinfo": {
-		"xpath": "//system/apt/updates",
+		"xpath": ".//system/apt/updates",
 		"iterable": false
 	},
 	"properties": {

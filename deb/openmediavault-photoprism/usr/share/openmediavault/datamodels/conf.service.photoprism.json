@@ -3,7 +3,7 @@
 	"id": "conf.service.photoprism",
 	"title": "PhotoPrism photo gallery",
 	"queryinfo": {
-		"xpath": "//services/photoprism",
+		"xpath": ".//services/photoprism",
 		"iterable": false
 	},
 	"properties": {

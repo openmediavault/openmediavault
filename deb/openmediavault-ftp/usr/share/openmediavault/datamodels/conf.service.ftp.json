@@ -3,7 +3,7 @@
 	"id": "conf.service.ftp",
 	"title": "FTP",
 	"queryinfo": {
-		"xpath": "//services/ftp",
+		"xpath": ".//services/ftp",
 		"iterable": false
 	},
 	"properties": {

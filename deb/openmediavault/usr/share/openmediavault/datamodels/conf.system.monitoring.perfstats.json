@@ -3,7 +3,7 @@
 	"id": "conf.system.monitoring.perfstats",
 	"title": "Powermanagement",
 	"queryinfo": {
-		"xpath": "//system/monitoring/perfstats",
+		"xpath": ".//system/monitoring/perfstats",
 		"iterable": false
 	},
 	"properties": {

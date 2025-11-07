@@ -3,7 +3,7 @@
 	"id": "conf.system.hdparm",
 	"title": "Harddisk settings",
 	"queryinfo": {
-		"xpath": "//system/storage/hdparm",
+		"xpath": ".//system/storage/hdparm",
 		"iterable": true,
 		"idproperty": "uuid"
 	},
@@ -20,7 +20,7 @@
 		"apm": {
 			"type": "integer",
 			"minimum": 0,
-			"maximum": 255,
+			"maximum": 254,
 			"default": 0
 		},
 		"aam": {
@@ -31,7 +31,7 @@
 		"spindowntime":{
 			"type": "integer",
 			"minimum": 0,
-			"maximum": 254,
+			"maximum": 255,
 			"default": 0
 		},
 		"writecache": {

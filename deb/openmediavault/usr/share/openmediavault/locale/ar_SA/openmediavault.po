@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -998,6 +998,9 @@ msgstr "يعرض معلومات حول الخدمات على شكل شبكة."
 msgid "Displays information about the services in a table."
 msgstr "يعرض معلومات حول الخدمات على شكل جدول ."
 
+msgid "Displays links to help and support pages."
+msgstr ""
+
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr ""
 
@@ -1826,6 +1829,9 @@ msgstr "تسجيل الدخول"
 msgid "Log level"
 msgstr "مستوى السجل"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
 msgid "Logout"
 msgstr "تسجيل الخروج"
 
@@ -2623,6 +2629,9 @@ msgstr "المسار النسبي"
 msgid "Relative path"
 msgstr "المسار النسبي"
 
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
+
 msgid "Reload"
 msgstr "إعادة تحميل"
 
@@ -2950,8 +2959,13 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "عيّن مالك الملف الوجهة ليكون هو نفسه الملف المصدر ، ولكن فقط إذا كان rsync المستقبل قيد التشغيل كمستخدم فائق."
 
-msgid "Sets the interval between disk checks to N seconds."
-msgstr "ضبط الفاصل الزمني بين عمليات فحص القرص على هذا الحد من الثواني ."
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr ""
 
 msgid "Settings"
 msgstr "الإعدادات"
@@ -3248,13 +3262,6 @@ msgstr "تايوان"
 msgid "Tajikistan"
 msgstr "طاجيكستان"
 
-msgid ""
-"Take caution when setting this polling interval to more than sixty minutes. "
-"The poll times may fail to coincide with any of the scheduled test that have"
-" been specified. In this case the scheduled test will be run following the "
-"next device polling."
-msgstr "توخ الحذر عند تعيين فترة التحقق هذه على أكثر من ستين دقيقة. قد تفشل أوقات التحقق في التوافق مع أي اختبار مجدول تم تحديده. في هذه الحالة، سيتم تشغيل الاختبار المجدول بعد فترة التحقق للجهاز التالي."
-
 msgid "Tanzania"
 msgstr "تنزانيا"
 
@@ -3308,6 +3315,11 @@ msgid ""
 msgstr "الخادم البعيد الوجهة ، على سبيل المثال [USER @] HOST: DEST ، [USER @] HOST :: DEST أو rsync: // [USER @] HOST [: PORT] / DEST."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3328,6 +3340,12 @@ msgstr "نظام الملفات المراد تثبيته."
 
 msgid "The following modules will be updated:"
 msgstr "سيتم تحديث الوحدات التالية:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "اسم المضيف هو تسمية تعرّف النظام بالشبكة."
@@ -4183,3 +4201,6 @@ msgstr "المحدد"
 
 msgid "total"
 msgstr "المجموع"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""

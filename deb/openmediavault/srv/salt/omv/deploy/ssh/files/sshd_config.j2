@@ -13,7 +13,7 @@
 {% set printMotd = salt['pillar.get']('default:OMV_SSHD_PRINTMOTD', 'no') -%}
 {% set printLastLog = salt['pillar.get']('default:OMV_SSHD_PRINTLASTLOG', 'yes') -%}
 {% set tcpKeepAlive = salt['pillar.get']('default:OMV_SSHD_TCPKEEPALIVE', 'yes') -%}
-{% set acceptEnv = salt['pillar.get']('default:OMV_SSHD_ACCEPTENV', 'LANG LC_*') -%}
+{% set acceptEnv = salt['pillar.get']('default:OMV_SSHD_ACCEPTENV', 'LANG LC_* COLORTERM NO_COLOR') -%}
 {% set subsystemSftp = salt['pillar.get']('default:OMV_SSHD_SUBSYSTEM_SFTP', '/usr/lib/openssh/sftp-server') -%}
 {% set usePAM = salt['pillar.get']('default:OMV_SSHD_USEPAM', 'yes') -%}
 {% set allowGroups = salt['pillar.get']('default:OMV_SSHD_ALLOWGROUPS', 'root _ssh') -%}

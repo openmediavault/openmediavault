@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022,2025\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -999,6 +999,9 @@ msgstr "Відображає інформацію про послуги в сі�
 msgid "Displays information about the services in a table."
 msgstr "Відображає інформацію про послуги в таблиці."
 
+msgid "Displays links to help and support pages."
+msgstr ""
+
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr ""
 
@@ -1827,6 +1830,9 @@ msgstr "Увійти"
 msgid "Log level"
 msgstr "Рівень входу"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
 msgid "Logout"
 msgstr "Вийти"
 
@@ -2624,6 +2630,9 @@ msgstr "Відносний шлях"
 msgid "Relative path"
 msgstr "Відносний шлях"
 
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
+
 msgid "Reload"
 msgstr "Перезавантажити"
 
@@ -2951,8 +2960,13 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "Встановіть власника цільового файлу таким самим, що і вихідний файл, але лише в тому випадку, якщо отримувач rsync запускається як суперкористувач."
 
-msgid "Sets the interval between disk checks to N seconds."
-msgstr "Встановлює інтервал між дисковими перевірками в N секунд."
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr ""
 
 msgid "Settings"
 msgstr "Налаштування"
@@ -3249,13 +3263,6 @@ msgstr "Тайвань"
 msgid "Tajikistan"
 msgstr "Таджикистан"
 
-msgid ""
-"Take caution when setting this polling interval to more than sixty minutes. "
-"The poll times may fail to coincide with any of the scheduled test that have"
-" been specified. In this case the scheduled test will be run following the "
-"next device polling."
-msgstr ""
-
 msgid "Tanzania"
 msgstr "Танзанія"
 
@@ -3309,6 +3316,11 @@ msgid ""
 msgstr "Віддалений сервер призначення, наприклад [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3328,6 +3340,12 @@ msgid "The file system to mount."
 msgstr "Файлова система для монтування."
 
 msgid "The following modules will be updated:"
+msgstr ""
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
 msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
@@ -4184,3 +4202,6 @@ msgstr "обрано"
 
 msgid "total"
 msgstr "всього"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""

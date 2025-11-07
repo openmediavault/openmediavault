@@ -107,7 +107,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('GPRINT:min:MIN:"%4.2lf Min"')
                 args.append('GPRINT:avg:AVERAGE:"%4.2lf Avg"')
                 args.append('GPRINT:max:MAX:"%4.2lf Max"')
-                args.append('GPRINT:avg:LAST:"%4.2lf Last\l"')
+                args.append('GPRINT:avg:LAST:"%4.2lf Last\\l"')
                 args.append('COMMENT:"{last_update}"'.format(**config))
                 openmediavault.mkrrdgraph.call_rrdtool_graph(args)
             else:
@@ -153,7 +153,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('GPRINT:min:MIN:"%4.2lf Min"')
                 args.append('GPRINT:avg:AVERAGE:"%4.2lf Avg"')
                 args.append('GPRINT:max:MAX:"%4.2lf Max"')
-                args.append('GPRINT:avg:LAST:"%4.2lf Last\l"')
+                args.append('GPRINT:avg:LAST:"%4.2lf Last\\l"')
                 args.append('COMMENT:"{last_update}"'.format(**config))
                 openmediavault.mkrrdgraph.call_rrdtool_graph(args)
             else:
@@ -210,7 +210,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('GPRINT:min:MIN:"%4.2lf Min"')
                 args.append('GPRINT:avg:AVERAGE:"%4.2lf Avg"')
                 args.append('GPRINT:max:MAX:"%4.2lf Max"')
-                args.append('GPRINT:avg:LAST:"%4.2lf Last\l"')
+                args.append('GPRINT:avg:LAST:"%4.2lf Last\\l"')
                 args.append('COMMENT:"{last_update}"'.format(**config))
                 openmediavault.mkrrdgraph.call_rrdtool_graph(args)
             elif os.path.exists(
@@ -254,7 +254,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('GPRINT:min:MIN:"%4.2lf Min"')
                 args.append('GPRINT:avg:AVERAGE:"%4.2lf Avg"')
                 args.append('GPRINT:max:MAX:"%4.2lf Max"')
-                args.append('GPRINT:avg:LAST:"%4.2lf Last\l"')
+                args.append('GPRINT:avg:LAST:"%4.2lf Last\\l"')
                 args.append('COMMENT:"{last_update}"'.format(**config))
                 openmediavault.mkrrdgraph.call_rrdtool_graph(args)
             else:
@@ -348,7 +348,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('GPRINT:bmin:MIN:"%4.2lf Min"')
                 args.append('GPRINT:bavg:AVERAGE:"%4.2lf Avg"')
                 args.append('GPRINT:bmax:MAX:"%4.2lf Max"')
-                args.append('GPRINT:bavg:LAST:"%4.2lf Last\l"')
+                args.append('GPRINT:bavg:LAST:"%4.2lf Last\\l"')
                 args.append(
                     'LINE1:iavg{color_nut_voltage_input}:"Input"'.format(
                         **config
@@ -357,7 +357,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('GPRINT:imin:MIN:"%4.2lf Min"')
                 args.append('GPRINT:iavg:AVERAGE:"%4.2lf Avg"')
                 args.append('GPRINT:imax:MAX:"%4.2lf Max"')
-                args.append('GPRINT:iavg:LAST:"%4.2lf Last\l"')
+                args.append('GPRINT:iavg:LAST:"%4.2lf Last\\l"')
                 args.append(
                     'LINE1:oavg{color_nut_voltage_output}:"Output"'.format(
                         **config
@@ -366,7 +366,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('GPRINT:omin:MIN:"%4.2lf Min"')
                 args.append('GPRINT:oavg:AVERAGE:"%4.2lf Avg"')
                 args.append('GPRINT:omax:MAX:"%4.2lf Max"')
-                args.append('GPRINT:oavg:LAST:"%4.2lf Last\l"')
+                args.append('GPRINT:oavg:LAST:"%4.2lf Last\\l"')
                 args.append('COMMENT:"{last_update}"'.format(**config))
                 openmediavault.mkrrdgraph.call_rrdtool_graph(args)
             elif os.path.exists(
@@ -427,7 +427,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('GPRINT:bmin:MIN:"%4.2lf Min"')
                 args.append('GPRINT:bavg:AVERAGE:"%4.2lf Avg"')
                 args.append('GPRINT:bmax:MAX:"%4.2lf Max"')
-                args.append('GPRINT:bavg:LAST:"%4.2lf Last\l"')
+                args.append('GPRINT:bavg:LAST:"%4.2lf Last\\l"')
                 args.append(
                     'LINE1:iavg{color_nut_voltage_input}:"Input"'.format(
                         **config
@@ -436,7 +436,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('GPRINT:imin:MIN:"%4.2lf Min"')
                 args.append('GPRINT:iavg:AVERAGE:"%4.2lf Avg"')
                 args.append('GPRINT:imax:MAX:"%4.2lf Max"')
-                args.append('GPRINT:iavg:LAST:"%4.2lf Last\l"')
+                args.append('GPRINT:iavg:LAST:"%4.2lf Last\\l"')
                 args.append('COMMENT:"{last_update}"'.format(**config))
                 openmediavault.mkrrdgraph.call_rrdtool_graph(args)
             elif os.path.exists(
@@ -497,7 +497,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('GPRINT:imin:MIN:"%4.2lf Min"')
                 args.append('GPRINT:iavg:AVERAGE:"%4.2lf Avg"')
                 args.append('GPRINT:imax:MAX:"%4.2lf Max"')
-                args.append('GPRINT:iavg:LAST:"%4.2lf Last\l"')
+                args.append('GPRINT:iavg:LAST:"%4.2lf Last\\l"')
                 args.append(
                     'LINE1:oavg{color_nut_voltage_output}:"Output"'.format(
                         **config
@@ -506,7 +506,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('GPRINT:omin:MIN:"%4.2lf Min"')
                 args.append('GPRINT:oavg:AVERAGE:"%4.2lf Avg"')
                 args.append('GPRINT:omax:MAX:"%4.2lf Max"')
-                args.append('GPRINT:oavg:LAST:"%4.2lf Last\l"')
+                args.append('GPRINT:oavg:LAST:"%4.2lf Last\\l"')
                 args.append('COMMENT:"{last_update}"'.format(**config))
                 openmediavault.mkrrdgraph.call_rrdtool_graph(args)
             else:

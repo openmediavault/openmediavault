@@ -73,7 +73,7 @@ smartmontools_hdparm_non_smart_settings_{{ device.uuid }}:
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
         if [ -b '{{ device.devicefile }}' ]; then
-          smartctl{% if device.aam > 0 %} --set=aam,{{ device.aam }}{% endif %}{% if device.apm > 0 %} --set=apm,{{ device.apm }}{% endif %}{% if device.spindowntime > 0 %} --set=standby,{{ device.spindowntime }}{% endif %}{% if device.writecache | to_bool %} --set=wcache,on{% else %} --set=wcache,off{% endif %} {{ device.devicefile }}
+          smartctl --set=aam,{% if device.aam > 0 %}{{ device.aam }}{% else %}off{% endif %} --set=apm,{% if device.apm > 0 %}{{ device.apm }}{% else %}off{% endif %} --set=standby,{% if device.spindowntime > 0 %}{{ device.spindowntime }}{% else %}off{% endif %} --set=wcache,{{ device.writecache | to_bool | yesno('on,off') }} {{ device.devicefile }}
         fi
     - user: root
     - group: root

@@ -3,7 +3,7 @@
 	"id": "conf.service.shairport",
 	"title": "AirPlay/RAOP receiver",
 	"queryinfo": {
-		"xpath": "//services/shairport",
+		"xpath": ".//services/shairport",
 		"iterable": false
 	},
 	"properties": {

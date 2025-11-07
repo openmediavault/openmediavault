@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2022,2025\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -1003,6 +1003,9 @@ msgstr "在网格中显示服务信息。"
 msgid "Displays information about the services in a table."
 msgstr "在标签中显示服务信息。"
 
+msgid "Displays links to help and support pages."
+msgstr "顯示輔助和支援網頁的連結。"
+
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "显示所有被监测磁盘的 S.M.A.R.T. 状态。"
 
@@ -1831,6 +1834,9 @@ msgstr "登录"
 msgid "Log level"
 msgstr "日志级别"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr "登入為<strong>{{ username }}</strong>"
+
 msgid "Logout"
 msgstr "注销"
 
@@ -2628,6 +2634,9 @@ msgstr "相对路径"
 msgid "Relative path"
 msgstr "相对路径"
 
+msgid "Reliable system and kernel logging daemon."
+msgstr "可靠的系統與核心紀錄幕後程式。"
+
 msgid "Reload"
 msgstr "刷新"
 
@@ -2955,8 +2964,13 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "仅超级用户运行 rsync 接受文件时，设置目标拥有者与源文件一致。"
 
-msgid "Sets the interval between disk checks to N seconds."
-msgstr "设定磁盘检查间隔时间为 N 秒"
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr "將磁碟檢查間隔設定為 N 秒。請注意，當此輪詢間隔超過六十分鐘時，輪詢時間可能無法與任何已排定的測試時間吻合。在此情況下，排定的測試將於下次裝置輪詢後執行。"
 
 msgid "Settings"
 msgstr "设置"
@@ -3253,13 +3267,6 @@ msgstr "中国台湾"
 msgid "Tajikistan"
 msgstr "塔吉克斯坦斯坦"
 
-msgid ""
-"Take caution when setting this polling interval to more than sixty minutes. "
-"The poll times may fail to coincide with any of the scheduled test that have"
-" been specified. In this case the scheduled test will be run following the "
-"next device polling."
-msgstr "将此周期间隔设置为 60 分钟以上时要注意。周期时间可能无法与指定的任何计划测试一致。这种情况下，计划的测试将在下一周期运行。"
-
 msgid "Tanzania"
 msgstr "坦桑尼亚"
 
@@ -3313,6 +3320,11 @@ msgid ""
 msgstr "目标远程服务器，例如：[USER@]HOST:DEST, [USER@]HOST::DEST 或 rsync://[USER@]HOST[:PORT]/DEST。"
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr "這文件網頁提供有關您的儲存系統之有用資訊。"
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3333,6 +3345,12 @@ msgstr "要挂载的文件系统。"
 
 msgid "The following modules will be updated:"
 msgstr "将更新以下模块："
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr "論壇網頁是提出問題和尋找答案的最佳場所。"
+
+msgid "The home of the project and source of news and updates."
+msgstr "專案網站與新聞與更新的來源。"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "主机名可以作为网络上识别系统的标签。"
@@ -4188,3 +4206,6 @@ msgstr "已选中"
 
 msgid "total"
 msgstr "总计"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr "{{ total }} 的 {{ percent }}%"

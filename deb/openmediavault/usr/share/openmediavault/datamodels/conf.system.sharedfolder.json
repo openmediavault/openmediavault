@@ -3,7 +3,7 @@
 	"id": "conf.system.sharedfolder",
 	"title": "Shared folder",
 	"queryinfo": {
-		"xpath": "//system/shares/sharedfolder",
+		"xpath": ".//system/shares/sharedfolder",
 		"iterable": true,
 		"idproperty": "uuid",
 		"refproperty": "*[contains(name(), 'sharedfolderref')]"

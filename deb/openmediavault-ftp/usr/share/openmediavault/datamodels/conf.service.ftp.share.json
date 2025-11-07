@@ -3,7 +3,7 @@
 	"id": "conf.service.ftp.share",
 	"title": "FTP share",
 	"queryinfo": {
-		"xpath": "//services/ftp/shares/share",
+		"xpath": ".//services/ftp/shares/share",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

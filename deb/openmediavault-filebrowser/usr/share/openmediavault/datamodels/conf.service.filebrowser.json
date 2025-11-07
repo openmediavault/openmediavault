@@ -3,7 +3,7 @@
 	"id": "conf.service.filebrowser",
 	"title": "File Browser",
 	"queryinfo": {
-		"xpath": "//services/filebrowser",
+		"xpath": ".//services/filebrowser",
 		"iterable": false
 	},
 	"properties": {

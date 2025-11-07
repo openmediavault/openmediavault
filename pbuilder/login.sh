@@ -25,7 +25,7 @@ set -e
 usage() {
 	cat <<EOF
 Usage:
-  $(basename $0) [options] i386|amd64|armel|armhf|arm64
+  $(basename $0) [options] amd64|arm64
 
 OPTIONS:
   -h  Print a help text

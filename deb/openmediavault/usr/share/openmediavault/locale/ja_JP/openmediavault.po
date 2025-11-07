@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -997,6 +997,9 @@ msgstr "グリッド内のサービスに関する情報を表示します。"
 msgid "Displays information about the services in a table."
 msgstr "サービスに関する情報をテーブルで表示します。"
 
+msgid "Displays links to help and support pages."
+msgstr ""
+
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "監視しているすべてのディスクデバイスの S.M.A.R.T. 情報を表示します。"
 
@@ -1825,6 +1828,9 @@ msgstr "ログイン"
 msgid "Log level"
 msgstr "ログレベル"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
 msgid "Logout"
 msgstr "ログアウト"
 
@@ -2622,6 +2628,9 @@ msgstr "相対パス"
 msgid "Relative path"
 msgstr "相対パス"
 
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
+
 msgid "Reload"
 msgstr "再読み込み"
 
@@ -2949,8 +2958,13 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "受信側のrsyncがスーパーユーザーとして実行されている場合のみ、送信先ファイルの所有者を送信元ファイルと同じに設定します。"
 
-msgid "Sets the interval between disk checks to N seconds."
-msgstr "ディスクチェックの間隔をN秒に設定します。"
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr ""
 
 msgid "Settings"
 msgstr "設定"
@@ -3247,13 +3261,6 @@ msgstr "台湾"
 msgid "Tajikistan"
 msgstr "タジキスタン"
 
-msgid ""
-"Take caution when setting this polling interval to more than sixty minutes. "
-"The poll times may fail to coincide with any of the scheduled test that have"
-" been specified. In this case the scheduled test will be run following the "
-"next device polling."
-msgstr "このポーリング間隔を60分以上に設定する場合、注意が必要です。ポーリング時刻は、指定されたスケジュールテストのいずれかと一致しない場合があります。この場合、スケジュールされたテストは、次のデバイスポーリングの後に実行されます。"
-
 msgid "Tanzania"
 msgstr "タンザニア"
 
@@ -3307,6 +3314,11 @@ msgid ""
 msgstr "送信先のリモートサーバ 例） [USER@]HOST:DEST, [USER@]HOST::DEST または rsync://[USER@]HOST[:PORT]/DEST。"
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3327,6 +3339,12 @@ msgstr "マウントするファイルシステム。"
 
 msgid "The following modules will be updated:"
 msgstr "以下のモジュールが更新されます:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "ホスト名はネットワーク上でシステムを識別するためのラベルです。"
@@ -4182,3 +4200,6 @@ msgstr "選択済み"
 
 msgid "total"
 msgstr "合計"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""

@@ -65,12 +65,12 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
             args.append('GPRINT:fmin:MIN:"%5.1lf%sB Min"')
             args.append('GPRINT:favg:AVERAGE:"%5.1lf%sB Avg"')
             args.append('GPRINT:fmax:MAX:"%5.1lf%sB Max"')
-            args.append('GPRINT:favg:LAST:"%5.1lf%sB Last\l"')
+            args.append('GPRINT:favg:LAST:"%5.1lf%sB Last\\l"')
             args.append('LINE1:uavg{color_line_df_used}:"Used"'.format(**config))
             args.append('GPRINT:umin:MIN:"%5.1lf%sB Min"')
             args.append('GPRINT:uavg:AVERAGE:"%5.1lf%sB Avg"')
             args.append('GPRINT:umax:MAX:"%5.1lf%sB Max"')
-            args.append('GPRINT:uavg:LAST:"%5.1lf%sB Last\l"')
+            args.append('GPRINT:uavg:LAST:"%5.1lf%sB Last\\l"')
             args.append('COMMENT:"{last_update}"'.format(**config))
             # autopep8: on
             # yapf: enable

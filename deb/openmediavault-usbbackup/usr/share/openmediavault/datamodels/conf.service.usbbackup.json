@@ -3,7 +3,7 @@
 	"id": "conf.service.usbbackup",
 	"title": "USB backup",
 	"queryinfo": {
-		"xpath": "//services/usbbackup",
+		"xpath": ".//services/usbbackup",
 		"iterable": false
 	},
 	"properties": {

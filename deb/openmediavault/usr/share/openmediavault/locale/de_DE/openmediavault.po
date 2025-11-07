@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2025\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -1010,6 +1010,9 @@ msgstr "Zeigt Informationen über die Dienste in einem Raster an."
 msgid "Displays information about the services in a table."
 msgstr "Zeigt Informationen über die Dienste in einer Tabelle an."
 
+msgid "Displays links to help and support pages."
+msgstr "Zeigt Links zu Hilfe- und Support-Seiten an."
+
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Zeigt den S.M.A.R.T.-Status aller überwachten Laufwerke an."
 
@@ -1838,6 +1841,9 @@ msgstr "Anmelden"
 msgid "Log level"
 msgstr "Log Level"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr "Angemeldet als <strong>{{ username }}</strong>"
+
 msgid "Logout"
 msgstr "Abmelden"
 
@@ -2635,6 +2641,9 @@ msgstr "Relativer Pfad"
 msgid "Relative path"
 msgstr "Relativer Pfad"
 
+msgid "Reliable system and kernel logging daemon."
+msgstr "Zuverlässiger System- und Kernel-Logging-Daemon."
+
 msgid "Reload"
 msgstr "Neu laden"
 
@@ -2962,8 +2971,13 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "Stelle den Eigentümer der Zieldatei so ein, dass er mit der Quelldatei identisch ist, jedoch nur, wenn der empfangende Rsync als Superuser ausgeführt wird."
 
-msgid "Sets the interval between disk checks to N seconds."
-msgstr "Setzt das Intervall zwischen den Festplattenprüfungen auf N Sekunden."
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr "Setzt das Intervall zwischen den Festplattenprüfungen auf N Sekunden. Seien Sie vorsichtig, wenn Sie dieses Abfrageintervall auf mehr als sechzig Minuten einstellen. Die Abfragezeiten stimmen möglicherweise nicht mit einem der festgelegten geplanten Tests überein. In diesem Fall wird der geplante Test nach der nächsten Geräteabfrage durchgeführt."
 
 msgid "Settings"
 msgstr "Einstellungen"
@@ -3260,13 +3274,6 @@ msgstr "Taiwan"
 msgid "Tajikistan"
 msgstr "Tadschikistan"
 
-msgid ""
-"Take caution when setting this polling interval to more than sixty minutes. "
-"The poll times may fail to coincide with any of the scheduled test that have"
-" been specified. In this case the scheduled test will be run following the "
-"next device polling."
-msgstr "Seien Sie vorsichtig, wenn Sie dieses Abfrageintervall auf mehr als sechzig Minuten einstellen. Die Abfragezeiten stimmen möglicherweise nicht mit einem der festgelegten geplanten Tests überein. In diesem Fall wird der geplante Test nach der nächsten Geräteabfrage durchgeführt."
-
 msgid "Tanzania"
 msgstr "Tansania"
 
@@ -3320,6 +3327,11 @@ msgid ""
 msgstr "Der entfernte Ziel Server, z.B. [USER@]HOST:DEST, [USER@]HOST::DEST oder rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr "Die Dokumentationsseite enthält hilfreiche Informationen zu Ihrem Speichersystem."
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3340,6 +3352,12 @@ msgstr "Das einzuhängende Dateisystem."
 
 msgid "The following modules will be updated:"
 msgstr "Die folgenden Module werden aktualisiert:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr "Die Forumseite ist der beste Ort, um Fragen zu stellen und Antworten zu finden."
+
+msgid "The home of the project and source of news and updates."
+msgstr "Die Heimat des Projekts und Quelle für Neuigkeiten und Updates."
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Der Hostname identifiziert das System im Netzwerk."
@@ -4195,3 +4213,6 @@ msgstr "ausgewählt"
 
 msgid "total"
 msgstr "gesamt"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr "{{ percent }}% von {{ total }}"

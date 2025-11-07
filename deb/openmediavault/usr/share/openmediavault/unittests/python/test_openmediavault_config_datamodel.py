@@ -30,7 +30,7 @@ class DatamodelTestCase(unittest.TestCase):
                 "type": "config",
                 "id": "conf.system.apt.distribution",
                 "queryinfo": {
-                    "xpath": "//system/apt/distribution",
+                    "xpath": ".//system/apt/distribution",
                     "iterable": False,
                 },
                 "properties": {

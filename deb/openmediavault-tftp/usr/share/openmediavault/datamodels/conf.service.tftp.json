@@ -3,7 +3,7 @@
 	"id": "conf.service.tftp",
 	"title": "TFTP",
 	"queryinfo": {
-		"xpath": "//services/tftp",
+		"xpath": ".//services/tftp",
 		"iterable": false
 	},
 	"properties": {

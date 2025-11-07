@@ -18,19 +18,43 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://technowizah.com/2007/01/debian-how-to-cpu-frequency-management.html
-# http://wiki.hetzner.de/index.php/Cool%27n%27Quiet
-# http://wiki.ubuntuusers.de/powernowd
-# https://wiki.debian.org/CpuFrequencyScaling
-# https://kernel.org/doc/Documentation/cpu-freq/governors.txt
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=894906
 
 {% set config = salt['omv_conf.get']('conf.system.powermngmnt') %}
 
-configure_default_cpufrequtils:
+create_cpupower_script_dir:
+  file.directory:
+    - name: "/usr/libexec/cpupower/"
+    - makedirs: True
+
+install_cpupower_script:
   file.managed:
-    - name: "/etc/default/cpufrequtils"
+    - name: "/usr/libexec/cpupower/cpupower.sh"
     - source:
-      - salt://{{ tpldir }}/files/cpufrequtils.j2
+      - salt://{{ tpldir }}/files/usr-libexec-cpupower-cpupower_sh.j2
+    - user: root
+    - group: root
+    - mode: 755
+
+install_cpupower_systemd_service:
+  file.managed:
+    - name: "/usr/lib/systemd/system/cpupower.service"
+    - source: salt://{{ tpldir }}/files/usr-lib-systemd-system-cpupower_service.j2
+    - user: root
+    - group: root
+    - mode: 644
+
+cpupower_systemctl_daemon_reload:
+  module.run:
+    - service.systemctl_reload:
+    - onchanges:
+      - file: install_cpupower_systemd_service
+
+configure_cpupower_conf:
+  file.managed:
+    - name: "/etc/cpupower-service.conf"
+    - source:
+      - salt://{{ tpldir }}/files/etc-cpupower-service_conf.j2
     - template: jinja
     - context:
         cpufreq: {{ config.cpufreq }}
@@ -38,45 +62,24 @@ configure_default_cpufrequtils:
     - group: root
     - mode: 644
 
-configure_default_loadcpufreq:
-  file.managed:
-    - name: "/etc/default/loadcpufreq"
-    - source:
-      - salt://{{ tpldir }}/files/loadcpufreq.j2
-    - template: jinja
-    - context:
-        cpufreq: {{ config.cpufreq }}
-    - user: root
-    - group: root
-    - mode: 644
+divert_cpupower_conf:
+  omv_dpkg.divert_add:
+    - name: "/etc/cpupower-service.conf"
 
 {% if config.cpufreq %}
 
-start_cpufrequtils_service:
+start_cpupower_service:
   service.running:
-    - name: cpufrequtils
+    - name: cpupower
     - enable: True
     - watch:
-      - file: configure_default_cpufrequtils
-
-start_loadcpufreq_service:
-  service.running:
-    - name: loadcpufreq
-    - enable: True
-    - watch:
-      - file: configure_default_loadcpufreq
+      - file: configure_cpupower_conf
 
 {% else %}
 
-# Note, when disabling the 'cpufrequtils' service the changes
-# will not take effect before the system is rebooted.
-{% for service in ['loadcpufreq', 'cpufrequtils'] %}
-
-stop_{{ service }}_service:
+stop_cpupower_service:
   service.dead:
-    - name: {{ service }}
+    - name: cpupower
     - enable: False
-
-{% endfor %}
 
 {% endif %}

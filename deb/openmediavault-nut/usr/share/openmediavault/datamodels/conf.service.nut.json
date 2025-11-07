@@ -3,7 +3,7 @@
 	"id": "conf.service.nut",
 	"title": "Network UPS tools",
 	"queryinfo": {
-		"xpath": "//services/nut",
+		"xpath": ".//services/nut",
 		"iterable": false
 	},
 	"properties": {

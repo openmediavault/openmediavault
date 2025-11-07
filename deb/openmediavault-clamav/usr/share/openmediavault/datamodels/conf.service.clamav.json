@@ -3,7 +3,7 @@
 	"id": "conf.service.clamav",
 	"title": "ClamAV Antivirus",
 	"queryinfo": {
-		"xpath": "//services/clamav",
+		"xpath": ".//services/clamav",
 		"iterable": false
 	},
 	"properties": {

@@ -3,7 +3,7 @@
 	"id": "conf.system.network.hosts",
 	"title": "Local hostname-to-IP mapping",
 	"queryinfo": {
-		"xpath": "//system/network/hosts",
+		"xpath": ".//system/network/hosts",
 		"iterable": false
 	},
 	"properties": {

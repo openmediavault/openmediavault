@@ -380,6 +380,8 @@ export const toLocaleDate = (
   let date: dayjs.Dayjs;
   if (_.isNumber(value)) {
     date = dayjs.unix(value);
+  } else if (_.isString(value) && /^\d+$/.test(value)) {
+    date = dayjs.unix(_.toNumber(value));
   } else {
     date = dayjs(value);
   }
@@ -447,7 +449,7 @@ export const cron2human = (value: string): string => {
     pt_PT: 'pt_PT', // Portuguese
     ru_RU: 'ru', // Russian
     sl_SI: 'sl', // Slovenian
-    sv_SV: 'sv', // Swedish
+    sv_SE: 'sv', // Swedish
     tr_TR: 'tr', // Turkish
     uk_UK: 'uk', // Ukrainian
     zh_CN: 'zh_CN', // Chinese (Simplified Chinese)
@@ -559,6 +561,24 @@ nunjucksEnv.addFilter('decodeuricomponent', (value: string): string => decodeURI
  * into relative time.
  */
 nunjucksEnv.addFilter('localedate', toLocaleDate);
+/**
+ * Returns the Unix timestamp (the number of seconds since the Unix Epoch)  the given date value.
+ */
+nunjucksEnv.addFilter('date2unix', (value: Date | string | number): number => {
+  if (!(_.isString(value) || _.isDate(value) || _.isNumber(value))) {
+    return -1;
+  }
+  let date: dayjs.Dayjs;
+  if (_.isNumber(value)) {
+    date = dayjs.unix(value);
+  } else {
+    date = dayjs(value);
+  }
+  if (!date.isValid()) {
+    return -1;
+  }
+  return date.unix();
+});
 /**
  * Convert a Cron expression into a human-readable description.
  */

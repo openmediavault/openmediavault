@@ -9,8 +9,8 @@ include ../openmediavault.mk
 	dh $@
 
 override_dh_auto_clean:
-	rm -rf workbench/node_modules/
-	rm -rf workbench/dist/
+	cd workbench && npm run clean
+	rm -rf opt/
 
 override_dh_auto_build:
 	cd workbench && npm ci && npm run build:prod

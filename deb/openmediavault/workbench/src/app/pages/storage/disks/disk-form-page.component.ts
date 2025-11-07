@@ -94,10 +94,6 @@ export class DiskFormPageComponent extends BaseFormPageComponent {
             {
               text: gettext('254 - Maximum performance, maximum power usage'),
               value: 254
-            },
-            {
-              text: gettext('255 - Disabled'),
-              value: 255
             }
           ]
         }

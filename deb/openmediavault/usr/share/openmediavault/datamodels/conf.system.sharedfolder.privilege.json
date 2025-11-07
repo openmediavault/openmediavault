@@ -3,7 +3,7 @@
 	"id": "conf.system.sharedfolder.privilege",
 	"title": "Shared folder privilege",
 	"queryinfo": {
-		"xpath": "//system/shares/sharedfolder/privileges/privilege",
+		"xpath": ".//system/shares/sharedfolder/privileges/privilege",
 		"iterable": true
 	},
 	"properties": {

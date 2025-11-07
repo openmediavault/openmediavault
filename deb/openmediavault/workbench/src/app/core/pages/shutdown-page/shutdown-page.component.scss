@@ -5,6 +5,7 @@
   .background {
     content: url('^./assets/images/shutdown.jpg');
     object-fit: cover;
+    mix-blend-mode: luminosity;
   }
 
   .topbar {

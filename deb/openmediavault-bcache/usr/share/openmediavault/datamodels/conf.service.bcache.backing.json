@@ -3,7 +3,7 @@
 	"id": "conf.service.bcache.backing",
 	"title": "Bcache Backing Device",
 	"queryinfo": {
-		"xpath": "//services/bcache/backings/backing",
+		"xpath": ".//services/bcache/backings/backing",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

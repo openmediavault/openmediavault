@@ -3,7 +3,7 @@
 	"id": "conf.service.nfs.share",
 	"title": "NFS share",
 	"queryinfo": {
-		"xpath": "//services/nfs/shares/share",
+		"xpath": ".//services/nfs/shares/share",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

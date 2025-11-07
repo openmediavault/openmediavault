@@ -36,6 +36,7 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("logs");
 		$this->registerMethod("apply");
 		$this->registerMethod("getStats");
+		$this->registerMethod("getEvents");
 	}
 
     private function isEnabled(): bool {
@@ -69,7 +70,8 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 		]);
 		$this->validateMethodParams($params, "rpc.kubectl.getList");
 		if (!$this->isEnabled()) {
-		    return [];
+		    return $this->applyFilter([], $params['start'], $params['limit'],
+		    	$params['sortfield'], $params['sortdir']);
 		}
 		$cmdArgs = [];
 		$cmdArgs[] = "get";
@@ -228,5 +230,35 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 		}
 		return array_value($params, "associative", FALSE) ?
 			$result : array_values($result);
+	}
+
+	public function getEvents($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$response = \OMV\Rpc\Rpc::call("Kubectl", "getList",
+			[ "type" => "events", "start" => 0, "limit" => -1 ],
+			$context);
+		foreach ($response['data'] as $eventk => &$eventv) {
+			$firstTimestamp = $eventv['firstTimestamp'];
+			foreach ([ "eventTime", "lastTimestamp" ] as $key) {
+				if (empty($firstTimestamp) || is_null($firstTimestamp)) {
+					$firstTimestamp = $eventv[$key];
+				}
+			}
+			$lastTimestamp = $eventv['lastTimestamp'];
+			foreach ([ "eventTime", "firstTimestamp" ] as $key) {
+				if (empty($lastTimestamp) || is_null($lastTimestamp)) {
+					$lastTimestamp = $eventv[$key];
+				}
+			}
+			// Parse a timestamp like "2025-11-03T23:51:04Z" or "2025-11-03T23:51:04.390262Z".
+			$eventv = array_merge($eventv, [
+				"firstUnixTimestamp" => strtotime($firstTimestamp),
+				"lastUnixTimestamp" => strtotime($lastTimestamp)
+			]);
+		}
+		return $this->applyFilter($response['data'], $params['start'],
+			$params['limit']);
 	}
 }

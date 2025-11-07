@@ -22,11 +22,12 @@
 require_once("openmediavault/functions.inc");
 
 // 2023-11-06T23:11:43+0000 omv7box monit[602]: Awakened by User defined signal 1
+// 2025-11-07T19:18:48+00:00 omv8box systemd[1]: Reloading...
 \OMV\System\LogFileSpec::registerSpecification("syslog", [
   "command" => "export SYSTEMD_COLORS=0; journalctl ".
 	"--quiet --output=short-iso --no-pager",
   "filename" => "syslog",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+(.+)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
@@ -46,7 +47,7 @@ require_once("openmediavault/functions.inc");
   "command" => "export SYSTEMD_COLORS=0; journalctl --facility=daemon ".
 	"--quiet --output=short-iso --no-pager",
   "filename" => "daemon",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+(.+)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
@@ -67,7 +68,7 @@ require_once("openmediavault/functions.inc");
   	"--facility=auth,authpriv ".
 	"--quiet --output=short-iso --no-pager",
   "filename" => "auth",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+(.+)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
@@ -89,7 +90,7 @@ require_once("openmediavault/functions.inc");
   	"--facility=auth,authpriv,cron,daemon,mail ".
 	"--quiet --output=short-iso --no-pager",
   "filename" => "messages",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+(.+)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
@@ -111,7 +112,7 @@ require_once("openmediavault/functions.inc");
   "command" => "export SYSTEMD_COLORS=0; journalctl --boot=-0 --quiet ".
     "--output=short-iso --no-pager",
   "filename" => "boot",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+(.+)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
@@ -156,7 +157,7 @@ require_once("openmediavault/functions.inc");
   "command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
     "SYSLOG_IDENTIFIER='rsyncd' --output=short-iso",
   "filename" => "rsyncd",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+rsyncd\[\d+\]:\s+(.*)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+rsyncd\[\d+\]:\s+(.*)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
@@ -175,12 +176,12 @@ require_once("openmediavault/functions.inc");
 // Retrieved via journalctl.
 // 2023-12-26T15:47:55+0000 omv7box smartd[565]: smartd 7.3 2022-02-28 r5338 [x86_64-linux-6.1.0-16-amd64] (local build)
 // 2023-12-26T15:47:55+0000 omv7box smartd[565]: Copyright (C) 2002-22, Bruce Allen, Christian Franke, www.smartmontools.org
-// 2023-12-26T15:47:55+0000 omv7box smartd[565]: Opened configuration file /etc/smartd.conf
+// 2023-12-26T15:47:55+00:00 omv7box smartd[565]: Opened configuration file /etc/smartd.conf
 \OMV\System\LogFileSpec::registerSpecification("smartd", [
   "command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
     "SYSLOG_IDENTIFIER='smartd' --output=short-iso",
   "filename" => "smartd.log",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\ssmartd\[\d+\]:\s+(.*)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\ssmartd\[\d+\]:\s+(.*)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
@@ -201,7 +202,7 @@ require_once("openmediavault/functions.inc");
   "command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
     "--priority='notice' --identifier='smbd_audit' --output=short-iso",
   "filename" => "smbd_audit.log",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\ssmbd_audit\[\d+\]:\s+([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\ssmbd_audit\[\d+\]:\s+([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
@@ -282,7 +283,7 @@ require_once("openmediavault/functions.inc");
   "command" => "export SYSTEMD_COLORS=0; journalctl --dmesg --quiet ".
 	"--output=short-iso --no-pager",
   "filename" => "dmesg",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+(.+)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,

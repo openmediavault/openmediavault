@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2024\n"
 "Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -1002,6 +1002,9 @@ msgstr "Muestra la información de los servicios en una parrilla."
 msgid "Displays information about the services in a table."
 msgstr "Muestra la información de los servicios en una tabla."
 
+msgid "Displays links to help and support pages."
+msgstr ""
+
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Muestra el estado S.M.A.R.T. de todos los discos monitorizados."
 
@@ -1830,6 +1833,9 @@ msgstr "Log in"
 msgid "Log level"
 msgstr "Nivel de Log"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
 msgid "Logout"
 msgstr "Salir"
 
@@ -2627,6 +2633,9 @@ msgstr "Ruta relativa"
 msgid "Relative path"
 msgstr "Ruta relativa"
 
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
+
 msgid "Reload"
 msgstr "Recargar"
 
@@ -2954,8 +2963,13 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "Hacer que el propietario del destino sea el mismo que el del origen, pero SOLO si el servicio RSYNC ha sido ejecutado por un super-usuario."
 
-msgid "Sets the interval between disk checks to N seconds."
-msgstr "Establecer el intervalo entre comprobaciones de disco en N segundos."
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr ""
 
 msgid "Settings"
 msgstr "Configuración"
@@ -3252,13 +3266,6 @@ msgstr "Taiwan"
 msgid "Tajikistan"
 msgstr "Tayikistán"
 
-msgid ""
-"Take caution when setting this polling interval to more than sixty minutes. "
-"The poll times may fail to coincide with any of the scheduled test that have"
-" been specified. In this case the scheduled test will be run following the "
-"next device polling."
-msgstr "Tenga cuidado al establecer este intervalo de sondeo en más de sesenta minutos. Los tiempos de sondeo pueden no coincidir con alguna de las pruebas programadas que se han especificado. En este caso, la prueba programada se ejecutará después del próximo sondeo del dispositivo."
-
 msgid "Tanzania"
 msgstr "Tanzania"
 
@@ -3312,6 +3319,11 @@ msgid ""
 msgstr "El servidor remoto de destino, p.ej. [USER@]HOST:DEST, [USER@]HOST::DEST o rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3332,6 +3344,12 @@ msgstr "Sistema de archivos a montar."
 
 msgid "The following modules will be updated:"
 msgstr "Se actualizarán los siguientes módulos:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "El nombre de host es una etiqueta que identifica al sistema en la red."
@@ -4187,3 +4205,6 @@ msgstr "seleccionado"
 
 msgid "total"
 msgstr "total"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""

@@ -2,7 +2,8 @@
                       [loadData]="loadData.bind(this)"
                       (dataChangedEvent)="dataChanged($event)">
   <div *ngIf="data"
-       class="widget-content omv-grid omv-gap-1">
+       class="widget-content omv-grid omv-gap-1"
+       [ngClass]="config.grid?.class">
     <div *ngFor="let item of data.data"
          class="item omv-rounded"
          [ngClass]="config.grid?.item.class | template:item"
@@ -12,10 +13,17 @@
          (keyup.space)="onClick(item)"
          (keyup.enter)="onClick(item)"
          (click)="onClick(item)">
-      <div *ngIf="config.grid?.item.title"
-           class="title omv-font-weight-bold"
-           [ngClass]="config.grid?.item.titleClass | template:item"
-           [innerHTML]="config.grid?.item.title | template:item | sanitizeHtml">
+      <div class="omv-display-flex omv-flex-row omv-justify-content-start omv-align-items-center">
+        <mat-icon *ngIf="config.grid?.item.icon"
+                  class="omv-mr-q"
+                  mat-card-avatar
+                  svgIcon="{{ config.grid?.item.icon | template:item | mapIconEnum }}">
+        </mat-icon>
+        <div *ngIf="config.grid?.item.title"
+             class="title omv-flex-1 omv-text-truncate omv-font-weight-bold"
+             [ngClass]="config.grid?.item.titleClass | template:item"
+             [innerHTML]="config.grid?.item.title | template:item | sanitizeHtml">
+        </div>
       </div>
       <div class="content omv-text-truncate"
            [ngClass]="config.grid?.item.contentClass | template:item"

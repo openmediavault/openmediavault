@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 21:12+0200\n"
+"POT-Creation-Date: 2025-11-06 20:38+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Daniel, 2025\n"
 "Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
@@ -73,6 +73,9 @@ msgstr "Kopiera till urklipp"
 msgid "Copy token"
 msgstr "Kopiera token"
 
+msgid "Count"
+msgstr ""
+
 msgid "Created"
 msgstr "Skapad"
 
@@ -117,11 +120,17 @@ msgstr ""
 msgid "Enabled"
 msgstr "Aktiverad"
 
+msgid "Events"
+msgstr ""
+
 msgid "External IP"
 msgstr "Extern IP"
 
 msgid "Failed"
 msgstr "Misslyckades"
+
+msgid "First seen"
+msgstr ""
 
 msgid "GID"
 msgstr "GID"
@@ -180,6 +189,9 @@ msgstr ""
 msgid "Labels"
 msgstr "Etiketter"
 
+msgid "Last seen"
+msgstr ""
+
 msgid "Load Balancer"
 msgstr "Load Balancer"
 
@@ -192,6 +204,9 @@ msgstr "Manifest"
 msgid "Message"
 msgstr "Meddelande"
 
+msgid "Monitoring - Kubernetes"
+msgstr ""
+
 msgid "Name"
 msgstr "Namn"
 
@@ -203,6 +218,12 @@ msgstr ""
 
 msgid "NodePort IP"
 msgstr "NodePort-IP"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Object"
+msgstr ""
 
 msgid "Open UI"
 msgstr "Öppna användargränssnittet"
@@ -242,6 +263,9 @@ msgstr "README"
 
 msgid "Ready"
 msgstr "Redo"
+
+msgid "Reason"
+msgstr ""
 
 msgid "Recipe Information"
 msgstr "Receptinformation"
@@ -299,6 +323,9 @@ msgstr "Storlek"
 
 msgid "Snapshots"
 msgstr "Ögonblicksbilder"
+
+msgid "Source"
+msgstr ""
 
 msgid "Stateful Sets"
 msgstr ""
@@ -401,6 +428,9 @@ msgstr "Visa"
 
 msgid "Volume"
 msgstr "Volym"
+
+msgid "Warning"
+msgstr ""
 
 msgid "YAML"
 msgstr "YAML"

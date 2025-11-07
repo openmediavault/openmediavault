@@ -3,7 +3,7 @@
 	"id": "conf.service.nfs",
 	"title": "NFS",
 	"queryinfo": {
-		"xpath": "//services/nfs",
+		"xpath": ".//services/nfs",
 		"iterable": false
 	},
 	"properties": {

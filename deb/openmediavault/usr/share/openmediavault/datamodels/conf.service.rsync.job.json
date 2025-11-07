@@ -3,7 +3,7 @@
 	"id": "conf.service.rsync.job",
 	"title": "Rsync job",
 	"queryinfo": {
-		"xpath": "//services/rsync/jobs/job",
+		"xpath": ".//services/rsync/jobs/job",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

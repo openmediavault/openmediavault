@@ -425,7 +425,7 @@ class Module(openmediavault.firstaid.IModule):
             # Get the key management mode.
             choices = [
                 ["psk", "WPA2-Personal"],
-                # ["sae", "WPA3-Personal"]
+                ["sae", "WPA3-Personal"],
             ]
             (code, tag) = d.menu(
                 "Please select the key management mode.",

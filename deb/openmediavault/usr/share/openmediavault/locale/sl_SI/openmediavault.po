@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -891,7 +891,7 @@ msgid "Delete"
 msgstr "Izbriši"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr "Izbriši datoteke, ki obstajajo na strani naslovnika in ne obstajajo na strani pošiljatelja"
+msgstr "Izbriši datoteke na cilju, ki ne obstajajo na izvoru."
 
 msgid "Denmark"
 msgstr "Danska"
@@ -915,7 +915,7 @@ msgid "Destination server"
 msgstr "Ciljni strežnik"
 
 msgid "Destination shared folder"
-msgstr "Mapa v skupni rabi na ciljni strani"
+msgstr "Ciljna deljena mapa"
 
 msgid "Details"
 msgstr "Podrobnosti"
@@ -997,6 +997,9 @@ msgstr "Prikaže informacije o storitvah v mreži."
 
 msgid "Displays information about the services in a table."
 msgstr "Prikaže informacije o storitvah v tabeli."
+
+msgid "Displays links to help and support pages."
+msgstr ""
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Prikaže stanje S.M.A.R.T. vseh spremljanih diskovnih naprav."
@@ -1826,6 +1829,9 @@ msgstr "Prijava"
 msgid "Log level"
 msgstr "Nivo dnevniške datoteke"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
 msgid "Logout"
 msgstr "Odjava"
 
@@ -2623,6 +2629,9 @@ msgstr "Relativna pot"
 msgid "Relative path"
 msgstr "Relativna pot"
 
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
+
 msgid "Reload"
 msgstr "Ponovno naloži"
 
@@ -2950,8 +2959,13 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "Nastavi lastnika ciljne datoteke, da je enak lastniku izvorne datoteke, vendar le, če je prejemni rsync zagnan kot super-uporabnik."
 
-msgid "Sets the interval between disk checks to N seconds."
-msgstr "Nastavi interval med preverjanji diska na N sekund."
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr ""
 
 msgid "Settings"
 msgstr "Nastavitve"
@@ -3059,7 +3073,7 @@ msgid "Source server"
 msgstr "Izvorni strežnik"
 
 msgid "Source shared folder"
-msgstr "Izvor za deljeno mapo"
+msgstr "Izvorna deljena mapa"
 
 msgid "South Africa"
 msgstr "Republika Južna Afrika"
@@ -3175,7 +3189,7 @@ msgid "Support name resolution and network discovery for legacy systems."
 msgstr "Podpora za razreševanje imen in odkrivanje omrežja za starejše sisteme."
 
 msgid "Suppress non-error messages"
-msgstr "Filtriranje sporočil, ki niso napake"
+msgstr "Onemogoči prikaz sporočil, ki niso napake"
 
 msgid "Suriname"
 msgstr "Surinam"
@@ -3248,13 +3262,6 @@ msgstr "Tajvan"
 msgid "Tajikistan"
 msgstr "Tadžikistan"
 
-msgid ""
-"Take caution when setting this polling interval to more than sixty minutes. "
-"The poll times may fail to coincide with any of the scheduled test that have"
-" been specified. In this case the scheduled test will be run following the "
-"next device polling."
-msgstr "Bodite previdni, če ta interval preverjanja nastavite na več kot šestdeset minut. Časi preverjanja lahko ne sovpadajo s katerim koli načrtovanim testom, ki je bil določen. V tem primeru se načrtovani preskus izvede po naslednjem preverjanju naprave."
-
 msgid "Tanzania"
 msgstr "Tanzanija"
 
@@ -3308,6 +3315,11 @@ msgid ""
 msgstr "Ciljni oddaljeni strežnik, npr. [USER@]HOST:DEST, [USER@]HOST::DEST ali rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3328,6 +3340,12 @@ msgstr "Datotečni sistem za priključitev."
 
 msgid "The following modules will be updated:"
 msgstr "Posodobljeni bodo naslednji moduli:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Ime gostitelja je oznaka, ki identificira sistem v omrežju."
@@ -3701,7 +3719,7 @@ msgid "Transport encryption"
 msgstr "Šifriranje prenosa"
 
 msgid "Trial run"
-msgstr "Testni zagon"
+msgstr "Poskusni zagon"
 
 msgid "Trinidad and Tobago"
 msgstr "Trinidad in Tobago"
@@ -3806,11 +3824,11 @@ msgid "Update management"
 msgstr "Upravljanje posodobitev"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr "Posodobi ACL-je na cilju na enake kot so ACL-ji na izvorni strani."
+msgstr "Posodobi ACL-je na cilju tako, da bodo enaki kot na izvoru."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr "Posodobi zunanje atribute na cilju na enake, kot so na lokalni strani."
+msgstr "Posodobi razširjene atribute na cilju, da bodo enaki kot izvorni."
 
 msgid "Updated NFS settings."
 msgstr "Posodobljene nastavitve NFS."
@@ -4183,3 +4201,6 @@ msgstr "izbran"
 
 msgid "total"
 msgstr "skupaj"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""

@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -1011,6 +1011,9 @@ msgstr "Отображать информацию о службах в сетк�
 msgid "Displays information about the services in a table."
 msgstr "Отображать информацию о службах в таблице."
 
+msgid "Displays links to help and support pages."
+msgstr ""
+
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr ""
 
@@ -1839,6 +1842,9 @@ msgstr "Войти"
 msgid "Log level"
 msgstr "Уровень журналирования"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
 msgid "Logout"
 msgstr "Выход"
 
@@ -2636,6 +2642,9 @@ msgstr "Относительный путь"
 msgid "Relative path"
 msgstr "Относительный путь"
 
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
+
 msgid "Reload"
 msgstr "Перезагрузить"
 
@@ -2963,8 +2972,13 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "Установить владельца файла назначения таким же, как исходный файл, но только в том случае, если принимающий rsync запускается от имени суперпользователя."
 
-msgid "Sets the interval between disk checks to N seconds."
-msgstr "Устанавливает интервал между проверками диска в N секунд."
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr ""
 
 msgid "Settings"
 msgstr "Настройки"
@@ -3261,13 +3275,6 @@ msgstr "Тайвань"
 msgid "Tajikistan"
 msgstr "Таджикистан"
 
-msgid ""
-"Take caution when setting this polling interval to more than sixty minutes. "
-"The poll times may fail to coincide with any of the scheduled test that have"
-" been specified. In this case the scheduled test will be run following the "
-"next device polling."
-msgstr "Будьте осторожны при установке данного интервала опроса более чем на шестьдесят минут. Время опроса может не совпадать ни с одним из указанных запланированных тестов. В этом случае запланированный тест будет запущен после следующего опроса устройства."
-
 msgid "Tanzania"
 msgstr "Танзания"
 
@@ -3321,6 +3328,11 @@ msgid ""
 msgstr "Целевой удаленный сервер, например [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3341,6 +3353,12 @@ msgstr "Файловая система для подключения."
 
 msgid "The following modules will be updated:"
 msgstr "Следующие модули будут обновлены:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Имя узла - идентификатор системы в сети."
@@ -4196,3 +4214,6 @@ msgstr "выбрано"
 
 msgid "total"
 msgstr "всего"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""

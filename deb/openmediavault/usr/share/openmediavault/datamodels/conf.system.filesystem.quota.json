@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.system.filesystem.quota",
 	"queryinfo": {
-		"xpath": "//system/storage/filesystem/quota",
+		"xpath": ".//system/storage/filesystem/quota",
 		"iterable": true,
 		"idproperty": "uuid"
 	},

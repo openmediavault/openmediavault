@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 18:11+0200\n"
+"POT-Creation-Date: 2025-10-18 14:41+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Daniel, 2025\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -1001,6 +1001,9 @@ msgstr "Visar information om tjänsterna i ett rutnät."
 msgid "Displays information about the services in a table."
 msgstr "Visar information om tjänsterna i en tabell."
 
+msgid "Displays links to help and support pages."
+msgstr ""
+
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Visar S.M.A.R.T.-status för alla övervakade diskenheter."
 
@@ -1829,6 +1832,9 @@ msgstr "Logga in"
 msgid "Log level"
 msgstr "Loggnivå"
 
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
 msgid "Logout"
 msgstr "Logga ut"
 
@@ -2626,6 +2632,9 @@ msgstr "Relativ sökväg"
 msgid "Relative path"
 msgstr "Relativ sökväg"
 
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
+
 msgid "Reload"
 msgstr "Ladda om"
 
@@ -2953,8 +2962,13 @@ msgid ""
 " only if the receiving rsync is being run as the super-user."
 msgstr "Ställ in att ägaren till målfilen ska vara densamma som källfilen, men endast om den mottagande rsync körs som superanvändare."
 
-msgid "Sets the interval between disk checks to N seconds."
-msgstr "Ange intervall mellan enhetskontroller till N sekunder."
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr ""
 
 msgid "Settings"
 msgstr "Inställningar"
@@ -3251,13 +3265,6 @@ msgstr "Taiwan"
 msgid "Tajikistan"
 msgstr "Tadzjikistan"
 
-msgid ""
-"Take caution when setting this polling interval to more than sixty minutes. "
-"The poll times may fail to coincide with any of the scheduled test that have"
-" been specified. In this case the scheduled test will be run following the "
-"next device polling."
-msgstr "Var försiktig när du ställer in detta omröstningsintervall till mer än sextio minuter. Omröstningstiderna kan misslyckas med att sammanfalla med något av de schemalagda testerna som har specificerats. I det här fallet kommer det schemalagda testet att köras efter nästa enhetsomröstning."
-
 msgid "Tanzania"
 msgstr "Tanzania"
 
@@ -3311,6 +3318,11 @@ msgid ""
 msgstr "Destinationens fjärrserver, exempelvis [USER@]HOST:DEST, [USER@]HOST::DEST eller rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
@@ -3331,6 +3343,12 @@ msgstr "Filsystemet som ska monteras."
 
 msgid "The following modules will be updated:"
 msgstr "Följande moduler kommer att uppdateras:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Värdnamnet är en etikett som identifierar systemet till nätverket."
@@ -4186,3 +4204,6 @@ msgstr "valda"
 
 msgid "total"
 msgstr "totalt"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""

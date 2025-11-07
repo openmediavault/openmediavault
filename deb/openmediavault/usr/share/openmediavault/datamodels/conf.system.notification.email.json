@@ -3,7 +3,7 @@
 	"id": "conf.system.notification.email",
 	"title": "Email notification settings",
 	"queryinfo": {
-		"xpath": "//system/email",
+		"xpath": ".//system/email",
 		"iterable": false
 	},
 	"properties": {
