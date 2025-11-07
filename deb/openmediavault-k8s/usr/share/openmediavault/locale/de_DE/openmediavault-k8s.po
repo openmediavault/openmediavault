@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 21:12+0200\n"
+"POT-Creation-Date: 2025-11-06 20:38+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2025\n"
 "Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
@@ -72,6 +72,9 @@ msgstr "In die Zwischenablage kopieren"
 msgid "Copy token"
 msgstr "Token kopieren"
 
+msgid "Count"
+msgstr "Anzahl"
+
 msgid "Created"
 msgstr "Erstellt"
 
@@ -116,11 +119,17 @@ msgstr ""
 msgid "Enabled"
 msgstr "Aktiviert"
 
+msgid "Events"
+msgstr "Ereignisse"
+
 msgid "External IP"
 msgstr "External IP"
 
 msgid "Failed"
 msgstr "Fehlgeschlagen"
+
+msgid "First seen"
+msgstr "Erstmals gesehen"
 
 msgid "GID"
 msgstr "GID"
@@ -179,6 +188,9 @@ msgstr "Kubernetes - Resources"
 msgid "Labels"
 msgstr "Labels"
 
+msgid "Last seen"
+msgstr "Zuletzt gesehen"
+
 msgid "Load Balancer"
 msgstr "Load Balancer"
 
@@ -191,6 +203,9 @@ msgstr "Manifest"
 msgid "Message"
 msgstr "Nachricht"
 
+msgid "Monitoring - Kubernetes"
+msgstr "Überwachung - Kubernetes"
+
 msgid "Name"
 msgstr "Name"
 
@@ -202,6 +217,12 @@ msgstr "Namensräume"
 
 msgid "NodePort IP"
 msgstr "NodePort IP"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Object"
+msgstr ""
 
 msgid "Open UI"
 msgstr "Benutzeroberfläche öffnen"
@@ -241,6 +262,9 @@ msgstr "README"
 
 msgid "Ready"
 msgstr "Bereit"
+
+msgid "Reason"
+msgstr ""
 
 msgid "Recipe Information"
 msgstr "Rezept Informationen"
@@ -288,16 +312,19 @@ msgid "Show README"
 msgstr "README anzeigen"
 
 msgid "Show the number of pods per status phase."
-msgstr ""
+msgstr "Anzahl der Pods pro Statusphase anzeigen."
 
 msgid "Show the total number of several resources."
-msgstr ""
+msgstr "Die Gesamtzahl mehrerer Ressourcen anzeigen."
 
 msgid "Size"
 msgstr "Größe"
 
 msgid "Snapshots"
 msgstr "Schnappschüsse"
+
+msgid "Source"
+msgstr ""
 
 msgid "Stateful Sets"
 msgstr ""
@@ -395,6 +422,9 @@ msgstr ""
 
 msgid "Volume"
 msgstr "Volume"
+
+msgid "Warning"
+msgstr "Warnung"
 
 msgid "YAML"
 msgstr "YAML"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 21:12+0200\n"
+"POT-Creation-Date: 2025-11-06 20:38+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
@@ -73,6 +73,9 @@ msgstr "Copia negli appunti"
 msgid "Copy token"
 msgstr "Copia token"
 
+msgid "Count"
+msgstr ""
+
 msgid "Created"
 msgstr "Creato"
 
@@ -117,11 +120,17 @@ msgstr ""
 msgid "Enabled"
 msgstr "Abilitato"
 
+msgid "Events"
+msgstr ""
+
 msgid "External IP"
 msgstr "IP esterno"
 
 msgid "Failed"
 msgstr "Operazione non riuscita"
+
+msgid "First seen"
+msgstr ""
 
 msgid "GID"
 msgstr "GID"
@@ -180,6 +189,9 @@ msgstr "Kubernetes - Risorse"
 msgid "Labels"
 msgstr "Etichette"
 
+msgid "Last seen"
+msgstr ""
+
 msgid "Load Balancer"
 msgstr "Bilanciatore del carico"
 
@@ -192,6 +204,9 @@ msgstr "Manifesto"
 msgid "Message"
 msgstr "Messaggio"
 
+msgid "Monitoring - Kubernetes"
+msgstr ""
+
 msgid "Name"
 msgstr "Nome"
 
@@ -203,6 +218,12 @@ msgstr "Namespace"
 
 msgid "NodePort IP"
 msgstr "IP di NodePort"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Object"
+msgstr ""
 
 msgid "Open UI"
 msgstr "Apri l'interfaccia utente"
@@ -242,6 +263,9 @@ msgstr "README"
 
 msgid "Ready"
 msgstr "Pronto"
+
+msgid "Reason"
+msgstr ""
 
 msgid "Recipe Information"
 msgstr "Informazioni sulla ricetta"
@@ -299,6 +323,9 @@ msgstr "Dimensione"
 
 msgid "Snapshots"
 msgstr "Snapshot"
+
+msgid "Source"
+msgstr ""
 
 msgid "Stateful Sets"
 msgstr "Set con stato"
@@ -403,6 +430,9 @@ msgstr "Visualizza"
 
 msgid "Volume"
 msgstr "Volume"
+
+msgid "Warning"
+msgstr ""
 
 msgid "YAML"
 msgstr "YAML"

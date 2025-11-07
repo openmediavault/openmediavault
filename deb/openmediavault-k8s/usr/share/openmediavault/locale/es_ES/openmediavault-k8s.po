@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 21:12+0200\n"
+"POT-Creation-Date: 2025-11-06 20:38+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2024\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
@@ -72,6 +72,9 @@ msgstr "Copiar al portapapeles"
 msgid "Copy token"
 msgstr "Copiar token"
 
+msgid "Count"
+msgstr ""
+
 msgid "Created"
 msgstr "Creado"
 
@@ -116,10 +119,16 @@ msgstr ""
 msgid "Enabled"
 msgstr "Habilitado"
 
+msgid "Events"
+msgstr ""
+
 msgid "External IP"
 msgstr "IP Externa"
 
 msgid "Failed"
+msgstr ""
+
+msgid "First seen"
 msgstr ""
 
 msgid "GID"
@@ -179,6 +188,9 @@ msgstr ""
 msgid "Labels"
 msgstr "Etiquetas"
 
+msgid "Last seen"
+msgstr ""
+
 msgid "Load Balancer"
 msgstr "Balance de carga"
 
@@ -191,6 +203,9 @@ msgstr "Manifiesto"
 msgid "Message"
 msgstr "Mensaje"
 
+msgid "Monitoring - Kubernetes"
+msgstr ""
+
 msgid "Name"
 msgstr "Nombre"
 
@@ -202,6 +217,12 @@ msgstr "Espacios de nombres"
 
 msgid "NodePort IP"
 msgstr "IP del NodePort"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Object"
+msgstr ""
 
 msgid "Open UI"
 msgstr "Abrir UI"
@@ -241,6 +262,9 @@ msgstr ""
 
 msgid "Ready"
 msgstr "Listo"
+
+msgid "Reason"
+msgstr ""
 
 msgid "Recipe Information"
 msgstr "Información de la receta"
@@ -298,6 +322,9 @@ msgstr "Tamaño"
 
 msgid "Snapshots"
 msgstr "Instantáneas"
+
+msgid "Source"
+msgstr ""
 
 msgid "Stateful Sets"
 msgstr ""
@@ -395,6 +422,9 @@ msgstr "Vista"
 
 msgid "Volume"
 msgstr "Volumen"
+
+msgid "Warning"
+msgstr ""
 
 msgid "YAML"
 msgstr ""

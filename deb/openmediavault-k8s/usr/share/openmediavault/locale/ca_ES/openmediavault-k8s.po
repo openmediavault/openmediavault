@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 21:12+0200\n"
+"POT-Creation-Date: 2025-11-06 20:38+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2025\n"
 "Language-Team: Catalan (Spain) (https://app.transifex.com/openmediavault/teams/14254/ca_ES/)\n"
@@ -72,6 +72,9 @@ msgstr "Copiar al portapapers"
 msgid "Copy token"
 msgstr "Copia el testimoni"
 
+msgid "Count"
+msgstr ""
+
 msgid "Created"
 msgstr "Creat"
 
@@ -116,11 +119,17 @@ msgstr ""
 msgid "Enabled"
 msgstr "Activat"
 
+msgid "Events"
+msgstr ""
+
 msgid "External IP"
 msgstr "IP externa"
 
 msgid "Failed"
 msgstr "Fallat"
+
+msgid "First seen"
+msgstr ""
 
 msgid "GID"
 msgstr "GID"
@@ -179,6 +188,9 @@ msgstr "Kubernetes - Recursos"
 msgid "Labels"
 msgstr "Etiquetes"
 
+msgid "Last seen"
+msgstr ""
+
 msgid "Load Balancer"
 msgstr "Equilibrador de càrrega"
 
@@ -191,6 +203,9 @@ msgstr "Manifest"
 msgid "Message"
 msgstr "Missatge"
 
+msgid "Monitoring - Kubernetes"
+msgstr ""
+
 msgid "Name"
 msgstr "Nom"
 
@@ -202,6 +217,12 @@ msgstr "Espais de noms"
 
 msgid "NodePort IP"
 msgstr "NodePort IP"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Object"
+msgstr ""
 
 msgid "Open UI"
 msgstr "Open UI"
@@ -241,6 +262,9 @@ msgstr "LLEGEIX-ME"
 
 msgid "Ready"
 msgstr "A punt"
+
+msgid "Reason"
+msgstr ""
 
 msgid "Recipe Information"
 msgstr "Informació de la recepta"
@@ -298,6 +322,9 @@ msgstr "Talla"
 
 msgid "Snapshots"
 msgstr "Imatges instantànies"
+
+msgid "Source"
+msgstr ""
 
 msgid "Stateful Sets"
 msgstr "Conjunt d'estats"
@@ -401,6 +428,9 @@ msgstr "Vista"
 
 msgid "Volume"
 msgstr "Volum"
+
+msgid "Warning"
+msgstr ""
 
 msgid "YAML"
 msgstr "YAML"

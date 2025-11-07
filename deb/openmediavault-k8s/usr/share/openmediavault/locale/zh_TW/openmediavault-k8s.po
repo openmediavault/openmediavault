@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 21:12+0200\n"
+"POT-Creation-Date: 2025-11-06 20:38+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2025\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
@@ -75,6 +75,9 @@ msgstr "複製到剪貼板"
 msgid "Copy token"
 msgstr "複製權杖"
 
+msgid "Count"
+msgstr "數目"
+
 msgid "Created"
 msgstr "建立於"
 
@@ -116,11 +119,17 @@ msgstr "將 kubeconfig 檔案下載到本機系統可以使用 kubectl 等命令
 msgid "Enabled"
 msgstr "已啟用"
 
+msgid "Events"
+msgstr "事件"
+
 msgid "External IP"
 msgstr "外部 IP"
 
 msgid "Failed"
 msgstr "失敗"
+
+msgid "First seen"
+msgstr "首次出現"
 
 msgid "GID"
 msgstr "GID"
@@ -179,6 +188,9 @@ msgstr "Kubernetes - 資源"
 msgid "Labels"
 msgstr "標號"
 
+msgid "Last seen"
+msgstr "最後出現"
+
 msgid "Load Balancer"
 msgstr "負載平衡器"
 
@@ -191,6 +203,9 @@ msgstr "Manifest"
 msgid "Message"
 msgstr "訊息"
 
+msgid "Monitoring - Kubernetes"
+msgstr "監控 - Kubernetes"
+
 msgid "Name"
 msgstr "名稱"
 
@@ -202,6 +217,12 @@ msgstr "命名空間"
 
 msgid "NodePort IP"
 msgstr "NodePort IP"
+
+msgid "Normal"
+msgstr "正常"
+
+msgid "Object"
+msgstr "物件"
 
 msgid "Open UI"
 msgstr "開啟使用者介面"
@@ -241,6 +262,9 @@ msgstr "讀我檔案"
 
 msgid "Ready"
 msgstr "準備好"
+
+msgid "Reason"
+msgstr "理由"
 
 msgid "Recipe Information"
 msgstr "配方資訊"
@@ -298,6 +322,9 @@ msgstr "大小"
 
 msgid "Snapshots"
 msgstr "快照"
+
+msgid "Source"
+msgstr "來源"
 
 msgid "Stateful Sets"
 msgstr "有狀態組合"
@@ -394,6 +421,9 @@ msgstr "檢視"
 
 msgid "Volume"
 msgstr "卷宗"
+
+msgid "Warning"
+msgstr "警告"
 
 msgid "YAML"
 msgstr "YAML"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 21:12+0200\n"
+"POT-Creation-Date: 2025-11-06 20:38+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2025\n"
 "Language-Team: Turkish (Turkey) (https://app.transifex.com/openmediavault/teams/14254/tr_TR/)\n"
@@ -72,6 +72,9 @@ msgstr ""
 msgid "Copy token"
 msgstr ""
 
+msgid "Count"
+msgstr ""
+
 msgid "Created"
 msgstr ""
 
@@ -113,10 +116,16 @@ msgstr ""
 msgid "Enabled"
 msgstr "Geçerli"
 
+msgid "Events"
+msgstr ""
+
 msgid "External IP"
 msgstr ""
 
 msgid "Failed"
+msgstr ""
+
+msgid "First seen"
 msgstr ""
 
 msgid "GID"
@@ -176,6 +185,9 @@ msgstr ""
 msgid "Labels"
 msgstr ""
 
+msgid "Last seen"
+msgstr ""
+
 msgid "Load Balancer"
 msgstr ""
 
@@ -188,6 +200,9 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
+msgid "Monitoring - Kubernetes"
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
@@ -198,6 +213,12 @@ msgid "Namespaces"
 msgstr ""
 
 msgid "NodePort IP"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "Object"
 msgstr ""
 
 msgid "Open UI"
@@ -237,6 +258,9 @@ msgid "README"
 msgstr ""
 
 msgid "Ready"
+msgstr ""
+
+msgid "Reason"
 msgstr ""
 
 msgid "Recipe Information"
@@ -294,6 +318,9 @@ msgid "Size"
 msgstr ""
 
 msgid "Snapshots"
+msgstr ""
+
+msgid "Source"
 msgstr ""
 
 msgid "Stateful Sets"
@@ -384,6 +411,9 @@ msgid "View"
 msgstr ""
 
 msgid "Volume"
+msgstr ""
+
+msgid "Warning"
 msgstr ""
 
 msgid "YAML"
