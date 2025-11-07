@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 21:12+0200\n"
+"POT-Creation-Date: 2025-11-06 20:38+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
@@ -73,6 +73,9 @@ msgstr "Másolás vágólapra"
 msgid "Copy token"
 msgstr "Token másolása"
 
+msgid "Count"
+msgstr ""
+
 msgid "Created"
 msgstr "Létrehozva"
 
@@ -117,11 +120,17 @@ msgstr ""
 msgid "Enabled"
 msgstr "Engedélyezve"
 
+msgid "Events"
+msgstr ""
+
 msgid "External IP"
 msgstr "Külső IP"
 
 msgid "Failed"
 msgstr "Sikertelen"
+
+msgid "First seen"
+msgstr ""
 
 msgid "GID"
 msgstr "GID"
@@ -180,6 +189,9 @@ msgstr "Kubernetes - Erőforrások"
 msgid "Labels"
 msgstr "Címkék"
 
+msgid "Last seen"
+msgstr ""
+
 msgid "Load Balancer"
 msgstr "Terheléselosztó"
 
@@ -192,6 +204,9 @@ msgstr "Manifesztum"
 msgid "Message"
 msgstr "Üzenet"
 
+msgid "Monitoring - Kubernetes"
+msgstr ""
+
 msgid "Name"
 msgstr "Név"
 
@@ -203,6 +218,12 @@ msgstr "Névterek"
 
 msgid "NodePort IP"
 msgstr "NodePort IP"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Object"
+msgstr ""
 
 msgid "Open UI"
 msgstr "UI megnyitása"
@@ -242,6 +263,9 @@ msgstr "OLVASSEL"
 
 msgid "Ready"
 msgstr "Kész"
+
+msgid "Reason"
+msgstr ""
 
 msgid "Recipe Information"
 msgstr "Receptinformáció"
@@ -299,6 +323,9 @@ msgstr "Méret"
 
 msgid "Snapshots"
 msgstr "Pillanatképek"
+
+msgid "Source"
+msgstr ""
 
 msgid "Stateful Sets"
 msgstr "Állapotfüggő beállítások"
@@ -405,6 +432,9 @@ msgstr "Nézet"
 
 msgid "Volume"
 msgstr "Kötet"
+
+msgid "Warning"
+msgstr ""
 
 msgid "YAML"
 msgstr "YAML"

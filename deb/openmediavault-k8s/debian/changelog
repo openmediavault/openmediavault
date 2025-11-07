@@ -6,6 +6,7 @@ openmediavault-k8s (8.0-4) stable; urgency=medium
 
 openmediavault-k8s (7.4.14-1) stable; urgency=medium
 
+  * Update locale files.
   * Add `Events` page.
   * Add ability to monitor pods and get notified when they crash.
 

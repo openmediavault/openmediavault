@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 21:12+0200\n"
+"POT-Creation-Date: 2025-11-06 20:38+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Kostas Moho, 2025\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
@@ -72,6 +72,9 @@ msgstr "Αντιγραφή στο πρόχειρο"
 msgid "Copy token"
 msgstr "Αντιγραφή τεκμηρίου."
 
+msgid "Count"
+msgstr ""
+
 msgid "Created"
 msgstr "Δημιουργία"
 
@@ -116,11 +119,17 @@ msgstr ""
 msgid "Enabled"
 msgstr "Ενεργό"
 
+msgid "Events"
+msgstr ""
+
 msgid "External IP"
 msgstr "Εξωτερική ΙΡ"
 
 msgid "Failed"
 msgstr "Απέτυχε"
+
+msgid "First seen"
+msgstr ""
 
 msgid "GID"
 msgstr "GID"
@@ -179,6 +188,9 @@ msgstr "Kubernetes - Πόροι"
 msgid "Labels"
 msgstr "Ετικέτες"
 
+msgid "Last seen"
+msgstr ""
+
 msgid "Load Balancer"
 msgstr "Εξισορροπητής Φόρτου"
 
@@ -191,6 +203,9 @@ msgstr "Δήλωση"
 msgid "Message"
 msgstr "Μήνυμα"
 
+msgid "Monitoring - Kubernetes"
+msgstr ""
+
 msgid "Name"
 msgstr "Όνομα"
 
@@ -202,6 +217,12 @@ msgstr "Χώροι ονομάτων"
 
 msgid "NodePort IP"
 msgstr "NodePort IP"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Object"
+msgstr ""
 
 msgid "Open UI"
 msgstr "Open UI"
@@ -241,6 +262,9 @@ msgstr "README"
 
 msgid "Ready"
 msgstr "Έτοιμο"
+
+msgid "Reason"
+msgstr ""
 
 msgid "Recipe Information"
 msgstr "Πληροφορίες Συνταγής"
@@ -298,6 +322,9 @@ msgstr "Μέγεθος"
 
 msgid "Snapshots"
 msgstr "Στιγμιότυπα"
+
+msgid "Source"
+msgstr ""
 
 msgid "Stateful Sets"
 msgstr "Ομάδες Καταστάσεων"
@@ -401,6 +428,9 @@ msgstr "Προβολή"
 
 msgid "Volume"
 msgstr "Τόμος"
+
+msgid "Warning"
+msgstr ""
 
 msgid "YAML"
 msgstr "YAML"

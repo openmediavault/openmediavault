@@ -891,7 +891,7 @@ msgid "Delete"
 msgstr "Izbriši"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr "Izbriši datoteke, ki obstajajo na strani naslovnika in ne obstajajo na strani pošiljatelja"
+msgstr "Izbriši datoteke na cilju, ki ne obstajajo na izvoru."
 
 msgid "Denmark"
 msgstr "Danska"
@@ -915,7 +915,7 @@ msgid "Destination server"
 msgstr "Ciljni strežnik"
 
 msgid "Destination shared folder"
-msgstr "Mapa v skupni rabi na ciljni strani"
+msgstr "Ciljna deljena mapa"
 
 msgid "Details"
 msgstr "Podrobnosti"
@@ -3073,7 +3073,7 @@ msgid "Source server"
 msgstr "Izvorni strežnik"
 
 msgid "Source shared folder"
-msgstr "Izvor za deljeno mapo"
+msgstr "Izvorna deljena mapa"
 
 msgid "South Africa"
 msgstr "Republika Južna Afrika"
@@ -3189,7 +3189,7 @@ msgid "Support name resolution and network discovery for legacy systems."
 msgstr "Podpora za razreševanje imen in odkrivanje omrežja za starejše sisteme."
 
 msgid "Suppress non-error messages"
-msgstr "Filtriranje sporočil, ki niso napake"
+msgstr "Onemogoči prikaz sporočil, ki niso napake"
 
 msgid "Suriname"
 msgstr "Surinam"
@@ -3719,7 +3719,7 @@ msgid "Transport encryption"
 msgstr "Šifriranje prenosa"
 
 msgid "Trial run"
-msgstr "Testni zagon"
+msgstr "Poskusni zagon"
 
 msgid "Trinidad and Tobago"
 msgstr "Trinidad in Tobago"
@@ -3824,11 +3824,11 @@ msgid "Update management"
 msgstr "Upravljanje posodobitev"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr "Posodobi ACL-je na cilju na enake kot so ACL-ji na izvorni strani."
+msgstr "Posodobi ACL-je na cilju tako, da bodo enaki kot na izvoru."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr "Posodobi zunanje atribute na cilju na enake, kot so na lokalni strani."
+msgstr "Posodobi razširjene atribute na cilju, da bodo enaki kot izvorni."
 
 msgid "Updated NFS settings."
 msgstr "Posodobljene nastavitve NFS."

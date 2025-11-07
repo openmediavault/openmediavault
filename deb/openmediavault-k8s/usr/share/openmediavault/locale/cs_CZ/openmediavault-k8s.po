@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 21:12+0200\n"
+"POT-Creation-Date: 2025-11-06 20:38+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2025\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
@@ -73,6 +73,9 @@ msgstr "Kopírovat do schránky"
 msgid "Copy token"
 msgstr "Kopírovat token"
 
+msgid "Count"
+msgstr ""
+
 msgid "Created"
 msgstr "Vytvořeno"
 
@@ -114,10 +117,16 @@ msgstr ""
 msgid "Enabled"
 msgstr "Povoleno"
 
+msgid "Events"
+msgstr ""
+
 msgid "External IP"
 msgstr "Externí IP"
 
 msgid "Failed"
+msgstr ""
+
+msgid "First seen"
 msgstr ""
 
 msgid "GID"
@@ -177,6 +186,9 @@ msgstr ""
 msgid "Labels"
 msgstr "Popisky"
 
+msgid "Last seen"
+msgstr ""
+
 msgid "Load Balancer"
 msgstr "Vyvažovač zátěže"
 
@@ -189,6 +201,9 @@ msgstr "Manifest"
 msgid "Message"
 msgstr "Zpráva"
 
+msgid "Monitoring - Kubernetes"
+msgstr ""
+
 msgid "Name"
 msgstr "Název"
 
@@ -199,6 +214,12 @@ msgid "Namespaces"
 msgstr "Jmenné prostory"
 
 msgid "NodePort IP"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "Object"
 msgstr ""
 
 msgid "Open UI"
@@ -239,6 +260,9 @@ msgstr ""
 
 msgid "Ready"
 msgstr "Připraveno"
+
+msgid "Reason"
+msgstr ""
 
 msgid "Recipe Information"
 msgstr "Informace o předpisu"
@@ -296,6 +320,9 @@ msgstr "Velikost"
 
 msgid "Snapshots"
 msgstr "Snímky"
+
+msgid "Source"
+msgstr ""
 
 msgid "Stateful Sets"
 msgstr ""
@@ -386,6 +413,9 @@ msgstr "Zobrazení"
 
 msgid "Volume"
 msgstr "Svazek"
+
+msgid "Warning"
+msgstr ""
 
 msgid "YAML"
 msgstr ""
