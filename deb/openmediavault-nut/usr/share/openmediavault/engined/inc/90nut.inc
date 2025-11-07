@@ -22,15 +22,15 @@
 require_once("openmediavault/functions.inc");
 
 // Retrieved via journalctl.
-// 2024-08-23T19:12:15+0000 omv7box upsd[4934]: listening on ::1 port 3493
-// 2024-08-23T19:12:15+0000 omv7box upsd[4934]: listening on 127.0.0.1 port 3493
+// 2024-08-23T19:12:15+00:00 omv7box upsd[4934]: listening on ::1 port 3493
+// 2024-08-23T19:12:15+00:00 omv7box upsd[4934]: listening on 127.0.0.1 port 3493
 \OMV\System\LogFileSpec::registerSpecification("nut", [
   "command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
   	"SYSLOG_IDENTIFIER='upsd' + SYSLOG_IDENTIFIER='upsmon' + ".
   	"SYSLOG_IDENTIFIER='upssched' + SYSLOG_IDENTIFIER='upssched-cmd' ".
   	"--output=short-iso",
   "filename" => "nut.log",
-  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s([a-zA-Z-]+)(\[(\d+)\])?:\s+(.*)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s([a-zA-Z-]+)(\[(\d+)\])?:\s+(.*)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,

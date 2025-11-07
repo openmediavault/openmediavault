@@ -25,7 +25,7 @@ require_once("openmediavault/functions.inc");
 	"command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
 		"SYSLOG_IDENTIFIER='k3s' --output=short-iso",
 	"filename" => "k3s.log",
-	"regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{4})\s+(\S+)\s+k3s\[\d+\]:\s+(.*)$/",
+	"regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+k3s\[\d+\]:\s+(.*)$/",
 	"columns" => [
 		"ts" => [
 			"index" => 1,
