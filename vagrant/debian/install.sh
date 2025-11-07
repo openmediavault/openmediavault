@@ -57,20 +57,20 @@ deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://pa
 # deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages synchrony partner
 EOF
 apt-get update
-# apt-get --yes --auto-remove --show-upgraded \
-# 	--allow-downgrades --allow-change-held-packages \
-# 	--no-install-recommends \
-# 	--option DPkg::Options::="--force-confdef" \
-# 	--option DPkg::Options::="--force-confold" \
-# 	install openmediavault
+apt-get --yes --auto-remove --show-upgraded \
+	--allow-downgrades --allow-change-held-packages \
+	--no-install-recommends \
+	--option DPkg::Options::="--force-confdef" \
+	--option DPkg::Options::="--force-confold" \
+	install openmediavault
 
 # Populate the database.
-# omv-confdbadm populate
+omv-confdbadm populate
 
 # Deploy the /etc/hosts file to ensure the hostname can be resolved
 # properly for IPv4 and IPv6. Otherwise building the Salt grains
 # (core.fqdns and core.ip_fqdn) will take a very long time.
-# omv-salt deploy run hosts
+omv-salt deploy run hosts
 
 # Display the login information.
 cat /etc/issue
