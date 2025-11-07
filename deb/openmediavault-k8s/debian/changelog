@@ -4,6 +4,12 @@ openmediavault-k8s (8.0-5) stable; urgency=medium
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:47:23 +0200
 
+openmediavault-k8s (7.4.15-1) stable; urgency=medium
+
+  * Fix bug on `Events` page when service is disabled.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 07 Nov 2025 09:29:27 +0100
+
 openmediavault-k8s (7.4.14-1) stable; urgency=medium
 
   * Update locale files.
