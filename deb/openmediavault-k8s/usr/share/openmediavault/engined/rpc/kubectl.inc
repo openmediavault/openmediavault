@@ -45,6 +45,10 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 		return $object->get("enable");
     }
 
+    private function isK3sInstalled(): bool {
+		return is_executable("/usr/local/bin/k3s");
+	}
+
 	function describe($params, $context) {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
@@ -179,6 +183,9 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		$this->validateMethodParams($params, "rpc.kubectl.apply");
+		if (!($this->isEnabled() && $this->isK3sInstalled())) {
+			throw new \OMV\Exception("Kubernetes service is not enabled and installed.");
+		}
 		$tmpFile = new \OMV\System\TmpFile();
 		$tmpFile->write($params['manifest']);
 		$cmdArgs = [];
