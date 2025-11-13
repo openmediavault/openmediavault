@@ -121,7 +121,7 @@ msgid "Enabled"
 msgstr "Aktiverad"
 
 msgid "Events"
-msgstr ""
+msgstr "Händelser"
 
 msgid "External IP"
 msgstr "Extern IP"
@@ -130,7 +130,7 @@ msgid "Failed"
 msgstr "Misslyckades"
 
 msgid "First seen"
-msgstr ""
+msgstr "Först sedd"
 
 msgid "GID"
 msgstr "GID"
@@ -190,7 +190,7 @@ msgid "Labels"
 msgstr "Etiketter"
 
 msgid "Last seen"
-msgstr ""
+msgstr "Senast sedd"
 
 msgid "Load Balancer"
 msgstr "Load Balancer"
@@ -220,10 +220,10 @@ msgid "NodePort IP"
 msgstr "NodePort-IP"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 msgid "Object"
-msgstr ""
+msgstr "Objekt"
 
 msgid "Open UI"
 msgstr "Öppna användargränssnittet"
@@ -265,7 +265,7 @@ msgid "Ready"
 msgstr "Redo"
 
 msgid "Reason"
-msgstr ""
+msgstr "Orsak"
 
 msgid "Recipe Information"
 msgstr "Receptinformation"
@@ -325,7 +325,7 @@ msgid "Snapshots"
 msgstr "Ögonblicksbilder"
 
 msgid "Source"
-msgstr ""
+msgstr "Källa"
 
 msgid "Stateful Sets"
 msgstr ""
@@ -430,7 +430,7 @@ msgid "Volume"
 msgstr "Volym"
 
 msgid "Warning"
-msgstr ""
+msgstr "Varning"
 
 msgid "YAML"
 msgstr "YAML"
