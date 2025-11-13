@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-podman\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 21:57+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
 "Last-Translator: 王大山, 2023\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
@@ -22,6 +22,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Block I/O"
+msgstr ""
+
+msgid "CID"
+msgstr ""
+
+msgid "CPU %"
+msgstr ""
 
 msgid "Command"
 msgstr "命令"
@@ -62,6 +71,12 @@ msgstr "检查"
 msgid "Logs"
 msgstr "日志"
 
+msgid "Mem %"
+msgstr ""
+
+msgid "Mem Usage / Limit"
+msgstr ""
+
 msgid "Mount Point"
 msgstr "挂载点"
 
@@ -74,8 +89,17 @@ msgstr "名称"
 msgid "Names"
 msgstr "名称"
 
+msgid "Network I/O"
+msgstr ""
+
 msgid "Networks"
 msgstr "网络"
+
+msgid "PIDs"
+msgstr ""
+
+msgid "Pod"
+msgstr ""
 
 msgid "Podman"
 msgstr "Podman"
@@ -86,11 +110,11 @@ msgstr "Pods"
 msgid "Ports"
 msgstr "端口"
 
-msgid "Pull latest"
-msgstr "拉取最新"
+msgid "Pull"
+msgstr ""
 
-msgid "Pull latest image"
-msgstr "拉取最新镜像"
+msgid "Pull image"
+msgstr ""
 
 msgid "Repository"
 msgstr "源"
@@ -115,6 +139,9 @@ msgstr "状态"
 
 msgid "Tag"
 msgstr "标签"
+
+msgid "The tag of the image to pull."
+msgstr ""
 
 msgid "Updated Podman settings."
 msgstr "已更新 Podman 设置。"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Marek Pavelka, 2024\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -73,6 +73,9 @@ msgstr "Zjišťovat možné nežádoucí aplikace"
 msgid "Detect broken executables"
 msgstr "Zjišťovat poškozené spustitelné"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "Upravit"
 
@@ -98,6 +101,9 @@ msgstr "Povolit algoritmické rozpoznávání."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "Povolit rozpoznávání poškozených spustitelných souborů (PE i ELF)."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Povolit rozpoznávání možných nežádoucích aplikací."
@@ -249,6 +255,9 @@ msgstr "Poslat e-mail"
 msgid "September"
 msgstr "září"
 
+msgid "Service disabled"
+msgstr "Služba zakázána"
+
 msgid "Settings"
 msgstr "Nastavení"
 
@@ -278,6 +287,9 @@ msgstr "Volba způsobu, jakým zacházet s nakaženými soubory."
 
 msgid "Thursday"
 msgstr "čtvrtek"
+
+msgid "Time of execution"
+msgstr "Čas provedení"
 
 msgid "Tuesday"
 msgstr "úterý"

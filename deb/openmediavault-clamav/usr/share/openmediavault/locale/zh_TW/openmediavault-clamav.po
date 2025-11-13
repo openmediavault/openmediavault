@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2014,2017,2021\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -71,6 +71,9 @@ msgstr "偵測 PUA"
 msgid "Detect broken executables"
 msgstr "偵測損壞的可執行檔"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "編輯"
 
@@ -96,6 +99,9 @@ msgstr "啟用演算法偵測方式。"
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "啟用對損壞之可執行檔(PE 與 ELF)的偵測。"
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "啟用可能不要之應用程式的偵測。"
@@ -247,6 +253,9 @@ msgstr "發送電子郵件"
 msgid "September"
 msgstr "九月"
 
+msgid "Service disabled"
+msgstr "服務已停用"
+
 msgid "Settings"
 msgstr "設定"
 
@@ -276,6 +285,9 @@ msgstr "選項，如何處置受感染的檔案的。"
 
 msgid "Thursday"
 msgstr "週四"
+
+msgid "Time of execution"
+msgstr "執行時間"
 
 msgid "Tuesday"
 msgstr "週二"

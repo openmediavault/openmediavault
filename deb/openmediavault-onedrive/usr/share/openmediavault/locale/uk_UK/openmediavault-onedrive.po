@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 20:04+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: zubr139, 2025\n"
 "Language-Team: Ukrainian (https://app.transifex.com/openmediavault/teams/14254/uk/)\n"
@@ -25,9 +25,6 @@ msgstr ""
 
 msgid "1 MiB/s"
 msgstr "1 МіБ/с"
-
-msgid "1 minute"
-msgstr "1 хвилина"
 
 msgid "10 MiB/s"
 msgstr "10 МіБ/с"
@@ -47,23 +44,14 @@ msgstr "128 КіБ/с"
 msgid "15 minutes"
 msgstr "15 хвилин"
 
-msgid "2 minutes"
-msgstr "2 хвилини"
-
 msgid "24 hours"
 msgstr "24 години"
 
 msgid "256 KiB/s"
 msgstr "256 КіБ/с"
 
-msgid "3 minutes"
-msgstr "3 хвилини"
-
 msgid "30 minutes"
 msgstr "30 хвилин"
-
-msgid "4 minutes"
-msgstr "4 хвилини"
 
 msgid "5 minutes"
 msgstr "5 хвилин"
@@ -105,6 +93,9 @@ msgstr "Очистити локальні файли"
 msgid "Clean up local files that have been removed online."
 msgstr "Очистіть локальні файли, видалені онлайн."
 
+msgid "Date & Time"
+msgstr ""
+
 msgid "Disabled"
 msgstr "Вимкнено"
 
@@ -125,6 +116,9 @@ msgstr "Повний"
 
 msgid "Local first"
 msgstr "Спочатку місцеві"
+
+msgid "Message"
+msgstr "Повідомлення"
 
 msgid "Monitor interval"
 msgstr "Інтервал моніторингу"

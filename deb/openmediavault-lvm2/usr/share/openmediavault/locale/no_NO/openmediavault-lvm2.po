@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-27 14:31+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
 "Language-Team: Norwegian (http://app.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -95,6 +95,9 @@ msgid "Reduce"
 msgstr "Reduser"
 
 msgid "Reduced volume group '{{ devicefile }}'."
+msgstr ""
+
+msgid "Referenced"
 msgstr ""
 
 msgid "Resize"

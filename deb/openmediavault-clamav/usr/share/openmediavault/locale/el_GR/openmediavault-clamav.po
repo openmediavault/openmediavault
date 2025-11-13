@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Kostas Moho, 2012-2014,2017,2021-2022,2025\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -71,6 +71,9 @@ msgstr "Ανίχνευση PUA"
 msgid "Detect broken executables"
 msgstr "Ανίχνευση χαμασμένων εκτελέσιμων"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "Επεξεργασία"
 
@@ -96,6 +99,9 @@ msgstr "Ενεργοποίηση αλγοριθμικής ανίχνευσης."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "Ενεργοποίηση ανίχνευσης ελλατωματικών εκτελέσιμων (PE και ELF)."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Ενεργοποίηση ελέγχου για πιθανές ανεπιθύμητες εφαρμογές."
@@ -247,6 +253,9 @@ msgstr "Αποστολή μηνύματος"
 msgid "September"
 msgstr "Σεπτέμβριος"
 
+msgid "Service disabled"
+msgstr "Ανενεργή υπηρεσία"
+
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
@@ -276,6 +285,9 @@ msgstr "Πώς να χειρίζονται τα μολυσμένα αρχεία.
 
 msgid "Thursday"
 msgstr "Πέμπτη"
+
+msgid "Time of execution"
+msgstr "Χρόνος εκτέλεσης"
 
 msgid "Tuesday"
 msgstr "Τρίτη"

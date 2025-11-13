@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-podman\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 21:57+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2023\n"
 "Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
@@ -20,6 +20,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Block I/O"
+msgstr ""
+
+msgid "CID"
+msgstr ""
+
+msgid "CPU %"
+msgstr ""
 
 msgid "Command"
 msgstr "Befehl"
@@ -60,6 +69,12 @@ msgstr "Prüfen"
 msgid "Logs"
 msgstr "Protokolle"
 
+msgid "Mem %"
+msgstr ""
+
+msgid "Mem Usage / Limit"
+msgstr ""
+
 msgid "Mount Point"
 msgstr "Einhängepunkt"
 
@@ -72,8 +87,17 @@ msgstr "Name"
 msgid "Names"
 msgstr "Namen"
 
+msgid "Network I/O"
+msgstr ""
+
 msgid "Networks"
 msgstr "Netzwerke"
+
+msgid "PIDs"
+msgstr ""
+
+msgid "Pod"
+msgstr ""
 
 msgid "Podman"
 msgstr "Podman"
@@ -84,11 +108,11 @@ msgstr "Pods"
 msgid "Ports"
 msgstr "Ports"
 
-msgid "Pull latest"
-msgstr "'Latest' ziehen"
+msgid "Pull"
+msgstr ""
 
-msgid "Pull latest image"
-msgstr "Aktuelles Abbild ziehen"
+msgid "Pull image"
+msgstr ""
 
 msgid "Repository"
 msgstr "Repository"
@@ -113,6 +137,9 @@ msgstr "Status"
 
 msgid "Tag"
 msgstr "Etikett"
+
+msgid "The tag of the image to pull."
+msgstr ""
 
 msgid "Updated Podman settings."
 msgstr "Podman-Einstellungen wurden aktualisiert."

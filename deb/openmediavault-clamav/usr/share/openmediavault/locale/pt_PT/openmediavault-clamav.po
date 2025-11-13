@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2012,2014\n"
 "Language-Team: Portuguese (Portugal) (http://app.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
@@ -72,6 +72,9 @@ msgstr "Detetar PUA"
 msgid "Detect broken executables"
 msgstr "Detetar executáveis errados"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "Editar"
 
@@ -97,6 +100,9 @@ msgstr "Ativar a deteção do algoritmo "
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "Ativar a deteção de executáveis danificados (ambos PE e ELF)."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Ativar a deteção de possíveis aplicações indesejadas."
@@ -248,6 +254,9 @@ msgstr "Enviar email"
 msgid "September"
 msgstr "Setembro"
 
+msgid "Service disabled"
+msgstr "Serviço desativo"
+
 msgid "Settings"
 msgstr "Definições"
 
@@ -277,6 +286,9 @@ msgstr "A opção, como tratar ficheiros infectados."
 
 msgid "Thursday"
 msgstr "Quinta-feira"
+
+msgid "Time of execution"
+msgstr "Tempo de execução"
 
 msgid "Tuesday"
 msgstr "Terça-feira"

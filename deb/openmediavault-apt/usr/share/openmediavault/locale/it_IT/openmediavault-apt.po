@@ -23,7 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Check for new packages"
-msgstr "Controlla i nuovi pacchetti"
+msgstr "Verifica la disponibilità di nuovi pacchetti"
 
 msgid "Components"
 msgstr "Componenti"

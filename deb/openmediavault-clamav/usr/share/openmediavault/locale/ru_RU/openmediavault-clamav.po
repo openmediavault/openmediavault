@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Artur Mudrykh <arturmon82@gmail.com>, 2017\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -77,6 +77,9 @@ msgstr "Обнаружение PUA"
 msgid "Detect broken executables"
 msgstr "Обнаружение повреждённых исполняемых файлов"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -102,6 +105,9 @@ msgstr "Включить алгоритмическое обнаружение."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "Включить обнаружение повреждённых исполняемых файлов (и PE и ELF)."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Включить обнаружение возможно нежелательных приложений."
@@ -253,6 +259,9 @@ msgstr "Отправить электронное письмо"
 msgid "September"
 msgstr "Сентябрь"
 
+msgid "Service disabled"
+msgstr "Служба отключена"
+
 msgid "Settings"
 msgstr "Настройки"
 
@@ -282,6 +291,9 @@ msgstr "Опции , как обращаться с зараженными фа�
 
 msgid "Thursday"
 msgstr "Четверг"
+
+msgid "Time of execution"
+msgstr "Время выполнения"
 
 msgid "Tuesday"
 msgstr "Вторник"

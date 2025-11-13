@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-podman\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 21:57+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
 "Language-Team: Portuguese (Portugal) (https://app.transifex.com/openmediavault/teams/14254/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_PT\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "Block I/O"
+msgstr ""
+
+msgid "CID"
+msgstr ""
+
+msgid "CPU %"
+msgstr ""
 
 msgid "Command"
 msgstr ""
@@ -56,6 +65,12 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
+msgid "Mem %"
+msgstr ""
+
+msgid "Mem Usage / Limit"
+msgstr ""
+
 msgid "Mount Point"
 msgstr ""
 
@@ -68,7 +83,16 @@ msgstr ""
 msgid "Names"
 msgstr ""
 
+msgid "Network I/O"
+msgstr ""
+
 msgid "Networks"
+msgstr ""
+
+msgid "PIDs"
+msgstr ""
+
+msgid "Pod"
 msgstr ""
 
 msgid "Podman"
@@ -80,10 +104,10 @@ msgstr ""
 msgid "Ports"
 msgstr ""
 
-msgid "Pull latest"
+msgid "Pull"
 msgstr ""
 
-msgid "Pull latest image"
+msgid "Pull image"
 msgstr ""
 
 msgid "Repository"
@@ -108,6 +132,9 @@ msgid "Status"
 msgstr ""
 
 msgid "Tag"
+msgstr ""
+
+msgid "The tag of the image to pull."
 msgstr ""
 
 msgid "Updated Podman settings."

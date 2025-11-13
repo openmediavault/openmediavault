@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2021,2023\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -71,6 +71,9 @@ msgstr "PUAの検出"
 msgid "Detect broken executables"
 msgstr "壊れた実行ファイルを検出"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "編集"
 
@@ -96,6 +99,9 @@ msgstr "アルゴリズム的検出を有効にします。"
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "壊れた実行ファイル（PEとELF両方）の検出を有効にします。"
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "おそらく不要なアプリケーションの検出を有効にします。"
@@ -247,6 +253,9 @@ msgstr "電子メールの送信"
 msgid "September"
 msgstr "9月"
 
+msgid "Service disabled"
+msgstr "サービスは無効"
+
 msgid "Settings"
 msgstr "設定"
 
@@ -276,6 +285,9 @@ msgstr "感染したファイルをどのように処理するかのオプショ
 
 msgid "Thursday"
 msgstr "木曜"
+
+msgid "Time of execution"
+msgstr "実行時刻"
 
 msgid "Tuesday"
 msgstr "火曜"

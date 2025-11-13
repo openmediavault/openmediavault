@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -160,9 +160,6 @@ msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maximale prestaties, maximaal stroomverbruik"
-
-msgid "255 - Disabled"
-msgstr "255 - Uitgeschakeld"
 
 msgid "3 days"
 msgstr "3 dagen"
@@ -1381,9 +1378,6 @@ msgstr "Ghana"
 msgid "Gibraltar"
 msgstr "Gibraltar"
 
-msgid "Go to the notification sidebar to attach to it."
-msgstr "Ga naar Meldingen om daar de bijlage te openen."
-
 msgid "Good"
 msgstr "Goed"
 
@@ -1896,8 +1890,8 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of CPUfreq settings."
-msgstr "CPUfreq-instellingen beheren."
+msgid "Management of cpufreq and cpuidle tunables."
+msgstr ""
 
 msgid "Management of scheduled tasks."
 msgstr "Geplande taken beheren."
@@ -4090,6 +4084,9 @@ msgstr "WOL"
 msgid "WPA2-Personal"
 msgstr "WPA2-Personal"
 
+msgid "WPA3-Personal"
+msgstr ""
+
 msgid "WWN"
 msgstr "WWN"
 
@@ -4116,6 +4113,11 @@ msgstr "Welkom bij openmediavault"
 
 msgid "Western Sahara"
 msgstr "Westelijke Sahara"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr ""
 
 msgid "Wi-Fi"
 msgstr "Wifi"

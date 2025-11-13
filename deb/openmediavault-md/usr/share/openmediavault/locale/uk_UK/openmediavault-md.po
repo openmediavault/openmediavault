@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 10:24+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
 "Last-Translator: zubr139, 2025\n"
 "Language-Team: Ukrainian (https://app.transifex.com/openmediavault/teams/14254/uk/)\n"
@@ -51,6 +51,9 @@ msgstr "Пристрій"
 msgid "Devices"
 msgstr "Пристрої"
 
+msgid "Displays information about MD (Software RAID) devices."
+msgstr ""
+
 msgid "Grow"
 msgstr "Розширити"
 
@@ -59,6 +62,9 @@ msgstr "Рівень"
 
 msgid "Linear"
 msgstr "Лінійний"
+
+msgid "MD Devices"
+msgstr ""
 
 msgid "Mirror"
 msgstr "Зеркало"

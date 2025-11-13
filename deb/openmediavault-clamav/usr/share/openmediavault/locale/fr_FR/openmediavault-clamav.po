@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: M@T D., 2023\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -75,6 +75,9 @@ msgstr "Détecter les PPI"
 msgid "Detect broken executables"
 msgstr "Détecter les exécutables cassés"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "Éditer"
 
@@ -100,6 +103,9 @@ msgstr "Activer la détection algorithmique"
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "Activer la détection des exécutables cassés (à la fois PE et ELF)"
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Activer la détection des Programme Potentiellement Indésirable"
@@ -251,6 +257,9 @@ msgstr "Envoyer un mail"
 msgid "September"
 msgstr "Septembre"
 
+msgid "Service disabled"
+msgstr "Service désactivé"
+
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -280,6 +289,9 @@ msgstr "L'option à utiliser pour traiter les fichiers infectés."
 
 msgid "Thursday"
 msgstr "Jeudi"
+
+msgid "Time of execution"
+msgstr "Date d'exécution"
 
 msgid "Tuesday"
 msgstr "Mardi"

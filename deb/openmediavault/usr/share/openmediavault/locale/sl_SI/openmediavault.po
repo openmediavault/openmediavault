@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -153,9 +153,6 @@ msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maksimalna moč, maksimalna poraba energije"
-
-msgid "255 - Disabled"
-msgstr "255 - Onemogočeno"
 
 msgid "3 days"
 msgstr "3 dni"
@@ -1374,9 +1371,6 @@ msgstr "Gana"
 msgid "Gibraltar"
 msgstr "Gibraltar"
 
-msgid "Go to the notification sidebar to attach to it."
-msgstr "Pojdite v stransko vrstico z obvestili, da jo pripnete."
-
 msgid "Good"
 msgstr "Dobro"
 
@@ -1889,8 +1883,8 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of CPUfreq settings."
-msgstr "Upravljanje nastavitev CPUfreq."
+msgid "Management of cpufreq and cpuidle tunables."
+msgstr ""
 
 msgid "Management of scheduled tasks."
 msgstr "Upravljanje načrtovanih opravil."
@@ -4083,6 +4077,9 @@ msgstr "WOL"
 msgid "WPA2-Personal"
 msgstr "WPA2-Personal"
 
+msgid "WPA3-Personal"
+msgstr ""
+
 msgid "WWN"
 msgstr "WWN"
 
@@ -4109,6 +4106,11 @@ msgstr "Dobrodošli v openmediavault"
 
 msgid "Western Sahara"
 msgstr "Zahodna Sahara"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr ""
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

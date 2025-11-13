@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-podman\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 21:57+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
 "Last-Translator: zubr139, 2025\n"
 "Language-Team: Ukrainian (https://app.transifex.com/openmediavault/teams/14254/uk/)\n"
@@ -20,6 +20,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+msgid "Block I/O"
+msgstr ""
+
+msgid "CID"
+msgstr ""
+
+msgid "CPU %"
+msgstr ""
 
 msgid "Command"
 msgstr "Команда"
@@ -60,6 +69,12 @@ msgstr "Оглянути"
 msgid "Logs"
 msgstr "Журнали"
 
+msgid "Mem %"
+msgstr ""
+
+msgid "Mem Usage / Limit"
+msgstr ""
+
 msgid "Mount Point"
 msgstr "Точка монтування"
 
@@ -72,8 +87,17 @@ msgstr "Ім'я"
 msgid "Names"
 msgstr "Імена"
 
+msgid "Network I/O"
+msgstr ""
+
 msgid "Networks"
 msgstr "Мережі"
+
+msgid "PIDs"
+msgstr ""
+
+msgid "Pod"
+msgstr ""
 
 msgid "Podman"
 msgstr "Podman"
@@ -84,10 +108,10 @@ msgstr ""
 msgid "Ports"
 msgstr "Порти"
 
-msgid "Pull latest"
+msgid "Pull"
 msgstr ""
 
-msgid "Pull latest image"
+msgid "Pull image"
 msgstr ""
 
 msgid "Repository"
@@ -113,6 +137,9 @@ msgstr "Статус"
 
 msgid "Tag"
 msgstr "Тег"
+
+msgid "The tag of the image to pull."
+msgstr ""
 
 msgid "Updated Podman settings."
 msgstr "Оновлені налаштування Podman."

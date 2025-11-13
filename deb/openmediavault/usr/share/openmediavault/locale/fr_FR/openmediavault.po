@@ -15,6 +15,7 @@
 # M@T D., 2022-2024
 # Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2012-2013
 # Pierre Girard <pierre4012@hotmail.com>, 2021
+# seigneurfuo <seigneurfuo@gmail.com>, 2025
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012-2013
 # Stéphane Bocquet <stephane_bocquet@hotmail.com>, 2012
 # Volker Theile <votdev@gmx.de>, 2022
@@ -23,9 +24,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: M@T D., 2022-2024\n"
+"Last-Translator: seigneurfuo <seigneurfuo@gmail.com>, 2025\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -167,9 +168,6 @@ msgstr "250 Mo"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Performance maximale, consommation maximale"
-
-msgid "255 - Disabled"
-msgstr "255 - Désactivé"
 
 msgid "3 days"
 msgstr "3 jours"
@@ -1320,7 +1318,7 @@ msgid "Flags"
 msgstr "Drapeaux"
 
 msgid "Follow symlinks"
-msgstr ""
+msgstr "Suivre liens symboliques"
 
 msgid "Force SSL/TLS"
 msgstr "Forcer SSL/TLS"
@@ -1387,9 +1385,6 @@ msgstr "Ghana"
 
 msgid "Gibraltar"
 msgstr "Gibraltar"
-
-msgid "Go to the notification sidebar to attach to it."
-msgstr "Accédez à la barre latérale de notification pour le joindre."
 
 msgid "Good"
 msgstr "Bon"
@@ -1903,8 +1898,8 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malte"
 
-msgid "Management of CPUfreq settings."
-msgstr "Gestion de la fréquence du processeur."
+msgid "Management of cpufreq and cpuidle tunables."
+msgstr ""
 
 msgid "Management of scheduled tasks."
 msgstr "Gestion des tâches planifiées."
@@ -4097,6 +4092,9 @@ msgstr "WOL"
 msgid "WPA2-Personal"
 msgstr "WPA2 Personnel"
 
+msgid "WPA3-Personal"
+msgstr "WPA3 Personnel"
+
 msgid "WWN"
 msgstr "WWN"
 
@@ -4123,6 +4121,11 @@ msgstr "Bienvenue sur OpenMediaVault."
 
 msgid "Western Sahara"
 msgstr "Sahara occidental"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr ""
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

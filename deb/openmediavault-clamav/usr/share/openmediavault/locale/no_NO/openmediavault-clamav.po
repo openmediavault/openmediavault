@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
 "Language-Team: Norwegian (http://app.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -72,6 +72,9 @@ msgstr "Oppdag PUAAlgorithmic detection"
 msgid "Detect broken executables"
 msgstr "Oppdag ødelagte kjørbare filer"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "Endre"
 
@@ -97,6 +100,9 @@ msgstr "Aktiver algoritmisk deteksjon."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "Aktiver gjenkjenning av ødelagte kjørbare filer (både PE og ELF)."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Aktiver gjenkjenning av potensielt uønskede programmer."
@@ -248,6 +254,9 @@ msgstr "Send epost"
 msgid "September"
 msgstr "September"
 
+msgid "Service disabled"
+msgstr "Tjeneste deaktivert"
+
 msgid "Settings"
 msgstr "Innstillinger"
 
@@ -277,6 +286,9 @@ msgstr ""
 
 msgid "Thursday"
 msgstr "Torsdag"
+
+msgid "Time of execution"
+msgstr ""
 
 msgid "Tuesday"
 msgstr "Tirsdag"

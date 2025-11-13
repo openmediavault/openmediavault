@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 20:04+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: Marek Pavelka, 2025\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
@@ -26,9 +26,6 @@ msgstr ""
 
 msgid "1 MiB/s"
 msgstr "1 MiB/s"
-
-msgid "1 minute"
-msgstr "1 minuta"
 
 msgid "10 MiB/s"
 msgstr "10 MiB/s"
@@ -48,23 +45,14 @@ msgstr "128 KiB/s"
 msgid "15 minutes"
 msgstr "15 minut"
 
-msgid "2 minutes"
-msgstr "2 minuty"
-
 msgid "24 hours"
 msgstr "24 hodin"
 
 msgid "256 KiB/s"
 msgstr "256 KiB/s"
 
-msgid "3 minutes"
-msgstr "3 minuty"
-
 msgid "30 minutes"
 msgstr "30 minut"
-
-msgid "4 minutes"
-msgstr "4 minuty"
 
 msgid "5 minutes"
 msgstr "5 minut"
@@ -98,6 +86,9 @@ msgstr "Vyčistit místní soubory"
 msgid "Clean up local files that have been removed online."
 msgstr "Vyčistit místní soubory, které byly odebrány online."
 
+msgid "Date & Time"
+msgstr "Datum a čas"
+
 msgid "Disabled"
 msgstr "Zakázáno"
 
@@ -118,6 +109,9 @@ msgstr "Plný"
 
 msgid "Local first"
 msgstr "Nejdříve místní"
+
+msgid "Message"
+msgstr "Zpráva"
 
 msgid "Monitor interval"
 msgstr "Interval monitorování"

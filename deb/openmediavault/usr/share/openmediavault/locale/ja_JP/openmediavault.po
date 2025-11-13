@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -152,9 +152,6 @@ msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - 最大のパフォーマンス、最大の消費電力"
-
-msgid "255 - Disabled"
-msgstr "255 - 無効"
 
 msgid "3 days"
 msgstr "3 日"
@@ -1373,9 +1370,6 @@ msgstr "ガーナ"
 msgid "Gibraltar"
 msgstr "ジブラルタル"
 
-msgid "Go to the notification sidebar to attach to it."
-msgstr "通知サイドバーに移動して添付します。"
-
 msgid "Good"
 msgstr "良い"
 
@@ -1888,8 +1882,8 @@ msgstr "マリ"
 msgid "Malta"
 msgstr "マルタ"
 
-msgid "Management of CPUfreq settings."
-msgstr "CPUfreq設定の管理。"
+msgid "Management of cpufreq and cpuidle tunables."
+msgstr ""
 
 msgid "Management of scheduled tasks."
 msgstr "スケジュールされたタスクの管理。"
@@ -4082,6 +4076,9 @@ msgstr "WOL"
 msgid "WPA2-Personal"
 msgstr "WPA2-Personal"
 
+msgid "WPA3-Personal"
+msgstr "WPA3-Personal"
+
 msgid "WWN"
 msgstr "WWN"
 
@@ -4108,6 +4105,11 @@ msgstr "openmediavaultへようこそ"
 
 msgid "Western Sahara"
 msgstr "西サハラ"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr ""
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

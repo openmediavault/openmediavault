@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2025\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -158,9 +158,6 @@ msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maximális teljesítmény, teljes energiahasználat"
-
-msgid "255 - Disabled"
-msgstr "255 - Letiltva"
 
 msgid "3 days"
 msgstr "3 nap"
@@ -1379,9 +1376,6 @@ msgstr "Ghána"
 msgid "Gibraltar"
 msgstr "Gibraltár"
 
-msgid "Go to the notification sidebar to attach to it."
-msgstr "Ugrás az értesítési oldalsávra, hogy csatlakozzon hozzá."
-
 msgid "Good"
 msgstr "Jó"
 
@@ -1894,8 +1888,8 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Málta"
 
-msgid "Management of CPUfreq settings."
-msgstr "CPU frekvencia beállítások kezelése."
+msgid "Management of cpufreq and cpuidle tunables."
+msgstr ""
 
 msgid "Management of scheduled tasks."
 msgstr "Ütemezett feladatok kezelése."
@@ -4088,6 +4082,9 @@ msgstr "WOL"
 msgid "WPA2-Personal"
 msgstr "WPA2-Personal"
 
+msgid "WPA3-Personal"
+msgstr "WPA3-Personal"
+
 msgid "WWN"
 msgstr "WWN"
 
@@ -4114,6 +4111,11 @@ msgstr "Üdvözöljük az openmediavault-ban"
 
 msgid "Western Sahara"
 msgstr "Nyugat-Szahara"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr ""
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

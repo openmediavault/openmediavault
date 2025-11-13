@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-27 14:31+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -96,6 +96,9 @@ msgstr "감소"
 
 msgid "Reduced volume group '{{ devicefile }}'."
 msgstr ""
+
+msgid "Referenced"
+msgstr "참조"
 
 msgid "Resize"
 msgstr "크기 조정"

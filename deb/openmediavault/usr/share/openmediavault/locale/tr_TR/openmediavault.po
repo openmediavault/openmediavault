@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022,2025\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -152,9 +152,6 @@ msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - En yüksek performans, en yüksek güç kullanımı"
-
-msgid "255 - Disabled"
-msgstr "255 - Kapatılmış"
 
 msgid "3 days"
 msgstr "3 gün"
@@ -1373,9 +1370,6 @@ msgstr "Gana"
 msgid "Gibraltar"
 msgstr "Cebelitarık"
 
-msgid "Go to the notification sidebar to attach to it."
-msgstr ""
-
 msgid "Good"
 msgstr "İyi"
 
@@ -1888,7 +1882,7 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of CPUfreq settings."
+msgid "Management of cpufreq and cpuidle tunables."
 msgstr ""
 
 msgid "Management of scheduled tasks."
@@ -4082,6 +4076,9 @@ msgstr "WOL"
 msgid "WPA2-Personal"
 msgstr ""
 
+msgid "WPA3-Personal"
+msgstr ""
+
 msgid "WWN"
 msgstr "WWN"
 
@@ -4108,6 +4105,11 @@ msgstr ""
 
 msgid "Western Sahara"
 msgstr "Batı Sahara"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr ""
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

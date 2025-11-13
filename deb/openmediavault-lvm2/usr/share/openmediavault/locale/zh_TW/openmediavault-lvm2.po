@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-27 14:31+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021,2024\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -97,6 +97,9 @@ msgstr "縮減"
 
 msgid "Reduced volume group '{{ devicefile }}'."
 msgstr "已縮減碟卷組 '{{ devicefile }}'。"
+
+msgid "Referenced"
+msgstr "被引用"
 
 msgid "Resize"
 msgstr "調整大小"
