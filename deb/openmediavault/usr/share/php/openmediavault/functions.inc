@@ -760,6 +760,7 @@ function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0): ?s
  * @return Returns a Unix timestamp on success, FALSE otherwise.
  */
 function strpdate($date, $format): ?int {
+	$date = str_replace("\0", '', $date); // Remove null bytes.
 	if (FALSE === ($dt = DateTime::createFromFormat($format, $date)))
 		return FALSE;
 	return $dt->getTimestamp();
