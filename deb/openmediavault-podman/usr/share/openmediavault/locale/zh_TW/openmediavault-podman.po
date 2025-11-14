@@ -5,8 +5,8 @@
 # 
 # Translators:
 # songming <by@songming.me>, 2023
-# 黃柏諺 <s8321414@gmail.com>, 2023
 # kochin <kochinc@outlook.com>, 2023
+# 黃柏諺 <s8321414@gmail.com>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2023\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2025\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,13 +24,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Block I/O"
-msgstr ""
+msgstr "區塊 I/O"
 
 msgid "CID"
-msgstr ""
+msgstr "CID"
 
 msgid "CPU %"
-msgstr ""
+msgstr "CPU %"
 
 msgid "Command"
 msgstr "指令"
@@ -72,10 +72,10 @@ msgid "Logs"
 msgstr "日誌"
 
 msgid "Mem %"
-msgstr ""
+msgstr "記憶體 %"
 
 msgid "Mem Usage / Limit"
-msgstr ""
+msgstr "記憶體使用量 / 限制"
 
 msgid "Mount Point"
 msgstr "掛載點"
@@ -90,16 +90,16 @@ msgid "Names"
 msgstr "名稱"
 
 msgid "Network I/O"
-msgstr ""
+msgstr "網路 I/O"
 
 msgid "Networks"
 msgstr "網路"
 
 msgid "PIDs"
-msgstr ""
+msgstr "PID"
 
 msgid "Pod"
-msgstr ""
+msgstr "Pod"
 
 msgid "Podman"
 msgstr "Podman"
@@ -111,10 +111,10 @@ msgid "Ports"
 msgstr "通訊埠"
 
 msgid "Pull"
-msgstr ""
+msgstr "拉取"
 
 msgid "Pull image"
-msgstr ""
+msgstr "拉取映像檔"
 
 msgid "Repository"
 msgstr "鏡像庫"
@@ -141,7 +141,7 @@ msgid "Tag"
 msgstr "標籤"
 
 msgid "The tag of the image to pull."
-msgstr ""
+msgstr "要拉取的映像檔標籤。"
 
 msgid "Updated Podman settings."
 msgstr "已更新 Podman 設定。"

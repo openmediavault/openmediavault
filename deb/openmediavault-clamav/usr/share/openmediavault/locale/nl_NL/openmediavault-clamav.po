@@ -76,7 +76,7 @@ msgid "Detect broken executables"
 msgstr "Defecte uitvoerbare bestanden detecteren"
 
 msgid "Detect broken media"
-msgstr ""
+msgstr "Defecte media detecteren"
 
 msgid "Edit"
 msgstr "Aanpassen"
@@ -105,7 +105,7 @@ msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "De detectie van defecte uitvoerbare bestanden (zowel PE en ELF) inschakelen."
 
 msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
-msgstr ""
+msgstr "De detectie van kapotte mediabestanden (JPEG, TIFF, PNG, GIF) inschakelen."
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Waarneming van mogelijk ongewenste toepassingen inschakelen."
@@ -291,7 +291,7 @@ msgid "Thursday"
 msgstr "Donderdag"
 
 msgid "Time of execution"
-msgstr "Starttijd"
+msgstr "Tijdstip van uitvoering"
 
 msgid "Tuesday"
 msgstr "Dinsdag"

@@ -1889,7 +1889,7 @@ msgid "Malta"
 msgstr "马耳他"
 
 msgid "Management of cpufreq and cpuidle tunables."
-msgstr ""
+msgstr "CPU 頻率與閒置可調設定管理。"
 
 msgid "Management of scheduled tasks."
 msgstr "管理计划任务。"
@@ -4115,7 +4115,7 @@ msgstr "西撒哈拉"
 msgid ""
 "While the background task is still running, you can attach the Workbench "
 "terminal dialog to it in the notification bar."
-msgstr ""
+msgstr "當背景工作仍在執行時，你可以在將工作台的終端機對話連上它"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

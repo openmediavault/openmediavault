@@ -1891,7 +1891,7 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Management of cpufreq and cpuidle tunables."
-msgstr ""
+msgstr "Beheer van cpufreq- en cpuidle-instellingen."
 
 msgid "Management of scheduled tasks."
 msgstr "Geplande taken beheren."
@@ -2622,7 +2622,7 @@ msgid "Recursive"
 msgstr "Recursief"
 
 msgid "Referenced"
-msgstr "Verwijzing"
+msgstr "Met verwijzing"
 
 msgid "Relative Path"
 msgstr "Relatief pad"
@@ -4085,7 +4085,7 @@ msgid "WPA2-Personal"
 msgstr "WPA2-Personal"
 
 msgid "WPA3-Personal"
-msgstr ""
+msgstr "WPA3-Personal"
 
 msgid "WWN"
 msgstr "WWN"
@@ -4117,7 +4117,7 @@ msgstr "Westelijke Sahara"
 msgid ""
 "While the background task is still running, you can attach the Workbench "
 "terminal dialog to it in the notification bar."
-msgstr ""
+msgstr "Terwijl de achtergrondtaak nog steeds actief is, kunt u het dialoogvenster Workbench-terminal eraan koppelen in de meldingsbalk."
 
 msgid "Wi-Fi"
 msgstr "Wifi"

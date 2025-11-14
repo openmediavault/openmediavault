@@ -100,7 +100,7 @@ msgid "Reduced volume group '{{ devicefile }}'."
 msgstr "Gereduceerde volume-groep '{{ devicefile }}'."
 
 msgid "Referenced"
-msgstr "Verwijzing"
+msgstr "Met verwijzing"
 
 msgid "Resize"
 msgstr "Grootte aanpassen"

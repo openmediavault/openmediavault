@@ -22,13 +22,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Block I/O"
-msgstr ""
+msgstr "I/O blokkeren"
 
 msgid "CID"
-msgstr ""
+msgstr "CID"
 
 msgid "CPU %"
-msgstr ""
+msgstr "CPU %"
 
 msgid "Command"
 msgstr "Opdracht"
@@ -70,10 +70,10 @@ msgid "Logs"
 msgstr "Logboeken"
 
 msgid "Mem %"
-msgstr ""
+msgstr "Mem %"
 
 msgid "Mem Usage / Limit"
-msgstr ""
+msgstr "Mem gebruik / limiet"
 
 msgid "Mount Point"
 msgstr "Aankoppelpunt"
@@ -88,16 +88,16 @@ msgid "Names"
 msgstr "Namen"
 
 msgid "Network I/O"
-msgstr ""
+msgstr "Netwerk I/O"
 
 msgid "Networks"
 msgstr "Netwerken"
 
 msgid "PIDs"
-msgstr ""
+msgstr "PID's"
 
 msgid "Pod"
-msgstr ""
+msgstr "Pod"
 
 msgid "Podman"
 msgstr "Podman"
@@ -109,10 +109,10 @@ msgid "Ports"
 msgstr "Poorten"
 
 msgid "Pull"
-msgstr ""
+msgstr "Ophalen"
 
 msgid "Pull image"
-msgstr ""
+msgstr "Image ophalen"
 
 msgid "Repository"
 msgstr "Opslagplaats"
@@ -139,7 +139,7 @@ msgid "Tag"
 msgstr "Label"
 
 msgid "The tag of the image to pull."
-msgstr ""
+msgstr "Het label van de image."
 
 msgid "Updated Podman settings."
 msgstr "Instellingen voor Podman bijgewerkt."

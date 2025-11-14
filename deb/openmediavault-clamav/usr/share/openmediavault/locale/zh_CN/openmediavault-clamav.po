@@ -73,7 +73,7 @@ msgid "Detect broken executables"
 msgstr "检测损坏的可执行文件"
 
 msgid "Detect broken media"
-msgstr ""
+msgstr "偵測損壞的媒體"
 
 msgid "Edit"
 msgstr "编辑"
@@ -102,7 +102,7 @@ msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "启用损坏可执行文件(包括 PE 和 ELF)的检测。"
 
 msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
-msgstr ""
+msgstr "啟用對損壞之媒體(JPEG、TIFF、PNG、GIF)的偵測。"
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "启用不受欢迎的应用文件检测。"

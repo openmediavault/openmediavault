@@ -54,7 +54,7 @@ msgid "Devices"
 msgstr "裝置"
 
 msgid "Displays information about MD (Software RAID) devices."
-msgstr ""
+msgstr "顯示關於 MD (軟體 RAID)裝置的資訊。"
 
 msgid "Grow"
 msgstr "增長"
@@ -66,7 +66,7 @@ msgid "Linear"
 msgstr "線性"
 
 msgid "MD Devices"
-msgstr ""
+msgstr "MD 裝置"
 
 msgid "Mirror"
 msgstr "鏡像"

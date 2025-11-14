@@ -52,7 +52,7 @@ msgid "Devices"
 msgstr "Apparaten"
 
 msgid "Displays information about MD (Software RAID) devices."
-msgstr ""
+msgstr "Geeft informatie weer over MD-apparaten (Software RAID)."
 
 msgid "Grow"
 msgstr "Uitbreiden"
@@ -64,7 +64,7 @@ msgid "Linear"
 msgstr "Lineair"
 
 msgid "MD Devices"
-msgstr ""
+msgstr "MD-apparaten"
 
 msgid "Mirror"
 msgstr "Mirror"
