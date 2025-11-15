@@ -52,7 +52,7 @@ msgid "Devices"
 msgstr "Συσκευές"
 
 msgid "Displays information about MD (Software RAID) devices."
-msgstr ""
+msgstr "Εμφάνιση πληροφοριών για τις συσκευές MD (RAID λογισμικού)."
 
 msgid "Grow"
 msgstr "Μεγέθυνση"
@@ -64,7 +64,7 @@ msgid "Linear"
 msgstr "Γραμμικό"
 
 msgid "MD Devices"
-msgstr ""
+msgstr "Συσκευές MD"
 
 msgid "Mirror"
 msgstr "Καθρεφτισμός"

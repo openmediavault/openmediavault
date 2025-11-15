@@ -1883,7 +1883,7 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Management of cpufreq and cpuidle tunables."
-msgstr ""
+msgstr "Διαχείριση ρυθμίσεων των cpufreq και cpuidle.."
 
 msgid "Management of scheduled tasks."
 msgstr "Διαχείριση προγραμματισμένων εργασιών."
@@ -2563,10 +2563,10 @@ msgid "Puerto Rico"
 msgstr "Puerto Rico"
 
 msgid "Pull"
-msgstr "Έλξη"
+msgstr "Λήψη"
 
 msgid "Push"
-msgstr "Ώθηση"
+msgstr "Αποστολή"
 
 msgid "Qatar"
 msgstr "Qatar"
@@ -4109,7 +4109,7 @@ msgstr "Western Sahara"
 msgid ""
 "While the background task is still running, you can attach the Workbench "
 "terminal dialog to it in the notification bar."
-msgstr ""
+msgstr "Ενώ εκτελείται η εργασία στο παρασκήνιο, μπορεί να της προσαρτηθεί το τερματικό του Workbench στην μπάρα ειδοποιήσεων."
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

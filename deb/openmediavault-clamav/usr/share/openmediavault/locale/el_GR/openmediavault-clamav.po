@@ -69,10 +69,10 @@ msgid "Detect PUA"
 msgstr "Ανίχνευση PUA"
 
 msgid "Detect broken executables"
-msgstr "Ανίχνευση χαμασμένων εκτελέσιμων"
+msgstr "Ανίχνευση χαλασμένων εκτελέσιμων"
 
 msgid "Detect broken media"
-msgstr ""
+msgstr "Ανίχνευση χαλασμένων εικόνων"
 
 msgid "Edit"
 msgstr "Επεξεργασία"
@@ -101,7 +101,7 @@ msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "Ενεργοποίηση ανίχνευσης ελλατωματικών εκτελέσιμων (PE και ELF)."
 
 msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
-msgstr ""
+msgstr "Ενεργοποίηση ανίχνευσης χαλασμένων αρχείων εικόνας (JPEG, TIFF, PNG, GIF)."
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Ενεργοποίηση ελέγχου για πιθανές ανεπιθύμητες εφαρμογές."
