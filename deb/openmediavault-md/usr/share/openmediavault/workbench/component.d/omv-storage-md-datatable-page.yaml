@@ -44,8 +44,6 @@ data:
               value: _("Mirror")
             raid1:
               value: _("Mirror")
-            linear:
-              value: _("Linear")
             raid2:
               value: _("RAID 2")
             raid3:

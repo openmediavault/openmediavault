@@ -258,7 +258,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 *   \em devices The devices to be used.
 	 *   \em name The name of the RAID device. Can be empty.
-	 *   \em level The RAID level, e.g. stripe, mirror, linear ,raid10,
+	 *   \em level The RAID level, e.g. stripe, mirror, raid10,
 	 *   raid5 or raid6.
 	 * @param context The context of the caller.
 	 * @return void

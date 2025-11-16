@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-16 11:21+0100\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
 "Last-Translator: Daniel, 2025\n"
 "Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
@@ -59,9 +59,6 @@ msgstr "Växa"
 
 msgid "Level"
 msgstr "Nivå"
-
-msgid "Linear"
-msgstr "Linjär"
 
 msgid "MD Devices"
 msgstr ""

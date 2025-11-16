@@ -25,8 +25,6 @@ data:
               - _("Stripe")
             - - mirror
               - _("Mirror")
-            - - linear
-              - _("Linear")
             - - raid10
               - _("RAID 10")
             - - raid5
@@ -60,7 +58,6 @@ data:
                     prop: level
                   arg1:
                     - stripe
-                    - linear
                     - mirror
                 arg1:
                   operator: '>='
