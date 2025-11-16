@@ -32,6 +32,10 @@ configure_issue:
     - mode: 644
     - onlyif: udevadm settle
 
+divert_issue:
+  omv_dpkg.divert_add:
+    - name: "/etc/issue"
+
 reload_issue:
   cmd.run:
     - name: "agetty --reload"
