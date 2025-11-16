@@ -1,3 +1,9 @@
+openmediavault (7.7.22-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Nov 2025 10:54:32 +0100
+
 openmediavault (7.7.21-1) stable; urgency=medium
 
   * Hardening the log file parser.
