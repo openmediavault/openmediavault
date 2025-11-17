@@ -348,8 +348,15 @@ finish:
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the list of non-system user.
 		$users = $this->enumerateUsersByType("normal");
-		// Process users and append additional information stored in
-		// the database.
+		// Get all users stored in the database and generate a lookup map.
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.system.usermngmnt.user");
+		$objectsMap = [];
+		foreach ($objects as $objectk => $objectv) {
+			$objectsMap[$objectv->get("name")] = $objectv;
+		}
+		// Process users and append additional information that are stored
+		// in the database.
 		foreach ($users as $userk => &$userv) {
 			// Set the defaults of the additional information.
 			$userv = array_merge($userv, [
@@ -357,18 +364,8 @@ finish:
 				"disallowusermod" => FALSE,
 				"sshpubkeys" => []
 			]);
-			// Get additional information stored in database.
-			$db = \OMV\Config\Database::getInstance();
-			$objects = $db->getByFilter("conf.system.usermngmnt.user", [
-				"operator" => "stringEquals",
-				"arg0" => "name",
-				"arg1" => $userv['name']
-			]);
-			if (0 < count($objects)) {
-				// Get the user configuration object. Due the fact that a user
-				// name is unique, we can simply use the first found object.
-				$object = $objects[0];
-				// Append additional information.
+			if (array_key_exists($userv['name'], $objectsMap)) {
+				$object = $objectsMap[$userv['name']];
 				$userv['email'] = $object->get("email");
 				$userv['disallowusermod'] = $object->get("disallowusermod");
 				if (FALSE === $object->isEmpty("sshpubkeys"))
@@ -785,20 +782,18 @@ finish:
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the list of non-system groups.
 		$groups = $this->enumerateGroupsByType("normal");
+		// Get all groups stored in the database and generate a lookup map.
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.system.usermngmnt.group");
+		$objectsMap = [];
+		foreach ($objects as $objectk => $objectv) {
+			$objectsMap[$objectv->get("name")] = $objectv;
+		}
+		// Process groups and append additional information that are stored
+		// in the database.
 		foreach ($groups as $groupk => &$groupv) {
-			// Get additional information stored in database.
-			$db = \OMV\Config\Database::getInstance();
-			$objects = $db->getByFilter("conf.system.usermngmnt.group", [
-				"operator" => "stringEquals",
-				"arg0" => "name",
-				"arg1" => $groupv['name']
-			]);
-			if (0 < count($objects)) {
-				// Get the group configuration object. Due the fact that a
-				// group name is unique, we can simply use the first found
-				// object.
-				$object = $objects[0];
-				// Append additional information.
+			if (array_key_exists($groupv['name'], $objectsMap)) {
+				$object = $objectsMap[$groupv['name']];
 				$groupv['comment'] = $object->get("comment");
 			}
 		}
