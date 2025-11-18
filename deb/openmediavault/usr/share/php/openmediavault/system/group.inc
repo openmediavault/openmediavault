@@ -73,17 +73,10 @@ class Group {
 		$this->gid = $groupInfo['gid'];
 		$this->members = $groupInfo['members']; // Note, theses are only the supplementary group members.
 		// Append the primary group members.
-		$cmd = new \OMV\System\Process("getent", "passwd");
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		foreach ($output as $outputk => $outputv) {
-			// https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/
-			$fields = explode(":", $outputv);
-			if (TRUE === empty($fields)) {
-				continue;
-			}
-			if ((int)$fields[3] === $this->gid) {
-				$this->members[] = trim($fields[0]);
+		$users = \OMV\System\User::enumerateUsers();
+		foreach ($users as $userk => $userv) {
+			if ($userv->getGid() == $this->gid) {
+				$this->members[] = $userk;
 			}
 		}
 		// Remove duplicates and sort/re-index the array.
@@ -220,7 +213,7 @@ class Group {
 	 * @return An array of group names.
 	 * @throw \OMV\ExecException
 	 */
-	public static function enumerateGroupNames() {
+	public static function enumerateGroupNames(): array {
 		$cmd = new \OMV\System\Process("getent", "group");
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);

@@ -387,14 +387,35 @@ class User {
 	}
 
 	/**
-	 * Enumerate user names.
-	 * @return An array of user names.
+	 * Create a User object from a `/etc/passwd` file line.
+	 * @param string $line A line from the passwd file.
+	 * @return A `User` object.
+	 * @throw \ValueError
+	 */
+	public static function fromPasswdLine($line): self {
+		$fields = explode(":", $line);
+		if (7 != count($fields)) {
+			throw new \ValueError("Invalid passwd line '%s'.", $line);
+		}
+		$user = new self($fields[0]);
+		$user->uid = intval($fields[2]);
+		$user->gid = intval($fields[3]);
+		$user->gecos = $fields[4];
+		$user->dir = $fields[5];
+		$user->shell = $fields[6];
+		return $user;
+	}
+
+	/**
+	 * Enumerate users.
+	 * @return An array of `User` objects indexed by user name.
 	 * @throw \OMV\ExecException
 	 */
-	public static function enumerateUserNames() {
+	public static function enumerateUsers(): array {
 		$cmd = new \OMV\System\Process("getent", "passwd");
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
+		// https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/
 		// Parse command output:
 		// proftpd:x:109:65534::/run/proftpd:/bin/false
 		// ftp:x:110:65534::/home/ftp:/bin/false
@@ -403,13 +424,20 @@ class User {
 		// nut:x:111:114::/var/lib/nut:/bin/false
 		// test:x:1001:100:sdfds:/home/test:/bin/dash
 		$result = [];
-		foreach ($output as $outputv) {
-			$fields = explode(":", $outputv);
-			if (TRUE === empty($fields)) {
-				continue;
-			}
-			$result[] = $fields[0]; // User name
+		foreach ($output as $outputk => $outputv) {
+			$user = self::fromPasswdLine($outputv);
+			$result[$user->getName()] = $user;
 		}
 		return $result;
+	}
+
+	/**
+	 * Enumerate user names.
+	 * @return An array of user names.
+	 * @throw \OMV\ExecException
+	 */
+	public static function enumerateUserNames(): array {
+		$result = self::enumerateUsers();
+		return array_keys($result);
 	}
 }
