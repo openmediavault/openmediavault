@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-usbbackup package.
-# 
+#
 # Translators:
 # Benoit Maliar <maliarbenoit@msn.com>, 2014
 # Christophe Lherieau <skimpax@gmail.com>, 2013-2014
@@ -25,7 +25,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "Un email avec la sortie de la commande (si  il y a) est envoyé à l'administrateur."
 

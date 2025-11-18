@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Milan Toet <milantoet@gmail.com>, 2012-2014,2016-2017
 # Seba Kerckhof <seba.kerckhof@gmail.com>, 2012
@@ -378,12 +378,12 @@ msgid ""
 msgstr "Er is een poging gedaan om de test-e-mail te verzenden. Controleer uw mailbox. Als de e-mail niet aankomt, controleer dan de spammappen en controleer ook of er geen Postfix-gerelateerde fouten in het systeemlogboek staan."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "Een e-mailbericht met de uitvoer van de opdracht (indien geproduceerd) wordt naar de beheerder gestuurd."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
 msgstr "Een e-mailbericht met de uitvoer van het commando (indien geproduceerd) wordt verzonden naar de gebruiker die de taak uitvoert."
 

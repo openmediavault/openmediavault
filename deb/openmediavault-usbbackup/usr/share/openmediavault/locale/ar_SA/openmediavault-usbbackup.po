@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-usbbackup package.
-# 
+#
 # Translators:
 # omv nas <myomv100@gmail.com>, 2020,2023
 # omv nas <myomv100@gmail.com>, 2023
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "يتم إرسال رسالة بريد إلكتروني مع مخرجات الأمر (إن وجدت) إلى المسؤول."
 

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-clamav package.
-# 
+#
 # Translators:
 # Serhat SUT <serhat.sut@gmail.com>, 2012-2014,2017,2021-2022,2025
 msgid ""
@@ -22,7 +22,7 @@ msgid "Algorithmic detection"
 msgstr "Algoritmik saptama"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "Komut çıktılarının (eğer oluşturuldu ise) ekli olduğu bir email mesajı yöneticiye gönderildi."
 

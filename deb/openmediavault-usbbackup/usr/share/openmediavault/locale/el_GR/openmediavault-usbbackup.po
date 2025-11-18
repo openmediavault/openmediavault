@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-usbbackup package.
-# 
+#
 # Translators:
 # Kostas Moho, 2013-2014,2017,2019,2021,2023-2024
 msgid ""
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "Το αποτέλεσμα της εντολής (εφόσον υπάρχει) αποστέλεται στον διαχειριστή με μήνυμα."
 

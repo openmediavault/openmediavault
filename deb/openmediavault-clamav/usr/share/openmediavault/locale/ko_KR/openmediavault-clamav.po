@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-clamav package.
-# 
+#
 # Translators:
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014
 # Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2020
@@ -24,7 +24,7 @@ msgid "Algorithmic detection"
 msgstr "알고리즘을 통한 감지"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "명령의 출력이 있다면 관리자에게 이메일로 전송됩니다."
 

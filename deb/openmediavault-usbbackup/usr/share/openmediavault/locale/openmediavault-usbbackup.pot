@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "An email message with the command output (if any produced) is send to the administrator."
+msgid "An email message with the command output (if any produced) is sent to the administrator."
 msgstr ""
 
 msgid "Archive"

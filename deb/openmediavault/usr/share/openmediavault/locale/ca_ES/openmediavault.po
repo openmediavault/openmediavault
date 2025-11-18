@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Quim Farriol <qfarriol@valette.cat>, 2020-2025
 # Quim Farriol <qfarriol@valette.cat>, 2017-2018,2020
@@ -372,12 +372,12 @@ msgid ""
 msgstr "S'ha intentat enviar el correu electrònic de prova. Comproveu la vostra bústia. Si el correu electrònic no arriba, comproveu les carpetes de correu brossa i també comproveu que no hi hagi errors relacionats amb la correcció de correus al registre del sistema."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "S’envia un missatge amb la sortida de la comanda (si n’hi ha) a l’administrador."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
 msgstr "S’envia un missatge amb la sortida de la comanda (si n’hi ha) a l’usuari que llença el treball."
 

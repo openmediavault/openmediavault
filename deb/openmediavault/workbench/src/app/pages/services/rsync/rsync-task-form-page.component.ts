@@ -712,7 +712,7 @@ export class RsyncTaskFormPageComponent extends BaseFormPageComponent {
         label: gettext('Send command output via email'),
         value: false,
         hint: gettext(
-          'An email message with the command output (if any produced) is send to the administrator.'
+          'An email message with the command output (if any produced) is sent to the administrator.'
         )
       },
       {

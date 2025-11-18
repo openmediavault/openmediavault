@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # José Manuel Caínzos <josem.cainzos@gmail.com>, 2012-2013
 # José Manuel Caínzos <josem.cainzos@gmail.com>, 2013
@@ -375,12 +375,12 @@ msgid ""
 msgstr "Se ha intentado enviar un e-mail. Revise su buzón de correos. Si el mensaje no ha llegado, revise la bandeja de spam.\nRevise también el log del sistema por posibles errores poxtfix."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "Se envia un mensaje con la salida del comando (si se produce alguna) al administrador."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
 msgstr "Se envia un mensaje con la salida del comando (si se produce alguna) al usuario que lanza el trabajo."
 

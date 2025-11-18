@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Alexander Savchenko, 2012,2014
 # Alexander Savchenko <>, 2012
@@ -384,12 +384,12 @@ msgid ""
 msgstr "Предпринята попытка отправить тестовое электронное письмо. Пожалуйста, проверьте ваш почтовый ящик. Если электронное письмо не приходит, проверьте папки со спамом, а также убедитесь, что в системном журнале нет ошибок, связанных с Postfix."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "Электронное письмо с выводом команды (если она имеется), отправлено администратору."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
 msgstr "Электронное письмо с выводом команды (если она имеется), отправлено пользователю, выполняющему задание."
 

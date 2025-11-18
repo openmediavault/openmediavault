@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-clamav package.
-# 
+#
 # Translators:
 # kochin <kochinc@outlook.com>, 2013-2014,2017,2021,2025
 msgid ""
@@ -22,7 +22,7 @@ msgid "Algorithmic detection"
 msgstr "演算式偵測"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "一封電子郵件內含指令的輸出(若有產生)將被發送給管理員。"
 

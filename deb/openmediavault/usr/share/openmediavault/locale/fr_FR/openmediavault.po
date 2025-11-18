@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Axel Cantenys, 2021
 # Benoit Maliar <maliarbenoit@msn.com>, 2015
@@ -386,12 +386,12 @@ msgid ""
 msgstr "Une tentative d'envoi du courriel de test a été faite. Veuillez vérifier votre boîte aux lettres. Si le courriel n'arrive pas, vérifiez les dossiers de spam et vérifiez également qu'il n'y a pas d'erreurs liées à Postfix dans le journal du système."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "Un mail contenant les traces de la commande (si disponible) est envoyé à l'administrateur."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
 msgstr "Un mail contenant les traces de la commande (si disponible) est envoyé à l'utilisateur."
 

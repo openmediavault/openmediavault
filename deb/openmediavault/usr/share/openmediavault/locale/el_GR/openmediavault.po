@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Kostas Moho, 2012-2025
 msgid ""
@@ -370,12 +370,12 @@ msgid ""
 msgstr "Έγινε προσπάθεια αποστολής δοκιμαστικού μηνύματος. Παρακαλώ ελέγξτε το γραμματοκιβώτιό σας. Αν το μήνυμα δεν έρθει, ελέγξτε τους φακέλους ανεπιθυμήτων καθώς και το αρχείο καταγραφής του συστήματος για σφάλματα του Postfix."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "Αποστέλεται στον διαχειριστή ένα μήνυμα με το αποτέλεσμα της εντολής (εφόσον παραχθεί)."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
 msgstr "Αποστέλεται στον χρήστη ένα μήνυμα με το αποτέλεσμα της εργασίας που ζήτησε (εφόσον παραχθεί)."
 

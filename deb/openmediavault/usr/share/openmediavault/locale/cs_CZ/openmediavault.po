@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Jan Štourač <wormsik666@gmail.com>, 2014-2015
 # Marek Pavelka, 2024-2025
@@ -372,12 +372,12 @@ msgid ""
 msgstr "Byl proveden pokus o zaslání testovacího e-mailu. Podívejte se do své pošty. Pokud e-mail nedorazil, zkontrolujte složky pro nevyžádanou poštu a také se podívejte, zda v systémovém protokolu nejsou nějaké chyby související s Postfix."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "Správci je odeslána e-mailová zpráva s výstupem příkazu (pokud byl vytvořen)."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
 msgstr "Uživateli, který úlohu provádí, je odeslána e-mailová zpráva s výstupem příkazu (pokud byl vytvořen)."
 

@@ -20,7 +20,7 @@ msgstr ""
 msgid "Algorithmic detection"
 msgstr ""
 
-msgid "An email message with the command output (if any produced) is send to the administrator."
+msgid "An email message with the command output (if any produced) is sent to the administrator."
 msgstr ""
 
 msgid "Antivirus"

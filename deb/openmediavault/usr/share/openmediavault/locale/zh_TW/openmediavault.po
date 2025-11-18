@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # kochin <kochinc@outlook.com>, 2013-2025
 # kochin <kochinc@outlook.com>, 2012-2013
@@ -372,12 +372,12 @@ msgid ""
 msgstr "測試電子郵件已被試著送出。請檢查的電子郵件信箱。若是沒收到郵件，請查看垃圾郵件夾，並檢查系統日誌是否有與 Postfix 相關的錯誤。"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "一封含有指令輸出(如有產生)的電子信件會被送給管理員。"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
 msgstr "一封含有指令輸出(如有產生)的電子信件會被送給執行該指令的用戶。"
 

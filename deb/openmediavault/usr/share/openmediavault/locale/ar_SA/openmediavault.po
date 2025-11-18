@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # omv nas <myomv100@gmail.com>, 2020,2023
 # omv nas <myomv100@gmail.com>, 2020-2023
@@ -371,12 +371,12 @@ msgid ""
 msgstr "تم إجراء محاولة لإرسال بريد إلكتروني تجريبي. يرجى التحقق من صندوق البريد الخاص بك. إذا لم يصل البريد الإلكتروني ، فتحقق من مجلدات البريد غير المرغوب فيه \"Spam\" وأيضًا تحقق من عدم وجود أخطاء متعلقة بـ Postfix في سجل النظام."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "يتم إرسال رسالة بريد إلكتروني مع مخرجات الأمر (إن وجدت) إلى المسؤول."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
 msgstr "يتم إرسال رسالة بريد إلكتروني مع مخرجات الأمر (إن وجدت) إلى المستخدم الذي يؤدي المهمة."
 

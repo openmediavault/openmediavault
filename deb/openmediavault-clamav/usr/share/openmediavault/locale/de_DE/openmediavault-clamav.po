@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-clamav package.
-# 
+#
 # Translators:
 # Thomas Melka, 2022-2023
 # Volker Theile <votdev@gmx.de>, 2022-2023
@@ -26,7 +26,7 @@ msgid "Algorithmic detection"
 msgstr "Algorithmische Erkennung"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "Eine E-Mail mit den Kommando-Ausgaben (falls vorhanden) wird an den Administrator gesendet."
 

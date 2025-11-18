@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
 # Sári Gábor <sari.gabor@gmail.com>, 2017
@@ -376,12 +376,12 @@ msgid ""
 msgstr "Megkíséreltünk egy teszt emailt küldeni. Ellenőrizze az e-mail fiókját.  Ha az e-mail nem érkezett meg, nézzen meg minden spam mappát valamint ellenőrizze, hogy a rendszernaplóban nincsenek-e Postfixhez kapcsolódó hibaüzenetek."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "Egy e-mail üzenet elküldése az adminisztrátornak a parancs kimenettel (ha van ilyen)."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
 msgstr "Egy e-mail üzenet elküldése a felhasználónak a parancs kimenettel (ha van ilyen), aki végrehajtja a feladatot."
 

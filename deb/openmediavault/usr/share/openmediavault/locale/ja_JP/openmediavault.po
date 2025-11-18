@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024
 msgid ""
@@ -370,12 +370,12 @@ msgid ""
 msgstr "テストメールを送信しました。 メールボックスを確認してください。 電子メールが届かない場合は、スパムフォルダーを確認し、システムログにPostfix関連のエラーがないことを確認してください。"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "Emailメッセージがコマンドの出力（あれば）とともに管理者に送られます。"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
 msgstr "Emailメッセージがコマンドの出力（あれば）とともにジョブを実行するユーザーに送られます。"
 

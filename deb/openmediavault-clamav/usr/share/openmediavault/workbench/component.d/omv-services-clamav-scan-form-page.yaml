@@ -518,7 +518,7 @@ data:
       - type: checkbox
         name: sendemail
         label: _("Send email")
-        hint: _("An email message with the command output (if any produced) is send to the administrator.")
+        hint: _("An email message with the command output (if any produced) is sent to the administrator.")
         value: false
       - type: tagInput
         name: comment

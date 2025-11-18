@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-clamav package.
-# 
+#
 # Translators:
 # omv nas <myomv100@gmail.com>, 2023
 # omv nas <myomv100@gmail.com>, 2020
@@ -23,7 +23,7 @@ msgid "Algorithmic detection"
 msgstr "كشف باستخدام الخوارزميات"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "يتم إرسال رسالة بريد إلكتروني مع مخرجات الأمر (إن وجدت) إلى المسؤول."
 

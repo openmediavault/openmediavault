@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-usbbackup package.
-# 
+#
 # Translators:
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014
 # Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2020
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "관리자에게 명령행 출력(있다면)을 전자 메일에 포함하여 전송합니다."
 

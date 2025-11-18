@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # runesudden <runesudden@gmail.com>, 2013
 # runesudden <runesudden@gmail.com>, 2012
@@ -371,12 +371,12 @@ msgid ""
 msgstr ""
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
 msgstr "En e-postmelding med kommandoens produksjon (hvis noe ble produsert) er sendt til administrator."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
 msgstr "En e-postmelding med kommandoens produksjon (hvis noe ble produsert) er sendt brukeren som utførte jobben."
 

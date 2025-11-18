@@ -1,7 +1,7 @@
 Put your notification sink scripts here. This can be a Perl, Python, PHP,
 Shell or any other script/executable.
 
-If a system notification is send via email, then the notification system is
+If a system notification is sent via email, then the notification system is
 triggered and all scripts located in this directory are executed. This way
 it is possible to support additional notification systems beside email.
 
