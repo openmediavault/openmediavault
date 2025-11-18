@@ -388,11 +388,19 @@ class User {
 
 	/**
 	 * Create a User object from a `/etc/passwd` file line.
-	 * @param string $line A line from the passwd file.
+	 * @param string $line A line from the `/etc/passwd` file.
 	 * @return A `User` object.
 	 * @throw \ValueError
 	 */
 	public static function fromPasswdLine($line): self {
+		// https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/
+		// Examples:
+		// proftpd:x:109:65534::/run/proftpd:/bin/false
+		// ftp:x:110:65534::/home/ftp:/bin/false
+		// openmediavault:x:999:999::/home/openmediavault:/bin/sh
+		// admin:x:998:100:WebGUI administrator:/home/admin:/usr/sbin/nologin
+		// nut:x:111:114::/var/lib/nut:/bin/false
+		// test:x:1001:100:sdfds:/home/test:/bin/dash
 		$fields = explode(":", $line);
 		if (7 != count($fields)) {
 			throw new \ValueError("Invalid passwd line '%s'.", $line);
@@ -415,14 +423,6 @@ class User {
 		$cmd = new \OMV\System\Process("getent", "passwd");
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
-		// https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/
-		// Parse command output:
-		// proftpd:x:109:65534::/run/proftpd:/bin/false
-		// ftp:x:110:65534::/home/ftp:/bin/false
-		// openmediavault:x:999:999::/home/openmediavault:/bin/sh
-		// admin:x:998:100:WebGUI administrator:/home/admin:/usr/sbin/nologin
-		// nut:x:111:114::/var/lib/nut:/bin/false
-		// test:x:1001:100:sdfds:/home/test:/bin/dash
 		$result = [];
 		foreach ($output as $outputk => $outputv) {
 			$user = self::fromPasswdLine($outputv);

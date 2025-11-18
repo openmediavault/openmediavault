@@ -71,7 +71,7 @@ class Group {
 		}
 		$this->name = $groupInfo['name'];
 		$this->gid = $groupInfo['gid'];
-		$this->members = $groupInfo['members']; // Note, theses are only the supplementary group members.
+		$this->members = $groupInfo['members']; // Supplementary group members only.
 		// Append the primary group members.
 		$users = \OMV\System\User::enumerateUsers();
 		foreach ($users as $userk => $userv) {
@@ -209,28 +209,60 @@ class Group {
 	}
 
 	/**
-	 * Enumerate group names.
-	 * @return An array of group names.
-	 * @throw \OMV\ExecException
+	 * Create a `Group` object from a `/etc/group` file line.
+	 * Note, the `members` field contains only the supplementary group
+	 * members, the primary group members are not listed there.
+	 * If you need them, call the `refresh` method before `getMembers`.
+	 * @param string $line A line from the `/etc/group` file.
+	 * @return The `Group` object.
+	 * @throw \ValueError
 	 */
-	public static function enumerateGroupNames(): array {
-		$cmd = new \OMV\System\Process("getent", "group");
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		// Parse command output:
+	public static function fromGroupLine($line): self {
+		// https://www.cyberciti.biz/faq/understanding-etcgroup-file/
+		// Examples:
 		// shadow:x:42:openmediavault
 		// snmp:x:112:
 		// sambashare:x:113:
 		// openmediavault:x:999:
 		// nut:x:114:
+		// foo:x:1002:vagrant,vot
+		$fields = explode(":", $line);
+		if (4 != count($fields)) {
+			throw new \ValueError("Invalid group line '%s'.", $line);
+		}
+		$group = new self($fields[0]);
+		$group->gid = intval($fields[2]);
+		$group->members = explode(",", $fields[3]); // Supplementary group members only.
+		return $group;
+	}
+
+	/**
+	 * Enumerate groups.
+	 * Note, the `members` field of the `Group` objects contains only the
+	 * supplementary group members, the primary group members are not listed
+	 * there. If you need them, call the `refresh` method before `getMembers`.
+	 * @return An array of `Group` objects indexed by group name.
+	 * @throw \OMV\ExecException
+	 */
+	public static function enumerateGroups(): array {
+		$cmd = new \OMV\System\Process("getent", "group");
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
 		$result = [];
-		foreach ($output as $outputv) {
-			$fields = explode(":", $outputv);
-			if (TRUE === empty($fields)) {
-				continue;
-			}
-			$result[] = $fields[0]; // Group name
+		foreach ($output as $outputk => $outputv) {
+			$group = self::fromGroupLine($outputv);
+			$result[$group->getName()] = $group;
 		}
 		return $result;
+	}
+
+	/**
+	 * Enumerate group names.
+	 * @return An array of group names.
+	 * @throw \OMV\ExecException
+	 */
+	public static function enumerateGroupNames(): array {
+		$result = self::enumerateGroups();
+		return array_keys($result);
 	}
 }
