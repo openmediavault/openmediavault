@@ -96,14 +96,16 @@ class User {
 			$this->reserved = $output[8];
 			break;
 		case "passwd":
-			if (!is_null($this->name) && !is_null($this->uid))
+			if (!is_null($this->name) && !is_null($this->uid)) {
 				return;
+			}
 			// Query user information.
 			$userInfo = FALSE;
-			if (!is_null($this->uid))
+			if (!is_null($this->uid)) {
 				$userInfo = posix_getpwuid($this->uid);
-			else
+			} else {
 				$userInfo = posix_getpwnam($this->name);
+			}
 			if (FALSE === $userInfo) {
 				throw new \OMV\Exception(
 				  "Failed to get information about the user '%s': %s",
@@ -112,14 +114,15 @@ class User {
 			}
 			$this->name = $userInfo['name'];
 			$this->uid = $userInfo['uid'];
-			$this->gid = $userInfo['gid'];
+			$this->gid = $userInfo['gid']; // Primary group ID
 			$this->gecos = $userInfo['gecos'];
 			$this->dir = $userInfo['dir'];
 			$this->shell = $userInfo['shell'];
 			break;
 		case "groups":
-			if (!is_null($this->groups))
+			if (!is_null($this->groups)) {
 				return;
+			}
 			// Get the group IDs the user is in as white-space separated
 			// numbers. Thus it is possible to correctly process group
 			// names that contain blanks (e.g. imported via LDAP or AD).
@@ -388,7 +391,7 @@ class User {
 	 * @return An array of user names.
 	 * @throw \OMV\ExecException
 	 */
-	public static function getUsers() {
+	public static function enumerateUserNames() {
 		$cmd = new \OMV\System\Process("getent", "passwd");
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
@@ -399,13 +402,14 @@ class User {
 		// admin:x:998:100:WebGUI administrator:/home/admin:/usr/sbin/nologin
 		// nut:x:111:114::/var/lib/nut:/bin/false
 		// test:x:1001:100:sdfds:/home/test:/bin/dash
-		$list = [];
+		$result = [];
 		foreach ($output as $outputv) {
-			$data = explode(":", $outputv);
-			if (TRUE === empty($data))
+			$fields = explode(":", $outputv);
+			if (TRUE === empty($fields)) {
 				continue;
-			$list[] = $data[0]; // User name
+			}
+			$result[] = $fields[0]; // User name
 		}
-		return $list;
+		return $result;
 	}
 }

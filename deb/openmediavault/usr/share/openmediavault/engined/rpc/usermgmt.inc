@@ -121,8 +121,9 @@ finish:
 	 */
 	private function getUserInfo($id) {
 		$user = new \OMV\System\User($id);
-		if (!$user->exists())
+		if (!$user->exists()) {
 			return FALSE;
+		}
 		return [
 			"name" => $user->getName(),
 			"uid" => $user->getUid(),
@@ -152,7 +153,7 @@ finish:
 	 */
 	private function enumerateUsersByType($type) {
 		// Get list of user names.
-		$users = \OMV\System\User::getUsers();
+		$users = \OMV\System\User::enumerateUserNames();
 		// Iterate through all users to filter the requested ones.
 		$result = [];
 		foreach ($users as $userk => $userv) {
@@ -237,8 +238,9 @@ finish:
 	 */
 	private function getGroupInfo($id) {
 		$group = new \OMV\System\Group($id);
-		if (!$group->exists())
+		if (!$group->exists()) {
 			return FALSE;
+		}
 		return [
 			"name" => $group->getName(),
 			"gid" => $group->getGid(),
@@ -255,7 +257,7 @@ finish:
 	 */
 	private function enumerateGroupsByType($type) {
 		// Get list of group names.
-		$groups = \OMV\System\Group::getGroups();
+		$groups = \OMV\System\Group::enumerateGroupNames();
 		// Get group information.
 		$result = [];
 		foreach ($groups as $groupk => $groupv) {

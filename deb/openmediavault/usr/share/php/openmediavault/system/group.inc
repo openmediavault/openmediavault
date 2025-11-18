@@ -53,14 +53,16 @@ class Group {
 	 * @throw \OMV\Exception
 	 */
 	private function getData() {
-		if ($this->dataCached !== FALSE)
+		if ($this->dataCached !== FALSE) {
 			return;
-		// Query user information.
+		}
+		// Query group information.
 		$groupInfo = FALSE;
-		if (!is_null($this->gid))
+		if (!is_null($this->gid)) {
 			$groupInfo = posix_getgrgid($this->gid);
-		else
+		} else {
 			$groupInfo = posix_getgrnam($this->name);
+		}
 		if (FALSE === $groupInfo) {
 			throw new \OMV\Exception(
 			  "Failed to get information about the group '%s': %s",
@@ -69,7 +71,24 @@ class Group {
 		}
 		$this->name = $groupInfo['name'];
 		$this->gid = $groupInfo['gid'];
-		$this->members = $groupInfo['members'];
+		$this->members = $groupInfo['members']; // Note, theses are only the supplementary group members.
+		// Append the primary group members.
+		$cmd = new \OMV\System\Process("getent", "passwd");
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+		foreach ($output as $outputk => $outputv) {
+			// https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/
+			$fields = explode(":", $outputv);
+			if (TRUE === empty($fields)) {
+				continue;
+			}
+			if ((int)$fields[3] === $this->gid) {
+				$this->members[] = trim($fields[0]);
+			}
+		}
+		// Remove duplicates and sort/re-index the array.
+		$this->members = array_unique($this->members);
+		sort($this->members, SORT_NATURAL);
 		// Set flag to mark information has been successfully read.
 		$this->dataCached = TRUE;
 	}
@@ -201,7 +220,7 @@ class Group {
 	 * @return An array of group names.
 	 * @throw \OMV\ExecException
 	 */
-	public static function getGroups() {
+	public static function enumerateGroupNames() {
 		$cmd = new \OMV\System\Process("getent", "group");
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
@@ -211,13 +230,14 @@ class Group {
 		// sambashare:x:113:
 		// openmediavault:x:999:
 		// nut:x:114:
-		$list = [];
+		$result = [];
 		foreach ($output as $outputv) {
-			$data = explode(":", $outputv);
-			if (TRUE === empty($data))
+			$fields = explode(":", $outputv);
+			if (TRUE === empty($fields)) {
 				continue;
-			$list[] = $data[0]; // Group name
+			}
+			$result[] = $fields[0]; // Group name
 		}
-		return $list;
+		return $result;
 	}
 }
