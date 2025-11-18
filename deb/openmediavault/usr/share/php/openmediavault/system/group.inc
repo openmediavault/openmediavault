@@ -224,9 +224,6 @@ class Group {
 
 	/**
 	 * Enumerate groups.
-	 * Note, the `members` field of the `Group` objects contains only the
-	 * supplementary group members, the primary group members are not listed
-	 * there. If you need them, call the `refresh` method before `getMembers`.
 	 * @return An array of `Group` objects indexed by group name.
 	 * @throw \OMV\ExecException
 	 */
