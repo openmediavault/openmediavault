@@ -72,16 +72,6 @@ class Group {
 		$this->name = $groupInfo['name'];
 		$this->gid = $groupInfo['gid'];
 		$this->members = $groupInfo['members']; // Supplementary group members only.
-		// Append the primary group members.
-		$users = \OMV\System\User::enumerateUsers();
-		foreach ($users as $userk => $userv) {
-			if ($userv->getGid() == $this->gid) {
-				$this->members[] = $userk;
-			}
-		}
-		// Remove duplicates and sort/re-index the array.
-		$this->members = array_unique($this->members);
-		sort($this->members, SORT_NATURAL);
 		// Set flag to mark information has been successfully read.
 		$this->dataCached = TRUE;
 	}
@@ -150,11 +140,26 @@ class Group {
 
 	/**
 	 * Get the user names who are member of this group.
+	 * @param bool $includePrimary If set to `TRUE`, the primary group members
+	 *   are included as well, otherwise only the supplementary group members
+	 *   are returned. Defaults to `FALSE`.
 	 * @return An array of user names that are member of this group.
 	 */
-	public function getMembers() {
+	public function getMembers($includePrimary = FALSE) {
 		$this->getData();
-		return $this->members;
+		$result = $this->members;
+		if (TRUE === $includePrimary) {
+			// Append the primary group members.
+			$users = \OMV\System\User::enumerateUsers();
+			foreach ($users as $userk => $userv) {
+				if ($userv->getGid() == $this->gid) {
+					$result[] = $userk;
+				}
+			}
+			// Remove duplicates and re-index the array.
+			$result = array_values(array_unique($result));
+		}
+		return $result;
 	}
 
 	/**
@@ -210,9 +215,6 @@ class Group {
 
 	/**
 	 * Create a `Group` object from a `/etc/group` file line.
-	 * Note, the `members` field contains only the supplementary group
-	 * members, the primary group members are not listed there.
-	 * If you need them, call the `refresh` method before `getMembers`.
 	 * @param string $line A line from the `/etc/group` file.
 	 * @return The `Group` object.
 	 * @throw \ValueError
@@ -233,6 +235,7 @@ class Group {
 		$group = new self($fields[0]);
 		$group->gid = intval($fields[2]);
 		$group->members = explode(",", $fields[3]); // Supplementary group members only.
+		$group->dataCached = TRUE;
 		return $group;
 	}
 

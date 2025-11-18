@@ -244,7 +244,7 @@ finish:
 		return [
 			"name" => $group->getName(),
 			"gid" => $group->getGid(),
-			"members" => $group->getMembers(),
+			"members" => $group->getMembers(TRUE),
 			"system" => $group->isSystemAccount()
 		];
 	}
