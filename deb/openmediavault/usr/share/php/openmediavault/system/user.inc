@@ -41,6 +41,7 @@ class User {
 	protected $expire = NULL;
 	protected $reserved = NULL;
 	protected $groups = NULL;
+	protected $isSystemAccount = NULL;
 
 	/**
 	 * Constructor
@@ -112,12 +113,14 @@ class User {
 				  !is_null($this->uid) ? strval($this->uid) : $this->name,
 				  posix_strerror(posix_errno()));
 			}
+			[$uidMin, $uidMax] = self::getUidMinMax();
 			$this->name = $userInfo['name'];
 			$this->uid = $userInfo['uid'];
 			$this->gid = $userInfo['gid']; // Primary group ID
 			$this->gecos = $userInfo['gecos'];
 			$this->dir = $userInfo['dir'];
 			$this->shell = $userInfo['shell'];
+			$this->isSystemAccount = !in_range($this->uid, $uidMin, $uidMax);
 			break;
 		case "groups":
 			if (!is_null($this->groups)) {
@@ -354,16 +357,33 @@ class User {
 	 * Check if the given user is a system account.
 	 * @return TRUE if the user is a system account, otherwise FALSE.
 	 */
-	public function isSystemAccount() {
-		if (FALSE === ($uid = $this->getUid()))
-			return FALSE;
-		// Get shadow password suite configuration.
-		$ld = \OMV\System\System::getLoginDefs();
-		// Get the min/max values of the non-system account ID sequence.
-		$min = intval(array_value($ld, "UID_MIN", 1000));
-		$max = intval(array_value($ld, "UID_MAX", 60000));
-		// Check if the given account ID is within the sequence.
-		return !in_range($uid, $min, $max);
+	public function isSystemAccount(): bool {
+		$this->getData("passwd");
+		return $this->isSystemAccount;
+	}
+
+	/**
+	 * Get an associative array representation of the user.
+	 * @return An associative array containing the user information.
+	 */
+	public function getAssoc(): array {
+		return [
+			"name" => $this->getName(),
+			"uid" => $this->getUid(),
+			"gid" => $this->getGid(),
+			"comment" => $this->getGecos(),
+			"dir" => $this->getHomeDirectory(),
+			"shell" => $this->getShell(),
+			"lastchanged" => $this->getLastChanged(),
+			"minimum" => $this->getMinimum(),
+			"maximum" => $this->getMaximum(),
+			"warn" => $this->getWarn(),
+			"inactive" => $this->getInactive(),
+			"expire" => $this->getExpire(),
+			"reserved" => $this->getReserved(),
+			"groups" => $this->getGroups(),
+			"system" => $this->isSystemAccount()
+		];
 	}
 
 	/**
@@ -387,12 +407,54 @@ class User {
 	}
 
 	/**
-	 * Create a User object from a `/etc/passwd` file line.
+	 * Enumerate users.
+	 * @return An array of `User` objects indexed by user name.
+	 * @throw \OMV\ExecException
+	 */
+	public static function enumerateUsers(): array {
+		$cmd = new \OMV\System\Process("getent", "passwd");
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+		$result = [];
+		[$uidMin, $uidMax] = self::getUidMinMax();
+		foreach ($output as $outputk => $outputv) {
+			$user = self::newFromPasswdLine($outputv);
+			$user->isSystemAccount = !in_range($user->uid, $uidMin, $uidMax);
+			$result[$user->getName()] = $user;
+		}
+		return $result;
+	}
+
+	/**
+	 * Enumerate user names.
+	 * @return An array of user names.
+	 * @throw \OMV\ExecException
+	 */
+	public static function enumerateUserNames(): array {
+		$result = self::enumerateUsers();
+		return array_keys($result);
+	}
+
+	/**
+	 * Get the UID min/max values from the `/etc/login.defs` configuration.
+	 * @return An array containing the min/max UID values.
+	 */
+	private static function getUidMinMax(): array {
+		// Get shadow password suite configuration.
+		$ld = \OMV\System\System::getLoginDefs();
+		// Get the min/max values of the non-system account ID sequence.
+		$min = intval(array_value($ld, "UID_MIN", 1000));
+		$max = intval(array_value($ld, "UID_MAX", 60000));
+		return [$min, $max];
+	}
+
+	/**
+	 * Create a new `User` object from a `/etc/passwd` file line.
 	 * @param string $line A line from the `/etc/passwd` file.
-	 * @return A `User` object.
+	 * @return The new `User` object.
 	 * @throw \ValueError
 	 */
-	public static function fromPasswdLine($line): self {
+	private static function newFromPasswdLine($line): self {
 		// https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/
 		// Examples:
 		// proftpd:x:109:65534::/run/proftpd:/bin/false
@@ -412,32 +474,5 @@ class User {
 		$user->dir = $fields[5];
 		$user->shell = $fields[6];
 		return $user;
-	}
-
-	/**
-	 * Enumerate users.
-	 * @return An array of `User` objects indexed by user name.
-	 * @throw \OMV\ExecException
-	 */
-	public static function enumerateUsers(): array {
-		$cmd = new \OMV\System\Process("getent", "passwd");
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		$result = [];
-		foreach ($output as $outputk => $outputv) {
-			$user = self::fromPasswdLine($outputv);
-			$result[$user->getName()] = $user;
-		}
-		return $result;
-	}
-
-	/**
-	 * Enumerate user names.
-	 * @return An array of user names.
-	 * @throw \OMV\ExecException
-	 */
-	public static function enumerateUserNames(): array {
-		$result = self::enumerateUsers();
-		return array_keys($result);
 	}
 }

@@ -29,6 +29,7 @@ class Group {
 	protected $name = NULL;
 	protected $gid = NULL;
 	protected $members = NULL;
+	protected $isSystemAccount = NULL;
 	private $dataCached = FALSE;
 
 	/**
@@ -69,9 +70,11 @@ class Group {
 			  !is_null($this->gid) ? strval($this->gid) : $this->name,
 			  posix_strerror(posix_errno()));
 		}
+		[$gidMin, $gidMax] = self::getGidMinMax();
 		$this->name = $groupInfo['name'];
 		$this->gid = $groupInfo['gid'];
 		$this->members = $groupInfo['members']; // Supplementary group members only.
+		$this->isSystemAccount = !in_range($this->gid, $gidMin, $gidMax);
 		// Set flag to mark information has been successfully read.
 		$this->dataCached = TRUE;
 	}
@@ -201,25 +204,76 @@ class Group {
 	 * Check if the given group is a system account.
 	 * @return TRUE if the group is a system account, otherwise FALSE.
 	 */
-	public function isSystemAccount() {
-		if (FALSE === ($gid = $this->getGid()))
-			return FALSE;
+	public function isSystemAccount(): bool {
+		$this->getData();
+		return $this->isSystemAccount;
+	}
+
+	/**
+	 * Get an associative array representation of the group.
+	 * @return An associative array containing the group information.
+	 */
+	public function getAssoc(): array {
+		return [
+			"name" => $this->getName(),
+			"gid" => $this->getGid(),
+			"members" => $this->getMembers(TRUE),
+			"system" => $this->isSystemAccount()
+		];
+	}
+
+	/**
+	 * Enumerate groups.
+	 * Note, the `members` field of the `Group` objects contains only the
+	 * supplementary group members, the primary group members are not listed
+	 * there. If you need them, call the `refresh` method before `getMembers`.
+	 * @return An array of `Group` objects indexed by group name.
+	 * @throw \OMV\ExecException
+	 */
+	public static function enumerateGroups(): array {
+		$cmd = new \OMV\System\Process("getent", "group");
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+		[$gidMin, $gidMax] = self::getGidMinMax();
+		$result = [];
+		foreach ($output as $outputk => $outputv) {
+			$group = self::newFromGroupLine($outputv);
+			$group->isSystemAccount = !in_range($group->gid, $gidMin, $gidMax);
+			$result[$group->getName()] = $group;
+		}
+		return $result;
+	}
+
+	/**
+	 * Enumerate group names.
+	 * @return An array of group names.
+	 * @throw \OMV\ExecException
+	 */
+	public static function enumerateGroupNames(): array {
+		$result = self::enumerateGroups();
+		return array_keys($result);
+	}
+
+	/**
+	 * Get the GID min/max values from the `/etc/login.defs` configuration.
+	 * @return An array containing the min/max GID values.
+	 */
+	private static function getGidMinMax(): array {
 		// Get shadow password suite configuration.
 		$ld = \OMV\System\System::getLoginDefs();
 		// Get the min/max values of the non-system account ID sequence.
 		$min = intval(array_value($ld, "GID_MIN", 1000));
 		$max = intval(array_value($ld, "GID_MAX", 60000));
-		// Check if the given account ID is within the sequence.
-		return !in_range($gid, $min, $max);
+		return [$min, $max];
 	}
 
 	/**
-	 * Create a `Group` object from a `/etc/group` file line.
+	 * Create a new `Group` object from a `/etc/group` file line.
 	 * @param string $line A line from the `/etc/group` file.
-	 * @return The `Group` object.
+	 * @return The new `Group` object.
 	 * @throw \ValueError
 	 */
-	public static function fromGroupLine($line): self {
+	private static function newFromGroupLine($line): self {
 		// https://www.cyberciti.biz/faq/understanding-etcgroup-file/
 		// Examples:
 		// shadow:x:42:openmediavault
@@ -237,35 +291,5 @@ class Group {
 		$group->members = explode(",", $fields[3]); // Supplementary group members only.
 		$group->dataCached = TRUE;
 		return $group;
-	}
-
-	/**
-	 * Enumerate groups.
-	 * Note, the `members` field of the `Group` objects contains only the
-	 * supplementary group members, the primary group members are not listed
-	 * there. If you need them, call the `refresh` method before `getMembers`.
-	 * @return An array of `Group` objects indexed by group name.
-	 * @throw \OMV\ExecException
-	 */
-	public static function enumerateGroups(): array {
-		$cmd = new \OMV\System\Process("getent", "group");
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		$result = [];
-		foreach ($output as $outputk => $outputv) {
-			$group = self::fromGroupLine($outputv);
-			$result[$group->getName()] = $group;
-		}
-		return $result;
-	}
-
-	/**
-	 * Enumerate group names.
-	 * @return An array of group names.
-	 * @throw \OMV\ExecException
-	 */
-	public static function enumerateGroupNames(): array {
-		$result = self::enumerateGroups();
-		return array_keys($result);
 	}
 }

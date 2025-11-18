@@ -114,73 +114,40 @@ finish:
 	}
 
 	/**
-	 * Return info about an user by their name or UID.
-	 * @param id The user identifier; name or UID.
-	 * @return Returns an associative array with the user information
-	 *   or FALSE if the user does not exist.
-	 */
-	private function getUserInfo($id) {
-		$user = new \OMV\System\User($id);
-		if (!$user->exists()) {
-			return FALSE;
-		}
-		return [
-			"name" => $user->getName(),
-			"uid" => $user->getUid(),
-			"gid" => $user->getGid(),
-			"comment" => $user->getGecos(),
-			"dir" => $user->getHomeDirectory(),
-			"shell" => $user->getShell(),
-			"lastchanged" => $user->getLastChanged(),
-			"minimum" => $user->getMinimum(),
-			"maximum" => $user->getMaximum(),
-			"warn" => $user->getWarn(),
-			"inactive" => $user->getInactive(),
-			"expire" => $user->getExpire(),
-			"reserved" => $user->getReserved(),
-			"groups" => $user->getGroups(),
-			"system" => $user->isSystemAccount()
-		];
-	}
-
-	/**
 	 * Enumerate users.
-	 * @param type The user type, e.g. system, normal or all.
-	 * @return An array containing user objects with following fields:
+	 * @param type The user type, e.g. `system`, `normal` or `all`.
+	 * @return An array of associative arrays with the following user information:
 	 *   name, UID, GID, comment, home directory, and shell program,
-	 *   last changed, minimum, maximum, warn, inactive, expire and
-	 *   reserved.
+	 *   last changed, minimum, maximum, warn, inactive, expire, reserved,
+	 *   groups (array of group names) and system.
 	 */
 	private function enumerateUsersByType($type) {
-		// Get list of user names.
-		$users = \OMV\System\User::enumerateUserNames();
-		// Iterate through all users to filter the requested ones.
 		$result = [];
+		$users = \OMV\System\User::enumerateUsers();
 		foreach ($users as $userk => $userv) {
-			// Get the user information about the user.
-			if (FALSE === ($userInfo = $this->getUserInfo($userv)))
-				continue;
 			// Append user 'root'?
-			if ((0 == strcasecmp("root", $userInfo['name'])) &&
+			if ((0 == strcasecmp("root", $userv->getName())) &&
 			  (FALSE == \OMV\Environment::getBoolean(
-			  "OMV_USERMGMT_ENUMERATE_USER_ROOT", TRUE)))
+			  "OMV_USERMGMT_ENUMERATE_USER_ROOT", TRUE))) {
 				continue;
+			}
 			// Check if the current user is requested.
 			$append = FALSE;
 			switch ($type) {
 			case "system":
-				$append = $userInfo['system'];
+				$append = $userv->isSystemAccount();
 				break;
 			case "normal":
-				$append = !$userInfo['system'];
+				$append = !$userv->isSystemAccount();
 				break;
 			case "all":
 				$append = TRUE;
 				break;
 			}
-			if (FALSE === $append)
+			if (FALSE === $append) {
 				continue;
-			$result[] = $userInfo;
+			}
+			$result[] = $userv->getAssoc();
 		}
 		return $result;
 	}
@@ -231,55 +198,31 @@ finish:
 	}
 
 	/**
-	 * Return info about a group by their name or GID.
-	 * @param id The group identifier; name or GID.
-	 * @return Returns an associative array with the group information
-	 *   or FALSE if the group does not exist.
-	 */
-	private function getGroupInfo($id) {
-		$group = new \OMV\System\Group($id);
-		if (!$group->exists()) {
-			return FALSE;
-		}
-		return [
-			"name" => $group->getName(),
-			"gid" => $group->getGid(),
-			"members" => $group->getMembers(TRUE),
-			"system" => $group->isSystemAccount()
-		];
-	}
-
-	/**
 	 * Enumerate groups.
-	 * @param type The group type, e.g. system, normal or all.
-	 * @return An array containing user objects with following fields:
-	 *   name, GID and group members (array of user names).
+	 * @param type The group type, e.g. `system`, `normal` or `all`.
+	 * @return An array of associative arrays with the following group information:
+	 *   name, GID, group members (array of user names) and system.
 	 */
 	private function enumerateGroupsByType($type) {
-		// Get list of group names.
-		$groups = \OMV\System\Group::enumerateGroupNames();
-		// Get group information.
 		$result = [];
+		$groups = \OMV\System\Group::enumerateGroups();
 		foreach ($groups as $groupk => $groupv) {
-			// Get the user information about the group.
-			if (FALSE === ($groupInfo = $this->getGroupInfo($groupv)))
-				continue;
-			// Check if the current group is requested.
 			$append = FALSE;
 			switch ($type) {
 			case "system":
-				$append = $groupInfo['system'];
+				$append = $groupv->isSystemAccount();
 				break;
 			case "normal":
-				$append = !$groupInfo['system'];
+				$append = !$groupv->isSystemAccount();
 				break;
 			case "all":
 				$append = TRUE;
 				break;
 			}
-			if (FALSE === $append)
+			if (FALSE === $append) {
 				continue;
-			$result[] = $groupInfo;
+			}
+			$result[] = $groupv->getAssoc();
 		}
 		return $result;
 	}
@@ -398,7 +341,7 @@ finish:
 		$user = new \OMV\System\User($params['name']);
 		$user->assertExists();
 		// Get the user information.
-		$result = $this->getUserInfo($user->getName());
+		$result = $user->getAssoc();
 		// Set the defaults of the additional information.
 		$result = array_merge($result, [
 			"email" => "",
@@ -823,7 +766,7 @@ finish:
 		$group = new \OMV\System\Group($params['name']);
 		$group->assertExists();
 		// Get the group information.
-		$result = $this->getGroupInfo($group->getName());
+		$result = $group->getAssoc();
 		// Get additional group information stored in database.
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->getByFilter("conf.system.usermngmnt.group", [
