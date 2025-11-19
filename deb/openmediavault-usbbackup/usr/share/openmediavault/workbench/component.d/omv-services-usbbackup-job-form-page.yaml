@@ -64,7 +64,7 @@ data:
         name: sendemail
         label: _("Send email")
         value: true
-        hint: _("An email message with the command output (if any produced) is send to the administrator.")
+        hint: _("An email message with the command output (if any produced) is sent to the administrator.")
         validators:
           custom:
             - constraint:

@@ -224,7 +224,7 @@ class Database {
 	 * then the identifier property (in most cases 'uuid') will be
 	 * generated and set automatically.
 	 * @param object The configuration object to use.
-	 * @param quiet If set to TRUE, then no notification message is send.
+	 * @param quiet If set to TRUE, then no notification message is sent.
 	 *   Defaults to FALSE.
 	 * @return void
 	 * @throw \OMV\Config\DatabaseException
@@ -283,7 +283,7 @@ class Database {
 	/**
 	 * Delete the specified configuration object.
 	 * @param object The configuration object to use.
-	 * @param quiet If set to TRUE, then no notification message is send.
+	 * @param quiet If set to TRUE, then no notification message is sent.
 	 *   Defaults to FALSE.
 	 * @return void
 	 * @throw \OMV\Config\DatabaseException
@@ -352,7 +352,7 @@ class Database {
 	 *     ]
 	 * ]
 	 * @endcode
-	 * @param quiet If set to TRUE, then no notification message is send.
+	 * @param quiet If set to TRUE, then no notification message is sent.
 	 *   Defaults to FALSE.
 	 * @return void
 	 * @throw \OMV\Config\DatabaseException

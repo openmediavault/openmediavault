@@ -559,7 +559,7 @@ export class CronTaskFormPageComponent extends BaseFormPageComponent {
         label: gettext('Send command output via email'),
         value: false,
         hint: gettext(
-          'An email message with the command output (if any produced) is send to the user who performs the job.'
+          'An email message with the command output (if any produced) is sent to the user who performs the job.'
         )
       },
       {
