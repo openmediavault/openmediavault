@@ -17,7 +17,7 @@
  */
 import { AfterViewInit, Directive, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as _ from 'lodash';
-import { EMPTY, Observable } from 'rxjs';
+import { EMPTY, Observable, throwError } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
 
 import { PageHintConfig } from '~/app/core/components/intuition/models/page-config.type';
@@ -69,7 +69,7 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit 
     return this.doLoadData(...args).pipe(
       catchError((error: any) => {
         this.pageContextService.setError(error);
-        return EMPTY;
+        return throwError(() => error);
       }),
       finalize(() => {
         this.pageContextService.stopLoading();
