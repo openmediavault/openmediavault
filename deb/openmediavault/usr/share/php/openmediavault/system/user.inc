@@ -365,10 +365,10 @@ class User {
 	/**
 	 * Get an associative array representation of the user.
 	 * @param string $detail Specifies the details level: `basic` or `full`.
-	 *   Defaults to `full`.
+	 *   Defaults to `basic`.
 	 * @return An associative array containing the user information.
 	 */
-	public function getAssoc($detail = "full"): array {
+	public function getAssoc($detail = "basic"): array {
 		$result = [
 			"name" => $this->getName(),
 			"uid" => $this->getUid(),
