@@ -81,7 +81,7 @@ export class UserDatatablePageComponent {
         get: {
           method: 'getUserList',
           params: {
-            detail: "basic"
+            detail: 'basic'
           }
         }
       }
