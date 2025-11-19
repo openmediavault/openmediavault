@@ -76,7 +76,7 @@ export class FormSelectComponent extends AbstractFormFieldComponent implements O
       .pipe(
         catchError((error) => {
           this.loading = false;
-          return throwError(error);
+          return throwError(() => error);
         })
       )
       .subscribe(() => {

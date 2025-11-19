@@ -79,7 +79,7 @@ export class FormTextInputComponent extends AbstractFormFieldComponent implement
       .pipe(
         catchError((error) => {
           this.loading = false;
-          return throwError(error);
+          return throwError(() => error);
         })
       )
       .subscribe(() => {
