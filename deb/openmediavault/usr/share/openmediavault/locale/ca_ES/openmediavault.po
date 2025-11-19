@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Quim Farriol <qfarriol@valette.cat>, 2020-2025
 # Quim Farriol <qfarriol@valette.cat>, 2017-2018,2020
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2025\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -374,12 +374,12 @@ msgstr "S'ha intentat enviar el correu electrònic de prova. Comproveu la vostra
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "S’envia un missatge amb la sortida de la comanda (si n’hi ha) a l’administrador."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "S’envia un missatge amb la sortida de la comanda (si n’hi ha) a l’usuari que llença el treball."
+msgstr ""
 
 msgid "Andorra"
 msgstr "Andorra"

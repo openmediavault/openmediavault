@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Kostas Moho, 2012-2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2025\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -372,12 +372,12 @@ msgstr "Έγινε προσπάθεια αποστολής δοκιμαστικ�
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Αποστέλεται στον διαχειριστή ένα μήνυμα με το αποτέλεσμα της εντολής (εφόσον παραχθεί)."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "Αποστέλεται στον χρήστη ένα μήνυμα με το αποτέλεσμα της εργασίας που ζήτησε (εφόσον παραχθεί)."
+msgstr ""
 
 msgid "Andorra"
 msgstr "Andorra"

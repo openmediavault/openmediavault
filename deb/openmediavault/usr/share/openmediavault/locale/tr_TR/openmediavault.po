@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022,2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022,2025\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -372,12 +372,12 @@ msgstr "Test maili gönderme işlemi denedi. Lütfen posta kutunuzu kontrol edin
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Komut çıktısını (eğer üretildi ise) içeren bir e-posta yöneticiye gönderildi."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "Komut çıktısını (eğer üretildi ise) içeren bir e-posta komutu çalıştıran kullanıcıya gönderildi."
+msgstr ""
 
 msgid "Andorra"
 msgstr "Andora"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
 # Sári Gábor <sari.gabor@gmail.com>, 2017
@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2025\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -378,12 +378,12 @@ msgstr "Megkíséreltünk egy teszt emailt küldeni. Ellenőrizze az e-mail fió
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Egy e-mail üzenet elküldése az adminisztrátornak a parancs kimenettel (ha van ilyen)."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "Egy e-mail üzenet elküldése a felhasználónak a parancs kimenettel (ha van ilyen), aki végrehajtja a feladatot."
+msgstr ""
 
 msgid "Andorra"
 msgstr "Andorra"

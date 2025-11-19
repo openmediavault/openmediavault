@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # kochin <kochinc@outlook.com>, 2013-2025
 # kochin <kochinc@outlook.com>, 2012-2013
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2025\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -374,12 +374,12 @@ msgstr "測試電子郵件已被試著送出。請檢查的電子郵件信箱。
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "一封含有指令輸出(如有產生)的電子信件會被送給管理員。"
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "一封含有指令輸出(如有產生)的電子信件會被送給執行該指令的用戶。"
+msgstr ""
 
 msgid "Andorra"
 msgstr "安道爾"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Андрей Чапалда <ansilent@gmail.com>, 2012
 # zubr139, 2013-2019,2021-2022,2025
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022,2025\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -374,12 +374,12 @@ msgstr "Була зроблена спроба надіслати тестови
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Повідомлення електронної пошти з виведення команди (якщо такі є), відправлено адміністратору."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "Повідомлення електронної пошти з виведення команди (якщо такі є), відправлено користувачу, який виконує роботу."
+msgstr ""
 
 msgid "Andorra"
 msgstr "Андорра"

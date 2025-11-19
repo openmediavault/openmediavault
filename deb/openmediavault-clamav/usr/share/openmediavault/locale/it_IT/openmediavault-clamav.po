@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-clamav package.
-#
+# 
 # Translators:
 # Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
 # maurorulli <mauro.rulli@gmail.com>, 2012
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -27,7 +27,7 @@ msgstr "Rilevamento algoritmico"
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Un'email con l'output del comando (se prodotto) viene inviata all'amministratore."
+msgstr ""
 
 msgid "Antivirus"
 msgstr "Antivirus"

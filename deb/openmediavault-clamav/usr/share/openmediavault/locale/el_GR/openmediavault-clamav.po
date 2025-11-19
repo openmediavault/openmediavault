@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-clamav package.
-#
+# 
 # Translators:
 # Kostas Moho, 2012-2014,2017,2021-2022,2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Kostas Moho, 2012-2014,2017,2021-2022,2025\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -24,7 +24,7 @@ msgstr "Αλγοριθμική ανίχνευση"
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Αποστολή μηνύματος με το αποτέλεσμα (εφόσον υπάρχει) της εντολής στον διαχειριστή."
+msgstr ""
 
 msgid "Antivirus"
 msgstr "Αντιβιωτικό"

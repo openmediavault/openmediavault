@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-clamav package.
-#
+# 
 # Translators:
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014
 # Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2020
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -26,7 +26,7 @@ msgstr "알고리즘을 통한 감지"
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "명령의 출력이 있다면 관리자에게 이메일로 전송됩니다."
+msgstr ""
 
 msgid "Antivirus"
 msgstr "안티바이러스"

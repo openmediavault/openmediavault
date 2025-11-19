@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-clamav package.
-#
+# 
 # Translators:
 # kochin <kochinc@outlook.com>, 2013-2014,2017,2021,2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2014,2017,2021,2025\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -24,7 +24,7 @@ msgstr "演算式偵測"
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "一封電子郵件內含指令的輸出(若有產生)將被發送給管理員。"
+msgstr ""
 
 msgid "Antivirus"
 msgstr "防病毒軟體"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Miha Bezjak <miha@bezjak.info>, 2017
 # Valentin Korenjak <valentin@korenjak.si>, 2025
@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -373,12 +373,12 @@ msgstr "Poskus pošiljanja testnega e-poštnega sporočila je bil opravljen. Pre
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Elektronsko sporočilo z rezultatom ukaza (v kolikor obstaja) je poslan administratorju."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "Uporabniku, ki opravi opravilo, se pošlje e-poštno sporočilo z izpisom ukaza (če je bil ustvarjen)."
+msgstr ""
 
 msgid "Andorra"
 msgstr "Andora"

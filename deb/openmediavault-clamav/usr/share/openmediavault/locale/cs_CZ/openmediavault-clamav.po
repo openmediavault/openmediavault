@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-clamav package.
-#
+# 
 # Translators:
 # Jan Štourač <wormsik666@gmail.com>, 2014
 # Marek Pavelka, 2024
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Marek Pavelka, 2024\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -26,7 +26,7 @@ msgstr "Algoritmické rozpoznávání"
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Správci je odeslána e-mailová zpráva s výstupem příkazu (pokud byl vytvořen)."
+msgstr ""
 
 msgid "Antivirus"
 msgstr "Antivirus"

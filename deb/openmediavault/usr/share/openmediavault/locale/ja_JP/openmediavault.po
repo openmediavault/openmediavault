@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -372,12 +372,12 @@ msgstr "テストメールを送信しました。 メールボックスを確�
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Emailメッセージがコマンドの出力（あれば）とともに管理者に送られます。"
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "Emailメッセージがコマンドの出力（あれば）とともにジョブを実行するユーザーに送られます。"
+msgstr ""
 
 msgid "Andorra"
 msgstr "アンドラ"

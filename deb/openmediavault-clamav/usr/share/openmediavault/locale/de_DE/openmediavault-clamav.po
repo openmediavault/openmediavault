@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault-clamav package.
-#
+# 
 # Translators:
 # Thomas Melka, 2022-2023
 # Volker Theile <votdev@gmx.de>, 2022-2023
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2022-2023\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -28,7 +28,7 @@ msgstr "Algorithmische Erkennung"
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Eine E-Mail mit den Kommando-Ausgaben (falls vorhanden) wird an den Administrator gesendet."
+msgstr ""
 
 msgid "Antivirus"
 msgstr "Antivirus"

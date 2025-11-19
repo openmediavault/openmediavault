@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Axel Cantenys, 2021
 # Benoit Maliar <maliarbenoit@msn.com>, 2015
@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: seigneurfuo <seigneurfuo@gmail.com>, 2025\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
@@ -388,12 +388,12 @@ msgstr "Une tentative d'envoi du courriel de test a été faite. Veuillez vérif
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Un mail contenant les traces de la commande (si disponible) est envoyé à l'administrateur."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "Un mail contenant les traces de la commande (si disponible) est envoyé à l'utilisateur."
+msgstr ""
 
 msgid "Andorra"
 msgstr "Andorre"

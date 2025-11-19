@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Alexander Savchenko, 2012,2014
 # Alexander Savchenko <>, 2012
@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -386,12 +386,12 @@ msgstr "Предпринята попытка отправить тестово�
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Электронное письмо с выводом команды (если она имеется), отправлено администратору."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "Электронное письмо с выводом команды (если она имеется), отправлено пользователю, выполняющему задание."
+msgstr ""
 
 msgid "Andorra"
 msgstr "Андорра"
