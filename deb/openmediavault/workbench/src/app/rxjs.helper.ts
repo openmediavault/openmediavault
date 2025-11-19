@@ -49,7 +49,7 @@ export function retryDelayed<T>(count?: number, period: number = 1000) {
                 return result;
               },
               interval(i * period),
-              throwError(error)
+              throwError(() => error)
             )
           )
         )
