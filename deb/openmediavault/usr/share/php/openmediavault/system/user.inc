@@ -364,26 +364,33 @@ class User {
 
 	/**
 	 * Get an associative array representation of the user.
+	 * @param string $detail Specifies the details level: `basic` or `full`.
+	 *   Defaults to `full`.
 	 * @return An associative array containing the user information.
 	 */
-	public function getAssoc(): array {
-		return [
+	public function getAssoc($detail = "full"): array {
+		$result = [
 			"name" => $this->getName(),
 			"uid" => $this->getUid(),
 			"gid" => $this->getGid(),
 			"comment" => $this->getGecos(),
 			"dir" => $this->getHomeDirectory(),
 			"shell" => $this->getShell(),
-			"lastchanged" => $this->getLastChanged(),
-			"minimum" => $this->getMinimum(),
-			"maximum" => $this->getMaximum(),
-			"warn" => $this->getWarn(),
-			"inactive" => $this->getInactive(),
-			"expire" => $this->getExpire(),
-			"reserved" => $this->getReserved(),
 			"groups" => $this->getGroups(),
 			"system" => $this->isSystemAccount()
 		];
+		if ("full" == $detail) {
+			$result = array_merge($result, [
+				"lastchanged" => $this->getLastChanged(),
+				"minimum" => $this->getMinimum(),
+				"maximum" => $this->getMaximum(),
+				"warn" => $this->getWarn(),
+				"inactive" => $this->getInactive(),
+				"expire" => $this->getExpire(),
+				"reserved" => $this->getReserved(),
+			]);
+		}
+		return $result;
 	}
 
 	/**

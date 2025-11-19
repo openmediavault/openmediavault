@@ -79,7 +79,10 @@ export class UserDatatablePageComponent {
       proxy: {
         service: 'UserMgmt',
         get: {
-          method: 'getUserList'
+          method: 'getUserList',
+          params: {
+            detail: "basic"
+          }
         }
       }
     },

@@ -115,13 +115,15 @@ finish:
 
 	/**
 	 * Enumerate users.
-	 * @param type The user type, e.g. `system`, `normal` or `all`.
+	 * @param string $type The user type, e.g. `system`, `normal` or `all`.
+	 * @param string $detail Specifies the details level: `basic` or `full`.
+	 *   Defaults to `full`.
 	 * @return An array of associative arrays with the following user information:
 	 *   name, UID, GID, comment, home directory, and shell program,
 	 *   last changed, minimum, maximum, warn, inactive, expire, reserved,
 	 *   groups (array of group names) and system.
 	 */
-	private function enumerateUsersByType($type) {
+	private function enumerateUsersByType($type, $detail = "full") {
 		$result = [];
 		$users = \OMV\System\User::enumerateUsers();
 		foreach ($users as $userk => $userv) {
@@ -147,7 +149,7 @@ finish:
 			if (FALSE === $append) {
 				continue;
 			}
-			$result[] = $userv->getAssoc();
+			$result[] = $userv->getAssoc($detail);
 		}
 		return $result;
 	}
@@ -290,9 +292,10 @@ finish:
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.common.getlist");
+		$this->validateMethodParams($params, "rpc.usermgmt.getUserList");
 		// Get the list of non-system user.
-		$users = $this->enumerateUsersByType("normal");
+		$users = $this->enumerateUsersByType("normal", array_value($params,
+			"detail", "full"));
 		// Get all users stored in the database and generate a lookup map.
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.system.usermngmnt.user");
@@ -313,8 +316,9 @@ finish:
 				$object = $objectsMap[$userv['name']];
 				$userv['email'] = $object->get("email");
 				$userv['disallowusermod'] = $object->get("disallowusermod");
-				if (FALSE === $object->isEmpty("sshpubkeys"))
+				if (FALSE === $object->isEmpty("sshpubkeys")) {
 					$userv['sshpubkeys'] = $object->get("sshpubkeys.sshpubkey");
+				}
 			}
 		}
 		// Filter the result.

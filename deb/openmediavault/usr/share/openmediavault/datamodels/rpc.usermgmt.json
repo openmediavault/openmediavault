@@ -244,4 +244,34 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.getUserList",
+	"params": {
+		"type": "object",
+		"properties": {
+			"start": {
+				"type": "integer",
+				"required": true
+			},
+			"limit": {
+				"type": [ "integer", "null" ],
+				"required": true
+			},
+			"sortfield": {
+				"type": [ "string", "null" ]
+			},
+			"sortdir": {
+				"type": [ "string", "null" ],
+				"enum": [ "asc", "ASC", "desc", "DESC" ]
+			},
+			"search": {
+				"type": [ "string", "integer", "null" ]
+			},
+			"detail": {
+				"type": "string",
+				"enum": [ "basic", "full" ]
+			}
+		}
+	}
 }]
