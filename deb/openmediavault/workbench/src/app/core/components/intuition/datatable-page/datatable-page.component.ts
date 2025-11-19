@@ -83,19 +83,19 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
 
   onLoadDataEvent(params: DataTableLoadParams) {
     this.subscriptions.add(
-      this.loadData(params).subscribe(
-        (res: DataStoreResponse) => {
+      this.loadData(params).subscribe({
+        next: (res: DataStoreResponse) => {
           // Update the total count of all rows.
           if (_.isPlainObject(this.config.store.proxy)) {
             this.count = res.total;
           }
         },
-        () => {
+        error: () => {
           // Reset store and table in case of an error.
           this.config.store.data = [];
           this.count = 0;
         }
-      )
+      })
     );
   }
 
