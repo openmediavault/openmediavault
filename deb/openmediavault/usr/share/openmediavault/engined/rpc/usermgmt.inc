@@ -117,13 +117,13 @@ finish:
 	 * Enumerate users.
 	 * @param string $type The user type, e.g. `system`, `normal` or `all`.
 	 * @param string $detail Specifies the details level: `basic` or `full`.
-	 *   Defaults to `full`.
+	 *   Defaults to `basic`.
 	 * @return An array of associative arrays with the following user information:
 	 *   name, UID, GID, comment, home directory, and shell program,
 	 *   last changed, minimum, maximum, warn, inactive, expire, reserved,
 	 *   groups (array of group names) and system.
 	 */
-	private function enumerateUsersByType($type, $detail = "full") {
+	private function enumerateUsersByType($type, $detail = "basic") {
 		$result = [];
 		$users = \OMV\System\User::enumerateUsers();
 		foreach ($users as $userk => $userv) {
@@ -156,47 +156,53 @@ finish:
 
 	/**
 	 * Get the list of system users.
-	 * @param params The method parameters.
+	 * @param params An array containing the following fields:
+	 *   \em detail Specifies the detail level of the user information:
+	 *     `basic` or `full`. Defaults to `basic`.
 	 * @param context The context of the caller.
 	 * @return A list of user objects.
 	 */
 	public function enumerateSystemUsers($params, $context) {
-		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get system users.
-		return $this->enumerateUsersByType("system");
+		$this->validateMethodParams($params, "rpc.usermgmt.enumerate");
+		$detail = array_value($params, "detail", "basic");
+		return $this->enumerateUsersByType("system", $detail);
 	}
 
 	/**
 	 * Get the list of non-system users.
-	 * @param params The method parameters.
+	 * @param params An array containing the following fields:
+	 *   \em detail Specifies the detail level of the user information:
+	 *     `basic` or `full`. Defaults to `basic`.
 	 * @param context The context of the caller.
 	 * @return A list of user objects.
 	 */
 	public function enumerateUsers($params, $context) {
-		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get non-system users.
-		return $this->enumerateUsersByType("normal");
+		$this->validateMethodParams($params, "rpc.usermgmt.enumerate");
+		$detail = array_value($params, "detail", "basic");
+		return $this->enumerateUsersByType("normal", $detail);
 	}
 
 	/**
 	 * Get the list of all users.
-	 * @param params The method parameters.
+	 * @param params An array containing the following fields:
+	 *   \em detail Specifies the detail level of the user information:
+	 *     `basic` or `full`. Defaults to `basic`.
 	 * @param context The context of the caller.
 	 * @return A list of user objects.
 	 */
 	public function enumerateAllUsers($params, $context) {
-		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get all users.
-		return $this->enumerateUsersByType("all");
+		$this->validateMethodParams($params, "rpc.usermgmt.enumerate");
+		$detail = array_value($params, "detail", "basic");
+		return $this->enumerateUsersByType("all", $detail);
 	}
 
 	/**
@@ -281,6 +287,8 @@ finish:
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
+	 *   \em $detail Specifies the detail level of the user information.
+	 *     Defaults to `basic`.
 	 * @param context The context of the caller.
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
@@ -292,10 +300,10 @@ finish:
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.usermgmt.getUserList");
+		$this->validateMethodParams($params, "rpc.usermgmt.getuserlist");
 		// Get the list of non-system user.
-		$users = $this->enumerateUsersByType("normal", array_value($params,
-			"detail", "full"));
+		$detail = array_value($params, "detail", "basic");
+		$users = $this->enumerateUsersByType("normal", $detail);
 		// Get all users stored in the database and generate a lookup map.
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.system.usermngmnt.user");

@@ -33,7 +33,7 @@ class User {
 	protected $gecos = NULL;
 	protected $dir = NULL;
 	protected $shell = NULL;
-	protected $lastchanged = NULL;
+	protected $lastChanged = NULL;
 	protected $minimum = NULL;
 	protected $maximum = NULL;
 	protected $warn = NULL;
@@ -88,7 +88,7 @@ class User {
 			}
 			$output = explode(":", $output[0]);
 			$this->password = $output[1];
-			$this->lastchanged = $output[2];
+			$this->lastChanged = $output[2];
 			$this->minimum = $output[3];
 			$this->maximum = $output[4];
 			$this->warn = $output[5];
@@ -246,7 +246,7 @@ class User {
 
 	public function getLastChanged() {
 		$this->getData("shadow");
-		return $this->lastchanged;
+		return $this->lastChanged;
 	}
 
 	public function getMinimum() {
