@@ -2,6 +2,12 @@ openmediavault (8.0-7) stable; urgency=medium
 
   * Upgrade to Debian 13 (Trixie).
   * Replace `cpufrequtils` with `linux-cpupower`.
+  * Improve several user and group related RPCs. Developers should note
+    that the RPCs UserMgmt::enumerateSystemUsers, UserMgmt::enumerateUsers,
+    UserMgmt::enumerateAllUsers and UserMgmt::getUserList now return only
+    basic user information. Set the parameter `detail` to `full` to get more
+    detailed user information. This API change was done to improve the RPC
+    response times dramatically.
   * Issue #1737 && #1866: Add support for WPA3 (SAE) authentication for
     wireless connections.
 
