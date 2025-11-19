@@ -268,7 +268,7 @@ class Group {
 	 * Create a new `Group` object from a `/etc/group` file line.
 	 * @param string $line A line from the `/etc/group` file.
 	 * @return The new `Group` object.
-	 * @throw \ValueError
+	 * @throw \OMV\ValueException
 	 */
 	private static function newFromGroupLine($line): self {
 		// https://www.cyberciti.biz/faq/understanding-etcgroup-file/
@@ -281,7 +281,7 @@ class Group {
 		// foo:x:1002:vagrant,vot
 		$fields = explode(":", $line);
 		if (4 != count($fields)) {
-			throw new \ValueError("Invalid group line '%s'.", $line);
+			throw new \OMV\ValueException("Invalid group line '%s'.", $line);
 		}
 		$group = new self($fields[0]);
 		$group->gid = intval($fields[2]);

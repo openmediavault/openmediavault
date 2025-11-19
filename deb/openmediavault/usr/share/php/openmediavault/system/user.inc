@@ -459,7 +459,7 @@ class User {
 	 * Create a new `User` object from a `/etc/passwd` file line.
 	 * @param string $line A line from the `/etc/passwd` file.
 	 * @return The new `User` object.
-	 * @throw \ValueError
+	 * @throw \OMV\ValueException
 	 */
 	private static function newFromPasswdLine($line): self {
 		// https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/
@@ -472,7 +472,7 @@ class User {
 		// test:x:1001:100:sdfds:/home/test:/bin/dash
 		$fields = explode(":", $line);
 		if (7 != count($fields)) {
-			throw new \ValueError("Invalid passwd line '%s'.", $line);
+			throw new \OMV\ValueException("Invalid passwd line '%s'.", $line);
 		}
 		$user = new self($fields[0]);
 		$user->uid = intval($fields[2]);
