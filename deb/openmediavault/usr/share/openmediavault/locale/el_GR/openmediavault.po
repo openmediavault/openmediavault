@@ -372,12 +372,12 @@ msgstr "Έγινε προσπάθεια αποστολής δοκιμαστικ�
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Το αποτέλεσμα της εντολής (εφόσον υπάρχει) αποστέλλεται στον διαχειριστή με μήνυμα."
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr ""
+msgstr "Αποστέλλεται στον χρήστη ένα μήνυμα με το αποτέλεσμα της εργασίας που ζήτησε (εφόσον παραχθεί)."
 
 msgid "Andorra"
 msgstr "Andorra"

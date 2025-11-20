@@ -22,7 +22,7 @@ msgstr ""
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "一封包含命令輸出（若有）的電子郵件將會寄送給管理員。"
 
 msgid "Archive"
 msgstr "歸檔"

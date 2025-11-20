@@ -24,7 +24,7 @@ msgstr ""
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Er wordt een e-mailbericht met de opdrachtuitvoer (indien aanwezig) naar de administrator verzonden."
 
 msgid "Archive"
 msgstr "Archiveren"

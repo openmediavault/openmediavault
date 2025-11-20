@@ -380,12 +380,12 @@ msgstr "Er is een poging gedaan om de test-e-mail te verzenden. Controleer uw ma
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Er wordt een e-mailbericht met de opdrachtuitvoer (indien aanwezig) naar de administrator verzonden."
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr ""
+msgstr "Er wordt een e-mailbericht met de opdrachtuitvoer (indien aanwezig) verzonden naar de gebruiker die de taak vervult."
 
 msgid "Andorra"
 msgstr "Andorra"

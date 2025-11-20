@@ -24,7 +24,7 @@ msgstr "Αλγοριθμική ανίχνευση"
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Το αποτέλεσμα της εντολής (εφόσον υπάρχει) αποστέλεται στον διαχειριστή με μήνυμα."
 
 msgid "Antivirus"
 msgstr "Αντιβιωτικό"
