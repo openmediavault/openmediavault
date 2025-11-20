@@ -44,6 +44,9 @@ $ vagrant plugin install vagrant-reload
 
 # Troubleshooting
 
+- If you need to log in with the `root` user via SSH or TTY, then use the password
+  `openmediavault`.
+
 - If you get the error `mount.nfs: access denied by server while mounting ...`,
   then make sure your home directory `/home/<USER>/` is accessible (`r-x`)
   by `others`.
