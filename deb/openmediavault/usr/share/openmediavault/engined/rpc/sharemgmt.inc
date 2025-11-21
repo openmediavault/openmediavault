@@ -956,7 +956,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Add missing users.
 		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateAllUsers",
-		  NULL, $context);
+			[ "detail" => "basic" ], $context);
 		foreach ($users as $userk => $userv) {
 			$found = FALSE;
 			foreach ($result['acl']['users'] as &$resultv) {

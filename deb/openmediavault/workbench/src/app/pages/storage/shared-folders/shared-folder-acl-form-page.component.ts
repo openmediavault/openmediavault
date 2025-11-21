@@ -96,7 +96,10 @@ export class SharedFolderAclFormPageComponent extends BaseFormPageComponent impl
               proxy: {
                 service: 'UserMgmt',
                 get: {
-                  method: 'enumerateAllUsers'
+                  method: 'enumerateAllUsers',
+                  params: {
+                    detail: 'basic'
+                  }
                 }
               },
               sorters: [
