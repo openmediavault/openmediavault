@@ -1,13 +1,30 @@
 {
   admin off
+  auto_https off
 }
-:8443 {
+:443 {
   tls /data/cert.crt /data/cert.key
-  header -Server
-  reverse_proxy http://filebrowser-app:8080 {
-    header_down Strict-Transport-Security max-age=15768000
-    header_down X-Frame-Options "SAMEORIGIN"
-    header_down X-Content-Type-Options "nosniff"
-    header_down X-XSS-Protection "1; mode=block"
+
+  # Public endpoints (no authentication)
+  handle_path /public/* {
+    reverse_proxy filebrowser-app:80 {
+      header_up Host {host}
+      header_up X-Forwarded-For {remote_host}
+      header_up X-Forwarded-Proto {scheme}
+    }
+  }
+
+  # Private endpoints (with authentication)
+  handle /* {
+    reverse_proxy filebrowser-app:80 {
+      header_up Host {host}
+      header_up X-Forwarded-For {remote_host}
+      header_up X-Forwarded-Proto {scheme}
+    }
+  }
+
+  reverse_proxy filebrowser-app:80 {
+    header_up Connection {>Connection}
+    header_up Transfer-Encoding {>Transfer-Encoding}
   }
 }
