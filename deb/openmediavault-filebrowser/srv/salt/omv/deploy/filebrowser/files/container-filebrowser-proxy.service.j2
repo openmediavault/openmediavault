@@ -1,4 +1,4 @@
-{%- set image = salt['pillar.get']('default:OMV_S3_PROXY_CONTAINER_IMAGE', 'docker.io/library/caddy:latest') -%}
+{%- set image = salt['pillar.get']('default:OMV_FILEBROWSER_PROXY_CONTAINER_IMAGE', 'docker.io/library/caddy:latest') -%}
 {%- set ssl_cert_dir = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_DIR', '/etc/ssl') -%}
 {%- set ssl_cert_prefix = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_PREFIX', 'openmediavault') -%}
 {%- set ssl_cert = ssl_cert_dir | path_join('certs', ssl_cert_prefix ~ config.sslcertificateref ~ '.crt') -%}

@@ -29,7 +29,7 @@
 # podman logs -f filebrowser-proxy
 
 {% set config = salt['omv_conf.get']('conf.service.filebrowser') %}
-{% set app_image = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_IMAGE', 'docker.io/filebrowser/filebrowser:v2.32.0') %}
+{% set app_image = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_IMAGE', 'docker.io/gtstef/filebrowser:stable') %}
 {% set proxy_image = salt['pillar.get']('default:OMV_FILEBROWSER_PROXY_CONTAINER_IMAGE', 'docker.io/library/caddy:latest') %}
 {% set uname = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_UNAME', 'filebrowser') %}
 {% set gname = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CONTAINER_GNAME', 'users') %}
@@ -72,6 +72,13 @@ filebrowser_app_image_exists:
     - name: podman image exists {{ app_image }}
     - failhard: True
 
+setup_filebrowser_dir:
+  file.directory:
+    - name: "/var/lib/filebrowser/"
+    - user: {{ uname }}
+    - group: {{ gname }}
+    - mode: 755
+
 # Make sure the file exists. Do not use "file.touch" state.
 create_filebrowser_database:
   file.managed:
@@ -81,11 +88,11 @@ create_filebrowser_database:
     - mode: 644
     - replace: False
 
-configure_filebrowser:
+configure_filebrowser_config:
   file.managed:
-    - name: "/var/lib/filebrowser/filebrowser.json"
+    - name: "/var/lib/filebrowser/config.yaml"
     - source:
-      - salt://{{ tpldir }}/files/filebrowser.json.j2
+      - salt://{{ tpldir }}/files/config.yaml.j2
     - template: jinja
     - context:
         config: {{ config | json }}
@@ -156,7 +163,7 @@ start_filebrowser_service:
     - name: pod-filebrowser
     - enable: True
     - watch:
-      - file: configure_filebrowser
+      - file: configure_filebrowser_config
       - file: create_filebrowser_pod_systemd_unit_file
       - file: create_filebrowser_app_container_systemd_unit_file
 
