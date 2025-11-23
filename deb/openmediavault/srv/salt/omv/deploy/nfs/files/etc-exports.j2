@@ -32,6 +32,6 @@
   'arg0': {'operator': 'stringEquals', 'arg0': 'client', 'arg1': share_distinct_client.client},
   'arg1': {'operator': 'stringContains', 'arg0': 'extraoptions', 'arg1': 'insecure'}
   }) | length > 0 %}
-{{ export_dir }} {{ share_distinct_client.client | trim | default('*', true) }}({{ (pseudo_root_options | regex_replace('\bsecure\b', 'insecure')) if insecure else pseudo_root_options }})
+{{ export_dir }} {{ share_distinct_client.client | trim | default('*', true) }}({{ (pseudo_root_options | regex_replace('(^|,)secure(?=,|$)', '\\1insecure')) if insecure else pseudo_root_options }})
 {%- endfor %}
 {%- endif %}
