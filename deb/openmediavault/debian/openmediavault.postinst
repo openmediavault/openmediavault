@@ -605,6 +605,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "7.7.22"; then
 			omv_module_set_dirty issue
+			omv_module_set_dirty nfs
 		fi
 		if dpkg --compare-versions "$2" lt-nl "8.0"; then
 			deb-systemd-invoke stop cpufrequtils.service || :

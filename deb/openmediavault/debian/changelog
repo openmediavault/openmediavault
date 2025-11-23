@@ -15,7 +15,7 @@ openmediavault (8.0-7) stable; urgency=medium
 
 openmediavault (7.7.22-1) stable; urgency=medium
 
-  *
+  * Fix NFS configuration issue when `insecure` option is used in a share.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Nov 2025 10:54:32 +0100
 
