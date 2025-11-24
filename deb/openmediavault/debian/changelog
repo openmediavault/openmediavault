@@ -1,3 +1,9 @@
+openmediavault (7.7.23-1) stable; urgency=medium
+
+  * 
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Nov 2025 21:13:47 +0100
+
 openmediavault (7.7.22-1) stable; urgency=medium
 
   * Fix NFS configuration issue when `insecure` option is used in a share.
