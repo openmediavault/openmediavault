@@ -1,8 +1,15 @@
-openmediavault-nut (8.0-4) stable; urgency=medium
+openmediavault-nut (8.0-5) stable; urgency=medium
 
   * Adapt to openmediavault 8.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:49:10 +0200
+
+openmediavault-nut (7.0.9-1) stable; urgency=medium
+
+  * Issue #2051: Low battery shutdown not working and system doesn't
+    resume when power restored.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Nov 2025 19:58:34 +0100
 
 openmediavault-nut (7.0.8-1) stable; urgency=medium
 
