@@ -610,8 +610,8 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Prepare result object.
 		$result = [];
 		// Process non-system users.
-		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateUsers", NULL,
-		  $context);
+		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateUsers",
+			[ "detail" => "basic" ], $context);
 		foreach ($users as $userk => $userv) {
 			// Set default values.
 			$privilege = new \OMV\Dictionary([
@@ -635,7 +635,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Process non-system groups.
 		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateGroups", NULL,
-		  $context);
+			$context);
 		foreach ($groups as $groupk => $groupv) {
 			// Set default values.
 			$privilege = new \OMV\Dictionary([
@@ -933,8 +933,9 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get the user, group and other file mode permission bits.
 		foreach ($output as $outputk => $outputv) {
 			$regex = '/^(user|group|other):(.*):(.+)$/';
-			if (1 !== preg_match($regex, $outputv, $matches))
+			if (1 !== preg_match($regex, $outputv, $matches)) {
 				continue;
+			}
 			// Convert permissions string into a number
 			$perms = 0;
 			$map = [ "r" => 4, "w" => "2", "x" => 1, "-" => 0 ];
@@ -971,8 +972,9 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 					break;
 				}
 			}
-			if (TRUE === $found)
+			if (TRUE === $found) {
 				continue;
+			}
 			$result['acl']['users'][] = [
 				"name" => $userv['name'],
 				"perms" => NULL,
@@ -982,7 +984,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Add missing groups.
 		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateAllGroups",
-		  NULL, $context);
+			NULL, $context);
 		foreach ($groups as $groupk => $groupv) {
 			$found = FALSE;
 			foreach ($result['acl']['groups'] as &$resultv) {
