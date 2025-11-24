@@ -1,3 +1,10 @@
+openmediavault-nut (7.0.9-1) stable; urgency=medium
+
+  * Issue #2051: Low battery shutdown not working and system doesn't
+    resume when power restored.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Nov 2025 19:58:34 +0100
+
 openmediavault-nut (7.0.8-1) stable; urgency=medium
 
   * Update locale files.

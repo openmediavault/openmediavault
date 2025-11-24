@@ -17,10 +17,8 @@ AT ONLINE * CANCEL-TIMER shutdown
 AT ONLINE * EXECUTE resume
 AT ONBATT * START-TIMER shutdown {{ config.shutdowntimer }}
 AT ONBATT * EXECUTE shutdown-warning
-AT LOWBATT * START-TIMER shutdown
-AT LOWBATT * EXECUTE shutdown-warning
 {%- else %}
 AT ONLINE * EXECUTE notify
 AT ONBATT * EXECUTE notify
-AT LOWBATT * EXECUTE notify
 {%- endif %}
+AT LOWBATT * EXECUTE forced-shutdown
