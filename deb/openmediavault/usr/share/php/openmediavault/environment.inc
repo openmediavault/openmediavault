@@ -50,7 +50,17 @@ class Environment {
 		return $default;
 	}
 
+	/**
+	 * Set the specified environment variable.
+	 * @param string $name The name of the environment variable.
+	 * @param any $value The value of the environment variable. If this
+	 *   variable is a callable function, then it is executed. The
+	 *   function has to return a value.
+	 */
 	public static function set($name, $value) {
+		if (is_callable($value)) {
+			$value = call_user_func($value);
+		}
 		$GLOBALS[$name] = $value;
 	}
 
