@@ -27,7 +27,7 @@ msgstr ""
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Un mail avec le résultat en sortie de la commande (s'il en est produit) est envoyé à l'administrateur."
 
 msgid "Archive"
 msgstr "Archiver"

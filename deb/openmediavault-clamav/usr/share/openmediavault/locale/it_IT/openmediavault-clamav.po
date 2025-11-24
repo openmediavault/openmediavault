@@ -27,7 +27,7 @@ msgstr "Rilevamento algoritmico"
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Un messaggio email con l’output del comando (se presente) viene inviato all’amministratore."
 
 msgid "Antivirus"
 msgstr "Antivirus"
@@ -75,7 +75,7 @@ msgid "Detect broken executables"
 msgstr "Rileva eseguibili danneggiati"
 
 msgid "Detect broken media"
-msgstr ""
+msgstr "Rileva supporti danneggiati"
 
 msgid "Edit"
 msgstr "Modifica"
@@ -104,7 +104,7 @@ msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "Abilita il rilevamento degli eseguibili danneggiati (sia PE che ELF)."
 
 msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
-msgstr ""
+msgstr "Abilita il rilevamento dei file multimediali danneggiati (JPEG, TIFF, PNG, GIF)."
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Abilita il rilevamento di possibili applicazioni indesiderate."

@@ -376,7 +376,7 @@ msgstr "Ett försök att skicka test e-postmeddelandet har gjorts. Kontrollera d
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Ett e-postmeddelande med kommandoutdata (om något produceras) skickas till administratören."
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -4113,7 +4113,7 @@ msgstr "Västsahara"
 msgid ""
 "While the background task is still running, you can attach the Workbench "
 "terminal dialog to it in the notification bar."
-msgstr ""
+msgstr "Medan bakgrundsuppgiften fortfarande körs kan du koppla Workbench-terminaldialogrutan till den i meddelandefältet."
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -4175,7 +4175,7 @@ msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
 msgid "Zombie"
-msgstr ""
+msgstr "Zombie"
 
 msgid "a day"
 msgstr "en dag"

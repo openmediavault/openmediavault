@@ -380,12 +380,12 @@ msgstr "È stato effettuato un tentativo di invio dell'email di test. Controlla 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Un messaggio email con l’output del comando (se presente) viene inviato all’amministratore."
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr ""
+msgstr "Un messaggio email con l’output del comando (se presente) viene inviato all’utente che esegue l’attività."
 
 msgid "Andorra"
 msgstr "Andorra"
@@ -1891,7 +1891,7 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Management of cpufreq and cpuidle tunables."
-msgstr ""
+msgstr "Gestione dei parametri configurabili di cpufreq e cpuidle."
 
 msgid "Management of scheduled tasks."
 msgstr "Gestione delle attività pianificate."
@@ -4085,7 +4085,7 @@ msgid "WPA2-Personal"
 msgstr "WPA2-Personal"
 
 msgid "WPA3-Personal"
-msgstr ""
+msgstr "WPA3-Personal"
 
 msgid "WWN"
 msgstr "WWN"
@@ -4117,7 +4117,7 @@ msgstr "Sahara Occidentale"
 msgid ""
 "While the background task is still running, you can attach the Workbench "
 "terminal dialog to it in the notification bar."
-msgstr ""
+msgstr "Mentre l’attività in background è ancora in esecuzione, puoi collegare ad essa il terminale Workbench dalla barra delle notifiche."
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

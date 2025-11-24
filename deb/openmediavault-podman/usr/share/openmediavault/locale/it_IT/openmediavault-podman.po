@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-podman\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 20:17+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
@@ -23,13 +23,13 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Block I/O"
-msgstr ""
+msgstr "I/O a blocchi"
 
 msgid "CID"
-msgstr ""
+msgstr "CID"
 
 msgid "CPU %"
-msgstr ""
+msgstr "CPU %"
 
 msgid "Command"
 msgstr "Comando"
@@ -71,10 +71,10 @@ msgid "Logs"
 msgstr "Log"
 
 msgid "Mem %"
-msgstr ""
+msgstr "Mem %"
 
 msgid "Mem Usage / Limit"
-msgstr ""
+msgstr "Uso Mem / Limite"
 
 msgid "Mount Point"
 msgstr "Punto di montaggio"
@@ -89,16 +89,16 @@ msgid "Names"
 msgstr "Nomi"
 
 msgid "Network I/O"
-msgstr ""
+msgstr "I/O di rete"
 
 msgid "Networks"
 msgstr "Reti"
 
 msgid "PIDs"
-msgstr ""
+msgstr "PID"
 
 msgid "Pod"
-msgstr ""
+msgstr "Pod"
 
 msgid "Podman"
 msgstr "Podman"
@@ -110,10 +110,10 @@ msgid "Ports"
 msgstr "Porte"
 
 msgid "Pull"
-msgstr ""
+msgstr "Scarica"
 
 msgid "Pull image"
-msgstr ""
+msgstr "Scarica immagine"
 
 msgid "Repository"
 msgstr "Repository"
@@ -140,7 +140,7 @@ msgid "Tag"
 msgstr "Tag"
 
 msgid "The tag of the image to pull."
-msgstr ""
+msgstr "Il tag dell’immagine da scaricare."
 
 msgid "Updated Podman settings."
 msgstr "Le impostazioni di Podman sono state aggiornate."
