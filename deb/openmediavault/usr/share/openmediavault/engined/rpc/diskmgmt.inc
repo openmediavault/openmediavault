@@ -59,9 +59,6 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get the device containing the operating system. Mark it as
-		// read-only to deny wiping this device.
-		$rootDeviceFile = \OMV\System\System::getRootDeviceFile();
 		// Get all existing devices except software RAID devices.
 		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
 		  OMV_STORAGE_DEVICE_TYPE_DISK))) {
