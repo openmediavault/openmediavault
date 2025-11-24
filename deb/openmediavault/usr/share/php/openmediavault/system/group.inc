@@ -285,10 +285,7 @@ class Group {
 		}
 		$group = new self($fields[0]);
 		$group->gid = intval($fields[2]);
-		$group->members = [];
-		if (!empty($fields[3])) {
-			$group->members = explode(",", $fields[3]); // Supplementary group members only.
-		}
+		$group->members = explode_safe(",", $fields[3]); // Supplementary group members only.
 		$group->dataCached = TRUE;
 		return $group;
 	}
