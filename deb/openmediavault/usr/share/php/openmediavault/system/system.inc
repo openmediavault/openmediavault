@@ -51,7 +51,8 @@ class System {
 		$mp = new \OMV\System\MountPoint("/");
 		// Return the canonical device file to prevent future hiccups,
 		// e.g. `/dev/mapper/omv--lvm--vg-root` => `/dev/dm-0`.
-		return realpath($mp->getDeviceFile());
+		$rootDeviceFile = realpath($mp->getDeviceFile());
+    	return $rootDeviceFile;
 	}
 
 	/**
