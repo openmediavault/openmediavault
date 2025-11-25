@@ -1,7 +1,7 @@
 Source: openmediavault-wetty
 Section: net
 XB-Plugin-Section: network
-XB-Plugin-Architecture: amd64
+XB-Plugin-Architecture: amd64, arm64
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>= 12), gettext
