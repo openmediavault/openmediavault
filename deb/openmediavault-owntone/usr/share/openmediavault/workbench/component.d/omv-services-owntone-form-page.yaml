@@ -54,7 +54,7 @@ data:
       - type: passwordInput
         name: adminpassword
         label: _("Password")
-        hint: _("The 'admin' password to access the web interface.")
+        hint: _("The password for the user <em>admin</em> to access the web interface.")
         autocomplete: new-password
         value: ""
         validators:

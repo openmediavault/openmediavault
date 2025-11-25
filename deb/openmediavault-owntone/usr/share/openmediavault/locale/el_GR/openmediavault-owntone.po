@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-owntone\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2025-11-25 20:44+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Kostas Moho, 2022\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
@@ -46,9 +46,6 @@ msgstr "Θύρα για ακρόαση."
 msgid "Shared folder"
 msgstr "Κοινόχρηστος φάκελος"
 
-msgid "The 'admin' password to access the web interface."
-msgstr "Κωδικός διαχειριστή για την πρόσβαση στο γραφικό περιβάλλον."
-
 msgid ""
 "The location of the media files to share. Make sure the user "
 "<em>owntone</em> or group <em>users</em> can access the files."
@@ -59,6 +56,9 @@ msgstr ""
 
 msgid "The name of the library as displayed by the clients."
 msgstr "Τό όνομα της βιβλιοθήκης, όπως φαίνεται στους πελάτες."
+
+msgid "The password for the user <em>admin</em> to access the web interface."
+msgstr ""
 
 msgid "The password to access the library."
 msgstr "Ο κωδικός για την πρόσβαση στην βιβλιοθήκη."

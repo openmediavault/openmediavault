@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-owntone\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2025-11-25 20:44+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
@@ -48,9 +48,6 @@ msgstr "Poort om te beluisteren."
 msgid "Shared folder"
 msgstr "Gedeelde map"
 
-msgid "The 'admin' password to access the web interface."
-msgstr "Het 'admin' wachtwoord om toegang te krijgen tot de webinterface."
-
 msgid ""
 "The location of the media files to share. Make sure the user "
 "<em>owntone</em> or group <em>users</em> can access the files."
@@ -61,6 +58,9 @@ msgstr ""
 
 msgid "The name of the library as displayed by the clients."
 msgstr "De naam van de bibliotheek zoals deze aan gebruikers wordt getoond."
+
+msgid "The password for the user <em>admin</em> to access the web interface."
+msgstr ""
 
 msgid "The password to access the library."
 msgstr "Het wachtwoord om toegang te krijgen tot de bibliotheek."
