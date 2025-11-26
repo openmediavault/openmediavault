@@ -1,6 +1,7 @@
 openmediavault (7.7.23-1) stable; urgency=medium
 
   * Improve performance when enumerating file systems.
+  * Issue #2055: Add SMART support for QNAP TR-004U (non-RAID mode).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Nov 2025 21:13:47 +0100
 
