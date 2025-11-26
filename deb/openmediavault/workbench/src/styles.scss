@@ -1010,6 +1010,48 @@ $omv-dark-theme: mat.define-dark-theme(
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+// Markdown
+.omv-markdown {
+  line-height: 1.2rem;
+
+  blockquote {
+    background-color: rgb(0 0 0 / 8%);
+    border-left: 4px solid rgb(0 0 0 / 24%);
+    border-radius: 4px;
+    margin: 20px 0;
+    padding: 1px 20px;
+  }
+
+  code {
+    background-color: rgb(0 0 0 / 8%);
+    border-radius: 4px;
+    font-size: 85%;
+    margin: 0;
+    padding: 0.2em 0.4em;
+    white-space: break-spaces;
+  }
+
+  pre {
+    background-color: rgb(0 0 0 / 8%);
+    border-radius: 4px;
+    font-size: 85%;
+    overflow: auto;
+    padding: 1rem;
+
+    & code {
+      background-color: transparent;
+      border: 0;
+      display: inline;
+      line-height: inherit;
+      margin: 0;
+      overflow: visible;
+      padding: 0;
+      word-wrap: normal;
+    }
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
 // Customize HTML elements
 ////////////////////////////////////////////////////////////////////////////////
 

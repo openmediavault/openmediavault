@@ -61,6 +61,7 @@
     "cronstrue": "^2.61.0",
     "dayjs": "^1.11.19",
     "lodash": "^4.17.21",
+    "marked": "^17.0.1",
     "ngx-scrollbar": "^10.0.1",
     "ngx-toastr": "^16.2.0",
     "nunjucks": "^3.2.4",
