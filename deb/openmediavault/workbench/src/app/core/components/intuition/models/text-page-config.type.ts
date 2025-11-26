@@ -47,7 +47,10 @@ export type TextPageConfig = {
       format?: string;
     };
   };
+  // The format of the content. Defaults to `text`.
+  contentFormat?: 'text' | 'markdown' | 'html';
   // Wrap overflowing text onto multiple lines at logical points in the text.
+  // This option only applies if `contentFormat` is set to `text`.
   // Defaults to `true`.
   wrapText?: boolean;
   buttonAlign?: 'start' | 'center' | 'end';
