@@ -40,7 +40,11 @@ class StorageDeviceSD extends StorageDevice implements SmartInterface {
 				"TR-004 DISK00" => "jmb39x-q,0", // QNAP TR-004
 				"TR-004 DISK01" => "jmb39x-q,1",
 				"TR-004 DISK02" => "jmb39x-q,2",
-				"TR-004 DISK03" => "jmb39x-q,3"
+				"TR-004 DISK03" => "jmb39x-q,3",
+				"TR-004U DISK00" => "jmb39x-q,0", // QNAP TR-004U
+				"TR-004U DISK01" => "jmb39x-q,1",
+				"TR-004U DISK02" => "jmb39x-q,2",
+				"TR-004U DISK03" => "jmb39x-q,3"
 			];
 			return array_value($modelMap, $this->getModel(), "");
 		}
