@@ -1029,7 +1029,7 @@ $omv-dark-theme: mat.define-dark-theme(
 
   blockquote {
     background-color: var(--omv-background-color-muted-text);
-    border-left: 4px solid rgb(0 0 0 / 24%);
+    border-left: 4px solid dc.$omv-color-corporate-default;
     border-radius: 4px;
     margin: 20px 0;
     padding: 1px 20px;
