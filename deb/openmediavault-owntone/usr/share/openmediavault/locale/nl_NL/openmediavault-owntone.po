@@ -61,6 +61,8 @@ msgstr "De naam van de bibliotheek zoals deze aan gebruikers wordt getoond."
 
 msgid "The password for the user <em>admin</em> to access the web interface."
 msgstr ""
+"Het wachtwoord voor de gebruiker <em>admin</em> om toegang te krijgen tot de"
+" webinterface."
 
 msgid "The password to access the library."
 msgstr "Het wachtwoord om toegang te krijgen tot de bibliotheek."
