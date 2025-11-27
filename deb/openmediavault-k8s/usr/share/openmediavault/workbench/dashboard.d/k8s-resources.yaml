@@ -11,7 +11,7 @@ data:
   description: _("Show the total number of several resources.")
   grid:
     item:
-      class: 'omv-text-center omv-text-nowrap omv-background-color-selected-button'
+      class: 'omv-text-center omv-text-nowrap omv-background-color-muted'
       title: '{% set resourceText = { "configmaps": "Config Maps", "deployments": "Deployments", "namespaces": "Namespaces", "persistentvolumes": "PV", "pods": "Pods", "secrets": "Secrets", "services": "Services", "statefulsets": "Stateful Sets" } %}{{ resourceText[name] | translate }}'
       titleClass: 'omv-text-truncate'
       content: '{{ total }}'
