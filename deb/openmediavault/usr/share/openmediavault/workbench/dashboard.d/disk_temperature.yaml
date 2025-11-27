@@ -14,7 +14,7 @@ data:
   grid:
     item:
       content: '{{ canonicaldevicefile }}<br>{{ temperature | notavailable }}{% if temperature %}°C{% endif %}'
-      class: 'omv-cursor-pointer omv-text-center omv-text-nowrap omv-background-color-selected-button'
+      class: 'omv-cursor-pointer omv-text-center omv-text-nowrap omv-background-color-muted'
       tooltip: '{{ devicefile }}'
       url: '/storage/smart/devices/details/{{ devicefile | encodeuricomponent }}'
     store:

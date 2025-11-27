@@ -11,7 +11,7 @@ data:
   description: _("Displays information about the network interfaces in a grid.")
   grid:
     item:
-      class: 'omv-color-text {% if link %}omv-background-color-pair-success{% else %}omv-background-color-selected-button{% endif %}'
+      class: 'omv-color-text {% if link %}omv-background-color-pair-success{% else %}omv-background-color-muted{% endif %}'
       title: '{{ devicename }}'
       titleClass: 'omv-text-truncate'
       content: '{{ address | default("-", true) }}{% if address %}/{{ prefix }}{% endif %}<br>{{ address6 | default("-", true) }}{% if address6 %}/{{ prefix6 }}{% endif %}'

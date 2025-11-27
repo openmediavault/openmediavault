@@ -2,7 +2,7 @@
 
 .omv-progress-bar {
   position: relative;
-  background-color: rgb(0 0 0 / 10%);
+  background-color: var(--omv-background-color-muted);
 
   .omv-progress-bar-text {
     white-space: nowrap;

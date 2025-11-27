@@ -66,6 +66,14 @@ $omv-dark-theme: mat.define-dark-theme(
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+// CSS variables
+////////////////////////////////////////////////////////////////////////////////
+:root {
+  --omv-background-color-muted: rgb(0 0 0 / 10%);
+  --omv-background-color-muted-text: rgb(0 0 0 / 6%);
+}
+
+////////////////////////////////////////////////////////////////////////////////
 // Classes
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -757,8 +765,13 @@ $omv-dark-theme: mat.define-dark-theme(
   background-color: var(--mat-background-color-hover);
 }
 
+.omv-background-color-muted,
 .omv-background-color-selected-button {
-  background-color: var(--mat-background-color-selected-button);
+  background-color: var(--omv-background-color-muted);
+}
+
+.omv-background-color-muted-text {
+  background-color: var(--omv-background-color-muted-text);
 }
 
 .omv-background-color-card {
@@ -1015,7 +1028,7 @@ $omv-dark-theme: mat.define-dark-theme(
   line-height: 1.2rem;
 
   blockquote {
-    background-color: rgb(0 0 0 / 8%);
+    background-color: var(--omv-background-color-muted-text);
     border-left: 4px solid rgb(0 0 0 / 24%);
     border-radius: 4px;
     margin: 20px 0;
@@ -1023,7 +1036,7 @@ $omv-dark-theme: mat.define-dark-theme(
   }
 
   code {
-    background-color: rgb(0 0 0 / 8%);
+    background-color: var(--omv-background-color-muted-text);
     border-radius: 4px;
     font-size: 85%;
     margin: 0;
@@ -1032,7 +1045,7 @@ $omv-dark-theme: mat.define-dark-theme(
   }
 
   pre {
-    background-color: rgb(0 0 0 / 8%);
+    background-color: var(--omv-background-color-muted-text);
     border-radius: 4px;
     font-size: 85%;
     overflow: auto;
