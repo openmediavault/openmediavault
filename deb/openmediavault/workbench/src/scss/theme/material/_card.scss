@@ -13,7 +13,13 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
+@use 'scss/defaults/variables' as dv;
+
 @mixin theme($mode, $theme-config, $typography-config) {
+  .mat-card {
+    border-radius: dv.$omv-border-radius !important;
+  }
+
   .mat-card-actions {
     .mat-button-base:not(:last-child) {
       margin-right: 0.5rem;

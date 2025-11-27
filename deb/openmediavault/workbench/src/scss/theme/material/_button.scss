@@ -13,9 +13,14 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
+@use 'scss/defaults/variables' as dv;
 @use 'scss/theme/colors' as tc;
 
 @mixin theme($mode, $theme-config, $typography-config) {
+  .mat-button-base {
+    border-radius: dv.$omv-border-radius !important;
+  }
+
   .mat-button-toggle.mat-button-toggle-checked {
     @include tc.background-color-pair('accent');
   }
