@@ -18,7 +18,10 @@
 @mixin theme($mode, $theme-config, $typography-config) {
   .mat-card {
     border-radius: dv.$omv-border-radius !important;
-    overflow: hidden;
+
+    &:not(:has(.omv-sticky)) {
+      overflow: hidden;
+    }
   }
 
   .mat-card-actions {
