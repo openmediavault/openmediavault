@@ -8,6 +8,7 @@
   animation-timing-function: steps(1);
 
   .mat-card {
+    border-radius: unset !important;
     margin: dv.$omv-margin;
     padding: 0;
 
