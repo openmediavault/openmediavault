@@ -8,6 +8,8 @@ openmediavault (8.0-10) stable; urgency=medium
     basic user information. Set the parameter `detail` to `full` to get more
     detailed user information. This API change was done to improve the RPC
     response times dramatically.
+  * Display updated modules in notification after configuration changes have
+    been applied.
   * Issue #1737 && #1866: Add support for WPA3 (SAE) authentication for
     wireless connections.
 

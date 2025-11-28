@@ -80,7 +80,7 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 	 *   \em force Set to TRUE to update all modules, regardless if marked
 	 *   as dirty or not.
 	 * @param context The context of the caller.
-	 * @return void
+	 * @return Returns the list of processed modules as a string array.
 	 * @throw \OMV\Exception
 	 */
 	public function applyChanges($params, $context) {
@@ -196,6 +196,7 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 		$jsonFile->close();
 		// Unlink all configuration revision files.
 		$db->unlinkRevisions();
+		return array_keys($processModules);
 	}
 
 	/**

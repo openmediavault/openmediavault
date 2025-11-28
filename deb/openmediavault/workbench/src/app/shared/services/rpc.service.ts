@@ -100,10 +100,10 @@ export class RpcService {
     rpcOptions?: any,
     period?: number,
     maxRetries?: number
-  ): Observable<string> {
+  ): Observable<any> {
     return this.request(rpcService, rpcMethod, rpcParams, rpcOptions, maxRetries).pipe(
       mergeMap((filename: any) => this.pollTask(filename, period)),
-      map((res: RpcBgResponse): string => {
+      map((res: RpcBgResponse): any => {
         try {
           return JSON.parse(res.output);
         } catch (e) {}
