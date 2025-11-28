@@ -23,6 +23,7 @@ import { Subscription } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
 import { Unsubscribe } from '~/app/decorators';
+import { format } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { AlertPanelButtonConfig } from '~/app/shared/components/alert-panel/alert-panel.component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
@@ -117,10 +118,17 @@ export class ApplyConfigPanelComponent {
                 this.blockUiService.stop();
               })
             )
-            .subscribe(() => {
+            .subscribe((res2) => {
+              const message = format(
+                gettext('The following modules have been updated: {{ modules }}'),
+                {
+                  modules: (res2 as string[]).join(', ')
+                }
+              );
               this.notificationService.show(
                 NotificationType.success,
-                gettext('Applied the configuration changes.')
+                gettext('Applied the configuration changes.'),
+                message
               );
             });
         }
