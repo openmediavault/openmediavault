@@ -10,6 +10,7 @@ openmediavault (8.0-10) stable; urgency=medium
     response times dramatically.
   * Display updated modules in notification after configuration changes have
     been applied.
+  * Display old versions of upgradable packages on the update page.
   * Issue #1737 && #1866: Add support for WPA3 (SAE) authentication for
     wireless connections.
 
