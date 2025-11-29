@@ -34,7 +34,7 @@ export class UpdateDatatablePageComponent {
         cellTemplateConfig:
           '<div>' +
           '  <div class="omv-display-flex omv-flex-column">' +
-          '    <div class="omv-font-weight-title omv-font-size-title">{{ name }} {{ version }}</div>' +
+          '    <div><span class="omv-font-weight-title omv-font-size-title">{{ name }} {{ version }}</span> ({{ "from" | translate }} {{ oldversion | notavailable | translate }})</div>' +
           '    <div class="omv-font-size-subheading-2">{{ summary }}</div>' +
           '  </div>' +
           '  <br>' +
@@ -48,6 +48,13 @@ export class UpdateDatatablePageComponent {
       },
       { name: gettext('Name'), prop: 'name', flexGrow: 1, sortable: true, hidden: true },
       { name: gettext('Version'), prop: 'version', flexGrow: 1, sortable: true, hidden: true },
+      {
+        name: gettext('Old Version'),
+        prop: 'oldversion',
+        flexGrow: 1,
+        sortable: true,
+        hidden: true
+      },
       {
         name: gettext('Repository'),
         prop: 'repository',
