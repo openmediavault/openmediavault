@@ -72,6 +72,7 @@ start_cpupower_service:
   service.running:
     - name: cpupower
     - enable: True
+    - onlyif: test "{{ grains['virtual'] }}" = "none"
     - watch:
       - file: configure_cpupower_conf
 

@@ -41,8 +41,9 @@ class System {
 		// Cache the root device file. If this should change during the
 		// meantime something strange has been happened to the system.
 		static $rootDeviceFile = NULL;
-		if (!is_null($rootDeviceFile))
+		if (!is_null($rootDeviceFile)) {
 			return $rootDeviceFile;
+		}
 		// Do not use /dev/root anymore because Debian has removed this
 		// symlink in Jessie. The OMV workaround to create this symlink
 		// during the boot process via an udev rule does not work reliable.
@@ -51,7 +52,8 @@ class System {
 		$mp = new \OMV\System\MountPoint("/");
 		// Return the canonical device file to prevent future hiccups,
 		// e.g. `/dev/mapper/omv--lvm--vg-root` => `/dev/dm-0`.
-		return realpath($mp->getDeviceFile());
+		$rootDeviceFile = realpath($mp->getDeviceFile());
+    	return $rootDeviceFile;
 	}
 
 	/**
@@ -64,8 +66,9 @@ class System {
 	public static function isRootDeviceFile($deviceFile, $exact = TRUE) {
 		// '/dev/root' is obsolete, but we still keep it (maybe we will
 		// need it sometime).
-		if ("/dev/root" == $deviceFile)
+		if ("/dev/root" == $deviceFile) {
 			return TRUE;
+		}
 		$rootDeviceFile = static::getRootDeviceFile();
 		if (TRUE === $exact) {
 			return (($rootDeviceFile == $deviceFile) ||

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Daniel, 2025\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -156,9 +156,6 @@ msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maximal prestanda, maximal strömförbrukning"
-
-msgid "255 - Disabled"
-msgstr "255 - Inaktiverad"
 
 msgid "3 days"
 msgstr "3 dagar"
@@ -377,14 +374,14 @@ msgid ""
 msgstr "Ett försök att skicka test e-postmeddelandet har gjorts. Kontrollera din inkorg. Om e-postmeddelandet inte kommer fram, kontrollera eventuella skräppostmappar, och kontrollera också att det inte finns några postfix-relaterade fel i systemloggen."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Ett e-postmeddelande med kommandoutmatningen (om någon produceras) skickas till administratören."
+msgstr "Ett e-postmeddelande med kommandoutdata (om något produceras) skickas till administratören."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "Ett e-postmeddelande med kommandoutmatningen (om någon produceras) skickas till användaren som utför jobbet."
+msgstr ""
 
 msgid "Andorra"
 msgstr "Andorra"
@@ -1002,7 +999,7 @@ msgid "Displays information about the services in a table."
 msgstr "Visar information om tjänsterna i en tabell."
 
 msgid "Displays links to help and support pages."
-msgstr ""
+msgstr "Visar länkar till hjälp- och supportsidor."
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Visar S.M.A.R.T.-status för alla övervakade diskenheter."
@@ -1376,9 +1373,6 @@ msgstr "Ghana"
 
 msgid "Gibraltar"
 msgstr "Gibraltar"
-
-msgid "Go to the notification sidebar to attach to it."
-msgstr "Gå till sidofältet för meddelanden för att bifoga det."
 
 msgid "Good"
 msgstr "Bra"
@@ -1833,7 +1827,7 @@ msgid "Log level"
 msgstr "Loggnivå"
 
 msgid "Logged in as <strong>{{ username }}</strong>"
-msgstr ""
+msgstr "Inloggad som <strong>{{ username }}</strong>"
 
 msgid "Logout"
 msgstr "Logga ut"
@@ -1892,8 +1886,8 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of CPUfreq settings."
-msgstr "Hantering av CPUfreq-inställningar."
+msgid "Management of cpufreq and cpuidle tunables."
+msgstr ""
 
 msgid "Management of scheduled tasks."
 msgstr "Hantering av schemalagda uppgifter."
@@ -2633,7 +2627,7 @@ msgid "Relative path"
 msgstr "Relativ sökväg"
 
 msgid "Reliable system and kernel logging daemon."
-msgstr ""
+msgstr "Tillförlitlig system- och kärnloggningsdemon."
 
 msgid "Reload"
 msgstr "Ladda om"
@@ -3320,7 +3314,7 @@ msgstr "Destinationens fjärrserver, exempelvis [USER@]HOST:DEST, [USER@]HOST::D
 msgid ""
 "The documentation page provides helpful information about your storage "
 "system."
-msgstr ""
+msgstr "Dokumentationssidan ger användbar information om ditt lagringssystem."
 
 msgid ""
 "The domain name of the system. If your system is part of a private network "
@@ -3345,10 +3339,10 @@ msgid "The following modules will be updated:"
 msgstr "Följande moduler kommer att uppdateras:"
 
 msgid "The forum page is the best place to ask questions and find answers."
-msgstr ""
+msgstr "Forumsidan är det bästa stället att ställa frågor och hitta svar."
 
 msgid "The home of the project and source of news and updates."
-msgstr ""
+msgstr "Projektets hem och källa för nyheter och uppdateringar."
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Värdnamnet är en etikett som identifierar systemet till nätverket."
@@ -4086,6 +4080,9 @@ msgstr "WOL (Wake on LAN)"
 msgid "WPA2-Personal"
 msgstr "WPA2-Personligt"
 
+msgid "WPA3-Personal"
+msgstr "WPA3-Personligt"
+
 msgid "WWN"
 msgstr "WWN"
 
@@ -4112,6 +4109,11 @@ msgstr "Välkommen till openmediavault"
 
 msgid "Western Sahara"
 msgstr "Västsahara"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr "Medan bakgrundsuppgiften fortfarande körs kan du koppla Workbench-terminaldialogrutan till den i meddelandefältet."
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -4173,7 +4175,7 @@ msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
 msgid "Zombie"
-msgstr ""
+msgstr "Zombie"
 
 msgid "a day"
 msgstr "en dag"
@@ -4206,4 +4208,4 @@ msgid "total"
 msgstr "totalt"
 
 msgid "{{ percent }}% of {{ total }}"
-msgstr ""
+msgstr "{{ percent }}% av {{ total }}"

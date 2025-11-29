@@ -6,16 +6,16 @@
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
 # 黃柏諺 <s8321414@gmail.com>, 2022
-# kochin <kochinc@outlook.com>, 2024
+# kochin <kochinc@outlook.com>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 20:04+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2024\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2025\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,9 +25,6 @@ msgstr ""
 
 msgid "1 MiB/s"
 msgstr "1 MiB/s"
-
-msgid "1 minute"
-msgstr "1 分鐘"
 
 msgid "10 MiB/s"
 msgstr "10 MiB/s"
@@ -47,23 +44,14 @@ msgstr "128 KiB/s"
 msgid "15 minutes"
 msgstr "15 分鐘"
 
-msgid "2 minutes"
-msgstr "2 分鐘"
-
 msgid "24 hours"
 msgstr "24 小時"
 
 msgid "256 KiB/s"
 msgstr "256 KiB/s"
 
-msgid "3 minutes"
-msgstr "3 分鐘"
-
 msgid "30 minutes"
 msgstr "30 分鐘"
-
-msgid "4 minutes"
-msgstr "4 分鐘"
 
 msgid "5 minutes"
 msgstr "5 分鐘"
@@ -102,6 +90,9 @@ msgstr "清理本地檔案"
 msgid "Clean up local files that have been removed online."
 msgstr "清理已經從線上移除的本地檔案。"
 
+msgid "Date & Time"
+msgstr "日期與時間"
+
 msgid "Disabled"
 msgstr "已停用"
 
@@ -122,6 +113,9 @@ msgstr "完整"
 
 msgid "Local first"
 msgstr "本地優先"
+
+msgid "Message"
+msgstr "訊息"
 
 msgid "Monitor interval"
 msgstr "監控間隔"

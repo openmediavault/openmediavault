@@ -47,6 +47,8 @@ data:
             service: UserMgmt
             get:
               method: enumerateAllUsers
+              params:
+                detail: basic
           sorters:
             - dir: asc
               prop: name

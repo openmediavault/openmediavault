@@ -11,7 +11,7 @@ data:
   description: _("Displays information about MD (Software RAID) devices.")
   grid:
     item:
-      class: 'omv-cursor-pointer omv-text-center omv-text-nowrap omv-background-color-selected-button'
+      class: 'omv-cursor-pointer omv-text-center omv-text-nowrap omv-background-color-muted'
       title: '{{ name }} [{{ level }}]'
       titleClass: 'omv-text-truncate'
       content: '{{ state }}'

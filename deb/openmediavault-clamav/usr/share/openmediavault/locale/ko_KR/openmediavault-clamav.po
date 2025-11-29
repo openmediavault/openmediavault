@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -24,9 +24,9 @@ msgid "Algorithmic detection"
 msgstr "알고리즘을 통한 감지"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "명령의 출력이 있다면 관리자에게 이메일로 전송됩니다."
+msgstr ""
 
 msgid "Antivirus"
 msgstr "안티바이러스"
@@ -73,6 +73,9 @@ msgstr "PUA 검색"
 msgid "Detect broken executables"
 msgstr "실행 파일의 손상을 검사"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "편집"
 
@@ -98,6 +101,9 @@ msgstr "알고리즘 검색 활성화"
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "실행 파일의 손상 감지를 활성화 (PE, ELF 모두)"
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "원하지 않을 수 있는 응용 프로그램 탐색 활성화"
@@ -249,6 +255,9 @@ msgstr "이메일 전송"
 msgid "September"
 msgstr "9월"
 
+msgid "Service disabled"
+msgstr "서비스 비활성화됨"
+
 msgid "Settings"
 msgstr "설정"
 
@@ -278,6 +287,9 @@ msgstr "어떻게 감염된 파일들을 처리할 것인지를 선택하는 옵
 
 msgid "Thursday"
 msgstr "목요일"
+
+msgid "Time of execution"
+msgstr "실행 시간"
 
 msgid "Tuesday"
 msgstr "화요일"

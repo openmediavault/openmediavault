@@ -29,6 +29,7 @@ class Group {
 	protected $name = NULL;
 	protected $gid = NULL;
 	protected $members = NULL;
+	protected $isSystemAccount = NULL;
 	private $dataCached = FALSE;
 
 	/**
@@ -53,23 +54,27 @@ class Group {
 	 * @throw \OMV\Exception
 	 */
 	private function getData() {
-		if ($this->dataCached !== FALSE)
+		if ($this->dataCached !== FALSE) {
 			return;
-		// Query user information.
+		}
+		// Query group information.
 		$groupInfo = FALSE;
-		if (!is_null($this->gid))
+		if (!is_null($this->gid)) {
 			$groupInfo = posix_getgrgid($this->gid);
-		else
+		} else {
 			$groupInfo = posix_getgrnam($this->name);
+		}
 		if (FALSE === $groupInfo) {
 			throw new \OMV\Exception(
 			  "Failed to get information about the group '%s': %s",
 			  !is_null($this->gid) ? strval($this->gid) : $this->name,
 			  posix_strerror(posix_errno()));
 		}
+		[$gidMin, $gidMax] = self::getGidMinMax();
 		$this->name = $groupInfo['name'];
 		$this->gid = $groupInfo['gid'];
-		$this->members = $groupInfo['members'];
+		$this->members = $groupInfo['members']; // Supplementary group members only.
+		$this->isSystemAccount = !in_range($this->gid, $gidMin, $gidMax);
 		// Set flag to mark information has been successfully read.
 		$this->dataCached = TRUE;
 	}
@@ -138,11 +143,26 @@ class Group {
 
 	/**
 	 * Get the user names who are member of this group.
+	 * @param bool $includePrimary If set to `TRUE`, the primary group members
+	 *   are included as well, otherwise only the supplementary group members
+	 *   are returned. Defaults to `FALSE`.
 	 * @return An array of user names that are member of this group.
 	 */
-	public function getMembers() {
+	public function getMembers($includePrimary = FALSE) {
 		$this->getData();
-		return $this->members;
+		$result = $this->members;
+		if (TRUE === $includePrimary) {
+			// Append the primary group members.
+			$users = \OMV\System\User::enumerateUsers();
+			foreach ($users as $userk => $userv) {
+				if ($userv->getGid() == $this->gid) {
+					$result[] = $userk;
+				}
+			}
+			// Remove duplicates and re-index the array.
+			$result = array_values(array_unique($result));
+		}
+		return $result;
 	}
 
 	/**
@@ -184,16 +204,41 @@ class Group {
 	 * Check if the given group is a system account.
 	 * @return TRUE if the group is a system account, otherwise FALSE.
 	 */
-	public function isSystemAccount() {
-		if (FALSE === ($gid = $this->getGid()))
-			return FALSE;
-		// Get shadow password suite configuration.
-		$ld = \OMV\System\System::getLoginDefs();
-		// Get the min/max values of the non-system account ID sequence.
-		$min = intval(array_value($ld, "GID_MIN", 1000));
-		$max = intval(array_value($ld, "GID_MAX", 60000));
-		// Check if the given account ID is within the sequence.
-		return !in_range($gid, $min, $max);
+	public function isSystemAccount(): bool {
+		$this->getData();
+		return $this->isSystemAccount;
+	}
+
+	/**
+	 * Get an associative array representation of the group.
+	 * @return An associative array containing the group information.
+	 */
+	public function getAssoc(): array {
+		return [
+			"name" => $this->getName(),
+			"gid" => $this->getGid(),
+			"members" => $this->getMembers(TRUE),
+			"system" => $this->isSystemAccount()
+		];
+	}
+
+	/**
+	 * Enumerate groups.
+	 * @return An array of `Group` objects indexed by group name.
+	 * @throw \OMV\ExecException
+	 */
+	public static function enumerateGroups(): array {
+		$cmd = new \OMV\System\Process("getent", "group");
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+		[$gidMin, $gidMax] = self::getGidMinMax();
+		$result = [];
+		foreach ($output as $outputk => $outputv) {
+			$group = self::newFromGroupLine($outputv);
+			$group->isSystemAccount = !in_range($group->gid, $gidMin, $gidMax);
+			$result[$group->getName()] = $group;
+		}
+		return $result;
 	}
 
 	/**
@@ -201,23 +246,47 @@ class Group {
 	 * @return An array of group names.
 	 * @throw \OMV\ExecException
 	 */
-	public static function getGroups() {
-		$cmd = new \OMV\System\Process("getent", "group");
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		// Parse command output:
+	public static function enumerateGroupNames(): array {
+		$result = self::enumerateGroups();
+		return array_keys($result);
+	}
+
+	/**
+	 * Get the GID min/max values from the `/etc/login.defs` configuration.
+	 * @return An array containing the min/max GID values.
+	 */
+	private static function getGidMinMax(): array {
+		// Get shadow password suite configuration.
+		$ld = \OMV\System\System::getLoginDefs();
+		// Get the min/max values of the non-system account ID sequence.
+		$min = intval(array_value($ld, "GID_MIN", 1000));
+		$max = intval(array_value($ld, "GID_MAX", 60000));
+		return [$min, $max];
+	}
+
+	/**
+	 * Create a new `Group` object from a `/etc/group` file line.
+	 * @param string $line A line from the `/etc/group` file.
+	 * @return The new `Group` object.
+	 * @throw \OMV\ValueException
+	 */
+	private static function newFromGroupLine($line): self {
+		// https://www.cyberciti.biz/faq/understanding-etcgroup-file/
+		// Examples:
 		// shadow:x:42:openmediavault
 		// snmp:x:112:
 		// sambashare:x:113:
 		// openmediavault:x:999:
 		// nut:x:114:
-		$list = [];
-		foreach ($output as $outputv) {
-			$data = explode(":", $outputv);
-			if (TRUE === empty($data))
-				continue;
-			$list[] = $data[0]; // Group name
+		// foo:x:1002:vagrant,vot
+		$fields = explode(":", $line);
+		if (4 != count($fields)) {
+			throw new \OMV\ValueException("Invalid group line '%s'.", $line);
 		}
-		return $list;
+		$group = new self($fields[0]);
+		$group->gid = intval($fields[2]);
+		$group->members = explode_safe(",", $fields[3]); // Supplementary group members only.
+		$group->dataCached = TRUE;
+		return $group;
 	}
 }

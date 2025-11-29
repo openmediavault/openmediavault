@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 10:24+0200\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
@@ -52,14 +52,17 @@ msgstr "Dispositivo"
 msgid "Devices"
 msgstr "Dispositivi"
 
+msgid "Displays information about MD (Software RAID) devices."
+msgstr "Visualizza informazioni sui dispositivi MD (RAID software)."
+
 msgid "Grow"
 msgstr "Estendi"
 
 msgid "Level"
 msgstr "Livello"
 
-msgid "Linear"
-msgstr "Lineare"
+msgid "MD Devices"
+msgstr "Dispositivi MD"
 
 msgid "Mirror"
 msgstr "Mirror"

@@ -46,9 +46,18 @@ export class GroupDatatablePageComponent {
         name: gettext('Members'),
         prop: 'members',
         flexGrow: 1,
-        sortable: true,
+        sortable: false,
         cellTemplateName: 'template',
         cellTemplateConfig: '{{ members | sort() | join(", ") }}'
+      },
+      {
+        name: gettext('Num. Members'),
+        prop: 'members',
+        flexGrow: 1,
+        sortable: true,
+        hidden: true,
+        cellTemplateName: 'template',
+        cellTemplateConfig: '{{ members | length() }}'
       },
       {
         name: gettext('Tags'),

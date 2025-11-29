@@ -74,7 +74,7 @@ msgid "Copy token"
 msgstr "Token másolása"
 
 msgid "Count"
-msgstr ""
+msgstr "Szám"
 
 msgid "Created"
 msgstr "Létrehozva"
@@ -121,7 +121,7 @@ msgid "Enabled"
 msgstr "Engedélyezve"
 
 msgid "Events"
-msgstr ""
+msgstr "Események"
 
 msgid "External IP"
 msgstr "Külső IP"
@@ -130,7 +130,7 @@ msgid "Failed"
 msgstr "Sikertelen"
 
 msgid "First seen"
-msgstr ""
+msgstr "Első feltűnés"
 
 msgid "GID"
 msgstr "GID"
@@ -190,7 +190,7 @@ msgid "Labels"
 msgstr "Címkék"
 
 msgid "Last seen"
-msgstr ""
+msgstr "Utolsó feltűnés"
 
 msgid "Load Balancer"
 msgstr "Terheléselosztó"
@@ -205,7 +205,7 @@ msgid "Message"
 msgstr "Üzenet"
 
 msgid "Monitoring - Kubernetes"
-msgstr ""
+msgstr "Felügyelet – Kubernetes"
 
 msgid "Name"
 msgstr "Név"
@@ -220,10 +220,10 @@ msgid "NodePort IP"
 msgstr "NodePort IP"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normál"
 
 msgid "Object"
-msgstr ""
+msgstr "Tárgy"
 
 msgid "Open UI"
 msgstr "UI megnyitása"
@@ -265,7 +265,7 @@ msgid "Ready"
 msgstr "Kész"
 
 msgid "Reason"
-msgstr ""
+msgstr "Ok"
 
 msgid "Recipe Information"
 msgstr "Receptinformáció"
@@ -325,7 +325,7 @@ msgid "Snapshots"
 msgstr "Pillanatképek"
 
 msgid "Source"
-msgstr ""
+msgstr "Forrás"
 
 msgid "Stateful Sets"
 msgstr "Állapotfüggő beállítások"
@@ -434,7 +434,7 @@ msgid "Volume"
 msgstr "Kötet"
 
 msgid "Warning"
-msgstr ""
+msgstr "Figyelmeztetés"
 
 msgid "YAML"
 msgstr "YAML"

@@ -77,8 +77,8 @@ class Quota extends \OMV\Rpc\ServiceAbstract {
 		// their quota configuration for the given filesystem.
 		$result = [];
 		// Get non-system users
-		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateUsers", NULL,
-		  $context);
+		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateUsers",
+			[ "detail" => "basic" ], $context);
 		foreach ($users as $userk => $userv) {
 			// Set default values.
 			$resObj = [
@@ -91,8 +91,9 @@ class Quota extends \OMV\Rpc\ServiceAbstract {
 			// Check if there is any configured quota for the given user.
 			if (is_object($object)) {
 				foreach ($object->get("usrquota") as $usrquotav) {
-					if ($userv['name'] !== $usrquotav['name'])
+					if ($userv['name'] !== $usrquotav['name']) {
 						continue;
+					}
 					// Get user quotas and get the number of used disk space
 					// if available. Note, 'blocks' are given in KiB.
 					$sysUser = new \OMV\System\User($userv['name']);
@@ -118,7 +119,7 @@ class Quota extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Get non-system groups
 		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateGroups", NULL,
-		  $context);
+			$context);
 		foreach ($groups as $groupk => $groupv) {
 			// Set default values.
 			$resObj = [

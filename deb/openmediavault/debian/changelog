@@ -1,11 +1,38 @@
-openmediavault (8.0-5) stable; urgency=medium
+openmediavault (8.0-10) stable; urgency=medium
 
   * Upgrade to Debian 13 (Trixie).
   * Replace `cpufrequtils` with `linux-cpupower`.
+  * Improve several user and group related RPCs. Developers should note
+    that the RPCs UserMgmt::enumerateSystemUsers, UserMgmt::enumerateUsers,
+    UserMgmt::enumerateAllUsers and UserMgmt::getUserList now return only
+    basic user information. Set the parameter `detail` to `full` to get more
+    detailed user information. This API change was done to improve the RPC
+    response times dramatically.
+  * Display updated modules in notification after configuration changes have
+    been applied.
   * Issue #1737 && #1866: Add support for WPA3 (SAE) authentication for
     wireless connections.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:40:50 +0200
+
+openmediavault (7.7.23-1) stable; urgency=medium
+
+  * Improve performance when enumerating file systems.
+  * Issue #2055: Add SMART support for QNAP TR-004U (non-RAID mode).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Nov 2025 21:13:47 +0100
+
+openmediavault (7.7.22-1) stable; urgency=medium
+
+  * Fix NFS configuration issue when `insecure` option is used in a share.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Nov 2025 10:54:32 +0100
+
+openmediavault (7.7.21-1) stable; urgency=medium
+
+  * Hardening the log file parser.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 07 Nov 2025 09:29:18 +0100
 
 openmediavault (7.7.20-1) stable; urgency=medium
 

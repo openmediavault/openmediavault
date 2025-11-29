@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -155,9 +155,6 @@ msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - 최대 성능 및 최대 전력 사용량"
-
-msgid "255 - Disabled"
-msgstr "255 - 비활성화"
 
 msgid "3 days"
 msgstr "3일"
@@ -376,14 +373,14 @@ msgid ""
 msgstr "테스트 이메일을 보냈습니다. 메일함을 확인해 주세요. 이메일이 도착하지 않았다면 스팸 메일함을 확인해 주시고 시스템 로그에서 Postfix와 관련된 오류가 없는지 확인해 주세요."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "관리자에게 명령행 출력(있다면)을 전자 메일에 포함하여 전송합니다."
+msgstr ""
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "해당 작업을 수행하는 사용자에게 명령행 출력(있다면)을 전자 메일에 포함하여 전송합니다."
+msgstr ""
 
 msgid "Andorra"
 msgstr "안도라"
@@ -1376,9 +1373,6 @@ msgstr "가나"
 msgid "Gibraltar"
 msgstr "지브롤터"
 
-msgid "Go to the notification sidebar to attach to it."
-msgstr ""
-
 msgid "Good"
 msgstr "좋음"
 
@@ -1891,7 +1885,7 @@ msgstr "말리"
 msgid "Malta"
 msgstr "몰타"
 
-msgid "Management of CPUfreq settings."
+msgid "Management of cpufreq and cpuidle tunables."
 msgstr ""
 
 msgid "Management of scheduled tasks."
@@ -4085,6 +4079,9 @@ msgstr "WOL"
 msgid "WPA2-Personal"
 msgstr ""
 
+msgid "WPA3-Personal"
+msgstr ""
+
 msgid "WWN"
 msgstr ""
 
@@ -4111,6 +4108,11 @@ msgstr ""
 
 msgid "Western Sahara"
 msgstr "서 사하라"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr ""
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

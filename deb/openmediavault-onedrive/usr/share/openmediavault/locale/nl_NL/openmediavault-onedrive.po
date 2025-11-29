@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 20:04+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
@@ -26,9 +26,6 @@ msgstr ""
 
 msgid "1 MiB/s"
 msgstr "1 MiB/s"
-
-msgid "1 minute"
-msgstr "1 minuut"
 
 msgid "10 MiB/s"
 msgstr "10 MiB/s"
@@ -48,23 +45,14 @@ msgstr "128 KiB/s"
 msgid "15 minutes"
 msgstr "15 minuten"
 
-msgid "2 minutes"
-msgstr "2 minuten"
-
 msgid "24 hours"
 msgstr "24 uur"
 
 msgid "256 KiB/s"
 msgstr "256 KiB/s"
 
-msgid "3 minutes"
-msgstr "3 minuten"
-
 msgid "30 minutes"
 msgstr "30 minuten"
-
-msgid "4 minutes"
-msgstr "4 minuten"
 
 msgid "5 minutes"
 msgstr "5 minuten"
@@ -108,6 +96,9 @@ msgstr "Lokale bestanden opruimen"
 msgid "Clean up local files that have been removed online."
 msgstr "Lokale bestanden opruimen die online zijn verwijderd."
 
+msgid "Date & Time"
+msgstr "Datum & tijd"
+
 msgid "Disabled"
 msgstr "Uitgeschakeld"
 
@@ -128,6 +119,9 @@ msgstr "Volledig"
 
 msgid "Local first"
 msgstr "Lokaal eerst"
+
+msgid "Message"
+msgstr "Bericht"
 
 msgid "Monitor interval"
 msgstr "Observatie-interval"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013,2015\n"
 "Language-Team: Galician (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
@@ -155,9 +155,6 @@ msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Máximo rendemento, consumo máximo de enerxía"
-
-msgid "255 - Disabled"
-msgstr "255 - Desactivado"
 
 msgid "3 days"
 msgstr "3 días"
@@ -376,14 +373,14 @@ msgid ""
 msgstr ""
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Enviaráselle ao administrador unha mensaxe de correo coa saída da orde (se é que se produce)."
+msgstr ""
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "Enviaráselle ao usuario que fai o traballo unha mensaxe de correo coa saída da orde (se é que se produce)."
+msgstr ""
 
 msgid "Andorra"
 msgstr "Andorra"
@@ -1376,9 +1373,6 @@ msgstr "Ghana"
 msgid "Gibraltar"
 msgstr "Xibraltar"
 
-msgid "Go to the notification sidebar to attach to it."
-msgstr ""
-
 msgid "Good"
 msgstr ""
 
@@ -1891,7 +1885,7 @@ msgstr "Malí"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of CPUfreq settings."
+msgid "Management of cpufreq and cpuidle tunables."
 msgstr ""
 
 msgid "Management of scheduled tasks."
@@ -4085,6 +4079,9 @@ msgstr "WOL"
 msgid "WPA2-Personal"
 msgstr ""
 
+msgid "WPA3-Personal"
+msgstr ""
+
 msgid "WWN"
 msgstr ""
 
@@ -4111,6 +4108,11 @@ msgstr ""
 
 msgid "Western Sahara"
 msgstr "Sahara Occidental"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr ""
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

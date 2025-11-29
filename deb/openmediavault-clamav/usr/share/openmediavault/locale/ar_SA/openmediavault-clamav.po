@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -23,9 +23,9 @@ msgid "Algorithmic detection"
 msgstr "كشف باستخدام الخوارزميات"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "يتم إرسال رسالة بريد إلكتروني مع مخرجات الأمر (إن وجدت) إلى المسؤول."
+msgstr ""
 
 msgid "Antivirus"
 msgstr "مكافح الفيروسات"
@@ -72,6 +72,9 @@ msgstr "اكتشاف PUA"
 msgid "Detect broken executables"
 msgstr "اكتشاف الملفات التنفيذية المعطوبة"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "تحرير"
 
@@ -97,6 +100,9 @@ msgstr "تمكين الكشف باستخدام الخوارزميات"
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "تمكين اكتشاف الملفات التنفيذية المكسورة (كل من PE و ELF)."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "تمكين الكشف عن التطبيقات غير المرغوب فيها."
@@ -248,6 +254,9 @@ msgstr "إرسال بريد إلكتروني"
 msgid "September"
 msgstr "سبتمر"
 
+msgid "Service disabled"
+msgstr "الخدمة معطلة"
+
 msgid "Settings"
 msgstr "الإعدادات"
 
@@ -277,6 +286,9 @@ msgstr "كيفية التعامل مع الملفات المصابة."
 
 msgid "Thursday"
 msgstr "الخميس"
+
+msgid "Time of execution"
+msgstr "وقت التنفيذ"
 
 msgid "Tuesday"
 msgstr "الثلاثاء"

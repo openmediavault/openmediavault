@@ -1,5 +1,5 @@
 // https://thymikee.github.io/jest-preset-angular/docs
-const esModules = ['@codemirror/legacy-modes', 'ansi-regex', 'rxjs', 'strip-ansi'];
+const esModules = ['@codemirror/legacy-modes', 'ansi-regex', 'rxjs', 'strip-ansi', 'marked'];
 module.exports = {
   testTimeout: 10000,
   moduleNameMapper: {

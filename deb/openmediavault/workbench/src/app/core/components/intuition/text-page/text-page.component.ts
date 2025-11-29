@@ -15,10 +15,20 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component, ElementRef, Inject, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Inject,
+  OnInit,
+  Renderer2,
+  SecurityContext,
+  ViewChild
+} from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
+import { marked } from 'marked';
 import { EMPTY, exhaustMap, Observable, Subscription, timer } from 'rxjs';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
@@ -43,8 +53,8 @@ import { RpcService } from '~/app/shared/services/rpc.service';
   providers: [PageContextService]
 })
 export class TextPageComponent extends AbstractPageComponent<TextPageConfig> implements OnInit {
-  @ViewChild('textContainer', { static: true })
-  _textContainer: ElementRef;
+  @ViewChild('contentContainer', { static: true })
+  _contentContainer: ElementRef;
 
   @Unsubscribe()
   private subscriptions: Subscription = new Subscription();
@@ -55,6 +65,7 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
   constructor(
     @Inject(PageContextService) pageContextService: PageContextService,
     private clipboardService: ClipboardService,
+    private domSanitizer: DomSanitizer,
     private renderer2: Renderer2,
     private rpcService: RpcService,
     private router: Router
@@ -81,7 +92,7 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
   }
 
   onCopyToClipboard() {
-    const content = this._textContainer.nativeElement.textContent;
+    const content = this._contentContainer.nativeElement.textContent;
     this.clipboardService.copy(content);
   }
 
@@ -115,7 +126,25 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
     if (_.isString(request.get.format) && RpcObjectResponse.isType(res)) {
       value = RpcObjectResponse.format(request.get.format, res);
     }
-    this.renderer2.setProperty(this._textContainer.nativeElement, 'textContent', value);
+    let propName: string;
+    switch (this.config.contentFormat) {
+      case 'markdown':
+        propName = 'innerHTML';
+        value = marked.parse(value, {
+          gfm: true
+        });
+        value = this.domSanitizer.bypassSecurityTrustHtml(value);
+        value = this.domSanitizer.sanitize(SecurityContext.HTML, value);
+        break;
+      case 'html':
+        propName = 'innerHTML';
+        value = this.domSanitizer.bypassSecurityTrustHtml(value);
+        value = this.domSanitizer.sanitize(SecurityContext.HTML, value);
+        break;
+      default:
+        propName = 'textContent';
+    }
+    this.renderer2.setProperty(this._contentContainer.nativeElement, propName, value);
   }
 
   protected override sanitizeConfig() {
@@ -123,6 +152,7 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
       autoReload: false,
       hasReloadButton: false,
       hasCopyToClipboardButton: false,
+      contentFormat: 'text',
       wrapText: true,
       buttonAlign: 'end',
       buttons: []

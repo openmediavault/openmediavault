@@ -74,8 +74,8 @@ export class SelectionListPageComponent
       })
     );
     this.subscriptions.add(
-      this.loadData().subscribe(
-        () => {
+      this.loadData().subscribe({
+        next: () => {
           // Extract the selected values from the loaded data.
           if (!_.isEmpty(this.config.selectedProp)) {
             const value = [];
@@ -88,10 +88,10 @@ export class SelectionListPageComponent
             this.config.value = value;
           }
         },
-        () => {
+        error: () => {
           this.config.store.data = [];
         }
-      )
+      })
     );
   }
 

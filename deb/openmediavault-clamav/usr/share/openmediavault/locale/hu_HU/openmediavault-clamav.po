@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2023\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -27,9 +27,9 @@ msgid "Algorithmic detection"
 msgstr "Algoritmikus észlelés"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Egy email üzenet, benne a parancsssori kimenettel (ha elő lett állítva) elküldve az adminisztrátornak."
+msgstr ""
 
 msgid "Antivirus"
 msgstr "Antivírus"
@@ -76,6 +76,9 @@ msgstr "PUA észlelése"
 msgid "Detect broken executables"
 msgstr "Hibás futtatható fájlok észlelése"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "Szerkesztés"
 
@@ -101,6 +104,9 @@ msgstr "Algoritmikus észlelés engedélyezése."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "Hibás futtatható fájl észlelés engedélyezése (mindkét PE és ELF)."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Nem kívánt alkalmazások felismerésének engedélyezése."
@@ -252,6 +258,9 @@ msgstr "Email küldése"
 msgid "September"
 msgstr "Szeptember"
 
+msgid "Service disabled"
+msgstr "Szolgáltatás letiltva"
+
 msgid "Settings"
 msgstr "Beállítások"
 
@@ -281,6 +290,9 @@ msgstr "Opció a fertőzött fájlok kezeléséhez."
 
 msgid "Thursday"
 msgstr "Csütörtök"
+
+msgid "Time of execution"
+msgstr "Végrehajtás időpontja"
 
 msgid "Tuesday"
 msgstr "Kedd"

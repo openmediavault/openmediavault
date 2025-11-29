@@ -5,16 +5,16 @@
 # 
 # Translators:
 # warhog <warhog@gmx.de>, 2022
-# Volker Theile <votdev@gmx.de>, 2023
+# Volker Theile <votdev@gmx.de>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-owntone\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2025-11-25 20:44+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2023\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2025\n"
 "Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,9 +46,6 @@ msgstr "Port auf dem gelauscht wird."
 msgid "Shared folder"
 msgstr "Freigegebene Ordner"
 
-msgid "The 'admin' password to access the web interface."
-msgstr "Das 'admin'-Passwort für den Zugriff auf die Weboberfläche."
-
 msgid ""
 "The location of the media files to share. Make sure the user "
 "<em>owntone</em> or group <em>users</em> can access the files."
@@ -59,6 +56,11 @@ msgstr ""
 
 msgid "The name of the library as displayed by the clients."
 msgstr "Name der Bibliothek die den Clients angezeigt werden soll."
+
+msgid "The password for the user <em>admin</em> to access the web interface."
+msgstr ""
+"Das Passwort des Benutzers <em>admin</em> für den Zugriff auf die "
+"Weboberfläche."
 
 msgid "The password to access the library."
 msgstr "Das Passwort für den Zugriff auf die Bibliothek."

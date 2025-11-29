@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Miha Bezjak <miha@bezjak.info>, 2017\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -22,9 +22,9 @@ msgid "Algorithmic detection"
 msgstr "Algoritemska detekcija"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Elektronsko sporočilo z rezultatom ukaza (v kolikor obstaja) je poslan administratorju."
+msgstr ""
 
 msgid "Antivirus"
 msgstr "Antivirus"
@@ -71,6 +71,9 @@ msgstr "Zaznaj PUA"
 msgid "Detect broken executables"
 msgstr "Odkrij pokvarjene izvedljive datoteke"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "Uredi"
 
@@ -95,6 +98,9 @@ msgid "Enable the algorithmic detection."
 msgstr "Omogoči algoritemsko detekcijo."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr ""
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
 msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
@@ -247,6 +253,9 @@ msgstr "Pošlji elektronsko poročilo"
 msgid "September"
 msgstr "September"
 
+msgid "Service disabled"
+msgstr "Storitev onemogočena"
+
 msgid "Settings"
 msgstr "Nastavitve"
 
@@ -276,6 +285,9 @@ msgstr "Možnost, kako ravnati z okuženimi datotekami."
 
 msgid "Thursday"
 msgstr "Četrtek"
+
+msgid "Time of execution"
+msgstr "Čas izvajanja"
 
 msgid "Tuesday"
 msgstr "Torek"

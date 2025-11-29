@@ -7,7 +7,7 @@
 # Benoit Maliar <maliarbenoit@msn.com>, 2015
 # Christophe Lherieau <skimpax@gmail.com>, 2012-2015
 # Axel Cantenys, 2020
-# Francis Dhumes, 2023
+# Francis Dhumes, 2023,2025
 # Jérémy D <bxt@mondedie.fr>, 2018
 # Jonathan Tasseroul <jonathan.tasseroul@gmail.com>, 2021
 # Kevin Leclercq <nuklearstriker@gmail.com>, 2020
@@ -15,6 +15,7 @@
 # M@T D., 2022-2024
 # Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2012-2013
 # Pierre Girard <pierre4012@hotmail.com>, 2021
+# seigneurfuo <seigneurfuo@gmail.com>, 2025
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012-2013
 # Stéphane Bocquet <stephane_bocquet@hotmail.com>, 2012
 # Volker Theile <votdev@gmx.de>, 2022
@@ -23,9 +24,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: M@T D., 2022-2024\n"
+"Last-Translator: Francis Dhumes, 2023,2025\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -167,9 +168,6 @@ msgstr "250 Mo"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Performance maximale, consommation maximale"
-
-msgid "255 - Disabled"
-msgstr "255 - Désactivé"
 
 msgid "3 days"
 msgstr "3 jours"
@@ -357,19 +355,19 @@ msgstr "Tous les paquets seront mis à jour. Voulez-vous continuer ?"
 msgid ""
 "Allow clients to attempt to access extended attributes on a share. The "
 "underlying filesystem exposed by the share must support extended attributes."
-msgstr ""
+msgstr "Autorise les clients à accéder aux attributs étendus sur un partage. Le système de fichiers en support exposé par le partage doit supporter les attributs étendus."
 
 msgid "Allow following symbolic links in the home directories."
-msgstr ""
+msgstr "Autorise le suivi des liens symboliques dans le répertoire de base."
 
 msgid "Allow following symbolic links in the share."
-msgstr ""
+msgstr "Autorise le suivi des liens symboliques dans le partage."
 
 msgid "Allow symbolic links to areas that are outside the home directories."
-msgstr ""
+msgstr "Autorise les liens symboliques vers des zones hors des répertoires de base."
 
 msgid "Allow symbolic links to areas that are outside the share."
-msgstr ""
+msgstr "Autorise les liens symboliques vers des zones hors du partage."
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
@@ -388,14 +386,14 @@ msgid ""
 msgstr "Une tentative d'envoi du courriel de test a été faite. Veuillez vérifier votre boîte aux lettres. Si le courriel n'arrive pas, vérifiez les dossiers de spam et vérifiez également qu'il n'y a pas d'erreurs liées à Postfix dans le journal du système."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Un mail contenant les traces de la commande (si disponible) est envoyé à l'administrateur."
+msgstr "Un mail avec le résultat en sortie de la commande (s'il en est produit) est envoyé à l'administrateur."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "Un mail contenant les traces de la commande (si disponible) est envoyé à l'utilisateur."
+msgstr "Un mail avec le résultat en sortie de la commande (si produit) est envoyé à l'utilisateur qui a déclenché le job."
 
 msgid "Andorra"
 msgstr "Andorre"
@@ -485,10 +483,10 @@ msgid "Authentication required"
 msgstr "Authentification requise"
 
 msgid "Automatic"
-msgstr ""
+msgstr "Automatique"
 
 msgid "Automatic logout"
-msgstr ""
+msgstr "Déconnexion automatique"
 
 msgid "Available"
 msgstr "Disponible"
@@ -515,7 +513,7 @@ msgid "Bahrain"
 msgstr "Bahrain"
 
 msgid "Band"
-msgstr ""
+msgstr "Bande"
 
 msgid "Bangladesh"
 msgstr "Bangladesh"
@@ -1013,7 +1011,7 @@ msgid "Displays information about the services in a table."
 msgstr "Affiche les informations des services dans une table."
 
 msgid "Displays links to help and support pages."
-msgstr ""
+msgstr "Affiche les liens vers l'aide et les pages de support."
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "Affiche l'état S.M.A.R.T. de tous les disques surveillés."
@@ -1271,7 +1269,7 @@ msgid "Fiji"
 msgstr "Fidji"
 
 msgid "File System Usage"
-msgstr ""
+msgstr "Utilisation du système de fichiers"
 
 msgid "File Systems"
 msgstr "Systèmes de fichiers"
@@ -1320,7 +1318,7 @@ msgid "Flags"
 msgstr "Drapeaux"
 
 msgid "Follow symlinks"
-msgstr ""
+msgstr "Suivre liens symboliques"
 
 msgid "Force SSL/TLS"
 msgstr "Forcer SSL/TLS"
@@ -1387,9 +1385,6 @@ msgstr "Ghana"
 
 msgid "Gibraltar"
 msgstr "Gibraltar"
-
-msgid "Go to the notification sidebar to attach to it."
-msgstr "Accédez à la barre latérale de notification pour le joindre."
 
 msgid "Good"
 msgstr "Bon"
@@ -1491,7 +1486,7 @@ msgid "Hosts allow"
 msgstr "Hôtes autorisés"
 
 msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Hôtes autorisés à monter le système de fichiers, p.e. 192.168.178.0/24."
 
 msgid "Hosts deny"
 msgstr "Hôtes interdits"
@@ -1555,7 +1550,7 @@ msgid ""
 "be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
 "please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
 "supported."
-msgstr ""
+msgstr "Si un périphérique n'est pas listé ici, c'est généralement parce qu'il contient déjà un système de fichiers ou une partition. Pour le premier cas, le système de fichiers peut être monté <a href='#/storage/filesystems/mount'>ici</a>. Pour le second, <a href='#/storage/disks'>réinitialisez</a> le périphérique, les partitions n'étant pas supportées."
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -1631,10 +1626,10 @@ msgid "Install plugin"
 msgstr "Installer l'extension"
 
 msgid "Install public key to remote machine"
-msgstr ""
+msgstr "Installer le clé publique sur la machine distante"
 
 msgid "Install security updates unattended."
-msgstr ""
+msgstr "Installer les mises à jour de sécurité sans surveillance."
 
 msgid "Install updates"
 msgstr "Installer les mises à jour"
@@ -1844,7 +1839,7 @@ msgid "Log level"
 msgstr "Niveau de journalisation"
 
 msgid "Logged in as <strong>{{ username }}</strong>"
-msgstr ""
+msgstr "Connecté en tant que <strong>{{ username }}</strong>"
 
 msgid "Logout"
 msgstr "Déconnexion"
@@ -1903,8 +1898,8 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malte"
 
-msgid "Management of CPUfreq settings."
-msgstr "Gestion de la fréquence du processeur."
+msgid "Management of cpufreq and cpuidle tunables."
+msgstr "Gestion de cpufreq et cpuidle modifiables."
 
 msgid "Management of scheduled tasks."
 msgstr "Gestion des tâches planifiées."
@@ -2007,7 +2002,7 @@ msgid "Minute"
 msgstr "Minute"
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Divers"
 
 msgid "Missing"
 msgstr "Manquant"
@@ -2040,19 +2035,19 @@ msgid "Monitoring"
 msgstr "Surveillance"
 
 msgid "Monitoring - CPU usage"
-msgstr ""
+msgstr "Monitoring - utilisation CPU"
 
 msgid "Monitoring - File systems"
-msgstr ""
+msgstr "Monitoring - Système de fichiers"
 
 msgid "Monitoring - Load average"
-msgstr ""
+msgstr "Monitoring - Charge moyenne"
 
 msgid "Monitoring - Memory usage"
-msgstr ""
+msgstr "Monitoring - Utilisation de la méméoire"
 
 msgid "Monitoring - Processes"
-msgstr ""
+msgstr "Monitoring - Processus"
 
 msgid "Monitoring enabled"
 msgstr "Surveillance activée"
@@ -2218,7 +2213,7 @@ msgid ""
 msgstr "Notez que SMB1 est obsolète et ne devrait être utilisé qu'en cas de nécessité."
 
 msgid "Note, only one client can be configured per share."
-msgstr ""
+msgstr "Attention, un seul client peut être configuré par partage."
 
 msgid "Nothing"
 msgstr "Ne rien faire"
@@ -2393,13 +2388,13 @@ msgstr "Île Pitcairn"
 msgid ""
 "Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr ""
+msgstr "Consultez la <a href=\"https://download.samba.org/pub/rsync/rsync.1\" target=\"_blank\">page du manuel</a> pour plus de détails."
 
 msgid ""
 "Please check the <a "
 "href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr ""
+msgstr "Consultez la <a href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" target=\"_blank\">page du manuel</a> pour plus de détails."
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
@@ -2421,7 +2416,7 @@ msgid "Please choose the method to wipe the device."
 msgstr "Veuillez choisir la méthode pour effacer le périphérique."
 
 msgid "Please note that values >= 128 do not permit the disk to spin down."
-msgstr ""
+msgstr "Attention, les valeurs >= 128 ne permettent pas l'arrêt de rotation du disque."
 
 msgid "Please wait ..."
 msgstr "Veuillez patienter SVP ..."
@@ -2644,7 +2639,7 @@ msgid "Relative path"
 msgstr "Chemin relatif"
 
 msgid "Reliable system and kernel logging daemon."
-msgstr ""
+msgstr "Démon de journalisation fiable du système et du noyau."
 
 msgid "Reload"
 msgstr "Recharger"
@@ -2737,10 +2732,10 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. Status"
-msgstr "Etat S.M.A.R.T."
+msgstr "État S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr "La surveillance S.M.A.R.T. doit-être activée pour le périphérique sélectionné."
+msgstr "La surveillance S.M.A.R.T. doit être activée pour le périphérique sélectionné."
 
 msgid "SHR"
 msgstr ""
@@ -2922,7 +2917,7 @@ msgid "Send command output via email"
 msgstr "Envoi par mail de la sortie de la commande"
 
 msgid "Send notifications about pending package updates."
-msgstr ""
+msgstr "Envoi de notifications de mises à jours en attente."
 
 msgid "Sender email"
 msgstr "Adresse de l'expéditeur"
@@ -2979,7 +2974,7 @@ msgid ""
 " fail to coincide with any of the scheduled test that have been specified. "
 "In this case the scheduled test will be run following the next device "
 "polling."
-msgstr ""
+msgstr "Définit l'intervalle entre deux interrogations de disque à N secondes. Attention en définissant cet intervalle à plus de 60 minutes. L'intervalle peut ne coïncider avec aucun des tests planifiés spécifiés. Dans ce cas le test planifié sera lancé à la suite de la prochaine interrogation de disque."
 
 msgid "Settings"
 msgstr "Paramètres"
@@ -3048,7 +3043,7 @@ msgid "Sleep"
 msgstr "Sommeil"
 
 msgid "Sleeping"
-msgstr ""
+msgstr "Mise en veille"
 
 msgid "Slovakia"
 msgstr "Slovaquie"
@@ -3060,7 +3055,7 @@ msgid "Snapshots"
 msgstr "Instantanés"
 
 msgid "Software"
-msgstr ""
+msgstr "Logiciel"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "Erreur logicielle.   Cliquez sur le bouton gauche de la souris pour continuer."
@@ -3176,10 +3171,10 @@ msgid "Stop"
 msgstr "Stop"
 
 msgid "Stopped by debugger during trace"
-msgstr ""
+msgstr "Arrêté par le debugger pendant une trace"
 
 msgid "Stopped by job control signal"
-msgstr ""
+msgstr "Stoppé la le signal de contrôle de job"
 
 msgid "Storage"
 msgstr "Stockage"
@@ -3331,14 +3326,14 @@ msgstr "Le serveur distant de destination (ex. [USER@]HOST:DEST, [USER@]HOST::DE
 msgid ""
 "The documentation page provides helpful information about your storage "
 "system."
-msgstr ""
+msgstr "La page de la documentation fournit des informations utiles sur votre système de stockage."
 
 msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
 "target=\"_blank\">ICANN</a>."
-msgstr ""
+msgstr "Le nom de domaine de votre système. Si votre système est un élément d'un réseau privé sans nom de domaine enregistré, utilisez <em>internal</em> comme suggéré par l'<a href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" target=\"_blank\">ICANN</a>."
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "Le champ ne devrait seulement contenir que * ou une liste de valeurs séparées par une virgule."
@@ -3356,10 +3351,10 @@ msgid "The following modules will be updated:"
 msgstr "Les modules suivant vont être mis à jour:"
 
 msgid "The forum page is the best place to ask questions and find answers."
-msgstr ""
+msgstr "La page du forum est le meilleur endroit pour poser des questions et trouver des réponses."
 
 msgid "The home of the project and source of news and updates."
-msgstr ""
+msgstr "L'hébergement du projet et source d'informations et mises à jour."
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Le nom de l'hôte est un libellé qui identifie le système sur le réseau."
@@ -3490,7 +3485,7 @@ msgid ""
 msgstr "La valeur doit être une des interfaces réseau esclaves {{ slaves | join(\", \") }}."
 
 msgid "The value must be one of the slave network interfaces."
-msgstr ""
+msgstr "La valeur doit être une des interfaces réseau esclaves."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Le groupe de travail du serveur qui apparait lors d'interrogation par les clients."
@@ -3796,7 +3791,7 @@ msgid "Uninstall plugin"
 msgstr "Désinstaller l'extension"
 
 msgid "Uninterruptible sleep"
-msgstr ""
+msgstr "Mise en veille interruptible"
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "Union de Républiques Socialistes Soviétiques"
@@ -3835,7 +3830,7 @@ msgid "Update Management"
 msgstr "Gestion des mises à jour"
 
 msgid "Update management"
-msgstr ""
+msgstr "Gestion de la mise à jour"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "Mettre à jour les ACLs de la destination pour correspondre aux ACLs de la source."
@@ -4097,6 +4092,9 @@ msgstr "WOL"
 msgid "WPA2-Personal"
 msgstr "WPA2 Personnel"
 
+msgid "WPA3-Personal"
+msgstr "WPA3 Personnel"
+
 msgid "WWN"
 msgstr "WWN"
 
@@ -4124,11 +4122,16 @@ msgstr "Bienvenue sur OpenMediaVault."
 msgid "Western Sahara"
 msgstr "Sahara occidental"
 
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr ""
+
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
 msgid "Wide links"
-msgstr ""
+msgstr "Liens étendus"
 
 msgid "Wipe"
 msgstr "Effacer"

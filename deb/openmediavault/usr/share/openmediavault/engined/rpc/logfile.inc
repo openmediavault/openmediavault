@@ -74,6 +74,9 @@ class LogFile extends \OMV\Rpc\ServiceAbstract {
 			$cmd->setRedirect2to1();
 			$cmd->execute();
 		}
+		if (FALSE === file_exists($filePath)) {
+			throw new \OMV\Exception("The log file '%s' does not exist.", $filePath);
+		}
 		// Limit the number of lines to process because of memory issues.
 		$maxLines = \OMV\Environment::getInteger("OMV_MAX_LOGFILE_LINES");
 		// Read the log file content.
@@ -92,8 +95,9 @@ class LogFile extends \OMV\Rpc\ServiceAbstract {
 			$line = $file->fgets();
 			// Skip invalid pattern matches.
 			$result = preg_match($spec->getRegex(), $line, $matches);
-			if ((FALSE === $result) || (0 == $result))
+			if ((FALSE === $result) || (0 == $result)) {
 				continue;
+			}
 			$object = [
 				"rownum" => $rowNum++
 			];
@@ -113,8 +117,8 @@ class LogFile extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
-		  $params['limit'], $params['sortfield'], $params['sortdir'],
-		  $params['search']);
+			$params['limit'], $params['sortfield'], $params['sortdir'],
+			$params['search']);
 	}
 
 	/**

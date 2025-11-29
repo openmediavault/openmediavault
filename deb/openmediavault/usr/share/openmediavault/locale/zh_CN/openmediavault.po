@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2022,2025\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -158,9 +158,6 @@ msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - 最高性能，最大功耗"
-
-msgid "255 - Disabled"
-msgstr "255 - 已禁用"
 
 msgid "3 days"
 msgstr "3 天"
@@ -379,14 +376,14 @@ msgid ""
 msgstr "尝试发送测试邮件到你邮箱，请检查你的邮箱，如果收件箱没有检查一下垃圾邮件夹，同时检查 Postfix 系统日志是否有错误信息。"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "一封包含命令输出 (如果有) 的邮件将发送给管理员。"
+msgstr "一封包含命令輸出（若有）的電子郵件將會寄送給管理員。"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "一封包含命令输出 (如果有) 的邮件将发送给执行该任务的用户。"
+msgstr "一封包含命令輸出（若有）的電子郵件將會寄送給執行該工作的使用者。"
 
 msgid "Andorra"
 msgstr "安道尔"
@@ -1379,9 +1376,6 @@ msgstr "加纳"
 msgid "Gibraltar"
 msgstr "直布罗陀"
 
-msgid "Go to the notification sidebar to attach to it."
-msgstr "转到通知侧栏查看相关信息。"
-
 msgid "Good"
 msgstr "好"
 
@@ -1894,8 +1888,8 @@ msgstr "马里"
 msgid "Malta"
 msgstr "马耳他"
 
-msgid "Management of CPUfreq settings."
-msgstr "管理设置 CPU 频率。"
+msgid "Management of cpufreq and cpuidle tunables."
+msgstr "CPU 頻率與閒置可調設定管理。"
 
 msgid "Management of scheduled tasks."
 msgstr "管理计划任务。"
@@ -4088,6 +4082,9 @@ msgstr "网络唤醒"
 msgid "WPA2-Personal"
 msgstr "WPA2-Personal"
 
+msgid "WPA3-Personal"
+msgstr "WPA3-Personal"
+
 msgid "WWN"
 msgstr "WWN"
 
@@ -4114,6 +4111,11 @@ msgstr "欢迎使用 openmediavault"
 
 msgid "Western Sahara"
 msgstr "西撒哈拉"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr "當背景工作仍在執行時，你可以在將工作台的終端機對話連上它"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

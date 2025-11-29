@@ -387,12 +387,6 @@ audio {
 
 # Spotify settings (only have effect if Spotify enabled - see README/INSTALL)
 #spotify {
-  # Directory where user settings should be stored (credentials)
-# settings_dir = "/var/cache/owntone/libspotify"
-
-  # Cache directory
-# cache_dir = "/tmp"
-
   # Set preferred bitrate for music streaming
   # 0: No preference (default), 1: 96kbps, 2: 160kbps, 3: 320kbps
 # bitrate = 0
@@ -418,6 +412,22 @@ audio {
 # album_override = false
 #}
 
+# RCP/Roku Soundbridge output settings
+# (make sure you get the capitalization of the device name right)
+#rcp "My SoundBridge device" {
+  # Enable this option to exclude a particular device from the speaker
+  # list
+# exclude = false
+
+  # A Roku/SoundBridge can power up in 2 modes: (default) reconnect to the
+  # previously used library (ie OwnTone) or in a 'cleared library' mode.
+  # The Roku power up behaviour is affected by how OwnTone disconnects
+  # from the Roku device.
+  #
+  # Set to false to maintain default Roku power on behaviour
+# clear_on_close = false
+#}
+
 # MPD configuration (only have effect if MPD enabled - see README/INSTALL)
 mpd {
   # TCP port to listen on for MPD client requests.
@@ -438,7 +448,7 @@ mpd {
 # Make sure to read the SQLite documentation for the corresponding PRAGMA
 # statements as changing them from the defaults may increase the possibility of
 # database corruptions! By default the SQLite default values are used.
-#sqlite {
+sqlite {
   # Cache size in number of db pages for the library database
   # (SQLite default page size is 1024 bytes and cache size is 2000 pages)
 # pragma_cache_size_library = 2000
@@ -455,16 +465,26 @@ mpd {
   # 0: OFF, 1: NORMAL, 2: FULL (default)
 # pragma_synchronous = 2
 
+  # Number of bytes set aside for memory-mapped I/O  for the library database
+  # (requires sqlite 3.7.17 or later)
+  # 0: disables mmap (default), any other value > 0: number of bytes for mmap
+# pragma_mmap_size_library = 0
+
+  # Number of bytes set aside for memory-mapped I/O for the cache database
+  # (requires sqlite 3.7.17 or later)
+  # 0: disables mmap (default), any other value > 0: number of bytes for mmap
+# pragma_mmap_size_cache = 0
+
   # Should the database be vacuumed on startup? (increases startup time,
   # but may reduce database size). Default is yes.
 # vacuum = yes
-#}
+}
 
 # Streaming audio settings for remote connections (ie stream.mp3)
-# streaming {
+streaming {
   # Sample rate, typically 44100 or 48000
 #	sample_rate = 44100
 
   # Set the MP3 streaming bit rate (in kbps), valid options: 64 / 96 / 128 / 192 / 320
 #	bit_rate = 192
-#}
+}

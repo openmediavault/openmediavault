@@ -114,170 +114,123 @@ finish:
 	}
 
 	/**
-	 * Return info about an user by their name or UID.
-	 * @param id The user identifier; name or UID.
-	 * @return Returns an associative array with the user information
-	 *   or FALSE if the user does not exist.
-	 */
-	private function getUserInfo($id) {
-		$user = new \OMV\System\User($id);
-		if (!$user->exists())
-			return FALSE;
-		return [
-			"name" => $user->getName(),
-			"uid" => $user->getUid(),
-			"gid" => $user->getGid(),
-			"comment" => $user->getGecos(),
-			"dir" => $user->getHomeDirectory(),
-			"shell" => $user->getShell(),
-			"lastchanged" => $user->getLastChanged(),
-			"minimum" => $user->getMinimum(),
-			"maximum" => $user->getMaximum(),
-			"warn" => $user->getWarn(),
-			"inactive" => $user->getInactive(),
-			"expire" => $user->getExpire(),
-			"reserved" => $user->getReserved(),
-			"groups" => $user->getGroups(),
-			"system" => $user->isSystemAccount()
-		];
-	}
-
-	/**
 	 * Enumerate users.
-	 * @param type The user type, e.g. system, normal or all.
-	 * @return An array containing user objects with following fields:
+	 * @param string $type The user type, e.g. `system`, `normal` or `all`.
+	 * @param string $detail Specifies the details level: `basic` or `full`.
+	 *   Defaults to `basic`.
+	 * @return An array of associative arrays with the following user information:
 	 *   name, UID, GID, comment, home directory, and shell program,
-	 *   last changed, minimum, maximum, warn, inactive, expire and
-	 *   reserved.
+	 *   last changed, minimum, maximum, warn, inactive, expire, reserved,
+	 *   groups (array of group names) and system.
 	 */
-	private function enumerateUsersByType($type) {
-		// Get list of user names.
-		$users = \OMV\System\User::getUsers();
-		// Iterate through all users to filter the requested ones.
+	private function enumerateUsersByType($type, $detail = "basic") {
 		$result = [];
+		$users = \OMV\System\User::enumerateUsers();
 		foreach ($users as $userk => $userv) {
-			// Get the user information about the user.
-			if (FALSE === ($userInfo = $this->getUserInfo($userv)))
-				continue;
 			// Append user 'root'?
-			if ((0 == strcasecmp("root", $userInfo['name'])) &&
+			if ((0 == strcasecmp("root", $userv->getName())) &&
 			  (FALSE == \OMV\Environment::getBoolean(
-			  "OMV_USERMGMT_ENUMERATE_USER_ROOT", TRUE)))
+			  "OMV_USERMGMT_ENUMERATE_USER_ROOT", TRUE))) {
 				continue;
+			}
 			// Check if the current user is requested.
 			$append = FALSE;
 			switch ($type) {
 			case "system":
-				$append = $userInfo['system'];
+				$append = $userv->isSystemAccount();
 				break;
 			case "normal":
-				$append = !$userInfo['system'];
+				$append = !$userv->isSystemAccount();
 				break;
 			case "all":
 				$append = TRUE;
 				break;
 			}
-			if (FALSE === $append)
+			if (FALSE === $append) {
 				continue;
-			$result[] = $userInfo;
+			}
+			$result[] = $userv->getAssoc($detail);
 		}
 		return $result;
 	}
 
 	/**
 	 * Get the list of system users.
-	 * @param params The method parameters.
+	 * @param params An array containing the following fields:
+	 *   \em detail Specifies the detail level of the user information:
+	 *     `basic` or `full`. Defaults to `basic`.
 	 * @param context The context of the caller.
 	 * @return A list of user objects.
 	 */
 	public function enumerateSystemUsers($params, $context) {
-		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get system users.
-		return $this->enumerateUsersByType("system");
+		$this->validateMethodParams($params, "rpc.usermgmt.enumerate");
+		$detail = array_value($params, "detail", "basic");
+		return $this->enumerateUsersByType("system", $detail);
 	}
 
 	/**
 	 * Get the list of non-system users.
-	 * @param params The method parameters.
+	 * @param params An array containing the following fields:
+	 *   \em detail Specifies the detail level of the user information:
+	 *     `basic` or `full`. Defaults to `basic`.
 	 * @param context The context of the caller.
 	 * @return A list of user objects.
 	 */
 	public function enumerateUsers($params, $context) {
-		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get non-system users.
-		return $this->enumerateUsersByType("normal");
+		$this->validateMethodParams($params, "rpc.usermgmt.enumerate");
+		$detail = array_value($params, "detail", "basic");
+		return $this->enumerateUsersByType("normal", $detail);
 	}
 
 	/**
 	 * Get the list of all users.
-	 * @param params The method parameters.
+	 * @param params An array containing the following fields:
+	 *   \em detail Specifies the detail level of the user information:
+	 *     `basic` or `full`. Defaults to `basic`.
 	 * @param context The context of the caller.
 	 * @return A list of user objects.
 	 */
 	public function enumerateAllUsers($params, $context) {
-		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get all users.
-		return $this->enumerateUsersByType("all");
-	}
-
-	/**
-	 * Return info about a group by their name or GID.
-	 * @param id The group identifier; name or GID.
-	 * @return Returns an associative array with the group information
-	 *   or FALSE if the group does not exist.
-	 */
-	private function getGroupInfo($id) {
-		$group = new \OMV\System\Group($id);
-		if (!$group->exists())
-			return FALSE;
-		return [
-			"name" => $group->getName(),
-			"gid" => $group->getGid(),
-			"members" => $group->getMembers(),
-			"system" => $group->isSystemAccount()
-		];
+		$this->validateMethodParams($params, "rpc.usermgmt.enumerate");
+		$detail = array_value($params, "detail", "basic");
+		return $this->enumerateUsersByType("all", $detail);
 	}
 
 	/**
 	 * Enumerate groups.
-	 * @param type The group type, e.g. system, normal or all.
-	 * @return An array containing user objects with following fields:
-	 *   name, GID and group members (array of user names).
+	 * @param type The group type, e.g. `system`, `normal` or `all`.
+	 * @return An array of associative arrays with the following group information:
+	 *   name, GID, group members (array of user names) and system.
 	 */
 	private function enumerateGroupsByType($type) {
-		// Get list of group names.
-		$groups = \OMV\System\Group::getGroups();
-		// Get group information.
 		$result = [];
+		$groups = \OMV\System\Group::enumerateGroups();
 		foreach ($groups as $groupk => $groupv) {
-			// Get the user information about the group.
-			if (FALSE === ($groupInfo = $this->getGroupInfo($groupv)))
-				continue;
-			// Check if the current group is requested.
 			$append = FALSE;
 			switch ($type) {
 			case "system":
-				$append = $groupInfo['system'];
+				$append = $groupv->isSystemAccount();
 				break;
 			case "normal":
-				$append = !$groupInfo['system'];
+				$append = !$groupv->isSystemAccount();
 				break;
 			case "all":
 				$append = TRUE;
 				break;
 			}
-			if (FALSE === $append)
+			if (FALSE === $append) {
 				continue;
-			$result[] = $groupInfo;
+			}
+			$result[] = $groupv->getAssoc();
 		}
 		return $result;
 	}
@@ -334,6 +287,8 @@ finish:
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
+	 *   \em $detail Specifies the detail level of the user information.
+	 *     Defaults to `basic`.
 	 * @param context The context of the caller.
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
@@ -345,11 +300,19 @@ finish:
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.common.getlist");
+		$this->validateMethodParams($params, "rpc.usermgmt.getuserlist");
 		// Get the list of non-system user.
-		$users = $this->enumerateUsersByType("normal");
-		// Process users and append additional information stored in
-		// the database.
+		$detail = array_value($params, "detail", "basic");
+		$users = $this->enumerateUsersByType("normal", $detail);
+		// Get all users stored in the database and generate a lookup map.
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.system.usermngmnt.user");
+		$objectsMap = [];
+		foreach ($objects as $objectk => $objectv) {
+			$objectsMap[$objectv->get("name")] = $objectv;
+		}
+		// Process users and append additional information that are stored
+		// in the database.
 		foreach ($users as $userk => &$userv) {
 			// Set the defaults of the additional information.
 			$userv = array_merge($userv, [
@@ -357,22 +320,13 @@ finish:
 				"disallowusermod" => FALSE,
 				"sshpubkeys" => []
 			]);
-			// Get additional information stored in database.
-			$db = \OMV\Config\Database::getInstance();
-			$objects = $db->getByFilter("conf.system.usermngmnt.user", [
-				"operator" => "stringEquals",
-				"arg0" => "name",
-				"arg1" => $userv['name']
-			]);
-			if (0 < count($objects)) {
-				// Get the user configuration object. Due the fact that a user
-				// name is unique, we can simply use the first found object.
-				$object = $objects[0];
-				// Append additional information.
+			if (array_key_exists($userv['name'], $objectsMap)) {
+				$object = $objectsMap[$userv['name']];
 				$userv['email'] = $object->get("email");
 				$userv['disallowusermod'] = $object->get("disallowusermod");
-				if (FALSE === $object->isEmpty("sshpubkeys"))
+				if (FALSE === $object->isEmpty("sshpubkeys")) {
 					$userv['sshpubkeys'] = $object->get("sshpubkeys.sshpubkey");
+				}
 			}
 		}
 		// Filter the result.
@@ -399,7 +353,7 @@ finish:
 		$user = new \OMV\System\User($params['name']);
 		$user->assertExists();
 		// Get the user information.
-		$result = $this->getUserInfo($user->getName());
+		$result = $user->getAssoc();
 		// Set the defaults of the additional information.
 		$result = array_merge($result, [
 			"email" => "",
@@ -785,20 +739,18 @@ finish:
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the list of non-system groups.
 		$groups = $this->enumerateGroupsByType("normal");
+		// Get all groups stored in the database and generate a lookup map.
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.system.usermngmnt.group");
+		$objectsMap = [];
+		foreach ($objects as $objectk => $objectv) {
+			$objectsMap[$objectv->get("name")] = $objectv;
+		}
+		// Process groups and append additional information that are stored
+		// in the database.
 		foreach ($groups as $groupk => &$groupv) {
-			// Get additional information stored in database.
-			$db = \OMV\Config\Database::getInstance();
-			$objects = $db->getByFilter("conf.system.usermngmnt.group", [
-				"operator" => "stringEquals",
-				"arg0" => "name",
-				"arg1" => $groupv['name']
-			]);
-			if (0 < count($objects)) {
-				// Get the group configuration object. Due the fact that a
-				// group name is unique, we can simply use the first found
-				// object.
-				$object = $objects[0];
-				// Append additional information.
+			if (array_key_exists($groupv['name'], $objectsMap)) {
+				$object = $objectsMap[$groupv['name']];
 				$groupv['comment'] = $object->get("comment");
 			}
 		}
@@ -826,7 +778,7 @@ finish:
 		$group = new \OMV\System\Group($params['name']);
 		$group->assertExists();
 		// Get the group information.
-		$result = $this->getGroupInfo($group->getName());
+		$result = $group->getAssoc();
 		// Get additional group information stored in database.
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->getByFilter("conf.system.usermngmnt.group", [

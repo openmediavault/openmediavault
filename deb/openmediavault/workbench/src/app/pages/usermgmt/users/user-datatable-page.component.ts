@@ -54,7 +54,7 @@ export class UserDatatablePageComponent {
         name: gettext('Groups'),
         prop: 'groups',
         flexGrow: 1,
-        sortable: true,
+        sortable: false,
         cellTemplateName: 'template',
         cellTemplateConfig: '{{ groups | sort() | join(", ") }}'
       },

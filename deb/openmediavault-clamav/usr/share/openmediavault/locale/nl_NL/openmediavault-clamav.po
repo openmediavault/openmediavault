@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -26,9 +26,9 @@ msgid "Algorithmic detection"
 msgstr "Algoritmische detectie"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Een e-mail met de uitvoer van het commando (als dit is geproduceerd), is naar de beheerder verstuurd."
+msgstr "Er wordt een e-mailbericht met de opdrachtuitvoer (indien aanwezig) naar de administrator verzonden."
 
 msgid "Antivirus"
 msgstr "Antivirus"
@@ -75,6 +75,9 @@ msgstr "PUA waarnemen"
 msgid "Detect broken executables"
 msgstr "Defecte uitvoerbare bestanden detecteren"
 
+msgid "Detect broken media"
+msgstr "Defecte media detecteren"
+
 msgid "Edit"
 msgstr "Aanpassen"
 
@@ -100,6 +103,9 @@ msgstr "Algoritmische detectie inschakelen"
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "De detectie van defecte uitvoerbare bestanden (zowel PE en ELF) inschakelen."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr "De detectie van kapotte mediabestanden (JPEG, TIFF, PNG, GIF) inschakelen."
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Waarneming van mogelijk ongewenste toepassingen inschakelen."
@@ -251,6 +257,9 @@ msgstr "E-mail verzenden"
 msgid "September"
 msgstr "september"
 
+msgid "Service disabled"
+msgstr "Dienst uitgeschakeld"
+
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -280,6 +289,9 @@ msgstr "De optie, hoe om te gaan met besmette bestanden."
 
 msgid "Thursday"
 msgstr "Donderdag"
+
+msgid "Time of execution"
+msgstr "Tijdstip van uitvoering"
 
 msgid "Tuesday"
 msgstr "Dinsdag"

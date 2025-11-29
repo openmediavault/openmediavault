@@ -1,7 +1,7 @@
 Source: openmediavault-filebrowser
 Section: net
 XB-Plugin-Section: utilities
-XB-Plugin-Architecture: amd64, armel, armhf, arm64
+XB-Plugin-Architecture: amd64, arm64
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>= 12), gettext
@@ -10,7 +10,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-filebrowser
 Architecture: all
-Depends: openmediavault (>= 7.7.9), podman, catatonit
+Depends: openmediavault (>= 8.0), podman, catatonit
 Priority: optional
 Description: openmediavault File Browser plugin
  File Browser provides a file managing interface within a specified

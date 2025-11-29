@@ -1,0 +1,32 @@
+{%- set admin_username = salt['pillar.get']('default:OMV_FILEBROWSER_APP_ADMIN_USERNAME', 'admin') -%}
+{%- set admin_password = salt['pillar.get']('default:OMV_FILEBROWSER_APP_ADMIN_PASSWORD', 'admin') -%}
+server:
+  disableUpdateCheck: true
+  port: 80
+  baseURL: "/"
+  logging:
+    - levels: "info|warning|error"
+  cacheDir: "/data/tmp/"
+  database: "data/database.db"
+  sources:
+    - path: "/srv/"
+      config:
+        defaultEnabled: true
+auth:
+  adminUsername: {{ admin_username }}
+  adminPassword: {{ admin_password }}
+userDefaults:
+  preview:
+    image: true
+    popup: true
+    video: false
+    office: false
+    highQuality: false
+  darkMode: true
+  disableSettings: false
+  singleClick: false
+  permissions:
+    admin: false
+    modify: false
+    share: false
+    api: false

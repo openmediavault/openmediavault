@@ -150,9 +150,9 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 			];
 		}
 		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateAllUsers",
-			null, $context);
+			[ "detail" => "basic" ], $context);
 		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateAllGroups",
-			null, $context);
+			[], $context);
 		return [
 			"sharedfolders" => $sfs,
 			"users" => $users,

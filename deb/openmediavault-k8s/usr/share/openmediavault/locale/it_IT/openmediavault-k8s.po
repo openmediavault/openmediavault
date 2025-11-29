@@ -53,7 +53,7 @@ msgid "Chart"
 msgstr "Grafico"
 
 msgid "Check for new recipes"
-msgstr "Verifica la presenza di nuove ricette"
+msgstr "Verifica la disponibilità di nuove ricette"
 
 msgid "Class"
 msgstr "Classe"
@@ -74,7 +74,7 @@ msgid "Copy token"
 msgstr "Copia token"
 
 msgid "Count"
-msgstr ""
+msgstr "Numero"
 
 msgid "Created"
 msgstr "Creato"
@@ -121,7 +121,7 @@ msgid "Enabled"
 msgstr "Abilitato"
 
 msgid "Events"
-msgstr ""
+msgstr "Eventi"
 
 msgid "External IP"
 msgstr "IP esterno"
@@ -130,7 +130,7 @@ msgid "Failed"
 msgstr "Operazione non riuscita"
 
 msgid "First seen"
-msgstr ""
+msgstr "Prima rilevazione"
 
 msgid "GID"
 msgstr "GID"
@@ -190,7 +190,7 @@ msgid "Labels"
 msgstr "Etichette"
 
 msgid "Last seen"
-msgstr ""
+msgstr "Ultima rilevazione"
 
 msgid "Load Balancer"
 msgstr "Bilanciatore del carico"
@@ -205,7 +205,7 @@ msgid "Message"
 msgstr "Messaggio"
 
 msgid "Monitoring - Kubernetes"
-msgstr ""
+msgstr "Monitoraggio - Kubernetes"
 
 msgid "Name"
 msgstr "Nome"
@@ -220,10 +220,10 @@ msgid "NodePort IP"
 msgstr "IP di NodePort"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normale"
 
 msgid "Object"
-msgstr ""
+msgstr "Oggetto"
 
 msgid "Open UI"
 msgstr "Apri l'interfaccia utente"
@@ -265,7 +265,7 @@ msgid "Ready"
 msgstr "Pronto"
 
 msgid "Reason"
-msgstr ""
+msgstr "Motivo"
 
 msgid "Recipe Information"
 msgstr "Informazioni sulla ricetta"
@@ -325,7 +325,7 @@ msgid "Snapshots"
 msgstr "Snapshot"
 
 msgid "Source"
-msgstr ""
+msgstr "Sorgente"
 
 msgid "Stateful Sets"
 msgstr "Set con stato"
@@ -432,7 +432,7 @@ msgid "Volume"
 msgstr "Volume"
 
 msgid "Warning"
-msgstr ""
+msgstr "Avviso"
 
 msgid "YAML"
 msgstr "YAML"

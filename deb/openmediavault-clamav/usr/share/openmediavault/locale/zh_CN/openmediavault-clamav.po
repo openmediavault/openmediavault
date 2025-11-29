@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: songming <by@songming.me>, 2013-2014,2016-2017,2022\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -23,9 +23,9 @@ msgid "Algorithmic detection"
 msgstr "检测算法"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "发送一封包含命令输出(如果执行了命令)的邮件到管理员。"
+msgstr "一封包含命令輸出（若有）的電子郵件將會寄送給管理員。"
 
 msgid "Antivirus"
 msgstr "防病毒"
@@ -72,6 +72,9 @@ msgstr "PUA 检测"
 msgid "Detect broken executables"
 msgstr "检测损坏的可执行文件"
 
+msgid "Detect broken media"
+msgstr "偵測損壞的媒體"
+
 msgid "Edit"
 msgstr "编辑"
 
@@ -97,6 +100,9 @@ msgstr "启用检测算法。"
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "启用损坏可执行文件(包括 PE 和 ELF)的检测。"
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr "啟用對損壞之媒體(JPEG、TIFF、PNG、GIF)的偵測。"
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "启用不受欢迎的应用文件检测。"
@@ -248,6 +254,9 @@ msgstr "发送 Email"
 msgid "September"
 msgstr "九月"
 
+msgid "Service disabled"
+msgstr "服务已停用"
+
 msgid "Settings"
 msgstr "设置"
 
@@ -277,6 +286,9 @@ msgstr "该选项作用是如何处理被感染的文件。"
 
 msgid "Thursday"
 msgstr "星期四"
+
+msgid "Time of execution"
+msgstr "执行的时间"
 
 msgid "Tuesday"
 msgstr "星期二"

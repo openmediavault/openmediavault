@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Jonatan, 2025
+# Daniel, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 10:24+0200\n"
+"POT-Creation-Date: 2025-11-16 11:21+0100\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
-"Last-Translator: Jonatan, 2025\n"
+"Last-Translator: Daniel, 2025\n"
 "Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,14 +51,17 @@ msgstr "Enhet"
 msgid "Devices"
 msgstr "Enheter"
 
+msgid "Displays information about MD (Software RAID) devices."
+msgstr ""
+
 msgid "Grow"
 msgstr "Växa"
 
 msgid "Level"
 msgstr "Nivå"
 
-msgid "Linear"
-msgstr "Linjär"
+msgid "MD Devices"
+msgstr ""
 
 msgid "Mirror"
 msgstr "Spegel"

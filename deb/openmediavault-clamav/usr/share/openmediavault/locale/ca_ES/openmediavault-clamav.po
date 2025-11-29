@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2021\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -24,9 +24,9 @@ msgid "Algorithmic detection"
 msgstr "Detecció Algorítmica"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "S'enviarà un e-mail amb la sortida de la comanda (si n'hi ha) a l'administrador"
+msgstr ""
 
 msgid "Antivirus"
 msgstr "Antivirus"
@@ -73,6 +73,9 @@ msgstr "Detectar PUA"
 msgid "Detect broken executables"
 msgstr "Detectar executables trencats"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "Edita"
 
@@ -98,6 +101,9 @@ msgstr "Habilita la detecció algorítmica."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "Habilita l'escanejat de fitxers executables (PE y ELF)"
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Habilita la detecció d'aplicacions sospitoses."
@@ -249,6 +255,9 @@ msgstr "Enviar e-mail"
 msgid "September"
 msgstr "Setembre"
 
+msgid "Service disabled"
+msgstr "Servei desactivat"
+
 msgid "Settings"
 msgstr "Opcions"
 
@@ -278,6 +287,9 @@ msgstr "Com tractar als fitxers infectats"
 
 msgid "Thursday"
 msgstr "Dijous"
+
+msgid "Time of execution"
+msgstr "S’executarà:"
 
 msgid "Tuesday"
 msgstr "Dimarts"

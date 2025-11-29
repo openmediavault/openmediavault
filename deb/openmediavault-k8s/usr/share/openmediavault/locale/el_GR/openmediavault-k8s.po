@@ -73,7 +73,7 @@ msgid "Copy token"
 msgstr "Αντιγραφή τεκμηρίου."
 
 msgid "Count"
-msgstr ""
+msgstr "Μέτρηση"
 
 msgid "Created"
 msgstr "Δημιουργία"
@@ -120,7 +120,7 @@ msgid "Enabled"
 msgstr "Ενεργό"
 
 msgid "Events"
-msgstr ""
+msgstr "Συμβάντα"
 
 msgid "External IP"
 msgstr "Εξωτερική ΙΡ"
@@ -129,7 +129,7 @@ msgid "Failed"
 msgstr "Απέτυχε"
 
 msgid "First seen"
-msgstr ""
+msgstr "Πρώτη εμφάνιση"
 
 msgid "GID"
 msgstr "GID"
@@ -189,7 +189,7 @@ msgid "Labels"
 msgstr "Ετικέτες"
 
 msgid "Last seen"
-msgstr ""
+msgstr "Τελευταία εμφάνιση"
 
 msgid "Load Balancer"
 msgstr "Εξισορροπητής Φόρτου"
@@ -204,7 +204,7 @@ msgid "Message"
 msgstr "Μήνυμα"
 
 msgid "Monitoring - Kubernetes"
-msgstr ""
+msgstr "Επίβλεψη - Kubernetes"
 
 msgid "Name"
 msgstr "Όνομα"
@@ -219,10 +219,10 @@ msgid "NodePort IP"
 msgstr "NodePort IP"
 
 msgid "Normal"
-msgstr ""
+msgstr "Κανονικό"
 
 msgid "Object"
-msgstr ""
+msgstr "Αντικείμενο"
 
 msgid "Open UI"
 msgstr "Open UI"
@@ -264,7 +264,7 @@ msgid "Ready"
 msgstr "Έτοιμο"
 
 msgid "Reason"
-msgstr ""
+msgstr "Αιτία"
 
 msgid "Recipe Information"
 msgstr "Πληροφορίες Συνταγής"
@@ -324,7 +324,7 @@ msgid "Snapshots"
 msgstr "Στιγμιότυπα"
 
 msgid "Source"
-msgstr ""
+msgstr "Πηγή"
 
 msgid "Stateful Sets"
 msgstr "Ομάδες Καταστάσεων"
@@ -430,7 +430,7 @@ msgid "Volume"
 msgstr "Τόμος"
 
 msgid "Warning"
-msgstr ""
+msgstr "Προειδοποίηση"
 
 msgid "YAML"
 msgstr "YAML"

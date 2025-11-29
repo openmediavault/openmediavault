@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 20:04+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Language-Team: Basque (Spain) (https://app.transifex.com/openmediavault/teams/14254/eu_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -18,9 +18,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "1 MiB/s"
-msgstr ""
-
-msgid "1 minute"
 msgstr ""
 
 msgid "10 MiB/s"
@@ -41,22 +38,13 @@ msgstr ""
 msgid "15 minutes"
 msgstr ""
 
-msgid "2 minutes"
-msgstr ""
-
 msgid "24 hours"
 msgstr ""
 
 msgid "256 KiB/s"
 msgstr ""
 
-msgid "3 minutes"
-msgstr ""
-
 msgid "30 minutes"
-msgstr ""
-
-msgid "4 minutes"
 msgstr ""
 
 msgid "5 minutes"
@@ -91,6 +79,9 @@ msgstr ""
 msgid "Clean up local files that have been removed online."
 msgstr ""
 
+msgid "Date & Time"
+msgstr ""
+
 msgid "Disabled"
 msgstr ""
 
@@ -110,6 +101,9 @@ msgid "Full"
 msgstr ""
 
 msgid "Local first"
+msgstr ""
+
+msgid "Message"
 msgstr ""
 
 msgid "Monitor interval"

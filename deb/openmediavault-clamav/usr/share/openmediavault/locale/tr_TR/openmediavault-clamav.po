@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2014,2017,2021-2022,2025\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -22,9 +22,9 @@ msgid "Algorithmic detection"
 msgstr "Algoritmik saptama"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Komut çıktılarının (eğer oluşturuldu ise) ekli olduğu bir email mesajı yöneticiye gönderildi."
+msgstr ""
 
 msgid "Antivirus"
 msgstr "Antivirus"
@@ -71,6 +71,9 @@ msgstr "PUA bul"
 msgid "Detect broken executables"
 msgstr "Bozuk çalışabilir dosyaları tespit et"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "Düzenle"
 
@@ -96,6 +99,9 @@ msgstr "Algoritmik tespiti etkinleştir."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "Bozulmuş çalıştırılabilir dosya tespitini (PE ve ELF) etkinleştir."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Muhtemel istenmeyen uygulamalar için tespiti etkinleştir."
@@ -247,6 +253,9 @@ msgstr "E-mail yolla"
 msgid "September"
 msgstr "Eylül"
 
+msgid "Service disabled"
+msgstr "Hizmet kapatıldı"
+
 msgid "Settings"
 msgstr "Ayarlar"
 
@@ -276,6 +285,9 @@ msgstr "Enfekte dosyaların nasıl değerlendirileceği seçeneği."
 
 msgid "Thursday"
 msgstr "Perşembe"
+
+msgid "Time of execution"
+msgstr "Çalıştırma zamanı"
 
 msgid "Tuesday"
 msgstr "Salı"

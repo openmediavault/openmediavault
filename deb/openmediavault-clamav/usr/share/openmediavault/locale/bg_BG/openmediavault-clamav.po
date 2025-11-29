@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://app.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
@@ -21,9 +21,9 @@ msgid "Algorithmic detection"
 msgstr ""
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Имейл съобщение с изход от командата (ако има такъв) се изпраща на администратора."
+msgstr ""
 
 msgid "Antivirus"
 msgstr ""
@@ -70,6 +70,9 @@ msgstr ""
 msgid "Detect broken executables"
 msgstr ""
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr ""
 
@@ -94,6 +97,9 @@ msgid "Enable the algorithmic detection."
 msgstr ""
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr ""
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
 msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
@@ -246,6 +252,9 @@ msgstr "Изпрати имейл"
 msgid "September"
 msgstr ""
 
+msgid "Service disabled"
+msgstr ""
+
 msgid "Settings"
 msgstr "Настройки"
 
@@ -275,6 +284,9 @@ msgstr ""
 
 msgid "Thursday"
 msgstr "Четвъртък"
+
+msgid "Time of execution"
+msgstr ""
 
 msgid "Tuesday"
 msgstr "Вторник"

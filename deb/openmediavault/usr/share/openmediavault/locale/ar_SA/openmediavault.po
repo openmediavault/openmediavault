@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -153,9 +153,6 @@ msgstr "250 ميجابايت"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - أقصى أداء ، أقصى استهلاك للطاقة"
-
-msgid "255 - Disabled"
-msgstr "255 - معطل"
 
 msgid "3 days"
 msgstr "3 أيام"
@@ -374,14 +371,14 @@ msgid ""
 msgstr "تم إجراء محاولة لإرسال بريد إلكتروني تجريبي. يرجى التحقق من صندوق البريد الخاص بك. إذا لم يصل البريد الإلكتروني ، فتحقق من مجلدات البريد غير المرغوب فيه \"Spam\" وأيضًا تحقق من عدم وجود أخطاء متعلقة بـ Postfix في سجل النظام."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "يتم إرسال رسالة بريد إلكتروني مع مخرجات الأمر (إن وجدت) إلى المسؤول."
+msgstr ""
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "يتم إرسال رسالة بريد إلكتروني مع مخرجات الأمر (إن وجدت) إلى المستخدم الذي يؤدي المهمة."
+msgstr ""
 
 msgid "Andorra"
 msgstr "أندورا"
@@ -1374,9 +1371,6 @@ msgstr "غانا"
 msgid "Gibraltar"
 msgstr "جبل طارق"
 
-msgid "Go to the notification sidebar to attach to it."
-msgstr "انتقل إلى الشريط الجانبي للتنبيهات للإضافة إليه."
-
 msgid "Good"
 msgstr "جيد"
 
@@ -1889,8 +1883,8 @@ msgstr "مالي"
 msgid "Malta"
 msgstr "مالطا"
 
-msgid "Management of CPUfreq settings."
-msgstr "إدارة إعدادات CPUfreq."
+msgid "Management of cpufreq and cpuidle tunables."
+msgstr ""
 
 msgid "Management of scheduled tasks."
 msgstr "إدارة المهام المجدولة."
@@ -4083,6 +4077,9 @@ msgstr "WOL"
 msgid "WPA2-Personal"
 msgstr ""
 
+msgid "WPA3-Personal"
+msgstr ""
+
 msgid "WWN"
 msgstr "WWN"
 
@@ -4109,6 +4106,11 @@ msgstr "مرحبا بكم في openmediavault"
 
 msgid "Western Sahara"
 msgstr "الصحراء الغربية"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr ""
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

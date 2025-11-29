@@ -16,7 +16,6 @@
 			"enum": [
 				"stripe",
 				"mirror",
-				"linear",
 				"raid0",
 				"raid1",
 				"raid10",

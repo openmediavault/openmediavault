@@ -66,6 +66,14 @@ $omv-dark-theme: mat.define-dark-theme(
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+// CSS variables
+////////////////////////////////////////////////////////////////////////////////
+:root {
+  --omv-background-color-muted: rgb(0 0 0 / 10%);
+  --omv-background-color-muted-text: rgb(0 0 0 / 6%);
+}
+
+////////////////////////////////////////////////////////////////////////////////
 // Classes
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -757,8 +765,13 @@ $omv-dark-theme: mat.define-dark-theme(
   background-color: var(--mat-background-color-hover);
 }
 
+.omv-background-color-muted,
 .omv-background-color-selected-button {
-  background-color: var(--mat-background-color-selected-button);
+  background-color: var(--omv-background-color-muted);
+}
+
+.omv-background-color-muted-text {
+  background-color: var(--omv-background-color-muted-text);
 }
 
 .omv-background-color-card {
@@ -1007,6 +1020,48 @@ $omv-dark-theme: mat.define-dark-theme(
 // z-index
 .omv-z-10 {
   z-index: cdk.$overlay-z-index + 10;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Markdown
+.omv-markdown {
+  line-height: 1.2rem;
+
+  blockquote {
+    background-color: var(--omv-background-color-muted-text);
+    border-left: 4px solid dc.$omv-color-corporate-default;
+    border-radius: 4px;
+    margin: 20px 0;
+    padding: 1px 20px;
+  }
+
+  code {
+    background-color: var(--omv-background-color-muted-text);
+    border-radius: 4px;
+    font-size: 85%;
+    margin: 0;
+    padding: 0.2em 0.4em;
+    white-space: break-spaces;
+  }
+
+  pre {
+    background-color: var(--omv-background-color-muted-text);
+    border-radius: 4px;
+    font-size: 85%;
+    overflow: auto;
+    padding: 1rem;
+
+    & code {
+      background-color: transparent;
+      border: 0;
+      display: inline;
+      line-height: inherit;
+      margin: 0;
+      overflow: visible;
+      padding: 0;
+      word-wrap: normal;
+    }
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////

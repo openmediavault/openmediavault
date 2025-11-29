@@ -33,7 +33,7 @@ class User {
 	protected $gecos = NULL;
 	protected $dir = NULL;
 	protected $shell = NULL;
-	protected $lastchanged = NULL;
+	protected $lastChanged = NULL;
 	protected $minimum = NULL;
 	protected $maximum = NULL;
 	protected $warn = NULL;
@@ -41,6 +41,7 @@ class User {
 	protected $expire = NULL;
 	protected $reserved = NULL;
 	protected $groups = NULL;
+	protected $isSystemAccount = NULL;
 
 	/**
 	 * Constructor
@@ -87,7 +88,7 @@ class User {
 			}
 			$output = explode(":", $output[0]);
 			$this->password = $output[1];
-			$this->lastchanged = $output[2];
+			$this->lastChanged = $output[2];
 			$this->minimum = $output[3];
 			$this->maximum = $output[4];
 			$this->warn = $output[5];
@@ -96,30 +97,35 @@ class User {
 			$this->reserved = $output[8];
 			break;
 		case "passwd":
-			if (!is_null($this->name) && !is_null($this->uid))
+			if (!is_null($this->name) && !is_null($this->uid)) {
 				return;
+			}
 			// Query user information.
 			$userInfo = FALSE;
-			if (!is_null($this->uid))
+			if (!is_null($this->uid)) {
 				$userInfo = posix_getpwuid($this->uid);
-			else
+			} else {
 				$userInfo = posix_getpwnam($this->name);
+			}
 			if (FALSE === $userInfo) {
 				throw new \OMV\Exception(
 				  "Failed to get information about the user '%s': %s",
 				  !is_null($this->uid) ? strval($this->uid) : $this->name,
 				  posix_strerror(posix_errno()));
 			}
+			[$uidMin, $uidMax] = self::getUidMinMax();
 			$this->name = $userInfo['name'];
 			$this->uid = $userInfo['uid'];
-			$this->gid = $userInfo['gid'];
+			$this->gid = $userInfo['gid']; // Primary group ID
 			$this->gecos = $userInfo['gecos'];
 			$this->dir = $userInfo['dir'];
 			$this->shell = $userInfo['shell'];
+			$this->isSystemAccount = !in_range($this->uid, $uidMin, $uidMax);
 			break;
 		case "groups":
-			if (!is_null($this->groups))
+			if (!is_null($this->groups)) {
 				return;
+			}
 			// Get the group IDs the user is in as white-space separated
 			// numbers. Thus it is possible to correctly process group
 			// names that contain blanks (e.g. imported via LDAP or AD).
@@ -240,7 +246,7 @@ class User {
 
 	public function getLastChanged() {
 		$this->getData("shadow");
-		return $this->lastchanged;
+		return $this->lastChanged;
 	}
 
 	public function getMinimum() {
@@ -351,16 +357,40 @@ class User {
 	 * Check if the given user is a system account.
 	 * @return TRUE if the user is a system account, otherwise FALSE.
 	 */
-	public function isSystemAccount() {
-		if (FALSE === ($uid = $this->getUid()))
-			return FALSE;
-		// Get shadow password suite configuration.
-		$ld = \OMV\System\System::getLoginDefs();
-		// Get the min/max values of the non-system account ID sequence.
-		$min = intval(array_value($ld, "UID_MIN", 1000));
-		$max = intval(array_value($ld, "UID_MAX", 60000));
-		// Check if the given account ID is within the sequence.
-		return !in_range($uid, $min, $max);
+	public function isSystemAccount(): bool {
+		$this->getData("passwd");
+		return $this->isSystemAccount;
+	}
+
+	/**
+	 * Get an associative array representation of the user.
+	 * @param string $detail Specifies the details level: `basic` or `full`.
+	 *   Defaults to `basic`.
+	 * @return An associative array containing the user information.
+	 */
+	public function getAssoc($detail = "basic"): array {
+		$result = [
+			"name" => $this->getName(),
+			"uid" => $this->getUid(),
+			"gid" => $this->getGid(),
+			"comment" => $this->getGecos(),
+			"dir" => $this->getHomeDirectory(),
+			"shell" => $this->getShell(),
+			"groups" => $this->getGroups(),
+			"system" => $this->isSystemAccount()
+		];
+		if ("full" == $detail) {
+			$result = array_merge($result, [
+				"lastchanged" => $this->getLastChanged(),
+				"minimum" => $this->getMinimum(),
+				"maximum" => $this->getMaximum(),
+				"warn" => $this->getWarn(),
+				"inactive" => $this->getInactive(),
+				"expire" => $this->getExpire(),
+				"reserved" => $this->getReserved(),
+			]);
+		}
+		return $result;
 	}
 
 	/**
@@ -384,28 +414,72 @@ class User {
 	}
 
 	/**
+	 * Enumerate users.
+	 * @return An array of `User` objects indexed by user name.
+	 * @throw \OMV\ExecException
+	 */
+	public static function enumerateUsers(): array {
+		$cmd = new \OMV\System\Process("getent", "passwd");
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+		$result = [];
+		[$uidMin, $uidMax] = self::getUidMinMax();
+		foreach ($output as $outputk => $outputv) {
+			$user = self::newFromPasswdLine($outputv);
+			$user->isSystemAccount = !in_range($user->uid, $uidMin, $uidMax);
+			$result[$user->getName()] = $user;
+		}
+		return $result;
+	}
+
+	/**
 	 * Enumerate user names.
 	 * @return An array of user names.
 	 * @throw \OMV\ExecException
 	 */
-	public static function getUsers() {
-		$cmd = new \OMV\System\Process("getent", "passwd");
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		// Parse command output:
+	public static function enumerateUserNames(): array {
+		$result = self::enumerateUsers();
+		return array_keys($result);
+	}
+
+	/**
+	 * Get the UID min/max values from the `/etc/login.defs` configuration.
+	 * @return An array containing the min/max UID values.
+	 */
+	private static function getUidMinMax(): array {
+		// Get shadow password suite configuration.
+		$ld = \OMV\System\System::getLoginDefs();
+		// Get the min/max values of the non-system account ID sequence.
+		$min = intval(array_value($ld, "UID_MIN", 1000));
+		$max = intval(array_value($ld, "UID_MAX", 60000));
+		return [$min, $max];
+	}
+
+	/**
+	 * Create a new `User` object from a `/etc/passwd` file line.
+	 * @param string $line A line from the `/etc/passwd` file.
+	 * @return The new `User` object.
+	 * @throw \OMV\ValueException
+	 */
+	private static function newFromPasswdLine($line): self {
+		// https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/
+		// Examples:
 		// proftpd:x:109:65534::/run/proftpd:/bin/false
 		// ftp:x:110:65534::/home/ftp:/bin/false
 		// openmediavault:x:999:999::/home/openmediavault:/bin/sh
 		// admin:x:998:100:WebGUI administrator:/home/admin:/usr/sbin/nologin
 		// nut:x:111:114::/var/lib/nut:/bin/false
 		// test:x:1001:100:sdfds:/home/test:/bin/dash
-		$list = [];
-		foreach ($output as $outputv) {
-			$data = explode(":", $outputv);
-			if (TRUE === empty($data))
-				continue;
-			$list[] = $data[0]; // User name
+		$fields = explode(":", $line);
+		if (7 != count($fields)) {
+			throw new \OMV\ValueException("Invalid passwd line '%s'.", $line);
 		}
-		return $list;
+		$user = new self($fields[0]);
+		$user->uid = intval($fields[2]);
+		$user->gid = intval($fields[3]);
+		$user->gecos = $fields[4];
+		$user->dir = $fields[5];
+		$user->shell = $fields[6];
+		return $user;
 	}
 }

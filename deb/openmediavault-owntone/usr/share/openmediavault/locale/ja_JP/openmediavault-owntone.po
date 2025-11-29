@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-owntone\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:25+0100\n"
+"POT-Creation-Date: 2025-11-25 20:44+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2023\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/openmediavault/teams/14254/ja_JP/)\n"
@@ -46,9 +46,6 @@ msgstr "待ちうけポート"
 msgid "Shared folder"
 msgstr "共有フォルダ"
 
-msgid "The 'admin' password to access the web interface."
-msgstr "Webインターフェースにアクセスするための'admin'パスワード。"
-
 msgid ""
 "The location of the media files to share. Make sure the user "
 "<em>owntone</em> or group <em>users</em> can access the files."
@@ -57,6 +54,9 @@ msgstr ""
 
 msgid "The name of the library as displayed by the clients."
 msgstr "クライアントに表示されるライブラリ名。"
+
+msgid "The password for the user <em>admin</em> to access the web interface."
+msgstr ""
 
 msgid "The password to access the library."
 msgstr "ライブラリにアクセスするためのパスワードです。"

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -27,10 +27,10 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "%CPU"
-msgstr ""
+msgstr "%CPU"
 
 msgid "%MEM"
-msgstr ""
+msgstr "%MEM"
 
 msgid "%d days"
 msgstr "%d giorni"
@@ -160,9 +160,6 @@ msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Prestazioni elevate, massimo consumo di energia"
-
-msgid "255 - Disabled"
-msgstr "255 - Disabilitato"
 
 msgid "3 days"
 msgstr "3 giorni"
@@ -381,14 +378,14 @@ msgid ""
 msgstr "È stato effettuato un tentativo di invio dell'email di test. Controlla la tua casella di posta. Se l'email non arriva, verifica anche nella cartella dello spam e controlla che non ci siano errori relativi a Postfix nel log di sistema."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Una email con l'output del comando (se presente) viene inviata all'amministratore."
+msgstr "Un messaggio email con l’output del comando (se presente) viene inviato all’amministratore."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "Una email con l'output del comando (se presente) viene inviata all'utente che esegue il processo."
+msgstr "Un messaggio email con l’output del comando (se presente) viene inviato all’utente che esegue l’attività."
 
 msgid "Andorra"
 msgstr "Andorra"
@@ -592,7 +589,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "COMMAND"
-msgstr ""
+msgstr "COMANDO"
 
 msgid "CPU"
 msgstr "CPU"
@@ -652,16 +649,16 @@ msgid "Changelog"
 msgstr "Changelog"
 
 msgid "Check for new plugins"
-msgstr "Verifica la presenza di nuovi plugin"
+msgstr "Verifica la disponibilità di nuovi plugin"
 
 msgid "Check for new updates"
-msgstr "Verifica la presenza di nuovi aggiornamenti"
+msgstr "Verifica la disponibilità di nuovi aggiornamenti"
 
 msgid "Check interval"
 msgstr "Intervallo di verifica"
 
 msgid "Checking for new plugins ..."
-msgstr "Verifica di nuovi plugin in corso..."
+msgstr "Verifica la disponibilità di nuovi plugin in corso..."
 
 msgid "Chile"
 msgstr "Cile"
@@ -982,10 +979,10 @@ msgid "Disks"
 msgstr "Dispositivi di archiviazione"
 
 msgid "Dismiss"
-msgstr "Rimuovi"
+msgstr "Elimina"
 
 msgid "Dismiss all"
-msgstr "Rimuovi tutto"
+msgstr "Elimina tutto"
 
 msgid "Displays information about the file systems in a grid."
 msgstr "Visualizza le informazioni sui file system in una griglia."
@@ -1380,9 +1377,6 @@ msgstr "Ghana"
 
 msgid "Gibraltar"
 msgstr "Gibilterra"
-
-msgid "Go to the notification sidebar to attach to it."
-msgstr "Vai alla barra laterale delle notifiche per allegarle."
 
 msgid "Good"
 msgstr "In ottime condizioni"
@@ -1896,8 +1890,8 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of CPUfreq settings."
-msgstr "Gestione delle impostazioni di CPUfreq."
+msgid "Management of cpufreq and cpuidle tunables."
+msgstr "Gestione dei parametri configurabili di cpufreq e cpuidle."
 
 msgid "Management of scheduled tasks."
 msgstr "Gestione delle attività pianificate."
@@ -1976,10 +1970,10 @@ msgid "Mexico"
 msgstr "Messico"
 
 msgid "MiB Mem"
-msgstr ""
+msgstr "MiB Mem"
 
 msgid "MiB Swap"
-msgstr ""
+msgstr "MiB Swap"
 
 msgid "Micronesia"
 msgstr "Micronesia"
@@ -2000,7 +1994,7 @@ msgid "Minute"
 msgstr "Minuto"
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Varie"
 
 msgid "Missing"
 msgstr "Mancante"
@@ -2033,19 +2027,19 @@ msgid "Monitoring"
 msgstr "Monitoraggio"
 
 msgid "Monitoring - CPU usage"
-msgstr ""
+msgstr "Monitoraggio - Utilizzo della CPU"
 
 msgid "Monitoring - File systems"
-msgstr ""
+msgstr "Monitoraggio - File system"
 
 msgid "Monitoring - Load average"
-msgstr ""
+msgstr "Monitoraggio - Carico medio"
 
 msgid "Monitoring - Memory usage"
-msgstr ""
+msgstr "Monitoraggio - Utilizzo della memoria"
 
 msgid "Monitoring - Processes"
-msgstr ""
+msgstr "Monitoraggio - Processi"
 
 msgid "Monitoring enabled"
 msgstr "Il monitoraggio è abilitato"
@@ -2087,7 +2081,7 @@ msgid "NFS"
 msgstr "NFS"
 
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 msgid "NTP time servers, separated by comma."
 msgstr "Server orari NTP, separati da virgola."
@@ -2279,7 +2273,7 @@ msgid "PID"
 msgstr "PID"
 
 msgid "PR"
-msgstr ""
+msgstr "PR"
 
 msgid "Pacific Islands Trust Territory"
 msgstr "Territorio fiduciario delle isole del Pacifico"
@@ -2592,7 +2586,7 @@ msgid "Quota"
 msgstr "Quota"
 
 msgid "RES"
-msgstr ""
+msgstr "RES"
 
 msgid "RSync server"
 msgstr "Server rsync"
@@ -2724,7 +2718,7 @@ msgid "Rwanda"
 msgstr "Ruanda"
 
 msgid "S"
-msgstr ""
+msgstr "S"
 
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
@@ -2736,7 +2730,7 @@ msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Il monitoraggio S.M.A.R.T. deve essere attivato per il dispositivo selezionato."
 
 msgid "SHR"
-msgstr ""
+msgstr "SHR"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -3041,7 +3035,7 @@ msgid "Sleep"
 msgstr "Sospensione"
 
 msgid "Sleeping"
-msgstr ""
+msgstr "In sospensione"
 
 msgid "Slovakia"
 msgstr "Slovacchia"
@@ -3169,10 +3163,10 @@ msgid "Stop"
 msgstr "Stop"
 
 msgid "Stopped by debugger during trace"
-msgstr ""
+msgstr "Interrotto dal debugger durante il tracciamento"
 
 msgid "Stopped by job control signal"
-msgstr ""
+msgstr "Interrotto da un segnale di controllo dei processi"
 
 msgid "Storage"
 msgstr "Archiviazione"
@@ -3258,7 +3252,7 @@ msgid "TCP forwarding"
 msgstr "TCP forwarding"
 
 msgid "TIME+"
-msgstr ""
+msgstr "TEMPO+"
 
 msgid "Tags"
 msgstr "Tag"
@@ -3438,7 +3432,7 @@ msgstr "Il percorso relativo della cartella da condividere. La cartella specific
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "Il repository verrà controllato per individuare pacchetti nuovi, rimossi o aggiornati."
+msgstr "Il repository verrà controllato per verificare la disponibilità di pacchetti nuovi, rimossi o aggiornati."
 
 msgid "The requested page was not found."
 msgstr "La pagina richiesta non è stata trovata."
@@ -3768,7 +3762,7 @@ msgid "UNKNOWN"
 msgstr "SCONOSCIUTO"
 
 msgid "USER"
-msgstr ""
+msgstr "UTENTE"
 
 msgid "UUID"
 msgstr "UUID"
@@ -3789,7 +3783,7 @@ msgid "Uninstall plugin"
 msgstr "Disinstalla il plugin"
 
 msgid "Uninterruptible sleep"
-msgstr ""
+msgstr "Sospensione non interrompibile"
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "Unione delle repubbliche socialiste sovietiche"
@@ -4040,7 +4034,7 @@ msgid "Uzbekistan"
 msgstr "Uzbekistan"
 
 msgid "VIRT"
-msgstr ""
+msgstr "VIRTUALE"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -4090,6 +4084,9 @@ msgstr "WOL"
 msgid "WPA2-Personal"
 msgstr "WPA2-Personal"
 
+msgid "WPA3-Personal"
+msgstr "WPA3-Personal"
+
 msgid "WWN"
 msgstr "WWN"
 
@@ -4116,6 +4113,11 @@ msgstr "Benvenuti a openmediavault"
 
 msgid "Western Sahara"
 msgstr "Sahara Occidentale"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr "Mentre l’attività in background è ancora in esecuzione, puoi collegare ad essa il terminale Workbench dalla barra delle notifiche."
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -4177,7 +4179,7 @@ msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
 msgid "Zombie"
-msgstr ""
+msgstr "Processo zombie"
 
 msgid "a day"
 msgstr "un giorno"

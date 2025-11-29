@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-podman\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 21:57+0200\n"
+"POT-Creation-Date: 2025-11-13 20:17+0100\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
@@ -20,6 +20,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Block I/O"
+msgstr "I/O blokkeren"
+
+msgid "CID"
+msgstr "CID"
+
+msgid "CPU %"
+msgstr "CPU %"
 
 msgid "Command"
 msgstr "Opdracht"
@@ -60,6 +69,12 @@ msgstr "Inspecteren"
 msgid "Logs"
 msgstr "Logboeken"
 
+msgid "Mem %"
+msgstr "Mem %"
+
+msgid "Mem Usage / Limit"
+msgstr "Mem gebruik / limiet"
+
 msgid "Mount Point"
 msgstr "Aankoppelpunt"
 
@@ -72,8 +87,17 @@ msgstr "Naam"
 msgid "Names"
 msgstr "Namen"
 
+msgid "Network I/O"
+msgstr "Netwerk I/O"
+
 msgid "Networks"
 msgstr "Netwerken"
+
+msgid "PIDs"
+msgstr "PID's"
+
+msgid "Pod"
+msgstr "Pod"
 
 msgid "Podman"
 msgstr "Podman"
@@ -84,11 +108,11 @@ msgstr "Pods"
 msgid "Ports"
 msgstr "Poorten"
 
-msgid "Pull latest"
-msgstr "Nieuwste binnenhalen"
+msgid "Pull"
+msgstr "Ophalen"
 
-msgid "Pull latest image"
-msgstr "Nieuwste image binnenhalen"
+msgid "Pull image"
+msgstr "Image ophalen"
 
 msgid "Repository"
 msgstr "Opslagplaats"
@@ -113,6 +137,9 @@ msgstr "Status"
 
 msgid "Tag"
 msgstr "Label"
+
+msgid "The tag of the image to pull."
+msgstr "Het label van de image."
 
 msgid "Updated Podman settings."
 msgstr "Instellingen voor Podman bijgewerkt."

@@ -603,6 +603,10 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "7.7.16"; then
 			omv_module_set_dirty nfs
 		fi
+		if dpkg --compare-versions "$2" lt-nl "7.7.22"; then
+			omv_module_set_dirty issue
+			omv_module_set_dirty nfs
+		fi
 		if dpkg --compare-versions "$2" lt-nl "8.0"; then
 			deb-systemd-invoke stop cpufrequtils.service || :
 			deb-systemd-invoke stop loadcpufreq.service || :

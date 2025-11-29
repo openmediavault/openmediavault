@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 10:24+0200\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,13 +47,16 @@ msgstr ""
 msgid "Devices"
 msgstr ""
 
+msgid "Displays information about MD (Software RAID) devices."
+msgstr ""
+
 msgid "Grow"
 msgstr ""
 
 msgid "Level"
 msgstr ""
 
-msgid "Linear"
+msgid "MD Devices"
 msgstr ""
 
 msgid "Mirror"

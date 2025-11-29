@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 12:24+0100\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2022-2023\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -26,9 +26,9 @@ msgid "Algorithmic detection"
 msgstr "Algorithmische Erkennung"
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Eine E-Mail mit den Kommando-Ausgaben (falls vorhanden) wird an den Administrator gesendet."
+msgstr ""
 
 msgid "Antivirus"
 msgstr "Antivirus"
@@ -75,6 +75,9 @@ msgstr "Erkenne PUA"
 msgid "Detect broken executables"
 msgstr "Erkenne defekte ausführbare Dateien"
 
+msgid "Detect broken media"
+msgstr ""
+
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -100,6 +103,9 @@ msgstr "Aktiviere die algorithmische Erkennung."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "Aktiviere die Erkennung von defekten ausführbaren Dateien (PE und ELF)."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "Aktiviere die Erkennung von \"possibly unwanted applications\"."
@@ -251,6 +257,9 @@ msgstr "Sende E-Mail"
 msgid "September"
 msgstr "September"
 
+msgid "Service disabled"
+msgstr "Service deaktiviert"
+
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -280,6 +289,9 @@ msgstr "Die Option, wie mit infizierte Dateien umgegangen wird."
 
 msgid "Thursday"
 msgstr "Donnerstag"
+
+msgid "Time of execution"
+msgstr "Zeitpunkt der Ausführung"
 
 msgid "Tuesday"
 msgstr "Dienstag"

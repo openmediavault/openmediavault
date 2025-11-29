@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 14:41+0200\n"
+"POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -160,9 +160,6 @@ msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maximale prestaties, maximaal stroomverbruik"
-
-msgid "255 - Disabled"
-msgstr "255 - Uitgeschakeld"
 
 msgid "3 days"
 msgstr "3 dagen"
@@ -381,14 +378,14 @@ msgid ""
 msgstr "Er is een poging gedaan om de test-e-mail te verzenden. Controleer uw mailbox. Als de e-mail niet aankomt, controleer dan de spammappen en controleer ook of er geen Postfix-gerelateerde fouten in het systeemlogboek staan."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Een e-mailbericht met de uitvoer van de opdracht (indien geproduceerd) wordt naar de beheerder gestuurd."
+msgstr "Er wordt een e-mailbericht met de opdrachtuitvoer (indien aanwezig) naar de administrator verzonden."
 
 msgid ""
-"An email message with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "Een e-mailbericht met de uitvoer van het commando (indien geproduceerd) wordt verzonden naar de gebruiker die de taak uitvoert."
+msgstr "Er wordt een e-mailbericht met de opdrachtuitvoer (indien aanwezig) verzonden naar de gebruiker die de taak vervult."
 
 msgid "Andorra"
 msgstr "Andorra"
@@ -1381,9 +1378,6 @@ msgstr "Ghana"
 msgid "Gibraltar"
 msgstr "Gibraltar"
 
-msgid "Go to the notification sidebar to attach to it."
-msgstr "Ga naar Meldingen om daar de bijlage te openen."
-
 msgid "Good"
 msgstr "Goed"
 
@@ -1896,8 +1890,8 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of CPUfreq settings."
-msgstr "CPUfreq-instellingen beheren."
+msgid "Management of cpufreq and cpuidle tunables."
+msgstr "Beheer van cpufreq- en cpuidle-instellingen."
 
 msgid "Management of scheduled tasks."
 msgstr "Geplande taken beheren."
@@ -2628,7 +2622,7 @@ msgid "Recursive"
 msgstr "Recursief"
 
 msgid "Referenced"
-msgstr "Verwijzing"
+msgstr "Met verwijzing"
 
 msgid "Relative Path"
 msgstr "Relatief pad"
@@ -4090,6 +4084,9 @@ msgstr "WOL"
 msgid "WPA2-Personal"
 msgstr "WPA2-Personal"
 
+msgid "WPA3-Personal"
+msgstr "WPA3-Personal"
+
 msgid "WWN"
 msgstr "WWN"
 
@@ -4116,6 +4113,11 @@ msgstr "Welkom bij openmediavault"
 
 msgid "Western Sahara"
 msgstr "Westelijke Sahara"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr "Terwijl de achtergrondtaak nog steeds actief is, kunt u het dialoogvenster Workbench-terminal eraan koppelen in de meldingsbalk."
 
 msgid "Wi-Fi"
 msgstr "Wifi"
