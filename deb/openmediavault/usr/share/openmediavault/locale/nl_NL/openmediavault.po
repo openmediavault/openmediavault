@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2025-11-30 11:37+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -25,6 +25,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "# Members"
+msgstr ""
 
 msgid "%CPU"
 msgstr "%CPU"
@@ -2236,6 +2239,9 @@ msgstr "oktober"
 msgid "Offline immediate test"
 msgstr "Offline directe test"
 
+msgid "Old Version"
+msgstr ""
+
 msgid "Old-age"
 msgstr "Old-age"
 
@@ -3338,6 +3344,9 @@ msgstr "Het bestandssysteem waarop de gedeelde map wordt aangemaakt."
 
 msgid "The file system to mount."
 msgstr "Het bestandssyteem om aan te koppelen."
+
+msgid "The following modules have been updated: {{ modules }}"
+msgstr ""
 
 msgid "The following modules will be updated:"
 msgstr "De volgende modules worden bijgewerkt"

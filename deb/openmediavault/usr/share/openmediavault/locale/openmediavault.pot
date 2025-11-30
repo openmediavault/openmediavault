@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2025-11-30 11:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+msgid "# Members"
+msgstr ""
 
 msgid "%CPU"
 msgstr ""
@@ -2150,6 +2153,9 @@ msgstr ""
 msgid "Offline immediate test"
 msgstr ""
 
+msgid "Old Version"
+msgstr ""
+
 msgid "Old-age"
 msgstr ""
 
@@ -3192,6 +3198,9 @@ msgid "The file system on which the shared folder is to be created."
 msgstr ""
 
 msgid "The file system to mount."
+msgstr ""
+
+msgid "The following modules have been updated: {{ modules }}"
 msgstr ""
 
 msgid "The following modules will be updated:"

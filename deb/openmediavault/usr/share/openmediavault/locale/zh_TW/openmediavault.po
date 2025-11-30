@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2025-11-30 11:37+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2025\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -19,6 +19,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "# Members"
+msgstr ""
 
 msgid "%CPU"
 msgstr "%CPU"
@@ -2230,6 +2233,9 @@ msgstr "十月"
 msgid "Offline immediate test"
 msgstr "離線即時測試"
 
+msgid "Old Version"
+msgstr ""
+
 msgid "Old-age"
 msgstr "老齡"
 
@@ -3332,6 +3338,9 @@ msgstr "該共享檔案夾要被建立位於的檔案系統。"
 
 msgid "The file system to mount."
 msgstr "要掛載的檔案系統。"
+
+msgid "The following modules have been updated: {{ modules }}"
+msgstr ""
 
 msgid "The following modules will be updated:"
 msgstr "将更新以下模块："

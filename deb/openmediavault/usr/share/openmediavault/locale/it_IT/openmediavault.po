@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2025-11-30 11:37+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -25,6 +25,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "# Members"
+msgstr ""
 
 msgid "%CPU"
 msgstr "%CPU"
@@ -2236,6 +2239,9 @@ msgstr "Ottobre"
 msgid "Offline immediate test"
 msgstr "Test immediato offline"
 
+msgid "Old Version"
+msgstr ""
+
 msgid "Old-age"
 msgstr "Usura"
 
@@ -3338,6 +3344,9 @@ msgstr "Il file system su cui verrà creata la cartella condivisa."
 
 msgid "The file system to mount."
 msgstr "Il file system da montare."
+
+msgid "The following modules have been updated: {{ modules }}"
+msgstr ""
 
 msgid "The following modules will be updated:"
 msgstr "I seguenti moduli saranno aggiornati:"

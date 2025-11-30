@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2025-11-30 11:37+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -17,6 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "# Members"
+msgstr ""
 
 msgid "%CPU"
 msgstr ""
@@ -2228,6 +2231,9 @@ msgstr "10月"
 msgid "Offline immediate test"
 msgstr "オフライン即時テスト"
 
+msgid "Old Version"
+msgstr ""
+
 msgid "Old-age"
 msgstr "Old-age"
 
@@ -3330,6 +3336,9 @@ msgstr "共有フォルダーを作成するファイルシステム。"
 
 msgid "The file system to mount."
 msgstr "マウントするファイルシステム。"
+
+msgid "The following modules have been updated: {{ modules }}"
+msgstr ""
 
 msgid "The following modules will be updated:"
 msgstr "以下のモジュールが更新されます:"

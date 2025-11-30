@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2025-11-30 11:37+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Daniel, 2025\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -21,6 +21,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "# Members"
+msgstr ""
 
 msgid "%CPU"
 msgstr "%CPU"
@@ -2232,6 +2235,9 @@ msgstr "Oktober"
 msgid "Offline immediate test"
 msgstr "Omedelbart offlinetest"
 
+msgid "Old Version"
+msgstr ""
+
 msgid "Old-age"
 msgstr "Gammal ålder"
 
@@ -3334,6 +3340,9 @@ msgstr "Filsystemet som den delade mappen ska skapas på."
 
 msgid "The file system to mount."
 msgstr "Filsystemet som ska monteras."
+
+msgid "The following modules have been updated: {{ modules }}"
+msgstr ""
 
 msgid "The following modules will be updated:"
 msgstr "Följande moduler kommer att uppdateras:"

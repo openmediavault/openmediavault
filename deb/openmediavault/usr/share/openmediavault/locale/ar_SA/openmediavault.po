@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2025-11-30 11:37+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -18,6 +18,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar_SA\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "# Members"
+msgstr ""
 
 msgid "%CPU"
 msgstr ""
@@ -2229,6 +2232,9 @@ msgstr "أكتوبر"
 msgid "Offline immediate test"
 msgstr "اختبار فوري للاتصال المنقطع "
 
+msgid "Old Version"
+msgstr ""
+
 msgid "Old-age"
 msgstr "قديم Old-age"
 
@@ -3331,6 +3337,9 @@ msgstr "نظام الملفات الذي سيتم إنشاء المجلد الم
 
 msgid "The file system to mount."
 msgstr "نظام الملفات المراد تثبيته."
+
+msgid "The following modules have been updated: {{ modules }}"
+msgstr ""
 
 msgid "The following modules will be updated:"
 msgstr "سيتم تحديث الوحدات التالية:"

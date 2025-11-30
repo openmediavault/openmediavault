@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2025-11-30 11:37+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2025\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -19,6 +19,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "# Members"
+msgstr ""
 
 msgid "%CPU"
 msgstr ""
@@ -2230,6 +2233,9 @@ msgstr "Octubre"
 msgid "Offline immediate test"
 msgstr "Prova immediata sense connexió"
 
+msgid "Old Version"
+msgstr ""
+
 msgid "Old-age"
 msgstr "Edat"
 
@@ -3332,6 +3338,9 @@ msgstr "El sistema de fitxers on s'ha de crear la carpeta compartida. "
 
 msgid "The file system to mount."
 msgstr "El sistema de fitxers a muntar. "
+
+msgid "The following modules have been updated: {{ modules }}"
+msgstr ""
 
 msgid "The following modules will be updated:"
 msgstr "S'actualitzaran els mòduls següents:"

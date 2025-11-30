@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2025-11-30 11:37+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2025\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -23,6 +23,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "# Members"
+msgstr ""
 
 msgid "%CPU"
 msgstr "%PROC"
@@ -2234,6 +2237,9 @@ msgstr "Október"
 msgid "Offline immediate test"
 msgstr "Azonnali offline teszt"
 
+msgid "Old Version"
+msgstr ""
+
 msgid "Old-age"
 msgstr "Elhasználódás"
 
@@ -3336,6 +3342,9 @@ msgstr "A fájlrendszer, amelyben a megosztott mappát kell létrehozni."
 
 msgid "The file system to mount."
 msgstr "A csatlakoztatni kívánt fájlrendszer. "
+
+msgid "The following modules have been updated: {{ modules }}"
+msgstr ""
 
 msgid "The following modules will be updated:"
 msgstr "A következő modulok frissítve lesznek:"

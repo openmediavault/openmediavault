@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2025-11-30 11:37+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Aitor Salaberria <amento@ni.eus>, 2024\n"
 "Language-Team: Basque (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/eu_ES/)\n"
@@ -17,6 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eu_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "# Members"
+msgstr ""
 
 msgid "%CPU"
 msgstr ""
@@ -2228,6 +2231,9 @@ msgstr ""
 msgid "Offline immediate test"
 msgstr ""
 
+msgid "Old Version"
+msgstr ""
+
 msgid "Old-age"
 msgstr ""
 
@@ -3329,6 +3335,9 @@ msgid "The file system on which the shared folder is to be created."
 msgstr ""
 
 msgid "The file system to mount."
+msgstr ""
+
+msgid "The following modules have been updated: {{ modules }}"
 msgstr ""
 
 msgid "The following modules will be updated:"

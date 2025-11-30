@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2025-11-30 11:37+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2025\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -30,6 +30,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "# Members"
+msgstr "# Mitglieder"
 
 msgid "%CPU"
 msgstr "%CPU"
@@ -385,12 +388,12 @@ msgstr "Es wurde versucht, die Test-E-Mail zu senden. Bitte überprüfen Sie Ihr
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Eine E-Mail mit der Ausgabe des Befehls (falls vorhanden) wird an den Administrator gesendet."
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr ""
+msgstr "Eine E-Mail mit der Ausgabe des Befehls (falls vorhanden) wird an den Benutzer gesendet, der den Auftrag ausführt."
 
 msgid "Andorra"
 msgstr "Andorra"
@@ -1896,7 +1899,7 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Management of cpufreq and cpuidle tunables."
-msgstr ""
+msgstr "Verwaltung der Einstellparameter cpufreq und cpuidle."
 
 msgid "Management of scheduled tasks."
 msgstr "Verwaltung der geplanten Aufgaben."
@@ -2240,6 +2243,9 @@ msgstr "Oktober"
 
 msgid "Offline immediate test"
 msgstr "Offline immediate test"
+
+msgid "Old Version"
+msgstr "Alte Version"
 
 msgid "Old-age"
 msgstr "Alterserscheinungen"
@@ -3343,6 +3349,9 @@ msgstr "Das Dateisystem, auf dem der freigegebene Ordner erstellt werden soll."
 
 msgid "The file system to mount."
 msgstr "Das einzuhängende Dateisystem."
+
+msgid "The following modules have been updated: {{ modules }}"
+msgstr "Die folgenden Module wurden aktualisiert: {{ modules }}"
 
 msgid "The following modules will be updated:"
 msgstr "Die folgenden Module werden aktualisiert:"
