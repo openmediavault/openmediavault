@@ -38,18 +38,17 @@ for dnsnameserver in $(grep -iP "^\s*dns-nameservers\s+.*$" ${OMV_INTERFACES_CON
 done
 
 # Configure ethernet network interfaces.
-# Understanding systemd’s predictable network device names:
+# Understanding systemd's predictable network device names:
 # https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
-grep -iP "^\s*iface\s+(eth[0-9]+|en[a-z0-9]+)\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INTERFACES_CONFIG} |
+grep -iP "^\s*iface\s+(eth[0-9]+|en[a-z0-9]+)\s+inet\s+(static|dhcp)" ${OMV_INTERFACES_CONFIG} |
     while read type devname family method; do
-        # Skip IPv6 for now. Should be fixed in a future version.
-        [ "inet6" = "${family}" ] && continue
         # Add interface if it does not already exist.
         if ! omv-confdbadm exists --filter "{\"operator\":\"and\", \
                 \"arg0\":{\"operator\":\"stringEquals\",\"arg0\":\"type\", \
                 \"arg1\":\"ethernet\"},\"arg1\":{\"operator\":\"stringEquals\", \
                 \"arg0\":\"devicename\",\"arg1\":\"${devname}\"}}" \
                 "conf.system.network.interface"; then
+            # IPv4 configuration.
             address=""
             netmask=""
             gateway=""
@@ -61,17 +60,51 @@ grep -iP "^\s*iface\s+(eth[0-9]+|en[a-z0-9]+)\s+(inet|inet6)\s+(static|dhcp)" ${
                 netmask=$(echo ${data} | jq --raw-output '.netmask // empty')
                 gateway=$(salt-call --local --retcode-passthrough --no-color \
                     --out=json network.routes inet | \
-                    jq --raw-output ".[] | map(select((.interface == \"${devname}\") and \
-                    (.flags == \"UG\"))) | first | .gateway // empty")
+                    jq --raw-output ".[] | map(select((.interface == \
+                    \"${devname}\") and (.flags == \"UG\"))) | first | \
+                    .gateway // empty")
             fi
-            jq --null-input --compact-output "{uuid: \"${OMV_CONFIGOBJECT_NEW_UUID}\", \
-                devicename: \"${devname}\", type: \"ethernet\", method6: \"manual\", \
-                address6: \"\", netmask6: 64, gateway6: \"\", routemetric6: 1, \
+
+            # IPv6 configuration.
+            method6="manual"
+            address6=""
+            netmask6=64
+            gateway6=""
+            # Check for inet6 configuration line.
+            ipv6Config=$(grep -iP \
+                "^\s*iface\s+${devname}\s+inet6\s+(auto|dhcp|static)" \
+                ${OMV_INTERFACES_CONFIG} || true)
+            if [ -n "${ipv6Config}" ]; then
+                method6=$(echo "${ipv6Config}" | \
+                    grep -oP 'inet6\s+\K(auto|dhcp|static)')
+                if [ "static" = "${method6}" ]; then
+                    # Get static IPv6 address from runtime state.
+                    ipv6Data=$(ip -6 -o addr show dev "${devname}" \
+                        scope global 2>/dev/null | head -1)
+                    if [ -n "${ipv6Data}" ]; then
+                        addr6Cidr=$(echo "${ipv6Data}" | \
+                            grep -oP 'inet6\s+\K[a-fA-F0-9:]+/\d+')
+                        if [ -n "${addr6Cidr}" ]; then
+                            address6=$(echo "${addr6Cidr}" | cut -d'/' -f1)
+                            netmask6=$(echo "${addr6Cidr}" | cut -d'/' -f2)
+                        fi
+                    fi
+                    # Get IPv6 default gateway.
+                    gateway6=$(ip -6 route show dev "${devname}" 2>/dev/null | \
+                        grep -oP '^default via \K[a-fA-F0-9:]+' | head -1)
+                fi
+            fi
+
+            jq --null-input --compact-output \
+                "{uuid: \"${OMV_CONFIGOBJECT_NEW_UUID}\", \
+                devicename: \"${devname}\", type: \"ethernet\", \
+                method: \"${method}\", address: \"${address}\", \
+                netmask: \"${netmask}\", gateway: \"${gateway}\", \
+                routemetric: 0, method6: \"${method6}\", \
+                address6: \"${address6}\", netmask6: ${netmask6}, \
+                gateway6: \"${gateway6}\", routemetric6: 1, \
                 dnsnameservers: \"${dnsnameservers}\", dnssearch: \"\", \
-                wol: false, mtu: 0, \
-                comment: \"\", method: \"${method}\", \
-                address: \"${address}\", netmask: \"${netmask}\", \
-                gateway: \"${gateway}\", routemetric: 0}" |
+                mtu: 0, wol: false, comment: \"\"}" | \
                 omv-confdbadm update "conf.system.network.interface" -
         fi
     done
