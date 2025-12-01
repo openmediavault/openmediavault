@@ -28,7 +28,7 @@ msgstr "Algorithmische Erkennung"
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Eine E-Mail mit der Ausgabe des Befehls (falls vorhanden) wird an den Administrator gesendet."
 
 msgid "Antivirus"
 msgstr "Antivirus"

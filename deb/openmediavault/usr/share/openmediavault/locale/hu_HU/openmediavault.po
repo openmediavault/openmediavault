@@ -25,7 +25,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "# Members"
-msgstr ""
+msgstr "# Tagok"
 
 msgid "%CPU"
 msgstr "%PROC"
@@ -381,12 +381,12 @@ msgstr "Megkíséreltünk egy teszt emailt küldeni. Ellenőrizze az e-mail fió
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Egy elküldött e-mail az adminisztrátornak a parancs kimenettel (ha van ilyen)."
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr ""
+msgstr "Egy elküldött e-mail üzenet a felhasználónak a parancs kimenettel (ha van ilyen), aki végrehajtja a feladatot."
 
 msgid "Andorra"
 msgstr "Andorra"
@@ -1892,7 +1892,7 @@ msgid "Malta"
 msgstr "Málta"
 
 msgid "Management of cpufreq and cpuidle tunables."
-msgstr ""
+msgstr "CPU frekvencia és tétlen CPU beállítások kezelése."
 
 msgid "Management of scheduled tasks."
 msgstr "Ütemezett feladatok kezelése."
@@ -2238,7 +2238,7 @@ msgid "Offline immediate test"
 msgstr "Azonnali offline teszt"
 
 msgid "Old Version"
-msgstr ""
+msgstr "Régi verzió"
 
 msgid "Old-age"
 msgstr "Elhasználódás"
@@ -3344,7 +3344,7 @@ msgid "The file system to mount."
 msgstr "A csatlakoztatni kívánt fájlrendszer. "
 
 msgid "The following modules have been updated: {{ modules }}"
-msgstr ""
+msgstr "A következő modulok frissítve lettek: {{ modules }}"
 
 msgid "The following modules will be updated:"
 msgstr "A következő modulok frissítve lesznek:"
@@ -4124,7 +4124,7 @@ msgstr "Nyugat-Szahara"
 msgid ""
 "While the background task is still running, you can attach the Workbench "
 "terminal dialog to it in the notification bar."
-msgstr ""
+msgstr "Amíg a háttérfeladat fut, a Workbench terminál párbeszédablakot hozzáadhatja az értesítési sávhoz."
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"

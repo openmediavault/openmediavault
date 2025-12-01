@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "# Members"
-msgstr ""
+msgstr "# 成員"
 
 msgid "%CPU"
 msgstr "%CPU"
@@ -2234,7 +2234,7 @@ msgid "Offline immediate test"
 msgstr "離線即時測試"
 
 msgid "Old Version"
-msgstr ""
+msgstr "舊版本"
 
 msgid "Old-age"
 msgstr "老齡"
@@ -3340,7 +3340,7 @@ msgid "The file system to mount."
 msgstr "要掛載的檔案系統。"
 
 msgid "The following modules have been updated: {{ modules }}"
-msgstr ""
+msgstr "以下模組已更新：{{ modules }}"
 
 msgid "The following modules will be updated:"
 msgstr "将更新以下模块："

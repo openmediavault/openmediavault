@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "# Members"
-msgstr ""
+msgstr "# Μέλη"
 
 msgid "%CPU"
 msgstr "%CPU"
@@ -2232,7 +2232,7 @@ msgid "Offline immediate test"
 msgstr "Άμεσος έλεγχος"
 
 msgid "Old Version"
-msgstr ""
+msgstr "Παλαιά Έκδοση"
 
 msgid "Old-age"
 msgstr "Old-age"
@@ -3338,7 +3338,7 @@ msgid "The file system to mount."
 msgstr "Το σύστημα αρχείων προς προσάρτηση."
 
 msgid "The following modules have been updated: {{ modules }}"
-msgstr ""
+msgstr "Αναβαθμίστηκαν οι ακόλουθες μονάδες : {{ modules }}"
 
 msgid "The following modules will be updated:"
 msgstr "Θα αναβαθμιστούν οι ακόλουθες μονάδες :"

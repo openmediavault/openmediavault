@@ -29,7 +29,7 @@ msgstr "Algoritmikus észlelés"
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Egy elküldött e-mail az adminisztrátornak a parancs kimenettel (ha van ilyen)."
 
 msgid "Antivirus"
 msgstr "Antivírus"
