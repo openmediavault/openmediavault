@@ -52,10 +52,35 @@ class Email {
 	}
 
 	/**
-	 * Send the email.
+	 * Send the email synchronously.
 	 * @return Return TRUE if successful, otherwise FALSE.
 	 */
-	public function send() {
+	public function send(): bool {
+		return $this->prepareAndSend();
+	}
+
+	/**
+	 * Send the email.
+	 * @return void
+	 * @throw \OMV\AssertException
+	 */
+	public function assertSend(): void {
+		if (FALSE === $this->send()) {
+			throw new \OMV\AssertException(
+			  "Failed to send the email. Please check the logs.");
+		}
+	}
+
+	/**
+	 * Send the email asynchronously, which means it forks into the background
+	 * and returns control immediately.
+	 * @return void
+	 */
+	public function sendAsync(): void {
+		$this->prepareAndSend("-odb");
+	}
+
+	private function prepareAndSend($additional_params = ""): bool {
 		// Prepare additional email headers.
 		$headers = [];
 		// Set date in RFC 2882 format.
@@ -64,18 +89,6 @@ class Email {
 		if (!empty($this->from))
 			$headers[] = sprintf('From: %s', $this->from);
 		return mail($this->to, $this->subject, $this->message,
-			implode(PHP_EOL, $headers));
-	}
-
-	/**
-	 * Send the email.
-	 * @return void
-	 * @throw \OMV\AssertException
-	 */
-	public function assertSend() {
-		if (FALSE === $this->send()) {
-			throw new \OMV\AssertException(
-			  "Failed to send the email. Please check the logs.");
-		}
+			implode(PHP_EOL, $headers), $additional_params);
 	}
 }

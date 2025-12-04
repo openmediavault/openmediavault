@@ -143,7 +143,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 						$server->getUserAgent(), $prd->getName());
 					$mail = new \OMV\Email("root", $params['username'],
 						$subject, $message);
-					$mail->send();
+					$mail->sendAsync();
 				}
 				// Set a cookie. It will expire after 60 days. The user name
 				// is crypted/hashed to be unable to reverse engineer the
