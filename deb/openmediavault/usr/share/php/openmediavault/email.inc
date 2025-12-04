@@ -41,14 +41,15 @@ class Email {
 	 */
 	public function __construct($from, $to, $subject, $message) {
 		list($this->from, $this->to, $this->subject,
-		  $this->message) = func_get_args();
+			$this->message) = func_get_args();
 		// Modify the receiver list.
-		if (TRUE === is_array($this->to))
+		if (TRUE === is_array($this->to)) {
 			$this->$to = implode(',', $this->to);
-		else
+		} else {
 			// Prepare the receivers of the email. The formatting of this
 			// string must comply with RFC 2822.
 			$this->to = strtr($this->to, [ ';' => ',' ]);
+		}
 	}
 
 	/**
@@ -56,7 +57,8 @@ class Email {
 	 * @return Return TRUE if successful, otherwise FALSE.
 	 */
 	public function send(): bool {
-		return $this->prepareAndSend();
+		return mail($this->to, $this->subject, $this->message,
+			$this->getHeaders());
 	}
 
 	/**
@@ -67,7 +69,7 @@ class Email {
 	public function assertSend(): void {
 		if (FALSE === $this->send()) {
 			throw new \OMV\AssertException(
-			  "Failed to send the email. Please check the logs.");
+				"Failed to send the email. Please check the logs.");
 		}
 	}
 
@@ -77,18 +79,18 @@ class Email {
 	 * @return void
 	 */
 	public function sendAsync(): void {
-		$this->prepareAndSend("-odb");
+		mail($this->to, $this->subject, $this->message,
+			$this->getHeaders(), "-odb");
 	}
 
-	private function prepareAndSend($additional_params = ""): bool {
-		// Prepare additional email headers.
+	private function getHeaders(): array {
 		$headers = [];
 		// Set date in RFC 2882 format.
-		$headers[] = sprintf('Date: %s', date('r'));
+		$headers['Date'] = date('r');
 		// Append the sender address.
-		if (!empty($this->from))
-			$headers[] = sprintf('From: %s', $this->from);
-		return mail($this->to, $this->subject, $this->message,
-			implode(PHP_EOL, $headers), $additional_params);
+		if (!empty($this->from)) {
+			$headers['From'] = $this->from;
+		}
+		return $headers;
 	}
 }
