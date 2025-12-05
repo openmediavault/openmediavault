@@ -1,0 +1,25 @@
+[{
+	"type": "rpc",
+	"id": "rpc.email.send",
+	"params": {
+		"type": "object",
+		"properties": {
+			"from": {
+				"type": "string",
+				"required": true
+			},
+			"to": {
+				"type": "string",
+				"required": true
+			},
+			"subject": {
+				"type": "string",
+				"required": true
+			},
+			"message": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

@@ -29,6 +29,8 @@ class Email extends \OMV\Rpc\ServiceAbstract {
 	public function initialize() {
 		$this->registerMethod("send");
 		$this->registerMethod("sendBg");
+		$this->registerMethod("sendByContext");
+		$this->registerMethod("sendByContextBg");
 	}
 
 	/**
@@ -45,6 +47,7 @@ class Email extends \OMV\Rpc\ServiceAbstract {
 	 * @return TRUE on success, otherwise FALSE.
 	 */
 	function send($params, $context) {
+		$this->validateMethodParams($params, "rpc.email.send");
 		$mail = new \OMV\Email($params['from'], $params['to'],
 			$params['subject'], $params['message']);
 		return [
@@ -57,5 +60,30 @@ class Email extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function sendBg($params, $context) {
 		return $this->callMethodBg("send", $params, $context);
+	}
+
+	/**
+	 * Send an email. The sender email address is derived from the
+	 * username of the caller context.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @param params The method parameters containing the following fields:
+	 *   \em to The receiver email address(es), e.g. 'test@xzy.com' or
+	 *     'xzy@123.org,test@xzy.com'. Use the character , or ; as
+	 *     seperator.
+	 *   \em subject The subject of the email to be sent.
+	 *   \em message The message to be sent.
+	 * @return TRUE on success, otherwise FALSE.
+	 */
+	function sendByContext($params, $context) {
+		$params['from'] = $context['username'];
+		return $this->callMethod("send", $params, $context);
+	}
+
+	/**
+	 * Execute the `sendByContext` RPC as background process.
+	 */
+	public function sendByContextBg($params, $context) {
+		return $this->callMethodBg("sendByContext", $params, $context);
 	}
 }
