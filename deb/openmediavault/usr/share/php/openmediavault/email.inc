@@ -34,10 +34,10 @@ class Email {
 	 * Constructor.
 	 * @param from The sender email address.
 	 * @param to The receiver email address(es), e.g. 'test@xzy.com' or
-	 *   'xzy@123.org,test@xzy.com'. Use the character , or ; as seperator.
-	 *   Additionally this can be an array of email adresses.
-	 * @param subject The subject.
-	 * @param message The message.
+	 *   'xzy@123.org,test@xzy.com'. Use the character , or ; as
+	 *   seperator. Additionally this can be an array of email addresses.
+	 * @param subject The subject of the email to be sent.
+	 * @param message The message to be sent.
 	 */
 	public function __construct($from, $to, $subject, $message) {
 		list($this->from, $this->to, $this->subject,
@@ -71,16 +71,6 @@ class Email {
 			throw new \OMV\AssertException(
 				"Failed to send the email. Please check the logs.");
 		}
-	}
-
-	/**
-	 * Send the email asynchronously, which means it forks into the background
-	 * and returns control immediately.
-	 * @return void
-	 */
-	public function sendAsync(): void {
-		mail($this->to, $this->subject, $this->message,
-			$this->getHeaders(), "-odb");
 	}
 
 	private function getHeaders(): array {

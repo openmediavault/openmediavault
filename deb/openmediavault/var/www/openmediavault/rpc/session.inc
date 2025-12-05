@@ -141,9 +141,17 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 						$params['username'], \OMV\System\Net\Dns::getFqdn(),
 						$server->getServerAddr(), date('r'), $server->getClientIP(),
 						$server->getUserAgent(), $prd->getName());
-					$mail = new \OMV\Email("root", $params['username'],
-						$subject, $message);
-					$mail->sendAsync();
+					// We need to send the email asynchronously via RPC
+					// in order to not block the login process.
+					\OMV\Rpc\Rpc::call("Email", "sendBg",
+						[
+							"from" => "root",
+							"to" => $params['username'],
+							"subject" => $subject,
+							"message" => $message
+						],
+						$this->getAdminContext(),
+						\OMV\Rpc\Rpc::MODE_REMOTE);
 				}
 				// Set a cookie. It will expire after 60 days. The user name
 				// is crypted/hashed to be unable to reverse engineer the

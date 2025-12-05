@@ -159,7 +159,7 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
-	 * Execute the getList() RPC as background process.
+	 * Execute the `getList` RPC as background process.
 	 */
 	public function getListBg($params, $context) {
 		return $this->callMethodBg("getList", $params, $context);
