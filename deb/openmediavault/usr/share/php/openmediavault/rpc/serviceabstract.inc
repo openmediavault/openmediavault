@@ -146,13 +146,31 @@ abstract class ServiceAbstract {
 	 * @param string name The name of the method.
 	 * @param object params The method parameters.
 	 * @param object context The context of the caller.
+	 * @param int maxExecutionTime The maximum execution time in seconds for
+	 *   the background process. If exceeded, the process will be terminated.
+	 *   Defaults to 0 (no timeout).
 	 * @return string The name of the background process status file.
 	 */
-	final public function callMethodBg($name, $params, $context) {
+	final public function callMethodBg($name, $params, $context, $maxExecutionTime = 0) {
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
-			use ($name, $params, $context) {
+			use ($name, $params, $context, $maxExecutionTime) {
+				// Set up timeout handling if requested.
+				$asyncSignals = FALSE;
+				if (0 < $maxExecutionTime) {
+					$asyncSignals = pcntl_async_signals(TRUE);
+					pcntl_signal(SIGALRM, function() use ($maxExecutionTime) {
+						throw new \OMV\Exception("The background process %d ".
+							"exceeded the maximum execution time of %d seconds.",
+							posix_getpid(), $maxExecutionTime);
+					});
+					pcntl_alarm($maxExecutionTime);
+				}
 				// Execute the given RPC service method.
 				$result = $this->callMethod($name, $params, $context);
+				// Reset async signal handling.
+				if (0 < $timeout && !$asyncSignals) {
+					pcntl_async_signals(FALSE);
+				}
 				// Make sure the content of the background process output file
 				// is a strings, so convert arrays to JSON strings.
 				$content = $result;
@@ -630,8 +648,8 @@ abstract class ServiceAbstract {
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			$status = 0;
 		} catch (\Exception $e) {
-			syslog(LOG_ERR, sprintf("Executing background process failed: ".
-				"%s (file=%s, line=%d)",
+			syslog(LOG_ERR, sprintf("Executing background process %d failed: ".
+				"%s (file=%s, line=%d)", posix_getpid(),
 				$e->getMessage(), $e->getFile(), $e->getLine()));
 			if (is_closure($errorFn)) {
 				$errorFn($bgStatusFilename, $bgOutputFilename);

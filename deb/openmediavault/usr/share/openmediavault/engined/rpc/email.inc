@@ -59,7 +59,7 @@ class Email extends \OMV\Rpc\ServiceAbstract {
 	 * Execute the `send` RPC as background process.
 	 */
 	public function sendBg($params, $context) {
-		return $this->callMethodBg("send", $params, $context);
+		return $this->callMethodBg("send", $params, $context, 30);
 	}
 
 	/**
