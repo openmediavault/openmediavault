@@ -11,7 +11,7 @@ openmediavault (8.0-11) stable; urgency=medium
   * Display updated modules in notification after configuration changes have
     been applied.
   * Display old versions of upgradable packages on the update page.
-  * Issue #1737 && #1866: Add support for WPA3 (SAE) authentication for
+  * Issue #1737 and #1866: Add support for WPA3 (SAE) authentication for
     wireless connections.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:40:50 +0200
