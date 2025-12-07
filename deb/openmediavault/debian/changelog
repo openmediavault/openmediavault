@@ -1,3 +1,9 @@
+openmediavault (7.7.24-1) stable; urgency=medium
+
+  * Several improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Dec 2025 08:08:40 +0100
+
 openmediavault (7.7.23-1) stable; urgency=medium
 
   * Improve performance when enumerating file systems.
