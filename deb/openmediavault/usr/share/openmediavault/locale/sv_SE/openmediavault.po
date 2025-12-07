@@ -23,13 +23,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "# Members"
-msgstr ""
+msgstr "# Medlemmar"
 
 msgid "%CPU"
 msgstr "%CPU"
 
 msgid "%MEM"
-msgstr ""
+msgstr "%MEM"
 
 msgid "%d days"
 msgstr "%d dagar"
@@ -384,7 +384,7 @@ msgstr "Ett e-postmeddelande med kommandoutdata (om något produceras) skickas t
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr ""
+msgstr "Ett e-postmeddelande med kommandoutmatning (om något produceras) skickas till användaren som utför jobbet."
 
 msgid "Andorra"
 msgstr "Andorra"
@@ -1890,7 +1890,7 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Management of cpufreq and cpuidle tunables."
-msgstr ""
+msgstr "Hantering av cpufreq och cpuidle-inställbara värden."
 
 msgid "Management of scheduled tasks."
 msgstr "Hantering av schemalagda uppgifter."
@@ -2236,7 +2236,7 @@ msgid "Offline immediate test"
 msgstr "Omedelbart offlinetest"
 
 msgid "Old Version"
-msgstr ""
+msgstr "Gammal version"
 
 msgid "Old-age"
 msgstr "Gammal ålder"
@@ -2968,7 +2968,7 @@ msgid ""
 " fail to coincide with any of the scheduled test that have been specified. "
 "In this case the scheduled test will be run following the next device "
 "polling."
-msgstr ""
+msgstr "Ställer in intervallet mellan diskkontroller till N sekunder. Var försiktig när du ställer in detta omröstningsintervall till mer än sextio minuter. Omröstningstiderna kan misslyckas med något av de schemalagda testerna som har angetts. I det här fallet körs det schemalagda testet efter nästa enhetsomröstning."
 
 msgid "Settings"
 msgstr "Inställningar"
@@ -3342,7 +3342,7 @@ msgid "The file system to mount."
 msgstr "Filsystemet som ska monteras."
 
 msgid "The following modules have been updated: {{ modules }}"
-msgstr ""
+msgstr "Följande moduler har uppdaterats: {{ modules }}"
 
 msgid "The following modules will be updated:"
 msgstr "Följande moduler kommer att uppdateras:"

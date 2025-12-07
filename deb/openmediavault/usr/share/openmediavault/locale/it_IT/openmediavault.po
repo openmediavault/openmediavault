@@ -27,7 +27,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "# Members"
-msgstr ""
+msgstr "# Membri"
 
 msgid "%CPU"
 msgstr "%CPU"
@@ -2240,7 +2240,7 @@ msgid "Offline immediate test"
 msgstr "Test immediato offline"
 
 msgid "Old Version"
-msgstr ""
+msgstr "Versione precedente"
 
 msgid "Old-age"
 msgstr "Usura"
@@ -3346,7 +3346,7 @@ msgid "The file system to mount."
 msgstr "Il file system da montare."
 
 msgid "The following modules have been updated: {{ modules }}"
-msgstr ""
+msgstr "I seguenti moduli sono stati aggiornati: {{ modules }}"
 
 msgid "The following modules will be updated:"
 msgstr "I seguenti moduli saranno aggiornati:"

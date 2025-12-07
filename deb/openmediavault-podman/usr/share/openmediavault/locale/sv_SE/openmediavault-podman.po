@@ -25,7 +25,7 @@ msgid "Block I/O"
 msgstr ""
 
 msgid "CID"
-msgstr ""
+msgstr "CID"
 
 msgid "CPU %"
 msgstr "CPU %"
@@ -88,7 +88,7 @@ msgid "Names"
 msgstr "Namn"
 
 msgid "Network I/O"
-msgstr ""
+msgstr "Nätverks-I/O"
 
 msgid "Networks"
 msgstr "Nätverk"

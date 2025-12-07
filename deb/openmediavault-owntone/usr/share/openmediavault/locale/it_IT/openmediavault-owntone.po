@@ -61,6 +61,7 @@ msgstr "Il nome della libreria come mostrato dai client."
 
 msgid "The password for the user <em>admin</em> to access the web interface."
 msgstr ""
+"La password dell’utente <em>admin</em> per accedere all’interfaccia web."
 
 msgid "The password to access the library."
 msgstr "La password per accedere alla libreria."
