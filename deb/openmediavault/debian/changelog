@@ -1,6 +1,8 @@
 openmediavault (7.7.24-1) stable; urgency=medium
 
   * Several improvements.
+  * Add omv-release-upgrade to allow users to migrate their systems to
+    OMV8 (Synchrony) which is based on Debian 13 (Trixie).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Dec 2025 08:08:40 +0100
 
