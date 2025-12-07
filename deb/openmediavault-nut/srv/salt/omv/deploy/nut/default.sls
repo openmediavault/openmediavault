@@ -114,6 +114,20 @@ divert_nut_upsmon_conf:
   omv_dpkg.divert_add:
     - name: "/etc/nut/upsmon.conf"
 
+create_nut_upssched_cmd:
+  file.managed:
+    - name: "/usr/bin/upssched-cmd"
+    - source:
+      - salt://{{ tpldir }}/files/usr-bin-upssched-cmd.j2
+    - template: jinja
+    - user: root
+    - group: nut
+    - mode: 755
+
+divert_nut_upssched_cmd:
+  omv_dpkg.divert_add:
+    - name: "/usr/bin/upssched-cmd"
+
 configure_nut_upssched_conf:
   file.managed:
     - name: "/etc/nut/upssched.conf"

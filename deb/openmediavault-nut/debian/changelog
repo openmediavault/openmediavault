@@ -4,6 +4,13 @@ openmediavault-nut (8.0-5) stable; urgency=medium
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:49:10 +0200
 
+openmediavault-nut (7.0.10-1) stable; urgency=medium
+
+  * Divert the script `/usr/bin/upssched-cmd` so that the migration to
+    OMV8 does not fail.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Dec 2025 21:31:01 +0100
+
 openmediavault-nut (7.0.9-1) stable; urgency=medium
 
   * Issue #2051: Low battery shutdown not working and system doesn't
