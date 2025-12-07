@@ -14,6 +14,8 @@ openmediavault (8.0-12) stable; urgency=medium
   * Many other improvements.
   * Issue #1737 and #1866: Add support for WPA3 (SAE) authentication for
     wireless connections.
+  * Issue #2066: Prevent scripts/tools from getting stuck when calling
+    mail/sendmail if email notifications are disabled.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:40:50 +0200
 
