@@ -143,10 +143,10 @@ abstract class ServiceAbstract {
 	 * Call the given RPC service method in a background process.
 	 * Registered method hooks will be called after the origin method
 	 * has been successfully called.
-	 * @param string name The name of the method.
-	 * @param object params The method parameters.
-	 * @param object context The context of the caller.
-	 * @param int maxExecutionTime The maximum execution time in seconds for
+	 * @param string $name The name of the method.
+	 * @param object $params The method parameters.
+	 * @param object $context The context of the caller.
+	 * @param int $maxExecutionTime The maximum execution time in seconds for
 	 *   the background process. If exceeded, the process will be terminated.
 	 *   Defaults to 0 (no timeout).
 	 * @return string The name of the background process status file.
@@ -675,12 +675,12 @@ abstract class ServiceAbstract {
 	 *   Return `FALSE` to skip the process, otherwise return an array
 	 *   with the properties `result` and `error`. Check the source code
 	 *   how the `error` array must be populated.
-	 * @param int $maxRunTime The maximum time the process should run.
-	 *   Defaults to 300 seconds.
+	 * @param int $maxExecutionTime The maximum execution time in seconds
+	 *   the process should run. Defaults to 300 seconds.
 	 * @return array Returns an array containing process information.
 	 */
 	public function asyncProc(\Closure $childFn, \Closure $errorFn = NULL,
-	  $maxRunTime = 300) : array {
+			$maxExecutionTime = 300): array {
 		if (FALSE === @socket_create_pair(AF_UNIX, SOCK_STREAM, 0, $sockets)) {
 			throw new Exception("Failed to create socket: %s",
 				socket_strerror(socket_last_error()));
@@ -695,7 +695,7 @@ abstract class ServiceAbstract {
 				"pid" => $pid,
 				"socket" => $childSocket,
 				"startTime" => time(),
-				"maxRunTime" => $maxRunTime
+				"maxExecutionTime" => $maxExecutionTime
 			];
 		}
 		// Child process
@@ -785,7 +785,7 @@ abstract class ServiceAbstract {
 					// Finally append the result from the child process.
 					$result[] = $data['result'];
 				} else if ($pid == 0) {
-					if ($procv['startTime'] + $procv['maxRunTime'] < time() ||
+					if ($procv['startTime'] + $procv['maxExecutionTime'] < time() ||
 							pcntl_wifstopped($status)) {
 						if (!posix_kill($procv['pid'], SIGKILL)) {
 							throw new Exception("Failed to kill process %d: %s",
