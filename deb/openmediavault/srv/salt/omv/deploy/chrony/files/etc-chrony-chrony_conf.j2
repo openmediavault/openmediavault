@@ -1,4 +1,4 @@
-{% set server_pool_directive = salt['pillar.get']('default:OMV_CHRONY_SERVER_POOL_DIRECTIVE', 'server') -%}
+{% set server_pool_directive = salt['pillar.get']('default:OMV_CHRONY_SERVER_POOL_DIRECTIVE', 'pool') -%}
 {% set keyfile = salt['pillar.get']('default:OMV_CHRONY_KEYFILE', '/etc/chrony/chrony.keys') -%}
 {% set driftfile = salt['pillar.get']('default:OMV_CHRONY_DRIFTFILE', '/var/lib/chrony/chrony.drift') -%}
 {% set logdir = salt['pillar.get']('default:OMV_CHRONY_LOGDIR', '/var/log/chrony') -%}

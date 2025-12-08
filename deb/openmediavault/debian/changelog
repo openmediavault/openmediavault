@@ -11,6 +11,9 @@ openmediavault (8.0-12) stable; urgency=medium
   * Display updated modules in notification after configuration changes have
     been applied.
   * Display old versions of upgradable packages on the update page.
+  * Use `pool` instead of `server` directive in chrony configuration by
+    default. This can be customized via the `OMV_CHRONY_SERVER_POOL_DIRECTIVE`
+    environment variable.
   * Many other improvements.
   * Issue #1737 and #1866: Add support for WPA3 (SAE) authentication for
     wireless connections.
