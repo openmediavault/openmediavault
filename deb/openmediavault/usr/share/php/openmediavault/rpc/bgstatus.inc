@@ -30,7 +30,9 @@ class BgStatus {
 
 	/**
 	 * Constructor
-	 * @param array status An array of status informations.
+	 * @param array status An array of status information, e.g.
+	 *   the properties `pid`, `running`, `outputfilename` or
+	 *   `error`.
 	 */
 	public function __construct(array $status) {
 		$this->status = $status;
@@ -46,7 +48,7 @@ class BgStatus {
 
 	/**
 	 * Check whether the background process is running.
-	 * @return bool Returns TRUE if the background process is runnig,
+	 * @return bool Returns TRUE if the background process is running,
 	 *   otherwise FALSE.
 	 */
 	public function isRunning(): bool {
