@@ -147,20 +147,9 @@ data:
         label: _("Shutdown timer")
         hint: _("The time in seconds until shutdown is initiated. If the UPS happens to come back before the time is up the shutdown is canceled.")
         value: 30
-        modifiers:
-          - type: visible
-            constraint:
-              operator: eq
-              arg0:
-                prop: shutdownmode
-              arg1: "onbatt"
         validators:
           minValue: 1
-          requiredIf:
-            operator: eq
-            arg0:
-              prop: shutdownmode
-            arg1: "onbatt"
+          required: true
       - type: divider
         title: _("Remote monitoring")
       - type: checkbox
