@@ -15,10 +15,13 @@ AT SHUTDOWN * EXECUTE notify
 {%- if 'onbatt' == config.shutdownmode %}
 AT ONLINE * CANCEL-TIMER shutdown
 AT ONLINE * EXECUTE resume
+AT LOWBATT * EXECUTE notify
 AT ONBATT * START-TIMER shutdown {{ config.shutdowntimer }}
 AT ONBATT * EXECUTE shutdown-warning
 {%- else %}
-AT ONLINE * EXECUTE notify
+AT ONLINE * CANCEL-TIMER shutdown
+AT ONLINE * EXECUTE resume
+AT LOWBATT * START-TIMER shutdown {{ config.shutdowntimer }}
+AT LOWBATT * EXECUTE shutdown-warning
 AT ONBATT * EXECUTE notify
 {%- endif %}
-AT LOWBATT * EXECUTE forced-shutdown
