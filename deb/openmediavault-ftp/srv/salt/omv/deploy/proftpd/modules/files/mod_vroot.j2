@@ -1,6 +1,5 @@
 {%- set v_root_engine = salt['pillar.get']('default:OMV_PROFTPD_MODVROOT_VROOTENGINE', 'on') -%}
 {%- set v_root_log = salt['pillar.get']('default:OMV_PROFTPD_MODVROOT_VROOTLOG', '/var/log/proftpd/vroot.log') -%}
-LoadModule mod_vroot.c
 <IfModule mod_vroot.c>
   VRootEngine {{ v_root_engine }}
   VRootLog {{ v_root_log }}

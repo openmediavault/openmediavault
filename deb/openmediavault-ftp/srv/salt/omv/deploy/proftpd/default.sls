@@ -48,12 +48,17 @@ start_proftpd_service:
       - file: configure_proftpd_mod_ctrls
       - file: configure_proftpd_mod_ctrls_admin
       - file: configure_proftpd_mod_delay
+{% if config.dynmasqrefresh > 0 %}
+      - file: configure_proftpd_mod_dynmasq
+{% endif %}
       - file: configure_proftpd_mod_facl
       - file: configure_proftpd_mod_ident
+      - file: configure_proftpd_mod_ls
       - file: configure_proftpd_mod_quotatab
       - file: configure_proftpd_mod_ratio
       - file: configure_proftpd_mod_vroot
       - file: configure_proftpd_mod_wrap
+      - file: configure_proftpd_mod_xfer
 
 monitor_proftpd_service:
   module.run:

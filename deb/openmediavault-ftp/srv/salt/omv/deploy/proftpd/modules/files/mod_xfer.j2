@@ -1,0 +1,24 @@
+{%- set allow_overwrite = salt['pillar.get']('default:OMV_PROFTPD_MODXFER_ALLOWOVERWRITE', 'on') -%}
+{%- set default_transfer_mode = salt['pillar.get']('default:OMV_PROFTPD_MODXFER_DEFAULTTRANSFERMODE', 'ascii') -%}
+{%- set delete_aborted_stores = salt['pillar.get']('default:OMV_PROFTPD_MODXFER_DELETEABORTEDSTORES', 'off') -%}
+{%- set timeout_no_transfer = salt['pillar.get']('default:OMV_PROFTPD_TIMEOUTNOTRANSFER', '600') -%}
+{%- set timeout_stalled = salt['pillar.get']('default:OMV_PROFTPD_TIMEOUTSTALLED', '600') -%}
+<IfModule mod_xfer.c>
+  AllowOverwrite {{ allow_overwrite }}
+{%- if config.allowrestart | to_bool %}
+  AllowRetrieveRestart on
+  AllowStoreRestart on
+{%- endif %}
+  DefaultTransferMode {{ default_transfer_mode }}
+  DeleteAbortedStores {{ delete_aborted_stores }}
+  TimeoutNoTransfer {{ timeout_no_transfer }}
+  TimeoutStalled {{ timeout_stalled }}
+{%- if config.limittransferrate | to_bool %}
+{%- if config.maxuptransferrate > 0 %}
+  TransferRate STOR {{ config.maxuptransferrate }}
+{%- endif %}
+{%- if config.maxdowntransferrate > 0 %}
+  TransferRate RETR {{ config.maxdowntransferrate }}
+{%- endif %}
+{%- endif %}
+</IfModule>

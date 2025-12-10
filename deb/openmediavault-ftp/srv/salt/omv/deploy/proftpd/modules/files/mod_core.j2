@@ -3,8 +3,6 @@
 {%- set server_type = salt['pillar.get']('default:OMV_PROFTPD_SERVERTYPE', 'standalone') -%}
 {%- set defer_welcome = salt['pillar.get']('default:OMV_PROFTPD_DEFERWELCOME', 'on') -%}
 {%- set default_server = salt['pillar.get']('default:OMV_PROFTPD_DEFAULTSERVER', 'on') -%}
-{%- set show_symlinks = salt['pillar.get']('default:OMV_PROFTPD_SHOWSYMLINKS', 'on') -%}
-{%- set list_options = salt['pillar.get']('default:OMV_PROFTPD_LISTOPTIONS', '-l') -%}
 {%- set max_instances = salt['pillar.get']('default:OMV_PROFTPD_MAXINSTANCES', '30') -%}
 {%- set deny_filter = salt['pillar.get']('default:OMV_PROFTPD_DENYFILTER', '\*.*/') -%}
 {%- set user = salt['pillar.get']('default:OMV_PROFTPD_USER', 'proftpd') -%}
@@ -12,13 +10,8 @@
 {%- set umask = salt['pillar.get']('default:OMV_PROFTPD_UMASK', '000 000') -%}
 {%- set persistent_passwd = salt['pillar.get']('default:OMV_PROFTPD_PERSISTENTPASSWD', 'off') -%}
 {%- set times_gmt = salt['pillar.get']('default:OMV_PROFTPD_TIMESGMT', 'off') -%}
-{%- set allow_overwrite = salt['pillar.get']('default:OMV_PROFTPD_ALLOWOVERWRITE', 'on') -%}
 {%- set auth_order = salt['pillar.get']('default:OMV_PROFTPD_AUTHORDER', 'mod_auth_pam.c* mod_auth_unix.c') -%}
-{%- set default_transfer_mode = salt['pillar.get']('default:OMV_PROFTPD_DEFAULTTRANSFERMODE', 'ascii') -%}
 {%- set transfer_log = salt['pillar.get']('default:OMV_PROFTPD_TRANSFERLOG', '/var/log/proftpd/xferlog') -%}
-{%- set timeout_no_transfer = salt['pillar.get']('default:OMV_PROFTPD_TIMEOUTNOTRANSFER', '600') -%}
-{%- set timeout_stalled = salt['pillar.get']('default:OMV_PROFTPD_TIMEOUTSTALLED', '600') -%}
-{%- set delete_aborted_stores = salt['pillar.get']('default:OMV_PROFTPD_DELETEABORTEDSTORES', 'off') -%}
 {%- set anonymous_user = salt['pillar.get']('default:OMV_PROFTPD_ANONYMOUS_USER', 'ftp') -%}
 {%- set anonymous_group = salt['pillar.get']('default:OMV_PROFTPD_ANONYMOUS_GROUP', 'nogroup') -%}
 Include /etc/proftpd/modules.conf
@@ -30,9 +23,7 @@ ServerName {{ dns_config.hostname }}
 ServerType {{ server_type }}
 DeferWelcome {{ defer_welcome }}
 DefaultServer {{ default_server }}
-ShowSymlinks {{ show_symlinks }}
 DisplayChdir .message true
-ListOptions "{{ list_options }}"
 MaxInstances {{ max_instances }}
 DenyFilter {{ deny_filter }}
 User {{ user }}
@@ -40,34 +31,17 @@ Group {{ group }}
 PersistentPasswd {{ persistent_passwd }}
 TimesGMT {{ times_gmt }}
 SetEnv TZ {{ time_config.timezone }}
-AllowOverwrite {{ allow_overwrite }}
 AuthOrder {{ auth_order }}
-DefaultTransferMode {{ default_transfer_mode }}
 Port {{ ftp_config.port }}
 TransferLog {% if ftp_config.transferlog | to_bool %}{{ transfer_log }}{% else %}NONE{% endif %}
 UseReverseDNS {{ ftp_config.usereversedns | to_bool | yesno('on,off') }}
 TimeoutIdle {{ ftp_config.timeoutidle }}
-TimeoutNoTransfer {{ timeout_no_transfer }}
-TimeoutStalled {{ timeout_stalled }}
 {%- if ftp_config.usepassiveports | to_bool %}
 PassivePorts {{ ftp_config.minpassiveports }} {{ ftp_config.maxpassiveports }}
 {%- endif %}
 {%- if ftp_config.masqueradeaddress | length > 0 %}
 MasqueradeAddress {{ ftp_config.masqueradeaddress }}
 {%- endif %}
-{%- if ftp_config.limittransferrate | to_bool %}
-{%- if ftp_config.maxuptransferrate > 0 %}
-TransferRate STOR {{ ftp_config.maxuptransferrate }}
-{%- endif %}
-{%- if ftp_config.maxdowntransferrate > 0 %}
-TransferRate RETR {{ ftp_config.maxdowntransferrate }}
-{%- endif %}
-{%- endif %}
-{%- if ftp_config.allowrestart | to_bool %}
-AllowRetrieveRestart on
-AllowStoreRestart on
-{%- endif %}
-DeleteAbortedStores {{ delete_aborted_stores }}
 {%- if ftp_config.allowforeignaddress | to_bool %}
 AllowForeignAddress on
 {%- endif %}
