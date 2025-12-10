@@ -156,7 +156,7 @@ msgid "Image"
 msgstr "Abbild"
 
 msgid "Images"
-msgstr "Bilder"
+msgstr "Abbilder"
 
 msgid "Import"
 msgstr "Importieren"
