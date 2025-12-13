@@ -43,6 +43,17 @@ case "$1" in
 		# Activate trigger to rebuild workbench configuration files.
 		########################################################################
 		dpkg-trigger update-workbench
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "7.1.1"; then
+			omv_module_set_dirty mdadm
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0"; then
+			omv_module_set_dirty mdadm
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

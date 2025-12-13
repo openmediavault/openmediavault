@@ -1,4 +1,6 @@
+{%- set home_host = salt['pillar.get']('default:OMV_MDADM_HOMEHOST', '<system>') -%}
 {%- set mail_from = salt['pillar.get']('default:OMV_MDADM_MAILFROM', 'root') -%}
+{%- set program = salt['pillar.get']('default:OMV_MDADM_PROGRAM', '/usr/bin/logger -t mdmonitor') -%}
 {{ pillar['headers']['multiline'] }}
 # mdadm.conf
 #
@@ -16,12 +18,14 @@ DEVICE partitions
 CREATE owner=root group=disk mode=0660 auto=yes
 
 # automatically tag new arrays as belonging to the local system
-HOMEHOST <system>
+HOMEHOST {{ home_host }}
 
 {%- if email_config.enable | to_bool and notification_config.enable | to_bool %}
 # instruct the monitoring daemon where to send mail alerts
 MAILADDR {{ email_config.primaryemail }}
 MAILFROM {{ mail_from }}
+{%- else %}
+PROGRAM {{ program }}
 {%- endif %}
 
 # definitions of existing MD arrays
