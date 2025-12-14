@@ -1,3 +1,9 @@
+openmediavault-k8s (7.4.16-1) stable; urgency=medium
+
+  * Improve plugin deinstallation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 14 Dec 2025 10:51:37 +0100
+
 openmediavault-k8s (7.4.15-1) stable; urgency=medium
 
   * Update locale files.

@@ -30,7 +30,7 @@ case "$1" in
 		deb-systemd-invoke stop k3s.service || :
 		deb-systemd-helper disable k3s.service || :
 		# Uninstall k3s.
-		k3s-uninstall.sh || :
+		/usr/local/bin/k3s-uninstall.sh || :
 		# Uninstall Helm
 		rm -rf ~/.config/helm/
 		rm -rf "$(which helm)"
