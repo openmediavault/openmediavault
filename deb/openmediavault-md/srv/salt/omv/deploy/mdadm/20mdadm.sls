@@ -48,3 +48,10 @@ configure_mdadm_conf:
 mdadm_save_config:
   cmd.run:
     - name: "mdadm --detail --scan >> /etc/mdadm/mdadm.conf"
+
+restart_mdmonitor_service:
+  service.running:
+    - name: mdmonitor
+    - enable: True
+    - watch:
+      - file: configure_mdadm_conf
