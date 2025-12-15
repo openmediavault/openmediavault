@@ -17,7 +17,8 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
-# All modules that are not compiled-in. Run `proftpd --list` to list them.
+# All modules that are not compiled-in. Run `proftpd --list` to list the
+# compiled-in modules.
 {% set modules = ['mod_ban', 'mod_ctrls_admin', 'mod_delay', 'mod_dynmasq', 'mod_facl', 'mod_ident', 'mod_ls', 'mod_quotatab', 'mod_ratio', 'mod_tls', 'mod_vroot', 'mod_wrap', 'mod_xfer'] %}
 
 {% for module in modules %}
