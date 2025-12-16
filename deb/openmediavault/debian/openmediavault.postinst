@@ -617,6 +617,9 @@ case "$1" in
 			rm -rf /etc/default/cpufrequtils
 			rm -rf /etc/default/loadcpufreq
 			omv_module_set_dirty cpupower
+			omv_module_set_dirty monit
+			omv_module_set_dirty nginx
+			omv_module_set_dirty phpfpm
 		fi
 
 		########################################################################
