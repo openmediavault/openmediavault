@@ -160,3 +160,4 @@ remove_cdrom_apt_sources_list:
     - match: "deb cdrom:"
     - mode: delete
     - quiet: True
+    - create: True
