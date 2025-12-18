@@ -7,7 +7,7 @@
 # Volker Theile <votdev@gmx.de>, 2022
 # LeeYang <150183966@qq.com>, 2022
 # songming <by@songming.me>, 2022
-# 黃柏諺 <s8321414@gmail.com>, 2025
+# irrelevant91, 2025
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-25 20:44+0100\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2025\n"
+"Last-Translator: irrelevant91, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,7 +57,7 @@ msgid "The name of the library as displayed by the clients."
 msgstr "客户端显示的媒体库名称。"
 
 msgid "The password for the user <em>admin</em> to access the web interface."
-msgstr "用來登入網頁介面的 <em>admin</em> 使用者的密碼。"
+msgstr "用于登录网页界面的 <em>admin</em> 用户密码。"
 
 msgid "The password to access the library."
 msgstr "库的访问密码。"

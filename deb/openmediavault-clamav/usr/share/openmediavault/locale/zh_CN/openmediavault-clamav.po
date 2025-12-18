@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
+# irrelevant91, 2025
 # songming <by@songming.me>, 2013-2014,2016-2017,2022
 # LeeYang <150183966@qq.com>, 2021
 msgid ""
@@ -11,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
-"Last-Translator: songming <by@songming.me>, 2013-2014,2016-2017,2022\n"
+"Last-Translator: irrelevant91, 2025\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +26,7 @@ msgstr "检测算法"
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "一封包含命令輸出（若有）的電子郵件將會寄送給管理員。"
+msgstr "一封包含命令输出（若有）的电子邮件将会发送给管理员。"
 
 msgid "Antivirus"
 msgstr "防病毒"
@@ -73,7 +74,7 @@ msgid "Detect broken executables"
 msgstr "检测损坏的可执行文件"
 
 msgid "Detect broken media"
-msgstr "偵測損壞的媒體"
+msgstr "检测损坏的媒体"
 
 msgid "Edit"
 msgstr "编辑"
@@ -102,7 +103,7 @@ msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr "启用损坏可执行文件(包括 PE 和 ELF)的检测。"
 
 msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
-msgstr "啟用對損壞之媒體(JPEG、TIFF、PNG、GIF)的偵測。"
+msgstr "启用已损坏媒体文件(JPEG、TIFF、PNG、GIF)的检测。"
 
 msgid "Enable the detection of possibly unwanted applications."
 msgstr "启用不受欢迎的应用文件检测。"
@@ -264,10 +265,10 @@ msgid "Shared folder"
 msgstr "共享文件夹"
 
 msgid "Sunday"
-msgstr " 星期日"
+msgstr "星期日"
 
 msgid "Tags"
-msgstr "標籤"
+msgstr "标签"
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "此处仅包含 * 或逗号分割的值列表。"

@@ -5,8 +5,9 @@
 # 
 # Translators:
 # 王大山, 2024
-# songming <by@songming.me>, 2024
 # 黃柏諺 <s8321414@gmail.com>, 2024
+# songming <by@songming.me>, 2024
+# irrelevant91, 2025
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2024-11-20 12:26+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2024\n"
+"Last-Translator: irrelevant91, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +62,7 @@ msgid "Clean"
 msgstr "清除"
 
 msgid "Clear total statistics"
-msgstr "清除统计资料"
+msgstr "清除统计数据"
 
 msgid "Configuration"
 msgstr "配置·"
@@ -82,10 +83,10 @@ msgid "Device"
 msgstr "设备"
 
 msgid "Dirty"
-msgstr "不完整"
+msgstr "脏"
 
 msgid "Dirty Data"
-msgstr "不完整的资料"
+msgstr "脏数据"
 
 msgid "Docs"
 msgstr "文件"
@@ -127,7 +128,7 @@ msgid ""
 "Please note that creating a file system on a Bcache device can take longer. "
 "It is therefore possible that the file system is not immediately available "
 "for mounting."
-msgstr "請注意，在 Bcache 裝置上建立檔案系統可能需要較長時間。因此，檔案系統可能無法立即可供掛載。"
+msgstr "请注意，在 Bcache 设备上创建文件系统可能需要较长时间。因此，文件系统可能无法立即可供挂载。"
 
 msgid "Recovery Actions"
 msgstr "还原动作"
@@ -142,10 +143,10 @@ msgid "Select a device ..."
 msgstr "选择一个设备 ..."
 
 msgid "Select the device that will be formatted as Bcache backing device."
-msgstr "選取要格式化為 Bcache 備份裝置的裝置。"
+msgstr "选择要格式化为 Bcache 后备设备的设备。"
 
 msgid "Select the device that will be formatted as Bcache cache device."
-msgstr "選取要格式化為 Bcache 快取裝置的裝置。"
+msgstr "选择要格式化为 Bcache 缓存设备的设备"
 
 msgid "Select the device that will be used as cache device."
 msgstr "选择要作为缓存设备的设备。"

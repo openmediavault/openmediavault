@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,13 +22,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Block I/O"
-msgstr ""
+msgstr "Blokk I/O"
 
 msgid "CID"
-msgstr ""
+msgstr "CID"
 
 msgid "CPU %"
-msgstr ""
+msgstr "PROC %"
 
 msgid "Command"
 msgstr "Parancs"
@@ -70,10 +70,10 @@ msgid "Logs"
 msgstr "Napló"
 
 msgid "Mem %"
-msgstr ""
+msgstr "Memória %"
 
 msgid "Mem Usage / Limit"
-msgstr ""
+msgstr "Memóriahasználat / Korlát"
 
 msgid "Mount Point"
 msgstr "Csatolási pont"
@@ -88,16 +88,16 @@ msgid "Names"
 msgstr "Nevek"
 
 msgid "Network I/O"
-msgstr ""
+msgstr "Hálózat I/O"
 
 msgid "Networks"
 msgstr "Hálózatok"
 
 msgid "PIDs"
-msgstr ""
+msgstr "PID-ek"
 
 msgid "Pod"
-msgstr ""
+msgstr "Hüvely"
 
 msgid "Podman"
 msgstr "Podman"
@@ -109,10 +109,10 @@ msgid "Ports"
 msgstr "Portok"
 
 msgid "Pull"
-msgstr ""
+msgstr "Lekér"
 
 msgid "Pull image"
-msgstr ""
+msgstr "Kép lekérése"
 
 msgid "Repository"
 msgstr "Tároló"
@@ -139,7 +139,7 @@ msgid "Tag"
 msgstr "Címke"
 
 msgid "The tag of the image to pull."
-msgstr ""
+msgstr "A lekérdendő kép címkéje."
 
 msgid "Updated Podman settings."
 msgstr "Podman beállítások frissítve."

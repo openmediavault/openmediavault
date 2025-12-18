@@ -73,7 +73,7 @@ msgid "Mem %"
 msgstr ""
 
 msgid "Mem Usage / Limit"
-msgstr ""
+msgstr "Minnesanvändning / gräns"
 
 msgid "Mount Point"
 msgstr "Monteringspunkt"

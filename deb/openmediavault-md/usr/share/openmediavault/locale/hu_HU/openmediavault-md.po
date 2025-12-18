@@ -53,6 +53,7 @@ msgstr "Eszközök"
 
 msgid "Displays information about MD (Software RAID) devices."
 msgstr ""
+"Az MD (szoftveres RAID) eszközökkel kapcsolatos információkat jeleníti meg."
 
 msgid "Grow"
 msgstr "Növelés"
@@ -61,7 +62,7 @@ msgid "Level"
 msgstr "Szint"
 
 msgid "MD Devices"
-msgstr ""
+msgstr "MD eszközök"
 
 msgid "Mirror"
 msgstr "Tükör"

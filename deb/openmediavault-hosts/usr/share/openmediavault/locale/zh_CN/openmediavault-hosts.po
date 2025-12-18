@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# 黃柏諺 <s8321414@gmail.com>, 2023
+# irrelevant91, 2025
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2023-12-20 21:57+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2023\n"
+"Last-Translator: irrelevant91, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,15 +26,15 @@ msgid ""
 "href='https://manpages.debian.org/stable/manpages/hosts.5.en.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr ""
-"新增自訂條目至 /etc/hosts 檔案。請見<a "
+"新增自定义条目至 /etc/hosts 文件。请查看<a "
 "href='https://manpages.debian.org/stable/manpages/hosts.5.en.html' "
-"target='_blank'>手冊頁面</a>以取得更多資訊。"
+"target='_blank'>手册</a>以获得详细信息。"
 
 msgid "Custom entries"
-msgstr "自訂條目"
+msgstr "自定义条目"
 
 msgid "Hosts"
-msgstr "主機"
+msgstr "主机"
 
 msgid "Updated local hostname-to-IP mapping."
-msgstr "已更新本機的主機名稱對 IP 對應資訊。"
+msgstr "已更新本地主机名与 IP 地址的对应关系。"

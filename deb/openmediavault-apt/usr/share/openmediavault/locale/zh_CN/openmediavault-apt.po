@@ -6,7 +6,7 @@
 # Translators:
 # 王大山, 2024
 # songming <by@songming.me>, 2024
-# kochin <kochinc@outlook.com>, 2024
+# irrelevant91, 2025
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2024-06-14 17:38+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2024\n"
+"Last-Translator: irrelevant91, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgid "Check for new packages"
 msgstr "检查新软件包"
 
 msgid "Components"
-msgstr "組件"
+msgstr "组件"
 
 msgid ""
 "Components specify different sections of one distribution version present in"
@@ -39,7 +39,7 @@ msgid "Create"
 msgstr "新建"
 
 msgid "Created APT source."
-msgstr "已建立 APT 來源。"
+msgstr "已创建 APT 源。"
 
 msgid ""
 "Defines which types of packages to look for from a given source, e.g. 'deb' "
@@ -47,10 +47,10 @@ msgid ""
 msgstr "定义要从给定源中查找的包类型，例如“deb”或“deb-src”。"
 
 msgid "Edit"
-msgstr "編輯"
+msgstr "编辑"
 
 msgid "Enabled"
-msgstr "已啟用"
+msgstr "已启用"
 
 msgid "Other Software"
 msgstr "其它软件"
@@ -62,13 +62,13 @@ msgid "Suites"
 msgstr "套件"
 
 msgid "Tags"
-msgstr "標籤"
+msgstr "标签"
 
 msgid ""
 "The GPG/PGP key used to verify packages and repository metadata. This "
 "increases security by ensuring that only packages signed with a specific key"
 " are accepted."
-msgstr "用以驗證套件與軟體庫元資料的 GPG/PGP 金鑰。藉由確定只接受以特定金鑰簽署過的套件，這增加了安全性。"
+msgstr "用于验证软件包与软件仓库元数据的GPG/PGP密钥。通过确保只接受以特定密钥签名的软件包来增加安全性。"
 
 msgid ""
 "The URI must specify the base of the package repository, e.g. "

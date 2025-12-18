@@ -2080,7 +2080,7 @@ msgid "NFS"
 msgstr "NFS"
 
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 msgid "NTP time servers, separated by comma."
 msgstr "NTP-tidsservrar, separerade med kommatecken."
@@ -2275,7 +2275,7 @@ msgid "PID"
 msgstr "PID"
 
 msgid "PR"
-msgstr ""
+msgstr "PR"
 
 msgid "Pacific Islands Trust Territory"
 msgstr "Pacific Islands Förtroende-område"
@@ -2588,7 +2588,7 @@ msgid "Quota"
 msgstr "Kvot"
 
 msgid "RES"
-msgstr ""
+msgstr "RES"
 
 msgid "RSync server"
 msgstr "RSync-server"
@@ -2720,7 +2720,7 @@ msgid "Rwanda"
 msgstr "Rwanda"
 
 msgid "S"
-msgstr ""
+msgstr "S"
 
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
@@ -2732,7 +2732,7 @@ msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.-övervakning måste vara aktiverad för den valda enheten."
 
 msgid "SHR"
-msgstr ""
+msgstr "SHR"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -3254,7 +3254,7 @@ msgid "TCP forwarding"
 msgstr "TCP-vidarebefodran"
 
 msgid "TIME+"
-msgstr ""
+msgstr "TIME+"
 
 msgid "Tags"
 msgstr "Taggar"
@@ -4039,7 +4039,7 @@ msgid "Uzbekistan"
 msgstr "Uzbekistan"
 
 msgid "VIRT"
-msgstr ""
+msgstr "VIRT"
 
 msgid "VLAN"
 msgstr "VLAN"

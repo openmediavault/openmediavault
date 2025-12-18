@@ -8,8 +8,8 @@
 # Volker Theile <votdev@gmx.de>, 2023
 # songming <by@songming.me>, 2023
 # LeeYang <150183966@qq.com>, 2023
-# kochin <kochinc@outlook.com>, 2025
 # 黃柏諺 <s8321414@gmail.com>, 2025
+# irrelevant91, 2025
 # 
 #, fuzzy
 msgid ""
@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2025\n"
+"Last-Translator: irrelevant91, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,10 +30,10 @@ msgid "0 KiB/s means unlimited."
 msgstr "0KB/s 表示不限制。"
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr "一个高效 FTP/SFTP/FTPS 服务模块"
+msgstr "一个高效的模块化 FTP/SFTP/FTPS 服务器"
 
 msgid "Access mode"
-msgstr "存取模式"
+msgstr "访问模式"
 
 msgid "Advanced settings"
 msgstr "高级设置"
@@ -44,22 +44,22 @@ msgstr "允许客户端恢复中断的上传和下载"
 msgid ""
 "Allow users to log in without a password. Make sure the user <em>ftp</em> or"
 " group <em>nogroup</em> can access the files."
-msgstr "允許使用者在沒有密碼的情況下登入。請確保使用者 <em>ftp</em> 或群組 <em>nogroup</em> 可以存取檔案。"
+msgstr "允许用户无密码登录。请确保用户 <em>ftp</em> 或用户组 <em>nogroup</em> 有访问文件的权限。"
 
 msgid "Anonymous FTP"
 msgstr "匿名 FTP"
 
 msgid "Authenticated user ID"
-msgstr "驗證過的使用者 ID"
+msgstr "已认证的用户 ID"
 
 msgid "Authentication method"
-msgstr "驗證方式"
+msgstr "认证方式"
 
 msgid "Ban Rules"
-msgstr "禁止规则"
+msgstr "封禁规则"
 
 msgid "Ban statistics:"
-msgstr "禁止统计："
+msgstr "封禁统计："
 
 msgid "Bandwidth restriction"
 msgstr "带宽限制"
@@ -68,7 +68,7 @@ msgid "Certificate"
 msgstr "证书"
 
 msgid "Completion status"
-msgstr "完成狀態"
+msgstr "完成状态"
 
 msgid "Create"
 msgstr "新建"
@@ -83,16 +83,16 @@ msgid "Currently logged in users:"
 msgstr "当前登录用户："
 
 msgid "Date & Time"
-msgstr "日期與時間"
+msgstr "日期与时间"
 
 msgid "Deny logins which do not have a valid shell."
-msgstr "拒绝无效的 shell 登录."
+msgstr "拒绝无效的 shell 登录。"
 
 msgid "Direction"
 msgstr "方向"
 
 msgid "Display the home directory of the user in the browse list."
-msgstr "在用浏览时显示用户 Home 目录."
+msgstr "在浏览时显示用户主目录。"
 
 msgid "Edit"
 msgstr "编辑"
@@ -101,13 +101,13 @@ msgid "Enable SSL/TLS connections."
 msgstr "启用 SSL/TLS 连接"
 
 msgid "Enable file transfer logging."
-msgstr "啟用檔案傳輸紀錄。"
+msgstr "启用文件传输日志。"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
 "connections."
-msgstr "啟用對遠端主機 IP 位址的反向 DNS 查詢，用於傳入的主動模式資料連線及傳出的被動模式資料連線。"
+msgstr "启用对远程主机 IP 地址的反向 DNS 查询，用于建立入站的主动模式数据连接以及出站的被动模式数据连接。"
 
 msgid "Enabled"
 msgstr "已启用"
@@ -125,7 +125,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr "FTP 傳輸紀錄檔"
+msgstr "FTP - 传输日志"
 
 msgid "FXP"
 msgstr "FXP"
@@ -133,13 +133,13 @@ msgstr "FXP"
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
-msgstr "FXP 允許兩個遠端伺服器之間的傳輸，而沒有任何檔案資料送到要求傳送的客戶端。"
+msgstr "FXP 允许两台远程服务器间的直接数据传输，此时文件数据不会传输到请求数据传输的客户端。"
 
 msgid "Filename"
-msgstr "檔案名稱"
+msgstr "文件名"
 
 msgid "Filesize"
-msgstr "檔案大小"
+msgstr "文件大小"
 
 msgid "Home directories"
 msgstr "主目录"
@@ -155,7 +155,7 @@ msgid ""
 msgstr "如果该主机作为 NAT 网关或者端口转发服务器，该选项对被动传输很有用，你需要使用你的公网 IP 以及在防火墙中打开被动端口。"
 
 msgid "Implicit SSL"
-msgstr "隱式 SSL"
+msgstr "隐式 SSL"
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -193,13 +193,13 @@ msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
 "timer completely (clients can stay connected for ever, without sending "
 "data)."
-msgstr "以秒為單位的最大閒置時間。閒置逾時時間若設定為 0，則完全停用閒置計時器(客戶可以永遠保持連線，即使不傳送資料）。"
+msgstr "以秒为单位的最大空闲时间。若空闲超时设置为 0，则完全停用空闲计时器（客户端可永久保持连接，不需传输数据）。"
 
 msgid "Maximum number of allowed password attempts before disconnection."
 msgstr "最多密码尝试次数，超过次数后断开连接。"
 
 msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "每個 IP 最多連線數目 (0 = 無限制)。"
+msgstr "每个 IP 最大连接数量 (0 = 无限制)。"
 
 msgid "Maximum number of simultaneous clients."
 msgstr "最大并发客户端数。"
@@ -208,7 +208,7 @@ msgid "Maximum upload rate (KiB/s)"
 msgstr "最大上传速度(KB/s)"
 
 msgid "Message"
-msgstr "訊息"
+msgstr "信息"
 
 msgid "Min. passive port"
 msgstr "最小被动端口"
@@ -220,10 +220,10 @@ msgid "Occurrence"
 msgstr "发生次数"
 
 msgid "Passive FTP"
-msgstr "被動式 FTP"
+msgstr "被动模式 FTP"
 
 msgid "Permit root login"
-msgstr "允許 root 登入"
+msgstr "允许 root 登录"
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
@@ -255,10 +255,10 @@ msgid "Refresh time"
 msgstr "刷新时间"
 
 msgid "Remote host"
-msgstr "遠端主機"
+msgstr "远程主机"
 
 msgid "Require valid shell"
-msgstr "需要可用的指令殼層(shell)"
+msgstr "需要有效的shell"
 
 msgid "Required"
 msgstr "必要"
@@ -267,7 +267,7 @@ msgid "Resume"
 msgstr "恢复"
 
 msgid "Reverse DNS lookup"
-msgstr "反向 DNS 查詢"
+msgstr "反向 DNS 查询"
 
 msgid "SSL/TLS Settings"
 msgstr "SSL/TLS设置"
@@ -285,7 +285,7 @@ msgid "Shares"
 msgstr "共享"
 
 msgid "Special action flag"
-msgstr "特殊動作旗標"
+msgstr "特殊操作标志"
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -294,18 +294,18 @@ msgid ""
 msgstr "指定多少秒的时间作为检查和更新伪装地址的 IP 时间间隔，设为 0 则表示停用。"
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "以 hh:mm:ss 的格式來指定時間。在這時間之後，禁止就過期了。"
+msgstr "以 hh:mm:ss 格式设定时间，在此时间之后封禁过期。"
 
 msgid ""
 "Specifies the time interval in hh:mm:ss in which the given number of "
 "occurrences must happen to add the ban."
-msgstr "以 hh:mm:ss 的格式來指定時間間隔。在這段時間之內，必須發生被給定的次數，才會加入禁止。"
+msgstr "以 hh:mm:ss 格式设定时间间隔，在此时间间隔内必须发生给定次数的事件才会被封禁。"
 
 msgid "Specifies whether it is allowed to login as superuser directly."
 msgstr "指定是否允许以超级用户直接登录。"
 
 msgid "Tags"
-msgstr "標籤"
+msgstr "标签"
 
 msgid "The SSL certificate."
 msgstr "SSL 证书。"
@@ -316,7 +316,7 @@ msgstr "共享文件的路径。"
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
 "for data connections is not required."
-msgstr "從控制連線來的 SSL 作業階段須被重用做資料連線的需求將不被要求。"
+msgstr "对将用于控制连接的 SSL 会话重用于数据连接不作要求。"
 
 msgid ""
 "The welcome message will be displayed to the user at login. Please check the"
@@ -324,24 +324,24 @@ msgid ""
 "target='_blank'>manual page</a> how to use variables. Leave this field empty"
 " to disable the welcome message."
 msgstr ""
-"歡迎訊息將會在登入時顯示給使用者。請檢視<a "
+"用户登录时将显示欢迎消息。关于如何使用变量请查看<a "
 "href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
-"target='_blank'>手冊頁</a>來取得如何使用變數的資訊。將此欄位留空以停用歡迎訊息。"
+"target='_blank'>手册</a>。留空将关闭欢迎消息。"
 
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
 "server."
-msgstr "此選項要求客戶端使用 FTP over TLS 來與該伺服器交談。"
+msgstr "此选项要求客户端使用 FTP over TLS 与此服务器沟通。"
 
 msgid ""
 "This option will handle all connections as if they are SSL connections "
 "implicitly."
-msgstr "此選項將所有的連線默認是 SSL 連線來處理。"
+msgstr "此选项将使所有连接默认作为 SSL 连接处理。"
 
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
 "given time interval, then a ban is automatically added."
-msgstr "此參數表示，如果在給定的時間間隔內發生 N 次事件，那麼會自動加進一項禁止。"
+msgstr "此参数指定在给定时间间隔内发生 N 次事件时，自动添加封禁。"
 
 msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "当选择的事件发生时这项规则会被触发。"
@@ -356,22 +356,22 @@ msgid "Transfer log"
 msgstr "传输日志"
 
 msgid "Transfer time"
-msgstr "傳輸時間"
+msgstr "传输时间"
 
 msgid "Transfer type"
-msgstr "傳輸類型"
+msgstr "传输类型"
 
 msgid "Updated FTP ban rule."
-msgstr "更新 FTP 禁用规则。"
+msgstr "已更新 FTP 封禁规则。"
 
 msgid "Updated FTP share."
-msgstr "已更新的FTP共享"
+msgstr "已更新FTP共享"
 
 msgid "Use the following bandwidth restriction."
 msgstr "使用以下带宽限制。"
 
 msgid "User name"
-msgstr "使用者名稱"
+msgstr "用户名"
 
 msgid "Welcome message"
 msgstr "欢迎消息"

@@ -8,6 +8,7 @@
 # songming <by@songming.me>, 2024
 # 黃柏諺 <s8321414@gmail.com>, 2025
 # kochin <kochinc@outlook.com>, 2025
+# irrelevant91, 2025
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-19 21:22+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2025\n"
+"Last-Translator: irrelevant91, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,19 +26,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Absolute Path"
-msgstr "絕對路徑"
+msgstr "绝对路径"
 
 msgid "Access Modes"
-msgstr "存取模式"
+msgstr "访问模式"
 
 msgid "App Version"
 msgstr "App 版本"
 
 msgid "Apply"
-msgstr "套用"
+msgstr "应用"
 
 msgid "Architecture"
-msgstr "架構"
+msgstr "架构"
 
 msgid "Available"
 msgstr "可用"
@@ -46,55 +47,55 @@ msgid "Capacity"
 msgstr "容量"
 
 msgid "Certificate"
-msgstr "憑證"
+msgstr "证书"
 
 msgid "Certificates"
-msgstr "憑證"
+msgstr "证书"
 
 msgid "Chart"
-msgstr "圖表"
+msgstr "图表"
 
 msgid "Check for new recipes"
-msgstr "檢查新食譜"
+msgstr "检查新 recipes"
 
 msgid "Class"
-msgstr "類別"
+msgstr "类别"
 
 msgid "Cluster IP"
-msgstr "叢集 IP"
+msgstr "集群 IP"
 
 msgid "Compressed"
-msgstr "經過壓縮"
+msgstr "已压缩"
 
 msgid "Config Maps"
-msgstr "設定地圖"
+msgstr "设置地图"
 
 msgid "Copy to clipboard"
-msgstr "複製到剪貼板"
+msgstr "复制到剪贴板"
 
 msgid "Copy token"
-msgstr "複製權杖"
+msgstr "复制令牌"
 
 msgid "Count"
-msgstr "數目"
+msgstr "数量"
 
 msgid "Created"
-msgstr "创建"
+msgstr "已创建"
 
 msgid "Dashboard"
-msgstr "儀表板"
+msgstr "仪表板"
 
 msgid "Data"
-msgstr "資料"
+msgstr "数据"
 
 msgid "Datastore"
-msgstr "資料儲存"
+msgstr "数据存储"
 
 msgid "Date & Time"
-msgstr "日期與時間"
+msgstr "日期与时间"
 
 msgid "Depends"
-msgstr "依賴"
+msgstr "依赖"
 
 msgid "Deployments"
 msgstr "部署"
@@ -103,21 +104,21 @@ msgid "Describe"
 msgstr "描述"
 
 msgid "Description"
-msgstr "敘述"
+msgstr "描述"
 
 msgid "Do you really want to restore this snapshot?"
-msgstr "您確定要還原此快照嗎？"
+msgstr "确定要还原此快照吗？"
 
 msgid "Download"
-msgstr "下載"
+msgstr "下载"
 
 msgid ""
 "Downloading the kubeconfig file to the local system enables secure remote "
 "management of the Kubernetes cluster using command-line tools like kubectl."
-msgstr "將 kubeconfig 檔案下載到本機系統可以使用 kubectl 等命令列工具對 Kubernetes 叢集進行安全遠端管理。"
+msgstr "将 kubeconfig 文件下载到本地系统便可以使用 kubectl 等命令行工具对 Kubernetes 集群进行安全的远程管理。"
 
 msgid "Enabled"
-msgstr "已啟用"
+msgstr "已启用"
 
 msgid "Events"
 msgstr "事件"
@@ -126,28 +127,28 @@ msgid "External IP"
 msgstr "外部 IP"
 
 msgid "Failed"
-msgstr "失敗"
+msgstr "失败"
 
 msgid "First seen"
-msgstr "首次出現"
+msgstr "首次出现"
 
 msgid "GID"
 msgstr "GID"
 
 msgid "Groups"
-msgstr "群組"
+msgstr "组"
 
 msgid "HTTP port"
-msgstr "HTTP 通訊埠"
+msgstr "HTTP 端口"
 
 msgid "HTTPS port"
-msgstr "HTTPS 通訊埠"
+msgstr "HTTPS 端口"
 
 msgid "Helm Charts"
 msgstr "Helm Charts"
 
 msgid "Homepage"
-msgstr "首頁"
+msgstr "首页"
 
 msgid "ID"
 msgstr "ID"
@@ -159,7 +160,7 @@ msgid "Images"
 msgstr "镜像"
 
 msgid "Import"
-msgstr "匯入"
+msgstr "导入"
 
 msgid "Ingredients"
 msgstr "Ingredients"
@@ -171,7 +172,7 @@ msgid "Ingresses"
 msgstr "Ingresses"
 
 msgid "Job"
-msgstr "工作"
+msgstr "任务"
 
 msgid "Kubeconfig"
 msgstr "Kubeconfig"
@@ -180,19 +181,19 @@ msgid "Kubernetes"
 msgstr "Kubernetes"
 
 msgid "Kubernetes - Pods"
-msgstr "Kubernetes - 艙莢"
+msgstr "Kubernetes - Pods"
 
 msgid "Kubernetes - Resources"
-msgstr "Kubernetes - 資源"
+msgstr "Kubernetes - 资源"
 
 msgid "Labels"
-msgstr "標號"
+msgstr "标签"
 
 msgid "Last seen"
-msgstr "最後出現"
+msgstr "最后一次出现"
 
 msgid "Load Balancer"
-msgstr "負載平衡器"
+msgstr "负载均衡器"
 
 msgid "Logs"
 msgstr "日志"
@@ -201,19 +202,19 @@ msgid "Manifest"
 msgstr "Manifest"
 
 msgid "Message"
-msgstr "訊息"
+msgstr "信息"
 
 msgid "Monitoring - Kubernetes"
-msgstr "監控 - Kubernetes"
+msgstr "监控 - Kubernetes"
 
 msgid "Name"
 msgstr "名称"
 
 msgid "Namespace"
-msgstr "命名空間"
+msgstr "命名空间"
 
 msgid "Namespaces"
-msgstr "命名空間"
+msgstr "命名空间"
 
 msgid "NodePort IP"
 msgstr "NodePort IP"
@@ -222,7 +223,7 @@ msgid "Normal"
 msgstr "正常"
 
 msgid "Object"
-msgstr "物件"
+msgstr "对象"
 
 msgid "Open UI"
 msgstr "打开 UI"
@@ -234,19 +235,19 @@ msgid "PVC"
 msgstr "PVC"
 
 msgid "Pending"
-msgstr "待處理中"
+msgstr "待处理"
 
 msgid "Persistent Volume Claims"
-msgstr "持久卷冊聲明"
+msgstr "持久卷申领"
 
 msgid "Persistent Volumes"
-msgstr "持久卷冊"
+msgstr "持久卷"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr "請稍候，將會建立一份快照"
+msgstr "请稍候，将会创建一个快照……"
 
 msgid "Please wait, the snapshot will be restored ..."
-msgstr "請稍候，將會還原快照……"
+msgstr "请稍候，将会还原快照……"
 
 msgid "Pods"
 msgstr "Pods"
@@ -258,64 +259,64 @@ msgid "Ports"
 msgstr "端口"
 
 msgid "README"
-msgstr "讀我檔案"
+msgstr "README"
 
 msgid "Ready"
-msgstr "準備好"
+msgstr "就绪"
 
 msgid "Reason"
 msgstr "理由"
 
 msgid "Recipe Information"
-msgstr "食譜資訊"
+msgstr "Recipe 信息"
 
 msgid "Recipe Version"
-msgstr "食譜版本"
+msgstr "Recipe 版本"
 
 msgid "Recipes"
-msgstr "食譜"
+msgstr "Recipes"
 
 msgid "Reclaim policy"
-msgstr "回收政策"
+msgstr "回收策略"
 
 msgid "Repository"
 msgstr "源"
 
 msgid "Resources"
-msgstr "資源"
+msgstr "资源"
 
 msgid "Restore"
-msgstr "還原"
+msgstr "还原"
 
 msgid "Running"
-msgstr "執行中"
+msgstr "运行中"
 
 msgid "SQLite"
 msgstr "SQLite"
 
 msgid "Secrets"
-msgstr "祕密"
+msgstr "Secrets"
 
 msgid "Section"
-msgstr "區塊"
+msgstr "区段"
 
 msgid "Services"
-msgstr "服務"
+msgstr "服务"
 
 msgid "Settings"
-msgstr "設定"
+msgstr "设置"
 
 msgid "Shared Folders"
-msgstr "共享資料夾"
+msgstr "共享文件夹"
 
 msgid "Show README"
-msgstr "顯示讀我檔案"
+msgstr "显示 README"
 
 msgid "Show the number of pods per status phase."
-msgstr "顯示各狀態中的艙莢個數。"
+msgstr "显示各状态阶段的 Pod 数量。"
 
 msgid "Show the total number of several resources."
-msgstr "顯示幾項資源的總數。"
+msgstr "显示几项资源的总数。"
 
 msgid "Size"
 msgstr "大小"
@@ -327,13 +328,13 @@ msgid "Source"
 msgstr "來源"
 
 msgid "Stateful Sets"
-msgstr "有狀態組合"
+msgstr "状态副本集"
 
 msgid "Status"
 msgstr "状态"
 
 msgid "Storage Class"
-msgstr "儲存類別"
+msgstr "存储类别"
 
 msgid "Succeeded"
 msgstr "成功"
@@ -342,23 +343,22 @@ msgid "Tag"
 msgstr "标签"
 
 msgid "Tags"
-msgstr "標籤"
+msgstr "标签"
 
 msgid "Target Namespace"
-msgstr "目標命名空間"
+msgstr "目标命名空间"
 
 msgid ""
 "The SSL certificate used by the Dashboard and the LoadBalancer service. If "
 "not set, a self-signed certificate from cert-manager is used."
-msgstr "儀表板與負載平衡服務使用的 SSL 憑證。若未設定，則使用來自 cert-manager 的自行簽署憑證。"
+msgstr "仪表板与负载均衡服务使用的 SSL 证书。若未设定，则使用来自 cert-manager 的自签名证书。"
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
 "single-node setups and SBCs with slow disks, while etcd is recommended for "
 "high-availability setups with multiple nodes."
 msgstr ""
-"Kubernetes 叢集使用的資料儲存。建議將 SQLite 用於單節點設定與磁碟速度較慢的 SBC，而建議將 etcd "
-"用於具有多個節點的高可用性設定。"
+"Kubernetes 集群使用的数据存储。SQLite 建议用于单节点配置与使用低速磁盘的单板机，而 etcd 建议用于具有多个节点的高可用性配置。"
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -369,34 +369,34 @@ msgid ""
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
-"可以在配方中使用以下佔位字串來存取全域系統資訊與組態資料庫：<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
-" uuid=NULL)</li></ul>您必須用一對大括號來表示佔位字串。可以在<a "
+"可以在recipe中使用以下占位符来访问全局系统信息与配置数据库：<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>您必须用双大括号表示占位符。可以在<a "
 "href='https://twig.symfony.com/doc/filters/index.html' "
-"target='_blank'>此處</a>找到其他可用篩選條件的概覽。"
+"target='_blank'>此处</a>找到其他可用筛选条件的概览。"
 
 msgid "The location where to store etcd on-demand snapshots."
-msgstr "儲存 etcd 隨選快照的位置。"
+msgstr "存储 etcd 按需快照的位置。"
 
 msgid "The manifest to apply."
-msgstr "要套用的 manifest。"
+msgstr "要应用的 manifest。"
 
 msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr "Kubernetes 儀表板正在監聽的連接埠。"
+msgstr "Kubernetes 仪表板监听的端口。"
 
 msgid "The port on which the LoadBalancer service is listening."
-msgstr "負載平衡服務正在監聽的連接埠。"
+msgstr "负载均衡服务监听的端口。"
 
 msgid "The snapshot was created successfully."
-msgstr "快照建立成功。"
+msgstr "快照创建成功。"
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
-msgstr "已成功還原快照 {{ spec.snapshotName }}。"
+msgstr "已成功还原快照 {{ spec.snapshotName }}。"
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr "用於向 Kubernetes 儀表板進行身份驗證的權杖。"
+msgstr "用于向 Kubernetes 仪表板进行身份认证的令牌。"
 
 msgid "Type"
-msgstr "類型"
+msgstr "类型"
 
 msgid "UID"
 msgstr "UID"
@@ -408,19 +408,19 @@ msgid "Up-to-date"
 msgstr "最新"
 
 msgid "Updated Kubernetes settings."
-msgstr "已更新 Kubernetes 設定。"
+msgstr "已更新 Kubernetes 设置。"
 
 msgid "Users"
-msgstr "用戶"
+msgstr "用户"
 
 msgid "Version"
 msgstr "版本"
 
 msgid "View"
-msgstr "檢視"
+msgstr "查看"
 
 msgid "Volume"
-msgstr "卷宗"
+msgstr "卷"
 
 msgid "Warning"
 msgstr "警告"
