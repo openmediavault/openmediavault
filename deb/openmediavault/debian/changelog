@@ -1,4 +1,4 @@
-openmediavault (8.0-12) stable; urgency=medium
+openmediavault (8.0-13) stable; urgency=medium
 
   * Upgrade to Debian 13 (Trixie).
   * Replace `cpufrequtils` with `linux-cpupower`.
