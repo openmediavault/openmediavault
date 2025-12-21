@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-30 11:37+0100\n"
+"POT-Creation-Date: 2025-12-21 21:55+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013,2015\n"
 "Language-Team: Galician (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
@@ -1795,6 +1795,11 @@ msgstr ""
 msgid "Limit monthly"
 msgstr ""
 
+msgid ""
+"Limit the reported disk size, thus preventing Time Machine from using the "
+"whole real disk space for backup."
+msgstr ""
+
 msgid "Limit weekly"
 msgstr ""
 
@@ -1926,6 +1931,9 @@ msgid "Max. connections"
 msgstr "Número máx. de conexións"
 
 msgid "Maximum"
+msgstr ""
+
+msgid "Maximum disk size"
 msgstr ""
 
 msgid "Maximum file size"
@@ -3531,6 +3539,9 @@ msgid "This field is required."
 msgstr ""
 
 msgid "This field must have the format <hh:mm:ss>."
+msgstr ""
+
+msgid "This field must match the format SIZE[K|M|G|T|P]."
 msgstr ""
 
 msgid "This field should be a IP network address in CIDR notation."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-30 11:37+0100\n"
+"POT-Creation-Date: 2025-12-21 21:55+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -1793,6 +1793,11 @@ msgstr "Omejitev na uro"
 msgid "Limit monthly"
 msgstr "Mesečna omejitev"
 
+msgid ""
+"Limit the reported disk size, thus preventing Time Machine from using the "
+"whole real disk space for backup."
+msgstr ""
+
 msgid "Limit weekly"
 msgstr "Tedenska omejitev"
 
@@ -1925,6 +1930,9 @@ msgstr "Maks. št. povezav"
 
 msgid "Maximum"
 msgstr "Maksimum"
+
+msgid "Maximum disk size"
+msgstr ""
 
 msgid "Maximum file size"
 msgstr "Največja velikost datoteke"
@@ -3530,6 +3538,9 @@ msgstr "To polje je obvezno."
 
 msgid "This field must have the format <hh:mm:ss>."
 msgstr "To polje mora imeti obliko <hh:mm:ss>."
+
+msgid "This field must match the format SIZE[K|M|G|T|P]."
+msgstr ""
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "To polje mora biti omrežni naslov IP v zapisu CIDR."

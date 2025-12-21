@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-30 11:37+0100\n"
+"POT-Creation-Date: 2025-12-21 21:55+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Daniel, 2025\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -1796,6 +1796,11 @@ msgstr "Begränsa varje timme"
 msgid "Limit monthly"
 msgstr "Begränsa månadsvis"
 
+msgid ""
+"Limit the reported disk size, thus preventing Time Machine from using the "
+"whole real disk space for backup."
+msgstr ""
+
 msgid "Limit weekly"
 msgstr "Begränsa veckovis"
 
@@ -1928,6 +1933,9 @@ msgstr "Max. anslutningar"
 
 msgid "Maximum"
 msgstr "Maximal"
+
+msgid "Maximum disk size"
+msgstr ""
 
 msgid "Maximum file size"
 msgstr "Maximal filstorlek"
@@ -3533,6 +3541,9 @@ msgstr "Det här fältet är obligatoriskt."
 
 msgid "This field must have the format <hh:mm:ss>."
 msgstr "Det här fältet måste ha formatet <hh:mm:ss>."
+
+msgid "This field must match the format SIZE[K|M|G|T|P]."
+msgstr ""
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "Det här fältet ska vara en IP-nätverksadress i CIDR-notering."

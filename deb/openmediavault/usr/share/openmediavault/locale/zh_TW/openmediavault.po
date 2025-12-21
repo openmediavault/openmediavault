@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-30 11:37+0100\n"
+"POT-Creation-Date: 2025-12-21 21:55+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2025\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -1794,6 +1794,11 @@ msgstr "限制每小時"
 msgid "Limit monthly"
 msgstr "限制每月"
 
+msgid ""
+"Limit the reported disk size, thus preventing Time Machine from using the "
+"whole real disk space for backup."
+msgstr ""
+
 msgid "Limit weekly"
 msgstr "限制每週"
 
@@ -1926,6 +1931,9 @@ msgstr "最多連線數目"
 
 msgid "Maximum"
 msgstr "最大"
+
+msgid "Maximum disk size"
+msgstr ""
 
 msgid "Maximum file size"
 msgstr "最大檔案大小"
@@ -3531,6 +3539,9 @@ msgstr "此欄位是必須的"
 
 msgid "This field must have the format <hh:mm:ss>."
 msgstr "此欄位的格式必須為 <hh:mm:ss>。"
+
+msgid "This field must match the format SIZE[K|M|G|T|P]."
+msgstr ""
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "此欄位應該是一個以 CIDR 表示法的 IP 網路位址。"

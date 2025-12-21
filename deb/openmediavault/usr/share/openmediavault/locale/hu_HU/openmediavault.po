@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-30 11:37+0100\n"
+"POT-Creation-Date: 2025-12-21 21:55+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2025\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -1798,6 +1798,11 @@ msgstr "Óránkénti határérték"
 msgid "Limit monthly"
 msgstr "Havi határérték"
 
+msgid ""
+"Limit the reported disk size, thus preventing Time Machine from using the "
+"whole real disk space for backup."
+msgstr ""
+
 msgid "Limit weekly"
 msgstr "Heti határérték"
 
@@ -1930,6 +1935,9 @@ msgstr "Kapcsolatok max. száma"
 
 msgid "Maximum"
 msgstr "Maximum"
+
+msgid "Maximum disk size"
+msgstr ""
 
 msgid "Maximum file size"
 msgstr "Maximális fájlméret "
@@ -3535,6 +3543,9 @@ msgstr "A mező kitöltése kötelező."
 
 msgid "This field must have the format <hh:mm:ss>."
 msgstr "E mezőnek <hh:mm:ss>formátumúnak kell lennie."
+
+msgid "This field must match the format SIZE[K|M|G|T|P]."
+msgstr ""
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "E mezőnek egy IP hálózati címnek kell lennie CIDR jelölésben."

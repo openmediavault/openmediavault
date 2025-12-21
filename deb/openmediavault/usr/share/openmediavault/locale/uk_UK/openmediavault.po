@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-30 11:37+0100\n"
+"POT-Creation-Date: 2025-12-21 21:55+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022,2025\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -1794,6 +1794,11 @@ msgstr ""
 msgid "Limit monthly"
 msgstr ""
 
+msgid ""
+"Limit the reported disk size, thus preventing Time Machine from using the "
+"whole real disk space for backup."
+msgstr ""
+
 msgid "Limit weekly"
 msgstr ""
 
@@ -1926,6 +1931,9 @@ msgstr "Максимум з'єднать"
 
 msgid "Maximum"
 msgstr "Максимум"
+
+msgid "Maximum disk size"
+msgstr ""
 
 msgid "Maximum file size"
 msgstr "Максимальний розмір файлу"
@@ -3531,6 +3539,9 @@ msgstr "Це поле є обов'язковим."
 
 msgid "This field must have the format <hh:mm:ss>."
 msgstr "Це поле має мати формат <hh:mm:ss>."
+
+msgid "This field must match the format SIZE[K|M|G|T|P]."
+msgstr ""
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "Це поле повинне містити адресу мережі IP в нотації CIDR."

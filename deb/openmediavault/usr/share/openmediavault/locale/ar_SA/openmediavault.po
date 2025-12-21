@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-30 11:37+0100\n"
+"POT-Creation-Date: 2025-12-21 21:55+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -1793,6 +1793,11 @@ msgstr "الحد بالساعة"
 msgid "Limit monthly"
 msgstr "الحد شهريا"
 
+msgid ""
+"Limit the reported disk size, thus preventing Time Machine from using the "
+"whole real disk space for backup."
+msgstr ""
+
 msgid "Limit weekly"
 msgstr "الحد أسبوعيا"
 
@@ -1925,6 +1930,9 @@ msgstr "العدد الأقصى للاتصالات"
 
 msgid "Maximum"
 msgstr "الحد الأعلى"
+
+msgid "Maximum disk size"
+msgstr ""
 
 msgid "Maximum file size"
 msgstr "حجم الملف الأقصى"
@@ -3530,6 +3538,9 @@ msgstr "هذا الحقل مطلوب"
 
 msgid "This field must have the format <hh:mm:ss>."
 msgstr "يجب أن يكون هذا الحقل وفق التنسيق <hh:mm:ss>."
+
+msgid "This field must match the format SIZE[K|M|G|T|P]."
+msgstr ""
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "يجب أن يحتوي هذا الحقل على عنوان شبكة IP في صيغة CIDR"
