@@ -1,3 +1,10 @@
+openmediavault (8.0.1-1) stable; urgency=medium
+
+  * Issue #1555: Add ability to SMB shares to limit the reported disk size
+    for Time Machine.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 21 Dec 2025 16:32:03 +0100
+
 openmediavault (8.0-13) stable; urgency=medium
 
   * Upgrade to Debian 13 (Trixie).

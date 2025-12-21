@@ -82,6 +82,11 @@
 			"type": "boolean",
 			"default": false
 		},
+		"timemachinemaxsize": {
+			"type": "string",
+			"pattern": "^(\\d+[KMGTP]?)?$",
+			"default": ""
+		},
 		"transportencryption": {
 			"type": "boolean",
 			"default": false
