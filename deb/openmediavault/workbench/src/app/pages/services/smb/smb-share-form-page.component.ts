@@ -112,6 +112,27 @@ export class SmbShareFormPageComponent extends BaseFormPageComponent {
         value: false
       },
       {
+        type: 'textInput',
+        name: 'timemachinemaxsize',
+        label: gettext('Maximum disk size'),
+        hint: gettext(
+          'Limit the reported disk size, thus preventing Time Machine from using the whole real disk space for backup.'
+        ),
+        value: '',
+        validators: {
+          pattern: {
+            pattern: '^\\d+[KMGTP]?$',
+            errorData: gettext('This field must match the format SIZE[K|M|G|T|P].')
+          }
+        },
+        modifiers: [
+          {
+            type: 'hidden',
+            constraint: { operator: 'falsy', arg0: { prop: 'timemachine' } }
+          }
+        ]
+      },
+      {
         type: 'checkbox',
         name: 'transportencryption',
         label: gettext('Transport encryption'),

@@ -72,6 +72,9 @@ fruit:veto_appledouble = {{ fruit_veto_appledouble }}
 fruit:wipe_intentionally_left_blank_rfork = {{ fruit_wipe_intentionally_left_blank_rfork }}
 fruit:delete_empty_adfiles = {{ fruit_delete_empty_adfiles }}
 fruit:time machine = yes
+{%- if share.timemachinemaxsize | length > 0 %}
+fruit:time machine max size = {{ share.timemachinemaxsize }}
+{%- endif %}
 {%- endif %}
 {%- if share.recyclebin | to_bool %}
 {%- set _ = vfs_objects.append('recycle') %}
