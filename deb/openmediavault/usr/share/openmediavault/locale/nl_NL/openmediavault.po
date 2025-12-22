@@ -1803,7 +1803,7 @@ msgstr "Maandelijks beperken"
 msgid ""
 "Limit the reported disk size, thus preventing Time Machine from using the "
 "whole real disk space for backup."
-msgstr ""
+msgstr "Beperk de gerapporteerde schijfgrootte, zodat Time Machine niet de volledige schijfruimte kan gebruiken voor back-up."
 
 msgid "Limit weekly"
 msgstr "Wekelijks beperken"
@@ -1939,7 +1939,7 @@ msgid "Maximum"
 msgstr "Maximum"
 
 msgid "Maximum disk size"
-msgstr ""
+msgstr "Maximale schijfgrootte"
 
 msgid "Maximum file size"
 msgstr "Maximale bestandsgrootte"
@@ -3547,7 +3547,7 @@ msgid "This field must have the format <hh:mm:ss>."
 msgstr "Dit veld moet de notatie <hh:mm:ss> hebben."
 
 msgid "This field must match the format SIZE[K|M|G|T|P]."
-msgstr ""
+msgstr " De opmaak van dit veld moet overeenkomen met GROOTTE[K|M|G|T|P]."
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "Dit veld moet een IP-netwerkadres zijn in CIDR-notatie."

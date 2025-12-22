@@ -1795,7 +1795,7 @@ msgstr "Όριο μηνιαίων"
 msgid ""
 "Limit the reported disk size, thus preventing Time Machine from using the "
 "whole real disk space for backup."
-msgstr ""
+msgstr "Περιορίζει το δηλωμένο μέγεθος δίσκου, ώστε το Time Machine να μην καταναλώνει όλο τον χώρο του δίσκου για αντίγραφα ασφαλείας."
 
 msgid "Limit weekly"
 msgstr "Όριο εβδομαδιαίων"
@@ -1931,7 +1931,7 @@ msgid "Maximum"
 msgstr "Μέγιστο"
 
 msgid "Maximum disk size"
-msgstr ""
+msgstr "Μέγιστο μέγεθος δίσκου"
 
 msgid "Maximum file size"
 msgstr "Μέγιστο μέγεθος αρχείου"
@@ -3539,7 +3539,7 @@ msgid "This field must have the format <hh:mm:ss>."
 msgstr "Αυτό το πεδίο πρέπει να έχει μορφή <hh:mm:ss> ."
 
 msgid "This field must match the format SIZE[K|M|G|T|P]."
-msgstr ""
+msgstr "Αυτό το πεδίο διατυπώνεται ως SIZE[K|M|G|T|P]."
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "Αυτό το πεδίο δέχεται διεύθυνση ΙΡ σε μορφή CIDR."

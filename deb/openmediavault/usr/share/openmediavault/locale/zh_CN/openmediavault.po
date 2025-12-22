@@ -1802,7 +1802,7 @@ msgstr "限制每月"
 msgid ""
 "Limit the reported disk size, thus preventing Time Machine from using the "
 "whole real disk space for backup."
-msgstr ""
+msgstr "限制回報的磁碟容量，從而防止 Time Machine 使用整個實際磁碟空間進行備份。"
 
 msgid "Limit weekly"
 msgstr "限制每周"
@@ -1938,7 +1938,7 @@ msgid "Maximum"
 msgstr "最大"
 
 msgid "Maximum disk size"
-msgstr ""
+msgstr "最大磁碟空間"
 
 msgid "Maximum file size"
 msgstr "文件大小限制"
@@ -3546,7 +3546,7 @@ msgid "This field must have the format <hh:mm:ss>."
 msgstr "此字段的格式必须为 <hh:mm:ss>"
 
 msgid "This field must match the format SIZE[K|M|G|T|P]."
-msgstr ""
+msgstr "此欄位必須符合 SIZE[K|M|G|T|P] 格式。"
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "此字段应该是 CIDR 格式的 IP 地址。"
