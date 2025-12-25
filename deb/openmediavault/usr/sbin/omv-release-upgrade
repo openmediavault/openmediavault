@@ -47,7 +47,7 @@ fi
 
 # Immediately abort the upgrade process if there is a side-by-side installation
 # with a desktop environment.
-if dpkg -l | grep -Eqw 'gdm3|sddm|lxdm|xdm|lightdm|slim|wdm'; then
+if dpkg-query -W -f='${Package}\n' | grep -Eqx 'gdm3|sddm|lxdm|xdm|lightdm|slim|wdm'; then
   echo "This system is running a desktop environment! This setup is not supported." >&2
   exit 1
 fi

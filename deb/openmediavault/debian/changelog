@@ -1,4 +1,4 @@
-openmediavault (7.7.24-4) stable; urgency=medium
+openmediavault (7.7.24-5) stable; urgency=medium
 
   * Several improvements.
   * Add omv-release-upgrade to allow users to migrate their systems to
