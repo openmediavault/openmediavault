@@ -22,16 +22,11 @@
 
 {% set config = salt['omv_conf.get']('conf.system.powermngmnt') %}
 
-create_cpupower_script_dir:
-  file.directory:
-    - name: "/usr/libexec/cpupower/"
-    - makedirs: True
-
 install_cpupower_script:
   file.managed:
-    - name: "/usr/libexec/cpupower/cpupower.sh"
+    - name: "/usr/libexec/cpupower"
     - source:
-      - salt://{{ tpldir }}/files/usr-libexec-cpupower-cpupower_sh.j2
+      - salt://{{ tpldir }}/files/usr-libexec-cpupower.j2
     - user: root
     - group: root
     - mode: 755
