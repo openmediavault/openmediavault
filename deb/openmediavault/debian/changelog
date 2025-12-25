@@ -1,4 +1,4 @@
-openmediavault (8.0.2-1) stable; urgency=medium
+openmediavault (8.0.2-2) stable; urgency=medium
 
   * Improve cpupower deployment.
   * Fix postfix issue.

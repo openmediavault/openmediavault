@@ -24,6 +24,7 @@
 remove_postfix_sendmail_wrapper:
   file.absent:
     - name: "/usr/sbin/sendmail"
+    - onlyif: dpkg-divert --list /usr/sbin/sendmail | grep -q .
 
 remove_postfix_divert_sendmail:
   cmd.run:
