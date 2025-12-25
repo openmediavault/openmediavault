@@ -1,6 +1,7 @@
 openmediavault (8.0.2-1) stable; urgency=medium
 
   * Improve cpupower deployment.
+  * Fix postfix issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 25 Dec 2025 15:46:42 +0100
 

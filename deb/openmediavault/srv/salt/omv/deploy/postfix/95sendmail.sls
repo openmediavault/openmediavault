@@ -21,9 +21,13 @@
 
 {% if config.enable | to_bool %}
 
+remove_postfix_sendmail_wrapper:
+  file.absent:
+    - name: "/usr/sbin/sendmail"
+
 remove_postfix_divert_sendmail:
   cmd.run:
-    - name: dpkg-divert --no-rename --remove /usr/sbin/sendmail
+    - name: dpkg-divert --remove --rename /usr/sbin/sendmail
 
 {% else %}
 
@@ -34,7 +38,7 @@ remove_postfix_divert_sendmail:
 
 postfix_divert_sendmail:
   cmd.run:
-    - name: dpkg-divert --add --local --no-rename --divert /usr/sbin/sendmail.real /usr/sbin/sendmail
+    - name: dpkg-divert --add --rename --divert /usr/sbin/sendmail.real /usr/sbin/sendmail
 
 create_postfix_sendmail_wrapper:
   file.managed:
