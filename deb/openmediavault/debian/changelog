@@ -1,3 +1,9 @@
+openmediavault (8.0.3-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 27 Dec 2025 21:36:48 +0100
+
 openmediavault (8.0.2-2) stable; urgency=medium
 
   * Improve cpupower deployment.
