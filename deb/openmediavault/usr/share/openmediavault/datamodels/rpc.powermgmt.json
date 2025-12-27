@@ -12,6 +12,19 @@
 				"type": "string",
 				"required": true,
 				"enum": [ "nothing", "shutdown", "standby" ]
+			},
+			"emailbatching": {
+				"type": "object",
+				"properties": {
+					"enable": {
+						"type": "boolean"
+					},
+					"batchwindow": {
+						"type": "integer",
+						"minimum": 30,
+						"maximum": 300
+					}
+				}
 			}
 		}
 	}

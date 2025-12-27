@@ -1,0 +1,173 @@
+#!/bin/bash
+#
+# This file is part of OpenMediaVault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2025 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+
+set -e
+
+# Consolidated email sender for power management events
+# Reads collected events from log file and sends a single consolidated email
+
+OPERATION="$1"
+MARKER_FILE="/var/lib/openmediavault/powermgmt-operation.state"
+EVENT_LOG="/var/lib/openmediavault/powermgmt-events.log"
+
+# Check if marker file exists
+if [ ! -f "${MARKER_FILE}" ]; then
+	# No marker file, nothing to do
+	exit 0
+fi
+
+# Check if event log exists and has content
+if [ ! -f "${EVENT_LOG}" ] || [ ! -s "${EVENT_LOG}" ]; then
+	# No events logged, cleanup and exit
+	rm -f "${MARKER_FILE}" "${EVENT_LOG}"
+	exit 0
+fi
+
+# Build and send consolidated email using PHP
+php <<'PHPCODE'
+<?php
+require_once '/usr/share/php/openmediavault/autoloader.inc';
+
+$markerFile = '/var/lib/openmediavault/powermgmt-operation.state';
+$eventLog = '/var/lib/openmediavault/powermgmt-events.log';
+
+// Check if files exist
+if (!file_exists($markerFile) || !file_exists($eventLog)) {
+    exit(0);
+}
+
+// Parse marker file
+$markerContent = file_get_contents($markerFile);
+preg_match('/operation=(\w+)/', $markerContent, $matches);
+$operation = $matches[1] ?? 'unknown';
+
+// Read events from log file
+$events = [];
+if (file_exists($eventLog)) {
+    $lines = file($eventLog, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        $parts = explode('|', $line, 5);
+        if (count($parts) === 5) {
+            $events[] = [
+                'timestamp' => $parts[0],
+                'service' => $parts[1],
+                'event' => $parts[2],
+                'action' => $parts[3],
+                'description' => $parts[4]
+            ];
+        }
+    }
+}
+
+// If no events, cleanup and exit
+if (empty($events)) {
+    @unlink($markerFile);
+    @unlink($eventLog);
+    exit(0);
+}
+
+// Get email configuration from database
+try {
+    $db = \OMV\Config\Database::getInstance();
+    $emailConfig = $db->getAssoc("conf.system.notification.email");
+} catch (\Exception $e) {
+    // Cannot get email config, cleanup and exit
+    @unlink($markerFile);
+    @unlink($eventLog);
+    exit(1);
+}
+
+// Check if email notifications are enabled
+if (!$emailConfig['enable']) {
+    @unlink($markerFile);
+    @unlink($eventLog);
+    exit(0);
+}
+
+// Build subject
+$hostname = php_uname('n');
+$eventCount = count($events);
+$subject = sprintf("Scheduled %s - %d service event%s on %s",
+    strtoupper($operation),
+    $eventCount,
+    $eventCount === 1 ? '' : 's',
+    $hostname
+);
+
+// Build message
+$message = sprintf("A scheduled %s operation on %s generated the following service event%s:\n\n",
+    $operation,
+    $hostname,
+    $eventCount === 1 ? '' : 's'
+);
+
+$message .= "Summary:\n";
+$message .= str_repeat("-", 80) . "\n";
+foreach ($events as $event) {
+    $message .= sprintf("[%s] %s: %s (%s)\n",
+        $event['timestamp'],
+        $event['service'],
+        $event['event'],
+        $event['action']
+    );
+}
+
+$message .= "\nDetailed Events:\n";
+$message .= str_repeat("=", 80) . "\n";
+foreach ($events as $event) {
+    $message .= sprintf(
+        "Time:        %s\n" .
+        "Service:     %s\n" .
+        "Event:       %s\n" .
+        "Action:      %s\n" .
+        "Description: %s\n\n",
+        $event['timestamp'],
+        $event['service'],
+        $event['event'],
+        $event['action'],
+        $event['description']
+    );
+    $message .= str_repeat("-", 80) . "\n";
+}
+
+$message .= "\n—\n";
+$message .= "This is a consolidated notification for scheduled power management.\n";
+$message .= "To change settings, go to 'System | Power Management' in the web interface.";
+
+// Build recipient list
+$to = $emailConfig['primaryemail'];
+if (!empty($emailConfig['secondaryemail'])) {
+    $to .= ',' . $emailConfig['secondaryemail'];
+}
+
+// Send email
+try {
+    $mail = new \OMV\Email($emailConfig['sender'], $to, $subject, $message);
+    $mail->send();
+} catch (\Exception $e) {
+    // Log error but don't fail
+    syslog(LOG_ERR, sprintf("Failed to send power management consolidated email: %s", $e->getMessage()));
+}
+
+// Cleanup
+@unlink($markerFile);
+@unlink($eventLog);
+PHPCODE

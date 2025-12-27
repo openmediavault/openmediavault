@@ -1,0 +1,109 @@
+#!/bin/bash
+#
+# This file is part of OpenMediaVault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2025 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+
+set -e
+
+# Wrapper script for power management operations to enable email batching
+# This script intercepts scheduled power management tasks and consolidates
+# service event notifications into a single email.
+
+OPERATION="$1"
+MARKER_FILE="/var/lib/openmediavault/powermgmt-operation.state"
+EVENT_LOG="/var/lib/openmediavault/powermgmt-events.log"
+CONFIG_DB_XPATH=".//system/powermanagement/emailbatching"
+
+# Cleanup function to restore normal Monit configuration on error
+cleanup() {
+	if [ -f "${MARKER_FILE}" ]; then
+		# Operation cancelled/failed, restore normal Monit
+		/usr/sbin/omv-salt deploy run monit >/dev/null 2>&1 || true
+		rm -f "${MARKER_FILE}" "${EVENT_LOG}"
+	fi
+}
+trap cleanup EXIT TERM INT
+
+# Validate operation argument
+if [ -z "${OPERATION}" ]; then
+	echo "Usage: $0 <reboot|poweroff|suspend|hibernate|hybrid-sleep>" >&2
+	exit 1
+fi
+
+# Check if batching is enabled in database
+BATCHING_ENABLED=$(omv-confdbadm read --defaults "${CONFIG_DB_XPATH}/enable" 2>/dev/null || echo "0")
+
+if [ "${BATCHING_ENABLED}" != "1" ]; then
+	# Batching disabled, execute directly
+	exec systemctl "${OPERATION}"
+fi
+
+# Batching enabled - create marker file with metadata
+cat > "${MARKER_FILE}" <<EOF
+operation=${OPERATION}
+timestamp=$(date +%s)
+scheduled=true
+EOF
+
+# Ensure correct permissions for marker file
+chmod 644 "${MARKER_FILE}"
+
+# Clear previous event log
+> "${EVENT_LOG}"
+chmod 644 "${EVENT_LOG}"
+
+# Reconfigure Monit to use alert program instead of SMTP
+# This will redirect all alerts to our custom handler
+/usr/sbin/omv-salt deploy run monit.alertprogram >/dev/null 2>&1
+
+# Wait for Monit to reload with new configuration
+sleep 2
+
+# Handle different operation types
+case "${OPERATION}" in
+	reboot)
+		# For reboot, systemd service handles email after boot
+		# Execute reboot immediately
+		systemctl "${OPERATION}"
+		;;
+	poweroff|suspend|hibernate|hybrid-sleep)
+		# For shutdown/standby, wait for collection window
+		BATCH_WINDOW=$(omv-confdbadm read --defaults "${CONFIG_DB_XPATH}/batchwindow" 2>/dev/null || echo "60")
+
+		# Ensure batch window is within valid range
+		if [ "${BATCH_WINDOW}" -lt 30 ]; then
+			BATCH_WINDOW=30
+		elif [ "${BATCH_WINDOW}" -gt 300 ]; then
+			BATCH_WINDOW=300
+		fi
+
+		# Wait for events to be collected
+		sleep "${BATCH_WINDOW}"
+
+		# Send consolidated email
+		/usr/sbin/omv-powermgmt-sendemail "${OPERATION}"
+
+		# Execute power operation
+		systemctl "${OPERATION}"
+		;;
+	*)
+		echo "Unknown operation: ${OPERATION}" >&2
+		exit 1
+		;;
+esac

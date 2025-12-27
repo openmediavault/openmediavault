@@ -20,6 +20,21 @@
 			"type": "string",
 			"enum": [ "poweroff", "suspend", "hibernate", "suspendhybrid" ],
 			"default": "suspend"
+		},
+		"emailbatching": {
+			"type": "object",
+			"properties": {
+				"enable": {
+					"type": "boolean",
+					"default": false
+				},
+				"batchwindow": {
+					"type": "integer",
+					"minimum": 30,
+					"maximum": 300,
+					"default": 60
+				}
+			}
 		}
 	}
 }

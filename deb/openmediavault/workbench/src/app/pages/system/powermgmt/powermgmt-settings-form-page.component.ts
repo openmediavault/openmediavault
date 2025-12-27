@@ -87,6 +87,39 @@ export class PowermgmtSettingsFormPageComponent extends BaseFormPageComponent {
             }
           }
         }
+      },
+      {
+        type: 'divider',
+        title: gettext('Email Notification Batching')
+      },
+      {
+        type: 'checkbox',
+        name: 'emailbatching.enable',
+        label: gettext('Enable batching'),
+        hint: gettext(
+          'Consolidate service notifications during scheduled power operations into a single email.'
+        ),
+        value: false
+      },
+      {
+        type: 'numberInput',
+        name: 'emailbatching.batchwindow',
+        label: gettext('Batch window (seconds)'),
+        hint: gettext(
+          'Time to collect events before sending email (for shutdown/standby). Reboot sends after system restarts.'
+        ),
+        value: 60,
+        validators: {
+          min: 30,
+          max: 300,
+          requiredIf: { operator: 'truthy', arg0: { prop: 'emailbatching.enable' } }
+        },
+        modifiers: [
+          {
+            type: 'disabled',
+            constraint: { operator: 'falsy', arg0: { prop: 'emailbatching.enable' } }
+          }
+        ]
       }
     ],
     buttons: [

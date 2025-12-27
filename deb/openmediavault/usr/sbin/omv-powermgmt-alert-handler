@@ -1,0 +1,85 @@
+#!/bin/bash
+#
+# This file is part of OpenMediaVault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2025 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+
+set -e
+
+# Alert handler for Monit notifications during power management batching
+# When batching is active, this script logs events to a file instead of sending emails
+# When not in batching mode, sends email normally via PHP
+
+MARKER_FILE="/var/lib/openmediavault/powermgmt-operation.state"
+EVENT_LOG="/var/lib/openmediavault/powermgmt-events.log"
+EMAIL_CONFIG_XPATH=".//system/email"
+
+# Monit sets these environment variables:
+# MONIT_SERVICE - service name
+# MONIT_EVENT - event type (e.g., "Restart", "Stop", "Start")
+# MONIT_ACTION - action taken (e.g., "restart", "alert")
+# MONIT_DESCRIPTION - detailed description
+# MONIT_HOST - hostname
+# MONIT_DATE - date/time
+
+# Check if we're in batching mode
+if [ ! -f "${MARKER_FILE}" ]; then
+	# Not in batching mode, send email normally via PHP
+	SENDER=$(omv-confdbadm read "${EMAIL_CONFIG_XPATH}/sender" 2>/dev/null || echo "root@localhost")
+	PRIMARY_EMAIL=$(omv-confdbadm read "${EMAIL_CONFIG_XPATH}/primaryemail" 2>/dev/null || echo "root@localhost")
+	SECONDARY_EMAIL=$(omv-confdbadm read "${EMAIL_CONFIG_XPATH}/secondaryemail" 2>/dev/null || echo "")
+
+	# Build recipient list
+	TO="${PRIMARY_EMAIL}"
+	if [ -n "${SECONDARY_EMAIL}" ]; then
+		TO="${TO},${SECONDARY_EMAIL}"
+	fi
+
+	# Build subject
+	SUBJECT="${MONIT_EVENT} - ${MONIT_SERVICE}"
+
+	# Build message body
+	MESSAGE="The system monitoring needs your attention.
+
+Host:        ${MONIT_HOST}
+Date:        ${MONIT_DATE}
+Service:     ${MONIT_SERVICE}
+Event:       ${MONIT_EVENT}
+Description: ${MONIT_DESCRIPTION}
+
+This triggered the monitoring system to: ${MONIT_ACTION}
+
+—
+You have received this notification because you have enabled the system monitoring on this host.
+To change your notification preferences, please go to the 'System | Notification' or 'System | Monitoring' page in the web interface."
+
+	# Use PHP to send email via OMV\Email class
+	php -r "
+	require_once '/usr/share/php/openmediavault/autoloader.inc';
+	\$mail = new \OMV\Email('${SENDER}', '${TO}', '${SUBJECT}', '${MESSAGE}');
+	\$mail->send();
+	" 2>/dev/null || true
+
+	exit 0
+fi
+
+# Batching mode: Log event to file
+# Format: timestamp|service|event|action|description
+cat >> "${EVENT_LOG}" <<EOF
+$(date --iso-8601=seconds)|${MONIT_SERVICE:-unknown}|${MONIT_EVENT:-unknown}|${MONIT_ACTION:-unknown}|${MONIT_DESCRIPTION:-No description}
+EOF

@@ -1,0 +1,21 @@
+[Unit]
+Description=Send consolidated power management notifications after reboot
+After=network-online.target monit.service openmediavault-engined.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/bash -c 'if [ -f /var/lib/openmediavault/powermgmt-operation.state ]; then \
+    AGE=$(($(date +%%s) - $(stat -c %%Y /var/lib/openmediavault/powermgmt-operation.state))); \
+    if [ $AGE -gt 600 ]; then \
+        logger "Stale power management marker detected, cleaning up"; \
+        rm -f /var/lib/openmediavault/powermgmt-operation.state /var/lib/openmediavault/powermgmt-events.log; \
+        exit 1; \
+    fi; \
+fi'
+ExecStart=/usr/sbin/omv-powermgmt-sendemail reboot
+ExecStartPost=/usr/sbin/omv-powermgmt-restore-monit
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target

@@ -201,6 +201,7 @@ case "$1" in
 		deb-systemd-helper enable openmediavault-cleanup-php.service
 		deb-systemd-helper enable openmediavault-engined.service
 		deb-systemd-helper enable openmediavault-issue.service
+		deb-systemd-helper enable openmediavault-powermgmt-postreboot.service
 
 		########################################################################
 		# Activate trigger to rebuild workbench configuration files.
