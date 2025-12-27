@@ -169,8 +169,21 @@ class Btrfs extends Filesystem {
 		// System, DUP: total=8388608, used=16384
 		// Metadata, DUP: total=171048960, used=1458176
 		// GlobalReserve, single: total=3407872, used=0
+		//
+		// Related to: https://forum.openmediavault.org/index.php?thread/57958-bug-btrfs-drives-shows-incorrect-usage-value-in-file-systems
+		// In the examples above, it asssumes that every line ends with used=[number]
+		// However it shows up as below in Example 3, potentially due to changes in the btrfs fi df -b command, or HM-SMR drive info
+		//
+		// Example 3:
+		// Data, single: total=8858370048, used=8799649792, zone_unusable=0
+		// System, DUP: total=268435456, used=16384, zone_unusable=131072
+		// Metadata, DUP: total=268435456, used=11829248, zone_unusable=3440640
+		// GlobalReserve, single: total=8863744, used=16384
+		// 
+		// Regex needs to be able to match trailing text after used. 
+		// Changed from $ to .* to match any text
 		$regex = "/^([\w\+]+), (single|mixed|dup|raid0|raid1|raid10|raid5|".
-		  "raid6|raid1c3|raid1c4): total=([0-9]+), used=([0-9]+)$/i";
+		  "raid6|raid1c3|raid1c4): total=([0-9]+), used=([0-9]+).*/i";
 		foreach (preg_filter($regex, "$1 $2 $3 $4", $output) as $rowv) {
 			list($type, $profile, $t, $u) = explode(" ", $rowv);
 			switch (mb_strtoupper($profile)) {
