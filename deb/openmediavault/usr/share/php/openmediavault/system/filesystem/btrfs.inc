@@ -170,7 +170,7 @@ class Btrfs extends Filesystem {
 		// Metadata, DUP: total=171048960, used=1458176
 		// GlobalReserve, single: total=3407872, used=0
 		$regex = "/^([\w\+]+), (single|mixed|dup|raid0|raid1|raid10|raid5|".
-		  "raid6|raid1c3|raid1c4): total=([0-9]+), used=([0-9]+)$/i";
+		  "raid6|raid1c3|raid1c4): total=([0-9]+), used=([0-9]+).*/i";
 		foreach (preg_filter($regex, "$1 $2 $3 $4", $output) as $rowv) {
 			list($type, $profile, $t, $u) = explode(" ", $rowv);
 			switch (mb_strtoupper($profile)) {
