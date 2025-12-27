@@ -29,7 +29,8 @@
 {% for value in salt['pkg.list_repos']().values() %}
 {% set _ = pkg_repos.extend(value) %}
 {% endfor %}
-{% set security_pkg_repos = pkg_repos | rejectattr('disabled') | selectattr('uri', 'match', '^https?://((deb|security).debian.org|security.ubuntu.com)/.*-security$') | list %}
+{% set pkg_repos = pkg_repos | rejectattr('disabled') | list %}
+{% set security_pkg_repos = pkg_repos | selectattr('uri', 'match', '^https?://((deb|security).debian.org|security.ubuntu.com)/.*-security$') | list %}
 
 # Workaround for https://github.com/mvo5/unattended-upgrades/issues/366
 remove_apt_default_unattended_upgrades_conf:
@@ -40,6 +41,28 @@ remove_apt_default_unattended_upgrades_conf:
 divert_apt_default_unattended_upgrades_conf:
   omv_dpkg.divert_add:
     - name: "/etc/apt/apt.conf.d/50unattended-upgrades"
+
+# Workaround for https://lists.debian.org/debian-boot/2025/09/msg00011.html
+{% if pkg_repos | rejectattr('type', '!=', 'deb') | selectattr('dist', '==', grains['oscodename']) | list | length == 0 %}
+
+configure_apt_sources_list_debian_{{ grains['oscodename'] }}:
+  file.append:
+    - name: "/etc/apt/sources.list"
+    - text: |
+        deb http://httpredir.debian.org/debian {{ grains['oscodename'] }} main contrib non-free non-free-firmware
+
+{% endif %}
+
+# Workaround for https://lists.debian.org/debian-boot/2025/09/msg00011.html
+{% if pkg_repos | rejectattr('type', '!=', 'deb') | selectattr('dist', '==', grains['oscodename'] ~ "-updates") | list | length == 0 %}
+
+configure_apt_sources_list_debian_{{ grains['oscodename'] }}_updates:
+  file.append:
+    - name: "/etc/apt/sources.list"
+    - text: |
+        deb http://httpredir.debian.org/debian {{ grains['oscodename'] }}-updates main contrib non-free non-free-firmware
+
+{% endif %}
 
 configure_apt_sources_list_openmediavault:
   file.managed:
