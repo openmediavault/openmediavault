@@ -1,6 +1,7 @@
 openmediavault (8.0.3-1) stable; urgency=medium
 
-  *
+  * Make sure Debian package repositories are configured.
+  * Fix parsing the BTRFS statistics.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 27 Dec 2025 21:36:48 +0100
 
@@ -42,7 +43,7 @@ openmediavault (8.0-13) stable; urgency=medium
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:40:50 +0200
 
-openmediavault (7.7.24-2) stable; urgency=medium
+openmediavault (7.7.24-6) stable; urgency=medium
 
   * Several improvements.
   * Add omv-release-upgrade to allow users to migrate their systems to
