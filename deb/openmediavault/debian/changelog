@@ -1,3 +1,11 @@
+openmediavault (8.0.4-1) stable; urgency=medium
+
+  * Add OMV_MD_STRIPE_CACHE_SIZE environment variable to customize
+    the `md/stripe_cache_size` setting for MD RAID5/RAID6 arrays.
+    Defaults to 8192.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 28 Dec 2025 18:56:04 +0100
+
 openmediavault (8.0.3-1) stable; urgency=medium
 
   * Make sure Debian package repositories are configured.
