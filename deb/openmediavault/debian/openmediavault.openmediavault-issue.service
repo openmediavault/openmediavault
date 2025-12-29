@@ -6,7 +6,7 @@ Before=getty.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/sbin/omv-salt deploy run --quiet --no-color issue
+ExecStart=/usr/bin/salt-call --local --retcode-passthrough --no-color state.orchestrate omv.deploy.issue
 RemainAfterExit=yes
 
 [Install]

@@ -42,4 +42,10 @@ reload_issue:
     - onchanges:
       - file: configure_issue
 
+{% else %}
+
+# Prevent empty rendering.
+issue_nop:
+  test.nop
+
 {% endif %}
