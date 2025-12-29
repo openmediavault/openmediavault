@@ -7,6 +7,8 @@ Before=getty.target
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/salt-call --local --retcode-passthrough --no-color state.orchestrate omv.deploy.issue
+StandardOutput=null
+StandardError=journal
 RemainAfterExit=yes
 
 [Install]
