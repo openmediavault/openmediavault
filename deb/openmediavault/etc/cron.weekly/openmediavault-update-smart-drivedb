@@ -34,11 +34,12 @@ export LC_ALL=C.UTF-8
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED=${OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED:-"yes"}
+OMV_SMARTMONTOOLS_UPDATE_DRIVEDB_ENABLED=${OMV_SMARTMONTOOLS_UPDATE_DRIVEDB_ENABLED:-"yes"}
+OMV_SMARTMONTOOLS_UPDATE_DRIVEDB_OPTIONS=${OMV_SMARTMONTOOLS_UPDATE_DRIVEDB_OPTIONS:-""}
 
 set -e
 
-if omv_checkyesno "${OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED}"; then
+if omv_checkyesno "${OMV_SMARTMONTOOLS_UPDATE_DRIVEDB_ENABLED}"; then
   omv_syslog_info "Updating smartmontools drive database."
-  update-smart-drivedb >/dev/null
+  update-smart-drivedb ${OMV_SMARTMONTOOLS_UPDATE_DRIVEDB_OPTIONS} >/dev/null
 fi
