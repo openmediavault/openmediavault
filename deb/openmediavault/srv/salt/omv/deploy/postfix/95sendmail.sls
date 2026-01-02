@@ -24,7 +24,7 @@
 remove_postfix_sendmail_wrapper:
   file.absent:
     - name: "/usr/sbin/sendmail"
-    - onlyif: dpkg-divert --list /usr/sbin/sendmail | grep -q .
+    - onlyif: "dpkg-divert --list /usr/sbin/sendmail | grep -q ."
 
 remove_postfix_divert_sendmail:
   cmd.run:
@@ -40,13 +40,13 @@ remove_postfix_divert_sendmail:
 postfix_divert_sendmail:
   cmd.run:
     - name: dpkg-divert --add --rename --divert /usr/sbin/sendmail.real /usr/sbin/sendmail
+    - unless: "dpkg-divert --list /usr/sbin/sendmail | grep -q ."
 
 create_postfix_sendmail_wrapper:
-  file.managed:
+  file.symlink:
     - name: "/usr/sbin/sendmail"
-    - contents: |
-        #!/bin/sh
-        exit 0
+    - target: "/usr/bin/true"
+    - force: True
     - user: root
     - group: root
     - mode: 755
