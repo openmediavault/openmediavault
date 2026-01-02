@@ -1,24 +1,18 @@
-{%- set autostart = salt['pillar.get']('default:OMV_MDADM_AUTOSTART', 'true') -%}
 {%- set autocheck = salt['pillar.get']('default:OMV_MDADM_AUTOCHECK', 'true') -%}
+{%- set autoscan = salt['pillar.get']('default:OMV_MDADM_AUTOSCAN', 'true') -%}
 {%- set start_daemon = salt['pillar.get']('default:OMV_MDADM_STARTDAEMON', 'true') -%}
 {%- set daemon_options = salt['pillar.get']('default:OMV_MDADM_DAEMONOPTIONS', '--syslog') -%}
 {%- set verbose = salt['pillar.get']('default:OMV_MDADM_VERBOSE', 'false') -%}
 {{ pillar['headers']['multiline'] }}
-# INITRDSTART:
-#   list of arrays (or 'all') to start automatically when the initial ramdisk
-#   loads. This list *must* include the array holding your root filesystem. Use
-#   'none' to prevent any array from being started from the initial ramdisk.
-#INITRDSTART='none'
-
-# AUTOSTART:
-#   should mdadm start arrays listed in /etc/mdadm/mdadm.conf automatically
-#   during boot?
-AUTOSTART={{ autostart }}
-
 # AUTOCHECK:
 #   should mdadm run periodic redundancy checks over your arrays? See
 #   /etc/cron.d/mdadm.
 AUTOCHECK={{ autocheck }}
+
+# AUTOSCAN:
+#   should mdadm check once a day for degraded arrays? See
+#   /lib/systemd/system/mdmonitor-oneshot.service
+AUTOSCAN={{ autoscan }}
 
 # START_DAEMON:
 #   should mdadm start the MD monitoring daemon during boot?
