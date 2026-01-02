@@ -27,6 +27,7 @@
 # Test:
 # udevadm control --reload-rules
 # udevadm test /sys/block/mdX
+# udevadm monitor
 # cat /sys/block/mdX/md/stripe_cache_size
 ACTION=="add|change", \
   SUBSYSTEM=="block", KERNEL=="md*", TEST=="md/stripe_cache_size", \
