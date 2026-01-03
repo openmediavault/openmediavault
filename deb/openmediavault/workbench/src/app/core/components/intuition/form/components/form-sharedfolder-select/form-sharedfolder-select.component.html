@@ -6,6 +6,7 @@
               [required]="config.validators?.required">
     <ng-container *ngIf="!loading; else renderLoading">
       <mat-option *ngFor="let option of config.store.data"
+                  [disabled]="option.status !== 1"
                   [value]="option[config.valueField]">
         {{option[config.textField]}}
       </mat-option>

@@ -160,7 +160,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			]);
 			$objectDict->set("snapshots", FALSE);
 			$objectDict->set("absdirpath", "");
-			$objectDict->set("status", 2); // Unavailable
+			$objectDict->set("status", 0); // Unknown
 			// Get the mount point configuration object to append additional
 			// information to the returned objects, e.g. the devicefile or
 			// a modified description.
@@ -224,6 +224,22 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 					$objectDict->set("snapshots", $snapshotsSupported);
 				}
 				$objectDict->set("status", 1); // Available
+			} else {
+				// Modify the description field.
+				if (!empty($objectDict->get("comment"))) {
+					$objectDict->set("description", sprintf(
+						gettext("%s [%s, %s]"),
+						$objectDict->get("name"),
+						gettext("Unavailable"),
+						$objectDict->get("comment")));
+				} else {
+					$objectDict->set("description", sprintf(
+						gettext("%s [%s, %s]"),
+						$objectDict->get("name"),
+						gettext("Unavailable"),
+						$objectDict->get("reldirpath")));
+				}
+				$objectDict->set("status", 2); // Unavailable
 			}
 			// Is the shared folder referenced by any object? Shared
 			// folder references are named 'sharedfolderref'.
