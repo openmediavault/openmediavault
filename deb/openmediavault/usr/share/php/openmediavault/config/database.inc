@@ -219,6 +219,25 @@ class Database {
 	}
 
 	/**
+	 * Assert that the specified configuration object exists.
+	 * @param string $id The data model identifier, e.g. 'conf.service.ftp'.
+	 * @param string $uuid The UUID of an configuration object.
+	 * @return void
+	 * @throw \OMV\AssertException
+	 */
+	public function assertExists($id, $uuid) {
+		if (FALSE === $this->exists($id, [
+			"operator" => "stringEquals",
+			"arg0" => "uuid",
+			"arg1" => $uuid
+		])) {
+			throw new \OMV\AssertException(
+			  "The configuration object '%s' with the UUID '%s' does not exist.",
+			  $id, $uuid);
+		}
+	}
+
+	/**
 	 * Set the configuration object at the specified XPath expression.
 	 * If the configuration object is iterable and identified as new,
 	 * then the identifier property (in most cases 'uuid') will be
