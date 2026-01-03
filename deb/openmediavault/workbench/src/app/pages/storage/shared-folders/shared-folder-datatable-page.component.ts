@@ -44,7 +44,8 @@ export class SharedFolderDatatablePageComponent {
         }
       },
       transform: {
-        absdirpath: '/{{ [mntent.dir, reldirpath] | map("strip", "/")  | compact() | join("/") }}'
+        absdirpath: '{{ absdirpath | notavailable() }}',
+        status: '{{ absdirpath | length | min(1) }}'
       }
     },
     rowEnumFmt: '{{ name }}',
@@ -90,6 +91,21 @@ export class SharedFolderDatatablePageComponent {
         },
         flexGrow: 1,
         sortable: true
+      },
+      {
+        name: gettext('Status'),
+        prop: 'status',
+        flexGrow: 1,
+        sortable: true,
+        cellTemplateName: 'chip',
+        cellTemplateConfig: {
+          map: {
+            /* eslint-disable @typescript-eslint/naming-convention */
+            1: { value: gettext('Online'), class: 'omv-background-color-pair-success' },
+            0: { value: gettext('Missing'), class: 'omv-background-color-pair-error' }
+            /* eslint-enable @typescript-eslint/naming-convention */
+          }
+        }
       }
     ],
     actions: [

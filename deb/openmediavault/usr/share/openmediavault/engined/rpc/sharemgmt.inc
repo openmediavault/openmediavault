@@ -154,6 +154,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				"posixacl" => FALSE
 			]);
 			$objectDict->set("snapshots", FALSE);
+			$objectDict->set("absdirpath", "");
 			// Get the mount point configuration object to append additional
 			// information to the returned objects, e.g. the devicefile or
 			// a modified description.
@@ -202,9 +203,11 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 						$objectDict->get("device"),
 						$objectDict->get("reldirpath")));
 				}
-				// Are snapshots supported?
+				// Build the absolute path of the shared folder.
 				$sfAbsPath = build_path(DIRECTORY_SEPARATOR,
 					$meObject->get("dir"), $objectv->get("reldirpath"));
+				$objectDict->set("absdirpath", $sfAbsPath);
+				// Are snapshots supported?
 				if (("btrfs" == $meObject->get("type")) && !is_null($fs)) {
 					// Try to get the subvolume information.
 					$sfInfo = $fs->getSubvolumeInfo($sfAbsPath);
