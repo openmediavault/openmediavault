@@ -44,8 +44,7 @@ export class SharedFolderDatatablePageComponent {
         }
       },
       transform: {
-        absdirpath: '{{ absdirpath | notavailable() }}',
-        status: '{{ absdirpath | length | min(1) }}'
+        absdirpath: '{{ absdirpath | notavailable() }}'
       }
     },
     rowEnumFmt: '{{ name }}',
@@ -101,8 +100,9 @@ export class SharedFolderDatatablePageComponent {
         cellTemplateConfig: {
           map: {
             /* eslint-disable @typescript-eslint/naming-convention */
+            0: { value: gettext('Unknown'), class: 'omv-background-color-pair-error' },
             1: { value: gettext('Available'), class: 'omv-background-color-pair-success' },
-            0: { value: gettext('Unavailable'), class: 'omv-background-color-pair-error' }
+            2: { value: gettext('Unavailable'), class: 'omv-background-color-pair-error' }
             /* eslint-enable @typescript-eslint/naming-convention */
           }
         }

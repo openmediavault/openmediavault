@@ -129,6 +129,11 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The list of configured shared folders.
+	 *   The field 'status' has the following meaning:<ul>
+	 *   \li 0 - Unknown
+	 *   \li 1 - Available
+	 *   \li 2 - Unavailable (e.g. the referenced mount point database object is non-existent)
+	 *   </ul>
 	 */
 	public function enumerateSharedFolders($params, $context) {
 		// Validate the RPC caller context.
@@ -155,6 +160,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			]);
 			$objectDict->set("snapshots", FALSE);
 			$objectDict->set("absdirpath", "");
+			$objectDict->set("status", 2); // Unavailable
 			// Get the mount point configuration object to append additional
 			// information to the returned objects, e.g. the devicefile or
 			// a modified description.
@@ -217,6 +223,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 						$sfInfo['parent_uuid']));
 					$objectDict->set("snapshots", $snapshotsSupported);
 				}
+				$objectDict->set("status", 1); // Available
 			}
 			// Is the shared folder referenced by any object? Shared
 			// folder references are named 'sharedfolderref'.
