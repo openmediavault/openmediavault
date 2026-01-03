@@ -100,9 +100,9 @@ export class SharedFolderDatatablePageComponent {
         cellTemplateConfig: {
           map: {
             /* eslint-disable @typescript-eslint/naming-convention */
-            0: { value: gettext('Unknown'), class: 'omv-background-color-pair-error' },
-            1: { value: gettext('Available'), class: 'omv-background-color-pair-success' },
-            2: { value: gettext('Unavailable'), class: 'omv-background-color-pair-error' }
+            unknown: { value: gettext('Unknown'), class: 'omv-background-color-pair-error' },
+            available: { value: gettext('Available'), class: 'omv-background-color-pair-success' },
+            unavailable: { value: gettext('Unavailable'), class: 'omv-background-color-pair-error' }
             /* eslint-enable @typescript-eslint/naming-convention */
           }
         }
