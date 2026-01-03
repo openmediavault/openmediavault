@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 21:55+0100\n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -58,6 +58,9 @@ msgstr "%d лет"
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) использовано, %s доступно] "
+
+msgid "%s [%s, %s]"
+msgstr ""
 
 msgid "%s [%s]"
 msgstr ""
@@ -2094,6 +2097,9 @@ msgstr "Мозамбик"
 msgid "Myanmar"
 msgstr "Мьянма"
 
+msgid "N/A"
+msgstr ""
+
 msgid "NFS"
 msgstr "NFS"
 
@@ -3799,6 +3805,9 @@ msgstr "Уганда"
 msgid "Ukraine"
 msgstr "Украина"
 
+msgid "Unavailable"
+msgstr ""
+
 msgid "Undo"
 msgstr "Отменить"
 
@@ -4227,9 +4236,6 @@ msgstr "час"
 
 msgid "in %s"
 msgstr "через %s"
-
-msgid "n/a"
-msgstr "n/a"
 
 msgid "selected"
 msgstr "выбрано"

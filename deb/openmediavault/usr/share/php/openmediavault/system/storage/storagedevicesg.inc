@@ -124,7 +124,7 @@ class StorageDeviceSG implements SmartInterface {
 	 */
 	public function getDescription() {
 		$model = $this->getModel();
-		return sprintf("%s [%s]", !empty($model) ? $model : gettext("n/a"),
+		return sprintf("%s [%s]", !empty($model) ? $model : gettext("N/A"),
 			$this->getDeviceFile());
 	}
 

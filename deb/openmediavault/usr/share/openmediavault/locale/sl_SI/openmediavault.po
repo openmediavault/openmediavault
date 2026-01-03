@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 21:55+0100\n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -45,6 +45,9 @@ msgstr "%d let"
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) uporabljeno, %s razpoložljivo]"
+
+msgid "%s [%s, %s]"
+msgstr ""
 
 msgid "%s [%s]"
 msgstr "%s [%s]"
@@ -2081,6 +2084,9 @@ msgstr "Mozambik"
 msgid "Myanmar"
 msgstr "Mjanmar"
 
+msgid "N/A"
+msgstr ""
+
 msgid "NFS"
 msgstr "NFS"
 
@@ -3786,6 +3792,9 @@ msgstr "Uganda"
 msgid "Ukraine"
 msgstr "Ukrajina"
 
+msgid "Unavailable"
+msgstr ""
+
 msgid "Undo"
 msgstr "Razveljavi"
 
@@ -4214,9 +4223,6 @@ msgstr "ura"
 
 msgid "in %s"
 msgstr "v %s"
-
-msgid "n/a"
-msgstr "n/a"
 
 msgid "selected"
 msgstr "izbran"

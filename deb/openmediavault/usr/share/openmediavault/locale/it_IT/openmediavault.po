@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 21:55+0100\n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -52,6 +52,9 @@ msgstr "%d anni"
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) utilizzato, %s disponibile]"
+
+msgid "%s [%s, %s]"
+msgstr ""
 
 msgid "%s [%s]"
 msgstr "%s [%s]"
@@ -2088,6 +2091,9 @@ msgstr "Mozambico"
 msgid "Myanmar"
 msgstr "Birmania"
 
+msgid "N/A"
+msgstr ""
+
 msgid "NFS"
 msgstr "NFS"
 
@@ -3793,6 +3799,9 @@ msgstr "Uganda"
 msgid "Ukraine"
 msgstr "Ucraina"
 
+msgid "Unavailable"
+msgstr ""
+
 msgid "Undo"
 msgstr "Annulla"
 
@@ -4221,9 +4230,6 @@ msgstr "1 ora"
 
 msgid "in %s"
 msgstr "in %s"
-
-msgid "n/a"
-msgstr "non disponibile"
 
 msgid "selected"
 msgstr "selezionato"

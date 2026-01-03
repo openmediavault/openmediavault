@@ -9,17 +9,17 @@ describe('NotAvailablePipe', () => {
 
   it('transforms with value (1)', () => {
     const value = null;
-    expect(pipe.transform(value)).toBe('n/a');
+    expect(pipe.transform(value)).toBe('N/A');
   });
 
   it('transforms with value (2)', () => {
     const value = undefined;
-    expect(pipe.transform(value)).toBe('n/a');
+    expect(pipe.transform(value)).toBe('N/A');
   });
 
   it('transforms with value (3)', () => {
     const value = '';
-    expect(pipe.transform(value)).toBe('n/a');
+    expect(pipe.transform(value)).toBe('N/A');
   });
 
   it('transforms with some value', () => {

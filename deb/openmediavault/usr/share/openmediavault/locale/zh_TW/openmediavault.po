@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 21:55+0100\n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2025\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -46,6 +46,9 @@ msgstr "%d 年"
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) 已用，%s 可用]"
+
+msgid "%s [%s, %s]"
+msgstr ""
 
 msgid "%s [%s]"
 msgstr "%s [%s]"
@@ -2082,6 +2085,9 @@ msgstr "莫桑比克"
 msgid "Myanmar"
 msgstr "緬甸"
 
+msgid "N/A"
+msgstr ""
+
 msgid "NFS"
 msgstr "NFS"
 
@@ -3787,6 +3793,9 @@ msgstr "烏干達"
 msgid "Ukraine"
 msgstr "烏克蘭"
 
+msgid "Unavailable"
+msgstr ""
+
 msgid "Undo"
 msgstr "復原"
 
@@ -4215,9 +4224,6 @@ msgstr "一小時"
 
 msgid "in %s"
 msgstr "在 %s 內"
-
-msgid "n/a"
-msgstr "n/a"
 
 msgid "selected"
 msgstr "已選"

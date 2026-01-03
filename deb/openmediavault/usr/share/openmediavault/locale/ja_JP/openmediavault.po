@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 21:55+0100\n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -44,6 +44,9 @@ msgstr "%d 年"
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) 使用中, %s 利用可能]"
+
+msgid "%s [%s, %s]"
+msgstr ""
 
 msgid "%s [%s]"
 msgstr "%s [%s]"
@@ -2080,6 +2083,9 @@ msgstr "モザンビーク"
 msgid "Myanmar"
 msgstr "ミャンマー"
 
+msgid "N/A"
+msgstr ""
+
 msgid "NFS"
 msgstr "NFS"
 
@@ -3785,6 +3791,9 @@ msgstr "ウガンダ"
 msgid "Ukraine"
 msgstr "ウクライナ"
 
+msgid "Unavailable"
+msgstr ""
+
 msgid "Undo"
 msgstr "もとに戻す"
 
@@ -4213,9 +4222,6 @@ msgstr "1時間"
 
 msgid "in %s"
 msgstr "%s の中"
-
-msgid "n/a"
-msgstr "n/a"
 
 msgid "selected"
 msgstr "選択済み"

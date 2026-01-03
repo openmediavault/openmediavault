@@ -14,7 +14,7 @@ describe('DefaultToPipe', () => {
 
   it('transform value (2)', () => {
     const value = undefined;
-    expect(pipe.transform(value, 'n/a')).toBe('n/a');
+    expect(pipe.transform(value, 'N/A')).toBe('N/A');
   });
 
   it('transform value (3)', () => {

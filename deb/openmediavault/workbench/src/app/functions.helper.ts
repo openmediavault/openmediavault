@@ -341,13 +341,13 @@ export const binaryUnit = (
  * NaN or empty.
  *
  * @param value The value to process.
- * @param defaultValue The default value, defaults to 'n/a'.
+ * @param defaultValue The default value, defaults to 'N/A'.
  * @return The input value or the given default value if the specified
  *   conditions do not match.
  */
 export const notAvailable = (value, defaultValue?: any) =>
   _.isUndefined(value) || _.isNull(value) || _.isNaN(value) || value === ''
-    ? _.defaultTo(defaultValue, translate(gettext('n/a')))
+    ? _.defaultTo(defaultValue, translate(gettext('N/A')))
     : value;
 
 /**

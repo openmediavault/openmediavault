@@ -91,7 +91,7 @@ class StorageDevice extends \OMV\System\BlockDevice
 	 */
 	public function getDescription() {
 		$model = $this->getModel();
-		return sprintf("%s [%s, %s]", !empty($model) ? $model : gettext("n/a"),
+		return sprintf("%s [%s, %s]", !empty($model) ? $model : gettext("N/A"),
 			$this->getPreferredDeviceFile(), binary_format($this->getSize()));
 	}
 

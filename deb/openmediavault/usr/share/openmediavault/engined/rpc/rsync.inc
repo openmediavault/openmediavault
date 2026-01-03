@@ -68,8 +68,8 @@ class Rsync extends \OMV\Rpc\ServiceAbstract {
 		$objectsAssoc = [];
 		foreach ($objects as $objectk => &$objectv) {
 			// Add additional properties.
-			$objectv->add("srcname", "string", gettext("n/a"));
-			$objectv->add("destname", "string", gettext("n/a"));
+			$objectv->add("srcname", "string", gettext("N/A"));
+			$objectv->add("destname", "string", gettext("N/A"));
 			// Set the prooperties depending on the 'type' property.
 			switch ($objectv->get("type")) {
 			case "local":

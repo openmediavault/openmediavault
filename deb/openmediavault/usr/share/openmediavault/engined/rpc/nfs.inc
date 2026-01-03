@@ -113,7 +113,7 @@ class Nfs extends \OMV\Rpc\ServiceAbstract {
 		$objectsAssoc = [];
 		foreach ($objects as $objectk => &$objectv) {
 			// Add the new property 'sharedfoldername'.
-			$objectv->add("sharedfoldername", "string", gettext("n/a"));
+			$objectv->add("sharedfoldername", "string", gettext("N/A"));
 			// Get the shared folder configuration object.
 			$sfObject = $db->get("conf.system.sharedfolder",
 			  $objectv->get("sharedfolderref"));

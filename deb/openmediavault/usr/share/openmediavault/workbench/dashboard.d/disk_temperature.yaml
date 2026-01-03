@@ -10,7 +10,7 @@ data:
   title: _("Disk Temperatures")
   description: _("Displays the temperature of all disk devices.")
   i18n:
-    - _("n/a")
+    - _("N/A")
   grid:
     item:
       content: '{{ canonicaldevicefile }}<br>{{ temperature | notavailable }}{% if temperature %}°C{% endif %}'

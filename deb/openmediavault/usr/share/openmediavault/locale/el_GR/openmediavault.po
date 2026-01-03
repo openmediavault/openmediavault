@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 21:55+0100\n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2025\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -44,6 +44,9 @@ msgstr "%d έτη"
 
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) χρησιμοποιημένο, %s διαθέσιμο]"
+
+msgid "%s [%s, %s]"
+msgstr ""
 
 msgid "%s [%s]"
 msgstr "%s [%s]"
@@ -2080,6 +2083,9 @@ msgstr "Mozambique"
 msgid "Myanmar"
 msgstr "Myanmar"
 
+msgid "N/A"
+msgstr ""
+
 msgid "NFS"
 msgstr "NFS"
 
@@ -3785,6 +3791,9 @@ msgstr "Uganda"
 msgid "Ukraine"
 msgstr "Ukraine"
 
+msgid "Unavailable"
+msgstr ""
+
 msgid "Undo"
 msgstr "Αναίρεση"
 
@@ -4213,9 +4222,6 @@ msgstr "μία ώρα"
 
 msgid "in %s"
 msgstr "σε %s"
-
-msgid "n/a"
-msgstr "τίποτα"
 
 msgid "selected"
 msgstr "επιλεγμένα"

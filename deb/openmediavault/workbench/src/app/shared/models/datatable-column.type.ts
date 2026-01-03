@@ -57,7 +57,7 @@ export type DatatableColumn = TableColumn & {
    * checkIcon - Render a checkbox if value is true.
    * placeholder - Display a '-' for empty values.
    * progressBar - Render a progress bar.
-   * notAvailable - Display a 'n/a' for empty values.
+   * notAvailable - Display a 'N/A' for empty values.
    * join - Concat array values using ', '.
    * truncate - Truncates string if it's longer than the given maximum
    *            string length.
@@ -99,7 +99,7 @@ export type DatatableColumn = TableColumn & {
    *                text - Render plain text.
    *                bold - Render text using bold font.
    *                placeholder - Display a '-' for empty values.
-   *                notAvailable - Display a 'n/a' for empty values.
+   *                notAvailable - Display a 'N/A' for empty values.
    *                join - Concat array values using ', '.
    *                checkIcon - Render a checkbox if value is true.
    *                progressBar - Render a progress bar.

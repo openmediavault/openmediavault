@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-ftp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -179,6 +179,9 @@ msgstr ""
 msgid "Min. passive port"
 msgstr ""
 
+msgid "N/A"
+msgstr ""
+
 msgid "No session reuse required"
 msgstr ""
 
@@ -309,7 +312,4 @@ msgid "Welcome message"
 msgstr ""
 
 msgid "When a client initially connects to the server the ident protocol is used to attempt to identify the remote user name."
-msgstr ""
-
-msgid "n/a"
 msgstr ""

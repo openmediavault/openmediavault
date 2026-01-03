@@ -312,15 +312,15 @@ describe('functions.helper', () => {
   });
 
   it('should be not available [1]', () => {
-    expect(notAvailable('')).toBe('n/a');
+    expect(notAvailable('')).toBe('N/A');
   });
 
   it('should be not available [2]', () => {
-    expect(notAvailable(null)).toBe('n/a');
+    expect(notAvailable(null)).toBe('N/A');
   });
 
   it('should be not available [3]', () => {
-    expect(notAvailable(undefined)).toBe('n/a');
+    expect(notAvailable(undefined)).toBe('N/A');
   });
 
   it('should be not available [4]', () => {

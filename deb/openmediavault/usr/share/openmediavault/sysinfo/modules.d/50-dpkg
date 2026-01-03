@@ -35,7 +35,7 @@ omv_sysinfo_msg_caption "Upgradeable packages index"
 if [ -e "${OMV_APT_UPGRADE_INDEX_FILE}" ]; then
 	omv_sysinfo_msg <${OMV_APT_UPGRADE_INDEX_FILE}
 else
-	omv_sysinfo_msg "n/a"
+	omv_sysinfo_msg "N/A"
 fi
 omv_sysinfo_end_msg
 
