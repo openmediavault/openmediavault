@@ -49,7 +49,7 @@
     "@codemirror/search": "^6.5.11",
     "@codemirror/state": "^6.5.3",
     "@codemirror/theme-one-dark": "^6.1.3",
-    "@codemirror/view": "^6.39.7",
+    "@codemirror/view": "^6.39.8",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/roboto-mono": "^5.2.8",
     "@mdi/angular-material": "^7.2.96",
