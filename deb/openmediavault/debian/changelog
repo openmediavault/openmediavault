@@ -6,7 +6,7 @@ openmediavault (8.0.5-1) stable; urgency=medium
   * Fix the sendmail wrapper bug when email notifications are disabled and
     the postfix configuration is generated.
   * Improved visualization of shared folders that point to a non-existent
-    filesystem.
+    filesystem. These are now displayed as `Unavailable`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 02 Jan 2026 21:36:28 +0100
 
