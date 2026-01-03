@@ -7,7 +7,7 @@
 # Sári Gábor <sari.gabor@gmail.com>, 2017
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2018-2020
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2017
-# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2025
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2026
 # Sári Gábor <sari.gabor@gmail.com>, 2018,2022,2024
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2023
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-21 21:55+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2025\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2026\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1801,7 +1801,7 @@ msgstr "Havi határérték"
 msgid ""
 "Limit the reported disk size, thus preventing Time Machine from using the "
 "whole real disk space for backup."
-msgstr ""
+msgstr "Korlátozza a jelentett lemez méretét, így megakadályozva, hogy a Time Machine a teljes tényleges lemezterületet használja a biztonsági mentéshez."
 
 msgid "Limit weekly"
 msgstr "Heti határérték"
@@ -1937,7 +1937,7 @@ msgid "Maximum"
 msgstr "Maximum"
 
 msgid "Maximum disk size"
-msgstr ""
+msgstr "Maximális lemezméret "
 
 msgid "Maximum file size"
 msgstr "Maximális fájlméret "
@@ -3545,7 +3545,7 @@ msgid "This field must have the format <hh:mm:ss>."
 msgstr "E mezőnek <hh:mm:ss>formátumúnak kell lennie."
 
 msgid "This field must match the format SIZE[K|M|G|T|P]."
-msgstr ""
+msgstr "A mező meg kell feleljen a MÉRET[K|M|G|T|P] formátumnak."
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "E mezőnek egy IP hálózati címnek kell lennie CIDR jelölésben."
