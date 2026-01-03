@@ -44,6 +44,7 @@ export class SharedFolderDatatablePageComponent {
         }
       },
       transform: {
+        device: '{{ device | notavailable() }}',
         absdirpath: '{{ absdirpath | notavailable() }}'
       }
     },
