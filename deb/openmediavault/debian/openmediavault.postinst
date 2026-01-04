@@ -626,6 +626,13 @@ case "$1" in
 			rm -rf /usr/libexec/cpupower/
 			omv_module_set_dirty cpupower
 		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0.6"; then
+			# References:
+			# - https://forum.openmediavault.org/index.php?thread/58000-mesg-command-not-found
+			# - https://bugs-devel.debian.org/cgi-bin/bugreport.cgi?bug=1088009
+			# - https://bugs-devel.debian.org/cgi-bin/bugreport.cgi?bug=1088011
+			sed -i '/mesg n/d' /root/.profile || :
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
