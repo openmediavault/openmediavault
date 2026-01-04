@@ -53,7 +53,7 @@ msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s[%s,%s(%d%%)已用，%s可用]"
 
 msgid "%s [%s, %s]"
-msgstr ""
+msgstr "%s [%s, %s]"
 
 msgid "%s [%s]"
 msgstr "%s[%s]"
@@ -2091,7 +2091,7 @@ msgid "Myanmar"
 msgstr "缅甸"
 
 msgid "N/A"
-msgstr ""
+msgstr "無適用"
 
 msgid "NFS"
 msgstr "NFS"
@@ -3799,7 +3799,7 @@ msgid "Ukraine"
 msgstr "乌克兰"
 
 msgid "Unavailable"
-msgstr ""
+msgstr "無可用"
 
 msgid "Undo"
 msgstr "撤销"

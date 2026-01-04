@@ -1,5 +1,6 @@
 openmediavault (8.0.5-2) stable; urgency=medium
 
+  * Update i18n files.
   * Add the environment variables OMV_SMARTMONTOOLS_UPDATE_DRIVEDB_ENABLED
     and OMV_SMARTMONTOOLS_UPDATE_DRIVEDB_OPTIONS to customize the weekly
     update of the smartmontools drive database.

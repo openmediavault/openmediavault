@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2013-2025
+# kochin <kochinc@outlook.com>, 2013-2026
 # kochin <kochinc@outlook.com>, 2012-2013
 # 黃柏諺 <s8321414@gmail.com>, 2021-2025
 msgid ""
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2025\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2013-2026\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +48,7 @@ msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) 已用，%s 可用]"
 
 msgid "%s [%s, %s]"
-msgstr ""
+msgstr "%s [%s, %s]"
 
 msgid "%s [%s]"
 msgstr "%s [%s]"
@@ -2086,7 +2086,7 @@ msgid "Myanmar"
 msgstr "緬甸"
 
 msgid "N/A"
-msgstr ""
+msgstr "無適用"
 
 msgid "NFS"
 msgstr "NFS"
@@ -3794,7 +3794,7 @@ msgid "Ukraine"
 msgstr "烏克蘭"
 
 msgid "Unavailable"
-msgstr ""
+msgstr "無可用"
 
 msgid "Undo"
 msgstr "復原"

@@ -52,7 +52,7 @@ msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) foglalt, %s elérhető]"
 
 msgid "%s [%s, %s]"
-msgstr ""
+msgstr "%s [%s, %s]"
 
 msgid "%s [%s]"
 msgstr "%s [%s]"
@@ -2090,7 +2090,7 @@ msgid "Myanmar"
 msgstr "Mianmar"
 
 msgid "N/A"
-msgstr ""
+msgstr "nem elérhető"
 
 msgid "NFS"
 msgstr "NFS"
@@ -3798,7 +3798,7 @@ msgid "Ukraine"
 msgstr "Ukrajna"
 
 msgid "Unavailable"
-msgstr ""
+msgstr "Nem elérhető"
 
 msgid "Undo"
 msgstr "Visszavon"
