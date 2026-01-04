@@ -1,10 +1,4 @@
-openmediavault (8.0.6-1) stable; urgency=medium
-
-  *
-
- -- Volker Theile <volker.theile@openmediavault.org>  Sat, 03 Jan 2026 13:28:21 +0100
-
-openmediavault (8.0.5-1) stable; urgency=medium
+openmediavault (8.0.5-2) stable; urgency=medium
 
   * Add the environment variables OMV_SMARTMONTOOLS_UPDATE_DRIVEDB_ENABLED
     and OMV_SMARTMONTOOLS_UPDATE_DRIVEDB_OPTIONS to customize the weekly
