@@ -130,9 +130,10 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return The list of configured shared folders.
 	 *   The field 'status' has the following values:<ul>
-	 *   \li - unknown
-	 *   \li - available
-	 *   \li - unavailable (e.g. the referenced mount point database object is non-existent)
+	 *   \li - OK
+	 *   \li - ENOTDIR (the path exists but is not a directory)
+	 *   \li - ENOENT (the path does not exist)
+	 *   \li - ENOENT_DB_MNTENT (the referenced mount point database object is non-existent)
 	 *   </ul>
 	 */
 	public function enumerateSharedFolders($params, $context) {
@@ -160,7 +161,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			]);
 			$objectDict->set("snapshots", FALSE);
 			$objectDict->set("absdirpath", "");
-			$objectDict->set("status", "unknown");
+			$objectDict->set("status", "OK");
 			// Get the mount point configuration object to append additional
 			// information to the returned objects, e.g. the devicefile or
 			// a modified description.
@@ -223,23 +224,27 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 						$sfInfo['parent_uuid']));
 					$objectDict->set("snapshots", $snapshotsSupported);
 				}
-				$objectDict->set("status", "available");
+				if (!is_dir($sfAbsPath)) {
+					if (!file_exists($sfAbsPath)) {
+						$objectDict->set("status", "ENOENT");
+					} else {
+						$objectDict->set("status", "ENOTDIR");
+					}
+				}
 			} else {
 				// Modify the description field.
 				if (!empty($objectDict->get("comment"))) {
 					$objectDict->set("description", sprintf(
-						gettext("%s [%s, %s]"),
+						gettext("%s [%s]"),
 						$objectDict->get("name"),
-						gettext("Unavailable"),
 						$objectDict->get("comment")));
 				} else {
 					$objectDict->set("description", sprintf(
-						gettext("%s [%s, %s]"),
+						gettext("%s [on N/A, %s]"),
 						$objectDict->get("name"),
-						gettext("Unavailable"),
 						$objectDict->get("reldirpath")));
 				}
-				$objectDict->set("status", "unavailable");
+				$objectDict->set("status", "ENOENT_DB_MNTENT");
 			}
 			// Is the shared folder referenced by any object? Shared
 			// folder references are named 'sharedfolderref'.
