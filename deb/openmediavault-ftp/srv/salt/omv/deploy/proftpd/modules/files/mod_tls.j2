@@ -13,8 +13,12 @@
 {%- if config.nosessionreuserequired | to_bool %} NoSessionReuseRequired{% endif -%}
 {%- if config.useimplicitssl | to_bool %} UseImplicitSSL{% endif -%}
 {%- endif %}
-  TLSRSACertificateFile {{ cert_dir | path_join('certs', cert_prefix ~ config.sslcertificateref ~ '.crt') }}
-  TLSRSACertificateKeyFile {{ cert_dir | path_join('private', cert_prefix ~ config.sslcertificateref ~ '.key') }}
+{%- if config.sslcertificateref | length > 0 %}
+{%- set cert_config = salt['omv_conf.get']('conf.system.certificate.ssl', config.sslcertificateref) %}
+{%- set cert_info = salt['x509.read_certificate'](cert_config.certificate) %}
+  TLS{{ cert_info['key_type'] | upper() }}CertificateFile {{ cert_dir | path_join('certs', cert_prefix ~ cert_config.uuid ~ '.crt') }}
+  TLS{{ cert_info['key_type'] | upper() }}CertificateKeyFile {{ cert_dir | path_join('private', cert_prefix ~ cert_config.uuid ~ '.key') }}
+{%- endif %}
   TLSVerifyClient {{ tls_verify_client }}
   TLSRenegotiate {{ tls_renegotiate }}
   TLSRequired {{ config.required | to_bool | yesno('on,off') }}
