@@ -101,9 +101,22 @@ export class SharedFolderDatatablePageComponent {
         cellTemplateConfig: {
           map: {
             /* eslint-disable @typescript-eslint/naming-convention */
-            unknown: { value: gettext('Unknown'), class: 'omv-background-color-pair-error' },
-            available: { value: gettext('Available'), class: 'omv-background-color-pair-success' },
-            unavailable: { value: gettext('Unavailable'), class: 'omv-background-color-pair-error' }
+            OK: { value: gettext('Available'), class: 'omv-background-color-pair-success' },
+            ENOTDIR: {
+              value: gettext('Unavailable'),
+              tooltip: gettext('Not a directory'),
+              class: 'omv-background-color-pair-error'
+            },
+            ENOENT: {
+              value: gettext('Unavailable'),
+              tooltip: gettext('Directory does not exist'),
+              class: 'omv-background-color-pair-error'
+            },
+            ENOENT_DB_MNTENT: {
+              value: gettext('Unavailable'),
+              tooltip: gettext('Corrupted database'),
+              class: 'omv-background-color-pair-error'
+            }
             /* eslint-enable @typescript-eslint/naming-convention */
           }
         }
