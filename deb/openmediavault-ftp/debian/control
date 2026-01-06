@@ -9,7 +9,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-ftp
 Architecture: all
-Depends: openmediavault (>= 8.0), proftpd-core, proftpd-mod-vroot,
+Depends: openmediavault (>= 8.0.6), proftpd-core, proftpd-mod-vroot,
  proftpd-mod-crypto, proftpd-mod-wrap
 Priority: optional
 Description: openmediavault FTP-Server plugin
