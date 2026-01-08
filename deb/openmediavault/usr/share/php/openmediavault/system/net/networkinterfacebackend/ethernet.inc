@@ -31,13 +31,14 @@ class Ethernet extends BackendAbstract {
 	// Examples:
 	// - eth0
 	// - enp2s0
-	// - enp2s0f0, enp5165p0s0
+	// - enp2s0f0, enp5165p0s0, enp1s0u1u2
 	// - enx00259025963a
 	// - ens1
 	// - eno16777736
 	// - encf5f0, enx026d3c00000a
 	// - end0
 	// - enX0
+	// - enu1u3
 	//
 	// Predictable network interface device name types:
 	// - BCMA bus core number
@@ -53,7 +54,7 @@ class Ethernet extends BackendAbstract {
 	// - PCI geographical location
 	//   [P<domain>]p<bus>s<slot>[f<function>][n<phys_port_name>|d<dev_port>]
 	// - USB port number chain
-	//   [P<domain>]p<bus>s<slot>[f<function>][u<port>][..][c<config>][i<interface>]
+	//   [P<domain>][p<bus>s<slot>][f<function>][u<port>][..][c<config>][i<interface>]
 	// - Device tree
 	//   d<number>
 	// - VIF interface number (Xen)
@@ -67,7 +68,7 @@ class Ethernet extends BackendAbstract {
 	protected $regex = "/^eth[0-9]+|".
 		"en(b\d+|c\d+|d\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|".
 		"x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|".
-		"(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?|X\d+)$/i";
+		"(P\d+)?(p\d+s\d+)?(f\d+)?(u\d+)*(c\d+)?(i\d+)?|X\d+)$/i";
 
 	// Distributed Switch Architecture (DSA)
 	//

@@ -35,12 +35,13 @@ def is_ethernet(name):
     # Examples:
     # - eth0
     # - enp2s0
-    # - enp2s0f0, enp5165p0s0
+    # - enp2s0f0, enp5165p0s0, enp1s0u1u2
     # - enx00259025963a
     # - ens1
     # - eno16777736
     # - encf5f0, enx026d3c00000a
     # - end0
+    # - enu1u3
     #
     # Predictable network interface device name types:
     # - BCMA bus core number
@@ -56,7 +57,7 @@ def is_ethernet(name):
     # - PCI geographical location
     #   [P<domain>]p<bus>s<slot>[f<function>][n<phys_port_name>|d<dev_port>]
     # - USB port number chain
-    #   [P<domain>]p<bus>s<slot>[f<function>][u<port>][..][c<config>][i<interface>]
+    #   [P<domain>][p<bus>s<slot>][f<function>][u<port>][..][c<config>][i<interface>]
     # - Device tree
     #   d<number>
     #
@@ -67,7 +68,7 @@ def is_ethernet(name):
             r'^eth[0-9]+|'
             r'en(b\d+|c\d+|d\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|'
             r'x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|'
-            r'(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$',
+            r'(P\d+)?(p\d+s\d+)?(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$',
             name
         )
     )
@@ -87,6 +88,8 @@ def is_wifi(name):
     # Examples:
     # - wlan1
     # - wlp3s0
+    # - wlx984827050421
+    # - wlu1u3
     #
     # Predictable network interface device name types:
     # - BCMA bus core number
@@ -102,7 +105,7 @@ def is_wifi(name):
     # - PCI geographical location
     #   [P<domain>]p<bus>s<slot>[f<function>][n<phys_port_name>|d<dev_port>]
     # - USB port number chain
-    #   [P<domain>]p<bus>s<slot>[f<function>][u<port>][..][c<config>][i<interface>]
+    #   [P<domain>][p<bus>s<slot>][f<function>][u<port>][..][c<config>][i<interface>]
     #
     # Understanding systemd’s predictable network device names:
     # https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
@@ -111,7 +114,7 @@ def is_wifi(name):
             r'^wlan[0-9]+|wl(b\d+|c\d+|o\d+(n\S+|d\d+)?|'
             r's\d+(f\d+)?(n\S+|d\d+)?|'
             r'x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|'
-            r'(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$',
+            r'(P\d+)?(p\d+s\d+)?(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$',
             name
         )
     )
