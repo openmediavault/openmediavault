@@ -794,7 +794,7 @@ omv_is_ipv6_enabled() {
 # Check if the given device is a wireless network interface.
 # @return 0 if wireless, otherwise 1.
 omv_is_wlan() {
-	if echo "$1" | grep -Pq "^wlan[0-9]+|wl(b\d+|c\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$"; then
+	if echo "$1" | grep -Pq "^wlan[0-9]+|wl(b\d+|c\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|(P\d+)?(p\d+s\d+)?(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$"; then
 	  return 0
 	fi
 	return 1

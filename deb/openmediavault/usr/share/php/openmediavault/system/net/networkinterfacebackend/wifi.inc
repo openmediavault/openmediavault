@@ -30,6 +30,7 @@ class Wifi extends BackendAbstract {
 	// - wlan1
 	// - wlp3s0
 	// - wlx984827050421
+	// - wlu1u3
 	//
 	// Predictable network interface device name types:
 	// - BCMA bus core number
@@ -45,7 +46,7 @@ class Wifi extends BackendAbstract {
 	// - PCI geographical location
 	//   [P<domain>]p<bus>s<slot>[f<function>][n<phys_port_name>|d<dev_port>]
 	// - USB port number chain
-	//   [P<domain>]p<bus>s<slot>[f<function>][u<port>][..][c<config>][i<interface>]
+	//   [P<domain>][p<bus>s<slot>][f<function>][u<port>][..][c<config>][i<interface>]
 	//
 	// Understanding systemd’s predictable network device names:
 	// - https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames
@@ -53,7 +54,7 @@ class Wifi extends BackendAbstract {
 	protected $regex = "/^wlan[0-9]+|wl(b\d+|c\d+|o\d+(n\S+|d\d+)?|".
 		"s\d+(f\d+)?(n\S+|d\d+)?|".
 		"x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|".
-		"(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$/i";
+		"(P\d+)?(p\d+s\d+)?(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$/i";
 
 	function getType() {
 		return OMV_NETWORK_INTERFACE_TYPE_WIFI;
