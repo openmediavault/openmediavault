@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-07 12:52+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -46,14 +46,14 @@ msgstr "%d سنة "
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) مستخدم, %s متاح]"
 
-msgid "%s [%s, %s]"
-msgstr ""
-
 msgid "%s [%s]"
 msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "٪s [على ٪s ، ٪s]"
+
+msgid "%s [on N/A, %s]"
+msgstr ""
 
 msgid "%s ago"
 msgstr "منذ %s "
@@ -776,6 +776,9 @@ msgstr "نسخ الصلاحيات"
 msgid "Copy to clipboard"
 msgstr "نسخ إلى الحافظة"
 
+msgid "Corrupted database"
+msgstr ""
+
 msgid "Costa Rica"
 msgstr "كوستاريكا"
 
@@ -961,6 +964,9 @@ msgstr "الفرق"
 
 msgid "Direction"
 msgstr "الاتجاه"
+
+msgid "Directory does not exist"
+msgstr ""
 
 msgid "Disabled"
 msgstr "معطل"
@@ -2203,6 +2209,9 @@ msgstr "ليس TCP"
 
 msgid "Not UDP"
 msgstr "ليس UDP"
+
+msgid "Not a directory"
+msgstr ""
 
 msgid "Not mounted"
 msgstr "غير مثبت"

@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
-# Daniel, 2025
+# Daniel, 2025-2026
 # d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2012
 # Daniel, 2021-2023
 # Daniel, 2020-2021
@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
-"Last-Translator: Daniel, 2025\n"
+"Last-Translator: Daniel, 2025-2026\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -132,16 +132,16 @@ msgid "February"
 msgstr "Februari"
 
 msgid "Follow directory symlinks"
-msgstr "Följ symlänkar för mappar"
+msgstr "Följ symboliska länkar för mappar"
 
 msgid "Follow directory symlinks."
-msgstr "Följ symlänkar för mappar."
+msgstr "Följ symboliska länkar för mappar."
 
 msgid "Follow file symlinks"
-msgstr "Följ symlänkar för filer"
+msgstr "Följ symboliska länkar för filer"
 
 msgid "Follow regular file symlinks."
-msgstr "Följ symlänkar för vanliga filer."
+msgstr "Följ symboliska länkar för vanliga filer."
 
 msgid "Friday"
 msgstr "Fredag"

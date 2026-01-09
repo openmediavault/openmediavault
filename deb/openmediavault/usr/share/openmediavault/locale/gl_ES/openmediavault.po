@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-07 12:52+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013,2015\n"
 "Language-Team: Galician (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
@@ -48,14 +48,14 @@ msgstr ""
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr ""
 
-msgid "%s [%s, %s]"
-msgstr ""
-
 msgid "%s [%s]"
 msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [en %s, %s]"
+
+msgid "%s [on N/A, %s]"
+msgstr ""
 
 msgid "%s ago"
 msgstr ""
@@ -778,6 +778,9 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr ""
 
+msgid "Corrupted database"
+msgstr ""
+
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -963,6 +966,9 @@ msgstr "Diferenza"
 
 msgid "Direction"
 msgstr "Dirección"
+
+msgid "Directory does not exist"
+msgstr ""
 
 msgid "Disabled"
 msgstr "Desactivado"
@@ -2205,6 +2211,9 @@ msgstr "Non TCP"
 
 msgid "Not UDP"
 msgstr "Non UDP"
+
+msgid "Not a directory"
+msgstr ""
 
 msgid "Not mounted"
 msgstr ""

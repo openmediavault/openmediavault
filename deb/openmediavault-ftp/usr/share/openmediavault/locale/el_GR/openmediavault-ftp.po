@@ -5,7 +5,7 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2023
-# Kostas Moho, 2025
+# Kostas Moho, 2026
 # 
 #, fuzzy
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
-"Last-Translator: Kostas Moho, 2025\n"
+"Last-Translator: Kostas Moho, 2026\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -228,7 +228,7 @@ msgid "Min. passive port"
 msgstr "Ελάχιστη παθητική θύρα"
 
 msgid "N/A"
-msgstr ""
+msgstr "Μ/Δ"
 
 msgid "No session reuse required"
 msgstr "Δεν απαιτείται επανάχρηση συνεδρίας"

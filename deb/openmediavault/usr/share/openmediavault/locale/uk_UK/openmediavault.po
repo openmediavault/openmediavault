@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-07 12:52+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022,2025\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -47,14 +47,14 @@ msgstr "%d років"
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) використано, %s доступно]"
 
-msgid "%s [%s, %s]"
-msgstr ""
-
 msgid "%s [%s]"
 msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [на %s, %s]"
+
+msgid "%s [on N/A, %s]"
+msgstr ""
 
 msgid "%s ago"
 msgstr "%s назад"
@@ -777,6 +777,9 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr "Копіювати в буфер обміну"
 
+msgid "Corrupted database"
+msgstr ""
+
 msgid "Costa Rica"
 msgstr "Коста-Ріка"
 
@@ -962,6 +965,9 @@ msgstr "Різниця"
 
 msgid "Direction"
 msgstr "Директива"
+
+msgid "Directory does not exist"
+msgstr ""
 
 msgid "Disabled"
 msgstr "Вимкнено"
@@ -2204,6 +2210,9 @@ msgstr "Без TCP"
 
 msgid "Not UDP"
 msgstr "Без UDP"
+
+msgid "Not a directory"
+msgstr ""
 
 msgid "Not mounted"
 msgstr "Не змонтований"

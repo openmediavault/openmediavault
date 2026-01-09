@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-07 12:52+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Marek Pavelka, 2024-2025\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -47,14 +47,14 @@ msgstr "%d roků"
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) využito, %s dostupné]"
 
-msgid "%s [%s, %s]"
-msgstr ""
-
 msgid "%s [%s]"
 msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [na %s, %s]"
+
+msgid "%s [on N/A, %s]"
+msgstr ""
 
 msgid "%s ago"
 msgstr "před %s"
@@ -777,6 +777,9 @@ msgstr "Kopírovat oprávnění"
 msgid "Copy to clipboard"
 msgstr "Kopírovat do schránky"
 
+msgid "Corrupted database"
+msgstr ""
+
 msgid "Costa Rica"
 msgstr "Kostarika"
 
@@ -962,6 +965,9 @@ msgstr "Rozdíl"
 
 msgid "Direction"
 msgstr "Směr"
+
+msgid "Directory does not exist"
+msgstr ""
 
 msgid "Disabled"
 msgstr "Zakázáno"
@@ -2204,6 +2210,9 @@ msgstr "Mimo TCP"
 
 msgid "Not UDP"
 msgstr "Mimo UDP"
+
+msgid "Not a directory"
+msgstr ""
 
 msgid "Not mounted"
 msgstr "Nepřipojeno"

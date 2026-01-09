@@ -7,7 +7,7 @@
 # Benoit Maliar <maliarbenoit@msn.com>, 2015
 # Christophe Lherieau <skimpax@gmail.com>, 2012-2015
 # Axel Cantenys, 2020
-# Francis Dhumes, 2023,2025
+# Francis Dhumes, 2023,2025-2026
 # Jérémy D <bxt@mondedie.fr>, 2018
 # Jonathan Tasseroul <jonathan.tasseroul@gmail.com>, 2021
 # Kevin Leclercq <nuklearstriker@gmail.com>, 2020
@@ -24,9 +24,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-07 12:52+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Francis Dhumes, 2023,2025\n"
+"Last-Translator: Francis Dhumes, 2023,2025-2026\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,14 +61,14 @@ msgstr "%d années"
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s[%s, %s (%d %%) utilisé, %s disponible]"
 
-msgid "%s [%s, %s]"
-msgstr ""
-
 msgid "%s [%s]"
 msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [le %s, %s]"
+
+msgid "%s [on N/A, %s]"
+msgstr ""
 
 msgid "%s ago"
 msgstr "Il y a %s"
@@ -791,6 +791,9 @@ msgstr "Autorisations de copie"
 msgid "Copy to clipboard"
 msgstr "Copier vers le presse-papier"
 
+msgid "Corrupted database"
+msgstr ""
+
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -831,7 +834,7 @@ msgid "Created VLAN network connection."
 msgstr "Connexion VLAN créée."
 
 msgid "Created bond network connection."
-msgstr "Agrégat de connexion réseau créé."
+msgstr "Agrégat de connexions réseau créé."
 
 msgid "Created bridge network connection."
 msgstr "Connexion de pont créée."
@@ -976,6 +979,9 @@ msgstr "Différence"
 
 msgid "Direction"
 msgstr "Direction"
+
+msgid "Directory does not exist"
+msgstr ""
 
 msgid "Disabled"
 msgstr "Désactivé"
@@ -2219,6 +2225,9 @@ msgstr "Non TCP"
 msgid "Not UDP"
 msgstr "Non UDP"
 
+msgid "Not a directory"
+msgstr ""
+
 msgid "Not mounted"
 msgstr "Non monté"
 
@@ -2866,7 +2875,7 @@ msgid "Secure"
 msgstr "Sécurisé"
 
 msgid "Secure connection"
-msgstr "Connections sécurisées"
+msgstr "Connexions sécurisées"
 
 msgid "Security"
 msgstr "Sécurité"
@@ -3674,7 +3683,7 @@ msgstr "Indique le nom de groupe qu'auront les transferts de fichiers, à partir
 msgid ""
 "This option specifies the maximum number of simultaneous connections. 0 "
 "means no limit."
-msgstr "Cette option spécifie le nombre maximum de connections simultanées (0 = illimité)."
+msgstr "Cette option spécifie le nombre maximum de connexions simultanées (0 = illimité)."
 
 msgid ""
 "This option specifies the user name that file transfers to and from that "

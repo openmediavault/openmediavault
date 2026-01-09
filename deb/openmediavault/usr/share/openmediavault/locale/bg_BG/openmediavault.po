@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-07 12:52+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2017\n"
 "Language-Team: Bulgarian (Bulgaria) (http://app.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
@@ -45,14 +45,14 @@ msgstr ""
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr ""
 
-msgid "%s [%s, %s]"
-msgstr ""
-
 msgid "%s [%s]"
 msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [на %s, %s]"
+
+msgid "%s [on N/A, %s]"
+msgstr ""
 
 msgid "%s ago"
 msgstr ""
@@ -775,6 +775,9 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr ""
 
+msgid "Corrupted database"
+msgstr ""
+
 msgid "Costa Rica"
 msgstr ""
 
@@ -959,6 +962,9 @@ msgid "Difference"
 msgstr ""
 
 msgid "Direction"
+msgstr ""
+
+msgid "Directory does not exist"
 msgstr ""
 
 msgid "Disabled"
@@ -2201,6 +2207,9 @@ msgid "Not TCP"
 msgstr ""
 
 msgid "Not UDP"
+msgstr ""
+
+msgid "Not a directory"
 msgstr ""
 
 msgid "Not mounted"

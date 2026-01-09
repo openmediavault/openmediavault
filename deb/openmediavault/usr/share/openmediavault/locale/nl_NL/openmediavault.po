@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-07 12:52+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025-2026\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -53,14 +53,14 @@ msgstr "%d jaren"
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) in gebruik, %s beschikbaar]"
 
-msgid "%s [%s, %s]"
-msgstr "%s [%s, %s]"
-
 msgid "%s [%s]"
 msgstr "%s [ %s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [op %s, %s]"
+
+msgid "%s [on N/A, %s]"
+msgstr "%s [op N/A, %s]"
 
 msgid "%s ago"
 msgstr "%s geleden"
@@ -783,6 +783,9 @@ msgstr "Machtigingen kopiëren"
 msgid "Copy to clipboard"
 msgstr "Kopiëren naar klembord"
 
+msgid "Corrupted database"
+msgstr "Beschadigde database"
+
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -968,6 +971,9 @@ msgstr "Verschil"
 
 msgid "Direction"
 msgstr "Richting"
+
+msgid "Directory does not exist"
+msgstr "Map bestaat niet"
 
 msgid "Disabled"
 msgstr "Uitgeschakeld"
@@ -2092,7 +2098,7 @@ msgid "Myanmar"
 msgstr "Myanmar"
 
 msgid "N/A"
-msgstr "N.v.t."
+msgstr "N/A"
 
 msgid "NFS"
 msgstr "NFS"
@@ -2210,6 +2216,9 @@ msgstr "Geen TCP"
 
 msgid "Not UDP"
 msgstr "Geen UDP"
+
+msgid "Not a directory"
+msgstr "Geen map"
 
 msgid "Not mounted"
 msgstr "Niet aangekoppeld"

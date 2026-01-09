@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-07 12:52+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
 "Language-Team: Norwegian (http://app.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -46,13 +46,13 @@ msgstr ""
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr ""
 
-msgid "%s [%s, %s]"
-msgstr ""
-
 msgid "%s [%s]"
 msgstr ""
 
 msgid "%s [on %s, %s]"
+msgstr ""
+
+msgid "%s [on N/A, %s]"
 msgstr ""
 
 msgid "%s ago"
@@ -776,6 +776,9 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr ""
 
+msgid "Corrupted database"
+msgstr ""
+
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -961,6 +964,9 @@ msgstr "Forskjell"
 
 msgid "Direction"
 msgstr "Retning"
+
+msgid "Directory does not exist"
+msgstr ""
 
 msgid "Disabled"
 msgstr "Deaktivert"
@@ -2203,6 +2209,9 @@ msgstr "Ikke TCP"
 
 msgid "Not UDP"
 msgstr "Ikke UDP"
+
+msgid "Not a directory"
+msgstr ""
 
 msgid "Not mounted"
 msgstr ""

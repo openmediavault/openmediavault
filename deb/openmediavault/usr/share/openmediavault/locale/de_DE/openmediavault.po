@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-07 12:52+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2026\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -58,14 +58,14 @@ msgstr "%d Jahre"
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) belegt, %s verfügbar]"
 
-msgid "%s [%s, %s]"
-msgstr "%s [%s, %s]"
-
 msgid "%s [%s]"
 msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [auf %s, %s]"
+
+msgid "%s [on N/A, %s]"
+msgstr ""
 
 msgid "%s ago"
 msgstr "Vor %s "
@@ -788,6 +788,9 @@ msgstr "Berechtigungen kopieren"
 msgid "Copy to clipboard"
 msgstr "In die Zwischenablage kopieren"
 
+msgid "Corrupted database"
+msgstr ""
+
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -973,6 +976,9 @@ msgstr "Unterschied"
 
 msgid "Direction"
 msgstr "Richtung"
+
+msgid "Directory does not exist"
+msgstr ""
 
 msgid "Disabled"
 msgstr "Deaktiviert"
@@ -2215,6 +2221,9 @@ msgstr "Nicht TCP"
 
 msgid "Not UDP"
 msgstr "Nicht UDP"
+
+msgid "Not a directory"
+msgstr ""
 
 msgid "Not mounted"
 msgstr "Nicht eingehängt"

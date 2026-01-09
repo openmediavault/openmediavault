@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-07 12:52+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2026\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -51,14 +51,14 @@ msgstr "%d év"
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) foglalt, %s elérhető]"
 
-msgid "%s [%s, %s]"
-msgstr "%s [%s, %s]"
-
 msgid "%s [%s]"
 msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [-n %s, %s]"
+
+msgid "%s [on N/A, %s]"
+msgstr "%s [nem elérhető esetén, %s]"
 
 msgid "%s ago"
 msgstr "%s előtt"
@@ -781,6 +781,9 @@ msgstr "Engedélyek másolása"
 msgid "Copy to clipboard"
 msgstr "Vágólapra másolás"
 
+msgid "Corrupted database"
+msgstr "Sérült adatbázis"
+
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -966,6 +969,9 @@ msgstr "Különbség"
 
 msgid "Direction"
 msgstr "Utasítás"
+
+msgid "Directory does not exist"
+msgstr "Könyvtár nem létezik"
 
 msgid "Disabled"
 msgstr "Letiltva"
@@ -2208,6 +2214,9 @@ msgstr "Nem TCP"
 
 msgid "Not UDP"
 msgstr "Nem UDP"
+
+msgid "Not a directory"
+msgstr "Nem könyvtár"
 
 msgid "Not mounted"
 msgstr "Nincs csatlakoztatva"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-07 12:52+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2026\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -47,14 +47,14 @@ msgstr "%d 年"
 msgid "%s [%s, %s (%d%%) used, %s available]"
 msgstr "%s [%s, %s (%d%%) 已用，%s 可用]"
 
-msgid "%s [%s, %s]"
-msgstr "%s [%s, %s]"
-
 msgid "%s [%s]"
 msgstr "%s [%s]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [位於 %s, %s]"
+
+msgid "%s [on N/A, %s]"
+msgstr "%s [位於無適用, %s]"
 
 msgid "%s ago"
 msgstr "%s 以前"
@@ -777,6 +777,9 @@ msgstr "複製權限"
 msgid "Copy to clipboard"
 msgstr "複製到剪貼板"
 
+msgid "Corrupted database"
+msgstr "損壞的資料庫"
+
 msgid "Costa Rica"
 msgstr "哥斯達黎加"
 
@@ -962,6 +965,9 @@ msgstr "差異"
 
 msgid "Direction"
 msgstr "方向"
+
+msgid "Directory does not exist"
+msgstr "目錄並不存在"
 
 msgid "Disabled"
 msgstr "已停用"
@@ -2204,6 +2210,9 @@ msgstr "非 TCP"
 
 msgid "Not UDP"
 msgstr "非 UDP"
+
+msgid "Not a directory"
+msgstr "並非目錄"
 
 msgid "Not mounted"
 msgstr "未被掛載"
