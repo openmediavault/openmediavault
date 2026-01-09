@@ -8,7 +8,11 @@
       <mat-option *ngFor="let option of config.store.data"
                   [disabled]="option.status !== 'OK'"
                   [value]="option[config.valueField]">
-        {{option[config.textField]}}
+        <span>{{ option[config.textField] }}</span>
+        <mat-icon *ngIf="option.status !== 'OK'"
+                  class="omv-ml-q"
+                  svgIcon="{{ icon.warning }}">
+        </mat-icon>
       </mat-option>
     </ng-container>
     <ng-template #renderLoading>
@@ -16,8 +20,8 @@
         <div class="omv-display-flex omv-flex-row omv-align-items-center omv-align-content-center omv-justify-content-between">
           <span>{{ 'Loading ...' | transloco }}</span>
           <mat-icon *ngIf="loading"
-                    class="omv-icon-rotate-360-infinite"
-                    svgIcon="mdi:loading">
+                    class="omv-ml-q omv-icon-rotate-360-infinite"
+                    svgIcon="{{ icon.loading }}">
           </mat-icon>
         </div>
       </mat-option>

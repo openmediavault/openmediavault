@@ -103,5 +103,6 @@ export enum Icon {
   link = 'mdi:link-variant',
   download = 'mdi:download',
   upload = 'mdi:upload',
-  docs = 'mdi:file-document'
+  docs = 'mdi:file-document',
+  loading = 'mdi:loading'
 }
