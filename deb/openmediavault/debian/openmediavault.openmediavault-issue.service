@@ -1,7 +1,7 @@
 [Unit]
 Description=Generate the prelogin message
-Wants=network-online.target
-After=network-online.target
+Wants=systemd-networkd-wait-online.service
+After=systemd-networkd-wait-online.service network.target
 Before=getty.target
 
 [Service]

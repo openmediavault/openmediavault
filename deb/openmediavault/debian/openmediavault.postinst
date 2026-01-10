@@ -162,6 +162,8 @@ case "$1" in
 			# openmediavault to work correct.
 			deb-systemd-helper unmask systemd-networkd.service || :
 			deb-systemd-helper enable systemd-networkd.service
+			deb-systemd-helper systemd-networkd-wait-online.service || :
+			deb-systemd-helper systemd-networkd-wait-online.service
 			deb-systemd-invoke start systemd-networkd.service || :
 			deb-systemd-helper unmask systemd-resolved.service || :
 			deb-systemd-helper enable systemd-resolved.service
