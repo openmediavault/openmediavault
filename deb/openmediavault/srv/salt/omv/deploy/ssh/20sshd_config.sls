@@ -33,7 +33,7 @@ configure_sshd_config:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: 600
 
 divert_sshd_config:
   omv_dpkg.divert_add:
