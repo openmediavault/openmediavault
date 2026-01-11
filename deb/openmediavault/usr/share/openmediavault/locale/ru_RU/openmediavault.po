@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -789,9 +789,6 @@ msgstr "Копировать разрешения"
 msgid "Copy to clipboard"
 msgstr "Скопировать в буфер обмена"
 
-msgid "Corrupted database"
-msgstr ""
-
 msgid "Costa Rica"
 msgstr "Коста-Рика"
 
@@ -855,6 +852,9 @@ msgstr "Проводное сетевое подключение создано.
 msgid "Created wireless network connection."
 msgstr "Беспроводное сетевое подключение создано."
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "Время создания"
 
@@ -890,6 +890,9 @@ msgstr "Тёмный режим"
 
 msgid "Dashboard"
 msgstr "Доска"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "Дата и время"
@@ -978,7 +981,7 @@ msgstr "Разница"
 msgid "Direction"
 msgstr "Направление"
 
-msgid "Directory does not exist"
+msgid "Directory does not exist."
 msgstr ""
 
 msgid "Disabled"
@@ -1309,6 +1312,15 @@ msgid ""
 "recycle bin."
 msgstr "Файлы, больше указанного размера, не будут помещены в корзину"
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr ""
 
@@ -1625,9 +1637,6 @@ msgstr "Наследование списков ACL"
 
 msgid "Inherit permissions"
 msgstr "Наследование разрешений"
-
-msgid "Initializing"
-msgstr "Инициализация"
 
 msgid "Install"
 msgstr "Установить"
@@ -2223,7 +2232,7 @@ msgstr "Не TCP"
 msgid "Not UDP"
 msgstr "Не UDP"
 
-msgid "Not a directory"
+msgid "Not a directory."
 msgstr ""
 
 msgid "Not mounted"
@@ -2276,9 +2285,6 @@ msgstr "Old-age (Обратите внимание, устройство ста�
 
 msgid "Oman"
 msgstr "Оман"
-
-msgid "Online"
-msgstr "Онлайн"
 
 msgid "Operation"
 msgstr "Операция"

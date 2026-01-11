@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025-2026\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -783,9 +783,6 @@ msgstr "Machtigingen kopiëren"
 msgid "Copy to clipboard"
 msgstr "Kopiëren naar klembord"
 
-msgid "Corrupted database"
-msgstr "Beschadigde database"
-
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -849,6 +846,9 @@ msgstr "Bekabelde netwerkverbinding aangemaakt."
 msgid "Created wireless network connection."
 msgstr "Draadloze netwerkverbinding aangemaakt."
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "Tijdstip van aanmaken"
 
@@ -884,6 +884,9 @@ msgstr "Donkere modus"
 
 msgid "Dashboard"
 msgstr "Bedieningspaneel"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "Datum & Tijd"
@@ -972,8 +975,8 @@ msgstr "Verschil"
 msgid "Direction"
 msgstr "Richting"
 
-msgid "Directory does not exist"
-msgstr "Map bestaat niet"
+msgid "Directory does not exist."
+msgstr ""
 
 msgid "Disabled"
 msgstr "Uitgeschakeld"
@@ -1303,6 +1306,15 @@ msgid ""
 "recycle bin."
 msgstr "Bestanden die groter zijn dan de opgegeven waarde worden niet in de prullenbak geplaatst."
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr "Vingerafdruk (SHA-1)"
 
@@ -1619,9 +1631,6 @@ msgstr "ACL's overnemen"
 
 msgid "Inherit permissions"
 msgstr "Machtigingen overnemen"
-
-msgid "Initializing"
-msgstr "Initialiseren"
 
 msgid "Install"
 msgstr "Installeren"
@@ -2217,8 +2226,8 @@ msgstr "Geen TCP"
 msgid "Not UDP"
 msgstr "Geen UDP"
 
-msgid "Not a directory"
-msgstr "Geen map"
+msgid "Not a directory."
+msgstr ""
 
 msgid "Not mounted"
 msgstr "Niet aangekoppeld"
@@ -2270,9 +2279,6 @@ msgstr "Old-age"
 
 msgid "Oman"
 msgstr "Oman"
-
-msgid "Online"
-msgstr "Online"
 
 msgid "Operation"
 msgstr "Bewerking"

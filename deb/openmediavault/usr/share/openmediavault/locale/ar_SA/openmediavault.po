@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -776,9 +776,6 @@ msgstr "نسخ الصلاحيات"
 msgid "Copy to clipboard"
 msgstr "نسخ إلى الحافظة"
 
-msgid "Corrupted database"
-msgstr ""
-
 msgid "Costa Rica"
 msgstr "كوستاريكا"
 
@@ -842,6 +839,9 @@ msgstr "تم إنشاء اتصال شبكة سلكية."
 msgid "Created wireless network connection."
 msgstr "تم إنشاء اتصال شبكة لاسلكية."
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "وقت الإنشاء"
 
@@ -877,6 +877,9 @@ msgstr "الوضع الداكن"
 
 msgid "Dashboard"
 msgstr "الصفحة الرئيسية"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "التاريخ والوقت"
@@ -965,7 +968,7 @@ msgstr "الفرق"
 msgid "Direction"
 msgstr "الاتجاه"
 
-msgid "Directory does not exist"
+msgid "Directory does not exist."
 msgstr ""
 
 msgid "Disabled"
@@ -1296,6 +1299,15 @@ msgid ""
 "recycle bin."
 msgstr "الملفات التي تكون أكبر من العدد المحدد لن يتم وضعها في سلة المحذوفات."
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr "بصمة (SHA-1)"
 
@@ -1612,9 +1624,6 @@ msgstr "وراثة قوائم التحكم الدخول ACLs"
 
 msgid "Inherit permissions"
 msgstr "وراثة الصلاحيات"
-
-msgid "Initializing"
-msgstr "التهيئة"
 
 msgid "Install"
 msgstr "تثبيت"
@@ -2210,7 +2219,7 @@ msgstr "ليس TCP"
 msgid "Not UDP"
 msgstr "ليس UDP"
 
-msgid "Not a directory"
+msgid "Not a directory."
 msgstr ""
 
 msgid "Not mounted"
@@ -2263,9 +2272,6 @@ msgstr "قديم Old-age"
 
 msgid "Oman"
 msgstr "عمان"
-
-msgid "Online"
-msgstr "متصل"
 
 msgid "Operation"
 msgstr "العملية"

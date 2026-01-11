@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: irrelevant91, 2025\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -782,9 +782,6 @@ msgstr "复制权限"
 msgid "Copy to clipboard"
 msgstr "复制到剪贴板"
 
-msgid "Corrupted database"
-msgstr "損壞的資料庫"
-
 msgid "Costa Rica"
 msgstr "哥斯达黎加"
 
@@ -848,6 +845,9 @@ msgstr "已建有线网络连接。"
 msgid "Created wireless network connection."
 msgstr "已建无线网络连接。"
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "创建时间"
 
@@ -883,6 +883,9 @@ msgstr "暗黑模式"
 
 msgid "Dashboard"
 msgstr "仪表盘"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "日期和时间"
@@ -971,8 +974,8 @@ msgstr "差异"
 msgid "Direction"
 msgstr "方向"
 
-msgid "Directory does not exist"
-msgstr "目錄並不存在"
+msgid "Directory does not exist."
+msgstr ""
 
 msgid "Disabled"
 msgstr "禁用"
@@ -1302,6 +1305,15 @@ msgid ""
 "recycle bin."
 msgstr "大于设置大小的文件不会放到回收站。"
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr "指纹 (SHA-1)"
 
@@ -1618,9 +1630,6 @@ msgstr "继承 ACLs"
 
 msgid "Inherit permissions"
 msgstr "继承权限"
-
-msgid "Initializing"
-msgstr "初始化中"
 
 msgid "Install"
 msgstr "安装"
@@ -2216,8 +2225,8 @@ msgstr "非 TCP"
 msgid "Not UDP"
 msgstr "非 UDP"
 
-msgid "Not a directory"
-msgstr "並非目錄"
+msgid "Not a directory."
+msgstr ""
 
 msgid "Not mounted"
 msgstr "未被挂载"
@@ -2269,9 +2278,6 @@ msgstr "Old-age"
 
 msgid "Oman"
 msgstr "阿曼"
-
-msgid "Online"
-msgstr "在线"
 
 msgid "Operation"
 msgstr "操作"

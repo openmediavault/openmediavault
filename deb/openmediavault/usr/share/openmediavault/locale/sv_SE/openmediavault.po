@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Daniel, 2025-2026\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -779,9 +779,6 @@ msgstr "Kopiera behörigheter"
 msgid "Copy to clipboard"
 msgstr "Kopiera till urklipp"
 
-msgid "Corrupted database"
-msgstr "Korrupt databas"
-
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -845,6 +842,9 @@ msgstr "Skapade trådbunden nätverksanslutning."
 msgid "Created wireless network connection."
 msgstr "Skapade trådlös nätverksanslutning."
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "Skapelsetid"
 
@@ -880,6 +880,9 @@ msgstr "Mörkt läge"
 
 msgid "Dashboard"
 msgstr "Instrumentpanel"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "Datum & tid"
@@ -968,8 +971,8 @@ msgstr "Skillnad"
 msgid "Direction"
 msgstr "Riktning"
 
-msgid "Directory does not exist"
-msgstr "Mappen finns inte"
+msgid "Directory does not exist."
+msgstr ""
 
 msgid "Disabled"
 msgstr "Inaktiverad"
@@ -1299,6 +1302,15 @@ msgid ""
 "recycle bin."
 msgstr "Filer som är större än det angivna antalet kommer inte att läggas i papperskorgen."
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr "Fingeravtryck (SHA-1)"
 
@@ -1615,9 +1627,6 @@ msgstr "Ärv åtkomstkontrollistor"
 
 msgid "Inherit permissions"
 msgstr "Ärv behörigheter"
-
-msgid "Initializing"
-msgstr "Initiering"
 
 msgid "Install"
 msgstr "Installera"
@@ -2213,8 +2222,8 @@ msgstr "Inte TCP"
 msgid "Not UDP"
 msgstr "Inte UDP"
 
-msgid "Not a directory"
-msgstr "Inte en mapp"
+msgid "Not a directory."
+msgstr ""
 
 msgid "Not mounted"
 msgstr "Inte monterad"
@@ -2266,9 +2275,6 @@ msgstr "Gammal ålder"
 
 msgid "Oman"
 msgstr "Oman"
-
-msgid "Online"
-msgstr "Uppkopplad"
 
 msgid "Operation"
 msgstr "Operation"

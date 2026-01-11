@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025-2026\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -783,9 +783,6 @@ msgstr "Copia i permessi"
 msgid "Copy to clipboard"
 msgstr "Copia negli appunti"
 
-msgid "Corrupted database"
-msgstr "Database danneggiato"
-
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -849,6 +846,9 @@ msgstr "È stata creata la connessione di rete cablata."
 msgid "Created wireless network connection."
 msgstr "È stata creata la connessione di rete wireless."
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "Orario della creazione"
 
@@ -884,6 +884,9 @@ msgstr "Modalità scura"
 
 msgid "Dashboard"
 msgstr "Dashboard"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "Data e ora"
@@ -972,8 +975,8 @@ msgstr "Differenza"
 msgid "Direction"
 msgstr "Direzione"
 
-msgid "Directory does not exist"
-msgstr "La directory non esiste"
+msgid "Directory does not exist."
+msgstr ""
 
 msgid "Disabled"
 msgstr "Disabilitato"
@@ -1303,6 +1306,15 @@ msgid ""
 "recycle bin."
 msgstr "I file più grandi del numero specificato non verranno inseriti nel cestino."
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr "Fingerprint (SHA-1)"
 
@@ -1619,9 +1631,6 @@ msgstr "ACL ereditate"
 
 msgid "Inherit permissions"
 msgstr "Eredita permessi"
-
-msgid "Initializing"
-msgstr "Inizializzazione in corso"
 
 msgid "Install"
 msgstr "Installa"
@@ -2217,8 +2226,8 @@ msgstr "Non TCP"
 msgid "Not UDP"
 msgstr "Non UDP"
 
-msgid "Not a directory"
-msgstr "Non è una directory"
+msgid "Not a directory."
+msgstr ""
 
 msgid "Not mounted"
 msgstr "Non montato"
@@ -2270,9 +2279,6 @@ msgstr "Usura"
 
 msgid "Oman"
 msgstr "Oman"
-
-msgid "Online"
-msgstr "Online"
 
 msgid "Operation"
 msgstr "Operazione"

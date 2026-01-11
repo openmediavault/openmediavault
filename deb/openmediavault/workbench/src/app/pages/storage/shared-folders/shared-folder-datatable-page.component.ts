@@ -114,7 +114,7 @@ export class SharedFolderDatatablePageComponent {
             },
             ENOENT_DB_MNTENT: {
               value: gettext('Unavailable'),
-              tooltip: gettext('Database is corrupted.'),
+              tooltip: gettext('Database record not found.'),
               class: 'omv-background-color-pair-error'
             }
             /* eslint-enable @typescript-eslint/naming-convention */

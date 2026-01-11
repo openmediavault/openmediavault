@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -775,9 +775,6 @@ msgstr "パーミッションのコピー"
 msgid "Copy to clipboard"
 msgstr "クリップボードへコピー"
 
-msgid "Corrupted database"
-msgstr ""
-
 msgid "Costa Rica"
 msgstr "コスタリカ"
 
@@ -841,6 +838,9 @@ msgstr "有線ネットワーク接続を作成しました。"
 msgid "Created wireless network connection."
 msgstr "無線ネットワーク接続を作成しました。"
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "作成時間"
 
@@ -876,6 +876,9 @@ msgstr "ダークモード"
 
 msgid "Dashboard"
 msgstr "ダッシュボード"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "日付と時刻"
@@ -964,7 +967,7 @@ msgstr "差分"
 msgid "Direction"
 msgstr "方向"
 
-msgid "Directory does not exist"
+msgid "Directory does not exist."
 msgstr ""
 
 msgid "Disabled"
@@ -1295,6 +1298,15 @@ msgid ""
 "recycle bin."
 msgstr "指定された数よりも大きいファイルは、ごみ箱に入れられません。"
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr "フィンガープリント（SHA-1）"
 
@@ -1611,9 +1623,6 @@ msgstr "ACLを継承"
 
 msgid "Inherit permissions"
 msgstr "パーミッションを継承"
-
-msgid "Initializing"
-msgstr "初期化"
 
 msgid "Install"
 msgstr "インストール"
@@ -2209,7 +2218,7 @@ msgstr "Not TCP"
 msgid "Not UDP"
 msgstr "Not UDP"
 
-msgid "Not a directory"
+msgid "Not a directory."
 msgstr ""
 
 msgid "Not mounted"
@@ -2262,9 +2271,6 @@ msgstr "Old-age"
 
 msgid "Oman"
 msgstr "オマーン"
-
-msgid "Online"
-msgstr "オンライン"
 
 msgid "Operation"
 msgstr "オペレーション"

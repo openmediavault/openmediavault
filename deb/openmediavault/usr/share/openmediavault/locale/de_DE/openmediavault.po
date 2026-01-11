@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2026\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -65,7 +65,7 @@ msgid "%s [on %s, %s]"
 msgstr "%s [auf %s, %s]"
 
 msgid "%s [on N/A, %s]"
-msgstr ""
+msgstr "%s [auf k. A., %s]"
 
 msgid "%s ago"
 msgstr "Vor %s "
@@ -788,9 +788,6 @@ msgstr "Berechtigungen kopieren"
 msgid "Copy to clipboard"
 msgstr "In die Zwischenablage kopieren"
 
-msgid "Corrupted database"
-msgstr ""
-
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -854,6 +851,9 @@ msgstr "Kabelgebundene Netzwerkverbindung erstellt."
 msgid "Created wireless network connection."
 msgstr "Drahtlose Netzwerkverbindung erstellt."
 
+msgid "Creating"
+msgstr "Erstellen"
+
 msgid "Creation Time"
 msgstr "Erstellungszeit"
 
@@ -889,6 +889,9 @@ msgstr "Dunkelmodus"
 
 msgid "Dashboard"
 msgstr "Dashboard"
+
+msgid "Database record not found."
+msgstr "Datenbankeintrag nicht gefunden."
 
 msgid "Date & Time"
 msgstr "Datum & Zeit"
@@ -977,8 +980,8 @@ msgstr "Unterschied"
 msgid "Direction"
 msgstr "Richtung"
 
-msgid "Directory does not exist"
-msgstr ""
+msgid "Directory does not exist."
+msgstr "Das Verzeichnis existiert nicht."
 
 msgid "Disabled"
 msgstr "Deaktiviert"
@@ -1308,6 +1311,15 @@ msgid ""
 "recycle bin."
 msgstr "Dateien, die größer als die angegebene Anzahl von Bytes sind, werden nicht in den Papierkorb verschoben."
 
+msgid "Filesystem is being created."
+msgstr "Das Dateisystem wird erstellt."
+
+msgid "Filesystem is detected."
+msgstr "Dateisystem erkannt."
+
+msgid "Filesystem is missing."
+msgstr "Dateisystem fehlt."
+
 msgid "Fingerprint (SHA-1)"
 msgstr "Fingerprint (SHA-1)"
 
@@ -1624,9 +1636,6 @@ msgstr "Erbe ACLs"
 
 msgid "Inherit permissions"
 msgstr "Berechtigungen erben"
-
-msgid "Initializing"
-msgstr "Initialisierend"
 
 msgid "Install"
 msgstr "Installieren"
@@ -2222,8 +2231,8 @@ msgstr "Nicht TCP"
 msgid "Not UDP"
 msgstr "Nicht UDP"
 
-msgid "Not a directory"
-msgstr ""
+msgid "Not a directory."
+msgstr "Kein Verzeichnis."
 
 msgid "Not mounted"
 msgstr "Nicht eingehängt"
@@ -2275,9 +2284,6 @@ msgstr "Alterserscheinungen"
 
 msgid "Oman"
 msgstr "Oman"
-
-msgid "Online"
-msgstr "Online"
 
 msgid "Operation"
 msgstr "Vorgang"

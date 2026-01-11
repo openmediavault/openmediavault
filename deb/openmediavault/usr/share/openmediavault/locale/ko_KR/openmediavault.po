@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -778,9 +778,6 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr "클립보드로 복사"
 
-msgid "Corrupted database"
-msgstr ""
-
 msgid "Costa Rica"
 msgstr "코스타리카"
 
@@ -844,6 +841,9 @@ msgstr ""
 msgid "Created wireless network connection."
 msgstr ""
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr ""
 
@@ -879,6 +879,9 @@ msgstr ""
 
 msgid "Dashboard"
 msgstr "대시보드"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "날짜 및 시간"
@@ -967,7 +970,7 @@ msgstr "차이"
 msgid "Direction"
 msgstr "방향"
 
-msgid "Directory does not exist"
+msgid "Directory does not exist."
 msgstr ""
 
 msgid "Disabled"
@@ -1298,6 +1301,15 @@ msgid ""
 "recycle bin."
 msgstr ""
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr ""
 
@@ -1614,9 +1626,6 @@ msgstr "ACL 상속"
 
 msgid "Inherit permissions"
 msgstr "권한 상속"
-
-msgid "Initializing"
-msgstr "초기화 중"
 
 msgid "Install"
 msgstr "설치"
@@ -2212,7 +2221,7 @@ msgstr "TCP 제외"
 msgid "Not UDP"
 msgstr "UDP 제외"
 
-msgid "Not a directory"
+msgid "Not a directory."
 msgstr ""
 
 msgid "Not mounted"
@@ -2265,9 +2274,6 @@ msgstr ""
 
 msgid "Oman"
 msgstr "오만"
-
-msgid "Online"
-msgstr "온라인"
 
 msgid "Operation"
 msgstr "작업"

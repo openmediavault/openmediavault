@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Marek Pavelka, 2024-2025\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -777,9 +777,6 @@ msgstr "Kopírovat oprávnění"
 msgid "Copy to clipboard"
 msgstr "Kopírovat do schránky"
 
-msgid "Corrupted database"
-msgstr ""
-
 msgid "Costa Rica"
 msgstr "Kostarika"
 
@@ -843,6 +840,9 @@ msgstr "Vytvořeno kabelové síťové připojení."
 msgid "Created wireless network connection."
 msgstr "Vytvořeno bezdrátové síťové připojení."
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "Čas vytvoření"
 
@@ -878,6 +878,9 @@ msgstr "Tmavý režim"
 
 msgid "Dashboard"
 msgstr "Přehled"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "Datum a čas"
@@ -966,7 +969,7 @@ msgstr "Rozdíl"
 msgid "Direction"
 msgstr "Směr"
 
-msgid "Directory does not exist"
+msgid "Directory does not exist."
 msgstr ""
 
 msgid "Disabled"
@@ -1297,6 +1300,15 @@ msgid ""
 "recycle bin."
 msgstr "Soubory, které jsou větší než zadané číslo, nebudou umístěny do koše."
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr "Otisk prstu (SHA-1)"
 
@@ -1613,9 +1625,6 @@ msgstr "Zdědit seznamy ACL"
 
 msgid "Inherit permissions"
 msgstr "Zdědit oprávnění"
-
-msgid "Initializing"
-msgstr "Inicializace"
 
 msgid "Install"
 msgstr "Instalovat"
@@ -2211,7 +2220,7 @@ msgstr "Mimo TCP"
 msgid "Not UDP"
 msgstr "Mimo UDP"
 
-msgid "Not a directory"
+msgid "Not a directory."
 msgstr ""
 
 msgid "Not mounted"
@@ -2264,9 +2273,6 @@ msgstr "Staré"
 
 msgid "Oman"
 msgstr "Omán"
-
-msgid "Online"
-msgstr "Online"
 
 msgid "Operation"
 msgstr "Operace"

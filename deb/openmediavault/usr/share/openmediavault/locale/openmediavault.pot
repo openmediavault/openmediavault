@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -755,9 +755,6 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr ""
 
-msgid "Corrupted database"
-msgstr ""
-
 msgid "Costa Rica"
 msgstr ""
 
@@ -821,6 +818,9 @@ msgstr ""
 msgid "Created wireless network connection."
 msgstr ""
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr ""
 
@@ -855,6 +855,9 @@ msgid "Dark mode"
 msgstr ""
 
 msgid "Dashboard"
+msgstr ""
+
+msgid "Database record not found."
 msgstr ""
 
 msgid "Date & Time"
@@ -941,7 +944,7 @@ msgstr ""
 msgid "Direction"
 msgstr ""
 
-msgid "Directory does not exist"
+msgid "Directory does not exist."
 msgstr ""
 
 msgid "Disabled"
@@ -1253,6 +1256,15 @@ msgstr ""
 msgid "Files that are larger than the specified number will not be put into the recycle bin."
 msgstr ""
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr ""
 
@@ -1545,9 +1557,6 @@ msgid "Inherit ACLs"
 msgstr ""
 
 msgid "Inherit permissions"
-msgstr ""
-
-msgid "Initializing"
 msgstr ""
 
 msgid "Install"
@@ -2132,7 +2141,7 @@ msgstr ""
 msgid "Not UDP"
 msgstr ""
 
-msgid "Not a directory"
+msgid "Not a directory."
 msgstr ""
 
 msgid "Not mounted"
@@ -2181,9 +2190,6 @@ msgid "Old-age"
 msgstr ""
 
 msgid "Oman"
-msgstr ""
-
-msgid "Online"
 msgstr ""
 
 msgid "Operation"

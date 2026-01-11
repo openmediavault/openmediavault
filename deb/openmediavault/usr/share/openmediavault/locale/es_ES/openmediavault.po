@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2024\n"
 "Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -780,9 +780,6 @@ msgstr "Copiar permisos"
 msgid "Copy to clipboard"
 msgstr "Copiar al portapapeles"
 
-msgid "Corrupted database"
-msgstr ""
-
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -846,6 +843,9 @@ msgstr "Conexión cableada de Red creada."
 msgid "Created wireless network connection."
 msgstr "Conexión WiFi de Red creada."
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "Fecha de creaccón"
 
@@ -881,6 +881,9 @@ msgstr "Modo oscuro"
 
 msgid "Dashboard"
 msgstr "Dashboard"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "Fecha y hora"
@@ -969,7 +972,7 @@ msgstr "Diferencia"
 msgid "Direction"
 msgstr "Dirección"
 
-msgid "Directory does not exist"
+msgid "Directory does not exist."
 msgstr ""
 
 msgid "Disabled"
@@ -1300,6 +1303,15 @@ msgid ""
 "recycle bin."
 msgstr "Archivos de mayor tamaño que el numero especificado no serán mandados a la papelera de reciclaje."
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr "Huella (SHA-1)"
 
@@ -1616,9 +1628,6 @@ msgstr "Heredar ACL"
 
 msgid "Inherit permissions"
 msgstr "Heredar permisos"
-
-msgid "Initializing"
-msgstr "Inicializando"
 
 msgid "Install"
 msgstr "Instalar"
@@ -2214,7 +2223,7 @@ msgstr "No TCP"
 msgid "Not UDP"
 msgstr "No UDP"
 
-msgid "Not a directory"
+msgid "Not a directory."
 msgstr ""
 
 msgid "Not mounted"
@@ -2267,9 +2276,6 @@ msgstr "Edad"
 
 msgid "Oman"
 msgstr "Omán"
-
-msgid "Online"
-msgstr "Online"
 
 msgid "Operation"
 msgstr "Operación"

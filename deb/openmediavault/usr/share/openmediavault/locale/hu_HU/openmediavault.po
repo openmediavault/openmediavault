@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2026\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -781,9 +781,6 @@ msgstr "Engedélyek másolása"
 msgid "Copy to clipboard"
 msgstr "Vágólapra másolás"
 
-msgid "Corrupted database"
-msgstr "Sérült adatbázis"
-
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -847,6 +844,9 @@ msgstr "vezetékes hálózati kapcsolat létrehozva."
 msgid "Created wireless network connection."
 msgstr "Vezeték nélküli hálózati kapcsolat létrehozva."
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "Létrehozás ideje"
 
@@ -882,6 +882,9 @@ msgstr "Sötét mód"
 
 msgid "Dashboard"
 msgstr "Műszerfal"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "Dátum és idő"
@@ -970,8 +973,8 @@ msgstr "Különbség"
 msgid "Direction"
 msgstr "Utasítás"
 
-msgid "Directory does not exist"
-msgstr "Könyvtár nem létezik"
+msgid "Directory does not exist."
+msgstr ""
 
 msgid "Disabled"
 msgstr "Letiltva"
@@ -1301,6 +1304,15 @@ msgid ""
 "recycle bin."
 msgstr "A megadott bájtméretnél nagyobb fájlok nem helyezhetőek át a lomtárba."
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr "Ujjlenyomat (SHA-1)"
 
@@ -1617,9 +1629,6 @@ msgstr "ACL-ek öröklése"
 
 msgid "Inherit permissions"
 msgstr "Jogosultságok öröklése"
-
-msgid "Initializing"
-msgstr "Inicializálás"
 
 msgid "Install"
 msgstr "Telepítés"
@@ -2215,8 +2224,8 @@ msgstr "Nem TCP"
 msgid "Not UDP"
 msgstr "Nem UDP"
 
-msgid "Not a directory"
-msgstr "Nem könyvtár"
+msgid "Not a directory."
+msgstr ""
 
 msgid "Not mounted"
 msgstr "Nincs csatlakoztatva"
@@ -2268,9 +2277,6 @@ msgstr "Elhasználódás"
 
 msgid "Oman"
 msgstr "Omán"
-
-msgid "Online"
-msgstr "Online"
 
 msgid "Operation"
 msgstr "Művelet"

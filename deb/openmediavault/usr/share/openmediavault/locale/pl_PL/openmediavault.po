@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2025\n"
 "Language-Team: Polish (Poland) (http://app.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -781,9 +781,6 @@ msgstr "Kopiuj uprawnienia"
 msgid "Copy to clipboard"
 msgstr "Skopiuj do schowka"
 
-msgid "Corrupted database"
-msgstr ""
-
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -847,6 +844,9 @@ msgstr "Utworzono połączenie sieci przewodowej."
 msgid "Created wireless network connection."
 msgstr "Utworzono połączenie sieci bezprzewodowej."
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "Czas utworzenia"
 
@@ -882,6 +882,9 @@ msgstr "Tryb ciemny"
 
 msgid "Dashboard"
 msgstr "Panel"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "Data i Czas"
@@ -970,7 +973,7 @@ msgstr "Różnica"
 msgid "Direction"
 msgstr "Kierunek"
 
-msgid "Directory does not exist"
+msgid "Directory does not exist."
 msgstr ""
 
 msgid "Disabled"
@@ -1301,6 +1304,15 @@ msgid ""
 "recycle bin."
 msgstr ""
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr ""
 
@@ -1617,9 +1629,6 @@ msgstr "Dziedzicz ACL-y"
 
 msgid "Inherit permissions"
 msgstr "Dziedzicz uprawnienia"
-
-msgid "Initializing"
-msgstr "Inicjowanie"
 
 msgid "Install"
 msgstr "Instaluj"
@@ -2215,7 +2224,7 @@ msgstr "Bez TCP"
 msgid "Not UDP"
 msgstr "Bez UDP"
 
-msgid "Not a directory"
+msgid "Not a directory."
 msgstr ""
 
 msgid "Not mounted"
@@ -2268,9 +2277,6 @@ msgstr "Stary"
 
 msgid "Oman"
 msgstr "Oman"
-
-msgid "Online"
-msgstr "Online"
 
 msgid "Operation"
 msgstr "Operacja"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2025\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -777,9 +777,6 @@ msgstr "Permisos de còpia"
 msgid "Copy to clipboard"
 msgstr "Copiar al porta-papers"
 
-msgid "Corrupted database"
-msgstr ""
-
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -843,6 +840,9 @@ msgstr "S'ha creat la connexió de xarxa per cable. "
 msgid "Created wireless network connection."
 msgstr "S'ha creat la connexió de xarxa sense fils. "
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "Temps de Creació"
 
@@ -878,6 +878,9 @@ msgstr "Mode fosc"
 
 msgid "Dashboard"
 msgstr "Panell"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "Data i hora"
@@ -966,7 +969,7 @@ msgstr "Diferencia"
 msgid "Direction"
 msgstr "Direcció"
 
-msgid "Directory does not exist"
+msgid "Directory does not exist."
 msgstr ""
 
 msgid "Disabled"
@@ -1297,6 +1300,15 @@ msgid ""
 "recycle bin."
 msgstr "Els fitxers que siguin més grans que el nombre especificat no es posaran a la paperera de reciclatge."
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr "Empremta digital (SHA-1)"
 
@@ -1613,9 +1625,6 @@ msgstr "Heretar ACL"
 
 msgid "Inherit permissions"
 msgstr "Heretar permisos"
-
-msgid "Initializing"
-msgstr "Inicialitzant"
 
 msgid "Install"
 msgstr "Instal·lar"
@@ -2211,7 +2220,7 @@ msgstr "No TCP"
 msgid "Not UDP"
 msgstr "No UDP"
 
-msgid "Not a directory"
+msgid "Not a directory."
 msgstr ""
 
 msgid "Not mounted"
@@ -2264,9 +2273,6 @@ msgstr "Edat"
 
 msgid "Oman"
 msgstr "Oman"
-
-msgid "Online"
-msgstr "En línia"
 
 msgid "Operation"
 msgstr "Operació"

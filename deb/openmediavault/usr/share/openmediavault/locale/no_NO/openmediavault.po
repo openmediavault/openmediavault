@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
 "Language-Team: Norwegian (http://app.transifex.com/openmediavault/openmediavault/language/no/)\n"
@@ -776,9 +776,6 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr ""
 
-msgid "Corrupted database"
-msgstr ""
-
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -842,6 +839,9 @@ msgstr ""
 msgid "Created wireless network connection."
 msgstr ""
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr ""
 
@@ -876,6 +876,9 @@ msgid "Dark mode"
 msgstr ""
 
 msgid "Dashboard"
+msgstr ""
+
+msgid "Database record not found."
 msgstr ""
 
 msgid "Date & Time"
@@ -965,7 +968,7 @@ msgstr "Forskjell"
 msgid "Direction"
 msgstr "Retning"
 
-msgid "Directory does not exist"
+msgid "Directory does not exist."
 msgstr ""
 
 msgid "Disabled"
@@ -1296,6 +1299,15 @@ msgid ""
 "recycle bin."
 msgstr ""
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr ""
 
@@ -1612,9 +1624,6 @@ msgstr "Arv ACL"
 
 msgid "Inherit permissions"
 msgstr "Arv tillatelser"
-
-msgid "Initializing"
-msgstr "Initialiserer"
 
 msgid "Install"
 msgstr "Installer"
@@ -2210,7 +2219,7 @@ msgstr "Ikke TCP"
 msgid "Not UDP"
 msgstr "Ikke UDP"
 
-msgid "Not a directory"
+msgid "Not a directory."
 msgstr ""
 
 msgid "Not mounted"
@@ -2263,9 +2272,6 @@ msgstr ""
 
 msgid "Oman"
 msgstr "Oman"
-
-msgid "Online"
-msgstr "Online"
 
 msgid "Operation"
 msgstr ""

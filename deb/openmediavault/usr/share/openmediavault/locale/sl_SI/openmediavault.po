@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -776,9 +776,6 @@ msgstr "Kopiraj dovoljenja"
 msgid "Copy to clipboard"
 msgstr "Kopiraj v odložišče"
 
-msgid "Corrupted database"
-msgstr ""
-
 msgid "Costa Rica"
 msgstr "Kostarika"
 
@@ -842,6 +839,9 @@ msgstr "Vzpostavljena žična omrežna povezava."
 msgid "Created wireless network connection."
 msgstr "Vzpostavljena brezžična omrežna povezava."
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "Čas ustvarjanja"
 
@@ -877,6 +877,9 @@ msgstr "Temni način"
 
 msgid "Dashboard"
 msgstr "Nadzorna plošča"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "Datum in čas"
@@ -965,7 +968,7 @@ msgstr "Razlika"
 msgid "Direction"
 msgstr "Smer"
 
-msgid "Directory does not exist"
+msgid "Directory does not exist."
 msgstr ""
 
 msgid "Disabled"
@@ -1296,6 +1299,15 @@ msgid ""
 "recycle bin."
 msgstr "Datoteke, ki so večje od določene velikosti, ne bodo prestavljene v koš za smeti."
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr "Prstni odtis (SHA-1)"
 
@@ -1612,9 +1624,6 @@ msgstr "Deduj ACL-je"
 
 msgid "Inherit permissions"
 msgstr "Deduj pravice"
-
-msgid "Initializing"
-msgstr "Inicializacija"
 
 msgid "Install"
 msgstr "Namesti"
@@ -2210,7 +2219,7 @@ msgstr "Ni TCP"
 msgid "Not UDP"
 msgstr "Ni UDP"
 
-msgid "Not a directory"
+msgid "Not a directory."
 msgstr ""
 
 msgid "Not mounted"
@@ -2263,9 +2272,6 @@ msgstr "Old-age"
 
 msgid "Oman"
 msgstr "Oman"
-
-msgid "Online"
-msgstr "Povezan"
 
 msgid "Operation"
 msgstr "Delovanje"

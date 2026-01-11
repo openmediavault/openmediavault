@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2023,2025
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2023,2025-2026
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2023,2025\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2023,2025-2026\n"
 "Language-Team: Danish (http://app.transifex.com/openmediavault/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,10 +22,10 @@ msgid "# Members"
 msgstr ""
 
 msgid "%CPU"
-msgstr ""
+msgstr "%CPU"
 
 msgid "%MEM"
-msgstr ""
+msgstr "%MEM"
 
 msgid "%d days"
 msgstr "%d dage"
@@ -647,10 +647,10 @@ msgid "Changelog"
 msgstr "Changelog"
 
 msgid "Check for new plugins"
-msgstr ""
+msgstr "Kontroller efter nye plugins"
 
 msgid "Check for new updates"
-msgstr ""
+msgstr "Kontroller efter nye opdateringer"
 
 msgid "Check interval"
 msgstr "Kontrol interval"
@@ -770,13 +770,10 @@ msgid "Copy"
 msgstr "Kopier"
 
 msgid "Copy permissions"
-msgstr ""
+msgstr "Kopier tilladelser"
 
 msgid "Copy to clipboard"
 msgstr "Kopier til udklipsholder"
-
-msgid "Corrupted database"
-msgstr ""
 
 msgid "Costa Rica"
 msgstr "Costa Rica"
@@ -841,6 +838,9 @@ msgstr "Oprettet kablet netværksforbindelse."
 msgid "Created wireless network connection."
 msgstr "Oprettet trådløs netværksforbindelse."
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr ""
 
@@ -876,6 +876,9 @@ msgstr "Mørk tilstand"
 
 msgid "Dashboard"
 msgstr "Dashboard"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "Dato & Tid"
@@ -964,7 +967,7 @@ msgstr "Forskel"
 msgid "Direction"
 msgstr "Retning"
 
-msgid "Directory does not exist"
+msgid "Directory does not exist."
 msgstr ""
 
 msgid "Disabled"
@@ -983,10 +986,10 @@ msgid "Disks"
 msgstr "Diske"
 
 msgid "Dismiss"
-msgstr ""
+msgstr "Fortryd"
 
 msgid "Dismiss all"
-msgstr ""
+msgstr "Fortryd alt"
 
 msgid "Displays information about the file systems in a grid."
 msgstr ""
@@ -1114,7 +1117,7 @@ msgstr "Hver linie repræsenterer en gruppe."
 msgid ""
 "Each line represents a user. Note, the password must be entered in plain "
 "text."
-msgstr ""
+msgstr "Hver linie repræsenterer en bruger. Bemærk, adgangskoden skal indtastes i ren tekst."
 
 msgid "East Timor"
 msgstr "East Timor"
@@ -1150,10 +1153,10 @@ msgid "Enable automatic snapshot clean up."
 msgstr ""
 
 msgid "Enable keyboard-interactive authentication."
-msgstr ""
+msgstr "Aktiver tastatur-interaktiv godkendelse."
 
 msgid "Enable public key authentication."
-msgstr ""
+msgstr "Aktiver offentlig nøgle godkendelse."
 
 msgid "Enable recycle bin"
 msgstr "Aktiver papirkurv"
@@ -1265,13 +1268,13 @@ msgid "Fiji"
 msgstr "Fiji"
 
 msgid "File System Usage"
-msgstr ""
+msgstr "Filsystem forbrug"
 
 msgid "File Systems"
 msgstr "Filsystemer"
 
 msgid "File access control lists"
-msgstr ""
+msgstr "Tilgå fil kontrol lister"
 
 msgid "File owner and group"
 msgstr ""
@@ -1295,6 +1298,15 @@ msgid ""
 "recycle bin."
 msgstr "Filer, der er større end det specificeret antal, vil ikke blive lagt i papirkurven."
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr "Fingeraftryk (SHA-1)"
 
@@ -1314,7 +1326,7 @@ msgid "Flags"
 msgstr "Flag"
 
 msgid "Follow symlinks"
-msgstr ""
+msgstr "Følg symlinks"
 
 msgid "Force SSL/TLS"
 msgstr "Tving SSL/TLS"
@@ -1482,7 +1494,7 @@ msgid "Hosts allow"
 msgstr "Tillad værter"
 
 msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Værter har tilladelse til at montere filsystemet, f.eks. 192.168.178.0/24"
 
 msgid "Hosts deny"
 msgstr "Nægt værter"
@@ -1529,7 +1541,7 @@ msgid "Identify As"
 msgstr "Identifier Som"
 
 msgid "Identify network interface"
-msgstr ""
+msgstr "Identificer netværks interface"
 
 msgid "Idle"
 msgstr "Ledig"
@@ -1538,7 +1550,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Guests only' is selecting; in "
 "this case no password is required to connect to the share."
-msgstr ""
+msgstr "Hvis 'Gæster tilladt' er valgt og ingen log ind legitimationsoplysninger er fastsat vil tilgang være som gæst. Tilgå altid som gæst når 'Kun gæster' bliver valgt; i dette tilfælde er ingen adgangkode nødvendig for at forbinde til delingen."
 
 msgid ""
 "If a device is not listed here, it is usually because the device already "
@@ -1583,10 +1595,10 @@ msgid "Import"
 msgstr "Importer"
 
 msgid "Imported SSH certificate."
-msgstr ""
+msgstr "Importeret SSH certifikat."
 
 msgid "Imported SSL certificate."
-msgstr ""
+msgstr "Importeret SSL certifikat."
 
 msgid "Imported groups."
 msgstr "Importerede grupper."
@@ -1611,9 +1623,6 @@ msgstr "Nedarv ACL'er"
 
 msgid "Inherit permissions"
 msgstr "Nedarv tilladelser"
-
-msgid "Initializing"
-msgstr "Initialiserer"
 
 msgid "Install"
 msgstr "Installer"
@@ -1651,7 +1660,7 @@ msgid "Invalid NetBIOS name."
 msgstr "Ugyldig NetBIOS navn."
 
 msgid "Invalid PGP public key."
-msgstr ""
+msgstr "Ugyldig offentlig PGP nøgle."
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "Ugyldigt SSH offentlig nøgle (OpenSSH format)."
@@ -1807,22 +1816,22 @@ msgid ""
 msgstr ""
 
 msgid "Limit weekly"
-msgstr ""
+msgstr "Begræns ugeligt"
 
 msgid "Limit yearly"
-msgstr ""
+msgstr "Begræns årligt"
 
 msgid "Link"
 msgstr "Link"
 
 msgid "List module"
-msgstr ""
+msgstr "Vis modul"
 
 msgid "Lithuania"
 msgstr "Lithuania"
 
 msgid "Load Average"
-msgstr ""
+msgstr "Gennemsnitlig belastning"
 
 msgid "Loading ..."
 msgstr "Indlæser ..."
@@ -1937,10 +1946,10 @@ msgid "Max. connections"
 msgstr "Maks. forbindelser"
 
 msgid "Maximum"
-msgstr ""
+msgstr "Maksimum"
 
 msgid "Maximum disk size"
-msgstr ""
+msgstr "Maksimal diskstørrelse"
 
 msgid "Maximum file size"
 msgstr "Maksimal filstørrelse"
@@ -1961,7 +1970,7 @@ msgid "Memory"
 msgstr "Hukommelse"
 
 msgid "Memory Usage"
-msgstr ""
+msgstr "Hukommelses forbrug"
 
 msgid "Message"
 msgstr "Besked"
@@ -1997,7 +2006,7 @@ msgid "Minimum"
 msgstr "Minimum"
 
 msgid "Minimum performance, minimum acoustic output"
-msgstr ""
+msgstr "Minimum ydelse, minimum akustisk output"
 
 msgid "Minimum protocol version"
 msgstr ""
@@ -2033,7 +2042,7 @@ msgid "Mongolia"
 msgstr "Mongolia"
 
 msgid "Monitored"
-msgstr ""
+msgstr "Overvåget"
 
 msgid "Monitoring"
 msgstr "Overvåger"
@@ -2090,7 +2099,7 @@ msgid "Myanmar"
 msgstr "Myanmar"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "NFS"
 msgstr "NFS"
@@ -2209,14 +2218,14 @@ msgstr "Ikke TCP"
 msgid "Not UDP"
 msgstr "Ikke UDP"
 
-msgid "Not a directory"
+msgid "Not a directory."
 msgstr ""
 
 msgid "Not mounted"
 msgstr ""
 
 msgid "Not running"
-msgstr ""
+msgstr "Ikke kørende"
 
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
@@ -2255,16 +2264,13 @@ msgid "Offline immediate test"
 msgstr "Offline øjeblikkelig test"
 
 msgid "Old Version"
-msgstr ""
+msgstr "Gammel Version"
 
 msgid "Old-age"
-msgstr ""
+msgstr "Ældre"
 
 msgid "Oman"
 msgstr "Oman"
-
-msgid "Online"
-msgstr "Online"
 
 msgid "Operation"
 msgstr "Handling"
@@ -2276,7 +2282,7 @@ msgid "Organization Name"
 msgstr "Organisationens Navn"
 
 msgid "Organization Unit"
-msgstr ""
+msgstr "Organisationens Enhed"
 
 msgid "Others"
 msgstr "Andre"
@@ -2294,7 +2300,7 @@ msgid "PID"
 msgstr "PID"
 
 msgid "PR"
-msgstr ""
+msgstr "PR"
 
 msgid "Pacific Islands Trust Territory"
 msgstr "Pacific Islands Trust Territory"
@@ -2571,7 +2577,7 @@ msgid "Processor"
 msgstr "Processor"
 
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 msgid "Protocol"
 msgstr "Protokol"
@@ -2607,7 +2613,7 @@ msgid "Quota"
 msgstr "Kvote"
 
 msgid "RES"
-msgstr ""
+msgstr "RES"
 
 msgid "RSync server"
 msgstr "RSync server"
@@ -2649,7 +2655,7 @@ msgid "Relative Path"
 msgstr "Relativ Sti"
 
 msgid "Relative path"
-msgstr ""
+msgstr "Relativ sti"
 
 msgid "Reliable system and kernel logging daemon."
 msgstr ""
@@ -2667,7 +2673,7 @@ msgid "Replace"
 msgstr "Erstat"
 
 msgid "Replace all existing permissions."
-msgstr ""
+msgstr "Erstat alle eksisterende tilladelser."
 
 msgid "Report"
 msgstr "Rapport"
@@ -2675,11 +2681,11 @@ msgstr "Rapport"
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report."
-msgstr ""
+msgstr "Rapporter hvis temperaturen har ændret sig med mindst N grader Celsius siden sidste rapport."
 
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius."
-msgstr ""
+msgstr "Rapporter, hvis temperaturen er større end eller lig med N grader Celsius."
 
 msgid "Repository"
 msgstr "Arkiv"
@@ -2700,7 +2706,7 @@ msgid "Reunion"
 msgstr "Genforening"
 
 msgid "Reverted the configuration changes."
-msgstr ""
+msgstr "Fortrød konfigurations ændringerne."
 
 msgid "Romania"
 msgstr "Romania"
@@ -2718,7 +2724,7 @@ msgid "Rsync - Server"
 msgstr "Rsync - Server"
 
 msgid "Rules"
-msgstr ""
+msgstr "Regler"
 
 msgid "Run"
 msgstr "Kør"
@@ -2745,13 +2751,13 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. Status"
-msgstr ""
+msgstr "S.M.A.R.T. Status"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. overvågning skal være aktiveret for den valgte enhed."
 
 msgid "SHR"
-msgstr ""
+msgstr "SHR"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2862,7 +2868,7 @@ msgid "Secure connection"
 msgstr "Sikker forbindelse"
 
 msgid "Security"
-msgstr ""
+msgstr "Sikkerhed"
 
 msgid "Select a country ..."
 msgstr "Vælg et land ..."
@@ -2886,31 +2892,31 @@ msgid "Select a system log ..."
 msgstr ""
 
 msgid "Select all"
-msgstr ""
+msgstr "Vælg alt"
 
 msgid "Select an authentication mode ..."
 msgstr "Vælg en godkendelses metode ..."
 
 msgid "Select an user ..."
-msgstr ""
+msgstr "Vælg en bruger ..."
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Vælg enheder ..."
 
 msgid "Select groups ..."
-msgstr ""
+msgstr "Vælg grupper ..."
 
 msgid "Select interface devices ..."
-msgstr ""
+msgstr "Vælg interface enheder ..."
 
 msgid "Select members ..."
 msgstr ""
 
 msgid "Select permissions ..."
-msgstr ""
+msgstr "Vælg tilladelser ..."
 
 msgid "Select slave devices ..."
-msgstr ""
+msgstr "Vælg slave enheder ..."
 
 msgid "Select the device that will be used to create the file system."
 msgstr ""
@@ -2996,7 +3002,7 @@ msgid "Seychelles"
 msgstr "Seychelles"
 
 msgid "Share"
-msgstr ""
+msgstr "Deling"
 
 msgid "Shared Folders"
 msgstr "Delte Mapper"
@@ -3011,7 +3017,7 @@ msgid "Shared folder path"
 msgstr "Delt mappe sti"
 
 msgid "Shared folder permissions"
-msgstr ""
+msgstr "Delt mappe tilladelser"
 
 msgid "Shared folder permissions have been copied."
 msgstr ""
@@ -3056,7 +3062,7 @@ msgid "Sleep"
 msgstr "Dvale"
 
 msgid "Sleeping"
-msgstr ""
+msgstr "Dvale"
 
 msgid "Slovakia"
 msgstr "Slovakia"
@@ -3068,7 +3074,7 @@ msgid "Snapshots"
 msgstr "Snapshots"
 
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr ""
@@ -3273,7 +3279,7 @@ msgid "TCP forwarding"
 msgstr "TCP forwarding"
 
 msgid "TIME+"
-msgstr ""
+msgstr "TIME+"
 
 msgid "Tags"
 msgstr ""
@@ -3381,7 +3387,7 @@ msgstr "Værtsnavn på fjernsystemet."
 msgid ""
 "The information about available software is out-of-date. Do you want to "
 "reload this information?"
-msgstr ""
+msgstr "Oplysningerne om tilgængelig software er ikke opdateret. \nVil du genindlæse oplysningerne?"
 
 msgid "The location of the files to share."
 msgstr "Placeringen af filerne, der skal deles."
@@ -3426,7 +3432,7 @@ msgstr ""
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
 "used for remote shell transport such as SSH."
-msgstr ""
+msgstr "Adgangskoden der bliver brugt til adgang via rsync dæmon. Vær opmærksom på at den ikke bliver brugt til ekstern skal transport såsom SSH."
 
 msgid ""
 "The permissions on new files and directories are normally governed by create"
@@ -3439,19 +3445,19 @@ msgid "The port on which SSH is running on the remote system."
 msgstr "Porten som SSH kører på fjernsystemet."
 
 msgid "The private key in PEM format."
-msgstr ""
+msgstr "Den private nøgle i PEM format."
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
-msgstr ""
+msgstr "Protokollen er ikke understøttet i sammenhæng med en kilde/destinations port."
 
 msgid "The public key in OpenSSH format."
-msgstr ""
+msgstr "Den offentlige nøgle i OpenSSH format. "
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
 "created if it does not exist."
-msgstr ""
+msgstr "Stien til mappen, der skal deles. Den angivne mappe vil blive oprettet, hvis den ikke findes."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3513,19 +3519,19 @@ msgid ""
 "These settings are used by the services to configure the access rights for "
 "the group \"{{ _routeParams.name }}\". Please note that these settings have "
 "no effect on file system permissions."
-msgstr ""
+msgstr "Disse indstillinger anvendes af tjenesterne for at konfigurere gruppens adgangsrettigheder til gruppe \"{{ _routeParams.name }}\". Bemærk, at disse indstillinger ikke berører filsystemets tilladelser."
 
 msgid ""
 "These settings are used by the services to configure the access rights for "
 "the user \"{{ _routeParams.name }}\". Please note that these settings have "
 "no effect on file system permissions."
-msgstr ""
+msgstr "Disse indstillinger anvendes af tjenesterne for at konfigurere brugerens adgangsrettigheder til bruger\"{{ _routeParams.name }}\". Bemærk, at disse indstillinger ikke berører filsystemets tilladelser."
 
 msgid ""
 "These settings are used by the services to configure the user and group "
 "access rights. Please note that these settings have no effect on file system"
 " permissions."
-msgstr ""
+msgstr "Disse indstillinger anvendes af tjenesterne for at konfigurere brugerens og gruppens adgangsrettigheder. Bemærk, at disse indstillinger ikke berører filsystemets tilladelser."
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3548,67 +3554,67 @@ msgid ""
 msgstr ""
 
 msgid "This field is required."
-msgstr ""
+msgstr "Dette felt er påkrævet."
 
 msgid "This field must have the format <hh:mm:ss>."
-msgstr ""
+msgstr "Dette felt skal have formatet <hh:mm:ss>."
 
 msgid "This field must match the format SIZE[K|M|G|T|P]."
 msgstr ""
 
 msgid "This field should be a IP network address in CIDR notation."
-msgstr ""
+msgstr "Dette felt skal være en IP netværks adresse i CIDR betegnelse."
 
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
-msgstr ""
+msgstr "Dette felt skal være en MAC addresse, f.eks 00:80:41:ae:fd:7e."
 
 msgid "This field should be a domain name or an IP address."
-msgstr ""
+msgstr "Dette felt skal være et domænenavn eller en IP adresse."
 
 msgid "This field should be a host name or an IP address in CIDR notation."
-msgstr ""
+msgstr "Dette felt skal være et værtsnavn eller en IP adresse i CIDR betegnelse."
 
 msgid "This field should be a list of IP addresses separated by <,> or <;>."
-msgstr ""
+msgstr "Dette felt skal være en liste af IP adresser adskilt med <,> eller <;>."
 
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>."
-msgstr ""
+msgstr "Dette felt skal være en liste af domænenavne eller IP adresser adskilt med <,> eller <;>."
 
 msgid "This field should be a list of domain names or IP addresses."
-msgstr ""
+msgstr "Dette felt skal være en liste af domænenavne eller IP adresser."
 
 msgid ""
 "This field should be a list of host names or IP addresses in CIDR notation "
 "separated by <,> or <;>."
-msgstr ""
+msgstr "Dette felt skal være en liste af værtsnavne eller IP adresser i CIDR betegnelse adskilt med <,> eller <;>."
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
-msgstr ""
+msgstr "Dette felt skal være en netmaske indenfor området 128.0.0.0 - 255.255.255.252."
 
 msgid "This field should be a network port in the range of 1 to 65535."
-msgstr ""
+msgstr "Dette felt skal være en netværksport i området fra 1 - 65535"
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
-msgstr ""
+msgstr "Dette felt skal være en port eller port område (f.eks 21 eller !443 eller 1024-65535)."
 
 msgid "This field should be an IP address."
-msgstr ""
+msgstr "Dette felt skal være en IP adresse."
 
 msgid "This field should be an IPv4 address."
-msgstr ""
+msgstr "Dette felt skal være en IPv4 adresse."
 
 msgid "This field should be an IPv6 address."
-msgstr ""
+msgstr "Dette felt skal være en IPv6 adresse."
 
 msgid "This field should be an email address."
-msgstr ""
+msgstr "Dette felt skal være en email adresse."
 
 msgid "This field should contain a decimal value."
-msgstr ""
+msgstr "Dette felt skal indeholde en tal værdi."
 
 msgid "This field should contain a number with a binary prefix."
 msgstr ""

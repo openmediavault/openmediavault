@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022,2025\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -777,9 +777,6 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr "Копіювати в буфер обміну"
 
-msgid "Corrupted database"
-msgstr ""
-
 msgid "Costa Rica"
 msgstr "Коста-Ріка"
 
@@ -843,6 +840,9 @@ msgstr "Створене дротове мережеве підключення.
 msgid "Created wireless network connection."
 msgstr "Створено бездротове мережеве підключення."
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr ""
 
@@ -878,6 +878,9 @@ msgstr ""
 
 msgid "Dashboard"
 msgstr "Панель приладів"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "Дата і час"
@@ -966,7 +969,7 @@ msgstr "Різниця"
 msgid "Direction"
 msgstr "Директива"
 
-msgid "Directory does not exist"
+msgid "Directory does not exist."
 msgstr ""
 
 msgid "Disabled"
@@ -1297,6 +1300,15 @@ msgid ""
 "recycle bin."
 msgstr "Файли, які перевищують вказане число, не будуть поміщені до смітника."
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr ""
 
@@ -1613,9 +1625,6 @@ msgstr "Успадкування ACLs"
 
 msgid "Inherit permissions"
 msgstr "Спадкування прав доступу"
-
-msgid "Initializing"
-msgstr "Ініціалізація"
 
 msgid "Install"
 msgstr "Встановити"
@@ -2211,7 +2220,7 @@ msgstr "Без TCP"
 msgid "Not UDP"
 msgstr "Без UDP"
 
-msgid "Not a directory"
+msgid "Not a directory."
 msgstr ""
 
 msgid "Not mounted"
@@ -2264,9 +2273,6 @@ msgstr "Old-age"
 
 msgid "Oman"
 msgstr "Оман"
-
-msgid "Online"
-msgstr "Онлайн"
 
 msgid "Operation"
 msgstr "Операція"

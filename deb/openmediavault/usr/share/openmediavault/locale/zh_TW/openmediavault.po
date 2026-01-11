@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2026\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -777,9 +777,6 @@ msgstr "複製權限"
 msgid "Copy to clipboard"
 msgstr "複製到剪貼板"
 
-msgid "Corrupted database"
-msgstr "損壞的資料庫"
-
 msgid "Costa Rica"
 msgstr "哥斯達黎加"
 
@@ -843,6 +840,9 @@ msgstr "已建立有線網路連接。"
 msgid "Created wireless network connection."
 msgstr "已建立無線網路連接。"
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "建立時間"
 
@@ -878,6 +878,9 @@ msgstr "暗黑模式"
 
 msgid "Dashboard"
 msgstr "儀表板"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "日期與時間"
@@ -966,8 +969,8 @@ msgstr "差異"
 msgid "Direction"
 msgstr "方向"
 
-msgid "Directory does not exist"
-msgstr "目錄並不存在"
+msgid "Directory does not exist."
+msgstr ""
 
 msgid "Disabled"
 msgstr "已停用"
@@ -1297,6 +1300,15 @@ msgid ""
 "recycle bin."
 msgstr "大於指定數量的檔案不會被放入回收桶。"
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr "指紋 (SHA-1)"
 
@@ -1613,9 +1625,6 @@ msgstr "繼承 ACLs"
 
 msgid "Inherit permissions"
 msgstr "繼承權限"
-
-msgid "Initializing"
-msgstr "進行初始化"
 
 msgid "Install"
 msgstr "安裝"
@@ -2211,8 +2220,8 @@ msgstr "非 TCP"
 msgid "Not UDP"
 msgstr "非 UDP"
 
-msgid "Not a directory"
-msgstr "並非目錄"
+msgid "Not a directory."
+msgstr ""
 
 msgid "Not mounted"
 msgstr "未被掛載"
@@ -2264,9 +2273,6 @@ msgstr "老齡"
 
 msgid "Oman"
 msgstr "阿曼"
-
-msgid "Online"
-msgstr "在線"
 
 msgid "Operation"
 msgstr "操作"

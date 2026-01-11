@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 12:52+0100\n"
+"POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: André Fernandes, 2025\n"
 "Language-Team: Portuguese (Portugal) (http://app.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
@@ -778,9 +778,6 @@ msgstr "Copiar permissões"
 msgid "Copy to clipboard"
 msgstr "Copiar para memória"
 
-msgid "Corrupted database"
-msgstr ""
-
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -844,6 +841,9 @@ msgstr ""
 msgid "Created wireless network connection."
 msgstr ""
 
+msgid "Creating"
+msgstr ""
+
 msgid "Creation Time"
 msgstr "Tempo de Criação"
 
@@ -879,6 +879,9 @@ msgstr "Modo escuro"
 
 msgid "Dashboard"
 msgstr "Dashboard"
+
+msgid "Database record not found."
+msgstr ""
 
 msgid "Date & Time"
 msgstr "Data & Hora"
@@ -967,7 +970,7 @@ msgstr "Diferença"
 msgid "Direction"
 msgstr "Direção"
 
-msgid "Directory does not exist"
+msgid "Directory does not exist."
 msgstr ""
 
 msgid "Disabled"
@@ -1298,6 +1301,15 @@ msgid ""
 "recycle bin."
 msgstr ""
 
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
 msgid "Fingerprint (SHA-1)"
 msgstr ""
 
@@ -1614,9 +1626,6 @@ msgstr "Herdar ACLs"
 
 msgid "Inherit permissions"
 msgstr "Herdar permissões"
-
-msgid "Initializing"
-msgstr "A inicializar"
 
 msgid "Install"
 msgstr "Instalar"
@@ -2212,7 +2221,7 @@ msgstr "Sem TCP"
 msgid "Not UDP"
 msgstr "Sem UDP"
 
-msgid "Not a directory"
+msgid "Not a directory."
 msgstr ""
 
 msgid "Not mounted"
@@ -2265,9 +2274,6 @@ msgstr ""
 
 msgid "Oman"
 msgstr "Oman"
-
-msgid "Online"
-msgstr "Ligado"
 
 msgid "Operation"
 msgstr "Operação"
