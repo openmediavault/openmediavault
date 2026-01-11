@@ -104,17 +104,17 @@ export class SharedFolderDatatablePageComponent {
             OK: { value: gettext('Available'), class: 'omv-background-color-pair-success' },
             ENOTDIR: {
               value: gettext('Unavailable'),
-              tooltip: gettext('Not a directory'),
+              tooltip: gettext('Not a directory.'),
               class: 'omv-background-color-pair-error'
             },
             ENOENT: {
               value: gettext('Unavailable'),
-              tooltip: gettext('Directory does not exist'),
+              tooltip: gettext('Directory does not exist.'),
               class: 'omv-background-color-pair-error'
             },
             ENOENT_DB_MNTENT: {
               value: gettext('Unavailable'),
-              tooltip: gettext('Corrupted database'),
+              tooltip: gettext('Database is corrupted.'),
               class: 'omv-background-color-pair-error'
             }
             /* eslint-enable @typescript-eslint/naming-convention */
