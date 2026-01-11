@@ -377,9 +377,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em description, \em mounted, \em percentage, \em status,
 	 *   \em propposixacl, \em propquota, \em propresize and \em propfstab.
 	 *   The field 'status' has the following meaning:<ul>
-	 *   \li 1 - Online
-	 *   \li 2 - Initializing in progress
-	 *   \li 3 - Missing
+	 *   \li 1 - Available (filesystem is detected and online)
+	 *   \li 2 - Initializing in progress (filesystem is being created)
+	 *   \li 3 - Missing (filesystem is configured but not detected)
 	 *   </ul>
 	 *  Additional the internal fields \em _used and \em _readonly are set.
 	 * @ŧhrow \OMV\Exception
@@ -499,7 +499,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 						"comment" => $mntentv->get("comment"),
 						"usagewarnthreshold" => $mntentv->get("usagewarnthreshold"),
 						"mountopts" => $mntentv->get("opts"),
-						"status" => 1 // Online
+						"status" => 1 // Available
 					]);
 					continue 2;
 				}
