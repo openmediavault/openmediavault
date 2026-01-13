@@ -1,11 +1,6 @@
-openmediavault (8.0.7-1) stable; urgency=medium
+openmediavault (8.0.6-2) stable; urgency=medium
 
-  *
-
- -- Volker Theile <volker.theile@openmediavault.org>  Fri, 09 Jan 2026 20:21:25 +0100
-
-openmediavault (8.0.6-1) stable; urgency=medium
-
+  * Update i18n files.
   * Various improvements.
   * Add support for network interfaces connected via USB bus.
 
