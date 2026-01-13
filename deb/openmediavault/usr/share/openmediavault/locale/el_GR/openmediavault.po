@@ -839,7 +839,7 @@ msgid "Created wireless network connection."
 msgstr "Δημιουργία ασύρματης σύνδεσης δικτύου."
 
 msgid "Creating"
-msgstr ""
+msgstr "Δημιουργία"
 
 msgid "Creation Time"
 msgstr "Χρόνος Δημιουργίας"
@@ -878,7 +878,7 @@ msgid "Dashboard"
 msgstr "Ταμπλό"
 
 msgid "Database record not found."
-msgstr ""
+msgstr "Δεν βρέθηκε εγγραφή στη βάση δεδομένων."
 
 msgid "Date & Time"
 msgstr "Ημερομηνία και ώρα"
@@ -968,7 +968,7 @@ msgid "Direction"
 msgstr "Κατεύθυνση"
 
 msgid "Directory does not exist."
-msgstr ""
+msgstr "Ο κατάλογος δεν υπάρχει."
 
 msgid "Disabled"
 msgstr "Ανενεργό"
@@ -1299,13 +1299,13 @@ msgid ""
 msgstr "Αρχεία μεγαλύτερα από το προσδιορισμένο μέγεθος, δεν θα τοποθετούνται στον κάδο ανακύκλωσης."
 
 msgid "Filesystem is being created."
-msgstr ""
+msgstr "Το σύστημα αρχείων δημιουργείται."
 
 msgid "Filesystem is detected."
-msgstr ""
+msgstr "Το σύστημα αρχείων εντοπίστηκε."
 
 msgid "Filesystem is missing."
-msgstr ""
+msgstr "Το σύστημα αρχείων απουσιάζει."
 
 msgid "Fingerprint (SHA-1)"
 msgstr "Αποτύπωμα (SHA-1)"
@@ -2219,7 +2219,7 @@ msgid "Not UDP"
 msgstr "Όχι UDP"
 
 msgid "Not a directory."
-msgstr ""
+msgstr "Δεν είναι κατάλογος."
 
 msgid "Not mounted"
 msgstr "Μη προσαρτημένο"

@@ -846,7 +846,7 @@ msgid "Created wireless network connection."
 msgstr "已建无线网络连接。"
 
 msgid "Creating"
-msgstr ""
+msgstr "建立"
 
 msgid "Creation Time"
 msgstr "创建时间"
@@ -885,7 +885,7 @@ msgid "Dashboard"
 msgstr "仪表盘"
 
 msgid "Database record not found."
-msgstr ""
+msgstr "資料庫記錄不存在。"
 
 msgid "Date & Time"
 msgstr "日期和时间"
@@ -975,7 +975,7 @@ msgid "Direction"
 msgstr "方向"
 
 msgid "Directory does not exist."
-msgstr ""
+msgstr "目錄並不存在。"
 
 msgid "Disabled"
 msgstr "禁用"
@@ -1306,13 +1306,13 @@ msgid ""
 msgstr "大于设置大小的文件不会放到回收站。"
 
 msgid "Filesystem is being created."
-msgstr ""
+msgstr "正在建立檔案系統中。"
 
 msgid "Filesystem is detected."
-msgstr ""
+msgstr "檔案系統已被删除。"
 
 msgid "Filesystem is missing."
-msgstr ""
+msgstr "檔案系統不存在。"
 
 msgid "Fingerprint (SHA-1)"
 msgstr "指纹 (SHA-1)"
@@ -2226,7 +2226,7 @@ msgid "Not UDP"
 msgstr "非 UDP"
 
 msgid "Not a directory."
-msgstr ""
+msgstr "並非目錄。"
 
 msgid "Not mounted"
 msgstr "未被挂载"

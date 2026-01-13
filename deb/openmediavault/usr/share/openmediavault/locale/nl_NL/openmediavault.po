@@ -847,7 +847,7 @@ msgid "Created wireless network connection."
 msgstr "Draadloze netwerkverbinding aangemaakt."
 
 msgid "Creating"
-msgstr ""
+msgstr "Aanmaken"
 
 msgid "Creation Time"
 msgstr "Tijdstip van aanmaken"
@@ -886,7 +886,7 @@ msgid "Dashboard"
 msgstr "Bedieningspaneel"
 
 msgid "Database record not found."
-msgstr ""
+msgstr "Databaserecord niet gevonden."
 
 msgid "Date & Time"
 msgstr "Datum & Tijd"
@@ -976,7 +976,7 @@ msgid "Direction"
 msgstr "Richting"
 
 msgid "Directory does not exist."
-msgstr ""
+msgstr "Map bestaat niet."
 
 msgid "Disabled"
 msgstr "Uitgeschakeld"
@@ -1307,13 +1307,13 @@ msgid ""
 msgstr "Bestanden die groter zijn dan de opgegeven waarde worden niet in de prullenbak geplaatst."
 
 msgid "Filesystem is being created."
-msgstr ""
+msgstr "Bestandssysteem wordt aangemaakt."
 
 msgid "Filesystem is detected."
-msgstr ""
+msgstr "Bestandssysteem wordt gedetecteerd."
 
 msgid "Filesystem is missing."
-msgstr ""
+msgstr "Bestandssysteem ontbreekt."
 
 msgid "Fingerprint (SHA-1)"
 msgstr "Vingerafdruk (SHA-1)"
@@ -2227,7 +2227,7 @@ msgid "Not UDP"
 msgstr "Geen UDP"
 
 msgid "Not a directory."
-msgstr ""
+msgstr "Geen map."
 
 msgid "Not mounted"
 msgstr "Niet aangekoppeld"

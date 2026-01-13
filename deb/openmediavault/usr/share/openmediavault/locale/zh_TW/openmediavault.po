@@ -841,7 +841,7 @@ msgid "Created wireless network connection."
 msgstr "已建立無線網路連接。"
 
 msgid "Creating"
-msgstr ""
+msgstr "建立"
 
 msgid "Creation Time"
 msgstr "建立時間"
@@ -880,7 +880,7 @@ msgid "Dashboard"
 msgstr "儀表板"
 
 msgid "Database record not found."
-msgstr ""
+msgstr "資料庫記錄不存在。"
 
 msgid "Date & Time"
 msgstr "日期與時間"
@@ -970,7 +970,7 @@ msgid "Direction"
 msgstr "方向"
 
 msgid "Directory does not exist."
-msgstr ""
+msgstr "目錄並不存在。"
 
 msgid "Disabled"
 msgstr "已停用"
@@ -1301,13 +1301,13 @@ msgid ""
 msgstr "大於指定數量的檔案不會被放入回收桶。"
 
 msgid "Filesystem is being created."
-msgstr ""
+msgstr "建立檔案系統中。"
 
 msgid "Filesystem is detected."
-msgstr ""
+msgstr "檔案系統已被删除。"
 
 msgid "Filesystem is missing."
-msgstr ""
+msgstr "檔案系統不存在。"
 
 msgid "Fingerprint (SHA-1)"
 msgstr "指紋 (SHA-1)"
@@ -2221,7 +2221,7 @@ msgid "Not UDP"
 msgstr "非 UDP"
 
 msgid "Not a directory."
-msgstr ""
+msgstr "並非目錄。"
 
 msgid "Not mounted"
 msgstr "未被掛載"
