@@ -27,3 +27,7 @@ include:
 {% endif %}
 {% endif %}
 {% endfor %}
+
+reload_sysctl_settings:
+  cmd.run:
+    - name: sysctl --system

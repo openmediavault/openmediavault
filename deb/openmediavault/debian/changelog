@@ -1,6 +1,6 @@
 openmediavault (8.0.6-1) stable; urgency=medium
 
-  *
+  * Issue #2100: Fix bug when reloading sysctl configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 14 Jan 2026 12:01:28 +0100
 

@@ -71,12 +71,6 @@ configure_sysctl_nonrot:
     - group: root
     - mode: 644
 
-load_sysctl_settings:
-  cmd.run:
-    - name: sysctl --load
-    - onchanges:
-      - file: configure_sysctl_nonrot
-
 {% endif %}
 
 {% endif %}
