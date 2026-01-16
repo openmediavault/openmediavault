@@ -45,3 +45,8 @@ remove_netplan_config_files:
 remove_netplan_default_armbian_config_file:
   file.absent:
     - name: "/etc/netplan/10-dhcp-all-interfaces.yaml"
+
+# https://wiki.debian.org/Netplan
+remove_netplan_default_debian_installer_config_file:
+  file.absent:
+    - name: "/etc/netplan/00-installer-config.yaml"
