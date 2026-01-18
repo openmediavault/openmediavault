@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.pwmfan.settings"
+  text: _("Settings")
+  icon: "mdi:cog"
+  url: "/services/pwmfan/settings"
