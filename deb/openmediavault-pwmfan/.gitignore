@@ -1,0 +1,21 @@
+# Build artifacts
+*.deb
+*.buildinfo
+*.changes
+*.dsc
+*.tar.*
+
+# Debian build directories
+/debian/.debhelper/
+/debian/openmediavault-pwmfan/
+/debian/files
+/debian/*.debhelper.log
+/debian/*.substvars
+/debian/*.log
+
+# Local reference repos
+/_omv-core/
+/_omv-developer/
+
+# macOS
+.DS_Store

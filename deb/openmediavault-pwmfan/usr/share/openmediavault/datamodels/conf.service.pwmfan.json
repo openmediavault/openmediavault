@@ -1,0 +1,98 @@
+{
+	"type": "config",
+	"id": "conf.service.pwmfan",
+	"title": "PWM Fan",
+	"queryinfo": {
+		"xpath": "//services/pwmfan",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"temp_source": {
+			"type": "string",
+			"default": "hdd"
+		},
+		"hdd_drives": {
+			"type": "string",
+			"default": "/dev/sda,/dev/sdb"
+		},
+		"hdd_standby": {
+			"type": "boolean",
+			"default": true
+		},
+		"cpu_temp_path": {
+			"type": "string",
+			"default": "/sys/class/thermal/thermal_zone0/temp"
+		},
+		"pwm_chip": {
+			"type": "string",
+			"default": "/sys/class/pwm/pwmchip0"
+		},
+		"pwm_channel": {
+			"type": "integer",
+			"minimum": 0,
+			"default": 0
+		},
+		"pwm_period": {
+			"type": "integer",
+			"minimum": 1,
+			"default": 40000
+		},
+		"update_interval": {
+			"type": "integer",
+			"minimum": 5,
+			"default": 60
+		},
+		"temp1": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 120,
+			"default": 28
+		},
+		"temp2": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 120,
+			"default": 31
+		},
+		"temp3": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 120,
+			"default": 33
+		},
+		"speed1": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 100,
+			"default": 25
+		},
+		"speed2": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 100,
+			"default": 50
+		},
+		"speed3": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 100,
+			"default": 75
+		},
+		"speed4": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 100,
+			"default": 100
+		},
+		"failsafe_speed": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 100,
+			"default": 25
+		}
+	}
+}

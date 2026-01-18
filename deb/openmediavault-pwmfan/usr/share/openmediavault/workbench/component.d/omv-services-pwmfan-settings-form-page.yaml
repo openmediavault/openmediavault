@@ -1,0 +1,165 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-pwmfan-settings-form-page
+  type: formPage
+  config:
+    request:
+      service: Pwmfan
+      get:
+        method: getSettings
+      post:
+        method: setSettings
+    fields:
+      - type: hidden
+        name: pwm_available
+        value: true
+        submitValue: false
+      - type: hidden
+        name: pwm_available_message
+        value: ""
+        submitValue: false
+      - type: hint
+        name: pwm_available_hint
+        hintType: warning
+        text: _("PWM hardware not detected. Verify that /sys/class/pwm exists and the configured PWM chip path is valid.")
+        submitValue: false
+        modifiers:
+          - type: visible
+            constraint:
+              operator: falsy
+              arg0:
+                prop: pwm_available
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: divider
+        title: _("Temperature source")
+      - type: select
+        name: temp_source
+        label: _("Source")
+        value: "hdd"
+        store:
+          data:
+            - ["hdd", _("HDD SMART (smartctl)")]
+            - ["cpu", _("CPU thermal zone")]
+            - ["hdd_cpu", _("HDD + CPU (max)")]
+      - type: textarea
+        name: hdd_drives
+        label: _("HDD devices")
+        hint: _("Comma or newline separated device paths, e.g. /dev/sda,/dev/sdb")
+        value: "/dev/sda,/dev/sdb"
+      - type: checkbox
+        name: hdd_standby
+        label: _("Respect standby")
+        hint: _("Use 'smartctl -n standby' to avoid waking sleeping drives.")
+        value: true
+      - type: textInput
+        name: cpu_temp_path
+        label: _("CPU temp path")
+        hint: _("Path to the thermal zone temperature file.")
+        value: "/sys/class/thermal/thermal_zone0/temp"
+      - type: numberInput
+        name: update_interval
+        label: _("Update interval (seconds)")
+        value: 60
+        validators:
+          min: 5
+          max: 3600
+          required: true
+      - type: divider
+        title: _("PWM")
+      - type: textInput
+        name: pwm_chip
+        label: _("PWM chip path")
+        value: "/sys/class/pwm/pwmchip0"
+      - type: numberInput
+        name: pwm_channel
+        label: _("PWM channel")
+        value: 0
+        validators:
+          min: 0
+          max: 10
+          required: true
+      - type: numberInput
+        name: pwm_period
+        label: _("PWM period")
+        hint: _("Period in nanoseconds.")
+        value: 40000
+        validators:
+          min: 1
+          required: true
+      - type: divider
+        title: _("Fan curve")
+      - type: numberInput
+        name: temp1
+        label: _("Temp 1 (C)")
+        value: 28
+        validators:
+          min: 0
+          max: 120
+          required: true
+      - type: numberInput
+        name: speed1
+        label: _("Speed 1 (%)")
+        value: 25
+        validators:
+          min: 0
+          max: 100
+          required: true
+      - type: numberInput
+        name: temp2
+        label: _("Temp 2 (C)")
+        value: 31
+        validators:
+          min: 0
+          max: 120
+          required: true
+      - type: numberInput
+        name: speed2
+        label: _("Speed 2 (%)")
+        value: 50
+        validators:
+          min: 0
+          max: 100
+          required: true
+      - type: numberInput
+        name: temp3
+        label: _("Temp 3 (C)")
+        value: 33
+        validators:
+          min: 0
+          max: 120
+          required: true
+      - type: numberInput
+        name: speed3
+        label: _("Speed 3 (%)")
+        value: 75
+        validators:
+          min: 0
+          max: 100
+          required: true
+      - type: numberInput
+        name: speed4
+        label: _("Speed 4 (%)")
+        value: 100
+        validators:
+          min: 0
+          max: 100
+          required: true
+      - type: numberInput
+        name: failsafe_speed
+        label: _("Failsafe speed (%)")
+        hint: _("Used when no temperature data is available.")
+        value: 25
+        validators:
+          min: 0
+          max: 100
+          required: true
+    buttons:
+      - template: submit
+      - template: cancel
+        execute:
+          type: url
+          url: "/services/pwmfan"

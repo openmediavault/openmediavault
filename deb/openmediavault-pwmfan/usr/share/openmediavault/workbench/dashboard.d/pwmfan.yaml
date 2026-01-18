@@ -1,0 +1,21 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 8d801db4-556a-44fa-b3ae-ee153e85caa8
+  type: grid
+  reloadPeriod: 5000
+  permissions:
+    role:
+      - admin
+  title: _("PWM Fan")
+  description: _("Displays PWM fan service status and current readings.")
+  grid:
+    item:
+      class: "omv-text-center omv-text-nowrap omv-background-color-selected-button"
+      title: "{{ title }}"
+      content: "{{ value }}"
+    store:
+      proxy:
+        service: Pwmfan
+        get:
+          method: getDashboard

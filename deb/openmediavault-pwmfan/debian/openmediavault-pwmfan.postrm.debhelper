@@ -1,0 +1,12 @@
+# Automatically added by dh_installsystemd/13.24.2
+if [ "$1" = remove ] && [ -d /run/systemd/system ] ; then
+	systemctl --system daemon-reload >/dev/null || true
+fi
+# End automatically added section
+# Automatically added by dh_installsystemd/13.24.2
+if [ "$1" = "purge" ]; then
+	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+		deb-systemd-helper purge 'openmediavault-pwmfan.service' >/dev/null || true
+	fi
+fi
+# End automatically added section

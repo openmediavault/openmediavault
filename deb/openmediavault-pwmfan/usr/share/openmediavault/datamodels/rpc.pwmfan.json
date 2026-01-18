@@ -1,0 +1,77 @@
+[{
+	"type": "rpc",
+	"id": "rpc.pwmfan.setsettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"temp_source": {
+				"type": "string",
+				"required": true
+			},
+			"hdd_drives": {
+				"type": "string",
+				"required": true
+			},
+			"hdd_standby": {
+				"type": "boolean",
+				"required": true
+			},
+			"cpu_temp_path": {
+				"type": "string",
+				"required": true
+			},
+			"pwm_chip": {
+				"type": "string",
+				"required": true
+			},
+			"pwm_channel": {
+				"type": "integer",
+				"required": true
+			},
+			"pwm_period": {
+				"type": "integer",
+				"required": true
+			},
+			"update_interval": {
+				"type": "integer",
+				"required": true
+			},
+			"temp1": {
+				"type": "integer",
+				"required": true
+			},
+			"temp2": {
+				"type": "integer",
+				"required": true
+			},
+			"temp3": {
+				"type": "integer",
+				"required": true
+			},
+			"speed1": {
+				"type": "integer",
+				"required": true
+			},
+			"speed2": {
+				"type": "integer",
+				"required": true
+			},
+			"speed3": {
+				"type": "integer",
+				"required": true
+			},
+			"speed4": {
+				"type": "integer",
+				"required": true
+			},
+			"failsafe_speed": {
+				"type": "integer",
+				"required": true
+			}
+		}
+	}
+}]

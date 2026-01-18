@@ -1,0 +1,16 @@
+[Unit]
+Description=OpenMediaVault PWM Fan Control
+After=multi-user.target
+ConditionPathExists=/sys/class/pwm
+ConditionPathExistsGlob=/sys/class/pwm/pwmchip*
+
+[Service]
+Type=simple
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 /usr/sbin/omv-pwmfan
+Restart=on-failure
+RestartSec=10
+User=root
+
+[Install]
+WantedBy=multi-user.target
