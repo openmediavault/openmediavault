@@ -6,6 +6,7 @@
 {%- set gid = salt['group.info'](gname).gid -%}
 {%- set sf_path = salt['omv_conf.get_sharedfolder_path'](config.sharedfolderref) -%}
 {%- set sf_mnt_path = salt['omv_conf.get_sharedfolder_mount_path'](config.sharedfolderref) -%}
+{%- set basepath = config.basepath | default('/srv/') -%}
 {{ pillar['headers']['multiline'] -}}
 [Unit]
 Description=Podman container-filebrowser-app.service
@@ -20,7 +21,7 @@ Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/container-filebrowser-app.pid %t/container-filebrowser-app.ctr-id
-ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-filebrowser-app.pid --cidfile %t/container-filebrowser-app.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-filebrowser.pod-id -d --replace --pull=never --name=filebrowser-app -v /var/lib/filebrowser/:/home/filebrowser/data/ -v "{{ sf_path }}":/srv/ {{ options }} {{ image }}
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-filebrowser-app.pid --cidfile %t/container-filebrowser-app.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-filebrowser.pod-id -d --replace --pull=never --name=filebrowser-app -v /var/lib/filebrowser/:/home/filebrowser/data/ -v "{{ sf_path }}":"{{ basepath }}" {{ options }} {{ image }}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-filebrowser-app.ctr-id
 ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-filebrowser-app.ctr-id
 PIDFile=%t/container-filebrowser-app.pid

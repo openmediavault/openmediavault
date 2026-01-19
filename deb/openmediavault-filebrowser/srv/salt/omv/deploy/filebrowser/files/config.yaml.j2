@@ -1,5 +1,6 @@
 {%- set admin_username = salt['pillar.get']('default:OMV_FILEBROWSER_APP_ADMIN_USERNAME', 'admin') -%}
 {%- set admin_password = salt['pillar.get']('default:OMV_FILEBROWSER_APP_ADMIN_PASSWORD', 'admin') -%}
+{%- set basepath = config.basepath | default('/srv/') -%}
 server:
   disableUpdateCheck: true
   port: 80
@@ -9,7 +10,7 @@ server:
   cacheDir: "/data/tmp/"
   database: "data/database.db"
   sources:
-    - path: "/srv/"
+    - path: "{{ basepath }}"
       config:
         defaultEnabled: true
 auth:

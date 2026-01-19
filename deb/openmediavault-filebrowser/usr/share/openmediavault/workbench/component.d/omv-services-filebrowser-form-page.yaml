@@ -47,6 +47,13 @@ data:
             operator: truthy
             arg0:
               prop: enable
+      - type: textInput
+        name: basepath
+        label: _("Base path")
+        hint: _("The base URL path prefix for browsing. This appears in the browser URL after the hostname. Use '/' to browse from root without a prefix.")
+        value: "/srv/"
+        validators:
+          required: true
     buttons:
       - text: _("Open UI")
         enabledConstraint:

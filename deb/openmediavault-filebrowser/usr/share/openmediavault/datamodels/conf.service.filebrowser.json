@@ -36,6 +36,10 @@
 				"type": "string",
 				"maxLength": 0
 			}]
+		},
+		"basepath": {
+			"type": "string",
+			"default": "/srv/"
 		}
 	}
 }
