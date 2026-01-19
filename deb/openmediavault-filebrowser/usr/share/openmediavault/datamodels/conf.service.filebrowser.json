@@ -39,7 +39,8 @@
 		},
 		"basepath": {
 			"type": "string",
-			"default": "/srv/"
+			"default": "/srv/",
+			"pattern": "^\\/([a-zA-Z0-9_\\-\\/]+\\/)?$"
 		}
 	}
 }
