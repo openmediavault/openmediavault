@@ -549,8 +549,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Get a list of all potential usable devices.
-		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused()))
+		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused())) {
 			throw new \OMV\Exception("Failed to get list of unused devices.");
+		}
 		// Get a list of all detected file systems.
 		$filesystems = \OMV\System\Filesystem\Filesystem::getFilesystems();
 		// Get the list of device files that are occupied by a file system.
@@ -564,16 +565,19 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 					$usedDevs);
 			}
 		}
+		$usedDevs = array_values(array_filter($usedDevs, "strlen"));
 		// Prepare the result list.
 		$result = [];
 		foreach ($devs as $devk => $devv) {
 			// Get the storage device object for the specified device file.
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
-			if (is_null($sd) || !$sd->exists())
+			if (is_null($sd) || !$sd->exists()) {
 				continue;
+			}
 			// Skip read-only devices like CDROM.
-			if (TRUE === $sd->isReadOnly())
+			if (TRUE === $sd->isReadOnly()) {
 				continue;
+			}
 /* Do not check for references, otherwise a device file which is configured
    for S.M.A.R.T. monitoring is not added as a candidate.
 			// Check if the device is referenced/used by a plugin.
@@ -586,8 +590,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				continue;
 */
 			// Does this device already contain a file system?
-			if (in_array($sd->getCanonicalDeviceFile(), $usedDevs))
+			if (in_array($sd->getCanonicalDeviceFile(), $usedDevs)) {
 				continue;
+			}
 			// The device is a potential candidate to create a file system
 			// on it.
 			$result[] = [
