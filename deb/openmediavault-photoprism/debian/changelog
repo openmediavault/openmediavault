@@ -1,3 +1,10 @@
+openmediavault-photoprism (8.0.1-1) stable; urgency=medium
+
+  * Issue #2110: Modify MariaDB image version to `11` as suggested
+    in the PhotoPrism documentation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 20 Jan 2026 17:05:16 +0100
+
 openmediavault-photoprism (8.0-5) stable; urgency=medium
 
   * Adapt to openmediavault 8.
