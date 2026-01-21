@@ -2,6 +2,7 @@
              color="primary">
   <button mat-icon-button
           matTooltip="{{ 'Show/Hide navigation' | transloco }}"
+          [attr.aria-label]="'Show/Hide navigation' | transloco"
           (click)="onToggleNavigation($event)">
     <mat-icon svgIcon="{{ icon.menu }}"></mat-icon>
   </button>
@@ -13,6 +14,7 @@
   <button *ngIf="permissions?.role.includes(roles.admin)"
           mat-icon-button
           matTooltip="{{ 'Notifications' | transloco }}"
+          [attr.aria-label]="'Notifications' | transloco"
           (click)="onToggleNotification($event)">
     <mat-icon svgIcon="{{ icon.bell }}"
               [matBadge]="numNotifications"
@@ -24,17 +26,20 @@
   </button>
   <button mat-icon-button
           matTooltip="{{ 'Help' | transloco }}"
+          [attr.aria-label]="'Help' | transloco"
           [matMenuTriggerFor]="helpMenu">
     <mat-icon svgIcon="{{ icon.help }}"></mat-icon>
   </button>
   <button mat-icon-button
           matTooltip="{{ 'User Settings' | transloco }}"
+          [attr.aria-label]="'User Settings' | transloco"
           [matMenuTriggerFor]="settingsMenu">
     <mat-icon svgIcon="{{ icon.user }}"></mat-icon>
   </button>
   <button *ngIf="permissions?.role.includes(roles.admin)"
           mat-icon-button
           matTooltip="{{ 'Power' | transloco }}"
+          [attr.aria-label]="'Power' | transloco"
           [matMenuTriggerFor]="powerMenu">
     <mat-icon svgIcon="{{ icon.power }}"></mat-icon>
   </button>

@@ -46,6 +46,7 @@
     <mat-toolbar class="omv-display-flex omv-flex-row omv-justify-content-end omv-sticky">
       <button mat-icon-button
               matTooltip="{{ 'Reload' | transloco }}"
+              [attr.aria-label]="'Reload' | transloco"
               (click)="onGenerate()">
         <mat-icon svgIcon="{{ icon.reload }}"></mat-icon>
       </button>

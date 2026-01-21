@@ -11,6 +11,7 @@
       <div class="logo"></div>
       <button mat-icon-button
               matTooltip="{{ 'Language' | transloco }}"
+              [attr.aria-label]="'Language' | transloco"
               [matMenuTriggerFor]="localeMenu">
         <mat-icon svgIcon="mdi:earth"
                   class="omv-color-white">
