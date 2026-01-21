@@ -84,6 +84,7 @@
           <button mat-icon-button
                   matSuffix
                   matTooltip="{{ 'Clear' | transloco }}"
+                  [attr.aria-label]="'Clear' | transloco"
                   (click)="searchFilter.setValue('')">
             <mat-icon svgIcon="{{ icon.clear }}"></mat-icon>
           </button>

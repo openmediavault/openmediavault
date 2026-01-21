@@ -2,7 +2,8 @@
   <a routerLink="/"
      class="mat-subheading-2"
      [ngClass]="{'active': !breadcrumbs.length}"
-     matTooltip="{{ 'Home' | transloco }}">
+     matTooltip="{{ 'Home' | transloco }}"
+     [attr.aria-label]="'Home' | transloco">
     <mat-icon svgIcon="{{ icon.home }}"></mat-icon>
   </a>
   <div *ngFor="let breadcrumb of breadcrumbs; let last = last">

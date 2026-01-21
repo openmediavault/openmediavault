@@ -9,6 +9,7 @@
     <button *ngIf="stateId"
             mat-icon-button
             matTooltip="{{ 'Show/Hide columns' | transloco }}"
+            [attr.aria-label]="'Show/Hide columns' | transloco"
             [matMenuTriggerFor]="columnMenu">
       <mat-icon svgIcon="{{ icon.table }}"></mat-icon>
     </button>
@@ -25,6 +26,7 @@
         <button mat-icon-button
                 matSuffix
                 matTooltip="{{ 'Clear' | transloco }}"
+                [attr.aria-label]="'Clear' | transloco"
                 [disabled]="!searchFilter"
                 (click)="clearSearchFilter()">
           <mat-icon svgIcon="{{ icon.clear }}"></mat-icon>
@@ -34,6 +36,7 @@
     <button *ngIf="hasReloadButton"
             mat-icon-button
             matTooltip="{{ 'Reload' | transloco }}"
+            [attr.aria-label]="'Reload' | transloco"
             (click)="reloadData()">
       <mat-icon svgIcon="{{ icon.reload }}"></mat-icon>
     </button>

@@ -4,6 +4,7 @@
                class="omv-sticky">
     <button mat-icon-button
             matTooltip="{{ 'Select all' | transloco }}"
+            [attr.aria-label]="'Select all' | transloco"
             (click)="onSelectAll()">
       <mat-icon svgIcon="mdi:check-all"></mat-icon>
     </button>
