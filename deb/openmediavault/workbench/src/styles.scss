@@ -641,6 +641,13 @@ $omv-dark-theme: mat.define-dark-theme(
   grid-template-columns: none !important;
 }
 
+// Ensure grid cells handle text overflow properly
+.omv-grid > * {
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Gap
 .omv-gap-0 {

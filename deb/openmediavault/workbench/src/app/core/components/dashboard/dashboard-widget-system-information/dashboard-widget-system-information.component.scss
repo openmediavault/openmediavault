@@ -5,5 +5,14 @@
 
   .omv-grid-cell {
     break-inside: avoid;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
+
+    div {
+      overflow-wrap: break-word;
+      word-break: break-word;
+      word-wrap: break-word;
+    }
   }
 }
