@@ -12,11 +12,11 @@ data:
   grid:
     item:
       class: 'omv-cursor-pointer omv-text-center omv-text-nowrap omv-background-color-selected-button'
-      title: '{{ name }} [{{ level }}]'
+      title: '{{ name | default(devicefile, true) }} [{{ level }}]'
       titleClass: 'omv-text-truncate'
       content: '{{ state }}'
       contentClass: 'omv-text-truncate'
-      tooltip: '{{ name }} [{{ level }}]<br>{{ state }}'
+      tooltip: '{{ name | default(devicefile, true) }} [{{ level }}]<br>{{ state }}'
       url: '/storage/md/details/{{ devicefile | encodeuricomponent }}'
     store:
       proxy:
@@ -28,4 +28,6 @@ data:
             limit: -1
       sorters:
         - prop: name
+          dir: asc
+        - prop: devicefile
           dir: asc
