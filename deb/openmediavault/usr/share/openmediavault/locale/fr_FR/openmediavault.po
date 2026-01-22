@@ -3478,7 +3478,7 @@ msgstr "Chemin relatif du répertoire à partager. Le répertoire indiqué sera 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "Le dépôt sera consulté pour identifier des nouveaux paquets, des paquets supprimés ou mis à niveau."
+msgstr "Le dépôt sera vérifié pour identifier les paquets nouveaux, supprimés ou mis à niveau."
 
 msgid "The requested page was not found."
 msgstr "La page demandé n'a pas été trouvée."
