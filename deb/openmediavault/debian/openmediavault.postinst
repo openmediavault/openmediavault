@@ -108,6 +108,7 @@ case "$1" in
 			####################################################################
 			touch /var/lib/openmediavault/display_welcome_message
 			touch /var/log/tallylog
+			mkdir -p /etc/cloud && touch /etc/cloud/cloud-init.disabled
 
 			####################################################################
 			# Setup various file permissions.
@@ -634,6 +635,9 @@ case "$1" in
 			# - https://bugs-devel.debian.org/cgi-bin/bugreport.cgi?bug=1088009
 			# - https://bugs-devel.debian.org/cgi-bin/bugreport.cgi?bug=1088011
 			sed -i '/mesg n/d' /root/.profile || :
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0.6"; then
+			mkdir -p /etc/cloud && touch /etc/cloud/cloud-init.disabled
 		fi
 
 		########################################################################
