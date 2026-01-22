@@ -9,7 +9,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-md
 Architecture: all
-Depends: openmediavault (>= 8.0.6), mdadm
+Depends: openmediavault (>= 8.0.7), mdadm
 Priority: optional
 Description: openmediavault Linux MD (Software RAID) plugin
  This plugin is used to create, manage, and monitor Linux MD (Multiple
