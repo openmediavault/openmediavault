@@ -1,5 +1,6 @@
 openmediavault (8.0.8-1) stable; urgency=medium
 
+  * Issue #2115: Language switcher is not visible on mobile devices.
   * Issue #2116: Fix RRD graph render issue on mobile devices.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 22 Jan 2026 20:44:53 +0100
