@@ -599,6 +599,4 @@ nunjucksEnv.addFilter('override', (value: any, newValue: any, testName: string, 
 /**
  * Filter an array using the given predicate.
  */
-nunjucksEnv.addFilter('filter', (value: Array<any>, predicate) =>
-  _.filter(value, predicate)
-);
+nunjucksEnv.addFilter('filter', (value: Array<any>, predicate) => _.filter(value, predicate));
