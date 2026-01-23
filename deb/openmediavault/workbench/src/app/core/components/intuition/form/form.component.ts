@@ -41,7 +41,7 @@ import {
 import { PageContext } from '~/app/core/models/page-context.type';
 import { PageContextService } from '~/app/core/services/page-context.service';
 import { Unsubscribe } from '~/app/decorators';
-import { formatDeep, isFormatable } from '~/app/functions.helper';
+import { formatDeep, isFormatable, toBoolean } from '~/app/functions.helper';
 import { CustomValidators } from '~/app/shared/forms/custom-validators';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
@@ -294,6 +294,15 @@ export class FormComponent implements AfterViewInit, OnInit {
       if (isFormatable(value)) {
         // Evaluate filters and apply page context.
         value = formatDeep(value, this.pageContext);
+        // Convert the value to the correct type.
+        switch (field.type) {
+          case 'checkbox':
+            value = toBoolean(value);
+            break;
+          case 'numberInput':
+            value = _.toNumber(value);
+            break;
+        }
       }
       // Create the form control.
       controlsConfig[field.name] = new FormControl(
