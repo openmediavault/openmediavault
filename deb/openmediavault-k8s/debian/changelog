@@ -1,3 +1,9 @@
+openmediavault-k8s (8.0.1-1) stable; urgency=medium
+
+  * Use K3S v1.34.3+k3s1 by default.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 23 Jan 2026 08:46:23 +0100
+
 openmediavault-k8s (8.0-9) stable; urgency=medium
 
   * Adapt to openmediavault 8.
