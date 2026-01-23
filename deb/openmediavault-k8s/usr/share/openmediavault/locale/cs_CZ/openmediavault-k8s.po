@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-24 19:51+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2025\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
@@ -120,8 +120,20 @@ msgstr "Povoleno"
 msgid "Events"
 msgstr ""
 
+msgid "Expose"
+msgstr ""
+
+msgid "Exposed Port"
+msgstr ""
+
 msgid "External IP"
 msgstr "Externí IP"
+
+msgid "Extra Values"
+msgstr ""
+
+msgid "Extra configuration"
+msgstr ""
 
 msgid "Failed"
 msgstr ""
@@ -134,12 +146,6 @@ msgstr "GID"
 
 msgid "Groups"
 msgstr "Skupiny"
-
-msgid "HTTP port"
-msgstr "Port HTTP"
-
-msgid "HTTPS port"
-msgstr "Port HTTPS"
 
 msgid "Helm Charts"
 msgstr ""
@@ -255,6 +261,9 @@ msgstr "Port"
 msgid "Ports"
 msgstr "Porty"
 
+msgid "Protocol"
+msgstr ""
+
 msgid "README"
 msgstr ""
 
@@ -274,6 +283,11 @@ msgid "Recipes"
 msgstr "Předpisy"
 
 msgid "Reclaim policy"
+msgstr ""
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
 msgstr ""
 
 msgid "Repository"
@@ -346,8 +360,8 @@ msgid "Target Namespace"
 msgstr "Cílový jmenný prostor"
 
 msgid ""
-"The SSL certificate used by the Dashboard and the LoadBalancer service. If "
-"not set, a self-signed certificate from cert-manager is used."
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
 msgstr ""
 
 msgid ""
@@ -372,12 +386,6 @@ msgstr ""
 msgid "The manifest to apply."
 msgstr "Použitý manifest."
 
-msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr ""
-
-msgid "The port on which the LoadBalancer service is listening."
-msgstr ""
-
 msgid "The snapshot was created successfully."
 msgstr ""
 
@@ -392,6 +400,9 @@ msgstr "Typ"
 
 msgid "UID"
 msgstr "UID"
+
+msgid "UUID"
+msgstr ""
 
 msgid "Unknown"
 msgstr ""

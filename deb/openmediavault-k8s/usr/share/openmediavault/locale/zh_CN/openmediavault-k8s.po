@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-24 19:51+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: irrelevant91, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
@@ -123,8 +123,20 @@ msgstr "已启用"
 msgid "Events"
 msgstr "事件"
 
+msgid "Expose"
+msgstr ""
+
+msgid "Exposed Port"
+msgstr ""
+
 msgid "External IP"
 msgstr "外部 IP"
+
+msgid "Extra Values"
+msgstr ""
+
+msgid "Extra configuration"
+msgstr ""
 
 msgid "Failed"
 msgstr "失败"
@@ -137,12 +149,6 @@ msgstr "GID"
 
 msgid "Groups"
 msgstr "组"
-
-msgid "HTTP port"
-msgstr "HTTP 端口"
-
-msgid "HTTPS port"
-msgstr "HTTPS 端口"
 
 msgid "Helm Charts"
 msgstr "Helm Charts"
@@ -258,6 +264,9 @@ msgstr "端口"
 msgid "Ports"
 msgstr "端口"
 
+msgid "Protocol"
+msgstr ""
+
 msgid "README"
 msgstr "README"
 
@@ -278,6 +287,11 @@ msgstr "Recipes"
 
 msgid "Reclaim policy"
 msgstr "回收策略"
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
+msgstr ""
 
 msgid "Repository"
 msgstr "源"
@@ -349,9 +363,9 @@ msgid "Target Namespace"
 msgstr "目标命名空间"
 
 msgid ""
-"The SSL certificate used by the Dashboard and the LoadBalancer service. If "
-"not set, a self-signed certificate from cert-manager is used."
-msgstr "仪表板与负载均衡服务使用的 SSL 证书。若未设定，则使用来自 cert-manager 的自签名证书。"
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
+msgstr ""
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
@@ -380,12 +394,6 @@ msgstr "存储 etcd 按需快照的位置。"
 msgid "The manifest to apply."
 msgstr "要应用的 manifest。"
 
-msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr "Kubernetes 仪表板监听的端口。"
-
-msgid "The port on which the LoadBalancer service is listening."
-msgstr "负载均衡服务监听的端口。"
-
 msgid "The snapshot was created successfully."
 msgstr "快照创建成功。"
 
@@ -400,6 +408,9 @@ msgstr "类型"
 
 msgid "UID"
 msgstr "UID"
+
+msgid "UUID"
+msgstr ""
 
 msgid "Unknown"
 msgstr "未知"

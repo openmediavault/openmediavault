@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Volker Theile <votdev@gmx.de>, 2025
+# Volker Theile <votdev@gmx.de>, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2026-01-24 19:51+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2025\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
 "Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -122,8 +122,20 @@ msgstr "Aktiviert"
 msgid "Events"
 msgstr "Ereignisse"
 
+msgid "Expose"
+msgstr ""
+
+msgid "Exposed Port"
+msgstr ""
+
 msgid "External IP"
 msgstr "External IP"
+
+msgid "Extra Values"
+msgstr ""
+
+msgid "Extra configuration"
+msgstr ""
 
 msgid "Failed"
 msgstr "Fehlgeschlagen"
@@ -136,12 +148,6 @@ msgstr "GID"
 
 msgid "Groups"
 msgstr "Gruppen"
-
-msgid "HTTP port"
-msgstr "HTTP Port"
-
-msgid "HTTPS port"
-msgstr "HTTPS Port"
 
 msgid "Helm Charts"
 msgstr "Helm Charts"
@@ -257,6 +263,9 @@ msgstr "Port"
 msgid "Ports"
 msgstr "Ports"
 
+msgid "Protocol"
+msgstr ""
+
 msgid "README"
 msgstr "README"
 
@@ -277,6 +286,13 @@ msgstr "Rezepte"
 
 msgid "Reclaim policy"
 msgstr ""
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
+msgstr ""
+"Die verfügbaren Konfigurationsoptionen finden Sie in der Datei values.yaml "
+"im Traefik-Helm-Chart."
 
 msgid "Repository"
 msgstr "Repository"
@@ -348,12 +364,11 @@ msgid "Target Namespace"
 msgstr ""
 
 msgid ""
-"The SSL certificate used by the Dashboard and the LoadBalancer service. If "
-"not set, a self-signed certificate from cert-manager is used."
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
 msgstr ""
-"Das vom Dashboard und dem LoadBalancer-Dienst verwendete SSL-Zertifikat. "
-"Wenn es nicht gesetzt ist, wird ein selbstsigniertes Zertifikat von cert-"
-"manager verwendet."
+"Das vom LoadBalancer-Dienst verwendete SSL-Zertifikat. Falls nicht "
+"angegeben, wird ein selbstsigniertes Zertifikat von cert-manager verwendet."
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
@@ -381,12 +396,6 @@ msgstr ""
 msgid "The manifest to apply."
 msgstr "Das anzuwendende Manifest."
 
-msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr "Der Port, auf dem das Kubernetes Dashboard lauscht."
-
-msgid "The port on which the LoadBalancer service is listening."
-msgstr "Der Port, an dem der LoadBalancer-Dienst lauscht."
-
 msgid "The snapshot was created successfully."
 msgstr "Der Schnappschuss wurde erfolgreich erstellt."
 
@@ -401,6 +410,9 @@ msgstr "Typ"
 
 msgid "UID"
 msgstr "UID"
+
+msgid "UUID"
+msgstr ""
 
 msgid "Unknown"
 msgstr ""
