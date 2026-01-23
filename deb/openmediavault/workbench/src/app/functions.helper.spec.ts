@@ -175,6 +175,16 @@ describe('functions.helper', () => {
       '1761482704'
     );
     expect(format('{{ "2025-10-26T11:40:48Z" | date2unix }}', {})).toEqual('1761478848');
+    expect(
+      format('{{ foo | filter(["x", "bbb"]) | first | get("x") }}', {
+        foo: [{ x: 'aaa' }, { x: 'bbb' }, { x: 'ccc' }]
+      })
+    ).toEqual('bbb');
+    expect(
+      format('{{ foo | filter({"x": "bbb"}) | first | get("x") }}', {
+        foo: [{ x: 'aaa' }, { x: 'bbb' }, { x: 'ccc' }]
+      })
+    ).toEqual('bbb');
   });
 
   it('should format deep [1]', () => {
