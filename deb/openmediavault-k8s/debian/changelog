@@ -1,3 +1,9 @@
+openmediavault-k8s (7.4.17-1) stable; urgency=medium
+
+  * Ensure the port configuration is correct in Traefik Helm chart.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 24 Jan 2026 19:47:30 +0100
+
 openmediavault-k8s (7.4.16-1) stable; urgency=medium
 
   * Improve plugin deinstallation.

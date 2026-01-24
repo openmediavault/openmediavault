@@ -85,6 +85,9 @@ create_k3s_traefik_manifest:
         spec:
           valuesContent: |-
             ports:
+              traefik:
+                port: 9099
+                exposedPort: 9099
               {{ traefik_ports | yaml(False) | indent(14) }}
         ---
         apiVersion: traefik.io/v1alpha1
