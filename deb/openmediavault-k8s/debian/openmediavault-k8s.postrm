@@ -27,6 +27,8 @@ set -e
 remove_action() {
 	# Activate trigger to rebuild workbench configuration files.
 	dpkg-trigger update-workbench
+	# Cleanup monit configuration.
+	rm -f /etc/monit/conf.d/openmediavault-k8s.conf
 	# Mark modules as dirty.
 	echo "Mark modules as dirty ..."
 	omv_module_set_dirty monit
