@@ -44,14 +44,7 @@
     padding: 0;
 
     .alert-action-button {
-      cursor: pointer;
-      width: 1.5rem;
-      height: 1.5rem;
       margin: 0;
-
-      &:not(:last-child) {
-        margin-right: 0.5rem;
-      }
     }
   }
 }

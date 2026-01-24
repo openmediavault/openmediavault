@@ -14,18 +14,16 @@
     </div>
     <mat-card-actions *ngIf="buttons.length"
                       class="omv-display-flex omv-flex-row omv-flex-column-reverse-lt-sm omv-justify-content-end omv-align-items-start">
-      <div *ngFor="let button of buttons"
-           class="alert-action-button omv-ml-q"
-           [class]="button.class"
-           mat-ripple
-           [attr.aria-label]="button.tooltip | transloco"
-           [matTooltip]="button.tooltip | transloco"
-           tabindex="0"
-           (keyup.space)="button.click && button.click(button)"
-           (keyup.enter)="button.click && button.click(button)"
-           (click)="button.click && button.click(button)">
+      <button *ngFor="let button of buttons"
+              class="alert-action-button omv-ml-q"
+              [class]="button.class"
+              mat-icon-button
+              [attr.aria-label]="button.tooltip | transloco"
+              matTooltip="{{ button.tooltip | transloco }}"
+              tabindex="0"
+              (click)="button.click && button.click(button)">
         <mat-icon svgIcon="{{ button.icon }}"></mat-icon>
-      </div>
+      </button>
     </mat-card-actions>
   </div>
 </mat-card>
