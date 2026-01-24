@@ -144,9 +144,16 @@ export class WorkbenchFormPageComponent extends BaseFormPageComponent {
           custom: [
             {
               constraint: {
-                operator: 'ne',
-                arg0: { prop: 'port' },
-                arg1: { prop: 'sslport' }
+                operator: 'and',
+                arg0: {
+                  operator: 'truthy',
+                  arg0: { prop: 'enablessl' }
+                },
+                arg1: {
+                  operator: 'ne',
+                  arg0: { prop: 'port' },
+                  arg1: { prop: 'sslport' }
+                }
               },
               errorData: gettext('The HTTP and HTTPS ports must not be the same.')
             }
