@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-24 19:51+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2025\n"
 "Language-Team: Galician (Spain) (https://app.transifex.com/openmediavault/teams/14254/gl_ES/)\n"
@@ -120,7 +120,19 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
+msgid "Expose"
+msgstr ""
+
+msgid "Exposed Port"
+msgstr ""
+
 msgid "External IP"
+msgstr ""
+
+msgid "Extra Values"
+msgstr ""
+
+msgid "Extra configuration"
 msgstr ""
 
 msgid "Failed"
@@ -133,12 +145,6 @@ msgid "GID"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
-
-msgid "HTTP port"
-msgstr ""
-
-msgid "HTTPS port"
 msgstr ""
 
 msgid "Helm Charts"
@@ -255,6 +261,9 @@ msgstr "Port"
 msgid "Ports"
 msgstr ""
 
+msgid "Protocol"
+msgstr ""
+
 msgid "README"
 msgstr ""
 
@@ -274,6 +283,11 @@ msgid "Recipes"
 msgstr ""
 
 msgid "Reclaim policy"
+msgstr ""
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
 msgstr ""
 
 msgid "Repository"
@@ -346,8 +360,8 @@ msgid "Target Namespace"
 msgstr ""
 
 msgid ""
-"The SSL certificate used by the Dashboard and the LoadBalancer service. If "
-"not set, a self-signed certificate from cert-manager is used."
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
 msgstr ""
 
 msgid ""
@@ -372,12 +386,6 @@ msgstr ""
 msgid "The manifest to apply."
 msgstr ""
 
-msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr ""
-
-msgid "The port on which the LoadBalancer service is listening."
-msgstr ""
-
 msgid "The snapshot was created successfully."
 msgstr ""
 
@@ -391,6 +399,9 @@ msgid "Type"
 msgstr ""
 
 msgid "UID"
+msgstr ""
+
+msgid "UUID"
 msgstr ""
 
 msgid "Unknown"

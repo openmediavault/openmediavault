@@ -29,12 +29,9 @@
 # https://docs.k3s.io/installation/requirements?os=pi
 
 {% set k8s_config = salt['omv_conf.get']('conf.service.k8s') %}
+{% set k8s_lbports_config = salt['omv_conf.get']('conf.service.k8s.lbport') %}
 {% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 # {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
-{% set traefik_read_timeout = salt['pillar.get']('default:OMV_K8S_TRAEFIK_ENTRYPOINT_TRANSPORT_RESPONDINGTIMEOUTS_READTIMEOUT', '60') %}
-{% set traefik_default_ports = "{web: {exposedPort: %s, transport: {respondingTimeouts: {readTimeout: %s}}}, websecure: {exposedPort: %s, transport: {respondingTimeouts: {readTimeout: %s}}}, dashboard: {port: %s, protocol: TCP, expose: {default: true}, exposedPort: %s, tls: {enabled: true}}}" | format(k8s_config.webport, traefik_read_timeout, k8s_config.websecureport, traefik_read_timeout, k8s_config.dashboardport, k8s_config.dashboardport) | load_yaml %}
-{% set traefik_ports = salt['pillar.get']('default:OMV_K8S_TRAEFIK_PORTS', "{}") | load_yaml %}
-{% set _ = traefik_ports.update(traefik_default_ports) %}
 
 {% set fqdn = dns_config.hostname | lower %}
 {% if dns_config.domainname | length > 0 %}
@@ -85,7 +82,20 @@ create_k3s_traefik_manifest:
         spec:
           valuesContent: |-
             ports:
-              {{ traefik_ports | yaml(False) | indent(14) }}
+              traefik:
+                port: 9099
+                exposedPort: 9099
+{%- for lbport in k8s_lbports_config %}
+              {{ lbport.name }}:
+                expose:
+                  default: {{ lbport.expose | yesno('true,false') }}
+                exposedPort: {{ lbport.exposedport }}
+                port: {{ lbport.port }}
+                protocol: {{ lbport.protocol | upper() }}
+{%- if lbport.extravalues | length > 0 %}
+                {{ lbport.extravalues | indent(16) }}
+{%- endif %}
+{%- endfor %}
         ---
         apiVersion: traefik.io/v1alpha1
         kind: Middleware
@@ -97,7 +107,7 @@ create_k3s_traefik_manifest:
           redirectScheme:
             scheme: https
             permanent: true
-            port: "{{ k8s_config.websecureport }}"
+            port: {{ k8s_lbports_config | selectattr('name', 'equalto', 'websecure') | first | attr('exposedport') }}
         ---
         apiVersion: traefik.io/v1alpha1
         kind: TLSStore

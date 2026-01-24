@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2026-01-24 19:51+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Kostas Moho, 2025\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
@@ -122,8 +122,20 @@ msgstr "Ενεργό"
 msgid "Events"
 msgstr "Συμβάντα"
 
+msgid "Expose"
+msgstr ""
+
+msgid "Exposed Port"
+msgstr ""
+
 msgid "External IP"
 msgstr "Εξωτερική ΙΡ"
+
+msgid "Extra Values"
+msgstr ""
+
+msgid "Extra configuration"
+msgstr ""
 
 msgid "Failed"
 msgstr "Απέτυχε"
@@ -136,12 +148,6 @@ msgstr "GID"
 
 msgid "Groups"
 msgstr "Ομάδες"
-
-msgid "HTTP port"
-msgstr "Θύρα HTTP"
-
-msgid "HTTPS port"
-msgstr "Θύρα HTTPS"
 
 msgid "Helm Charts"
 msgstr "Διαγράμματα Πλοήγησης"
@@ -257,6 +263,9 @@ msgstr "Θύρα"
 msgid "Ports"
 msgstr "Θύρες"
 
+msgid "Protocol"
+msgstr ""
+
 msgid "README"
 msgstr "README"
 
@@ -277,6 +286,11 @@ msgstr "Συνταγές"
 
 msgid "Reclaim policy"
 msgstr "Πολιτική επανάκτησης"
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
+msgstr ""
 
 msgid "Repository"
 msgstr "Αποθετήριο"
@@ -348,12 +362,9 @@ msgid "Target Namespace"
 msgstr "Σκοπούμενος Χώρος Ονομάτων"
 
 msgid ""
-"The SSL certificate used by the Dashboard and the LoadBalancer service. If "
-"not set, a self-signed certificate from cert-manager is used."
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
 msgstr ""
-"Το πιστοποιητικό SSL που χρησιμοποιείται από το Ταμπλώ και την υπηρεσία του "
-"Εξισορροπητή Φόρτου. Αν δεν οριστεί, τότε θα χρησιμοποιείται ένα αυτοσχέδιο "
-"πιστοποιητικό από τον cert-manager."
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
@@ -387,12 +398,6 @@ msgstr "Η θέση αποθήκευσης των αιτούμενων στιγ�
 msgid "The manifest to apply."
 msgstr "Η δήλωση προς εφαρμογή."
 
-msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr "Η θύρα στην οποία ακούει το Ταμπλό του Kubernetes."
-
-msgid "The port on which the LoadBalancer service is listening."
-msgstr "Η θύρα στην οποία ακούει η υπηρεσία του Εξισορροπητή Φόρτου."
-
 msgid "The snapshot was created successfully."
 msgstr "Το στιγμιότυπο δημιουργήθηκε επιτυχώς"
 
@@ -407,6 +412,9 @@ msgstr "Τύπος"
 
 msgid "UID"
 msgstr "UID"
+
+msgid "UUID"
+msgstr ""
 
 msgid "Unknown"
 msgstr "Άγνωστο"

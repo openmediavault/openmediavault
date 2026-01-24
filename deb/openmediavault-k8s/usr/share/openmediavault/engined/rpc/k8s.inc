@@ -82,6 +82,14 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 		$response = \OMV\Rpc\Rpc::call("Config", "get", [
 			"id" => "conf.service.k8s"
 		], $context);
+		// Override the `lbports` configuration. Unfortunately, we have to do
+		// this strange acrobatics here because otherwise it becomes somewhat
+		// difficult to convert the XML structure of the database into JSON
+		// format.
+		$response['lbports'] = \OMV\Rpc\Rpc::call("Config", "get", [
+			"id" => "conf.service.k8s.lbport"
+		], $context);
+		// Append additional information.
 		$response['installed'] = $this->isK3sInstalled();
 		return $response;
 	}
@@ -93,10 +101,34 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	function set($params, $context) {
-		return \OMV\Rpc\Rpc::call("Config", "set", [
-			"id" => "conf.service.k8s",
-			"data" => $params
-		], $context);
+		// Do some validation:
+		// - Make sure that the port names are unique.
+		// - Validate the port configuration and make sure new added
+		//   port configurations get a new/unique identifier.
+		$lbPorts = [];
+		$lbPortNames = [];
+		foreach($params['lbports'] as $lbPortk => $lbPortv) {
+			$lbPortName = $lbPortv['name'];
+			if (isset($lbPortNames[$lbPortName])) {
+				throw new \OMV\Exception("Duplicate port configuration '%s' found.",
+					$lbPortName);
+			}
+			$lbPortObject = new \OMV\Config\ConfigObject("conf.service.k8s.lbport");
+			$lbPortObject->setAssoc($lbPortv);
+			if ($lbPortObject->isNew()) {
+				$lbPortObject->createIdentifier();
+			}
+			$lbPorts[] = $lbPortObject->getAssoc();
+			$lbPortNames[$lbPortName] = TRUE;
+		}
+		$object = new \OMV\Config\ConfigObject("conf.service.k8s");
+		$object->setAssoc(array_omit_keys($params, ["lbports"]));
+		$object->set("lbports", [
+			"item" => $lbPorts
+		]);
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
+		return $object->getAssoc();
 	}
 
 	function getToken($params, $context) {

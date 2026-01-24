@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-24 19:51+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2024\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
@@ -122,8 +122,20 @@ msgstr "Habilitado"
 msgid "Events"
 msgstr ""
 
+msgid "Expose"
+msgstr ""
+
+msgid "Exposed Port"
+msgstr ""
+
 msgid "External IP"
 msgstr "IP Externa"
+
+msgid "Extra Values"
+msgstr ""
+
+msgid "Extra configuration"
+msgstr ""
 
 msgid "Failed"
 msgstr ""
@@ -136,12 +148,6 @@ msgstr "GID"
 
 msgid "Groups"
 msgstr "Grupos"
-
-msgid "HTTP port"
-msgstr "Puerto HTTP"
-
-msgid "HTTPS port"
-msgstr "puerto HTTPS"
 
 msgid "Helm Charts"
 msgstr "Helm Charts"
@@ -257,6 +263,9 @@ msgstr "Puerto"
 msgid "Ports"
 msgstr "Puertos"
 
+msgid "Protocol"
+msgstr ""
+
 msgid "README"
 msgstr ""
 
@@ -277,6 +286,11 @@ msgstr "Recetas"
 
 msgid "Reclaim policy"
 msgstr "Política de reclamaciones"
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
+msgstr ""
 
 msgid "Repository"
 msgstr "Repositorio"
@@ -348,11 +362,9 @@ msgid "Target Namespace"
 msgstr "Espacio de nombres de destino"
 
 msgid ""
-"The SSL certificate used by the Dashboard and the LoadBalancer service. If "
-"not set, a self-signed certificate from cert-manager is used."
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
 msgstr ""
-"El certificado SSL utilizado por el Panel y el servicio LoadBalancer. Si no "
-"se establece, se utiliza un certificado autofirmado de cert-manager."
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
@@ -380,12 +392,6 @@ msgstr "La ubicación donde almacenar instantáneas bajo demanda de etcd."
 msgid "The manifest to apply."
 msgstr "El manifiesto a aplicar"
 
-msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr "El puerto en el que escucha el panel de Kubernetes."
-
-msgid "The port on which the LoadBalancer service is listening."
-msgstr "El puerto en el que escucha el servicio LoadBalancer."
-
 msgid "The snapshot was created successfully."
 msgstr "La instantánea ha sido creada satisfactoriamente."
 
@@ -401,6 +407,9 @@ msgstr "Tipo"
 
 msgid "UID"
 msgstr "UID"
+
+msgid "UUID"
+msgstr ""
 
 msgid "Unknown"
 msgstr ""
