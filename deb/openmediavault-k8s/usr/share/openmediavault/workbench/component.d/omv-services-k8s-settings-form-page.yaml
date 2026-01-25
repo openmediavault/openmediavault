@@ -109,6 +109,9 @@ data:
                   validators:
                     required: true
                     maxLength: 15
+                    pattern:
+                      pattern: "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+                      errorData: _("The field should only contain the characters a-z, 0-9 and -.")
                 - type: container
                   fields:
                     - type: numberInput

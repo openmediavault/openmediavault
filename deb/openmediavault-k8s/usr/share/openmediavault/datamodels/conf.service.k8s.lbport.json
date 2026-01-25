@@ -13,7 +13,9 @@
 			"format": "uuidv4"
 		},
 		"name": {
-			"type": "string"
+			"type": "string",
+			"maxLength": 15,
+			"pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
 		},
 		"port": {
 			"type": "integer",
