@@ -264,7 +264,7 @@ data:
         request:
           service: K8s
           method: isConfigApplicable
-          successUrl: "/externalRedirect/https{{ ['://', location() | get('hostname'), ':', lbports | filter(['name','dashboard']) | first | get('exposedport') ] | join | encodeuricomponent }}"
+          successUrl: "/externalRedirect/https{{ ['://', location() | get('hostname'), ':', lbports | filter(['name','kubernetes-dashboard']) | first | get('exposedport') ] | join | encodeuricomponent }}"
       - type: divider
         title: _("Kubeconfig")
       - type: hint
