@@ -204,6 +204,17 @@ data:
                   label: _("Tags")
                   value: ""
           - template: delete
+            enabledConstraints:
+              constraint:
+                - operator: "not"
+                  arg0:
+                    operator: "in"
+                    arg0:
+                      prop: "name"
+                    arg1:
+                      - "kubernetes-dashboard"
+                      - "web"
+                      - "websecure"
       - type: sslCertSelect
         name: sslcertificateref
         label: _("Certificate")

@@ -284,7 +284,7 @@ create_k3s_k8s_dashboard_manifest:
             app.kubernetes.io/part-of: openmediavault
         spec:
           entryPoints:
-            - dashboard
+            - kubernetes-dashboard
           routes:
             - match: PathPrefix(`/`)
               kind: Rule

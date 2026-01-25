@@ -1,6 +1,9 @@
 openmediavault-k8s (8.1.0-1) stable; urgency=medium
 
-  * Issue #1940: Add UI support to configure additional Traefik ports.
+  * Issue #1940: Add UI support to configure additional Load Balancer
+    (Traefik) ports.
+  * The Load Balancer port `web` will not be exposed by default anymore.
+    Please enable it via UI if needed.
   * The following environment variables have been removed:
     - OMV_K8S_TRAEFIK_PORTS
     - OMV_K8S_TRAEFIK_ENTRYPOINT_TRANSPORT_RESPONDINGTIMEOUTS_READTIMEOUT

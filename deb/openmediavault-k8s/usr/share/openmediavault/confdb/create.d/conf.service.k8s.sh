@@ -54,7 +54,7 @@ if ! omv_config_exists "/config/services/k8s"; then
 	if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"name","arg1":"web"}' \
 			"conf.service.k8s.lbport"; then
 		omv-confdbadm read --defaults "conf.service.k8s.lbport" | \
-			jq '.name = "web" | .port = 8080 | .exposedport = 8080 | .protocol = "tcp" | .expose = true | .comment = "HTTP" | .extravalues="transport:\n  respondingTimeouts:\n    readTimeout: 60"' | \
+			jq '.name = "web" | .port = 8080 | .exposedport = 8080 | .protocol = "tcp" | .expose = false | .comment = "HTTP" | .extravalues="transport:\n  respondingTimeouts:\n    readTimeout: 60"' | \
 			omv-confdbadm update "conf.service.k8s.lbport" -
 	fi
 	if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"name","arg1":"websecure"}' \
@@ -63,10 +63,10 @@ if ! omv_config_exists "/config/services/k8s"; then
 			jq '.name = "websecure" | .port = 8443 | .exposedport = 8443 | .protocol = "tcp" | .expose = true | .comment = "HTTPS" | .extravalues="transport:\n  respondingTimeouts:\n    readTimeout: 60"' | \
 			omv-confdbadm update "conf.service.k8s.lbport" -
 	fi
-	if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"name","arg1":"dashboard"}' \
+	if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"name","arg1":"kubernetes-dashboard"}' \
 			"conf.service.k8s.lbport"; then
 		omv-confdbadm read --defaults "conf.service.k8s.lbport" | \
-			jq '.name = "dashboard" | .port = 4443 | .exposedport = 4443 | .protocol = "tcp" | .expose = true | .comment = "Dashboard" | .extravalues= "tls:\n  enabled: true"' | \
+			jq '.name = "kubernetes-dashboard" | .port = 4443 | .exposedport = 4443 | .protocol = "tcp" | .expose = true | .comment = "Kubernetes,Dashboard" | .extravalues= "tls:\n  enabled: true"' | \
 			omv-confdbadm update "conf.service.k8s.lbport" -
 	fi
 fi
