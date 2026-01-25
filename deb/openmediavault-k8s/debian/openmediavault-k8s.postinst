@@ -94,6 +94,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "7.4.14"; then
 			omv_module_set_dirty monit
 		fi
+		if dpkg --compare-versions "$2" lt-nl "8.1.0"; then
+			omv_module_set_dirty k3s
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
