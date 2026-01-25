@@ -39,11 +39,11 @@ if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"name","ar
 		jq ".name = \"websecure\" | .port = ${port} | .exposedport = ${port} | .protocol = \"tcp\" | .expose = false | .comment = \"HTTPS\" | .extravalues=\"transport:\\n  respondingTimeouts:\\n    readTimeout: 60\"" | \
 		omv-confdbadm update "conf.service.k8s.lbport" -
 fi
-if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"name","arg1":"kubernetes-dashboard"}' \
+if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"name","arg1":"k8s-dashboard"}' \
 		"conf.service.k8s.lbport"; then
 	port=$(omv_config_get "/config/services/k8s/dashboardport")
 	omv-confdbadm read --defaults "conf.service.k8s.lbport" | \
-		jq ".name = \"kubernetes-dashboard\" | .port = ${port} | .exposedport = ${port} | .protocol = \"tcp\" | .expose = true | .comment = \"Kubernetes,Dashboard\" | .extravalues= \"tls:\\n  enabled: true\"" | \
+		jq ".name = \"k8s-dashboard\" | .port = ${port} | .exposedport = ${port} | .protocol = \"tcp\" | .expose = true | .comment = \"Kubernetes,Dashboard\" | .extravalues= \"tls:\\n  enabled: true\"" | \
 		omv-confdbadm update "conf.service.k8s.lbport" -
 fi
 

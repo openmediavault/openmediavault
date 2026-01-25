@@ -108,6 +108,7 @@ data:
                   label: _("Name")
                   validators:
                     required: true
+                    maxLength: 15
                 - type: container
                   fields:
                     - type: numberInput
@@ -212,7 +213,7 @@ data:
                     arg0:
                       prop: "name"
                     arg1:
-                      - "kubernetes-dashboard"
+                      - "k8s-dashboard"
                       - "web"
                       - "websecure"
       - type: sslCertSelect
@@ -264,7 +265,7 @@ data:
         request:
           service: K8s
           method: isConfigApplicable
-          successUrl: "/externalRedirect/https{{ ['://', location() | get('hostname'), ':', lbports | filter(['name','kubernetes-dashboard']) | first | get('exposedport') ] | join | encodeuricomponent }}"
+          successUrl: "/externalRedirect/https{{ ['://', location() | get('hostname'), ':', lbports | filter(['name','k8s-dashboard']) | first | get('exposedport') ] | join | encodeuricomponent }}"
       - type: divider
         title: _("Kubeconfig")
       - type: hint
