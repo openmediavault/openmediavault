@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 19:36+0100\n"
+"POT-Creation-Date: 2026-01-26 11:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,6 +114,9 @@ msgid "Events"
 msgstr ""
 
 msgid "Expose"
+msgstr ""
+
+msgid "Exposed"
 msgstr ""
 
 msgid "Exposed Port"

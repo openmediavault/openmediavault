@@ -80,7 +80,7 @@ data:
                   value: "TCP"
                 udp:
                   value: "UDP"
-          - name: _("Expose")
+          - name: _("Exposed")
             prop: "expose"
             cellTemplateName: "checkIcon"
             flexGrow: 1
