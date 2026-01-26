@@ -67,7 +67,7 @@ data:
           - name: _("Port")
             prop: "port"
             flexGrow: 1
-          - name: _("Exposed Port")
+          - name: _("Exposed port")
             prop: "exposedport"
             flexGrow: 1
           - name: _("Protocol")
@@ -91,7 +91,7 @@ data:
               separator: ","
             flexGrow: 1
             sortable: true
-          - name: _("Extra Values")
+          - name: _("Extra configuration")
             prop: "extravalues"
             hidden: true
         sorters:
@@ -124,7 +124,7 @@ data:
                       value: "{{ range(1024, 65535) | random }}"
                     - type: numberInput
                       name: exposedport
-                      label: _("Exposed Port")
+                      label: _("Exposed port")
                       validators:
                         required: true
                         min: 1
@@ -176,7 +176,7 @@ data:
                       value: "{{ range(1024, 65535) | random }}"
                     - type: numberInput
                       name: exposedport
-                      label: _("Exposed Port")
+                      label: _("Exposed port")
                       validators:
                         required: true
                         min: 1
