@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Kostas Moho, 2025
+# Kostas Moho, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-24 19:51+0100\n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Kostas Moho, 2025\n"
+"Last-Translator: Kostas Moho, 2026\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,19 +123,19 @@ msgid "Events"
 msgstr "Συμβάντα"
 
 msgid "Expose"
+msgstr "Εμφάνιση"
+
+msgid "Exposed"
 msgstr ""
 
-msgid "Exposed Port"
+msgid "Exposed port"
 msgstr ""
 
 msgid "External IP"
 msgstr "Εξωτερική ΙΡ"
 
-msgid "Extra Values"
-msgstr ""
-
 msgid "Extra configuration"
-msgstr ""
+msgstr "Επιπλέον ρυθμίσεις"
 
 msgid "Failed"
 msgstr "Απέτυχε"
@@ -264,7 +264,7 @@ msgid "Ports"
 msgstr "Θύρες"
 
 msgid "Protocol"
-msgstr ""
+msgstr "Πρωτόκολλο"
 
 msgid "README"
 msgstr "README"
@@ -291,6 +291,8 @@ msgid ""
 "Refer to the values.yaml file in the Traefik Helm chart to see what "
 "configuration options are available."
 msgstr ""
+"Στο αρχείο values.yaml του πίνακα Traefik Helm αναφέρονται οι διαθέσιμες "
+"επιλογές των ρυθμίσεων."
 
 msgid "Repository"
 msgstr "Αποθετήριο"
@@ -365,6 +367,9 @@ msgid ""
 "The SSL certificate used by the LoadBalancer service. If not set, a self-"
 "signed certificate from cert-manager is used."
 msgstr ""
+"Το πιστοποιητικό SSL που χρησιμοποιείται από την υπηρεσία του Εξισορροπητή "
+"Φόρτου. Αν δεν οριστεί, τότε θα χρησιμοποιείται ένα αυτοσχέδιο πιστοποιητικό"
+" από τον cert-manager."
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
@@ -374,6 +379,9 @@ msgstr ""
 "Το αποθετήριο της συστάδας Kubernetes. Το SQLite προτείνεται για μεμονωμένες"
 " υλοποιήσεις και αργούς δίσκους, ενώ το etcd προτείνεται για υλοποιήσεις "
 "πολλαπλών κόμβων υψηλής διαθεσιμότητας."
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr "Αυτό το πεδίο πρέπει να περιέχει μόνο τους χαρακτήρες a-z, 0-9 και -."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -414,7 +422,7 @@ msgid "UID"
 msgstr "UID"
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Unknown"
 msgstr "Άγνωστο"

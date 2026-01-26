@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-24 19:51+0100\n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2024\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
@@ -125,14 +125,14 @@ msgstr ""
 msgid "Expose"
 msgstr ""
 
-msgid "Exposed Port"
+msgid "Exposed"
+msgstr ""
+
+msgid "Exposed port"
 msgstr ""
 
 msgid "External IP"
 msgstr "IP Externa"
-
-msgid "Extra Values"
-msgstr ""
 
 msgid "Extra configuration"
 msgstr ""
@@ -375,6 +375,9 @@ msgstr ""
 "usar SQLite para configuraciones de un solo nodo y SBC con discos lentos, "
 "mientras que se recomienda etcd para configuraciones de alta disponibilidad "
 "con múltiples nodos."
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr ""
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "

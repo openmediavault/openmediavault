@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-24 19:51+0100\n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2026\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
@@ -126,14 +126,14 @@ msgstr "Gebeurtenissen"
 msgid "Expose"
 msgstr "Blootstellen"
 
-msgid "Exposed Port"
-msgstr "Blootgestelde poort"
+msgid "Exposed"
+msgstr ""
+
+msgid "Exposed port"
+msgstr ""
 
 msgid "External IP"
 msgstr "Externe IP"
-
-msgid "Extra Values"
-msgstr "Extra waarden"
 
 msgid "Extra configuration"
 msgstr "Extra configuratie"
@@ -381,6 +381,9 @@ msgstr ""
 "wordt aanbevolen voor setups met één knooppunt en SBC's met langzame "
 "schijven, terwijl etcd wordt aanbevolen voor instellingen met hoge "
 "beschikbaarheid en meerdere knooppunten."
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr "Het veld mag alleen de tekens a-z, 0-9 en - bevatten."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "

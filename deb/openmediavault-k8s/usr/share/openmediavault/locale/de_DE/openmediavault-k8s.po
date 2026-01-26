@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-24 19:51+0100\n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
 "Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
@@ -91,7 +91,7 @@ msgid "Date & Time"
 msgstr "Datum & Zeit"
 
 msgid "Depends"
-msgstr ""
+msgstr "Hängt davon ab"
 
 msgid "Deployments"
 msgstr "Deployments"
@@ -123,19 +123,19 @@ msgid "Events"
 msgstr "Ereignisse"
 
 msgid "Expose"
-msgstr ""
+msgstr "Exponieren"
 
-msgid "Exposed Port"
-msgstr ""
+msgid "Exposed"
+msgstr "Exponiert"
+
+msgid "Exposed port"
+msgstr "Exponierter Port"
 
 msgid "External IP"
 msgstr "External IP"
 
-msgid "Extra Values"
-msgstr ""
-
 msgid "Extra configuration"
-msgstr ""
+msgstr "Zusätzliche Konfiguration"
 
 msgid "Failed"
 msgstr "Fehlgeschlagen"
@@ -228,7 +228,7 @@ msgid "Normal"
 msgstr "Normal"
 
 msgid "Object"
-msgstr ""
+msgstr "Objekt"
 
 msgid "Open UI"
 msgstr "Benutzeroberfläche öffnen"
@@ -240,7 +240,7 @@ msgid "PVC"
 msgstr "PVC"
 
 msgid "Pending"
-msgstr ""
+msgstr "Ausstehend"
 
 msgid "Persistent Volume Claims"
 msgstr "Persistent Volume Claims"
@@ -264,7 +264,7 @@ msgid "Ports"
 msgstr "Ports"
 
 msgid "Protocol"
-msgstr ""
+msgstr "Protokoll"
 
 msgid "README"
 msgstr "README"
@@ -273,7 +273,7 @@ msgid "Ready"
 msgstr "Bereit"
 
 msgid "Reason"
-msgstr ""
+msgstr "Grund"
 
 msgid "Recipe Information"
 msgstr "Rezept Informationen"
@@ -285,7 +285,7 @@ msgid "Recipes"
 msgstr "Rezepte"
 
 msgid "Reclaim policy"
-msgstr ""
+msgstr "Wiederverwendungsrichtlinie"
 
 msgid ""
 "Refer to the values.yaml file in the Traefik Helm chart to see what "
@@ -304,7 +304,7 @@ msgid "Restore"
 msgstr "Wiederherstellen"
 
 msgid "Running"
-msgstr ""
+msgstr "Läuft"
 
 msgid "SQLite"
 msgstr "SQLite"
@@ -313,10 +313,10 @@ msgid "Secrets"
 msgstr "Geheimnisse"
 
 msgid "Section"
-msgstr ""
+msgstr "Sektion"
 
 msgid "Services"
-msgstr ""
+msgstr "Dienste"
 
 msgid "Settings"
 msgstr "Einstellungen"
@@ -340,10 +340,10 @@ msgid "Snapshots"
 msgstr "Schnappschüsse"
 
 msgid "Source"
-msgstr ""
+msgstr "Quelle"
 
 msgid "Stateful Sets"
-msgstr ""
+msgstr "Stateful Sets"
 
 msgid "Status"
 msgstr "Status"
@@ -352,7 +352,7 @@ msgid "Storage Class"
 msgstr "Storage Class"
 
 msgid "Succeeded"
-msgstr ""
+msgstr "Erfolgreich"
 
 msgid "Tag"
 msgstr "Etikett"
@@ -378,6 +378,9 @@ msgstr ""
 "Der vom Kubernetes-Cluster verwendete Datenspeicher. SQLite wird für Single-"
 "Node-Setups und SBCs mit langsamen Festplatten empfohlen, während etcd für "
 "Hochverfügbarkeits-Setups mit mehreren Nodes empfohlen wird."
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr "Das Feld darf nur die Zeichen a-z, 0-9 und - enthalten."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -412,7 +415,7 @@ msgid "UID"
 msgstr "UID"
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Unknown"
 msgstr ""
@@ -430,7 +433,7 @@ msgid "Version"
 msgstr "Version"
 
 msgid "View"
-msgstr ""
+msgstr "Anzeigen"
 
 msgid "Volume"
 msgstr "Volume"

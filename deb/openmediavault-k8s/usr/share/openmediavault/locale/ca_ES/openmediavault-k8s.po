@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-24 19:51+0100\n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2025\n"
 "Language-Team: Catalan (Spain) (https://app.transifex.com/openmediavault/teams/14254/ca_ES/)\n"
@@ -125,14 +125,14 @@ msgstr ""
 msgid "Expose"
 msgstr ""
 
-msgid "Exposed Port"
+msgid "Exposed"
+msgstr ""
+
+msgid "Exposed port"
 msgstr ""
 
 msgid "External IP"
 msgstr "IP externa"
-
-msgid "Extra Values"
-msgstr ""
 
 msgid "Extra configuration"
 msgstr ""
@@ -374,6 +374,9 @@ msgstr ""
 "El magatzem de dades utilitzat pel clúster de Kubernetes. Es recomana SQLite"
 " per a configuracions d'un sol node i SBC amb discs lents, mentre que etcd "
 "es recomana per a configuracions d'alta disponibilitat amb diversos nodes."
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr ""
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "

@@ -6,17 +6,17 @@
 # Translators:
 # 王大山, 2024
 # songming <by@songming.me>, 2024
-# 黃柏諺 <s8321414@gmail.com>, 2025
-# kochin <kochinc@outlook.com>, 2025
+# kochin <kochinc@outlook.com>, 2026
+# 黃柏諺 <s8321414@gmail.com>, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-24 19:51+0100\n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2025\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2026\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,19 +123,19 @@ msgid "Events"
 msgstr "事件"
 
 msgid "Expose"
+msgstr "開放"
+
+msgid "Exposed"
 msgstr ""
 
-msgid "Exposed Port"
+msgid "Exposed port"
 msgstr ""
 
 msgid "External IP"
 msgstr "外部 IP"
 
-msgid "Extra Values"
-msgstr ""
-
 msgid "Extra configuration"
-msgstr ""
+msgstr "額外的組態"
 
 msgid "Failed"
 msgstr "失敗"
@@ -264,7 +264,7 @@ msgid "Ports"
 msgstr "通訊埠"
 
 msgid "Protocol"
-msgstr ""
+msgstr "通訊協定"
 
 msgid "README"
 msgstr "讀我檔案"
@@ -290,7 +290,7 @@ msgstr "回收政策"
 msgid ""
 "Refer to the values.yaml file in the Traefik Helm chart to see what "
 "configuration options are available."
-msgstr ""
+msgstr "請參閱 Traefik Helm 圖表中的 values.yaml 檔案，以查看可用的設定選項。"
 
 msgid "Repository"
 msgstr "鏡像庫"
@@ -364,7 +364,7 @@ msgstr "目標命名空間"
 msgid ""
 "The SSL certificate used by the LoadBalancer service. If not set, a self-"
 "signed certificate from cert-manager is used."
-msgstr ""
+msgstr "負載平衡器服務使用的 SSL 憑證。若未設定，則使用 cert-manager 提供的自簽憑證。"
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
@@ -373,6 +373,9 @@ msgid ""
 msgstr ""
 "Kubernetes 叢集使用的資料儲存。建議將 SQLite 用於單節點設定與磁碟速度較慢的 SBC，而建議將 etcd "
 "用於具有多個節點的高可用性設定。"
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr "欄位僅應包含 a-z, 0-9 與 - 字元。"
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -410,7 +413,7 @@ msgid "UID"
 msgstr "UID"
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Unknown"
 msgstr "未知"
