@@ -42,6 +42,12 @@ omv-login-page {
       width: auto;
       height: auto;
     }
+
+    @media only screen and (width <= 420px) {
+      .logo {
+        content: url('^./assets/images/openmediavault_logo_only.svg');
+      }
+    }
   }
 
   .content {

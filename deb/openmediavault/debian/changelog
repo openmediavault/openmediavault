@@ -1,4 +1,4 @@
-openmediavault (8.0.8-1) stable; urgency=medium
+openmediavault (8.0.8-2) stable; urgency=medium
 
   * Issue #1520: Improve button accessibility by adding aria-label.
   * Issue #2115: Language switcher is not visible on mobile devices.
