@@ -3,6 +3,7 @@ openmediavault (8.0.8-2) stable; urgency=medium
   * Issue #1520: Improve button accessibility by adding aria-label.
   * Issue #2115: Language switcher is not visible on mobile devices.
   * Issue #2116: Fix RRD graph render issue on mobile devices.
+  * Issue #2120: Sync HTML lang attribute with current locale.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 22 Jan 2026 20:44:53 +0100
 
