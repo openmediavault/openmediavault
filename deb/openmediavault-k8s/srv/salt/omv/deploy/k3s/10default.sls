@@ -107,7 +107,7 @@ create_k3s_traefik_manifest:
           redirectScheme:
             scheme: https
             permanent: true
-            port: {{ k8s_lbports_config | selectattr('name', 'equalto', 'websecure') | first | attr('exposedport') }}
+            port: "{{ k8s_lbports_config | selectattr('name', 'equalto', 'websecure') | first | attr('exposedport') }}"
         ---
         apiVersion: traefik.io/v1alpha1
         kind: TLSStore

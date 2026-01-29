@@ -1,4 +1,4 @@
-openmediavault-k8s (8.1.0-4) stable; urgency=medium
+openmediavault-k8s (8.1.0-5) stable; urgency=medium
 
   * Issue #1940: Add UI support to configure additional Load Balancer
     (Traefik) ports.
