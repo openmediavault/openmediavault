@@ -41,7 +41,6 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("isConfigApplicable");
 		$this->registerMethod("get");
 		$this->registerMethod("set");
-		$this->registerMethod("getToken");
 		$this->registerMethod("getKubeConfig");
 		$this->registerMethod("getManifestIngredients");
 		$this->registerMethod("refreshRecipes");
@@ -129,20 +128,6 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
 		return $object->getAssoc();
-	}
-
-	function getToken($params, $context) {
-		\OMV\Rpc\Rpc::call("K8s", "isConfigApplicable", NULL, $context);
-		$response = \OMV\Rpc\Rpc::call("Kubectl", "get", [
-			"type" => "secret",
-			"name" => "admin-user",
-			"namespace" => "kubernetes-dashboard",
-			"format" => "json"
-		], $context);
-		$secret = json_decode_safe($response['manifest'], TRUE);
-		return [
-			"token" => base64_decode($secret['data']['token'])
-		];
 	}
 
 	function getKubeConfig($params, $context) {
