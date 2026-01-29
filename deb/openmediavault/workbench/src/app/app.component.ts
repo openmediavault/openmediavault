@@ -45,12 +45,15 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.setHtmlLangAttributeFromLocale();
+    this.setLangAttribute();
   }
 
-  private setHtmlLangAttributeFromLocale(): void {
-    const locale = LocaleService.getCurrentLocale();
-    const lang = locale.substring(0, 2);
-    this.renderer2.setAttribute(document.documentElement, 'lang', lang);
+  /**
+   * Set the `lang` attribute of the HTML document element.
+   * @private
+   */
+  private setLangAttribute(): void {
+    const locale = LocaleService.getCurrentLocaleObject();
+    this.renderer2.setAttribute(document.documentElement, 'lang', locale.language);
   }
 }
