@@ -216,7 +216,6 @@ data:
                     arg0:
                       prop: "name"
                     arg1:
-                      - "k8s-dashboard"
                       - "web"
                       - "websecure"
       - type: sslCertSelect
@@ -225,50 +224,6 @@ data:
         hint: _("The SSL certificate used by the LoadBalancer service. If not set, a self-signed certificate from cert-manager is used.")
         hasEmptyOption: true
         value: ""
-      - type: divider
-        title: _("Dashboard")
-      - type: button
-        name: token
-        text: _("Copy token")
-        tooltip: _("Copy to clipboard")
-        hint: _("The token to authenticate to the Kubernetes Dashboard.")
-        submitValue: false
-        modifiers:
-          - type: enabled
-            constraint:
-              operator: and
-              arg0:
-                operator: truthy
-                arg0:
-                  prop: enable
-              arg1:
-                operator: truthy
-                arg0:
-                  prop: installed
-        request:
-          service: k8s
-          method: getToken
-          successCopyToClipboard: "{{ _response['token'] }}"
-      - type: button
-        name: opendashboard
-        text: _("Open UI")
-        submitValue: false
-        modifiers:
-          - type: enabled
-            constraint:
-              operator: and
-              arg0:
-                operator: truthy
-                arg0:
-                  prop: enable
-              arg1:
-                operator: truthy
-                arg0:
-                  prop: installed
-        request:
-          service: K8s
-          method: isConfigApplicable
-          successUrl: "/externalRedirect/https{{ ['://', location() | get('hostname'), ':', lbports | filter(['name','k8s-dashboard']) | first | get('exposedport') ] | join | encodeuricomponent }}"
       - type: divider
         title: _("Kubeconfig")
       - type: hint
