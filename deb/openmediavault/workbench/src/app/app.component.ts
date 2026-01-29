@@ -15,8 +15,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
+import { LocaleService } from '~/app/shared/services/locale.service';
 import {
   PrefersColorScheme,
   PrefersColorSchemeService
@@ -27,7 +28,7 @@ import {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(
     private prefersColorSchemeService: PrefersColorSchemeService,
     private renderer2: Renderer2
@@ -41,5 +42,18 @@ export class AppComponent {
         }
       }
     );
+  }
+
+  ngOnInit(): void {
+    this.setLangAttribute();
+  }
+
+  /**
+   * Set the `lang` attribute of the HTML document element.
+   * @private
+   */
+  private setLangAttribute(): void {
+    const locale = LocaleService.getCurrentLocaleObject();
+    this.renderer2.setAttribute(document.documentElement, 'lang', locale.language);
   }
 }
