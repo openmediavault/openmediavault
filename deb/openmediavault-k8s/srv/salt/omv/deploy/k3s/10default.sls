@@ -156,7 +156,8 @@ create_k3s_cert_manager_manifest:
           chart: cert-manager
           targetNamespace: cert-manager
           valuesContent: |-
-            installCRDs: true
+            crds:
+              enabled: true
         ---
         apiVersion: cert-manager.io/v1
         kind: ClusterIssuer
