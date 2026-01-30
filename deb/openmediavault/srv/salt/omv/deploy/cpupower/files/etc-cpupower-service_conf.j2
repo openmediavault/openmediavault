@@ -1,7 +1,7 @@
 {%- set governor = salt['pillar.get']('default:OMV_CPUPOWER_GOVERNOR', salt['grains.filter_by']({
-    "default": "ondemand",
-    "amd64": "conservative",
-    "i386": "conservative",
+    "default": "performance",
+    "amd64": "performance",
+    "i386": "performance",
     "armhf": "schedutil",
     "arm64": "schedutil",
     "armel": "schedutil"
@@ -16,7 +16,7 @@
 # --- CPU clock frequency ---
 
 # Define CPU governor
-# Valid governors: ondemand, performance, powersave, conservative, userspace
+# Valid governors: ondemand, performance, powersave, conservative, userspace, schedutil
 GOVERNOR='{{ governor }}'
 
 # Limit frequency range

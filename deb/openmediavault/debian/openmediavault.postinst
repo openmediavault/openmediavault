@@ -635,6 +635,9 @@ case "$1" in
 			# - https://bugs-devel.debian.org/cgi-bin/bugreport.cgi?bug=1088011
 			sed -i '/mesg n/d' /root/.profile || :
 		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0.8"; then
+			omv_module_set_dirty cpupower
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
