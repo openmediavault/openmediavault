@@ -2,6 +2,9 @@ openmediavault (8.0.8-2) stable; urgency=medium
 
   * Use `performance` CPU governor for AMD64 and i386 architectures by default.
     Other architectures use `schedutil` as default governor.
+    Run the `cpupower frequency-info` command to check the governors available
+    on your system and use the `OMV_CPUPOWER_GOVERNOR` environment variable to
+    customize it if necessary.
   * Issue #1520: Improve button accessibility by adding aria-label.
   * Issue #2115: Language switcher is not visible on mobile devices.
   * Issue #2116: Fix RRD graph render issue on mobile devices.
