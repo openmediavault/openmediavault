@@ -45,7 +45,7 @@
     "@codemirror/lang-yaml": "^6.1.2",
     "@codemirror/language": "^6.12.1",
     "@codemirror/legacy-modes": "^6.5.2",
-    "@codemirror/lint": "^6.9.2",
+    "@codemirror/lint": "^6.9.3",
     "@codemirror/search": "^6.6.0",
     "@codemirror/state": "^6.5.4",
     "@codemirror/theme-one-dark": "^6.1.3",
