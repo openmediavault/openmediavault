@@ -127,10 +127,10 @@ msgid "Expose"
 msgstr "開放"
 
 msgid "Exposed"
-msgstr ""
+msgstr "開放"
 
 msgid "Exposed port"
-msgstr ""
+msgstr "開放的通訊埠"
 
 msgid "External IP"
 msgstr "外部 IP"

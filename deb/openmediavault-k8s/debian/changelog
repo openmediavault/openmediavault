@@ -1,5 +1,6 @@
 openmediavault-k8s (8.2.0-1) stable; urgency=medium
 
+  * Update locale files.
   * Remove the Kubernetes Dashboard integration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 29 Jan 2026 23:59:02 +0100

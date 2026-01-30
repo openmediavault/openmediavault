@@ -126,10 +126,10 @@ msgid "Expose"
 msgstr "Εμφάνιση"
 
 msgid "Exposed"
-msgstr ""
+msgstr "Εμφάνιση"
 
 msgid "Exposed port"
-msgstr ""
+msgstr "Εμφανισμένη θύρα"
 
 msgid "External IP"
 msgstr "Εξωτερική ΙΡ"

@@ -127,10 +127,10 @@ msgid "Expose"
 msgstr "Blootstellen"
 
 msgid "Exposed"
-msgstr ""
+msgstr "Blootgesteld"
 
 msgid "Exposed port"
-msgstr ""
+msgstr "Blootgestelde poort"
 
 msgid "External IP"
 msgstr "Externe IP"
