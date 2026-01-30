@@ -112,6 +112,17 @@ data:
                     pattern:
                       pattern: "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
                       errorData: _("The field should only contain the characters a-z, 0-9 and -.")
+                    custom:
+                      - constraint:
+                          operator: "not"
+                          arg0:
+                            operator: "in"
+                            arg0:
+                              prop: "name"
+                            arg1:
+                              - "web"
+                              - "websecure"
+                        errorData: _("The names 'web' and 'websecure' are reserved.")
                 - type: container
                   fields:
                     - type: numberInput
