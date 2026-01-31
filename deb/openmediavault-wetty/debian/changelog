@@ -1,3 +1,10 @@
+openmediavault-wetty (8.0.1-1) stable; urgency=medium
+
+  * Add the environment variable `OMV_WETTY_APP_CONTAINER_START_OPTIONS` to
+    set additional options for the WeTTY container.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 31 Jan 2026 17:00:51 +0100
+
 openmediavault-wetty (8.0-6) stable; urgency=medium
 
   * Adapt to openmediavault 8.
