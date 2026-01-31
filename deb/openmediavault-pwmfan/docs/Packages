@@ -1,0 +1,18 @@
+Package: openmediavault-pwmfan
+Version: 8.0.1-4.1
+Architecture: all
+Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
+Installed-Size: 69
+Depends: openmediavault (>= 8.0), python3, smartmontools
+Filename: ./openmediavault-pwmfan_8.0.1-4.1_all.deb
+Size: 10208
+MD5sum: af6f8aad98a2889d0d78060dd639a882
+SHA1: 7dd136c769625e6209743d1c13caa3fdfed3c63e
+SHA256: 7c0a25b5afaa7522924242d43b395a583edf2297682721d809176fb9e2c39d56
+Section: misc
+Priority: optional
+Homepage: http://omv-extras.org/
+Description: OpenMediaVault PWM fan controller plugin
+ PWM fan controller using sysfs PWM and optional HDD/CPU temperature sources.
+Plugin-Section: system
+

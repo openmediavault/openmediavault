@@ -1,0 +1,17 @@
+Source: openmediavault-pwmfan
+Section: misc
+XB-Plugin-Section: system
+Priority: optional
+Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
+Build-Depends: debhelper (>= 13 )
+Standards-Version: 4.3.0
+Homepage: http://omv-extras.org/
+
+Package: openmediavault-pwmfan
+Architecture: all
+Depends: openmediavault (>= 8.0),
+         python3,
+         smartmontools,
+         ${misc:Depends}
+Description: OpenMediaVault PWM fan controller plugin
+ PWM fan controller using sysfs PWM and optional HDD/CPU temperature sources.
