@@ -638,6 +638,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "8.0.9"; then
 			omv_module_set_dirty cpupower
 		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0.10"; then
+			omv_module_set_dirty cpupower
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
