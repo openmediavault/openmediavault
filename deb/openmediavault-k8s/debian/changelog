@@ -1,3 +1,10 @@
+openmediavault-k8s (8.2.1-1) stable; urgency=medium
+
+  * Use K3S v1.34.3+k3s3 on new installations. Existing installations won't
+    be upgraded automatically.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 04 Feb 2026 23:44:18 +0100
+
 openmediavault-k8s (8.2.0-1) stable; urgency=medium
 
   * Update locale files.
