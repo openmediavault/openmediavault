@@ -1,3 +1,9 @@
+openmediavault-md (8.0.3-1) stable; urgency=medium
+
+  * Enable mdmonitor.service only and let systemd/udev start it on demand.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 04 Feb 2026 23:29:20 +0100
+
 openmediavault-md (8.0.2-1) stable; urgency=medium
 
   * Show device file in dashboard widget if name is empty.
