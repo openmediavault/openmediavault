@@ -27,14 +27,8 @@ set -e
 #
 # Force predictable network device files.
 # Note, a reboot is required to take this changes into account.
-# echo "Patching network configuration ..."
-# sed --in-place --expression='s/eth0/ens6/' --expression='s/eth2/ens8/' /etc/network/interfaces
-# echo "Patching & rebuilding grub configuration ..."
-# sed --in-place --expression='s/net.ifnames=0/net.ifnames=1/' --expression='s/biosdevname=0/biosdevname=1/' /etc/default/grub
-
-# Replace the cloud-optimized kernel with the Debian standard kernel.
-apt-get install --yes linux-image-amd64
-apt-get remove --yes --purge linux-image-cloud-amd64
-apt-get autoremove --yes
-
+echo "Patching network configuration ..."
+sed --in-place --expression='s/eth0/ens8/' --expression='s/eth2/ens10/' /etc/network/interfaces
+echo "Patching & rebuilding grub configuration ..."
+sed --in-place --expression='s/net.ifnames=0/net.ifnames=1/' --expression='s/biosdevname=0/biosdevname=1/' /etc/default/grub
 update-grub
