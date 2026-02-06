@@ -9,7 +9,7 @@
 For a quick installation of `openmediavault` on an existing Debian system, run the following command as `root` user:
 
 ```bash
-wget -O - https://install.openmediavault.org | sh - 
+wget -O - https://get.openmediavault.org | sh - 
 ```
 
 A detailed instruction about how to install `openmediavault` via ISO or image file can be found in the official [documentation](https://docs.openmediavault.org/en/stable/installation/index.html).

@@ -35,8 +35,8 @@ usermod --groups _ssh --append vagrant
 # working.
 yes openmediavault | passwd
 
-# Install openmediavault using the installation script.
-wget --output-document=- https://install.openmediavault.org | sh -
+# Install openmediavault using the official installation script.
+wget --output-document=- https://get.openmediavault.org | sh -
 
 # Populate the database.
 omv-confdbadm populate
