@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024,2026
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-11 20:41+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024,2026\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,13 +19,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "# Members"
-msgstr ""
+msgstr "# Members"
 
 msgid "%CPU"
-msgstr ""
+msgstr "%CPU"
 
 msgid "%MEM"
-msgstr ""
+msgstr "%MEM"
 
 msgid "%d days"
 msgstr "%d 日"
@@ -52,7 +52,7 @@ msgid "%s [on %s, %s]"
 msgstr "%s [%s 上, %s]"
 
 msgid "%s [on N/A, %s]"
-msgstr ""
+msgstr "%s [on N/A, %s]"
 
 msgid "%s ago"
 msgstr "%s 前"
@@ -238,7 +238,7 @@ msgid "9 months"
 msgstr "9 か月"
 
 msgid "A (5 GHz)"
-msgstr ""
+msgstr "A (5 GHz)"
 
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
@@ -345,16 +345,16 @@ msgstr "すべてのパッケージがアップグレードされます。続行
 msgid ""
 "Allow clients to attempt to access extended attributes on a share. The "
 "underlying filesystem exposed by the share must support extended attributes."
-msgstr ""
+msgstr "クライアントが共有上の拡張属性へのアクセスを可能にします。共有によって公開されるファイルシステムは、拡張属性をサポートしている必要があります。"
 
 msgid "Allow following symbolic links in the home directories."
-msgstr ""
+msgstr "ホームディレクトリ内でのシンボリックリンクを許可します。"
 
 msgid "Allow following symbolic links in the share."
-msgstr ""
+msgstr "共有内で以下のシンボリックリンクを許可します。"
 
 msgid "Allow symbolic links to areas that are outside the home directories."
-msgstr ""
+msgstr "ホームディレクトリ以外の領域へのシンボリックリンクを許可する。"
 
 msgid "Allow symbolic links to areas that are outside the share."
 msgstr ""
@@ -473,10 +473,10 @@ msgid "Authentication required"
 msgstr "認証の要求"
 
 msgid "Automatic"
-msgstr ""
+msgstr "自動"
 
 msgid "Automatic logout"
-msgstr ""
+msgstr "自動ログアウト"
 
 msgid "Available"
 msgstr "利用可能"
@@ -485,7 +485,7 @@ msgid "Azerbaijan"
 msgstr "アゼルバイジャン"
 
 msgid "B/G (2.4 GHz)"
-msgstr ""
+msgstr "B/G (2.4 GHz)"
 
 msgid "Back"
 msgstr "戻る"
@@ -503,7 +503,7 @@ msgid "Bahrain"
 msgstr "バーレーン"
 
 msgid "Band"
-msgstr ""
+msgstr "Band"
 
 msgid "Bangladesh"
 msgstr "バングラディシュ"
@@ -587,7 +587,7 @@ msgid "Burundi"
 msgstr "ブルンジ"
 
 msgid "COMMAND"
-msgstr ""
+msgstr "COMMAND"
 
 msgid "CPU"
 msgstr "CPU"
@@ -839,7 +839,7 @@ msgid "Created wireless network connection."
 msgstr "無線ネットワーク接続を作成しました。"
 
 msgid "Creating"
-msgstr ""
+msgstr "作成中"
 
 msgid "Creation Time"
 msgstr "作成時間"
@@ -878,7 +878,7 @@ msgid "Dashboard"
 msgstr "ダッシュボード"
 
 msgid "Database record not found."
-msgstr ""
+msgstr "データベースのレコードがありません。"
 
 msgid "Date & Time"
 msgstr "日付と時刻"
@@ -968,7 +968,7 @@ msgid "Direction"
 msgstr "方向"
 
 msgid "Directory does not exist."
-msgstr ""
+msgstr "ディレクトリが存在しません。"
 
 msgid "Disabled"
 msgstr "無効"
@@ -1010,7 +1010,7 @@ msgid "Displays information about the services in a table."
 msgstr "サービスに関する情報をテーブルで表示します。"
 
 msgid "Displays links to help and support pages."
-msgstr ""
+msgstr "ヘルプとサポートページへのリンクを表示します。"
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
 msgstr "監視しているすべてのディスクデバイスの S.M.A.R.T. 情報を表示します。"
@@ -1268,7 +1268,7 @@ msgid "Fiji"
 msgstr "フィジー"
 
 msgid "File System Usage"
-msgstr ""
+msgstr "ファイルシステム使用率"
 
 msgid "File Systems"
 msgstr "ファイルシステム"
@@ -1660,7 +1660,7 @@ msgid "Invalid NetBIOS name."
 msgstr "NetBIOS名が無効です。"
 
 msgid "Invalid PGP public key."
-msgstr ""
+msgstr "無効なPGP公開鍵です。"
 
 msgid "Invalid SSH public key (OpenSSH format)."
 msgstr "無効なSSH公開鍵 (OpenSSH形式)"
@@ -1799,16 +1799,16 @@ msgid "Lifetime"
 msgstr "ライフタイム"
 
 msgid "Limit custom"
-msgstr ""
+msgstr "カスタムリミット"
 
 msgid "Limit daily"
-msgstr ""
+msgstr "1日間のリミット"
 
 msgid "Limit hourly"
-msgstr ""
+msgstr "1時間のリミット"
 
 msgid "Limit monthly"
-msgstr ""
+msgstr "1月間のリミット"
 
 msgid ""
 "Limit the reported disk size, thus preventing Time Machine from using the "
@@ -1816,10 +1816,10 @@ msgid ""
 msgstr ""
 
 msgid "Limit weekly"
-msgstr ""
+msgstr "1週間のリミット"
 
 msgid "Limit yearly"
-msgstr ""
+msgstr "1年間のリミット"
 
 msgid "Link"
 msgstr "リンク"
@@ -1949,7 +1949,7 @@ msgid "Maximum"
 msgstr "最大"
 
 msgid "Maximum disk size"
-msgstr ""
+msgstr "最大ディスクサイズ"
 
 msgid "Maximum file size"
 msgstr "最大ファイルサイズ"
@@ -1991,10 +1991,10 @@ msgid "Mexico"
 msgstr "メキシコ"
 
 msgid "MiB Mem"
-msgstr ""
+msgstr "MiB Mem"
 
 msgid "MiB Swap"
-msgstr ""
+msgstr "MiB Swap"
 
 msgid "Micronesia"
 msgstr "ミクロネシア"
@@ -2009,13 +2009,13 @@ msgid "Minimum performance, minimum acoustic output"
 msgstr "最低限の性能、最小の音響出力"
 
 msgid "Minimum protocol version"
-msgstr ""
+msgstr "最小プロトコルバージョン"
 
 msgid "Minute"
 msgstr "分"
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "その他"
 
 msgid "Missing"
 msgstr "欠落"
@@ -2048,19 +2048,19 @@ msgid "Monitoring"
 msgstr "モニタリング"
 
 msgid "Monitoring - CPU usage"
-msgstr ""
+msgstr "モニタリング - CPU使用率"
 
 msgid "Monitoring - File systems"
-msgstr ""
+msgstr "モニタリング - ファイルシステム"
 
 msgid "Monitoring - Load average"
-msgstr ""
+msgstr "モニタリング - ロードアベレージ"
 
 msgid "Monitoring - Memory usage"
-msgstr ""
+msgstr "モニタリング - メモリ使用率"
 
 msgid "Monitoring - Processes"
-msgstr ""
+msgstr "モニタリング - プロセッサ"
 
 msgid "Monitoring enabled"
 msgstr "モリタリング有効"
@@ -2099,16 +2099,16 @@ msgid "Myanmar"
 msgstr "ミャンマー"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "NFS"
 msgstr "NFS"
 
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 msgid "NTP time servers, separated by comma."
-msgstr ""
+msgstr "NTPタイムサーバ、カンマ区切り"
 
 msgid "Name"
 msgstr "名前"
@@ -2180,7 +2180,7 @@ msgid "No data to display."
 msgstr "表示するデータがありません。"
 
 msgid "No monitored devices."
-msgstr ""
+msgstr "マウントされたデバイスはありません。"
 
 msgid "No users connected"
 msgstr "ユーザーの接続はありません"
@@ -2219,7 +2219,7 @@ msgid "Not UDP"
 msgstr "Not UDP"
 
 msgid "Not a directory."
-msgstr ""
+msgstr "ディレクトリではありません。"
 
 msgid "Not mounted"
 msgstr "マウントされていません"
@@ -2264,7 +2264,7 @@ msgid "Offline immediate test"
 msgstr "オフライン即時テスト"
 
 msgid "Old Version"
-msgstr ""
+msgstr "旧バージョン"
 
 msgid "Old-age"
 msgstr "Old-age"
@@ -2300,7 +2300,7 @@ msgid "PID"
 msgstr "PID"
 
 msgid "PR"
-msgstr ""
+msgstr "PR"
 
 msgid "Pacific Islands Trust Territory"
 msgstr "太平洋諸島信託統治領"
@@ -2501,7 +2501,7 @@ msgid "Power Management"
 msgstr "電源管理"
 
 msgid "Power Mode"
-msgstr ""
+msgstr "電源モード"
 
 msgid "Power Off"
 msgstr "パワーオフ"
@@ -2525,7 +2525,7 @@ msgid "Prefail"
 msgstr "Prefail"
 
 msgid "Prefix address"
-msgstr ""
+msgstr "プレフィックスアドレス"
 
 msgid "Prefix length"
 msgstr "プレフィックス長"
@@ -2613,7 +2613,7 @@ msgid "Quota"
 msgstr "クォータ"
 
 msgid "RES"
-msgstr ""
+msgstr "RES"
 
 msgid "RSync server"
 msgstr "RSyncサーバー"
@@ -2745,7 +2745,7 @@ msgid "Rwanda"
 msgstr "ルワンダ"
 
 msgid "S"
-msgstr ""
+msgstr "S"
 
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
@@ -2757,7 +2757,7 @@ msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.モニタリングは、選択したデバイスのために活性化されなければならない。"
 
 msgid "SHR"
-msgstr ""
+msgstr "SHR"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2868,7 +2868,7 @@ msgid "Secure connection"
 msgstr "セキュアコネクション"
 
 msgid "Security"
-msgstr ""
+msgstr "セキュリティ"
 
 msgid "Select a country ..."
 msgstr "国を選択 ..."
@@ -3279,7 +3279,7 @@ msgid "TCP forwarding"
 msgstr "TCP転送"
 
 msgid "TIME+"
-msgstr ""
+msgstr "TIME+"
 
 msgid "Tags"
 msgstr "Tags"
@@ -3747,10 +3747,10 @@ msgid ""
 msgstr "変更時間をファイルとともに転送し、リモートシステムで更新します。"
 
 msgid "Transmit Hash Policy"
-msgstr ""
+msgstr "送信ハッシュポリシー"
 
 msgid "Transport encryption"
-msgstr ""
+msgstr "通信の暗号化"
 
 msgid "Trial run"
 msgstr "テスト実行"
@@ -3795,7 +3795,7 @@ msgid "UNKNOWN"
 msgstr "UNKNOWN"
 
 msgid "USER"
-msgstr ""
+msgstr "USER"
 
 msgid "UUID"
 msgstr "UUID"
@@ -3807,7 +3807,7 @@ msgid "Ukraine"
 msgstr "ウクライナ"
 
 msgid "Unavailable"
-msgstr ""
+msgstr "利用不可"
 
 msgid "Undo"
 msgstr "もとに戻す"
@@ -3819,7 +3819,7 @@ msgid "Uninstall plugin"
 msgstr "プラグインのアンインストール"
 
 msgid "Uninterruptible sleep"
-msgstr ""
+msgstr "Uninterruptible sleep"
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "ソビエト連邦"
@@ -3858,7 +3858,7 @@ msgid "Update Management"
 msgstr "アップデート管理"
 
 msgid "Update management"
-msgstr ""
+msgstr "アップデート管理"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "元のACLと同じになるように先のACLを更新します。"
@@ -4070,7 +4070,7 @@ msgid "Uzbekistan"
 msgstr "ウズベキスタン"
 
 msgid "VIRT"
-msgstr ""
+msgstr "VIRT"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -4159,7 +4159,7 @@ msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
 msgid "Wide links"
-msgstr ""
+msgstr "Wide links"
 
 msgid "Wipe"
 msgstr "ワイプ"
@@ -4215,7 +4215,7 @@ msgid "Zimbabwe"
 msgstr "ジンバブエ"
 
 msgid "Zombie"
-msgstr ""
+msgstr "Zombie"
 
 msgid "a day"
 msgstr "日"
@@ -4245,4 +4245,4 @@ msgid "total"
 msgstr "合計"
 
 msgid "{{ percent }}% of {{ total }}"
-msgstr ""
+msgstr "{{ percent }}% of {{ total }}"

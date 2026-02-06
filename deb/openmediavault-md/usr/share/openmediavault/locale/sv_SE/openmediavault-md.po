@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Daniel, 2025
+# Daniel, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
-"Last-Translator: Daniel, 2025\n"
+"Last-Translator: Daniel, 2026\n"
 "Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgid "A maximum of two devices can be removed."
 msgstr "Högst två enheter kan tas bort."
 
 msgid "Add hot spares / recover RAID device."
-msgstr "Lägg till reservdelar / återställ RAID-enhet."
+msgstr "Lägg till reservenheter / återställ RAID-enhet."
 
 msgid "At least four devices are required."
 msgstr "Minst fyra enheter krävs."
@@ -52,10 +52,10 @@ msgid "Devices"
 msgstr "Enheter"
 
 msgid "Displays information about MD (Software RAID) devices."
-msgstr "Visar information om MD-enheter (Software RAID)."
+msgstr "Visar information om MD-enheter (programvaru-RAID)."
 
 msgid "Grow"
-msgstr "Växa"
+msgstr "Utöka"
 
 msgid "Level"
 msgstr "Nivå"
@@ -119,10 +119,10 @@ msgid "Show details"
 msgstr "Visa detaljer"
 
 msgid "Software RAID"
-msgstr "Programvara-RAID"
+msgstr "Programvaru-RAID"
 
 msgid "State"
 msgstr "Tillstånd"
 
 msgid "Stripe"
-msgstr ""
+msgstr "Stripe"
