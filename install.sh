@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 set -e
+set -o noglob
 
 CODENAME="synchrony"
 
@@ -29,7 +30,7 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 arch="$(dpkg --print-architecture)"
-case ${arch} in
+case "${arch}" in
 	amd64|arm64)
 		;;
 	*)
