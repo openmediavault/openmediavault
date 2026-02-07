@@ -1127,37 +1127,46 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 						$entryv['name'], $entryv['perms']);
 				}
 			}
-			// Set default owner permissions.
-			if (array_key_exists("userperms", $params)) {
-				$aclSpec[] = sprintf("default:user::%d", $params['userperms']);
-				$aclSpec[] = sprintf("user::%d", $params['userperms']);
-			}
-			// Set default owning group permissions.
-			if (array_key_exists("groupperms", $params)) {
-				$aclSpec[] = sprintf("default:group::%d", $params['groupperms']);
-				$aclSpec[] = sprintf("group::%d", $params['groupperms']);
-			}
-			// Set default permissions of others.
-			if (array_key_exists("otherperms", $params)) {
-				$aclSpec[] = sprintf("default:other::%d", $params['otherperms']);
-				$aclSpec[] = sprintf("other::%d", $params['otherperms']);
-			}
-			// Build the command arguments list.
-			$cmdArgs = [];
-			if (TRUE === boolvalEx($params['replace']))
-				$cmdArgs[] = "--remove-all";
-			if (TRUE === boolvalEx($params['recursive']))
-				$cmdArgs[] = "--recursive";
+			// only set default acl if named users / groups exist
 			if (!empty($aclSpec)) {
-				if (FALSE === $aclSpecFile->write(implode("\n", $aclSpec))) {
-					throw new \OMV\Exception(
-						"Failed to write ACL entries to file.");
+				// Set default owner permissions.
+				if (array_key_exists("userperms", $params)) {
+					$aclSpec[] = sprintf("default:user::%d", $params['userperms']);
+					$aclSpec[] = sprintf("user::%d", $params['userperms']);
 				}
-				// Read the ACL entries from file. The CLI argument list
-				// is limited which will cause an error if the user/group
-				// list is too large.
-				$cmdArgs[] = sprintf("-M %s", escapeshellarg(
-					$aclSpecFile->getFileName()));
+				// Set default owning group permissions.
+				if (array_key_exists("groupperms", $params)) {
+					$aclSpec[] = sprintf("default:group::%d", $params['groupperms']);
+					$aclSpec[] = sprintf("group::%d", $params['groupperms']);
+				}
+				// Set default permissions of others.
+				if (array_key_exists("otherperms", $params)) {
+					$aclSpec[] = sprintf("default:other::%d", $params['otherperms']);
+					$aclSpec[] = sprintf("other::%d", $params['otherperms']);
+				}
+				// Build the command arguments list.
+				$cmdArgs = [];
+				if (TRUE === boolvalEx($params['replace']))
+					$cmdArgs[] = "--remove-all";
+				if (TRUE === boolvalEx($params['recursive']))
+					$cmdArgs[] = "--recursive";
+				if (!empty($aclSpec)) {
+					if (FALSE === $aclSpecFile->write(implode("\n", $aclSpec))) {
+						throw new \OMV\Exception(
+							"Failed to write ACL entries to file.");
+					}
+					// Read the ACL entries from file. The CLI argument list
+					// is limited which will cause an error if the user/group
+					// list is too large.
+					$cmdArgs[] = sprintf("-M %s", escapeshellarg(
+						$aclSpecFile->getFileName()));
+			}
+			} else {
+				// delete acl if no named users / groups
+				$cmdArgs = ["--remove-all"];
+				if (TRUE === boolvalEx($params['recursive'])) {
+					$cmdArgs[] = "--recursive";
+				}
 			}
 			$cmdArgs[] = "--";
 			$cmdArgs[] = escapeshellarg(build_path(DIRECTORY_SEPARATOR,
