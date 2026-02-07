@@ -215,7 +215,6 @@ case "$1" in
 		echo "Creating configuration database ..."
 		omv-confdbadm create "conf"
 		if [ -n "$2" ]; then
-			echo "Migrating configuration database ..."
 			omv-confdbadm migrate "conf" "${2}"
 		fi
 

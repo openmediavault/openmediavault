@@ -56,6 +56,7 @@ class Command(
 
     def execute(self, *args):
         rc = 1
+        openmediavault.log.info(f"Migrating configuration database ...")
         # Parse the command line arguments.
         parser = argparse.ArgumentParser(
             prog="%s %s" % (os.path.basename(args[0]), args[1]),
@@ -103,7 +104,7 @@ class Command(
                         "The script '%s' is not executable" % path
                     )
                 # Execute the script.
-                print("  Running migration %s" % name)
+                openmediavault.log.info(f"Running migration '{name}' ...")
                 openmediavault.procutils.check_call([path])
             rc = 0
         except Exception as e:
