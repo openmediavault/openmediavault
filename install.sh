@@ -130,6 +130,9 @@ do_fix() {
 	file="/usr/sbin/omv-mkaptidx"
 	wget --output-document="${file}" "${OMV_GIT_URL}/${file}"
 	chmod 755 "${file}"
+
+	# Rebuild APT plugin and update indices.
+	omv-mkaptidx
 }
 
 command="install"
