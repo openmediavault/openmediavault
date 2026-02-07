@@ -37,14 +37,3 @@ yes openmediavault | passwd
 
 # Install openmediavault using the official installation script.
 wget --output-document=- https://get.openmediavault.io | sh -
-
-# Populate the database.
-omv-confdbadm populate
-
-# Deploy the /etc/hosts file to ensure the hostname can be resolved
-# properly for IPv4 and IPv6. Otherwise building the Salt grains
-# (core.fqdns and core.ip_fqdn) will take a very long time.
-omv-salt deploy run hosts
-
-# Display the login information.
-cat /etc/issue
