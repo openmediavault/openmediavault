@@ -35,6 +35,7 @@ class Command(openmediavault.confdbadm.ICommand):
         return "Populates the database."
 
     def execute(self, *args):
+        openmediavault.log.info(f"Database is being populated ...")
         # Execute all scripts located in the directory.
         scripts_dir = openmediavault.getenv(
             "OMV_CONFDB_POPULATE_DIR",
