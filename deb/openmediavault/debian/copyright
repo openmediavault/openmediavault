@@ -7,7 +7,9 @@ Copyright: 2009-2026 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
 
 Files: /workbench/src/assets/images/login.jpg
-Source: https://www.bing.com/create
+Copyright: panumas nikhomkhai
+Source: https://www.pexels.com/photo/light-on-computer-17489153/
+License: Pexels
 
 Files: /workbench/src/assets/images/shutdown.jpg
 Copyright: Jakub Zerdzicki
@@ -15,4 +17,5 @@ Source: https://www.pexels.com/photo/close-up-of-a-data-hub-diskstation-19825057
 License: Pexels
 
 Files: /workbench/src/assets/images/standby.jpg
-Source: https://www.bing.com/create
+Source: https://www.pexels.com/photo/selective-focus-photography-of-round-gray-metal-part-209666/
+License: CC0
