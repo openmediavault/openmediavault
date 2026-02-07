@@ -39,14 +39,14 @@ error() {
 	echo "[ERROR] $@" >&2
 }
 
-install_verify_user() {
+verify_user() {
 	if [ "$(id -u)" -ne 0 ]; then
 		error "The installation script must be executed as user 'root'."
 		exit 77
 	fi
 }
 
-install_verify_codename() {
+verify_codename() {
 	. /etc/os-release
 	if [ "${VERSION_CODENAME}" != "${DEBIAN_VERSION_CODENAME}" ]; then
 		error "The Debian version must be '${DEBIAN_VERSION_CODENAME}', found '${VERSION_CODENAME}'."
@@ -76,8 +76,8 @@ install_verify_de() {
 do_install() {
 	info "Installing openmediavault (${OMV_VERSION_CODENAME}) ..."
 
-	install_verify_user
-	install_verify_codename
+	verify_user
+	verify_codename
 	install_verify_arch
 	install_verify_de
 
@@ -124,7 +124,8 @@ EOF
 do_fix() {
 	info "Fixing the openmediavault (${OMV_VERSION_CODENAME}) installation ..."
 
-	install_verify_user
+	verify_user
+	verify_codename
 
 	# Fix dpkg-divert problems.
 	file="/usr/sbin/omv-mkaptidx"
