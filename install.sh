@@ -22,11 +22,20 @@
 set -e
 set -o noglob
 
-CODENAME="synchrony"
+. /etc/os-release
+
+OMV_VERSION="8"
+OMV_VERSION_CODENAME="synchrony"
+DEBIAN_VERSION_CODENAME="trixie"
 
 if [ "$(id -u)" -ne 0 ]; then
-	echo "The script must be executed as root." >&2
+	echo "The installation script must be executed as user 'root'." >&2
 	exit 77
+fi
+
+if [ "${VERSION_CODENAME}" != "${DEBIAN_VERSION_CODENAME}" ]; then
+	echo "The Debian version must be '${DEBIAN_VERSION_CODENAME}', found '${VERSION_CODENAME}'." >&2
+	exit 1
 fi
 
 arch="$(dpkg --print-architecture)"
@@ -34,12 +43,17 @@ case "${arch}" in
 	amd64|arm64)
 		;;
 	*)
-		echo "The architecture ${arch} is not supported." >&2
+		echo "The architecture '${arch}' is not supported." >&2
 		exit 1
 		;;
 esac
 
-echo "Installing openmediavault (${CODENAME}) ..."
+if dpkg --list | grep --quiet --extended-regexp --word-regexp "gdm3|lightdm|lxdm|sddm|slim|wdm|xdm"; then
+  echo "The system is running a desktop environment! Please check https://docs.openmediavault.org/en/${OMV_VERSION}.x/installation/on_debian.html for more details." >&2
+  exit 1
+fi
+
+echo "Installing openmediavault (${OMV_VERSION_CODENAME}) ..."
 
 export LANG=C.UTF-8
 export DEBIAN_FRONTEND=noninteractive
@@ -50,15 +64,15 @@ wget --output-document=- https://packages.openmediavault.org/public/archive.key 
 	gpg --dearmor --yes --output "/usr/share/keyrings/openmediavault-archive-keyring.gpg"
 
 cat <<EOF > /etc/apt/sources.list.d/openmediavault.list
-deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public ${CODENAME} main
-# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages ${CODENAME} main
+deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public ${OMV_VERSION_CODENAME} main
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages ${OMV_VERSION_CODENAME} main
 ## Uncomment the following line to add software from the proposed repository.
-# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public ${CODENAME}-proposed main
-# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages ${CODENAME}-proposed main
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public ${OMV_VERSION_CODENAME}-proposed main
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages ${OMV_VERSION_CODENAME}-proposed main
 ## This software is not part of OpenMediaVault, but is offered by third-party
 ## developers as a service to OpenMediaVault users.
-# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public ${CODENAME} partner
-# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages ${CODENAME} partner
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public ${OMV_VERSION_CODENAME} partner
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages ${OMV_VERSION_CODENAME} partner
 EOF
 
 apt-get update
