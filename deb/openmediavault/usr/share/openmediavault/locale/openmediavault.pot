@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-08 13:59+0100\n"
+"POT-Creation-Date: 2026-02-08 20:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -584,6 +584,9 @@ msgstr ""
 msgid "CPU Utilization"
 msgstr ""
 
+msgid "CPU frequency scaling"
+msgstr ""
+
 msgid "Cambodia"
 msgstr ""
 
@@ -1107,6 +1110,9 @@ msgid "Email"
 msgstr ""
 
 msgid "Empty now"
+msgstr ""
+
+msgid "Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU performance based on system load. The CPU frequency governor determines how the CPU frequency is adjusted."
 msgstr ""
 
 msgid "Enable NetBIOS"
@@ -1838,7 +1844,7 @@ msgstr ""
 msgid "Malta"
 msgstr ""
 
-msgid "Management of cpufreq and cpuidle tunables."
+msgid "Management of CPU frequency scaling."
 msgstr ""
 
 msgid "Management of scheduled tasks."
@@ -3021,9 +3027,6 @@ msgid "Specifies whether it is allowed to login as superuser."
 msgstr ""
 
 msgid "Specifies whether the system performance statistics are collected periodically."
-msgstr ""
-
-msgid "Specifies whether to monitor the system status and select the most appropriate CPU level."
 msgstr ""
 
 msgid "Specifies which slave is the primary device."

@@ -37,13 +37,29 @@ export class PowermgmtSettingsFormPageComponent extends BaseFormPageComponent {
     },
     fields: [
       {
-        type: 'checkbox',
-        name: 'cpufreq',
-        label: gettext('Monitoring'),
+        type: 'select',
+        name: 'cpufreqgovernor',
+        label: gettext('CPU frequency scaling'),
         hint: gettext(
-          'Specifies whether to monitor the system status and select the most appropriate CPU level.'
+          'Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU performance based on system load. The CPU frequency governor determines how the CPU frequency is adjusted.'
         ),
-        value: false
+        value: '',
+        hasEmptyOption: true,
+        emptyOptionText: gettext('Disabled'),
+        store: {
+          proxy: {
+            service: 'System',
+            get: {
+              method: 'getCpuGovernors'
+            }
+          },
+          sorters: [
+            {
+              dir: 'asc',
+              prop: 'text'
+            }
+          ]
+        }
       },
       {
         type: 'select',

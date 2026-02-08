@@ -1,11 +1,3 @@
-{%- set governor = salt['pillar.get']('default:OMV_CPUPOWER_GOVERNOR', salt['grains.filter_by']({
-    "default": "performance",
-    "amd64": "performance",
-    "i386": "performance",
-    "armhf": "schedutil",
-    "arm64": "schedutil",
-    "armel": "schedutil"
-  }, grain="osarch")) -%}
 {%- set min_freq = salt['pillar.get']('default:OMV_CPUPOWER_MINFREQ', '') -%}
 {%- set max_freq = salt['pillar.get']('default:OMV_CPUPOWER_MAXFREQ', '') -%}
 {%- set freq = salt['pillar.get']('default:OMV_CPUPOWER_FREQ', '') -%}
@@ -17,7 +9,7 @@
 
 # Define CPU governor
 # Valid governors: ondemand, performance, powersave, conservative, userspace, schedutil
-GOVERNOR='{{ governor }}'
+GOVERNOR='{{ config.cpufreqgovernor }}'
 
 # Limit frequency range
 # Valid suffixes: Hz, kHz (default), MHz, GHz, THz

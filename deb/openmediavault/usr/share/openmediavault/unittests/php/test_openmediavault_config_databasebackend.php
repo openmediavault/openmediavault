@@ -50,8 +50,9 @@ class test_openmediavault_config_databasebackend extends \PHPUnit\Framework\Test
 		$this->assertEquals($this->databaseBackend->compare(
 			"//system/powermanagement",
 			[
-				"cpufreq" => 0,
-				"powerbtn" => "nothing"
+				"cpufreqgovernor" => "",
+				"powerbtn" => "nothing",
+				"standbymode" => "poweroff"
 			]
 		), -1);
 	}

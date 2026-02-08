@@ -16,11 +16,11 @@
     </apt>
     <powermanagement>
       <!--
-			<cpufreq>0|1</cpufreq>
+			<cpufreqgovernor>powersave|conservative|schedutil|ondemand|userspace|performance|</cpufreqgovernor>
 			<powerbtn>nothing|shutdown|standby</powerbtn>
 			<standbymode>poweroff|suspend|hibernate|suspendhybrid</standbymode>
 			-->
-      <cpufreq>1</cpufreq>
+      <cpufreqgovernor></cpufreqgovernor>
       <powerbtn>nothing</powerbtn>
       <standbymode>poweroff</standbymode>
     </powermanagement>
