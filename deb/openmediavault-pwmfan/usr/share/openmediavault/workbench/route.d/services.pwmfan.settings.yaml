@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/pwmfan/settings"
+  title: _("Settings")
+  editing: true
+  notificationTitle: _("Updated PWM Fan settings.")
+  component: omv-services-pwmfan-settings-form-page
