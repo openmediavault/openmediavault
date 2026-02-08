@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 20:41+0100\n"
+"POT-Creation-Date: 2026-02-08 20:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: irrelevant91, 2025\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -497,6 +497,9 @@ msgstr "B/G (2.4 GHz)"
 msgid "Back"
 msgstr "返回"
 
+msgid "Background image"
+msgstr "背景圖片"
+
 msgid "Background task"
 msgstr "后台任务"
 
@@ -604,6 +607,9 @@ msgstr "CPU 使用率"
 
 msgid "CPU Utilization"
 msgstr "CPU 使用率"
+
+msgid "CPU frequency scaling"
+msgstr ""
 
 msgid "Cambodia"
 msgstr "柬埔寨"
@@ -1146,6 +1152,12 @@ msgstr "Email"
 
 msgid "Empty now"
 msgstr "立即清空"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted."
+msgstr ""
 
 msgid "Enable NetBIOS"
 msgstr "启用 NetBIOS"
@@ -1915,8 +1927,8 @@ msgstr "马里"
 msgid "Malta"
 msgstr "马耳他"
 
-msgid "Management of cpufreq and cpuidle tunables."
-msgstr "cpufreq与cpuidle可调节设置管理。"
+msgid "Management of CPU frequency scaling."
+msgstr ""
 
 msgid "Management of scheduled tasks."
 msgstr "管理计划任务。"
@@ -3152,11 +3164,6 @@ msgid ""
 "periodically."
 msgstr "指定系统是否定期收集性能统计信息。"
 
-msgid ""
-"Specifies whether to monitor the system status and select the most "
-"appropriate CPU level."
-msgstr "指定是否监控系统状态并选择最适合的 CPU 级别。"
-
 msgid "Specifies which slave is the primary device."
 msgstr "指定主从设备。"
 
@@ -3314,6 +3321,9 @@ msgstr "测试"
 
 msgid "Thailand"
 msgstr "泰国"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr "HTTP 與 HTTPS 的通訊埠必須不相同。"
 
 msgid "The NFS versions provided by the service."
 msgstr "NFS 服务版本。"

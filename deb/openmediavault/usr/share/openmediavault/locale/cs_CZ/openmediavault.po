@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 20:41+0100\n"
+"POT-Creation-Date: 2026-02-08 20:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Marek Pavelka, 2024-2025\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -492,6 +492,9 @@ msgstr "B/G (2,4 GHz)"
 msgid "Back"
 msgstr "Zpět"
 
+msgid "Background image"
+msgstr ""
+
 msgid "Background task"
 msgstr "Úloha na pozadí"
 
@@ -599,6 +602,9 @@ msgstr "Využití procesoru"
 
 msgid "CPU Utilization"
 msgstr "Vytížení procesoru"
+
+msgid "CPU frequency scaling"
+msgstr ""
 
 msgid "Cambodia"
 msgstr "Kambodža"
@@ -1141,6 +1147,12 @@ msgstr "E-mail"
 
 msgid "Empty now"
 msgstr "Vyprázdnit nyní"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted."
+msgstr ""
 
 msgid "Enable NetBIOS"
 msgstr "Povolit NetBIOS"
@@ -1910,7 +1922,7 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of cpufreq and cpuidle tunables."
+msgid "Management of CPU frequency scaling."
 msgstr ""
 
 msgid "Management of scheduled tasks."
@@ -3147,11 +3159,6 @@ msgid ""
 "periodically."
 msgstr "Určuje, zda pravidelně shromažďovat statistiky výkonu systému."
 
-msgid ""
-"Specifies whether to monitor the system status and select the most "
-"appropriate CPU level."
-msgstr "Určuje, zda monitorovat stav systému a vybírat nejvhodnější úroveň procesoru."
-
 msgid "Specifies which slave is the primary device."
 msgstr "Určuje, které podřízené zařízení je hlavní."
 
@@ -3309,6 +3316,9 @@ msgstr "Vyzkoušet"
 
 msgid "Thailand"
 msgstr "Thajsko"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr ""
 
 msgid "The NFS versions provided by the service."
 msgstr "Verze systému NFS poskytované službou."

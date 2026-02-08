@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 20:41+0100\n"
+"POT-Creation-Date: 2026-02-08 20:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025-2026\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -498,6 +498,9 @@ msgstr "B/G (2.4 GHz)"
 msgid "Back"
 msgstr "Terug"
 
+msgid "Background image"
+msgstr "Achtergrondafbeelding"
+
 msgid "Background task"
 msgstr "Achtergrondtaak"
 
@@ -605,6 +608,9 @@ msgstr "CPU-gebruik"
 
 msgid "CPU Utilization"
 msgstr "CPU-gebruik"
+
+msgid "CPU frequency scaling"
+msgstr ""
 
 msgid "Cambodia"
 msgstr "Cambodja"
@@ -1147,6 +1153,12 @@ msgstr "E-mail"
 
 msgid "Empty now"
 msgstr "Nu leegmaken"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted."
+msgstr ""
 
 msgid "Enable NetBIOS"
 msgstr "NetBIOS inschakelen"
@@ -1916,8 +1928,8 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of cpufreq and cpuidle tunables."
-msgstr "Beheer van cpufreq- en cpuidle-instellingen."
+msgid "Management of CPU frequency scaling."
+msgstr ""
 
 msgid "Management of scheduled tasks."
 msgstr "Geplande taken beheren."
@@ -3153,11 +3165,6 @@ msgid ""
 "periodically."
 msgstr "Geeft aan of de systeemprestatiestatistieken periodiek worden opgehaald."
 
-msgid ""
-"Specifies whether to monitor the system status and select the most "
-"appropriate CPU level."
-msgstr "Geeft aan of de status van het systeem geobserveerd wordt en kies het meest geschikte CPU-niveau."
-
 msgid "Specifies which slave is the primary device."
 msgstr "Specificeert welke slaaf het primaire apparaat is."
 
@@ -3315,6 +3322,9 @@ msgstr "Test"
 
 msgid "Thailand"
 msgstr "Thailand"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr "De HTTP- en HTTPS-poorten mogen niet hetzelfde zijn."
 
 msgid "The NFS versions provided by the service."
 msgstr "De NFS-versies die door de dienst worden aangeboden."

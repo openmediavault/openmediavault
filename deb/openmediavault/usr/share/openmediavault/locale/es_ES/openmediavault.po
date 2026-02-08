@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 20:41+0100\n"
+"POT-Creation-Date: 2026-02-08 20:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2024\n"
 "Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -495,6 +495,9 @@ msgstr ""
 msgid "Back"
 msgstr "Volver"
 
+msgid "Background image"
+msgstr ""
+
 msgid "Background task"
 msgstr "Tarea en Background"
 
@@ -602,6 +605,9 @@ msgstr "CPU en Uso"
 
 msgid "CPU Utilization"
 msgstr "Uso de CPU"
+
+msgid "CPU frequency scaling"
+msgstr ""
 
 msgid "Cambodia"
 msgstr "Camboya"
@@ -1144,6 +1150,12 @@ msgstr "Email"
 
 msgid "Empty now"
 msgstr "Vaciando ahora"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted."
+msgstr ""
 
 msgid "Enable NetBIOS"
 msgstr "Habilitar NetBIOS"
@@ -1913,7 +1925,7 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of cpufreq and cpuidle tunables."
+msgid "Management of CPU frequency scaling."
 msgstr ""
 
 msgid "Management of scheduled tasks."
@@ -3150,11 +3162,6 @@ msgid ""
 "periodically."
 msgstr "Habilita que las estadísticas de rendimiento se almacenen periodicamente."
 
-msgid ""
-"Specifies whether to monitor the system status and select the most "
-"appropriate CPU level."
-msgstr "Especifica si se monitoriza el estado del sistema y selecciona el nivel de CPU más apropiado."
-
 msgid "Specifies which slave is the primary device."
 msgstr "Especifica qué esclavo es el dispositivo primario."
 
@@ -3312,6 +3319,9 @@ msgstr "Test"
 
 msgid "Thailand"
 msgstr "Tailandia"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr ""
 
 msgid "The NFS versions provided by the service."
 msgstr "Versión NFS proporcionada por el sistema."

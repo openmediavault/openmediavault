@@ -10,13 +10,13 @@
 # maurorulli <mauro.rulli@gmail.com>, 2012-2013
 # maurorulli <mauro.rulli@gmail.com>, 2012
 # Mario Varelli <mvarelli@biologia.unipi.it>, 2012
-# Paolo Velati <paolo.velati@gmail.com>, 2013-2019,2021
+# d5316b6b4d283a9cbe4ea704ae8abe02_b972f24 <bd82b27c045fcb3aa6bd04640e5224c5_36908>, 2013-2019,2021
 # Roberto Bellingeri <bellingeri@netguru.it>, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 20:41+0100\n"
+"POT-Creation-Date: 2026-02-08 20:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025-2026\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -498,6 +498,9 @@ msgstr "B/G (2.4 GHz)"
 msgid "Back"
 msgstr "Indietro"
 
+msgid "Background image"
+msgstr ""
+
 msgid "Background task"
 msgstr "Attività in background"
 
@@ -605,6 +608,9 @@ msgstr "Utilizzo della CPU"
 
 msgid "CPU Utilization"
 msgstr "Utilizzo della CPU"
+
+msgid "CPU frequency scaling"
+msgstr ""
 
 msgid "Cambodia"
 msgstr "Cambogia"
@@ -1147,6 +1153,12 @@ msgstr "Email"
 
 msgid "Empty now"
 msgstr "Svuota adesso"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted."
+msgstr ""
 
 msgid "Enable NetBIOS"
 msgstr "Abilita NetBIOS"
@@ -1916,8 +1928,8 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of cpufreq and cpuidle tunables."
-msgstr "Gestione dei parametri configurabili di cpufreq e cpuidle."
+msgid "Management of CPU frequency scaling."
+msgstr ""
 
 msgid "Management of scheduled tasks."
 msgstr "Gestione delle attività pianificate."
@@ -3153,11 +3165,6 @@ msgid ""
 "periodically."
 msgstr "Specifica se le statistiche sulle prestazioni del sistema sono raccolte periodicamente."
 
-msgid ""
-"Specifies whether to monitor the system status and select the most "
-"appropriate CPU level."
-msgstr "Specifica se monitorare lo stato del sistema e selezionare il livello di CPU più appropriato."
-
 msgid "Specifies which slave is the primary device."
 msgstr "Specifica quale slave è il dispositivo primario."
 
@@ -3315,6 +3322,9 @@ msgstr "Test"
 
 msgid "Thailand"
 msgstr "Tailandia"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr ""
 
 msgid "The NFS versions provided by the service."
 msgstr "Le versioni NFS fornite dal servizio."

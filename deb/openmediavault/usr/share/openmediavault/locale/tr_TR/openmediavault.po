@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 20:41+0100\n"
+"POT-Creation-Date: 2026-02-08 20:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020-2022,2025\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
@@ -490,6 +490,9 @@ msgstr "B/G (2.4 GHz)"
 msgid "Back"
 msgstr "Geri"
 
+msgid "Background image"
+msgstr ""
+
 msgid "Background task"
 msgstr "Arka plan işlemi"
 
@@ -597,6 +600,9 @@ msgstr "CPU Kullanımı"
 
 msgid "CPU Utilization"
 msgstr "CPU Kullanımı"
+
+msgid "CPU frequency scaling"
+msgstr ""
 
 msgid "Cambodia"
 msgstr "Kamboçya"
@@ -1139,6 +1145,12 @@ msgstr "E-posta"
 
 msgid "Empty now"
 msgstr "Şimdi boş"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted."
+msgstr ""
 
 msgid "Enable NetBIOS"
 msgstr "NetBIOS u aktifleştir"
@@ -1908,7 +1920,7 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of cpufreq and cpuidle tunables."
+msgid "Management of CPU frequency scaling."
 msgstr ""
 
 msgid "Management of scheduled tasks."
@@ -3145,11 +3157,6 @@ msgid ""
 "periodically."
 msgstr "Sistem performans istatistiklerinin periyodik olarak alınıp alınmayacağını belirler."
 
-msgid ""
-"Specifies whether to monitor the system status and select the most "
-"appropriate CPU level."
-msgstr "Sistem durumunu izlemeyi ve buna en uygun işlemci düzeyinin seçileceğini belirler."
-
 msgid "Specifies which slave is the primary device."
 msgstr "Hangi yedeğin birincil aygıt olacağını belirler."
 
@@ -3307,6 +3314,9 @@ msgstr "Test"
 
 msgid "Thailand"
 msgstr "Tayland"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr ""
 
 msgid "The NFS versions provided by the service."
 msgstr ""

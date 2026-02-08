@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 20:41+0100\n"
+"POT-Creation-Date: 2026-02-08 20:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2025\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -492,6 +492,9 @@ msgstr "B/G (2.4 GHz)"
 msgid "Back"
 msgstr "Enrere"
 
+msgid "Background image"
+msgstr ""
+
 msgid "Background task"
 msgstr "Tasca en segon pla"
 
@@ -599,6 +602,9 @@ msgstr "Ús de la CPU"
 
 msgid "CPU Utilization"
 msgstr "Ús de la CPU"
+
+msgid "CPU frequency scaling"
+msgstr ""
 
 msgid "Cambodia"
 msgstr "Cambodja"
@@ -1141,6 +1147,12 @@ msgstr "Email"
 
 msgid "Empty now"
 msgstr "Buidant ara"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted."
+msgstr ""
 
 msgid "Enable NetBIOS"
 msgstr "Habilita NetBIOS"
@@ -1910,7 +1922,7 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of cpufreq and cpuidle tunables."
+msgid "Management of CPU frequency scaling."
 msgstr ""
 
 msgid "Management of scheduled tasks."
@@ -3147,11 +3159,6 @@ msgid ""
 "periodically."
 msgstr "Habilita que las estadístiques de rendiment s'emmagatzemin periòdicament."
 
-msgid ""
-"Specifies whether to monitor the system status and select the most "
-"appropriate CPU level."
-msgstr "Especifica si s’ha de supervisar l’estat del sistema i selecciona el nivell de CPU més apropiat."
-
 msgid "Specifies which slave is the primary device."
 msgstr "Especifica quin esclau és el dispositiu primari."
 
@@ -3309,6 +3316,9 @@ msgstr "Prova "
 
 msgid "Thailand"
 msgstr "Tailàndia"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr ""
 
 msgid "The NFS versions provided by the service."
 msgstr "Les versions NFS proporcionades pel servei."

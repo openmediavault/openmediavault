@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 20:41+0100\n"
+"POT-Creation-Date: 2026-02-08 20:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Daniel, 2025-2026\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -494,6 +494,9 @@ msgstr "B/G (2.4 GHz)"
 msgid "Back"
 msgstr "Tillbaka"
 
+msgid "Background image"
+msgstr ""
+
 msgid "Background task"
 msgstr "Bakgrundsuppgift"
 
@@ -601,6 +604,9 @@ msgstr "CPU-användning"
 
 msgid "CPU Utilization"
 msgstr "CPU-utnyttjande"
+
+msgid "CPU frequency scaling"
+msgstr ""
 
 msgid "Cambodia"
 msgstr "Kambodja"
@@ -1143,6 +1149,12 @@ msgstr "E-post"
 
 msgid "Empty now"
 msgstr "Töm nu"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted."
+msgstr ""
 
 msgid "Enable NetBIOS"
 msgstr "Aktivera NetBIOS"
@@ -1912,8 +1924,8 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of cpufreq and cpuidle tunables."
-msgstr "Hantering av cpufreq och cpuidle-inställbara värden."
+msgid "Management of CPU frequency scaling."
+msgstr ""
 
 msgid "Management of scheduled tasks."
 msgstr "Hantering av schemalagda uppgifter."
@@ -3149,11 +3161,6 @@ msgid ""
 "periodically."
 msgstr "Anger om systemprestationsstatistiken samlas in regelbundet."
 
-msgid ""
-"Specifies whether to monitor the system status and select the most "
-"appropriate CPU level."
-msgstr "Välj om du vill övervaka systemets status för att bestämma den mest lämpade CPU-nivån."
-
 msgid "Specifies which slave is the primary device."
 msgstr "Anger vilken slav som är den primära enheten."
 
@@ -3311,6 +3318,9 @@ msgstr "Testa"
 
 msgid "Thailand"
 msgstr "Thailand"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr ""
 
 msgid "The NFS versions provided by the service."
 msgstr "NFS-versionerna som tillhandahålls av tjänsten."

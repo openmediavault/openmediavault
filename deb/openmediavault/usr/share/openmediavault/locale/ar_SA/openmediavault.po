@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 20:41+0100\n"
+"POT-Creation-Date: 2026-02-08 20:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -491,6 +491,9 @@ msgstr ""
 msgid "Back"
 msgstr "للحلف"
 
+msgid "Background image"
+msgstr ""
+
 msgid "Background task"
 msgstr "مهمة في الخلفية"
 
@@ -598,6 +601,9 @@ msgstr "استهلاك المعالج"
 
 msgid "CPU Utilization"
 msgstr "استهلاك المعالج"
+
+msgid "CPU frequency scaling"
+msgstr ""
 
 msgid "Cambodia"
 msgstr "كمبوديا"
@@ -1140,6 +1146,12 @@ msgstr "البريد الإلكتروني"
 
 msgid "Empty now"
 msgstr "تفريغ الآن"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted."
+msgstr ""
 
 msgid "Enable NetBIOS"
 msgstr ""
@@ -1909,7 +1921,7 @@ msgstr "مالي"
 msgid "Malta"
 msgstr "مالطا"
 
-msgid "Management of cpufreq and cpuidle tunables."
+msgid "Management of CPU frequency scaling."
 msgstr ""
 
 msgid "Management of scheduled tasks."
@@ -3146,11 +3158,6 @@ msgid ""
 "periodically."
 msgstr "يحدد ما إذا كان يتم جمع إحصائيات أداء النظام بشكل دوري."
 
-msgid ""
-"Specifies whether to monitor the system status and select the most "
-"appropriate CPU level."
-msgstr "تحديد ما إذا كنت تريد مراقبة حالة النظام وتحديد مستوى وحدة المعالجة المركزية الأنسب."
-
 msgid "Specifies which slave is the primary device."
 msgstr "يحدد أي من جهاز ثانوي هو الجهاز الأساسي."
 
@@ -3308,6 +3315,9 @@ msgstr "اختبار"
 
 msgid "Thailand"
 msgstr "تايلاند"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr ""
 
 msgid "The NFS versions provided by the service."
 msgstr ""

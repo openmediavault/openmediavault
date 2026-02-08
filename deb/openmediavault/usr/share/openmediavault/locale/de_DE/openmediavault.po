@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 20:41+0100\n"
+"POT-Creation-Date: 2026-02-08 20:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2026\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -503,6 +503,9 @@ msgstr "B/G (2.4 GHz)"
 msgid "Back"
 msgstr "Zurück"
 
+msgid "Background image"
+msgstr "Hintergrundbild"
+
 msgid "Background task"
 msgstr "Hintergrundaufgabe"
 
@@ -610,6 +613,9 @@ msgstr "CPU Auslastung"
 
 msgid "CPU Utilization"
 msgstr "CPU Auslastung"
+
+msgid "CPU frequency scaling"
+msgstr "CPU-Frequenzskalierung"
 
 msgid "Cambodia"
 msgstr "Kambodscha"
@@ -1152,6 +1158,12 @@ msgstr "E-Mail"
 
 msgid "Empty now"
 msgstr "Jetzt leeren"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted."
+msgstr "Aktivieren Sie die Überwachung der CPU-Frequenzskalierung, um die CPU-Leistung dynamisch an die Systemlast anzupassen. Der CPU-Frequenzregler bestimmt, wie die CPU-Frequenz angepasst wird."
 
 msgid "Enable NetBIOS"
 msgstr "NetBIOS aktivieren"
@@ -1921,8 +1933,8 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of cpufreq and cpuidle tunables."
-msgstr "Verwaltung der Einstellparameter cpufreq und cpuidle."
+msgid "Management of CPU frequency scaling."
+msgstr "Verwaltung der CPU-Frequenzskalierung."
 
 msgid "Management of scheduled tasks."
 msgstr "Verwaltung der geplanten Aufgaben."
@@ -3158,11 +3170,6 @@ msgid ""
 "periodically."
 msgstr "Gibt an, ob die Leistungsdaten des Systems regelmäßig gesammelt werden sollen."
 
-msgid ""
-"Specifies whether to monitor the system status and select the most "
-"appropriate CPU level."
-msgstr "Legt fest ob der Systemstatus überwacht und der geeignete CPU Level gewählt wird."
-
 msgid "Specifies which slave is the primary device."
 msgstr "Legt fest welcher Slave das Primäre Laufwerk ist."
 
@@ -3320,6 +3327,9 @@ msgstr "Test"
 
 msgid "Thailand"
 msgstr "Thailand"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr "Die HTTP- und HTTPS-Ports dürfen nicht identisch sein."
 
 msgid "The NFS versions provided by the service."
 msgstr "Die vom Dienst bereitgestellten NFS-Versionen."
