@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 20:41+0100\n"
+"POT-Creation-Date: 2026-02-08 13:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -471,6 +471,9 @@ msgid "B/G (2.4 GHz)"
 msgstr ""
 
 msgid "Back"
+msgstr ""
+
+msgid "Background image"
 msgstr ""
 
 msgid "Background task"
@@ -3177,6 +3180,9 @@ msgid "Test"
 msgstr ""
 
 msgid "Thailand"
+msgstr ""
+
+msgid "The HTTP and HTTPS ports must not be the same."
 msgstr ""
 
 msgid "The NFS versions provided by the service."

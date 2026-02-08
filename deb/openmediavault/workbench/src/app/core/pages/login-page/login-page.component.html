@@ -1,5 +1,7 @@
 <div class="omv-overflow-hidden omv-position-relative omv-display-flex omv-flex-fill">
-  <div class="background omv-position-absolute omv-flex-fill"></div>
+  <div class="background omv-position-absolute omv-flex-fill"
+       [ngClass]="{'omv-display-none': hideBackgroundImage}">
+  </div>
   <omv-green-rain class="omv-position-absolute omv-flex-fill"
                   delay="30000"
                   primaryColor="#5dacdf"
@@ -10,10 +12,10 @@
       <div></div>
       <div class="logo"></div>
       <button mat-icon-button
-              matTooltip="{{ 'Language' | transloco }}"
-              [attr.aria-label]="'Language' | transloco"
-              [matMenuTriggerFor]="localeMenu">
-        <mat-icon svgIcon="mdi:earth"
+              matTooltip="{{ 'Settings' | transloco }}"
+              [attr.aria-label]="'Settings' | transloco"
+              [matMenuTriggerFor]="settingsMenu">
+        <mat-icon svgIcon="{{ icon.settings }}"
                   class="omv-color-white">
         </mat-icon>
       </button>
@@ -25,6 +27,22 @@
     </omv-intuition-form-page>
   </div>
 </div>
+
+<mat-menu #settingsMenu="matMenu">
+  <ng-template matMenuContent>
+    <button mat-menu-item
+            [ngClass]="{'active': !hideBackgroundImage}"
+            (click)="onToggleHideBackgroundImage()">
+      <mat-icon svgIcon="mdi:image"></mat-icon>
+      <mat-slide-toggle [checked]="!hideBackgroundImage">{{ 'Background image' | transloco }}</mat-slide-toggle>
+    </button>
+    <button mat-menu-item
+            [matMenuTriggerFor]="localeMenu">
+      <mat-icon svgIcon="mdi:earth"></mat-icon>
+      <span>{{ 'Language' | transloco }}</span>
+    </button>
+  </ng-template>
+</mat-menu>
 
 <mat-menu #localeMenu="matMenu">
   <ng-template matMenuContent>
