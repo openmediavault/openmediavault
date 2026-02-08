@@ -141,6 +141,23 @@ export class WorkbenchFormPageComponent extends BaseFormPageComponent {
           }
         ],
         validators: {
+          custom: [
+            {
+              constraint: {
+                operator: 'and',
+                arg0: {
+                  operator: 'truthy',
+                  arg0: { prop: 'enablessl' }
+                },
+                arg1: {
+                  operator: 'ne',
+                  arg0: { prop: 'port' },
+                  arg1: { prop: 'sslport' }
+                }
+              },
+              errorData: gettext('The HTTP and HTTPS ports must not be the same.')
+            }
+          ],
           requiredIf: { operator: 'truthy', arg0: { prop: 'enablessl' } },
           min: 0,
           max: 65535,

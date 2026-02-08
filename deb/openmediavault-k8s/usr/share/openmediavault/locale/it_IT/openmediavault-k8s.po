@@ -5,16 +5,16 @@
 # 
 # Translators:
 # Roberto Bellingeri <bellingeri@netguru.it>, 2025
-# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2026\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,8 +123,20 @@ msgstr "Abilitato"
 msgid "Events"
 msgstr "Eventi"
 
+msgid "Expose"
+msgstr "Esponi"
+
+msgid "Exposed"
+msgstr "Esposta"
+
+msgid "Exposed port"
+msgstr "Porta esposta"
+
 msgid "External IP"
 msgstr "IP esterno"
+
+msgid "Extra configuration"
+msgstr "Configurazione aggiuntiva"
 
 msgid "Failed"
 msgstr "Operazione non riuscita"
@@ -137,12 +149,6 @@ msgstr "GID"
 
 msgid "Groups"
 msgstr "Gruppi"
-
-msgid "HTTP port"
-msgstr "Porta HTTP"
-
-msgid "HTTPS port"
-msgstr "Porta HTTPS"
 
 msgid "Helm Charts"
 msgstr "Grafici Helm"
@@ -258,6 +264,9 @@ msgstr "Porta"
 msgid "Ports"
 msgstr "Porte"
 
+msgid "Protocol"
+msgstr "Protocollo"
+
 msgid "README"
 msgstr "README"
 
@@ -278,6 +287,13 @@ msgstr "Ricette"
 
 msgid "Reclaim policy"
 msgstr "Politica di recupero"
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
+msgstr ""
+"Fare riferimento al file values.yaml del chart Helm di Traefik per "
+"visualizzare le opzioni di configurazione disponibili."
 
 msgid "Repository"
 msgstr "Repository"
@@ -349,12 +365,11 @@ msgid "Target Namespace"
 msgstr "Namespace di destinazione"
 
 msgid ""
-"The SSL certificate used by the Dashboard and the LoadBalancer service. If "
-"not set, a self-signed certificate from cert-manager is used."
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
 msgstr ""
-"Il certificato SSL utilizzato dalla dashboard e dal servizio LoadBalancer. "
-"Se non impostato, viene utilizzato un certificato autofirmato da cert-"
-"manager."
+"Il certificato SSL utilizzato dal servizio LoadBalancer. Se non impostato, "
+"viene utilizzato un certificato autofirmato di cert-manager."
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
@@ -364,6 +379,9 @@ msgstr ""
 "Il datastore utilizzato dal cluster Kubernetes. SQLite è consigliato per "
 "configurazioni a nodo singolo e per SBC con dischi lenti, mentre etcd è "
 "raccomandato per configurazioni ad alta disponibilità con più nodi."
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr "Il campo deve contenere solo i caratteri a-z, 0-9 e -."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -388,12 +406,6 @@ msgstr "La posizione in cui archiviare gli snapshot etcd su richiesta."
 msgid "The manifest to apply."
 msgstr "Il manifesto da applicare."
 
-msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr "La porta su cui è in ascolto la dashboard di Kubernetes."
-
-msgid "The port on which the LoadBalancer service is listening."
-msgstr "La porta su cui è in ascolto il servizio LoadBalancer."
-
 msgid "The snapshot was created successfully."
 msgstr "Lo snapshot è stato creato correttamente."
 
@@ -409,6 +421,9 @@ msgstr "Tipo"
 
 msgid "UID"
 msgstr "UID"
+
+msgid "UUID"
+msgstr "UUID"
 
 msgid "Unknown"
 msgstr "Sconosciuto"

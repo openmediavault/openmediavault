@@ -623,6 +623,12 @@ $omv-dark-theme: mat.define-dark-theme(
 // Grid
 .omv-grid {
   display: grid;
+
+  & > * {
+    // Ensure grid items handle text overflow properly.
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
 }
 
 .omv-grid-cols-1 {

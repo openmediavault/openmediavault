@@ -843,7 +843,7 @@ msgid "Created wireless network connection."
 msgstr "Skapade trådlös nätverksanslutning."
 
 msgid "Creating"
-msgstr ""
+msgstr "Skapar"
 
 msgid "Creation Time"
 msgstr "Skapelsetid"
@@ -882,7 +882,7 @@ msgid "Dashboard"
 msgstr "Instrumentpanel"
 
 msgid "Database record not found."
-msgstr ""
+msgstr "Databasposten hittades inte."
 
 msgid "Date & Time"
 msgstr "Datum & tid"
@@ -972,7 +972,7 @@ msgid "Direction"
 msgstr "Riktning"
 
 msgid "Directory does not exist."
-msgstr ""
+msgstr "Mappen finns inte."
 
 msgid "Disabled"
 msgstr "Inaktiverad"
@@ -1066,7 +1066,7 @@ msgstr "Vill du verkligen återställa användargränssnittsinställningarna til
 msgid ""
 "Do you really want to resize the file system? You have to do that after a "
 "RAID has been grown for example."
-msgstr "Vill du verkligen ändra storlek på filsystemet? Du måste göra det efter att en RAID har växt till exempel."
+msgstr "Vill du verkligen ändra storleken på filsystemet? Du måste göra det efter att en RAID har utökats till exempel."
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Vill du verkligen stänga av systemet?"
@@ -1303,13 +1303,13 @@ msgid ""
 msgstr "Filer som är större än det angivna antalet kommer inte att läggas i papperskorgen."
 
 msgid "Filesystem is being created."
-msgstr ""
+msgstr "Filsystemet skapas."
 
 msgid "Filesystem is detected."
-msgstr ""
+msgstr "Filsystemet har identifierats."
 
 msgid "Filesystem is missing."
-msgstr ""
+msgstr "Filsystemet saknas."
 
 msgid "Fingerprint (SHA-1)"
 msgstr "Fingeravtryck (SHA-1)"
@@ -1989,16 +1989,16 @@ msgid "Metric"
 msgstr "Metrisk"
 
 msgid "Metropolitan France"
-msgstr "Frankrikes huvudstad"
+msgstr "Metropolitan-Frankrike"
 
 msgid "Mexico"
 msgstr "Mexiko"
 
 msgid "MiB Mem"
-msgstr ""
+msgstr "MiB minne"
 
 msgid "MiB Swap"
-msgstr ""
+msgstr "MiB swap"
 
 msgid "Micronesia"
 msgstr "Mikronesien"
@@ -2223,7 +2223,7 @@ msgid "Not UDP"
 msgstr "Inte UDP"
 
 msgid "Not a directory."
-msgstr ""
+msgstr "Inte en mapp."
 
 msgid "Not mounted"
 msgstr "Inte monterad"
@@ -2602,7 +2602,7 @@ msgid "Puerto Rico"
 msgstr "Puerto Rico"
 
 msgid "Pull"
-msgstr "Dra"
+msgstr "Hämta"
 
 msgid "Push"
 msgstr "Tryck"
@@ -4163,7 +4163,7 @@ msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
 msgid "Wide links"
-msgstr ""
+msgstr "Breda länkar"
 
 msgid "Wipe"
 msgstr "Rensa"

@@ -32,15 +32,37 @@ set -e
 #     	<datastore>etcd|sqlite</datastore>
 #     	<webport>8080</webport>
 #     	<websecureport>8443</websecureport>
-#     	<dashboardport>4443</dashboardport>
-#       <sslcertificateref></sslcertificateref>
+#       <lbports>
+#         <lbport>
+#           <name>xxx</name>
+#           <port>1-65535</port>
+#           <exposedport>1-65535</exposedport>
+#           <protocol>udp|tcp</protocol>
+#           <expose>0|1</expose>
+#           <comment>xxx</comment>
+#           <extravalues>xxx</extravalues>
+#         </lbport>
+#       </ports>
 #       <snapshots_sharedfolderref></snapshots_sharedfolderref>
+#       <sslcertificateref></sslcertificateref>
 #     </k8s>
 #   </services>
 # </config>
 ########################################################################
 if ! omv_config_exists "/config/services/k8s"; then
     omv-confdbadm read --defaults "conf.service.k8s" | omv-confdbadm update "conf.service.k8s" -
+	if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"name","arg1":"web"}' \
+			"conf.service.k8s.lbport"; then
+		omv-confdbadm read --defaults "conf.service.k8s.lbport" | \
+			jq '.name = "web" | .port = 8080 | .exposedport = 8080 | .protocol = "tcp" | .expose = false | .comment = "HTTP" | .extravalues="transport:\n  respondingTimeouts:\n    readTimeout: 60"' | \
+			omv-confdbadm update "conf.service.k8s.lbport" -
+	fi
+	if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"name","arg1":"websecure"}' \
+			"conf.service.k8s.lbport"; then
+		omv-confdbadm read --defaults "conf.service.k8s.lbport" | \
+			jq '.name = "websecure" | .port = 8443 | .exposedport = 8443 | .protocol = "tcp" | .expose = true | .comment = "HTTPS" | .extravalues="transport:\n  respondingTimeouts:\n    readTimeout: 60"' | \
+			omv-confdbadm update "conf.service.k8s.lbport" -
+	fi
 fi
 
 exit 0

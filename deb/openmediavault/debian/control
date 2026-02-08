@@ -8,7 +8,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault
 Architecture: all
-Conflicts: gdm3, sddm, lxdm, xdm, lightdm, slim, wdm
+Conflicts: gdm3, sddm, lxdm, xdm, lightdm, slim, wdm, cloud-init
 Depends: php-fpm, libpam-modules, php-json, dpkg, patch, dash, mawk | gawk,
  php-cgi, php-cli, php-mbstring, php-pam, sudo, ethtool, python3-dialog,
  python3-samba, acl, iproute2, xfsprogs, jfsutils, ntfs-3g, wsdd-server,

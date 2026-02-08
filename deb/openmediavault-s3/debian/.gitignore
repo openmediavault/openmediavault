@@ -1,8 +1,0 @@
-/openmediavault-s3/
-/files
-/*.debhelper.log
-/*.postinst.debhelper
-/*.postrm.debhelper
-/*.substvars
-/*-stamp
-/.debhelper/

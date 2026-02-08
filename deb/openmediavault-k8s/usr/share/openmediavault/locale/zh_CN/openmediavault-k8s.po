@@ -6,18 +6,18 @@
 # Translators:
 # 王大山, 2024
 # songming <by@songming.me>, 2024
-# 黃柏諺 <s8321414@gmail.com>, 2025
-# kochin <kochinc@outlook.com>, 2025
 # irrelevant91, 2025
+# kochin <kochinc@outlook.com>, 2026
+# 黃柏諺 <s8321414@gmail.com>, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: irrelevant91, 2025\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2026\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,8 +123,20 @@ msgstr "已启用"
 msgid "Events"
 msgstr "事件"
 
+msgid "Expose"
+msgstr "開放"
+
+msgid "Exposed"
+msgstr "開放"
+
+msgid "Exposed port"
+msgstr "開放的通訊埠"
+
 msgid "External IP"
 msgstr "外部 IP"
+
+msgid "Extra configuration"
+msgstr "額外的組態"
 
 msgid "Failed"
 msgstr "失败"
@@ -137,12 +149,6 @@ msgstr "GID"
 
 msgid "Groups"
 msgstr "组"
-
-msgid "HTTP port"
-msgstr "HTTP 端口"
-
-msgid "HTTPS port"
-msgstr "HTTPS 端口"
 
 msgid "Helm Charts"
 msgstr "Helm Charts"
@@ -258,6 +264,9 @@ msgstr "端口"
 msgid "Ports"
 msgstr "端口"
 
+msgid "Protocol"
+msgstr "通訊協定"
+
 msgid "README"
 msgstr "README"
 
@@ -278,6 +287,11 @@ msgstr "Recipes"
 
 msgid "Reclaim policy"
 msgstr "回收策略"
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
+msgstr "請參閱 Traefik Helm 圖表中的 values.yaml 檔案，以查看可用的設定選項。"
 
 msgid "Repository"
 msgstr "源"
@@ -349,9 +363,9 @@ msgid "Target Namespace"
 msgstr "目标命名空间"
 
 msgid ""
-"The SSL certificate used by the Dashboard and the LoadBalancer service. If "
-"not set, a self-signed certificate from cert-manager is used."
-msgstr "仪表板与负载均衡服务使用的 SSL 证书。若未设定，则使用来自 cert-manager 的自签名证书。"
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
+msgstr "負載平衡器服務使用的 SSL 憑證。若未設定，則使用 cert-manager 提供的自簽憑證。"
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
@@ -359,6 +373,9 @@ msgid ""
 "high-availability setups with multiple nodes."
 msgstr ""
 "Kubernetes 集群使用的数据存储。SQLite 建议用于单节点配置与使用低速磁盘的单板机，而 etcd 建议用于具有多个节点的高可用性配置。"
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr "欄位僅應包含 a-z, 0-9 與 - 字元。"
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -380,12 +397,6 @@ msgstr "存储 etcd 按需快照的位置。"
 msgid "The manifest to apply."
 msgstr "要应用的 manifest。"
 
-msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr "Kubernetes 仪表板监听的端口。"
-
-msgid "The port on which the LoadBalancer service is listening."
-msgstr "负载均衡服务监听的端口。"
-
 msgid "The snapshot was created successfully."
 msgstr "快照创建成功。"
 
@@ -400,6 +411,9 @@ msgstr "类型"
 
 msgid "UID"
 msgstr "UID"
+
+msgid "UUID"
+msgstr "UUID"
 
 msgid "Unknown"
 msgstr "未知"

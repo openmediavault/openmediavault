@@ -5,6 +5,7 @@
     <button *ngIf="config.hasCopyToClipboardButton"
             mat-icon-button
             matTooltip="{{ 'Copy to clipboard' | transloco }}"
+            [attr.aria-label]="'Copy to clipboard' | transloco"
             (click)="onCopyToClipboard()">
       <mat-icon svgIcon="{{ icon.copy }}"></mat-icon>
     </button>
@@ -12,6 +13,7 @@
     <button *ngIf="config.hasReloadButton && !config.autoReload"
             mat-icon-button
             matTooltip="{{ 'Reload' | transloco }}"
+            [attr.aria-label]="'Reload' | transloco"
             (click)="onReload()">
       <mat-icon svgIcon="{{ icon.reload }}"></mat-icon>
     </button>

@@ -1,3 +1,30 @@
+openmediavault-k8s (8.2.1-1) stable; urgency=medium
+
+  * Use K3S v1.34.3+k3s3 on new installations. Existing installations won't
+    be upgraded automatically.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 04 Feb 2026 23:44:18 +0100
+
+openmediavault-k8s (8.2.0-1) stable; urgency=medium
+
+  * Update locale files.
+  * Remove the Kubernetes Dashboard integration.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 29 Jan 2026 23:59:02 +0100
+
+openmediavault-k8s (8.1.0-4) stable; urgency=medium
+
+  * Issue #1940: Add UI support to configure additional Load Balancer
+    (Traefik) ports.
+  * The Load Balancer port `web` will not be exposed by default anymore.
+    Please enable it via UI if needed.
+  * The following environment variables have been removed:
+    - OMV_K8S_TRAEFIK_PORTS
+    - OMV_K8S_TRAEFIK_ENTRYPOINT_TRANSPORT_RESPONDINGTIMEOUTS_READTIMEOUT
+    Please use the new UI functionality instead.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 23 Jan 2026 08:46:23 +0100
+
 openmediavault-k8s (8.0-9) stable; urgency=medium
 
   * Adapt to openmediavault 8.

@@ -61,13 +61,12 @@ divert_cpupower_conf:
   omv_dpkg.divert_add:
     - name: "/etc/cpupower-service.conf"
 
-{% if config.cpufreq %}
+{% if config.cpufreq and grains['virtual'] == "physical" and salt['cmd.retcode']('cpupower frequency-info --governors', python_shell=True) == 0 %}
 
 start_cpupower_service:
   service.running:
     - name: cpupower
     - enable: True
-    - onlyif: test "{{ grains['virtual'] }}" = "none"
     - watch:
       - file: configure_cpupower_conf
 

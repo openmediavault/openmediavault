@@ -184,6 +184,7 @@ function array_keys_exists(array $keys, array $search, &$missing = NULL): bool {
 /**
  * Removes duplicate values from an multi-dimensional array.
  * Note, the first found duplicate will be inserted to the result.
+ * @ingroup api
  * @param array $array The array to process.
  * @param string $key The key used as filter criteria.
  * @return Returns a new array without duplicates or NULL on failure.
@@ -201,6 +202,17 @@ function array_unique_key(array $array, $key): ?array {
 		}
 	}
 	return $result;
+}
+
+/**
+ * Omit keys from an array.
+ * @ingroup api
+ * @param array $array The array to process.
+ * @param array $keys The keys to omit.
+ * @return Returns a new array without the omitted keys.
+ */
+function array_omit_keys(array $array, array $keys): array {
+    return array_diff_key($array, array_flip($keys));
 }
 
 /**

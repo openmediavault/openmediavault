@@ -1,8 +1,0 @@
-version: "1.0"
-type: route
-data:
-  url: "/services/minio"
-  title: _("S3")
-  editing: true
-  notificationTitle: _("Updated S3 settings.")
-  component: omv-services-minio-form-page

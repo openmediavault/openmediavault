@@ -847,7 +847,7 @@ msgid "Created wireless network connection."
 msgstr "È stata creata la connessione di rete wireless."
 
 msgid "Creating"
-msgstr ""
+msgstr "Creazione in corso"
 
 msgid "Creation Time"
 msgstr "Orario della creazione"
@@ -886,7 +886,7 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 msgid "Database record not found."
-msgstr ""
+msgstr "Record del database non trovato."
 
 msgid "Date & Time"
 msgstr "Data e ora"
@@ -976,7 +976,7 @@ msgid "Direction"
 msgstr "Direzione"
 
 msgid "Directory does not exist."
-msgstr ""
+msgstr "La directory non esiste."
 
 msgid "Disabled"
 msgstr "Disabilitato"
@@ -1307,13 +1307,13 @@ msgid ""
 msgstr "I file più grandi del numero specificato non verranno inseriti nel cestino."
 
 msgid "Filesystem is being created."
-msgstr ""
+msgstr "Creazione del filesystem in corso. "
 
 msgid "Filesystem is detected."
-msgstr ""
+msgstr "Il filesystem è stato rilevato."
 
 msgid "Filesystem is missing."
-msgstr ""
+msgstr "Il filesystem è mancante."
 
 msgid "Fingerprint (SHA-1)"
 msgstr "Fingerprint (SHA-1)"
@@ -2227,7 +2227,7 @@ msgid "Not UDP"
 msgstr "Non UDP"
 
 msgid "Not a directory."
-msgstr ""
+msgstr "Non è una directory."
 
 msgid "Not mounted"
 msgstr "Non montato"

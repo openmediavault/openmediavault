@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,7 +113,19 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
+msgid "Expose"
+msgstr ""
+
+msgid "Exposed"
+msgstr ""
+
+msgid "Exposed port"
+msgstr ""
+
 msgid "External IP"
+msgstr ""
+
+msgid "Extra configuration"
 msgstr ""
 
 msgid "Failed"
@@ -126,12 +138,6 @@ msgid "GID"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
-
-msgid "HTTP port"
-msgstr ""
-
-msgid "HTTPS port"
 msgstr ""
 
 msgid "Helm Charts"
@@ -248,6 +254,9 @@ msgstr ""
 msgid "Ports"
 msgstr ""
 
+msgid "Protocol"
+msgstr ""
+
 msgid "README"
 msgstr ""
 
@@ -267,6 +276,9 @@ msgid "Recipes"
 msgstr ""
 
 msgid "Reclaim policy"
+msgstr ""
+
+msgid "Refer to the values.yaml file in the Traefik Helm chart to see what configuration options are available."
 msgstr ""
 
 msgid "Repository"
@@ -338,10 +350,13 @@ msgstr ""
 msgid "Target Namespace"
 msgstr ""
 
-msgid "The SSL certificate used by the Dashboard and the LoadBalancer service. If not set, a self-signed certificate from cert-manager is used."
+msgid "The SSL certificate used by the LoadBalancer service. If not set, a self-signed certificate from cert-manager is used."
 msgstr ""
 
 msgid "The datastore used by the Kubernetes cluster. SQLite is recommended for single-node setups and SBCs with slow disks, while etcd is recommended for high-availability setups with multiple nodes."
+msgstr ""
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
 msgstr ""
 
 msgid "The following placeholders can be used in recipes to get access to global system information and the configuration database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id, uuid=NULL)</li></ul>You have to denote placeholders with double-curly braces. An overview of additional available filters can be found <a href='https://twig.symfony.com/doc/filters/index.html' target='_blank'>here</a>."
@@ -351,12 +366,6 @@ msgid "The location where to store etcd on-demand snapshots."
 msgstr ""
 
 msgid "The manifest to apply."
-msgstr ""
-
-msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr ""
-
-msgid "The port on which the LoadBalancer service is listening."
 msgstr ""
 
 msgid "The snapshot was created successfully."
@@ -372,6 +381,9 @@ msgid "Type"
 msgstr ""
 
 msgid "UID"
+msgstr ""
+
+msgid "UUID"
 msgstr ""
 
 msgid "Unknown"

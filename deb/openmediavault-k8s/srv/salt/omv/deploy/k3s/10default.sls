@@ -29,12 +29,9 @@
 # https://docs.k3s.io/installation/requirements?os=pi
 
 {% set k8s_config = salt['omv_conf.get']('conf.service.k8s') %}
+{% set k8s_lbports_config = salt['omv_conf.get']('conf.service.k8s.lbport') %}
 {% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
 # {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
-{% set traefik_read_timeout = salt['pillar.get']('default:OMV_K8S_TRAEFIK_ENTRYPOINT_TRANSPORT_RESPONDINGTIMEOUTS_READTIMEOUT', '60') %}
-{% set traefik_default_ports = "{web: {exposedPort: %s, transport: {respondingTimeouts: {readTimeout: %s}}}, websecure: {exposedPort: %s, transport: {respondingTimeouts: {readTimeout: %s}}}, dashboard: {port: %s, protocol: TCP, expose: {default: true}, exposedPort: %s, tls: {enabled: true}}}" | format(k8s_config.webport, traefik_read_timeout, k8s_config.websecureport, traefik_read_timeout, k8s_config.dashboardport, k8s_config.dashboardport) | load_yaml %}
-{% set traefik_ports = salt['pillar.get']('default:OMV_K8S_TRAEFIK_PORTS', "{}") | load_yaml %}
-{% set _ = traefik_ports.update(traefik_default_ports) %}
 
 {% set fqdn = dns_config.hostname | lower %}
 {% if dns_config.domainname | length > 0 %}
@@ -85,7 +82,20 @@ create_k3s_traefik_manifest:
         spec:
           valuesContent: |-
             ports:
-              {{ traefik_ports | yaml(False) | indent(14) }}
+              traefik:
+                port: 9099
+                exposedPort: 9099
+{%- for lbport in k8s_lbports_config %}
+              {{ lbport.name }}:
+                expose:
+                  default: {{ lbport.expose | yesno('true,false') }}
+                exposedPort: {{ lbport.exposedport }}
+                port: {{ lbport.port }}
+                protocol: {{ lbport.protocol | upper() }}
+{%- if lbport.extravalues | length > 0 %}
+                {{ lbport.extravalues | indent(16) }}
+{%- endif %}
+{%- endfor %}
         ---
         apiVersion: traefik.io/v1alpha1
         kind: Middleware
@@ -97,7 +107,7 @@ create_k3s_traefik_manifest:
           redirectScheme:
             scheme: https
             permanent: true
-            port: "{{ k8s_config.websecureport }}"
+            port: "{{ k8s_lbports_config | selectattr('name', 'equalto', 'websecure') | first | attr('exposedport') }}"
         ---
         apiVersion: traefik.io/v1alpha1
         kind: TLSStore
@@ -146,7 +156,8 @@ create_k3s_cert_manager_manifest:
           chart: cert-manager
           targetNamespace: cert-manager
           valuesContent: |-
-            installCRDs: true
+            crds:
+              enabled: true
         ---
         apiVersion: cert-manager.io/v1
         kind: ClusterIssuer
@@ -207,115 +218,6 @@ create_k3s_cert_manager_manifest:
         #   issuerRef:
         #     name: letsencrypt-staging
         #     kind: ClusterIssuer
-    - user: root
-    - group: root
-    - mode: 600
-
-create_k3s_k8s_dashboard_manifest:
-  file.managed:
-    - name: "/var/lib/rancher/k3s/server/manifests/openmediavault-k8s-dashboard.yaml"
-    - contents: |
-        ---
-        apiVersion: v1
-        kind: Namespace
-        metadata:
-          name: kubernetes-dashboard
-          labels:
-            app.kubernetes.io/part-of: openmediavault
-        ---
-        apiVersion: helm.cattle.io/v1
-        kind: HelmChart
-        metadata:
-          name: kubernetes-dashboard
-          namespace: kube-system
-          labels:
-            app.kubernetes.io/part-of: openmediavault
-        spec:
-          repo: https://kubernetes.github.io/dashboard/
-          chart: kubernetes-dashboard
-          targetNamespace: kubernetes-dashboard
-          valuesContent: |-
-            cert-manager:
-              enabled: false
-            nginx:
-              enabled: false
-            app:
-              ingress:
-                enabled: false
-            # https://github.com/Kong/charts/blob/main/charts/kong/values.yaml
-            kong:
-              image:
-                tag: "3.9"
-              # Disable Kong admin UI as it is not required.
-              # https://github.com/kubernetes/dashboard/issues/8765
-              admin:
-                tls:
-                  enabled: false
-              proxy:
-                tls:
-                  containerPort: 9443
-        ---
-        apiVersion: traefik.io/v1alpha1
-        kind: ServersTransport
-        metadata:
-          name: no-verify-tls
-          namespace: kubernetes-dashboard
-          labels:
-            app.kubernetes.io/part-of: openmediavault
-        spec:
-          insecureSkipVerify: true
-        ---
-        apiVersion: traefik.io/v1alpha1
-        kind: IngressRoute
-        metadata:
-          name: kubernetes-dashboard
-          namespace: kubernetes-dashboard
-          labels:
-            app.kubernetes.io/part-of: openmediavault
-        spec:
-          entryPoints:
-            - dashboard
-          routes:
-            - match: PathPrefix(`/`)
-              kind: Rule
-              services:
-                - name: kubernetes-dashboard-kong-proxy
-                  port: 443
-                  serversTransport: no-verify-tls
-        ---
-        apiVersion: v1
-        kind: ServiceAccount
-        metadata:
-          name: admin-user
-          namespace: kubernetes-dashboard
-          labels:
-            app.kubernetes.io/part-of: openmediavault
-        ---
-        apiVersion: rbac.authorization.k8s.io/v1
-        kind: ClusterRoleBinding
-        metadata:
-          name: admin-user
-          labels:
-            app.kubernetes.io/part-of: openmediavault
-        roleRef:
-          apiGroup: rbac.authorization.k8s.io
-          kind: ClusterRole
-          name: cluster-admin
-        subjects:
-        - kind: ServiceAccount
-          name: admin-user
-          namespace: kubernetes-dashboard
-        ---
-        apiVersion: v1
-        kind: Secret
-        metadata:
-          name: admin-user
-          namespace: kubernetes-dashboard
-          annotations:
-            kubernetes.io/service-account.name: "admin-user"
-          labels:
-            app.kubernetes.io/part-of: openmediavault
-        type: kubernetes.io/service-account-token
     - user: root
     - group: root
     - mode: 600

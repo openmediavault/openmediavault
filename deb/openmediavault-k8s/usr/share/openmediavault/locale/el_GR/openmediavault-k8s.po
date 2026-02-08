@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Kostas Moho, 2025
+# Kostas Moho, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Kostas Moho, 2025\n"
+"Last-Translator: Kostas Moho, 2026\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -122,8 +122,20 @@ msgstr "Ενεργό"
 msgid "Events"
 msgstr "Συμβάντα"
 
+msgid "Expose"
+msgstr "Εμφάνιση"
+
+msgid "Exposed"
+msgstr "Εμφάνιση"
+
+msgid "Exposed port"
+msgstr "Εμφανισμένη θύρα"
+
 msgid "External IP"
 msgstr "Εξωτερική ΙΡ"
+
+msgid "Extra configuration"
+msgstr "Επιπλέον ρυθμίσεις"
 
 msgid "Failed"
 msgstr "Απέτυχε"
@@ -136,12 +148,6 @@ msgstr "GID"
 
 msgid "Groups"
 msgstr "Ομάδες"
-
-msgid "HTTP port"
-msgstr "Θύρα HTTP"
-
-msgid "HTTPS port"
-msgstr "Θύρα HTTPS"
 
 msgid "Helm Charts"
 msgstr "Διαγράμματα Πλοήγησης"
@@ -257,6 +263,9 @@ msgstr "Θύρα"
 msgid "Ports"
 msgstr "Θύρες"
 
+msgid "Protocol"
+msgstr "Πρωτόκολλο"
+
 msgid "README"
 msgstr "README"
 
@@ -277,6 +286,13 @@ msgstr "Συνταγές"
 
 msgid "Reclaim policy"
 msgstr "Πολιτική επανάκτησης"
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
+msgstr ""
+"Στο αρχείο values.yaml του πίνακα Traefik Helm αναφέρονται οι διαθέσιμες "
+"επιλογές των ρυθμίσεων."
 
 msgid "Repository"
 msgstr "Αποθετήριο"
@@ -348,12 +364,12 @@ msgid "Target Namespace"
 msgstr "Σκοπούμενος Χώρος Ονομάτων"
 
 msgid ""
-"The SSL certificate used by the Dashboard and the LoadBalancer service. If "
-"not set, a self-signed certificate from cert-manager is used."
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
 msgstr ""
-"Το πιστοποιητικό SSL που χρησιμοποιείται από το Ταμπλώ και την υπηρεσία του "
-"Εξισορροπητή Φόρτου. Αν δεν οριστεί, τότε θα χρησιμοποιείται ένα αυτοσχέδιο "
-"πιστοποιητικό από τον cert-manager."
+"Το πιστοποιητικό SSL που χρησιμοποιείται από την υπηρεσία του Εξισορροπητή "
+"Φόρτου. Αν δεν οριστεί, τότε θα χρησιμοποιείται ένα αυτοσχέδιο πιστοποιητικό"
+" από τον cert-manager."
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
@@ -363,6 +379,9 @@ msgstr ""
 "Το αποθετήριο της συστάδας Kubernetes. Το SQLite προτείνεται για μεμονωμένες"
 " υλοποιήσεις και αργούς δίσκους, ενώ το etcd προτείνεται για υλοποιήσεις "
 "πολλαπλών κόμβων υψηλής διαθεσιμότητας."
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr "Αυτό το πεδίο πρέπει να περιέχει μόνο τους χαρακτήρες a-z, 0-9 και -."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -387,12 +406,6 @@ msgstr "Η θέση αποθήκευσης των αιτούμενων στιγ�
 msgid "The manifest to apply."
 msgstr "Η δήλωση προς εφαρμογή."
 
-msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr "Η θύρα στην οποία ακούει το Ταμπλό του Kubernetes."
-
-msgid "The port on which the LoadBalancer service is listening."
-msgstr "Η θύρα στην οποία ακούει η υπηρεσία του Εξισορροπητή Φόρτου."
-
 msgid "The snapshot was created successfully."
 msgstr "Το στιγμιότυπο δημιουργήθηκε επιτυχώς"
 
@@ -407,6 +420,9 @@ msgstr "Τύπος"
 
 msgid "UID"
 msgstr "UID"
+
+msgid "UUID"
+msgstr "UUID"
 
 msgid "Unknown"
 msgstr "Άγνωστο"

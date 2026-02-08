@@ -7,10 +7,11 @@
   </omv-green-rain>
   <div class="omv-position-absolute omv-w-100">
     <mat-toolbar class="topbar omv-background-color-transparent omv-display-flex omv-justify-content-between">
-      <button mat-icon-button></button>
+      <div></div>
       <div class="logo"></div>
       <button mat-icon-button
               matTooltip="{{ 'Language' | transloco }}"
+              [attr.aria-label]="'Language' | transloco"
               [matMenuTriggerFor]="localeMenu">
         <mat-icon svgIcon="mdi:earth"
                   class="omv-color-white">

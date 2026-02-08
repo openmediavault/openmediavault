@@ -51,88 +51,190 @@ data:
             operator: truthy
             arg0:
               prop: enable
+      - type: divider
+        title: _("Load Balancer")
+      - type: datatable
+        name: lbports
+        label: _("Ports")
+        hasFooter: false
+        columns:
+          - name: _("UUID")
+            prop: "uuid"
+            hidden: true
+          - name: _("Name")
+            prop: "name"
+            flexGrow: 1
+          - name: _("Port")
+            prop: "port"
+            flexGrow: 1
+          - name: _("Exposed port")
+            prop: "exposedport"
+            flexGrow: 1
+          - name: _("Protocol")
+            prop: "protocol"
+            flexGrow: 1
+            cellTemplateName: "chip"
+            cellTemplateConfig:
+              map:
+                tcp:
+                  value: "TCP"
+                udp:
+                  value: "UDP"
+          - name: _("Exposed")
+            prop: "expose"
+            cellTemplateName: "checkIcon"
+            flexGrow: 1
+          - name: _("Tags")
+            prop: "comment"
+            cellTemplateName: "chip"
+            cellTemplateConfig:
+              separator: ","
+            flexGrow: 1
+            sortable: true
+          - name: _("Extra configuration")
+            prop: "extravalues"
+            hidden: true
+        sorters:
+          - dir: asc
+            prop: name
+        actions:
+          - template: add
+            formDialogConfig:
+              title: _("Port")
+              fields:
+                - type: confObjUuid
+                - type: textInput
+                  name: name
+                  label: _("Name")
+                  validators:
+                    required: true
+                    maxLength: 15
+                    pattern:
+                      pattern: "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+                      errorData: _("The field should only contain the characters a-z, 0-9 and -.")
+                    custom:
+                      - constraint:
+                          operator: "not"
+                          arg0:
+                            operator: "in"
+                            arg0:
+                              prop: "name"
+                            arg1:
+                              - "web"
+                              - "websecure"
+                        errorData: _("The names 'web' and 'websecure' are reserved.")
+                - type: container
+                  fields:
+                    - type: numberInput
+                      name: port
+                      label: _("Port")
+                      validators:
+                        required: true
+                        min: 1
+                        max: 65535
+                      value: "{{ range(1024, 65535) | random }}"
+                    - type: numberInput
+                      name: exposedport
+                      label: _("Exposed port")
+                      validators:
+                        required: true
+                        min: 1
+                        max: 65535
+                      value: "{{ range(1024, 65535) | random }}"
+                - type: select
+                  name: protocol
+                  label: _("Protocol")
+                  validators:
+                    required: true
+                  store:
+                    data:
+                      - ["udp", "UDP"]
+                      - ["tcp", "TCP"]
+                  value: "tcp"
+                - type: checkbox
+                  name: expose
+                  label: _("Expose")
+                  value: true
+                - type: codeEditor
+                  name: extravalues
+                  label: _("Extra configuration")
+                  hint: _("Refer to the values.yaml file in the Traefik Helm chart to see what configuration options are available.")
+                  language: yaml
+                  lineNumbers: true
+                  value: ""
+                - type: tagInput
+                  name: comment
+                  label: _("Tags")
+                  value: ""
+          - template: edit
+            formDialogConfig:
+              title: _("Port")
+              fields:
+                - type: confObjUuid
+                - type: textInput
+                  name: name
+                  label: _("Name")
+                  disabled: true
+                - type: container
+                  fields:
+                    - type: numberInput
+                      name: port
+                      label: _("Port")
+                      validators:
+                        required: true
+                        min: 1
+                        max: 65535
+                      value: "{{ range(1024, 65535) | random }}"
+                    - type: numberInput
+                      name: exposedport
+                      label: _("Exposed port")
+                      validators:
+                        required: true
+                        min: 1
+                        max: 65535
+                      value: "{{ range(1024, 65535) | random }}"
+                - type: select
+                  name: protocol
+                  label: _("Protocol")
+                  validators:
+                    required: true
+                  store:
+                    data:
+                      - ["udp", "UDP"]
+                      - ["tcp", "TCP"]
+                  value: "tcp"
+                - type: checkbox
+                  name: expose
+                  label: _("Expose")
+                  value: true
+                - type: codeEditor
+                  name: extravalues
+                  label: _("Extra configuration")
+                  hint: _("Refer to the values.yaml file in the Traefik Helm chart to see what configuration options are available.")
+                  language: yaml
+                  lineNumbers: true
+                  value: ""
+                - type: tagInput
+                  name: comment
+                  label: _("Tags")
+                  value: ""
+          - template: delete
+            enabledConstraints:
+              constraint:
+                - operator: "not"
+                  arg0:
+                    operator: "in"
+                    arg0:
+                      prop: "name"
+                    arg1:
+                      - "web"
+                      - "websecure"
       - type: sslCertSelect
         name: sslcertificateref
         label: _("Certificate")
-        hint: _("The SSL certificate used by the Dashboard and the LoadBalancer service. If not set, a self-signed certificate from cert-manager is used.")
+        hint: _("The SSL certificate used by the LoadBalancer service. If not set, a self-signed certificate from cert-manager is used.")
         hasEmptyOption: true
         value: ""
-      - type: divider
-        title: _("Load Balancer")
-      - type: numberInput
-        name: webport
-        label: _("HTTP port")
-        hint: _("The port on which the LoadBalancer service is listening.")
-        value: 8080
-        validators:
-          min: 1
-          max: 65535
-          patternType: port
-          required: true
-      - type: numberInput
-        name: websecureport
-        label: _("HTTPS port")
-        hint: _("The port on which the LoadBalancer service is listening.")
-        value: 8443
-        validators:
-          min: 1
-          max: 65535
-          patternType: port
-          required: true
-      - type: divider
-        title: _("Dashboard")
-      - type: numberInput
-        name: dashboardport
-        label: _("Port")
-        hint: _("The port on which the Kubernetes Dashboard is listening.")
-        value: 4443
-        validators:
-          min: 1
-          max: 65535
-          patternType: port
-          required: true
-      - type: button
-        name: token
-        text: _("Copy token")
-        tooltip: _("Copy to clipboard")
-        hint: _("The token to authenticate to the Kubernetes Dashboard.")
-        submitValue: false
-        modifiers:
-          - type: enabled
-            constraint:
-              operator: and
-              arg0:
-                operator: truthy
-                arg0:
-                  prop: enable
-              arg1:
-                operator: truthy
-                arg0:
-                  prop: installed
-        request:
-          service: k8s
-          method: getToken
-          successCopyToClipboard: "{{ _response['token'] }}"
-      - type: button
-        name: opendashboard
-        text: _("Open UI")
-        submitValue: false
-        modifiers:
-          - type: enabled
-            constraint:
-              operator: and
-              arg0:
-                operator: truthy
-                arg0:
-                  prop: enable
-              arg1:
-                operator: truthy
-                arg0:
-                  prop: installed
-        request:
-          service: K8s
-          method: isConfigApplicable
-          successUrl: "/externalRedirect/https{{ ['://', location() | get('hostname'), ':', dashboardport] | join | encodeuricomponent }}"
       - type: divider
         title: _("Kubeconfig")
       - type: hint

@@ -49,9 +49,8 @@ mdadm_save_config:
   cmd.run:
     - name: "mdadm --detail --scan >> /etc/mdadm/mdadm.conf"
 
-restart_mdmonitor_service:
-  service.running:
+# Service is started/stopped automatically via udev rules.
+# See /usr/lib/udev/rules.d/63-md-raid-arrays.rules
+enable_mdmonitor_service:
+  service.enabled:
     - name: mdmonitor
-    - enable: True
-    - watch:
-      - file: configure_mdadm_conf

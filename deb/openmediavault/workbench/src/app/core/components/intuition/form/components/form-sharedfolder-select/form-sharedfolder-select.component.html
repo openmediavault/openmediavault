@@ -6,10 +6,10 @@
               [required]="config.validators?.required">
     <ng-container *ngIf="!loading; else renderLoading">
       <mat-option *ngFor="let option of config.store.data"
-                  [disabled]="option.status !== 'OK'"
+                  [disabled]="option[config.valueField] !== '' && option.status !== 'OK'"
                   [value]="option[config.valueField]">
-        <span>{{ option[config.textField] }}</span>
-        <mat-icon *ngIf="option.status !== 'OK'"
+        {{ option[config.textField] }}
+        <mat-icon *ngIf="option[config.valueField] !== '' && option.status !== 'OK'"
                   class="omv-ml-q"
                   svgIcon="{{ icon.warning }}">
         </mat-icon>

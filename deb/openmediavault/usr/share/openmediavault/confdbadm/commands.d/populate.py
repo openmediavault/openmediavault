@@ -18,10 +18,12 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+import glob
 import os
 import sys
 
 import openmediavault.confdbadm
+import openmediavault.log
 import openmediavault.procutils
 
 import openmediavault
@@ -33,20 +35,21 @@ class Command(openmediavault.confdbadm.ICommand):
         return "Populates the database."
 
     def execute(self, *args):
+        openmediavault.log.info(f"Populating configuration database ...")
         # Execute all scripts located in the directory.
         scripts_dir = openmediavault.getenv(
             "OMV_CONFDB_POPULATE_DIR",
             "/usr/share/openmediavault/confdb/populate.d",
         )
-        for script_name in os.listdir(scripts_dir):
+        for script_path in sorted(glob.iglob(os.path.join(scripts_dir, '*'))):
+            script_name = os.path.basename(script_path)
             if script_name in ['README.md']:
                 continue
-            # Make sure the script is executable.
-            script_path = os.path.join(scripts_dir, script_name)
             if not os.access(script_path, os.X_OK):
-                raise RuntimeError(
-                    "The script '%s' is not executable" % script_name
-                )
+                openmediavault.log.warning(
+                    f"The script '{script_name}' is not executable")
+                continue
+            openmediavault.log.info(f"Running script '{script_name}' ...")
             openmediavault.procutils.check_call([script_path])
         return 0
 

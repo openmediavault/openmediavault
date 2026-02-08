@@ -7,5 +7,10 @@
 
   .mat-card-content {
     padding: dv.$omv-padding;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
   }
 }

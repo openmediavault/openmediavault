@@ -1,7 +1,0 @@
-version: "1.0"
-type: navigation-item
-data:
-  path: "services.minio"
-  text: _("S3")
-  icon: "mdi:folder-network"
-  url: "/services/minio"

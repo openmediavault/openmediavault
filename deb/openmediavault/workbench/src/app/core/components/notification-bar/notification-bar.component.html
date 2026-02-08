@@ -3,6 +3,7 @@
     <button mat-icon-button
             class="omv-color-primary"
             matTooltip="{{ 'Dismiss all' | transloco }}"
+            [attr.aria-label]="'Dismiss all' | transloco"
             [disabled]="!dismissibleNotifications"
             (click)="onRemoveAllNotifications()">
       <mat-icon svgIcon="{{ icon.delete }}"></mat-icon>

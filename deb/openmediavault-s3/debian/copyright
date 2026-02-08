@@ -1,7 +1,0 @@
-Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Contact: Volker Theile <volker.theile@openmediavault.org>
-Source: https://www.openmediavault.org
-
-Files: *
-Copyright: 2009-2026 Volker Theile <volker.theile@openmediavault.org>
-License: GPL-3

@@ -5,7 +5,7 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
-# Paolo Velati <paolo.velati@gmail.com>, 2022
+# d5316b6b4d283a9cbe4ea704ae8abe02_b972f24 <bd82b27c045fcb3aa6bd04640e5224c5_36908>, 2022
 # maurorulli <mauro.rulli@gmail.com>, 2022
 # Roberto Bellingeri <bellingeri@netguru.it>, 2025
 # Giovanni Scafora <scafora.giovanni@gmail.com>, 2025

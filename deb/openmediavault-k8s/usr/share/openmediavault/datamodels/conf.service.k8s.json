@@ -16,23 +16,50 @@
 			"enum": [ "etcd", "sqlite" ],
 			"default": "sqlite"
 		},
-		"webport": {
-			"type": "integer",
-			"minimum": 1,
-			"maximum": 65535,
-			"default": 8080
-		},
-		"websecureport": {
-			"type": "integer",
-			"minimum": 1,
-			"maximum": 65535,
-			"default": 8443
-		},
-		"dashboardport": {
-			"type": "integer",
-			"minimum": 1,
-			"maximum": 65535,
-			"default": 4443
+		"lbports": {
+			"type": "object",
+			"properties": {
+				"item": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"name": {
+								"type": "string",
+								"maxLength": 15,
+								"pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+							},
+							"port": {
+								"type": "integer",
+								"minimum": 1,
+								"maximum": 65535
+							},
+							"exposedport": {
+								"type": "integer",
+								"minimum": 1,
+								"maximum": 65535
+							},
+							"protocol": {
+								"type": "string",
+								"enum": ["udp", "tcp"]
+							},
+							"expose": {
+								"type": "boolean"
+							},
+							"comment": {
+								"type": "string"
+							},
+							"extravalues": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
 		},
 		"snapshots_sharedfolderref": {
 			"type": "string",

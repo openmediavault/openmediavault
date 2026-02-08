@@ -5,16 +5,16 @@
 # 
 # Translators:
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2025
-# Daniel, 2025
+# Daniel, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 21:22+0100\n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Daniel, 2025\n"
+"Last-Translator: Daniel, 2026\n"
 "Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,13 +59,13 @@ msgid "Class"
 msgstr "Klass"
 
 msgid "Cluster IP"
-msgstr "Klustret-IP"
+msgstr "Klustrets IP"
 
 msgid "Compressed"
 msgstr "Komprimerad"
 
 msgid "Config Maps"
-msgstr "Konfigurera kartor"
+msgstr "Konfigurationskartor"
 
 msgid "Copy to clipboard"
 msgstr "Kopiera till urklipp"
@@ -74,7 +74,7 @@ msgid "Copy token"
 msgstr "Kopiera token"
 
 msgid "Count"
-msgstr ""
+msgstr "Antal"
 
 msgid "Created"
 msgstr "Skapad"
@@ -92,10 +92,10 @@ msgid "Date & Time"
 msgstr "Datum & tid"
 
 msgid "Depends"
-msgstr ""
+msgstr "Beroenden"
 
 msgid "Deployments"
-msgstr ""
+msgstr "Driftsättningar"
 
 msgid "Describe"
 msgstr "Beskriv"
@@ -123,8 +123,20 @@ msgstr "Aktiverad"
 msgid "Events"
 msgstr "Händelser"
 
+msgid "Expose"
+msgstr "Exponera"
+
+msgid "Exposed"
+msgstr "Exponerad"
+
+msgid "Exposed port"
+msgstr "Exponerad port"
+
 msgid "External IP"
 msgstr "Extern IP"
+
+msgid "Extra configuration"
+msgstr "Extra konfiguration"
 
 msgid "Failed"
 msgstr "Misslyckades"
@@ -137,12 +149,6 @@ msgstr "GID"
 
 msgid "Groups"
 msgstr "Grupper"
-
-msgid "HTTP port"
-msgstr "HTTP-port"
-
-msgid "HTTPS port"
-msgstr "HTTPS-port"
 
 msgid "Helm Charts"
 msgstr ""
@@ -181,7 +187,7 @@ msgid "Kubernetes"
 msgstr "Kubernetes"
 
 msgid "Kubernetes - Pods"
-msgstr ""
+msgstr "Kubernetes - Poddar"
 
 msgid "Kubernetes - Resources"
 msgstr "Kubernetes - Resurser"
@@ -211,10 +217,10 @@ msgid "Name"
 msgstr "Namn"
 
 msgid "Namespace"
-msgstr ""
+msgstr "Namnrymd"
 
 msgid "Namespaces"
-msgstr ""
+msgstr "Namnrymder"
 
 msgid "NodePort IP"
 msgstr "NodePort-IP"
@@ -258,6 +264,9 @@ msgstr "Port"
 msgid "Ports"
 msgstr "Portar"
 
+msgid "Protocol"
+msgstr "Protokoll"
+
 msgid "README"
 msgstr "README"
 
@@ -277,7 +286,14 @@ msgid "Recipes"
 msgstr "Recept"
 
 msgid "Reclaim policy"
-msgstr "Återkrävningspolicy "
+msgstr "Återkrävningspolicy"
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
+msgstr ""
+"Se filen values.yaml i Traefik Helm-chartet för att se vilka "
+"konfigurationsalternativ som finns."
 
 msgid "Repository"
 msgstr "Förråd"
@@ -328,7 +344,7 @@ msgid "Source"
 msgstr "Källa"
 
 msgid "Stateful Sets"
-msgstr ""
+msgstr "Tillståndsfulla uppsättningar"
 
 msgid "Status"
 msgstr "Status"
@@ -346,14 +362,14 @@ msgid "Tags"
 msgstr "Taggar"
 
 msgid "Target Namespace"
-msgstr ""
+msgstr "Målnamnrymd"
 
 msgid ""
-"The SSL certificate used by the Dashboard and the LoadBalancer service. If "
-"not set, a self-signed certificate from cert-manager is used."
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
 msgstr ""
-"SSL-certifikatet som används av instrumentpanelen och LoadBalancer-tjänsten."
-" Om inte inställt används ett självsignerat certifikat från cert-manager."
+"SSL-certifikatet som används av LoadBalancer-tjänsten. Om det inte anges "
+"används ett självsignerat certifikat från cert-manager."
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
@@ -363,6 +379,9 @@ msgstr ""
 "Datalagringen som används av Kubernetes-klustret. SQLite rekommenderas för "
 "inställningar med en nod och SBC:er med långsamma diskar, medan etcd "
 "rekommenderas för inställningar med hög tillgänglighet med flera noder."
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr "Fältet får endast innehålla tecknen a-z, 0-9 och -."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -387,12 +406,6 @@ msgstr "Platsen där man lagrar etcd-on-demand ögonblicksbilder."
 msgid "The manifest to apply."
 msgstr "Manifestet som ska verkställas."
 
-msgid "The port on which the Kubernetes Dashboard is listening."
-msgstr "Porten som Kubernetes-instrumentpanel lyssnar på."
-
-msgid "The port on which the LoadBalancer service is listening."
-msgstr "Porten som LoadBalancer-tjänsten lyssnar på."
-
 msgid "The snapshot was created successfully."
 msgstr "Ögonblicksbilden skapades."
 
@@ -407,6 +420,9 @@ msgstr "Typ"
 
 msgid "UID"
 msgstr "UID"
+
+msgid "UUID"
+msgstr "UUID"
 
 msgid "Unknown"
 msgstr "Okänd"
