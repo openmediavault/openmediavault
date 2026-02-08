@@ -41,6 +41,8 @@ import { LocaleService } from '~/app/shared/services/locale.service';
 export class LoginPageComponent implements OnInit {
   public currentLocale: string;
   public locales: Record<string, string> = {};
+  public hideBackgroundImage: boolean;
+  public icon = Icon;
 
   public config: FormPageConfig = {
     id: 'login',
@@ -95,6 +97,10 @@ export class LoginPageComponent implements OnInit {
     this.blockUiService.resetGlobal();
     // Ensure all currently opened dialogs are closed.
     this.dialogService.closeAll();
+    // Show/hide the login page background image.
+    this.hideBackgroundImage = JSON.parse(
+      localStorage.getItem('hideLoginBackgroundImage') ?? 'false'
+    );
   }
 
   onLogin(buttonConfig: FormPageButtonConfig, values: Record<string, any>) {
@@ -116,5 +122,10 @@ export class LoginPageComponent implements OnInit {
     // Update the browser cookie and reload the page.
     LocaleService.setCurrentLocale(locale);
     this.router.navigate(['/reload']);
+  }
+
+  onToggleHideBackgroundImage() {
+    this.hideBackgroundImage = !this.hideBackgroundImage;
+    localStorage.setItem('hideLoginBackgroundImage', JSON.stringify(this.hideBackgroundImage));
   }
 }

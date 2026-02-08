@@ -1,6 +1,7 @@
 openmediavault (8.0.10-2) stable; urgency=medium
 
   * Enable cpupower service only on physical systems.
+  * Allow the background image on the login page to be hidden.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Feb 2026 18:49:44 +0100
 
