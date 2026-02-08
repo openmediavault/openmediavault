@@ -28,7 +28,7 @@ class CpuPower extends \OMV\Engine\Module\ServiceAbstract
 	}
 
 	public function getDescription() {
-		return gettext("Management of cpufreq and cpuidle tunables.");
+		return gettext("Management of CPU frequency scaling.");
 	}
 
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {

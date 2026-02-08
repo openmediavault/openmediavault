@@ -4,8 +4,8 @@
 	"params": {
 		"type": "object",
 		"properties": {
-			"cpufreq": {
-				"type": "boolean",
+			"cpufreqgovernor": {
+				"type": "string",
 				"required": true
 			},
 			"powerbtn": {

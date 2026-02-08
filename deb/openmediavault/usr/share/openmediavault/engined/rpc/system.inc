@@ -21,6 +21,8 @@
  */
 namespace Engined\Rpc;
 
+require_once("openmediavault/functions.inc");
+
 class System extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -48,6 +50,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getInformation");
 		$this->registerMethod("getDiagnosticReport");
 		$this->registerMethod("getCpuStats");
+		$this->registerMethod("getCpuGovernors");
 	}
 
 	/**
@@ -497,6 +500,30 @@ class System extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		$result = \OMV\System\System::getCpuStats();
+		return $result;
+	}
+
+	/**
+	 * Get a list of available CPU frequency governors.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array with the available CPU frequency governors.
+	 */
+	public function getCpuGovernors($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Get list of available CPU frequency governors from sysfs.
+		$result = [];
+		$content = file_get_contents("/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors");
+		if (FALSE !== $content) {
+			// Examples:
+			// - `performance powersave`
+			// - `performance schedutil`
+			$result = explode_safe(" ", trim($content));
+			sort($result, SORT_NATURAL);
+		}
 		return $result;
 	}
 }

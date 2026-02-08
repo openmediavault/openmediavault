@@ -7,9 +7,9 @@
 		"iterable": false
 	},
 	"properties": {
-		"cpufreq": {
-			"type": "boolean",
-			"default": true
+		"cpufreqgovernor": {
+			"type": "string",
+			"default": ""
 		},
 		"powerbtn": {
 			"type": "string",

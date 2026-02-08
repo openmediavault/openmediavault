@@ -45,6 +45,8 @@ cpupower_systemctl_daemon_reload:
     - onchanges:
       - file: install_cpupower_systemd_service
 
+{% if config.cpufreqgovernor != "" and grains['virtual'] == "physical" %}
+
 configure_cpupower_conf:
   file.managed:
     - name: "/etc/cpupower-service.conf"
@@ -52,7 +54,7 @@ configure_cpupower_conf:
       - salt://{{ tpldir }}/files/etc-cpupower-service_conf.j2
     - template: jinja
     - context:
-        cpufreq: {{ config.cpufreq }}
+        config: {{ config | json }}
     - user: root
     - group: root
     - mode: 644
@@ -60,8 +62,6 @@ configure_cpupower_conf:
 divert_cpupower_conf:
   omv_dpkg.divert_add:
     - name: "/etc/cpupower-service.conf"
-
-{% if config.cpufreq and grains['virtual'] == "physical" and salt['cmd.retcode']('cpupower frequency-info --governors', python_shell=True) == 0 %}
 
 start_cpupower_service:
   service.running:
