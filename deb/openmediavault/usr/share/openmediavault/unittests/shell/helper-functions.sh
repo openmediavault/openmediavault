@@ -233,19 +233,19 @@ OMV_CONFIG_FILE="./../data/config.xml"
 @test "should log info [1]" {
   run omv_info "foo bar"
   [ "$status" -eq 0 ]
-  [ "$output" = "INFO: foo bar" ]
+  [ "$output" = "[INFO] foo bar" ]
 }
 
 @test "should log warning [1]" {
   run omv_warning "foo bar"
   [ "$status" -eq 0 ]
-  [ "$output" = "WARNING: foo bar" ]
+  [ "$output" = "[WARNING] foo bar" ]
 }
 
 @test "should log error [1]" {
   run omv_error "foo bar"
   [ "$status" -eq 0 ]
-  [ "$output" = "ERROR: foo bar" ]
+  [ "$output" = "[ERROR] foo bar" ]
 }
 
 @test "should display message [1]" {
@@ -270,7 +270,7 @@ OMV_CONFIG_FILE="./../data/config.xml"
   export OMV_DEBUG_SCRIPT=yes
   run omv_debug foo bar baz
   [ "$status" -eq 0 ]
-  [ "$output" = "DEBUG: foo bar baz" ]
+  [ "$output" = "[DEBUG] foo bar baz" ]
 }
 
 @test "should not log debug [1]" {
