@@ -499,7 +499,7 @@ msgid "Back"
 msgstr "Indietro"
 
 msgid "Background image"
-msgstr ""
+msgstr "Immagine di sfondo"
 
 msgid "Background task"
 msgstr "Attività in background"
@@ -610,7 +610,7 @@ msgid "CPU Utilization"
 msgstr "Utilizzo della CPU"
 
 msgid "CPU frequency scaling"
-msgstr ""
+msgstr "Regolazione della frequenza della CPU"
 
 msgid "Cambodia"
 msgstr "Cambogia"
@@ -1158,7 +1158,7 @@ msgid ""
 "Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
 "performance based on system load. The CPU frequency governor determines how "
 "the CPU frequency is adjusted."
-msgstr ""
+msgstr "Abilita il monitoraggio della regolazione della frequenza della CPU per consentire l’adattamento dinamico delle prestazioni della CPU in base al carico del sistema. Il governor della frequenza della CPU determina come viene regolata la frequenza della CPU."
 
 msgid "Enable NetBIOS"
 msgstr "Abilita NetBIOS"
@@ -1929,7 +1929,7 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Management of CPU frequency scaling."
-msgstr ""
+msgstr "Gestione della regolazione della frequenza della CPU."
 
 msgid "Management of scheduled tasks."
 msgstr "Gestione delle attività pianificate."
@@ -3324,7 +3324,7 @@ msgid "Thailand"
 msgstr "Tailandia"
 
 msgid "The HTTP and HTTPS ports must not be the same."
-msgstr ""
+msgstr "Le porte HTTP e HTTPS non devono essere uguali."
 
 msgid "The NFS versions provided by the service."
 msgstr "Le versioni NFS fornite dal servizio."

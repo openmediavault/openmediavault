@@ -610,7 +610,7 @@ msgid "CPU Utilization"
 msgstr "CPU-gebruik"
 
 msgid "CPU frequency scaling"
-msgstr ""
+msgstr "CPU-frequentie schaling"
 
 msgid "Cambodia"
 msgstr "Cambodja"
@@ -1158,7 +1158,7 @@ msgid ""
 "Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
 "performance based on system load. The CPU frequency governor determines how "
 "the CPU frequency is adjusted."
-msgstr ""
+msgstr "Schakel observatie van de CPU-frequentie schaling in om dynamische aanpassing van de CPU-prestaties mogelijk te maken op basis van systeembelasting. De CPU-frequentieregelaar bepaalt hoe de CPU-frequentie wordt aangepast."
 
 msgid "Enable NetBIOS"
 msgstr "NetBIOS inschakelen"
@@ -1929,7 +1929,7 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Management of CPU frequency scaling."
-msgstr ""
+msgstr "Beheer van CPU-frequentie schaling."
 
 msgid "Management of scheduled tasks."
 msgstr "Geplande taken beheren."

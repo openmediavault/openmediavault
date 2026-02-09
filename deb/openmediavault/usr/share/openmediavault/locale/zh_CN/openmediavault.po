@@ -609,7 +609,7 @@ msgid "CPU Utilization"
 msgstr "CPU 使用率"
 
 msgid "CPU frequency scaling"
-msgstr ""
+msgstr "CPU 頻率調節"
 
 msgid "Cambodia"
 msgstr "柬埔寨"
@@ -1157,7 +1157,7 @@ msgid ""
 "Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
 "performance based on system load. The CPU frequency governor determines how "
 "the CPU frequency is adjusted."
-msgstr ""
+msgstr "啟用 CPU 頻率調節監控，來根據系統負載，動態地調整 CPU 效能。 CPU 頻率管控器會決定 CPU 頻率要如何調整。"
 
 msgid "Enable NetBIOS"
 msgstr "启用 NetBIOS"
@@ -1928,7 +1928,7 @@ msgid "Malta"
 msgstr "马耳他"
 
 msgid "Management of CPU frequency scaling."
-msgstr ""
+msgstr "CPU 頻率調節管理。"
 
 msgid "Management of scheduled tasks."
 msgstr "管理计划任务。"
