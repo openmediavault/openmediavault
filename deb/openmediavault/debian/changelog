@@ -1,3 +1,9 @@
+openmediavault (8.1.1-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Feb 2026 06:57:19 +0100
+
 openmediavault (8.1.0-1) stable; urgency=medium
 
   * Enhance CPU frequency monitoring. Please update your configuration in
