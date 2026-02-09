@@ -41,7 +41,7 @@ export class PowermgmtSettingsFormPageComponent extends BaseFormPageComponent {
         name: 'cpufreqgovernor',
         label: gettext('CPU frequency scaling'),
         hint: gettext(
-          'Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU performance based on system load. The CPU frequency governor determines how the CPU frequency is adjusted.'
+          'Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU performance based on system load. The CPU frequency governor determines how the CPU frequency is adjusted.<ul><li>schedutil - Balances performance and power efficiency by adjusting CPU frequency based on scheduler utilization. Recommended for most users as it provides good performance while saving energy when the system is idle.</li><li>powersave - Keeps the CPU running at minimum frequency at all times to maximize energy savings. Use this when power consumption is the primary concern and performance is not critical.</li><li>performance - Keeps the CPU running at maximum frequency at all times. Use this when you need consistent peak performance and power consumption is not a concern.</li></ul>'
         ),
         value: '',
         hasEmptyOption: true,
