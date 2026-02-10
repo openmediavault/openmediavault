@@ -1166,7 +1166,7 @@ msgid ""
 "critical.</li><li>performance - Keeps the CPU running at maximum frequency "
 "at all times. Use this when you need consistent peak performance and power "
 "consumption is not a concern.</li></ul>"
-msgstr ""
+msgstr "Schakel observatie van CPU-frequentieschaling in om dynamische aanpassing van CPU-prestaties op basis van systeembelasting mogelijk te maken. De CPU-frequentieregulator bepaalt hoe de CPU-frequentie wordt aangepast. <ul><li>schedutil - Balanceert prestaties en energie-efficiëntie door CPU-frequentie aan te passen op basis van het gebruik van de scheduler. Aanbevolen voor de meeste gebruikers omdat het goede prestaties levert en energie bespaart wanneer het systeem inactief is. </li><li>powersave - Houdt de CPU altijd op minimale frequentie draaien om de energiebesparing te maximaliseren. Gebruik dit wanneer het energieverbruik de primaire zorg is en de prestaties niet kritiek zijn. </li><li>performance - Houdt de CPU altijd op maximale frequentie draaiend. Gebruik dit wanneer je consistente piekprestaties nodig hebt en het energieverbruik geen probleem is.</li></ul>"
 
 msgid "Enable NetBIOS"
 msgstr "NetBIOS inschakelen"

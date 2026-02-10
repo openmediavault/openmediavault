@@ -5,14 +5,14 @@
 # Translators:
 # kochin <kochinc@outlook.com>, 2013-2026
 # kochin <kochinc@outlook.com>, 2012-2013
-# 黃柏諺 <s8321414@gmail.com>, 2021-2025
+# 黃柏諺 <s8321414@gmail.com>, 2021-2026
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-09 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2013-2026\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2026\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1160,7 +1160,7 @@ msgid ""
 "critical.</li><li>performance - Keeps the CPU running at maximum frequency "
 "at all times. Use this when you need consistent peak performance and power "
 "consumption is not a concern.</li></ul>"
-msgstr ""
+msgstr "啟用 CPU 頻率調節監控功能，可依據系統負載動態調整 CPU 效能。CPU 頻率調度機制將決定 CPU 頻率的調整方式。<ul><li>schedutil - 透過根據排程器使用率調整 CPU 頻率，在效能與電力效率間取得平衡。推薦給多數使用者，因其在系統閒置時能提供良好效能並節省能源。</li><li>powersave - 讓 CPU 一律以最低頻率運作，以實現最大節能效果。當電力消耗是首要考量且效能並非關鍵時，請使用此模式。</li><li>performance - 讓 CPU 一律以最高頻率運作。當您需要穩定的峰值效能且不需顧慮功耗時，請選用此模式。</li></ul>"
 
 msgid "Enable NetBIOS"
 msgstr "啟用 NetBIOS"
