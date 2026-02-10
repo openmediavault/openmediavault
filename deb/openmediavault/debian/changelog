@@ -1,11 +1,6 @@
-openmediavault (8.1.1-1) stable; urgency=medium
+openmediavault (8.1.0-2) stable; urgency=medium
 
-  *
-
- -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Feb 2026 06:57:19 +0100
-
-openmediavault (8.1.0-1) stable; urgency=medium
-
+  * Update i18n files.
   * Enhance CPU frequency monitoring. Please update your configuration in
     the `System | Power Management | Settings` page.
   * Allow the background image on the login page to be hidden.
