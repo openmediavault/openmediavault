@@ -1,0 +1,294 @@
+#!/usr/bin/env python3
+import json
+import os
+import signal
+import subprocess
+import time
+
+CONFIG_PATH = "/etc/openmediavault/pwmfan.json"
+STATUS_PATH = "/run/openmediavault-pwmfan-status.json"
+
+DEFAULT_CONFIG = {
+    "temp_source": "hdd",
+    "hdd_drives": ["/dev/sda", "/dev/sdb"],
+    "hdd_standby": True,
+    "cpu_temp_path": "/sys/class/thermal/thermal_zone0/temp",
+    "pwm_chip": "/sys/class/pwm/pwmchip0",
+    "pwm_channel": 0,
+    "pwm_period": 40000,
+    "update_interval": 60,
+    "temp1": 28,
+    "temp2": 31,
+    "temp3": 33,
+    "speed1": 25,
+    "speed2": 50,
+    "speed3": 75,
+    "speed4": 100,
+    "failsafe_speed": 25,
+}
+
+STOP_REQUESTED = False
+
+
+def log(message):
+    print(message, flush=True)
+
+
+def handle_signal(signum, frame):
+    global STOP_REQUESTED
+    STOP_REQUESTED = True
+
+
+def clamp(value, minimum, maximum):
+    return max(minimum, min(maximum, value))
+
+
+def to_int(value, default):
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def normalize_config(raw):
+    config = dict(DEFAULT_CONFIG)
+    if isinstance(raw, dict):
+        config.update(raw)
+
+    temp_source = str(config.get("temp_source", "hdd")).lower()
+    if temp_source not in ("hdd", "cpu", "hdd_cpu"):
+        temp_source = "hdd"
+    config["temp_source"] = temp_source
+
+    drives = config.get("hdd_drives", [])
+    if isinstance(drives, str):
+        drives = [
+            item.strip()
+            for item in drives.replace("\n", ",").split(",")
+            if item.strip()
+        ]
+    elif not isinstance(drives, list):
+        drives = []
+    config["hdd_drives"] = drives
+
+    config["hdd_standby"] = bool(config.get("hdd_standby", True))
+    config["pwm_channel"] = to_int(config.get("pwm_channel"), 0)
+    config["pwm_period"] = max(1, to_int(config.get("pwm_period"), 40000))
+    config["update_interval"] = max(5, to_int(config.get("update_interval"), 60))
+
+    for key, default in (
+        ("temp1", 28),
+        ("temp2", 31),
+        ("temp3", 33),
+        ("speed1", 25),
+        ("speed2", 50),
+        ("speed3", 75),
+        ("speed4", 100),
+        ("failsafe_speed", 25),
+    ):
+        config[key] = to_int(config.get(key), default)
+
+    for key in ("speed1", "speed2", "speed3", "speed4", "failsafe_speed"):
+        config[key] = clamp(config[key], 0, 100)
+
+    return config
+
+
+def load_config():
+    try:
+        with open(CONFIG_PATH, "r", encoding="utf-8") as handle:
+            return normalize_config(json.load(handle))
+    except FileNotFoundError:
+        log(f"Config not found at {CONFIG_PATH}, using defaults")
+    except (OSError, json.JSONDecodeError) as exc:
+        log(f"Failed to read config: {exc}; using defaults")
+    return normalize_config({})
+
+
+def pwm_hardware_available(config):
+    pwm_root = "/sys/class/pwm"
+    if not os.path.isdir(pwm_root):
+        log(f"PWM root not found: {pwm_root}")
+        return False
+
+    pwm_chip = config["pwm_chip"]
+    if os.path.isdir(pwm_chip):
+        return True
+
+    try:
+        chips = sorted(
+            name for name in os.listdir(pwm_root) if name.startswith("pwmchip")
+        )
+    except OSError:
+        chips = []
+
+    if chips:
+        log(f"PWM chip path not found: {pwm_chip}. Available: {', '.join(chips)}")
+    else:
+        log("No PWM chips detected under /sys/class/pwm")
+    return False
+
+
+def write_status(config, temp, speed):
+    status = {
+        "timestamp": int(time.time()),
+        "temperature": temp,
+        "speed": int(speed),
+        "temp_source": config["temp_source"],
+        "pwm_channel": config["pwm_channel"],
+        "pwm_period": config["pwm_period"],
+    }
+    tmp_path = f"{STATUS_PATH}.tmp"
+    try:
+        os.makedirs(os.path.dirname(STATUS_PATH), exist_ok=True)
+        with open(tmp_path, "w", encoding="utf-8") as handle:
+            json.dump(status, handle)
+        os.replace(tmp_path, STATUS_PATH)
+    except OSError as exc:
+        log(f"Failed to write status file: {exc}")
+
+
+def read_cpu_temp(path):
+    try:
+        with open(path, "r", encoding="utf-8") as handle:
+            raw = handle.read().strip()
+        if not raw:
+            return None
+        value = int(raw)
+        if value >= 1000:
+            return value / 1000.0
+        return float(value)
+    except (OSError, ValueError):
+        return None
+
+
+def parse_smartctl_temps(output):
+    temps = []
+    for line in output.splitlines():
+        if "Temperature_Celsius" in line or "Airflow_Temperature_Cel" in line:
+            parts = line.split()
+            for token in reversed(parts):
+                if token.isdigit():
+                    temps.append(int(token))
+                    break
+    return temps
+
+
+def read_hdd_temps(drives, standby):
+    temps = []
+    if not drives:
+        return temps
+
+    base_cmd = ["smartctl", "-A"]
+    if standby:
+        base_cmd += ["-n", "standby"]
+
+    for drive in drives:
+        try:
+            output = subprocess.check_output(
+                base_cmd + [drive],
+                text=True,
+                stderr=subprocess.STDOUT,
+            )
+        except (OSError, subprocess.CalledProcessError):
+            continue
+        temps.extend(parse_smartctl_temps(output))
+    return temps
+
+
+def get_temperature(config):
+    temps = []
+    if config["temp_source"] in ("hdd", "hdd_cpu"):
+        temps.extend(read_hdd_temps(config["hdd_drives"], config["hdd_standby"]))
+    if config["temp_source"] in ("cpu", "hdd_cpu"):
+        cpu_temp = read_cpu_temp(config["cpu_temp_path"])
+        if cpu_temp is not None:
+            temps.append(cpu_temp)
+    if temps:
+        return max(temps)
+    return None
+
+
+def calculate_speed(temp, config):
+    if temp < config["temp1"]:
+        return config["speed1"]
+    if temp < config["temp2"]:
+        return config["speed2"]
+    if temp < config["temp3"]:
+        return config["speed3"]
+    return config["speed4"]
+
+
+def ensure_pwm_channel(pwm_chip, channel):
+    pwm_channel_path = os.path.join(pwm_chip, f"pwm{channel}")
+    if not os.path.exists(pwm_channel_path):
+        with open(os.path.join(pwm_chip, "export"), "w", encoding="utf-8") as handle:
+            handle.write(str(channel))
+        time.sleep(0.2)
+    return pwm_channel_path
+
+
+def setup_pwm(config):
+    pwm_chip = config["pwm_chip"]
+    if not os.path.isdir(pwm_chip):
+        raise FileNotFoundError(f"PWM chip path not found: {pwm_chip}")
+
+    pwm_channel_path = ensure_pwm_channel(pwm_chip, config["pwm_channel"])
+    period_path = os.path.join(pwm_channel_path, "period")
+    enable_path = os.path.join(pwm_channel_path, "enable")
+
+    with open(period_path, "w", encoding="utf-8") as handle:
+        handle.write(str(config["pwm_period"]))
+    with open(enable_path, "w", encoding="utf-8") as handle:
+        handle.write("1")
+
+    return pwm_channel_path
+
+
+def set_fan_speed(pwm_channel_path, period, percent):
+    duty_cycle_path = os.path.join(pwm_channel_path, "duty_cycle")
+    percent = clamp(int(percent), 0, 100)
+    duty = int((percent / 100.0) * period)
+    with open(duty_cycle_path, "w", encoding="utf-8") as handle:
+        handle.write(str(duty))
+
+
+def main():
+    config = load_config()
+    if not pwm_hardware_available(config):
+        log("PWM hardware not available; exiting.")
+        return
+
+    pwm_channel_path = setup_pwm(config)
+
+    log("PWM Fan Service Started")
+
+    while not STOP_REQUESTED:
+        temp = get_temperature(config)
+        if temp is None:
+            speed = config["failsafe_speed"]
+            log(f"No temperature data | Setting fans to: {speed}%")
+        else:
+            speed = calculate_speed(temp, config)
+            log(f"Hottest Source: {temp:.1f}C | Setting Fans to: {speed}%")
+
+        set_fan_speed(pwm_channel_path, config["pwm_period"], speed)
+        write_status(config, temp, speed)
+
+        for _ in range(config["update_interval"]):
+            if STOP_REQUESTED:
+                break
+            time.sleep(1)
+
+    set_fan_speed(pwm_channel_path, config["pwm_period"], config["failsafe_speed"])
+
+
+if __name__ == "__main__":
+    for sig in (signal.SIGINT, signal.SIGTERM):
+        signal.signal(sig, handle_signal)
+
+    try:
+        main()
+    except Exception as exc:
+        log(f"Fatal error: {exc}")
+        raise

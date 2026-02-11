@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.pwmfan"
+  text: _("PWM Fan")
+  icon: "mdi:fan"
+  url: "/services/pwmfan"
