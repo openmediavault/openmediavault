@@ -90,7 +90,7 @@ export class SharedFolderFormPageComponent extends BaseFormPageComponent {
         name: 'reldirpath',
         label: gettext('Relative path'),
         hint: gettext(
-          'The relative path of the folder to share. The specified folder will be created if it does not exist.'
+          "The relative path of the folder to share. Use '/' to share the root of the file system. The specified folder will be created if it does not exist."
         ),
         value: '',
         dirType: 'mntent',
