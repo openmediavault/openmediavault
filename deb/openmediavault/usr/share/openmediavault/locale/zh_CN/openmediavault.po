@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 20:41+0100\n"
+"POT-Creation-Date: 2026-02-09 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: irrelevant91, 2025\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -497,6 +497,9 @@ msgstr "B/G (2.4 GHz)"
 msgid "Back"
 msgstr "返回"
 
+msgid "Background image"
+msgstr "背景圖片"
+
 msgid "Background task"
 msgstr "后台任务"
 
@@ -604,6 +607,9 @@ msgstr "CPU 使用率"
 
 msgid "CPU Utilization"
 msgstr "CPU 使用率"
+
+msgid "CPU frequency scaling"
+msgstr "CPU 頻率調節"
 
 msgid "Cambodia"
 msgstr "柬埔寨"
@@ -1146,6 +1152,20 @@ msgstr "Email"
 
 msgid "Empty now"
 msgstr "立即清空"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted.<ul><li>schedutil - Balances performance and "
+"power efficiency by adjusting CPU frequency based on scheduler utilization. "
+"Recommended for most users as it provides good performance while saving "
+"energy when the system is idle.</li><li>powersave - Keeps the CPU running at"
+" minimum frequency at all times to maximize energy savings. Use this when "
+"power consumption is the primary concern and performance is not "
+"critical.</li><li>performance - Keeps the CPU running at maximum frequency "
+"at all times. Use this when you need consistent peak performance and power "
+"consumption is not a concern.</li></ul>"
+msgstr "啟用 CPU 頻率調節監控功能，可依據系統負載動態調整 CPU 效能。CPU 頻率調度機制將決定 CPU 頻率的調整方式。<ul><li>schedutil - 透過根據排程器使用率調整 CPU 頻率，在效能與電力效率間取得平衡。推薦給多數使用者，因其在系統閒置時能提供良好效能並節省能源。</li><li>powersave - 讓 CPU 一律以最低頻率運作，以實現最大節能效果。當電力消耗是首要考量且效能並非關鍵時，請使用此模式。</li><li>performance - 讓 CPU 一律以最高頻率運作。當您需要穩定的峰值效能且不需顧慮功耗時，請選用此模式。</li></ul>"
 
 msgid "Enable NetBIOS"
 msgstr "启用 NetBIOS"
@@ -1915,8 +1935,8 @@ msgstr "马里"
 msgid "Malta"
 msgstr "马耳他"
 
-msgid "Management of cpufreq and cpuidle tunables."
-msgstr "cpufreq与cpuidle可调节设置管理。"
+msgid "Management of CPU frequency scaling."
+msgstr "CPU 頻率調節管理。"
 
 msgid "Management of scheduled tasks."
 msgstr "管理计划任务。"
@@ -3152,11 +3172,6 @@ msgid ""
 "periodically."
 msgstr "指定系统是否定期收集性能统计信息。"
 
-msgid ""
-"Specifies whether to monitor the system status and select the most "
-"appropriate CPU level."
-msgstr "指定是否监控系统状态并选择最适合的 CPU 级别。"
-
 msgid "Specifies which slave is the primary device."
 msgstr "指定主从设备。"
 
@@ -3314,6 +3329,9 @@ msgstr "测试"
 
 msgid "Thailand"
 msgstr "泰国"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr "HTTP 與 HTTPS 的通訊埠必須不相同。"
 
 msgid "The NFS versions provided by the service."
 msgstr "NFS 服务版本。"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 20:41+0100\n"
+"POT-Creation-Date: 2026-02-09 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: André Fernandes, 2025\n"
 "Language-Team: Portuguese (Portugal) (http://app.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
@@ -493,6 +493,9 @@ msgstr ""
 msgid "Back"
 msgstr "Voltar"
 
+msgid "Background image"
+msgstr ""
+
 msgid "Background task"
 msgstr ""
 
@@ -600,6 +603,9 @@ msgstr "Uso de CPU"
 
 msgid "CPU Utilization"
 msgstr "Utilização de CPU"
+
+msgid "CPU frequency scaling"
+msgstr ""
 
 msgid "Cambodia"
 msgstr "Cambodja"
@@ -1142,6 +1148,20 @@ msgstr "Email"
 
 msgid "Empty now"
 msgstr "Esvaziar agora"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted.<ul><li>schedutil - Balances performance and "
+"power efficiency by adjusting CPU frequency based on scheduler utilization. "
+"Recommended for most users as it provides good performance while saving "
+"energy when the system is idle.</li><li>powersave - Keeps the CPU running at"
+" minimum frequency at all times to maximize energy savings. Use this when "
+"power consumption is the primary concern and performance is not "
+"critical.</li><li>performance - Keeps the CPU running at maximum frequency "
+"at all times. Use this when you need consistent peak performance and power "
+"consumption is not a concern.</li></ul>"
+msgstr ""
 
 msgid "Enable NetBIOS"
 msgstr ""
@@ -1911,7 +1931,7 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of cpufreq and cpuidle tunables."
+msgid "Management of CPU frequency scaling."
 msgstr ""
 
 msgid "Management of scheduled tasks."
@@ -3148,11 +3168,6 @@ msgid ""
 "periodically."
 msgstr "Especifica se as estatísticas de desempenho do sistema são recolhidas periodicamente."
 
-msgid ""
-"Specifies whether to monitor the system status and select the most "
-"appropriate CPU level."
-msgstr "Especifica quando monitorizar o estado do sistema e seleciona o nível mais apropriado para o CPU."
-
 msgid "Specifies which slave is the primary device."
 msgstr "Especifica qual o secundário que será o primeiro dispositivo."
 
@@ -3310,6 +3325,9 @@ msgstr ""
 
 msgid "Thailand"
 msgstr "Tailândia"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr ""
 
 msgid "The NFS versions provided by the service."
 msgstr ""

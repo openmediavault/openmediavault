@@ -36,7 +36,7 @@ if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"name","ar
 		"conf.service.k8s.lbport"; then
 	port=$(omv_config_get "/config/services/k8s/websecureport")
 	omv-confdbadm read --defaults "conf.service.k8s.lbport" | \
-		jq ".name = \"websecure\" | .port = ${port} | .exposedport = ${port} | .protocol = \"tcp\" | .expose = false | .comment = \"HTTPS\" | .extravalues=\"transport:\\n  respondingTimeouts:\\n    readTimeout: 60\"" | \
+		jq ".name = \"websecure\" | .port = ${port} | .exposedport = ${port} | .protocol = \"tcp\" | .expose = true | .comment = \"HTTPS\" | .extravalues=\"transport:\\n  respondingTimeouts:\\n    readTimeout: 60\"" | \
 		omv-confdbadm update "conf.service.k8s.lbport" -
 fi
 if ! omv-confdbadm exists --filter '{"operator":"stringEquals","arg0":"name","arg1":"k8s-dashboard"}' \

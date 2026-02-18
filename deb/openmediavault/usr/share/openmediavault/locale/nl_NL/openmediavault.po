@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 20:41+0100\n"
+"POT-Creation-Date: 2026-02-09 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025-2026\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -498,6 +498,9 @@ msgstr "B/G (2.4 GHz)"
 msgid "Back"
 msgstr "Terug"
 
+msgid "Background image"
+msgstr "Achtergrondafbeelding"
+
 msgid "Background task"
 msgstr "Achtergrondtaak"
 
@@ -605,6 +608,9 @@ msgstr "CPU-gebruik"
 
 msgid "CPU Utilization"
 msgstr "CPU-gebruik"
+
+msgid "CPU frequency scaling"
+msgstr "CPU-frequentie schaling"
 
 msgid "Cambodia"
 msgstr "Cambodja"
@@ -1147,6 +1153,20 @@ msgstr "E-mail"
 
 msgid "Empty now"
 msgstr "Nu leegmaken"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted.<ul><li>schedutil - Balances performance and "
+"power efficiency by adjusting CPU frequency based on scheduler utilization. "
+"Recommended for most users as it provides good performance while saving "
+"energy when the system is idle.</li><li>powersave - Keeps the CPU running at"
+" minimum frequency at all times to maximize energy savings. Use this when "
+"power consumption is the primary concern and performance is not "
+"critical.</li><li>performance - Keeps the CPU running at maximum frequency "
+"at all times. Use this when you need consistent peak performance and power "
+"consumption is not a concern.</li></ul>"
+msgstr "Schakel observatie van CPU-frequentieschaling in om dynamische aanpassing van CPU-prestaties op basis van systeembelasting mogelijk te maken. De CPU-frequentieregulator bepaalt hoe de CPU-frequentie wordt aangepast. <ul><li>schedutil - Balanceert prestaties en energie-efficiëntie door CPU-frequentie aan te passen op basis van het gebruik van de scheduler. Aanbevolen voor de meeste gebruikers omdat het goede prestaties levert en energie bespaart wanneer het systeem inactief is. </li><li>powersave - Houdt de CPU altijd op minimale frequentie draaien om de energiebesparing te maximaliseren. Gebruik dit wanneer het energieverbruik de primaire zorg is en de prestaties niet kritiek zijn. </li><li>performance - Houdt de CPU altijd op maximale frequentie draaiend. Gebruik dit wanneer je consistente piekprestaties nodig hebt en het energieverbruik geen probleem is.</li></ul>"
 
 msgid "Enable NetBIOS"
 msgstr "NetBIOS inschakelen"
@@ -1916,8 +1936,8 @@ msgstr "Mali"
 msgid "Malta"
 msgstr "Malta"
 
-msgid "Management of cpufreq and cpuidle tunables."
-msgstr "Beheer van cpufreq- en cpuidle-instellingen."
+msgid "Management of CPU frequency scaling."
+msgstr "Beheer van CPU-frequentie schaling."
 
 msgid "Management of scheduled tasks."
 msgstr "Geplande taken beheren."
@@ -3153,11 +3173,6 @@ msgid ""
 "periodically."
 msgstr "Geeft aan of de systeemprestatiestatistieken periodiek worden opgehaald."
 
-msgid ""
-"Specifies whether to monitor the system status and select the most "
-"appropriate CPU level."
-msgstr "Geeft aan of de status van het systeem geobserveerd wordt en kies het meest geschikte CPU-niveau."
-
 msgid "Specifies which slave is the primary device."
 msgstr "Specificeert welke slaaf het primaire apparaat is."
 
@@ -3315,6 +3330,9 @@ msgstr "Test"
 
 msgid "Thailand"
 msgstr "Thailand"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr "De HTTP- en HTTPS-poorten mogen niet hetzelfde zijn."
 
 msgid "The NFS versions provided by the service."
 msgstr "De NFS-versies die door de dienst worden aangeboden."
