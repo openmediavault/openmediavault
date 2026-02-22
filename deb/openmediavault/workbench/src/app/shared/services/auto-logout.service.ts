@@ -1,8 +1,11 @@
 import { Injectable, NgZone, OnDestroy } from '@angular/core';
+import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import { EMPTY, fromEvent, merge, Observable, Subject, timer } from 'rxjs';
 import { filter, switchMap, takeUntil, tap, throttleTime } from 'rxjs/operators';
 
+import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { AuthService } from '~/app/shared/services/auth.service';
+import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcRequestWithResponse, RpcService } from '~/app/shared/services/rpc.service';
 import { UserLocalStorageService } from '~/app/shared/services/user-local-storage.service';
 
@@ -17,6 +20,7 @@ export class AutoLogoutService implements OnDestroy {
   constructor(
     private authService: AuthService,
     private ngZone: NgZone,
+    private notificationService: NotificationService,
     private rpcService: RpcService,
     private userLocalStorageService: UserLocalStorageService
   ) {
@@ -100,8 +104,13 @@ export class AutoLogoutService implements OnDestroy {
   }
 
   private buildTimer(): Observable<never> {
-    return timer(this.timeout).pipe(
-      tap(() => this.logout()),
+    if (this.timeout <= 0) {
+      return EMPTY;
+    }
+    const warningDelay = 10000;
+    return timer(this.timeout - warningDelay).pipe(
+      tap(() => this.showLogoutWarning()),
+      switchMap(() => timer(warningDelay).pipe(tap(() => this.logout()))),
       switchMap(() => EMPTY)
     );
   }
@@ -112,6 +121,14 @@ export class AutoLogoutService implements OnDestroy {
 
   private clearLastActivity(): void {
     this.userLocalStorageService.remove('lastActivity');
+  }
+
+  private showLogoutWarning(): void {
+    this.notificationService.show(
+      NotificationType.warning,
+      gettext('Logout'),
+      gettext('You will be logged out due to inactivity in 10 seconds.')
+    );
   }
 
   private logout(): void {

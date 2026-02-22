@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-14 19:37+0100\n"
+"POT-Creation-Date: 2026-02-22 22:11+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3975,6 +3975,9 @@ msgid "You have made changes that have not yet been saved. Do you want to discar
 msgstr ""
 
 msgid "You must apply these changes in order for them to take effect."
+msgstr ""
+
+msgid "You will be logged out due to inactivity in 10 seconds."
 msgstr ""
 
 msgid "Your profile"
