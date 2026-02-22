@@ -10,9 +10,9 @@
 
   .topbar {
     background-color: hsla(
-      color.hue(dc.$omv-color-corporate-default),
-      color.saturation(dc.$omv-color-corporate-default),
-      color.lightness(dc.$omv-color-corporate-default),
+      color.hue(dc.$omv-color-corporate-darker),
+      color.saturation(dc.$omv-color-corporate-darker),
+      color.lightness(dc.$omv-color-corporate-darker),
       54%
     );
     backdrop-filter: blur(4px);
