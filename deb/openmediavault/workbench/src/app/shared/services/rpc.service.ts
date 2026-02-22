@@ -18,14 +18,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import * as _ from 'lodash';
-import { interval, Observable } from 'rxjs';
+import { interval, Observable, Subject } from 'rxjs';
 import { concatMap, map, mergeMap, takeWhile } from 'rxjs/operators';
 
 import { retryDelayed, takeWhen } from '~/app/rxjs.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { NotificationService } from '~/app/shared/services/notification.service';
 
-type RpcResponse = {
+export type RpcRequest = {
+  service: string;
+  method: string;
+  params?: any;
+  options?: any;
+};
+
+export type RpcResponse = {
   error?: any;
   response?: any;
 };
@@ -38,17 +45,24 @@ export type RpcBgResponse = {
   running: boolean;
 };
 
+export type RpcRequestWithResponse = RpcRequest & RpcResponse;
+
 @Injectable({
   providedIn: 'root'
 })
 export class RpcService {
+  public readonly request$: Observable<RpcRequestWithResponse>;
+
   private url = 'rpc.php';
+  private requestSource = new Subject<RpcRequestWithResponse>();
 
   constructor(
     private http: HttpClient,
     private ngZone: NgZone,
     private notificationService: NotificationService
-  ) {}
+  ) {
+    this.request$ = this.requestSource.asObservable();
+  }
 
   /**
    * Execute the specified RPC.
@@ -73,12 +87,22 @@ export class RpcService {
     if (!(_.isUndefined(rpcParams) || _.isNull(rpcParams))) {
       body.params = rpcParams;
     }
-    if (!(_.isUndefined(rpcParams) || _.isNull(rpcParams))) {
+    if (!(_.isUndefined(rpcOptions) || _.isNull(rpcOptions))) {
       body.options = rpcOptions;
     }
     return this.http.post(this.url, body).pipe(
       retryDelayed(maxRetries),
-      map((res: RpcResponse) => res.response)
+      map((res: RpcResponse) => {
+        // Notify subscribers about the successful request.
+        this.requestSource.next({
+          service: rpcService,
+          method: rpcMethod,
+          params: rpcParams,
+          options: rpcOptions,
+          ...res
+        });
+        return res.response;
+      })
     );
   }
 
