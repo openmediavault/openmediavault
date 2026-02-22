@@ -1,3 +1,9 @@
+openmediavault (8.1.1-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 22 Feb 2026 15:06:57 +0100
+
 openmediavault (8.1.0-2) stable; urgency=medium
 
   * Update i18n files.
