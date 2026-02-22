@@ -3,6 +3,7 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import { EMPTY, fromEvent, merge, Observable, Subject, timer } from 'rxjs';
 import { filter, switchMap, takeUntil, tap, throttleTime } from 'rxjs/operators';
 
+import { format } from '~/app/functions.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { AuthService } from '~/app/shared/services/auth.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
@@ -107,9 +108,9 @@ export class AutoLogoutService implements OnDestroy {
     if (this.timeout <= 0) {
       return EMPTY;
     }
-    const warningDelay = 10000;
+    const warningDelay = 10000; // 10s
     return timer(this.timeout - warningDelay).pipe(
-      tap(() => this.showLogoutWarning()),
+      tap(() => this.showLogoutWarning(warningDelay / 1000)),
       switchMap(() => timer(warningDelay).pipe(tap(() => this.logout()))),
       switchMap(() => EMPTY)
     );
@@ -123,11 +124,13 @@ export class AutoLogoutService implements OnDestroy {
     this.userLocalStorageService.remove('lastActivity');
   }
 
-  private showLogoutWarning(): void {
+  private showLogoutWarning(seconds: number): void {
     this.notificationService.show(
       NotificationType.warning,
       gettext('Logout'),
-      gettext('You will be logged out due to inactivity in 10 seconds.')
+      format(gettext(`You will be logged out due to inactivity in {{ n }} seconds.`), {
+        n: seconds
+      })
     );
   }
 
