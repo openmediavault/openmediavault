@@ -1,6 +1,6 @@
 openmediavault (8.1.1-1) stable; urgency=medium
 
-  *
+  * Improvement of the automatic logout function of the UI.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 22 Feb 2026 15:06:57 +0100
 

@@ -32,6 +32,7 @@ import { Unsubscribe } from '~/app/decorators';
 import { translate } from '~/app/i18n.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
+import { AutoLogoutService } from '~/app/shared/services/auto-logout.service';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { PrefersColorSchemeService } from '~/app/shared/services/prefers-color-scheme.service';
@@ -63,6 +64,7 @@ export class WorkbenchLayoutComponent implements OnInit {
 
   constructor(
     private authSessionService: AuthSessionService,
+    private autoLogoutService: AutoLogoutService,
     private blockUiService: BlockUiService,
     private dashboardWidgetConfigService: DashboardWidgetConfigService,
     private breakpointObserver: BreakpointObserver,
@@ -134,6 +136,13 @@ export class WorkbenchLayoutComponent implements OnInit {
           // after the local storage settings have been transferred from
           // the server.
           this.prefersColorSchemeService.sync();
+        })
+      ),
+      this.autoLogoutService.load().pipe(
+        tap(() => {
+          // Start the auto logout timer in any case after successful loading
+          // of the settings.
+          this.autoLogoutService.start();
         })
       )
     ])

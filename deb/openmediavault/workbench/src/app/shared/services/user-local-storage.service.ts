@@ -38,17 +38,20 @@ export class UserLocalStorageService {
     return this.platform.ANDROID || this.platform.IOS ? 'mobile' : 'desktop';
   }
 
-  get(key: string, defaultValue?: any): string | null {
+  buildKey(key: string): string {
     const username = this.authSessionService.getUsername();
-    const value = localStorage.getItem(`${username}@${key}`);
+    return `${username}@${key}`;
+  }
+
+  get(key: string, defaultValue?: any): string | null {
+    const value = localStorage.getItem(this.buildKey(key));
     return _.defaultTo(value, defaultValue);
   }
 
   set(key: string, value: string, localOnly: boolean = false): void {
-    const username = this.authSessionService.getUsername();
     // Set local storage item ...
     // - in browser:
-    localStorage.setItem(`${username}@${key}`, value);
+    localStorage.setItem(this.buildKey(key), value);
     // - on server:
     if (!localOnly) {
       this.rpcService
@@ -59,6 +62,10 @@ export class UserLocalStorageService {
         })
         .subscribe();
     }
+  }
+
+  remove(key: string): void {
+    localStorage.removeItem(this.buildKey(key));
   }
 
   clear(): void {
