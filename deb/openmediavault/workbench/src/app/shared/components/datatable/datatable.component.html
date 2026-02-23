@@ -177,7 +177,7 @@
              let-value="value"
              let-column="column"
              let-row="row">
-  <mat-chip-list>
+  <mat-chip-list [tabIndex]="-1">
     <mat-chip *ngFor="let item of (value | split:column?.cellTemplateConfig?.separator | array)"
               [selectable]="false"
               [disableRipple]="true"

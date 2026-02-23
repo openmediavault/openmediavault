@@ -9,7 +9,8 @@
         <div class="omv-font-size-subheading-2">{{ row.summary }}</div>
       </div>
       <mat-chip-list *ngIf="row.installed"
-                     class="installed">
+                     class="installed"
+                     [tabIndex]="-1">
         <mat-chip class="omv-background-color-pair-green"
                   [selectable]="false"
                   [disableRipple]="true">
@@ -19,7 +20,7 @@
     </div>
     <div *ngIf="row.pluginarchitecture.length"
          class="architecture">
-      <mat-chip-list>
+      <mat-chip-list [tabIndex]="-1">
         <mat-chip *ngFor="let item of row.pluginarchitecture | sort"
                   [selectable]="false"
                   [disableRipple]="true">
