@@ -247,7 +247,8 @@ case "$1" in
 			LC_ALL=C.UTF-8 omv-salt deploy run --no-color --quiet \
 				apt apticron cpupower chrony rsyslog postfix \
 				watchdog monit rrdcached avahi ssh nginx collectd \
-				phpfpm issue sysctl systemd systemd-logind || :
+				phpfpm issue sysctl systemd systemd-journald \
+				systemd-logind || :
 		fi
 
 		########################################################################
@@ -642,6 +643,9 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "8.1.0"; then
 			omv_module_set_dirty cpupower
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.1.1"; then
+			omv_module_set_dirty systemd-journald
 		fi
 
 		########################################################################
