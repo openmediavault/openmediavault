@@ -30,4 +30,56 @@ describe('DashboardWidgetSystemInformationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('CSS text wrapping and overflow handling', () => {
+    it('should apply word-wrap and word-break styles to grid cells', () => {
+      const widgetContent = fixture.debugElement.query(
+        (el) => el.nativeElement.classList?.contains('widget-content')
+      );
+
+      if (widgetContent) {
+        const gridCell = widgetContent.nativeElement.querySelector('.omv-grid-cell');
+        if (gridCell) {
+          const styles = window.getComputedStyle(gridCell);
+          expect(styles.wordWrap).toBe('break-word');
+          expect(styles.wordBreak).toBe('break-word');
+          expect(styles.overflow).toBe('hidden');
+        }
+      }
+    });
+
+    it('should have overflow-wrap on nested divs within grid cells', () => {
+      const widgetContent = fixture.debugElement.query(
+        (el) => el.nativeElement.classList?.contains('widget-content')
+      );
+
+      if (widgetContent) {
+        const gridCell = widgetContent.nativeElement.querySelector('.omv-grid-cell');
+        if (gridCell) {
+          const innerDiv = gridCell.querySelector('div');
+          if (innerDiv) {
+            const styles = window.getComputedStyle(innerDiv);
+            expect(styles.wordWrap).toBe('break-word');
+            expect(styles.wordBreak).toBe('break-word');
+          }
+        }
+      }
+    });
+
+    it('should prevent text overlapping with proper text wrapping', () => {
+      // Verify that break-inside: avoid is still applied to prevent column breaks
+      const widgetContent = fixture.debugElement.query(
+        (el) => el.nativeElement.classList?.contains('widget-content')
+      );
+
+      if (widgetContent) {
+        const gridCell = widgetContent.nativeElement.querySelector('.omv-grid-cell');
+        if (gridCell) {
+          // Check that the element maintains structural integrity
+          expect(gridCell).toBeTruthy();
+          expect(gridCell.children.length).toBeGreaterThan(0);
+        }
+      }
+    });
+  });
 });

@@ -2,12 +2,16 @@
 
 .omv-dashboard-widget-container {
   break-inside: avoid;
+  overflow: hidden;
+  word-wrap: break-word;
 
   .mat-card {
     margin-bottom: dv.$omv-margin * 0.5;
     padding: unset;
     position: relative;
     overflow: hidden; // https://stackoverflow.com/a/67873739
+    word-wrap: break-word;
+    word-break: break-word;
 
     .mat-progress-bar {
       position: absolute;
