@@ -97,7 +97,7 @@ export class AutoLogoutService implements OnDestroy {
   }
 
   load(): Observable<Record<string, any>> {
-    return this.rpcService.request('WebGui', 'getSettings').pipe(
+    return this.rpcService.request('WebGui', 'getAutoLogoutSettings').pipe(
       tap((res: Record<string, any>) => {
         this.timeout = res.timeout * 60 * 1000;
       })

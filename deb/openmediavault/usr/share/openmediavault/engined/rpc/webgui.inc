@@ -41,6 +41,7 @@ class WebGui extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getLocalStorageItems");
 		$this->registerMethod("setLocalStorageItem");
 		$this->registerMethod("clearLocalStorageItems");
+		$this->registerMethod("getAutoLogoutSettings");
 	}
 
 	/**
@@ -187,5 +188,19 @@ class WebGui extends \OMV\Rpc\ServiceAbstract {
 			$jsonFile->write($contentDict->getData());
 			$jsonFile->close();
 		}
+	}
+
+	/**
+	 * Get the auto-logout settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The auto-logout settings.
+	 */
+	function getAutoLogoutSettings($params, $context) {
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.webadmin");
+		return [
+			"timeout" => $object->get("timeout")
+		];
 	}
 }
