@@ -27,12 +27,12 @@ import { UpdateChangelogTextPageComponent } from '~/app/pages/system/updates/upd
 import { UpdateDatatablePageComponent } from '~/app/pages/system/updates/update-datatable-page.component';
 import { UpdateSettingsSoftwareFormPageComponent } from '~/app/pages/system/updates/update-settings-software-form-page.component';
 import { UpdateSettingsUpdatesFormPageComponent } from '~/app/pages/system/updates/update-settings-updates-form-page.component';
-import { WorkbenchFormPageComponent } from '~/app/pages/system/workbench/workbench-form-page.component';
+import { WorkbenchSettingsFormPageComponent } from '~/app/pages/system/workbench/workbench-settings-form-page.component';
 import { SharedModule } from '~/app/shared/shared.module';
 
 @NgModule({
   declarations: [
-    WorkbenchFormPageComponent,
+    WorkbenchSettingsFormPageComponent,
     SshCertificateDatatablePageComponent,
     SslCertificateDatatablePageComponent,
     MonitoringFormPageComponent,

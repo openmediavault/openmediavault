@@ -146,6 +146,12 @@ source_file = openmediavault-usbbackup/usr/share/openmediavault/locale/openmedia
 source_lang = en
 type = PO
 
+[o:openmediavault:p:openmediavault:r:openmediavault-wbprefs]
+file_filter = openmediavault-wbprefs/usr/share/openmediavault/locale/<lang>/openmediavault-wbprefs.po
+source_file = openmediavault-wbprefs/usr/share/openmediavault/locale/openmediavault-wbprefs.pot
+source_lang = en
+type = PO
+
 [o:openmediavault:p:openmediavault:r:openmediavault-wetty]
 file_filter = openmediavault-wetty/usr/share/openmediavault/locale/<lang>/openmediavault-wetty.po
 source_file = openmediavault-wetty/usr/share/openmediavault/locale/openmediavault-wetty.pot

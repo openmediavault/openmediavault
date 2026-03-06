@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.workbench.wallpaper"
+  position: 20
+  text: _("Wallpaper")
+  icon: mdi:wallpaper
+  url: "/system/workbench/wallpaper"

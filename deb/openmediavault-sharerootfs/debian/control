@@ -1,6 +1,6 @@
 Source: openmediavault-sharerootfs
 Section: admin
-XB-Plugin-Section: admin
+XB-Plugin-Section: administration
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>= 12), gettext

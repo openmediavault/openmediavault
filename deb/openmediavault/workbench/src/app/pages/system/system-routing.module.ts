@@ -26,7 +26,7 @@ import { UpdateChangelogTextPageComponent } from '~/app/pages/system/updates/upd
 import { UpdateDatatablePageComponent } from '~/app/pages/system/updates/update-datatable-page.component';
 import { UpdateSettingsSoftwareFormPageComponent } from '~/app/pages/system/updates/update-settings-software-form-page.component';
 import { UpdateSettingsUpdatesFormPageComponent } from '~/app/pages/system/updates/update-settings-updates-form-page.component';
-import { WorkbenchFormPageComponent } from '~/app/pages/system/workbench/workbench-form-page.component';
+import { WorkbenchSettingsFormPageComponent } from '~/app/pages/system/workbench/workbench-settings-form-page.component';
 import { IsDirtyGuardService } from '~/app/shared/services/is-dirty-guard.service';
 
 const routes: Routes = [
@@ -36,13 +36,25 @@ const routes: Routes = [
   },
   {
     path: 'workbench',
-    component: WorkbenchFormPageComponent,
-    canDeactivate: [IsDirtyGuardService],
     data: {
-      title: gettext('Workbench'),
-      notificationTitle: gettext('Updated workbench settings.'),
-      editing: true
-    }
+      title: gettext('Workbench')
+    },
+    children: [
+      {
+        path: '',
+        component: NavigationPageComponent
+      },
+      {
+        path: 'settings',
+        component: WorkbenchSettingsFormPageComponent,
+        canDeactivate: [IsDirtyGuardService],
+        data: {
+          title: gettext('Settings'),
+          notificationTitle: gettext('Updated workbench settings.'),
+          editing: true
+        }
+      }
+    ]
   },
   {
     path: 'certificate',

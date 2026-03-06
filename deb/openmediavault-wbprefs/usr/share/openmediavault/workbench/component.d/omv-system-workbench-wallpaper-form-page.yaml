@@ -1,0 +1,43 @@
+version: "1.0"
+type: component
+data:
+  name: omv-system-workbench-wallpaper-form-page
+  type: formPage
+  config:
+    request:
+      service: WbPrefs
+      post:
+        method: setWallpaper
+    fields:
+      - type: select
+        name: page
+        label: _("Page")
+        hint: _("The page for which the wallpaper is to be set.")
+        store:
+          data:
+            - - "login"
+              - _("Login")
+            - - "shutdown"
+              - _("Shutdown")
+            - - "standby"
+              - _("Standby")
+        validators:
+          required: true
+        value: "login"
+      - type: textInput
+        name: url
+        label: _("URL")
+        hint: _("The URL from which the image is to be fetched.")
+        validators:
+          required: true,
+          pattern: {
+            pattern: "^https?://.*$",
+            errorData: _("The URL must start with http:// or https://.")
+          }
+        value: ""
+    buttons:
+      - template: submit
+      - template: cancel
+        execute:
+          type: url
+          url: "/system/workbench/wallpaper"

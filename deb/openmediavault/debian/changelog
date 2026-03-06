@@ -1,6 +1,7 @@
 openmediavault (8.1.2-1) stable; urgency=medium
 
   * Adapt nginx configuration to new http2 directive.
+  * Relocate `System | Workbench` page to `System | Workbench | Settings`.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 05 Mar 2026 06:38:50 +0100
 
