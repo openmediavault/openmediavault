@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 20:27+0100\n"
+"POT-Creation-Date: 2026-03-07 13:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2026\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -491,7 +491,7 @@ msgid "Back"
 msgstr "Πίσω"
 
 msgid "Background image"
-msgstr ""
+msgstr "Εικόνα Φόντου"
 
 msgid "Background task"
 msgstr "Εργασία παρασκηνίου"
@@ -602,7 +602,7 @@ msgid "CPU Utilization"
 msgstr "Χρήση CPU"
 
 msgid "CPU frequency scaling"
-msgstr ""
+msgstr "Αυξομείωση συχνότητας CPU"
 
 msgid "Cambodia"
 msgstr "Cambodia"
@@ -1158,7 +1158,7 @@ msgid ""
 "critical.</li><li>performance - Keeps the CPU running at maximum frequency "
 "at all times. Use this when you need consistent peak performance and power "
 "consumption is not a concern.</li></ul>"
-msgstr ""
+msgstr "Ενεργοποίηση της αυξομείωσης της συχνότητας της CPU, ώστε να επιτρέπεται η δυναμική προσαρμογή των επιδόσεων της CPU σύμφωνα με το φόρτο του συστήματος. Ο ρυθμιστής της συχνότητας της CPU καθορίζει το πως προσαρμόζεται η συχνότητα της CPU.<ul><li>schedutil - Εξισορροπεί τις επιδόσεις με την αποδοτικότητα, προσαρμόζοντας την συχνότητα της CPU σύμφωνα με την χρησιμοποίηση του οργανωτή. Συνίσταται στις περισσότερες περιπτώσεις, καθώς παρέχει καλές επιδόσεις, ενώ εξοικονομεί ενέργεια όταν το σύστημα είναι αδρανές..</li><li>powersave - Κρατάει την CPU μονίμως στην χαμηλότερη συχνότητα, για μεγιστοποίηση της εξοικονόμησης ενέργειας όταν οι επιδόσεις είναι αδιάφορες.</li><li>performance - Κρατάει την CPU μονίμως στην ύψιστη συχνότητα, για μεγιστοποίηση των επιδόσεων όταν η κατανάλωση ενέργειας είναι αδιάφορη.</li></ul>"
 
 msgid "Enable NetBIOS"
 msgstr "Ενεργοποίηση NetBIOS"
@@ -1868,6 +1868,9 @@ msgstr "Σύνδεση"
 msgid "Log level"
 msgstr "Επίπεδο καταγραφής"
 
+msgid "Log out"
+msgstr ""
+
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr "Συνδεδεμένος ως <strong>{{ username }}</strong>"
 
@@ -1929,7 +1932,7 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Management of CPU frequency scaling."
-msgstr ""
+msgstr "Διαχείριση της αυξομείωσης της συχνότητας της CPU,"
 
 msgid "Management of scheduled tasks."
 msgstr "Διαχείριση προγραμματισμένων εργασιών."
@@ -3324,7 +3327,7 @@ msgid "Thailand"
 msgstr "Thailand"
 
 msgid "The HTTP and HTTPS ports must not be the same."
-msgstr ""
+msgstr "Οι θύρες για HTTP και HTTPS δεν πρέπει να ταυτίζονται."
 
 msgid "The NFS versions provided by the service."
 msgstr "Οι εκδόσεις του NFS που παρέχονται από την υπηρεσία."
@@ -3473,9 +3476,9 @@ msgid "The public key in OpenSSH format."
 msgstr "Το δημόσιο κλειδί σε μορφή OpenSSH."
 
 msgid ""
-"The relative path of the folder to share. The specified folder will be "
-"created if it does not exist."
-msgstr "Η σχετική διαδρομή του φακέλου προς διαμοιρασμό. Ο φάκελος θα δημιουργηθεί αν δεν υπάρχει."
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr "Η σχετική διαδρομή του φακέλου προς διαμοιρασμό. Με \"/\" θα διαμοιρασθεί ο ριζικός φάκελος του συστήματος αρχείων. Ο φάκελος που ορίζεται θα δημιουργηθεί αν δεν υπάρχει."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -4222,6 +4225,9 @@ msgstr "Έχουν γίνει κάποιες αλλαγές που δεν έχο
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "Αυτές οι αλλαγές πρέπει να εφαρμοστούν προκειμένου να ισχύσουν."
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr "Αποσύνδεση λόγω αδράνειας σε {{ n }} δευτερόλεπτα."
 
 msgid "Your profile"
 msgstr "Προφίλ"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 20:27+0100\n"
+"POT-Creation-Date: 2026-03-07 13:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Marek Pavelka, 2024-2025\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -1870,6 +1870,9 @@ msgstr "Přihlásit se"
 msgid "Log level"
 msgstr "Úroveň protokolování"
 
+msgid "Log out"
+msgstr ""
+
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr ""
 
@@ -3475,9 +3478,9 @@ msgid "The public key in OpenSSH format."
 msgstr "Veřejný klíč ve formátu OpenSSH."
 
 msgid ""
-"The relative path of the folder to share. The specified folder will be "
-"created if it does not exist."
-msgstr "Relativní cesta ke sdílené složce. Pokud zadaná složka neexistuje, bude vytvořena."
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -4224,6 +4227,9 @@ msgstr "Provedli jste změny, které ještě nebyly uloženy. Chcete je zahodit?
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "Aby se tyto změny projevily, je nutné je použít."
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr ""
 
 msgid "Your profile"
 msgstr "Váš profil"

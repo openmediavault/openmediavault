@@ -5,19 +5,21 @@
 # Translators:
 # Herald Yu <yuhr123@gmail.com>, 2018-2019
 # LeeYang <150183966@qq.com>, 2021
-# irrelevant91, 2025
+# irrelevant91, 2025-2026
 # songming <by@songming.me>, 2013-2024
 # Volker Theile <votdev@gmx.de>, 2022,2025
 # Wei Ding <dyw.net@gmail.com>, 2014-2015
 # LeeYang <150183966@qq.com>, 2021
+# 杨宇哲, 2026
+# 杨宇哲, 2026
 # 王大山, 2022-2023
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 20:27+0100\n"
+"POT-Creation-Date: 2026-03-07 13:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: irrelevant91, 2025\n"
+"Last-Translator: 杨宇哲, 2026\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,7 +61,7 @@ msgid "%s [on %s, %s]"
 msgstr "%s [on %s, %s]"
 
 msgid "%s [on N/A, %s]"
-msgstr "%s [位於無適用, %s]"
+msgstr "%s [位于不适用, %s]"
 
 msgid "%s ago"
 msgstr "%s以前"
@@ -498,7 +500,7 @@ msgid "Back"
 msgstr "返回"
 
 msgid "Background image"
-msgstr "背景圖片"
+msgstr "背景图片"
 
 msgid "Background task"
 msgstr "后台任务"
@@ -609,7 +611,7 @@ msgid "CPU Utilization"
 msgstr "CPU 使用率"
 
 msgid "CPU frequency scaling"
-msgstr "CPU 頻率調節"
+msgstr "CPU 频率调节"
 
 msgid "Cambodia"
 msgstr "柬埔寨"
@@ -852,7 +854,7 @@ msgid "Created wireless network connection."
 msgstr "已建无线网络连接。"
 
 msgid "Creating"
-msgstr "建立"
+msgstr "创建中"
 
 msgid "Creation Time"
 msgstr "创建时间"
@@ -891,7 +893,7 @@ msgid "Dashboard"
 msgstr "仪表盘"
 
 msgid "Database record not found."
-msgstr "資料庫記錄不存在。"
+msgstr "未找到数据库记录。"
 
 msgid "Date & Time"
 msgstr "日期和时间"
@@ -981,7 +983,7 @@ msgid "Direction"
 msgstr "方向"
 
 msgid "Directory does not exist."
-msgstr "目錄並不存在。"
+msgstr "目录不存在。"
 
 msgid "Disabled"
 msgstr "禁用"
@@ -1165,7 +1167,7 @@ msgid ""
 "critical.</li><li>performance - Keeps the CPU running at maximum frequency "
 "at all times. Use this when you need consistent peak performance and power "
 "consumption is not a concern.</li></ul>"
-msgstr "啟用 CPU 頻率調節監控功能，可依據系統負載動態調整 CPU 效能。CPU 頻率調度機制將決定 CPU 頻率的調整方式。<ul><li>schedutil - 透過根據排程器使用率調整 CPU 頻率，在效能與電力效率間取得平衡。推薦給多數使用者，因其在系統閒置時能提供良好效能並節省能源。</li><li>powersave - 讓 CPU 一律以最低頻率運作，以實現最大節能效果。當電力消耗是首要考量且效能並非關鍵時，請使用此模式。</li><li>performance - 讓 CPU 一律以最高頻率運作。當您需要穩定的峰值效能且不需顧慮功耗時，請選用此模式。</li></ul>"
+msgstr "启用 CPU 频率调节监控功能，以允许根据系统负载动态调节 CPU 性能。CPU 频率调节器将决定 CPU 频率的调节方式。<ul><li>schedutil - 根据调度器使用率调节 CPU 频率，以平衡性能与功耗。大多数使用者的推荐设置，因其提供良好的性能并在系统闲置时节省能源。</li><li>powersave - 使 CPU 始终以最低频率工作，以最大化节省能源。当功耗是首要考虑因素且性能不关键时，请使用此模式。</li><li>performance - 使 CPU 始终以最高频率工作。当您需要持续的峰值性能且不需考虑功耗时，请使用此模式。</li></ul>"
 
 msgid "Enable NetBIOS"
 msgstr "启用 NetBIOS"
@@ -1326,13 +1328,13 @@ msgid ""
 msgstr "大于设置大小的文件不会放到回收站。"
 
 msgid "Filesystem is being created."
-msgstr "正在建立檔案系統中。"
+msgstr "正在创建文件系统。"
 
 msgid "Filesystem is detected."
-msgstr "檔案系統已被删除。"
+msgstr "检测到文件系统。"
 
 msgid "Filesystem is missing."
-msgstr "檔案系統不存在。"
+msgstr "文件系统不存在。"
 
 msgid "Fingerprint (SHA-1)"
 msgstr "指纹 (SHA-1)"
@@ -1840,7 +1842,7 @@ msgstr "限制每月"
 msgid ""
 "Limit the reported disk size, thus preventing Time Machine from using the "
 "whole real disk space for backup."
-msgstr "限制回報的磁碟容量，從而防止 Time Machine 使用整個實際磁碟空間進行備份。"
+msgstr "限制报告的磁盘容量，从而防止 Time Machine 使用整个实际磁盘空间进行备份。"
 
 msgid "Limit weekly"
 msgstr "限制每周"
@@ -1874,6 +1876,9 @@ msgstr "登录"
 
 msgid "Log level"
 msgstr "日志级别"
+
+msgid "Log out"
+msgstr ""
 
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr "登录为<strong>{{ username }}</strong>"
@@ -1936,7 +1941,7 @@ msgid "Malta"
 msgstr "马耳他"
 
 msgid "Management of CPU frequency scaling."
-msgstr "CPU 頻率調節管理。"
+msgstr "CPU 频率调节管理。"
 
 msgid "Management of scheduled tasks."
 msgstr "管理计划任务。"
@@ -1976,7 +1981,7 @@ msgid "Maximum"
 msgstr "最大"
 
 msgid "Maximum disk size"
-msgstr "最大磁碟空間"
+msgstr "最大磁盘空间"
 
 msgid "Maximum file size"
 msgstr "文件大小限制"
@@ -2126,7 +2131,7 @@ msgid "Myanmar"
 msgstr "缅甸"
 
 msgid "N/A"
-msgstr "無適用"
+msgstr "不适用"
 
 msgid "NFS"
 msgstr "NFS"
@@ -2246,7 +2251,7 @@ msgid "Not UDP"
 msgstr "非 UDP"
 
 msgid "Not a directory."
-msgstr "並非目錄。"
+msgstr "非目录。"
 
 msgid "Not mounted"
 msgstr "未被挂载"
@@ -3331,7 +3336,7 @@ msgid "Thailand"
 msgstr "泰国"
 
 msgid "The HTTP and HTTPS ports must not be the same."
-msgstr "HTTP 與 HTTPS 的通訊埠必須不相同。"
+msgstr "HTTP 与 HTTPS 端口必须不相同。"
 
 msgid "The NFS versions provided by the service."
 msgstr "NFS 服务版本。"
@@ -3480,9 +3485,9 @@ msgid "The public key in OpenSSH format."
 msgstr "OpenSSH 格式的公钥。"
 
 msgid ""
-"The relative path of the folder to share. The specified folder will be "
-"created if it does not exist."
-msgstr "欲共享文件夹的相对路径，如该文件夹不存在则新建。"
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr "要共享的文件夹的相对路径。使用 '/' 来共享对应文件系统的根目录。如果指定的文件夹不存在则将被新建。"
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3585,7 +3590,7 @@ msgid "This field must have the format <hh:mm:ss>."
 msgstr "此字段的格式必须为 <hh:mm:ss>"
 
 msgid "This field must match the format SIZE[K|M|G|T|P]."
-msgstr "此欄位必須符合 SIZE[K|M|G|T|P] 格式。"
+msgstr "此字段必须符合 SIZE[K|M|G|T|P] 格式。"
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "此字段应该是 CIDR 格式的 IP 地址。"
@@ -3832,7 +3837,7 @@ msgid "Ukraine"
 msgstr "乌克兰"
 
 msgid "Unavailable"
-msgstr "無可用"
+msgstr "不可用"
 
 msgid "Undo"
 msgstr "撤销"
@@ -4229,6 +4234,9 @@ msgstr "您所更改的配置还未保存。您想放弃更改吗？"
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "您必须应用配置变更才会使他们生效。"
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr "由于长时间未操作，您将在 {{ n }} 秒后自动退出登录。"
 
 msgid "Your profile"
 msgstr "你的介绍"

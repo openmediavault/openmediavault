@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 20:27+0100\n"
+"POT-Creation-Date: 2026-03-07 13:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2026\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -497,7 +497,7 @@ msgid "Back"
 msgstr "Vissza"
 
 msgid "Background image"
-msgstr ""
+msgstr "Háttérkép"
 
 msgid "Background task"
 msgstr "Háttérfeladat"
@@ -599,16 +599,16 @@ msgid "COMMAND"
 msgstr "PARANCS"
 
 msgid "CPU"
-msgstr "CPU"
+msgstr "PROC"
 
 msgid "CPU Usage"
-msgstr "CPU használat"
+msgstr "Processzor használat"
 
 msgid "CPU Utilization"
-msgstr "CPU-kihasználtság"
+msgstr "Processzor kihasználtság"
 
 msgid "CPU frequency scaling"
-msgstr ""
+msgstr "Processzor frekvencia skálázása"
 
 msgid "Cambodia"
 msgstr "Kambodzsa"
@@ -851,7 +851,7 @@ msgid "Created wireless network connection."
 msgstr "Vezeték nélküli hálózati kapcsolat létrehozva."
 
 msgid "Creating"
-msgstr ""
+msgstr "Létrehozás"
 
 msgid "Creation Time"
 msgstr "Létrehozás ideje"
@@ -890,7 +890,7 @@ msgid "Dashboard"
 msgstr "Műszerfal"
 
 msgid "Database record not found."
-msgstr ""
+msgstr "Adatbázis rekordja nem található."
 
 msgid "Date & Time"
 msgstr "Dátum és idő"
@@ -980,7 +980,7 @@ msgid "Direction"
 msgstr "Utasítás"
 
 msgid "Directory does not exist."
-msgstr ""
+msgstr "Könyvtár nem létezik."
 
 msgid "Disabled"
 msgstr "Letiltva"
@@ -1164,7 +1164,7 @@ msgid ""
 "critical.</li><li>performance - Keeps the CPU running at maximum frequency "
 "at all times. Use this when you need consistent peak performance and power "
 "consumption is not a concern.</li></ul>"
-msgstr ""
+msgstr "Engedélyezi a processzor frekvencia skálázás figyelését, hogy a rendszer terhelése alapján dinamikusan állíthassa a processzor teljesítményét. A processzor frekvencia szabályozó határozza meg, hogyan állítható a processzor frekvencia. <ul><li>schedutil - A teljesítmény és az energiahatékonyság közötti egyensúlyt biztosítja azáltal, hogy a processzor frekvenciát az ütemező kihasználtsága alapján állítja be. A legtöbb felhasználó számára ajánlott, mivel jó teljesítményt nyújt, miközben energiát takarít meg, amikor a rendszer nem használatban van.</li><li>powersave - A processzort mindig minimális frekvencián tartja, hogy maximalizálja az energiamegtakarítást. Használja ezt, ha az energiafogyasztás az elsődleges szempont, és a teljesítmény nem kritikus.</li><li>performance - A processzort mindig maximális frekvencián tartja. Használja ezt, ha állandó csúcsteljesítményre van szüksége, és az energiafogyasztás nem jelent problémát.</li></ul>"
 
 msgid "Enable NetBIOS"
 msgstr "NetBIOS engedélyezése"
@@ -1325,13 +1325,13 @@ msgid ""
 msgstr "A megadott bájtméretnél nagyobb fájlok nem helyezhetőek át a lomtárba."
 
 msgid "Filesystem is being created."
-msgstr ""
+msgstr "Fájlrendszer létrehozása folyamatban."
 
 msgid "Filesystem is detected."
-msgstr ""
+msgstr "Fájlrendszer felismerve."
 
 msgid "Filesystem is missing."
-msgstr ""
+msgstr "Fájlrendszer hiányzik"
 
 msgid "Fingerprint (SHA-1)"
 msgstr "Ujjlenyomat (SHA-1)"
@@ -1874,6 +1874,9 @@ msgstr "Belépés"
 msgid "Log level"
 msgstr "Naplózási szint"
 
+msgid "Log out"
+msgstr ""
+
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr "Bejelentkezve <strong>{{ username }}</strong> felhasználóval"
 
@@ -1935,7 +1938,7 @@ msgid "Malta"
 msgstr "Málta"
 
 msgid "Management of CPU frequency scaling."
-msgstr ""
+msgstr "Processzor frekvencia skálázásának kezelése."
 
 msgid "Management of scheduled tasks."
 msgstr "Ütemezett feladatok kezelése."
@@ -2074,7 +2077,7 @@ msgid "Monitoring"
 msgstr "Megfigyelés"
 
 msgid "Monitoring - CPU usage"
-msgstr "Felügyelet – CPU-használat"
+msgstr "Felügyelet – processzor használat"
 
 msgid "Monitoring - File systems"
 msgstr "Felügyelet – Fájlrendszerek"
@@ -2245,7 +2248,7 @@ msgid "Not UDP"
 msgstr "Nem UDP"
 
 msgid "Not a directory."
-msgstr ""
+msgstr "Nem könyvtár."
 
 msgid "Not mounted"
 msgstr "Nincs csatlakoztatva"
@@ -3330,7 +3333,7 @@ msgid "Thailand"
 msgstr "Thaiföld"
 
 msgid "The HTTP and HTTPS ports must not be the same."
-msgstr ""
+msgstr "A HTTP és HTTPS portok nem lehetnek azonosak."
 
 msgid "The NFS versions provided by the service."
 msgstr "A szolgálatatás által biztosított NFS verziók."
@@ -3479,9 +3482,9 @@ msgid "The public key in OpenSSH format."
 msgstr "A nyilvános kulcs OpenSSH formátumban."
 
 msgid ""
-"The relative path of the folder to share. The specified folder will be "
-"created if it does not exist."
-msgstr "A megosztandó mappa relatív útvonala. A megadott mappa létrejön, ha még nem létezik."
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr "A megosztandó mappa relatív útvonala.  A „/” karakterrel a fájlrendszer gyökérkönyvtára osztható meg. A megadott mappa létrejön, ha még nem létezik."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -4050,7 +4053,7 @@ msgid ""
 "Samba to be faster. Samba automatically turns this off for clients that use "
 "protocol levels lower than NT LM 0.12 and when it detects a client is "
 "Windows 9x."
-msgstr "A kizárólag zárolt fájlokhoz használja a hatékonyabb sendfile rendszerhívást. Ezzel hatékonyabban használja a rendszer CPU-t és a Samba gyorsabb lesz. A Samba automatikusan kikapcsolja ezt a klienseken, ha azoknak alacsonyabb a szintjük, mint az NT LM 0.12 vagy mikor Windows 9x klienst érzékel."
+msgstr "A kizárólag zárolt fájlokhoz használja a hatékonyabb sendfile rendszerhívást. Ezzel hatékonyabban használja a rendszer processzort és a Samba gyorsabb lesz. A Samba automatikusan kikapcsolja ezt a klienseken, ha azoknak alacsonyabb a szintjük, mint az NT LM 0.12 vagy mikor Windows 9x klienst érzékel."
 
 msgid "Use the specified WINS server."
 msgstr "A megadott WINS szerver használata."
@@ -4228,6 +4231,9 @@ msgstr "Olyan módosításokat hajtott végre, amelyeket még nem mentett el. El
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "Alkalmazni kell a változtatásokat, hogy érvénybe léphessenek."
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr "Inaktivitás miatt munkamenete lejár {{ n }} másodperc múlva."
 
 msgid "Your profile"
 msgstr "Az ön profilja"

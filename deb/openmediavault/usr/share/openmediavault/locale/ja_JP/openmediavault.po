@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 20:27+0100\n"
+"POT-Creation-Date: 2026-03-07 13:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024,2026\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -1868,6 +1868,9 @@ msgstr "ログイン"
 msgid "Log level"
 msgstr "ログレベル"
 
+msgid "Log out"
+msgstr ""
+
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr ""
 
@@ -3473,9 +3476,9 @@ msgid "The public key in OpenSSH format."
 msgstr ""
 
 msgid ""
-"The relative path of the folder to share. The specified folder will be "
-"created if it does not exist."
-msgstr "共有するフォルダーの相対パス。指定したフォルダが存在しない場合は作成されます。"
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -4222,6 +4225,9 @@ msgstr "変更は保存されていません。変更内容を破棄しますか
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "これらの変更を有効にするためには、適用する必要があります。"
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr ""
 
 msgid "Your profile"
 msgstr "あなたのプロファイル"

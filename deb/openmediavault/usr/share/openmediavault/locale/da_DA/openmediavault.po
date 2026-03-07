@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 20:27+0100\n"
+"POT-Creation-Date: 2026-03-07 13:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2023,2025-2026\n"
 "Language-Team: Danish (http://app.transifex.com/openmediavault/openmediavault/language/da/)\n"
@@ -1868,6 +1868,9 @@ msgstr "Log ind"
 msgid "Log level"
 msgstr "Log niveau"
 
+msgid "Log out"
+msgstr ""
+
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr ""
 
@@ -3473,9 +3476,9 @@ msgid "The public key in OpenSSH format."
 msgstr "Den offentlige nøgle i OpenSSH format. "
 
 msgid ""
-"The relative path of the folder to share. The specified folder will be "
-"created if it does not exist."
-msgstr "Stien til mappen, der skal deles. Den angivne mappe vil blive oprettet, hvis den ikke findes."
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -4221,6 +4224,9 @@ msgid ""
 msgstr ""
 
 msgid "You must apply these changes in order for them to take effect."
+msgstr ""
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
 msgstr ""
 
 msgid "Your profile"

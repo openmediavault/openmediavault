@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 20:27+0100\n"
+"POT-Creation-Date: 2026-03-07 13:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025-2026\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -1166,7 +1166,7 @@ msgid ""
 "critical.</li><li>performance - Keeps the CPU running at maximum frequency "
 "at all times. Use this when you need consistent peak performance and power "
 "consumption is not a concern.</li></ul>"
-msgstr ""
+msgstr "Abilita il monitoraggio della regolazione della frequenza della CPU, per consentire l'adattamento dinamico delle prestazioni della CPU, in base al carico di sistema. Il governor della frequenza della CPU determina come viene regolata la frequenza della CPU.<ul><li>schedutil - Bilancia prestazioni ed efficienza energetica, regolando la frequenza della CPU in base all'utilizzo dello scheduler. Consigliato per la maggior parte degli utenti, poiché offre buone prestazioni riducendo il consumo energetico quando il sistema è inattivo.</li><li>powersave - Mantiene la CPU sempre alla frequenza minima, per massimizzare il risparmio energetico. Utilizzare questa modalità quando il consumo energetico è la priorità principale e le prestazioni non sono critiche.</li><li>performance - Mantiene la CPU sempre alla frequenza massima. Utilizzare questa modalità quando sono necessarie prestazioni massime costanti e il consumo energetico non è un problema.</li></ul>"
 
 msgid "Enable NetBIOS"
 msgstr "Abilita NetBIOS"
@@ -1876,11 +1876,14 @@ msgstr "Accedi"
 msgid "Log level"
 msgstr "Livello di log"
 
+msgid "Log out"
+msgstr ""
+
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr "Connesso come <strong>{{ username }}</strong>"
 
 msgid "Logout"
-msgstr "Disconnettiti"
+msgstr "Disconnetti"
 
 msgid "Logs"
 msgstr "Log"
@@ -3481,9 +3484,9 @@ msgid "The public key in OpenSSH format."
 msgstr "La chiave pubblica nel formato OpenSSH."
 
 msgid ""
-"The relative path of the folder to share. The specified folder will be "
-"created if it does not exist."
-msgstr "Il percorso relativo della cartella da condividere. La cartella specificata verrà creata se non esiste."
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr "Il percorso relativo della cartella da condividere. Usa '/' per condividere la root del file system. La cartella specificata verrà creata se non esiste."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -4230,6 +4233,9 @@ msgstr "Hai apportato modifiche che non sono ancora state salvate. Vuoi annullar
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "È necessario applicare queste modifiche affinché abbiano effetto."
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr "La sessione verrà chiusa per inattività tra {{ n }} secondi."
 
 msgid "Your profile"
 msgstr "Il tuo profilo"

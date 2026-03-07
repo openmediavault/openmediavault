@@ -3,18 +3,18 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Daniel, 2025-2026
+# Karl Jonatan Nyberg, 2025-2026
 # d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2012
-# Daniel, 2021-2025
-# Daniel, 2018-2021
+# Karl Jonatan Nyberg, 2021-2025
+# Karl Jonatan Nyberg, 2018-2021
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 20:27+0100\n"
+"POT-Creation-Date: 2026-03-07 13:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Daniel, 2025-2026\n"
+"Last-Translator: Karl Jonatan Nyberg, 2025-2026\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1872,6 +1872,9 @@ msgstr "Logga in"
 msgid "Log level"
 msgstr "Loggnivå"
 
+msgid "Log out"
+msgstr ""
+
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr "Inloggad som <strong>{{ username }}</strong>"
 
@@ -3477,9 +3480,9 @@ msgid "The public key in OpenSSH format."
 msgstr "Den publika nyckeln i OpenSSH-format."
 
 msgid ""
-"The relative path of the folder to share. The specified folder will be "
-"created if it does not exist."
-msgstr "Den relativa sökvägen till mappen som ska delas. Den angivna mappen skapas om den inte finns."
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -4226,6 +4229,9 @@ msgstr "Du har gjort ändringar som ännu inte har sparats. Vill du kassera dem?
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "Du måste verkställa dessa ändringar för att de ska träda i kraft."
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr ""
 
 msgid "Your profile"
 msgstr "Din profil"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 20:27+0100\n"
+"POT-Creation-Date: 2026-03-07 13:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2024\n"
 "Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -1873,6 +1873,9 @@ msgstr "Log in"
 msgid "Log level"
 msgstr "Nivel de Log"
 
+msgid "Log out"
+msgstr ""
+
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr ""
 
@@ -3478,9 +3481,9 @@ msgid "The public key in OpenSSH format."
 msgstr "La clave publica en formato OpenSSH."
 
 msgid ""
-"The relative path of the folder to share. The specified folder will be "
-"created if it does not exist."
-msgstr "La ruta relativa de la carpeta para compartir. La carpeta especificada se creará si no existe."
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -4227,6 +4230,9 @@ msgstr "Ha realizado cambios que aún no se han guardado. ¿Quieres descartarlos
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "Debe aplicar estos cambios para que surtan efecto."
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr ""
 
 msgid "Your profile"
 msgstr "Tu perfil"

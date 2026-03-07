@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 20:27+0100\n"
+"POT-Creation-Date: 2026-03-07 13:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021-2026\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -1870,6 +1870,9 @@ msgstr "登入"
 msgid "Log level"
 msgstr "日誌層級"
 
+msgid "Log out"
+msgstr ""
+
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr "登入為<strong>{{ username }}</strong>"
 
@@ -3475,9 +3478,9 @@ msgid "The public key in OpenSSH format."
 msgstr "OpenSSH 格式的公開金鑰。"
 
 msgid ""
-"The relative path of the folder to share. The specified folder will be "
-"created if it does not exist."
-msgstr "所要分享之檔案夾的相對路徑。被指定的檔案夾若不是已經存在則將被新建。"
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr "要共享的文件夹的相对路径。使用'/'来共享对应文件系统的根目录。如果指定的文件夹不存在则将被新建。"
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -4224,6 +4227,9 @@ msgstr "您所做的變更尚未被儲存。您想放棄它們嗎？"
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "您必須套用那些變更，才會使它們生效。"
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr "由於您已閒置 {{ n }} 秒，系統即將自動登出。"
 
 msgid "Your profile"
 msgstr "您的概廓"

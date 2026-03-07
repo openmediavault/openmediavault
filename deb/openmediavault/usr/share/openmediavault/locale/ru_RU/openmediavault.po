@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 20:27+0100\n"
+"POT-Creation-Date: 2026-03-07 13:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Никита Геннадьевич <ex-er-sis@ya.ru>, 2023\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -1882,6 +1882,9 @@ msgstr "Войти"
 msgid "Log level"
 msgstr "Уровень журналирования"
 
+msgid "Log out"
+msgstr ""
+
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr ""
 
@@ -3487,9 +3490,9 @@ msgid "The public key in OpenSSH format."
 msgstr ""
 
 msgid ""
-"The relative path of the folder to share. The specified folder will be "
-"created if it does not exist."
-msgstr "Относительный путь общей папки. Соответствующая папка будет создана автоматически, если она не существует."
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -4236,6 +4239,9 @@ msgstr "Вы внесли изменения, которые еще не был�
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "Вы должны применить эти изменения, чтобы они вступили в силу."
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr ""
 
 msgid "Your profile"
 msgstr "Ваш профиль"

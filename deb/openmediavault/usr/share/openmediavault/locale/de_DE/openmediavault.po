@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 20:27+0100\n"
+"POT-Creation-Date: 2026-03-07 13:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2026\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -1881,6 +1881,9 @@ msgstr "Anmelden"
 msgid "Log level"
 msgstr "Log Level"
 
+msgid "Log out"
+msgstr "Abmelden"
+
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr "Angemeldet als <strong>{{ username }}</strong>"
 
@@ -3486,9 +3489,9 @@ msgid "The public key in OpenSSH format."
 msgstr "Der öffentliche Schlüssel im OpenSSH-Format."
 
 msgid ""
-"The relative path of the folder to share. The specified folder will be "
-"created if it does not exist."
-msgstr "Der relative Pfad des freizugebenden Ordners. Falls der angegebene Ordner nicht existiert wird er angelegt."
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr "Der relative Pfad des freizugebenden Ordners. Verwenden Sie '/', um das Stammverzeichnis des Dateisystems freizugeben. Der angegebene Ordner wird erstellt, falls er noch nicht vorhanden ist."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -4235,6 +4238,9 @@ msgstr "Sie haben Änderungen vorgenommen, die noch nicht gespeichert wurden. M�
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "Sie müssen die Änderungen anwenden, damit diese wirksam werden."
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr "Sie werden aufgrund von Inaktivität in {{ n }} Sekunden abgemeldet."
 
 msgid "Your profile"
 msgstr "Dein Profil"

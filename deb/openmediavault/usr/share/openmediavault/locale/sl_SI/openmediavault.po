@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 20:27+0100\n"
+"POT-Creation-Date: 2026-03-07 13:33+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -1869,6 +1869,9 @@ msgstr "Prijava"
 msgid "Log level"
 msgstr "Nivo dnevniške datoteke"
 
+msgid "Log out"
+msgstr ""
+
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr ""
 
@@ -3474,9 +3477,9 @@ msgid "The public key in OpenSSH format."
 msgstr "Javni ključ v obliki OpenSSH."
 
 msgid ""
-"The relative path of the folder to share. The specified folder will be "
-"created if it does not exist."
-msgstr "Relativna pot do mape, ki jo želite dati v skupno rabo. Navedena mapa bo ustvarjena, če ne obstaja."
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -4223,6 +4226,9 @@ msgstr "Vnesli ste spremembe, ki še niso bile shranjene. Ali jih želite zavre�
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "Da bi te spremembe začele veljati, jih morate uveljaviti."
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr ""
 
 msgid "Your profile"
 msgstr "Vaš profil"
