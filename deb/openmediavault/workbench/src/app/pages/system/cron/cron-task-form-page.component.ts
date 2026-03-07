@@ -552,6 +552,7 @@ export class CronTaskFormPageComponent extends BaseFormPageComponent {
         name: 'command',
         label: gettext('Command'),
         value: '',
+        hasClearButton: true,
         validators: {
           required: true
         }
