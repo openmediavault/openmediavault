@@ -12,4 +12,5 @@ Architecture: all
 Depends: openmediavault (>= 8.1.2)
 Priority: optional
 Description: openmediavault Workbench preferences
- Additional preferences for the Workbench.
+ Additional settings for the Workbench, for example to customize
+ the wallpaper on the login screen.
