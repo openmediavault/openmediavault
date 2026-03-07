@@ -29,12 +29,32 @@ data:
         label: _("URL")
         hint: _("The URL from which the image is to be fetched.")
         validators:
-          required: true,
-          pattern: {
-            pattern: "^https?://.*$",
+          requiredIf:
+            operator: falsy
+            arg0:
+              prop: reset
+          pattern:
+            pattern: "^https?://.*$"
             errorData: _("The URL must start with http:// or https://.")
-          }
         value: ""
+        modifiers:
+          - type: disabled
+            constraint:
+              operator: truthy
+              arg0:
+                prop: reset
+          - type: value
+            typeConfig: ""
+            constraint:
+              operator: truthy
+              arg0:
+                prop: reset
+      - type: checkbox
+        name: reset
+        label: _("Reset")
+        value: false
+        submitValue: false
+        hint: _("Reset the wallpaper to the default image.")
     buttons:
       - template: submit
       - template: cancel

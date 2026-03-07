@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the openmediavault-wbprefs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Stephan Paternotte <stephan@paternottes.net>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wbprefs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-07 01:02+0100\n"
+"POT-Creation-Date: 2026-03-07 10:26+0100\n"
 "PO-Revision-Date: 2026-03-07 00:03+0000\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2026\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,31 +22,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Login"
-msgstr ""
+msgstr "Aanmelden"
 
 msgid "Page"
+msgstr "Pagina"
+
+msgid "Reset"
+msgstr ""
+
+msgid "Reset the wallpaper to the default image."
 msgstr ""
 
 msgid "Shutdown"
-msgstr ""
+msgstr "Uitschakelen"
 
 msgid "Standby"
-msgstr ""
+msgstr "Stand-by"
 
 msgid "The URL from which the image is to be fetched."
-msgstr ""
+msgstr "De URL waaruit de image moet worden opgehaald."
 
 msgid "The URL must start with http:// or https://."
-msgstr ""
+msgstr "De URL moet starten met http:// of https://."
 
 msgid "The page for which the wallpaper is to be set."
-msgstr ""
+msgstr "De pagina waarvoor de achtergrond moet worden ingesteld."
 
 msgid "The wallpaper has been updated."
-msgstr ""
+msgstr "De achtergrond is bijgewerkt."
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Wallpaper"
-msgstr ""
+msgstr "Achtergrond"

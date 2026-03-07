@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wbprefs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-07 01:02+0100\n"
+"POT-Creation-Date: 2026-03-07 10:26+0100\n"
 "PO-Revision-Date: 2026-03-07 00:03+0000\n"
 "Language-Team: Ukrainian (https://app.transifex.com/openmediavault/teams/14254/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,12 @@ msgid "Login"
 msgstr ""
 
 msgid "Page"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Reset the wallpaper to the default image."
 msgstr ""
 
 msgid "Shutdown"

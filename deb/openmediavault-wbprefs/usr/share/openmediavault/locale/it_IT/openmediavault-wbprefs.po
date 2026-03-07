@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the openmediavault-wbprefs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wbprefs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-07 01:02+0100\n"
+"POT-Creation-Date: 2026-03-07 10:26+0100\n"
 "PO-Revision-Date: 2026-03-07 00:03+0000\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2026\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,31 +22,37 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Login"
-msgstr ""
+msgstr "Accedi"
 
 msgid "Page"
+msgstr "Pagina"
+
+msgid "Reset"
+msgstr ""
+
+msgid "Reset the wallpaper to the default image."
 msgstr ""
 
 msgid "Shutdown"
-msgstr ""
+msgstr "Spegni"
 
 msgid "Standby"
-msgstr ""
+msgstr "Standby"
 
 msgid "The URL from which the image is to be fetched."
-msgstr ""
+msgstr "L’URL da cui recuperare l’immagine."
 
 msgid "The URL must start with http:// or https://."
-msgstr ""
+msgstr "L’URL deve iniziare con http:// oppure https://."
 
 msgid "The page for which the wallpaper is to be set."
-msgstr ""
+msgstr "La pagina su cui impostare lo sfondo."
 
 msgid "The wallpaper has been updated."
-msgstr ""
+msgstr "Lo sfondo è stato aggiornato."
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Wallpaper"
-msgstr ""
+msgstr "Sfondo"

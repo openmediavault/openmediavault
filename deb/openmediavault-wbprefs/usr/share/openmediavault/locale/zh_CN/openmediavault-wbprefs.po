@@ -3,13 +3,18 @@
 # This file is distributed under the same license as the openmediavault-wbprefs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# 王大山, 2026
+# irrelevant91, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wbprefs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-07 01:02+0100\n"
+"POT-Creation-Date: 2026-03-07 10:26+0100\n"
 "PO-Revision-Date: 2026-03-07 00:03+0000\n"
+"Last-Translator: irrelevant91, 2026\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,31 +23,37 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Login"
-msgstr ""
+msgstr "登录"
 
 msgid "Page"
+msgstr "页面"
+
+msgid "Reset"
+msgstr ""
+
+msgid "Reset the wallpaper to the default image."
 msgstr ""
 
 msgid "Shutdown"
-msgstr ""
+msgstr "关机"
 
 msgid "Standby"
-msgstr ""
+msgstr "待机"
 
 msgid "The URL from which the image is to be fetched."
-msgstr ""
+msgstr "镜像来源URL。"
 
 msgid "The URL must start with http:// or https://."
-msgstr ""
+msgstr "URL 必须以 http:// 或 https:// 开头。"
 
 msgid "The page for which the wallpaper is to be set."
-msgstr ""
+msgstr "要设置墙纸的页面。"
 
 msgid "The wallpaper has been updated."
-msgstr ""
+msgstr "墙纸已更新。"
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Wallpaper"
-msgstr ""
+msgstr "墙纸"
