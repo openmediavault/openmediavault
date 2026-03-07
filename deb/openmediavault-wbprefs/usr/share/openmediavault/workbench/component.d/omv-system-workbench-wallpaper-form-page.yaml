@@ -58,7 +58,4 @@ data:
         hint: _("Reset the wallpaper to the default image.")
     buttons:
       - template: submit
-      - template: cancel
-        execute:
-          type: url
-          url: "/system/workbench/wallpaper"
+        text: _("Apply")
