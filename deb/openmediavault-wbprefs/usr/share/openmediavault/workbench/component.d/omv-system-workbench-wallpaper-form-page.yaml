@@ -8,6 +8,11 @@ data:
       service: WbPrefs
       post:
         method: setWallpaper
+    hints:
+      - type: info
+        text: _("You may need to clear your browser's cache to see your changes.")
+        dismissible: true
+        stateId: b3028702-1a20-11f1-b062-52540059321a
     fields:
       - type: select
         name: page

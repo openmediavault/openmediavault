@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wbprefs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-07 10:26+0100\n"
+"POT-Creation-Date: 2026-03-07 13:28+0100\n"
 "PO-Revision-Date: 2026-03-07 00:03+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2026\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
@@ -21,6 +21,9 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
+msgid "Apply"
+msgstr "Applica"
+
 msgid "Login"
 msgstr "Accedi"
 
@@ -28,10 +31,10 @@ msgid "Page"
 msgstr "Pagina"
 
 msgid "Reset"
-msgstr ""
+msgstr "Ripristina"
 
 msgid "Reset the wallpaper to the default image."
-msgstr ""
+msgstr "Ripristina lo sfondo all’immagine predefinita."
 
 msgid "Shutdown"
 msgstr "Spegni"
@@ -56,3 +59,6 @@ msgstr "URL"
 
 msgid "Wallpaper"
 msgstr "Sfondo"
+
+msgid "You may need to clear your browser's cache to see your changes."
+msgstr ""

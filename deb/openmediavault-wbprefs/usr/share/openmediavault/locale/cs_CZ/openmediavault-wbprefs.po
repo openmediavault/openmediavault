@@ -3,19 +3,26 @@
 # This file is distributed under the same license as the openmediavault-wbprefs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Marek Pavelka, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wbprefs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-07 10:26+0100\n"
+"POT-Creation-Date: 2026-03-07 13:28+0100\n"
 "PO-Revision-Date: 2026-03-07 00:03+0000\n"
+"Last-Translator: Marek Pavelka, 2026\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+msgid "Apply"
+msgstr "Použít"
 
 msgid "Login"
 msgstr ""
@@ -51,4 +58,7 @@ msgid "URL"
 msgstr ""
 
 msgid "Wallpaper"
+msgstr ""
+
+msgid "You may need to clear your browser's cache to see your changes."
 msgstr ""
