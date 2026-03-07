@@ -21,7 +21,7 @@ omv-login-page {
   .background {
     content: url('^./assets/images/login.jpg');
     object-fit: cover;
-    mix-blend-mode: hard-light;
+    mix-blend-mode: luminosity;
   }
 
   omv-green-rain {
