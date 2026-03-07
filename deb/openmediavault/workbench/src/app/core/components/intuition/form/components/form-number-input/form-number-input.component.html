@@ -19,6 +19,7 @@
   <mat-icon *ngIf="config.hasCopyToClipboardButton"
             matSuffix
             matTooltip="{{ 'Copy to clipboard' | transloco }}"
+            [attr.aria-label]="'Copy to clipboard' | transloco"
             (click)="onCopyToClipboard()"
             svgIcon="{{ icon.copy }}">
   </mat-icon>

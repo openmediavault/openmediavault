@@ -63,6 +63,14 @@ export class FormTextInputComponent extends AbstractFormFieldComponent implement
     }
   }
 
+  onClear(): void {
+    if (this.abstractControl.value !== '') {
+      this.abstractControl.markAsDirty();
+      this.abstractControl.markAsTouched();
+      this.abstractControl.setValue('', { emitEvent: true });
+    }
+  }
+
   onCopyToClipboard(): void {
     this.clipboardService.copy(this.abstractControl.value);
   }

@@ -190,6 +190,7 @@ export class FormComponent implements AfterViewInit, OnInit {
             valueField: 'value',
             textField: 'text',
             suggestions: false,
+            hasClearButton: false,
             store: {
               data: []
             }

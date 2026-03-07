@@ -28,6 +28,7 @@ data:
         name: url
         label: _("URL")
         hint: _("The URL from which the image is to be fetched.")
+        hasClearButton: true
         validators:
           requiredIf:
             operator: falsy

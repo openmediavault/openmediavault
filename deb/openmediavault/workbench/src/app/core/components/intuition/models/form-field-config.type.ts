@@ -363,6 +363,9 @@ export type FormFieldConfig = {
   // Display a dropdown box with suggestions. This requires
   // the `store` property to be set. Defaults to `false`.
   suggestions?: boolean;
+  // Display a button that clears the field value when pressed.
+  // Defaults to `false`.
+  hasClearButton?: boolean;
 };
 
 export type FormFieldConstraintValidator = {
