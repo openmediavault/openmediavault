@@ -4,5 +4,5 @@ data:
   path: "system.workbench"
   position: 10
   text: _("Workbench")
-  icon: tune
+  icon: mdi:application-cog-outline
   url: "/system/workbench"

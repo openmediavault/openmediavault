@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-wbprefs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-wbprefs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-07 01:02+0100\n"
+"PO-Revision-Date: 2026-03-07 00:03+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
+"Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Login"
+msgstr "Anmelden"
+
+msgid "Page"
+msgstr "Seite"
+
+msgid "Shutdown"
+msgstr "Herunterfahren"
+
+msgid "Standby"
+msgstr "Bereitschaft"
+
+msgid "The URL from which the image is to be fetched."
+msgstr "Die URL, von der das Bild abgerufen werden soll."
+
+msgid "The URL must start with http:// or https://."
+msgstr "Die URL muss mit http:// oder https:// beginnen."
+
+msgid "The page for which the wallpaper is to be set."
+msgstr "Die Seite, für die das Hintergrundbild festgelegt werden soll."
+
+msgid "The wallpaper has been updated."
+msgstr "Das Hintergrundbild wurde aktualisiert."
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Wallpaper"
+msgstr "Hintergrundbild"

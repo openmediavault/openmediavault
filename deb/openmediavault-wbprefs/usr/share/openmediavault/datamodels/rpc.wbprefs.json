@@ -1,0 +1,17 @@
+[{
+	"type": "rpc",
+	"id": "rpc.wbprefs.setwallpaper",
+	"params": {
+		"type": "object",
+		"properties": {
+			"page": {
+				"type": "string",
+				"enum": ["login", "shutdown", "standby"]
+			},
+			"url":{
+				"type": "string",
+				"pattern": "^https?:\\/\\/.+$"
+			}
+		}
+	}
+}]

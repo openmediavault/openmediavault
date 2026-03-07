@@ -24,7 +24,7 @@ import { BaseFormPageComponent } from '~/app/pages/base-page-component';
 @Component({
   template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
 })
-export class WorkbenchFormPageComponent extends BaseFormPageComponent {
+export class WorkbenchSettingsFormPageComponent extends BaseFormPageComponent {
   public config: FormPageConfig = {
     request: {
       service: 'WebGui',

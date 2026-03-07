@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-wbprefs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-wbprefs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-07 01:02+0100\n"
+"PO-Revision-Date: 2026-03-07 00:03+0000\n"
+"Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Login"
+msgstr ""
+
+msgid "Page"
+msgstr ""
+
+msgid "Shutdown"
+msgstr ""
+
+msgid "Standby"
+msgstr ""
+
+msgid "The URL from which the image is to be fetched."
+msgstr ""
+
+msgid "The URL must start with http:// or https://."
+msgstr ""
+
+msgid "The page for which the wallpaper is to be set."
+msgstr ""
+
+msgid "The wallpaper has been updated."
+msgstr ""
+
+msgid "URL"
+msgstr ""
+
+msgid "Wallpaper"
+msgstr ""
