@@ -105,8 +105,8 @@ export class TopBarComponent {
 
   onLogout(): void {
     this.showDialog(
-      gettext('Logout'),
-      gettext('Do you really want to logout?'),
+      gettext('Log out'),
+      gettext('Do you really want to log out?'),
       'confirmation',
       () => {
         this.blockUiService.start(translate(gettext('Please wait ...')));
