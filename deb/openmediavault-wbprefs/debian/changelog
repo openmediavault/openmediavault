@@ -1,6 +1,6 @@
 openmediavault-wbprefs (8.0.1-1) stable; urgency=medium
 
-  *
+  * Allow using local files via file:// URL schema.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 08 Mar 2026 19:11:16 +0100
 
