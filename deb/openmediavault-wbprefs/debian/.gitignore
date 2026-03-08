@@ -4,5 +4,5 @@
 /*.postrm.debhelper
 /*.substvars
 /*-stamp
-/openmediavault-tftp/
+/openmediavault-wbprefs/
 /.debhelper/
