@@ -4,7 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# irrelevant91, 2026
 # 王大山, 2026
 # kochin <kochinc@outlook.com>, 2026
 # 
@@ -13,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wbprefs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-07 13:28+0100\n"
+"POT-Creation-Date: 2026-03-08 19:29+0100\n"
 "PO-Revision-Date: 2026-03-07 00:03+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2026\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
@@ -27,40 +26,40 @@ msgid "Apply"
 msgstr "套用"
 
 msgid "Login"
-msgstr "登录"
+msgstr "登入"
 
 msgid "Page"
-msgstr "页码"
+msgstr "頁"
 
 msgid "Reset"
-msgstr ""
+msgstr "重設"
 
 msgid "Reset the wallpaper to the default image."
-msgstr ""
+msgstr "將壁紙重設回預設圖片。"
 
 msgid "Shutdown"
-msgstr "关机"
+msgstr "關機"
 
 msgid "Standby"
-msgstr "待机"
+msgstr "待機"
 
 msgid "The URL from which the image is to be fetched."
-msgstr "镜像来源URL"
+msgstr "要從何處抓取圖片的 URL。"
 
-msgid "The URL must start with http:// or https://."
-msgstr "URL 必须以 http:// 或 https:// 开头。"
+msgid "The URL must start with http://, https:// or file://."
+msgstr "URL 必須以 http://、https:// 或 file:// 開頭。"
 
 msgid "The page for which the wallpaper is to be set."
-msgstr "要设置墙纸的页面。"
+msgstr "要設置該壁紙的頁面。"
 
 msgid "The wallpaper has been updated."
-msgstr "墙纸已更新"
+msgstr "壁紙已被更新。"
 
 msgid "URL"
 msgstr "URL"
 
 msgid "Wallpaper"
-msgstr "墙纸"
+msgstr "壁紙"
 
 msgid "You may need to clear your browser's cache to see your changes."
-msgstr ""
+msgstr "您可能需要清除瀏覽器的快取才能看到所做的更改。"

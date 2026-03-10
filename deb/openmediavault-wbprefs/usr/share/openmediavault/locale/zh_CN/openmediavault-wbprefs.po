@@ -6,15 +6,16 @@
 # Translators:
 # 王大山, 2026
 # irrelevant91, 2026
+# 杨宇哲, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wbprefs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-07 13:28+0100\n"
+"POT-Creation-Date: 2026-03-08 19:29+0100\n"
 "PO-Revision-Date: 2026-03-07 00:03+0000\n"
-"Last-Translator: irrelevant91, 2026\n"
+"Last-Translator: 杨宇哲, 2026\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,10 +33,10 @@ msgid "Page"
 msgstr "页面"
 
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 msgid "Reset the wallpaper to the default image."
-msgstr ""
+msgstr "将墙纸重置为默认图片。"
 
 msgid "Shutdown"
 msgstr "关机"
@@ -44,10 +45,10 @@ msgid "Standby"
 msgstr "待机"
 
 msgid "The URL from which the image is to be fetched."
-msgstr "镜像来源URL。"
+msgstr "图片的 URL。"
 
-msgid "The URL must start with http:// or https://."
-msgstr "URL 必须以 http:// 或 https:// 开头。"
+msgid "The URL must start with http://, https:// or file://."
+msgstr "URL 必须以 http://、https:// 或 file:// 开头。"
 
 msgid "The page for which the wallpaper is to be set."
 msgstr "要设置墙纸的页面。"
@@ -62,4 +63,4 @@ msgid "Wallpaper"
 msgstr "墙纸"
 
 msgid "You may need to clear your browser's cache to see your changes."
-msgstr ""
+msgstr "您可能需要清除浏览器缓存才能看到所做的更改。"
