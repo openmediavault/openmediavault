@@ -8,13 +8,14 @@
 # Karl Jonatan Nyberg, 2021-2025
 # Karl Jonatan Nyberg, 2018-2021
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017-2018
+# Karl Jonatan Nyberg, 2026
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-07 13:33+0100\n"
+"POT-Creation-Date: 2026-03-08 10:30+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Karl Jonatan Nyberg, 2025-2026\n"
+"Last-Translator: Karl Jonatan Nyberg, 2026\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1057,7 +1058,7 @@ msgstr "Vill du verkligen ta bort valda objekt?"
 msgid "Do you really want to install the plugin?"
 msgstr "Vill du verkligen installera insticksmodulen?"
 
-msgid "Do you really want to logout?"
+msgid "Do you really want to log out?"
 msgstr "Vill du verkligen logga ut?"
 
 msgid "Do you really want to put the system into standby?"
@@ -1162,7 +1163,7 @@ msgid ""
 "critical.</li><li>performance - Keeps the CPU running at maximum frequency "
 "at all times. Use this when you need consistent peak performance and power "
 "consumption is not a concern.</li></ul>"
-msgstr ""
+msgstr "Aktivera övervakning av CPU-frekvensskalning för att möjliggöra dynamisk justering av CPU-prestanda baserat på systembelastning. CPU-frekvensregulatorn avgör hur CPU-frekvensen justeras.<ul><li>schedutil - Balanserar prestanda och energieffektivitet genom att justera CPU-frekvensen baserat på schemaläggarens användning. Rekommenderas för de flesta användare eftersom det ger bra prestanda samtidigt som det sparar energi när systemet är inaktivt.</li><li>powersave - Håller CPU:n igång på lägsta frekvens hela tiden för att maximera energibesparingarna. Använd detta när strömförbrukningen är det primära problemet och prestanda inte är kritisk.</li><li>performance - Håller CPU:n igång på maximal frekvens hela tiden. Använd detta när du behöver konsekvent topprestanda och strömförbrukningen inte är ett problem.</li></ul>"
 
 msgid "Enable NetBIOS"
 msgstr "Aktivera NetBIOS"
@@ -1873,7 +1874,7 @@ msgid "Log level"
 msgstr "Loggnivå"
 
 msgid "Log out"
-msgstr ""
+msgstr "Logga ut"
 
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr "Inloggad som <strong>{{ username }}</strong>"
@@ -3482,7 +3483,7 @@ msgstr "Den publika nyckeln i OpenSSH-format."
 msgid ""
 "The relative path of the folder to share. Use '/' to share the root of the "
 "file system. The specified folder will be created if it does not exist."
-msgstr ""
+msgstr "Den relativa sökvägen till mappen som ska delas. Använd '/' för att dela roten av filsystemet. Den angivna mappen skapas om den inte finns."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -4231,7 +4232,7 @@ msgid "You must apply these changes in order for them to take effect."
 msgstr "Du måste verkställa dessa ändringar för att de ska träda i kraft."
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
-msgstr ""
+msgstr "Du kommer att loggas ut på grund av inaktivitet om {{ n }} sekunder."
 
 msgid "Your profile"
 msgstr "Din profil"
