@@ -11,7 +11,7 @@ data:
   description: _("Displays information about MD (Software RAID) devices.")
   grid:
     item:
-      class: 'omv-cursor-pointer omv-text-center omv-text-nowrap omv-background-color-muted'
+      class: 'omv-cursor-pointer omv-text-center omv-text-nowrap {% if state == "clean" %}omv-background-color-pair-success{% elif "resync" in state or "reshape" in state or "recovery" in state %}omv-background-color-pair-warning{% else %}omv-background-color-pair-error{% endif %}'
       title: '{{ name | default(devicefile, true) }} [{{ level }}]'
       titleClass: 'omv-text-truncate'
       content: '{{ state }}'

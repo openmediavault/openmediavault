@@ -1,3 +1,9 @@
+openmediavault-md (8.0.4-1) stable; urgency=medium
+
+  * Issue #2144: Colorize state of RAID devices in dashboard widget.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 15 Mar 2026 20:56:40 +0100
+
 openmediavault-md (8.0.3-1) stable; urgency=medium
 
   * Enable mdmonitor.service only and let systemd/udev start it on demand.
