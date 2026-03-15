@@ -238,6 +238,10 @@
              let-config="value">
   <ng-container [ngSwitch]="config.type">
     <ng-template [ngSwitchCase]="'text'">
+      {{ config.value | escapeHtml }}
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'html'">
       {{ config.value | sanitizeHtml }}
     </ng-template>
 

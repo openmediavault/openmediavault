@@ -97,6 +97,7 @@ export type DatatableColumn = TableColumn & {
    * template - Render a Nunjucks/Jinja2 template.
    * shapeShifter - Render the column based on the specified type:
    *                text - Render plain text.
+   *                html - Render HTML content.
    *                bold - Render text using bold font.
    *                placeholder - Display a '-' for empty values.
    *                notAvailable - Display a 'N/A' for empty values.
