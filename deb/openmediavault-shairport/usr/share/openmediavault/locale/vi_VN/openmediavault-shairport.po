@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-shairport package.
+# 
+# Translators:
+# Dung Ba Minh, 2026
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2014-06-23 16:18+0000\n"
+"Last-Translator: Dung Ba Minh, 2026\n"
+"Language-Team: Vietnamese (Viet Nam) (http://app.transifex.com/openmediavault/openmediavault/language/vi_VN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi_VN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "A password is required to stream audio."
+msgstr "Yêu cầu mật khẩu để truyền trực tiếp luồng âm thanh"
+
+msgid "Authentication"
+msgstr "Sự xác thực"
+
+msgid "Enabled"
+msgstr "Đã kích hoaj"
+
+msgid "Name"
+msgstr "Tên"
+
+msgid "Password"
+msgstr "Mật khẩu"
+
+msgid "Shairport"
+msgstr "Shairport"
+
+msgid ""
+"The name the service will advertise to clients. Leave this field empty to "
+"use the hostname by default."
+msgstr "Tên của dịch vụ sẽ được quảng bá tới các máy khách. Để trống trường này để sử dụng tên máy chủ mặc định"
+
+msgid "Updated Shairport settings."
+msgstr "Đã cập nhật cài đặt Shairport"

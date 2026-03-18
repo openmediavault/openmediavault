@@ -1,0 +1,154 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-photoprism package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Dung Ba Minh, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-photoprism\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: Dung Ba Minh, 2026\n"
+"Language-Team: Vietnamese (Viet Nam) (https://app.transifex.com/openmediavault/teams/14254/vi_VN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi_VN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "1 GB"
+msgstr "1 GB"
+
+msgid "1 MB"
+msgstr "1 MB"
+
+msgid "10 GB"
+msgstr "10 GB"
+
+msgid "10 MB"
+msgstr "10 MB"
+
+msgid "100 GB"
+msgstr "100 GB"
+
+msgid "100 MB"
+msgstr "100 MB"
+
+msgid "25 GB"
+msgstr "25 GB"
+
+msgid "25 MB"
+msgstr "25 MB"
+
+msgid "250 MB"
+msgstr "250 MB"
+
+msgid "5 GB"
+msgstr "5 GB"
+
+msgid "5 MB"
+msgstr "5 MB"
+
+msgid "50 GB"
+msgstr "50 GB"
+
+msgid "50 MB"
+msgstr "50 MB"
+
+msgid "500 MB"
+msgstr "500 MB"
+
+msgid "Application data"
+msgstr "Dữ liệu ứng dụng"
+
+msgid "Certificate"
+msgstr "Chứng chỉ"
+
+msgid ""
+"Disable password authentication, WebDAV, and the advanced settings page."
+msgstr ""
+"Vô hiệu hóa xác thực mật khẩu, WebDAV và trang cài đặt nâng cao."
+
+msgid "Disabled"
+msgstr "Đã bị vô hiệu hóa"
+
+msgid "Enabled"
+msgstr "Đã kích hoạt"
+
+msgid "Filesize limit"
+msgstr "Giới hạn kích thước tập tin"
+
+msgid ""
+"If enabled, all features that require write permission to the images folder "
+"are disabled, in particular import, upload, and delete."
+msgstr ""
+"Nếu được kích hoạt, tất cả các tính năng yêu cầu quyền ghi vào thư mục hình "
+"ảnh sẽ bị vô hiệu hóa, cụ thể là các thao tác: nhập, tải lên và xóa."
+
+msgid "Images"
+msgstr "Các ảnh "
+
+msgid "Import"
+msgstr "Nhập"
+
+msgid "Open UI"
+msgstr "Open UI"
+
+msgid "PhotoPrism"
+msgstr "PhotoPrism"
+
+msgid "Port"
+msgstr "Cổng"
+
+msgid "Port to listen on."
+msgstr "Cổng nhận gói tin"
+
+msgid "Public"
+msgstr "Công khai"
+
+msgid "Read-only"
+msgstr "Chỉ đọc"
+
+msgid "The SSL certificate."
+msgstr "Chứng chỉ SSL"
+
+msgid ""
+"The location of the media files. Make sure the user <em>photoprism</em> or "
+"group <em>users</em> can access the files."
+msgstr ""
+"Đường dẫn thư mục lưu trữ các tập tin đa phương tiện. Hãy đảm bảo rằng người"
+" dùng <em>photoprism</em> hoặc nhóm <em>người dùng</em> có quyền truy cập "
+"vào các tập tin."
+
+msgid "The location where to store the application data."
+msgstr "Vị trí lưu dữ liệu của ứng dụng"
+
+msgid "The maximum size of media files."
+msgstr "Kích thước tối đa của tệp tin đa phương tiện"
+
+msgid "Updated PhotoPrism settings."
+msgstr "Đã cập nhật cài đặt PhotoPrism"
+
+msgid ""
+"Use the <em>admin:admin</em> credentials when logging in for the first time."
+" Please do not forget to change the password immediately."
+msgstr ""
+"Sử dụng thông tin đăng nhập <em>admin:admin</em>  khi bạn truy cập vào hệ "
+"thống lần đầu tiên. Vui lòng không quên thay đổi mật khẩu này ngay lập tức "
+"để đảm bảo an toàn."
+
+msgid ""
+"You may optionally mount an import folder from which files can be "
+"transferred to the originals folder in a structured way that avoids "
+"duplicates. Make sure the user <em>photoprism</em> or group <em>users</em> "
+"can access the files."
+msgstr ""
+"Bạn có thể tùy chọn gắn một thư mục nhập. Từ đây, các tập tin có thể được "
+"chuyển vào thư mục gốc một cách có cấu trúc và tránh trùng lặp. Hãy đảm bảo "
+"rằng người dùng <em>photoprism</em> hoặc nhóm <em>người dùng</em>  có quyền "
+"truy cập vào các tập tin này."

@@ -90,7 +90,7 @@ msgid "Date & Time"
 msgstr "Datum & tijd"
 
 msgid "Deny logins which do not have a valid shell."
-msgstr "Logins zonder geldige shell afwijzen."
+msgstr "Aanmeldingen zonder geldige shell afwijzen."
 
 msgid "Direction"
 msgstr "Richting"
@@ -251,7 +251,7 @@ msgid "Passive FTP"
 msgstr "Passieve FTP"
 
 msgid "Permit root login"
-msgstr "Root login toestaan"
+msgstr "Root-login toestaan"
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "

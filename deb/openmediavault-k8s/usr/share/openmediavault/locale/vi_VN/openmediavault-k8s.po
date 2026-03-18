@@ -1,0 +1,449 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-k8s package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Dung Ba Minh, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-k8s\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"PO-Revision-Date: 2024-03-09 09:44+0000\n"
+"Last-Translator: Dung Ba Minh, 2026\n"
+"Language-Team: Vietnamese (Viet Nam) (https://app.transifex.com/openmediavault/teams/14254/vi_VN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi_VN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Absolute Path"
+msgstr "Đường dẫn tuyệt đối"
+
+msgid "Access Modes"
+msgstr "Chế độ truy cập"
+
+msgid "App Version"
+msgstr "Phiên bản ứng dụng"
+
+msgid "Apply"
+msgstr "Áp dụng"
+
+msgid "Architecture"
+msgstr "Kiến trúc"
+
+msgid "Available"
+msgstr "Có sẵn"
+
+msgid "Capacity"
+msgstr "Dung lượng"
+
+msgid "Certificate"
+msgstr "Chứng chỉ"
+
+msgid "Certificates"
+msgstr "Các chứng chỉ"
+
+msgid "Chart"
+msgstr "Biểu đồ"
+
+msgid "Check for new recipes"
+msgstr ""
+
+msgid "Class"
+msgstr "Phân lớp"
+
+msgid "Cluster IP"
+msgstr "IP cụm máy chủ"
+
+msgid "Compressed"
+msgstr "Đã nén"
+
+msgid "Config Maps"
+msgstr "Các bản đồ cấu hình"
+
+msgid "Copy to clipboard"
+msgstr "Sao chép đến bảng nhớ tạm"
+
+msgid "Copy token"
+msgstr ""
+
+msgid "Count"
+msgstr "Đếm"
+
+msgid "Created"
+msgstr "Đã tạo"
+
+msgid "Dashboard"
+msgstr "Bảng điều khiển"
+
+msgid "Data"
+msgstr "Dữ liệu"
+
+msgid "Datastore"
+msgstr ""
+
+msgid "Date & Time"
+msgstr "Ngày & Giờ"
+
+msgid "Depends"
+msgstr ""
+
+msgid "Deployments"
+msgstr "Triển khai"
+
+msgid "Describe"
+msgstr "Diễn giải "
+
+msgid "Description"
+msgstr "Ghi chú"
+
+msgid "Do you really want to restore this snapshot?"
+msgstr "Bạn có muốn khôi phục bản sao ảnh chụp này không ?"
+
+msgid "Download"
+msgstr "Tải xuống"
+
+msgid ""
+"Downloading the kubeconfig file to the local system enables secure remote "
+"management of the Kubernetes cluster using command-line tools like kubectl."
+msgstr ""
+"Việc tải tập tin kubeconfig về hệ thống cục bộ cho phép quản lý từ xa một "
+"cách an toàn cụm Kubernetes bằng các công cụ dòng lệnh như kubectl."
+
+msgid "Enabled"
+msgstr "Đã kích hoạt"
+
+msgid "Events"
+msgstr "Các sự kiện"
+
+msgid "Expose"
+msgstr ""
+
+msgid "Exposed"
+msgstr ""
+
+msgid "Exposed port"
+msgstr "Cổng được công khai."
+
+msgid "External IP"
+msgstr "IP đầu ngoài"
+
+msgid "Extra configuration"
+msgstr "Cấu hình thêm"
+
+msgid "Failed"
+msgstr "Không thành công"
+
+msgid "First seen"
+msgstr "Lần đầu nhìn thấy"
+
+msgid "GID"
+msgstr "GID"
+
+msgid "Groups"
+msgstr "Các nhóm"
+
+msgid "Helm Charts"
+msgstr "Các biểu đồ Helm"
+
+msgid "Homepage"
+msgstr "Trang chủ"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Image"
+msgstr "Ảnh"
+
+msgid "Images"
+msgstr "Các ảnh "
+
+msgid "Import"
+msgstr "Nhập"
+
+msgid "Ingredients"
+msgstr ""
+
+msgid "Ingress Routes"
+msgstr ""
+
+msgid "Ingresses"
+msgstr ""
+
+msgid "Job"
+msgstr "Công việc"
+
+msgid "Kubeconfig"
+msgstr "Kubeconfig"
+
+msgid "Kubernetes"
+msgstr "Kubernetes"
+
+msgid "Kubernetes - Pods"
+msgstr "Kubernetes - Các Pod"
+
+msgid "Kubernetes - Resources"
+msgstr "Kubernetes - Tài nguyên"
+
+msgid "Labels"
+msgstr "Nhãn dán"
+
+msgid "Last seen"
+msgstr "Lần cuối nhìn thấy"
+
+msgid "Load Balancer"
+msgstr "Cân bẳng tải"
+
+msgid "Logs"
+msgstr "Nhật ký"
+
+msgid "Manifest"
+msgstr ""
+
+msgid "Message"
+msgstr "Thông báo"
+
+msgid "Monitoring - Kubernetes"
+msgstr "Giám sát - Kubernetes"
+
+msgid "Name"
+msgstr "Tên "
+
+msgid "Namespace"
+msgstr ""
+
+msgid "Namespaces"
+msgstr ""
+
+msgid "NodePort IP"
+msgstr " NodePort IP"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Object"
+msgstr "Đối tượng"
+
+msgid "Open UI"
+msgstr "Open UI"
+
+msgid "PV"
+msgstr "PV"
+
+msgid "PVC"
+msgstr "PVC"
+
+msgid "Pending"
+msgstr "Đang chờ"
+
+msgid "Persistent Volume Claims"
+msgstr ""
+
+msgid "Persistent Volumes"
+msgstr "Các ổ lưu trữ dữ liệu bền vững."
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr "Vui lòng chờ, ảnh chụp nhanh sẽ được tạo ..."
+
+msgid "Please wait, the snapshot will be restored ..."
+msgstr "Vui lòng chờ, ảnh chụp nhanh sẽ được khôi phục ..."
+
+msgid "Pods"
+msgstr "Pods"
+
+msgid "Port"
+msgstr "Cổng"
+
+msgid "Ports"
+msgstr "Các cổng"
+
+msgid "Protocol"
+msgstr "Giao thức"
+
+msgid "README"
+msgstr "README"
+
+msgid "Ready"
+msgstr "Sẵn sàng"
+
+msgid "Reason"
+msgstr "Lý do"
+
+msgid "Recipe Information"
+msgstr ""
+
+msgid "Recipe Version"
+msgstr ""
+
+msgid "Recipes"
+msgstr ""
+
+msgid "Reclaim policy"
+msgstr ""
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
+msgstr ""
+"Tham chiếu đến tập tin values.yaml trong biểu đồ Helm của Traefik để xem các"
+" tùy chọn cấu hình có sẵn."
+
+msgid "Repository"
+msgstr "Kho lưu trữ"
+
+msgid "Resources"
+msgstr "Các tài nguyên"
+
+msgid "Restore"
+msgstr "Phục hồi "
+
+msgid "Running"
+msgstr "Đang chạy"
+
+msgid "SQLite"
+msgstr "SQLite"
+
+msgid "Secrets"
+msgstr ""
+
+msgid "Section"
+msgstr ""
+
+msgid "Services"
+msgstr ""
+
+msgid "Settings"
+msgstr "Các cài đặt"
+
+msgid "Shared Folders"
+msgstr "Các thư mục đã chia sẻ"
+
+msgid "Show README"
+msgstr "Hiện README"
+
+msgid "Show the number of pods per status phase."
+msgstr "Hiển thị số lượng các pod theo từng giai đoạn trạng thái."
+
+msgid "Show the total number of several resources."
+msgstr "Hiển thị tổng số lượng của một số loại tài nguyên."
+
+msgid "Size"
+msgstr "Kích thước"
+
+msgid "Snapshots"
+msgstr "Các bản chụp nhanh"
+
+msgid "Source"
+msgstr "Nguồn"
+
+msgid "Stateful Sets"
+msgstr ""
+
+msgid "Status"
+msgstr "Trạng thái"
+
+msgid "Storage Class"
+msgstr ""
+
+msgid "Succeeded"
+msgstr ""
+
+msgid "Tag"
+msgstr "Đánh dấu"
+
+msgid "Tags"
+msgstr "Đánh dấu"
+
+msgid "Target Namespace"
+msgstr ""
+
+msgid ""
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
+msgstr ""
+"Chứng chỉ SSL được sử dụng bởi dịch vụ LoadBalancer. Nếu không được thiết "
+"lập, một chứng chỉ tự ký từ cert-manager sẽ được sử dụng."
+
+msgid ""
+"The datastore used by the Kubernetes cluster. SQLite is recommended for "
+"single-node setups and SBCs with slow disks, while etcd is recommended for "
+"high-availability setups with multiple nodes."
+msgstr ""
+"Kho lưu trữ dữ liệu được sử dụng bởi cụm Kubernetes. SQLite được khuyến nghị"
+" cho các thiết lập nút đơn (single-node) và các máy tính nhúng (SBC) có ổ "
+"đĩa chậm, trong khi etcd được khuyến nghị cho các thiết lập có tính sẵn sàng"
+" cao (high-availability) với nhiều nút."
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr ""
+"Trường dữ liệu này chỉ được phép chứa các ký tự từ a đến z, các chữ số từ "
+"0-9 và dấu gạch ngang."
+
+msgid ""
+"The following placeholders can be used in recipes to get access to global "
+"system information and the configuration "
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
+"braces. An overview of additional available filters can be found <a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>here</a>."
+msgstr ""
+
+msgid "The location where to store etcd on-demand snapshots."
+msgstr ""
+
+msgid "The manifest to apply."
+msgstr ""
+
+msgid "The snapshot was created successfully."
+msgstr "Bản chụp nhanh đã được tạo thành công."
+
+msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
+msgstr ""
+
+msgid "The token to authenticate to the Kubernetes Dashboard."
+msgstr "Mã thông báo để xác thực vào bảng điều khiển của Kubernetes."
+
+msgid "Type"
+msgstr ""
+
+msgid "UID"
+msgstr "UID"
+
+msgid "UUID"
+msgstr "UUID"
+
+msgid "Unknown"
+msgstr "Không xác định"
+
+msgid "Up-to-date"
+msgstr "Đã là phiên bản mới nhất"
+
+msgid "Updated Kubernetes settings."
+msgstr "Đã cập nhật cài đặt Kubernetes"
+
+msgid "Users"
+msgstr "Những người dùng"
+
+msgid "Version"
+msgstr "Phiên bản"
+
+msgid "View"
+msgstr "Hiển thị"
+
+msgid "Volume"
+msgstr ""
+
+msgid "Warning"
+msgstr "Cảnh báo"
+
+msgid "YAML"
+msgstr "YAML"
+
+msgid "etcd"
+msgstr "etcd"

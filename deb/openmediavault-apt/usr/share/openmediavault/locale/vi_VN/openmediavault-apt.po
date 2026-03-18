@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-apt package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Dung Ba Minh, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-apt\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2024-06-14 17:38+0000\n"
+"Last-Translator: Dung Ba Minh, 2026\n"
+"Language-Team: Vietnamese (Viet Nam) (https://app.transifex.com/openmediavault/teams/14254/vi_VN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi_VN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Check for new packages"
+msgstr "Kiểm tra các gói phần mềm mới"
+
+msgid "Components"
+msgstr "Các thành phần"
+
+msgid ""
+"Components specify different sections of one distribution version present in"
+" a suite, e.g. 'main', 'contrib' or 'non-free'. Configure multiple "
+"components at once by separating them with a blank."
+msgstr ""
+
+msgid "Create"
+msgstr "Tạo"
+
+msgid "Created APT source."
+msgstr "Đã tạo nguồn APT"
+
+msgid ""
+"Defines which types of packages to look for from a given source, e.g. 'deb' "
+"or 'deb-src'."
+msgstr ""
+"Xác định loại gói phần mềm cần tìm kiếm từ một nguồn nhất định, ví dụ: 'deb'"
+" hoặc 'deb-src'."
+
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+msgid "Enabled"
+msgstr "Đã kích hoạt"
+
+msgid "Other Software"
+msgstr "Các phần mềm khác"
+
+msgid "Signed-By"
+msgstr "Được ký bởi "
+
+msgid "Suites"
+msgstr ""
+
+msgid "Tags"
+msgstr "Đánh dấu"
+
+msgid ""
+"The GPG/PGP key used to verify packages and repository metadata. This "
+"increases security by ensuring that only packages signed with a specific key"
+" are accepted."
+msgstr ""
+"Khóa GPG/PGP được sử dụng để xác minh các gói phần mềm và siêu dữ liệu của "
+"kho lưu trữ. Điều này giúp tăng cường bảo mật bằng cách đảm bảo rằng chỉ "
+"những gói được ký bằng một khóa cụ thể mới được chấp nhận."
+
+msgid ""
+"The URI must specify the base of the package repository, e.g. "
+"'https://ftp.debian.org/debian'. Configure multiple URIs at once by "
+"separating them with a blank."
+msgstr ""
+"Địa chỉ URI phải chỉ định đường dẫn cơ sở của kho lưu trữ gói phần mềm, ví "
+"dụ: 'https://ftp.debian.org/debian'. Bạn có thể cấu hình nhiều URI cùng lúc "
+"bằng cách ngăn cách chúng bằng một khoảng trắng."
+
+msgid ""
+"The package index files from the sources are downloaded and updated to get "
+"the latest information about available packages and their versions."
+msgstr ""
+"Các tập tin chỉ mục gói từ các nguồn được tải xuống và cập nhật để lấy thông"
+" tin mới nhất về các gói phần mềm có sẵn và phiên bản của chúng."
+
+msgid ""
+"The suite is the name of the release, e.g. 'stable', 'testing', 'unstable' "
+"or 'sandworm'."
+msgstr ""
+
+msgid "Types"
+msgstr "Loại"
+
+msgid "URIs"
+msgstr "URIs"
+
+msgid "Updated APT source."
+msgstr "Đã cập nhật nguồn APT"

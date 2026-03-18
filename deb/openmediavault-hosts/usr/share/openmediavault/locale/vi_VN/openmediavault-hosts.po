@@ -1,0 +1,41 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-hosts package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Dung Ba Minh, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-hosts\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2023-12-20 21:57+0000\n"
+"Last-Translator: Dung Ba Minh, 2026\n"
+"Language-Team: Vietnamese (Viet Nam) (https://app.transifex.com/openmediavault/teams/14254/vi_VN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi_VN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"Add custom entries to the /etc/hosts file. Please check the <a "
+"href='https://manpages.debian.org/stable/manpages/hosts.5.en.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"Thêm các đầu mục tùy chình vào tệp tin /etc/hosts. Vui lòng kiểm tra nội "
+"dung có liên quan đến <a "
+"href='https://manpages.debian.org/stable/manpages/hosts.5.en.html' "
+"target='_blank'> tại hướng dẫn trang số </a>để biết thêm chi tiết. "
+
+msgid "Custom entries"
+msgstr "Các đầu mục tùy chỉnh"
+
+msgid "Hosts"
+msgstr "Các máy chủ"
+
+msgid "Updated local hostname-to-IP mapping."
+msgstr "Đã cập nhật ánh xạ cục bộ tên máy chủ sang địa chỉ IP"

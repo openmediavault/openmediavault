@@ -25,40 +25,40 @@ msgid "Apply"
 msgstr "Verkställ"
 
 msgid "Login"
-msgstr ""
+msgstr "Logga in"
 
 msgid "Page"
-msgstr ""
+msgstr "Sida"
 
 msgid "Reset"
-msgstr ""
+msgstr "Återställ"
 
 msgid "Reset the wallpaper to the default image."
-msgstr ""
+msgstr "Återställ bakgrundsbilden till standardbilden."
 
 msgid "Shutdown"
-msgstr ""
+msgstr "Stäng av"
 
 msgid "Standby"
-msgstr ""
+msgstr "Vänteläge"
 
 msgid "The URL from which the image is to be fetched."
-msgstr ""
+msgstr "URL:en från vilken bilden ska hämtas."
 
 msgid "The URL must start with http://, https:// or file://."
-msgstr ""
+msgstr "URL:en måste börja med http://, https:// eller file://."
 
 msgid "The page for which the wallpaper is to be set."
-msgstr ""
+msgstr "Sidan som bakgrundsbilden ska ställas in för."
 
 msgid "The wallpaper has been updated."
-msgstr ""
+msgstr "Bakgrundsbilden har uppdaterats."
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Wallpaper"
-msgstr ""
+msgstr "Bakgrundsbild"
 
 msgid "You may need to clear your browser's cache to see your changes."
-msgstr ""
+msgstr "Du kan behöva rensa webbläsarens cache för att se dina ändringar."

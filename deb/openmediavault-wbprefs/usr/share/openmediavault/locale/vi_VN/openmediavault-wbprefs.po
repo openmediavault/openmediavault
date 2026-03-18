@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-wbprefs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Dung Ba Minh, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-wbprefs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-08 19:29+0100\n"
+"PO-Revision-Date: 2026-03-07 00:03+0000\n"
+"Last-Translator: Dung Ba Minh, 2026\n"
+"Language-Team: Vietnamese (Viet Nam) (https://app.transifex.com/openmediavault/teams/14254/vi_VN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi_VN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Apply"
+msgstr "Áp dụng"
+
+msgid "Login"
+msgstr "Đăng nhập"
+
+msgid "Page"
+msgstr "Trang "
+
+msgid "Reset"
+msgstr "Đặt lại"
+
+msgid "Reset the wallpaper to the default image."
+msgstr "Đặt lại màn hình nền về hình ảnh mặc định"
+
+msgid "Shutdown"
+msgstr "Tắt nguồn "
+
+msgid "Standby"
+msgstr "Chế độ chờ"
+
+msgid "The URL from which the image is to be fetched."
+msgstr ""
+"Đây là địa chỉ URL trỏ trực tiếp đến tệp tin hình ảnh cần lấy về để hiển thị"
+" hoặc xử lý."
+
+msgid "The URL must start with http://, https:// or file://."
+msgstr ""
+"Địa chỉ URL phải bắt đầu bằng một trong các tiền tố giao thức: http://, "
+"https:// hoặc file://."
+
+msgid "The page for which the wallpaper is to be set."
+msgstr "Trang mà bạn muốn áp dụng hình nền."
+
+msgid "The wallpaper has been updated."
+msgstr "Hình nền đã được cập nhật"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Wallpaper"
+msgstr "Hình nền "
+
+msgid "You may need to clear your browser's cache to see your changes."
+msgstr ""
+"Bạn có thể cần phải dọn dẹp bộ nhớ đệm của trình duyệt để nhìn thấy sự thay "
+"đổi"

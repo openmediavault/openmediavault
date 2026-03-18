@@ -307,4 +307,4 @@ msgid "Wednesday"
 msgstr "星期三"
 
 msgid "n/a"
-msgstr "n/a"
+msgstr ""

@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-usbbackup package.
+# 
+# Translators:
+# Dung Ba Minh, 2026
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2013-02-15 12:55+0000\n"
+"Last-Translator: Dung Ba Minh, 2026\n"
+"Language-Team: Vietnamese (Viet Nam) (http://app.transifex.com/openmediavault/openmediavault/language/vi_VN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi_VN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr "Một tin nhắn thư điện tử chứa kết quả đầu ra của lệnh (nếu có) sẽ được gửi đến người quản trị."
+
+msgid "Archive"
+msgstr "Lưu trữ"
+
+msgid "Compress"
+msgstr "Nén"
+
+msgid "Compress file data during the transfer."
+msgstr "Nén dữ liệu tệp tin trong quá trình chuyển"
+
+msgid "Create"
+msgstr "Tạo mới"
+
+msgid "Created USB backup job."
+msgstr "Đã tạo công tác sao lưu dữ liệu USB."
+
+msgid "Delete"
+msgstr "Xóa"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "Xóa các tệp trên bên nhận nếu chúng không tồn tại trên bên gửi"
+
+msgid "Device"
+msgstr "Thiết bị"
+
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+msgid "Enable archive mode."
+msgstr "Kích hoạt tính năng lưu trữ."
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Kích hoạt tùy chọn này để giữ lại các tập tin đang truyền dở dang, nếu không chúng sẽ bị xóa nếu quá trình truyền tải bị gián đoạn."
+
+msgid "Enabled"
+msgstr "Đã kích hoạt"
+
+msgid "External Storage Device"
+msgstr "Thiết bị lưu trữ ngoại vi "
+
+msgid "Extra options"
+msgstr "Tùy chọn thêm"
+
+msgid "From external storage to shared folder"
+msgstr "Từ bộ nhớ ngoài vào thư mục chia sẻ."
+
+msgid "From shared folder to external storage"
+msgstr "Từ thư mục chia sẻ vào bộ nhớ ngoài."
+
+msgid "Keep partially transferred files"
+msgstr "Giữ lại các tập tin truyền dở dang."
+
+msgid "Mode"
+msgstr "Chế độ"
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Vui lòng kiểm tra hướng đẫn về <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'> tại trang số </a> để có thêm thông tin chi tiết"
+
+msgid "Preserve ACLs"
+msgstr "Giữ nguyên danh sách kiểm soát truy cập"
+
+msgid "Preserve extended attributes"
+msgstr "Giữ nguyên các thuộc tính mở rộng"
+
+msgid "Preserve group"
+msgstr "Giữ nguyên nhóm"
+
+msgid "Preserve modification times"
+msgstr "Giữ nguyên thời gian sửa đổi."
+
+msgid "Preserve owner"
+msgstr "Giữ nguyên người sở hữu"
+
+msgid "Preserve permissions"
+msgstr "Giữ nguyên quyền"
+
+msgid "Quiet"
+msgstr "Yên lặng"
+
+msgid "Recurse into directories."
+msgstr "Đệ quy vào các thư mục."
+
+msgid "Recursive"
+msgstr "Đệ quy"
+
+msgid "Relative path"
+msgstr "Đường dẫn tương đối"
+
+msgid "Run"
+msgstr "Thực thi"
+
+msgid "Run backup job"
+msgstr "Thực thi công tác sao lưu"
+
+msgid "Select a device ..."
+msgstr "Chọn một thiết bị ..."
+
+msgid "Send email"
+msgstr "Gửi thư điện tử"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "Đặt quyển truy cập đích giống với quyền truy cập nguồn"
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Đặt nhóm của tập tin đích giống với nhóm của tập tin nguồn"
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr "Thiết lập chủ sở hữu của tập tin đích giống với tập tin nguồn, nhưng chỉ khi tiến trình rsync nhận dữ liệu được chạy dưới quyền siêu người dùng."
+
+msgid "Shared folder"
+msgstr "Thư mục chia sẻ"
+
+msgid "Suppress non-error messages."
+msgstr "Ẩn các thông báo không phải lỗi."
+
+msgid "Tags"
+msgstr "Đánh dấu"
+
+msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
+msgstr "Hai tùy chọn 'Gửi email' và 'Yên lặng' là đối nghịch."
+
+msgid ""
+"The external storage device. Please make sure that the device has only one "
+"file system."
+msgstr "Thiết bị lưu trữ ngoài. Vui lòng đảm bảo rằng thiết bị chỉ có một hệ thống tập tin duy nhất."
+
+msgid ""
+"The relative directory path on the external storage device from/to which the"
+" content of the shared folder is to be synchronized. The directory is "
+"created if it does not exist."
+msgstr "Đường dẫn thư mục tương đối trên thiết bị lưu trữ ngoài mà từ đó/đến đó nội dung của thư mục chia sẻ sẽ được đồng bộ hóa. Thư mục này sẽ được tạo nếu nó chưa tồn tại."
+
+msgid ""
+"The shared folder to synchronise when the external storage device is "
+"connected."
+msgstr "Thư mục chia sẻ để đồng bộ hóa khi thiết bị lưu trữ ngoài được kết nối."
+
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr "Truyền thời gian sửa đổi cùng với các tập tin và cập nhật chúng trên hệ thống từ xa."
+
+msgid "USB Backup"
+msgstr "Sao lưu USB"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "Cập nhật các quyền danh sách kiểm soát truy cập của đích đến để giống với các quyền danh sách kiểm soát truy cập của nguồn."
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "Cập nhật các thuộc tính mở rộng của đích đến để giống với các thuộc tính cục bộ."
+
+msgid "Updated USB backup job."
+msgstr "Đã cập nhật tác vụ sao lưu USB."
+
+msgid "n/a"
+msgstr "không có sẵn"

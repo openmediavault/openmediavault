@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-lvm2 package.
+# 
+# Translators:
+# Dung Ba Minh, 2026
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:49+0000\n"
+"Last-Translator: Dung Ba Minh, 2026\n"
+"Language-Team: Vietnamese (Viet Nam) (http://app.transifex.com/openmediavault/openmediavault/language/vi_VN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi_VN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Active"
+msgstr "Đang hoạt động"
+
+msgid "Available"
+msgstr "Có sẵn"
+
+msgid "Capacity"
+msgstr "Dung lượng"
+
+msgid "Create"
+msgstr "Tạo mới"
+
+msgid "Created logical volume '{{ name }}'."
+msgstr "Đã tạo phân vùng ảo '{{ name }}'."
+
+msgid "Created physical volume {{ devicefile }}."
+msgstr "Đã tạo phân vùng vật lý {{ devicefile }}."
+
+msgid "Created snapshot of logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Created volume group '{{ name }}'."
+msgstr "Tạo nhóm ổ đĩa ảo '{{ name }}'."
+
+msgid "Device"
+msgstr "Thiết bị"
+
+msgid "Devices"
+msgstr "Các thiết bị"
+
+msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
+msgstr "Bạn có muốn tạo phân vùng vật lý trên '{{ devicefile }}'?"
+
+msgid "Do you really want to resize the selected physical volume?"
+msgstr "Bạn có muốn thay đổi kích thước phân vùng vật lý đã chọn ?"
+
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+msgid "Extend"
+msgstr "Mở rộng"
+
+msgid "Extended logical volume '{{ devicefile }}'."
+msgstr "Mở rộng phân vùng ảo '{{ devicefile }}'."
+
+msgid "Extended volume group '{{ devicefile }}'."
+msgstr "Mở rộng nhóm ổ đĩa ảo '{{ devicefile }}'."
+
+msgid "Free"
+msgstr "Còn trống"
+
+msgid "Invalid name"
+msgstr "Tên không hợp lệ"
+
+msgid "LVM"
+msgstr "LVM"
+
+msgid "Logical Volume Management"
+msgstr "Logical Volume Management"
+
+msgid "Logical Volumes"
+msgstr "Các phân vùng ảo"
+
+msgid "Name"
+msgstr "Tên"
+
+msgid "Physical Volumes"
+msgstr "Các phân vùng vật lý"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr "Vui lòng chờ, ảnh chụp nhanh sẽ được tạo ..."
+
+msgid "Reduce"
+msgstr "Giảm bớt"
+
+msgid "Reduced volume group '{{ devicefile }}'."
+msgstr "Giảm bớt nhóm ổ đĩa ảo '{{ devicefile }}'."
+
+msgid "Referenced"
+msgstr "Được tham chiếu"
+
+msgid "Resize"
+msgstr "Thay đổi kích thước"
+
+msgid "Select a device ..."
+msgstr "Chọn một thiết bị"
+
+msgid "Select a volume group ..."
+msgstr "Chọn một nhóm ổ đĩa ảo ..."
+
+msgid "Select devices ..."
+msgstr "Chọn các thiết bị"
+
+msgid "Select the devices used to extend the volume group."
+msgstr "Chọn các thiết bị sử dụng để mở rộng nhóm các ổ đĩa ảo"
+
+msgid "Select the devices used to reduce from the volume group."
+msgstr "Chọn các thiết bị sử dụng để giảm bớt khỏi nhóm các ổ đĩa ảo"
+
+msgid "Size"
+msgstr "Kích cỡ"
+
+msgid "Snapshot"
+msgstr "Bản chụp nhanh"
+
+msgid "The name of the logical volume."
+msgstr "Tên của phân vùng ảo."
+
+msgid "The name of the volume group."
+msgstr "Tên của nhóm ổ đĩa ảo."
+
+msgid ""
+"The percentage of the total space in the volume group to allocate for the "
+"new logical volume."
+msgstr ""
+
+msgid ""
+"The percentage of the total space in the volume group to use by the logical "
+"volume."
+msgstr ""
+
+msgid "Updated logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Updated volume group '{{ devicefile }}'."
+msgstr ""
+
+msgid "Used"
+msgstr "Đã sử dụng"
+
+msgid "Volume Group"
+msgstr "Nhóm ổ đĩa ảo"
+
+msgid "Volume Groups"
+msgstr "Các nhóm ổ đĩa ảo"
+
+msgid "Volume group"
+msgstr "Nhóm ổ đĩa ảo"
