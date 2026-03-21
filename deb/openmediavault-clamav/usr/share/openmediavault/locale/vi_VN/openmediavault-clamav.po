@@ -1,0 +1,308 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-clamav package.
+# 
+# Translators:
+# Dung Ba Minh, 2026
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-05-18 22:06+0000\n"
+"Last-Translator: Dung Ba Minh, 2026\n"
+"Language-Team: Vietnamese (Viet Nam) (http://app.transifex.com/openmediavault/openmediavault/language/vi_VN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi_VN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Algorithmic detection"
+msgstr "Phát hiện bằng thuật toán"
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr "Một tin nhắn thư điện tử chứa kết quả đầu ra của lệnh (nếu có) sẽ được gửi đến người quản trị."
+
+msgid "Antivirus"
+msgstr "Phần mềm diệt virus"
+
+msgid "April"
+msgstr "Tháng Tư"
+
+msgid "August"
+msgstr "Tháng Tám"
+
+msgid "Be verbose."
+msgstr ""
+
+msgid "Create"
+msgstr "Tạo mới"
+
+msgid "Created on-access scan."
+msgstr "Đã khởi tạo chế độ quét khi truy cập."
+
+msgid "Created scheduled scan."
+msgstr "Tạo lịch quét được lên lịch trước."
+
+msgid "Database checks"
+msgstr "Kiểm tra cơ sở dữ liệu"
+
+msgid "Date & Time"
+msgstr "Ngày và giờ"
+
+msgid "Day of month"
+msgstr "Ngày của tháng"
+
+msgid "Day of week"
+msgstr "Ngày của tuần"
+
+msgid "December"
+msgstr "Tháng Mười Hai"
+
+msgid "Delete immediately"
+msgstr "Xóa ngay"
+
+msgid "Detect PUA"
+msgstr "Phát hiện các ứng dụng có khả năng không mong muốn."
+
+msgid "Detect broken executables"
+msgstr "Kích hoạt tính năng phát hiện các tập tin thực thi bị lỗi hoặc bị hỏng cấu trúc."
+
+msgid "Detect broken media"
+msgstr "Kích hoạt tính năng phát hiện các tập tin đa phương tiện bị lỗi hoặc hỏng cấu trúc trong quá trình quét mã độc."
+
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "Kích hoạt tính năng phát hiện mã HTML và chuẩn hóa nội dung trong quá trình quét mã độc."
+
+msgid "Enable archive scanning."
+msgstr "Kích hoạt tính năng quét nội dung bên trong các tập tin nén."
+
+msgid "Enable scanning of ELF files."
+msgstr "Kích hoạt tính năng quét các tập tin ELF."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Kích hoạt tính năng quét các tập tin OLE2, chẳng hạn như các tập tin hình thành từ Microsoft Office và các tập tin .msi."
+
+msgid "Enable scanning within PDF files."
+msgstr "Kích hoạt tính năng quét nội dung và các thành phần nhúng bên trong các tập tin định dạng PDF."
+
+msgid "Enable the algorithmic detection."
+msgstr "Kích hoạt tính năng phát hiện mã độc dựa trên các thuật toán phân tích hành vi và cấu trúc."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Kích hoạt tính năng phát hiện các tập tin thực thi bị lỗi hoặc hỏng cấu trúc (áp dụng cho cả định dạng PE của Windows và ELF của Linux)."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr "Kích hoạt tính năng phát hiện các tập tin đa phương tiện bị lỗi hoặc bị hỏng (định dạng: JPEG, TIFF, PNG, GIF)."
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Kích hoạt tính năng phát hiện các ứng dụng có khả năng không mong muốn."
+
+msgid "Enabled"
+msgstr "Đã kích hoạt"
+
+msgid "Every N day of month"
+msgstr "Mỗi N ngày của tháng"
+
+msgid "Every N hour"
+msgstr "Mỗi N giờ"
+
+msgid "Every N minute"
+msgstr "Mỗi N phút"
+
+msgid "Execute scheduled scan"
+msgstr "Thực hiện lệnh quét đã được lên lịch trước"
+
+msgid "Extra options"
+msgstr "Tùy chọn thêm"
+
+msgid "February"
+msgstr "Tháng Hai"
+
+msgid "Follow directory symlinks"
+msgstr ""
+
+msgid "Follow directory symlinks."
+msgstr ""
+
+msgid "Follow file symlinks"
+msgstr ""
+
+msgid "Follow regular file symlinks."
+msgstr ""
+
+msgid "Friday"
+msgstr "Thứ sáu"
+
+msgid "Hour"
+msgstr "Giờ"
+
+msgid "Infected files"
+msgstr "Các tập tin bị lây nhiễm"
+
+msgid "January"
+msgstr "Tháng Một"
+
+msgid "July"
+msgstr "Tháng Bảy"
+
+msgid "June"
+msgstr "Tháng Sáu"
+
+msgid "Log clean files"
+msgstr "Ghi ghép nhật ký các tập tin dọn dẹp"
+
+msgid "Log clean files. This drastically increases the log size."
+msgstr "Ghi ghép nhật ký các tập tin dọn dẹp. Điều này làm tăng kích thước tập nhật ký một cách đáng kể."
+
+msgid "March"
+msgstr "Tháng Ba"
+
+msgid "May"
+msgstr "Tháng Năm"
+
+msgid "Message"
+msgstr "Tin nhắn"
+
+msgid "Minute"
+msgstr "Phút"
+
+msgid "Monday"
+msgstr "Thứ hai"
+
+msgid "Month"
+msgstr "Tháng"
+
+msgid "Move to quarantine"
+msgstr "Chuyển sang khu vực cách ly"
+
+msgid "Multiscan"
+msgstr ""
+
+msgid "November"
+msgstr "Tháng Mười Một"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "Số lần kiểm tra cập nhật cơ sở dữ liệu mỗi ngày. Đặt thành 0 để vô hiệu hóa tính năng."
+
+msgid "October"
+msgstr "Tháng Mười"
+
+msgid "On Access Scans"
+msgstr ""
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Tiến hành phân tích sâu các tập tin thực thi."
+
+msgid "Perform nothing"
+msgstr "Không thực hiện gì"
+
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
+"details."
+msgstr "Vui lòng kiểm tra hướng dẫn về <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'> tại trang số </a> để biết thêm thông tin chi tiết."
+
+msgid "Quarantine"
+msgstr "Cách ly"
+
+msgid "Run"
+msgstr "Thực thi"
+
+msgid "Saturday"
+msgstr "Thứ Bảy"
+
+msgid "Scan ELF"
+msgstr "Quét ELF"
+
+msgid "Scan HTML"
+msgstr "Quét HTML"
+
+msgid "Scan OLE2"
+msgstr "Quét OLE2"
+
+msgid "Scan PDF"
+msgstr "Quét PDF"
+
+msgid "Scan Portable Executable"
+msgstr "Kích hoạt tính năng quét và phân tích sâu các tập tin thực thi dành cho hệ điều hành Windows."
+
+msgid "Scan archives"
+msgstr "Quét các tập tin lưu trữ"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr ""
+
+msgid "Scheduled Scans"
+msgstr "Quét đã lên lịch trước"
+
+msgid "Scheduling"
+msgstr "Đang lên lịch"
+
+msgid "Send email"
+msgstr "Gửi e mail"
+
+msgid "September"
+msgstr "Tháng Chín"
+
+msgid "Service disabled"
+msgstr "Dịch vụ đã bị vô hiệu hóa"
+
+msgid "Settings"
+msgstr "Cài dặt"
+
+msgid "Shared folder"
+msgstr "Thư mục chia sẻ"
+
+msgid "Sunday"
+msgstr "Chủ Nhật"
+
+msgid "Tags"
+msgstr "Đánh dấu"
+
+msgid "The field should only contain * or a comma separated list of values."
+msgstr ""
+
+msgid "The location of the files to scan on-access."
+msgstr ""
+
+msgid "The location of the files to scan."
+msgstr ""
+
+msgid "The location which is used as quarantine."
+msgstr ""
+
+msgid "The option, how to handle infected files."
+msgstr ""
+
+msgid "Thursday"
+msgstr "Thứ Năm"
+
+msgid "Time of execution"
+msgstr "Thời gian thực thi"
+
+msgid "Tuesday"
+msgstr "Thứ ba"
+
+msgid "Updated on-access scan."
+msgstr "Đã cập nhật cấu hình hoặc trạng thái cho chế độ quét khi truy cập."
+
+msgid "Updated scheduled scan."
+msgstr "Đã cập nhật tác vụ quét lên lịch trước "
+
+msgid "Verbose"
+msgstr ""
+
+msgid "Wednesday"
+msgstr "Thứ tư"
+
+msgid "n/a"
+msgstr "không có sẵn"

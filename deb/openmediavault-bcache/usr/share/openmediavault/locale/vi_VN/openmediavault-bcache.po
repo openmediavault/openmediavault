@@ -1,0 +1,232 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-bcache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Dung Ba Minh, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-bcache\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2024-11-20 12:26+0000\n"
+"Last-Translator: Dung Ba Minh, 2026\n"
+"Language-Team: Vietnamese (Viet Nam) (https://app.transifex.com/openmediavault/teams/14254/vi_VN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi_VN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "5 Minutes"
+msgstr "5 phút"
+
+msgid ""
+"A sequential IO will bypass the cache once it passes this threshold. "
+"(default:4.0M, max:3.9G)"
+msgstr ""
+"Một hoạt động đọc/ghi tuần tự sẽ bỏ qua bộ đệm khi nó vượt quá ngưỡng này. "
+"(Mặc định: 4.0M, Tối đa: 3.9G)."
+
+msgid ""
+"Allow bcache go around the cache when there's read / write congestion. "
+"(default:true)"
+msgstr ""
+"Cho phép bcache đi vòng qua bộ đệm khi có tình trạng nghẽn đọc/ghi. (Mặc "
+"định: true)"
+
+msgid "Backing Devices"
+msgstr "Thiết bị lưu trữ chính"
+
+msgid "Bcache"
+msgstr "Bcache"
+
+msgid "Bcache Device"
+msgstr "Thiết bị Bcache"
+
+msgid "Cache Device"
+msgstr "Thiết bị đệm"
+
+msgid "Cache Devices"
+msgstr "Các thiết bị đệm"
+
+msgid "Cache Mode"
+msgstr "Chế độ đệm"
+
+msgid "Capacity"
+msgstr "Dung lượng"
+
+msgid "Clean"
+msgstr "Dọn dẹp"
+
+msgid "Clear total statistics"
+msgstr ""
+
+msgid "Configuration"
+msgstr "Cấu hình"
+
+msgid "Congest Tracking"
+msgstr ""
+
+msgid "Congested Read Threshold (us)"
+msgstr ""
+
+msgid "Create"
+msgstr "Tạo"
+
+msgid "Day"
+msgstr "Ngày"
+
+msgid "Device"
+msgstr "Thiết bị"
+
+msgid "Dirty"
+msgstr ""
+
+msgid "Dirty Data"
+msgstr ""
+
+msgid "Docs"
+msgstr "Văn bản"
+
+msgid "Hour"
+msgstr "Giờ"
+
+msgid ""
+"If nonzero, bcache tries to keep around this percentage of the cache dirty "
+"by throttling background writeback and using a PD controller to smoothly "
+"adjust the rate. (default:10)"
+msgstr ""
+"Nếu khác không, bcache sẽ cố gắng duy trì khoảng tỷ lệ phần trăm này của bộ "
+"đệm ở trạng thái \"bẩn\" (dirty) bằng cách điều tiết quá trình ghi ngược "
+"chạy ngầm và sử dụng bộ điều khiển PD để điều chỉnh tốc độ phù hợp. (Mặc "
+"định: 10)"
+
+msgid "Inconsistent"
+msgstr "Không nhất quán"
+
+msgid "Metadata"
+msgstr "Metadata"
+
+msgid "Missing"
+msgstr "Thiếu"
+
+msgid "Missing Cache"
+msgstr "Thiếu bộ nhớ đệm"
+
+msgid "Mounted"
+msgstr "Đã gắn"
+
+msgid "Name"
+msgstr "Tên "
+
+msgid "No Cache"
+msgstr "Không bộ nhớ đệm"
+
+msgid "Online"
+msgstr "Trục tuyến "
+
+msgid ""
+"Please note that creating a file system on a Bcache device can take longer. "
+"It is therefore possible that the file system is not immediately available "
+"for mounting."
+msgstr ""
+"Vui lòng lưu ý rằng việc tạo một hệ thống tập tin trên thiết bị Bcache có "
+"thể mất nhiều thời gian hơn. Do đó, có khả năng hệ thống tập tin sẽ không "
+"sẵn sàng ngay lập tức để gắn kết."
+
+msgid "Recovery Actions"
+msgstr "Các hành động phục hồi "
+
+msgid "Register"
+msgstr ""
+
+msgid "Select a cache device ..."
+msgstr "Chọn thiết bị đệm ..."
+
+msgid "Select a device ..."
+msgstr "Chọn một thiết bị ..."
+
+msgid "Select the device that will be formatted as Bcache backing device."
+msgstr ""
+"Chọn thiết bị sẽ được định dạng làm thiết bị lưu trữ chính cho Bcache."
+
+msgid "Select the device that will be formatted as Bcache cache device."
+msgstr "Chọn thiết bị sẽ được định dạng làm thiết bị bộ đệm cho Bcache."
+
+msgid "Select the device that will be used as cache device."
+msgstr "Chọn thiết bị sẽ được làm thiết bị bộ nhớ đệm."
+
+msgid "Sequential Cutoff"
+msgstr ""
+
+msgid "Show details"
+msgstr "Xem thông tin chi tiết "
+
+msgid "Start without cache"
+msgstr "Khởi động mà không có bộ nhớ đệm"
+
+msgid "State"
+msgstr "Tình trạng"
+
+msgid "Statistics"
+msgstr "Thống kê"
+
+msgid "Superblock"
+msgstr ""
+
+msgid "The default is 2000 us (2 milliseconds)"
+msgstr "Mặc định là 2000 us (2 milli giây)"
+
+msgid "The default is 20000 us (20 milliseconds)"
+msgstr "Mặc định là 20000 us (20 milli giây)"
+
+msgid "Total"
+msgstr "Tổng "
+
+msgid "Unit"
+msgstr "Đơn vị"
+
+msgid "Unregister"
+msgstr "Hủy đăng ký"
+
+msgid "Unregistered"
+msgstr "Chưa đăng ký"
+
+msgid "Unused"
+msgstr "Chưa sử dụng"
+
+msgid "Updated backing device '{{ devicefile }}'."
+msgstr ""
+
+msgid "Updated cache device '{{ devicefile }}'."
+msgstr ""
+
+msgid ""
+"When dirty data is written to the cache and it previously did not contain "
+"any, waits some number of seconds before initiating writeback. (default:30)"
+msgstr ""
+"Khi dữ liệu \"bẩn\" được ghi vào bộ đệm (cache) mà trước đó chưa có dữ liệu "
+"nào, hệ thống sẽ đợi một số giây nhất định trước khi bắt đầu quá trình ghi "
+"ngược xuống ổ đĩa chính. (Mặc định: 30)"
+
+msgid "Writeback Delay"
+msgstr ""
+
+msgid "Writeback Percent"
+msgstr "Phần trăm ghi ngược"
+
+msgid "none"
+msgstr "trống"
+
+msgid "writearound"
+msgstr ""
+
+msgid "writeback"
+msgstr "ghi ngược"
+
+msgid "writethrough"
+msgstr ""

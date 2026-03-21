@@ -6,7 +6,7 @@
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
 # Sári Gábor <sari.gabor@gmail.com>, 2017
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021,2024
-# mersaint <mersaint@gmail.com>, 2012
+# Gábor Majoros <mersaint@gmail.com>, 2012
 # Sári Gábor <sari.gabor@gmail.com>, 2018
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2015,2017,2021
 msgid ""

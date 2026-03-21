@@ -50,7 +50,8 @@ export enum SupportedLocales {
   'tr_TR' = 'Türkçe', // Turkish
   'uk_UK' = 'Українська', // Ukrainian
   'zh_CN' = '简体中文', // Chinese (Simplified Chinese)
-  'zh_TW' = '繁體中文' // Chinese (Taiwan)
+  'zh_TW' = '繁體中文', // Chinese (Taiwan)
+  'vi_VN' = 'Tiếng Việt' // Vietnamese
   /* eslint-enable @typescript-eslint/naming-convention */
 }
 

@@ -25,40 +25,42 @@ msgid "Apply"
 msgstr "Εφαρμογή"
 
 msgid "Login"
-msgstr ""
+msgstr "Είσοδος"
 
 msgid "Page"
-msgstr ""
+msgstr "Σελίδα"
 
 msgid "Reset"
-msgstr ""
+msgstr "Επαναφορά"
 
 msgid "Reset the wallpaper to the default image."
-msgstr ""
+msgstr "Επαναφορά του φόντου στην αρχική εικόνα."
 
 msgid "Shutdown"
-msgstr ""
+msgstr "Τερματισμός"
 
 msgid "Standby"
-msgstr ""
+msgstr "Αναμονή"
 
 msgid "The URL from which the image is to be fetched."
-msgstr ""
+msgstr "Το URL από το οποίο θα ανακτηθεί η εικόνα."
 
 msgid "The URL must start with http://, https:// or file://."
-msgstr ""
+msgstr "Το URL πρέπει να ξεκινάει με http://, https:// ή file://."
 
 msgid "The page for which the wallpaper is to be set."
-msgstr ""
+msgstr "Η σελίδα στην οποία θα ρυθμιστεί το φόντο."
 
 msgid "The wallpaper has been updated."
-msgstr ""
+msgstr "Το φόντο έχει ενημερωθεί."
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Wallpaper"
-msgstr ""
+msgstr "Φόντο"
 
 msgid "You may need to clear your browser's cache to see your changes."
 msgstr ""
+"Ίσως χρειαστεί ο καθαρισμός της προσωρινής μνήμης για να εμφανιστούν οι "
+"αλλαγές."
