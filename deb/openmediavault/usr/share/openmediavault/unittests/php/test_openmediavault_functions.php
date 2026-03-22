@@ -62,14 +62,89 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 		];
 	}
 
-	public function test_array_flatten() {
+	public function test_array_flatten_1() {
 		$d_flat = array_flatten($this->getDict());
 		$this->assertEquals($d_flat, $this->getFlatDict());
 	}
 
-	public function test_array_expand() {
+	public function test_array_flatten_2() {
+		$d_flat = array_flatten([]);
+		$this->assertIsArray($d_flat);
+		$this->assertEmpty($d_flat);
+	}
+
+	public function test_array_flatten_3() {
+		// Ensure "empty" but valid values like 0 and empty string are preserved
+		$input = [
+			'a' => [
+				'b' => 0,
+				'c' => "",
+				'd' => null
+			]
+		];
+		$d_flat = array_flatten($input);
+		$this->assertEquals([
+			'a.b' => 0,
+			'a.c' => "",
+			'a.d' => null
+		], $d_flat);
+	}
+
+	public function test_array_flatten_4() {
+		$input = ['a' => ['b' => 1]];
+		$d_flat = array_flatten($input, '->');
+		$this->assertEquals(['a->b' => 1], $d_flat);
+	}
+
+	public function test_array_expand_1() {
 		$d = array_expand($this->getFlatDict());
 		$this->assertEquals($d, $this->getDict());
+	}
+
+	public function test_array_expand_2() {
+		$input = ['a->b->c' => 5];
+		$d = array_expand($input, '->');
+		$this->assertEquals(['a' => ['b' => ['c' => 5]]], $d);
+	}
+
+	public function test_array_expand_3() {
+		$input = [
+			'a.b' => 0,
+			'a.c' => "",
+			'a.d' => null
+		];
+		$d = array_expand($input);
+		$this->assertEquals([
+			'a' => [
+				'b' => 0,
+				'c' => "",
+				'd' => null
+			]
+		], $d);
+	}
+
+	public function test_array_expand_4() {
+		$input = [
+			'a' => 1,
+			'a.b' => 2
+		];
+		$d = array_expand($input);
+		$this->assertEquals(['a' => ['b' => 2]], $d);
+	}
+
+	public function test_array_expand_5() {
+		$input = [
+			'a.b.c' => 1,
+			'a.b' => 0
+		];
+		$d = array_expand($input);
+		$this->assertEquals(['a' => ['b' => 0]], $d);
+	}
+
+	public function test_array_expand_6() {
+		$input = [ 'a' => 1 ];
+		$d = array_expand($input);
+		$this->assertEquals(['a' => 1], $d);
 	}
 
 	public function test_array_sort_key() {
@@ -451,7 +526,7 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function test_strpdate() {
-		$ts = strpdate('Oct 19 04:24:38', 'M j G:i:s');
+		$ts = strpdate('2022-10-19 04:24:38 +0000', 'Y-m-d H:i:s O');
 		$this->assertIsInt($ts);
 		$this->assertEquals($ts, 1666153478);
 	}
@@ -537,6 +612,12 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 		$d = ["a", "b", "c"];
 		$this->assertTrue(array_remove_value($d, "b"));
 		$this->assertEquals($d, [0 => "a", 1 => "c"]);
+	}
+
+	public function test_array_remove_value_4() {
+		$d = [1, "1", 1];
+		$this->assertTrue(array_remove_value($d, 1));
+		$this->assertEquals($d, [0 => "1"]);
 	}
 
 	public function test_explode_csv_1() {

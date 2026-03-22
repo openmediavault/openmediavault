@@ -55,22 +55,21 @@ function array_flatten(array $array, $separator = ".", $parent_key = ""): ?array
 function array_expand(array $array, $separator = "."): ?array {
 	if (!is_array($array))
 		return FALSE;
-	$return = [];
+	$result = [];
 	foreach ($array as $key => $value) {
-		$parts = explode($separator, $key);
+		$parts = explode($separator, (string) $key);
 		$leafKey = array_pop($parts);
-		$parent = &$return;
-		foreach ($parts as $partk => $partv) {
-			if (!isset($parent[$partv]))
-				$parent[$partv] = [];
-			else if (!is_array($parent[$partv]))
-				$parent[$partv] = [];
-			$parent = &$parent[$partv];
+		$parent = &$result;
+		foreach ($parts as $part) {
+			if (!isset($parent[$part]) || !is_array($parent[$part])) {
+				$parent[$part] = [];
+			}
+			$parent = &$parent[$part];
 		}
-		if (empty($parent[$leafKey]))
-			$parent[$leafKey] = $value;
+		$parent[$leafKey] = $value;
+		unset($parent);
 	}
-	return $return;
+	return $result;
 }
 
 /**
@@ -110,18 +109,17 @@ function array_remove_key(array &$array, $key): bool {
 
 /**
  * Remove a value from the given array. The array will be re-indexed
- * automatically.
+ * automatically. All strictly matching values are removed.
  * @param array $array The array to process.
  * @param mixed $value The value to be removed.
  * @return Returns TRUE on success, otherwise FALSE.
  */
 function array_remove_value(array &$array, $value): bool {
-	$index = array_search($value, $array, TRUE);
-	if (FALSE === $index)
-		return FALSE;
-	// Remove value and re-index the array.
-	$array = array_values(array_diff($array, [ $value ]));
-	return TRUE;
+	$count = count($array);
+	$array = array_values(array_filter($array, function($item) use($value) {
+		return $item !== $value;
+	}));
+	return $count !== count($array);
 }
 
 /**
