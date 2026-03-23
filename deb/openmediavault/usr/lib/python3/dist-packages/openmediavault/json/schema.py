@@ -424,14 +424,13 @@ class Schema:
         elif "regex" == schema['format']:
             try:
                 re.compile(value)
-            except:
+            except Exception:  # pylint: disable=broad-except
                 raise SchemaValidationException(
                     name, "The value '%s' is not a valid regex." % value
                 ) from None
         elif "uri" == schema['format']:
-            try:
-                urllib.parse.urlparse(value)
-            except:
+            parts = urllib.parse.urlsplit(value)
+            if not parts.scheme or (not parts.netloc and not parts.path):
                 raise SchemaValidationException(
                     name, "The value '%s' is not an URI." % value
                 ) from None

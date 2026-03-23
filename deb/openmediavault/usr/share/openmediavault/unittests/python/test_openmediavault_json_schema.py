@@ -140,6 +140,162 @@ class SchemaTestCase(unittest.TestCase):
             ),
         )
 
+    def test_check_format_regex(self):
+        schema = openmediavault.json.Schema({})
+        patterns = [
+            r"^((\S+\s+)*\S+)?$",
+            r"^([a-fA-F0-9]{2}(:[a-fA-F0-9]{2}){5})?$",
+            r"^(((eth|venet|wlan)\d+|(en|veth|wl)\S+|(bond)\d+)(\.\d+)?,)*((eth|venet|wlan)\d+|(en|veth|wl)\S+|(bond)\d+)(\.\d+)?$",
+            r"^(\d+[KMGTP]?)?$",
+            r"^(([a-zA-Z_]+)(=([\w@:\/]+))?[,])*([a-zA-Z_]+)(=([\w@:\/]+))?$",
+            r"^(!?(tcp|udp|icmp|icmpv6))|all$",
+            r"^((\S+[,;]\s*)*\S+)?$",
+            r"^(br\d+)?$",
+            r"^[0-9]|[1-5][0-9]$",
+            r"^[0-9]|1[0-9]|2[0-3]|[*]$",
+            r"^[1-9]|[12][0-9]|3[01]$",
+        ]
+        for i, pattern in enumerate(patterns):
+            schema._check_format(pattern, {"format": "regex"}, f"core_{i}")
+
+    def test_check_format_regex_fail(self):
+        schema = openmediavault.json.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format("(invalid[", {"format": "regex"}, "field1"),
+        )
+
+    def test_check_format_regex_fail_2(self):
+        schema = openmediavault.json.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                r"^([a-fA-F0-9]{2}(:[a-fA-F0-9]{2}){5}?$",
+                {"format": "regex"},
+                "broken_mac",
+            ),
+        )
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                r"^(([a-zA-Z_]+)(=([\w@:\/]+))?[,])*([a-zA-Z_]+)(=([\w@:\/]+))?$)",
+                {"format": "regex"},
+                "broken_exportopts",
+            ),
+        )
+
+    def test_check_format_uri(self):
+        schema = openmediavault.json.Schema({})
+        schema._check_format(
+            "https://www.example.com/path", {"format": "uri"}, "field1"
+        )
+
+    def test_check_format_uri_no_path(self):
+        schema = openmediavault.json.Schema({})
+        schema._check_format(
+            "https://www.example.com", {"format": "uri"}, "field1"
+        )
+
+    def test_check_format_uri_with_path_only(self):
+        schema = openmediavault.json.Schema({})
+        schema._check_format(
+            "mailto:user@example.com", {"format": "uri"}, "field1"
+        )
+
+    def test_check_format_uri_fail_empty(self):
+        schema = openmediavault.json.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format("", {"format": "uri"}, "field1"),
+        )
+
+    def test_check_format_uri_fail_no_scheme(self):
+        schema = openmediavault.json.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "www.example.com", {"format": "uri"}, "field1"
+            ),
+        )
+
+    def test_check_format_datetime(self):
+        schema = openmediavault.json.Schema({})
+        schema._check_format(
+            "2025-03-23T12:00:00Z", {"format": "date-time"}, "field1"
+        )
+
+    def test_check_format_datetime_fail(self):
+        schema = openmediavault.json.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "not-a-date", {"format": "date-time"}, "field1"
+            ),
+        )
+
+    def test_check_format_date(self):
+        schema = openmediavault.json.Schema({})
+        schema._check_format("2025-03-23", {"format": "date"}, "field1")
+
+    def test_check_format_date_fail(self):
+        schema = openmediavault.json.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "23-03-2025", {"format": "date"}, "field1"
+            ),
+        )
+
+    def test_check_format_time(self):
+        schema = openmediavault.json.Schema({})
+        schema._check_format("12:30:59", {"format": "time"}, "field1")
+
+    def test_check_format_time_fail(self):
+        schema = openmediavault.json.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "12:30", {"format": "time"}, "field1"
+            ),
+        )
+
+    def test_check_format_email_fail(self):
+        schema = openmediavault.json.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "not-an-email", {"format": "email"}, "field1"
+            ),
+        )
+
+    def test_check_format_ipv4(self):
+        schema = openmediavault.json.Schema({})
+        schema._check_format(
+            "192.168.1.1", {"format": "ipv4"}, "field1"
+        )
+
+    def test_check_format_ipv4_fail(self):
+        schema = openmediavault.json.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "999.999.999.999", {"format": "ipv4"}, "field1"
+            ),
+        )
+
+    def test_check_format_ipv6(self):
+        schema = openmediavault.json.Schema({})
+        schema._check_format("::1", {"format": "ipv6"}, "field1")
+
+    def test_check_format_ipv6_fail(self):
+        schema = openmediavault.json.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "not-an-ipv6", {"format": "ipv6"}, "field1"
+            ),
+        )
+
     def test_check_one_of(self):
         schema = openmediavault.json.Schema({})
         schema._check_format(

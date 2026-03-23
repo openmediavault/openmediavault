@@ -23,6 +23,6 @@ test:
 
 install:
 	echo "Installing required packages ..."
-	sudo apt-get install bats grep php-cli xmlstarlet coreutils libc-bin findutils
+	sudo apt-get install -y bats grep php-cli xmlstarlet coreutils libc-bin findutils
 
 .PHONY: test install

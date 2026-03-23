@@ -29,6 +29,6 @@ test:
 
 install:
 	echo "Installing required packages ..."
-	sudo apt-get install phpunit
+	sudo apt-get install -y phpunit
 
 .PHONY: test install
