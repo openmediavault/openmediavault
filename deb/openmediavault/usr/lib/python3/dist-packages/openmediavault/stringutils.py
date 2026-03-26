@@ -50,9 +50,12 @@ def is_json(value):
     :type value: str
     :return: Returns ``True`` if the string is JSON, otherwise ``False``.
     :rtype: bool
-
     """
     if not isinstance(value, str):
+        return False
+    if not value:
+        return False
+    if not re.match(r'^\s*[\[{]', value):
         return False
     try:
         _ = json.loads(value)

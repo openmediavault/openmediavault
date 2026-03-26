@@ -28,9 +28,24 @@ class StringTestCase(unittest.TestCase):
         valid = openmediavault.stringutils.is_json('{"a": 10}')
         self.assertTrue(valid)
 
-    def test_is_json_fail(self):
+    def test_is_json_array(self):
+        self.assertTrue(openmediavault.stringutils.is_json('[1, 2, 3]'))
+
+    def test_is_json_fail_string(self):
         valid = openmediavault.stringutils.is_json("abc")
         self.assertFalse(valid)
+
+    def test_is_json_fail_numeric_string(self):
+        self.assertFalse(openmediavault.stringutils.is_json("777"))
+
+    def test_is_json_fail_boolean_string(self):
+        self.assertFalse(openmediavault.stringutils.is_json("true"))
+
+    def test_is_json_fail_null_string(self):
+        self.assertFalse(openmediavault.stringutils.is_json("null"))
+
+    def test_is_json_fail_empty_string(self):
+        self.assertFalse(openmediavault.stringutils.is_json(""))
 
     def test_is_uuid4(self):
         valid = openmediavault.stringutils.is_uuid4(
