@@ -1,6 +1,6 @@
 openmediavault (8.1.4-1) stable; urgency=medium
 
-  *
+  * Issue #2149: Fix bug in JSON schema validation.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 26 Mar 2026 20:05:43 +0100
 
