@@ -310,6 +310,17 @@ class SchemaTestCase(unittest.TestCase):
             "field3",
         )
 
+    def test_validate_string(self):
+        schema = openmediavault.json.Schema({"type": "string"})
+        schema.validate("777")
+
+    def test_validate_string_fail(self):
+        schema = openmediavault.json.Schema({"type": "string"})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema.validate(777),
+        )
+
     def test_validate_pattern(self):
         schema = self._get_schema()
         schema.validate({"name": "Eggs", "slaves": "eth0"})
