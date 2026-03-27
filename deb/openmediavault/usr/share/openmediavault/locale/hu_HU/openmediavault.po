@@ -1060,7 +1060,7 @@ msgid "Do you really want to install the plugin?"
 msgstr "Valóban telepíteni szeretné a bővítményt? "
 
 msgid "Do you really want to log out?"
-msgstr ""
+msgstr "Valóban ki szeretne jelentkezni?"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Valóban készenléti állapotba szeretné kapcsolni a rendszert?"

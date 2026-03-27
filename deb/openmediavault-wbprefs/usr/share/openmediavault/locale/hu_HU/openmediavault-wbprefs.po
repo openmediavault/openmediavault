@@ -25,40 +25,42 @@ msgid "Apply"
 msgstr "Alkalmaz"
 
 msgid "Login"
-msgstr ""
+msgstr "Bejelentkezés"
 
 msgid "Page"
-msgstr ""
+msgstr "Oldal"
 
 msgid "Reset"
-msgstr ""
+msgstr "Visszaállítás"
 
 msgid "Reset the wallpaper to the default image."
-msgstr ""
+msgstr "Háttérkép visszaállítása az alapértelmezett képre."
 
 msgid "Shutdown"
-msgstr ""
+msgstr "Leállítás"
 
 msgid "Standby"
-msgstr ""
+msgstr "Készenlét"
 
 msgid "The URL from which the image is to be fetched."
-msgstr ""
+msgstr "URL, ahonnan a képet be kell tölteni."
 
 msgid "The URL must start with http://, https:// or file://."
-msgstr ""
+msgstr "Az URL-nek http://, https:// vagy file:// előtaggal kell kezdődnie."
 
 msgid "The page for which the wallpaper is to be set."
-msgstr ""
+msgstr "Az oldal, amelyre a háttérképet be kell állítani."
 
 msgid "The wallpaper has been updated."
-msgstr ""
+msgstr "A háttérkép frissült."
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Wallpaper"
-msgstr ""
+msgstr "Háttérkép"
 
 msgid "You may need to clear your browser's cache to see your changes."
 msgstr ""
+"Lehet, hogy törölnie kell a böngésző gyorsítótárát, hogy a módosítások "
+"megjelenjenek."
