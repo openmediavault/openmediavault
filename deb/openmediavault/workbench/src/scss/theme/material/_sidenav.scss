@@ -13,15 +13,12 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-@use "sass:map";
+@use 'sass:map';
 @use '@angular/material' as mat;
 @use 'scss/defaults/colors' as dc;
 
 @mixin theme($mode, $theme-config, $typography-config) {
   .mat-sidenav {
-    @if $mode == light {
-      // Dialog color from the dark theme.
-      background-color: map.get(dc.$omv-color-charcoal-palette, 600);
-    }
+    background-color: map.get(dc.$omv-color-charcoal-palette, 600);
   }
 }
