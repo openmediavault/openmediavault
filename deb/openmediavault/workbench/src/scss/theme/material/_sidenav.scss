@@ -20,7 +20,8 @@
 @mixin theme($mode, $theme-config, $typography-config) {
   .mat-sidenav {
     @if $mode == light {
-      background-color: map.get(dc.$omv-color-charcoal-palette, 800);
+      // Dialog color from the dark theme.
+      background-color: map.get(dc.$omv-color-charcoal-palette, 600);
     }
   }
 }

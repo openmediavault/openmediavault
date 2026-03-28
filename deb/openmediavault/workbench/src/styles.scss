@@ -61,9 +61,9 @@ $omv-dark-theme: map.deep-merge(
   (
     color: (
       background: (
-        app-bar: map.get(dc.$omv-color-charcoal-palette, 900),
-        background: map.get(dc.$omv-color-charcoal-palette, 400),
-        card: map.get(dc.$omv-color-charcoal-palette, 800),
+        app-bar: map.get(dc.$omv-color-charcoal-palette, 800),
+        background: #4b575e,
+        card: map.get(dc.$omv-color-charcoal-palette, 600),
         dialog: map.get(dc.$omv-color-charcoal-palette, 600),
         raised-button: map.get(dc.$omv-color-charcoal-palette, 800),
         selected-button: map.get(dc.$omv-color-charcoal-palette, 900),
