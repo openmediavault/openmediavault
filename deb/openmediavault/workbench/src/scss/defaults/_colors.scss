@@ -13,10 +13,12 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-@use "sass:color";
+@use 'sass:color';
 
 ////////////////////////////////////////////////////////////////////////////////
-// Corporate colors (http://paletton.com/#uid=13v0u0kjPPS8-YpePUsofKdt2CQ)
+// Corporate colors
+// - http://paletton.com/#uid=13v0u0kjPPS8-YpePUsofKdt2CQ
+// - https://www.color-hex.com/color/5dacdf
 ////////////////////////////////////////////////////////////////////////////////
 $omv-color-corporate-lighter: #b9dff8;
 $omv-color-corporate-light: #85c3ec;
@@ -156,3 +158,39 @@ $omv-color-yellow-palette: (
     A700: #000000
   )
 );
+
+// Based on https://www.color-hex.com/color/36454f
+/* stylelint-disable color-function-notation */
+$omv-color-charcoal-palette: (
+  50: #e7e9ea,
+  100: #c3c7ca,
+  200: #9ba2a7,
+  300: #727d84,
+  400: #546169,
+  500: #36454f,
+  600: #303e48,
+  700: #29363f,
+  800: #222e36,
+  900: #161f26,
+  A100: #6abaff,
+  A200: #37a3ff,
+  A400: #048bff,
+  A700: #007eea,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: rgba(black, 0.87),
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: white
+  )
+);
+/* stylelint-enable color-function-notation */

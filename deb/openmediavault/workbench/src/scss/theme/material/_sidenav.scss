@@ -15,13 +15,12 @@
 // GNU General Public License for more details.
 @use "sass:map";
 @use '@angular/material' as mat;
+@use 'scss/defaults/colors' as dc;
 
 @mixin theme($mode, $theme-config, $typography-config) {
   .mat-sidenav {
     @if $mode == light {
-      background-color: map.get(mat.$blue-grey-palette, 900);
-    } @else {
-      background-color: var(--mat-background-color-background);
+      background-color: map.get(dc.$omv-color-charcoal-palette, 800);
     }
   }
 }
