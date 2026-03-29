@@ -96,6 +96,8 @@ create_k3s_traefik_manifest:
                 {{ lbport.extravalues | indent(16) }}
 {%- endif %}
 {%- endfor %}
+            service:
+              single: false
         ---
         apiVersion: traefik.io/v1alpha1
         kind: Middleware
