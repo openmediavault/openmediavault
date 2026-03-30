@@ -17,6 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
+{% set apt_updates_config = salt['omv_conf.get']('conf.system.apt.updates') %}
 {% set notification_config = salt['omv_conf.get_by_filter'](
   'conf.system.notification.notification',
   {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'apt'})[0] %}
@@ -29,11 +30,19 @@ divert_apticron_default_daily_cron:
   omv_dpkg.divert_add:
     - name: "/etc/cron.d/apticron"
 
+{% for nickname in ['daily', 'weekly'] %}
+
+remove_apticron_cron_{{ nickname }}:
+  file.absent:
+    - name: "/etc/cron.{{ nickname }}/openmediavault-apticron"
+
+{% endfor %}
+
 {% if notification_config.enable %}
 
-create_apticron_cron_daily:
+create_apticron_cron_{{ apt_updates_config.notificationschedule }}:
   file.managed:
-    - name: "/etc/cron.daily/openmediavault-apticron"
+    - name: "/etc/cron.{{ apt_updates_config.notificationschedule }}/openmediavault-apticron"
     - contents: |
         #!/usr/bin/env dash
         {{ pillar['headers']['auto_generated'] }}
@@ -42,11 +51,5 @@ create_apticron_cron_daily:
     - user: root
     - group: root
     - mode: 755
-
-{% else %}
-
-remove_apticron_cron_daily:
-  file.absent:
-    - name: "/etc/cron.daily/openmediavault-apticron"
 
 {% endif %}

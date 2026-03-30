@@ -37,6 +37,21 @@ export class UpdateSettingsUpdatesFormPageComponent extends BaseFormPageComponen
     },
     fields: [
       {
+        type: 'select',
+        name: 'notificationschedule',
+        label: gettext('Notifications'),
+        hint: gettext(
+          'Specify how often to receive notifications about available package updates.'
+        ),
+        value: 'daily',
+        store: {
+          data: [
+            ['daily', gettext('Daily')],
+            ['weekly', gettext('Weekly')]
+          ]
+        }
+      },
+      {
         type: 'checkbox',
         name: 'unattendedupgrade',
         label: gettext('Install security updates unattended.'),

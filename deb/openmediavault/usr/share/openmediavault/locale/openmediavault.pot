@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 10:30+0100\n"
+"POT-Creation-Date: 2026-03-30 21:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3033,6 +3033,9 @@ msgid "Specifies whether the system performance statistics are collected periodi
 msgstr ""
 
 msgid "Specifies which slave is the primary device."
+msgstr ""
+
+msgid "Specify how often to receive notifications about available package updates."
 msgstr ""
 
 msgid "Speed"
