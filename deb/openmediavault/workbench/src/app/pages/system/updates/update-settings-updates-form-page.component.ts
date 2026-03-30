@@ -39,7 +39,7 @@ export class UpdateSettingsUpdatesFormPageComponent extends BaseFormPageComponen
       {
         type: 'select',
         name: 'notificationschedule',
-        label: gettext('Notifications'),
+        label: gettext('Notification schedule'),
         hint: gettext(
           'Specify how often to receive notifications about available package updates.'
         ),
