@@ -10,10 +10,10 @@
 			"type": "boolean",
 			"default": true
 		},
-		"schedule": {
+		"notificationschedule": {
 			"type": "string",
 			"default": "daily",
-			"enum": ["daily", "weekly", "monthly"]
+			"enum": [ "daily", "weekly" ]
 		}
 	}
 }
