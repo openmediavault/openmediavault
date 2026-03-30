@@ -33,6 +33,10 @@ class Apticron extends \OMV\Engine\Module\ServiceAbstract
 
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.apt.updates",
+			[$this, "setDirty"]);
+		$dispatcher->addListener(
 			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.system.notification.notification",
 			[$this, "setDirty"]);
