@@ -41,6 +41,26 @@ export class UpdateSettingsUpdatesFormPageComponent extends BaseFormPageComponen
         name: 'unattendedupgrade',
         label: gettext('Install security updates unattended.'),
         value: true
+      },
+      {
+        type: 'select',
+        name: 'schedule',
+        label: gettext('Check for updates'),
+        value: 'daily',
+        options: [
+          {
+            value: 'daily',
+            text: gettext('Daily')
+          },
+          {
+            value: 'weekly',
+            text: gettext('Weekly')
+          },
+          {
+            value: 'monthly',
+            text: gettext('Monthly')
+          }
+        ]
       }
     ],
     buttons: [

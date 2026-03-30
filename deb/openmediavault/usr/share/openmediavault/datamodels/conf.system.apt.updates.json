@@ -9,6 +9,11 @@
 		"unattendedupgrade": {
 			"type": "boolean",
 			"default": true
+		},
+		"schedule": {
+			"type": "string",
+			"default": "daily",
+			"enum": ["daily", "weekly", "monthly"]
 		}
 	}
 }

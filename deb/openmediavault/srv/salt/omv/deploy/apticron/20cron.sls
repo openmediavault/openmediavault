@@ -21,6 +21,8 @@
   'conf.system.notification.notification',
   {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'apt'})[0] %}
 
+{% set apt_updates_config = salt['omv_conf.get']('conf.system.apt.updates') %}
+
 remove_apticron_default_daily_cron:
   file.absent:
     - name: "/etc/cron.d/apticron"
@@ -31,6 +33,31 @@ divert_apticron_default_daily_cron:
 
 {% if notification_config.enable %}
 
+{% if apt_updates_config.schedule == 'monthly' %}
+create_apticron_cron_monthly:
+  file.managed:
+    - name: "/etc/cron.monthly/openmediavault-apticron"
+    - contents: |
+        #!/usr/bin/env dash
+        {{ pillar['headers']['auto_generated'] }}
+        {{ pillar['headers']['warning'] }}
+        if test -x /usr/sbin/apticron; then /usr/sbin/apticron --cron; fi
+    - user: root
+    - group: root
+    - mode: 755
+{% elif apt_updates_config.schedule == 'weekly' %}
+create_apticron_cron_weekly:
+  file.managed:
+    - name: "/etc/cron.weekly/openmediavault-apticron"
+    - contents: |
+        #!/usr/bin/env dash
+        {{ pillar['headers']['auto_generated'] }}
+        {{ pillar['headers']['warning'] }}
+        if test -x /usr/sbin/apticron; then /usr/sbin/apticron --cron; fi
+    - user: root
+    - group: root
+    - mode: 755
+{% else %}
 create_apticron_cron_daily:
   file.managed:
     - name: "/etc/cron.daily/openmediavault-apticron"
@@ -42,6 +69,7 @@ create_apticron_cron_daily:
     - user: root
     - group: root
     - mode: 755
+{% endif %}
 
 {% else %}
 
