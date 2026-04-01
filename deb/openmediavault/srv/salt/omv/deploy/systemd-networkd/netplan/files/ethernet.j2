@@ -1,5 +1,6 @@
 {%- set dns_config = salt['omv_conf.get']('conf.system.network.dns') -%}
 {%- set addr_assign_type_path = '/sys/class/net/' ~ interface.devicename ~ '/addr_assign_type' -%}
+{%- set link_local = [] -%}
 network:
   ethernets:
     {{ interface.devicename }}:
@@ -59,9 +60,13 @@ network:
         use-dns: {{ (interface.dnsnameservers == "") | yesno('true,false') }}
         use-domains: {{ (interface.dnssearch == "") | yesno('true,false') }}
 {%- endif %}
-{%- if interface.method6 == "manual" %}
-      link-local: []
+{%- if interface.method == "dhcp" -%}
+{%- do link_local.append('ipv4') -%}
 {%- endif %}
+{%- if interface.method6 != "manual" -%}
+{%- do link_local.append('ipv6') -%}
+{%- endif %}
+      link-local: [{{ link_local | join(', ') }}]
 {%- if not interface.dnsnameservers == "" %}
       nameservers:
         addresses:
