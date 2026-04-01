@@ -1,5 +1,6 @@
 openmediavault (8.2.0-1) stable; urgency=medium
 
+  * Several improvements.
   * Issue #2158: Configure APT update check frequency.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 29 Mar 2026 20:28:51 +0200
