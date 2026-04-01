@@ -63,3 +63,7 @@ PubkeyAuthentication {{ config.pubkeyauthentication | to_bool | yesno }}
 {% if config.extraoptions | length > 0 -%}
 {{ config.extraoptions }}
 {% endif -%}
+
+# Include behaves slightly differently here than usual, since the above
+# settings take precedence over all others.
+Include /etc/ssh/sshd_config.d/*.conf
