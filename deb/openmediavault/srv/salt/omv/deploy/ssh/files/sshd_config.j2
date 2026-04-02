@@ -7,7 +7,7 @@
 {% set ignoreRhosts = salt['pillar.get']('default:OMV_SSHD_IGNORERHOSTS', 'yes') -%}
 {% set hostbasedAuthentication = salt['pillar.get']('default:OMV_SSHD_HOSTBASEDAUTHENTICATION', 'no') -%}
 {% set permitEmptyPasswords = salt['pillar.get']('default:OMV_SSHD_PERMITEMPTYPASSWORDS', 'no') -%}
-{% set challengeResponseAuthentication = salt['pillar.get']('default:OMV_SSHD_CHALLENGERESPONSEAUTHENTICATION', 'no') -%}
+{% set kbdInteractiveAuthentication = salt['pillar.get']('default:OMV_SSHD_KBDINTERACTIVEAUTHENTICATION', 'no') -%}
 {% set x11Forwarding = salt['pillar.get']('default:OMV_SSHD_X11FORWARDING', 'yes') -%}
 {% set x11DisplayOffset = salt['pillar.get']('default:OMV_SSHD_X11DISPLAYOFFSET', '10') -%}
 {% set printMotd = salt['pillar.get']('default:OMV_SSHD_PRINTMOTD', 'no') -%}
@@ -32,7 +32,7 @@ StrictModes {{ strictModes }}
 IgnoreRhosts {{ ignoreRhosts }}
 HostbasedAuthentication {{ hostbasedAuthentication }}
 PermitEmptyPasswords {{ permitEmptyPasswords }}
-ChallengeResponseAuthentication {{ challengeResponseAuthentication }}
+KbdInteractiveAuthentication {{ kbdInteractiveAuthentication }}
 X11Forwarding {{ x11Forwarding }}
 X11DisplayOffset {{ x11DisplayOffset }}
 PrintMotd {{ printMotd }}
