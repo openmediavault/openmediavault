@@ -67,8 +67,8 @@ class Module(openmediavault.firstaid.IModule):
                     raise e
             if output is not None:
                 ts_last = int(output.decode())
-                dt_now = datetime.datetime.now()
-                if datetime.datetime.utcfromtimestamp(ts_last) > dt_now:
+                dt_now = datetime.datetime.now(datetime.UTC)
+                if datetime.datetime.fromtimestamp(ts_last, datetime.UTC) > dt_now:
                     invalid += 1
                     dirname = os.path.basename(os.path.dirname(rrd_file))
                     basename = os.path.basename(rrd_file)
