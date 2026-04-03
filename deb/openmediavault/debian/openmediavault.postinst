@@ -656,6 +656,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "8.2.1"; then
 			omv_module_set_dirty smartmontools
+			omv_module_set_dirty systemd-networkd
 		fi
 
 		########################################################################
