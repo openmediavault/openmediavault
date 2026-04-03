@@ -1,5 +1,8 @@
 openmediavault (8.2.1-1) stable; urgency=medium
 
+  * Set link local addresses for both Ethernet and WiFi network interfaces
+    by default when using DHCP to ensure that the system is reachable even if
+    no other IP address can be obtained.
   * Issue #2160: Add change-based monitoring for key SMART attributes
     (`Reallocated Sectors`, `Current Pending Sectors`, and
     `Offline Uncorrectable`) to reduce repeated alerts for unchanged disk
@@ -11,8 +14,8 @@ openmediavault (8.2.0-1) stable; urgency=medium
 
   * Update i18n files.
   * Several improvements.
-  * Rename the environment variable OMV_SSHD_CHALLENGERESPONSEAUTHENTICATION to
-    OMV_SSHD_KBDINTERACTIVEAUTHENTICATION.
+  * Rename the environment variable OMV_SSHD_CHALLENGERESPONSEAUTHENTICATION
+    to OMV_SSHD_KBDINTERACTIVEAUTHENTICATION.
   * Issue #2158: Configure APT update check frequency.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 29 Mar 2026 20:28:51 +0200
