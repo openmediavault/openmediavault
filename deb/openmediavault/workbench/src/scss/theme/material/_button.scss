@@ -18,7 +18,7 @@
 
 @mixin theme($mode, $theme-config, $typography-config) {
   .mat-button-base {
-    border-radius: dv.$omv-border-radius !important;
+    border-radius: 9999px !important;
   }
 
   .mat-button-toggle.mat-button-toggle-checked {
