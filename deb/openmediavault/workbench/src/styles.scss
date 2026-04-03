@@ -756,12 +756,24 @@ $omv-dark-theme: map.deep-merge(
 }
 
 @each $name in map-keys(theme.$omv-color-pairs) {
+  //----------------------------------------------------------------------------
   // Deprecated, use `.omv-background-color-pair-xxx`.
   .omv-background-color-theme-#{$name} {
     @include theme.background-color-pair($name);
   }
+  .omv-dark-theme {
+    .omv-background-color-theme-#{$name} {
+      @include theme.background-color-pair($name);
+    }
+  }
+  //----------------------------------------------------------------------------
   .omv-background-color-pair-#{$name} {
     @include theme.background-color-pair($name);
+  }
+  .omv-dark-theme {
+    .omv-background-color-pair-#{$name} {
+      @include theme.background-color-pair($name);
+    }
   }
 }
 
