@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 10:30+0100\n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -2266,6 +2266,9 @@ msgstr "아무 것도 안 함"
 msgid "Notification"
 msgstr "알림"
 
+msgid "Notification schedule"
+msgstr ""
+
 msgid "Notifications"
 msgstr "알림"
 
@@ -3173,6 +3176,10 @@ msgstr "시스템 성능 통계가 주기적으로 수집될지 아닌지를 지
 
 msgid "Specifies which slave is the primary device."
 msgstr "주 장치의 보조를 지정합니다."
+
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr ""
 
 msgid "Speed"
 msgstr "속도"

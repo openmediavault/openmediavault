@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 10:30+0100\n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025-2026\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -2271,6 +2271,9 @@ msgstr "Niets"
 msgid "Notification"
 msgstr "Meldingen"
 
+msgid "Notification schedule"
+msgstr "Meldingsschema"
+
 msgid "Notifications"
 msgstr "Meldingen"
 
@@ -3178,6 +3181,10 @@ msgstr "Geeft aan of de systeemprestatiestatistieken periodiek worden opgehaald.
 
 msgid "Specifies which slave is the primary device."
 msgstr "Specificeert welke slaaf het primaire apparaat is."
+
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr "Geef op hoe vaak u meldingen over beschikbare pakketupdates wilt ontvangen."
 
 msgid "Speed"
 msgstr "Snelheid"

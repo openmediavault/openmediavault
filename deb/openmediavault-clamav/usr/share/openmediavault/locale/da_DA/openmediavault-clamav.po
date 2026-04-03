@@ -24,7 +24,7 @@ msgstr "Algoritmisk detektering"
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "En email besked med kommandoens output (hvis nogen produceret) er sendt administratoren."
 
 msgid "Antivirus"
 msgstr "Antivirus"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 10:30+0100\n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Kostas Moho, 2012-2026\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -2263,6 +2263,9 @@ msgstr "Τίποτα"
 msgid "Notification"
 msgstr "Ειδοποίηση"
 
+msgid "Notification schedule"
+msgstr "Προγραμματισμός ειδοποιήσεων"
+
 msgid "Notifications"
 msgstr "Ειδοποιήσεις"
 
@@ -3170,6 +3173,10 @@ msgstr "Να συλλέγονται στατιστικά των επιδόσεω
 
 msgid "Specifies which slave is the primary device."
 msgstr "Καθορίζει ποια υποτελής συσκευή είναι η πρωτεύουσα."
+
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr "Συχνότητα λήψης ειδοποιήσεων σχετικά με τις διαθέσιμες ενημερώσεις πακέτων."
 
 msgid "Speed"
 msgstr "Ταχύτητα"

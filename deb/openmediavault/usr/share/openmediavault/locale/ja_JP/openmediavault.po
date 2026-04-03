@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 10:30+0100\n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024,2026\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -2263,6 +2263,9 @@ msgstr "何もしない"
 msgid "Notification"
 msgstr "通知"
 
+msgid "Notification schedule"
+msgstr ""
+
 msgid "Notifications"
 msgstr "通知"
 
@@ -3170,6 +3173,10 @@ msgstr "システムのパフォーマンス統計を定期的に収集するか
 
 msgid "Specifies which slave is the primary device."
 msgstr "どのスレーブがプライマリデバイスかを指定します。"
+
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr ""
 
 msgid "Speed"
 msgstr "スピード"

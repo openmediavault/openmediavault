@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 10:30+0100\n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -2264,6 +2264,9 @@ msgstr "Nič"
 msgid "Notification"
 msgstr "Obvestilo"
 
+msgid "Notification schedule"
+msgstr ""
+
 msgid "Notifications"
 msgstr "Obvestila"
 
@@ -3171,6 +3174,10 @@ msgstr "Določa, ali naj se periodično zbirajo statistični podatki o delovanju
 
 msgid "Specifies which slave is the primary device."
 msgstr "Določa, katera podrejena naprava je primarna naprava."
+
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr ""
 
 msgid "Speed"
 msgstr "Hitrost"

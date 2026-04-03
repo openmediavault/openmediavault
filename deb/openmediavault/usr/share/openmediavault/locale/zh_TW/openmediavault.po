@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 10:30+0100\n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2026\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -2265,6 +2265,9 @@ msgstr "無任何"
 msgid "Notification"
 msgstr "通知"
 
+msgid "Notification schedule"
+msgstr "通知時程"
+
 msgid "Notifications"
 msgstr "通知"
 
@@ -3173,6 +3176,10 @@ msgstr "指定系統是否定期收集效能統計資料。"
 msgid "Specifies which slave is the primary device."
 msgstr "指定哪個隸屬介面是主要的裝置。"
 
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr "指定多久接收一次關於可用之套件更知的通知。"
+
 msgid "Speed"
 msgstr "速度"
 
@@ -3390,10 +3397,10 @@ msgid "The file system to mount."
 msgstr "要掛載的檔案系統。"
 
 msgid "The following modules have been updated: {{ modules }}"
-msgstr "以下模組已更新：{{ modules }}"
+msgstr "以下模組已被更新：{{ modules }}"
 
 msgid "The following modules will be updated:"
-msgstr "将更新以下模块："
+msgstr "將更新以下的模組："
 
 msgid "The forum page is the best place to ask questions and find answers."
 msgstr "論壇網頁是提出問題和尋找答案的最佳場所。"

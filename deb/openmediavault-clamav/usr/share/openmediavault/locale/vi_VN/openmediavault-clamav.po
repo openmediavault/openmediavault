@@ -128,13 +128,13 @@ msgid "February"
 msgstr "Tháng Hai"
 
 msgid "Follow directory symlinks"
-msgstr ""
+msgstr "Theo dõi liên kết tượng trưng của thư mục."
 
 msgid "Follow directory symlinks."
-msgstr ""
+msgstr "Theo dõi liên kết tượng trưng của thư mục."
 
 msgid "Follow file symlinks"
-msgstr ""
+msgstr "Theo dõi liên kết tượng trưng"
 
 msgid "Follow regular file symlinks."
 msgstr ""
@@ -197,7 +197,7 @@ msgid "October"
 msgstr "Tháng Mười"
 
 msgid "On Access Scans"
-msgstr ""
+msgstr "Quét khi truy cập."
 
 msgid "Perform a deeper analysis of executable files."
 msgstr "Tiến hành phân tích sâu các tập tin thực thi."
@@ -239,7 +239,7 @@ msgid "Scan archives"
 msgstr "Quét các tập tin lưu trữ"
 
 msgid "Scan the directory contents in parallel using available threads."
-msgstr ""
+msgstr "Quét nội dung thư mục song song."
 
 msgid "Scheduled Scans"
 msgstr "Quét đã lên lịch trước"
@@ -269,19 +269,19 @@ msgid "Tags"
 msgstr "Đánh dấu"
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "Trường dữ liệu này chỉ chấp nhận hai loại giá trị * hoặc một danh sách các giá trị cụ thể được ngăn cách bởi dấu phẩy."
 
 msgid "The location of the files to scan on-access."
-msgstr ""
+msgstr "Vị trí quét tập tin khi truy cập"
 
 msgid "The location of the files to scan."
-msgstr ""
+msgstr "Vị trí quét tập tin."
 
 msgid "The location which is used as quarantine."
-msgstr ""
+msgstr "Thư mục cách ly"
 
 msgid "The option, how to handle infected files."
-msgstr ""
+msgstr "Tùy chọn xử lý các tập tin bị nhiễm mã độc"
 
 msgid "Thursday"
 msgstr "Thứ Năm"

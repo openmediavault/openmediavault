@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 10:30+0100\n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Dung Ba Minh, 2026\n"
 "Language-Team: Vietnamese (Viet Nam) (http://app.transifex.com/openmediavault/openmediavault/language/vi_VN/)\n"
@@ -1532,7 +1532,7 @@ msgid "Hungary"
 msgstr "Hungary"
 
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Chế độ ngủ hỗn hợp"
 
 msgid "ID"
 msgstr "ID"
@@ -2263,6 +2263,9 @@ msgstr "Không "
 msgid "Notification"
 msgstr "Thông báo"
 
+msgid "Notification schedule"
+msgstr ""
+
 msgid "Notifications"
 msgstr "Các thông báo"
 
@@ -2341,7 +2344,7 @@ msgid "Palau"
 msgstr "Palau"
 
 msgid "Palestinian Territory"
-msgstr ""
+msgstr "Lãnh thổ Palestine"
 
 msgid "Panama"
 msgstr "Panama"
@@ -3171,6 +3174,10 @@ msgstr "Xác định việc các số liệu thống kê về hiệu suất hệ
 msgid "Specifies which slave is the primary device."
 msgstr "Chỉ định giao diện mạng phụ nào sẽ đóng vai trò là thiết bị chính."
 
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr ""
+
 msgid "Speed"
 msgstr "Tốc độ"
 
@@ -3376,7 +3383,7 @@ msgid ""
 msgstr ""
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr ""
+msgstr "Trường dữ liệu này chỉ chấp nhận hai loại giá trị * hoặc một danh sách các giá trị cụ thể được ngăn cách bởi dấu phẩy."
 
 msgid "The file mode of the shared folder path."
 msgstr "Chế độ tệp tin của đường dẫn thư mục chia sẻ"

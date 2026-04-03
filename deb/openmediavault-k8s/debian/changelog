@@ -1,5 +1,6 @@
 openmediavault-k8s (8.2.2-1) stable; urgency=medium
 
+  * Update i18n files.
   * Issue #2155: Can't expose same port on different protocols.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 29 Mar 2026 20:29:33 +0200

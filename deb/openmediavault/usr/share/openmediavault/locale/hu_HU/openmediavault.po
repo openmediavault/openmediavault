@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 10:30+0100\n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2026\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -2269,6 +2269,9 @@ msgstr "Semmi"
 msgid "Notification"
 msgstr "Értesítés"
 
+msgid "Notification schedule"
+msgstr "Értesítési ütemterv"
+
 msgid "Notifications"
 msgstr "Értesítések"
 
@@ -3176,6 +3179,10 @@ msgstr "Rendszeres teljesítménystatisztikák gyűjtése."
 
 msgid "Specifies which slave is the primary device."
 msgstr "Annak meghatározása, hogy melyik kiszolgáló legyen az elsődleges eszköz."
+
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr "Az elérhető csomagfrissítésekről szóló értesítések gyakoriságát állítja be."
 
 msgid "Speed"
 msgstr "Sebesség"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 10:30+0100\n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -2264,6 +2264,9 @@ msgstr "لا شيء"
 msgid "Notification"
 msgstr "تنبيه"
 
+msgid "Notification schedule"
+msgstr ""
+
 msgid "Notifications"
 msgstr "التنبيهات"
 
@@ -3171,6 +3174,10 @@ msgstr "يحدد ما إذا كان يتم جمع إحصائيات أداء ال
 
 msgid "Specifies which slave is the primary device."
 msgstr "يحدد أي من جهاز ثانوي هو الجهاز الأساسي."
+
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr ""
 
 msgid "Speed"
 msgstr "السرعة"

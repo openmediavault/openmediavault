@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 10:30+0100\n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025-2026\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -2271,6 +2271,9 @@ msgstr "Niente"
 msgid "Notification"
 msgstr "Notifica"
 
+msgid "Notification schedule"
+msgstr "Pianificazione delle notifiche"
+
 msgid "Notifications"
 msgstr "Notifiche"
 
@@ -3178,6 +3181,10 @@ msgstr "Specifica se le statistiche sulle prestazioni del sistema sono raccolte 
 
 msgid "Specifies which slave is the primary device."
 msgstr "Specifica quale slave è il dispositivo primario."
+
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr "Specifica con quale frequenza vuoi ricevere le notifiche sugli aggiornamenti dei pacchetti disponibili."
 
 msgid "Speed"
 msgstr "Velocità"

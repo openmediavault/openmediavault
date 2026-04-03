@@ -63,7 +63,7 @@ msgid "Clean"
 msgstr "Dọn dẹp"
 
 msgid "Clear total statistics"
-msgstr ""
+msgstr "Xóa toàn bộ số liệu thống kê"
 
 msgid "Configuration"
 msgstr "Cấu hình"
@@ -161,7 +161,7 @@ msgid "Select the device that will be used as cache device."
 msgstr "Chọn thiết bị sẽ được làm thiết bị bộ nhớ đệm."
 
 msgid "Sequential Cutoff"
-msgstr ""
+msgstr "Ngưỡng cắt tuần tự"
 
 msgid "Show details"
 msgstr "Xem thông tin chi tiết "
@@ -200,10 +200,10 @@ msgid "Unused"
 msgstr "Chưa sử dụng"
 
 msgid "Updated backing device '{{ devicefile }}'."
-msgstr ""
+msgstr "Đã cập nhật thiết bị đệm '{{ devicefile }}'."
 
 msgid "Updated cache device '{{ devicefile }}'."
-msgstr ""
+msgstr "Đã cập nhật thiết bị bộ đệm '{{ devicefile }}'."
 
 msgid ""
 "When dirty data is written to the cache and it previously did not contain "
@@ -214,7 +214,7 @@ msgstr ""
 "ngược xuống ổ đĩa chính. (Mặc định: 30)"
 
 msgid "Writeback Delay"
-msgstr ""
+msgstr "Trì hoãn ghi lại"
 
 msgid "Writeback Percent"
 msgstr "Phần trăm ghi ngược"
@@ -223,10 +223,10 @@ msgid "none"
 msgstr "trống"
 
 msgid "writearound"
-msgstr ""
+msgstr "Cơ chế ghi vòng qua bộ đệm"
 
 msgid "writeback"
 msgstr "ghi ngược"
 
 msgid "writethrough"
-msgstr ""
+msgstr "Cơ chế ghi xuyên thấu"

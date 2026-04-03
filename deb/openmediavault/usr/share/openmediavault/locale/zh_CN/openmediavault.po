@@ -17,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 10:30+0100\n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: irrelevant91, 2025-2026\n"
+"Last-Translator: 杨宇哲, 2026\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2272,6 +2272,9 @@ msgstr "没有"
 msgid "Notification"
 msgstr "通知"
 
+msgid "Notification schedule"
+msgstr "通知日程"
+
 msgid "Notifications"
 msgstr "通知"
 
@@ -3179,6 +3182,10 @@ msgstr "指定系统是否定期收集性能统计信息。"
 
 msgid "Specifies which slave is the primary device."
 msgstr "指定主从设备。"
+
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr "指定多久接收一次可用软件包更新的通知。"
 
 msgid "Speed"
 msgstr "速度"

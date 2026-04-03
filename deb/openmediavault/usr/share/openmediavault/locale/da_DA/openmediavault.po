@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 10:30+0100\n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2023,2025-2026\n"
 "Language-Team: Danish (http://app.transifex.com/openmediavault/openmediavault/language/da/)\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "# Members"
-msgstr ""
+msgstr "# Medlemmer"
 
 msgid "%CPU"
 msgstr "%CPU"
@@ -52,7 +52,7 @@ msgid "%s [on %s, %s]"
 msgstr "%s [til %s, %s]"
 
 msgid "%s [on N/A, %s]"
-msgstr ""
+msgstr "%s [til N/A, %s]"
 
 msgid "%s ago"
 msgstr "%s siden"
@@ -243,13 +243,13 @@ msgstr "A (5Ghz)"
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr ""
+msgstr "En genstart er nødvendig for fuldt ud, at anvende de ændringer, der blev introduceret ved pakkeinstallation, eller opgradering."
 
 msgid "A running background task was detected."
-msgstr ""
+msgstr "Der blev registreret en kørende baggrundsopgave."
 
 msgid "A scheduled task to create a snapshot has been created."
-msgstr ""
+msgstr "En planlagt opgave til, at oprette et snapshot er blevet oprettet."
 
 msgid "A secure shell (SSH) server."
 msgstr ""
@@ -378,12 +378,12 @@ msgstr "Et forsøg på, at sende en test email er udført. Kontroller venligst, 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "En email besked med kommandoens output (hvis nogen produceret) er sendt administratoren."
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr ""
+msgstr "En e-mail besked med kommandoens output (hvis nogen produceret) er sendt til brugeren der udfører opgaven."
 
 msgid "Andorra"
 msgstr "Andorra"
@@ -431,16 +431,16 @@ msgid "Asynchronous I/O"
 msgstr "Asynkron I/O"
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "Mindst fire enheder er påkrævet."
 
 msgid "At least one device is required."
-msgstr ""
+msgstr "Mindst en enhed er påkrævet."
 
 msgid "At least one network interface is required."
-msgstr ""
+msgstr "Mindst en netværksenhed er påkrævet."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "Mindst to enheder er påkrævet."
 
 msgid "At reboot"
 msgstr "Ved genstart"
@@ -452,7 +452,7 @@ msgid "Attributes"
 msgstr "Attributter"
 
 msgid "Audit file operations"
-msgstr ""
+msgstr "Godkend filhandlinger"
 
 msgid "August"
 msgstr "August"
@@ -491,7 +491,7 @@ msgid "Back"
 msgstr "Tilbage"
 
 msgid "Background image"
-msgstr ""
+msgstr "Baggrundsbillede"
 
 msgid "Background task"
 msgstr "Baggrundsopgave"
@@ -590,7 +590,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "COMMAND"
-msgstr ""
+msgstr "KOMMANDO"
 
 msgid "CPU"
 msgstr "CPU"
@@ -680,7 +680,7 @@ msgid "City"
 msgstr "By"
 
 msgid "Cleaning up recycle bin on the share."
-msgstr ""
+msgstr "Tømmer papirkurven på denne deling."
 
 msgid "Clear"
 msgstr "Fjern"
@@ -716,7 +716,7 @@ msgid "Common Name"
 msgstr "Fælles Navn"
 
 msgid "Community-maintained updates"
-msgstr ""
+msgstr "Fællesskab-vedligeholdes opdateringer"
 
 msgid "Comoros"
 msgstr "Comoros"
@@ -755,7 +755,7 @@ msgid "Connect even if the network is not broadcasting its SSID name."
 msgstr ""
 
 msgid "Connect to hidden network"
-msgstr ""
+msgstr "Forbind til skjult netværk"
 
 msgid "Connections"
 msgstr "Forbindelser"
@@ -791,7 +791,7 @@ msgid "Create"
 msgstr "Opret"
 
 msgid "Create and mount a file system."
-msgstr ""
+msgstr "Opret og monter et filsystem."
 
 msgid "Create file system"
 msgstr "Opret filsystem"
@@ -821,10 +821,10 @@ msgid "Created VLAN network connection."
 msgstr "Oprettet VLAN netværksforbindelse."
 
 msgid "Created bond network connection."
-msgstr ""
+msgstr "Oprettet bond netværksforbindelse."
 
 msgid "Created bridge network connection."
-msgstr ""
+msgstr "Oprettet bro netværksforbindelse."
 
 msgid "Created firewall rule."
 msgstr "Oprettet firewall regl."
@@ -845,10 +845,10 @@ msgid "Created wireless network connection."
 msgstr "Oprettet trådløs netværksforbindelse."
 
 msgid "Creating"
-msgstr ""
+msgstr "Opretter"
 
 msgid "Creation Time"
-msgstr ""
+msgstr "Oprettelsestidspunkt"
 
 msgid "Croatia"
 msgstr "Croatia"
@@ -884,7 +884,7 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 msgid "Database record not found."
-msgstr ""
+msgstr "Database optegnelse ikke fundet."
 
 msgid "Date & Time"
 msgstr "Dato & Tid"
@@ -920,7 +920,7 @@ msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr ""
+msgstr "Destinations adressen kan entet være en netværks IP adresse (med /maske), en IP række eller en ren IP adresse. Et '!' argument før adresse specifikationen inverterer betydningen af adressen."
 
 msgid "Destination port"
 msgstr "Destination port"
@@ -956,7 +956,7 @@ msgid "Device is being used outside design parameters."
 msgstr "Enheden bliver brugt udenfor design parametre."
 
 msgid "Device was used outside of design parameters in the past."
-msgstr ""
+msgstr "Enheden er før blevet brugt udenfor design parametrene."
 
 msgid "Device(s)"
 msgstr "Enhed(er)"
@@ -974,16 +974,16 @@ msgid "Direction"
 msgstr "Retning"
 
 msgid "Directory does not exist."
-msgstr ""
+msgstr "Mappe findes ikke."
 
 msgid "Disabled"
 msgstr "Deaktiver"
 
 msgid "Disallow account modification"
-msgstr ""
+msgstr "Tillad ikke konto ændringer"
 
 msgid "Disallow the user to modify their own account."
-msgstr ""
+msgstr "Forbyd brugeren, at ændre deres egen konto."
 
 msgid "Disk Temperatures"
 msgstr "Disk Temperaturer"
@@ -1051,10 +1051,10 @@ msgid "Do you really want to delete the selected item(s)?"
 msgstr "Er du sikker på at du vil slette det/de valgte emne(r)?"
 
 msgid "Do you really want to install the plugin?"
-msgstr ""
+msgstr "Er du sikker på, at du vil installere plugin?"
 
 msgid "Do you really want to log out?"
-msgstr ""
+msgstr "Er du sikker på, at du vil logge ud?"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Er du sikker på, at du vil sætte systemet på standby?"
@@ -1063,21 +1063,21 @@ msgid "Do you really want to reboot the system?"
 msgstr "Er du sikker på at du vil genstarte systemet?"
 
 msgid "Do you really want to reset the UI settings to their default values?"
-msgstr ""
+msgstr "Er du sikker på, at du vil nulstille UI indstillingerne til deres standard værdier?"
 
 msgid ""
 "Do you really want to resize the file system? You have to do that after a "
 "RAID has been grown for example."
-msgstr ""
+msgstr "Er du sikker på, at ændre størrelsen på det valgte filsystem? Du, er nødt til, at eksempelvis gøre det efter et RAID er vokset ."
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Er du sikker på, at du vil lukke systemet ned?"
 
 msgid "Do you really want to undo the configuration changes?"
-msgstr ""
+msgstr "Er du sikker på, at du vil fortryde konfigurations ændringerne?"
 
 msgid "Do you really want to uninstall the plugin?"
-msgstr ""
+msgstr "Er du sikker på, at du vil afinstallere plugin?"
 
 msgid ""
 "Do you really want to unmount this file system? Please make sure that the "
@@ -1297,7 +1297,7 @@ msgid "File access control lists"
 msgstr "Tilgå fil kontrol lister"
 
 msgid "File owner and group"
-msgstr ""
+msgstr "Fil ejer og gruppe"
 
 msgid "File path"
 msgstr "Filsti"
@@ -1319,13 +1319,13 @@ msgid ""
 msgstr "Filer, der er større end det specificeret antal, vil ikke blive lagt i papirkurven."
 
 msgid "Filesystem is being created."
-msgstr ""
+msgstr "Filsystem er ved, at blive oprettet."
 
 msgid "Filesystem is detected."
 msgstr ""
 
 msgid "Filesystem is missing."
-msgstr ""
+msgstr "Filsystem mangler."
 
 msgid "Fingerprint (SHA-1)"
 msgstr "Fingeraftryk (SHA-1)"
@@ -2263,6 +2263,9 @@ msgstr "Ingenting"
 msgid "Notification"
 msgstr "Underretning"
 
+msgid "Notification schedule"
+msgstr ""
+
 msgid "Notifications"
 msgstr "Underretninger"
 
@@ -3170,6 +3173,10 @@ msgstr "Angiver hvorvidt systemets ydeevne statistikker bliver opsamlet periodis
 
 msgid "Specifies which slave is the primary device."
 msgstr "Angiver hvilken slave der er den primære enhed."
+
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr ""
 
 msgid "Speed"
 msgstr "Hastighed"

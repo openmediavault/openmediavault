@@ -52,7 +52,7 @@ msgid "Chart"
 msgstr "Biểu đồ"
 
 msgid "Check for new recipes"
-msgstr ""
+msgstr "Kiểm tra các công thức mới"
 
 msgid "Class"
 msgstr "Phân lớp"
@@ -70,7 +70,7 @@ msgid "Copy to clipboard"
 msgstr "Sao chép đến bảng nhớ tạm"
 
 msgid "Copy token"
-msgstr ""
+msgstr "Sao chép token"
 
 msgid "Count"
 msgstr "Đếm"
@@ -170,7 +170,7 @@ msgid "Ingredients"
 msgstr ""
 
 msgid "Ingress Routes"
-msgstr ""
+msgstr "Tuyến đường truy cập"
 
 msgid "Ingresses"
 msgstr ""
@@ -215,7 +215,7 @@ msgid "Name"
 msgstr "Tên "
 
 msgid "Namespace"
-msgstr ""
+msgstr "Không gian tên"
 
 msgid "Namespaces"
 msgstr ""
@@ -242,7 +242,7 @@ msgid "Pending"
 msgstr "Đang chờ"
 
 msgid "Persistent Volume Claims"
-msgstr ""
+msgstr "Yêu cầu cấp phát ổ đĩa lưu trữ"
 
 msgid "Persistent Volumes"
 msgstr "Các ổ lưu trữ dữ liệu bền vững."
@@ -395,7 +395,7 @@ msgid ""
 msgstr ""
 
 msgid "The location where to store etcd on-demand snapshots."
-msgstr ""
+msgstr "Vị trí lưu trữ bản sao lưu tức thời của etcd"
 
 msgid "The manifest to apply."
 msgstr ""
