@@ -759,6 +759,7 @@ $omv-dark-theme: map.deep-merge(
   .omv-background-color-pair-#{$name} {
     @include theme.background-color-pair($name);
   }
+
   .omv-dark-theme {
     .omv-background-color-pair-#{$name} {
       @include theme.background-color-pair($name);
