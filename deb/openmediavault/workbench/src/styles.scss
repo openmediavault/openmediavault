@@ -14,6 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 @use 'sass:map';
+@use 'sass:math';
 @use '@angular/cdk' as cdk;
 @use '@angular/material' as mat;
 @use 'scss/defaults/colors' as dc;
@@ -1037,7 +1038,7 @@ $omv-dark-theme: map.deep-merge(
 ////////////////////////////////////////////////////////////////////////////////
 // Borders
 .omv-rounded {
-  border-radius: 4px;
+  border-radius: math.div(dv.$omv-border-radius, 2);
 }
 
 .omv-rounded-none {
