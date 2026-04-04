@@ -87,6 +87,61 @@ class ConfigObjectTestCase(unittest.TestCase):
         conf_obj.set("comment", "test")
         self.assertFalse(conf_obj.is_empty("comment"))
 
+    def test_set_boolean_string_false(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        conf_obj.set("enable", "false")
+        self.assertIsInstance(conf_obj.get("enable"), bool)
+        self.assertFalse(conf_obj.get("enable"))
+
+    def test_set_boolean_string_true(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        conf_obj.set("enable", "true")
+        self.assertIsInstance(conf_obj.get("enable"), bool)
+        self.assertTrue(conf_obj.get("enable"))
+
+    def test_set_boolean_string_0(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        conf_obj.set("enable", "0")
+        self.assertIsInstance(conf_obj.get("enable"), bool)
+        self.assertFalse(conf_obj.get("enable"))
+
+    def test_set_boolean_string_1(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        conf_obj.set("enable", "1")
+        self.assertIsInstance(conf_obj.get("enable"), bool)
+        self.assertTrue(conf_obj.get("enable"))
+
+    def test_set_integer_string(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        conf_obj.set("port", "2222")
+        self.assertIsInstance(conf_obj.get("port"), int)
+        self.assertEqual(conf_obj.get("port"), 2222)
+
+    def test_set_integer_int(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        conf_obj.set("port", 8022)
+        self.assertIsInstance(conf_obj.get("port"), int)
+        self.assertEqual(conf_obj.get("port"), 8022)
+
+    def test_set_string(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        conf_obj.set("extraoptions", "AcceptEnv LANG")
+        self.assertIsInstance(conf_obj.get("extraoptions"), str)
+        self.assertEqual(conf_obj.get("extraoptions"), "AcceptEnv LANG")
+
+    def test_set_dict_coerce_mixed_types(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        conf_obj.set_dict({
+            "enable": "true",
+            "port": "2222",
+            "extraoptions": "AcceptEnv LANG",
+        })
+        self.assertIsInstance(conf_obj.get("enable"), bool)
+        self.assertTrue(conf_obj.get("enable"))
+        self.assertIsInstance(conf_obj.get("port"), int)
+        self.assertEqual(conf_obj.get("port"), 2222)
+        self.assertEqual(conf_obj.get("extraoptions"), "AcceptEnv LANG")
+
 
 if __name__ == "__main__":
     unittest.main()

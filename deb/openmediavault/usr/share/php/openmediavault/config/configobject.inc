@@ -203,10 +203,11 @@ class ConfigObject {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		$this->assertExists($name);
 		$model = $this->getModel();
-		if (TRUE === $validate)
-			$model->validateProperty($name, $value);
-		// Convert the value into the proper type.
+		// Convert the value into the proper type before validation.
 		$value = $model->convertProperty($name, $value);
+		if (TRUE === $validate) {
+			$model->validateProperty($name, $value);
+		}
 		// Set the property value in the dictionary.
 		$this->getProperties()->set($name, $value);
 	}

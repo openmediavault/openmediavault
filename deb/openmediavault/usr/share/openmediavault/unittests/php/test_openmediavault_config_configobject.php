@@ -93,4 +93,67 @@ class test_openmediavault_config_configobject extends \PHPUnit\Framework\TestCas
 		$object->set("comment", "test");
 		$this->assertFalse($object->isEmpty("comment"));
 	}
+
+	public function testSetBooleanStringFalse() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("enable", "false");
+		$this->assertIsBool($object->get("enable"));
+		$this->assertFalse($object->get("enable"));
+	}
+
+	public function testSetBooleanStringTrue() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("enable", "true");
+		$this->assertIsBool($object->get("enable"));
+		$this->assertTrue($object->get("enable"));
+	}
+
+	public function testSetBooleanString0() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("enable", "0");
+		$this->assertIsBool($object->get("enable"));
+		$this->assertFalse($object->get("enable"));
+	}
+
+	public function testSetBooleanString1() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("enable", "1");
+		$this->assertIsBool($object->get("enable"));
+		$this->assertTrue($object->get("enable"));
+	}
+
+	public function testSetIntegerString() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("port", "2222");
+		$this->assertIsInt($object->get("port"));
+		$this->assertEquals(2222, $object->get("port"));
+	}
+
+	public function testSetIntegerInt() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("port", 8022);
+		$this->assertIsInt($object->get("port"));
+		$this->assertEquals(8022, $object->get("port"));
+	}
+
+	public function testSetString() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("extraoptions", "AcceptEnv LANG");
+		$this->assertIsString($object->get("extraoptions"));
+		$this->assertEquals("AcceptEnv LANG", $object->get("extraoptions"));
+	}
+
+	public function testSetAssocCoerceMixedTypes() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->setAssoc([
+			"enable" => "true",
+			"port" => "2222",
+			"extraoptions" => "AcceptEnv LANG"
+		]);
+		$this->assertIsBool($object->get("enable"));
+		$this->assertTrue($object->get("enable"));
+		$this->assertIsInt($object->get("port"));
+		$this->assertEquals(2222, $object->get("port"));
+		$this->assertEquals("AcceptEnv LANG", $object->get("extraoptions"));
+	}
 }
