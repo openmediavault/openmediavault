@@ -180,10 +180,10 @@ class Object:
                          Defaults to True.
         """
         self.assert_exists(name)
+        # Convert the value into the proper type before validation.
+        value = self.model.property_convert(name, value)
         if validate:
             self.model.property_validate(name, value)
-        # Convert the value into the proper type.
-        value = self.model.property_convert(name, value)
         # Set the property value in the dictionary.
         self.properties[name] = value
 
