@@ -1,6 +1,9 @@
 openmediavault-filebrowser (8.0.1-1) stable; urgency=medium
 
   * Fix bug in configuration.
+  * Issue #2164: Add environment variables to customize the default file/dir
+    permissions: `OMV_FILEBROWSER_APP_CREATEFILEPERMISSION` (default: `664`)
+    and `OMV_FILEBROWSER_APP_CREATEDIRECTORYPERMISSION` (default: `755`).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 04 Apr 2026 14:14:11 +0200
 
