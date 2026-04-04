@@ -156,4 +156,40 @@ class test_openmediavault_config_configobject extends \PHPUnit\Framework\TestCas
 		$this->assertEquals(2222, $object->get("port"));
 		$this->assertEquals("AcceptEnv LANG", $object->get("extraoptions"));
 	}
+
+	public function testSetIntegerBelowMinimumFails() {
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("port", 0);
+	}
+
+	public function testSetIntegerAboveMaximumFails() {
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("port", 65536);
+	}
+
+	public function testSetIntegerStringBelowMinimumFails() {
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("port", "0");
+	}
+
+	public function testSetIntegerFloatStringFails() {
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("port", "0.5");
+	}
+
+	public function testSetIntegerNullFails() {
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("port", NULL);
+	}
+
+	public function testSetStringInvalidEnumFails() {
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$object = new \OMV\Config\ConfigObject("conf.service.smartmontools");
+		$object->set("powermode", "invalid");
+	}
 }

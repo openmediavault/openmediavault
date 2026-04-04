@@ -142,6 +142,46 @@ class ConfigObjectTestCase(unittest.TestCase):
         self.assertEqual(conf_obj.get("port"), 2222)
         self.assertEqual(conf_obj.get("extraoptions"), "AcceptEnv LANG")
 
+    def test_set_integer_below_minimum_fails(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        with self.assertRaises(openmediavault.json.SchemaValidationException):
+            conf_obj.set("port", 0)
+
+    def test_set_integer_above_maximum_fails(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        with self.assertRaises(openmediavault.json.SchemaValidationException):
+            conf_obj.set("port", 65536)
+
+    def test_set_integer_string_below_minimum_fails(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        with self.assertRaises(openmediavault.json.SchemaValidationException):
+            conf_obj.set("port", "0")
+
+    def test_set_integer_unconvertible_fails(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        with self.assertRaises(ValueError):
+            conf_obj.set("port", "not_a_number")
+
+    def test_set_integer_float_string_fails(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        with self.assertRaises(ValueError):
+            conf_obj.set("port", "3.14")
+
+    def test_set_integer_none_fails(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        with self.assertRaises(TypeError):
+            conf_obj.set("port", None)
+
+    def test_set_integer_list_fails(self):
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        with self.assertRaises(TypeError):
+            conf_obj.set("port", [22])
+
+    def test_set_string_invalid_enum_fails(self):
+        conf_obj = openmediavault.config.Object("conf.service.smartmontools")
+        with self.assertRaises(openmediavault.json.SchemaValidationException):
+            conf_obj.set("powermode", "invalid")
+
 
 if __name__ == "__main__":
     unittest.main()
