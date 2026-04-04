@@ -32,7 +32,7 @@ class test_openmediavault_config_databasebackend extends \PHPUnit\Framework\Test
 		$this->databaseBackend->load();
 	}
 
-	public function testCompare1() {
+	public function testCompareEqual() {
 		$this->assertEquals($this->databaseBackend->compare(
 			"//system/time",
 			[
@@ -46,11 +46,11 @@ class test_openmediavault_config_databasebackend extends \PHPUnit\Framework\Test
 		), 0);
 	}
 
-	public function testCompare2() {
+	public function testCompareNotEqual() {
 		$this->assertEquals($this->databaseBackend->compare(
 			"//system/powermanagement",
 			[
-				"cpufreqgovernor" => "",
+				"cpufreqgovernor" => "powersave",
 				"powerbtn" => "nothing",
 				"standbymode" => "poweroff"
 			]
