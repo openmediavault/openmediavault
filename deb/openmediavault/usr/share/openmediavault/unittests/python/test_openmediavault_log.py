@@ -30,7 +30,7 @@ class LogTestCase(unittest.TestCase):
     @mock.patch('sys.stdout.write')
     def test_info(self, mock_write, mock_syslog):
         openmediavault.log.info('This is a test')
-        mock_write.assert_called_with('INFO: This is a test\n')
+        mock_write.assert_called_with('This is a test\n')
         mock_syslog.assert_called_with(syslog.LOG_INFO, 'This is a test')
 
     @mock.patch('syslog.syslog')

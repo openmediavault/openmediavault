@@ -147,7 +147,7 @@ class DatabaseTestCase(unittest.TestCase):
 
     def test_get_query(self):
         query = openmediavault.config.DatabaseGetQuery("conf.system.time")
-        self.assertEqual(query.xpath, "//system/time")
+        self.assertEqual(query.xpath, ".//system/time")
 
     def test_get_query_fail(self):
         # Query a non-existend configuration object.
@@ -167,7 +167,7 @@ class DatabaseTestCase(unittest.TestCase):
         )
         self.assertEqual(
             query.xpath,
-            "//system/notification/notifications/"
+            ".//system/notification/notifications/"
             "notification[uuid='394cd565-e463-4094-a6ab-12e80270e9b4']",
         )
 
@@ -180,7 +180,7 @@ class DatabaseTestCase(unittest.TestCase):
         )
         self.assertEqual(
             query.xpath,
-            "//system/notification/notifications/"
+            ".//system/notification/notifications/"
             "notification[contains(id,'monit')]",
         )
 
@@ -200,7 +200,7 @@ class DatabaseTestCase(unittest.TestCase):
             ),
         )
         self.assertEqual(
-            query.xpath, "//system/network/proxy[(port=8080 or " "port=4443)]"
+            query.xpath, ".//system/network/proxy[(port=8080 or " "port=4443)]"
         )
 
     def test_is_unique(self):
@@ -239,7 +239,7 @@ class DatabaseTestCase(unittest.TestCase):
         query = openmediavault.config.DatabaseDeleteQuery(obj)
         self.assertEqual(
             query.xpath,
-            "//system/notification/notifications/"
+            ".//system/notification/notifications/"
             "notification[uuid='03dc067d-1310-45b5-899f-b471a0ae9233']",
         )
         query.execute()
