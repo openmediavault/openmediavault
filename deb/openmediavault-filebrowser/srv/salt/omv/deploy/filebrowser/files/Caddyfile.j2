@@ -6,7 +6,7 @@
   tls /data/cert.crt /data/cert.key
 
   # Public endpoints (no authentication)
-  handle_path /public/* {
+  handle /public/* {
     reverse_proxy filebrowser-app:80 {
       header_up Host {host}
       header_up X-Forwarded-For {remote_host}
