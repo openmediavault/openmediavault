@@ -1,3 +1,9 @@
+openmediavault-filebrowser (8.0.2-1) stable; urgency=medium
+
+  * Issue #2168: Set correct database path.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 06 Apr 2026 20:02:38 +0200
+
 openmediavault-filebrowser (8.0.1-2) stable; urgency=medium
 
   * Fix bug in configuration.
