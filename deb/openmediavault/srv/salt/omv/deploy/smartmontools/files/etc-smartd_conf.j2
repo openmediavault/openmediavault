@@ -6,7 +6,7 @@
 {%- set smart_notification_config = salt['omv_conf.get_by_filter'](
   'conf.system.notification.notification',
   {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'smartmontools'})[0] -%}
-{%- set default_directives = salt['pillar.get']('default:OMV_SMARTMONTOOLS_DEFAULTDIRECTIVES', '-a -o on -S on -T permissive -R 5! -R 197! -R 198!') -%}
+{%- set default_directives = salt['pillar.get']('default:OMV_SMARTMONTOOLS_DEFAULTDIRECTIVES', '-a -o on -S on -T permissive -R 5! -R 197! -U 198+') -%}
 {%- set temp_crit_diff = salt['pillar.get']('default:OMV_SMARTMONTOOLS_TEMP_CRIT_DIFF', 5) -%}
 {{ pillar['headers']['multiline'] }}
 DEFAULT {{ default_directives }} -W {{ smart_config.tempdiff }},{{ smart_config.tempmax }},{{ smart_config.tempmax + temp_crit_diff if smart_config.tempmax else 0 }} -n {{ smart_config.powermode }},q
