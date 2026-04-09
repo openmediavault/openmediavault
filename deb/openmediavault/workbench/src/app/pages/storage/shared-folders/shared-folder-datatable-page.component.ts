@@ -53,18 +53,24 @@ export class SharedFolderDatatablePageComponent {
       {
         name: gettext('Name'),
         prop: 'name',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       },
       {
         name: gettext('Device'),
         prop: 'device',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       },
       {
         name: gettext('Relative Path'),
         prop: 'reldirpath',
+        cellTemplateName: 'text',
+        cellTemplateConfig: {
+          tooltip: true
+        },
         flexGrow: 1,
         sortable: true
       },

@@ -85,8 +85,11 @@
 </mat-menu>
 
 <ng-template #textTpl
-             let-value="value">
-  <span [innerHTML]="value | escapeHtml"></span>
+             let-value="value"
+             let-column="column">
+  <span [matTooltip]="column?.cellTemplateConfig?.tooltip ? (value | br2nl | preventHtml) : null"
+        [innerHTML]="value | escapeHtml">
+  </span>
 </ng-template>
 
 <ng-template #htmlTpl
@@ -216,7 +219,7 @@
              let-value="value">
   <div *ngIf="value !== null && value !== undefined && value !== ''"
        class="omv-display-flex omv-flex-row omv-gap-1 omv-flex-wrap omv-align-items-center">
-    <span [matTooltip]="value">{{ value | preventHtml }}</span>
+    <span [matTooltip]="value">{{ value | br2nl | preventHtml }}</span>
     <mat-icon class="omv-display-flex omv-icon-sm omv-cursor-pointer"
               svgIcon="{{ icon.copy }}"
               matTooltip="{{ 'Copy to clipboard' | transloco }}"

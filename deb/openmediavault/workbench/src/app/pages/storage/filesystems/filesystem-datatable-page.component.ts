@@ -56,6 +56,7 @@ export class FilesystemDatatablePageComponent implements OnInit {
       {
         name: gettext('Device'),
         prop: 'canonicaldevicefile',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       },
@@ -89,6 +90,7 @@ export class FilesystemDatatablePageComponent implements OnInit {
       {
         name: gettext('Label'),
         prop: 'label',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true,
         hidden: true
@@ -96,6 +98,7 @@ export class FilesystemDatatablePageComponent implements OnInit {
       {
         name: gettext('Parent Device'),
         prop: 'parentdevicefile',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true,
         hidden: true

@@ -24,6 +24,12 @@ export type DatatableColumn = TableColumn & {
    * The name of the template.
    * text - Render plain text. HTML special characters like "&", "<",
    *        ">", '"', or "'" will be escaped.
+   *        {
+   *          cellTemplateName: 'text',
+   *          cellTemplateConfig: {
+   *            tooltip: true
+   *          }
+   *        }
    * html - Render HTML code.
    * image - Render an image. By default, the value of the configured
    *         column property is used as the image source. The `src`

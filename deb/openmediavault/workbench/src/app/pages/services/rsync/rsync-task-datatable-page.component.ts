@@ -80,6 +80,9 @@ export class RsyncTaskDatatablePageComponent {
         name: gettext('Source'),
         prop: 'srcname',
         cellTemplateName: 'text',
+        cellTemplateConfig: {
+          tooltip: true
+        },
         flexGrow: 1,
         sortable: true
       },
@@ -87,6 +90,9 @@ export class RsyncTaskDatatablePageComponent {
         name: gettext('Destination'),
         prop: 'destname',
         cellTemplateName: 'text',
+        cellTemplateConfig: {
+          tooltip: true
+        },
         flexGrow: 1,
         sortable: true
       },

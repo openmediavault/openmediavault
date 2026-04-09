@@ -61,9 +61,27 @@ export class FirewallRuleInetDatatablePageComponent
         sortable: false,
         cellTemplateName: 'chip'
       },
-      { name: gettext('Source'), prop: 'source', flexGrow: 1, sortable: false },
+      {
+        name: gettext('Source'),
+        prop: 'source',
+        cellTemplateName: 'text',
+        cellTemplateConfig: {
+          tooltip: true
+        },
+        flexGrow: 1,
+        sortable: false
+      },
       { name: gettext('Port'), prop: 'sport', flexGrow: 1, sortable: false },
-      { name: gettext('Destination'), prop: 'destination', flexGrow: 1, sortable: false },
+      {
+        name: gettext('Destination'),
+        prop: 'destination',
+        cellTemplateName: 'text',
+        cellTemplateConfig: {
+          tooltip: true
+        },
+        flexGrow: 1,
+        sortable: false
+      },
       { name: gettext('Port'), prop: 'dport', flexGrow: 1, sortable: false },
       {
         name: gettext('Protocol'),

@@ -79,7 +79,7 @@ export class CronTaskDatatablePageComponent {
       {
         name: gettext('Command'),
         prop: 'command',
-        cellTemplateName: 'text',
+        cellTemplateName: 'copyToClipboard',
         flexGrow: 1,
         sortable: true
       },
