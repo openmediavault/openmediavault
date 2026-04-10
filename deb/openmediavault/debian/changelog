@@ -1,4 +1,4 @@
-openmediavault (8.2.3-1) stable; urgency=medium
+openmediavault (8.2.3-2) stable; urgency=medium
 
   * Issue #2160: Reduce the number of SMART alerts caused by offline
     uncorrectable sectors.
