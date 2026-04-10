@@ -87,7 +87,12 @@ class BlockDevice:
         """
         context = pyudev.Context()
         device = pyudev.Devices.from_device_file(context, self.device_file)
-        return [device_link for device_link in device.device_links]
+        canonical_device_file = self.canonical_device_file
+        result = []
+        for device_link in device.device_links:
+            if os.path.realpath(device_link) == canonical_device_file:
+                result.append(device_link)
+        return result
 
     @property
     def predictable_device_file(self) -> str:
