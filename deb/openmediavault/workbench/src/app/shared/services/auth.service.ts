@@ -21,6 +21,7 @@ import { Observable } from 'rxjs';
 import { finalize, tap } from 'rxjs/operators';
 
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
+import { PrefersColorSchemeService } from '~/app/shared/services/prefers-color-scheme.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 export type SessionData = {
@@ -35,7 +36,8 @@ export type SessionData = {
 export class AuthService {
   constructor(
     private authSessionService: AuthSessionService,
-    private rpcService: RpcService
+    private rpcService: RpcService,
+    private prefersColorSchemeService: PrefersColorSchemeService
   ) {}
 
   login(username: string, password: string): Observable<SessionData> {
@@ -59,6 +61,8 @@ export class AuthService {
         // auth-guard service will redirect automatically to the login
         // page.
         this.authSessionService.revoke();
+        // Reset the color scheme to the default.
+        this.prefersColorSchemeService.reset();
         document.location.replace('');
       })
     );
