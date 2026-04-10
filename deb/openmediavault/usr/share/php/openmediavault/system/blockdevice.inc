@@ -226,13 +226,20 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 		// - /dev/mapper/omv--lvm--vg-root /dev/omv-lvm-vg/root /dev/disk/by-id/dm-name-omv--lvm--vg-root /dev/disk/by-id/dm-uuid-LVM-qrB1zl0Sshr0gzosPHD4NeJC7D2aLNF50m40r7lb7304SjsnCw6V0hOOeMmByPrq /dev/disk/by-uuid/4a1aa5db-980b-43ac-a62a-a2b9eadcb34f
 		$parts = array_map("trim", explode(" ", $property));
 		sort($parts, SORT_NATURAL);
+		$canonicalDeviceFile = $this->getCanonicalDeviceFile();
 		$result = [];
 		foreach ($parts as $partk => $partv) {
 			// Make sure that the device path is correct.
 			if (TRUE === is_devicefile($partv)) {
-				$result[] = $partv;
+				$deviceFile = $partv;
 			} else {
-				$result[] = sprintf("/dev/%s", $partv);
+				$deviceFile = sprintf("/dev/%s", $partv);
+			}
+			// Make sure the symlink points to the canonical device file.
+			// This prevents returning symlinks that have been "hijacked" by
+			// DM multipath devices or other layers.
+			if (realpath($deviceFile) === $canonicalDeviceFile) {
+				$result[] = $deviceFile;
 			}
 		}
 		return $result;
