@@ -104,7 +104,7 @@ msgid "Description"
 msgstr "Beschrijving"
 
 msgid "Do you really want to restore this snapshot?"
-msgstr "Weet u zeker dat u deze momentopname wilt herstellen?"
+msgstr "Wilt u echt deze momentopname terugzetten?"
 
 msgid "Download"
 msgstr "Downloaden"

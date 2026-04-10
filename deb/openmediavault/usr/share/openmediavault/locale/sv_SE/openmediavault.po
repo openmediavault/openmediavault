@@ -2269,7 +2269,7 @@ msgid "Notification"
 msgstr "Avisering"
 
 msgid "Notification schedule"
-msgstr ""
+msgstr "Aviseringsschema"
 
 msgid "Notifications"
 msgstr "Aviseringar"
@@ -3181,7 +3181,7 @@ msgstr "Anger vilken slav som är den primära enheten."
 
 msgid ""
 "Specify how often to receive notifications about available package updates."
-msgstr ""
+msgstr "Ange hur ofta du vill få aviseringar om tillgängliga paketuppdateringar."
 
 msgid "Speed"
 msgstr "Hastighet"

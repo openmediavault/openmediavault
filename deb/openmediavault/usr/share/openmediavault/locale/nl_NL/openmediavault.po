@@ -1000,10 +1000,10 @@ msgid "Disks"
 msgstr "Schijven"
 
 msgid "Dismiss"
-msgstr "Negeren"
+msgstr "Afwijzen"
 
 msgid "Dismiss all"
-msgstr "Alles negeren"
+msgstr "Alles afwijzen"
 
 msgid "Displays information about the file systems in a grid."
 msgstr "Toont informatie over de bestandssystemen in een raster."
@@ -1045,58 +1045,58 @@ msgid "Djibouti"
 msgstr "Djibouti"
 
 msgid "Do you really want to apply the configuration changes?"
-msgstr "Wilt u de aanpassingen in de configuratie toepassen?"
+msgstr "Wilt u echt de aanpassingen in de configuratie toepassen?"
 
 msgid "Do you really want to copy the permissions from the shared folder?"
-msgstr "Wilt u de machtigingen kopiëren vanuit de gedeelde map?"
+msgstr "Wilt u echt de machtigingen kopiëren vanuit de gedeelde map?"
 
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
 "join(\", \") }}</strong>?"
-msgstr "Wilt u de geselecteerde item(s) verwijderen <strong>{{ items | join(\", \") }}</strong>?"
+msgstr "Wilt u echt de geselecteerde item(s) <strong>{{ items | join(\", \") }}</strong> verwijderen?"
 
 msgid "Do you really want to delete the selected item(s)?"
-msgstr "Wilt u de geselecteerde item(s) verwijderen?"
+msgstr "Wilt u echt de geselecteerde item(s) verwijderen?"
 
 msgid "Do you really want to install the plugin?"
-msgstr "Wilt u de plug-in installeren?"
+msgstr "Wilt u echt de plug-in installeren?"
 
 msgid "Do you really want to log out?"
 msgstr "Wilt u echt afmelden?"
 
 msgid "Do you really want to put the system into standby?"
-msgstr "Weet u zeker dat u het systeem stand-by wilt zetten?"
+msgstr "Wilt u echt het systeem stand-by zetten?"
 
 msgid "Do you really want to reboot the system?"
-msgstr "Weet u zeker dat u het systeem opnieuw wil starten?"
+msgstr "Wilt u echt het systeem opnieuw starten?"
 
 msgid "Do you really want to reset the UI settings to their default values?"
-msgstr "Weet u zeker dat u de UI-instellingen wilt herstellen naar de standaardwaarden?"
+msgstr "Wilt u echt de UI-instellingen terugzetten naar de standaardwaarden?"
 
 msgid ""
 "Do you really want to resize the file system? You have to do that after a "
 "RAID has been grown for example."
-msgstr "Weet u zeker dat u de grootte van het geselcteerde bestandssysteem wilt aanpassen? U moet dat bijvoorbeeld doen nadat een RAID is aangepast."
+msgstr "Wilt u echt de grootte van het geselcteerde bestandssysteem aanpassen? U moet dat bijvoorbeeld doen nadat een RAID is aangepast."
 
 msgid "Do you really want to shutdown the system?"
-msgstr "Weet u zeker dat u het systeem wilt uischakelen?"
+msgstr "Wilt u echt het systeem uischakelen?"
 
 msgid "Do you really want to undo the configuration changes?"
-msgstr "Weet u zeker dat u de aanpassingen aan de configuratie wilt terugdraaien?"
+msgstr "Wilt u echt de aanpassingen aan de configuratie terugdraaien?"
 
 msgid "Do you really want to uninstall the plugin?"
-msgstr "Weet u zeker dat u de plug-in wilt verwijderen?"
+msgstr "Wilt u echt de plug-in verwijderen?"
 
 msgid ""
 "Do you really want to unmount this file system? Please make sure that the "
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
-msgstr "Weet u zeker dat u bestandssysteem wilt ontkoppelen? Zorg ervoor dat het bestandssysteem door geen enkele dienst wordt gebruikt voordat u het ontkoppelt. Let op: het bestandssysteem wordt door deze actie niet verwijderd."
+msgstr "Wilt u echt dit bestandssysteem ontkoppelen? Zorg ervoor dat het bestandssysteem door geen enkele dienst wordt gebruikt voordat u het ontkoppelt. Let op: het bestandssysteem wordt door deze actie niet verwijderd."
 
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
 "will be lost."
-msgstr "Weet u zeker dat u het apparaat {{ canonicaldevicefile }} wilt wissen? Alle gegevens gaan verloren."
+msgstr "Wilt u echt het apparaat {{ canonicaldevicefile }} wissen? Alle gegevens gaan verloren."
 
 msgid "Documentation"
 msgstr "Documentatie"
@@ -2671,7 +2671,7 @@ msgid "Read/Write/Execute"
 msgstr "Lezen/Schrijven/Uitvoeren"
 
 msgid "Reboot"
-msgstr "Herstarten"
+msgstr "Opnieuw starten"
 
 msgid "Recipient"
 msgstr "Ontvanger"
@@ -2725,7 +2725,7 @@ msgid "Repository"
 msgstr "Opslagplaats"
 
 msgid "Reset UI to defaults"
-msgstr "UI-instellingen herstellen naar standaard"
+msgstr "Standaard UI-instellingen herstellen"
 
 msgid "Result"
 msgstr "Uitslag"
