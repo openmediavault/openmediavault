@@ -230,15 +230,9 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 		foreach ($parts as $partk => $partv) {
 			// Make sure that the device path is correct.
 			if (TRUE === is_devicefile($partv)) {
-				$path = $partv;
+				$result[] = $partv;
 			} else {
-				$path = sprintf("/dev/%s", $partv);
-			}
-			// Only include the symlink if it still points to this device.
-			// This prevents returning symlinks that have been "hijacked" by
-			// DM multipath devices or other layers.
-			if (realpath($path) === $this->getCanonicalDeviceFile()) {
-				$result[] = $path;
+				$result[] = sprintf("/dev/%s", $partv);
 			}
 		}
 		return $result;
