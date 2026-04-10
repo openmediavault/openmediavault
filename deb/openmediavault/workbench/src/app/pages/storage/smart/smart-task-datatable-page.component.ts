@@ -52,6 +52,7 @@ export class SmartTaskDatatablePageComponent {
       {
         name: gettext('Device'),
         prop: 'devicefile',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       },

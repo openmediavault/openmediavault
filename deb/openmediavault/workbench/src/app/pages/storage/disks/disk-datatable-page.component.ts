@@ -44,7 +44,13 @@ export class DiskDatatablePageComponent {
       }
     ],
     columns: [
-      { name: gettext('Device'), prop: 'canonicaldevicefile', flexGrow: 1, sortable: true },
+      {
+        name: gettext('Device'),
+        prop: 'canonicaldevicefile',
+        cellTemplateName: 'text',
+        flexGrow: 1,
+        sortable: true
+      },
       {
         name: gettext('Device Symlinks'),
         prop: 'devicelinks',
@@ -56,18 +62,21 @@ export class DiskDatatablePageComponent {
       {
         name: gettext('Model'),
         prop: 'model',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       },
       {
         name: gettext('Serial Number'),
         prop: 'serialnumber',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       },
       {
         name: gettext('WWN'),
         prop: 'wwn',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true,
         hidden: true
@@ -75,6 +84,7 @@ export class DiskDatatablePageComponent {
       {
         name: gettext('Vendor'),
         prop: 'vendor',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true
       },
@@ -129,6 +139,7 @@ export class DiskDatatablePageComponent {
       {
         name: gettext('Temperature'),
         prop: 'temperature',
+        cellTemplateName: 'text',
         flexGrow: 1,
         sortable: true,
         hidden: true
