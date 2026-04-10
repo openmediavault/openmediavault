@@ -16,10 +16,11 @@ data:
           method: images
       transform:
         id: '{{ id | split(":") | get(1) }}'
-        image: '{{ repoTags | get(0) | split(":") | get(0) }}'
-        tag: '{{ repoTags | get(0) | split(":") | get(1) }}'
+        image: '{{ (repoTags | get(0) | split(":") | get(0)) if repoTags | length else (repoDigests | get(0) | split("@") | get(0)) }}'
+        tag: '{{ (repoTags | get(0) | split(":") | get(1)) if repoTags | length else ("<none>" | safe) }}'
+        digest: '{{ (repoDigests | get(0) | split("@") | get(1)) if repoDigests | length else ("<none>" | safe) }}'
     rowId: id
-    rowEnumFmt: "{{ repoTags | get(0) }}"
+    rowEnumFmt: '{{ repoTags | get(0) if repoTags | length else repoDigests | get(0) }}'
     selectionType: multi
     hasSearchField: true
     columns:
@@ -27,11 +28,18 @@ data:
         prop: image
         flexGrow: 1
         sortable: true
+        cellTemplateName: copyToClipboard
       - name: _("Tag")
         prop: tag
         flexGrow: 1
         sortable: true
         cellTemplateName: chip
+      - name: _("Digest")
+        prop: digest
+        flexGrow: 1
+        sortable: true
+        hidden: true
+        cellTemplateName: copyToClipboard
       - name: _("ID")
         prop: id
         flexGrow: 1
