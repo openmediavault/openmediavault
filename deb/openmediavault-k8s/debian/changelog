@@ -1,5 +1,7 @@
 openmediavault-k8s (8.2.3-1) stable; urgency=medium
 
+  * Use K3S v1.35.3+k3s1 on new installations. Existing installations won't
+    be upgraded automatically.
   * Fix display issue in `Resources | Images` when no tag is available.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 11 Apr 2026 00:31:27 +0200
