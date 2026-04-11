@@ -1,3 +1,9 @@
+openmediavault (8.2.5-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 11 Apr 2026 20:15:21 +0200
+
 openmediavault (8.2.4-1) stable; urgency=medium
 
   * Issue #2169: Make sure device symlinks point to the canonical device file.
