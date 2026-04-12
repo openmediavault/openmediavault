@@ -1,6 +1,6 @@
 openmediavault (8.2.5-1) stable; urgency=medium
 
-  *
+  * Improve detection of hard drive serial numbers.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 11 Apr 2026 20:15:21 +0200
 
