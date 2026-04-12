@@ -70,9 +70,7 @@ class StorageDevice extends \OMV\System\BlockDevice
 	 *   Note, underscores are replaced by blanks.
 	 */
 	public function getSerialNumber() {
-		if (TRUE === $this->hasUdevProperty("ID_SCSI_SERIAL")) {
-			return $this->getUdevProperty("ID_SCSI_SERIAL");
-		} else if (TRUE === $this->hasUdevProperty("ID_SERIAL_SHORT")) {
+		if (TRUE === $this->hasUdevProperty("ID_SERIAL_SHORT")) {
 			$serial = $this->getUdevProperty("ID_SERIAL_SHORT");
 			return str_replace("_", " ", $serial);
 		} else if (TRUE === $this->hasUdevProperty("ID_SERIAL")) {

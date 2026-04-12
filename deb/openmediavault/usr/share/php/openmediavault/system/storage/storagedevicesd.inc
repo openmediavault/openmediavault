@@ -30,6 +30,13 @@ require_once("openmediavault/functions.inc");
 class StorageDeviceSD extends StorageDevice implements SmartInterface {
 	use SmartTrait;
 
+	public function getSerialNumber() {
+		if (TRUE === $this->hasUdevProperty("ID_SCSI_SERIAL")) {
+			return $this->getUdevProperty("ID_SCSI_SERIAL");
+		}
+		return parent::getSerialNumber();
+	}
+
 	/**
 	 * See \OMV\System\Storage\SmartInterface interface definition.
 	 */

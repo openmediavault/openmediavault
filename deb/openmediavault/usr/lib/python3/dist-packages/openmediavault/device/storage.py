@@ -105,8 +105,6 @@ class StorageDevice(BlockDevice):
         :return: The device serial number, otherwise an empty string.
         :rtype: str
         """
-        if self.has_udev_property('ID_SCSI_SERIAL'):
-            return self.udev_property('ID_SCSI_SERIAL')
         if self.has_udev_property('ID_SERIAL_SHORT'):
             serial = self.udev_property('ID_SERIAL_SHORT', '')
             return serial.replace('_', ' ')

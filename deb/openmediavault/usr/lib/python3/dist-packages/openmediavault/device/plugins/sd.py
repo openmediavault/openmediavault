@@ -105,6 +105,12 @@ class StorageDevice(openmediavault.device.StorageDevice):
         return 'SCSI Disk'
 
     @property
+    def serial(self):
+        if self.has_udev_property('ID_SCSI_SERIAL'):
+            return self.udev_property('ID_SCSI_SERIAL')
+        return super().serial
+
+    @property
     def smart_device_type(self):
         if self.is_usb:
             # Identify by ID_VENDOR_ID and ID_MODEL_ID.
