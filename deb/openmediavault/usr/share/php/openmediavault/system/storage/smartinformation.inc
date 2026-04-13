@@ -427,8 +427,19 @@ class SmartInformation {
 		// Firmware Version: 02.03B03
 		// ...
 		// === START OF SMART DATA SECTION ===
+		// ...
+		//
+		// smartctl 7.4 2024-10-15 r5620 [x86_64-linux-6.19.10+deb13-amd64] (local build)
+		// ...
+		// === START OF INFORMATION SECTION ===
+		// Vendor:               HITACHI
+		// Product:              H106060SDSUN600G
+		// Revision:             A4C0
+		// Compliance:           SPC-4
+		// ...
 		$attrKeyMap = [
-			'modelnumber' => 'devicemodel'
+			'modelnumber' => 'devicemodel',
+			'revision' => 'firmwareversion'
 		];
 		foreach ($attrKeyMap as $attrKeyk => $attrKeyv) {
 			// Copy new attributes only if the origin attribute is empty.
