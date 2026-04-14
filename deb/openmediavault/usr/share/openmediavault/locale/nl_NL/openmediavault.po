@@ -291,7 +291,7 @@ msgid ""
 "Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
 "devices are listed in the scheduled tasks. Monitoring cannot be switched off"
 " as long as there are scheduled tasks for this device."
-msgstr "S.M.A.R.T.-bewaking inschakelen voor dit apparaat. Houd er rekening mee dat alleen apparaten onder observatie worden vermeld in de geplande taken. Observatie kan niet worden uitgeschakeld zolang er geplande taken voor dit apparaat zijn."
+msgstr "S.M.A.R.T.-observatie inschakelen voor dit apparaat. Houd er rekening mee dat alleen apparaten onder observatie worden vermeld in de geplande taken. Observatie kan niet worden uitgeschakeld zolang er geplande taken voor dit apparaat zijn."
 
 msgid "Active"
 msgstr "Ingeschakeld"
@@ -1904,7 +1904,7 @@ msgid "MAC address"
 msgstr "MAC-adres"
 
 msgid "MII monitoring frequency"
-msgstr "MII observatiefrequentie"
+msgstr "MII observatie-frequentie"
 
 msgid "MTU"
 msgstr "MTU"
@@ -2788,7 +2788,7 @@ msgid "S.M.A.R.T. Status"
 msgstr "S.M.A.R.T.-status"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr "S.M.A.R.T.-bewaking moet worden geactiveerd op het geselecteerde apparaat."
+msgstr "S.M.A.R.T.-observatie moet worden geactiveerd op het geselecteerde apparaat."
 
 msgid "SHR"
 msgstr "SHR"
@@ -3150,7 +3150,7 @@ msgid "Spain"
 msgstr "Spanje"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
-msgstr "Specifieert de MII link observatiefrequentie in milliseconden."
+msgstr "Specifieert de MII link observatie-frequentie in milliseconden."
 
 msgid "Specifies the interface devices."
 msgstr "Specificeert de interface-apparaten."
