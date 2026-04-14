@@ -1,3 +1,9 @@
+openmediavault (8.2.6-1) stable; urgency=medium
+
+  * Issue #2175: Get more SMART information from SAS drives.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 14 Apr 2026 17:52:47 +0200
+
 openmediavault (8.2.5-1) stable; urgency=medium
 
   * Improve detection of hard drive serial numbers.
