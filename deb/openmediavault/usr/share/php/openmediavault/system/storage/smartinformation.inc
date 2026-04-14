@@ -412,7 +412,7 @@ class SmartInformation {
 			}
 			// Convert the attribute name, e.g. 'Device Model' to
 			// 'devicemodel'.
-			$attrKey = mb_strtolower(str_replace(" ", "", $matches[1]));
+			$attrKey = mb_strtolower(str_replace([" ", "-"], "", $matches[1]));
 			// Append key/value to result array.
 			$result[$attrKey] = $matches[2];
 		}
@@ -528,6 +528,7 @@ class SmartInformation {
 		// ...
 		//
 		// Alternative output:
+		// ...
 		// Warning  Comp. Temp. Threshold:     73 Celsius
 		// Critical Comp. Temp. Threshold:     76 Celsius
 		// Temperature:                        30 Celsius
@@ -560,8 +561,9 @@ class SmartInformation {
 			return $attrData['rawvalue'];
 		}
 		// If the SMART attributes are not present then it may be a
-		// NVMe device. In that case the command output looks like:
+		// NVMe or SAS device.
 		//
+		// - NVMe:
 		// === START OF SMART DATA SECTION ===
 		// ...
 		// Critical Warning:                   0x00
@@ -571,8 +573,25 @@ class SmartInformation {
 		// Power Cycles:                       196
 		// Power On Hours:                     616
 		// ...
+		//
+		// - SAS:
+		// === START OF READ SMART DATA SECTION ===
+		// ...
+		// Accumulated power on time, hours:minutes 55120:47
+		// Manufactured in week 50 of year 2016
+		// Specified cycle count over device lifetime:  50000
+		// Accumulated start-stop cycles:  34
+		// Specified load-unload count over device lifetime:  300000
+		// Accumulated load-unload cycles:  2306
+		// Elements in grown defect list: 0
 		$info = $this->getInformation();
-		return array_value($info, "powercycles", -1);
+		if (in_array("powercycles", $info)) {
+			return $info['powercycles'];
+		}
+		if (in_array("accumulatedstartstopcycles", $info)) {
+			return $info['accumulatedstartstopcycles'];
+		}
+		return -1;
 	}
 
 	/**
@@ -585,8 +604,9 @@ class SmartInformation {
 			return $attrData['rawvalue'];
 		}
 		// If the SMART attributes are not present then it may be a
-		// NVMe device. In that case the command output looks like:
+		// NVMe or SAS device.
 		//
+		// - NVMe:
 		// === START OF SMART DATA SECTION ===
 		// ...
 		// Critical Warning:                   0x00
@@ -596,6 +616,21 @@ class SmartInformation {
 		// Power Cycles:                       196
 		// Power On Hours:                     616
 		// ...
+		//
+		// - SAS:
+		// === START OF READ SMART DATA SECTION ===
+		// ...
+		// Accumulated power on time, hours:minutes 55120:47
+		// Manufactured in week 50 of year 2016
+		// Specified cycle count over device lifetime:  50000
+		// Accumulated start-stop cycles:  34
+		// Specified load-unload count over device lifetime:  300000
+		// Accumulated load-unload cycles:  2306
+		// Elements in grown defect list: 0
+		//
+		// Note, the line `Accumulated power on time, hours:minutes 55120:47`
+		// can't be parsed correctly at the moment, so SAS drives are not
+		// supported at the moment.
 		$info = $this->getInformation();
 		return array_value($info, "poweronhours", -1);
 	}
