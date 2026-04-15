@@ -1,3 +1,9 @@
+openmediavault (8.2.7-1) stable; urgency=medium
+
+  * Issue #2176: Increase mDNS/Zeroconf compatibility for MacOS.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Apr 2026 19:04:56 +0200
+
 openmediavault (8.2.6-1) stable; urgency=medium
 
   * Issue #2175: Get more SMART information from SAS drives.

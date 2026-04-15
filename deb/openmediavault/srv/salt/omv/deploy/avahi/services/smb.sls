@@ -24,21 +24,38 @@
 
 {% set smb_config = salt['omv_conf.get']('conf.service.smb') %}
 {% set smb_zeroconf_enabled = salt['pillar.get']('default:OMV_SAMBA_ZEROCONF_ENABLED', 1) %}
-{% set smb_zeroconf_name = salt['pillar.get']('default:OMV_SAMBA_ZEROCONF_NAME', '%h - SMB/CIFS') %}
+{% set smb_zeroconf_name = salt['pillar.get']('default:OMV_SAMBA_ZEROCONF_NAME', '%h') %}
 
 {% if (smb_config.enable | to_bool) and (smb_zeroconf_enabled | to_bool) %}
+
+{% set fruit_model = salt['pillar.get']('default:OMV_SAMBA_FRUIT_MODEL', 'TimeCapsule') %}
+{% set timemachine_shares = salt['omv_conf.get_by_filter'](
+  'conf.service.smb.share',
+  {'operator': 'equals', 'arg0': 'timemachine', 'arg1': '1'}) %}
 
 configure_avahi_service_smb:
   file.managed:
     - name: "/etc/avahi/services/smb.service"
     - source:
-      - salt://{{ tpldir }}/files/smb.j2
+      - salt://{{ tpldir }}/files/template.j2
     - template: jinja
     - context:
-        type: "_smb._tcp"
-        port: 445
         name: "{{ smb_zeroconf_name }}"
-        shares: {{ smb_config.shares.share | json }}
+        services:
+          - type: "_smb._tcp"
+            port: 445
+{% if timemachine_shares | length > 0 %}
+          - type: "_adisk._tcp"
+            txt_records:
+              - "sys=adVF=0x100"
+{% for share in timemachine_shares %}
+              - "dk{{ loop.index0 }}=adVN={{ salt['omv_conf.get_sharedfolder_name'](share.sharedfolderref) }},adVF=0x82"
+{% endfor %}
+          - type: "_device-info._tcp"
+            port: 0
+            txt_records:
+              - "model={{ fruit_model }}"
+{% endif %}
     - user: root
     - group: root
     - mode: 644

@@ -19,7 +19,7 @@
 
 {% set webadmin_config = salt['omv_conf.get']('conf.webadmin') %}
 {% set webadmin_zeroconf_enabled = salt['pillar.get']('default:OMV_WEBGUI_ZEROCONF_ENABLED', 1) %}
-{% set webadmin_zeroconf_name = salt['pillar.get']('default:OMV_WEBGUI_ZEROCONF_NAME', '%h - Web control panel') %}
+{% set webadmin_zeroconf_name = salt['pillar.get']('default:OMV_WEBGUI_ZEROCONF_NAME', '%h') %}
 
 {% if (webadmin_zeroconf_enabled | to_bool) %}
 
@@ -27,14 +27,25 @@ configure_avahi_service_webadmin:
   file.managed:
     - name: "/etc/avahi/services/website.service"
     - source:
-      - salt://{{ tpldir }}/files/webadmin.j2
+      - salt://{{ tpldir }}/files/template.j2
     - template: jinja
     - context:
         name: "{{ webadmin_zeroconf_name }}"
-        enablessl: {{ webadmin_config.enablessl }}
-        forcesslonly: {{ webadmin_config.forcesslonly }}
-        port: {{ webadmin_config.port }}
-        sslport: {{ webadmin_config.sslport }}
+        services:
+{% if (webadmin_config.enablessl | to_bool) %}
+          - type: "_https._tcp"
+            port: {{ webadmin_config.sslport }}
+            txt_records:
+              - "path=/index.html"
+              - "ui=admin"
+{% endif %}
+{% if not ((webadmin_config.enablessl | to_bool) and (webadmin_config.forcesslonly | to_bool)) %}
+          - type: "_http._tcp"
+            port: {{ webadmin_config.port }}
+            txt_records:
+              - "path=/index.html"
+              - "ui=admin"
+{% endif %}
     - user: root
     - group: root
     - mode: 644

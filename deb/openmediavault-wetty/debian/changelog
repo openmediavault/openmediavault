@@ -1,3 +1,9 @@
+openmediavault-wetty (8.0.2-1) stable; urgency=medium
+
+  * Issue #2176: Increase mDNS/Zeroconf compatibility for MacOS.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Apr 2026 19:10:12 +0200
+
 openmediavault-wetty (8.0.1-1) stable; urgency=medium
 
   * Add the environment variable `OMV_WETTY_APP_CONTAINER_START_OPTIONS` to

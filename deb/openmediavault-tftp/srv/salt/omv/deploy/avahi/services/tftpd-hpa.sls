@@ -19,7 +19,7 @@
 
 {% set tftp_config = salt['omv_conf.get']('conf.service.tftp') %}
 {% set tftp_zeroconf_enabled = salt['pillar.get']('default:OMV_TFTPDHPA_ZEROCONF_ENABLED', 1) %}
-{% set tftp_zeroconf_name = salt['pillar.get']('default:OMV_TFTPDHPA_ZEROCONF_NAME', '%h - TFTP') %}
+{% set tftp_zeroconf_name = salt['pillar.get']('default:OMV_TFTPDHPA_ZEROCONF_NAME', '%h') %}
 
 {% if (tftp_config.enable | to_bool) and (tftp_zeroconf_enabled | to_bool) %}
 
@@ -30,9 +30,10 @@ configure_avahi_service_tftpd-hpa:
       - salt://{{ tpldir }}/files/template.j2
     - template: jinja
     - context:
-        type: "_tftp._udp"
-        port: {{ tftp_config.port }}
         name: "{{ tftp_zeroconf_name }}"
+        services:
+          - type: "_tftp._udp"
+            port: {{ tftp_config.port }}
     - user: root
     - group: root
     - mode: 644
