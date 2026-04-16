@@ -1,3 +1,9 @@
+openmediavault-filebrowser (8.0.3-1) stable; urgency=medium
+
+  * Issue #2176: Increase mDNS/Zeroconf compatibility for MacOS.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Apr 2026 19:07:07 +0200
+
 openmediavault-filebrowser (8.0.2-1) stable; urgency=medium
 
   * Issue #2168: Set correct database path.

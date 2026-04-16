@@ -20,34 +20,25 @@
 {% set nfs_export_dir = salt['pillar.get']('default:OMV_NFSD_EXPORT_DIR', '/export') %}
 {% set nfs_config = salt['omv_conf.get']('conf.service.nfs') %}
 {% set nfs_zeroconf_enabled = salt['pillar.get']('default:OMV_NFSD_ZEROCONF_ENABLED', 1) %}
-{% set nfs_zeroconf_name = salt['pillar.get']('default:OMV_NFSD_ZEROCONF_NAME', '%h - NFS') %}
+{% set nfs_zeroconf_name = salt['pillar.get']('default:OMV_NFSD_ZEROCONF_NAME', '%h') %}
 
 {% if (nfs_config.enable | to_bool) and (nfs_zeroconf_enabled | to_bool) %}
 
-# Announce duplicate shares only once.
-{% set nfsshares = salt['omv_conf.get_by_filter'](
-  'conf.service.nfs.share',
-  {"operator": "distinct", "arg0": "sharedfolderref"}) %}
-{% for nfsshare in nfsshares %}
-
-{% set sharedfolder = salt['omv_conf.get'](
-  'conf.system.sharedfolder', nfsshare.sharedfolderref) %}
-
-configure_avahi_service_nfs_{{ sharedfolder.name }}:
+configure_avahi_service_nfs:
   file.managed:
-    - name: "/etc/avahi/services/nfs-{{ sharedfolder.name }}.service"
+    - name: "/etc/avahi/services/nfs.service"
     - source:
       - salt://{{ tpldir }}/files/template.j2
     - template: jinja
     - context:
-        type: "_nfs._tcp"
-        port: 2049
-        name: "{{ nfs_zeroconf_name }} [{{ sharedfolder.name }}]"
-        txtrecord: "path={{ nfs_export_dir }}/{{ sharedfolder.name }}"
+        name: "{{ nfs_zeroconf_name }}"
+        services:
+          - type: "_nfs._tcp"
+            port: 2049
+            txt_records:
+              - "path={{ nfs_export_dir | path_prettify }}"
     - user: root
     - group: root
     - mode: 644
-
-{% endfor %}
 
 {% endif %}

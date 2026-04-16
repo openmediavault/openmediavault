@@ -20,7 +20,7 @@
 {% set config = salt['omv_conf.get']('conf.service.wetty') %}
 {% set ssl_enabled = config.sslcertificateref | length > 0 %}
 {% set zeroconf_enabled = salt['pillar.get']('default:OMV_WETTY_ZEROCONF_ENABLED', 1) %}
-{% set zeroconf_name = salt['pillar.get']('default:OMV_WETTY_ZEROCONF_NAME', '%h - WeTTY') %}
+{% set zeroconf_name = salt['pillar.get']('default:OMV_WETTY_ZEROCONF_NAME', '%h') %}
 
 {% if (config.enable | to_bool) and (zeroconf_enabled | to_bool) %}
 
@@ -31,9 +31,10 @@ configure_avahi_service_wetty:
       - salt://{{ tpldir }}/files/template.j2
     - template: jinja
     - context:
-        type: "{{ ssl_enabled | yesno('_https,_http') }}._tcp"
-        port: {{ config.port }}
         name: "{{ zeroconf_name }}"
+        services:
+          - type: "{{ ssl_enabled | yesno('_https,_http') }}._tcp"
+            port: {{ config.port }}
     - user: root
     - group: root
     - mode: 644

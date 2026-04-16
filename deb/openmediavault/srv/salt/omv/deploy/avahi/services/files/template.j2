@@ -2,11 +2,15 @@
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
     <name replace-wildcards="yes">{{ name }}</name>
+{%- for service in services %}
     <service>
-        <type>{{ type }}</type>
-        <port>{{ port }}</port>
-{%- if txtrecord is defined %}
-        <txt-record>{{ txtrecord }}</txt-record>
+        <type>{{ service.type }}</type>
+{%- if service.port is defined %}
+        <port>{{ service.port }}</port>
 {%- endif %}
+{%- for txt_record in (service.txt_records | default([])) %}
+        <txt-record>{{ txt_record }}</txt-record>
+{%- endfor %}
     </service>
+{%- endfor %}
 </service-group>
