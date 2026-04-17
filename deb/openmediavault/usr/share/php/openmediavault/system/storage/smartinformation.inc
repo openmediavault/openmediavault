@@ -32,6 +32,7 @@ class SmartInformation {
 	private $cmdOutput = NULL;
 	private $dataCached = FALSE;
 	private $dataCachedKind = NULL;
+	private $informationCache = NULL;
 	private $attrDesc = [
 		1 => "Frequency of errors while reading raw data from the disk",
 		2 => "Average efficiency of the disk",
@@ -191,6 +192,7 @@ class SmartInformation {
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
+		$this->informationCache = NULL;
 		$this->getData($this->dataCachedKind);
 	}
 
@@ -357,10 +359,13 @@ class SmartInformation {
 	 * @return array An array of strings.
 	 */
 	public function getInformation(): array {
+		if (!is_null($this->informationCache)) {
+			return $this->informationCache;
+		}
 		$this->getData();
 		// Initialize with default values. Note, the result list may
 		// contain additional key/value pairs.
-		$result = [
+		$this->informationCache = [
 			"devicefile" => $this->sd->getDeviceFile(),
 			"devicemodel" => "",
 			"serialnumber" => "",
@@ -386,21 +391,23 @@ class SmartInformation {
 		//
 		// === START OF READ SMART DATA SECTION ===
 		// ...
+		$targetSections = [
+			"=== START OF INFORMATION SECTION ===",
+			"=== START OF READ SMART DATA SECTION ===",
+			"=== START OF SMART DATA SECTION ==="
+		];
 		$sectionFound = FALSE;
+		$sectionDataFound = FALSE;
 		foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
 			$cmdOutputv = trim($cmdOutputv);
-			// Abort parsing, we are not interested in the information
-			// shown below this line.
-			if (in_array($cmdOutputv, [ "=== START OF READ SMART DATA SECTION ===",
-					"=== START OF SMART DATA SECTION ===" ])) {
-				break;
-			}
-			// Ignore everything that is not below this line.
-			if ($cmdOutputv == "=== START OF INFORMATION SECTION ===") {
-				$sectionFound = TRUE;
+			if (empty($cmdOutputv)) {
 				continue;
 			}
-			// Have we found the information section?
+			if (preg_match('/^===.+===$/', $cmdOutputv)) {
+				$sectionFound = in_array($cmdOutputv, $targetSections, TRUE);
+				$sectionDataFound = FALSE;
+				continue;
+			}
 			if (FALSE === $sectionFound) {
 				continue;
 			}
@@ -408,13 +415,23 @@ class SmartInformation {
 			// Device Model:     WDC WD2502ABYS-02B7A0
 			$regex = '/^([^:]+):\s+(.+)$/i';
 			if (1 !== preg_match($regex, $cmdOutputv, $matches)) {
+				// Some devices print a section headline before the first
+				// key/value pair. Ignore those lines.
+				if (FALSE === $sectionDataFound) {
+					continue;
+				}
+				// Stop parsing after touching the first line that does not
+				// look like "<KEY>: <VALUE>" once parsing has started.
+				$sectionFound = FALSE;
+				$sectionDataFound = FALSE;
 				continue;
 			}
+			$sectionDataFound = TRUE;
 			// Convert the attribute name, e.g. 'Device Model' to
 			// 'devicemodel'.
 			$attrKey = mb_strtolower(str_replace([" ", "-"], "", $matches[1]));
 			// Append key/value to result array.
-			$result[$attrKey] = $matches[2];
+			$this->informationCache[$attrKey] = $matches[2];
 		}
 		// Map various keys if the user has installed an unsupported
 		// smartmontools version.
@@ -443,14 +460,14 @@ class SmartInformation {
 		];
 		foreach ($attrKeyMap as $attrKeyk => $attrKeyv) {
 			// Copy new attributes only if the origin attribute is empty.
-			if (array_key_exists($attrKeyk, $result) &&
-				array_key_exists($attrKeyv, $result) &&
-				empty($result[$attrKeyv])
+			if (array_key_exists($attrKeyk, $this->informationCache) &&
+				array_key_exists($attrKeyv, $this->informationCache) &&
+				empty($this->informationCache[$attrKeyv])
 			) {
-				$result[$attrKeyv] = $result[$attrKeyk];
+				$this->informationCache[$attrKeyv] = $this->informationCache[$attrKeyk];
 			}
 		}
-		return $result;
+		return $this->informationCache;
 	}
 
 	/**
@@ -458,8 +475,9 @@ class SmartInformation {
 	 * @return string|boolean The temperature value, otherwise FALSE.
 	 */
 	public function getTemperature() {
-		if (FALSE === ($attributes = $this->getAttributes()))
+		if (FALSE === ($attributes = $this->getAttributes())) {
 			return FALSE;
+		}
 		$result = 0;
 		$found = FALSE;
 		// Process the attributes to get the temperature value.
@@ -538,14 +556,24 @@ class SmartInformation {
 		// Temperature Sensor 2:               35 Celsius
 		// ...
 		if (FALSE === $found) {
-			$regex = '/^(Current Drive Temperature|Current Temperature|Temperature):'.
-				'\s+(\d+)\s+(C|Celsius)$/i';
-			foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
-				if (1 == preg_match($regex, $cmdOutputv, $matches)) {
-					$result = $matches[2];
-					$found = TRUE;
-					break;
+			$info = $this->getInformation();
+			$keys = [
+				'currentdrivetemperature',
+				'currenttemperature',
+				'temperature'
+			];
+			foreach ($keys as $key) {
+				$temp = array_value($info, $key, FALSE);
+				if (FALSE === $temp) {
+					continue;
 				}
+				$regex = '/^(\d+)\s+(C|Celsius)$/i';
+				if (1 !== preg_match($regex, $temp, $matches)) {
+					continue;
+				}
+				$result = $matches[1];
+				$found = TRUE;
+				break;
 			}
 		}
 		return (TRUE === $found) ? $result : FALSE;
