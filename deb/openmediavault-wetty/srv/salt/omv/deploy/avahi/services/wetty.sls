@@ -35,6 +35,8 @@ configure_avahi_service_wetty:
         services:
           - type: "{{ ssl_enabled | yesno('_https,_http') }}._tcp"
             port: {{ config.port }}
+            txt_records:
+              - "ui=web"
     - user: root
     - group: root
     - mode: 644

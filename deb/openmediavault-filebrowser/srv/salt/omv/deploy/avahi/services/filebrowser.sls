@@ -36,7 +36,7 @@ configure_avahi_service_filebrowser:
           - type: "{{ ssl_enabled | yesno('_https,_http') }}._tcp"
             port: {{ config.port }}
             txt_records:
-              - "ui=admin"
+              - "ui=web"
     - user: root
     - group: root
     - mode: 644
