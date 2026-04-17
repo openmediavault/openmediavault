@@ -1,5 +1,6 @@
 openmediavault-ftp (8.0.2-1) stable; urgency=medium
 
+  * Update i18n files.
   * Issue #2176: Increase mDNS/Zeroconf compatibility for MacOS.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Apr 2026 19:07:56 +0200

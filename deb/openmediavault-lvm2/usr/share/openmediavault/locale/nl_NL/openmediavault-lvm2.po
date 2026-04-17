@@ -58,7 +58,7 @@ msgid "Do you really want to resize the selected physical volume?"
 msgstr "Wilt u echt de grootte van het fysiek volume aanpassen?"
 
 msgid "Edit"
-msgstr "Aanpassen"
+msgstr "Bewerken"
 
 msgid "Extend"
 msgstr "Uitbreiden"

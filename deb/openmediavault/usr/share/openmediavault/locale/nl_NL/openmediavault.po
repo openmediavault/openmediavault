@@ -1000,10 +1000,10 @@ msgid "Disks"
 msgstr "Schijven"
 
 msgid "Dismiss"
-msgstr "Afwijzen"
+msgstr "Wissen"
 
 msgid "Dismiss all"
-msgstr "Alles afwijzen"
+msgstr "Alles wissen"
 
 msgid "Displays information about the file systems in a grid."
 msgstr "Toont informatie over de bestandssystemen in een raster."
@@ -1140,7 +1140,7 @@ msgid "Ecuador"
 msgstr "Ecuador"
 
 msgid "Edit"
-msgstr "Aanpassen"
+msgstr "Bewerken"
 
 msgid "Egypt"
 msgstr "Egypte"

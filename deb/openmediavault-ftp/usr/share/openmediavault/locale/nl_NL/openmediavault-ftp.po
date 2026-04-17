@@ -99,7 +99,7 @@ msgid "Display the home directory of the user in the browse list."
 msgstr "De basismap van de gebruiker weergeven in de bladerlijst."
 
 msgid "Edit"
-msgstr "Aanpassen"
+msgstr "Bewerken"
 
 msgid "Enable SSL/TLS connections."
 msgstr "SSL/TLS-verbindingen inschakelen."
