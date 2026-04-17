@@ -21,7 +21,7 @@ cleanup_monit_conf_dir:
   module.run:
     - file.find:
       - path: "/etc/monit/conf.d/"
-      - iname: "openmediavault-*.conf"
+      - iname: "openmediavault-*"
       - delete: "f"
 
 remove_monit_delay_file:
