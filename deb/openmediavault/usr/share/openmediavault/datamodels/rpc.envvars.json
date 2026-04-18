@@ -1,0 +1,46 @@
+[{
+	"type": "rpc",
+	"id": "rpc.envvars.get",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"pattern": "^OMV_[\\S_]+$",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.envvars.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"pattern": "^OMV_[\\S_]+$",
+				"required": true
+			},
+			"value": {
+				"type": "string",
+				"format": "no-multi-line",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.envvars.delete",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"pattern": "^OMV_[\\S_]+$",
+				"required": true
+			}
+		}
+	}
+}]
+
