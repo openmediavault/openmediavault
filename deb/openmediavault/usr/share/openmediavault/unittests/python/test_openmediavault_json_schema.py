@@ -162,7 +162,8 @@ class SchemaTestCase(unittest.TestCase):
         schema = openmediavault.json.Schema({})
         self.assertRaises(
             openmediavault.json.SchemaValidationException,
-            lambda: schema._check_format("(invalid[", {"format": "regex"}, "field1"),
+            lambda: schema._check_format(
+                "(invalid[", {"format": "regex"}, "field1"),
         )
 
     def test_check_format_regex_fail_2(self):
