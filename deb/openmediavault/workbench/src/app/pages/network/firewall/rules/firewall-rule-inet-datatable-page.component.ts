@@ -190,7 +190,7 @@ export class FirewallRuleInetDatatablePageComponent
       {
         type: 'iconButton',
         icon: 'delete',
-        tooltip: gettext('Down'),
+        tooltip: gettext('Delete'),
         click: this.onDeleteClick.bind(this),
         enabledConstraints: {
           minSelected: 1
