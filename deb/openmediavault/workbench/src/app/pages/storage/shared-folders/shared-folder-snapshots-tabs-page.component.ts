@@ -19,6 +19,7 @@ import { Component } from '@angular/core';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 
 import { TabsPageConfig } from '~/app/core/components/intuition/models/tabs-page-config.type';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 
 @Component({
   template: '<omv-intuition-tabs-page [config]="this.config"></omv-intuition-tabs-page>'
@@ -282,7 +283,7 @@ export class SharedFolderSnapshotsTabsPageComponent {
             {
               type: 'menu',
               icon: 'add',
-              tooltip: gettext('Create'),
+              tooltip: DEFAULT_TEXTS.create,
               actions: [
                 {
                   text: gettext('Hourly'),

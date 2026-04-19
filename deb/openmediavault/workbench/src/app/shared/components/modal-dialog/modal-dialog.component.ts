@@ -17,9 +17,9 @@
  */
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { ModalDialogConfig } from '~/app/shared/models/modal-dialog-config.type';
 
@@ -54,16 +54,16 @@ export class ModalDialogComponent {
       case 'confirmation-danger':
       case 'confirmation-critical':
         _.defaultsDeep(this.config, {
-          title: gettext('Confirmation'),
+          title: DEFAULT_TEXTS.confirmation,
           icon: Icon.question,
           buttons: [
             {
-              text: gettext('No'),
+              text: DEFAULT_TEXTS.no,
               dialogResult: false,
               autofocus: true
             },
             {
-              text: gettext('Yes'),
+              text: DEFAULT_TEXTS.yes,
               dialogResult: true,
               class:
                 'confirmation' === this.config.template
@@ -79,11 +79,11 @@ export class ModalDialogComponent {
         break;
       case 'information':
         _.defaultsDeep(this.config, {
-          title: gettext('Information'),
+          title: DEFAULT_TEXTS.information,
           icon: Icon.information,
           buttons: [
             {
-              text: gettext('OK'),
+              text: DEFAULT_TEXTS.ok,
               autofocus: true,
               dialogResult: true,
               class: 'omv-background-color-pair-primary'

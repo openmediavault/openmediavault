@@ -20,6 +20,7 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 
 import { CoerceBoolean } from '~/app/decorators';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { UserLocalStorageService } from '~/app/shared/services/user-local-storage.service';
 
@@ -110,7 +111,7 @@ export class AlertPanelComponent implements OnInit {
     this.type = _.defaultTo(this.type, 'info');
     switch (this.type) {
       case 'info':
-        this.title = this.title || gettext('Information');
+        this.title = this.title || DEFAULT_TEXTS.information;
         this.icon = _.get(Icon, this.icon, Icon.information);
         break;
       case 'success':

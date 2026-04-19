@@ -25,6 +25,7 @@ import { DatatablePageConfig } from '~/app/core/components/intuition/models/data
 import { format, isUUID } from '~/app/functions.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 import { Datatable } from '~/app/shared/models/datatable.interface';
 import { DialogService } from '~/app/shared/services/dialog.service';
 
@@ -252,7 +253,7 @@ export class DiskDatatablePageComponent {
                 message: gettext('Please choose the method to wipe the device.'),
                 buttons: [
                   {
-                    text: gettext('Cancel'),
+                    text: DEFAULT_TEXTS.cancel,
                     dialogResult: false,
                     autofocus: true
                   },

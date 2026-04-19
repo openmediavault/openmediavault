@@ -42,6 +42,7 @@ import { format, formatDeep, isFormatable, toBoolean } from '~/app/functions.hel
 import { translate } from '~/app/i18n.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { Dirty } from '~/app/shared/models/dirty.interface';
@@ -406,18 +407,18 @@ export class FormPageComponent
       switch (template) {
         case 'back':
           _.defaultsDeep(button, {
-            text: gettext('Back')
+            text: DEFAULT_TEXTS.back
           });
           break;
         case 'cancel':
           _.defaultsDeep(button, {
-            text: gettext('Cancel')
+            text: DEFAULT_TEXTS.cancel
           });
           break;
         case 'submit':
           _.defaultsDeep(button, {
             submit: true,
-            text: gettext('Save')
+            text: DEFAULT_TEXTS.save
           });
           break;
       }

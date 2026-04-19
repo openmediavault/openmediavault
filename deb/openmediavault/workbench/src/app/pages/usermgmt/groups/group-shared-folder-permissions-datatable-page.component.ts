@@ -23,6 +23,7 @@ import * as _ from 'lodash';
 import { DatatablePageComponent } from '~/app/core/components/intuition/datatable-page/datatable-page.component';
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { format } from '~/app/functions.helper';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
@@ -100,7 +101,7 @@ export class GroupSharedFolderPermissionsDatatablePageComponent {
         url: '/usermgmt/groups'
       },
       {
-        text: gettext('Save'),
+        text: DEFAULT_TEXTS.save,
         class: 'omv-background-color-pair-primary',
         click: this.onSave.bind(this)
       }

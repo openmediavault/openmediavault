@@ -30,6 +30,7 @@ import { CoerceBoolean } from '~/app/decorators';
 import { formatDeep } from '~/app/functions.helper';
 import { DataTableCellChanged } from '~/app/shared/components/datatable/datatable.component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { Datatable } from '~/app/shared/models/datatable.interface';
 import { DatatableAction } from '~/app/shared/models/datatable-action.type';
@@ -298,7 +299,7 @@ export class MatFormDatatableComponent
           _.defaultsDeep(data, {
             buttons: {
               submit: {
-                text: gettext('Add')
+                text: DEFAULT_TEXTS.add
               }
             }
           });
@@ -340,7 +341,7 @@ export class MatFormDatatableComponent
         const modalDialogRef = this.dialogService.open(ModalDialogComponent, {
           data: {
             template: 'confirmation',
-            title: gettext('Delete'),
+            title: DEFAULT_TEXTS.delete,
             message: gettext('Do you really want to delete the selected item(s)?'),
             buttons: [{}, { class: 'omv-background-color-pair-red' }]
           }

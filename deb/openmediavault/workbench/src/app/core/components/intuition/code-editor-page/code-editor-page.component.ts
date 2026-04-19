@@ -48,7 +48,6 @@ import {
   keymap,
   lineNumbers
 } from '@codemirror/view';
-import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { EMPTY, exhaustMap, Observable, Subscription, timer } from 'rxjs';
 
@@ -59,6 +58,7 @@ import {
 } from '~/app/core/components/intuition/models/code-editor-page-config.type';
 import { PageContextService, PageStatus } from '~/app/core/services/page-context.service';
 import { Unsubscribe } from '~/app/decorators';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
@@ -194,12 +194,12 @@ export class CodeEditorPageComponent
       switch (template) {
         case 'back':
           _.defaultsDeep(button, {
-            text: gettext('Back')
+            text: DEFAULT_TEXTS.back
           });
           break;
         case 'cancel':
           _.defaultsDeep(button, {
-            text: gettext('Cancel')
+            text: DEFAULT_TEXTS.cancel
           });
           break;
       }

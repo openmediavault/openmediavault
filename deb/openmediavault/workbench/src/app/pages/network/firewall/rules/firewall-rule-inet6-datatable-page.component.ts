@@ -24,6 +24,7 @@ import { DatatablePageActionConfig } from '~/app/core/components/intuition/model
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { Unsubscribe } from '~/app/decorators';
 import { BaseDatatablePageComponent } from '~/app/pages/base-page-component';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { Datatable } from '~/app/shared/models/datatable.interface';
 import { NotificationService } from '~/app/shared/services/notification.service';
@@ -144,7 +145,7 @@ export class FirewallRuleInet6DatatablePageComponent
       {
         type: 'iconButton',
         icon: 'save',
-        tooltip: gettext('Save'),
+        tooltip: DEFAULT_TEXTS.save,
         click: this.onSaveClick.bind(this),
         enabledConstraints: {
           callback: () => this.dirty
@@ -190,7 +191,7 @@ export class FirewallRuleInet6DatatablePageComponent
       {
         type: 'iconButton',
         icon: 'delete',
-        tooltip: gettext('Delete'),
+        tooltip: DEFAULT_TEXTS.delete,
         click: this.onDeleteClick.bind(this),
         enabledConstraints: {
           minSelected: 1

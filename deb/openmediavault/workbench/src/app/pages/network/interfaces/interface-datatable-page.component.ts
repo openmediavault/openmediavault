@@ -20,6 +20,7 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 import { BaseFormPageComponent } from '~/app/pages/base-page-component';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 
 @Component({
   template:
@@ -229,7 +230,7 @@ export class InterfaceDatatablePageComponent extends BaseFormPageComponent {
             ],
             buttons: {
               submit: {
-                text: gettext('Start'),
+                text: DEFAULT_TEXTS.start,
                 execute: {
                   type: 'request',
                   request: {

@@ -27,13 +27,13 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { from, of, Subscription } from 'rxjs';
 import { concatMap, delay, finalize, tap } from 'rxjs/operators';
 import stripAnsi from 'strip-ansi';
 
 import { format } from '~/app/functions.helper';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { TaskDialogConfig } from '~/app/shared/models/task-dialog-config.type';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
@@ -160,21 +160,21 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
       showCompletion: true,
       buttons: {
         start: {
-          text: gettext('Start'),
+          text: DEFAULT_TEXTS.start,
           hidden: false,
           disabled: false,
           autofocus: false,
           class: 'omv-background-color-pair-primary'
         },
         stop: {
-          text: gettext('Stop'),
+          text: DEFAULT_TEXTS.stop,
           hidden: false,
           disabled: true,
           autofocus: false,
           class: 'omv-background-color-pair-red'
         },
         close: {
-          text: gettext('Close'),
+          text: DEFAULT_TEXTS.close,
           hidden: false,
           disabled: false,
           autofocus: false,

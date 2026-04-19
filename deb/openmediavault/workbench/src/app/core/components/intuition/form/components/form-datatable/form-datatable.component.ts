@@ -16,7 +16,6 @@
  * GNU General Public License for more details.
  */
 import { Component } from '@angular/core';
-import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
@@ -25,6 +24,7 @@ import {
   formatFormFieldConfig
 } from '~/app/core/components/intuition/functions.helper';
 import { MatFormDatatableAction } from '~/app/core/components/intuition/material/mat-form-datatable/mat-form-datatable.component';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 import { Icon } from '~/app/shared/enum/icon.enum';
 
 @Component({
@@ -44,7 +44,7 @@ export class FormDatatableComponent extends AbstractFormFieldComponent {
           _.defaultsDeep(action, {
             id: 'add',
             type: 'iconButton',
-            tooltip: gettext('Add'),
+            tooltip: DEFAULT_TEXTS.add,
             icon: Icon.add
           });
           break;
@@ -52,7 +52,7 @@ export class FormDatatableComponent extends AbstractFormFieldComponent {
           _.defaultsDeep(action, {
             id: 'edit',
             type: 'iconButton',
-            tooltip: gettext('Edit'),
+            tooltip: DEFAULT_TEXTS.edit,
             icon: Icon.edit,
             enabledConstraints: {
               minSelected: 1,
@@ -64,7 +64,7 @@ export class FormDatatableComponent extends AbstractFormFieldComponent {
           _.defaultsDeep(action, {
             id: 'delete',
             type: 'iconButton',
-            tooltip: gettext('Delete'),
+            tooltip: DEFAULT_TEXTS.delete,
             icon: Icon.delete,
             enabledConstraints: {
               minSelected: 1

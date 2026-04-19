@@ -38,6 +38,7 @@ import {
 } from '~/app/shared/components/datatable/datatable.component';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DatatableAction } from '~/app/shared/models/datatable-action.type';
@@ -288,7 +289,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
         {
           confirmationDialogConfig: {
             template: 'confirmation-danger',
-            title: gettext('Delete'),
+            title: DEFAULT_TEXTS.delete,
             message
           },
           execute: {
@@ -344,17 +345,17 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
       switch (template) {
         case 'back':
           _.defaultsDeep(button, {
-            text: gettext('Back')
+            text: DEFAULT_TEXTS.back
           });
           break;
         case 'cancel':
           _.defaultsDeep(button, {
-            text: gettext('Cancel')
+            text: DEFAULT_TEXTS.cancel
           });
           break;
         case 'submit':
           _.defaultsDeep(button, {
-            text: gettext('Save')
+            text: DEFAULT_TEXTS.save
           });
           break;
       }
@@ -427,8 +428,8 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           _.defaultsDeep(action, {
             id: 'add',
             type: 'iconButton',
-            text: gettext('Add'),
-            tooltip: gettext('Add'),
+            text: DEFAULT_TEXTS.add,
+            tooltip: DEFAULT_TEXTS.add,
             icon: Icon.add
           });
           break;
@@ -436,8 +437,8 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           _.defaultsDeep(action, {
             id: 'create',
             type: 'iconButton',
-            text: gettext('Create'),
-            tooltip: gettext('Create'),
+            text: DEFAULT_TEXTS.create,
+            tooltip: DEFAULT_TEXTS.create,
             icon: Icon.add
           });
           break;
@@ -445,8 +446,8 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           _.defaultsDeep(action, {
             id: 'edit',
             type: 'iconButton',
-            text: gettext('Edit'),
-            tooltip: gettext('Edit'),
+            text: DEFAULT_TEXTS.edit,
+            tooltip: DEFAULT_TEXTS.edit,
             icon: Icon.edit,
             enabledConstraints: {
               minSelected: 1,
@@ -458,8 +459,8 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           _.defaultsDeep(action, {
             id: 'delete',
             type: 'iconButton',
-            text: gettext('Delete'),
-            tooltip: gettext('Delete'),
+            text: DEFAULT_TEXTS.delete,
+            tooltip: DEFAULT_TEXTS.delete,
             icon: Icon.delete,
             enabledConstraints: {
               minSelected: 1

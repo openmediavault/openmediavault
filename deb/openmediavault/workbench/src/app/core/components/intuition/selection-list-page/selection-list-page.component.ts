@@ -18,7 +18,6 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatSelectionList, MatSelectionListChange } from '@angular/material/list';
 import { Router } from '@angular/router';
-import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { EMPTY, Observable, Subscription } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -31,6 +30,7 @@ import {
 import { PageContextService, PageStatus } from '~/app/core/services/page-context.service';
 import { Unsubscribe } from '~/app/decorators';
 import { format, toBoolean } from '~/app/functions.helper';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { Dirty } from '~/app/shared/models/dirty.interface';
@@ -200,17 +200,17 @@ export class SelectionListPageComponent
       switch (template) {
         case 'back':
           _.defaultsDeep(button, {
-            text: gettext('Back')
+            text: DEFAULT_TEXTS.back
           });
           break;
         case 'cancel':
           _.defaultsDeep(button, {
-            text: gettext('Cancel')
+            text: DEFAULT_TEXTS.cancel
           });
           break;
         case 'submit':
           _.defaultsDeep(button, {
-            text: gettext('Save'),
+            text: DEFAULT_TEXTS.save,
             execute: {
               type: 'click',
               click: this.onSubmit.bind(this)

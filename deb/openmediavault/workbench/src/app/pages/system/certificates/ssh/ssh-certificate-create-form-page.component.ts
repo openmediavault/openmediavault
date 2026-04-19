@@ -20,6 +20,7 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 
 import { FormPageConfig } from '~/app/core/components/intuition/models/form-page-config.type';
 import { BaseFormPageComponent } from '~/app/pages/base-page-component';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 
 @Component({
   template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
@@ -58,7 +59,7 @@ export class SshCertificateCreateFormPageComponent extends BaseFormPageComponent
     buttons: [
       {
         template: 'submit',
-        text: gettext('Create'),
+        text: DEFAULT_TEXTS.create,
         execute: {
           type: 'url',
           url: '/system/certificate/ssh'
