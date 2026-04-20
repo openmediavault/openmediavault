@@ -203,7 +203,7 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 	 * Apply the configuration changes in a background process.
 	 * @param params The method parameters. \see applyChanges.
 	 * @param context The context of the caller.
-	 * @return The name of the background process status file.
+	 * @return string The name of the background process status file.
 	 */
 	public function applyChangesBg($params, $context) {
 		return $this->callMethodBg("applyChanges", $params, $context);
@@ -243,7 +243,7 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 	 * Revert the configuration changes in a background process.
 	 * @param params The method parameters. \see revertChanges.
 	 * @param context The context of the caller.
-	 * @return The name of the background process status file.
+	 * @return string The name of the background process status file.
 	 */
 	public function revertChangesBg($params, $context) {
 		return $this->callMethodBg("revertChanges", $params, $context);

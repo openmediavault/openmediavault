@@ -530,6 +530,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 
 	/**
 	 * Execute the `getList` RPC as background process.
+	 * @return string The name of the background process status file.
 	 */
 	public function getListBg($params, $context) {
 		return $this->callMethodBg("getList", $params, $context);
@@ -606,6 +607,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 
 	/**
 	 * Execute the `getCandidates` RPC as background process.
+	 * @return string The name of the background process status file.
 	 */
 	public function getCandidatesBg($params, $context) {
 		return $this->callMethodBg("getCandidates", $params, $context);

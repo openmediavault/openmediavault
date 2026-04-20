@@ -90,6 +90,9 @@ class OMVRpcServicePodman extends \OMV\Rpc\ServiceAbstract {
 			$params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
+	/**
+	 * @return string The name of the background process status file.
+	 */
 	public function imageListBg($params, $context) {
 		return $this->callMethodBg("imageList", $params, $context);
 	}
@@ -181,6 +184,9 @@ class OMVRpcServicePodman extends \OMV\Rpc\ServiceAbstract {
 			$params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
+	/**
+	 * @return string The name of the background process status file.
+	 */
 	public function containerListBg($params, $context) {
 		return $this->callMethodBg("containerList", $params, $context);
 	}
@@ -269,6 +275,9 @@ class OMVRpcServicePodman extends \OMV\Rpc\ServiceAbstract {
 			$params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
+	/**
+	 * @return string The name of the background process status file.
+	 */
 	public function volumeListBg($params, $context) {
 		return $this->callMethodBg("volumeList", $params, $context);
 	}
@@ -308,6 +317,9 @@ class OMVRpcServicePodman extends \OMV\Rpc\ServiceAbstract {
 			$params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
+	/**
+	 * @return string The name of the background process status file.
+	 */
 	public function podListBg($params, $context) {
 		return $this->callMethodBg("podList", $params, $context);
 	}
