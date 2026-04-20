@@ -94,7 +94,7 @@ OMV_CONFIG_FILE="./../data/config.xml"
 }
 
 @test "should be a block device [1]" {
-  run omv_is_block "/dev/sda"
+  run omv_is_block $(blkid -o device | head -n1)
   [ "$status" -eq 0 ]
 }
 
