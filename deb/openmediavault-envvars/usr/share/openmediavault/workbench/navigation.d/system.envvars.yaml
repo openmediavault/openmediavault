@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.envvars"
+  text: _("Environment Variables")
+  icon: "mdi:variable"
+  url: "/system/envvars"

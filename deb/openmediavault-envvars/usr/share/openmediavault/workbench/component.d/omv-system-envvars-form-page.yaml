@@ -1,0 +1,46 @@
+version: "1.0"
+type: component
+data:
+  name: omv-system-envvars-form-page
+  type: formPage
+  config:
+    request:
+      service: EnvVars
+      get:
+        method: get
+        params:
+          name: "{{ _routeParams.name }}"
+      post:
+        method: set
+    fields:
+      - type: select
+        name: name
+        label: _("Name")
+        disabled: "{{ _routeConfig.data.editing | toboolean }}"
+        placeholder: _("Select an environment variable ...")
+        value: ""
+        store:
+          proxy:
+            service: EnvVars
+            get:
+              method: enumerate
+          sorters:
+            - dir: text
+              prop: key
+        validators:
+          required: true
+      - type: textInput
+        name: value
+        label: _("Value")
+        hasCopyToClipboardButton: true
+        validators:
+          required: true
+    buttons:
+      - template: cancel
+        execute:
+          type: url
+          url: "/system/envvars"
+      - template: submit
+        execute:
+          type: url
+          url: "/system/envvars"

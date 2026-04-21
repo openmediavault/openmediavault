@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/system/envvars"
+  title: _("Environment Variables")
+  component: omv-system-envvars-datatable-page

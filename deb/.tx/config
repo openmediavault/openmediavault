@@ -32,6 +32,12 @@ source_file = openmediavault-diskstats/usr/share/openmediavault/locale/openmedia
 source_lang = en
 type = PO
 
+[o:openmediavault:p:openmediavault:r:openmediavault-envvars]
+file_filter = openmediavault-envvars/usr/share/openmediavault/locale/<lang>/openmediavault-envvars.po
+source_file = openmediavault-envvars/usr/share/openmediavault/locale/openmediavault-envvars.pot
+source_lang = en
+type = PO
+
 [o:openmediavault:p:openmediavault:r:openmediavault-filebrowser]
 file_filter = openmediavault-filebrowser/usr/share/openmediavault/locale/<lang>/openmediavault-filebrowser.po
 source_file = openmediavault-filebrowser/usr/share/openmediavault/locale/openmediavault-filebrowser.pot

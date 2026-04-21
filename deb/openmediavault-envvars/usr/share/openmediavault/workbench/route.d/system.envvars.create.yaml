@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/system/envvars/create"
+  title: _("Create")
+  notificationTitle: _("Created environment variable.")
+  component: omv-system-envvars-form-page

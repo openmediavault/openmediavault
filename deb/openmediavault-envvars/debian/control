@@ -1,0 +1,16 @@
+Source: openmediavault-envvars
+Section: net
+XB-Plugin-Section: monitoring
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gettext
+Standards-Version: 3.9.6
+Homepage: https://www.openmediavault.org
+
+Package: openmediavault-envvars
+Architecture: all
+Depends: openmediavault (>= 8.2.8)
+Priority: optional
+Description: openmediavault environment variables plugin
+ The environment variables plugin allows managing these variables to
+ customize internal settings according to individual requirements.
