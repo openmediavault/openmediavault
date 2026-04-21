@@ -203,14 +203,25 @@ function array_unique_key(array $array, $key): ?array {
 }
 
 /**
- * Omit keys from an array.
+ * Omit specified keys from an array.
  * @ingroup api
  * @param array $array The array to process.
- * @param array $keys The keys to omit.
+ * @param array $keys Keys to exclude.
  * @return Returns a new array without the omitted keys.
  */
 function array_omit_keys(array $array, array $keys): array {
     return array_diff_key($array, array_flip($keys));
+}
+
+/**
+ * Pick specified keys from an array.
+ * @ingroup api
+ * @param array $array The array to process.
+ * @param array $keys Keys to include.
+ * @return Returns a new array containing only the picked keys.
+ */
+function array_pick_keys(array $array, array $keys): array {
+    return array_intersect_key($array, array_flip($keys));
 }
 
 /**

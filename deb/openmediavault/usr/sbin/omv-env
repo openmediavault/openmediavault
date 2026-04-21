@@ -18,6 +18,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+import json
 import re
 import sys
 from typing import List
@@ -32,6 +33,11 @@ import openmediavault
 
 def grep_env_vars() -> List[str]:
     result = set()
+    # Get environment variables from `/etc/default/openmediavault`.
+    result.update([
+        key for key in openmediavault.settings.Environment.as_dict().keys()
+        if key.startswith('OMV_')
+    ])
     # Grep the environment variables used in Salt states.
     output = openmediavault.procutils.check_output(
         ['grep', '--no-filename', '--recursive', 'default:OMV_',
@@ -78,22 +84,32 @@ def cli(ctx, verbose: bool):
 
 
 @cli.command(name='list', help='List all available environment variables.')
+@click.option('--json', 'json_output', is_flag=True,
+              help='Print the output as JSON.')
 @pass_context
-def list_cmd(ctx):  # noqa
-    for env_var in grep_env_vars():
-        print(env_var)
+def list_cmd(ctx, json_output: bool):  # noqa
+    env_vars: List[str] = grep_env_vars()
+    if json_output:
+        print(json.dumps(env_vars))
+    else:
+        for env_var in env_vars:
+            print(env_var)
     sys.exit(0)
 
 
 @cli.command(name='get', help='Get configured environment variables.')
 @click.argument('names', nargs=-1)
-@click.option(
-    '--value-only',
-    is_flag=True,
-    help='Print only the value of the environment variable.'
-)
+@click.option('--value-only', is_flag=True,
+              help='Print only the value of the environment variable.')
+@click.option('--json', 'json_output', is_flag=True,
+              help='Print the output as JSON.')
 @pass_context
-def get_cmd(ctx, names: List[str], value_only: bool):  # noqa
+def get_cmd(ctx, names: List[str], value_only: bool,
+            json_output: bool):  # noqa
+    if json_output and value_only:
+        sys.stderr.write(
+            'Options --json and --value-only are mutually exclusive\n')
+        sys.exit(1)
     # Get all environment variables starting with 'OMV_'.
     env_vars = dict(filter(lambda item: item[0].startswith('OMV_'),
                            openmediavault.settings.Environment.as_dict().items()))
@@ -103,8 +119,12 @@ def get_cmd(ctx, names: List[str], value_only: bool):  # noqa
                                env_vars.items()))
         if len(env_vars) == 0:
             sys.exit(1)
-    for key, value in natsort.humansorted(env_vars.items()):
-        print(value if value_only else '{}={}'.format(key, value))
+    sorted_env_vars = natsort.humansorted(env_vars.items())
+    if json_output:
+        print(json.dumps(dict(sorted_env_vars)))
+    else:
+        for key, value in sorted_env_vars:
+            print(value if value_only else '{}={}'.format(key, value))
     sys.exit(0)
 
 
