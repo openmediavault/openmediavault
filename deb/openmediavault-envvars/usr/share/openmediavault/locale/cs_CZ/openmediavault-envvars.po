@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-envvars package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Marek Pavelka, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-envvars\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 20:04+0200\n"
+"PO-Revision-Date: 2026-04-23 18:04+0000\n"
+"Last-Translator: Marek Pavelka, 2026\n"
+"Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+msgid "Apply"
+msgstr "Použít"
+
+msgid "Create"
+msgstr "Vytvořit"
+
+msgid "Created environment variable."
+msgstr ""
+
+msgid "Edit"
+msgstr "Upravit"
+
+msgid "Environment Variables"
+msgstr ""
+
+msgid "Name"
+msgstr "Název"
+
+msgid ""
+"Please wait, applying environment variables. This can take some time ..."
+msgstr ""
+
+msgid "Select an environment variable ..."
+msgstr ""
+
+msgid "Updated environment variable."
+msgstr ""
+
+msgid "Value"
+msgstr ""
