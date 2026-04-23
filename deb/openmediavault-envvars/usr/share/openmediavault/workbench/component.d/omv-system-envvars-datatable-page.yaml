@@ -1,0 +1,56 @@
+version: "1.0"
+type: component
+data:
+  name: omv-system-envvars-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    remoteSorting: true
+    remotePaging: true
+    selectionType: single
+    stateId: b3686af6-3db3-11f1-9ebd-525400f880f8
+    sorters:
+      - dir: asc
+        prop: name
+    store:
+      proxy:
+        service: EnvVars
+        get:
+          method: getList
+    columns:
+      - name: _("Name")
+        prop: name
+        flexGrow: 1
+        sortable: true
+      - name: _("Value")
+        prop: value
+        flexGrow: 2
+        sortable: true
+    actions:
+      - template: create
+        execute:
+          type: url
+          url: "/system/envvars/create"
+      - template: edit
+        execute:
+          type: url
+          url: "/system/envvars/edit/{{ _selected[0].name }}"
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: EnvVars
+            method: delete
+            params:
+              name: "{{ name }}"
+      - type: divider
+      - type: iconButton
+        icon: "mdi:play"
+        tooltip: _("Apply")
+        execute:
+          type: request
+          request:
+            service: EnvVars
+            method: applyBg
+            task: true
+            progressMessage: _("Please wait, applying environment variables. This can take some time ...")
