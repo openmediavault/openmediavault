@@ -29,13 +29,13 @@ msgid "Create"
 msgstr "Crea"
 
 msgid "Created environment variable."
-msgstr ""
+msgstr "La variabile d’ambiente è stata creata."
 
 msgid "Edit"
 msgstr "Modifica"
 
 msgid "Environment Variables"
-msgstr ""
+msgstr "Variabili d’ambiente"
 
 msgid "Name"
 msgstr "Nome"
@@ -43,12 +43,14 @@ msgstr "Nome"
 msgid ""
 "Please wait, applying environment variables. This can take some time ..."
 msgstr ""
+"Attendere, applicazione delle variabili d’ambiente in corso. L’operazione "
+"potrebbe richiedere qualche istante..."
 
 msgid "Select an environment variable ..."
-msgstr ""
+msgstr "Seleziona una variabile d’ambiente..."
 
 msgid "Updated environment variable."
-msgstr ""
+msgstr "La variabile d’ambiente è stata aggiornata."
 
 msgid "Value"
-msgstr ""
+msgstr "Valore"

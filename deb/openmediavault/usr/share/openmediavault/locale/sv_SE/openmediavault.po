@@ -57,7 +57,7 @@ msgid "%s [on %s, %s]"
 msgstr "%s [på %s, %s]"
 
 msgid "%s [on N/A, %s]"
-msgstr "%s [på N/A, %s]"
+msgstr "%s [på ingen uppgift, %s]"
 
 msgid "%s ago"
 msgstr "%s sedan"
@@ -248,7 +248,7 @@ msgstr "A (5 GHz)"
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr "En omstart krävs för att fullt ut verkställa ändringarna som infördes genom paketinstallation eller uppgradering."
+msgstr "En omstart krävs för att fullt ut tillämpa ändringarna som infördes genom paketinstallation eller uppgradering."
 
 msgid "A running background task was detected."
 msgstr "En pågående bakgrundsuppgift upptäcktes."
@@ -383,7 +383,7 @@ msgstr "Ett försök att skicka test e-postmeddelandet har gjorts. Kontrollera d
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Ett e-postmeddelande med kommandoutdata (om något produceras) skickas till administratören."
+msgstr "Ett e-postmeddelande med kommandoutdata (om någon utdata genereras) skickas till administratören."
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -406,13 +406,13 @@ msgid "Antigua and Barbuda"
 msgstr "Antigua och Barbuda"
 
 msgid "Applied the configuration changes."
-msgstr "Konfigurationsändringarna verkställdes."
+msgstr "Konfigurationsändringarna tillämpades."
 
 msgid "Apply"
-msgstr "Verkställ"
+msgstr "Tillämpa"
 
 msgid "Apply permissions to files and subfolders."
-msgstr "Verkställ behörigheter på filer och undermappar."
+msgstr "Tillämpa behörigheter på filer och undermappar."
 
 msgid "April"
 msgstr "April"
@@ -1042,7 +1042,7 @@ msgid "Djibouti"
 msgstr "Djibouti"
 
 msgid "Do you really want to apply the configuration changes?"
-msgstr "Vill du verkligen verkställa konfigurationsändringarna?"
+msgstr "Vill du verkligen tillämpa konfigurationsändringarna?"
 
 msgid "Do you really want to copy the permissions from the shared folder?"
 msgstr "Vill du verkligen kopiera behörigheterna från den delade mappen?"
@@ -2127,7 +2127,7 @@ msgid "Myanmar"
 msgstr "Myanmar"
 
 msgid "N/A"
-msgstr ""
+msgstr "Ingen uppgift"
 
 msgid "NFS"
 msgstr "NFS"
@@ -2496,7 +2496,7 @@ msgid "Please wait, sending a test email ..."
 msgstr "Vänta, skickar ett testmeddelande ..."
 
 msgid "Please wait, the configuration changes are being applied ..."
-msgstr "Vänta, konfigurationsändringarna verkställs ..."
+msgstr "Vänta, konfigurationsändringarna tillämpas ..."
 
 msgid "Please wait, the data is being loaded ..."
 msgstr "Vänta, data läses in ..."
@@ -4236,7 +4236,7 @@ msgid ""
 msgstr "Du har gjort ändringar som ännu inte har sparats. Vill du kassera dem?"
 
 msgid "You must apply these changes in order for them to take effect."
-msgstr "Du måste verkställa dessa ändringar för att de ska träda i kraft."
+msgstr "Du måste tillämpa dessa ändringar för att de ska träda i kraft."
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
 msgstr "Du kommer att loggas ut på grund av inaktivitet om {{ n }} sekunder."

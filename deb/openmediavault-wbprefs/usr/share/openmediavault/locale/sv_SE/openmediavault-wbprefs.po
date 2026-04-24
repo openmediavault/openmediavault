@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Apply"
-msgstr "Verkställ"
+msgstr "Tillämpa"
 
 msgid "Login"
 msgstr "Logga in"
@@ -49,7 +49,7 @@ msgid "The URL must start with http://, https:// or file://."
 msgstr "URL:en måste börja med http://, https:// eller file://."
 
 msgid "The page for which the wallpaper is to be set."
-msgstr "Sidan som bakgrundsbilden ska ställas in för."
+msgstr "Sidan som bakgrundsbilden ska användas för."
 
 msgid "The wallpaper has been updated."
 msgstr "Bakgrundsbilden har uppdaterats."

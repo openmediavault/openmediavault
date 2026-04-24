@@ -23,10 +23,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Authentication and no privacy"
-msgstr "Autentisering och ingen sekretess"
+msgstr "Autentisering och ingen integritet"
 
 msgid "Authentication and privacy"
-msgstr "Autentisering och sekretess"
+msgstr "Autentisering och integritet"
 
 msgid "Authentication passphrase"
 msgstr "Autentiseringslösenord"
@@ -63,16 +63,16 @@ msgid "Location information, e.g. physical location of this system."
 msgstr "Platsinformation, t.ex. fysisk plats för det här systemet."
 
 msgid "No authentication and no privacy"
-msgstr "Ingen autentisering och ingen sekretess"
+msgstr "Ingen autentisering och ingen integritet"
 
 msgid "Port"
 msgstr "Port"
 
 msgid "Privacy passphrase"
-msgstr "Sekretesslösenord"
+msgstr "Integritetslösenord"
 
 msgid "Privacy type"
-msgstr "Sekretesstyp"
+msgstr "Integritetstyp"
 
 msgid "SNMP"
 msgstr "SNMP"

@@ -6,6 +6,7 @@
 # Translators:
 # songming <by@songming.me>, 2026
 # irrelevant91, 2026
+# 黃柏諺 <s8321414@gmail.com>, 2026
 # 
 #, fuzzy
 msgid ""
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-23 20:04+0200\n"
 "PO-Revision-Date: 2026-04-23 18:04+0000\n"
-"Last-Translator: irrelevant91, 2026\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2026\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,26 +30,26 @@ msgid "Create"
 msgstr "创建"
 
 msgid "Created environment variable."
-msgstr ""
+msgstr "已建立的環境變數。"
 
 msgid "Edit"
 msgstr "编辑"
 
 msgid "Environment Variables"
-msgstr ""
+msgstr "環境變數"
 
 msgid "Name"
 msgstr "名称"
 
 msgid ""
 "Please wait, applying environment variables. This can take some time ..."
-msgstr ""
+msgstr "請稍候，正在套用環境變數。這可能需要一點時間……"
 
 msgid "Select an environment variable ..."
-msgstr ""
+msgstr "選取環境變數……"
 
 msgid "Updated environment variable."
-msgstr ""
+msgstr "已更新環境變數。"
 
 msgid "Value"
-msgstr ""
+msgstr "值"
