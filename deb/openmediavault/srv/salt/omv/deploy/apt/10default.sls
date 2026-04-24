@@ -49,7 +49,7 @@ configure_apt_sources_list_debian_{{ grains['oscodename'] }}:
   file.append:
     - name: "/etc/apt/sources.list"
     - text: |
-        deb http://httpredir.debian.org/debian {{ grains['oscodename'] }} main contrib non-free non-free-firmware
+        deb http://deb.debian.org/debian {{ grains['oscodename'] }} main contrib non-free non-free-firmware
 
 {% endif %}
 
@@ -60,7 +60,7 @@ configure_apt_sources_list_debian_{{ grains['oscodename'] }}_updates:
   file.append:
     - name: "/etc/apt/sources.list"
     - text: |
-        deb http://httpredir.debian.org/debian {{ grains['oscodename'] }}-updates main contrib non-free non-free-firmware
+        deb http://deb.debian.org/debian {{ grains['oscodename'] }}-updates main contrib non-free non-free-firmware
 
 {% endif %}
 
