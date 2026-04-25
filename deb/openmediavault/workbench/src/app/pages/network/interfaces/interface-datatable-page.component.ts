@@ -209,23 +209,27 @@ export class InterfaceDatatablePageComponent extends BaseFormPageComponent {
                 type: 'textInput',
                 name: 'devicename',
                 label: gettext('Name'),
-                readonly: true,
+                disabled: true,
                 value: '{{ _selected[0].devicename }}'
               },
               {
-                type: 'numberInput',
+                type: 'select',
                 name: 'seconds',
                 label: gettext('Seconds'),
                 hint: gettext(
                   'Length of time in seconds to blink one or more LEDs on the specific ethernet port.'
                 ),
-                validators: {
-                  required: true,
-                  min: 1,
-                  max: 30,
-                  patternType: 'integer'
+                store: {
+                  data: [
+                    [5, '5s'],
+                    [10, '10s'],
+                    [15, '15s'],
+                    [30, '30s']
+                  ]
                 },
-                value: 10
+                validators: {
+                  required: true
+                }
               }
             ],
             buttons: {
