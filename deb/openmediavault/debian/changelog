@@ -1,3 +1,9 @@
+openmediavault (8.2.10-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 25 Apr 2026 20:26:21 +0200
+
 openmediavault (8.2.9-1) stable; urgency=medium
 
   * Replace Debian httpredir service.
