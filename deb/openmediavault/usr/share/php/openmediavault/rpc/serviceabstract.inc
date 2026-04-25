@@ -99,7 +99,7 @@ abstract class ServiceAbstract {
 	 * @return TRUE if the service method exists, otherwise FALSE.
 	 */
 	final public function hasMethod($name) {
-		return in_array($name, $this->registeredMethods);
+		return array_key_exists($name, $this->registeredMethods);
 	}
 
 	/**
@@ -168,7 +168,7 @@ abstract class ServiceAbstract {
 				// Execute the given RPC service method.
 				$result = $this->callMethod($name, $params, $context);
 				// Reset async signal handling.
-				if (0 < $timeout && !$asyncSignals) {
+				if (0 < $maxExecutionTime && !$asyncSignals) {
 					pcntl_async_signals(FALSE);
 				}
 				// Make sure the content of the background process output file
@@ -223,11 +223,9 @@ abstract class ServiceAbstract {
 		if (array_key_exists("username", $required)) {
 			if (!is_array($required['username']))
 				$required['username'] = [ $required['username'] ];
-			foreach ($required['username'] as $usernamek => $usernamev) {
-				if ($context['username'] !== $usernamev) {
-					throw new \OMV\HttpErrorException(403,
-						"Invalid context username.");
-				}
+			if (!in_array($context['username'], $required['username'], TRUE)) {
+				throw new \OMV\HttpErrorException(403,
+					"Invalid context username.");
 			}
 		}
 		// - Check the role
@@ -632,6 +630,7 @@ abstract class ServiceAbstract {
 		}
 		// Child process.
 		$status = 1;
+		$bgOutputFilename = NULL;
 		try {
 			// We need to wait until the background process status file
 			// has been created by the parent process.
@@ -725,7 +724,7 @@ abstract class ServiceAbstract {
 				];
 			}
 		}
-		@socket_write($parentSocket, serialize($data));
+		@socket_write($parentSocket, json_encode_safe($data));
 		@socket_close($parentSocket);
 		exit(0);
 	}
@@ -748,7 +747,7 @@ abstract class ServiceAbstract {
 					//	continue;
 					//}
 					$data = "";
-					// Read data from socket and deserialize it.
+					// Read data from socket and decode it.
 					while (TRUE) {
 						$buf = @socket_read($procv['socket'], 4096, PHP_BINARY_READ);
 						if (FALSE === $buf) {
@@ -761,14 +760,20 @@ abstract class ServiceAbstract {
 						$data .= $buf;
 					}
 					@socket_close($procv['socket']);
-					$data = unserialize($data);
-					// Skip processes that do not return valid data.
-					if (
-						!is_assoc_array($data) ||
-						!array_key_exists("result", $data) ||
-					  	!array_key_exists("error", $data)
-					) {
-						continue;
+					$data = json_decode_safe($data, TRUE);
+					if (!is_assoc_array($data)) {
+						if (JSON_ERROR_NONE !== json_last_error()) {
+							throw new Exception("Failed to decode async process ".
+								"response from process %d: %s", $procv['pid'],
+								json_last_error_msg());
+						}
+						throw new Exception("Invalid async process response ".
+							"from process %d.", $procv['pid']);
+					}
+					if (!array_key_exists("result", $data) ||
+							!array_key_exists("error", $data)) {
+						throw new Exception("Invalid async process response ".
+							"format from process %d.", $procv['pid']);
 					}
 					// Handle errors that may have occurred in the child
 					// process. Rethrow this exception again in this

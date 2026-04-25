@@ -60,6 +60,8 @@ class Download extends Json {
 				$contentType = @mime_content_type($response['content']);
 				if (FALSE !== $contentType) {
 					$headers["Content-Type"] = $contentType;
+				} else {
+					$headers["Content-Type"] = "application/octet-stream";
 				}
 			}
 			$headers["Content-Length"] = strlen($response['content']);
@@ -69,6 +71,8 @@ class Download extends Json {
 				$contentType = @mime_content_type($response['filepath']);
 				if (FALSE !== $contentType) {
 					$headers["Content-Type"] = $contentType;
+				} else {
+					$headers["Content-Type"] = "application/octet-stream";
 				}
 			}
 			$contentLength = @filesize($response['filepath']);
