@@ -397,7 +397,6 @@ class SmartInformation {
 			"=== START OF SMART DATA SECTION ==="
 		];
 		$sectionFound = FALSE;
-		$sectionDataFound = FALSE;
 		foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
 			$cmdOutputv = trim($cmdOutputv);
 			if (empty($cmdOutputv)) {
@@ -405,7 +404,6 @@ class SmartInformation {
 			}
 			if (preg_match('/^===.+===$/', $cmdOutputv)) {
 				$sectionFound = in_array($cmdOutputv, $targetSections, TRUE);
-				$sectionDataFound = FALSE;
 				continue;
 			}
 			if (FALSE === $sectionFound) {
@@ -415,18 +413,9 @@ class SmartInformation {
 			// Device Model:     WDC WD2502ABYS-02B7A0
 			$regex = '/^([^:]+):\s+(.+)$/i';
 			if (1 !== preg_match($regex, $cmdOutputv, $matches)) {
-				// Some devices print a section headline before the first
-				// key/value pair. Ignore those lines.
-				if (FALSE === $sectionDataFound) {
-					continue;
-				}
-				// Stop parsing after touching the first line that does not
-				// look like "<KEY>: <VALUE>" once parsing has started.
-				$sectionFound = FALSE;
-				$sectionDataFound = FALSE;
+				// Ignore non key/value lines (e.g. section sub-headlines).
 				continue;
 			}
-			$sectionDataFound = TRUE;
 			// Convert the attribute name, e.g. 'Device Model' to
 			// 'devicemodel'.
 			$attrKey = mb_strtolower(str_replace([" ", "-"], "", $matches[1]));
@@ -576,7 +565,7 @@ class SmartInformation {
 				break;
 			}
 		}
-		return (TRUE === $found) ? $result : FALSE;
+		return (TRUE === $found) ? strval($result) : FALSE;
 	}
 
 	/**
