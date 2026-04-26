@@ -75,7 +75,7 @@ class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
 		$db = new \OMV\Config\Database();
 		$objects = $db->get("conf.system.notification.notification");
 		$this->assertIsArray($objects);
-		$this->assertTrue(0 < count($objects));
+		$this->assertTrue(!empty($objects));
 		$this->assertInstanceOf("OMV\Config\ConfigObject", $objects[0]);
 	}
 

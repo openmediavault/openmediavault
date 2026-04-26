@@ -60,7 +60,7 @@ class Nfs extends \OMV\Engine\Module\ServiceAbstract implements
 			"arg0" => "sharedfolderref",
 			"arg1" => $object['uuid']
 		]);
-		if (0 < count($shareObjects)) {
+		if (!empty($shareObjects)) {
 			// Check whether the '/export/{name}' bind mount needs to be
 			// adapted. This has to be done when the file system or the
 			// relative path of the shared folder has been changed.

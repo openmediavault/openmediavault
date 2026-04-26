@@ -148,7 +148,7 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				"arg1" => array_merge([ $objectv['devicefile'] ],
 					$objectv['devicelinks'])
 			]);
-			if (1 <= count($confObjects)) {
+			if (!empty($confObjects)) {
 				// Append the first found configuration values.
 				$objectv['hdparm'] = $confObjects[0]->getAssoc();
 			}

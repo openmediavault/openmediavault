@@ -465,7 +465,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$parts = explode(DIRECTORY_SEPARATOR, trim($object->get("reldirpath"),
 			DIRECTORY_SEPARATOR));
 		array_pop($parts); // Remove last directory, this is already processed.
-		if (count($parts) > 0) {
+		if (!empty($parts)) {
 			$absPath = $meObject->get("dir");
 			// To prevent reaching the command line length limit (we can
 			// not expect how long the absolute paths of all subdirectory
@@ -545,7 +545,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				"arg0" => "mntentref",
 				"arg1" => $object->get("mntentref")
 			]);
-			if (0 < count($sfObjects)) {
+			if (!empty($sfObjects)) {
 				// Get the mount point configuration object to build the
 				// absolute shared folder path.
 				$meObject = $db->get("conf.system.filesystem.mountpoint",
@@ -1549,7 +1549,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get the list of snapshots.
 		$snapshots = array_filter_ex($fs->listSnapshots($sfAbsPath),
 			"id", $params['id']);
-		if (is_null($snapshots) || empty($snapshots)) {
+		if (empty($snapshots)) {
 			throw new \OMV\Exception(
 				"The snapshot '%s' from '%s' does not exist.",
 				$params['id'], $sfObject->get("name"));
@@ -1591,7 +1591,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get the list of snapshots.
 		$snapshots = array_filter_ex($fs->listSnapshots($sfAbsPath),
 			"id", $params['id']);
-		if (is_null($snapshots) || empty($snapshots)) {
+		if (empty($snapshots)) {
 			throw new \OMV\Exception(
 				"The snapshot '%s' from '%s' does not exist.",
 				$params['id'], $sfObject->get("name"));

@@ -174,11 +174,13 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 					"arg1" => array_merge([ $objectv['devicefile'] ],
   						$objectv['devicelinks'])
 				]);
-			if (0 >= count($confObjects))
+			if (empty($confObjects)) {
 				continue;
+			}
 			$confObject = $confObjects[0];
-			if (TRUE !== $confObject->get("enable"))
+			if (TRUE !== $confObject->get("enable")) {
 				continue;
+			}
 			$result[] = $objectv;
 		}
 		return $result;
@@ -227,7 +229,7 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 				"conf.service.smartmontools.device", $filter);
 			// If found, then finally get the S.M.A.R.T. device settings
 			// configuration object.
-			if (0 < count($confObjects)) {
+			if (!empty($confObjects)) {
 				$confObject = $confObjects[0];
 				// Append the device settings.
 				$objectv['uuid'] = $confObject->get("uuid");

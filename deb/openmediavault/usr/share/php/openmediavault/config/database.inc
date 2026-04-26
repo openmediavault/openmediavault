@@ -526,7 +526,7 @@ class Database {
 			];
 		}
 		$objects = $this->getByFilter($object->getModelId(), $filter);
-		return (0 == count($objects));
+		return empty($objects);
 	}
 
 	/**

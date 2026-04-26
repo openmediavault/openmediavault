@@ -367,7 +367,7 @@ finish:
 			"arg0" => "name",
 			"arg1" => $user->getName()
 		]);
-		if (0 < count($objects)) {
+		if (!empty($objects)) {
 			// Get the user configuration object. Due the fact that a user
 			// name is unique, we can simply use the first found object.
 			$object = $objects[0];
@@ -786,7 +786,7 @@ finish:
 			"arg0" => "name",
 			"arg1" => $group->getName()
 		]);
-		if (0 < count($objects)) {
+		if (!empty($objects)) {
 			// Get the group configuration object. Due the fact that a group
 			// name is unique, we can simply use the first found object.
 			$object = $objects[0];

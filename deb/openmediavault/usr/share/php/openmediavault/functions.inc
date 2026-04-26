@@ -176,7 +176,7 @@ function array_search_ex(array $array, $key, $value, $default = FALSE) {
  */
 function array_keys_exists(array $keys, array $search, &$missing = NULL): bool {
 	$missing = array_values(array_diff($keys, array_keys($search)));
-	return !(count($missing) > 0);
+	return empty($missing);
 }
 
 /**

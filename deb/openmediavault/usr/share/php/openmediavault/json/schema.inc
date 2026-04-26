@@ -123,7 +123,7 @@ class Schema {
 		$parts = array_filter($parts, function($v) { return !is_numeric($v); });
 		// Validate the path. Something like "aa.bb.cc." "a..b.c", or ".xx.yy"
 		// is invalid.
-		if (0 < count(array_filter($parts, function($v) { return empty($v); })))
+		if (!empty(array_filter($parts, function($v) { return empty($v); })))
 			throw new SchemaPathException("Invalid path '%s' syntax.", $path);
 		// Do we process an 'object' or 'array' node?
 		// !!! Note, the 'type' can be an array. How to handles them here?
