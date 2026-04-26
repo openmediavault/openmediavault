@@ -667,6 +667,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "8.2.9"; then
 			omv_module_set_dirty apt
 		fi
+		if dpkg --compare-versions "$2" lt-nl "8.2.10"; then
+			omv_module_set_dirty apt
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
