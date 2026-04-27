@@ -1,3 +1,9 @@
+openmediavault (8.2.11-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 27 Apr 2026 20:03:54 +0200
+
 openmediavault (8.2.10-1) stable; urgency=medium
 
   * Issue #2184: Use the standard keyring for the Debian package repositories.
