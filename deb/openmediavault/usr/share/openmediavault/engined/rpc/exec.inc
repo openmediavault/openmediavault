@@ -118,45 +118,42 @@ class Exec extends \OMV\Rpc\ServiceAbstract {
 		// of the file.
 		if ($status->hasOutputFilename()) {
 			$bgOutputFilename = $status->getOutputFilename();
-			// Read the command output from the given file.
 			if (FALSE === ($fp = fopen($bgOutputFilename, "r"))) {
 				throw new \OMV\Exception(
 					"Failed to open the command output file (filename=%s).",
 					$bgOutputFilename);
 			}
-			// Get the requested command output from the given position to
-			// the end of the file.
+			$_ = defer(function() use ($fp) {
+				@fclose($fp);
+			});
 			fseek($fp, $params['pos'], SEEK_SET);
-			// Read the file content and convert line breaks.
-			$bytesRead = 0;
-			$chunkLength = 1024; // 1KiB
-			while (!feof($fp)) {
-				$readLength = $chunkLength;
-				if (array_key_exists("length", $params)) {
-					$remainingBytes = $params['length'] - $bytesRead;
-					if ($remainingBytes <= 0) {
-						$result['pendingOutput'] = TRUE;
-						break;
-					}
-					$readLength = min($readLength, $remainingBytes);
-				}
-				$chunk = fread($fp, $readLength);
-				if (FALSE === $chunk) {
+			$length = array_value($params, "length", -1);
+			if ($length >= 0) {
+				// Read one extra byte to determine if there is more output pending.
+				$output = fread($fp, $length + 1);
+				if (FALSE === $output) {
 					throw new \OMV\Exception(
 						"Failed to read the command output file (filename=%s).",
 						$bgOutputFilename);
 				}
-				$result['output'] .= str_replace([ "\r\n", "\r" ],
-					"\n", $chunk);
-				$bytesRead += strlen($chunk);
+				if (strlen($output) > $length) {
+					$result['pendingOutput'] = TRUE;
+					$output = substr($output, 0, $length);
+				}
+			} else {
+				$output = stream_get_contents($fp);
+				if (FALSE === $output) {
+					throw new \OMV\Exception(
+						"Failed to read the command output file (filename=%s).",
+						$bgOutputFilename);
+				}
 			}
-			// Get the current position within the command output file.
-			$result['pos'] = ftell($fp);
-			fclose($fp);
+			$result['pos'] = $params['pos'] + strlen($output);
+			$result['output'] = str_replace([ "\r\n", "\r" ], "\n", $output);
 		}
 		// Cleanup if the process is not running anymore and all command
 		// output has been read.
-		if (!$status->isRunning() && !$result['pendingOutput']) {
+		if (!$result['running'] && !$result['pendingOutput']) {
 			$this->unlinkBgProcStatus($params['filename']);
 		}
 		return $result;
@@ -188,15 +185,17 @@ class Exec extends \OMV\Rpc\ServiceAbstract {
 		if ($status->hasError()) {
 			$error = $status->getError();
 			throw new \OMV\Rpc\TraceException($error['message'],
-			  $error['code'], $error['trace']);
+				$error['code'], $error['trace']);
 		}
+		$isRunning = $status->isRunning();
 		// Cleanup if process is not running anymore.
-		if (FALSE === $status->isRunning())
+		if (!$isRunning) {
 			$this->unlinkBgProcStatus($params['filename']);
+		}
 		// Return the running state.
 		return [
 			"filename" => $params['filename'],
-			"running" => $status->isRunning()
+			"running" => $isRunning
 		];
 	}
 

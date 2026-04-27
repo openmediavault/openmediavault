@@ -128,9 +128,10 @@ class StorageDeviceMd extends StorageDevice {
 		foreach ($output as $outputk => $outputv) {
 			if (empty($outputv))
 				continue;
-			$parts = explode(":", $outputv);
-			if (empty($parts))
+			$parts = explode(":", $outputv, 2);
+			if (count($parts) !== 2) {
 				continue;
+			}
 			$parts = array_map("trim", $parts);
 			switch (mb_strtolower($parts[0])) {
 			case "state":

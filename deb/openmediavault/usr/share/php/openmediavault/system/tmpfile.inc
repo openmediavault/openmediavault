@@ -36,10 +36,19 @@ class TmpFile {
 	 *   Defaults to empty string.
 	 * @param bool autoUnlink If set to FALSE, the file will not be unlinked
 	 *   on object destruction. Defaults to TRUE.
+	 * @return void
+	 * @throw \OMV\Exception
 	 */
 	function __construct(string $prefix = "", bool $autoUnlink = TRUE) {
 		$this->autoUnlink = $autoUnlink;
-		$this->filename = tempnam(sys_get_temp_dir(), $prefix);
+		$tmpDir = sys_get_temp_dir();
+		$filename = tempnam($tmpDir, $prefix);
+		if (FALSE === $filename) {
+			throw new \OMV\Exception(
+				"Failed to create temporary file (dir=%s, prefix=%s).",
+				$tmpDir, $prefix);
+		}
+		$this->filename = $filename;
 	}
 
 	/**

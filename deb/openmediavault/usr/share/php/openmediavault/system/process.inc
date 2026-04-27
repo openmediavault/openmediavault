@@ -155,7 +155,10 @@ class Process {
 	 */
 	public function setEnv($name, $value, $obfuscate = FALSE) {
 		if (1 == func_num_args()) {
-			$parts = explode("=", $name);
+			$parts = explode("=", $name, 2);
+			if (count($parts) !== 2) {
+				return;
+			}
 			$name = $parts[0];
 			$value = $parts[1];
 		}
@@ -180,7 +183,10 @@ class Process {
 			$envs = file($file);
 			foreach ($envs as $env) {
 				if (FALSE === empty($env)) {
-					$parts = explode("=", $env);
+					$parts = explode("=", $env, 2);
+					if (count($parts) !== 2) {
+						continue;
+					}
 					$name = trim($parts[0]);
 					$value = trim($parts[1]);
 					$this->setEnv($name, $value);

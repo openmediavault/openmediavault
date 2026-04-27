@@ -97,9 +97,10 @@ trait UdevTrait {
 			// USEC_INITIALIZED=16872806
 			$this->_udevProperties = [];
 			foreach ($output as $row) {
-				$data = explode("=", $row);
-				if (empty($data))
+				$data = explode("=", $row, 2);
+				if (count($data) !== 2) {
 					continue;
+				}
 				// Trim only the key, do not touch the value.
 				$this->_udevProperties[trim($data[0])] = $data[1];
 			}

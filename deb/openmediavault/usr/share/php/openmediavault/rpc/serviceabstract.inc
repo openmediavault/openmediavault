@@ -282,10 +282,13 @@ abstract class ServiceAbstract {
 	 * @throw \OMV\Rpc\Exception
 	 */
 	final protected function createBgProcStatus() {
-		$filename = tempnam(sys_get_temp_dir(), "bgstatus");
-		if (FALSE === touch($filename)) {
-			throw new Exception("Failed to create background ".
-				"process status file (filename=%s).", $filename);
+		$prefix = "bgstatus";
+		$tmpDir = sys_get_temp_dir();
+		$filename = tempnam($tmpDir, $prefix);
+		if (FALSE === $filename) {
+			throw new Exception(
+				"Failed to create background process status file (dir=%s, prefix=%s).",
+				$tmpDir, $prefix);
 		}
 		return $filename;
 	}
@@ -325,10 +328,12 @@ abstract class ServiceAbstract {
 	 * @throw \OMV\Rpc\Exception
 	 */
 	final protected function createBgProcOutput($prefix = "bgoutput") {
-		$filename = tempnam(sys_get_temp_dir(), $prefix);
-		if (FALSE === touch($filename)) {
-			throw new Exception("Failed to create file background ".
-				"process output (filename=%s).", $filename);
+		$tmpDir = sys_get_temp_dir();
+		$filename = tempnam($tmpDir, $prefix);
+		if (FALSE === $filename) {
+			throw new Exception(
+				"Failed to create file background process output (dir=%s, prefix=%s).",
+				$tmpDir, $prefix);
 		}
 		return $filename;
 	}
