@@ -354,7 +354,7 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 			// package archive (/var/cache/apt/archives). Do not redirect
 			// the command output to the backgropund output file. Only the
 			// changelog will be redirected to this file.
-			if (TRUE === empty(glob($packagePath))) {
+			if (empty(glob($packagePath))) {
 				$cmdArgs = [];
 				$cmdArgs[] = "--yes";
 				$cmdArgs[] = "--allow-downgrades";
@@ -369,10 +369,14 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 			}
 			// The package should exist now.
 			$matches = glob($packagePath);
+			if (empty($matches)) {
+				throw new \OMV\Exception("Package file '%s' not found.",
+					$params['filename']);
+			}
 			$packagePath = $matches[0];
 			if (FALSE === file_exists($packagePath)) {
 				throw new \OMV\Exception("Package file '%s' not found.",
-				  $params['filename']);
+					$params['filename']);
 			}
 //			// Extract the changelog content and redirect it to the
 //			// background output file.

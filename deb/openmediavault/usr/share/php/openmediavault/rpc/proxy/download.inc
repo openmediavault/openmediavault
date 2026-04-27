@@ -57,7 +57,12 @@ class Download extends Json {
 		if (array_key_exists("content", $response)) {
 			if (!(array_key_exists("headers", $response) && array_key_exists(
 					"Content-Type", $response['headers']))) {
-				$contentType = @mime_content_type($response['content']);
+				$contentType = FALSE;
+				$finfo = @finfo_open(FILEINFO_MIME_TYPE);
+				if (FALSE !== $finfo) {
+					$contentType = @finfo_buffer($finfo, $response['content']);
+					finfo_close($finfo);
+				}
 				if (FALSE !== $contentType) {
 					$headers["Content-Type"] = $contentType;
 				} else {

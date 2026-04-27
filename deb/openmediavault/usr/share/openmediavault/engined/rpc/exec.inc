@@ -131,15 +131,24 @@ class Exec extends \OMV\Rpc\ServiceAbstract {
 			$bytesRead = 0;
 			$chunkLength = 1024; // 1KiB
 			while (!feof($fp)) {
+				$readLength = $chunkLength;
 				if (array_key_exists("length", $params)) {
-					if ($bytesRead >= $params['length']) {
+					$remainingBytes = $params['length'] - $bytesRead;
+					if ($remainingBytes <= 0) {
 						$result['pendingOutput'] = TRUE;
 						break;
 					}
+					$readLength = min($readLength, $remainingBytes);
+				}
+				$chunk = fread($fp, $readLength);
+				if (FALSE === $chunk) {
+					throw new \OMV\Exception(
+						"Failed to read the command output file (filename=%s).",
+						$bgOutputFilename);
 				}
 				$result['output'] .= str_replace([ "\r\n", "\r" ],
-					"\n", fread($fp, $chunkLength));
-				$bytesRead += $chunkLength;
+					"\n", $chunk);
+				$bytesRead += strlen($chunk);
 			}
 			// Get the current position within the command output file.
 			$result['pos'] = ftell($fp);

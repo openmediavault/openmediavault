@@ -117,7 +117,7 @@ class Json {
 			}
 			$this->params = json_decode($this->params, TRUE);
 		}
-		if (!is_assoc_array($_POST)) {
+		if (!is_assoc_array($this->params)) {
 			return FALSE;
 		}
 		// Make sure the `params` property exists and is properly
@@ -134,6 +134,7 @@ class Json {
 		} else {
 			$this->params['params'] = [];
 		}
+		return TRUE;
 	}
 
 	/**
