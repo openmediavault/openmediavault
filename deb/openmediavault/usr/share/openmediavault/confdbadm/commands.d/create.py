@@ -65,13 +65,13 @@ class Command(
             self.create_backup()
             # Test if the script exists and is executable.
             script_path = os.path.join(create_dir, script_name)
-            if not os.path.exists(script_path):
+            if not script_name:
                 raise RuntimeError(
-                    "The script '%s' does not exist" % script_name
+                    "No script was found for data-model ID '%s' in the data model directory '%s'" % (cmd_args.id, create_dir)
                 )
             if not os.access(script_path, os.X_OK):
                 raise RuntimeError(
-                    "The script '%s' is not executable" % script_name
+                    "The script '%s' is not executable" % script_path
                 )
             # Execute the script.
             openmediavault.procutils.check_call([script_path])
