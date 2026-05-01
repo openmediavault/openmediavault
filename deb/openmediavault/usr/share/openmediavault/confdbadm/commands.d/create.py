@@ -49,30 +49,44 @@ class Command(
             help="The data model ID, e.g. 'conf.service.ssh'",
         )
         cmd_args = parser.parse_args(args[2:])
+
         # Find the script.
         create_dir = openmediavault.getenv(
             "OMV_CONFDB_CREATE_DIR", "/usr/share/openmediavault/confdb/create.d"
         )
         script_name = ""
-        for name in os.listdir(create_dir):
-            # Split the script name into its parts:
-            # <DATAMODELID>.<EXT>
-            if cmd_args.id == os.path.splitext(name)[0]:
-                script_name = name
-                break
+        if os.path.isdir(create_dir):
+            for name in os.listdir(create_dir):
+                # Split the script name into its parts:
+                # <DATAMODELID>.<EXT>
+                if cmd_args.id == os.path.splitext(name)[0]:
+                    script_name = name
+                    break
+
+        # Validate that the script exists and is executable.
         try:
-            # Create a backup of the configuration database.
-            self.create_backup()
-            # Test if the script exists and is executable.
-            script_path = os.path.join(create_dir, script_name)
-            if not os.path.exists(script_path):
+            if not script_name:
                 raise RuntimeError(
-                    "The script '%s' does not exist" % script_name
+                    "No script found for data model '%s'" % cmd_args.id
+                )
+            script_path = os.path.join(create_dir, script_name)
+            if not os.path.isfile(script_path):
+                raise RuntimeError(
+                    "The script '%s' is not a file" % script_path
                 )
             if not os.access(script_path, os.X_OK):
                 raise RuntimeError(
-                    "The script '%s' is not executable" % script_name
+                    "The script '%s' is not executable" % script_path
                 )
+        except Exception as e:
+            openmediavault.log.error(
+                "Failed to create the default configuration: %s", str(e)
+            )
+            return 1
+
+        try:
+            # Create a backup of the configuration database.
+            self.create_backup()
             # Execute the script.
             openmediavault.procutils.check_call([script_path])
             rc = 0
