@@ -24,7 +24,7 @@
 
 {% set smb_config = salt['omv_conf.get']('conf.service.smb') %}
 {% set smb_zeroconf_enabled = salt['pillar.get']('default:OMV_SAMBA_ZEROCONF_ENABLED', 1) %}
-{% set smb_zeroconf_name = salt['pillar.get']('default:OMV_SAMBA_ZEROCONF_NAME', '%h') %}
+{% set smb_zeroconf_name = salt['pillar.get']('default:OMV_SAMBA_ZEROCONF_NAME', '%h - SMB/CIFS') %}
 
 {% if (smb_config.enable | to_bool) and (smb_zeroconf_enabled | to_bool) %}
 

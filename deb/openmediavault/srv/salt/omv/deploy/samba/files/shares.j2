@@ -72,6 +72,10 @@ fruit:veto_appledouble = {{ fruit_veto_appledouble }}
 fruit:wipe_intentionally_left_blank_rfork = {{ fruit_wipe_intentionally_left_blank_rfork }}
 fruit:delete_empty_adfiles = {{ fruit_delete_empty_adfiles }}
 fruit:time machine = yes
+fruit:posix_rename = yes
+fruit:nfs_aces = no
+durable handles = yes
+smb2 leases = yes
 {%- if share.timemachinemaxsize | length > 0 %}
 fruit:time machine max size = {{ share.timemachinemaxsize }}
 {%- endif %}
