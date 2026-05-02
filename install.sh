@@ -104,7 +104,7 @@ deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://pa
 # deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages/ ${OMV_VERSION_CODENAME} partner
 EOF
 
-	apt-get update
+	apt-get update || :
 	apt-get --yes --auto-remove --show-upgraded \
 		--allow-downgrades --allow-change-held-packages \
 		--no-install-recommends \

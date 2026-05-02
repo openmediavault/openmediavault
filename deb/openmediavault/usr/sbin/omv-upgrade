@@ -29,7 +29,7 @@ export DEBIAN_FRONTEND=noninteractive
 # which can not be resolved by 'upgrade'. Configuration files modified by
 # the user will be overwritten, otherwise it is not possible to install
 # packages non-interactively.
-apt-get update || true
+apt-get update || :
 apt-get --yes --allow-downgrades --allow-change-held-packages --fix-missing \
 	--fix-broken --auto-remove --allow-unauthenticated \
 	--show-upgraded --option DPkg::Options::="--force-confold" dist-upgrade
