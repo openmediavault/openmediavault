@@ -86,7 +86,7 @@ do_install() {
 	export APT_LISTCHANGES_FRONTEND=none
 
 	apt-get install --yes gnupg
-	wget --output-document=- https://packages.openmediavault.org/public/archive.key | \
+	wget --output-document=- https://raw.githubusercontent.com/openmediavault/packages/master/archive.key | \
 		gpg --dearmor --yes --output "/usr/share/keyrings/openmediavault-archive-keyring.gpg"
 
 	cat <<EOF > /etc/apt/sources.list.d/openmediavault.list
