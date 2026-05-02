@@ -36,7 +36,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.kubectl.getList",
+	"id": "rpc.kubectl.getlist",
 	"params": {
 		"type": "object",
 		"properties": {

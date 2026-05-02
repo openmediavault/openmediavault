@@ -195,7 +195,7 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		$this->validateMethodParams($params, "rpc.common.getList");
+		$this->validateMethodParams($params, "rpc.common.getlist");
 		$result = [];
 		if (is_dir($this->recipesRepoDir)) {
 			$recipesDir = build_path(DIRECTORY_SEPARATOR, $this->recipesRepoDir,
@@ -224,7 +224,7 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		$this->validateMethodParams($params, "rpc.k8s.getRecipe");
+		$this->validateMethodParams($params, "rpc.k8s.getrecipe");
 		$manifestPath = build_path(DIRECTORY_SEPARATOR, $this->recipesRepoDir,
 			"recipes", $params['id'], "recipe.yaml");
 		$manifestContent = "";
@@ -249,6 +249,10 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	function applyRecipe($params, $context) {
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$this->validateMethodParams($params, "rpc.k8s.applyrecipe");
 		// Remove commented lines.
 		$params['manifest'] = preg_replace("/^\s*#.*$/m", "",
 			$params['manifest']);

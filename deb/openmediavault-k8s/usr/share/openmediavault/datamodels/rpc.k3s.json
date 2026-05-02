@@ -1,6 +1,6 @@
 [{
 	"type": "rpc",
-	"id": "rpc.k3s.deleteSnapshot",
+	"id": "rpc.k3s.deletesnapshot",
 	"params": {
 		"type": "object",
 		"properties": {
@@ -12,7 +12,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.k3s.restoreSnapshot",
+	"id": "rpc.k3s.restoresnapshot",
 	"params": {
 		"type": "object",
 		"properties": {

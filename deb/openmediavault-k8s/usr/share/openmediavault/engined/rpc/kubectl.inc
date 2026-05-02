@@ -72,7 +72,7 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		$this->validateMethodParams($params, "rpc.kubectl.getList");
+		$this->validateMethodParams($params, "rpc.kubectl.getlist");
 		if (!$this->isEnabled()) {
 		    return $this->applyFilter([], $params['start'], $params['limit'],
 		    	$params['sortfield'], $params['sortdir']);

@@ -171,7 +171,7 @@ class OMVRpcServiceK3s extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		$this->validateMethodParams($params, "rpc.k3s.deleteSnapshot");
+		$this->validateMethodParams($params, "rpc.k3s.deletesnapshot");
 		$response = \OMV\Rpc\Rpc::call("K3s", "getSnapshotList",
 			[ "start" => 0, "limit" => -1 ], $context);
 		$snapshots = array_map("array_flatten", $response['data']);
@@ -209,7 +209,7 @@ class OMVRpcServiceK3s extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		$this->validateMethodParams($params, "rpc.K3s.restoreSnapshot");
+		$this->validateMethodParams($params, "rpc.K3s.restoresnapshot");
 		$response = \OMV\Rpc\Rpc::call("K3s", "getSnapshotList",
 			[ "start" => 0, "limit" => -1 ], $context);
 		$snapshots = array_map("array_flatten", $response['data']);
