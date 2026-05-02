@@ -24,7 +24,8 @@ set -o noglob
 
 OMV_VERSION="8"
 OMV_VERSION_CODENAME="synchrony"
-OMV_GIT_URL="https://github.com/openmediavault/openmediavault/raw/master/deb/openmediavault/"
+OMV_GIT_URL="https://github.com/openmediavault/openmediavault/raw/master/deb/openmediavault"
+OMV_GIT_PACKAGES_URL="https://github.com/openmediavault/packages/raw/master"
 DEBIAN_VERSION_CODENAME="trixie"
 
 info() {
@@ -86,7 +87,7 @@ do_install() {
 	export APT_LISTCHANGES_FRONTEND=none
 
 	apt-get install --yes gnupg
-	wget --output-document=- https://raw.githubusercontent.com/openmediavault/packages/master/archive.key | \
+	wget --output-document=- ${OMV_GIT_PACKAGES_URL}/archive.key | \
 		gpg --dearmor --yes --output "/usr/share/keyrings/openmediavault-archive-keyring.gpg"
 
 	cat <<EOF > /etc/apt/sources.list.d/openmediavault.list
