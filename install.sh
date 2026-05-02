@@ -92,16 +92,16 @@ do_install() {
 
 	cat <<EOF > /etc/apt/sources.list.d/openmediavault.list
 deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public/ ${OMV_VERSION_CODENAME} main
-deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://openmediavault.github.io/packages/ ${OMV_VERSION_CODENAME} main
+deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.io/ ${OMV_VERSION_CODENAME} main
 # deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages/ ${OMV_VERSION_CODENAME} main
 ## Uncomment the following line to add software from the proposed repository.
 # deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public/ ${OMV_VERSION_CODENAME}-proposed main
-# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://openmediavault.github.io/packages/ ${OMV_VERSION_CODENAME}-proposed main
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.io/ ${OMV_VERSION_CODENAME}-proposed main
 # deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages/ ${OMV_VERSION_CODENAME}-proposed main
 ## This software is not part of OpenMediaVault, but is offered by third-party
 ## developers as a service to OpenMediaVault users.
 # deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.org/public/ ${OMV_VERSION_CODENAME} partner
-# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://openmediavault.github.io/packages/ ${OMV_VERSION_CODENAME} partner
+# deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://packages.openmediavault.io/ ${OMV_VERSION_CODENAME} partner
 # deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] http://downloads.sourceforge.net/project/openmediavault/packages/ ${OMV_VERSION_CODENAME} partner
 EOF
 
