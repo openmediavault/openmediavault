@@ -2,12 +2,12 @@
   admin off
   auto_https off
 }
-:443 {
+:8443 {
   tls /data/cert.crt /data/cert.key
 
   # Public endpoints (no authentication)
   handle /public/* {
-    reverse_proxy filebrowser-app:80 {
+    reverse_proxy filebrowser-app:8080 {
       header_up Host {host}
       header_up X-Forwarded-For {remote_host}
       header_up X-Forwarded-Proto {scheme}
@@ -16,14 +16,14 @@
 
   # Private endpoints (with authentication)
   handle /* {
-    reverse_proxy filebrowser-app:80 {
+    reverse_proxy filebrowser-app:8080 {
       header_up Host {host}
       header_up X-Forwarded-For {remote_host}
       header_up X-Forwarded-Proto {scheme}
     }
   }
 
-  reverse_proxy filebrowser-app:80 {
+  reverse_proxy filebrowser-app:8080 {
     header_up Connection {>Connection}
     header_up Transfer-Encoding {>Transfer-Encoding}
   }

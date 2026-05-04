@@ -4,7 +4,7 @@
 {%- set create_directory_permission = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CREATEDIRECTORYPERMISSION', '775') -%}
 server:
   disableUpdateCheck: true
-  port: 80
+  port: 8080
   baseURL: "/"
   logging:
     - levels: "info|warning|error"
