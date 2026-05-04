@@ -5,6 +5,7 @@
 # Translators:
 # Benoit Maliar <maliarbenoit@msn.com>, 2014
 # Christophe Lherieau <skimpax@gmail.com>, 2013-2014
+# Francis Dhumes, 2026
 # Kevin Leclercq <nuklearstriker@gmail.com>, 2020
 # M@T D., 2022
 # M@T D., 2023-2024
@@ -16,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
-"Last-Translator: M@T D., 2023-2024\n"
+"Last-Translator: Francis Dhumes, 2026\n"
 "Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,13 +43,13 @@ msgid "Create"
 msgstr "Créer"
 
 msgid "Created USB backup job."
-msgstr "Tâche de mise à jour USB créée."
+msgstr "Tâche de sauvegarde USB créée."
 
 msgid "Delete"
 msgstr "Supprimer"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr "Supprimer les fichiers de destination qui n'existe pas dans les fichiers sources."
+msgstr "Supprimer sur la destination les fichiers qui n'existe pas dans la source."
 
 msgid "Device"
 msgstr "Périphérique"
@@ -106,7 +107,7 @@ msgid "Preserve owner"
 msgstr "Conserver le propriétaire"
 
 msgid "Preserve permissions"
-msgstr "Preserver les permissions"
+msgstr "Conserver les permissions"
 
 msgid "Quiet"
 msgstr "Silencieux"
@@ -127,23 +128,23 @@ msgid "Run backup job"
 msgstr "Lancer la tâche de sauvegarde"
 
 msgid "Select a device ..."
-msgstr "Sélectionner un périphérique..."
+msgstr "Sélectionner un périphérique ..."
 
 msgid "Send email"
 msgstr "Envoyer un email"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr "Configurer les permissions de la destionation à l'identique de celles de la source."
+msgstr "Configurer les permissions de la destination à l'identique de celles de la source."
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr "Définir le groupe pour le fichier de destination identique au fichier d'origine"
+msgstr "Définir le groupe du fichier de destination identique à celui d'origine"
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr "Définir le propriétaire pour le fichier de destination identique au fichier d'origine, seulement si la réception rsync est démarré en tant que super-utilisateur."
+msgstr "Définir le propriétaire pour le fichier de destination identique à celui d'origine, uniquement si la réception rsync est démarré en tant que super-utilisateur."
 
 msgid "Shared folder"
 msgstr "Dossier partagé"
@@ -160,13 +161,13 @@ msgstr "Les options \"Envoyer un email\" et \"Silencieux\" sont mutuellement exc
 msgid ""
 "The external storage device. Please make sure that the device has only one "
 "file system."
-msgstr "Périphérique de stockage externe. Merci de vous assurez que le périphérique n'a qu'une seule partition."
+msgstr "Périphérique de stockage externe. Merci de vous assurer que le périphérique n'a qu'un seul système de fichiers."
 
 msgid ""
 "The relative directory path on the external storage device from/to which the"
 " content of the shared folder is to be synchronized. The directory is "
 "created if it does not exist."
-msgstr "Le chemin d'accès relatif au répertoire sur le périphérique de stockage externe depuis/vers lequel le contenu du dossier partagé doit être synchronisé. Le répertoire est créé s'il n'existe pas."
+msgstr "Le chemin d'accès relatif sur le périphérique de stockage externe depuis/vers lequel le contenu du dossier partagé doit être synchronisé. Le répertoire est créé s'il n'existe pas."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "

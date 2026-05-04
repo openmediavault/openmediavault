@@ -10,9 +10,9 @@
 # Christophe Lherieau <skimpax@gmail.com>, 2023
 # Jonathan Tasseroul <jonathan.tasseroul@gmail.com>, 2023
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2023
-# Francis Dhumes, 2023
 # Pierre Girard <pierre4012@hotmail.com>, 2025
 # M@T D., 2025
+# Francis Dhumes, 2026
 # 
 #, fuzzy
 msgid ""
@@ -21,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
-"Last-Translator: M@T D., 2025\n"
+"Last-Translator: Francis Dhumes, 2026\n"
 "Language-Team: French (France) (https://app.transifex.com/openmediavault/teams/14254/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,13 +30,13 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "0 KiB/s means unlimited."
-msgstr "0 Ko/s correspond à illimité."
+msgstr "0 KiO/s correspond à illimité."
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr "Un puissant serveur modulaire FTP/SFTP/FTPS."
+msgstr "Un puissant serveur FTP/SFTP/FTPS modulaire."
 
 msgid "Access mode"
-msgstr ""
+msgstr "Mode d'accès"
 
 msgid "Advanced settings"
 msgstr "Paramètres avancés"
@@ -48,15 +48,18 @@ msgid ""
 "Allow users to log in without a password. Make sure the user <em>ftp</em> or"
 " group <em>nogroup</em> can access the files."
 msgstr ""
+"Autorise les utilisateurs à se connecter sans mote de passe. Assurez-vous "
+"que l'utilisateur <em>ftp</em> ou groupe <em>nogroup</em> peut accéder aux "
+"fichiers."
 
 msgid "Anonymous FTP"
 msgstr "FTP anonyme"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "ID d'utilisateur authentifié"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Méthode d'authentification"
 
 msgid "Ban Rules"
 msgstr "Règles d'exclusion"
@@ -71,7 +74,7 @@ msgid "Certificate"
 msgstr "Certificat"
 
 msgid "Completion status"
-msgstr ""
+msgstr "État d'achèvement"
 
 msgid "Create"
 msgstr "Créer"
@@ -92,7 +95,7 @@ msgid "Deny logins which do not have a valid shell."
 msgstr "Refuser les connexions qui n’ont pas de shell valide."
 
 msgid "Direction"
-msgstr ""
+msgstr "Direction"
 
 msgid "Display the home directory of the user in the browse list."
 msgstr ""
@@ -132,7 +135,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - Journal de transfert"
 
 msgid "FXP"
 msgstr "FXP"
@@ -145,10 +148,10 @@ msgstr ""
 " ne passe par le client qui demande le transfert."
 
 msgid "Filename"
-msgstr ""
+msgstr "Nom de fichier"
 
 msgid "Filesize"
-msgstr ""
+msgstr "Taille de fichier"
 
 msgid "Home directories"
 msgstr "Répertoires personnels"
@@ -205,7 +208,7 @@ msgid "Max. passive port"
 msgstr "Port passif max."
 
 msgid "Maximum download rate (KiB/s)"
-msgstr "Vitesse réception max. (Ko/s)"
+msgstr "Vitesse réception max. (KiO/s)"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -279,7 +282,7 @@ msgid "Refresh time"
 msgstr "Date de changement"
 
 msgid "Remote host"
-msgstr ""
+msgstr "Hôte distant"
 
 msgid "Require valid shell"
 msgstr "Shell valide"
@@ -397,10 +400,10 @@ msgid "Transfer log"
 msgstr "Log de transfert"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "Heure de transfert"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "Type de transfert"
 
 msgid "Updated FTP ban rule."
 msgstr "Règle d'exclusion FTP mis à jour."
@@ -421,5 +424,6 @@ msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote user name."
 msgstr ""
-"Quand un client se connecte au serveur, le protocole d'identification Ident "
-"est utilisé pour tenter d'identifier le nom de l'utilisateur distant."
+"Quand un client se connecte initialement au serveur, le protocole "
+"d'identification Ident est utilisé pour tenter d'identifier le nom de "
+"l'utilisateur distant."

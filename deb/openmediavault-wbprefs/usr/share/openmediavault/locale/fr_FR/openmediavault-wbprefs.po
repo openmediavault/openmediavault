@@ -44,22 +44,24 @@ msgid "Standby"
 msgstr "Attente"
 
 msgid "The URL from which the image is to be fetched."
-msgstr ""
+msgstr "URL à partir de laquelle l'image doit être récupérée."
 
 msgid "The URL must start with http://, https:// or file://."
-msgstr ""
+msgstr "L'URL doit débuter par http://, https:// ou file://. "
 
 msgid "The page for which the wallpaper is to be set."
-msgstr ""
+msgstr "Page pour laquelle le fond d'écran doit être défini."
 
 msgid "The wallpaper has been updated."
-msgstr ""
+msgstr "Le fond d'écran a été mis à jour."
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Wallpaper"
-msgstr ""
+msgstr "Fond d'écran"
 
 msgid "You may need to clear your browser's cache to see your changes."
 msgstr ""
+"Vous devrez peut être effacer le cache de votre navigateur pour constater "
+"vos modifications."

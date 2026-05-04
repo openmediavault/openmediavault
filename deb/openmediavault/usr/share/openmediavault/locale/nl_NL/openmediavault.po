@@ -607,7 +607,7 @@ msgid "CPU Usage"
 msgstr "CPU-gebruik"
 
 msgid "CPU Utilization"
-msgstr "CPU-gebruik"
+msgstr "CPU-benutting"
 
 msgid "CPU frequency scaling"
 msgstr "CPU-frequentie schaling"
@@ -1296,7 +1296,7 @@ msgid "Fiji"
 msgstr "Fiji"
 
 msgid "File System Usage"
-msgstr "Gebruik van het bestandssysteem"
+msgstr "Bestandssysteemgebruik"
 
 msgid "File Systems"
 msgstr "Bestandssystemen"
@@ -1940,7 +1940,7 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Management of CPU frequency scaling."
-msgstr "Beheer van CPU-frequentie schaling."
+msgstr "Beheer van CPU-frequentieschaling."
 
 msgid "Management of scheduled tasks."
 msgstr "Geplande taken beheren."
@@ -3498,7 +3498,7 @@ msgstr "Het relatieve pad van de map die gedeeld moet worden. Gebruik '/' om de 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "De opslagplaats wordt gecontroleerd op nieuwe, verwijderde of bijgewerkte pakketten."
+msgstr "De opslagplaats wordt gecontroleerd op nieuwe, bijgewerkte of verwijderde pakketten."
 
 msgid "The requested page was not found."
 msgstr "De opgevraagde pagina is niet gevonden."

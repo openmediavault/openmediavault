@@ -28,13 +28,13 @@ msgid "Create"
 msgstr "Aanmaken"
 
 msgid "Created environment variable."
-msgstr ""
+msgstr "Omgevingsvariabele aangemaakt."
 
 msgid "Edit"
 msgstr "Bewerken"
 
 msgid "Environment Variables"
-msgstr ""
+msgstr "Omgevingsvariabelen"
 
 msgid "Name"
 msgstr "Naam"
@@ -42,12 +42,14 @@ msgstr "Naam"
 msgid ""
 "Please wait, applying environment variables. This can take some time ..."
 msgstr ""
+"Een ogenblik geduld i.v.m. met het toepassen van omgevingsvariabelen. Dit "
+"kan even duren…"
 
 msgid "Select an environment variable ..."
-msgstr ""
+msgstr "Selecteer een omgevingsvariabele…"
 
 msgid "Updated environment variable."
-msgstr ""
+msgstr "Omgevingsvariabele bijgewerkt."
 
 msgid "Value"
-msgstr ""
+msgstr "Waarde"

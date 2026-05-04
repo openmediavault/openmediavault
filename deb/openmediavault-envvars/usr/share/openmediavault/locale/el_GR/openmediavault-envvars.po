@@ -28,13 +28,13 @@ msgid "Create"
 msgstr "Δημιουργία"
 
 msgid "Created environment variable."
-msgstr ""
+msgstr "Δημιουργήθηκε μεταβλητή περιβάλλοντος."
 
 msgid "Edit"
 msgstr "Επεξεργασία"
 
 msgid "Environment Variables"
-msgstr ""
+msgstr "Μεταβλητές Περιβάλλοντος"
 
 msgid "Name"
 msgstr "Όνομα"
@@ -42,12 +42,13 @@ msgstr "Όνομα"
 msgid ""
 "Please wait, applying environment variables. This can take some time ..."
 msgstr ""
+"Αναμονή για εφαρμογή μεταβλητών περιβάλλοντος. Θα χρειαστεί λίγος χρόνος ..."
 
 msgid "Select an environment variable ..."
-msgstr ""
+msgstr "Επιλογή μιας μεταβλητής περιβάλλοντος ..."
 
 msgid "Updated environment variable."
-msgstr ""
+msgstr "Ενημερώθηκε μεταβλητή περιβάλλοντος."
 
 msgid "Value"
-msgstr ""
+msgstr "Τιμή"

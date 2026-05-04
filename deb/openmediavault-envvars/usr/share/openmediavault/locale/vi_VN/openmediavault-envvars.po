@@ -28,13 +28,13 @@ msgid "Create"
 msgstr "Tạo"
 
 msgid "Created environment variable."
-msgstr ""
+msgstr "Đã tạo biến môi trường"
 
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
 msgid "Environment Variables"
-msgstr ""
+msgstr "Các biến môi trường"
 
 msgid "Name"
 msgstr "Tên "
@@ -42,12 +42,14 @@ msgstr "Tên "
 msgid ""
 "Please wait, applying environment variables. This can take some time ..."
 msgstr ""
+"Vui lòng chờ, đang áp dụng các biến môi trường, Việc này sẽ mất một chút "
+"thời gian ..."
 
 msgid "Select an environment variable ..."
-msgstr ""
+msgstr "Chọn một biến môi trường ..."
 
 msgid "Updated environment variable."
-msgstr ""
+msgstr "Đã cập nhật biến môi trường"
 
 msgid "Value"
-msgstr ""
+msgstr "Giá trị"
