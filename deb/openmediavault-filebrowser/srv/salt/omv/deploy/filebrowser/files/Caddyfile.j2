@@ -4,7 +4,7 @@
 }
 :8443 {
   tls /data/cert.crt /data/cert.key
-
+  
   # Public endpoints (no authentication)
   handle /public/* {
     reverse_proxy filebrowser-app:8080 {
