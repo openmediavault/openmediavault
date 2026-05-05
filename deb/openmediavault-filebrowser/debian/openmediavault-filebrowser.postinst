@@ -85,6 +85,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "8.0.1"; then
 			omv_module_set_dirty filebrowser
 		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0.4"; then
+			omv_module_set_dirty filebrowser
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

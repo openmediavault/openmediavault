@@ -1,3 +1,9 @@
+openmediavault-filebrowser (8.0.4-1) stable; urgency=medium
+
+  * Issue #2194: Changed ports and set correct UID and GID.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 05 May 2026 09:58:56 +0200
+
 openmediavault-filebrowser (8.0.3-1) stable; urgency=medium
 
   * Issue #2176: Increase mDNS/Zeroconf compatibility for MacOS.
