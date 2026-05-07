@@ -1,6 +1,6 @@
 openmediavault-filebrowser (8.0.5-1) stable; urgency=medium
 
-  *
+  * Issue #2198: Prevent admin password reset on container restart.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 07 May 2026 22:07:06 +0200
 
