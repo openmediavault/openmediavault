@@ -44,7 +44,7 @@ class Email {
 			$this->message) = func_get_args();
 		// Modify the receiver list.
 		if (TRUE === is_array($this->to)) {
-			$this->$to = implode(',', $this->to);
+			$this->to = implode(',', $this->to);
 		} else {
 			// Prepare the receivers of the email. The formatting of this
 			// string must comply with RFC 2822.
