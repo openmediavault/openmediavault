@@ -151,7 +151,8 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 				// user name to meet RFC 2616.
 				$hashedUsername = password_hash($params['username'],
 					PASSWORD_DEFAULT);
-				$key = sprintf("%s-%s", $prefix, urlencode($hashedUsername));
+				$key = sprintf("%s-%s", $prefix,
+					urlencode_cookie_name($hashedUsername));
 				$value = array_rand_value(\OMV\Environment::get(
 					"OMV_DUNE_QUOTES"));
 				$expire = time() + 60 * 60 * 24 * 60;

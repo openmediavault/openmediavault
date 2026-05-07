@@ -998,6 +998,16 @@ function escape_percent($var) {
 }
 
 /**
+ * URL-encode a string so it can be used as a cookie name without being
+ * normalized by PHP's $_COOKIE handling.
+ * @param string $var The variable that will be encoded.
+ * @return string The encoded string.
+ */
+function urlencode_cookie_name($var): string {
+	return str_replace(".", "%2E", urlencode($var));
+}
+
+/**
  * Unescape a string. Various hexadecimal/octal characters will be replaced
  * with their ASCII representation, e.g. \x20 or \040 will be replaced by
  * a whitespace.

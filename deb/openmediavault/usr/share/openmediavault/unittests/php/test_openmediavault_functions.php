@@ -384,6 +384,15 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 			"/srv/dev-disk-by-label-xx yy");
 	}
 
+	public function test_urlencode_cookie_name() {
+		$str = '$2y$10$OBTlQaTLcWfqXRoeceqdpeN5IWAoIKM.'.
+			'FUCab/36YhE5GaNzGs3Va';
+		$encoded = urlencode_cookie_name($str);
+		$cookieKey = str_replace(".", "_", $encoded);
+		$this->assertStringNotContainsString(".", $encoded);
+		$this->assertEquals($str, urldecode($cookieKey));
+	}
+
 	public function test_array_remove_key_exists() {
 		$d = ["a" => "xxx"];
 		$this->assertTrue(array_remove_key($d, "a"));
