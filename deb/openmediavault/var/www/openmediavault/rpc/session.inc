@@ -102,13 +102,15 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 			// The salted user name hash is used as identifier.
 			$firstLogIn = TRUE;
 			foreach ($_COOKIE as $cookiek => $cookiev) {
-				// Extract the hashed username. Note, the hash is encoded
-				// to meet RFC 2616.
+				// Extract the hex-encoded bcrypt hash from the cookie name.
 				$regex = sprintf('/^%s-(.+)$/', $prefix);
 				if (1 !== preg_match($regex, $cookiek, $matches)) {
 					continue;
 				}
-				$hashedUsername = urldecode($matches[1]);
+				$hashedUsername = hex2bin($matches[1]);
+				if (FALSE === $hashedUsername) {
+					continue;
+				}
 				if (password_verify($params['username'], $hashedUsername)) {
 					$firstLogIn = FALSE;
 					break;
@@ -147,11 +149,13 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 				}
 				// Set a cookie. It will expire after 60 days. The user name
 				// is crypted/hashed to be unable to reverse engineer the
-				// account names from the cookie. Finally encode the hashed
-				// user name to meet RFC 2616.
+				// account names from the cookie. The hash is hex-encoded
+				// to ensure the cookie name only contains safe characters,
+				// since PHP converts dots in cookie names to underscores
+				// when populating $_COOKIE (bcrypt hashes may contain dots).
 				$hashedUsername = password_hash($params['username'],
 					PASSWORD_DEFAULT);
-				$key = sprintf("%s-%s", $prefix, urlencode($hashedUsername));
+				$key = sprintf("%s-%s", $prefix, bin2hex($hashedUsername));
 				$value = array_rand_value(\OMV\Environment::get(
 					"OMV_DUNE_QUOTES"));
 				$expire = time() + 60 * 60 * 24 * 60;

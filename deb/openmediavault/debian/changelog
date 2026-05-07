@@ -1,6 +1,8 @@
 openmediavault (8.2.12-1) stable; urgency=medium
 
-  *
+  * Issue #2196: Fix login cookies for usernames that contain dots. Due to
+    this change, you may receive another email notification the next time
+    you log in to the Workbench.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 06 May 2026 23:18:59 +0200
 
