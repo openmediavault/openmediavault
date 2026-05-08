@@ -118,6 +118,13 @@ export class UserMfaFormPageComponent implements OnInit {
               this.qrCodeDataUrl = dataUrl;
               this.setupCodeControl.reset();
               this.state = 'setup';
+            })
+            .catch(() => {
+              this.provisionalSecret = '';
+              this.notificationService.show(
+                NotificationType.error,
+                translate(gettext('Failed to generate QR code. Please try again.'))
+              );
             });
         }
       });

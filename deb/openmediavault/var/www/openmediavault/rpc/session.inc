@@ -80,9 +80,21 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 			// a pending session and return early — the client must submit a
 			// TOTP code via verifyTotp() before receiving a full session.
 			if (\OMV\Totp::isEnabledForUser($params['username'])) {
+				// Reject if an existing authenticated session belongs to a
+				// different user (mirrors the check on the non-MFA path).
+				if ($session->isAuthenticated() &&
+					$session->getUsername() !== $params['username']) {
+					$session->commit();
+					throw new \OMV\HttpErrorException(400,
+						_("Another user is already authenticated."));
+				}
 				if (!$session->isMfaPending()) {
 					$sessionId = $session->initializeMfaPending(
 						$params['username'], $role);
+				} else {
+					// Session is already pending; return its existing ID so
+					// the client can continue submitting TOTP codes.
+					$sessionId = session_id();
 				}
 				$session->commit();
 				// Log the intermediate step so administrators can see it.
