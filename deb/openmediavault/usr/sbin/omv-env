@@ -44,7 +44,7 @@ def grep_env_vars() -> List[str]:
             openmediavault.getenv('OMV_SALT_DIR', '/srv/salt/omv')]
     )
     for line in output.splitlines():
-        m = re.match(r".+'default:(OMV_[\S_]+)'.+", line.decode())
+        m = re.match(r".+'default:(OMV_[A-Z0-9_]+)'.+", line.decode())
         if not m:
             continue
         result.add(m.group(1))
@@ -61,7 +61,7 @@ def grep_env_vars() -> List[str]:
         ['grep', '--no-filename', '--recursive', 'OMV_.*=${OMV_', *paths]
     )
     for line in output.splitlines():
-        m = re.match(r"^(OMV_[\S_]+)=.+$", line.decode())
+        m = re.match(r"^(OMV_[a-zA-Z0-9_]+)=.+$", line.decode(), re.IGNORECASE)
         if not m:
             continue
         result.add(m.group(1))

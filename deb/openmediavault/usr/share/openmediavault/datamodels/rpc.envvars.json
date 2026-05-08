@@ -6,7 +6,7 @@
 		"properties": {
 			"name": {
 				"type": "string",
-				"pattern": "^OMV_[\\S_]+$",
+				"pattern": "^OMV_[A-Z0-9_]+$",
 				"required": true
 			}
 		}
@@ -19,7 +19,7 @@
 		"properties": {
 			"name": {
 				"type": "string",
-				"pattern": "^OMV_[\\S_]+$",
+				"pattern": "^OMV_[A-Z0-9_]+$",
 				"required": true
 			},
 			"value": {
@@ -37,7 +37,7 @@
 		"properties": {
 			"name": {
 				"type": "string",
-				"pattern": "^OMV_[\\S_]+$",
+				"pattern": "^OMV_[A-Z0-9_]+$",
 				"required": true
 			}
 		}
