@@ -126,6 +126,66 @@ class Session {
 	}
 
 	/**
+	 * Initialize a session with MFA verification pending.
+	 *
+	 * The session is associated with the validated username and role but
+	 * authenticated is left FALSE. Access to protected RPC methods is denied
+	 * until completeMfaAuthentication() is called after a successful TOTP
+	 * code verification.
+	 *
+	 * @param string $username The username whose password was already verified.
+	 * @param int    $role OMV_ROLE_ADMINISTRATOR or OMV_ROLE_USER.
+	 * @return string The new session ID to return to the client.
+	 */
+	public function initializeMfaPending(string $username, int $role): string {
+		session_regenerate_id();
+		$_SESSION['authenticated'] = FALSE;
+		$_SESSION['mfa_pending']   = TRUE;
+		$_SESSION['totp_attempts'] = 0;
+		$_SESSION['username']      = $username;
+		$_SESSION['role']          = $role;
+		if (array_key_exists("REMOTE_ADDR", $_SERVER)) {
+			$_SESSION['ipaddress'] = $_SERVER['REMOTE_ADDR'];
+		}
+		if (array_key_exists("HTTP_USER_AGENT", $_SERVER)) {
+			$_SESSION['useragent'] = $_SERVER['HTTP_USER_AGENT'];
+		}
+		$this->updateLastAccess();
+		return session_id();
+	}
+
+	/**
+	 * Promote a pending-MFA session to fully authenticated after the user has
+	 * successfully verified their TOTP code.
+	 */
+	public function completeMfaAuthentication(): void {
+		$_SESSION['authenticated'] = TRUE;
+		$_SESSION['mfa_pending']   = FALSE;
+		unset($_SESSION['totp_attempts']);
+		$this->updateLastAccess();
+	}
+
+	/**
+	 * Check whether this session is awaiting TOTP verification.
+	 * @return bool TRUE if MFA verification is still pending.
+	 */
+	public function isMfaPending(): bool {
+		return (bool) array_value($_SESSION, 'mfa_pending', FALSE);
+	}
+
+	/**
+	 * Increment the failed TOTP attempt counter and return the new total.
+	 * Used to enforce a maximum number of retries before the session is
+	 * invalidated to prevent brute-force attacks.
+	 * @return int Number of failed TOTP attempts so far (including this one).
+	 */
+	public function incrementTotpAttempts(): int {
+		$attempts = (int) array_value($_SESSION, 'totp_attempts', 0) + 1;
+		$_SESSION['totp_attempts'] = $attempts;
+		return $attempts;
+	}
+
+	/**
 	 * Update the time on which the last access took place.
 	 */
 	public function updateLastAccess() {

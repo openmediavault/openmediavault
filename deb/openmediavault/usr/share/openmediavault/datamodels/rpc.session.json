@@ -15,4 +15,16 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.session.verifytotp",
+	"params": {
+		"type": "object",
+		"properties": {
+			"code": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
 }]

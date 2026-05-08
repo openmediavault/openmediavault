@@ -11,6 +11,7 @@ import { GroupSharedFolderPermissionsDatatablePageComponent } from '~/app/pages/
 import { UserDatatablePageComponent } from '~/app/pages/usermgmt/users/user-datatable-page.component';
 import { UserFormPageComponent } from '~/app/pages/usermgmt/users/user-form-page.component';
 import { UserImportFormPageComponent } from '~/app/pages/usermgmt/users/user-import-form-page.component';
+import { UserMfaFormPageComponent } from '~/app/pages/usermgmt/users/user-mfa-form-page.component';
 import { UserPasswordFormPageComponent } from '~/app/pages/usermgmt/users/user-password-form-page.component';
 import { UserProfileFormPageComponent } from '~/app/pages/usermgmt/users/user-profile-form-page.component';
 import { UserSettingsFormPageComponent } from '~/app/pages/usermgmt/users/user-settings-form-page.component';
@@ -21,6 +22,14 @@ const routes: Routes = [
   {
     path: '',
     component: NavigationPageComponent
+  },
+  {
+    path: 'mfa',
+    component: UserMfaFormPageComponent,
+    data: {
+      title: gettext('Two-Factor Authentication'),
+      editing: true
+    }
   },
   {
     path: 'change-password',
