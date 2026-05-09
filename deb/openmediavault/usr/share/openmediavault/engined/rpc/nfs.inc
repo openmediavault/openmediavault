@@ -123,7 +123,7 @@ class Nfs extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Filter the result.
 		return $this->applyFilter($objectsAssoc, $params['start'],
-		  $params['limit'], $params['sortfield'], $params['sortdir']);
+			$params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
 	/**

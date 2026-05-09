@@ -30,6 +30,7 @@ export class SharedFolderDatatablePageComponent {
     hasSearchField: true,
     remoteSorting: true,
     remotePaging: true,
+    remoteSearching: true,
     sorters: [
       {
         dir: 'asc',

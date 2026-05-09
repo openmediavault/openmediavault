@@ -84,6 +84,7 @@ class PluginMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
+	 *   \em search The value to search for.
 	 * @param context The context of the caller.
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
