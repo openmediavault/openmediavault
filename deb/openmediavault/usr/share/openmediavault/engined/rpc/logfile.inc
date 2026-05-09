@@ -45,6 +45,7 @@ class LogFile extends \OMV\Rpc\ServiceAbstract {
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
+	 *   \em search The value to search for.
 	 *   \em id The identifier of the registered log file type.
 	 * @param context The context of the caller.
 	 * @return An array containing the requested objects. The field \em total

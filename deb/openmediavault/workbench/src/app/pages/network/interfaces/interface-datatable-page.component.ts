@@ -32,6 +32,7 @@ export class InterfaceDatatablePageComponent extends BaseFormPageComponent {
     autoReload: false,
     remoteSorting: true,
     remotePaging: true,
+    remoteSearching: true,
     hasSearchField: true,
     rowEnumFmt: '{{ devicename }}',
     columns: [
