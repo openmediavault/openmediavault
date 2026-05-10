@@ -66,12 +66,13 @@ ensite)
 		omv_msg "Site configuration file '${site}' not found."
 		exit 1
 	fi
-	if [ -L "${NGINX_ENABLED_SITES_DIR}/${site}" ]; then
+	expected_target="../sites-available/${site}"
+	if [ -L "${NGINX_ENABLED_SITES_DIR}/${site}" ] && [ "$(readlink "${NGINX_ENABLED_SITES_DIR}/${site}")" = "${expected_target}" ]; then
 		omv_msg "Site configuration file '${site}' is already enabled."
 		exit 0
 	fi
 	rm -f "${NGINX_ENABLED_SITES_DIR}/${site}"
-	cd "${NGINX_ENABLED_SITES_DIR}" && ln -s "../sites-available/${site}" "${site}"
+	cd "${NGINX_ENABLED_SITES_DIR}" && ln -s "${expected_target}" "${site}"
 	;;
 dissite)
 	if [ ! -f "${NGINX_ENABLED_SITES_DIR}/${site}" ]; then
