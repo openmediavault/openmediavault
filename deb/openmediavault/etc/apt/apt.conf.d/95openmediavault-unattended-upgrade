@@ -1,5 +1,6 @@
 // https://otremba.net/wiki/Automatische_Updates_(Debian)
 // Auto-install security packages only.
+#clear Unattended-Upgrade::Origins-Pattern;
 Unattended-Upgrade::Origins-Pattern {
   "origin=Debian,codename=${distro_codename},label=Debian-Security";
   "origin=Debian,codename=${distro_codename}-security,label=Debian-Security";
